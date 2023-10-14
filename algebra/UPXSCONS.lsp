@@ -46,7 +46,7 @@
   (SPADCALL (SPADCALL |i| (QREFELT $ 34)) (QREFELT $ 27))) 
 
 (DEFUN |UPXSCONS;laurentIfCan;$U;13| (|upxs| $)
-  (PROG (#1=#:G161 |r|)
+  (PROG (#1=#:G162 |r|)
     (RETURN
      (SEQ
       (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
@@ -382,8 +382,14 @@
                       (QREFELT $ 85))
             . #1#)
       (EXIT
-       (COND ((EQL |ord| |n|) |r|)
-             ('T (SPADCALL |ord| |e| (QREFELT $ 52))))))))) 
+       (COND
+        ((EQL |ord| |n|)
+         (COND
+          ((SPADCALL (SPADCALL (|UPXSCONS;getULS| |upxs| $) |n| (QREFELT $ 83))
+                     (|spadConstant| $ 23) (QREFELT $ 104))
+           |r|)
+          (#2='T (SPADCALL |ord| |e| (QREFELT $ 52)))))
+        (#2# (SPADCALL |ord| |e| (QREFELT $ 52))))))))) 
 
 (DEFUN |UPXSCONS;truncate;$F$;42| (|upxs| |r| $)
   (PROG (|e|)
@@ -394,7 +400,7 @@
                      (SPADCALL (|UPXSCONS;getULS| |upxs| $)
                                (|UPXSCONS;roundDown|
                                 (SPADCALL |r| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 105))
+                               (QREFELT $ 106))
                      (QREFELT $ 10))))))) 
 
 (DEFUN |UPXSCONS;truncate;$2F$;43| (|upxs| |r1| |r2| $)
@@ -408,12 +414,12 @@
                                 (SPADCALL |r1| |e| (QREFELT $ 64)) $)
                                (|UPXSCONS;roundDown|
                                 (SPADCALL |r2| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 107))
+                               (QREFELT $ 108))
                      (QREFELT $ 10))))))) 
 
 (DEFUN |UPXSCONS;complete;2$;44| (|upxs| $)
   (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
-            (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 109))
+            (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 110))
             (QREFELT $ 10))) 
 
 (DEFUN |UPXSCONS;extend;$F$;45| (|upxs| |r| $)
@@ -425,22 +431,22 @@
                      (SPADCALL (|UPXSCONS;getULS| |upxs| $)
                                (|UPXSCONS;roundDown|
                                 (SPADCALL |r| |e| (QREFELT $ 64)) $)
-                               (QREFELT $ 111))
+                               (QREFELT $ 112))
                      (QREFELT $ 10))))))) 
 
 (DEFUN |UPXSCONS;map;M2$;46| (|fcn| |upxs| $)
   (SPADCALL (|UPXSCONS;getExpon| |upxs| $)
-            (SPADCALL |fcn| (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 114))
+            (SPADCALL |fcn| (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 115))
             (QREFELT $ 10))) 
 
-(DEFUN |UPXSCONS;characteristic;Nni;47| ($) (SPADCALL (QREFELT $ 116))) 
+(DEFUN |UPXSCONS;characteristic;Nni;47| ($) (SPADCALL (QREFELT $ 117))) 
 
 (DEFUN |UPXSCONS;multiplyExponents;$F$;48| (|upxs| |n| $)
   (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 62))
             (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
 
 (DEFUN |UPXSCONS;multiplyExponents;$Pi$;49| (|upxs| |n| $)
-  (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 119))
+  (SPADCALL (SPADCALL |n| (|UPXSCONS;getExpon| |upxs| $) (QREFELT $ 120))
             (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 10))) 
 
 (DEFUN |UPXSCONS;differentiate;2$;50| (|upxs| $)
@@ -450,10 +456,10 @@
       (LETT |r| (|UPXSCONS;getExpon| |upxs| $) |UPXSCONS;differentiate;2$;50|)
       (EXIT
        (SPADCALL
-        (SPADCALL |r| (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 121))
+        (SPADCALL |r| (SPADCALL (|UPXSCONS;getULS| |upxs| $) (QREFELT $ 122))
                   (QREFELT $ 10))
-        (SPADCALL (SPADCALL |r| (QREFELT $ 122))
-                  (SPADCALL |r| (|spadConstant| $ 19) (QREFELT $ 123))
+        (SPADCALL (SPADCALL |r| (QREFELT $ 123))
+                  (SPADCALL |r| (|spadConstant| $ 19) (QREFELT $ 124))
                   (QREFELT $ 31))
         (QREFELT $ 74))))))) 
 
@@ -463,31 +469,31 @@
      (SEQ
       (COND
        ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-        (SPADCALL |upxs| (QREFELT $ 124)))
+        (SPADCALL |upxs| (QREFELT $ 125)))
        ('T
         (SEQ
          (LETT |dcds|
-               (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) |s| (QREFELT $ 125))
+               (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) |s| (QREFELT $ 126))
                |UPXSCONS;differentiate;$S$;51|)
          (EXIT
           (SPADCALL
            (SPADCALL (CONS #'|UPXSCONS;differentiate;$S$;51!0| (VECTOR $ |s|))
-                     |upxs| (QREFELT $ 115))
-           (SPADCALL |dcds| (SPADCALL |upxs| (QREFELT $ 124)) (QREFELT $ 126))
+                     |upxs| (QREFELT $ 116))
+           (SPADCALL |dcds| (SPADCALL |upxs| (QREFELT $ 125)) (QREFELT $ 127))
            (QREFELT $ 72)))))))))) 
 
 (DEFUN |UPXSCONS;differentiate;$S$;51!0| (|z1| $$)
   (PROG (|s| $)
     (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;differentiate;$S$;51|))
     (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 125)))))) 
+    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 126)))))) 
 
 (DEFUN |UPXSCONS;coerce;F$;52| (|r| $)
-  (SPADCALL (SPADCALL |r| (QREFELT $ 122)) (QREFELT $ 27))) 
+  (SPADCALL (SPADCALL |r| (QREFELT $ 123)) (QREFELT $ 27))) 
 
 (DEFUN |UPXSCONS;ratInv| (|r| $)
-  (COND ((SPADCALL |r| (QREFELT $ 129)) (|spadConstant| $ 18))
-        ('T (SPADCALL (SPADCALL |r| (QREFELT $ 130)) (QREFELT $ 122))))) 
+  (COND ((SPADCALL |r| (QREFELT $ 130)) (|spadConstant| $ 18))
+        ('T (SPADCALL (SPADCALL |r| (QREFELT $ 131)) (QREFELT $ 123))))) 
 
 (DEFUN |UPXSCONS;integrate;2$;54| (|upxs| $)
   (PROG (|uls| |r|)
@@ -507,7 +513,7 @@
          (LETT |uls| (|UPXSCONS;getULS| |upxs| $) . #1#)
          (LETT |uls|
                (SPADCALL (CONS #'|UPXSCONS;integrate;2$;54!0| (VECTOR $ |r|))
-                         |uls| (QREFELT $ 134))
+                         |uls| (QREFELT $ 135))
                . #1#)
          (EXIT
           (SPADCALL
@@ -523,7 +529,7 @@
      (PROGN
       (|UPXSCONS;ratInv|
        (SPADCALL (SPADCALL |z1| |r| (QREFELT $ 52)) (|spadConstant| $ 19)
-                 (QREFELT $ 132))
+                 (QREFELT $ 133))
        $))))) 
 
 (DEFUN |UPXSCONS;integrate;$S$;55| (|upxs| |s| $)
@@ -531,13 +537,13 @@
     (RETURN
      (COND
       ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-       (SPADCALL |upxs| (QREFELT $ 135)))
+       (SPADCALL |upxs| (QREFELT $ 136)))
       ((NULL
         (SPADCALL |s|
-                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 137))
-                  (QREFELT $ 138)))
+                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 138))
+                  (QREFELT $ 139)))
        (SPADCALL (CONS #'|UPXSCONS;integrate;$S$;55!0| (VECTOR $ |s|)) |upxs|
-                 (QREFELT $ 115)))
+                 (QREFELT $ 116)))
       ('T
        (|error|
         "integrate: center is a function of variable of integration")))))) 
@@ -546,13 +552,13 @@
   (PROG (|s| $)
     (LETT |s| (QREFELT $$ 1) . #1=(|UPXSCONS;integrate;$S$;55|))
     (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 139)))))) 
+    (RETURN (PROGN (SPADCALL |z1| |s| (QREFELT $ 140)))))) 
 
 (DEFUN |UPXSCONS;integrateWithOneAnswer| (|f| |s| $)
   (PROG (|res|)
     (RETURN
      (SEQ
-      (LETT |res| (SPADCALL |f| |s| (QREFELT $ 143))
+      (LETT |res| (SPADCALL |f| |s| (QREFELT $ 144))
             |UPXSCONS;integrateWithOneAnswer|)
       (EXIT
        (COND ((QEQCAR |res| 0) (QCDR |res|))
@@ -563,13 +569,13 @@
     (RETURN
      (COND
       ((EQUAL |s| (SPADCALL |upxs| (QREFELT $ 96)))
-       (SPADCALL |upxs| (QREFELT $ 135)))
+       (SPADCALL |upxs| (QREFELT $ 136)))
       ((NULL
         (SPADCALL |s|
-                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 137))
-                  (QREFELT $ 138)))
+                  (SPADCALL (SPADCALL |upxs| (QREFELT $ 98)) (QREFELT $ 138))
+                  (QREFELT $ 139)))
        (SPADCALL (CONS #'|UPXSCONS;integrate;$S$;57!0| (VECTOR $ |s|)) |upxs|
-                 (QREFELT $ 115)))
+                 (QREFELT $ 116)))
       ('T
        (|error|
         "integrate: center is a function of variable of integration")))))) 
@@ -586,7 +592,7 @@
      (SEQ (LETT |num| (SPADCALL |q| (QREFELT $ 37)) . #1=(|UPXSCONS;^;$F$;58|))
           (LETT |den| (SPADCALL |q| (QREFELT $ 36)) . #1#)
           (EXIT
-           (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT $ 144)))
+           (COND ((EQL |den| 1) (SPADCALL |upxs| |num| (QREFELT $ 145)))
                  ('T
                   (SEQ (LETT |r| (SPADCALL |upxs| (QREFELT $ 12)) . #1#)
                        (LETT |uls| (SPADCALL |upxs| (QREFELT $ 11)) . #1#)
@@ -632,87 +638,87 @@
             (SPADCALL (SPADCALL |upxs| (QREFELT $ 11)) |fcn|) (QREFELT $ 10))) 
 
 (DEFUN |UPXSCONS;exp;2$;60| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 146) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 147) |upxs| $)) 
 
 (DEFUN |UPXSCONS;log;2$;61| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 148) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 149) |upxs| $)) 
 
 (DEFUN |UPXSCONS;sin;2$;62| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 150) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 151) |upxs| $)) 
 
 (DEFUN |UPXSCONS;cos;2$;63| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 152) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 153) |upxs| $)) 
 
 (DEFUN |UPXSCONS;tan;2$;64| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 154) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 155) |upxs| $)) 
 
 (DEFUN |UPXSCONS;cot;2$;65| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 156) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 157) |upxs| $)) 
 
 (DEFUN |UPXSCONS;sec;2$;66| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 158) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 159) |upxs| $)) 
 
 (DEFUN |UPXSCONS;csc;2$;67| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 160) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 161) |upxs| $)) 
 
 (DEFUN |UPXSCONS;asin;2$;68| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 162) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 163) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acos;2$;69| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 164) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 165) |upxs| $)) 
 
 (DEFUN |UPXSCONS;atan;2$;70| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 166) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 167) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acot;2$;71| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 168) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 169) |upxs| $)) 
 
 (DEFUN |UPXSCONS;asec;2$;72| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 170) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 171) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acsc;2$;73| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 172) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 173) |upxs| $)) 
 
 (DEFUN |UPXSCONS;sinh;2$;74| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 174) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 175) |upxs| $)) 
 
 (DEFUN |UPXSCONS;cosh;2$;75| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 176) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 177) |upxs| $)) 
 
 (DEFUN |UPXSCONS;tanh;2$;76| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 178) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 179) |upxs| $)) 
 
 (DEFUN |UPXSCONS;coth;2$;77| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 180) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 181) |upxs| $)) 
 
 (DEFUN |UPXSCONS;sech;2$;78| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 182) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 183) |upxs| $)) 
 
 (DEFUN |UPXSCONS;csch;2$;79| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 184) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 185) |upxs| $)) 
 
 (DEFUN |UPXSCONS;asinh;2$;80| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 186) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 187) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acosh;2$;81| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 188) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 189) |upxs| $)) 
 
 (DEFUN |UPXSCONS;atanh;2$;82| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 190) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 191) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acoth;2$;83| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 192) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 193) |upxs| $)) 
 
 (DEFUN |UPXSCONS;asech;2$;84| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 194) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 195) |upxs| $)) 
 
 (DEFUN |UPXSCONS;acsch;2$;85| (|upxs| $)
-  (|UPXSCONS;applyUnary| (ELT $ 196) |upxs| $)) 
+  (|UPXSCONS;applyUnary| (ELT $ 197) |upxs| $)) 
 
-(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G385)
+(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G387)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G386)
+     (PROG (#2=#:G388)
        (RETURN
         (COND
          ((LETT #2#
@@ -734,14 +740,14 @@
                     '|UnivariatePuiseuxSeriesConstructor|))))))))))) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructor;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G383 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G385 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)
             . #2=(|UnivariatePuiseuxSeriesConstructor|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|UnivariatePuiseuxSeriesConstructor| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 215) . #2#)
+      (LETT $ (GETREFV 216) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -1047,20 +1053,20 @@
       (COND
        ((|testBitVector| |pv$| 4)
         (PROGN
-         (QSETREFV $ 124
+         (QSETREFV $ 125
                    (CONS (|dispatchFunction| |UPXSCONS;differentiate;2$;50|)
                          $))
          (COND
           ((|HasCategory| |#1| '(|PartialDifferentialRing| (|Symbol|)))
-           (QSETREFV $ 127
+           (QSETREFV $ 128
                      (CONS (|dispatchFunction| |UPXSCONS;differentiate;$S$;51|)
                            $)))))))
       (COND
        ((|testBitVector| |pv$| 15)
         (PROGN
-         (QSETREFV $ 128 (CONS (|dispatchFunction| |UPXSCONS;coerce;F$;52|) $))
+         (QSETREFV $ 129 (CONS (|dispatchFunction| |UPXSCONS;coerce;F$;52|) $))
          NIL
-         (QSETREFV $ 135
+         (QSETREFV $ 136
                    (CONS (|dispatchFunction| |UPXSCONS;integrate;2$;54|) $))
          (COND
           ((|HasSignature| |#1|
@@ -1072,7 +1078,7 @@
                              (LIST '|variables|
                                    (LIST '(|List| (|Symbol|))
                                          (|devaluate| |#1|))))
-             (QSETREFV $ 140
+             (QSETREFV $ 141
                        (CONS (|dispatchFunction| |UPXSCONS;integrate;$S$;55|)
                              $))))))
          (COND
@@ -1084,40 +1090,40 @@
                               '(|AlgebraicallyClosedFunctionSpace|
                                 (|Integer|)))
                (PROGN
-                (QSETREFV $ 140
+                (QSETREFV $ 141
                           (CONS
                            (|dispatchFunction| |UPXSCONS;integrate;$S$;57|)
                            $)))))))))
          (COND
           ((|testBitVector| |pv$| 7)
-           (QSETREFV $ 145 (CONS (|dispatchFunction| |UPXSCONS;^;$F$;58|) $))))
+           (QSETREFV $ 146 (CONS (|dispatchFunction| |UPXSCONS;^;$F$;58|) $))))
          NIL
-         (QSETREFV $ 147 (CONS (|dispatchFunction| |UPXSCONS;exp;2$;60|) $))
-         (QSETREFV $ 149 (CONS (|dispatchFunction| |UPXSCONS;log;2$;61|) $))
-         (QSETREFV $ 151 (CONS (|dispatchFunction| |UPXSCONS;sin;2$;62|) $))
-         (QSETREFV $ 153 (CONS (|dispatchFunction| |UPXSCONS;cos;2$;63|) $))
-         (QSETREFV $ 155 (CONS (|dispatchFunction| |UPXSCONS;tan;2$;64|) $))
-         (QSETREFV $ 157 (CONS (|dispatchFunction| |UPXSCONS;cot;2$;65|) $))
-         (QSETREFV $ 159 (CONS (|dispatchFunction| |UPXSCONS;sec;2$;66|) $))
-         (QSETREFV $ 161 (CONS (|dispatchFunction| |UPXSCONS;csc;2$;67|) $))
-         (QSETREFV $ 163 (CONS (|dispatchFunction| |UPXSCONS;asin;2$;68|) $))
-         (QSETREFV $ 165 (CONS (|dispatchFunction| |UPXSCONS;acos;2$;69|) $))
-         (QSETREFV $ 167 (CONS (|dispatchFunction| |UPXSCONS;atan;2$;70|) $))
-         (QSETREFV $ 169 (CONS (|dispatchFunction| |UPXSCONS;acot;2$;71|) $))
-         (QSETREFV $ 171 (CONS (|dispatchFunction| |UPXSCONS;asec;2$;72|) $))
-         (QSETREFV $ 173 (CONS (|dispatchFunction| |UPXSCONS;acsc;2$;73|) $))
-         (QSETREFV $ 175 (CONS (|dispatchFunction| |UPXSCONS;sinh;2$;74|) $))
-         (QSETREFV $ 177 (CONS (|dispatchFunction| |UPXSCONS;cosh;2$;75|) $))
-         (QSETREFV $ 179 (CONS (|dispatchFunction| |UPXSCONS;tanh;2$;76|) $))
-         (QSETREFV $ 181 (CONS (|dispatchFunction| |UPXSCONS;coth;2$;77|) $))
-         (QSETREFV $ 183 (CONS (|dispatchFunction| |UPXSCONS;sech;2$;78|) $))
-         (QSETREFV $ 185 (CONS (|dispatchFunction| |UPXSCONS;csch;2$;79|) $))
-         (QSETREFV $ 187 (CONS (|dispatchFunction| |UPXSCONS;asinh;2$;80|) $))
-         (QSETREFV $ 189 (CONS (|dispatchFunction| |UPXSCONS;acosh;2$;81|) $))
-         (QSETREFV $ 191 (CONS (|dispatchFunction| |UPXSCONS;atanh;2$;82|) $))
-         (QSETREFV $ 193 (CONS (|dispatchFunction| |UPXSCONS;acoth;2$;83|) $))
-         (QSETREFV $ 195 (CONS (|dispatchFunction| |UPXSCONS;asech;2$;84|) $))
-         (QSETREFV $ 197
+         (QSETREFV $ 148 (CONS (|dispatchFunction| |UPXSCONS;exp;2$;60|) $))
+         (QSETREFV $ 150 (CONS (|dispatchFunction| |UPXSCONS;log;2$;61|) $))
+         (QSETREFV $ 152 (CONS (|dispatchFunction| |UPXSCONS;sin;2$;62|) $))
+         (QSETREFV $ 154 (CONS (|dispatchFunction| |UPXSCONS;cos;2$;63|) $))
+         (QSETREFV $ 156 (CONS (|dispatchFunction| |UPXSCONS;tan;2$;64|) $))
+         (QSETREFV $ 158 (CONS (|dispatchFunction| |UPXSCONS;cot;2$;65|) $))
+         (QSETREFV $ 160 (CONS (|dispatchFunction| |UPXSCONS;sec;2$;66|) $))
+         (QSETREFV $ 162 (CONS (|dispatchFunction| |UPXSCONS;csc;2$;67|) $))
+         (QSETREFV $ 164 (CONS (|dispatchFunction| |UPXSCONS;asin;2$;68|) $))
+         (QSETREFV $ 166 (CONS (|dispatchFunction| |UPXSCONS;acos;2$;69|) $))
+         (QSETREFV $ 168 (CONS (|dispatchFunction| |UPXSCONS;atan;2$;70|) $))
+         (QSETREFV $ 170 (CONS (|dispatchFunction| |UPXSCONS;acot;2$;71|) $))
+         (QSETREFV $ 172 (CONS (|dispatchFunction| |UPXSCONS;asec;2$;72|) $))
+         (QSETREFV $ 174 (CONS (|dispatchFunction| |UPXSCONS;acsc;2$;73|) $))
+         (QSETREFV $ 176 (CONS (|dispatchFunction| |UPXSCONS;sinh;2$;74|) $))
+         (QSETREFV $ 178 (CONS (|dispatchFunction| |UPXSCONS;cosh;2$;75|) $))
+         (QSETREFV $ 180 (CONS (|dispatchFunction| |UPXSCONS;tanh;2$;76|) $))
+         (QSETREFV $ 182 (CONS (|dispatchFunction| |UPXSCONS;coth;2$;77|) $))
+         (QSETREFV $ 184 (CONS (|dispatchFunction| |UPXSCONS;sech;2$;78|) $))
+         (QSETREFV $ 186 (CONS (|dispatchFunction| |UPXSCONS;csch;2$;79|) $))
+         (QSETREFV $ 188 (CONS (|dispatchFunction| |UPXSCONS;asinh;2$;80|) $))
+         (QSETREFV $ 190 (CONS (|dispatchFunction| |UPXSCONS;acosh;2$;81|) $))
+         (QSETREFV $ 192 (CONS (|dispatchFunction| |UPXSCONS;atanh;2$;82|) $))
+         (QSETREFV $ 194 (CONS (|dispatchFunction| |UPXSCONS;acoth;2$;83|) $))
+         (QSETREFV $ 196 (CONS (|dispatchFunction| |UPXSCONS;asech;2$;84|) $))
+         (QSETREFV $ 198
                    (CONS (|dispatchFunction| |UPXSCONS;acsch;2$;85|) $)))))
       $)))) 
 
@@ -1158,69 +1164,69 @@
               (245 . |variable|) |UPXSCONS;variable;$S;34| (250 . |center|)
               |UPXSCONS;center;$Coef;35| |UPXSCONS;coefficient;$FCoef;36|
               |UPXSCONS;elt;$FCoef;37| (255 . |positive?|) (260 . |order|)
-              |UPXSCONS;order;$F;40| |UPXSCONS;order;$2F;41| (265 . |truncate|)
-              |UPXSCONS;truncate;$F$;42| (271 . |truncate|)
-              |UPXSCONS;truncate;$2F$;43| (278 . |complete|)
-              |UPXSCONS;complete;2$;44| (283 . |extend|)
-              |UPXSCONS;extend;$F$;45| (|Mapping| 6 6) (289 . |map|)
-              |UPXSCONS;map;M2$;46| (295 . |characteristic|)
+              |UPXSCONS;order;$F;40| (265 . =) |UPXSCONS;order;$2F;41|
+              (271 . |truncate|) |UPXSCONS;truncate;$F$;42| (277 . |truncate|)
+              |UPXSCONS;truncate;$2F$;43| (284 . |complete|)
+              |UPXSCONS;complete;2$;44| (289 . |extend|)
+              |UPXSCONS;extend;$F$;45| (|Mapping| 6 6) (295 . |map|)
+              |UPXSCONS;map;M2$;46| (301 . |characteristic|)
               |UPXSCONS;characteristic;Nni;47|
-              |UPXSCONS;multiplyExponents;$F$;48| (299 . *)
-              |UPXSCONS;multiplyExponents;$Pi$;49| (305 . |differentiate|)
-              (310 . |coerce|) (315 . -) (321 . |differentiate|)
-              (326 . |differentiate|) (332 . *) (338 . |differentiate|)
-              (344 . |coerce|) (349 . |zero?|) (354 . |inv|) (359 . -)
-              (364 . +) (|Mapping| 6 13) (370 . |multiplyCoefficients|)
-              (376 . |integrate|) (|List| 94) (381 . |variables|)
-              (386 . |entry?|) (392 . |integrate|) (398 . |integrate|)
+              |UPXSCONS;multiplyExponents;$F$;48| (305 . *)
+              |UPXSCONS;multiplyExponents;$Pi$;49| (311 . |differentiate|)
+              (316 . |coerce|) (321 . -) (327 . |differentiate|)
+              (332 . |differentiate|) (338 . *) (344 . |differentiate|)
+              (350 . |coerce|) (355 . |zero?|) (360 . |inv|) (365 . -)
+              (370 . +) (|Mapping| 6 13) (376 . |multiplyCoefficients|)
+              (382 . |integrate|) (|List| 94) (387 . |variables|)
+              (392 . |entry?|) (398 . |integrate|) (404 . |integrate|)
               (|Union| 6 (|List| 6)) (|FunctionSpaceIntegration| 13 6)
-              (404 . |integrate|) (410 . ^) (416 . ^) (422 . |exp|)
-              (427 . |exp|) (432 . |log|) (437 . |log|) (442 . |sin|)
-              (447 . |sin|) (452 . |cos|) (457 . |cos|) (462 . |tan|)
-              (467 . |tan|) (472 . |cot|) (477 . |cot|) (482 . |sec|)
-              (487 . |sec|) (492 . |csc|) (497 . |csc|) (502 . |asin|)
-              (507 . |asin|) (512 . |acos|) (517 . |acos|) (522 . |atan|)
-              (527 . |atan|) (532 . |acot|) (537 . |acot|) (542 . |asec|)
-              (547 . |asec|) (552 . |acsc|) (557 . |acsc|) (562 . |sinh|)
-              (567 . |sinh|) (572 . |cosh|) (577 . |cosh|) (582 . |tanh|)
-              (587 . |tanh|) (592 . |coth|) (597 . |coth|) (602 . |sech|)
-              (607 . |sech|) (612 . |csch|) (617 . |csch|) (622 . |asinh|)
-              (627 . |asinh|) (632 . |acosh|) (637 . |acosh|) (642 . |atanh|)
-              (647 . |atanh|) (652 . |acoth|) (657 . |acoth|) (662 . |asech|)
-              (667 . |asech|) (672 . |acsch|) (677 . |acsch|) (|List| 60)
-              (|List| $) (|Record| (|:| |coef| 199) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| 199 '"failed")
+              (410 . |integrate|) (416 . ^) (422 . ^) (428 . |exp|)
+              (433 . |exp|) (438 . |log|) (443 . |log|) (448 . |sin|)
+              (453 . |sin|) (458 . |cos|) (463 . |cos|) (468 . |tan|)
+              (473 . |tan|) (478 . |cot|) (483 . |cot|) (488 . |sec|)
+              (493 . |sec|) (498 . |csc|) (503 . |csc|) (508 . |asin|)
+              (513 . |asin|) (518 . |acos|) (523 . |acos|) (528 . |atan|)
+              (533 . |atan|) (538 . |acot|) (543 . |acot|) (548 . |asec|)
+              (553 . |asec|) (558 . |acsc|) (563 . |acsc|) (568 . |sinh|)
+              (573 . |sinh|) (578 . |cosh|) (583 . |cosh|) (588 . |tanh|)
+              (593 . |tanh|) (598 . |coth|) (603 . |coth|) (608 . |sech|)
+              (613 . |sech|) (618 . |csch|) (623 . |csch|) (628 . |asinh|)
+              (633 . |asinh|) (638 . |acosh|) (643 . |acosh|) (648 . |atanh|)
+              (653 . |atanh|) (658 . |acoth|) (663 . |acoth|) (668 . |asech|)
+              (673 . |asech|) (678 . |acsch|) (683 . |acsch|) (|List| 60)
+              (|List| $) (|Record| (|:| |coef| 200) (|:| |generator| $))
+              (|SparseUnivariatePolynomial| $) (|Union| 200 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 205 '"failed") (|Factored| $)
+              (|Union| 206 '"failed") (|Factored| $)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|List| 211) (|List| 9) (|SingletonAsOrderedSet|)
+              (|List| 212) (|List| 9) (|SingletonAsOrderedSet|)
               (|SingleInteger|) (|String|) (|OutputForm|))
-           '#(~= 682 |zero?| 688 |variables| 693 |variable| 698 |unitNormal|
-              703 |unitCanonical| 708 |unit?| 713 |truncate| 718 |terms| 731
-              |tanh| 736 |tan| 741 |subtractIfCan| 746 |squareFreePart| 752
-              |squareFree| 757 |sqrt| 762 |sizeLess?| 767 |sinh| 773 |sin| 778
-              |series| 783 |sech| 789 |sec| 794 |sample| 799 |retractIfCan| 803
-              |retract| 808 |rem| 813 |reductum| 819 |recip| 824
-              |rationalPower| 829 |quo| 834 |puiseux| 840 |principalIdeal| 846
-              |prime?| 851 |pole?| 856 |pi| 861 |order| 865 |one?| 876
-              |nthRoot| 881 |multiplyExponents| 887 |multiEuclidean| 899
-              |monomial?| 905 |monomial| 910 |map| 930 |log| 936
-              |leadingMonomial| 941 |leadingCoefficient| 946 |lcm| 951
-              |laurentRep| 962 |laurentIfCan| 967 |laurent| 972 |latex| 977
-              |inv| 982 |integrate| 987 |hash| 998 |gcdPolynomial| 1003 |gcd|
-              1009 |factor| 1020 |extendedEuclidean| 1025 |extend| 1038 |exquo|
-              1044 |expressIdealMember| 1050 |exp| 1056 |eval| 1061
-              |euclideanSize| 1067 |elt| 1072 |divide| 1084 |differentiate|
-              1090 |degree| 1127 |csch| 1132 |csc| 1137 |coth| 1142 |cot| 1147
-              |cosh| 1152 |cos| 1157 |complete| 1162 |coerce| 1167
-              |coefficient| 1197 |charthRoot| 1203 |characteristic| 1208
-              |center| 1212 |atanh| 1217 |atan| 1222 |associates?| 1227 |asinh|
-              1233 |asin| 1238 |asech| 1243 |asec| 1248 |approximate| 1253
-              |acsch| 1259 |acsc| 1264 |acoth| 1269 |acot| 1274 |acosh| 1279
-              |acos| 1284 ^ 1289 |Zero| 1319 |One| 1323 D 1327 = 1364 / 1370 -
-              1382 + 1393 * 1399)
+           '#(~= 688 |zero?| 694 |variables| 699 |variable| 704 |unitNormal|
+              709 |unitCanonical| 714 |unit?| 719 |truncate| 724 |terms| 737
+              |tanh| 742 |tan| 747 |subtractIfCan| 752 |squareFreePart| 758
+              |squareFree| 763 |sqrt| 768 |sizeLess?| 773 |sinh| 779 |sin| 784
+              |series| 789 |sech| 795 |sec| 800 |sample| 805 |retractIfCan| 809
+              |retract| 814 |rem| 819 |reductum| 825 |recip| 830
+              |rationalPower| 835 |quo| 840 |puiseux| 846 |principalIdeal| 852
+              |prime?| 857 |pole?| 862 |pi| 867 |order| 871 |one?| 882
+              |nthRoot| 887 |multiplyExponents| 893 |multiEuclidean| 905
+              |monomial?| 911 |monomial| 916 |map| 936 |log| 942
+              |leadingMonomial| 947 |leadingCoefficient| 952 |lcm| 957
+              |laurentRep| 968 |laurentIfCan| 973 |laurent| 978 |latex| 983
+              |inv| 988 |integrate| 993 |hash| 1004 |gcdPolynomial| 1009 |gcd|
+              1015 |factor| 1026 |extendedEuclidean| 1031 |extend| 1044 |exquo|
+              1050 |expressIdealMember| 1056 |exp| 1062 |eval| 1067
+              |euclideanSize| 1073 |elt| 1078 |divide| 1090 |differentiate|
+              1096 |degree| 1133 |csch| 1138 |csc| 1143 |coth| 1148 |cot| 1153
+              |cosh| 1158 |cos| 1163 |complete| 1168 |coerce| 1173
+              |coefficient| 1203 |charthRoot| 1209 |characteristic| 1214
+              |center| 1218 |atanh| 1223 |atan| 1228 |associates?| 1233 |asinh|
+              1239 |asin| 1244 |asech| 1249 |asec| 1254 |approximate| 1259
+              |acsch| 1265 |acsc| 1270 |acoth| 1275 |acot| 1280 |acosh| 1285
+              |acos| 1290 ^ 1295 |Zero| 1325 |One| 1329 D 1333 = 1370 / 1376 -
+              1388 + 1399 * 1405)
            'NIL
            (CONS
             (|makeByteWordVec2| 19
@@ -1248,7 +1254,7 @@
               '#((|UnivariatePuiseuxSeriesConstructorCategory| 6 7)
                  (|UnivariatePuiseuxSeriesCategory| 6) (|Field|)
                  (|UnivariatePowerSeriesCategory| 6 9) (|EuclideanDomain|)
-                 (|PowerSeriesCategory| 6 9 211) (|PrincipalIdealDomain|)
+                 (|PowerSeriesCategory| 6 9 212) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 9)
                  (|GcdDomain|) (|IntegralDomain|) (|DivisionRing|)
                  (|Algebra| 6) (|Algebra| $$) (|Algebra| 9)
@@ -1262,7 +1268,7 @@
                  (|SemiRng|) (|Monoid|) (|AbelianMonoid|) (|AbelianSemiGroup|)
                  (|SemiGroup|) (|SetCategory|)
                  (|TranscendentalFunctionCategory|) (|RetractableTo| 7)
-                 (|BasicType|) (|CoercibleTo| 214) (|Eltable| $$ $$)
+                 (|BasicType|) (|CoercibleTo| 215) (|Eltable| $$ $$)
                  (|unitsKnown|) (|CommutativeStar|) (|noZeroDivisors|)
                  (|canonicalUnitNormal|) (|canonicalsClosed|)
                  (|TrigonometricFunctionCategory|)
@@ -1270,7 +1276,7 @@
                  (|HyperbolicFunctionCategory|)
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|))
-              (|makeByteWordVec2| 214
+              (|makeByteWordVec2| 215
                                   '(1 7 13 0 14 2 9 0 0 13 15 0 6 0 18 0 9 0 19
                                     0 7 0 20 0 7 0 22 0 6 0 23 0 9 0 24 2 9 25
                                     0 0 26 2 9 25 0 0 28 1 9 0 0 29 2 7 0 6 13
@@ -1285,70 +1291,70 @@
                                     84 2 7 13 0 13 85 2 6 0 0 9 87 2 7 88 0 6
                                     89 2 0 88 0 6 90 2 7 0 0 0 91 2 0 0 0 0 92
                                     1 0 0 0 93 1 7 94 0 95 1 7 6 0 97 1 13 25 0
-                                    101 1 7 13 0 102 2 7 0 0 13 105 3 7 0 0 13
-                                    13 107 1 7 0 0 109 2 7 0 0 13 111 2 7 0 113
-                                    0 114 0 6 60 116 2 9 0 38 0 119 1 7 0 0 121
-                                    1 6 0 9 122 2 9 0 0 0 123 1 0 0 0 124 2 6 0
-                                    0 94 125 2 0 0 6 0 126 2 0 0 0 94 127 1 0 0
-                                    9 128 1 9 25 0 129 1 9 0 0 130 1 0 0 0 131
-                                    2 9 0 0 0 132 2 7 0 133 0 134 1 0 0 0 135 1
-                                    6 136 0 137 2 136 25 94 0 138 2 6 0 0 94
-                                    139 2 0 0 0 94 140 2 142 141 6 94 143 2 0 0
-                                    0 13 144 2 0 0 0 9 145 1 7 0 0 146 1 0 0 0
-                                    147 1 7 0 0 148 1 0 0 0 149 1 7 0 0 150 1 0
-                                    0 0 151 1 7 0 0 152 1 0 0 0 153 1 7 0 0 154
-                                    1 0 0 0 155 1 7 0 0 156 1 0 0 0 157 1 7 0 0
-                                    158 1 0 0 0 159 1 7 0 0 160 1 0 0 0 161 1 7
-                                    0 0 162 1 0 0 0 163 1 7 0 0 164 1 0 0 0 165
-                                    1 7 0 0 166 1 0 0 0 167 1 7 0 0 168 1 0 0 0
-                                    169 1 7 0 0 170 1 0 0 0 171 1 7 0 0 172 1 0
-                                    0 0 173 1 7 0 0 174 1 0 0 0 175 1 7 0 0 176
-                                    1 0 0 0 177 1 7 0 0 178 1 0 0 0 179 1 7 0 0
-                                    180 1 0 0 0 181 1 7 0 0 182 1 0 0 0 183 1 7
-                                    0 0 184 1 0 0 0 185 1 7 0 0 186 1 0 0 0 187
-                                    1 7 0 0 188 1 0 0 0 189 1 7 0 0 190 1 0 0 0
-                                    191 1 7 0 0 192 1 0 0 0 193 1 7 0 0 194 1 0
-                                    0 0 195 1 7 0 0 196 1 0 0 0 197 2 0 25 0 0
-                                    1 1 25 25 0 1 1 0 209 0 1 1 0 94 0 96 1 10
-                                    208 0 1 1 10 0 0 1 1 10 25 0 1 3 0 0 0 9 9
-                                    108 2 0 0 0 9 106 1 0 47 0 51 1 15 0 0 179
-                                    1 15 0 0 155 2 24 77 0 0 1 1 7 0 0 1 1 7
-                                    207 0 1 1 15 0 0 1 2 7 25 0 0 1 1 15 0 0
-                                    175 1 15 0 0 151 2 0 0 60 47 61 1 15 0 0
-                                    183 1 15 0 0 159 0 25 0 1 1 0 40 0 1 1 0 7
-                                    0 1 2 7 0 0 0 1 1 0 0 0 1 1 8 77 0 79 1 0 9
-                                    0 12 2 7 0 0 0 1 2 0 0 9 7 10 1 7 200 199 1
-                                    1 7 25 0 1 1 0 25 0 68 0 15 0 1 2 0 9 0 9
-                                    104 1 0 9 0 103 1 8 25 0 1 2 15 0 0 13 1 2
-                                    0 0 0 9 118 2 0 0 0 38 120 2 7 202 199 0 1
-                                    1 0 25 0 1 3 0 0 0 209 210 1 3 0 0 0 211 9
-                                    1 2 0 0 6 9 31 2 0 0 113 0 115 1 15 0 0 149
-                                    1 0 0 0 1 1 0 6 0 1 1 7 0 199 1 2 7 0 0 0 1
-                                    1 0 7 0 11 1 0 40 0 41 1 0 7 0 42 1 0 213 0
-                                    1 1 7 0 0 93 2 22 0 0 94 140 1 15 0 0 135 1
-                                    0 212 0 1 2 7 201 201 201 1 1 7 0 199 1 2 7
-                                    0 0 0 1 1 7 207 0 1 2 7 204 0 0 1 3 7 206 0
-                                    0 0 1 2 0 0 0 9 112 2 10 77 0 0 1 2 7 202
-                                    199 0 1 1 15 0 0 147 2 20 88 0 6 90 1 7 60
-                                    0 1 2 6 0 0 0 86 2 0 6 0 9 100 2 7 203 0 0
-                                    1 2 5 0 0 94 127 3 5 0 0 94 60 1 2 5 0 0
-                                    136 1 3 5 0 0 136 198 1 1 4 0 0 124 2 4 0 0
-                                    60 1 1 0 9 0 16 1 15 0 0 185 1 15 0 0 161 1
-                                    15 0 0 181 1 15 0 0 157 1 15 0 0 177 1 15 0
-                                    0 153 1 0 0 0 110 1 9 0 13 35 1 15 0 9 128
-                                    1 3 0 6 27 1 10 0 0 1 1 0 0 7 32 1 0 214 0
-                                    1 2 0 6 0 9 99 1 1 77 0 1 0 9 60 117 1 0 6
-                                    0 98 1 15 0 0 191 1 15 0 0 167 2 10 25 0 0
-                                    1 1 15 0 0 187 1 15 0 0 163 1 15 0 0 195 1
-                                    15 0 0 171 2 21 6 0 9 1 1 15 0 0 197 1 15 0
-                                    0 173 1 15 0 0 193 1 15 0 0 169 1 15 0 0
-                                    189 1 15 0 0 165 2 8 0 0 60 76 2 15 0 0 9
-                                    145 2 15 0 0 0 1 2 7 0 0 13 144 2 0 0 0 38
+                                    101 1 7 13 0 102 2 6 25 0 0 104 2 7 0 0 13
+                                    106 3 7 0 0 13 13 108 1 7 0 0 110 2 7 0 0
+                                    13 112 2 7 0 114 0 115 0 6 60 117 2 9 0 38
+                                    0 120 1 7 0 0 122 1 6 0 9 123 2 9 0 0 0 124
+                                    1 0 0 0 125 2 6 0 0 94 126 2 0 0 6 0 127 2
+                                    0 0 0 94 128 1 0 0 9 129 1 9 25 0 130 1 9 0
+                                    0 131 1 0 0 0 132 2 9 0 0 0 133 2 7 0 134 0
+                                    135 1 0 0 0 136 1 6 137 0 138 2 137 25 94 0
+                                    139 2 6 0 0 94 140 2 0 0 0 94 141 2 143 142
+                                    6 94 144 2 0 0 0 13 145 2 0 0 0 9 146 1 7 0
+                                    0 147 1 0 0 0 148 1 7 0 0 149 1 0 0 0 150 1
+                                    7 0 0 151 1 0 0 0 152 1 7 0 0 153 1 0 0 0
+                                    154 1 7 0 0 155 1 0 0 0 156 1 7 0 0 157 1 0
+                                    0 0 158 1 7 0 0 159 1 0 0 0 160 1 7 0 0 161
+                                    1 0 0 0 162 1 7 0 0 163 1 0 0 0 164 1 7 0 0
+                                    165 1 0 0 0 166 1 7 0 0 167 1 0 0 0 168 1 7
+                                    0 0 169 1 0 0 0 170 1 7 0 0 171 1 0 0 0 172
+                                    1 7 0 0 173 1 0 0 0 174 1 7 0 0 175 1 0 0 0
+                                    176 1 7 0 0 177 1 0 0 0 178 1 7 0 0 179 1 0
+                                    0 0 180 1 7 0 0 181 1 0 0 0 182 1 7 0 0 183
+                                    1 0 0 0 184 1 7 0 0 185 1 0 0 0 186 1 7 0 0
+                                    187 1 0 0 0 188 1 7 0 0 189 1 0 0 0 190 1 7
+                                    0 0 191 1 0 0 0 192 1 7 0 0 193 1 0 0 0 194
+                                    1 7 0 0 195 1 0 0 0 196 1 7 0 0 197 1 0 0 0
+                                    198 2 0 25 0 0 1 1 25 25 0 1 1 0 210 0 1 1
+                                    0 94 0 96 1 10 209 0 1 1 10 0 0 1 1 10 25 0
+                                    1 3 0 0 0 9 9 109 2 0 0 0 9 107 1 0 47 0 51
+                                    1 15 0 0 180 1 15 0 0 156 2 24 77 0 0 1 1 7
+                                    0 0 1 1 7 208 0 1 1 15 0 0 1 2 7 25 0 0 1 1
+                                    15 0 0 176 1 15 0 0 152 2 0 0 60 47 61 1 15
+                                    0 0 184 1 15 0 0 160 0 25 0 1 1 0 40 0 1 1
+                                    0 7 0 1 2 7 0 0 0 1 1 0 0 0 1 1 8 77 0 79 1
+                                    0 9 0 12 2 7 0 0 0 1 2 0 0 9 7 10 1 7 201
+                                    200 1 1 7 25 0 1 1 0 25 0 68 0 15 0 1 2 0 9
+                                    0 9 105 1 0 9 0 103 1 8 25 0 1 2 15 0 0 13
+                                    1 2 0 0 0 9 119 2 0 0 0 38 121 2 7 203 200
+                                    0 1 1 0 25 0 1 3 0 0 0 210 211 1 3 0 0 0
+                                    212 9 1 2 0 0 6 9 31 2 0 0 114 0 116 1 15 0
+                                    0 150 1 0 0 0 1 1 0 6 0 1 1 7 0 200 1 2 7 0
+                                    0 0 1 1 0 7 0 11 1 0 40 0 41 1 0 7 0 42 1 0
+                                    214 0 1 1 7 0 0 93 2 22 0 0 94 141 1 15 0 0
+                                    136 1 0 213 0 1 2 7 202 202 202 1 1 7 0 200
+                                    1 2 7 0 0 0 1 1 7 208 0 1 2 7 205 0 0 1 3 7
+                                    207 0 0 0 1 2 0 0 0 9 113 2 10 77 0 0 1 2 7
+                                    203 200 0 1 1 15 0 0 148 2 20 88 0 6 90 1 7
+                                    60 0 1 2 6 0 0 0 86 2 0 6 0 9 100 2 7 204 0
+                                    0 1 2 5 0 0 94 128 3 5 0 0 94 60 1 2 5 0 0
+                                    137 1 3 5 0 0 137 199 1 1 4 0 0 125 2 4 0 0
+                                    60 1 1 0 9 0 16 1 15 0 0 186 1 15 0 0 162 1
+                                    15 0 0 182 1 15 0 0 158 1 15 0 0 178 1 15 0
+                                    0 154 1 0 0 0 111 1 9 0 13 35 1 15 0 9 129
+                                    1 3 0 6 27 1 10 0 0 1 1 0 0 7 32 1 0 215 0
+                                    1 2 0 6 0 9 99 1 1 77 0 1 0 9 60 118 1 0 6
+                                    0 98 1 15 0 0 192 1 15 0 0 168 2 10 25 0 0
+                                    1 1 15 0 0 188 1 15 0 0 164 1 15 0 0 196 1
+                                    15 0 0 172 2 21 6 0 9 1 1 15 0 0 198 1 15 0
+                                    0 174 1 15 0 0 194 1 15 0 0 170 1 15 0 0
+                                    190 1 15 0 0 166 2 8 0 0 60 76 2 15 0 0 9
+                                    146 2 15 0 0 0 1 2 7 0 0 13 145 2 0 0 0 38
                                     1 0 25 0 21 0 8 0 17 2 5 0 0 94 1 3 5 0 0
-                                    94 60 1 2 5 0 0 136 1 3 5 0 0 136 198 1 1 4
+                                    94 60 1 2 5 0 0 137 1 3 5 0 0 137 199 1 1 4
                                     0 0 1 2 4 0 0 60 1 2 0 25 0 0 66 2 7 0 0 0
-                                    92 2 7 0 0 6 1 1 23 0 0 131 2 23 0 0 0 72 2
+                                    92 2 7 0 0 6 1 1 23 0 0 132 2 23 0 0 0 72 2
                                     0 0 0 0 70 2 23 0 13 0 1 2 25 0 60 0 1 2 15
                                     0 9 0 1 2 15 0 0 9 1 2 0 0 0 6 1 2 0 0 6 0
-                                    126 2 0 0 0 0 74 2 0 0 38 0 1)))))
+                                    127 2 0 0 0 0 74 2 0 0 38 0 1)))))
            '|lookupComplete|)) 
