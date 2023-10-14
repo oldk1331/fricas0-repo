@@ -1218,8 +1218,8 @@
 ;     if not beQuiet then sayKeyedMsg("S2IZ0038A",[namestring args, asharpArgs])
 ; 
 ;     command :=
-;       STRCONC(STRCONC(getEnv('"ALDORROOT"),'"/bin/"),_
-;                     "aldor ", asharpArgs, '" ", namestring args)
+;        STRCONC(getEnv('"ALDOR_COMPILER"),_
+;                      '" ", asharpArgs, '" ", namestring args)
 ;     rc := OBEY command
 ; 
 ;     if (rc = 0) and doCompileLisp then
@@ -1340,8 +1340,8 @@
            (|sayKeyedMsg| 'S2IZ0038A
             (LIST (|namestring| |args|) |asharpArgs|))))
          (SETQ |command|
-                 (STRCONC (STRCONC (|getEnv| "ALDORROOT") "/bin/") '|aldor |
-                  |asharpArgs| " " (|namestring| |args|)))
+                 (STRCONC (|getEnv| "ALDOR_COMPILER") " " |asharpArgs| " "
+                  (|namestring| |args|)))
          (SETQ |rc| (OBEY |command|))
          (COND
           ((AND (EQL |rc| 0) |doCompileLisp|)
