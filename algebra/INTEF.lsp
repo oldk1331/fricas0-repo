@@ -115,7 +115,7 @@
                  (QREFELT $ 77))))))) 
 
 (DEFUN |INTEF;unklimint| (|f| |x| |lu| $)
-  (PROG (#1=#:G202 #2=#:G204 |c| #3=#:G205 |u|)
+  (PROG (#1=#:G204 #2=#:G206 |c| #3=#:G207 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -174,7 +174,7 @@
       ('T (CONS 0 (CONS (|spadConstant| $ 63) |c|))))))) 
 
 (DEFUN |INTEF;diffint1| (|f| |x| |k| $)
-  (PROG (|f3| |nres3| |nres2| |nrat| |alpha| #1=#:G230 |nlogs| |cpol| #2=#:G231
+  (PROG (|f3| |nres3| |nres2| |nrat| |alpha| #1=#:G232 |nlogs| |cpol| #2=#:G233
          |lg| |logs| |nres| |f2| |dv| |k1| |args| |f1| |nfu|)
     (RETURN
      (SEQ
@@ -333,7 +333,7 @@
                               (#2# (EQUAL (QCDR |r|) |x|)))))))))))) 
 
 (DEFUN |INTEF;alg_split_root0| (|f| |r| |n| $)
-  (PROG (#1=#:G253 |i| #2=#:G252 |q| |f1| |f0| |ef|)
+  (PROG (#1=#:G255 |i| #2=#:G254 |q| |f1| |f0| |ef|)
     (RETURN
      (SEQ
       (COND
@@ -390,8 +390,8 @@
                 (EXIT (NREVERSE #2#)))))))))))) 
 
 (DEFUN |INTEF;alg_split_roots| (|f| |r1| |r2| $)
-  (PROG (|res| |nrr| |nr| |bb2| #1=#:G256 |bb1| |nn| |np2| |nn2| |g2| #2=#:G267
-         |f2| #3=#:G268 |pow2| |np1| |nn1| |g1| |l2| #4=#:G265 |f1| #5=#:G266
+  (PROG (|res| |nrr| |nr| |bb2| #1=#:G258 |bb1| |nn| |np2| |nn2| |g2| #2=#:G269
+         |f2| #3=#:G270 |pow2| |np1| |nn1| |g1| |l2| #4=#:G267 |f1| #5=#:G268
          |pow1| |rop| |l1| |b2| |n2| |b1| |n1| |a2| |a1|)
     (RETURN
      (SEQ
@@ -536,7 +536,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |INTEF;alglfint| (|f| |k| |l| |x| $)
-  (PROG (|y| |rec| |res| |ir1| |oroot| #1=#:G289 |al| |kx| |xf|)
+  (PROG (|y| |rec| |res| |ir1| |oroot| #1=#:G291 |al| |kx| |xf|)
     (RETURN
      (SEQ (LETT |xf| (SPADCALL |x| (QREFELT $ 72)) . #2=(|INTEF;alglfint|))
           (EXIT
@@ -647,7 +647,7 @@
                 (QREFELT $ 92)))))) 
 
 (DEFUN |INTEF;alglfextint| (|f| |k| |l| |x| |g| $)
-  (PROG (|r| |ky| |u| |lrhs| |y| |rec| |kx|)
+  (PROG (|u2| |r| |ky| |u| |lrhs| |y| |rec| |kx|)
     (RETURN
      (SEQ
       (COND
@@ -677,7 +677,7 @@
                . #1#)
          (EXIT
           (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                ('T
+                (#2='T
                  (SEQ (LETT |ky| (SPADCALL |y| (QREFELT $ 91)) . #1#)
                       (LETT |r| (QCDR |u|) . #1#)
                       (EXIT
@@ -689,11 +689,15 @@
                                         (QREFELT $ 92)))))))))))
        ((OR (SPADCALL |kx| '|exp| (QREFELT $ 13))
             (SPADCALL |kx| '|log| (QREFELT $ 13)))
-        (|error| "failed - cannot handle that integrand"))
+        (SEQ (LETT |u2| (|INTEF;try_change_var2| |f| |kx| |x| |g| $) . #1#)
+             (EXIT
+              (COND ((QEQCAR |u2| 2) (CONS 1 "failed"))
+                    ((QEQCAR |u2| 0) (CONS 0 (QCDR |u2|)))
+                    (#2# (|error| "failed - cannot handle that integrand"))))))
        ('T (|INTEF;unkextint| |f| |x| |g| $))))))) 
 
 (DEFUN |INTEF;alglflimint| (|f| |k| |l| |x| |lu| $)
-  (PROG (#1=#:G326 |rc| #2=#:G325 |r| |ky| |u| |lrhs| |y| |rec| |kx|)
+  (PROG (#1=#:G334 |rc| #2=#:G333 |r| |ky| |u| |lrhs| |y| |rec| |kx|)
     (RETURN
      (SEQ
       (COND
@@ -827,7 +831,7 @@
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
 (DEFUN |INTEF;addx| (|i| |x| $)
-  (PROG (#1=#:G361 |ne| #2=#:G360)
+  (PROG (#1=#:G369 |ne| #2=#:G368)
     (RETURN
      (SEQ
       (COND ((SPADCALL |i| (QREFELT $ 169)) |i|)
@@ -882,6 +886,58 @@
      (PROGN
       (SPADCALL |x1| (SPADCALL |z| (QREFELT $ 112))
                 (SPADCALL |t| (QREFELT $ 125)) (QREFELT $ 92)))))) 
+
+(DEFUN |INTEF;try_change_var2| (|f| |t| |x| |g| $)
+  (PROG (|res2| |res1| |g1| |f1| |z|)
+    (RETURN
+     (SEQ (LETT |z| (SPADCALL (QREFELT $ 93)) . #1=(|INTEF;try_change_var2|))
+          (LETT |f1|
+                (SPADCALL
+                 (SPADCALL |f|
+                           (SPADCALL (SPADCALL |t| (QREFELT $ 125)) |x|
+                                     (QREFELT $ 19))
+                           (QREFELT $ 66))
+                 (LIST |t|) (LIST (SPADCALL |z| (QREFELT $ 72)))
+                 (QREFELT $ 170))
+                . #1#)
+          (COND
+           ((NULL (SPADCALL |f1| |x| (QREFELT $ 171)))
+            (EXIT (CONS 1 "reject"))))
+          (LETT |g1|
+                (SPADCALL
+                 (SPADCALL |g|
+                           (SPADCALL (SPADCALL |t| (QREFELT $ 125)) |x|
+                                     (QREFELT $ 19))
+                           (QREFELT $ 66))
+                 (LIST |t|) (LIST (SPADCALL |z| (QREFELT $ 72)))
+                 (QREFELT $ 170))
+                . #1#)
+          (EXIT
+           (COND
+            ((SPADCALL |g1| |x| (QREFELT $ 171))
+             (SEQ (LETT |res1| (SPADCALL |f1| |z| |g1| (QREFELT $ 38)) . #1#)
+                  (EXIT
+                   (COND ((QEQCAR |res1| 1) (CONS 2 "failed"))
+                         (#2='T
+                          (CONS 0
+                                (CONS
+                                 (SPADCALL (QCAR (QCDR |res1|))
+                                           (SPADCALL |z| (QREFELT $ 112))
+                                           (SPADCALL |t| (QREFELT $ 125))
+                                           (QREFELT $ 92))
+                                 (QCDR (QCDR |res1|)))))))))
+            (#2#
+             (SEQ (LETT |res2| (SPADCALL |f1| |z| NIL (QREFELT $ 35)) . #1#)
+                  (EXIT
+                   (COND ((QEQCAR |res2| 1) (CONS 1 "reject"))
+                         (#2#
+                          (CONS 0
+                                (CONS
+                                 (SPADCALL (QCAR (QCDR |res2|))
+                                           (SPADCALL |z| (QREFELT $ 112))
+                                           (SPADCALL |t| (QREFELT $ 125))
+                                           (QREFELT $ 92))
+                                 (|spadConstant| $ 63)))))))))))))) 
 
 (DEFUN |INTEF;algexpint| (|f| |t| |y| |x| $)
   (PROG (|u|)
@@ -950,7 +1006,7 @@
     (LETT $ (QREFELT $$ 0) NIL)
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
-(DEFUN |INTEF;lfextendedint;FSFU;23| (|f| |x| |g| $)
+(DEFUN |INTEF;lfextendedint;FSFU;24| (|f| |x| |g| $)
   (PROG (|g1| |l1| |k| |l|)
     (RETURN
      (SEQ
@@ -958,7 +1014,7 @@
        ((NULL
          (LETT |l|
                (SPADCALL (SPADCALL |f| (QREFELT $ 118)) |x| (QREFELT $ 165))
-               . #1=(|INTEF;lfextendedint;FSFU;23|)))
+               . #1=(|INTEF;lfextendedint;FSFU;24|)))
         (CONS 0
               (CONS (SPADCALL (SPADCALL |x| (QREFELT $ 72)) |f| (QREFELT $ 69))
                     (|spadConstant| $ 63))))
@@ -982,7 +1038,7 @@
                 ('T |g|))
                . #1#)
          (EXIT
-          (SPADCALL (CONS #'|INTEF;lfextendedint;FSFU;23!0| (VECTOR $ |k|))
+          (SPADCALL (CONS #'|INTEF;lfextendedint;FSFU;24!0| (VECTOR $ |k|))
                     (SPADCALL (SPADCALL |f| |k| (QREFELT $ 22))
                               (SPADCALL |g1| |k| (QREFELT $ 22))
                               (QREFELT $ 179))
@@ -994,21 +1050,21 @@
         (|INTEF;alglfextint| |f| |k| |l| |x| |g| $))
        ('T (|INTEF;unkextint| |f| |x| |g| $))))))) 
 
-(DEFUN |INTEF;lfextendedint;FSFU;23!0| (|x1| $$)
+(DEFUN |INTEF;lfextendedint;FSFU;24!0| (|x1| $$)
   (PROG (|k| $)
-    (LETT |k| (QREFELT $$ 1) . #1=(|INTEF;lfextendedint;FSFU;23|))
+    (LETT |k| (QREFELT $$ 1) . #1=(|INTEF;lfextendedint;FSFU;24|))
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
-(DEFUN |INTEF;lflimitedint;FSLU;24| (|f| |x| |lu| $)
-  (PROG (#1=#:G421 |u| #2=#:G420 |k| |l|)
+(DEFUN |INTEF;lflimitedint;FSLU;25| (|f| |x| |lu| $)
+  (PROG (#1=#:G446 |u| #2=#:G445 |k| |l|)
     (RETURN
      (SEQ
       (COND
        ((NULL
          (LETT |l|
                (SPADCALL (SPADCALL |f| (QREFELT $ 118)) |x| (QREFELT $ 165))
-               . #3=(|INTEF;lflimitedint;FSLU;24|)))
+               . #3=(|INTEF;lflimitedint;FSLU;25|)))
         (CONS 0
               (CONS (SPADCALL (SPADCALL |x| (QREFELT $ 72)) |f| (QREFELT $ 69))
                     NIL)))
@@ -1016,7 +1072,7 @@
          (SPADCALL (LETT |k| (SPADCALL |l| (QREFELT $ 166)) . #3#)
                    (QREFELT $ 124))
          0)
-        (SPADCALL (CONS #'|INTEF;lflimitedint;FSLU;24!0| (VECTOR $ |k|))
+        (SPADCALL (CONS #'|INTEF;lflimitedint;FSLU;25!0| (VECTOR $ |k|))
                   (SPADCALL (SPADCALL |f| |k| (QREFELT $ 22))
                             (PROGN
                              (LETT #2# NIL . #3#)
@@ -1044,24 +1100,24 @@
         (|INTEF;alglflimint| |f| |k| |l| |x| |lu| $))
        ('T (|INTEF;unklimint| |f| |x| |lu| $))))))) 
 
-(DEFUN |INTEF;lflimitedint;FSLU;24!0| (|x1| $$)
+(DEFUN |INTEF;lflimitedint;FSLU;25!0| (|x1| $$)
   (PROG (|k| $)
-    (LETT |k| (QREFELT $$ 1) . #1=(|INTEF;lflimitedint;FSLU;24|))
+    (LETT |k| (QREFELT $$ 1) . #1=(|INTEF;lflimitedint;FSLU;25|))
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
-(DEFUN |INTEF;lfinfieldint;FSU;25| (|f| |x| $)
+(DEFUN |INTEF;lfinfieldint;FSU;26| (|f| |x| $)
   (PROG (|u|)
     (RETURN
      (SEQ
       (LETT |u| (SPADCALL |f| |x| (|spadConstant| $ 63) (QREFELT $ 38))
-            |INTEF;lfinfieldint;FSU;25|)
+            |INTEF;lfinfieldint;FSU;26|)
       (EXIT
        (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
              ('T (CONS 0 (QCAR (QCDR |u|)))))))))) 
 
 (DEFUN |INTEF;primextint| (|f| |x| |k| |g| $)
-  (PROG (|u2| |u1| |lk| #1=#:G453 |a| #2=#:G452)
+  (PROG (|u2| |u1| |lk| #1=#:G478 |a| #2=#:G477)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1225,7 +1281,7 @@
   (VECTOR (|spadConstant| $ 200) |f| (|spadConstant| $ 201))) 
 
 (DEFUN |INTEF;primint| (|f| |x| |k| $)
-  (PROG (|r1| |denint| |lk| #1=#:G529 |a| #2=#:G528)
+  (PROG (|r1| |denint| |lk| #1=#:G554 |a| #2=#:G553)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1310,9 +1366,9 @@
     (LETT |denint_li| (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |rf| |k| |x| |denint_li|))))) 
 
-(DEFUN |INTEF;lfextlimint;FSKLU;30| (|f| |x| |k| |lk| $)
-  (PROG (#1=#:G548 #2=#:G547 #3=#:G549 #4=#:G559 |c| |cf| |u2| #5=#:G558 |u|
-         #6=#:G557 |lg| #7=#:G556 |kk| #8=#:G555 |twr| #9=#:G553 |u1|)
+(DEFUN |INTEF;lfextlimint;FSKLU;31| (|f| |x| |k| |lk| $)
+  (PROG (#1=#:G573 #2=#:G572 #3=#:G574 #4=#:G584 |c| |cf| |u2| #5=#:G583 |u|
+         #6=#:G582 |lg| #7=#:G581 |kk| #8=#:G580 |twr| #9=#:G578 |u1|)
     (RETURN
      (SEQ
       (EXIT
@@ -1323,7 +1379,7 @@
                          (SPADCALL (SPADCALL |k| (QREFELT $ 125)) |x|
                                    (QREFELT $ 19))
                          (QREFELT $ 38))
-               . #10=(|INTEF;lfextlimint;FSKLU;30|))
+               . #10=(|INTEF;lfextlimint;FSKLU;31|))
          (EXIT
           (COND
            ((NULL (QEQCAR |u1| 1)) (PROGN (LETT #9# |u1| . #10#) (GO #9#))))))
@@ -1438,7 +1494,7 @@
       #9# (EXIT #9#))))) 
 
 (DEFUN |INTEF;cfind| (|f| |l| $)
-  (PROG (#1=#:G562 #2=#:G564 #3=#:G565 |u|)
+  (PROG (#1=#:G587 #2=#:G589 #3=#:G590 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -1543,8 +1599,8 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;primlimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G620 |lg| #2=#:G619 |u1| #3=#:G618 |u| #4=#:G617 |lk|
-         #5=#:G616 |a| #6=#:G615)
+  (PROG (|u2| |l| #1=#:G645 |lg| #2=#:G644 |u1| #3=#:G643 |u| #4=#:G642 |lk|
+         #5=#:G641 |a| #6=#:G640)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1659,7 +1715,7 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;explimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G650 |lg| #2=#:G649 |u1| #3=#:G648 |u| #4=#:G647 |eta|)
+  (PROG (|u2| |l| #1=#:G675 |lg| #2=#:G674 |u1| #3=#:G673 |u| #4=#:G672 |eta|)
     (RETURN
      (SEQ
       (LETT |eta| (|SPADfirst| (SPADCALL |k| (QREFELT $ 18)))
@@ -1772,10 +1828,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryIntegration;|)) 
 
-(DEFUN |ElementaryIntegration| (&REST #1=#:G651)
+(DEFUN |ElementaryIntegration| (&REST #1=#:G676)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G652)
+     (PROG (#2=#:G677)
        (RETURN
         (COND
          ((LETT #2#
@@ -1886,9 +1942,9 @@
               (|PositiveInteger|) (58 . *)
               (|Record| (|:| |coeff| 7) (|:| |logand| 7))
               (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| 222))
-              (|Union| 33 '"failed") |INTEF;lflimitedint;FSLU;24|
+              (|Union| 33 '"failed") |INTEF;lflimitedint;FSLU;25|
               (|Record| (|:| |ratpart| 7) (|:| |coeff| 7))
-              (|Union| 36 '"failed") |INTEF;lfextendedint;FSFU;23|
+              (|Union| 36 '"failed") |INTEF;lfextendedint;FSFU;24|
               (|Union| 17 '"failed") (|Integer|) (|Mapping| 34 7 17)
               (|Mapping| 37 7 7) (|ElementaryRischDESystem| 6 7)
               (64 . |rischDEsys|) (|Record| (|:| |answer| 55) (|:| |a0| 7))
@@ -1945,8 +2001,8 @@
               (|Record| (|:| |coeff| 46) (|:| |logand| 46))
               (|Record| (|:| |mainpart| 46) (|:| |limitedlogs| (|List| 181)))
               (|Union| 182 '"failed") (|List| 46) (589 . |limitedint|)
-              (595 . |map|) (|Union| 7 '"failed") |INTEF;lfinfieldint;FSU;25|
-              (601 . ~=) |INTEF;lfextlimint;FSKLU;30|
+              (595 . |map|) (|Union| 7 '"failed") |INTEF;lfinfieldint;FSU;26|
+              (601 . ~=) |INTEF;lfextlimint;FSKLU;31|
               (|Record| (|:| |answer| 46) (|:| |a0| 7))
               (|Union| 191 177 '"failed") (|Mapping| 37 7)
               (607 . |primextendedint|)
