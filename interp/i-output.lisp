@@ -1935,7 +1935,8 @@
 ; exptNeedsPren a ==
 ;   atom a and null (INTEGERP a and a < 0)  => false
 ;   key:= keyp a
-;   key = "OVER" => true  -- added JHD 2/Aug/90
+;   key = "OVER" or key = "SIGMA" or key = "SIGMA2" or key = "PI"
+;     or key = "PI2" => true
 ;   (key="SUB") or (null GETL(key,"Nud") and null GETL(key,"Led")) => false
 ;   true
  
@@ -1946,12 +1947,14 @@
            (#1='T
             (PROGN
              (SETQ |key| (|keyp| |a|))
-             (COND ((EQ |key| 'OVER) T)
-                   ((OR (EQ |key| 'SUB)
-                        (AND (NULL (GETL |key| '|Nud|))
-                             (NULL (GETL |key| '|Led|))))
-                    NIL)
-                   (#1# T))))))))
+             (COND
+              ((OR (EQ |key| 'OVER) (EQ |key| 'SIGMA) (EQ |key| 'SIGMA2)
+                   (EQ |key| 'PI) (EQ |key| 'PI2))
+               T)
+              ((OR (EQ |key| 'SUB)
+                   (AND (NULL (GETL |key| '|Nud|)) (NULL (GETL |key| '|Led|))))
+               NIL)
+              (#1# T))))))))
  
 ; exptSub u == subspan CADR u
  
