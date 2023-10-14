@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4791 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4796 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -320,12 +320,12 @@
  |QuaternionCategoryFunctions2| |Queue| |RadicalCategory&| |RadicalCategory|
  |RadicalFunctionField| |RadixExpansion| |RadixUtilities| |RandomNumberSource|
  |RationalFactorize| |RationalRetractions| |RecursiveAggregate&|
- |RecursiveAggregate| |RealClosedField&| |RealClosedField| |ElementaryRischDE|
- |ElementaryRischDESystem| |ElementaryRischDEX| |ElementaryRischDEX2|
- |TranscendentalRischDE| |TranscendentalRischDESystem| |RandomDistributions|
- |ReducedDivisor| |RealConstant| |RealZeroPackage| |RealZeroPackageQ|
- |RealSolvePackage| |RealClosure| |RecurrenceOperator| |ReductionOfOrder|
- |Reference| |RegularTriangularSet| |RadicalEigenPackage|
+ |RecursiveAggregate| |RealClosedField&| |RealClosedField| |RDEaux|
+ |ElementaryRischDE| |ElementaryRischDESystem| |ElementaryRischDEX|
+ |ElementaryRischDEX2| |TranscendentalRischDE| |TranscendentalRischDESystem|
+ |RandomDistributions| |ReducedDivisor| |RealConstant| |RealZeroPackage|
+ |RealZeroPackageQ| |RealSolvePackage| |RealClosure| |RecurrenceOperator|
+ |ReductionOfOrder| |Reference| |RegularTriangularSet| |RadicalEigenPackage|
  |RepresentationPackage1| |RepresentationPackage2| |RepeatedDoubling|
  |RepeatedSquaring| |ResolveLatticeCompletion| |ResidueRing| |Result|
  |RetractableFrom&| |RetractableFrom| |RetractableTo&| |RetractableTo|
@@ -875,10 +875,11 @@
  |wholeRagits| |radix| |randnum| |reseed| |seed| |rational| |rational?|
  |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes|
  |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
- |rischDE| |rischDEsys| |ei_int| |risch_de_ext| |monomRDE| |baseRDE| |polyRDE|
- |monomRDEsys| |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints|
- |realZeros| |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq|
- |values| |eltable?| |ReduceOrder| |setref| |deref| |ref| |radicalEigenvectors|
+ |multi_SPDE| |rischDE| |boundAt0| |boundInf| |rischDEsys| |ei_int|
+ |risch_de_ext| |monomRDE| |baseRDE| |polyRDE| |SPDEnocancel1| |monomRDEsys|
+ |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints| |realZeros|
+ |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq| |values|
+ |eltable?| |ReduceOrder| |setref| |deref| |ref| |radicalEigenvectors|
  |radicalEigenvector| |radicalEigenvalues| |eigenMatrix| |normalise|
  |gramschmidt| |orthonormalBasis| |antisymmetricTensors| |createGenericMatrix|
  |symmetricTensors| |tensorProduct| |permutationRepresentation|
