@@ -124,7 +124,7 @@
         ('T (|error| "Not an elementary operator")))) 
 
 (DEFUN |EF;dropfun| (|x| $)
-  (PROG (#1=#:G343 |k|)
+  (PROG (#1=#:G346 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -1243,11 +1243,17 @@
 
 (DEFUN |EF;iatanh| (|x| $) (SPADCALL (QREFELT $ 36) |x| (QREFELT $ 123))) 
 
-(DEFUN |EF;iacoth| (|x| $) (SPADCALL (QREFELT $ 37) |x| (QREFELT $ 123))) 
+(DEFUN |EF;iacoth| (|x| $)
+  (COND ((SPADCALL |x| (QREFELT $ 116)) (|error| "Invalid argument"))
+        ('T (SPADCALL (QREFELT $ 37) |x| (QREFELT $ 123))))) 
 
-(DEFUN |EF;iasech| (|x| $) (SPADCALL (QREFELT $ 38) |x| (QREFELT $ 123))) 
+(DEFUN |EF;iasech| (|x| $)
+  (COND ((SPADCALL |x| (QREFELT $ 116)) (|error| "Invalid argument"))
+        ('T (SPADCALL (QREFELT $ 38) |x| (QREFELT $ 123))))) 
 
-(DEFUN |EF;iacsch| (|x| $) (SPADCALL (QREFELT $ 39) |x| (QREFELT $ 123))) 
+(DEFUN |EF;iacsch| (|x| $)
+  (COND ((SPADCALL |x| (QREFELT $ 116)) (|error| "Invalid argument"))
+        ('T (SPADCALL (QREFELT $ 39) |x| (QREFELT $ 123))))) 
 
 (DEFUN |EF;iexp| (|x| $)
   (PROG (|u| |s3| |s2| |h| |y| |xi| |i|)
@@ -1444,7 +1450,7 @@
                 (#1# (|EF;ilog| |x| $))))))))))) 
 
 (DEFUN |EF;ilog| (|x| $)
-  (PROG (#1=#:G568 |den| |num1| |num|)
+  (PROG (#1=#:G574 |den| |num1| |num|)
     (RETURN
      (SEQ
       (EXIT
@@ -1793,10 +1799,10 @@
 
 (DEFUN |EF;iiacsch;2F;127| (|x| $) (|EF;iacsch| |x| $)) 
 
-(DEFUN |ElementaryFunction| (&REST #1=#:G826)
+(DEFUN |ElementaryFunction| (&REST #1=#:G832)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G827)
+     (PROG (#2=#:G833)
        (RETURN
         (COND
          ((LETT #2#
