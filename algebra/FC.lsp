@@ -493,7 +493,7 @@
 (DEFUN |FC;forLoop;SbP2$;33| (|r| |increment| |body| $)
   (CONS (CONS 7 "for") (CONS 8 (VECTOR |r| |increment| |body|)))) 
 
-(DEFUN |FC;goto;Si$;34| (|l| $) (CONS (CONS 10 "goto") (CONS 9 |l|))) 
+(DEFUN |FC;gotoJump;Si$;34| (|l| $) (CONS (CONS 10 "goto") (CONS 9 |l|))) 
 
 (DEFUN |FC;continue;Si$;35| (|l| $) (CONS (CONS 11 "continue") (CONS 9 |l|))) 
 
@@ -815,15 +815,15 @@
                        (|:| |commonBranch| 34) (|:| |printBranch| 80))
               |FC;code;$U;24| (|Switch|) (35 . |coerce|) (40 . |coerce|)
               (45 . |width|) (49 . |width|) (|Boolean|) (54 . >)
-              (60 . |hspace|) (65 . NOT) |FC;goto;Si$;34| (|List| 12) (70 . =)
-              (76 . |coerce|) (81 . |coerce|) (86 . |cdr|) (91 . |car|)
-              (96 . |coerce|) (101 . |convert|) (|List| $) (106 . |convert|)
-              (|NonNegativeInteger|) (111 . >) (|SegmentBinding| 12)
-              (117 . |variable|) (|FortranType|) (122 . |fortranInteger|)
-              (|TheSymbolTable|) (126 . |declare!|) (|Segment| 12)
-              (132 . |segment|) (137 . |lo|) (142 . |coerce|) (147 . |hi|)
-              (152 . |Zero|) (|DoubleFloat|) (156 . |convert|) (|Void|)
-              (161 . |void|) |FC;printCode;$V;23| (|List| 18)
+              (60 . |hspace|) (65 . NOT) |FC;gotoJump;Si$;34| (|List| 12)
+              (70 . =) (76 . |coerce|) (81 . |coerce|) (86 . |cdr|)
+              (91 . |car|) (96 . |coerce|) (101 . |convert|) (|List| $)
+              (106 . |convert|) (|NonNegativeInteger|) (111 . >)
+              (|SegmentBinding| 12) (117 . |variable|) (|FortranType|)
+              (122 . |fortranInteger|) (|TheSymbolTable|) (126 . |declare!|)
+              (|Segment| 12) (132 . |segment|) (137 . |lo|) (142 . |coerce|)
+              (147 . |hi|) (152 . |Zero|) (|DoubleFloat|) (156 . |convert|)
+              (|Void|) (161 . |void|) |FC;printCode;$V;23| (|List| 18)
               |FC;common;SL$;26| |FC;stop;$;27| |FC;save;$;28| (|List| 17)
               |FC;printStatement;L$;29| |FC;comment;L$;30| (165 . |list|)
               |FC;comment;S$;31| (170 . |incr|) (175 . |coerce|)
@@ -866,8 +866,8 @@
            '#(~= 310 |whileLoop| 316 |stop| 322 |setLabelValue| 326 |save| 331
               |returns| 335 |repeatUntilLoop| 369 |printStatement| 375
               |printCode| 380 |operation| 385 |latex| 390 |hashUpdate!| 395
-              |hash| 401 |goto| 406 |getCode| 411 |forLoop| 416 |continue| 429
-              |cond| 434 |common| 447 |comment| 453 |coerce| 463 |code| 468
+              |hash| 401 |gotoJump| 406 |getCode| 411 |forLoop| 416 |continue|
+              429 |cond| 434 |common| 447 |comment| 453 |coerce| 463 |code| 468
               |call| 473 |block| 478 |assign| 483 = 675)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))

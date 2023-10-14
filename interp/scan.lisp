@@ -72,6 +72,7 @@
 ;            ['"for",      "for"], _
 ;            ['"free",    "FREE" ],_
 ;            ['"from",    "FROM" ],_
+;            ['"goto",    "goto"], _
 ;            ['"has",      "has"],_
 ;            ['"if",       "if"], _
 ;            ['"import", "import"], _
@@ -167,15 +168,15 @@
                 (LIST "else" '|else|) (LIST "exquo" '|exquo|)
                 (LIST "export" 'EXPORT) (LIST "finally" '|finally|)
                 (LIST "for" '|for|) (LIST "free" 'FREE) (LIST "from" 'FROM)
-                (LIST "has" '|has|) (LIST "if" '|if|) (LIST "import" '|import|)
-                (LIST "in" '|in|) (LIST "inline" 'INLINE) (LIST "is" '|is|)
-                (LIST "isnt" '|isnt|) (LIST "iterate" 'ITERATE)
-                (LIST "local" '|local|) (LIST "macro" 'MACRO) (LIST "mod" 'MOD)
-                (LIST "not" '|not|) (LIST "or" '|or|)
-                (LIST "pretend" '|pretend|) (LIST "quo" '|quo|)
-                (LIST "rem" '|rem|) (LIST "repeat" '|repeat|)
-                (LIST "return" '|return|) (LIST "rule" 'RULE)
-                (LIST "then" '|then|) (LIST "try" '|try|)
+                (LIST "goto" '|goto|) (LIST "has" '|has|) (LIST "if" '|if|)
+                (LIST "import" '|import|) (LIST "in" '|in|)
+                (LIST "inline" 'INLINE) (LIST "is" '|is|) (LIST "isnt" '|isnt|)
+                (LIST "iterate" 'ITERATE) (LIST "local" '|local|)
+                (LIST "macro" 'MACRO) (LIST "mod" 'MOD) (LIST "not" '|not|)
+                (LIST "or" '|or|) (LIST "pretend" '|pretend|)
+                (LIST "quo" '|quo|) (LIST "rem" '|rem|)
+                (LIST "repeat" '|repeat|) (LIST "return" '|return|)
+                (LIST "rule" 'RULE) (LIST "then" '|then|) (LIST "try" '|try|)
                 (LIST "until" '|until|) (LIST "where" '|where|)
                 (LIST "while" '|while|) (LIST "with" '|with|)
                 (LIST "yield" '|yield|) (LIST "|" 'BAR) (LIST "." 'DOT)

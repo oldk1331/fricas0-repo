@@ -38824,7 +38824,7 @@
  (|printStatement| . 1716633) (|save| . 1716588) (|stop| . 1716543)
  (|block| . 1716439) (|cond| . 1716266) (|returns| . 1715570)
  (|call| . 1715489) (|comment| . 1715318) (|continue| . 1715228)
- (|goto| . 1715138) (|repeatUntilLoop| . 1715052) (|whileLoop| . 1714966)
+ (|gotoJump| . 1715138) (|repeatUntilLoop| . 1715052) (|whileLoop| . 1714966)
  (|forLoop| . 1714659) (|sin?| . 1714527) (|zeroVector| . 1714344)
  (|zeroSquareMatrix| . 1714161) (|identitySquareMatrix| . 1713978)
  (|lSpaceBasis| . 1713641) (|finiteBasis| . 1713304) (|principal?| . 1712959)

@@ -515,7 +515,7 @@
  |linearAssociatedLog| |linearAssociatedOrder| |linearAssociatedExp|
  |createNormalElement| |setLabelValue| |getCode| |printCode| |code| |operation|
  |common| |printStatement| |save| |stop| |block| |cond| |returns| |call|
- |comment| |continue| |goto| |repeatUntilLoop| |whileLoop| |forLoop| |sin?|
+ |comment| |continue| |gotoJump| |repeatUntilLoop| |whileLoop| |forLoop| |sin?|
  |zeroVector| |zeroSquareMatrix| |identitySquareMatrix| |lSpaceBasis|
  |finiteBasis| |principal?| |divisor| |weierstrassHalfPeriods|
  |weierstrassInvariants| |modularInvariantJ| |landen1| |landen2| |landen|
