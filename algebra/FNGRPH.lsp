@@ -12,7 +12,8 @@
                   (COND
                    ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
                     (GO G191)))
-                  (SEQ (EXIT (LETT #2# (CONS (VECTOR |x| 0 0 0) #2#) . #3#)))
+                  (SEQ
+                   (EXIT (LETT #2# (CONS (VECTOR |x| 0 0 0 NIL) #2#) . #3#)))
                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                   (EXIT (NREVERSE #2#))))
             . #3#)
@@ -49,7 +50,7 @@
            (SEQ (LETT |f| (SPADCALL |ob| |fn| (QREFELT $ 19)) . #5#)
                 (LETT |fo|
                       (VECTOR (QVELT |f| 0) (QVELT |f| 1) (QVELT |f| 2)
-                              (SPADCALL |arrs| |fn| (QREFELT $ 20)))
+                              (SPADCALL |arrs| |fn| (QREFELT $ 20)) NIL)
                       . #5#)
                 (EXIT
                  (LETT |fobs| (SPADCALL |fobs| |fo| (QREFELT $ 21)) . #5#)))
@@ -88,7 +89,8 @@
                 (LETT |o|
                       (VECTOR |vert|
                               (SPADCALL (LENGTH |im|) |i| (QREFELT $ 33))
-                              (SPADCALL (LENGTH |im|) |i| (QREFELT $ 34)) |n|)
+                              (SPADCALL (LENGTH |im|) |i| (QREFELT $ 34)) |n|
+                              NIL)
                       . #4#)
                 (EXIT (LETT |obs| (SPADCALL |obs| |o| (QREFELT $ 21)) . #4#)))
            (LETT #2# (PROG1 (CDR #2#) (LETT |i| (|inc_SI| |i|) . #4#)) . #4#)
@@ -99,7 +101,7 @@
   (PROG (|obj| |obs|)
     (RETURN
      (SEQ (LETT |obs| (QCAR |s|) . #1=(|FNGRPH;addObject!;$S$;5|))
-          (LETT |obj| (VECTOR |n| 0 0 (LENGTH |obs|)) . #1#)
+          (LETT |obj| (VECTOR |n| 0 0 (LENGTH |obs|) NIL) . #1#)
           (COND
            ((SPADCALL |obs| NIL (QREFELT $ 37))
             (PROGN (RPLACA |s| (LIST |obj|)) (QCAR |s|)))
@@ -141,8 +143,8 @@
                (SEQ
                 (LETT |soj| (SPADCALL (QCAR |s|) |sojn| (QREFELT $ 40)) . #2#)
                 (LETT |a|
-                      (VECTOR (STRINGIMAGE |sojn|) 0 |sojn| (QVELT |soj| 3) 0
-                              0)
+                      (VECTOR (STRINGIMAGE |sojn|) 0 |sojn| (QVELT |soj| 3) 0 0
+                              (QVELT |soj| 4))
                       . #2#)
                 (EXIT (LETT |res| (SPADCALL |res| |a| (QREFELT $ 45)) . #2#)))
                (LETT |sojn| (|inc_SI| |sojn|) . #2#) (GO G190) G191 (EXIT NIL))
@@ -155,7 +157,7 @@
 (DEFUN |FNGRPH;terminal;S$;11| (|a| $)
   (PROG (|o|)
     (RETURN
-     (SEQ (LETT |o| (VECTOR |a| 0 0 1) |FNGRPH;terminal;S$;11|)
+     (SEQ (LETT |o| (VECTOR |a| 0 0 1 NIL) |FNGRPH;terminal;S$;11|)
           (EXIT (LIST (LIST |o|))))))) 
 
 (DEFUN |FNGRPH;cycleOpen;LS$;12| (|objs| |arrowName| $)
@@ -175,7 +177,7 @@
                                             (QREFELT $ 33))
                                   (SPADCALL (LENGTH |objs|) |obn|
                                             (QREFELT $ 34))
-                                  |n|)
+                                  |n| NIL)
                           . #2#)
                     (EXIT
                      (LETT |obs| (SPADCALL |obs| |o| (QREFELT $ 21)) . #2#)))
@@ -197,7 +199,7 @@
                                             (QREFELT $ 33))
                                   (SPADCALL (LENGTH |objs|) |obn|
                                             (QREFELT $ 34))
-                                  |n|)
+                                  |n| NIL)
                           . #2#)
                     (EXIT
                      (LETT |obs| (SPADCALL |obs| |o| (QREFELT $ 21)) . #2#)))
@@ -217,8 +219,8 @@
                    (EXIT
                     (LETT #2#
                           (CONS
-                           (VECTOR (SPADCALL |objs| |x| (QREFELT $ 31)) 0 0
-                                   |x|)
+                           (VECTOR (SPADCALL |objs| |x| (QREFELT $ 31)) 0 0 |x|
+                                   NIL)
                            #2#)
                           . #3#)))
                   (LETT |x| (|inc_SI| |x|) . #3#) (GO G190) G191
@@ -246,7 +248,8 @@
                                 (QVELT (SPADCALL |objs| |x| (QREFELT $ 40)) 0)
                                 (QVELT (SPADCALL |objs| |x| (QREFELT $ 40)) 1)
                                 (QVELT (SPADCALL |objs| |x| (QREFELT $ 40)) 2)
-                                (+ |x| (LENGTH (QCAR |a|))))
+                                (+ |x| (LENGTH (QCAR |a|)))
+                                (QVELT (SPADCALL |objs| |x| (QREFELT $ 40)) 4))
                                #2#)
                               . #3#)))
                       (LETT |x| (|inc_SI| |x|) . #3#) (GO G190) G191
@@ -307,7 +310,8 @@
                                      . #3#)
                                (LETT |sp| (SPADCALL |ai| |bi| (QREFELT $ 59))
                                      . #3#)
-                               (LETT |ob| (VECTOR |sp| |x| |y| |nextA|) . #3#)
+                               (LETT |ob| (VECTOR |sp| |x| |y| |nextA| NIL)
+                                     . #3#)
                                (EXIT
                                 (LETT |newObjs|
                                       (SPADCALL |newObjs| |ob| (QREFELT $ 62))
@@ -353,7 +357,8 @@
                                      (|FNGRPH;indexProd| |b| |bni| |ani| $)
                                      . #3#)
                                (LETT |sp| (SPADCALL |ai| |bi| |f|) . #3#)
-                               (LETT |ob| (VECTOR |sp| |x| |y| |nextA|) . #3#)
+                               (LETT |ob| (VECTOR |sp| |x| |y| |nextA| NIL)
+                                     . #3#)
                                (EXIT
                                 (LETT |newObjs|
                                       (SPADCALL |newObjs| |ob| (QREFELT $ 21))
@@ -376,7 +381,8 @@
                   (COND
                    ((OR (ATOM #5#) (PROGN (LETT |o| (CAR #5#) . #7#) NIL))
                     (GO G191)))
-                  (SEQ (EXIT (LETT #6# (CONS (VECTOR |o| 0 0 0) #6#) . #7#)))
+                  (SEQ
+                   (EXIT (LETT #6# (CONS (VECTOR |o| 0 0 0 NIL) #6#) . #7#)))
                   (LETT #5# (CDR #5#) . #7#) (GO G190) G191
                   (EXIT (NREVERSE #6#))))
             . #7#)
@@ -400,7 +406,10 @@
                       . #7#)
                 (LETT |newNext|
                       (SPADCALL |m| (QVELT |oldObj| 3) (QREFELT $ 20)) . #7#)
-                (LETT |nv| (VECTOR |newObj| |newX| |newY| |newNext|) . #7#)
+                (LETT |nv|
+                      (VECTOR |newObj| |newX| |newY| |newNext|
+                              (QVELT |oldObj| 4))
+                      . #7#)
                 (EXIT
                  (COND
                   ((SPADCALL |i| |inext| (QREFELT $ 28))
@@ -426,7 +435,8 @@
                   (COND
                    ((OR (ATOM #5#) (PROGN (LETT |o| (CAR #5#) . #7#) NIL))
                     (GO G191)))
-                  (SEQ (EXIT (LETT #6# (CONS (VECTOR |o| 0 0 0) #6#) . #7#)))
+                  (SEQ
+                   (EXIT (LETT #6# (CONS (VECTOR |o| 0 0 0 NIL) #6#) . #7#)))
                   (LETT #5# (CDR #5#) . #7#) (GO G190) G191
                   (EXIT (NREVERSE #6#))))
             . #7#)
@@ -456,7 +466,10 @@
                 (LETT |newNext|
                       (SPADCALL |m| (|SPADfirst| |incoming|) (QREFELT $ 20))
                       . #7#)
-                (LETT |n| (VECTOR |newObj| |newX| |newY| |newNext|) . #7#)
+                (LETT |n|
+                      (VECTOR |newObj| |newX| |newY| |newNext|
+                              (QVELT |oldObj| 4))
+                      . #7#)
                 (EXIT
                  (COND
                   ((SPADCALL |i| |inext| (QREFELT $ 28))
@@ -647,7 +660,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionGraph|))
       (LETT |dv$| (LIST '|FunctionGraph| DV$1) . #1#)
-      (LETT $ (GETREFV 96) . #1#)
+      (LETT $ (GETREFV 98) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|FunctionGraph| (LIST DV$1) (CONS 1 $))
@@ -661,7 +674,9 @@
                        (|Record| (|:| |value| |#1|)
                                  (|:| |posX| (|NonNegativeInteger|))
                                  (|:| |posY| (|NonNegativeInteger|))
-                                 (|:| |next| (|NonNegativeInteger|)))))))
+                                 (|:| |next| (|NonNegativeInteger|))
+                                 (|:| |map|
+                                      (|List| (|NonNegativeInteger|))))))))
       $)))) 
 
 (MAKEPROP '|FunctionGraph| '|infovec|
@@ -669,13 +684,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|List| 6)
               |FNGRPH;functionGraph;L$;1|
               (|Record| (|:| |value| 6) (|:| |posX| 13) (|:| |posY| 13)
-                        (|:| |next| 13))
+                        (|:| |next| 13) (|:| |map| 15))
               (|List| 10) |FNGRPH;functionGraph;L$;2| (|NonNegativeInteger|)
               (|Integer|) (|List| 13) (0 . |setelt|)
               (|Record| (|:| |value| 6) (|:| |posX| 13) (|:| |posY| 13))
               (|List| 17) (7 . |elt|) (13 . |elt|) (19 . |concat|)
               (|Record| (|:| |name| 41) (|:| |arrType| 13) (|:| |fromOb| 13)
-                        (|:| |toOb| 13) (|:| |xOffset| 14) (|:| |yOffset| 14))
+                        (|:| |toOb| 13) (|:| |xOffset| 14) (|:| |yOffset| 14)
+                        (|:| |map| 15))
               (|List| 22) |FNGRPH;functionGraph;LL$;3| (|Permutation| 6)
               (25 . |One|) (|Boolean|) (29 . ~=)
               (|Record| (|:| |preimage| 8) (|:| |image| 8))
@@ -691,7 +707,7 @@
               |FNGRPH;+;3$;16| |FNGRPH;merge;3$;17| (94 . |diagramWidth|)
               (99 . |diagramHeight|) (|Product| 6 6) (104 . |construct|)
               (|Record| (|:| |value| 58) (|:| |posX| 13) (|:| |posY| 13)
-                        (|:| |next| 13))
+                        (|:| |next| 13) (|:| |map| 15))
               (|List| 60) (110 . |concat|) (|FunctionGraph| 58)
               (116 . |functionGraph|) |FNGRPH;*;2$Fg;19| (|Mapping| 6 6 6)
               |FNGRPH;closedTensor;2$M$;20| (121 . |setelt|)
@@ -701,35 +717,37 @@
               (|Union| 15 '"failed") |FNGRPH;coAdjoint;$LU;23| (170 . |min|)
               |FNGRPH;contraAdjoint;$LU;24| |FNGRPH;apply;$2Nni;25| (|List| 86)
               (176 . |loopsAtNode|) (|Loop|) (182 . |loop|)
-              |FNGRPH;limit;$NniL;26| (|Void|) (|Matrix| 14) (|Matrix| 13)
-              (|List| 93) (|Tree| 14) (|OutputForm|) (|SingleInteger|))
-           '#(~= 187 |unit| 193 |toString| 199 |terminal| 204
-              |spanningTreeNode| 209 |spanningTreeArrow| 215
-              |spanningForestNode| 221 |spanningForestArrow| 226 |routeNodes|
-              231 |routeArrows| 238 |outDegree| 245 |nodeToNode| 251
-              |nodeToArrow| 257 |nodeFromNode| 263 |nodeFromArrow| 269 |min|
-              275 |merge| 286 |max| 292 |mapContra| 303 |map| 312 |looseEquals|
-              321 |loopsNodes| 327 |loopsAtNode| 332 |loopsArrows| 338 |limit|
-              343 |latex| 349 |laplacianMatrix| 354 |kgraph| 359
-              |isGreaterThan?| 365 |isFunctional?| 372 |isFixPoint?| 377
-              |isDirected?| 383 |isDirectSuccessor?| 387 |isAcyclic?| 394
-              |initial| 399 |incidenceMatrix| 403 |inDegree| 408 |hash| 414
-              |getVertices| 419 |getVertexIndex| 424 |getArrows| 430
-              |getArrowIndex| 435 |functionGraph| 442 |distanceMatrix| 463
-              |distance| 468 |diagramWidth| 475 |diagramSvg| 480
-              |diagramHeight| 487 |cycleOpen| 492 |cycleClosed| 498 |createY|
-              504 |createX| 510 |createWidth| 516 |contraAdjoint| 521 |coerce|
-              527 |coAdjoint| 537 |closedTensor| 543 |arrowsToNode| 550
-              |arrowsToArrow| 556 |arrowsFromNode| 562 |arrowsFromArrow| 568
-              |arrowName| 574 |apply| 581 |adjacencyMatrix| 587 |addObject!|
-              592 |addArrow!| 604 = 620 + 626 * 632)
+              |FNGRPH;limit;$NniL;26| (|Void|) (|Scene| (|SCartesian| '2))
+              (|Matrix| 14) (|Matrix| 13) (|List| 94) (|Tree| 14)
+              (|DirectedGraph| $) (|OutputForm|) (|SingleInteger|))
+           '#(~= 187 |unit| 193 |terminal| 199 |subdiagramSvg| 204
+              |spanningTreeNode| 212 |spanningTreeArrow| 218
+              |spanningForestNode| 224 |spanningForestArrow| 229 |routeNodes|
+              234 |routeArrows| 241 |outDegree| 248 |nodeToNode| 254
+              |nodeToArrow| 260 |nodeFromNode| 266 |nodeFromArrow| 272 |min|
+              278 |merge| 289 |max| 295 |mapContra| 306 |map| 315 |looseEquals|
+              324 |loopsNodes| 330 |loopsAtNode| 335 |loopsArrows| 341 |limit|
+              346 |latex| 352 |laplacianMatrix| 357 |kgraph| 362
+              |isGreaterThan?| 368 |isFunctional?| 375 |isFixPoint?| 380
+              |isDirected?| 386 |isDirectSuccessor?| 390 |isAcyclic?| 397
+              |initial| 402 |incidenceMatrix| 406 |inDegree| 411 |hash| 417
+              |getVertices| 422 |getVertexIndex| 427 |getArrows| 433
+              |getArrowIndex| 438 |functionGraph| 445 |flatten| 466
+              |distanceMatrix| 471 |distance| 476 |diagramWidth| 483
+              |diagramSvg| 488 |diagramHeight| 495 |deepDiagramSvg| 500
+              |cycleOpen| 507 |cycleClosed| 513 |createY| 519 |createX| 525
+              |createWidth| 531 |contraAdjoint| 536 |coerce| 542 |coAdjoint|
+              552 |closedTensor| 558 |arrowsToNode| 565 |arrowsToArrow| 571
+              |arrowsFromNode| 577 |arrowsFromArrow| 583 |arrowName| 589
+              |apply| 596 |adjacencyMatrix| 602 |addObject!| 607 |addArrow!|
+              619 = 644 + 650 * 656)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|FiniteGraph&| |SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|FiniteGraph| 6) (|SetCategory|) (|CoercibleTo| 94)
+                        '#((|FiniteGraph| 6) (|SetCategory|) (|CoercibleTo| 96)
                            (|BasicType|))
-                        (|makeByteWordVec2| 95
+                        (|makeByteWordVec2| 97
                                             '(3 15 13 0 14 13 16 2 18 17 0 14
                                               19 2 15 13 0 14 20 2 11 0 0 10 21
                                               0 25 0 26 2 13 27 0 0 28 1 25 29
@@ -745,35 +763,37 @@
                                               15 0 14 15 77 2 0 13 0 15 78 2 0
                                               13 0 15 81 2 0 84 0 13 85 1 86 0
                                               15 87 2 0 27 0 0 1 2 0 0 8 41 51
-                                              1 0 41 0 1 1 0 0 6 48 2 0 93 0 13
-                                              1 2 0 93 0 13 1 1 0 92 0 1 1 0 92
-                                              0 1 3 0 15 0 13 13 1 3 0 15 0 13
-                                              13 1 2 0 13 0 13 1 2 0 15 0 13 70
+                                              1 0 0 6 48 4 0 89 90 0 27 27 1 2
+                                              0 94 0 13 1 2 0 94 0 13 1 1 0 93
+                                              0 1 1 0 93 0 1 3 0 15 0 13 13 1 3
+                                              0 15 0 13 13 1 2 0 13 0 13 1 2 0
+                                              15 0 13 70 2 0 15 0 13 1 2 0 15 0
+                                              13 1 2 0 15 0 13 1 1 0 13 0 1 2 0
+                                              13 0 15 81 2 0 0 0 0 55 1 0 13 0
+                                              1 2 0 13 0 15 78 5 0 0 0 15 8 14
+                                              14 72 5 0 0 0 15 8 14 14 69 2 0
+                                              27 0 0 1 1 0 84 0 1 2 0 84 0 13
+                                              85 1 0 84 0 1 2 0 86 0 13 88 1 0
+                                              41 0 1 1 0 91 0 1 2 0 0 8 41 52 3
+                                              0 27 0 13 13 1 1 0 27 0 1 2 0 27
+                                              0 13 1 0 0 27 1 3 0 27 0 13 13 1
+                                              1 0 27 0 1 0 0 0 47 1 0 91 0 1 2
+                                              0 13 0 13 1 1 0 97 0 1 1 0 18 0
+                                              44 2 0 13 0 6 1 1 0 23 0 46 3 0
+                                              13 0 13 13 1 1 0 0 35 36 2 0 0 18
+                                              23 24 1 0 0 8 9 1 0 0 11 12 1 0 0
+                                              95 1 1 0 91 0 1 3 0 14 0 13 13 1
+                                              1 0 13 0 56 3 0 89 41 0 27 1 1 0
+                                              13 0 57 3 0 89 41 0 27 1 2 0 0 8
+                                              41 49 2 0 0 8 41 50 2 0 13 13 13
+                                              34 2 0 13 13 13 33 1 0 13 13 1 2
+                                              0 79 0 15 82 1 0 96 0 1 1 0 96 0
+                                              1 2 0 79 0 15 80 3 0 0 0 0 66 67
                                               2 0 15 0 13 1 2 0 15 0 13 1 2 0
-                                              15 0 13 1 1 0 13 0 1 2 0 13 0 15
-                                              81 2 0 0 0 0 55 2 0 13 0 15 78 1
-                                              0 13 0 1 5 0 0 0 15 8 14 14 72 5
-                                              0 0 0 15 8 14 14 69 2 0 27 0 0 1
-                                              1 0 84 0 1 2 0 84 0 13 85 1 0 84
-                                              0 1 2 0 86 0 13 88 1 0 41 0 1 1 0
-                                              90 0 1 2 0 0 8 41 52 3 0 27 0 13
-                                              13 1 1 0 27 0 1 2 0 27 0 13 1 0 0
-                                              27 1 3 0 27 0 13 13 1 1 0 27 0 1
-                                              0 0 0 47 1 0 90 0 1 2 0 13 0 13 1
-                                              1 0 95 0 1 1 0 18 0 44 2 0 13 0 6
-                                              1 1 0 23 0 46 3 0 13 0 13 13 1 1
-                                              0 0 35 36 1 0 0 11 12 2 0 0 18 23
-                                              24 1 0 0 8 9 1 0 90 0 1 3 0 14 0
-                                              13 13 1 1 0 13 0 56 3 0 89 41 0
-                                              27 1 1 0 13 0 57 2 0 0 8 41 49 2
-                                              0 0 8 41 50 2 0 13 13 13 34 2 0
-                                              13 13 13 33 1 0 13 13 1 2 0 79 0
-                                              15 82 1 0 94 0 1 1 0 94 0 1 2 0
-                                              79 0 15 80 3 0 0 0 0 66 67 2 0 15
-                                              0 13 1 2 0 15 0 13 1 2 0 15 0 13
-                                              1 2 0 15 0 13 1 3 0 41 0 13 13 1
-                                              2 0 13 0 13 83 1 0 91 0 1 2 0 0 0
-                                              17 39 2 0 0 0 6 38 4 0 0 0 41 13
-                                              13 42 4 0 0 0 41 6 6 1 2 0 27 0 0
-                                              1 2 0 0 0 0 54 2 0 63 0 0 65)))))
+                                              15 0 13 1 2 0 15 0 13 1 3 0 41 0
+                                              13 13 1 2 0 13 0 13 83 1 0 92 0 1
+                                              2 0 0 0 17 39 2 0 0 0 6 38 4 0 0
+                                              0 41 6 6 1 4 0 0 0 41 13 13 42 5
+                                              0 0 0 41 13 13 15 1 2 0 27 0 0 1
+                                              2 0 0 0 0 54 2 0 63 0 0 65)))))
            '|lookupComplete|)) 

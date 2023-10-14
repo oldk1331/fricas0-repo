@@ -17,17 +17,31 @@
 
 (DEFUN |SARGND;svec;3Df$;4| (|a| |b| |c| $) (CONS |a| |b|)) 
 
-(PUT '|SARGND;dimension;$Pi;5| '|SPADreplace| '(XLAM (|p|) 2)) 
+(DEFUN |SARGND;min;3$;5| (|a| |b| $)
+  (PROG (|im| |re|)
+    (RETURN
+     (SEQ (LETT |re| (|min_DF| (QCAR |a|) (QCAR |b|)) . #1=(|SARGND;min;3$;5|))
+          (LETT |im| (|min_DF| (QCDR |a|) (QCDR |b|)) . #1#)
+          (EXIT (CONS |re| |im|)))))) 
 
-(DEFUN |SARGND;dimension;$Pi;5| (|p| $) 2) 
+(DEFUN |SARGND;max;3$;6| (|a| |b| $)
+  (PROG (|im| |re|)
+    (RETURN
+     (SEQ (LETT |re| (|max_DF| (QCAR |a|) (QCAR |b|)) . #1=(|SARGND;max;3$;6|))
+          (LETT |im| (|max_DF| (QCDR |a|) (QCDR |b|)) . #1#)
+          (EXIT (CONS |re| |im|)))))) 
 
-(DEFUN |SARGND;nan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 15))) 
+(PUT '|SARGND;dimension;$Pi;7| '|SPADreplace| '(XLAM (|p|) 2)) 
 
-(DEFUN |SARGND;Pnan?;$B;7| (|p| $)
+(DEFUN |SARGND;dimension;$Pi;7| (|p| $) 2) 
+
+(DEFUN |SARGND;nan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 17))) 
+
+(DEFUN |SARGND;Pnan?;$B;9| (|p| $)
   (COND ((OR (|SARGND;nan?| (QCAR |p|) $) (|SARGND;nan?| (QCDR |p|) $)) 'T)
         ('T 'NIL))) 
 
-(DEFUN |SARGND;unitVector;2$;8| (|p| $)
+(DEFUN |SARGND;unitVector;2$;10| (|p| $)
   (PROG (|factor|)
     (RETURN
      (SEQ
@@ -35,100 +49,120 @@
             (SPADCALL
              (|add_DF| (|mul_DF| (QCAR |p|) (QCAR |p|))
                        (|mul_DF| (QCDR |p|) (QCDR |p|)))
-             (QREFELT $ 17))
-            |SARGND;unitVector;2$;8|)
+             (QREFELT $ 19))
+            |SARGND;unitVector;2$;10|)
       (EXIT
        (CONS (|div_DF| (QCAR |p|) |factor|) (|div_DF| (QCDR |p|) |factor|))))))) 
 
-(DEFUN |SARGND;distanceSquared;2$Df;9| (|p1| |p2| $)
+(DEFUN |SARGND;distanceSquared;2$Df;11| (|p1| |p2| $)
   (|add_DF| (|expt_DF_I| (|sub_DF| (QCAR |p1|) (QCAR |p2|)) 2)
             (|expt_DF_I| (|sub_DF| (QCDR |p1|) (QCDR |p2|)) 2))) 
 
-(DEFUN |SARGND;parallel;2$Df;10| (|x| |y| $)
+(DEFUN |SARGND;parallel;2$Df;12| (|x| |y| $)
   (|add_DF| (|mul_DF| (QCAR |x|) (QCAR |y|)) (|mul_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(PUT '|SARGND;perpendicular;3$;11| '|SPADreplace|
+(PUT '|SARGND;perpendicular;3$;13| '|SPADreplace|
      '(XLAM (|x| |y|) (CONS 0.0 1.0))) 
 
-(DEFUN |SARGND;perpendicular;3$;11| (|x| |y| $) (CONS 0.0 1.0)) 
+(DEFUN |SARGND;perpendicular;3$;13| (|x| |y| $) (CONS 0.0 1.0)) 
 
-(DEFUN |SARGND;*;Df2$;12| (|s| |x| $)
+(DEFUN |SARGND;*;Df2$;14| (|s| |x| $)
   (CONS (|mul_DF| (QCAR |x|) |s|) (|mul_DF| (QCDR |x|) |s|))) 
 
-(DEFUN |SARGND;+;3$;13| (|x| |y| $)
+(DEFUN |SARGND;+;3$;15| (|x| |y| $)
   (CONS (|add_DF| (QCAR |x|) (QCAR |y|)) (|add_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(DEFUN |SARGND;-;3$;14| (|x| |y| $)
+(DEFUN |SARGND;-;3$;16| (|x| |y| $)
   (CONS (|sub_DF| (QCAR |x|) (QCAR |y|)) (|sub_DF| (QCDR |x|) (QCDR |y|)))) 
 
-(DEFUN |SARGND;inBounds?;3$B;15| (|pt| |mns| |mxs| $)
+(DEFUN |SARGND;inBounds?;3$B;17| (|pt| |mns| |mxs| $)
   (COND
    ((OR (|less_DF| (QCAR |pt|) (QCAR |mns|))
-        (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 25))
+        (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 27))
             (OR (|less_DF| (QCDR |pt|) (QCDR |mns|))
-                (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 25)))))
+                (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 27)))))
     'NIL)
    ('T 'T))) 
 
-(PUT '|SARGND;screenCoordX;$Df;16| '|SPADreplace| 'QCAR) 
+(PUT '|SARGND;screenCoordX;$Df;18| '|SPADreplace| 'QCAR) 
 
-(DEFUN |SARGND;screenCoordX;$Df;16| (|pt| $) (QCAR |pt|)) 
+(DEFUN |SARGND;screenCoordX;$Df;18| (|pt| $) (QCAR |pt|)) 
 
-(PUT '|SARGND;screenCoordY;$Df;17| '|SPADreplace| 'QCDR) 
+(PUT '|SARGND;screenCoordY;$Df;19| '|SPADreplace| 'QCDR) 
 
-(DEFUN |SARGND;screenCoordY;$Df;17| (|pt| $) (QCDR |pt|)) 
+(DEFUN |SARGND;screenCoordY;$Df;19| (|pt| $) (QCDR |pt|)) 
 
-(PUT '|SARGND;screenCoordZ;$Df;18| '|SPADreplace| '(XLAM (|pt|) 0.0)) 
+(PUT '|SARGND;screenCoordZ;$Df;20| '|SPADreplace| '(XLAM (|pt|) 0.0)) 
 
-(DEFUN |SARGND;screenCoordZ;$Df;18| (|pt| $) 0.0) 
+(DEFUN |SARGND;screenCoordZ;$Df;20| (|pt| $) 0.0) 
 
-(DEFUN |SARGND;screenCoords;$L;19| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
+(DEFUN |SARGND;screenCoords;$L;21| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(DEFUN |SARGND;extendedCoords;$L;20| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
+(DEFUN |SARGND;extendedCoords;$L;22| (|pt| $) (LIST (QCAR |pt|) (QCDR |pt|))) 
 
-(DEFUN |SARGND;coerce;$C;21| (|me| $)
-  (SPADCALL (QCAR |me|) (QCDR |me|) (QREFELT $ 34))) 
+(DEFUN |SARGND;toPoint;2$;23| (|p| $) (CONS (QCAR |p|) (QCDR |p|))) 
 
-(DEFUN |SARGND;coerce;C$;22| (|cmpx| $)
-  (CONS (SPADCALL |cmpx| (QREFELT $ 36)) (SPADCALL |cmpx| (QREFELT $ 37)))) 
+(DEFUN |SARGND;toVector;2$;24| (|p| $) (CONS (QCAR |p|) (QCDR |p|))) 
 
-(PUT '|SARGND;hash;$Si;23| '|SPADreplace| '(XLAM (|s|) 0)) 
+(PUT '|SARGND;isPoint?;$B;25| '|SPADreplace| '(XLAM (|p|) 'T)) 
 
-(DEFUN |SARGND;hash;$Si;23| (|s| $) 0) 
+(DEFUN |SARGND;isPoint?;$B;25| (|p| $) 'T) 
 
-(PUT '|SARGND;latex;$S;24| '|SPADreplace|
+(PUT '|SARGND;isVector?;$B;26| '|SPADreplace| '(XLAM (|p|) 'T)) 
+
+(DEFUN |SARGND;isVector?;$B;26| (|p| $) 'T) 
+
+(DEFUN |SARGND;coerce;$C;27| (|me| $)
+  (SPADCALL (QCAR |me|) (QCDR |me|) (QREFELT $ 40))) 
+
+(DEFUN |SARGND;coerce;C$;28| (|cmpx| $)
+  (CONS (SPADCALL |cmpx| (QREFELT $ 42)) (SPADCALL |cmpx| (QREFELT $ 43)))) 
+
+(PUT '|SARGND;hash;$Si;29| '|SPADreplace| '(XLAM (|s|) 0)) 
+
+(DEFUN |SARGND;hash;$Si;29| (|s| $) 0) 
+
+(PUT '|SARGND;latex;$S;30| '|SPADreplace|
      '(XLAM (|s|) "\\mbox{\\bf Unimplemented}")) 
 
-(DEFUN |SARGND;latex;$S;24| (|s| $) "\\mbox{\\bf Unimplemented}") 
+(DEFUN |SARGND;latex;$S;30| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
-(DEFUN |SARGND;=;2$B;25| (|x| |y| $)
-  (PROG (#1=#:G171)
+(DEFUN |SARGND;=;2$B;31| (|x| |y| $)
+  (PROG (#1=#:G180)
     (RETURN
      (SEQ
       (EXIT
        (SEQ
         (COND
-         ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 15))
-          (PROGN (LETT #1# 'NIL . #2=(|SARGND;=;2$B;25|)) (GO #1#))))
+         ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
+          (PROGN (LETT #1# 'NIL . #2=(|SARGND;=;2$B;31|)) (GO #1#))))
         (COND
-         ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 15))
+         ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
           (PROGN (LETT #1# 'NIL . #2#) (GO #1#))))
         (EXIT 'T)))
       #1# (EXIT #1#))))) 
 
-(DEFUN |SARGND;~=;2$B;26| (|x| |y| $)
-  (COND ((SPADCALL |x| |y| (QREFELT $ 43)) 'NIL) ('T 'T))) 
+(DEFUN |SARGND;~=;2$B;32| (|x| |y| $)
+  (COND ((SPADCALL |x| |y| (QREFELT $ 49)) 'NIL) ('T 'T))) 
 
-(DEFUN |SARGND;coerce;$Of;27| (|pt| $)
-  (SPADCALL
-   (LIST (SPADCALL (QCAR |pt|) (QREFELT $ 46))
-         (SPADCALL (QCDR |pt|) (QREFELT $ 46)))
-   (QREFELT $ 48))) 
+(DEFUN |SARGND;coerce;$Of;33| (|pt| $)
+  (COND
+   ((|less_DF| (QCDR |pt|) 0.0)
+    (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
+              (SPADCALL '|%i|
+                        (SPADCALL (|minus_DF| (QCDR |pt|)) (QREFELT $ 52))
+                        (QREFELT $ 53))
+              (QREFELT $ 54)))
+   ('T
+    (SPADCALL (SPADCALL (QCAR |pt|) (QREFELT $ 52))
+              (SPADCALL '|%i| (SPADCALL (QCDR |pt|) (QREFELT $ 52))
+                        (QREFELT $ 53))
+              (QREFELT $ 55))))) 
 
 (DEFUN |SArgand| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G175)
+     (PROG (#1=#:G185)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))
@@ -147,7 +181,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|SArgand|) . #1=(|SArgand|))
-      (LETT $ (GETREFV 51) . #1#)
+      (LETT $ (GETREFV 58) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|SArgand| NIL (CONS 1 $))
@@ -161,49 +195,57 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|Rep| (|DoubleFloat|)
               |SARGND;spnt;2Df$;1| |SARGND;spnt;3Df$;2| |SARGND;svec;2Df$;3|
-              |SARGND;svec;3Df$;4| (|PositiveInteger|) |SARGND;dimension;$Pi;5|
-              (|Boolean|) (0 . ~=) |SARGND;Pnan?;$B;7| (6 . |sqrt|)
-              |SARGND;unitVector;2$;8| |SARGND;distanceSquared;2$Df;9|
-              |SARGND;parallel;2$Df;10| |SARGND;perpendicular;3$;11|
-              |SARGND;*;Df2$;12| |SARGND;+;3$;13| |SARGND;-;3$;14| (11 . >)
-              |SARGND;inBounds?;3$B;15| |SARGND;screenCoordX;$Df;16|
-              |SARGND;screenCoordY;$Df;17| |SARGND;screenCoordZ;$Df;18|
-              (|List| 7) |SARGND;screenCoords;$L;19|
-              |SARGND;extendedCoords;$L;20| (|Complex| 7) (17 . |complex|)
-              |SARGND;coerce;$C;21| (23 . |real|) (28 . |imag|)
-              |SARGND;coerce;C$;22| (|SingleInteger|) |SARGND;hash;$Si;23|
-              (|String|) |SARGND;latex;$S;24| |SARGND;=;2$B;25|
-              |SARGND;~=;2$B;26| (|OutputForm|) (33 . |coerce|) (|List| $)
-              (38 . |paren|) |SARGND;coerce;$Of;27| (|Integer|))
-           '#(~= 43 |unitVector| 49 |svec| 54 |spnt| 67 |sivec| 80 |sipnt| 93
-              |screenCoords| 106 |screenCoordZ| 111 |screenCoordY| 116
-              |screenCoordX| 121 |perpendicular| 126 |parallel| 132 |latex| 138
-              |inBounds?| 143 |hash| 150 |extendedCoords| 155 |distanceSquared|
-              160 |distance| 166 |dimension| 172 |colinearity| 177 |coerce| 183
-              |Pnan?| 198 = 203 - 209 + 215 * 221)
+              |SARGND;svec;3Df$;4| |SARGND;min;3$;5| |SARGND;max;3$;6|
+              (|PositiveInteger|) |SARGND;dimension;$Pi;7| (|Boolean|) (0 . ~=)
+              |SARGND;Pnan?;$B;9| (6 . |sqrt|) |SARGND;unitVector;2$;10|
+              |SARGND;distanceSquared;2$Df;11| |SARGND;parallel;2$Df;12|
+              |SARGND;perpendicular;3$;13| |SARGND;*;Df2$;14| |SARGND;+;3$;15|
+              |SARGND;-;3$;16| (11 . >) |SARGND;inBounds?;3$B;17|
+              |SARGND;screenCoordX;$Df;18| |SARGND;screenCoordY;$Df;19|
+              |SARGND;screenCoordZ;$Df;20| (|List| 7)
+              |SARGND;screenCoords;$L;21| |SARGND;extendedCoords;$L;22|
+              |SARGND;toPoint;2$;23| |SARGND;toVector;2$;24|
+              |SARGND;isPoint?;$B;25| |SARGND;isVector?;$B;26| (|Complex| 7)
+              (17 . |complex|) |SARGND;coerce;$C;27| (23 . |real|)
+              (28 . |imag|) |SARGND;coerce;C$;28| (|SingleInteger|)
+              |SARGND;hash;$Si;29| (|String|) |SARGND;latex;$S;30|
+              |SARGND;=;2$B;31| |SARGND;~=;2$B;32| (|OutputForm|)
+              (33 . |coerce|) (38 . |hconcat|) (44 . -) (50 . +)
+              |SARGND;coerce;$Of;33| (|Integer|))
+           '#(~= 56 |unitVector| 62 |toVector| 67 |toPoint| 72 |svec| 77 |spnt|
+              90 |sivec| 103 |sipnt| 116 |screenCoords| 129 |screenCoordZ| 134
+              |screenCoordY| 139 |screenCoordX| 144 |perpendicular| 149
+              |parallel| 155 |min| 161 |max| 167 |latex| 173 |isVector?| 178
+              |isPoint?| 183 |inBounds?| 188 |hash| 195 |extendedCoords| 200
+              |distanceSquared| 205 |distance| 211 |dimension| 217
+              |colinearity| 222 |coerce| 228 |Pnan?| 243 = 248 - 254 + 260 *
+              266)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SPointCategory&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SPointCategory|) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 45))
-                        (|makeByteWordVec2| 50
-                                            '(2 7 14 0 0 15 1 7 0 0 17 2 7 14 0
-                                              0 25 2 33 0 7 7 34 1 33 7 0 36 1
-                                              33 7 0 37 1 7 45 0 46 1 45 0 47
-                                              48 2 0 14 0 0 44 1 0 0 0 18 3 0 0
-                                              7 7 7 11 2 0 0 7 7 10 3 0 0 7 7 7
-                                              9 2 0 0 7 7 8 3 0 0 50 50 50 1 2
-                                              0 0 50 50 1 3 0 0 50 50 50 1 2 0
-                                              0 50 50 1 1 0 30 0 31 1 0 7 0 29
-                                              1 0 7 0 28 1 0 7 0 27 2 0 0 0 0
-                                              21 2 0 7 0 0 20 1 0 41 0 42 3 0
-                                              14 0 0 0 26 1 0 39 0 40 1 0 30 0
-                                              32 2 0 7 0 0 19 2 0 7 0 0 1 1 0
-                                              12 0 13 2 0 7 0 0 1 1 0 33 0 35 1
-                                              0 0 33 38 1 0 45 0 49 1 0 14 0 16
-                                              2 0 14 0 0 43 2 0 0 0 0 24 2 0 0
-                                              0 0 23 2 0 0 7 0 22)))))
+                           (|CoercibleTo| 51))
+                        (|makeByteWordVec2| 57
+                                            '(2 7 16 0 0 17 1 7 0 0 19 2 7 16 0
+                                              0 27 2 39 0 7 7 40 1 39 7 0 42 1
+                                              39 7 0 43 1 7 51 0 52 2 51 0 0 0
+                                              53 2 51 0 0 0 54 2 51 0 0 0 55 2
+                                              0 16 0 0 50 1 0 0 0 20 1 0 0 0 36
+                                              1 0 0 0 35 3 0 0 7 7 7 11 2 0 0 7
+                                              7 10 3 0 0 7 7 7 9 2 0 0 7 7 8 3
+                                              0 0 57 57 57 1 2 0 0 57 57 1 3 0
+                                              0 57 57 57 1 2 0 0 57 57 1 1 0 32
+                                              0 33 1 0 7 0 31 1 0 7 0 30 1 0 7
+                                              0 29 2 0 0 0 0 23 2 0 7 0 0 22 2
+                                              0 0 0 0 12 2 0 0 0 0 13 1 0 47 0
+                                              48 1 0 16 0 38 1 0 16 0 37 3 0 16
+                                              0 0 0 28 1 0 45 0 46 1 0 32 0 34
+                                              2 0 7 0 0 21 2 0 7 0 0 1 1 0 14 0
+                                              15 2 0 7 0 0 1 1 0 39 0 41 1 0 0
+                                              39 44 1 0 51 0 56 1 0 16 0 18 2 0
+                                              16 0 0 49 2 0 0 0 0 26 2 0 0 0 0
+                                              25 2 0 0 7 0 24)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SArgand| 'NILADIC T) 

@@ -182,10 +182,12 @@
         (COND
          ((QEQCAR |tr| 1)
           (SEQ
-           (|sayBrightly|
-            "can't transform Euclidean point using general function")
+           (SPADCALL
+            (SPADCALL "can't transform Euclidean point using general function"
+                      (QREFELT $ 42))
+            (QREFELT $ 43))
            (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
-        (LETT |vin| (SPADCALL |inpt| (QREFELT $ 41)) . #3#)
+        (LETT |vin| (SPADCALL |inpt| (QREFELT $ 45)) . #3#)
         (LETT |a|
               (|add_DF|
                (|add_DF|
@@ -266,7 +268,7 @@
                  2)
                 (SPADCALL |vin| 3 (QREFELT $ 13))))
               . #3#)
-        (EXIT (SPADCALL |a| |b| (QREFELT $ 45)))))
+        (EXIT (SPADCALL |a| |b| (QREFELT $ 49)))))
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;applyTransPt3| (|tr| |inpt| $)
@@ -281,10 +283,12 @@
         (COND
          ((QEQCAR |tr| 1)
           (SEQ
-           (|sayBrightly|
-            "can't transform Euclidean point using general function")
+           (SPADCALL
+            (SPADCALL "can't transform Euclidean point using general function"
+                      (QREFELT $ 42))
+            (QREFELT $ 43))
            (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
-        (LETT |vin| (SPADCALL |inpt| (QREFELT $ 47)) . #3#)
+        (LETT |vin| (SPADCALL |inpt| (QREFELT $ 51)) . #3#)
         (LETT |a|
               (|add_DF|
                (|add_DF|
@@ -444,7 +448,7 @@
                  3)
                 (SPADCALL |vin| 4 (QREFELT $ 13))))
               . #3#)
-        (EXIT (SPADCALL |a| |b| |c| (QREFELT $ 48)))))
+        (EXIT (SPADCALL |a| |b| |c| (QREFELT $ 52)))))
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;applyTransCx| (|tr| |inpt| $)
@@ -458,11 +462,12 @@
           (PROGN (LETT #2# |inpt| . #3=(|STR;applyTransCx|)) (GO #2#))))
         (COND
          ((QEQCAR |tr| 0)
-          (SEQ (|sayBrightly| "can't transform complex using matrix")
-               (|sayBrightly|
-                (SPADCALL (LIST "applyTrans(" (|mathObject2String| |tr|) ")")
-                          (QREFELT $ 51)))
-               (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
+          (SEQ
+           (SPADCALL
+            (SPADCALL "can't transform complex using matrix" (QREFELT $ 42))
+            (QREFELT $ 43))
+           (SPADCALL (SPADCALL |tr| (QREFELT $ 53)) (QREFELT $ 42))
+           (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
         (LETT |f|
               (PROG2 (LETT #1# |tr| . #3#)
                   (QCDR #1#)
@@ -483,11 +488,13 @@
           (PROGN (LETT #2# |inpt| . #3=(|STR;applyTransConf2|)) (GO #2#))))
         (COND
          ((NULL (QEQCAR |tr| 2))
-          (SEQ (|sayBrightly| "this transform not compatible with conformal")
-               (|sayBrightly|
-                (SPADCALL (LIST "applyTrans(" (|mathObject2String| |tr|) ")")
-                          (QREFELT $ 51)))
-               (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
+          (SEQ
+           (SPADCALL
+            (SPADCALL "this transform not compatible with conformal"
+                      (QREFELT $ 42))
+            (QREFELT $ 43))
+           (SPADCALL (SPADCALL |tr| (QREFELT $ 53)) (QREFELT $ 42))
+           (EXIT (PROGN (LETT #2# |inpt| . #3#) (GO #2#))))))
         (LETT |m|
               (SPADCALL
                (LIST (LIST 0.0 1.0 0.0 0.0) (LIST 1.0 0.0 0.0 0.0)
@@ -514,7 +521,7 @@
                (|compiledLookupCheck| '* (LIST '$ '$ '$) CA))
               . #3#)
         (LETT |res| |conjugation| . #3#)
-        (EXIT (SPADCALL |res| (QREFELT $ 53)))))
+        (EXIT (SPADCALL |res| (QREFELT $ 55)))))
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;xform;$2PT;12| (|tr| |inpt| $)
@@ -529,7 +536,7 @@
      (|STR;applyTransConf2| |tr| |inpt| $))
     ('T
      (SEQ (|error| "invalid point type in transform")
-          (EXIT (SPADCALL 0.0 0.0 (QREFELT $ 45)))))))) 
+          (EXIT (SPADCALL 0.0 0.0 (QREFELT $ 49)))))))) 
 
 (DEFUN |STR;compound2| (|tr| |inpt| $)
   (PROG (#1=#:G198 #2=#:G129 |j| |i| |arr|)
@@ -805,7 +812,7 @@
           (COND
            ((QEQCAR |inpt| 1)
             (SEQ (LETT |in1| (CDR |tr|) . #2#) (LETT |in2| (CDR |inpt|) . #2#)
-                 (LETT |fn| (SPADCALL |in1| |in2| (QREFELT $ 56)) . #2#)
+                 (LETT |fn| (SPADCALL |in1| |in2| (QREFELT $ 58)) . #2#)
                  (EXIT (PROGN (LETT #1# (CONS 1 |fn|) . #2#) (GO #1#))))))))
         (COND
          ((QEQCAR |tr| 2)
@@ -817,28 +824,105 @@
         (EXIT (SPADCALL (QREFELT $ 14)))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |STR;coerce;$Of;17| (|pt| $)
-  (PROG (|s|)
+(DEFUN |STR;outputArray| (|x| $)
+  (PROG (#1=#:G228 |i| #2=#:G227 |m|)
     (RETURN
-     (SEQ (LETT |s| "err" . #1=(|STR;coerce;$Of;17|))
-          (COND
-           ((EQUAL (QREFELT $ 6) (|SCartesian| 2))
-            (LETT |s| "2Dtransform" . #1#)))
-          (COND
-           ((EQUAL (QREFELT $ 6) (|SCartesian| 3))
-            (LETT |s| "3Dtransform" . #1#)))
-          (COND
-           ((EQUAL (QREFELT $ 6) (|SArgand|))
-            (LETT |s| "complex transform" . #1#)))
-          (COND
-           ((EQUAL (QREFELT $ 6) (|SConformal| 2))
-            (LETT |s| "2D Conformal" . #1#)))
-          (EXIT (SPADCALL |s| (QREFELT $ 59))))))) 
+     (SEQ (LETT |m| (QVSIZE |x|) . #3=(|STR;outputArray|))
+          (EXIT
+           (SPADCALL
+            (PROGN
+             (LETT #2# NIL . #3#)
+             (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |m| 1) . #3#) G190
+                  (COND ((|greater_SI| |i| #1#) (GO G191)))
+                  (SEQ
+                   (EXIT
+                    (LETT #2#
+                          (CONS (SPADCALL (QAREF1 |x| |i|) (QREFELT $ 60)) #2#)
+                          . #3#)))
+                  (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                  (EXIT (NREVERSE #2#))))
+            (QREFELT $ 62))))))) 
 
-(DEFUN |STransform| (#1=#:G222)
+(DEFUN |STR;outputMatrix| (|x| $)
+  (PROG (|l| #1=#:G240 |j| #2=#:G239 #3=#:G238 |i| #4=#:G237 |m|)
+    (RETURN
+     (SEQ (LETT |m| (QVSIZE |x|) . #5=(|STR;outputMatrix|))
+          (LETT |l|
+                (PROGN
+                 (LETT #4# NIL . #5#)
+                 (SEQ (LETT |i| 0 . #5#) (LETT #3# (- |m| 1) . #5#) G190
+                      (COND ((|greater_SI| |i| #3#) (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #4#
+                              (CONS
+                               (PROGN
+                                (LETT #2# NIL . #5#)
+                                (SEQ (LETT |j| 0 . #5#)
+                                     (LETT #1# (- |m| 1) . #5#) G190
+                                     (COND ((|greater_SI| |j| #1#) (GO G191)))
+                                     (SEQ
+                                      (EXIT
+                                       (LETT #2#
+                                             (CONS
+                                              (SPADCALL
+                                               (QAREF1 (QAREF1 |x| |i|) |j|)
+                                               (QREFELT $ 60))
+                                              #2#)
+                                             . #5#)))
+                                     (LETT |j| (|inc_SI| |j|) . #5#) (GO G190)
+                                     G191 (EXIT (NREVERSE #2#))))
+                               #4#)
+                              . #5#)))
+                      (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
+          (EXIT (SPADCALL |l| (QREFELT $ 64))))))) 
+
+(DEFUN |STR;coerce;$Of;19| (|tr| $)
+  (PROG (#1=#:G131 #2=#:G242 #3=#:G129)
+    (RETURN
+     (SEQ
+      (EXIT
+       (SEQ
+        (COND
+         ((QEQCAR |tr| 3)
+          (PROGN (LETT #2# "iden" . #4=(|STR;coerce;$Of;19|)) (GO #2#))))
+        (COND
+         ((QEQCAR |tr| 1)
+          (PROGN (LETT #2# "function as transform" . #4#) (GO #2#))))
+        (COND
+         ((QEQCAR |tr| 0)
+          (PROGN
+           (LETT #2#
+                 (SPADCALL "mtx"
+                           (|STR;outputMatrix|
+                            (PROG2 (LETT #3# |tr| . #4#)
+                                (QCDR #3#)
+                              (|check_union| (QEQCAR #3# 0)
+                                             (|PrimitiveArray|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                             #3#))
+                            $)
+                           (QREFELT $ 65))
+                 . #4#)
+           (GO #2#))))
+        (EXIT
+         (SPADCALL "multiv"
+                   (|STR;outputArray|
+                    (PROG2 (LETT #1# |tr| . #4#)
+                        (QCDR #1#)
+                      (|check_union| (QEQCAR #1# 2)
+                                     (|PrimitiveArray| (|DoubleFloat|)) #1#))
+                    $)
+                   (QREFELT $ 65)))))
+      #2# (EXIT #2#))))) 
+
+(DEFUN |STransform| (#1=#:G243)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G223)
+     (PROG (#2=#:G244)
        (RETURN
         (COND
          ((LETT #2#
@@ -858,7 +942,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|STransform|))
       (LETT |dv$| (LIST '|STransform| DV$1) . #1#)
-      (LETT $ (GETREFV 61) . #1#)
+      (LETT $ (GETREFV 66) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|STransform| (LIST DV$1) (CONS 1 $))
@@ -885,34 +969,38 @@
               (27 . |Zero|) (31 . |One|) (|Matrix| 12) (35 . |matrix|)
               (|SquareMatrix| '4 12) (40 . |squareMatrix|) (|PositiveInteger|)
               (|Float|) (45 . |float|) (52 . |coerce|) (57 . |complex|)
-              (63 . +) |STR;stranslate;6Df$;6| (|SCartesian| '2)
-              (69 . |extendedCoords|) (|Fraction| 9) (74 . |Zero|) (78 . |One|)
-              (82 . |spnt|) (|SCartesian| '3) (88 . |extendedCoords|)
-              (93 . |spnt|) (|List| $) (|String|) (100 . |concat|)
-              (|SConformal| '2) (105 . |normalisePoint|) |STR;xform;$2PT;12|
-              (|MappingPackage3| 6 6 6) (110 . *) |STR;compound;3$;16|
-              (|OutputForm|) (116 . |coerce|) |STR;coerce;$Of;17|)
-           '#(|xform| 121 |stranslate| 127 |stransform| 137 |identity| 157
-              |compound| 161 |coerce| 167)
+              (63 . +) |STR;stranslate;6Df$;6| (|Void|) (|OutputForm|)
+              (69 . |print|) (74 . |coerce|) (|SCartesian| '2)
+              (79 . |extendedCoords|) (|Fraction| 9) (84 . |Zero|) (88 . |One|)
+              (92 . |spnt|) (|SCartesian| '3) (98 . |extendedCoords|)
+              (103 . |spnt|) |STR;coerce;$Of;19| (|SConformal| '2)
+              (110 . |normalisePoint|) |STR;xform;$2PT;12|
+              (|MappingPackage3| 6 6 6) (115 . *) |STR;compound;3$;16|
+              (121 . |coerce|) (|List| $) (126 . |bracket|) (|List| 61)
+              (131 . |matrix|) (136 . |hconcat|))
+           '#(|xform| 142 |stranslate| 148 |stransform| 158 |identity| 178
+              |compound| 182 |coerce| 188)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 60
+                             (|makeByteWordVec2| 65
                                                  '(2 10 8 0 9 11 2 8 12 0 9 13
                                                    1 19 18 0 20 1 19 0 18 21 1
                                                    24 0 8 25 0 12 0 27 0 12 0
                                                    28 1 29 0 10 30 1 31 0 29 32
                                                    3 34 0 9 9 33 35 1 34 12 0
                                                    36 2 18 0 12 12 37 2 18 0 0
-                                                   0 38 1 40 8 0 41 0 42 0 43 0
-                                                   42 0 44 2 40 0 12 12 45 1 46
-                                                   8 0 47 3 46 0 12 12 12 48 1
-                                                   50 0 49 51 1 52 0 0 53 2 55
-                                                   16 16 16 56 1 50 58 0 59 2 0
-                                                   6 0 6 54 6 0 0 12 12 12 12
-                                                   12 12 39 1 0 0 16 17 1 0 0
-                                                   10 15 1 0 0 8 26 1 0 0 22 23
-                                                   0 0 0 14 2 0 0 0 0 57 1 0 58
-                                                   0 60)))))
+                                                   0 38 1 41 40 0 42 1 40 41 0
+                                                   43 1 44 8 0 45 0 46 0 47 0
+                                                   46 0 48 2 44 0 12 12 49 1 50
+                                                   8 0 51 3 50 0 12 12 12 52 1
+                                                   54 0 0 55 2 57 16 16 16 58 1
+                                                   12 41 0 60 1 41 0 61 62 1 41
+                                                   0 63 64 2 41 0 0 0 65 2 0 6
+                                                   0 6 56 6 0 0 12 12 12 12 12
+                                                   12 39 1 0 0 16 17 1 0 0 10
+                                                   15 1 0 0 8 26 1 0 0 22 23 0
+                                                   0 0 14 2 0 0 0 0 59 1 0 41 0
+                                                   53)))))
            '|lookupComplete|)) 

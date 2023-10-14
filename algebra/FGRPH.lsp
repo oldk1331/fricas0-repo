@@ -48,6 +48,13 @@
                                                               T)
                                                              ((|addArrow!|
                                                                ($ $ (|String|)
+                                                                (|NonNegativeInteger|)
+                                                                (|NonNegativeInteger|)
+                                                                (|List|
+                                                                 (|NonNegativeInteger|))))
+                                                              T)
+                                                             ((|addArrow!|
+                                                               ($ $ (|String|)
                                                                 |t#1| |t#1|))
                                                               T)
                                                              ((|getVertices|
@@ -82,8 +89,16 @@
                                                                    (|Integer|))
                                                                   (|:|
                                                                    |yOffset|
-                                                                   (|Integer|))))
+                                                                   (|Integer|))
+                                                                  (|:| |map|
+                                                                       (|List|
+                                                                        (|NonNegativeInteger|)))))
                                                                 $))
+                                                              T)
+                                                             ((|flatten|
+                                                               ($
+                                                                (|DirectedGraph|
+                                                                 $)))
                                                               T)
                                                              ((|initial| ($))
                                                               T)
@@ -304,7 +319,20 @@
                                                              ((|isDirected?|
                                                                ((|Boolean|)))
                                                               T)
+                                                             ((|subdiagramSvg|
+                                                               ((|Void|)
+                                                                (|Scene|
+                                                                 (|SCartesian|
+                                                                  2))
+                                                                $ (|Boolean|)
+                                                                (|Boolean|)))
+                                                              T)
                                                              ((|diagramSvg|
+                                                               ((|Void|)
+                                                                (|String|) $
+                                                                (|Boolean|)))
+                                                              T)
+                                                             ((|deepDiagramSvg|
                                                                ((|Void|)
                                                                 (|String|) $
                                                                 (|Boolean|)))
@@ -330,9 +358,6 @@
                                                                ((|NonNegativeInteger|)
                                                                 (|NonNegativeInteger|)
                                                                 (|NonNegativeInteger|)))
-                                                              T)
-                                                             ((|toString|
-                                                               ((|String|) $))
                                                               T)
                                                              ((|looseEquals|
                                                                ((|Boolean|) $
@@ -360,9 +385,11 @@
                                                              (|List| |t#1|)
                                                              (|Integer|)
                                                              (|Boolean|)
-                                                             (|String|)
                                                              (|NonNegativeInteger|)
                                                              (|Void|)
+                                                             (|String|)
+                                                             (|Scene|
+                                                              (|SCartesian| 2))
                                                              (|Matrix|
                                                               (|Integer|))
                                                              (|Matrix|
@@ -373,6 +400,8 @@
                                                                (|Integer|)))
                                                              (|Tree|
                                                               (|Integer|))
+                                                             (|DirectedGraph|
+                                                              $)
                                                              (|List|
                                                               (|Record|
                                                                (|:| |name|
@@ -386,7 +415,10 @@
                                                                (|:| |xOffset|
                                                                     (|Integer|))
                                                                (|:| |yOffset|
-                                                                    (|Integer|))))
+                                                                    (|Integer|))
+                                                               (|:| |map|
+                                                                    (|List|
+                                                                     (|NonNegativeInteger|)))))
                                                              (|List|
                                                               (|Record|
                                                                (|:| |value|
