@@ -160,18 +160,10 @@
 (DEFUN |symbol_is?| (|x|) (PROG () (RETURN (EQ (|current_symbol|) |x|))))
  
 ; match_symbol(x) ==
-;     symbol_is?(x) => (advance_token(); true)
-;     false
- 
-(DEFUN |match_symbol| (|x|)
-  (PROG ()
-    (RETURN (COND ((|symbol_is?| |x|) (PROGN (|advance_token|) T)) ('T NIL)))))
- 
-; match_keyword(x) ==
 ;     match_current_token("KEYWORD", x) => (advance_token(); true)
 ;     false
  
-(DEFUN |match_keyword| (|x|)
+(DEFUN |match_symbol| (|x|)
   (PROG ()
     (RETURN
      (COND ((|match_current_token| 'KEYWORD |x|) (PROGN (|advance_token|) T))
@@ -453,12 +445,12 @@
  
 ; parse_category_list(closer) ==
 ;     MUST
-;         match_keyword(closer) => push_form0("CATEGORY")
+;         match_symbol(closer) => push_form0("CATEGORY")
 ;         MUST(parse_Category())
 ;         tail_val :=
 ;             repetition(";", FUNCTION parse_Category) => pop_stack_1()
 ;             nil
-;         MUST match_keyword(closer)
+;         MUST match_symbol(closer)
 ;         val1 := pop_stack_1()
 ;         IFCAR(val1) = "if" and tail_val = nil => push_lform0(val1)
 ;         push_lform2("CATEGORY", val1, tail_val)
@@ -467,7 +459,7 @@
   (PROG (|tail_val| |val1|)
     (RETURN
      (MUST
-      (COND ((|match_keyword| |closer|) (|push_form0| 'CATEGORY))
+      (COND ((|match_symbol| |closer|) (|push_form0| 'CATEGORY))
             (#1='T
              (PROGN
               (MUST (|parse_Category|))
@@ -475,7 +467,7 @@
                       (COND
                        ((|repetition| '|;| #'|parse_Category|) (|pop_stack_1|))
                        (#1# NIL)))
-              (MUST (|match_keyword| |closer|))
+              (MUST (|match_symbol| |closer|))
               (SETQ |val1| (|pop_stack_1|))
               (COND
                ((AND (EQ (IFCAR |val1|) '|if|) (NULL |tail_val|))
@@ -483,7 +475,7 @@
                (#1# (|push_lform2| 'CATEGORY |val1| |tail_val|))))))))))
  
 ; parse_Category() ==
-;     match_keyword("if") =>
+;     match_symbol("if") =>
 ;         MUST parse_Expression()
 ;         cond := pop_stack_1()
 ;         MUST match_symbol "then"
@@ -494,9 +486,9 @@
 ;                 pop_stack_1()
 ;             nil
 ;         push_form3("if", cond, pop_stack_1(), else_val)
-;     match_keyword("(") => parse_category_list(")")
-;     match_keyword("{") => parse_category_list("}")
-;     match_keyword("SETTAB") => parse_category_list("BACKTAB")
+;     match_symbol("(") => parse_category_list(")")
+;     match_symbol("{") => parse_category_list("}")
+;     match_symbol("SETTAB") => parse_category_list("BACKTAB")
 ;     G1 := current_line_number()
 ;     not(parse_Application()) => nil
 ;     MUST
@@ -511,7 +503,7 @@
   (PROG (G1 |else_val| |cond|)
     (RETURN
      (COND
-      ((|match_keyword| '|if|)
+      ((|match_symbol| '|if|)
        (PROGN
         (MUST (|parse_Expression|))
         (SETQ |cond| (|pop_stack_1|))
@@ -523,9 +515,9 @@
                   (PROGN (MUST (|parse_Category|)) (|pop_stack_1|)))
                  (#1='T NIL)))
         (|push_form3| '|if| |cond| (|pop_stack_1|) |else_val|)))
-      ((|match_keyword| '|(|) (|parse_category_list| '|)|))
-      ((|match_keyword| '{) (|parse_category_list| '}))
-      ((|match_keyword| 'SETTAB) (|parse_category_list| 'BACKTAB))
+      ((|match_symbol| '|(|) (|parse_category_list| '|)|))
+      ((|match_symbol| '{) (|parse_category_list| '}))
+      ((|match_symbol| 'SETTAB) (|parse_category_list| 'BACKTAB))
       (#1#
        (PROGN
         (SETQ G1 (|current_line_number|))
@@ -1171,29 +1163,28 @@
  
 ; parse_Enclosure1(closer) ==
 ;     MUST OR(
-;             AND(parse_Expr 6, MUST match_keyword(closer)),
-;             AND(match_keyword(closer), push_form0("@Tuple")))
+;             AND(parse_Expr 6, MUST match_symbol(closer)),
+;             AND(match_symbol(closer), push_form0("@Tuple")))
  
 (DEFUN |parse_Enclosure1| (|closer|)
   (PROG ()
     (RETURN
      (MUST
-      (OR (AND (|parse_Expr| 6) (MUST (|match_keyword| |closer|)))
-          (AND (|match_keyword| |closer|) (|push_form0| '|@Tuple|)))))))
+      (OR (AND (|parse_Expr| 6) (MUST (|match_symbol| |closer|)))
+          (AND (|match_symbol| |closer|) (|push_form0| '|@Tuple|)))))))
  
 ; parse_Enclosure() ==
-;     match_keyword "(" => parse_Enclosure1(")")
-;     match_keyword "{" => parse_Enclosure1("}")
-;     match_keyword "SETTAB" => parse_Enclosure1("BACKTAB")
+;     match_symbol "(" => parse_Enclosure1(")")
+;     match_symbol "{" => parse_Enclosure1("}")
+;     match_symbol "SETTAB" => parse_Enclosure1("BACKTAB")
 ;     nil
  
 (DEFUN |parse_Enclosure| ()
   (PROG ()
     (RETURN
-     (COND ((|match_keyword| '|(|) (|parse_Enclosure1| '|)|))
-           ((|match_keyword| '{) (|parse_Enclosure1| '}))
-           ((|match_keyword| 'SETTAB) (|parse_Enclosure1| 'BACKTAB))
-           ('T NIL)))))
+     (COND ((|match_symbol| '|(|) (|parse_Enclosure1| '|)|))
+           ((|match_symbol| '{) (|parse_Enclosure1| '}))
+           ((|match_symbol| 'SETTAB) (|parse_Enclosure1| 'BACKTAB)) ('T NIL)))))
  
 ; parse_IntegerTok() == parse_NUMBER()
  
