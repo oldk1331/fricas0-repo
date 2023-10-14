@@ -321,7 +321,7 @@
                                                     (VECTOR $ |x|))
                                               (SPADCALL |f2| (QREFELT $ 45))
                                               (QREFELT $ 47)))
-                                            (EXIT (|error| "Inpossible 1"))))
+                                            (EXIT (|error| "Impossible 1"))))
                                           (EXIT
                                            (LETT |res|
                                                  (CONS
@@ -1304,7 +1304,7 @@
                                  (QREFELT $ 152))
                        . #8#)
                  (EXIT
-                  (COND ((QEQCAR |elden| 1) (|error| "Inpossible 2"))
+                  (COND ((QEQCAR |elden| 1) (|error| "Impossible 2"))
                         (#9#
                          (SEQ
                           (LETT |dn|
@@ -1360,7 +1360,7 @@
                                                  (SPADCALL |lifac|
                                                            (QREFELT $ 154))
                                                  (QREFELT $ 156)))
-                                      (EXIT (|error| "Inpossible 3"))))
+                                      (EXIT (|error| "Impossible 3"))))
                                     (LETT |u1| (QVELT |ldr| 2) . #8#)
                                     (LETT |linum| (|SPADfirst| |lifac|) . #8#)
                                     (SEQ
@@ -1753,7 +1753,7 @@
                                  (QREFELT $ 152))
                        . #11#)
                  (EXIT
-                  (COND ((QEQCAR |elden| 1) (|error| "Inpossible 4"))
+                  (COND ((QEQCAR |elden| 1) (|error| "Impossible 4"))
                         (#12#
                          (SEQ
                           (LETT |dn|
@@ -1816,7 +1816,7 @@
                                                  (SPADCALL |polyfac|
                                                            (QREFELT $ 154))
                                                  (QREFELT $ 156)))
-                                      (EXIT (|error| "Inpossible 5"))))
+                                      (EXIT (|error| "Impossible 5"))))
                                     (LETT |v1| (QVELT |ldr| 3) . #11#)
                                     (LETT |polynum|
                                           (SPADCALL

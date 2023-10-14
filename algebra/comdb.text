@@ -1158,7 +1158,7 @@
 105508`\spad{applyQuote(foo,{} x,{} y,{} z,{} t)} returns \spad{'foo(x,{}y,{}z,{}t)}.
 105575`\spad{applyRules([r1,{}...,{}rn],{} expr)} applies the rules \spad{r1},{}...,{}\spad{rn} to \spad{f} an unlimited number of times,{} \spadignore{i.e.} until none of \spad{r1},{}...,{}\spad{rn} is applicable to the expression.
 105656`\spad{applyRules([r1,{}...,{}rn],{} expr,{} n)} applies the rules \spad{r1},{}...,{}\spad{rn} to \spad{f} a most \spad{n} times.
-105753`applyTaylorIfCan(\spad{g},{} \spad{f}) applies \spad{g} to \spad{f}
+105753`\spad{applyTaylor(g,{} f)} applies \spad{g} to \spad{f}
 105844`\spad{approximants(x)} returns the stream of approximants of the continued fraction \spadvar{\spad{x}}. If the continued fraction is finite,{} then the stream will be infinite and periodic with period 1.
 105996`\spad{approximate(x,{}n)} returns a rational number \spad{y} such that \spad{y = x (mod p^n)}.
 106158`\axiom{approximate(\spad{n},{}\spad{p})} gives an approximation of \axiom{\spad{n}} that has precision \axiom{\spad{p}}
@@ -3986,7 +3986,7 @@
 431041`\spad{integerIfCan(x)} returns \spad{x} as an integer,{} "failed" if \spad{x} is not an integer.
 431119`\spad{integerPart(o)} = \spad{n} when \spad{o} = \spad{l} + \spad{n} and \spad{l} is a limit ordinal
 431183`\spad{integers(n)} returns \spad{[n,{}n+1,{}n+2,{}...]}.
-431333`\spad{integral?()} tests if \spad{f} is integral over \spad{k[x]}.
+431333`\spad{integral?(f)} tests if \spad{f} is integral over \spad{k[x]}.
 431404`\spad{integral(f,{}x)} returns the formal integral of \spad{f} with respect to \spad{x}
 431458`\spad{integral(f,{}x = a..b)} denotes the definite integral of \spad{f} with respect to \spad{x} from \spad{a} to \spad{b}.
 431531`\spad{integral(f,{}x)} returns the formal integral of \spad{f} with respect to \spad{x}
@@ -3995,7 +3995,7 @@
 431894`\spad{integral(f,{} x = a..b)} returns the formal definite integral of \spad{f} \spad{dx} for \spad{x} between \spad{a} and \spad{b}.
 431971`\spad{integral(f,{} x)} returns the formal integral of \spad{f} \spad{dx}.
 432036`\spad{integral?(f,{} p)} tests whether \spad{f} is locally integral at \spad{p(x) = 0}.
-432188`\spad{integralAtInfinity?()} tests if \spad{f} is locally integral at infinity.
+432188`\spad{integralAtInfinity?(f)} tests if \spad{f} is locally integral at infinity.
 432269`\spad{integralBasis()} returns a record \spad{[basis,{}basisDen,{}basisInv]} containing information regarding the integral closure of \spad{Z} in the quotient field of \spad{F},{} where \spad{F} is a framed algebra with \spad{Z}-module basis \spad{w1,{}w2,{}...,{}wn}. If \spad{basis} is the matrix \spad{(aij,{} i = 1..n,{} j = 1..n)},{} then the \spad{i}th element of th
 432269`--e integral basis is \spad{\spad{vi} = (1/basisDen) * sum(aij * wj,{} j = 1..n)},{} \spadignore{i.e.} the \spad{i}th row of \spad{basis} contains the coordinates of the \spad{i}th basis vector. Similarly,{} the \spad{i}th row of the matrix \spad{basisInv} contains the coordinates of \spad{\spad{wi}} with respect to the basis \spad{v1,{}...,{}vn}: if \spad{basisInv} is the matrix \spad{(bij,{} i = 1..n,{} j = 1..n)},{} then \spad{\spad{wi} = sum(bij * vj,{} j = 1..n)}.
 432404`\spad{integralBasis()} returns a record \spad{[basis,{}basisDen,{}basisInv]} containing information regarding the integral closure of \spad{R} in the quotient field of \spad{F},{} where \spad{F} is a framed algebra with \spad{R}-module basis \spad{w1,{}w2,{}...,{}wn}. If \spad{basis} is the matrix \spad{(aij,{} i = 1..n,{} j = 1..n)},{} then the \spad{i}th element of the integral bas
@@ -7609,11 +7609,11 @@
 822800`\spad{taylorIfCan(f(x))} converts the Laurent series \spad{f(x)} to a Taylor series,{} if possible. If this is not possible,{} "failed" is returned.
 822906`\spad{taylorQuoByVar(a0 + a1 x + a2 x^2 + ...)} returns \spad{a1 + a2 x + a3 x^2 + ...}
 822984`\spad{taylorRep(f(x))} returns \spad{g(x)},{} where \spad{f = x^n * g(x)} is represented by \spad{[n,{}g(x)]}.
-823072`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} returns expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
-823188`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} returns expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
-823307`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} returns expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
-823421`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} returns expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
-823538`\spad{taylor_via_lode([a0,{}...,{}ak],{} z,{} [c0,{} ...,{} ck])} expand into Taylor series solution of the linear ordinary differential equation
+823072`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
+823188`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
+823307`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
+823421`\spad{taylor_via_deriv(f,{} [x1,{}...,{}xn],{} [D1,{}...,{}Dn])} expands \spad{f} into Taylor series at (\spad{x1},{}...,{}\spad{xn}) using \spad{D1},{}...,{}\spad{Dn} as partial derivatives
+823538`\spad{taylor_via_lode([a0,{}...,{}ak],{} z,{} [c0,{} ...,{} ck])} expands into Taylor series solution of the linear ordinary differential equation
 823753`\spad{tensor([x1,{}x2,{}...,{}xn])} constructs the tensor product of \spad{x1,{}x2,{}...,{}xn}.
 823816`\spad{tensor(a,{}b)} creates a form for a tensor \spad{b}
 823916`\spad{tensor(x,{}y)} constructs the tensor product of the elements \spad{x} and \spad{y}.
