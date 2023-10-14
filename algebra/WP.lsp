@@ -222,11 +222,14 @@
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT |w|)))) 
 
+(SDEFUN |WP;characteristic;Nni;14| (($ |NonNegativeInteger|))
+        (SPADCALL (QREFELT $ 77))) 
+
 (DECLAIM (NOTINLINE |WeightedPolynomials;|)) 
 
-(DEFUN |WeightedPolynomials| (&REST #1=#:G173)
+(DEFUN |WeightedPolynomials| (&REST #1=#:G174)
   (SPROG NIL
-         (PROG (#2=#:G174)
+         (PROG (#2=#:G175)
            (RETURN
             (COND
              ((LETT #2#
@@ -246,7 +249,7 @@
 
 (DEFUN |WeightedPolynomials;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
   (SPROG
-   ((#1=#:G171 NIL) (|v| NIL) (#2=#:G172 NIL) (|n| NIL) (#3=#:G170 NIL)
+   ((#1=#:G172 NIL) (|v| NIL) (#2=#:G173 NIL) (|n| NIL) (#3=#:G171 NIL)
     (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
@@ -261,7 +264,7 @@
      (LETT |dv$|
            (LIST '|WeightedPolynomials| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7)
            . #4#)
-     (LETT $ (GETREFV 82) . #4#)
+     (LETT $ (GETREFV 84) . #4#)
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3
                (LETT |pv$|
@@ -328,13 +331,14 @@
               (160 . |One|)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |WP;One;$;8|) $))
               (164 . >) (170 . =) |WP;=;2$B;9| (176 . +) |WP;-;2$;11| (182 . *)
-              |WP;*;I2$;12| (188 . *) |WP;*;3$;13| (|Union| $ '"failed")
+              |WP;*;I2$;12| (188 . *) |WP;*;3$;13| (194 . |characteristic|)
+              |WP;characteristic;Nni;14| (|Union| $ '"failed")
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 194 |zero?| 200 |subtractIfCan| 205 |sample| 211 |recip| 215
-              |opposite?| 220 |one?| 226 |latex| 231 |hashUpdate!| 236 |hash|
-              242 |coerce| 247 |characteristic| 272 |changeWeightLevel| 276
-              |annihilate?| 281 ^ 287 |Zero| 299 |One| 303 = 307 / 313 - 319 +
-              330 * 336)
+           '#(~= 198 |zero?| 204 |subtractIfCan| 209 |sample| 215 |recip| 219
+              |opposite?| 224 |one?| 230 |latex| 235 |hashUpdate!| 240 |hash|
+              246 |coerce| 251 |characteristic| 276 |changeWeightLevel| 280
+              |annihilate?| 285 ^ 291 |Zero| 303 |One| 307 = 311 / 317 - 323 +
+              334 * 340)
            'NIL
            (CONS
             (|makeByteWordVec2| 1 '(1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0))
@@ -350,7 +354,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 56))
-              (|makeByteWordVec2| 81
+              (|makeByteWordVec2| 83
                                   '(1 17 15 0 18 2 15 19 0 0 20 2 24 19 0 0 25
                                     2 7 19 0 0 26 1 9 19 0 28 1 9 29 0 30 2 13
                                     0 9 15 31 2 9 32 0 7 33 1 34 19 0 35 1 34
@@ -362,14 +366,14 @@
                                     0 59 2 56 0 0 0 60 2 62 56 61 0 63 0 13 0
                                     65 0 13 0 66 2 15 19 0 0 68 2 13 19 0 0 69
                                     2 13 0 0 0 71 2 13 0 42 0 73 2 13 0 0 0 75
-                                    2 0 19 0 0 1 1 0 19 0 44 2 0 77 0 0 1 0 0 0
-                                    1 1 0 77 0 1 2 0 19 0 0 1 1 0 19 0 1 1 0 79
-                                    0 1 2 0 81 81 0 1 1 0 80 0 1 1 1 0 6 1 1 0
-                                    0 9 50 1 0 9 0 55 1 0 0 42 1 1 0 56 0 64 0
-                                    0 15 1 1 0 14 15 16 2 0 19 0 0 1 2 0 0 0 15
-                                    1 2 0 0 0 78 1 0 0 0 27 0 0 0 67 2 0 19 0 0
-                                    70 2 2 77 0 0 1 2 0 0 0 0 1 1 0 0 0 72 2 0
-                                    0 0 0 48 2 1 0 6 0 1 2 1 0 0 6 1 2 0 0 0 0
-                                    76 2 0 0 42 0 74 2 0 0 15 0 1 2 0 0 78 0
-                                    1)))))
+                                    0 6 15 77 2 0 19 0 0 1 1 0 19 0 44 2 0 79 0
+                                    0 1 0 0 0 1 1 0 79 0 1 2 0 19 0 0 1 1 0 19
+                                    0 1 1 0 81 0 1 2 0 83 83 0 1 1 0 82 0 1 1 1
+                                    0 6 1 1 0 0 9 50 1 0 9 0 55 1 0 0 42 1 1 0
+                                    56 0 64 0 0 15 78 1 0 14 15 16 2 0 19 0 0 1
+                                    2 0 0 0 15 1 2 0 0 0 80 1 0 0 0 27 0 0 0 67
+                                    2 0 19 0 0 70 2 2 79 0 0 1 2 0 0 0 0 1 1 0
+                                    0 0 72 2 0 0 0 0 48 2 1 0 6 0 1 2 1 0 0 6 1
+                                    2 0 0 0 0 76 2 0 0 42 0 74 2 0 0 15 0 1 2 0
+                                    0 80 0 1)))))
            '|lookupComplete|)) 
