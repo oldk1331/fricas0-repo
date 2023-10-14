@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4828 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4839 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -88,7 +88,7 @@
  |Export3D| |ExponentialExpansion| |Expression| |ExpressionFunctions2|
  |ExpressionToUnivariatePowerSeries| |ExpressionSpaceODESolver|
  |ExpressionSolve| |ExpressionTubePlot| |ExponentialOfUnivariatePuiseuxSeries|
- |FactoredFunctions| |FactoringUtilities| |FreeAbelianGroup|
+ |FactoredFunctions| |FactoringUtilities| |FreeAbelianGroup| |FakePolynomial|
  |FreeAbelianMonoidCategory| |FreeAbelianMonoid| |FiniteAbelianMonoidRing&|
  |FiniteAbelianMonoidRing| |FiniteAbelianMonoidRingFunctions2| |FlexibleArray|
  |FiniteAlgebraicExtensionField&| |FiniteAlgebraicExtensionField| |FortranCode|
@@ -220,8 +220,9 @@
  |ListAggregate| |LinearSystemMatrixPackage| |LinearSystemMatrixPackage1|
  |LinearSystemPolynomialPackage| |LieSquareMatrix| |LUDecomposition|
  |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
- |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcdOperations|
- |ModularAlgebraicGcdTools2| |ModularAlgebraicGcdTools3| |Magma|
+ |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcd2|
+ |ModularAlgebraicGcdOperations| |ModularAlgebraicGcdTools2|
+ |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |Magma|
  |MatrixManipulation| |MappingPackageInternalHacks1|
  |MappingPackageInternalHacks2| |MappingPackageInternalHacks3|
  |MappingPackage1| |MappingPackage2| |MappingPackage3| |MatrixCategory&|
@@ -229,6 +230,7 @@
  |Matrix| |StorageEfficientMatrixOperations| |MultiVariableCalculusFunctions|
  |MatrixCommonDenominator| |MachineComplex| |MultiDictionary|
  |ModularDistinctDegreeFactorizer| |MeshCreationRoutinesForThreeDimensions|
+ |ModularEvaluation1| |ModularEvaluation2| |ModularEvaluationCategory|
  |MultifunctionGraph| |MultFiniteFactorize| |MachineFloat|
  |ModularHermitianRowReduction| |MachineInteger| |MakeBinaryCompiledFunction|
  |MakeCachableSet| |MakeFloatCompiledFunction| |MakeFunction| |MakeRecord|
@@ -531,24 +533,24 @@
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |simplifyPower| |number?|
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
- |highCommonTerms| |mapCoef| |nthCoef| |binomThmExpt| |pomopo!| |mapExponents|
- |linearAssociatedLog| |linearAssociatedOrder| |linearAssociatedExp|
- |createNormalElement| |setLabelValue| |getCode| |printCode| |code| |operation|
- |common| |printStatement| |save| |stop| |block| |cond| |returns| |call|
- |comment| |continue| |gotoJump| |repeatUntilLoop| |whileLoop| |forLoop| |sin?|
- |zeroVector| |zeroSquareMatrix| |identitySquareMatrix| |fort_clean_lines|
- |do_with_error_env3| |do_with_error_env2| |do_with_error_env0|
- |do_with_error_env1| |expression2Fortran1| |statement2Fortran|
- |expression2Fortran| |getStatement| |changeExprLength| |displayLines|
- |displayLines1| |dispStatement| |fortFormatHead| |fortFormatTypeLines|
- |fort_format_types| |indentFortLevel| |checkType| |newFortranTempVar|
- |clear_used_intrinsics| |get_used_intrinsics| |get_fort_indent| |lSpaceBasis|
- |finiteBasis| |principal?| |divisor| |weierstrassHalfPeriods|
- |weierstrassInvariants| |modularInvariantJ| |landen1| |landen2| |landen|
- |kprod| |sn2| |useNagFunctions| |rationalPoints| |nonSingularModel|
- |algSplitSimple| |hyperelliptic| |elliptic| |integralDerivationMatrix|
- |integralRepresents| |integralCoordinates| |yCoordinates|
- |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |subst_var| |to_UP| |highCommonTerms| |mapCoef| |nthCoef| |binomThmExpt|
+ |pomopo!| |mapExponents| |linearAssociatedLog| |linearAssociatedOrder|
+ |linearAssociatedExp| |createNormalElement| |setLabelValue| |getCode|
+ |printCode| |code| |operation| |common| |printStatement| |save| |stop| |block|
+ |cond| |returns| |call| |comment| |continue| |gotoJump| |repeatUntilLoop|
+ |whileLoop| |forLoop| |sin?| |zeroVector| |zeroSquareMatrix|
+ |identitySquareMatrix| |fort_clean_lines| |do_with_error_env3|
+ |do_with_error_env2| |do_with_error_env0| |do_with_error_env1|
+ |expression2Fortran1| |statement2Fortran| |expression2Fortran| |getStatement|
+ |changeExprLength| |displayLines| |displayLines1| |dispStatement|
+ |fortFormatHead| |fortFormatTypeLines| |fort_format_types| |indentFortLevel|
+ |checkType| |newFortranTempVar| |clear_used_intrinsics| |get_used_intrinsics|
+ |get_fort_indent| |lSpaceBasis| |finiteBasis| |principal?| |divisor|
+ |weierstrassHalfPeriods| |weierstrassInvariants| |modularInvariantJ| |landen1|
+ |landen2| |landen| |kprod| |sn2| |useNagFunctions| |rationalPoints|
+ |nonSingularModel| |algSplitSimple| |hyperelliptic| |elliptic|
+ |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
+ |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
  |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
  |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
  |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|
@@ -725,10 +727,11 @@
  |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
  |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
  |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
- |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |toPermutation|
- |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
- |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
- |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
+ |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
+ |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
+ |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
+ |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
  |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
  |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
