@@ -161,7 +161,7 @@ cOrderedSet`0`x`()->Category``ORDSET`37436
 cPAdicIntegerCategory`1`x`(Integer)->Category`(p)`PADICCT`37754
 cPartialDifferentialRing`1`x`(SetCategory)->Category`(S)`PDRING`37858
 cPartialOrder`0`x`()->Category``PORDER`37963
-cPartialTranscendentalFunctions`1`x`(TranscendentalFunctionCategory)->Category`(K)`PTRANFN`38080
+cPartialTranscendentalFunctions`1`x`(Type)->Category`(K)`PTRANFN`38080
 cPatternable`1`x`(Type)->Category`(R)`PATAB`38215
 cPatternMatchable`1`x`(SetCategory)->Category`(S)`PATMAB`38404
 cPermutationCategory`1`x`(SetCategory)->Category`(S)`PERMCAT`38525
