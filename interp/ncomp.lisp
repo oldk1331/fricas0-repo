@@ -1094,6 +1094,10 @@
             NIL)))))
        (#1# (BREAK)))))))
  
+; DEFVAR($PrintOnly, false)
+ 
+(DEFVAR |$PrintOnly| NIL)
+ 
 ; DEFVAR($RawParseOnly, false)
  
 (DEFVAR |$RawParseOnly| NIL)

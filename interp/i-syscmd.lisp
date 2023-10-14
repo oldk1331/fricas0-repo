@@ -7542,30 +7542,8 @@
               (SETQ CHR (ELT LINE (+ |p| 1)))
               (|processSynonyms|))))))))
  
-; tabsToBlanks s ==
-;    k := charPosition($charTab,s,0)
-;    n := #s
-;    k < n =>
-;       k = 0 => tabsToBlanks SUBSTRING(s,1,nil)
-;       STRCONC(SUBSTRING(s,0,k),$charBlank, tabsToBlanks SUBSTRING(s,k + 1,nil))
-;    s
- 
-(DEFUN |tabsToBlanks| (|s|)
-  (PROG (|k| |n|)
-    (RETURN
-     (PROGN
-      (SETQ |k| (|charPosition| |$charTab| |s| 0))
-      (SETQ |n| (LENGTH |s|))
-      (COND
-       ((< |k| |n|)
-        (COND ((EQL |k| 0) (|tabsToBlanks| (SUBSTRING |s| 1 NIL)))
-              (#1='T
-               (STRCONC (SUBSTRING |s| 0 |k|) |$charBlank|
-                (|tabsToBlanks| (SUBSTRING |s| (+ |k| 1) NIL))))))
-       (#1# |s|))))))
- 
 ; doSystemCommand string ==
-;    string := CONCAT('")", EXPAND_-TABS string)
+;    string := CONCAT('")", string)
 ;    LINE: fluid := string
 ;    processSynonyms()
 ;    string := LINE
@@ -7588,7 +7566,7 @@
     (DECLARE (SPECIAL LINE))
     (RETURN
      (PROGN
-      (SETQ |string| (CONCAT ")" (EXPAND-TABS |string|)))
+      (SETQ |string| (CONCAT ")" |string|))
       (SETQ LINE |string|)
       (|processSynonyms|)
       (SETQ |string| LINE)

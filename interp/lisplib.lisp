@@ -136,15 +136,12 @@
 ; loadLibIfNotLoaded libName ==
 ;   -- replaces old SpadCondLoad
 ;   -- loads is library is not already loaded
-;   $PrintOnly = 'T => NIL
 ;   GET(libName, 'LOADED) => NIL
 ;   loadLib libName
  
 (DEFUN |loadLibIfNotLoaded| (|libName|)
   (PROG ()
-    (RETURN
-     (COND ((EQ |$PrintOnly| 'T) NIL) ((GET |libName| 'LOADED) NIL)
-           ('T (|loadLib| |libName|))))))
+    (RETURN (COND ((GET |libName| 'LOADED) NIL) ('T (|loadLib| |libName|))))))
  
 ; loadLib cname ==
 ;   startTimingProcess 'load

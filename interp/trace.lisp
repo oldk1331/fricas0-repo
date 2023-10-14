@@ -64,7 +64,7 @@
 ; traceSpad2Cmd l ==
 ;   if l is ['Tuple, l1] then l := l1
 ;   $mapSubNameAlist:= getMapSubNames(l)
-;   trace1 augmentTraceNames(l,$mapSubNameAlist)
+;   trace1(augmentTraceNames(l, $mapSubNameAlist), $options)
 ;   traceReply()
  
 (DEFUN |traceSpad2Cmd| (|l|)
@@ -79,15 +79,15 @@
                    (PROGN (SETQ |l1| (CAR |ISTMP#1|)) 'T))))
         (SETQ |l| |l1|)))
       (SETQ |$mapSubNameAlist| (|getMapSubNames| |l|))
-      (|trace1| (|augmentTraceNames| |l| |$mapSubNameAlist|))
+      (|trace1| (|augmentTraceNames| |l| |$mapSubNameAlist|) |$options|)
       (|traceReply|)))))
  
-; trace1 l ==
+; trace1(l, options) ==
 ;   $traceNoisely: local := NIL
-;   if hasOption($options,'nonquietly) then $traceNoisely := true
-;   hasOption($options,'off) =>
-;     (ops := hasOption($options,'ops)) or
-;       (lops := hasOption($options,'local)) =>
+;   if hasOption(options, 'nonquietly) then $traceNoisely := true
+;   hasOption(options, 'off) =>
+;     (ops := hasOption(options, 'ops)) or
+;       (lops := hasOption(options, 'local)) =>
 ;         null l => throwKeyedMsg("S2IT0019",NIL)
 ;         constructor := unabbrev
 ;           atom l => l
@@ -102,14 +102,14 @@
 ;         if lops then
 ;           lops := rest getTraceOption lops
 ;           untraceDomainLocalOps(constructor,lops)
-;     (1 < # $options) and not hasOption($options,'nonquietly) =>
+;     (1 < #options) and not hasOption(options, 'nonquietly) =>
 ;       throwKeyedMsg("S2IT0021",NIL)
 ;     untrace l
 ;     clearConstructorCaches()
-;   hasOption($options,'stats) =>
-;     (1 < # $options) =>
+;   hasOption(options, 'stats) =>
+;     (1 < #options) =>
 ;       throwKeyedMsg("S2IT0001",['")trace ... )stats"])
-;     [., :opt] := first $options
+;     [., :opt] := first options
 ;     -- look for )trace )stats       to list the statistics
 ;     --          )trace )stats reset to reset them
 ;     null opt =>      -- list the statistics
@@ -123,21 +123,21 @@
 ;     resetTimers()
 ;     resetCounters()
 ;     throwKeyedMsg("S2IT0002",NIL)
-;   a:= hasOption($options,'restore) =>
+;   a:= hasOption(options, 'restore) =>
 ;     null(oldL:= $lastUntraced) => nil
-;     newOptions:= delete(a,$options)
+;     newOptions := delete(a, options)
 ;     null l => trace1 oldL
 ;     for x in l repeat
 ;       x is [domain,:opList] and VECP domain =>
 ;         sayKeyedMsg("S2IT0003",[devaluate domain])
-;       $options:= [:newOptions,:LASSOC(x,$optionAlist)]
-;       trace1 LIST x
+;       options := [:newOptions, :LASSOC(x, $optionAlist)]
+;       trace1(LIST x, options)
 ;   null l => nil
 ;   l is ["?"] => _?t()
 ;   traceList:= [transTraceItem x for x in l] or return nil
 ;   for x in traceList repeat $optionAlist:=
-;     ADDASSOC(x,$options,$optionAlist)
-;   optionList:= getTraceOptions $options
+;     ADDASSOC(x, options, $optionAlist)
+;   optionList:= getTraceOptions(options)
 ;   if (domainList := LASSOC("of", optionList)) then
 ;       LASSOC("ops", optionList) =>
 ;         throwKeyedMsg("S2IT0004", NIL)
@@ -153,7 +153,7 @@
 ;       _/TRACE_-2(funName, optionList)
 ;   saveMapSig(traceList)
  
-(DEFUN |trace1| (|l|)
+(DEFUN |trace1| (|l| |options|)
   (PROG (|$traceNoisely| |varList| |y| |domainList| |optionList| |traceList|
          |opList| |domain| |newOptions| |oldL| |a| |opt| |LETTMP#1|
          |constructor| |lops| |ops|)
@@ -161,12 +161,12 @@
     (RETURN
      (PROGN
       (SETQ |$traceNoisely| NIL)
-      (COND ((|hasOption| |$options| '|nonquietly|) (SETQ |$traceNoisely| T)))
+      (COND ((|hasOption| |options| '|nonquietly|) (SETQ |$traceNoisely| T)))
       (COND
-       ((|hasOption| |$options| '|off|)
+       ((|hasOption| |options| '|off|)
         (COND
-         ((OR (SETQ |ops| (|hasOption| |$options| '|ops|))
-              (SETQ |lops| (|hasOption| |$options| '|local|)))
+         ((OR (SETQ |ops| (|hasOption| |options| '|ops|))
+              (SETQ |lops| (|hasOption| |options| '|local|)))
           (COND ((NULL |l|) (|throwKeyedMsg| 'S2IT0019 NIL))
                 (#1='T
                  (PROGN
@@ -186,17 +186,17 @@
                      (COND
                       (|lops| (SETQ |lops| (CDR (|getTraceOption| |lops|)))
                        (|untraceDomainLocalOps| |constructor| |lops|))))))))))
-         ((AND (< 1 (LENGTH |$options|))
-               (NULL (|hasOption| |$options| '|nonquietly|)))
+         ((AND (< 1 (LENGTH |options|))
+               (NULL (|hasOption| |options| '|nonquietly|)))
           (|throwKeyedMsg| 'S2IT0021 NIL))
          (#1# (PROGN (|untrace| |l|) (|clearConstructorCaches|)))))
-       ((|hasOption| |$options| '|stats|)
+       ((|hasOption| |options| '|stats|)
         (COND
-         ((< 1 (LENGTH |$options|))
+         ((< 1 (LENGTH |options|))
           (|throwKeyedMsg| 'S2IT0001 (LIST ")trace ... )stats")))
          (#1#
           (PROGN
-           (SETQ |LETTMP#1| (CAR |$options|))
+           (SETQ |LETTMP#1| (CAR |options|))
            (SETQ |opt| (CDR |LETTMP#1|))
            (COND
             ((NULL |opt|)
@@ -213,11 +213,11 @@
               (|resetTimers|)
               (|resetCounters|)
               (|throwKeyedMsg| 'S2IT0002 NIL))))))))
-       ((SETQ |a| (|hasOption| |$options| '|restore|))
+       ((SETQ |a| (|hasOption| |options| '|restore|))
         (COND ((NULL (SETQ |oldL| |$lastUntraced|)) NIL)
               (#1#
                (PROGN
-                (SETQ |newOptions| (|delete| |a| |$options|))
+                (SETQ |newOptions| (|delete| |a| |options|))
                 (COND ((NULL |l|) (|trace1| |oldL|))
                       (#1#
                        ((LAMBDA (|bfVar#1| |x|)
@@ -238,10 +238,10 @@
                                 (LIST (|devaluate| |domain|))))
                               (#1#
                                (PROGN
-                                (SETQ |$options|
+                                (SETQ |options|
                                         (APPEND |newOptions|
                                                 (LASSOC |x| |$optionAlist|)))
-                                (|trace1| (LIST |x|)))))))
+                                (|trace1| (LIST |x|) |options|))))))
                            (SETQ |bfVar#1| (CDR |bfVar#1|))))
                         |l| NIL)))))))
        ((NULL |l|) NIL)
@@ -268,10 +268,10 @@
               ((OR (ATOM |bfVar#4|) (PROGN (SETQ |x| (CAR |bfVar#4|)) NIL))
                (RETURN NIL))
               (#1#
-               (SETQ |$optionAlist| (ADDASSOC |x| |$options| |$optionAlist|))))
+               (SETQ |$optionAlist| (ADDASSOC |x| |options| |$optionAlist|))))
              (SETQ |bfVar#4| (CDR |bfVar#4|))))
           |traceList| NIL)
-         (SETQ |optionList| (|getTraceOptions| |$options|))
+         (SETQ |optionList| (|getTraceOptions| |options|))
          (COND
           ((SETQ |domainList| (LASSOC '|of| |optionList|))
            (COND ((LASSOC '|ops| |optionList|) (|throwKeyedMsg| 'S2IT0004 NIL))
