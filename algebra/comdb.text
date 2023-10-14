@@ -1348,7 +1348,7 @@
 122999`\spad{base()} returns the base of the \spadfunFrom{exponent}{FloatingPointSystem}.
 123058`\spad{base(b)} sets the base of the model to \spad{b}
 123125`\spad{base(gp)} returns a base for the group {\em gp}.
-123178`\spad{baseRDE(f,{} g)} returns a \spad{[y,{} b]} such that \spad{y' + fy = g} if \spad{b = true},{} \spad{y} is a partial solution otherwise (no solution in that case). \spad{D} is the derivation to use.
+123178`\spad{baseRDE(f,{} g)} returns a \spad{[y,{} b]} such that \spad{y' + fy = g} if \spad{b = false},{} \spad{y} is a partial solution otherwise (no solution in that case). \spad{D} is the derivation to use.
 123296`\spad{baseRDEsys(f,{} g1,{} g2)} returns fractions \spad{y_1.y_2} such that \spad{(y1',{} y2') + ((0,{} -f),{} (f,{} 0)) (y1,{} y2) = (g1,{} g2)} if \spad{y_1,{}y_2} exist,{} "failed" otherwise.
 123432`\spad{BasicMethod(n)} returns the factorization of integer \spad{n} by trial division
 123626`\axiom{basicSet(\spad{ps},{} redOp?)} returns \axiom{[\spad{bs},{} \spad{ts}]} where \axiom{concat(\spad{bs},{} \spad{ts})} is \axiom{\spad{ps}} and \axiom{\spad{bs}} is a basic set in Wu Wen Tsun sense of \axiom{\spad{ps}} \spad{w}.\spad{r}.\spad{t} the reduction-test \axiom{redOp?},{} if no non-zero constant polynomial lie in \axiom{\spad{ps}},{} otherwise \axiom{"failed"} is ret
@@ -5983,8 +5983,8 @@
 627779`\spad{polynomial(f,{} k1,{} k2)} returns a polynomial consisting of the sum of all terms of \spad{f} of degree \spad{d} with \spad{k1 <= d <= k2}.
 627908`\spad{polynomial(f,{} k1,{} k2)} returns a polynomial consisting of the sum of all terms of \spad{f} of degree \spad{d} with \spad{k1 <= d <= k2}.
 628031`\spad{polyPart(f)} returns the polynomial part of \spad{f}.
-628098`\spad{polyRDE(a,{} B,{} C,{} n,{} D)} returns either: 1. \spad{[Q,{} b]} such that \spad{degree(Q) <= n} and \indented{3}{\spad{a Q'+ B Q = C} if \spad{b = true},{} \spad{Q} is a partial solution} \indented{3}{otherwise.} 2. \spad{[B1,{} C1,{} m,{} \alpha,{} \beta]} such that any polynomial solution \indented{3}{of degree at most \spad{n}
-628098`-- of \spad{A Q' + BQ = C} must be of the form} \indented{3}{\spad{Q = \alpha H + \beta} where \spad{degree(H) <= m} and} \indented{3}{\spad{H} satisfies \spad{H' + B1 H = C1}.} \spad{D} is the derivation to use.
+628098`\spad{polyRDE(a,{} B,{} C,{} n,{} D)} returns either: 1. \spad{[Q,{} b]} such that \spad{degree(Q) <= n} and \indented{3}{\spad{a Q'+ B Q = C} if \spad{b = false},{} \spad{Q} is a partial solution} \indented{3}{otherwise.} 2. \spad{[B1,{} C1,{} m,{} \alpha,{} \beta]} such that any polynomial solution \indented{3}{of degree at most \spad{n
+628098`--} of \spad{A Q' + BQ = C} must be of the form} \indented{3}{\spad{Q = \alpha H + \beta} where \spad{degree(H) <= m} and} \indented{3}{\spad{H} satisfies \spad{H' + B1 H = C1}.} \spad{D} is the derivation to use.
 628265`\spad{polyred(u)} \undocumented
 628334`\spad{polyRicDE(op,{} zeros)} returns \spad{[[p1,{} L1],{} [p2,{} L2],{} ... ,{} [pk,{} Lk]]} such that the polynomial part of any rational solution of the associated Riccati equation of \spad{op y = 0} must be one of the \spad{pi}\spad{'s} (up to the constant coefficient),{} in which case the equation for \spad{z
 628334`-- = y e^{-int p}} is \spad{\spad{Li} z = 0}. \spad{zeros} is a zero finder in \spad{UP}.
