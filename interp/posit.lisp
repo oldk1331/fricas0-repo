@@ -119,24 +119,6 @@
  
 (DEFUN |poGetLineObject| (|posn|) (PROG () (RETURN (CAR |posn|))))
  
-; pfGetLineObject posn == poGetLineObject posn
- 
-(DEFUN |pfGetLineObject| (|posn|) (PROG () (RETURN (|poGetLineObject| |posn|))))
- 
-; pfSourceToken form ==
-;     if pfLeaf? form
-;     then pfLeafToken form
-;     else if null pfParts form
-;          then 'NoToken
-;          else pfSourceToken(pfFirst form)
- 
-(DEFUN |pfSourceToken| (|form|)
-  (PROG ()
-    (RETURN
-     (COND ((|pfLeaf?| |form|) (|pfLeafToken| |form|))
-           ((NULL (|pfParts| |form|)) '|NoToken|)
-           ('T (|pfSourceToken| (|pfFirst| |form|)))))))
- 
 ; pfPosn pf == pfSourcePosition pf
  
 (DEFUN |pfPosn| (|pf|) (PROG () (RETURN (|pfSourcePosition| |pf|))))
@@ -251,41 +233,17 @@
  
 (DEFUN |pfFileName| (|posn|) (PROG () (RETURN (|poFileName| |posn|))))
  
-; poFileName? posn       ==
-;     posn = ['noposition] => NIL
-;     posn => lnFileName? poGetLineObject posn
-;     CAAR posn
- 
-(DEFUN |poFileName?| (|posn|)
-  (PROG ()
-    (RETURN
-     (COND ((EQUAL |posn| (LIST '|noposition|)) NIL)
-           (|posn| (|lnFileName?| (|poGetLineObject| |posn|)))
-           ('T (CAAR |posn|))))))
- 
-; pfFileName? posn == poFileName? posn
- 
-(DEFUN |pfFileName?| (|posn|) (PROG () (RETURN (|poFileName?| |posn|))))
- 
 ; poPlaceOfOrigin posn ==
 ;     lnPlaceOfOrigin poGetLineObject posn
  
 (DEFUN |poPlaceOfOrigin| (|posn|)
   (PROG () (RETURN (|lnPlaceOfOrigin| (|poGetLineObject| |posn|)))))
  
-; pfPlaceOfOrigin posn == poPlaceOfOrigin posn
- 
-(DEFUN |pfPlaceOfOrigin| (|posn|) (PROG () (RETURN (|poPlaceOfOrigin| |posn|))))
- 
 ; poNopos? posn ==
 ;     posn = ['noposition]
  
 (DEFUN |poNopos?| (|posn|)
   (PROG () (RETURN (EQUAL |posn| (LIST '|noposition|)))))
- 
-; pfNopos? posn == poNopos? posn
- 
-(DEFUN |pfNopos?| (|posn|) (PROG () (RETURN (|poNopos?| |posn|))))
  
 ; poPosImmediate? txp==
 ;     poNopos? txp => NIL
@@ -296,10 +254,6 @@
     (RETURN
      (COND ((|poNopos?| |txp|) NIL)
            ('T (|lnImmediate?| (|poGetLineObject| |txp|)))))))
- 
-; pfPosImmediate? txp == poPosImmediate? txp
- 
-(DEFUN |pfPosImmediate?| (|txp|) (PROG () (RETURN (|poPosImmediate?| |txp|))))
  
 ; poImmediate? txp==
 ;     lnImmediate? poGetLineObject txp

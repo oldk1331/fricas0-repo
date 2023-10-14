@@ -2389,7 +2389,7 @@
 ;       k:= NRTassocIndex u =>
 ;         atom u => RPLACA(y,[$elt,'_$,k])
 ;         -- u atomic means that the slot will always contain a vector
-;         RPLACA(y,['SPADCHECKELT,'_$,k])
+;         BREAK()
 ;       --this reference must check that slot is a vector
 ;       nil
 ;     NRTputInHead u
@@ -2408,8 +2408,7 @@
                    (COND ((OR (EQ |u| '$) (LASSOC |u| |$devaluateList|)) NIL)
                          ((SETQ |k| (|NRTassocIndex| |u|))
                           (COND ((ATOM |u|) (RPLACA |y| (LIST |$elt| '$ |k|)))
-                                (#1#
-                                 (RPLACA |y| (LIST 'SPADCHECKELT '$ |k|)))))
+                                (#1# (BREAK))))
                          (#1# NIL)))
                   (#1# (|NRTputInHead| |u|)))))
           (SETQ |y| (CDR |y|))))
