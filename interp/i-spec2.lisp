@@ -1851,49 +1851,29 @@
         (|upSetelt| |op| |lhs| |tree|))
        (#1# (|throwKeyedMsg| 'S2IS0060 NIL)))))))
  
+; get_opname_if_can(f) ==
+;     VECP(f) => f.0
+;     nil
+ 
+(DEFUN |get_opname_if_can| (|f|)
+  (PROG () (RETURN (COND ((VECP |f|) (ELT |f| 0)) ('T NIL)))))
+ 
 ; seteltable(lhs is [f,:argl],rhs) ==
 ;   -- produces the setelt form for trees such as "l.2:= 3"
-;   null (g := getUnnameIfCan f) => NIL
+;   g := get_opname_if_can f
 ;   EQ(g,'elt) => altSeteltable [:argl, rhs]
-;   get(g,'value,$e) is [expr,:.] and isMapExpr expr => NIL
-;   transferPropsToNode(g,f)
-;   getValue(lhs) or getMode(lhs) =>
-;     f is [f',:argl'] => altSeteltable [f',:argl',:argl,rhs]
-;     altSeteltable [:lhs,rhs]
-;   NIL
+;   altSeteltable [:lhs,rhs]
  
 (DEFUN |seteltable| (|lhs| |rhs|)
-  (PROG (|f| |argl| |g| |ISTMP#1| |expr| |f'| |argl'|)
+  (PROG (|f| |argl| |g|)
     (RETURN
      (PROGN
       (SETQ |f| (CAR |lhs|))
       (SETQ |argl| (CDR |lhs|))
-      (COND ((NULL (SETQ |g| (|getUnnameIfCan| |f|))) NIL)
-            ((EQ |g| '|elt|)
-             (|altSeteltable| (APPEND |argl| (CONS |rhs| NIL))))
-            ((AND
-              (PROGN
-               (SETQ |ISTMP#1| (|get| |g| '|value| |$e|))
-               (AND (CONSP |ISTMP#1|)
-                    (PROGN (SETQ |expr| (CAR |ISTMP#1|)) #1='T)))
-              (|isMapExpr| |expr|))
-             NIL)
-            (#1#
-             (PROGN
-              (|transferPropsToNode| |g| |f|)
-              (COND
-               ((OR (|getValue| |lhs|) (|getMode| |lhs|))
-                (COND
-                 ((AND (CONSP |f|)
-                       (PROGN
-                        (SETQ |f'| (CAR |f|))
-                        (SETQ |argl'| (CDR |f|))
-                        #1#))
-                  (|altSeteltable|
-                   (CONS |f'|
-                         (APPEND |argl'| (APPEND |argl| (CONS |rhs| NIL))))))
-                 (#1# (|altSeteltable| (APPEND |lhs| (CONS |rhs| NIL))))))
-               (#1# NIL)))))))))
+      (SETQ |g| (|get_opname_if_can| |f|))
+      (COND
+       ((EQ |g| '|elt|) (|altSeteltable| (APPEND |argl| (CONS |rhs| NIL))))
+       ('T (|altSeteltable| (APPEND |lhs| (CONS |rhs| NIL)))))))))
  
 ; altSeteltable args ==
 ;     for x in args repeat bottomUp x
