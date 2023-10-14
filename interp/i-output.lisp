@@ -2910,8 +2910,7 @@
            (#1# (|maPrin| |x|))))))
  
 ; maprinRows matrixList ==
-;   if not $collectOutput then TERPRI($algebraOutputStream)
-;   while matrixList repeat
+;     if not $collectOutput then TERPRI($algebraOutputStream)
 ;     y:=NREVERSE matrixList
 ;     --Makes the matrices come out in order, since CONSed on backwards
 ;     matrixList:=nil
@@ -2927,39 +2926,32 @@
     (RETURN
      (PROGN
       (COND ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
-      ((LAMBDA ()
+      (SETQ |y| (NREVERSE |matrixList|))
+      (SETQ |matrixList| NIL)
+      (SETQ |firstName| (CAR (CAR |y|)))
+      ((LAMBDA (|bfVar#74| |bfVar#73| |n|)
          (LOOP
-          (COND ((NOT |matrixList|) (RETURN NIL))
-                (#1='T
+          (COND
+           ((OR (ATOM |bfVar#74|)
+                (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
+            (RETURN NIL))
+           (#1='T
+            (AND (CONSP |bfVar#73|)
                  (PROGN
-                  (SETQ |y| (NREVERSE |matrixList|))
-                  (SETQ |matrixList| NIL)
-                  (SETQ |firstName| (CAR (CAR |y|)))
-                  ((LAMBDA (|bfVar#74| |bfVar#73| |n|)
-                     (LOOP
-                      (COND
-                       ((OR (ATOM |bfVar#74|)
-                            (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
-                        (RETURN NIL))
-                       (#1#
-                        (AND (CONSP |bfVar#73|)
-                             (PROGN
-                              (SETQ |name| (CAR |bfVar#73|))
-                              (SETQ |m| (CDR |bfVar#73|))
-                              #1#)
-                             (PROGN
-                              (COND
-                               ((NULL |$collectOutput|)
-                                (TERPRI |$algebraOutputStream|)))
-                              (SETQ |andWhere|
-                                      (COND
-                                       ((EQUAL |name| |firstName|) "where ")
-                                       (#1# "and ")))
-                              (SETQ |line| (STRCONC |andWhere| (PNAME |name|)))
-                              (|maprinChk| (LIST '= |line| |m|))))))
-                      (SETQ |bfVar#74| (CDR |bfVar#74|))
-                      (SETQ |n| (+ |n| 1))))
-                   |y| NIL 0)))))))))))
+                  (SETQ |name| (CAR |bfVar#73|))
+                  (SETQ |m| (CDR |bfVar#73|))
+                  #1#)
+                 (PROGN
+                  (COND
+                   ((NULL |$collectOutput|) (TERPRI |$algebraOutputStream|)))
+                  (SETQ |andWhere|
+                          (COND ((EQUAL |name| |firstName|) "where ")
+                                (#1# "and ")))
+                  (SETQ |line| (STRCONC |andWhere| (PNAME |name|)))
+                  (|maprinChk| (LIST '= |line| |m|))))))
+          (SETQ |bfVar#74| (CDR |bfVar#74|))
+          (SETQ |n| (+ |n| 1))))
+       |y| NIL 0)))))
  
 ; deMatrix m ==
 ;     ['BRACKET,['AGGLST,

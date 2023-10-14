@@ -2489,8 +2489,9 @@
 ; --docTable is [[origin,entry1,...,:code] ...] where
 ; --  each entry is [sig,doc] and code is NIL or else a topic code for op
 ;   main ==
-;     if null FIXP op and
-;       DIGITP (s := STRINGIMAGE op).0 then op := string2Integer s
+;     if null FIXP op and DIGITP (s := STRINGIMAGE op).0 then
+;           BREAK()
+;           op := string2Integer s
 ;     -- the above hack should be removed after 3/94 when 0 is not |0|
 ;     aux is [[packageName,:.],:pred] =>
 ;       doc := dbConstructorDoc(first aux,$op,$sig)
@@ -2524,7 +2525,7 @@
      (PROGN
       (COND
        ((AND (NULL (FIXP |op|)) (DIGITP (ELT (SETQ |s| (STRINGIMAGE |op|)) 0)))
-        (SETQ |op| (|string2Integer| |s|))))
+        (BREAK) (SETQ |op| (|string2Integer| |s|))))
       (COND
        ((AND (CONSP |aux|)
              (PROGN

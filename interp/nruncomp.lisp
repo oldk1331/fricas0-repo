@@ -1287,7 +1287,6 @@
 ;   $GENNO: local:= 0     --bound in compDefineFunctor1, then as parameter here
 ;   $catvecList: local    --list of vectors v1..vn for each view
 ;   $hasCategoryAlist: local  --list of GENSYMs bound to (HasCategory ..) items
-;   $catNames: local      --list of names n1..nn for each view
 ;   $SetFunctions: local  --copy of p view with preds telling when fnct defined
 ;   $MissingFunctionInfo: local --vector marking which functions are assigned
 ;   $ConstantAssignments: local --code for creation of constants
@@ -1314,18 +1313,18 @@
 ;   $catvecList:= [domainShell,:[emptyVector for u in CADR domainShell.4]]
 ;   $SetFunctions:= GETREFV SIZE domainShell
 ;   $MissingFunctionInfo:= GETREFV SIZE domainShell
-;   $catNames:= ['$,:[GENVAR() for u in rest catvecListMaker]]
+;   catNames := ['$, :[GENVAR() for u in rest catvecListMaker]]
 ;   domname:='dv_$
 ; 
 ;   condCats := simplify_self_preds(catvecListMaker, condCats)
 ; -->  Do this now to create predicate vector; then DescendCode can refer
 ; -->  to predicate vector if it can
 ;   [$uncondAlist,:$condAlist] :=    --bound in compDefineFunctor1
-;       NRTsetVector4Part1($catNames,catvecListMaker,condCats)
+;       NRTsetVector4Part1(catNames, catvecListMaker, condCats)
 ;   [$NRTslot1PredicateList,predBitVectorCode1,:predBitVectorCode2] :=
 ;       makePredicateBitVector [:ASSOCRIGHT $condAlist,:$NRTslot1PredicateList]
 ; 
-;   storeOperationCode:= DescendCode(code,true,nil,first $catNames)
+;   storeOperationCode := DescendCode(code, true, nil, first catNames)
 ;   outsideFunctionCode:= NRTaddDeltaCode()
 ;   storeOperationCode:= NRTputInLocalReferences storeOperationCode
 ;   NRTdescendCodeTran(storeOperationCode,nil) --side effects storeOperationCode
@@ -1372,18 +1371,18 @@
 (DEFUN |buildFunctor| (|$definition| |sig| |code| |$locals| |$e|)
   (DECLARE (SPECIAL |$definition| |$locals| |$e|))
   (PROG (|$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-         |$MissingFunctionInfo| |$SetFunctions| |$catNames| |$hasCategoryAlist|
+         |$MissingFunctionInfo| |$SetFunctions| |$hasCategoryAlist|
          |$catvecList| $GENNO |ans| |codePart3| |codePart1| |slamCode|
          |slot3Code| |setVector0Code| |createViewCode| |createDomainCode|
          |devaluateCode| |b| |a| |codePart2| |addargname| |argStuffCode|
          |outsideFunctionCode| |storeOperationCode| |predBitVectorCode2|
-         |predBitVectorCode1| |LETTMP#1| |domname| |domainShell| |emptyVector|
-         |makeCatvecCode| |condCats| |catvecListMaker| |argsig| |catsig|
-         |oldtime| |newstuff| |ISTMP#2| |ISTMP#1| |args| |name|)
+         |predBitVectorCode1| |LETTMP#1| |domname| |catNames| |domainShell|
+         |emptyVector| |makeCatvecCode| |condCats| |catvecListMaker| |argsig|
+         |catsig| |oldtime| |newstuff| |ISTMP#2| |ISTMP#1| |args| |name|)
     (DECLARE
      (SPECIAL |$devaluateList| |$extraParms| |$epilogue| |$ConstantAssignments|
-      |$MissingFunctionInfo| |$SetFunctions| |$catNames| |$hasCategoryAlist|
-      |$catvecList| $GENNO))
+      |$MissingFunctionInfo| |$SetFunctions| |$hasCategoryAlist| |$catvecList|
+      $GENNO))
     (RETURN
      (PROGN
       (SETQ |name| (CAR |$definition|))
@@ -1402,7 +1401,6 @@
       (SETQ $GENNO 0)
       (SETQ |$catvecList| NIL)
       (SETQ |$hasCategoryAlist| NIL)
-      (SETQ |$catNames| NIL)
       (SETQ |$SetFunctions| NIL)
       (SETQ |$MissingFunctionInfo| NIL)
       (SETQ |$ConstantAssignments| NIL)
@@ -1467,7 +1465,7 @@
                      NIL (CADR (ELT |domainShell| 4)) NIL)))
       (SETQ |$SetFunctions| (GETREFV (SIZE |domainShell|)))
       (SETQ |$MissingFunctionInfo| (GETREFV (SIZE |domainShell|)))
-      (SETQ |$catNames|
+      (SETQ |catNames|
               (CONS '$
                     ((LAMBDA (|bfVar#62| |bfVar#61| |u|)
                        (LOOP
@@ -1481,7 +1479,7 @@
       (SETQ |domname| '|dv$|)
       (SETQ |condCats| (|simplify_self_preds| |catvecListMaker| |condCats|))
       (SETQ |LETTMP#1|
-              (|NRTsetVector4Part1| |$catNames| |catvecListMaker| |condCats|))
+              (|NRTsetVector4Part1| |catNames| |catvecListMaker| |condCats|))
       (SETQ |$uncondAlist| (CAR |LETTMP#1|))
       (SETQ |$condAlist| (CDR |LETTMP#1|))
       (SETQ |LETTMP#1|
@@ -1490,8 +1488,7 @@
       (SETQ |$NRTslot1PredicateList| (CAR |LETTMP#1|))
       (SETQ |predBitVectorCode1| (CADR . #2=(|LETTMP#1|)))
       (SETQ |predBitVectorCode2| (CDDR . #2#))
-      (SETQ |storeOperationCode|
-              (|DescendCode| |code| T NIL (CAR |$catNames|)))
+      (SETQ |storeOperationCode| (|DescendCode| |code| T NIL (CAR |catNames|)))
       (SETQ |outsideFunctionCode| (|NRTaddDeltaCode|))
       (SETQ |storeOperationCode|
               (|NRTputInLocalReferences| |storeOperationCode|))
