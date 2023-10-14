@@ -21,7 +21,7 @@
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#2=#:G159 NIL) (#3=#:G155 NIL) (|res| NIL) (|llp| NIL)
+              (#2=#:G161 NIL) (#3=#:G160 NIL) (|res| NIL) (|llp| NIL)
               (|xp| NIL))
              (SEQ
               (EXIT
@@ -34,7 +34,7 @@
                             (SPADCALL |x| (QREFELT $ 10)))
                         (PROGN
                          (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                         (GO #2#)))
+                         (GO #4=#:G159)))
                        ('T (LETT |x| (SPADCALL |x| (QREFELT $ 15)) NIL))))
                      ('T
                       (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 16)) NIL)
@@ -60,9 +60,11 @@
                                            (QREFELT $ 26))
                                  (PROGN
                                   (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                                  (GO #2#)))
+                                  (GO #4#)))
                                 ('T
-                                 (PROGN (LETT #3# |$NoValue| NIL) (GO #3#)))))
+                                 (PROGN
+                                  (LETT #3# |$NoValue| NIL)
+                                  (GO #5=#:G155)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -85,7 +87,7 @@
                                  (LETT |xp| (SPADCALL |xp| (QREFELT $ 15))
                                        NIL)))))))
                            (LETT |i| (+ |i| 1) NIL) (GO G190) G191 (EXIT NIL)))
-                     #3# (EXIT #3#))
+                     #5# (EXIT #3#))
                     (COND
                      ((SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 33))
                       (COND
@@ -96,7 +98,7 @@
                     (EXIT
                      (SPADCALL |res| (|STEXPS;stmult| |n| |x| |y| |ll| $)
                                (QREFELT $ 34)))))
-              #2# (EXIT #2#))))))) 
+              #4# (EXIT #2#))))))) 
 
 (SDEFUN |STEXPS;*;3S;3|
         ((|x| |Stream| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
@@ -193,9 +195,9 @@
 
 (DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
 
-(DEFUN |StreamExponentialSeriesOperations| (#1=#:G187)
+(DEFUN |StreamExponentialSeriesOperations| (#1=#:G189)
   (SPROG NIL
-         (PROG (#2=#:G188)
+         (PROG (#2=#:G190)
            (RETURN
             (COND
              ((LETT #2#

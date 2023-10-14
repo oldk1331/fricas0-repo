@@ -1,7 +1,7 @@
 
 (SDEFUN |NORMRETR;normFactors;ExtPL;1| ((|p| |ExtP|) ($ |List| |ExtP|))
         (SPROG
-         ((|facs| (|List| |ExtP|)) (#1=#:G107 NIL) (#2=#:G108 NIL) (|i| NIL))
+         ((|facs| (|List| |ExtP|)) (#1=#:G108 NIL) (#2=#:G109 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |facs| (LIST |p|) . #3=(|NORMRETR;normFactors;ExtPL;1|))
@@ -13,11 +13,11 @@
                         ((SPADCALL
                           (LETT |p| (SPADCALL |p| (QREFELT $ 11)) . #3#) |facs|
                           (QREFELT $ 14))
-                         (PROGN (LETT #1# |facs| . #3#) (GO #1#)))
+                         (PROGN (LETT #1# |facs| . #3#) (GO #4=#:G107)))
                         ('T (LETT |facs| (CONS |p| |facs|) . #3#)))))
                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT |facs|)))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |NORMRETR;Frobenius;2ExtP;2| ((|ff| |ExtP|) ($ |ExtP|))
         (SPROG ((|fft| (|ExtP|)))
@@ -53,7 +53,7 @@
          ((|fft|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
           (|lc| (|SUEx|)) (|plc| (|SparseUnivariatePolynomial| F))
-          (#1=#:G129 NIL) (|retlc| (|Union| F "failed")) (|lclc| (|ExtF|)))
+          (#1=#:G131 NIL) (|retlc| (|Union| F "failed")) (|lclc| (|ExtF|)))
          (SEQ
           (EXIT
            (SEQ
@@ -80,7 +80,7 @@
                               ((QEQCAR |retlc| 1)
                                (PROGN
                                 (LETT #1# (CONS 1 "failed") . #2#)
-                                (GO #1#)))
+                                (GO #3=#:G130)))
                               ('T
                                (SEQ
                                 (LETT |plc|
@@ -106,13 +106,13 @@
                       (EXIT (LETT |ff| (SPADCALL |ff| (QREFELT $ 26)) . #2#)))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |fft|))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |NormRetractPackage;|)) 
 
-(DEFUN |NormRetractPackage| (&REST #1=#:G130)
+(DEFUN |NormRetractPackage| (&REST #1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G131)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

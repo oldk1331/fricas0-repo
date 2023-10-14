@@ -3,7 +3,7 @@
         ((|x| F) (|p| |Pattern| S) (|l| |PatternMatchResult| S F)
          ($ |PatternMatchResult| S F))
         (SPROG
-         ((#1=#:G165 NIL)
+         ((#1=#:G174 NIL)
           (|ex|
            (|Union|
             (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|)))
@@ -256,10 +256,11 @@
                                                                  (QREFELT $
                                                                           22))
                                                                 . #5#)
-                                                          (GO #1#))))))))))))
+                                                          (GO
+                                                           #6=#:G165))))))))))))
                                                (EXIT
                                                 (SPADCALL (QREFELT $ 45)))))
-                                             #1#
+                                             #6#
                                              (EXIT
                                               #1#))))))))))))))))))))))))))))))) 
 
@@ -285,9 +286,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchFunctionSpace;|)) 
 
-(DEFUN |PatternMatchFunctionSpace| (&REST #1=#:G174)
+(DEFUN |PatternMatchFunctionSpace| (&REST #1=#:G175)
   (SPROG NIL
-         (PROG (#2=#:G175)
+         (PROG (#2=#:G176)
            (RETURN
             (COND
              ((LETT #2#

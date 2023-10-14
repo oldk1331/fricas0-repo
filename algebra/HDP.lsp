@@ -1,7 +1,7 @@
 
 (SDEFUN |HDP;<;2$B;1| ((|v1| $) (|v2| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G112 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G113 NIL))
+         ((#1=#:G113 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)) (#2=#:G114 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |n1| (|spadConstant| $ 9) . #3=(|HDP;<;2$B;1|))
@@ -31,23 +31,23 @@
                                 ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 11))
                                            (SPADCALL |v1| |i| (QREFELT $ 11))
                                            (QREFELT $ 14))
-                                 (PROGN (LETT #1# 'T . #3#) (GO #1#))))
+                                 (PROGN (LETT #1# 'T . #3#) (GO #4=#:G112))))
                                (EXIT
                                 (COND
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 11))
                                             (SPADCALL |v2| |i| (QREFELT $ 11))
                                             (QREFELT $ 14))
-                                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                                  (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
                               (LETT |i| (+ |i| -1) . #3#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT 'NIL)))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |HomogeneousDirectProduct;|)) 
 
-(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G136)
+(DEFUN |HomogeneousDirectProduct| (&REST #1=#:G137)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G138)
            (RETURN
             (COND
              ((LETT #2#
@@ -68,8 +68,8 @@
 
 (DEFUN |HomogeneousDirectProduct;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) (#4=#:G133 NIL)
-    (#5=#:G134 NIL) (#6=#:G135 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G131 NIL) (#2=#:G132 NIL) (#3=#:G133 NIL) (#4=#:G134 NIL)
+    (#5=#:G135 NIL) (#6=#:G136 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|HomogeneousDirectProduct|))
     (LETT DV$2 (|devaluate| |#2|) . #7#)

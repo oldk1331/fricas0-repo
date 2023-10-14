@@ -84,8 +84,8 @@
         ((|lside| |Expression| R) (|x| |Symbol|)
          ($ |List| (|Equation| (|Expression| R))))
         (SPROG
-         ((#1=#:G240 NIL) (|sols| (|List| (|Equation| (|Expression| R))))
-          (#2=#:G247 NIL) (|frec| NIL)
+         ((#1=#:G241 NIL) (|sols| (|List| (|Equation| (|Expression| R))))
+          (#2=#:G248 NIL) (|frec| NIL)
           (|lfacts|
            (|List|
             (|Record|
@@ -95,23 +95,23 @@
              (|:| |exponent| (|Integer|)))))
           (|listofkernels| #3=(|List| (|Expression| R)))
           (|newlside| (|Expression| R))
-          (|newlist| (|List| (|Equation| (|Expression| R)))) (#4=#:G246 NIL)
+          (|newlist| (|List| (|Equation| (|Expression| R)))) (#4=#:G247 NIL)
           (|j| NIL) (|secondsol| #5=(|List| (|Expression| R))) (#6=#:G227 NIL)
-          (#7=#:G226 #5#) (#8=#:G228 #5#) (#9=#:G245 NIL) (|ff| NIL)
+          (#7=#:G226 #5#) (#8=#:G228 #5#) (#9=#:G246 NIL) (|ff| NIL)
           (|lfatt|
            (|List|
             (|Record|
              (|:| |factor| (|SparseUnivariatePolynomial| (|Expression| R)))
              (|:| |exponent| (|Integer|)))))
           (|f| (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
-          (|elR| (|Expression| R)) (#10=#:G244 NIL) (|i| NIL) (#11=#:G222 NIL)
+          (|elR| (|Expression| R)) (#10=#:G245 NIL) (|i| NIL) (#11=#:G222 NIL)
           (#12=#:G221 #13=(|List| (|Equation| (|Expression| R))))
-          (#14=#:G223 #13#) (#15=#:G243 NIL) (|ri| NIL)
+          (#14=#:G223 #13#) (#15=#:G244 NIL) (|ri| NIL)
           (|bigX_back| (|Expression| R)) (#16=#:G217 NIL)
           (|r1| (|List| (|Expression| R)))
-          (|finv| (|Union| (|Expression| R) "failed")) (#17=#:G242 NIL)
+          (|finv| (|Union| (|Expression| R) "failed")) (#17=#:G243 NIL)
           (|lr| #5#) (#18=#:G214 NIL) (#19=#:G213 #5#) (#20=#:G215 #5#)
-          (#21=#:G241 NIL) (|fatt| NIL) (|eq1| (|Expression| R))
+          (#21=#:G242 NIL) (|fatt| NIL) (|eq1| (|Expression| R))
           (|bigX| (|Expression| R)) (Y (|Expression| R)) (X (|Symbol|))
           (|ausgabe1| #3#))
          (SEQ
@@ -202,7 +202,7 @@
                       (SEQ
                        (COND
                         ((SPADCALL |bigX| |bigX_back| (QREFELT $ 36))
-                         (PROGN (LETT #1# NIL . #22#) (GO #1#))))
+                         (PROGN (LETT #1# NIL . #22#) (GO #24=#:G240))))
                        (EXIT
                         (PROGN
                          (LETT #1#
@@ -237,7 +237,7 @@
                                      G191 (EXIT NIL))
                                 (COND (#11# #12#) (#23# NIL)))
                                . #22#)
-                         (GO #1#))))))
+                         (GO #24#))))))
                     (LETT |newlist| NIL . #22#)
                     (SEQ (LETT |i| 1 . #22#) (LETT #10# (LENGTH |r1|) . #22#)
                          G190 (COND ((|greater_SI| |i| #10#) (GO G191)))
@@ -356,8 +356,9 @@
                                  (LETT #2# (CDR #2#) . #22#) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |sols|)))
-                      (#23# (PROGN (LETT #1# NIL . #22#) (GO #1#)))))))))))))))
-          #1# (EXIT #1#)))) 
+                      (#23#
+                       (PROGN (LETT #1# NIL . #22#) (GO #24#)))))))))))))))
+          #24# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;simplifyingLog| ((|f| |Expression| R) ($ |Expression| R))
         (SPROG
@@ -406,9 +407,9 @@
         ((|lexpr| |List| (|Expression| R)) (|lvar| |List| (|Symbol|))
          ($ |Union| (|List| (|List| (|Equation| (|Expression| R)))) "failed"))
         (SPROG
-         ((|nlexpr| (|List| (|Fraction| (|Polynomial| R)))) (#1=#:G269 NIL)
+         ((|nlexpr| (|List| (|Fraction| (|Polynomial| R)))) (#1=#:G271 NIL)
           (|rf| (|Union| (|Fraction| (|Polynomial| R)) "failed"))
-          (#2=#:G270 NIL) (|expr| NIL))
+          (#2=#:G272 NIL) (|expr| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |nlexpr| NIL . #3=(|SOLVETRA;solveRetract|))
@@ -423,13 +424,13 @@
                             ((QEQCAR |rf| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #3#)
-                              (GO #1#)))
+                              (GO #4=#:G270)))
                             ('T
                              (LETT |nlexpr| (CONS (QCDR |rf|) |nlexpr|)
                                    . #3#)))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (SPADCALL |nlexpr| |lvar| (QREFELT $ 84))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;tryToTrans|
         ((|lside| |Expression| R) (|x| |Symbol|) ($ |Expression| R))
@@ -505,7 +506,7 @@
         ((|exprvar| |Expression| R) (|y| |Symbol|) ($ |Expression| R))
         (SPROG
          ((|resultnew| #1=(|Expression| R)) (|result1| (|Expression| R))
-          (#2=#:G288 NIL)
+          (#2=#:G291 NIL)
           (|result|
            (|Fraction| (|SparseUnivariatePolynomial| (|Expression| R))))
           (|newH|
@@ -542,8 +543,8 @@
                  ((EQL (LENGTH |listofkern|) 1)
                   (COND
                    ((NULL |test|)
-                    (PROGN (LETT #2# |exprvar| . #4#) (GO #2#)))))
-                 (#5='T (PROGN (LETT #2# |exprvar| . #4#) (GO #2#))))
+                    (PROGN (LETT #2# |exprvar| . #4#) (GO #5=#:G290)))))
+                 (#6='T (PROGN (LETT #2# |exprvar| . #4#) (GO #5#))))
                 (LETT |fZ|
                       (SPADCALL |exprvar|
                                 (SPADCALL |varkern| (SPADCALL Z (QREFELT $ 34))
@@ -589,8 +590,8 @@
                 (EXIT
                  (COND
                   ((SPADCALL |result| |f| (QREFELT $ 100))
-                   (PROGN (LETT #2# |exprvar| . #4#) (GO #2#)))
-                  (#5#
+                   (PROGN (LETT #2# |exprvar| . #4#) (GO #5#)))
+                  (#6#
                    (SEQ
                     (LETT |result1| (SPADCALL |result| H (QREFELT $ 102))
                           . #4#)
@@ -601,7 +602,7 @@
                                                (QREFELT $ 35))
                                      (QREFELT $ 30))
                            . #4#))))))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |SOLVETRA;eliminateKernRoot|
         ((|var| |Expression| R) (|varkern| |Kernel| (|Expression| R))
@@ -609,7 +610,7 @@
         (SPROG
          ((|resultvar| (|Expression| R))
           (|var3| (|SparseUnivariatePolynomial| (|Expression| R)))
-          (#1=#:G297 NIL)
+          (#1=#:G300 NIL)
           (|var2| (|SparseUnivariatePolynomial| (|Expression| R)))
           (|var1| (|Expression| R)) (X (|Symbol|)))
          (SEQ
@@ -654,7 +655,7 @@
 (SDEFUN |SOLVETRA;eliminateRoot|
         ((|var| . #1=(|Expression| R)) (|y| |Symbol|) ($ |Expression| R))
         (SPROG
-         ((|var1| #1#) (#2=#:G306 NIL) (|i| NIL)
+         ((|var1| #1#) (#2=#:G309 NIL) (|i| NIL)
           (|varlistk1| (|List| (|Expression| R))))
          (SEQ (LETT |var1| |var| . #3=(|SOLVETRA;eliminateRoot|))
               (SEQ G190
@@ -687,11 +688,11 @@
 
 (SDEFUN |SOLVETRA;logsumtolog| ((|var| |Expression| R) ($ |Expression| R))
         (SPROG
-         ((|var2| (|Expression| R)) (#1=#:G320 NIL) (|i| NIL)
+         ((|var2| (|Expression| R)) (#1=#:G323 NIL) (|i| NIL)
           (|kernelofvar| (|List| (|Kernel| (|Expression| R))))
           (|newexpr| (|Expression| R)) (|exprlist| (|List| (|Expression| R)))
-          (#2=#:G319 NIL) (|gcdcoeff| (|Expression| R))
-          (|listforgcd| (|List| R)) (|exprcoeff| (R)) (#3=#:G318 NIL)
+          (#2=#:G322 NIL) (|gcdcoeff| (|Expression| R))
+          (|listforgcd| (|List| R)) (|exprcoeff| (R)) (#3=#:G321 NIL)
           (|listofexpr| (|Union| (|List| (|Expression| R)) "failed")))
          (SEQ
           (LETT |listofexpr| (SPADCALL |var| (QREFELT $ 111))
@@ -771,7 +772,7 @@
 
 (SDEFUN |SOLVETRA;testLog| ((|expr| |Expression| R) (Z |Symbol|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G326 NIL) (#2=#:G327 NIL) (|i| NIL)
+         ((#1=#:G330 NIL) (#2=#:G331 NIL) (|i| NIL)
           (|kernelofexpr| (|List| (|Expression| R)))
           (|testList| (|List| (|Symbol|))))
          (SEQ
@@ -781,7 +782,7 @@
                       . #3#)
                 (COND
                  ((EQL (LENGTH |kernelofexpr|) 0)
-                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))
+                  (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G329))))
                 (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofexpr| . #3#) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -801,11 +802,11 @@
                                (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                (QREFELT $ 74)))
                              Z $))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))))
-                        ('T (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
+                        ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;splitExpr|
         ((|expr| . #1=(|Expression| R)) ($ |List| (|Expression| R)))
@@ -835,7 +836,7 @@
         ((|expr| |Expression| R) (Z |Symbol|) ($ |List| (|Expression| R)))
         (SPROG
          ((|ansmant| (|Expression| R)) (|anscoeff| (|Expression| R))
-          (#1=#:G342 NIL) (|i| NIL) (|n2list| (|List| (|Expression| R)))
+          (#1=#:G346 NIL) (|i| NIL) (|n2list| (|List| (|Expression| R)))
           (|nlist| (|List| (|Expression| R))))
          (SEQ
           (LETT |nlist| (|SOLVETRA;splitExpr| |expr| $)
@@ -876,7 +877,7 @@
 (SDEFUN |SOLVETRA;combineLog|
         ((|expr| |Expression| R) (Y |Symbol|) ($ |Expression| R))
         (SPROG
-         ((|ansexpr| #1=(|Expression| R)) (#2=#:G360 NIL) (|i| NIL) (|ans| #1#)
+         ((|ansexpr| #1=(|Expression| R)) (#2=#:G364 NIL) (|i| NIL) (|ans| #1#)
           (|exprr| (|List| (|Expression| R))) (|loopexpr| (|Expression| R))
           (|exprtable| (|Table| (|Expression| R) (|Expression| R))))
          (SEQ
@@ -984,7 +985,7 @@
 (SDEFUN |SOLVETRA;testRootk|
         ((|varlistk| |Expression| R) (|y| |Symbol|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G365 NIL) (#2=#:G366 NIL) (|i| NIL)
+         ((#1=#:G370 NIL) (#2=#:G371 NIL) (|i| NIL)
           (|kernelofeqnvar| (|List| (|Expression| R)))
           (|testList| (|List| (|Symbol|))))
          (SEQ
@@ -994,7 +995,7 @@
                       (|SOLVETRA;tableXkernels| |varlistk| |y| $) . #3#)
                 (COND
                  ((EQL (LENGTH |kernelofeqnvar|) 0)
-                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))
+                  (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G369))))
                 (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#)
                      G190
                      (COND
@@ -1007,15 +1008,15 @@
                           (SPADCALL (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                     (QREFELT $ 119))
                           |testList| (QREFELT $ 120))
-                         (PROGN (LETT #1# 'T . #3#) (GO #1#))))))
+                         (PROGN (LETT #1# 'T . #3#) (GO #4#))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT 'NIL)))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;tableXkernels|
         ((|evar| |Expression| R) (Z |Symbol|) ($ |List| (|Expression| R)))
         (SPROG
-         ((|listkOfvar| (|List| (|Expression| R))) (#1=#:G371 NIL) (|i| NIL)
+         ((|listkOfvar| (|List| (|Expression| R))) (#1=#:G376 NIL) (|i| NIL)
           (|kOfvar| (|List| (|Kernel| (|Expression| R)))))
          (SEQ
           (LETT |kOfvar| (SPADCALL |evar| (QREFELT $ 38))
@@ -1040,7 +1041,7 @@
 (SDEFUN |SOLVETRA;testTrig|
         ((|eqnvar| |Expression| R) (Z |Symbol|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G377 NIL) (#2=#:G378 NIL) (|i| NIL)
+         ((#1=#:G383 NIL) (#2=#:G384 NIL) (|i| NIL)
           (|kernelofeqnvar| (|List| (|Expression| R)))
           (|testList| (|List| (|Symbol|))))
          (SEQ
@@ -1052,7 +1053,7 @@
                   . #3#)
             (COND
              ((EQL (LENGTH |kernelofeqnvar|) 0)
-              (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))
+              (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G382))))
             (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -1071,16 +1072,16 @@
                           (SPADCALL (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                     (QREFELT $ 74)))
                          Z $))
-                       (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))))
-                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                       (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
+                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
                  (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;testHTrig|
         ((|eqnvar| |Expression| R) (Z |Symbol|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G384 NIL) (#2=#:G385 NIL) (|i| NIL)
+         ((#1=#:G391 NIL) (#2=#:G392 NIL) (|i| NIL)
           (|kernelofeqnvar| (|List| (|Expression| R)))
           (|testList| (|List| (|Symbol|))))
          (SEQ
@@ -1093,7 +1094,7 @@
                   . #3#)
             (COND
              ((EQL (LENGTH |kernelofeqnvar|) 0)
-              (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))
+              (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G390))))
             (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -1112,11 +1113,11 @@
                           (SPADCALL (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                     (QREFELT $ 74)))
                          Z $))
-                       (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))))
-                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                       (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
+                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
                  (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;makeInterval| ((|l| R) ($ |Complex| (|Interval| (|Float|))))
         (COND
@@ -1128,7 +1129,7 @@
 
 (SDEFUN |SOLVETRA;dropfun| ((|x| |Expression| R) ($ |Expression| R))
         (SPROG
-         ((#1=#:G393 NIL) (|k| (|Union| (|Kernel| (|Expression| R)) "failed")))
+         ((#1=#:G402 NIL) (|k| (|Union| (|Kernel| (|Expression| R)) "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -1138,9 +1139,11 @@
              (EXIT
               (COND
                ((OR (QEQCAR |k| 1) (NULL (SPADCALL (QCDR |k|) (QREFELT $ 74))))
-                (PROGN (LETT #1# (|spadConstant| $ 115) . #2#) (GO #1#))))))
+                (PROGN
+                 (LETT #1# (|spadConstant| $ 115) . #2#)
+                 (GO #3=#:G400))))))
             (EXIT (|SPADfirst| (SPADCALL (QCDR |k|) (QREFELT $ 74))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;funcinv|
         ((|k| |Expression| R) (|l| |Expression| R)
@@ -1334,8 +1337,8 @@
 (SDEFUN |SOLVETRA;makeREpol|
         ((|pol| |Polynomial| (|Expression| R)) ($ |Expression| R))
         (SPROG
-         ((|lval| (|List| (|Expression| R))) (#1=#:G457 NIL) (|v| NIL)
-          (#2=#:G456 NIL) (|lvar| (|List| (|Symbol|))))
+         ((|lval| (|List| (|Expression| R))) (#1=#:G465 NIL) (|v| NIL)
+          (#2=#:G464 NIL) (|lvar| (|List| (|Symbol|))))
          (SEQ
           (LETT |lvar| (SPADCALL |pol| (QREFELT $ 195))
                 . #3=(|SOLVETRA;makeREpol|))
@@ -1369,7 +1372,7 @@
          (|sol| |List| (|Equation| (|Expression| R)))
          ($ |List| (|List| (|Equation| (|Expression| R)))))
         (SPROG
-         ((#1=#:G463 NIL) (|vsol| NIL) (#2=#:G462 NIL)
+         ((#1=#:G471 NIL) (|vsol| NIL) (#2=#:G470 NIL)
           (|vsols| (|List| (|Equation| (|Expression| R))))
           (|repol| (|Expression| R)))
          (SEQ
@@ -1394,10 +1397,10 @@
          ($ |List| (|List| (|Equation| (|Expression| R)))))
         (SPROG
          ((|sols| (|List| (|List| (|Equation| (|Expression| R)))))
-          (#1=#:G465 NIL)
-          (#2=#:G464 #3=(|List| (|List| (|Equation| (|Expression| R)))))
-          (#4=#:G466 #3#) (#5=#:G472 NIL) (|sol| NIL) (#6=#:G470 NIL) (|p| NIL)
-          (#7=#:G471 NIL) (|v| NIL) (|rlvar| (|List| (|Symbol|)))
+          (#1=#:G473 NIL)
+          (#2=#:G472 #3=(|List| (|List| (|Equation| (|Expression| R)))))
+          (#4=#:G474 #3#) (#5=#:G480 NIL) (|sol| NIL) (#6=#:G478 NIL) (|p| NIL)
+          (#7=#:G479 NIL) (|v| NIL) (|rlvar| (|List| (|Symbol|)))
           (|rplist| (|List| (|Polynomial| (|Expression| R)))))
          (SEQ (LETT |rplist| (REVERSE |plist|) . #8=(|SOLVETRA;solve1Sys|))
               (LETT |rlvar| (REVERSE |lvar|) . #8#)
@@ -1454,17 +1457,17 @@
         ((|lexpr| |List| (|Expression| R)) (|lvar| |List| (|Symbol|))
          ($ |Union| (|List| (|List| (|Equation| (|Expression| R)))) "failed"))
         (SPROG
-         ((|eqs| (|List| (|Equation| (|Expression| R)))) (#1=#:G536 NIL)
-          (|i| NIL) (#2=#:G535 NIL) (|sym| (|Expression| R)) (#3=#:G534 NIL)
+         ((|eqs| (|List| (|Equation| (|Expression| R)))) (#1=#:G545 NIL)
+          (|i| NIL) (#2=#:G544 NIL) (|sym| (|Expression| R)) (#3=#:G543 NIL)
           (|p| NIL) (|zeron| (|Vector| (|Expression| R)))
-          (|rhs| (|Vector| (|Expression| R))) (#4=#:G508 NIL)
+          (|rhs| (|Vector| (|Expression| R))) (#4=#:G516 NIL)
           (|sol|
            (|Record|
             (|:| |particular| (|Union| (|Vector| (|Expression| R)) "failed"))
             (|:| |basis| (|List| (|Vector| (|Expression| R))))))
-          (|vece| (|Vector| (|Expression| R))) (#5=#:G533 NIL) (|q| NIL)
-          (#6=#:G532 NIL) (|mate| (|Matrix| (|Expression| R))) (#7=#:G531 NIL)
-          (#8=#:G530 NIL) (#9=#:G529 NIL) (|row| NIL) (#10=#:G528 NIL)
+          (|vece| (|Vector| (|Expression| R))) (#5=#:G542 NIL) (|q| NIL)
+          (#6=#:G541 NIL) (|mate| (|Matrix| (|Expression| R))) (#7=#:G540 NIL)
+          (#8=#:G539 NIL) (#9=#:G538 NIL) (|row| NIL) (#10=#:G537 NIL)
           (|r|
            (|Record|
             (|:| |mat|
@@ -1482,15 +1485,15 @@
           (|ps|
            (|List|
             (|SparseMultivariatePolynomial| R (|Kernel| (|Expression| R)))))
-          (#11=#:G527 NIL) (|expr| NIL) (#12=#:G526 NIL) (#13=#:G518 NIL)
-          (#14=#:G525 NIL) (|ker| NIL)
+          (#11=#:G536 NIL) (|expr| NIL) (#12=#:G535 NIL) (#13=#:G527 NIL)
+          (#14=#:G534 NIL) (|ker| NIL)
           (|kers| (|List| (|Kernel| (|Expression| R))))
           (|llk| (|List| (|List| (|Kernel| (|Expression| R)))))
-          (#15=#:G524 NIL) (#16=#:G523 NIL) (#17=#:G479 NIL)
-          (#18=#:G478 #19=(|Boolean|)) (#20=#:G480 #19#) (#21=#:G522 NIL)
-          (#22=#:G476 NIL) (#23=#:G475 #24=(|Boolean|)) (#25=#:G477 #24#)
-          (#26=#:G521 NIL) (|lvk| (|List| (|Kernel| (|Expression| R))))
-          (#27=#:G520 NIL) (|v| NIL) (#28=#:G519 NIL))
+          (#15=#:G533 NIL) (#16=#:G532 NIL) (#17=#:G487 NIL)
+          (#18=#:G486 #19=(|Boolean|)) (#20=#:G488 #19#) (#21=#:G531 NIL)
+          (#22=#:G484 NIL) (#23=#:G483 #24=(|Boolean|)) (#25=#:G485 #24#)
+          (#26=#:G530 NIL) (|lvk| (|List| (|Kernel| (|Expression| R))))
+          (#27=#:G529 NIL) (|v| NIL) (#28=#:G528 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1605,7 +1608,7 @@
                                      (QREFELT $ 219))))
                          (PROGN
                           (LETT #13# (CONS 1 "failed") . #29#)
-                          (GO #13#))))))
+                          (GO #31=#:G526))))))
                      (LETT #14# (CDR #14#) . #29#) (GO G190) G191 (EXIT NIL))
                 (LETT |ps|
                       (PROGN
@@ -1768,17 +1771,17 @@
                               (LETT |i| (|inc_SI| |i|) . #29#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT (CONS 0 (LIST |eqs|)))))))))))))
-          #13# (EXIT #13#)))) 
+          #31# (EXIT #13#)))) 
 
 (SDEFUN |SOLVETRA;solveList|
         ((|lexpr| |List| (|Expression| R)) (|lvar| |List| (|Symbol|))
          ($ |List| (|List| (|Equation| (|Expression| R)))))
         (SPROG
          ((|l| (|List| (|List| (|List| (|Equation| (|Expression| R))))))
-          (#1=#:G548 NIL) (|plist| NIL) (#2=#:G547 NIL)
+          (#1=#:G557 NIL) (|plist| NIL) (#2=#:G556 NIL)
           (|trianglist| (|List| (|List| (|Polynomial| (|Expression| R)))))
           (|lfrac| (|List| (|Fraction| (|Polynomial| (|Expression| R)))))
-          (#3=#:G546 NIL) (|expr| NIL) (#4=#:G545 NIL)
+          (#3=#:G555 NIL) (|expr| NIL) (#4=#:G554 NIL)
           (|ans1|
            (|Union| (|List| (|List| (|Equation| (|Expression| R)))) "failed")))
          (SEQ
@@ -1847,8 +1850,8 @@
          (|lvar| |List| (|Symbol|))
          ($ |List| (|List| (|Equation| (|Expression| R)))))
         (SPROG
-         ((|lexpr| (|List| (|Expression| R))) (#1=#:G553 NIL) (|eq| NIL)
-          (#2=#:G552 NIL))
+         ((|lexpr| (|List| (|Expression| R))) (#1=#:G562 NIL) (|eq| NIL)
+          (#2=#:G561 NIL))
          (SEQ
           (LETT |lexpr|
                 (PROGN
@@ -1873,9 +1876,9 @@
 
 (DECLAIM (NOTINLINE |TransSolvePackage;|)) 
 
-(DEFUN |TransSolvePackage| (#1=#:G554)
+(DEFUN |TransSolvePackage| (#1=#:G563)
   (SPROG NIL
-         (PROG (#2=#:G555)
+         (PROG (#2=#:G564)
            (RETURN
             (COND
              ((LETT #2#

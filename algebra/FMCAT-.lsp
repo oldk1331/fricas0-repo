@@ -1,6 +1,6 @@
 
 (SDEFUN |FMCAT-;smaller?;2AB;1| ((|p| A) (|q| A) ($ |Boolean|))
-        (SPROG ((#1=#:G120 NIL))
+        (SPROG ((#1=#:G121 NIL))
                (SEQ
                 (EXIT
                  (SEQ G190 NIL
@@ -10,9 +10,9 @@
                          ((SPADCALL |q| (QREFELT $ 10))
                           (PROGN
                            (LETT #1# 'NIL . #2=(|FMCAT-;smaller?;2AB;1|))
-                           (GO #1#)))
+                           (GO #3=#:G120)))
                          ((SPADCALL |p| (QREFELT $ 10))
-                          (PROGN (LETT #1# 'T . #2#) (GO #1#)))
+                          (PROGN (LETT #1# 'T . #2#) (GO #3#)))
                          ((SPADCALL (SPADCALL |p| (QREFELT $ 11))
                                     (SPADCALL |q| (QREFELT $ 11))
                                     (QREFELT $ 12))
@@ -31,7 +31,7 @@
                                              (SPADCALL |q| (QREFELT $ 13))
                                              (QREFELT $ 16))
                                    . #2#)
-                             (GO #1#)))))
+                             (GO #3#)))))
                          ('T
                           (PROGN
                            (LETT #1#
@@ -39,9 +39,9 @@
                                            (SPADCALL |q| (QREFELT $ 11))
                                            (QREFELT $ 17))
                                  . #2#)
-                           (GO #1#))))))
+                           (GO #3#))))))
                       NIL (GO G190) G191 (EXIT NIL)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |FreeModuleCategory&;|)) 
 

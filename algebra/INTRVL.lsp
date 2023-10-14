@@ -142,15 +142,17 @@
                     (QREFELT $ 31))))) 
 
 (SDEFUN |INTRVL;+;3$;17| ((|a| $) (|b| $) ($ $))
-        (SPROG ((#1=#:G209 NIL))
+        (SPROG ((#1=#:G210 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |a| (QREFELT $ 37))
-                    (PROGN (LETT #1# |b| . #2=(|INTRVL;+;3$;17|)) (GO #1#)))
+                    (PROGN
+                     (LETT #1# |b| . #2=(|INTRVL;+;3$;17|))
+                     (GO #3=#:G209)))
                    ((SPADCALL |b| (QREFELT $ 37))
-                    (PROGN (LETT #1# |a| . #2#) (GO #1#))))
+                    (PROGN (LETT #1# |a| . #2#) (GO #3#))))
                   (COND
                    ((SPADCALL |a| |b| (QREFELT $ 38))
                     (PROGN
@@ -162,7 +164,7 @@
                                       (QREFELT $ 39))
                             (QREFELT $ 26))
                            . #2#)
-                     (GO #1#))))
+                     (GO #3#))))
                   (EXIT
                    (SPADCALL
                     (SPADCALL (SPADCALL |a| (QREFELT $ 27))
@@ -170,10 +172,10 @@
                     (SPADCALL (SPADCALL |a| (QREFELT $ 28))
                               (SPADCALL |b| (QREFELT $ 28)) (QREFELT $ 40))
                     (QREFELT $ 26)))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;-;3$;18| ((|a| $) (|b| $) ($ $))
-        (SPROG ((#1=#:G213 NIL))
+        (SPROG ((#1=#:G215 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -182,9 +184,9 @@
                     (PROGN
                      (LETT #1# (SPADCALL |b| (QREFELT $ 42))
                            . #2=(|INTRVL;-;3$;18|))
-                     (GO #1#)))
+                     (GO #3=#:G214)))
                    ((SPADCALL |b| (QREFELT $ 37))
-                    (PROGN (LETT #1# |a| . #2#) (GO #1#))))
+                    (PROGN (LETT #1# |a| . #2#) (GO #3#))))
                   (EXIT
                    (COND
                     ((SPADCALL |a| |b| (QREFELT $ 38)) (|spadConstant| $ 21))
@@ -195,22 +197,24 @@
                       (SPADCALL (SPADCALL |a| (QREFELT $ 28))
                                 (SPADCALL |b| (QREFELT $ 27)) (QREFELT $ 29))
                       (QREFELT $ 26)))))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;*;3$;19| ((|a| $) (|b| $) ($ $))
-        (SPROG ((|prods| (|List| R)) (#1=#:G219 NIL))
+        (SPROG ((|prods| (|List| R)) (#1=#:G222 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL |a| (QREFELT $ 44))
-                    (PROGN (LETT #1# |b| . #2=(|INTRVL;*;3$;19|)) (GO #1#)))
+                    (PROGN
+                     (LETT #1# |b| . #2=(|INTRVL;*;3$;19|))
+                     (GO #3=#:G221)))
                    ((SPADCALL |b| (QREFELT $ 44))
-                    (PROGN (LETT #1# |a| . #2#) (GO #1#))))
+                    (PROGN (LETT #1# |a| . #2#) (GO #3#))))
                   (COND
                    ((OR (SPADCALL |a| (QREFELT $ 37))
                         (SPADCALL |b| (QREFELT $ 37)))
-                    (PROGN (LETT #1# (|spadConstant| $ 21) . #2#) (GO #1#))))
+                    (PROGN (LETT #1# (|spadConstant| $ 21) . #2#) (GO #3#))))
                   (LETT |prods|
                         (SPADCALL
                          (LIST
@@ -232,7 +236,7 @@
                    (SPADCALL (|SPADfirst| |prods|)
                              (SPADCALL |prods| (QREFELT $ 48))
                              (QREFELT $ 26)))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;*;I2$;20| ((|a| |Integer|) (|b| $) ($ $))
         (COND
@@ -1098,9 +1102,9 @@
 
 (DECLAIM (NOTINLINE |Interval;|)) 
 
-(DEFUN |Interval| (#1=#:G375)
+(DEFUN |Interval| (#1=#:G378)
   (SPROG NIL
-         (PROG (#2=#:G376)
+         (PROG (#2=#:G379)
            (RETURN
             (COND
              ((LETT #2#

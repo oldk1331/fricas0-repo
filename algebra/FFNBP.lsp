@@ -456,7 +456,7 @@
              (EXIT (SPADCALL |a| (QREFELT $ 36))))) 
 
 (SDEFUN |FFNBP;inGroundField?;$B;50| ((|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G262 NIL) (|erg| (|Boolean|)) (#2=#:G265 NIL) (|i| NIL))
+        (SPROG ((#1=#:G265 NIL) (|erg| (|Boolean|)) (#2=#:G266 NIL) (|i| NIL))
                (SEQ (LETT |erg| 'T . #3=(|FFNBP;inGroundField?;$B;50|))
                     (SEQ
                      (EXIT
@@ -471,10 +471,10 @@
                                           (QREFELT $ 110)))
                                (PROGN
                                 (LETT #1# (LETT |erg| 'NIL . #3#) . #3#)
-                                (GO #1#))))))
+                                (GO #4=#:G262))))))
                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                            (EXIT NIL)))
-                     #1# (EXIT #1#))
+                     #4# (EXIT #1#))
                     (EXIT |erg|)))) 
 
 (SDEFUN |FFNBP;/;3$;51| ((|x| $) (|y| $) ($ $))
@@ -497,9 +497,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G293)
+(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G294)
   (SPROG NIL
-         (PROG (#2=#:G294)
+         (PROG (#2=#:G295)
            (RETURN
             (COND
              ((LETT #2#
@@ -524,8 +524,8 @@
 
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G120 NIL) (#2=#:G292 NIL) (|i| NIL) (#3=#:G291 NIL) (|qs| NIL)
-    (|pv$| NIL) (#4=#:G290 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G120 NIL) (#2=#:G293 NIL) (|i| NIL) (#3=#:G292 NIL) (|qs| NIL)
+    (|pv$| NIL) (#4=#:G291 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
      (LETT DV$1 (|devaluate| |#1|)

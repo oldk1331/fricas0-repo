@@ -15,8 +15,8 @@
         ((|f| |Mapping| (|Union| B #1="failed") A) (|a| |Vector| A)
          ($ |Union| (|Vector| B) "failed"))
         (SPROG
-         ((|res| (|List| B)) (#2=#:G115 NIL) (#3=#:G127 NIL)
-          (|r| (|Union| B #1#)) (#4=#:G128 NIL) (|u| NIL))
+         ((|res| (|List| B)) (#2=#:G115 NIL) (#3=#:G128 NIL)
+          (|r| (|Union| B #1#)) (#4=#:G129 NIL) (|u| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |res| NIL . #5=(|VECTOR2;map;MVU;4|))
@@ -31,7 +31,7 @@
                             ((SPADCALL |r| (CONS 1 "failed") (QREFELT $ 23))
                              (PROGN
                               (LETT #3# (CONS 1 "failed") . #5#)
-                              (GO #3#)))
+                              (GO #6=#:G127)))
                             ('T
                              (LETT |res|
                                    (CONS
@@ -43,13 +43,13 @@
                                    . #5#)))))
                      (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (SPADCALL (NREVERSE |res|) (QREFELT $ 25))))))
-          #3# (EXIT #3#)))) 
+          #6# (EXIT #3#)))) 
 
 (DECLAIM (NOTINLINE |VectorFunctions2;|)) 
 
-(DEFUN |VectorFunctions2| (&REST #1=#:G129)
+(DEFUN |VectorFunctions2| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

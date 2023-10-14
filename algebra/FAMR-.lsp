@@ -95,7 +95,7 @@
           (RETURN (PROGN (SPADCALL |x1| |r| (QREFELT $ 38)))))) 
 
 (SDEFUN |FAMR-;exquo;SRU;8| ((|x| S) (|r| R) ($ |Union| S "failed"))
-        (SPROG ((|ans| (S)) (#1=#:G153 NIL) (|t| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G154 NIL) (|t| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (COND
@@ -122,7 +122,7 @@
                             ((QEQCAR |t| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #2#)
-                              (GO #1#)))
+                              (GO #3=#:G153)))
                             ('T
                              (SEQ
                               (LETT |ans|
@@ -139,7 +139,7 @@
                                      . #2#)))))))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT (CONS 0 |ans|))))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |FAMR-;content;SR;9| ((|x| S) ($ R))
         (SPROG ((|r| (R)))
@@ -171,7 +171,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |FAMR-;primitivePart;2S;10| ((|x| S) ($ S))
-        (SPROG ((#1=#:G161 NIL) (|c| (R)))
+        (SPROG ((#1=#:G162 NIL) (|c| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 29)) |x|)
                       ('T

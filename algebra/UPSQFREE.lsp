@@ -85,7 +85,7 @@
 
 (SDEFUN |UPSQFREE;squareFree;PF;6| ((|p| P) ($ |Factored| P))
         (SPROG
-         ((#1=#:G165 NIL)
+         ((#1=#:G170 NIL)
           (|lffe|
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
@@ -183,8 +183,8 @@
                                                  |lffe|)
                                                 . #4#)))
                                         . #4#)
-                                  (GO #1#)))))))
-                            #1# (EXIT #1#))
+                                  (GO #5=#:G165)))))))
+                            #5# (EXIT #1#))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT
                        (SPADCALL (SPADCALL |lcp| (QREFELT $ 47)) |lffe|
@@ -201,9 +201,9 @@
            (|List|
             (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| P)
                       (|:| |xpnt| (|Integer|)))))
-          (#5=#:G194 NIL) (|ffe| NIL) (#6=#:G193 NIL)
-          (|redSqfr| (|Factored| P)) (#7=#:G179 NIL) (|dunit| (P)) (|pi| (P))
-          (|lc| (RC)) (#8=#:G182 NIL) (|i| (|NonNegativeInteger|)) (|ci| (P))
+          (#5=#:G195 NIL) (|ffe| NIL) (#6=#:G194 NIL)
+          (|redSqfr| (|Factored| P)) (#7=#:G180 NIL) (|dunit| (P)) (|pi| (P))
+          (|lc| (RC)) (#8=#:G183 NIL) (|i| (|NonNegativeInteger|)) (|ci| (P))
           (|di| (P)) (|diprev| (P)) (|a| (P)) (|c| (P)) (|u| (P))
           (|#G13|
            (|Record| (|:| |unit| P) (|:| |canonical| P) (|:| |associate| P))))
@@ -340,9 +340,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialSquareFree;|)) 
 
-(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G195)
+(DEFUN |UnivariatePolynomialSquareFree| (&REST #1=#:G196)
   (SPROG NIL
-         (PROG (#2=#:G196)
+         (PROG (#2=#:G197)
            (RETURN
             (COND
              ((LETT #2#

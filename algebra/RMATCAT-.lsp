@@ -108,8 +108,8 @@
 
 (SDEFUN |RMATCAT-;diagonal?;SB;8| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G147 NIL) (#2=#:G150 NIL) (#3=#:G152 NIL) (|j| NIL)
-          (#4=#:G151 NIL) (|i| NIL))
+         ((#1=#:G151 NIL) (#2=#:G152 NIL) (#3=#:G154 NIL) (|j| NIL)
+          (#4=#:G153 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (COND ((NULL (SPADCALL |x| (QREFELT $ 29))) 'NIL)
@@ -138,20 +138,22 @@
                                    (QREFELT $ 37)))
                                  (PROGN
                                   (LETT #1#
-                                        (PROGN (LETT #2# 'NIL . #5#) (GO #2#))
+                                        (PROGN
+                                         (LETT #2# 'NIL . #5#)
+                                         (GO #6=#:G150))
                                         . #5#)
-                                  (GO #1#))))))))
+                                  (GO #7=#:G147))))))))
                            (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
                            (EXIT NIL)))
-                     #1# (EXIT #1#))
+                     #7# (EXIT #1#))
                     (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
                    (EXIT 'T)))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |RMATCAT-;symmetric?;SB;9| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G154 NIL) (#2=#:G158 NIL) (#3=#:G160 NIL) (|j| NIL)
-          (#4=#:G159 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|)))
+         ((#1=#:G161 NIL) (#2=#:G162 NIL) (#3=#:G164 NIL) (|j| NIL)
+          (#4=#:G163 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|)))
          (SEQ
           (EXIT
            (COND ((SPADCALL (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 39)) 'NIL)
@@ -180,21 +182,21 @@
                                     (LETT #1#
                                           (PROGN
                                            (LETT #2# 'NIL . #5#)
-                                           (GO #2#))
+                                           (GO #6=#:G160))
                                           . #5#)
-                                    (GO #1#))))))
+                                    (GO #7=#:G156))))))
                                (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
                                (EXIT NIL)))
-                         #1# (EXIT #1#))
+                         #7# (EXIT #1#))
                         (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                         (EXIT NIL))
                    (EXIT 'T)))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |RMATCAT-;antisymmetric?;SB;10| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G162 NIL) (#2=#:G166 NIL) (#3=#:G168 NIL) (|j| NIL)
-          (#4=#:G167 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|))
+         ((#1=#:G171 NIL) (#2=#:G172 NIL) (#3=#:G174 NIL) (|j| NIL)
+          (#4=#:G173 NIL) (|i| NIL) (|mc| (|Integer|)) (|mr| (|Integer|))
           (|nRows| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -227,16 +229,18 @@
                                    (QREFELT $ 40))
                                   (PROGN
                                    (LETT #1#
-                                         (PROGN (LETT #2# 'NIL . #5#) (GO #2#))
+                                         (PROGN
+                                          (LETT #2# 'NIL . #5#)
+                                          (GO #6=#:G170))
                                          . #5#)
-                                   (GO #1#))))))
+                                   (GO #7=#:G166))))))
                               (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
                               (EXIT NIL)))
-                        #1# (EXIT #1#))
+                        #7# (EXIT #1#))
                        (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |RectangularMatrixCategory&;|)) 
 

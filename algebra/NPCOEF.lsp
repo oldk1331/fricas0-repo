@@ -14,13 +14,13 @@
            (|List|
             (|List|
              (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))))
-          (#1=#:G162 NIL) (|i| NIL)
+          (#1=#:G163 NIL) (|i| NIL)
           (|ltodel| #2=(|List| (|NonNegativeInteger|)))
           (|detufact| (|List| (|SparseUnivariatePolynomial| P)))
-          (#3=#:G150 NIL)
+          (#3=#:G151 NIL)
           (|uu| (|Union| (|SparseUnivariatePolynomial| P) "failed"))
           (#4=#:G139 NIL) (#5=#:G138 #6=(|SparseUnivariatePolynomial| P))
-          (#7=#:G140 #6#) (#8=#:G161 NIL) (|pol| NIL) (|ltochange| #2#)
+          (#7=#:G140 #6#) (#8=#:G162 NIL) (|pol| NIL) (|ltochange| #2#)
           (|tablecoef|
            (|List|
             (|Record| (|:| |coefu| P)
@@ -29,7 +29,7 @@
                             (|List|
                              (|Record| (|:| |expt| (|NonNegativeInteger|))
                                        (|:| |pcoef| P))))))))
-          (#9=#:G160 NIL) (|changed| (|Boolean|))
+          (#9=#:G161 NIL) (|changed| (|Boolean|))
           (|ndet| (|NonNegativeInteger|)) (#10=#:G129 NIL)
           (|nterm|
            #11=(|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))
@@ -43,11 +43,11 @@
             (|Record| (|:| |valexp| #12#) (|:| |valcoef| P) (|:| |posit| #13#))
             "failed"))
           (|dt| (|NonNegativeInteger|))
-          (|lexp| (|List| (|List| (|NonNegativeInteger|)))) (#14=#:G159 NIL)
-          (|ep| NIL) (#15=#:G158 NIL) (|ldtcf| (|List| (|List| #11#)))
-          (#16=#:G156 NIL) (#17=#:G157 NIL) (|lcu| NIL) (#18=#:G155 NIL)
-          (|ulist| (|Vector| P)) (#19=#:G154 NIL) (#20=#:G153 NIL)
-          (#21=#:G152 NIL) (|v| NIL) (#22=#:G151 NIL))
+          (|lexp| (|List| (|List| (|NonNegativeInteger|)))) (#14=#:G160 NIL)
+          (|ep| NIL) (#15=#:G159 NIL) (|ldtcf| (|List| (|List| #11#)))
+          (#16=#:G157 NIL) (#17=#:G158 NIL) (|lcu| NIL) (#18=#:G156 NIL)
+          (|ulist| (|Vector| P)) (#19=#:G155 NIL) (#20=#:G154 NIL)
+          (#21=#:G153 NIL) (|v| NIL) (#22=#:G152 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |detcoef| NIL . #23=(|NPCOEF;npcoef;SupLLR;1|))
@@ -273,7 +273,7 @@
                       (PROGN
                        (LETT #3# (VECTOR NIL |ldtcf| |factlist| |leadlist|)
                              . #23#)
-                       (GO #3#)))
+                       (GO #25=#:G150)))
                      (#24#
                       (LETT |detufact| (CONS (QCDR |uu|) |detufact|)
                             . #23#))))))
@@ -300,7 +300,7 @@
                          (LETT #1# (CDR #1#) . #23#) (GO G190) G191
                          (EXIT NIL))))))
                 (EXIT (VECTOR |detufact| |detcoef| |factlist| |leadlist|))))
-          #3# (EXIT #3#)))) 
+          #25# (EXIT #3#)))) 
 
 (SDEFUN |NPCOEF;check|
         ((|tterm| |Record| (|:| |coefu| P)
@@ -315,9 +315,9 @@
                     (|:| |posit| (|NonNegativeInteger|)))
           "failed"))
         (SPROG
-         ((#2=#:G169 NIL) (#3=#:G179 NIL) (|pp| (|Union| P "failed"))
-          (|poselt| #4=(|NonNegativeInteger|)) (#5=#:G174 NIL) (|doit| #4#)
-          (|cfu| (P)) (|cu1| (P)) (#6=#:G182 NIL) (|elterm| NIL)
+         ((#2=#:G170 NIL) (#3=#:G183 NIL) (|pp| (|Union| P "failed"))
+          (|poselt| #4=(|NonNegativeInteger|)) (#5=#:G175 NIL) (|doit| #4#)
+          (|cfu| (P)) (|cu1| (P)) (#6=#:G184 NIL) (|elterm| NIL)
           (|vterm|
            (|List|
             (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))
@@ -376,7 +376,7 @@
                                   ((QEQCAR |pp| 1)
                                    (PROGN
                                     (LETT #3# (CONS 1 #8#) . #7#)
-                                    (GO #3#))))))))
+                                    (GO #10=#:G180))))))))
                         (EXIT
                          (CONS 0
                                (VECTOR
@@ -387,7 +387,7 @@
                                   (|check_union| (QEQCAR #2# 0) (QREFELT $ 10)
                                                  #2#))
                                 |poselt|)))))
-                  #3# (EXIT #3#)))
+                  #10# (EXIT #3#)))
                 (#9# (CONS 1 "failed"))))))) 
 
 (SDEFUN |NPCOEF;buildvect|
@@ -400,15 +400,15 @@
            (|List|
             (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P))))))
         (SPROG
-         ((#1=#:G200 NIL) (#2=#:G199 NIL) (|i| NIL)
-          (|nexp| (|NonNegativeInteger|)) (#3=#:G198 NIL) (|term| NIL)
+         ((#1=#:G202 NIL) (#2=#:G201 NIL) (|i| NIL)
+          (|nexp| (|NonNegativeInteger|)) (#3=#:G200 NIL) (|term| NIL)
           (|ntable|
            #4=(|Vector|
                (|List|
                 (|List|
                  (|Record| (|:| |expt| (|NonNegativeInteger|))
                            (|:| |pcoef| P))))))
-          (|vtable| #4#) (#5=#:G197 NIL))
+          (|vtable| #4#) (#5=#:G199 NIL))
          (SEQ (LETT |vtable| (MAKEARR1 |n| NIL) . #6=(|NPCOEF;buildvect|))
               (EXIT
                (COND
@@ -516,8 +516,8 @@
            (|List|
             (|List|
              (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))))
-          (#1=#:G213 NIL) (|e| NIL) (#2=#:G212 NIL) (#3=#:G211 NIL) (|lv| NIL)
-          (#4=#:G210 NIL) (|degu| (|NonNegativeInteger|)) (#5=#:G202 NIL)
+          (#1=#:G215 NIL) (|e| NIL) (#2=#:G214 NIL) (#3=#:G213 NIL) (|lv| NIL)
+          (#4=#:G212 NIL) (|degu| (|NonNegativeInteger|)) (#5=#:G204 NIL)
           (|nfact| (|NonNegativeInteger|)))
          (SEQ (LETT |nfact| (LENGTH |leadlist|) . #6=(|NPCOEF;buildtable|))
               (LETT |table| NIL . #6#)
@@ -615,13 +615,13 @@
            (|List|
             (|List|
              (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))))
-          (#1=#:G269 NIL) (|i| NIL) (#2=#:G251 NIL) (#3=#:G250 (P))
-          (#4=#:G252 (P)) (#5=#:G268 NIL) (|cc| NIL)
-          (|k| (|NonNegativeInteger|)) (#6=#:G249 NIL) (#7=#:G243 NIL)
-          (#8=#:G242 #9=(|Boolean|)) (#10=#:G244 #9#) (#11=#:G267 NIL)
-          (#12=#:G266 NIL) (|celt| NIL) (#13=#:G240 NIL)
-          (#14=#:G239 #15=(|NonNegativeInteger|)) (#16=#:G241 #15#)
-          (#17=#:G265 NIL) (|term| NIL) (#18=#:G264 NIL) (|cterm| NIL)
+          (#1=#:G271 NIL) (|i| NIL) (#2=#:G253 NIL) (#3=#:G252 (P))
+          (#4=#:G254 (P)) (#5=#:G270 NIL) (|cc| NIL)
+          (|k| (|NonNegativeInteger|)) (#6=#:G251 NIL) (#7=#:G245 NIL)
+          (#8=#:G244 #9=(|Boolean|)) (#10=#:G246 #9#) (#11=#:G269 NIL)
+          (#12=#:G268 NIL) (|celt| NIL) (#13=#:G242 NIL)
+          (#14=#:G241 #15=(|NonNegativeInteger|)) (#16=#:G243 #15#)
+          (#17=#:G267 NIL) (|term| NIL) (#18=#:G266 NIL) (|cterm| NIL)
           (|cfpos| (|NonNegativeInteger|)) (|cfcoef| (P))
           (|cfexp| (|NonNegativeInteger|)))
          (SEQ (LETT |cfexp| (QVELT |cfter| 0) . #19=(|NPCOEF;modify|))
@@ -841,8 +841,8 @@
           (|Record| (|:| |expt| (|NonNegativeInteger|)) (|:| |pcoef| P)))
          ($ |SparseUnivariatePolynomial| P))
         (SPROG
-         ((#1=#:G273 NIL) (#2=#:G272 #3=(|SparseUnivariatePolynomial| P))
-          (#4=#:G274 #3#) (#5=#:G276 NIL) (|term| NIL))
+         ((#1=#:G275 NIL) (#2=#:G274 #3=(|SparseUnivariatePolynomial| P))
+          (#4=#:G276 #3#) (#5=#:G278 NIL) (|term| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL . #6=(|NPCOEF;constructp|))
@@ -864,9 +864,9 @@
 
 (DECLAIM (NOTINLINE |NPCoef;|)) 
 
-(DEFUN |NPCoef| (&REST #1=#:G277)
+(DEFUN |NPCoef| (&REST #1=#:G279)
   (SPROG NIL
-         (PROG (#2=#:G278)
+         (PROG (#2=#:G280)
            (RETURN
             (COND
              ((LETT #2#

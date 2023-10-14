@@ -275,9 +275,9 @@
 (SDEFUN |DIRRING;multiplicative?;$PiB;20|
         ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G263 NIL) (#2=#:G258 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G240 NIL) (#4=#:G239 NIL) (#5=#:G265 NIL) (|f| NIL)
-          (#6=#:G264 NIL)
+         ((#1=#:G264 NIL) (#2=#:G258 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G240 NIL) (#4=#:G239 NIL) (#5=#:G266 NIL) (|f| NIL)
+          (#6=#:G265 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
@@ -337,17 +337,17 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# 'NIL . #7#) (GO #1#))))))))
+                      (EXIT (PROGN (LETT #1# 'NIL . #7#) (GO #8=#:G263))))))))
                  (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
-          #1# (EXIT #1#)))) 
+          #8# (EXIT #1#)))) 
 
 (SDEFUN |DIRRING;additive?;$PiB;21|
         ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G291 NIL) (#2=#:G286 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G268 NIL) (#4=#:G267 NIL) (#5=#:G293 NIL) (|f| NIL)
-          (#6=#:G292 NIL)
+         ((#1=#:G293 NIL) (#2=#:G287 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G269 NIL) (#4=#:G268 NIL) (#5=#:G295 NIL) (|f| NIL)
+          (#6=#:G294 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
@@ -407,16 +407,16 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# 'NIL . #7#) (GO #1#))))))))
+                      (EXIT (PROGN (LETT #1# 'NIL . #7#) (GO #8=#:G292))))))))
                  (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
-          #1# (EXIT #1#)))) 
+          #8# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |DirichletRing;|)) 
 
-(DEFUN |DirichletRing| (#1=#:G295)
+(DEFUN |DirichletRing| (#1=#:G297)
   (SPROG NIL
-         (PROG (#2=#:G296)
+         (PROG (#2=#:G298)
            (RETURN
             (COND
              ((LETT #2#

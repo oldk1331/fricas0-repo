@@ -51,7 +51,7 @@
         (SPADCALL |f| |x| (QREFELT $ 45))) 
 
 (SDEFUN |IFAMON;coefficient;S$E;14| ((|s| S) (|f| $) ($ E))
-        (SPROG ((#1=#:G127 NIL) (#2=#:G129 NIL) (#3=#:G130 NIL) (|x| NIL))
+        (SPROG ((#1=#:G130 NIL) (#2=#:G131 NIL) (#3=#:G132 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -71,16 +71,16 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (QCDR |x|) . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G129))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G127))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (|spadConstant| $ 48))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |IFAMON;highCommonTerms;3$;15| ((|f| $) (|g| $) ($ $))
-        (SPROG ((|n| (E)) (#1=#:G135 NIL) (|x| NIL) (#2=#:G134 NIL))
+        (SPROG ((|n| (E)) (#1=#:G137 NIL) (|x| NIL) (#2=#:G136 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -110,9 +110,9 @@
 
 (DECLAIM (NOTINLINE |InnerFreeAbelianMonoid;|)) 
 
-(DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G142)
+(DEFUN |InnerFreeAbelianMonoid| (&REST #1=#:G144)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G145)
            (RETURN
             (COND
              ((LETT #2#

@@ -7,7 +7,7 @@
 (SDEFUN |FLASORT;siftUp|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
          (|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G116 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
+        (SPROG ((#1=#:G119 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
                (SEQ
                 (LETT |t| (SPADCALL |r| |i| (QREFELT $ 13))
                       . #3=(|FLASORT;siftUp|))
@@ -42,9 +42,12 @@
                                        (QREFELT $ 16))
                              (SPADCALL |r| |j| |t| (QREFELT $ 16))
                              (EXIT (LETT |i| |j| . #3#))))
-                           ('T (PROGN (LETT #1# |$NoValue| . #3#) (GO #1#))))))
+                           ('T
+                            (PROGN
+                             (LETT #1# |$NoValue| . #3#)
+                             (GO #4=#:G116))))))
                         NIL (GO G190) G191 (EXIT NIL)))
-                  #1# (EXIT #1#)))))) 
+                  #4# (EXIT #1#)))))) 
 
 (SDEFUN |FLASORT;heapSort;M2V;3|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))
@@ -109,7 +112,7 @@
 (SDEFUN |FLASORT;QuickSort|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
          (|j| |Integer|) ($ V))
-        (SPROG ((|k| (|Integer|)) (#1=#:G150 NIL) (|n| (|Integer|)))
+        (SPROG ((|k| (|Integer|)) (#1=#:G152 NIL) (|n| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ G190 NIL
@@ -122,7 +125,8 @@
                                (SPADCALL |r| |i| |j| (QREFELT $ 20))))))
                            (EXIT
                             (COND
-                             ((< |n| 2) (PROGN (LETT #1# |r| . #2#) (GO #1#)))
+                             ((< |n| 2)
+                              (PROGN (LETT #1# |r| . #2#) (GO #3=#:G151)))
                              ('T
                               (SEQ
                                (LETT |k|
@@ -141,7 +145,7 @@
                                        (EXIT
                                         (LETT |j| (- |k| 1) . #2#)))))))))))
                       NIL (GO G190) G191 (EXIT NIL)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |FLASORT;shellSort;M2V;6|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))

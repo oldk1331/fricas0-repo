@@ -159,7 +159,7 @@
                         (EXIT |x|))))))) 
 
 (SDEFUN |URAGG-;findCycle| ((|x| A) ($ A))
-        (SPROG ((|y| (A)) (#1=#:G208 NIL))
+        (SPROG ((|y| (A)) (#1=#:G209 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -173,19 +173,19 @@
                        (SEQ
                         (COND
                          ((SPADCALL |x| |y| (QREFELT $ 38))
-                          (PROGN (LETT #1# |x| . #2#) (GO #1#))))
+                          (PROGN (LETT #1# |x| . #2#) (GO #3=#:G208))))
                         (LETT |x| (SPADCALL |x| (QREFELT $ 14)) . #2#)
                         (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)
                         (COND
                          ((SPADCALL |y| (QREFELT $ 20))
-                          (PROGN (LETT #1# |y| . #2#) (GO #1#))))
+                          (PROGN (LETT #1# |y| . #2#) (GO #3#))))
                         (COND
                          ((SPADCALL |x| |y| (QREFELT $ 38))
-                          (PROGN (LETT #1# |y| . #2#) (GO #1#))))
+                          (PROGN (LETT #1# |y| . #2#) (GO #3#))))
                         (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 14)) . #2#)))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |y|)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |URAGG-;cycleTail;2A;18| ((|x| A) ($ A))
         (SPROG ((|z| (A)) (|y| (A)))
@@ -302,7 +302,7 @@
                 (EXIT |x|)))) 
 
 (SDEFUN |URAGG-;last;ANniA;22| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
-        (SPROG ((#1=#:G235 NIL) (|m| (|NonNegativeInteger|)))
+        (SPROG ((#1=#:G236 NIL) (|m| (|NonNegativeInteger|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 44))
                       . #2=(|URAGG-;last;ANniA;22|))
@@ -320,7 +320,7 @@
                     (QREFELT $ 47)))))))) 
 
 (SDEFUN |URAGG-;=;2AB;23| ((|x| A) (|y| A) ($ |Boolean|))
-        (SPROG ((#1=#:G246 NIL) (|k| NIL))
+        (SPROG ((#1=#:G248 NIL) (|k| NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |x| |y| (QREFELT $ 38)) 'T)
@@ -346,7 +346,7 @@
                                  ((SPADCALL (SPADCALL |x| (QREFELT $ 8))
                                             (SPADCALL |y| (QREFELT $ 8))
                                             (QREFELT $ 49))
-                                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))
+                                  (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G247)))
                                  ('T
                                   (SEQ
                                    (LETT |x| (SPADCALL |x| (QREFELT $ 14))
@@ -361,10 +361,10 @@
                            ((SPADCALL |x| (QREFELT $ 20))
                             (SPADCALL |y| (QREFELT $ 20)))
                            (#2# 'NIL)))))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |URAGG-;node?;2AB;24| ((|u| A) (|v| A) ($ |Boolean|))
-        (SPROG ((#1=#:G252 NIL) (|k| NIL))
+        (SPROG ((#1=#:G255 NIL) (|k| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -377,7 +377,7 @@
                         (EXIT
                          (COND
                           ((SPADCALL |u| |v| (QREFELT $ 51))
-                           (PROGN (LETT #1# 'T . #2#) (GO #1#)))
+                           (PROGN (LETT #1# 'T . #2#) (GO #3=#:G254)))
                           ('T
                            (SEQ
                             (COND
@@ -391,7 +391,7 @@
                        (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT (SPADCALL |u| |v| (QREFELT $ 51)))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |URAGG-;setelt;Afirst2S;25| ((|x| A) (T6 "first") (|a| S) ($ S))
         (SPADCALL |x| |a| (QREFELT $ 53))) 
@@ -423,7 +423,7 @@
         (SPADCALL |u| |s| (QREFELT $ 53))) 
 
 (SDEFUN |URAGG-;split!;AIA;32| ((|p| A) (|n| |Integer|) ($ A))
-        (SPROG ((|q| (A)) (#1=#:G263 NIL))
+        (SPROG ((|q| (A)) (#1=#:G266 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
                       ('T

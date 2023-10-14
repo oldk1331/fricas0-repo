@@ -84,7 +84,7 @@
           (|l|
            (|List|
             (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (#2=#:G169 NIL)
+          (#2=#:G170 NIL)
           (|m|
            (|List|
             (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
@@ -141,7 +141,7 @@
                                             (CDR |lar|))
                                            (QREFELT $ 46)))
                                   . #5#)
-                            (GO #2#))))))
+                            (GO #6=#:G169))))))
                        (EXIT
                         (COND
                          ((>= (QCDR (|SPADfirst| |lla|))
@@ -197,7 +197,7 @@
                                                (SPADCALL |m| (QREFELT $ 46))
                                                (QCDR |ru|))
                                        . #5#)
-                                 (GO #2#))))))))))))))
+                                 (GO #6#))))))))))))))
                     (LETT |l| (SPADCALL |l| (|SPADfirst| |lla|) (QREFELT $ 51))
                           . #5#)
                     (EXIT (LETT |lla| (CDR |lla|) . #5#)))
@@ -205,7 +205,7 @@
               (EXIT
                (VECTOR (SPADCALL |la0| (QREFELT $ 46)) (|spadConstant| $ 7)
                        (SPADCALL |lar| (QREFELT $ 46))))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |FMONOID;divide;2$U;13|
         ((|lar| $) (|a| $)
@@ -218,7 +218,7 @@
           (|l|
            (|List|
             (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (#2=#:G186 NIL) (#3=#:G193 NIL) (#4=#:G180 NIL)
+          (#2=#:G195 NIL) (#3=#:G196 NIL) (#4=#:G181 NIL)
           (|q| (|Union| $ "failed")) (|Na| (|Integer|)) (|la| #1#))
          (SEQ
           (EXIT
@@ -296,26 +296,26 @@
                                                                (QREFELT $ 46))
                                                      (QCDR |q|)))
                                               . #5#)
-                                        (GO #3#))))
+                                        (GO #6=#:G194))))
                                      . #5#)
-                               (GO #2#))))))))))
+                               (GO #7=#:G187))))))))))
                       (LETT |l|
                             (SPADCALL |l| (|SPADfirst| |llar|) (QREFELT $ 51))
                             . #5#)
                       (LETT |llar| (CDR |llar|) . #5#)
                       (EXIT (LETT |Nlar| (- |Nlar| 1) . #5#))))
-                    #2# (EXIT #2#))
+                    #7# (EXIT #2#))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 1 "failed"))))))
-          #3# (EXIT #3#)))) 
+          #6# (EXIT #3#)))) 
 
 (SDEFUN |FMONOID;hclf;3$;14| ((|f| $) (|g| $) ($ $))
         (SPROG
-         ((#1=#:G195 NIL) (#2=#:G199 NIL)
+         ((#1=#:G203 NIL) (#2=#:G204 NIL)
           (|h|
            (|List|
             (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (#3=#:G200 NIL) (|f0| NIL) (#4=#:G201 NIL) (|g0| NIL))
+          (#3=#:G205 NIL) (|f0| NIL) (#4=#:G206 NIL) (|g0| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |h| NIL . #5=(|FMONOID;hclf;3$;14|))
@@ -333,7 +333,7 @@
                         ((SPADCALL (QCAR |f0|) (QCAR |g0|) (QREFELT $ 58))
                          (PROGN
                           (LETT #2# (SPADCALL |h| (QREFELT $ 46)) . #5#)
-                          (GO #2#)))
+                          (GO #6=#:G202)))
                         ('T
                          (SEQ
                           (EXIT
@@ -354,23 +354,23 @@
                                       (PROGN
                                        (LETT #2# (SPADCALL |h| (QREFELT $ 46))
                                              . #5#)
-                                       (GO #2#))
+                                       (GO #6#))
                                       . #5#)
-                                (GO #1#)))))))
-                          #1# (EXIT #1#))))))
+                                (GO #7=#:G198)))))))
+                          #7# (EXIT #1#))))))
                      (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #5#))
                            . #5#)
                      (GO G190) G191 (EXIT NIL))
                 (EXIT (SPADCALL |h| (QREFELT $ 46)))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |FMONOID;lquo;2$U;15| ((|aq| $) (|a| $) ($ |Union| $ "failed"))
         (SPROG
-         ((#1=#:G209 NIL)
+         ((#1=#:G214 NIL)
           (|laq|
            (|List|
             (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (#2=#:G215 NIL) (#3=#:G216 NIL) (|a0| NIL))
+          (#2=#:G221 NIL) (#3=#:G222 NIL) (|a0| NIL))
          (SEQ
           (EXIT
            (COND
@@ -397,7 +397,9 @@
                                   (QREFELT $ 58))
                         (SPADCALL (QCDR |a0|) (QCDR (|SPADfirst| |laq|))
                                   (QREFELT $ 50)))
-                       (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #2#)))
+                       (PROGN
+                        (LETT #2# (CONS 1 "failed") . #4#)
+                        (GO #5=#:G220)))
                       ((EQL (QCDR |a0|) (QCDR (|SPADfirst| |laq|)))
                        (LETT |laq| (CDR |laq|) . #4#))
                       ('T
@@ -414,7 +416,7 @@
                                  (QREFELT $ 61))))))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 0 (SPADCALL |laq| (QREFELT $ 46))))))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |FMONOID;rquo;2$U;16| ((|qa| $) (|a| $) ($ |Union| $ "failed"))
         (SPROG ((|u| (|Union| $ "failed")))
@@ -433,8 +435,8 @@
           (|la|
            #1=(|List|
                (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (|lb| #1#) (#2=#:G230 NIL) (|nb| (|Integer|)) (#3=#:G227 NIL)
-          (#4=#:G239 NIL))
+          (|lb| #1#) (#2=#:G236 NIL) (|nb| (|Integer|)) (#3=#:G233 NIL)
+          (#4=#:G246 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -454,10 +456,10 @@
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 64))
-                     (PROGN (LETT #4# 'NIL . #5#) (GO #4#)))
+                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G245)))
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 65))
-                     (PROGN (LETT #4# 'T . #5#) (GO #4#)))
+                     (PROGN (LETT #4# 'T . #5#) (GO #6#)))
                     ((EQL (QCDR (|SPADfirst| |la|)) (QCDR (|SPADfirst| |lb|)))
                      (SEQ (LETT |la| (CDR |la|) . #5#)
                           (LETT |lb| (CDR |lb|) . #5#)
@@ -500,15 +502,15 @@
                       (EXIT (LETT |na| (- |na| 1) . #5#)))))))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT
-             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#6='T 'T)))
-                   (#6# 'NIL)))))
-          #4# (EXIT #4#)))) 
+             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#7='T 'T)))
+                   (#7# 'NIL)))))
+          #6# (EXIT #4#)))) 
 
 (DECLAIM (NOTINLINE |FreeMonoid;|)) 
 
-(DEFUN |FreeMonoid| (#1=#:G243)
+(DEFUN |FreeMonoid| (#1=#:G250)
   (SPROG NIL
-         (PROG (#2=#:G244)
+         (PROG (#2=#:G251)
            (RETURN
             (COND
              ((LETT #2#

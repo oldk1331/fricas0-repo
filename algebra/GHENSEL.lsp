@@ -331,11 +331,11 @@
         ((|poly| TP) (|tl1| |List| TP) (|prime| RP) (|bound| |PositiveInteger|)
          ($ |Record| (|:| |plist| (|List| TP)) (|:| |modulo| RP)))
         (SPROG
-         ((|fln| (|List| TP)) (|Modulus| (RP)) (#1=#:G285 NIL) (|err| (TP))
-          (#2=#:G281 NIL) (#3=#:G280 (TP)) (#4=#:G282 (TP)) (#5=#:G294 NIL)
-          (#6=#:G104 NIL) (|nfln| (|List| TP)) (|lcinv| (RP)) (#7=#:G293 NIL)
-          (|ffl1| NIL) (#8=#:G292 NIL) (|cl1| (|List| FP)) (#9=#:G262 NIL)
-          (|fl1| (|List| FP)) (#10=#:G291 NIL) (|ttl| NIL) (#11=#:G290 NIL)
+         ((|fln| (|List| TP)) (|Modulus| (RP)) (#1=#:G290 NIL) (|err| (TP))
+          (#2=#:G281 NIL) (#3=#:G280 (TP)) (#4=#:G282 (TP)) (#5=#:G295 NIL)
+          (#6=#:G104 NIL) (|nfln| (|List| TP)) (|lcinv| (RP)) (#7=#:G294 NIL)
+          (|ffl1| NIL) (#8=#:G293 NIL) (|cl1| (|List| FP)) (#9=#:G262 NIL)
+          (|fl1| (|List| FP)) (#10=#:G292 NIL) (|ttl| NIL) (#11=#:G291 NIL)
           (|constp| (TP)))
          (SEQ
           (LETT |constp| (|spadConstant| $ 18)
@@ -445,13 +445,16 @@
                                        (QREFELT $ 42))
                              . #12#)
                        (QREFELT $ 56))
-                      (EXIT (PROGN (LETT #1# |$NoValue| . #12#) (GO #1#)))))))
+                      (EXIT
+                       (PROGN
+                        (LETT #1# |$NoValue| . #12#)
+                        (GO #13=#:G285)))))))
                   (LETT |fln| |nfln| . #12#)
                   (EXIT
                    (LETT |Modulus| (SPADCALL |prime| |Modulus| (QREFELT $ 57))
                          . #12#)))
                  NIL (GO G190) G191 (EXIT NIL)))
-           #1# (EXIT #1#))
+           #13# (EXIT #1#))
           (COND
            ((SPADCALL |constp| (|spadConstant| $ 18) (QREFELT $ 28))
             (LETT |fln| (CONS |constp| |fln|) . #12#)))
@@ -462,14 +465,14 @@
          ($ |List| TP))
         (SPROG
          ((|finallist| (|List| TP)) (|factlist| (|List| #1=(|List| TP)))
-          (|fln| #2=(|List| TP)) (#3=#:G323 NIL) (|term| NIL) (#4=#:G322 NIL)
-          (|auxfl| (|List| #1#)) (#5=#:G321 NIL) (#6=#:G320 NIL)
-          (|aux| (|List| TP)) (#7=#:G319 NIL) (|poly| (TP))
+          (|fln| #2=(|List| TP)) (#3=#:G324 NIL) (|term| NIL) (#4=#:G323 NIL)
+          (|auxfl| (|List| #1#)) (#5=#:G322 NIL) (#6=#:G321 NIL)
+          (|aux| (|List| TP)) (#7=#:G320 NIL) (|poly| (TP))
           (|dfn| #8=(|NonNegativeInteger|)) (|mm| (TP)) (|lcm1| (RP))
           (|poly1| (TP)) (|u| (|Union| TP "failed")) (|pol| (TP))
-          (#9=#:G300 NIL) (#10=#:G299 (TP)) (#11=#:G301 (TP)) (#12=#:G318 NIL)
-          (|tc| (RP)) (#13=#:G297 NIL) (#14=#:G296 (RP)) (#15=#:G298 (RP))
-          (#16=#:G317 NIL) (|auxl| (|List| TP)) (|nm| #8#) (|Modulus| (RP))
+          (#9=#:G301 NIL) (#10=#:G300 (TP)) (#11=#:G302 (TP)) (#12=#:G319 NIL)
+          (|tc| (RP)) (#13=#:G298 NIL) (#14=#:G297 (RP)) (#15=#:G299 (RP))
+          (#16=#:G318 NIL) (|auxl| (|List| TP)) (|nm| #8#) (|Modulus| (RP))
           (|hlift| (|Record| (|:| |plist| #2#) (|:| |modulo| RP))))
          (SEQ
           (LETT |hlift| (SPADCALL |m| |tl1| |prime| |bound| (QREFELT $ 60))
@@ -730,9 +733,9 @@
 
 (DECLAIM (NOTINLINE |GeneralHenselPackage;|)) 
 
-(DEFUN |GeneralHenselPackage| (&REST #1=#:G324)
+(DEFUN |GeneralHenselPackage| (&REST #1=#:G325)
   (SPROG NIL
-         (PROG (#2=#:G325)
+         (PROG (#2=#:G326)
            (RETURN
             (COND
              ((LETT #2#

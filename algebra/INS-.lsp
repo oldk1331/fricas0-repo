@@ -162,7 +162,7 @@
             (#2# (|error| "inverse does not exist"))))))) 
 
 (SDEFUN |INS-;powmod;4S;29| ((|x| S) (|n| S) (|p| S) ($ S))
-        (SPROG ((|z| (S)) (#1=#:G198 NIL) (|y| (S)))
+        (SPROG ((|z| (S)) (#1=#:G199 NIL) (|y| (S)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -197,14 +197,16 @@
                                                           (QREFELT $ 18))
                                                 . #2#)
                                           (QREFELT $ 61))
-                                         (PROGN (LETT #1# |y| . #2#) (GO #1#)))
+                                         (PROGN
+                                          (LETT #1# |y| . #2#)
+                                          (GO #3=#:G198)))
                                         ('T
                                          (LETT |z|
                                                (SPADCALL |z| |z| |p|
                                                          (QREFELT $ 86))
                                                . #2#)))))
                                      NIL (GO G190) G191 (EXIT NIL)))))))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |IntegerNumberSystem&;|)) 
 

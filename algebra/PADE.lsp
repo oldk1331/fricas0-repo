@@ -182,7 +182,7 @@
          ((|#G44| (|NonNegativeInteger|)) (#3=#:G168 NIL) (|#G43| #2#)
           (|d| (UP)) (|g| (UP)) (|degbd| (|NonNegativeInteger|))
           (#4=#:G167 NIL) (|h| (UP)) (#5=#:G163 NIL)
-          (|alist| (|List| (|NonNegativeInteger|))) (#6=#:G174 NIL)
+          (|alist| (|List| (|NonNegativeInteger|))) (#6=#:G175 NIL)
           (|alpha| (|NonNegativeInteger|)) (|plist| (|List| UP)) (|s| (UP))
           (|p| (UP)) (#7=#:G161 NIL) (|pk| (R)) (|k| NIL) (#8=#:G160 NIL)
           (|d0| (R)) (|j| NIL) (|#G40| (PS)) (|#G39| (PS))
@@ -218,7 +218,9 @@
               (SEQ (LETT |alpha| (SPADCALL |gps| (QREFELT $ 34)) . #10#)
                    (COND
                     ((SPADCALL |alpha| |l| (QREFELT $ 37))
-                     (PROGN (LETT #6# (CONS 1 "failed") . #10#) (GO #6#))))
+                     (PROGN
+                      (LETT #6# (CONS 1 "failed") . #10#)
+                      (GO #11=#:G174))))
                    (LETT |gps| (|PADE;divOutDegree| |gps| |alpha| $) . #10#)
                    (PROGN
                     (LETT |#G37| |m| . #10#)
@@ -308,7 +310,7 @@
                          ((SPADCALL |s| (|spadConstant| $ 12) (QREFELT $ 48))
                           (PROGN
                            (LETT #6# (CONS 0 (CONS |plist| |alist|)) . #10#)
-                           (GO #6#)))
+                           (GO #11#)))
                          ('T
                           (SEQ
                            (LETT |alpha|
@@ -320,11 +322,11 @@
                               (PROGN
                                (LETT #6# (CONS 0 (CONS |plist| |alist|))
                                      . #10#)
-                               (GO #6#)))
+                               (GO #11#)))
                              ((SPADCALL |alpha| |l| (QREFELT $ 37))
                               (PROGN
                                (LETT #6# (CONS 1 "failed") . #10#)
-                               (GO #6#)))
+                               (GO #11#)))
                              ('T
                               (SEQ (LETT |alist| (CONS |alpha| |alist|) . #10#)
                                    (LETT |h|
@@ -371,13 +373,13 @@
                                      (LETT |m| |#G44| . #10#))))))))))))
                   (LETT |j| (|inc_SI| |j|) . #10#) (GO G190) G191
                   (EXIT NIL)))))
-          #6# (EXIT #6#)))) 
+          #11# (EXIT #6#)))) 
 
 (DECLAIM (NOTINLINE |PadeApproximants;|)) 
 
-(DEFUN |PadeApproximants| (&REST #1=#:G175)
+(DEFUN |PadeApproximants| (&REST #1=#:G176)
   (SPROG NIL
-         (PROG (#2=#:G176)
+         (PROG (#2=#:G177)
            (RETURN
             (COND
              ((LETT #2#

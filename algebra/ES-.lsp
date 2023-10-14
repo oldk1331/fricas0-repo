@@ -483,7 +483,7 @@
 
 (SDEFUN |ES-;elt;BoLS;40| ((|op| |BasicOperator|) (|args| |List| S) ($ S))
         (SPROG
-         ((|v| (|Union| S "failed")) (#1=#:G321 NIL)
+         ((|v| (|Union| S "failed")) (#1=#:G323 NIL)
           (|u| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
           (EXIT
@@ -507,12 +507,12 @@
                    ((SPADCALL (LENGTH |args|) (QCDR |u|) (QREFELT $ 119))
                     (PROGN
                      (LETT #1# (|error| "Wrong number of arguments") . #2#)
-                     (GO #1#))))))))
+                     (GO #3=#:G321))))))))
               (LETT |v| (SPADCALL |op| |args| (QREFELT $ 122)) . #2#)
               (EXIT
                (COND ((QEQCAR |v| 0) (QCDR |v|))
                      ('T (|ES-;okkernel| |op| |args| $))))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |ES-;retract;SK;41| ((|f| S) ($ |Kernel| S))
         (SPROG ((|k| (|Union| (|Kernel| S) "failed")))
@@ -554,7 +554,7 @@
                            ('T (SPADCALL (QCDR |k|) |op| (QREFELT $ 56)))))))) 
 
 (SDEFUN |ES-;unwrap| ((|l| |List| (|Kernel| S)) (|x| S) ($ S))
-        (SPROG ((#1=#:G349 NIL) (|k| NIL))
+        (SPROG ((#1=#:G350 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|ES-;unwrap|))
                      (LETT #1# (NREVERSE |l|) . #2#) G190
@@ -573,7 +573,7 @@
                 (EXIT |x|)))) 
 
 (SDEFUN |ES-;distribute;3S;46| ((|x| S) (|y| S) ($ S))
-        (SPROG ((#1=#:G357 NIL) (|k| NIL) (#2=#:G356 NIL) (|ky| (|Kernel| S)))
+        (SPROG ((#1=#:G358 NIL) (|k| NIL) (#2=#:G357 NIL) (|ky| (|Kernel| S)))
                (SEQ
                 (LETT |ky| (SPADCALL |y| (QREFELT $ 62))
                       . #3=(|ES-;distribute;3S;46|))
@@ -624,7 +624,7 @@
           (|:| |lstv| (|List| S))))
         (SPROG
          ((|lv| (|List| S)) (|lk| (|List| (|Kernel| S)))
-          (|k| (|Union| (|Kernel| S) "failed")) (#1=#:G376 NIL) (|eq| NIL))
+          (|k| (|Union| (|Kernel| S) "failed")) (#1=#:G377 NIL) (|eq| NIL))
          (SEQ (LETT |lk| NIL . #2=(|ES-;mkKerLists|)) (LETT |lv| NIL . #2#)
               (SEQ (LETT |eq| NIL . #2#) (LETT #1# |leq| . #2#) G190
                    (COND

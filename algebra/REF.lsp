@@ -27,9 +27,9 @@
 
 (DECLAIM (NOTINLINE |Reference;|)) 
 
-(DEFUN |Reference| (#1=#:G1758)
+(DEFUN |Reference| (#1=#:G1773)
   (SPROG NIL
-         (PROG (#2=#:G1759)
+         (PROG (#2=#:G1774)
            (RETURN
             (COND
              ((LETT #2#

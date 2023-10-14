@@ -6,7 +6,7 @@
                (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                          (|:| |fctr| I) (|:| |xpnt| (|Integer|)))))
           (|v| (|Union| I "failed")) (|m| (I)) (|x| (|Factored| I)) (|lim| (I))
-          (#2=#:G129 NIL) (#3=#:G131 NIL) (|l| #1#) (|sv| (|Factored| I))
+          (#2=#:G131 NIL) (#3=#:G132 NIL) (|l| #1#) (|sv| (|Factored| I))
           (|rec| NIL) (|u| (I)))
          (SEQ
           (EXIT
@@ -62,7 +62,7 @@
                                           (QREFELT $ 28))
                                 |l| (QREFELT $ 29))))
                              . #4#)
-                       (GO #2#))))))))
+                       (GO #6=#:G129))))))))
             (LETT |lim|
                   (SPADCALL (|spadConstant| $ 13)
                             (SPADCALL |m| 3 (QREFELT $ 31)) (QREFELT $ 32))
@@ -100,13 +100,13 @@
                                                 (QREFELT $ 36))))))))))
                           . #4#)
                     (EXIT (SPADCALL |u| |y| (QREFELT $ 29)))))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |INTFACT;PollardSmallFactor;IU;2| ((|n| I) ($ |Union| I "failed"))
         (SPROG
-         ((G (I)) (|x| (I)) (|y| (I)) (#1=#:G158 NIL) (#2=#:G157 NIL) (|i| NIL)
-          (|l| (I)) (|ys| (I)) (#3=#:G156 NIL) (|r| (I)) (|k| (I)) (|q| (I))
-          (#4=#:G155 NIL) (#5=#:G154 NIL) (#6=#:G153 NIL) (#7=#:G152 NIL)
+         ((G (I)) (|x| (I)) (|y| (I)) (#1=#:G159 NIL) (#2=#:G158 NIL) (|i| NIL)
+          (|l| (I)) (|ys| (I)) (#3=#:G157 NIL) (|r| (I)) (|k| (I)) (|q| (I))
+          (#4=#:G156 NIL) (#5=#:G155 NIL) (#6=#:G154 NIL) (#7=#:G153 NIL)
           (|m| (I)) (|x0| (I)))
          (SEQ
           (LETT |x0| (SPADCALL (QREFELT $ 37))
@@ -285,7 +285,7 @@
                  ('T (CONS 0 G))))))) 
 
 (SDEFUN |INTFACT;PollardSmallFactor20| ((|n| I) ($ |Union| I "failed"))
-        (SPROG ((#1=#:G165 NIL) (|r| (|Union| I "failed")) (|i| NIL))
+        (SPROG ((#1=#:G167 NIL) (|r| (|Union| I "failed")) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -295,11 +295,11 @@
                             (EXIT
                              (COND
                               ((QEQCAR |r| 0)
-                               (PROGN (LETT #1# |r| . #2#) (GO #1#))))))
+                               (PROGN (LETT #1# |r| . #2#) (GO #3=#:G166))))))
                        (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT |r|)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |INTFACT;BasicSieve| ((|r| I) (|lim| I) ($ |Factored| I))
         (SPROG
@@ -308,7 +308,7 @@
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| I) (|:| |xpnt| (|Integer|)))))
-          (|n| (I)) (|m| NIL) (#1=#:G178 NIL) (#2=#:G179 NIL) (|s| NIL)
+          (|n| (I)) (|m| NIL) (#1=#:G181 NIL) (#2=#:G182 NIL) (|s| NIL)
           (|l| (|List| I)))
          (SEQ
           (EXIT
@@ -335,7 +335,7 @@
                      ((SPADCALL |d| |lim| (QREFELT $ 15))
                       (PROGN
                        (LETT #1# (SPADCALL |n| |ls| (QREFELT $ 29)) . #3#)
-                       (GO #1#)))
+                       (GO #4=#:G180)))
                      ('T
                       (SEQ
                        (COND
@@ -355,7 +355,7 @@
                                   (SPADCALL (|spadConstant| $ 13) |ls|
                                             (QREFELT $ 29))
                                   . #3#)
-                            (GO #1#))))))
+                            (GO #4#))))))
                        (SEQ (LETT |m| 0 . #3#) G190
                             (COND
                              ((NULL
@@ -378,7 +378,7 @@
                         (LETT |d| (SPADCALL |d| |s| (QREFELT $ 32))
                               . #3#)))))))
                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |INTFACT;BasicMethod;IF;5| ((|n| I) ($ |Factored| I))
         (SPROG ((|x| (|Factored| I)) (|u| (I)) (|m| (I)))
@@ -583,9 +583,9 @@
 
 (DECLAIM (NOTINLINE |IntegerFactorizationPackage;|)) 
 
-(DEFUN |IntegerFactorizationPackage| (#1=#:G215)
+(DEFUN |IntegerFactorizationPackage| (#1=#:G218)
   (SPROG NIL
-         (PROG (#2=#:G216)
+         (PROG (#2=#:G219)
            (RETURN
             (COND
              ((LETT #2#

@@ -34,7 +34,7 @@
                                               (|:| |c|
                                                    (|SparseMultivariatePolynomial|
                                                     R |VarSet1|))))))))
-          (#3=#:G126 NIL) (|t0| NIL) (|pu1| #1#) (#4=#:G125 NIL)
+          (#3=#:G127 NIL) (|t0| NIL) (|pu1| #1#) (#4=#:G126 NIL)
           (|v2| (|VarSet2|)) (|v1| (|VarSet1|)))
          (SEQ
           (EXIT
@@ -54,7 +54,7 @@
                              (|SMPCOER;convert_sorted| |p1| (CDR |lv1|) |lv2|
                               $)
                              . #6#)
-                       (GO #4#)))
+                       (GO #7=#:G125)))
                      (#5#
                       (SEQ (LETT |lv1| (CDR |lv1|) . #6#)
                            (LETT |pu1| (QCDR (QCDR |p1|)) . #6#)
@@ -82,7 +82,7 @@
                                 (LETT #3# (CDR #3#) . #6#) (GO G190) G191
                                 (EXIT NIL))
                            (EXIT (CONS 1 (CONS |v2| (NREVERSE |pu2|))))))))))))
-          #4# (EXIT #4#)))) 
+          #7# (EXIT #4#)))) 
 
 (SDEFUN |SMPCOER;find_var|
         ((|x| |VarSet1|)
@@ -90,7 +90,7 @@
           (|Record| (|:| |elt1| |VarSet1|)
                     (|:| |elt2| (|SparseMultivariatePolynomial| R |VarSet2|))))
          ($ |SparseMultivariatePolynomial| R |VarSet2|))
-        (SPROG ((#1=#:G131 NIL) (#2=#:G132 NIL) (|y| NIL))
+        (SPROG ((#1=#:G133 NIL) (#2=#:G134 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -103,10 +103,12 @@
                         (EXIT
                          (COND
                           ((SPADCALL |x| (QCAR |y|) (QREFELT $ 11))
-                           (PROGN (LETT #1# (QCDR |y|) . #3#) (GO #1#))))))
+                           (PROGN
+                            (LETT #1# (QCDR |y|) . #3#)
+                            (GO #4=#:G132))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT (|error| "Impossible"))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |SMPCOER;remap_variables;SmpLLSmp;3|
         ((|p| |SparseMultivariatePolynomial| R |VarSet1|)
@@ -118,12 +120,12 @@
             (|Record| (|:| |elt1| |VarSet1|)
                       (|:| |elt2|
                            (|SparseMultivariatePolynomial| R |VarSet2|)))))
-          (#1=#:G161 NIL) (|el1| NIL) (#2=#:G162 NIL) (|el2| NIL)
-          (#3=#:G160 NIL) (#4=#:G159 NIL) (|x| NIL) (#5=#:G158 NIL)
-          (#6=#:G157 NIL) (#7=#:G156 NIL)
+          (#1=#:G163 NIL) (|el1| NIL) (#2=#:G164 NIL) (|el2| NIL)
+          (#3=#:G162 NIL) (#4=#:G161 NIL) (|x| NIL) (#5=#:G160 NIL)
+          (#6=#:G159 NIL) (#7=#:G158 NIL)
           (|pl|
            (|List| (|Record| (|:| |elt1| |VarSet1|) (|:| |elt2| |VarSet2|))))
-          (#8=#:G154 NIL) (#9=#:G155 NIL) (#10=#:G153 NIL)
+          (#8=#:G156 NIL) (#9=#:G157 NIL) (#10=#:G155 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (LENGTH |lv1|)
@@ -243,9 +245,9 @@
 
 (DECLAIM (NOTINLINE |SparsePolynomialCoercionHelpers;|)) 
 
-(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G163)
+(DEFUN |SparsePolynomialCoercionHelpers| (&REST #1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G164)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

@@ -179,7 +179,7 @@
           (|zeroTermOrd| #2=(|Fraction| (|Integer|))) (|infiniteTerms| #1#)
           (|infTermOrd| #2#) (|sig| (|Integer|)) (|failedTerms| #1#)
           (|signum| (|Union| (|Integer|) "failed")) (|coef| (FE))
-          (#3=#:G176 NIL)
+          (#3=#:G180 NIL)
           (|pSeries| (|UnivariatePuiseuxSeries| FE |var| |cen|)) (|ord| #2#)
           (|expon| (|ExponentialOfUnivariatePuiseuxSeries| FE |var| |cen|))
           (|term|
@@ -215,12 +215,12 @@
                       (EXIT
                        (COND
                         ((SPADCALL |ord| |infTermOrd| (QREFELT $ 39))
-                         (PROGN (LETT #3# |$NoValue| . #4#) (GO #3#)))
+                         (PROGN (LETT #3# |$NoValue| . #4#) (GO #5=#:G176)))
                         ((SPADCALL |ord| (|spadConstant| $ 35) (QREFELT $ 40))
                          (SEQ
                           (LETT |pSeries| (|UPXSSING;coeff| |term| $) . #4#)
                           (LETT |zeroTerms| NIL . #4#)
-                          (EXIT (PROGN (LETT #3# |$NoValue| . #4#) (GO #3#)))))
+                          (EXIT (PROGN (LETT #3# |$NoValue| . #4#) (GO #5#)))))
                         ('T
                          (SEQ
                           (LETT |coef| (SPADCALL |expon| |ord| (QREFELT $ 41))
@@ -268,7 +268,7 @@
                                        (LETT |termList| (CDR |termList|)
                                              . #4#)))))))))))))))
                      NIL (GO G190) G191 (EXIT NIL)))
-               #3# (EXIT #3#))
+               #5# (EXIT #3#))
               (EXIT
                (VECTOR |zeroTerms| |infiniteTerms| (NREVERSE |failedTerms|)
                        |pSeries|))))) 
@@ -306,8 +306,8 @@
                            (|List|
                             (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                       (|:| |c| FE)))))))
-          (#1=#:G193 NIL) (|sig| (|Union| (|Integer|) "failed"))
-          (|coefDiff| (FE)) (#2=#:G194 NIL) (|term| NIL) (|coefExtreme| (FE)))
+          (#1=#:G195 NIL) (|sig| (|Union| (|Integer|) "failed"))
+          (|coefDiff| (FE)) (#2=#:G196 NIL) (|term| NIL) (|coefExtreme| (FE)))
          (SEQ
           (EXIT
            (SEQ
@@ -364,14 +364,14 @@
                                  ((QEQCAR |sig| 1)
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #3#)
-                                   (GO #1#)))
+                                   (GO #4=#:G194)))
                                  ((EQL (QCDR |sig|) |signum|)
                                   (LETT |outList|
                                         (SPADCALL |term| (QREFELT $ 47))
                                         . #3#)))))))))
                           (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                      (EXIT (CONS 0 |outList|))))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |UPXSSING;filterByOrder|
         ((|termList| |List|
@@ -398,7 +398,7 @@
                                  (|:| |c| FE)))))))
           (|:| |%order| (|Fraction| (|Integer|)))))
         (SPROG
-         ((#1=#:G209 NIL) (|term| NIL) (#2=#:G204 NIL) (#3=#:G201 NIL)
+         ((#1=#:G214 NIL) (|term| NIL) (#2=#:G211 NIL) (#3=#:G210 NIL)
           (|outList|
            (|List|
             (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
@@ -410,7 +410,7 @@
                             (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                       (|:| |c| FE)))))))
           (|ordExtreme| #4=(|Fraction| (|Integer|))) (|ord| #4#)
-          (#5=#:G208 NIL) (#6=#:G198 NIL))
+          (#5=#:G213 NIL) (#6=#:G212 NIL))
          (SEQ
           (SEQ G190
                (COND
@@ -427,8 +427,8 @@
                     ((NULL |termList|)
                      (PROGN
                       (LETT #6# (|error| "UPXSING: can't happen") . #7#)
-                      (GO #6#)))))))
-                #6# (EXIT #6#))
+                      (GO #8=#:G200)))))))
+                #8# (EXIT #6#))
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |ordExtreme|
                 (QCAR
@@ -474,12 +474,12 @@
                                                                           47))
                                                        . #7#)))
                                            . #7#)
-                                     (GO #3#)))))
-                                 #3# (EXIT #3#))))))
+                                     (GO #9=#:G203)))))
+                                 #9# (EXIT #3#))))))
                             . #7#)
-                      (GO #2#))))))
+                      (GO #10=#:G206))))))
                  (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL)))
-           #2# (EXIT #2#))
+           #10# (EXIT #2#))
           (SEQ (LETT |term| NIL . #7#) (LETT #1# |outList| . #7#) G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |term| (CAR #1#) . #7#) NIL))
@@ -596,7 +596,7 @@
            (|:| |%type| (|String|)))
           "failed"))
         (SPROG
-         ((#1=#:G240 NIL)
+         ((#1=#:G246 NIL)
           (|dTerm|
            (|Union|
             (|Record| (|:| |%coef| (|UnivariatePuiseuxSeries| FE |var| |cen|))
@@ -608,8 +608,8 @@
                             (|Record| (|:| |k| (|Fraction| (|Integer|)))
                                       (|:| |c| FE)))))
             "failed"))
-          (|ord0| (|Fraction| (|Integer|))) (#2=#:G242 NIL) (|term| NIL)
-          (#3=#:G241 NIL)
+          (|ord0| (|Fraction| (|Integer|))) (#2=#:G248 NIL) (|term| NIL)
+          (#3=#:G247 NIL)
           (|pSeries| #4=(|UnivariatePuiseuxSeries| FE |var| |cen|))
           (|failedTerms|
            #5=(|List|
@@ -689,7 +689,9 @@
                   (EXIT
                    (COND
                     ((QEQCAR |dTerm| 1)
-                     (PROGN (LETT #1# (CONS 1 "failed") . #8#) (GO #1#)))
+                     (PROGN
+                      (LETT #1# (CONS 1 "failed") . #8#)
+                      (GO #10=#:G245)))
                     (#9# (CONS 0 (CONS (QCDR |dTerm|) "infinity")))))))))))
             (EXIT
              (COND
@@ -715,9 +717,9 @@
                 (EXIT
                  (COND
                   ((QEQCAR |dTerm| 1)
-                   (PROGN (LETT #1# (CONS 1 "failed") . #8#) (GO #1#)))
+                   (PROGN (LETT #1# (CONS 1 "failed") . #8#) (GO #10#)))
                   (#9# (CONS 0 (CONS (QCDR |dTerm|) "zero")))))))))))
-          #1# (EXIT #1#)))) 
+          #10# (EXIT #1#)))) 
 
 (SDEFUN |UPXSSING;dominantTerm;$U;15|
         ((|f| $)
@@ -881,9 +883,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesWithExponentialSingularity;|)) 
 
-(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G282)
+(DEFUN |UnivariatePuiseuxSeriesWithExponentialSingularity| (&REST #1=#:G288)
   (SPROG NIL
-         (PROG (#2=#:G283)
+         (PROG (#2=#:G289)
            (RETURN
             (COND
              ((LETT #2#

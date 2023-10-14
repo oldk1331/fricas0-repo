@@ -416,7 +416,7 @@
 
 (SDEFUN |FAXF-;createNormalElement;S;21| (($ S))
         (SPROG
-         ((#1=#:G207 NIL) (#2=#:G210 NIL) (|res| (S)) (#3=#:G205 NIL)
+         ((#1=#:G211 NIL) (#2=#:G212 NIL) (|res| (S)) (#3=#:G205 NIL)
           (|i| NIL))
          (SEQ
           (EXIT
@@ -448,20 +448,20 @@
                                    (LETT #1#
                                          (PROGN
                                           (LETT #2# |res| . #4#)
-                                          (GO #2#))
+                                          (GO #5=#:G210))
                                          . #4#)
-                                   (GO #1#))))
+                                   (GO #6=#:G207))))
                                 . #4#)
-                          (GO #1#)))))))
-                    #1# (EXIT #1#))
+                          (GO #6#)))))))
+                    #6# (EXIT #1#))
                    (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |FAXF-;normal?;SB;22| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G212 NIL)
-          (#3=#:G211 #1#) (#4=#:G213 #1#) (#5=#:G216 NIL) (|i| NIL)
+         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G214 NIL)
+          (#3=#:G213 #1#) (#4=#:G215 #1#) (#5=#:G218 NIL) (|i| NIL)
           (|p| (|SparseUnivariatePolynomial| S)))
          (SEQ
           (LETT |p|

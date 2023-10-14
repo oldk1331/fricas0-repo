@@ -577,8 +577,8 @@
         ((|lists| |List| (|List| (|Point| (|DoubleFloat|))))
          ($ |Union| (|Point| (|DoubleFloat|)) "failed"))
         (SPROG
-         ((#1=#:G224 NIL) (#2=#:G222 NIL) (#3=#:G226 NIL) (#4=#:G228 NIL)
-          (|p| NIL) (#5=#:G227 NIL) (|list| NIL))
+         ((#1=#:G228 NIL) (#2=#:G227 NIL) (#3=#:G229 NIL) (#4=#:G231 NIL)
+          (|p| NIL) (#5=#:G230 NIL) (|list| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -613,18 +613,18 @@
                                           (LETT #2#
                                                 (PROGN
                                                  (LETT #3# (CONS 0 |p|) . #6#)
-                                                 (GO #3#))
+                                                 (GO #7=#:G226))
                                                 . #6#)
-                                          (GO #2#))))))
+                                          (GO #8=#:G222))))))
                                      (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                                      (EXIT NIL)))
-                               #2# (EXIT #2#))
+                               #8# (EXIT #2#))
                               . #6#)
-                        (GO #1#))))))
+                        (GO #9=#:G224))))))
                    (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
+             #9# (EXIT #1#))
             (EXIT (CONS 1 "failed"))))
-          #3# (EXIT #3#)))) 
+          #7# (EXIT #3#)))) 
 
 (SDEFUN |CLIP;clipWithRanges;L4DfR;13|
         ((|pointLists| |List| (|List| (|Point| (|DoubleFloat|))))
@@ -634,9 +634,9 @@
           (|:| |xValues| (|Segment| (|DoubleFloat|)))
           (|:| |yValues| (|Segment| (|DoubleFloat|)))))
         (SPROG
-         ((#1=#:G263 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
-          (#2=#:G262 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
-          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G261 NIL)
+         ((#1=#:G266 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
+          (#2=#:G265 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
+          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G264 NIL)
           (|pointList| NIL))
          (SEQ (LETT |lists| NIL . #4=(|CLIP;clipWithRanges;L4DfR;13|))
               (SEQ (LETT |pointList| NIL . #4#) (LETT #3# |pointLists| . #4#)
@@ -782,7 +782,7 @@
 
 (DEFUN |TwoDimensionalPlotClipping| ()
   (SPROG NIL
-         (PROG (#1=#:G273)
+         (PROG (#1=#:G276)
            (RETURN
             (COND
              ((LETT #1#

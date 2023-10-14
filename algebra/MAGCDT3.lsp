@@ -410,7 +410,7 @@
          (|p| |Integer|)
          ($ |List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
         (SPROG
-         ((#1=#:G216 NIL)
+         ((#1=#:G217 NIL)
           (|t1| #2=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|t0| #3=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|#G53| #4=(|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
@@ -521,9 +521,9 @@
             (EXIT
              (COND
               ((SPADCALL |r1| (|spadConstant| $ 45) (QREFELT $ 46))
-               (PROGN (LETT #1# (LIST |r0| |s0| |t0|) . #7#) (GO #1#)))
-              ('T (PROGN (LETT #1# (LIST |r1| |s1| |t1|) . #7#) (GO #1#)))))))
-          #1# (EXIT #1#)))) 
+               (PROGN (LETT #1# (LIST |r0| |s0| |t0|) . #7#) (GO #8=#:G216)))
+              ('T (PROGN (LETT #1# (LIST |r1| |s1| |t1|) . #7#) (GO #8#)))))))
+          #8# (EXIT #1#)))) 
 
 (SDEFUN |MAGCDT3;extended_gcd!4| ((|c| NIL) ($$ NIL))
         (PROG (|lm| |lv| |p| $)
@@ -727,7 +727,7 @@
 
 (DEFUN |ModularAlgebraicGcdTools3| ()
   (SPROG NIL
-         (PROG (#1=#:G248)
+         (PROG (#1=#:G249)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools3|)

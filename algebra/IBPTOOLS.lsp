@@ -54,7 +54,7 @@
 (SDEFUN |IBPTOOLS;mapUnivariateIfCan;MSupU;3|
         ((|f| |Mapping| #1=(|Union| K "failed") L)
          (|poly| |SparseUnivariatePolynomial| L) ($ |Union| R "failed"))
-        (SPROG ((|ans| (R)) (#2=#:G137 NIL) (|lc| #1#))
+        (SPROG ((|ans| (R)) (#2=#:G138 NIL) (|lc| #1#))
                (SEQ
                 (EXIT
                  (SEQ
@@ -73,7 +73,9 @@
                         (EXIT
                          (COND
                           ((QEQCAR |lc| 1)
-                           (PROGN (LETT #2# (CONS 1 "failed") . #3#) (GO #2#)))
+                           (PROGN
+                            (LETT #2# (CONS 1 "failed") . #3#)
+                            (GO #4=#:G137)))
                           ('T
                            (SEQ
                             (LETT |ans|
@@ -89,14 +91,14 @@
                                    . #3#)))))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (CONS 0 |ans|))))
-                #2# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |IBPTOOLS;mapMatrixIfCan;MMU;4|
         ((|f| |Mapping| (|Union| K "failed") L)
          (|mat| |Matrix| (|SparseUnivariatePolynomial| L))
          ($ |Union| (|Matrix| R) "failed"))
         (SPROG
-         ((#1=#:G155 NIL) (|poly| (|Union| R "failed")) (|j| NIL) (|i| NIL)
+         ((#1=#:G157 NIL) (|poly| (|Union| R "failed")) (|j| NIL) (|i| NIL)
           (|matOut| (|Matrix| R)) (|n| (|NonNegativeInteger|))
           (|m| (|NonNegativeInteger|)))
          (SEQ
@@ -121,14 +123,14 @@
                            ((QEQCAR |poly| 1)
                             (PROGN
                              (LETT #1# (CONS 1 "failed") . #2#)
-                             (GO #1#)))
+                             (GO #3=#:G156)))
                            ('T
                             (QSETAREF2O |matOut| |i| |j| (QCDR |poly|) 1 1)))))
                         (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
                         (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |matOut|))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |IBPTOOLS;mapBivariate;MUPSup;5|
         ((|f| |Mapping| L K) (|poly| UP)
@@ -159,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisPolynomialTools;|)) 
 
-(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G162)
+(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G164)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G165)
            (RETURN
             (COND
              ((LETT #2#

@@ -15,7 +15,7 @@
 
 (SDEFUN |ITAYLOR;=;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
-         ((|st| (|Stream| |Coef|)) (#1=#:G117 NIL) (|i| NIL) (|n| (|Integer|)))
+         ((|st| (|Stream| |Coef|)) (#1=#:G118 NIL) (|i| NIL) (|n| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ
@@ -28,14 +28,14 @@
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT $ 18))
-                     (PROGN (LETT #1# 'T . #2#) (GO #1#)))
+                     (PROGN (LETT #1# 'T . #2#) (GO #3=#:G117)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 19))
                                (|spadConstant| $ 11) (QREFELT $ 20))
-                     (PROGN (LETT #1# 'NIL . #2#) (GO #1#)))
+                     (PROGN (LETT #1# 'NIL . #2#) (GO #3#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT $ 21)) . #2#)))))
                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT $ 18)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |ITAYLOR;coefficients;$S;6| ((|x| $) ($ |Stream| |Coef|))
         (|ITAYLOR;stream| |x| $)) 
@@ -90,7 +90,7 @@
                        ('T (CONS 0 (SPADCALL (QCDR |quot|) (QREFELT $ 9))))))))) 
 
 (SDEFUN |ITAYLOR;^;$Nni$;17| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
-        (SPROG ((#1=#:G147 NIL))
+        (SPROG ((#1=#:G148 NIL))
                (COND ((EQL |n| 0) (|spadConstant| $ 14))
                      ('T
                       (SPADCALL |x|
@@ -136,9 +136,9 @@
 
 (DECLAIM (NOTINLINE |InnerTaylorSeries;|)) 
 
-(DEFUN |InnerTaylorSeries| (#1=#:G160)
+(DEFUN |InnerTaylorSeries| (#1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

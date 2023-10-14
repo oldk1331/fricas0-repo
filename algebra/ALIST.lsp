@@ -61,7 +61,7 @@
 
 (SDEFUN |ALIST;search;Key$U;15|
         ((|k| |Key|) (|t| $) ($ |Union| |Entry| "failed"))
-        (SPROG ((#1=#:G142 NIL) (#2=#:G147 NIL) (#3=#:G148 NIL) (|r| NIL))
+        (SPROG ((#1=#:G148 NIL) (#2=#:G149 NIL) (#3=#:G150 NIL) (|r| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -81,13 +81,13 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |r|)) . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G147))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G142))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |ALIST;latex;$S;16| ((|a| $) ($ |String|))
         (SPROG
@@ -119,7 +119,7 @@
         ((|k| |Key|) (|t| $)
          ($ |Union| (|Record| (|:| |key| |Key|) (|:| |entry| |Entry|))
           "failed"))
-        (SPROG ((#1=#:G159 NIL) (#2=#:G164 NIL) (#3=#:G165 NIL) (|r| NIL))
+        (SPROG ((#1=#:G167 NIL) (#2=#:G168 NIL) (#3=#:G169 NIL) (|r| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -139,13 +139,13 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 |r|) . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G166))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G161))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |ALIST;setelt;$Key2Entry;18|
         ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
@@ -204,9 +204,9 @@
 
 (DECLAIM (NOTINLINE |AssociationList;|)) 
 
-(DEFUN |AssociationList| (&REST #1=#:G242)
+(DEFUN |AssociationList| (&REST #1=#:G246)
   (SPROG NIL
-         (PROG (#2=#:G243)
+         (PROG (#2=#:G247)
            (RETURN
             (COND
              ((LETT #2#
@@ -226,8 +226,8 @@
 
 (DEFUN |AssociationList;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G239 NIL) (#2=#:G241 NIL) (#3=#:G240 NIL) (|pv$| NIL) (#4=#:G237 NIL)
-    (#5=#:G238 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G243 NIL) (#2=#:G245 NIL) (#3=#:G244 NIL) (|pv$| NIL) (#4=#:G241 NIL)
+    (#5=#:G242 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #6=(|AssociationList|))
     (LETT DV$2 (|devaluate| |#2|) . #6#)

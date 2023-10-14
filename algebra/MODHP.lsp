@@ -95,9 +95,9 @@
          (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
         (SPROG
          ((|resl| (|List| (|U32Vector|))) (|nlc| NIL) (|dms| (|SingleInteger|))
-          (#1=#:G168 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G170 NIL)
-          (|j| NIL) (#4=#:G171 NIL) (|el| NIL) (|pa| (|U32Vector|))
-          (|nn| (|Integer|)) (#5=#:G169 NIL) (|lfi| NIL))
+          (#1=#:G169 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G171 NIL)
+          (|j| NIL) (#4=#:G172 NIL) (|el| NIL) (|pa| (|U32Vector|))
+          (|nn| (|Integer|)) (#5=#:G170 NIL) (|lfi| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |resl| NIL . #6=(|MODHP;LLFI_to_LPA;L2IU;5|))
@@ -131,7 +131,7 @@
                               ((EQL |dm| 0)
                                (PROGN
                                 (LETT #1# (CONS 1 "failed") . #6#)
-                                (GO #1#)))
+                                (GO #7=#:G168)))
                               ('T
                                (SEQ (LETT |dms| |dm| . #6#)
                                     (LETT |nlc|
@@ -149,7 +149,7 @@
                       (EXIT (LETT |resl| (CONS |pa| |resl|) . #6#)))
                      (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |resl|)))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;LLFPI_to_LPA;LILLIU;6|
         ((|llfi| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
@@ -157,9 +157,9 @@
          (|prime| |Integer|) ($ |Union| (|List| (|U32Vector|)) "failed"))
         (SPROG
          ((|resl| (|List| (|U32Vector|))) (|nlc| NIL) (|dms| (|SingleInteger|))
-          (#1=#:G181 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G183 NIL)
-          (|j| NIL) (#4=#:G184 NIL) (|el| NIL) (|pa| (|U32Vector|))
-          (#5=#:G182 NIL) (|lfi| NIL))
+          (#1=#:G183 NIL) (|dm| #2=(|Integer|)) (|nm| #2#) (#3=#:G185 NIL)
+          (|j| NIL) (#4=#:G186 NIL) (|el| NIL) (|pa| (|U32Vector|))
+          (#5=#:G184 NIL) (|lfi| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |resl| NIL . #6=(|MODHP;LLFPI_to_LPA;LILLIU;6|))
@@ -191,7 +191,7 @@
                                   ((EQL |dm| 0)
                                    (PROGN
                                     (LETT #1# (CONS 1 "failed") . #6#)
-                                    (GO #1#)))
+                                    (GO #7=#:G182)))
                                   ('T
                                    (SEQ (LETT |dms| |dm| . #6#)
                                         (LETT |nlc|
@@ -211,7 +211,7 @@
                           (EXIT (LETT |resl| (CONS |pa| |resl|) . #6#)))
                      (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |resl|)))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;PPFtoPA|
         ((|pfi| |SparseUnivariatePolynomial| (|Integer|))
@@ -245,8 +245,8 @@
          (|sigma| |NonNegativeInteger|) (|psi| |SingleInteger|)
          ($ |Union| (|Vector| (|U32Vector|)) "failed"))
         (SPROG
-         ((#1=#:G200 NIL) (|vpp| (|Union| (|U32Vector|) "failed")) (|i| NIL)
-          (#2=#:G201 NIL) (|p| NIL) (|vpa| (|Vector| (|U32Vector|)))
+         ((#1=#:G203 NIL) (|vpp| (|Union| (|U32Vector|) "failed")) (|i| NIL)
+          (#2=#:G204 NIL) (|p| NIL) (|vpa| (|Vector| (|U32Vector|)))
           (|m| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -263,7 +263,9 @@
                       (EXIT
                        (COND
                         ((QEQCAR |vpp| 1)
-                         (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))
+                         (PROGN
+                          (LETT #1# (CONS 1 "failed") . #3#)
+                          (GO #4=#:G202)))
                         ('T
                          (SPADCALL |vpa| |i| (QCDR |vpp|) (QREFELT $ 19))))))
                      (LETT |i|
@@ -271,7 +273,7 @@
                            . #3#)
                      (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |vpa|))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;intpoly_to_PFI|
         ((|p| |SparseUnivariatePolynomial| (|Integer|))
@@ -311,23 +313,23 @@
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
           (|Boolean|)))
         (SPROG
-         ((#4=#:G294 NIL) (|l| NIL) (#5=#:G298 NIL) (|i| NIL)
+         ((#4=#:G301 NIL) (|l| NIL) (#5=#:G305 NIL) (|i| NIL)
           (|mress| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#6=#:G273 NIL) (|ii| (|Integer|)) (#7=#:G272 NIL)
+          (#6=#:G276 NIL) (|ii| (|Integer|)) (#7=#:G299 NIL)
           (|sol_ok| #8=(|Boolean|)) (|sol_okp| (|Union| #1# #2# #3#))
           (|k| (|Integer|)) (|s| (|SparseUnivariatePolynomial| (|Integer|)))
           (|mm| (|Integer|)) (|j| (|Integer|))
           (|resvi| (|Vector| (|SparseUnivariatePolynomial| (|Integer|))))
           (|resv|
            (|Vector| (|Vector| (|SparseUnivariatePolynomial| (|Integer|)))))
-          (#9=#:G260 NIL) (|ppr| (|PrimitiveArray| (|Integer|)))
+          (#9=#:G263 NIL) (|ppr| (|PrimitiveArray| (|Integer|)))
           (|pp| (|Union| (|PrimitiveArray| (|Integer|)) "failed"))
           (|empty_offsets| #8#) (|offsets| (|Vector| (|Integer|)))
-          (#10=#:G252 NIL) (|cp| (|U32Vector|)) (|rv| #11=(|U32Vector|))
-          (#12=#:G242 NIL) (|rstate| (|VectorIntegerReconstructor|))
+          (#10=#:G255 NIL) (|cp| (|U32Vector|)) (|rv| #11=(|U32Vector|))
+          (#12=#:G245 NIL) (|rstate| (|VectorIntegerReconstructor|))
           (|oldciv| #13=(|Vector| (|Integer|)))
           (|oldva| #14=(|Vector| (|Integer|))) (|nsols| (|Integer|))
-          (#15=#:G239 NIL) (|is_bad| #16=(|Boolean|)) (|all_bad| (|Boolean|))
+          (#15=#:G300 NIL) (|is_bad| #16=(|Boolean|)) (|all_bad| (|Boolean|))
           (|civ| #13#) (|va| #14#)
           (|bm| #17=(|TwoDimensionalArray| (|U32Vector|)))
           (|rblr|
@@ -344,9 +346,9 @@
           (|psi| (|SingleInteger|)) (|nprimes| (|Integer|)) (|ok| #16#)
           (|lp| (|List| (|Integer|))) (|prime| (|Integer|))
           (|maxd| (|Integer|)) (|vi| (|Vector| (|List| (|Integer|))))
-          (|pts| (|U32Vector|)) (#18=#:G219 NIL) (#19=#:G297 NIL) (|pts0| #11#)
-          (|ve| (|Vector| (|Integer|))) (#20=#:G296 NIL) (|d| NIL)
-          (#21=#:G295 NIL) (|degs_sum| (|NonNegativeInteger|))
+          (|pts| (|U32Vector|)) (#18=#:G298 NIL) (#19=#:G304 NIL) (|pts0| #11#)
+          (|ve| (|Vector| (|Integer|))) (#20=#:G303 NIL) (|d| NIL)
+          (#21=#:G302 NIL) (|degs_sum| (|NonNegativeInteger|))
           (|m| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -398,8 +400,8 @@
                                               (GO G190) G191 (EXIT NIL))
                                          (EXIT |pts0|))
                                         . #22#)
-                                  (GO #18#)))))
-                              #18# (EXIT #18#))))
+                                  (GO #23=#:G222)))))
+                              #23# (EXIT #18#))))
                       . #22#)
                 (LETT |vi| (MAKEARR1 |m| NIL) . #22#) (LETT |nsols| -1 . #22#)
                 (LETT |maxd| -1 . #22#) (LETT |nprimes| 0 . #22#)
@@ -455,7 +457,7 @@
                                              ((QEQCAR |blr| 1)
                                               (PROGN
                                                (LETT #4# (CONS 1 'NIL) . #22#)
-                                               (GO #4#)))
+                                               (GO #24=#:G297)))
                                              ('T
                                               (SEQ
                                                (LETT |rblr| (QCDR |blr|)
@@ -513,7 +515,7 @@
                                                                          |$NoValue|
                                                                          . #22#)
                                                                    (GO
-                                                                    #15#)))))
+                                                                    #25=#:G242)))))
                                                                ((SPADCALL
                                                                  (SPADCALL |va|
                                                                            |i|
@@ -536,7 +538,7 @@
                                                                          |$NoValue|
                                                                          . #22#)
                                                                    (GO
-                                                                    #15#)))))
+                                                                    #25#)))))
                                                                ((<
                                                                  (SPADCALL
                                                                   |civ| |i|
@@ -556,7 +558,7 @@
                                                                          |$NoValue|
                                                                          . #22#)
                                                                    (GO
-                                                                    #15#)))))
+                                                                    #25#)))))
                                                                ((SPADCALL
                                                                  (SPADCALL
                                                                   |civ| |i|
@@ -578,14 +580,14 @@
                                                                          |$NoValue|
                                                                          . #22#)
                                                                    (GO
-                                                                    #15#))))))))
+                                                                    #25#))))))))
                                                             (LETT |i|
                                                                   (|inc_SI|
                                                                    |i|)
                                                                   . #22#)
                                                             (GO G190) G191
                                                             (EXIT NIL)))
-                                                      #15# (EXIT #15#))))
+                                                      #25# (EXIT #15#))))
                                                    (EXIT
                                                     (COND (|is_bad| "iterate")
                                                           ('T
@@ -958,7 +960,7 @@
                                                                            |$NoValue|
                                                                            . #22#)
                                                                           (GO
-                                                                           #7#)))))
+                                                                           #26=#:G275)))))
                                                                       ('T
                                                                        (SEQ
                                                                         (SPADCALL
@@ -982,7 +984,7 @@
                                                                    (GO G190)
                                                                    G191
                                                                    (EXIT NIL)))
-                                                                 #7#
+                                                                 #26#
                                                                  (EXIT #7#))
                                                                 (EXIT
                                                                  (COND
@@ -1083,17 +1085,17 @@
                                                                              |mress|)
                                                                             . #22#)
                                                                       (GO
-                                                                       #4#)))))))))))))))))))))))))))))
+                                                                       #24#)))))))))))))))))))))))))))))
                             ('T (|error| "Run out of primes")))))
                      NIL (GO G190) G191 (EXIT NIL))
-                (EXIT (PROGN (LETT #4# (CONS 1 'T) . #22#) (GO #4#)))))
-          #4# (EXIT #4#)))) 
+                (EXIT (PROGN (LETT #4# (CONS 1 'T) . #22#) (GO #24#)))))
+          #24# (EXIT #4#)))) 
 
 (SDEFUN |MODHP;get_variables2|
         ((|llpi| |List| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
          ($ |List| (|Symbol|)))
         (SPROG
-         ((|res| (|List| (|Symbol|))) (#1=#:G305 NIL) (|p| NIL) (#2=#:G304 NIL)
+         ((|res| (|List| (|Symbol|))) (#1=#:G312 NIL) (|p| NIL) (#2=#:G311 NIL)
           (|lpi| NIL))
          (SEQ (LETT |res| NIL . #3=(|MODHP;get_variables2|))
               (SEQ (LETT |lpi| NIL . #3#) (LETT #2# |llpi| . #3#) G190
@@ -1135,9 +1137,9 @@
          ($ |SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
         (SPROG
          ((|res| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
-          (#1=#:G317 NIL) (|i| (|Integer|)) (|term| (|Polynomial| (|Integer|)))
-          (|term1| (|Polynomial| (|Integer|))) (#2=#:G311 NIL) (|k| NIL)
-          (#3=#:G320 NIL) (|var| NIL) (|j| (|Integer|)) (#4=#:G307 NIL)
+          (#1=#:G324 NIL) (|i| (|Integer|)) (|term| (|Polynomial| (|Integer|)))
+          (|term1| (|Polynomial| (|Integer|))) (#2=#:G318 NIL) (|k| NIL)
+          (#3=#:G327 NIL) (|var| NIL) (|j| (|Integer|)) (#4=#:G314 NIL)
           (|jj| (|Integer|)) (|i0| NIL) (|nn| (|NonNegativeInteger|))
           (|nvars| (|NonNegativeInteger|)))
          (SEQ
@@ -1286,7 +1288,7 @@
 (SDEFUN |MODHP;LPI_to_LPPI|
         ((|lp| |List| (|SparseUnivariatePolynomial| (|Integer|)))
          ($ |List| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
-        (SPROG ((#1=#:G335 NIL) (|p| NIL) (#2=#:G334 NIL))
+        (SPROG ((#1=#:G342 NIL) (|p| NIL) (#2=#:G341 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MODHP;LPI_to_LPPI|))
@@ -1318,20 +1320,20 @@
             (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
           (|nc| (|NonNegativeInteger|)) (|nr| (|NonNegativeInteger|))
           (|resi| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#1=#:G358 NIL)
+          (#1=#:G366 NIL)
           (|pres|
            (|Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
                     (|Boolean|)))
-          (|nlist| (|List| (|List| (|Fraction| (|Integer|))))) (#2=#:G362 NIL)
-          (|q| NIL) (#3=#:G361 NIL) (#4=#:G360 NIL) (|li| NIL) (#5=#:G359 NIL))
+          (|nlist| (|List| (|List| (|Fraction| (|Integer|))))) (#2=#:G370 NIL)
+          (|q| NIL) (#3=#:G369 NIL) (#4=#:G368 NIL) (|li| NIL) (#5=#:G367 NIL))
          (SEQ
           (EXIT
            (COND
             ((EQUAL |kind| '|qshiftHP|)
              (PROGN
               (LETT #1# (CONS 1 'T) . #6=(|MODHP;trivial_poly_solve|))
-              (GO #1#)))
-            (#7='T
+              (GO #7=#:G365)))
+            (#8='T
              (SEQ
               (COND ((EQUAL |kind| '|qdiffHP|) (LETT |kind| '|diffHP| . #6#)))
               (LETT |nlist|
@@ -1380,8 +1382,8 @@
               (EXIT
                (COND
                 ((QEQCAR |pres| 1)
-                 (PROGN (LETT #1# (CONS 1 (QCDR |pres|)) . #6#) (GO #1#)))
-                (#7#
+                 (PROGN (LETT #1# (CONS 1 (QCDR |pres|)) . #6#) (GO #7#)))
+                (#8#
                  (SEQ (LETT |resi| (QCDR |pres|) . #6#)
                       (LETT |nr| (ANROWS |resi|) . #6#)
                       (LETT |nc| (ANCOLS |resi|) . #6#)
@@ -1407,7 +1409,7 @@
                            (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT (CONS 0 |res|))))))))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |MODHP;trivial_poly_solve!0| ((|x| NIL) ($$ NIL))
         (PROG ($ |check|)
@@ -1443,11 +1445,11 @@
           (|Matrix| (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
           (|Boolean|)))
         (SPROG
-         ((#2=#:G424 NIL) (|l| NIL) (#3=#:G430 NIL) (|i| NIL)
+         ((#2=#:G435 NIL) (|l| NIL) (#3=#:G441 NIL) (|i| NIL)
           (|mress|
            (|Matrix|
             (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|)))))
-          (#4=#:G410 NIL) (|ii| (|Integer|)) (#5=#:G409 NIL) (|ok| (|Boolean|))
+          (#4=#:G418 NIL) (|ii| (|Integer|)) (#5=#:G434 NIL) (|ok| (|Boolean|))
           (|sol_okp| #1#) (|hi| (|Integer|)) (|ohi| #6=(|Integer|))
           (|kk| (|Integer|)) (|lo| #6#) (|j| NIL)
           (|resvi|
@@ -1477,10 +1479,10 @@
             "no_solution"))
           (|gv0|
            (|List| (|PrimitiveArray| (|Fraction| (|Polynomial| (|Integer|))))))
-          (#10=#:G429 NIL) (|li| NIL) (#11=#:G428 NIL)
-          (|vars| (|List| (|Symbol|))) (|pts| (|U32Vector|)) (#12=#:G380 NIL)
-          (#13=#:G427 NIL) (|pts0| (|U32Vector|)) (|ve| (|Vector| (|Integer|)))
-          (#14=#:G426 NIL) (|d| NIL) (#15=#:G425 NIL)
+          (#10=#:G440 NIL) (|li| NIL) (#11=#:G439 NIL)
+          (|vars| (|List| (|Symbol|))) (|pts| (|U32Vector|)) (#12=#:G433 NIL)
+          (#13=#:G438 NIL) (|pts0| (|U32Vector|)) (|ve| (|Vector| (|Integer|)))
+          (#14=#:G437 NIL) (|d| NIL) (#15=#:G436 NIL)
           (|m| (|NonNegativeInteger|)) (|lp| (|List| (|Integer|))))
          (SEQ
           (EXIT
@@ -1523,8 +1525,8 @@
                            ((EQUAL |kind| '|qshiftHP|)
                             (PROGN
                              (LETT #12# (GETREFV_U32 |sigma| 0) . #16#)
-                             (GO #12#)))))))
-                       #12# (EXIT #12#))
+                             (GO #17=#:G388)))))))
+                       #17# (EXIT #12#))
                       . #16#)
                 (LETT |vars| (|MODHP;get_variables2| |list| $) . #16#)
                 (COND
@@ -1532,14 +1534,14 @@
                       (OR (EQUAL |kind| '|qshiftHP|) (EQUAL |kind| '|qmixed|)))
                   (LETT |vars|
                         (COND ((SPADCALL |qvar| |vars| (QREFELT $ 136)) |vars|)
-                              (#17='T (CONS |qvar| |vars|)))
+                              (#18='T (CONS |qvar| |vars|)))
                         . #16#)))
                 (EXIT
                  (COND
                   ((NULL |vars|)
                    (|MODHP;trivial_poly_solve| |list| |degs| |kind| |sigma|
                     |gen| |check| $))
-                  (#17#
+                  (#18#
                    (SEQ
                     (LETT |gv0|
                           (PROGN
@@ -1571,7 +1573,9 @@
                            (EXIT
                             (COND
                              ((QEQCAR |pp| 1)
-                              (PROGN (LETT #2# (CONS 1 'NIL) . #16#) (GO #2#)))
+                              (PROGN
+                               (LETT #2# (CONS 1 'NIL) . #16#)
+                               (GO #19=#:G432)))
                              ('T
                               (SEQ (LETT |ppr| (QCDR |pp|) . #16#)
                                    (LETT |offsets| (QVELT |ppr| 3) . #16#)
@@ -1655,7 +1659,7 @@
                                                     (PROGN
                                                      (LETT #5# |$NoValue|
                                                            . #16#)
-                                                     (GO #5#)))))
+                                                     (GO #20=#:G417)))))
                                              ('T
                                               (SEQ
                                                (SPADCALL |resv| |ii| |resvi|
@@ -1665,7 +1669,7 @@
                                                       . #16#)))))))
                                           (LETT |i| (|inc_SI| |i|) . #16#)
                                           (GO G190) G191 (EXIT NIL)))
-                                    #5# (EXIT #5#))
+                                    #20# (EXIT #5#))
                                    (EXIT
                                     (COND
                                      (|ok|
@@ -1714,7 +1718,7 @@
                                        (EXIT
                                         (PROGN
                                          (LETT #2# (CONS 0 |mress|) . #16#)
-                                         (GO #2#)))))
+                                         (GO #19#)))))
                                      ('T
                                       (SEQ
                                        (SPADCALL
@@ -1725,7 +1729,7 @@
                                         (QREFELT $ 83))
                                        (EXIT (|error| "giving up")))))))))))
                           NIL (GO G190) G191 (EXIT NIL)))))))))
-          #2# (EXIT #2#)))) 
+          #19# (EXIT #2#)))) 
 
 (SDEFUN |MODHP;HP_solve_M;LLSINniMMU;21|
         ((|list| |List| (|List| (|Integer|))) (|degs| |List| (|Integer|))
@@ -1737,9 +1741,9 @@
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|)))
           (|Boolean|)))
         (SPROG
-         ((#3=#:G461 NIL) (|l| NIL) (#4=#:G467 NIL) (|i| NIL)
+         ((#3=#:G474 NIL) (|l| NIL) (#4=#:G480 NIL) (|i| NIL)
           (|mress| (|Matrix| (|SparseUnivariatePolynomial| (|Integer|))))
-          (#5=#:G456 NIL) (|ii| (|Integer|)) (|sol_okp| #2#)
+          (#5=#:G467 NIL) (|ii| (|Integer|)) (|sol_okp| #2#)
           (|s| (|SparseUnivariatePolynomial| (|Integer|)))
           (|bmij| (|U32Vector|)) (|mm| (|Integer|)) (|j| NIL)
           (|resvi| (|Vector| (|SparseUnivariatePolynomial| (|Integer|))))
@@ -1756,10 +1760,10 @@
             (|Record| (|:| |basis| #7#) (|:| |defects| #6#)
                       (|:| |cinds| (|Vector| (|Integer|))))
             "no_solution"))
-          (|gv| #1#) (|gv0| (|List| (|U32Vector|))) (#8=#:G466 NIL) (|li| NIL)
-          (#9=#:G465 NIL) (|pts| (|U32Vector|)) (#10=#:G439 NIL)
-          (#11=#:G464 NIL) (|pts0| (|U32Vector|)) (|ve| (|Vector| (|Integer|)))
-          (#12=#:G463 NIL) (|d| NIL) (#13=#:G462 NIL)
+          (|gv| #1#) (|gv0| (|List| (|U32Vector|))) (#8=#:G479 NIL) (|li| NIL)
+          (#9=#:G478 NIL) (|pts| (|U32Vector|)) (#10=#:G473 NIL)
+          (#11=#:G477 NIL) (|pts0| (|U32Vector|)) (|ve| (|Vector| (|Integer|)))
+          (#12=#:G476 NIL) (|d| NIL) (#13=#:G475 NIL)
           (|m| (|NonNegativeInteger|)) (|lp| (|List| (|Integer|))))
          (SEQ
           (EXIT
@@ -1808,8 +1812,8 @@
                                               (GO G190) G191 (EXIT NIL))
                                          (EXIT |pts0|))
                                         . #14#)
-                                  (GO #10#)))))
-                              #10# (EXIT #10#))))
+                                  (GO #16=#:G450)))))
+                              #16# (EXIT #10#))))
                       . #14#)
                 (LETT |gv0|
                       (PROGN
@@ -1836,7 +1840,7 @@
                 (EXIT
                  (COND
                   ((QEQCAR |blr| 1)
-                   (PROGN (LETT #3# (CONS 1 'NIL) . #14#) (GO #3#)))
+                   (PROGN (LETT #3# (CONS 1 'NIL) . #14#) (GO #17=#:G472)))
                   (#15#
                    (SEQ (LETT |rblr| (QCDR |blr|) . #14#)
                         (LETT |bm| (QVELT |rblr| 0) . #14#)
@@ -1927,8 +1931,8 @@
                         (EXIT
                          (PROGN
                           (LETT #3# (CONS 0 |mress|) . #14#)
-                          (GO #3#)))))))))
-          #3# (EXIT #3#)))) 
+                          (GO #17#)))))))))
+          #17# (EXIT #3#)))) 
 
 (SDEFUN |MODHP;HP_solve_A;LLSNniMMU;22|
         ((|list| |List| (|List| (|AlgebraicNumber|)))
@@ -1963,7 +1967,7 @@
 
 (DEFUN |ModularHermitePade| ()
   (SPROG NIL
-         (PROG (#1=#:G485)
+         (PROG (#1=#:G498)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularHermitePade|)

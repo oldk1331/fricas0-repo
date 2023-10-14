@@ -402,7 +402,7 @@
 
 (SDEFUN |TSETCAT-;removeZero;PSP;18| ((|p| P) (|ts| S) ($ P))
         (SPROG
-         ((|q| (P)) (#1=#:G342 NIL) (#2=#:G333 NIL) (|ts_v-| (S)) (|v| (V)))
+         ((|q| (P)) (#1=#:G343 NIL) (#2=#:G333 NIL) (|ts_v-| (S)) (|v| (V)))
          (SEQ
           (EXIT
            (COND
@@ -430,12 +430,12 @@
                  (EXIT
                   (COND
                    ((SPADCALL |q| (QREFELT $ 31))
-                    (PROGN (LETT #1# |q| . #3#) (GO #1#)))
+                    (PROGN (LETT #1# |q| . #3#) (GO #4=#:G342)))
                    ((SPADCALL (SPADCALL |q| |ts_v-| (QREFELT $ 84))
                               (QREFELT $ 31))
                     (PROGN
                      (LETT #1# (|spadConstant| $ 85) . #3#)
-                     (GO #1#))))))))
+                     (GO #4#))))))))
               (EXIT
                (COND ((SPADCALL |ts_v-| (QREFELT $ 12)) |p|)
                      ('T
@@ -464,7 +464,7 @@
                            (EXIT
                             (SPADCALL |q| (SPADCALL |p| |ts_v-| (QREFELT $ 84))
                                       (QREFELT $ 91)))))))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |TSETCAT-;reduceByQuasiMonic;PSP;19| ((|p| P) (|ts| S) ($ P))
         (COND
@@ -509,7 +509,7 @@
         (SPADCALL |ts| (ELT $ 105) (QREFELT $ 100))) 
 
 (SDEFUN |TSETCAT-;mvar;SV;25| ((|ts| S) ($ V))
-        (SPROG ((#1=#:G368 NIL))
+        (SPROG ((#1=#:G369 NIL))
                (COND
                 ((SPADCALL |ts| (QREFELT $ 12))
                  (|error| "Error from TSETCAT in mvar : #1 is empty"))
@@ -566,7 +566,7 @@
         (SPADCALL (ELT $ 22) (SPADCALL |ts| (QREFELT $ 28)) (QREFELT $ 36))) 
 
 (SDEFUN |TSETCAT-;algebraicVariables;SL;30| ((|ts| S) ($ |List| V))
-        (SPROG ((#1=#:G402 NIL) (|p| NIL) (#2=#:G401 NIL))
+        (SPROG ((#1=#:G403 NIL) (|p| NIL) (#2=#:G402 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|TSETCAT-;algebraicVariables;SL;30|))
@@ -718,7 +718,7 @@
 
 (SDEFUN |TSETCAT-;coHeight;SNni;39| ((|ts| S) ($ |NonNegativeInteger|))
         (SPROG
-         ((#1=#:G453 NIL) (|m| (|NonNegativeInteger|))
+         ((#1=#:G454 NIL) (|m| (|NonNegativeInteger|))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (SPADCALL (QREFELT $ 127))

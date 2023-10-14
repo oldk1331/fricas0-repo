@@ -8,7 +8,7 @@
            (|List|
             (|Record| (|:| |var| |VarSet|)
                       (|:| |weight| (|NonNegativeInteger|)))))
-          (#1=#:G119 NIL))
+          (#1=#:G120 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |l| (QREFELT $ 22) . #2=(|WP;lookup|))
@@ -21,11 +21,11 @@
                         ((SPADCALL |v| (QCAR (|SPADfirst| |l|)) (QREFELT $ 26))
                          (PROGN
                           (LETT #1# (QCDR (|SPADfirst| |l|)) . #2#)
-                          (GO #1#)))
+                          (GO #3=#:G119)))
                         ('T (LETT |l| (CDR |l|) . #2#)))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT 0)))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |WP;innercoerce| ((|p| P) (|z| |Integer|) ($ $))
         (SPROG
@@ -116,7 +116,7 @@
 
 (SDEFUN |WP;coerce;$P;5| ((|w| $) ($ P))
         (SPROG
-         ((#1=#:G136 NIL) (#2=#:G135 (P)) (#3=#:G137 (P)) (#4=#:G139 NIL)
+         ((#1=#:G137 NIL) (#2=#:G136 (P)) (#3=#:G138 (P)) (#4=#:G140 NIL)
           (|c| NIL))
          (SEQ
           (PROGN
@@ -137,7 +137,7 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 54))))))) 
 
 (SDEFUN |WP;coerce;$Of;6| ((|p| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G152 NIL) (|c| NIL) (#2=#:G151 NIL))
+        (SPROG ((#1=#:G153 NIL) (|c| NIL) (#2=#:G152 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT $ 44)) (SPADCALL 0 (QREFELT $ 57)))
@@ -221,9 +221,9 @@
 
 (DECLAIM (NOTINLINE |WeightedPolynomials;|)) 
 
-(DEFUN |WeightedPolynomials| (&REST #1=#:G170)
+(DEFUN |WeightedPolynomials| (&REST #1=#:G171)
   (SPROG NIL
-         (PROG (#2=#:G171)
+         (PROG (#2=#:G172)
            (RETURN
             (COND
              ((LETT #2#
@@ -243,7 +243,7 @@
 
 (DEFUN |WeightedPolynomials;| (|#1| |#2| |#3| |#4| |#5| |#6| |#7|)
   (SPROG
-   ((#1=#:G168 NIL) (|v| NIL) (#2=#:G169 NIL) (|n| NIL) (#3=#:G167 NIL)
+   ((#1=#:G169 NIL) (|v| NIL) (#2=#:G170 NIL) (|n| NIL) (#3=#:G168 NIL)
     (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$7 NIL) (DV$6 NIL) (DV$5 NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ

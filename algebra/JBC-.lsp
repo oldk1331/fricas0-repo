@@ -422,7 +422,7 @@
         ((|jv1| S) (|jv2| S) ($ |List| (|NonNegativeInteger|)))
         (SPROG
          ((|res| (|List| (|NonNegativeInteger|))) (#1=#:G240 NIL)
-          (#2=#:G245 NIL) (#3=#:G246 NIL) (|i1| NIL) (#4=#:G247 NIL) (|i2| NIL)
+          (#2=#:G246 NIL) (#3=#:G247 NIL) (|i1| NIL) (#4=#:G248 NIL) (|i2| NIL)
           (|jt| (|Symbol|)))
          (SEQ
           (EXIT
@@ -458,7 +458,7 @@
                             (EXIT
                              (COND
                               ((< |i1| |i2|)
-                               (PROGN (LETT #2# NIL . #6#) (GO #2#)))
+                               (PROGN (LETT #2# NIL . #6#) (GO #7=#:G245)))
                               ('T
                                (LETT |res|
                                      (CONS
@@ -473,13 +473,13 @@
                                  . #6#)
                            (GO G190) G191 (EXIT NIL))
                       (EXIT (NREVERSE |res|))))))))))
-          #2# (EXIT #2#)))) 
+          #7# (EXIT #2#)))) 
 
 (SDEFUN |JBC-;integrateIfCan;SPiU;22|
         ((|jv| S) (|i| |PositiveInteger|) ($ |Union| S "failed"))
         (SPROG
          ((|rind| (|List| (|PositiveInteger|))) (|pos| (|Integer|))
-          (#1=#:G251 NIL) (|mi| (|NonNegativeInteger|))
+          (#1=#:G252 NIL) (|mi| (|NonNegativeInteger|))
           (|mind| (|List| (|NonNegativeInteger|))))
          (SEQ
           (COND
@@ -534,7 +534,7 @@
 (SDEFUN |JBC-;weight;SNni;24| ((|jv| S) ($ |NonNegativeInteger|))
         (SPROG
          ((|res| (|PositiveInteger|)) (|pos| (|PositiveInteger|))
-          (#1=#:G271 NIL) (|i| NIL) (|t| (|Symbol|)))
+          (#1=#:G272 NIL) (|i| NIL) (|t| (|Symbol|)))
          (SEQ
           (LETT |t| (SPADCALL |jv| (QREFELT $ 37))
                 . #2=(|JBC-;weight;SNni;24|))
@@ -588,7 +588,7 @@
 
 (SDEFUN |JBC-;<;2SB;27| ((|jv1| S) (|jv2| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G282 NIL) (#2=#:G283 NIL) (|i1| NIL) (#3=#:G284 NIL) (|i2| NIL)
+         ((#1=#:G284 NIL) (#2=#:G285 NIL) (|i1| NIL) (#3=#:G286 NIL) (|i2| NIL)
           (|o2| #4=(|NonNegativeInteger|)) (|o1| #4#) (|t2| #5=(|Symbol|))
           (|t1| #5#))
          (SEQ
@@ -646,7 +646,7 @@
                                                 (SPADCALL |i1| |i2|
                                                           (QREFELT $ 71))
                                                 . #6#)
-                                          (GO #1#))))))
+                                          (GO #8=#:G283))))))
                                      (LETT #2#
                                            (PROG1 (CDR #2#)
                                              (LETT #3# (CDR #3#) . #6#))
@@ -656,22 +656,22 @@
                                  (< (SPADCALL |jv1| (QREFELT $ 73))
                                     (SPADCALL |jv2| (QREFELT $ 73))))))
                               (#7# (< |o1| |o2|))))))))))))
-          #1# (EXIT #1#)))) 
+          #8# (EXIT #1#)))) 
 
 (SDEFUN |JBC-;>;2SB;28| ((|jv1| S) (|jv2| S) ($ |Boolean|))
         (SPADCALL |jv2| |jv1| (QREFELT $ 97))) 
 
 (SDEFUN |JBC-;variables;NniL;29| ((|q| |NonNegativeInteger|) ($ |List| S))
         (SPROG
-         ((#1=#:G319 NIL) (#2=#:G335 NIL) (|i| NIL) (#3=#:G334 NIL)
-          (#4=#:G316 NIL) (#5=#:G333 NIL) (#6=#:G332 NIL) (JV (|List| S))
-          (#7=#:G300 NIL) (#8=#:G331 NIL) (|k| NIL) (#9=#:G330 NIL) (|ind| NIL)
+         ((#1=#:G321 NIL) (#2=#:G337 NIL) (|i| NIL) (#3=#:G336 NIL)
+          (#4=#:G318 NIL) (#5=#:G335 NIL) (#6=#:G334 NIL) (JV (|List| S))
+          (#7=#:G302 NIL) (#8=#:G333 NIL) (|k| NIL) (#9=#:G332 NIL) (|ind| NIL)
           (|IndList| (|List| (|List| (|PositiveInteger|))))
           (|OIndList| (|List| (|List| (|PositiveInteger|))))
-          (|NIndList| (|List| (|List| (|PositiveInteger|)))) (#10=#:G294 NIL)
-          (#11=#:G329 NIL) (|j| NIL) (#12=#:G328 NIL) (|qq| NIL)
-          (#13=#:G291 NIL) (#14=#:G327 NIL) (#15=#:G289 NIL) (#16=#:G326 NIL)
-          (#17=#:G325 NIL) (#18=#:G287 NIL) (#19=#:G324 NIL))
+          (|NIndList| (|List| (|List| (|PositiveInteger|)))) (#10=#:G296 NIL)
+          (#11=#:G331 NIL) (|j| NIL) (#12=#:G330 NIL) (|qq| NIL)
+          (#13=#:G293 NIL) (#14=#:G329 NIL) (#15=#:G291 NIL) (#16=#:G328 NIL)
+          (#17=#:G327 NIL) (#18=#:G289 NIL) (#19=#:G326 NIL))
          (SEQ
           (COND
            ((ZEROP |q|)
@@ -835,12 +835,12 @@
 (SDEFUN |JBC-;variables;NniPiL;30|
         ((|q| |NonNegativeInteger|) (|c| |PositiveInteger|) ($ |List| S))
         (SPROG
-         ((JV (|List| S)) (#1=#:G345 NIL) (#2=#:G356 NIL) (|k| NIL)
-          (#3=#:G355 NIL) (|ind| NIL)
+         ((JV (|List| S)) (#1=#:G347 NIL) (#2=#:G358 NIL) (|k| NIL)
+          (#3=#:G357 NIL) (|ind| NIL)
           (|OIndList| (|List| (|List| (|PositiveInteger|))))
-          (|NIndList| (|List| (|List| (|PositiveInteger|)))) (#4=#:G339 NIL)
-          (#5=#:G354 NIL) (|j| NIL) (#6=#:G353 NIL) (|qq| NIL) (#7=#:G336 NIL)
-          (#8=#:G352 NIL) (|i| NIL) (#9=#:G351 NIL))
+          (|NIndList| (|List| (|List| (|PositiveInteger|)))) (#4=#:G341 NIL)
+          (#5=#:G356 NIL) (|j| NIL) (#6=#:G355 NIL) (|qq| NIL) (#7=#:G338 NIL)
+          (#8=#:G354 NIL) (|i| NIL) (#9=#:G353 NIL))
          (SEQ
           (COND ((ZEROP |q|) NIL)
                 ('T

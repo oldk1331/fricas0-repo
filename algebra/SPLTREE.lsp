@@ -474,7 +474,7 @@
 
 (SDEFUN |SPLTREE;extractSplittingLeaf;$U;28|
         ((|a| $) ($ |Union| $ #1="failed"))
-        (SPROG ((|la| (|List| $)) (#2=#:G270 NIL) (|esl| (|Union| $ #1#)))
+        (SPROG ((|la| (|List| $)) (#2=#:G271 NIL) (|esl| (|Union| $ #1#)))
                (SEQ
                 (EXIT
                  (COND
@@ -505,13 +505,15 @@
                                    (EXIT
                                     (COND
                                      ((QEQCAR |esl| 0)
-                                      (PROGN (LETT #2# |esl| . #3#) (GO #2#)))
+                                      (PROGN
+                                       (LETT #2# |esl| . #3#)
+                                       (GO #4=#:G270)))
                                      ('T
                                       (LETT |la| (SPADCALL |la| (QREFELT $ 32))
                                             . #3#)))))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT (CONS 1 "failed"))))))))))
-                #2# (EXIT #2#)))) 
+                #4# (EXIT #2#)))) 
 
 (SDEFUN |SPLTREE;updateStatus!;2$;29| ((|a| $) ($ $))
         (SPROG ((|la| (|List| $)) (|done| (|Boolean|)))
@@ -549,7 +551,7 @@
 (SDEFUN |SPLTREE;result;$L;30|
         ((|a| $) ($ |List| (|Record| (|:| |val| V) (|:| |tower| C))))
         (SPROG
-         ((#1=#:G287 NIL) (|s| NIL) (#2=#:G286 NIL)
+         ((#1=#:G288 NIL) (|s| NIL) (#2=#:G287 NIL)
           (|ls| (|List| (|SplittingNode| V C))))
          (SEQ
           (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -580,7 +582,7 @@
 
 (SDEFUN |SPLTREE;conditions;$L;31| ((|a| $) ($ |List| C))
         (SPROG
-         ((#1=#:G293 NIL) (|s| NIL) (#2=#:G292 NIL)
+         ((#1=#:G294 NIL) (|s| NIL) (#2=#:G293 NIL)
           (|ls| (|List| (|SplittingNode| V C))))
          (SEQ
           (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -741,9 +743,9 @@
 
 (DECLAIM (NOTINLINE |SplittingTree;|)) 
 
-(DEFUN |SplittingTree| (&REST #1=#:G333)
+(DEFUN |SplittingTree| (&REST #1=#:G334)
   (SPROG NIL
-         (PROG (#2=#:G334)
+         (PROG (#2=#:G335)
            (RETURN
             (COND
              ((LETT #2#
@@ -762,7 +764,7 @@
 
 (DEFUN |SplittingTree;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G330 NIL) (#2=#:G331 NIL) (#3=#:G332 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G331 NIL) (#2=#:G332 NIL) (#3=#:G333 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|SplittingTree|))

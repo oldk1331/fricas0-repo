@@ -292,7 +292,7 @@
 
 (SDEFUN |CHVAR;goodPoint;2UPUPF;8| ((|p| UPUP) (|modulus| UPUP) ($ F))
         (SPROG
-         ((#1=#:G159 NIL) (#2=#:G163 NIL) (|a| (F)) (|i| NIL) (|d| (UP))
+         ((#1=#:G164 NIL) (#2=#:G165 NIL) (|a| (F)) (|i| NIL) (|d| (UP))
           (|q| (UP))
           (|r|
            (|Union|
@@ -324,7 +324,7 @@
                      ((|CHVAR;good?|
                        (LETT |a| (SPADCALL |i| (QREFELT $ 76)) . #3#) |q| |d|
                        $)
-                      (PROGN (LETT #2# |a| . #3#) (GO #2#)))
+                      (PROGN (LETT #2# |a| . #3#) (GO #4=#:G163)))
                      ('T
                       (SEQ
                        (EXIT
@@ -336,12 +336,12 @@
                                  (PROGN
                                   (LETT #2# (SPADCALL |a| (QREFELT $ 77))
                                         . #3#)
-                                  (GO #2#))
+                                  (GO #4#))
                                  . #3#)
-                           (GO #1#)))))
-                       #1# (EXIT #1#))))))
+                           (GO #5=#:G159)))))
+                       #5# (EXIT #1#))))))
                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL)))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |CHVAR;radPoly;UPUPU;9|
         ((|p| UPUP)
@@ -366,12 +366,12 @@
          ($ |Record| (|:| |exponent| (|NonNegativeInteger|))
           (|:| |coef| (|Fraction| UP)) (|:| |radicand| UP)))
         (SPROG
-         ((#1=#:G178 NIL) (#2=#:G177 (UP)) (#3=#:G179 (UP)) (#4=#:G183 NIL)
+         ((#1=#:G180 NIL) (#2=#:G179 (UP)) (#3=#:G181 (UP)) (#4=#:G185 NIL)
           (#5=#:G103 NIL)
           (|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| UP)
                      (|:| |radicand| (|List| UP))))
-          (#6=#:G175 NIL) (|d| (UP)))
+          (#6=#:G177 NIL) (|d| (UP)))
          (SEQ
           (COND ((SPADCALL |g| (QREFELT $ 81)) (|error| "Should not happen"))
                 (#7='T
@@ -423,9 +423,9 @@
 
 (DECLAIM (NOTINLINE |ChangeOfVariable;|)) 
 
-(DEFUN |ChangeOfVariable| (&REST #1=#:G184)
+(DEFUN |ChangeOfVariable| (&REST #1=#:G186)
   (SPROG NIL
-         (PROG (#2=#:G185)
+         (PROG (#2=#:G187)
            (RETURN
             (COND
              ((LETT #2#

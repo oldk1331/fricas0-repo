@@ -228,7 +228,7 @@
 (SDEFUN |OMEXPR;outputOMExpr|
         ((|dev| |OpenMathDevice|) (|ex| |Expression| R) ($ |Void|))
         (SPROG
-         ((|k| (|Kernel| (|Expression| R))) (#1=#:G191 NIL)
+         ((|k| (|Kernel| (|Expression| R))) (#1=#:G194 NIL)
           (|z|
            (|Union|
             (|Record| (|:| |val| (|Expression| R))
@@ -259,7 +259,7 @@
                   ((NULL (QEQCAR |v| 1))
                    (PROGN
                     (LETT #1# (SPADCALL |dev| (QCDR |v|) (QREFELT $ 49)) . #2#)
-                    (GO #1#))))))
+                    (GO #3=#:G191))))))
                (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 51)) . #2#)
                     (EXIT
                      (COND
@@ -269,7 +269,7 @@
                               (|OMEXPR;outputOMArith1| |dev| "plus" (QCDR |w|)
                                $)
                               . #2#)
-                        (GO #1#))))))
+                        (GO #3#))))))
                (SEQ (LETT |w| (SPADCALL |ex| (QREFELT $ 52)) . #2#)
                     (EXIT
                      (COND
@@ -279,7 +279,7 @@
                               (|OMEXPR;outputOMArith1| |dev| "times" (QCDR |w|)
                                $)
                               . #2#)
-                        (GO #1#))))))
+                        (GO #3#))))))
                (SEQ (LETT |x| (SPADCALL |ex| (QREFELT $ 55)) . #2#)
                     (EXIT
                      (COND
@@ -311,9 +311,9 @@
                                                  (SPADCALL |dev|
                                                            (QREFELT $ 22))))
                                            . #2#)
-                                     (GO #1#))))))
+                                     (GO #3#))))))
                                 . #2#)
-                          (GO #1#))))))))
+                          (GO #3#))))))))
                (SEQ (LETT |z| (SPADCALL |ex| (QREFELT $ 61)) . #2#)
                     (EXIT
                      (COND
@@ -328,13 +328,13 @@
                                                  (QREFELT $ 62)))
                                  $)
                                 . #2#)
-                          (GO #1#))))))))
+                          (GO #3#))))))))
                (LETT |k| (|SPADfirst| (SPADCALL |ex| (QREFELT $ 64))) . #2#)
                (EXIT
                 (|OMEXPR;outputOMFunction| |dev|
                  (SPADCALL (SPADCALL |k| (QREFELT $ 66)) (QREFELT $ 67))
                  (SPADCALL |k| (QREFELT $ 68)) $))))
-             #1# (EXIT #1#))))))) 
+             #3# (EXIT #1#))))))) 
 
 (SDEFUN |OMEXPR;OMwrite;ES;13| ((|ex| |Expression| R) ($ |String|))
         (SPROG ((|s| (|String|)) (|dev| (|OpenMathDevice|)) (|sp| NIL))
@@ -380,9 +380,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionToOpenMath;|)) 
 
-(DEFUN |ExpressionToOpenMath| (#1=#:G202)
+(DEFUN |ExpressionToOpenMath| (#1=#:G203)
   (SPROG NIL
-         (PROG (#2=#:G203)
+         (PROG (#2=#:G204)
            (RETURN
             (COND
              ((LETT #2#

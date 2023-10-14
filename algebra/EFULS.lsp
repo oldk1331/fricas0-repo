@@ -304,9 +304,9 @@
 
 (SDEFUN |EFULS;atanIfCan;ULSU;25| ((|uls| ULS) ($ |Union| ULS "failed"))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G279 NIL)
+         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G281 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G278 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#2=#:G280 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -325,7 +325,7 @@
                                   (QREFELT $ 18))
                         (PROGN
                          (LETT #2# (CONS 1 "failed") . #3#)
-                         (GO #2#))))))))
+                         (GO #4=#:G278))))))))
               (LETT |cc|
                     (COND
                      ((< |ord| 0)
@@ -350,16 +350,18 @@
                                (SPADCALL (SPADCALL 1 2 (QREFELT $ 91))
                                          (QREFELT $ 97))
                                (SPADCALL (QREFELT $ 92)) (QREFELT $ 93)))))))
-                         (#4='T
+                         (#5='T
                           (SPADCALL (SPADCALL 1 2 (QREFELT $ 91))
                                     (SPADCALL (QREFELT $ 92))
                                     (QREFELT $ 93)))))
-                       (#4#
-                        (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))))
+                       (#5#
+                        (PROGN
+                         (LETT #1# (CONS 1 "failed") . #3#)
+                         (GO #6=#:G279)))))
                      ((SPADCALL |coef| (|spadConstant| $ 12) (QREFELT $ 18))
                       (|spadConstant| $ 12))
                      ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 98)))
-                     (#4# (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#))))
+                     (#5# (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #6#))))
                     . #3#)
               (LETT |z|
                     (SPADCALL
@@ -370,7 +372,7 @@
                     . #3#)
               (EXIT
                (COND ((QEQCAR |z| 1) (CONS 1 "failed"))
-                     (#4#
+                     (#5#
                       (CONS 0
                             (SPADCALL (SPADCALL |cc| (QREFELT $ 100))
                                       (SPADCALL
@@ -379,14 +381,14 @@
                                         (QCDR |z|) (QREFELT $ 32))
                                        (QREFELT $ 102))
                                       (QREFELT $ 99))))))))
-            #2# (EXIT #2#)))
-          #1# (EXIT #1#)))) 
+            #4# (EXIT #2#)))
+          #6# (EXIT #1#)))) 
 
 (SDEFUN |EFULS;acotIfCan;ULSU;26| ((|uls| ULS) ($ |Union| ULS "failed"))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G290 NIL)
+         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G294 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G289 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#2=#:G293 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -405,7 +407,7 @@
                                   (QREFELT $ 18))
                         (PROGN
                          (LETT #2# (CONS 1 "failed") . #3#)
-                         (GO #2#))))))))
+                         (GO #4=#:G291))))))))
               (LETT |cc|
                     (COND
                      ((< |ord| 0)
@@ -422,13 +424,13 @@
                                           (QREFELT $ 95)))
                             (|spadConstant| $ 12))
                            ((QREFELT $ 10) (SPADCALL (QREFELT $ 92)))
-                           (#4='T
+                           (#5='T
                             (PROGN
                              (LETT #1# (CONS 1 "failed") . #3#)
-                             (GO #1#)))))))
-                       (#4# (|spadConstant| $ 12))))
+                             (GO #6=#:G292)))))))
+                       (#5# (|spadConstant| $ 12))))
                      ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 104)))
-                     (#4# (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#))))
+                     (#5# (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #6#))))
                     . #3#)
               (LETT |z|
                     (SPADCALL
@@ -439,7 +441,7 @@
                     . #3#)
               (EXIT
                (COND ((QEQCAR |z| 1) (CONS 1 "failed"))
-                     (#4#
+                     (#5#
                       (CONS 0
                             (SPADCALL (SPADCALL |cc| (QREFELT $ 100))
                                       (SPADCALL
@@ -448,8 +450,8 @@
                                         (QCDR |z|) (QREFELT $ 32))
                                        (QREFELT $ 102))
                                       (QREFELT $ 105))))))))
-            #2# (EXIT #2#)))
-          #1# (EXIT #1#)))) 
+            #4# (EXIT #2#)))
+          #6# (EXIT #1#)))) 
 
 (SDEFUN |EFULS;tanhIfCan;ULSU;27| ((|uls| ULS) ($ |Union| ULS "failed"))
         (SPROG
@@ -639,7 +641,7 @@
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G457 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#1=#:G463 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -658,7 +660,7 @@
                              (|error|
                               "atan: series expansion has logarithmic term")
                              . #2#)
-                       (GO #1#))))))))
+                       (GO #3=#:G461))))))))
             (LETT |cc|
                   (COND
                    ((< |ord| 0)
@@ -683,16 +685,16 @@
                              (SPADCALL (SPADCALL 1 2 (QREFELT $ 91))
                                        (QREFELT $ 97))
                              (SPADCALL (QREFELT $ 92)) (QREFELT $ 93)))))))
-                       (#3='T
+                       (#4='T
                         (SPADCALL (SPADCALL 1 2 (QREFELT $ 91))
                                   (SPADCALL (QREFELT $ 92)) (QREFELT $ 93)))))
-                     (#3#
+                     (#4#
                       (|error|
                        "atan: series expansion involves transcendental constants"))))
                    ((SPADCALL |coef| (|spadConstant| $ 12) (QREFELT $ 18))
                     (|spadConstant| $ 12))
                    ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 98)))
-                   (#3#
+                   (#4#
                     (|error|
                      "atan: series expansion involves transcendental constants")))
                   . #2#)
@@ -707,20 +709,20 @@
              (COND
               ((QEQCAR |z| 1)
                (|error| "atan: leading coefficient not invertible"))
-              (#3#
+              (#4#
                (SPADCALL (SPADCALL |cc| (QREFELT $ 100))
                          (SPADCALL
                           (SPADCALL (SPADCALL |uls| (QREFELT $ 101)) (QCDR |z|)
                                     (QREFELT $ 32))
                           (QREFELT $ 102))
                          (QREFELT $ 99)))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |EFULS;acot;2ULS;57| ((|uls| ULS) ($ ULS))
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G468 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#1=#:G475 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -739,7 +741,7 @@
                              (|error|
                               "acot: series expansion has logarithmic term")
                              . #2#)
-                       (GO #1#))))))))
+                       (GO #3=#:G473))))))))
             (LETT |cc|
                   (COND
                    ((< |ord| 0)
@@ -755,12 +757,12 @@
                                         (QREFELT $ 95)))
                           (|spadConstant| $ 12))
                          ((QREFELT $ 10) (SPADCALL (QREFELT $ 92)))
-                         (#3='T
+                         (#4='T
                           (|error|
                            "acot: series expansion involves transcendental constants"))))))
-                     (#3# (|spadConstant| $ 12))))
+                     (#4# (|spadConstant| $ 12))))
                    ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 104)))
-                   (#3#
+                   (#4#
                     (|error|
                      "acot: series expansion involves transcendental constants")))
                   . #2#)
@@ -775,20 +777,20 @@
              (COND
               ((QEQCAR |z| 1)
                (|error| "acot: leading coefficient not invertible"))
-              (#3#
+              (#4#
                (SPADCALL (SPADCALL |cc| (QREFELT $ 100))
                          (SPADCALL
                           (SPADCALL (SPADCALL |uls| (QREFELT $ 101)) (QCDR |z|)
                                     (QREFELT $ 32))
                           (QREFELT $ 102))
                          (QREFELT $ 105)))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariateLaurentSeries;|)) 
 
-(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G470)
+(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G476)
   (SPROG NIL
-         (PROG (#2=#:G471)
+         (PROG (#2=#:G477)
            (RETURN
             (COND
              ((LETT #2#

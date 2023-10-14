@@ -85,7 +85,7 @@
         (SPADCALL |x| |x| (QREFELT $ 28))) 
 
 (SDEFUN |SCONF;Pnan?;$B;9| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G130 NIL) (#2=#:G131 NIL) (|i| NIL))
+        (SPROG ((#1=#:G131 NIL) (#2=#:G132 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -96,11 +96,11 @@
                         (EXIT
                          (COND
                           ((|SCONF;nan?| (QAREF1 |p| |i|) $)
-                           (PROGN (LETT #1# 'T . #3#) (GO #1#))))))
+                           (PROGN (LETT #1# 'T . #3#) (GO #4=#:G130))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'NIL)))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;unitVector;2$;10| ((|p| $) ($ $))
         (SPROG ((|pt| ($)) (|factor| (|DoubleFloat|)))
@@ -214,7 +214,7 @@
               ('T 0.0))) 
 
 (SDEFUN |SCONF;screenCoords;$L;21| ((|pt| $) ($ |List| (|DoubleFloat|)))
-        (SPROG ((#1=#:G153 NIL))
+        (SPROG ((#1=#:G155 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -225,9 +225,9 @@
                            (LIST (QAREF1 |pt| 4) (QAREF1 |pt| 8)
                                  (QAREF1 |pt| 16))
                            |SCONF;screenCoords;$L;21|)
-                     (GO #1#))))
+                     (GO #2=#:G154))))
                   (EXIT (LIST (QAREF1 |pt| 4) (QAREF1 |pt| 8)))))
-                #1# (EXIT #1#)))) 
+                #2# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;extendedCoords;$L;22| ((|pt| $) ($ |List| (|DoubleFloat|)))
         (SPADCALL |pt| (QREFELT $ 45))) 
@@ -235,7 +235,7 @@
 (SDEFUN |SCONF;normalisePoint;2$;23| ((|pt| $) ($ $))
         (SPROG
          ((|infin| (|DoubleFloat|)) (|index| (|PositiveInteger|))
-          (#1=#:G164 NIL) (|x| NIL) (|pt2| ($)) (#2=#:G163 NIL)
+          (#1=#:G167 NIL) (|x| NIL) (|pt2| ($)) (#2=#:G166 NIL)
           (|scaleFactor| (|DoubleFloat|)))
          (SEQ
           (EXIT
@@ -257,7 +257,7 @@
                   (SPADCALL "can't apply normalisePoint to a vector"
                             (QREFELT $ 49))
                   (QREFELT $ 50))
-                 (EXIT (PROGN (LETT #2# |pt| . #3#) (GO #2#))))))))
+                 (EXIT (PROGN (LETT #2# |pt| . #3#) (GO #4=#:G165))))))))
             (COND
              ((|less_DF| |scaleFactor|
                          (|minus_DF|
@@ -269,7 +269,7 @@
                            (SPADCALL (SPADCALL 101 -2 10 (QREFELT $ 13))
                                      (QREFELT $ 15)))
                           (QREFELT $ 38))
-                (PROGN (LETT #2# |pt| . #3#) (GO #2#))))))
+                (PROGN (LETT #2# |pt| . #3#) (GO #4#))))))
             (LETT |pt2| (MAKEARR1 (QREFELT $ 9) 0.0) . #3#)
             (LETT |infin| 0.0 . #3#)
             (SEQ (LETT |x| 1 . #3#) (LETT #1# (QREFELT $ 6) . #3#) G190
@@ -291,10 +291,10 @@
                  (LETT |x| (|inc_SI| |x|) . #3#) (GO G190) G191 (EXIT NIL))
             (QSETAREF1 |pt2| 1 (|minus_DF| 1.0)) (QSETAREF1 |pt2| 2 |infin|)
             (EXIT |pt2|)))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |SCONF;toPoint;2$;24| ((|p| $) ($ $))
-        (SPROG ((#1=#:G168 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G171 NIL) (|i| NIL) (|pt| ($)))
                (SEQ
                 (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0)
                       . #2=(|SCONF;toPoint;2$;24|))
@@ -305,7 +305,7 @@
                 (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|)))) 
 
 (SDEFUN |SCONF;toVector;2$;25| ((|p| $) ($ $))
-        (SPROG ((#1=#:G172 NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G175 NIL) (|i| NIL) (|pt| ($)))
                (SEQ
                 (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0)
                       . #2=(|SCONF;toVector;2$;25|))
@@ -337,7 +337,7 @@
 (SDEFUN |SCONF;latex;$S;29| ((|s| $) ($ |String|)) "\\mbox{\\bf Unimplemented}") 
 
 (SDEFUN |SCONF;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G180 NIL) (#2=#:G181 NIL) (|i| NIL))
+        (SPROG ((#1=#:G184 NIL) (#2=#:G185 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -349,19 +349,19 @@
                          (COND
                           ((SPADCALL (QAREF1 |x| |i|) (QAREF1 |y| |i|)
                                      (QREFELT $ 28))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G183))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |SCONF;~=;2$B;31| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((SPADCALL |x| |y| (QREFELT $ 60)) 'NIL) ('T 'T))) 
 
 (SDEFUN |SCONF;coerce;$Of;32| ((|pt| $) ($ |OutputForm|))
         (SPROG
-         ((|eles| (|List| (|OutputForm|))) (#1=#:G187 NIL) (|i| NIL)
-          (#2=#:G186 NIL))
+         ((|eles| (|List| (|OutputForm|))) (#1=#:G191 NIL) (|i| NIL)
+          (#2=#:G190 NIL))
          (SEQ
           (LETT |eles|
                 (PROGN
@@ -381,9 +381,9 @@
 
 (DECLAIM (NOTINLINE |SConformal;|)) 
 
-(DEFUN |SConformal| (#1=#:G188)
+(DEFUN |SConformal| (#1=#:G192)
   (SPROG NIL
-         (PROG (#2=#:G189)
+         (PROG (#2=#:G193)
            (RETURN
             (COND
              ((LETT #2#

@@ -106,7 +106,7 @@
         ((|lf| |List|
           (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|))))
          ($ |Boolean|))
-        (SPROG ((#1=#:G136 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) (|rec| NIL))
+        (SPROG ((#1=#:G139 NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (|rec| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -123,27 +123,30 @@
                            (COND
                             ((EQL (QCDR |rec|) 2)
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                              (LETT #1#
+                                    (PROGN
+                                     (LETT #2# 'NIL . #4#)
+                                     (GO #5=#:G138))
                                     . #4#)
-                              (GO #1#)))
+                              (GO #6=#:G136)))
                             ((ODDP (QCDR |rec|))
                              (COND
                               ((SPADCALL (QCDR |rec|) 2 (QREFELT $ 48))
                                (PROGN
                                 (LETT #1#
-                                      (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                                      (PROGN (LETT #2# 'NIL . #4#) (GO #5#))
                                       . #4#)
-                                (GO #1#))))))))
+                                (GO #6#))))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT 'T)))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |Kovacic;|)) 
 
-(DEFUN |Kovacic| (&REST #1=#:G140)
+(DEFUN |Kovacic| (&REST #1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#

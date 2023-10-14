@@ -191,22 +191,23 @@
 ;         hasNoThrows(first a,g) and hasNoThrows(rest a,g)
 ;      then (rplac(first x, first a); rplac(rest x, rest a))
 ;    else
-;     changeThrowToGo(a,g) where
-;       changeThrowToGo(s,g) ==
-;         atom s or first s='QUOTE => nil
-;         s is ["THROW", =g,u] =>
-;           changeThrowToGo(u,g)
-;           rplac(first s,"PROGN")
-;           rplac(rest s,[["LET",CADR g,u],["GO",CADR g]])
-;         changeThrowToGo(first s,g)
-;         changeThrowToGo(rest s,g)
+;     val_sym := GENSYM()
+;     changeThrowToGo(a, g, val_sym) where
+;         changeThrowToGo(s, g, val_sym) ==
+;             atom s or first s='QUOTE => nil
+;             s is ["THROW", =g, u] =>
+;                 changeThrowToGo(u, g, val_sym)
+;                 rplac(first s, "PROGN")
+;                 rplac(rest s, [["LET", val_sym, u], ["GO", CADR g]])
+;             changeThrowToGo(first s, g, val_sym)
+;             changeThrowToGo(rest s, g, val_sym)
 ;     rplac(first x,"SEQ")
-;     rplac(rest x,[["EXIT",a],CADR g,["EXIT",CADR g]])
+;     rplac(rest x, [["EXIT",a], CADR g, ["EXIT", val_sym]])
 ;   x
  
 (DEFUN |optCatch| (|x|)
   (PROG (|g| |a| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5| |u| |s|
-         |LETTMP#1| |y|)
+         |LETTMP#1| |y| |val_sym|)
     (RETURN
      (PROGN
       (SETQ |g| (CADR . #1=(|x|)))
@@ -245,12 +246,13 @@
               (COND
                ((|optCatch,hasNoThrows| |a| |g|) (|rplac| (CAR |x|) (CAR |a|))
                 (|rplac| (CDR |x|) (CDR |a|)))
-               (#2# (|optCatch,changeThrowToGo| |a| |g|)
+               (#2# (SETQ |val_sym| (GENSYM))
+                (|optCatch,changeThrowToGo| |a| |g| |val_sym|)
                 (|rplac| (CAR |x|) 'SEQ)
                 (|rplac| (CDR |x|)
-                 (LIST (LIST 'EXIT |a|) (CADR |g|) (LIST 'EXIT (CADR |g|))))))
+                 (LIST (LIST 'EXIT |a|) (CADR |g|) (LIST 'EXIT |val_sym|)))))
               |x|)))))))
-(DEFUN |optCatch,changeThrowToGo| (|s| |g|)
+(DEFUN |optCatch,changeThrowToGo| (|s| |g| |val_sym|)
   (PROG (|ISTMP#1| |ISTMP#2| |u|)
     (RETURN
      (COND ((OR (ATOM |s|) (EQ (CAR |s|) 'QUOTE)) NIL)
@@ -263,14 +265,14 @@
                         (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                              (PROGN (SETQ |u| (CAR |ISTMP#2|)) #1='T))))))
             (PROGN
-             (|optCatch,changeThrowToGo| |u| |g|)
+             (|optCatch,changeThrowToGo| |u| |g| |val_sym|)
              (|rplac| (CAR |s|) 'PROGN)
              (|rplac| (CDR |s|)
-              (LIST (LIST 'LET (CADR |g|) |u|) (LIST 'GO (CADR |g|))))))
+              (LIST (LIST 'LET |val_sym| |u|) (LIST 'GO (CADR |g|))))))
            (#1#
             (PROGN
-             (|optCatch,changeThrowToGo| (CAR |s|) |g|)
-             (|optCatch,changeThrowToGo| (CDR |s|) |g|)))))))
+             (|optCatch,changeThrowToGo| (CAR |s|) |g| |val_sym|)
+             (|optCatch,changeThrowToGo| (CDR |s|) |g| |val_sym|)))))))
 (DEFUN |optCatch,hasNoThrows| (|a| |g|)
   (PROG (|ISTMP#1|)
     (RETURN

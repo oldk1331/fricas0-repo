@@ -16,7 +16,7 @@
 (SDEFUN |PREASSOC;makeMonic|
         ((|op| L) ($ |Union| (|PrimitiveArray| R) "failed"))
         (SPROG
-         ((#1=#:G122 NIL) (|u| (|Union| R "failed")) (#2=#:G123 NIL)
+         ((#1=#:G123 NIL) (|u| (|Union| R "failed")) (#2=#:G124 NIL)
           (#3=#:G115 NIL) (|i| NIL) (|a| (|PrimitiveArray| R))
           (|n| (|NonNegativeInteger|)) (|lc| (R)))
          (SEQ
@@ -43,13 +43,13 @@
                   (EXIT
                    (COND
                     ((QEQCAR |u| 1)
-                     (PROGN (LETT #1# (CONS 1 "failed") . #4#) (GO #1#)))
+                     (PROGN (LETT #1# (CONS 1 "failed") . #4#) (GO #5=#:G122)))
                     ('T
                      (QSETAREF1 |a| |i|
                                 (SPADCALL (QCDR |u|) (QREFELT $ 22)))))))
                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |a|))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |PREASSOC;A32| ((|op| L) ($ |Union| (|Matrix| R) "failed"))
         (SPROG
@@ -444,9 +444,9 @@
 
 (DECLAIM (NOTINLINE |PrecomputedAssociatedEquations;|)) 
 
-(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G146)
+(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

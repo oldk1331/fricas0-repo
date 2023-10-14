@@ -73,8 +73,8 @@
 
 (SDEFUN |LAZM3PK;normalizeIfCan;2ST;3| ((|ts| ST) ($ ST))
         (SPROG
-         ((|newts| (ST)) (|p| (P)) (|lp| (|List| P)) (#1=#:G135 NIL)
-          (#2=#:G142 NIL) (#3=#:G143 NIL) (|v| NIL) (|lv| (|List| V)))
+         ((|newts| (ST)) (|p| (P)) (|lp| (|List| P)) (#1=#:G143 NIL)
+          (#2=#:G144 NIL) (#3=#:G145 NIL) (|v| NIL) (|lv| (|List| V)))
          (SEQ
           (EXIT
            (COND ((SPADCALL |ts| (QREFELT $ 28)) |ts|)
@@ -121,10 +121,10 @@
                                                                   (QREFELT $
                                                                            36))
                                                         . #4#)
-                                                  (GO #2#))
+                                                  (GO #5=#:G142))
                                                  . #4#)
-                                           (GO #1#)))))
-                                       #1# (EXIT #1#))))))
+                                           (GO #6=#:G135)))))
+                                       #6# (EXIT #1#))))))
                                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191
                                   (EXIT NIL))
                              (LETT |lp| (CDR |lp|) . #4#)
@@ -136,13 +136,13 @@
                                     . #4#)))
                         NIL (GO G190) G191 (EXIT NIL))
                    (EXIT |newts|)))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |LAZM3PK;zeroSetSplit;LBL;4|
         ((|lp| |List| P) (|clos?| |Boolean|) ($ |List| ST))
         (SPROG
-         ((#1=#:G150 NIL) (|ts| NIL) (#2=#:G149 NIL) (|toSave| (|List| ST))
-          (#3=#:G148 NIL) (|toSee| (|List| TS)))
+         ((#1=#:G152 NIL) (|ts| NIL) (#2=#:G151 NIL) (|toSave| (|List| ST))
+          (#3=#:G150 NIL) (|toSee| (|List| TS)))
          (SEQ
           (LETT |toSee| (SPADCALL |lp| |clos?| (QREFELT $ 41))
                 . #4=(|LAZM3PK;zeroSetSplit;LBL;4|))
@@ -174,9 +174,9 @@
 
 (DECLAIM (NOTINLINE |LazardSetSolvingPackage;|)) 
 
-(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G151)
+(DEFUN |LazardSetSolvingPackage| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G152)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#

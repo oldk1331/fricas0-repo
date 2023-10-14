@@ -122,7 +122,7 @@
          ((|la|
            #1=(|List|
                (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (|lb| #1#) (#2=#:G157 NIL) (#3=#:G154 NIL) (#4=#:G166 NIL))
+          (|lb| #1#) (#2=#:G157 NIL) (#3=#:G154 NIL) (#4=#:G167 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -138,10 +138,10 @@
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 32))
-                     (PROGN (LETT #4# 'NIL . #5#) (GO #4#)))
+                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G166)))
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 33))
-                     (PROGN (LETT #4# 'T . #5#) (GO #4#)))
+                     (PROGN (LETT #4# 'T . #5#) (GO #6#)))
                     ((EQL (QCDR (|SPADfirst| |la|)) (QCDR (|SPADfirst| |lb|)))
                      (SEQ (LETT |la| (CDR |la|) . #5#)
                           (EXIT (LETT |lb| (CDR |lb|) . #5#))))
@@ -180,9 +180,9 @@
                       (EXIT (LETT |la| (CDR |la|) . #5#)))))))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT
-             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#6='T 'T)))
-                   (#6# 'NIL)))))
-          #4# (EXIT #4#)))) 
+             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#7='T 'T)))
+                   (#7# 'NIL)))))
+          #6# (EXIT #4#)))) 
 
 (SDEFUN |OFMONOID;<;2$B;8| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG ((|lb| #1=(|NonNegativeInteger|)) (|la| #1#))
@@ -198,9 +198,9 @@
 
 (DECLAIM (NOTINLINE |OrderedFreeMonoid;|)) 
 
-(DEFUN |OrderedFreeMonoid| (#1=#:G178)
+(DEFUN |OrderedFreeMonoid| (#1=#:G179)
   (SPROG NIL
-         (PROG (#2=#:G179)
+         (PROG (#2=#:G180)
            (RETURN
             (COND
              ((LETT #2#

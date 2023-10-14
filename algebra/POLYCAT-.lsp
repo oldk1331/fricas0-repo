@@ -1,8 +1,8 @@
 
 (SDEFUN |POLYCAT-;eval;SLS;1| ((|p| S) (|l| |List| (|Equation| S)) ($ S))
         (SPROG
-         ((#1=#:G146 NIL) (|e| NIL) (#2=#:G145 NIL) (|lvar| (|List| |VarSet|))
-          (#3=#:G144 NIL) (#4=#:G143 NIL) (#5=#:G136 NIL) (#6=#:G142 NIL))
+         ((#1=#:G147 NIL) (|e| NIL) (#2=#:G146 NIL) (|lvar| (|List| |VarSet|))
+          (#3=#:G145 NIL) (#4=#:G144 NIL) (#5=#:G142 NIL) (#6=#:G143 NIL))
          (SEQ
           (COND ((NULL |l|) |p|)
                 ('T
@@ -27,9 +27,9 @@
                                     (|error|
                                      "cannot find a variable to evaluate")
                                     . #7#)
-                              (GO #5#))))))
+                              (GO #8=#:G136))))))
                          (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
-                   #5# (EXIT #5#))
+                   #8# (EXIT #5#))
                   (LETT |lvar|
                         (PROGN
                          (LETT #4# NIL . #7#)
@@ -83,7 +83,7 @@
 
 (SDEFUN |POLYCAT-;isTimes;SU;3| ((|p| S) ($ |Union| (|List| S) "failed"))
         (SPROG
-         ((|r| (R)) (|l| (|List| S)) (#1=#:G165 NIL) (|v| NIL) (#2=#:G164 NIL)
+         ((|r| (R)) (|l| (|List| S)) (#1=#:G166 NIL) (|v| NIL) (#2=#:G165 NIL)
           (|lv| (|List| |VarSet|)))
          (SEQ
           (COND
@@ -167,7 +167,7 @@
            (CDR |lv|) (CDR |ln|) (QREFELT $ 47))))) 
 
 (SDEFUN |POLYCAT-;retract;SVarSet;7| ((|p| S) ($ |VarSet|))
-        (SPROG ((|q| (|VarSet|)) (#1=#:G186 NIL))
+        (SPROG ((|q| (|VarSet|)) (#1=#:G187 NIL))
                (SEQ
                 (LETT |q|
                       (PROG2
@@ -183,7 +183,7 @@
                   ('T (|error| "Polynomial is not a single variable"))))))) 
 
 (SDEFUN |POLYCAT-;retractIfCan;SU;8| ((|p| S) ($ |Union| |VarSet| "failed"))
-        (SPROG ((#1=#:G194 NIL) (|q| (|Union| |VarSet| "failed")))
+        (SPROG ((#1=#:G197 NIL) (|q| (|Union| |VarSet| "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -196,14 +196,14 @@
                       (COND
                        ((SPADCALL (SPADCALL (QCDR |q|) (QREFELT $ 49)) |p|
                                   (QREFELT $ 37))
-                        (PROGN (LETT #1# |q| . #2#) (GO #1#))))))))
+                        (PROGN (LETT #1# |q| . #2#) (GO #3=#:G195))))))))
                   (EXIT (CONS 1 "failed"))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |POLYCAT-;totalDegree;SNni;9| ((|p| S) ($ |NonNegativeInteger|))
         (SPROG
          ((|u| (|SparseUnivariatePolynomial| S)) (|d| (|NonNegativeInteger|))
-          (#1=#:G197 NIL))
+          (#1=#:G199 NIL))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 52)) 0)
                 ('T
@@ -240,7 +240,7 @@
         (SPROG
          ((|u| (|SparseUnivariatePolynomial| S))
           (|d| #1=(|NonNegativeInteger|)) (|w| #1#) (|v0| (|VarSet|))
-          (|v| (|VarSet|)) (#2=#:G205 NIL))
+          (|v| (|VarSet|)) (#2=#:G207 NIL))
          (SEQ
           (COND ((OR (SPADCALL |p| (QREFELT $ 52)) (NULL |lv|)) 0)
                 ('T
@@ -310,7 +310,7 @@
         (SPADCALL (SPADCALL |p| |var| (QREFELT $ 42)) (QREFELT $ 71))) 
 
 (SDEFUN |POLYCAT-;allMonoms| ((|l| |List| S) ($ |List| S))
-        (SPROG ((#1=#:G226 NIL) (|p| NIL) (#2=#:G225 NIL))
+        (SPROG ((#1=#:G228 NIL) (|p| NIL) (#2=#:G227 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL
@@ -333,7 +333,7 @@
 (SDEFUN |POLYCAT-;P2R|
         ((|p| S) (|b| |List| E) (|n| |NonNegativeInteger|) ($ |Vector| R))
         (SPROG
-         ((#1=#:G230 NIL) (|i| NIL) (#2=#:G231 NIL) (|bj| NIL)
+         ((#1=#:G232 NIL) (|i| NIL) (#2=#:G233 NIL) (|bj| NIL)
           (|w| (|Vector| R)))
          (SEQ
           (LETT |w| (MAKEARR1 |n| (|spadConstant| $ 54)) . #3=(|POLYCAT-;P2R|))
@@ -353,8 +353,8 @@
 
 (SDEFUN |POLYCAT-;eq2R| ((|l| |List| S) (|b| |List| E) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G238 NIL) (|p| NIL) (#2=#:G237 NIL) (#3=#:G236 NIL) (|bj| NIL)
-          (#4=#:G235 NIL))
+         ((#1=#:G240 NIL) (|p| NIL) (#2=#:G239 NIL) (#3=#:G238 NIL) (|bj| NIL)
+          (#4=#:G237 NIL))
          (SEQ
           (SPADCALL
            (PROGN
@@ -392,8 +392,8 @@
 (SDEFUN |POLYCAT-;reducedSystem;MM;17| ((|m| |Matrix| S) ($ |Matrix| R))
         (SPROG
          ((|l| (|List| (|List| S))) (|mm| (|Matrix| R)) (|d| (|List| E))
-          (#1=#:G252 NIL) (|bj| NIL) (#2=#:G251 NIL) (|b| (|List| S))
-          (#3=#:G250 NIL) (|r| NIL) (#4=#:G249 NIL))
+          (#1=#:G254 NIL) (|bj| NIL) (#2=#:G253 NIL) (|b| (|List| S))
+          (#3=#:G252 NIL) (|r| NIL) (#4=#:G251 NIL))
          (SEQ
           (LETT |l| (SPADCALL |m| (QREFELT $ 86))
                 . #5=(|POLYCAT-;reducedSystem;MM;17|))
@@ -456,8 +456,8 @@
         (SPROG
          ((|r| (|List| S)) (|l| (|List| (|List| S))) (|w| (|Vector| R))
           (|mm| (|Matrix| R)) (|n| (|NonNegativeInteger|)) (|d| (|List| E))
-          (#1=#:G268 NIL) (|bj| NIL) (#2=#:G267 NIL) (|b| (|List| S))
-          (#3=#:G266 NIL) (|s| NIL) (#4=#:G265 NIL))
+          (#1=#:G270 NIL) (|bj| NIL) (#2=#:G269 NIL) (|b| (|List| S))
+          (#3=#:G268 NIL) (|s| NIL) (#4=#:G267 NIL))
          (SEQ
           (LETT |l| (SPADCALL |m| (QREFELT $ 86))
                 . #5=(|POLYCAT-;reducedSystem;MVR;18|))
@@ -555,10 +555,10 @@
 
 (SDEFUN |POLYCAT-;factor;SF;23| ((|p| S) ($ |Factored| S))
         (SPROG
-         ((#1=#:G301 NIL) (|ww| NIL) (#2=#:G300 NIL)
+         ((#1=#:G303 NIL) (|ww| NIL) (#2=#:G302 NIL)
           (|ansSUP| (|Factored| (|SparseUnivariatePolynomial| S)))
-          (|up| (|SparseUnivariatePolynomial| S)) (#3=#:G299 NIL) (|w| NIL)
-          (#4=#:G298 NIL) (|ansR| (|Factored| R))
+          (|up| (|SparseUnivariatePolynomial| S)) (#3=#:G301 NIL) (|w| NIL)
+          (#4=#:G300 NIL) (|ansR| (|Factored| R))
           (|v| (|Union| |VarSet| "failed")))
          (SEQ
           (LETT |v| (SPADCALL |p| (QREFELT $ 36))
@@ -625,20 +625,20 @@
 (SDEFUN |POLYCAT-;conditionP;MU;24|
         ((|mat| |Matrix| S) ($ |Union| (|Vector| S) #1="failed"))
         (SPROG
-         ((#2=#:G324 NIL) (#3=#:G323 (S)) (#4=#:G325 (S))
-          (|i| (|NonNegativeInteger|)) (#5=#:G343 NIL) (|m| NIL)
-          (#6=#:G340 NIL) (#7=#:G342 NIL) (|mons| #8=(|List| S))
-          (#9=#:G341 NIL) (|ans| (|Union| (|Vector| R) #1#))
+         ((#2=#:G326 NIL) (#3=#:G325 (S)) (#4=#:G327 (S))
+          (|i| (|NonNegativeInteger|)) (#5=#:G346 NIL) (|m| NIL)
+          (#6=#:G343 NIL) (#7=#:G345 NIL) (|mons| #8=(|List| S))
+          (#9=#:G344 NIL) (|ans| (|Union| (|Vector| R) #1#))
           (|monslist| (|List| (|List| S))) (|llR| (|List| (|List| R)))
-          (#10=#:G338 NIL) (|u| NIL) (#11=#:G339 NIL) (|v| NIL)
-          (#12=#:G337 NIL) (|redmons| (|List| S))
-          (|deg1| (|List| (|NonNegativeInteger|))) (#13=#:G312 NIL)
-          (#14=#:G329 NIL) (|nd| (|Union| (|Integer|) "failed"))
-          (#15=#:G336 NIL) (|d| NIL) (#16=#:G335 NIL)
+          (#10=#:G341 NIL) (|u| NIL) (#11=#:G342 NIL) (|v| NIL)
+          (#12=#:G340 NIL) (|redmons| (|List| S))
+          (|deg1| (|List| (|NonNegativeInteger|))) (#13=#:G314 NIL)
+          (#14=#:G332 NIL) (|nd| (|Union| (|Integer|) "failed"))
+          (#15=#:G339 NIL) (|d| NIL) (#16=#:G338 NIL)
           (|degs| (|List| (|NonNegativeInteger|))) (|vars| (|List| |VarSet|))
-          (#17=#:G334 NIL) (#18=#:G307 NIL) (#19=#:G306 #8#) (#20=#:G308 #8#)
-          (#21=#:G333 NIL) (#22=#:G332 NIL) (|l| NIL) (|ch| (|Integer|))
-          (#23=#:G331 NIL) (|z| NIL) (#24=#:G330 NIL)
+          (#17=#:G337 NIL) (#18=#:G309 NIL) (#19=#:G308 #8#) (#20=#:G310 #8#)
+          (#21=#:G336 NIL) (#22=#:G335 NIL) (|l| NIL) (|ch| (|Integer|))
+          (#23=#:G334 NIL) (|z| NIL) (#24=#:G333 NIL)
           (|ll| (|List| (|List| S))))
          (SEQ
           (EXIT
@@ -729,7 +729,7 @@
                                                       (LETT #14#
                                                             (CONS 1 "failed")
                                                             . #25#)
-                                                      (GO #14#)))
+                                                      (GO #26=#:G331)))
                                                     ('T
                                                      (PROG1
                                                          (LETT #13# (QCDR |nd|)
@@ -881,7 +881,7 @@
                                             . #25#)
                                       (GO G190) G191 (EXIT NIL))
                                  #9#)))))))))
-          #14# (EXIT #14#)))) 
+          #26# (EXIT #14#)))) 
 
 (SDEFUN |POLYCAT-;charthRoot;SU;25| ((|p| S) ($ |Union| S "failed"))
         (SPROG
@@ -909,7 +909,7 @@
         ((|p| S) (|vars| |List| |VarSet|) (|ch| |NonNegativeInteger|)
          ($ |Union| S #1="failed"))
         (SPROG
-         ((#2=#:G372 NIL) (|ansx| (|Union| S #1#)) (|ans| (S)) (#3=#:G365 NIL)
+         ((#2=#:G376 NIL) (|ansx| (|Union| S #1#)) (|ans| (S)) (#3=#:G368 NIL)
           (|d| (|NonNegativeInteger|)) (|cp| (S))
           (|dd| (|Union| (|Integer|) "failed")) (|v| (|VarSet|)))
          (SEQ
@@ -937,7 +937,9 @@
                         (EXIT
                          (COND
                           ((QEQCAR |dd| 1)
-                           (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #2#)))
+                           (PROGN
+                            (LETT #2# (CONS 1 "failed") . #4#)
+                            (GO #6=#:G375)))
                           ('T
                            (SEQ
                             (LETT |cp| (SPADCALL |p| |v| |d| (QREFELT $ 150))
@@ -956,7 +958,7 @@
                               ((QEQCAR |ansx| 1)
                                (PROGN
                                 (LETT #2# (CONS 1 "failed") . #4#)
-                                (GO #2#)))
+                                (GO #6#)))
                               ('T
                                (SEQ
                                 (LETT |d| (SPADCALL |p| |v| (QREFELT $ 30))
@@ -983,7 +985,7 @@
                   (EXIT
                    (COND
                     ((QEQCAR |ansx| 1)
-                     (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #2#)))
+                     (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #6#)))
                     (#5#
                      (PROGN
                       (LETT #2#
@@ -991,8 +993,8 @@
                                   (SPADCALL |ans| (QCDR |ansx|)
                                             (QREFELT $ 145)))
                             . #4#)
-                      (GO #2#)))))))))
-          #2# (EXIT #2#)))) 
+                      (GO #6#)))))))))
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |POLYCAT-;monicDivide;2SVarSetR;27|
         ((|p1| S) (|p2| S) (|mvar| |VarSet|)
@@ -1022,7 +1024,7 @@
 
 (SDEFUN |POLYCAT-;squareFreePart;2S;31| ((|p| S) ($ S))
         (SPROG
-         ((#1=#:G382 NIL) (#2=#:G381 (S)) (#3=#:G383 (S)) (#4=#:G385 NIL)
+         ((#1=#:G386 NIL) (#2=#:G385 (S)) (#3=#:G387 (S)) (#4=#:G389 NIL)
           (|f| NIL) (|s| (|Factored| S)))
          (SEQ
           (SPADCALL
@@ -1052,7 +1054,7 @@
         (SPADCALL (SPADCALL |p| |v| (QREFELT $ 42)) (QREFELT $ 166))) 
 
 (SDEFUN |POLYCAT-;primitivePart;2S;33| ((|p| S) ($ S))
-        (SPROG ((#1=#:G388 NIL))
+        (SPROG ((#1=#:G392 NIL))
                (COND ((SPADCALL |p| (QREFELT $ 168)) |p|)
                      ('T
                       (QVELT
@@ -1068,7 +1070,7 @@
                        1))))) 
 
 (SDEFUN |POLYCAT-;primitivePart;SVarSetS;34| ((|p| S) (|v| |VarSet|) ($ S))
-        (SPROG ((#1=#:G394 NIL))
+        (SPROG ((#1=#:G398 NIL))
                (COND ((SPADCALL |p| (QREFELT $ 168)) |p|)
                      ('T
                       (QVELT

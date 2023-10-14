@@ -1129,7 +1129,7 @@
 
 (SDEFUN |PFO;possibleOrder;FdNni;33|
         ((|d| |FiniteDivisor| F UP UPUP R) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G434 NIL) (|la| (|List| (|Kernel| F))))
+        (SPROG ((#1=#:G435 NIL) (|la| (|List| (|Kernel| F))))
                (SEQ
                 (EXIT
                  (COND
@@ -1155,7 +1155,7 @@
                                          '(|AlgebraicallyClosedField|))
                           (PROGN
                            (LETT #1# (SPADCALL |d| |la| (QREFELT $ 171)) . #3#)
-                           (GO #1#))))))
+                           (GO #4=#:G434))))))
                       (EXIT
                        (|error|
                         "PFO::possibleOrder: more than 1 algebraic constant"))))
@@ -1163,7 +1163,7 @@
                      (|PFO;algcurve| |d|
                       (|PFO;selectIntegers| (|SPADfirst| |la|) $)
                       (|SPADfirst| |la|) $))))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |PFO;selIntegers|
         (($ |Record|
@@ -1331,11 +1331,11 @@
           (|:| |poly|
                (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
         (SPROG
-         ((#1=#:G460 NIL) (|p| (|PositiveInteger|)) (#2=#:G462 NIL)
+         ((#1=#:G461 NIL) (|p| (|PositiveInteger|)) (#2=#:G463 NIL)
           (|u|
            (|Union| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
                     "failed"))
-          (#3=#:G458 NIL))
+          (#3=#:G459 NIL))
          (SEQ
           (LETT |p|
                 (PROG1
@@ -1390,9 +1390,9 @@
           "failed"))
         (SPROG
          ((|md| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|mdg| (|SparseUnivariatePolynomial| |gf|)) (#1=#:G482 NIL)
+          (|mdg| (|SparseUnivariatePolynomial| |gf|)) (#1=#:G483 NIL)
           (|ff| NIL) (|l| (|List| (|SparseUnivariatePolynomial| |gf|)))
-          (#2=#:G481 NIL) (|f| NIL) (#3=#:G480 NIL)
+          (#2=#:G482 NIL) (|f| NIL) (#3=#:G481 NIL)
           (|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
                    (|ConvertibleTo| (|Integer|)))))
@@ -1615,9 +1615,9 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrder;|)) 
 
-(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G490)
+(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G491)
   (SPROG NIL
-         (PROG (#2=#:G491)
+         (PROG (#2=#:G492)
            (RETURN
             (COND
              ((LETT #2#

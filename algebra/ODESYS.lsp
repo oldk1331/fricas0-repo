@@ -10,16 +10,16 @@
           "failed"))
         (SPROG
          ((|k| #2=(|NonNegativeInteger|)) (|l| NIL) (|m| #2#)
-          (|solVec| #3=(|Vector| F)) (#4=#:G151 NIL) (|s| NIL)
+          (|solVec| #3=(|Vector| F)) (#4=#:G152 NIL) (|s| NIL)
           (|nn| (|NonNegativeInteger|))
           (|er|
            (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F)) (|:| |eq| LO)
                      (|:| |rh| F)))
-          (|i| #2#) (#5=#:G150 NIL) (|sol| NIL) (|SolMatrix| (|Matrix| F))
-          (#6=#:G149 NIL) (|part| #3#) (|n| (|NonNegativeInteger|))
+          (|i| #2#) (#5=#:G151 NIL) (|sol| NIL) (|SolMatrix| (|Matrix| F))
+          (#6=#:G150 NIL) (|part| #3#) (|n| (|NonNegativeInteger|))
           (|sols|
            (|List| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))))
-          (#7=#:G147 NIL) (|u| #1#) (#8=#:G148 NIL) (|e| NIL)
+          (#7=#:G148 NIL) (|u| #1#) (#8=#:G149 NIL) (|e| NIL)
           (|rec|
            (|Record| (|:| A (|Matrix| F))
                      (|:| |eqs|
@@ -43,7 +43,9 @@
                   (EXIT
                    (COND
                     ((QEQCAR |u| 1)
-                     (PROGN (LETT #7# (CONS 1 "failed") . #9#) (GO #7#)))
+                     (PROGN
+                      (LETT #7# (CONS 1 "failed") . #9#)
+                      (GO #10=#:G147)))
                     ('T (LETT |sols| (CONS (QCDR |u|) |sols|) . #9#)))))
                  (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
             (LETT |n| (ANROWS (QCAR |rec|)) . #9#) (LETT |k| 0 . #9#)
@@ -128,7 +130,7 @@
                    (CONS (SPADCALL (QCAR |rec|) |part| (QREFELT $ 33))
                          (SPADCALL (QCAR |rec|) |SolMatrix|
                                    (QREFELT $ 34)))))))
-          #7# (EXIT #7#)))) 
+          #10# (EXIT #7#)))) 
 
 (SDEFUN |ODESYS;solve;MVMU;1!0| ((|f1| NIL) ($ NIL))
         (SPADCALL |f1| (|spadConstant| $ 15) (QREFELT $ 18))) 
@@ -146,8 +148,8 @@
            (|List|
             (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F)) (|:| |eq| LO)
                       (|:| |rh| F))))
-          (|h0| (F)) (|j| NIL) (#1=#:G166 NIL) (|sum| (|Vector| F)) (|op| (LO))
-          (#2=#:G165 NIL) (|n| (|NonNegativeInteger|)) (#3=#:G164 NIL)
+          (|h0| (F)) (|j| NIL) (#1=#:G167 NIL) (|sum| (|Vector| F)) (|op| (LO))
+          (#2=#:G166 NIL) (|n| (|NonNegativeInteger|)) (#3=#:G165 NIL)
           (|er| NIL)
           (|l| (|List| (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F)))))
           (|rat|
@@ -263,12 +265,12 @@
          ($ |Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
           (|:| |basis| (|List| (|Vector| F)))))
         (SPROG
-         ((|bas| (|List| (|Vector| F))) (#3=#:G195 NIL) (|i| NIL)
-          (#4=#:G194 NIL) (|n| (|NonNegativeInteger|)) (#5=#:G193 NIL)
+         ((|bas| (|List| (|Vector| F))) (#3=#:G196 NIL) (|i| NIL)
+          (#4=#:G195 NIL) (|n| (|NonNegativeInteger|)) (#5=#:G194 NIL)
           (|a| (F)) (|eq| (LO)) (|c| (|Integer|)) (|r| (|Integer|))
-          (#6=#:G191 NIL) (#7=#:G192 NIL) (|b| NIL) (|hom| (|Matrix| F))
-          (#8=#:G173 NIL) (|part| (|Vector| F)) (|part?| (|Boolean|)) (|u| #2#)
-          (|dim| (|NonNegativeInteger|)) (#9=#:G171 NIL) (|rec| #1#)
+          (#6=#:G192 NIL) (#7=#:G193 NIL) (|b| NIL) (|hom| (|Matrix| F))
+          (#8=#:G174 NIL) (|part| (|Vector| F)) (|part?| (|Boolean|)) (|u| #2#)
+          (|dim| (|NonNegativeInteger|)) (#9=#:G172 NIL) (|rec| #1#)
           (|offset| (|Integer|)) (|mr| (|Integer|)))
          (SEQ
           (LETT |r| (SPADCALL |m| (QREFELT $ 58)) . #10=(|ODESYS;backsolve|))
@@ -420,7 +422,7 @@
           (|:| |basis| (|List| (|Vector| F)))))
         (SPROG
          ((|rec| (|Record| (|:| |mat| (|Matrix| LO)) (|:| |vec| (|Vector| F))))
-          (#1=#:G222 NIL) (#2=#:G236 NIL) (|i| NIL) (#3=#:G235 NIL)
+          (#1=#:G234 NIL) (#2=#:G238 NIL) (|i| NIL) (#3=#:G237 NIL)
           (|rc|
            (|Record| (|:| |particular| (|Vector| F))
                      (|:| |basis| (|Matrix| F))))
@@ -429,7 +431,7 @@
             (|Record| (|:| |particular| (|Vector| F))
                       (|:| |basis| (|Matrix| F)))
             "failed"))
-          (|u| (|Union| (|Matrix| F) "failed")) (#4=#:G233 NIL) (#5=#:G234 NIL)
+          (|u| (|Union| (|Matrix| F) "failed")) (#4=#:G235 NIL) (#5=#:G236 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -501,10 +503,10 @@
                                                     (EXIT
                                                      (NREVERSE #3#)))))))))))
                          . #6#)
-                   (GO #1#))))))))
+                   (GO #7=#:G223))))))))
             (LETT |rec| (SPADCALL |m| |v| (QREFELT $ 79)) . #6#)
             (EXIT (|ODESYS;backsolve| (QCAR |rec|) (QCDR |rec|) |solve| $))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |ODESYS;solveInField;MVMR;4!0| ((|l1| NIL) (|f2| NIL) ($$ NIL))
         (PROG (|solve| $)
@@ -514,8 +516,8 @@
 
 (SDEFUN |ODESYS;M2F| ((|m| |Matrix| LO) ($ |Union| (|Matrix| F) "failed"))
         (SPROG
-         ((#1=#:G247 NIL) (|u| (|Union| F "failed")) (#2=#:G249 NIL) (|j| NIL)
-          (#3=#:G248 NIL) (|i| NIL) (|mf| (|Matrix| F)))
+         ((#1=#:G250 NIL) (|u| (|Union| F "failed")) (#2=#:G252 NIL) (|j| NIL)
+          (#3=#:G251 NIL) (|i| NIL) (|mf| (|Matrix| F)))
          (SEQ
           (EXIT
            (SEQ
@@ -541,7 +543,7 @@
                            ((QEQCAR |u| 1)
                             (PROGN
                              (LETT #1# (CONS 1 "failed") . #4#)
-                             (GO #1#)))
+                             (GO #5=#:G249)))
                            ('T
                             (SPADCALL |mf| |i| |j| (QCDR |u|)
                                       (QREFELT $ 69))))))
@@ -549,14 +551,14 @@
                         (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |mf|))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |ODESYS;FSL2USL|
         ((|rec| |Record| (|:| |particular| (|Union| F "failed"))
           (|:| |basis| (|List| F)))
          ($ |Union| (|Record| (|:| |particular| F) (|:| |basis| (|List| F)))
           "failed"))
-        (SPROG ((#1=#:G256 NIL))
+        (SPROG ((#1=#:G259 NIL))
                (COND ((QEQCAR (QCAR |rec|) 1) (CONS 1 "failed"))
                      ('T
                       (CONS 0
@@ -568,7 +570,7 @@
                              (QCDR |rec|))))))) 
 
 (SDEFUN |ODESYS;firstnonzero| ((|m| |Matrix| LO) (|r| |Integer|) ($ |Integer|))
-        (SPROG ((#1=#:G261 NIL) (#2=#:G263 NIL) (#3=#:G264 NIL) (|c| NIL))
+        (SPROG ((#1=#:G267 NIL) (#2=#:G268 NIL) (#3=#:G269 NIL) (|c| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -583,14 +585,15 @@
                             ((SPADCALL (SPADCALL |m| |r| |c| (QREFELT $ 67))
                                        (|spadConstant| $ 16) (QREFELT $ 87))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# |c| . #4#) (GO #2#))
+                              (LETT #1#
+                                    (PROGN (LETT #2# |c| . #4#) (GO #5=#:G266))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G264))))))
                          (LETT |c| (|inc_SI| |c|) . #4#) (GO G190) G191
                          (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (|error| "firstnonzero: zero row"))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |ODESYS;applyLodo|
         ((|m| |Matrix| LO) (|r| |Integer|) (|v| |Vector| F)
@@ -645,7 +648,7 @@
          ($ |Record| (|:| |mat| (|Matrix| LO)) (|:| |vec| (|Vector| F))))
         (SPROG
          ((|i| #1=(|Integer|)) (|k1| NIL) (|b| (LO)) (|a| (LO)) (|l| (LO))
-          (|k| NIL) (|x| (|Matrix| LO)) (|rown| #2=(|Integer|)) (#3=#:G284 NIL)
+          (|k| NIL) (|x| (|Matrix| LO)) (|rown| #2=(|Integer|)) (#3=#:G292 NIL)
           (|j| NIL) (|offset| #2#) (|minr| #1#) (|ncols| (|Integer|))
           (|nrows| (|Integer|)) (|w| (|Vector| F)))
          (SEQ
@@ -663,7 +666,7 @@
                  (SEQ
                   (COND
                    ((SPADCALL |i| |nrows| (QREFELT $ 70))
-                    (PROGN (LETT #3# |$NoValue| . #4#) (GO #3#))))
+                    (PROGN (LETT #3# |$NoValue| . #4#) (GO #5=#:G289))))
                   (LETT |rown| (- |minr| 1) . #4#)
                   (SEQ (LETT |k| |i| . #4#) G190
                        (COND ((> |k| |nrows|) (GO G191)))
@@ -759,14 +762,14 @@
                        (LETT |k| (+ |k| 1) . #4#) (GO G190) G191 (EXIT NIL))
                   (EXIT (LETT |i| (+ |i| 1) . #4#)))
                  (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191 (EXIT NIL)))
-           #3# (EXIT #3#))
+           #5# (EXIT #3#))
           (EXIT (CONS |x| |w|))))) 
 
 (DECLAIM (NOTINLINE |SystemODESolver;|)) 
 
-(DEFUN |SystemODESolver| (&REST #1=#:G287)
+(DEFUN |SystemODESolver| (&REST #1=#:G293)
   (SPROG NIL
-         (PROG (#2=#:G288)
+         (PROG (#2=#:G294)
            (RETURN
             (COND
              ((LETT #2#

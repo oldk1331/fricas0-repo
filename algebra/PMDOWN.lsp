@@ -58,13 +58,13 @@
                     (|:| |res| (|PatternMatchResult| S A)))
           "failed"))
         (SPROG
-         ((|ll| (|List| (|Pattern| S))) (#1=#:G136 NIL)
+         ((|ll| (|List| (|Pattern| S))) (#1=#:G137 NIL)
           (|f|
            (|Union|
             (|Record| (|:| |pat| (|Pattern| S))
                       (|:| |res| (|PatternMatchResult| S A)))
             "failed"))
-          (#2=#:G137 NIL) (|x| NIL))
+          (#2=#:G138 NIL) (|x| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ll| NIL . #3=(|PMDOWN;fixList|))
@@ -77,13 +77,15 @@
                       (EXIT
                        (COND
                         ((QEQCAR |f| 1)
-                         (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #1#)))
+                         (PROGN
+                          (LETT #1# (CONS 1 "failed") . #3#)
+                          (GO #4=#:G136)))
                         ('T
                          (SEQ (LETT |ll| (CONS (QCAR (QCDR |f|)) |ll|) . #3#)
                               (EXIT (LETT |la| (QCDR (QCDR |f|)) . #3#)))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (CONS (SPADCALL |ll| |fn|) |la|)))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |PMDOWN;fixPred| ((|f| |Any|) ($ |Union| (|Any|) "failed"))
         (SPROG
@@ -105,9 +107,9 @@
                     (|:| |res| (|PatternMatchResult| S A)))
           #1="failed"))
         (SPROG
-         ((|q| (|Pattern| S)) (|lp| (|List| (|Any|))) (#2=#:G212 NIL)
-          (|h| (|Union| (|Any|) "failed")) (#3=#:G214 NIL) (|g| NIL)
-          (#4=#:G213 NIL) (|ua| (|Union| (|List| A) "failed"))
+         ((|q| (|Pattern| S)) (|lp| (|List| (|Any|))) (#2=#:G215 NIL)
+          (|h| (|Union| (|Any|) "failed")) (#3=#:G217 NIL) (|g| NIL)
+          (#4=#:G216 NIL) (|ua| (|Union| (|List| A) "failed"))
           (|fe|
            #5=(|Union|
                (|Record| (|:| |pat| (|Pattern| S))
@@ -144,7 +146,7 @@
             (|Record| (|:| |op| (|BasicOperator|))
                       (|:| |arg| (|List| (|Pattern| S))))
             "failed"))
-          (#6=#:G211 NIL) (|r| (|Union| S "failed")))
+          (#6=#:G214 NIL) (|r| (|Union| S "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -158,7 +160,7 @@
                  ((OR (QEQCAR |r| 0) (SPADCALL |p| (QREFELT $ 38)))
                   (PROGN
                    (LETT #6# (CONS 0 (CONS |p| |la|)) . #7#)
-                   (GO #6#))))))
+                   (GO #8=#:G212))))))
               (LETT |u| (SPADCALL |p| (QREFELT $ 41)) . #7#)
               (EXIT
                (COND
@@ -168,14 +170,14 @@
                        (|PMDOWN;fixList|
                         (CONS #'|PMDOWN;fixPredicates!0| (VECTOR $ |ur|))
                         (QCDR |ur|) |lb| |la| $))))
-                (#8='T
+                (#9='T
                  (SEQ (LETT |us| (SPADCALL |p| (QREFELT $ 46)) . #7#)
                       (EXIT
                        (COND
                         ((QEQCAR |us| 0)
                          (|PMDOWN;fixList| (CONS #'|PMDOWN;fixPredicates!1| $)
                           (QCDR |us|) |lb| |la| $))
-                        (#8#
+                        (#9#
                          (SEQ (LETT |us| (SPADCALL |p| (QREFELT $ 51)) . #7#)
                               (EXIT
                                (COND
@@ -183,7 +185,7 @@
                                  (|PMDOWN;fixList|
                                   (CONS #'|PMDOWN;fixPredicates!2| $)
                                   (QCDR |us|) |lb| |la| $))
-                                (#8#
+                                (#9#
                                  (SEQ
                                   (LETT |v| (SPADCALL |p| (QREFELT $ 55))
                                         . #7#)
@@ -198,7 +200,7 @@
                                           (EXIT
                                            (COND
                                             ((QEQCAR |fn| 1) (CONS 1 "failed"))
-                                            (#8#
+                                            (#9#
                                              (SEQ
                                               (LETT |la| (QCDR (QCDR |fn|))
                                                     . #7#)
@@ -210,7 +212,7 @@
                                                (COND
                                                 ((QEQCAR |fd| 1)
                                                  (CONS 1 "failed"))
-                                                (#8#
+                                                (#9#
                                                  (CONS 0
                                                        (CONS
                                                         (SPADCALL
@@ -220,7 +222,7 @@
                                                         (QCDR
                                                          (QCDR
                                                           |fd|)))))))))))))
-                                    (#8#
+                                    (#9#
                                      (SEQ
                                       (LETT |w| (SPADCALL |p| (QREFELT $ 59))
                                             . #7#)
@@ -236,7 +238,7 @@
                                                (COND
                                                 ((QEQCAR |f| 1)
                                                  (CONS 1 "failed"))
-                                                (#8#
+                                                (#9#
                                                  (CONS 0
                                                        (CONS
                                                         (SPADCALL
@@ -245,7 +247,7 @@
                                                          (QREFELT $ 61))
                                                         (QCDR
                                                          (QCDR |f|)))))))))
-                                        (#8#
+                                        (#9#
                                          (SEQ
                                           (LETT |uu|
                                                 (SPADCALL |p| (QREFELT $ 64))
@@ -263,7 +265,7 @@
                                                (COND
                                                 ((QEQCAR |fv| 1)
                                                  (CONS 1 "failed"))
-                                                (#8#
+                                                (#9#
                                                  (SEQ
                                                   (LETT |la| (QCDR (QCDR |fv|))
                                                         . #7#)
@@ -276,7 +278,7 @@
                                                    (COND
                                                     ((QEQCAR |fe| 1)
                                                      (CONS 1 "failed"))
-                                                    (#8#
+                                                    (#9#
                                                      (CONS 0
                                                            (CONS
                                                             (SPADCALL
@@ -295,7 +297,7 @@
                                                (COND
                                                 ((QEQCAR |ua| 1)
                                                  (CONS 1 "failed"))
-                                                (#8#
+                                                (#9#
                                                  (SEQ
                                                   (LETT |lp|
                                                         (PROGN
@@ -343,7 +345,7 @@
                                                                           "failed")
                                                                          . #7#)
                                                                         (GO
-                                                                         #2#))))))
+                                                                         #10=#:G213))))))
                                                                    #4#)
                                                                   . #7#)))
                                                           (LETT #3# (CDR #3#)
@@ -377,7 +379,7 @@
                                                                 ((NULL
                                                                   (QCDR |ua|))
                                                                  |la|)
-                                                                (#8#
+                                                                (#9#
                                                                  (SPADCALL |q|
                                                                            (|SPADfirst|
                                                                             (QCDR
@@ -386,11 +388,11 @@
                                                                            (QREFELT
                                                                             $
                                                                             76)))))))))))))
-                                            (#8#
+                                            (#9#
                                              (|error|
                                               "Should not happen"))))))))))))))))))))))))))
-            #6# (EXIT #6#)))
-          #2# (EXIT #2#)))) 
+            #8# (EXIT #6#)))
+          #10# (EXIT #2#)))) 
 
 (SDEFUN |PMDOWN;fixPredicates!2| ((|l1| NIL) ($ NIL))
         (SPADCALL (ELT $ 52) |l1| (QREFELT $ 50))) 
@@ -406,9 +408,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPushDown;|)) 
 
-(DEFUN |PatternMatchPushDown| (&REST #1=#:G215)
+(DEFUN |PatternMatchPushDown| (&REST #1=#:G218)
   (SPROG NIL
-         (PROG (#2=#:G216)
+         (PROG (#2=#:G219)
            (RETURN
             (COND
              ((LETT #2#

@@ -134,7 +134,7 @@
                 (EXIT |a|)))) 
 
 (SDEFUN |CCLASS;inspect;$C;23| ((|a| $) ($ |Character|))
-        (SPROG ((#1=#:G146 NIL) (#2=#:G147 NIL) (|i| NIL))
+        (SPROG ((#1=#:G147 NIL) (#2=#:G148 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -147,15 +147,15 @@
                           ((SPADCALL |a| |i| (QREFELT $ 21))
                            (PROGN
                             (LETT #1# (SPADCALL |i| (QREFELT $ 34)) . #3#)
-                            (GO #1#))))))
+                            (GO #4=#:G146))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT
                    (|error| "Cannot take a character from an empty class."))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |CCLASS;extract!;$C;24| ((|a| $) ($ |Character|))
-        (SPROG ((#1=#:G151 NIL) (#2=#:G152 NIL) (|i| NIL))
+        (SPROG ((#1=#:G153 NIL) (#2=#:G154 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -171,16 +171,16 @@
                                  (PROGN
                                   (LETT #1# (SPADCALL |i| (QREFELT $ 34))
                                         . #3#)
-                                  (GO #1#))))))))
+                                  (GO #4=#:G152))))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT
                    (|error| "Cannot take a character from an empty class."))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |CCLASS;map;M2$;25|
         ((|f| |Mapping| #1=(|Character|) #1#) (|a| $) ($ $))
-        (SPROG ((#2=#:G157 NIL) (|i| NIL) (|b| ($)))
+        (SPROG ((#2=#:G159 NIL) (|i| NIL) (|b| ($)))
                (SEQ
                 (LETT |b| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
                       . #3=(|CCLASS;map;M2$;25|))
@@ -198,7 +198,7 @@
 
 (SDEFUN |CCLASS;map!;M2$;26|
         ((|f| |Mapping| #1=(|Character|) #1#) (|a| $) ($ $))
-        (SPROG ((#2=#:G161 NIL) (|i| NIL))
+        (SPROG ((#2=#:G163 NIL) (|i| NIL))
                (SEQ (SPADCALL (QREFELT $ 54) 'NIL (QREFELT $ 55))
                     (SEQ (LETT |i| 0 . #3=(|CCLASS;map!;M2$;26|))
                          (LETT #2# (- (QREFELT $ 7) 1) . #3#) G190
@@ -216,7 +216,7 @@
                     (EXIT (SPADCALL |a| (QREFELT $ 54) 0 (QREFELT $ 56)))))) 
 
 (SDEFUN |CCLASS;parts;$L;27| ((|a| $) ($ |List| (|Character|)))
-        (SPROG ((#1=#:G165 NIL) (|i| NIL) (#2=#:G164 NIL))
+        (SPROG ((#1=#:G167 NIL) (|i| NIL) (#2=#:G166 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|CCLASS;parts;$L;27|))
@@ -235,7 +235,7 @@
 
 (DEFUN |CharacterClass| ()
   (SPROG NIL
-         (PROG (#1=#:G174)
+         (PROG (#1=#:G176)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|)
@@ -253,7 +253,7 @@
                   (HREM |$ConstructorCache| '|CharacterClass|)))))))))) 
 
 (DEFUN |CharacterClass;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G171 NIL) (|pv$| NIL) (#2=#:G172 NIL))
+  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G173 NIL) (|pv$| NIL) (#2=#:G174 NIL))
          (PROGN
           (LETT |dv$| '(|CharacterClass|) . #3=(|CharacterClass|))
           (LETT $ (GETREFV 69) . #3#)

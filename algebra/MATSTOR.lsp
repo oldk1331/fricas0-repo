@@ -312,7 +312,7 @@
         ((|a| |Matrix| R) (|b| |Matrix| R) (|c| |Matrix| R) (|m| |Matrix| R)
          (|p| |NonNegativeInteger|) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G216 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
+         ((#1=#:G217 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
           (|mm| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -363,14 +363,14 @@
                            (EXIT
                             (COND
                              ((EQL |p| 1)
-                              (PROGN (LETT #1# |a| . #2#) (GO #1#)))
+                              (PROGN (LETT #1# |a| . #2#) (GO #7=#:G216)))
                              ('T
                               (SEQ (LETT |p| (QUOTIENT2 |p| 2) . #2#)
                                    (SPADCALL |c| |b| |b| (QREFELT $ 20))
                                    (EXIT (SPADCALL |b| |c| (QREFELT $ 9))))))))
                           NIL (GO G190) G191 (EXIT NIL)))))
                   (#4# (|error| "power!: matrix must be square"))))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |MATSTOR;^;MNniM;11|
         ((|m| |Matrix| R) (|n| |NonNegativeInteger|) ($ |Matrix| R))
@@ -389,9 +389,9 @@
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
-(DEFUN |StorageEfficientMatrixOperations| (#1=#:G220)
+(DEFUN |StorageEfficientMatrixOperations| (#1=#:G221)
   (SPROG NIL
-         (PROG (#2=#:G221)
+         (PROG (#2=#:G222)
            (RETURN
             (COND
              ((LETT #2#

@@ -77,7 +77,7 @@
 
 (SDEFUN |TBCMPPK;extractIfCan;KeyU;9|
         ((|k| |Key|) ($ |Union| |Entry| "failed"))
-        (SPROG ((#1=#:G128 NIL) (|s| (|Union| |Entry| "failed")))
+        (SPROG ((#1=#:G129 NIL) (|s| (|Union| |Entry| "failed")))
                (SEQ
                 (EXIT
                  (COND
@@ -94,10 +94,10 @@
                           (SPADCALL (QREFELT $ 15) (QREFELT $ 41))))
                         (COND
                          ((QREFELT $ 13) (SETELT $ 14 (+ (QREFELT $ 14) 1))))
-                        (EXIT (PROGN (LETT #1# |s| . #2#) (GO #1#)))))
-                      (#3='T (CONS 1 "failed"))))))
-                  (#3# (CONS 1 "failed"))))
-                #1# (EXIT #1#)))) 
+                        (EXIT (PROGN (LETT #1# |s| . #2#) (GO #3=#:G128)))))
+                      (#4='T (CONS 1 "failed"))))))
+                  (#4# (CONS 1 "failed"))))
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |TBCMPPK;insert!;KeyEntryV;10| ((|k| |Key|) (|e| |Entry|) ($ |Void|))
         (SEQ
@@ -111,9 +111,9 @@
 
 (DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
 
-(DEFUN |TabulatedComputationPackage| (&REST #1=#:G131)
+(DEFUN |TabulatedComputationPackage| (&REST #1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

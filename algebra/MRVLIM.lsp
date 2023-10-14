@@ -30,7 +30,7 @@
           (|:| |atan_kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
          ($ |Expression| (|Integer|)))
         (SPROG
-         ((#1=#:G178 NIL) (|nk| (|Expression| (|Integer|))) (|ss| (|Integer|))
+         ((#1=#:G185 NIL) (|nk| (|Expression| (|Integer|))) (|ss| (|Integer|))
           (|la| (|OrderedCompletion| (|Expression| (|Integer|))))
           (|l_ts| (|List| (|Symbol|)))
           (|l_tan| (|List| (|Kernel| (|Expression| (|Integer|)))))
@@ -42,10 +42,10 @@
           (|arg1| (|Expression| (|Integer|))) (|nm| (|Symbol|))
           (|ntf| (|List| (|Expression| (|Integer|))))
           (|rtf| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|nargs| (|List| (|Expression| (|Integer|)))) (#2=#:G187 NIL)
-          (|arg| NIL) (#3=#:G186 NIL)
+          (|nargs| (|List| (|Expression| (|Integer|)))) (#2=#:G188 NIL)
+          (|arg| NIL) (#3=#:G187 NIL)
           (|args| (|List| (|Expression| (|Integer|)))) (|op| (|BasicOperator|))
-          (#4=#:G185 NIL) (|k| NIL)
+          (#4=#:G186 NIL) (|k| NIL)
           (|tf| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ
           (LETT |f| (SPADCALL |f| (QREFELT $ 28))
@@ -419,8 +419,8 @@
                                                                 (QREFELT $
                                                                          49))))))))))))))
                                       . #5#)
-                                (GO #1#)))))
-                            #1# (EXIT #1#))))))))))
+                                (GO #6=#:G178)))))
+                            #6# (EXIT #1#))))))))))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
           (QSETVELT |state| 0 |l_ts|) (QSETVELT |state| 1 |l_as|)
           (QSETVELT |state| 2 |l_tan|) (QSETVELT |state| 3 |l_atan|)
@@ -626,11 +626,11 @@
                     (|:| |coeff| (|Expression| (|Integer|))))
           "failed"))
         (SPROG
-         ((#1=#:G253 NIL)
+         ((#1=#:G256 NIL)
           (|vkers| (|List| (|Kernel| (|Expression| (|Integer|)))))
-          (|ssl| (|Upg|)) (|kk| (|Integer|)) (#2=#:G246 NIL)
+          (|ssl| (|Upg|)) (|kk| (|Integer|)) (#2=#:G255 NIL)
           (|lc| (|Expression| (|Integer|))) (|ssll| (|Upg|))
-          (|deg| (|OrderedExpression|)) (|ssl0| (|Upg|)) (#3=#:G241 NIL)
+          (|deg| (|OrderedExpression|)) (|ssl0| (|Upg|)) (#3=#:G242 NIL)
           (|ss|
            (|Union| (|:| |%series| |Upg|)
                     (|:| |%problem|
@@ -684,7 +684,9 @@
                               (COND
                                ((SPADCALL |lc| (|spadConstant| $ 7)
                                           (QREFELT $ 26))
-                                (PROGN (LETT #2# |$NoValue| . #4#) (GO #2#)))
+                                (PROGN
+                                 (LETT #2# |$NoValue| . #4#)
+                                 (GO #6=#:G247)))
                                ('T
                                 (SEQ (LETT |kk| (+ |kk| 1) . #4#)
                                      (EXIT
@@ -702,16 +704,16 @@
                                               (SPADCALL |ssl| (QREFELT $ 116))
                                               . #4#)))))))))
                             NIL (GO G190) G191 (EXIT NIL)))
-                      #2# (EXIT #2#))
+                      #6# (EXIT #2#))
                      (LETT |vkers| (|MRVLIM;var_kers| |lc| $) . #4#)
                      (EXIT
                       (COND
                        ((NULL |vkers|)
                         (PROGN
                          (LETT #1# (CONS 0 (CONS |deg| |lc|)) . #4#)
-                         (GO #1#)))
+                         (GO #7=#:G254)))
                        (#5# (|error| "Too many variable kernels"))))))))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (SDEFUN |MRVLIM;mrv_cmp;2KSRU;8|
         ((|x| |Kernel| (|Expression| (|Integer|)))
@@ -778,10 +780,10 @@
           (|ic|
            (|Record| (|:| |sign| (|Integer|))
                      (|:| |coeff| (|Expression| (|Integer|)))))
-          (#4=#:G292 NIL)
+          (#4=#:G296 NIL)
           (|icu|
            (|Union| (|Record| (|:| |sign| #3#) (|:| |coeff| #2#)) "failed"))
-          (#5=#:G293 NIL) (|y| NIL)
+          (#5=#:G297 NIL) (|y| NIL)
           (|kers| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ
           (EXIT
@@ -810,7 +812,9 @@
                       (EXIT
                        (COND
                         ((QEQCAR |icu| 1)
-                         (PROGN (LETT #4# (CONS 1 "failed") . #6#) (GO #4#)))
+                         (PROGN
+                          (LETT #4# (CONS 1 "failed") . #6#)
+                          (GO #7=#:G295)))
                         ('T
                          (SEQ (LETT |ic| (QCDR |icu|) . #6#)
                               (LETT |i| (QCAR |ic|) . #6#)
@@ -832,14 +836,14 @@
                     ('T (|spadConstant| $ 7)))))
                  (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 (CONS (REVERSE |res|) (REVERSE |res_c|))))))
-          #4# (EXIT #4#)))) 
+          #7# (EXIT #4#)))) 
 
 (SDEFUN |MRVLIM;mrv_rewrite1|
         ((|e| |Expression| (|Integer|))
          (|lx| |List| (|Kernel| (|Expression| (|Integer|))))
          (|ly| |List| (|Expression| (|Integer|))) ($ |Expression| (|Integer|)))
         (SPROG
-         ((#1=#:G297 NIL) (|x| NIL) (#2=#:G298 NIL) (|y| NIL)
+         ((#1=#:G301 NIL) (|x| NIL) (#2=#:G302 NIL) (|y| NIL)
           (|rly| (|List| (|Expression| (|Integer|))))
           (|rlx| (|List| (|Kernel| (|Expression| (|Integer|))))))
          (SEQ (LETT |rlx| (REVERSE |lx|) . #3=(|MRVLIM;mrv_rewrite1|))
@@ -869,8 +873,8 @@
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|ly| (|List| (|Expression| (|Integer|))))
           (|yi| (|Expression| (|Integer|)))
-          (|ei| #1=(|Expression| (|Integer|))) (#2=#:G305 NIL) (|xi| NIL)
-          (#3=#:G306 NIL) (|ci| NIL) (|e0| #1#)
+          (|ei| #1=(|Expression| (|Integer|))) (#2=#:G309 NIL) (|xi| NIL)
+          (#3=#:G310 NIL) (|ci| NIL) (|e0| #1#)
           (|c0| (|Expression| (|Integer|))))
          (SEQ
           (LETT |c0| (|SPADfirst| |lc|) . #4=(|MRVLIM;mrv_rewrite0;ELL2E;11|))
@@ -936,13 +940,13 @@
         (SPROG
          ((|lxx| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|x00| (|Expression| (|Integer|)))
-          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G329 NIL)
-          (|ci| NIL) (#2=#:G328 NIL) (|ss| (|Integer|))
+          (|lcc| (|List| (|Expression| (|Integer|)))) (#1=#:G333 NIL)
+          (|ci| NIL) (#2=#:G332 NIL) (|ss| (|Integer|))
           (|lipp| (|OrderedCompletion| (|Expression| (|Integer|))))
           (|lip|
            (|Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
-          (|e0| (|Expression| (|Integer|))) (#3=#:G327 NIL) (|ei| NIL)
-          (#4=#:G326 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
+          (|e0| (|Expression| (|Integer|))) (#3=#:G331 NIL) (|ei| NIL)
+          (#4=#:G330 NIL) (|x0| (|Kernel| (|Expression| (|Integer|)))))
          (SEQ
           (LETT |x0| (|SPADfirst| |lx|) . #5=(|MRVLIM;mrv_rewrite;ELLSRU;12|))
           (EXIT
@@ -1338,7 +1342,7 @@
          (|eq| |Equation| (|Expression| (|Integer|))) (|s| |String|)
          ($ |Union| (|OrderedCompletion| (|Expression| (|Integer|))) "failed"))
         (SPROG
-         ((#1=#:G414 NIL) (|et| (|Expression| (|Integer|)))
+         ((#1=#:G422 NIL) (|et| (|Expression| (|Integer|)))
           (|vK| (|Kernel| (|Expression| (|Integer|))))
           (|a| (|Expression| (|Integer|))) (|v| (|Symbol|))
           (|f| (|Union| (|Symbol|) "failed")))
@@ -1395,14 +1399,14 @@
                                        . #2#)
                                  (EXIT (SPADCALL |et| |v| (QREFELT $ 142))))
                                 . #2#)
-                          (GO #1#)))))
-                      #1# (EXIT #1#)))))))))))) 
+                          (GO #4=#:G418)))))
+                      #4# (EXIT #1#)))))))))))) 
 
 (DECLAIM (NOTINLINE |MrvLimitPackage;|)) 
 
 (DEFUN |MrvLimitPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G419)
+         (PROG (#1=#:G424)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MrvLimitPackage|)

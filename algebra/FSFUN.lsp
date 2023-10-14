@@ -969,7 +969,7 @@
 (SDEFUN |FSFUN;lambert_via_newton1;4F;25|
         ((|x| |Float|) (|w| |Float|) (|eps| |Float|) ($ |Float|))
         (SPROG
-         ((|odw| (|Float|)) (#1=#:G229 NIL) (|dw| (|Float|)) (|ew| (|Float|)))
+         ((|odw| (|Float|)) (#1=#:G230 NIL) (|dw| (|Float|)) (|ew| (|Float|)))
          (SEQ
           (EXIT
            (SEQ
@@ -990,16 +990,16 @@
                        (EXIT
                         (COND
                          ((SPADCALL |odw| |eps| (QREFELT $ 41))
-                          (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                          (PROGN (LETT #1# |w| . #2#) (GO #3=#:G229)))
                          ('T
                           (LETT |odw| (SPADCALL |dw| (QREFELT $ 71)) . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;4F;26|
         ((|lz| |Float|) (|w| |Float|) (|eps| |Float|) ($ |Float|))
         (SPROG
-         ((|odw| (|Float|)) (#1=#:G233 NIL) (|dw| (|Float|)) (|lw| (|Float|)))
+         ((|odw| (|Float|)) (#1=#:G235 NIL) (|dw| (|Float|)) (|lw| (|Float|)))
          (SEQ
           (EXIT
            (SEQ
@@ -1022,11 +1022,11 @@
                        (EXIT
                         (COND
                          ((SPADCALL |odw| |eps| (QREFELT $ 41))
-                          (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                          (PROGN (LETT #1# |w| . #2#) (GO #3=#:G234)))
                          ('T
                           (LETT |odw| (SPADCALL |dw| (QREFELT $ 71)) . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3F;27|
         ((|h| |Float|) (|h2| |Float|) ($ |Float|))
@@ -1082,7 +1082,7 @@
         ((|x| |Complex| (|Float|)) (|w| |Complex| (|Float|)) (|eps| |Float|)
          ($ |Complex| (|Float|)))
         (SPROG
-         ((|odw| (|Float|)) (#1=#:G239 NIL) (|dw| (|Complex| (|Float|)))
+         ((|odw| (|Float|)) (#1=#:G242 NIL) (|dw| (|Complex| (|Float|)))
           (|ew| (|Complex| (|Float|))))
          (SEQ
           (EXIT
@@ -1104,17 +1104,17 @@
                        (EXIT
                         (COND
                          ((SPADCALL |odw| |eps| (QREFELT $ 41))
-                          (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                          (PROGN (LETT #1# |w| . #2#) (GO #3=#:G241)))
                          ('T
                           (LETT |odw| (SPADCALL |dw| (QREFELT $ 72)) . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;2CFC;29|
         ((|lz| |Complex| (|Float|)) (|w| |Complex| (|Float|)) (|eps| |Float|)
          ($ |Complex| (|Float|)))
         (SPROG
-         ((|odw| (|Float|)) (#1=#:G243 NIL) (|dw| (|Complex| (|Float|)))
+         ((|odw| (|Float|)) (#1=#:G247 NIL) (|dw| (|Complex| (|Float|)))
           (|lw| (|Complex| (|Float|))))
          (SEQ
           (EXIT
@@ -1138,11 +1138,11 @@
                        (EXIT
                         (COND
                          ((SPADCALL |odw| |eps| (QREFELT $ 41))
-                          (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                          (PROGN (LETT #1# |w| . #2#) (GO #3=#:G246)))
                          ('T
                           (LETT |odw| (SPADCALL |dw| (QREFELT $ 72)) . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3C;30|
         ((|h| |Complex| (|Float|)) (|h2| |Complex| (|Float|))
@@ -1201,7 +1201,7 @@
         ((|x| |DoubleFloat|) (|w| |DoubleFloat|) (|eps| |DoubleFloat|)
          ($ |DoubleFloat|))
         (SPROG
-         ((|odw| (|DoubleFloat|)) (#1=#:G249 NIL) (|dw| (|DoubleFloat|))
+         ((|odw| (|DoubleFloat|)) (#1=#:G254 NIL) (|dw| (|DoubleFloat|))
           (|ew| (|DoubleFloat|)))
          (SEQ
           (EXIT
@@ -1217,18 +1217,18 @@
                            (EXIT
                             (COND
                              ((|less_DF| |odw| |eps|)
-                              (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                              (PROGN (LETT #1# |w| . #2#) (GO #3=#:G253)))
                              ('T
                               (LETT |odw| (SPADCALL |dw| (QREFELT $ 74))
                                     . #2#)))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;4Df;32|
         ((|lz| |DoubleFloat|) (|w| |DoubleFloat|) (|eps| |DoubleFloat|)
          ($ |DoubleFloat|))
         (SPROG
-         ((|odw| (|DoubleFloat|)) (#1=#:G253 NIL) (|dw| (|DoubleFloat|))
+         ((|odw| (|DoubleFloat|)) (#1=#:G259 NIL) (|dw| (|DoubleFloat|))
           (|lw| (|DoubleFloat|)))
          (SEQ
           (EXIT
@@ -1244,12 +1244,12 @@
                            (EXIT
                             (COND
                              ((|less_DF| |odw| |eps|)
-                              (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                              (PROGN (LETT #1# |w| . #2#) (GO #3=#:G258)))
                              ('T
                               (LETT |odw| (SPADCALL |dw| (QREFELT $ 74))
                                     . #2#)))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3Df;33|
         ((|h| |DoubleFloat|) (|h2| |DoubleFloat|) ($ |DoubleFloat|))
@@ -1300,7 +1300,7 @@
         ((|x| |Complex| (|DoubleFloat|)) (|w| |Complex| (|DoubleFloat|))
          (|eps| |DoubleFloat|) ($ |Complex| (|DoubleFloat|)))
         (SPROG
-         ((|odw| (|DoubleFloat|)) (#1=#:G259 NIL)
+         ((|odw| (|DoubleFloat|)) (#1=#:G266 NIL)
           (|dw| (|Complex| (|DoubleFloat|)))
           (|ew| (|Complex| (|DoubleFloat|))))
          (SEQ
@@ -1322,18 +1322,18 @@
                            (EXIT
                             (COND
                              ((|less_DF| |odw| |eps|)
-                              (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                              (PROGN (LETT #1# |w| . #2#) (GO #3=#:G265)))
                              ('T
                               (LETT |odw| (SPADCALL |dw| (QREFELT $ 78))
                                     . #2#)))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_via_newton2;2CDfC;35|
         ((|lz| |Complex| (|DoubleFloat|)) (|w| |Complex| (|DoubleFloat|))
          (|eps| |DoubleFloat|) ($ |Complex| (|DoubleFloat|)))
         (SPROG
-         ((|odw| (|DoubleFloat|)) (#1=#:G263 NIL)
+         ((|odw| (|DoubleFloat|)) (#1=#:G271 NIL)
           (|dw| (|Complex| (|DoubleFloat|)))
           (|lw| (|Complex| (|DoubleFloat|))))
          (SEQ
@@ -1356,12 +1356,12 @@
                            (EXIT
                             (COND
                              ((|less_DF| |odw| |eps|)
-                              (PROGN (LETT #1# |w| . #2#) (GO #1#)))
+                              (PROGN (LETT #1# |w| . #2#) (GO #3=#:G270)))
                              ('T
                               (LETT |odw| (SPADCALL |dw| (QREFELT $ 78))
                                     . #2#)))))
                       NIL (GO G190) G191 (EXIT NIL)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |FSFUN;lambert_inverse_series;3C;36|
         ((|h| |Complex| (|DoubleFloat|)) (|h2| |Complex| (|DoubleFloat|))
@@ -1850,7 +1850,7 @@
 
 (DEFUN |FloatSpecialFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G310)
+         (PROG (#1=#:G318)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FloatSpecialFunctions|)

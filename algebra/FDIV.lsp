@@ -289,7 +289,7 @@
 
 (SDEFUN |FDIV;generator;$U;32| ((|d| $) ($ |Union| R "failed"))
         (SPROG
-         ((#1=#:G188 NIL) (#2=#:G190 NIL) (#3=#:G191 NIL) (|i| NIL)
+         ((#1=#:G191 NIL) (#2=#:G192 NIL) (#3=#:G193 NIL) (|i| NIL)
           (|bsis| (|Vector| R)))
          (SEQ
           (EXIT
@@ -313,13 +313,13 @@
                                            (SPADCALL (QAREF1O |bsis| |i| 1)
                                                      (QREFELT $ 119)))
                                      . #4#)
-                               (GO #2#))
+                               (GO #5=#:G190))
                               . #4#)
-                        (GO #1#))))))
+                        (GO #6=#:G188))))))
                    (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
+             #6# (EXIT #1#))
             (EXIT (CONS 1 "failed"))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |FDIV;lSpaceBasis;$V;33| ((|d| $) ($ |Vector| R))
         (SPADCALL (ELT $ 119)
@@ -362,9 +362,9 @@
 
 (DECLAIM (NOTINLINE |FiniteDivisor;|)) 
 
-(DEFUN |FiniteDivisor| (&REST #1=#:G198)
+(DEFUN |FiniteDivisor| (&REST #1=#:G200)
   (SPROG NIL
-         (PROG (#2=#:G199)
+         (PROG (#2=#:G201)
            (RETURN
             (COND
              ((LETT #2#

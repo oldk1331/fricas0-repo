@@ -147,8 +147,8 @@
         ((|p| |NonNegativeInteger|) (|v| |List| (|NonNegativeInteger|))
          ($ |Union| "failed" (|List| (|NonNegativeInteger|))))
         (SPROG
-         ((#1=#:G157 NIL) (#2=#:G161 NIL) (|sum| (|Integer|)) (#3=#:G150 NIL)
-          (#4=#:G162 NIL) (|j| NIL) (|i| NIL) (|pos| (|Integer|))
+         ((#1=#:G157 NIL) (#2=#:G162 NIL) (|sum| (|Integer|)) (#3=#:G150 NIL)
+          (#4=#:G163 NIL) (|j| NIL) (|i| NIL) (|pos| (|Integer|))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -161,8 +161,8 @@
             (EXIT
              (COND
               ((ZEROP |pos|)
-               (PROGN (LETT #2# (CONS 0 "failed") . #5#) (GO #2#)))
-              (#6='T
+               (PROGN (LETT #2# (CONS 0 "failed") . #5#) (GO #6=#:G161)))
+              (#7='T
                (SEQ
                 (COND
                  ((EQL |pos| 1)
@@ -213,7 +213,7 @@
                                    (EXIT
                                     (PROGN
                                      (LETT #2# (CONS 1 |v|) . #5#)
-                                     (GO #2#)))))
+                                     (GO #6#)))))
                                  ('T
                                   (LETT |sum|
                                         (+ |sum|
@@ -227,8 +227,8 @@
                             (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                             (EXIT NIL))
                        (EXIT
-                        (PROGN (LETT #2# (CONS 0 "failed") . #5#) (GO #2#)))))
-                 (#6#
+                        (PROGN (LETT #2# (CONS 0 "failed") . #5#) (GO #6#)))))
+                 (#7#
                   (SEQ
                    (SPADCALL |v| |pos|
                              (+ (SPADCALL |v| |pos| (QREFELT $ 49)) 1)
@@ -246,7 +246,7 @@
                                                  '(|NonNegativeInteger|) #1#))
                               (QREFELT $ 52))))))
                 (EXIT (CONS 1 |v|))))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |FFFG;nextVector!!0| ((|x| NIL) ($$ NIL))
         (PROG (|p| $)
@@ -327,8 +327,8 @@
         ((|sum| |NonNegativeInteger|) (|maxEta| |NonNegativeInteger|)
          (|n| |NonNegativeInteger|) ($ |List| (|NonNegativeInteger|)))
         (SPROG
-         ((#1=#:G185 NIL) (#2=#:G183 NIL) (|entry| (|Integer|)) (|i| NIL)
-          (#3=#:G190 NIL))
+         ((#1=#:G186 NIL) (#2=#:G184 NIL) (|entry| (|Integer|)) (|i| NIL)
+          (#3=#:G191 NIL))
          (SEQ
           (PROGN
            (LETT #3# NIL . #4=(|FFFG;initialVector|))
@@ -415,7 +415,7 @@
          ($ |Fraction| (|SparseUnivariatePolynomial| D)))
         (SPROG
          ((M (|Matrix| (|SparseUnivariatePolynomial| D)))
-          (|eta| (|List| (|NonNegativeInteger|))) (#1=#:G200 NIL)
+          (|eta| (|List| (|NonNegativeInteger|))) (#1=#:G201 NIL)
           (|c|
            (|Mapping| D (|NonNegativeInteger|)
                       (|Vector| (|SparseUnivariatePolynomial| D))))
@@ -470,7 +470,7 @@
          (|r| |Vector| D) (|d| D) (|z| |SparseUnivariatePolynomial| D) (|Ck| D)
          (|p| |Vector| D) ($ |Matrix| (|SparseUnivariatePolynomial| D)))
         (SPROG
-         ((#1=#:G206 NIL) (|newMiPi| (|SparseUnivariatePolynomial| D))
+         ((#1=#:G207 NIL) (|newMiPi| (|SparseUnivariatePolynomial| D))
           (|pl| (D)) (|Mil| (|SparseUnivariatePolynomial| D)) (|rl| (D))
           (|l| NIL) (|MiPi| (|SparseUnivariatePolynomial| D)) (|i| NIL)
           (|polyf| (|SparseUnivariatePolynomial| D)) (|rPi| (D)))
@@ -550,9 +550,9 @@
          ($ |Matrix| (|SparseUnivariatePolynomial| D)))
         (SPROG
          ((|d| (D)) (M (|Matrix| (|SparseUnivariatePolynomial| D)))
-          (#1=#:G226 NIL) (|l| NIL) (|lambda| (|NonNegativeInteger|))
+          (#1=#:G227 NIL) (|l| NIL) (|lambda| (|NonNegativeInteger|))
           (|lambdaMax| (|Integer|)) (|Lambda| (|List| (|Integer|)))
-          (#2=#:G234 NIL) (|k| NIL) (|p| #3=(|Vector| D)) (|r| #3#)
+          (#2=#:G235 NIL) (|k| NIL) (|p| #3=(|Vector| D)) (|r| #3#)
           (|etak| (|Vector| (|NonNegativeInteger|))) (K (|NonNegativeInteger|))
           (|m| (|NonNegativeInteger|)) (|z| (|SparseUnivariatePolynomial| D)))
          (SEQ
@@ -671,9 +671,9 @@
 
 (DECLAIM (NOTINLINE |FractionFreeFastGaussian;|)) 
 
-(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G235)
+(DEFUN |FractionFreeFastGaussian| (&REST #1=#:G236)
   (SPROG NIL
-         (PROG (#2=#:G236)
+         (PROG (#2=#:G237)
            (RETURN
             (COND
              ((LETT #2#

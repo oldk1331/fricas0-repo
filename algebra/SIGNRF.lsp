@@ -109,8 +109,8 @@
 
 (SDEFUN |SIGNRF;psign| ((|p| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
         (SPROG
-         ((|ans| (|Integer|)) (#1=#:G152 NIL)
-          (|u| (|Union| (|Integer|) "failed")) (#2=#:G153 NIL) (|term| NIL)
+         ((|ans| (|Integer|)) (#1=#:G153 NIL)
+          (|u| (|Union| (|Integer|) "failed")) (#2=#:G154 NIL) (|term| NIL)
           (|s| (|Factored| (|Polynomial| R))) (|r| (|Union| R "failed")))
          (SEQ
           (EXIT
@@ -159,7 +159,7 @@
                                                    (PROGN
                                                     (LETT #1# (CONS 1 "failed")
                                                           . #3#)
-                                                    (GO #1#)))
+                                                    (GO #5=#:G152)))
                                                   ('T
                                                    (LETT |ans|
                                                          (* |ans| (QCDR |u|))
@@ -167,7 +167,7 @@
                                            (LETT #2# (CDR #2#) . #3#) (GO G190)
                                            G191 (EXIT NIL))
                                       (EXIT (CONS 0 |ans|))))))))))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |SIGNRF;sqfrSign|
         ((|p| |Polynomial| R) ($ |Union| (|Integer|) #1="failed"))
@@ -189,8 +189,8 @@
         ((|l| |List| (|Polynomial| R)) (|s| |Integer|)
          ($ |Union| (|Integer|) #1="failed"))
         (SPROG
-         ((#2=#:G162 NIL) (#3=#:G166 NIL) (|u| (|Union| (|Integer|) #1#))
-          (#4=#:G167 NIL) (|term| NIL))
+         ((#2=#:G168 NIL) (#3=#:G169 NIL) (|u| (|Union| (|Integer|) #1#))
+          (#4=#:G170 NIL) (|term| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -203,7 +203,9 @@
                       (EXIT
                        (COND
                         ((QEQCAR |u| 1)
-                         (PROGN (LETT #3# (CONS 1 "failed") . #5#) (GO #3#)))
+                         (PROGN
+                          (LETT #3# (CONS 1 "failed") . #5#)
+                          (GO #6=#:G167)))
                         ('T
                          (SEQ
                           (EXIT
@@ -213,17 +215,17 @@
                               (LETT #2#
                                     (PROGN
                                      (LETT #3# (CONS 1 "failed") . #5#)
-                                     (GO #3#))
+                                     (GO #6#))
                                     . #5#)
-                              (GO #2#)))))
-                          #2# (EXIT #2#))))))
+                              (GO #7=#:G163)))))
+                          #7# (EXIT #2#))))))
                  (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |s|))))
-          #3# (EXIT #3#)))) 
+          #6# (EXIT #3#)))) 
 
 (SDEFUN |SIGNRF;termSign|
         ((|term| |Polynomial| R) ($ |Union| (|Integer|) "failed"))
-        (SPROG ((#1=#:G172 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) (|var| NIL))
+        (SPROG ((#1=#:G178 NIL) (#2=#:G179 NIL) (#3=#:G180 NIL) (|var| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -243,21 +245,21 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 1 "failed") . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G177))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G175))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT
                    (SPADCALL (SPADCALL |term| (QREFELT $ 54))
                              (QREFELT $ 37)))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |RationalFunctionSign;|)) 
 
-(DEFUN |RationalFunctionSign| (#1=#:G176)
+(DEFUN |RationalFunctionSign| (#1=#:G181)
   (SPROG NIL
-         (PROG (#2=#:G177)
+         (PROG (#2=#:G182)
            (RETURN
             (COND
              ((LETT #2#

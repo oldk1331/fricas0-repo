@@ -10,7 +10,7 @@
           (|PatternMatchResult| S P))
          ($ |PatternMatchResult| S P))
         (SPROG
-         ((#1=#:G177 NIL)
+         ((#1=#:G185 NIL)
           (|ex|
            (|Union|
             (|Record| (|:| |var| V) (|:| |exponent| (|NonNegativeInteger|)))
@@ -216,9 +216,9 @@
                                                              (QCAR (QCDR |ep|))
                                                              |l| |vmatch|)
                                                             . #5#)
-                                                      (GO #1#))))))))))))
+                                                      (GO #6=#:G177))))))))))))
                                            (EXIT (SPADCALL (QREFELT $ 41)))))
-                                         #1#
+                                         #6#
                                          (EXIT #1#))))))))))))))))))))))))))) 
 
 (SDEFUN |PMPLCAT;patternMatch;PPPmrMPmr;2!2|
@@ -259,9 +259,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPolynomialCategory;|)) 
 
-(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G185)
+(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G186)
   (SPROG NIL
-         (PROG (#2=#:G186)
+         (PROG (#2=#:G187)
            (RETURN
             (COND
              ((LETT #2#

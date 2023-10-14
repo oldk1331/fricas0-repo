@@ -141,7 +141,7 @@
          ('T 'NIL))) 
 
 (SDEFUN |DROPT;option?;LSB;31| ((|l| |List| $) (|s| |Symbol|) ($ |Boolean|))
-        (SPROG ((#1=#:G152 NIL) (#2=#:G154 NIL) (#3=#:G155 NIL) (|x| NIL))
+        (SPROG ((#1=#:G155 NIL) (#2=#:G156 NIL) (#3=#:G157 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -158,17 +158,18 @@
                            (COND
                             ((EQUAL (QCAR |x|) |s|)
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#))
+                              (LETT #1#
+                                    (PROGN (LETT #2# 'T . #4#) (GO #5=#:G154))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G152))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT 'NIL)))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |DROPT;option;LSU;32|
         ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
-        (SPROG ((#1=#:G161 NIL) (#2=#:G166 NIL) (#3=#:G167 NIL) (|x| NIL))
+        (SPROG ((#1=#:G169 NIL) (#2=#:G170 NIL) (#3=#:G171 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -188,19 +189,19 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |x|)) . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G168))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G163))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |DrawOption;|)) 
 
 (DEFUN |DrawOption| ()
   (SPROG NIL
-         (PROG (#1=#:G169)
+         (PROG (#1=#:G173)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DrawOption|)

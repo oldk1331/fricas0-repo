@@ -215,12 +215,12 @@
         ((|mat| |Matrix| UP) (|vec| |Vector| UP) (|modulus| UP)
          ($ |Vector| UP))
         (SPROG
-         ((#1=#:G383 NIL)
+         ((#1=#:G384 NIL)
           (|bc|
            (|Union| (|Record| (|:| |coef1| UP) (|:| |coef2| UP)) "failed"))
-          (#2=#:G387 NIL) (|i| NIL)
-          (|sol| (|Union| (|Vector| (|Fraction| UP)) "failed")) (#3=#:G384 NIL)
-          (#4=#:G385 NIL) (|j| NIL) (#5=#:G386 NIL) (|k| NIL)
+          (#2=#:G388 NIL) (|i| NIL)
+          (|sol| (|Union| (|Vector| (|Fraction| UP)) "failed")) (#3=#:G385 NIL)
+          (#4=#:G386 NIL) (|j| NIL) (#5=#:G387 NIL) (|k| NIL)
           (|ans| (|Vector| UP)))
          (SEQ
           (EXIT
@@ -251,7 +251,7 @@
                         ((QEQCAR |bc| 1)
                          (PROGN
                           (LETT #1# (MAKEARR1 0 (|spadConstant| $ 52)) . #6#)
-                          (GO #1#)))
+                          (GO #7=#:G383)))
                         ('T (QSETAREF1O |ans| |i| (QCAR (QCDR |bc|)) 1)))))
                      (LETT |i|
                            (PROG1 (+ |i| 1)
@@ -262,7 +262,7 @@
                            . #6#)
                      (GO G190) G191 (EXIT NIL))
                 (EXIT |ans|)))
-              (#7='T
+              (#8='T
                (SEQ
                 (LETT |sol|
                       (SPADCALL (SPADCALL (ELT $ 61) |mat| (QREFELT $ 65))
@@ -271,7 +271,7 @@
                       . #6#)
                 (EXIT
                  (COND ((QEQCAR |sol| 1) (MAKEARR1 0 (|spadConstant| $ 52)))
-                       (#7#
+                       (#8#
                         (SEQ
                          (SEQ (LETT |i| (SPADCALL |ans| (QREFELT $ 38)) . #6#)
                               (LETT #2# (QVSIZE |ans|) . #6#) G190
@@ -290,7 +290,7 @@
                                   (PROGN
                                    (LETT #1# (MAKEARR1 0 (|spadConstant| $ 52))
                                          . #6#)
-                                   (GO #1#)))
+                                   (GO #7#)))
                                  ('T
                                   (QSETAREF1O |ans| |i|
                                               (SPADCALL
@@ -305,13 +305,13 @@
                               (LETT |i| (+ |i| 1) . #6#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT |ans|)))))))))))
-          #1# (EXIT #1#)))) 
+          #7# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |AlgebraicHermiteIntegration;|)) 
 
-(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G388)
+(DEFUN |AlgebraicHermiteIntegration| (&REST #1=#:G389)
   (SPROG NIL
-         (PROG (#2=#:G389)
+         (PROG (#2=#:G390)
            (RETURN
             (COND
              ((LETT #2#

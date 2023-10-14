@@ -24,7 +24,7 @@
 
 (SDEFUN |IBATOOL;matrixGcd;MRNniR;2|
         ((|mat| |Matrix| R) (|sing| R) (|n| |NonNegativeInteger|) ($ R))
-        (SPROG ((#1=#:G123 NIL) (|d| (R)) (|mij| (R)) (|j| NIL) (|i| NIL))
+        (SPROG ((#1=#:G124 NIL) (|d| (R)) (|mij| (R)) (|j| NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |d| |sing| . #2=(|IBATOOL;matrixGcd;MRNniR;2|))
@@ -48,18 +48,20 @@
                                     (COND
                                      ((SPADCALL |d| (|spadConstant| $ 9)
                                                 (QREFELT $ 20))
-                                      (PROGN (LETT #1# |d| . #2#) (GO #1#))))))
+                                      (PROGN
+                                       (LETT #1# |d| . #2#)
+                                       (GO #3=#:G123))))))
                                   (LETT |j| (+ |j| 1) . #2#) (GO G190) G191
                                   (EXIT NIL))))
                            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT |d|)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |IBATOOL;divideIfCan!;2MRIR;3|
         ((|matrix| |Matrix| R) (|matrixOut| |Matrix| R) (|prime| R)
          (|n| |Integer|) ($ R))
-        (SPROG ((#1=#:G131 NIL) (|a| (|Union| R "failed")) (|j| NIL) (|i| NIL))
+        (SPROG ((#1=#:G133 NIL) (|a| (|Union| R "failed")) (|j| NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -77,7 +79,9 @@
                                (EXIT
                                 (COND
                                  ((QEQCAR |a| 1)
-                                  (PROGN (LETT #1# |prime| . #2#) (GO #1#)))
+                                  (PROGN
+                                   (LETT #1# |prime| . #2#)
+                                   (GO #3=#:G132)))
                                  ('T
                                   (QSETAREF2O |matrixOut| |i| |j| (QCDR |a|) 1
                                               1)))))
@@ -86,7 +90,7 @@
                        (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT (|spadConstant| $ 9))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |IBATOOL;leastPower;3Nni;4|
         ((|p| . #1=(|NonNegativeInteger|)) (|n| |NonNegativeInteger|)
@@ -103,8 +107,8 @@
 (SDEFUN |IBATOOL;idealiserMatrix;3M;5|
         ((|ideal| |Matrix| R) (|idealinv| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G144 NIL) (|k| NIL) (#2=#:G143 NIL) (|j| NIL)
-          (|m| (|Matrix| R)) (|r| (|Matrix| R)) (#3=#:G142 NIL) (|i| NIL)
+         ((#1=#:G146 NIL) (|k| NIL) (#2=#:G145 NIL) (|j| NIL)
+          (|m| (|Matrix| R)) (|r| (|Matrix| R)) (#3=#:G144 NIL) (|i| NIL)
           (|v| (|Vector| F)) (|mc| (|Integer|)) (|mr| (|Integer|))
           (|bigm| (|Matrix| R)) (|n| (|PositiveInteger|)))
          (SEQ
@@ -162,7 +166,7 @@
 (SDEFUN |IBATOOL;idealiser;2MRM;7|
         ((|ideal| |Matrix| R) (|idealinv| |Matrix| R) (|denom| R)
          ($ |Matrix| R))
-        (SPROG ((|bigm| (|Matrix| R)) (#1=#:G148 NIL))
+        (SPROG ((|bigm| (|Matrix| R)) (#1=#:G150 NIL))
                (SEQ
                 (LETT |bigm|
                       (PROG2
@@ -240,9 +244,9 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisTools;|)) 
 
-(DEFUN |IntegralBasisTools| (&REST #1=#:G165)
+(DEFUN |IntegralBasisTools| (&REST #1=#:G167)
   (SPROG NIL
-         (PROG (#2=#:G166)
+         (PROG (#2=#:G168)
            (RETURN
             (COND
              ((LETT #2#

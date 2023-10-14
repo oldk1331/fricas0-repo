@@ -125,7 +125,7 @@
 
 (SDEFUN |MAGCDT2;is_zero?| ((|v| |U32Vector|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G145 NIL) (#2=#:G147 NIL) (|i| NIL)
+         ((#1=#:G148 NIL) (#2=#:G149 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -139,13 +139,14 @@
                          (COND
                           ((SPADCALL (ELT_U32 |v| |i|) 0 (QREFELT $ 8))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# 'NIL . #3#) (GO #2#))
+                            (LETT #1#
+                                  (PROGN (LETT #2# 'NIL . #3#) (GO #4=#:G147))
                                   . #3#)
-                            (GO #1#))))))
+                            (GO #5=#:G145))))))
                        (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-                 #1# (EXIT #1#))
+                 #5# (EXIT #1#))
                 (EXIT 'T)))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;zero?;PaB;6|
         ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Boolean|))
@@ -154,7 +155,7 @@
 (SDEFUN |MAGCDT2;degree;PaI;7|
         ((|v| |PrimitiveArray| (|U32Vector|)) ($ |Integer|))
         (SPROG
-         ((#1=#:G150 NIL) (#2=#:G152 NIL) (|i| NIL)
+         ((#1=#:G155 NIL) (#2=#:G156 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -168,18 +169,19 @@
                          (COND
                           ((NULL (|MAGCDT2;is_zero?| (QAREF1 |v| |i|) $))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# |i| . #3#) (GO #2#))
+                            (LETT #1#
+                                  (PROGN (LETT #2# |i| . #3#) (GO #4=#:G154))
                                   . #3#)
-                            (GO #1#))))))
+                            (GO #5=#:G152))))))
                        (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-                 #1# (EXIT #1#))
+                 #5# (EXIT #1#))
                 (EXIT -1)))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;leadingCoefficient|
         ((|v| |PrimitiveArray| (|U32Vector|)) ($ |U32Vector|))
         (SPROG
-         ((#1=#:G154 NIL) (#2=#:G156 NIL) (|pp| (|U32Vector|)) (|i| NIL)
+         ((#1=#:G161 NIL) (#2=#:G162 NIL) (|pp| (|U32Vector|)) (|i| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -195,13 +197,14 @@
                             (|MAGCDT2;is_zero?|
                              (LETT |pp| (QAREF1 |v| |i|) . #3#) $))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# |pp| . #3#) (GO #2#))
+                            (LETT #1#
+                                  (PROGN (LETT #2# |pp| . #3#) (GO #4=#:G160))
                                   . #3#)
-                            (GO #1#))))))
+                            (GO #5=#:G158))))))
                        (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))
-                 #1# (EXIT #1#))
+                 #5# (EXIT #1#))
                 (EXIT (GETREFV_U32 1 0))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |MAGCDT2;canonicalIfCan;PaRU;9|
         ((|x| |PrimitiveArray| (|U32Vector|))
@@ -210,7 +213,7 @@
          ($ |Union| (|PrimitiveArray| (|U32Vector|)) "failed"))
         (SPROG
          ((|npp| (|U32Vector|)) (|dnpp| #1=(|Integer|)) (|dpp| #1#)
-          (|pp| (|U32Vector|)) (#2=#:G170 NIL) (|l| NIL)
+          (|pp| (|U32Vector|)) (#2=#:G176 NIL) (|l| NIL)
           (|res| (|PrimitiveArray| (|U32Vector|))) (|dx| (|Integer|))
           (|icl| (|U32Vector|)) (|rr1| (|U32Vector|))
           (|rr| (|List| (|U32Vector|))) (|cl| (|U32Vector|)) (|p| (|Integer|))
@@ -256,8 +259,8 @@
         (SPROG
          ((|npp1| (|U32Vector|)) (|degnpp1| #2=(|Integer|)) (|degpp1| #2#)
           (|pp1| #3=(|U32Vector|)) (|dp2| #2#) (|dp1| #2#) (|pp2| #3#)
-          (|l1| (|NonNegativeInteger|)) (#4=#:G181 NIL) (|l| NIL)
-          (#5=#:G180 NIL) (|del| #6=(|NonNegativeInteger|)) (|p| (|Integer|))
+          (|l1| (|NonNegativeInteger|)) (#4=#:G187 NIL) (|l| NIL)
+          (#5=#:G186 NIL) (|del| #6=(|NonNegativeInteger|)) (|p| (|Integer|))
           (|m| (|U32Vector|)) (|res| (|PrimitiveArray| (|U32Vector|)))
           (|i1| #6#) (|c| #7=(|U32Vector|)) (|cy| #7#) (|j| #8=(|Integer|))
           (|i| #8#))
@@ -340,7 +343,7 @@
 
 (DEFUN |ModularAlgebraicGcdTools2| ()
   (SPROG NIL
-         (PROG (#1=#:G185)
+         (PROG (#1=#:G191)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularAlgebraicGcdTools2|)

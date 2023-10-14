@@ -446,7 +446,7 @@
           (|:| |minors| (|List| (|List| (|PositiveInteger|))))
           (|:| |ops| (|List| L))))
         (SPROG
-         ((#1=#:G173 NIL) (#2=#:G175 NIL) (|u| (|Union| (|Matrix| R) "failed"))
+         ((#1=#:G176 NIL) (#2=#:G177 NIL) (|u| (|Union| (|Matrix| R) "failed"))
           (|i| NIL) (|n| (|NonNegativeInteger|)) (|a| (|Vector| (|Matrix| R)))
           (|rec|
            (|Record| (|:| |mat| (|Matrix| R))
@@ -476,16 +476,16 @@
                                      (|ASSOCEQ;makeeq| (QCDR |rec|) (QCDR |u|)
                                       |i| |n| $)
                                      . #3#)
-                               (GO #2#))
+                               (GO #4=#:G175))
                               . #3#)
-                        (GO #1#))))))
+                        (GO #5=#:G173))))))
                    (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
+             #5# (EXIT #1#))
             (EXIT (|error| "associatedEquations: full degenerate case"))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |ASSOCEQ;makeop| ((|v| |Vector| R) ($ L))
-        (SPROG ((|op| (L)) (#1=#:G179 NIL) (|i| NIL))
+        (SPROG ((|op| (L)) (#1=#:G181 NIL) (|i| NIL))
                (SEQ (LETT |op| (|spadConstant| $ 23) . #2=(|ASSOCEQ;makeop|))
                     (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |v|) . #2#) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -504,9 +504,9 @@
 
 (DECLAIM (NOTINLINE |AssociatedEquations;|)) 
 
-(DEFUN |AssociatedEquations| (&REST #1=#:G180)
+(DEFUN |AssociatedEquations| (&REST #1=#:G182)
   (SPROG NIL
-         (PROG (#2=#:G181)
+         (PROG (#2=#:G183)
            (RETURN
             (COND
              ((LETT #2#

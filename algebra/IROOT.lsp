@@ -185,7 +185,7 @@
 (SDEFUN |IROOT;approxSqrt;2I;7| ((|a| I) ($ I))
         (SPROG
          ((|old| (I)) (|new| (I)) (|#G18| (I)) (|#G17| (I)) (|#G16| (I))
-          (|#G15| (I)) (#1=#:G159 NIL) (|s| (I)) (|n| (I)))
+          (|#G15| (I)) (#1=#:G160 NIL) (|s| (I)) (|n| (I)))
          (SEQ
           (EXIT
            (COND
@@ -222,7 +222,7 @@
                              (SPADCALL |a| |s| (QREFELT $ 38)) (QREFELT $ 24))
                             (QREFELT $ 12) (QREFELT $ 38))
                            . #2#)
-                     (GO #1#))))))))
+                     (GO #3=#:G159))))))))
               (PROGN
                (LETT |#G15|
                      (SPADCALL (|spadConstant| $ 8)
@@ -252,13 +252,13 @@
                       (LETT |old| |#G18| . #2#))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |new|)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |IntegerRoots;|)) 
 
-(DEFUN |IntegerRoots| (#1=#:G160)
+(DEFUN |IntegerRoots| (#1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

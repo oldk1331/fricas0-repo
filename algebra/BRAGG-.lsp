@@ -52,7 +52,7 @@
                                   (SPADCALL |x| (QREFELT $ 11))))))))) 
 
 (SDEFUN |BRAGG-;node?;2AB;7| ((|u| A) (|v| A) ($ |Boolean|))
-        (SPROG ((#1=#:G154 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (|y| NIL))
+        (SPROG ((#1=#:G158 NIL) (#2=#:G159 NIL) (#3=#:G160 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |v| (QREFELT $ 15)) 'NIL)
@@ -74,14 +74,16 @@
                                    ((SPADCALL |u| |y| (QREFELT $ 31))
                                     (PROGN
                                      (LETT #1#
-                                           (PROGN (LETT #2# 'T . #4#) (GO #2#))
+                                           (PROGN
+                                            (LETT #2# 'T . #4#)
+                                            (GO #5=#:G157))
                                            . #4#)
-                                     (GO #1#))))))
+                                     (GO #6=#:G154))))))
                                 (LETT #3# (CDR #3#) . #4#) (GO G190) G191
                                 (EXIT NIL)))
-                          #1# (EXIT #1#))
+                          #6# (EXIT #1#))
                          (EXIT 'NIL)))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;=;2AB;8| ((|x| A) (|y| A) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15)))
@@ -156,7 +158,7 @@
 
 (SDEFUN |BRAGG-;aggCount|
         ((|x| A) (|k| |NonNegativeInteger|) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G181 NIL) (|y| NIL))
+        (SPROG ((#1=#:G183 NIL) (|y| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
                       ('T
@@ -186,7 +188,7 @@
               ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
 
 (SDEFUN |BRAGG-;isCycle?| ((|x| A) (|acc| |List| A) ($ |Boolean|))
-        (SPROG ((#1=#:G186 NIL) (#2=#:G190 NIL) (#3=#:G191 NIL) (|y| NIL))
+        (SPROG ((#1=#:G193 NIL) (#2=#:G194 NIL) (#3=#:G195 NIL) (|y| NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |x| (QREFELT $ 15)) 'NIL)
@@ -213,17 +215,17 @@
                                        (LETT #1#
                                              (PROGN
                                               (LETT #2# 'T . #5#)
-                                              (GO #2#))
+                                              (GO #6=#:G192))
                                              . #5#)
-                                       (GO #1#))))))))
+                                       (GO #7=#:G188))))))))
                                 (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                                 (EXIT NIL)))
-                          #1# (EXIT #1#))
+                          #7# (EXIT #1#))
                          (EXIT 'NIL)))))
-                #2# (EXIT #2#)))) 
+                #6# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;eqMember?| ((|y| A) (|l| |List| A) ($ |Boolean|))
-        (SPROG ((#1=#:G193 NIL) (#2=#:G195 NIL) (#3=#:G196 NIL) (|x| NIL))
+        (SPROG ((#1=#:G200 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -240,13 +242,14 @@
                            (COND
                             ((SPADCALL |x| |y| (QREFELT $ 46))
                              (PROGN
-                              (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#))
+                              (LETT #1#
+                                    (PROGN (LETT #2# 'T . #4#) (GO #5=#:G199))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G197))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT 'NIL)))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |BRAGG-;setelt;Aleft2A;16| ((|x| A) (T5 "left") (|b| A) ($ A))
         (SPADCALL |x| |b| (QREFELT $ 47))) 

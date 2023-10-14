@@ -739,13 +739,13 @@
 
 (SDEFUN |FFCAT-;normalizeAtInfinity;2V;29| ((|w| |Vector| S) ($ |Vector| S))
         (SPROG
-         ((#1=#:G285 NIL) (#2=#:G284 (S)) (#3=#:G286 (S)) (#4=#:G297 NIL)
+         ((#1=#:G285 NIL) (#2=#:G284 (S)) (#3=#:G286 (S)) (#4=#:G298 NIL)
           (|i| NIL)
           (|pr| (|Record| (|:| |pos| (|Integer|)) (|:| |km| (|Integer|))))
-          (|sol| (|Vector| (|Fraction| F))) (#5=#:G291 NIL)
-          (|solList| (|List| (|Vector| (|Fraction| F)))) (#6=#:G296 NIL)
-          (|j| NIL) (#7=#:G295 NIL) (|r| (|Vector| (|Fraction| UP)))
-          (#8=#:G292 NIL) (#9=#:G294 NIL) (#10=#:G293 NIL)
+          (|sol| (|Vector| (|Fraction| F))) (#5=#:G292 NIL)
+          (|solList| (|List| (|Vector| (|Fraction| F)))) (#6=#:G297 NIL)
+          (|j| NIL) (#7=#:G296 NIL) (|r| (|Vector| (|Fraction| UP)))
+          (#8=#:G293 NIL) (#9=#:G295 NIL) (#10=#:G294 NIL)
           (|m| (|Matrix| (|Fraction| UP))) (|ii| (|Integer|))
           (|mhat| (|Matrix| (|Fraction| UP)))
           (|infm| (|Matrix| (|Fraction| UP))) (|ans| (|Vector| S)))
@@ -818,7 +818,7 @@
                    (EXIT
                     (COND
                      ((NULL |solList|)
-                      (PROGN (LETT #5# |ans| . #11#) (GO #5#)))
+                      (PROGN (LETT #5# |ans| . #11#) (GO #13=#:G291)))
                      ('T
                       (SEQ (LETT |sol| (|SPADfirst| |solList|) . #11#)
                            (LETT |pr| (|FFCAT-;kmin| |m| |sol| $) . #11#)
@@ -867,7 +867,7 @@
                                                ('T (|spadConstant| $ 119))))
                                         1)))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #5# (EXIT #5#)))) 
+          #13# (EXIT #5#)))) 
 
 (SDEFUN |FFCAT-;integral?;SUPB;30| ((|f| S) (|p| UP) ($ |Boolean|))
         (SPROG ((|r| (|Union| F "failed")))

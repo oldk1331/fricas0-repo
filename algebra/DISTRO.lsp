@@ -160,7 +160,7 @@
          (|coef| |Sequence| R) ($ $))
         (SPROG
          ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| #2=(|Stream| R))
-          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G150 NIL) (|chi| (|Stream| R)))
+          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G151 NIL) (|chi| (|Stream| R)))
          (SEQ
           (EXIT
            (COND
@@ -188,7 +188,7 @@
                                  (QREFELT $ 13))
                        (QREFELT $ 14))
                       . #4#)
-                (GO #3#)))))
+                (GO #5=#:G150)))))
             ((SPADCALL |puiseux| (SPADCALL 1 2 (QREFELT $ 65)) (QREFELT $ 60))
              (COND
               ((SPADCALL |laurent|
@@ -218,9 +218,9 @@
                      (SPADCALL
                       (SPADCALL (SPADCALL |psi| (QREFELT $ 22)) (QREFELT $ 13))
                       (QREFELT $ 14)))))
-              (#5='T (|error| "Not an S-transform"))))
-            (#5# (|error| "Not an S-transform"))))
-          #3# (EXIT #3#)))) 
+              (#6='T (|error| "Not an S-transform"))))
+            (#6# (|error| "Not an S-transform"))))
+          #5# (EXIT #3#)))) 
 
 (SDEFUN |DISTRO;distributionBySTransform;R$;23|
         ((S |Record| (|:| |puiseux| (|Fraction| (|Integer|)))
@@ -230,7 +230,7 @@
 
 (SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;24| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((|Sxyc| (|Stream| R)) (#1=#:G164 NIL) (|Syc| #2=(|Stream| R))
+         ((|Sxyc| (|Stream| R)) (#1=#:G166 NIL) (|Syc| #2=(|Stream| R))
           (|Sxc| #2#)
           (|Sy|
            #3=(|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
@@ -266,14 +266,14 @@
                                        (SPADCALL |Sxyc| (QREFELT $ 13))
                                        (QREFELT $ 69))
                              . #4#)
-                       (GO #1#)))))
+                       (GO #5=#:G165)))))
                ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 65))
                           (QREFELT $ 60))
                 (LETT |Sxyc|
                       (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 74))
                                 (QREFELT $ 63))
                       . #4#))
-               (#5='T
+               (#6='T
                 (LETT |Sxyc|
                       (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 74)) |Syc|
                                 (QREFELT $ 63))
@@ -284,7 +284,7 @@
                     (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 74))
                               (QREFELT $ 63))
                     . #4#))
-             (#5#
+             (#6#
               (LETT |Sxyc|
                     (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 74)) |Syc|
                               (QREFELT $ 63))
@@ -293,7 +293,7 @@
              (SPADCALL (SPADCALL 1 2 (QREFELT $ 65))
                        (SPADCALL (|spadConstant| $ 58) (QREFELT $ 66))
                        (SPADCALL |Sxyc| (QREFELT $ 13)) (QREFELT $ 69)))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |DISTRO;coerce;$Of;25| ((|x| $) ($ |OutputForm|))
         (SPADCALL (QVELT (|DISTRO;rep| |x| $) 0) (QREFELT $ 77))) 
@@ -487,9 +487,9 @@
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G220)
+(DEFUN |Distribution| (#1=#:G222)
   (SPROG NIL
-         (PROG (#2=#:G221)
+         (PROG (#2=#:G223)
            (RETURN
             (COND
              ((LETT #2#

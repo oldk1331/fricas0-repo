@@ -21,7 +21,7 @@
                        (EXIT |h|)))))))) 
 
 (SDEFUN |HEAP;siftUp| ((|r| $) (|i| |Integer|) (|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G117 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
+        (SPROG ((#1=#:G120 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
                (SEQ
                 (LETT |t| (SPADCALL |r| |i| (QREFELT $ 14))
                       . #3=(|HEAP;siftUp|))
@@ -56,9 +56,12 @@
                                        (QREFELT $ 19))
                              (SPADCALL |r| |j| |t| (QREFELT $ 19))
                              (EXIT (LETT |i| |j| . #3#))))
-                           ('T (PROGN (LETT #1# |$NoValue| . #3#) (GO #1#))))))
+                           ('T
+                            (PROGN
+                             (LETT #1# |$NoValue| . #3#)
+                             (GO #4=#:G117))))))
                         NIL (GO G190) G191 (EXIT NIL)))
-                  #1# (EXIT #1#)))))) 
+                  #4# (EXIT #1#)))))) 
 
 (SDEFUN |HEAP;extract!;$S;4| ((|r| $) ($ S))
         (SPROG ((|t| (S)) (|n| (|Integer|)))
@@ -80,7 +83,7 @@
                                           (EXIT |t|)))))))))))) 
 
 (SDEFUN |HEAP;insert!;S2$;5| ((|x| S) (|r| $) ($ $))
-        (SPROG ((|j| (|Integer|)) (#1=#:G126 NIL) (|i| (|Integer|)))
+        (SPROG ((|j| (|Integer|)) (#1=#:G130 NIL) (|i| (|Integer|)))
                (SEQ
                 (LETT |j| (SPADCALL |r| (QREFELT $ 21))
                       . #2=(|HEAP;insert!;S2$;5|))
@@ -99,12 +102,14 @@
                             (COND
                              ((SPADCALL (SPADCALL |r| |i| (QREFELT $ 14)) |x|
                                         (QREFELT $ 27))
-                              (PROGN (LETT #1# |$NoValue| . #2#) (GO #1#))))
+                              (PROGN
+                               (LETT #1# |$NoValue| . #2#)
+                               (GO #3=#:G127))))
                             (SPADCALL |r| |j| (SPADCALL |r| |i| (QREFELT $ 14))
                                       (QREFELT $ 19))
                             (EXIT (LETT |j| |i| . #2#)))
                        NIL (GO G190) G191 (EXIT NIL)))
-                 #1# (EXIT #1#))
+                 #3# (EXIT #1#))
                 (SPADCALL |r| |j| |x| (QREFELT $ 19)) (EXIT |r|)))) 
 
 (SDEFUN |HEAP;max;$S;6| ((|r| $) ($ S))
@@ -134,9 +139,9 @@
 
 (DECLAIM (NOTINLINE |Heap;|)) 
 
-(DEFUN |Heap| (#1=#:G143)
+(DEFUN |Heap| (#1=#:G145)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G146)
            (RETURN
             (COND
              ((LETT #2#
@@ -152,7 +157,7 @@
 
 (DEFUN |Heap;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G140 NIL) (#2=#:G141 NIL) (#3=#:G142 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G142 NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|Heap|))

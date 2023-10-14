@@ -70,7 +70,7 @@
          (EXIT (SPADCALL (ELT $ 38) |lts| (QREFELT $ 42))))) 
 
 (SDEFUN |SFQCMPK;moreAlgebraic?;2TSB;6| ((|ts| TS) (|us| TS) ($ |Boolean|))
-        (SPROG ((#1=#:G194 NIL) (#2=#:G199 NIL) (#3=#:G200 NIL) (|p| NIL))
+        (SPROG ((#1=#:G200 NIL) (#2=#:G201 NIL) (#3=#:G202 NIL) (|p| NIL))
                (SEQ
                 (EXIT
                  (COND
@@ -97,16 +97,17 @@
                             (SPADCALL (SPADCALL |p| (QREFELT $ 45)) |ts|
                                       (QREFELT $ 46)))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
+                            (LETT #1#
+                                  (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G199))
                                   . #4#)
-                            (GO #1#))))))
+                            (GO #6=#:G194))))))
                        (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                     #1# (EXIT #1#))
+                     #6# (EXIT #1#))
                     (EXIT 'T)))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |SFQCMPK;subTriSet?;2TSB;7| ((|ts| TS) (|us| TS) ($ |Boolean|))
-        (SPROG ((#1=#:G202 NIL) (#2=#:G205 NIL))
+        (SPROG ((#1=#:G204 NIL) (#2=#:G207 NIL))
                (COND ((SPADCALL |ts| (QREFELT $ 44)) 'T)
                      ((OR (SPADCALL |us| (QREFELT $ 44))
                           (SPADCALL (SPADCALL |ts| (QREFELT $ 48))
@@ -191,9 +192,9 @@
 (SDEFUN |SFQCMPK;internalSubQuasiComponent?;2TSU;13|
         ((|ts| TS) (|us| TS) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((#1=#:G259 NIL) (|b| (|Boolean|)) (#2=#:G262 NIL) (|p| NIL)
-          (|lsfp| (|List| P)) (#3=#:G251 NIL) (#4=#:G261 NIL) (#5=#:G249 NIL)
-          (#6=#:G246 NIL) (#7=#:G260 NIL))
+         ((#1=#:G264 NIL) (|b| (|Boolean|)) (#2=#:G267 NIL) (|p| NIL)
+          (|lsfp| (|List| P)) (#3=#:G262 NIL) (#4=#:G266 NIL) (#5=#:G263 NIL)
+          (#6=#:G248 NIL) (#7=#:G265 NIL))
          (SEQ
           (EXIT
            (COND ((SPADCALL |us| |ts| (QREFELT $ 53)) (CONS 0 'T))
@@ -228,11 +229,11 @@
                            (LETT #5#
                                  (PROGN
                                   (LETT #1# (CONS 1 "failed") . #8#)
-                                  (GO #1#))
+                                  (GO #9=#:G261))
                                  . #8#)
-                           (GO #5#))))))
+                           (GO #10=#:G251))))))
                       (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL)))
-                    #5# (EXIT #5#))
+                    #10# (EXIT #5#))
                    (SEQ
                     (EXIT
                      (SEQ (LETT |p| NIL . #8#)
@@ -251,12 +252,12 @@
                                (LETT #3#
                                      (PROGN
                                       (LETT #1# (CONS 1 "failed") . #8#)
-                                      (GO #1#))
+                                      (GO #9#))
                                      . #8#)
-                               (GO #3#))))))
+                               (GO #11=#:G253))))))
                           (LETT #4# (CDR #4#) . #8#) (GO G190) G191
                           (EXIT NIL)))
-                    #3# (EXIT #3#))
+                    #11# (EXIT #3#))
                    (LETT |lsfp|
                          (|SFQCMPK;squareFreeFactors|
                           (SPADCALL |us| (QREFELT $ 69)) $)
@@ -271,16 +272,16 @@
                          (EXIT
                           (COND
                            ((NULL |b|)
-                            (PROGN (LETT #1# (CONS 0 'NIL) . #8#) (GO #1#))))))
+                            (PROGN (LETT #1# (CONS 0 'NIL) . #8#) (GO #9#))))))
                         (LETT #2# (CDR #2#) . #8#) (GO G190) G191 (EXIT NIL))
                    (EXIT (CONS 0 'T))))))
-          #1# (EXIT #1#)))) 
+          #9# (EXIT #1#)))) 
 
 (SDEFUN |SFQCMPK;internalSubQuasiComponent?;2TSU;14|
         ((|ts| TS) (|us| TS) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((#1=#:G273 NIL) (#2=#:G276 NIL) (#3=#:G278 NIL) (|p| NIL)
-          (#4=#:G271 NIL) (#5=#:G268 NIL) (#6=#:G277 NIL))
+         ((#1=#:G282 NIL) (#2=#:G284 NIL) (#3=#:G286 NIL) (|p| NIL)
+          (#4=#:G283 NIL) (#5=#:G273 NIL) (#6=#:G285 NIL))
          (SEQ
           (EXIT
            (COND ((SPADCALL |us| |ts| (QREFELT $ 53)) (CONS 0 'T))
@@ -315,11 +316,11 @@
                            (LETT #4#
                                  (PROGN
                                   (LETT #2# (CONS 1 "failed") . #7#)
-                                  (GO #2#))
+                                  (GO #8=#:G281))
                                  . #7#)
-                           (GO #4#))))))
+                           (GO #9=#:G276))))))
                       (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
-                    #4# (EXIT #4#))
+                    #9# (EXIT #4#))
                    (SEQ
                     (EXIT
                      (SEQ (LETT |p| NIL . #7#)
@@ -338,14 +339,14 @@
                                (LETT #1#
                                      (PROGN
                                       (LETT #2# (CONS 1 "failed") . #7#)
-                                      (GO #2#))
+                                      (GO #8#))
                                      . #7#)
-                               (GO #1#))))))
+                               (GO #10=#:G278))))))
                           (LETT #3# (CDR #3#) . #7#) (GO G190) G191
                           (EXIT NIL)))
-                    #1# (EXIT #1#))
+                    #10# (EXIT #1#))
                    (EXIT (CONS 0 'T))))))
-          #2# (EXIT #2#)))) 
+          #8# (EXIT #2#)))) 
 
 (SDEFUN |SFQCMPK;subQuasiComponent?;2TSB;15|
         ((|ts| TS) (|us| TS) ($ |Boolean|))
@@ -368,7 +369,7 @@
 
 (SDEFUN |SFQCMPK;subQuasiComponent?;TSLB;16|
         ((|ts| TS) (|lus| |List| TS) ($ |Boolean|))
-        (SPROG ((#1=#:G287 NIL) (#2=#:G289 NIL) (#3=#:G290 NIL) (|us| NIL))
+        (SPROG ((#1=#:G298 NIL) (#2=#:G299 NIL) (#3=#:G300 NIL) (|us| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -386,12 +387,13 @@
                        (COND
                         ((SPADCALL |ts| |us| (QREFELT $ 62))
                          (PROGN
-                          (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #2#)) . #4#)
-                          (GO #1#))))))
+                          (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #5=#:G297))
+                                . #4#)
+                          (GO #6=#:G295))))))
                      (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT 'NIL)))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |SFQCMPK;removeSuperfluousCases;2L;17|
         ((|cases| |List| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
@@ -404,7 +406,7 @@
            (|List| #2=(|Record| (|:| |val| (|List| P)) (|:| |tower| TS))))
           (|maxcases| #1#) (|toSave| (|List| #2#))
           (|lpwt1| (|Record| (|:| |val| (|List| P)) (|:| |tower| TS)))
-          (#3=#:G317 NIL) (|lpwt2| NIL))
+          (#3=#:G327 NIL) (|lpwt2| NIL))
          (SEQ
           (COND ((< (LENGTH |cases|) 2) |cases|)
                 ('T
@@ -487,7 +489,7 @@
         (SPROG
          ((|toSee| (|List| TS)) (|headmaxlts| #1=(|List| TS))
           (|copymaxlts| (|List| TS)) (|maxlts| #1#) (|toSave| (|List| TS))
-          (|ts| (TS)) (#2=#:G334 NIL) (|us| NIL))
+          (|ts| (TS)) (#2=#:G344 NIL) (|us| NIL))
          (SEQ
           (LETT |lts| (SPADCALL |lts| (QREFELT $ 40))
                 . #3=(|SFQCMPK;removeSuperfluousQuasiComponents;2L;18|))
@@ -563,7 +565,7 @@
                        (EXIT (SPADCALL |maxlts| (QREFELT $ 43)))))))))) 
 
 (SDEFUN |SFQCMPK;removeAssociates| ((|lp| |List| P) ($ |List| P))
-        (SPROG ((#1=#:G338 NIL) (|p| NIL) (#2=#:G337 NIL))
+        (SPROG ((#1=#:G348 NIL) (|p| NIL) (#2=#:G347 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -588,10 +590,10 @@
                     (|:| |ineq| (|List| P)))
           "failed"))
         (SPROG
-         ((|newleq| (|List| P)) (#1=#:G373 NIL) (|newp| (P)) (#2=#:G359 NIL)
-          (|g| (P)) (#3=#:G377 NIL) (|q| NIL) (#4=#:G376 NIL) (|p| NIL)
-          (#5=#:G357 NIL) (#6=#:G375 NIL) (#7=#:G352 NIL) (#8=#:G374 NIL)
-          (|ps| (|GeneralPolynomialSet| R E V P)) (#9=#:G346 NIL))
+         ((|newleq| (|List| P)) (#1=#:G387 NIL) (|newp| (P)) (#2=#:G369 NIL)
+          (|g| (P)) (#3=#:G391 NIL) (|q| NIL) (#4=#:G390 NIL) (|p| NIL)
+          (#5=#:G384 NIL) (#6=#:G389 NIL) (#7=#:G385 NIL) (#8=#:G388 NIL)
+          (|ps| (|GeneralPolynomialSet| R E V P)) (#9=#:G386 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -608,15 +610,17 @@
                    ((SPADCALL (ELT $ 87) |leq| (QREFELT $ 88))
                     (PROGN
                      (LETT #9#
-                           (PROGN (LETT #1# (CONS 1 "failed") . #10#) (GO #1#))
+                           (PROGN
+                            (LETT #1# (CONS 1 "failed") . #10#)
+                            (GO #11=#:G383))
                            . #10#)
-                     (GO #9#)))))))
-               #9# (EXIT #9#))))
+                     (GO #12=#:G356)))))))
+               #12# (EXIT #9#))))
             (COND
              (|b2|
               (COND
                ((SPADCALL (ELT $ 68) |lineq| (QREFELT $ 88))
-                (PROGN (LETT #1# (CONS 1 "failed") . #10#) (GO #1#)))
+                (PROGN (LETT #1# (CONS 1 "failed") . #10#) (GO #11#)))
                ('T (LETT |lineq| (SPADCALL |lineq| (QREFELT $ 89)) . #10#)))))
             (COND
              (|b3|
@@ -639,12 +643,12 @@
                                 (LETT #7#
                                       (PROGN
                                        (LETT #1# (CONS 1 "failed") . #10#)
-                                       (GO #1#))
+                                       (GO #11#))
                                       . #10#)
-                                (GO #7#))))))
+                                (GO #13=#:G362))))))
                            (LETT #8# (CDR #8#) . #10#) (GO G190) G191
                            (EXIT NIL)))
-                     #7# (EXIT #7#))))))
+                     #13# (EXIT #7#))))))
             (COND
              ((OR (NULL |leq|) (NULL |lineq|))
               (EXIT (CONS 0 (VECTOR |leq| |ts| |lineq|)))))
@@ -665,11 +669,11 @@
                           (LETT #5#
                                 (PROGN
                                  (LETT #1# (CONS 1 "failed") . #10#)
-                                 (GO #1#))
+                                 (GO #11#))
                                 . #10#)
-                          (GO #5#))))))
+                          (GO #14=#:G367))))))
                      (LETT #6# (CDR #6#) . #10#) (GO G190) G191 (EXIT NIL)))
-               #5# (EXIT #5#))))
+               #14# (EXIT #5#))))
             (COND
              (|b5|
               (SEQ (LETT |newleq| NIL . #10#)
@@ -710,7 +714,7 @@
                                       ((SPADCALL |newp| (QREFELT $ 87))
                                        (PROGN
                                         (LETT #1# (CONS 1 "failed") . #10#)
-                                        (GO #1#)))
+                                        (GO #11#)))
                                       ('T
                                        (LETT |newleq| (CONS |newp| |newleq|)
                                              . #10#))))))
@@ -726,7 +730,7 @@
                             (QREFELT $ 19))
                   . #10#)
             (EXIT (CONS 0 (VECTOR |leq| |ts| |lineq|)))))
-          #1# (EXIT #1#)))) 
+          #11# (EXIT #1#)))) 
 
 (SDEFUN |SFQCMPK;prepareDecompose;LL2BL;21|
         ((|lp| |List| P) (|lts| |List| TS) (|b1| |Boolean|) (|b2| |Boolean|)
@@ -734,7 +738,7 @@
           (|Record| (|:| |eq| #1=(|List| P)) (|:| |tower| TS)
                     (|:| |ineq| #2=(|List| P)))))
         (SPROG
-         ((#3=#:G415 NIL) (|ts| (TS)) (#4=#:G414 NIL)
+         ((#3=#:G429 NIL) (|ts| (TS)) (#4=#:G428 NIL)
           (|toSee|
            (|List|
             (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
@@ -744,15 +748,15 @@
            (|List|
             (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
                       (|:| |ineq| (|List| P)))))
-          (#5=#:G386 NIL)
+          (#5=#:G400 NIL)
           (|newBranch|
            #6=(|Union|
                (|Record| (|:| |eq| (|List| P)) (|:| |tower| TS)
                          (|:| |ineq| (|List| P)))
                "failed"))
-          (|lineq| #2#) (|leq| #1#) (|ubf2| #6#) (|ubf1| #6#) (#7=#:G413 NIL)
-          (|branch| NIL) (#8=#:G412 NIL) (|f| NIL) (|lsfp| (|List| P))
-          (#9=#:G411 NIL) (|p| NIL) (#10=#:G410 NIL) (#11=#:G409 NIL))
+          (|lineq| #2#) (|leq| #1#) (|ubf2| #6#) (|ubf1| #6#) (#7=#:G427 NIL)
+          (|branch| NIL) (#8=#:G426 NIL) (|f| NIL) (|lsfp| (|List| P))
+          (#9=#:G425 NIL) (|p| NIL) (#10=#:G424 NIL) (#11=#:G423 NIL))
          (SEQ
           (LETT |lp|
                 (SPADCALL (ELT $ 16)
@@ -986,9 +990,9 @@
 
 (DECLAIM (NOTINLINE |SquareFreeQuasiComponentPackage;|)) 
 
-(DEFUN |SquareFreeQuasiComponentPackage| (&REST #1=#:G416)
+(DEFUN |SquareFreeQuasiComponentPackage| (&REST #1=#:G430)
   (SPROG NIL
-         (PROG (#2=#:G417)
+         (PROG (#2=#:G431)
            (RETURN
             (COND
              ((LETT #2#

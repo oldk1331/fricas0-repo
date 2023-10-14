@@ -339,7 +339,7 @@
 
 (SDEFUN |MODMON;exquo;2$U;29| ((|x| $) (|y| $) ($ |Union| $ "failed"))
         (SPROG
-         ((#1=#:G185 NIL)
+         ((#1=#:G186 NIL)
           (|uv| (|Union| (|Record| (|:| |coef1| $) (|:| |coef2| $)) "failed")))
          (SEQ
           (EXIT
@@ -355,8 +355,8 @@
                            (CONS 0
                                  (SPADCALL (QCAR (QCDR |uv|)) (QREFELT $ 42)))
                            . #2#)
-                     (GO #1#)))))))
-          #1# (EXIT #1#)))) 
+                     (GO #3=#:G185)))))))
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |MODMON;recip;$U;30| ((|y| $) ($ |Union| $ "failed"))
         (SPADCALL (|spadConstant| $ 8) |y| (QREFELT $ 87))) 
@@ -376,8 +376,8 @@
 
 (DEFUN |ModMonic| (|#1| |#2|)
   (SPROG
-   ((#1=#:G108 NIL) (#2=#:G238 NIL) (|pv$| NIL) (#3=#:G234 NIL) (#4=#:G235 NIL)
-    (#5=#:G236 NIL) (#6=#:G237 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G108 NIL) (#2=#:G239 NIL) (|pv$| NIL) (#3=#:G235 NIL) (#4=#:G236 NIL)
+    (#5=#:G237 NIL) (#6=#:G238 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|ModMonic|))
     (LETT DV$2 (|devaluate| |#2|) . #7#)

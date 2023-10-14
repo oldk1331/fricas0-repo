@@ -40,9 +40,9 @@
           (|vec| (|Vector| (|Integer|))) (|vt| (|Integer|)) (|jt| (|Integer|))
           (|t| (|PrimeField| |p1|)) (|pkn| (|PrimeField| |p1|))
           (|p1| (|NonNegativeInteger|))
-          (|multmat| (|Matrix| (|PrimeField| |p|))) (#2=#:G132 NIL)
+          (|multmat| (|Matrix| (|PrimeField| |p|))) (#2=#:G166 NIL)
           (|t1| (|PrimeField| (+ (* |k| |n|) (|One|))))
-          (|k| (|NonNegativeInteger|)) (|a| (|Integer|)) (#3=#:G166 NIL)
+          (|k| (|NonNegativeInteger|)) (|a| (|Integer|)) (#3=#:G167 NIL)
           (|p| (|NonNegativeInteger|)) (|q| (|NonNegativeInteger|)))
          (SEQ
           (LETT |q| (SPADCALL (QREFELT $ 17))
@@ -142,12 +142,12 @@
                                                                         (|One|)))))
                                               . #4#)))
                                   . #4#)
-                            (GO #2#)))))
-                        #2# (EXIT #2#))))))))))
+                            (GO #5=#:G132)))))
+                        #5# (EXIT #2#))))))))))
                (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND ((EQL |k| 0) (CONS 1 "failed"))
-                 (#5='T
+                 (#6='T
                   (SEQ
                    (LETT |multmat|
                          (SPADCALL |n| |n|
@@ -181,7 +181,7 @@
                                             (QREFELT $ 24))
                                   1)
                                  . #4#))))
-                    (#5#
+                    (#6#
                      (SEQ (LETT |jt| 1 . #4#)
                           (EXIT (LETT |vt| (+ (QUOTIENT2 |k| 2) 1) . #4#)))))
                    (LETT |vec| (SPADCALL |p1| (QREFELT $ 26)) . #4#)
@@ -521,7 +521,7 @@
         ((|m| |Vector|
           (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
          ($ |NonNegativeInteger|))
-        (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G174 NIL) (|i| NIL))
+        (SPROG ((|s| (|NonNegativeInteger|)) (#1=#:G175 NIL) (|i| NIL))
                (SEQ (LETT |s| 0 . #2=(|FFF;sizeMultiplication;VNni;3|))
                     (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |m|) . #2#) G190
                          (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -544,12 +544,12 @@
          ((|l|
            (|List|
             (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
-          (|term| #1#) (#2=#:G197 NIL) (|j| NIL) (|v| (|Vector| GF)) (|i| NIL)
+          (|term| #1#) (#2=#:G198 NIL) (|j| NIL) (|v| (|Vector| GF)) (|i| NIL)
           (|multtable|
            (|Vector|
             (|List|
              (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|))))))
-          (|mat| (|Matrix| GF)) (#3=#:G182 NIL)
+          (|mat| (|Matrix| GF)) (#3=#:G183 NIL)
           (|mat1| (|Union| (|Matrix| GF) "failed"))
           (|h| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
           (|g| (|ModMonic| GF (|SparseUnivariatePolynomial| GF)))
@@ -701,10 +701,10 @@
          ((|a|
            #1=(|SimpleAlgebraicExtension| GF (|SparseUnivariatePolynomial| GF)
                                           |f|))
-          (#2=#:G211 NIL) (|i| NIL) (#3=#:G210 NIL) (#4=#:G209 NIL)
+          (#2=#:G212 NIL) (|i| NIL) (#3=#:G211 NIL) (#4=#:G210 NIL)
           (|primElement| #1#)
           (|helparr| #5=(|PrimitiveArray| (|SingleInteger|))) (|zechlog| #5#)
-          (|qm1| (|SingleInteger|)) (|m| (|PositiveInteger|)) (#6=#:G198 NIL)
+          (|qm1| (|SingleInteger|)) (|m| (|PositiveInteger|)) (#6=#:G199 NIL)
           (|sizeGF| (|NonNegativeInteger|)))
          (SEQ
           (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
@@ -855,7 +855,7 @@
           (|List| (|Record| (|:| |value| GF) (|:| |index| (|SingleInteger|)))))
          ($ |Matrix| GF))
         (SPROG
-         ((#1=#:G218 NIL) (|t| NIL) (|i| NIL) (|mat| (|Matrix| GF))
+         ((#1=#:G219 NIL) (|t| NIL) (|i| NIL) (|mat| (|Matrix| GF))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (QVSIZE |m|) . #2=(|FFF;createMultiplicationMatrix;VM;6|))
@@ -879,9 +879,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
 
-(DEFUN |FiniteFieldFunctions| (#1=#:G219)
+(DEFUN |FiniteFieldFunctions| (#1=#:G220)
   (SPROG NIL
-         (PROG (#2=#:G220)
+         (PROG (#2=#:G221)
            (RETURN
             (COND
              ((LETT #2#

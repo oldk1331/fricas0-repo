@@ -195,7 +195,7 @@
           (|Integer|))
          ($ |Union| (|List| UP) #1#))
         (SPROG
-         ((#2=#:G207 NIL) (|rh| #3=(|Union| F "failed")) (|rb| #3#) (|ra| (F))
+         ((#2=#:G211 NIL) (|rh| #3=(|Union| F "failed")) (|rb| #3#) (|ra| (F))
           (|l| (|List| UP)) (|v| (|Union| (|List| UP) #1#))
           (|rec|
            (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP)))
@@ -203,7 +203,7 @@
            (|Union|
             (|Record| (|:| |z1| UP) (|:| |z2| UP) (|:| |r1| UP) (|:| |r2| UP))
             "failed"))
-          (|da| (|NonNegativeInteger|)) (#4=#:G182 NIL) (#5=#:G208 NIL)
+          (|da| (|NonNegativeInteger|)) (#4=#:G182 NIL) (#5=#:G212 NIL)
           (|u2| #6=(|Union| UP "failed")) (|u1| #6#) (|g| (UP)))
          (SEQ
           (COND
@@ -228,7 +228,7 @@
                             ((QEQCAR |u1| 1)
                              (PROGN
                               (LETT #5# (CONS 1 #9="failed") . #8#)
-                              (GO #5#)))
+                              (GO #10=#:G208)))
                             (#7#
                              (SEQ
                               (LETT |u2| (SPADCALL |c2| |g| (QREFELT $ 16))
@@ -238,7 +238,7 @@
                                 ((QEQCAR |u2| 1)
                                  (PROGN
                                   (LETT #5# (CONS 1 #9#) . #8#)
-                                  (GO #5#))))))))))
+                                  (GO #10#))))))))))
                      (LETT |a|
                            (PROG2
                                (LETT #4# (SPADCALL |a| |g| (QREFELT $ 16))
@@ -332,7 +332,7 @@
                                           (|RDETRS;DSPDEsys| |ra| |b| |h| |c1|
                                            |c2| |n| |derivation| $)
                                           . #8#)
-                                    (GO #2#)))
+                                    (GO #11=#:G207)))
                                   (#7#
                                    (SEQ
                                     (LETT |rh| (SPADCALL |h| (QREFELT $ 58))
@@ -345,12 +345,12 @@
                                               (|RDETRS;DSPDEsys| |ra| |b| |h|
                                                |c1| |c2| |n| |derivation| $)
                                               . #8#)
-                                        (GO #2#))))))))))
+                                        (GO #11#))))))))))
                                (EXIT
                                 (SPADCALL |ra| (QCDR |rb|) (QCDR |rh|) |c1|
                                           |c2| |n| |degradation|))))
-                         #2# (EXIT #2#)))))))
-                   #5# (EXIT #5#)))))))) 
+                         #11# (EXIT #2#)))))))
+                   #10# (EXIT #5#)))))))) 
 
 (SDEFUN |RDETRS;DSPDEsys|
         ((|a| F) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) (|n| |Integer|)
@@ -419,8 +419,8 @@
          ($ |Union| (|List| UP) #2#))
         (SPROG
          ((|ans2| (UP)) (|ans1| (UP)) (|q2| (UP)) (|q1| (UP))
-          (|lq| (|List| UP)) (#3=#:G231 NIL) (#4=#:G234 NIL) (|u| #1#)
-          (#5=#:G229 NIL))
+          (|lq| (|List| UP)) (#3=#:G237 NIL) (#4=#:G238 NIL) (|u| #1#)
+          (#5=#:G231 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -439,13 +439,13 @@
                          (EXIT
                           (PROGN
                            (LETT #4# (CONS 0 (LIST |ans1| |ans2|)) . #6#)
-                           (GO #4#)))))))
+                           (GO #7=#:G236)))))))
                      (COND
                       ((< |n| 0)
                        (EXIT
                         (PROGN
-                         (LETT #4# (CONS 1 #7="failed") . #6#)
-                         (GO #4#))))
+                         (LETT #4# (CONS 1 #8="failed") . #6#)
+                         (GO #7#))))
                       ('T
                        (SEQ
                         (LETT |u|
@@ -462,10 +462,10 @@
                            (PROGN
                             (LETT #3#
                                   (PROGN
-                                   (LETT #4# (CONS 1 #7#) . #6#)
-                                   (GO #4#))
+                                   (LETT #4# (CONS 1 #8#) . #6#)
+                                   (GO #7#))
                                   . #6#)
-                            (GO #3#))))))))
+                            (GO #9=#:G233))))))))
                      (LETT |lq| (QCDR |u|) . #6#)
                      (LETT |q1| (|SPADfirst| |lq|) . #6#)
                      (LETT |q2| (SPADCALL |lq| (QREFELT $ 30)) . #6#)
@@ -496,15 +496,15 @@
                      (EXIT
                       (LETT |ans2| (SPADCALL |ans2| |q2| (QREFELT $ 49))
                             . #6#))))
-                   #3# (EXIT #3#))
+                   #9# (EXIT #3#))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #4# (EXIT #4#)))) 
+          #7# (EXIT #4#)))) 
 
 (SDEFUN |RDETRS;DSPDEmix|
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) (|det| F) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G243 NIL)
+         ((|q2| (F)) (|q1| (F)) (|rh2| (F)) (#1=#:G248 NIL)
           (|d2| #2=(|Integer|)) (|rh1| (F)) (|d1| #2#))
          (SEQ
           (EXIT
@@ -520,7 +520,7 @@
                                  ((SPADCALL |d1| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5=#:G247)))
                                  (#3# (SPADCALL |c1| (QREFELT $ 59))))))))
                   . #4#)
             (LETT |rh2|
@@ -534,7 +534,7 @@
                                  ((SPADCALL |d2| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5#)))
                                  (#3# (SPADCALL |c2| (QREFELT $ 59))))))))
                   . #4#)
             (LETT |q1|
@@ -555,13 +555,13 @@
              (CONS 0
                    (LIST (SPADCALL |q1| |n| (QREFELT $ 66))
                          (SPADCALL |q2| |n| (QREFELT $ 66)))))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;DSPDEhdom|
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (UP)) (#1=#:G252 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G258 NIL) (|d2| #2=(|Integer|)) (|q1| (UP))
           (|d1| #2#))
          (SEQ
           (EXIT
@@ -577,7 +577,7 @@
                                  ((SPADCALL |d1| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5=#:G257)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c1| (QREFELT $ 59))
@@ -595,7 +595,7 @@
                                  ((SPADCALL |d2| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5#)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c2| (QREFELT $ 59))
@@ -603,13 +603,13 @@
                                    |n| (QREFELT $ 66))))))))
                   . #4#)
             (EXIT (CONS 0 (LIST |q1| |q2|)))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;DSPDEbdom|
         ((|c1| UP) (|c2| UP) (|lb| F) (|lh| F) (|n| |NonNegativeInteger|)
          (|d| |Integer|) ($ |Union| (|List| UP) "failed"))
         (SPROG
-         ((|q2| (UP)) (#1=#:G261 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
+         ((|q2| (UP)) (#1=#:G268 NIL) (|d1| #2=(|Integer|)) (|q1| (UP))
           (|d2| #2#))
          (SEQ
           (EXIT
@@ -625,7 +625,7 @@
                                  ((SPADCALL |d2| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5=#:G267)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL (SPADCALL |c2| (QREFELT $ 59))
@@ -643,7 +643,7 @@
                                  ((SPADCALL |d1| |n| (QREFELT $ 60))
                                   (PROGN
                                    (LETT #1# (CONS 1 "failed") . #4#)
-                                   (GO #1#)))
+                                   (GO #5#)))
                                  (#3#
                                   (SPADCALL
                                    (SPADCALL
@@ -653,7 +653,7 @@
                                    |n| (QREFELT $ 66))))))))
                   . #4#)
             (EXIT (CONS 0 (LIST |q1| |q2|)))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |RDETRS;getBound|
         ((|a| UP) (|b| UP) (|h| UP) (|c1| UP) (|c2| UP) ($ |Integer|))
@@ -701,9 +701,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalRischDESystem;|)) 
 
-(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G272)
+(DEFUN |TranscendentalRischDESystem| (&REST #1=#:G279)
   (SPROG NIL
-         (PROG (#2=#:G273)
+         (PROG (#2=#:G280)
            (RETURN
             (COND
              ((LETT #2#

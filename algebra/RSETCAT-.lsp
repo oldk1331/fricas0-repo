@@ -71,8 +71,8 @@
 
 (SDEFUN |RSETCAT-;purelyAlgebraic?;SB;5| ((|ts| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G181 NIL) (|i| (|NonNegativeInteger|)) (#2=#:G171 NIL)
-          (|v| (V)) (#3=#:G182 NIL) (|p| NIL) (|lp| (|List| P)))
+         ((#1=#:G182 NIL) (|i| (|NonNegativeInteger|)) (#2=#:G171 NIL)
+          (|v| (V)) (#3=#:G183 NIL) (|p| NIL) (|lp| (|List| P)))
          (SEQ
           (EXIT
            (COND
@@ -110,13 +110,13 @@
                                    (|check_union| (QEQCAR #2# 0)
                                                   (|NonNegativeInteger|) #2#))
                                  . #4#))
-                          ('T (PROGN (LETT #1# 'NIL . #4#) (GO #1#))))))
+                          ('T (PROGN (LETT #1# 'NIL . #4#) (GO #5=#:G181))))))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT 'T)))))
-          #1# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |RSETCAT-;purelyAlgebraic?;SB;6| ((|ts| S) ($ |Boolean|))
-        (SPROG ((|p| (P)) (#1=#:G184 NIL) (|v| (V)))
+        (SPROG ((|p| (P)) (#1=#:G185 NIL) (|v| (V)))
                (SEQ
                 (COND ((SPADCALL |ts| (QREFELT $ 17)) 'T)
                       ('T
@@ -273,10 +273,10 @@
         ((|lp| |List| P) (|lts| |List| S) ($ |List| S))
         (SPROG
          ((|toSee| (|List| (|Record| (|:| |val| (|List| P)) (|:| |tower| S))))
-          (#1=#:G253 NIL) (|us| NIL) (#2=#:G252 NIL) (|lus| (|List| S))
+          (#1=#:G254 NIL) (|us| NIL) (#2=#:G253 NIL) (|lus| (|List| S))
           (|p| (P)) (|toSave| (|List| S)) (|ts| (S))
           (|lpwt| (|Record| (|:| |val| (|List| P)) (|:| |tower| S)))
-          (#3=#:G251 NIL) (#4=#:G250 NIL) (#5=#:G249 NIL) (#6=#:G248 NIL))
+          (#3=#:G252 NIL) (#4=#:G251 NIL) (#5=#:G250 NIL) (#6=#:G249 NIL))
          (SEQ
           (COND ((OR (NULL |lp|) (NULL |lts|)) |lts|)
                 ('T

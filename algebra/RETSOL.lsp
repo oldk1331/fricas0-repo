@@ -79,9 +79,9 @@
         ((|l| |List| (|Polynomial| R))
          ($ |Union| (|List| (|Fraction| (|Polynomial| Q))) "failed"))
         (SPROG
-         ((|ans| (|List| (|Fraction| (|Polynomial| Q)))) (#1=#:G129 NIL)
+         ((|ans| (|List| (|Fraction| (|Polynomial| Q)))) (#1=#:G130 NIL)
           (|u| (|Union| (|Fraction| (|Polynomial| Q)) "failed"))
-          (#2=#:G130 NIL) (|p| NIL))
+          (#2=#:G131 NIL) (|p| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL . #3=(|RETSOL;QIfCan|))
@@ -95,18 +95,18 @@
                             ((QEQCAR |u| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #3#)
-                              (GO #1#)))
+                              (GO #4=#:G129)))
                             ('T (LETT |ans| (CONS (QCDR |u|) |ans|) . #3#)))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |ans|))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |RETSOL;PQIfCan|
         ((|p| |Polynomial| R)
          ($ |Union| (|Fraction| (|Polynomial| Q)) #1="failed"))
         (SPROG
          ((|up| (|SparseUnivariatePolynomial| (|Polynomial| R)))
-          (|ans| (|Fraction| (|Polynomial| Q))) (#2=#:G146 NIL)
+          (|ans| (|Fraction| (|Polynomial| Q))) (#2=#:G148 NIL)
           (|v| (|Union| (|Fraction| (|Polynomial| Q)) #1#)) (|s| (|Symbol|))
           (|r| (|Union| Q "failed")) (|u| (|Union| (|Symbol|) "failed")))
          (SEQ
@@ -145,7 +145,9 @@
                       (EXIT
                        (COND
                         ((QEQCAR |v| 1)
-                         (PROGN (LETT #2# (CONS 1 "failed") . #3#) (GO #2#)))
+                         (PROGN
+                          (LETT #2# (CONS 1 "failed") . #3#)
+                          (GO #5=#:G147)))
                         ('T
                          (SEQ
                           (LETT |ans|
@@ -163,13 +165,13 @@
                                  . #3#)))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |ans|))))))))
-          #2# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |RetractSolvePackage;|)) 
 
-(DEFUN |RetractSolvePackage| (&REST #1=#:G147)
+(DEFUN |RetractSolvePackage| (&REST #1=#:G149)
   (SPROG NIL
-         (PROG (#2=#:G148)
+         (PROG (#2=#:G150)
            (RETURN
             (COND
              ((LETT #2#

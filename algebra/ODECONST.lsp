@@ -160,7 +160,7 @@
 (SDEFUN |ODECONST;quadSol|
         ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
         (SPROG
-         ((#1=#:G145 NIL) (|a| (F)) (#2=#:G144 NIL) (#3=#:G142 NIL) (|i| (F))
+         ((#1=#:G146 NIL) (|a| (F)) (#2=#:G145 NIL) (#3=#:G144 NIL) (|i| (F))
           (|r| (F)) (|y| (F)) (|u| (|Union| (|Integer|) "failed"))
           (|delta| (F)) (|c| (F)) (|b| (F)))
          (SEQ
@@ -219,7 +219,7 @@
                                       (SPADCALL |i| (QREFELT $ 64))
                                       (QREFELT $ 41)))))
                          . #4#)
-                   (GO #3#))))))))
+                   (GO #5=#:G142))))))))
             (EXIT
              (PROGN
               (LETT #2# NIL . #4#)
@@ -238,13 +238,13 @@
                            . #4#)))
                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191
                    (EXIT (NREVERSE #2#)))))))
-          #3# (EXIT #3#)))) 
+          #5# (EXIT #3#)))) 
 
 (DECLAIM (NOTINLINE |ConstantLODE;|)) 
 
-(DEFUN |ConstantLODE| (&REST #1=#:G146)
+(DEFUN |ConstantLODE| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

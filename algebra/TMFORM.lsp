@@ -429,7 +429,7 @@
 (SDEFUN |TMFORM;formatIntBody|
         ((|body| |OutputForm|) (|opPrec| |Integer|) ($ |String|))
         (SPROG
-         ((#1=#:G240 NIL) (|bvarS| (|String|))
+         ((#1=#:G241 NIL) (|bvarS| (|String|))
           (|bvarL| (|List| (|OutputForm|))) (|bvar| (|OutputForm|))
           (|bodyL| (|List| (|OutputForm|))))
          (SEQ
@@ -470,9 +470,9 @@
                                                   " \"*<mathd>" |bvarS| "\")")
                                             (QREFELT $ 36))
                                            . #2#)
-                                     (GO #1#))))))))))))))))))
+                                     (GO #3=#:G240))))))))))))))))))
             (EXIT (|TMFORM;formatExpr| |body| |opPrec| $))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |TMFORM;formatMatrix| ((|args| |List| (|OutputForm|)) ($ |String|))
         (|TMFORM;group|
@@ -622,7 +622,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G270 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G271 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|tmpS| (|String|))
           (|p| (|Integer|)))
          (SEQ
@@ -964,7 +964,7 @@
 
 (DEFUN |TexmacsFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G306)
+         (PROG (#1=#:G307)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|)

@@ -39,7 +39,7 @@
          ($ |Union| (|List| F) "failed"))
         (SPROG
          ((|k| (|Kernel| F)) (|vl| (|List| (|Kernel| F))) (|y2| (F)) (|y1| (F))
-          (#2=#:G129 NIL) (|u2| #1#) (|u1| #1#) (|nfp| (F)))
+          (#2=#:G152 NIL) (|u2| #1#) (|u1| #1#) (|nfp| (F)))
          (SEQ
           (COND
            ((SPADCALL |g1| (QREFELT $ 21))
@@ -62,18 +62,20 @@
                      (EXIT
                       (COND
                        ((QEQCAR |u1| 1)
-                        (PROGN (LETT #2# (CONS 1 #4="failed") . #3#) (GO #2#)))
-                       (#5='T
+                        (PROGN
+                         (LETT #2# (CONS 1 #4="failed") . #3#)
+                         (GO #5=#:G129)))
+                       (#6='T
                         (SEQ (LETT |u2| (SPADCALL |g1| NIL |limint|) . #3#)
                              (EXIT
                               (COND
                                ((QEQCAR |u2| 1)
                                 (PROGN
                                  (LETT #2# (CONS 1 #4#) . #3#)
-                                 (GO #2#))))))))))
+                                 (GO #5#))))))))))
                 (EXIT (CONS 0 (LIST (QCAR (QCDR |u1|)) (QCAR (QCDR |u2|)))))))
-              #2# (EXIT #2#)))
-            (#5#
+              #5# (EXIT #2#)))
+            (#6#
              (SEQ
               (COND
                ((SPADCALL
@@ -103,15 +105,15 @@
                             (QREFELT $ 38))
                   0)
                  (|RDEEFS;basecase| |nfp| |g1| |g2| |k| $))
-                (#5#
+                (#6#
                  (|error|
                   "rischDEsys: can only handle rational functions for now"))))))))))) 
 
 (DECLAIM (NOTINLINE |ElementaryRischDESystem;|)) 
 
-(DEFUN |ElementaryRischDESystem| (&REST #1=#:G152)
+(DEFUN |ElementaryRischDESystem| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G153)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#

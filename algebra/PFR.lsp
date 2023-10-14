@@ -490,7 +490,7 @@
               (EXIT (CONS (SPADCALL (QCAR |a|) (QREFELT $ 88)) |l|))))) 
 
 (SDEFUN |PFR;*;R2$;26| ((|r| R) (|a| $) ($ $))
-        (SPROG ((#1=#:G259 NIL) (|c| ($)) (#2=#:G263 NIL) (|s| NIL) (|b| ($)))
+        (SPROG ((#1=#:G263 NIL) (|c| ($)) (#2=#:G264 NIL) (|s| NIL) (|b| ($)))
                (SEQ
                 (COND
                  ((SPADCALL |r| (|spadConstant| $ 24) (QREFELT $ 16))
@@ -533,8 +533,8 @@
                                               (APPEND (QCDR |c|) (QCDR |b|)))
                                       (QCDR |b|))
                                      . #3#)
-                               (GO #1#)))))))
-                         #1# (EXIT #1#))
+                               (GO #4=#:G259)))))))
+                         #4# (EXIT #1#))
                         (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                    (EXIT |b|))))))) 
 
@@ -552,7 +552,7 @@
 
 (SDEFUN |PFR;*;3$;29| ((|a| $) (|b| $) ($ $))
         (SPROG
-         ((|c| ($)) (#1=#:G278 NIL) (|t| NIL) (#2=#:G277 NIL) (|s| NIL)
+         ((|c| ($)) (#1=#:G279 NIL) (|t| NIL) (#2=#:G278 NIL) (|s| NIL)
           (|af| ($)))
          (SEQ
           (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) |b| (QREFELT $ 90)))
@@ -592,7 +592,7 @@
                   (EXIT |c|))))))) 
 
 (SDEFUN |PFR;coerce;$Of;30| ((|a| $) ($ |OutputForm|))
-        (SPROG ((|l| (|List| (|OutputForm|))) (#1=#:G291 NIL) (|s| NIL))
+        (SPROG ((|l| (|List| (|OutputForm|))) (#1=#:G292 NIL) (|s| NIL))
                (SEQ
                 (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) (QREFELT $ 93)))
                       (#2='T
@@ -639,9 +639,9 @@
 
 (DECLAIM (NOTINLINE |PartialFraction;|)) 
 
-(DEFUN |PartialFraction| (#1=#:G299)
+(DEFUN |PartialFraction| (#1=#:G300)
   (SPROG NIL
-         (PROG (#2=#:G300)
+         (PROG (#2=#:G301)
            (RETURN
             (COND
              ((LETT #2#

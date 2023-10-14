@@ -97,7 +97,7 @@
         ((S UPSR) ($ |Distribution| R))
         (SPROG
          ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| (UTSR)) (|z1z| (UTSR))
-          (S2 (ULSR)) (#2=#:G127 NIL) (|chi| (|Stream| R)) (S1 (UTSR)))
+          (S2 (ULSR)) (#2=#:G128 NIL) (|chi| (|Stream| R)) (S1 (UTSR)))
          (SEQ
           (EXIT
            (SEQ
@@ -131,7 +131,7 @@
                                   (QREFELT $ 23))
                         (QREFELT $ 53))
                        . #3#)
-                 (GO #2#)))))
+                 (GO #4=#:G127)))))
              ((NULL
                (SPADCALL (SPADCALL S (QREFELT $ 40))
                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
@@ -172,13 +172,13 @@
              (SPADCALL
               (SPADCALL (SPADCALL |psi| (QREFELT $ 24)) (QREFELT $ 23))
               (QREFELT $ 53)))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |STransformPackage;|)) 
 
-(DEFUN |STransformPackage| (&REST #1=#:G128)
+(DEFUN |STransformPackage| (&REST #1=#:G129)
   (SPROG NIL
-         (PROG (#2=#:G129)
+         (PROG (#2=#:G130)
            (RETURN
             (COND
              ((LETT #2#

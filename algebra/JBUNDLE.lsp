@@ -24,7 +24,7 @@
 
 (SDEFUN |JBUNDLE;CheckZeroIndex|
         ((|il| |List| (|NonNegativeInteger|)) ($ |Boolean|))
-        (SPROG ((#1=#:G128 NIL) (#2=#:G129 NIL) (|i| NIL))
+        (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -37,10 +37,10 @@
                         (EXIT
                          (COND
                           ((NULL (ZEROP |i|))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                           (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G128))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |JBUNDLE;X;Pi$;7| ((|up| |PositiveInteger|) ($ $))
         (COND
@@ -49,7 +49,7 @@
          ('T (LIST 1 |up|)))) 
 
 (SDEFUN |JBUNDLE;U;Pi$;8| ((|up| |PositiveInteger|) ($ $))
-        (SPROG ((#1=#:G134 NIL) (|i| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G135 NIL) (|i| NIL) (#2=#:G134 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |up| (QREFELT $ 9) (QREFELT $ 30))
@@ -78,7 +78,7 @@
          ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (SDEFUN |JBUNDLE;coerce;S$;10| ((|s| |Symbol|) ($ $))
-        (SPROG ((#1=#:G142 NIL) (#2=#:G139 NIL) (|pos| (|Integer|)))
+        (SPROG ((#1=#:G143 NIL) (#2=#:G140 NIL) (|pos| (|Integer|)))
                (SEQ
                 (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 37))
                       . #3=(|JBUNDLE;coerce;S$;10|))
@@ -105,8 +105,8 @@
 
 (SDEFUN |JBUNDLE;D;SL$;11| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
         (SPROG
-         ((#1=#:G150 NIL) (|lower| (|List| (|PositiveInteger|)))
-          (#2=#:G146 NIL) (|pos| #3=(|Integer|)) (#4=#:G154 NIL) (|d| NIL)
+         ((#1=#:G151 NIL) (|lower| (|List| (|PositiveInteger|)))
+          (#2=#:G147 NIL) (|pos| #3=(|Integer|)) (#4=#:G155 NIL) (|d| NIL)
           (|up| #3#))
          (SEQ
           (LETT |up| (SPADCALL |u| (QREFELT $ 7) (QREFELT $ 37))
@@ -149,18 +149,18 @@
 (SDEFUN |JBUNDLE;One;$;12| (($ $)) (LIST 0 1)) 
 
 (SDEFUN |JBUNDLE;numIndVar;Pi;13| (($ |PositiveInteger|))
-        (SPROG ((#1=#:G156 NIL))
+        (SPROG ((#1=#:G157 NIL))
                (PROG1 (LETT #1# (QREFELT $ 8) |JBUNDLE;numIndVar;Pi;13|)
                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;numDepVar;Pi;14| (($ |PositiveInteger|))
-        (SPROG ((#1=#:G158 NIL))
+        (SPROG ((#1=#:G159 NIL))
                (PROG1 (LETT #1# (QREFELT $ 9) |JBUNDLE;numDepVar;Pi;14|)
                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;name;$S;15| ((|jv| $) ($ |Symbol|))
         (SPROG
-         ((|lower| (|List| (|OutputForm|))) (#1=#:G166 NIL) (|j| NIL)
+         ((|lower| (|List| (|OutputForm|))) (#1=#:G167 NIL) (|j| NIL)
           (|res| (|Symbol|)) (|mu| (|List| (|PositiveInteger|)))
           (|i| (|PositiveInteger|)) (|jt| (|Symbol|)))
          (SEQ
@@ -210,8 +210,8 @@
 
 (SDEFUN |JBUNDLE;coerce;$E;17| ((|jv| $) ($ |Expression| (|Integer|)))
         (SPROG
-         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G174 NIL) (|i| NIL)
-          (#2=#:G173 NIL) (|jop| (|BasicOperator|)) (|tmp| (|None|))
+         ((|arg| (|List| (|Expression| (|Integer|)))) (#1=#:G175 NIL) (|i| NIL)
+          (#2=#:G174 NIL) (|jop| (|BasicOperator|)) (|tmp| (|None|))
           (|opname| (|Symbol|)))
          (SEQ
           (COND
@@ -261,9 +261,9 @@
 
 (DECLAIM (NOTINLINE |JetBundle;|)) 
 
-(DEFUN |JetBundle| (&REST #1=#:G181)
+(DEFUN |JetBundle| (&REST #1=#:G182)
   (SPROG NIL
-         (PROG (#2=#:G182)
+         (PROG (#2=#:G183)
            (RETURN
             (COND
              ((LETT #2#

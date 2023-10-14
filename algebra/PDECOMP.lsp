@@ -1,7 +1,7 @@
 
 (SDEFUN |PDECOMP;leftFactor;2UPU;1| ((|f| UP) (|h| UP) ($ |Union| UP "failed"))
         (SPROG
-         ((|g| (UP)) (#1=#:G115 NIL) (|r| (UP))
+         ((|g| (UP)) (#1=#:G116 NIL) (|r| (UP))
           (|fr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP))) (|i| NIL))
          (SEQ
           (EXIT
@@ -17,7 +17,9 @@
                        (COND
                         ((SPADCALL (SPADCALL |r| (QREFELT $ 15)) 0
                                    (QREFELT $ 16))
-                         (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
+                         (PROGN
+                          (LETT #1# (CONS 1 "failed") . #2#)
+                          (GO #3=#:G115)))
                         ('T
                          (LETT |g|
                                (SPADCALL |g|
@@ -30,7 +32,7 @@
                                . #2#)))))
                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |g|))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |PDECOMP;decompose;UP2NniU;2|
         ((|f| UP) (|dg| |NonNegativeInteger|) (|dh| |NonNegativeInteger|)
@@ -52,8 +54,8 @@
 
 (SDEFUN |PDECOMP;decompose;UPL;3| ((|f| UP) ($ |List| UP))
         (SPROG
-         ((#1=#:G136 NIL) (|g| (|Union| UP "failed")) (|h| (UP))
-          (#2=#:G137 NIL) (|dh| NIL) (|df| (|NonNegativeInteger|)))
+         ((#1=#:G138 NIL) (|g| (|Union| UP "failed")) (|h| (UP))
+          (#2=#:G139 NIL) (|dh| NIL) (|df| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
@@ -76,15 +78,15 @@
                                      (SPADCALL (QCDR |g|) (QREFELT $ 30))
                                      (SPADCALL |h| (QREFELT $ 30)))
                                     . #3#)
-                              (GO #1#))))))))))
+                              (GO #4=#:G137))))))))))
                  (LETT |dh| (|inc_SI| |dh|) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT (LIST |f|))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |PDECOMP;rightFactorCandidate;UPNniUP;4|
         ((|f| UP) (|dh| |NonNegativeInteger|) ($ UP))
         (SPROG
-         ((|h| (UP)) (#1=#:G152 NIL) (|c| (F)) (#2=#:G151 NIL) (#3=#:G150 NIL)
+         ((|h| (UP)) (#1=#:G154 NIL) (|c| (F)) (#2=#:G153 NIL) (#3=#:G152 NIL)
           (|hdg| (UP)) (|k| NIL) (|dg| (|NonNegativeInteger|))
           (|df| (|NonNegativeInteger|)))
          (SEQ
@@ -136,9 +138,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialDecomposition;|)) 
 
-(DEFUN |PolynomialDecomposition| (&REST #1=#:G157)
+(DEFUN |PolynomialDecomposition| (&REST #1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G158)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

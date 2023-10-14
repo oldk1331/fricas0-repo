@@ -24,11 +24,11 @@
          ($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
           (|:| |basisInv| (|Matrix| R)) (|:| |discr| R)))
         (SPROG
-         ((#1=#:G141 NIL) (#2=#:G145 NIL) (|oldIndex| (R)) (|indexChange| (R))
+         ((#1=#:G146 NIL) (#2=#:G147 NIL) (|oldIndex| (R)) (|indexChange| (R))
           (|rbinv| #3=(|Matrix| R)) (|rbden| (R)) (|rb| #3#) (|index| (R))
-          (|idinv| (|Matrix| R)) (|id| (|Matrix| R)) (|j| NIL) (#4=#:G147 NIL)
+          (|idinv| (|Matrix| R)) (|id| (|Matrix| R)) (|j| NIL) (#4=#:G149 NIL)
           (|vec| NIL) (|i| NIL) (|ns| (|List| (|Vector| |sae|)))
-          (|frobPow| (|Matrix| |sae|)) (#5=#:G146 NIL) (|r| NIL)
+          (|frobPow| (|Matrix| |sae|)) (#5=#:G148 NIL) (|r| NIL)
           (|tmpMat| (|Matrix| |sae|)) (|frob| (|Matrix| |sae|))
           (|pPows| (|Matrix| |sae|)) (|coMat| (|Matrix| R))
           (|coMat0| (|Union| (|Matrix| R) "failed")) (|denPow| (R))
@@ -369,9 +369,9 @@
                                                      (VECTOR |rb| |rbden|
                                                              |rbinv| |disc|)
                                                      . #7#)
-                                               (GO #2#))
+                                               (GO #8=#:G145))
                                               . #7#)
-                                        (GO #1#)))))
+                                        (GO #9=#:G141)))))
                                     ('T
                                      (PROGN
                                       (LETT #1#
@@ -380,12 +380,12 @@
                                                    (VECTOR |rb| |rbden| |rbinv|
                                                            |disc|)
                                                    . #7#)
-                                             (GO #2#))
+                                             (GO #8#))
                                             . #7#)
-                                      (GO #1#)))))))
-                            #1# (EXIT #1#))))))
+                                      (GO #9#)))))))
+                            #9# (EXIT #1#))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #2# (EXIT #2#)))) 
+          #8# (EXIT #2#)))) 
 
 (SDEFUN |WFFINTBS;integralBasis;R;3|
         (($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
@@ -397,7 +397,7 @@
           (|lb|
            (|Record| (|:| |basis| #3#) (|:| |basisDen| R) (|:| |basisInv| #2#)
                      (|:| |discr| R)))
-          (#4=#:G158 NIL) (|prime| NIL) (|matrixOut| #5=(|Matrix| R))
+          (#4=#:G160 NIL) (|prime| NIL) (|matrixOut| #5=(|Matrix| R))
           (|tfm| #5#) (|pows| #6=(|Vector| F)) (|bas| #6#)
           (|singList| (|List| R)) (|n| (|PositiveInteger|))
           (|traceMat| (|Matrix| R)))
@@ -521,9 +521,9 @@
 
 (DECLAIM (NOTINLINE |WildFunctionFieldIntegralBasis;|)) 
 
-(DEFUN |WildFunctionFieldIntegralBasis| (&REST #1=#:G168)
+(DEFUN |WildFunctionFieldIntegralBasis| (&REST #1=#:G170)
   (SPROG NIL
-         (PROG (#2=#:G169)
+         (PROG (#2=#:G171)
            (RETURN
             (COND
              ((LETT #2#

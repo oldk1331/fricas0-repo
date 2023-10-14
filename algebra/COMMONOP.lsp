@@ -1,6 +1,6 @@
 
 (SDEFUN |COMMONOP;operator;SBo;1| ((|s| |Symbol|) ($ |BasicOperator|))
-        (SPROG ((#1=#:G107 NIL) (#2=#:G109 NIL) (#3=#:G110 NIL) (|op| NIL))
+        (SPROG ((#1=#:G110 NIL) (#2=#:G111 NIL) (#3=#:G112 NIL) (|op| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -24,13 +24,13 @@
                                     (PROGN
                                      (LETT #2# (SPADCALL |op| (QREFELT $ 156))
                                            . #4#)
-                                     (GO #2#))
+                                     (GO #5=#:G109))
                                     . #4#)
-                              (GO #1#))))))
+                              (GO #6=#:G107))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
-                   #1# (EXIT #1#))
+                   #6# (EXIT #1#))
                   (EXIT (SPADCALL |s| (QREFELT $ 44)))))
-                #2# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |COMMONOP;dpi| ((|l| |List| (|OutputForm|)) ($ |OutputForm|))
         (SPADCALL '|%pi| (QREFELT $ 159))) 
@@ -66,10 +66,10 @@
 
 (SDEFUN |COMMONOP;startUp| ((|b| |Boolean|) ($ |Void|))
         (SPROG
-         ((#1=#:G176 NIL) (|op| NIL) (#2=#:G175 NIL) (#3=#:G174 NIL)
-          (#4=#:G173 NIL) (#5=#:G172 NIL) (#6=#:G171 NIL) (#7=#:G170 NIL)
-          (#8=#:G169 NIL) (#9=#:G168 NIL) (#10=#:G167 NIL) (#11=#:G166 NIL)
-          (#12=#:G165 NIL) (#13=#:G164 NIL))
+         ((#1=#:G178 NIL) (|op| NIL) (#2=#:G177 NIL) (#3=#:G176 NIL)
+          (#4=#:G175 NIL) (#5=#:G174 NIL) (#6=#:G173 NIL) (#7=#:G172 NIL)
+          (#8=#:G171 NIL) (#9=#:G170 NIL) (#10=#:G169 NIL) (#11=#:G168 NIL)
+          (#12=#:G167 NIL) (#13=#:G166 NIL))
          (SEQ (SPADCALL (QREFELT $ 9) |b| (QREFELT $ 170))
               (SPADCALL (QREFELT $ 46) (ELT $ 160) (QREFELT $ 172))
               (SPADCALL (QREFELT $ 45) (ELT $ 173) (QREFELT $ 175))
@@ -251,7 +251,7 @@
 
 (DEFUN |CommonOperators| ()
   (SPROG NIL
-         (PROG (#1=#:G178)
+         (PROG (#1=#:G180)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CommonOperators|)

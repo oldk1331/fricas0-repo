@@ -170,7 +170,7 @@
 (SDEFUN |STTAYLOR;exquo;2SU;8|
         ((|x| |Stream| A) (|y| |Stream| A) ($ |Union| (|Stream| A) "failed"))
         (SPROG
-         ((|ry0| (|Union| A "failed")) (#1=#:G257 NIL) (#2=#:G267 NIL)
+         ((|ry0| (|Union| A "failed")) (#1=#:G268 NIL) (#2=#:G269 NIL)
           (|n| NIL))
          (SEQ
           (EXIT
@@ -183,11 +183,13 @@
                      (COND
                       ((OR (SPADCALL |n| 1000 (QREFELT $ 30))
                            (SPADCALL |y| (QREFELT $ 10)))
-                       (PROGN (LETT #2# (CONS 1 "failed") . #3#) (GO #2#)))
+                       (PROGN
+                        (LETT #2# (CONS 1 "failed") . #3#)
+                        (GO #4=#:G267)))
                       ((SPADCALL |x| (QREFELT $ 10))
                        (PROGN
                         (LETT #2# (CONS 0 (SPADCALL (QREFELT $ 8))) . #3#)
-                        (GO #2#)))
+                        (GO #4#)))
                       ((SPADCALL (SPADCALL |y| (QREFELT $ 13))
                                  (|spadConstant| $ 31) (QREFELT $ 32))
                        (COND
@@ -198,10 +200,11 @@
                                (LETT |y| (SPADCALL |y| (QREFELT $ 11))
                                      . #3#))))
                         ('T
-                         (PROGN (LETT #2# (CONS 1 "failed") . #3#) (GO #2#)))))
-                      ('T (PROGN (LETT #1# |$NoValue| . #3#) (GO #1#))))))
+                         (PROGN (LETT #2# (CONS 1 "failed") . #3#) (GO #4#)))))
+                      ('T
+                       (PROGN (LETT #1# |$NoValue| . #3#) (GO #5=#:G257))))))
                    (LETT |n| (|inc_SI| |n|) . #3#) (GO G190) G191 (EXIT NIL)))
-             #1# (EXIT #1#))
+             #5# (EXIT #1#))
             (LETT |ry0| (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 34))
                   . #3#)
             (EXIT
@@ -212,7 +215,7 @@
                            (CONS #'|STTAYLOR;exquo;2SU;8!0| (VECTOR $ |ry0|))
                            |x| (QREFELT $ 16))))
                    ('T (CONS 0 (|STTAYLOR;iDiv| |x| |y| (QCDR |ry0|) $)))))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |STTAYLOR;exquo;2SU;8!0| ((|z| NIL) ($$ NIL))
         (PROG (|ry0| $)
@@ -381,7 +384,7 @@
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#2=#:G376 NIL) (#3=#:G372 NIL) (|res| NIL) (|llp| NIL)
+              (#2=#:G380 NIL) (#3=#:G379 NIL) (|res| NIL) (|llp| NIL)
               (|xp| NIL))
              (SEQ
               (EXIT
@@ -394,7 +397,7 @@
                             (SPADCALL |x| (QREFELT $ 10)))
                         (PROGN
                          (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                         (GO #2#)))
+                         (GO #4=#:G378)))
                        ('T (LETT |x| (SPADCALL |x| (QREFELT $ 11)) NIL))))
                      ('T
                       (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 13)) NIL)
@@ -413,7 +416,7 @@
                                                   |ll| $)
                                                  (QREFELT $ 18))
                                        NIL)
-                                 (GO #2#)))
+                                 (GO #4#)))
                                ('T
                                 (SEQ
                                  (LETT |ll| (SPADCALL |c| |ll| (QREFELT $ 62))
@@ -447,9 +450,11 @@
                                            (QREFELT $ 66))
                                  (PROGN
                                   (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                                  (GO #2#)))
+                                  (GO #4#)))
                                 ('T
-                                 (PROGN (LETT #3# |$NoValue| NIL) (GO #3#)))))
+                                 (PROGN
+                                  (LETT #3# |$NoValue| NIL)
+                                  (GO #5=#:G374)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -467,7 +472,7 @@
                                  (LETT |xp| (SPADCALL |xp| (QREFELT $ 11))
                                        NIL)))))))
                            (LETT |i| (+ |i| 1) NIL) (GO G190) G191 (EXIT NIL)))
-                     #3# (EXIT #3#))
+                     #5# (EXIT #3#))
                     (COND
                      ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 69))
                       (COND
@@ -478,7 +483,7 @@
                     (EXIT
                      (SPADCALL |res| (|STTAYLOR;stmult| |n| |x| |y| |ll| $)
                                (QREFELT $ 18)))))
-              #2# (EXIT #2#))))))) 
+              #4# (EXIT #2#))))))) 
 
 (SDEFUN |STTAYLOR;*;3S;19| ((|x| |Stream| A) (|y| |Stream| A) ($ |Stream| A))
         (SPROG NIL
@@ -617,7 +622,7 @@
           (RETURN (PROGN (|STTAYLOR;lagrangere| |x| |y| $))))) 
 
 (SDEFUN |STTAYLOR;revert;2S;28| ((|x| |Stream| A) ($ |Stream| A))
-        (SPROG ((#1=#:G433 NIL) (|y| (|Union| (|Stream| A) "failed")))
+        (SPROG ((#1=#:G437 NIL) (|y| (|Union| (|Stream| A) "failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 10))
@@ -856,7 +861,7 @@
 
 (SDEFUN |STTAYLOR;multisect;2I2S;38|
         ((|b| |Integer|) (|a| |Integer|) (|x| |Stream| A) ($ |Stream| A))
-        (SPROG ((#1=#:G551 NIL))
+        (SPROG ((#1=#:G555 NIL))
                (|STTAYLOR;ms| (+ |a| |b|) 0
                 (SPADCALL |x|
                           (PROG1 (LETT #1# |a| |STTAYLOR;multisect;2I2S;38|)
@@ -1035,10 +1040,10 @@
 (SDEFUN |STTAYLOR;powern;F2S;50|
         ((|rn| |Fraction| (|Integer|)) (|x| |Stream| A) ($ |Stream| A))
         (SPROG
-         ((|power| (|Stream| A)) (#1=#:G619 NIL) (#2=#:G613 NIL)
+         ((|power| (|Stream| A)) (#1=#:G623 NIL) (#2=#:G617 NIL)
           (|num| (|Integer|)) (|invCo| (|Union| A "failed")) (|co| (A))
-          (|ord| (|Union| (|Integer|) "failed")) (#3=#:G601 NIL)
-          (|order| (|Integer|)) (#4=#:G627 NIL) (|n| NIL))
+          (|ord| (|Union| (|Integer|) "failed")) (#3=#:G632 NIL)
+          (|order| (|Integer|)) (#4=#:G633 NIL) (|n| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |order| 0 . #5=(|STTAYLOR;powern;F2S;50|))
@@ -1051,7 +1056,7 @@
                           ((SPADCALL |x| (QREFELT $ 10))
                            (PROGN
                             (LETT #4# (|STTAYLOR;zro| $) . #5#)
-                            (GO #4#)))
+                            (GO #6=#:G631)))
                           ((NULL
                             (SPADCALL (SPADCALL |x| (QREFELT $ 13))
                                       (QREFELT $ 25)))
@@ -1059,7 +1064,7 @@
                                 (EXIT
                                  (PROGN
                                   (LETT #3# |$NoValue| . #5#)
-                                  (GO #3#)))))
+                                  (GO #7=#:G605)))))
                           ('T
                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 11)) . #5#)
                                 (EXIT
@@ -1069,7 +1074,7 @@
                                     "^: series with many leading zero coefficients")))))))))
                        (LETT |n| (|inc_SI| |n|) . #5#) (GO G190) G191
                        (EXIT NIL)))
-                 #3# (EXIT #3#))
+                 #7# (EXIT #3#))
                 (LETT |ord|
                       (SPADCALL |order| (SPADCALL |rn| (QREFELT $ 124))
                                 (QREFELT $ 125))
@@ -1078,7 +1083,7 @@
                  (COND
                   ((QEQCAR |ord| 1)
                    (|error| "^: rational power does not exist"))
-                  (#6='T
+                  (#8='T
                    (SEQ (LETT |co| (SPADCALL |x| (QREFELT $ 13)) . #5#)
                         (COND
                          ((SPADCALL (QCDR |ord|) 0 (QREFELT $ 127))
@@ -1092,7 +1097,7 @@
                           ((QEQCAR |invCo| 1)
                            (|error|
                             "^ rational power of coefficient undefined"))
-                          (#6#
+                          (#8#
                            (SEQ
                             (LETT |power|
                                   (COND
@@ -1143,7 +1148,7 @@
                                             (VECTOR $ |x| |invCo| |rn|))
                                       (QREFELT $ 88))
                                      (QREFELT $ 27)))
-                                   (#6#
+                                   (#8#
                                     (|error|
                                      "^ rational power of coefficient undefined")))
                                   . #5#)
@@ -1154,7 +1159,7 @@
                                            (SPADCALL |rn| (QREFELT $ 129)))
                                         (QREFELT $ 46))
                               |power| (QREFELT $ 72)))))))))))))
-          #4# (EXIT #4#)))) 
+          #6# (EXIT #4#)))) 
 
 (SDEFUN |STTAYLOR;powern;F2S;50!3| ((|y| NIL) ($$ NIL))
         (PROG (|rn| |invCo| |x| $)
@@ -1285,9 +1290,9 @@
 
 (DECLAIM (NOTINLINE |StreamTaylorSeriesOperations;|)) 
 
-(DEFUN |StreamTaylorSeriesOperations| (#1=#:G659)
+(DEFUN |StreamTaylorSeriesOperations| (#1=#:G665)
   (SPROG NIL
-         (PROG (#2=#:G660)
+         (PROG (#2=#:G666)
            (RETURN
             (COND
              ((LETT #2#

@@ -247,7 +247,7 @@
         ((|f| UP) (|p| |PositiveInteger|) ($ F))
         (SPROG
          ((|b| (F)) (#1=#:G157 NIL) (|dd| (|Integer|)) (#2=#:G140 NIL)
-          (|i| NIL) (#3=#:G161 NIL) (|d| (|NonNegativeInteger|)))
+          (|i| NIL) (#3=#:G162 NIL) (|d| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
@@ -258,7 +258,7 @@
                    (SPADCALL (SPADCALL |f| 0 (QREFELT $ 50)) (QREFELT $ 19))
                    (QREFELT $ 20))
                   . #4#)
-            (COND ((ZEROP |d|) (PROGN (LETT #3# |b| . #4#) (GO #3#)))
+            (COND ((ZEROP |d|) (PROGN (LETT #3# |b| . #4#) (GO #5=#:G161)))
                   ('T (LETT |b| (SPADCALL |b| |p| (QREFELT $ 21)) . #4#)))
             (LETT |b|
                   (SPADCALL |b|
@@ -330,16 +330,16 @@
                                     (QREFELT $ 22))
                           . #4#)))))
             (EXIT (SPADCALL |b| |p| (QREFELT $ 24)))))
-          #3# (EXIT #3#)))) 
+          #5# (EXIT #3#)))) 
 
 (SDEFUN |GALFACTU;bombieriNorm;UPF;11| ((|f| UP) ($ F))
         (SPADCALL |f| 2 (QREFELT $ 62))) 
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
 
-(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G163)
+(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G164)
   (SPROG NIL
-         (PROG (#2=#:G164)
+         (PROG (#2=#:G165)
            (RETURN
             (COND
              ((LETT #2#

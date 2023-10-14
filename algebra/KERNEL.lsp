@@ -81,7 +81,7 @@
 
 (SDEFUN |KERNEL;kernelEnterInCache| ((|k| $) ($ $))
         (SPROG
-         ((#1=#:G162 NIL) (|res| (|Union| $ "failed"))
+         ((#1=#:G163 NIL) (|res| (|Union| $ "failed"))
           (|f1| (|Mapping| (|Boolean|) $ $))
           (|f0| (|Union| (|None|) "failed")))
          (SEQ
@@ -105,11 +105,13 @@
                      (EXIT
                       (COND
                        ((QEQCAR |res| 0)
-                        (PROGN (LETT #1# (QCDR |res|) . #2#) (GO #1#))))))))))
+                        (PROGN
+                         (LETT #1# (QCDR |res|) . #2#)
+                         (GO #3=#:G162))))))))))
             (EXIT
              (SPADCALL |k| (CONS (|function| |KERNEL;triage|) $)
                        (QREFELT $ 49)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |KERNEL;kernelEnterInCache!0| ((|y| NIL) ($$ NIL))
         (PROG (|k| |f1| $)
@@ -146,7 +148,7 @@
         ((|fn| |BasicOperator|) (|x| |List| S) (|n| |NonNegativeInteger|)
          ($ $))
         (SPROG
-         ((#1=#:G176 NIL) (|u| (|Union| (|NonNegativeInteger|) "failed")))
+         ((#1=#:G179 NIL) (|u| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -160,18 +162,18 @@
                  ((SPADCALL (LENGTH |x|) (QCDR |u|) (QREFELT $ 43))
                   (PROGN
                    (LETT #1# (|error| "Wrong number of arguments") . #2#)
-                   (GO #1#))))))))
+                   (GO #3=#:G177))))))))
             (EXIT
              (|KERNEL;kernelEnterInCache| (|KERNEL;mkKer| |fn| |x| |n| $) $))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |KERNEL;coerce;$Of;19| ((|k| $) ($ |OutputForm|))
         (SPROG
          ((|u|
            (|Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
                     "failed"))
-          (|l| (|List| (|OutputForm|))) (#1=#:G195 NIL) (|x| NIL)
-          (#2=#:G194 NIL) (|f| (|Union| (|None|) "failed"))
+          (|l| (|List| (|OutputForm|))) (#1=#:G197 NIL) (|x| NIL)
+          (#2=#:G196 NIL) (|f| (|Union| (|None|) "failed"))
           (|o| (|BasicOperator|)) (|v| (|Union| (|Symbol|) "failed")))
          (SEQ
           (LETT |v| (SPADCALL |k| (QREFELT $ 42))
@@ -225,8 +227,8 @@
 
 (SDEFUN |KERNEL;triage| ((|k1| $) (|k2| $) ($ |Integer|))
         (SPROG
-         ((#1=#:G197 NIL) (#2=#:G202 NIL) (#3=#:G203 NIL) (|x1| NIL)
-          (#4=#:G204 NIL) (|x2| NIL) (|n2| (|Integer|)) (|n1| (|Integer|)))
+         ((#1=#:G205 NIL) (#2=#:G206 NIL) (#3=#:G207 NIL) (|x1| NIL)
+          (#4=#:G208 NIL) (|x2| NIL) (|n2| (|Integer|)) (|n1| (|Integer|)))
          (SEQ
           (EXIT
            (COND
@@ -270,22 +272,22 @@
                                        (|KERNEL;B2Z|
                                         (SPADCALL |x1| |x2| (QREFELT $ 67)) $)
                                        . #5#)
-                                 (GO #2#))
+                                 (GO #6=#:G204))
                                 . #5#)
-                          (GO #1#))))))
+                          (GO #7=#:G199))))))
                      (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #5#))
                            . #5#)
                      (GO G190) G191 (EXIT NIL)))
-               #1# (EXIT #1#))
+               #7# (EXIT #1#))
               (EXIT 0)))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |KERNEL;convert;$If;21| ((|k| $) ($ |InputForm|))
         (SPROG
          ((|u|
            (|Union| (|Mapping| (|InputForm|) (|List| (|InputForm|))) "failed"))
-          (|l| (|List| (|InputForm|))) (#1=#:G222 NIL) (|x| NIL)
-          (#2=#:G221 NIL) (|f| (|Union| (|None|) "failed"))
+          (|l| (|List| (|InputForm|))) (#1=#:G226 NIL) (|x| NIL)
+          (#2=#:G225 NIL) (|f| (|Union| (|None|) "failed"))
           (|o| (|BasicOperator|)) (|v| (|Union| (|Symbol|) "failed")))
          (SEQ
           (LETT |v| (SPADCALL |k| (QREFELT $ 42))
@@ -346,7 +348,7 @@
 
 (SDEFUN |KERNEL;convert;$P;22| ((|k| $) ($ |Pattern| (|Integer|)))
         (SPROG
-         ((#1=#:G231 NIL) (|x| NIL) (#2=#:G230 NIL) (|l| (|List| (|Any|)))
+         ((#1=#:G235 NIL) (|x| NIL) (#2=#:G234 NIL) (|l| (|List| (|Any|)))
           (|s| (|Pattern| (|Integer|))) (|v| (|Union| (|Symbol|) "failed"))
           (|o| (|BasicOperator|)))
          (SEQ
@@ -388,7 +390,7 @@
 
 (SDEFUN |KERNEL;convert;$P;23| ((|k| $) ($ |Pattern| (|Float|)))
         (SPROG
-         ((#1=#:G240 NIL) (|x| NIL) (#2=#:G239 NIL) (|l| (|List| (|Any|)))
+         ((#1=#:G244 NIL) (|x| NIL) (#2=#:G243 NIL) (|l| (|List| (|Any|)))
           (|s| (|Pattern| (|Float|))) (|v| (|Union| (|Symbol|) "failed"))
           (|o| (|BasicOperator|)))
          (SEQ
@@ -430,9 +432,9 @@
 
 (DECLAIM (NOTINLINE |Kernel;|)) 
 
-(DEFUN |Kernel| (#1=#:G241)
+(DEFUN |Kernel| (#1=#:G245)
   (SPROG NIL
-         (PROG (#2=#:G242)
+         (PROG (#2=#:G246)
            (RETURN
             (COND
              ((LETT #2#

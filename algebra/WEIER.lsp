@@ -117,7 +117,7 @@
         (SPROG
          ((|q| (|Stream| (|TaylorSeries| R))) (|f| (|Stream| (|Polynomial| R)))
           (|e| (|Union| (|Stream| (|Polynomial| R)) "failed"))
-          (|b| (|Stream| (|Polynomial| R))) (#1=#:G156 NIL)
+          (|b| (|Stream| (|Polynomial| R))) (#1=#:G163 NIL)
           (|a| (|NonNegativeInteger|)) (|c| (|Union| R "failed"))
           (|b0| (|Polynomial| R)) (|a0| NIL)
           (|p| (|Stream| (|TaylorSeries| R))))
@@ -153,13 +153,13 @@
                                           (EXIT
                                            (PROGN
                                             (LETT #1# |$NoValue| . #2#)
-                                            (GO #1#)))))
+                                            (GO #3=#:G156)))))
                                     ('T
                                      (LETT |b| (SPADCALL |b| (QREFELT $ 37))
                                            . #2#)))))))))))))
                      (LETT |a0| (|inc_SI| |a0|) . #2#) (GO G190) G191
                      (EXIT NIL)))
-               #1# (EXIT #1#))
+               #3# (EXIT #1#))
               (LETT |e| (SPADCALL |b| (QREFELT $ 63)) . #2#)
               (LETT |f|
                     (COND ((QEQCAR |e| 1) (|error| "no reciprocal"))
@@ -214,9 +214,9 @@
 
 (DECLAIM (NOTINLINE |WeierstrassPreparation;|)) 
 
-(DEFUN |WeierstrassPreparation| (#1=#:G169)
+(DEFUN |WeierstrassPreparation| (#1=#:G170)
   (SPROG NIL
-         (PROG (#2=#:G170)
+         (PROG (#2=#:G171)
            (RETURN
             (COND
              ((LETT #2#

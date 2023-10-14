@@ -263,7 +263,7 @@
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
         (SPROG
          ((#1=#:G179 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G171 NIL) (|i| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G182 NIL) (|i| (|Integer|))
           (|c| (|Character|)) (|k| NIL) (|nprens| (|PositiveInteger|)))
          (SEQ
           (LETT |s| (SPADCALL |s| (QREFELT $ 53))
@@ -332,8 +332,8 @@
                                                    (|error|
                                                     "Improper Roman numeral: unbalanced ')'")
                                                    . #3#)
-                                             (GO #2#)))))))
-                                       #2# (EXIT #2#))
+                                             (GO #4=#:G171)))))))
+                                       #4# (EXIT #2#))
                                       (LETT |k| (|inc_SI| |k|) . #3#) (GO G190)
                                       G191 (EXIT NIL))
                                  (EXIT
@@ -361,7 +361,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G183)
+         (PROG (#1=#:G184)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)

@@ -729,7 +729,7 @@
         (SPROG
          ((|q1| (|Dom|))
           (|sdf1| (|Record| (|:| |quotient| |Dom|) (|:| |remainder| |Dom|)))
-          (#1=#:G249 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
+          (#1=#:G251 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
           (|lf1| (|Dom|)) (|ds| (|Expon|)) (|f1| (|Dpol|)))
          (SEQ
           (EXIT
@@ -751,7 +751,7 @@
                      ((OR (QEQCAR |e| 1) (SPADCALL |ls| |lf1| (QREFELT $ 24)))
                       (PROGN
                        (LETT #1# (|GBEUCLID;eRed| |s| (CDR H) |Hh| $) . #2#)
-                       (GO #1#))))))
+                       (GO #3=#:G249))))))
                   (LETT |sdf1| (SPADCALL |ls| |lf1| (QREFELT $ 58)) . #2#)
                   (LETT |q1| (QCAR |sdf1|) . #2#)
                   (EXIT
@@ -773,7 +773,7 @@
                                  (QREFELT $ 53))
                                 (QREFELT $ 56))
                       (CDR H) |Hh| $))))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |GBEUCLID;ecritT|
         ((|p| |Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
@@ -798,7 +798,7 @@
 
 (SDEFUN |GBEUCLID;ecritM|
         ((|e1| |Expon|) (|c1| |Dom|) (|e2| |Expon|) (|c2| |Dom|) ($ |Boolean|))
-        (SPROG ((#1=#:G261 NIL) (|en| (|Union| |Expon| "failed")))
+        (SPROG ((#1=#:G264 NIL) (|en| (|Union| |Expon| "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -809,9 +809,9 @@
                     (COND
                      ((OR (QEQCAR |en| 1)
                           (QEQCAR (SPADCALL |c2| |c1| (QREFELT $ 55)) 1))
-                      (PROGN (LETT #1# 'NIL . #2#) (GO #1#))))))
+                      (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G262))))))
                   (EXIT 'T)))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |GBEUCLID;ecritB|
         ((|eh| |Expon|) (|ch| |Dom|) (|ei| |Expon|) (|ci| |Dom|) (|ek| |Expon|)
@@ -1054,9 +1054,9 @@
 
 (DECLAIM (NOTINLINE |EuclideanGroebnerBasisPackage;|)) 
 
-(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G294)
+(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G295)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#

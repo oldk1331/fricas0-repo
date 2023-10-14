@@ -444,16 +444,16 @@
          ((|rec|
            (|Record| (|:| |index| (|Integer|)) (|:| |row| (|Vector| F))
                      (|:| |rh| F)))
-          (#1=#:G237 NIL)
+          (#1=#:G238 NIL)
           (|u|
            (|Union|
             (|Record| (|:| |index| (|Integer|)) (|:| |row| (|Vector| F))
                       (|:| |rh| F))
             "failed"))
-          (#2=#:G244 NIL) (|eq| NIL) (|lk1| (|List| (|Kernel| F)))
-          (#3=#:G243 NIL) (|f| NIL) (#4=#:G242 NIL)
-          (|lk0| (|List| (|Kernel| F))) (#5=#:G241 NIL) (#6=#:G240 NIL)
-          (|lf| (|List| F)) (#7=#:G239 NIL) (|y| NIL) (#8=#:G238 NIL)
+          (#2=#:G245 NIL) (|eq| NIL) (|lk1| (|List| (|Kernel| F)))
+          (#3=#:G244 NIL) (|f| NIL) (#4=#:G243 NIL)
+          (|lk0| (|List| (|Kernel| F))) (#5=#:G242 NIL) (#6=#:G241 NIL)
+          (|lf| (|List| F)) (#7=#:G240 NIL) (|y| NIL) (#8=#:G239 NIL)
           (|xx| (F)) (|v| (|Vector| F)) (|m| (|Matrix| F))
           (|n| (|NonNegativeInteger|)))
          (SEQ
@@ -531,7 +531,9 @@
                         (EXIT
                          (COND
                           ((QEQCAR |u| 1)
-                           (PROGN (LETT #1# (CONS 1 "failed") . #9#) (GO #1#)))
+                           (PROGN
+                            (LETT #1# (CONS 1 "failed") . #9#)
+                            (GO #10=#:G237)))
                           ('T
                            (SEQ (LETT |rec| (QCDR |u|) . #9#)
                                 (SPADCALL |m| (QVELT |rec| 0) (QVELT |rec| 1)
@@ -541,7 +543,7 @@
                                            (QREFELT $ 64))))))))
                        (LETT #2# (CDR #2#) . #9#) (GO G190) G191 (EXIT NIL))
                   (EXIT (CONS 0 (CONS |m| |v|)))))))
-          #1# (EXIT #1#)))) 
+          #10# (EXIT #1#)))) 
 
 (SDEFUN |ODEEF;parseSYSeq|
         ((|eq| F) (|l0| |List| (|Kernel| F)) (|l1| |List| (|Kernel| F))
@@ -551,9 +553,9 @@
                     (|:| |rh| F))
           "failed"))
         (SPROG
-         ((|ci| (F)) (#1=#:G269 NIL) (|y| NIL) (|i| NIL) (|v| (|Vector| F))
+         ((|ci| (F)) (#1=#:G270 NIL) (|y| NIL) (|i| NIL) (|v| (|Vector| F))
           (|c| (F)) (|n| (|Integer|)) (|k| (|Kernel| F))
-          (|l| (|List| (|Kernel| F))) (#2=#:G268 NIL) (#3=#:G267 NIL))
+          (|l| (|List| (|Kernel| F))) (#2=#:G269 NIL) (#3=#:G268 NIL))
          (SEQ
           (LETT |l|
                 (PROGN
@@ -623,8 +625,8 @@
         (SPROG
          ((|eqrhs| (F)) (|d| (F)) (|u| (|Union| F "failed")) (|k| (|Kernel| F))
           (|l| (|List| (|Kernel| F))) (|ny| (|Symbol|)) (|c| (F)) (|f| (F))
-          (|i| NIL) (|n| (|NonNegativeInteger|)) (#1=#:G277 NIL)
-          (|m| (|NonNegativeInteger|)) (#2=#:G293 NIL))
+          (|i| NIL) (|n| (|NonNegativeInteger|)) (#1=#:G278 NIL)
+          (|m| (|NonNegativeInteger|)) (#2=#:G294 NIL))
          (SEQ
           (LETT |f| (SPADCALL |y| (SPADCALL |x| (QREFELT $ 45)) (QREFELT $ 46))
                 . #3=(|ODEEF;parseODE|))
@@ -734,7 +736,7 @@
          ($ |Record| (|:| |left| (|SparseUnivariatePolynomial| F))
           (|:| |right| F)))
         (SPROG
-         ((|d| (|Integer|)) (#1=#:G296 NIL) (|c| (F)) (#2=#:G301 NIL)
+         ((|d| (|Integer|)) (#1=#:G297 NIL) (|c| (F)) (#2=#:G302 NIL)
           (|k| NIL))
          (SEQ
           (COND
@@ -794,7 +796,7 @@
 
 (SDEFUN |ODEEF;getfreelincoeff1|
         ((|f| F) (|k| |Kernel| F) (|ly| |List| F) ($ F))
-        (SPROG ((#1=#:G305 NIL) (#2=#:G308 NIL) (|y| NIL) (|c| (F)))
+        (SPROG ((#1=#:G309 NIL) (#2=#:G310 NIL) (|y| NIL) (|c| (F)))
                (SEQ
                 (LETT |c| (|ODEEF;getlincoeff| |f| |k| $)
                       . #3=(|ODEEF;getfreelincoeff1|))
@@ -813,9 +815,9 @@
                                   (|error|
                                    "getfreelincoeff: not a linear ordinary differential equation")
                                   . #3#)
-                            (GO #1#))))))
+                            (GO #4=#:G306))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL)))
-                 #1# (EXIT #1#))
+                 #4# (EXIT #1#))
                 (EXIT |c|)))) 
 
 (SDEFUN |ODEEF;getlincoeff| ((|f| F) (|k| |Kernel| F) ($ F))
@@ -830,7 +832,7 @@
 
 (SDEFUN |ODEEF;getcoeff| ((|f| F) (|k| |Kernel| F) ($ |Union| F "failed"))
         (SPROG
-         ((#1=#:G322 NIL)
+         ((#1=#:G326 NIL)
           (|p|
            (|SparseUnivariatePolynomial|
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
@@ -856,18 +858,18 @@
                             . #2#)
                       (QREFELT $ 97))
                      1 (QREFELT $ 77)))
-                (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#))))))
+                (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #3=#:G324))))))
             (EXIT
              (CONS 0
                    (SPADCALL (SPADCALL |p| 1 (QREFELT $ 98)) (QCDR |r|)
                              (QREFELT $ 99))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionODESolver;|)) 
 
-(DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G324)
+(DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G327)
   (SPROG NIL
-         (PROG (#2=#:G325)
+         (PROG (#2=#:G328)
            (RETURN
             (COND
              ((LETT #2#

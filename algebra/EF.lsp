@@ -148,7 +148,7 @@
               ('T (|error| "Not an elementary operator")))) 
 
 (SDEFUN |EF;dropfun| ((|x| F) ($ F))
-        (SPROG ((#1=#:G324 NIL) (|k| (|Union| (|Kernel| F) "failed")))
+        (SPROG ((#1=#:G326 NIL) (|k| (|Union| (|Kernel| F) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -160,9 +160,9 @@
                           (NULL (SPADCALL (QCDR |k|) (QREFELT $ 99))))
                       (PROGN
                        (LETT #1# (|spadConstant| $ 89) . #2#)
-                       (GO #1#))))))
+                       (GO #3=#:G324))))))
                   (EXIT (|SPADfirst| (SPADCALL (QCDR |k|) (QREFELT $ 99))))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |EF;specialTrigs;FLU;44|
         ((|x| F)
@@ -1567,7 +1567,7 @@
 
 (SDEFUN |EF;ilog| ((|x| F) ($ F))
         (SPROG
-         ((#1=#:G552 NIL)
+         ((#1=#:G555 NIL)
           (|den| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|num1| (|Boolean|))
           (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))))
@@ -1605,9 +1605,9 @@
                                       (QREFELT $ 123))
                             (QREFELT $ 49))
                            . #2#)
-                     (GO #1#))))))))))
+                     (GO #3=#:G553))))))))))
             (EXIT (SPADCALL (QREFELT $ 14) |x| (QREFELT $ 123)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |EF;iilog;2F;76| ((|x| F) ($ F))
         (SPROG ((|r| (|Union| R "failed")))
@@ -1909,9 +1909,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunction;|)) 
 
-(DEFUN |ElementaryFunction| (&REST #1=#:G810)
+(DEFUN |ElementaryFunction| (&REST #1=#:G812)
   (SPROG NIL
-         (PROG (#2=#:G811)
+         (PROG (#2=#:G813)
            (RETURN
             (COND
              ((LETT #2#

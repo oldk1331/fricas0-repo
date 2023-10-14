@@ -199,7 +199,7 @@
         ((|p| . #1=(|XDistributedPolynomial| |VarSet| R))
          ($ |Union| $ "failed"))
         (SPROG
-         ((|p1| #1#) (|r| ($)) (|lp| ($)) (#2=#:G174 NIL)
+         ((|p1| #1#) (|r| ($)) (|lp| ($)) (#2=#:G175 NIL)
           (|l| (|Union| (|LyndonWord| |VarSet|) "failed")) (|coef| (R))
           (|w| (|OrderedFreeMonoid| |VarSet|))
           (|t|
@@ -226,7 +226,7 @@
                                ((QEQCAR |l| 1)
                                 (PROGN
                                  (LETT #2# (CONS 1 "failed") . #3#)
-                                 (GO #2#)))
+                                 (GO #4=#:G174)))
                                ('T
                                 (SEQ
                                  (LETT |lp|
@@ -246,7 +246,7 @@
                                         . #3#)))))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT (CONS 0 |r|))))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |LPOLY;makeLyndon|
         ((|u| |LyndonWord| |VarSet|) (|v| |LyndonWord| |VarSet|)
@@ -286,7 +286,7 @@
 
 (SDEFUN |LPOLY;cr1| ((|l| |LyndonWord| |VarSet|) (|p| $) ($ $))
         (SPROG
-         ((#1=#:G182 NIL) (#2=#:G181 ($)) (#3=#:G183 ($)) (#4=#:G185 NIL)
+         ((#1=#:G183 NIL) (#2=#:G182 ($)) (#3=#:G184 ($)) (#4=#:G186 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -310,7 +310,7 @@
 
 (SDEFUN |LPOLY;cr2| ((|p| $) (|l| |LyndonWord| |VarSet|) ($ $))
         (SPROG
-         ((#1=#:G187 NIL) (#2=#:G186 ($)) (#3=#:G188 ($)) (#4=#:G190 NIL)
+         ((#1=#:G188 NIL) (#2=#:G187 ($)) (#3=#:G189 ($)) (#4=#:G191 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -374,7 +374,7 @@
 
 (SDEFUN |LPOLY;construct;3$;19| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((#1=#:G199 NIL) (#2=#:G198 ($)) (#3=#:G200 ($)) (#4=#:G202 NIL)
+         ((#1=#:G200 NIL) (#2=#:G199 ($)) (#3=#:G201 ($)) (#4=#:G203 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -409,8 +409,8 @@
 (SDEFUN |LPOLY;coerce;$Xdp;23|
         ((|p| $) ($ |XDistributedPolynomial| |VarSet| R))
         (SPROG
-         ((#1=#:G207 NIL) (#2=#:G206 #3=(|XDistributedPolynomial| |VarSet| R))
-          (#4=#:G208 #3#) (#5=#:G210 NIL) (|t| NIL))
+         ((#1=#:G208 NIL) (#2=#:G207 #3=(|XDistributedPolynomial| |VarSet| R))
+          (#4=#:G209 #3#) (#5=#:G211 NIL) (|t| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL . #6=(|LPOLY;coerce;$Xdp;23|))
@@ -433,8 +433,8 @@
 
 (SDEFUN |LPOLY;coerce;$Xrp;24| ((|p| $) ($ |XRecursivePolynomial| |VarSet| R))
         (SPROG
-         ((#1=#:G212 NIL) (#2=#:G211 #3=(|XRecursivePolynomial| |VarSet| R))
-          (#4=#:G213 #3#) (#5=#:G215 NIL) (|t| NIL))
+         ((#1=#:G213 NIL) (#2=#:G212 #3=(|XRecursivePolynomial| |VarSet| R))
+          (#4=#:G214 #3#) (#5=#:G216 NIL) (|t| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL . #6=(|LPOLY;coerce;$Xrp;24|))
@@ -460,8 +460,8 @@
 
 (SDEFUN |LPOLY;varList;$L;26| ((|p| $) ($ |List| |VarSet|))
         (SPROG
-         ((|le| #1=(|List| |VarSet|)) (#2=#:G218 NIL) (#3=#:G217 #1#)
-          (#4=#:G219 #1#) (#5=#:G222 NIL) (|t| NIL))
+         ((|le| #1=(|List| |VarSet|)) (#2=#:G219 NIL) (#3=#:G218 #1#)
+          (#4=#:G220 #1#) (#5=#:G223 NIL) (|t| NIL))
          (SEQ
           (LETT |le|
                 (PROGN
@@ -487,7 +487,7 @@
           (EXIT (SPADCALL |le| (QREFELT $ 81)))))) 
 
 (SDEFUN |LPOLY;mirror;2$;27| ((|p| $) ($ $))
-        (SPROG ((#1=#:G227 NIL) (|t| NIL) (#2=#:G226 NIL))
+        (SPROG ((#1=#:G228 NIL) (|t| NIL) (#2=#:G227 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|LPOLY;mirror;2$;27|))
@@ -530,7 +530,7 @@
                     (SPADCALL |lw| (QREFELT $ 94)) (QREFELT $ 96))))) 
 
 (SDEFUN |LPOLY;coerce;$Of;31| ((|a| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G238 NIL) (|t| NIL) (#2=#:G237 NIL))
+        (SPROG ((#1=#:G239 NIL) (|t| NIL) (#2=#:G238 NIL))
                (SEQ
                 (COND
                  ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 95)))
@@ -561,9 +561,9 @@
 
 (DECLAIM (NOTINLINE |LiePolynomial;|)) 
 
-(DEFUN |LiePolynomial| (&REST #1=#:G246)
+(DEFUN |LiePolynomial| (&REST #1=#:G247)
   (SPROG NIL
-         (PROG (#2=#:G247)
+         (PROG (#2=#:G248)
            (RETURN
             (COND
              ((LETT #2#

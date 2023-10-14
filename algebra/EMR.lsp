@@ -45,7 +45,7 @@
 
 (SDEFUN |EMR;rem;3$;2| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((#1=#:G164 NIL) (|xv| (R)) (#2=#:G158 NIL) (|xvl| (R))
+         ((#1=#:G165 NIL) (|xv| (R)) (#2=#:G158 NIL) (|xvl| (R))
           (|d| (|Integer|)) (|dy| (|NonNegativeInteger|)) (|yv| (R))
           (|invlcy| (R)) (|xm| (|Mod|)) (|t| (|Union| |Mod| "failed")))
          (SEQ
@@ -125,11 +125,11 @@
                                                 (QREFELT $ 31))
                                       (PROGN
                                        (LETT #1# (CONS |xv| |xm|) . #3#)
-                                       (GO #1#))))))))))
+                                       (GO #4=#:G164))))))))))
                               NIL (GO G190) G191 (EXIT NIL))
                          (EXIT
                           (CONS (SPADCALL |xv| |xm| (QREFELT $ 9)) |xm|))))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |EMR;rem;3$;3| ((|x| $) (|y| $) ($ $))
         (SPROG
@@ -225,9 +225,9 @@
 
 (DECLAIM (NOTINLINE |EuclideanModularRing;|)) 
 
-(DEFUN |EuclideanModularRing| (&REST #1=#:G204)
+(DEFUN |EuclideanModularRing| (&REST #1=#:G205)
   (SPROG NIL
-         (PROG (#2=#:G205)
+         (PROG (#2=#:G206)
            (RETURN
             (COND
              ((LETT #2#

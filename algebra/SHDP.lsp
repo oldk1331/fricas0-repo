@@ -2,7 +2,7 @@
 (SDEFUN |SHDP;lessThanRlex|
         ((|v1| $) (|v2| $) (|low| |NonNegativeInteger|)
          (|high| |NonNegativeInteger|) ($ |Boolean|))
-        (SPROG ((#1=#:G114 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)))
+        (SPROG ((#1=#:G115 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -34,21 +34,21 @@
                                   ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 12))
                                              (SPADCALL |v1| |i| (QREFELT $ 12))
                                              (QREFELT $ 15))
-                                   (PROGN (LETT #1# 'T . #2#) (GO #1#))))
+                                   (PROGN (LETT #1# 'T . #2#) (GO #3=#:G114))))
                                  (EXIT
                                   (COND
                                    ((SPADCALL
                                      (SPADCALL |v1| |i| (QREFELT $ 12))
                                      (SPADCALL |v2| |i| (QREFELT $ 12))
                                      (QREFELT $ 15))
-                                    (PROGN (LETT #1# 'NIL . #2#) (GO #1#))))))
+                                    (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))
                                 (LETT |i| (+ |i| -1) . #2#) (GO G190) G191
                                 (EXIT NIL))
                            (EXIT 'NIL)))))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |SHDP;<;2$B;2| ((|v1| $) (|v2| $) ($ |Boolean|))
-        (SPROG ((#1=#:G119 NIL) (#2=#:G120 NIL) (|i| NIL))
+        (SPROG ((#1=#:G121 NIL) (#2=#:G122 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT $ 7) $) 'T)
@@ -63,19 +63,21 @@
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 16))
-                                  (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
+                                  (PROGN
+                                   (LETT #1# 'NIL . #3#)
+                                   (GO #4=#:G120))))))
                               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
                           (|SHDP;lessThanRlex| |v1| |v2| (+ (QREFELT $ 7) 1)
                            (QREFELT $ 6) $))))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
 
-(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G143)
+(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G145)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G146)
            (RETURN
             (COND
              ((LETT #2#
@@ -97,8 +99,8 @@
 
 (DEFUN |SplitHomogeneousDirectProduct;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) (#4=#:G140 NIL)
-    (#5=#:G141 NIL) (#6=#:G142 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G139 NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (#4=#:G142 NIL)
+    (#5=#:G143 NIL) (#6=#:G144 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|SplitHomogeneousDirectProduct|))

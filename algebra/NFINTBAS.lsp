@@ -242,7 +242,7 @@
           (|:| |basisDen| (|Integer|)) (|:| |basisInv| (|Matrix| (|Integer|)))
           (|:| |discr| (|Integer|))))
         (SPROG
-         ((|tfm| #1#) (#3=#:G162 NIL) (#4=#:G168 NIL) (|oldIndex| (|Integer|))
+         ((|tfm| #1#) (#3=#:G162 NIL) (#4=#:G169 NIL) (|oldIndex| (|Integer|))
           (|indexChange| (|Integer|)) (|rbinv| #5=(|Matrix| (|Integer|)))
           (|rbden| (|Integer|)) (|rb| #5#) (|g| (|Integer|))
           (|index| (|Integer|)) (|idinv| (|Matrix| (|Integer|)))
@@ -304,7 +304,7 @@
                      ((EQL |indexChange| 1)
                       (PROGN
                        (LETT #4# (VECTOR |rb| |rbden| |rbinv| |disc|) . #6#)
-                       (GO #4#)))
+                       (GO #7=#:G168)))
                      ('T
                       (LETT |tfm|
                             (PROG2
@@ -322,7 +322,7 @@
                                              (|Matrix| (|Integer|)) #3#))
                             . #6#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #4# (EXIT #4#)))) 
+          #7# (EXIT #4#)))) 
 
 (SDEFUN |NFINTBAS;iWildLocalIntegralBasis|
         ((|matrixOut| |Matrix| (|Integer|)) (|disc| . #1=(|Integer|))
@@ -331,12 +331,12 @@
           (|:| |basisDen| (|Integer|)) (|:| |basisInv| (|Matrix| (|Integer|)))
           (|:| |discr| (|Integer|))))
         (SPROG
-         ((#2=#:G207 NIL) (#3=#:G211 NIL) (|oldIndex| (|Integer|))
+         ((#2=#:G213 NIL) (#3=#:G214 NIL) (|oldIndex| (|Integer|))
           (|indexChange| (|Integer|)) (|rbinv| #4=(|Matrix| (|Integer|)))
           (|rbden| (|Integer|)) (|rb| #4#) (|index| (|Integer|))
           (|idinv| (|Matrix| (|Integer|))) (|id| (|Matrix| (|Integer|)))
-          (|tfm| (|Matrix| (|Integer|))) (#5=#:G205 NIL)
-          (|lp| (|NonNegativeInteger|)) (#6=#:G171 NIL) (|p2| (|Integer|))
+          (|tfm| (|Matrix| (|Integer|))) (#5=#:G206 NIL)
+          (|lp| (|NonNegativeInteger|)) (#6=#:G172 NIL) (|p2| (|Integer|))
           (|disc0| #1#) (|n| (|PositiveInteger|)))
          (SEQ
           (EXIT
@@ -403,7 +403,7 @@
                      ((EQL |indexChange| 1)
                       (PROGN
                        (LETT #3# (VECTOR |rb| |rbden| |rbinv| |disc|) . #7#)
-                       (GO #3#)))
+                       (GO #8=#:G212)))
                      ('T
                       (SEQ
                        (EXIT
@@ -415,16 +415,16 @@
                                   (LETT #3#
                                         (VECTOR |rb| |rbden| |rbinv| |disc|)
                                         . #7#)
-                                  (GO #3#))
+                                  (GO #8#))
                                  . #7#)
-                           (GO #2#)))))
-                       #2# (EXIT #2#))))))
+                           (GO #9=#:G208)))))
+                       #9# (EXIT #2#))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #3# (EXIT #3#)))) 
+          #8# (EXIT #3#)))) 
 
 (SDEFUN |NFINTBAS;discriminant;I;8| (($ |Integer|))
         (SPROG
-         ((#1=#:G214 NIL) (|index| (|Integer|)) (|rbden| #2=(|Integer|))
+         ((#1=#:G217 NIL) (|index| (|Integer|)) (|rbden| #2=(|Integer|))
           (|rb| #3=(|Matrix| (|Integer|)))
           (|intBas|
            (|Record| (|:| |basis| #3#) (|:| |basisDen| #2#)
@@ -455,9 +455,9 @@
 
 (DECLAIM (NOTINLINE |NumberFieldIntegralBasis;|)) 
 
-(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G218)
+(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G221)
   (SPROG NIL
-         (PROG (#2=#:G219)
+         (PROG (#2=#:G222)
            (RETURN
             (COND
              ((LETT #2#

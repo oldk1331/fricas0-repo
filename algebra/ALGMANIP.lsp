@@ -117,9 +117,9 @@
 
 (SDEFUN |ALGMANIP;innerRF| ((|x| F) (|ll| |List| (|Kernel| F)) ($ F))
         (SPROG
-         ((|q| (|SparseUnivariatePolynomial| F)) (#1=#:G176 NIL) (|kk| NIL)
-          (#2=#:G175 NIL) (#3=#:G137 NIL) (#4=#:G172 NIL) (#5=#:G174 NIL)
-          (#6=#:G173 NIL) (|l| (|List| (|Kernel| F)))
+         ((|q| (|SparseUnivariatePolynomial| F)) (#1=#:G178 NIL) (|kk| NIL)
+          (#2=#:G177 NIL) (#3=#:G173 NIL) (#4=#:G174 NIL) (#5=#:G176 NIL)
+          (#6=#:G175 NIL) (|l| (|List| (|Kernel| F)))
           (|lk| (|List| (|Kernel| F))) (|k| (|Kernel| F)))
          (SEQ
           (EXIT
@@ -193,10 +193,10 @@
                                                             (NREVERSE #6#))))
                                                          (QREFELT $ 45))
                                                . #7#)
-                                         (GO #4#))
+                                         (GO #8=#:G172))
                                         . #7#)
-                                  (GO #3#)))))))
-                        #3# (EXIT #3#))
+                                  (GO #9=#:G137)))))))
+                        #9# (EXIT #3#))
                        NIL (GO G190) G191 (EXIT NIL))
                   (LETT |q|
                         (SPADCALL
@@ -233,7 +233,7 @@
                     (SPADCALL (CONS #'|ALGMANIP;innerRF!3| (VECTOR $ |ll|)) |k|
                               (QREFELT $ 59))
                     (QREFELT $ 65)))))))
-          #4# (EXIT #4#)))) 
+          #8# (EXIT #4#)))) 
 
 (SDEFUN |ALGMANIP;innerRF!3| ((|z1| NIL) ($$ NIL))
         (PROG (|ll| $)
@@ -263,10 +263,10 @@
         ((|fp| |Factored| (|SparseMultivariatePolynomial| R (|Kernel| F)))
          (|op| |BasicOperator|) (|n| |NonNegativeInteger|) ($ F))
         (SPROG
-         ((|res| (F)) (|rr| (F)) (|ce| (|NonNegativeInteger|)) (#1=#:G184 NIL)
-          (|ne| (|NonNegativeInteger|)) (#2=#:G183 NIL) (#3=#:G181 NIL)
-          (|nn| (|Integer|)) (|ng| (|NonNegativeInteger|)) (#4=#:G179 NIL)
-          (#5=#:G189 NIL) (|fr| NIL)
+         ((|res| (F)) (|rr| (F)) (|ce| (|NonNegativeInteger|)) (#1=#:G186 NIL)
+          (|ne| (|NonNegativeInteger|)) (#2=#:G185 NIL) (#3=#:G183 NIL)
+          (|nn| (|Integer|)) (|ng| (|NonNegativeInteger|)) (#4=#:G181 NIL)
+          (#5=#:G191 NIL) (|fr| NIL)
           (|u| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ (LETT |res| (|spadConstant| $ 67) . #6=(|ALGMANIP;fp_root|))
               (COND
@@ -351,7 +351,7 @@
          (|op| |BasicOperator|) (|n| |NonNegativeInteger|) ($ F))
         (SPROG
          ((|pp| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (#1=#:G191 NIL) (|cp| (R)))
+          (#1=#:G193 NIL) (|cp| (R)))
          (SEQ
           (LETT |cp| (SPADCALL |p| (QREFELT $ 86)) . #2=(|ALGMANIP;pol_root|))
           (SPADCALL |cp| (QREFELT $ 87))
@@ -380,7 +380,7 @@
 
 (SDEFUN |ALGMANIP;root_factor_k| ((|k| |Kernel| F) ($ F))
         (SPROG
-         ((|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|)) (#1=#:G195 NIL)
+         ((|op| (|BasicOperator|)) (|n| (|NonNegativeInteger|)) (#1=#:G197 NIL)
           (|nf| (F)) (|x| (F)))
          (SEQ
           (LETT |x| (|SPADfirst| (SPADCALL |k| (QREFELT $ 47)))
@@ -400,7 +400,7 @@
 
 (SDEFUN |ALGMANIP;rootFactor;2F;14| ((|x| F) ($ F))
         (SPROG
-         ((#1=#:G202 NIL) (|k| NIL) (#2=#:G201 NIL)
+         ((#1=#:G204 NIL) (|k| NIL) (#2=#:G203 NIL)
           (|lk| (|List| (|Kernel| F))))
          (SEQ
           (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -451,7 +451,7 @@
             (|Record| (|:| |ker| (|List| (|Kernel| F)))
                       (|:| |exponent| (|List| (|Integer|))))))
           (|others| #1=(|List| (|Kernel| F))) (|expo| (|List| (|Integer|)))
-          (|same| #1#) (|arg| (|List| F)) (#2=#:G216 NIL) (|kk| NIL)
+          (|same| #1#) (|arg| (|List| F)) (#2=#:G218 NIL) (|kk| NIL)
           (|n| (|Integer|)) (|a| (F)) (|k| (|Kernel| F)))
          (SEQ
           (COND ((NULL |l|) NIL)
@@ -506,11 +506,11 @@
 (SDEFUN |ALGMANIP;rootProduct;2F;18| ((|x| F) ($ F))
         (SPROG
          ((|lv| (|List| (|SparseMultivariatePolynomial| R (|Kernel| F))))
-          (#1=#:G218 NIL) (#2=#:G227 NIL) (|m| NIL) (#3=#:G226 NIL)
+          (#1=#:G220 NIL) (#2=#:G229 NIL) (|m| NIL) (#3=#:G228 NIL)
           (|k| (|Kernel| F)) (|n| (|Integer|))
           (|dx| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|nx| (|SparseMultivariatePolynomial| R (|Kernel| F)))
-          (|k0| (|Kernel| F)) (|l| (|List| (|Kernel| F))) (#4=#:G225 NIL)
+          (|k0| (|Kernel| F)) (|l| (|List| (|Kernel| F))) (#4=#:G227 NIL)
           (|rec| NIL))
          (SEQ
           (SEQ (LETT |rec| NIL . #5=(|ALGMANIP;rootProduct;2F;18|))
@@ -589,7 +589,7 @@
           (EXIT |x|)))) 
 
 (SDEFUN |ALGMANIP;rootPower;2F;19| ((|x| F) ($ F))
-        (SPROG ((#1=#:G231 NIL) (|k| NIL))
+        (SPROG ((#1=#:G233 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|ALGMANIP;rootPower;2F;19|))
                      (LETT #1#
@@ -622,7 +622,7 @@
             (|SparseMultivariatePolynomial| R (|Kernel| F))))
           (|ans| (F)) (|term| (|SparseMultivariatePolynomial| R (|Kernel| F)))
           (|g| (|NonNegativeInteger|)) (|d| (|NonNegativeInteger|))
-          (|n| (|NonNegativeInteger|)) (#1=#:G232 NIL) (|a| (F))
+          (|n| (|NonNegativeInteger|)) (#1=#:G234 NIL) (|a| (F))
           (|arg| (|List| F)))
          (SEQ
           (LETT |a|
@@ -685,7 +685,7 @@
 (SDEFUN |ALGMANIP;inroot|
         ((|op| |BasicOperator|) (|x| F) (|n| |NonNegativeInteger|) ($ F))
         (SPROG
-         ((#1=#:G266 NIL)
+         ((#1=#:G268 NIL)
           (|qr|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
@@ -696,7 +696,7 @@
            (|Union|
             (|Record| (|:| |var| (|Kernel| F)) (|:| |exponent| (|Integer|)))
             "failed"))
-          (#2=#:G268 NIL)
+          (#2=#:G272 NIL)
           (|num| (|SparseMultivariatePolynomial| R (|Kernel| F))))
          (SEQ
           (COND ((SPADCALL |x| (|spadConstant| $ 67) (QREFELT $ 103)) |x|)
@@ -733,7 +733,7 @@
                                    |n| $)
                                   (QREFELT $ 36))
                                  . #4#)
-                           (GO #2#))))))))
+                           (GO #5=#:G270))))))))
                     (LETT |u| (SPADCALL |x| |op| (QREFELT $ 126)) . #4#)
                     (EXIT
                      (COND
@@ -779,14 +779,14 @@
                                          (QREFELT $ 102))
                                (QCDR |qr|) (QREFELT $ 132))
                               (QREFELT $ 85)))))))))
-                  #2# (EXIT #2#))))))) 
+                  #5# (EXIT #2#))))))) 
 
 (SDEFUN |ALGMANIP;sroot| ((|k| |Kernel| F) ($ F))
         (SPROG
          ((|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#1=#:G270 NIL) (|arg| (|List| F)))
+          (#1=#:G273 NIL) (|arg| (|List| F)))
          (SEQ
           (LETT |pr|
                 (SPADCALL
@@ -809,7 +809,7 @@
 
 (SDEFUN |ALGMANIP;rootSimp;2F;23| ((|x| F) ($ F))
         (SPROG
-         ((#1=#:G278 NIL) (|k| NIL) (#2=#:G277 NIL)
+         ((#1=#:G281 NIL) (|k| NIL) (#2=#:G280 NIL)
           (|lk| (|List| (|Kernel| F))))
          (SEQ
           (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
@@ -833,9 +833,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
 
-(DEFUN |AlgebraicManipulations| (&REST #1=#:G279)
+(DEFUN |AlgebraicManipulations| (&REST #1=#:G282)
   (SPROG NIL
-         (PROG (#2=#:G280)
+         (PROG (#2=#:G283)
            (RETURN
             (COND
              ((LETT #2#

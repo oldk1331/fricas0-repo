@@ -18,9 +18,9 @@
           (|:| |fail| #1="failed") (|:| |pole| "potentialPole")))
         (SPROG
          ((|ans| (|List| (|OrderedCompletion| (|Expression| R))))
-          (#2=#:G127 NIL)
+          (#2=#:G128 NIL)
           (|v| (|Union| (|OrderedCompletion| (|Expression| R)) "failed"))
-          (#3=#:G128 NIL) (|g| NIL)
+          (#3=#:G129 NIL) (|g| NIL)
           (|u| (|Union| (|Expression| R) (|List| (|Expression| R))))
           (|k| (|Kernel| (|Expression| R))))
          (SEQ
@@ -51,7 +51,9 @@
                           (EXIT
                            (COND
                             ((QEQCAR |v| 1)
-                             (PROGN (LETT #2# (CONS 2 #1#) . #4#) (GO #2#)))
+                             (PROGN
+                              (LETT #2# (CONS 2 #1#) . #4#)
+                              (GO #6=#:G127)))
                             ('T
                              (LETT |ans|
                                    (SPADCALL |ans| (LIST (QCDR |v|))
@@ -59,7 +61,7 @@
                                    . #4#)))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
                     (EXIT (CONS 1 |ans|))))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |DEFINTRF;integrate;FSbU;3|
         ((|f| |Fraction| (|Polynomial| R))
@@ -135,9 +137,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionDefiniteIntegration;|)) 
 
-(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G153)
+(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G154)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G155)
            (RETURN
             (COND
              ((LETT #2#

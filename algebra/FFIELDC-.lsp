@@ -290,10 +290,10 @@
         ((|logbase| S) (|b| S) ($ |Union| (|NonNegativeInteger|) "failed"))
         (SPROG
          ((|a| (S)) (|mult| (|Integer|)) (|disclog| (|Integer|))
-          (|rho| (|Integer|)) (#1=#:G213 NIL)
+          (|rho| (|Integer|)) (#1=#:G214 NIL)
           (|rhoHelp| (|Union| (|NonNegativeInteger|) "failed"))
-          (|exp| (|Integer|)) (#2=#:G215 NIL) (|t| NIL) (|primroot| (S))
-          (|fac| #3=(|Integer|)) (#4=#:G214 NIL) (|f| NIL)
+          (|exp| (|Integer|)) (#2=#:G216 NIL) (|t| NIL) (|primroot| (S))
+          (|fac| #3=(|Integer|)) (#4=#:G215 NIL) (|f| NIL)
           (|faclist|
            (|List| (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|)))))
           (|groupord| (|NonNegativeInteger|)))
@@ -355,7 +355,7 @@
                                        ((QEQCAR |rhoHelp| 1)
                                         (PROGN
                                          (LETT #1# (CONS 1 "failed") . #5#)
-                                         (GO #1#)))
+                                         (GO #6=#:G213)))
                                        ('T
                                         (SEQ
                                          (LETT |rho|
@@ -378,7 +378,7 @@
                                 (EXIT NIL))))
                      (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 |disclog|))))))))
-          #1# (EXIT #1#)))) 
+          #6# (EXIT #1#)))) 
 
 (SDEFUN |FFIELDC-;squareFreePolynomial|
         ((|f| |SparseUnivariatePolynomial| S)
@@ -394,9 +394,9 @@
         ((|f| |SparseUnivariatePolynomial| S)
          ($ |Factored| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#1=#:G224 NIL)
-          (#2=#:G223 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
-          (#4=#:G225 #3#) (#5=#:G228 NIL) (|u| NIL)
+         ((#1=#:G225 NIL)
+          (#2=#:G224 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
+          (#4=#:G226 #3#) (#5=#:G229 NIL) (|u| NIL)
           (|flist|
            (|Record| (|:| |cont| S)
                      (|:| |factors|

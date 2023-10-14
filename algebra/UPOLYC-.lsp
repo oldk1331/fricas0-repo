@@ -606,7 +606,7 @@
 
 (SDEFUN |UPOLYC-;composite;2SU;44| ((|p| S) (|q| S) ($ |Union| S #1="failed"))
         (SPROG
-         ((#2=#:G385 NIL) (|w| #3=(|Union| S "failed")) (|u| (|Union| S #1#))
+         ((#2=#:G388 NIL) (|w| #3=(|Union| S "failed")) (|u| (|Union| S #1#))
           (|v| #3#)
           (|cqr|
            (|Record| (|:| |coef| R) (|:| |quotient| S) (|:| |remainder| S))))
@@ -656,13 +656,13 @@
                                                           (QREFELT $ 71))
                                                          (QREFELT $ 65)))
                                          . #4#)
-                                   (GO #2#))))))))))))))))
+                                   (GO #5=#:G385))))))))))))))))
                     (EXIT (CONS 1 "failed"))))
-                  #2# (EXIT #2#))))))) 
+                  #5# (EXIT #2#))))))) 
 
 (SDEFUN |UPOLYC-;elt;S2F;45| ((|p| S) (|f| |Fraction| S) ($ |Fraction| S))
         (SPROG
-         ((|ans| (|Fraction| S)) (#1=#:G392 NIL) (|n| (|NonNegativeInteger|)))
+         ((|ans| (|Fraction| S)) (#1=#:G393 NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 9)) (|spadConstant| $ 160))
                 (#2='T
@@ -721,7 +721,7 @@
 
 (SDEFUN |UPOLYC-;order;2SNni;46| ((|p| S) (|q| S) ($ |NonNegativeInteger|))
         (SPROG
-         ((|ans| (|NonNegativeInteger|)) (#1=#:G406 NIL)
+         ((|ans| (|NonNegativeInteger|)) (#1=#:G408 NIL)
           (|u| (|Union| S "failed")))
          (SEQ
           (EXIT
@@ -739,12 +739,12 @@
                          (EXIT
                           (COND
                            ((QEQCAR |u| 1)
-                            (PROGN (LETT #1# |ans| . #2#) (GO #1#)))
+                            (PROGN (LETT #1# |ans| . #2#) (GO #3=#:G407)))
                            ('T
                             (SEQ (LETT |p| (QCDR |u|) . #2#)
                                  (EXIT (LETT |ans| (+ |ans| 1) . #2#)))))))
                         NIL (GO G190) G191 (EXIT NIL)))))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |UPOLYC-;squareFree;SF;47| ((|p| S) ($ |Factored| S))
         (SPADCALL |p| (QREFELT $ 169))) 
@@ -789,7 +789,7 @@
 (SDEFUN |UPOLYC-;divide;2SR;53|
         ((|x| S) (|y| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
         (SPROG
-         ((|quot| (S)) (|n| (|NonNegativeInteger|)) (#1=#:G420 NIL) (|f| (R))
+         ((|quot| (S)) (|n| (|NonNegativeInteger|)) (#1=#:G422 NIL) (|f| (R))
           (|lc| (R)))
          (SEQ
           (COND

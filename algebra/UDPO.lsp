@@ -48,8 +48,8 @@
 
 (SDEFUN |UDPO;less?;2SU;7| ((|a| S) (|b| S) ($ |Union| (|Boolean|) "failed"))
         (SPROG
-         ((|bb| #1=(|Boolean|)) (#2=#:G139 NIL) (|aa| #1#) (#3=#:G141 NIL)
-          (|x| NIL) (#4=#:G140 NIL))
+         ((|bb| #1=(|Boolean|)) (#2=#:G140 NIL) (|aa| #1#) (#3=#:G142 NIL)
+          (|x| NIL) (#4=#:G141 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -65,9 +65,9 @@
                      (PROGN
                       (LETT #2# (CONS 0 (SPADCALL |a| |b| (QREFELT $ 29)))
                             . #5#)
-                      (GO #2#)))
+                      (GO #6=#:G139)))
                     ((SPADCALL |x| |b| (QREFELT $ 28))
-                     (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #2#))))))
+                     (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #6#))))))
                  (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
             (LETT |aa| (LETT |bb| 'NIL . #5#) . #5#)
             (SEQ (LETT |x| NIL . #5#)
@@ -79,7 +79,7 @@
                   (COND
                    ((SPADCALL |x| |a| (QREFELT $ 28))
                     (COND
-                     (|bb| (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #2#)))
+                     (|bb| (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #6#)))
                      ('T (LETT |aa| 'T . #5#)))))
                   (EXIT
                    (COND
@@ -89,13 +89,13 @@
                        (PROGN
                         (LETT #2# (CONS 0 (SPADCALL |a| |b| (QREFELT $ 29)))
                               . #5#)
-                        (GO #2#)))
+                        (GO #6#)))
                       ('T (LETT |bb| 'T . #5#)))))))
                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191 (EXIT NIL))
             (EXIT
              (COND (|aa| (CONS 0 'NIL)) (|bb| (CONS 0 'T))
                    ('T (CONS 1 "failed"))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |UDPO;more?;2SB;8| ((|a| S) (|b| S) ($ |Boolean|))
         (COND ((SPADCALL |a| |b| (ELT $ 30) (QREFELT $ 26)) 'NIL) ('T 'T))) 
@@ -105,9 +105,9 @@
 
 (DECLAIM (NOTINLINE |UserDefinedPartialOrdering;|)) 
 
-(DEFUN |UserDefinedPartialOrdering| (#1=#:G145)
+(DEFUN |UserDefinedPartialOrdering| (#1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#

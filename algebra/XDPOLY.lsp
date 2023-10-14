@@ -338,7 +338,7 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 12))))))) 
 
 (SDEFUN |XDPOLY;coef;2$R;17| ((|p| $) (|q| $) ($ R))
-        (SPROG ((#1=#:G183 NIL))
+        (SPROG ((#1=#:G184 NIL))
                (SEQ
                 (EXIT
                  (COND
@@ -362,14 +362,14 @@
                              (SPADCALL (CDR |p|) (CDR |q|) (QREFELT $ 65))
                              (QREFELT $ 67))
                             |XDPOLY;coef;2$R;17|)
-                      (GO #1#)))))))
-                #1# (EXIT #1#)))) 
+                      (GO #2=#:G183)))))))
+                #2# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G190)
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G191)
   (SPROG NIL
-         (PROG (#2=#:G191)
+         (PROG (#2=#:G192)
            (RETURN
             (COND
              ((LETT #2#

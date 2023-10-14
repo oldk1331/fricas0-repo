@@ -632,7 +632,7 @@
 
 (SDEFUN |STREAM;cycleSplit!;2$;41| ((|x| $) ($ $))
         (SPROG
-         ((|z| ($)) (#1=#:G531 NIL) (|y| ($)) (|cycElt| (|Union| $ "failed")))
+         ((|z| ($)) (#1=#:G532 NIL) (|y| ($)) (|cycElt| (|Union| $ "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -648,7 +648,7 @@
                  (COND
                   ((SPADCALL |x| |y| (QREFELT $ 23))
                    (SEQ (|STREAM;setToNil!| |x| $)
-                        (EXIT (PROGN (LETT #1# |y| . #2#) (GO #1#)))))
+                        (EXIT (PROGN (LETT #1# |y| . #2#) (GO #4=#:G531)))))
                   (#3#
                    (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 15)) . #2#)
                         (EXIT
@@ -661,19 +661,19 @@
                                    (SPADCALL |x| (SPADCALL (QREFELT $ 42))
                                              (QREFELT $ 97))
                                    (EXIT
-                                    (PROGN (LETT #1# |y| . #2#) (GO #1#)))))
+                                    (PROGN (LETT #1# |y| . #2#) (GO #4#)))))
                                  ('T
                                   (SEQ (LETT |x| |z| . #2#)
                                        (EXIT
                                         (LETT |z| (SPADCALL |z| (QREFELT $ 15))
                                               . #2#)))))))
                               NIL (GO G190) G191 (EXIT NIL)))))))))))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |STREAM;expand!| ((|x| $) (|n| |Integer|) ($ $))
         (SPROG
-         ((#1=#:G542 NIL) (|e| ($)) (|y| ($)) (|nLessD| (|NonNegativeInteger|))
-          (#2=#:G541 NIL) (|t| ($)) (|d| (|Integer|))
+         ((#1=#:G543 NIL) (|e| ($)) (|y| ($)) (|nLessD| (|NonNegativeInteger|))
+          (#2=#:G542 NIL) (|t| ($)) (|d| (|Integer|))
           (|cycElt| (|Union| $ "failed")) (|i| NIL))
          (SEQ
           (COND ((< |n| 1) |x|)
@@ -819,7 +819,7 @@
         (SPADCALL |x| |s| (QREFELT $ 106))) 
 
 (SDEFUN |STREAM;split!;$I$;52| ((|x| $) (|n| |Integer|) ($ $))
-        (SPROG ((|y| ($)) (#1=#:G561 NIL))
+        (SPROG ((|y| ($)) (#1=#:G562 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "split!: index out of range"))
                       ((EQL |n| 1)
@@ -875,7 +875,7 @@
                    (EXIT (|STREAM;setrst!| |x| |x0| $)))))))) 
 
 (SDEFUN |STREAM;repeating?;L$B;55| ((|l| |List| S) (|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G580 NIL) (#2=#:G581 NIL) (|s| NIL) (|x0| ($)))
+        (SPROG ((#1=#:G582 NIL) (#2=#:G583 NIL) (|s| NIL) (|x0| ($)))
                (SEQ
                 (EXIT
                  (COND
@@ -906,14 +906,14 @@
                                      (SPADCALL |s|
                                                (SPADCALL |x| (QREFELT $ 11))
                                                (QREFELT $ 114)))
-                                 (PROGN (LETT #1# 'NIL . #3#) (GO #1#)))
+                                 (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G581)))
                                 ('T
                                  (LETT |x| (SPADCALL |x| (QREFELT $ 15))
                                        . #3#)))))
                              (LETT #2# (CDR #2#) . #3#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT (SPADCALL |x| |x0| (QREFELT $ 23)))))))
-                #1# (EXIT #1#)))) 
+                #4# (EXIT #1#)))) 
 
 (SDEFUN |STREAM;findCycle;Nni$R;56|
         ((|n| |NonNegativeInteger|) (|x| $)
@@ -1153,9 +1153,9 @@
 
 (DECLAIM (NOTINLINE |Stream;|)) 
 
-(DEFUN |Stream| (#1=#:G755)
+(DEFUN |Stream| (#1=#:G757)
   (SPROG NIL
-         (PROG (#2=#:G756)
+         (PROG (#2=#:G758)
            (RETURN
             (COND
              ((LETT #2#
@@ -1171,7 +1171,7 @@
 
 (DEFUN |Stream;| (|#1|)
   (SPROG
-   ((#1=#:G754 NIL) (|pv$| NIL) (#2=#:G751 NIL) (#3=#:G752 NIL) (#4=#:G753 NIL)
+   ((#1=#:G756 NIL) (|pv$| NIL) (#2=#:G753 NIL) (#3=#:G754 NIL) (#4=#:G755 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Stream|))

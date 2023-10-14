@@ -67,7 +67,7 @@
 
 (SDEFUN |IPADIC;=;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
-         ((|st| (|Stream| (|Integer|))) (#1=#:G178 NIL) (|i| NIL)
+         ((|st| (|Stream| (|Integer|))) (#1=#:G179 NIL) (|i| NIL)
           (|n| (|Integer|)))
          (SEQ
           (EXIT
@@ -81,16 +81,16 @@
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT $ 30))
-                     (PROGN (LETT #1# 'T . #2#) (GO #1#)))
+                     (PROGN (LETT #1# 'T . #2#) (GO #3=#:G178)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0 (QREFELT $ 27))
-                     (PROGN (LETT #1# 'NIL . #2#) (GO #1#)))
+                     (PROGN (LETT #1# 'NIL . #2#) (GO #3#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT $ 39)) . #2#)))))
                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT $ 30)))))
-          #1# (EXIT #1#)))) 
+          #3# (EXIT #1#)))) 
 
 (SDEFUN |IPADIC;order;$Nni;16| ((|x| $) ($ |NonNegativeInteger|))
-        (SPROG ((|st| ($)) (#1=#:G183 NIL) (|i| NIL))
+        (SPROG ((|st| ($)) (#1=#:G185 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -102,10 +102,10 @@
                         (EXIT
                          (COND
                           ((SPADCALL |st| (QREFELT $ 30))
-                           (PROGN (LETT #1# 0 . #2#) (GO #1#)))
+                           (PROGN (LETT #1# 0 . #2#) (GO #3=#:G184)))
                           ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0
                                      (QREFELT $ 27))
-                           (PROGN (LETT #1# |i| . #2#) (GO #1#)))
+                           (PROGN (LETT #1# |i| . #2#) (GO #3#)))
                           ('T
                            (LETT |st| (SPADCALL |st| (QREFELT $ 33)) . #2#)))))
                        (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
@@ -113,7 +113,7 @@
                   (EXIT
                    (|error|
                     "order: series has more than 1000 leading zero coefs"))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |IPADIC;Zero;$;17| (($ $))
         (|IPADIC;padic| (SPADCALL 0 (SPADCALL (QREFELT $ 41)) (QREFELT $ 42))
@@ -612,7 +612,7 @@
           (LETT |p| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G370 NIL) (|num| NIL) (|digit| NIL))
+            (SPROG ((#2=#:G372 NIL) (|num| NIL) (|digit| NIL))
                    (SEQ
                     (LETT |num|
                           (SPADCALL
@@ -787,9 +787,9 @@
 
 (DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G416)
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G418)
   (SPROG NIL
-         (PROG (#2=#:G417)
+         (PROG (#2=#:G419)
            (RETURN
             (COND
              ((LETT #2#

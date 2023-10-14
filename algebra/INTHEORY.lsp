@@ -608,7 +608,7 @@
 
 (SDEFUN |INTHEORY;moebiusMu;2I;15| ((|n| |Integer|) ($ |Integer|))
         (SPROG
-         ((#1=#:G237 NIL) (#2=#:G239 NIL) (#3=#:G240 NIL) (|k| NIL)
+         ((#1=#:G240 NIL) (#2=#:G241 NIL) (#3=#:G242 NIL) (|k| NIL)
           (|t| (|Factored| (|Integer|))))
          (SEQ
           (EXIT
@@ -630,22 +630,23 @@
                             (COND
                              ((SPADCALL (QCDR |k|) 1 (QREFELT $ 56))
                               (PROGN
-                               (LETT #1# (PROGN (LETT #2# 0 . #5#) (GO #2#))
+                               (LETT #1#
+                                     (PROGN (LETT #2# 0 . #5#) (GO #6=#:G239))
                                      . #5#)
-                               (GO #1#))))))
+                               (GO #7=#:G237))))))
                           (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                           (EXIT NIL)))
-                    #1# (EXIT #1#))
+                    #7# (EXIT #1#))
                    (EXIT
                     (COND ((ODDP (SPADCALL |t| (QREFELT $ 72))) -1)
                           (#4# 1)))))))
-          #2# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |IntegerNumberTheoryFunctions;|)) 
 
 (DEFUN |IntegerNumberTheoryFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G242)
+         (PROG (#1=#:G244)
            (RETURN
             (COND
              ((LETT #1#

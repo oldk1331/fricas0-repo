@@ -72,7 +72,7 @@
                                                        (|Symbol|))))
          (|diff| |Mapping| A A) ($ L))
         (SPROG
-         ((|lu| (|List| #1#)) (#2=#:G124 NIL) (|l| (|List| (|Vector| A)))
+         ((|lu| (|List| #1#)) (#2=#:G125 NIL) (|l| (|List| (|Vector| A)))
           (|mat| (|Matrix| A)) (|q| NIL))
          (SEQ
           (EXIT
@@ -91,7 +91,7 @@
                          (PROGN
                           (LETT #2# (|LODOOPS;vec2LODO| (|SPADfirst| |l|) $)
                                 . #3#)
-                          (GO #2#)))))
+                          (GO #4=#:G124)))))
                       (LETT |u|
                             (SPADCALL (SPADCALL |u| |diff| (QREFELT $ 44))
                                       |lvar| |lval| (QREFELT $ 47))
@@ -101,7 +101,7 @@
                              . #3#)))
                      (LETT |q| (|inc_SI| |q|) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (|error| "killer: no linear dependence found"))))
-          #2# (EXIT #2#)))) 
+          #4# (EXIT #2#)))) 
 
 (SDEFUN |LODOOPS;symmetricProduct;2LML;4|
         ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
@@ -221,9 +221,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorsOps;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G135)
+(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G136)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

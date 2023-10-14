@@ -38,9 +38,9 @@
         ((|f| |Mapping| (|Union| R2 "failed") R1) (|m| M1)
          ($ |Union| M2 "failed"))
         (SPROG
-         ((#1=#:G116 NIL) (#2=#:G129 NIL) (|r| (|Union| R2 "failed"))
-          (#3=#:G132 NIL) (|j| NIL) (#4=#:G133 NIL) (|l| NIL) (#5=#:G130 NIL)
-          (|i| NIL) (#6=#:G131 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G116 NIL) (#2=#:G130 NIL) (|r| (|Union| R2 "failed"))
+          (#3=#:G133 NIL) (|j| NIL) (#4=#:G134 NIL) (|l| NIL) (#5=#:G131 NIL)
+          (|i| NIL) (#6=#:G132 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (EXIT
            (SEQ
@@ -71,7 +71,7 @@
                            ((SPADCALL |r| (CONS 1 "failed") (QREFELT $ 34))
                             (PROGN
                              (LETT #2# (CONS 1 "failed") . #7#)
-                             (GO #2#)))
+                             (GO #8=#:G129)))
                            ('T
                             (SPADCALL |ans| |k| |l|
                                       (PROG2 (LETT #1# |r| . #7#)
@@ -85,11 +85,11 @@
                  (LETT |i| (PROG1 (+ |i| 1) (LETT |k| (+ |k| 1) . #7#)) . #7#)
                  (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ans|))))
-          #2# (EXIT #2#)))) 
+          #8# (EXIT #2#)))) 
 
 (SDEFUN |MATCAT2;reduce;MM12R2;3|
         ((|f| |Mapping| R2 R1 R2) (|m| M1) (|ident| R2) ($ R2))
-        (SPROG ((|s| (R2)) (#1=#:G140 NIL) (|j| NIL) (#2=#:G139 NIL) (|i| NIL))
+        (SPROG ((|s| (R2)) (#1=#:G141 NIL) (|j| NIL) (#2=#:G140 NIL) (|i| NIL))
                (SEQ (LETT |s| |ident| . #3=(|MATCAT2;reduce;MM12R2;3|))
                     (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 20)) . #3#)
                          (LETT #2# (SPADCALL |m| (QREFELT $ 21)) . #3#) G190
@@ -113,9 +113,9 @@
 
 (DECLAIM (NOTINLINE |MatrixCategoryFunctions2;|)) 
 
-(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G141)
+(DEFUN |MatrixCategoryFunctions2| (&REST #1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#

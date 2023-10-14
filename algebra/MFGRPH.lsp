@@ -1155,12 +1155,12 @@
         ((|s| $) (|m| |List| (|NonNegativeInteger|))
          ($ |Union| (|List| (|NonNegativeInteger|)) "failed"))
         (SPROG
-         ((|entry| (|NonNegativeInteger|)) (#1=#:G482 NIL)
-          (|x| (|NonNegativeInteger|)) (#2=#:G487 NIL) (|ri| NIL)
-          (#3=#:G486 NIL) (|mi| NIL)
-          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G485 NIL)
-          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G484 NIL)
-          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G483 NIL)
+         ((|entry| (|NonNegativeInteger|)) (#1=#:G483 NIL)
+          (|x| (|NonNegativeInteger|)) (#2=#:G488 NIL) (|ri| NIL)
+          (#3=#:G487 NIL) (|mi| NIL)
+          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G486 NIL)
+          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G485 NIL)
+          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G484 NIL)
           (|domainSize| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -1217,23 +1217,25 @@
                  (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 88)) . #7#)
                       (COND
                        ((EQL |x| 0)
-                        (PROGN (LETT #1# (CONS 1 "failed") . #7#) (GO #1#))))
+                        (PROGN
+                         (LETT #1# (CONS 1 "failed") . #7#)
+                         (GO #8=#:G482))))
                       (SPADCALL |ret| |entry| |x| (QREFELT $ 16))
                       (EXIT (LETT |entry| (+ |entry| 1) . #7#)))
                  (LETT #2# (CDR #2#) . #7#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ret|))))
-          #1# (EXIT #1#)))) 
+          #8# (EXIT #1#)))) 
 
 (SDEFUN |MFGRPH;contraAdjoint;$LU;30|
         ((|s| $) (|m| |List| (|NonNegativeInteger|))
          ($ |Union| (|List| (|NonNegativeInteger|)) "failed"))
         (SPROG
-         ((|entry| (|NonNegativeInteger|)) (#1=#:G501 NIL)
-          (|x| (|NonNegativeInteger|)) (#2=#:G506 NIL) (|ri| NIL)
-          (#3=#:G505 NIL) (|mi| NIL)
-          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G504 NIL)
-          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G503 NIL)
-          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G502 NIL)
+         ((|entry| (|NonNegativeInteger|)) (#1=#:G503 NIL)
+          (|x| (|NonNegativeInteger|)) (#2=#:G508 NIL) (|ri| NIL)
+          (#3=#:G507 NIL) (|mi| NIL)
+          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G506 NIL)
+          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G505 NIL)
+          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G504 NIL)
           (|domainSize| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -1290,12 +1292,14 @@
                  (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 91)) . #7#)
                       (COND
                        ((EQL |x| 0)
-                        (PROGN (LETT #1# (CONS 1 "failed") . #7#) (GO #1#))))
+                        (PROGN
+                         (LETT #1# (CONS 1 "failed") . #7#)
+                         (GO #8=#:G502))))
                       (SPADCALL |ret| |entry| |x| (QREFELT $ 16))
                       (EXIT (LETT |entry| (+ |entry| 1) . #7#)))
                  (LETT #2# (CDR #2#) . #7#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ret|))))
-          #1# (EXIT #1#)))) 
+          #8# (EXIT #1#)))) 
 
 (SDEFUN |MFGRPH;apply;$3Nni;31|
         ((|s| $) (|a| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
@@ -1307,8 +1311,8 @@
         ((|s| $) (|a| |NonNegativeInteger|) (|m| |NonNegativeInteger|)
          ($ |Loop|))
         (SPROG
-         ((|ptr| (|NonNegativeInteger|)) (#1=#:G517 NIL)
-          (|lp| (|List| (|Loop|))) (#2=#:G518 NIL) (|s1| NIL))
+         ((|ptr| (|NonNegativeInteger|)) (#1=#:G520 NIL)
+          (|lp| (|List| (|Loop|))) (#2=#:G521 NIL) (|s1| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ptr| |a| . #3=(|MFGRPH;limit;$2NniL;32|))
@@ -1324,13 +1328,13 @@
                            ((EQL (LENGTH |lp|) 1)
                             (PROGN
                              (LETT #1# (|SPADfirst| |lp|) . #3#)
-                             (GO #1#))))
+                             (GO #4=#:G519))))
                           (EXIT
                            (LETT |ptr| (SPADCALL |s| |ptr| |m| (QREFELT $ 93))
                                  . #3#)))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (SPADCALL NIL (QREFELT $ 97)))))
-          #1# (EXIT #1#)))) 
+          #4# (EXIT #1#)))) 
 
 (SDEFUN |MFGRPH;coerce;Pg$;33| ((|pg| |PermutationGroup| S) ($ $))
         (SPADCALL (SPADCALL |pg| (QREFELT $ 100)) (QREFELT $ 38))) 
@@ -1425,7 +1429,7 @@
 
 (SDEFUN |MFGRPH;generateNames|
         ((|n| |NonNegativeInteger|) ($ |List| (|String|)))
-        (SPROG ((|ptr2| NIL) (#1=#:G537 NIL))
+        (SPROG ((|ptr2| NIL) (#1=#:G540 NIL))
                (SEQ
                 (COND ((EQL |n| 0) (LIST "0"))
                       ('T
@@ -1445,8 +1449,8 @@
 (SDEFUN |MFGRPH;generateNamesCycle|
         ((|g| |List| (|Permutation| S)) ($ |List| (|String|)))
         (SPROG
-         ((|s2| (|List| (|String|))) (#1=#:G542 NIL) (|ptr2| NIL)
-          (#2=#:G541 NIL) (|s1| (|String|)))
+         ((|s2| (|List| (|String|))) (#1=#:G545 NIL) (|ptr2| NIL)
+          (#2=#:G544 NIL) (|s1| (|String|)))
          (SEQ
           (LETT |s1| (|mathObject2String| (|spadConstant| $ 34))
                 . #3=(|MFGRPH;generateNamesCycle|))
@@ -1472,8 +1476,8 @@
          ($ |MultifunctionGraph| (|String|)))
         (SPROG
          ((|gens| (|List| (|List| (|NonNegativeInteger|)))) (|i| NIL)
-          (#1=#:G559 NIL) (|ct| (|List| (|List| (|NonNegativeInteger|))))
-          (|j| NIL) (#2=#:G558 NIL) (#3=#:G557 NIL)
+          (#1=#:G562 NIL) (|ct| (|List| (|List| (|NonNegativeInteger|))))
+          (|j| NIL) (#2=#:G561 NIL) (#3=#:G560 NIL)
           (|dimen| #4=(|NonNegativeInteger|)) (|strngs| (|List| (|String|)))
           (|elements| (|List| (|Permutation| S))) (|idPerm| (|Permutation| S))
           (|idPos| (|Integer|)) (|contin| (|Boolean|))
@@ -1589,14 +1593,14 @@
         (SPROG
          ((|lp| (|List| (|Permutation| (|NonNegativeInteger|))))
           (|p| (|Permutation| (|NonNegativeInteger|)))
-          (|imgs| (|List| (|NonNegativeInteger|))) (#1=#:G579 NIL) (|i| NIL)
-          (|preImgs| (|List| (|NonNegativeInteger|))) (#2=#:G578 NIL)
+          (|imgs| (|List| (|NonNegativeInteger|))) (#1=#:G582 NIL) (|i| NIL)
+          (|preImgs| (|List| (|NonNegativeInteger|))) (#2=#:G581 NIL)
           (|cayleyTable| (|List| (|List| (|NonNegativeInteger|)))) (|j| NIL)
-          (#3=#:G577 NIL) (#4=#:G576 NIL) (|numCols| (|NonNegativeInteger|))
+          (#3=#:G580 NIL) (#4=#:G579 NIL) (|numCols| (|NonNegativeInteger|))
           (|numRows| (|NonNegativeInteger|))
           (|preTable| (|List| (|List| (|NonNegativeInteger|))))
-          (|newNext| (|List| (|NonNegativeInteger|))) (#5=#:G574 NIL)
-          (|obj| NIL) (#6=#:G575 NIL) (|oi| NIL)
+          (|newNext| (|List| (|NonNegativeInteger|))) (#5=#:G577 NIL)
+          (|obj| NIL) (#6=#:G578 NIL) (|oi| NIL)
           (|objs|
            (|List|
             (|Record| (|:| |value| S) (|:| |posX| (|NonNegativeInteger|))
@@ -1679,9 +1683,9 @@
 
 (DECLAIM (NOTINLINE |MultifunctionGraph;|)) 
 
-(DEFUN |MultifunctionGraph| (#1=#:G580)
+(DEFUN |MultifunctionGraph| (#1=#:G583)
   (SPROG NIL
-         (PROG (#2=#:G581)
+         (PROG (#2=#:G584)
            (RETURN
             (COND
              ((LETT #2#

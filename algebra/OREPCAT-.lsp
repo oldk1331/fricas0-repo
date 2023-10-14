@@ -51,7 +51,7 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| S) (|a| R) ($ |Union| S "failed"))
-        (SPROG ((|ans| (S)) (#1=#:G151 NIL) (|u| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G152 NIL) (|u| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -70,7 +70,9 @@
                         (EXIT
                          (COND
                           ((QEQCAR |u| 1)
-                           (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #1#)))
+                           (PROGN
+                            (LETT #1# (CONS 1 "failed") . #2#)
+                            (GO #3=#:G151)))
                           ('T
                            (SEQ
                             (LETT |ans|
@@ -86,13 +88,13 @@
                                    . #2#)))))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT (CONS 0 |ans|))))
-                #1# (EXIT #1#)))) 
+                #3# (EXIT #1#)))) 
 
 (SDEFUN |OREPCAT-;content;SR;6| ((|l| S) ($ R))
         (SPADCALL (SPADCALL |l| (QREFELT $ 29)) (QREFELT $ 31))) 
 
 (SDEFUN |OREPCAT-;primitivePart;2S;7| ((|l| S) ($ S))
-        (SPROG ((#1=#:G154 NIL))
+        (SPROG ((#1=#:G155 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL |l| (SPADCALL |l| (QREFELT $ 33))
