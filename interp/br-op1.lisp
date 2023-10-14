@@ -584,14 +584,6 @@
                   (CONS " {\\em from} " (|dbConformGen| |domname|)))
                  (#1# (|htpProperty| |htPage| '|fromHeading|))))))))))))
  
-; pickitForm(form,uarg) ==
-;   conform2StringList(form,FUNCTION dbConform,FUNCTION conformString,uarg)
- 
-(DEFUN |pickitForm| (|form| |uarg|)
-  (PROG ()
-    (RETURN
-     (|conform2StringList| |form| #'|dbConform| #'|conformString| |uarg|))))
- 
 ; conform2StringList(form, opFn, argFn) ==
 ;   [op1,:args] := form
 ;   op := IFCAR HGET($lowerCaseConTb,op1) or op1

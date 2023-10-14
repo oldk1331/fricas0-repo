@@ -2616,7 +2616,6 @@
 ;       (_> . " > ") (_>_= . " >= ") (_=  . " = ") (_^_= . " _^_= ")))) =>
 ;         concat(pred2English a,translation,pred2English b)
 ;   x is ['ATTRIBUTE, form] => BREAK()
-;     concat("attribute: ",form2String form)
 ;   form2String x
  
 (DEFUN |pred2English| (|x|)
@@ -2753,7 +2752,7 @@
              (SETQ |ISTMP#1| (CDR |x|))
              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                   (PROGN (SETQ |form| (CAR |ISTMP#1|)) #1#))))
-       (BREAK ((TUPLE) (|concat| '|attribute: | (|form2String| |form|)))))
+       (BREAK))
       (#1# (|form2String| |x|))))))
  
 ; mathObject2String x ==
