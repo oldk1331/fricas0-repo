@@ -2877,7 +2877,8 @@
 ;   x is [op,:argl] =>
 ;     op = 'QUOTE => ['"(QUOTE ",:form2FenceQuote first argl,'")"]
 ;     ['"(", FORMAT(NIL, '"|~a|", op),:"append"/[form2Fence1 y for y in argl],'")"]
-;   IDENTP x => FORMAT(NIL, '"|~a|", x)
+;   x = "$" => ["%"]
+;   IDENTP x => [FORMAT(NIL, '"|~a|", x)]
 ; --  [x]
 ;   ['"  ", x]
  
@@ -2907,7 +2908,8 @@
                           (SETQ |bfVar#92| (CDR |bfVar#92|))))
                        NIL |argl| NIL)
                       (CONS ")" NIL)))))))
-      ((IDENTP |x|) (FORMAT NIL "|~a|" |x|)) (#1# (LIST "  " |x|))))))
+      ((EQ |x| '$) (LIST '%)) ((IDENTP |x|) (LIST (FORMAT NIL "|~a|" |x|)))
+      (#1# (LIST "  " |x|))))))
  
 ; form2FenceQuote x ==
 ;   NUMBERP x => [STRINGIMAGE x]

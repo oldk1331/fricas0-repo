@@ -592,22 +592,7 @@
     (RETURN
      (|conform2StringList| |form| #'|dbConform| #'|conformString| |uarg|))))
  
-; conformString(form) ==
-;   IFCDR form =>
-;     conform2StringList(form,FUNCTION conname2StringList,FUNCTION conformString,nil)
-;   form2StringList form
- 
-(DEFUN |conformString| (|form|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((IFCDR |form|)
-       (|conform2StringList| |form| #'|conname2StringList| #'|conformString|
-        NIL))
-      ('T (|form2StringList| |form|))))))
- 
-; conform2StringList(form,opFn,argFn,exception) ==
-;   exception := exception or '"%%%nothing%%%"
+; conform2StringList(form, opFn, argFn) ==
 ;   [op1,:args] := form
 ;   op := IFCAR HGET($lowerCaseConTb,op1) or op1
 ;   null args => APPLY(opFn,[op])
@@ -620,12 +605,11 @@
 ;     rest CDAR GETDATABASE(op,'CONSTRUCTORMODEMAP)
 ;   sargl := [fn for x in args for atype in atypes for pred in cosig] where fn ==
 ;     keyword :=
-;       x is [":",y,t] =>
+;       special and x is [":",y,t] =>
 ;         x := t
 ;         y
 ;       nil
 ;     res :=
-;       x = exception => dbOpsForm exception
 ;       pred =>
 ;         STRINGP x => [x]
 ;         u := APPLY(argFn,[x])
@@ -643,12 +627,11 @@
 ;     APPLY(opFn,[form])
 ;   [:head,'"(",:first sargl,:"append"/[[",",:y] for y in rest sargl],'")"]
  
-(DEFUN |conform2StringList| (|form| |opFn| |argFn| |exception|)
+(DEFUN |conform2StringList| (|form| |opFn| |argFn|)
   (PROG (|op1| |args| |op| |special| |cosig| |atypes| |ISTMP#1| |y| |ISTMP#2|
          |t| |keyword| |u| |typ| |a| |res| |sargl| |head|)
     (RETURN
      (PROGN
-      (SETQ |exception| (OR |exception| "%%%nothing%%%"))
       (SETQ |op1| (CAR |form|))
       (SETQ |args| (CDR |form|))
       (SETQ |op| (OR (IFCAR (HGET |$lowerCaseConTb| |op1|)) |op1|))
@@ -693,7 +676,7 @@
                                      (PROGN
                                       (SETQ |keyword|
                                               (COND
-                                               ((AND (CONSP |x|)
+                                               ((AND |special| (CONSP |x|)
                                                      (EQ (CAR |x|) '|:|)
                                                      (PROGN
                                                       (SETQ |ISTMP#1|
@@ -720,8 +703,6 @@
                                                (#1# NIL)))
                                       (SETQ |res|
                                               (COND
-                                               ((EQUAL |x| |exception|)
-                                                (|dbOpsForm| |exception|))
                                                (|pred|
                                                 (COND
                                                  ((STRINGP |x|) (LIST |x|))
@@ -929,23 +910,6 @@
                NIL |args| NIL |atypes| NIL |cosig| NIL))
       (CONS |op| |argl|)))))
  
-; dbOpsForm form ==
-; --one button for the operations of a type
-; --1st arg: like "Matrix(Integer)" or "UP('x,Integer)" <---all highlighted
-; --2nd arg: like (|Matrix| (|Integer|)) and (|U..P..| (QUOTE |x|) (|Integer|))
-;   ["\ops{",:conform2StringList(form,FUNCTION conname2StringList,FUNCTION conformString,nil),'"}{",:$pn,:form2Fence form,'"}"]
- 
-(DEFUN |dbOpsForm| (|form|)
-  (PROG ()
-    (RETURN
-     (CONS '|\\ops{|
-           (APPEND
-            (|conform2StringList| |form| #'|conname2StringList|
-             #'|conformString| NIL)
-            (CONS "}{"
-                  (APPEND |$pn|
-                          (APPEND (|form2Fence| |form|) (CONS "}" NIL)))))))))
- 
 ; dbConformGen form == dbConformGen1(form,true)
  
 (DEFUN |dbConformGen| (|form|) (PROG () (RETURN (|dbConformGen1| |form| T))))
@@ -965,7 +929,7 @@
 ;   form :=
 ;     originalOp=op => form
 ;     [op, :args]
-;   args => conform2StringList(form, opFunction,FUNCTION dbConformGen,nil)
+;   args => conform2StringList(form, opFunction, FUNCTION dbConformGen)
 ;   APPLY(opFunction,[form])
  
 (DEFUN |dbConformGen1| (|form| |opButton?|)
@@ -982,7 +946,7 @@
               (COND ((EQUAL |originalOp| |op|) |form|)
                     (#1# (CONS |op| |args|))))
       (COND
-       (|args| (|conform2StringList| |form| |opFunction| #'|dbConformGen| NIL))
+       (|args| (|conform2StringList| |form| |opFunction| #'|dbConformGen|))
        (#1# (APPLY |opFunction| (LIST |form|))))))))
  
 ; unAbbreviateIfNecessary op == IFCAR HGET($lowerCaseConTb, op) or op
@@ -1915,13 +1879,18 @@
       #'|bcStarConform|))))
  
 ; dbShowOpImplementations(htPage,opAlist,which,data) ==
-;   dbGatherThenShow(htPage,opAlist,which,data,true,'"by",function bcStarConform)
+;     $from_show_implementations : local := true
+;     dbGatherThenShow(htPage, opAlist, which, data, true, '"by",
+;                      function bcStarConform)
  
 (DEFUN |dbShowOpImplementations| (|htPage| |opAlist| |which| |data|)
-  (PROG ()
+  (PROG (|$from_show_implementations|)
+    (DECLARE (SPECIAL |$from_show_implementations|))
     (RETURN
-     (|dbGatherThenShow| |htPage| |opAlist| |which| |data| T "by"
-      #'|bcStarConform|))))
+     (PROGN
+      (SETQ |$from_show_implementations| T)
+      (|dbGatherThenShow| |htPage| |opAlist| |which| |data| T "by"
+       #'|bcStarConform|)))))
  
 ; dbShowOpConditions(htPage,opAlist,which,data) ==
 ;   dbGatherThenShow(htPage,opAlist,which,data,nil,nil,function bcPred)

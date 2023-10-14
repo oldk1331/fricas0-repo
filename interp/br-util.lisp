@@ -720,7 +720,7 @@
 ;             htSay '": "
 ;             hd CADDR form
 ;         QCDR form and dbEvalableConstructor? form =>
-;             bcConstructor(form,head)
+;             bcConstructor(form)
 ;         hd head
 ;         null (r := QCDR form) => nil
 ;         tl QCDR form
@@ -807,7 +807,7 @@
         (|htSay| ": ")
         (|bcConform1,hd| (CADDR |form|))))
       ((AND (QCDR |form|) (|dbEvalableConstructor?| |form|))
-       (|bcConstructor| |form| |head|))
+       (|bcConstructor| |form|))
       (#1#
        (PROGN
         (|bcConform1,hd| |head|)
@@ -881,16 +881,10 @@
       (SETQ |$italicHead?| (IFCAR (IFCDR |options|)))
       (|bcConform1| |form|)))))
  
-; bcConstructor(form is [op,:arglist],cname) ==  --called only when $conformsAreDomains
-;   htSayList dbConformGen form
+; bcConstructor(form) == htSayList dbConformGen form
  
-(DEFUN |bcConstructor| (|form| |cname|)
-  (PROG (|op| |arglist|)
-    (RETURN
-     (PROGN
-      (SETQ |op| (CAR |form|))
-      (SETQ |arglist| (CDR |form|))
-      (|htSayList| (|dbConformGen| |form|))))))
+(DEFUN |bcConstructor| (|form|)
+  (PROG () (RETURN (|htSayList| (|dbConformGen| |form|)))))
  
 ; htSayList u ==
 ;   for x in u repeat htSay x
@@ -923,37 +917,68 @@
          (SETQ |bfVar#11| (CDR |bfVar#11|))))
       (|form2String| |form|) NIL))))
  
+; $from_show_implementations := false
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$from_show_implementations| NIL))
+ 
 ; dbEvalableConstructor? form ==
-; --form is constructor form; either
-; --(a) all arguments are specified or (b) none are specified
-;   form is [op,:argl] =>
-;     null argl => true
-;     op = 'QUOTE => 'T     --is a domain valued object
-;     and/[dbEvalableConstructor? x for x in argl]
-;   INTEGERP form => true
-;   false
+;     form is [op,:argl] =>
+;         null(cosig := GETDATABASE(op, 'COSIG)) => false
+;         cosig := rest cosig
+;         #cosig ~= #argl => false
+;         res := true
+;         for x in argl for pred in cosig while res repeat
+;             pred => res :=  dbEvalableConstructor? x
+;             $from_show_implementations => "iterate"
+;             x is ['QUOTE, y] and STRINGP(y) => "iterate"
+;             res := false
+;         res
+;     false
  
 (DEFUN |dbEvalableConstructor?| (|form|)
-  (PROG (|op| |argl|)
+  (PROG (|op| |argl| |cosig| |res| |ISTMP#1| |y|)
     (RETURN
      (COND
       ((AND (CONSP |form|)
             (PROGN (SETQ |op| (CAR |form|)) (SETQ |argl| (CDR |form|)) #1='T))
-       (COND ((NULL |argl|) T) ((EQ |op| 'QUOTE) 'T)
+       (COND ((NULL (SETQ |cosig| (GETDATABASE |op| 'COSIG))) NIL)
              (#1#
-              ((LAMBDA (|bfVar#13| |bfVar#12| |x|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#12|)
-                        (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL))
-                    (RETURN |bfVar#13|))
-                   (#1#
-                    (PROGN
-                     (SETQ |bfVar#13| (|dbEvalableConstructor?| |x|))
-                     (COND ((NOT |bfVar#13|) (RETURN NIL))))))
-                  (SETQ |bfVar#12| (CDR |bfVar#12|))))
-               T |argl| NIL))))
-      ((INTEGERP |form|) T) (#1# NIL)))))
+              (PROGN
+               (SETQ |cosig| (CDR |cosig|))
+               (COND ((NOT (EQL (LENGTH |cosig|) (LENGTH |argl|))) NIL)
+                     (#1#
+                      (PROGN
+                       (SETQ |res| T)
+                       ((LAMBDA (|bfVar#12| |x| |bfVar#13| |pred|)
+                          (LOOP
+                           (COND
+                            ((OR (ATOM |bfVar#12|)
+                                 (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL)
+                                 (ATOM |bfVar#13|)
+                                 (PROGN (SETQ |pred| (CAR |bfVar#13|)) NIL)
+                                 (NOT |res|))
+                             (RETURN NIL))
+                            (#1#
+                             (COND
+                              (|pred|
+                               (SETQ |res| (|dbEvalableConstructor?| |x|)))
+                              (|$from_show_implementations| '|iterate|)
+                              ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)
+                                    (PROGN
+                                     (SETQ |ISTMP#1| (CDR |x|))
+                                     (AND (CONSP |ISTMP#1|)
+                                          (EQ (CDR |ISTMP#1|) NIL)
+                                          (PROGN
+                                           (SETQ |y| (CAR |ISTMP#1|))
+                                           #1#)))
+                                    (STRINGP |y|))
+                               '|iterate|)
+                              (#1# (SETQ |res| NIL)))))
+                           (SETQ |bfVar#12| (CDR |bfVar#12|))
+                           (SETQ |bfVar#13| (CDR |bfVar#13|))))
+                        |argl| NIL |cosig| NIL)
+                       |res|)))))))
+      (#1# NIL)))))
  
 ; htSayItalics s == htSay('"{\em ",s,'"}")
  
