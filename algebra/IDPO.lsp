@@ -223,10 +223,10 @@
    ('T (QCAR (|SPADfirst| |x|))))) 
 
 (DEFUN |IDPO;compareterm| (|a| |b| $)
-  (SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 33))) 
+  (SPADCALL (QCAR |b|) (QCAR |a|) (QREFELT $ 30))) 
 
 (DEFUN |IDPO;construct;L$;15| (|lx| $)
-  (SPADCALL (CONS (|function| |IDPO;compareterm|) $) |lx| (QREFELT $ 36))) 
+  (SPADCALL (CONS (|function| |IDPO;compareterm|) $) |lx| (QREFELT $ 35))) 
 
 (PUT '|IDPO;constructOrdered;L$;16| '|SPADreplace| '(XLAM (|lx|) |lx|)) 
 
@@ -250,9 +250,9 @@
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |t| (CAR #1#) . #2#) NIL))
                  (GO G191)))
-               (SEQ (LETT |s| (SPADCALL |s| (QCAR |t|) (QREFELT $ 43)) . #2#)
+               (SEQ (LETT |s| (SPADCALL |s| (QCAR |t|) (QREFELT $ 42)) . #2#)
                     (EXIT
-                     (LETT |s| (SPADCALL |s| (QCDR |t|) (QREFELT $ 44))
+                     (LETT |s| (SPADCALL |s| (QCDR |t|) (QREFELT $ 43))
                            . #2#)))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|))))) 
@@ -287,10 +287,10 @@
                                (LETT |r|
                                      (SPADCALL (QCDR (|SPADfirst| |x|))
                                                (QCDR (|SPADfirst| |y|))
-                                               (QREFELT $ 47))
+                                               (QREFELT $ 46))
                                      . #2#)
                                (COND
-                                ((NULL (SPADCALL |r| (QREFELT $ 48)))
+                                ((NULL (SPADCALL |r| (QREFELT $ 47)))
                                  (LETT |newcell|
                                        (CONS
                                         (CONS (QCAR (|SPADfirst| |x|)) |r|)
@@ -343,17 +343,17 @@
                       (SEQ
                        (LETT |r|
                              (SPADCALL (QCDR (|SPADfirst| |x|))
-                                       (QCDR (|SPADfirst| |y|)) (QREFELT $ 47))
+                                       (QCDR (|SPADfirst| |y|)) (QREFELT $ 46))
                              . #1#)
                        (COND
-                        ((NULL (SPADCALL |r| (QREFELT $ 48)))
+                        ((NULL (SPADCALL |r| (QREFELT $ 47)))
                          (LETT |newcell|
                                (CONS (CONS (QCAR (|SPADfirst| |x|)) |r|) NIL)
                                . #1#)))
                        (LETT |x| (CDR |x|) . #1#)
                        (EXIT (LETT |y| (CDR |y|) . #1#))))
-                     ((|less_SI| (QCAR (|SPADfirst| |y|))
-                                 (QCAR (|SPADfirst| |x|)))
+                     ((SPADCALL (QCAR (|SPADfirst| |y|))
+                                (QCAR (|SPADfirst| |x|)) (QREFELT $ 49))
                       (SEQ (LETT |newcell| (CONS (|SPADfirst| |x|) NIL) . #1#)
                            (EXIT (LETT |x| (CDR |x|) . #1#))))
                      ('T
@@ -415,7 +415,7 @@
                     (EXIT
                      (COND
                       ((SPADCALL
-                        (LETT |a| (SPADCALL |n| (QCDR |u|) (QREFELT $ 51))
+                        (LETT |a| (SPADCALL |n| (QCDR |u|) (QREFELT $ 52))
                               . #3#)
                         (|spadConstant| $ 21) (QREFELT $ 11))
                        (LETT #2# (CONS (CONS (QCAR |u|) |a|) #2#) . #3#)))))
@@ -436,7 +436,7 @@
              (EXIT
               (LETT #2#
                     (CONS
-                     (CONS (QCAR |u|) (SPADCALL (QCDR |u|) (QREFELT $ 53)))
+                     (CONS (QCAR |u|) (SPADCALL (QCDR |u|) (QREFELT $ 54)))
                      #2#)
                     . #3#)))
             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
@@ -458,7 +458,7 @@
                     (EXIT
                      (COND
                       ((SPADCALL
-                        (LETT |a| (SPADCALL |n| (QCDR |u|) (QREFELT $ 56))
+                        (LETT |a| (SPADCALL |n| (QCDR |u|) (QREFELT $ 57))
                               . #3#)
                         (|spadConstant| $ 21) (QREFELT $ 11))
                        (LETT #2# (CONS (CONS (QCAR |u|) |a|) #2#) . #3#)))))
@@ -469,7 +469,7 @@
   (PROG (|res| |end| |endcell| |newcell| |r|)
     (RETURN
      (SEQ
-      (COND ((NULL |x|) (SPADCALL |y| (QREFELT $ 54))) ((NULL |y|) |x|)
+      (COND ((NULL |x|) (SPADCALL |y| (QREFELT $ 55))) ((NULL |y|) |x|)
             (#1='T
              (SEQ (LETT |endcell| NIL . #2=(|IDPO;-;3$;29|))
                   (LETT |res| NIL . #2#)
@@ -487,10 +487,10 @@
                                (LETT |r|
                                      (SPADCALL (QCDR (|SPADfirst| |x|))
                                                (QCDR (|SPADfirst| |y|))
-                                               (QREFELT $ 58))
+                                               (QREFELT $ 59))
                                      . #2#)
                                (COND
-                                ((NULL (SPADCALL |r| (QREFELT $ 48)))
+                                ((NULL (SPADCALL |r| (QREFELT $ 47)))
                                  (LETT |newcell|
                                        (CONS
                                         (CONS (QCAR (|SPADfirst| |x|)) |r|)
@@ -511,7 +511,7 @@
                                      (CONS
                                       (CONS (QCAR (|SPADfirst| |y|))
                                             (SPADCALL (QCDR (|SPADfirst| |y|))
-                                                      (QREFELT $ 53)))
+                                                      (QREFELT $ 54)))
                                       NIL)
                                      . #2#)
                                (EXIT (LETT |y| (CDR |y|) . #2#)))))
@@ -529,7 +529,7 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (COND
                    ((NULL |x|)
-                    (LETT |end| (SPADCALL |y| (QREFELT $ 54)) . #2#))
+                    (LETT |end| (SPADCALL |y| (QREFELT $ 55)) . #2#))
                    (#1# (LETT |end| |x| . #2#)))
                   (COND ((NULL |res|) (LETT |res| |end| . #2#))
                         (#1# (RPLACD |endcell| |end|)))
@@ -558,7 +558,7 @@
                                 (LETT |ru|
                                       (SPADCALL (QCDR (|SPADfirst| |x|))
                                                 (QCDR (|SPADfirst| |y|))
-                                                (QREFELT $ 61))
+                                                (QREFELT $ 62))
                                       . #3#)
                                 (EXIT
                                  (COND
@@ -569,7 +569,7 @@
                                   ('T
                                    (SEQ (LETT |r| (QCDR |ru|) . #3#)
                                         (COND
-                                         ((NULL (SPADCALL |r| (QREFELT $ 48)))
+                                         ((NULL (SPADCALL |r| (QREFELT $ 47)))
                                           (LETT |newcell|
                                                 (CONS
                                                  (CONS (QCAR (|SPADfirst| |x|))
@@ -578,9 +578,9 @@
                                                 . #3#)))
                                         (LETT |x| (CDR |x|) . #3#)
                                         (EXIT (LETT |y| (CDR |y|) . #3#))))))))
-                              ((SPADCALL (QCAR (|SPADfirst| |x|))
-                                         (QCAR (|SPADfirst| |y|))
-                                         (QREFELT $ 33))
+                              ((SPADCALL (QCAR (|SPADfirst| |y|))
+                                         (QCAR (|SPADfirst| |x|))
+                                         (QREFELT $ 30))
                                (SEQ
                                 (LETT |newcell| (CONS (|SPADfirst| |x|) NIL)
                                       . #3#)
@@ -590,7 +590,7 @@
                                 (LETT |ru|
                                       (SPADCALL (|spadConstant| $ 21)
                                                 (QCDR (|SPADfirst| |y|))
-                                                (QREFELT $ 61))
+                                                (QREFELT $ 62))
                                       . #3#)
                                 (EXIT
                                  (COND
@@ -633,7 +633,7 @@
                              (LETT |ru|
                                    (SPADCALL (|spadConstant| $ 21)
                                              (QCDR (|SPADfirst| |y|))
-                                             (QREFELT $ 61))
+                                             (QREFELT $ 62))
                                    . #3#)
                              (EXIT
                               (COND
@@ -677,27 +677,27 @@
      (SEQ
       (COND ((NULL |y|) |x|) ((NULL |x|) |y|)
             ((SPADCALL (QCAR (|SPADfirst| |x|)) (QCAR (|SPADfirst| |y|))
-                       (QREFELT $ 30))
-             (CONS (|SPADfirst| |y|) (SPADCALL |x| (CDR |y|) (QREFELT $ 64))))
+                       (QREFELT $ 65))
+             (CONS (|SPADfirst| |y|) (SPADCALL |x| (CDR |y|) (QREFELT $ 66))))
             ((SPADCALL (QCAR (|SPADfirst| |x|)) (QCAR (|SPADfirst| |y|))
-                       (QREFELT $ 33))
-             (CONS (|SPADfirst| |x|) (SPADCALL (CDR |x|) |y| (QREFELT $ 64))))
+                       (QREFELT $ 67))
+             (CONS (|SPADfirst| |x|) (SPADCALL (CDR |x|) |y| (QREFELT $ 66))))
             ('T
              (SEQ
               (LETT |u|
                     (SPADCALL (QCDR (|SPADfirst| |x|)) (QCDR (|SPADfirst| |y|))
-                              (QREFELT $ 65))
+                              (QREFELT $ 68))
                     |IDPO;sup;3$;32|)
               (EXIT
                (CONS (CONS (QCAR (|SPADfirst| |x|)) |u|)
-                     (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 64))))))))))) 
+                     (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 66))))))))))) 
 
 (DECLAIM (NOTINLINE |IndexedDirectProductObject;|)) 
 
-(DEFUN |IndexedDirectProductObject| (&REST #1=#:G335)
+(DEFUN |IndexedDirectProductObject| (&REST #1=#:G331)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G336)
+     (PROG (#2=#:G332)
        (RETURN
         (COND
          ((LETT #2#
@@ -716,13 +716,13 @@
               (HREM |$ConstructorCache| '|IndexedDirectProductObject|))))))))))) 
 
 (DEFUN |IndexedDirectProductObject;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G331 #2=#:G332 #3=#:G333 #4=#:G334 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedDirectProductObject|))
-      (LETT DV$2 (|devaluate| |#2|) . #5#)
-      (LETT |dv$| (LIST '|IndexedDirectProductObject| DV$1 DV$2) . #5#)
-      (LETT $ (GETREFV 69) . #5#)
+      (LETT DV$1 (|devaluate| |#1|) . #1=(|IndexedDirectProductObject|))
+      (LETT DV$2 (|devaluate| |#2|) . #1#)
+      (LETT |dv$| (LIST '|IndexedDirectProductObject| DV$1 DV$2) . #1#)
+      (LETT $ (GETREFV 71) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -730,46 +730,105 @@
                                          (LIST
                                           (|HasCategory| |#1|
                                                          '(|AbelianGroup|))
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (LETT #4#
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoid|))
-                                                . #5#)
-                                          (OR #4#
-                                              (|HasCategory| |#1|
-                                                             '(|OrderedAbelianMonoidSup|)))
-                                          (LETT #3#
-                                                (|HasCategory| |#1|
-                                                               '(|CancellationAbelianMonoid|))
-                                                . #5#)
+                                          (AND
+                                           (|HasCategory| |#1|
+                                                          '(|OrderedAbelianMonoidSup|))
+                                           (|HasCategory| |#2|
+                                                          '(|OrderedSet|)))
+                                          (OR
+                                           (|HasCategory| |#1| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
+                                          (OR
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|AbelianMonoid|))
+                                           (|HasCategory| |#1|
+                                                          '(|Comparable|)))
                                           (OR
                                            (|HasCategory| |#1|
                                                           '(|AbelianGroup|))
-                                           #3#)
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|AbelianMonoid|))
-                                                . #5#)
+                                           (|HasCategory| |#1|
+                                                          '(|CancellationAbelianMonoid|)))
                                           (OR
                                            (|HasCategory| |#1|
                                                           '(|AbelianGroup|))
-                                           #2# #3#)
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|Comparable|))
-                                                . #5#)
-                                          (OR #1# #4#
-                                              (|HasCategory| |#1|
-                                                             '(|OrderedAbelianMonoidSup|)))
-                                          (OR #2# #1#)
+                                           (|HasCategory| |#1|
+                                                          '(|AbelianMonoid|))
+                                           (|HasCategory| |#1|
+                                                          '(|CancellationAbelianMonoid|))
+                                           (|HasCategory| |#1| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
                                           (OR
                                            (|HasCategory| |#1|
                                                           '(|AbelianGroup|))
-                                           #2# #3# #1# #4#
                                            (|HasCategory| |#1|
-                                                          '(|OrderedAbelianMonoidSup|)))))
-                      . #5#))
+                                                          '(|AbelianMonoid|))
+                                           (|HasCategory| |#1|
+                                                          '(|CancellationAbelianMonoid|)))
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|CancellationAbelianMonoid|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|AbelianMonoid|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|AbelianMonoid|))
+                                           (|HasCategory| |#1| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))))
+                      . #1#))
       (|haddProp| |$ConstructorCache| '|IndexedDirectProductObject|
                   (LIST DV$1 DV$2) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -778,7 +837,7 @@
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 8 (|List| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
       (COND
-       ((|testBitVector| |pv$| 7)
+       ((|HasCategory| |#1| '(|AbelianMonoid|))
         (PROGN
          (QSETREFV $ 23 (CONS (|dispatchFunction| |IDPO;monomial;AS$;3|) $))
          (QSETREFV $ 25 (CONS (|dispatchFunction| |IDPO;map;M2$;4|) $))
@@ -787,7 +846,7 @@
                    (CONS (|dispatchFunction| |IDPO;leadingCoefficient;$A;6|)
                          $))
          (COND
-          ((|testBitVector| |pv$| 9)
+          ((|HasCategory| |#1| '(|Comparable|))
            (PROGN
             (QSETREFV $ 31
                       (CONS (|dispatchFunction| |IDPO;smaller?;2$B;7|) $)))))))
@@ -800,40 +859,42 @@
                    (CONS (|dispatchFunction| |IDPO;leadingCoefficient;$A;11|)
                          $))
          (COND
-          ((|testBitVector| |pv$| 9)
+          ((|HasCategory| |#1| '(|Comparable|))
            (PROGN
             (QSETREFV $ 31
                       (CONS (|dispatchFunction| |IDPO;smaller?;2$B;12|)
                             $))))))))
       (COND
-       ((|testBitVector| |pv$| 7)
+       ((|HasCategory| |#1| '(|AbelianMonoid|))
         (PROGN
          (QSETREFV $ 20
                    (CONS #'|makeSpadConstant|
                          (LIST (|dispatchFunction| |IDPO;Zero;$;20|) $ 20)))
-         (QSETREFV $ 46 (CONS (|dispatchFunction| |IDPO;zero?;$B;21|) $))
+         (QSETREFV $ 45 (CONS (|dispatchFunction| |IDPO;zero?;$B;21|) $))
          (COND
           ((|domainEqual| |#2| (|NonNegativeInteger|))
            (PROGN
-            (QSETREFV $ 49 (CONS (|dispatchFunction| |IDPO;+;3$;24|) $))))
-          ('T (QSETREFV $ 49 (CONS (|dispatchFunction| |IDPO;+;3$;25|) $))))
-         (QSETREFV $ 52 (CONS (|dispatchFunction| |IDPO;*;Pi2$;26|) $)))))
+            (QSETREFV $ 50 (CONS (|dispatchFunction| |IDPO;+;3$;24|) $))))
+          ('T (QSETREFV $ 50 (CONS (|dispatchFunction| |IDPO;+;3$;25|) $))))
+         (QSETREFV $ 53 (CONS (|dispatchFunction| |IDPO;*;Pi2$;26|) $)))))
       (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
-         (QSETREFV $ 54 (CONS (|dispatchFunction| |IDPO;-;2$;27|) $))
-         (QSETREFV $ 57 (CONS (|dispatchFunction| |IDPO;*;I2$;28|) $))
-         (QSETREFV $ 59 (CONS (|dispatchFunction| |IDPO;-;3$;29|) $)))))
+         (QSETREFV $ 55 (CONS (|dispatchFunction| |IDPO;-;2$;27|) $))
+         (QSETREFV $ 58 (CONS (|dispatchFunction| |IDPO;*;I2$;28|) $))
+         (QSETREFV $ 60 (CONS (|dispatchFunction| |IDPO;-;3$;29|) $)))))
       (COND
-       ((|testBitVector| |pv$| 5)
-        (QSETREFV $ 62
+       ((|HasCategory| |#1| '(|CancellationAbelianMonoid|))
+        (QSETREFV $ 63
                   (CONS (|dispatchFunction| |IDPO;subtractIfCan;2$U;30|) $))))
       (COND
-       ((|testBitVector| |pv$| 3)
-        (QSETREFV $ 63 (CONS (|dispatchFunction| |IDPO;<;2$B;31|) $))))
+       ((|HasCategory| |#1| '(|OrderedAbelianMonoid|))
+        (QSETREFV $ 64 (CONS (|dispatchFunction| |IDPO;<;2$B;31|) $))))
       (COND
-       ((|testBitVector| |pv$| 2)
-        (QSETREFV $ 64 (CONS (|dispatchFunction| |IDPO;sup;3$;32|) $))))
+       ((|HasCategory| |#2| '(|OrderedSet|))
+        (COND
+         ((|HasCategory| |#1| '(|OrderedAbelianMonoidSup|))
+          (QSETREFV $ 66 (CONS (|dispatchFunction| |IDPO;sup;3$;32|) $))))))
       $)))) 
 
 (MAKEPROP '|IndexedDirectProductObject| '|infovec|
@@ -844,25 +905,27 @@
               (28 . |bracket|) |IDPO;coerce;$Of;2| (33 . |Zero|) (37 . |Zero|)
               (41 . =) (47 . |monomial|) (|Mapping| 6 6) (53 . |map|)
               (59 . |reductum|) (64 . |leadingCoefficient|) (69 . |smaller?|)
-              (75 . =) (81 . <) (87 . |smaller?|) |IDPO;leadingSupport;$S;13|
-              (93 . >) (|Record| (|:| |k| 7) (|:| |c| 6)) (|Mapping| 9 34 34)
-              (99 . |sort|) (|List| 34) |IDPO;construct;L$;15|
-              |IDPO;constructOrdered;L$;16| |IDPO;leadingTerm;$R;17|
-              |IDPO;listOfTerms;$L;18| (|HashState|) (105 . |hashUpdate!|)
-              (111 . |hashUpdate!|) |IDPO;hashUpdate!;Hs$Hs;19| (117 . |zero?|)
-              (122 . +) (128 . |zero?|) (133 . +) (|PositiveInteger|) (139 . *)
-              (145 . *) (151 . -) (156 . -) (|Integer|) (161 . *) (167 . *)
-              (173 . -) (179 . -) (|Union| $ '"failed") (185 . |subtractIfCan|)
-              (191 . |subtractIfCan|) (197 . <) (203 . |sup|) (209 . |sup|)
-              (|SingleInteger|) (|String|) (|NonNegativeInteger|))
-           '#(~= 215 |zero?| 221 |sup| 226 |subtractIfCan| 232 |smaller?| 238
-              |sample| 244 |reductum| 248 |monomial| 253 |min| 259 |max| 265
-              |map| 271 |listOfTerms| 277 |leadingTerm| 282 |leadingSupport|
-              287 |leadingCoefficient| 292 |latex| 297 |hashUpdate!| 302 |hash|
-              308 |constructOrdered| 313 |construct| 318 |coerce| 323 |Zero|
-              328 >= 332 > 338 = 344 <= 350 < 356 - 362 + 373 * 379)
+              (75 . =) (81 . |smaller?|) (87 . |smaller?|)
+              |IDPO;leadingSupport;$S;13| (|Record| (|:| |k| 7) (|:| |c| 6))
+              (|Mapping| 9 33 33) (93 . |sort|) (|List| 33)
+              |IDPO;construct;L$;15| |IDPO;constructOrdered;L$;16|
+              |IDPO;leadingTerm;$R;17| |IDPO;listOfTerms;$L;18| (|HashState|)
+              (99 . |hashUpdate!|) (105 . |hashUpdate!|)
+              |IDPO;hashUpdate!;Hs$Hs;19| (111 . |zero?|) (116 . +)
+              (122 . |zero?|) (|SingleInteger|) (127 . |smaller?|) (133 . +)
+              (|PositiveInteger|) (139 . *) (145 . *) (151 . -) (156 . -)
+              (|Integer|) (161 . *) (167 . *) (173 . -) (179 . -)
+              (|Union| $ '"failed") (185 . |subtractIfCan|)
+              (191 . |subtractIfCan|) (197 . <) (203 . <) (209 . |sup|)
+              (215 . >) (221 . |sup|) (|NonNegativeInteger|) (|String|))
+           '#(~= 227 |zero?| 233 |sup| 238 |subtractIfCan| 244 |smaller?| 250
+              |sample| 256 |reductum| 260 |monomial| 265 |min| 271 |max| 277
+              |map| 283 |listOfTerms| 289 |leadingTerm| 294 |leadingSupport|
+              299 |leadingCoefficient| 304 |latex| 309 |hashUpdate!| 314 |hash|
+              320 |constructOrdered| 325 |construct| 330 |coerce| 335 |Zero|
+              340 >= 344 > 350 = 356 <= 362 < 368 - 374 + 385 * 391)
            'NIL
-           (CONS (|makeByteWordVec2| 12 '(0 2 0 2 1 4 4 6 4 8 10 8 12 11 3 12))
+           (CONS (|makeByteWordVec2| 8 '(0 2 0 2 1 4 4 6 4 8 3 8 7 5 4 7))
                  (CONS
                   '#(NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
                      |AbelianMonoid&| NIL |AbelianSemiGroup&| |SetCategory&|
@@ -876,29 +939,30 @@
                       (|AbelianMonoid|) (|Comparable|) (|AbelianSemiGroup|)
                       (|SetCategory|) (|CoercibleTo| 13) (|PartialOrder|)
                       (|BasicType|))
-                   (|makeByteWordVec2| 68
+                   (|makeByteWordVec2| 70
                                        '(2 7 9 0 0 10 2 6 9 0 0 11 1 7 13 0 14
                                          1 6 13 0 15 2 13 0 0 0 16 1 13 0 17 18
                                          0 0 0 20 0 6 0 21 2 6 9 0 0 22 2 0 0 6
                                          7 23 2 0 0 24 0 25 1 0 0 0 26 1 0 6 0
                                          27 2 6 9 0 0 28 2 7 9 0 0 29 2 7 9 0 0
-                                         30 2 0 9 0 0 31 2 7 9 0 0 33 2 8 0 35
-                                         0 36 2 7 42 42 0 43 2 6 42 42 0 44 1 0
-                                         9 0 46 2 6 0 0 0 47 1 6 9 0 48 2 0 0 0
-                                         0 49 2 6 0 50 0 51 2 0 0 50 0 52 1 6 0
-                                         0 53 1 0 0 0 54 2 6 0 55 0 56 2 0 0 55
-                                         0 57 2 6 0 0 0 58 2 0 0 0 0 59 2 6 60
-                                         0 0 61 2 0 60 0 0 62 2 0 9 0 0 63 2 0
-                                         0 0 0 64 2 6 0 0 0 65 2 11 9 0 0 1 1 7
-                                         9 0 46 2 2 0 0 0 64 2 5 60 0 0 62 2 9
-                                         9 0 0 31 0 7 0 1 1 0 0 0 26 2 0 0 6 7
-                                         23 2 3 0 0 0 1 2 3 0 0 0 1 2 0 0 24 0
-                                         25 1 0 37 0 41 1 0 34 0 40 1 0 7 0 32
-                                         1 0 6 0 27 1 11 67 0 1 2 11 42 42 0 45
-                                         1 11 66 0 1 1 0 0 37 39 1 0 0 37 38 1
-                                         11 13 0 19 0 7 0 20 2 3 9 0 0 1 2 3 9
-                                         0 0 1 2 11 9 0 0 12 2 3 9 0 0 1 2 3 9
-                                         0 0 63 1 1 0 0 54 2 1 0 0 0 59 2 7 0 0
-                                         0 49 2 1 0 55 0 57 2 7 0 50 0 52 2 7 0
-                                         68 0 1)))))
+                                         30 2 0 9 0 0 31 2 8 0 34 0 35 2 7 41
+                                         41 0 42 2 6 41 41 0 43 1 0 9 0 45 2 6
+                                         0 0 0 46 1 6 9 0 47 2 48 9 0 0 49 2 0
+                                         0 0 0 50 2 6 0 51 0 52 2 0 0 51 0 53 1
+                                         6 0 0 54 1 0 0 0 55 2 6 0 56 0 57 2 0
+                                         0 56 0 58 2 6 0 0 0 59 2 0 0 0 0 60 2
+                                         6 61 0 0 62 2 0 61 0 0 63 2 0 9 0 0 64
+                                         2 7 9 0 0 65 2 0 0 0 0 66 2 7 9 0 0 67
+                                         2 6 0 0 0 68 2 11 9 0 0 1 1 10 9 0 45
+                                         2 2 0 0 0 66 2 9 61 0 0 63 2 3 9 0 0
+                                         31 0 10 0 1 1 0 0 0 26 2 0 0 6 7 23 2
+                                         4 0 0 0 1 2 4 0 0 0 1 2 0 0 24 0 25 1
+                                         0 36 0 40 1 0 33 0 39 1 0 7 0 32 1 0 6
+                                         0 27 1 11 70 0 1 2 11 41 41 0 44 1 11
+                                         48 0 1 1 0 0 36 38 1 0 0 36 37 1 11 13
+                                         0 19 0 10 0 20 2 4 9 0 0 1 2 4 9 0 0 1
+                                         2 11 9 0 0 12 2 4 9 0 0 1 2 4 9 0 0 64
+                                         1 1 0 0 55 2 1 0 0 0 60 2 10 0 0 0 50
+                                         2 10 0 51 0 53 2 10 0 69 0 1 2 1 0 56
+                                         0 58)))))
            '|lookupComplete|)) 

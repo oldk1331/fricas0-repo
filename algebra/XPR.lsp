@@ -295,10 +295,10 @@
 
 (DECLAIM (NOTINLINE |XPolynomialRing;|)) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G223)
+(DEFUN |XPolynomialRing| (&REST #1=#:G221)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G224)
+     (PROG (#2=#:G222)
        (RETURN
         (COND
          ((LETT #2#
@@ -316,13 +316,13 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|XPolynomialRing|))))))))))) 
 
 (DEFUN |XPolynomialRing;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G221 #2=#:G222 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|XPolynomialRing|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT |dv$| (LIST '|XPolynomialRing| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 69) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #1=(|XPolynomialRing|))
+      (LETT DV$2 (|devaluate| |#2|) . #1#)
+      (LETT |dv$| (LIST '|XPolynomialRing| DV$1 DV$2) . #1#)
+      (LETT $ (GETREFV 69) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -331,28 +331,40 @@
                                           (|HasCategory| |#1|
                                                          '(|CommutativeRing|))
                                           (|HasCategory| |#1| '(|SemiRing|))
-                                          (|HasCategory| |#1|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|OrderedAbelianMonoid|))
-                                                . #3#)
-                                          (OR #2#
-                                              (|HasCategory| |#1|
-                                                             '(|OrderedAbelianMonoidSup|)))
+                                          (AND
+                                           (|HasCategory| |#1|
+                                                          '(|OrderedAbelianMonoidSup|))
+                                           (|HasCategory| |#2|
+                                                          '(|OrderedSet|)))
+                                          (OR
+                                           (|HasCategory| |#1| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
+                                          (OR
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#1|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedSet|))))
                                           (|HasCategory| |#1|
                                                          '(|canonicalUnitNormal|))
                                           (|HasCategory| |#1|
                                                          '(|noZeroDivisors|))
-                                          (LETT #1#
-                                                (|HasCategory| |#1|
-                                                               '(|Comparable|))
-                                                . #3#)
-                                          (OR #1# #2#
-                                              (|HasCategory| |#1|
-                                                             '(|OrderedAbelianMonoidSup|)))
                                           (|HasCategory| |#1| '(|Field|))))
-                      . #3#))
+                      . #1#))
       (|haddProp| |$ConstructorCache| '|XPolynomialRing| (LIST DV$1 DV$2)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -365,7 +377,7 @@
         (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;14|) $)))
        ('T (QSETREFV $ 45 (CONS (|dispatchFunction| |XPR;*;3$;15|) $))))
       (COND
-       ((|testBitVector| |pv$| 10)
+       ((|testBitVector| |pv$| 8)
         (QSETREFV $ 57 (CONS (|dispatchFunction| |XPR;/;$R$;20|) $))))
       $)))) 
 
@@ -387,8 +399,8 @@
               (101 . |coerce|) (106 . |coerce|) (111 . *) (117 . +)
               (|Mapping| 47 47 47) (|List| 47) (123 . |reduce|)
               |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|Mapping| 6 7)
-              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 6)
-              (|List| 7) (|List| $) (|PositiveInteger|) (|String|)
+              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 7)
+              (|List| 6) (|List| $) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(|recip| 140 |quasiRegular?| 145 |quasiRegular| 150 |mindeg| 155
               |maxdeg| 160 |constant?| 165 |constant| 170 |coerce| 175 |coef|
@@ -396,9 +408,9 @@
               226 * 232 |#| 244)
            'NIL
            (CONS
-            (|makeByteWordVec2| 9
+            (|makeByteWordVec2| 7
                                 '(0 0 1 0 1 0 0 3 0 0 0 0 0 3 0 5 0 0 5 0 0 0 5
-                                  0 0 9 0 0 0 0 2 4 6 7))
+                                  0 0 4 0 0 0 0 2 5 6 7))
             (CONS
              '#(NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL |Ring&|
                 NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
@@ -431,7 +443,7 @@
                                     0 0 31 1 0 7 0 19 1 0 7 0 16 1 0 20 0 27 1
                                     0 6 0 28 1 0 0 6 35 1 0 0 38 40 1 0 47 0 55
                                     2 0 6 0 7 24 0 0 12 14 2 0 0 0 12 46 0 0 0
-                                    25 0 0 0 11 2 0 20 0 0 26 2 10 0 0 6 57 2 0
+                                    25 0 0 0 11 2 0 20 0 0 26 2 8 0 0 6 57 2 0
                                     0 0 0 44 2 0 0 6 0 41 2 0 0 0 0 45 1 0 12 0
                                     15)))))
            '|lookupIncomplete|)) 

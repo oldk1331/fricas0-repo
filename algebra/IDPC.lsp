@@ -67,11 +67,15 @@
                                       '(((|Comparable|)
                                          (|has| |t#1| (|Comparable|)))
                                         ((|OrderedAbelianMonoid|)
-                                         (|has| |t#1|
-                                                (|OrderedAbelianMonoid|)))
+                                         (AND
+                                          (|has| |t#1|
+                                                 (|OrderedAbelianMonoid|))
+                                          (|has| |t#2| (|OrderedSet|))))
                                         ((|OrderedAbelianMonoidSup|)
-                                         (|has| |t#1|
-                                                (|OrderedAbelianMonoidSup|))))
+                                         (AND
+                                          (|has| |t#1|
+                                                 (|OrderedAbelianMonoidSup|))
+                                          (|has| |t#2| (|OrderedSet|)))))
                                       '((|List|
                                          (|Record| (|:| |k| |t#2|)
                                                    (|:| |c| |t#1|))))

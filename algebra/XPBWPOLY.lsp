@@ -707,10 +707,10 @@
 
 (DECLAIM (NOTINLINE |XPBWPolynomial;|)) 
 
-(DEFUN |XPBWPolynomial| (&REST #1=#:G296)
+(DEFUN |XPBWPolynomial| (&REST #1=#:G294)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G297)
+     (PROG (#2=#:G295)
        (RETURN
         (COND
          ((LETT #2#
@@ -728,13 +728,13 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|XPBWPolynomial|))))))))))) 
 
 (DEFUN |XPBWPolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G294 #2=#:G295 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|XPBWPolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT |dv$| (LIST '|XPBWPolynomial| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 120) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #1=(|XPBWPolynomial|))
+      (LETT DV$2 (|devaluate| |#2|) . #1#)
+      (LETT |dv$| (LIST '|XPBWPolynomial| DV$1 DV$2) . #1#)
+      (LETT $ (GETREFV 120) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -745,27 +745,49 @@
                                           (|HasCategory| |#2|
                                                          '(|CommutativeRing|))
                                           (|HasCategory| |#2| '(|SemiRing|))
-                                          (|HasCategory| |#2|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (LETT #2#
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoid|))
-                                                . #3#)
-                                          (OR #2#
-                                              (|HasCategory| |#2|
-                                                             '(|OrderedAbelianMonoidSup|)))
-                                          (LETT #1#
-                                                (|HasCategory| |#2|
-                                                               '(|Comparable|))
-                                                . #3#)
-                                          (OR #1# #2#
-                                              (|HasCategory| |#2|
-                                                             '(|OrderedAbelianMonoidSup|)))
+                                          (AND
+                                           (|HasCategory| |#2|
+                                                          '(|OrderedAbelianMonoidSup|))
+                                           (|HasCategory|
+                                            (|PoincareBirkhoffWittLyndonBasis|
+                                             |#1|)
+                                            '(|OrderedSet|)))
+                                          (OR
+                                           (|HasCategory| |#2| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory|
+                                             (|PoincareBirkhoffWittLyndonBasis|
+                                              |#1|)
+                                             '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory|
+                                             (|PoincareBirkhoffWittLyndonBasis|
+                                              |#1|)
+                                             '(|OrderedSet|))))
+                                          (OR
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory|
+                                             (|PoincareBirkhoffWittLyndonBasis|
+                                              |#1|)
+                                             '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory|
+                                             (|PoincareBirkhoffWittLyndonBasis|
+                                              |#1|)
+                                             '(|OrderedSet|))))
                                           (|HasCategory| |#2|
                                                          '(|Module|
                                                            (|Fraction|
                                                             (|Integer|))))))
-                      . #3#))
+                      . #1#))
       (|haddProp| |$ConstructorCache| '|XPBWPolynomial| (LIST DV$1 DV$2)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -777,7 +799,7 @@
                  (|Record| (|:| |k| (|PoincareBirkhoffWittLyndonBasis| |#1|))
                            (|:| |c| |#2|))))
       (COND
-       ((|testBitVector| |pv$| 9)
+       ((|testBitVector| |pv$| 7)
         (PROGN
          (QSETREFV $ 95 (CONS (|dispatchFunction| |XPBWPOLY;exp;$Nni$;27|) $))
          (QSETREFV $ 98
@@ -821,7 +843,7 @@
               (304 . |retractable?|) (309 . |retract|) (|Union| 34 '"failed")
               |XPBWPOLY;LiePolyIfCan;$U;29| |XPBWPOLY;mirror;2$;30|
               (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73) (|List| 7)
-              (|List| $) (|List| 13) (|OrderedFreeMonoid| 6) (|Mapping| 7 7)
+              (|List| 13) (|List| $) (|OrderedFreeMonoid| 6) (|Mapping| 7 7)
               (|Record| (|:| |k| 111) (|:| |c| 7)) (|Union| 111 '#1#)
               (|Union| $ '"failed") (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
@@ -832,9 +854,9 @@
               428 = 433 - 439 + 450 * 456)
            'NIL
            (CONS
-            (|makeByteWordVec2| 8
+            (|makeByteWordVec2| 6
                                 '(0 0 0 0 2 0 2 0 0 4 0 0 0 0 0 4 0 6 0 0 6 0 0
-                                  0 6 0 0 8 0 0 0 0 0 1 3 5))
+                                  0 6 0 0 5 0 0 0 0 0 1 3 6))
             (CONS
              '#(NIL NIL NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
@@ -881,7 +903,7 @@
                                     1 13 10 0 100 1 13 30 0 101 1 0 82 0 86 2 0
                                     0 0 22 90 1 0 0 0 89 1 0 10 0 78 1 0 0 0 81
                                     3 0 0 0 0 22 91 2 0 0 13 7 27 1 0 0 0 104 2
-                                    9 0 0 22 98 1 0 13 0 71 2 9 0 0 22 95 1 0
+                                    7 0 0 22 98 1 0 13 0 71 2 7 0 0 22 95 1 0
                                     22 0 87 1 0 10 0 72 1 0 7 0 76 1 0 38 0 70
                                     1 0 32 0 65 1 0 0 34 44 1 0 0 6 60 1 0 0 7
                                     52 1 0 12 0 58 0 0 0 21 0 0 0 26 1 0 102 0

@@ -87,7 +87,7 @@ cFramedAlgebra`2`x`(R:CommutativeRing,UnivariatePolynomialCategory(R))->Category
 cFramedNonAssociativeAlgebra`1`x`(CommutativeRing)->Category`(R)`FRNAALG`19371
 cFreeAbelianMonoidCategory`2`x`(SetCategory,CancellationAbelianMonoid)->Category`(S,E)`FAMONC`19647
 cFreeLieAlgebra`2`x`(OrderedSet,CommutativeRing)->Category`(VarSet,R)`FLALG`19913
-cFreeModuleCategory`2`x`(Join(SemiRng,etc),OrderedSet)->Category`(R,S)`FMCAT`20116
+cFreeModuleCategory`2`x`(Join(SemiRng,etc),Comparable)->Category`(R,S)`FMCAT`20116
 cFullyEvalableOver`1`x`(SetCategory)->Category`(R)`FEVALAB`21129
 cFullyLinearlyExplicitRingOver`1`x`(Ring)->Category`(R)`FLINEXP`21249
 cFullyPatternMatchable`1`x`(Type)->Category`(R)`FPATMAB`21478
@@ -102,7 +102,7 @@ cHomogeneousAggregate`1`x`(Type)->Category`(S)`HOAGG`23580
 cHopfAlgebra`2`x`(R:CommutativeRing,Module(R))->Category`(R,MxM)`HOPFALG`24115
 cHyperbolicFunctionCategory`0`x`()->Category``HYPCAT`24165
 cIndexedAggregate`2`x`(SetCategory,Type)->Category`(Index,Entry)`IXAGG`24223
-cIndexedDirectProductCategory`2`x`(SetCategory,OrderedSet)->Category`(A,S)`IDPC`24480
+cIndexedDirectProductCategory`2`x`(SetCategory,Comparable)->Category`(A,S)`IDPC`24480
 cInnerEvalable`2`x`(SetCategory,Type)->Category`(A,B)`IEVALAB`24582
 cIntegerNumberSystem`0`x`()->Category``INS`24905
 cIntegralDomain`0`x`()->Category``INTDOM`24969
@@ -364,7 +364,7 @@ dHyperellipticFiniteDivisor`4`n`(F:Field,UP:UnivariatePolynomialCategory(F),UPUP
 dILogic`0`n`()->Join(Logic,etc)``ILOGIC`95186
 dIndexCard`0`x`()->Join(OrderedSet,etc)``ICARD`95242
 dIndexedBits`1`n`(Integer)->Join(BitAggregate,etc)`(mn)`IBITS`95337
-dIndexedDirectProductObject`2`n`(SetCategory,S:OrderedSet)->IndexedDirectProductCategory(A,S)`(A,S)`IDPO`95435
+dIndexedDirectProductObject`2`n`(SetCategory,S:Comparable)->IndexedDirectProductCategory(A,S)`(A,S)`IDPO`95435
 dIndexedExponents`1`n`(OrderedSet)->Join(OrderedAbelianMonoidSup,etc)`(Varset)`INDE`95798
 dIndexedFlexibleArray`2`n`(Type,Integer)->Join(OneDimensionalArrayAggregate(S),etc)`(S,mn)`IFARRAY`95844
 dIndexedJetBundle`5`n`(Symbol,Symbol,Symbol,PositiveInteger,PositiveInteger)->JetBundleCategory`(x,u,p,n,m)`IJB`96937
@@ -10660,7 +10660,7 @@ xFiniteSetAggregate&`2`n`(FiniteSetAggregate(S),S:SetCategory)->etc`(A,S)`FSAGG-
 xFloatingPointSystem&`1`n`(FloatingPointSystem)->etc`(S)`FPS-`1378847
 xFramedAlgebra&`3`n`(FramedAlgebra(R,UP),R:CommutativeRing,UP:UnivariatePolynomialCategory(R))->etc`(S,R,UP)`FRAMALG-`1379881
 xFramedNonAssociativeAlgebra&`2`n`(FramedNonAssociativeAlgebra(R),R:CommutativeRing)->etc`(S,R)`FRNAALG-`1379994
-xFreeModuleCategory&`3`n`(FreeModuleCategory(R,S),Join(SemiRng,etc),S:OrderedSet)->etc`(A,R,S)`FMCAT-`1380272
+xFreeModuleCategory&`3`n`(FreeModuleCategory(R,S),Join(SemiRng,etc),S:Comparable)->etc`(A,R,S)`FMCAT-`1380272
 xFullyEvalableOver&`2`n`(FullyEvalableOver(R),R:SetCategory)->etc`(S,R)`FEVALAB-`1381291
 xFullyLinearlyExplicitRingOver&`2`n`(FullyLinearlyExplicitRingOver(R),R:Ring)->etc`(S,R)`FLINEXP-`1381413
 xFullyRetractableTo&`2`n`(FullyRetractableTo(S),S:Type)->etc`(A,S)`FRETRCT-`1381644

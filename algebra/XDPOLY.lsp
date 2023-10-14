@@ -340,10 +340,10 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G216)
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G214)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G217)
+     (PROG (#2=#:G215)
        (RETURN
         (COND
          ((LETT #2#
@@ -362,13 +362,13 @@
               (HREM |$ConstructorCache| '|XDistributedPolynomial|))))))))))) 
 
 (DEFUN |XDistributedPolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G214 #2=#:G215 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|XDistributedPolynomial|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 81) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #1=(|XDistributedPolynomial|))
+      (LETT DV$2 (|devaluate| |#2|) . #1#)
+      (LETT |dv$| (LIST '|XDistributedPolynomial| DV$1 DV$2) . #1#)
+      (LETT $ (GETREFV 81) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -376,25 +376,42 @@
                                          (LIST
                                           (|HasCategory| |#2|
                                                          '(|CommutativeRing|))
+                                          (AND
+                                           (|HasCategory| |#2|
+                                                          '(|OrderedAbelianMonoidSup|))
+                                           (|HasCategory|
+                                            (|OrderedFreeMonoid| |#1|)
+                                            '(|OrderedSet|)))
+                                          (OR
+                                           (|HasCategory| |#2| '(|Comparable|))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory|
+                                             (|OrderedFreeMonoid| |#1|)
+                                             '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory|
+                                             (|OrderedFreeMonoid| |#1|)
+                                             '(|OrderedSet|))))
+                                          (OR
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoid|))
+                                            (|HasCategory|
+                                             (|OrderedFreeMonoid| |#1|)
+                                             '(|OrderedSet|)))
+                                           (AND
+                                            (|HasCategory| |#2|
+                                                           '(|OrderedAbelianMonoidSup|))
+                                            (|HasCategory|
+                                             (|OrderedFreeMonoid| |#1|)
+                                             '(|OrderedSet|))))
                                           (|HasCategory| |#2|
-                                                         '(|OrderedAbelianMonoidSup|))
-                                          (LETT #2#
-                                                (|HasCategory| |#2|
-                                                               '(|OrderedAbelianMonoid|))
-                                                . #3#)
-                                          (OR #2#
-                                              (|HasCategory| |#2|
-                                                             '(|OrderedAbelianMonoidSup|)))
-                                          (|HasCategory| |#2|
-                                                         '(|noZeroDivisors|))
-                                          (LETT #1#
-                                                (|HasCategory| |#2|
-                                                               '(|Comparable|))
-                                                . #3#)
-                                          (OR #1# #2#
-                                              (|HasCategory| |#2|
-                                                             '(|OrderedAbelianMonoidSup|)))))
-                      . #3#))
+                                                         '(|noZeroDivisors|))))
+                      . #1#))
       (|haddProp| |$ConstructorCache| '|XDistributedPolynomial|
                   (LIST DV$1 DV$2) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -433,7 +450,7 @@
               (175 . |rest|) (180 . ~=) (186 . *) |XDPOLY;lquo;3$;15|
               |XDPOLY;rquo;3$;16| (192 . >) |XDPOLY;coef;2$R;17| (198 . <)
               (204 . +) (|Mapping| 7 22) (|Integer|) (|PositiveInteger|)
-              (|Union| 22 '"failed") (|List| $) (|List| 7) (|List| 22)
+              (|Union| 22 '"failed") (|List| 22) (|List| $) (|List| 7)
               (|Mapping| 7 7) (|List| 9) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 210 |zero?| 216 |varList| 221 |trunc| 226 |support| 232 |sup|
@@ -452,9 +469,9 @@
               563 <= 569 < 575 - 581 + 592 * 598)
            'NIL
            (CONS
-            (|makeByteWordVec2| 7
+            (|makeByteWordVec2| 5
                                 '(0 0 0 0 1 0 1 0 0 2 0 0 0 0 0 2 0 4 0 0 4 0 0
-                                  0 4 0 0 7 0 0 0 0 0 3 5))
+                                  0 4 0 0 3 0 0 0 0 0 4 5))
             (CONS
              '#(NIL NIL NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
@@ -489,26 +506,26 @@
                                     37 0 0 57 1 22 6 0 58 1 22 0 0 59 2 0 37 0
                                     0 60 2 0 0 0 7 61 2 22 37 0 0 64 2 22 37 0
                                     0 66 2 7 0 0 0 67 2 0 37 0 0 60 1 0 37 0 1
-                                    1 0 42 0 46 2 0 0 0 16 40 1 0 74 0 1 2 2 0
-                                    0 0 1 2 0 47 0 0 1 2 6 37 0 0 1 2 1 0 0 0
+                                    1 0 42 0 46 2 0 0 0 16 40 1 0 72 0 1 2 2 0
+                                    0 0 1 2 0 47 0 0 1 2 3 37 0 0 1 2 1 0 0 0
                                     18 2 1 0 0 16 17 0 0 0 1 2 0 0 0 22 49 2 0
                                     0 0 6 53 2 0 0 0 0 63 1 0 71 0 1 1 0 22 0 1
                                     1 0 0 0 32 1 0 47 0 1 1 0 37 0 1 1 0 0 0 1
-                                    1 0 37 0 1 1 0 16 0 1 1 0 72 0 1 1 0 37 0 1
+                                    1 0 37 0 1 1 0 16 0 1 1 0 73 0 1 1 0 37 0 1
                                     2 0 0 7 22 1 2 0 0 22 7 31 1 0 0 0 33 1 0 9
-                                    0 11 1 0 22 0 1 2 3 0 0 0 1 1 0 22 0 34 2 3
+                                    0 11 1 0 22 0 1 2 4 0 0 0 1 1 0 22 0 34 2 4
                                     0 0 0 1 2 0 0 75 0 1 2 0 0 0 22 51 2 0 0 0
                                     6 55 2 0 0 0 0 62 1 0 76 0 1 2 1 7 68 0 1 1
                                     0 9 0 1 1 0 22 0 1 1 0 22 0 28 1 0 7 0 30 1
                                     0 77 0 1 2 0 79 79 0 1 1 0 78 0 1 1 0 16 0
                                     36 1 0 0 76 1 1 0 0 76 1 1 0 37 0 41 1 0 7
                                     0 1 1 0 0 7 1 1 0 0 69 1 1 0 0 22 24 1 0 0
-                                    6 25 1 0 80 0 1 1 0 73 0 1 2 0 7 0 22 1 2 0
+                                    6 25 1 0 80 0 1 1 0 74 0 1 2 0 7 0 22 1 2 0
                                     7 0 0 65 2 0 7 0 22 1 0 0 16 1 2 0 0 0 70 1
-                                    2 0 0 0 16 1 0 0 0 12 0 0 0 14 2 3 37 0 0 1
-                                    2 3 37 0 0 1 2 0 37 0 0 38 2 3 37 0 0 1 2 3
+                                    2 0 0 0 16 1 0 0 0 12 0 0 0 14 2 4 37 0 0 1
+                                    2 4 37 0 0 1 2 0 37 0 0 38 2 4 37 0 0 1 2 4
                                     37 0 0 1 2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 21
                                     2 0 0 16 0 1 2 0 0 69 0 1 2 0 0 0 0 1 2 0 0
-                                    6 0 27 2 0 0 22 7 1 2 0 0 7 22 1 2 0 0 0 7
+                                    6 0 27 2 0 0 7 22 1 2 0 0 22 7 1 2 0 0 0 7
                                     61 2 0 0 7 0 20 2 0 0 70 0 1)))))
            '|lookupComplete|)) 
