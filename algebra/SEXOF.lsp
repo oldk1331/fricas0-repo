@@ -172,11 +172,15 @@
                      (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |b|)))) 
 
+(SDEFUN |SEXOF;hashUpdate!;Hs$Hs;27|
+        ((|hs| |HashState|) (|s| $) ($ |HashState|))
+        (HASHSTATEUPDATE |hs| (SXHASH |s|))) 
+
 (DECLAIM (NOTINLINE |SExpressionOf;|)) 
 
-(DEFUN |SExpressionOf| (&REST #1=#:G162)
+(DEFUN |SExpressionOf| (&REST #1=#:G163)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G164)
            (RETURN
             (COND
              ((LETT #2#
@@ -203,7 +207,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|SExpressionOf| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 58) . #1#)
+    (LETT $ (GETREFV 59) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|SExpressionOf| (LIST DV$1 DV$2 DV$3 DV$4)
@@ -235,7 +239,8 @@
               |SEXOF;convert;Sym$;19| |SEXOF;convert;Int$;20|
               |SEXOF;convert;Flt$;21| |SEXOF;car;2$;22| (|Integer|)
               |SEXOF;#;$I;24| (42 . |elt|) |SEXOF;elt;$I$;25| (|List| 49)
-              |SEXOF;elt;$L$;26| (|HashState|) (|String|) (|SingleInteger|))
+              |SEXOF;elt;$L$;26| (|HashState|) |SEXOF;hashUpdate!;Hs$Hs;27|
+              (|String|) (|SingleInteger|))
            '#(~= 48 |symbol?| 54 |symbol| 59 |string?| 64 |string| 69 |pair?|
               74 |null?| 79 |list?| 84 |latex| 89 |integer?| 94 |integer| 99
               |hashUpdate!| 104 |hash| 110 |float?| 115 |float| 120 |eq| 125
@@ -247,16 +252,16 @@
                        (CONS
                         '#((|SExpressionCategory| 6 7 8 9) (|SetCategory|)
                            (|BasicType|) (|CoercibleTo| 14))
-                        (|makeByteWordVec2| 57
+                        (|makeByteWordVec2| 58
                                             '(1 14 0 13 15 2 20 0 0 0 21 1 14 0
                                               13 22 1 14 0 0 23 1 25 24 0 26 1
                                               27 14 0 28 2 14 11 0 0 29 1 14 0
                                               0 30 2 25 2 0 49 51 2 0 11 0 0 1
                                               1 0 11 0 36 1 0 7 0 40 1 0 11 0
                                               35 1 0 6 0 39 1 0 11 0 33 1 0 11
-                                              0 12 1 0 11 0 34 1 0 56 0 1 1 0
-                                              11 0 37 1 0 8 0 42 2 0 55 55 0 1
-                                              1 0 57 0 1 1 0 11 0 38 1 0 9 0 41
+                                              0 12 1 0 11 0 34 1 0 57 0 1 1 0
+                                              11 0 37 1 0 8 0 42 2 0 55 55 0 56
+                                              1 0 58 0 1 1 0 11 0 38 1 0 9 0 41
                                               2 0 11 0 0 32 2 0 0 0 53 54 2 0 0
                                               0 49 52 1 0 13 0 18 1 0 0 8 46 1
                                               0 0 9 47 1 0 0 6 44 1 0 0 7 45 1
