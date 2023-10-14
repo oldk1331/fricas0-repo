@@ -60,14 +60,14 @@
         ((|pp| |SparseUnivariatePolynomial| S)
          ($ |Factored| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#1=#:G191 NIL)
+         ((#1=#:G192 NIL)
           (|lF|
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| (|SparseUnivariatePolynomial| S))
                       (|:| |xpnt| (|Integer|)))))
           (|p2| (|SparseUnivariatePolynomial| S))
-          (|p1| (|SparseUnivariatePolynomial| S)) (#2=#:G198 NIL) (|u| NIL)
+          (|p1| (|SparseUnivariatePolynomial| S)) (#2=#:G199 NIL) (|u| NIL)
           (|fR| (|Factored| (|SparseUnivariatePolynomial| R)))
           (|pnorm| (|SparseUnivariatePolynomial| R)) (|k| (R)))
          (SEQ
@@ -301,7 +301,7 @@
 
 (SDEFUN |COMPCAT-;coordinates;SVV;29| ((|x| S) (|v| |Vector| S) ($ |Vector| R))
         (SPROG
-         ((|ix| (R)) (|rx| (R)) (#1=#:G238 NIL) (|d| (|Union| R "failed"))
+         ((|ix| (R)) (|rx| (R)) (#1=#:G239 NIL) (|d| (|Union| R "failed"))
           (|ia| (R)) (|ib| (R)) (|rb| (R)) (|b| (S)) (|ra| (R)) (|a| (S)))
          (SEQ
           (EXIT
@@ -340,7 +340,7 @@
                (EXIT
                 (COND
                  ((QEQCAR |d| 1)
-                  (PROGN (LETT #1# (|error| #3#) . #2#) (GO #4=#:G236))))))))
+                  (PROGN (LETT #1# (|error| #3#) . #2#) (GO #4=#:G237))))))))
             (LETT |rx| (SPADCALL |x| (QREFELT $ 24)) . #2#)
             (LETT |ix| (SPADCALL |x| (QREFELT $ 87)) . #2#)
             (EXIT
@@ -753,7 +753,7 @@
 (SDEFUN |COMPCAT-;divide;2SR;60|
         ((|x| S) (|y| S) ($ |Record| (|:| |quotient| S) (|:| |remainder| S)))
         (SPROG
-         ((#1=#:G353 NIL) (|y1| (S)) (|b| (R)) (|x2| (R)) (|a| (R)) (|x1| (R))
+         ((#1=#:G354 NIL) (|y1| (S)) (|b| (R)) (|x2| (R)) (|a| (R)) (|x1| (R))
           (|xx| (S)) (|r| (R)))
          (SEQ
           (LETT |r| (SPADCALL |y| (QREFELT $ 19))
@@ -811,7 +811,7 @@
             |y1|))))) 
 
 (SDEFUN |COMPCAT-;atan2loc| ((|x| R) (|y| R) ($ R))
-        (SPROG ((|theta| (R)) (#1=#:G358 NIL) (|pi2| (R)) (|pi1| (R)))
+        (SPROG ((|theta| (R)) (#1=#:G359 NIL) (|pi2| (R)) (|pi1| (R)))
                (SEQ
                 (LETT |pi1| (SPADCALL (QREFELT $ 243))
                       . #2=(|COMPCAT-;atan2loc|))
@@ -855,7 +855,7 @@
          (SPADCALL |x| (QREFELT $ 87)) $)) 
 
 (SDEFUN |COMPCAT-;argument;SR;63| ((|x| S) ($ R))
-        (SPROG ((#1=#:G358 NIL) (|x1| (R)) (|n1| (R)))
+        (SPROG ((#1=#:G359 NIL) (|x1| (R)) (|n1| (R)))
                (SEQ
                 (LETT |n1|
                       (SPADCALL (SPADCALL |x| (QREFELT $ 19)) (QREFELT $ 167))
@@ -883,7 +883,7 @@
                            (QREFELT $ 121)))))) 
 
 (SDEFUN |COMPCAT-;argument;SR;64| ((|x| S) ($ R))
-        (SPROG ((#1=#:G358 NIL) (|x1| (R)) (|n1| (R)))
+        (SPROG ((#1=#:G359 NIL) (|x1| (R)) (|n1| (R)))
                (SEQ
                 (LETT |n1|
                       (SPADCALL
@@ -996,7 +996,7 @@
                   (QREFELT $ 30)))))) 
 
 (SDEFUN |COMPCAT-;cos;2S;83| ((|x| S) ($ S))
-        (SPROG ((#1=#:G389 NIL) (|e| (S)))
+        (SPROG ((#1=#:G390 NIL) (|e| (S)))
                (SEQ
                 (LETT |e|
                       (SPADCALL
@@ -1021,7 +1021,7 @@
                            (QREFELT $ 225)))))) 
 
 (SDEFUN |COMPCAT-;sin;2S;84| ((|x| S) ($ S))
-        (SPROG ((#1=#:G394 NIL) (|e| (S)))
+        (SPROG ((#1=#:G395 NIL) (|e| (S)))
                (SEQ
                 (LETT |e|
                       (SPADCALL
@@ -1145,7 +1145,7 @@
                      (QREFELT $ 30))))))))) 
 
 (SDEFUN |COMPCAT-;^;SFS;90| ((|x| S) (|q| |Fraction| (|Integer|)) ($ S))
-        (SPROG ((|e| (R)) (|t| (R)) (#1=#:G358 NIL) (|i| (R)) (|r| (R)))
+        (SPROG ((|e| (R)) (|t| (R)) (#1=#:G359 NIL) (|i| (R)) (|r| (R)))
                (SEQ
                 (COND
                  ((SPADCALL |q| (QREFELT $ 279))
@@ -1202,16 +1202,51 @@
                                    (QREFELT $ 121))
                          (QREFELT $ 30))))))))))))) 
 
+(SDEFUN |COMPCAT-;^;3S;91| ((|x| S) (|y| S) ($ S))
+        (SPROG ((|yr| (R)))
+               (SEQ
+                (COND
+                 ((SPADCALL |x| (|spadConstant| $ 20) (QREFELT $ 288))
+                  (SEQ
+                   (LETT |yr| (SPADCALL |y| (QREFELT $ 24)) |COMPCAT-;^;3S;91|)
+                   (EXIT
+                    (COND
+                     ((SPADCALL (|spadConstant| $ 21) |yr| (QREFELT $ 226))
+                      (|spadConstant| $ 20))
+                     (#1='T (|error| "x^y with x = 0 and real(y) <= 0"))))))
+                 (#1#
+                  (SPADCALL
+                   (SPADCALL |y| (SPADCALL |x| (QREFELT $ 267))
+                             (QREFELT $ 217))
+                   (QREFELT $ 271))))))) 
+
+(SDEFUN |COMPCAT-;^;3S;92| ((|x| S) (|y| S) ($ S))
+        (SPROG ((|yr| (R)))
+               (SEQ
+                (COND
+                 ((SPADCALL |x| (|spadConstant| $ 20) (QREFELT $ 288))
+                  (SEQ
+                   (LETT |yr| (SPADCALL |y| (QREFELT $ 24)) |COMPCAT-;^;3S;92|)
+                   (EXIT
+                    (COND ((|less_DF| 0.0 |yr|) (|spadConstant| $ 20))
+                          (#1='T
+                           (|error| "x^y with x = 0 and real(y) <= 0"))))))
+                 (#1#
+                  (SPADCALL
+                   (SPADCALL |y| (SPADCALL |x| (QREFELT $ 267))
+                             (QREFELT $ 217))
+                   (QREFELT $ 271))))))) 
+
 (DECLAIM (NOTINLINE |ComplexCategory&;|)) 
 
 (DEFUN |ComplexCategory&| (|#1| |#2|)
   (SPROG
-   ((#1=#:G358 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G359 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|ComplexCategory&|))
     (LETT DV$2 (|devaluate| |#2|) . #2#)
     (LETT |dv$| (LIST '|ComplexCategory&| DV$1 DV$2) . #2#)
-    (LETT $ (GETREFV 294) . #2#)
+    (LETT $ (GETREFV 296) . #2#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1431,6 +1466,21 @@
         ((|testBitVector| |pv$| 3)
          (QSETREFV $ 284
                    (CONS (|dispatchFunction| |COMPCAT-;^;SFS;90|) $)))))))
+    (COND
+     ((|domainEqual| |#2| (|Float|))
+      (COND
+       ((|HasSignature| |#2|
+                        (LIST '<
+                              (LIST '(|Boolean|) (|devaluate| |#2|)
+                                    (|devaluate| |#2|))))
+        (QSETREFV $ 289 (CONS (|dispatchFunction| |COMPCAT-;^;3S;91|) $)))))
+     ((|domainEqual| |#2| (|DoubleFloat|))
+      (COND
+       ((|HasSignature| |#2|
+                        (LIST '<
+                              (LIST '(|Boolean|) (|devaluate| |#2|)
+                                    (|devaluate| |#2|))))
+        (QSETREFV $ 289 (CONS (|dispatchFunction| |COMPCAT-;^;3S;92|) $))))))
     $))) 
 
 (MAKEPROP '|ComplexCategory&| '|infovec|
@@ -1535,30 +1585,31 @@
               (|Record| (|:| |r| 7) (|:| |phi| 7)) (935 . |polarCoordinates|)
               (940 . |zero?|) (945 . |positive?|) (950 . ^) (956 . |denom|)
               (961 . |coerce|) (966 . ^) (972 . |numer|) (977 . |coerce|)
-              (982 . /) (|List| 145) (|List| 10) (|Fraction| 11)
-              (|Record| (|:| |mat| 292) (|:| |vec| (|Vector| 25)))
+              (982 . /) (988 . =) (994 . ^) (|List| 145) (|List| 10)
+              (|Fraction| 11)
+              (|Record| (|:| |mat| 294) (|:| |vec| (|Vector| 25)))
               (|Matrix| 25) (|Union| 25 '"failed"))
-           '#(|unitNormal| 988 |trace| 993 |tanh| 998 |tan| 1003 |squareFree|
-              1008 |solveLinearPolynomialEquation| 1013 |smaller?| 1019 |sinh|
-              1025 |sin| 1030 |retractIfCan| 1035 |retract| 1040 |rem| 1045
-              |reducedSystem| 1051 |reduce| 1062 |recip| 1067 |rationalIfCan|
-              1072 |rational?| 1077 |rational| 1082 |rank| 1087 |quo| 1091
-              |prime?| 1097 |polarCoordinates| 1102 |pi| 1107 |patternMatch|
-              1111 |norm| 1125 |minimalPolynomial| 1130 |map| 1135 |log| 1141
-              |lift| 1146 |inv| 1151 |imaginary| 1156
-              |factorSquareFreePolynomial| 1160 |factorPolynomial| 1165
-              |factor| 1170 |exquo| 1175 |exp| 1187 |euclideanSize| 1192
-              |divide| 1197 |discriminant| 1203 |differentiate| 1207
-              |definingPolynomial| 1213 |cosh| 1217 |cos| 1222 |coordinates|
-              1227 |convert| 1238 |conjugate| 1263 |coerce| 1268
-              |characteristicPolynomial| 1273 |characteristic| 1278 |atanh|
-              1282 |atan| 1287 |asinh| 1292 |asin| 1297 |argument| 1302 |acosh|
-              1307 |acos| 1312 |abs| 1317 ^ 1322 = 1328 - 1334 + 1339 * 1345)
+           '#(|unitNormal| 1000 |trace| 1005 |tanh| 1010 |tan| 1015
+              |squareFree| 1020 |solveLinearPolynomialEquation| 1025 |smaller?|
+              1031 |sinh| 1037 |sin| 1042 |retractIfCan| 1047 |retract| 1052
+              |rem| 1057 |reducedSystem| 1063 |reduce| 1074 |recip| 1079
+              |rationalIfCan| 1084 |rational?| 1089 |rational| 1094 |rank| 1099
+              |quo| 1103 |prime?| 1109 |polarCoordinates| 1114 |pi| 1119
+              |patternMatch| 1123 |norm| 1137 |minimalPolynomial| 1142 |map|
+              1147 |log| 1153 |lift| 1158 |inv| 1163 |imaginary| 1168
+              |factorSquareFreePolynomial| 1172 |factorPolynomial| 1177
+              |factor| 1182 |exquo| 1187 |exp| 1199 |euclideanSize| 1204
+              |divide| 1209 |discriminant| 1215 |differentiate| 1219
+              |definingPolynomial| 1225 |cosh| 1229 |cos| 1234 |coordinates|
+              1239 |convert| 1250 |conjugate| 1275 |coerce| 1280
+              |characteristicPolynomial| 1285 |characteristic| 1290 |atanh|
+              1294 |atan| 1299 |asinh| 1304 |asin| 1309 |argument| 1314 |acosh|
+              1319 |acos| 1324 |abs| 1329 ^ 1334 = 1346 - 1352 + 1357 * 1363)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 287
+                             (|makeByteWordVec2| 289
                                                  '(0 6 0 8 0 7 0 9 2 11 0 7 10
                                                    12 2 11 0 0 13 14 1 6 7 0 15
                                                    2 11 0 0 10 16 2 11 0 7 0 17
@@ -1650,7 +1701,8 @@
                                                    206 281 1 206 25 0 282 1 7 0
                                                    206 283 2 0 0 0 206 284 1
                                                    206 25 0 285 1 206 0 25 286
-                                                   2 206 0 0 0 287 1 0 223 0
+                                                   2 206 0 0 0 287 2 6 28 0 0
+                                                   288 2 0 0 0 0 289 1 0 223 0
                                                    229 1 0 7 0 110 1 0 0 0 260
                                                    1 0 0 0 254 1 0 48 0 101 2 0
                                                    36 37 38 39 2 0 28 0 0 204 1
@@ -1681,9 +1733,9 @@
                                                    114 1 0 0 0 263 1 0 0 0 257
                                                    1 0 0 0 261 1 0 0 0 255 1 0
                                                    7 0 246 1 0 0 0 262 1 0 0 0
-                                                   256 1 0 0 0 168 2 0 0 0 206
-                                                   284 2 0 28 0 0 118 1 0 0 0
-                                                   120 2 0 0 0 0 119 2 0 0 7 0
-                                                   122 2 0 0 25 0 126 2 0 0 0 0
-                                                   154)))))
+                                                   256 1 0 0 0 168 2 0 0 0 0
+                                                   289 2 0 0 0 206 284 2 0 28 0
+                                                   0 118 1 0 0 0 120 2 0 0 0 0
+                                                   119 2 0 0 7 0 122 2 0 0 25 0
+                                                   126 2 0 0 0 0 154)))))
            '|lookupComplete|)) 

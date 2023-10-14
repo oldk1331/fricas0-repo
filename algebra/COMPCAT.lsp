@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |ComplexCategory;AL| 'NIL) 
 
-(DEFUN |ComplexCategory| (#1=#:G148)
-  (LET (#2=#:G149)
+(DEFUN |ComplexCategory| (#1=#:G149)
+  (LET (#2=#:G150)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |ComplexCategory;AL|)) (CDR #2#))
      (T
@@ -16,12 +16,12 @@
       #2#)))) 
 
 (DEFUN |ComplexCategory;| (|t#1|)
-  (SPROG ((#1=#:G147 NIL))
+  (SPROG ((#1=#:G148 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
                               (|sublisV|
-                               (PAIR '(#2=#:G146)
+                               (PAIR '(#2=#:G147)
                                      (LIST
                                       '(|SparseUnivariatePolynomial| |t#1|)))
                                (COND (|ComplexCategory;CAT|)
