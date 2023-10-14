@@ -38,7 +38,9 @@
     (RETURN
      (SEQ
       (COND
-       ((SPADCALL |m| (QREFELT $ 26)) (MAKE_MATRIX1 0 0 (|spadConstant| $ 19)))
+       ((SPADCALL |m| (QREFELT $ 26))
+        (MAKE_MATRIX1 (* (QREFELT $ 7) (ANROWS |m|)) (ANCOLS |m|)
+                      (|spadConstant| $ 19)))
        ('T
         (SPADCALL (ELT $ 27)
                   (PROGN
