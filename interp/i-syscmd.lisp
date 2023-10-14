@@ -705,7 +705,7 @@
 ;   $frameRecord := nil
 ;   $previousBindings := nil
 ;   $variableNumberAlist := nil
-;   untraceMapSubNames _/TRACENAMES
+;   untraceMapSubNames $trace_names
 ;   $InteractiveFrame := LIST LIST NIL
 ;   resetInCoreHist()
 ;   if $useInternalHistoryTable
@@ -726,7 +726,7 @@
       (SETQ |$frameRecord| NIL)
       (SETQ |$previousBindings| NIL)
       (SETQ |$variableNumberAlist| NIL)
-      (|untraceMapSubNames| /TRACENAMES)
+      (|untraceMapSubNames| |$trace_names|)
       (SETQ |$InteractiveFrame| (LIST (LIST NIL)))
       (|resetInCoreHist|)
       (COND (|$useInternalHistoryTable| (SETQ |$internalHistoryTable| NIL))

@@ -7,6 +7,10 @@
  
 (DEFPARAMETER |$traceNoisely| NIL)
  
+; DEFVAR($traceDomains, true)
+ 
+(DEFVAR |$traceDomains| T)
+ 
 ; DEFPARAMETER($reportSpadTrace, NIL)  -- reports traced funs
  
 (DEFPARAMETER |$reportSpadTrace| NIL)
@@ -53,9 +57,17 @@
  
 (DEFPARAMETER |$lastUntraced| NIL)
  
-; DEFPARAMETER($tracedModemap, NIL)
+; DEFVAR($trace_names, [])
  
-(DEFPARAMETER |$tracedModemap| NIL)
+(DEFVAR |$trace_names| NIL)
+ 
+; DEFVAR($count_list, [])
+ 
+(DEFVAR |$count_list| NIL)
+ 
+; DEFVAR($timer_list, [])
+ 
+(DEFVAR |$timer_list| NIL)
  
 ; trace l == traceSpad2Cmd l
  
@@ -126,7 +138,7 @@
 ;   a:= hasOption(options, 'restore) =>
 ;     null(oldL:= $lastUntraced) => nil
 ;     newOptions := delete(a, options)
-;     null l => trace1 oldL
+;     null l => trace1(oldL, options)
 ;     for x in l repeat
 ;       x is [domain,:opList] and VECP domain =>
 ;         sayKeyedMsg("S2IT0003",[devaluate domain])
@@ -150,7 +162,7 @@
 ;       optionList := [:opList, :varList]
 ;       traceList := domainList
 ;   for funName in traceList repeat
-;       _/TRACE_-2(funName, optionList)
+;       trace2(funName, [], optionList)
 ;   saveMapSig(traceList)
  
 (DEFUN |trace1| (|l| |options|)
@@ -218,7 +230,7 @@
               (#1#
                (PROGN
                 (SETQ |newOptions| (|delete| |a| |options|))
-                (COND ((NULL |l|) (|trace1| |oldL|))
+                (COND ((NULL |l|) (|trace1| |oldL| |options|))
                       (#1#
                        ((LAMBDA (|bfVar#1| |x|)
                           (LOOP
@@ -293,10 +305,688 @@
               ((OR (ATOM |bfVar#5|)
                    (PROGN (SETQ |funName| (CAR |bfVar#5|)) NIL))
                (RETURN NIL))
-              (#1# (/TRACE-2 |funName| |optionList|)))
+              (#1# (|trace2| |funName| NIL |optionList|)))
              (SETQ |bfVar#5| (CDR |bfVar#5|))))
           |traceList| NIL)
          (|saveMapSig| |traceList|))))))))
+ 
+; get_trace_option(l, opt) ==
+;     res := nil
+;     for el in l repeat
+;         if EQ(IFCAR(el), opt) then
+;             res := el
+;     res
+ 
+(DEFUN |get_trace_option| (|l| |opt|)
+  (PROG (|res|)
+    (RETURN
+     (PROGN
+      (SETQ |res| NIL)
+      ((LAMBDA (|bfVar#6| |el|)
+         (LOOP
+          (COND
+           ((OR (ATOM |bfVar#6|) (PROGN (SETQ |el| (CAR |bfVar#6|)) NIL))
+            (RETURN NIL))
+           ('T (COND ((EQ (IFCAR |el|) |opt|) (SETQ |res| |el|)))))
+          (SETQ |bfVar#6| (CDR |bfVar#6|))))
+       |l| NIL)
+      |res|))))
+ 
+; COND_UCASE(X) ==
+;     INTEGERP(X) => X
+;     UPCASE(X)
+ 
+(DEFUN COND_UCASE (X)
+  (PROG () (RETURN (COND ((INTEGERP X) X) ('T (UPCASE X))))))
+ 
+; VARP(test_item) ==
+;     IDENTP(test_item) => test_item
+;     CONSP(test_item) and
+;         (EQ(first(test_item), 'FLUID) or EQ(first(test_item), 'LEX)) and
+;       CONSP(rest(test_item)) and IDENTP(first(rest(test_item))) => test_item
+;     false
+ 
+(DEFUN VARP (|test_item|)
+  (PROG ()
+    (RETURN
+     (COND ((IDENTP |test_item|) |test_item|)
+           ((AND (CONSP |test_item|)
+                 (OR (EQ (CAR |test_item|) 'FLUID) (EQ (CAR |test_item|) 'LEX))
+                 (CONSP (CDR |test_item|)) (IDENTP (CAR (CDR |test_item|))))
+            |test_item|)
+           ('T NIL)))))
+ 
+; flat_bv_list(bv_list) ==
+;     VARP(bv_list) => [bv_list]
+;     REFVECP(bv_list) => BREAK()
+;     NOT(CONSP(bv_list)) => []
+;     EQ("=", (tmp1 := first(bv_list))) => flat_bv_list(rest(bv_list))
+;     VARP(tmp1) => [tmp1, :flat_bv_list(rest(bv_list))]
+;     NOT(CONSP(tmp1)) and NOT(REFVECP(tmp1)) =>
+;         flat_bv_list(rest(bv_list))
+;     NCONC(flat_bv_list(tmp1), flat_bv_list(rest(bv_list)))
+ 
+(DEFUN |flat_bv_list| (|bv_list|)
+  (PROG (|tmp1|)
+    (RETURN
+     (COND ((VARP |bv_list|) (LIST |bv_list|)) ((REFVECP |bv_list|) (BREAK))
+           ((NULL (CONSP |bv_list|)) NIL)
+           ((EQ '= (SETQ |tmp1| (CAR |bv_list|)))
+            (|flat_bv_list| (CDR |bv_list|)))
+           ((VARP |tmp1|) (CONS |tmp1| (|flat_bv_list| (CDR |bv_list|))))
+           ((AND (NULL (CONSP |tmp1|)) (NULL (REFVECP |tmp1|)))
+            (|flat_bv_list| (CDR |bv_list|)))
+           ('T
+            (NCONC (|flat_bv_list| |tmp1|)
+                   (|flat_bv_list| (CDR |bv_list|))))))))
+ 
+; DEFVAR($embedded_functions, [])
+ 
+(DEFVAR |$embedded_functions| NIL)
+ 
+; embeded_function(name, new_def, old_def) ==
+;     new_def :=
+;         NOT(CONSP(new_def)) => new_def
+;         body := IFCDR(IFCDR(new_def))
+;         op := first(new_def)
+;         body and (bv := first(rest(new_def)))
+;           and (EQ(op, 'LAMBDA) or EQ(op, 'MLAMBDA)) =>
+;             NOT(MEMQ(name, flat_bv_list(bv))) =>
+;                 [op, bv, [['LAMBDA, [name], :body],
+;                           ['QUOTE, old_def]]]
+;             new_def
+;         BREAK()
+;     COERCE(new_def, 'FUNCTION)
+ 
+(DEFUN |embeded_function| (|name| |new_def| |old_def|)
+  (PROG (|body| |op| |bv|)
+    (RETURN
+     (PROGN
+      (SETQ |new_def|
+              (COND ((NULL (CONSP |new_def|)) |new_def|)
+                    (#1='T
+                     (PROGN
+                      (SETQ |body| (IFCDR (IFCDR |new_def|)))
+                      (SETQ |op| (CAR |new_def|))
+                      (COND
+                       ((AND |body| (SETQ |bv| (CAR (CDR |new_def|)))
+                             (OR (EQ |op| 'LAMBDA) (EQ |op| 'MLAMBDA)))
+                        (COND
+                         ((NULL (MEMQ |name| (|flat_bv_list| |bv|)))
+                          (LIST |op| |bv|
+                                (LIST
+                                 (CONS 'LAMBDA (CONS (LIST |name|) |body|))
+                                 (LIST 'QUOTE |old_def|))))
+                         (#1# |new_def|)))
+                       (#1# (BREAK)))))))
+      (COERCE |new_def| 'FUNCTION)))))
+ 
+; embed2(name, new_def, old_def) ==
+;     setSf(name, new_def)
+;     PUSH([name, new_def, old_def], $embedded_functions)
+;     name
+ 
+(DEFUN |embed2| (|name| |new_def| |old_def|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|setSf| |name| |new_def|)
+      (PUSH (LIST |name| |new_def| |old_def|) |$embedded_functions|)
+      |name|))))
+ 
+; EMBED(name, new_def) ==
+;     if NOT(IDENTP(name)) then
+;         ERROR(FORMAT(nil, '"invalid argument ~s to EMBED", name))
+;     old_def := SYMBOL_-FUNCTION(name)
+;     new_def := embeded_function(name, new_def, old_def)
+;     embed2(name, new_def, old_def)
+ 
+(DEFUN EMBED (|name| |new_def|)
+  (PROG (|old_def|)
+    (RETURN
+     (PROGN
+      (COND
+       ((NULL (IDENTP |name|))
+        (ERROR (FORMAT NIL "invalid argument ~s to EMBED" |name|))))
+      (SETQ |old_def| (SYMBOL-FUNCTION |name|))
+      (SETQ |new_def| (|embeded_function| |name| |new_def| |old_def|))
+      (|embed2| |name| |new_def| |old_def|)))))
+ 
+; UNEMBED(name) ==
+;     tmp := []
+;     e_list := $embedded_functions
+;     cur_def := SYMBOL_-FUNCTION(name)
+;     flag := true
+;     e_head := []
+;     while flag repeat
+;         NULL(e_list) => flag := false
+;         e_head := first(e_list)
+;         CONSP(e_head) and CONSP(rest(e_head)) and
+;           EQ(name, first(e_head)) and EQ(cur_def, e_head.1) =>
+;             flag := false
+;         tmp := e_list
+;         e_list := rest(e_list)
+;     e_head =>
+;         setSf(name, e_head.2)
+;         if NOT(NULL(tmp)) then
+;             RPLACD(tmp, rest(e_list))
+;         else
+;             $embedded_functions := rest(e_list)
+;         name
+;     false
+ 
+(DEFUN UNEMBED (|name|)
+  (PROG (|tmp| |e_list| |cur_def| |flag| |e_head|)
+    (RETURN
+     (PROGN
+      (SETQ |tmp| NIL)
+      (SETQ |e_list| |$embedded_functions|)
+      (SETQ |cur_def| (SYMBOL-FUNCTION |name|))
+      (SETQ |flag| T)
+      (SETQ |e_head| NIL)
+      ((LAMBDA ()
+         (LOOP
+          (COND ((NOT |flag|) (RETURN NIL))
+                (#1='T
+                 (COND ((NULL |e_list|) (SETQ |flag| NIL))
+                       (#1#
+                        (PROGN
+                         (SETQ |e_head| (CAR |e_list|))
+                         (COND
+                          ((AND (CONSP |e_head|) (CONSP (CDR |e_head|))
+                                (EQ |name| (CAR |e_head|))
+                                (EQ |cur_def| (ELT |e_head| 1)))
+                           (SETQ |flag| NIL))
+                          (#1#
+                           (PROGN
+                            (SETQ |tmp| |e_list|)
+                            (SETQ |e_list| (CDR |e_list|)))))))))))))
+      (COND
+       (|e_head|
+        (PROGN
+         (|setSf| |name| (ELT |e_head| 2))
+         (COND ((NULL (NULL |tmp|)) (RPLACD |tmp| (CDR |e_list|)))
+               (#1# (SETQ |$embedded_functions| (CDR |e_list|))))
+         |name|))
+       (#1# NIL))))))
+ 
+; trace3(fn, modemap, options, bin_def) ==
+;     if MEMQ(fn, $trace_names) then untrace2(fn, [])
+;     options := OPTIONS2UC(options)
+;     $traceDomains and isFunctor(fn) and ATOM(fn) =>
+;         traceDomainConstructor(fn, options)
+;     math_trace := get_trace_option(options, 'MATHPRINT)
+;     if math_trace and NOT(EQL(ELT(PNAME(fn), 0), char('_$)))
+;                and NOT(GENSYMP(fn)) then
+;         if RASSOC(fn, $mapSubNameAlist) then
+;             $mathTraceList := [fn, :$mathTraceList]
+;         else
+;             spadThrowBrightly(
+;               FORMAT(nil, '"mathprint not available for ~A", fn))
+;     vars := get_trace_option(options, 'VARS)
+;     if vars then
+;         vars :=
+;             NOT(rest(vars)) => 'ALL
+;             rest(vars)
+;         tracelet(fn, bin_def, vars)
+;     BREAK := get_trace_option(options, 'BREAK)
+;     VARBREAK := get_trace_option(options, 'VARBREAK)
+;     if VARBREAK then
+;         vars :=
+;             NOT(rest(VARBREAK)) => 'ALL
+;             rest(VARBREAK)
+;         breaklet(fn, bin_def, vars)
+;     not(bin_def) and SYMBOLP(fn) and NOT(BOUNDP(fn)) and NOT(FBOUNDP(fn)) =>
+;       isUncompiledMap(fn) =>
+;           sayBrightly(FORMAT(nil,
+;         '"~A must be compiled before it may be traced -- invoke ~A to compile",
+;                                             fn, fn))
+;       isInterpOnlyMap(fn) =>
+;           sayBrightly(FORMAT(nil,
+;         '"~A cannot be traced because it is an interpret-only function", fn))
+;       sayBrightly(FORMAT(nil, '"~A is not a function", fn))
+;     not(bin_def) and SYMBOLP(fn) and BOUNDP(fn)
+;       and isDomainOrPackage(FNVAL := EVAL(fn)) =>
+;         spadTrace(FNVAL, options)
+;     if (U := get_trace_option(options, "MASK=")) then
+;         MAKEPROP(fn, '_/TRANSFORM, U.1)
+;     $trace_names :=
+;         get_trace_option(options, 'ALIAS) => $trace_names
+;         [fn, :$trace_names]
+;     TRACENAME :=
+;         (U := get_trace_option(options, 'ALIAS)) => STRINGIMAGE(U.1)
+;         if $traceNoisely and NOT(vars) and
+;            NOT(isSubForRedundantMapName(fn)) then
+;             sayBrightly(["%b", rassocSub(fn, $mapSubNameAlist),
+;                          "%d", '"traced"])
+;         STRINGIMAGE(fn)
+;     if $fromSpadTrace then
+;         if math_trace then PUSH(INTERN(TRACENAME), $mathTraceList)
+;         LETFUNCODE := ["EQ", nil, nil] --  No-op
+;         BEFORE :=
+;             (U := get_trace_option(options, 'BEFORE)) =>
+;                 ["PROGN", U.1, LETFUNCODE]
+;             LETFUNCODE
+;     else
+;         BEFORE :=
+;             (U := get_trace_option(options, 'BEFORE)) => U.1
+;             []
+;     AFTER :=
+;         (U := get_trace_option(options, 'AFTER)) => U.1
+;         []
+;     caller := get_trace_option(options, 'CALLER)
+;     FROM_CONDITION :=
+;         (U := get_trace_option(options, 'FROM)) =>
+;             ["EQ", "#9", ["QUOTE", U.1]]
+;         true
+;     CONDITION :=
+;         (U := get_trace_option(options, 'WHEN)) => U.1
+;         true
+;     WITHIN_CONDITION := true
+;     if (U := get_trace_option(options, 'WITHIN)) then
+;         G := INTERN(STRCONC(PNAME(fn), '"/", PNAME(U.1)))
+;         SET(G, 0)
+;         trace2(U.1, [], [['WHEN, false],
+;                    ['BEFORE, ["SETQ", G, ["1+", G]]],
+;                     ['AFTER, ["SETQ", G, ["1-", G]]]])
+;         WITHIN_CONDITION := [">", G, 0]
+;     if get_trace_option(options, 'COUNT) then
+;         COUNTNAM := INTERN(STRCONC(TRACENAME, ",COUNT"))
+;     COUNT_CONDITION :=
+;         (U := get_trace_option(options, 'COUNT)) =>
+;             $count_list := adjoin_equal(TRACENAME, $count_list)
+;             rest(U) and INTEGERP(U.1) =>
+;                 ["COND", [["<=", COUNTNAM, U.1], true],
+;                          [true, ["untrace2", MKQ(fn), []], false]]
+;             true
+;         true
+;     if get_trace_option(options, 'TIMER) then
+;         TIMERNAM := INTERN(STRCONC(TRACENAME, '",TIMER"))
+;         $timer_list := adjoin_equal(TRACENAME, $timer_list)
+;     DEPTH_CONDITION :=
+;         (U := get_trace_option(options, 'DEPTH)) =>
+;             rest(U) and INTEGERP(U.1) => ["<=", 'FUNDEPTH, U.1]
+;             TRACE_OPTION_ERROR('DEPTH)
+;         true
+;     CONDITION := MKPF([CONDITION, WITHIN_CONDITION, FROM_CONDITION,
+;                        COUNT_CONDITION, DEPTH_CONDITION], 'AND)
+;     ONLYS := get_trace_option(options, 'ONLY)
+;     -- TRACECODE meaning:
+;     --  0:        Caller (0,1)           print caller if 1
+;     --  1:        Value (0,1)            print value if 1
+;     --  2...:     Arguments (0,...,9)    stop if 0; print ith if i; all if 9
+;     TRACECODE :=
+;         get_trace_option(options, 'NT) => '"000"
+;         ONLYS := MAPCAR(FUNCTION COND_UCASE, ONLYS)
+;         F := member('F, ONLYS) or member('FULL, ONLYS)
+;         A := F or member('A, ONLYS) or member('ARGS, ONLYS)
+;         V := F or member('V, ONLYS) or member('VALUE, ONLYS)
+;         C := F or member('C, ONLYS) or member('CALLER, ONLYS)
+;         NL :=
+;             A => [char('_9)]
+;             [FETCHCHAR(STRINGIMAGE(X), 0) for X in ONLYS |
+;                 INTEGERP(X) and 0 < X and X < 9]
+;         NOT(A or V or C or NL) =>
+;             caller =>  '"119"
+;             '"019"
+;         NL := APPEND(NL, [char('_0)])
+;         buf := make_spaces(A => 3; 2 + #NL)
+;         buf.0 :=
+;             (C or caller) => char('_1)
+;             char('_0)
+;         buf.1 := (V => char('_1); char('_0))
+;         A =>
+;             buf.2 := char('_9)
+;             buf
+;         for x in NL for i in 2.. repeat
+;             buf.i := x
+;         buf
+;     G4 := MACRO_-FUNCTION(fn)
+;     if COUNTNAM then SET(COUNTNAM, 0)
+;     if TIMERNAM then SET(TIMERNAM, 0)
+;     ll := ['QUOTE, [TRACENAME, if G4 then 'MACRO else false, TRACECODE,
+;                     COUNTNAM, TIMERNAM, BEFORE, AFTER, CONDITION,
+;                        BREAK, modemap, ['QUOTE, true]]]
+;     NEW_DEF := [if G4 then 'MLAMBDA else 'LAMBDA, ["&REST", 'G6],
+;                 ["/MONITORX", 'G6, fn, ll]]
+;     bin_def => embeded_function(fn, NEW_DEF, bin_def)
+;     OLD_DEF := SYMBOL_-FUNCTION(fn)
+;     NEW_DEF := embeded_function(fn, NEW_DEF, OLD_DEF)
+;     embed2(fn, NEW_DEF, OLD_DEF)
+;     fn
+ 
+(DEFUN |trace3| (|fn| |modemap| |options| |bin_def|)
+  (PROG (|math_trace| |vars| BREAK VARBREAK FNVAL U TRACENAME LETFUNCODE BEFORE
+         AFTER |caller| FROM_CONDITION CONDITION WITHIN_CONDITION G COUNTNAM
+         COUNT_CONDITION TIMERNAM DEPTH_CONDITION ONLYS F A V C NL |buf|
+         TRACECODE G4 |ll| NEW_DEF OLD_DEF)
+    (RETURN
+     (PROGN
+      (COND ((MEMQ |fn| |$trace_names|) (|untrace2| |fn| NIL)))
+      (SETQ |options| (OPTIONS2UC |options|))
+      (COND
+       ((AND |$traceDomains| (|isFunctor| |fn|) (ATOM |fn|))
+        (|traceDomainConstructor| |fn| |options|))
+       (#1='T
+        (PROGN
+         (SETQ |math_trace| (|get_trace_option| |options| 'MATHPRINT))
+         (COND
+          ((AND |math_trace| (NULL (EQL (ELT (PNAME |fn|) 0) (|char| '$)))
+                (NULL (GENSYMP |fn|)))
+           (COND
+            ((RASSOC |fn| |$mapSubNameAlist|)
+             (SETQ |$mathTraceList| (CONS |fn| |$mathTraceList|)))
+            (#1#
+             (|spadThrowBrightly|
+              (FORMAT NIL "mathprint not available for ~A" |fn|))))))
+         (SETQ |vars| (|get_trace_option| |options| 'VARS))
+         (COND
+          (|vars|
+           (SETQ |vars| (COND ((NULL (CDR |vars|)) 'ALL) (#1# (CDR |vars|))))
+           (|tracelet| |fn| |bin_def| |vars|)))
+         (SETQ BREAK (|get_trace_option| |options| 'BREAK))
+         (SETQ VARBREAK (|get_trace_option| |options| 'VARBREAK))
+         (COND
+          (VARBREAK
+           (SETQ |vars|
+                   (COND ((NULL (CDR VARBREAK)) 'ALL) (#1# (CDR VARBREAK))))
+           (|breaklet| |fn| |bin_def| |vars|)))
+         (COND
+          ((AND (NULL |bin_def|) (SYMBOLP |fn|) (NULL (BOUNDP |fn|))
+                (NULL (FBOUNDP |fn|)))
+           (COND
+            ((|isUncompiledMap| |fn|)
+             (|sayBrightly|
+              (FORMAT NIL
+                      "~A must be compiled before it may be traced -- invoke ~A to compile"
+                      |fn| |fn|)))
+            ((|isInterpOnlyMap| |fn|)
+             (|sayBrightly|
+              (FORMAT NIL
+                      "~A cannot be traced because it is an interpret-only function"
+                      |fn|)))
+            (#1# (|sayBrightly| (FORMAT NIL "~A is not a function" |fn|)))))
+          ((AND (NULL |bin_def|) (SYMBOLP |fn|) (BOUNDP |fn|)
+                (|isDomainOrPackage| (SETQ FNVAL (EVAL |fn|))))
+           (|spadTrace| FNVAL |options|))
+          (#1#
+           (PROGN
+            (COND
+             ((SETQ U (|get_trace_option| |options| 'MASK=))
+              (MAKEPROP |fn| '/TRANSFORM (ELT U 1))))
+            (SETQ |$trace_names|
+                    (COND
+                     ((|get_trace_option| |options| 'ALIAS) |$trace_names|)
+                     (#1# (CONS |fn| |$trace_names|))))
+            (SETQ TRACENAME
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'ALIAS))
+                      (STRINGIMAGE (ELT U 1)))
+                     (#1#
+                      (PROGN
+                       (COND
+                        ((AND |$traceNoisely| (NULL |vars|)
+                              (NULL (|isSubForRedundantMapName| |fn|)))
+                         (|sayBrightly|
+                          (LIST '|%b| (|rassocSub| |fn| |$mapSubNameAlist|)
+                                '|%d| "traced"))))
+                       (STRINGIMAGE |fn|)))))
+            (COND
+             (|$fromSpadTrace|
+              (COND (|math_trace| (PUSH (INTERN TRACENAME) |$mathTraceList|)))
+              (SETQ LETFUNCODE (LIST 'EQ NIL NIL))
+              (SETQ BEFORE
+                      (COND
+                       ((SETQ U (|get_trace_option| |options| 'BEFORE))
+                        (LIST 'PROGN (ELT U 1) LETFUNCODE))
+                       (#1# LETFUNCODE))))
+             (#1#
+              (SETQ BEFORE
+                      (COND
+                       ((SETQ U (|get_trace_option| |options| 'BEFORE))
+                        (ELT U 1))
+                       (#1# NIL)))))
+            (SETQ AFTER
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'AFTER)) (ELT U 1))
+                     (#1# NIL)))
+            (SETQ |caller| (|get_trace_option| |options| 'CALLER))
+            (SETQ FROM_CONDITION
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'FROM))
+                      (LIST 'EQ '|#9| (LIST 'QUOTE (ELT U 1))))
+                     (#1# T)))
+            (SETQ CONDITION
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'WHEN)) (ELT U 1))
+                     (#1# T)))
+            (SETQ WITHIN_CONDITION T)
+            (COND
+             ((SETQ U (|get_trace_option| |options| 'WITHIN))
+              (SETQ G (INTERN (STRCONC (PNAME |fn|) "/" (PNAME (ELT U 1)))))
+              (SET G 0)
+              (|trace2| (ELT U 1) NIL
+               (LIST (LIST 'WHEN NIL)
+                     (LIST 'BEFORE (LIST 'SETQ G (LIST '1+ G)))
+                     (LIST 'AFTER (LIST 'SETQ G (LIST '1- G)))))
+              (SETQ WITHIN_CONDITION (LIST '> G 0))))
+            (COND
+             ((|get_trace_option| |options| 'COUNT)
+              (SETQ COUNTNAM (INTERN (STRCONC TRACENAME '|,COUNT|)))))
+            (SETQ COUNT_CONDITION
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'COUNT))
+                      (PROGN
+                       (SETQ |$count_list|
+                               (|adjoin_equal| TRACENAME |$count_list|))
+                       (COND
+                        ((AND (CDR U) (INTEGERP (ELT U 1)))
+                         (LIST 'COND (LIST (LIST '<= COUNTNAM (ELT U 1)) T)
+                               (LIST T (LIST '|untrace2| (MKQ |fn|) NIL) NIL)))
+                        (#1# T))))
+                     (#1# T)))
+            (COND
+             ((|get_trace_option| |options| 'TIMER)
+              (SETQ TIMERNAM (INTERN (STRCONC TRACENAME ",TIMER")))
+              (SETQ |$timer_list| (|adjoin_equal| TRACENAME |$timer_list|))))
+            (SETQ DEPTH_CONDITION
+                    (COND
+                     ((SETQ U (|get_trace_option| |options| 'DEPTH))
+                      (COND
+                       ((AND (CDR U) (INTEGERP (ELT U 1)))
+                        (LIST '<= 'FUNDEPTH (ELT U 1)))
+                       (#1# (TRACE_OPTION_ERROR 'DEPTH))))
+                     (#1# T)))
+            (SETQ CONDITION
+                    (MKPF
+                     (LIST CONDITION WITHIN_CONDITION FROM_CONDITION
+                           COUNT_CONDITION DEPTH_CONDITION)
+                     'AND))
+            (SETQ ONLYS (|get_trace_option| |options| 'ONLY))
+            (SETQ TRACECODE
+                    (COND ((|get_trace_option| |options| 'NT) "000")
+                          (#1#
+                           (PROGN
+                            (SETQ ONLYS (MAPCAR #'COND_UCASE ONLYS))
+                            (SETQ F
+                                    (OR (|member| 'F ONLYS)
+                                        (|member| 'FULL ONLYS)))
+                            (SETQ A
+                                    (OR F (|member| 'A ONLYS)
+                                        (|member| 'ARGS ONLYS)))
+                            (SETQ V
+                                    (OR F (|member| 'V ONLYS)
+                                        (|member| 'VALUE ONLYS)))
+                            (SETQ C
+                                    (OR F (|member| 'C ONLYS)
+                                        (|member| 'CALLER ONLYS)))
+                            (SETQ NL
+                                    (COND (A (LIST (|char| '|9|)))
+                                          (#1#
+                                           ((LAMBDA (|bfVar#8| |bfVar#7| X)
+                                              (LOOP
+                                               (COND
+                                                ((OR (ATOM |bfVar#7|)
+                                                     (PROGN
+                                                      (SETQ X (CAR |bfVar#7|))
+                                                      NIL))
+                                                 (RETURN (NREVERSE |bfVar#8|)))
+                                                (#1#
+                                                 (AND (INTEGERP X) (< 0 X)
+                                                      (< X 9)
+                                                      (SETQ |bfVar#8|
+                                                              (CONS
+                                                               (FETCHCHAR
+                                                                (STRINGIMAGE X)
+                                                                0)
+                                                               |bfVar#8|)))))
+                                               (SETQ |bfVar#7|
+                                                       (CDR |bfVar#7|))))
+                                            NIL ONLYS NIL))))
+                            (COND
+                             ((NULL (OR A V C NL))
+                              (COND (|caller| "119") (#1# "019")))
+                             (#1#
+                              (PROGN
+                               (SETQ NL (APPEND NL (LIST (|char| '|0|))))
+                               (SETQ |buf|
+                                       (|make_spaces|
+                                        (COND (A 3) (#1# (+ 2 (LENGTH NL))))))
+                               (SETF (ELT |buf| 0)
+                                       (COND ((OR C |caller|) (|char| '|1|))
+                                             (#1# (|char| '|0|))))
+                               (SETF (ELT |buf| 1)
+                                       (COND (V (|char| '|1|))
+                                             (#1# (|char| '|0|))))
+                               (COND
+                                (A
+                                 (PROGN
+                                  (SETF (ELT |buf| 2) (|char| '|9|))
+                                  |buf|))
+                                (#1#
+                                 (PROGN
+                                  ((LAMBDA (|bfVar#9| |x| |i|)
+                                     (LOOP
+                                      (COND
+                                       ((OR (ATOM |bfVar#9|)
+                                            (PROGN
+                                             (SETQ |x| (CAR |bfVar#9|))
+                                             NIL))
+                                        (RETURN NIL))
+                                       (#1# (SETF (ELT |buf| |i|) |x|)))
+                                      (SETQ |bfVar#9| (CDR |bfVar#9|))
+                                      (SETQ |i| (+ |i| 1))))
+                                   NL NIL 2)
+                                  |buf|))))))))))
+            (SETQ G4 (MACRO-FUNCTION |fn|))
+            (COND (COUNTNAM (SET COUNTNAM 0)))
+            (COND (TIMERNAM (SET TIMERNAM 0)))
+            (SETQ |ll|
+                    (LIST 'QUOTE
+                          (LIST TRACENAME (COND (G4 'MACRO) (#1# NIL))
+                                TRACECODE COUNTNAM TIMERNAM BEFORE AFTER
+                                CONDITION BREAK |modemap| (LIST 'QUOTE T))))
+            (SETQ NEW_DEF
+                    (LIST (COND (G4 'MLAMBDA) (#1# 'LAMBDA)) (LIST '&REST 'G6)
+                          (LIST '/MONITORX 'G6 |fn| |ll|)))
+            (COND (|bin_def| (|embeded_function| |fn| NEW_DEF |bin_def|))
+                  (#1#
+                   (PROGN
+                    (SETQ OLD_DEF (SYMBOL-FUNCTION |fn|))
+                    (SETQ NEW_DEF (|embeded_function| |fn| NEW_DEF OLD_DEF))
+                    (|embed2| |fn| NEW_DEF OLD_DEF)
+                    |fn|)))))))))))))
+ 
+; trace2(fn, modemap, options) ==
+;     trace3(fn, modemap, options, false)
+ 
+(DEFUN |trace2| (|fn| |modemap| |options|)
+  (PROG () (RETURN (|trace3| |fn| |modemap| |options| NIL))))
+ 
+; untrace2(X, options) ==
+;     isFunctor(X) and ATOM(X) => untraceDomainConstructor(X)
+;     isDomainOrPackage(U := X) or (SYMBOLP(X) and BOUNDP(X)
+;                                   and isDomain(U := EVAL(X))) =>
+;         spadUntrace(U, options)
+;     EQCAR(options, 'ALIAS) =>
+;         if $traceNoisely then
+;             sayBrightly(["%b", options.1, "%d", '"**untraced"])
+;         $timer_list := remove_equal(STRINGIMAGE(options.1), $timer_list)
+;         $count_list := remove_equal(STRINGIMAGE(options.1), $count_list)
+;         $mathTraceList := remove_equal(options.1, $mathTraceList)
+;         UNEMBED(X)
+;     NOT(MEMBER(X, $trace_names)) and NOT(isSubForRedundantMapName(X)) =>
+;         sayBrightly(["%b", rassocSub(X, $mapSubNameAlist),
+;                      "%d", '"not traced"])
+;     $trace_names := remove_equal(X, $trace_names)
+;     $mathTraceList := REMOVE((STRINGP(X) => INTERN(X); X), $mathTraceList)
+;     $letAssoc := DELASC(X, $letAssoc)
+;     Y := (IS_GENVAR(X) => devaluate(EVAL(X)); X)
+;     $timer_list := remove_equal(STRINGIMAGE(Y), $timer_list)
+;     SET(INTERN(STRCONC(Y, ",TIMER")), 0)
+;     $count_list := remove_equal(STRINGIMAGE(Y), $count_list)
+;     SET(INTERN(STRCONC(Y, ",COUNT")), 0)
+;     if $traceNoisely and NOT(isSubForRedundantMapName(Y)) then
+;         sayBrightly(["%b", rassocSub(Y, $mapSubNameAlist),
+;                      "%d", '"untraced"])
+;     UNEMBED(X)
+ 
+(DEFUN |untrace2| (X |options|)
+  (PROG (U Y)
+    (RETURN
+     (COND ((AND (|isFunctor| X) (ATOM X)) (|untraceDomainConstructor| X))
+           ((OR (|isDomainOrPackage| (SETQ U X))
+                (AND (SYMBOLP X) (BOUNDP X) (|isDomain| (SETQ U (EVAL X)))))
+            (|spadUntrace| U |options|))
+           ((EQCAR |options| 'ALIAS)
+            (PROGN
+             (COND
+              (|$traceNoisely|
+               (|sayBrightly|
+                (LIST '|%b| (ELT |options| 1) '|%d| "**untraced"))))
+             (SETQ |$timer_list|
+                     (|remove_equal| (STRINGIMAGE (ELT |options| 1))
+                      |$timer_list|))
+             (SETQ |$count_list|
+                     (|remove_equal| (STRINGIMAGE (ELT |options| 1))
+                      |$count_list|))
+             (SETQ |$mathTraceList|
+                     (|remove_equal| (ELT |options| 1) |$mathTraceList|))
+             (UNEMBED X)))
+           ((AND (NULL (MEMBER X |$trace_names|))
+                 (NULL (|isSubForRedundantMapName| X)))
+            (|sayBrightly|
+             (LIST '|%b| (|rassocSub| X |$mapSubNameAlist|) '|%d|
+                   "not traced")))
+           (#1='T
+            (PROGN
+             (SETQ |$trace_names| (|remove_equal| X |$trace_names|))
+             (SETQ |$mathTraceList|
+                     (REMOVE (COND ((STRINGP X) (INTERN X)) (#1# X))
+                             |$mathTraceList|))
+             (SETQ |$letAssoc| (DELASC X |$letAssoc|))
+             (SETQ Y (COND ((IS_GENVAR X) (|devaluate| (EVAL X))) (#1# X)))
+             (SETQ |$timer_list|
+                     (|remove_equal| (STRINGIMAGE Y) |$timer_list|))
+             (SET (INTERN (STRCONC Y '|,TIMER|)) 0)
+             (SETQ |$count_list|
+                     (|remove_equal| (STRINGIMAGE Y) |$count_list|))
+             (SET (INTERN (STRCONC Y '|,COUNT|)) 0)
+             (COND
+              ((AND |$traceNoisely| (NULL (|isSubForRedundantMapName| Y)))
+               (|sayBrightly|
+                (LIST '|%b| (|rassocSub| Y |$mapSubNameAlist|) '|%d|
+                      "untraced"))))
+             (UNEMBED X)))))))
+ 
+; BPITRACE(bin_def, alias, modemap, options) ==
+;     trace3(GENSYM(), modemap, [["ALIAS", alias], :options], bin_def)
+ 
+(DEFUN BPITRACE (|bin_def| |alias| |modemap| |options|)
+  (PROG ()
+    (RETURN
+     (|trace3| (GENSYM) |modemap| (CONS (LIST 'ALIAS |alias|) |options|)
+      |bin_def|))))
  
 ; getTraceOptions options ==
 ;   $traceErrorStack: local := nil
@@ -316,15 +1006,16 @@
      (PROGN
       (SETQ |$traceErrorStack| NIL)
       (SETQ |optionList|
-              ((LAMBDA (|bfVar#7| |bfVar#6| |x|)
+              ((LAMBDA (|bfVar#11| |bfVar#10| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#6|)
-                        (PROGN (SETQ |x| (CAR |bfVar#6|)) NIL))
-                    (RETURN (NREVERSE |bfVar#7|)))
+                   ((OR (ATOM |bfVar#10|)
+                        (PROGN (SETQ |x| (CAR |bfVar#10|)) NIL))
+                    (RETURN (NREVERSE |bfVar#11|)))
                    (#1='T
-                    (SETQ |bfVar#7| (CONS (|getTraceOption| |x|) |bfVar#7|))))
-                  (SETQ |bfVar#6| (CDR |bfVar#6|))))
+                    (SETQ |bfVar#11|
+                            (CONS (|getTraceOption| |x|) |bfVar#11|))))
+                  (SETQ |bfVar#10| (CDR |bfVar#10|))))
                NIL |options| NIL))
       (COND
        (|$traceErrorStack|
@@ -349,10 +1040,10 @@
 (DEFUN |saveMapSig| (|funNames|)
   (PROG (|map|)
     (RETURN
-     ((LAMBDA (|bfVar#8| |name|)
+     ((LAMBDA (|bfVar#12| |name|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#8|) (PROGN (SETQ |name| (CAR |bfVar#8|)) NIL))
+          ((OR (ATOM |bfVar#12|) (PROGN (SETQ |name| (CAR |bfVar#12|)) NIL))
            (RETURN NIL))
           ('T
            (COND
@@ -361,7 +1052,7 @@
               (SETQ |$tracedMapSignatures|
                       (ADDASSOC |name| (|getMapSig| |map| |name|)
                        |$tracedMapSignatures|)))))))
-         (SETQ |bfVar#8| (CDR |bfVar#8|))))
+         (SETQ |bfVar#12| (CDR |bfVar#12|))))
       |funNames| NIL))))
  
 ; getMapSig(mapName,subName) ==
@@ -377,18 +1068,18 @@
       ((SETQ |lmms| (|get| |mapName| '|localModemap| |$InteractiveFrame|))
        (IDENTITY
         (PROGN
-         ((LAMBDA (|bfVar#9| |mm| |bfVar#10|)
+         ((LAMBDA (|bfVar#13| |mm| |bfVar#14|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#9|) (PROGN (SETQ |mm| (CAR |bfVar#9|)) NIL)
-                   |bfVar#10|)
+              ((OR (ATOM |bfVar#13|) (PROGN (SETQ |mm| (CAR |bfVar#13|)) NIL)
+                   |bfVar#14|)
                (RETURN NIL))
               ('T
                (COND
                 ((EQUAL (CADR |mm|) |subName|)
                  (IDENTITY (SETQ |sig| (CDAR |mm|)))))))
-             (SETQ |bfVar#9| (CDR |bfVar#9|))
-             (SETQ |bfVar#10| |sig|)))
+             (SETQ |bfVar#13| (CDR |bfVar#13|))
+             (SETQ |bfVar#14| |sig|)))
           |lmms| NIL NIL)
          |sig|)))))))
  
@@ -456,32 +1147,32 @@
                    (#1='T
                     (PROGN
                      (SETQ |opts|
-                             ((LAMBDA (|bfVar#12| |bfVar#11| |y|)
+                             ((LAMBDA (|bfVar#16| |bfVar#15| |y|)
                                 (LOOP
                                  (COND
-                                  ((OR (ATOM |bfVar#11|)
-                                       (PROGN (SETQ |y| (CAR |bfVar#11|)) NIL))
-                                   (RETURN (NREVERSE |bfVar#12|)))
+                                  ((OR (ATOM |bfVar#15|)
+                                       (PROGN (SETQ |y| (CAR |bfVar#15|)) NIL))
+                                   (RETURN (NREVERSE |bfVar#16|)))
                                   (#1#
-                                   (SETQ |bfVar#12|
+                                   (SETQ |bfVar#16|
                                            (CONS
                                             (|selectOptionLC| |y|
                                              '(|before| |after|) NIL)
-                                            |bfVar#12|))))
-                                 (SETQ |bfVar#11| (CDR |bfVar#11|))))
+                                            |bfVar#16|))))
+                                 (SETQ |bfVar#15| (CDR |bfVar#15|))))
                               NIL |l| NIL))
                      (COND
-                      (((LAMBDA (|bfVar#14| |bfVar#13| |y|)
+                      (((LAMBDA (|bfVar#18| |bfVar#17| |y|)
                           (LOOP
                            (COND
-                            ((OR (ATOM |bfVar#13|)
-                                 (PROGN (SETQ |y| (CAR |bfVar#13|)) NIL))
-                             (RETURN |bfVar#14|))
+                            ((OR (ATOM |bfVar#17|)
+                                 (PROGN (SETQ |y| (CAR |bfVar#17|)) NIL))
+                             (RETURN |bfVar#18|))
                             (#1#
                              (PROGN
-                              (SETQ |bfVar#14| (IDENTP |y|))
-                              (COND ((NOT |bfVar#14|) (RETURN NIL))))))
-                           (SETQ |bfVar#13| (CDR |bfVar#13|))))
+                              (SETQ |bfVar#18| (IDENTP |y|))
+                              (COND ((NOT |bfVar#18|) (RETURN NIL))))))
+                           (SETQ |bfVar#17| (CDR |bfVar#17|))))
                         T |opts| NIL)
                        (CONS '|break| |opts|))
                       (#1# (|stackTraceOptionError| (LIST 'S2IT0008 NIL))))))))
@@ -527,16 +1218,16 @@
                (|stackTraceOptionError| (LIST 'S2IT0012 (LIST ")count"))))))
             ((EQ |key| '|of|)
              (CONS '|of|
-                   ((LAMBDA (|bfVar#16| |bfVar#15| |y|)
+                   ((LAMBDA (|bfVar#20| |bfVar#19| |y|)
                       (LOOP
                        (COND
-                        ((OR (ATOM |bfVar#15|)
-                             (PROGN (SETQ |y| (CAR |bfVar#15|)) NIL))
-                         (RETURN (NREVERSE |bfVar#16|)))
+                        ((OR (ATOM |bfVar#19|)
+                             (PROGN (SETQ |y| (CAR |bfVar#19|)) NIL))
+                         (RETURN (NREVERSE |bfVar#20|)))
                         (#1#
-                         (SETQ |bfVar#16|
-                                 (CONS (|getTraceOption,hn| |y|) |bfVar#16|))))
-                       (SETQ |bfVar#15| (CDR |bfVar#15|))))
+                         (SETQ |bfVar#20|
+                                 (CONS (|getTraceOption,hn| |y|) |bfVar#20|))))
+                       (SETQ |bfVar#19| (CDR |bfVar#19|))))
                     NIL |l| NIL)))
             ((MEMQ |key| '(|local| |ops| |vars|))
              (COND
@@ -587,20 +1278,20 @@
       ('T (|commandAmbiguityError| '|trace option| |opt| |keys|))))))
  
 ; resetTimers () ==
-;   for timer in _/TIMERLIST repeat
+;   for timer in $timer_list repeat
 ;     SET(INTERN STRCONC(timer,'"_,TIMER"),0)
  
 (DEFUN |resetTimers| ()
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#17| |timer|)
+     ((LAMBDA (|bfVar#21| |timer|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#17|) (PROGN (SETQ |timer| (CAR |bfVar#17|)) NIL))
+          ((OR (ATOM |bfVar#21|) (PROGN (SETQ |timer| (CAR |bfVar#21|)) NIL))
            (RETURN NIL))
           ('T (SET (INTERN (STRCONC |timer| ",TIMER")) 0)))
-         (SETQ |bfVar#17| (CDR |bfVar#17|))))
-      /TIMERLIST NIL))))
+         (SETQ |bfVar#21| (CDR |bfVar#21|))))
+      |$timer_list| NIL))))
  
 ; resetSpacers () ==
 ;   for spacer in _/SPACELIST repeat
@@ -609,34 +1300,34 @@
 (DEFUN |resetSpacers| ()
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#18| |spacer|)
+     ((LAMBDA (|bfVar#22| |spacer|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#18|) (PROGN (SETQ |spacer| (CAR |bfVar#18|)) NIL))
+          ((OR (ATOM |bfVar#22|) (PROGN (SETQ |spacer| (CAR |bfVar#22|)) NIL))
            (RETURN NIL))
           ('T (SET (INTERN (STRCONC |spacer| ",SPACE")) 0)))
-         (SETQ |bfVar#18| (CDR |bfVar#18|))))
+         (SETQ |bfVar#22| (CDR |bfVar#22|))))
       /SPACELIST NIL))))
  
 ; resetCounters () ==
-;   for k in _/COUNTLIST repeat
+;   for k in $count_list repeat
 ;     SET(INTERN STRCONC(k,'"_,COUNT"),0)
  
 (DEFUN |resetCounters| ()
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#19| |k|)
+     ((LAMBDA (|bfVar#23| |k|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#19|) (PROGN (SETQ |k| (CAR |bfVar#19|)) NIL))
+          ((OR (ATOM |bfVar#23|) (PROGN (SETQ |k| (CAR |bfVar#23|)) NIL))
            (RETURN NIL))
           ('T (SET (INTERN (STRCONC |k| ",COUNT")) 0)))
-         (SETQ |bfVar#19| (CDR |bfVar#19|))))
-      /COUNTLIST NIL))))
+         (SETQ |bfVar#23| (CDR |bfVar#23|))))
+      |$count_list| NIL))))
  
 ; ptimers() ==
-;   null _/TIMERLIST => sayBrightly '"   no functions are timed"
-;   for timer in _/TIMERLIST repeat
+;   null $timer_list => sayBrightly '"   no functions are timed"
+;   for timer in $timer_list repeat
 ;     sayBrightly ["  ",:bright timer,'_:,'" ",
 ;       EVAL(INTERN STRCONC(timer, '"_,TIMER")) /
 ;         FLOAT($timerTicksPerSecond, 0.0), '" sec."]
@@ -644,13 +1335,13 @@
 (DEFUN |ptimers| ()
   (PROG ()
     (RETURN
-     (COND ((NULL /TIMERLIST) (|sayBrightly| "   no functions are timed"))
+     (COND ((NULL |$timer_list|) (|sayBrightly| "   no functions are timed"))
            (#1='T
-            ((LAMBDA (|bfVar#20| |timer|)
+            ((LAMBDA (|bfVar#24| |timer|)
                (LOOP
                 (COND
-                 ((OR (ATOM |bfVar#20|)
-                      (PROGN (SETQ |timer| (CAR |bfVar#20|)) NIL))
+                 ((OR (ATOM |bfVar#24|)
+                      (PROGN (SETQ |timer| (CAR |bfVar#24|)) NIL))
                   (RETURN NIL))
                  (#1#
                   (|sayBrightly|
@@ -666,8 +1357,8 @@
                                                (FLOAT |$timerTicksPerSecond|
                                                       0.0))
                                               (CONS " sec." NIL)))))))))
-                (SETQ |bfVar#20| (CDR |bfVar#20|))))
-             /TIMERLIST NIL))))))
+                (SETQ |bfVar#24| (CDR |bfVar#24|))))
+             |$timer_list| NIL))))))
  
 ; pspacers() ==
 ;   null _/SPACELIST => sayBrightly '"   no functions have space monitored"
@@ -682,11 +1373,11 @@
       ((NULL /SPACELIST)
        (|sayBrightly| "   no functions have space monitored"))
       (#1='T
-       ((LAMBDA (|bfVar#21| |spacer|)
+       ((LAMBDA (|bfVar#25| |spacer|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#21|)
-                 (PROGN (SETQ |spacer| (CAR |bfVar#21|)) NIL))
+            ((OR (ATOM |bfVar#25|)
+                 (PROGN (SETQ |spacer| (CAR |bfVar#25|)) NIL))
              (RETURN NIL))
             (#1#
              (|sayBrightly|
@@ -698,12 +1389,12 @@
                                          (EVAL
                                           (INTERN (STRCONC |spacer| ",SPACE")))
                                          (CONS " bytes" NIL)))))))))
-           (SETQ |bfVar#21| (CDR |bfVar#21|))))
+           (SETQ |bfVar#25| (CDR |bfVar#25|))))
         /SPACELIST NIL))))))
  
 ; pcounters() ==
-;   null _/COUNTLIST => sayBrightly '"   no functions are being counted"
-;   for k in _/COUNTLIST repeat
+;   null $count_list => sayBrightly '"   no functions are being counted"
+;   for k in $count_list repeat
 ;     sayBrightly ["  ",:bright k,'_:,'" ",
 ;       EVAL INTERN STRCONC(k,'"_,COUNT"),'" times"]
  
@@ -711,12 +1402,13 @@
   (PROG ()
     (RETURN
      (COND
-      ((NULL /COUNTLIST) (|sayBrightly| "   no functions are being counted"))
+      ((NULL |$count_list|)
+       (|sayBrightly| "   no functions are being counted"))
       (#1='T
-       ((LAMBDA (|bfVar#22| |k|)
+       ((LAMBDA (|bfVar#26| |k|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#22|) (PROGN (SETQ |k| (CAR |bfVar#22|)) NIL))
+            ((OR (ATOM |bfVar#26|) (PROGN (SETQ |k| (CAR |bfVar#26|)) NIL))
              (RETURN NIL))
             (#1#
              (|sayBrightly|
@@ -727,8 +1419,8 @@
                                         (CONS
                                          (EVAL (INTERN (STRCONC |k| ",COUNT")))
                                          (CONS " times" NIL)))))))))
-           (SETQ |bfVar#22| (CDR |bfVar#22|))))
-        /COUNTLIST NIL))))))
+           (SETQ |bfVar#26| (CDR |bfVar#26|))))
+        |$count_list| NIL))))))
  
 ; transOnlyOption l ==
 ;   l is [n,:y] =>
@@ -768,17 +1460,17 @@
 (DEFUN |removeOption| (|op| |options|)
   (PROG (|opt|)
     (RETURN
-     ((LAMBDA (|bfVar#24| |bfVar#23| |optEntry|)
+     ((LAMBDA (|bfVar#28| |bfVar#27| |optEntry|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#23|)
-               (PROGN (SETQ |optEntry| (CAR |bfVar#23|)) NIL))
-           (RETURN (NREVERSE |bfVar#24|)))
+          ((OR (ATOM |bfVar#27|)
+               (PROGN (SETQ |optEntry| (CAR |bfVar#27|)) NIL))
+           (RETURN (NREVERSE |bfVar#28|)))
           (#1='T
            (AND (CONSP |optEntry|) (PROGN (SETQ |opt| (CAR |optEntry|)) #1#)
                 (NOT (EQUAL |opt| |op|))
-                (SETQ |bfVar#24| (CONS |optEntry| |bfVar#24|)))))
-         (SETQ |bfVar#23| (CDR |bfVar#23|))))
+                (SETQ |bfVar#28| (CONS |optEntry| |bfVar#28|)))))
+         (SETQ |bfVar#27| (CDR |bfVar#27|))))
       NIL |options| NIL))))
  
 ; domainToGenvar x ==
@@ -821,38 +1513,39 @@
  
 ; untrace l ==
 ;   $lastUntraced:=
-;     null l => COPY _/TRACENAMES
+;     null l => COPY $trace_names
 ;     l
 ;   untraceList:= [transTraceItem x for x in l]
 ;   for funName in untraceList repeat
-;       _/UNTRACE_-2(lassocSub(funName,$mapSubNameAlist), [])
+;       untrace2(lassocSub(funName, $mapSubNameAlist), [])
 ;   removeTracedMapSigs untraceList
  
 (DEFUN |untrace| (|l|)
   (PROG (|untraceList|)
     (RETURN
      (PROGN
-      (SETQ |$lastUntraced| (COND ((NULL |l|) (COPY /TRACENAMES)) (#1='T |l|)))
+      (SETQ |$lastUntraced|
+              (COND ((NULL |l|) (COPY |$trace_names|)) (#1='T |l|)))
       (SETQ |untraceList|
-              ((LAMBDA (|bfVar#26| |bfVar#25| |x|)
+              ((LAMBDA (|bfVar#30| |bfVar#29| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#25|)
-                        (PROGN (SETQ |x| (CAR |bfVar#25|)) NIL))
-                    (RETURN (NREVERSE |bfVar#26|)))
+                   ((OR (ATOM |bfVar#29|)
+                        (PROGN (SETQ |x| (CAR |bfVar#29|)) NIL))
+                    (RETURN (NREVERSE |bfVar#30|)))
                    (#1#
-                    (SETQ |bfVar#26|
-                            (CONS (|transTraceItem| |x|) |bfVar#26|))))
-                  (SETQ |bfVar#25| (CDR |bfVar#25|))))
+                    (SETQ |bfVar#30|
+                            (CONS (|transTraceItem| |x|) |bfVar#30|))))
+                  (SETQ |bfVar#29| (CDR |bfVar#29|))))
                NIL |l| NIL))
-      ((LAMBDA (|bfVar#27| |funName|)
+      ((LAMBDA (|bfVar#31| |funName|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#27|)
-                (PROGN (SETQ |funName| (CAR |bfVar#27|)) NIL))
+           ((OR (ATOM |bfVar#31|)
+                (PROGN (SETQ |funName| (CAR |bfVar#31|)) NIL))
             (RETURN NIL))
-           (#1# (/UNTRACE-2 (|lassocSub| |funName| |$mapSubNameAlist|) NIL)))
-          (SETQ |bfVar#27| (CDR |bfVar#27|))))
+           (#1# (|untrace2| (|lassocSub| |funName| |$mapSubNameAlist|) NIL)))
+          (SETQ |bfVar#31| (CDR |bfVar#31|))))
        |untraceList| NIL)
       (|removeTracedMapSigs| |untraceList|)))))
  
@@ -908,13 +1601,13 @@
 (DEFUN |removeTracedMapSigs| (|untraceList|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#28| |name|)
+     ((LAMBDA (|bfVar#32| |name|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#28|) (PROGN (SETQ |name| (CAR |bfVar#28|)) NIL))
+          ((OR (ATOM |bfVar#32|) (PROGN (SETQ |name| (CAR |bfVar#32|)) NIL))
            (RETURN NIL))
           ('T (REMPROP |name| |$tracedMapSignatures|)))
-         (SETQ |bfVar#28| (CDR |bfVar#28|))))
+         (SETQ |bfVar#32| (CDR |bfVar#32|))))
       |untraceList| NIL))))
  
 ; coerceTraceArgs2E(traceName,subName,args) ==
@@ -937,25 +1630,25 @@
          (|coerceSpadArgs2E| (REVERSE (CDR (REVERSE |args|)))))
         (#1='T
          ((LAMBDA
-              (|bfVar#32| |bfVar#29| |name| |bfVar#30| |arg| |bfVar#31| |type|)
+              (|bfVar#36| |bfVar#33| |name| |bfVar#34| |arg| |bfVar#35| |type|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#29|) (PROGN (SETQ |name| (CAR |bfVar#29|)) NIL)
-                   (ATOM |bfVar#30|) (PROGN (SETQ |arg| (CAR |bfVar#30|)) NIL)
-                   (ATOM |bfVar#31|)
-                   (PROGN (SETQ |type| (CAR |bfVar#31|)) NIL))
-               (RETURN (NREVERSE |bfVar#32|)))
+              ((OR (ATOM |bfVar#33|) (PROGN (SETQ |name| (CAR |bfVar#33|)) NIL)
+                   (ATOM |bfVar#34|) (PROGN (SETQ |arg| (CAR |bfVar#34|)) NIL)
+                   (ATOM |bfVar#35|)
+                   (PROGN (SETQ |type| (CAR |bfVar#35|)) NIL))
+               (RETURN (NREVERSE |bfVar#36|)))
               (#1#
-               (SETQ |bfVar#32|
+               (SETQ |bfVar#36|
                        (CONS
                         (LIST '= |name|
                               (|objValUnwrap|
                                (|coerceInteractive| (|objNewWrap| |arg| |type|)
                                 |$OutputForm|)))
-                        |bfVar#32|))))
-             (SETQ |bfVar#29| (CDR |bfVar#29|))
-             (SETQ |bfVar#30| (CDR |bfVar#30|))
-             (SETQ |bfVar#31| (CDR |bfVar#31|))))
+                        |bfVar#36|))))
+             (SETQ |bfVar#33| (CDR |bfVar#33|))
+             (SETQ |bfVar#34| (CDR |bfVar#34|))
+             (SETQ |bfVar#35| (CDR |bfVar#35|))))
           NIL
           '(|arg1| |arg2| |arg3| |arg4| |arg5| |arg6| |arg7| |arg8| |arg9|
             |arg10| |arg11| |arg12| |arg13| |arg14| |arg15| |arg16| |arg17|
@@ -979,24 +1672,24 @@
      (PROGN
       (SETQ |$streamCount| 0)
       ((LAMBDA
-           (|bfVar#36| |bfVar#33| |name| |bfVar#34| |arg| |bfVar#35| |type|)
+           (|bfVar#40| |bfVar#37| |name| |bfVar#38| |arg| |bfVar#39| |type|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#33|) (PROGN (SETQ |name| (CAR |bfVar#33|)) NIL)
-                (ATOM |bfVar#34|) (PROGN (SETQ |arg| (CAR |bfVar#34|)) NIL)
-                (ATOM |bfVar#35|) (PROGN (SETQ |type| (CAR |bfVar#35|)) NIL))
-            (RETURN (NREVERSE |bfVar#36|)))
+           ((OR (ATOM |bfVar#37|) (PROGN (SETQ |name| (CAR |bfVar#37|)) NIL)
+                (ATOM |bfVar#38|) (PROGN (SETQ |arg| (CAR |bfVar#38|)) NIL)
+                (ATOM |bfVar#39|) (PROGN (SETQ |type| (CAR |bfVar#39|)) NIL))
+            (RETURN (NREVERSE |bfVar#40|)))
            ('T
-            (SETQ |bfVar#36|
+            (SETQ |bfVar#40|
                     (CONS
                      (LIST '= |name|
                            (|objValUnwrap|
                             (|coerceInteractive| (|objNewWrap| |arg| |type|)
                              |$OutputForm|)))
-                     |bfVar#36|))))
-          (SETQ |bfVar#33| (CDR |bfVar#33|))
-          (SETQ |bfVar#34| (CDR |bfVar#34|))
-          (SETQ |bfVar#35| (CDR |bfVar#35|))))
+                     |bfVar#40|))))
+          (SETQ |bfVar#37| (CDR |bfVar#37|))
+          (SETQ |bfVar#38| (CDR |bfVar#38|))
+          (SETQ |bfVar#39| (CDR |bfVar#39|))))
        NIL
        '(|arg1| |arg2| |arg3| |arg4| |arg5| |arg6| |arg7| |arg8| |arg9| |arg10|
          |arg11| |arg12| |arg13| |arg14| |arg15| |arg16| |arg17| |arg18|
@@ -1016,14 +1709,14 @@
       ((ATOM |mm|)
        (COND ((SETQ |s| (LASSOC |mm| |sublist|)) |s|) (#1='T |mm|)))
       (#1#
-       ((LAMBDA (|bfVar#38| |bfVar#37| |m|)
+       ((LAMBDA (|bfVar#42| |bfVar#41| |m|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#37|) (PROGN (SETQ |m| (CAR |bfVar#37|)) NIL))
-             (RETURN (NREVERSE |bfVar#38|)))
+            ((OR (ATOM |bfVar#41|) (PROGN (SETQ |m| (CAR |bfVar#41|)) NIL))
+             (RETURN (NREVERSE |bfVar#42|)))
             (#1#
-             (SETQ |bfVar#38| (CONS (|subTypes| |m| |sublist|) |bfVar#38|))))
-           (SETQ |bfVar#37| (CDR |bfVar#37|))))
+             (SETQ |bfVar#42| (CONS (|subTypes| |m| |sublist|) |bfVar#42|))))
+           (SETQ |bfVar#41| (CDR |bfVar#41|))))
         NIL |mm| NIL))))))
  
 ; coerceTraceFunValue2E(traceName,subName,value) ==
@@ -1069,16 +1762,16 @@
 (DEFUN |isListOfIdentifiers| (|l|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#40| |bfVar#39| |x|)
+     ((LAMBDA (|bfVar#44| |bfVar#43| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#39|) (PROGN (SETQ |x| (CAR |bfVar#39|)) NIL))
-           (RETURN |bfVar#40|))
+          ((OR (ATOM |bfVar#43|) (PROGN (SETQ |x| (CAR |bfVar#43|)) NIL))
+           (RETURN |bfVar#44|))
           ('T
            (PROGN
-            (SETQ |bfVar#40| (IDENTP |x|))
-            (COND ((NOT |bfVar#40|) (RETURN NIL))))))
-         (SETQ |bfVar#39| (CDR |bfVar#39|))))
+            (SETQ |bfVar#44| (IDENTP |x|))
+            (COND ((NOT |bfVar#44|) (RETURN NIL))))))
+         (SETQ |bfVar#43| (CDR |bfVar#43|))))
       T |l| NIL))))
  
 ; isListOfIdentifiersOrStrings l == and/[IDENTP x or STRINGP x for x in l]
@@ -1086,16 +1779,16 @@
 (DEFUN |isListOfIdentifiersOrStrings| (|l|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#42| |bfVar#41| |x|)
+     ((LAMBDA (|bfVar#46| |bfVar#45| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#41|) (PROGN (SETQ |x| (CAR |bfVar#41|)) NIL))
-           (RETURN |bfVar#42|))
+          ((OR (ATOM |bfVar#45|) (PROGN (SETQ |x| (CAR |bfVar#45|)) NIL))
+           (RETURN |bfVar#46|))
           ('T
            (PROGN
-            (SETQ |bfVar#42| (OR (IDENTP |x|) (STRINGP |x|)))
-            (COND ((NOT |bfVar#42|) (RETURN NIL))))))
-         (SETQ |bfVar#41| (CDR |bfVar#41|))))
+            (SETQ |bfVar#46| (OR (IDENTP |x|) (STRINGP |x|)))
+            (COND ((NOT |bfVar#46|) (RETURN NIL))))))
+         (SETQ |bfVar#45| (CDR |bfVar#45|))))
       T |l| NIL))))
  
 ; getMapSubNames(l) ==
@@ -1103,7 +1796,7 @@
 ;   for mapName in l repeat
 ;     lmm:= get(mapName,'localModemap,$InteractiveFrame) =>
 ;       subs:= APPEND([[mapName,:CADR mm] for mm in lmm],subs)
-;   union(subs,getPreviousMapSubNames UNIONQ(_/TRACENAMES,
+;   union(subs, getPreviousMapSubNames UNIONQ($trace_names,
 ;     $lastUntraced))
  
 (DEFUN |getMapSubNames| (|l|)
@@ -1111,11 +1804,11 @@
     (RETURN
      (PROGN
       (SETQ |subs| NIL)
-      ((LAMBDA (|bfVar#43| |mapName|)
+      ((LAMBDA (|bfVar#47| |mapName|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#43|)
-                (PROGN (SETQ |mapName| (CAR |bfVar#43|)) NIL))
+           ((OR (ATOM |bfVar#47|)
+                (PROGN (SETQ |mapName| (CAR |bfVar#47|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -1124,23 +1817,23 @@
               (IDENTITY
                (SETQ |subs|
                        (APPEND
-                        ((LAMBDA (|bfVar#45| |bfVar#44| |mm|)
+                        ((LAMBDA (|bfVar#49| |bfVar#48| |mm|)
                            (LOOP
                             (COND
-                             ((OR (ATOM |bfVar#44|)
-                                  (PROGN (SETQ |mm| (CAR |bfVar#44|)) NIL))
-                              (RETURN (NREVERSE |bfVar#45|)))
+                             ((OR (ATOM |bfVar#48|)
+                                  (PROGN (SETQ |mm| (CAR |bfVar#48|)) NIL))
+                              (RETURN (NREVERSE |bfVar#49|)))
                              (#1#
-                              (SETQ |bfVar#45|
+                              (SETQ |bfVar#49|
                                       (CONS (CONS |mapName| (CADR |mm|))
-                                            |bfVar#45|))))
-                            (SETQ |bfVar#44| (CDR |bfVar#44|))))
+                                            |bfVar#49|))))
+                            (SETQ |bfVar#48| (CDR |bfVar#48|))))
                          NIL |lmm| NIL)
                         |subs|)))))))
-          (SETQ |bfVar#43| (CDR |bfVar#43|))))
+          (SETQ |bfVar#47| (CDR |bfVar#47|))))
        |l| NIL)
       (|union| |subs|
-       (|getPreviousMapSubNames| (UNIONQ /TRACENAMES |$lastUntraced|)))))))
+       (|getPreviousMapSubNames| (UNIONQ |$trace_names| |$lastUntraced|)))))))
  
 ; getPreviousMapSubNames(traceNames) ==
 ;   subs:= nil
@@ -1156,11 +1849,11 @@
     (RETURN
      (PROGN
       (SETQ |subs| NIL)
-      ((LAMBDA (|bfVar#46| |mapName|)
+      ((LAMBDA (|bfVar#50| |mapName|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#46|)
-                (PROGN (SETQ |mapName| (CAR |bfVar#46|)) NIL))
+           ((OR (ATOM |bfVar#50|)
+                (PROGN (SETQ |mapName| (CAR |bfVar#50|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -1170,18 +1863,18 @@
                (COND
                 ((MEMQ (CADAR |lmm|) |traceNames|)
                  (IDENTITY
-                  ((LAMBDA (|bfVar#47| |mm|)
+                  ((LAMBDA (|bfVar#51| |mm|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#47|)
-                            (PROGN (SETQ |mm| (CAR |bfVar#47|)) NIL))
+                       ((OR (ATOM |bfVar#51|)
+                            (PROGN (SETQ |mm| (CAR |bfVar#51|)) NIL))
                         (RETURN NIL))
                        (#1#
                         (SETQ |subs|
                                 (CONS (CONS |mapName| (CADR |mm|)) |subs|))))
-                      (SETQ |bfVar#47| (CDR |bfVar#47|))))
+                      (SETQ |bfVar#51| (CDR |bfVar#51|))))
                    |lmm| NIL)))))))))
-          (SETQ |bfVar#46| (CDR |bfVar#46|))))
+          (SETQ |bfVar#50| (CDR |bfVar#50|))))
        (ASSOCLEFT (CAAR |$InteractiveFrame|)) NIL)
       |subs|))))
  
@@ -1236,11 +1929,11 @@
     (RETURN
      (PROGN
       (SETQ |res| NIL)
-      ((LAMBDA (|bfVar#48| |traceName|)
+      ((LAMBDA (|bfVar#52| |traceName|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#48|)
-                (PROGN (SETQ |traceName| (CAR |bfVar#48|)) NIL))
+           ((OR (ATOM |bfVar#52|)
+                (PROGN (SETQ |traceName| (CAR |bfVar#52|)) NIL))
             (RETURN NIL))
            (#1='T
             (COND
@@ -1248,19 +1941,19 @@
                       (|get| |traceName| '|localModemap| |$InteractiveFrame|))
               (SETQ |res|
                       (APPEND
-                       ((LAMBDA (|bfVar#50| |bfVar#49| |mm|)
+                       ((LAMBDA (|bfVar#54| |bfVar#53| |mm|)
                           (LOOP
                            (COND
-                            ((OR (ATOM |bfVar#49|)
-                                 (PROGN (SETQ |mm| (CAR |bfVar#49|)) NIL))
-                             (RETURN (NREVERSE |bfVar#50|)))
+                            ((OR (ATOM |bfVar#53|)
+                                 (PROGN (SETQ |mm| (CAR |bfVar#53|)) NIL))
+                             (RETURN (NREVERSE |bfVar#54|)))
                             (#1#
-                             (SETQ |bfVar#50| (CONS (CADR |mm|) |bfVar#50|))))
-                           (SETQ |bfVar#49| (CDR |bfVar#49|))))
+                             (SETQ |bfVar#54| (CONS (CADR |mm|) |bfVar#54|))))
+                           (SETQ |bfVar#53| (CDR |bfVar#53|))))
                         NIL |mml| NIL)
                        |res|)))
              (#1# (SETQ |res| (CONS |traceName| |res|))))))
-          (SETQ |bfVar#48| (CDR |bfVar#48|))))
+          (SETQ |bfVar#52| (CDR |bfVar#52|))))
        |l| NIL)
       |res|))))
  
@@ -1283,8 +1976,8 @@
 ; untraceMapSubNames traceNames ==
 ;   null($mapSubNameAlist:local:= getPreviousMapSubNames traceNames) => nil
 ;   for name in (subs:= ASSOCRIGHT $mapSubNameAlist)
-;     | MEMQ(name,_/TRACENAMES) repeat
-;       _/UNTRACE_-2(name,nil)
+;     | MEMQ(name, $trace_names) repeat
+;       untrace2(name, [])
 ;       $lastUntraced:= SETDIFFERENCE($lastUntraced,subs)
  
 (DEFUN |untraceMapSubNames| (|traceNames|)
@@ -1295,18 +1988,18 @@
       ((NULL (SETQ |$mapSubNameAlist| (|getPreviousMapSubNames| |traceNames|)))
        NIL)
       (#1='T
-       ((LAMBDA (|bfVar#51| |name|)
+       ((LAMBDA (|bfVar#55| |name|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#51|) (PROGN (SETQ |name| (CAR |bfVar#51|)) NIL))
+            ((OR (ATOM |bfVar#55|) (PROGN (SETQ |name| (CAR |bfVar#55|)) NIL))
              (RETURN NIL))
             (#1#
-             (AND (MEMQ |name| /TRACENAMES)
+             (AND (MEMQ |name| |$trace_names|)
                   (PROGN
-                   (/UNTRACE-2 |name| NIL)
+                   (|untrace2| |name| NIL)
                    (SETQ |$lastUntraced|
                            (SETDIFFERENCE |$lastUntraced| |subs|))))))
-           (SETQ |bfVar#51| (CDR |bfVar#51|))))
+           (SETQ |bfVar#55| (CDR |bfVar#55|))))
         (SETQ |subs| (ASSOCRIGHT |$mapSubNameAlist|)) NIL))))))
  
 ; funfind(functor, opname) ==
@@ -1318,18 +2011,18 @@
     (RETURN
      (PROGN
       (SETQ |ops| (|isFunctor| |functor|))
-      ((LAMBDA (|bfVar#53| |bfVar#52| |u|)
+      ((LAMBDA (|bfVar#57| |bfVar#56| |u|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#52|) (PROGN (SETQ |u| (CAR |bfVar#52|)) NIL))
-            (RETURN (NREVERSE |bfVar#53|)))
+           ((OR (ATOM |bfVar#56|) (PROGN (SETQ |u| (CAR |bfVar#56|)) NIL))
+            (RETURN (NREVERSE |bfVar#57|)))
            ('T
             (AND (CONSP |u|)
                  (PROGN
                   (SETQ |ISTMP#1| (CAR |u|))
                   (AND (CONSP |ISTMP#1|) (EQUAL (CAR |ISTMP#1|) |opname|)))
-                 (SETQ |bfVar#53| (CONS |u| |bfVar#53|)))))
-          (SETQ |bfVar#52| (CDR |bfVar#52|))))
+                 (SETQ |bfVar#57| (CONS |u| |bfVar#57|)))))
+          (SETQ |bfVar#56| (CDR |bfVar#56|))))
        NIL |ops| NIL)))))
  
 ; isDomainOrPackage dom ==
@@ -1347,7 +2040,6 @@
  
 ; spadTrace(domain,options) ==
 ;   $fromSpadTrace:= true
-;   $tracedModemap:local:= nil
 ;   PAIRP domain and REFVECP first domain and (first domain).0 = 0 =>
 ;       aldorTrace(domain,options)
 ;   not isDomainOrPackage domain => userError '"bad argument to trace"
@@ -1362,7 +2054,7 @@
 ;     options := removeOption("VARBREAK",options)
 ;   anyifTrue:= null listOfOperations
 ;   domainId:= opOf domain.(0)
-;   currentEntry:= assoc(domain,_/TRACENAMES)
+;   currentEntry := assoc(domain, $trace_names)
 ;   currentAlist:= IFCDR currentEntry
 ;   opStructureList:= flattenOperationAlist getOperationAlistFromLisplib domainId
 ;   sigSlotNumberAlist:=
@@ -1392,20 +2084,15 @@
 ;         [["BREAK",:listOfBreakVars]],$letAssoc)
 ;   for (pair:= [op,mm,n]) in sigSlotNumberAlist repeat
 ;     alias:= spadTraceAlias(domainId,op,n)
-;     $tracedModemap:= subTypes(mm,constructSubst(domain.0))
+;     tracedModemap := subTypes(mm, constructSubst(domain.0))
 ;     dn1 := first domain.n
 ;     fgg := FUNCTION newGoGet
-;     if dn1 = fgg then
-;         -- SAY(["newGoGet in slot", n])
-;         traceName := GENSYM()
-;         SET(traceName, dn1)
-;         tf := goGetTracerHelper(domain.n, fgg, pair, alias,
-;                                 options, $tracedModemap)
-;         setSf(traceName, tf)
-;     else
-;         traceName:= BPITRACE(dn1, alias, options)
-;         tf := SYMBOL_-FUNCTION traceName
-;     NCONC(pair,[listOfVariables,first domain.n,traceName,alias])
+;     tf :=
+;         dn1 = fgg =>
+;             goGetTracerHelper(domain.n, fgg, pair, alias,
+;                                 options, tracedModemap)
+;         BPITRACE(dn1, alias, tracedModemap, options)
+;     NCONC(pair, [listOfVariables, first domain.n])
 ;     rplac(first domain.n, tf)
 ;   sigSlotNumberAlist:= [x for x in sigSlotNumberAlist | CDDDR x]
 ;   if $reportSpadTrace then
@@ -1414,20 +2101,18 @@
 ;       reportSpadTrace("TRACING",x)
 ;   currentEntry =>
 ;     rplac(rest currentEntry,[:sigSlotNumberAlist,:currentAlist])
-;   SETQ(_/TRACENAMES,[[domain,:sigSlotNumberAlist],:_/TRACENAMES])
+;   $trace_names := [[domain, :sigSlotNumberAlist], :$trace_names]
 ;   spadReply()
  
 (DEFUN |spadTrace| (|domain| |options|)
-  (PROG (|$tracedModemap| |tf| |traceName| |fgg| |dn1| |alias| |mm| |fn|
-         |sigSlotNumberAlist| |triple| |kind| |ISTMP#4| |ISTMP#3| |n| |ISTMP#2|
-         |sig| |ISTMP#1| |op| |opStructureList| |currentAlist| |currentEntry|
-         |domainId| |anyifTrue| |listOfBreakVars| |listOfVariables|
-         |listOfOperations|)
-    (DECLARE (SPECIAL |$tracedModemap|))
+  (PROG (|listOfOperations| |listOfVariables| |listOfBreakVars| |anyifTrue|
+         |domainId| |currentEntry| |currentAlist| |opStructureList| |op|
+         |ISTMP#1| |sig| |ISTMP#2| |n| |ISTMP#3| |ISTMP#4| |kind| |triple|
+         |sigSlotNumberAlist| |fn| |mm| |alias| |tracedModemap| |dn1| |fgg|
+         |tf|)
     (RETURN
      (PROGN
       (SETQ |$fromSpadTrace| T)
-      (SETQ |$tracedModemap| NIL)
       (COND
        ((AND (CONSP |domain|) (REFVECP (CAR |domain|))
              (EQL (ELT (CAR |domain|) 0) 0))
@@ -1437,16 +2122,16 @@
        (#1='T
         (PROGN
          (SETQ |listOfOperations|
-                 ((LAMBDA (|bfVar#55| |bfVar#54| |x|)
+                 ((LAMBDA (|bfVar#59| |bfVar#58| |x|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#54|)
-                           (PROGN (SETQ |x| (CAR |bfVar#54|)) NIL))
-                       (RETURN (NREVERSE |bfVar#55|)))
+                      ((OR (ATOM |bfVar#58|)
+                           (PROGN (SETQ |x| (CAR |bfVar#58|)) NIL))
+                       (RETURN (NREVERSE |bfVar#59|)))
                       (#1#
-                       (SETQ |bfVar#55|
-                               (CONS (|spadTrace,g| |x|) |bfVar#55|))))
-                     (SETQ |bfVar#54| (CDR |bfVar#54|))))
+                       (SETQ |bfVar#59|
+                               (CONS (|spadTrace,g| |x|) |bfVar#59|))))
+                     (SETQ |bfVar#58| (CDR |bfVar#58|))))
                   NIL (|getOption| 'OPS |options|) NIL))
          (COND
           ((SETQ |listOfVariables| (|getOption| 'VARS |options|))
@@ -1456,23 +2141,23 @@
            (SETQ |options| (|removeOption| 'VARBREAK |options|))))
          (SETQ |anyifTrue| (NULL |listOfOperations|))
          (SETQ |domainId| (|opOf| (ELT |domain| 0)))
-         (SETQ |currentEntry| (|assoc| |domain| /TRACENAMES))
+         (SETQ |currentEntry| (|assoc| |domain| |$trace_names|))
          (SETQ |currentAlist| (IFCDR |currentEntry|))
          (SETQ |opStructureList|
                  (|flattenOperationAlist|
                   (|getOperationAlistFromLisplib| |domainId|)))
          (SETQ |sigSlotNumberAlist|
-                 ((LAMBDA (|bfVar#58| |bfVar#57| |bfVar#56|)
+                 ((LAMBDA (|bfVar#62| |bfVar#61| |bfVar#60|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#57|)
-                           (PROGN (SETQ |bfVar#56| (CAR |bfVar#57|)) NIL))
-                       (RETURN (NREVERSE |bfVar#58|)))
+                      ((OR (ATOM |bfVar#61|)
+                           (PROGN (SETQ |bfVar#60| (CAR |bfVar#61|)) NIL))
+                       (RETURN (NREVERSE |bfVar#62|)))
                       (#1#
-                       (AND (CONSP |bfVar#56|)
+                       (AND (CONSP |bfVar#60|)
                             (PROGN
-                             (SETQ |op| (CAR |bfVar#56|))
-                             (SETQ |ISTMP#1| (CDR |bfVar#56|))
+                             (SETQ |op| (CAR |bfVar#60|))
+                             (SETQ |ISTMP#1| (CDR |bfVar#60|))
                              (AND (CONSP |ISTMP#1|)
                                   (PROGN
                                    (SETQ |sig| (CAR |ISTMP#1|))
@@ -1495,21 +2180,21 @@
                             (FIXP |n|)
                             (|spadTrace,isTraceable|
                              (SETQ |triple| (LIST |op| |sig| |n|)) |domain|)
-                            (SETQ |bfVar#58| (CONS |triple| |bfVar#58|)))))
-                     (SETQ |bfVar#57| (CDR |bfVar#57|))))
+                            (SETQ |bfVar#62| (CONS |triple| |bfVar#62|)))))
+                     (SETQ |bfVar#61| (CDR |bfVar#61|))))
                   NIL |opStructureList| NIL))
          (COND
           (|listOfVariables|
-           ((LAMBDA (|bfVar#60| |bfVar#59|)
+           ((LAMBDA (|bfVar#64| |bfVar#63|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#60|)
-                     (PROGN (SETQ |bfVar#59| (CAR |bfVar#60|)) NIL))
+                ((OR (ATOM |bfVar#64|)
+                     (PROGN (SETQ |bfVar#63| (CAR |bfVar#64|)) NIL))
                  (RETURN NIL))
                 (#1#
-                 (AND (CONSP |bfVar#59|)
+                 (AND (CONSP |bfVar#63|)
                       (PROGN
-                       (SETQ |ISTMP#1| (CDR |bfVar#59|))
+                       (SETQ |ISTMP#1| (CDR |bfVar#63|))
                        (AND (CONSP |ISTMP#1|)
                             (PROGN
                              (SETQ |ISTMP#2| (CDR |ISTMP#1|))
@@ -1520,20 +2205,20 @@
                        (SETQ |$letAssoc|
                                (AS-INSERT (BPINAME |fn|) |listOfVariables|
                                 |$letAssoc|))))))
-               (SETQ |bfVar#60| (CDR |bfVar#60|))))
+               (SETQ |bfVar#64| (CDR |bfVar#64|))))
             |sigSlotNumberAlist| NIL)))
          (COND
           (|listOfBreakVars|
-           ((LAMBDA (|bfVar#62| |bfVar#61|)
+           ((LAMBDA (|bfVar#66| |bfVar#65|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#62|)
-                     (PROGN (SETQ |bfVar#61| (CAR |bfVar#62|)) NIL))
+                ((OR (ATOM |bfVar#66|)
+                     (PROGN (SETQ |bfVar#65| (CAR |bfVar#66|)) NIL))
                  (RETURN NIL))
                 (#1#
-                 (AND (CONSP |bfVar#61|)
+                 (AND (CONSP |bfVar#65|)
                       (PROGN
-                       (SETQ |ISTMP#1| (CDR |bfVar#61|))
+                       (SETQ |ISTMP#1| (CDR |bfVar#65|))
                        (AND (CONSP |ISTMP#1|)
                             (PROGN
                              (SETQ |ISTMP#2| (CDR |ISTMP#1|))
@@ -1545,13 +2230,13 @@
                                (AS-INSERT (BPINAME |fn|)
                                 (LIST (CONS 'BREAK |listOfBreakVars|))
                                 |$letAssoc|))))))
-               (SETQ |bfVar#62| (CDR |bfVar#62|))))
+               (SETQ |bfVar#66| (CDR |bfVar#66|))))
             |sigSlotNumberAlist| NIL)))
-         ((LAMBDA (|bfVar#63| |pair|)
+         ((LAMBDA (|bfVar#67| |pair|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#63|)
-                   (PROGN (SETQ |pair| (CAR |bfVar#63|)) NIL))
+              ((OR (ATOM |bfVar#67|)
+                   (PROGN (SETQ |pair| (CAR |bfVar#67|)) NIL))
                (RETURN NIL))
               (#1#
                (AND (CONSP |pair|)
@@ -1566,48 +2251,45 @@
                                 (PROGN (SETQ |n| (CAR |ISTMP#2|)) #1#)))))
                     (PROGN
                      (SETQ |alias| (|spadTraceAlias| |domainId| |op| |n|))
-                     (SETQ |$tracedModemap|
+                     (SETQ |tracedModemap|
                              (|subTypes| |mm|
                               (|constructSubst| (ELT |domain| 0))))
                      (SETQ |dn1| (CAR (ELT |domain| |n|)))
                      (SETQ |fgg| #'|newGoGet|)
-                     (COND
-                      ((EQUAL |dn1| |fgg|) (SETQ |traceName| (GENSYM))
-                       (SET |traceName| |dn1|)
-                       (SETQ |tf|
+                     (SETQ |tf|
+                             (COND
+                              ((EQUAL |dn1| |fgg|)
                                (|goGetTracerHelper| (ELT |domain| |n|) |fgg|
-                                |pair| |alias| |options| |$tracedModemap|))
-                       (|setSf| |traceName| |tf|))
-                      (#1#
-                       (SETQ |traceName| (BPITRACE |dn1| |alias| |options|))
-                       (SETQ |tf| (SYMBOL-FUNCTION |traceName|))))
+                                |pair| |alias| |options| |tracedModemap|))
+                              (#1#
+                               (BPITRACE |dn1| |alias| |tracedModemap|
+                                |options|))))
                      (NCONC |pair|
-                            (LIST |listOfVariables| (CAR (ELT |domain| |n|))
-                                  |traceName| |alias|))
+                            (LIST |listOfVariables| (CAR (ELT |domain| |n|))))
                      (|rplac| (CAR (ELT |domain| |n|)) |tf|)))))
-             (SETQ |bfVar#63| (CDR |bfVar#63|))))
+             (SETQ |bfVar#67| (CDR |bfVar#67|))))
           |sigSlotNumberAlist| NIL)
          (SETQ |sigSlotNumberAlist|
-                 ((LAMBDA (|bfVar#65| |bfVar#64| |x|)
+                 ((LAMBDA (|bfVar#69| |bfVar#68| |x|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#64|)
-                           (PROGN (SETQ |x| (CAR |bfVar#64|)) NIL))
-                       (RETURN (NREVERSE |bfVar#65|)))
+                      ((OR (ATOM |bfVar#68|)
+                           (PROGN (SETQ |x| (CAR |bfVar#68|)) NIL))
+                       (RETURN (NREVERSE |bfVar#69|)))
                       (#1#
                        (AND (CDDDR |x|)
-                            (SETQ |bfVar#65| (CONS |x| |bfVar#65|)))))
-                     (SETQ |bfVar#64| (CDR |bfVar#64|))))
+                            (SETQ |bfVar#69| (CONS |x| |bfVar#69|)))))
+                     (SETQ |bfVar#68| (CDR |bfVar#68|))))
                   NIL |sigSlotNumberAlist| NIL))
          (COND
           (|$reportSpadTrace| (COND (|$traceNoisely| (|printDashedLine|)))
-           ((LAMBDA (|bfVar#66| |x|)
+           ((LAMBDA (|bfVar#70| |x|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#66|) (PROGN (SETQ |x| (CAR |bfVar#66|)) NIL))
+                ((OR (ATOM |bfVar#70|) (PROGN (SETQ |x| (CAR |bfVar#70|)) NIL))
                  (RETURN NIL))
                 (#1# (|reportSpadTrace| 'TRACING |x|)))
-               (SETQ |bfVar#66| (CDR |bfVar#66|))))
+               (SETQ |bfVar#70| (CDR |bfVar#70|))))
             (|orderBySlotNumber| |sigSlotNumberAlist|) NIL)))
          (COND
           (|currentEntry|
@@ -1615,8 +2297,8 @@
             (APPEND |sigSlotNumberAlist| |currentAlist|)))
           (#1#
            (PROGN
-            (SETQ /TRACENAMES
-                    (CONS (CONS |domain| |sigSlotNumberAlist|) /TRACENAMES))
+            (SETQ |$trace_names|
+                    (CONS (CONS |domain| |sigSlotNumberAlist|) |$trace_names|))
             (|spadReply|)))))))))))
 (DEFUN |spadTrace,isTraceable| (|x| |domain|)
   (PROG (|n| |functionSlot|)
@@ -1636,45 +2318,26 @@
 (DEFUN |spadTrace,g| (|x|)
   (PROG () (RETURN (COND ((STRINGP |x|) (INTERN |x|)) ('T |x|)))))
  
-; goGetTracer0(fn, alias, options, modemap) ==
-;     $tracedModemap : local := modemap
-;     BPITRACE(fn, alias, options)
- 
-(DEFUN |goGetTracer0| (|fn| |alias| |options| |modemap|)
-  (PROG (|$tracedModemap|)
-    (DECLARE (SPECIAL |$tracedModemap|))
-    (RETURN
-     (PROGN
-      (SETQ |$tracedModemap| |modemap|)
-      (BPITRACE |fn| |alias| |options|)))))
- 
 ; goGetTracer(l, dn, f, tlst, alias, options, modemap) ==
-;     oname := tlst.5
 ;     rplac(first dn, f)
 ;     [:arglist, env] := l
 ;     slot := replaceGoGetSlot env
 ;     tlst.4 := first slot
-;     traceName := goGetTracer0(first slot, alias, options, modemap)
-;     nf := SYMBOL_-FUNCTION traceName
-;     setSf(oname, nf)
+;     nf := BPITRACE(first slot, alias, modemap, options)
 ;     rplac(first slot, nf)
 ;     APPLY(first slot, [:arglist, rest slot])  --SPADCALL it!
  
 (DEFUN |goGetTracer| (|l| |dn| |f| |tlst| |alias| |options| |modemap|)
-  (PROG (|oname| |LETTMP#1| |env| |arglist| |slot| |traceName| |nf|)
+  (PROG (|LETTMP#1| |env| |arglist| |slot| |nf|)
     (RETURN
      (PROGN
-      (SETQ |oname| (ELT |tlst| 5))
       (|rplac| (CAR |dn|) |f|)
       (SETQ |LETTMP#1| (REVERSE |l|))
       (SETQ |env| (CAR |LETTMP#1|))
       (SETQ |arglist| (NREVERSE (CDR |LETTMP#1|)))
       (SETQ |slot| (|replaceGoGetSlot| |env|))
       (SETF (ELT |tlst| 4) (CAR |slot|))
-      (SETQ |traceName|
-              (|goGetTracer0| (CAR |slot|) |alias| |options| |modemap|))
-      (SETQ |nf| (SYMBOL-FUNCTION |traceName|))
-      (|setSf| |oname| |nf|)
+      (SETQ |nf| (BPITRACE (CAR |slot|) |alias| |modemap| |options|))
       (|rplac| (CAR |slot|) |nf|)
       (APPLY (CAR |slot|) (APPEND |arglist| (CONS (CDR |slot|) NIL)))))))
  
@@ -1721,7 +2384,7 @@
 ;   listOfLocalOps and not getOption("OPS",options) => NIL
 ;   for [argl,.,:domain] in HGET($ConstructorCache,domainConstructor)
 ;     repeat spadTrace(domain,options)
-;   SETQ(_/TRACENAMES,[domainConstructor,:_/TRACENAMES])
+;   $trace_names := [domainConstructor, :$trace_names]
 ;   innerDomainConstructor := INTERN STRCONC(domainConstructor,'";")
 ;   if FBOUNDP innerDomainConstructor then domainConstructor := innerDomainConstructor
 ;   EMBED(domainConstructor,
@@ -1740,36 +2403,36 @@
       (COND
        (|listOfLocalOps|
         (|traceDomainLocalOps| |domainConstructor| |listOfLocalOps|
-         ((LAMBDA (|bfVar#68| |bfVar#67| |opt|)
+         ((LAMBDA (|bfVar#72| |bfVar#71| |opt|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#67|) (PROGN (SETQ |opt| (CAR |bfVar#67|)) NIL))
-               (RETURN (NREVERSE |bfVar#68|)))
+              ((OR (ATOM |bfVar#71|) (PROGN (SETQ |opt| (CAR |bfVar#71|)) NIL))
+               (RETURN (NREVERSE |bfVar#72|)))
               (#1='T
                (AND (NOT (AND (CONSP |opt|) (EQ (CAR |opt|) 'LOCAL)))
-                    (SETQ |bfVar#68| (CONS |opt| |bfVar#68|)))))
-             (SETQ |bfVar#67| (CDR |bfVar#67|))))
+                    (SETQ |bfVar#72| (CONS |opt| |bfVar#72|)))))
+             (SETQ |bfVar#71| (CDR |bfVar#71|))))
           NIL |options| NIL))))
       (COND ((AND |listOfLocalOps| (NULL (|getOption| 'OPS |options|))) NIL)
             (#1#
              (PROGN
-              ((LAMBDA (|bfVar#70| |bfVar#69|)
+              ((LAMBDA (|bfVar#74| |bfVar#73|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#70|)
-                        (PROGN (SETQ |bfVar#69| (CAR |bfVar#70|)) NIL))
+                   ((OR (ATOM |bfVar#74|)
+                        (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
                     (RETURN NIL))
                    (#1#
-                    (AND (CONSP |bfVar#69|)
+                    (AND (CONSP |bfVar#73|)
                          (PROGN
-                          (SETQ |argl| (CAR |bfVar#69|))
-                          (SETQ |ISTMP#1| (CDR |bfVar#69|))
+                          (SETQ |argl| (CAR |bfVar#73|))
+                          (SETQ |ISTMP#1| (CDR |bfVar#73|))
                           (AND (CONSP |ISTMP#1|)
                                (PROGN (SETQ |domain| (CDR |ISTMP#1|)) #1#)))
                          (|spadTrace| |domain| |options|))))
-                  (SETQ |bfVar#70| (CDR |bfVar#70|))))
+                  (SETQ |bfVar#74| (CDR |bfVar#74|))))
                (HGET |$ConstructorCache| |domainConstructor|) NIL)
-              (SETQ /TRACENAMES (CONS |domainConstructor| /TRACENAMES))
+              (SETQ |$trace_names| (CONS |domainConstructor| |$trace_names|))
               (SETQ |innerDomainConstructor|
                       (INTERN (STRCONC |domainConstructor| ";")))
               (COND
@@ -1785,45 +2448,45 @@
  
 ; untraceDomainConstructor domainConstructor ==
 ;   --untrace all the domains in domainConstructor, and unembed it
-;   SETQ(_/TRACENAMES,
-;     [df for df in _/TRACENAMES | keepTraced?(df, domainConstructor)]) where
+;   $trace_names :=
+;     [df for df in $trace_names | keepTraced?(df, domainConstructor)] where
 ;       keepTraced?(df, domainConstructor) ==
 ;         (df is [dc,:.]) and (isDomainOrPackage dc) and
 ;            ((IFCAR devaluate dc) = domainConstructor) =>
-;                _/UNTRACE_-2(dc, [])
+;                untrace2(dc, [])
 ;                false
 ;         true
 ;   untraceAllDomainLocalOps domainConstructor
 ;   innerDomainConstructor := INTERN STRCONC(domainConstructor,'";")
 ;   if FBOUNDP innerDomainConstructor then UNEMBED innerDomainConstructor
 ;     else UNEMBED domainConstructor
-;   SETQ(_/TRACENAMES,delete(domainConstructor,_/TRACENAMES))
+;   $trace_names := delete(domainConstructor, $trace_names)
  
 (DEFUN |untraceDomainConstructor| (|domainConstructor|)
   (PROG (|innerDomainConstructor|)
     (RETURN
      (PROGN
-      (SETQ /TRACENAMES
-              ((LAMBDA (|bfVar#72| |bfVar#71| |df|)
+      (SETQ |$trace_names|
+              ((LAMBDA (|bfVar#76| |bfVar#75| |df|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#71|)
-                        (PROGN (SETQ |df| (CAR |bfVar#71|)) NIL))
-                    (RETURN (NREVERSE |bfVar#72|)))
+                   ((OR (ATOM |bfVar#75|)
+                        (PROGN (SETQ |df| (CAR |bfVar#75|)) NIL))
+                    (RETURN (NREVERSE |bfVar#76|)))
                    (#1='T
                     (AND
                      (|untraceDomainConstructor,keepTraced?| |df|
                       |domainConstructor|)
-                     (SETQ |bfVar#72| (CONS |df| |bfVar#72|)))))
-                  (SETQ |bfVar#71| (CDR |bfVar#71|))))
-               NIL /TRACENAMES NIL))
+                     (SETQ |bfVar#76| (CONS |df| |bfVar#76|)))))
+                  (SETQ |bfVar#75| (CDR |bfVar#75|))))
+               NIL |$trace_names| NIL))
       (|untraceAllDomainLocalOps| |domainConstructor|)
       (SETQ |innerDomainConstructor|
               (INTERN (STRCONC |domainConstructor| ";")))
       (COND
        ((FBOUNDP |innerDomainConstructor|) (UNEMBED |innerDomainConstructor|))
        (#1# (UNEMBED |domainConstructor|)))
-      (SETQ /TRACENAMES (|delete| |domainConstructor| /TRACENAMES))))))
+      (SETQ |$trace_names| (|delete| |domainConstructor| |$trace_names|))))))
 (DEFUN |untraceDomainConstructor,keepTraced?| (|df| |domainConstructor|)
   (PROG (|dc|)
     (RETURN
@@ -1831,7 +2494,7 @@
       ((AND (CONSP |df|) (PROGN (SETQ |dc| (CAR |df|)) #1='T)
             (|isDomainOrPackage| |dc|)
             (EQUAL (IFCAR (|devaluate| |dc|)) |domainConstructor|))
-       (PROGN (/UNTRACE-2 |dc| NIL) NIL))
+       (PROGN (|untrace2| |dc| NIL) NIL))
       (#1# T)))))
  
 ; flattenOperationAlist(opAlist) ==
@@ -1845,35 +2508,35 @@
     (RETURN
      (PROGN
       (SETQ |res| NIL)
-      ((LAMBDA (|bfVar#74| |bfVar#73|)
+      ((LAMBDA (|bfVar#78| |bfVar#77|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#74|)
-                (PROGN (SETQ |bfVar#73| (CAR |bfVar#74|)) NIL))
+           ((OR (ATOM |bfVar#78|)
+                (PROGN (SETQ |bfVar#77| (CAR |bfVar#78|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#73|)
+            (AND (CONSP |bfVar#77|)
                  (PROGN
-                  (SETQ |op| (CAR |bfVar#73|))
-                  (SETQ |mmList| (CDR |bfVar#73|))
+                  (SETQ |op| (CAR |bfVar#77|))
+                  (SETQ |mmList| (CDR |bfVar#77|))
                   #1#)
                  (SETQ |res|
                          (APPEND |res|
-                                 ((LAMBDA (|bfVar#76| |bfVar#75| |mm|)
+                                 ((LAMBDA (|bfVar#80| |bfVar#79| |mm|)
                                     (LOOP
                                      (COND
-                                      ((OR (ATOM |bfVar#75|)
+                                      ((OR (ATOM |bfVar#79|)
                                            (PROGN
-                                            (SETQ |mm| (CAR |bfVar#75|))
+                                            (SETQ |mm| (CAR |bfVar#79|))
                                             NIL))
-                                       (RETURN (NREVERSE |bfVar#76|)))
+                                       (RETURN (NREVERSE |bfVar#80|)))
                                       (#1#
-                                       (SETQ |bfVar#76|
+                                       (SETQ |bfVar#80|
                                                (CONS (CONS |op| |mm|)
-                                                     |bfVar#76|))))
-                                     (SETQ |bfVar#75| (CDR |bfVar#75|))))
+                                                     |bfVar#80|))))
+                                     (SETQ |bfVar#79| (CDR |bfVar#79|))))
                                   NIL |mmList| NIL))))))
-          (SETQ |bfVar#74| (CDR |bfVar#74|))))
+          (SETQ |bfVar#78| (CDR |bfVar#78|))))
        |opAlist| NIL)
       |res|))))
  
@@ -1941,9 +2604,8 @@
 ;       if (y="all" or MEMQ(x,y)) and
 ;         not (IS_GENVAR(x) or isSharpVarWithNum(x) or GENSYMP x) then
 ;          $BreakMode:='letPrint2
-;          flag:=nil
-;          CATCH('letPrint2,mathprint ["=",x,printform],flag)
-;          if flag='letPrint2 then print printform
+;          flag := CATCH('letPrint2, mathprint ["=",x,printform], true)
+;          if not(flag) then PRINT(printform)
 ;       if (y:= hasPair("BREAK",y)) and
 ;         (y="all" or MEMQ(x,y) and
 ;           (not MEMQ((PNAME x).(0),'($ _#)) and not GENSYMP x)) then
@@ -1965,9 +2627,12 @@
          ((AND (OR (EQ |y| '|all|) (MEMQ |x| |y|))
                (NULL
                 (OR (IS_GENVAR |x|) (|isSharpVarWithNum| |x|) (GENSYMP |x|))))
-          (SETQ |$BreakMode| '|letPrint2|) (SETQ |flag| NIL)
-          (CATCH '|letPrint2| (|mathprint| (LIST '= |x| |printform|)) |flag|)
-          (COND ((EQ |flag| '|letPrint2|) (|print| |printform|)))))
+          (SETQ |$BreakMode| '|letPrint2|)
+          (SETQ |flag|
+                  (CATCH '|letPrint2|
+                    (|mathprint| (LIST '= |x| |printform|))
+                    T))
+          (COND ((NULL |flag|) (PRINT |printform|)))))
         (COND
          ((AND (SETQ |y| (|hasPair| 'BREAK |y|))
                (OR (EQ |y| '|all|)
@@ -1988,9 +2653,9 @@
 ;       if (y="all" or MEMQ(x,y)) and
 ;         not (IS_GENVAR(x) or isSharpVarWithNum(x) or GENSYMP x) then
 ;          $BreakMode:='letPrint2
-;          flag:=nil
-;          CATCH('letPrint2,mathprint ["=",x,SPADCALL(xval,printfn)],flag)
-;          if flag='letPrint2 then print xval
+;          flag := CATCH('letPrint2,
+;                        mathprint ["=", x, SPADCALL(xval, printfn)], true)
+;          if not(flag) then PRINT(xval)
 ;       if (y:= hasPair("BREAK",y)) and
 ;         (y="all" or MEMQ(x,y) and
 ;           (not MEMQ((PNAME x).(0),'($ _#)) and not GENSYMP x)) then
@@ -2012,11 +2677,12 @@
          ((AND (OR (EQ |y| '|all|) (MEMQ |x| |y|))
                (NULL
                 (OR (IS_GENVAR |x|) (|isSharpVarWithNum| |x|) (GENSYMP |x|))))
-          (SETQ |$BreakMode| '|letPrint2|) (SETQ |flag| NIL)
-          (CATCH '|letPrint2|
-            (|mathprint| (LIST '= |x| (SPADCALL |xval| |printfn|)))
-            |flag|)
-          (COND ((EQ |flag| '|letPrint2|) (|print| |xval|)))))
+          (SETQ |$BreakMode| '|letPrint2|)
+          (SETQ |flag|
+                  (CATCH '|letPrint2|
+                    (|mathprint| (LIST '= |x| (SPADCALL |xval| |printfn|)))
+                    T))
+          (COND ((NULL |flag|) (PRINT |xval|)))))
         (COND
          ((AND (SETQ |y| (|hasPair| 'BREAK |y|))
                (OR (EQ |y| '|all|)
@@ -2051,7 +2717,7 @@
  
 ; getBpiNameIfTracedMap(name) ==
 ;   lmm:= get(name,'localModemap,$InteractiveFrame) =>
-;     MEMQ(bpiName:= CADAR lmm,_/TRACENAMES) => bpiName
+;       MEMQ(bpiName := CADAR lmm, $trace_names) => bpiName
 ;   name
  
 (DEFUN |getBpiNameIfTracedMap| (|name|)
@@ -2060,7 +2726,7 @@
      (COND
       ((SETQ |lmm| (|get| |name| '|localModemap| |$InteractiveFrame|))
        (COND
-        ((MEMQ (SETQ |bpiName| (CADAR |lmm|)) /TRACENAMES)
+        ((MEMQ (SETQ |bpiName| (CADAR |lmm|)) |$trace_names|)
          (IDENTITY |bpiName|))))
       ('T |name|)))))
  
@@ -2113,12 +2779,12 @@
 ;     NIL
 ;   sayBrightly [:msg,:namePart,:tracePart]
  
-(DEFUN |reportSpadTrace| (|header| |bfVar#77|)
+(DEFUN |reportSpadTrace| (|header| |bfVar#81|)
   (PROG (|op| |sig| |n| |t| |msg| |namePart| |y| |tracePart|)
     (RETURN
      (PROGN
-      (SETQ |op| (CAR |bfVar#77|))
-      (SETQ |sig| (CADR . #1=(|bfVar#77|)))
+      (SETQ |op| (CAR |bfVar#81|))
+      (SETQ |sig| (CADR . #1=(|bfVar#81|)))
       (SETQ |n| (CADDR . #1#))
       (SETQ |t| (CDDDR . #1#))
       (COND ((NULL |$traceNoisely|) NIL)
@@ -2147,11 +2813,11 @@
     (RETURN
      (ASSOCRIGHT
       (|orderList|
-       ((LAMBDA (|bfVar#79| |bfVar#78| |x|)
+       ((LAMBDA (|bfVar#83| |bfVar#82| |x|)
           (LOOP
            (COND
-            ((OR (ATOM |bfVar#78|) (PROGN (SETQ |x| (CAR |bfVar#78|)) NIL))
-             (RETURN (NREVERSE |bfVar#79|)))
+            ((OR (ATOM |bfVar#82|) (PROGN (SETQ |x| (CAR |bfVar#82|)) NIL))
+             (RETURN (NREVERSE |bfVar#83|)))
             (#1='T
              (AND (CONSP |x|)
                   (PROGN
@@ -2161,13 +2827,13 @@
                          (SETQ |ISTMP#2| (CDR |ISTMP#1|))
                          (AND (CONSP |ISTMP#2|)
                               (PROGN (SETQ |n| (CAR |ISTMP#2|)) #1#)))))
-                  (SETQ |bfVar#79| (CONS (CONS |n| |x|) |bfVar#79|)))))
-           (SETQ |bfVar#78| (CDR |bfVar#78|))))
+                  (SETQ |bfVar#83| (CONS (CONS |n| |x|) |bfVar#83|)))))
+           (SETQ |bfVar#82| (CDR |bfVar#82|))))
         NIL |l| NIL))))))
  
 ; _/TRACEREPLY() ==
-;   null _/TRACENAMES => MAKESTRING '"   Nothing is traced."
-;   for x in _/TRACENAMES repeat
+;   null $trace_names => MAKESTRING '"   Nothing is traced."
+;   for x in $trace_names repeat
 ;     x is [d,:.] and isDomainOrPackage d =>
 ;       domainList:= [devaluate d,:domainList]
 ;     functionList:= [x,:functionList]
@@ -2176,14 +2842,14 @@
 (DEFUN /TRACEREPLY ()
   (PROG (|functionList| |domainList| |d|)
     (RETURN
-     (COND ((NULL /TRACENAMES) (MAKESTRING "   Nothing is traced."))
+     (COND ((NULL |$trace_names|) (MAKESTRING "   Nothing is traced."))
            (#1='T
             (PROGN
-             ((LAMBDA (|bfVar#80| |x|)
+             ((LAMBDA (|bfVar#84| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#80|)
-                       (PROGN (SETQ |x| (CAR |bfVar#80|)) NIL))
+                  ((OR (ATOM |bfVar#84|)
+                       (PROGN (SETQ |x| (CAR |bfVar#84|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (COND
@@ -2191,13 +2857,13 @@
                           (|isDomainOrPackage| |d|))
                      (SETQ |domainList| (CONS (|devaluate| |d|) |domainList|)))
                     (#1# (SETQ |functionList| (CONS |x| |functionList|))))))
-                 (SETQ |bfVar#80| (CDR |bfVar#80|))))
-              /TRACENAMES NIL)
+                 (SETQ |bfVar#84| (CDR |bfVar#84|))))
+              |$trace_names| NIL)
              (APPEND |functionList|
                      (APPEND |domainList| (CONS '|traced| NIL)))))))))
  
 ; spadReply() ==
-;   [printName x for x in _/TRACENAMES] where
+;   [printName x for x in $trace_names] where
 ;     printName x ==
 ;       x is [d,:.] and isDomainOrPackage d => devaluate d
 ;       x
@@ -2205,14 +2871,14 @@
 (DEFUN |spadReply| ()
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#82| |bfVar#81| |x|)
+     ((LAMBDA (|bfVar#86| |bfVar#85| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#81|) (PROGN (SETQ |x| (CAR |bfVar#81|)) NIL))
-           (RETURN (NREVERSE |bfVar#82|)))
-          ('T (SETQ |bfVar#82| (CONS (|spadReply,printName| |x|) |bfVar#82|))))
-         (SETQ |bfVar#81| (CDR |bfVar#81|))))
-      NIL /TRACENAMES NIL))))
+          ((OR (ATOM |bfVar#85|) (PROGN (SETQ |x| (CAR |bfVar#85|)) NIL))
+           (RETURN (NREVERSE |bfVar#86|)))
+          ('T (SETQ |bfVar#86| (CONS (|spadReply,printName| |x|) |bfVar#86|))))
+         (SETQ |bfVar#85| (CDR |bfVar#85|))))
+      NIL |$trace_names| NIL))))
 (DEFUN |spadReply,printName| (|x|)
   (PROG (|d|)
     (RETURN
@@ -2227,27 +2893,25 @@
 ;   anyifTrue:= null options
 ;   listOfOperations:= getOption("ops:",options)
 ;   domainId := devaluate domain
-;   null (pair:= assoc(domain,_/TRACENAMES)) =>
+;   null (pair := assoc(domain, $trace_names)) =>
 ;     sayMSG ['"   No functions in",
 ;       :bright prefix2String domainId,'"are now traced."]
 ;   sigSlotNumberAlist:= rest pair
-;   for (pair:= [op,sig,n,lv,bpiPointer,traceName,alias]) in sigSlotNumberAlist |
+;   for (pair := [op, sig, n, lv, bpiPointer]) in sigSlotNumberAlist |
 ;     anyifTrue or MEMQ(op,listOfOperations) repeat
-;       BPIUNTRACE(traceName,alias)
 ;       rplac(first domain.n, bpiPointer)
 ;       rplac(CDDDR pair, nil)
 ;       if assocPair:= assoc(BPINAME bpiPointer,$letAssoc) then
 ;         $letAssoc := REMOVER($letAssoc,assocPair)
 ;   newSigSlotNumberAlist:= [x for x in sigSlotNumberAlist | CDDDR x]
 ;   newSigSlotNumberAlist => rplac(rest pair, newSigSlotNumberAlist)
-;   SETQ(_/TRACENAMES,DELASC(domain,_/TRACENAMES))
+;   $trace_names := DELASC(domain, $trace_names)
 ;   spadReply()
  
 (DEFUN |spadUntrace| (|domain| |options|)
   (PROG (|anyifTrue| |listOfOperations| |domainId| |pair| |sigSlotNumberAlist|
          |op| |ISTMP#1| |sig| |ISTMP#2| |n| |ISTMP#3| |lv| |ISTMP#4|
-         |bpiPointer| |ISTMP#5| |traceName| |ISTMP#6| |alias| |assocPair|
-         |newSigSlotNumberAlist|)
+         |bpiPointer| |assocPair| |newSigSlotNumberAlist|)
     (RETURN
      (COND
       ((NULL (|isDomainOrPackage| |domain|))
@@ -2258,7 +2922,7 @@
         (SETQ |listOfOperations| (|getOption| '|ops:| |options|))
         (SETQ |domainId| (|devaluate| |domain|))
         (COND
-         ((NULL (SETQ |pair| (|assoc| |domain| /TRACENAMES)))
+         ((NULL (SETQ |pair| (|assoc| |domain| |$trace_names|)))
           (|sayMSG|
            (CONS "   No functions in"
                  (APPEND (|bright| (|prefix2String| |domainId|))
@@ -2266,11 +2930,11 @@
          (#1#
           (PROGN
            (SETQ |sigSlotNumberAlist| (CDR |pair|))
-           ((LAMBDA (|bfVar#83| |pair|)
+           ((LAMBDA (|bfVar#87| |pair|)
               (LOOP
                (COND
-                ((OR (ATOM |bfVar#83|)
-                     (PROGN (SETQ |pair| (CAR |bfVar#83|)) NIL))
+                ((OR (ATOM |bfVar#87|)
+                     (PROGN (SETQ |pair| (CAR |bfVar#87|)) NIL))
                  (RETURN NIL))
                 (#1#
                  (AND (CONSP |pair|)
@@ -2290,27 +2954,13 @@
                                          (SETQ |lv| (CAR |ISTMP#3|))
                                          (SETQ |ISTMP#4| (CDR |ISTMP#3|))
                                          (AND (CONSP |ISTMP#4|)
+                                              (EQ (CDR |ISTMP#4|) NIL)
                                               (PROGN
                                                (SETQ |bpiPointer|
                                                        (CAR |ISTMP#4|))
-                                               (SETQ |ISTMP#5| (CDR |ISTMP#4|))
-                                               (AND (CONSP |ISTMP#5|)
-                                                    (PROGN
-                                                     (SETQ |traceName|
-                                                             (CAR |ISTMP#5|))
-                                                     (SETQ |ISTMP#6|
-                                                             (CDR |ISTMP#5|))
-                                                     (AND (CONSP |ISTMP#6|)
-                                                          (EQ (CDR |ISTMP#6|)
-                                                              NIL)
-                                                          (PROGN
-                                                           (SETQ |alias|
-                                                                   (CAR
-                                                                    |ISTMP#6|))
-                                                           #1#)))))))))))))
+                                               #1#)))))))))
                       (OR |anyifTrue| (MEMQ |op| |listOfOperations|))
                       (PROGN
-                       (BPIUNTRACE |traceName| |alias|)
                        (|rplac| (CAR (ELT |domain| |n|)) |bpiPointer|)
                        (|rplac| (CDDDR |pair|) NIL)
                        (COND
@@ -2318,30 +2968,30 @@
                                  (|assoc| (BPINAME |bpiPointer|) |$letAssoc|))
                          (SETQ |$letAssoc|
                                  (REMOVER |$letAssoc| |assocPair|))))))))
-               (SETQ |bfVar#83| (CDR |bfVar#83|))))
+               (SETQ |bfVar#87| (CDR |bfVar#87|))))
             |sigSlotNumberAlist| NIL)
            (SETQ |newSigSlotNumberAlist|
-                   ((LAMBDA (|bfVar#85| |bfVar#84| |x|)
+                   ((LAMBDA (|bfVar#89| |bfVar#88| |x|)
                       (LOOP
                        (COND
-                        ((OR (ATOM |bfVar#84|)
-                             (PROGN (SETQ |x| (CAR |bfVar#84|)) NIL))
-                         (RETURN (NREVERSE |bfVar#85|)))
+                        ((OR (ATOM |bfVar#88|)
+                             (PROGN (SETQ |x| (CAR |bfVar#88|)) NIL))
+                         (RETURN (NREVERSE |bfVar#89|)))
                         (#1#
                          (AND (CDDDR |x|)
-                              (SETQ |bfVar#85| (CONS |x| |bfVar#85|)))))
-                       (SETQ |bfVar#84| (CDR |bfVar#84|))))
+                              (SETQ |bfVar#89| (CONS |x| |bfVar#89|)))))
+                       (SETQ |bfVar#88| (CDR |bfVar#88|))))
                     NIL |sigSlotNumberAlist| NIL))
            (COND
             (|newSigSlotNumberAlist|
              (|rplac| (CDR |pair|) |newSigSlotNumberAlist|))
             (#1#
              (PROGN
-              (SETQ /TRACENAMES (DELASC |domain| /TRACENAMES))
+              (SETQ |$trace_names| (DELASC |domain| |$trace_names|))
               (|spadReply|)))))))))))))
  
 ; prTraceNames() ==
-;   (for x in _/TRACENAMES repeat PRINT fn x; nil) where
+;   (for x in $trace_names repeat PRINT fn x; nil) where
 ;     fn x ==
 ;       x is [d,:t] and isDomainOrPackage d => [devaluate d,:t]
 ;       x
@@ -2350,14 +3000,14 @@
   (PROG ()
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#86| |x|)
+      ((LAMBDA (|bfVar#90| |x|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#86|) (PROGN (SETQ |x| (CAR |bfVar#86|)) NIL))
+           ((OR (ATOM |bfVar#90|) (PROGN (SETQ |x| (CAR |bfVar#90|)) NIL))
             (RETURN NIL))
            ('T (PRINT (|prTraceNames,fn| |x|))))
-          (SETQ |bfVar#86| (CDR |bfVar#86|))))
-       /TRACENAMES NIL)
+          (SETQ |bfVar#90| (CDR |bfVar#90|))))
+       |$trace_names| NIL)
       NIL))))
 (DEFUN |prTraceNames,fn| (|x|)
   (PROG (|d| |t|)
@@ -2372,10 +3022,10 @@
 ;   $domains: local:= nil
 ;   $packages: local:= nil
 ;   $constructors: local:= nil
-;   null _/TRACENAMES =>
+;   null $trace_names =>
 ;     sayMessage '"   Nothing is traced now."
 ;   sayBrightly '" "
-;   for x in _/TRACENAMES repeat
+;   for x in $trace_names repeat
 ;     x is [d,:.] and (isDomainOrPackage d) => addTraceItem d
 ;     atom x =>
 ;       isFunctor x => addTraceItem x
@@ -2419,15 +3069,15 @@
       (SETQ |$domains| NIL)
       (SETQ |$packages| NIL)
       (SETQ |$constructors| NIL)
-      (COND ((NULL /TRACENAMES) (|sayMessage| "   Nothing is traced now."))
+      (COND ((NULL |$trace_names|) (|sayMessage| "   Nothing is traced now."))
             (#1='T
              (PROGN
               (|sayBrightly| " ")
-              ((LAMBDA (|bfVar#87| |x|)
+              ((LAMBDA (|bfVar#91| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#87|)
-                        (PROGN (SETQ |x| (CAR |bfVar#87|)) NIL))
+                   ((OR (ATOM |bfVar#91|)
+                        (PROGN (SETQ |x| (CAR |bfVar#91|)) NIL))
                     (RETURN NIL))
                    (#1#
                     (COND
@@ -2443,24 +3093,24 @@
                                (SETQ |functionList|
                                        (CONS |x| |functionList|)))))))
                      (#1# (|userError| "bad argument to trace")))))
-                  (SETQ |bfVar#87| (CDR |bfVar#87|))))
-               /TRACENAMES NIL)
+                  (SETQ |bfVar#91| (CDR |bfVar#91|))))
+               |$trace_names| NIL)
               (SETQ |functionList|
-                      ((LAMBDA (|bfVar#89| |bfVar#88| |x|)
+                      ((LAMBDA (|bfVar#93| |bfVar#92| |x|)
                          (LOOP
                           (COND
-                           ((OR (ATOM |bfVar#88|)
-                                (PROGN (SETQ |x| (CAR |bfVar#88|)) NIL))
-                            (RETURN |bfVar#89|))
+                           ((OR (ATOM |bfVar#92|)
+                                (PROGN (SETQ |x| (CAR |bfVar#92|)) NIL))
+                            (RETURN |bfVar#93|))
                            (#1#
                             (AND (NULL (|isSubForRedundantMapName| |x|))
-                                 (SETQ |bfVar#89|
-                                         (APPEND |bfVar#89|
+                                 (SETQ |bfVar#93|
+                                         (APPEND |bfVar#93|
                                                  (LIST
                                                   (|rassocSub| |x|
                                                    |$mapSubNameAlist|)
                                                   " "))))))
-                          (SETQ |bfVar#88| (CDR |bfVar#88|))))
+                          (SETQ |bfVar#92| (CDR |bfVar#92|))))
                        NIL |functionList| NIL))
               (COND
                (|functionList|
@@ -2479,20 +3129,20 @@
                (|$domains|
                 (SETQ |displayList|
                         (|concat| (|prefix2String| (CAR |$domains|))
-                         ((LAMBDA (|bfVar#91| |bfVar#90| |x|)
+                         ((LAMBDA (|bfVar#95| |bfVar#94| |x|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#90|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#90|)) NIL))
-                               (RETURN (NREVERSE |bfVar#91|)))
+                              ((OR (ATOM |bfVar#94|)
+                                   (PROGN (SETQ |x| (CAR |bfVar#94|)) NIL))
+                               (RETURN (NREVERSE |bfVar#95|)))
                               (#1#
-                               (SETQ |bfVar#91|
+                               (SETQ |bfVar#95|
                                        (APPEND
                                         (REVERSE
                                          (|concat| "," " "
                                           (|prefix2String| |x|)))
-                                        |bfVar#91|))))
-                             (SETQ |bfVar#90| (CDR |bfVar#90|))))
+                                        |bfVar#95|))))
+                             (SETQ |bfVar#94| (CDR |bfVar#94|))))
                           NIL (CDR |$domains|) NIL)))
                 (COND
                  ((ATOM |displayList|)
@@ -2504,20 +3154,20 @@
                (|$packages|
                 (SETQ |displayList|
                         (|concat| (|prefix2String| (CAR |$packages|))
-                         ((LAMBDA (|bfVar#93| |bfVar#92| |x|)
+                         ((LAMBDA (|bfVar#97| |bfVar#96| |x|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#92|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#92|)) NIL))
-                               (RETURN (NREVERSE |bfVar#93|)))
+                              ((OR (ATOM |bfVar#96|)
+                                   (PROGN (SETQ |x| (CAR |bfVar#96|)) NIL))
+                               (RETURN (NREVERSE |bfVar#97|)))
                               (#1#
-                               (SETQ |bfVar#93|
+                               (SETQ |bfVar#97|
                                        (APPEND
                                         (REVERSE
                                          (|concat| '|, |
                                           (|prefix2String| |x|)))
-                                        |bfVar#93|))))
-                             (SETQ |bfVar#92| (CDR |bfVar#92|))))
+                                        |bfVar#97|))))
+                             (SETQ |bfVar#96| (CDR |bfVar#96|))))
                           NIL (CDR |$packages|) NIL)))
                 (COND
                  ((ATOM |displayList|)
@@ -2529,19 +3179,19 @@
                (|$constructors|
                 (SETQ |displayList|
                         (|concat| (|abbreviate| (CAR |$constructors|))
-                         ((LAMBDA (|bfVar#95| |bfVar#94| |x|)
+                         ((LAMBDA (|bfVar#99| |bfVar#98| |x|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#94|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#94|)) NIL))
-                               (RETURN (NREVERSE |bfVar#95|)))
+                              ((OR (ATOM |bfVar#98|)
+                                   (PROGN (SETQ |x| (CAR |bfVar#98|)) NIL))
+                               (RETURN (NREVERSE |bfVar#99|)))
                               (#1#
-                               (SETQ |bfVar#95|
+                               (SETQ |bfVar#99|
                                        (APPEND
                                         (REVERSE
                                          (|concat| '|, | (|abbreviate| |x|)))
-                                        |bfVar#95|))))
-                             (SETQ |bfVar#94| (CDR |bfVar#94|))))
+                                        |bfVar#99|))))
+                             (SETQ |bfVar#98| (CDR |bfVar#98|))))
                           NIL (CDR |$constructors|) NIL)))
                 (COND
                  ((ATOM |displayList|)
@@ -2565,12 +3215,12 @@
        (SETQ |$packages| (CONS (|devaluate| |d|) |$packages|)))))))
  
 ; _?t() ==
-;   null _/TRACENAMES => sayMSG bright '"nothing is traced"
-;   for x in _/TRACENAMES | atom x and not IS_GENVAR x repeat
+;   null $trace_names => sayMSG bright '"nothing is traced"
+;   for x in $trace_names | atom x and not IS_GENVAR x repeat
 ;     if llm:= get(x,'localModemap,$InteractiveFrame) then
 ;       x:= (LIST (CADAR llm))
 ;     sayMSG ['"Function",:bright rassocSub(x,$mapSubNameAlist),'"traced"]
-;   for x in _/TRACENAMES | x is [d,:l] and isDomainOrPackage d repeat
+;   for x in $trace_names | x is [d, :l] and isDomainOrPackage d repeat
 ;     suffix:=
 ;       isDomain d => '"domain"
 ;       '"package"
@@ -2581,14 +3231,14 @@
 (DEFUN |?t| ()
   (PROG (|suffix| |l| |d| |llm|)
     (RETURN
-     (COND ((NULL /TRACENAMES) (|sayMSG| (|bright| "nothing is traced")))
+     (COND ((NULL |$trace_names|) (|sayMSG| (|bright| "nothing is traced")))
            (#1='T
             (PROGN
-             ((LAMBDA (|bfVar#96| |x|)
+             ((LAMBDA (|bfVar#100| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#96|)
-                       (PROGN (SETQ |x| (CAR |bfVar#96|)) NIL))
+                  ((OR (ATOM |bfVar#100|)
+                       (PROGN (SETQ |x| (CAR |bfVar#100|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (AND (ATOM |x|) (NULL (IS_GENVAR |x|))
@@ -2604,13 +3254,13 @@
                                  (|bright|
                                   (|rassocSub| |x| |$mapSubNameAlist|))
                                  (CONS "traced" NIL))))))))
-                 (SETQ |bfVar#96| (CDR |bfVar#96|))))
-              /TRACENAMES NIL)
-             ((LAMBDA (|bfVar#97| |x|)
+                 (SETQ |bfVar#100| (CDR |bfVar#100|))))
+              |$trace_names| NIL)
+             ((LAMBDA (|bfVar#101| |x|)
                 (LOOP
                  (COND
-                  ((OR (ATOM |bfVar#97|)
-                       (PROGN (SETQ |x| (CAR |bfVar#97|)) NIL))
+                  ((OR (ATOM |bfVar#101|)
+                       (PROGN (SETQ |x| (CAR |bfVar#101|)) NIL))
                    (RETURN NIL))
                   (#1#
                    (AND (CONSP |x|)
@@ -2623,23 +3273,22 @@
                          (|sayBrightly|
                           (LIST "   Functions traced in " |suffix| '|%b|
                                 (|devaluate| |d|) '|%d| '|:|))
-                         ((LAMBDA (|bfVar#98| |x|)
+                         ((LAMBDA (|bfVar#102| |x|)
                             (LOOP
                              (COND
-                              ((OR (ATOM |bfVar#98|)
-                                   (PROGN (SETQ |x| (CAR |bfVar#98|)) NIL))
+                              ((OR (ATOM |bfVar#102|)
+                                   (PROGN (SETQ |x| (CAR |bfVar#102|)) NIL))
                                (RETURN NIL))
                               (#1# (|reportSpadTrace| '|   | (TAKE 4 |x|))))
-                             (SETQ |bfVar#98| (CDR |bfVar#98|))))
+                             (SETQ |bfVar#102| (CDR |bfVar#102|))))
                           (|orderBySlotNumber| |l|) NIL)
                          (TERPRI)))))
-                 (SETQ |bfVar#97| (CDR |bfVar#97|))))
-              /TRACENAMES NIL)))))))
+                 (SETQ |bfVar#101| (CDR |bfVar#101|))))
+              |$trace_names| NIL)))))))
  
-; tracelet(fn,vars) ==
-;   if GENSYMP fn and stupidIsSpadFunction EVAL fn then
-;     fn := EVAL fn
-;     if COMPILED_-FUNCTION_-P fn then fn:=BPINAME fn
+; tracelet(fn, bin_def, vars) ==
+;   if bin_def and stupidIsSpadFunction bin_def then
+;     if COMPILED_-FUNCTION_-P bin_def then fn := BPINAME bin_def
 ;   fn = 'Undef => nil
 ;   vars:=
 ;     vars="all" => "all"
@@ -2653,15 +3302,15 @@
 ;       ($traceletFunctions:= [fn,:$traceletFunctions]; compileBoot fn ;
 ;        $traceletFunctions:= delete(fn,$traceletFunctions) )
  
-(DEFUN |tracelet| (|fn| |vars|)
+(DEFUN |tracelet| (|fn| |bin_def| |vars|)
   (PROG (|$QuickLet| $TRACELETFLAG |l|)
     (DECLARE (SPECIAL |$QuickLet| $TRACELETFLAG))
     (RETURN
      (PROGN
       (COND
-       ((AND (GENSYMP |fn|) (|stupidIsSpadFunction| (EVAL |fn|)))
-        (SETQ |fn| (EVAL |fn|))
-        (COND ((COMPILED-FUNCTION-P |fn|) (SETQ |fn| (BPINAME |fn|))))))
+       ((AND |bin_def| (|stupidIsSpadFunction| |bin_def|))
+        (COND
+         ((COMPILED-FUNCTION-P |bin_def|) (SETQ |fn| (BPINAME |bin_def|))))))
       (COND ((EQ |fn| '|Undef|) NIL)
             (#1='T
              (PROGN
@@ -2685,12 +3334,11 @@
                  (SETQ |$traceletFunctions|
                          (|delete| |fn| |$traceletFunctions|))))))))))))
  
-; breaklet(fn,vars) ==
+; breaklet(fn, bin_def, vars) ==
 ;                        --vars is "all" or a list of variables
 ;   --$letAssoc ==> (.. (=fn .. (BREAK . all))) OR (.. (=fn .. (BREAK . vl)))
-;   if GENSYMP fn and stupidIsSpadFunction EVAL fn then
-;     fn := EVAL fn
-;     if COMPILED_-FUNCTION_-P fn then fn:= BPINAME fn
+;   if bin_def and stupidIsSpadFunction bin_def then
+;     if COMPILED_-FUNCTION_-P bin_def then fn := BPINAME bin_def
 ;   fn = "Undef" => nil
 ;   fnEntry:= LASSOC(fn,$letAssoc)
 ;   vars:=
@@ -2706,15 +3354,15 @@
 ;       compileBoot fn
 ;       $traceletFunctions:= delete(fn,$traceletFunctions)
  
-(DEFUN |breaklet| (|fn| |vars|)
+(DEFUN |breaklet| (|fn| |bin_def| |vars|)
   (PROG (|$QuickLet| |pair| |fnEntry|)
     (DECLARE (SPECIAL |$QuickLet|))
     (RETURN
      (PROGN
       (COND
-       ((AND (GENSYMP |fn|) (|stupidIsSpadFunction| (EVAL |fn|)))
-        (SETQ |fn| (EVAL |fn|))
-        (COND ((COMPILED-FUNCTION-P |fn|) (SETQ |fn| (BPINAME |fn|))))))
+       ((AND |bin_def| (|stupidIsSpadFunction| |bin_def|))
+        (COND
+         ((COMPILED-FUNCTION-P |bin_def|) (SETQ |fn| (BPINAME |bin_def|))))))
       (COND ((EQ |fn| '|Undef|) NIL)
             (#1='T
              (PROGN
