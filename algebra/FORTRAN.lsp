@@ -6,79 +6,14 @@
 
 (SDEFUN |FORTRAN;codeFrom| ((|u| $) ($ |List| (|FortranCode|))) (QCDR |u|)) 
 
-(SDEFUN |FORTRAN;fortFormatHead1|
-        ((|asp| |List| (|String|)) ($ |List| (|String|)))
+(SDEFUN |FORTRAN;outputAsFortran;$V;3| ((|p| $) ($ |Void|))
         (SPROG
-         ((|of| (|OutputForm|)) (#1=#:G129 NIL) (|arg| NIL) (#2=#:G128 NIL))
-         (SEQ
-          (LETT |of|
-                (SPADCALL (SPADCALL (QREFELT $ 6) (QREFELT $ 15))
-                          (PROGN
-                           (LETT #2# NIL . #3=(|FORTRAN;fortFormatHead1|))
-                           (SEQ (LETT |arg| NIL . #3#)
-                                (LETT #1# (QREFELT $ 8) . #3#) G190
-                                (COND
-                                 ((OR (ATOM #1#)
-                                      (PROGN (LETT |arg| (CAR #1#) . #3#) NIL))
-                                  (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (LETT #2#
-                                        (CONS (SPADCALL |arg| (QREFELT $ 15))
-                                              #2#)
-                                        . #3#)))
-                                (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                                (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 17))
-                . #3#)
-          (EXIT (APPEND |asp| (SPADCALL |of| (QREFELT $ 20))))))) 
-
-(SDEFUN |FORTRAN;fortFormatHead| (($ |Void|))
-        (SPROG
-         ((|lines| (|List| (|String|))) (|l| (|Integer|))
-          (|asp| (|List| (|String|))) (|s| (|String|)) (#1=#:G117 NIL))
-         (SEQ
-          (COND
-           ((QEQCAR (QREFELT $ 7) 1)
-            (SEQ
-             (LETT |asp| (LIST "SUBROUTINE ") . #2=(|FORTRAN;fortFormatHead|))
-             (EXIT (SPADCALL (LETT |l| -11 . #2#) (QREFELT $ 23)))))
-           ('T
-            (SEQ
-             (LETT |s|
-                   (|checkType|
-                    (SPADCALL
-                     (PROG2 (LETT #1# (QREFELT $ 7) . #2#)
-                         (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (|FortranScalarType|)
-                                      #1#))
-                     (QREFELT $ 26)))
-                   . #2#)
-             (LETT |asp| (LIST |s| " FUNCTION ") . #2#)
-             (EXIT
-              (SPADCALL (LETT |l| (- -10 (QCSIZE |s|)) . #2#)
-                        (QREFELT $ 23))))))
-          (LETT |lines|
-                (SPADCALL (CONS #'|FORTRAN;fortFormatHead!0| (VECTOR $ |asp|))
-                          (QREFELT $ 28))
-                . #2#)
-          (SPADCALL |lines| (QREFELT $ 29))
-          (EXIT (SPADCALL (- |l|) (QREFELT $ 23)))))) 
-
-(SDEFUN |FORTRAN;fortFormatHead!0| (($$ NIL))
-        (PROG (|asp| $)
-          (LETT |asp| (QREFELT $$ 1) . #1=(|FORTRAN;fortFormatHead|))
-          (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (|FORTRAN;fortFormatHead1| |asp| $))))) 
-
-(SDEFUN |FORTRAN;outputAsFortran;$V;5| ((|p| $) ($ |Void|))
-        (SPROG
-         ((#1=#:G141 NIL) (|expr| NIL) (|intrinsics| (|List| (|String|)))
-          (|body| (|List| (|List| (|String|)))) (#2=#:G140 NIL) (|l| NIL)
-          (#3=#:G139 NIL) (|tempName| (|Symbol|)))
-         (SEQ (SPADCALL (SPADCALL 25000 (QREFELT $ 31)) (QREFELT $ 33))
-              (LETT |tempName| 'FPTEMP . #4=(|FORTRAN;outputAsFortran;$V;5|))
-              (SPADCALL |tempName| (QREFELT $ 35)) (|initialiseIntrinsicList|)
+         ((#1=#:G133 NIL) (|expr| NIL) (|intrinsics| (|List| (|String|)))
+          (|body| (|List| (|List| (|String|)))) (#2=#:G132 NIL) (|l| NIL)
+          (#3=#:G131 NIL) (|tempName| (|Symbol|)))
+         (SEQ (SPADCALL (SPADCALL 25000 (QREFELT $ 15)) (QREFELT $ 17))
+              (LETT |tempName| 'FPTEMP . #4=(|FORTRAN;outputAsFortran;$V;3|))
+              (SPADCALL |tempName| (QREFELT $ 21)) (SPADCALL (QREFELT $ 23))
               (LETT |body|
                     (PROGN
                      (LETT #3# NIL . #4#)
@@ -90,28 +25,32 @@
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #3# (CONS (SPADCALL |l| (QREFELT $ 36)) #3#)
+                            (LETT #3# (CONS (SPADCALL |l| (QREFELT $ 25)) #3#)
                                   . #4#)))
                           (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                           (EXIT (NREVERSE #3#))))
                     . #4#)
-              (LETT |intrinsics| (|getIntrinsicList|) . #4#)
-              (SPADCALL (QREFELT $ 37)) (|FORTRAN;fortFormatHead| $)
-              (SPADCALL (QREFELT $ 9) (QREFELT $ 38))
-              (SPADCALL (QCAR |p|) (QREFELT $ 38))
-              (SPADCALL |tempName| (QREFELT $ 39))
-              (|fortFormatIntrinsics| |intrinsics|)
-              (SPADCALL |tempName| (QREFELT $ 40))
+              (LETT |intrinsics| (SPADCALL (QREFELT $ 26)) . #4#)
+              (SPADCALL (QREFELT $ 27))
+              (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 8)
+                        (QREFELT $ 30))
+              (SPADCALL (QREFELT $ 9) (QREFELT $ 31))
+              (SPADCALL (QCAR |p|) (QREFELT $ 31))
+              (SPADCALL |tempName| (QREFELT $ 32))
+              (COND
+               ((NULL (NULL |intrinsics|))
+                (SPADCALL "INTRINSIC" |intrinsics| (QREFELT $ 34))))
+              (SPADCALL |tempName| (QREFELT $ 35))
               (SEQ (LETT |expr| NIL . #4#) (LETT #1# |body| . #4#) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |expr| (CAR #1#) . #4#) NIL))
                      (GO G191)))
-                   (SEQ (EXIT (SPADCALL |expr| (QREFELT $ 29))))
+                   (SEQ (EXIT (SPADCALL |expr| (QREFELT $ 36))))
                    (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL (SPADCALL 'END (QREFELT $ 15)) (QREFELT $ 41)))))) 
+              (EXIT (SPADCALL (SPADCALL 'END (QREFELT $ 38)) (QREFELT $ 39)))))) 
 
 (SDEFUN |FORTRAN;mkString| ((|l| |List| (|Symbol|)) ($ |String|))
-        (SPADCALL (SPADCALL |l| (QREFELT $ 45)) (QREFELT $ 46))) 
+        (SPADCALL (SPADCALL |l| (QREFELT $ 42)) (QREFELT $ 43))) 
 
 (SDEFUN |FORTRAN;checkVariables|
         ((|user| |List| (|Symbol|)) (|target| |List| (|Symbol|)) ($ |Void|))
@@ -119,9 +58,9 @@
                (SEQ
                 (COND
                  ((SPADCALL
-                   (SPADCALL (SPADCALL (ELT $ 47) |user| (QREFELT $ 49))
-                             |target| (QREFELT $ 50))
-                   NIL (QREFELT $ 52))
+                   (SPADCALL (SPADCALL (ELT $ 44) |user| (QREFELT $ 46))
+                             |target| (QREFELT $ 47))
+                   NIL (QREFELT $ 49))
                   (SEQ
                    (LETT |s1| (|FORTRAN;mkString| |user| $)
                          . #2=(|FORTRAN;checkVariables|))
@@ -129,43 +68,140 @@
                    (EXIT
                     (|error|
                      (LIST |mathprint|
-                           (SPADCALL
-                            (LIST "Incompatible variable lists:" |s1| |s2|)
-                            (QREFELT $ 53)))))))
-                 ('T (SPADCALL (QREFELT $ 54))))))) 
+                           (LIST "Incompatible variable lists:"
+                                 (SPADCALL |s1| (QREFELT $ 50))
+                                 (SPADCALL |s2| (QREFELT $ 50))))))))
+                 ('T (SPADCALL (QREFELT $ 51))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;8| ((|u| |Expression| (|MachineInteger|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;6| ((|u| |Expression| (|MachineInteger|)) ($ $))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 56))
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 53))
                  (QREFELT $ 8) $)
                 (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 57))
-                            (SPADCALL (QREFELT $ 58)))
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 54))
+                            (SPADCALL (QREFELT $ 55)))
+                      |FORTRAN;coerce;E$;6|)
+                (EXIT (|FORTRAN;makeRep| |l| $))))) 
+
+(SDEFUN |FORTRAN;coerce;E$;7|
+        ((|u| |Equation| (|Expression| (|MachineInteger|))) ($ $))
+        (SPROG
+         ((|eList| (|List| (|Equation| (|Expression| (|MachineInteger|)))))
+          (#1=#:G158 NIL) (|w| NIL) (#2=#:G159 NIL) (|v| NIL) (#3=#:G157 NIL)
+          (|aeList| (|List| (|Expression| (|MachineInteger|)))) (#4=#:G156 NIL)
+          (#5=#:G155 NIL) (|veList| (|List| (|Expression| (|MachineInteger|))))
+          (#6=#:G154 NIL) (#7=#:G153 NIL) (|vList| (|List| (|Symbol|))))
+         (SEQ
+          (COND
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 58)) (QREFELT $ 60)) 1)
+            (|error| "left hand side is not a kernel"))
+           (#8='T
+            (SEQ
+             (LETT |vList|
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 58)) (QREFELT $ 53))
+                   . #9=(|FORTRAN;coerce;E$;7|))
+             (EXIT
+              (COND
+               ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
+                          (QREFELT $ 62))
+                (|error| "Incorrect number of arguments"))
+               (#8#
+                (SEQ
+                 (LETT |veList|
+                       (PROGN
+                        (LETT #7# NIL . #9#)
+                        (SEQ (LETT |w| NIL . #9#) (LETT #6# |vList| . #9#) G190
+                             (COND
+                              ((OR (ATOM #6#)
+                                   (PROGN (LETT |w| (CAR #6#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #7#
+                                     (CONS (SPADCALL |w| (QREFELT $ 63)) #7#)
+                                     . #9#)))
+                             (LETT #6# (CDR #6#) . #9#) (GO G190) G191
+                             (EXIT (NREVERSE #7#))))
+                       . #9#)
+                 (LETT |aeList|
+                       (PROGN
+                        (LETT #5# NIL . #9#)
+                        (SEQ (LETT |w| NIL . #9#)
+                             (LETT #4# (QREFELT $ 8) . #9#) G190
+                             (COND
+                              ((OR (ATOM #4#)
+                                   (PROGN (LETT |w| (CAR #4#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #5#
+                                     (CONS (SPADCALL |w| (QREFELT $ 63)) #5#)
+                                     . #9#)))
+                             (LETT #4# (CDR #4#) . #9#) (GO G190) G191
+                             (EXIT (NREVERSE #5#))))
+                       . #9#)
+                 (LETT |eList|
+                       (PROGN
+                        (LETT #3# NIL . #9#)
+                        (SEQ (LETT |v| NIL . #9#) (LETT #2# |aeList| . #9#)
+                             (LETT |w| NIL . #9#) (LETT #1# |veList| . #9#)
+                             G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |w| (CAR #1#) . #9#) NIL)
+                                   (ATOM #2#)
+                                   (PROGN (LETT |v| (CAR #2#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #3#
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 64))
+                                           #3#)
+                                     . #9#)))
+                             (LETT #1#
+                                   (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #9#))
+                                   . #9#)
+                             (GO G190) G191 (EXIT (NREVERSE #3#))))
+                       . #9#)
+                 (EXIT
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 65)) |eList|
+                             (QREFELT $ 67))
+                   (QREFELT $ 56))))))))))))) 
+
+(SDEFUN |FORTRAN;coerce;E$;8| ((|u| |Expression| (|MachineFloat|)) ($ $))
+        (SPROG ((|l| (|List| (|FortranCode|))))
+               (SEQ
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 70))
+                 (QREFELT $ 8) $)
+                (LETT |l|
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 71))
+                            (SPADCALL (QREFELT $ 55)))
                       |FORTRAN;coerce;E$;8|)
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;9|
-        ((|u| |Equation| (|Expression| (|MachineInteger|))) ($ $))
+        ((|u| |Equation| (|Expression| (|MachineFloat|))) ($ $))
         (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|MachineInteger|)))))
-          (#1=#:G166 NIL) (|w| NIL) (#2=#:G167 NIL) (|v| NIL) (#3=#:G165 NIL)
-          (|aeList| (|List| (|Expression| (|MachineInteger|)))) (#4=#:G164 NIL)
-          (#5=#:G163 NIL) (|veList| (|List| (|Expression| (|MachineInteger|))))
-          (#6=#:G162 NIL) (#7=#:G161 NIL) (|vList| (|List| (|Symbol|))))
+         ((|eList| (|List| (|Equation| (|Expression| (|MachineFloat|)))))
+          (#1=#:G178 NIL) (|w| NIL) (#2=#:G179 NIL) (|v| NIL) (#3=#:G177 NIL)
+          (|aeList| (|List| (|Expression| (|MachineFloat|)))) (#4=#:G176 NIL)
+          (#5=#:G175 NIL) (|veList| (|List| (|Expression| (|MachineFloat|))))
+          (#6=#:G174 NIL) (#7=#:G173 NIL) (|vList| (|List| (|Symbol|))))
          (SEQ
           (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 61)) (QREFELT $ 63)) 1)
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 74)) (QREFELT $ 75)) 1)
             (|error| "left hand side is not a kernel"))
            (#8='T
             (SEQ
              (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 61)) (QREFELT $ 56))
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 74)) (QREFELT $ 70))
                    . #9=(|FORTRAN;coerce;E$;9|))
              (EXIT
               (COND
                ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
+                          (QREFELT $ 62))
                 (|error| "Incorrect number of arguments"))
                (#8#
                 (SEQ
@@ -180,7 +216,7 @@
                              (SEQ
                               (EXIT
                                (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 66)) #7#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 76)) #7#)
                                      . #9#)))
                              (LETT #6# (CDR #6#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #7#))))
@@ -197,7 +233,7 @@
                              (SEQ
                               (EXIT
                                (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 66)) #5#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 76)) #5#)
                                      . #9#)))
                              (LETT #4# (CDR #4#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #5#))))
@@ -217,7 +253,7 @@
                              (SEQ
                               (EXIT
                                (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 67))
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 77))
                                            #3#)
                                      . #9#)))
                              (LETT #1#
@@ -227,42 +263,42 @@
                        . #9#)
                  (EXIT
                   (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 68)) |eList|
-                             (QREFELT $ 70))
-                   (QREFELT $ 59))))))))))))) 
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 78)) |eList|
+                             (QREFELT $ 79))
+                   (QREFELT $ 72))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;10| ((|u| |Expression| (|MachineFloat|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;10| ((|u| |Expression| (|MachineComplex|)) ($ $))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 73))
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 82))
                  (QREFELT $ 8) $)
                 (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 74))
-                            (SPADCALL (QREFELT $ 58)))
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 83))
+                            (SPADCALL (QREFELT $ 55)))
                       |FORTRAN;coerce;E$;10|)
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;11|
-        ((|u| |Equation| (|Expression| (|MachineFloat|))) ($ $))
+        ((|u| |Equation| (|Expression| (|MachineComplex|))) ($ $))
         (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|MachineFloat|)))))
-          (#1=#:G186 NIL) (|w| NIL) (#2=#:G187 NIL) (|v| NIL) (#3=#:G185 NIL)
-          (|aeList| (|List| (|Expression| (|MachineFloat|)))) (#4=#:G184 NIL)
-          (#5=#:G183 NIL) (|veList| (|List| (|Expression| (|MachineFloat|))))
-          (#6=#:G182 NIL) (#7=#:G181 NIL) (|vList| (|List| (|Symbol|))))
+         ((|eList| (|List| (|Equation| (|Expression| (|MachineComplex|)))))
+          (#1=#:G198 NIL) (|w| NIL) (#2=#:G199 NIL) (|v| NIL) (#3=#:G197 NIL)
+          (|aeList| (|List| (|Expression| (|MachineComplex|)))) (#4=#:G196 NIL)
+          (#5=#:G195 NIL) (|veList| (|List| (|Expression| (|MachineComplex|))))
+          (#6=#:G194 NIL) (#7=#:G193 NIL) (|vList| (|List| (|Symbol|))))
          (SEQ
           (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 77)) (QREFELT $ 78)) 1)
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 86)) (QREFELT $ 87)) 1)
             (|error| "left hand side is not a kernel"))
            (#8='T
             (SEQ
              (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 77)) (QREFELT $ 73))
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 86)) (QREFELT $ 82))
                    . #9=(|FORTRAN;coerce;E$;11|))
              (EXIT
               (COND
                ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
+                          (QREFELT $ 62))
                 (|error| "Incorrect number of arguments"))
                (#8#
                 (SEQ
@@ -277,7 +313,7 @@
                              (SEQ
                               (EXIT
                                (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 79)) #7#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 88)) #7#)
                                      . #9#)))
                              (LETT #6# (CDR #6#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #7#))))
@@ -294,7 +330,7 @@
                              (SEQ
                               (EXIT
                                (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 79)) #5#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 88)) #5#)
                                      . #9#)))
                              (LETT #4# (CDR #4#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #5#))))
@@ -314,7 +350,7 @@
                              (SEQ
                               (EXIT
                                (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 80))
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 89))
                                            #3#)
                                      . #9#)))
                              (LETT #1#
@@ -324,157 +360,158 @@
                        . #9#)
                  (EXIT
                   (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 81)) |eList|
-                             (QREFELT $ 82))
-                   (QREFELT $ 75))))))))))))) 
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 90)) |eList|
+                             (QREFELT $ 91))
+                   (QREFELT $ 84))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;12| ((|u| |Expression| (|MachineComplex|)) ($ $))
-        (SPROG ((|l| (|List| (|FortranCode|))))
-               (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 85))
-                 (QREFELT $ 8) $)
-                (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 86))
-                            (SPADCALL (QREFELT $ 58)))
-                      |FORTRAN;coerce;E$;12|)
-                (EXIT (|FORTRAN;makeRep| |l| $))))) 
+(PUT '|FORTRAN;coerce;R$;12| '|SPADreplace| '(XLAM (|u|) |u|)) 
 
-(SDEFUN |FORTRAN;coerce;E$;13|
-        ((|u| |Equation| (|Expression| (|MachineComplex|))) ($ $))
-        (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|MachineComplex|)))))
-          (#1=#:G206 NIL) (|w| NIL) (#2=#:G207 NIL) (|v| NIL) (#3=#:G205 NIL)
-          (|aeList| (|List| (|Expression| (|MachineComplex|)))) (#4=#:G204 NIL)
-          (#5=#:G203 NIL) (|veList| (|List| (|Expression| (|MachineComplex|))))
-          (#6=#:G202 NIL) (#7=#:G201 NIL) (|vList| (|List| (|Symbol|))))
-         (SEQ
-          (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 89)) (QREFELT $ 90)) 1)
-            (|error| "left hand side is not a kernel"))
-           (#8='T
-            (SEQ
-             (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 89)) (QREFELT $ 85))
-                   . #9=(|FORTRAN;coerce;E$;13|))
-             (EXIT
-              (COND
-               ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
-                (|error| "Incorrect number of arguments"))
-               (#8#
-                (SEQ
-                 (LETT |veList|
-                       (PROGN
-                        (LETT #7# NIL . #9#)
-                        (SEQ (LETT |w| NIL . #9#) (LETT #6# |vList| . #9#) G190
-                             (COND
-                              ((OR (ATOM #6#)
-                                   (PROGN (LETT |w| (CAR #6#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 91)) #7#)
-                                     . #9#)))
-                             (LETT #6# (CDR #6#) . #9#) (GO G190) G191
-                             (EXIT (NREVERSE #7#))))
-                       . #9#)
-                 (LETT |aeList|
-                       (PROGN
-                        (LETT #5# NIL . #9#)
-                        (SEQ (LETT |w| NIL . #9#)
-                             (LETT #4# (QREFELT $ 8) . #9#) G190
-                             (COND
-                              ((OR (ATOM #4#)
-                                   (PROGN (LETT |w| (CAR #4#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 91)) #5#)
-                                     . #9#)))
-                             (LETT #4# (CDR #4#) . #9#) (GO G190) G191
-                             (EXIT (NREVERSE #5#))))
-                       . #9#)
-                 (LETT |eList|
-                       (PROGN
-                        (LETT #3# NIL . #9#)
-                        (SEQ (LETT |v| NIL . #9#) (LETT #2# |aeList| . #9#)
-                             (LETT |w| NIL . #9#) (LETT #1# |veList| . #9#)
-                             G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |w| (CAR #1#) . #9#) NIL)
-                                   (ATOM #2#)
-                                   (PROGN (LETT |v| (CAR #2#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 92))
-                                           #3#)
-                                     . #9#)))
-                             (LETT #1#
-                                   (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #9#))
-                                   . #9#)
-                             (GO G190) G191 (EXIT (NREVERSE #3#))))
-                       . #9#)
-                 (EXIT
-                  (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 93)) |eList|
-                             (QREFELT $ 94))
-                   (QREFELT $ 87))))))))))))) 
-
-(PUT '|FORTRAN;coerce;R$;14| '|SPADreplace| '(XLAM (|u|) |u|)) 
-
-(SDEFUN |FORTRAN;coerce;R$;14|
+(SDEFUN |FORTRAN;coerce;R$;12|
         ((|u| |Record| (|:| |localSymbols| (|SymbolTable|))
           (|:| |code| (|List| (|FortranCode|))))
          ($ $))
         |u|) 
 
-(SDEFUN |FORTRAN;coerce;$Of;15| ((|u| $) ($ |OutputForm|))
-        (SPADCALL (QREFELT $ 6) (QREFELT $ 15))) 
+(SDEFUN |FORTRAN;coerce;$Of;13| ((|u| $) ($ |OutputForm|))
+        (SPADCALL (QREFELT $ 6) (QREFELT $ 38))) 
 
-(SDEFUN |FORTRAN;coerce;L$;16| ((|c| |List| (|FortranCode|)) ($ $))
+(SDEFUN |FORTRAN;coerce;L$;14| ((|c| |List| (|FortranCode|)) ($ $))
         (|FORTRAN;makeRep| |c| $)) 
 
-(SDEFUN |FORTRAN;coerce;Fc$;17| ((|c| |FortranCode|) ($ $))
+(SDEFUN |FORTRAN;coerce;Fc$;15| ((|c| |FortranCode|) ($ $))
         (|FORTRAN;makeRep| (LIST |c|) $)) 
 
-(SDEFUN |FORTRAN;coerce;E$;18| ((|u| |Expression| (|Integer|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;16| ((|u| |Expression| (|Integer|)) ($ $))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 103))
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 100))
                  (QREFELT $ 8) $)
                 (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 104))
-                            (SPADCALL (QREFELT $ 58)))
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 101))
+                            (SPADCALL (QREFELT $ 55)))
+                      |FORTRAN;coerce;E$;16|)
+                (EXIT (|FORTRAN;makeRep| |l| $))))) 
+
+(SDEFUN |FORTRAN;coerce;E$;17|
+        ((|u| |Equation| (|Expression| (|Integer|))) ($ $))
+        (SPROG
+         ((|eList| (|List| (|Equation| (|Expression| (|Integer|)))))
+          (#1=#:G224 NIL) (|w| NIL) (#2=#:G225 NIL) (|v| NIL) (#3=#:G223 NIL)
+          (|aeList| (|List| (|Expression| (|Integer|)))) (#4=#:G222 NIL)
+          (#5=#:G221 NIL) (|veList| (|List| (|Expression| (|Integer|))))
+          (#6=#:G220 NIL) (#7=#:G219 NIL) (|vList| (|List| (|Symbol|))))
+         (SEQ
+          (COND
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 104)) (QREFELT $ 105))
+                    1)
+            (|error| "left hand side is not a kernel"))
+           (#8='T
+            (SEQ
+             (LETT |vList|
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 104)) (QREFELT $ 100))
+                   . #9=(|FORTRAN;coerce;E$;17|))
+             (EXIT
+              (COND
+               ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
+                          (QREFELT $ 62))
+                (|error| "Incorrect number of arguments"))
+               (#8#
+                (SEQ
+                 (LETT |veList|
+                       (PROGN
+                        (LETT #7# NIL . #9#)
+                        (SEQ (LETT |w| NIL . #9#) (LETT #6# |vList| . #9#) G190
+                             (COND
+                              ((OR (ATOM #6#)
+                                   (PROGN (LETT |w| (CAR #6#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #7#
+                                     (CONS (SPADCALL |w| (QREFELT $ 106)) #7#)
+                                     . #9#)))
+                             (LETT #6# (CDR #6#) . #9#) (GO G190) G191
+                             (EXIT (NREVERSE #7#))))
+                       . #9#)
+                 (LETT |aeList|
+                       (PROGN
+                        (LETT #5# NIL . #9#)
+                        (SEQ (LETT |w| NIL . #9#)
+                             (LETT #4# (QREFELT $ 8) . #9#) G190
+                             (COND
+                              ((OR (ATOM #4#)
+                                   (PROGN (LETT |w| (CAR #4#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #5#
+                                     (CONS (SPADCALL |w| (QREFELT $ 106)) #5#)
+                                     . #9#)))
+                             (LETT #4# (CDR #4#) . #9#) (GO G190) G191
+                             (EXIT (NREVERSE #5#))))
+                       . #9#)
+                 (LETT |eList|
+                       (PROGN
+                        (LETT #3# NIL . #9#)
+                        (SEQ (LETT |v| NIL . #9#) (LETT #2# |aeList| . #9#)
+                             (LETT |w| NIL . #9#) (LETT #1# |veList| . #9#)
+                             G190
+                             (COND
+                              ((OR (ATOM #1#)
+                                   (PROGN (LETT |w| (CAR #1#) . #9#) NIL)
+                                   (ATOM #2#)
+                                   (PROGN (LETT |v| (CAR #2#) . #9#) NIL))
+                               (GO G191)))
+                             (SEQ
+                              (EXIT
+                               (LETT #3#
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 107))
+                                           #3#)
+                                     . #9#)))
+                             (LETT #1#
+                                   (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #9#))
+                                   . #9#)
+                             (GO G190) G191 (EXIT (NREVERSE #3#))))
+                       . #9#)
+                 (EXIT
+                  (SPADCALL
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 108)) |eList|
+                             (QREFELT $ 109))
+                   (QREFELT $ 102))))))))))))) 
+
+(SDEFUN |FORTRAN;coerce;E$;18| ((|u| |Expression| (|Float|)) ($ $))
+        (SPROG ((|l| (|List| (|FortranCode|))))
+               (SEQ
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 112))
+                 (QREFELT $ 8) $)
+                (LETT |l|
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 113))
+                            (SPADCALL (QREFELT $ 55)))
                       |FORTRAN;coerce;E$;18|)
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;19|
-        ((|u| |Equation| (|Expression| (|Integer|))) ($ $))
+        ((|u| |Equation| (|Expression| (|Float|))) ($ $))
         (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|Integer|)))))
-          (#1=#:G232 NIL) (|w| NIL) (#2=#:G233 NIL) (|v| NIL) (#3=#:G231 NIL)
-          (|aeList| (|List| (|Expression| (|Integer|)))) (#4=#:G230 NIL)
-          (#5=#:G229 NIL) (|veList| (|List| (|Expression| (|Integer|))))
-          (#6=#:G228 NIL) (#7=#:G227 NIL) (|vList| (|List| (|Symbol|))))
+         ((|eList| (|List| (|Equation| (|Expression| (|Float|)))))
+          (#1=#:G244 NIL) (|w| NIL) (#2=#:G245 NIL) (|v| NIL) (#3=#:G243 NIL)
+          (|aeList| (|List| (|Expression| (|Float|)))) (#4=#:G242 NIL)
+          (#5=#:G241 NIL) (|veList| (|List| (|Expression| (|Float|))))
+          (#6=#:G240 NIL) (#7=#:G239 NIL) (|vList| (|List| (|Symbol|))))
          (SEQ
           (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 107)) (QREFELT $ 108))
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 116)) (QREFELT $ 117))
                     1)
             (|error| "left hand side is not a kernel"))
            (#8='T
             (SEQ
              (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 107)) (QREFELT $ 103))
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 116)) (QREFELT $ 112))
                    . #9=(|FORTRAN;coerce;E$;19|))
              (EXIT
               (COND
                ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
+                          (QREFELT $ 62))
                 (|error| "Incorrect number of arguments"))
                (#8#
                 (SEQ
@@ -489,7 +526,7 @@
                              (SEQ
                               (EXIT
                                (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 109)) #7#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 118)) #7#)
                                      . #9#)))
                              (LETT #6# (CDR #6#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #7#))))
@@ -506,7 +543,7 @@
                              (SEQ
                               (EXIT
                                (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 109)) #5#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 118)) #5#)
                                      . #9#)))
                              (LETT #4# (CDR #4#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #5#))))
@@ -526,7 +563,7 @@
                              (SEQ
                               (EXIT
                                (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 110))
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 119))
                                            #3#)
                                      . #9#)))
                              (LETT #1#
@@ -536,43 +573,44 @@
                        . #9#)
                  (EXIT
                   (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 111)) |eList|
-                             (QREFELT $ 112))
-                   (QREFELT $ 105))))))))))))) 
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 120)) |eList|
+                             (QREFELT $ 121))
+                   (QREFELT $ 114))))))))))))) 
 
-(SDEFUN |FORTRAN;coerce;E$;20| ((|u| |Expression| (|Float|)) ($ $))
+(SDEFUN |FORTRAN;coerce;E$;20| ((|u| |Expression| (|Complex| (|Float|))) ($ $))
         (SPROG ((|l| (|List| (|FortranCode|))))
                (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 115))
+                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 124))
                  (QREFELT $ 8) $)
                 (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 116))
-                            (SPADCALL (QREFELT $ 58)))
+                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 125))
+                            (SPADCALL (QREFELT $ 55)))
                       |FORTRAN;coerce;E$;20|)
                 (EXIT (|FORTRAN;makeRep| |l| $))))) 
 
 (SDEFUN |FORTRAN;coerce;E$;21|
-        ((|u| |Equation| (|Expression| (|Float|))) ($ $))
+        ((|u| |Equation| (|Expression| (|Complex| (|Float|)))) ($ $))
         (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|Float|)))))
-          (#1=#:G252 NIL) (|w| NIL) (#2=#:G253 NIL) (|v| NIL) (#3=#:G251 NIL)
-          (|aeList| (|List| (|Expression| (|Float|)))) (#4=#:G250 NIL)
-          (#5=#:G249 NIL) (|veList| (|List| (|Expression| (|Float|))))
-          (#6=#:G248 NIL) (#7=#:G247 NIL) (|vList| (|List| (|Symbol|))))
+         ((|eList| (|List| (|Equation| (|Expression| (|Complex| (|Float|))))))
+          (#1=#:G264 NIL) (|w| NIL) (#2=#:G265 NIL) (|v| NIL) (#3=#:G263 NIL)
+          (|aeList| (|List| (|Expression| (|Complex| (|Float|)))))
+          (#4=#:G262 NIL) (#5=#:G261 NIL)
+          (|veList| (|List| (|Expression| (|Complex| (|Float|)))))
+          (#6=#:G260 NIL) (#7=#:G259 NIL) (|vList| (|List| (|Symbol|))))
          (SEQ
           (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 119)) (QREFELT $ 120))
+           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 128)) (QREFELT $ 129))
                     1)
             (|error| "left hand side is not a kernel"))
            (#8='T
             (SEQ
              (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 119)) (QREFELT $ 115))
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 128)) (QREFELT $ 124))
                    . #9=(|FORTRAN;coerce;E$;21|))
              (EXIT
               (COND
                ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
+                          (QREFELT $ 62))
                 (|error| "Incorrect number of arguments"))
                (#8#
                 (SEQ
@@ -587,7 +625,7 @@
                              (SEQ
                               (EXIT
                                (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 121)) #7#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 130)) #7#)
                                      . #9#)))
                              (LETT #6# (CDR #6#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #7#))))
@@ -604,7 +642,7 @@
                              (SEQ
                               (EXIT
                                (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 121)) #5#)
+                                     (CONS (SPADCALL |w| (QREFELT $ 130)) #5#)
                                      . #9#)))
                              (LETT #4# (CDR #4#) . #9#) (GO G190) G191
                              (EXIT (NREVERSE #5#))))
@@ -624,7 +662,7 @@
                              (SEQ
                               (EXIT
                                (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 122))
+                                     (CONS (SPADCALL |w| |v| (QREFELT $ 131))
                                            #3#)
                                      . #9#)))
                              (LETT #1#
@@ -634,114 +672,15 @@
                        . #9#)
                  (EXIT
                   (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 123)) |eList|
-                             (QREFELT $ 124))
-                   (QREFELT $ 117))))))))))))) 
-
-(SDEFUN |FORTRAN;coerce;E$;22| ((|u| |Expression| (|Complex| (|Float|))) ($ $))
-        (SPROG ((|l| (|List| (|FortranCode|))))
-               (SEQ
-                (|FORTRAN;checkVariables| (SPADCALL |u| (QREFELT $ 127))
-                 (QREFELT $ 8) $)
-                (LETT |l|
-                      (LIST (SPADCALL (QREFELT $ 6) |u| (QREFELT $ 128))
-                            (SPADCALL (QREFELT $ 58)))
-                      |FORTRAN;coerce;E$;22|)
-                (EXIT (|FORTRAN;makeRep| |l| $))))) 
-
-(SDEFUN |FORTRAN;coerce;E$;23|
-        ((|u| |Equation| (|Expression| (|Complex| (|Float|)))) ($ $))
-        (SPROG
-         ((|eList| (|List| (|Equation| (|Expression| (|Complex| (|Float|))))))
-          (#1=#:G272 NIL) (|w| NIL) (#2=#:G273 NIL) (|v| NIL) (#3=#:G271 NIL)
-          (|aeList| (|List| (|Expression| (|Complex| (|Float|)))))
-          (#4=#:G270 NIL) (#5=#:G269 NIL)
-          (|veList| (|List| (|Expression| (|Complex| (|Float|)))))
-          (#6=#:G268 NIL) (#7=#:G267 NIL) (|vList| (|List| (|Symbol|))))
-         (SEQ
-          (COND
-           ((QEQCAR (SPADCALL (SPADCALL |u| (QREFELT $ 131)) (QREFELT $ 132))
-                    1)
-            (|error| "left hand side is not a kernel"))
-           (#8='T
-            (SEQ
-             (LETT |vList|
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 131)) (QREFELT $ 127))
-                   . #9=(|FORTRAN;coerce;E$;23|))
-             (EXIT
-              (COND
-               ((SPADCALL (LENGTH |vList|) (LENGTH (QREFELT $ 8))
-                          (QREFELT $ 65))
-                (|error| "Incorrect number of arguments"))
-               (#8#
-                (SEQ
-                 (LETT |veList|
-                       (PROGN
-                        (LETT #7# NIL . #9#)
-                        (SEQ (LETT |w| NIL . #9#) (LETT #6# |vList| . #9#) G190
-                             (COND
-                              ((OR (ATOM #6#)
-                                   (PROGN (LETT |w| (CAR #6#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #7#
-                                     (CONS (SPADCALL |w| (QREFELT $ 133)) #7#)
-                                     . #9#)))
-                             (LETT #6# (CDR #6#) . #9#) (GO G190) G191
-                             (EXIT (NREVERSE #7#))))
-                       . #9#)
-                 (LETT |aeList|
-                       (PROGN
-                        (LETT #5# NIL . #9#)
-                        (SEQ (LETT |w| NIL . #9#)
-                             (LETT #4# (QREFELT $ 8) . #9#) G190
-                             (COND
-                              ((OR (ATOM #4#)
-                                   (PROGN (LETT |w| (CAR #4#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #5#
-                                     (CONS (SPADCALL |w| (QREFELT $ 133)) #5#)
-                                     . #9#)))
-                             (LETT #4# (CDR #4#) . #9#) (GO G190) G191
-                             (EXIT (NREVERSE #5#))))
-                       . #9#)
-                 (LETT |eList|
-                       (PROGN
-                        (LETT #3# NIL . #9#)
-                        (SEQ (LETT |v| NIL . #9#) (LETT #2# |aeList| . #9#)
-                             (LETT |w| NIL . #9#) (LETT #1# |veList| . #9#)
-                             G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |w| (CAR #1#) . #9#) NIL)
-                                   (ATOM #2#)
-                                   (PROGN (LETT |v| (CAR #2#) . #9#) NIL))
-                               (GO G191)))
-                             (SEQ
-                              (EXIT
-                               (LETT #3#
-                                     (CONS (SPADCALL |w| |v| (QREFELT $ 134))
-                                           #3#)
-                                     . #9#)))
-                             (LETT #1#
-                                   (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #9#))
-                                   . #9#)
-                             (GO G190) G191 (EXIT (NREVERSE #3#))))
-                       . #9#)
-                 (EXIT
-                  (SPADCALL
-                   (SPADCALL (SPADCALL |u| (QREFELT $ 135)) |eList|
-                             (QREFELT $ 136))
-                   (QREFELT $ 129))))))))))))) 
+                   (SPADCALL (SPADCALL |u| (QREFELT $ 132)) |eList|
+                             (QREFELT $ 133))
+                   (QREFELT $ 126))))))))))))) 
 
 (DECLAIM (NOTINLINE |FortranProgram;|)) 
 
-(DEFUN |FortranProgram| (&REST #1=#:G274)
+(DEFUN |FortranProgram| (&REST #1=#:G266)
   (SPROG NIL
-         (PROG (#2=#:G275)
+         (PROG (#2=#:G267)
            (RETURN
             (COND
              ((LETT #2#
@@ -769,7 +708,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|FortranProgram| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 138) . #1#)
+    (LETT $ (GETREFV 135) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|FortranProgram|
@@ -789,95 +728,94 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (|SymbolTable|)
-              (0 . |empty|) (|OutputForm|) (|Symbol|) (4 . |coerce|) (|List| $)
-              (9 . |elt|) (|List| 24) (|FortranCodeTools|)
-              (15 . |statement2Fortran|) (|Void|) (|Integer|)
-              (20 . |changeExprLength|) (|String|) (|FortranScalarType|)
-              (25 . |coerce|) (|Mapping| 18) (30 . |do_with_error_env1|)
-              (35 . |displayLines1|) (|SingleInteger|) (40 . |coerce|)
-              (|FortranCode|) (45 . |setLabelValue|) (|TheSymbolTable|)
-              (50 . |newSubProgram|) (55 . |getCode|) (60 . |endSubProgram|)
-              (64 . |printTypes|) (69 . |printTypes|)
-              (74 . |clearTheSymbolTable|) (79 . |dispStatement|)
-              |FORTRAN;outputAsFortran;$V;5| (|InputForm|) (|List| 14)
-              (84 . |convert|) (89 . |unparse|) (94 . |name|) (|Mapping| 14 14)
-              (99 . |map|) (105 . |setDifference|) (|Boolean|) (111 . ~=)
-              (117 . |coerce|) (122 . |void|) (|Expression| (|MachineInteger|))
-              (126 . |variables|) (131 . |assign|) (137 . |returns|)
-              |FORTRAN;coerce;E$;8| (|Equation| 55) (141 . |lhs|)
-              (|Union| (|Kernel| $) '"failed") (146 . |retractIfCan|)
-              (|NonNegativeInteger|) (151 . ~=) (157 . |coerce|)
-              (162 . |equation|) (168 . |rhs|) (|List| (|Equation| $))
-              (173 . |subst|) |FORTRAN;coerce;E$;9|
-              (|Expression| (|MachineFloat|)) (179 . |variables|)
-              (184 . |assign|) |FORTRAN;coerce;E$;10| (|Equation| 72)
-              (190 . |lhs|) (195 . |retractIfCan|) (200 . |coerce|)
-              (205 . |equation|) (211 . |rhs|) (216 . |subst|)
-              |FORTRAN;coerce;E$;11| (|Expression| (|MachineComplex|))
-              (222 . |variables|) (227 . |assign|) |FORTRAN;coerce;E$;12|
-              (|Equation| 84) (233 . |lhs|) (238 . |retractIfCan|)
-              (243 . |coerce|) (248 . |equation|) (254 . |rhs|) (259 . |subst|)
-              |FORTRAN;coerce;E$;13|
-              (|Record| (|:| |localSymbols| 11) (|:| |code| 99))
-              |FORTRAN;coerce;R$;14| |FORTRAN;coerce;$Of;15| (|List| 32)
-              |FORTRAN;coerce;L$;16| |FORTRAN;coerce;Fc$;17| (|Expression| 22)
-              (265 . |variables|) (270 . |assign|) |FORTRAN;coerce;E$;18|
-              (|Equation| 102) (276 . |lhs|) (281 . |retractIfCan|)
-              (286 . |coerce|) (291 . |equation|) (297 . |rhs|) (302 . |subst|)
-              |FORTRAN;coerce;E$;19| (|Expression| (|Float|))
-              (308 . |variables|) (313 . |assign|) |FORTRAN;coerce;E$;20|
-              (|Equation| 114) (319 . |lhs|) (324 . |retractIfCan|)
-              (329 . |coerce|) (334 . |equation|) (340 . |rhs|) (345 . |subst|)
-              |FORTRAN;coerce;E$;21| (|Expression| (|Complex| (|Float|)))
-              (351 . |variables|) (356 . |assign|) |FORTRAN;coerce;E$;22|
-              (|Equation| 126) (362 . |lhs|) (367 . |retractIfCan|)
-              (372 . |coerce|) (377 . |equation|) (383 . |rhs|) (388 . |subst|)
-              |FORTRAN;coerce;E$;23|)
-           '#(|outputAsFortran| 394 |coerce| 399) 'NIL
+              (0 . |empty|) (|Integer|) (|SingleInteger|) (4 . |coerce|)
+              (|FortranCode|) (9 . |setLabelValue|) (|Void|) (|Symbol|)
+              (|TheSymbolTable|) (14 . |newSubProgram|) (|FortranCodeTools|)
+              (19 . |clear_used_intrinsics|) (|List| 33) (23 . |getCode|)
+              (28 . |get_used_intrinsics|) (32 . |endSubProgram|)
+              (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| '"void"))
+              (|List| 19) (36 . |fortFormatHead|) (43 . |printTypes|)
+              (48 . |printTypes|) (|String|) (53 . |fortFormatTypeLines|)
+              (59 . |clearTheSymbolTable|) (64 . |displayLines1|)
+              (|OutputForm|) (69 . |coerce|) (74 . |dispStatement|)
+              |FORTRAN;outputAsFortran;$V;3| (|InputForm|) (79 . |convert|)
+              (84 . |unparse|) (89 . |name|) (|Mapping| 19 19) (94 . |map|)
+              (100 . |setDifference|) (|Boolean|) (106 . ~=) (112 . |coerce|)
+              (117 . |void|) (|Expression| (|MachineInteger|))
+              (121 . |variables|) (126 . |assign|) (132 . |returns|)
+              |FORTRAN;coerce;E$;6| (|Equation| 52) (136 . |lhs|)
+              (|Union| (|Kernel| $) '"failed") (141 . |retractIfCan|)
+              (|NonNegativeInteger|) (146 . ~=) (152 . |coerce|)
+              (157 . |equation|) (163 . |rhs|) (|List| (|Equation| $))
+              (168 . |subst|) |FORTRAN;coerce;E$;7|
+              (|Expression| (|MachineFloat|)) (174 . |variables|)
+              (179 . |assign|) |FORTRAN;coerce;E$;8| (|Equation| 69)
+              (185 . |lhs|) (190 . |retractIfCan|) (195 . |coerce|)
+              (200 . |equation|) (206 . |rhs|) (211 . |subst|)
+              |FORTRAN;coerce;E$;9| (|Expression| (|MachineComplex|))
+              (217 . |variables|) (222 . |assign|) |FORTRAN;coerce;E$;10|
+              (|Equation| 81) (228 . |lhs|) (233 . |retractIfCan|)
+              (238 . |coerce|) (243 . |equation|) (249 . |rhs|) (254 . |subst|)
+              |FORTRAN;coerce;E$;11|
+              (|Record| (|:| |localSymbols| 11) (|:| |code| 96))
+              |FORTRAN;coerce;R$;12| |FORTRAN;coerce;$Of;13| (|List| 16)
+              |FORTRAN;coerce;L$;14| |FORTRAN;coerce;Fc$;15| (|Expression| 13)
+              (260 . |variables|) (265 . |assign|) |FORTRAN;coerce;E$;16|
+              (|Equation| 99) (271 . |lhs|) (276 . |retractIfCan|)
+              (281 . |coerce|) (286 . |equation|) (292 . |rhs|) (297 . |subst|)
+              |FORTRAN;coerce;E$;17| (|Expression| (|Float|))
+              (303 . |variables|) (308 . |assign|) |FORTRAN;coerce;E$;18|
+              (|Equation| 111) (314 . |lhs|) (319 . |retractIfCan|)
+              (324 . |coerce|) (329 . |equation|) (335 . |rhs|) (340 . |subst|)
+              |FORTRAN;coerce;E$;19| (|Expression| (|Complex| (|Float|)))
+              (346 . |variables|) (351 . |assign|) |FORTRAN;coerce;E$;20|
+              (|Equation| 123) (357 . |lhs|) (362 . |retractIfCan|)
+              (367 . |coerce|) (372 . |equation|) (378 . |rhs|) (383 . |subst|)
+              |FORTRAN;coerce;E$;21|)
+           '#(|outputAsFortran| 389 |coerce| 394) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(NIL NIL NIL)
                        (CONS
                         '#((|FortranProgramCategory|) (|Type|)
-                           (|CoercibleTo| 13))
-                        (|makeByteWordVec2| 137
-                                            '(0 11 0 12 1 14 13 0 15 2 13 0 0
-                                              16 17 1 19 18 13 20 1 19 21 22 23
-                                              1 25 24 0 26 1 19 18 27 28 1 19
-                                              21 18 29 1 30 0 22 31 1 32 30 30
-                                              33 1 34 21 14 35 1 32 18 0 36 0
-                                              34 14 37 1 11 21 0 38 1 34 21 14
-                                              39 1 34 21 14 40 1 19 21 13 41 1
-                                              44 43 0 45 1 43 24 0 46 1 14 0 0
-                                              47 2 44 0 48 0 49 2 44 0 0 0 50 2
-                                              44 51 0 0 52 1 18 13 0 53 0 21 0
-                                              54 1 55 44 0 56 2 32 0 14 55 57 0
-                                              32 0 58 1 60 55 0 61 1 55 62 0 63
-                                              2 64 51 0 0 65 1 55 0 14 66 2 60
-                                              0 55 55 67 1 60 55 0 68 2 55 0 0
-                                              69 70 1 72 44 0 73 2 32 0 14 72
-                                              74 1 76 72 0 77 1 72 62 0 78 1 72
-                                              0 14 79 2 76 0 72 72 80 1 76 72 0
-                                              81 2 72 0 0 69 82 1 84 44 0 85 2
-                                              32 0 14 84 86 1 88 84 0 89 1 84
-                                              62 0 90 1 84 0 14 91 2 88 0 84 84
-                                              92 1 88 84 0 93 2 84 0 0 69 94 1
-                                              102 44 0 103 2 32 0 14 102 104 1
-                                              106 102 0 107 1 102 62 0 108 1
-                                              102 0 14 109 2 106 0 102 102 110
-                                              1 106 102 0 111 2 102 0 0 69 112
-                                              1 114 44 0 115 2 32 0 14 114 116
-                                              1 118 114 0 119 1 114 62 0 120 1
-                                              114 0 14 121 2 118 0 114 114 122
-                                              1 118 114 0 123 2 114 0 0 69 124
-                                              1 126 44 0 127 2 32 0 14 126 128
-                                              1 130 126 0 131 1 126 62 0 132 1
-                                              126 0 14 133 2 130 0 126 126 134
-                                              1 130 126 0 135 2 126 0 0 69 136
-                                              1 0 21 0 42 1 0 0 118 125 1 0 0
-                                              130 137 1 0 0 126 129 1 0 0 106
-                                              113 1 0 0 102 105 1 0 0 114 117 1
-                                              0 0 76 83 1 0 0 88 95 1 0 0 84 87
-                                              1 0 0 60 71 1 0 0 55 59 1 0 0 72
-                                              75 1 0 0 99 100 1 0 0 96 97 1 0 0
-                                              32 101 1 0 13 0 98)))))
+                           (|CoercibleTo| 37))
+                        (|makeByteWordVec2| 134
+                                            '(0 11 0 12 1 14 0 13 15 1 16 14 14
+                                              17 1 20 18 19 21 0 22 18 23 1 16
+                                              24 0 25 0 22 24 26 0 20 19 27 3
+                                              22 18 19 28 29 30 1 11 18 0 31 1
+                                              20 18 19 32 2 22 18 33 24 34 1 20
+                                              18 19 35 1 22 18 24 36 1 19 37 0
+                                              38 1 22 18 37 39 1 29 41 0 42 1
+                                              41 33 0 43 1 19 0 0 44 2 29 0 45
+                                              0 46 2 29 0 0 0 47 2 29 48 0 0 49
+                                              1 33 37 0 50 0 18 0 51 1 52 29 0
+                                              53 2 16 0 19 52 54 0 16 0 55 1 57
+                                              52 0 58 1 52 59 0 60 2 61 48 0 0
+                                              62 1 52 0 19 63 2 57 0 52 52 64 1
+                                              57 52 0 65 2 52 0 0 66 67 1 69 29
+                                              0 70 2 16 0 19 69 71 1 73 69 0 74
+                                              1 69 59 0 75 1 69 0 19 76 2 73 0
+                                              69 69 77 1 73 69 0 78 2 69 0 0 66
+                                              79 1 81 29 0 82 2 16 0 19 81 83 1
+                                              85 81 0 86 1 81 59 0 87 1 81 0 19
+                                              88 2 85 0 81 81 89 1 85 81 0 90 2
+                                              81 0 0 66 91 1 99 29 0 100 2 16 0
+                                              19 99 101 1 103 99 0 104 1 99 59
+                                              0 105 1 99 0 19 106 2 103 0 99 99
+                                              107 1 103 99 0 108 2 99 0 0 66
+                                              109 1 111 29 0 112 2 16 0 19 111
+                                              113 1 115 111 0 116 1 111 59 0
+                                              117 1 111 0 19 118 2 115 0 111
+                                              111 119 1 115 111 0 120 2 111 0 0
+                                              66 121 1 123 29 0 124 2 16 0 19
+                                              123 125 1 127 123 0 128 1 123 59
+                                              0 129 1 123 0 19 130 2 127 0 123
+                                              123 131 1 127 123 0 132 2 123 0 0
+                                              66 133 1 0 18 0 40 1 0 0 115 122
+                                              1 0 0 127 134 1 0 0 123 126 1 0 0
+                                              103 110 1 0 0 99 102 1 0 0 111
+                                              114 1 0 0 73 80 1 0 0 85 92 1 0 0
+                                              81 84 1 0 0 57 68 1 0 0 52 56 1 0
+                                              0 69 72 1 0 0 96 97 1 0 0 93 94 1
+                                              0 0 16 98 1 0 37 0 95)))))
            '|lookupComplete|)) 

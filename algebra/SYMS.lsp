@@ -120,20 +120,19 @@
                (SEQ
                 (LETT |entry| (SPADCALL |symbols| |u| (QREFELT $ 19))
                       |SYMS;printHeader;S$V;24|)
-                (|fortFormatHead| (SPADCALL (QVELT |entry| 1) (QREFELT $ 50))
-                 (SPADCALL |u| (QREFELT $ 51))
-                 (SPADCALL (QVELT |entry| 2) (QREFELT $ 52)))
-                (EXIT (SPADCALL (QVELT |entry| 0) (QREFELT $ 53)))))) 
+                (SPADCALL |u| (QVELT |entry| 1) (QVELT |entry| 2)
+                          (QREFELT $ 51))
+                (EXIT (SPADCALL (QVELT |entry| 0) (QREFELT $ 52)))))) 
 
 (SDEFUN |SYMS;printHeader;SV;25| ((|u| |Symbol|) ($ |Void|))
-        (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 54))) 
+        (SPADCALL |u| (QREFELT $ 9) (QREFELT $ 53))) 
 
 (SDEFUN |SYMS;printHeader;V;26| (($ |Void|))
-        (SPADCALL (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 54))) 
+        (SPADCALL (QREFELT $ 10) (QREFELT $ 9) (QREFELT $ 53))) 
 
 (SDEFUN |SYMS;printTypes;SV;27| ((|u| |Symbol|) ($ |Void|))
         (SPADCALL (QVELT (SPADCALL (QREFELT $ 9) |u| (QREFELT $ 19)) 0)
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 52))) 
 
 (DECLAIM (NOTINLINE |TheSymbolTable;|)) 
 
@@ -160,7 +159,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|TheSymbolTable|) . #1=(|TheSymbolTable|))
-          (LETT $ (GETREFV 58) . #1#)
+          (LETT $ (GETREFV 57) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TheSymbolTable| NIL (CONS 1 $))
@@ -197,40 +196,38 @@
               (|FortranType|) |SYMS;declare!;SFtS$Ft;21|
               |SYMS;declare!;S2Ft;20| (42 . |declare!|) (49 . |declare!|)
               |SYMS;declare!;LFtS$Ft;22| |SYMS;declare!;SFtSFt;23|
-              (56 . |coerce|) (61 . |coerce|) (66 . |coerce|)
-              (71 . |printTypes|) |SYMS;printHeader;S$V;24|
-              |SYMS;printHeader;SV;25| |SYMS;printHeader;V;26|
-              |SYMS;printTypes;SV;27|)
-           '#(|symbolTableOf| 76 |showTheSymbolTable| 82 |returnTypeOf| 86
-              |returnType!| 92 |printTypes| 110 |printHeader| 115
-              |newSubProgram| 130 |endSubProgram| 135 |empty| 139 |declare!|
-              143 |currentSubProgram| 172 |coerce| 176 |clearTheSymbolTable|
-              181 |argumentListOf| 190 |argumentList!| 196)
+              (|FortranCodeTools|) (56 . |fortFormatHead|) (63 . |printTypes|)
+              |SYMS;printHeader;S$V;24| |SYMS;printHeader;SV;25|
+              |SYMS;printHeader;V;26| |SYMS;printTypes;SV;27|)
+           '#(|symbolTableOf| 68 |showTheSymbolTable| 74 |returnTypeOf| 78
+              |returnType!| 84 |printTypes| 102 |printHeader| 107
+              |newSubProgram| 122 |endSubProgram| 127 |empty| 131 |declare!|
+              135 |currentSubProgram| 164 |coerce| 168 |clearTheSymbolTable|
+              173 |argumentListOf| 182 |argumentList!| 188)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS '#((|CoercibleTo| 25))
-                             (|makeByteWordVec2| 57
+                             (|makeByteWordVec2| 56
                                                  '(0 7 0 8 0 11 0 12 2 7 13 14
                                                    0 15 0 16 0 17 3 7 6 0 14 6
                                                    18 2 7 6 0 14 19 1 7 25 0 26
                                                    2 7 30 14 0 31 3 11 43 14 43
-                                                   0 46 3 11 43 22 43 0 47 1 20
-                                                   25 0 50 1 14 25 0 51 1 22 25
-                                                   0 52 1 11 16 0 53 2 0 11 14
-                                                   0 24 0 0 0 28 2 0 20 14 0 21
-                                                   1 0 16 20 42 2 0 16 14 20 41
-                                                   3 0 16 14 20 0 40 1 0 16 14
-                                                   57 0 0 16 56 1 0 16 14 55 2
-                                                   0 16 14 0 54 1 0 16 14 36 0
-                                                   0 14 35 0 0 0 33 3 0 43 14
-                                                   43 14 49 2 0 43 14 43 45 4 0
-                                                   43 14 43 14 0 44 4 0 43 22
-                                                   43 14 0 48 0 0 14 34 1 0 25
-                                                   0 27 0 0 16 29 1 0 16 14 32
-                                                   2 0 22 14 0 23 1 0 16 22 39
-                                                   2 0 16 14 22 38 3 0 16 14 22
-                                                   0 37)))))
+                                                   0 46 3 11 43 22 43 0 47 3 50
+                                                   16 14 20 22 51 1 11 16 0 52
+                                                   2 0 11 14 0 24 0 0 0 28 2 0
+                                                   20 14 0 21 1 0 16 20 42 2 0
+                                                   16 14 20 41 3 0 16 14 20 0
+                                                   40 1 0 16 14 56 0 0 16 55 1
+                                                   0 16 14 54 2 0 16 14 0 53 1
+                                                   0 16 14 36 0 0 14 35 0 0 0
+                                                   33 3 0 43 14 43 14 49 2 0 43
+                                                   14 43 45 4 0 43 14 43 14 0
+                                                   44 4 0 43 22 43 14 0 48 0 0
+                                                   14 34 1 0 25 0 27 0 0 16 29
+                                                   1 0 16 14 32 2 0 22 14 0 23
+                                                   1 0 16 22 39 2 0 16 14 22 38
+                                                   3 0 16 14 22 0 37)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TheSymbolTable| 'NILADIC T) 

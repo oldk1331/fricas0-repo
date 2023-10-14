@@ -3902,6 +3902,28 @@
         (FORCE-OUTPUT |$formulaOutputStream|)))
       NIL))))
  
+; fortranFormat expr ==
+;     ff := '(FortranFormat)
+;     formatFn :=
+;         getFunctionFromDomain("convert", ff, [$OutputForm, $Integer])
+;     displayFn := getFunctionFromDomain("display", ff, [ff])
+;     SPADCALL(SPADCALL(expr, $IOindex, formatFn), displayFn)
+;     if not $collectOutput then TERPRI $fortranOutputStream
+;     FORCE_-OUTPUT $fortranOutputStream
+ 
+(DEFUN |fortranFormat| (|expr|)
+  (PROG (|ff| |formatFn| |displayFn|)
+    (RETURN
+     (PROGN
+      (SETQ |ff| '(|FortranFormat|))
+      (SETQ |formatFn|
+              (|getFunctionFromDomain| '|convert| |ff|
+               (LIST |$OutputForm| |$Integer|)))
+      (SETQ |displayFn| (|getFunctionFromDomain| '|display| |ff| (LIST |ff|)))
+      (SPADCALL (SPADCALL |expr| |$IOindex| |formatFn|) |displayFn|)
+      (COND ((NULL |$collectOutput|) (TERPRI |$fortranOutputStream|)))
+      (FORCE-OUTPUT |$fortranOutputStream|)))))
+ 
 ; texFormat expr ==
 ;   ioHook("startTeXOutput")
 ;   tf := '(TexFormat)
@@ -4048,10 +4070,7 @@
 ;   T := coerceInteractive(objNewWrap(expr,domain),$OutputForm) =>
 ;     x := objValUnwrap T
 ;     if $formulaFormat then formulaFormat x
-;     if $fortranFormat then
-;       dispfortexp x
-;       if not $collectOutput then TERPRI $fortranOutputStream
-;       FORCE_-OUTPUT $fortranOutputStream
+;     if $fortranFormat then fortranFormat x
 ;     if $algebraFormat then
 ;       mathprintWithNumber x
 ;     if $texFormat     then texFormat x
@@ -4097,10 +4116,7 @@
         (PROGN
          (SETQ |x| (|objValUnwrap| T$))
          (COND (|$formulaFormat| (|formulaFormat| |x|)))
-         (COND
-          (|$fortranFormat| (|dispfortexp| |x|)
-           (COND ((NULL |$collectOutput|) (TERPRI |$fortranOutputStream|)))
-           (FORCE-OUTPUT |$fortranOutputStream|)))
+         (COND (|$fortranFormat| (|fortranFormat| |x|)))
          (COND (|$algebraFormat| (|mathprintWithNumber| |x|)))
          (COND (|$texFormat| (|texFormat| |x|)))
          (COND (|$mathmlFormat| (|mathmlFormat| |x|)))

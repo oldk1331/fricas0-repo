@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4778 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4791 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -113,14 +113,15 @@
  |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
  |FortranMatrixFunctionCategory| |FreeMonoid| |FortranMachineTypeCategory|
  |FileName| |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
- |FortranOutputStackPackage| |FindOrderFinite| |ScriptFormulaFormat|
- |ScriptFormulaFormat1| |FortranPackage| |FortranProgramCategory|
- |FortranFunctionCategory| |FortranProgram| |FullPartialFractionExpansion|
- |FullyPatternMatchable| |FieldOfPrimeCharacteristic&|
- |FieldOfPrimeCharacteristic| |FloatingPointSystem&| |FloatingPointSystem|
- |Factored| |FactoredFunctions2| |Fraction| |FractionFunctions2|
- |FramedAlgebra&| |FramedAlgebra| |FullyRetractableTo&| |FullyRetractableTo|
- |FractionalIdeal| |FractionalIdealFunctions2| |FramedModule|
+ |FortranOutputStackPackage| |FindOrderFinite| |OutputFormaterCategory|
+ |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranPackage|
+ |FortranProgramCategory| |FortranFunctionCategory| |FortranFormat|
+ |FortranProgram| |FullPartialFractionExpansion| |FullyPatternMatchable|
+ |FieldOfPrimeCharacteristic&| |FieldOfPrimeCharacteristic|
+ |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
+ |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
+ |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
+ |FractionalIdealFunctions2| |FramedModule|
  |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
@@ -524,36 +525,40 @@
  |common| |printStatement| |save| |stop| |block| |cond| |returns| |call|
  |comment| |continue| |gotoJump| |repeatUntilLoop| |whileLoop| |forLoop| |sin?|
  |zeroVector| |zeroSquareMatrix| |identitySquareMatrix| |fort_clean_lines|
- |do_with_error_env2| |do_with_error_env0| |do_with_error_env1|
- |expression2Fortran1| |statement2Fortran| |expression2Fortran| |getStatement|
- |changeExprLength| |displayLines1| |dispStatement| |lSpaceBasis| |finiteBasis|
- |principal?| |divisor| |weierstrassHalfPeriods| |weierstrassInvariants|
- |modularInvariantJ| |landen1| |landen2| |landen| |kprod| |sn2|
- |useNagFunctions| |rationalPoints| |nonSingularModel| |algSplitSimple|
- |hyperelliptic| |elliptic| |integralDerivationMatrix| |integralRepresents|
- |integralCoordinates| |yCoordinates| |inverseIntegralMatrixAtInfinity|
- |integralMatrixAtInfinity| |inverseIntegralMatrix| |integralMatrix|
- |reduceBasisAtInfinity| |normalizeAtInfinity| |complementaryBasis| |integral?|
- |integralAtInfinity?| |integralBasisAtInfinity| |ramified?|
- |ramifiedAtInfinity?| |singular?| |singularAtInfinity?| |branchPoint?|
- |branchPointAtInfinity?| |rationalPoint?| |absolutelyIrreducible?| |genus|
- |getZechTable| |createZechTable| |createMultiplicationTable|
- |createMultiplicationMatrix| |createLowComplexityTable|
- |createLowComplexityNormalBasis| |fffg| |generalCoefficient| |ShiftAction|
- |ShiftC| |DiffAction| |DiffC| |qShiftAction| |qShiftC| |genVectorStream|
- |genVectorStream2| |generalInterpolation| |representationType|
- |createPrimitiveElement| |tableForDiscreteLogarithm|
- |factorsOfCyclicGroupSize| |sizeMultiplication| |getMultiplicationMatrix|
- |getMultiplicationTable| |primitive?| |numberOfIrreduciblePoly|
- |numberOfPrimitivePoly| |numberOfNormalPoly| |createIrreduciblePoly|
- |createPrimitivePoly| |createNormalPoly| |createNormalPrimitivePoly|
- |createPrimitiveNormalPoly| |nextIrreduciblePoly| |nextPrimitivePoly|
- |nextNormalPoly| |nextNormalPrimitivePoly| |nextPrimitiveNormalPoly|
- |leastAffineMultiple| |reducedQPowers| |rootOfIrreduciblePoly| |mapContra|
- |looseEquals| |createY| |createX| |createWidth| |diagramHeight| |diagramWidth|
- |deepDiagramSvg| |diagramSvg| |subdiagramSvg| |isDirected?| |isFunctional?|
- |distanceMatrix| |laplacianMatrix| |adjacencyMatrix| |incidenceMatrix|
- |isAcyclic?| |loopsArrows| |loopsAtNode| |loopsNodes| |spanningForestNode|
+ |do_with_error_env3| |do_with_error_env2| |do_with_error_env0|
+ |do_with_error_env1| |expression2Fortran1| |statement2Fortran|
+ |expression2Fortran| |getStatement| |changeExprLength| |displayLines|
+ |displayLines1| |dispStatement| |fortFormatHead| |fortFormatTypeLines|
+ |fort_format_types| |indentFortLevel| |checkType| |newFortranTempVar|
+ |clear_used_intrinsics| |get_used_intrinsics| |get_fort_indent| |lSpaceBasis|
+ |finiteBasis| |principal?| |divisor| |weierstrassHalfPeriods|
+ |weierstrassInvariants| |modularInvariantJ| |landen1| |landen2| |landen|
+ |kprod| |sn2| |useNagFunctions| |rationalPoints| |nonSingularModel|
+ |algSplitSimple| |hyperelliptic| |elliptic| |integralDerivationMatrix|
+ |integralRepresents| |integralCoordinates| |yCoordinates|
+ |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
+ |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
+ |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|
+ |singularAtInfinity?| |branchPoint?| |branchPointAtInfinity?| |rationalPoint?|
+ |absolutelyIrreducible?| |genus| |getZechTable| |createZechTable|
+ |createMultiplicationTable| |createMultiplicationMatrix|
+ |createLowComplexityTable| |createLowComplexityNormalBasis| |fffg|
+ |generalCoefficient| |ShiftAction| |ShiftC| |DiffAction| |DiffC|
+ |qShiftAction| |qShiftC| |genVectorStream| |genVectorStream2|
+ |generalInterpolation| |representationType| |createPrimitiveElement|
+ |tableForDiscreteLogarithm| |factorsOfCyclicGroupSize| |sizeMultiplication|
+ |getMultiplicationMatrix| |getMultiplicationTable| |primitive?|
+ |numberOfIrreduciblePoly| |numberOfPrimitivePoly| |numberOfNormalPoly|
+ |createIrreduciblePoly| |createPrimitivePoly| |createNormalPoly|
+ |createNormalPrimitivePoly| |createPrimitiveNormalPoly| |nextIrreduciblePoly|
+ |nextPrimitivePoly| |nextNormalPoly| |nextNormalPrimitivePoly|
+ |nextPrimitiveNormalPoly| |leastAffineMultiple| |reducedQPowers|
+ |rootOfIrreduciblePoly| |mapContra| |looseEquals| |createY| |createX|
+ |createWidth| |diagramHeight| |diagramWidth| |deepDiagramSvg| |diagramSvg|
+ |subdiagramSvg| |isDirected?| |isFunctional?| |distanceMatrix|
+ |laplacianMatrix| |adjacencyMatrix| |incidenceMatrix| |isAcyclic?|
+ |loopsArrows| |loopsAtNode| |loopsNodes| |spanningForestNode|
  |spanningTreeNode| |spanningForestArrow| |spanningTreeArrow| |routeArrows|
  |routeNodes| |arrowsToArrow| |arrowsFromArrow| |nodeToArrow| |nodeFromArrow|
  |arrowsToNode| |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree|

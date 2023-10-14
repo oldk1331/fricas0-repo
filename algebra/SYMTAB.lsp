@@ -443,7 +443,8 @@
                (SEQ (LETT |tl| (SPADCALL |ty| |tab| (QREFELT $ 40)) . #4#)
                     (LETT |otl| (|SYMTAB;outForm| |tl| $) . #4#)
                     (EXIT
-                     (|fortFormatTypes| (SPADCALL |ty| (QREFELT $ 62)) |otl|)))
+                     (SPADCALL (SPADCALL |ty| (QREFELT $ 62)) |otl|
+                               (QREFELT $ 65))))
                (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
           (LETT |el|
                 (PROGN
@@ -460,8 +461,8 @@
                       (LETT #1# (CDR #1#) . #4#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
                 . #4#)
-          (|fortFormatTypes| "EXTERNAL" |el|)
-          (EXIT (SPADCALL (QREFELT $ 64)))))) 
+          (SPADCALL "EXTERNAL" |el| (QREFELT $ 65))
+          (EXIT (SPADCALL (QREFELT $ 66)))))) 
 
 (DECLAIM (NOTINLINE |SymbolTable;|)) 
 
@@ -487,7 +488,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|SymbolTable|) . #1=(|SymbolTable|))
-          (LETT $ (GETREFV 66) . #1#)
+          (LETT $ (GETREFV 68) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SymbolTable| NIL (CONS 1 $))
@@ -519,15 +520,16 @@
               |SYMTAB;newTypeLists;$Se;13| (|String|) (93 . |coerce|)
               (|List| 39) |SYMTAB;typeLists;$L;14| (98 . |coerce|)
               (103 . |coerce|) (|List| 7) (108 . |coerce|) (113 . |coerce|)
-              (|Void|) (118 . |void|) |SYMTAB;printTypes;$V;18|)
-           '#(|typeLists| 122 |typeList| 127 |symbolTable| 133 |printTypes| 138
-              |parametersOf| 143 |newTypeLists| 148 |fortranTypeOf| 153
-              |externalList| 159 |empty| 164 |declare!| 168 |coerce| 182)
+              (|Void|) (|FortranCodeTools|) (118 . |fort_format_types|)
+              (124 . |void|) |SYMTAB;printTypes;$V;18|)
+           '#(|typeLists| 128 |typeList| 133 |symbolTable| 139 |printTypes| 144
+              |parametersOf| 149 |newTypeLists| 154 |fortranTypeOf| 159
+              |externalList| 165 |empty| 170 |declare!| 174 |coerce| 188)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS '#((|CoercibleTo| 7))
-                             (|makeByteWordVec2| 65
+                             (|makeByteWordVec2| 67
                                                  '(1 6 7 0 8 1 6 0 13 14 0 6 0
                                                    16 1 6 18 0 19 3 6 21 0 22
                                                    21 23 2 6 21 0 22 26 1 21 28
@@ -538,13 +540,14 @@
                                                    42 0 22 49 1 33 42 0 50 1 42
                                                    0 51 52 1 33 0 54 55 1 22 7
                                                    0 58 1 46 7 0 59 1 60 7 0 61
-                                                   1 33 7 0 62 0 63 0 64 1 0 56
-                                                   0 57 2 0 39 33 0 40 1 0 0 13
-                                                   15 1 0 63 0 65 1 0 18 0 20 1
-                                                   0 42 0 53 2 0 21 22 0 27 1 0
-                                                   18 0 30 0 0 0 17 3 0 21 22
-                                                   21 0 24 3 0 21 18 21 0 25 1
-                                                   0 7 0 9 1 0 10 0 11)))))
+                                                   1 33 54 0 62 2 64 63 54 60
+                                                   65 0 63 0 66 1 0 56 0 57 2 0
+                                                   39 33 0 40 1 0 0 13 15 1 0
+                                                   63 0 67 1 0 18 0 20 1 0 42 0
+                                                   53 2 0 21 22 0 27 1 0 18 0
+                                                   30 0 0 0 17 3 0 21 22 21 0
+                                                   24 3 0 21 18 21 0 25 1 0 7 0
+                                                   9 1 0 10 0 11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SymbolTable| 'NILADIC T) 
