@@ -82,8 +82,7 @@
                               (VECTOR $ |d1|))
                         1 $)
                        . #2#)
-                 (SPADCALL (SPADCALL |ss| (QREFELT $ 43)) (QREFELT $ 45))
-                 (EXIT (SPADCALL |ss| (QREFELT $ 47))))))))))))) 
+                 (EXIT (SPADCALL |ss| (QREFELT $ 43))))))))))))) 
 
 (SDEFUN |TSEREXPG;taylor_via_deriv;UPSLLUPS;2!0| ((|y| NIL) ($$ NIL))
         (PROG (|d1| $)
@@ -106,11 +105,11 @@
                          (SPADCALL
                           (CONS #'|TSEREXPG;taylor_via_lode;LUPSLUPS;3!0|
                                 (VECTOR |la| $))
-                          |lc| (QREFELT $ 56))
+                          |lc| (QREFELT $ 52))
                          |TSEREXPG;taylor_via_lode;LUPSLUPS;3|)
                    (EXIT
-                    (SPADCALL (SPADCALL |ts| (QREFELT $ 58)) |z|
-                              (QREFELT $ 59))))))))) 
+                    (SPADCALL (SPADCALL |ts| (QREFELT $ 54)) |z|
+                              (QREFELT $ 55))))))))) 
 
 (SDEFUN |TSEREXPG;taylor_via_lode;LUPSLUPS;3!0| ((|ls| NIL) ($$ NIL))
         (PROG ($ |la|)
@@ -122,7 +121,7 @@
              ((#2=#:G138 NIL) (|s| NIL) (#3=#:G139 NIL) (|a| NIL)
               (#4=#:G137 NIL))
              (SEQ
-              (SPADCALL (ELT $ 48)
+              (SPADCALL (ELT $ 44)
                         (PROGN
                          (LETT #4# NIL NIL)
                          (SEQ (LETT |a| NIL NIL) (LETT #3# |la| NIL)
@@ -136,14 +135,14 @@
                               (SEQ
                                (EXIT
                                 (LETT #4#
-                                      (CONS (SPADCALL |s| |a| (QREFELT $ 49))
+                                      (CONS (SPADCALL |s| |a| (QREFELT $ 45))
                                             #4#)
                                       NIL)))
                               (LETT #2#
                                     (PROG1 (CDR #2#) (LETT #3# (CDR #3#) NIL))
                                     NIL)
                               (GO G190) G191 (EXIT (NREVERSE #4#))))
-                        (QREFELT $ 52)))))))) 
+                        (QREFELT $ 48)))))))) 
 
 (SDEFUN |TSEREXPG;applyTaylor;M2UPS;4|
         ((|g| |Mapping| UTS UTS) (|f| UPS) ($ UPS))
@@ -163,23 +162,26 @@
                           . #1#)
                     (LETT |sg|
                           (SPADCALL
-                           (SPADCALL (SPADCALL |c0| (QREFELT $ 61))
+                           (SPADCALL (SPADCALL |c0| (QREFELT $ 57))
                                      (SPADCALL (|spadConstant| $ 10) 1
-                                               (QREFELT $ 62))
-                                     (QREFELT $ 48))
+                                               (QREFELT $ 58))
+                                     (QREFELT $ 44))
                            |g|)
                           . #1#)
                     (EXIT
-                     (SPADCALL (SPADCALL |sg| (QREFELT $ 58))
-                               (SPADCALL |f| (SPADCALL |c0| (QREFELT $ 63))
-                                         (QREFELT $ 64))
-                               (QREFELT $ 59)))))))))) 
+                     (SPADCALL (SPADCALL |sg| (QREFELT $ 54))
+                               (SPADCALL |f| (SPADCALL |c0| (QREFELT $ 59))
+                                         (QREFELT $ 60))
+                               (QREFELT $ 55)))))))))) 
+
+(SDEFUN |TSEREXPG;apply_taylor;UTS2UPS;5| ((|g| UTS) (|f| UPS) ($ UPS))
+        (SPADCALL (SPADCALL |g| (QREFELT $ 54)) |f| (QREFELT $ 55))) 
 
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionGeneralized;|)) 
 
-(DEFUN |TaylorSeriesExpansionGeneralized| (&REST #1=#:G147)
+(DEFUN |TaylorSeriesExpansionGeneralized| (&REST #1=#:G148)
   (SPROG NIL
-         (PROG (#2=#:G148)
+         (PROG (#2=#:G149)
            (RETURN
             (COND
              ((LETT #2#
@@ -211,7 +213,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|TaylorSeriesExpansionGeneralized| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 67) . #1#)
+    (LETT $ (GETREFV 64) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|TaylorSeriesExpansionGeneralized|
@@ -234,16 +236,16 @@
               (59 . |Zero|) (63 . |removeZeros|) (69 . |Zero|) (73 . |order|)
               (79 . <) (85 . |coefficient|) (91 . ~=) (97 . |degree|) (102 . >)
               (108 . |reductum|) (|List| 8) (|Mapping| 6 6) (|List| 38)
-              |TSEREXPG;taylor_via_deriv;UPSLLUPS;2| (113 . |map|)
-              (|OutputForm|) (119 . |coerce|) (|Void|) (124 . |print|)
-              (|Stream| $) (129 . |infsum|) (134 . +) (140 . *)
-              (|Mapping| 9 9 9) (|List| 9) (146 . |reduce|) (|Mapping| 9 51)
-              (|List| 6) (|UnivariateTaylorSeriesODESolver| 6 9) (152 . |ode|)
-              (|Stream| 6) (158 . |coefficients|) (163 . |apply_taylor|)
-              |TSEREXPG;taylor_via_lode;LUPSLUPS;3| (169 . |coerce|)
-              (174 . |monomial|) (180 . |coerce|) (185 . -) (|Mapping| 9 9)
-              |TSEREXPG;applyTaylor;M2UPS;4|)
-           '#(|taylor_via_lode| 191 |taylor_via_deriv| 198 |applyTaylor| 212)
+              |TSEREXPG;taylor_via_deriv;UPSLLUPS;2| (113 . |map|) (|Stream| $)
+              (119 . |infsum|) (124 . +) (130 . *) (|Mapping| 9 9 9) (|List| 9)
+              (136 . |reduce|) (|Mapping| 9 47) (|List| 6)
+              (|UnivariateTaylorSeriesODESolver| 6 9) (142 . |ode|)
+              (|Stream| 6) (148 . |coefficients|) (153 . |apply_taylor|)
+              |TSEREXPG;taylor_via_lode;LUPSLUPS;3| (159 . |coerce|)
+              (164 . |monomial|) (170 . |coerce|) (175 . -) (|Mapping| 9 9)
+              |TSEREXPG;applyTaylor;M2UPS;4| |TSEREXPG;apply_taylor;UTS2UPS;5|)
+           '#(|taylor_via_lode| 181 |taylor_via_deriv| 188 |apply_taylor| 202
+              |applyTaylor| 208)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(|TaylorSeriesExpansion&|)
@@ -251,7 +253,7 @@
                         '#((|TaylorSeriesExpansion| 6 7
                                                     (|SingletonAsOrderedSet|) 8
                                                     9))
-                        (|makeByteWordVec2| 66
+                        (|makeByteWordVec2| 63
                                             '(0 6 0 10 0 8 0 11 0 12 0 13 2 14
                                               0 12 12 15 2 6 0 14 0 16 2 8 0 0
                                               0 17 2 8 0 6 0 18 2 12 0 0 0 19 2
@@ -260,12 +262,11 @@
                                               0 29 2 8 7 0 7 30 2 7 24 0 0 31 2
                                               8 6 0 7 32 2 6 24 0 0 33 1 8 7 0
                                               34 2 7 24 0 0 35 1 8 0 0 36 2 8 0
-                                              38 0 41 1 20 42 0 43 1 42 44 0 45
-                                              1 8 0 46 47 2 9 0 0 0 48 2 9 0 0
-                                              0 49 2 51 9 50 0 52 2 55 9 53 54
-                                              56 1 9 57 0 58 2 8 0 57 0 59 1 9
-                                              0 6 61 2 9 0 6 25 62 1 8 0 6 63 2
-                                              8 0 0 0 64 3 0 8 51 8 54 60 3 0 8
-                                              8 37 39 40 3 0 8 6 37 39 1 2 0 8
-                                              65 8 66)))))
+                                              38 0 41 1 8 0 42 43 2 9 0 0 0 44
+                                              2 9 0 0 0 45 2 47 9 46 0 48 2 51
+                                              9 49 50 52 1 9 53 0 54 2 8 0 53 0
+                                              55 1 9 0 6 57 2 9 0 6 25 58 1 8 0
+                                              6 59 2 8 0 0 0 60 3 0 8 47 8 50
+                                              56 3 0 8 8 37 39 40 3 0 8 6 37 39
+                                              1 2 0 8 9 8 63 2 0 8 61 8 62)))))
            '|lookupComplete|)) 

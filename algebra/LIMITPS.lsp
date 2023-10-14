@@ -1,6 +1,6 @@
 
 (SDEFUN |LIMITPS;is_exp_log| ((|fcn| FE) (|x| |Symbol|) ($ |Boolean|))
-        (SPROG ((#1=#:G242 NIL) (|nm| (|Symbol|)) (#2=#:G243 NIL) (|k| NIL))
+        (SPROG ((#1=#:G278 NIL) (|nm| (|Symbol|)) (#2=#:G279 NIL) (|k| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -19,7 +19,58 @@
                               (OR (EQUAL |nm| '|log|)
                                   (OR (EQUAL |nm| '|exp|)
                                       (OR (EQUAL |nm| '|%power|)
-                                          (EQUAL |nm| '|nthRoot|)))))
+                                          (OR (EQUAL |nm| '|nthRoot|)
+                                              (OR (EQUAL |nm| '|cosh|)
+                                                  (OR (EQUAL |nm| '|coth|)
+                                                      (OR (EQUAL |nm| '|sinh|)
+                                                          (OR
+                                                           (EQUAL |nm| '|tanh|)
+                                                           (OR
+                                                            (EQUAL |nm|
+                                                                   '|sech|)
+                                                            (OR
+                                                             (EQUAL |nm|
+                                                                    '|csch|)
+                                                             (OR
+                                                              (EQUAL |nm|
+                                                                     '|acosh|)
+                                                              (OR
+                                                               (EQUAL |nm|
+                                                                      '|acoth|)
+                                                               (OR
+                                                                (EQUAL |nm|
+                                                                       '|asinh|)
+                                                                (OR
+                                                                 (EQUAL |nm|
+                                                                        '|atanh|)
+                                                                 (OR
+                                                                  (EQUAL |nm|
+                                                                         '|asech|)
+                                                                  (OR
+                                                                   (EQUAL |nm|
+                                                                          '|acsch|)
+                                                                   (OR
+                                                                    (EQUAL |nm|
+                                                                           '|Ei|)
+                                                                    (OR
+                                                                     (EQUAL
+                                                                      |nm|
+                                                                      '|erf|)
+                                                                     (OR
+                                                                      (EQUAL
+                                                                       |nm|
+                                                                       '|erfi|)
+                                                                      (OR
+                                                                       (EQUAL
+                                                                        |nm|
+                                                                        '|li|)
+                                                                       (OR
+                                                                        (EQUAL
+                                                                         |nm|
+                                                                         '|Gamma|)
+                                                                        (EQUAL
+                                                                         |nm|
+                                                                         '|digamma|)))))))))))))))))))))))
                           (EXIT "iterate")))
                         (EXIT
                          (COND
@@ -44,7 +95,7 @@
 (SDEFUN |LIMITPS;firstNonLogPtr|
         ((|fcn| FE) (|x| |Symbol|) ($ |List| (|Kernel| FE)))
         (SPROG
-         ((|list| (|List| (|Kernel| FE))) (#1=#:G254 NIL)
+         ((|list| (|List| (|Kernel| FE))) (#1=#:G290 NIL)
           (|ker| (|Kernel| FE)))
          (SEQ
           (EXIT
@@ -173,11 +224,11 @@
         ((|fcn| FE) (|x| |Symbol|)
          ($ |Union| (|OrderedCompletion| FE) #1="failed"))
         (SPROG
-         ((#2=#:G310 NIL) (|den| (FE)) (|num| (FE)) (|finVal| (FE))
+         ((#2=#:G346 NIL) (|den| (FE)) (|num| (FE)) (|finVal| (FE))
           (|valu| (|Union| FE "failed")) (|val| (|OrderedCompletion| FE))
-          (|fval| (|Union| (|OrderedCompletion| FE) #1#)) (#3=#:G313 NIL)
-          (|k| NIL) (|xkers| (|List| (|Kernel| FE))) (#4=#:G312 NIL)
-          (#5=#:G311 NIL))
+          (|fval| (|Union| (|OrderedCompletion| FE) #1#)) (#3=#:G349 NIL)
+          (|k| NIL) (|xkers| (|List| (|Kernel| FE))) (#4=#:G348 NIL)
+          (#5=#:G347 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -287,8 +338,8 @@
           (|eq| (|Equation| FE)) (|vv| (|Symbol|))
           (|fval| (|Union| (|OrderedCompletion| FE) #1#))
           (|expKer| (|Kernel| FE)) (|expKers| (|List| #2=(|Kernel| FE)))
-          (#3=#:G337 NIL) (|k| NIL) (#4=#:G336 NIL) (|xkers| (|List| #2#))
-          (#5=#:G335 NIL) (#6=#:G334 NIL) (|nfcn| (FE)))
+          (#3=#:G373 NIL) (|k| NIL) (#4=#:G372 NIL) (|xkers| (|List| #2#))
+          (#5=#:G371 NIL) (#6=#:G370 NIL) (|nfcn| (FE)))
          (SEQ
           (LETT |nfcn| (SPADCALL |fcn| (QREFELT $ 45))
                 . #7=(|LIMITPS;specialLimitNormalize|))
@@ -404,8 +455,8 @@
           (|argLim| (|OrderedCompletion| FE))
           (|lim| (|Union| (|OrderedCompletion| FE) #1#)) (|cc| (FE))
           (|eq| (|Equation| FE)) (|vv| (|Symbol|)) (|ker| (|Kernel| FE))
-          (|xkers| (|List| (|Kernel| FE))) (#2=#:G353 NIL) (|k| NIL)
-          (#3=#:G352 NIL))
+          (|xkers| (|List| (|Kernel| FE))) (#2=#:G389 NIL) (|k| NIL)
+          (#3=#:G388 NIL))
          (SEQ
           (LETT |xkers|
                 (PROGN
@@ -480,7 +531,7 @@
           (|lim| (|OrderedCompletion| FE))
           (|limm| (|Union| (|OrderedCompletion| FE) #1#)) (|arg| (FE))
           (|args| (|List| FE)) (|argLim| (|OrderedCompletion| FE))
-          (#2=#:G420 NIL) (|li| (FE)) (#3=#:G359 NIL))
+          (#2=#:G456 NIL) (|li| (FE)) (#3=#:G395 NIL))
          (SEQ
           (EXIT
            (COND
@@ -1018,7 +1069,7 @@
          (CONS (|function| |LIMITPS;limit3|) $) $)) 
 
 (SDEFUN |LIMITPS;anyRootsOrAtrigs?| ((|fcn| FE) ($ |Boolean|))
-        (SPROG ((#1=#:G474 NIL) (#2=#:G481 NIL) (#3=#:G482 NIL) (|kernel| NIL))
+        (SPROG ((#1=#:G510 NIL) (#2=#:G517 NIL) (#3=#:G518 NIL) (|kernel| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1056,7 +1107,7 @@
         ((|fcn| FE) (|x| |Symbol|)
          ($ |Union| (|OnePointCompletion| FE) "failed"))
         (SPROG
-         ((|answer| (FE)) (|lim| (FE)) (#1=#:G509 NIL) (|uls| (|Uls|))
+         ((|answer| (FE)) (|lim| (FE)) (#1=#:G545 NIL) (|uls| (|Uls|))
           (|lseries|
            (|Union| (|:| |%series| |Uls|)
                     (|:| |%problem|
@@ -1555,7 +1606,7 @@
            (|:| |rightHandLimit| (|Union| (|OrderedCompletion| FE) #1#)))
           "failed"))
         (SPROG
-         ((|answer| (FE)) (|lim| (|Union| FE "failed")) (#2=#:G578 NIL)
+         ((|answer| (FE)) (|lim| (|Union| FE "failed")) (#2=#:G614 NIL)
           (|cl| (FE)) (|ordl| (|Integer|)) (|uls| (|Uls|))
           (|right| #3=(|Union| (|OrderedCompletion| FE) #1#)) (|left| #3#)
           (|fcn0| (FE)) (|xK| (|Kernel| FE)) (|problem| #4=(|String|))
@@ -2159,7 +2210,7 @@
          ($ |Union| (|OrderedCompletion| FE) #1="failed"))
         (SPROG
          ((|xLim| (|Union| (|OrderedCompletion| FE) #1#)) (|answer| (FE))
-          (|lim| (|Union| FE "failed")) (#2=#:G617 NIL) (|cl| (FE))
+          (|lim| (|Union| FE "failed")) (#2=#:G653 NIL) (|cl| (FE))
           (|ordl| (|Integer|)) (|uls| (|Uls|)) (|pp| #3=(|String|))
           (|ff| #4=(|String|))
           (|trouble| #5=(|Record| (|:| |func| #4#) (|:| |prob| #3#)))
@@ -2712,9 +2763,9 @@
 
 (DECLAIM (NOTINLINE |PowerSeriesLimitPackage;|)) 
 
-(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G665)
+(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G701)
   (SPROG NIL
-         (PROG (#2=#:G666)
+         (PROG (#2=#:G702)
            (RETURN
             (COND
              ((LETT #2#

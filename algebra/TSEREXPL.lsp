@@ -41,11 +41,15 @@
         (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 22))
                   (QREFELT $ 15))) 
 
+(SDEFUN |TSEREXPL;apply_taylor;UTS2ULS;4| ((|g| UTS) (|f| ULS) ($ ULS))
+        (SPADCALL (SPADCALL |g| (SPADCALL |f| (QREFELT $ 9)) (QREFELT $ 24))
+                  (QREFELT $ 15))) 
+
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionLaurent;|)) 
 
-(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G112)
+(DEFUN |TaylorSeriesExpansionLaurent| (&REST #1=#:G113)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G114)
            (RETURN
             (COND
              ((LETT #2#
@@ -73,7 +77,7 @@
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|TaylorSeriesExpansionLaurent| DV$1 DV$2 DV$3)
                 . #1#)
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TaylorSeriesExpansionLaurent|
@@ -94,18 +98,21 @@
               |TSEREXPL;taylor_via_deriv;ULSLLULS;1| (|List| 6)
               (17 . |taylor_via_lode|) |TSEREXPL;taylor_via_lode;LULSLULS;2|
               (|Mapping| 7 7) (24 . |applyTaylor|)
-              |TSEREXPL;applyTaylor;M2ULS;3|)
-           '#(|taylor_via_lode| 30 |taylor_via_deriv| 37 |applyTaylor| 51) 'NIL
+              |TSEREXPL;applyTaylor;M2ULS;3| (30 . |apply_taylor|)
+              |TSEREXPL;apply_taylor;UTS2ULS;4|)
+           '#(|taylor_via_lode| 36 |taylor_via_deriv| 43 |apply_taylor| 57
+              |applyTaylor| 63)
+           'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(|TaylorSeriesExpansion&|)
                        (CONS
                         '#((|TaylorSeriesExpansion| 6 (|Integer|)
                                                     (|SingletonAsOrderedSet|) 8
                                                     7))
-                        (|makeByteWordVec2| 23
+                        (|makeByteWordVec2| 25
                                             '(1 8 7 0 9 3 13 7 7 10 12 14 1 8 0
                                               7 15 3 13 7 10 7 18 19 2 13 7 21
-                                              7 22 3 0 8 10 8 18 20 3 0 8 8 16
-                                              12 17 3 0 8 6 16 12 1 2 0 8 21 8
-                                              23)))))
+                                              7 22 2 13 7 7 7 24 3 0 8 10 8 18
+                                              20 3 0 8 8 16 12 17 3 0 8 6 16 12
+                                              1 2 0 8 7 8 25 2 0 8 21 8 23)))))
            '|lookupComplete|)) 

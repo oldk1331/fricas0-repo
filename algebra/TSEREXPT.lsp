@@ -151,11 +151,14 @@
 (SDEFUN |TSEREXPT;applyTaylor;M2UTS;4|
         ((|g| |Mapping| UTS UTS) (|f| UTS) ($ UTS)) (SPADCALL |f| |g|)) 
 
+(SDEFUN |TSEREXPT;apply_taylor;3UTS;5| ((|g| UTS) (|f| UTS) ($ UTS))
+        (SPADCALL |g| |f| (QREFELT $ 47))) 
+
 (DECLAIM (NOTINLINE |TaylorSeriesExpansionTaylor;|)) 
 
-(DEFUN |TaylorSeriesExpansionTaylor| (&REST #1=#:G150)
+(DEFUN |TaylorSeriesExpansionTaylor| (&REST #1=#:G151)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G152)
            (RETURN
             (COND
              ((LETT #2#
@@ -181,7 +184,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|TaylorSeriesExpansionTaylor|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|TaylorSeriesExpansionTaylor| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT $ (GETREFV 52) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TaylorSeriesExpansionTaylor|
@@ -206,8 +209,10 @@
               (|Mapping| 7 7 7) (113 . |reduce|) (|Mapping| 7 28) (|List| 6)
               (|UnivariateTaylorSeriesODESolver| 6 7) (119 . |ode|)
               (125 . |elt|) |TSEREXPT;taylor_via_lode;LUTSLUTS;3|
-              (|Mapping| 7 7) |TSEREXPT;applyTaylor;M2UTS;4|)
-           '#(|taylor_via_lode| 131 |taylor_via_deriv| 138 |applyTaylor| 152)
+              (|Mapping| 7 7) |TSEREXPT;applyTaylor;M2UTS;4|
+              |TSEREXPT;apply_taylor;3UTS;5|)
+           '#(|taylor_via_lode| 131 |taylor_via_deriv| 138 |apply_taylor| 152
+              |applyTaylor| 158)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(|TaylorSeriesExpansion&|)
@@ -215,7 +220,7 @@
                         '#((|TaylorSeriesExpansion| 6 25
                                                     (|SingletonAsOrderedSet|) 7
                                                     7))
-                        (|makeByteWordVec2| 50
+                        (|makeByteWordVec2| 51
                                             '(0 6 0 8 0 7 0 9 0 10 0 11 2 12 0
                                               10 10 13 2 6 0 12 0 14 2 16 15 15
                                               15 17 2 16 15 6 15 18 2 10 0 0 0
@@ -227,5 +232,6 @@
                                               2 7 0 0 0 40 2 28 7 41 0 42 2 45
                                               7 43 44 46 2 7 0 0 0 47 3 0 7 28
                                               7 44 48 3 0 7 7 28 30 31 3 0 7 6
-                                              28 30 1 2 0 7 49 7 50)))))
+                                              28 30 1 2 0 7 7 7 51 2 0 7 49 7
+                                              50)))))
            '|lookupComplete|)) 
