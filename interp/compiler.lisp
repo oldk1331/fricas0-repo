@@ -1467,7 +1467,6 @@
 ;     domain="Lisp" =>
 ;       --op'='QUOTE and null rest argl => [first argl,m,e]
 ;       [[op',:[([.,.,e]:= compOrCroak(x,$EmptyMode,e)).expr for x in argl]],m,e]
-;     domain = $OutputForm and op'="construct" => compExpressionList(argl,m,e)
 ;     (op'="COLLECT") and coerceable(domain,m,e) =>
 ;       (T:= comp([op',:argl],domain,e) or return nil; coerce(T,m))
 ;     -- Next clause added JHD 8/Feb/94: the clause after doesn't work
@@ -1542,8 +1541,6 @@
                      (SETQ |bfVar#29| (CDR |bfVar#29|))))
                   NIL |argl| NIL))
            |m| |e|))
-         ((AND (EQUAL |domain| |$OutputForm|) (EQ |op'| '|construct|))
-          (|compExpressionList| |argl| |m| |e|))
          ((AND (EQ |op'| 'COLLECT) (|coerceable| |domain| |m| |e|))
           (PROGN
            (SETQ T$
