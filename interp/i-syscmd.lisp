@@ -1613,7 +1613,6 @@
 ;     lsp := fnameMake(pathnameDirectory path, pathnameName path, pathnameType path)
 ;     if fnameReadable?(lsp) then
 ;         if not beQuiet then sayKeyedMsg("S2IZ0089", [namestring lsp])
-;         --compileFileQuietly(lsp)
 ;         compile_lib_file lsp
 ;     else
 ;         sayKeyedMsg("S2IL0003", [namestring lsp])
@@ -5274,6 +5273,26 @@
              (|ScanOrPairVec,ScanOrInner| |f| (SPAD-KERNEL-OP |ob|))
              (|ScanOrPairVec,ScanOrInner| |f| (SPAD-KERNEL-ARG |ob|))))
            ((FUNCALL |f| |ob|) (THROW '|ScanOrPairVecAnswer| T)) (#1# NIL)))))
+ 
+; library(args) ==
+;    $newConlist : local := []
+;    original_directory := GET_-CURRENT_-DIRECTORY()
+;    LOCALDATABASE(args, $options)
+;    extendLocalLibdb($newConlist)
+;    CHDIR(original_directory)
+;    terminateSystemCommand()
+ 
+(DEFUN |library| (|args|)
+  (PROG (|$newConlist| |original_directory|)
+    (DECLARE (SPECIAL |$newConlist|))
+    (RETURN
+     (PROGN
+      (SETQ |$newConlist| NIL)
+      (SETQ |original_directory| (GET-CURRENT-DIRECTORY))
+      (LOCALDATABASE |args| |$options|)
+      (|extendLocalLibdb| |$newConlist|)
+      (CHDIR |original_directory|)
+      (|terminateSystemCommand|)))))
  
 ; load args == loadSpad2Cmd args
  

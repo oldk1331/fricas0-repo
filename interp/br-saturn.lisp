@@ -3910,202 +3910,21 @@
 (DEFUN |mkButtonBox| (|n|)
   (PROG () (RETURN (STRCONC "\\buttonbox{" (STRINGIMAGE |n|) "}"))))
  
-; bcConform1 form == main where
-;   main ==
-;     form is ['ifp,form1,:pred] =>
-;       hd form1
-;       bcPred pred
-;     hd form
-;   hd form ==
-;     atom form =>
-;       not MEMQ(form,$Primitives) and null constructor? form =>
-;         s := STRINGIMAGE form
-;         (s.0 = char '_#) =>
-;            (n := POSN1(form, $FormalFunctionParameterList)) =>
-;               htSay form2HtString ($FormalMapVariableList . n)
-;            htSay '"\"
-;            htSay form
-;         htSay escapeSpecialChars STRINGIMAGE form
-;       s := STRINGIMAGE form
-;       $italicHead? => htSayItalics s
-;       $bcMultipleNames =>
-;         satTypeDownLink(s, ['"(|conPageChoose| '|",s,'"|)"])
-;       satTypeDownLink(s, ["(|conPage| '|",s,'"|)"])
-;     (head := QCAR form) = 'QUOTE =>
-;       htSay('"'")
-;       hd CADR form
-;     head = 'SIGNATURE =>
-;       htSay(CADR form,'": ")
-;       mapping CADDR form
-;     head = 'Mapping and rest form => rest form => mapping rest form
-;     head = ":" =>
-;       hd CADR form
-;       htSay '": "
-;       hd CADDR form
-;     QCDR form and dbEvalableConstructor? form
-;        => bcConstructor(form,head)
-;     hd head
-;     null (r := QCDR form) => nil
-;     tl QCDR form
-;   mapping [target,:source] ==
-;     tuple source
-;     bcHt
-;       $saturn => '" {\ttrarrow} "
-;       '" -> "
-;     hd target
-;   tuple u ==
-;     null u => bcHt '"()"
-;     null rest u => hd u
-;     bcHt '"("
-;     hd first u
-;     for x in rest u repeat
-;       bcHt '","
-;       hd x
-;     bcHt '")"
-;   tl u ==
-;     bcHt '"("
-;     firstTime := true
-;     for x in u repeat
-;       if not firstTime then bcHt '","
-;       firstTime := false
-;       hd x
-;     bcHt '")"
-;   say x ==
-;     if $italics? then bcHt '"{\em "
-;     if x = 'etc then x := '"..."
-;     bcHt escapeSpecialIds STRINGIMAGE x
-;     if $italics? then bcHt '"}"
- 
-(DEFUN |bcConform1| (|form|)
-  (PROG (|ISTMP#1| |form1| |pred|)
-    (RETURN
-     (COND
-      ((AND (CONSP |form|) (EQ (CAR |form|) '|ifp|)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |form|))
-             (AND (CONSP |ISTMP#1|)
-                  (PROGN
-                   (SETQ |form1| (CAR |ISTMP#1|))
-                   (SETQ |pred| (CDR |ISTMP#1|))
-                   #1='T))))
-       (PROGN (|bcConform1,hd| |form1|) (|bcPred| |pred|)))
-      (#1# (|bcConform1,hd| |form|))))))
-(DEFUN |bcConform1,hd| (|form|)
-  (PROG (|s| |n| |head| |r|)
-    (RETURN
-     (COND
-      ((ATOM |form|)
-       (COND
-        ((AND (NULL (MEMQ |form| |$Primitives|))
-              (NULL (|constructor?| |form|)))
-         (PROGN
-          (SETQ |s| (STRINGIMAGE |form|))
-          (COND
-           ((EQUAL (ELT |s| 0) (|char| '|#|))
-            (COND
-             ((SETQ |n| (POSN1 |form| |$FormalFunctionParameterList|))
-              (|htSay| (|form2HtString| (ELT |$FormalMapVariableList| |n|))))
-             (#1='T (PROGN (|htSay| "\\") (|htSay| |form|)))))
-           (#1# (|htSay| (|escapeSpecialChars| (STRINGIMAGE |form|)))))))
-        (#1#
-         (PROGN
-          (SETQ |s| (STRINGIMAGE |form|))
-          (COND (|$italicHead?| (|htSayItalics| |s|))
-                (|$bcMultipleNames|
-                 (|satTypeDownLink| |s| (LIST "(|conPageChoose| '|" |s| "|)")))
-                (#1#
-                 (|satTypeDownLink| |s|
-                  (LIST '|(\|conPage\| '\|| |s| "|)"))))))))
-      ((EQ (SETQ |head| (QCAR |form|)) 'QUOTE)
-       (PROGN (|htSay| "'") (|bcConform1,hd| (CADR |form|))))
-      ((EQ |head| 'SIGNATURE)
-       (PROGN
-        (|htSay| (CADR |form|) ": ")
-        (|bcConform1,mapping| (CADDR |form|))))
-      ((AND (EQ |head| '|Mapping|) (CDR |form|))
-       (COND ((CDR |form|) (IDENTITY (|bcConform1,mapping| (CDR |form|))))))
-      ((EQ |head| '|:|)
-       (PROGN
-        (|bcConform1,hd| (CADR |form|))
-        (|htSay| ": ")
-        (|bcConform1,hd| (CADDR |form|))))
-      ((AND (QCDR |form|) (|dbEvalableConstructor?| |form|))
-       (|bcConstructor| |form| |head|))
-      (#1#
-       (PROGN
-        (|bcConform1,hd| |head|)
-        (COND ((NULL (SETQ |r| (QCDR |form|))) NIL)
-              (#1# (|bcConform1,tl| (QCDR |form|))))))))))
-(DEFUN |bcConform1,mapping| (|bfVar#58|)
-  (PROG (|target| |source|)
-    (RETURN
-     (PROGN
-      (SETQ |target| (CAR |bfVar#58|))
-      (SETQ |source| (CDR |bfVar#58|))
-      (|bcConform1,tuple| |source|)
-      (|bcHt| (COND (|$saturn| " {\\ttrarrow} ") ('T " -> ")))
-      (|bcConform1,hd| |target|)))))
-(DEFUN |bcConform1,tuple| (|u|)
-  (PROG ()
-    (RETURN
-     (COND ((NULL |u|) (|bcHt| "()")) ((NULL (CDR |u|)) (|bcConform1,hd| |u|))
-           (#1='T
-            (PROGN
-             (|bcHt| "(")
-             (|bcConform1,hd| (CAR |u|))
-             ((LAMBDA (|bfVar#56| |x|)
-                (LOOP
-                 (COND
-                  ((OR (ATOM |bfVar#56|)
-                       (PROGN (SETQ |x| (CAR |bfVar#56|)) NIL))
-                   (RETURN NIL))
-                  (#1# (PROGN (|bcHt| ",") (|bcConform1,hd| |x|))))
-                 (SETQ |bfVar#56| (CDR |bfVar#56|))))
-              (CDR |u|) NIL)
-             (|bcHt| ")")))))))
-(DEFUN |bcConform1,tl| (|u|)
-  (PROG (|firstTime|)
-    (RETURN
-     (PROGN
-      (|bcHt| "(")
-      (SETQ |firstTime| T)
-      ((LAMBDA (|bfVar#57| |x|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#57|) (PROGN (SETQ |x| (CAR |bfVar#57|)) NIL))
-            (RETURN NIL))
-           ('T
-            (PROGN
-             (COND ((NULL |firstTime|) (|bcHt| ",")))
-             (SETQ |firstTime| NIL)
-             (|bcConform1,hd| |x|))))
-          (SETQ |bfVar#57| (CDR |bfVar#57|))))
-       |u| NIL)
-      (|bcHt| ")")))))
-(DEFUN |bcConform1,say| (|x|)
-  (PROG ()
-    (RETURN
-     (PROGN
-      (COND (|$italics?| (|bcHt| "{\\em ")))
-      (COND ((EQ |x| '|etc|) (SETQ |x| "...")))
-      (|bcHt| (|escapeSpecialIds| (STRINGIMAGE |x|)))
-      (COND (|$italics?| (|bcHt| "}")))))))
- 
 ; purgeNewConstructorLines(lines, conlist) ==
 ;   [x for x in lines | not screenLocalLine(x, conlist)]
  
 (DEFUN |purgeNewConstructorLines| (|lines| |conlist|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#60| |bfVar#59| |x|)
+     ((LAMBDA (|bfVar#57| |bfVar#56| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#59|) (PROGN (SETQ |x| (CAR |bfVar#59|)) NIL))
-           (RETURN (NREVERSE |bfVar#60|)))
+          ((OR (ATOM |bfVar#56|) (PROGN (SETQ |x| (CAR |bfVar#56|)) NIL))
+           (RETURN (NREVERSE |bfVar#57|)))
           ('T
            (AND (NULL (|screenLocalLine| |x| |conlist|))
-                (SETQ |bfVar#60| (CONS |x| |bfVar#60|)))))
-         (SETQ |bfVar#59| (CDR |bfVar#59|))))
+                (SETQ |bfVar#57| (CONS |x| |bfVar#57|)))))
+         (SETQ |bfVar#56| (CDR |bfVar#56|))))
       NIL |lines| NIL))))
  
 ; screenLocalLine(line, conlist) ==
