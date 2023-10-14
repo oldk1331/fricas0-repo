@@ -718,17 +718,21 @@
              (|escapeSpecialChars| (STRINGIMAGE |name|))))))
  
 ; sayPatternMsg(msg,args) ==
+;   ioHook("startPatternMsg", msg, args)
 ;   msg := segmentKeyedMsg msg
 ;   msg := substituteSegmentedMsg(msg,args)
 ;   sayMSG flowSegmentedMsg(msg,$LINELENGTH,3)
+;   ioHook("endPatternMsg", msg)
  
 (DEFUN |sayPatternMsg| (|msg| |args|)
   (PROG ()
     (RETURN
      (PROGN
+      (|ioHook| '|startPatternMsg| |msg| |args|)
       (SETQ |msg| (|segmentKeyedMsg| |msg|))
       (SETQ |msg| (|substituteSegmentedMsg| |msg| |args|))
-      (|sayMSG| (|flowSegmentedMsg| |msg| $LINELENGTH 3))))))
+      (|sayMSG| (|flowSegmentedMsg| |msg| $LINELENGTH 3))
+      (|ioHook| '|endPatternMsg| |msg|)))))
  
 ; throwPatternMsg(key,args) ==
 ;   sayMSG '" "

@@ -100,9 +100,19 @@
 (DEFUN |translateTrueFalse2YesNo| (|x|)
   (PROG () (RETURN (COND ((EQUAL |x| T) '|on|) ((NULL |x|) '|off|) ('T |x|)))))
  
-; set l ==  set1(l, $setOptions)
+; set l ==
+;   ioHook("startSysCmd", "set")
+;   set1(l, $setOptions)
+;   UNWIND_-PROTECT(displaySpad2Cmd l, ioHook("endSysCmd", "set"))
  
-(DEFUN |set| (|l|) (PROG () (RETURN (|set1| |l| |$setOptions|))))
+(DEFUN |set| (|l|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startSysCmd| '|set|)
+      (|set1| |l| |$setOptions|)
+      (UNWIND-PROTECT (|displaySpad2Cmd| |l|)
+        (|ioHook| '|endSysCmd| '|set|))))))
  
 ; set1(l,setTree) ==
 ;   null l => displaySetVariableSettings(setTree,"")

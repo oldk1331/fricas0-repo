@@ -422,9 +422,18 @@
             (#1# (SETQ |line| (SUBSTRING |line| (+ |index| 2) NIL))))
       |line|))))
  
-; abbreviations l == abbreviationsSpad2Cmd l
+; abbreviations l ==
+;   ioHook("startSysCmd", "abbrev")
+;   abbreviationsSpad2Cmd l
+;   ioHook("endSysCmd", "abbrev")
  
-(DEFUN |abbreviations| (|l|) (PROG () (RETURN (|abbreviationsSpad2Cmd| |l|))))
+(DEFUN |abbreviations| (|l|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startSysCmd| '|abbrev|)
+      (|abbreviationsSpad2Cmd| |l|)
+      (|ioHook| '|endSysCmd| '|abbrev|)))))
  
 ; abbreviationsSpad2Cmd l ==
 ;   null l => helpSpad2Cmd '(abbreviations)
@@ -1720,9 +1729,17 @@
          (SETQ |bfVar#32| (CDR |bfVar#32|))))
       CREDITS NIL))))
  
-; display l == displaySpad2Cmd l
+; display l ==
+;   ioHook("startSysCmd", "display")
+;   UNWIND_-PROTECT(displaySpad2Cmd l, ioHook("endSysCmd", "display"))
  
-(DEFUN |display| (|l|) (PROG () (RETURN (|displaySpad2Cmd| |l|))))
+(DEFUN |display| (|l|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startSysCmd| '|display|)
+      (UNWIND-PROTECT (|displaySpad2Cmd| |l|)
+        (|ioHook| '|endSysCmd| '|display|))))))
  
 ; displaySpad2Cmd l ==
 ;   $e: local := $EmptyEnvironment
@@ -5588,9 +5605,18 @@
        (|helpSpad2Cmd| '(|savesystem|)))
       ('T (SPAD-SAVE (SYMBOL-NAME (CAR |l|))))))))
  
-; show l == showSpad2Cmd l
+; show l ==
+;   ioHook("startSysCmd", "show")
+;   showSpad2Cmd l
+;   ioHook("endSysCmd", "show")
  
-(DEFUN |show| (|l|) (PROG () (RETURN (|showSpad2Cmd| |l|))))
+(DEFUN |show| (|l|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startSysCmd| '|show|)
+      (|showSpad2Cmd| |l|)
+      (|ioHook| '|endSysCmd| '|show|)))))
  
 ; showSpad2Cmd l ==
 ;   l = [NIL] => helpSpad2Cmd '(show)
@@ -6922,9 +6948,18 @@
          (SETQ |$IOindex| |savedIOindex|)
          |acc|)))))))
  
-; what l == whatSpad2Cmd l
+; what l ==
+;   ioHook("startSysCmd", "what")
+;   whatSpad2Cmd l
+;   ioHook("endSysCmd", "what")
  
-(DEFUN |what| (|l|) (PROG () (RETURN (|whatSpad2Cmd| |l|))))
+(DEFUN |what| (|l|)
+  (PROG ()
+    (RETURN
+     (PROGN
+      (|ioHook| '|startSysCmd| '|what|)
+      (|whatSpad2Cmd| |l|)
+      (|ioHook| '|endSysCmd| '|what|)))))
  
 ; whatSpad2Cmd l ==
 ;   $e:local := $EmptyEnvironment
