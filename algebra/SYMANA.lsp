@@ -49,10 +49,10 @@
           (EXIT |res|))))) 
 
 (DEFUN |SYMANA;transform;JbeJbe;2| (|f| $)
-  (PROG (|g| |SubL| JV |lower| #1=#:G167 |id| #2=#:G182 |d| |up| #3=#:G165
-         #4=#:G163 |diff| |rarg| |arg| |i| |num| |pos| |fname| #5=#:G154
-         #6=#:G149 #7=#:G147 |ind| |typ| #8=#:G141 #9=#:G180 |Ke| #10=#:G181
-         |Op| |LOps| #11=#:G179 #12=#:G178 |LKernels|)
+  (PROG (|g| |SubL| JV |lower| #1=#:G174 |id| #2=#:G189 |d| |up| #3=#:G172
+         #4=#:G170 |diff| |rarg| |arg| |i| |num| |pos| |fname| #5=#:G161
+         #6=#:G151 #7=#:G147 |ind| |typ| #8=#:G141 #9=#:G187 |Ke| #10=#:G188
+         |Op| |LOps| #11=#:G186 #12=#:G185 |LKernels|)
     (RETURN
      (SEQ (LETT JV NIL . #13=(|SYMANA;transform;JbeJbe;2|))
           (LETT |SubL| NIL . #13#)
@@ -280,7 +280,7 @@
           (EXIT (SPADCALL |g| (QREFELT $ 78))))))) 
 
 (DEFUN |SYMANA;detSys;LL;3| (|sys| $)
-  (PROG (#1=#:G190 |eq| #2=#:G189 |ds| #3=#:G188 #4=#:G187)
+  (PROG (#1=#:G197 |eq| #2=#:G196 |ds| #3=#:G195 #4=#:G194)
     (RETURN
      (SEQ
       (LETT |ds|
@@ -315,7 +315,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;detSys;LJvfL;4| (|sys| |vf| $)
-  (PROG (#1=#:G194 |eq| #2=#:G193)
+  (PROG (#1=#:G201 |eq| #2=#:G200)
     (RETURN
      (SEQ
       (SPADCALL |sys|
@@ -334,9 +334,9 @@
                 |vf| (QREFELT $ 81)))))) 
 
 (DEFUN |SYMANA;detSys;LLJvfL;5| (|sys| |sjb| |vf| $)
-  (PROG (#1=#:G244 |co| #2=#:G243 |conds| |coL| #3=#:G242 |jp| #4=#:G241
-         |pcrit| #5=#:G240 |eq| #6=#:G239 |crit| #7=#:G238 #8=#:G237 |pvf| |o|
-         |ol| #9=#:G236 #10=#:G235 |solEq| |tmp| #11=#:G233 #12=#:G234 |jv|)
+  (PROG (#1=#:G251 |co| #2=#:G250 |conds| |coL| #3=#:G249 |jp| #4=#:G248
+         |pcrit| #5=#:G247 |eq| #6=#:G246 |crit| #7=#:G245 #8=#:G244 |pvf| |o|
+         |ol| #9=#:G243 #10=#:G242 |solEq| |tmp| #11=#:G240 #12=#:G241 |jv|)
     (RETURN
      (SEQ (LETT |solEq| NIL . #13=(|SYMANA;detSys;LLJvfL;5|))
           (SEQ (LETT |jv| NIL . #13#) (LETT #12# |sjb| . #13#)
@@ -445,7 +445,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;ncDetSys;LL;6| (|sys| $)
-  (PROG (#1=#:G252 |eq| #2=#:G251 |ds| #3=#:G250 #4=#:G249)
+  (PROG (#1=#:G259 |eq| #2=#:G258 |ds| #3=#:G257 #4=#:G256)
     (RETURN
      (SEQ
       (LETT |ds|
@@ -480,7 +480,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SYMANA;ncDetSys;LJvfL;7| (|sys| |vf| $)
-  (PROG (#1=#:G256 |eq| #2=#:G255)
+  (PROG (#1=#:G263 |eq| #2=#:G262)
     (RETURN
      (SEQ
       (SPADCALL |sys|
@@ -499,9 +499,9 @@
                 |vf| (QREFELT $ 110)))))) 
 
 (DEFUN |SYMANA;ncDetSys;LLJvfL;8| (|sys| |sjb| |vf| $)
-  (PROG (|isc| |ijb| |cond| |jv| #1=#:G268 #2=#:G283 |x| #3=#:G284 |i|
-         #4=#:G281 |e| #5=#:G282 |j| |Eta| #6=#:G279 |co| #7=#:G280 |ind2|
-         |tmp| |ind1| |Xi| |jt| #8=#:G277 #9=#:G278 |coeffs| |dirs|)
+  (PROG (|isc| |ijb| |cond| |jv| #1=#:G275 #2=#:G290 |x| #3=#:G291 |i|
+         #4=#:G288 |e| #5=#:G289 |j| |Eta| #6=#:G286 |co| #7=#:G287 |ind2|
+         |tmp| |ind1| |Xi| |jt| #8=#:G284 #9=#:G285 |coeffs| |dirs|)
     (RETURN
      (SEQ
       (LETT |dirs| (SPADCALL |vf| (QREFELT $ 113))
@@ -610,10 +610,10 @@
 
 (DECLAIM (NOTINLINE |SymmetryAnalysis;|)) 
 
-(DEFUN |SymmetryAnalysis| (&REST #1=#:G297)
+(DEFUN |SymmetryAnalysis| (&REST #1=#:G304)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G298)
+     (PROG (#2=#:G305)
        (RETURN
         (COND
          ((LETT #2#
@@ -631,9 +631,9 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|SymmetryAnalysis|))))))))))) 
 
 (DEFUN |SymmetryAnalysis;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G296 |jv| #2=#:G295 #3=#:G294 |i| #4=#:G293 #5=#:G292 #6=#:G291
-         #7=#:G290 #8=#:G289 #9=#:G121 #10=#:G288 #11=#:G287 #12=#:G118
-         #13=#:G286 #14=#:G285 |pv$| $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G303 |jv| #2=#:G302 #3=#:G301 |i| #4=#:G300 #5=#:G299 #6=#:G298
+         #7=#:G297 #8=#:G296 #9=#:G121 #10=#:G295 #11=#:G294 #12=#:G118
+         #13=#:G293 #14=#:G292 |pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN
