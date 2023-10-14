@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4835 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4834 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -329,20 +329,19 @@
  |RadicalCategory| |RadicalFunctionField| |RadixExpansion| |RadixUtilities|
  |RandomNumberSource| |RationalFactorize| |RationalRetractions|
  |RecursiveAggregate&| |RecursiveAggregate| |RealClosedField&|
- |RealClosedField| |RDEaux| |ElementaryRischDE| |ElementaryRischDESystem|
- |ElementaryRischDEX| |ElementaryRischDEX2| |ParametricRischDE|
- |TranscendentalRischDE| |TranscendentalRischDESystem| |RandomDistributions|
- |ReducedDivisor| |RealConstant| |RealZeroPackage| |RealZeroPackageQ|
- |RealSolvePackage| |RealClosure| |RecurrenceOperator| |ReductionOfOrder|
- |Reference| |RegularTriangularSet| |RadicalEigenPackage|
- |RepresentationPackage1| |RepresentationPackage2| |RepeatedDoubling|
- |RepeatedSquaring| |ResolveLatticeCompletion| |ResidueRing| |Result|
- |RetractableFrom&| |RetractableFrom| |RetractableTo&| |RetractableTo|
- |RetractSolvePackage| |RationalFunction| |RandomFloatDistributions|
- |RationalFunctionFactor| |RationalFunctionFactorizer| |RootFSSplit|
- |RegularChain| |RandomIntegerDistributions| |Ring&| |Ring|
- |RationalInterpolation| |RectangularMatrixCategory&|
- |RectangularMatrixCategory| |RectangularMatrix|
+ |RealClosedField| |RDEaux| |ElementaryRischDESystem| |ElementaryRischDEX|
+ |ElementaryRischDEX2| |ParametricRischDE| |TranscendentalRischDE|
+ |TranscendentalRischDESystem| |RandomDistributions| |ReducedDivisor|
+ |RealConstant| |RealZeroPackage| |RealZeroPackageQ| |RealSolvePackage|
+ |RealClosure| |RecurrenceOperator| |ReductionOfOrder| |Reference|
+ |RegularTriangularSet| |RadicalEigenPackage| |RepresentationPackage1|
+ |RepresentationPackage2| |RepeatedDoubling| |RepeatedSquaring|
+ |ResolveLatticeCompletion| |ResidueRing| |Result| |RetractableFrom&|
+ |RetractableFrom| |RetractableTo&| |RetractableTo| |RetractSolvePackage|
+ |RationalFunction| |RandomFloatDistributions| |RationalFunctionFactor|
+ |RationalFunctionFactorizer| |RootFSSplit| |RegularChain|
+ |RandomIntegerDistributions| |Ring&| |Ring| |RationalInterpolation|
+ |RectangularMatrixCategory&| |RectangularMatrixCategory| |RectangularMatrix|
  |RectangularMatrixCategoryFunctions2| |RightModule| |Rng&| |Rng|
  |RealNumberSystem&| |RealNumberSystem| |RightOpenIntervalRootCharacterization|
  |RomanNumeral| |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
@@ -886,22 +885,22 @@
  |wholeRagits| |radix| |randnum| |reseed| |seed| |rational| |rational?|
  |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes|
  |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
- |multi_SPDE| |rischDE| |boundAt0| |boundInf| |rischDEsys| |ei_int|
- |risch_de_ext| |param_rde| |param_rde2| |monomRDE| |baseRDE| |polyRDE|
- |SPDEnocancel1| |monomRDEsys| |baseRDEsys| |weighted| |rdHack1| |midpoint|
- |midpoints| |realZeros| |mainCharacterization| |algebraicOf| |makeRec|
- |makeFEq| |getEq| |values| |eltable?| |ReduceOrder| |setref| |deref| |ref|
- |radicalEigenvectors| |radicalEigenvector| |radicalEigenvalues| |eigenMatrix|
- |normalise| |gramschmidt| |orthonormalBasis| |antisymmetricTensors|
- |createGenericMatrix| |symmetricTensors| |tensorProduct|
- |permutationRepresentation| |completeEchelonBasis| |createRandomElement|
- |cyclicSubmodule| |standardBasisOfCyclicSubmodule| |areEquivalent?|
- |isAbsolutelyIrreducible?| |meatAxe| |scanOneDimSubspaces| |double| |expt|
- |lift| |showArrayValues| |showScalarValues| |solveRetract| |variables|
- |mainVariable| |univariate| |multivariate| |uniform01| |normal01|
- |exponential1| |chiSquare1| |normal| |exponential| |chiSquare| F |t|
- |factorFraction| |alg_split_roots| |uniform| |binomial| |poisson| |geometric|
- |ridHack1| |interpolate| |nullity| |column| |qelt| |maxColIndex| |minColIndex|
+ |multi_SPDE| |rischDEsys| |ei_int| |risch_de_ext| |do_risch_DE| |param_rde|
+ |param_rde2| |exp_lower_bound| |monomRDE| |baseRDE| |polyRDE| |SPDEnocancel1|
+ |monomRDEsys| |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints|
+ |realZeros| |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq|
+ |values| |eltable?| |ReduceOrder| |setref| |deref| |ref| |radicalEigenvectors|
+ |radicalEigenvector| |radicalEigenvalues| |eigenMatrix| |normalise|
+ |gramschmidt| |orthonormalBasis| |antisymmetricTensors| |createGenericMatrix|
+ |symmetricTensors| |tensorProduct| |permutationRepresentation|
+ |completeEchelonBasis| |createRandomElement| |cyclicSubmodule|
+ |standardBasisOfCyclicSubmodule| |areEquivalent?| |isAbsolutelyIrreducible?|
+ |meatAxe| |scanOneDimSubspaces| |double| |expt| |lift| |showArrayValues|
+ |showScalarValues| |solveRetract| |variables| |mainVariable| |univariate|
+ |multivariate| |uniform01| |normal01| |exponential1| |chiSquare1| |normal|
+ |exponential| |chiSquare| F |t| |factorFraction| |alg_split_roots|
+ |alg_split_root0| |uniform| |binomial| |poisson| |geometric| |ridHack1|
+ |interpolate| |nullity| |column| |qelt| |maxColIndex| |minColIndex|
  |maxRowIndex| |minRowIndex| |antisymmetric?| |symmetric?| |diagonal?|
  |square?| |matrix| |rectangularMatrix| |annihilate?| |characteristic| |round|
  |fractionPart| |wholePart| |floor| |ceiling| |norm| |mightHaveRoots| |refine|

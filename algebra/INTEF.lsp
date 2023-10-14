@@ -1035,23 +1035,7 @@
         ((|x3| |Integer|) (|x4| F) (|eta| F) (|x| |Symbol|)
          ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
           (|:| |sol?| (|Boolean|))))
-        (SPROG NIL
-               (SPADCALL |x3| |eta| |x4| |x|
-                         (CONS #'|INTEF;risch_de_solver!0| (VECTOR $ |x|))
-                         (CONS #'|INTEF;risch_de_solver!1| (VECTOR $ |x|))
-                         (QREFELT $ 196)))) 
-
-(SDEFUN |INTEF;risch_de_solver!1| ((|x7| NIL) (|x8| NIL) ($$ NIL))
-        (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|INTEF;risch_de_solver|))
-          (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |x7| |x| |x8| (QREFELT $ 36)))))) 
-
-(SDEFUN |INTEF;risch_de_solver!0| ((|x5| NIL) (|x6| NIL) ($$ NIL))
-        (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|INTEF;risch_de_solver|))
-          (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |x5| |x| |x6| (QREFELT $ 63)))))) 
+        (SPADCALL |x3| |eta| |x4| |x| (QREFELT $ 196))) 
 
 (SDEFUN |INTEF;expint|
         ((|f| F) (|x| |Symbol|) (|k| |Kernel| F) ($ |IntegrationResult| F))
@@ -1121,9 +1105,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryIntegration;|)) 
 
-(DEFUN |ElementaryIntegration| (&REST #1=#:G419)
+(DEFUN |ElementaryIntegration| (&REST #1=#:G409)
   (SPROG NIL
-         (PROG (#2=#:G420)
+         (PROG (#2=#:G410)
            (RETURN
             (COND
              ((LETT #2#
@@ -1312,9 +1296,9 @@
               (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |primpart| 7)
                         (|:| |sol?| 10))
               (|ElementaryRischDEX2| 6 7) (602 . |risch_de_ext|)
-              (|Mapping| 194 65 7) (612 . |expintegrate|))
-           '#(|lflogint| 620 |lfintegrate| 627 |lfinfieldint| 633
-              |lfextendedint| 639)
+              (|Mapping| 194 65 7) (610 . |expintegrate|))
+           '#(|lflogint| 618 |lfintegrate| 625 |lfinfieldint| 631
+              |lfextendedint| 637)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -1377,10 +1361,10 @@
                                                    3 184 183 40 12 11 187 2 12
                                                    10 0 0 189 4 174 173 7 11
                                                    125 17 190 0 65 0 191 4 48
-                                                   70 40 45 192 46 193 6 195
-                                                   194 65 7 7 11 66 67 196 4 48
-                                                   70 40 45 192 197 198 3 0 62
-                                                   7 11 17 63 2 0 42 7 11 43 2
-                                                   0 179 7 11 180 3 0 35 7 11 7
+                                                   70 40 45 192 46 193 4 195
+                                                   194 65 7 7 11 196 4 48 70 40
+                                                   45 192 197 198 3 0 62 7 11
+                                                   17 63 2 0 42 7 11 43 2 0 179
+                                                   7 11 180 3 0 35 7 11 7
                                                    36)))))
            '|lookupComplete|)) 

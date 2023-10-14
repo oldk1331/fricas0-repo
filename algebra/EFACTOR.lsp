@@ -129,19 +129,149 @@
          ($ |Factored| (|SparseUnivariatePolynomial| F)))
         (|error| "factorPolynomial unimplemented")) 
 
-(PUT '|EFACTOR;factorPolynomial;SupF;3| '|SPADreplace|
+(SDEFUN |EFACTOR;factorPolynomial;SupF;3|
+        ((|p| |SparseUnivariatePolynomial| F)
+         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        (SPROG
+         ((|res| (|Factored| (|SparseUnivariatePolynomial| F)))
+          (|fr2| (|SparseUnivariatePolynomial| F))
+          (|fru| (|SparseUnivariatePolynomial| F))
+          (|fr1| (|SparseMultivariatePolynomial| R (|Kernel| F)))
+          (#1=#:G150 NIL) (|frec| NIL)
+          (|fres1|
+           (|Factored| (|SparseMultivariatePolynomial| R (|Kernel| F))))
+          (|pf| (F)) (|xk| (|Kernel| F)) (|xs| (|Symbol|)) (#2=#:G149 NIL)
+          (|k| NIL) (|kl| (|List| (|Kernel| F)))
+          (|cnp| (|SparseUnivariatePolynomial| F)) (|cn| (F))
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (LETT |n| (SPADCALL |p| (QREFELT $ 13))
+                . #3=(|EFACTOR;factorPolynomial;SupF;3|))
+          (LETT |cn| (SPADCALL |p| (QREFELT $ 14)) . #3#)
+          (EXIT
+           (COND
+            ((SPADCALL |cn| (|spadConstant| $ 15) (QREFELT $ 17))
+             (SPADCALL |p| 1 (QREFELT $ 21)))
+            (#4='T
+             (SEQ (LETT |p| (SPADCALL |p| |cn| (QREFELT $ 22)) . #3#)
+                  (LETT |cnp| (SPADCALL |cn| (QREFELT $ 23)) . #3#)
+                  (EXIT
+                   (COND ((< |n| 1) (SPADCALL |cnp| NIL (QREFELT $ 27)))
+                         ((EQL |n| 1)
+                          (SPADCALL |cnp|
+                                    (LIST (VECTOR (CONS 3 "prime") |p| 1))
+                                    (QREFELT $ 27)))
+                         (#4#
+                          (SEQ
+                           (LETT |kl|
+                                 (SPADCALL (SPADCALL |p| (QREFELT $ 29))
+                                           (QREFELT $ 32))
+                                 . #3#)
+                           (SEQ (LETT |k| NIL . #3#) (LETT #2# |kl| . #3#) G190
+                                (COND
+                                 ((OR (ATOM #2#)
+                                      (PROGN (LETT |k| (CAR #2#) . #3#) NIL))
+                                  (GO G191)))
+                                (SEQ
+                                 (COND
+                                  ((NULL
+                                    (SPADCALL |k| '|nthRoot| (QREFELT $ 35)))
+                                   (COND
+                                    ((NULL
+                                      (SPADCALL |k| '|rootOf| (QREFELT $ 35)))
+                                     (EXIT "iterate")))))
+                                 (EXIT
+                                  (|error|
+                                   "factorPolynomial: algebraic coefficients")))
+                                (LETT #2# (CDR #2#) . #3#) (GO G190) G191
+                                (EXIT NIL))
+                           (LETT |xs| (SPADCALL (QREFELT $ 36)) . #3#)
+                           (LETT |xk| (SPADCALL |xs| (QREFELT $ 37)) . #3#)
+                           (LETT |pf|
+                                 (SPADCALL
+                                  (SPADCALL |p| (QREFELT $ 10)
+                                            (SPADCALL |xk| (QREFELT $ 39))
+                                            (QREFELT $ 40))
+                                  (QREFELT $ 41))
+                                 . #3#)
+                           (LETT |fres1|
+                                 (SPADCALL (SPADCALL |pf| (QREFELT $ 43))
+                                           (QREFELT $ 47))
+                                 . #3#)
+                           (LETT |res| (SPADCALL |cnp| NIL (QREFELT $ 27))
+                                 . #3#)
+                           (SEQ (LETT |frec| NIL . #3#)
+                                (LETT #1# (SPADCALL |fres1| (QREFELT $ 50))
+                                      . #3#)
+                                G190
+                                (COND
+                                 ((OR (ATOM #1#)
+                                      (PROGN
+                                       (LETT |frec| (CAR #1#) . #3#)
+                                       NIL))
+                                  (GO G191)))
+                                (SEQ (LETT |fr1| (QVELT |frec| 1) . #3#)
+                                     (EXIT
+                                      (COND
+                                       ((< (SPADCALL |fr1| |xk| (QREFELT $ 51))
+                                           1)
+                                        "iterate")
+                                       ((SPADCALL (QVELT |frec| 0)
+                                                  (CONS 3 "prime")
+                                                  (QREFELT $ 52))
+                                        (|error| "impossible"))
+                                       ('T
+                                        (SEQ
+                                         (LETT |fru|
+                                               (SPADCALL
+                                                (SPADCALL
+                                                 (SPADCALL |fr1|
+                                                           (QREFELT $ 53))
+                                                 |xk| (QREFELT $ 55))
+                                                (QREFELT $ 57))
+                                               . #3#)
+                                         (LETT |fr2|
+                                               (SPADCALL |fru|
+                                                         (SPADCALL |fru|
+                                                                   (QREFELT $
+                                                                            14))
+                                                         (QREFELT $ 22))
+                                               . #3#)
+                                         (EXIT
+                                          (LETT |res|
+                                                (SPADCALL |res|
+                                                          (SPADCALL |fr2|
+                                                                    (QVELT
+                                                                     |frec| 2)
+                                                                    (QREFELT $
+                                                                             58))
+                                                          (QREFELT $ 59))
+                                                . #3#)))))))
+                                (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                (EXIT NIL))
+                           (EXIT |res|)))))))))))) 
+
+(PUT '|EFACTOR;factorPolynomial;SupF;4| '|SPADreplace|
      '(XLAM (|p|) (|error| "factorPolynomial unimplemented"))) 
 
-(SDEFUN |EFACTOR;factorPolynomial;SupF;3|
+(SDEFUN |EFACTOR;factorPolynomial;SupF;4|
+        ((|p| |SparseUnivariatePolynomial| F)
+         ($ |Factored| (|SparseUnivariatePolynomial| F)))
+        (|error| "factorPolynomial unimplemented")) 
+
+(PUT '|EFACTOR;factorPolynomial;SupF;5| '|SPADreplace|
+     '(XLAM (|p|) (|error| "factorPolynomial unimplemented"))) 
+
+(SDEFUN |EFACTOR;factorPolynomial;SupF;5|
         ((|p| |SparseUnivariatePolynomial| F)
          ($ |Factored| (|SparseUnivariatePolynomial| F)))
         (|error| "factorPolynomial unimplemented")) 
 
 (DECLAIM (NOTINLINE |ExpressionFactorPolynomial;|)) 
 
-(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G131)
+(DEFUN |ExpressionFactorPolynomial| (&REST #1=#:G153)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G154)
            (RETURN
             (COND
              ((LETT #2#
@@ -166,7 +296,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ExpressionFactorPolynomial|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ExpressionFactorPolynomial| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 61) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ExpressionFactorPolynomial|
@@ -178,7 +308,7 @@
           (COND
            ((|domainEqual| |#1| (|Integer|))
             (COND
-             ((|domainEqual| |#2| (|Expression| (|Integer|)))
+             ((|domainEqual| |#2| (|Expression| |#1|))
               (PROGN
                (QSETREFV $ 10 (SPADCALL (QREFELT $ 9)))
                (QSETREFV $ 60
@@ -191,10 +321,25 @@
                         (CONS
                          (|dispatchFunction| |EFACTOR;factorPolynomial;SupF;2|)
                          $)))))
+           ((|domainEqual| |#1| (|Complex| (|Integer|)))
+            (COND
+             ((|domainEqual| |#2| (|Expression| |#1|))
+              (PROGN
+               (SETELT $ 10 (SPADCALL (QREFELT $ 9)))
+               (QSETREFV $ 60
+                         (CONS
+                          (|dispatchFunction|
+                           |EFACTOR;factorPolynomial;SupF;3|)
+                          $))))
+             ('T
+              (QSETREFV $ 60
+                        (CONS
+                         (|dispatchFunction| |EFACTOR;factorPolynomial;SupF;4|)
+                         $)))))
            ('T
             (QSETREFV $ 60
                       (CONS
-                       (|dispatchFunction| |EFACTOR;factorPolynomial;SupF;3|)
+                       (|dispatchFunction| |EFACTOR;factorPolynomial;SupF;5|)
                        $))))
           $))) 
 
@@ -220,12 +365,13 @@
               (|List| 48) (103 . |factorList|) (108 . |degree|) (114 . ~=)
               (120 . |coerce|) (|Fraction| (|SparseUnivariatePolynomial| $))
               (125 . |univariate|) (|Fraction| 12) (131 . |numer|)
-              (136 . |primeFactor|) (142 . *) (148 . |factorPolynomial|))
-           '#(|factorPolynomial| 153) 'NIL
+              (136 . |primeFactor|) (142 . *) (148 . |factorPolynomial|)
+              (153 . |Zero|) (157 . |One|))
+           '#(|factorPolynomial| 161) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 60
+                             (|makeByteWordVec2| 62
                                                  '(0 8 0 9 1 12 11 0 13 1 12 7
                                                    0 14 0 7 0 15 2 7 16 0 0 17
                                                    0 7 0 18 2 20 0 12 19 21 2
@@ -239,6 +385,6 @@
                                                    51 2 24 16 0 0 52 1 7 0 42
                                                    53 2 7 54 0 38 55 1 56 12 0
                                                    57 2 20 0 12 19 58 2 20 0 0
-                                                   0 59 1 0 20 12 60 1 0 20 12
-                                                   60)))))
+                                                   0 59 1 0 20 12 60 0 6 0 61 0
+                                                   6 0 62 1 0 20 12 60)))))
            '|lookupComplete|)) 
