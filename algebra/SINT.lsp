@@ -242,7 +242,7 @@
 
 (DEFUN |SingleInteger| ()
   (SPROG NIL
-         (PROG (#1=#:G1842)
+         (PROG (#1=#:G1852)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SingleInteger|)
