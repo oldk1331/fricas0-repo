@@ -284,10 +284,6 @@
  
 (DEFVAR |$ignored_tab|)
  
-; DEFVAR($ignorable_backset)
- 
-(DEFVAR |$ignorable_backset|)
- 
 ; ntokreader(token) ==
 ;     nonblank_flag := nil
 ;     if $toklst then
@@ -332,12 +328,6 @@
 ;             nsym := ntok1.1
 ;             if ntype1 = "key" and nsym in ["then", "else"] then
 ;                 return ntokreader(token)
-;         type1 = "key" and sym = "BACKSET" and $ignorable_backset =>
-;             ntokreader(token)
-;         if type1 = "key" and sym in ["[", "COMMA", "SEMICOLON"] then
-;             $ignorable_backset := true
-;         else
-;             $ignorable_backset := false
 ;         if type1 = "key" and sym = "SETTAB" and $toklst then
 ;             ntok1 := first $toklst
 ;             ntype1 := first(ntok1)
@@ -440,54 +430,40 @@
                     (|member| |nsym| (LIST '|then| '|else|)))
                (RETURN (|ntokreader| |token|))))))
            (COND
-            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignorable_backset|)
-             (|ntokreader| |token|))
-            (#1#
-             (PROGN
-              (COND
-               ((AND (EQ |type1| '|key|)
-                     (|member| |sym| (LIST '[ 'COMMA 'SEMICOLON)))
-                (SETQ |$ignorable_backset| T))
-               (#1# (SETQ |$ignorable_backset| NIL)))
-              (COND
-               ((AND (EQ |type1| '|key|) (EQ |sym| 'SETTAB) |$toklst|)
-                (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
-                (SETQ |nsym| (ELT |ntok1| 1))
-                (COND
-                 ((AND (EQ |ntype1| '|key|)
-                       (|member| |nsym|
-                        (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
-                  (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
-                  (RETURN (|ntokreader| |token|)))
-                 (#1# (PUSH |$ignored_tab| |$tab_states|)
-                  (SETQ |$ignored_tab| NIL)))))
-              (COND
-               ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignored_tab|)
-                (RETURN (|ntokreader| |token|))))
-              (COND
-               ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKTAB))
-                (SETQ |$ignored_tab0| |$ignored_tab|)
-                (SETQ |$ignored_tab| (POP |$tab_states|))
-                (COND (|$ignored_tab0| (RETURN (|ntokreader| |token|))))))
-              (COND (|type| (SETQ |type| (ELT |type| 1)))
-                    (#1# (SAY (LIST |sym| |type1|))))
-              (COND
-               ((EQ |type1| '|key|)
-                (COND
-                 ((EQ |sym| '|(|)
-                  (SETQ |$paren_level| (|inc_SI| |$paren_level|)))
-                 ((EQ |sym| '|)|)
-                  (SETQ |$paren_level| (|dec_SI| |$paren_level|)))
-                 ((EQ |sym| '|#1|) (SETQ |type| 'ARGUMENT-DESIGNATOR))
-                 (#1#
-                  (PROGN
-                   (SETQ |sym1| (ASSQ |sym| |$trans_key|))
-                   (SETQ |sym2| (ASSQ |sym| |$trans_key_id|))
-                   (COND
-                    (|sym2| (SETQ |type| 'IDENTIFIER) (SETQ |sym1| |sym2|)))
-                   (SETQ |sym| (COND (|sym1| (ELT |sym1| 1)) (#1# |sym|))))))))
-              (|token_install| |sym| |type| |nonblank_flag| |line_no| |char_no|
-               |token|))))))))
+            ((AND (EQ |type1| '|key|) (EQ |sym| 'SETTAB) |$toklst|)
+             (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
+             (SETQ |nsym| (ELT |ntok1| 1))
+             (COND
+              ((AND (EQ |ntype1| '|key|)
+                    (|member| |nsym| (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
+               (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
+               (RETURN (|ntokreader| |token|)))
+              (#1# (PUSH |$ignored_tab| |$tab_states|)
+               (SETQ |$ignored_tab| NIL)))))
+           (COND
+            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignored_tab|)
+             (RETURN (|ntokreader| |token|))))
+           (COND
+            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKTAB))
+             (SETQ |$ignored_tab0| |$ignored_tab|)
+             (SETQ |$ignored_tab| (POP |$tab_states|))
+             (COND (|$ignored_tab0| (RETURN (|ntokreader| |token|))))))
+           (COND (|type| (SETQ |type| (ELT |type| 1)))
+                 (#1# (SAY (LIST |sym| |type1|))))
+           (COND
+            ((EQ |type1| '|key|)
+             (COND
+              ((EQ |sym| '|(|) (SETQ |$paren_level| (|inc_SI| |$paren_level|)))
+              ((EQ |sym| '|)|) (SETQ |$paren_level| (|dec_SI| |$paren_level|)))
+              ((EQ |sym| '|#1|) (SETQ |type| 'ARGUMENT-DESIGNATOR))
+              (#1#
+               (PROGN
+                (SETQ |sym1| (ASSQ |sym| |$trans_key|))
+                (SETQ |sym2| (ASSQ |sym| |$trans_key_id|))
+                (COND (|sym2| (SETQ |type| 'IDENTIFIER) (SETQ |sym1| |sym2|)))
+                (SETQ |sym| (COND (|sym1| (ELT |sym1| 1)) (#1# |sym|))))))))
+           (|token_install| |sym| |type| |nonblank_flag| |line_no| |char_no|
+            |token|)))))
        (#1# (|token_install| NIL '*EOF NIL NIL 0 |token|)))))))
  
 ; fakeloopInclude0(st, name, n) ==
