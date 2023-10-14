@@ -8,18 +8,12 @@
 (DEFPARAMETER |$newCompCompare| NIL)
  
 ; compDefine(form,m,e) ==
-;   $macroIfTrue: local := nil
 ;   result:= compDefine1(form,m,e)
 ;   result
  
 (DEFUN |compDefine| (|form| |m| |e|)
-  (PROG (|$macroIfTrue| |result|)
-    (DECLARE (SPECIAL |$macroIfTrue|))
-    (RETURN
-     (PROGN
-      (SETQ |$macroIfTrue| NIL)
-      (SETQ |result| (|compDefine1| |form| |m| |e|))
-      |result|))))
+  (PROG (|result|)
+    (RETURN (PROGN (SETQ |result| (|compDefine1| |form| |m| |e|)) |result|))))
  
 ; compDefine1(form,m,e) ==
 ;   $insideExpressionIfTrue: local:= false
@@ -2997,9 +2991,6 @@
 ;        then optimizedBody
 ;        else putInLocalDomainReferences optimizedBody
 ;   $doNotCompileJustPrint=true => (PRETTYPRINT stuffToCompile; op')
-;   $macroIfTrue =>
-;       BREAK()
-;       constructMacro stuffToCompile
 ;   result:= spadCompileOrSetq stuffToCompile
 ;   functionStats:=[0,elapsedTime()]
 ;   $functionStats:= addStats($functionStats,functionStats)
@@ -3146,7 +3137,6 @@
       (COND
        ((EQUAL |$doNotCompileJustPrint| T)
         (PROGN (PRETTYPRINT |stuffToCompile|) |op'|))
-       (|$macroIfTrue| (PROGN (BREAK) (|constructMacro| |stuffToCompile|)))
        (#1#
         (PROGN
          (SETQ |result| (|spadCompileOrSetq| |stuffToCompile|))

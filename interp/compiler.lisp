@@ -2990,7 +2990,6 @@
                       |m| |e|))))))))))
  
 ; compMacro(form,m,e) ==
-;   $macroIfTrue: local:= true
 ;   ["MDEF",lhs,signature,specialCases,rhs]:= form
 ;   prhs :=
 ;     rhs is ['CATEGORY,:.] => ['"-- the constructor category"]
@@ -3008,12 +3007,9 @@
 ;     ["/throwAway", $NoValueMode, put(first lhs, "macro", nrhs, e)]
  
 (DEFUN |compMacro| (|form| |m| |e|)
-  (PROG (|$macroIfTrue| |nrhs| |margs| |prhs| |rhs| |specialCases| |signature|
-         |lhs|)
-    (DECLARE (SPECIAL |$macroIfTrue|))
+  (PROG (|lhs| |signature| |specialCases| |rhs| |prhs| |margs| |nrhs|)
     (RETURN
      (PROGN
-      (SETQ |$macroIfTrue| T)
       (SETQ |lhs| (CADR . #1=(|form|)))
       (SETQ |signature| (CADDR . #1#))
       (SETQ |specialCases| (CADDDR . #1#))
