@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4612 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4614 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -104,20 +104,20 @@
  |FiniteRankNonAssociativeAlgebra| |Finite&| |Finite| |FiniteRankAlgebra&|
  |FiniteRankAlgebra| |FiniteLinearAggregate&| |FiniteLinearAggregate|
  |FiniteLinearAggregateFunctions2| |FreeLieAlgebra| |FiniteLinearAggregateSort|
- |FullyLinearlyExplicitRingOver&| |FullyLinearlyExplicitRingOver| |Float|
- |FloatingComplexPackage| |FloatingRealPackage| |FreeModule|
- |FreeModuleFunctions2| |FortranMatrixCategory| |FreeModuleCategory&|
- |FreeModuleCategory| |FortranMatrixFunctionCategory| |FreeMonoid|
- |FortranMachineTypeCategory| |FileName| |FileNameCategory| |FunctionGraph|
- |FreeNilpotentLie| |FortranOutputStackPackage| |FindOrderFinite|
- |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranPackage|
- |FortranProgramCategory| |FortranFunctionCategory| |FortranProgram|
- |FullPartialFractionExpansion| |FullyPatternMatchable|
- |FieldOfPrimeCharacteristic&| |FieldOfPrimeCharacteristic|
- |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
- |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
- |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
- |FractionalIdealFunctions2| |FramedModule|
+ |FullyLinearlyExplicitRingOver&| |FullyLinearlyExplicitRingOver|
+ |FloatLiouvilianFunctions| |Float| |FloatingComplexPackage|
+ |FloatingRealPackage| |FreeModule| |FreeModuleFunctions2|
+ |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
+ |FortranMatrixFunctionCategory| |FreeMonoid| |FortranMachineTypeCategory|
+ |FileName| |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
+ |FortranOutputStackPackage| |FindOrderFinite| |ScriptFormulaFormat|
+ |ScriptFormulaFormat1| |FortranPackage| |FortranProgramCategory|
+ |FortranFunctionCategory| |FortranProgram| |FullPartialFractionExpansion|
+ |FullyPatternMatchable| |FieldOfPrimeCharacteristic&|
+ |FieldOfPrimeCharacteristic| |FloatingPointSystem&| |FloatingPointSystem|
+ |Factored| |FactoredFunctions2| |Fraction| |FractionFunctions2|
+ |FramedAlgebra&| |FramedAlgebra| |FullyRetractableTo&| |FullyRetractableTo|
+ |FractionalIdeal| |FractionalIdealFunctions2| |FramedModule|
  |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
@@ -545,11 +545,11 @@
  |antiAssociative?| |associative?| |antiCommutative?| |commutative?|
  |rightCharacteristicPolynomial| |leftCharacteristicPolynomial| |rightNorm|
  |leftNorm| |rightTrace| |leftTrace| |someBasis| |sort!| |copyInto!| |sorted?|
- |LiePoly| |quickSort| |heapSort| |shellSort| |outputSpacing| |outputGeneral|
- |outputFixed| |outputFloating| |exp1| |log10| |log2| |rationalApproximation|
- |relerror| |complexSolve| |complexRoots| |realRoots| |support| |writable?|
- |readable?| |exists?| |extension| |directory| |filename| |functionGraph|
- |shallowExpand| |deepExpand| |clearFortranOutputStack|
+ |LiePoly| |quickSort| |heapSort| |shellSort| |gamma| |outputSpacing|
+ |outputGeneral| |outputFixed| |outputFloating| |exp1| |log10| |log2|
+ |rationalApproximation| |relerror| |complexSolve| |complexRoots| |realRoots|
+ |support| |writable?| |readable?| |exists?| |extension| |directory| |filename|
+ |functionGraph| |shallowExpand| |deepExpand| |clearFortranOutputStack|
  |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
  |topFortranOutputStack| |setFormula!| |formula| |linkToFortran|
  |setLegalFortranSourceExtensions| |fracPart| |polyPart| |fullPartialFraction|
