@@ -221,7 +221,8 @@
                                              T)
                                             ((|vertSplit|
                                               ((|List| $) $
-                                               (|List| (|PositiveInteger|))))
+                                               (|List|
+                                                (|NonNegativeInteger|))))
                                              T)
                                             ((|horizSplit|
                                               ((|List| $) $
@@ -229,7 +230,8 @@
                                              T)
                                             ((|horizSplit|
                                               ((|List| $) $
-                                               (|List| (|PositiveInteger|))))
+                                               (|List|
+                                                (|NonNegativeInteger|))))
                                              T)
                                             ((|blockSplit|
                                               ((|List| (|List| $)) $
@@ -238,8 +240,9 @@
                                              T)
                                             ((|blockSplit|
                                               ((|List| (|List| $)) $
-                                               (|List| (|PositiveInteger|))
-                                               (|List| (|PositiveInteger|))))
+                                               (|List| (|NonNegativeInteger|))
+                                               (|List|
+                                                (|NonNegativeInteger|))))
                                              T)
                                             ((|map|
                                               ($ (|Mapping| |t#1| |t#1|) $))
@@ -257,7 +260,7 @@
                                              T))
                                           NIL
                                           '((|List| (|List| $))
-                                            (|List| (|PositiveInteger|))
+                                            (|List| (|NonNegativeInteger|))
                                             (|PositiveInteger|) (|List| $)
                                             (|Integer|)
                                             (|List| (|Segment| (|Integer|)))

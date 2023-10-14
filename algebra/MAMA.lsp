@@ -197,39 +197,39 @@
                   (SPADCALL |sc| (QREFELT $ 52)) (QREFELT $ 26))) 
 
 (SDEFUN |MAMA;blockSplit;MLPiL;16|
-        ((A M) (|lr| |List| (|PositiveInteger|)) (|nc| |PositiveInteger|)
+        ((A M) (|lr| |List| (|NonNegativeInteger|)) (|nc| |PositiveInteger|)
          ($ |List| (|List| M)))
         (SPROG ((#1=#:G153 NIL) (X NIL) (#2=#:G152 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MAMA;blockSplit;MLPiL;16|))
                  (SEQ (LETT X NIL . #3#)
-                      (LETT #1# (SPADCALL A |lr| (QREFELT $ 55)) . #3#) G190
+                      (LETT #1# (SPADCALL A |lr| (QREFELT $ 56)) . #3#) G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL X |nc| (QREFELT $ 56)) #2#)
+                        (LETT #2# (CONS (SPADCALL X |nc| (QREFELT $ 57)) #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |MAMA;blockSplit;MPiLL;17|
-        ((A M) (|nr| |PositiveInteger|) (|lc| |List| (|PositiveInteger|))
+        ((A M) (|nr| |PositiveInteger|) (|lc| |List| (|NonNegativeInteger|))
          ($ |List| (|List| M)))
         (SPROG ((#1=#:G157 NIL) (X NIL) (#2=#:G156 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MAMA;blockSplit;MPiLL;17|))
                  (SEQ (LETT X NIL . #3#)
-                      (LETT #1# (SPADCALL A |nr| (QREFELT $ 59)) . #3#) G190
+                      (LETT #1# (SPADCALL A |nr| (QREFELT $ 60)) . #3#) G190
                       (COND
                        ((OR (ATOM #1#) (PROGN (LETT X (CAR #1#) . #3#) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL X |lc| (QREFELT $ 60)) #2#)
+                        (LETT #2# (CONS (SPADCALL X |lc| (QREFELT $ 61)) #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))))) 
@@ -266,7 +266,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|MatrixManipulation| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 62) . #1#)
+    (LETT $ (GETREFV 63) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|MatrixManipulation|
@@ -296,9 +296,10 @@
               (|List| 14) |MAMA;bandMatrix;MLM;12| (|Segment| 14)
               (102 . |expand|) |MAMA;bandMatrix;MSM;13| (107 . |qelt|)
               (114 . |low|) (119 . |high|) |MAMA;subMatrix;M2SM;15| (|List| $)
-              (124 . |vertSplit|) (130 . |horizSplit|) (|List| (|List| 9))
-              |MAMA;blockSplit;MLPiL;16| (136 . |vertSplit|)
-              (142 . |horizSplit|) |MAMA;blockSplit;MPiLL;17|)
+              (|List| 28) (124 . |vertSplit|) (130 . |horizSplit|)
+              (|List| (|List| 9)) |MAMA;blockSplit;MLPiL;16|
+              (136 . |vertSplit|) (142 . |horizSplit|)
+              |MAMA;blockSplit;MPiLL;17|)
            '#(|subMatrix| 148 |rows| 162 |rowMatrix| 174 |element| 180
               |diagonalMatrix| 187 |columns| 198 |columnMatrix| 210
               |blockSplit| 216 |bandMatrix| 230)
@@ -306,7 +307,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 61
+                             (|makeByteWordVec2| 62
                                                  '(1 11 10 0 12 1 11 10 0 13 1
                                                    11 14 0 15 0 6 0 16 2 14 17
                                                    0 0 18 2 10 17 0 0 19 3 9 6
@@ -318,15 +319,15 @@
                                                    28 0 39 4 9 6 0 14 14 6 42 1
                                                    47 45 0 48 3 9 6 0 14 14 50
                                                    1 11 10 0 51 1 11 10 0 52 2
-                                                   9 54 0 32 55 2 9 54 0 10 56
-                                                   2 9 54 0 10 59 2 9 54 0 32
-                                                   60 3 0 9 9 11 11 53 3 0 9 9
+                                                   9 54 0 55 56 2 9 54 0 10 57
+                                                   2 9 54 0 10 60 2 9 54 0 55
+                                                   61 3 0 9 9 11 11 53 3 0 9 9
                                                    32 32 33 2 0 9 9 32 34 2 0 9
                                                    9 11 35 2 0 9 9 10 27 3 0 9
                                                    9 10 10 23 1 0 9 9 44 2 0 9
                                                    9 14 43 2 0 9 9 11 41 2 0 9
-                                                   9 32 40 2 0 9 9 10 38 3 0 57
-                                                   9 10 32 61 3 0 57 9 32 10 58
+                                                   9 32 40 2 0 9 9 10 38 3 0 58
+                                                   9 10 55 62 3 0 58 9 55 10 59
                                                    2 0 9 9 47 49 2 0 9 9 45
                                                    46)))))
            '|lookupComplete|)) 

@@ -265,10 +265,9 @@
               (107 . |convert|) (|List| $) (112 . |convert|) (117 . |convert|)
               (|List| 6) (|Equation| 6) (|List| 51) (|Mapping| 13 6)
               (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
-              (|Void|) (|List| (|List| 25)) (|Union| 6 '"one")
-              (|Mapping| 6 7 7) (|Mapping| 6 6 6) (|List| 47) (|List| 66)
-              (|Mapping| 6 6) (|PositiveInteger|) (|List| 68) (|Segment| 7)
-              (|List| 7))
+              (|Void|) (|List| 64) (|Union| 6 '"one") (|Mapping| 6 7 7)
+              (|Mapping| 6 6 6) (|List| 47) (|List| 25) (|Mapping| 6 6)
+              (|PositiveInteger|) (|List| 68) (|Segment| 7) (|List| 7))
            '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|
               145 |qelt| 153 |nullity| 160 |nullSpace| 165 |minordet| 170
               |minRowIndex| 175 |minColIndex| 180 |maxRowIndex| 185

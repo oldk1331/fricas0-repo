@@ -96,7 +96,7 @@
               (|List| 6) (|Equation| 6) (|List| 13) (|Mapping| 10 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 25) (|PositiveInteger|)
-              (|List| 23) (|List| $) (|List| 27) (|Segment| 7) (|List| 7)
+              (|List| 11) (|List| $) (|List| 27) (|Segment| 7) (|List| 7)
               (|OneDimensionalArray| 6) (|List| 12))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))

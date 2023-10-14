@@ -155,11 +155,10 @@
               (|List| 14) (|Equation| 14) (|List| 23) (|Boolean|)
               (|OutputForm|) (|List| 37) (|Union| $ '"failed") (|HashState|)
               (|SingleInteger|) (|String|) (|Mapping| 25 14) (|Void|)
-              (|List| (|List| 9)) (|List| $) (|Union| 14 '"one")
-              (|DoubleFloatVector|) (|Mapping| 14 6 6) (|List| 22)
-              (|Mapping| 14 14 14) (|Mapping| 14 14) (|List| 35)
-              (|PositiveInteger|) (|List| 43) (|List| 46) (|Segment| 6)
-              (|List| 6))
+              (|List| 44) (|List| $) (|Union| 14 '"one") (|DoubleFloatVector|)
+              (|Mapping| 14 6 6) (|List| 22) (|Mapping| 14 14 14)
+              (|Mapping| 14 14) (|List| 35) (|PositiveInteger|) (|List| 9)
+              (|List| 46) (|Segment| 6) (|List| 6))
            '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
               |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
               |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88

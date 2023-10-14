@@ -220,11 +220,10 @@
               |DHMATRIX;scale;3R$;6| |DHMATRIX;translate;3R$;7|
               (|NonNegativeInteger|) (|Boolean|) (|List| 36) (|Equation| 6)
               (|Mapping| 34 6) (|OutputForm|) (|List| 12) (|Union| $ '"failed")
-              (|HashState|) (|SingleInteger|) (|String|) (|Void|)
-              (|List| (|List| 33)) (|List| $) (|Union| 6 '"one")
-              (|Mapping| 6 15 15) (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 46)
-              (|PositiveInteger|) (|List| 52) (|List| 55) (|Segment| 15)
-              (|List| 15))
+              (|HashState|) (|SingleInteger|) (|String|) (|Void|) (|List| 53)
+              (|List| $) (|Union| 6 '"one") (|Mapping| 6 15 15)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 46) (|PositiveInteger|)
+              (|List| 33) (|List| 55) (|Segment| 15) (|List| 15))
            '#(~= 72 |zero?| 78 |zero| 83 |vertSplit| 89 |vertConcat| 101
               |transpose| 112 |translate| 122 |symmetric?| 129 |swapRows!| 134
               |swapColumns!| 141 |subMatrix| 148 |squareTop| 157 |square?| 162

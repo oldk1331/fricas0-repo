@@ -87,7 +87,7 @@
               (|List| 6) (|Equation| 6) (|List| 12) (|Mapping| 9 6)
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 24) (|PositiveInteger|)
-              (|List| 22) (|List| $) (|Integer|) (|List| 27) (|Segment| 25)
+              (|List| 10) (|List| $) (|Integer|) (|List| 27) (|Segment| 25)
               (|List| 25) (|IndexedOneDimensionalArray| 6 8)
               (|IndexedOneDimensionalArray| 6 7) (|List| 11))
            '#() 'NIL

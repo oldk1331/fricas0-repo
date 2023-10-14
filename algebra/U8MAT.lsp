@@ -150,10 +150,9 @@
               |U8MAT;new;2NniI$;13| (|List| 6) (|Equation| 6) (|List| 22)
               (|Boolean|) (|OutputForm|) (|List| 36) (|Union| $ '"failed")
               (|HashState|) (|SingleInteger|) (|String|) (|Mapping| 24 6)
-              (|Void|) (|List| (|List| 9)) (|List| $) (|Union| 6 '"one")
-              (|U8Vector|) (|Mapping| 6 6 6) (|List| 21) (|Mapping| 6 6)
-              (|List| 34) (|PositiveInteger|) (|List| 41) (|List| 44)
-              (|Segment| 6))
+              (|Void|) (|List| 42) (|List| $) (|Union| 6 '"one") (|U8Vector|)
+              (|Mapping| 6 6 6) (|List| 21) (|Mapping| 6 6) (|List| 34)
+              (|PositiveInteger|) (|List| 9) (|List| 44) (|Segment| 6))
            '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
               |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
               |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88

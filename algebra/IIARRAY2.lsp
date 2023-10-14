@@ -206,7 +206,7 @@
               (11 . |latex|) (|List| 6) (|Equation| 6) (|List| 32)
               (|Mapping| 23 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
               (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 43) (|PositiveInteger|)
-              (|List| 41) (|List| $) (|List| 45) (|Segment| 15) (|List| 15)
+              (|List| 12) (|List| $) (|List| 45) (|Segment| 15) (|List| 15)
               (|List| 31))
            '#(~= 16 |vertSplit| 22 |vertConcat| 34 |transpose| 45 |swapRows!|
               50 |swapColumns!| 57 |subMatrix| 64 |squareTop| 73 |size?| 78
