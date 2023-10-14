@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SCACHE;expandCache| (|x| $)
-  (PROG (#1=#:G142 |k| |ocache|)
+  (PROG (#1=#:G118 |k| |ocache|)
     (RETURN
      (SEQ
       (COND
@@ -20,7 +20,7 @@
       (EXIT (SPADCALL (QREFELT $ 14))))))) 
 
 (DEFUN |SCACHE;insertBefore| (|l| |x| $)
-  (PROG (#1=#:G146 |k| |vscan|)
+  (PROG (#1=#:G122 |k| |vscan|)
     (RETURN
      (SEQ (|SCACHE;expandCache| |x| $)
           (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;insertBefore|))
@@ -35,7 +35,7 @@
           (EXIT (SPADCALL (QREFELT $ 14))))))) 
 
 (DEFUN |SCACHE;shiftCache| (|l| |n| $)
-  (PROG (|x| #1=#:G151 |k| |vscan|)
+  (PROG (|x| #1=#:G127 |k| |vscan|)
     (RETURN
      (SEQ (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;shiftCache|))
           (SEQ (LETT |k| |l| . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#) G190
@@ -48,7 +48,7 @@
           (EXIT (SPADCALL (QREFELT $ 14))))))) 
 
 (DEFUN |SCACHE;clearCache;V;4| ($)
-  (PROG (|x| #1=#:G156 |k| |vscan|)
+  (PROG (|x| #1=#:G132 |k| |vscan|)
     (RETURN
      (SEQ (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;clearCache;V;4|))
           (SEQ (LETT |k| 0 . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#) G190
@@ -64,7 +64,7 @@
        (SETELT $ 9 (+ (QREFELT $ 9) 1)) (EXIT (SPADCALL (QREFELT $ 14))))) 
 
 (DEFUN |SCACHE;linearSearch;SMU;6| (|x| |equal?| $)
-  (PROG (#1=#:G173 |k| |vscan| |y|)
+  (PROG (#1=#:G149 |k| |vscan| |y|)
     (RETURN
      (SEQ
       (EXIT
@@ -109,7 +109,7 @@
                    (|SCACHE;insertAtEnd| |x| $) (EXIT |x|))))))))) 
 
 (DEFUN |SCACHE;enterInCache;SMS;8| (|x| |triage| $)
-  (PROG (#1=#:G199 |pos| #2=#:G204 |l| |m| |i| |i0| |l0| |vscan| |cp| |y|
+  (PROG (#1=#:G175 |pos| #2=#:G180 |l| |m| |i| |i0| |l0| |vscan| |cp| |y|
          |has_vm| |vm| |vl| |m0|)
     (RETURN
      (SEQ
@@ -240,7 +240,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SCACHE;insertInCache| (|before| |x| |pos| $)
-  (PROG (#1=#:G206 |y|)
+  (PROG (#1=#:G182 |y|)
     (RETURN
      (SEQ
       (LETT |y| (QAREF1 (QREFELT $ 7) |before|) . #2=(|SCACHE;insertInCache|))
@@ -260,10 +260,10 @@
 
 (DECLAIM (NOTINLINE |SortedCache;|)) 
 
-(DEFUN |SortedCache| (#1=#:G209)
+(DEFUN |SortedCache| (#1=#:G185)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G210)
+     (PROG (#2=#:G186)
        (RETURN
         (COND
          ((LETT #2#

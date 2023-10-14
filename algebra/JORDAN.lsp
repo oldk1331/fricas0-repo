@@ -25,10 +25,10 @@
 
 (DECLAIM (NOTINLINE |AssociatedJordanAlgebra;|)) 
 
-(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G141)
+(DEFUN |AssociatedJordanAlgebra| (&REST #1=#:G117)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G118)
        (RETURN
         (COND
          ((LETT #2#
@@ -47,7 +47,7 @@
               (HREM |$ConstructorCache| '|AssociatedJordanAlgebra|))))))))))) 
 
 (DEFUN |AssociatedJordanAlgebra;| (|#1| |#2|)
-  (PROG (#1=#:G129 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G105 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|AssociatedJordanAlgebra|))

@@ -35,10 +35,10 @@
 
 (DECLAIM (NOTINLINE |ResidueRing;|)) 
 
-(DEFUN |ResidueRing| (&REST #1=#:G144)
+(DEFUN |ResidueRing| (&REST #1=#:G120)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G145)
+     (PROG (#2=#:G121)
        (RETURN
         (COND
          ((LETT #2#
@@ -89,7 +89,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep| (|List| 9)
               (|GroebnerPackage| 6 7 8 9) (0 . |groebner|) '|relations|
-              (5 . |One|) (|Boolean|) (9 . =) '#:G127 (15 . |Zero|)
+              (5 . |One|) (|Boolean|) (9 . =) '#:G103 (15 . |Zero|)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |RESRING;Zero;$;1|) $))
               (19 . |One|)

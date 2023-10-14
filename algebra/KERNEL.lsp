@@ -73,7 +73,7 @@
       ('T (SPADCALL |k1| |k2| |f|)))))) 
 
 (DEFUN |KERNEL;kernelEnterInCache| (|k| $)
-  (PROG (#1=#:G186 |res| |f1| |f0|)
+  (PROG (#1=#:G162 |res| |f1| |f0|)
     (RETURN
      (SEQ
       (EXIT
@@ -131,7 +131,7 @@
    (EXIT (< (SPADCALL |k1| (QREFELT $ 13)) (SPADCALL |k2| (QREFELT $ 13)))))) 
 
 (DEFUN |KERNEL;kernel;BoLNni$;18| (|fn| |x| |n| $)
-  (PROG (#1=#:G200 |u|)
+  (PROG (#1=#:G176 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -152,7 +152,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |KERNEL;coerce;$Of;19| (|k| $)
-  (PROG (|u| |l| #1=#:G219 |x| #2=#:G218 |f| |o| |v|)
+  (PROG (|u| |l| #1=#:G195 |x| #2=#:G194 |f| |o| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |k| (QREFELT $ 42)) . #3=(|KERNEL;coerce;$Of;19|))
@@ -198,7 +198,7 @@
                      (#4# (SPADCALL |l| (QCDR |u|))))))))))))))))) 
 
 (DEFUN |KERNEL;triage| (|k1| |k2| $)
-  (PROG (#1=#:G221 #2=#:G226 #3=#:G227 |x1| #4=#:G228 |x2| |n2| |n1|)
+  (PROG (#1=#:G197 #2=#:G202 #3=#:G203 |x1| #4=#:G204 |x2| |n2| |n1|)
     (RETURN
      (SEQ
       (EXIT
@@ -252,7 +252,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |KERNEL;convert;$If;21| (|k| $)
-  (PROG (|u| |l| #1=#:G246 |x| #2=#:G245 |f| |o| |v|)
+  (PROG (|u| |l| #1=#:G222 |x| #2=#:G221 |f| |o| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |k| (QREFELT $ 42)) . #3=(|KERNEL;convert;$If;21|))
@@ -304,7 +304,7 @@
                      (#4# (SPADCALL |l| (QCDR |u|))))))))))))))))) 
 
 (DEFUN |KERNEL;convert;$P;22| (|k| $)
-  (PROG (#1=#:G255 |x| #2=#:G254 |l| |s| |v| |o|)
+  (PROG (#1=#:G231 |x| #2=#:G230 |l| |s| |v| |o|)
     (RETURN
      (SEQ (LETT |o| (SPADCALL |k| (QREFELT $ 8)) . #3=(|KERNEL;convert;$P;22|))
           (LETT |v| (SPADCALL |k| (QREFELT $ 42)) . #3#)
@@ -343,7 +343,7 @@
                        (QREFELT $ 83))))))))) 
 
 (DEFUN |KERNEL;convert;$P;23| (|k| $)
-  (PROG (#1=#:G264 |x| #2=#:G263 |l| |s| |v| |o|)
+  (PROG (#1=#:G240 |x| #2=#:G239 |l| |s| |v| |o|)
     (RETURN
      (SEQ (LETT |o| (SPADCALL |k| (QREFELT $ 8)) . #3=(|KERNEL;convert;$P;23|))
           (LETT |v| (SPADCALL |k| (QREFELT $ 42)) . #3#)
@@ -383,10 +383,10 @@
 
 (DECLAIM (NOTINLINE |Kernel;|)) 
 
-(DEFUN |Kernel| (#1=#:G265)
+(DEFUN |Kernel| (#1=#:G241)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G266)
+     (PROG (#2=#:G242)
        (RETURN
         (COND
          ((LETT #2#

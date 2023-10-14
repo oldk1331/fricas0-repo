@@ -6,7 +6,7 @@
    (SPADCALL |t| (QREFELT $ 16)) |s| (SPADCALL |s| (QREFELT $ 16)) $)) 
 
 (DEFUN |LAPLACE;algebraic?| (|f| |t| $)
-  (PROG (#1=#:G168 #2=#:G170 #3=#:G173 |k| |m| #4=#:G172 #5=#:G171 |l|)
+  (PROG (#1=#:G144 #2=#:G146 #3=#:G149 |k| |m| #4=#:G148 #5=#:G147 |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -85,7 +85,7 @@
                 (SPADCALL |l2| (QREFELT $ 35)) |l2| |v| |l3| $)))))))))) 
 
 (DEFUN |LAPLACE;isLinear| (|f| |t| $)
-  (PROG (|c| |b| #1=#:G188 |d| |ff|)
+  (PROG (|c| |b| #1=#:G164 |d| |ff|)
     (RETURN
      (SEQ
       (EXIT
@@ -123,8 +123,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LAPLACE;atn| (|f| |t| $)
-  (PROG (#1=#:G212 |c| |d| |r| |rec| #2=#:G216 |g| |u| #3=#:G202 #4=#:G215
-         #5=#:G201 |vv| |w| |v|)
+  (PROG (#1=#:G188 |c| |d| |r| |rec| #2=#:G192 |g| |u| #3=#:G178 #4=#:G191
+         #5=#:G177 |vv| |w| |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -226,7 +226,7 @@
        ('T (CONS 1 "failed"))))))) 
 
 (DEFUN |LAPLACE;athalf| (|f| |t| $)
-  (PROG (|vv| |v| |nf| |rru| |rk| |nk| |vkl| #1=#:G241 |k| #2=#:G240)
+  (PROG (|vv| |v| |nf| |rru| |rk| |nk| |vkl| #1=#:G217 |k| #2=#:G216)
     (RETURN
      (SEQ
       (LETT |vkl|
@@ -300,7 +300,7 @@
                                        (#4# (CONS 1 "failed")))))))))))))))))))) 
 
 (DEFUN |LAPLACE;aexp| (|f| |t| $)
-  (PROG (#1=#:G265 #2=#:G271 |rec| |r| |w| |v| |c| |c1| |c0| #3=#:G272 |g| |u|)
+  (PROG (#1=#:G241 #2=#:G247 |rec| |r| |w| |v| |c| |c1| |c0| #3=#:G248 |g| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -411,7 +411,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LAPLACE;mkPlus| (|f| $)
-  (PROG (#1=#:G284 |p| #2=#:G283 |d| |u|)
+  (PROG (#1=#:G260 |p| #2=#:G259 |d| |u|)
     (RETURN
      (SEQ
       (LETT |u| (SPADCALL (SPADCALL |f| (QREFELT $ 90)) (QREFELT $ 92))
@@ -449,7 +449,7 @@
    ('T (CONS 0 (SPADCALL |t| |f| (QREFELT $ 36)))))) 
 
 (DEFUN |LAPLACE;intlaplace| (|f| |ss| |g| |v| |vv| $)
-  (PROG (|l| |u| #1=#:G301 |i|)
+  (PROG (|l| |u| #1=#:G277 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -622,8 +622,8 @@
                 (EXIT (CONS 1 "failed")))))))))))) 
 
 (DEFUN |LAPLACE;locallaplace| (|f| |t| |tt| |s| |ss| $)
-  (PROG (|x| |res1| |vv2| |v2| |ww| |w| |la| |vv| |v| |rec| #1=#:G334 #2=#:G333
-         #3=#:G335 #4=#:G357 |g| |u| |vvv|)
+  (PROG (|x| |res1| |vv2| |v2| |ww| |w| |la| |vv| |v| |rec| #1=#:G310 #2=#:G309
+         #3=#:G311 #4=#:G333 |g| |u| |vvv|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |f| (QREFELT $ 82)) (|spadConstant| $ 80))
@@ -776,10 +776,10 @@
 
 (DECLAIM (NOTINLINE |LaplaceTransform;|)) 
 
-(DEFUN |LaplaceTransform| (&REST #1=#:G362)
+(DEFUN |LaplaceTransform| (&REST #1=#:G338)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G363)
+     (PROG (#2=#:G339)
        (RETURN
         (COND
          ((LETT #2#

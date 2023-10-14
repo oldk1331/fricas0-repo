@@ -126,7 +126,7 @@
                (EXIT (SPADCALL (QREFELT $ 31)))))))) 
 
 (DEFUN |CKP;displayCartan| (|Sys| |dim| |q| |s| |CarChar| $)
-  (PROG (#1=#:G176 |cc| #2=#:G175)
+  (PROG (#1=#:G152 |cc| #2=#:G151)
     (RETURN
      (SEQ
       (COND ((EQL (QREFELT $ 16) 0) (SPADCALL (QREFELT $ 31)))
@@ -187,7 +187,7 @@
                   (EXIT (SPADCALL (QREFELT $ 31)))))))))) 
 
 (DEFUN |CKP;stirling;4Nni;11| (|i| |k| |q| $)
-  (PROG (|res| #1=#:G201 #2=#:G200 #3=#:G199 |j| #4=#:G209 #5=#:G208 |ans|)
+  (PROG (|res| #1=#:G177 #2=#:G176 #3=#:G175 |j| #4=#:G185 #5=#:G184 |ans|)
     (RETURN
      (SEQ
       (COND
@@ -261,7 +261,7 @@
                              (QREFELT $ 63)))))))))))))) 
 
 (DEFUN |CKP;alpha;Nni2L;12| (|q| |beta| $)
-  (PROG (#1=#:G210 #2=#:G214 |bi| #3=#:G215 |i| #4=#:G213)
+  (PROG (#1=#:G186 #2=#:G190 |bi| #3=#:G191 |i| #4=#:G189)
     (RETURN
      (SEQ
       (PROGN
@@ -294,7 +294,7 @@
             (GO G190) G191 (EXIT (NREVERSE #4#)))))))) 
 
 (DEFUN |CKP;hilbert;LSup;13| (|CarChar| $)
-  (PROG (|ifac| |res| |coeff| #1=#:G216 |kfac| #2=#:G224 |k| #3=#:G223 |i|)
+  (PROG (|ifac| |res| |coeff| #1=#:G192 |kfac| #2=#:G200 |k| #3=#:G199 |i|)
     (RETURN
      (SEQ (LETT |res| (|spadConstant| $ 69) . #4=(|CKP;hilbert;LSup;13|))
           (LETT |ifac| 1 . #4#)
@@ -346,8 +346,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |CKP;alphaHilbert;SupL;14| (|hilp| $)
-  (PROG (|res| #1=#:G310 |ai| #2=#:G308 |kfac| |sum| #3=#:G228 #4=#:G227
-         #5=#:G315 |k| |ifac| |i|)
+  (PROG (|res| #1=#:G286 |ai| #2=#:G284 |kfac| |sum| #3=#:G204 #4=#:G203
+         #5=#:G291 |k| |ifac| |i|)
     (RETURN
      (SEQ (LETT |res| NIL . #6=(|CKP;alphaHilbert;SupL;14|))
           (LETT |ifac| (SPADCALL (QREFELT $ 10) (QREFELT $ 82)) . #6#)
@@ -411,8 +411,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |CKP;arbFunctions;NniILL;15| (|q| |j| |CarChar| $)
-  (PROG (|res| |t| #1=#:G339 #2=#:G338 #3=#:G332 |kfac| |ki| #4=#:G316
-         #5=#:G346 |k| |ifac| |i|)
+  (PROG (|res| |t| #1=#:G315 #2=#:G314 #3=#:G308 |kfac| |ki| #4=#:G292
+         #5=#:G322 |k| |ifac| |i|)
     (RETURN
      (SEQ
       (LETT |res| (LIST (SPADCALL |CarChar| (QREFELT $ 10) (QREFELT $ 88)))
@@ -476,8 +476,8 @@
       (EXIT |res|))))) 
 
 (DEFUN |CKP;gauge;NniILL;16| (|q| |j| |gamma| $)
-  (PROG (|res| |t| #1=#:G363 #2=#:G362 |kfac| |ki| #3=#:G356 |k| |ifac|
-         #4=#:G354 #5=#:G353 #6=#:G371 |l| #7=#:G372 |g| |i| |rnf| |n1| |gp|)
+  (PROG (|res| |t| #1=#:G339 #2=#:G338 |kfac| |ki| #3=#:G332 |k| |ifac|
+         #4=#:G330 #5=#:G329 #6=#:G347 |l| #7=#:G348 |g| |i| |rnf| |n1| |gp|)
     (RETURN
      (SEQ
       (LETT |gp| (SPADCALL |gamma| (QREFELT $ 94))
@@ -582,7 +582,7 @@
                (EXIT |res|))))))))) 
 
 (DEFUN |CKP;gaugeHilbert;NniLSup;17| (|q| |gamma| $)
-  (PROG (|res| |t| #1=#:G374 #2=#:G373 #3=#:G382 |l| #4=#:G383 |g| #5=#:G381
+  (PROG (|res| |t| #1=#:G350 #2=#:G349 #3=#:G358 |l| #4=#:G359 |g| #5=#:G357
          |k| |rnf| |gp|)
     (RETURN
      (SEQ
@@ -653,7 +653,7 @@
                    (EXIT |res|))))))))) 
 
 (DEFUN |CKP;bound;4Nni;18| (|nn| |mm| |qq| $)
-  (PROG (#1=#:G388 #2=#:G385 |tmp| #3=#:G384)
+  (PROG (#1=#:G364 #2=#:G361 |tmp| #3=#:G360)
     (RETURN
      (SEQ
       (COND
@@ -699,9 +699,9 @@
 
 (DEFUN |CKP;complete2;JdeR;20| (|De| $)
   (PROG (|Cartan| |PrevSymb| |ICs| |CurDe| PD |PrevDe| |CompSys| |s| |InvDe|
-         |ProjDeDim| #1=#:G413 |ProjDe| |InvSymb| |CurDeDim| |CurSymbDim|
-         #2=#:G405 |CurMV| |CurSymb| |PrevSymbDim| |PrevDeDim| |PrevMV|
-         |dimSq1| |dimSq| |q1| |q| #3=#:G400 #4=#:G398 #5=#:G422 |solved?|)
+         |ProjDeDim| #1=#:G389 |ProjDe| |InvSymb| |CurDeDim| |CurSymbDim|
+         #2=#:G381 |CurMV| |CurSymb| |PrevSymbDim| |PrevDeDim| |PrevMV|
+         |dimSq1| |dimSq| |q1| |q| #3=#:G376 #4=#:G374 #5=#:G398 |solved?|)
     (RETURN
      (SEQ
       (LETT |PrevDe| (QCAR (SPADCALL |De| (QREFELT $ 105)))
@@ -894,10 +894,10 @@
 
 (DECLAIM (NOTINLINE |CartanKuranishi;|)) 
 
-(DEFUN |CartanKuranishi| (&REST #1=#:G423)
+(DEFUN |CartanKuranishi| (&REST #1=#:G399)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G424)
+     (PROG (#2=#:G400)
        (RETURN
         (COND
          ((LETT #2#

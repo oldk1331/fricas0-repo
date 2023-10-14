@@ -6,15 +6,15 @@
 (DEFPARAMETER |DivisionRing;AL| 'NIL) 
 
 (DEFUN |DivisionRing| ()
-  (LET (#:G132)
+  (LET (#:G108)
     (COND (|DivisionRing;AL|) (T (SETQ |DivisionRing;AL| (|DivisionRing;|)))))) 
 
 (DEFUN |DivisionRing;| ()
-  (PROG (#1=#:G130)
+  (PROG (#1=#:G106)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G129) (LIST '(|Fraction| (|Integer|))))
+               (|sublisV| (PAIR '(#2=#:G105) (LIST '(|Fraction| (|Integer|))))
                           (|Join| (|EntireRing|) (|Algebra| '#2#)
                                   (|mkCategory|
                                    '(((^ ($ $ (|Integer|))) T)

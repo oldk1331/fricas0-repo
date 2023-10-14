@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FINITE-;random;S;1| ($)
-  (PROG (#1=#:G135)
+  (PROG (#1=#:G111)
     (RETURN
      (SPADCALL
       (PROG1
@@ -12,7 +12,7 @@
       (QREFELT $ 12))))) 
 
 (DEFUN |FINITE-;enumerate;L;2| ($)
-  (PROG (#1=#:G138 #2=#:G142 |i| #3=#:G141)
+  (PROG (#1=#:G114 #2=#:G118 |i| #3=#:G117)
     (RETURN
      (SEQ
       (PROGN

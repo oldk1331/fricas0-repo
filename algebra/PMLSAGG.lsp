@@ -50,10 +50,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchListAggregate;|)) 
 
-(DEFUN |PatternMatchListAggregate| (&REST #1=#:G146)
+(DEFUN |PatternMatchListAggregate| (&REST #1=#:G122)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G123)
        (RETURN
         (COND
          ((LETT #2#

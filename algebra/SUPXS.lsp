@@ -65,10 +65,10 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariatePuiseuxSeries;|)) 
 
-(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G186)
+(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#
@@ -88,8 +88,8 @@
                     '|SparseUnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |SparseUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G177 #2=#:G178 #3=#:G179 #4=#:G180 #5=#:G181 #6=#:G182
-         #7=#:G184 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G153 #2=#:G154 #3=#:G155 #4=#:G156 #5=#:G157 #6=#:G158
+         #7=#:G160 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|SparseUnivariatePuiseuxSeries|))

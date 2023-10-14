@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SHP;subresultantSequenceBegin| (|p1| |p2| $)
-  (PROG (|Lc2| #1=#:G150 |Lc1| |c1| #2=#:G147 |LSubr| |i| |in2| |in1| #3=#:G143
-         |Pr| |n| #4=#:G141 |d2| |d1|)
+  (PROG (|Lc2| #1=#:G126 |Lc1| |c1| #2=#:G123 |LSubr| |i| |in2| |in1| #3=#:G119
+         |Pr| |n| #4=#:G117 |d2| |d1|)
     (RETURN
      (SEQ
       (LETT |d1| (SPADCALL |p1| (QREFELT $ 10))
@@ -71,8 +71,8 @@
               (EXIT (APPEND |LSubr| (LIST |Lc1| |Lc2|))))))))))) 
 
 (DEFUN |SHP;subresultantSequenceNext| (|LcsI| $)
-  (PROG (|LSub| #1=#:G212 |k| |pr2| #2=#:G157 #3=#:G207 |pr1| #4=#:G202
-         #5=#:G200 |c1| |in1| #6=#:G155 |d2| |d1| |p1| |p2|)
+  (PROG (|LSub| #1=#:G188 |k| |pr2| #2=#:G133 #3=#:G183 |pr1| #4=#:G178
+         #5=#:G176 |c1| |in1| #6=#:G131 |d2| |d1| |p1| |p2|)
     (RETURN
      (SEQ
       (LETT |p2| (SPADCALL |LcsI| (QREFELT $ 25))
@@ -164,7 +164,7 @@
               (EXIT (APPEND |LcsI| |LSub|)))))))))) 
 
 (DEFUN |SHP;subresultantSequenceInner| (|p1| |p2| $)
-  (PROG (|Lin| #1=#:G220 |j| |indf|)
+  (PROG (|Lin| #1=#:G196 |j| |indf|)
     (RETURN
      (SEQ
       (LETT |Lin| (|SHP;subresultantSequenceBegin| |p1| |p2| $)
@@ -201,7 +201,7 @@
       (EXIT |Lin|))))) 
 
 (DEFUN |SHP;subresultantSequence;2UpL;4| (|p1| |p2| $)
-  (PROG (|List2| |Pr1| #1=#:G227 #2=#:G225 |Pr0| #3=#:G233 |j| |c1| |List1| |q|
+  (PROG (|List2| |Pr1| #1=#:G203 #2=#:G201 |Pr0| #3=#:G209 |j| |c1| |List1| |q|
          |p|)
     (RETURN
      (SEQ
@@ -241,7 +241,7 @@
       (EXIT |List2|))))) 
 
 (DEFUN |SHP;delta| (|int1| $)
-  (PROG (#1=#:G235)
+  (PROG (#1=#:G211)
     (RETURN
      (SPADCALL (SPADCALL (|spadConstant| $ 11) (QREFELT $ 23))
                (PROG2
@@ -253,9 +253,9 @@
                (QREFELT $ 19))))) 
 
 (DEFUN |SHP;polsth1| (|p1| |p| |p2| |q| |c1| $)
-  (PROG (|List2| |Pr6| #1=#:G367 #2=#:G366 #3=#:G373 |j| |List1| |Listf|
-         #4=#:G372 |Pr5| #5=#:G354 #6=#:G352 |Pr4| #7=#:G264 |Pr3| #8=#:G252
-         |r| |c2| |Pr2| #9=#:G239 |Pr1| |sc1|)
+  (PROG (|List2| |Pr6| #1=#:G343 #2=#:G342 #3=#:G349 |j| |List1| |Listf|
+         #4=#:G348 |Pr5| #5=#:G330 #6=#:G328 |Pr4| #7=#:G240 |Pr3| #8=#:G228
+         |r| |c2| |Pr2| #9=#:G215 |Pr1| |sc1|)
     (RETURN
      (SEQ
       (LETT |sc1| (SPADCALL (SPADCALL |c1| (QREFELT $ 38)) (QREFELT $ 39))
@@ -359,7 +359,7 @@
       (EXIT (APPEND |Listf| |List2|)))))) 
 
 (DEFUN |SHP;polsth2| (|p1| |p| |p2| |q| |c1| $)
-  (PROG (|List2| |Pr5| #1=#:G385 |Pr4| #2=#:G383 #3=#:G382 #4=#:G391 |j|
+  (PROG (|List2| |Pr5| #1=#:G361 |Pr4| #2=#:G359 #3=#:G358 #4=#:G367 |j|
          |List1| |Listf| |Pr3| |Pr2| |Pr1| |sc1|)
     (RETURN
      (SEQ
@@ -408,8 +408,8 @@
       (EXIT (APPEND |Listf| |List2|)))))) 
 
 (DEFUN |SHP;polsth3| (|p1| |p| |p2| |q| |c1| $)
-  (PROG (|List2| |Pr3| #1=#:G406 |Pr2| #2=#:G404 #3=#:G403 #4=#:G412 #5=#:G394
-         |j| |List1| |Listf| |Pr1| |v| |q1| #6=#:G392 |sc1|)
+  (PROG (|List2| |Pr3| #1=#:G382 |Pr2| #2=#:G380 #3=#:G379 #4=#:G388 #5=#:G370
+         |j| |List1| |Listf| |Pr1| |v| |q1| #6=#:G368 |sc1|)
     (RETURN
      (SEQ
       (LETT |sc1| (SPADCALL (SPADCALL |c1| (QREFELT $ 38)) (QREFELT $ 39))
@@ -486,7 +486,7 @@
              ('T (|SHP;polsth3| |p1| |p| |p2| |q| |c1| $)))))))) 
 
 (DEFUN |SHP;SturmHabichtCoefficients;2UpL;10| (|p1| |p2| $)
-  (PROG (#1=#:G415 #2=#:G420 |p| |j| #3=#:G419 |qp| |List1|)
+  (PROG (#1=#:G391 #2=#:G396 |p| |j| #3=#:G395 |qp| |List1|)
     (RETURN
      (SEQ
       (LETT |List1| (SPADCALL |p1| |p2| (QREFELT $ 42))
@@ -574,7 +574,7 @@
    (EXIT |Lsig|))) 
 
 (DEFUN |SHP;epsil| (|int1| |elt1| |elt2| $)
-  (PROG (|ct4| |ct3| #1=#:G431 |ct2| |ct1|)
+  (PROG (|ct4| |ct3| #1=#:G407 |ct2| |ct1|)
     (RETURN
      (SEQ
       (COND ((OR (EQL |int1| 0) (ODDP |int1|)) 0)
@@ -669,7 +669,7 @@
           (EXIT (|SHP;wfunctaux| |List1| $)))))) 
 
 (DEFUN |SHP;SturmHabicht;2UpI;19| (|p1| |p2| $)
-  (PROG (#1=#:G448 #2=#:G454 |p| |j| #3=#:G453 |qp| |List1|)
+  (PROG (#1=#:G424 #2=#:G430 |p| |j| #3=#:G429 |qp| |List1|)
     (RETURN
      (SEQ
       (COND
@@ -712,8 +712,8 @@
   (SPADCALL |p1| (|spadConstant| $ 12) (QREFELT $ 50))) 
 
 (DEFUN |SHP;SturmHabichtMultiple;2UpI;21| (|p1| |p2| $)
-  (PROG (#1=#:G478 |f| #2=#:G477 |sqfr| SH |ans| #3=#:G456 #4=#:G476 |p| |j|
-         #5=#:G475 |qp|)
+  (PROG (#1=#:G454 |f| #2=#:G453 |sqfr| SH |ans| #3=#:G432 #4=#:G452 |p| |j|
+         #5=#:G451 |qp|)
     (RETURN
      (SEQ
       (COND
@@ -809,10 +809,10 @@
 
 (DECLAIM (NOTINLINE |SturmHabichtPackage;|)) 
 
-(DEFUN |SturmHabichtPackage| (&REST #1=#:G480)
+(DEFUN |SturmHabichtPackage| (&REST #1=#:G456)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G481)
+     (PROG (#2=#:G457)
        (RETURN
         (COND
          ((LETT #2#

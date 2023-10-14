@@ -46,7 +46,7 @@
 (DEFUN |Commutator| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G144)
+     (PROG (#1=#:G120)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Commutator|)

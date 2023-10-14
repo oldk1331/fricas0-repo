@@ -19,7 +19,7 @@
             (QREFELT $ 26))) 
 
 (DEFUN |FS2EXPXP;k2Elem| (|k| $)
-  (PROG (|cosz| |sinz| |iez| |ez| |z| |args| #1=#:G217 |a| #2=#:G216)
+  (PROG (|cosz| |sinz| |iez| |ez| |z| |args| #1=#:G193 |a| #2=#:G192)
     (RETURN
      (SEQ
       (LETT |args|
@@ -142,7 +142,7 @@
   (|FS2EXPXP;iExprToXXP| (|FS2EXPXP;newElem| |fcn| $) |posCheck?| $)) 
 
 (DEFUN |FS2EXPXP;iExprToXXP| (|fcn| |posCheck?| $)
-  (PROG (|ker| |power| |expt| |prod| |sum| #1=#:G237 |poly|)
+  (PROG (|ker| |power| |expt| |prod| |sum| #1=#:G213 |poly|)
     (RETURN
      (SEQ
       (LETT |poly| (SPADCALL |fcn| (QREFELT $ 55))
@@ -203,7 +203,7 @@
                                   "exprToXXP: neither a sum, product, power, nor kernel")))))))))))))))))))))))) 
 
 (DEFUN |FS2EXPXP;listToXXP| (|list| |posCheck?| |ans| |op| $)
-  (PROG (#1=#:G263 |term|)
+  (PROG (#1=#:G239 |term|)
     (RETURN
      (SEQ
       (EXIT
@@ -274,7 +274,7 @@
                       (#2# 'NIL))))))))))) 
 
 (DEFUN |FS2EXPXP;powerToXXP| (|fcn| |n| |posCheck?| $)
-  (PROG (|nn| #1=#:G284 |rec| |num| |xxp| #2=#:G279 |b|)
+  (PROG (|nn| #1=#:G260 |rec| |num| |xxp| #2=#:G255 |b|)
     (RETURN
      (SEQ
       (LETT |b| (|FS2EXPXP;iExprToXXP| |fcn| |posCheck?| $)
@@ -330,7 +330,7 @@
                    "lowest order coefficient involves x" $)))))))))))) 
 
 (DEFUN |FS2EXPXP;carefulNthRootIfCan| (|ups| |n| |posCheck?| $)
-  (PROG (|ans| #1=#:G306 #2=#:G307 |signum| |coef| |deg|)
+  (PROG (|ans| #1=#:G282 #2=#:G283 |signum| |coef| |deg|)
     (RETURN
      (SEQ
       (EXIT
@@ -392,7 +392,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FS2EXPXP;nthRootXXPIfCan| (|xxp| |n| |posCheck?| $)
-  (PROG (|newDen| |deg| |coef| #1=#:G313 #2=#:G320 #3=#:G314 |root| |newNum|
+  (PROG (|newDen| |deg| |coef| #1=#:G289 #2=#:G296 #3=#:G290 |root| |newNum|
          |nInv| |den| |num|)
     (RETURN
      (SEQ
@@ -527,7 +527,7 @@
                             $)))))))))))))))) 
 
 (DEFUN |FS2EXPXP;kernelToXXP| (|ker| |posCheck?| $)
-  (PROG (#1=#:G346 |n| |arg| |args| |sym|)
+  (PROG (#1=#:G322 |n| |arg| |args| |sym|)
     (RETURN
      (SEQ
       (LETT |sym| (SPADCALL |ker| (QREFELT $ 114))
@@ -646,7 +646,7 @@
                               (QREFELT $ 95)))))))))) 
 
 (DEFUN |FS2EXPXP;expToXXP| (|arg| |posCheck?| $)
-  (PROG (|f| |xxp| #1=#:G375 |result|)
+  (PROG (|f| |xxp| #1=#:G351 |result|)
     (RETURN
      (SEQ
       (LETT |result| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
@@ -675,7 +675,7 @@
                   (|FS2EXPXP;exponential| (QCDR |f|) |posCheck?| $)))))))))))) 
 
 (DEFUN |FS2EXPXP;genLog| (|ups| |posCheck?| $)
-  (PROG (|logTerm| |term1| |pow| |mon| |negRat?| |rat| |lt| #1=#:G399 #2=#:G400
+  (PROG (|logTerm| |term1| |pow| |mon| |negRat?| |rat| |lt| #1=#:G375 #2=#:G376
          |signum| |coef| |deg|)
     (RETURN
      (SEQ
@@ -769,8 +769,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FS2EXPXP;logToXXP| (|arg| |posCheck?| $)
-  (PROG (|denLog| |numLog| |denCoefLog| #1=#:G406 #2=#:G412 #3=#:G407 |res|
-         |numCoefLog| |den| |num| |xxp| #4=#:G402 |result|)
+  (PROG (|denLog| |numLog| |denCoefLog| #1=#:G382 #2=#:G388 #3=#:G383 |res|
+         |numCoefLog| |den| |num| |xxp| #4=#:G378 |result|)
     (RETURN
      (SEQ
       (EXIT
@@ -869,7 +869,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FS2EXPXP;applyIfCan| (|fcn| |arg| |fcnName| |posCheck?| $)
-  (PROG (#1=#:G417 |xOpList| |lc| |deg| |upxs| |f| |xxp| #2=#:G414 |xxpArg|)
+  (PROG (#1=#:G393 |xOpList| |lc| |deg| |upxs| |f| |xxp| #2=#:G390 |xxpArg|)
     (RETURN
      (SEQ
       (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
@@ -965,7 +965,7 @@
                                "x in constant coefficient" $)))))))))))))))))))) 
 
 (DEFUN |FS2EXPXP;applyBddIfCan| (|fe| |fcn| |arg| |fcnName| |posCheck?| $)
-  (PROG (|ans| |f| |xxp| #1=#:G427 |trouble| |xxpArg|)
+  (PROG (|ans| |f| |xxp| #1=#:G403 |trouble| |xxpArg|)
     (RETURN
      (SEQ
       (LETT |xxpArg| (|FS2EXPXP;iExprToXXP| |arg| |posCheck?| $)
@@ -1021,7 +1021,7 @@
   (SPADCALL |fcn| (QREFELT $ 141) (QREFELT $ 143))) 
 
 (DEFUN |FS2EXPXP;opsInvolvingX| (|fcn| $)
-  (PROG (|opList| |op| #1=#:G444 |k| #2=#:G443)
+  (PROG (|opList| |op| #1=#:G420 |k| #2=#:G419)
     (RETURN
      (SEQ
       (LETT |opList|
@@ -1052,7 +1052,7 @@
       (EXIT (SPADCALL |opList| (QREFELT $ 151))))))) 
 
 (DEFUN |FS2EXPXP;opInOpList?| (|name| |opList| $)
-  (PROG (#1=#:G446 #2=#:G448 #3=#:G449 |op|)
+  (PROG (#1=#:G422 #2=#:G424 #3=#:G425 |op|)
     (RETURN
      (SEQ
       (EXIT
@@ -1086,7 +1086,7 @@
             ('T 'NIL))))))) 
 
 (DEFUN |FS2EXPXP;productOfNonZeroes?| (|fcn| $)
-  (PROG (#1=#:G460 #2=#:G464 #3=#:G465 |term| |prod|)
+  (PROG (#1=#:G436 #2=#:G440 #3=#:G441 |term| |prod|)
     (RETURN
      (SEQ
       (EXIT
@@ -1167,8 +1167,8 @@
   (SPADCALL (SPADCALL |arg| (QREFELT $ 160)) |arg| (QREFELT $ 20))) 
 
 (DEFUN |FS2EXPXP;atancotToXXP| (|fe| |arg| |posCheck?| |plusMinus| $)
-  (PROG (|cc| |n| |posNegPi2| |signum| |lc| #1=#:G519 |rn| #2=#:G517 |yCoef|
-         |y| |ord| |coef| |ups| #3=#:G501 |trouble| |result|)
+  (PROG (|cc| |n| |posNegPi2| |signum| |lc| #1=#:G495 |rn| #2=#:G493 |yCoef|
+         |y| |ord| |coef| |ups| #3=#:G477 |trouble| |result|)
     (RETURN
      (SEQ
       (EXIT
@@ -1341,10 +1341,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceToExponentialExpansion;|)) 
 
-(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G520)
+(DEFUN |FunctionSpaceToExponentialExpansion| (&REST #1=#:G496)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G521)
+     (PROG (#2=#:G497)
        (RETURN
         (COND
          ((LETT #2#

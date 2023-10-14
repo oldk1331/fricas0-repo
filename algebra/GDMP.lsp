@@ -6,7 +6,7 @@
 (DEFUN |GDMP;zero?;$B;1| (|p| $) (NULL |p|)) 
 
 (DEFUN |GDMP;totalDegree;$Nni;2| (|p| $)
-  (PROG (#1=#:G150 #2=#:G149 #3=#:G151 #4=#:G156 |t|)
+  (PROG (#1=#:G126 #2=#:G125 #3=#:G127 #4=#:G132 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 13)) 0)
@@ -34,7 +34,7 @@
               (COND (#1# #2#) (#5# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |GDMP;monomial;$OvlNni$;3| (|p| |v| |e| $)
-  (PROG (#1=#:G161 #2=#:G163 |z| #3=#:G162 |locv|)
+  (PROG (#1=#:G137 #2=#:G139 |z| #3=#:G138 |locv|)
     (RETURN
      (SEQ
       (LETT |locv| (SPADCALL |v| (QREFELT $ 24))
@@ -67,7 +67,7 @@
   (SPADCALL (|spadConstant| $ 25) |v| 1 (QREFELT $ 30))) 
 
 (DEFUN |GDMP;listCoef| (|p| $)
-  (PROG (#1=#:G169 |rec| #2=#:G168)
+  (PROG (#1=#:G145 |rec| #2=#:G144)
     (RETURN
      (SEQ
       (PROGN
@@ -81,7 +81,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |GDMP;mainVariable;$U;6| (|p| $)
-  (PROG (#1=#:G180 |vv| #2=#:G171 #3=#:G181 |v|)
+  (PROG (#1=#:G156 |vv| #2=#:G147 #3=#:G157 |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -152,7 +152,7 @@
             (QREFELT $ 52))) 
 
 (DEFUN |GDMP;degree;$LL;13| (|p| |lv| $)
-  (PROG (#1=#:G208 |v| #2=#:G207)
+  (PROG (#1=#:G184 |v| #2=#:G183)
     (RETURN
      (SEQ
       (PROGN
@@ -168,7 +168,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |GDMP;minimumDegree;$LL;14| (|p| |lv| $)
-  (PROG (#1=#:G212 |v| #2=#:G211)
+  (PROG (#1=#:G188 |v| #2=#:G187)
     (RETURN
      (SEQ
       (PROGN
@@ -196,7 +196,7 @@
           (EXIT (COND ((NULL |l|) 'T) ('T (NULL (CDR |l|))))))))) 
 
 (DEFUN |GDMP;maxNorm| (|p| $)
-  (PROG (|m| #1=#:G221 |r| |l|)
+  (PROG (|m| #1=#:G197 |r| |l|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|GDMP;maxNorm|))
           (LETT |m| (|spadConstant| $ 60) . #2#)
@@ -218,7 +218,7 @@
   (SPADCALL (SPADCALL |r| (QREFELT $ 63)) |p| (QREFELT $ 64))) 
 
 (DEFUN |GDMP;variables;$L;19| (|p| $)
-  (PROG (#1=#:G229 #2=#:G235 |i| #3=#:G234 #4=#:G233 |tdeg| |maxdeg|)
+  (PROG (#1=#:G205 #2=#:G211 |i| #3=#:G210 #4=#:G209 |tdeg| |maxdeg|)
     (RETURN
      (SEQ
       (LETT |maxdeg| (SPADCALL (QREFELT $ 11) 0 (QREFELT $ 66))
@@ -264,7 +264,7 @@
              (EXIT (NREVERSE #3#))))))))) 
 
 (DEFUN |GDMP;reorder;$L$;20| (|p| |perm| $)
-  (PROG (|q| #1=#:G245 #2=#:G247 |j| #3=#:G246 #4=#:G244 |term| #5=#:G243)
+  (PROG (|q| #1=#:G221 #2=#:G223 |j| #3=#:G222 #4=#:G220 |term| #5=#:G219)
     (RETURN
      (SEQ
       (COND
@@ -323,7 +323,7 @@
   (SPADCALL (QCAR |z1|) (QCAR |z2|) (QREFELT $ 74))) 
 
 (DEFUN |GDMP;univariate;$OvlSup;21| (|p| |v| $)
-  (PROG (|nexp| |deg| #1=#:G254 #2=#:G256 |i| #3=#:G255 |locv| |exp|)
+  (PROG (|nexp| |deg| #1=#:G230 #2=#:G232 |i| #3=#:G231 |locv| |exp|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 13)) (|spadConstant| $ 79))
@@ -429,7 +429,7 @@
     (RETURN (PROGN (|GDMP;evalSortedVarlist| |x| |Lvar| |Lpval| $))))) 
 
 (DEFUN |GDMP;eval;$LL$;26| (|p| |Lvar| |Lpval| $)
-  (PROG (|nlpval| #1=#:G272 |mvar| #2=#:G271 |nlvar|)
+  (PROG (|nlpval| #1=#:G248 |mvar| #2=#:G247 |nlvar|)
     (RETURN
      (SEQ
       (LETT |nlvar| (SPADCALL (ELT $ 91) |Lvar| (QREFELT $ 100))
@@ -521,7 +521,7 @@
      (QREFELT $ 111))))) 
 
 (DEFUN |GDMP;content;$R;30| (|p| $)
-  (PROG (#1=#:G287 #2=#:G286 #3=#:G288 #4=#:G291 |t|)
+  (PROG (#1=#:G263 #2=#:G262 #3=#:G264 #4=#:G267 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 13)) (|spadConstant| $ 60))
@@ -649,7 +649,7 @@
                       (QCDR |pv|) (QREFELT $ 52))))))))))))) 
 
 (DEFUN |GDMP;coerce;$Of;34| (|p| $)
-  (PROG (|lt| |l| #1=#:G327 |i| #2=#:G326 |t| |vl1| #3=#:G325 |v| #4=#:G324)
+  (PROG (|lt| |l| #1=#:G303 |i| #2=#:G302 |t| |vl1| #3=#:G301 |v| #4=#:G300)
     (RETURN
      (SEQ
       (COND
@@ -733,10 +733,10 @@
 
 (DECLAIM (NOTINLINE |GeneralDistributedMultivariatePolynomial;|)) 
 
-(DEFUN |GeneralDistributedMultivariatePolynomial| (&REST #1=#:G358)
+(DEFUN |GeneralDistributedMultivariatePolynomial| (&REST #1=#:G334)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G359)
+     (PROG (#2=#:G335)
        (RETURN
         (COND
          ((LETT #2#
@@ -759,7 +759,7 @@
                     '|GeneralDistributedMultivariatePolynomial|))))))))))) 
 
 (DEFUN |GeneralDistributedMultivariatePolynomial;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G357 |pv$| #2=#:G354 #3=#:G355 #4=#:G356 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G333 |pv$| #2=#:G330 #3=#:G331 #4=#:G332 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

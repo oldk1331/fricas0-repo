@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMQFCAT;patternMatch;QP2Pmr;1| (|x| |p| |l| $)
-  (PROG (|ur| |u| #1=#:G131 |r|)
+  (PROG (|ur| |u| #1=#:G107 |r|)
     (RETURN
      (SEQ
       (COND
@@ -38,10 +38,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchQuotientFieldCategory;|)) 
 
-(DEFUN |PatternMatchQuotientFieldCategory| (&REST #1=#:G142)
+(DEFUN |PatternMatchQuotientFieldCategory| (&REST #1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

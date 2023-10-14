@@ -66,7 +66,7 @@
      (QREFELT $ 52))))) 
 
 (DEFUN |UPXS;approximateLaurent| (|x| |term| |n| $)
-  (PROG (|app| #1=#:G169 |m| |e|)
+  (PROG (|app| #1=#:G145 |m| |e|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -266,10 +266,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
 
-(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G229)
+(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G205)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G230)
+     (PROG (#2=#:G206)
        (RETURN
         (COND
          ((LETT #2#
@@ -288,8 +288,8 @@
               (HREM |$ConstructorCache| '|UnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |UnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G220 #2=#:G221 #3=#:G222 #4=#:G223 #5=#:G224 #6=#:G225
-         #7=#:G227 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G196 #2=#:G197 #3=#:G198 #4=#:G199 #5=#:G200 #6=#:G201
+         #7=#:G203 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|UnivariatePuiseuxSeries|))

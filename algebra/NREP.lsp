@@ -19,10 +19,10 @@
 
 (DECLAIM (NOTINLINE |NumericRealEigenPackage;|)) 
 
-(DEFUN |NumericRealEigenPackage| (#1=#:G134)
+(DEFUN |NumericRealEigenPackage| (#1=#:G110)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G111)
        (RETURN
         (COND
          ((LETT #2#

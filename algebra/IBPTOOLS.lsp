@@ -46,7 +46,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |IBPTOOLS;mapUnivariateIfCan;MSupU;3| (|f| |poly| $)
-  (PROG (|ans| #1=#:G161 |lc|)
+  (PROG (|ans| #1=#:G137 |lc|)
     (RETURN
      (SEQ
       (EXIT
@@ -79,7 +79,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IBPTOOLS;mapMatrixIfCan;MMU;4| (|f| |mat| $)
-  (PROG (#1=#:G179 |poly| |j| |i| |matOut| |n| |m|)
+  (PROG (#1=#:G155 |poly| |j| |i| |matOut| |n| |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -136,10 +136,10 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisPolynomialTools;|)) 
 
-(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G186)
+(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#

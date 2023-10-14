@@ -6,11 +6,11 @@
 (DEFPARAMETER |Comparable;AL| 'NIL) 
 
 (DEFUN |Comparable| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|Comparable;AL|) (T (SETQ |Comparable;AL| (|Comparable;|)))))) 
 
 (DEFUN |Comparable;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

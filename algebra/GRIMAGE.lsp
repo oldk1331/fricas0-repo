@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GRIMAGE;numberCheck| (|nums| $)
-  (PROG (#1=#:G144 #2=#:G142 #3=#:G146 |i|)
+  (PROG (#1=#:G120 #2=#:G118 #3=#:G122 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -71,8 +71,8 @@
         (#2# (QSETVELT |g| 2 NIL)))))))) 
 
 (DEFUN |GRIMAGE;putColorInfo;LLL;3| (|llp| |listOfPalettes| $)
-  (PROG (|llp2| |lp2| |p| |d| #1=#:G161 |daShade| |daHue| #2=#:G159 |lp|
-         #3=#:G160 |pal|)
+  (PROG (|llp2| |lp2| |p| |d| #1=#:G137 |daShade| |daHue| #2=#:G135 |lp|
+         #3=#:G136 |pal|)
     (RETURN
      (SEQ (LETT |llp2| NIL . #4=(|GRIMAGE;putColorInfo;LLL;3|))
           (SEQ (LETT |pal| NIL . #4#) (LETT #3# |listOfPalettes| . #4#)
@@ -261,8 +261,8 @@
 (DEFUN |GRIMAGE;plotLists|
        (|graf| |listOfListsOfPoints| |listOfPointColors| |listOfLineColors|
         |listOfPointSizes| $)
-  (PROG (#1=#:G199 |givenLen| #2=#:G191 #3=#:G183 |len| #4=#:G204 |l|
-         #5=#:G203)
+  (PROG (#1=#:G175 |givenLen| #2=#:G167 #3=#:G159 |len| #4=#:G180 |l|
+         #5=#:G179)
     (RETURN
      (SEQ
       (LETT |givenLen| (LENGTH |listOfListsOfPoints|)
@@ -353,8 +353,8 @@
       (EXIT |graf|))))) 
 
 (DEFUN |GRIMAGE;makeGraph| (|graf| $)
-  (PROG (|hueShade| |aPoint| #1=#:G221 |p| #2=#:G217 |aList| #3=#:G218 |pColor|
-         #4=#:G219 |lColor| #5=#:G220 |s| |tonto| |transform|)
+  (PROG (|hueShade| |aPoint| #1=#:G197 |p| #2=#:G193 |aList| #3=#:G194 |pColor|
+         #4=#:G195 |lColor| #5=#:G196 |s| |tonto| |transform|)
     (RETURN
      (SEQ (|GRIMAGE;doOptions| |graf| $)
           (LETT |s| (LENGTH (QVELT |graf| 3)) . #6=(|GRIMAGE;makeGraph|))
@@ -552,7 +552,7 @@
 (DEFUN |GRIMAGE;graphImage;$;18| ($) (|GRIMAGE;graph| NIL $)) 
 
 (DEFUN |GRIMAGE;makeGraphImage;L$;19| (|llp| $)
-  (PROG (|i| #1=#:G242 #2=#:G241 #3=#:G240 |l| #4=#:G239)
+  (PROG (|i| #1=#:G218 #2=#:G217 #3=#:G216 |l| #4=#:G215)
     (RETURN
      (SEQ
       (SPADCALL |llp|
@@ -590,7 +590,7 @@
   (SPADCALL |llp| |lpc| |llc| |lps| NIL (QREFELT $ 98))) 
 
 (DEFUN |GRIMAGE;makeGraphImage;L2LLL$;21| (|llp| |lpc| |llc| |lps| |opts| $)
-  (PROG (|aPoint| #1=#:G251 |p| #2=#:G250 |aList| |transform| |graf|)
+  (PROG (|aPoint| #1=#:G227 |p| #2=#:G226 |aList| |transform| |graf|)
     (RETURN
      (SEQ
       (LETT |graf| (|GRIMAGE;graph| (SPADCALL |opts| NIL (QREFELT $ 17)) $)
@@ -651,7 +651,7 @@
             (SPADCALL (QREFELT $ 65)) (QREFELT $ 102))) 
 
 (DEFUN |GRIMAGE;coerce;L$;27| (|llp| $)
-  (PROG (|i| #1=#:G267 #2=#:G266 #3=#:G265 |l| #4=#:G264)
+  (PROG (|i| #1=#:G243 #2=#:G242 #3=#:G241 |l| #4=#:G240)
     (RETURN
      (SEQ
       (SPADCALL |llp|
@@ -702,7 +702,7 @@
 (DEFUN |GraphImage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G270)
+     (PROG (#1=#:G246)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|)

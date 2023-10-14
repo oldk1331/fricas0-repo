@@ -10,7 +10,7 @@
 (DEFUN |WUTSET;per| (|l| $) |l|) 
 
 (DEFUN |WUTSET;removeAssociates| (|lp| $)
-  (PROG (#1=#:G150 |p| #2=#:G149)
+  (PROG (#1=#:G126 |p| #2=#:G125)
     (RETURN
      (SEQ
       (SPADCALL
@@ -26,7 +26,7 @@
        (QREFELT $ 12)))))) 
 
 (DEFUN |WUTSET;medialSetWithTrace| (|ps| |redOp?| |redOp| $)
-  (PROG (|contradiction| |rs| #1=#:G153 |bs| |rec| |qs|)
+  (PROG (|contradiction| |rs| #1=#:G129 |bs| |rec| |qs|)
     (RETURN
      (SEQ
       (LETT |qs| (SPADCALL |ps| |redOp?| |redOp| (QREFELT $ 16))
@@ -144,7 +144,7 @@
   (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 31))) 
 
 (DEFUN |WUTSET;characteristicSetUsingTrace| (|ps| |redOp?| |redOp| $)
-  (PROG (|qs| |contradiction| |rs| #1=#:G153 |ms| |rec|)
+  (PROG (|qs| |contradiction| |rs| #1=#:G129 |ms| |rec|)
     (RETURN
      (SEQ
       (LETT |ps| (|WUTSET;removeAssociates| |ps| $)
@@ -246,7 +246,7 @@
   (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 39))) 
 
 (DEFUN |WUTSET;characteristicSerie;LMML;10| (|ps| |redOp?| |redOp| $)
-  (PROG (#1=#:G239 |ln| |newps| |lics| |cs| |charSet?| |esl| |a|)
+  (PROG (#1=#:G215 |ln| |newps| |lics| |cs| |charSet?| |esl| |a|)
     (RETURN
      (SEQ
       (LETT |a|
@@ -354,7 +354,7 @@
   (SPADCALL |ps| (ELT $ 32) (ELT $ 33) (QREFELT $ 64))) 
 
 (DEFUN |WUTSET;removeSquares| (|ts| $)
-  (PROG (|p| |newts| |rsts| #1=#:G204 #2=#:G266)
+  (PROG (|p| |newts| |rsts| #1=#:G180 #2=#:G242)
     (RETURN
      (SEQ
       (COND ((SPADCALL |ts| (QREFELT $ 66)) (CONS 0 |ts|))
@@ -453,10 +453,10 @@
 
 (DECLAIM (NOTINLINE |WuWenTsunTriangularSet;|)) 
 
-(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G305)
+(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G281)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G306)
+     (PROG (#2=#:G282)
        (RETURN
         (COND
          ((LETT #2#
@@ -475,7 +475,7 @@
               (HREM |$ConstructorCache| '|WuWenTsunTriangularSet|))))))))))) 
 
 (DEFUN |WuWenTsunTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G304 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G280 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|WuWenTsunTriangularSet|))

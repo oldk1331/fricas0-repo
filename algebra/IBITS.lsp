@@ -10,7 +10,7 @@
    (EXIT (|error| "Index out of range")))) 
 
 (DEFUN |IBITS;coerce;$Of;3| (|v| $)
-  (PROG (#1=#:G142 |i| |j| |s| |f| |t|)
+  (PROG (#1=#:G118 |i| |j| |s| |f| |t|)
     (RETURN
      (SEQ (LETT |t| (|STR_to_CHAR| "1") . #2=(|IBITS;coerce;$Of;3|))
           (LETT |f| (|STR_to_CHAR| "0") . #2#)
@@ -97,10 +97,10 @@
 
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
-(DEFUN |IndexedBits| (#1=#:G179)
+(DEFUN |IndexedBits| (#1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#
@@ -115,7 +115,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|))))))))))) 
 
 (DEFUN |IndexedBits;| (|#1|)
-  (PROG (#1=#:G177 #2=#:G178 |pv$| #3=#:G176 $ |dv$| DV$1)
+  (PROG (#1=#:G153 #2=#:G154 |pv$| #3=#:G152 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedBits|))

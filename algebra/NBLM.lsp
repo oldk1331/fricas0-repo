@@ -91,7 +91,7 @@
 
 (DEFUN |NBLM;naiveBeckermannLabahn1;VVNniIM2ML;5|
        (|vp| |vn| |sigma| |prime| |pts| |up_residual| |up_poly| $)
-  (PROG (|p| |l| |vk| |k| |vpa| #1=#:G181 |m|)
+  (PROG (|p| |l| |vk| |k| |vpa| #1=#:G157 |m|)
     (RETURN
      (SEQ
       (COND
@@ -140,7 +140,7 @@
 
 (DEFUN |NBLM;naiveBeckermannLabahn1;VVNniIM2ML;6|
        (|vpa| |vn| |sigma| |prime| |pts| |up_residual| |up_poly| $)
-  (PROG (|vd| |k| #1=#:G196 |m2| |vk| |mp| |m1| |m|)
+  (PROG (|vd| |k| #1=#:G172 |m2| |vk| |mp| |m1| |m|)
     (RETURN
      (SEQ
       (COND
@@ -205,7 +205,7 @@
           (EXIT (SETELT_U32 |v| 0 0)))))) 
 
 (DEFUN |NBLM;mul_by_binomial_pointwise| (|v| |pt| |pts| |p| $)
-  (PROG (|pp| #1=#:G205 |i| |n|)
+  (PROG (|pp| #1=#:G181 |i| |n|)
     (RETURN
      (SEQ (LETT |n| (QV_LEN_U32 |v|) . #2=(|NBLM;mul_by_binomial_pointwise|))
           (EXIT
@@ -220,7 +220,7 @@
 
 (DEFUN |NBLM;naiveBeckermannLabahn0;2VVNniIM2MV;9|
        (|mp| |vp| |vd| |sigma| |p| |pts| |up_residual| |up_poly| $)
-  (PROG (|vckinv| |k| |vcinv| |maxd| |cpi| |pi| |pt| #1=#:G223 #2=#:G207 |l|
+  (PROG (|vckinv| |k| |vcinv| |maxd| |cpi| |pi| |pt| #1=#:G199 #2=#:G183 |l|
          |s1| |m1| |vc| |m|)
     (RETURN
      (SEQ
@@ -317,7 +317,7 @@
             (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NBLM;critical_index| (|m| |i| |d| |vn| $)
-  (PROG (#1=#:G224 #2=#:G228 |pa| |nj| |j| |nc|)
+  (PROG (#1=#:G200 #2=#:G204 |pa| |nj| |j| |nc|)
     (RETURN
      (SEQ
       (EXIT
@@ -366,7 +366,7 @@
                         (EXIT NIL)))))))))) 
 
 (DEFUN |NBLM;mult_vector| (|v| |c| |p| $)
-  (PROG (#1=#:G236 |i| |n|)
+  (PROG (#1=#:G212 |i| |n|)
     (RETURN
      (SEQ (LETT |n| (QV_LEN_U32 |v|) . #2=(|NBLM;mult_vector|))
           (EXIT
@@ -390,7 +390,7 @@
                 (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NBLM;add_vector| (|v1| |v2| |c| |k| |p| $)
-  (PROG (#1=#:G243 |i| |n|)
+  (PROG (#1=#:G219 |i| |n|)
     (RETURN
      (SEQ (LETT |n| (QV_LEN_U32 |v1|) . #2=(|NBLM;add_vector|))
           (EXIT
@@ -417,7 +417,7 @@
                 (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NBLM;reduce_row_by_row1| (|m| |j| |i| |ci| |cdeg| |vdiff| |p| $)
-  (PROG (#1=#:G247 |c| |k| |rj0|)
+  (PROG (#1=#:G223 |c| |k| |rj0|)
     (RETURN
      (SEQ
       (LETT |rj0| (QAREF2O |m| |j| |ci| 1 1) . #2=(|NBLM;reduce_row_by_row1|))
@@ -461,7 +461,7 @@
                 (LETT |j| (+ |j| 1) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NBLM;final_reduce| (|m| |civ| |vn| |vd| |p| $)
-  (PROG (|ci| #1=#:G255 |vdi| |i| #2=#:G261 |d| |vdj| |j| |mvd| |ns|)
+  (PROG (|ci| #1=#:G231 |vdi| |i| #2=#:G237 |d| |vdj| |j| |mvd| |ns|)
     (RETURN
      (SEQ (LETT |ns| (QVSIZE |vd|) . #3=(|NBLM;final_reduce|))
           (LETT |mvd| (SPADCALL |vd| 1 (QREFELT $ 38)) . #3#)
@@ -558,7 +558,7 @@
           (EXIT (VECTOR |m| |vd| |civ|)))))) 
 
 (DEFUN |NBLM;reduceBasis;V2VIR;20| (|m| |vn| |vd| |p| $)
-  (PROG (|j| |m2| #1=#:G284 |i1| |resjk| |vnk1| |k| |mi| |i| |nvd| |res| |ns|
+  (PROG (|j| |m2| #1=#:G260 |i1| |resjk| |vnk1| |k| |mi| |i| |nvd| |res| |ns|
          |nc| |nr|)
     (RETURN
      (SEQ (LETT |nr| (QVSIZE |vd|) . #2=(|NBLM;reduceBasis;V2VIR;20|))
@@ -613,7 +613,7 @@
 (DEFUN |NaiveBeckermannLabahnModular| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G286)
+     (PROG (#1=#:G262)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NaiveBeckermannLabahnModular|)

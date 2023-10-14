@@ -38,7 +38,7 @@
       (EXIT (CONS |m1| |res|)))))) 
 
 (DEFUN |FELFUN;landen2;FLFL;4| (|m| |res| |eps| $)
-  (PROG (|kn| |kp| #1=#:G178 |am|)
+  (PROG (|kn| |kp| #1=#:G154 |am|)
     (RETURN
      (SEQ
       (SEQ
@@ -96,7 +96,7 @@
           (EXIT (SPADCALL |m| |res| |eps| (QREFELT $ 31))))))) 
 
 (DEFUN |FELFUN;kprod;LF;6| (|ll| $)
-  (PROG (#1=#:G190 |k| #2=#:G189)
+  (PROG (#1=#:G166 |k| #2=#:G165)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 34)
@@ -119,7 +119,7 @@
                 (QREFELT $ 36)))))) 
 
 (DEFUN |FELFUN;sn2;FLF;7| (|z| |ll| $)
-  (PROG (|res| #1=#:G194 |k|)
+  (PROG (|res| #1=#:G170 |k|)
     (RETURN
      (SEQ (LETT |res| (SPADCALL |z| (QREFELT $ 38)) . #2=(|FELFUN;sn2;FLF;7|))
           (SEQ (LETT |k| NIL . #2#) (LETT #1# |ll| . #2#) G190
@@ -175,7 +175,7 @@
       (EXIT (CONS |m1| |res|)))))) 
 
 (DEFUN |FELFUN;landen2;CLFL;9| (|m| |res| |eps| $)
-  (PROG (|kn| |kp| #1=#:G202 |am|)
+  (PROG (|kn| |kp| #1=#:G178 |am|)
     (RETURN
      (SEQ
       (SEQ
@@ -233,7 +233,7 @@
           (EXIT (SPADCALL |m| |res| |eps| (QREFELT $ 50))))))) 
 
 (DEFUN |FELFUN;kprod;LC;11| (|ll| $)
-  (PROG (#1=#:G214 |k| #2=#:G213)
+  (PROG (#1=#:G190 |k| #2=#:G189)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 52)
@@ -256,7 +256,7 @@
                 (QREFELT $ 54)))))) 
 
 (DEFUN |FELFUN;sn2;CLC;12| (|z| |ll| $)
-  (PROG (|res| #1=#:G218 |k|)
+  (PROG (|res| #1=#:G194 |k|)
     (RETURN
      (SEQ (LETT |res| (SPADCALL |z| (QREFELT $ 56)) . #2=(|FELFUN;sn2;CLC;12|))
           (SEQ (LETT |k| NIL . #2#) (LETT #1# |ll| . #2#) G190
@@ -369,7 +369,7 @@
                     (QREFELT $ 19)))))))))) 
 
 (DEFUN |FELFUN;sn21| (|z| |ll| $)
-  (PROG (|res| |kres| |res0| #1=#:G235 |k|)
+  (PROG (|res| |kres| |res0| #1=#:G211 |k|)
     (RETURN
      (SEQ (LETT |res| (|FELFUN;sin1| |z| $) . #2=(|FELFUN;sn21|))
           (SEQ (LETT |k| NIL . #2#) (LETT #1# |ll| . #2#) G190
@@ -1021,7 +1021,7 @@
               (SPADCALL |obits| (QREFELT $ 68)) (EXIT |res|))))))))) 
 
 (DEFUN |FELFUN;theta0| (|tau| $)
-  (PROG (|t3| |t2| |pp| |nt3| |i| #1=#:G312 |iq2| |liq2| |rtd| |q| |q2| |k|
+  (PROG (|t3| |t2| |pp| |nt3| |i| #1=#:G288 |iq2| |liq2| |rtd| |q| |q2| |k|
          |otau| |tresh| |prec|)
     (RETURN
      (SEQ (LETT |prec| (SPADCALL (QREFELT $ 67)) . #2=(|FELFUN;theta0|))
@@ -1172,7 +1172,7 @@
       (EXIT (LIST |g2| |g3| |t3|)))))) 
 
 (DEFUN |FELFUN;reduce_periods| (|w1| |w2| $)
-  (PROG (|aw1| #1=#:G322 |rit| |tau| |aw2| |#G110| |#G109| |#G108| |#G107|)
+  (PROG (|aw1| #1=#:G298 |rit| |tau| |aw2| |#G110| |#G109| |#G108| |#G107|)
     (RETURN
      (SEQ
       (EXIT
@@ -1302,7 +1302,7 @@
         (SPADCALL |obits| (QREFELT $ 68)))))))) 
 
 (DEFUN |FELFUN;ellipticF;3F;35| (|z| |m| $)
-  (PROG (|res| |delta| #1=#:G340 |k| |ll| |eps| |prec| |z2| |m2| |obits|)
+  (PROG (|res| |delta| #1=#:G316 |k| |ll| |eps| |prec| |z2| |m2| |obits|)
     (RETURN
      (SEQ
       (COND
@@ -1393,7 +1393,7 @@
                      (EXIT |res|)))))))))))))))) 
 
 (DEFUN |FELFUN;ellipticF_aux| (|z| |m| $)
-  (PROG (|delta| #1=#:G349 |k| |zz| |snf| |dnz| |cnz| |sf| |nz| |z2| |z0| |ll|
+  (PROG (|delta| #1=#:G325 |k| |zz| |snf| |dnz| |cnz| |sf| |nz| |z2| |z0| |ll|
          |res| |eps| |prec| |m2| |obits|)
     (RETURN
      (SEQ
@@ -1540,7 +1540,7 @@
                          (SPADCALL |obits| (QREFELT $ 68))))))))))) 
 
 (DEFUN |FELFUN;ellipticE;2F;38| (|m| $)
-  (PROG (|e_val| |p| |k1inv| |f_val| |k1| #1=#:G356 |k| |llr| |ll| |eps| |prec|
+  (PROG (|e_val| |p| |k1inv| |f_val| |k1| #1=#:G332 |k| |llr| |ll| |eps| |prec|
          |obits|)
     (RETURN
      (SEQ
@@ -1589,7 +1589,7 @@
          (SPADCALL |obits| (QREFELT $ 68)) (EXIT |e_val|)))))))) 
 
 (DEFUN |FELFUN;ellipticE;2C;39| (|m| $)
-  (PROG (|e_val| |p| |k1inv| |f_val| |k1| #1=#:G363 |k| |llr| |ll| |eps| |prec|
+  (PROG (|e_val| |p| |k1inv| |f_val| |k1| #1=#:G339 |k| |llr| |ll| |eps| |prec|
          |obits|)
     (RETURN
      (SEQ
@@ -1660,8 +1660,8 @@
                         (SPADCALL |obits| (QREFELT $ 68))))))))))))))) 
 
 (DEFUN |FELFUN;ellipticE;3F;40| (|z| |m| $)
-  (PROG (|e_val| |r| |k_z2| |z2| |p| |k1inv| |f_val| |k1| #1=#:G377 |k|
-         #2=#:G378 |lz| |delta| #3=#:G376 |llr| |ll| |eps| |prec| |res| |m2|
+  (PROG (|e_val| |r| |k_z2| |z2| |p| |k1inv| |f_val| |k1| #1=#:G353 |k|
+         #2=#:G354 |lz| |delta| #3=#:G352 |llr| |ll| |eps| |prec| |res| |m2|
          |obits|)
     (RETURN
      (SEQ
@@ -1835,8 +1835,8 @@
                           (EXIT |e_val|)))))))))))))))) 
 
 (DEFUN |FELFUN;ellipticE_aux| (|z| |m| $)
-  (PROG (|e_val| |r| |k_z2| |z2| |p| |k1inv| |f_val| |k1| #1=#:G390 |k|
-         #2=#:G391 |lz| |delta| #3=#:G389 |zz| |snf| |dnz| |cnz| |z0| |sf| |nz|
+  (PROG (|e_val| |r| |k_z2| |z2| |p| |k1inv| |f_val| |k1| #1=#:G366 |k|
+         #2=#:G367 |lz| |delta| #3=#:G365 |zz| |snf| |dnz| |cnz| |z0| |sf| |nz|
          |res0| |llr| |ll| |eps| |prec| |m2| |obits|)
     (RETURN
      (SEQ
@@ -2219,7 +2219,7 @@
 (DEFUN |FloatEllipticFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G408)
+     (PROG (#1=#:G384)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FloatEllipticFunctions|)

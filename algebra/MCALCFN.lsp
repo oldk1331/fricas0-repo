@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MCALCFN;localGradient| (|v| |xlist| $)
-  (PROG (#1=#:G130 |x| #2=#:G129)
+  (PROG (#1=#:G106 |x| #2=#:G105)
     (RETURN
      (SEQ
       (SPADCALL
@@ -27,7 +27,7 @@
       (EXIT (|MCALCFN;localGradient| |v| |xlist| $)))))) 
 
 (DEFUN |MCALCFN;localDivergence| (|vf| |xlist| $)
-  (PROG (|ans| |i| |n| #1=#:G133)
+  (PROG (|ans| |i| |n| #1=#:G109)
     (RETURN
      (SEQ
       (LETT |n|
@@ -51,7 +51,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |MCALCFN;divergence;FLAFFLASF;4| (|vf| |xflas| $)
-  (PROG (|ans| |i| |n| #1=#:G137 |xlist|)
+  (PROG (|ans| |i| |n| #1=#:G113 |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -85,7 +85,7 @@
       (EXIT (|MCALCFN;localDivergence| |gv| |xlist| $)))))) 
 
 (DEFUN |MCALCFN;hessian;FFLASM;6| (|v| |xflas| $)
-  (PROG (#1=#:G150 |x| #2=#:G149 #3=#:G148 |y| #4=#:G147 |xlist|)
+  (PROG (#1=#:G126 |x| #2=#:G125 #3=#:G124 |y| #4=#:G123 |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -125,7 +125,7 @@
         (QREFELT $ 29))))))) 
 
 (DEFUN |MCALCFN;jacobian;FLAFFLASM;7| (|vf| |xflas| $)
-  (PROG (#1=#:G158 |x| #2=#:G157 #3=#:G156 |i| #4=#:G155 |xlist|)
+  (PROG (#1=#:G134 |x| #2=#:G133 #3=#:G132 |i| #4=#:G131 |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -166,7 +166,7 @@
         (QREFELT $ 29))))))) 
 
 (DEFUN |MCALCFN;bandedHessian;FFLASNniM;8| (|v| |xflas| |k| $)
-  (PROG (#1=#:G165 |j| #2=#:G164 |iw| |bandM| |n| |xlist|)
+  (PROG (#1=#:G141 |j| #2=#:G140 |iw| |bandM| |n| |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -202,7 +202,7 @@
       (EXIT |bandM|))))) 
 
 (DEFUN |MCALCFN;jacobian;FLAFFLASM;9| (|vf| |xflas| $)
-  (PROG (#1=#:G173 |x| #2=#:G172 #3=#:G171 |i| #4=#:G170 |xlist|)
+  (PROG (#1=#:G149 |x| #2=#:G148 #3=#:G147 |i| #4=#:G146 |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -243,7 +243,7 @@
         (QREFELT $ 29))))))) 
 
 (DEFUN |MCALCFN;bandedJacobian;FLAFFLAS2NniM;10| (|vf| |xflas| |kl| |ku| $)
-  (PROG (|j| |iw| #1=#:G182 #2=#:G181 |bandM| |n| |xlist|)
+  (PROG (|j| |iw| #1=#:G158 #2=#:G157 |bandM| |n| |xlist|)
     (RETURN
      (SEQ
       (LETT |xlist| (SPADCALL |xflas| (QREFELT $ 15))
@@ -298,10 +298,10 @@
 
 (DECLAIM (NOTINLINE |MultiVariableCalculusFunctions;|)) 
 
-(DEFUN |MultiVariableCalculusFunctions| (&REST #1=#:G183)
+(DEFUN |MultiVariableCalculusFunctions| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G184)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

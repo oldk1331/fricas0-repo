@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |VectorCategory;AL| 'NIL) 
 
-(DEFUN |VectorCategory| (#1=#:G132)
-  (LET (#2=#:G133)
+(DEFUN |VectorCategory| (#1=#:G108)
+  (LET (#2=#:G109)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |VectorCategory;AL|)) (CDR #2#))
      (T
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |VectorCategory;| (|t#1|)
-  (PROG (#1=#:G131)
+  (PROG (#1=#:G107)
     (RETURN
      (PROG1
          (LETT #1#

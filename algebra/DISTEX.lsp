@@ -48,7 +48,7 @@
       (EXIT (SPADCALL (SPADCALL |mom| (QREFELT $ 16)) (QREFELT $ 23))))))) 
 
 (DEFUN |DISTEX;arcsineDistribution;RD;6| (|a| $)
-  (PROG (|mgf| #1=#:G138 |half|)
+  (PROG (|mgf| #1=#:G114 |half|)
     (RETURN
      (SEQ
       (LETT |mgf|
@@ -78,10 +78,10 @@
 
 (DECLAIM (NOTINLINE |DistributionPackage;|)) 
 
-(DEFUN |DistributionPackage| (#1=#:G142)
+(DEFUN |DistributionPackage| (#1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

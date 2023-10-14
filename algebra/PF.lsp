@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |PrimeField;|)) 
 
-(DEFUN |PrimeField| (#1=#:G161)
+(DEFUN |PrimeField| (#1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#
@@ -44,7 +44,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerPrimeField| 6) (|local| |#1|)
               (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8) (0 . |prime?|)
-              '#:G127 (|NonNegativeInteger|) (|PositiveInteger|)
+              '#:G103 (|NonNegativeInteger|) (|PositiveInteger|)
               (|SparseUnivariatePolynomial| $) (|Union| 14 '"failed")
               (|Union| $ '"failed") (|CardinalNumber|)
               (|OnePointCompletion| 13) (|Vector| $) (|Matrix| $)

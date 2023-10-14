@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FM2;linearExtend;MM1M2;1| (|f| |x| $)
-  (PROG (|res| #1=#:G134 |t|)
+  (PROG (|res| #1=#:G110 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 11)) (|spadConstant| $ 12))
@@ -29,10 +29,10 @@
 
 (DECLAIM (NOTINLINE |FreeModuleFunctions2;|)) 
 
-(DEFUN |FreeModuleFunctions2| (&REST #1=#:G135)
+(DEFUN |FreeModuleFunctions2| (&REST #1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

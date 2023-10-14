@@ -116,7 +116,7 @@
 (DEFUN |TheSymbolTable| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G185)
+     (PROG (#1=#:G161)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TheSymbolTable|)

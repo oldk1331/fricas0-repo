@@ -6,14 +6,14 @@
 (DEFPARAMETER |CombinatorialFunctionCategory;AL| 'NIL) 
 
 (DEFUN |CombinatorialFunctionCategory| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|CombinatorialFunctionCategory;AL|)
           (T
            (SETQ |CombinatorialFunctionCategory;AL|
                    (|CombinatorialFunctionCategory;|)))))) 
 
 (DEFUN |CombinatorialFunctionCategory;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

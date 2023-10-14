@@ -45,8 +45,8 @@
       (EXIT (VECTOR |t| |n| (SPADCALL |t| |n| (QREFELT $ 30)))))))) 
 
 (DEFUN |NUMTUBE;curveTriads| (|l| $)
-  (PROG (|endtriad| |n| |t| |x| |begtriad| |midtriads| #1=#:G148 |pl| #2=#:G149
-         |po| #3=#:G150 |pr| #4=#:G147 |triad| |b| |k|)
+  (PROG (|endtriad| |n| |t| |x| |begtriad| |midtriads| #1=#:G124 |pl| #2=#:G125
+         |po| #3=#:G126 |pr| #4=#:G123 |triad| |b| |k|)
     (RETURN
      (SEQ (LETT |k| (LENGTH |l|) . #5=(|NUMTUBE;curveTriads|))
           (EXIT
@@ -144,7 +144,7 @@
                                        (QREFELT $ 37)))))))))))))))) 
 
 (DEFUN |NUMTUBE;curveLoops| (|pts| |r| |nn| $)
-  (PROG (|loops| |b| |n| #1=#:G156 |pt| #2=#:G157 |triad| |cosSin| |triads|)
+  (PROG (|loops| |b| |n| #1=#:G132 |pt| #2=#:G133 |triad| |cosSin| |triads|)
     (RETURN
      (SEQ
       (LETT |triads| (|NUMTUBE;curveTriads| |pts| $)
@@ -170,7 +170,7 @@
       (EXIT (NREVERSE |loops|)))))) 
 
 (DEFUN |NUMTUBE;tube;CurveDfITp;6| (|curve| |r| |n| $)
-  (PROG (|loops| #1=#:G161 |bran| |brans|)
+  (PROG (|loops| #1=#:G137 |bran| |brans|)
     (RETURN
      (SEQ
       (COND ((< |n| 3) (|error| "tube: n should be at least 3"))
@@ -195,10 +195,10 @@
 
 (DECLAIM (NOTINLINE |NumericTubePlot;|)) 
 
-(DEFUN |NumericTubePlot| (#1=#:G162)
+(DEFUN |NumericTubePlot| (#1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

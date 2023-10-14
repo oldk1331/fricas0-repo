@@ -73,10 +73,10 @@
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
-(DEFUN |FreeGroup| (#1=#:G178)
+(DEFUN |FreeGroup| (#1=#:G154)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G179)
+     (PROG (#2=#:G155)
        (RETURN
         (COND
          ((LETT #2#

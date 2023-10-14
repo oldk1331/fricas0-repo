@@ -6,11 +6,11 @@
 (DEFPARAMETER |OrderedSet;AL| 'NIL) 
 
 (DEFUN |OrderedSet| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|OrderedSet;AL|) (T (SETQ |OrderedSet;AL| (|OrderedSet;|)))))) 
 
 (DEFUN |OrderedSet;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

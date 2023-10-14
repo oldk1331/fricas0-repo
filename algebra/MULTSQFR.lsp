@@ -2,9 +2,9 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MULTSQFR;nsqfree;SupLLR;1| (|oldf| |lvar| |ltry| $)
-  (PROG (#1=#:G180 |lcr| |h1| |unitsq| #2=#:G194 |lpfact| |f0| |f| |sqdec|
-         #3=#:G193 |h| |r1| #4=#:G177 |result0| |result| #5=#:G171 |ldeg|
-         #6=#:G169 |lcoef| |d0| |d| |#G12| |#G11| |npol| |g0| |gg| #7=#:G162
+  (PROG (#1=#:G156 |lcr| |h1| |unitsq| #2=#:G170 |lpfact| |f0| |f| |sqdec|
+         #3=#:G169 |h| |r1| #4=#:G153 |result0| |result| #5=#:G147 |ldeg|
+         #6=#:G145 |lcoef| |d0| |d| |#G12| |#G11| |npol| |g0| |gg| #7=#:G138
          |lfact| |exp0| |#G10| |#G9| |pfact| |sqlead| |sqlc| |leadpol| |lcf|
          |ctf| |lval| |univPol|)
     (RETURN
@@ -281,9 +281,9 @@
   (SPADCALL (QCDR |z1|) (QCDR |z2|) (QREFELT $ 44))) 
 
 (DEFUN |MULTSQFR;squareFree;SupF;2| (|f| $)
-  (PROG (|lfs| #1=#:G232 |fu| #2=#:G231 |partSq| #3=#:G230 |ff| #4=#:G229
-         |lcSq| #5=#:G214 |lcf| #6=#:G228 #7=#:G227 |usqfr| |upol| |lvar|
-         #8=#:G205 #9=#:G204 #10=#:G206 #11=#:G226 |cf| #12=#:G225 #13=#:G224)
+  (PROG (|lfs| #1=#:G208 |fu| #2=#:G207 |partSq| #3=#:G206 |ff| #4=#:G205
+         |lcSq| #5=#:G190 |lcf| #6=#:G204 #7=#:G203 |usqfr| |upol| |lvar|
+         #8=#:G181 #9=#:G180 #10=#:G182 #11=#:G202 |cf| #12=#:G201 #13=#:G200)
     (RETURN
      (SEQ
       (COND
@@ -440,10 +440,10 @@
                    |lfs| (QREFELT $ 88)))))))))))))) 
 
 (DEFUN |MULTSQFR;squareFree;PF;3| (|f| $)
-  (PROG (|sqlead| |result1| |nsqff| #1=#:G268 |fu| #2=#:G267 |nsqfftot|
-         #3=#:G254 |lcont| |f0| |lvar| |x| |i| #4=#:G266 |j| |m| #5=#:G250
-         #6=#:G249 #7=#:G251 #8=#:G265 |ldeg| |result| #9=#:G263 #10=#:G243 |p|
-         |y| |n| #11=#:G264 |im| |lmdeg|)
+  (PROG (|sqlead| |result1| |nsqff| #1=#:G244 |fu| #2=#:G243 |nsqfftot|
+         #3=#:G230 |lcont| |f0| |lvar| |x| |i| #4=#:G242 |j| |m| #5=#:G226
+         #6=#:G225 #7=#:G227 #8=#:G241 |ldeg| |result| #9=#:G239 #10=#:G219 |p|
+         |y| |n| #11=#:G240 |im| |lmdeg|)
     (RETURN
      (SEQ
       (EXIT
@@ -603,8 +603,8 @@
       #9# (EXIT #9#))))) 
 
 (DEFUN |MULTSQFR;intChoose;SupLLR;4| (|f| |lvar| |ltry| $)
-  (PROG (|d1| |lval1| |ctf1| |lfact1| |f1| |try_n| #1=#:G285 |d0| |lfact|
-         #2=#:G273 |ctf| |f0| |lval| |i| #3=#:G286 |range| |nvr| |degf|)
+  (PROG (|d1| |lval1| |ctf1| |lfact1| |f1| |try_n| #1=#:G261 |d0| |lfact|
+         #2=#:G249 |ctf| |f0| |lval| |i| #3=#:G262 |range| |nvr| |degf|)
     (RETURN
      (SEQ
       (EXIT
@@ -710,7 +710,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MULTSQFR;coefChoose;IFP;5| (|exp| |sqlead| $)
-  (PROG (|lcoef| #1=#:G289 |texp| #2=#:G294 |term|)
+  (PROG (|lcoef| #1=#:G265 |texp| #2=#:G270 |term|)
     (RETURN
      (SEQ
       (LETT |lcoef| (SPADCALL |sqlead| (QREFELT $ 39))
@@ -816,7 +816,7 @@
                                 (SPADCALL |p1| (QREFELT $ 145))))))))))))) 
 
 (DEFUN |MULTSQFR;univcase;POVF;8| (|f| |x| $)
-  (PROG (#1=#:G322 |term| #2=#:G321 |result| |uf| #3=#:G309 |cf|)
+  (PROG (#1=#:G298 |term| #2=#:G297 |result| |uf| #3=#:G285 |cf|)
     (RETURN
      (SEQ
       (LETT |uf| (SPADCALL |f| (QREFELT $ 146))
@@ -854,7 +854,7 @@
         (QREFELT $ 109))))))) 
 
 (DEFUN |MULTSQFR;compdegd;LI;9| (|lfact| $)
-  (PROG (|ris| #1=#:G327 |pfact|)
+  (PROG (|ris| #1=#:G303 |pfact|)
     (RETURN
      (SEQ (LETT |ris| 0 . #2=(|MULTSQFR;compdegd;LI;9|))
           (SEQ (LETT |pfact| NIL . #2#) (LETT #1# |lfact| . #2#) G190
@@ -872,7 +872,7 @@
           (EXIT |ris|))))) 
 
 (DEFUN |MULTSQFR;normDeriv2;SupISup;10| (|f| |m| $)
-  (PROG (|n| |ris| #1=#:G330 |n1| |k| |#G1|)
+  (PROG (|n| |ris| #1=#:G306 |n1| |k| |#G1|)
     (RETURN
      (SEQ
       (LETT |#G1| (SPADCALL |f| (QREFELT $ 128))
@@ -918,7 +918,7 @@
                    (EXIT |ris|))))))))) 
 
 (DEFUN |MULTSQFR;myDegree;SupLNniL;11| (|f| |lvar| |exp| $)
-  (PROG (#1=#:G339 |n| #2=#:G338)
+  (PROG (#1=#:G315 |n| #2=#:G314)
     (RETURN
      (SEQ
       (PROGN
@@ -934,10 +934,10 @@
 
 (DECLAIM (NOTINLINE |MultivariateSquareFree;|)) 
 
-(DEFUN |MultivariateSquareFree| (&REST #1=#:G340)
+(DEFUN |MultivariateSquareFree| (&REST #1=#:G316)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G341)
+     (PROG (#2=#:G317)
        (RETURN
         (COND
          ((LETT #2#

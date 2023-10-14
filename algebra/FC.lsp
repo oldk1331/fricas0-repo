@@ -7,7 +7,7 @@
   (SEQ (SETELT $ 10 (|add_SI| (QREFELT $ 10) 1)) (EXIT (QREFELT $ 10)))) 
 
 (DEFUN |FC;commaSep| (|l| $)
-  (PROG (#1=#:G143 #2=#:G142 #3=#:G144 #4=#:G146 |u|)
+  (PROG (#1=#:G119 #2=#:G118 #3=#:G120 #4=#:G122 |u|)
     (RETURN
      (SEQ
       (CONS (SPADCALL |l| 1 (QREFELT $ 16))
@@ -55,7 +55,7 @@
            (|addCommas| (QCDR |u|))))) 
 
 (DEFUN |FC;getPrint| (|l| $)
-  (PROG (|ll| #1=#:G158 |i|)
+  (PROG (|ll| #1=#:G134 |i|)
     (RETURN
      (SEQ (LETT |ll| (LIST "PRINT*") . #2=(|FC;getPrint|))
           (SEQ (LETT |i| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -70,7 +70,7 @@
           (EXIT (|fortran2Lines| |ll|)))))) 
 
 (DEFUN |FC;getBlock| (|rec| $)
-  (PROG (|expr| #1=#:G162 |u|)
+  (PROG (|expr| #1=#:G138 |u|)
     (RETURN
      (SEQ (|indentFortLevel| (SPADCALL 1 (QREFELT $ 23)))
           (LETT |expr| (LIST) . #2=(|FC;getBlock|))
@@ -98,7 +98,7 @@
              (EXIT |expr|)))))))) 
 
 (DEFUN |FC;getElseIf| (|f| $)
-  (PROG (|expr| |elseBranch| #1=#:G190 |rec|)
+  (PROG (|expr| |elseBranch| #1=#:G166 |rec|)
     (RETURN
      (SEQ (LETT |rec| (SPADCALL |f| (QREFELT $ 36)) . #2=(|FC;getElseIf|))
           (LETT |expr|
@@ -266,7 +266,7 @@
                (|getStatement| (SPADCALL 'ENDIF (QREFELT $ 19)) NIL))))))) 
 
 (DEFUN |FC;getComment| (|rec| $)
-  (PROG (#1=#:G262 |c| #2=#:G261)
+  (PROG (#1=#:G238 |c| #2=#:G237)
     (RETURN
      (SEQ
       (SPADCALL
@@ -323,8 +323,8 @@
                    (|FC;getContinue| |lab| $))))))) 
 
 (DEFUN |FC;getCode;$Se;22| (|f| $)
-  (PROG (#1=#:G300 #2=#:G301 #3=#:G299 #4=#:G298 #5=#:G297 #6=#:G296 #7=#:G295
-         #8=#:G294 #9=#:G293 #10=#:G292 #11=#:G291 #12=#:G290 |rec| |opp|)
+  (PROG (#1=#:G276 #2=#:G277 #3=#:G275 #4=#:G274 #5=#:G273 #6=#:G272 #7=#:G271
+         #8=#:G270 #9=#:G269 #10=#:G268 #11=#:G267 #12=#:G266 |rec| |opp|)
     (RETURN
      (SEQ
       (LETT |opp| (SPADCALL |f| (QREFELT $ 26)) . #13=(|FC;getCode;$Se;22|))
@@ -685,7 +685,7 @@
 (DEFUN |FortranCode| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2276)
+     (PROG (#1=#:G2252)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranCode|)

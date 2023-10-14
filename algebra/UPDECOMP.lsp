@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UPDECOMP;rightFactorIfCan;UPNniRU;1| (|p| |dq| |lcq| $)
-  (PROG (|q| #1=#:G140 #2=#:G154 |cquo| |c| #3=#:G155 |i| |k| |lcp| |s| |n|
+  (PROG (|q| #1=#:G116 #2=#:G130 |cquo| |c| #3=#:G131 |i| |k| |lcp| |s| |n|
          |nc| |dp|)
     (RETURN
      (SEQ
@@ -180,7 +180,7 @@
   (SPADCALL |p| |dq| (|spadConstant| $ 14) (QREFELT $ 29))) 
 
 (DEFUN |UPDECOMP;leftFactorIfCan;2UPU;3| (|f| |h| $)
-  (PROG (|g| #1=#:G174 |r| |qr| |qrf| |i|)
+  (PROG (|g| #1=#:G150 |r| |qr| |qrf| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -227,7 +227,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |UPDECOMP;monicDecomposeIfCan;UPU;4| (|f| $)
-  (PROG (#1=#:G194 |g| |h| #2=#:G195 #3=#:G180 |dh| |df|)
+  (PROG (#1=#:G170 |g| |h| #2=#:G171 #3=#:G156 |dh| |df|)
     (RETURN
      (SEQ
       (EXIT
@@ -290,10 +290,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
 
-(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G203)
+(DEFUN |UnivariatePolynomialDecompositionPackage| (&REST #1=#:G179)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G204)
+     (PROG (#2=#:G180)
        (RETURN
         (COND
          ((LETT #2#

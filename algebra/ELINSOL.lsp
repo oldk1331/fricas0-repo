@@ -14,8 +14,8 @@
              ('T (SPADCALL (SPADCALL |ux| (QREFELT $ 20)) (QREFELT $ 22))))))))) 
 
 (DEFUN |ELINSOL;F_to_LF| (|x| |vl| $)
-  (PROG (#1=#:G154 |v| #2=#:G153 |nx0| |nx1| |ml| #3=#:G151 #4=#:G152 |c|
-         #5=#:G150 |res0| #6=#:G149 #7=#:G148 |nx|)
+  (PROG (#1=#:G130 |v| #2=#:G129 |nx0| |nx1| |ml| #3=#:G127 #4=#:G128 |c|
+         #5=#:G126 |res0| #6=#:G125 #7=#:G124 |nx|)
     (RETURN
      (SEQ (LETT |nx| (SPADCALL |x| (QREFELT $ 23)) . #8=(|ELINSOL;F_to_LF|))
           (LETT |res0|
@@ -88,8 +88,8 @@
             ('T (CONS (SPADCALL |nx0| (QREFELT $ 22)) |res0|)))))))) 
 
 (DEFUN |ELINSOL;lin_sol;LLU;3| (|eql| |vl| $)
-  (PROG (#1=#:G171 |ss| |eqm| #2=#:G185 |ll| #3=#:G184 |rh| #4=#:G183 #5=#:G182
-         |eqll| #6=#:G181 |p| #7=#:G180 |coefk| #8=#:G179 |c| #9=#:G178)
+  (PROG (#1=#:G147 |ss| |eqm| #2=#:G161 |ll| #3=#:G160 |rh| #4=#:G159 #5=#:G158
+         |eqll| #6=#:G157 |p| #7=#:G156 |coefk| #8=#:G155 |c| #9=#:G154)
     (RETURN
      (SEQ
       (LETT |coefk|
@@ -168,10 +168,10 @@
 
 (DECLAIM (NOTINLINE |ExpressionLinearSolve;|)) 
 
-(DEFUN |ExpressionLinearSolve| (#1=#:G186)
+(DEFUN |ExpressionLinearSolve| (#1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,11 +2,11 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GENEEZ;compBound;BPLNni;1| (|m| |listpolys| $)
-  (PROG (#1=#:G152 |normprod| #2=#:G147 #3=#:G146 #4=#:G148 #5=#:G150 #6=#:G162
-         |g| #7=#:G163 |df| |nm| #8=#:G144 #9=#:G143 #10=#:G145 #11=#:G161 |u|
-         |normlist| #12=#:G140 #13=#:G139 #14=#:G141 #15=#:G160 #16=#:G159 |f|
-         #17=#:G158 |n| #18=#:G137 #19=#:G136 #20=#:G138 #21=#:G157 |ldeg|
-         #22=#:G156 #23=#:G155)
+  (PROG (#1=#:G128 |normprod| #2=#:G123 #3=#:G122 #4=#:G124 #5=#:G126 #6=#:G138
+         |g| #7=#:G139 |df| |nm| #8=#:G120 #9=#:G119 #10=#:G121 #11=#:G137 |u|
+         |normlist| #12=#:G116 #13=#:G115 #14=#:G117 #15=#:G136 #16=#:G135 |f|
+         #17=#:G134 |n| #18=#:G113 #19=#:G112 #20=#:G114 #21=#:G133 |ldeg|
+         #22=#:G132 #23=#:G131)
     (RETURN
      (SEQ
       (LETT |ldeg|
@@ -148,8 +148,8 @@
                  (QREFELT $ 18))))))) 
 
 (DEFUN |GENEEZ;compBound;BPLNni;2| (|m| |listpolys| $)
-  (PROG (#1=#:G168 #2=#:G167 #3=#:G169 #4=#:G171 #5=#:G170 #6=#:G172 #7=#:G176
-         |u| #8=#:G175 |p| #9=#:G165 #10=#:G164 #11=#:G166 #12=#:G174)
+  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G147 #5=#:G146 #6=#:G148 #7=#:G152
+         |u| #8=#:G151 |p| #9=#:G141 #10=#:G140 #11=#:G142 #12=#:G150)
     (RETURN
      (SEQ
       (+
@@ -252,7 +252,7 @@
         ('T (CONS 1 "failed")))) 
 
 (DEFUN |GENEEZ;modInverse| (|c| |p| $)
-  (PROG (#1=#:G188)
+  (PROG (#1=#:G164)
     (RETURN
      (QCAR
       (PROG2
@@ -287,7 +287,7 @@
                          (QREFELT $ 28)))))))))) 
 
 (DEFUN |GENEEZ;reduceList| (|lp| |lmod| $)
-  (PROG (#1=#:G214 |ff| #2=#:G213)
+  (PROG (#1=#:G190 |ff| #2=#:G189)
     (RETURN
      (SEQ
       (PROGN
@@ -304,7 +304,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |GENEEZ;coerceLFP| (|lf| $)
-  (PROG (#1=#:G218 |fm| #2=#:G217)
+  (PROG (#1=#:G194 |fm| #2=#:G193)
     (RETURN
      (SEQ
       (PROGN
@@ -320,10 +320,10 @@
 
 (DEFUN |GENEEZ;liftSol|
        (|oldsol| |err| |lmod| |lmodk| |lpolys| |ftab| |m| |bound| $)
-  (PROG (#1=#:G192 #2=#:G234 |fs| #3=#:G228 #4=#:G227 #5=#:G229 #6=#:G245 |f|
-         #7=#:G246 |g| |nsol| #8=#:G244 |slp| #9=#:G243 #10=#:G241 #11=#:G242
-         #12=#:G240 |sln| #13=#:G238 |pp| #14=#:G239 #15=#:G237 |cc| |i|
-         #16=#:G236 |xx| #17=#:G235 |d|)
+  (PROG (#1=#:G168 #2=#:G210 |fs| #3=#:G204 #4=#:G203 #5=#:G205 #6=#:G221 |f|
+         #7=#:G222 |g| |nsol| #8=#:G220 |slp| #9=#:G219 #10=#:G217 #11=#:G218
+         #12=#:G216 |sln| #13=#:G214 |pp| #14=#:G215 #15=#:G213 |cc| |i|
+         #16=#:G212 |xx| #17=#:G211 |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -532,8 +532,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |GENEEZ;makeProducts| (|listPol| $)
-  (PROG (#1=#:G257 |g| #2=#:G256 #3=#:G248 #4=#:G247 #5=#:G249 #6=#:G255
-         #7=#:G127 |ll| |f|)
+  (PROG (#1=#:G233 |g| #2=#:G232 #3=#:G224 #4=#:G223 #5=#:G225 #6=#:G231
+         #7=#:G103 |ll| |f|)
     (RETURN
      (SEQ
       (COND ((< (LENGTH |listPol|) 2) |listPol|)
@@ -578,8 +578,8 @@
                       (EXIT (NREVERSE #2#))))))))))))) 
 
 (DEFUN |GENEEZ;testModulus;RLB;13| (|pmod| |listPol| $)
-  (PROG (#1=#:G262 #2=#:G266 #3=#:G269 |rpol2| |redListPol| |rpol| #4=#:G259
-         #5=#:G267 |pol| #6=#:G268)
+  (PROG (#1=#:G238 #2=#:G242 #3=#:G245 |rpol2| |redListPol| |rpol| #4=#:G235
+         #5=#:G243 |pol| #6=#:G244)
     (RETURN
      (SEQ
       (EXIT
@@ -639,7 +639,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |GENEEZ;tablePow;NniRLU;14| (|mdeg| |pmod| |listPol| $)
-  (PROG (#1=#:G282 |tpol| #2=#:G283 |fpol| #3=#:G281 |i| |x| |ptable| |multiE|)
+  (PROG (#1=#:G258 |tpol| #2=#:G259 |fpol| #3=#:G257 |i| |x| |ptable| |multiE|)
     (RETURN
      (SEQ
       (LETT |multiE| (SPADCALL |listPol| (|spadConstant| $ 31) (QREFELT $ 67))
@@ -701,8 +701,8 @@
                    (EXIT (CONS 0 |ptable|)))))))))) 
 
 (DEFUN |GENEEZ;solveid;BPRVU;15| (|m| |pmod| |table| $)
-  (PROG (|sln| #1=#:G295 |pp| #2=#:G296 |slp| #3=#:G294 |i| #4=#:G293 |xx|
-         #5=#:G292 |d|)
+  (PROG (|sln| #1=#:G271 |pp| #2=#:G272 |slp| #3=#:G270 |i| #4=#:G269 |xx|
+         #5=#:G268 |d|)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL |m| (QREFELT $ 9)) . #6=(|GENEEZ;solveid;BPRVU;15|))
@@ -761,8 +761,8 @@
       (EXIT (CONS 0 |sln|)))))) 
 
 (DEFUN |GENEEZ;tablePow;NniRLU;16| (|mdeg| |pmod| |listPol| $)
-  (PROG (|ptable| #1=#:G313 |tpol| #2=#:G314 |fpol| #3=#:G312 |i| |x| |fl|
-         |ftable| |multiE| |listP| #4=#:G311 |pol| #5=#:G310)
+  (PROG (|ptable| #1=#:G289 |tpol| #2=#:G290 |fpol| #3=#:G288 |i| |x| |fl|
+         |ftable| |multiE| |listP| #4=#:G287 |pol| #5=#:G286)
     (RETURN
      (SEQ
       (LETT |listP|
@@ -846,9 +846,9 @@
                    (EXIT (CONS 0 |ptable|)))))))))) 
 
 (DEFUN |GENEEZ;solveid;BPRVU;17| (|m| |pmod| |table| $)
-  (PROG (|a| #1=#:G192 |bound| |fs| #2=#:G321 #3=#:G320 #4=#:G322 #5=#:G333 |f|
-         #6=#:G334 |g| |soln| #7=#:G332 |slp| #8=#:G331 |sln| #9=#:G329 |pp|
-         #10=#:G330 #11=#:G328 |i| #12=#:G327 |xx| #13=#:G326 |lpolys| |ftab|
+  (PROG (|a| #1=#:G168 |bound| |fs| #2=#:G297 #3=#:G296 #4=#:G298 #5=#:G309 |f|
+         #6=#:G310 |g| |soln| #7=#:G308 |slp| #8=#:G307 |sln| #9=#:G305 |pp|
+         #10=#:G306 #11=#:G304 |i| #12=#:G303 |xx| #13=#:G302 |lpolys| |ftab|
          |d|)
     (RETURN
      (SEQ
@@ -975,10 +975,10 @@
 
 (DECLAIM (NOTINLINE |GenExEuclid;|)) 
 
-(DEFUN |GenExEuclid| (&REST #1=#:G335)
+(DEFUN |GenExEuclid| (&REST #1=#:G311)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G336)
+     (PROG (#2=#:G312)
        (RETURN
         (COND
          ((LETT #2#

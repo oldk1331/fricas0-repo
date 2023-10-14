@@ -52,7 +52,7 @@
      ('T 'NIL))))) 
 
 (DEFUN |SOLVETRA;solve;ESL;5| (|lside| |x| $)
-  (PROG (#1=#:G235 |sol| #2=#:G234)
+  (PROG (#1=#:G211 |sol| #2=#:G210)
     (RETURN
      (SEQ
       (PROGN
@@ -71,11 +71,11 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SOLVETRA;solveInner| (|lside| |x| $)
-  (PROG (#1=#:G264 |sols| #2=#:G271 |frec| |lfacts| |listofkernels| |newlside|
-         |newlist| #3=#:G270 |j| |secondsol| #4=#:G251 #5=#:G250 #6=#:G252
-         #7=#:G269 |ff| |lfatt| |f| |elR| #8=#:G268 |i| #9=#:G246 #10=#:G245
-         #11=#:G247 #12=#:G267 |ri| |bigX_back| #13=#:G241 |r1| |finv|
-         #14=#:G266 |lr| #15=#:G238 #16=#:G237 #17=#:G239 #18=#:G265 |fatt|
+  (PROG (#1=#:G240 |sols| #2=#:G247 |frec| |lfacts| |listofkernels| |newlside|
+         |newlist| #3=#:G246 |j| |secondsol| #4=#:G227 #5=#:G226 #6=#:G228
+         #7=#:G245 |ff| |lfatt| |f| |elR| #8=#:G244 |i| #9=#:G222 #10=#:G221
+         #11=#:G223 #12=#:G243 |ri| |bigX_back| #13=#:G217 |r1| |finv|
+         #14=#:G242 |lr| #15=#:G214 #16=#:G213 #17=#:G215 #18=#:G241 |fatt|
          |eq1| |bigX| Y X |ausgabe1|)
     (RETURN
      (SEQ
@@ -350,7 +350,7 @@
         ((EQL (LENGTH |listvar1|) 0) 'T) ('T 'NIL))))))) 
 
 (DEFUN |SOLVETRA;solveRetract| (|lexpr| |lvar| $)
-  (PROG (|nlexpr| #1=#:G293 |rf| #2=#:G294 |expr|)
+  (PROG (|nlexpr| #1=#:G269 |rf| #2=#:G270 |expr|)
     (RETURN
      (SEQ
       (EXIT
@@ -436,7 +436,7 @@
       (EXIT |resultLside|))))) 
 
 (DEFUN |SOLVETRA;subsTan| (|exprvar| |y| $)
-  (PROG (|resultnew| |result1| #1=#:G312 |result| |newH| H |g| |secondfun| |f|
+  (PROG (|resultnew| |result1| #1=#:G288 |result| |newH| H |g| |secondfun| |f|
          |fN| |fZ| |test| Y |varkern| |listofkern| Z)
     (RETURN
      (SEQ
@@ -524,7 +524,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SOLVETRA;eliminateKernRoot| (|var| |varkern| $)
-  (PROG (|resultvar| |var3| #1=#:G321 |var2| |var1| X)
+  (PROG (|resultvar| |var3| #1=#:G297 |var2| |var1| X)
     (RETURN
      (SEQ
       (LETT X (SPADCALL (QREFELT $ 33)) . #2=(|SOLVETRA;eliminateKernRoot|))
@@ -563,7 +563,7 @@
        (LETT |resultvar| (SPADCALL |var2| |var3| (QREFELT $ 108)) . #2#)))))) 
 
 (DEFUN |SOLVETRA;eliminateRoot| (|var| |y| $)
-  (PROG (|var1| #1=#:G330 |i| |varlistk1|)
+  (PROG (|var1| #1=#:G306 |i| |varlistk1|)
     (RETURN
      (SEQ (LETT |var1| |var| . #2=(|SOLVETRA;eliminateRoot|))
           (SEQ G190
@@ -589,8 +589,8 @@
           (EXIT |var1|))))) 
 
 (DEFUN |SOLVETRA;logsumtolog| (|var| $)
-  (PROG (|var2| #1=#:G344 |i| |kernelofvar| |newexpr| |exprlist| #2=#:G343
-         |gcdcoeff| |listforgcd| |exprcoeff| #3=#:G342 |listofexpr|)
+  (PROG (|var2| #1=#:G320 |i| |kernelofvar| |newexpr| |exprlist| #2=#:G319
+         |gcdcoeff| |listforgcd| |exprcoeff| #3=#:G318 |listofexpr|)
     (RETURN
      (SEQ
       (LETT |listofexpr| (SPADCALL |var| (QREFELT $ 111))
@@ -665,7 +665,7 @@
                               (QREFELT $ 117))))))))))) 
 
 (DEFUN |SOLVETRA;testLog| (|expr| Z $)
-  (PROG (#1=#:G350 #2=#:G351 |i| |kernelofexpr| |testList|)
+  (PROG (#1=#:G326 #2=#:G327 |i| |kernelofexpr| |testList|)
     (RETURN
      (SEQ
       (EXIT
@@ -721,7 +721,7 @@
                       (QCDR |listexpr|))))))))))) 
 
 (DEFUN |SOLVETRA;buildnexpr| (|expr| Z $)
-  (PROG (|ansmant| |anscoeff| #1=#:G366 |i| |n2list| |nlist|)
+  (PROG (|ansmant| |anscoeff| #1=#:G342 |i| |n2list| |nlist|)
     (RETURN
      (SEQ
       (LETT |nlist| (|SOLVETRA;splitExpr| |expr| $)
@@ -757,7 +757,7 @@
    (QREFELT $ 76))) 
 
 (DEFUN |SOLVETRA;combineLog| (|expr| Y $)
-  (PROG (|ansexpr| #1=#:G384 |i| |ans| |exprr| |loopexpr| |exprtable|)
+  (PROG (|ansexpr| #1=#:G360 |i| |ans| |exprr| |loopexpr| |exprtable|)
     (RETURN
      (SEQ
       (LETT |exprtable| (SPADCALL (QREFELT $ 127))
@@ -852,7 +852,7 @@
                           . #2#)))))))))) 
 
 (DEFUN |SOLVETRA;testRootk| (|varlistk| |y| $)
-  (PROG (#1=#:G389 #2=#:G390 |i| |kernelofeqnvar| |testList|)
+  (PROG (#1=#:G365 #2=#:G366 |i| |kernelofeqnvar| |testList|)
     (RETURN
      (SEQ
       (EXIT
@@ -879,7 +879,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SOLVETRA;tableXkernels| (|evar| Z $)
-  (PROG (|listkOfvar| #1=#:G395 |i| |kOfvar|)
+  (PROG (|listkOfvar| #1=#:G371 |i| |kOfvar|)
     (RETURN
      (SEQ
       (LETT |kOfvar| (SPADCALL |evar| (QREFELT $ 38))
@@ -900,7 +900,7 @@
       (EXIT |listkOfvar|))))) 
 
 (DEFUN |SOLVETRA;testTrig| (|eqnvar| Z $)
-  (PROG (#1=#:G401 #2=#:G402 |i| |kernelofeqnvar| |testList|)
+  (PROG (#1=#:G377 #2=#:G378 |i| |kernelofeqnvar| |testList|)
     (RETURN
      (SEQ
       (EXIT
@@ -936,7 +936,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SOLVETRA;testHTrig| (|eqnvar| Z $)
-  (PROG (#1=#:G408 #2=#:G409 |i| |kernelofeqnvar| |testList|)
+  (PROG (#1=#:G384 #2=#:G385 |i| |kernelofeqnvar| |testList|)
     (RETURN
      (SEQ
       (EXIT
@@ -979,7 +979,7 @@
    ('T (|error| "This should never happen")))) 
 
 (DEFUN |SOLVETRA;dropfun| (|x| $)
-  (PROG (#1=#:G417 |k|)
+  (PROG (#1=#:G393 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -1167,7 +1167,7 @@
             (QREFELT $ 194))) 
 
 (DEFUN |SOLVETRA;makeREpol| (|pol| $)
-  (PROG (|lval| #1=#:G481 |v| #2=#:G480 |lvar|)
+  (PROG (|lval| #1=#:G457 |v| #2=#:G456 |lvar|)
     (RETURN
      (SEQ
       (LETT |lvar| (SPADCALL |pol| (QREFELT $ 195))
@@ -1195,7 +1195,7 @@
             (QREFELT $ 91))) 
 
 (DEFUN |SOLVETRA;solve1Pol| (|pol| |var| |sol| $)
-  (PROG (#1=#:G487 |vsol| #2=#:G486 |vsols| |repol|)
+  (PROG (#1=#:G463 |vsol| #2=#:G462 |vsols| |repol|)
     (RETURN
      (SEQ
       (LETT |repol|
@@ -1214,8 +1214,8 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SOLVETRA;solve1Sys| (|plist| |lvar| $)
-  (PROG (|sols| #1=#:G489 #2=#:G488 #3=#:G490 #4=#:G496 |sol| #5=#:G494 |p|
-         #6=#:G495 |v| |rlvar| |rplist|)
+  (PROG (|sols| #1=#:G465 #2=#:G464 #3=#:G466 #4=#:G472 |sol| #5=#:G470 |p|
+         #6=#:G471 |v| |rlvar| |rplist|)
     (RETURN
      (SEQ (LETT |rplist| (REVERSE |plist|) . #7=(|SOLVETRA;solve1Sys|))
           (LETT |rlvar| (REVERSE |lvar|) . #7#)
@@ -1261,12 +1261,12 @@
             (QREFELT $ 206))) 
 
 (DEFUN |SOLVETRA;tryLinear| (|lexpr| |lvar| $)
-  (PROG (|eqs| #1=#:G560 |i| #2=#:G559 |sym| #3=#:G558 |p| |zeron| |rhs|
-         #4=#:G532 |sol| |vece| #5=#:G557 |q| #6=#:G556 |mate| #7=#:G555
-         #8=#:G554 #9=#:G553 |row| #10=#:G552 |r| |ps| #11=#:G551 |expr|
-         #12=#:G550 #13=#:G542 #14=#:G549 |ker| |kers| |llk| #15=#:G548
-         #16=#:G547 #17=#:G503 #18=#:G502 #19=#:G504 #20=#:G546 #21=#:G500
-         #22=#:G499 #23=#:G501 #24=#:G545 |lvk| #25=#:G544 |v| #26=#:G543)
+  (PROG (|eqs| #1=#:G536 |i| #2=#:G535 |sym| #3=#:G534 |p| |zeron| |rhs|
+         #4=#:G508 |sol| |vece| #5=#:G533 |q| #6=#:G532 |mate| #7=#:G531
+         #8=#:G530 #9=#:G529 |row| #10=#:G528 |r| |ps| #11=#:G527 |expr|
+         #12=#:G526 #13=#:G518 #14=#:G525 |ker| |kers| |llk| #15=#:G524
+         #16=#:G523 #17=#:G479 #18=#:G478 #19=#:G480 #20=#:G522 #21=#:G476
+         #22=#:G475 #23=#:G477 #24=#:G521 |lvk| #25=#:G520 |v| #26=#:G519)
     (RETURN
      (SEQ
       (EXIT
@@ -1530,8 +1530,8 @@
       #13# (EXIT #13#))))) 
 
 (DEFUN |SOLVETRA;solveList| (|lexpr| |lvar| $)
-  (PROG (|l| #1=#:G572 |plist| #2=#:G571 |trianglist| |lfrac| #3=#:G570 |expr|
-         #4=#:G569 |ans1|)
+  (PROG (|l| #1=#:G548 |plist| #2=#:G547 |trianglist| |lfrac| #3=#:G546 |expr|
+         #4=#:G545 |ans1|)
     (RETURN
      (SEQ
       (LETT |ans1| (|SOLVETRA;solveRetract| |lexpr| |lvar| $)
@@ -1590,7 +1590,7 @@
         (#6# (QCDR |ans1|)))))))) 
 
 (DEFUN |SOLVETRA;solve;LLL;37| (|leqs| |lvar| $)
-  (PROG (|lexpr| #1=#:G577 |eq| #2=#:G576)
+  (PROG (|lexpr| #1=#:G553 |eq| #2=#:G552)
     (RETURN
      (SEQ
       (LETT |lexpr|
@@ -1616,10 +1616,10 @@
 
 (DECLAIM (NOTINLINE |TransSolvePackage;|)) 
 
-(DEFUN |TransSolvePackage| (#1=#:G578)
+(DEFUN |TransSolvePackage| (#1=#:G554)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G579)
+     (PROG (#2=#:G555)
        (RETURN
         (COND
          ((LETT #2#

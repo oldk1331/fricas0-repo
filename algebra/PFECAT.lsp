@@ -6,14 +6,14 @@
 (DEFPARAMETER |PolynomialFactorizationExplicit;AL| 'NIL) 
 
 (DEFUN |PolynomialFactorizationExplicit| ()
-  (LET (#:G134)
+  (LET (#:G110)
     (COND (|PolynomialFactorizationExplicit;AL|)
           (T
            (SETQ |PolynomialFactorizationExplicit;AL|
                    (|PolynomialFactorizationExplicit;|)))))) 
 
 (DEFUN |PolynomialFactorizationExplicit;| ()
-  (PROG (#1=#:G132)
+  (PROG (#1=#:G108)
     (RETURN
      (PROG1
          (LETT #1#

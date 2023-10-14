@@ -6,16 +6,16 @@
 (DEFPARAMETER |RealConstant;AL| 'NIL) 
 
 (DEFUN |RealConstant| ()
-  (LET (#:G131)
+  (LET (#:G107)
     (COND (|RealConstant;AL|) (T (SETQ |RealConstant;AL| (|RealConstant;|)))))) 
 
 (DEFUN |RealConstant;| ()
-  (PROG (#1=#:G129)
+  (PROG (#1=#:G105)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV|
-                (PAIR '(#2=#:G127 #3=#:G128)
+                (PAIR '(#2=#:G103 #3=#:G104)
                       (LIST '(|DoubleFloat|) '(|Float|)))
                 (|Join| (|ConvertibleTo| '#2#) (|ConvertibleTo| '#3#)))
                |RealConstant|)

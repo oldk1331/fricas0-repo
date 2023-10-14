@@ -5,7 +5,7 @@
   (SPADCALL |l| (LENGTH |l|) (QREFELT $ 13))) 
 
 (DEFUN |ODETOOLS;wronskianMatrix;LNniM;2| (|l| |q| $)
-  (PROG (|v| #1=#:G135 |i| |m|)
+  (PROG (|v| #1=#:G111 |i| |m|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |l| (QREFELT $ 16))
@@ -52,7 +52,7 @@
                          (QREFELT $ 30)))))))))) 
 
 (DEFUN |ODETOOLS;particularSolution;LODOFLMU;4| (|op| |g| |b| |integration| $)
-  (PROG (|ans| #1=#:G156 |f| |i| |s| |sol|)
+  (PROG (|ans| #1=#:G132 |f| |i| |s| |sol|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |g| (QREFELT $ 33)) (CONS 0 (|spadConstant| $ 25)))
@@ -92,10 +92,10 @@
 
 (DECLAIM (NOTINLINE |ODETools;|)) 
 
-(DEFUN |ODETools| (&REST #1=#:G157)
+(DEFUN |ODETools| (&REST #1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

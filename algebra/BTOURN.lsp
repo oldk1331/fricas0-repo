@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |BTOURN;binaryTournament;L$;1| (|u| $)
-  (PROG (#1=#:G132 |x| |tree|)
+  (PROG (#1=#:G108 |x| |tree|)
     (RETURN
      (SEQ
       (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
@@ -35,10 +35,10 @@
 
 (DECLAIM (NOTINLINE |BinaryTournament;|)) 
 
-(DEFUN |BinaryTournament| (#1=#:G143)
+(DEFUN |BinaryTournament| (#1=#:G119)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G120)
        (RETURN
         (COND
          ((LETT #2#
@@ -54,7 +54,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|BinaryTournament|))))))))))) 
 
 (DEFUN |BinaryTournament;| (|#1|)
-  (PROG (|pv$| #1=#:G140 #2=#:G141 #3=#:G142 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G116 #2=#:G117 #3=#:G118 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTournament|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |APPLYORE;apply;PM2M;1| (|p| |f| |m| $)
-  (PROG (|mn| |w| #1=#:G132 |i|)
+  (PROG (|mn| |w| #1=#:G108 |i|)
     (RETURN
      (SEQ (LETT |w| (|spadConstant| $ 9) . #2=(|APPLYORE;apply;PM2M;1|))
           (LETT |mn| |m| . #2#)
@@ -22,10 +22,10 @@
 
 (DECLAIM (NOTINLINE |ApplyUnivariateSkewPolynomial;|)) 
 
-(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G133)
+(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G109)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G110)
        (RETURN
         (COND
          ((LETT #2#

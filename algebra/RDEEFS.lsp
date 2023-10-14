@@ -22,7 +22,7 @@
 
 (DEFUN |RDEEFS;rischDEsys;I3FSMMU;2|
        (|n| |f| |g1| |g2| |x| |limint| |extint| $)
-  (PROG (|k| |vl| |y2| |y1| #1=#:G153 |u2| |u1| |nfp|)
+  (PROG (|k| |vl| |y2| |y1| #1=#:G129 |u2| |u1| |nfp|)
     (RETURN
      (SEQ
       (COND
@@ -91,10 +91,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryRischDESystem;|)) 
 
-(DEFUN |ElementaryRischDESystem| (&REST #1=#:G176)
+(DEFUN |ElementaryRischDESystem| (&REST #1=#:G152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G177)
+     (PROG (#2=#:G153)
        (RETURN
         (COND
          ((LETT #2#

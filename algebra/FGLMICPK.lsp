@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FGLMICPK;zeroDim?| (|lq2| $)
-  (PROG (|lv| |x| #1=#:G134 |m| #2=#:G146 |q2| #3=#:G145 |s| #4=#:G144)
+  (PROG (|lv| |x| #1=#:G110 |m| #2=#:G122 |q2| #3=#:G121 |s| #4=#:G120)
     (RETURN
      (SEQ
       (LETT |lq2| (SPADCALL |lq2| (QREFELT $ 10)) . #5=(|FGLMICPK;zeroDim?|))
@@ -64,7 +64,7 @@
                (EXIT (NULL |lv|)))))))))) 
 
 (DEFUN |FGLMICPK;zeroDimensional?;LB;2| (|lq1| $)
-  (PROG (|lq2| #1=#:G151 |q1| #2=#:G150)
+  (PROG (|lq2| #1=#:G127 |q1| #2=#:G126)
     (RETURN
      (SEQ
       (LETT |lq2|
@@ -84,7 +84,7 @@
       (EXIT (|FGLMICPK;zeroDim?| |lq2| $)))))) 
 
 (DEFUN |FGLMICPK;fglmIfCan;LU;3| (|lq1| $)
-  (PROG (#1=#:G166 |q3| #2=#:G165 |lq3| |lq2| #3=#:G164 |q1| #4=#:G163)
+  (PROG (#1=#:G142 |q3| #2=#:G141 |lq3| |lq2| #3=#:G140 |q1| #4=#:G139)
     (RETURN
      (SEQ
       (LETT |lq2|
@@ -121,8 +121,8 @@
       (EXIT (CONS 0 |lq1|)))))) 
 
 (DEFUN |FGLMICPK;groebner;2L;4| (|lq1| $)
-  (PROG (#1=#:G182 |q3| #2=#:G181 |lq3| #3=#:G180 #4=#:G179 #5=#:G178 |q1|
-         #6=#:G177 |lq2| #7=#:G176 #8=#:G175)
+  (PROG (#1=#:G158 |q3| #2=#:G157 |lq3| #3=#:G156 #4=#:G155 #5=#:G154 |q1|
+         #6=#:G153 |lq2| #7=#:G152 #8=#:G151)
     (RETURN
      (SEQ
       (LETT |lq2|
@@ -187,10 +187,10 @@
 
 (DECLAIM (NOTINLINE |FGLMIfCanPackage;|)) 
 
-(DEFUN |FGLMIfCanPackage| (&REST #1=#:G183)
+(DEFUN |FGLMIfCanPackage| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G184)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

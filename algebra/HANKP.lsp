@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |HANKP;HankelMatrix;LM;1| (|l| $)
-  (PROG (#1=#:G141 |x| |i| #2=#:G140 |lloc| |j| #3=#:G139 |n| #4=#:G130)
+  (PROG (#1=#:G117 |x| |i| #2=#:G116 |lloc| |j| #3=#:G115 |n| #4=#:G106)
     (RETURN
      (SEQ
       (COND ((NULL (ODDP (LENGTH |l|))) (|error| "n must be odd"))
@@ -71,10 +71,10 @@
 
 (DECLAIM (NOTINLINE |HankelPackage;|)) 
 
-(DEFUN |HankelPackage| (#1=#:G142)
+(DEFUN |HankelPackage| (#1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

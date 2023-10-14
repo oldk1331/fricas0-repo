@@ -11,7 +11,7 @@
         ('T (|spadConstant| $ 16)))) 
 
 (DEFUN |REDORDER;ReduceOrder;LLR;3| (|l| |sols| $)
-  (PROG (|rec| #1=#:G136 |s| #2=#:G135 |neweq| |sol|)
+  (PROG (|rec| #1=#:G112 |s| #2=#:G111 |neweq| |sol|)
     (RETURN
      (SEQ
       (COND ((NULL |sols|) (CONS |l| NIL))
@@ -79,7 +79,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |REDORDER;ReduceOrder;LFL;5| (|eq| |sol| $)
-  (PROG (|ans| #1=#:G150 #2=#:G145 |i| |si| #3=#:G149 #4=#:G142 |s| |n|)
+  (PROG (|ans| #1=#:G126 #2=#:G121 |i| |si| #3=#:G125 #4=#:G118 |s| |n|)
     (RETURN
      (SEQ
       (LETT |s|
@@ -121,10 +121,10 @@
 
 (DECLAIM (NOTINLINE |ReductionOfOrder;|)) 
 
-(DEFUN |ReductionOfOrder| (&REST #1=#:G151)
+(DEFUN |ReductionOfOrder| (&REST #1=#:G127)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G128)
        (RETURN
         (COND
          ((LETT #2#

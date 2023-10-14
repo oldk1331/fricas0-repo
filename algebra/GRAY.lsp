@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GRAY;firstSubsetGray;PiV;1| (|n| $)
-  (PROG (#1=#:G131 |i| |vv|)
+  (PROG (#1=#:G107 |i| |vv|)
     (RETURN
      (SEQ (LETT |vv| (MAKEARR1 2 #()) . #2=(|GRAY;firstSubsetGray;PiV;1|))
           (SPADCALL |vv| 1 (MAKEARR1 |n| 0) (QREFELT $ 9))
@@ -38,7 +38,7 @@
 (DEFUN |GrayCode| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G136)
+     (PROG (#1=#:G112)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|GrayCode|) . #2=(|GrayCode|))

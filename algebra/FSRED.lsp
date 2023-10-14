@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FSRED;newReduc;V;1| ($)
-  (PROG (#1=#:G131 |k|)
+  (PROG (#1=#:G107 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|FSRED;newReduc;V;1|))
@@ -40,7 +40,7 @@
                |m| (QREFELT $ 40))))))))) 
 
 (DEFUN |FSRED;bringDown;FF;3| (|f| $)
-  (PROG (#1=#:G148 |k| #2=#:G147 |lk|)
+  (PROG (#1=#:G124 |k| #2=#:G123 |lk|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -79,10 +79,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceReduce;|)) 
 
-(DEFUN |FunctionSpaceReduce| (&REST #1=#:G155)
+(DEFUN |FunctionSpaceReduce| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

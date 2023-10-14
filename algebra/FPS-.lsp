@@ -5,7 +5,7 @@
   (SPADCALL |ma| |ex| (SPADCALL (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (DEFUN |FPS-;digits;Pi;2| ($)
-  (PROG (#1=#:G135)
+  (PROG (#1=#:G111)
     (RETURN
      (PROG1
          (LETT #1#

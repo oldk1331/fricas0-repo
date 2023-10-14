@@ -18,8 +18,8 @@
 (DEFUN |SBOUND;intersection;L$;5| (|x| $) (CONS 2 (CONS '|intersection| |x|))) 
 
 (DEFUN |SBOUND;sunion;3$;6| (|x| |y| $)
-  (PROG (|ymax| #1=#:G148 |ymin| |xmax| |xmin| #2=#:G179 |res| #3=#:G181 |ptr|
-         |p| #4=#:G149 #5=#:G180)
+  (PROG (|ymax| #1=#:G124 |ymin| |xmax| |xmin| #2=#:G155 |res| #3=#:G157 |ptr|
+         |p| #4=#:G125 #5=#:G156)
     (RETURN
      (SEQ
       (EXIT
@@ -267,7 +267,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SBOUND;extendToPoint;$PT$;7| (|n| |p| $)
-  (PROG (|xmax| |xmin| #1=#:G192 |res| #2=#:G193 |ptr| |pa| #3=#:G149)
+  (PROG (|xmax| |xmin| #1=#:G168 |res| #2=#:G169 |ptr| |pa| #3=#:G125)
     (RETURN
      (SEQ
       (EXIT
@@ -326,8 +326,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SBOUND;containsPoint?;$PTB;8| (|n| |p| $)
-  (PROG (#1=#:G148 #2=#:G202 |rDist| |pDist| |pRel| #3=#:G203 |sub| |pa|
-         #4=#:G149)
+  (PROG (#1=#:G124 #2=#:G178 |rDist| |pDist| |pRel| #3=#:G179 |sub| |pa|
+         #4=#:G125)
     (RETURN
      (SEQ
       (EXIT
@@ -460,7 +460,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SBOUND;lineIntersect;$2PT;9| (|n| |p| $)
-  (PROG (|y| |x| |yp| |xp| |b| |a| |rad| #1=#:G148 |pRel| |cent| #2=#:G215
+  (PROG (|y| |x| |yp| |xp| |b| |a| |rad| #1=#:G124 |pRel| |cent| #2=#:G191
          |divisor| |ab| |centre|)
     (RETURN
      (SEQ
@@ -616,7 +616,7 @@
 (DEFUN |SBOUND;isNull?;$B;10| (|n| $) (QEQCAR |n| 0)) 
 
 (DEFUN |SBOUND;isEllipse?;$B;11| (|n| $)
-  (PROG (#1=#:G223)
+  (PROG (#1=#:G199)
     (RETURN
      (SEQ
       (EXIT
@@ -628,7 +628,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SBOUND;isBox?;$B;12| (|n| $)
-  (PROG (#1=#:G230)
+  (PROG (#1=#:G206)
     (RETURN
      (SEQ
       (EXIT
@@ -640,7 +640,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SBOUND;getMin;$PT;13| (|n| $)
-  (PROG (#1=#:G148 #2=#:G234)
+  (PROG (#1=#:G124 #2=#:G210)
     (RETURN
      (SEQ
       (EXIT
@@ -686,7 +686,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SBOUND;getMax;$PT;14| (|n| $)
-  (PROG (#1=#:G148 #2=#:G238)
+  (PROG (#1=#:G124 #2=#:G214)
     (RETURN
      (SEQ
       (EXIT
@@ -732,7 +732,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SBOUND;getCentre;$PT;15| (|n| $)
-  (PROG (#1=#:G148 #2=#:G242)
+  (PROG (#1=#:G124 #2=#:G218)
     (RETURN
      (SEQ
       (EXIT
@@ -788,7 +788,7 @@
       (EXIT (LIST |bm| |bn|)))))) 
 
 (DEFUN |SBOUND;coerce;$Of;17| (|n| $)
-  (PROG (|sub| #1=#:G254 #2=#:G149 |x| #3=#:G253 #4=#:G252 #5=#:G148 |s| |ty|)
+  (PROG (|sub| #1=#:G230 #2=#:G125 |x| #3=#:G229 #4=#:G228 #5=#:G124 |s| |ty|)
     (RETURN
      (SEQ
       (EXIT
@@ -876,10 +876,10 @@
 
 (DECLAIM (NOTINLINE |SBoundary;|)) 
 
-(DEFUN |SBoundary| (#1=#:G255)
+(DEFUN |SBoundary| (#1=#:G231)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G256)
+     (PROG (#2=#:G232)
        (RETURN
         (COND
          ((LETT #2#

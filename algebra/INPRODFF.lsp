@@ -158,10 +158,10 @@
 
 (DECLAIM (NOTINLINE |InfiniteProductFiniteField;|)) 
 
-(DEFUN |InfiniteProductFiniteField| (&REST #1=#:G171)
+(DEFUN |InfiniteProductFiniteField| (&REST #1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G172)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

@@ -6,12 +6,12 @@
 (DEFPARAMETER |arbitraryExponent;AL| 'NIL) 
 
 (DEFUN |arbitraryExponent| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|arbitraryExponent;AL|)
           (T (SETQ |arbitraryExponent;AL| (|arbitraryExponent;|)))))) 
 
 (DEFUN |arbitraryExponent;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))

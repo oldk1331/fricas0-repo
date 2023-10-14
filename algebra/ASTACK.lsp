@@ -8,7 +8,7 @@
 (DEFUN |ASTACK;copy;2$;3| (|s| $) (SPADCALL |s| (QREFELT $ 14))) 
 
 (DEFUN |ASTACK;coerce;$Of;4| (|d| $)
-  (PROG (#1=#:G137 |i| #2=#:G136)
+  (PROG (#1=#:G113 |i| #2=#:G112)
     (RETURN
      (SEQ
       (COND ((SPADCALL |d| (QREFELT $ 16)) (SPADCALL NIL (QREFELT $ 19)))
@@ -61,10 +61,10 @@
 
 (DECLAIM (NOTINLINE |ArrayStack;|)) 
 
-(DEFUN |ArrayStack| (#1=#:G157)
+(DEFUN |ArrayStack| (#1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#
@@ -79,7 +79,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|))))))))))) 
 
 (DEFUN |ArrayStack;| (|#1|)
-  (PROG (|pv$| #1=#:G154 #2=#:G155 #3=#:G156 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G130 #2=#:G131 #3=#:G132 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|ArrayStack|))

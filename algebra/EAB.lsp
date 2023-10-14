@@ -13,7 +13,7 @@
            (SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 12))))))) 
 
 (DEFUN |EAB;coerce;L$;3| (|li| $)
-  (PROG (#1=#:G139 |x|)
+  (PROG (#1=#:G115 |x|)
     (RETURN
      (SEQ
       (SEQ (LETT |x| NIL . #2=(|EAB;coerce;L$;3|)) (LETT #1# |li| . #2#) G190
@@ -30,7 +30,7 @@
       (EXIT |li|))))) 
 
 (DEFUN |EAB;degree;$Nni;4| (|x| $)
-  (PROG (#1=#:G146 #2=#:G144 #3=#:G143 #4=#:G145 #5=#:G148 #6=#:G127)
+  (PROG (#1=#:G122 #2=#:G120 #3=#:G119 #4=#:G121 #5=#:G124 #6=#:G103)
     (RETURN
      (SEQ
       (PROG1
@@ -58,7 +58,7 @@
 (DEFUN |EAB;exponents;$L;5| (|x| $) (SPADCALL |x| (QREFELT $ 18))) 
 
 (DEFUN |EAB;Nul;Nni$;6| (|n| $)
-  (PROG (|i| #1=#:G152)
+  (PROG (|i| #1=#:G128)
     (RETURN
      (SEQ
       (PROGN
@@ -75,7 +75,7 @@
 (DEFUN |ExtAlgBasis| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G155)
+     (PROG (#1=#:G131)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ExtAlgBasis|)

@@ -7,7 +7,7 @@
 (DEFUN |CVMP;imbedP| (|r| $) (SPADCALL |r| (QREFELT $ 8))) 
 
 (DEFUN |CVMP;coerceP;VV;3| (|g| $)
-  (PROG (|l| |m2| #1=#:G134 |m| |lim|)
+  (PROG (|l| |m2| #1=#:G110 |m| |lim|)
     (RETURN
      (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerceP;VV;3|))
           (LETT |l| NIL . #2#)
@@ -25,7 +25,7 @@
           (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 21))))))) 
 
 (DEFUN |CVMP;coerce;VV;4| (|g| $)
-  (PROG (|l| |m3| #1=#:G140 |m| |lim|)
+  (PROG (|l| |m3| #1=#:G116 |m| |lim|)
     (RETURN
      (SEQ (LETT |lim| (SPADCALL |g| (QREFELT $ 13)) . #2=(|CVMP;coerce;VV;4|))
           (LETT |l| NIL . #2#)
@@ -44,10 +44,10 @@
 
 (DECLAIM (NOTINLINE |CoerceVectorMatrixPackage;|)) 
 
-(DEFUN |CoerceVectorMatrixPackage| (#1=#:G141)
+(DEFUN |CoerceVectorMatrixPackage| (#1=#:G117)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G118)
        (RETURN
         (COND
          ((LETT #2#

@@ -67,10 +67,10 @@
 
 (DECLAIM (NOTINLINE |DistributionContinuedFractionPackage;|)) 
 
-(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G138)
+(DEFUN |DistributionContinuedFractionPackage| (&REST #1=#:G114)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G139)
+     (PROG (#2=#:G115)
        (RETURN
         (COND
          ((LETT #2#
@@ -92,7 +92,7 @@
                     '|DistributionContinuedFractionPackage|))))))))))) 
 
 (DEFUN |DistributionContinuedFractionPackage;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G137 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G113 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

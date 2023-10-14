@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL |res| (QREFELT $ 54)) (QREFELT $ 56))) 
 
 (DEFUN |INTPM;splitConstant;FSR;2| (|f| |x| $)
-  (PROG (#1=#:G204 |rec| |vv| |v| |cc| #2=#:G206 |g| |nc| |u| #3=#:G205)
+  (PROG (#1=#:G180 |rec| |vv| |v| |cc| #2=#:G182 |g| |nc| |u| #3=#:G181)
     (RETURN
      (SEQ
       (EXIT
@@ -131,7 +131,7 @@
    (#1# 'NIL))) 
 
 (DEFUN |INTPM;matcherfei| (|f| |x| |comp?| $)
-  (PROG (#1=#:G219 |d| |sa| |u| |cc| |da| |a| |l| |res| |pat| |res0|)
+  (PROG (#1=#:G195 |d| |sa| |u| |cc| |da| |a| |l| |res| |pat| |res0|)
     (RETURN
      (SEQ (LETT |res0| (SPADCALL (QREFELT $ 82)) . #2=(|INTPM;matcherfei|))
           (LETT |pat|
@@ -308,7 +308,7 @@
                              (|spadConstant| $ 37))))))))))))) 
 
 (DEFUN |INTPM;matchdilog| (|f| |x| $)
-  (PROG (#1=#:G229 #2=#:G231 |l| #3=#:G232 |k| |df| |d| |n|)
+  (PROG (#1=#:G205 #2=#:G207 |l| #3=#:G208 |k| |df| |d| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -392,7 +392,7 @@
            (#2# NIL)))))))))) 
 
 (DEFUN |INTPM;matchli| (|f| |x| $)
-  (PROG (#1=#:G238 #2=#:G240 |l| #3=#:G241 |k| |d|)
+  (PROG (#1=#:G214 #2=#:G216 |l| #3=#:G217 |k| |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -476,7 +476,7 @@
                 ('T (LIST |a| |d| (SPADCALL |p| (QREFELT $ 123)))))))))))))) 
 
 (DEFUN |INTPM;matchsici| (|f| |x| $)
-  (PROG (|d| |nden| |ta| |dna| |na| |a_val| |l| #1=#:G256 |res| |ci0?| |ci?|
+  (PROG (|d| |nden| |ta| |dna| |na| |a_val| |l| #1=#:G232 |res| |ci0?| |ci?|
          |patci0| |patci| |patsi| |patden| |t| |a| |b| |res0|)
     (RETURN
      (SEQ
@@ -897,7 +897,7 @@
            (#2# (CONS 1 "failed"))))))))))) 
 
 (DEFUN |INTPM;formula1| (|f| |x| |t| |cc| $)
-  (PROG (#1=#:G313 |mmi| |mm| #2=#:G314 |sgz| |z| |sgs| |ms| |mw| |l|)
+  (PROG (#1=#:G289 |mmi| |mm| #2=#:G290 |sgz| |z| |sgs| |ms| |mw| |l|)
     (RETURN
      (SEQ
       (COND
@@ -1130,10 +1130,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchIntegration;|)) 
 
-(DEFUN |PatternMatchIntegration| (&REST #1=#:G340)
+(DEFUN |PatternMatchIntegration| (&REST #1=#:G316)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G341)
+     (PROG (#2=#:G317)
        (RETURN
         (COND
          ((LETT #2#

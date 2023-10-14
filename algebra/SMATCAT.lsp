@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |SquareMatrixCategory;AL| 'NIL) 
 
-(DEFUN |SquareMatrixCategory| (&REST #1=#:G136)
-  (LET (#2=#:G137)
+(DEFUN |SquareMatrixCategory| (&REST #1=#:G112)
+  (LET (#2=#:G113)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |SquareMatrixCategory;AL|))
       (CDR #2#))
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |SquareMatrixCategory;| (|t#1| |t#2| |t#3| |t#4|)
-  (PROG (#1=#:G135)
+  (PROG (#1=#:G111)
     (RETURN
      (PROG1
          (LETT #1#

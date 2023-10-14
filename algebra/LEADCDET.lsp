@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LEADCDET;polCase;ZNniLB;1| (|d| |nk| |lval| $)
-  (PROG (|distlist| #1=#:G144 |q| |y| #2=#:G136 #3=#:G145 #4=#:G135 |j| |i|)
+  (PROG (|distlist| #1=#:G120 |q| |y| #2=#:G112 #3=#:G121 #4=#:G111 |j| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -58,7 +58,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LEADCDET;checkpow| (|a| |b| $)
-  (PROG (#1=#:G152 |qt| |i|)
+  (PROG (#1=#:G128 |qt| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -116,8 +116,8 @@
 
 (DEFUN |LEADCDET;distFact;ZLRLLLU;4|
        (|contm| |unilist| |plead| |vl| |lvar| |lval| $)
-  (PROG (|i| #1=#:G193 #2=#:G187 #3=#:G192 |k| |c| |d| |h| #4=#:G191 |aux|
-         #5=#:G190 |vlp| #6=#:G189 |lexp| |lpol| #7=#:G188 |fpl| |nf|)
+  (PROG (|i| #1=#:G169 #2=#:G163 #3=#:G168 |k| |c| |d| |h| #4=#:G167 |aux|
+         #5=#:G166 |vlp| #6=#:G165 |lexp| |lpol| #7=#:G164 |fpl| |nf|)
     (RETURN
      (SEQ
       (EXIT
@@ -268,10 +268,10 @@
 
 (DECLAIM (NOTINLINE |LeadingCoefDetermination;|)) 
 
-(DEFUN |LeadingCoefDetermination| (&REST #1=#:G194)
+(DEFUN |LeadingCoefDetermination| (&REST #1=#:G170)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G195)
+     (PROG (#2=#:G171)
        (RETURN
         (COND
          ((LETT #2#

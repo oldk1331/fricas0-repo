@@ -7,7 +7,7 @@
   (|ERROR;doit| (SPADCALL (LIST (QREFELT $ 6) |s|) (QREFELT $ 10)) $)) 
 
 (DEFUN |ERROR;error;LE;3| (|l| $)
-  (PROG (|s| #1=#:G133 |x|)
+  (PROG (|s| #1=#:G109 |x|)
     (RETURN
      (SEQ (LETT |s| (QREFELT $ 6) . #2=(|ERROR;error;LE;3|))
           (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -26,7 +26,7 @@
    (SPADCALL (LIST (QREFELT $ 7) |fn| ": %d %l " |s|) (QREFELT $ 10)) $)) 
 
 (DEFUN |ERROR;error;SLE;5| (|fn| |l| $)
-  (PROG (|s| #1=#:G138 |x|)
+  (PROG (|s| #1=#:G114 |x|)
     (RETURN
      (SEQ
       (LETT |s| (SPADCALL (LIST (QREFELT $ 7) |fn| ": %d %l") (QREFELT $ 10))
@@ -45,7 +45,7 @@
 (DEFUN |ErrorFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G140)
+     (PROG (#1=#:G116)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ErrorFunctions|)

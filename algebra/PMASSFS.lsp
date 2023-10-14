@@ -43,10 +43,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
 
-(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G152)
+(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G128)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G153)
+     (PROG (#2=#:G129)
        (RETURN
         (COND
          ((LETT #2#

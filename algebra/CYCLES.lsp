@@ -11,7 +11,7 @@
   (SPADCALL (SPADCALL |st| (QREFELT $ 15)) (QREFELT $ 17))) 
 
 (DEFUN |CYCLES;complete;ISp;3| (|i| $)
-  (PROG (#1=#:G141 #2=#:G140 #3=#:G142 #4=#:G144 |pt|)
+  (PROG (#1=#:G117 #2=#:G116 #3=#:G118 #4=#:G120 |pt|)
     (RETURN
      (SEQ
       (COND ((EQL |i| 0) (|spadConstant| $ 19))
@@ -39,7 +39,7 @@
               (COND (#1# #2#) (#5# (|spadConstant| $ 18)))))))))) 
 
 (DEFUN |CYCLES;even?| (|li| $)
-  (PROG (#1=#:G149 |i| #2=#:G148)
+  (PROG (#1=#:G125 |i| #2=#:G124)
     (RETURN
      (SEQ
       (SPADCALL
@@ -60,7 +60,7 @@
        (QREFELT $ 27)))))) 
 
 (DEFUN |CYCLES;alternating;ISp;5| (|i| $)
-  (PROG (#1=#:G151 #2=#:G150 #3=#:G152 #4=#:G154 |li|)
+  (PROG (#1=#:G127 #2=#:G126 #3=#:G128 #4=#:G130 |li|)
     (RETURN
      (SEQ
       (SPADCALL 2
@@ -95,7 +95,7 @@
                 (QREFELT $ 29)))))) 
 
 (DEFUN |CYCLES;elementary;ISp;6| (|i| $)
-  (PROG (#1=#:G156 #2=#:G155 #3=#:G157 |spol| #4=#:G160 |pt|)
+  (PROG (#1=#:G132 #2=#:G131 #3=#:G133 |spol| #4=#:G136 |pt|)
     (RETURN
      (SEQ
       (COND ((EQL |i| 0) (|spadConstant| $ 19))
@@ -131,7 +131,7 @@
               (COND (#1# #2#) (#5# (|spadConstant| $ 18)))))))))) 
 
 (DEFUN |CYCLES;divisors| (|n| $)
-  (PROG (|c| #1=#:G163 #2=#:G162 #3=#:G164 #4=#:G171 |j| #5=#:G170 #6=#:G169
+  (PROG (|c| #1=#:G139 #2=#:G138 #3=#:G140 #4=#:G147 |j| #5=#:G146 #6=#:G145
          |a| |b|)
     (RETURN
      (SEQ
@@ -175,7 +175,7 @@
       (EXIT (COND ((EQL (LENGTH |b|) 1) |c|) (#8# (CONS |n| |c|)))))))) 
 
 (DEFUN |CYCLES;ss| (|n| |m| $)
-  (PROG (|li| |j| #1=#:G175)
+  (PROG (|li| |j| #1=#:G151)
     (RETURN
      (SEQ
       (LETT |li|
@@ -194,7 +194,7 @@
 (DEFUN |CYCLES;powerSum;ISp;9| (|n| $) (|CYCLES;ss| |n| 1 $)) 
 
 (DEFUN |CYCLES;cyclic;ISp;10| (|n| $)
-  (PROG (#1=#:G178 #2=#:G177 #3=#:G179 #4=#:G181 |i|)
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G157 |i|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) (SPADCALL 1 (QREFELT $ 40)))
@@ -256,7 +256,7 @@
               (QREFELT $ 24))))))))) 
 
 (DEFUN |CYCLES;trm2| (|li| $)
-  (PROG (|prod| |prod2| |r1| |r0| #1=#:G192 |r| |c| |k| |ll1| |ll0| #2=#:G191
+  (PROG (|prod| |prod2| |r1| |r0| #1=#:G168 |r| |c| |k| |ll1| |ll0| #2=#:G167
          |ll| |xx| |lli|)
     (RETURN
      (SEQ (LETT |lli| (SPADCALL |li| (QREFELT $ 49)) . #3=(|CYCLES;trm2|))
@@ -322,7 +322,7 @@
           (EXIT (SPADCALL |xx| |prod| (QREFELT $ 45))))))) 
 
 (DEFUN |CYCLES;graphs;ISp;13| (|n| $)
-  (PROG (#1=#:G194 #2=#:G193 #3=#:G195 #4=#:G197 |li|)
+  (PROG (#1=#:G170 #2=#:G169 #3=#:G171 #4=#:G173 |li|)
     (RETURN
      (SEQ
       (PROGN
@@ -391,7 +391,7 @@
   (SPADCALL (SPADCALL |spol1| |spol2| (QREFELT $ 60)) (QREFELT $ 62))) 
 
 (DEFUN |CYCLES;mtpol| (|n| |spol| $)
-  (PROG (|deg| #1=#:G213 |k| #2=#:G212)
+  (PROG (|deg| #1=#:G189 |k| #2=#:G188)
     (RETURN
      (SEQ
       (COND ((SPADCALL |spol| (QREFELT $ 53)) (|spadConstant| $ 18))
@@ -424,7 +424,7 @@
                 (QREFELT $ 24)))))))))) 
 
 (DEFUN |CYCLES;evspol| (|fn2| |spol| $)
-  (PROG (|prod| #1=#:G215 #2=#:G214 #3=#:G216 #4=#:G221 |i| |lc|)
+  (PROG (|prod| #1=#:G191 #2=#:G190 #3=#:G192 #4=#:G197 |i| |lc|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |spol| (QREFELT $ 53)) (|spadConstant| $ 18))
@@ -483,7 +483,7 @@
         ('T (SPADCALL |n| (QREFELT $ 25))))) 
 
 (DEFUN |CYCLES;SFunction;LSp;22| (|li| $)
-  (PROG (|a| #1=#:G232 |k| #2=#:G233 |j| #3=#:G231 #4=#:G230 |i| #5=#:G229)
+  (PROG (|a| #1=#:G208 |k| #2=#:G209 |j| #3=#:G207 #4=#:G206 |i| #5=#:G205)
     (RETURN
      (SEQ
       (LETT |a|
@@ -534,7 +534,7 @@
    ('T |li2|))) 
 
 (DEFUN |CYCLES;skewSFunction;2LSp;24| (|li1| |li2| $)
-  (PROG (|a| #1=#:G244 |k| #2=#:G245 |j| #3=#:G243 #4=#:G242 |i| #5=#:G241)
+  (PROG (|a| #1=#:G220 |k| #2=#:G221 |j| #3=#:G219 #4=#:G218 |i| #5=#:G217)
     (RETURN
      (SEQ
       (COND
@@ -600,7 +600,7 @@
 (DEFUN |CycleIndicators| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G247)
+     (PROG (#1=#:G223)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|CycleIndicators|)

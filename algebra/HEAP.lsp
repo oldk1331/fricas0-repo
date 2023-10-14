@@ -4,7 +4,7 @@
 (DEFUN |HEAP;empty;$;1| ($) (SPADCALL (QREFELT $ 8))) 
 
 (DEFUN |HEAP;heap;L$;2| (|l| $)
-  (PROG (#1=#:G136 |x| |h| |n|)
+  (PROG (#1=#:G112 |x| |h| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #2=(|HEAP;heap;L$;2|))
           (LETT |h| (SPADCALL (QREFELT $ 9)) . #2#)
@@ -22,7 +22,7 @@
                    (EXIT |h|))))))))) 
 
 (DEFUN |HEAP;siftUp| (|r| |i| |n| $)
-  (PROG (#1=#:G141 |j| |k| |t|)
+  (PROG (#1=#:G117 |j| |k| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL |r| |i| (QREFELT $ 14)) . #2=(|HEAP;siftUp|))
           (EXIT
@@ -75,7 +75,7 @@
                                     (EXIT |t|))))))))))))) 
 
 (DEFUN |HEAP;insert!;S2$;5| (|x| |r| $)
-  (PROG (|j| #1=#:G150 |i|)
+  (PROG (|j| #1=#:G126 |i|)
     (RETURN
      (SEQ (LETT |j| (SPADCALL |r| (QREFELT $ 21)) . #2=(|HEAP;insert!;S2$;5|))
           (LETT |r|
@@ -126,10 +126,10 @@
 
 (DECLAIM (NOTINLINE |Heap;|)) 
 
-(DEFUN |Heap| (#1=#:G167)
+(DEFUN |Heap| (#1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#
@@ -143,7 +143,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Heap|))))))))))) 
 
 (DEFUN |Heap;| (|#1|)
-  (PROG (|pv$| #1=#:G164 #2=#:G165 #3=#:G166 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G140 #2=#:G141 #3=#:G142 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Heap|))

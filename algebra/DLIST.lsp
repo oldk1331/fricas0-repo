@@ -22,10 +22,10 @@
 
 (DECLAIM (NOTINLINE |DataList;|)) 
 
-(DEFUN |DataList| (#1=#:G146)
+(DEFUN |DataList| (#1=#:G122)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G123)
        (RETURN
         (COND
          ((LETT #2#
@@ -40,7 +40,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|DataList|))))))))))) 
 
 (DEFUN |DataList;| (|#1|)
-  (PROG (#1=#:G144 #2=#:G145 |pv$| #3=#:G141 #4=#:G142 $ |dv$| DV$1)
+  (PROG (#1=#:G120 #2=#:G121 |pv$| #3=#:G117 #4=#:G118 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|DataList|))

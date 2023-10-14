@@ -20,7 +20,7 @@
 (DEFUN |UserDefinedVariableOrdering| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G136)
+     (PROG (#1=#:G112)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|UserDefinedVariableOrdering|)

@@ -128,7 +128,7 @@
 (DEFUN |SARGND;latex;$S;30| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
 (DEFUN |SARGND;=;2$B;31| (|x| |y| $)
-  (PROG (#1=#:G182)
+  (PROG (#1=#:G158)
     (RETURN
      (SEQ
       (EXIT
@@ -164,7 +164,7 @@
 (DEFUN |SArgand| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G187)
+     (PROG (#1=#:G163)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))

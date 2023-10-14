@@ -44,7 +44,7 @@
   (VECTOR (|spadConstant| $ 9) |f| (|spadConstant| $ 41))) 
 
 (DEFUN |INTTR;monomialIntegrate1| (|f| |denint| |derivation| $)
-  (PROG (|u| |p| |dlog| |logs| #1=#:G208 |term| #2=#:G207 |rec| |respoly|
+  (PROG (|u| |p| |dlog| |logs| #1=#:G184 |term| #2=#:G183 |rec| |respoly|
          |resultvec| |x| |iden| |inum| |ans1| |dr| |r|)
     (RETURN
      (SEQ
@@ -174,7 +174,7 @@
    |derivation| $)) 
 
 (DEFUN |INTTR;monomialIntPoly;UPMR;9| (|p| |derivation| $)
-  (PROG (|ans| |term| #1=#:G214 |n| |l| |d| |dt|)
+  (PROG (|ans| |term| #1=#:G190 |n| |l| |d| |dt|)
     (RETURN
      (SEQ
       (LETT |d|
@@ -272,7 +272,7 @@
                                    (QREFELT $ 99))))))))))) 
 
 (DEFUN |INTTR;tanintegratespecial| (|f| |derivation| FRDE $)
-  (PROG (#1=#:G246 |u| |c0| |ans| |term| |l| #2=#:G247 |b| |a| |r| |n| |p|)
+  (PROG (#1=#:G222 |u| |c0| |ans| |term| |l| #2=#:G223 |b| |a| |r| |n| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -399,9 +399,9 @@
            (#1# (CONS 0 (CONS (QVELT |r| 0) |c|)))))))))))) 
 
 (DEFUN |INTTR;limitedLogs| (|f| |logderiv| |lu| $)
-  (PROG (#1=#:G290 |ans| |c0| |c| OK #2=#:G299 |pp| #3=#:G300 |j| #4=#:G298 |i|
-         |m| #5=#:G296 #6=#:G297 #7=#:G295 |cols| |rows| #8=#:G294 |u|
-         #9=#:G293 |l1| |v| #10=#:G292 #11=#:G291 |den| |num| |u0|)
+  (PROG (#1=#:G266 |ans| |c0| |c| OK #2=#:G275 |pp| #3=#:G276 |j| #4=#:G274 |i|
+         |m| #5=#:G272 #6=#:G273 #7=#:G271 |cols| |rows| #8=#:G270 |u|
+         #9=#:G269 |l1| |v| #10=#:G268 #11=#:G267 |den| |num| |u0|)
     (RETURN
      (SEQ
       (EXIT
@@ -743,7 +743,7 @@
     (RETURN (PROGN (|INTTR;logprmderiv| |x1| |derivation| $))))) 
 
 (DEFUN |INTTR;explimintfrac| (|f| |derivation| |lu| $)
-  (PROG (|ea| #1=#:G419 #2=#:G418 #3=#:G420 #4=#:G428 |v| |u| |uu| |eta'| |r|)
+  (PROG (|ea| #1=#:G395 #2=#:G394 #3=#:G396 #4=#:G404 |v| |u| |uu| |eta'| |r|)
     (RETURN
      (SEQ
       (COND
@@ -915,7 +915,7 @@
           (QCDR (QCDR |u2|)))))))))) 
 
 (DEFUN |INTTR;expintegrate;FMMMR;23| (|f| |derivation| |denint| FRDE $)
-  (PROG (|u2| |special| #1=#:G456 |i1| |rec|)
+  (PROG (|u2| |special| #1=#:G432 |i1| |rec|)
     (RETURN
      (SEQ
       (LETT |rec| (|INTTR;monomialIntegrate1| |f| |denint| |derivation| $)
@@ -1188,7 +1188,7 @@
                               (QCDR (QCDR |u1|))))))))))))))) 
 
 (DEFUN |INTTR;primintegratepoly| (|p| |extendedint| |t'| $)
-  (PROG (|ans1| |rp| |ans| #1=#:G574 #2=#:G580 |d|)
+  (PROG (|ans1| |rp| |ans| #1=#:G550 #2=#:G556 |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -1294,10 +1294,10 @@
 
 (DECLAIM (NOTINLINE |TranscendentalIntegration;|)) 
 
-(DEFUN |TranscendentalIntegration| (&REST #1=#:G595)
+(DEFUN |TranscendentalIntegration| (&REST #1=#:G571)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G596)
+     (PROG (#2=#:G572)
        (RETURN
         (COND
          ((LETT #2#

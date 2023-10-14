@@ -58,10 +58,10 @@
 
 (DECLAIM (NOTINLINE |BinaryTree;|)) 
 
-(DEFUN |BinaryTree| (#1=#:G163)
+(DEFUN |BinaryTree| (#1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#
@@ -76,7 +76,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|BinaryTree|))))))))))) 
 
 (DEFUN |BinaryTree;| (|#1|)
-  (PROG (|pv$| #1=#:G160 #2=#:G161 #3=#:G162 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G136 #2=#:G137 #3=#:G138 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTree|))

@@ -34,7 +34,7 @@
           (QSETAREF1 |pt| (QREFELT $ 6) 0.0) (EXIT |pt|))))) 
 
 (DEFUN |SCRT;min;3$;5| (|a| |b| $)
-  (PROG (#1=#:G146 |i| |pt|)
+  (PROG (#1=#:G122 |i| |pt|)
     (RETURN
      (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0) . #2=(|SCRT;min;3$;5|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -47,7 +47,7 @@
           (QSETAREF1 |pt| (QREFELT $ 6) 1.0) (EXIT |pt|))))) 
 
 (DEFUN |SCRT;max;3$;6| (|a| |b| $)
-  (PROG (#1=#:G150 |i| |pt|)
+  (PROG (#1=#:G126 |i| |pt|)
     (RETURN
      (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0) . #2=(|SCRT;max;3$;6|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -64,7 +64,7 @@
 (DEFUN |SCRT;nan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 19))) 
 
 (DEFUN |SCRT;Pnan?;$B;9| (|p| $)
-  (PROG (#1=#:G156 #2=#:G157 |i|)
+  (PROG (#1=#:G132 #2=#:G133 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -88,7 +88,7 @@
    (|mul_DF| (QAREF1 |x| 2) (QAREF1 |y| 2)))) 
 
 (DEFUN |SCRT;unitVector;2$;11| (|p| $)
-  (PROG (#1=#:G164 |i| |pt| |factor| #2=#:G163)
+  (PROG (#1=#:G140 |i| |pt| |factor| #2=#:G139)
     (RETURN
      (SEQ (LETT |factor| 0.0 . #3=(|SCRT;unitVector;2$;11|))
           (SEQ (LETT |i| 0 . #3#) (LETT #2# (- (QREFELT $ 6) 1) . #3#) G190
@@ -111,7 +111,7 @@
           (QSETAREF1 |pt| (QREFELT $ 6) 0.0) (EXIT |pt|))))) 
 
 (DEFUN |SCRT;distanceSquared;2$Df;12| (|p1| |p2| $)
-  (PROG (|factor| #1=#:G168 |i|)
+  (PROG (|factor| #1=#:G144 |i|)
     (RETURN
      (SEQ (LETT |factor| 0.0 . #2=(|SCRT;distanceSquared;2$Df;12|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -129,7 +129,7 @@
           (EXIT |factor|))))) 
 
 (DEFUN |SCRT;perpendicular;3$;13| (|x| |y| $)
-  (PROG (#1=#:G170 |pt|)
+  (PROG (#1=#:G146 |pt|)
     (RETURN
      (SEQ
       (EXIT
@@ -152,7 +152,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCRT;*;Df2$;14| (|s| |x| $)
-  (PROG (#1=#:G174 |i| |pt|)
+  (PROG (#1=#:G150 |i| |pt|)
     (RETURN
      (SEQ
       (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0) . #2=(|SCRT;*;Df2$;14|))
@@ -163,7 +163,7 @@
       (QSETAREF1 |pt| (QREFELT $ 6) (QAREF1 |x| (QREFELT $ 6))) (EXIT |pt|))))) 
 
 (DEFUN |SCRT;+;3$;15| (|x| |y| $)
-  (PROG (#1=#:G179 |i| |pt|)
+  (PROG (#1=#:G155 |i| |pt|)
     (RETURN
      (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0) . #2=(|SCRT;+;3$;15|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -182,7 +182,7 @@
           (EXIT |pt|))))) 
 
 (DEFUN |SCRT;-;3$;16| (|x| |y| $)
-  (PROG (#1=#:G184 |i| |pt|)
+  (PROG (#1=#:G160 |i| |pt|)
     (RETURN
      (SEQ (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0) . #2=(|SCRT;-;3$;16|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -201,7 +201,7 @@
           (EXIT |pt|))))) 
 
 (DEFUN |SCRT;inBounds?;3$B;17| (|pt| |mns| |mxs| $)
-  (PROG (#1=#:G189 #2=#:G190 |i|)
+  (PROG (#1=#:G165 #2=#:G166 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -233,7 +233,7 @@
   (COND ((SPADCALL (QREFELT $ 6) 2 (QREFELT $ 12)) (QAREF1 |pt| 2)) ('T 0.0))) 
 
 (DEFUN |SCRT;screenCoords;$L;21| (|pt| $)
-  (PROG (|res| #1=#:G197 |i|)
+  (PROG (|res| #1=#:G173 |i|)
     (RETURN
      (SEQ (LETT |res| NIL . #2=(|SCRT;screenCoords;$L;21|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -248,7 +248,7 @@
 (DEFUN |SCRT;extendedCoords;$L;22| (|pt| $) (SPADCALL |pt| (QREFELT $ 41))) 
 
 (DEFUN |SCRT;toPoint;2$;23| (|p| $)
-  (PROG (#1=#:G202 |i| |pt|)
+  (PROG (#1=#:G178 |i| |pt|)
     (RETURN
      (SEQ
       (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0)
@@ -260,7 +260,7 @@
       (QSETAREF1 |pt| (QREFELT $ 6) 1.0) (EXIT |pt|))))) 
 
 (DEFUN |SCRT;toVector;2$;24| (|p| $)
-  (PROG (#1=#:G206 |i| |pt|)
+  (PROG (#1=#:G182 |i| |pt|)
     (RETURN
      (SEQ
       (LETT |pt| (MAKEARR1 (+ (QREFELT $ 6) 1) 0.0)
@@ -290,7 +290,7 @@
 (DEFUN |SCRT;latex;$S;28| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
 (DEFUN |SCRT;=;2$B;29| (|x| |y| $)
-  (PROG (#1=#:G214 #2=#:G215 |i|)
+  (PROG (#1=#:G190 #2=#:G191 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -311,7 +311,7 @@
   (COND ((SPADCALL |x| |y| (QREFELT $ 54)) 'NIL) ('T 'T))) 
 
 (DEFUN |SCRT;coerce;$Of;31| (|pt| $)
-  (PROG (|eles| #1=#:G223 |i| #2=#:G222 |s|)
+  (PROG (|eles| #1=#:G199 |i| #2=#:G198 |s|)
     (RETURN
      (SEQ (LETT |s| '|proj| . #3=(|SCRT;coerce;$Of;31|))
           (COND
@@ -339,10 +339,10 @@
 
 (DECLAIM (NOTINLINE |SCartesian;|)) 
 
-(DEFUN |SCartesian| (#1=#:G224)
+(DEFUN |SCartesian| (#1=#:G200)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G225)
+     (PROG (#2=#:G201)
        (RETURN
         (COND
          ((LETT #2#

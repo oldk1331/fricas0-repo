@@ -40,10 +40,10 @@
 
 (DECLAIM (NOTINLINE |ToolsForSign;|)) 
 
-(DEFUN |ToolsForSign| (#1=#:G157)
+(DEFUN |ToolsForSign| (#1=#:G133)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G158)
+     (PROG (#2=#:G134)
        (RETURN
         (COND
          ((LETT #2#

@@ -10,7 +10,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|a| |b| |l| |m| #2=#:G147 |w| |mqnext| |n| |mq|)
+      (PROG (|a| |b| |l| |m| #2=#:G123 |w| |mqnext| |n| |mq|)
         (RETURN
          (SEQ (LETT |a| (SPADCALL |aTob| (QREFELT $ 8)) NIL)
               (LETT |b| (SPADCALL |aTob| (QREFELT $ 9)) NIL)
@@ -67,7 +67,7 @@
 (DEFUN |RandomIntegerDistributions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G158)
+     (PROG (#1=#:G134)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|RandomIntegerDistributions|)

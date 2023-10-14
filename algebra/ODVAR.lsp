@@ -15,10 +15,10 @@
 
 (DECLAIM (NOTINLINE |OrderlyDifferentialVariable;|)) 
 
-(DEFUN |OrderlyDifferentialVariable| (#1=#:G135)
+(DEFUN |OrderlyDifferentialVariable| (#1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

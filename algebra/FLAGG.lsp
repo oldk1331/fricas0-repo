@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |FiniteLinearAggregate;AL| 'NIL) 
 
-(DEFUN |FiniteLinearAggregate| (#1=#:G128)
-  (LET (#2=#:G129)
+(DEFUN |FiniteLinearAggregate| (#1=#:G104)
+  (LET (#2=#:G105)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |FiniteLinearAggregate;AL|))
       (CDR #2#))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |FiniteLinearAggregate;| (|t#1|)
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

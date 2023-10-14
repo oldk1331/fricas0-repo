@@ -348,8 +348,8 @@
                                        (QREFELT $ 74)))))))))))))) 
 
 (DEFUN |FRAC;gcdPolynomial;3Sup;35| (|pp| |qq| $)
-  (PROG (|lc| |g| |qqD| |denqq| #1=#:G795 #2=#:G794 #3=#:G796 #4=#:G805 |u|
-         |ppD| |denpp| #5=#:G791 #6=#:G790 #7=#:G792 #8=#:G804)
+  (PROG (|lc| |g| |qqD| |denqq| #1=#:G771 #2=#:G770 #3=#:G772 #4=#:G781 |u|
+         |ppD| |denpp| #5=#:G767 #6=#:G766 #7=#:G768 #8=#:G780)
     (RETURN
      (SEQ
       (COND ((SPADCALL |pp| (QREFELT $ 78)) |qq|)
@@ -471,7 +471,7 @@
                                            (QREFELT $ 52)))))))))))))) 
 
 (DEFUN |FRAC;charthRoot;$U;37| (|x| $)
-  (PROG (|ans| #1=#:G829)
+  (PROG (|ans| #1=#:G805)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -494,7 +494,7 @@
               (CONS 0 (SPADCALL (QCDR |ans|) (QCDR |x|) (QREFELT $ 52)))))))))) 
 
 (DEFUN |FRAC;charthRoot;$U;38| (|x| $)
-  (PROG (|ans| #1=#:G848)
+  (PROG (|ans| #1=#:G824)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -517,8 +517,8 @@
               (CONS 0 (SPADCALL (QCDR |ans|) (QCDR |x|) (QREFELT $ 52)))))))))) 
 
 (DEFUN |FRAC;clear| (|l| $)
-  (PROG (#1=#:G858 #2=#:G865 |x| #3=#:G864 |d| #4=#:G855 #5=#:G854 #6=#:G856
-         #7=#:G863)
+  (PROG (#1=#:G834 #2=#:G841 |x| #3=#:G840 |d| #4=#:G831 #5=#:G830 #6=#:G832
+         #7=#:G839)
     (RETURN
      (SEQ
       (LETT |d|
@@ -565,8 +565,8 @@
              (EXIT (NREVERSE #3#))))))))) 
 
 (DEFUN |FRAC;conditionP;MU;40| (|mat| $)
-  (PROG (#1=#:G883 #2=#:G885 |i| #3=#:G884 |ansDD| |ansD| |matD| #4=#:G882 |l|
-         #5=#:G881)
+  (PROG (#1=#:G859 #2=#:G861 |i| #3=#:G860 |ansDD| |ansD| |matD| #4=#:G858 |l|
+         #5=#:G857)
     (RETURN
      (SEQ
       (LETT |matD|
@@ -611,8 +611,8 @@
                            #3#))))))))))) 
 
 (DEFUN |FRAC;factorPolynomial;SupF;41| (|pp| $)
-  (PROG (|lfact| |den1| |lc| #1=#:G908 |w| #2=#:G907 |ff| |ppD| |denpp|
-         #3=#:G887 #4=#:G886 #5=#:G888 #6=#:G906 |u|)
+  (PROG (|lfact| |den1| |lc| #1=#:G884 |w| #2=#:G883 |ff| |ppD| |denpp|
+         #3=#:G863 #4=#:G862 #5=#:G864 #6=#:G882 |u|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |pp| (QREFELT $ 78)) (|spadConstant| $ 115))
@@ -732,8 +732,8 @@
      (PROGN (SPADCALL (SPADCALL |x| |denpp| (QREFELT $ 85)) (QREFELT $ 15)))))) 
 
 (DEFUN |FRAC;factorSquareFreePolynomial;SupF;42| (|pp| $)
-  (PROG (|lfact| |den1| |lc| #1=#:G933 |w| #2=#:G932 |ff| |ppD| |denpp|
-         #3=#:G913 #4=#:G912 #5=#:G914 #6=#:G931 |u| |lcpp|)
+  (PROG (|lfact| |den1| |lc| #1=#:G909 |w| #2=#:G908 |ff| |ppD| |denpp|
+         #3=#:G889 #4=#:G888 #5=#:G890 #6=#:G907 |u| |lcpp|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |pp| (QREFELT $ 78)) (|spadConstant| $ 115))
@@ -864,10 +864,10 @@
 
 (DECLAIM (NOTINLINE |Fraction;|)) 
 
-(DEFUN |Fraction| (#1=#:G958)
+(DEFUN |Fraction| (#1=#:G934)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G959)
+     (PROG (#2=#:G935)
        (RETURN
         (COND
          ((LETT #2#
@@ -882,7 +882,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Fraction|))))))))))) 
 
 (DEFUN |Fraction;| (|#1|)
-  (PROG (|pv$| #1=#:G953 #2=#:G954 #3=#:G955 #4=#:G957 #5=#:G956 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G929 #2=#:G930 #3=#:G931 #4=#:G933 #5=#:G932 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #6=(|Fraction|))

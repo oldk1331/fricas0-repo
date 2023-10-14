@@ -19,7 +19,7 @@
             (QREFELT $ 16))) 
 
 (DEFUN |MODOP;elt;$2M;6| (|x| |r| $)
-  (PROG (#1=#:G153 #2=#:G152 #3=#:G154 #4=#:G157 |t|)
+  (PROG (#1=#:G129 #2=#:G128 #3=#:G130 #4=#:G133 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -45,7 +45,7 @@
   (SPADCALL (QCAR |t|) (|MODOP;monomeval| (QCDR |t|) |r| $) (QREFELT $ 36))) 
 
 (DEFUN |MODOP;termcopy| (|t| $)
-  (PROG (#1=#:G164 |rm| #2=#:G163)
+  (PROG (#1=#:G140 |rm| #2=#:G139)
     (RETURN
      (SEQ
       (PROGN
@@ -80,7 +80,7 @@
 (DEFUN |MODOP;makeop;RFg$;13| (|r| |fg| $) (|MODOP;mkop| |r| |fg| $)) 
 
 (DEFUN |MODOP;inv| (|t| $)
-  (PROG (#1=#:G175 |m| |c|)
+  (PROG (#1=#:G151 |m| |c|)
     (RETURN
      (SEQ
       (COND ((NULL |t|) (|spadConstant| $ 12))
@@ -114,7 +114,7 @@
    $)) 
 
 (DEFUN |MODOP;coerce;$Of;17| (|x| $)
-  (PROG (#1=#:G191 |t| #2=#:G190)
+  (PROG (#1=#:G167 |t| #2=#:G166)
     (RETURN
      (SEQ
       (COND
@@ -148,7 +148,7 @@
                    (QREFELT $ 73))))) 
 
 (DEFUN |MODOP;term2O| (|t| $)
-  (PROG (#1=#:G201 |rm| #2=#:G200)
+  (PROG (#1=#:G177 |rm| #2=#:G176)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 73)
@@ -179,8 +179,8 @@
               (QREFELT $ 73))))) 
 
 (DEFUN |MODOP;*;3$;21| (|x| |y| $)
-  (PROG (#1=#:G205 #2=#:G204 #3=#:G206 #4=#:G208 #5=#:G207 #6=#:G209 #7=#:G213
-         |s| #8=#:G212 |t|)
+  (PROG (#1=#:G181 #2=#:G180 #3=#:G182 #4=#:G184 #5=#:G183 #6=#:G185 #7=#:G189
+         |s| #8=#:G188 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -305,7 +305,7 @@
         ('T (SPADCALL |r| (QCDR |func|))))))))) 
 
 (DEFUN |MODOP;termeval| (|t| |r| $)
-  (PROG (#1=#:G244 |rm|)
+  (PROG (#1=#:G220 |rm|)
     (RETURN
      (SEQ
       (SEQ (LETT |rm| NIL . #2=(|MODOP;termeval|))
@@ -318,7 +318,7 @@
       (EXIT |r|))))) 
 
 (DEFUN |MODOP;monomeval| (|m| |r| $)
-  (PROG (#1=#:G254 |i| |g| |e| #2=#:G253 |rec|)
+  (PROG (#1=#:G230 |i| |g| |e| #2=#:G229 |rec|)
     (RETURN
      (SEQ
       (SEQ (LETT |rec| NIL . #3=(|MODOP;monomeval|))
@@ -408,7 +408,7 @@
   (SPADCALL |x| (SPADCALL |r| (QREFELT $ 19)) (QREFELT $ 53))) 
 
 (DEFUN |MODOP;adjoint;2$;34| (|x| $)
-  (PROG (#1=#:G292 #2=#:G291 #3=#:G293 #4=#:G296 |t|)
+  (PROG (#1=#:G268 #2=#:G267 #3=#:G269 #4=#:G272 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -441,7 +441,7 @@
    $)) 
 
 (DEFUN |MODOP;termadj| (|t| $)
-  (PROG (|ans| #1=#:G304 |rm|)
+  (PROG (|ans| #1=#:G280 |rm|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 12) . #2=(|MODOP;termadj|))
           (SEQ (LETT |rm| NIL . #2#) (LETT #1# |t| . #2#) G190
@@ -457,7 +457,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |MODOP;monomadj| (|m| $)
-  (PROG (|ans| #1=#:G309 |rec|)
+  (PROG (|ans| #1=#:G285 |rec|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 12) . #2=(|MODOP;monomadj|))
           (SEQ (LETT |rec| NIL . #2#)
@@ -495,10 +495,10 @@
 
 (DECLAIM (NOTINLINE |ModuleOperator;|)) 
 
-(DEFUN |ModuleOperator| (&REST #1=#:G317)
+(DEFUN |ModuleOperator| (&REST #1=#:G293)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G318)
+     (PROG (#2=#:G294)
        (RETURN
         (COND
          ((LETT #2#

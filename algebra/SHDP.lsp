@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SHDP;lessThanRlex| (|v1| |v2| |low| |high| $)
-  (PROG (#1=#:G138 |i| |n2| |n1|)
+  (PROG (#1=#:G114 |i| |n2| |n1|)
     (RETURN
      (SEQ
       (EXIT
@@ -45,7 +45,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SHDP;<;2$B;2| (|v1| |v2| $)
-  (PROG (#1=#:G143 #2=#:G144 |i|)
+  (PROG (#1=#:G119 #2=#:G120 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -70,10 +70,10 @@
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
 
-(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G167)
+(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#
@@ -93,7 +93,7 @@
                     '|SplitHomogeneousDirectProduct|))))))))))) 
 
 (DEFUN |SplitHomogeneousDirectProduct;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G161 #2=#:G162 #3=#:G163 #4=#:G164 #5=#:G165 #6=#:G166 $
+  (PROG (|pv$| #1=#:G137 #2=#:G138 #3=#:G139 #4=#:G140 #5=#:G141 #6=#:G142 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

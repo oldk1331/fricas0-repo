@@ -31,7 +31,7 @@
        ('T (|error| "case not handled"))))))) 
 
 (DEFUN |INFSP;makeEq;LLL;2| (|nres| |lv| $)
-  (PROG (#1=#:G142 |x| #2=#:G143 |r| #3=#:G141)
+  (PROG (#1=#:G118 |x| #2=#:G119 |r| #3=#:G117)
     (RETURN
      (SEQ
       (PROGN
@@ -79,7 +79,7 @@
   (SPADCALL (SPADCALL |pol| (QREFELT $ 51)) |eps| (QREFELT $ 52))) 
 
 (DEFUN |INFSP;innerSolve1;SupParL;6| (|upol| |eps| $)
-  (PROG (#1=#:G159 |x| #2=#:G158 |z| #3=#:G157 #4=#:G156)
+  (PROG (#1=#:G135 |x| #2=#:G134 |z| #3=#:G133 #4=#:G132)
     (RETURN
      (SEQ
       (COND
@@ -268,8 +268,8 @@
           (EXIT (|INFSP;ieval0| |pol| |xvar| |zvar| |nz| $)))))) 
 
 (DEFUN |INFSP;findGenZeros| (|lp| |rlvar| |eps| $)
-  (PROG (|ebits| |etol| #1=#:G193 |sol| |sol1| #2=#:G185 |ok| |ppi| |pp|
-         #3=#:G195 |pol| #4=#:G196 |xvar| #5=#:G194 |z| |lz| |nfeps| |neps|
+  (PROG (|ebits| |etol| #1=#:G169 |sol| |sol1| #2=#:G161 |ok| |ppi| |pp|
+         #3=#:G171 |pol| #4=#:G172 |xvar| #5=#:G170 |z| |lz| |nfeps| |neps|
          |obits| |feps| |rlp| |zvar| |f|)
     (RETURN
      (SEQ
@@ -404,7 +404,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |INFSP;oldCoord| (|numres| |lval| $)
-  (PROG (#1=#:G198 #2=#:G197 #3=#:G199 #4=#:G202 |n| #5=#:G203 |nr| |rnumres|)
+  (PROG (#1=#:G174 #2=#:G173 #3=#:G175 #4=#:G178 |n| #5=#:G179 |nr| |rnumres|)
     (RETURN
      (SEQ (LETT |rnumres| (REVERSE |numres|) . #6=(|INFSP;oldCoord|))
           (SPADCALL |rnumres| '|first|
@@ -488,16 +488,16 @@
            (|INFSP;findGenZeros| (LIST |p1| |p0|) (REVERSE |lv|) |eps| $)))))) 
 
 (DEFUN |INFSP;innerSolve;2LLParL;18| (|lp| |ld| |lv| |eps| $)
-  (PROG (|result| #1=#:G352 |r| #2=#:G351 |lris| |lgen1| #3=#:G350 |pf|
-         #4=#:G349 |neps| |lnorm| |laval| #5=#:G348 |i| #6=#:G347 |lval| |lgen|
-         |genRecord| #7=#:G346 |gres| |partRes| #8=#:G345 #9=#:G301 #10=#:G300
-         #11=#:G302 #12=#:G344 |res| |listG| #13=#:G343 #14=#:G342 #15=#:G341
-         |pr| #16=#:G340 #17=#:G296 |listGen| #18=#:G222 #19=#:G221 #20=#:G223
-         #21=#:G294 #22=#:G293 #23=#:G295 #24=#:G339 #25=#:G127 #26=#:G338 |f|
-         |res1| #27=#:G337 |rrlvv| |rlv| #28=#:G216 #29=#:G215 #30=#:G217
-         #31=#:G336 |fq| #32=#:G335 #33=#:G334 |gb| |lq| #34=#:G333 |q1|
-         #35=#:G332 |dmp| DP |lvv| #36=#:G210 #37=#:G331 |vv| #38=#:G330 OV
-         |lnp| #39=#:G329 |p| #40=#:G328)
+  (PROG (|result| #1=#:G328 |r| #2=#:G327 |lris| |lgen1| #3=#:G326 |pf|
+         #4=#:G325 |neps| |lnorm| |laval| #5=#:G324 |i| #6=#:G323 |lval| |lgen|
+         |genRecord| #7=#:G322 |gres| |partRes| #8=#:G321 #9=#:G277 #10=#:G276
+         #11=#:G278 #12=#:G320 |res| |listG| #13=#:G319 #14=#:G318 #15=#:G317
+         |pr| #16=#:G316 #17=#:G272 |listGen| #18=#:G198 #19=#:G197 #20=#:G199
+         #21=#:G270 #22=#:G269 #23=#:G271 #24=#:G315 #25=#:G103 #26=#:G314 |f|
+         |res1| #27=#:G313 |rrlvv| |rlv| #28=#:G192 #29=#:G191 #30=#:G193
+         #31=#:G312 |fq| #32=#:G311 #33=#:G310 |gb| |lq| #34=#:G309 |q1|
+         #35=#:G308 |dmp| DP |lvv| #36=#:G186 #37=#:G307 |vv| #38=#:G306 OV
+         |lnp| #39=#:G305 |p| #40=#:G304)
     (RETURN
      (SEQ
       (LETT |lnp|
@@ -1061,10 +1061,10 @@
 
 (DECLAIM (NOTINLINE |InnerNumericFloatSolvePackage;|)) 
 
-(DEFUN |InnerNumericFloatSolvePackage| (&REST #1=#:G353)
+(DEFUN |InnerNumericFloatSolvePackage| (&REST #1=#:G329)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G354)
+     (PROG (#2=#:G330)
        (RETURN
         (COND
          ((LETT #2#

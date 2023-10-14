@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PNTHEORY;MonicQuotient| (|a| |b| $)
-  (PROG (|da| |q| |t| #1=#:G142 |db|)
+  (PROG (|da| |q| |t| #1=#:G118 |db|)
     (RETURN
      (SEQ
       (COND
@@ -34,7 +34,7 @@
          (EXIT |q|)))))))) 
 
 (DEFUN |PNTHEORY;cyclotomic;ISup;2| (|n| $)
-  (PROG (|m| #1=#:G156 |s| |c| |t| #2=#:G152 |r| |q| |#G6| |k| |#G5| |p|)
+  (PROG (|m| #1=#:G132 |s| |c| |t| #2=#:G128 |r| |q| |#G6| |k| |#G5| |p|)
     (RETURN
      (SEQ
       (COND
@@ -87,7 +87,7 @@
              (EXIT (SPADCALL |c| |m| (QREFELT $ 37)))))))))) 
 
 (DEFUN |PNTHEORY;euler;ISup;3| (|n| $)
-  (PROG (|p| |c| #1=#:G163 |t| |i| |s| |#G10| |#G9| |#G8|)
+  (PROG (|p| |c| #1=#:G139 |t| |i| |s| |#G10| |#G9| |#G8|)
     (RETURN
      (SEQ
       (COND ((< |n| 0) (|error| "euler not defined for negative integers"))
@@ -398,7 +398,7 @@
 (DEFUN |PolynomialNumberTheoryFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G211)
+     (PROG (#1=#:G187)
        (RETURN
         (COND
          ((LETT #1#

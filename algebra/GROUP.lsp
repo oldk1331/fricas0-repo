@@ -6,11 +6,11 @@
 (DEFPARAMETER |Group;AL| 'NIL) 
 
 (DEFUN |Group| ()
-  (LET (#:G130)
+  (LET (#:G106)
     (COND (|Group;AL|) (T (SETQ |Group;AL| (|Group;|)))))) 
 
 (DEFUN |Group;| ()
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (PROG1
          (LETT #1#

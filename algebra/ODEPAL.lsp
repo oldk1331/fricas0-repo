@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ODEPAL;algDsolve;LodoRR;1| (|l| |g| $)
-  (PROG (|u| |bas| #1=#:G147 |v| #2=#:G146 |sol| |rec|)
+  (PROG (|u| |bas| #1=#:G123 |v| #2=#:G122 |sol| |rec|)
     (RETURN
      (SEQ
       (LETT |rec| (SPADCALL |l| |g| (QREFELT $ 13))
@@ -32,10 +32,10 @@
 
 (DECLAIM (NOTINLINE |PureAlgebraicLODE;|)) 
 
-(DEFUN |PureAlgebraicLODE| (&REST #1=#:G148)
+(DEFUN |PureAlgebraicLODE| (&REST #1=#:G124)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G125)
        (RETURN
         (COND
          ((LETT #2#

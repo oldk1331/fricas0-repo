@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMKERNEL;patternMatchArg| (|ls| |lp| |l| $)
-  (PROG (#1=#:G145 #2=#:G148 #3=#:G151 |p| #4=#:G152 |s| #5=#:G142 #6=#:G149
-         #7=#:G150)
+  (PROG (#1=#:G121 #2=#:G124 #3=#:G127 |p| #4=#:G128 |s| #5=#:G118 #6=#:G125
+         #7=#:G126)
     (RETURN
      (SEQ
       (EXIT
@@ -69,7 +69,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PMKERNEL;patternMatchInner| (|s| |p| |l| $)
-  (PROG (#1=#:G166 |w| |v| |ur| |u|)
+  (PROG (#1=#:G142 |w| |v| |ur| |u|)
     (RETURN
      (SEQ
       (COND
@@ -135,7 +135,7 @@
         (#2# (SPADCALL (QREFELT $ 12))))))))) 
 
 (DEFUN |PMKERNEL;patternMatchMonoid| (|s| |p| |l| $)
-  (PROG (|w| #1=#:G190 |r| |arg| |op| |vr| |v| |u|)
+  (PROG (|w| #1=#:G166 |r| |arg| |op| |vr| |v| |u|)
     (RETURN
      (SEQ
       (LETT |u| (|PMKERNEL;patternMatchInner| |s| |p| |l| $)
@@ -255,10 +255,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchKernel;|)) 
 
-(DEFUN |PatternMatchKernel| (&REST #1=#:G218)
+(DEFUN |PatternMatchKernel| (&REST #1=#:G194)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G219)
+     (PROG (#2=#:G195)
        (RETURN
         (COND
          ((LETT #2#

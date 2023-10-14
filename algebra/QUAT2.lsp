@@ -75,10 +75,10 @@
 
 (DECLAIM (NOTINLINE |GeneralQuaternion;|)) 
 
-(DEFUN |GeneralQuaternion| (&REST #1=#:G154)
+(DEFUN |GeneralQuaternion| (&REST #1=#:G130)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G155)
+     (PROG (#2=#:G131)
        (RETURN
         (COND
          ((LETT #2#
@@ -97,7 +97,7 @@
               (HREM |$ConstructorCache| '|GeneralQuaternion|))))))))))) 
 
 (DEFUN |GeneralQuaternion;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G153 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G129 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralQuaternion|))

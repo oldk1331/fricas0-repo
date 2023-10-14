@@ -22,10 +22,10 @@
 
 (DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
 
-(DEFUN |GeneralSparseTable| (&REST #1=#:G189)
+(DEFUN |GeneralSparseTable| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G190)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#
@@ -44,7 +44,7 @@
               (HREM |$ConstructorCache| '|GeneralSparseTable|))))))))))) 
 
 (DEFUN |GeneralSparseTable;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G188 #2=#:G187 |pv$| #3=#:G185 #4=#:G186 $ |dv$| DV$4 DV$3 DV$2
+  (PROG (#1=#:G164 #2=#:G163 |pv$| #3=#:G161 #4=#:G162 $ |dv$| DV$4 DV$3 DV$2
          DV$1)
     (RETURN
      (PROGN

@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |UnivariateTaylorSeriesCategory;AL| 'NIL) 
 
-(DEFUN |UnivariateTaylorSeriesCategory| (#1=#:G148)
-  (LET (#2=#:G149)
+(DEFUN |UnivariateTaylorSeriesCategory| (#1=#:G124)
+  (LET (#2=#:G125)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -22,13 +22,13 @@
       #2#)))) 
 
 (DEFUN |UnivariateTaylorSeriesCategory;| (|t#1|)
-  (PROG (#1=#:G147)
+  (PROG (#1=#:G123)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
                           (|sublisV|
-                           (PAIR '(#2=#:G146) (LIST '(|NonNegativeInteger|)))
+                           (PAIR '(#2=#:G122) (LIST '(|NonNegativeInteger|)))
                            (COND (|UnivariateTaylorSeriesCategory;CAT|)
                                  ('T
                                   (LETT |UnivariateTaylorSeriesCategory;CAT|

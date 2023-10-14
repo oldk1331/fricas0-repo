@@ -30,7 +30,7 @@
     (RETURN (PROGN (SPADCALL |r1| |p| (QREFELT $ 18)))))) 
 
 (DEFUN |INMODGCD;modularGcdPrimitive;LBP;3| (|listf| $)
-  (PROG (|g| #1=#:G181 |f|)
+  (PROG (|g| #1=#:G157 |f|)
     (RETURN
      (SEQ
       (COND ((NULL |listf|) (|spadConstant| $ 11))
@@ -55,10 +55,10 @@
               (EXIT |g|)))))))) 
 
 (DEFUN |INMODGCD;modularGcd;LBP;4| (|listf| $)
-  (PROG (|ans| |minpol| #1=#:G186 #2=#:G207 |f| #3=#:G208 |cf| #4=#:G206
-         |contgcd| |listCont| #5=#:G205 #6=#:G204 |listdeg| #7=#:G203 #8=#:G202
-         #9=#:G201 #10=#:G200 |minpol1| |mdeg| #11=#:G183 #12=#:G182 #13=#:G184
-         #14=#:G199)
+  (PROG (|ans| |minpol| #1=#:G162 #2=#:G183 |f| #3=#:G184 |cf| #4=#:G182
+         |contgcd| |listCont| #5=#:G181 #6=#:G180 |listdeg| #7=#:G179 #8=#:G178
+         #9=#:G177 #10=#:G176 |minpol1| |mdeg| #11=#:G159 #12=#:G158 #13=#:G160
+         #14=#:G175)
     (RETURN
      (SEQ
       (LETT |listf| (SPADCALL (|spadConstant| $ 11) |listf| (QREFELT $ 27))
@@ -213,7 +213,7 @@
                    (EXIT (SPADCALL |minpol| |ans| (QREFELT $ 34))))))))))) 
 
 (DEFUN |INMODGCD;lincase| (|listdeg| |listf| $)
-  (PROG (#1=#:G217 |f1| #2=#:G218 |f| |g| |n|)
+  (PROG (#1=#:G193 |f1| #2=#:G194 |f| |g| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -256,8 +256,8 @@
             ('T 'T))))))) 
 
 (DEFUN |INMODGCD;modGcdPrimitive| (|f| |g| $)
-  (PROG (#1=#:G250 |result| |testdeg| |soFar| |soFarModulus| |correctionFactor|
-         |ans| #2=#:G233 |cont| |correction| |dp| |ldp| |lcdp| |dgp| |gp| |fp|
+  (PROG (#1=#:G226 |result| |testdeg| |soFar| |soFarModulus| |correctionFactor|
+         |ans| #2=#:G209 |cont| |correction| |dp| |ldp| |lcdp| |dgp| |gp| |fp|
          |prime| |bound| |lcd| |lcg| |lcf| |dg| |df|)
     (RETURN
      (SEQ
@@ -484,7 +484,7 @@
         ('T (CONS 1 "failed")))) 
 
 (DEFUN |INMODGCD;modInverse| (|c| |p| $)
-  (PROG (#1=#:G257)
+  (PROG (#1=#:G233)
     (RETURN
      (QCAR
       (PROG2
@@ -520,7 +520,7 @@
                          (QREFELT $ 17)))))))))) 
 
 (DEFUN |INMODGCD;height| (|f| $)
-  (PROG (#1=#:G267 #2=#:G266 #3=#:G268 #4=#:G271 |cc| |degf|)
+  (PROG (#1=#:G243 #2=#:G242 #3=#:G244 #4=#:G247 |cc| |degf|)
     (RETURN
      (SEQ (LETT |degf| (SPADCALL |f| (QREFELT $ 23)) . #5=(|INMODGCD;height|))
           (EXIT
@@ -552,10 +552,10 @@
 
 (DECLAIM (NOTINLINE |InnerModularGcd;|)) 
 
-(DEFUN |InnerModularGcd| (&REST #1=#:G274)
+(DEFUN |InnerModularGcd| (&REST #1=#:G250)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G275)
+     (PROG (#2=#:G251)
        (RETURN
         (COND
          ((LETT #2#

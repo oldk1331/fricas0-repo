@@ -9,7 +9,7 @@
       (EXIT (SPADCALL (SPADCALL |p| (QREFELT $ 11)) |eps| (QREFELT $ 14))))))) 
 
 (DEFUN |FLOATCP;complexRoots;LLParL;2| (|lp| |lv| |eps| $)
-  (PROG (|lden| |dp| #1=#:G138 |p| #2=#:G137 |lnum| #3=#:G136 #4=#:G135)
+  (PROG (|lden| |dp| #1=#:G114 |p| #2=#:G113 |lnum| #3=#:G112 #4=#:G111)
     (RETURN
      (SEQ
       (LETT |lnum|
@@ -44,10 +44,10 @@
       (EXIT (SPADCALL |lnum| |lden| |lv| |eps| (QREFELT $ 24))))))) 
 
 (DEFUN |FLOATCP;complexSolve;LParL;3| (|lp| |eps| $)
-  (PROG (#1=#:G161 |x| #2=#:G162 |r| #3=#:G160 #4=#:G159 |nres| #5=#:G158 |lv|
-         #6=#:G145 #7=#:G144 #8=#:G146 #9=#:G157 |dp| #10=#:G142 #11=#:G141
-         #12=#:G143 #13=#:G156 |np| |lden| #14=#:G155 |p| #15=#:G154 |lnum|
-         #16=#:G153 #17=#:G152)
+  (PROG (#1=#:G137 |x| #2=#:G138 |r| #3=#:G136 #4=#:G135 |nres| #5=#:G134 |lv|
+         #6=#:G121 #7=#:G120 #8=#:G122 #9=#:G133 |dp| #10=#:G118 #11=#:G117
+         #12=#:G119 #13=#:G132 |np| |lden| #14=#:G131 |p| #15=#:G130 |lnum|
+         #16=#:G129 #17=#:G128)
     (RETURN
      (SEQ
       (LETT |lnum|
@@ -175,10 +175,10 @@
              (EXIT (NREVERSE #5#))))))))) 
 
 (DEFUN |FLOATCP;complexSolve;LParL;4| (|le| |eps| $)
-  (PROG (#1=#:G188 |x| #2=#:G189 |r| #3=#:G187 #4=#:G186 |nres| #5=#:G185 |lv|
-         #6=#:G170 #7=#:G169 #8=#:G171 #9=#:G184 |dp| #10=#:G167 #11=#:G166
-         #12=#:G168 #13=#:G183 |np| |lden| #14=#:G182 |p| #15=#:G181 |lnum|
-         #16=#:G180 #17=#:G179 |lp| #18=#:G178 |ep| #19=#:G177)
+  (PROG (#1=#:G164 |x| #2=#:G165 |r| #3=#:G163 #4=#:G162 |nres| #5=#:G161 |lv|
+         #6=#:G146 #7=#:G145 #8=#:G147 #9=#:G160 |dp| #10=#:G143 #11=#:G142
+         #12=#:G144 #13=#:G159 |np| |lden| #14=#:G158 |p| #15=#:G157 |lnum|
+         #16=#:G156 #17=#:G155 |lp| #18=#:G154 |ep| #19=#:G153)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -325,7 +325,7 @@
              (EXIT (NREVERSE #5#))))))))) 
 
 (DEFUN |FLOATCP;complexSolve;FParL;5| (|p| |eps| $)
-  (PROG (#1=#:G198 |val| #2=#:G197 |x| |mvar|)
+  (PROG (#1=#:G174 |val| #2=#:G173 |x| |mvar|)
     (RETURN
      (SEQ
       (LETT |mvar| (SPADCALL (SPADCALL |p| (QREFELT $ 9)) (QREFELT $ 46))
@@ -364,10 +364,10 @@
 
 (DECLAIM (NOTINLINE |FloatingComplexPackage;|)) 
 
-(DEFUN |FloatingComplexPackage| (#1=#:G200)
+(DEFUN |FloatingComplexPackage| (#1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G201)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#

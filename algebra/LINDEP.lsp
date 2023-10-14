@@ -87,10 +87,10 @@
 
 (DECLAIM (NOTINLINE |LinearDependence;|)) 
 
-(DEFUN |LinearDependence| (&REST #1=#:G180)
+(DEFUN |LinearDependence| (&REST #1=#:G156)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G157)
        (RETURN
         (COND
          ((LETT #2#
@@ -108,7 +108,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|LinearDependence|))))))))))) 
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G179 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G155 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|LinearDependence|))

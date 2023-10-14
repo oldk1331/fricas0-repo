@@ -6,12 +6,12 @@
 (DEFPARAMETER |CommutativeRing;AL| 'NIL) 
 
 (DEFUN |CommutativeRing| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|CommutativeRing;AL|)
           (T (SETQ |CommutativeRing;AL| (|CommutativeRing;|)))))) 
 
 (DEFUN |CommutativeRing;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|Ring|) (|BiModule| '$ '$) (|CommutativeStar|))

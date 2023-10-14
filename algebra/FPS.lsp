@@ -6,12 +6,12 @@
 (DEFPARAMETER |FloatingPointSystem;AL| 'NIL) 
 
 (DEFUN |FloatingPointSystem| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|FloatingPointSystem;AL|)
           (T (SETQ |FloatingPointSystem;AL| (|FloatingPointSystem;|)))))) 
 
 (DEFUN |FloatingPointSystem;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

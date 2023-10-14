@@ -40,7 +40,7 @@
   (* (SPADCALL (QREFELT $ 32)) (SPADCALL (QREFELT $ 33)))) 
 
 (DEFUN |PRODUCT;index;Pi$;10| (|n| $)
-  (PROG (#1=#:G143 #2=#:G142)
+  (PROG (#1=#:G119 #2=#:G118)
     (RETURN
      (SPADCALL
       (SPADCALL
@@ -59,7 +59,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 39)) (SPADCALL (QREFELT $ 40)) (QREFELT $ 19))) 
 
 (DEFUN |PRODUCT;lookup;$Pi;12| (|x| $)
-  (PROG (#1=#:G147)
+  (PROG (#1=#:G123)
     (RETURN
      (PROG1
          (LETT #1#
@@ -142,10 +142,10 @@
 
 (DECLAIM (NOTINLINE |Product;|)) 
 
-(DEFUN |Product| (&REST #1=#:G177)
+(DEFUN |Product| (&REST #1=#:G153)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G178)
+     (PROG (#2=#:G154)
        (RETURN
         (COND
          ((LETT #2#
@@ -161,7 +161,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Product|))))))))))) 
 
 (DEFUN |Product;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G175 #2=#:G176 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G151 #2=#:G152 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|Product|))

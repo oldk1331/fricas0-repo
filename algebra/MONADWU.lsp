@@ -6,12 +6,12 @@
 (DEFPARAMETER |MonadWithUnit;AL| 'NIL) 
 
 (DEFUN |MonadWithUnit| ()
-  (LET (#:G132)
+  (LET (#:G108)
     (COND (|MonadWithUnit;AL|)
           (T (SETQ |MonadWithUnit;AL| (|MonadWithUnit;|)))))) 
 
 (DEFUN |MonadWithUnit;| ()
-  (PROG (#1=#:G130)
+  (PROG (#1=#:G106)
     (RETURN
      (PROG1
          (LETT #1#

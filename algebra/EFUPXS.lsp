@@ -538,10 +538,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariatePuiseuxSeries;|)) 
 
-(DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G526)
+(DEFUN |ElementaryFunctionsUnivariatePuiseuxSeries| (&REST #1=#:G502)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G527)
+     (PROG (#2=#:G503)
        (RETURN
         (COND
          ((LETT #2#

@@ -36,10 +36,10 @@
 
 (DECLAIM (NOTINLINE |ComplexPatternMatch;|)) 
 
-(DEFUN |ComplexPatternMatch| (&REST #1=#:G137)
+(DEFUN |ComplexPatternMatch| (&REST #1=#:G113)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G114)
        (RETURN
         (COND
          ((LETT #2#

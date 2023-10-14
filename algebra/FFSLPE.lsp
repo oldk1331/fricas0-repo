@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FFSLPE;solveLinearPolynomialEquation;LFPPU;1| (|lp| |p| $)
-  (PROG (|answer| #1=#:G137 #2=#:G140 |ans| |deg| #3=#:G134 #4=#:G133 #5=#:G135
-         #6=#:G152 |u|)
+  (PROG (|answer| #1=#:G113 #2=#:G116 |ans| |deg| #3=#:G110 #4=#:G109 #5=#:G111
+         #6=#:G128 |u|)
     (RETURN
      (SEQ
       (COND
@@ -87,10 +87,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
 
-(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G153)
+(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

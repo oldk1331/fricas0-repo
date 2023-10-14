@@ -2,9 +2,9 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RINTERP;interpolate;2L2NniF;1| (|xlist| |ylist| |m| |k| $)
-  (PROG (|reslist| |i| #1=#:G160 #2=#:G159 |res| |collist| #3=#:G158 #4=#:G157
-         #5=#:G156 |j| #6=#:G155 #7=#:G154 #8=#:G153 |tempvec| #9=#:G152
-         #10=#:G151 #11=#:G150 #12=#:G149 #13=#:G148 #14=#:G147)
+  (PROG (|reslist| |i| #1=#:G136 #2=#:G135 |res| |collist| #3=#:G134 #4=#:G133
+         #5=#:G132 |j| #6=#:G131 #7=#:G130 #8=#:G129 |tempvec| #9=#:G128
+         #10=#:G127 #11=#:G126 #12=#:G125 #13=#:G124 #14=#:G123)
     (RETURN
      (SEQ
       (COND
@@ -179,10 +179,10 @@
 
 (DECLAIM (NOTINLINE |RationalInterpolation;|)) 
 
-(DEFUN |RationalInterpolation| (&REST #1=#:G161)
+(DEFUN |RationalInterpolation| (&REST #1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

@@ -6,11 +6,11 @@
 (DEFPARAMETER |EntireRing;AL| 'NIL) 
 
 (DEFUN |EntireRing| ()
-  (LET (#:G135)
+  (LET (#:G111)
     (COND (|EntireRing;AL|) (T (SETQ |EntireRing;AL| (|EntireRing;|)))))) 
 
 (DEFUN |EntireRing;| ()
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (PROG1
          (LETT #1#

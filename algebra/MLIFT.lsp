@@ -3,11 +3,11 @@
 
 (DEFUN |MLIFT;corrPoly;SupLLLLVRU;1|
        (|m| |lvar| |fval| |ld| |flist| |table| |pmod| $)
-  (PROG (|diff| #1=#:G183 #2=#:G182 #3=#:G184 |i| |lcoef| #4=#:G196 |beta|
-         #5=#:G190 |fbeta| |ddiff| |pol| |l| #6=#:G163 #7=#:G162 #8=#:G164
-         |polc| |listcong| #9=#:G159 #10=#:G158 #11=#:G160 #12=#:G195 |flcoef|
-         |um| |listpolv| #13=#:G194 |f1| #14=#:G193 |y| |a| |np| |deg1|
-         #15=#:G192 |mp| #16=#:G191 |lp|)
+  (PROG (|diff| #1=#:G159 #2=#:G158 #3=#:G160 |i| |lcoef| #4=#:G172 |beta|
+         #5=#:G166 |fbeta| |ddiff| |pol| |l| #6=#:G139 #7=#:G138 #8=#:G140
+         |polc| |listcong| #9=#:G135 #10=#:G134 #11=#:G136 #12=#:G171 |flcoef|
+         |um| |listpolv| #13=#:G170 |f1| #14=#:G169 |y| |a| |np| |deg1|
+         #15=#:G168 |mp| #16=#:G167 |lp|)
     (RETURN
      (SEQ
       (EXIT
@@ -292,12 +292,12 @@
 (DEFUN |MLIFT;lifting1;SupLLLLLLVRU;2|
        (|m| |lvar| |plist| |vlist| |tlist| |coeflist| |listdeg| |table| |pmod|
         $)
-  (PROG (#1=#:G225 |idegj| #2=#:G242 |term| #3=#:G240 #4=#:G241 |alpha|
-         #5=#:G239 |lalpha| |flalpha| |mc| #6=#:G218 #7=#:G211 #8=#:G210
-         #9=#:G212 #10=#:G238 |pol| |k| |polc| |mj| #11=#:G236 |tpol|
-         #12=#:G237 |clist| #13=#:G235 #14=#:G233 |p| #15=#:G234 |lcp|
-         #16=#:G232 |clv| |tlv| |#G41| |#G40| #17=#:G231 #18=#:G230 #19=#:G229
-         #20=#:G228 #21=#:G227 #22=#:G226 |subsval| |subsvar| |ldeg| |degj| |v|
+  (PROG (#1=#:G201 |idegj| #2=#:G218 |term| #3=#:G216 #4=#:G217 |alpha|
+         #5=#:G215 |lalpha| |flalpha| |mc| #6=#:G194 #7=#:G187 #8=#:G186
+         #9=#:G188 #10=#:G214 |pol| |k| |polc| |mj| #11=#:G212 |tpol|
+         #12=#:G213 |clist| #13=#:G211 #14=#:G209 |p| #15=#:G210 |lcp|
+         #16=#:G208 |clv| |tlv| |#G41| |#G40| #17=#:G207 #18=#:G206 #19=#:G205
+         #20=#:G204 #21=#:G203 #22=#:G202 |subsval| |subsvar| |ldeg| |degj| |v|
          |conglist| |li| |x| |j| |testp| |nvar|)
     (RETURN
      (SEQ
@@ -671,9 +671,9 @@
 
 (DEFUN |MLIFT;lifting;SupLLLLLRU;4|
        (|um| |lvar| |plist| |vlist| |tlist| |listdeg| |pmod| $)
-  (PROG (#1=#:G275 |ffl| |table| |tab| #2=#:G268 #3=#:G265 #4=#:G264 #5=#:G266
-         #6=#:G280 |pol| |nplist| #7=#:G279 |pp| #8=#:G278 |listdet| |ldcoef|
-         #9=#:G277 #10=#:G276)
+  (PROG (#1=#:G251 |ffl| |table| |tab| #2=#:G244 #3=#:G241 #4=#:G240 #5=#:G242
+         #6=#:G256 |pol| |nplist| #7=#:G255 |pp| #8=#:G254 |listdet| |ldcoef|
+         #9=#:G253 #10=#:G252)
     (RETURN
      (SEQ
       (EXIT
@@ -813,7 +813,7 @@
             (QREFELT $ 76))) 
 
 (DEFUN |MLIFT;normalDeriv| (|f| |m| $)
-  (PROG (|n| |ris| #1=#:G284 |n1| |k| |#G1|)
+  (PROG (|n| |ris| #1=#:G260 |n1| |k| |#G1|)
     (RETURN
      (SEQ (LETT |#G1| (SPADCALL |f| (QREFELT $ 64)) . #2=(|MLIFT;normalDeriv|))
           (LETT |n1| |#G1| . #2#)
@@ -868,7 +868,7 @@
                      (SPADCALL |m| (QREFELT $ 63)) (QREFELT $ 45))))))) 
 
 (DEFUN |MLIFT;subscoef| (|um| |lterm| $)
-  (PROG (|new| |i| #1=#:G293 |k| |dm|)
+  (PROG (|new| |i| #1=#:G269 |k| |dm|)
     (RETURN
      (SEQ (LETT |dm| (SPADCALL |um| (QREFELT $ 64)) . #2=(|MLIFT;subscoef|))
           (LETT |new|
@@ -904,10 +904,10 @@
 
 (DECLAIM (NOTINLINE |MultivariateLifting;|)) 
 
-(DEFUN |MultivariateLifting| (&REST #1=#:G300)
+(DEFUN |MultivariateLifting| (&REST #1=#:G276)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G301)
+     (PROG (#2=#:G277)
        (RETURN
         (COND
          ((LETT #2#

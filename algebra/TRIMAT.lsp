@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TRIMAT;UpTriBddDenomInv;MRM;1| (A |denom| $)
-  (PROG (#1=#:G128 #2=#:G138 #3=#:G137 #4=#:G139 #5=#:G148 |k| #6=#:G147 |j|
-         #7=#:G146 |i| #8=#:G144 #9=#:G145 |offset| AI)
+  (PROG (#1=#:G104 #2=#:G114 #3=#:G113 #4=#:G115 #5=#:G124 |k| #6=#:G123 |j|
+         #7=#:G122 |i| #8=#:G120 #9=#:G121 |offset| AI)
     (RETURN
      (SEQ
       (LETT AI
@@ -96,8 +96,8 @@
       (EXIT AI))))) 
 
 (DEFUN |TRIMAT;LowTriBddDenomInv;MRM;2| (A |denom| $)
-  (PROG (#1=#:G150 #2=#:G160 #3=#:G159 #4=#:G161 #5=#:G170 |k| #6=#:G169 |j|
-         #7=#:G168 |i| #8=#:G166 #9=#:G167 |offset| AI)
+  (PROG (#1=#:G126 #2=#:G136 #3=#:G135 #4=#:G137 #5=#:G146 |k| #6=#:G145 |j|
+         #7=#:G144 |i| #8=#:G142 #9=#:G143 |offset| AI)
     (RETURN
      (SEQ
       (LETT AI
@@ -190,10 +190,10 @@
 
 (DECLAIM (NOTINLINE |TriangularMatrixOperations;|)) 
 
-(DEFUN |TriangularMatrixOperations| (&REST #1=#:G171)
+(DEFUN |TriangularMatrixOperations| (&REST #1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G172)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

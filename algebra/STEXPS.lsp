@@ -19,7 +19,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|x| |c| |y| |ll| |n| |i| #2=#:G183 #3=#:G179 |res| |llp| |xp|)
+      (PROG (|x| |c| |y| |ll| |n| |i| #2=#:G159 #3=#:G155 |res| |llp| |xp|)
         (RETURN
          (SEQ
           (EXIT
@@ -183,10 +183,10 @@
 
 (DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
 
-(DEFUN |StreamExponentialSeriesOperations| (#1=#:G211)
+(DEFUN |StreamExponentialSeriesOperations| (#1=#:G187)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G212)
+     (PROG (#2=#:G188)
        (RETURN
         (COND
          ((LETT #2#

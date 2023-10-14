@@ -31,10 +31,10 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G159)
+(DEFUN |SparseUnivariateSkewPolynomial| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

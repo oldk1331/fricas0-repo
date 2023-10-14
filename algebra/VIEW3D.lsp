@@ -105,9 +105,9 @@
           (EXIT (|VIEW3D;makeViewport3D0| |v| $)))))) 
 
 (DEFUN |VIEW3D;makeViewport3D0| (|viewport| $)
-  (PROG (#1=#:G253 |oneIndexedPoint| #2=#:G251 |alipts| #3=#:G252 |tinyprop|
-         #4=#:G248 |allipts| #5=#:G249 |oneprop| #6=#:G250 |onelprops| |aPoint|
-         #7=#:G247 |pt| |n| #8=#:G246 |s| |lprops| |llprops| |lllipts| |lpts|
+  (PROG (#1=#:G229 |oneIndexedPoint| #2=#:G227 |alipts| #3=#:G228 |tinyprop|
+         #4=#:G224 |allipts| #5=#:G225 |oneprop| #6=#:G226 |onelprops| |aPoint|
+         #7=#:G223 |pt| |n| #8=#:G222 |s| |lprops| |llprops| |lllipts| |lpts|
          |transform|)
     (RETURN
      (SEQ (|VIEW3D;doOptions| |viewport| $)
@@ -361,7 +361,7 @@
        (EXIT |t|))) 
 
 (DEFUN |VIEW3D;lighting;$3FV;24| (|viewport| |Xlight| |Ylight| |Zlight| $)
-  (PROG (#1=#:G273)
+  (PROG (#1=#:G249)
     (RETURN
      (SEQ
       (EXIT
@@ -392,7 +392,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;axes;$SV;25| (|viewport| |onOff| $)
-  (PROG (#1=#:G279)
+  (PROG (#1=#:G255)
     (RETURN
      (SEQ
       (EXIT
@@ -418,7 +418,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;diagonals;$SV;26| (|viewport| |onOff| $)
-  (PROG (#1=#:G285)
+  (PROG (#1=#:G261)
     (RETURN
      (SEQ
       (EXIT
@@ -444,7 +444,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;outlineRender;$SV;27| (|viewport| |onOff| $)
-  (PROG (#1=#:G291)
+  (PROG (#1=#:G267)
     (RETURN
      (SEQ
       (EXIT
@@ -470,7 +470,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;controlPanel;$SV;28| (|viewport| |onOff| $)
-  (PROG (#1=#:G297)
+  (PROG (#1=#:G273)
     (RETURN
      (SEQ
       (EXIT
@@ -496,7 +496,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;drawStyle;$SV;29| (|viewport| |how| $)
-  (PROG (#1=#:G302)
+  (PROG (#1=#:G278)
     (RETURN
      (SEQ
       (EXIT
@@ -580,7 +580,7 @@
        (#2# (QVELT |viewport| 5))))))) 
 
 (DEFUN |VIEW3D;viewpoint;$RV;33| (|viewport| |viewpt| $)
-  (PROG (#1=#:G324)
+  (PROG (#1=#:G300)
     (RETURN
      (SEQ
       (EXIT
@@ -713,7 +713,7 @@
                  (QREFELT $ 127))))))) 
 
 (DEFUN |VIEW3D;title;$SV;38| (|viewport| |Title| $)
-  (PROG (#1=#:G341)
+  (PROG (#1=#:G317)
     (RETURN
      (SEQ
       (EXIT
@@ -736,7 +736,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;colorDef;$2CV;39| (|viewport| |HueOffset| |HueNumber| $)
-  (PROG (#1=#:G347 |h|)
+  (PROG (#1=#:G323 |h|)
     (RETURN
      (SEQ
       (EXIT
@@ -774,7 +774,7 @@
        (EXIT (QSETVELT |viewport| 4 (CONS |ViewWidth| |ViewHeight|))))) 
 
 (DEFUN |VIEW3D;move;$2NniV;41| (|viewport| |xLoc| |yLoc| $)
-  (PROG (#1=#:G357)
+  (PROG (#1=#:G333)
     (RETURN
      (SEQ
       (EXIT
@@ -798,7 +798,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;resize;$2PiV;42| (|viewport| |xSize| |ySize| $)
-  (PROG (#1=#:G363)
+  (PROG (#1=#:G339)
     (RETURN
      (SEQ
       (EXIT
@@ -848,7 +848,7 @@
             (QREFELT $ 127))) 
 
 (DEFUN |VIEW3D;rotate;$2FV;46| (|viewport| |Theta| |Phi| $)
-  (PROG (#1=#:G374)
+  (PROG (#1=#:G350)
     (RETURN
      (SEQ
       (EXIT
@@ -876,7 +876,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;zoom;$FV;47| (|viewport| |Scale| $)
-  (PROG (#1=#:G380)
+  (PROG (#1=#:G356)
     (RETURN
      (SEQ
       (EXIT
@@ -901,7 +901,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;zoom;$3FV;48| (|viewport| |ScaleX| |ScaleY| |ScaleZ| $)
-  (PROG (#1=#:G386)
+  (PROG (#1=#:G362)
     (RETURN
      (SEQ
       (EXIT
@@ -932,7 +932,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;translate;$2FV;49| (|viewport| |DeltaX| |DeltaY| $)
-  (PROG (#1=#:G392)
+  (PROG (#1=#:G368)
     (RETURN
      (SEQ
       (EXIT
@@ -960,7 +960,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;intensity;$FV;50| (|viewport| |Amount| $)
-  (PROG (#1=#:G398)
+  (PROG (#1=#:G374)
     (RETURN
      (SEQ
       (EXIT
@@ -996,7 +996,7 @@
   (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 152)) (QREFELT $ 150))) 
 
 (DEFUN |VIEW3D;write;$SLS;53| (|viewport| |Filename| |thingsToWrite| $)
-  (PROG (#1=#:G410 |writeTypeInt| #2=#:G412 |aTypeOfFile| |m| |avail|
+  (PROG (#1=#:G386 |writeTypeInt| #2=#:G388 |aTypeOfFile| |m| |avail|
          |stringToSend|)
     (RETURN
      (SEQ
@@ -1061,7 +1061,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;perspective;$SV;54| (|viewport| |onOff| $)
-  (PROG (#1=#:G417)
+  (PROG (#1=#:G393)
     (RETURN
      (SEQ
       (EXIT
@@ -1087,7 +1087,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;showRegion;$SV;55| (|viewport| |onOff| $)
-  (PROG (#1=#:G423)
+  (PROG (#1=#:G399)
     (RETURN
      (SEQ
       (EXIT
@@ -1113,7 +1113,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;showClipRegion;$SV;56| (|viewport| |onOff| $)
-  (PROG (#1=#:G429)
+  (PROG (#1=#:G405)
     (RETURN
      (SEQ
       (EXIT
@@ -1139,7 +1139,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;clipSurface;$SV;57| (|viewport| |onOff| $)
-  (PROG (#1=#:G435)
+  (PROG (#1=#:G411)
     (RETURN
      (SEQ
       (EXIT
@@ -1165,7 +1165,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;eyeDistance;$FV;58| (|viewport| |EyeDistance| $)
-  (PROG (#1=#:G441)
+  (PROG (#1=#:G417)
     (RETURN
      (SEQ
       (EXIT
@@ -1191,7 +1191,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;hitherPlane;$FV;59| (|viewport| |HitherPlane| $)
-  (PROG (#1=#:G447)
+  (PROG (#1=#:G423)
     (RETURN
      (SEQ
       (EXIT
@@ -1217,7 +1217,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |VIEW3D;modifyPointData;$NniPV;60| (|viewport| |anIndex| |aPoint| $)
-  (PROG (#1=#:G452 |n|)
+  (PROG (#1=#:G428 |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |aPoint| (QREFELT $ 78))
@@ -1276,7 +1276,7 @@
 (DEFUN |ThreeDimensionalViewport| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G456)
+     (PROG (#1=#:G432)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ThreeDimensionalViewport|)

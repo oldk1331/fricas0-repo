@@ -119,7 +119,7 @@
   (SPADCALL (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 52))) 
 
 (DEFUN |RADIX;wholePart;$I;23| (|a| $)
-  (PROG (|n0| #1=#:G206 |r|)
+  (PROG (|n0| #1=#:G182 |r|)
     (RETURN
      (SEQ (LETT |n0| 0 . #2=(|RADIX;wholePart;$I;23|))
           (SEQ (LETT |r| NIL . #2#) (LETT #1# (QVELT |a| 1) . #2#) G190
@@ -131,7 +131,7 @@
           (EXIT (* (QVELT |a| 0) |n0|)))))) 
 
 (DEFUN |RADIX;fractionPart;$F;24| (|a| $)
-  (PROG (|d| |n| |n1| #1=#:G213 |r| |n0| #2=#:G212)
+  (PROG (|d| |n| |n1| #1=#:G189 |r| |n0| #2=#:G188)
     (RETURN
      (SEQ (LETT |n0| 0 . #3=(|RADIX;fractionPart;$F;24|))
           (SEQ (LETT |r| NIL . #3#) (LETT #2# (QVELT |a| 2) . #3#) G190
@@ -203,7 +203,7 @@
         ('T (SPADCALL |le| (QREFELT $ 74))))) 
 
 (DEFUN |RADIX;intgroup| (|li| $)
-  (PROG (#1=#:G241 |i| #2=#:G240 #3=#:G239 #4=#:G238 #5=#:G237 #6=#:G236)
+  (PROG (#1=#:G217 |i| #2=#:G216 #3=#:G215 #4=#:G214 #5=#:G213 #6=#:G212)
     (RETURN
      (SEQ
       (COND ((NULL |li|) (|error| "intgroup needs non-null list"))
@@ -282,7 +282,7 @@
                  (#2# |rex|))))))) 
 
 (DEFUN |RADIX;checkRagits| (|li| $)
-  (PROG (#1=#:G251 |i|)
+  (PROG (#1=#:G227 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| NIL . #2=(|RADIX;checkRagits|)) (LETT #1# |li| . #2#) G190
@@ -310,7 +310,7 @@
 
 (DEFUN |RADIX;radixFrac| (|num| |den| |bas| $)
   (PROG (|rits| |ritscyc| |i| |ritspfx| |c| |cfound| |ritsn| |rn| |p| |ritsi|
-         |n| |qr2i| |qrt| |qr1i| #1=#:G275 |qr|)
+         |n| |qr2i| |qrt| |qr1i| #1=#:G251 |qr|)
     (RETURN
      (SEQ (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|) . #2=(|RADIX;radixFrac|))
           (LETT |i| 0 . #2#) (LETT |qr1i| (LETT |qr2i| |qr| . #2#) . #2#)
@@ -379,10 +379,10 @@
 
 (DECLAIM (NOTINLINE |RadixExpansion;|)) 
 
-(DEFUN |RadixExpansion| (#1=#:G303)
+(DEFUN |RadixExpansion| (#1=#:G279)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G304)
+     (PROG (#2=#:G280)
        (RETURN
         (COND
          ((LETT #2#
@@ -398,7 +398,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|RadixExpansion|))))))))))) 
 
 (DEFUN |RadixExpansion;| (|#1|)
-  (PROG (|pv$| #1=#:G302 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G278 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|RadixExpansion|))

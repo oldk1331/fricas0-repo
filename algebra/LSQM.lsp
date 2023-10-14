@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 11)) |k| |l| (QREFELT $ 13))) 
 
 (DEFUN |LSQM;conv| (|v| $)
-  (PROG (|z| #1=#:G134 |j| #2=#:G133 |i| |cond|)
+  (PROG (|z| #1=#:G110 |j| #2=#:G109 |i| |cond|)
     (RETURN
      (SEQ
       (LETT |cond|
@@ -28,7 +28,7 @@
       (EXIT (SPADCALL |cond| (QREFELT $ 20))))))) 
 
 (DEFUN |LSQM;canonical_coordinates| (|a| $)
-  (PROG (|z| #1=#:G141 |j| #2=#:G140 |i| |res|)
+  (PROG (|z| #1=#:G117 |j| #2=#:G116 |i| |res|)
     (RETURN
      (SEQ
       (LETT |res| (MAKEARR1 (QREFELT $ 9) (|spadConstant| $ 15))
@@ -50,7 +50,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |LSQM;coordinates;$VV;4| (|a| |b| $)
-  (PROG (|canonical| #1=#:G148 |j| |bv| #2=#:G147 |i|)
+  (PROG (|canonical| #1=#:G124 |j| |bv| #2=#:G123 |i|)
     (RETURN
      (SEQ (LETT |canonical| 'T . #3=(|LSQM;coordinates;$VV;4|))
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QREFELT $ 9) . #3#) G190
@@ -100,7 +100,7 @@
           (EXIT (SPADCALL |sq| (QREFELT $ 31))))))) 
 
 (DEFUN |LSQM;basis;V;6| ($)
-  (PROG (|res| |ldp| #1=#:G152 #2=#:G158 |i| #3=#:G157)
+  (PROG (|res| |ldp| #1=#:G128 #2=#:G134 |i| #3=#:G133)
     (RETURN
      (SEQ (SETELT $ 9 (* (QREFELT $ 6) (QREFELT $ 6)))
           (LETT |ldp|
@@ -136,10 +136,10 @@
 
 (DECLAIM (NOTINLINE |LieSquareMatrix;|)) 
 
-(DEFUN |LieSquareMatrix| (&REST #1=#:G184)
+(DEFUN |LieSquareMatrix| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -157,7 +157,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|LieSquareMatrix|))))))))))) 
 
 (DEFUN |LieSquareMatrix;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G183 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G159 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|LieSquareMatrix|))

@@ -5,10 +5,10 @@
 
 (DECLAIM (NOTINLINE |OrderedDirectProduct;|)) 
 
-(DEFUN |OrderedDirectProduct| (&REST #1=#:G150)
+(DEFUN |OrderedDirectProduct| (&REST #1=#:G126)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G151)
+     (PROG (#2=#:G127)
        (RETURN
         (COND
          ((LETT #2#
@@ -27,7 +27,7 @@
               (HREM |$ConstructorCache| '|OrderedDirectProduct|))))))))))) 
 
 (DEFUN |OrderedDirectProduct;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G144 #2=#:G145 #3=#:G146 #4=#:G147 #5=#:G148 #6=#:G149 $
+  (PROG (|pv$| #1=#:G120 #2=#:G121 #3=#:G122 #4=#:G123 #5=#:G124 #6=#:G125 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

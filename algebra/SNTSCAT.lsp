@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |SquareFreeNormalizedTriangularSetCategory;AL| 'NIL) 
 
-(DEFUN |SquareFreeNormalizedTriangularSetCategory| (&REST #1=#:G128)
-  (LET (#2=#:G129)
+(DEFUN |SquareFreeNormalizedTriangularSetCategory| (&REST #1=#:G104)
+  (LET (#2=#:G105)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -26,7 +26,7 @@
       #2#)))) 
 
 (DEFUN |SquareFreeNormalizedTriangularSetCategory;| (|t#1| |t#2| |t#3| |t#4|)
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

@@ -6,11 +6,11 @@
 (DEFPARAMETER |StepThrough;AL| 'NIL) 
 
 (DEFUN |StepThrough| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|StepThrough;AL|) (T (SETQ |StepThrough;AL| (|StepThrough;|)))))) 
 
 (DEFUN |StepThrough;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

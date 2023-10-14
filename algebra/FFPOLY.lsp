@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FFPOLY;revListToSUP| (|l| $)
-  (PROG (|newl| #1=#:G189 |t|)
+  (PROG (|newl| #1=#:G165 |t|)
     (RETURN
      (SEQ (LETT |newl| NIL . #2=(|FFPOLY;revListToSUP|))
           (SEQ (LETT |t| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -16,7 +16,7 @@
           (EXIT |newl|))))) 
 
 (DEFUN |FFPOLY;listToSUP| (|l| $)
-  (PROG (|newl| #1=#:G195 |t| #2=#:G194)
+  (PROG (|newl| #1=#:G171 |t| #2=#:G170)
     (RETURN
      (SEQ
       (LETT |newl|
@@ -101,8 +101,8 @@
           (EXIT |qexp|))))))))) 
 
 (DEFUN |FFPOLY;leastAffineMultiple;2Sup;4| (|f| $)
-  (PROG (#1=#:G211 #2=#:G210 #3=#:G212 #4=#:G214 |k| |ns| |coeffVector| |dim|
-         |i| |newCoeffVector| #5=#:G219 |col1| |b| #6=#:G218 #7=#:G217 |n|
+  (PROG (#1=#:G187 #2=#:G186 #3=#:G188 #4=#:G190 |k| |ns| |coeffVector| |dim|
+         |i| |newCoeffVector| #5=#:G195 |col1| |b| #6=#:G194 #7=#:G193 |n|
          |qexp|)
     (RETURN
      (SEQ
@@ -180,7 +180,7 @@
         (QREFELT $ 32))))))) 
 
 (DEFUN |FFPOLY;numberOfIrreduciblePoly;2Pi;5| (|n| $)
-  (PROG (#1=#:G222 |lastd| |sum| |qd| #2=#:G225 |d| |divisorsOfn|)
+  (PROG (#1=#:G198 |lastd| |sum| |qd| #2=#:G201 |d| |divisorsOfn|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) (QREFELT $ 10))
@@ -212,7 +212,7 @@
                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))))))) 
 
 (DEFUN |FFPOLY;numberOfPrimitivePoly;2Pi;6| (|n| $)
-  (PROG (#1=#:G226)
+  (PROG (#1=#:G202)
     (RETURN
      (PROG1
          (LETT #1#
@@ -224,8 +224,8 @@
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |FFPOLY;numberOfNormalPoly;2Pi;7| (|n| $)
-  (PROG (|prod| |qe| |e| #1=#:G458 |d| |divisorsOfm| #2=#:G450 #3=#:G449 |m|
-         #4=#:G232 |q| |p| #5=#:G231 #6=#:G230 #7=#:G229)
+  (PROG (|prod| |qe| |e| #1=#:G434 |d| |divisorsOfm| #2=#:G426 #3=#:G425 |m|
+         #4=#:G208 |q| |p| #5=#:G207 #6=#:G206 #7=#:G205)
     (RETURN
      (SEQ
       (COND
@@ -304,8 +304,8 @@
                                  |n|))))))))))))) 
 
 (DEFUN |FFPOLY;primitive?;SupB;8| (|f| $)
-  (PROG (#1=#:G467 #2=#:G473 |expt| #3=#:G475 |d| |lfact| #4=#:G463 #5=#:G474
-         |rec| |lrec| |x| |qn1| #6=#:G461 #7=#:G460 |q| |n|)
+  (PROG (#1=#:G443 #2=#:G449 |expt| #3=#:G451 |d| |lfact| #4=#:G439 #5=#:G450
+         |rec| |lrec| |x| |qn1| #6=#:G437 #7=#:G436 |q| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -399,7 +399,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FFPOLY;normal?;SupB;9| (|f| $)
-  (PROG (|l| #1=#:G486 #2=#:G478 |i| #3=#:G485 |g| |n|)
+  (PROG (|l| #1=#:G462 #2=#:G454 |i| #3=#:G461 |g| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |f| (QREFELT $ 12)) . #4=(|FFPOLY;normal?;SupB;9|))
@@ -451,7 +451,7 @@
                        (#5# 'NIL))))))))))))) 
 
 (DEFUN |FFPOLY;nextSubset| (|s| |bound| $)
-  (PROG (|j| #1=#:G500 |i| |firstOfs| |noGap| |firstOfsPlus1| |secondOfs|
+  (PROG (|j| #1=#:G476 |i| |firstOfs| |noGap| |firstOfsPlus1| |secondOfs|
          |restOfs| |m|)
     (RETURN
      (SEQ
@@ -511,9 +511,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FFPOLY;nextIrreduciblePoly;SupU;11| (|f| $)
-  (PROG (|headpol| |s1| |tailpol| |headlookuplist| #1=#:G527 |taillookuplist|
-         |weight| |s| #2=#:G525 #3=#:G539 #4=#:G541 |entry| |restfcopy| |pol|
-         #5=#:G515 |j| |term| |n1| #6=#:G511 #7=#:G510 |fcopy| #8=#:G540
+  (PROG (|headpol| |s1| |tailpol| |headlookuplist| #1=#:G503 |taillookuplist|
+         |weight| |s| #2=#:G501 #3=#:G515 #4=#:G517 |entry| |restfcopy| |pol|
+         #5=#:G491 |j| |term| |n1| #6=#:G487 #7=#:G486 |fcopy| #8=#:G516
          |fRepr| |lcf| |n|)
     (RETURN
      (SEQ
@@ -712,11 +712,11 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |FFPOLY;nextPrimitivePoly;SupU;12| (|f| $)
-  (PROG (|c| #1=#:G590 |l| |headpol| |s1| |tailpol| |headlookuplist| #2=#:G583
-         |taillookuplist| |weight| |s| #3=#:G581 #4=#:G599 |entry| |restfcopy|
-         |notReady| #5=#:G597 |pol| #6=#:G571 |j| |term| |constterm| #7=#:G561
-         |noGenerator| |n1| #8=#:G559 #9=#:G558 #10=#:G553 #11=#:G552 |q1|
-         #12=#:G550 |c0| |xn| |fcopy| #13=#:G598 |fRepr| |lcf| |n|)
+  (PROG (|c| #1=#:G566 |l| |headpol| |s1| |tailpol| |headlookuplist| #2=#:G559
+         |taillookuplist| |weight| |s| #3=#:G557 #4=#:G575 |entry| |restfcopy|
+         |notReady| #5=#:G573 |pol| #6=#:G547 |j| |term| |constterm| #7=#:G537
+         |noGenerator| |n1| #8=#:G535 #9=#:G534 #10=#:G529 #11=#:G528 |q1|
+         #12=#:G526 |c0| |xn| |fcopy| #13=#:G574 |fRepr| |lcf| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -1140,10 +1140,10 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |FFPOLY;nextNormalPoly;SupU;13| (|f| $)
-  (PROG (|a| #1=#:G642 |l| |middlepol| |s1| |tailpol| |middlelookuplist|
-         #2=#:G634 |taillookuplist| |weight| |s| #3=#:G632 #4=#:G650 |entry|
-         |restfcopy| |notReady| #5=#:G648 |pol| #6=#:G622 |j| |term| |headpol|
-         |n2| #7=#:G614 |n1| #8=#:G613 #9=#:G611 |a0| |xn| |fcopy| #10=#:G649
+  (PROG (|a| #1=#:G618 |l| |middlepol| |s1| |tailpol| |middlelookuplist|
+         #2=#:G610 |taillookuplist| |weight| |s| #3=#:G608 #4=#:G626 |entry|
+         |restfcopy| |notReady| #5=#:G624 |pol| #6=#:G598 |j| |term| |headpol|
+         |n2| #7=#:G590 |n1| #8=#:G589 #9=#:G587 |a0| |xn| |fcopy| #10=#:G625
          |fRepr| |lcf| |n|)
     (RETURN
      (SEQ
@@ -1429,12 +1429,12 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |FFPOLY;nextNormalPrimitivePoly;SupU;14| (|f| $)
-  (PROG (|a| |la| |c| #1=#:G709 |lc| #2=#:G705 |middlepol| |s1| |tailpol|
-         |middlelookuplist| #3=#:G698 |taillookuplist| |weight| |s| #4=#:G696
-         #5=#:G718 |entry| |restfcopy| |notReady| #6=#:G686 #7=#:G716 |pol|
-         #8=#:G685 |j| |term| #9=#:G674 |headpol| |constterm| #10=#:G669
-         |noGenerator| |a0| |n2| #11=#:G666 |n1| #12=#:G665 #13=#:G662
-         #14=#:G661 |q1| #15=#:G659 |c0| |xn| |fcopy| #16=#:G717 |fRepr| |lcf|
+  (PROG (|a| |la| |c| #1=#:G685 |lc| #2=#:G681 |middlepol| |s1| |tailpol|
+         |middlelookuplist| #3=#:G674 |taillookuplist| |weight| |s| #4=#:G672
+         #5=#:G694 |entry| |restfcopy| |notReady| #6=#:G662 #7=#:G692 |pol|
+         #8=#:G661 |j| |term| #9=#:G650 |headpol| |constterm| #10=#:G645
+         |noGenerator| |a0| |n2| #11=#:G642 |n1| #12=#:G641 #13=#:G638
+         #14=#:G637 |q1| #15=#:G635 |c0| |xn| |fcopy| #16=#:G693 |fRepr| |lcf|
          |n|)
     (RETURN
      (SEQ
@@ -2004,7 +2004,7 @@
   (SPADCALL |f| (QREFELT $ 101))) 
 
 (DEFUN |FFPOLY;createIrreduciblePoly;PiSup;16| (|n| $)
-  (PROG (#1=#:G724 |xn| |x|)
+  (PROG (#1=#:G700 |xn| |x|)
     (RETURN
      (SEQ
       (LETT |x| (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 16))
@@ -2047,8 +2047,8 @@
                                    #1#))))))))))))) 
 
 (DEFUN |FFPOLY;createPrimitivePoly;PiSup;17| (|n| $)
-  (PROG (#1=#:G742 |weight| |s| |s1| #2=#:G736 |notReady| #3=#:G746 |pol|
-         |polRepr| |n1| #4=#:G731 |constterm| |c0| |xn|)
+  (PROG (#1=#:G718 |weight| |s| |s1| #2=#:G712 |notReady| #3=#:G722 |pol|
+         |polRepr| |n1| #4=#:G707 |constterm| |c0| |xn|)
     (RETURN
      (SEQ
       (EXIT
@@ -2135,7 +2135,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |FFPOLY;createNormalPoly;PiSup;18| (|n| $)
-  (PROG (#1=#:G750 #2=#:G748)
+  (PROG (#1=#:G726 #2=#:G724)
     (RETURN
      (COND
       ((EQL |n| 1)
@@ -2164,7 +2164,7 @@
                         (|SparseUnivariatePolynomial| (QREFELT $ 6)) #1#))))))) 
 
 (DEFUN |FFPOLY;createNormalPrimitivePoly;PiSup;19| (|n| $)
-  (PROG (#1=#:G757 |pol| |res| |constterm| |c0| |n1| #2=#:G753 |xn|)
+  (PROG (#1=#:G733 |pol| |res| |constterm| |c0| |n1| #2=#:G729 |xn|)
     (RETURN
      (SEQ
       (LETT |xn| (SPADCALL (|spadConstant| $ 13) |n| (QREFELT $ 16))
@@ -2228,7 +2228,7 @@
   (SPADCALL |n| (QREFELT $ 107))) 
 
 (DEFUN |FFPOLY;random;PiSup;21| (|n| $)
-  (PROG (|polRepr| |c| |i| |n1| #1=#:G767)
+  (PROG (|polRepr| |c| |i| |n1| #1=#:G743)
     (RETURN
      (SEQ (LETT |polRepr| NIL . #2=(|FFPOLY;random;PiSup;21|))
           (LETT |n1|
@@ -2247,7 +2247,7 @@
           (EXIT (CONS (CONS |n| (|spadConstant| $ 13)) |polRepr|)))))) 
 
 (DEFUN |FFPOLY;random;2PiSup;22| (|m| |n| $)
-  (PROG (#1=#:G773 |d| #2=#:G772 |#G64| |#G63|)
+  (PROG (#1=#:G749 |d| #2=#:G748 |#G64| |#G63|)
     (RETURN
      (SEQ
       (COND
@@ -2271,10 +2271,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldPolynomialPackage;|)) 
 
-(DEFUN |FiniteFieldPolynomialPackage| (#1=#:G776)
+(DEFUN |FiniteFieldPolynomialPackage| (#1=#:G752)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G777)
+     (PROG (#2=#:G753)
        (RETURN
         (COND
          ((LETT #2#
@@ -2293,7 +2293,7 @@
                     '|FiniteFieldPolynomialPackage|))))))))))) 
 
 (DEFUN |FiniteFieldPolynomialPackage;| (|#1|)
-  (PROG (#1=#:G184 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G160 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldPolynomialPackage|))

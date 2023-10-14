@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL (ELT $ 8) |l| (QREFELT $ 13)) (QREFELT $ 15))) 
 
 (DEFUN |PGE;li1n| (|n| $)
-  (PROG (|i| #1=#:G147)
+  (PROG (|i| #1=#:G123)
     (RETURN
      (SEQ
       (PROGN
@@ -16,7 +16,7 @@
             (EXIT (NREVERSE #1#)))))))) 
 
 (DEFUN |PGE;youngGroup;LPg;3| (|l| $)
-  (PROG (|element| |gens| #1=#:G156 |i| #2=#:G155 #3=#:G154 |n|)
+  (PROG (|element| |gens| #1=#:G132 |i| #2=#:G131 #3=#:G130 |n|)
     (RETURN
      (SEQ (LETT |gens| NIL . #4=(|PGE;youngGroup;LPg;3|))
           (LETT |element| 1 . #4#)
@@ -581,7 +581,7 @@
 (DEFUN |PGE;janko2;Pg;17| ($) (SPADCALL (|PGE;li1n| 100 $) (QREFELT $ 40))) 
 
 (DEFUN |PGE;abelianGroup;LPg;18| (|l| $)
-  (PROG (|element| |gens| #1=#:G192 |i| #2=#:G191 #3=#:G190 |n|)
+  (PROG (|element| |gens| #1=#:G168 |i| #2=#:G167 #3=#:G166 |n|)
     (RETURN
      (SEQ (LETT |gens| NIL . #4=(|PGE;abelianGroup;LPg;18|))
           (LETT |element| 1 . #4#)
@@ -616,7 +616,7 @@
             $)))))) 
 
 (DEFUN |PGE;alternatingGroup;LPg;19| (|l| $)
-  (PROG (|gens| |tmp| #1=#:G201 |i| #2=#:G200)
+  (PROG (|gens| |tmp| #1=#:G177 |i| #2=#:G176)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |l| (QREFELT $ 27))
@@ -702,7 +702,7 @@
   (SPADCALL (|PGE;li1n| |n| $) (QREFELT $ 52))) 
 
 (DEFUN |PGE;dihedralGroup;LPg;25| (|l| $)
-  (PROG (|tmp| #1=#:G215 |i| #2=#:G214)
+  (PROG (|tmp| #1=#:G191 |i| #2=#:G190)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |l| (QREFELT $ 27))
@@ -744,7 +744,7 @@
 (DEFUN |PermutationGroupExamples| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G218)
+     (PROG (#1=#:G194)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PermutationGroupExamples|)

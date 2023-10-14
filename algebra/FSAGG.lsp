@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |FiniteSetAggregate;AL| 'NIL) 
 
-(DEFUN |FiniteSetAggregate| (#1=#:G135)
-  (LET (#2=#:G136)
+(DEFUN |FiniteSetAggregate| (#1=#:G111)
+  (LET (#2=#:G112)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |FiniteSetAggregate;AL|))
       (CDR #2#))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |FiniteSetAggregate;| (|t#1|)
-  (PROG (#1=#:G134)
+  (PROG (#1=#:G110)
     (RETURN
      (PROG1
          (LETT #1#

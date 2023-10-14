@@ -4,7 +4,7 @@
 (DEFUN |FAGROUP;-;2$;1| (|f| $) (SPADCALL (ELT $ 8) |f| (QREFELT $ 10))) 
 
 (DEFUN |FAGROUP;inmax| (|l| $)
-  (PROG (|mx| #1=#:G142 |t|)
+  (PROG (|mx| #1=#:G118 |t|)
     (RETURN
      (SEQ (LETT |mx| (|SPADfirst| |l|) . #2=(|FAGROUP;inmax|))
           (SEQ (LETT |t| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -59,10 +59,10 @@
 
 (DECLAIM (NOTINLINE |FreeAbelianGroup;|)) 
 
-(DEFUN |FreeAbelianGroup| (#1=#:G160)
+(DEFUN |FreeAbelianGroup| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

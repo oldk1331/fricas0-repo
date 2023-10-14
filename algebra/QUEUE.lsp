@@ -52,10 +52,10 @@
 
 (DECLAIM (NOTINLINE |Queue;|)) 
 
-(DEFUN |Queue| (#1=#:G156)
+(DEFUN |Queue| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#
@@ -69,7 +69,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Queue|))))))))))) 
 
 (DEFUN |Queue;| (|#1|)
-  (PROG (|pv$| #1=#:G153 #2=#:G154 #3=#:G155 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G129 #2=#:G130 #3=#:G131 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Queue|))

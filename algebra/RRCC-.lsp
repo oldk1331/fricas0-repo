@@ -21,7 +21,7 @@
              ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21)))))))))) 
 
 (DEFUN |RRCC-;recip;ThePolsSU;5| (|toInv| |rootChar| $)
-  (PROG (|d| |defPol| #1=#:G150 |res|)
+  (PROG (|d| |defPol| #1=#:G126 |res|)
     (RETURN
      (SEQ
       (COND

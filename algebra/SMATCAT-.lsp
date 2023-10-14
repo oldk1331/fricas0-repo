@@ -25,7 +25,7 @@
   (SPADCALL |d| |x| (QREFELT $ 18))) 
 
 (DEFUN |SMATCAT-;diagonal;SRow;5| (|x| $)
-  (PROG (#1=#:G153 |i| #2=#:G154 |j| #3=#:G155 |k| |v|)
+  (PROG (#1=#:G129 |i| #2=#:G130 |j| #3=#:G131 |k| |v|)
     (RETURN
      (SEQ
       (LETT |v| (MAKEARR1 (QREFELT $ 7) (|spadConstant| $ 20))
@@ -61,7 +61,7 @@
    ('T (CONS 1 "failed")))) 
 
 (DEFUN |SMATCAT-;equation2R| (|v| $)
-  (PROG (#1=#:G168 |j| #2=#:G167 |i| |ans|)
+  (PROG (#1=#:G144 |j| #2=#:G143 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -85,7 +85,7 @@
       (EXIT (SPADCALL |ans| (QREFELT $ 46))))))) 
 
 (DEFUN |SMATCAT-;reducedSystem;MM;9| (|x| $)
-  (PROG (#1=#:G175 |i| #2=#:G174)
+  (PROG (#1=#:G151 |i| #2=#:G150)
     (RETURN
      (SEQ
       (COND
@@ -126,7 +126,7 @@
       (EXIT (CONS (SPADCALL |m| (QREFELT $ 59)) |vh|)))))) 
 
 (DEFUN |SMATCAT-;trace;SR;11| (|x| $)
-  (PROG (|tr| #1=#:G185 |i| #2=#:G186 |j|)
+  (PROG (|tr| #1=#:G161 |i| #2=#:G162 |j|)
     (RETURN
      (SEQ (LETT |tr| (|spadConstant| $ 20) . #3=(|SMATCAT-;trace;SR;11|))
           (SEQ (LETT |j| (SPADCALL |x| (QREFELT $ 24)) . #3#)
@@ -145,7 +145,7 @@
           (EXIT |tr|))))) 
 
 (DEFUN |SMATCAT-;diagonalProduct;SR;12| (|x| $)
-  (PROG (|pr| #1=#:G190 |i| #2=#:G191 |j|)
+  (PROG (|pr| #1=#:G166 |i| #2=#:G167 |j|)
     (RETURN
      (SEQ
       (LETT |pr|

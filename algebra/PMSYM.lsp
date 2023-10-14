@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMSYM;patternMatch;SP2Pmr;1| (|s| |p| |l| $)
-  (PROG (#1=#:G133 |u|)
+  (PROG (#1=#:G109 |u|)
     (RETURN
      (SEQ
       (COND
@@ -26,10 +26,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchSymbol;|)) 
 
-(DEFUN |PatternMatchSymbol| (#1=#:G137)
+(DEFUN |PatternMatchSymbol| (#1=#:G113)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G114)
        (RETURN
         (COND
          ((LETT #2#

@@ -43,7 +43,7 @@
                              (QREFELT $ 20))))))))))) 
 
 (DEFUN |LPOLY;eval;$VarSet2$;3| (|p| |v| |nv| $)
-  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G163 |t|)
+  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G139 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -65,7 +65,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 23)))))))) 
 
 (DEFUN |LPOLY;eval;$LL$;4| (|p| |lv| |lnv| $)
-  (PROG (#1=#:G165 #2=#:G164 #3=#:G166 #4=#:G168 |t|)
+  (PROG (#1=#:G141 #2=#:G140 #3=#:G142 #4=#:G144 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -115,7 +115,7 @@
   (SPADCALL |p| (SPADCALL |lp| (QREFELT $ 41)) (QREFELT $ 42))) 
 
 (DEFUN |LPOLY;lquo;Xrp$Xrp;8| (|p| |lp| $)
-  (PROG (#1=#:G177 #2=#:G176 #3=#:G178 #4=#:G180 |t|)
+  (PROG (#1=#:G153 #2=#:G152 #3=#:G154 #4=#:G156 |t|)
     (RETURN
      (SEQ
       (COND
@@ -142,7 +142,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 35)))))))))) 
 
 (DEFUN |LPOLY;rquo;Xrp$Xrp;9| (|p| |lp| $)
-  (PROG (#1=#:G182 #2=#:G181 #3=#:G183 #4=#:G185 |t|)
+  (PROG (#1=#:G158 #2=#:G157 #3=#:G159 #4=#:G161 |t|)
     (RETURN
      (SEQ
       (COND
@@ -169,7 +169,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 35)))))))))) 
 
 (DEFUN |LPOLY;LiePolyIfCan;XdpU;10| (|p| $)
-  (PROG (|p1| |r| |lp| #1=#:G198 |l| |coef| |w| |t|)
+  (PROG (|p1| |r| |lp| #1=#:G174 |l| |coef| |w| |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -245,7 +245,7 @@
                           (QREFELT $ 68)))))))))))) 
 
 (DEFUN |LPOLY;cr1| (|l| |p| $)
-  (PROG (#1=#:G206 #2=#:G205 #3=#:G207 #4=#:G209 |t|)
+  (PROG (#1=#:G182 #2=#:G181 #3=#:G183 #4=#:G185 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -267,7 +267,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 23)))))))) 
 
 (DEFUN |LPOLY;cr2| (|p| |l| $)
-  (PROG (#1=#:G211 #2=#:G210 #3=#:G212 #4=#:G214 |t|)
+  (PROG (#1=#:G187 #2=#:G186 #3=#:G188 #4=#:G190 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -324,7 +324,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 73)) (|spadConstant| $ 67) (QREFELT $ 68))) 
 
 (DEFUN |LPOLY;construct;3$;19| (|x| |y| $)
-  (PROG (#1=#:G223 #2=#:G222 #3=#:G224 #4=#:G226 |t|)
+  (PROG (#1=#:G199 #2=#:G198 #3=#:G200 #4=#:G202 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -352,7 +352,7 @@
 (DEFUN |LPOLY;construct;2Lw$;22| (|u| |v| $) (|LPOLY;crw| |u| |v| $)) 
 
 (DEFUN |LPOLY;coerce;$Xdp;23| (|p| $)
-  (PROG (#1=#:G231 #2=#:G230 #3=#:G232 #4=#:G234 |t|)
+  (PROG (#1=#:G207 #2=#:G206 #3=#:G208 #4=#:G210 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -374,7 +374,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 51)))))))) 
 
 (DEFUN |LPOLY;coerce;$Xrp;24| (|p| $)
-  (PROG (#1=#:G236 #2=#:G235 #3=#:G237 #4=#:G239 |t|)
+  (PROG (#1=#:G212 #2=#:G211 #3=#:G213 #4=#:G215 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -399,7 +399,7 @@
   (SPADCALL |l| (|spadConstant| $ 67) (QREFELT $ 68))) 
 
 (DEFUN |LPOLY;varList;$L;26| (|p| $)
-  (PROG (|le| #1=#:G242 #2=#:G241 #3=#:G243 #4=#:G246 |t|)
+  (PROG (|le| #1=#:G218 #2=#:G217 #3=#:G219 #4=#:G222 |t|)
     (RETURN
      (SEQ
       (LETT |le|
@@ -422,7 +422,7 @@
       (EXIT (SPADCALL |le| (QREFELT $ 81))))))) 
 
 (DEFUN |LPOLY;mirror;2$;27| (|p| $)
-  (PROG (#1=#:G251 |t| #2=#:G250)
+  (PROG (#1=#:G227 |t| #2=#:G226)
     (RETURN
      (SEQ
       (PROGN
@@ -463,7 +463,7 @@
               (QREFELT $ 96))))) 
 
 (DEFUN |LPOLY;coerce;$Of;31| (|a| $)
-  (PROG (#1=#:G262 |t| #2=#:G261)
+  (PROG (#1=#:G238 |t| #2=#:G237)
     (RETURN
      (SEQ
       (COND ((NULL |a|) (SPADCALL (|spadConstant| $ 24) (QREFELT $ 95)))
@@ -491,10 +491,10 @@
 
 (DECLAIM (NOTINLINE |LiePolynomial;|)) 
 
-(DEFUN |LiePolynomial| (&REST #1=#:G270)
+(DEFUN |LiePolynomial| (&REST #1=#:G246)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G271)
+     (PROG (#2=#:G247)
        (RETURN
         (COND
          ((LETT #2#

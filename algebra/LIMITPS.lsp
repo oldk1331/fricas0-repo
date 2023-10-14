@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LIMITPS;is_exp_log| (|fcn| |x| $)
-  (PROG (#1=#:G266 |nm| #2=#:G267 |k|)
+  (PROG (#1=#:G242 |nm| #2=#:G243 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -41,7 +41,7 @@
 (DEFUN |LIMITPS;constant?| (|fcn| $) (NULL (SPADCALL |fcn| (QREFELT $ 23)))) 
 
 (DEFUN |LIMITPS;firstNonLogPtr| (|fcn| |x| $)
-  (PROG (|list| #1=#:G278 |ker|)
+  (PROG (|list| #1=#:G254 |ker|)
     (RETURN
      (SEQ
       (EXIT
@@ -156,8 +156,8 @@
                  (#2# |inf|))))))))))) 
 
 (DEFUN |LIMITPS;specialLimit| (|fcn| |x| $)
-  (PROG (#1=#:G334 |den| |num| |finVal| |valu| |val| |fval| #2=#:G337 |k|
-         |xkers| #3=#:G336 #4=#:G335)
+  (PROG (#1=#:G310 |den| |num| |finVal| |valu| |val| |fval| #2=#:G313 |k|
+         |xkers| #3=#:G312 #4=#:G311)
     (RETURN
      (SEQ
       (EXIT
@@ -251,7 +251,7 @@
 
 (DEFUN |LIMITPS;specialLimitNormalize| (|fcn| |x| $)
   (PROG (|lim| |limm| |limVal| |expKerLim| |cc| |eq| |vv| |fval| |expKer|
-         |expKers| #1=#:G361 |k| #2=#:G360 |xkers| #3=#:G359 #4=#:G358 |nfcn|)
+         |expKers| #1=#:G337 |k| #2=#:G336 |xkers| #3=#:G335 #4=#:G334 |nfcn|)
     (RETURN
      (SEQ
       (LETT |nfcn| (SPADCALL |fcn| (QREFELT $ 45))
@@ -350,8 +350,8 @@
                                                |x| $)))))))))))))))))))))))))))) 
 
 (DEFUN |LIMITPS;specialLimit1| (|fcn| |x| $)
-  (PROG (|limVal| |argLim| |lim| |cc| |eq| |vv| |ker| |xkers| #1=#:G377 |k|
-         #2=#:G376)
+  (PROG (|limVal| |argLim| |lim| |cc| |eq| |vv| |ker| |xkers| #1=#:G353 |k|
+         #2=#:G352)
     (RETURN
      (SEQ
       (LETT |xkers|
@@ -412,7 +412,7 @@
 
 (DEFUN |LIMITPS;specialLimitKernel| (|ker| |x| $)
   (PROG (|val| |kerValue| |inf| |f| |var| |lim| |limm| |arg| |args| |argLim|
-         #1=#:G444 |li| #2=#:G383)
+         #1=#:G420 |li| #2=#:G359)
     (RETURN
      (SEQ
       (EXIT
@@ -868,7 +868,7 @@
   (|LIMITPS;limit2| |fcn| |eq| |str| (CONS (|function| |LIMITPS;limit3|) $) $)) 
 
 (DEFUN |LIMITPS;anyRootsOrAtrigs?| (|fcn| $)
-  (PROG (#1=#:G498 #2=#:G505 #3=#:G506 |kernel|)
+  (PROG (#1=#:G474 #2=#:G481 #3=#:G482 |kernel|)
     (RETURN
      (SEQ
       (EXIT
@@ -900,7 +900,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LIMITPS;complLimit| (|fcn| |x| $)
-  (PROG (|answer| |lim| #1=#:G533 |uls| |lseries| |lpack| |upxs| |pseries|
+  (PROG (|answer| |lim| #1=#:G509 |uls| |lseries| |lpack| |upxs| |pseries|
          |ppack| |Upx| |Efuls| |Uls| |Uts|)
     (RETURN
      (SEQ
@@ -1239,7 +1239,7 @@
                                              (QREFELT $ 96))))))))))))))))) 
 
 (DEFUN |LIMITPS;realLimit| (|fcn| |x| $)
-  (PROG (|answer| |lim| #1=#:G602 |cl| |ordl| |uls| |right| |left| |fcn0| |xK|
+  (PROG (|answer| |lim| #1=#:G578 |cl| |ordl| |uls| |right| |left| |fcn0| |xK|
          |problem| |function| |trouble| |lseries| |lpack| |cp| |ordp| |upxs|
          |pseries| |ppack| |Upx| |Efuls| |Uls| |Uts|)
     (RETURN
@@ -1686,7 +1686,7 @@
                                                 (ELT $ 9))))))))))) 
 
 (DEFUN |LIMITPS;limitPlus| (|fcn| |x| $)
-  (PROG (|xLim| |answer| |lim| #1=#:G641 |cl| |ordl| |uls| |pp| |ff| |trouble|
+  (PROG (|xLim| |answer| |lim| #1=#:G617 |cl| |ordl| |uls| |pp| |ff| |trouble|
          |lseries| |lpack| |cp| |ordp| |upxs| |pseries| |ppack| |Upx| |Efuls|
          |Uls| |Uts|)
     (RETURN
@@ -2068,10 +2068,10 @@
 
 (DECLAIM (NOTINLINE |PowerSeriesLimitPackage;|)) 
 
-(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G689)
+(DEFUN |PowerSeriesLimitPackage| (&REST #1=#:G665)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G690)
+     (PROG (#2=#:G666)
        (RETURN
         (COND
          ((LETT #2#

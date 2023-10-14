@@ -26,7 +26,7 @@
    (QREFELT $ 21))) 
 
 (DEFUN |MOMPKG;moment2freecumulant;2S;4| (|mom| $)
-  (PROG (#1=#:G133 |f1| |f| |g1| |g|)
+  (PROG (#1=#:G109 |f1| |f| |g1| |g|)
     (RETURN
      (SEQ
       (LETT |g|
@@ -52,7 +52,7 @@
         (QREFELT $ 21))))))) 
 
 (DEFUN |MOMPKG;booleancumulant2moment;2S;5| (|x| $)
-  (PROG (#1=#:G138 |boo| |rec|)
+  (PROG (#1=#:G114 |boo| |rec|)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -71,7 +71,7 @@
         (QREFELT $ 28))))))) 
 
 (DEFUN |MOMPKG;moment2booleancumulant;2S;6| (|x| $)
-  (PROG (#1=#:G143 |mom| |boo|)
+  (PROG (#1=#:G119 |mom| |boo|)
     (RETURN
      (SEQ
       (LETT |boo|
@@ -99,7 +99,7 @@
    (QREFELT $ 39))) 
 
 (DEFUN |MOMPKG;moment2nthjacobi;LR;8| (|mom| $)
-  (PROG (N G #1=#:G162 |h| #2=#:G161 H |Hk| #3=#:G160 |l| |k| |bb| |aa| |bk|
+  (PROG (N G #1=#:G138 |h| #2=#:G137 H |Hk| #3=#:G136 |l| |k| |bb| |aa| |bk|
          |ak|)
     (RETURN
      (SEQ (LETT N (LENGTH |mom|) . #4=(|MOMPKG;moment2nthjacobi;LR;8|))
@@ -187,7 +187,7 @@
     (LETT R (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|gseries| #2=#:G164 |a| |gseries1| |b| |b1|)
+      (PROG (|gseries| #2=#:G140 |a| |gseries1| |b| |b1|)
         (RETURN
          (SEQ
           (LETT |gseries|
@@ -337,7 +337,7 @@
           (EXIT (VECTOR (|spadConstant| $ 94) (|spadConstant| $ 96) S)))))))))) 
 
 (DEFUN |MOMPKG;moment2monotonecumulantgenerator| (|srm| $)
-  (PROG (#1=#:G205 |mtnew| |rrnew| |mnt| |rn| |tmp| |k| #2=#:G206 |r| #3=#:G207
+  (PROG (#1=#:G181 |mtnew| |rrnew| |mnt| |rn| |tmp| |k| #2=#:G182 |r| #3=#:G183
          |m| |n| |mm| |rr| |mt|)
     (RETURN
      (SEQ
@@ -415,10 +415,10 @@
 
 (DECLAIM (NOTINLINE |MomentPackage;|)) 
 
-(DEFUN |MomentPackage| (#1=#:G214)
+(DEFUN |MomentPackage| (#1=#:G190)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G215)
+     (PROG (#2=#:G191)
        (RETURN
         (COND
          ((LETT #2#

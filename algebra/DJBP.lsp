@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DJBP;lookup| (|jv| $)
-  (PROG (#1=#:G161 #2=#:G162 |i| #3=#:G163 |ljv|)
+  (PROG (#1=#:G137 #2=#:G138 |i| #3=#:G139 |ljv|)
     (RETURN
      (SEQ
       (EXIT
@@ -58,7 +58,7 @@
           (EXIT (COND ((NULL |l|) 1) ('T (LENGTH |l|)))))))) 
 
 (DEFUN |DJBP;mainVariable;$U;8| (|p| $)
-  (PROG (#1=#:G184 #2=#:G185 |i| #3=#:G186 |jv| |tdeg|)
+  (PROG (#1=#:G160 #2=#:G161 |i| #3=#:G162 |jv| |tdeg|)
     (RETURN
      (SEQ
       (EXIT
@@ -85,7 +85,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |DJBP;variables;$L;9| (|p| $)
-  (PROG (#1=#:G197 |jv| #2=#:G198 |i| #3=#:G196 #4=#:G195 |tdeg| |maxdeg|)
+  (PROG (#1=#:G173 |jv| #2=#:G174 |i| #3=#:G172 #4=#:G171 |tdeg| |maxdeg|)
     (RETURN
      (SEQ
       (LETT |maxdeg| (SPADCALL (QREFELT $ 13) 0 (QREFELT $ 40))
@@ -127,7 +127,7 @@
              (GO G190) G191 (EXIT (NREVERSE #3#))))))))) 
 
 (DEFUN |DJBP;coerce;$Of;10| (|p| $)
-  (PROG (|lt| |l| #1=#:G215 |i| #2=#:G214 |t|)
+  (PROG (|lt| |l| #1=#:G191 |i| #2=#:G190 |t|)
     (RETURN
      (SEQ
       (COND
@@ -274,7 +274,7 @@
 (DEFUN |DJBP;retract;$R;15| (|p| $) (SPADCALL |p| (QREFELT $ 87))) 
 
 (DEFUN |DJBP;univariate;$JBSup;16| (|p| |jv| $)
-  (PROG (|nexp| |deg| #1=#:G254 #2=#:G256 |i| #3=#:G255 |j| |exp|)
+  (PROG (|nexp| |deg| #1=#:G230 #2=#:G232 |i| #3=#:G231 |j| |exp|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 90))
@@ -375,7 +375,7 @@
           (QREFELT $ 72))))) 
 
 (DEFUN |DJBP;totalDegree;$Nni;20| (|p| $)
-  (PROG (#1=#:G272 #2=#:G271 #3=#:G273 #4=#:G278 |t|)
+  (PROG (#1=#:G248 #2=#:G247 #3=#:G249 #4=#:G254 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 29)) 0)
@@ -406,7 +406,7 @@
   (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 76)) (QREFELT $ 82))) 
 
 (DEFUN |DJBP;degree;$LL;22| (|p| |ljv| $)
-  (PROG (#1=#:G283 |jv| #2=#:G282)
+  (PROG (#1=#:G259 |jv| #2=#:G258)
     (RETURN
      (SEQ
       (PROGN
@@ -425,7 +425,7 @@
   (SPADCALL (SPADCALL |p| |jv| (QREFELT $ 76)) (QREFELT $ 114))) 
 
 (DEFUN |DJBP;minimumDegree;$LL;24| (|p| |ljv| $)
-  (PROG (#1=#:G288 |jv| #2=#:G287)
+  (PROG (#1=#:G264 |jv| #2=#:G263)
     (RETURN
      (SEQ
       (PROGN
@@ -499,7 +499,7 @@
     (RETURN (PROGN (|DJBP;evalSortedVarlist| |x| |Ljvar| |Lpval| $))))) 
 
 (DEFUN |DJBP;eval;$LL$;29| (|p| |Ljvar| |Lpval| $)
-  (PROG (|nlpval| #1=#:G308 |mvar| #2=#:G307 |nljvar|)
+  (PROG (|nlpval| #1=#:G284 |mvar| #2=#:G283 |nljvar|)
     (RETURN
      (SEQ
       (LETT |nljvar|
@@ -544,7 +544,7 @@
   (SPADCALL (SPADCALL |r| (QREFELT $ 141)) |p| (QREFELT $ 103))) 
 
 (DEFUN |DJBP;content;$R;32| (|p| $)
-  (PROG (#1=#:G312 #2=#:G311 #3=#:G313 #4=#:G316 |t|)
+  (PROG (#1=#:G288 #2=#:G287 #3=#:G289 #4=#:G292 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 29)) (|spadConstant| $ 39))
@@ -673,10 +673,10 @@
 
 (DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
 
-(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G371)
+(DEFUN |DistributedJetBundlePolynomial| (&REST #1=#:G347)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G372)
+     (PROG (#2=#:G348)
        (RETURN
         (COND
          ((LETT #2#
@@ -696,7 +696,7 @@
                     '|DistributedJetBundlePolynomial|))))))))))) 
 
 (DEFUN |DistributedJetBundlePolynomial;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G370 |jv| #2=#:G369 #3=#:G368 |pv$| #4=#:G365 #5=#:G366 #6=#:G367
+  (PROG (#1=#:G346 |jv| #2=#:G345 #3=#:G344 |pv$| #4=#:G341 #5=#:G342 #6=#:G343
          $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (SEQ

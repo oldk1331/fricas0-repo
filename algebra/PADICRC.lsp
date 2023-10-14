@@ -62,7 +62,7 @@
            ('T |x|))))) 
 
 (DEFUN |PADICRC;=;2$B;11| (|x| |y| $)
-  (PROG (#1=#:G325 #2=#:G273 |n|)
+  (PROG (#1=#:G301 #2=#:G249 |n|)
     (RETURN
      (SEQ
       (COND ((EQ |x| |y|) 'T)
@@ -93,7 +93,7 @@
                   (|PADICRC;getZp| |x| $) (QREFELT $ 35)))))))))))) 
 
 (DEFUN |PADICRC;+;3$;12| (|x| |y| $)
-  (PROG (#1=#:G339 #2=#:G336 |n|)
+  (PROG (#1=#:G315 #2=#:G312 |n|)
     (RETURN
      (SEQ
       (LETT |n| (- (|PADICRC;getExpon| |x| $) (|PADICRC;getExpon| |y| $))
@@ -128,7 +128,7 @@
    (SPADCALL (|PADICRC;getZp| |x| $) (QREFELT $ 39)) $)) 
 
 (DEFUN |PADICRC;-;3$;14| (|x| |y| $)
-  (PROG (#1=#:G353 #2=#:G350 |n|)
+  (PROG (#1=#:G329 #2=#:G326 |n|)
     (RETURN
      (SEQ
       (LETT |n| (- (|PADICRC;getExpon| |x| $) (|PADICRC;getExpon| |y| $))
@@ -166,7 +166,7 @@
    (SPADCALL (|PADICRC;getZp| |x| $) (|PADICRC;getZp| |y| $) (QREFELT $ 44)) $)) 
 
 (DEFUN |PADICRC;^;$I$;17| (|x| |n| $)
-  (PROG (#1=#:G360 #2=#:G359)
+  (PROG (#1=#:G336 #2=#:G335)
     (RETURN
      (COND ((ZEROP |n|) (|spadConstant| $ 16))
            ((SPADCALL |n| (QREFELT $ 46))
@@ -388,10 +388,10 @@
 
 (DECLAIM (NOTINLINE |PAdicRationalConstructor;|)) 
 
-(DEFUN |PAdicRationalConstructor| (&REST #1=#:G451)
+(DEFUN |PAdicRationalConstructor| (&REST #1=#:G427)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G452)
+     (PROG (#2=#:G428)
        (RETURN
         (COND
          ((LETT #2#
@@ -410,7 +410,7 @@
               (HREM |$ConstructorCache| '|PAdicRationalConstructor|))))))))))) 
 
 (DEFUN |PAdicRationalConstructor;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G450 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G426 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|PAdicRationalConstructor|))

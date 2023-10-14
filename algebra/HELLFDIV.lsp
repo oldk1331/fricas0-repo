@@ -37,7 +37,7 @@
    (QREFELT $ 39))) 
 
 (DEFUN |HELLFDIV;+;3$;8| (|d1| |d2| $)
-  (PROG (|dd| |b| #1=#:G144 |a| |h| |d| |rec| |b2| |b1| |a2| |a1|)
+  (PROG (|dd| |b| #1=#:G120 |a| |h| |d| |rec| |b2| |b1| |a2| |a1|)
     (RETURN
      (SEQ (LETT |a1| (QVELT |d1| 0) . #2=(|HELLFDIV;+;3$;8|))
           (LETT |a2| (QVELT |d2| 0) . #2#) (LETT |b1| (QVELT |d1| 1) . #2#)
@@ -173,7 +173,7 @@
                               (#2# (CONS 0 (QCDR |v|))))))))))))) 
 
 (DEFUN |HELLFDIV;redpolyIfCan| (|h| |a| $)
-  (PROG (#1=#:G144 |rec| |q| |p|)
+  (PROG (#1=#:G120 |rec| |q| |p|)
     (RETURN
      (SEQ
       (COND
@@ -235,7 +235,7 @@
         (|z| |r|) (#2# (SPADCALL |r| |g| (QREFELT $ 99))))))))) 
 
 (DEFUN |HELLFDIV;reduce;2$;14| (|d| $)
-  (PROG (|g| |b0| |a0| #1=#:G144 |b| |a|)
+  (PROG (|g| |b0| |a0| #1=#:G120 |b| |a|)
     (RETURN
      (SEQ
       (COND ((QVELT |d| 3) |d|)
@@ -334,7 +334,7 @@
         (|spadConstant| $ 29) $)))))) 
 
 (DEFUN |HELLFDIV;intReduce| (|h| |b| $)
-  (PROG (#1=#:G222 #2=#:G224 |i| #3=#:G223 |v|)
+  (PROG (#1=#:G198 #2=#:G200 |i| #3=#:G199 |v|)
     (RETURN
      (SEQ
       (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 116)))
@@ -360,7 +360,7 @@
         (|spadConstant| $ 32) (QREFELT $ 119))))))) 
 
 (DEFUN |HELLFDIV;divisor;R3UPF$;20| (|h| |a| |dp| |g| |r| $)
-  (PROG (|bb| #1=#:G144 |rec| |b| |hh|)
+  (PROG (|bb| #1=#:G120 |rec| |b| |hh|)
     (RETURN
      (SEQ
       (LETT |h|
@@ -416,10 +416,10 @@
 
 (DECLAIM (NOTINLINE |HyperellipticFiniteDivisor;|)) 
 
-(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G231)
+(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G207)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G232)
+     (PROG (#2=#:G208)
        (RETURN
         (COND
          ((LETT #2#
@@ -438,7 +438,7 @@
               (HREM |$ConstructorCache| '|HyperellipticFiniteDivisor|))))))))))) 
 
 (DEFUN |HyperellipticFiniteDivisor;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G150 #2=#:G144 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G126 #2=#:G120 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|HyperellipticFiniteDivisor|))

@@ -61,7 +61,7 @@
                         (SPADCALL |alpha| A |k| |g| (QREFELT $ 37)))))))))) 
 
 (DEFUN |EP;charpol| (A |x| $)
-  (PROG (|j| |i| B |dimA| #1=#:G156)
+  (PROG (|j| |i| B |dimA| #1=#:G132)
     (RETURN
      (SEQ
       (LETT |dimA|
@@ -109,8 +109,8 @@
   (SPADCALL (|EP;charpol| A |x| $) (QREFELT $ 46))) 
 
 (DEFUN |EP;eigenvalues;ML;10| (A $)
-  (PROG (#1=#:G182 |ls| #2=#:G181 #3=#:G180 |lr| #4=#:G179 |lsym| |lrat| |alg|
-         #5=#:G178 |eq| |pol| |x|)
+  (PROG (#1=#:G158 |ls| #2=#:G157 #3=#:G156 |lr| #4=#:G155 |lsym| |lrat| |alg|
+         #5=#:G154 |eq| |pol| |x|)
     (RETURN
      (SEQ (LETT |x| (SPADCALL (QREFELT $ 45)) . #6=(|EP;eigenvalues;ML;10|))
           (LETT |pol| (|EP;charpol| A |x| $) . #6#) (LETT |lrat| NIL . #6#)
@@ -160,7 +160,7 @@
         ('T (|EP;intAlgEig| (QCDR |alpha|) A 1 $)))) 
 
 (DEFUN |EP;intRatEig| (|alpha| A |m| $)
-  (PROG (#1=#:G194 |v| #2=#:G193 |j| |i| B |n|)
+  (PROG (#1=#:G170 |v| #2=#:G169 |j| |i| B |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS A) . #3=(|EP;intRatEig|))
           (LETT B (SPADCALL |n| |n| (QREFELT $ 39)) . #3#)
@@ -199,7 +199,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |EP;intAlgEig| (|alpha| A |m| $)
-  (PROG (|sol| |i| |w| #1=#:G218 |vec| |j| B |alg| |pol| |x| AM MM |n|)
+  (PROG (|sol| |i| |w| #1=#:G194 |vec| |j| B |alg| |pol| |x| AM MM |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS A) . #2=(|EP;intAlgEig|))
           (LETT MM
@@ -377,7 +377,7 @@
           (EXIT |sol|))))) 
 
 (DEFUN |EP;generalizedEigenvector;UM2NniL;14| (|alpha| A |k| |g| $)
-  (PROG (#1=#:G223 #2=#:G222)
+  (PROG (#1=#:G199 #2=#:G198)
     (RETURN
      (COND
       ((QEQCAR |alpha| 0)
@@ -398,7 +398,7 @@
             (QREFELT $ 37))) 
 
 (DEFUN |EP;generalizedEigenvectors;ML;16| (A $)
-  (PROG (#1=#:G238 |leg| #2=#:G237 |leig| |n|)
+  (PROG (#1=#:G214 |leg| #2=#:G213 |leig| |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS A) . #3=(|EP;generalizedEigenvectors;ML;16|))
           (LETT |leig| (SPADCALL A (QREFELT $ 80)) . #3#)
@@ -416,7 +416,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |EP;eigenvectors;ML;17| (A $)
-  (PROG (|algSol| #1=#:G246 |alpha| |ratSol| #2=#:G244 |vec| |pol| #3=#:G252
+  (PROG (|algSol| #1=#:G222 |alpha| |ratSol| #2=#:G220 |vec| |pol| #3=#:G228
          |fact| |lff| |p| |x| |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS A) . #4=(|EP;eigenvectors;ML;17|))
@@ -475,10 +475,10 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G253)
+(DEFUN |EigenPackage| (#1=#:G229)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G254)
+     (PROG (#2=#:G230)
        (RETURN
         (COND
          ((LETT #2#

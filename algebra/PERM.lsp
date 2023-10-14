@@ -10,7 +10,7 @@
    ('T 'NIL))) 
 
 (DEFUN |PERM;rotateCycle| (|cyc| $)
-  (PROG (#1=#:G156 #2=#:G155 |minpos| |min| #3=#:G159 |i|)
+  (PROG (#1=#:G132 #2=#:G131 |minpos| |min| #3=#:G135 |i|)
     (RETURN
      (SEQ (LETT |min| (|SPADfirst| |cyc|) . #4=(|PERM;rotateCycle|))
           (LETT |minpos| 1 . #4#)
@@ -44,7 +44,7 @@
                    (QREFELT $ 20))))))))) 
 
 (DEFUN |PERM;coerceCycle| (|lls| $)
-  (PROG (|perm| #1=#:G163 |lists|)
+  (PROG (|perm| #1=#:G139 |lists|)
     (RETURN
      (SEQ (LETT |perm| (|spadConstant| $ 16) . #2=(|PERM;coerceCycle|))
           (SEQ (LETT |lists| NIL . #2#) (LETT #1# (REVERSE |lls|) . #2#) G190
@@ -61,7 +61,7 @@
           (EXIT |perm|))))) 
 
 (DEFUN |PERM;smallerCycle?| (|cyca| |cycb| $)
-  (PROG (#1=#:G165 #2=#:G168 #3=#:G169 |i| #4=#:G170 |j|)
+  (PROG (#1=#:G141 #2=#:G144 #3=#:G145 |i| #4=#:G146 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -101,7 +101,7 @@
   (< (LENGTH |cyca|) (LENGTH |cycb|))) 
 
 (DEFUN |PERM;permord| (|pa| |pb| $)
-  (PROG (#1=#:G174 #2=#:G176 #3=#:G177 |i| #4=#:G178 |j|)
+  (PROG (#1=#:G150 #2=#:G152 #3=#:G153 |i| #4=#:G154 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -196,7 +196,7 @@
         ('T |cycles|))))))) 
 
 (DEFUN |PERM;duplicates?| (|ls| $)
-  (PROG (|x| #1=#:G196)
+  (PROG (|x| #1=#:G172)
     (RETURN
      (SEQ
       (EXIT
@@ -222,7 +222,7 @@
            |PERM;listRepresentation;$R;9|)))) 
 
 (DEFUN |PERM;coercePreimagesImages;L$;10| (|preImageAndImage| $)
-  (PROG (|image| |preImage| #1=#:G205 |i| #2=#:G206 |pi|)
+  (PROG (|image| |preImage| #1=#:G181 |i| #2=#:G182 |pi|)
     (RETURN
      (SEQ (LETT |preImage| NIL . #3=(|PERM;coercePreimagesImages;L$;10|))
           (LETT |image| NIL . #3#)
@@ -252,7 +252,7 @@
   (SPADCALL (SPADCALL |p| (QREFELT $ 41)) (QREFELT $ 42))) 
 
 (DEFUN |PERM;=;2$B;13| (|p| |q| $)
-  (PROG (#1=#:G211 #2=#:G216 |pos| #3=#:G217 |i| |preimq| |preimp|)
+  (PROG (#1=#:G187 #2=#:G192 |pos| #3=#:G193 |i| |preimq| |preimp|)
     (RETURN
      (SEQ
       (EXIT
@@ -309,7 +309,7 @@
       (EXIT |out|))))) 
 
 (DEFUN |PERM;cyclePartition;$P;15| (|p| $)
-  (PROG (#1=#:G225 |c| #2=#:G224)
+  (PROG (#1=#:G201 |c| #2=#:G200)
     (RETURN
      (SEQ
       (SPADCALL
@@ -325,7 +325,7 @@
        (QREFELT $ 51)))))) 
 
 (DEFUN |PERM;order;$Nni;16| (|p| $)
-  (PROG (#1=#:G226 |ord|)
+  (PROG (#1=#:G202 |ord|)
     (RETURN
      (SEQ
       (LETT |ord|
@@ -351,7 +351,7 @@
    (- (LENGTH (SPADCALL |p| 1 (QREFELT $ 26))) (SPADCALL |p| (QREFELT $ 60))))) 
 
 (DEFUN |PERM;<;2$B;20| (|pa| |pb| $)
-  (PROG (#1=#:G234 #2=#:G236 #3=#:G237 |i| #4=#:G238 |j| |pbcyc| |pacyc|)
+  (PROG (#1=#:G210 #2=#:G212 #3=#:G213 |i| #4=#:G214 |j| |pbcyc| |pacyc|)
     (RETURN
      (SEQ
       (EXIT
@@ -390,7 +390,7 @@
 (DEFUN |PERM;coerce;L$;22| (|ls| $) (SPADCALL |ls| (QREFELT $ 21))) 
 
 (DEFUN |PERM;sort;2L;23| (|inList| $)
-  (PROG (|outList| #1=#:G250 |rec| |ownList| #2=#:G249 |sigma|)
+  (PROG (|outList| #1=#:G226 |rec| |ownList| #2=#:G225 |sigma|)
     (RETURN
      (SEQ
       (COND
@@ -426,7 +426,7 @@
       (EXIT (SPADCALL |outList| (QREFELT $ 75))))))) 
 
 (DEFUN |PERM;coerce;$Of;24| (|p| $)
-  (PROG (|outfmL| |outcycL| #1=#:G258 |elt| #2=#:G257 |cycle| |cycles|)
+  (PROG (|outfmL| |outcycL| #1=#:G234 |elt| #2=#:G233 |cycle| |cycles|)
     (RETURN
      (SEQ
       (LETT |cycles| (|PERM;coerceToCycle| |p| 'T $)
@@ -472,7 +472,7 @@
                          (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 27))))))) 
 
 (DEFUN |PERM;coerceListOfPairs;L$;27| (|loP| $)
-  (PROG (|im| |preim| #1=#:G271 |pair|)
+  (PROG (|im| |preim| #1=#:G247 |pair|)
     (RETURN
      (SEQ (LETT |preim| NIL . #2=(|PERM;coerceListOfPairs;L$;27|))
           (LETT |im| NIL . #2#)
@@ -502,7 +502,7 @@
           (EXIT (VECTOR |preim| |im|)))))) 
 
 (DEFUN |PERM;*;3$;28| (|q| |p| $)
-  (PROG (|imOfq| |preimOfq| |imOfqp| |preimOfqp| |el| |j| #1=#:G282 |i| |imOfp|
+  (PROG (|imOfq| |preimOfq| |imOfqp| |preimOfqp| |el| |j| #1=#:G258 |i| |imOfp|
          |preimOfp|)
     (RETURN
      (SEQ
@@ -579,7 +579,7 @@
   (LENGTH (|PERM;coerceToCycle| |p| 'NIL $))) 
 
 (DEFUN |PERM;coerceImages;L$;34| (|image| $)
-  (PROG (|preImage| #1=#:G293 |i| #2=#:G292)
+  (PROG (|preImage| #1=#:G269 |i| #2=#:G268)
     (RETURN
      (SEQ
       (LETT |preImage|
@@ -597,7 +597,7 @@
       (EXIT (SPADCALL (LIST |preImage| |image|) (QREFELT $ 38))))))) 
 
 (DEFUN |PERM;coerceImages;L$;35| (|image| $)
-  (PROG (|preImage| #1=#:G295 #2=#:G300 |i| #3=#:G299)
+  (PROG (|preImage| #1=#:G271 #2=#:G276 |i| #3=#:G275)
     (RETURN
      (SEQ
       (LETT |preImage|
@@ -626,7 +626,7 @@
   (SPADCALL (SPADCALL |p| (QREFELT $ 41)) (QREFELT $ 96))) 
 
 (DEFUN |PERM;cyclePartition;$P;37| (|p| $)
-  (PROG (|pt| #1=#:G306 |c| #2=#:G305)
+  (PROG (|pt| #1=#:G282 |c| #2=#:G281)
     (RETURN
      (SEQ
       (LETT |pt|
@@ -655,10 +655,10 @@
 
 (DECLAIM (NOTINLINE |Permutation;|)) 
 
-(DEFUN |Permutation| (#1=#:G311)
+(DEFUN |Permutation| (#1=#:G287)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G312)
+     (PROG (#2=#:G288)
        (RETURN
         (COND
          ((LETT #2#
@@ -673,7 +673,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Permutation|))))))))))) 
 
 (DEFUN |Permutation;| (|#1|)
-  (PROG (|pv$| #1=#:G310 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G286 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Permutation|))

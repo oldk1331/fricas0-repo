@@ -70,7 +70,7 @@
               (EXIT |f2|)))))))) 
 
 (DEFUN |INTHEORY;carmichaelLambda;2I;3| (|n| $)
-  (PROG (#1=#:G167 |pk| #2=#:G166)
+  (PROG (#1=#:G143 |pk| #2=#:G142)
     (RETURN
      (SEQ
       (COND
@@ -105,7 +105,7 @@
          (QREFELT $ 35)))))))) 
 
 (DEFUN |INTHEORY;euler;2I;4| (|n| $)
-  (PROG (|e| |t| #1=#:G179 |j| |i| #2=#:G169 |l|)
+  (PROG (|e| |t| #1=#:G155 |j| |i| #2=#:G145 |l|)
     (RETURN
      (SEQ
       (COND ((< |n| 0) (|error| "euler not defined for negative integers"))
@@ -166,7 +166,7 @@
                         (SPADCALL (QREFELT $ 10) |n| (QREFELT $ 38)))))))))))))) 
 
 (DEFUN |INTHEORY;bernoulli;IF;5| (|n| $)
-  (PROG (|b| |t| #1=#:G191 |j| |i| #2=#:G181 |l|)
+  (PROG (|b| |t| #1=#:G167 |j| |i| #2=#:G157 |l|)
     (RETURN
      (SEQ
       (COND ((< |n| 0) (|error| "bernoulli not defined for negative integers"))
@@ -287,7 +287,7 @@
                             |m2| (QREFELT $ 53)))))))))) 
 
 (DEFUN |INTHEORY;jacobi;3I;8| (|a| |b| $)
-  (PROG (|j| |k| #1=#:G218 |#G40| |#G39|)
+  (PROG (|j| |k| #1=#:G194 |#G40| |#G39|)
     (RETURN
      (SEQ (COND ((< |b| 0) (LETT |b| (- |b|) . #2=(|INTHEORY;jacobi;3I;8|))))
           (EXIT
@@ -373,7 +373,7 @@
    ('T (|error| "characteristic of legendre must be prime")))) 
 
 (DEFUN |INTHEORY;eulerPhi;2I;10| (|n| $)
-  (PROG (|r| #1=#:G225 |entry|)
+  (PROG (|r| #1=#:G201 |entry|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) 0)
@@ -403,7 +403,7 @@
                          (QREFELT $ 62)))))))))) 
 
 (DEFUN |INTHEORY;divisors;IL;11| (|n| $)
-  (PROG (|oldList| |newList| #1=#:G236 |m| |pow| #2=#:G235 |k| #3=#:G234 |f|)
+  (PROG (|oldList| |newList| #1=#:G212 |m| |pow| #2=#:G211 |k| #3=#:G210 |f|)
     (RETURN
      (SEQ (LETT |oldList| (LIST 1) . #4=(|INTHEORY;divisors;IL;11|))
           (SEQ (LETT |f| NIL . #4#)
@@ -441,7 +441,7 @@
           (EXIT (SPADCALL (ELT $ 64) |oldList| (QREFELT $ 67))))))) 
 
 (DEFUN |INTHEORY;numberOfDivisors;2I;12| (|n| $)
-  (PROG (#1=#:G239 #2=#:G238 #3=#:G240 #4=#:G242 |entry|)
+  (PROG (#1=#:G215 #2=#:G214 #3=#:G216 #4=#:G218 |entry|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) 0)
@@ -470,7 +470,7 @@
               (COND (#1# #2#) (#5# 1))))))))) 
 
 (DEFUN |INTHEORY;sumOfDivisors;2I;13| (|n| $)
-  (PROG (|r| #1=#:G245 #2=#:G244 #3=#:G246 #4=#:G247 #5=#:G250 |entry|)
+  (PROG (|r| #1=#:G221 #2=#:G220 #3=#:G222 #4=#:G223 #5=#:G226 |entry|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) 0)
@@ -520,7 +520,7 @@
               (EXIT (SPADCALL |r| (QREFELT $ 62)))))))))) 
 
 (DEFUN |INTHEORY;sumOfKthPowerDivisors;INniI;14| (|n| |k| $)
-  (PROG (|r| #1=#:G253 #2=#:G252 #3=#:G254 #4=#:G255 #5=#:G258 |entry|)
+  (PROG (|r| #1=#:G229 #2=#:G228 #3=#:G230 #4=#:G231 #5=#:G234 |entry|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) 0)
@@ -574,7 +574,7 @@
               (EXIT (SPADCALL |r| (QREFELT $ 62)))))))))) 
 
 (DEFUN |INTHEORY;moebiusMu;2I;15| (|n| $)
-  (PROG (#1=#:G261 #2=#:G263 #3=#:G264 |k| |t|)
+  (PROG (#1=#:G237 #2=#:G239 #3=#:G240 |k| |t|)
     (RETURN
      (SEQ
       (EXIT
@@ -608,7 +608,7 @@
 (DEFUN |IntegerNumberTheoryFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G266)
+     (PROG (#1=#:G242)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|IntegerNumberTheoryFunctions|)

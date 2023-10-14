@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ARR2CAT-;any?;MSB;1| (|f| |m| $)
-  (PROG (#1=#:G157 #2=#:G161 #3=#:G163 |j| #4=#:G162 |i|)
+  (PROG (#1=#:G133 #2=#:G137 #3=#:G139 |j| #4=#:G138 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -30,7 +30,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ARR2CAT-;every?;MSB;2| (|f| |m| $)
-  (PROG (#1=#:G165 #2=#:G168 #3=#:G170 |j| #4=#:G169 |i|)
+  (PROG (#1=#:G141 #2=#:G144 #3=#:G146 |j| #4=#:G145 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -82,7 +82,7 @@
    ('T (SPADCALL |m| |i| |j| (QREFELT $ 15))))) 
 
 (DEFUN |ARR2CAT-;count;MSNni;8| (|f| |m| $)
-  (PROG (|num| #1=#:G187 |j| #2=#:G186 |i|)
+  (PROG (|num| #1=#:G163 |j| #2=#:G162 |i|)
     (RETURN
      (SEQ (LETT |num| 0 . #3=(|ARR2CAT-;count;MSNni;8|))
           (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 11)) . #3#)
@@ -103,7 +103,7 @@
           (EXIT |num|))))) 
 
 (DEFUN |ARR2CAT-;parts;SL;9| (|m| $)
-  (PROG (|entryList| #1=#:G193 |j| #2=#:G192 |i|)
+  (PROG (|entryList| #1=#:G169 |j| #2=#:G168 |i|)
     (RETURN
      (SEQ (LETT |entryList| NIL . #3=(|ARR2CAT-;parts;SL;9|))
           (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 12)) . #3#)
@@ -125,7 +125,7 @@
           (EXIT |entryList|))))) 
 
 (DEFUN |ARR2CAT-;copy;2S;10| (|m| $)
-  (PROG (#1=#:G199 |j| #2=#:G198 |i| |ans|)
+  (PROG (#1=#:G175 |j| #2=#:G174 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -150,7 +150,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |ARR2CAT-;fill!;SRS;11| (|m| |r| $)
-  (PROG (#1=#:G205 |j| #2=#:G204 |i|)
+  (PROG (#1=#:G181 |j| #2=#:G180 |i|)
     (RETURN
      (SEQ
       (SEQ
@@ -168,7 +168,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |ARR2CAT-;map;M2S;12| (|f| |m| $)
-  (PROG (#1=#:G212 |j| #2=#:G211 |i| |ans|)
+  (PROG (#1=#:G188 |j| #2=#:G187 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -194,7 +194,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |ARR2CAT-;map!;M2S;13| (|f| |m| $)
-  (PROG (#1=#:G218 |j| #2=#:G217 |i|)
+  (PROG (#1=#:G194 |j| #2=#:G193 |i|)
     (RETURN
      (SEQ
       (SEQ
@@ -216,7 +216,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |ARR2CAT-;map;M3S;14| (|f| |m| |n| $)
-  (PROG (#1=#:G227 |j| #2=#:G226 |i| |ans|)
+  (PROG (#1=#:G203 |j| #2=#:G202 |i| |ans|)
     (RETURN
      (SEQ
       (COND
@@ -285,7 +285,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |ARR2CAT-;setRow!;SIRowS;16| (|m| |i| |v| $)
-  (PROG (#1=#:G237 |j| #2=#:G238 |k|)
+  (PROG (#1=#:G213 |j| #2=#:G214 |k|)
     (RETURN
      (SEQ
       (COND
@@ -310,7 +310,7 @@
          (EXIT |m|)))))))) 
 
 (DEFUN |ARR2CAT-;setColumn!;SIColS;17| (|m| |j| |v| $)
-  (PROG (#1=#:G244 |i| #2=#:G245 |k|)
+  (PROG (#1=#:G220 |i| #2=#:G221 |k|)
     (RETURN
      (SEQ
       (COND
@@ -335,7 +335,7 @@
          (EXIT |m|)))))))) 
 
 (DEFUN |ARR2CAT-;=;2SB;18| (|m| |n| $)
-  (PROG (#1=#:G249 #2=#:G253 #3=#:G255 |j| #4=#:G254 |i|)
+  (PROG (#1=#:G225 #2=#:G229 #3=#:G231 |j| #4=#:G230 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -376,7 +376,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ARR2CAT-;member?;RSB;19| (|r| |m| $)
-  (PROG (#1=#:G257 #2=#:G260 #3=#:G262 |j| #4=#:G261 |i|)
+  (PROG (#1=#:G233 #2=#:G236 #3=#:G238 |j| #4=#:G237 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -418,7 +418,7 @@
     (RETURN (PROGN (SPADCALL |x| |r| (QREFELT $ 54)))))) 
 
 (DEFUN |ARR2CAT-;row;SIRow;21| (|m| |i| $)
-  (PROG (#1=#:G270 |j| #2=#:G271 |k| |v|)
+  (PROG (#1=#:G246 |j| #2=#:G247 |k| |v|)
     (RETURN
      (SEQ
       (COND
@@ -443,7 +443,7 @@
          (EXIT |v|)))))))) 
 
 (DEFUN |ARR2CAT-;column;SICol;22| (|m| |j| $)
-  (PROG (#1=#:G277 |i| #2=#:G278 |k| |v|)
+  (PROG (#1=#:G253 |i| #2=#:G254 |k| |v|)
     (RETURN
      (SEQ
       (COND
@@ -468,7 +468,7 @@
          (EXIT |v|)))))))) 
 
 (DEFUN |ARR2CAT-;coerce;SOf;23| (|m| $)
-  (PROG (|l| #1=#:G286 |j| #2=#:G285 #3=#:G284 |i| #4=#:G283)
+  (PROG (|l| #1=#:G262 |j| #2=#:G261 #3=#:G260 |i| #4=#:G259)
     (RETURN
      (SEQ
       (LETT |l|

@@ -6,7 +6,7 @@
    (SPADCALL |r| (QREFELT $ 10)) $)) 
 
 (DEFUN |FLASORT;siftUp| (|l| |r| |i| |n| $)
-  (PROG (#1=#:G140 |j| |k| |t|)
+  (PROG (#1=#:G116 |j| |k| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL |r| |i| (QREFELT $ 13)) . #2=(|FLASORT;siftUp|))
           (EXIT
@@ -89,7 +89,7 @@
       (EXIT (+ |j| 1)))))) 
 
 (DEFUN |FLASORT;QuickSort| (|l| |r| |i| |j| $)
-  (PROG (|k| #1=#:G174 |n|)
+  (PROG (|k| #1=#:G150 |n|)
     (RETURN
      (SEQ
       (EXIT

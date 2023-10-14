@@ -4,7 +4,7 @@
 (DEFUN |INTTOOLS;union;3L;1| (|l1| |l2| $) (SPADCALL |l1| |l2| (QREFELT $ 10))) 
 
 (DEFUN |INTTOOLS;varselect;LSL;2| (|l| |x| $)
-  (PROG (#1=#:G148 |k| #2=#:G147)
+  (PROG (#1=#:G124 |k| #2=#:G123)
     (RETURN
      (SEQ
       (PROGN
@@ -32,7 +32,7 @@
    (QREFELT $ 25))) 
 
 (DEFUN |INTTOOLS;vark;LSL;4| (|l| |x| $)
-  (PROG (#1=#:G156 |f| #2=#:G155)
+  (PROG (#1=#:G132 |f| #2=#:G131)
     (RETURN
      (SEQ
       (SPADCALL
@@ -53,7 +53,7 @@
        |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTTOOLS;kmax;LK;5| (|l| $)
-  (PROG (|ans| #1=#:G161 |k|)
+  (PROG (|ans| #1=#:G137 |k|)
     (RETURN
      (SEQ (LETT |ans| (|SPADfirst| |l|) . #2=(|INTTOOLS;kmax;LK;5|))
           (SEQ (LETT |k| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -83,7 +83,7 @@
    ('T 'NIL))) 
 
 (DEFUN |INTTOOLS;removeConstantTerm;FSF;7| (|f| |x| $)
-  (PROG (|ans| #1=#:G178 |term| |u| |num| |den|)
+  (PROG (|ans| #1=#:G154 |term| |u| |num| |den|)
     (RETURN
      (SEQ
       (COND
@@ -201,7 +201,7 @@
        (#2# 'NIL)))))) 
 
 (DEFUN |INTTOOLS;mkPrim;FSF;11| (|f| |x| $)
-  (PROG (#1=#:G203 |k| #2=#:G202 |lg| #3=#:G201 #4=#:G200)
+  (PROG (#1=#:G179 |k| #2=#:G178 |lg| #3=#:G177 #4=#:G176)
     (RETURN
      (SEQ
       (LETT |lg|
@@ -242,7 +242,7 @@
                  (QREFELT $ 81))))))) 
 
 (DEFUN |INTTOOLS;psimp| (|p| |x| $)
-  (PROG (|u| #1=#:G206)
+  (PROG (|u| #1=#:G182)
     (RETURN
      (SEQ
       (LETT |u|
@@ -272,7 +272,7 @@
                     (SPADCALL (QCAR (QCDR |u|)) (QREFELT $ 13)))))))))) 
 
 (DEFUN |INTTOOLS;intPatternMatch;FSMMIr;13| (|f| |x| |int| |pmint| $)
-  (PROG (|nl| |lg| |ans| |ir0| |rc| |u| #1=#:G231 |rec| |l| |ir|)
+  (PROG (|nl| |lg| |ans| |ir0| |rc| |u| #1=#:G207 |rec| |l| |ir|)
     (RETURN
      (SEQ
       (LETT |ir| (SPADCALL |f| |x| |int|)
@@ -334,10 +334,10 @@
 
 (DECLAIM (NOTINLINE |IntegrationTools;|)) 
 
-(DEFUN |IntegrationTools| (&REST #1=#:G232)
+(DEFUN |IntegrationTools| (&REST #1=#:G208)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G233)
+     (PROG (#2=#:G209)
        (RETURN
         (COND
          ((LETT #2#
@@ -458,7 +458,7 @@
               (219 . |tower|) (224 . |member?|) (|List| $) (230 . |eval|)
               (237 . |mkPrim|) (243 . |variables|) (|Union| $ '"failed")
               (248 . |exquo|) (|Record| (|:| |var| 20) (|:| |exponent| 32))
-              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G143
+              (|Union| 86 '#1#) (254 . |isExpt|) (259 . |One|) '#:G119
               (|Record| (|:| |integrand| 7) (|:| |intvar| 7)) (|List| 91)
               (|IntegrationResult| 7) (263 . |notelem|) (268 . |ratpart|)
               (|Record| (|:| |scalar| (|Fraction| 52)) (|:| |coeff| 70)

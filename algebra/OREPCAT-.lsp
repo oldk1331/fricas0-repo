@@ -45,7 +45,7 @@
    ('T (CONS 1 "failed")))) 
 
 (DEFUN |OREPCAT-;exquo;SRU;5| (|l| |a| $)
-  (PROG (|ans| #1=#:G175 |u|)
+  (PROG (|ans| #1=#:G151 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -82,7 +82,7 @@
   (SPADCALL (SPADCALL |l| (QREFELT $ 29)) (QREFELT $ 31))) 
 
 (DEFUN |OREPCAT-;primitivePart;2S;7| (|l| $)
-  (PROG (#1=#:G178)
+  (PROG (#1=#:G154)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |l| (SPADCALL |l| (QREFELT $ 33)) (QREFELT $ 34))

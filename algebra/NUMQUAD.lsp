@@ -3,7 +3,7 @@
 
 (DEFUN |NUMQUAD;aromberg;M4F3IR;1|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| |nint| $)
-  (PROG (#1=#:G149 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
+  (PROG (#1=#:G125 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
     (RETURN
      (SEQ
       (EXIT
@@ -58,7 +58,7 @@
 
 (DEFUN |NUMQUAD;asimpson;M4F3IR;2|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| |nint| $)
-  (PROG (#1=#:G157 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
+  (PROG (#1=#:G133 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
     (RETURN
      (SEQ
       (EXIT
@@ -113,7 +113,7 @@
 
 (DEFUN |NUMQUAD;atrapezoidal;M4F3IR;3|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| |nint| $)
-  (PROG (#1=#:G165 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
+  (PROG (#1=#:G141 |x2| |x1| |done| |pts| |err| |sum| |ans| |i| |io| |hh|)
     (RETURN
      (SEQ
       (EXIT
@@ -168,8 +168,8 @@
 
 (DEFUN |NUMQUAD;romberg;M4F2IR;4|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G183 |qx1| |pts| |delta| |oldest| |oldsum| |change| |four| |i|
-         |j| |newest| |newsum| |n| |table| #2=#:G167 |length|)
+  (PROG (#1=#:G159 |qx1| |pts| |delta| |oldest| |oldsum| |change| |four| |i|
+         |j| |newest| |newsum| |n| |table| #2=#:G143 |length|)
     (RETURN
      (SEQ
       (EXIT
@@ -353,7 +353,7 @@
 
 (DEFUN |NUMQUAD;simpson;M4F2IR;5|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G198 |pts| |delta| |oldest| |oldsum| |change| |newest| |newsum|
+  (PROG (#1=#:G174 |pts| |delta| |oldest| |oldsum| |change| |newest| |newsum|
          |n| |length|)
     (RETURN
      (SEQ
@@ -509,7 +509,7 @@
 
 (DEFUN |NUMQUAD;trapezoidal;M4F2IR;6|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G213 |pts| |delta| |change| |newsum| |oldsum| |n| |length|)
+  (PROG (#1=#:G189 |pts| |delta| |change| |newsum| |oldsum| |n| |length|)
     (RETURN
      (SEQ
       (EXIT
@@ -652,8 +652,8 @@
 
 (DEFUN |NUMQUAD;rombergo;M4F2IR;7|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G224 |qx1| |pts| |delta| |oldest| |oldsum| |change| |nine| |i|
-         |j| |newest| |newsum| |n| |table| #2=#:G215 |length|)
+  (PROG (#1=#:G200 |qx1| |pts| |delta| |oldest| |oldsum| |change| |nine| |i|
+         |j| |newest| |newsum| |n| |table| #2=#:G191 |length|)
     (RETURN
      (SEQ
       (EXIT
@@ -782,7 +782,7 @@
 
 (DEFUN |NUMQUAD;simpsono;M4F2IR;8|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G232 |pts| |delta| |oldest| |oldsum| |change| |newest| |newsum|
+  (PROG (#1=#:G208 |pts| |delta| |oldest| |oldsum| |change| |newest| |newsum|
          |n| |length|)
     (RETURN
      (SEQ
@@ -879,7 +879,7 @@
 
 (DEFUN |NUMQUAD;trapezoidalo;M4F2IR;9|
        (|func| |a| |b| |epsrel| |epsabs| |nmin| |nmax| $)
-  (PROG (#1=#:G240 |pts| |delta| |change| |newsum| |oldsum| |n| |length|)
+  (PROG (#1=#:G216 |pts| |delta| |change| |newsum| |oldsum| |n| |length|)
     (RETURN
      (SEQ
       (EXIT
@@ -962,7 +962,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |NUMQUAD;trapclosed| (|func| |start| |h| |oldsum| |numpoints| $)
-  (PROG (#1=#:G244 |x| |sum| |i|)
+  (PROG (#1=#:G220 |x| |sum| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -994,7 +994,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |NUMQUAD;trapopen| (|func| |start| |del| |oldsum| |numpoints| $)
-  (PROG (#1=#:G248 |x| |sum| |i| |ddel|)
+  (PROG (#1=#:G224 |x| |sum| |i| |ddel|)
     (RETURN
      (SEQ
       (EXIT
@@ -1035,7 +1035,7 @@
 (DEFUN |NumericalQuadrature| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G250)
+     (PROG (#1=#:G226)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NumericalQuadrature|)

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POINT;point;L$;1| (|l| $)
-  (PROG (#1=#:G132 |x| |i| |pt|)
+  (PROG (#1=#:G108 |x| |i| |pt|)
     (RETURN
      (SEQ
       (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8))
@@ -17,7 +17,7 @@
       (EXIT |pt|))))) 
 
 (DEFUN |POINT;dimension;$Pi;2| (|p| $)
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (PROG1 (LETT #1# (SPADCALL |p| (QREFELT $ 14)) |POINT;dimension;$Pi;2|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -57,10 +57,10 @@
 
 (DECLAIM (NOTINLINE |Point;|)) 
 
-(DEFUN |Point| (#1=#:G153)
+(DEFUN |Point| (#1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#
@@ -74,7 +74,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Point|))))))))))) 
 
 (DEFUN |Point;| (|#1|)
-  (PROG (#1=#:G152 |pv$| #2=#:G148 #3=#:G149 #4=#:G150 $ |dv$| DV$1)
+  (PROG (#1=#:G128 |pv$| #2=#:G124 #3=#:G125 #4=#:G126 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Point|))

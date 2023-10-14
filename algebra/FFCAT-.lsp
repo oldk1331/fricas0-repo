@@ -62,7 +62,7 @@
                     ('T (CONS 0 |p|))))))))))))))) 
 
 (DEFUN |FFCAT-;algSplitSimple;SMR;8| (|f| |derivation| $)
-  (PROG (|dd| #1=#:G173 |g| |cd|)
+  (PROG (|dd| #1=#:G149 |g| |cd|)
     (RETURN
      (SEQ
       (LETT |cd| (SPADCALL (SPADCALL |f| (QREFELT $ 49)) (QREFELT $ 52))
@@ -131,7 +131,7 @@
     (RETURN (PROGN (|FFCAT-;UP2P| (SPADCALL |s| (QREFELT $ 61)) |x| $))))) 
 
 (DEFUN |FFCAT-;nonSingularModel;SL;13| (|u| $)
-  (PROG (#1=#:G199 |v| |i| #2=#:G198 |y| |x| |vars| #3=#:G197 |n| #4=#:G196 |d|
+  (PROG (#1=#:G175 |v| |i| #2=#:G174 |y| |x| |vars| #3=#:G173 |n| #4=#:G172 |d|
          |w|)
     (RETURN
      (SEQ
@@ -234,8 +234,8 @@
         ('T NIL))))))) 
 
 (DEFUN |FFCAT-;rationalPoints;L;15| ($)
-  (PROG (|pt| #1=#:G205 #2=#:G203 #3=#:G214 |y| #4=#:G213 #5=#:G212 |x|
-         #6=#:G211 |p|)
+  (PROG (|pt| #1=#:G181 #2=#:G179 #3=#:G190 |y| #4=#:G189 #5=#:G188 |x|
+         #6=#:G187 |p|)
     (RETURN
      (SEQ
       (LETT |p| (SPADCALL (QREFELT $ 37)) . #7=(|FFCAT-;rationalPoints;L;15|))
@@ -287,8 +287,8 @@
         (QREFELT $ 114))))))) 
 
 (DEFUN |FFCAT-;intvalue| (|v| |x| |y| $)
-  (PROG (#1=#:G226 |d| |n| #2=#:G220 #3=#:G219 #4=#:G221 #5=#:G223 #6=#:G232
-         |i| |rec| #7=#:G216 #8=#:G215 #9=#:G217 #10=#:G231 |mini| |w|)
+  (PROG (#1=#:G202 |d| |n| #2=#:G196 #3=#:G195 #4=#:G197 #5=#:G199 #6=#:G208
+         |i| |rec| #7=#:G192 #8=#:G191 #9=#:G193 #10=#:G207 |mini| |w|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 116)) (|error| "Point is singular"))
@@ -379,7 +379,7 @@
                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#)))))))))))) 
 
 (DEFUN |FFCAT-;elt;S3F;17| (|f| |x| |y| $)
-  (PROG (#1=#:G236 |d| |n| |rec|)
+  (PROG (#1=#:G212 |d| |n| |rec|)
     (RETURN
      (SEQ (LETT |rec| (SPADCALL |f| (QREFELT $ 21)) . #2=(|FFCAT-;elt;S3F;17|))
           (LETT |n| (|FFCAT-;intvalue| (QCAR |rec|) |x| |y| $) . #2#)
@@ -398,7 +398,7 @@
                (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))))))))) 
 
 (DEFUN |FFCAT-;primitivePart;2S;18| (|f| $)
-  (PROG (#1=#:G248 #2=#:G250 |i| #3=#:G249 |d| #4=#:G247 #5=#:G246 |cd|)
+  (PROG (#1=#:G224 #2=#:G226 |i| #3=#:G225 |d| #4=#:G223 #5=#:G222 |cd|)
     (RETURN
      (SEQ
       (LETT |cd| (SPADCALL |f| (QREFELT $ 120))
@@ -447,7 +447,7 @@
         (QREFELT $ 133))))))) 
 
 (DEFUN |FFCAT-;reduceBasisAtInfinity;2V;19| (|b| $)
-  (PROG (|f| |j| #1=#:G257 #2=#:G256 |i| #3=#:G255 |x|)
+  (PROG (|f| |j| #1=#:G233 #2=#:G232 |i| #3=#:G231 |x|)
     (RETURN
      (SEQ
       (LETT |x|
@@ -487,7 +487,7 @@
         (QREFELT $ 140))))))) 
 
 (DEFUN |FFCAT-;complementaryBasis;2V;20| (|b| $)
-  (PROG (#1=#:G264 #2=#:G266 |i| #3=#:G265 |m| #4=#:G259)
+  (PROG (#1=#:G240 #2=#:G242 |i| #3=#:G241 |m| #4=#:G235)
     (RETURN
      (SEQ
       (LETT |m|
@@ -530,7 +530,7 @@
   (SPADCALL (ELT $ 139) (SPADCALL (QREFELT $ 83)) (QREFELT $ 155))) 
 
 (DEFUN |FFCAT-;represents;VUPS;23| (|v| |d| $)
-  (PROG (#1=#:G274 #2=#:G276 |i| #3=#:G275)
+  (PROG (#1=#:G250 #2=#:G252 |i| #3=#:G251)
     (RETURN
      (SEQ
       (SPADCALL
@@ -552,7 +552,7 @@
        (QREFELT $ 133)))))) 
 
 (DEFUN |FFCAT-;genus;Nni;24| ($)
-  (PROG (#1=#:G280 |dd| #2=#:G278 |d| |ds|)
+  (PROG (#1=#:G256 |dd| #2=#:G254 |d| |ds|)
     (RETURN
      (SEQ (LETT |ds| (SPADCALL (QREFELT $ 60)) . #3=(|FFCAT-;genus;Nni;24|))
           (LETT |d|
@@ -590,7 +590,7 @@
              (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))) 
 
 (DEFUN |FFCAT-;repOrder| (|m| |i| $)
-  (PROG (|ans| |nostart| #1=#:G287 |j| |r|)
+  (PROG (|ans| |nostart| #1=#:G263 |j| |r|)
     (RETURN
      (SEQ (LETT |nostart| 'T . #2=(|FFCAT-;repOrder|)) (LETT |ans| 0 . #2#)
           (LETT |r| (SPADCALL |m| |i| (QREFELT $ 145)) . #2#)
@@ -634,7 +634,7 @@
                      (|error| "f not locally integral at infinity"))))))))))) 
 
 (DEFUN |FFCAT-;rfmonom| (|n| $)
-  (PROG (#1=#:G293 #2=#:G292)
+  (PROG (#1=#:G269 #2=#:G268)
     (RETURN
      (COND
       ((< |n| 0)
@@ -655,7 +655,7 @@
         (QREFELT $ 56))))))) 
 
 (DEFUN |FFCAT-;kmin| (|m| |v| $)
-  (PROG (|i0| |k| |nostart| |nk| #1=#:G302 |i| |ii|)
+  (PROG (|i0| |k| |nostart| |nk| #1=#:G278 |i| |ii|)
     (RETURN
      (SEQ (LETT |nostart| 'T . #2=(|FFCAT-;kmin|)) (LETT |k| 0 . #2#)
           (LETT |ii| (- 1 (LETT |i0| (SPADCALL |v| (QREFELT $ 174)) . #2#))
@@ -684,8 +684,8 @@
                  ('T (CONS |i0| |k|)))))))) 
 
 (DEFUN |FFCAT-;normalizeAtInfinity;2V;29| (|w| $)
-  (PROG (#1=#:G309 #2=#:G308 #3=#:G310 #4=#:G321 |i| |pr| |sol| #5=#:G315
-         |solList| #6=#:G320 |j| #7=#:G319 |r| #8=#:G316 #9=#:G318 #10=#:G317
+  (PROG (#1=#:G285 #2=#:G284 #3=#:G286 #4=#:G297 |i| |pr| |sol| #5=#:G291
+         |solList| #6=#:G296 |j| #7=#:G295 |r| #8=#:G292 #9=#:G294 #10=#:G293
          |m| |ii| |mhat| |infm| |ans|)
     (RETURN
      (SEQ

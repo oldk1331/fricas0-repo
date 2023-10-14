@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ORDFUNS;pureLex;2VB;1| (|v1| |v2| $)
-  (PROG (#1=#:G137 #2=#:G138 |i|)
+  (PROG (#1=#:G113 #2=#:G114 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -25,7 +25,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ORDFUNS;totalLex;2VB;2| (|v1| |v2| $)
-  (PROG (#1=#:G146 #2=#:G148 |i| |n2| |n1| #3=#:G147)
+  (PROG (#1=#:G122 #2=#:G124 |i| |n2| |n1| #3=#:G123)
     (RETURN
      (SEQ
       (EXIT
@@ -65,7 +65,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ORDFUNS;reverseLex;2VB;3| (|v1| |v2| $)
-  (PROG (#1=#:G156 |i| |n2| |n1| #2=#:G157)
+  (PROG (#1=#:G132 |i| |n2| |n1| #2=#:G133)
     (RETURN
      (SEQ
       (EXIT
@@ -106,10 +106,10 @@
 
 (DECLAIM (NOTINLINE |OrderingFunctions;|)) 
 
-(DEFUN |OrderingFunctions| (&REST #1=#:G158)
+(DEFUN |OrderingFunctions| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

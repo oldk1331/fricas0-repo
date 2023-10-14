@@ -6,11 +6,11 @@
 (DEFPARAMETER |Field;AL| 'NIL) 
 
 (DEFUN |Field| ()
-  (LET (#:G134)
+  (LET (#:G110)
     (COND (|Field;AL|) (T (SETQ |Field;AL| (|Field;|)))))) 
 
 (DEFUN |Field;| ()
-  (PROG (#1=#:G132)
+  (PROG (#1=#:G108)
     (RETURN
      (PROG1
          (LETT #1#

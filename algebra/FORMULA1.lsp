@@ -6,10 +6,10 @@
 
 (DECLAIM (NOTINLINE |ScriptFormulaFormat1;|)) 
 
-(DEFUN |ScriptFormulaFormat1| (#1=#:G128)
+(DEFUN |ScriptFormulaFormat1| (#1=#:G104)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G129)
+     (PROG (#2=#:G105)
        (RETURN
         (COND
          ((LETT #2#

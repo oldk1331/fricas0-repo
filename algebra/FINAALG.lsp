@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;AL| 'NIL) 
 
-(DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G149)
-  (LET (#2=#:G150)
+(DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G125)
+  (LET (#2=#:G126)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -22,7 +22,7 @@
       #2#)))) 
 
 (DEFUN |FiniteRankNonAssociativeAlgebra;| (|t#1|)
-  (PROG (#1=#:G148)
+  (PROG (#1=#:G124)
     (RETURN
      (PROG1
          (LETT #1#

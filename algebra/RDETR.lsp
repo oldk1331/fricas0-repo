@@ -104,7 +104,7 @@
                (EXIT (CONS 1 (QCDR |u|))))))))))) 
 
 (DEFUN |RDETR;SPDE| (|aa| |bb| |cc| |d| |derivation| $)
-  (PROG (|v| |r| |qr| |bc| #1=#:G181 |a1| |ra| #2=#:G173 |u| |g|)
+  (PROG (|v| |r| |qr| |bc| #1=#:G157 |a1| |ra| #2=#:G149 |u| |g|)
     (RETURN
      (SEQ
       (COND
@@ -197,7 +197,7 @@
                                              (QREFELT $ 19)))))))))))))))))))))) 
 
 (DEFUN |RDETR;SPDEnocancel1| (|bb| |cc| |d| |derivation| $)
-  (PROG (|q| |r| #1=#:G192 #2=#:G193 #3=#:G196 |n| |lb| |db|)
+  (PROG (|q| |r| #1=#:G168 #2=#:G169 #3=#:G172 |n| |lb| |db|)
     (RETURN
      (SEQ
       (EXIT
@@ -250,7 +250,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |RDETR;SPDEnocancel2| (|bb| |cc| |d| |dtm1| |lt| |derivation| $)
-  (PROG (|q| |r| #1=#:G211 |db| #2=#:G202 #3=#:G208 |n|)
+  (PROG (|q| |r| #1=#:G187 |db| #2=#:G178 #3=#:G184 |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -355,7 +355,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RDETR;monomRDE;2FMU;5| (|f| |g| |derivation| $)
-  (PROG (|u| |aa| |tt| #1=#:G221 |gg| |e| |d|)
+  (PROG (|u| |aa| |tt| #1=#:G197 |gg| |e| |d|)
     (RETURN
      (SEQ
       (LETT |gg|
@@ -402,7 +402,7 @@
                             |tt|))))))))) 
 
 (DEFUN |RDETR;baseRDE;2FR;6| (|f| |g| $)
-  (PROG (|v| #1=#:G238 |n| |cc| |bb| |u|)
+  (PROG (|v| #1=#:G214 |n| |cc| |bb| |u|)
     (RETURN
      (SEQ
       (LETT |u| (SPADCALL |f| |g| (ELT $ 52) (QREFELT $ 58))
@@ -469,10 +469,10 @@
 
 (DECLAIM (NOTINLINE |TranscendentalRischDE;|)) 
 
-(DEFUN |TranscendentalRischDE| (&REST #1=#:G253)
+(DEFUN |TranscendentalRischDE| (&REST #1=#:G229)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G254)
+     (PROG (#2=#:G230)
        (RETURN
         (COND
          ((LETT #2#

@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |HomogeneousDistributedMultivariatePolynomial;|)) 
 
-(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G166)
+(DEFUN |HomogeneousDistributedMultivariatePolynomial| (&REST #1=#:G142)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G167)
+     (PROG (#2=#:G143)
        (RETURN
         (COND
          ((LETT #2#
@@ -29,7 +29,7 @@
                     '|HomogeneousDistributedMultivariatePolynomial|))))))))))) 
 
 (DEFUN |HomogeneousDistributedMultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G165 |pv$| #2=#:G162 #3=#:G163 #4=#:G164 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G141 |pv$| #2=#:G138 #3=#:G139 #4=#:G140 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

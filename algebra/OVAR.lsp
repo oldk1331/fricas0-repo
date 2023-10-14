@@ -27,7 +27,7 @@
 (DEFUN |OVAR;size;Nni;8| ($) (LENGTH (QREFELT $ 6))) 
 
 (DEFUN |OVAR;variable;SU;9| (|exp| $)
-  (PROG (#1=#:G145 #2=#:G139 |i| #3=#:G146 |exp2|)
+  (PROG (#1=#:G121 #2=#:G115 |i| #3=#:G122 |exp2|)
     (RETURN
      (SEQ
       (EXIT
@@ -70,10 +70,10 @@
 
 (DECLAIM (NOTINLINE |OrderedVariableList;|)) 
 
-(DEFUN |OrderedVariableList| (#1=#:G151)
+(DEFUN |OrderedVariableList| (#1=#:G127)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G128)
        (RETURN
         (COND
          ((LETT #2#

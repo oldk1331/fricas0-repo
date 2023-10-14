@@ -42,7 +42,7 @@
       (SPADCALL |t| |tag| (QREFELT $ 33)) (EXIT |t|))))) 
 
 (DEFUN |HTMLFORM;notTable?| (|node| $)
-  (PROG (#1=#:G198 #2=#:G199 |a| |c|)
+  (PROG (#1=#:G174 #2=#:G175 |a| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -69,7 +69,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HTMLFORM;argsToString| (|args| $)
-  (PROG (|s| |s1| #1=#:G204 |a| |sop|)
+  (PROG (|s| |s1| #1=#:G180 |a| |sop|)
     (RETURN
      (SEQ
       (LETT |sop| (SPADCALL (|SPADfirst| |args|) (QREFELT $ 40))
@@ -86,7 +86,7 @@
       (EXIT (LETT |s| (SPADCALL (LIST |s| "}") (QREFELT $ 41)) . #2#)))))) 
 
 (DEFUN |HTMLFORM;exprex;OfS;9| (|expr| $)
-  (PROG (|s| |s1| #1=#:G211 |a| |nargs| |args| |sop| |op| |le|)
+  (PROG (|s| |s1| #1=#:G187 |a| |nargs| |args| |sop| |op| |le|)
     (RETURN
      (SEQ
       (LETT |expr| (|HTMLFORM;precondition| |expr| $)
@@ -113,7 +113,7 @@
       (EXIT (LETT |s| (SPADCALL (LIST |s| "}") (QREFELT $ 41)) . #2#)))))) 
 
 (DEFUN |HTMLFORM;atomize| (|expr| $)
-  (PROG (|le| #1=#:G217 |a| |letmp|)
+  (PROG (|le| #1=#:G193 |a| |letmp|)
     (RETURN
      (SEQ (LETT |le| NIL . #2=(|HTMLFORM;atomize|))
           (COND
@@ -134,8 +134,8 @@
           (EXIT |le|))))) 
 
 (DEFUN |HTMLFORM;outputTree| (|t| $)
-  (PROG (#1=#:G242 |c1| #2=#:G237 |s| #3=#:G241 |allString| #4=#:G240 |b|
-         #5=#:G239 #6=#:G238 |enableGrid| |c| |tagName| |tagPos| |endWithPlus|)
+  (PROG (#1=#:G218 |c1| #2=#:G213 |s| #3=#:G217 |allString| #4=#:G216 |b|
+         #5=#:G215 #6=#:G214 |enableGrid| |c| |tagName| |tagPos| |endWithPlus|)
     (RETURN
      (SEQ
       (EXIT
@@ -260,7 +260,7 @@
 (DEFUN |HTMLFORM;precondition| (|expr| $) (|outputTran| |expr|)) 
 
 (DEFUN |HTMLFORM;formatSC| (|args| |prec| $)
-  (PROG (|row| |cells| #1=#:G250 |a| #2=#:G249)
+  (PROG (|row| |cells| #1=#:G226 |a| #2=#:G225)
     (RETURN
      (SEQ
       (COND
@@ -313,7 +313,7 @@
            (|HTMLFORM;newNode| "table border='0' id='overbar'" |row| $)))))) 
 
 (DEFUN |HTMLFORM;buildRoot| (|content| $)
-  (PROG (|row| |cell2| |cell1| #1=#:G255)
+  (PROG (|row| |cell2| |cell1| #1=#:G231)
     (RETURN
      (SEQ
       (EXIT
@@ -341,7 +341,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HTMLFORM;buildNRoot| (|content| |nth| $)
-  (PROG (|row| |cell2| |cell1| #1=#:G258 |power|)
+  (PROG (|row| |cell2| |cell1| #1=#:G234 |power|)
     (RETURN
      (SEQ
       (EXIT
@@ -374,7 +374,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HTMLFORM;formatSpecial| (|op| |args| |prec| $)
-  (PROG (|tmp| #1=#:G268 |u| #2=#:G267 |prescript|)
+  (PROG (|tmp| #1=#:G244 |u| #2=#:G243 |prescript|)
     (RETURN
      (SEQ
       (COND
@@ -669,7 +669,7 @@
        $)))))) 
 
 (DEFUN |HTMLFORM;formatPlex| (|op| |args| |prec| $)
-  (PROG (#1=#:G289 |s| |checkarg| |n| |opPrec| |p|)
+  (PROG (#1=#:G265 |s| |checkarg| |n| |opPrec| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -808,7 +808,7 @@
               (EXIT |cells|))))))))) 
 
 (DEFUN |HTMLFORM;formatMatrixContent| (|op| |args| |prec| $)
-  (PROG (|rows| |y| #1=#:G299 |e| #2=#:G298)
+  (PROG (|rows| |y| #1=#:G275 |e| #2=#:G274)
     (RETURN
      (SEQ
       (COND
@@ -858,7 +858,7 @@
      (|HTMLFORM;formatMatrixContent| "MATRIX" |args| (QREFELT $ 8) $) $)))) 
 
 (DEFUN |HTMLFORM;buildColumnTable| (|elements| $)
-  (PROG (|rows| #1=#:G309 |i| #2=#:G308 |cells| #3=#:G307 |j| #4=#:G306)
+  (PROG (|rows| #1=#:G285 |i| #2=#:G284 |cells| #3=#:G283 |j| #4=#:G282)
     (RETURN
      (SEQ (COND ((QREFELT $ 21) (|sayHtml| "buildColumnTable")))
           (LETT |cells|
@@ -948,7 +948,7 @@
                 $)))))))))) 
 
 (DEFUN |HTMLFORM;formatSub| (|expr| |args| |opPrec| $)
-  (PROG (#1=#:G326 #2=#:G328 |e| #3=#:G327 |op| |atomE|)
+  (PROG (#1=#:G302 #2=#:G304 |e| #3=#:G303 |op| |atomE|)
     (RETURN
      (SEQ
       (EXIT
@@ -1310,7 +1310,7 @@
    (EXIT (|HTMLFORM;formatNaryNoGroup| |op| |args| |prec| $)))) 
 
 (DEFUN |HTMLFORM;formatNaryNoGroup| (|op| |args| |prec| $)
-  (PROG (|tags| #1=#:G365 |a| |count| |opPrec| |l| |tmpS| |p| |checkargs|)
+  (PROG (|tags| #1=#:G341 |a| |count| |opPrec| |l| |tmpS| |p| |checkargs|)
     (RETURN
      (SEQ
       (COND
@@ -1513,7 +1513,7 @@
 (DEFUN |HTMLFormat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G380)
+     (PROG (#1=#:G356)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|HTMLFormat|)

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TSETCAT-;=;2SB;1| (|ts| |us| $)
-  (PROG (#1=#:G202 #2=#:G199)
+  (PROG (#1=#:G178 #2=#:G175)
     (RETURN
      (COND ((SPADCALL |ts| (QREFELT $ 12)) (SPADCALL |us| (QREFELT $ 12)))
            ((OR (SPADCALL |us| (QREFELT $ 12))
@@ -29,7 +29,7 @@
              (QREFELT $ 18))))))) 
 
 (DEFUN |TSETCAT-;infRittWu?;2SB;2| (|ts| |us| $)
-  (PROG (|v| |q| #1=#:G210 |p|)
+  (PROG (|v| |q| #1=#:G186 |p|)
     (RETURN
      (SEQ
       (COND
@@ -274,7 +274,7 @@
       (EXIT |red|))))) 
 
 (DEFUN |TSETCAT-;reduce;PSMMP;13| (|p| |ts| |redOp| |redOp?| $)
-  (PROG (#1=#:G313 |reductor| #2=#:G310 |ts0|)
+  (PROG (#1=#:G289 |reductor| #2=#:G286 |ts0|)
     (RETURN
      (SEQ
       (COND
@@ -364,7 +364,7 @@
   (SPADCALL |p| |ts| (ELT $ 78) (ELT $ 79) (QREFELT $ 71))) 
 
 (DEFUN |TSETCAT-;removeZero;PSP;18| (|p| |ts| $)
-  (PROG (|q| #1=#:G366 #2=#:G357 |ts_v-| |v|)
+  (PROG (|q| #1=#:G342 #2=#:G333 |ts_v-| |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -462,7 +462,7 @@
   (SPADCALL |ts| (ELT $ 105) (QREFELT $ 100))) 
 
 (DEFUN |TSETCAT-;mvar;SV;25| (|ts| $)
-  (PROG (#1=#:G392)
+  (PROG (#1=#:G368)
     (RETURN
      (COND
       ((SPADCALL |ts| (QREFELT $ 12))
@@ -517,7 +517,7 @@
   (SPADCALL (ELT $ 22) (SPADCALL |ts| (QREFELT $ 28)) (QREFELT $ 36))) 
 
 (DEFUN |TSETCAT-;algebraicVariables;SL;30| (|ts| $)
-  (PROG (#1=#:G426 |p| #2=#:G425)
+  (PROG (#1=#:G402 |p| #2=#:G401)
     (RETURN
      (SEQ
       (PROGN
@@ -656,7 +656,7 @@
               (|error| "in extend : (%, P) -> % from TSETCAT : bad args")))))))) 
 
 (DEFUN |TSETCAT-;coHeight;SNni;39| (|ts| $)
-  (PROG (#1=#:G477 |m| |n|)
+  (PROG (#1=#:G453 |m| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL (QREFELT $ 127)) . #2=(|TSETCAT-;coHeight;SNni;39|))

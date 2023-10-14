@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POLYVEC;copy_first;2UvIV;1| (|np| |op| |n| $)
-  (PROG (#1=#:G142 |j| |ns|)
+  (PROG (#1=#:G118 |j| |ns|)
     (RETURN
      (SEQ (LETT |ns| |n| . #2=(|POLYVEC;copy_first;2UvIV;1|))
           (EXIT
@@ -12,7 +12,7 @@
                 (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |POLYVEC;copy_slice;2Uv2IV;2| (|np| |op| |m| |n| $)
-  (PROG (#1=#:G146 |j| |ns| |ms|)
+  (PROG (#1=#:G122 |j| |ns| |ms|)
     (RETURN
      (SEQ (LETT |ms| |m| . #2=(|POLYVEC;copy_slice;2Uv2IV;2|))
           (LETT |ns| |n| . #2#)
@@ -75,7 +75,7 @@
                 (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |POLYVEC;mul_by_binomial;Uv3IV;6| (|v| |n| |pt| |p| $)
-  (PROG (|prev_coeff| |pp| #1=#:G164 |i| |ns|)
+  (PROG (|prev_coeff| |pp| #1=#:G140 |i| |ns|)
     (RETURN
      (SEQ (LETT |prev_coeff| 0 . #2=(|POLYVEC;mul_by_binomial;Uv3IV;6|))
           (LETT |ns| |n| . #2#)
@@ -104,7 +104,7 @@
                 (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |POLYVEC;degree;UvI;9| (|v| $)
-  (PROG (#1=#:G170 #2=#:G172 |i| |n|)
+  (PROG (#1=#:G146 #2=#:G148 |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -126,7 +126,7 @@
 
 (DEFUN |POLYVEC;vector_combination;UvIUv4IV;10|
        (|v1| |c1| |v2| |c2| |n| |delta| |p| $)
-  (PROG (|i| #1=#:G181 |ds| |ns|)
+  (PROG (|i| #1=#:G157 |ds| |ns|)
     (RETURN
      (SEQ (LETT |ns| |n| . #2=(|POLYVEC;vector_combination;UvIUv4IV;10|))
           (LETT |ds| |delta| . #2#)
@@ -174,7 +174,7 @@
                     (EXIT NIL))))))))))) 
 
 (DEFUN |POLYVEC;divide!;3UvIV;11| (|r0| |r1| |res| |p| $)
-  (PROG (#1=#:G183 |dr0| #2=#:G185 |c1| |delta| |c0| |dr1|)
+  (PROG (#1=#:G159 |dr0| #2=#:G161 |c1| |delta| |c0| |dr1|)
     (RETURN
      (SEQ
       (LETT |dr0| (SPADCALL |r0| (QREFELT $ 26))
@@ -217,7 +217,7 @@
         #2# (EXIT #2#))))))) 
 
 (DEFUN |POLYVEC;remainder!;2UvIV;12| (|r0| |r1| |p| $)
-  (PROG (#1=#:G189 |dr0| #2=#:G191 |c1| |delta| |c0| |dr1|)
+  (PROG (#1=#:G165 |dr0| #2=#:G167 |c1| |delta| |c0| |dr1|)
     (RETURN
      (SEQ
       (LETT |dr0| (SPADCALL |r0| (QREFELT $ 26))
@@ -259,7 +259,7 @@
         #2# (EXIT #2#))))))) 
 
 (DEFUN |POLYVEC;gcd;2UvIUv;13| (|x| |y| |p| $)
-  (PROG (#1=#:G209 |c| |dr1| |r1| |dr0| |r0| |tmp| |tmpp| #2=#:G199 |c0| |c1|
+  (PROG (#1=#:G185 |c| |dr1| |r1| |dr0| |r0| |tmp| |tmpp| #2=#:G175 |c0| |c1|
          |delta|)
     (RETURN
      (SEQ
@@ -522,7 +522,7 @@
                    |p| (QREFELT $ 44))))) 
 
 (DEFUN |POLYVEC;differentiate;UvIUv;22| (|x| |p| $)
-  (PROG (|i1| #1=#:G250 |i| |r| #2=#:G244 |d|)
+  (PROG (|i1| #1=#:G226 |i| |r| #2=#:G220 |d|)
     (RETURN
      (SEQ
       (LETT |d| (- (QV_LEN_U32 |x|) 1) . #3=(|POLYVEC;differentiate;UvIUv;22|))
@@ -582,8 +582,8 @@
                            (EXIT |r|)))))))))))) 
 
 (DEFUN |POLYVEC;extended_gcd;2UvIL;24| (|x| |y| |p| $)
-  (PROG (|c| #1=#:G272 |t1| |t0| |#G126| |#G125| |s1| |s0| |#G124| |#G123|
-         |dr1| |dr0| |#G122| |#G121| |r1| |r0| |#G120| |#G119| #2=#:G263 |c0|
+  (PROG (|c| #1=#:G248 |t1| |t0| |#G126| |#G125| |s1| |s0| |#G124| |#G123|
+         |dr1| |dr0| |#G122| |#G121| |r1| |r0| |#G120| |#G119| #2=#:G239 |c0|
          |c1| |delta| |ds| |dt| |swapped| |#G117| |#G116|)
     (RETURN
      (SEQ
@@ -742,7 +742,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |POLYVEC;resultant;2Uv2I;25| (|x| |y| |p| $)
-  (PROG (|res| #1=#:G286 |dr0| |c1| |delta| |c0| |dr1| |#G134| |#G133| |r1|
+  (PROG (|res| #1=#:G262 |dr0| |c1| |delta| |c0| |dr1| |#G134| |#G133| |r1|
          |r0| |#G132| |#G131|)
     (RETURN
      (SEQ
@@ -874,7 +874,7 @@
 (DEFUN |U32VectorPolynomialOperations| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G288)
+     (PROG (#1=#:G264)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|U32VectorPolynomialOperations|)

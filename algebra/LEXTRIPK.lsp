@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LEXTRIPK;trueVariables| (|lp| $)
-  (PROG (|truels| #1=#:G145 #2=#:G151 |s| |lv|)
+  (PROG (|truels| #1=#:G121 #2=#:G127 |s| |lv|)
     (RETURN
      (SEQ
       (LETT |lv| (SPADCALL (SPADCALL |lp| (QREFELT $ 10)) (QREFELT $ 12))
@@ -25,7 +25,7 @@
       (EXIT (REVERSE |truels|)))))) 
 
 (DEFUN |LEXTRIPK;zeroDimensional?;LB;2| (|lp| $)
-  (PROG (|lq1| #1=#:G156 |p| #2=#:G155 |fglmpack| |truels|)
+  (PROG (|lq1| #1=#:G132 |p| #2=#:G131 |fglmpack| |truels|)
     (RETURN
      (SEQ
       (LETT |truels| (|LEXTRIPK;trueVariables| |lp| $)
@@ -55,7 +55,7 @@
                                         |fglmpack|))))))) 
 
 (DEFUN |LEXTRIPK;fglmIfCan;LU;3| (|lp| $)
-  (PROG (#1=#:G174 |q1| #2=#:G173 #3=#:G170 |foo| |lq1| #4=#:G172 |p| #5=#:G171
+  (PROG (#1=#:G150 |q1| #2=#:G149 #3=#:G146 |foo| |lq1| #4=#:G148 |p| #5=#:G147
          |fglmpack| |truels|)
     (RETURN
      (SEQ
@@ -120,7 +120,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |LEXTRIPK;groebner;2L;4| (|lp| $)
-  (PROG (#1=#:G182 |q1| #2=#:G181 |lq1| #3=#:G180 |p| #4=#:G179 |fglmpack|
+  (PROG (#1=#:G158 |q1| #2=#:G157 |lq1| #3=#:G156 |p| #4=#:G155 |fglmpack|
          |truels|)
     (RETURN
      (SEQ
@@ -171,7 +171,7 @@
              . #5#)))))) 
 
 (DEFUN |LEXTRIPK;lexTriangular;LBL;5| (|base| |norm?| $)
-  (PROG (|toSee| #1=#:G210 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
+  (PROG (|toSee| #1=#:G186 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
          |p| |toSave| |ts| |lpwt|)
     (RETURN
      (SEQ
@@ -360,7 +360,7 @@
         ('T (SPADCALL (QCDR |bar|) |norm?| (QREFELT $ 55))))))))) 
 
 (DEFUN |LEXTRIPK;squareFreeLexTriangular;LBL;7| (|base| |norm?| $)
-  (PROG (|toSee| #1=#:G242 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
+  (PROG (|toSee| #1=#:G218 |us| |newlp| |lus| |newp| |b| |lbwt| |bwt| |v| |lp|
          |p| |toSave| |ts| |lpwt|)
     (RETURN
      (SEQ
@@ -544,10 +544,10 @@
 
 (DECLAIM (NOTINLINE |LexTriangularPackage;|)) 
 
-(DEFUN |LexTriangularPackage| (&REST #1=#:G248)
+(DEFUN |LexTriangularPackage| (&REST #1=#:G224)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G249)
+     (PROG (#2=#:G225)
        (RETURN
         (COND
          ((LETT #2#

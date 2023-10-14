@@ -37,7 +37,7 @@
         ('T (CONS 1 "failed")))) 
 
 (DEFUN |GHENSEL;modInverse| (|c| |p| $)
-  (PROG (#1=#:G154)
+  (PROG (#1=#:G130)
     (RETURN
      (QCAR
       (PROG2
@@ -84,7 +84,7 @@
     (RETURN (PROGN (SPADCALL |x| |n| (QREFELT $ 30)))))) 
 
 (DEFUN |GHENSEL;GenExEuclid| (|fl| |cl| |rhs| $)
-  (PROG (#1=#:G182 |clp| #2=#:G183 |flp| #3=#:G181)
+  (PROG (#1=#:G158 |clp| #2=#:G159 |flp| #3=#:G157)
     (RETURN
      (SEQ
       (PROGN
@@ -107,9 +107,9 @@
             (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |GHENSEL;genFact| (|fln| |factlist| $)
-  (PROG (|auxfl| #1=#:G254 #2=#:G253 #3=#:G255 #4=#:G269 |f| #5=#:G268 |term|
-         |dp| #6=#:G267 #7=#:G266 #8=#:G265 |poly| |maxd| #9=#:G225 #10=#:G224
-         #11=#:G226 #12=#:G264 #13=#:G263 |pol| #14=#:G262)
+  (PROG (|auxfl| #1=#:G230 #2=#:G229 #3=#:G231 #4=#:G245 |f| #5=#:G244 |term|
+         |dp| #6=#:G243 #7=#:G242 #8=#:G241 |poly| |maxd| #9=#:G201 #10=#:G200
+         #11=#:G202 #12=#:G240 #13=#:G239 |pol| #14=#:G238)
     (RETURN
      (SEQ
       (COND
@@ -218,8 +218,8 @@
 
 (DEFUN |GHENSEL;HenselLift1|
        (|poly| |fln| |fl1| |cl1| |prime| |Modulus| |cinv| $)
-  (PROG (#1=#:G279 |flp| #2=#:G280 |vlp| #3=#:G278 |vl| |lcinv| |rhs| #4=#:G271
-         #5=#:G270 #6=#:G272 #7=#:G277 #8=#:G127 |lcp|)
+  (PROG (#1=#:G255 |flp| #2=#:G256 |vlp| #3=#:G254 |vl| |lcinv| |rhs| #4=#:G247
+         #5=#:G246 #6=#:G248 #7=#:G253 #8=#:G103 |lcp|)
     (RETURN
      (SEQ
       (LETT |lcp| (SPADCALL |poly| (QREFELT $ 24))
@@ -301,9 +301,9 @@
                       (GO G190) G191 (EXIT (NREVERSE #3#))))))))))))) 
 
 (DEFUN |GHENSEL;HenselLift;TPLRPPiR;10| (|poly| |tl1| |prime| |bound| $)
-  (PROG (|fln| |Modulus| #1=#:G309 |err| #2=#:G305 #3=#:G304 #4=#:G306
-         #5=#:G318 #6=#:G128 |nfln| |lcinv| #7=#:G317 |ffl1| #8=#:G316 |cl1|
-         #9=#:G286 |fl1| #10=#:G315 |ttl| #11=#:G314 |constp|)
+  (PROG (|fln| |Modulus| #1=#:G285 |err| #2=#:G281 #3=#:G280 #4=#:G282
+         #5=#:G294 #6=#:G104 |nfln| |lcinv| #7=#:G293 |ffl1| #8=#:G292 |cl1|
+         #9=#:G262 |fl1| #10=#:G291 |ttl| #11=#:G290 |constp|)
     (RETURN
      (SEQ
       (LETT |constp| (|spadConstant| $ 18)
@@ -421,10 +421,10 @@
       (EXIT (CONS |fln| |Modulus|)))))) 
 
 (DEFUN |GHENSEL;completeHensel;TPLRPPiL;11| (|m| |tl1| |prime| |bound| $)
-  (PROG (|finallist| |factlist| |fln| #1=#:G347 |term| #2=#:G346 |auxfl|
-         #3=#:G345 #4=#:G344 |aux| #5=#:G343 |poly| |dfn| |mm| |lcm1| |poly1|
-         |u| |pol| #6=#:G324 #7=#:G323 #8=#:G325 #9=#:G342 |tc| #10=#:G321
-         #11=#:G320 #12=#:G322 #13=#:G341 |auxl| |nm| |Modulus| |hlift|)
+  (PROG (|finallist| |factlist| |fln| #1=#:G323 |term| #2=#:G322 |auxfl|
+         #3=#:G321 #4=#:G320 |aux| #5=#:G319 |poly| |dfn| |mm| |lcm1| |poly1|
+         |u| |pol| #6=#:G300 #7=#:G299 #8=#:G301 #9=#:G318 |tc| #10=#:G297
+         #11=#:G296 #12=#:G298 #13=#:G317 |auxl| |nm| |Modulus| |hlift|)
     (RETURN
      (SEQ
       (LETT |hlift| (SPADCALL |m| |tl1| |prime| |bound| (QREFELT $ 60))
@@ -661,10 +661,10 @@
 
 (DECLAIM (NOTINLINE |GeneralHenselPackage;|)) 
 
-(DEFUN |GeneralHenselPackage| (&REST #1=#:G348)
+(DEFUN |GeneralHenselPackage| (&REST #1=#:G324)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G349)
+     (PROG (#2=#:G325)
        (RETURN
         (COND
          ((LETT #2#

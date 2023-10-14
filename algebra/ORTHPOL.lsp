@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ORTHPOL;laguerreL;Nni2R;1| (|n| |x| $)
-  (PROG (|p0| |p1| |#G9| |#G8| #1=#:G130 |i| |#G6| |#G5|)
+  (PROG (|p0| |p1| |#G9| |#G8| #1=#:G106 |i| |#G6| |#G5|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -42,7 +42,7 @@
               (EXIT |p1|)))))))) 
 
 (DEFUN |ORTHPOL;laguerreL;2Nni2R;2| (|m| |n| |x| $)
-  (PROG (|p1| |p0| |cx| #1=#:G132 #2=#:G138 |j| |mi| |ni|)
+  (PROG (|p1| |p0| |cx| #1=#:G108 #2=#:G114 |j| |mi| |ni|)
     (RETURN
      (SEQ (LETT |ni| |n| . #3=(|ORTHPOL;laguerreL;2Nni2R;2|))
           (LETT |mi| |m| . #3#)
@@ -75,7 +75,7 @@
           (EXIT |p1|))))) 
 
 (DEFUN |ORTHPOL;chebyshevT;Nni2R;3| (|n| |x| $)
-  (PROG (|p0| |p1| |#G20| |#G19| #1=#:G142 |i| |#G17| |#G16|)
+  (PROG (|p0| |p1| |#G20| |#G19| #1=#:G118 |i| |#G17| |#G16|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -104,7 +104,7 @@
               (EXIT |p1|)))))))) 
 
 (DEFUN |ORTHPOL;chebyshevU;Nni2R;4| (|n| |x| $)
-  (PROG (|p0| |p1| |#G27| |#G26| #1=#:G146 |i| |#G24| |#G23|)
+  (PROG (|p0| |p1| |#G27| |#G26| #1=#:G122 |i| |#G24| |#G23|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -134,7 +134,7 @@
               (EXIT |p1|)))))))) 
 
 (DEFUN |ORTHPOL;hermiteH;Nni2R;5| (|n| |x| $)
-  (PROG (|p0| |p1| |#G34| |#G33| #1=#:G150 |i| |#G31| |#G30|)
+  (PROG (|p0| |p1| |#G34| |#G33| #1=#:G126 |i| |#G31| |#G30|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -166,7 +166,7 @@
               (EXIT |p1|)))))))) 
 
 (DEFUN |ORTHPOL;legendreP;Nni2R;6| (|n| |x| $)
-  (PROG (|p0| |p1| |#G39| |#G38| |c| #1=#:G155 |i|)
+  (PROG (|p0| |p1| |#G39| |#G38| |c| #1=#:G131 |i|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 8))
@@ -201,10 +201,10 @@
 
 (DECLAIM (NOTINLINE |OrthogonalPolynomialFunctions;|)) 
 
-(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G156)
+(DEFUN |OrthogonalPolynomialFunctions| (#1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

@@ -127,10 +127,10 @@
 
 (DECLAIM (NOTINLINE |GeneralUnivariatePowerSeries;|)) 
 
-(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G188)
+(DEFUN |GeneralUnivariatePowerSeries| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G189)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#
@@ -150,8 +150,8 @@
                     '|GeneralUnivariatePowerSeries|))))))))))) 
 
 (DEFUN |GeneralUnivariatePowerSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G179 #2=#:G180 #3=#:G181 #4=#:G182 #5=#:G183 #6=#:G184
-         #7=#:G186 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G155 #2=#:G156 #3=#:G157 #4=#:G158 #5=#:G159 #6=#:G160
+         #7=#:G162 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|GeneralUnivariatePowerSeries|))

@@ -15,7 +15,7 @@
   (|SPLTREE;per| (CONS (SPADCALL |v| |t| (QREFELT $ 10)) |la|) $)) 
 
 (DEFUN |SPLTREE;construct;VCL$;5| (|v| |t| |ls| $)
-  (PROG (#1=#:G192 |s| #2=#:G191)
+  (PROG (#1=#:G168 |s| #2=#:G167)
     (RETURN
      (SEQ
       (|SPLTREE;per|
@@ -150,7 +150,7 @@
 (DEFUN |SPLTREE;cyclic?;$B;16| (|a| $) 'NIL) 
 
 (DEFUN |SPLTREE;map;M2$;17| (|foo| |a| $)
-  (PROG (#1=#:G230 |c| #2=#:G229 |b|)
+  (PROG (#1=#:G206 |c| #2=#:G205 |b|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) |a|)
@@ -189,7 +189,7 @@
                                 (QREFELT $ 40)))))))))))) 
 
 (DEFUN |SPLTREE;map!;M2$;18| (|foo| |a| $)
-  (PROG (#1=#:G237 |c| #2=#:G236)
+  (PROG (#1=#:G213 |c| #2=#:G212)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) |a|)
@@ -234,7 +234,7 @@
   (|error| "in eq? from SPLTREE : unimplemented")) 
 
 (DEFUN |SPLTREE;nodes;$L;21| (|a| $)
-  (PROG (#1=#:G246 |c| #2=#:G245)
+  (PROG (#1=#:G222 |c| #2=#:G221)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -262,7 +262,7 @@
                        (QREFELT $ 31)))))))) 
 
 (DEFUN |SPLTREE;leaves;$L;22| (|a| $)
-  (PROG (#1=#:G252 |c| #2=#:G251)
+  (PROG (#1=#:G228 |c| #2=#:G227)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -286,7 +286,7 @@
               (QREFELT $ 53)))))))) 
 
 (DEFUN |SPLTREE;members;$L;23| (|a| $)
-  (PROG (#1=#:G258 |c| #2=#:G257)
+  (PROG (#1=#:G234 |c| #2=#:G233)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -312,7 +312,7 @@
                     (QREFELT $ 53))))))))) 
 
 (DEFUN |SPLTREE;#;$Nni;24| (|a| $)
-  (PROG (#1=#:G266 |c| #2=#:G265)
+  (PROG (#1=#:G242 |c| #2=#:G241)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) 0) ((SPADCALL |a| (QREFELT $ 41)) 1)
@@ -353,7 +353,7 @@
                    (SPADCALL |a2| (QREFELT $ 28)) (QREFELT $ 62))))) 
 
 (DEFUN |SPLTREE;localCoerce| (|a| |k| $)
-  (PROG (|lo| #1=#:G281 |c| #2=#:G280 |ro| |s| |i|)
+  (PROG (|lo| #1=#:G257 |c| #2=#:G256 |ro| |s| |i|)
     (RETURN
      (SEQ
       (COND ((EQL |k| 1) (LETT |s| "* " . #3=(|SPLTREE;localCoerce|)))
@@ -404,7 +404,7 @@
               (QREFELT $ 71))))) 
 
 (DEFUN |SPLTREE;extractSplittingLeaf;$U;28| (|a| $)
-  (PROG (|la| #1=#:G294 |esl|)
+  (PROG (|la| #1=#:G270 |esl|)
     (RETURN
      (SEQ
       (EXIT
@@ -474,7 +474,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |SPLTREE;result;$L;30| (|a| $)
-  (PROG (#1=#:G311 |s| #2=#:G310 |ls|)
+  (PROG (#1=#:G287 |s| #2=#:G286 |ls|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -503,7 +503,7 @@
                      (EXIT (NREVERSE #2#)))))))))))) 
 
 (DEFUN |SPLTREE;conditions;$L;31| (|a| $)
-  (PROG (#1=#:G317 |s| #2=#:G316 |ls|)
+  (PROG (#1=#:G293 |s| #2=#:G292 |ls|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 22)) NIL)
@@ -640,10 +640,10 @@
 
 (DECLAIM (NOTINLINE |SplittingTree;|)) 
 
-(DEFUN |SplittingTree| (&REST #1=#:G357)
+(DEFUN |SplittingTree| (&REST #1=#:G333)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G358)
+     (PROG (#2=#:G334)
        (RETURN
         (COND
          ((LETT #2#
@@ -661,7 +661,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|SplittingTree|))))))))))) 
 
 (DEFUN |SplittingTree;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G354 #2=#:G355 #3=#:G356 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G330 #2=#:G331 #3=#:G332 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|SplittingTree|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FLOATRP;makeEq| (|nres| |lv| $)
-  (PROG (#1=#:G132 |x| #2=#:G133 |r| #3=#:G131)
+  (PROG (#1=#:G108 |x| #2=#:G109 |r| #3=#:G107)
     (RETURN
      (SEQ
       (PROGN
@@ -28,7 +28,7 @@
   (SPADCALL (SPADCALL |p| (QREFELT $ 15)) |eps| (QREFELT $ 18))) 
 
 (DEFUN |FLOATRP;realRoots;LLParL;3| (|lp| |lv| |eps| $)
-  (PROG (|lden| |dp| #1=#:G142 |p| #2=#:G141 |lnum| #3=#:G140 #4=#:G139)
+  (PROG (|lden| |dp| #1=#:G118 |p| #2=#:G117 |lnum| #3=#:G116 #4=#:G115)
     (RETURN
      (SEQ
       (LETT |lnum|
@@ -63,9 +63,9 @@
       (EXIT (SPADCALL |lnum| |lden| |lv| |eps| (QREFELT $ 27))))))) 
 
 (DEFUN |FLOATRP;solve;LParL;4| (|lp| |eps| $)
-  (PROG (#1=#:G162 |numres| #2=#:G161 |lv| #3=#:G149 #4=#:G148 #5=#:G150
-         #6=#:G160 |dp| #7=#:G146 #8=#:G145 #9=#:G147 #10=#:G159 |np| |lden|
-         #11=#:G158 |p| #12=#:G157 |lnum| #13=#:G156 #14=#:G155)
+  (PROG (#1=#:G138 |numres| #2=#:G137 |lv| #3=#:G125 #4=#:G124 #5=#:G126
+         #6=#:G136 |dp| #7=#:G122 #8=#:G121 #9=#:G123 #10=#:G135 |np| |lden|
+         #11=#:G134 |p| #12=#:G133 |lnum| #13=#:G132 #14=#:G131)
     (RETURN
      (SEQ
       (LETT |lnum|
@@ -165,10 +165,10 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |FLOATRP;solve;LParL;5| (|le| |eps| $)
-  (PROG (#1=#:G185 |numres| #2=#:G184 |lv| #3=#:G170 #4=#:G169 #5=#:G171
-         #6=#:G183 |dp| #7=#:G167 #8=#:G166 #9=#:G168 #10=#:G182 |np| |lden|
-         #11=#:G181 |p| #12=#:G180 |lnum| #13=#:G179 #14=#:G178 |lp| #15=#:G177
-         |ep| #16=#:G176)
+  (PROG (#1=#:G161 |numres| #2=#:G160 |lv| #3=#:G146 #4=#:G145 #5=#:G147
+         #6=#:G159 |dp| #7=#:G143 #8=#:G142 #9=#:G144 #10=#:G158 |np| |lden|
+         #11=#:G157 |p| #12=#:G156 |lnum| #13=#:G155 #14=#:G154 |lp| #15=#:G153
+         |ep| #16=#:G152)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -287,7 +287,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |FLOATRP;solve;FParL;6| (|p| |eps| $)
-  (PROG (#1=#:G194 |val| #2=#:G193 |x| |mvar|)
+  (PROG (#1=#:G170 |val| #2=#:G169 |x| |mvar|)
     (RETURN
      (SEQ
       (LETT |mvar| (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 42))
@@ -326,10 +326,10 @@
 
 (DECLAIM (NOTINLINE |FloatingRealPackage;|)) 
 
-(DEFUN |FloatingRealPackage| (#1=#:G196)
+(DEFUN |FloatingRealPackage| (#1=#:G172)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G197)
+     (PROG (#2=#:G173)
        (RETURN
         (COND
          ((LETT #2#

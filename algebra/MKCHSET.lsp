@@ -63,10 +63,10 @@
 
 (DECLAIM (NOTINLINE |MakeCachableSet;|)) 
 
-(DEFUN |MakeCachableSet| (#1=#:G148)
+(DEFUN |MakeCachableSet| (#1=#:G124)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G125)
        (RETURN
         (COND
          ((LETT #2#

@@ -23,10 +23,10 @@
 
 (DECLAIM (NOTINLINE |MultivariateFactorize;|)) 
 
-(DEFUN |MultivariateFactorize| (&REST #1=#:G132)
+(DEFUN |MultivariateFactorize| (&REST #1=#:G108)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G109)
        (RETURN
         (COND
          ((LETT #2#

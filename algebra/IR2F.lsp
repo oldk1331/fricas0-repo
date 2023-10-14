@@ -13,7 +13,7 @@
    (QREFELT $ 20))) 
 
 (DEFUN |IR2F;pairprod| (|x| |l| $)
-  (PROG (#1=#:G157 |y| #2=#:G156)
+  (PROG (#1=#:G133 |y| #2=#:G132)
     (RETURN
      (SEQ
       (PROGN
@@ -29,7 +29,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |IR2F;evenRoots| (|x| $)
-  (PROG (#1=#:G164 |k| #2=#:G163)
+  (PROG (#1=#:G140 |k| #2=#:G139)
     (RETURN
      (SEQ
       (PROGN
@@ -73,7 +73,7 @@
             (|IR2F;mkRealFunc| (SPADCALL |j| (QREFELT $ 36)) $) $)))))) 
 
 (DEFUN |IR2F;split;2Ir;6| (|i| $)
-  (PROG (#1=#:G173 |l| #2=#:G172)
+  (PROG (#1=#:G149 |l| #2=#:G148)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL |i| (QREFELT $ 13))
@@ -94,7 +94,7 @@
                 (SPADCALL |i| (QREFELT $ 16)) (QREFELT $ 19)))))) 
 
 (DEFUN |IR2F;complexExpand;IrF;7| (|i| $)
-  (PROG (#1=#:G176 #2=#:G175 #3=#:G177 #4=#:G180 |lg| |j|)
+  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G156 |lg| |j|)
     (RETURN
      (SEQ
       (LETT |j| (SPADCALL |i| (QREFELT $ 35))
@@ -274,7 +274,7 @@
               (QREFELT $ 51))))) 
 
 (DEFUN |IR2F;ilog| (|a| |b| |lk| $)
-  (PROG (|k| #1=#:G197 #2=#:G196 #3=#:G198 #4=#:G202 #5=#:G127 |l|)
+  (PROG (|k| #1=#:G173 #2=#:G172 #3=#:G174 #4=#:G178 #5=#:G103 |l|)
     (RETURN
      (SEQ
       (LETT |l|
@@ -385,7 +385,7 @@
                          (QREFELT $ 42))))))))))))))) 
 
 (DEFUN |IR2F;lg2func| (|lg| $)
-  (PROG (#1=#:G225 #2=#:G221 |alpha| |r| |d| |p|)
+  (PROG (#1=#:G201 #2=#:G197 |alpha| |r| |d| |p|)
     (RETURN
      (SEQ
       (COND
@@ -448,7 +448,7 @@
          #1# (EXIT #1#)))))))) 
 
 (DEFUN |IR2F;lg2cfunc| (|lg| $)
-  (PROG (#1=#:G230 #2=#:G229 #3=#:G231 #4=#:G233 |alpha|)
+  (PROG (#1=#:G206 #2=#:G205 #3=#:G207 #4=#:G209 |alpha|)
     (RETURN
      (SEQ
       (PROGN
@@ -468,7 +468,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 43)))))))) 
 
 (DEFUN |IR2F;mkRealFunc| (|l| $)
-  (PROG (|ans| #1=#:G238 |lg|)
+  (PROG (|ans| #1=#:G214 |lg|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|IR2F;mkRealFunc|))
           (SEQ (LETT |lg| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -504,7 +504,7 @@
                  (QREFELT $ 11))))))) 
 
 (DEFUN |IR2F;quadeval| (|p| |a| |b| |delta| $)
-  (PROG (|ai| |bi| |temp| |d| |c| #1=#:G247 |i| |v|)
+  (PROG (|ai| |bi| |temp| |d| |c| #1=#:G223 |i| |v|)
     (RETURN
      (SEQ
       (COND
@@ -553,7 +553,7 @@
          (EXIT (CONS |c| |d|))))))))) 
 
 (DEFUN |IR2F;compatible?| (|lx| |ly| $)
-  (PROG (#1=#:G252 #2=#:G256 |s| #3=#:G258 |y| #4=#:G257 |x|)
+  (PROG (#1=#:G228 #2=#:G232 |s| #3=#:G234 |y| #4=#:G233 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -595,7 +595,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |IR2F;pairsum| (|lx| |ly| $)
-  (PROG (|l| |ln| #1=#:G268 |y| #2=#:G267 |ls| #3=#:G266 |x|)
+  (PROG (|l| |ln| #1=#:G244 |y| #2=#:G243 |ls| #3=#:G242 |x|)
     (RETURN
      (SEQ
       (COND ((NULL |lx|) |ly|) ((NULL |ly|) |lx|)
@@ -665,7 +665,7 @@
                     (EXIT (COND ((QEQCAR |s| 1) 0) (#2# (QCDR |s|))))))))))))) 
 
 (DEFUN |IR2F;nlogs| (|lg| $)
-  (PROG (#1=#:G284 |f| #2=#:G283)
+  (PROG (#1=#:G260 |f| #2=#:G259)
     (RETURN
      (SEQ
       (PROGN
@@ -695,10 +695,10 @@
 
 (DECLAIM (NOTINLINE |IntegrationResultToFunction;|)) 
 
-(DEFUN |IntegrationResultToFunction| (&REST #1=#:G285)
+(DEFUN |IntegrationResultToFunction| (&REST #1=#:G261)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G286)
+     (PROG (#2=#:G262)
        (RETURN
         (COND
          ((LETT #2#

@@ -6,12 +6,12 @@
 (DEFPARAMETER |PrincipalIdealDomain;AL| 'NIL) 
 
 (DEFUN |PrincipalIdealDomain| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|PrincipalIdealDomain;AL|)
           (T (SETQ |PrincipalIdealDomain;AL| (|PrincipalIdealDomain;|)))))) 
 
 (DEFUN |PrincipalIdealDomain;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

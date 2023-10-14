@@ -6,14 +6,14 @@
 (DEFPARAMETER |ElementaryFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ElementaryFunctionCategory| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|ElementaryFunctionCategory;AL|)
           (T
            (SETQ |ElementaryFunctionCategory;AL|
                    (|ElementaryFunctionCategory;|)))))) 
 
 (DEFUN |ElementaryFunctionCategory;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CHARPOL;characteristicPolynomial;M2R;1| (A |v| $)
-  (PROG (|j| |i| B |dimA| #1=#:G128)
+  (PROG (|j| |i| B |dimA| #1=#:G104)
     (RETURN
      (SEQ
       (LETT |dimA|
@@ -39,10 +39,10 @@
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialPackage;|)) 
 
-(DEFUN |CharacteristicPolynomialPackage| (#1=#:G135)
+(DEFUN |CharacteristicPolynomialPackage| (#1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

@@ -6,14 +6,14 @@
 (DEFPARAMETER |TrigonometricFunctionCategory;AL| 'NIL) 
 
 (DEFUN |TrigonometricFunctionCategory| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|TrigonometricFunctionCategory;AL|)
           (T
            (SETQ |TrigonometricFunctionCategory;AL|
                    (|TrigonometricFunctionCategory;|)))))) 
 
 (DEFUN |TrigonometricFunctionCategory;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

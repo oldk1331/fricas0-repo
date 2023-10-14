@@ -18,7 +18,7 @@
                (SPADCALL (QCAR |qr|) (QVELT |rec| 0) (QREFELT $ 16)))))))) 
 
 (DEFUN |INTHERTR;normalHermiteIntegrate| (|f| |derivation| $)
-  (PROG (|mult| |p| |a| #1=#:G138 |qr| |bc| #2=#:G142 |qtil| |qbarhat| |g|
+  (PROG (|mult| |p| |a| #1=#:G114 |qr| |bc| #2=#:G118 |qtil| |qbarhat| |g|
          |qbar| |qhat| |g0| |q|)
     (RETURN
      (SEQ
@@ -118,10 +118,10 @@
 
 (DECLAIM (NOTINLINE |TranscendentalHermiteIntegration;|)) 
 
-(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G149)
+(DEFUN |TranscendentalHermiteIntegration| (&REST #1=#:G125)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G126)
        (RETURN
         (COND
          ((LETT #2#

@@ -35,7 +35,7 @@
             (QREFELT $ 44))) 
 
 (DEFUN |ITRIGMNP;ker2explogs| (|k| |l| $)
-  (PROG (|e| |z| |args| #1=#:G181 |a| #2=#:G180 |kf|)
+  (PROG (|e| |z| |args| #1=#:G157 |a| #2=#:G156 |kf|)
     (RETURN
      (SEQ
       (LETT |kf| (SPADCALL |k| (QREFELT $ 47)) . #3=(|ITRIGMNP;ker2explogs|))
@@ -115,8 +115,8 @@
             (QREFELT $ 63))) 
 
 (DEFUN |ITRIGMNP;ker2trigs| (|op| |arg| $)
-  (PROG (#1=#:G227 |x| #2=#:G226 #3=#:G225 #4=#:G224 |a| #5=#:G223 #6=#:G222
-         #7=#:G184 #8=#:G183 #9=#:G185 #10=#:G221)
+  (PROG (#1=#:G203 |x| #2=#:G202 #3=#:G201 #4=#:G200 |a| #5=#:G199 #6=#:G198
+         #7=#:G160 #8=#:G159 #9=#:G161 #10=#:G197)
     (RETURN
      (SEQ
       (COND
@@ -294,7 +294,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 47)) (QREFELT $ 117))) 
 
 (DEFUN |ITRIGMNP;explogs2trigs;FGC;12| (|f| $)
-  (PROG (|g| |b| |gi| |y| |e| |den| |num| |arg| #1=#:G243 |x| #2=#:G242 |op|
+  (PROG (|g| |b| |gi| |y| |e| |den| |num| |arg| #1=#:G219 |x| #2=#:G218 |op|
          |k| |m| |df| |nf|)
     (RETURN
      (SEQ
@@ -429,10 +429,10 @@
 
 (DECLAIM (NOTINLINE |InnerTrigonometricManipulations;|)) 
 
-(DEFUN |InnerTrigonometricManipulations| (&REST #1=#:G254)
+(DEFUN |InnerTrigonometricManipulations| (&REST #1=#:G230)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G255)
+     (PROG (#2=#:G231)
        (RETURN
         (COND
          ((LETT #2#

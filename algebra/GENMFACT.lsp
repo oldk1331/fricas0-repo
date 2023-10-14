@@ -40,10 +40,10 @@
 
 (DECLAIM (NOTINLINE |GeneralizedMultivariateFactorize;|)) 
 
-(DEFUN |GeneralizedMultivariateFactorize| (&REST #1=#:G130)
+(DEFUN |GeneralizedMultivariateFactorize| (&REST #1=#:G106)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G107)
        (RETURN
         (COND
          ((LETT #2#

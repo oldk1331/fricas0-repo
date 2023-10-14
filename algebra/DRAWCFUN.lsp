@@ -320,7 +320,7 @@
 (DEFUN |DRAWCFUN;zCoord| (|x| |y| |z| $) |z|) 
 
 (DEFUN |DRAWCFUN;colorPoints| (|llp| |func| $)
-  (PROG (#1=#:G208 |p| #2=#:G207 |lp|)
+  (PROG (#1=#:G184 |p| #2=#:G183 |lp|)
     (RETURN
      (SEQ
       (SEQ (LETT |lp| NIL . #3=(|DRAWCFUN;colorPoints|)) (LETT #2# |llp| . #3#)
@@ -347,7 +347,7 @@
       (EXIT |llp|))))) 
 
 (DEFUN |DRAWCFUN;makeObject;PscSLTs;14| (|psc| |seg| |l| $)
-  (PROG (#1=#:G243 |b| |br| |c3| |loops| |tub| |rad| |pts| |s| |pl| |fcn| |cc|
+  (PROG (#1=#:G219 |b| |br| |c3| |loops| |tub| |rad| |pts| |s| |pl| |fcn| |cc|
          |c| |pointsColored?| |c1| |h| |g| |f| |sp|)
     (RETURN
      (SEQ
@@ -462,7 +462,7 @@
        (|DRAWCFUN;myTrap1| (CONS (|function| |DRAWCFUN;id|) $) |x| $) $))))) 
 
 (DEFUN |DRAWCFUN;makeObject;MSLTs;15| (|psc| |seg| |l| $)
-  (PROG (#1=#:G261 |b| |br| |loops| |tub| |rad| |pts| |s| |pl| |fcn| |cc| |c|
+  (PROG (#1=#:G237 |b| |br| |loops| |tub| |rad| |pts| |s| |pl| |fcn| |cc| |c|
          |pointsColored?| |c1| |sp|)
     (RETURN
      (SEQ
@@ -904,7 +904,7 @@
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G419)
+     (PROG (#1=#:G395)
        (RETURN
         (COND
          ((LETT #1#

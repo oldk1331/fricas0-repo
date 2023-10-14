@@ -32,8 +32,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |FRNAALG-;rank_polynomial| (|left| $)
-  (PROG (|cijk| |mxjk| |k| |j| |mo| |i| |mx| |x| |symbolsForCoef| #1=#:G154
-         #2=#:G156 #3=#:G155 |listOfNumbers| |q| #4=#:G153 |gamma| |b| |n|)
+  (PROG (|cijk| |mxjk| |k| |j| |mo| |i| |mx| |x| |symbolsForCoef| #1=#:G130
+         #2=#:G132 #3=#:G131 |listOfNumbers| |q| #4=#:G129 |gamma| |b| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL (QREFELT $ 11)) . #5=(|FRNAALG-;rank_polynomial|))
@@ -154,7 +154,7 @@
       (EXIT (SPADCALL |cond| |rhs| (QREFELT $ 58))))))) 
 
 (DEFUN |FRNAALG-;leftUnit;U;6| ($)
-  (PROG (#1=#:G171 |res|)
+  (PROG (#1=#:G147 |res|)
     (RETURN
      (SEQ
       (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
@@ -173,7 +173,7 @@
                 (QREFELT $ 62)))))))))) 
 
 (DEFUN |FRNAALG-;leftUnits;U;7| ($)
-  (PROG (#1=#:G185 |res|)
+  (PROG (#1=#:G161 |res|)
     (RETURN
      (SEQ
       (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
@@ -236,7 +236,7 @@
       (EXIT (SPADCALL |condo| |rhs| (QREFELT $ 58))))))) 
 
 (DEFUN |FRNAALG-;rightUnit;U;9| ($)
-  (PROG (#1=#:G207 |res|)
+  (PROG (#1=#:G183 |res|)
     (RETURN
      (SEQ
       (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
@@ -255,7 +255,7 @@
                 (QREFELT $ 62)))))))))) 
 
 (DEFUN |FRNAALG-;rightUnits;U;10| ($)
-  (PROG (#1=#:G218 |res|)
+  (PROG (#1=#:G194 |res|)
     (RETURN
      (SEQ
       (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
@@ -276,7 +276,7 @@
                 (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69))))))))))) 
 
 (DEFUN |FRNAALG-;unit;U;11| ($)
-  (PROG (#1=#:G234 |res| |j| |addOn| |z| |i| |k| |u| |rhs| |cond| |gamma| |b|
+  (PROG (#1=#:G210 |res| |j| |addOn| |z| |i| |k| |u| |rhs| |cond| |gamma| |b|
          |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL (QREFELT $ 11)) . #2=(|FRNAALG-;unit;U;11|))
@@ -387,7 +387,7 @@
   (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
 
 (DEFUN |FRNAALG-;coordinates;VM;25| (|v| $)
-  (PROG (#1=#:G256 |i| |j| |m|)
+  (PROG (#1=#:G232 |i| |j| |m|)
     (RETURN
      (SEQ
       (LETT |m|

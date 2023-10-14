@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UPDIVP;divideIfCan;2UPU;1| (|p1| |p2| $)
-  (PROG (|q| |ee| #1=#:G133 #2=#:G150 |c| |e| |lc|)
+  (PROG (|q| |ee| #1=#:G109 #2=#:G126 |c| |e| |lc|)
     (RETURN
      (SEQ
       (EXIT
@@ -77,10 +77,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDivisionPackage;|)) 
 
-(DEFUN |UnivariatePolynomialDivisionPackage| (&REST #1=#:G151)
+(DEFUN |UnivariatePolynomialDivisionPackage| (&REST #1=#:G127)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G128)
        (RETURN
         (COND
          ((LETT #2#

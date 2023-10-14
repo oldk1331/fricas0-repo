@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |INTSLPE;solveLinearPolynomialEquation;LSupU;1| (|lp| |p| $)
-  (PROG (|answer| #1=#:G135 |ans| |deg| #2=#:G132 #3=#:G131 #4=#:G133 #5=#:G143
+  (PROG (|answer| #1=#:G111 |ans| |deg| #2=#:G108 #3=#:G107 #4=#:G109 #5=#:G119
          |u|)
     (RETURN
      (SEQ
@@ -58,7 +58,7 @@
 (DEFUN |IntegerSolveLinearPolynomialEquation| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G145)
+     (PROG (#1=#:G121)
        (RETURN
         (COND
          ((LETT #1#

@@ -6,11 +6,11 @@
 (DEFPARAMETER |GcdDomain;AL| 'NIL) 
 
 (DEFUN |GcdDomain| ()
-  (LET (#:G135)
+  (LET (#:G111)
     (COND (|GcdDomain;AL|) (T (SETQ |GcdDomain;AL| (|GcdDomain;|)))))) 
 
 (DEFUN |GcdDomain;| ()
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (PROG1
          (LETT #1#

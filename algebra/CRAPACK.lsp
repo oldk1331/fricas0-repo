@@ -14,7 +14,7 @@
                  (QREFELT $ 18))))))) 
 
 (DEFUN |CRAPACK;chineseRemainder;2LR;2| (|lv| |lm| $)
-  (PROG (|y| |l| #1=#:G151 |v| #2=#:G152 |u| #3=#:G153 |m| #4=#:G150 |linv|
+  (PROG (|y| |l| #1=#:G127 |v| #2=#:G128 |u| #3=#:G129 |m| #4=#:G126 |linv|
          |inv| |x|)
     (RETURN
      (SEQ
@@ -99,8 +99,8 @@
             (SPADCALL |x2| |x3| (QREFELT $ 13)) (QREFELT $ 24))) 
 
 (DEFUN |CRAPACK;chineseRemainder;L2L;3| (|llv| |lm| $)
-  (PROG (|retVal| |y| |l| #1=#:G170 |v| #2=#:G171 |u3| #3=#:G172 |m| #4=#:G169
-         #5=#:G168 |lv| |linv| |inv| |u| |x|)
+  (PROG (|retVal| |y| |l| #1=#:G146 |v| #2=#:G147 |u3| #3=#:G148 |m| #4=#:G145
+         #5=#:G144 |lv| |linv| |inv| |u| |x|)
     (RETURN
      (SEQ
       (LETT |x| (SPADCALL (LENGTH |lm|) (|spadConstant| $ 8) (QREFELT $ 10))
@@ -229,10 +229,10 @@
 
 (DECLAIM (NOTINLINE |CRApackage;|)) 
 
-(DEFUN |CRApackage| (#1=#:G186)
+(DEFUN |CRApackage| (#1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#

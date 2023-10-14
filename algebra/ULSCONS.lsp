@@ -33,7 +33,7 @@
   (SPADCALL (SPADCALL |i| (QREFELT $ 22)) (QREFELT $ 21))) 
 
 (DEFUN |ULSCONS;taylorIfCan;$U;12| (|uls| $)
-  (PROG (#1=#:G191 |n|)
+  (PROG (#1=#:G167 |n|)
     (RETURN
      (SEQ
       (LETT |n| (|ULSCONS;getExpon| |uls| $)
@@ -202,7 +202,7 @@
            ('T |x|))))) 
 
 (DEFUN |ULSCONS;=;2$B;23| (|x| |y| $)
-  (PROG (#1=#:G267 #2=#:G258 |expDiff|)
+  (PROG (#1=#:G243 #2=#:G234 |expDiff|)
     (RETURN
      (SEQ
       (COND ((EQ |x| |y|) 'T)
@@ -251,7 +251,7 @@
                        (EXIT (< (SPADCALL |x| (QREFELT $ 12)) 0)))))))))) 
 
 (DEFUN |ULSCONS;+;3$;25| (|x| |y| $)
-  (PROG (#1=#:G278 #2=#:G277 |n|)
+  (PROG (#1=#:G254 #2=#:G253 |n|)
     (RETURN
      (SEQ
       (LETT |n| (- (|ULSCONS;getExpon| |x| $) (|ULSCONS;getExpon| |y| $))
@@ -287,7 +287,7 @@
                    (QREFELT $ 10))))))))) 
 
 (DEFUN |ULSCONS;-;3$;26| (|x| |y| $)
-  (PROG (#1=#:G283 #2=#:G282 |n|)
+  (PROG (#1=#:G259 #2=#:G258 |n|)
     (RETURN
      (SEQ
       (LETT |n| (- (|ULSCONS;getExpon| |x| $) (|ULSCONS;getExpon| |y| $))
@@ -362,7 +362,7 @@
                                   (QREFELT $ 10)))))))))))))) 
 
 (DEFUN |ULSCONS;elt;3$;30| (|uls1| |uls2| $)
-  (PROG (#1=#:G314 |uts1| |recipr| |deg| |uts2| |uts|)
+  (PROG (#1=#:G290 |uts1| |recipr| |deg| |uts2| |uts|)
     (RETURN
      (SEQ
       (LETT |uts| (SPADCALL |uls2| (QREFELT $ 30)) . #2=(|ULSCONS;elt;3$;30|))
@@ -424,7 +424,7 @@
                   (QREFELT $ 20))))))))))))) 
 
 (DEFUN |ULSCONS;eval;$CoefS;31| (|uls| |r| $)
-  (PROG (#1=#:G333 #2=#:G326 |recipr| |n| |uts|)
+  (PROG (#1=#:G309 #2=#:G302 |recipr| |n| |uts|)
     (RETURN
      (SEQ
       (SEQ
@@ -471,7 +471,7 @@
   (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 91))) 
 
 (DEFUN |ULSCONS;coefficient;$ICoef;34| (|x| |n| $)
-  (PROG (#1=#:G342 |a|)
+  (PROG (#1=#:G318 |a|)
     (RETURN
      (SEQ
       (LETT |a| (- |n| (|ULSCONS;getExpon| |x| $))
@@ -492,7 +492,7 @@
      (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 94)))) 
 
 (DEFUN |ULSCONS;order;$2I;37| (|x| |n| $)
-  (PROG (#1=#:G349 |m| |e|)
+  (PROG (#1=#:G325 |m| |e|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -511,7 +511,7 @@
                            (QREFELT $ 96)))))))))) 
 
 (DEFUN |ULSCONS;truncate;$I$;38| (|x| |n| $)
-  (PROG (#1=#:G352 |m| |e|)
+  (PROG (#1=#:G328 |m| |e|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -532,7 +532,7 @@
                         (QREFELT $ 10))))))))) 
 
 (DEFUN |ULSCONS;truncate;$2I$;39| (|x| |n1| |n2| $)
-  (PROG (#1=#:G356 #2=#:G355 |m1| |e| |#G61| |#G60|)
+  (PROG (#1=#:G332 #2=#:G331 |m1| |e| |#G61| |#G60|)
     (RETURN
      (SEQ
       (COND
@@ -560,7 +560,7 @@
                         (QREFELT $ 10))))))))) 
 
 (DEFUN |ULSCONS;rationalFunction;$IF;40| (|x| |n| $)
-  (PROG (#1=#:G364 #2=#:G363 |c| |v| |poly| #3=#:G360 |m| |e|)
+  (PROG (#1=#:G340 #2=#:G339 |c| |v| |poly| #3=#:G336 |m| |e|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -620,7 +620,7 @@
                                      (QREFELT $ 113))))))))))))))))) 
 
 (DEFUN |ULSCONS;rationalFunction;$2IF;41| (|x| |n1| |n2| $)
-  (PROG (#1=#:G376 #2=#:G375 |c| |v| |poly| #3=#:G372 #4=#:G371 |m1| |e| |#G68|
+  (PROG (#1=#:G352 #2=#:G351 |c| |v| |poly| #3=#:G348 #4=#:G347 |m1| |e| |#G68|
          |#G67|)
     (RETURN
      (SEQ
@@ -715,7 +715,7 @@
                                   (QCDR |uts|) (QREFELT $ 10)))))))))))))) 
 
 (DEFUN |ULSCONS;approximate;$ICoef;43| (|x| |n| $)
-  (PROG (|app| #1=#:G392 |m| |e|)
+  (PROG (|app| #1=#:G368 |m| |e|)
     (RETURN
      (SEQ
       (LETT |m|
@@ -752,7 +752,7 @@
             (SPADCALL (|ULSCONS;getUTS| |x| $) (QREFELT $ 125)) (QREFELT $ 10))) 
 
 (DEFUN |ULSCONS;extend;$I$;45| (|x| |n| $)
-  (PROG (#1=#:G397 |m| |e|)
+  (PROG (#1=#:G373 |m| |e|)
     (RETURN
      (SEQ (LETT |e| (|ULSCONS;getExpon| |x| $) . #2=(|ULSCONS;extend;$I$;45|))
           (LETT |m| (- |n| |e|) . #2#)
@@ -844,7 +844,7 @@
 (DEFUN |ULSCONS;retractIfCan;$U;53| (|x| $) (SPADCALL |x| (QREFELT $ 30))) 
 
 (DEFUN |ULSCONS;^;$I$;54| (|x| |n| $)
-  (PROG (|minusN| #1=#:G422 |xInv| #2=#:G421)
+  (PROG (|minusN| #1=#:G398 |xInv| #2=#:G397)
     (RETURN
      (SEQ
       (COND
@@ -916,7 +916,7 @@
                           (#2# (|ULSCONS;getUTS| |x| $)))))))))))) 
 
 (DEFUN |ULSCONS;denom;$UTS;61| (|x| $)
-  (PROG (#1=#:G445 |n|)
+  (PROG (#1=#:G421 |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |x| (QREFELT $ 12)) . #2=(|ULSCONS;denom;$UTS;61|))
@@ -1219,10 +1219,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructor;|)) 
 
-(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G571)
+(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G547)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G572)
+     (PROG (#2=#:G548)
        (RETURN
         (COND
          ((LETT #2#
@@ -1244,8 +1244,8 @@
                     '|UnivariateLaurentSeriesConstructor|))))))))))) 
 
 (DEFUN |UnivariateLaurentSeriesConstructor;| (|#1| |#2|)
-  (PROG (#1=#:G570 |pv$| #2=#:G558 #3=#:G559 #4=#:G560 #5=#:G561 #6=#:G563
-         #7=#:G564 #8=#:G565 #9=#:G566 #10=#:G567 #11=#:G569 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G546 |pv$| #2=#:G534 #3=#:G535 #4=#:G536 #5=#:G537 #6=#:G539
+         #7=#:G540 #8=#:G541 #9=#:G542 #10=#:G543 #11=#:G545 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

@@ -17,7 +17,7 @@
                          (QREFELT $ 16)))))))))) 
 
 (DEFUN |EXPR2UPS;iTaylor| (|fcn| |x| |a| $)
-  (PROG (|any1| |uts| |uls| #1=#:G155 |ans| |pack| |Uts| |Uls|)
+  (PROG (|any1| |uts| |uls| #1=#:G131 |ans| |pack| |Uts| |Uls|)
     (RETURN
      (SEQ
       (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT $ 7) |x| |a|)
@@ -249,7 +249,7 @@
                                        |any1|))))))))))) 
 
 (DEFUN |EXPR2UPS;iLaurent| (|fcn| |x| |a| $)
-  (PROG (#1=#:G196 |any1| |ans| |pack| |Uts| |Uls|)
+  (PROG (#1=#:G172 |any1| |ans| |pack| |Uts| |Uls|)
     (RETURN
      (SEQ
       (LETT |Uls| (|UnivariateLaurentSeries| (QREFELT $ 7) |x| |a|)
@@ -457,7 +457,7 @@
                                        |any1|))))))))))) 
 
 (DEFUN |EXPR2UPS;iPuiseux| (|fcn| |x| |a| $)
-  (PROG (#1=#:G233 |any1| |ans| |pack| |Ups| |Uls| |Uts|)
+  (PROG (#1=#:G209 |any1| |ans| |pack| |Ups| |Uls| |Uts|)
     (RETURN
      (SEQ
       (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT $ 7) |x| |a|)
@@ -675,7 +675,7 @@
                                        |any1|))))))))))) 
 
 (DEFUN |EXPR2UPS;iSeries| (|fcn| |x| |a| $)
-  (PROG (|any1| #1=#:G269 |anyone| |ansG| |ans| |pack| |Uls| |Uts|)
+  (PROG (|any1| #1=#:G245 |anyone| |ansG| |ans| |pack| |Uls| |Uts|)
     (RETURN
      (SEQ
       (LETT |Uts| (|UnivariateTaylorSeries| (QREFELT $ 7) |x| |a|)
@@ -956,10 +956,10 @@
 
 (DECLAIM (NOTINLINE |ExpressionToUnivariatePowerSeries;|)) 
 
-(DEFUN |ExpressionToUnivariatePowerSeries| (&REST #1=#:G299)
+(DEFUN |ExpressionToUnivariatePowerSeries| (&REST #1=#:G275)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G300)
+     (PROG (#2=#:G276)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,9 +2,9 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PERMGRP;shortenWord| (|lw| |gp| $)
-  (PROG (|do_res| |flag1| |newlw| #1=#:G185 |anzahl| |flag2| |res| |test|
-         #2=#:G197 |el| |pos| #3=#:G196 |i| |orderList| #4=#:G195 |gen|
-         #5=#:G194 |gpgens|)
+  (PROG (|do_res| |flag1| |newlw| #1=#:G161 |anzahl| |flag2| |res| |test|
+         #2=#:G173 |el| |pos| #3=#:G172 |i| |orderList| #4=#:G171 |gen|
+         #5=#:G170 |gpgens|)
     (RETURN
      (SEQ
       (LETT |gpgens| (SPADCALL |gp| (QREFELT $ 9))
@@ -139,7 +139,7 @@
           (EXIT |q|))))) 
 
 (DEFUN |PERMGRP;testIdentity| (|p| $)
-  (PROG (#1=#:G208 #2=#:G210 |i| |degree|)
+  (PROG (#1=#:G184 #2=#:G186 |i| |degree|)
     (RETURN
      (SEQ
       (EXIT
@@ -163,8 +163,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PERMGRP;cosetRep1| (|ppt| |do_words| |o| |grpv| |wordv| $)
-  (PROG (#1=#:G220 |p| |word| |xelt| |tmpv| |#G25| |#G24| |x| |osvc| |oorb|
-         #2=#:G221 |n| #3=#:G222 |degree|)
+  (PROG (#1=#:G196 |p| |word| |xelt| |tmpv| |#G25| |#G24| |x| |osvc| |oorb|
+         #2=#:G197 |n| #3=#:G198 |degree|)
     (RETURN
      (SEQ
       (EXIT
@@ -243,7 +243,7 @@
              (REVERSE (QCDR |cr|)))))))) 
 
 (DEFUN |PERMGRP;strip| (|z| |i| |do_words| |orbs| |grpv| |wordv| $)
-  (PROG (|word| |tmpv| |#G38| |#G37| |ee| |noresult| #1=#:G232 |entry| |p| |s|
+  (PROG (|word| |tmpv| |#G38| |#G37| |ee| |noresult| #1=#:G208 |entry| |p| |s|
          |orbj| |j| |degree|)
     (RETURN
      (SEQ (LETT |degree| (SPADCALL |z| (QREFELT $ 27)) . #2=(|PERMGRP;strip|))
@@ -296,7 +296,7 @@
           (EXIT (CONS |z| |word|)))))) 
 
 (DEFUN |PERMGRP;orbitInternal| (|gp| |startList| $)
-  (PROG (|pos| |orbitList| |newList| |j| |workList| #1=#:G246 |gen| |gpset|)
+  (PROG (|pos| |orbitList| |newList| |j| |workList| #1=#:G222 |gen| |gpset|)
     (RETURN
      (SEQ (LETT |orbitList| (LIST |startList|) . #2=(|PERMGRP;orbitInternal|))
           (LETT |pos| 1 . #2#)
@@ -341,8 +341,8 @@
           (EXIT (REVERSE |orbitList|)))))) 
 
 (DEFUN |PERMGRP;ranelt| (|group| |word| |maxLoops| $)
-  (PROG (|numberOfLoops| |words| #1=#:G251 |randomElement| |randomInteger|
-         #2=#:G249 |do_words| |numberOfGenerators|)
+  (PROG (|numberOfLoops| |words| #1=#:G227 |randomElement| |randomInteger|
+         #2=#:G225 |do_words| |numberOfGenerators|)
     (RETURN
      (SEQ (LETT |numberOfGenerators| (LENGTH |group|) . #3=(|PERMGRP;ranelt|))
           (LETT |randomInteger| (+ 1 (RANDOM |numberOfGenerators|)) . #3#)
@@ -391,7 +391,7 @@
           (EXIT (CONS |randomElement| |words|)))))) 
 
 (DEFUN |PERMGRP;pointList;$L;11| (|group| $)
-  (PROG (|res| |p0| #1=#:G266 |p| |support| #2=#:G265 |perm|)
+  (PROG (|res| |p0| #1=#:G242 |p| |support| #2=#:G241 |perm|)
     (RETURN
      (SEQ
       (COND ((NULL (NULL (QVELT (QCDR |group|) 4))) (QVELT (QCDR |group|) 4))
@@ -444,7 +444,7 @@
                                           (NREVERSE |res|)))))))))))))) 
 
 (DEFUN |PERMGRP;pointList;$L;12| (|group| $)
-  (PROG (|support| #1=#:G272 |perm|)
+  (PROG (|support| #1=#:G248 |perm|)
     (RETURN
      (SEQ
       (COND ((NULL (NULL (QVELT (QCDR |group|) 4))) (QVELT (QCDR |group|) 4))
@@ -468,8 +468,8 @@
                          (SPADCALL |support| (QREFELT $ 57))))))))))) 
 
 (DEFUN |PERMGRP;ls_to_lnni| (|ls| |supp| $)
-  (PROG (#1=#:G290 |pp| #2=#:G289 |rp2| |ls2| |p1| |pel| |flag| #3=#:G288 |p2|
-         |i| #4=#:G287 |p| #5=#:G286)
+  (PROG (#1=#:G266 |pp| #2=#:G265 |rp2| |ls2| |p1| |pel| |flag| #3=#:G264 |p2|
+         |i| #4=#:G263 |p| #5=#:G262)
     (RETURN
      (SEQ
       (COND ((NULL |ls|) NIL)
@@ -547,7 +547,7 @@
   (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 58))) 
 
 (DEFUN |PERMGRP;perm_to_vec;LPNniV;14| (|supp| |p| |degree| $)
-  (PROG (#1=#:G297 |pp| #2=#:G298 |ip| |il| |pl| |i| |q| |pr|)
+  (PROG (#1=#:G273 |pp| #2=#:G274 |ip| |il| |pl| |i| |q| |pr|)
     (RETURN
      (SEQ
       (LETT |pr| (SPADCALL |p| (QREFELT $ 48))
@@ -589,7 +589,7 @@
       (EXIT |q|))))) 
 
 (DEFUN |PERMGRP;orbitWithSvc1| (|group| |grpinv| |point| $)
-  (PROG (|position| |orbit_size| |orbit| |newPoint| #1=#:G314 |i| #2=#:G315
+  (PROG (|position| |orbit_size| |orbit| |newPoint| #1=#:G290 |i| #2=#:G291
          |grv| |schreierVector| |orbitv| |degree|)
     (RETURN
      (SEQ
@@ -634,7 +634,7 @@
       (EXIT (CONS (NREVERSE |orbit|) |schreierVector|)))))) 
 
 (DEFUN |PERMGRP;orbitWithSvc| (|group| |point| $)
-  (PROG (|grpinv| #1=#:G319 |el|)
+  (PROG (|grpinv| #1=#:G295 |el|)
     (RETURN
      (SEQ (LETT |grpinv| NIL . #2=(|PERMGRP;orbitWithSvc|))
           (SEQ (LETT |el| NIL . #2#) (LETT #1# |group| . #2#) G190
@@ -650,8 +650,8 @@
 
 (DEFUN |PERMGRP;bsgs1|
        (|group| |number1| |words| |maxLoops| |gp| |diff| |out| |outword| $)
-  (PROG (|sizeOfGroup| |k2| #1=#:G340 |j| |words3| |help| |group2| |el2| |str|
-         |ran| |words2| |gpsgs| |k| #2=#:G326 |jj| |gplength| #3=#:G323 |k1|
+  (PROG (|sizeOfGroup| |k2| #1=#:G316 |j| |words3| |help| |group2| |el2| |str|
+         |ran| |words2| |gpsgs| |k| #2=#:G302 |jj| |gplength| #3=#:G299 |k1|
          |ort| |i| |wordProblem| |gp_info| |degree|)
     (RETURN
      (SEQ
@@ -848,13 +848,13 @@
       (EXIT |res|))))) 
 
 (DEFUN |PERMGRP;bsgs| (|group| |wordProblem| |maxLoops| |diff| $)
-  (PROG (|sizeOfGroup| #1=#:G413 |j| |kkk| |outword| |out| |orbv| #2=#:G395
-         |baseOfGroup| |i| |word| |ttt| |word2| #3=#:G412 |wdi| |add_cnt|
-         |noAnswer| #4=#:G383 |basePoint| #5=#:G380 |newBasePoint| #6=#:G411
-         |p| |ii| |z| |ppp| |noresult| #7=#:G410 |jjj| |word3| |y1| #8=#:G409
-         |pt| #9=#:G408 |z0| |gporbi| |wordv| |wordlist| |sgsv| |sgs| |rejects|
-         #10=#:G407 #11=#:G406 |dummy_rec| |newGroup| |k| |words| |q|
-         #12=#:G404 |ggg| #13=#:G405 |ggp| |gp| |tmpv| #14=#:G403 |gp_info|
+  (PROG (|sizeOfGroup| #1=#:G389 |j| |kkk| |outword| |out| |orbv| #2=#:G371
+         |baseOfGroup| |i| |word| |ttt| |word2| #3=#:G388 |wdi| |add_cnt|
+         |noAnswer| #4=#:G359 |basePoint| #5=#:G356 |newBasePoint| #6=#:G387
+         |p| |ii| |z| |ppp| |noresult| #7=#:G386 |jjj| |word3| |y1| #8=#:G385
+         |pt| #9=#:G384 |z0| |gporbi| |wordv| |wordlist| |sgsv| |sgs| |rejects|
+         #10=#:G383 #11=#:G382 |dummy_rec| |newGroup| |k| |words| |q|
+         #12=#:G380 |ggg| #13=#:G381 |ggp| |gp| |tmpv| #14=#:G379 |gp_info|
          |degree| |supp| |outwordr| |outr|)
     (RETURN
      (SEQ
@@ -1275,7 +1275,7 @@
       #14# (EXIT #14#))))) 
 
 (DEFUN |PERMGRP;initialize| (|group| $)
-  (PROG (#1=#:G418 |gen| |gp| |group2|)
+  (PROG (#1=#:G394 |gen| |gp| |group2|)
     (RETURN
      (SEQ
       (LETT |group2| (SPADCALL (QREFELT $ 104)) . #2=(|PERMGRP;initialize|))
@@ -1297,7 +1297,7 @@
        (EXIT (SPADCALL (QREFELT $ 108))))) 
 
 (DEFUN |PERMGRP;subgroup| (|gp1| |gp2| $)
-  (PROG (#1=#:G425 #2=#:G428 #3=#:G429 |el| |gpset2| |gpset1|)
+  (PROG (#1=#:G401 #2=#:G404 #3=#:G405 |el| |gpset2| |gpset1|)
     (RETURN
      (SEQ
       (EXIT
@@ -1332,8 +1332,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PERMGRP;memberInternal| (|p| |gp| |do_words| $)
-  (PROG (|str| |grpv| #1=#:G441 |i| |wordv| |pp| |degree| |base_lst| |orbv|
-         |sgsl| |gp_info| #2=#:G439 #3=#:G433 #4=#:G440 |x| |mP| |gr_supp|)
+  (PROG (|str| |grpv| #1=#:G417 |i| |wordv| |pp| |degree| |base_lst| |orbv|
+         |sgsl| |gp_info| #2=#:G415 #3=#:G409 #4=#:G416 |x| |mP| |gr_supp|)
     (RETURN
      (SEQ
       (EXIT
@@ -1397,7 +1397,7 @@
 (DEFUN |PERMGRP;generators;$L;26| (|gp| $) (QCAR |gp|)) 
 
 (DEFUN |PERMGRP;strongGenerators;$L;27| (|group| $)
-  (PROG (|strongGens| |pairs| |j| #1=#:G450 |i| |degree| |gr_sgs| |gr_supp|)
+  (PROG (|strongGens| |pairs| |j| #1=#:G426 |i| |degree| |gr_sgs| |gr_supp|)
     (RETURN
      (SEQ (|PERMGRP;knownGroup?| |group| $)
           (LETT |gr_supp| (QVELT (QCDR |group|) 4)
@@ -1480,7 +1480,7 @@
   (LENGTH (SPADCALL |group| (QREFELT $ 52)))) 
 
 (DEFUN |PERMGRP;base;$L;34| (|group| $)
-  (PROG (|groupBase| #1=#:G467 |i| |gr_supp| |gr_base|)
+  (PROG (|groupBase| #1=#:G443 |i| |gr_supp| |gr_base|)
     (RETURN
      (SEQ (|PERMGRP;knownGroup?| |group| $)
           (LETT |gr_base| (QVELT (QCDR |group|) 2) . #2=(|PERMGRP;base;$L;34|))
@@ -1541,7 +1541,7 @@
                      (QREFELT $ 139))))))) 
 
 (DEFUN |PERMGRP;orbit;$SS;39| (|gp| |el| $)
-  (PROG (#1=#:G485 |i| |outSet| |outList| |elList|)
+  (PROG (#1=#:G461 |i| |outSet| |outList| |elList|)
     (RETURN
      (SEQ (LETT |elList| (LIST |el|) . #2=(|PERMGRP;orbit;$SS;39|))
           (LETT |outList| (|PERMGRP;orbitInternal| |gp| |elList| $) . #2#)
@@ -1597,7 +1597,7 @@
       (EXIT (QCDR |mi|)))))) 
 
 (DEFUN |PERMGRP;wordInGenerators;P$L;43| (|p| |gp| $)
-  (PROG (|outlist| #1=#:G501 |n| |words| |lll| |gp_info|)
+  (PROG (|outlist| #1=#:G477 |n| |words| |lll| |gp_info|)
     (RETURN
      (SEQ (LETT |gp_info| (QCDR |gp|) . #2=(|PERMGRP;wordInGenerators;P$L;43|))
           (COND
@@ -1643,7 +1643,7 @@
    ('T (|PERMGRP;subgroup| |gp1| |gp2| $)))) 
 
 (DEFUN |PERMGRP;=;2$B;46| (|gp1| |gp2| $)
-  (PROG (#1=#:G516)
+  (PROG (#1=#:G492)
     (RETURN
      (SEQ
       (EXIT
@@ -1671,7 +1671,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PERMGRP;orbit;$SS;47| (|gp| |startSet| $)
-  (PROG (|newSet| #1=#:G521 |i| |outSet| |outList| |startList|)
+  (PROG (|newSet| #1=#:G497 |i| |outSet| |outList| |startList|)
     (RETURN
      (SEQ
       (LETT |startList| (SPADCALL |startSet| (QREFELT $ 57))
@@ -1702,10 +1702,10 @@
 
 (DECLAIM (NOTINLINE |PermutationGroup;|)) 
 
-(DEFUN |PermutationGroup| (#1=#:G526)
+(DEFUN |PermutationGroup| (#1=#:G502)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G527)
+     (PROG (#2=#:G503)
        (RETURN
         (COND
          ((LETT #2#

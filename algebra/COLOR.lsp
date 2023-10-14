@@ -100,7 +100,7 @@
 (DEFUN |Color| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G157)
+     (PROG (#1=#:G133)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Color|) . #2=(|Color|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |APPRULE;applist| (|lrule| |arglist| $)
-  (PROG (#1=#:G139 |arg| #2=#:G138)
+  (PROG (#1=#:G115 |arg| #2=#:G114)
     (RETURN
      (SEQ
       (PROGN
@@ -18,7 +18,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |APPRULE;splitRules| (|l| $)
-  (PROG (|lv| |lk| |ncr| |u| #1=#:G149 |r|)
+  (PROG (|lv| |lk| |ncr| |u| #1=#:G125 |r|)
     (RETURN
      (SEQ (LETT |ncr| NIL . #2=(|APPRULE;splitRules|)) (LETT |lk| NIL . #2#)
           (LETT |lv| NIL . #2#)
@@ -47,7 +47,7 @@
           (EXIT (VECTOR |lk| |lv| |ncr|)))))) 
 
 (DEFUN |APPRULE;applyRules;L2F;3| (|l| |s| $)
-  (PROG (#1=#:G154 |new| |rec|)
+  (PROG (#1=#:G130 |new| |rec|)
     (RETURN
      (SEQ
       (EXIT
@@ -79,7 +79,7 @@
         |s| |n| $)))))) 
 
 (DEFUN |APPRULE;localApply| (|lk| |lv| |lrule| |subject| |n| $)
-  (PROG (#1=#:G163 |k| #2=#:G164 |v| |i|)
+  (PROG (#1=#:G139 |k| #2=#:G140 |v| |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 1 . #3=(|APPRULE;localApply|)) G190
@@ -102,7 +102,7 @@
       (EXIT |subject|))))) 
 
 (DEFUN |APPRULE;rewrite| (|f| |res| |l| $)
-  (PROG (|lv| |lk| #1=#:G170 |rec|)
+  (PROG (|lv| |lk| #1=#:G146 |rec|)
     (RETURN
      (SEQ (LETT |lk| NIL . #2=(|APPRULE;rewrite|)) (LETT |lv| NIL . #2#)
           (SEQ (LETT |rec| NIL . #2#)
@@ -127,7 +127,7 @@
 (DEFUN |APPRULE;localUnquote;FLF;8| (|f| |l| $) |f|) 
 
 (DEFUN |APPRULE;isitwithpred| (|subject| |pat| |vars| |bad| $)
-  (PROG (#1=#:G178 #2=#:G186 |v| #3=#:G175 |u|)
+  (PROG (#1=#:G154 #2=#:G162 |v| #3=#:G151 |u|)
     (RETURN
      (SEQ
       (COND
@@ -164,7 +164,7 @@
            $))))))))) 
 
 (DEFUN |APPRULE;isit| (|subject| |pat| $)
-  (PROG (#1=#:G191 |l| |v|)
+  (PROG (#1=#:G167 |l| |v|)
     (RETURN
      (SEQ
       (COND
@@ -184,9 +184,9 @@
                   (QREFELT $ 40)))))))) 
 
 (DEFUN |APPRULE;app| (|lrule| |subject| $)
-  (PROG (#1=#:G216 #2=#:G213 #3=#:G211 |f| |ee| |e| #4=#:G204 #5=#:G203
-         #6=#:G205 #7=#:G225 #8=#:G128 |l| #9=#:G201 #10=#:G200 #11=#:G202
-         #12=#:G224 #13=#:G127 |k| #14=#:G193 #15=#:G222 |u| #16=#:G223 |r|)
+  (PROG (#1=#:G192 #2=#:G189 #3=#:G187 |f| |ee| |e| #4=#:G180 #5=#:G179
+         #6=#:G181 #7=#:G201 #8=#:G104 |l| #9=#:G177 #10=#:G176 #11=#:G178
+         #12=#:G200 #13=#:G103 |k| #14=#:G169 #15=#:G198 |u| #16=#:G199 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -333,10 +333,10 @@
 
 (DECLAIM (NOTINLINE |ApplyRules;|)) 
 
-(DEFUN |ApplyRules| (&REST #1=#:G226)
+(DEFUN |ApplyRules| (&REST #1=#:G202)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G227)
+     (PROG (#2=#:G203)
        (RETURN
         (COND
          ((LETT #2#

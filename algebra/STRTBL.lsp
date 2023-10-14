@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |StringTable;|)) 
 
-(DEFUN |StringTable| (#1=#:G180)
+(DEFUN |StringTable| (#1=#:G156)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G157)
        (RETURN
         (COND
          ((LETT #2#
@@ -21,7 +21,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|StringTable|))))))))))) 
 
 (DEFUN |StringTable;| (|#1|)
-  (PROG (#1=#:G179 #2=#:G178 |pv$| #3=#:G176 #4=#:G177 $ |dv$| DV$1)
+  (PROG (#1=#:G155 #2=#:G154 |pv$| #3=#:G152 #4=#:G153 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|StringTable|))

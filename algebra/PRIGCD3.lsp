@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PRIGCD3;lcx0;SmpLR;1| (|p| |xvars| $)
-  (PROG (#1=#:G147 |pr| |t0| |vx| |xr|)
+  (PROG (#1=#:G123 |pr| |t0| |vx| |xr|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,7 +52,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRIGCD3;lcz;SmpSR;2| (|p| |z| $)
-  (PROG (|xr| |yu| |zdeg| |pr| #1=#:G164 |t0| |xu| |vx|)
+  (PROG (|xr| |yu| |zdeg| |pr| #1=#:G140 |t0| |xu| |vx|)
     (RETURN
      (SEQ (LETT |xr| |p| . #2=(|PRIGCD3;lcz;SmpSR;2|))
           (EXIT
@@ -106,7 +106,7 @@
                                (EXIT (CONS |xr| |zdeg|)))))))))))))) 
 
 (DEFUN |PRIGCD3;coeffs0;SmpL2L;3| (|p| |xvars| |acc| $)
-  (PROG (#1=#:G177 #2=#:G178 |t0| |lp| |vx| |xr|)
+  (PROG (#1=#:G153 #2=#:G154 |t0| |lp| |vx| |xr|)
     (RETURN
      (SEQ
       (EXIT
@@ -155,7 +155,7 @@
   (SPADCALL |p| |xvars| NIL (QREFELT $ 22))) 
 
 (DEFUN |PRIGCD3;alg_reduce0;2SmpLSSmp;5| (|p| |m| |xvars| |z| $)
-  (PROG (#1=#:G193 |mlc1| #2=#:G182 |alc| |g| #3=#:G198 |degp| |plcr| |mlc|
+  (PROG (#1=#:G169 |mlc1| #2=#:G158 |alc| |g| #3=#:G174 |degp| |plcr| |mlc|
          |degm| |mlcr|)
     (RETURN
      (SEQ
@@ -228,7 +228,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |PRIGCD3;alg_reduce;SmpL2LSmp;6| (|p| |lm| |xvars| |zvars| $)
-  (PROG (#1=#:G202 |m| #2=#:G203 |z|)
+  (PROG (#1=#:G178 |m| #2=#:G179 |z|)
     (RETURN
      (SEQ
       (SEQ (LETT |z| NIL . #3=(|PRIGCD3;alg_reduce;SmpL2LSmp;6|))
@@ -246,7 +246,7 @@
       (EXIT |p|))))) 
 
 (DEFUN |PRIGCD3;alg_trial_division;2SmpL2LB;7| (|a| |b| |lm| |xvars| |zvars| $)
-  (PROG (|s| #1=#:G206 |alc| |g| #2=#:G212 |mquo| |alm| |alcr| |blm| |blc|
+  (PROG (|s| #1=#:G182 |alc| |g| #2=#:G188 |mquo| |alm| |alcr| |blm| |blc|
          |blcr|)
     (RETURN
      (SEQ
@@ -318,7 +318,7 @@
 (DEFUN |PrimGCD| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G214)
+     (PROG (#1=#:G190)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PrimGCD|) . #2=(|PrimGCD|))

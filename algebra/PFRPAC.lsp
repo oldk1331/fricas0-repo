@@ -17,8 +17,8 @@
           (EXIT (SPADCALL (ELT $ 20) |up| (QREFELT $ 25))))))) 
 
 (DEFUN |PFRPAC;partialFraction;PFSA;3| (|p| |facq| |v| $)
-  (PROG (|pfup| |nflist| #1=#:G135 #2=#:G134 #3=#:G136 #4=#:G141 |ff| |fcont|
-         |ffact| #5=#:G140 |u| #6=#:G139 |fup| |up|)
+  (PROG (|pfup| |nflist| #1=#:G111 #2=#:G110 #3=#:G112 #4=#:G117 |ff| |fcont|
+         |ffact| #5=#:G116 |u| #6=#:G115 |fup| |up|)
     (RETURN
      (SEQ
       (LETT |up|
@@ -110,10 +110,10 @@
 
 (DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
 
-(DEFUN |PartialFractionPackage| (#1=#:G142)
+(DEFUN |PartialFractionPackage| (#1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

@@ -5,7 +5,7 @@
   (SPADCALL (QCAR |t2|) (QCAR |t1|) (QREFELT $ 13))) 
 
 (DEFUN |TENSOR;tensor;M1M2$;2| (|x1| |x2| $)
-  (PROG (|res| #1=#:G142 |s2| #2=#:G141 |s1| |ltx2| |ltx1| #3=#:G140)
+  (PROG (|res| #1=#:G118 |s2| #2=#:G117 |s1| |ltx2| |ltx1| #3=#:G116)
     (RETURN
      (SEQ
       (EXIT
@@ -48,8 +48,8 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |TENSOR;*;3$;3| (|x1| |x2| $)
-  (PROG (|res| #1=#:G151 |t| |t2b| |t2a| |t1b| |t1a| |t2k| |t1k| |t2c| |t1c|
-         #2=#:G150 |t2| #3=#:G149 |t1|)
+  (PROG (|res| #1=#:G127 |t| |t2b| |t2a| |t1b| |t1a| |t2k| |t1k| |t2c| |t1c|
+         #2=#:G126 |t2| #3=#:G125 |t1|)
     (RETURN
      (SEQ (LETT |res| NIL . #4=(|TENSOR;*;3$;3|))
           (SEQ (LETT |t1| NIL . #4#)
@@ -112,7 +112,7 @@
           (EXIT (SPADCALL |res| (QREFELT $ 38))))))) 
 
 (DEFUN |TENSOR;coerce;$Of;4| (|x| $)
-  (PROG (|le| |ko| #1=#:G159 |rec|)
+  (PROG (|le| |ko| #1=#:G135 |rec|)
     (RETURN
      (SEQ
       (COND
@@ -151,10 +151,10 @@
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
-(DEFUN |TensorProduct| (&REST #1=#:G169)
+(DEFUN |TensorProduct| (&REST #1=#:G145)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G170)
+     (PROG (#2=#:G146)
        (RETURN
         (COND
          ((LETT #2#

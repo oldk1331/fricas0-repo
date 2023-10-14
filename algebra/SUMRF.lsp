@@ -116,10 +116,10 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionSum;|)) 
 
-(DEFUN |RationalFunctionSum| (#1=#:G160)
+(DEFUN |RationalFunctionSum| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

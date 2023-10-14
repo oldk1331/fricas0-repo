@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SPACE3;convertSpace| (|space| $)
-  (PROG (|lllipt| |llprop| |tmpllipt| |tmplipt| #1=#:G171 |point| |tmplprop|
-         #2=#:G170 |curve| |lprop| #3=#:G169 |component|)
+  (PROG (|lllipt| |llprop| |tmpllipt| |tmplipt| #1=#:G147 |point| |tmplprop|
+         #2=#:G146 |curve| |lprop| #3=#:G145 |component|)
     (RETURN
      (SEQ
       (COND ((QVELT |space| 4) |space|)
@@ -77,7 +77,7 @@
                   (EXIT |space|)))))))) 
 
 (DEFUN |SPACE3;polygon;$L$;2| (|space| |points| $)
-  (PROG (#1=#:G176 |p| |pt|)
+  (PROG (#1=#:G152 |p| |pt|)
     (RETURN
      (SEQ
       (COND
@@ -115,7 +115,7 @@
   (LENGTH (QVELT |space| 1))) 
 
 (DEFUN |SPACE3;merge;L$;7| (|listOfThreeSpaces| $)
-  (PROG (#1=#:G191 |ts| |newspace| #2=#:G190 #3=#:G189)
+  (PROG (#1=#:G167 |ts| |newspace| #2=#:G166 #3=#:G165)
     (RETURN
      (SEQ
       (LETT |newspace|
@@ -149,7 +149,7 @@
   (SPADCALL (LIST |s1| |s2|) (QREFELT $ 28))) 
 
 (DEFUN |SPACE3;composite;L$;9| (|listOfThreeSpaces| $)
-  (PROG (#1=#:G197 |s| #2=#:G196 |space|)
+  (PROG (#1=#:G173 |s| #2=#:G172 |space|)
     (RETURN
      (SEQ
       (LETT |space| (SPADCALL (QREFELT $ 23)) . #3=(|SPACE3;composite;L$;9|))
@@ -170,7 +170,7 @@
       (EXIT |space|))))) 
 
 (DEFUN |SPACE3;components;$L;10| (|space| $)
-  (PROG (#1=#:G201 |s| #2=#:G200)
+  (PROG (#1=#:G177 |s| #2=#:G176)
     (RETURN
      (SEQ
       (PROGN
@@ -186,7 +186,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SPACE3;composites;$L;11| (|space| $)
-  (PROG (#1=#:G205 |s| #2=#:G204)
+  (PROG (#1=#:G181 |s| #2=#:G180)
     (RETURN
      (SEQ
       (PROGN
@@ -201,7 +201,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SPACE3;copy;2$;12| (|space| $)
-  (PROG (#1=#:G210 |s| #2=#:G209 |spc|)
+  (PROG (#1=#:G186 |s| #2=#:G185 |spc|)
     (RETURN
      (SEQ
       (LETT |spc|
@@ -225,7 +225,7 @@
       (EXIT |spc|))))) 
 
 (DEFUN |SPACE3;enterPointData;$LNni;13| (|space| |listOfPoints| $)
-  (PROG (#1=#:G214 |p|)
+  (PROG (#1=#:G190 |p|)
     (RETURN
      (SEQ
       (SEQ (LETT |p| NIL . #2=(|SPACE3;enterPointData;$LNni;13|))
@@ -294,7 +294,7 @@
       ('T (EQL (LENGTH (SPADCALL (|SPADfirst| |c|) (QREFELT $ 10))) 1)))))) 
 
 (DEFUN |SPACE3;curve;$L;22| (|space| $)
-  (PROG (#1=#:G238 |s| #2=#:G237 |spc|)
+  (PROG (#1=#:G214 |s| #2=#:G213 |spc|)
     (RETURN
      (SEQ
       (COND
@@ -327,7 +327,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 23)) |points| (QREFELT $ 57))) 
 
 (DEFUN |SPACE3;curve;$L$;24| (|space| |points| $)
-  (PROG (#1=#:G243 |p| |path|)
+  (PROG (#1=#:G219 |p| |path|)
     (RETURN
      (SEQ
       (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| |points|) (QREFELT $ 49))
@@ -366,7 +366,7 @@
       ('T 'NIL))))) 
 
 (DEFUN |SPACE3;closedCurve;$L;27| (|space| $)
-  (PROG (#1=#:G257 |s| #2=#:G256 |spc|)
+  (PROG (#1=#:G233 |s| #2=#:G232 |spc|)
     (RETURN
      (SEQ
       (COND
@@ -399,7 +399,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 23)) |points| (QREFELT $ 67))) 
 
 (DEFUN |SPACE3;closedCurve;$L$;29| (|space| |points| $)
-  (PROG (#1=#:G262 |p| |path|)
+  (PROG (#1=#:G238 |p| |path|)
     (RETURN
      (SEQ
       (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| |points|) (QREFELT $ 49))
@@ -444,7 +444,7 @@
       (#2# 'NIL))))) 
 
 (DEFUN |SPACE3;polygon;$L;32| (|space| $)
-  (PROG (#1=#:G277 |s| #2=#:G276 |listOfPoints| |cs|)
+  (PROG (#1=#:G253 |s| #2=#:G252 |listOfPoints| |cs|)
     (RETURN
      (SEQ
       (COND
@@ -497,7 +497,7 @@
       (EXIT (SPADCALL |space| |pts| (QREFELT $ 20))))))) 
 
 (DEFUN |SPACE3;mesh?;$B;35| (|space| $)
-  (PROG (#1=#:G289 |eachCurve| |whatSizes| |kid| |c|)
+  (PROG (#1=#:G265 |eachCurve| |whatSizes| |kid| |c|)
     (RETURN
      (SEQ
       (COND
@@ -534,7 +534,7 @@
        (#3# 'NIL)))))) 
 
 (DEFUN |SPACE3;mesh;$L;36| (|space| $)
-  (PROG (|llp| #1=#:G297 |s| #2=#:G296 #3=#:G295 |lpSpace|)
+  (PROG (|llp| #1=#:G273 |s| #2=#:G272 #3=#:G271 |lpSpace|)
     (RETURN
      (SEQ
       (COND
@@ -589,7 +589,7 @@
   (SPADCALL (SPADCALL (QREFELT $ 23)) |points| |prop1| |prop2| (QREFELT $ 85))) 
 
 (DEFUN |SPACE3;mesh;$LLSscp$;39| (|space| |llpoints| |lprops| |prop| $)
-  (PROG (|pts| #1=#:G306 |points| #2=#:G305)
+  (PROG (|pts| #1=#:G282 |points| #2=#:G281)
     (RETURN
      (SEQ
       (LETT |pts|
@@ -611,8 +611,8 @@
       (EXIT (SPADCALL |space| |pts| |lprops| |prop| (QREFELT $ 89))))))) 
 
 (DEFUN |SPACE3;mesh;$LLSscp$;40| (|space| |llp| |lprops| |prop| $)
-  (PROG (#1=#:G316 |p| |path| #2=#:G314 |lp| #3=#:G315 |aProp| |count|
-         #4=#:G313)
+  (PROG (#1=#:G292 |p| |path| #2=#:G290 |lp| #3=#:G291 |aProp| |count|
+         #4=#:G289)
     (RETURN
      (SEQ
       (SPADCALL (QVELT |space| 0) NIL (|SPADfirst| (|SPADfirst| |llp|))
@@ -663,7 +663,7 @@
       (QSETVELT |space| 4 'NIL) (EXIT |space|))))) 
 
 (DEFUN |SPACE3;mesh;$L2B$;41| (|space| |llpoints| |prop1| |prop2| $)
-  (PROG (|pts| #1=#:G323 |points| #2=#:G322)
+  (PROG (|pts| #1=#:G299 |points| #2=#:G298)
     (RETURN
      (SEQ
       (LETT |pts|
@@ -685,7 +685,7 @@
       (EXIT (SPADCALL |space| |pts| |prop1| |prop2| (QREFELT $ 85))))))) 
 
 (DEFUN |SPACE3;mesh;$L2B$;42| (|space| |llp| |prop1| |prop2| $)
-  (PROG (#1=#:G332 |p| |path| #2=#:G331 |lp| |count| #3=#:G330 |propB| |propA|)
+  (PROG (#1=#:G308 |p| |path| #2=#:G307 |lp| |count| #3=#:G306 |propB| |propA|)
     (RETURN
      (SEQ
       (LETT |propA| (SPADCALL (QREFELT $ 94)) . #4=(|SPACE3;mesh;$L2B$;42|))
@@ -761,7 +761,7 @@
    (EXIT (QVELT (QVELT |space| 2) 3)))) 
 
 (DEFUN |SPACE3;objects;$R;47| (|space| $)
-  (PROG (|numConstructs| |numPolys| |numCurves| |numPts| |kid| #1=#:G362
+  (PROG (|numConstructs| |numPolys| |numCurves| |numPts| |kid| #1=#:G338
          |component|)
     (RETURN
      (SEQ
@@ -829,10 +829,10 @@
 
 (DECLAIM (NOTINLINE |ThreeSpace;|)) 
 
-(DEFUN |ThreeSpace| (#1=#:G371)
+(DEFUN |ThreeSpace| (#1=#:G347)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G372)
+     (PROG (#2=#:G348)
        (RETURN
         (COND
          ((LETT #2#

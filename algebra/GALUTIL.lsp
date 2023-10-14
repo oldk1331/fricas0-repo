@@ -51,7 +51,7 @@
 (DEFUN |GALUTIL;safetyMargin;Nni;4| ($) (QREFELT $ 7)) 
 
 (DEFUN |GALUTIL;pascalTriangle;NniIR;5| (|n| |r| $)
-  (PROG (#1=#:G141 #2=#:G140 #3=#:G150 |j| |i| |mq| |m| |d|)
+  (PROG (#1=#:G117 #2=#:G116 #3=#:G126 |j| |i| |mq| |m| |d|)
     (RETURN
      (SEQ
       (COND ((MINUSP |r|) (|spadConstant| $ 12))
@@ -161,10 +161,10 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupUtilities;|)) 
 
-(DEFUN |GaloisGroupUtilities| (#1=#:G159)
+(DEFUN |GaloisGroupUtilities| (#1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

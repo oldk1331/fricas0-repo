@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |IndexedTwoDimensionalArray;|)) 
 
-(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G133)
+(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G109)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G110)
        (RETURN
         (COND
          ((LETT #2#
@@ -25,7 +25,7 @@
               (HREM |$ConstructorCache| '|IndexedTwoDimensionalArray|))))))))))) 
 
 (DEFUN |IndexedTwoDimensionalArray;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G130 #2=#:G131 #3=#:G132 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G106 #2=#:G107 #3=#:G108 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedTwoDimensionalArray|))

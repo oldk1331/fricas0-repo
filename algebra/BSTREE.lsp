@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |BSTREE;binarySearchTree;L$;1| (|u| $)
-  (PROG (#1=#:G134 |x| |tree|)
+  (PROG (#1=#:G110 |x| |tree|)
     (RETURN
      (SEQ
       (COND ((NULL |u|) (SPADCALL (QREFELT $ 8)))
@@ -70,10 +70,10 @@
 
 (DECLAIM (NOTINLINE |BinarySearchTree;|)) 
 
-(DEFUN |BinarySearchTree| (#1=#:G154)
+(DEFUN |BinarySearchTree| (#1=#:G130)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G155)
+     (PROG (#2=#:G131)
        (RETURN
         (COND
          ((LETT #2#
@@ -89,7 +89,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|BinarySearchTree|))))))))))) 
 
 (DEFUN |BinarySearchTree;| (|#1|)
-  (PROG (|pv$| #1=#:G151 #2=#:G152 #3=#:G153 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G127 #2=#:G128 #3=#:G129 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BinarySearchTree|))

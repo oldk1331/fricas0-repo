@@ -13,7 +13,7 @@
    $)) 
 
 (DEFUN |LODEEF;algSolve| (|op| |g| |k| |l| |x| $)
-  (PROG (#1=#:G163 |f| #2=#:G162 |kz| |rc| |u| |lv| |lk| |z| |rec| |kx|)
+  (PROG (#1=#:G139 |f| #2=#:G138 |kz| |rc| |u| |lv| |lk| |z| |rec| |kx|)
     (RETURN
      (SEQ
       (COND
@@ -130,7 +130,7 @@
         (LIST |h|))))))) 
 
 (DEFUN |LODEEF;xpart| (|f| |x| $)
-  (PROG (|lp| #1=#:G187 |k| #2=#:G186 |l|)
+  (PROG (|lp| #1=#:G163 |k| #2=#:G162 |l|)
     (RETURN
      (SEQ
       (LETT |l|
@@ -190,7 +190,7 @@
               (EXIT |ans|)))))))) 
 
 (DEFUN |LODEEF;multint| (|a| |l| |x| $)
-  (PROG (#1=#:G196 |g|)
+  (PROG (#1=#:G172 |g|)
     (RETURN
      (SEQ
       (SEQ (LETT |g| NIL . #2=(|LODEEF;multint|)) (LETT #1# |l| . #2#) G190
@@ -208,7 +208,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |LODEEF;expsols| (|op| |k| |x| $)
-  (PROG (#1=#:G204 |h| #2=#:G203)
+  (PROG (#1=#:G180 |h| #2=#:G179)
     (RETURN
      (SEQ
       (COND
@@ -240,8 +240,8 @@
               (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |LODEEF;ratlogsol| (|oper| |sols| |k| |x| $)
-  (PROG (#1=#:G221 |e| #2=#:G220 #3=#:G219 |h| #4=#:G218 |int| #5=#:G217
-         #6=#:G216 |le| |rec| |bas| #7=#:G215 #8=#:G214)
+  (PROG (#1=#:G197 |e| #2=#:G196 #3=#:G195 |h| #4=#:G194 |int| #5=#:G193
+         #6=#:G192 |le| |rec| |bas| #7=#:G191 #8=#:G190)
     (RETURN
      (SEQ
       (LETT |bas|
@@ -325,8 +325,8 @@
                      (QREFELT $ 99))))))))))) 
 
 (DEFUN |LODEEF;homosolve1| (|oper| |sols| |k| |x| $)
-  (PROG (#1=#:G254 |e| #2=#:G253 |int| #3=#:G252 |h| #4=#:G251 |rec| |n|
-         #5=#:G244)
+  (PROG (#1=#:G230 |e| #2=#:G229 |int| #3=#:G228 |h| #4=#:G227 |rec| |n|
+         #5=#:G220)
     (RETURN
      (SEQ
       (COND
@@ -418,7 +418,7 @@
        (#2# NIL)))))) 
 
 (DEFUN |LODEEF;kovode| (|op| |k| |x| $)
-  (PROG (|y1| #1=#:G275 |e| #2=#:G274 |ba| |p| |u| |a| |b|)
+  (PROG (|y1| #1=#:G251 |e| #2=#:G250 |ba| |p| |u| |a| |b|)
     (RETURN
      (SEQ (LETT |b| (SPADCALL |op| 1 (QREFELT $ 85)) . #3=(|LODEEF;kovode|))
           (LETT |a| (SPADCALL |op| 2 (QREFELT $ 85)) . #3#)
@@ -541,7 +541,7 @@
           (EXIT |op|))))) 
 
 (DEFUN |LODEEF;rfSolve| (|eq| |g| |k| |x| $)
-  (PROG (#1=#:G297 |rc| |op|)
+  (PROG (#1=#:G273 |rc| |op|)
     (RETURN
      (SEQ (LETT |op| (|LODEEF;ulodo| |eq| |k| $) . #2=(|LODEEF;rfSolve|))
           (EXIT
@@ -583,7 +583,7 @@
               |x| $)))))))) 
 
 (DEFUN |LODEEF;solve;LFSFLU;19| (|op| |g| |x| |a| |y0| $)
-  (PROG (|hp| #1=#:G322 |f| |i| |s| |sol| |h| #2=#:G320 #3=#:G321 |yy| |kx| |v|
+  (PROG (|hp| #1=#:G298 |f| |i| |s| |sol| |h| #2=#:G296 #3=#:G297 |yy| |kx| |v|
          |n| |b| |u|)
     (RETURN
      (SEQ
@@ -687,7 +687,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |LODEEF;palgSolve| (|op| |g| |kx| |k| |x| $)
-  (PROG (#1=#:G333 |rec|)
+  (PROG (#1=#:G309 |rec|)
     (RETURN
      (SEQ
       (LETT |rec| (SPADCALL |op| |g| |kx| |k| |x| (QREFELT $ 163))
@@ -707,10 +707,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionLODESolver;|)) 
 
-(DEFUN |ElementaryFunctionLODESolver| (&REST #1=#:G337)
+(DEFUN |ElementaryFunctionLODESolver| (&REST #1=#:G313)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G338)
+     (PROG (#2=#:G314)
        (RETURN
         (COND
          ((LETT #2#

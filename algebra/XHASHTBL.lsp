@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |XHASHTBL;localSearch| (|a| |k| |h| $)
-  (PROG (|q| |mk| |p| #1=#:G154 #2=#:G144 |deletedPosition?| |h2| |h1| |n|)
+  (PROG (|q| |mk| |p| #1=#:G130 #2=#:G120 |deletedPosition?| |h2| |h1| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -64,7 +64,7 @@
   (MAKEARR1 (SPADCALL 2 |n| (QREFELT $ 16)) (QREFELT $ 8))) 
 
 (DEFUN |XHASHTBL;rehashAux!| (|x| |ix| $)
-  (PROG (|p| |k| |mk| #1=#:G172 |i| |c| |n| |a| |h| |r| |m|)
+  (PROG (|p| |k| |mk| #1=#:G148 |i| |c| |n| |a| |h| |r| |m|)
     (RETURN
      (SEQ (LETT |m| (QAREF1 (QREFELT $ 20) |ix|) . #2=(|XHASHTBL;rehashAux!|))
           (LETT |r| |x| . #2#) (LETT |h| (QVELT |r| 6) . #2#)
@@ -113,7 +113,7 @@
   (SPADCALL (|forceLazySlot| (ELT $ 24)) (QREFELT $ 22))) 
 
 (DEFUN |XHASHTBL;inspect;$R;8| (|x| $)
-  (PROG (#1=#:G205 |mk| #2=#:G206 |i| |n| |a|)
+  (PROG (#1=#:G181 |mk| #2=#:G182 |i| |n| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -138,7 +138,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |XHASHTBL;#;$Nni;9| (|x| $)
-  (PROG (#1=#:G208)
+  (PROG (#1=#:G184)
     (RETURN
      (PROG1 (LETT #1# (QVELT |x| 0) |XHASHTBL;#;$Nni;9|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
@@ -233,7 +233,7 @@
                    (QVELT |r| 6))))))) 
 
 (DEFUN |XHASHTBL;fill!;$Entry$;16| (|x| |e| $)
-  (PROG (#1=#:G264 |i| |n| |a|)
+  (PROG (#1=#:G240 |i| |n| |a|)
     (RETURN
      (SEQ (LETT |a| (QVELT |x| 5) . #2=(|XHASHTBL;fill!;$Entry$;16|))
           (LETT |n| (ASH (QVSIZE |a|) -1) . #2#)
@@ -252,7 +252,7 @@
           (EXIT |x|))))) 
 
 (DEFUN |XHASHTBL;map!;M2$;17| (|f| |x| $)
-  (PROG (#1=#:G272 |i| |n| |a|)
+  (PROG (#1=#:G248 |i| |n| |a|)
     (RETURN
      (SEQ (LETT |a| (QVELT |x| 5) . #2=(|XHASHTBL;map!;M2$;17|))
           (LETT |n| (ASH (QVSIZE |a|) -1) . #2#)
@@ -272,7 +272,7 @@
           (EXIT |x|))))) 
 
 (DEFUN |XHASHTBL;keys;$L;18| (|x| $)
-  (PROG (|l| |mk| #1=#:G279 |i| |a|)
+  (PROG (|l| |mk| #1=#:G255 |i| |a|)
     (RETURN
      (SEQ (LETT |a| (QVELT |x| 5) . #2=(|XHASHTBL;keys;$L;18|))
           (LETT |l| NIL . #2#)
@@ -291,7 +291,7 @@
           (EXIT |l|))))) 
 
 (DEFUN |XHASHTBL;parts;$L;19| (|x| $)
-  (PROG (|l| #1=#:G286 |i| |n| |a|)
+  (PROG (|l| #1=#:G262 |i| |n| |a|)
     (RETURN
      (SEQ (LETT |a| (QVELT |x| 5) . #2=(|XHASHTBL;parts;$L;19|))
           (LETT |n| (ASH (QVSIZE |a|) -1) . #2#) (LETT |l| NIL . #2#)
@@ -310,7 +310,7 @@
           (EXIT |l|))))) 
 
 (DEFUN |XHASHTBL;parts;$L;20| (|x| $)
-  (PROG (|l| |mk| #1=#:G295 |i| |n| |a|)
+  (PROG (|l| |mk| #1=#:G271 |i| |n| |a|)
     (RETURN
      (SEQ (LETT |a| (QVELT |x| 5) . #2=(|XHASHTBL;parts;$L;20|))
           (LETT |n| (ASH (QVSIZE |a|) -1) . #2#) (LETT |l| NIL . #2#)
@@ -334,7 +334,7 @@
 (DEFUN |XHASHTBL;removeDuplicates;2$;21| (|x| $) |x|) 
 
 (DEFUN |XHASHTBL;=;2$B;22| (|x| |y| $)
-  (PROG (#1=#:G301 #2=#:G306 |p| |mk| #3=#:G307 |i| |h| |yn| |ya| |xn| |xa|)
+  (PROG (#1=#:G277 #2=#:G282 |p| |mk| #3=#:G283 |i| |h| |yn| |ya| |xn| |xa|)
     (RETURN
      (SEQ
       (EXIT
@@ -386,10 +386,10 @@
 
 (DECLAIM (NOTINLINE |XHashTable;|)) 
 
-(DEFUN |XHashTable| (&REST #1=#:G353)
+(DEFUN |XHashTable| (&REST #1=#:G329)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G354)
+     (PROG (#2=#:G330)
        (RETURN
         (COND
          ((LETT #2#
@@ -405,7 +405,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|XHashTable|))))))))))) 
 
 (DEFUN |XHashTable;| (|#1| |#2|)
-  (PROG (#1=#:G352 #2=#:G351 |pv$| #3=#:G349 #4=#:G350 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G328 #2=#:G327 |pv$| #3=#:G325 #4=#:G326 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|XHashTable|))

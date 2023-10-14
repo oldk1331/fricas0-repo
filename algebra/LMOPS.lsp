@@ -42,7 +42,7 @@
 (DEFUN |LMOPS;reverse!;2$;12| (|l| $) (NREVERSE |l|)) 
 
 (DEFUN |LMOPS;mapGen;M2$;13| (|f| |l| $)
-  (PROG (#1=#:G174 |x| #2=#:G173)
+  (PROG (#1=#:G150 |x| #2=#:G149)
     (RETURN
      (SEQ
       (PROGN
@@ -59,7 +59,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |LMOPS;mapExpon;M2$;14| (|f| |l| $)
-  (PROG (|ans| |a| #1=#:G181 |x|)
+  (PROG (|ans| |a| #1=#:G157 |x|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|LMOPS;mapExpon;M2$;14|))
           (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -76,7 +76,7 @@
           (EXIT (SPADCALL |ans| (QREFELT $ 32))))))) 
 
 (DEFUN |LMOPS;outputForm;$2MIOf;15| (|l| |op| |opexp| |id| $)
-  (PROG (#1=#:G191 |p| #2=#:G190)
+  (PROG (#1=#:G167 |p| #2=#:G166)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (SPADCALL |id| (QREFELT $ 39)))
@@ -150,7 +150,7 @@
         ('T (CONS (CONS |s| (QREFELT $ 8)) |f|)))) 
 
 (DEFUN |LMOPS;commutativeEquality;2$B;19| (|s1| |s2| $)
-  (PROG (#1=#:G219 #2=#:G220 |t1|)
+  (PROG (#1=#:G195 #2=#:G196 |t1|)
     (RETURN
      (SEQ
       (EXIT
@@ -172,7 +172,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LMOPS;plus!| (|s| |n| |f| $)
-  (PROG (|h1| |h| #1=#:G229 |l| |m| |g|)
+  (PROG (|h1| |h| #1=#:G205 |l| |m| |g|)
     (RETURN
      (SEQ
       (EXIT
@@ -214,7 +214,7 @@
         ('T (|LMOPS;localplus| |g| |f| $)))) 
 
 (DEFUN |LMOPS;localplus| (|f| |g| $)
-  (PROG (#1=#:G238 |x|)
+  (PROG (#1=#:G214 |x|)
     (RETURN
      (SEQ (LETT |g| (SPADCALL |g| (QREFELT $ 52)) . #2=(|LMOPS;localplus|))
           (SEQ (LETT |x| NIL . #2#) (LETT #1# |f| . #2#) G190
@@ -230,10 +230,10 @@
 
 (DECLAIM (NOTINLINE |ListMonoidOps;|)) 
 
-(DEFUN |ListMonoidOps| (&REST #1=#:G239)
+(DEFUN |ListMonoidOps| (&REST #1=#:G215)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G240)
+     (PROG (#2=#:G216)
        (RETURN
         (COND
          ((LETT #2#

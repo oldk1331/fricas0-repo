@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |ListAggregate;AL| 'NIL) 
 
-(DEFUN |ListAggregate| (#1=#:G176)
-  (LET (#2=#:G177)
+(DEFUN |ListAggregate| (#1=#:G152)
+  (LET (#2=#:G153)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |ListAggregate;AL|)) (CDR #2#))
      (T
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |ListAggregate;| (|t#1|)
-  (PROG (#1=#:G175)
+  (PROG (#1=#:G151)
     (RETURN
      (PROG1
          (LETT #1#

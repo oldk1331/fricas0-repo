@@ -12,7 +12,7 @@
 (DEFUN |SUP;^;$Pi$;3| (|p| |np| $) (SPADCALL |p| |np| (QREFELT $ 12))) 
 
 (DEFUN |SUP;^;$Nni$;4| (|p| |n| $)
-  (PROG (|rn| |qn| |rec| #1=#:G173 |t| #2=#:G172 #3=#:G171 |y| |cc|)
+  (PROG (|rn| |qn| |rec| #1=#:G149 |t| #2=#:G148 #3=#:G147 |y| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -109,7 +109,7 @@
         ('T 'NIL))) 
 
 (DEFUN |SUP;multiplyExponents;$Nni$;8| (|p| |n| $)
-  (PROG (#1=#:G188 |u| #2=#:G187)
+  (PROG (#1=#:G164 |u| #2=#:G163)
     (RETURN
      (SEQ
       (PROGN
@@ -126,7 +126,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SUP;divideExponents;$NniU;9| (|p| |n| $)
-  (PROG (#1=#:G197 |u| |m|)
+  (PROG (#1=#:G173 |u| |m|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) (CONS 0 |p|))
@@ -153,7 +153,7 @@
                                       (QCDR |u|))))))))))))))))) 
 
 (DEFUN |SUP;karatsubaDivide;$NniR;10| (|p| |n| $)
-  (PROG (|highp| #1=#:G206 |lowp| #2=#:G209 |t|)
+  (PROG (|highp| #1=#:G182 |lowp| #2=#:G185 |t|)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (CONS |p| (|spadConstant| $ 15)))
@@ -193,7 +193,7 @@
                   (EXIT (CONS (REVERSE |highp|) |lowp|))))))))) 
 
 (DEFUN |SUP;shiftRight;$Nni$;11| (|p| |n| $)
-  (PROG (#1=#:G216 #2=#:G221 |t| #3=#:G220)
+  (PROG (#1=#:G192 #2=#:G197 |t| #3=#:G196)
     (RETURN
      (SEQ
       (PROGN
@@ -220,7 +220,7 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |SUP;shiftLeft;$Nni$;12| (|p| |n| $)
-  (PROG (#1=#:G226 |t| #2=#:G225)
+  (PROG (#1=#:G202 |t| #2=#:G201)
     (RETURN
      (SEQ
       (PROGN
@@ -237,7 +237,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SUP;pomopo!;$RNni2$;13| (|p1| |r| |e| |p2| $)
-  (PROG (|rout| |u| |c2| |e2| #1=#:G237 |tm|)
+  (PROG (|rout| |u| |c2| |e2| #1=#:G213 |tm|)
     (RETURN
      (SEQ (LETT |rout| NIL . #2=(|SUP;pomopo!;$RNni2$;13|))
           (SEQ (LETT |tm| NIL . #2#) (LETT #1# |p2| . #2#) G190
@@ -345,7 +345,7 @@
   (SPADCALL |pp| (QREFELT $ 95))) 
 
 (DEFUN |SUP;exquo;2$U;27| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G281 |ee| |a|)
+  (PROG (|rout| #1=#:G257 |ee| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -403,7 +403,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SUP;exquo;2$U;28| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G297 |ee| |a|)
+  (PROG (|rout| #1=#:G273 |ee| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -459,7 +459,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SUP;fmecg;$NniR2$;29| (|p1| |e| |r| |p2| $)
-  (PROG (|rout| |u| |c2| |e2| #1=#:G308 |tm|)
+  (PROG (|rout| |u| |c2| |e2| #1=#:G284 |tm|)
     (RETURN
      (SEQ (LETT |rout| NIL . #2=(|SUP;fmecg;$NniR2$;29|))
           (LETT |r| (SPADCALL |r| (QREFELT $ 100)) . #2#)
@@ -506,7 +506,7 @@
           (EXIT (NRECONC |rout| |p1|)))))) 
 
 (DEFUN |SUP;pseudoRemainder;3$;30| (|p1| |p2| $)
-  (PROG (|e1| #1=#:G315 #2=#:G317 |u| #3=#:G310 |e| |co|)
+  (PROG (|e1| #1=#:G291 #2=#:G293 |u| #3=#:G286 |e| |co|)
     (RETURN
      (SEQ
       (COND ((NULL |p2|) (|error| "PseudoDivision by Zero"))
@@ -591,7 +591,7 @@
                              (QREFELT $ 111)))))))))))))) 
 
 (DEFUN |SUP;outputForm;$2Of;32| (|p| |v| $)
-  (PROG (|l| #1=#:G337 |t| #2=#:G336)
+  (PROG (|l| #1=#:G313 |t| #2=#:G312)
     (RETURN
      (SEQ
       (LETT |l|
@@ -614,7 +614,7 @@
 (DEFUN |SUP;coerce;$Of;33| (|p| $) (SPADCALL |p| "?" (QREFELT $ 116))) 
 
 (DEFUN |SUP;elt;$2R;34| (|p| |val| $)
-  (PROG (|co| #1=#:G341 |n| #2=#:G345 |tm|)
+  (PROG (|co| #1=#:G317 |n| #2=#:G321 |tm|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) (|spadConstant| $ 37))
@@ -656,7 +656,7 @@
                                     (QREFELT $ 43)))))))))))) 
 
 (DEFUN |SUP;elt;3$;35| (|p| |val| $)
-  (PROG (|coef| #1=#:G348 |n| #2=#:G352 |tm|)
+  (PROG (|coef| #1=#:G324 |n| #2=#:G328 |tm|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) (|spadConstant| $ 15))
@@ -698,7 +698,7 @@
                                 (QREFELT $ 25)))))))))))) 
 
 (DEFUN |SUP;monicDivide;2$R;36| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G360 |u| |n|)
+  (PROG (|rout| #1=#:G336 |u| |n|)
     (RETURN
      (SEQ
       (COND ((NULL |p2|) (|error| "monicDivide: division by 0"))
@@ -759,7 +759,7 @@
   (SPADCALL |p1| |p2| (QREFELT $ 126))) 
 
 (DEFUN |SUP;content;$R;40| (|p| $)
-  (PROG (#1=#:G370 #2=#:G369 #3=#:G371 #4=#:G373 |tm|)
+  (PROG (#1=#:G346 #2=#:G345 #3=#:G347 #4=#:G349 |tm|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) (|spadConstant| $ 37))
@@ -783,7 +783,7 @@
               (COND (#1# #2#) (#5# (|spadConstant| $ 37)))))))))) 
 
 (DEFUN |SUP;primitivePart;2$;41| (|p| $)
-  (PROG (#1=#:G376 |ct|)
+  (PROG (#1=#:G352 |ct|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) |p|)
@@ -801,7 +801,7 @@
 (DEFUN |SUP;gcd;3$;42| (|p1| |p2| $) (SPADCALL |p1| |p2| (QREFELT $ 133))) 
 
 (DEFUN |SUP;divide;2$R;43| (|p1| |p2| $)
-  (PROG (|rout| #1=#:G389 |u| |n| |ct|)
+  (PROG (|rout| #1=#:G365 |u| |n| |ct|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p2| (QREFELT $ 29)) (|error| "Division by 0"))
@@ -854,10 +854,10 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariatePolynomial;|)) 
 
-(DEFUN |SparseUnivariatePolynomial| (#1=#:G438)
+(DEFUN |SparseUnivariatePolynomial| (#1=#:G414)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G439)
+     (PROG (#2=#:G415)
        (RETURN
         (COND
          ((LETT #2#
@@ -875,7 +875,7 @@
               (HREM |$ConstructorCache| '|SparseUnivariatePolynomial|))))))))))) 
 
 (DEFUN |SparseUnivariatePolynomial;| (|#1|)
-  (PROG (#1=#:G437 |pv$| #2=#:G434 #3=#:G435 #4=#:G436 $ |dv$| DV$1)
+  (PROG (#1=#:G413 |pv$| #2=#:G410 #3=#:G411 #4=#:G412 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|SparseUnivariatePolynomial|))

@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |OrderlyDifferentialPolynomial;|)) 
 
-(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G173)
+(DEFUN |OrderlyDifferentialPolynomial| (#1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G174)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#
@@ -25,7 +25,7 @@
                     '|OrderlyDifferentialPolynomial|))))))))))) 
 
 (DEFUN |OrderlyDifferentialPolynomial;| (|#1|)
-  (PROG (#1=#:G172 |pv$| #2=#:G169 #3=#:G170 #4=#:G171 $ |dv$| DV$1)
+  (PROG (#1=#:G148 |pv$| #2=#:G145 #3=#:G146 #4=#:G147 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|OrderlyDifferentialPolynomial|))

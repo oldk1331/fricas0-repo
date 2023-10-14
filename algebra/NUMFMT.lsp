@@ -96,7 +96,7 @@
 (DEFUN |NUMFMT;ScanArabic;SPi;8| (|s| $) (PARSE-INTEGER |s|)) 
 
 (DEFUN |NUMFMT;FormatRoman;PiS;9| (|pn| $)
-  (PROG (|s| |mm| |j| #1=#:G192 |m0| |n| |d| |i| #2=#:G179)
+  (PROG (|s| |mm| |j| #1=#:G168 |m0| |n| |d| |i| #2=#:G155)
     (RETURN
      (SEQ (LETT |n| |pn| . #3=(|NUMFMT;FormatRoman;PiS;9|))
           (LETT |d| (+ (REM |n| 10) (QREFELT $ 39)) . #3#)
@@ -244,7 +244,7 @@
                                                        |s|))))))))))))))))))))) 
 
 (DEFUN |NUMFMT;ScanRoman;SPi;10| (|s| $)
-  (PROG (#1=#:G203 |Max| |tot| |n| #2=#:G195 |i| |c| |k| |nprens|)
+  (PROG (#1=#:G179 |Max| |tot| |n| #2=#:G171 |i| |c| |k| |nprens|)
     (RETURN
      (SEQ
       (LETT |s| (SPADCALL |s| (QREFELT $ 53)) . #3=(|NUMFMT;ScanRoman;SPi;10|))
@@ -338,7 +338,7 @@
 (DEFUN |NumberFormats| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G207)
+     (PROG (#1=#:G183)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)

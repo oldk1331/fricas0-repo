@@ -4,7 +4,7 @@
 (DEFUN |MONAD-;^;SPiS;1| (|x| |n| $) (SPADCALL |x| |n| (QREFELT $ 9))) 
 
 (DEFUN |MONAD-;rightPower;SPiS;2| (|a| |n| $)
-  (PROG (|res| #1=#:G140 |i|)
+  (PROG (|res| #1=#:G116 |i|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) |a|)
@@ -21,7 +21,7 @@
                   (EXIT |res|)))))))) 
 
 (DEFUN |MONAD-;leftPower;SPiS;3| (|a| |n| $)
-  (PROG (|res| #1=#:G144 |i|)
+  (PROG (|res| #1=#:G120 |i|)
     (RETURN
      (SEQ
       (COND ((EQL |n| 1) |a|)

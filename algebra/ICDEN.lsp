@@ -45,10 +45,10 @@
 
 (DECLAIM (NOTINLINE |InnerCommonDenominator;|)) 
 
-(DEFUN |InnerCommonDenominator| (&REST #1=#:G145)
+(DEFUN |InnerCommonDenominator| (&REST #1=#:G121)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G146)
+     (PROG (#2=#:G122)
        (RETURN
         (COND
          ((LETT #2#

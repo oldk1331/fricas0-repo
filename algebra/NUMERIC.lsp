@@ -502,10 +502,10 @@
 
 (DECLAIM (NOTINLINE |Numeric;|)) 
 
-(DEFUN |Numeric| (#1=#:G361)
+(DEFUN |Numeric| (#1=#:G337)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G362)
+     (PROG (#2=#:G338)
        (RETURN
         (COND
          ((LETT #2#
@@ -520,7 +520,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Numeric|))))))))))) 
 
 (DEFUN |Numeric;| (|#1|)
-  (PROG (|pv$| #1=#:G360 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G336 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Numeric|))

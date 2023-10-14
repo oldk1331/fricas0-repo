@@ -40,7 +40,7 @@
 (DEFUN |TEX;sayExpr| (|s| $) (|sayTeX| |s|)) 
 
 (DEFUN |TEX;display;$IV;6| (|f| |len| $)
-  (PROG (#1=#:G235 |s| #2=#:G234 |t| #3=#:G233 #4=#:G232)
+  (PROG (#1=#:G211 |s| #2=#:G210 |t| #3=#:G209 #4=#:G208)
     (RETURN
      (SEQ
       (SEQ (LETT |s| NIL . #5=(|TEX;display;$IV;6|))
@@ -99,7 +99,7 @@
 (DEFUN |TEX;setEpilogue!;$2L;13| (|f| |l| $) (QSETVELT |f| 2 |l|)) 
 
 (DEFUN |TEX;coerce;$Of;14| (|f| $)
-  (PROG (|l| #1=#:G252 |s| #2=#:G251 |t| #3=#:G250 #4=#:G249)
+  (PROG (|l| #1=#:G228 |s| #2=#:G227 |t| #3=#:G226 #4=#:G225)
     (RETURN
      (SEQ (LETT |l| NIL . #5=(|TEX;coerce;$Of;14|))
           (SEQ (LETT |s| NIL . #5#) (LETT #4# (QVELT |f| 0) . #5#) G190
@@ -155,7 +155,7 @@
                        (EXIT |str|))))))))) 
 
 (DEFUN |TEX;postcondition| (|str| $)
-  (PROG (#1=#:G265 |i| |minus| |plus| |len|)
+  (PROG (#1=#:G241 |i| |minus| |plus| |len|)
     (RETURN
      (SEQ (LETT |str| (|TEX;ungroup| |str| $) . #2=(|TEX;postcondition|))
           (LETT |len| (QCSIZE |str|) . #2#)
@@ -217,7 +217,7 @@
        (EXIT (|TEX;splitLong1| |str| |len| $)))) 
 
 (DEFUN |TEX;splitLong1| (|str| |len| $)
-  (PROG (|l| |s| |ls| |ownLine| |u| |lss| #1=#:G295 |ss|)
+  (PROG (|l| |s| |ls| |ownLine| |u| |lss| #1=#:G271 |ss|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|TEX;splitLong1|)) (LETT |s| "" . #2#)
           (LETT |ls| 0 . #2#)
@@ -314,7 +314,7 @@
 (DEFUN |TEX;precondition| (|expr| $) (|outputTran| |expr|)) 
 
 (DEFUN |TEX;formatSpecial| (|op| |args| |prec| $)
-  (PROG (|tmp| |prescript| |form| #1=#:G349 |u| #2=#:G348)
+  (PROG (|tmp| |prescript| |form| #1=#:G325 |u| #2=#:G324)
     (RETURN
      (SEQ (LETT |prescript| 'NIL . #3=(|TEX;formatSpecial|))
           (EXIT
@@ -718,7 +718,7 @@
                (EXIT (|TEX;group| |s| $)))))))))) 
 
 (DEFUN |TEX;formatMatrix| (|args| $)
-  (PROG (|cols| #1=#:G372 |i|)
+  (PROG (|cols| #1=#:G348 |i|)
     (RETURN
      (SEQ (LETT |cols| "{" . #2=(|TEX;formatMatrix|))
           (SEQ (LETT |i| 2 . #2#)
@@ -838,7 +838,7 @@
   (|TEX;group| (|TEX;formatNaryNoGroup| |op| |sep| |opprec| |args| |prec| $) $)) 
 
 (DEFUN |TEX;formatNaryNoGroup| (|op| |sep| |opprec| |args| |prec| $)
-  (PROG (|s| |l| #1=#:G397 |a| |opPrec| |ops| |p|)
+  (PROG (|s| |l| #1=#:G373 |a| |opPrec| |ops| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |args|) "")
@@ -1093,7 +1093,7 @@
 (DEFUN |TexFormat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G433)
+     (PROG (#1=#:G409)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TexFormat|) . #2=(|TexFormat|))

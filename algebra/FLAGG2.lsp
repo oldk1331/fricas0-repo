@@ -9,7 +9,7 @@
                    (QREFELT $ 15))))) 
 
 (DEFUN |FLAGG2;map;MAB;2| (|f| |l| $)
-  (PROG (#1=#:G137 |s| #2=#:G136)
+  (PROG (#1=#:G113 |s| #2=#:G112)
     (RETURN
      (SEQ
       (SPADCALL
@@ -40,7 +40,7 @@
                          (QREFELT $ 24)))))))))) 
 
 (DEFUN |FLAGG2;map;MAB;4| (|f| |l| $)
-  (PROG (|i| #1=#:G147 |a| |w|)
+  (PROG (|i| #1=#:G123 |a| |w|)
     (RETURN
      (SEQ
       (LETT |i|
@@ -60,7 +60,7 @@
       (EXIT |w|))))) 
 
 (DEFUN |FLAGG2;scan;MARB;5| (|fn| |l| |ident| $)
-  (PROG (|i| |vl| #1=#:G152 |a| |w|)
+  (PROG (|i| |vl| #1=#:G128 |a| |w|)
     (RETURN
      (SEQ
       (LETT |i|
@@ -84,7 +84,7 @@
       (EXIT |w|))))) 
 
 (DEFUN |FLAGG2;map;MAB;6| (|f| |l| $)
-  (PROG (#1=#:G156 |s| #2=#:G155)
+  (PROG (#1=#:G132 |s| #2=#:G131)
     (RETURN
      (SEQ
       (SPADCALL
@@ -115,7 +115,7 @@
                          (QREFELT $ 24)))))))))) 
 
 (DEFUN |FLAGG2;reduce;MA2R;8| (|fn| |v| |ident| $)
-  (PROG (|val| #1=#:G165 |i|)
+  (PROG (|val| #1=#:G141 |i|)
     (RETURN
      (SEQ (LETT |val| |ident| . #2=(|FLAGG2;reduce;MA2R;8|))
           (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 31)) . #2#)
@@ -130,7 +130,7 @@
           (EXIT |val|))))) 
 
 (DEFUN |FLAGG2;map;MAB;9| (|f| |v| $)
-  (PROG (#1=#:G169 |i| #2=#:G168)
+  (PROG (#1=#:G145 |i| #2=#:G144)
     (RETURN
      (SEQ
       (SPADCALL
@@ -149,7 +149,7 @@
        (QREFELT $ 19)))))) 
 
 (DEFUN |FLAGG2;scan;MARB;10| (|fn| |v| |ident| $)
-  (PROG (|w| #1=#:G174 |i|)
+  (PROG (|w| #1=#:G150 |i|)
     (RETURN
      (SEQ (LETT |w| (SPADCALL (QREFELT $ 22)) . #2=(|FLAGG2;scan;MARB;10|))
           (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 31)) . #2#)
@@ -164,7 +164,7 @@
           (EXIT (SPADCALL |w| (QREFELT $ 34))))))) 
 
 (DEFUN |FLAGG2;map;MAB;11| (|f| |v| $)
-  (PROG (#1=#:G178 |i| |w|)
+  (PROG (#1=#:G154 |i| |w|)
     (RETURN
      (SEQ
       (LETT |w| (SPADCALL (SPADCALL |v| (QREFELT $ 26)) NIL (QREFELT $ 27))
@@ -180,7 +180,7 @@
       (EXIT |w|))))) 
 
 (DEFUN |FLAGG2;scan;MARB;12| (|fn| |v| |ident| $)
-  (PROG (|vl| #1=#:G182 |i| |w|)
+  (PROG (|vl| #1=#:G158 |i| |w|)
     (RETURN
      (SEQ
       (LETT |w| (SPADCALL (SPADCALL |v| (QREFELT $ 26)) NIL (QREFELT $ 27))
@@ -201,7 +201,7 @@
       (EXIT |w|))))) 
 
 (DEFUN |FLAGG2;map;MAB;13| (|f| |v| $)
-  (PROG (#1=#:G186 |i| #2=#:G185)
+  (PROG (#1=#:G162 |i| #2=#:G161)
     (RETURN
      (SEQ
       (SPADCALL
@@ -220,7 +220,7 @@
        (QREFELT $ 19)))))) 
 
 (DEFUN |FLAGG2;scan;MARB;14| (|fn| |v| |ident| $)
-  (PROG (|w| #1=#:G191 |i|)
+  (PROG (|w| #1=#:G167 |i|)
     (RETURN
      (SEQ (LETT |w| (SPADCALL (QREFELT $ 22)) . #2=(|FLAGG2;scan;MARB;14|))
           (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 31)) . #2#)
@@ -236,10 +236,10 @@
 
 (DECLAIM (NOTINLINE |FiniteLinearAggregateFunctions2;|)) 
 
-(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G192)
+(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G193)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

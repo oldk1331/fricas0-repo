@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SUPFRACF;factor;SupF;1| (|p| $)
-  (PROG (#1=#:G145 |u| #2=#:G144 |ffact| |ipol| |pol| |pden| #3=#:G143 |c|
-         #4=#:G142)
+  (PROG (#1=#:G121 |u| #2=#:G120 |ffact| |ipol| |pol| |pden| #3=#:G119 |c|
+         #4=#:G118)
     (RETURN
      (SEQ
       (COND
@@ -73,8 +73,8 @@
          (EXIT (SPADCALL |p| (QREFELT $ 50)))))))))) 
 
 (DEFUN |SUPFRACF;squareFree;SupF;2| (|p| $)
-  (PROG (#1=#:G163 |u| #2=#:G162 |ffact| |ipol| |pol| |pden| #3=#:G161 |c|
-         #4=#:G160)
+  (PROG (#1=#:G139 |u| #2=#:G138 |ffact| |ipol| |pol| |pden| #3=#:G137 |c|
+         #4=#:G136)
     (RETURN
      (SEQ
       (COND
@@ -140,10 +140,10 @@
 
 (DECLAIM (NOTINLINE |SupFractionFactorizer;|)) 
 
-(DEFUN |SupFractionFactorizer| (&REST #1=#:G164)
+(DEFUN |SupFractionFactorizer| (&REST #1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G165)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#

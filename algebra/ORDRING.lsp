@@ -6,11 +6,11 @@
 (DEFPARAMETER |OrderedRing;AL| 'NIL) 
 
 (DEFUN |OrderedRing| ()
-  (LET (#:G135)
+  (LET (#:G111)
     (COND (|OrderedRing;AL|) (T (SETQ |OrderedRing;AL| (|OrderedRing;|)))))) 
 
 (DEFUN |OrderedRing;| ()
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (PROG1
          (LETT #1#

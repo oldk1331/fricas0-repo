@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |BEZOUT;sylvesterMatrix;2UPM;1| (|p| |q| $)
-  (PROG (#1=#:G145 |i| |q0| |deg| |coef| #2=#:G144 |p0| |maxC| |maxR| |minC|
+  (PROG (#1=#:G121 |i| |q0| |deg| |coef| #2=#:G120 |p0| |maxC| |maxR| |minC|
          |minR| |sylmat| |n| |n2| |n1|)
     (RETURN
      (SEQ
@@ -57,8 +57,8 @@
       (EXIT |sylmat|))))) 
 
 (DEFUN |BEZOUT;bezoutMatrix;2UPM;2| (|p| |q| $)
-  (PROG (|k| |i| |p0| |c| |coef| |deg| |q0| |bound| |bezmat| #1=#:G174
-         #2=#:G173 |maxC| |maxR| |minC| |minR| |sylmat| |m| |m2| |m1| |n| |n2|
+  (PROG (|k| |i| |p0| |c| |coef| |deg| |q0| |bound| |bezmat| #1=#:G150
+         #2=#:G149 |maxC| |maxR| |minC| |minR| |sylmat| |m| |m2| |m1| |n| |n2|
          |n1|)
     (RETURN
      (SEQ
@@ -270,7 +270,7 @@
   (SPADCALL (SPADCALL |f| |g| (QREFELT $ 29)) (QREFELT $ 35))) 
 
 (DEFUN |BEZOUT;bezoutDiscriminant;UPR;4| (|f| $)
-  (PROG (#1=#:G177 |degMod4|)
+  (PROG (#1=#:G153 |degMod4|)
     (RETURN
      (SEQ
       (LETT |degMod4| (REM (SPADCALL |f| (QREFELT $ 12)) 4)
@@ -318,10 +318,10 @@
 
 (DECLAIM (NOTINLINE |BezoutMatrix;|)) 
 
-(DEFUN |BezoutMatrix| (&REST #1=#:G184)
+(DEFUN |BezoutMatrix| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#

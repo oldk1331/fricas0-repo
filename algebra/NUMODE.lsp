@@ -3,9 +3,9 @@
 
 (DEFUN |NUMODE;rk4a;VI4FIMV;1|
        (|ystart| |nvar| |x1| |x2| |eps| |htry| |nstep| |derivs| $)
-  (PROG (|i| #1=#:G158 |x| |iter| |outlist| |m| |tiny| |step| |t6| #2=#:G148
-         |t5| #3=#:G146 |t4| #4=#:G144 |t3| #5=#:G142 |t2| #6=#:G140 |t1|
-         #7=#:G138 |dydx| #8=#:G136 |yscal| #9=#:G134 |y| #10=#:G132)
+  (PROG (|i| #1=#:G134 |x| |iter| |outlist| |m| |tiny| |step| |t6| #2=#:G124
+         |t5| #3=#:G122 |t4| #4=#:G120 |t3| #5=#:G118 |t2| #6=#:G116 |t1|
+         #7=#:G114 |dydx| #8=#:G112 |yscal| #9=#:G110 |y| #10=#:G108)
     (RETURN
      (SEQ
       (LETT |y|
@@ -149,8 +149,8 @@
             (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NUMODE;rk4qc;VIFRFVMV;2| (|y| |n| |x| |step| |eps| |yscal| |derivs| $)
-  (PROG (|t7| #1=#:G179 |t6| #2=#:G177 |t5| #3=#:G175 |t4| #4=#:G173 |t3|
-         #5=#:G171 |t2| #6=#:G169 |t1| #7=#:G167)
+  (PROG (|t7| #1=#:G155 |t6| #2=#:G153 |t5| #3=#:G151 |t4| #4=#:G149 |t3|
+         #5=#:G147 |t2| #6=#:G145 |t1| #7=#:G143)
     (RETURN
      (SEQ
       (LETT |t1|
@@ -217,7 +217,7 @@
 (DEFUN |NUMODE;rk4qclocal|
        (|y| |dydx| |n| |x| |step| |eps| |yscal| |derivs| |t1| |t2| |t3| |ysav|
         |dysav| |ytemp| $)
-  (PROG (|i| #1=#:G208 |h| |errmax| |hh| |m| |errcon| |shrink| |grow| |safety|
+  (PROG (|i| #1=#:G184 |h| |errmax| |hh| |m| |errcon| |shrink| |grow| |safety|
          |fcor| |xsav|)
     (RETURN
      (SEQ (LETT |xsav| |x| . #2=(|NUMODE;rk4qclocal|))
@@ -330,8 +330,8 @@
                 (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NUMODE;rk4f;VI2FIMV;5| (|y| |nvar| |x1| |x2| |nstep| |derivs| $)
-  (PROG (|x| |i| |h| |ynew| #1=#:G221 |dydx| #2=#:G219 |dym| #3=#:G217 |dyt|
-         #4=#:G215 |yt| #5=#:G213)
+  (PROG (|x| |i| |h| |ynew| #1=#:G197 |dydx| #2=#:G195 |dym| #3=#:G193 |dyt|
+         #4=#:G191 |yt| #5=#:G189)
     (RETURN
      (SEQ
       (LETT |yt|
@@ -379,7 +379,7 @@
             (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))))))) 
 
 (DEFUN |NUMODE;rk4;VI2FMV;6| (|y| |n| |x| |h| |derivs| $)
-  (PROG (|t4| #1=#:G236 |t3| #2=#:G234 |t2| #3=#:G232 |t1| #4=#:G230)
+  (PROG (|t4| #1=#:G212 |t3| #2=#:G210 |t2| #3=#:G208 |t1| #4=#:G206)
     (RETURN
      (SEQ
       (LETT |t1|
@@ -499,7 +499,7 @@
 (DEFUN |NumericalOrdinaryDifferentialEquations| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G255)
+     (PROG (#1=#:G231)
        (RETURN
         (COND
          ((LETT #1#

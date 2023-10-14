@@ -158,7 +158,7 @@
                                 (QREFELT $ 29)))))))))))))))) 
 
 (DEFUN |EUCDOM-;principalIdeal;LR;9| (|l| $)
-  (PROG (#1=#:G222 |vv| #2=#:G221 |u| |v| |uca|)
+  (PROG (#1=#:G198 |vv| #2=#:G197 |u| |v| |uca|)
     (RETURN
      (SEQ
       (COND
@@ -204,7 +204,7 @@
                (QVELT |u| 2)))))))))) 
 
 (DEFUN |EUCDOM-;expressIdealMember;LSU;10| (|l| |z| $)
-  (PROG (#1=#:G240 |v| #2=#:G239 |q| |pid| #3=#:G238 #4=#:G237)
+  (PROG (#1=#:G216 |v| #2=#:G215 |q| |pid| #3=#:G214 #4=#:G213)
     (RETURN
      (SEQ
       (COND
@@ -247,8 +247,8 @@
                                  (EXIT (NREVERSE #2#))))))))))))))) 
 
 (DEFUN |EUCDOM-;multiEuclidean;LSU;11| (|l| |z| $)
-  (PROG (|v2| |v1| |u| #1=#:G248 #2=#:G247 #3=#:G249 #4=#:G260 #5=#:G128
-         #6=#:G245 #7=#:G244 #8=#:G246 #9=#:G259 #10=#:G127 |l2| |l1| |n|)
+  (PROG (|v2| |v1| |u| #1=#:G224 #2=#:G223 #3=#:G225 #4=#:G236 #5=#:G104
+         #6=#:G221 #7=#:G220 #8=#:G222 #9=#:G235 #10=#:G103 |l2| |l1| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #11=(|EUCDOM-;multiEuclidean;LSU;11|))
           (EXIT

@@ -20,7 +20,7 @@
 (DEFUN |IAN;mainRatDenom| (|f| $) (SPADCALL |f| (QREFELT $ 29))) 
 
 (DEFUN |IAN;findDenominator| (|z| $)
-  (PROG (#1=#:G146 |rec| |zz| |dd|)
+  (PROG (#1=#:G122 |rec| |zz| |dd|)
     (RETURN
      (SEQ
       (EXIT
@@ -144,7 +144,7 @@
                      (SPADCALL |d| |p| (QREFELT $ 84)) (QREFELT $ 62))))))) 
 
 (DEFUN |IAN;norm;$L$;13| (|z| |l| $)
-  (PROG (#1=#:G169 |k|)
+  (PROG (#1=#:G145 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|IAN;norm;$L$;13|)) (LETT #1# |l| . #2#) G190
@@ -179,7 +179,7 @@
      (PROGN (|IAN;makeUnivariate| (SPADCALL |x| (QREFELT $ 55)) |k| $))))) 
 
 (DEFUN |IAN;norm;SupLSup;15| (|z| |l| $)
-  (PROG (#1=#:G176 |k|)
+  (PROG (#1=#:G152 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|IAN;norm;SupLSup;15|)) (LETT #1# |l| . #2#)
@@ -210,7 +210,7 @@
 (DEFUN |InnerAlgebraicNumber| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G212)
+     (PROG (#1=#:G188)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|InnerAlgebraicNumber|)

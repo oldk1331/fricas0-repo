@@ -6,18 +6,18 @@
 (DEFPARAMETER |PlottableSpaceCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottableSpaceCurveCategory| ()
-  (LET (#:G130)
+  (LET (#:G106)
     (COND (|PlottableSpaceCurveCategory;AL|)
           (T
            (SETQ |PlottableSpaceCurveCategory;AL|
                    (|PlottableSpaceCurveCategory;|)))))) 
 
 (DEFUN |PlottableSpaceCurveCategory;| ()
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|OutputForm|)))
+               (|sublisV| (PAIR '(#2=#:G103) (LIST '(|OutputForm|)))
                           (|Join| (|CoercibleTo| '#2#)
                                   (|mkCategory|
                                    '(((|listBranches|

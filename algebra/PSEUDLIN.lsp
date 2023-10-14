@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PSEUDLIN;inv| (|m| $)
-  (PROG (#1=#:G132)
+  (PROG (#1=#:G108)
     (RETURN
      (PROG2 (LETT #1# (SPADCALL |m| (QREFELT $ 9)) |PSEUDLIN;inv|)
          (QCDR #1#)
@@ -32,7 +32,7 @@
   (|PSEUDLIN;normalForm0| M |sig| (SPADCALL |sig| (QREFELT $ 17)) |der| $)) 
 
 (DEFUN |PSEUDLIN;companionBlocks;MVL;4| (R |w| $)
-  (PROG (|i| |l| |k| |v| #1=#:G169 |j| |n|)
+  (PROG (|i| |l| |k| |v| #1=#:G145 |j| |n|)
     (RETURN
      (SEQ (LETT |i| 1 . #2=(|PSEUDLIN;companionBlocks;MVL;4|))
           (LETT |n| (ANROWS R) . #2#) (LETT |l| NIL . #2#)
@@ -76,8 +76,8 @@
           (EXIT |l|))))) 
 
 (DEFUN |PSEUDLIN;normalForm0| (M |sig| |siginv| |der| $)
-  (PROG (|i| |Binv| B E #1=#:G207 |k| #2=#:G208 |recOfMatrices| |j| #3=#:G204
-         #4=#:G205 #5=#:G206 N)
+  (PROG (|i| |Binv| B E #1=#:G183 |k| #2=#:G184 |recOfMatrices| |j| #3=#:G180
+         #4=#:G181 #5=#:G182 N)
     (RETURN
      (SEQ
       (EXIT
@@ -284,7 +284,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |PSEUDLIN;mulMatrix| (N |i| |a| $)
-  (PROG (M #1=#:G212 |j| #2=#:G213)
+  (PROG (M #1=#:G188 |j| #2=#:G189)
     (RETURN
      (SEQ
       (LETT M
@@ -304,7 +304,7 @@
       (SPADCALL M |i| |i| |a| (QREFELT $ 42)) (EXIT M))))) 
 
 (DEFUN |PSEUDLIN;addMatrix| (N |i| |k| |a| $)
-  (PROG (A #1=#:G217 |j| #2=#:G218)
+  (PROG (A #1=#:G193 |j| #2=#:G194)
     (RETURN
      (SEQ
       (LETT A
@@ -324,7 +324,7 @@
       (SPADCALL A |i| |k| |a| (QREFELT $ 42)) (EXIT A))))) 
 
 (DEFUN |PSEUDLIN;permutationMatrix| (N |i| |k| $)
-  (PROG (P #1=#:G222 |j| #2=#:G223)
+  (PROG (P #1=#:G198 |j| #2=#:G199)
     (RETURN
      (SEQ
       (LETT P
@@ -351,10 +351,10 @@
 
 (DECLAIM (NOTINLINE |PseudoLinearNormalForm;|)) 
 
-(DEFUN |PseudoLinearNormalForm| (#1=#:G224)
+(DEFUN |PseudoLinearNormalForm| (#1=#:G200)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G225)
+     (PROG (#2=#:G201)
        (RETURN
         (COND
          ((LETT #2#

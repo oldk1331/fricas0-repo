@@ -27,7 +27,7 @@
   (SPADCALL |p| (SPADCALL |ps| (QREFELT $ 14)) (QREFELT $ 25))) 
 
 (DEFUN |GPOLSET;=;2$B;8| (|ps1| |ps2| $)
-  (PROG (#1=#:G144 |p| #2=#:G143 #3=#:G142 #4=#:G141)
+  (PROG (#1=#:G120 |p| #2=#:G119 #3=#:G118 #4=#:G117)
     (RETURN
      (SEQ
       (SPADCALL
@@ -56,7 +56,7 @@
        (QREFELT $ 29)))))) 
 
 (DEFUN |GPOLSET;coerce;$Of;9| (|ps| $)
-  (PROG (#1=#:G151 |p| #2=#:G150 |lp|)
+  (PROG (#1=#:G127 |p| #2=#:G126 |lp|)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -104,10 +104,10 @@
 
 (DECLAIM (NOTINLINE |GeneralPolynomialSet;|)) 
 
-(DEFUN |GeneralPolynomialSet| (&REST #1=#:G175)
+(DEFUN |GeneralPolynomialSet| (&REST #1=#:G151)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G176)
+     (PROG (#2=#:G152)
        (RETURN
         (COND
          ((LETT #2#
@@ -126,7 +126,7 @@
               (HREM |$ConstructorCache| '|GeneralPolynomialSet|))))))))))) 
 
 (DEFUN |GeneralPolynomialSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G174 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G150 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralPolynomialSet|))

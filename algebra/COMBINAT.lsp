@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |COMBINAT;partition;2I;1| (|n| $)
-  (PROG (|s| |t| #1=#:G146 |u| |l| |k| #2=#:G153 |i| #3=#:G142 |m|)
+  (PROG (|s| |t| #1=#:G122 |u| |l| |k| #2=#:G129 |i| #3=#:G118 |m|)
     (RETURN
      (SEQ
       (COND
@@ -107,7 +107,7 @@
                         (QREFELT $ 27)))))))))))))) 
 
 (DEFUN |COMBINAT;factorial;2I;2| (|n| $)
-  (PROG (|f| |t| #1=#:G160 |k| |s| |#G7|)
+  (PROG (|f| |t| #1=#:G136 |k| |s| |#G7|)
     (RETURN
      (SEQ
       (COND
@@ -150,7 +150,7 @@
          (EXIT (PROGN (RPLACD (QREFELT $ 9) |f|) (QCDR (QREFELT $ 9))))))))))) 
 
 (DEFUN |COMBINAT;binomial;3I;3| (|n| |m| $)
-  (PROG (|b| #1=#:G171 |k| |s| |#G17| |#G16| #2=#:G170 |#G15| |#G14|)
+  (PROG (|b| #1=#:G147 |k| |s| |#G17| |#G16| #2=#:G146 |#G15| |#G14|)
     (RETURN
      (SEQ
       (EXIT
@@ -228,8 +228,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |COMBINAT;multinomial;ILI;4| (|n| |m| $)
-  (PROG (|s| #1=#:G182 |t| #2=#:G174 #3=#:G173 #4=#:G175 #5=#:G181 #6=#:G127
-         #7=#:G172 #8=#:G179 #9=#:G180)
+  (PROG (|s| #1=#:G158 |t| #2=#:G150 #3=#:G149 #4=#:G151 #5=#:G157 #6=#:G103
+         #7=#:G148 #8=#:G155 #9=#:G156)
     (RETURN
      (SEQ
       (EXIT
@@ -300,7 +300,7 @@
       #8# (EXIT #8#))))) 
 
 (DEFUN |COMBINAT;permutation;3I;5| (|n| |m| $)
-  (PROG (|p| |t| #1=#:G187 |k|)
+  (PROG (|p| |t| #1=#:G163 |k|)
     (RETURN
      (SEQ
       (COND
@@ -329,7 +329,7 @@
          (EXIT |p|)))))))) 
 
 (DEFUN |COMBINAT;stirling1;3I;6| (|n| |m| $)
-  (PROG (#1=#:G190 #2=#:G195 |k| |x| #3=#:G188)
+  (PROG (#1=#:G166 #2=#:G171 |k| |x| #3=#:G164)
     (RETURN
      (SEQ
       (COND
@@ -382,7 +382,7 @@
                            (QREFELT $ 49)))))))))))) 
 
 (DEFUN |COMBINAT;stirling2;3I;7| (|n| |m| $)
-  (PROG (|t| #1=#:G198 |s| #2=#:G203 |k|)
+  (PROG (|t| #1=#:G174 |s| #2=#:G179 |k|)
     (RETURN
      (SEQ
       (COND
@@ -436,7 +436,7 @@
           (SPADCALL |t| (SPADCALL |m| (QREFELT $ 39)) (QREFELT $ 44)))))))))) 
 
 (DEFUN |COMBINAT;catalan;2I;8| (|n| $)
-  (PROG (#1=#:G205)
+  (PROG (#1=#:G181)
     (RETURN
      (PROG2
          (LETT #1#
@@ -450,10 +450,10 @@
 
 (DECLAIM (NOTINLINE |IntegerCombinatoricFunctions;|)) 
 
-(DEFUN |IntegerCombinatoricFunctions| (#1=#:G208)
+(DEFUN |IntegerCombinatoricFunctions| (#1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G209)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#

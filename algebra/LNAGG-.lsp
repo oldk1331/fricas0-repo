@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LNAGG-;indices;AL;1| (|a| $)
-  (PROG (#1=#:G139 |i| #2=#:G138)
+  (PROG (#1=#:G115 |i| #2=#:G114)
     (RETURN
      (SEQ
       (PROGN

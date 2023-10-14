@@ -33,10 +33,10 @@
 
 (DECLAIM (NOTINLINE |HashTable;|)) 
 
-(DEFUN |HashTable| (&REST #1=#:G197)
+(DEFUN |HashTable| (&REST #1=#:G173)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G198)
+     (PROG (#2=#:G174)
        (RETURN
         (COND
          ((LETT #2#
@@ -52,7 +52,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|HashTable|))))))))))) 
 
 (DEFUN |HashTable;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G196 #2=#:G195 |pv$| #3=#:G193 #4=#:G194 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G172 #2=#:G171 |pv$| #3=#:G169 #4=#:G170 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|HashTable|))

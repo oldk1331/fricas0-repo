@@ -241,10 +241,10 @@
 
 (DECLAIM (NOTINLINE |UnittestAux;|)) 
 
-(DEFUN |UnittestAux| (#1=#:G205)
+(DEFUN |UnittestAux| (#1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G206)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#

@@ -17,7 +17,7 @@
   (SEQ (SPADCALL |tab| |name| |type| (QREFELT $ 23)) (EXIT |type|))) 
 
 (DEFUN |SYMTAB;declare!;LFt$Ft;7| (|names| |type| |tab| $)
-  (PROG (#1=#:G145 |name|)
+  (PROG (#1=#:G121 |name|)
     (RETURN
      (SEQ
       (SEQ (LETT |name| NIL . #2=(|SYMTAB;declare!;LFt$Ft;7|))
@@ -33,7 +33,7 @@
   (SPADCALL |tab| |u| (QREFELT $ 26))) 
 
 (DEFUN |SYMTAB;externalList;$L;9| (|tab| $)
-  (PROG (#1=#:G150 |u| #2=#:G149)
+  (PROG (#1=#:G126 |u| #2=#:G125)
     (RETURN
      (SEQ
       (PROGN
@@ -52,8 +52,8 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SYMTAB;typeList;Fst$L;10| (|type| |tab| $)
-  (PROG (|arrayList| |scalarList| |uDim| #1=#:G172 |v| #2=#:G171 |sType|
-         |uType| #3=#:G170 |u|)
+  (PROG (|arrayList| |scalarList| |uDim| #1=#:G148 |v| #2=#:G147 |sType|
+         |uType| #3=#:G146 |u|)
     (RETURN
      (SEQ (LETT |scalarList| NIL . #4=(|SYMTAB;typeList;Fst$L;10|))
           (LETT |arrayList| NIL . #4#)
@@ -105,7 +105,7 @@
           (EXIT (APPEND |scalarList| |arrayList|)))))) 
 
 (DEFUN |SYMTAB;typeList2| (|type| |tab| $)
-  (PROG (|tl| |uDim| #1=#:G189 |v| #2=#:G188 |sType| |uType| #3=#:G187 |u|
+  (PROG (|tl| |uDim| #1=#:G165 |v| #2=#:G164 |sType| |uType| #3=#:G163 |u|
          |symbolType|)
     (RETURN
      (SEQ (LETT |tl| NIL . #4=(|SYMTAB;typeList2|))
@@ -173,8 +173,8 @@
                   (EXIT |tl|))))))))) 
 
 (DEFUN |SYMTAB;newTypeLists;$Se;13| (|tab| $)
-  (PROG (|tl| |lType| |lDims| #1=#:G203 |v| #2=#:G202 |dims| |sType| |uType|
-         #3=#:G201 |u|)
+  (PROG (|tl| |lType| |lDims| #1=#:G179 |v| #2=#:G178 |dims| |sType| |uType|
+         #3=#:G177 |u|)
     (RETURN
      (SEQ (LETT |tl| (|construct|) . #4=(|SYMTAB;newTypeLists;$Se;13|))
           (SEQ (LETT |u| NIL . #4#)
@@ -222,7 +222,7 @@
           (EXIT |tl|))))) 
 
 (DEFUN |SYMTAB;typeLists;$L;14| (|tab| $)
-  (PROG (|tl| |types| #1=#:G210 |u| |fortranTypes|)
+  (PROG (|tl| |types| #1=#:G186 |u| |fortranTypes|)
     (RETURN
      (SEQ
       (LETT |fortranTypes|
@@ -246,7 +246,7 @@
       (EXIT |tl|))))) 
 
 (DEFUN |SYMTAB;oForm2| (|w| $)
-  (PROG (#1=#:G174)
+  (PROG (#1=#:G150)
     (RETURN
      (COND ((QEQCAR |w| 0) (SPADCALL (CDR |w|) (QREFELT $ 58)))
            ((QEQCAR |w| 1)
@@ -257,7 +257,7 @@
              (QREFELT $ 59))))))) 
 
 (DEFUN |SYMTAB;oForm| (|v| $)
-  (PROG (|ll| #1=#:G216 #2=#:G176 |uu| #3=#:G215)
+  (PROG (|ll| #1=#:G192 #2=#:G152 |uu| #3=#:G191)
     (RETURN
      (SEQ
       (COND ((QEQCAR |v| 0) (SPADCALL (CDR |v|) (QREFELT $ 58)))
@@ -293,7 +293,7 @@
               (EXIT (SPADCALL |ll| (QREFELT $ 61)))))))))) 
 
 (DEFUN |SYMTAB;outForm| (|t| $)
-  (PROG (#1=#:G220 |u| #2=#:G219)
+  (PROG (#1=#:G196 |u| #2=#:G195)
     (RETURN
      (SEQ
       (PROGN
@@ -307,7 +307,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SYMTAB;printTypes;$V;18| (|tab| $)
-  (PROG (|el| #1=#:G228 |u| #2=#:G227 |otl| |tl| #3=#:G226 |ty| |ft|)
+  (PROG (|el| #1=#:G204 |u| #2=#:G203 |otl| |tl| #3=#:G202 |ty| |ft|)
     (RETURN
      (SEQ
       (LETT |ft|
@@ -348,7 +348,7 @@
 (DEFUN |SymbolTable| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G230)
+     (PROG (#1=#:G206)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SymbolTable|)

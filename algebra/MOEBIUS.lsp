@@ -181,10 +181,10 @@
 
 (DECLAIM (NOTINLINE |MoebiusTransform;|)) 
 
-(DEFUN |MoebiusTransform| (#1=#:G180)
+(DEFUN |MoebiusTransform| (#1=#:G156)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G181)
+     (PROG (#2=#:G157)
        (RETURN
         (COND
          ((LETT #2#

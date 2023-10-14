@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GALPOLYU;factorsOfDegree;PiFL;1| (|d| |r| $)
-  (PROG (|lfact| #1=#:G135 |i| #2=#:G134 |fr|)
+  (PROG (|lfact| #1=#:G111 |i| #2=#:G110 |fr|)
     (RETURN
      (SEQ (LETT |lfact| NIL . #3=(|GALPOLYU;factorsOfDegree;PiFL;1|))
           (SEQ (LETT |fr| NIL . #3#)
@@ -25,7 +25,7 @@
           (EXIT |lfact|))))) 
 
 (DEFUN |GALPOLYU;factorOfDegree;PiFUP;2| (|d| |r| $)
-  (PROG (#1=#:G139 |factor| #2=#:G140 |i|)
+  (PROG (#1=#:G115 |factor| #2=#:G116 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -44,7 +44,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GALPOLYU;degreePartition;FM;3| (|r| $)
-  (PROG (#1=#:G144 |i| #2=#:G143)
+  (PROG (#1=#:G120 |i| #2=#:G119)
     (RETURN
      (SEQ
       (SPADCALL
@@ -68,7 +68,7 @@
   (SPADCALL (SPADCALL |p| (QREFELT $ 26)) (|spadConstant| $ 27) (QREFELT $ 29))) 
 
 (DEFUN |GALPOLYU;unvectorise;VUP;5| (|v| $)
-  (PROG (|p| #1=#:G146 #2=#:G150 |i|)
+  (PROG (|p| #1=#:G122 #2=#:G126 |i|)
     (RETURN
      (SEQ (LETT |p| (|spadConstant| $ 17) . #3=(|GALPOLYU;unvectorise;VUP;5|))
           (SEQ (LETT |i| 1 . #3#) (LETT #2# (QVSIZE |v|) . #3#) G190
@@ -89,7 +89,7 @@
           (EXIT |p|))))) 
 
 (DEFUN |GALPOLYU;reverse;2UP;6| (|p| $)
-  (PROG (|r| #1=#:G151 |i| |n|)
+  (PROG (|r| #1=#:G127 |i| |n|)
     (RETURN
      (SEQ (LETT |r| (|spadConstant| $ 17) . #2=(|GALPOLYU;reverse;2UP;6|))
           (LETT |n| (SPADCALL |p| (QREFELT $ 13)) . #2#)
@@ -157,10 +157,10 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
 
-(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G170)
+(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#

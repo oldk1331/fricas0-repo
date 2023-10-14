@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PERMAN;permanent3| (|x| $)
-  (PROG (|a| |j| |vv| |b| #1=#:G142 |i| |k| |sgn| |w|)
+  (PROG (|a| |j| |vv| |b| #1=#:G118 |i| |k| |sgn| |w|)
     (RETURN
      (SEQ (LETT |sgn| (|spadConstant| $ 8) . #2=(|PERMAN;permanent3|))
           (LETT |a| (|spadConstant| $ 9) . #2#)
@@ -58,8 +58,8 @@
           (EXIT |a|))))) 
 
 (DEFUN |PERMAN;permanent;SmR;2| (|x| $)
-  (PROG (|a| |j| |vv| #1=#:G154 |b| #2=#:G163 |i| |k| |sgn| #3=#:G162 #4=#:G149
-         #5=#:G161 |rowi| #6=#:G160 |w| #7=#:G159 |half| |two|)
+  (PROG (|a| |j| |vv| #1=#:G130 |b| #2=#:G139 |i| |k| |sgn| #3=#:G138 #4=#:G125
+         #5=#:G137 |rowi| #6=#:G136 |w| #7=#:G135 |half| |two|)
     (RETURN
      (SEQ
       (EXIT
@@ -189,9 +189,9 @@
       #7# (EXIT #7#))))) 
 
 (DEFUN |PERMAN;permanent2| (|x| $)
-  (PROG (#1=#:G180 |b| #2=#:G178 |a| |j| |vv| #3=#:G173 #4=#:G188 |i| |c| |k|
-         |sgn| #5=#:G187 #6=#:G168 #7=#:G186 |rowi| #8=#:G185 |w| |two|
-         #9=#:G184)
+  (PROG (#1=#:G156 |b| #2=#:G154 |a| |j| |vv| #3=#:G149 #4=#:G164 |i| |c| |k|
+         |sgn| #5=#:G163 #6=#:G144 #7=#:G162 |rowi| #8=#:G161 |w| |two|
+         #9=#:G160)
     (RETURN
      (SEQ
       (EXIT
@@ -362,10 +362,10 @@
 
 (DECLAIM (NOTINLINE |Permanent;|)) 
 
-(DEFUN |Permanent| (&REST #1=#:G189)
+(DEFUN |Permanent| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G190)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#

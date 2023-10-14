@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LMDICT;coerce;$Of;1| (|s| $)
-  (PROG (#1=#:G148 |x| #2=#:G147)
+  (PROG (#1=#:G124 |x| #2=#:G123)
     (RETURN
      (SEQ
       (SPADCALL "dictionary"
@@ -36,7 +36,7 @@
 (DEFUN |LMDICT;empty;$;7| ($) (SPADCALL NIL (QREFELT $ 24))) 
 
 (DEFUN |LMDICT;dictionary;L$;8| (|ls| $)
-  (PROG (#1=#:G159 |x| |lmd|)
+  (PROG (#1=#:G135 |x| |lmd|)
     (RETURN
      (SEQ
       (COND ((NULL |ls|) (SPADCALL (QREFELT $ 25)))
@@ -119,7 +119,7 @@
               (SPADCALL |s| (CDR |p|) (QREFELT $ 45)) (EXIT |x|)))))))) 
 
 (DEFUN |LMDICT;duplicates?;$B;19| (|s| $)
-  (PROG (|q| |p| #1=#:G184)
+  (PROG (|q| |p| #1=#:G160)
     (RETURN
      (SEQ
       (EXIT
@@ -146,7 +146,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LMDICT;remove!;M2$;20| (|p| |lmd| $)
-  (PROG (#1=#:G189 |x|)
+  (PROG (#1=#:G165 |x|)
     (RETURN
      (SEQ
       (SEQ (LETT |x| NIL . #2=(|LMDICT;remove!;M2$;20|))
@@ -177,7 +177,7 @@
             ('T (|spadConstant| $ 53))))))) 
 
 (DEFUN |LMDICT;duplicates;$L;22| (|lmd| $)
-  (PROG (|ld| |n| #1=#:G203 |x|)
+  (PROG (|ld| |n| #1=#:G179 |x|)
     (RETURN
      (SEQ (LETT |ld| NIL . #2=(|LMDICT;duplicates;$L;22|))
           (SEQ (LETT |x| NIL . #2#)
@@ -269,7 +269,7 @@
    (EXIT |s|))) 
 
 (DEFUN |LMDICT;=;2$B;27| (|s| |t| $)
-  (PROG (#1=#:G230 |x| |a|)
+  (PROG (#1=#:G206 |x| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -291,7 +291,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |LMDICT;insert!;S2$;28| (|x| |s| $)
-  (PROG (|p| #1=#:G236)
+  (PROG (|p| #1=#:G212)
     (RETURN
      (SEQ
       (EXIT
@@ -313,10 +313,10 @@
 
 (DECLAIM (NOTINLINE |ListMultiDictionary;|)) 
 
-(DEFUN |ListMultiDictionary| (#1=#:G246)
+(DEFUN |ListMultiDictionary| (#1=#:G222)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G247)
+     (PROG (#2=#:G223)
        (RETURN
         (COND
          ((LETT #2#
@@ -334,7 +334,7 @@
               (HREM |$ConstructorCache| '|ListMultiDictionary|))))))))))) 
 
 (DEFUN |ListMultiDictionary;| (|#1|)
-  (PROG (#1=#:G245 #2=#:G244 |pv$| #3=#:G241 #4=#:G242 #5=#:G243 $ |dv$| DV$1)
+  (PROG (#1=#:G221 #2=#:G220 |pv$| #3=#:G217 #4=#:G218 #5=#:G219 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #6=(|ListMultiDictionary|))

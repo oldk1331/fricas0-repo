@@ -13,7 +13,7 @@
                  ('T |x|)))))))) 
 
 (DEFUN |MTHING;mergeDifference1| (|x| |fy| |ry| $)
-  (PROG (#1=#:G137 |frx| |rx|)
+  (PROG (#1=#:G113 |frx| |rx|)
     (RETURN
      (SEQ
       (EXIT
@@ -54,10 +54,10 @@
 
 (DECLAIM (NOTINLINE |MergeThing;|)) 
 
-(DEFUN |MergeThing| (#1=#:G138)
+(DEFUN |MergeThing| (#1=#:G114)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G139)
+     (PROG (#2=#:G115)
        (RETURN
         (COND
          ((LETT #2#

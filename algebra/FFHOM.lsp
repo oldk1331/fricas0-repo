@@ -48,9 +48,9 @@
              (EXIT (COND ((EQL |equal| 1) 'T) (#1# 'NIL)))))))))) 
 
 (DEFUN |FFHOM;initialize| ($)
-  (PROG (|matbs| #1=#:G157 |matsb| |i| |mat| |arr| |rowind| |ra| |iVec| |a|
+  (PROG (|matbs| #1=#:G133 |matsb| |i| |mat| |arr| |rowind| |ra| |iVec| |a|
          |root| |rTsmall| |dPsmall| |rTbig| |dPbig| |degbig| |degsmall|
-         #2=#:G179)
+         #2=#:G155)
     (RETURN
      (SEQ
       (COND
@@ -353,10 +353,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G194)
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G170)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G195)
+     (PROG (#2=#:G171)
        (RETURN
         (COND
          ((LETT #2#
@@ -416,7 +416,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|PositiveInteger|) (0 . |extensionDegree|)
               '|degree1| (4 . |extensionDegree|) '|degree2| (|Boolean|)
-              (|NonNegativeInteger|) (8 . ~=) '#:G127 (|Matrix| 7)
+              (|NonNegativeInteger|) (8 . ~=) '#:G103 (|Matrix| 7)
               (14 . |zero|) '|conMat1to2| '|conMat2to1|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (20 . |representationType|) '|repType1|

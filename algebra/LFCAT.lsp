@@ -6,14 +6,14 @@
 (DEFPARAMETER |LiouvillianFunctionCategory;AL| 'NIL) 
 
 (DEFUN |LiouvillianFunctionCategory| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|LiouvillianFunctionCategory;AL|)
           (T
            (SETQ |LiouvillianFunctionCategory;AL|
                    (|LiouvillianFunctionCategory;|)))))) 
 
 (DEFUN |LiouvillianFunctionCategory;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

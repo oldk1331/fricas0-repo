@@ -9,8 +9,8 @@
             (QREFELT $ 18))) 
 
 (DEFUN |FEXPR;fixUpSymbols| (|u| $)
-  (PROG (#1=#:G179 |i| #2=#:G178 |sym| |syms| #3=#:G177 |s| #4=#:G176 #5=#:G156
-         #6=#:G174 #7=#:G175)
+  (PROG (#1=#:G155 |i| #2=#:G154 |sym| |syms| #3=#:G153 |s| #4=#:G152 #5=#:G132
+         #6=#:G150 #7=#:G151)
     (RETURN
      (SEQ
       (EXIT
@@ -112,7 +112,7 @@
       #6# (EXIT #6#))))) 
 
 (DEFUN |FEXPR;extraSymbols?| (|u| $)
-  (PROG (|extras| |syms| #1=#:G184 |v| #2=#:G183)
+  (PROG (|extras| |syms| #1=#:G160 |v| #2=#:G159)
     (RETURN
      (SEQ
       (LETT |syms|
@@ -137,7 +137,7 @@
       (EXIT (COND ((NULL |extras|) 'NIL) ('T 'T))))))) 
 
 (DEFUN |FEXPR;checkSymbols| (|u| $)
-  (PROG (#1=#:G194 |v| #2=#:G193 |m| |extras| |syms| #3=#:G192 #4=#:G191)
+  (PROG (#1=#:G170 |v| #2=#:G169 |m| |extras| |syms| #3=#:G168 #4=#:G167)
     (RETURN
      (SEQ
       (LETT |syms|
@@ -203,7 +203,7 @@
           (EXIT 'T))))) 
 
 (DEFUN |FEXPR;extraOperators?| (|u| $)
-  (PROG (|extras| |fortranFunctions| |ops| #1=#:G204 |v| #2=#:G203)
+  (PROG (|extras| |fortranFunctions| |ops| #1=#:G180 |v| #2=#:G179)
     (RETURN
      (SEQ
       (LETT |ops|
@@ -231,8 +231,8 @@
       (EXIT (COND ((NULL |extras|) 'NIL) (#4# 'T))))))) 
 
 (DEFUN |FEXPR;checkOperators| (|u| $)
-  (PROG (#1=#:G213 |v| #2=#:G212 |extras| |fortranFunctions| |ops| #3=#:G211
-         #4=#:G210)
+  (PROG (#1=#:G189 |v| #2=#:G188 |extras| |fortranFunctions| |ops| #3=#:G187
+         #4=#:G186)
     (RETURN
      (SEQ
       (LETT |ops|
@@ -359,7 +359,7 @@
 (DEFUN |FEXPR;coerce;$E;27| (|u| $) |u|) 
 
 (DEFUN |FEXPR;retractIfCan;EU;28| (|u| $)
-  (PROG (#1=#:G264 |m|)
+  (PROG (#1=#:G240 |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -410,10 +410,10 @@
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 
 
-(DEFUN |FortranExpression| (&REST #1=#:G290)
+(DEFUN |FortranExpression| (&REST #1=#:G266)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G291)
+     (PROG (#2=#:G267)
        (RETURN
         (COND
          ((LETT #2#

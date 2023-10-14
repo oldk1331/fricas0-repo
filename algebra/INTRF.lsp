@@ -42,7 +42,7 @@
     (RETURN (PROGN (SPADCALL |x1| |x| (QREFELT $ 11)))))) 
 
 (DEFUN |INTRF;limitedIntegrate;FSLU;4| (|f| |x| |lu| $)
-  (PROG (#1=#:G159 |u| #2=#:G158)
+  (PROG (#1=#:G135 |u| #2=#:G134)
     (RETURN
      (SEQ
       (SPADCALL (CONS #'|INTRF;limitedIntegrate;FSLU;4!0| (VECTOR $ |x|))
@@ -74,10 +74,10 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionIntegration;|)) 
 
-(DEFUN |RationalFunctionIntegration| (#1=#:G160)
+(DEFUN |RationalFunctionIntegration| (#1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

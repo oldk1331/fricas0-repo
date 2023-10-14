@@ -13,8 +13,8 @@
 
 (DEFUN |VIEW;graphCurves;L2PPiLGi;3|
        (|listOfListsOfPoints| |ptColor| |lineColor| |ptSize| |optionsList| $)
-  (PROG (|listOfPointSizes| |i| #1=#:G137 |listOfLineColors| #2=#:G136
-         |listOfPointColors| #3=#:G135 |len|)
+  (PROG (|listOfPointSizes| |i| #1=#:G113 |listOfLineColors| #2=#:G112
+         |listOfPointColors| #3=#:G111 |len|)
     (RETURN
      (SEQ
       (LETT |len| (LENGTH |listOfListsOfPoints|)
@@ -86,7 +86,7 @@
 (DEFUN |ViewportPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G145)
+     (PROG (#1=#:G121)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|)

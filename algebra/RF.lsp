@@ -21,7 +21,7 @@
   (SPADCALL |ls| |lv| |x| (SPADCALL |x| (QREFELT $ 32)) (QREFELT $ 34))) 
 
 (DEFUN |RF;eval;FLF;9| (|x| |l| $)
-  (PROG (#1=#:G144 |eq| #2=#:G143 #3=#:G142 #4=#:G141)
+  (PROG (#1=#:G120 |eq| #2=#:G119 #3=#:G118 #4=#:G117)
     (RETURN
      (SEQ
       (SPADCALL |x|
@@ -75,10 +75,10 @@
 
 (DECLAIM (NOTINLINE |RationalFunction;|)) 
 
-(DEFUN |RationalFunction| (#1=#:G148)
+(DEFUN |RationalFunction| (#1=#:G124)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G125)
        (RETURN
         (COND
          ((LETT #2#

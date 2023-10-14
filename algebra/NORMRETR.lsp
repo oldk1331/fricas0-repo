@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NORMRETR;normFactors;ExtPL;1| (|p| $)
-  (PROG (|facs| #1=#:G131 #2=#:G132 |i|)
+  (PROG (|facs| #1=#:G107 #2=#:G108 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -44,7 +44,7 @@
       (EXIT |fft|))))) 
 
 (DEFUN |NORMRETR;retractIfCan;ExtPU;3| (|ff| $)
-  (PROG (|fft| |lc| |plc| #1=#:G153 |retlc| |lclc|)
+  (PROG (|fft| |lc| |plc| #1=#:G129 |retlc| |lclc|)
     (RETURN
      (SEQ
       (EXIT
@@ -100,10 +100,10 @@
 
 (DECLAIM (NOTINLINE |NormRetractPackage;|)) 
 
-(DEFUN |NormRetractPackage| (&REST #1=#:G154)
+(DEFUN |NormRetractPackage| (&REST #1=#:G130)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G155)
+     (PROG (#2=#:G131)
        (RETURN
         (COND
          ((LETT #2#

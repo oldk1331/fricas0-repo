@@ -20,10 +20,10 @@
 
 (DECLAIM (NOTINLINE |MultipleMap;|)) 
 
-(DEFUN |MultipleMap| (&REST #1=#:G133)
+(DEFUN |MultipleMap| (&REST #1=#:G109)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G110)
        (RETURN
         (COND
          ((LETT #2#

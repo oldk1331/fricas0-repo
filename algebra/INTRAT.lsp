@@ -92,10 +92,10 @@
 
 (DECLAIM (NOTINLINE |RationalIntegration;|)) 
 
-(DEFUN |RationalIntegration| (&REST #1=#:G159)
+(DEFUN |RationalIntegration| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

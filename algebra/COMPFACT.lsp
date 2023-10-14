@@ -18,7 +18,7 @@
         |r|)))))) 
 
 (DEFUN |COMPFACT;compND| (|cc| $)
-  (PROG (#1=#:G131 |ccd| |dcci| |dccr| |cci| |ccr|)
+  (PROG (#1=#:G107 |ccd| |dcci| |dccr| |cci| |ccr|)
     (RETURN
      (SEQ (LETT |ccr| (SPADCALL |cc| (QREFELT $ 19)) . #2=(|COMPFACT;compND|))
           (LETT |cci| (SPADCALL |cc| (QREFELT $ 20)) . #2#)
@@ -42,7 +42,7 @@
             |ccd|)))))) 
 
 (DEFUN |COMPFACT;conv| (|f| $)
-  (PROG (|dris1| |pris| #1=#:G137 |dris| |cdf| |cf| #2=#:G144 |i| |pdris|)
+  (PROG (|dris1| |pris| #1=#:G113 |dris| |cdf| |cf| #2=#:G120 |i| |pdris|)
     (RETURN
      (SEQ (LETT |pris| (|spadConstant| $ 28) . #3=(|COMPFACT;conv|))
           (LETT |dris| 1 . #3#) (LETT |dris1| 1 . #3#) (LETT |pdris| 1 . #3#)
@@ -90,8 +90,8 @@
           (EXIT (CONS |pris| (SPADCALL |dris| (QREFELT $ 15)))))))) 
 
 (DEFUN |COMPFACT;backConv| (|ffr| $)
-  (PROG (|uconst| |const| |lc| |ris| |expf| |fact| #1=#:G159 |ff| #2=#:G158 |f|
-         #3=#:G157)
+  (PROG (|uconst| |const| |lc| |ris| |expf| |fact| #1=#:G135 |ff| #2=#:G134 |f|
+         #3=#:G133)
     (RETURN
      (SEQ
       (COND
@@ -169,10 +169,10 @@
 
 (DECLAIM (NOTINLINE |ComplexFactorization;|)) 
 
-(DEFUN |ComplexFactorization| (&REST #1=#:G163)
+(DEFUN |ComplexFactorization| (&REST #1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

@@ -12,7 +12,7 @@
 (DEFUN |HexadecimalExpansion| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G163)
+     (PROG (#1=#:G139)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|HexadecimalExpansion|)
@@ -30,7 +30,7 @@
               (HREM |$ConstructorCache| '|HexadecimalExpansion|))))))))))) 
 
 (DEFUN |HexadecimalExpansion;| ()
-  (PROG (|dv$| $ #1=#:G161 |pv$|)
+  (PROG (|dv$| $ #1=#:G137 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|HexadecimalExpansion|) . #2=(|HexadecimalExpansion|))

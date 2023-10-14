@@ -8,8 +8,8 @@
 (DEFUN |SQMATRIX;characteristic;Nni;3| ($) (SPADCALL (QREFELT $ 16))) 
 
 (DEFUN |SQMATRIX;matrix;L$;4| (|l| $)
-  (PROG (#1=#:G145 |j| #2=#:G146 |r| #3=#:G143 |i| #4=#:G144 |ll| |ans|
-         #5=#:G136 #6=#:G142)
+  (PROG (#1=#:G121 |j| #2=#:G122 |r| #3=#:G119 |i| #4=#:G120 |ll| |ans|
+         #5=#:G112 #6=#:G118)
     (RETURN
      (SEQ
       (COND
@@ -109,7 +109,7 @@
 (DEFUN |SQMATRIX;nullity;$Nni;19| (|x| $) (SPADCALL |x| (QREFELT $ 57))) 
 
 (DEFUN |SQMATRIX;nullSpace;$L;20| (|x| $)
-  (PROG (#1=#:G169 |c| #2=#:G168)
+  (PROG (#1=#:G145 |c| #2=#:G144)
     (RETURN
      (SEQ
       (PROGN
@@ -144,10 +144,10 @@
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
-(DEFUN |SquareMatrix| (&REST #1=#:G202)
+(DEFUN |SquareMatrix| (&REST #1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G203)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#
@@ -165,7 +165,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|SquareMatrix|))))))))))) 
 
 (DEFUN |SquareMatrix;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G198 #2=#:G199 #3=#:G201 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G174 #2=#:G175 #3=#:G177 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|SquareMatrix|))

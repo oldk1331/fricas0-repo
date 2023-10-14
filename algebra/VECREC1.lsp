@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |VECREC1;empty;2I$;1| (|npoly| |np| $)
-  (PROG (|state| #1=#:G147 |i| |polyvec| #2=#:G142)
+  (PROG (|state| #1=#:G123 |i| |polyvec| #2=#:G118)
     (RETURN
      (SEQ
       (LETT |polyvec|
@@ -22,7 +22,7 @@
       (SETELT_U32 (QVELT |state| 1) 0 1) (EXIT |state|))))) 
 
 (DEFUN |VECREC1;add_slots;L$V;2| (|ndl| |statearg| $)
-  (PROG (|j| |li| #1=#:G150 #2=#:G159 |i| |nvec| |npoly| |n1| |n0| |m|
+  (PROG (|j| |li| #1=#:G126 #2=#:G135 |i| |nvec| |npoly| |n1| |n0| |m|
          |polyvec| |state|)
     (RETURN
      (SEQ (LETT |state| |statearg| . #3=(|VECREC1;add_slots;L$V;2|))
@@ -65,7 +65,7 @@
           (QSETVELT |state| 6 |polyvec|) (EXIT (QSETVELT |state| 4 |npoly|)))))) 
 
 (DEFUN |VECREC1;double_poly_space| (|statearg| $)
-  (PROG (|op| |np| #1=#:G161 #2=#:G167 |i| |n| |m| |polyvec| |state|)
+  (PROG (|op| |np| #1=#:G137 #2=#:G143 |i| |n| |m| |polyvec| |state|)
     (RETURN
      (SEQ (LETT |state| |statearg| . #3=(|VECREC1;double_poly_space|))
           (LETT |polyvec| (QVELT |state| 6) . #3#)
@@ -88,7 +88,7 @@
           (EXIT (QSETVELT |state| 5 |n|)))))) 
 
 (DEFUN |VECREC1;chinese_update;UvI$V;4| (|vec| |pt| |statearg| $)
-  (PROG (|mtvec| |nmt| #1=#:G173 |cor| |pol| #2=#:G179 |i| |nn| |polyvec|
+  (PROG (|mtvec| |nmt| #1=#:G149 |cor| |pol| #2=#:G155 |i| |nn| |polyvec|
          |mtcor| |mtval| |p| |npt1| |npt| |state|)
     (RETURN
      (SEQ (LETT |state| |statearg| . #3=(|VECREC1;chinese_update;UvI$V;4|))
@@ -150,7 +150,7 @@
 
 (DEFUN |VECREC1;rational_reconstruction;2Uv2IU;5| (|x| |y| |i| |p| $)
   (PROG (|c| |ds1| |s1| |ds0| |s0| |tmp| |tmpp| |dr1| |r1| |dr0| |r0| |ds0a|
-         #1=#:G186 |c0| |c1| |delta| |j|)
+         #1=#:G162 |c0| |c1| |delta| |j|)
     (RETURN
      (SEQ
       (LETT |j| (SPADCALL |y| (QREFELT $ 29))
@@ -233,8 +233,8 @@
               (EXIT (CONS 0 (CONS |r1| |s1|))))))))))) 
 
 (DEFUN |VECREC1;rational_reconstruction;$U;6| (|statearg| $)
-  (PROG (#1=#:G231 |cden| |ppr| |pp| |rp| |deg_r1| |r1| |j| |dens| |nums|
-         #2=#:G212 #3=#:G210 |n| |ok| |bound| |m| |j0| |p| |polyvec| |modulus|
+  (PROG (#1=#:G207 |cden| |ppr| |pp| |rp| |deg_r1| |r1| |j| |dens| |nums|
+         #2=#:G188 #3=#:G186 |n| |ok| |bound| |m| |j0| |p| |polyvec| |modulus|
          |state|)
     (RETURN
      (SEQ
@@ -394,9 +394,9 @@
 
 (DEFUN |VECREC1;repack_polys;IVSevPaR;7|
        (|var_cnt| |poly_offsets| |exps| |coeffs| $)
-  (PROG (|i| |oei| |nei| |oei0| |i1| |nm| |cij| #1=#:G254 |j| |k| |ci| |opi|
-         |pi| #2=#:G253 |npo| |pi_cnt| |ncoeffs| |nexps| |nnvars| |m| #3=#:G252
-         #4=#:G251 |n|)
+  (PROG (|i| |oei| |nei| |oei0| |i1| |nm| |cij| #1=#:G230 |j| |k| |ci| |opi|
+         |pi| #2=#:G229 |npo| |pi_cnt| |ncoeffs| |nexps| |nnvars| |m| #3=#:G228
+         #4=#:G227 |n|)
     (RETURN
      (SEQ (LETT |m| 0 . #5=(|VECREC1;repack_polys;IVSevPaR;7|))
           (LETT |n| (QVSIZE |coeffs|) . #5#)
@@ -571,7 +571,7 @@
 
 (DEFUN |VECREC1;reconstruct;$I2VSevU;10|
        (|statearg| |var_cnt| |block_offsets| |poly_offsets| |exps| $)
-  (PROG (|ppr| |state| #1=#:G285 |pp|)
+  (PROG (|ppr| |state| #1=#:G261 |pp|)
     (RETURN
      (SEQ
       (EXIT
@@ -595,7 +595,7 @@
 (DEFUN |VectorModularReconstructor| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G287)
+     (PROG (#1=#:G263)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|VectorModularReconstructor|)

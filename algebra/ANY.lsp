@@ -49,7 +49,7 @@
           "Type of object will not be displayed in output of a member of Any"))))) 
 
 (DEFUN |ANY;coerce;$Of;7| (|x| $)
-  (PROG (#1=#:G150 |a| #2=#:G149 |dom1| |p| |obj1|)
+  (PROG (#1=#:G126 |a| #2=#:G125 |dom1| |p| |obj1|)
     (RETURN
      (SEQ (LETT |obj1| (SPADCALL |x| (QREFELT $ 22)) . #3=(|ANY;coerce;$Of;7|))
           (COND
@@ -99,7 +99,7 @@
 (DEFUN |Any| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G155)
+     (PROG (#1=#:G131)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Any|) . #2=(|Any|))

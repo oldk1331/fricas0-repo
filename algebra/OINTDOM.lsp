@@ -6,12 +6,12 @@
 (DEFPARAMETER |OrderedIntegralDomain;AL| 'NIL) 
 
 (DEFUN |OrderedIntegralDomain| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|OrderedIntegralDomain;AL|)
           (T (SETQ |OrderedIntegralDomain;AL| (|OrderedIntegralDomain;|)))))) 
 
 (DEFUN |OrderedIntegralDomain;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|IntegralDomain|) (|OrderedRing|))

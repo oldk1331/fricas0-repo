@@ -15,7 +15,7 @@
       ('T (CONS 0 (|SPADfirst| |sol|))))))) 
 
 (DEFUN |LODOF;expsols| (|l| |zeros| |ezfactor| |all?| $)
-  (PROG (|sol| #1=#:G155 |f| #2=#:G154)
+  (PROG (|sol| #1=#:G131 |f| #2=#:G130)
     (RETURN
      (SEQ
       (LETT |sol|
@@ -49,7 +49,7 @@
                  (QREFELT $ 32))))))) 
 
 (DEFUN |LODOF;opeval| (|l1| |l2| $)
-  (PROG (|l2n| |ans| #1=#:G160 |i|)
+  (PROG (|l2n| |ans| #1=#:G136 |i|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 33) . #2=(|LODOF;opeval|))
           (LETT |l2n| (|spadConstant| $ 34) . #2#)
@@ -68,7 +68,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |LODOF;recurfactor| (|l| |r| |zeros| |ezfactor| |adj?| $)
-  (PROG (|q| #1=#:G162)
+  (PROG (|q| #1=#:G138)
     (RETURN
      (SEQ
       (LETT |q|
@@ -116,7 +116,7 @@
     (RETURN (PROGN (|LODOF;opeval| |z1| |r| $))))) 
 
 (DEFUN |LODOF;innerFactor| (|l| |zeros| |ezfactor| |r1?| $)
-  (PROG (#1=#:G198 #2=#:G202 |u| #3=#:G203 |i| |ll| |n|)
+  (PROG (#1=#:G174 #2=#:G178 |u| #3=#:G179 |i| |ll| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -213,7 +213,7 @@
        (#1# (CONS 1 "failed"))))))) 
 
 (DEFUN |LODOF;zro| (|p| |ezfactor| $)
-  (PROG (#1=#:G218 |r| #2=#:G217)
+  (PROG (#1=#:G194 |r| #2=#:G193)
     (RETURN
      (SEQ
       (SPADCALL
@@ -264,10 +264,10 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorFactorizer;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G238)
+(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer| (&REST #1=#:G214)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G239)
+     (PROG (#2=#:G215)
        (RETURN
         (COND
          ((LETT #2#

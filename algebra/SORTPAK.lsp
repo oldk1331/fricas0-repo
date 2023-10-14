@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SORTPAK;bubbleSort!;AMA;1| (|m| |f| $)
-  (PROG (#1=#:G138 |j| #2=#:G137 |i| |n|)
+  (PROG (#1=#:G114 |j| #2=#:G113 |i| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |m| (QREFELT $ 9))
@@ -24,7 +24,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |SORTPAK;insertionSort!;AMA;2| (|m| |f| $)
-  (PROG (|j| #1=#:G145 |i|)
+  (PROG (|j| #1=#:G121 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 2 . #2=(|SORTPAK;insertionSort!;AMA;2|))
@@ -93,10 +93,10 @@
 
 (DECLAIM (NOTINLINE |SortPackage;|)) 
 
-(DEFUN |SortPackage| (&REST #1=#:G162)
+(DEFUN |SortPackage| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FRNAAF2;map;MARAS;1| (|fn| |u| $)
-  (PROG (#1=#:G132 #2=#:G134 |i| #3=#:G133 |ba| |vs| |vr|)
+  (PROG (#1=#:G108 #2=#:G110 |i| #3=#:G109 |ba| |vs| |vr|)
     (RETURN
      (SEQ
       (COND
@@ -42,10 +42,10 @@
 
 (DECLAIM (NOTINLINE |FramedNonAssociativeAlgebraFunctions2;|)) 
 
-(DEFUN |FramedNonAssociativeAlgebraFunctions2| (&REST #1=#:G135)
+(DEFUN |FramedNonAssociativeAlgebraFunctions2| (&REST #1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

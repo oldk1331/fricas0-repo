@@ -65,7 +65,7 @@
              (#1# 'NIL)))))))) 
 
 (DEFUN |RSETCAT-;purelyAlgebraic?;SB;5| (|ts| $)
-  (PROG (#1=#:G205 |i| #2=#:G195 |v| #3=#:G206 |p| |lp|)
+  (PROG (#1=#:G181 |i| #2=#:G171 |v| #3=#:G182 |p| |lp|)
     (RETURN
      (SEQ
       (EXIT
@@ -108,7 +108,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RSETCAT-;purelyAlgebraic?;SB;6| (|ts| $)
-  (PROG (|p| #1=#:G208 |v|)
+  (PROG (|p| #1=#:G184 |v|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |ts| (QREFELT $ 17)) 'T)
@@ -245,8 +245,8 @@
                   (EXIT |toSave|)))))))) 
 
 (DEFUN |RSETCAT-;intersect;L2L;13| (|lp| |lts| $)
-  (PROG (|toSee| #1=#:G277 |us| #2=#:G276 |lus| |p| |toSave| |ts| |lpwt|
-         #3=#:G275 #4=#:G274 #5=#:G273 #6=#:G272)
+  (PROG (|toSee| #1=#:G253 |us| #2=#:G252 |lus| |p| |toSave| |ts| |lpwt|
+         #3=#:G251 #4=#:G250 #5=#:G249 #6=#:G248)
     (RETURN
      (SEQ
       (COND ((OR (NULL |lp|) (NULL |lts|)) |lts|)

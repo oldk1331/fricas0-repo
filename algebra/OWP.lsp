@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |OrdinaryWeightedPolynomials;|)) 
 
-(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G130)
+(DEFUN |OrdinaryWeightedPolynomials| (&REST #1=#:G106)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G107)
        (RETURN
         (COND
          ((LETT #2#

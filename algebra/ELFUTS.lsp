@@ -58,7 +58,7 @@
        |dx| (QREFELT $ 14)))))) 
 
 (DEFUN |ELFUTS;sncndn;SCoefL;2| (|z| |m| $)
-  (PROG (|dn1| |cn1| |sn1| |invden| #1=#:G138 |c1| |dn0| |cn0| |sn0| |scd|
+  (PROG (|dn1| |cn1| |sn1| |invden| #1=#:G114 |c1| |dn0| |cn0| |sn0| |scd|
          |z0|)
     (RETURN
      (SEQ
@@ -366,10 +366,10 @@
 
 (DECLAIM (NOTINLINE |EllipticFunctionsUnivariateTaylorSeries;|)) 
 
-(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G159)
+(DEFUN |EllipticFunctionsUnivariateTaylorSeries| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

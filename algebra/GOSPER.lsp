@@ -22,7 +22,7 @@
   (SPADCALL (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 19))) 
 
 (DEFUN |GOSPER;GospersMethod;QVMU;5| (|aquo| |n| |newV| $)
-  (PROG (#1=#:G149 |u| |q|)
+  (PROG (#1=#:G125 |u| |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -76,7 +76,7 @@
       ('T (CONS 1 "failed")))))) 
 
 (DEFUN |GOSPER;UP2QIfCan!0| (|y| $)
-  (PROG (#1=#:G169)
+  (PROG (#1=#:G145)
     (RETURN
      (SPADCALL
       (PROG2
@@ -126,9 +126,9 @@
                                     (QREFELT $ 57)))))))))))))))) 
 
 (DEFUN |GOSPER;GosperF| (|k| |pn| |qn| |rn| |n| |newV| $)
-  (PROG (#1=#:G196 #2=#:G195 #3=#:G197 |i| |vec| |soln| |mz| |dmz| |cmz| |zron|
-         |dz| |cz| |mat| #4=#:G187 |zro| |qnplus1| |fnminus1| |fn| #5=#:G185
-         #6=#:G184 #7=#:G186 |np| |mp| |mv|)
+  (PROG (#1=#:G172 #2=#:G171 #3=#:G173 |i| |vec| |soln| |mz| |dmz| |cmz| |zron|
+         |dz| |cz| |mat| #4=#:G163 |zro| |qnplus1| |fnminus1| |fn| #5=#:G161
+         #6=#:G160 #7=#:G162 |np| |mp| |mv|)
     (RETURN
      (SEQ (LETT |mv| (SPADCALL |newV|) . #8=(|GOSPER;GosperF|))
           (LETT |mp| (SPADCALL |mv| (QREFELT $ 43)) . #8#)
@@ -262,8 +262,8 @@
                                      (#9# (|spadConstant| $ 68)))))))))))))) 
 
 (DEFUN |GOSPER;GosperPQR| (|an| |anm1| |n| |newV| $)
-  (PROG (|pn| #1=#:G213 #2=#:G212 #3=#:G214 #4=#:G222 |i| |rn| #5=#:G207 |qn|
-         |gn| |rtp| #6=#:G221 |rt| |js| #7=#:G203 #8=#:G220 |fe| #9=#:G219
+  (PROG (|pn| #1=#:G189 #2=#:G188 #3=#:G190 #4=#:G198 |i| |rn| #5=#:G183 |qn|
+         |gn| |rtp| #6=#:G197 |rt| |js| #7=#:G179 #8=#:G196 |fe| #9=#:G195
          |fres| |res| |rnj| |j| |np|)
     (RETURN
      (SEQ (LETT |np| (SPADCALL |n| (QREFELT $ 43)) . #10=(|GOSPER;GosperPQR|))
@@ -392,7 +392,7 @@
           (EXIT (LIST |pn| |qn| |rn|)))))) 
 
 (DEFUN |GOSPER;GosperDegBd| (|pn| |qn| |rn| |n| |newV| $)
-  (PROG (|k0| #1=#:G224 |lcpk| |pk| |headfnm1| |headfn| |nk| |nkm1| |ckm1| |ck|
+  (PROG (|k0| #1=#:G200 |lcpk| |pk| |headfnm1| |headfn| |nk| |nkm1| |ckm1| |ck|
          |kk| |k| |degp| |lminus| |lplus| |qnplus1| |np|)
     (RETURN
      (SEQ (LETT |np| (SPADCALL |n| (QREFELT $ 43)) . #2=(|GOSPER;GosperDegBd|))
@@ -461,7 +461,7 @@
                           (#3# (MAX (QCDR |k0|) |k|)))))))))))) 
 
 (DEFUN |GOSPER;pCoef| (|p| |nom| $)
-  (PROG (|up| |pow| |unom| #1=#:G237 |v| |vlist|)
+  (PROG (|up| |pow| |unom| #1=#:G213 |v| |vlist|)
     (RETURN
      (SEQ
       (COND
@@ -486,7 +486,7 @@
          (EXIT |p|)))))))) 
 
 (DEFUN |GOSPER;linearAndNNIntRoot| (|mp| |v| $)
-  (PROG (|rt| #1=#:G247 |p0| |p1| |p|)
+  (PROG (|rt| #1=#:G223 |p0| |p1| |p|)
     (RETURN
      (SEQ
       (LETT |p| (SPADCALL |mp| |v| (QREFELT $ 63))
@@ -530,10 +530,10 @@
 
 (DECLAIM (NOTINLINE |GosperSummationMethod;|)) 
 
-(DEFUN |GosperSummationMethod| (&REST #1=#:G250)
+(DEFUN |GosperSummationMethod| (&REST #1=#:G226)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G251)
+     (PROG (#2=#:G227)
        (RETURN
         (COND
          ((LETT #2#

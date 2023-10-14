@@ -6,18 +6,18 @@
 (DEFPARAMETER |IntegerNumberSystem;AL| 'NIL) 
 
 (DEFUN |IntegerNumberSystem| ()
-  (LET (#:G147)
+  (LET (#:G123)
     (COND (|IntegerNumberSystem;AL|)
           (T (SETQ |IntegerNumberSystem;AL| (|IntegerNumberSystem;|)))))) 
 
 (DEFUN |IntegerNumberSystem;| ()
-  (PROG (#1=#:G145)
+  (PROG (#1=#:G121)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV|
                 (PAIR
-                 '(#2=#:G139 #3=#:G140 #4=#:G141 #5=#:G142 #6=#:G143 #7=#:G144)
+                 '(#2=#:G115 #3=#:G116 #4=#:G117 #5=#:G118 #6=#:G119 #7=#:G120)
                  (LIST '(|Integer|) '(|Integer|) '(|Integer|) '(|InputForm|)
                        '(|Pattern| (|Integer|)) '(|Integer|)))
                 (|Join| (|UniqueFactorizationDomain|) (|EuclideanDomain|)

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ES1;map;MSKS;1| (F2S |prop| |k| $)
-  (PROG (|p| |args| #1=#:G136 |x| #2=#:G135)
+  (PROG (|p| |args| #1=#:G112 |x| #2=#:G111)
     (RETURN
      (SEQ
       (LETT |args|
@@ -25,10 +25,10 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceFunctions1;|)) 
 
-(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G137)
+(DEFUN |ExpressionSpaceFunctions1| (&REST #1=#:G113)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G138)
+     (PROG (#2=#:G114)
        (RETURN
         (COND
          ((LETT #2#

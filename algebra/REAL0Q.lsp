@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |REAL0Q;convert2PolInt| (|f| $)
-  (PROG (|pden| #1=#:G132 |c| #2=#:G131)
+  (PROG (|pden| #1=#:G108 |c| #2=#:G107)
     (RETURN
      (SEQ
       (LETT |pden|
@@ -46,10 +46,10 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackageQ;|)) 
 
-(DEFUN |RealZeroPackageQ| (#1=#:G148)
+(DEFUN |RealZeroPackageQ| (#1=#:G124)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G149)
+     (PROG (#2=#:G125)
        (RETURN
         (COND
          ((LETT #2#

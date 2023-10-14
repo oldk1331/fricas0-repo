@@ -8,7 +8,7 @@
 (DEFUN |SCNP;namedBranch;LL$;3| (|chin| |nmin| $) (CONS 2 (CONS |chin| |nmin|))) 
 
 (DEFUN |SCNP;isPointLeaf?;$B;4| (|n| $)
-  (PROG (#1=#:G168)
+  (PROG (#1=#:G144)
     (RETURN
      (SEQ
       (EXIT
@@ -20,7 +20,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCNP;isNodeLeaf?;$B;5| (|n| $)
-  (PROG (#1=#:G170)
+  (PROG (#1=#:G146)
     (RETURN
      (SEQ
       (EXIT
@@ -32,7 +32,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCNP;isNodeBranch?;$B;6| (|n| $)
-  (PROG (#1=#:G172)
+  (PROG (#1=#:G148)
     (RETURN
      (SEQ
       (EXIT
@@ -44,7 +44,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCNP;getNames;$L;7| (|n| $)
-  (PROG (#1=#:G150 #2=#:G176)
+  (PROG (#1=#:G126 #2=#:G152)
     (RETURN
      (SEQ
       (EXIT
@@ -65,7 +65,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SCNP;findPoint;$SPT;8| (|n| |ptName| $)
-  (PROG (#1=#:G185 #2=#:G148 |s| #3=#:G186 |sNum| |fst| |c| #4=#:G150)
+  (PROG (#1=#:G161 #2=#:G124 |s| #3=#:G162 |sNum| |fst| |c| #4=#:G126)
     (RETURN
      (SEQ
       (EXIT
@@ -143,7 +143,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCNP;addPoints!;$S2$;9| (|n| |ptName| |pts| $)
-  (PROG (#1=#:G150)
+  (PROG (#1=#:G126)
     (RETURN
      (SEQ
       (COND
@@ -188,7 +188,7 @@
       (EXIT |pts|))))) 
 
 (DEFUN |SCNP;addNode!;$SS$;10| (|n| |ptName| |sc| $)
-  (PROG (#1=#:G149 #2=#:G199 #3=#:G150 |fst| |c| |scnd|)
+  (PROG (#1=#:G125 #2=#:G175 #3=#:G126 |fst| |c| |scnd|)
     (RETURN
      (SEQ
       (EXIT
@@ -316,8 +316,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SCNP;findNode;$SS;11| (|n| |ptName| $)
-  (PROG (#1=#:G207 #2=#:G149 #3=#:G208 |name| #4=#:G209 |namei| |fst| |c|
-         #5=#:G150)
+  (PROG (#1=#:G183 #2=#:G125 #3=#:G184 |name| #4=#:G185 |namei| |fst| |c|
+         #5=#:G126)
     (RETURN
      (SEQ
       (EXIT
@@ -406,8 +406,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCNP;toString;$S;12| (|n| $)
-  (PROG (|s| #1=#:G230 |l1| #2=#:G231 |ptr| #3=#:G228 |lst| #4=#:G229 #5=#:G225
-         |lenPT| |lenNM| #6=#:G226 #7=#:G227)
+  (PROG (|s| #1=#:G206 |l1| #2=#:G207 |ptr| #3=#:G204 |lst| #4=#:G205 #5=#:G201
+         |lenPT| |lenNM| #6=#:G202 #7=#:G203)
     (RETURN
      (SEQ
       (EXIT
@@ -555,7 +555,7 @@
 (DEFUN |SCNP;latex;$S;14| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
 (DEFUN |SCNP;=;2$B;15| (|x| |y| $)
-  (PROG (#1=#:G246)
+  (PROG (#1=#:G222)
     (RETURN
      (SEQ
       (EXIT
@@ -592,8 +592,8 @@
   (COND ((SPADCALL |x| |y| (QREFELT $ 47)) 'NIL) ('T 'T))) 
 
 (DEFUN |SCNP;coerce;$Of;17| (|n| $)
-  (PROG (|s| #1=#:G268 |l1| #2=#:G269 |ptr| #3=#:G266 |lst| #4=#:G267 #5=#:G263
-         |lenPT| |lenNM| #6=#:G264 #7=#:G265)
+  (PROG (|s| #1=#:G244 |l1| #2=#:G245 |ptr| #3=#:G242 |lst| #4=#:G243 #5=#:G239
+         |lenPT| |lenNM| #6=#:G240 #7=#:G241)
     (RETURN
      (SEQ
       (EXIT
@@ -747,10 +747,10 @@
 
 (DECLAIM (NOTINLINE |SceneNamedPoints;|)) 
 
-(DEFUN |SceneNamedPoints| (#1=#:G270)
+(DEFUN |SceneNamedPoints| (#1=#:G246)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G271)
+     (PROG (#2=#:G247)
        (RETURN
         (COND
          ((LETT #2#

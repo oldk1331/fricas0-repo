@@ -36,10 +36,10 @@
 
 (DECLAIM (NOTINLINE |MakeBinaryCompiledFunction;|)) 
 
-(DEFUN |MakeBinaryCompiledFunction| (&REST #1=#:G136)
+(DEFUN |MakeBinaryCompiledFunction| (&REST #1=#:G112)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G113)
        (RETURN
         (COND
          ((LETT #2#

@@ -18,7 +18,7 @@
    (EXIT |s|))) 
 
 (DEFUN |STACK;coerce;$Of;5| (|d| $)
-  (PROG (#1=#:G139 |e| #2=#:G138)
+  (PROG (#1=#:G115 |e| #2=#:G114)
     (RETURN
      (SEQ
       (SPADCALL
@@ -78,10 +78,10 @@
 
 (DECLAIM (NOTINLINE |Stack;|)) 
 
-(DEFUN |Stack| (#1=#:G161)
+(DEFUN |Stack| (#1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#
@@ -95,7 +95,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Stack|))))))))))) 
 
 (DEFUN |Stack;| (|#1|)
-  (PROG (|pv$| #1=#:G158 #2=#:G159 #3=#:G160 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G134 #2=#:G135 #3=#:G136 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Stack|))

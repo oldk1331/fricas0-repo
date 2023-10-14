@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UNIFACT;factor;ZPF;1| (|m| $)
-  (PROG (#1=#:G164 |u| #2=#:G163 |ctp| |flist|)
+  (PROG (#1=#:G140 |u| #2=#:G139 |ctp| |flist|)
     (RETURN
      (SEQ
       (LETT |flist| (SPADCALL |m| 'NIL (QREFELT $ 10))
@@ -34,7 +34,7 @@
                  (QREFELT $ 19))))))) 
 
 (DEFUN |UNIFACT;factorSquareFree;ZPF;2| (|m| $)
-  (PROG (#1=#:G178 |u| #2=#:G177 |ctp| |flist|)
+  (PROG (#1=#:G154 |u| #2=#:G153 |ctp| |flist|)
     (RETURN
      (SEQ
       (LETT |flist| (SPADCALL |m| 'T (QREFELT $ 10))
@@ -76,7 +76,7 @@
                   (LETT |t| |s| . #1#) (EXIT |t|)))))))) 
 
 (DEFUN |UNIFACT;eisenstein| (|m| $)
-  (PROG (#1=#:G190 #2=#:G191 |r| |fc| |trail| |lead| |c|)
+  (PROG (#1=#:G166 #2=#:G167 |r| |fc| |trail| |lead| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -143,9 +143,9 @@
     (RETURN (PROGN (|UNIFACT;negShiftz| |x| |Modulus| $))))) 
 
 (DEFUN |UNIFACT;bound| (|m| $)
-  (PROG (#1=#:G209 |cbound| |j| #2=#:G206 |bin0| #3=#:G205 |bin1| #4=#:G212
-         #5=#:G204 |i| #6=#:G202 |nm| #7=#:G200 |norm| #8=#:G198 #9=#:G197
-         #10=#:G199 |k| |nmq2| |lcm| #11=#:G196)
+  (PROG (#1=#:G185 |cbound| |j| #2=#:G182 |bin0| #3=#:G181 |bin1| #4=#:G188
+         #5=#:G180 |i| #6=#:G178 |nm| #7=#:G176 |norm| #8=#:G174 #9=#:G173
+         #10=#:G175 |k| |nmq2| |lcm| #11=#:G172)
     (RETURN
      (SEQ
       (LETT |lcm|
@@ -224,7 +224,7 @@
        (EXIT (COND ((< |t| 0) (+ |t| |q|)) ('T |t|))))) 
 
 (DEFUN |UNIFACT;numFactors| (|ddlist| $)
-  (PROG (|ans| #1=#:G217 |d| #2=#:G223 |dd|)
+  (PROG (|ans| #1=#:G193 |d| #2=#:G199 |dd|)
     (RETURN
      (SEQ (LETT |ans| 0 . #3=(|UNIFACT;numFactors|))
           (SEQ (LETT |dd| NIL . #3#) (LETT #2# |ddlist| . #3#) G190
@@ -322,7 +322,7 @@
                                  (QREFELT $ 61)))))))))))))) 
 
 (DEFUN |UNIFACT;henselfact| (|m| $)
-  (PROG (#1=#:G247 #2=#:G246 #3=#:G248 #4=#:G253 |mm| |faclist| #5=#:G244
+  (PROG (#1=#:G223 #2=#:G222 #3=#:G224 #4=#:G229 |mm| |faclist| #5=#:G220
          |deggcd|)
     (RETURN
      (SEQ
@@ -374,7 +374,7 @@
       (EXIT (|UNIFACT;henselfact1| |m| $)))))) 
 
 (DEFUN |UNIFACT;quadratic| (|m| $)
-  (PROG (#1=#:G257 |m0| |beta| |alpha| |d| |d2|)
+  (PROG (#1=#:G233 |m0| |beta| |alpha| |d| |d2|)
     (RETURN
      (SEQ
       (LETT |d|
@@ -429,10 +429,10 @@
           (EXIT (SPADCALL |supPol| |minusX| (QREFELT $ 73))))))) 
 
 (DEFUN |UNIFACT;henselFact;ZPBR;16| (|m| |test| $)
-  (PROG (|factorlist| #1=#:G317 |pf| #2=#:G316 |fln| #3=#:G315 #4=#:G314 |pol|
-         |d1| #5=#:G313 |l1| |llf| |irrFact| #6=#:G312 #7=#:G311 #8=#:G310 |v|
-         #9=#:G309 |lf1| |lf0| |#G35| |#G34| |lfq| |fac| #10=#:G308 |sfac|
-         #11=#:G307 |lcPol| |d| |c| #12=#:G270)
+  (PROG (|factorlist| #1=#:G293 |pf| #2=#:G292 |fln| #3=#:G291 #4=#:G290 |pol|
+         |d1| #5=#:G289 |l1| |llf| |irrFact| #6=#:G288 #7=#:G287 #8=#:G286 |v|
+         #9=#:G285 |lf1| |lf0| |#G35| |#G34| |lfq| |fac| #10=#:G284 |sfac|
+         #11=#:G283 |lcPol| |d| |c| #12=#:G246)
     (RETURN
      (SEQ (LETT |factorlist| NIL . #13=(|UNIFACT;henselFact;ZPBR;16|))
           (LETT |c| (SPADCALL |m| (QREFELT $ 27)) . #13#)
@@ -723,10 +723,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateFactorize;|)) 
 
-(DEFUN |UnivariateFactorize| (#1=#:G318)
+(DEFUN |UnivariateFactorize| (#1=#:G294)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G319)
+     (PROG (#2=#:G295)
        (RETURN
         (COND
          ((LETT #2#

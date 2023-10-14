@@ -232,7 +232,7 @@
         ('T (CONS 1 "failed")))))))) 
 
 (DEFUN |MFLOAT;retract;$I;19| (|u| $)
-  (PROG (#1=#:G223 |result|)
+  (PROG (#1=#:G199 |result|)
     (RETURN
      (SEQ
       (LETT |result| (SPADCALL |u| (QREFELT $ 74))
@@ -424,7 +424,7 @@
 (DEFUN |MachineFloat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G304)
+     (PROG (#1=#:G280)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MachineFloat|)

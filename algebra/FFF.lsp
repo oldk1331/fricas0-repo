@@ -13,7 +13,7 @@
 
 (DEFUN |FFF;createLowComplexityTable;PiU;2| (|n| $)
   (PROG (|l| |term| |j| |v| |i| |multtable| |m| |lvjh| |help| |lvj| |x| |vec|
-         |vt| |jt| |t| |pkn| |p1| |multmat| #1=#:G156 |t1| |k| |a| #2=#:G190
+         |vt| |jt| |t| |pkn| |p1| |multmat| #1=#:G132 |t1| |k| |a| #2=#:G166
          |p| |q|)
     (RETURN
      (SEQ
@@ -459,7 +459,7 @@
                (EXIT (CONS 0 |multtable|)))))))))) 
 
 (DEFUN |FFF;sizeMultiplication;VNni;3| (|m| $)
-  (PROG (|s| #1=#:G198 |i|)
+  (PROG (|s| #1=#:G174 |i|)
     (RETURN
      (SEQ (LETT |s| 0 . #2=(|FFF;sizeMultiplication;VNni;3|))
           (SEQ (LETT |i| 1 . #2#) (LETT #1# (QVSIZE |m|) . #2#) G190
@@ -472,7 +472,7 @@
           (EXIT |s|))))) 
 
 (DEFUN |FFF;createMultiplicationTable;SupV;4| (|f| $)
-  (PROG (|l| |term| #1=#:G221 |j| |v| |i| |multtable| |mat| #2=#:G206 |mat1|
+  (PROG (|l| |term| #1=#:G197 |j| |v| |i| |multtable| |mat| #2=#:G182 |mat1|
          |h| |g| |qexp| |w| |qpow| |e| |m1| |m| |sizeGF|)
     (RETURN
      (SEQ
@@ -600,8 +600,8 @@
                   (EXIT |multtable|))))))))))))) 
 
 (DEFUN |FFF;createZechTable;SupPa;5| (|f| $)
-  (PROG (|a| #1=#:G235 |i| #2=#:G234 #3=#:G233 |primElement| |helparr|
-         |zechlog| |qm1| |m| #4=#:G222 |sizeGF|)
+  (PROG (|a| #1=#:G211 |i| #2=#:G210 #3=#:G209 |primElement| |helparr|
+         |zechlog| |qm1| |m| #4=#:G198 |sizeGF|)
     (RETURN
      (SEQ
       (LETT |sizeGF| (SPADCALL (QREFELT $ 17))
@@ -743,7 +743,7 @@
           (EXIT |zechlog|))))))))) 
 
 (DEFUN |FFF;createMultiplicationMatrix;VM;6| (|m| $)
-  (PROG (#1=#:G242 |t| |i| |mat| |n|)
+  (PROG (#1=#:G218 |t| |i| |mat| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |m|) . #2=(|FFF;createMultiplicationMatrix;VM;6|))
           (LETT |mat| (SPADCALL |n| |n| (QREFELT $ 54)) . #2#)
@@ -766,10 +766,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldFunctions;|)) 
 
-(DEFUN |FiniteFieldFunctions| (#1=#:G243)
+(DEFUN |FiniteFieldFunctions| (#1=#:G219)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G244)
+     (PROG (#2=#:G220)
        (RETURN
         (COND
          ((LETT #2#

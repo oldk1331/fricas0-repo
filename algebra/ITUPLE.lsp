@@ -15,10 +15,10 @@
 
 (DECLAIM (NOTINLINE |InfiniteTuple;|)) 
 
-(DEFUN |InfiniteTuple| (#1=#:G136)
+(DEFUN |InfiniteTuple| (#1=#:G112)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G113)
        (RETURN
         (COND
          ((LETT #2#

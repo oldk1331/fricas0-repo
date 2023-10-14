@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |EQ;factorAndSplit;$L;1| (|eq| $)
-  (PROG (#1=#:G135 |rcf| #2=#:G134 |eq0|)
+  (PROG (#1=#:G111 |rcf| #2=#:G110 |eq0|)
     (RETURN
      (SEQ
       (COND
@@ -224,7 +224,7 @@
   (SPADCALL (SPADCALL |i| (QREFELT $ 75)) |eq| (QREFELT $ 60))) 
 
 (DEFUN |EQ;factorAndSplit;$L;38| (|eq| $)
-  (PROG (#1=#:G217 |rcf| #2=#:G216 |p| |eq0| #3=#:G215 #4=#:G214)
+  (PROG (#1=#:G193 |rcf| #2=#:G192 |p| |eq0| #3=#:G191 #4=#:G190)
     (RETURN
      (SEQ
       (COND
@@ -311,10 +311,10 @@
 
 (DECLAIM (NOTINLINE |Equation;|)) 
 
-(DEFUN |Equation| (#1=#:G228)
+(DEFUN |Equation| (#1=#:G204)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G229)
+     (PROG (#2=#:G205)
        (RETURN
         (COND
          ((LETT #2#
@@ -329,7 +329,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Equation|))))))))))) 
 
 (DEFUN |Equation;| (|#1|)
-  (PROG (|pv$| #1=#:G224 #2=#:G225 #3=#:G226 #4=#:G227 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G200 #2=#:G201 #3=#:G202 #4=#:G203 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Equation|))

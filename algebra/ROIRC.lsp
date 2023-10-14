@@ -273,7 +273,7 @@
   (SPADCALL |p| (SPADCALL |a| 1 (QREFELT $ 40)) (QREFELT $ 42))) 
 
 (DEFUN |ROIRC;evalOne| (|p| $)
-  (PROG (#1=#:G221 #2=#:G220 #3=#:G222 #4=#:G224 #5=#:G127)
+  (PROG (#1=#:G197 #2=#:G196 #3=#:G198 #4=#:G200 #5=#:G103)
     (RETURN
      (SEQ
       (PROGN
@@ -306,7 +306,7 @@
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G225)
+      (PROG (#2=#:G201)
         (RETURN
          (PROG1 (LETT #2# (SPADCALL |d| |z| (QREFELT $ 46)) NIL)
            (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#)))))))) 
@@ -327,7 +327,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |ROIRC;sturmNthRoot| (|lp| |l| |r| |vl| |vr| |n| $)
-  (PROG (#1=#:G238 |o| |vi| |lt| #2=#:G242 |t| |int| |nv| #3=#:G236)
+  (PROG (#1=#:G214 |o| |vi| |lt| #2=#:G218 |t| |int| |nv| #3=#:G212)
     (RETURN
      (SEQ
       (LETT |nv|
@@ -370,7 +370,7 @@
                    $)))))))))))) 
 
 (DEFUN |ROIRC;sturmIsolate| (|lp| |l| |r| |vl| |vr| $)
-  (PROG (|vi| #1=#:G251 |t| #2=#:G250 |int| |n| #3=#:G244)
+  (PROG (|vi| #1=#:G227 |t| #2=#:G226 |int| |n| #3=#:G220)
     (RETURN
      (SEQ
       (COND
@@ -416,7 +416,7 @@
                             $)))))))))))))) 
 
 (DEFUN |ROIRC;isolate| (|lp| $)
-  (PROG (|l2| |l1| |#G41| |#G40| |#G39| |#G38| #1=#:G257 |t| |#G36| |#G35| |b|)
+  (PROG (|l2| |l1| |#G41| |#G40| |#G39| |#G38| #1=#:G233 |t| |#G36| |#G35| |b|)
     (RETURN
      (SEQ
       (LETT |b| (|ROIRC;rootBound| (|SPADfirst| |lp|) $)
@@ -454,7 +454,7 @@
         (SPADCALL |l1| (QREFELT $ 52)) (SPADCALL |l2| (QREFELT $ 52)) $)))))) 
 
 (DEFUN |ROIRC;rootOf;ThePolDomPiU;14| (|pol| |n| $)
-  (PROG (|res| |l2| |l1| |#G54| |#G53| |#G52| |#G51| #1=#:G275 |t| |#G49|
+  (PROG (|res| |l2| |l1| |#G54| |#G53| |#G52| |#G51| #1=#:G251 |t| |#G49|
          |#G48| |b| |ls|)
     (RETURN
      (SEQ
@@ -522,7 +522,7 @@
                                   (QCDR (QCDR |res|)) |pol| $))))))))))))) 
 
 (DEFUN |ROIRC;allRootsOf;ThePolDomL;15| (|pol| $)
-  (PROG (#1=#:G283 |term| #2=#:G282 |ls|)
+  (PROG (#1=#:G259 |term| #2=#:G258 |ls|)
     (RETURN
      (SEQ
       (LETT |ls| (SPADCALL (SPADCALL |pol| (QREFELT $ 57)) (QREFELT $ 56))
@@ -554,7 +554,7 @@
                     (EXIT (NREVERSE #2#))))))))))) 
 
 (DEFUN |ROIRC;hasVarsl| (|l| $)
-  (PROG (#1=#:G287 #2=#:G288 |term| |f|)
+  (PROG (#1=#:G263 #2=#:G264 |term| |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -683,7 +683,7 @@
   (QVELT |rootChar| 2)) 
 
 (DEFUN |ROIRC;linearRecip| (|toTest| |rootChar| $)
-  (PROG (#1=#:G308 |newPol| |r| |c|)
+  (PROG (#1=#:G284 |newPol| |r| |c|)
     (RETURN
      (SEQ
       (LETT |c|
@@ -750,7 +750,7 @@
                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#)))))))))) 
 
 (DEFUN |ROIRC;recip;ThePolDom$U;24| (|toTest| |rootChar| $)
-  (PROG (|d| #1=#:G318 |c| |newPol|)
+  (PROG (|d| #1=#:G294 |c| |newPol|)
     (RETURN
      (SEQ
       (COND
@@ -896,7 +896,7 @@
                    (QREFELT $ 63))))))))) 
 
 (DEFUN |ROIRC;sign;ThePolDom$I;26| (|toTest| |rootChar| $)
-  (PROG (|newChar| #1=#:G345 #2=#:G356 |delta| |s|)
+  (PROG (|newChar| #1=#:G321 #2=#:G332 |delta| |s|)
     (RETURN
      (SEQ
       (EXIT
@@ -1122,10 +1122,10 @@
 
 (DECLAIM (NOTINLINE |RightOpenIntervalRootCharacterization;|)) 
 
-(DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G378)
+(DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G354)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G379)
+     (PROG (#2=#:G355)
        (RETURN
         (COND
          ((LETT #2#

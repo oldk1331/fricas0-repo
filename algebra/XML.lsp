@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |XML;writeXml;XeSV;1| (|content| |filename| $)
-  (PROG (#1=#:G130 |line| |lines| |s1| |f1|)
+  (PROG (#1=#:G106 |line| |lines| |s1| |f1|)
     (RETURN
      (SEQ
       (LETT |f1|
@@ -48,7 +48,7 @@
 (DEFUN |ExportXml| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G134)
+     (PROG (#1=#:G110)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ExportXml|) . #2=(|ExportXml|))

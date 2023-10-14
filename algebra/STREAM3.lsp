@@ -55,10 +55,10 @@
 
 (DECLAIM (NOTINLINE |StreamFunctions3;|)) 
 
-(DEFUN |StreamFunctions3| (&REST #1=#:G169)
+(DEFUN |StreamFunctions3| (&REST #1=#:G145)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G170)
+     (PROG (#2=#:G146)
        (RETURN
         (COND
          ((LETT #2#

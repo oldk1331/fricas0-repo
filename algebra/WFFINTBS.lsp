@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |WFFINTBS;listSquaredFactors| (|px| $)
-  (PROG (|ans| #1=#:G141 |f| |factored|)
+  (PROG (|ans| #1=#:G117 |f| |factored|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|WFFINTBS;listSquaredFactors|))
           (LETT |factored| (SPADCALL |px| (QREFELT $ 12)) . #2#)
@@ -21,9 +21,9 @@
 
 (DEFUN |WFFINTBS;iLocalIntegralBasis|
        (|bas| |pows| |tfm| |matrixOut| |disc| |prime| $)
-  (PROG (#1=#:G165 #2=#:G169 |oldIndex| |indexChange| |rbinv| |rbden| |rb|
-         |index| |idinv| |id| |j| #3=#:G171 |vec| |i| |ns| |frobPow| #4=#:G170
-         |r| |tmpMat| |frob| |pPows| |coMat| |coMat0| |denPow| #5=#:G147
+  (PROG (#1=#:G141 #2=#:G145 |oldIndex| |indexChange| |rbinv| |rbden| |rb|
+         |index| |idinv| |id| |j| #3=#:G147 |vec| |i| |ns| |frobPow| #4=#:G146
+         |r| |tmpMat| |frob| |pPows| |coMat| |coMat0| |denPow| #5=#:G123
          |coor0| |bi| |lp| |q| |p| |sae| |p2| |standardBasis| |n|)
     (RETURN
      (SEQ
@@ -357,7 +357,7 @@
 
 (DEFUN |WFFINTBS;integralBasis;R;3| ($)
   (PROG (|runningRbinv| |runningRb| |runningRbden| |mat| |disc| |rbden| |rbinv|
-         |rb| |lb| #1=#:G182 |prime| |matrixOut| |tfm| |pows| |bas| |singList|
+         |rb| |lb| #1=#:G158 |prime| |matrixOut| |tfm| |pows| |bas| |singList|
          |n| |traceMat|)
     (RETURN
      (SEQ
@@ -470,10 +470,10 @@
 
 (DECLAIM (NOTINLINE |WildFunctionFieldIntegralBasis;|)) 
 
-(DEFUN |WildFunctionFieldIntegralBasis| (&REST #1=#:G192)
+(DEFUN |WildFunctionFieldIntegralBasis| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G193)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#

@@ -10,7 +10,7 @@
         ('T (|SIGNEF;psign| |f| |x| |a| |st| 0 $)))) 
 
 (DEFUN |SIGNEF;sign;FU;3| (|f| $)
-  (PROG (#1=#:G200 |r| |f2| |f2u| |mapfun| #2=#:G199 |ud| |un|)
+  (PROG (#1=#:G176 |r| |f2| |f2u| |mapfun| #2=#:G175 |ud| |un|)
     (RETURN
      (SEQ
       (EXIT
@@ -118,7 +118,7 @@
       ('T (SPADCALL (SPADCALL |a| (QREFELT $ 51)) (QREFELT $ 46))))))) 
 
 (DEFUN |SIGNEF;insign| (|f| |x| |a| |m| $)
-  (PROG (|ur| #1=#:G235 |ul| |s| |v| |n| |u| |eq| #2=#:G241 |ua| |uf|)
+  (PROG (|ur| #1=#:G211 |ul| |s| |v| |n| |u| |eq| #2=#:G217 |ua| |uf|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |m| 10 (QREFELT $ 62)) (CONS 1 "failed"))
@@ -218,7 +218,7 @@
               #2# (EXIT #2#)))))))) 
 
 (DEFUN |SIGNEF;psign| (|f| |x| |a| |st| |m| $)
-  (PROG (|s| |v| |n| |u| |eq| #1=#:G257 |ua| |uf|)
+  (PROG (|s| |v| |n| |u| |eq| #1=#:G233 |ua| |uf|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |m| 10 (QREFELT $ 62)) (CONS 1 "failed"))
@@ -281,7 +281,7 @@
               #1# (EXIT #1#)))))))) 
 
 (DEFUN |SIGNEF;smpsign2| (|p| $)
-  (PROG (|ans| #1=#:G271 |u| #2=#:G272 |term| |s| |r|)
+  (PROG (|ans| #1=#:G247 |u| #2=#:G248 |term| |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -426,7 +426,7 @@
              ('T (|SIGNEF;listSign| (CDR |l|) (QCDR |u|) $)))))))) 
 
 (DEFUN |SIGNEF;listSign| (|l| |s| $)
-  (PROG (#1=#:G290 |u| #2=#:G291 |term|)
+  (PROG (#1=#:G266 |u| #2=#:G267 |term|)
     (RETURN
      (SEQ
       (EXIT
@@ -446,7 +446,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SIGNEF;termSign| (|term| $)
-  (PROG (#1=#:G296 #2=#:G299 #3=#:G294 |vs| #4=#:G300 |lv| |var| |us|)
+  (PROG (#1=#:G272 #2=#:G275 #3=#:G270 |vs| #4=#:G276 |lv| |var| |us|)
     (RETURN
      (SEQ
       (EXIT
@@ -573,10 +573,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionSign;|)) 
 
-(DEFUN |ElementaryFunctionSign| (&REST #1=#:G321)
+(DEFUN |ElementaryFunctionSign| (&REST #1=#:G297)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G322)
+     (PROG (#2=#:G298)
        (RETURN
         (COND
          ((LETT #2#

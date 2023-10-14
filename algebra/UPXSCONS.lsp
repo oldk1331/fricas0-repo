@@ -46,7 +46,7 @@
   (SPADCALL (SPADCALL |i| (QREFELT $ 34)) (QREFELT $ 27))) 
 
 (DEFUN |UPXSCONS;laurentIfCan;$U;13| (|upxs| $)
-  (PROG (#1=#:G164 |r|)
+  (PROG (#1=#:G140 |r|)
     (RETURN
      (SEQ
       (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
@@ -717,10 +717,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructor;|)) 
 
-(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G396)
+(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G372)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G397)
+     (PROG (#2=#:G373)
        (RETURN
         (COND
          ((LETT #2#
@@ -742,8 +742,8 @@
                     '|UnivariatePuiseuxSeriesConstructor|))))))))))) 
 
 (DEFUN |UnivariatePuiseuxSeriesConstructor;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G387 #2=#:G388 #3=#:G389 #4=#:G390 #5=#:G391 #6=#:G392
-         #7=#:G394 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G363 #2=#:G364 #3=#:G365 #4=#:G366 #5=#:G367 #6=#:G368
+         #7=#:G370 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

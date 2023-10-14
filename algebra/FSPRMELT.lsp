@@ -22,7 +22,7 @@
     (RETURN (PROGN (|FSPRMELT;K2P| |k1| |l| $))))) 
 
 (DEFUN |FSPRMELT;K2P| (|k| |l| $)
-  (PROG (#1=#:G139 |v|)
+  (PROG (#1=#:G115 |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -40,9 +40,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSPRMELT;primitiveElement;LR;3| (|l| $)
-  (PROG (#1=#:G148 #2=#:G147 #3=#:G149 #4=#:G162 |c| #5=#:G163 |a| |rec| |pols|
-         #6=#:G160 |k| #7=#:G161 |v| #8=#:G159 |kers| #9=#:G158 #10=#:G157 |vv|
-         #11=#:G156 #12=#:G155 |vars| #13=#:G154 |i| #14=#:G153 |u| |uu|)
+  (PROG (#1=#:G124 #2=#:G123 #3=#:G125 #4=#:G138 |c| #5=#:G139 |a| |rec| |pols|
+         #6=#:G136 |k| #7=#:G137 |v| #8=#:G135 |kers| #9=#:G134 #10=#:G133 |vv|
+         #11=#:G132 #12=#:G131 |vars| #13=#:G130 |i| #14=#:G129 |u| |uu|)
     (RETURN
      (SEQ
       (LETT |u|
@@ -300,10 +300,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpacePrimitiveElement;|)) 
 
-(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G183)
+(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G159)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G184)
+     (PROG (#2=#:G160)
        (RETURN
         (COND
          ((LETT #2#

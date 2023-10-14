@@ -19,7 +19,7 @@
         ('T (QCAR (SPADCALL |p| (QREFELT $ 18)))))) 
 
 (DEFUN |XPR;coef;$ER;6| (|p| |e| $)
-  (PROG (#1=#:G147 #2=#:G151 #3=#:G152 |tm|)
+  (PROG (#1=#:G123 #2=#:G127 #3=#:G128 |tm|)
     (RETURN
      (SEQ
       (EXIT
@@ -66,7 +66,7 @@
                    (QREFELT $ 29))))) 
 
 (DEFUN |XPR;quasiRegular;2$;10| (|p| $)
-  (PROG (#1=#:G164 |t| #2=#:G163)
+  (PROG (#1=#:G140 |t| #2=#:G139)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 30)) |p|)
@@ -115,7 +115,7 @@
   (SPADCALL (SPADCALL |n| (QREFELT $ 39)) (QREFELT $ 35))) 
 
 (DEFUN |XPR;*;3$;14| (|p1| |p2| $)
-  (PROG (#1=#:G181 #2=#:G180 #3=#:G182 #4=#:G188 |t2| #5=#:G187 #6=#:G186 |t1|)
+  (PROG (#1=#:G157 #2=#:G156 #3=#:G158 #4=#:G164 |t2| #5=#:G163 #6=#:G162 |t1|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| $ 25))
@@ -169,7 +169,7 @@
                 (COND (#1# #2#) (#7# (|spadConstant| $ 25)))))))))))) 
 
 (DEFUN |XPR;*;3$;15| (|p1| |p2| $)
-  (PROG (#1=#:G191 #2=#:G190 #3=#:G192 |r| #4=#:G199 |t2| #5=#:G198 #6=#:G197
+  (PROG (#1=#:G167 #2=#:G166 #3=#:G168 |r| #4=#:G175 |t2| #5=#:G174 #6=#:G173
          |t1|)
     (RETURN
      (SEQ
@@ -265,7 +265,7 @@
               (QREFELT $ 50))))) 
 
 (DEFUN |XPR;coerce;$Of;19| (|a| $)
-  (PROG (#1=#:G212 |t| #2=#:G211)
+  (PROG (#1=#:G188 |t| #2=#:G187)
     (RETURN
      (SEQ
       (COND ((NULL |a|) (SPADCALL (|spadConstant| $ 23) (QREFELT $ 49)))
@@ -295,10 +295,10 @@
 
 (DECLAIM (NOTINLINE |XPolynomialRing;|)) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G221)
+(DEFUN |XPolynomialRing| (&REST #1=#:G197)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G222)
+     (PROG (#2=#:G198)
        (RETURN
         (COND
          ((LETT #2#

@@ -282,10 +282,10 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
 
-(DEFUN |TopLevelDrawFunctions| (#1=#:G223)
+(DEFUN |TopLevelDrawFunctions| (#1=#:G199)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G224)
+     (PROG (#2=#:G200)
        (RETURN
         (COND
          ((LETT #2#

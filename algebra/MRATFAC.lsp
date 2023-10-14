@@ -16,8 +16,8 @@
             (QREFELT $ 25))) 
 
 (DEFUN |MRATFAC;factor;PF;5| (|p| $)
-  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G152 |u| |ffact| |ipol| |pol|
-         |pden| #5=#:G151 |c| #6=#:G150)
+  (PROG (#1=#:G120 #2=#:G119 #3=#:G121 #4=#:G128 |u| |ffact| |ipol| |pol|
+         |pden| #5=#:G127 |c| #6=#:G126)
     (RETURN
      (SEQ
       (LETT |pden|
@@ -77,10 +77,10 @@
 
 (DECLAIM (NOTINLINE |MRationalFactorize;|)) 
 
-(DEFUN |MRationalFactorize| (&REST #1=#:G153)
+(DEFUN |MRationalFactorize| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

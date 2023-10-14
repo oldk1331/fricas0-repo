@@ -6,12 +6,12 @@
 (DEFPARAMETER |NonAssociativeRng;AL| 'NIL) 
 
 (DEFUN |NonAssociativeRng| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|NonAssociativeRng;AL|)
           (T (SETQ |NonAssociativeRng;AL| (|NonAssociativeRng;|)))))) 
 
 (DEFUN |NonAssociativeRng;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

@@ -8,10 +8,10 @@
 
 (DECLAIM (NOTINLINE |SegmentBindingFunctions2;|)) 
 
-(DEFUN |SegmentBindingFunctions2| (&REST #1=#:G129)
+(DEFUN |SegmentBindingFunctions2| (&REST #1=#:G105)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G130)
+     (PROG (#2=#:G106)
        (RETURN
         (COND
          ((LETT #2#

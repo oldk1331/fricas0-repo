@@ -7,7 +7,7 @@
          (|spadConstant| $ 15)))) 
 
 (DEFUN |FSERIES;coerce;Fc$;2| (|e| $)
-  (PROG (#1=#:G144)
+  (PROG (#1=#:G120)
     (RETURN
      (SEQ
       (EXIT
@@ -73,8 +73,8 @@
                    (SPADCALL |sum| |r| (QREFELT $ 33)) (QREFELT $ 34))))))))) 
 
 (DEFUN |FSERIES;*;3$;4| (|x1| |x2| $)
-  (PROG (#1=#:G150 #2=#:G149 #3=#:G151 #4=#:G153 #5=#:G152 #6=#:G154 #7=#:G157
-         |t2| #8=#:G156 |t1|)
+  (PROG (#1=#:G126 #2=#:G125 #3=#:G127 #4=#:G129 #5=#:G128 #6=#:G130 #7=#:G133
+         |t2| #8=#:G132 |t1|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |x1|) (NULL |x2|)) (|spadConstant| $ 10))
@@ -140,10 +140,10 @@
 
 (DECLAIM (NOTINLINE |FourierSeries;|)) 
 
-(DEFUN |FourierSeries| (&REST #1=#:G164)
+(DEFUN |FourierSeries| (&REST #1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G165)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#

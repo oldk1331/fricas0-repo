@@ -42,7 +42,7 @@
   (COND ((QREFELT $ 8) (|SOLVERAD;New| |s| $)) ('T |s|))) 
 
 (DEFUN |SOLVERAD;findGenZeros| (|rlp| |rlv| $)
-  (PROG (|res| #1=#:G152 |vv| #2=#:G153 |p| #3=#:G151 #4=#:G150 |r| #5=#:G149
+  (PROG (|res| #1=#:G128 |vv| #2=#:G129 |p| #3=#:G127 #4=#:G126 |r| #5=#:G125
          |v| |pp|)
     (RETURN
      (SEQ (LETT |pp| (|SPADfirst| |rlp|) . #6=(|SOLVERAD;findGenZeros|))
@@ -128,8 +128,8 @@
           (EXIT |res|))))) 
 
 (DEFUN |SOLVERAD;findZeros| (|rlp| |rlv| $)
-  (PROG (|res| |rlv1| |lv1| |p1| |res1| #1=#:G164 |par| |parRes| #2=#:G162 |p|
-         #3=#:G163 |v| #4=#:G161)
+  (PROG (|res| |rlv1| |lv1| |p1| |res1| #1=#:G140 |par| |parRes| #2=#:G138 |p|
+         #3=#:G139 |v| #4=#:G137)
     (RETURN
      (SEQ
       (LETT |parRes|
@@ -186,7 +186,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |SOLVERAD;radicalSolve;FSL;10| (|pol| |v| $)
-  (PROG (#1=#:G168 |r| #2=#:G167)
+  (PROG (#1=#:G144 |r| #2=#:G143)
     (RETURN
      (SEQ
       (PROGN
@@ -242,9 +242,9 @@
    |v| (QREFELT $ 59))) 
 
 (DEFUN |SOLVERAD;radicalRoots;LLL;14| (|lp| |lv| $)
-  (PROG (#1=#:G184 #2=#:G183 #3=#:G185 #4=#:G195 |res| |rpRes| #5=#:G194
-         |result| #6=#:G178 #7=#:G177 #8=#:G179 #9=#:G193 |listGen| #10=#:G192
-         #11=#:G191 #12=#:G190 #13=#:G189 |rlv| |parRes|)
+  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G171 |res| |rpRes| #5=#:G170
+         |result| #6=#:G154 #7=#:G153 #8=#:G155 #9=#:G169 |listGen| #10=#:G168
+         #11=#:G167 #12=#:G166 #13=#:G165 |rlv| |parRes|)
     (RETURN
      (SEQ
       (LETT |parRes| (SPADCALL |lp| |lv| (QREFELT $ 78))
@@ -358,7 +358,7 @@
                        |result|)))))))))))) 
 
 (DEFUN |SOLVERAD;radicalSolve;LLL;15| (|lp| |lv| $)
-  (PROG (#1=#:G199 |lres| #2=#:G198)
+  (PROG (#1=#:G175 |lres| #2=#:G174)
     (RETURN
      (SEQ
       (PROGN
@@ -375,8 +375,8 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SOLVERAD;radicalSolve;LL;16| (|lp| $)
-  (PROG (#1=#:G208 |lres| #2=#:G207 |lv| #3=#:G201 #4=#:G200 #5=#:G202
-         #6=#:G206 |p|)
+  (PROG (#1=#:G184 |lres| #2=#:G183 |lv| #3=#:G177 #4=#:G176 #5=#:G178
+         #6=#:G182 |p|)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -418,7 +418,7 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SOLVERAD;radicalSolve;LLL;17| (|le| |lv| $)
-  (PROG (#1=#:G216 |lres| #2=#:G215 |lp| #3=#:G214 |p| #4=#:G213)
+  (PROG (#1=#:G192 |lres| #2=#:G191 |lp| #3=#:G190 |p| #4=#:G189)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -455,8 +455,8 @@
              (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |SOLVERAD;radicalSolve;LL;18| (|le| $)
-  (PROG (#1=#:G228 |lres| #2=#:G227 |lv| #3=#:G219 #4=#:G218 #5=#:G220
-         #6=#:G226 |p| |lp| #7=#:G225 #8=#:G224)
+  (PROG (#1=#:G204 |lres| #2=#:G203 |lv| #3=#:G195 #4=#:G194 #5=#:G196
+         #6=#:G202 |p| |lp| #7=#:G201 #8=#:G200)
     (RETURN
      (SEQ
       (LETT |lp|
@@ -532,7 +532,7 @@
             (QREFELT $ 97))) 
 
 (DEFUN |SOLVERAD;isGeneric?| (|rlp| |rlv| $)
-  (PROG (#1=#:G233 #2=#:G232 #3=#:G234 #4=#:G236 |f| #5=#:G237 |x|)
+  (PROG (#1=#:G209 #2=#:G208 #3=#:G210 #4=#:G212 |f| #5=#:G213 |x|)
     (RETURN
      (SEQ
       (PROGN
@@ -554,7 +554,7 @@
        (COND (#1# #2#) ('T 'T))))))) 
 
 (DEFUN |SOLVERAD;select| (|lp| $)
-  (PROG (#1=#:G239 #2=#:G238 #3=#:G240 #4=#:G245 |lsel| #5=#:G244 #6=#:G243
+  (PROG (#1=#:G215 #2=#:G214 #3=#:G216 #4=#:G221 |lsel| #5=#:G220 #6=#:G219
          |f|)
     (RETURN
      (SEQ
@@ -599,7 +599,7 @@
               (COND (#1# #2#) (#7# NIL))))))))) 
 
 (DEFUN |SOLVERAD;makeEq| (|nres| |lv| $)
-  (PROG (#1=#:G249 |x| #2=#:G250 |r| #3=#:G248)
+  (PROG (#1=#:G225 |x| #2=#:G226 |r| #3=#:G224)
     (RETURN
      (SEQ
       (PROGN
@@ -622,8 +622,8 @@
             (GO G190) G191 (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |SOLVERAD;solveInner| (|pq| |v| |contractFlag| $)
-  (PROG (|re| |solutions| #1=#:G265 |i| T0 |s| #2=#:G264 |l| |unsolved| |n| |u|
-         |t| |constants| |ff| #3=#:G263 |f| |factors|)
+  (PROG (|re| |solutions| #1=#:G241 |i| T0 |s| #2=#:G240 |l| |unsolved| |n| |u|
+         |t| |constants| |ff| #3=#:G239 |f| |factors|)
     (RETURN
      (SEQ (SETELT $ 7 NIL) (SETELT $ 8 |contractFlag|)
           (LETT |factors|
@@ -684,10 +684,10 @@
 
 (DECLAIM (NOTINLINE |RadicalSolvePackage;|)) 
 
-(DEFUN |RadicalSolvePackage| (#1=#:G266)
+(DEFUN |RadicalSolvePackage| (#1=#:G242)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G267)
+     (PROG (#2=#:G243)
        (RETURN
         (COND
          ((LETT #2#

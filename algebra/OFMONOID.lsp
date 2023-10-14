@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |OFMONOID;lquo;$SU;1| (|w| |l| $)
-  (PROG (#1=#:G140 |fx| |x|)
+  (PROG (#1=#:G116 |fx| |x|)
     (RETURN
      (SEQ (LETT |x| (SPADCALL |w| (QREFELT $ 11)) . #2=(|OFMONOID;lquo;$SU;1|))
           (EXIT
@@ -38,7 +38,7 @@
                  ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 18)))))))))) 
 
 (DEFUN |OFMONOID;length;$Nni;3| (|x| $)
-  (PROG (#1=#:G160 |f| #2=#:G159)
+  (PROG (#1=#:G136 |f| #2=#:G135)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 21)
@@ -55,7 +55,7 @@
                 0 (QREFELT $ 24)))))) 
 
 (DEFUN |OFMONOID;varList;$L;4| (|x| $)
-  (PROG (|le| #1=#:G166 |t| #2=#:G165)
+  (PROG (|le| #1=#:G142 |t| #2=#:G141)
     (RETURN
      (SEQ
       (LETT |le|
@@ -81,7 +81,7 @@
                  ('T (QCAR (|SPADfirst| |x|))))))))) 
 
 (DEFUN |OFMONOID;rest;2$;6| (|w| $)
-  (PROG (#1=#:G171 |fx| |x|)
+  (PROG (#1=#:G147 |fx| |x|)
     (RETURN
      (SEQ (LETT |x| (SPADCALL |w| (QREFELT $ 11)) . #2=(|OFMONOID;rest;2$;6|))
           (EXIT
@@ -104,7 +104,7 @@
                            (QREFELT $ 14))))))))))))) 
 
 (DEFUN |OFMONOID;lexico;2$B;7| (|a| |b| $)
-  (PROG (|la| |lb| #1=#:G181 #2=#:G178 #3=#:G190)
+  (PROG (|la| |lb| #1=#:G157 #2=#:G154 #3=#:G166)
     (RETURN
      (SEQ
       (EXIT
@@ -180,10 +180,10 @@
 
 (DECLAIM (NOTINLINE |OrderedFreeMonoid;|)) 
 
-(DEFUN |OrderedFreeMonoid| (#1=#:G202)
+(DEFUN |OrderedFreeMonoid| (#1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G203)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#

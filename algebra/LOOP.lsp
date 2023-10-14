@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LOOP;loop;L$;1| (|lis| $)
-  (PROG (|li| |lx| |minValue| |l2| |l1| #1=#:G142 |x| #2=#:G141)
+  (PROG (|li| |lx| |minValue| |l2| |l1| #1=#:G118 |x| #2=#:G117)
     (RETURN
      (SEQ
       (LETT |li|
@@ -45,7 +45,7 @@
 (DEFUN |LOOP;hash;$Si;3| (|s| $) 0) 
 
 (DEFUN |LOOP;latex;$S;4| (|lp| $)
-  (PROG (|res| |x| #1=#:G149 |i|)
+  (PROG (|res| |x| #1=#:G125 |i|)
     (RETURN
      (SEQ (LETT |res| "" . #2=(|LOOP;latex;$S;4|))
           (SEQ (LETT |i| 1 . #2#)
@@ -61,7 +61,7 @@
           (EXIT (SPADCALL (LIST "[" |res| "]") (QREFELT $ 20))))))) 
 
 (DEFUN |LOOP;=;2$B;5| (|x| |y| $)
-  (PROG (#1=#:G154 #2=#:G155 |i|)
+  (PROG (#1=#:G130 #2=#:G131 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -86,7 +86,7 @@
   (COND ((SPADCALL |x| |y| (QREFELT $ 24)) 'NIL) ('T 'T))) 
 
 (DEFUN |LOOP;coerce;$Of;7| (|lp| $)
-  (PROG (|res| |x| #1=#:G161 |i|)
+  (PROG (|res| |x| #1=#:G137 |i|)
     (RETURN
      (SEQ (LETT |res| (SPADCALL (QREFELT $ 27)) . #2=(|LOOP;coerce;$Of;7|))
           (SEQ (LETT |i| 1 . #2#)
@@ -112,7 +112,7 @@
 (DEFUN |Loop| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G163)
+     (PROG (#1=#:G139)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Loop|) . #2=(|Loop|))

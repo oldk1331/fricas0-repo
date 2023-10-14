@@ -8,7 +8,7 @@
 (DEFUN |PBWLB;=;2$B;2| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 10))) 
 
 (DEFUN |PBWLB;varList;$L;3| (|x| $)
-  (PROG (|le| #1=#:G133 #2=#:G132 #3=#:G134 #4=#:G136 |l|)
+  (PROG (|le| #1=#:G109 #2=#:G108 #3=#:G110 #4=#:G112 |l|)
     (RETURN
      (SEQ
       (COND ((NULL |x|) NIL)
@@ -62,7 +62,7 @@
                    (SPADCALL (CDR |x|) (QREFELT $ 27)) (QREFELT $ 28))))) 
 
 (DEFUN |PBWLB;coerce;$Of;10| (|x| $)
-  (PROG (#1=#:G148 |l| #2=#:G147)
+  (PROG (#1=#:G124 |l| #2=#:G123)
     (RETURN
      (SEQ
       (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 31)))
@@ -98,7 +98,7 @@
         ('T (CONS 1 "failed")))) 
 
 (DEFUN |PBWLB;length;$Nni;14| (|x| $)
-  (PROG (#1=#:G163 |n| #2=#:G161 #3=#:G160 #4=#:G162 #5=#:G166 |l|)
+  (PROG (#1=#:G139 |n| #2=#:G137 #3=#:G136 #4=#:G138 #5=#:G142 |l|)
     (RETURN
      (SEQ
       (LETT |n|
@@ -145,10 +145,10 @@
 
 (DECLAIM (NOTINLINE |PoincareBirkhoffWittLyndonBasis;|)) 
 
-(DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G171)
+(DEFUN |PoincareBirkhoffWittLyndonBasis| (#1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G172)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

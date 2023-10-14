@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |REP1;calcCoef| (|beta| C $)
-  (PROG (|prod| #1=#:G132 |i|)
+  (PROG (|prod| #1=#:G108 |i|)
     (RETURN
      (SEQ (LETT |prod| 1 . #2=(|REP1;calcCoef|))
           (SEQ (LETT |i| 1 . #2#)
@@ -21,8 +21,8 @@
           (EXIT |prod|))))) 
 
 (DEFUN |REP1;invContent| (|alpha| $)
-  (PROG (|i| |k| |j| #1=#:G147 |og| |f| |n| #2=#:G139 #3=#:G137 #4=#:G136
-         #5=#:G138 #6=#:G146 #7=#:G127)
+  (PROG (|i| |k| |j| #1=#:G123 |og| |f| |n| #2=#:G115 #3=#:G113 #4=#:G112
+         #5=#:G114 #6=#:G122 #7=#:G103)
     (RETURN
      (SEQ
       (LETT |n|
@@ -67,8 +67,8 @@
       (EXIT |f|))))) 
 
 (DEFUN |REP1;antisymmetricTensors;MPiM;3| (|a| |k| $)
-  (PROG (|tt| |rr| |t| |r| |lt| |lr| |c| |j| |i| |b| #1=#:G152 #2=#:G151 |il|
-         #3=#:G163 #4=#:G162 |m| |n|)
+  (PROG (|tt| |rr| |t| |r| |lt| |lr| |c| |j| |i| |b| #1=#:G128 #2=#:G127 |il|
+         #3=#:G139 #4=#:G138 |m| |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS |a|) . #5=(|REP1;antisymmetricTensors;MPiM;3|))
           (EXIT
@@ -165,7 +165,7 @@
                        (EXIT |b|))))))))) 
 
 (DEFUN |REP1;antisymmetricTensors;LPiL;4| (|la| |k| $)
-  (PROG (#1=#:G167 |ma| #2=#:G166)
+  (PROG (#1=#:G143 |ma| #2=#:G142)
     (RETURN
      (SEQ
       (PROGN
@@ -181,8 +181,8 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |REP1;symmetricTensors;MPiM;5| (|a| |n| $)
-  (PROG (|colemanMatrix| |help| #1=#:G170 #2=#:G169 |k| |gamma| |g| |beta| |j|
-         |f| |alpha| |i| |nullMatrix| |c| |dim| #3=#:G168 |m|)
+  (PROG (|colemanMatrix| |help| #1=#:G146 #2=#:G145 |k| |gamma| |g| |beta| |j|
+         |f| |alpha| |i| |nullMatrix| |c| |dim| #3=#:G144 |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #4=(|REP1;symmetricTensors;MPiM;5|))
           (EXIT
@@ -310,7 +310,7 @@
               (EXIT |c|))))))))) 
 
 (DEFUN |REP1;symmetricTensors;LPiL;6| (|la| |k| $)
-  (PROG (#1=#:G184 |ma| #2=#:G183)
+  (PROG (#1=#:G160 |ma| #2=#:G159)
     (RETURN
      (SEQ
       (PROGN
@@ -328,7 +328,7 @@
 (DEFUN |REP1;tensorProduct;3M;7| (|a| |b| $) (SPADCALL |a| |b| (QREFELT $ 48))) 
 
 (DEFUN |REP1;tensorProduct;3L;8| (|la| |lb| $)
-  (PROG (#1=#:G189 |i| #2=#:G188)
+  (PROG (#1=#:G165 |i| #2=#:G164)
     (RETURN
      (SEQ
       (PROGN
@@ -352,7 +352,7 @@
 (DEFUN |REP1;tensorProduct;2L;10| (|la| $) (SPADCALL |la| |la| (QREFELT $ 52))) 
 
 (DEFUN |REP1;permutationRepresentation;PIM;11| (|p| |n| $)
-  (PROG (|i| |a| #1=#:G195 #2=#:G194)
+  (PROG (|i| |a| #1=#:G171 #2=#:G170)
     (RETURN
      (SEQ
       (LETT |a|
@@ -373,7 +373,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |REP1;permutationRepresentation;LM;12| (|p| $)
-  (PROG (|i| |a| #1=#:G202 #2=#:G201 |n|)
+  (PROG (|i| |a| #1=#:G178 #2=#:G177 |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |p|) . #3=(|REP1;permutationRepresentation;LM;12|))
           (LETT |a|
@@ -394,7 +394,7 @@
           (EXIT |a|))))) 
 
 (DEFUN |REP1;permutationRepresentation;LIL;13| (|listperm| |n| $)
-  (PROG (#1=#:G209 |perm| #2=#:G208)
+  (PROG (#1=#:G185 |perm| #2=#:G184)
     (RETURN
      (SEQ
       (PROGN
@@ -411,7 +411,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |REP1;permutationRepresentation;LL;14| (|listperm| $)
-  (PROG (#1=#:G213 |perm| #2=#:G212)
+  (PROG (#1=#:G189 |perm| #2=#:G188)
     (RETURN
      (SEQ
       (PROGN
@@ -451,10 +451,10 @@
 
 (DECLAIM (NOTINLINE |RepresentationPackage1;|)) 
 
-(DEFUN |RepresentationPackage1| (#1=#:G219)
+(DEFUN |RepresentationPackage1| (#1=#:G195)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G220)
+     (PROG (#2=#:G196)
        (RETURN
         (COND
          ((LETT #2#

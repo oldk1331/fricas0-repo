@@ -39,7 +39,7 @@
                               (#2# (CONS 1 "failed")))))))))))) 
 
 (DEFUN |PMDOWN;fixList| (|fn| |l| |lb| |la| $)
-  (PROG (|ll| #1=#:G160 |f| #2=#:G161 |x|)
+  (PROG (|ll| #1=#:G136 |f| #2=#:G137 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -71,8 +71,8 @@
                        (EXIT (CONS 0 (SPADCALL |g| (QREFELT $ 34)))))))))))) 
 
 (DEFUN |PMDOWN;fixPredicates| (|p| |lb| |la| $)
-  (PROG (|q| |lp| #1=#:G236 |h| #2=#:G238 |g| #3=#:G237 |ua| |fe| |fv| |uur|
-         |uu| |f| |wr| |w| |fd| |fn| |vr| |v| |us| |ur| |u| #4=#:G235 |r|)
+  (PROG (|q| |lp| #1=#:G212 |h| #2=#:G214 |g| #3=#:G213 |ua| |fe| |fv| |uur|
+         |uu| |f| |wr| |w| |fd| |fn| |vr| |v| |us| |ur| |u| #4=#:G211 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -316,10 +316,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPushDown;|)) 
 
-(DEFUN |PatternMatchPushDown| (&REST #1=#:G239)
+(DEFUN |PatternMatchPushDown| (&REST #1=#:G215)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G240)
+     (PROG (#2=#:G216)
        (RETURN
         (COND
          ((LETT #2#

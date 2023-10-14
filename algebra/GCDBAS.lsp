@@ -4,7 +4,7 @@
 (DEFUN |GCDBAS;gcdBasis;2V;1| (|v| $) (QCAR (SPADCALL |v| (QREFELT $ 9)))) 
 
 (DEFUN |GCDBAS;splitNums| (|a| |b| $)
-  (PROG (|b1| #1=#:G139 |a1| |cf|)
+  (PROG (|b1| #1=#:G115 |a1| |cf|)
     (RETURN
      (SEQ
       (LETT |cf| (SPADCALL |a| |b| (QREFELT $ 11)) . #2=(|GCDBAS;splitNums|))
@@ -68,8 +68,8 @@
           (EXIT (CONS |cb| |ct|)))))) 
 
 (DEFUN |GCDBAS;gcdDecomposition;VR;4| (|v| $)
-  (PROG (#1=#:G190 |i| #2=#:G189 |nv| |a| #3=#:G188 |l| |m| |firstAdded| |c|
-         |k| |ov| |n1| |ct1| |cb1| |dr1| #4=#:G187 |cf| |b1| |a1| |sr| |sr1|
+  (PROG (#1=#:G166 |i| #2=#:G165 |nv| |a| #3=#:G164 |l| |m| |firstAdded| |c|
+         |k| |ov| |n1| |ct1| |cb1| |dr1| #4=#:G163 |cf| |b1| |a1| |sr| |sr1|
          |pquo| |b| |j| |i0| |ct| |n| |cb|)
     (RETURN
      (SEQ
@@ -582,10 +582,10 @@
 
 (DECLAIM (NOTINLINE |GcdBasis;|)) 
 
-(DEFUN |GcdBasis| (#1=#:G191)
+(DEFUN |GcdBasis| (#1=#:G167)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G192)
+     (PROG (#2=#:G168)
        (RETURN
         (COND
          ((LETT #2#

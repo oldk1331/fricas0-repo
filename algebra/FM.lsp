@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FM;*;R2$;1| (|r| |x| $)
-  (PROG (#1=#:G145 |u| #2=#:G144)
+  (PROG (#1=#:G121 |u| #2=#:G120)
     (RETURN
      (SEQ
       (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
@@ -26,7 +26,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |FM;*;R2$;2| (|r| |x| $)
-  (PROG (|a| #1=#:G150 |u| #2=#:G149)
+  (PROG (|a| #1=#:G126 |u| #2=#:G125)
     (RETURN
      (SEQ
       (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
@@ -50,7 +50,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |FM;*;$R$;3| (|x| |r| $)
-  (PROG (#1=#:G155 |u| #2=#:G154)
+  (PROG (#1=#:G131 |u| #2=#:G130)
     (RETURN
      (SEQ
       (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
@@ -74,7 +74,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |FM;*;$R$;4| (|x| |r| $)
-  (PROG (|a| #1=#:G160 |u| #2=#:G159)
+  (PROG (|a| #1=#:G136 |u| #2=#:G135)
     (RETURN
      (SEQ
       (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
@@ -108,7 +108,7 @@
    ('T (LIST (CONS |s| |r|))))) 
 
 (DEFUN |FM;coerce;$Of;7| (|x| $)
-  (PROG (|le| #1=#:G173 |rec|)
+  (PROG (|le| #1=#:G149 |rec|)
     (RETURN
      (SEQ
       (COND ((NULL |x|) (SPADCALL (|spadConstant| $ 10) (QREFELT $ 23)))
@@ -142,7 +142,7 @@
                   (EXIT (SPADCALL (ELT $ 26) |le| (QREFELT $ 29)))))))))) 
 
 (DEFUN |FM;coerce;$Of;8| (|x| $)
-  (PROG (#1=#:G188 |rec| #2=#:G187)
+  (PROG (#1=#:G164 |rec| #2=#:G163)
     (RETURN
      (SEQ
       (SPADCALL (ELT $ 26)
@@ -169,7 +169,7 @@
 (DEFUN |FM;leadingMonomial;$S;9| (|x| $) (QCAR (|SPADfirst| |x|))) 
 
 (DEFUN |FM;support;$L;10| (|x| $)
-  (PROG (#1=#:G193 |t| #2=#:G192)
+  (PROG (#1=#:G169 |t| #2=#:G168)
     (RETURN
      (SEQ
       (PROGN
@@ -183,7 +183,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |FM;coefficients;$L;11| (|x| $)
-  (PROG (#1=#:G197 |t| #2=#:G196)
+  (PROG (#1=#:G173 |t| #2=#:G172)
     (RETURN
      (SEQ
       (PROGN
@@ -197,7 +197,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |FM;monomials;$L;12| (|x| $)
-  (PROG (#1=#:G201 |t| #2=#:G200)
+  (PROG (#1=#:G177 |t| #2=#:G176)
     (RETURN
      (SEQ
       (PROGN
@@ -253,7 +253,7 @@
   (LENGTH (SPADCALL |x| (QREFELT $ 53)))) 
 
 (DEFUN |FM;linearExtend;M$R;21| (|f| |x| $)
-  (PROG (|res| #1=#:G231 |t|)
+  (PROG (|res| #1=#:G207 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 54)) (|spadConstant| $ 10))
@@ -280,10 +280,10 @@
 
 (DECLAIM (NOTINLINE |FreeModule;|)) 
 
-(DEFUN |FreeModule| (&REST #1=#:G236)
+(DEFUN |FreeModule| (&REST #1=#:G212)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G237)
+     (PROG (#2=#:G213)
        (RETURN
         (COND
          ((LETT #2#

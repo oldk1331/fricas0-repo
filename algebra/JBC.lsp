@@ -6,17 +6,17 @@
 (DEFPARAMETER |JetBundleCategory;AL| 'NIL) 
 
 (DEFUN |JetBundleCategory| ()
-  (LET (#:G152)
+  (LET (#:G128)
     (COND (|JetBundleCategory;AL|)
           (T (SETQ |JetBundleCategory;AL| (|JetBundleCategory;|)))))) 
 
 (DEFUN |JetBundleCategory;| ()
-  (PROG (#1=#:G150)
+  (PROG (#1=#:G126)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV|
-                (PAIR '(#2=#:G149) (LIST '(|Expression| (|Integer|))))
+                (PAIR '(#2=#:G125) (LIST '(|Expression| (|Integer|))))
                 (|Join| (|OrderedSet|) (|CoercibleTo| '#2#)
                         (|mkCategory|
                          '(((|setNotation| ((|Symbol|) (|Symbol|))) T)

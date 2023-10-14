@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RECOP;getINFOREC| (|infoOp| $)
-  (PROG (#1=#:G165)
+  (PROG (#1=#:G141)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |infoOp| '%INFOREC (QREFELT $ 18))
@@ -14,7 +14,7 @@
   (SPADCALL |infoOp| '%INFOREC |rec| (QREFELT $ 16))) 
 
 (DEFUN |RECOP;getINFOSER| (|infoOp| $)
-  (PROG (#1=#:G171)
+  (PROG (#1=#:G147)
     (RETURN
      (PROG2
          (LETT #1# (SPADCALL |infoOp| '%INFOSER (QREFELT $ 18))
@@ -26,7 +26,7 @@
   (SPADCALL |infoOp| '%INFOSER |ser| (QREFELT $ 16))) 
 
 (DEFUN |RECOP;getShiftRec| (|op| |f| |n| $)
-  (PROG (#1=#:G186 |num| |p| |a|)
+  (PROG (#1=#:G162 |num| |p| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -85,8 +85,8 @@
      (PROGN (SPADCALL |z| (SPADCALL |n| (QREFELT $ 22)) (QREFELT $ 24)))))) 
 
 (DEFUN |RECOP;shiftInfoRec| (|op| |argsym| |eq| $)
-  (PROG (#1=#:G198 #2=#:G200 |minShift| |nextKernel| |maxShift| |error?|
-         |shift| #3=#:G201 |f|)
+  (PROG (#1=#:G174 #2=#:G176 |minShift| |nextKernel| |maxShift| |error?|
+         |shift| #3=#:G177 |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -147,8 +147,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RECOP;makeRec;BoSFLSF;7| (|op| |argsym| |eq| |params| |values| $)
-  (PROG (#1=#:G246 |info| |fn| |fl| #2=#:G250 |i| #3=#:G249 |ord1| |max1|
-         |next| #4=#:G248 #5=#:G247 |uc1| |uc0| |c1| |c0| |argsymKer| |num| |p|
+  (PROG (#1=#:G222 |info| |fn| |fl| #2=#:G226 |i| #3=#:G225 |ord1| |max1|
+         |next| #4=#:G224 #5=#:G223 |uc1| |uc0| |c1| |c0| |argsymKer| |num| |p|
          |shiftInfo|)
     (RETURN
      (SEQ
@@ -426,7 +426,7 @@
     (LETT |ord1| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G238)
+      (PROG (#2=#:G214)
         (RETURN
          (SPADCALL
           (LIST
@@ -459,7 +459,7 @@
     (LETT |ord1| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G213)
+      (PROG (#2=#:G189)
         (RETURN
          (SPADCALL
           (LIST
@@ -473,8 +473,8 @@
           (QREFELT $ 58)))))))) 
 
 (DEFUN |RECOP;irecur| (|l| $)
-  (PROG (#1=#:G274 |s| |ll| #2=#:G276 |i| #3=#:G275 |o| #4=#:G264 |g| #5=#:G260
-         N #6=#:G258 |info| |n| |arg|)
+  (PROG (#1=#:G250 |s| |ll| #2=#:G252 |i| #3=#:G251 |o| #4=#:G240 |g| #5=#:G236
+         N #6=#:G234 |info| |n| |arg|)
     (RETURN
      (SEQ
       (EXIT
@@ -581,7 +581,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RECOP;ddrec| (|l| $)
-  (PROG (|RecList| #1=#:G286 |i| #2=#:G285 |RecEq| |RecCoeff| |v| #3=#:G279 |e|
+  (PROG (|RecList| #1=#:G262 |i| #2=#:G261 |RecEq| |RecCoeff| |v| #3=#:G255 |e|
          |lv| |lp| |f| |n0| |n| |info|)
     (RETURN
      (SEQ
@@ -665,7 +665,7 @@
                  (QREFELT $ 57))))))) 
 
 (DEFUN |RECOP;makeFEq;Bo2SFLSF;11| (|op| |v| |argsym| |eq| |params| |values| $)
-  (PROG (#1=#:G330 |fn| |explicit?| |s| |a| |uts| |info| |den| |num| |p|)
+  (PROG (#1=#:G306 |fn| |explicit?| |s| |a| |uts| |info| |den| |num| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -1008,7 +1008,7 @@
                                        |uts|)))))) 
 
 (DEFUN |RECOP;iADE| (|l| $)
-  (PROG (#1=#:G347 |g| #2=#:G340 N #3=#:G338 |info| |n| |arg|)
+  (PROG (#1=#:G323 |g| #2=#:G316 N #3=#:G314 |info| |n| |arg|)
     (RETURN
      (SEQ
       (EXIT
@@ -1076,7 +1076,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RECOP;getEq;2F;13| (|f| $)
-  (PROG (#1=#:G355 |info| |arg| |op| |kl|)
+  (PROG (#1=#:G331 |info| |arg| |op| |kl|)
     (RETURN
      (SEQ
       (EXIT
@@ -1119,7 +1119,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RECOP;eltable?;FB;14| (|f| $)
-  (PROG (#1=#:G370 |info| |arg| |op| |kl|)
+  (PROG (#1=#:G346 |info| |arg| |op| |kl|)
     (RETURN
      (SEQ
       (EXIT
@@ -1180,7 +1180,7 @@
           (SETELT $ 121 |n|) (EXIT |v|))))) 
 
 (DEFUN |RECOP;ddADE| (|l| $)
-  (PROG (|TaylorPoly| |TaylorO| |TaylorList| |i| #1=#:G385 |v| #2=#:G375
+  (PROG (|TaylorPoly| |TaylorO| |TaylorList| |i| #1=#:G361 |v| #2=#:G351
          |DiffEq| |TaylorCoeff| |e| |f| |n| |x| |info|)
     (RETURN
      (SEQ
@@ -1293,10 +1293,10 @@
 
 (DECLAIM (NOTINLINE |RecurrenceOperator;|)) 
 
-(DEFUN |RecurrenceOperator| (&REST #1=#:G394)
+(DEFUN |RecurrenceOperator| (&REST #1=#:G370)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G395)
+     (PROG (#2=#:G371)
        (RETURN
         (COND
          ((LETT #2#

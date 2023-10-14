@@ -93,10 +93,10 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomialExpressions;|)) 
 
-(DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G190)
+(DEFUN |SparseMultivariatePolynomialExpressions| (#1=#:G166)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G191)
+     (PROG (#2=#:G167)
        (RETURN
         (COND
          ((LETT #2#
@@ -116,7 +116,7 @@
                     '|SparseMultivariatePolynomialExpressions|))))))))))) 
 
 (DEFUN |SparseMultivariatePolynomialExpressions;| (|#1|)
-  (PROG (#1=#:G189 |pv$| #2=#:G186 #3=#:G187 #4=#:G188 $ |dv$| DV$1)
+  (PROG (#1=#:G165 |pv$| #2=#:G162 #3=#:G163 #4=#:G164 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

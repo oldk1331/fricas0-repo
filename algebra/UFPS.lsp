@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateFormalPowerSeries;|)) 
 
-(DEFUN |UnivariateFormalPowerSeries| (#1=#:G143)
+(DEFUN |UnivariateFormalPowerSeries| (#1=#:G119)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G120)
        (RETURN
         (COND
          ((LETT #2#
@@ -25,7 +25,7 @@
                     '|UnivariateFormalPowerSeries|))))))))))) 
 
 (DEFUN |UnivariateFormalPowerSeries;| (|#1|)
-  (PROG (|pv$| #1=#:G135 #2=#:G136 #3=#:G137 #4=#:G138 #5=#:G139 #6=#:G142 $
+  (PROG (|pv$| #1=#:G111 #2=#:G112 #3=#:G113 #4=#:G114 #5=#:G115 #6=#:G118 $
          |dv$| DV$1)
     (RETURN
      (PROGN

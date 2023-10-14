@@ -6,12 +6,12 @@
 (DEFPARAMETER |canonicalsClosed;AL| 'NIL) 
 
 (DEFUN |canonicalsClosed| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|canonicalsClosed;AL|)
           (T (SETQ |canonicalsClosed;AL| (|canonicalsClosed;|)))))) 
 
 (DEFUN |canonicalsClosed;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL)) |canonicalsClosed|)

@@ -12,7 +12,7 @@
               (SPADCALL (QCAR |t|) (QREFELT $ 14)) (QREFELT $ 18))))) 
 
 (DEFUN |XPBWPOLY;prod1| (|b| |p| $)
-  (PROG (#1=#:G144 #2=#:G143 #3=#:G145 #4=#:G147 |t|)
+  (PROG (#1=#:G120 #2=#:G119 #3=#:G121 #4=#:G123 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -34,7 +34,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 21)))))))) 
 
 (DEFUN |XPBWPOLY;prod2| (|p| |b| $)
-  (PROG (#1=#:G149 #2=#:G148 #3=#:G150 #4=#:G152 |t|)
+  (PROG (#1=#:G125 #2=#:G124 #3=#:G126 #4=#:G128 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -56,7 +56,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 21)))))))) 
 
 (DEFUN |XPBWPOLY;prod11| (|b| |p| |n| $)
-  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G158 |t| |limit|)
+  (PROG (#1=#:G130 #2=#:G129 #3=#:G131 #4=#:G134 |t| |limit|)
     (RETURN
      (SEQ
       (LETT |limit| (- |n| (SPADCALL |b| (QREFELT $ 23)))
@@ -85,7 +85,7 @@
         (COND (#1# #2#) ('T (|spadConstant| $ 21))))))))) 
 
 (DEFUN |XPBWPOLY;prod22| (|p| |b| |n| $)
-  (PROG (#1=#:G160 #2=#:G159 #3=#:G161 #4=#:G164 |t| |limit|)
+  (PROG (#1=#:G136 #2=#:G135 #3=#:G137 #4=#:G140 |t| |limit|)
     (RETURN
      (SEQ
       (LETT |limit| (- |n| (SPADCALL |b| (QREFELT $ 23)))
@@ -124,7 +124,7 @@
      (SPADCALL |d| (QREFELT $ 31)) (CDR (SPADCALL |d| (QREFELT $ 29))) $)))) 
 
 (DEFUN |XPBWPOLY;Dexpand| (|b| $)
-  (PROG (#1=#:G167 #2=#:G166 #3=#:G168 #4=#:G170 |l|)
+  (PROG (#1=#:G143 #2=#:G142 #3=#:G144 #4=#:G146 |l|)
     (RETURN
      (SEQ
       (COND
@@ -151,7 +151,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 33)))))))))) 
 
 (DEFUN |XPBWPOLY;Rexpand| (|b| $)
-  (PROG (#1=#:G172 #2=#:G171 #3=#:G173 #4=#:G175 |l|)
+  (PROG (#1=#:G148 #2=#:G147 #3=#:G149 #4=#:G151 |l|)
     (RETURN
      (SEQ
       (COND
@@ -194,9 +194,9 @@
                     (SPADCALL |lp| (QREFELT $ 44)) (QREFELT $ 45)))))))))) 
 
 (DEFUN |XPBWPOLY;process| (|gauche| |x| |droite| $)
-  (PROG (|r2| #1=#:G191 #2=#:G190 #3=#:G192 #4=#:G199 |t| |r1| #5=#:G188
-         #6=#:G187 #7=#:G189 #8=#:G198 #9=#:G185 #10=#:G184 #11=#:G186
-         #12=#:G197 |fd| |rd| #13=#:G181 #14=#:G180 #15=#:G182 #16=#:G196 |p|)
+  (PROG (|r2| #1=#:G167 #2=#:G166 #3=#:G168 #4=#:G175 |t| |r1| #5=#:G164
+         #6=#:G163 #7=#:G165 #8=#:G174 #9=#:G161 #10=#:G160 #11=#:G162
+         #12=#:G173 |fd| |rd| #13=#:G157 #14=#:G156 #15=#:G158 #16=#:G172 |p|)
     (RETURN
      (SEQ
       (COND
@@ -367,7 +367,7 @@
 (DEFUN |XPBWPOLY;coerce;R$;12| (|r| $) (LIST (CONS (|spadConstant| $ 15) |r|))) 
 
 (DEFUN |XPBWPOLY;coerce;$Of;13| (|p| $)
-  (PROG (|le| #1=#:G207 |rec|)
+  (PROG (|le| #1=#:G183 |rec|)
     (RETURN
      (SEQ
       (COND ((NULL |p|) (SPADCALL (|spadConstant| $ 53) (QREFELT $ 17)))
@@ -389,7 +389,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 59)) (|spadConstant| $ 9) (QREFELT $ 27))) 
 
 (DEFUN |XPBWPOLY;coerce;Lp$;15| (|p| $)
-  (PROG (#1=#:G213 |t| #2=#:G212)
+  (PROG (#1=#:G189 |t| #2=#:G188)
     (RETURN
      (SEQ
       (PROGN
@@ -410,7 +410,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |XPBWPOLY;coerce;$Xdp;16| (|p| $)
-  (PROG (#1=#:G215 #2=#:G214 #3=#:G216 #4=#:G218 |t|)
+  (PROG (#1=#:G191 #2=#:G190 #3=#:G192 #4=#:G194 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -432,7 +432,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 64)))))))) 
 
 (DEFUN |XPBWPOLY;coerce;$Xrp;17| (|p| $)
-  (PROG (#1=#:G220 #2=#:G219 #3=#:G221 #4=#:G223 |t|)
+  (PROG (#1=#:G196 #2=#:G195 #3=#:G197 #4=#:G199 |t|)
     (RETURN
      (SEQ
       (COND
@@ -489,7 +489,7 @@
    ('T (SPADCALL |p| (SPADCALL |p| (QREFELT $ 79)) (QREFELT $ 80))))) 
 
 (DEFUN |XPBWPOLY;*;3$;22| (|x| |y| $)
-  (PROG (#1=#:G231 #2=#:G230 #3=#:G232 #4=#:G234 |t|)
+  (PROG (#1=#:G207 #2=#:G206 #3=#:G208 #4=#:G210 |t|)
     (RETURN
      (SEQ
       (COND
@@ -516,7 +516,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 21)))))))))) 
 
 (DEFUN |XPBWPOLY;varList;$L;23| (|p| $)
-  (PROG (|lv| #1=#:G236 #2=#:G235 #3=#:G237 #4=#:G240 |b|)
+  (PROG (|lv| #1=#:G212 #2=#:G211 #3=#:G213 #4=#:G216 |b|)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -552,7 +552,7 @@
    ('T (SPADCALL (SPADCALL |p| (QREFELT $ 89)) |n| (QREFELT $ 90))))) 
 
 (DEFUN |XPBWPOLY;product;2$Nni$;26| (|x| |y| |n| $)
-  (PROG (#1=#:G245 #2=#:G244 #3=#:G246 #4=#:G248 |t|)
+  (PROG (#1=#:G221 #2=#:G220 #3=#:G222 #4=#:G224 |t|)
     (RETURN
      (SEQ
       (COND
@@ -640,7 +640,7 @@
          (EXIT |r|)))))))) 
 
 (DEFUN |XPBWPOLY;LiePolyIfCan;$U;29| (|p| $)
-  (PROG (|lt| #1=#:G275 |t| #2=#:G274 #3=#:G263 #4=#:G262 #5=#:G264 #6=#:G273)
+  (PROG (|lt| #1=#:G251 |t| #2=#:G250 #3=#:G239 #4=#:G238 #5=#:G240 #6=#:G249)
     (RETURN
      (SEQ
       (COND
@@ -684,7 +684,7 @@
        (#8# (CONS 1 "failed"))))))) 
 
 (DEFUN |XPBWPOLY;mirror;2$;30| (|p| $)
-  (PROG (#1=#:G277 #2=#:G276 #3=#:G278 #4=#:G280 |t|)
+  (PROG (#1=#:G253 #2=#:G252 #3=#:G254 #4=#:G256 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -707,10 +707,10 @@
 
 (DECLAIM (NOTINLINE |XPBWPolynomial;|)) 
 
-(DEFUN |XPBWPolynomial| (&REST #1=#:G294)
+(DEFUN |XPBWPolynomial| (&REST #1=#:G270)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G295)
+     (PROG (#2=#:G271)
        (RETURN
         (COND
          ((LETT #2#

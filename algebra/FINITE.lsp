@@ -6,15 +6,15 @@
 (DEFPARAMETER |Finite;AL| 'NIL) 
 
 (DEFUN |Finite| ()
-  (LET (#:G130)
+  (LET (#:G106)
     (COND (|Finite;AL|) (T (SETQ |Finite;AL| (|Finite;|)))))) 
 
 (DEFUN |Finite;| ()
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|InputForm|)))
+               (|sublisV| (PAIR '(#2=#:G103) (LIST '(|InputForm|)))
                           (|Join| (|SetCategory|) (|ConvertibleTo| '#2#)
                                   (|mkCategory|
                                    '(((|size| ((|NonNegativeInteger|))) T)

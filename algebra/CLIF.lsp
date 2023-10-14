@@ -6,7 +6,7 @@
 (DEFUN |CLIF;dimension| ($) (SPADCALL (QREFELT $ 21) (QREFELT $ 27))) 
 
 (DEFUN |CLIF;=;2$B;3| (|x| |y| $)
-  (PROG (#1=#:G171 #2=#:G172 |i|)
+  (PROG (#1=#:G147 #2=#:G148 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -24,7 +24,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;+;3$;4| (|x| |y| $)
-  (PROG (#1=#:G176 |i| |z|)
+  (PROG (#1=#:G152 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -40,7 +40,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;-;3$;5| (|x| |y| $)
-  (PROG (#1=#:G180 |i| |z|)
+  (PROG (#1=#:G156 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -56,7 +56,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;-;2$;6| (|x| $)
-  (PROG (#1=#:G184 |i| |z|)
+  (PROG (#1=#:G160 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -70,7 +70,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;*;I2$;7| (|m| |x| $)
-  (PROG (#1=#:G188 |i| |z|)
+  (PROG (#1=#:G164 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -85,7 +85,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;*;K2$;8| (|c| |x| $)
-  (PROG (#1=#:G192 |i| |z|)
+  (PROG (#1=#:G168 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -126,7 +126,7 @@
       (QSETAREF1 |z| 0 |c|) (EXIT |z|))))) 
 
 (DEFUN |CLIF;toStringTerm| (|c| |b| $)
-  (PROG (|mult| #1=#:G208 |i|)
+  (PROG (|mult| #1=#:G184 |i|)
     (RETURN
      (SEQ (LETT |mult| (|mathObject2String| |c|) . #2=(|CLIF;toStringTerm|))
           (EXIT
@@ -164,7 +164,7 @@
                    (EXIT |mult|))))))))) 
 
 (DEFUN |CLIF;toString| (|m| $)
-  (PROG (|res| |neg| |s| #1=#:G216 |im|)
+  (PROG (|res| |neg| |s| #1=#:G192 |im|)
     (RETURN
      (SEQ (LETT |res| "" . #2=(|CLIF;toString|))
           (SEQ (LETT |im| 0 . #2#) (LETT #1# (- (QREFELT $ 21) 1) . #2#) G190
@@ -206,7 +206,7 @@
           (COND ((EQUAL |res| "") (LETT |res| "0" . #2#))) (EXIT |res|))))) 
 
 (DEFUN |CLIF;e;Pi$;15| (|b| $)
-  (PROG (|z| |iz| #1=#:G218)
+  (PROG (|z| |iz| #1=#:G194)
     (RETURN
      (SEQ
       (COND
@@ -224,7 +224,7 @@
          (QSETAREF1 |z| |iz| (|spadConstant| $ 46)) (EXIT |z|)))))))) 
 
 (DEFUN |CLIF;ee;L$;16| (|l| $)
-  (PROG (|lst| #1=#:G227 |i| #2=#:G226)
+  (PROG (|lst| #1=#:G203 |i| #2=#:G202)
     (RETURN
      (SEQ
       (LETT |lst|
@@ -244,7 +244,7 @@
        (SPADCALL (ELT $ 66) |lst| (|spadConstant| $ 47) (QREFELT $ 69))))))) 
 
 (DEFUN |CLIF;multivector;L$;17| (|scalar| $)
-  (PROG (#1=#:G231 |i| |z|)
+  (PROG (#1=#:G207 |i| |z|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -269,7 +269,7 @@
               (QSETAREF1 |z| |b| (|spadConstant| $ 46)) (EXIT |z|)))))))) 
 
 (DEFUN |CLIF;ePseudoscalar;$;19| ($)
-  (PROG (|i| #1=#:G234 |p|)
+  (PROG (|i| #1=#:G210 |p|)
     (RETURN
      (SEQ
       (LETT |p| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -281,8 +281,8 @@
       (QSETAREF1 |p| |i| (|spadConstant| $ 46)) (EXIT |p|))))) 
 
 (DEFUN |CLIF;toTable;MM;20| (|fn| $)
-  (PROG (#1=#:G248 |j| #2=#:G247 #3=#:G246 |k| #4=#:G245 |l| #5=#:G244 |i|
-         #6=#:G243)
+  (PROG (#1=#:G224 |j| #2=#:G223 #3=#:G222 |k| #4=#:G221 |l| #5=#:G220 |i|
+         #6=#:G219)
     (RETURN
      (SEQ
       (LETT |l|
@@ -327,8 +327,8 @@
         (QREFELT $ 79))))))) 
 
 (DEFUN |CLIF;toTable;MM;21| (|fn| $)
-  (PROG (#1=#:G260 |k| #2=#:G259 #3=#:G258 |j| #4=#:G257 |l| #5=#:G256 |i|
-         #6=#:G255)
+  (PROG (#1=#:G236 |k| #2=#:G235 #3=#:G234 |j| #4=#:G233 |l| #5=#:G232 |i|
+         #6=#:G231)
     (RETURN
      (SEQ
       (LETT |l|
@@ -366,7 +366,7 @@
         (QREFELT $ 79))))))) 
 
 (DEFUN |CLIF;gradeTerm| (|b| $)
-  (PROG (|grade| #1=#:G265 |i|)
+  (PROG (|grade| #1=#:G241 |i|)
     (RETURN
      (SEQ (LETT |grade| 0 . #2=(|CLIF;gradeTerm|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 6) 1) . #2#) G190
@@ -380,7 +380,7 @@
           (EXIT |grade|))))) 
 
 (DEFUN |CLIF;grade;$Nni;23| (|x| $)
-  (PROG (|gr| #1=#:G270 |ix|)
+  (PROG (|gr| #1=#:G246 |ix|)
     (RETURN
      (SEQ (LETT |gr| 0 . #2=(|CLIF;grade;$Nni;23|))
           (SEQ (LETT |ix| 0 . #2#) (LETT #1# (- (QREFELT $ 21) 1) . #2#) G190
@@ -411,7 +411,7 @@
       (EXIT |resul|))))) 
 
 (DEFUN |CLIF;gradeInvolution;2$;25| (|x| $)
-  (PROG (|z| #1=#:G278 |ix|)
+  (PROG (|z| #1=#:G254 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -445,7 +445,7 @@
       (EXIT |resul|))))) 
 
 (DEFUN |CLIF;reverse;2$;27| (|x| $)
-  (PROG (|z| #1=#:G286 |ix|)
+  (PROG (|z| #1=#:G262 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -481,7 +481,7 @@
       (EXIT |resul|))))) 
 
 (DEFUN |CLIF;conj;2$;29| (|x| $)
-  (PROG (|z| #1=#:G294 |ix|)
+  (PROG (|z| #1=#:G270 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -503,7 +503,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;setMode;S2B;30| (|s| |val| $)
-  (PROG (#1=#:G298)
+  (PROG (#1=#:G274)
     (RETURN
      (SEQ
       (EXIT
@@ -521,7 +521,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;baseVect| (|b| $)
-  (PROG (#1=#:G302 #2=#:G303 |i|)
+  (PROG (#1=#:G278 #2=#:G279 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -539,7 +539,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;bilinear| (|b1| |b2| $)
-  (PROG (#1=#:G305 |bv2| |bv1|)
+  (PROG (#1=#:G281 |bv2| |bv1|)
     (RETURN
      (SEQ
       (EXIT
@@ -555,7 +555,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;leftMostBase| (|b| $)
-  (PROG (|mask| #1=#:G310 #2=#:G311 |i|)
+  (PROG (|mask| #1=#:G286 #2=#:G287 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -572,7 +572,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;rightMostBase| (|b| $)
-  (PROG (|mask| #1=#:G316 #2=#:G317 |i|)
+  (PROG (|mask| #1=#:G292 #2=#:G293 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -592,7 +592,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;exteriorProdTerm| (|op1mult| |op1type| |op2mult| |op2type| $)
-  (PROG (|c| |k| #1=#:G327 |j| #2=#:G326 #3=#:G325 |i| |bz| |resul|)
+  (PROG (|c| |k| #1=#:G303 |j| #2=#:G302 #3=#:G301 |i| |bz| |resul|)
     (RETURN
      (SEQ
       (LETT |resul| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -663,7 +663,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |CLIF;/\\;3$;37| (|x| |y| $)
-  (PROG (|z| #1=#:G337 |iy| #2=#:G336 |ix|)
+  (PROG (|z| #1=#:G313 |iy| #2=#:G312 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -697,7 +697,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;\\/;3$;38| (|x| |y| $)
-  (PROG (|z| #1=#:G345 |iy| #2=#:G344 |ix|)
+  (PROG (|z| #1=#:G321 |iy| #2=#:G320 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -731,7 +731,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;lcProdTerm| (|op1mult| |op1type| |op2mult| |op2type| $)
-  (PROG (|resul| |inner2| |vType| |uType| #1=#:G351 |inner4| |left| |grade2|
+  (PROG (|resul| |inner2| |vType| |uType| #1=#:G327 |inner4| |left| |grade2|
          |grade1|)
     (RETURN
      (SEQ
@@ -814,7 +814,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;rcProdTerm| (|op1mult| |op1type| |op2mult| |op2type| $)
-  (PROG (|s4| |s3| |s2| |s1| |resul| |inner2| |vType| |uType| #1=#:G359
+  (PROG (|s4| |s3| |s2| |s1| |resul| |inner2| |vType| |uType| #1=#:G335
          |inner4| |right| |grade2| |grade1|)
     (RETURN
      (SEQ
@@ -957,7 +957,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;lc;3$;41| (|x| |y| $)
-  (PROG (|z| #1=#:G367 |iy| #2=#:G366 |ix|)
+  (PROG (|z| #1=#:G343 |iy| #2=#:G342 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -990,7 +990,7 @@
       (EXIT |z|))))) 
 
 (DEFUN |CLIF;rc;3$;42| (|x| |y| $)
-  (PROG (|z| #1=#:G375 |iy| #2=#:G374 |ix|)
+  (PROG (|z| #1=#:G351 |iy| #2=#:G350 |ix|)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -1024,7 +1024,7 @@
 
 (DEFUN |CLIF;cliffordProdTerm| (|op1mult| |op1type| |op2mult| |op2type| $)
   (PROG (|resul| |s4| |s3| |s2| |s1| |factor2| |factor1| |vt| |ut| |uType|
-         |xType| #1=#:G383 |xt| |vType| |grade2| |grade1|)
+         |xType| #1=#:G359 |xt| |vType| |grade2| |grade1|)
     (RETURN
      (SEQ
       (EXIT
@@ -1205,7 +1205,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CLIF;cliffordDiagonalTerm| (|op1mult| |op1type| |op2mult| |op2type| $)
-  (PROG (|result| |bz| |c| |k| #1=#:G394 |j| #2=#:G393 #3=#:G392 |i|)
+  (PROG (|result| |bz| |c| |k| #1=#:G370 |j| #2=#:G369 #3=#:G368 |i|)
     (RETURN
      (SEQ
       (LETT |c| (SPADCALL |op1mult| |op2mult| (QREFELT $ 40))
@@ -1262,7 +1262,7 @@
       (QSETAREF1 |result| |bz| |c|) (EXIT |result|))))) 
 
 (DEFUN |CLIF;*;3$;45| (|x| |y| $)
-  (PROG (|z| #1=#:G408 |iy| #2=#:G407 |ix| #3=#:G406 #4=#:G405)
+  (PROG (|z| #1=#:G384 |iy| #2=#:G383 |ix| #3=#:G382 #4=#:G381)
     (RETURN
      (SEQ
       (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
@@ -1329,8 +1329,8 @@
   (SPADCALL |x| (SPADCALL (QREFELT $ 76)) (QREFELT $ 92))) 
 
 (DEFUN |CLIF;canonMonom| (|c| |lb| $)
-  (PROG (|bz| #1=#:G419 |bn| #2=#:G418 #3=#:G427 |b| |wasordered| |exchanges|
-         |t| #4=#:G426 |i| #5=#:G411 #6=#:G425)
+  (PROG (|bz| #1=#:G395 |bn| #2=#:G394 #3=#:G403 |b| |wasordered| |exchanges|
+         |t| #4=#:G402 |i| #5=#:G387 #6=#:G401)
     (RETURN
      (SEQ
       (SEQ
@@ -1422,7 +1422,7 @@
         ('T (SPADCALL (QAREF1 |z| (QCDR |r|)) (QCAR |r|) (QREFELT $ 103))))))))) 
 
 (DEFUN |CLIF;coerceMonom| (|c| |b| $)
-  (PROG (|be| |ml| #1=#:G444 |i| #2=#:G443)
+  (PROG (|be| |ml| #1=#:G420 |i| #2=#:G419)
     (RETURN
      (SEQ
       (COND ((EQL |b| 0) (SPADCALL |c| (QREFELT $ 106)))
@@ -1455,7 +1455,7 @@
                                 (QREFELT $ 109)))))))))))) 
 
 (DEFUN |CLIF;coerce;$Of;51| (|x| $)
-  (PROG (|tl| #1=#:G451 |i| #2=#:G450)
+  (PROG (|tl| #1=#:G427 |i| #2=#:G426)
     (RETURN
      (SEQ
       (LETT |tl|
@@ -1480,7 +1480,7 @@
              ('T (SPADCALL (ELT $ 113) |tl| (QREFELT $ 112))))))))) 
 
 (DEFUN |CLIF;localPowerSets| (|j| $)
-  (PROG (|Sn| #1=#:G457 |x| |Sm| #2=#:G452 |l|)
+  (PROG (|Sn| #1=#:G433 |x| |Sm| #2=#:G428 |l|)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL NIL (QREFELT $ 116)) . #3=(|CLIF;localPowerSets|))
@@ -1508,8 +1508,8 @@
   (SPADCALL (ELT $ 117) (|CLIF;localPowerSets| |j| $) (QREFELT $ 119))) 
 
 (DEFUN |CLIF;recip;$U;54| (|x| $)
-  (PROG (|ansC| |ansP| |cj| #1=#:G479 |pj| |ans| |lhsEqs| |lhsEqi| #2=#:G478
-         |rhsEqs| #3=#:G477 |pi| |one|)
+  (PROG (|ansC| |ansP| |cj| #1=#:G455 |pj| |ans| |lhsEqs| |lhsEqi| #2=#:G454
+         |rhsEqs| #3=#:G453 |pi| |one|)
     (RETURN
      (SEQ (LETT |one| (|spadConstant| $ 47) . #4=(|CLIF;recip;$U;54|))
           (LETT |rhsEqs| NIL . #4#) (LETT |lhsEqs| NIL . #4#)
@@ -1576,10 +1576,10 @@
 
 (DECLAIM (NOTINLINE |CliffordAlgebra;|)) 
 
-(DEFUN |CliffordAlgebra| (&REST #1=#:G480)
+(DEFUN |CliffordAlgebra| (&REST #1=#:G456)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G481)
+     (PROG (#2=#:G457)
        (RETURN
         (COND
          ((LETT #2#

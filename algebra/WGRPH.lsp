@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |WGRPH;weightedGraph;L$;1| (|ob| $)
-  (PROG (|objs| #1=#:G170 |x| #2=#:G169)
+  (PROG (|objs| #1=#:G146 |x| #2=#:G145)
     (RETURN
      (SEQ
       (LETT |objs|
@@ -30,7 +30,7 @@
 (DEFUN |WGRPH;weightedGraph;LL$;3| (|ob| |ar| $) (CONS |ob| |ar|)) 
 
 (DEFUN |WGRPH;weightedGraph;LL$;4| (|ob| |ar| $)
-  (PROG (|fobs| |fo| #1=#:G197 |f| #2=#:G198 |fn| |arrs| |arro| #3=#:G196 |a|)
+  (PROG (|fobs| |fo| #1=#:G173 |f| #2=#:G174 |fn| |arrs| |arro| #3=#:G172 |a|)
     (RETURN
      (SEQ (LETT |arrs| NIL . #4=(|WGRPH;weightedGraph;LL$;4|))
           (SEQ (LETT |a| NIL . #4#) (LETT #3# |ar| . #4#) G190
@@ -66,7 +66,7 @@
           (EXIT (CONS |fobs| |arrs|)))))) 
 
 (DEFUN |WGRPH;weightedGraph;LL$;5| (|objs| |am| $)
-  (PROG (|ar| |a| #1=#:G212 |j| #2=#:G211 |i| |obs| |o| |ob| #3=#:G210 |obn|)
+  (PROG (|ar| |a| #1=#:G188 |j| #2=#:G187 |i| |obs| |o| |ob| #3=#:G186 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #4=(|WGRPH;weightedGraph;LL$;5|))
           (SEQ (LETT |obn| 1 . #4#) (LETT #3# (LENGTH |objs|) . #4#) G190
@@ -136,7 +136,7 @@
   (SPADCALL |s| |nm| |n1| |n2| (|spadConstant| $ 9) (QREFELT $ 41))) 
 
 (DEFUN |WGRPH;addWArrow!;$S2NniW$;9| (|s| |nm| |n1| |n2| |w| $)
-  (PROG (#1=#:G230 |arrs| |a| |arrss|)
+  (PROG (#1=#:G206 |arrs| |a| |arrss|)
     (RETURN
      (SEQ
       (EXIT
@@ -154,7 +154,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |WGRPH;getVertices;$L;10| (|s| $)
-  (PROG (|res| |o| #1=#:G237 |soj|)
+  (PROG (|res| |o| #1=#:G213 |soj|)
     (RETURN
      (SEQ (LETT |res| NIL . #2=(|WGRPH;getVertices;$L;10|))
           (SEQ (LETT |soj| NIL . #2#) (LETT #1# (QCAR |s|) . #2#) G190
@@ -170,7 +170,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |WGRPH;getArrows;$L;11| (|s| $)
-  (PROG (|arrs| |aw| #1=#:G244 |a|)
+  (PROG (|arrs| |aw| #1=#:G220 |a|)
     (RETURN
      (SEQ (LETT |arrs| NIL . #2=(|WGRPH;getArrows;$L;11|))
           (SEQ (LETT |a| NIL . #2#) (LETT #1# (QCDR |s|) . #2#) G190
@@ -201,7 +201,7 @@
       (EXIT (CONS (LIST |o|) (LIST |ar|))))))) 
 
 (DEFUN |WGRPH;cycleOpen;LS$;14| (|objs| |arrowName| $)
-  (PROG (|arn| |ars| |a| |next| |obs| |o| |ob| #1=#:G260 |obn|)
+  (PROG (|arn| |ars| |a| |next| |obs| |o| |ob| #1=#:G236 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #2=(|WGRPH;cycleOpen;LS$;14|))
           (LETT |ars| NIL . #2#) (LETT |arn| 1 . #2#)
@@ -233,7 +233,7 @@
           (EXIT (CONS |obs| |ars|)))))) 
 
 (DEFUN |WGRPH;cycleClosed;LS$;15| (|objs| |arrowName| $)
-  (PROG (|arn| |ars| |a| |next| |obs| |o| |ob| #1=#:G270 |obn|)
+  (PROG (|arn| |ars| |a| |next| |obs| |o| |ob| #1=#:G246 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #2=(|WGRPH;cycleClosed;LS$;15|))
           (LETT |ars| NIL . #2#) (LETT |arn| 1 . #2#)
@@ -268,7 +268,7 @@
           (EXIT (CONS |obs| |ars|)))))) 
 
 (DEFUN |WGRPH;unit;LS$;16| (|objs| |arrowName| $)
-  (PROG (|arn| |ars| |a| |obs| |o| |ob| #1=#:G278 |obn|)
+  (PROG (|arn| |ars| |a| |obs| |o| |ob| #1=#:G254 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #2=(|WGRPH;unit;LS$;16|)) (LETT |ars| NIL . #2#)
           (LETT |arn| 1 . #2#)
@@ -294,7 +294,7 @@
           (EXIT (CONS |obs| |ars|)))))) 
 
 (DEFUN |WGRPH;kgraph;LS$;17| (|objs| |arrowName| $)
-  (PROG (|arn| |ars| |a| #1=#:G290 |obm| |obs| |o| |ob| #2=#:G289 |obn|)
+  (PROG (|arn| |ars| |a| #1=#:G266 |obm| |obs| |o| |ob| #2=#:G265 |obn|)
     (RETURN
      (SEQ (LETT |obs| NIL . #3=(|WGRPH;kgraph;LS$;17|)) (LETT |ars| NIL . #3#)
           (LETT |arn| 1 . #3#)
@@ -332,7 +332,7 @@
           (EXIT (CONS |obs| |ars|)))))) 
 
 (DEFUN |WGRPH;+;3$;18| (|a| |b| $)
-  (PROG (|la| |lb| |arr| #1=#:G298 |ba| |bStart| |lo|)
+  (PROG (|la| |lb| |arr| #1=#:G274 |ba| |bStart| |lo|)
     (RETURN
      (SEQ
       (LETT |lo| (SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 56))
@@ -355,9 +355,9 @@
       (EXIT (CONS |lo| |la|)))))) 
 
 (DEFUN |WGRPH;merge;3$;19| (|a| |b| $)
-  (PROG (|la| |lb| |arr| |fromI| |toI| #1=#:G318 |ba| |bStart| |bmap| #2=#:G306
-         |newIndex| |mergedObjects| |i| #3=#:G317 |bob| #4=#:G316 |x|
-         #5=#:G315)
+  (PROG (|la| |lb| |arr| |fromI| |toI| #1=#:G294 |ba| |bStart| |bmap| #2=#:G282
+         |newIndex| |mergedObjects| |i| #3=#:G293 |bob| #4=#:G292 |x|
+         #5=#:G291)
     (RETURN
      (SEQ
       (LETT |bmap|
@@ -420,7 +420,7 @@
 
 (DEFUN |WGRPH;objProd| (|a| |b| $)
   (PROG (|newObjs| |ob| |sp| |heighta| |widtha| |y| |x| |byi| |bxi| |bi|
-         #1=#:G329 |boi| |ayi| |axi| |ai| #2=#:G328 |aoi|)
+         #1=#:G305 |boi| |ayi| |axi| |ai| #2=#:G304 |aoi|)
     (RETURN
      (SEQ (LETT |newObjs| NIL . #3=(|WGRPH;objProd|))
           (SEQ (LETT |aoi| NIL . #3#) (LETT #2# (QCAR |a|) . #3#) G190
@@ -467,7 +467,7 @@
           (EXIT |newObjs|))))) 
 
 (DEFUN |WGRPH;indexProd| (|aObj| |a| |b| $)
-  (PROG (#1=#:G330)
+  (PROG (#1=#:G306)
     (RETURN
      (+ |a|
         (*
@@ -476,8 +476,8 @@
          (LENGTH (QCAR |aObj|))))))) 
 
 (DEFUN |WGRPH;*;2$Wg;22| (|a| |b| $)
-  (PROG (|newArrs| |arr| |an| #1=#:G352 |bv| #2=#:G351 |bu| #3=#:G350 |av|
-         #4=#:G349 |au|)
+  (PROG (|newArrs| |arr| |an| #1=#:G328 |bv| #2=#:G327 |bu| #3=#:G326 |av|
+         #4=#:G325 |au|)
     (RETURN
      (SEQ (LETT |newArrs| NIL . #5=(|WGRPH;*;2$Wg;22|))
           (SEQ (LETT |au| 1 . #5#) (LETT #4# (LENGTH (QCAR |a|)) . #5#) G190
@@ -539,8 +539,8 @@
            (SPADCALL (|WGRPH;objProd| |a| |b| $) |newArrs| (QREFELT $ 74))))))) 
 
 (DEFUN |WGRPH;cartesian;2$Wg;23| (|a| |b| $)
-  (PROG (|newArrs| |arr| |an| #1=#:G377 |bv| #2=#:G376 |bu| #3=#:G375 |av|
-         #4=#:G374 |au|)
+  (PROG (|newArrs| |arr| |an| #1=#:G353 |bv| #2=#:G352 |bu| #3=#:G351 |av|
+         #4=#:G350 |au|)
     (RETURN
      (SEQ (LETT |newArrs| NIL . #5=(|WGRPH;cartesian;2$Wg;23|))
           (SEQ (LETT |au| 1 . #5#) (LETT #4# (LENGTH (QCAR |a|)) . #5#) G190
@@ -726,7 +726,7 @@
 
 (DEFUN |WGRPH;closedObjProd| (|a| |b| |f| $)
   (PROG (|newObjs| |ob| |sp| |heighta| |widtha| |y| |x| |byi| |bxi| |bi|
-         #1=#:G386 |boi| |ayi| |axi| |ai| #2=#:G385 |aoi|)
+         #1=#:G362 |boi| |ayi| |axi| |ai| #2=#:G361 |aoi|)
     (RETURN
      (SEQ (LETT |newObjs| NIL . #3=(|WGRPH;closedObjProd|))
           (SEQ (LETT |aoi| NIL . #3#) (LETT #2# (QCAR |a|) . #3#) G190
@@ -772,8 +772,8 @@
           (EXIT |newObjs|))))) 
 
 (DEFUN |WGRPH;closedTensor;2$M$;25| (|a| |b| |f| $)
-  (PROG (|newArrs| |arr| |an| #1=#:G407 |bv| #2=#:G406 |bu| #3=#:G405 |av|
-         #4=#:G404 |au|)
+  (PROG (|newArrs| |arr| |an| #1=#:G383 |bv| #2=#:G382 |bu| #3=#:G381 |av|
+         #4=#:G380 |au|)
     (RETURN
      (SEQ (LETT |newArrs| NIL . #5=(|WGRPH;closedTensor;2$M$;25|))
           (SEQ (LETT |au| 1 . #5#) (LETT #4# (LENGTH (QCAR |a|)) . #5#) G190
@@ -836,8 +836,8 @@
                      (QREFELT $ 17))))))) 
 
 (DEFUN |WGRPH;closedCartesian;2$M$;26| (|a| |b| |f| $)
-  (PROG (|newArrs| |arr| |an| #1=#:G433 |bv| #2=#:G432 |bu| #3=#:G431 |av|
-         #4=#:G430 |au|)
+  (PROG (|newArrs| |arr| |an| #1=#:G409 |bv| #2=#:G408 |bu| #3=#:G407 |av|
+         #4=#:G406 |au|)
     (RETURN
      (SEQ (LETT |newArrs| NIL . #5=(|WGRPH;closedCartesian;2$M$;26|))
           (SEQ (LETT |au| 1 . #5#) (LETT #4# (LENGTH (QCAR |a|)) . #5#) G190
@@ -1023,8 +1023,8 @@
                      (QREFELT $ 17))))))) 
 
 (DEFUN |WGRPH;map;$LL2I$;27| (|s| |m| |newOb| |offsetX| |offsetY| $)
-  (PROG (|newArrs| |newArr| #1=#:G450 |oldArrow| #2=#:G438 #3=#:G437 |i|
-         #4=#:G449 |oi| |newObjs| #5=#:G448 |o| #6=#:G447)
+  (PROG (|newArrs| |newArr| #1=#:G426 |oldArrow| #2=#:G414 #3=#:G413 |i|
+         #4=#:G425 |oi| |newObjs| #5=#:G424 |o| #6=#:G423)
     (RETURN
      (SEQ
       (LETT |newObjs|
@@ -1093,8 +1093,8 @@
       (EXIT (CONS |newObjs| |newArrs|)))))) 
 
 (DEFUN |WGRPH;mapContra;$LL2I$;28| (|s| |m| |newOb| |offsetX| |offsetY| $)
-  (PROG (|newArrs| |newArr| #1=#:G467 |oldArrow| #2=#:G455 #3=#:G454 |i|
-         #4=#:G466 |oi| |newObjs| #5=#:G465 |o| #6=#:G464)
+  (PROG (|newArrs| |newArr| #1=#:G443 |oldArrow| #2=#:G431 #3=#:G430 |i|
+         #4=#:G442 |oi| |newObjs| #5=#:G441 |o| #6=#:G440)
     (RETURN
      (SEQ
       (LETT |newObjs|
@@ -1163,7 +1163,7 @@
       (EXIT (CONS |newObjs| |newArrs|)))))) 
 
 (DEFUN |WGRPH;routeNodeRecursive| (|s| |a| |b| |visited| $)
-  (PROG (#1=#:G479 |shortest| |d| #2=#:G480 |arr|)
+  (PROG (#1=#:G455 |shortest| |d| #2=#:G456 |arr|)
     (RETURN
      (SEQ
       (EXIT
@@ -1213,7 +1213,7 @@
   (|WGRPH;routeNodeRecursive| |s| |a| |b| NIL $)) 
 
 (DEFUN |WGRPH;routeArrowRecursive| (|s| |a| |b| |visited| $)
-  (PROG (#1=#:G496 |shortestFullPath| |shortest| |fullPath| |d| |aa| #2=#:G497
+  (PROG (#1=#:G472 |shortestFullPath| |shortest| |fullPath| |d| |aa| #2=#:G473
          |arr| |arrs| |arrn|)
     (RETURN
      (SEQ
@@ -1275,7 +1275,7 @@
   (|WGRPH;routeArrowRecursive| |s| |a| |b| NIL $)) 
 
 (DEFUN |WGRPH;distanceWeighted;$2NniU;33| (|s| |a| |b| $)
-  (PROG (#1=#:G508 |r|)
+  (PROG (#1=#:G484 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -1289,7 +1289,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |WGRPH;getWeightBetween| (|s| |i1| |i2| $)
-  (PROG (|res| |isDisjoint| #1=#:G520 |arr| |arrs|)
+  (PROG (|res| |isDisjoint| #1=#:G496 |arr| |arrs|)
     (RETURN
      (SEQ (LETT |isDisjoint| 'T . #2=(|WGRPH;getWeightBetween|))
           (LETT |res| (|spadConstant| $ 9) . #2#)
@@ -1318,7 +1318,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |WGRPH;routeNodeWeight;$LW;35| (|s| |r| $)
-  (PROG (|lasti| |fst| |res| |w| #1=#:G526 |i|)
+  (PROG (|lasti| |fst| |res| |w| #1=#:G502 |i|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 9) . #2=(|WGRPH;routeNodeWeight;$LW;35|))
@@ -1337,7 +1337,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |WGRPH;routeArrowWeight;$LW;36| (|s| |r| $)
-  (PROG (|res| |a| #1=#:G532 |i|)
+  (PROG (|res| |a| #1=#:G508 |i|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 9) . #2=(|WGRPH;routeArrowWeight;$LW;36|))
@@ -1373,10 +1373,10 @@
 
 (DECLAIM (NOTINLINE |WeightedGraph;|)) 
 
-(DEFUN |WeightedGraph| (&REST #1=#:G545)
+(DEFUN |WeightedGraph| (&REST #1=#:G521)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G546)
+     (PROG (#2=#:G522)
        (RETURN
         (COND
          ((LETT #2#

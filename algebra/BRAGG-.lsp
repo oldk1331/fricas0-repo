@@ -49,7 +49,7 @@
                         (SPADCALL |x| (QREFELT $ 11)))))))))) 
 
 (DEFUN |BRAGG-;node?;2AB;7| (|u| |v| $)
-  (PROG (#1=#:G178 #2=#:G181 #3=#:G182 |y|)
+  (PROG (#1=#:G154 #2=#:G157 #3=#:G158 |y|)
     (RETURN
      (SEQ
       (EXIT
@@ -139,7 +139,7 @@
 (DEFUN |BRAGG-;#;ANni;11| (|x| $) (|BRAGG-;aggCount| |x| 0 $)) 
 
 (DEFUN |BRAGG-;aggCount| (|x| |k| $)
-  (PROG (#1=#:G205 |y|)
+  (PROG (#1=#:G181 |y|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |x| (QREFELT $ 15)) 0)
@@ -165,7 +165,7 @@
         ('T (|BRAGG-;isCycle?| |x| NIL $)))) 
 
 (DEFUN |BRAGG-;isCycle?| (|x| |acc| $)
-  (PROG (#1=#:G210 #2=#:G214 #3=#:G215 |y|)
+  (PROG (#1=#:G186 #2=#:G190 #3=#:G191 |y|)
     (RETURN
      (SEQ
       (EXIT
@@ -196,7 +196,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |BRAGG-;eqMember?| (|y| |l| $)
-  (PROG (#1=#:G217 #2=#:G219 #3=#:G220 |x|)
+  (PROG (#1=#:G193 #2=#:G195 #3=#:G196 |x|)
     (RETURN
      (SEQ
       (EXIT

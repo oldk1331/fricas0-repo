@@ -13,7 +13,7 @@
    |op| $)) 
 
 (DEFUN |ODEPRIM;splitDenominator;LQLR;4| (|op| |lg| $)
-  (PROG (#1=#:G145 |g| #2=#:G144 |l| |f| |cd|)
+  (PROG (#1=#:G121 |g| #2=#:G120 |l| |f| |cd|)
     (RETURN
      (SEQ
       (LETT |cd| (SPADCALL (SPADCALL |op| (QREFELT $ 29)) (QREFELT $ 32))
@@ -56,7 +56,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |ODEPRIM;tau| (|p| |pp| |q| |n| $)
-  (PROG (#1=#:G147)
+  (PROG (#1=#:G123)
     (RETURN
      (SPADCALL
       (SPADCALL (SPADCALL |pp| |n| (QREFELT $ 52))
@@ -86,7 +86,7 @@
    (QCAR (SPADCALL |op| NIL (QREFELT $ 51))) $)) 
 
 (DEFUN |ODEPRIM;UPfact| (|n| $)
-  (PROG (#1=#:G161 #2=#:G160 #3=#:G162 #4=#:G166 #5=#:G159 |i| |z|)
+  (PROG (#1=#:G137 #2=#:G136 #3=#:G138 #4=#:G142 #5=#:G135 |i| |z|)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (|spadConstant| $ 23))
@@ -122,7 +122,7 @@
                 (COND (#1# #2#) (#6# (|spadConstant| $ 23)))))))))))) 
 
 (DEFUN |ODEPRIM;indicialEq| (|c| |lamb| |lf| $)
-  (PROG (|s| #1=#:G170 |i| #2=#:G171 |f| |cc| |cp|)
+  (PROG (|s| #1=#:G146 |i| #2=#:G147 |f| |cc| |cp|)
     (RETURN
      (SEQ
       (LETT |cp| (SPADCALL (QREFELT $ 11) |c| (QREFELT $ 63))
@@ -183,7 +183,7 @@
       (EXIT (VECTOR |mup| |lamb| |lf|)))))) 
 
 (DEFUN |ODEPRIM;NPbound| (|c| |l| |e| $)
-  (PROG (#1=#:G181 #2=#:G180 |n| |rec|)
+  (PROG (#1=#:G157 #2=#:G156 |n| |rec|)
     (RETURN
      (SEQ
       (LETT |rec| (|ODEPRIM;NPmulambda| |c| |l| $) . #3=(|ODEPRIM;NPbound|))
@@ -208,7 +208,7 @@
            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))))))) 
 
 (DEFUN |ODEPRIM;hdenom| (|l| |d| |e| $)
-  (PROG (#1=#:G186 #2=#:G185 #3=#:G187 #4=#:G189 |dd|)
+  (PROG (#1=#:G162 #2=#:G161 #3=#:G163 #4=#:G165 |dd|)
     (RETURN
      (SEQ
       (PROGN
@@ -237,7 +237,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 23)))))))) 
 
 (DEFUN |ODEPRIM;denom0| (|n| |l| |d| |e| |h| $)
-  (PROG (#1=#:G192 #2=#:G191 #3=#:G193 #4=#:G195 #5=#:G197 |hh|)
+  (PROG (#1=#:G168 #2=#:G167 #3=#:G169 #4=#:G171 #5=#:G173 |hh|)
     (RETURN
      (SEQ
       (SPADCALL (|ODEPRIM;hdenom| |l| |d| |e| $)
@@ -284,7 +284,7 @@
                 (QREFELT $ 56)))))) 
 
 (DEFUN |ODEPRIM;separateZeros| (|d| |e| $)
-  (PROG (#1=#:G199 |g|)
+  (PROG (#1=#:G175 |g|)
     (RETURN
      (PROG2
          (LETT #1#
@@ -305,7 +305,7 @@
            (|ODEPRIM;indicialEq| |c| (QVELT |rec| 1) (QVELT |rec| 2) $)))))) 
 
 (DEFUN |ODEPRIM;indicialEquations;LUPL;17| (|op| |p| $)
-  (PROG (#1=#:G210 |dd| #2=#:G209)
+  (PROG (#1=#:G186 |dd| #2=#:G185)
     (RETURN
      (SEQ
       (PROGN
@@ -357,7 +357,7 @@
             (#2# (CONS 0 (|ODEPRIM;denom0| |n| |l| |d| |e| |h| $))))))))))))) 
 
 (DEFUN |ODEPRIM;denomLODE;LLUP;19| (|l| |lg| $)
-  (PROG (|h| |e| #1=#:G224 #2=#:G223 #3=#:G225 #4=#:G229 |g| |d| #5=#:G221)
+  (PROG (|h| |e| #1=#:G200 #2=#:G199 #3=#:G201 #4=#:G205 |g| |d| #5=#:G197)
     (RETURN
      (SEQ
       (COND
@@ -405,10 +405,10 @@
 
 (DECLAIM (NOTINLINE |PrimitiveRatDE;|)) 
 
-(DEFUN |PrimitiveRatDE| (&REST #1=#:G230)
+(DEFUN |PrimitiveRatDE| (&REST #1=#:G206)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G231)
+     (PROG (#2=#:G207)
        (RETURN
         (COND
          ((LETT #2#

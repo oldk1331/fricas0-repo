@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |MATLIN;rowAllZeroes?| (|x| |i| $)
-  (PROG (#1=#:G148 #2=#:G150 #3=#:G151 |j|)
+  (PROG (#1=#:G124 #2=#:G126 #3=#:G127 |j|)
     (RETURN
      (SEQ
       (EXIT
@@ -28,7 +28,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MATLIN;colAllZeroes?| (|x| |j| $)
-  (PROG (#1=#:G153 #2=#:G155 #3=#:G156 |i|)
+  (PROG (#1=#:G129 #2=#:G131 #3=#:G132 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -54,7 +54,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MATLIN;minorDet| (|x| |m| |l| |i| |v| $)
-  (PROG (|j| |rl| |pos| #1=#:G197 |ans| |md| #2=#:G185 |minC| |minR| |z|)
+  (PROG (|j| |rl| |pos| #1=#:G173 |ans| |md| #2=#:G161 |minC| |minR| |z|)
     (RETURN
      (SEQ
       (EXIT
@@ -126,7 +126,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MATLIN;minordet;MR;4| (|x| $)
-  (PROG (|i| #1=#:G210 |maxC| |minR| |v| #2=#:G201 |n1| |ndim|)
+  (PROG (|i| #1=#:G186 |maxC| |minR| |v| #2=#:G177 |n1| |ndim|)
     (RETURN
      (SEQ
       (COND
@@ -215,8 +215,8 @@
     (RETURN (PROGN (SPADCALL |a| |r1| (QREFELT $ 22)))))) 
 
 (DEFUN |MATLIN;fractionFreeGauss!;2M;8| (|x| $)
-  (PROG (|j| |lasti| #1=#:G239 #2=#:G241 |i| |b| #3=#:G231 |val| |l| |pv| |k|
-         |c| |ans| #4=#:G226 |rown| |maxC| |minC| |maxR| |minR| |ndim|)
+  (PROG (|j| |lasti| #1=#:G215 #2=#:G217 |i| |b| #3=#:G207 |val| |l| |pv| |k|
+         |c| |ans| #4=#:G202 |rown| |maxC| |minC| |maxR| |minR| |ndim|)
     (RETURN
      (SEQ
       (LETT |ndim| (SPADCALL |x| (QREFELT $ 26))
@@ -411,7 +411,7 @@
                    (EXIT |x|))))))))) 
 
 (DEFUN |MATLIN;lastStep| (|x| $)
-  (PROG (|iCol| #1=#:G252 |ss| #2=#:G249 #3=#:G248 #4=#:G250 #5=#:G260 |k| |j|
+  (PROG (|iCol| #1=#:G228 |ss| #2=#:G225 #3=#:G224 #4=#:G226 #5=#:G236 |k| |j|
          |i| |iRow| |minC1| |maxC1| |maxR1| |det| |exCol| |maxC| |minC| |maxR|
          |minR| |ndim|)
     (RETURN
@@ -541,7 +541,7 @@
 (DEFUN |MATLIN;nullSpace;ML;17| (|y| $) (SPADCALL |y| (QREFELT $ 77))) 
 
 (DEFUN |MATLIN;nullSpace;ML;18| (|y| $)
-  (PROG (#1=#:G292 |v| #2=#:G291)
+  (PROG (#1=#:G268 |v| #2=#:G267)
     (RETURN
      (SEQ
       (PROGN
@@ -591,7 +591,7 @@
                     (SPADCALL |fm| (QREFELT $ 12)) (QREFELT $ 52)))))))))) 
 
 (DEFUN |MATLIN;rank;MNni;21| (|x| $)
-  (PROG (|rk| #1=#:G299 |i| |y| |rh|)
+  (PROG (|rk| #1=#:G275 |i| |y| |rh|)
     (RETURN
      (SEQ
       (LETT |y|
@@ -627,7 +627,7 @@
       (EXIT |rk|))))) 
 
 (DEFUN |MATLIN;nullity;MNni;22| (|x| $)
-  (PROG (#1=#:G304)
+  (PROG (#1=#:G280)
     (RETURN
      (PROG1
          (LETT #1#
@@ -670,9 +670,9 @@
   (SPADCALL |n| |d| (QREFELT $ 93))) 
 
 (DEFUN |MATLIN;rowEchelon;2M;25| (|y| $)
-  (PROG (|i| |k1| |qr| #1=#:G342 |k| |xij| |jj| |un| |val2| |val1| |a1|
-         #2=#:G322 |b1| |d| |b| |a| |#G67| |#G66| |#G65| |aa| |xnj| |n| |xkj|
-         #3=#:G339 |j| |maxC| |minC| |maxR| |minR| |x|)
+  (PROG (|i| |k1| |qr| #1=#:G318 |k| |xij| |jj| |un| |val2| |val1| |a1|
+         #2=#:G298 |b1| |d| |b| |a| |#G67| |#G66| |#G65| |aa| |xnj| |n| |xkj|
+         #3=#:G315 |j| |maxC| |minC| |maxR| |minR| |x|)
     (RETURN
      (SEQ
       (LETT |x| (SPADCALL |y| (QREFELT $ 62)) . #4=(|MATLIN;rowEchelon;2M;25|))
@@ -887,10 +887,10 @@
 
 (DECLAIM (NOTINLINE |MatrixLinearAlgebraFunctions;|)) 
 
-(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G344)
+(DEFUN |MatrixLinearAlgebraFunctions| (&REST #1=#:G320)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G345)
+     (PROG (#2=#:G321)
        (RETURN
         (COND
          ((LETT #2#

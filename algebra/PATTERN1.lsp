@@ -19,7 +19,7 @@
   (SPADCALL |p| (SPADCALL |v| (QREFELT $ 17)) (QREFELT $ 18))) 
 
 (DEFUN |PATTERN1;badValues;PL;4| (|p| $)
-  (PROG (#1=#:G137 |v| #2=#:G136)
+  (PROG (#1=#:G113 |v| #2=#:G112)
     (RETURN
      (SEQ
       (PROGN
@@ -55,7 +55,7 @@
       ('T (SPADCALL |l| (SPADCALL (QCDR |rec|) (QREFELT $ 38)))))))) 
 
 (DEFUN |PATTERN1;applyAll| (|l| |d| $)
-  (PROG (#1=#:G149 #2=#:G151 #3=#:G152 |f|)
+  (PROG (#1=#:G125 #2=#:G127 #3=#:G128 |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -80,7 +80,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PATTERN1;suchThat;PLP;10| (|p| |l| $)
-  (PROG (#1=#:G158 |f| #2=#:G157)
+  (PROG (#1=#:G134 |f| #2=#:G133)
     (RETURN
      (SEQ
       (|PATTERN1;st| |p|
@@ -97,10 +97,10 @@
 
 (DECLAIM (NOTINLINE |PatternFunctions1;|)) 
 
-(DEFUN |PatternFunctions1| (&REST #1=#:G159)
+(DEFUN |PatternFunctions1| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

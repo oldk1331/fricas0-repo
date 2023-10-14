@@ -4,7 +4,7 @@
 (DEFUN |XDPOLY;mindegTerm;$R;1| (|p| $) (SPADCALL |p| (QREFELT $ 10))) 
 
 (DEFUN |XDPOLY;sh;$Nni$;2| (|p| |n| $)
-  (PROG (|n1| #1=#:G136)
+  (PROG (|n1| #1=#:G112)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 14)) ((EQL |n| 1) |p|)
@@ -19,7 +19,7 @@
                          (QREFELT $ 18)))))))))) 
 
 (DEFUN |XDPOLY;sh;3$;3| (|p1| |p2| $)
-  (PROG (|p| #1=#:G144 |t2| #2=#:G143 |t1|)
+  (PROG (|p| #1=#:G120 |t2| #2=#:G119 |t1|)
     (RETURN
      (SEQ (LETT |p| (|spadConstant| $ 12) . #3=(|XDPOLY;sh;3$;3|))
           (SEQ (LETT |t1| NIL . #3#) (LETT #2# |p1| . #3#) G190
@@ -52,7 +52,7 @@
   (SPADCALL (SPADCALL |v| (QREFELT $ 23)) (QREFELT $ 24))) 
 
 (DEFUN |XDPOLY;*;vl2$;5| (|v| |p| $)
-  (PROG (#1=#:G149 |t| #2=#:G148)
+  (PROG (#1=#:G125 |t| #2=#:G124)
     (RETURN
      (SEQ
       (PROGN
@@ -91,7 +91,7 @@
    ('T (SPADCALL (SPADCALL |p| (QREFELT $ 32)) |n| (QREFELT $ 40))))) 
 
 (DEFUN |XDPOLY;varList;$L;9| (|p| $)
-  (PROG (|le| #1=#:G155 #2=#:G154 #3=#:G156 #4=#:G160 |t|)
+  (PROG (|le| #1=#:G131 #2=#:G130 #3=#:G132 #4=#:G136 |t|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 41)) NIL)
@@ -124,7 +124,7 @@
               (EXIT (SPADCALL |le| (QREFELT $ 45)))))))))) 
 
 (DEFUN |XDPOLY;rquo;$Ofm$;10| (|p| |w| $)
-  (PROG (#1=#:G162 |r| #2=#:G168 |t| #3=#:G167)
+  (PROG (#1=#:G138 |r| #2=#:G144 |t| #3=#:G143)
     (RETURN
      (SEQ
       (PROGN
@@ -153,7 +153,7 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |XDPOLY;lquo;$Ofm$;11| (|p| |w| $)
-  (PROG (#1=#:G170 |r| #2=#:G176 |t| #3=#:G175)
+  (PROG (#1=#:G146 |r| #2=#:G152 |t| #3=#:G151)
     (RETURN
      (SEQ
       (PROGN
@@ -182,7 +182,7 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |XDPOLY;rquo;$vl$;12| (|p| |v| $)
-  (PROG (#1=#:G178 |r| #2=#:G184 |t| #3=#:G183)
+  (PROG (#1=#:G154 |r| #2=#:G160 |t| #3=#:G159)
     (RETURN
      (SEQ
       (PROGN
@@ -211,7 +211,7 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |XDPOLY;lquo;$vl$;13| (|p| |v| $)
-  (PROG (#1=#:G186 |r| #2=#:G192 |t| #3=#:G191)
+  (PROG (#1=#:G162 |r| #2=#:G168 |t| #3=#:G167)
     (RETURN
      (SEQ
       (PROGN
@@ -262,7 +262,7 @@
                (QREFELT $ 21)))))))))) 
 
 (DEFUN |XDPOLY;lquo;3$;15| (|p| |q| $)
-  (PROG (#1=#:G196 #2=#:G195 #3=#:G197 |r| #4=#:G199 |t|)
+  (PROG (#1=#:G172 #2=#:G171 #3=#:G173 |r| #4=#:G175 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -286,7 +286,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 12)))))))) 
 
 (DEFUN |XDPOLY;rquo;3$;16| (|p| |q| $)
-  (PROG (#1=#:G201 #2=#:G200 #3=#:G202 |r| #4=#:G204 |t|)
+  (PROG (#1=#:G177 #2=#:G176 #3=#:G178 |r| #4=#:G180 |t|)
     (RETURN
      (SEQ
       (PROGN
@@ -310,7 +310,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 12)))))))) 
 
 (DEFUN |XDPOLY;coef;2$R;17| (|p| |q| $)
-  (PROG (#1=#:G207)
+  (PROG (#1=#:G183)
     (RETURN
      (SEQ
       (EXIT
@@ -340,10 +340,10 @@
 
 (DECLAIM (NOTINLINE |XDistributedPolynomial;|)) 
 
-(DEFUN |XDistributedPolynomial| (&REST #1=#:G214)
+(DEFUN |XDistributedPolynomial| (&REST #1=#:G190)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G215)
+     (PROG (#2=#:G191)
        (RETURN
         (COND
          ((LETT #2#

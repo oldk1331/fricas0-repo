@@ -7,7 +7,7 @@
   (SPADCALL (CONS (|function| |PLOT;Fnan?|) $) |x| (QREFELT $ 20))) 
 
 (DEFUN |PLOT;listBranches;$L;3| (|plot| $)
-  (PROG (|outList| |newl| #1=#:G163 |p| #2=#:G162 |curve|)
+  (PROG (|outList| |newl| #1=#:G139 |p| #2=#:G138 |curve|)
     (RETURN
      (SEQ (LETT |outList| NIL . #3=(|PLOT;listBranches;$L;3|))
           (SEQ (LETT |curve| NIL . #3#) (LETT #2# (QVELT |plot| 4) . #3#) G190
@@ -68,7 +68,7 @@
    (QREFELT $ 27))) 
 
 (DEFUN |PLOT;join| (|l| |i| $)
-  (PROG (|u| #1=#:G172 |r| |rr|)
+  (PROG (|u| #1=#:G148 |r| |rr|)
     (RETURN
      (SEQ (LETT |rr| (|SPADfirst| |l|) . #2=(|PLOT;join|))
           (LETT |u|
@@ -141,7 +141,7 @@
 (DEFUN |PLOT;tRange;$S;22| (|plot| $) (|SPADfirst| (QVELT |plot| 2))) 
 
 (DEFUN |PLOT;select| (|l| |f| |g| $)
-  (PROG (|m| |n| #1=#:G196 |p|)
+  (PROG (|m| |n| #1=#:G172 |p|)
     (RETURN
      (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|) . #2=(|PLOT;select|))
           (COND ((|PLOT;Fnan?| |m| $) (LETT |m| 0.0 . #2#)))
@@ -156,7 +156,7 @@
           (EXIT |m|))))) 
 
 (DEFUN |PLOT;rangeRefine| (|curve| |nRange| $)
-  (PROG (|yRange| |xRange| |p| |t| |i| |d| |n| |q| |c| |s| #1=#:G227 |f| |h|
+  (PROG (|yRange| |xRange| |p| |t| |i| |d| |n| |q| |c| |s| #1=#:G203 |f| |h|
          |l|)
     (RETURN
      (SEQ
@@ -266,7 +266,7 @@
 
 (DEFUN |PLOT;adaptivePlot|
        (|curve| |tRange| |xRange| |yRange| |pixelfraction| $)
-  (PROG (|p| |t| |todo2| |todo1| |tj| |tm| |st| |n| #1=#:G254 |dp| |s2| |s1|
+  (PROG (|p| |t| |todo2| |todo1| |tj| |tm| |st| |n| #1=#:G230 |dp| |s2| |s1|
          |b2| |a2| |b1| |a1| |y2| |x2| |y1| |x1| |y0| |x0| |sp| |t2| |t1| |t0|
          |todop| |todot| |headerp| |headert| |tLimit| |maxLength| |minLength|
          |f| |tDiff| |h| |l| |yDiff| |xDiff|)
@@ -995,7 +995,7 @@
                                                (#3# |curve|))))))))))))))))))) 
 
 (DEFUN |PLOT;basicPlot| (|f| |tRange| $)
-  (PROG (|yRange| |xRange| |p| |t| |l| #1=#:G292 |i| |s| |h|)
+  (PROG (|yRange| |xRange| |p| |t| |l| #1=#:G268 |i| |s| |h|)
     (RETURN
      (SEQ (|PLOT;checkRange| |tRange| $)
           (LETT |l| (SPADCALL |tRange| (QREFELT $ 24)) . #2=(|PLOT;basicPlot|))
@@ -1099,8 +1099,8 @@
   (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 74))) 
 
 (DEFUN |PLOT;refine;$S$;31| (|p| |nRange| $)
-  (PROG (|yRange| |xRange| |curves| #1=#:G330 |c| #2=#:G329 |tlimit| #3=#:G328
-         #4=#:G327 |tRange|)
+  (PROG (|yRange| |xRange| |curves| #1=#:G306 |c| #2=#:G305 |tlimit| #3=#:G304
+         #4=#:G303 |tRange|)
     (RETURN
      (SEQ (SETELT $ 10 0)
           (LETT |tRange| (|PLOT;parametricRange| |p| $)
@@ -1155,8 +1155,8 @@
                    |curves|)))))) 
 
 (DEFUN |PLOT;plot;$S$;32| (|p| |tRange| $)
-  (PROG (|yRange| |xRange| |curves| #1=#:G341 |c| #2=#:G340 |tlimit| #3=#:G339
-         #4=#:G338)
+  (PROG (|yRange| |xRange| |curves| #1=#:G317 |c| #2=#:G316 |tlimit| #3=#:G315
+         #4=#:G314)
     (RETURN
      (SEQ (SETELT $ 10 0)
           (LETT |curves|
@@ -1331,8 +1331,8 @@
       (EXIT |p|))))) 
 
 (DEFUN |PLOT;plot;LS$;41| (|l| |xRange| $)
-  (PROG (|yRange| |t| #1=#:G393 |f| #2=#:G394 |p| #3=#:G392 #4=#:G391
-         #5=#:G390)
+  (PROG (|yRange| |t| #1=#:G369 |f| #2=#:G370 |p| #3=#:G368 #4=#:G367
+         #5=#:G366)
     (RETURN
      (SEQ (COND ((NULL |l|) (|error| "empty list of functions")))
           (LETT |t|
@@ -1434,7 +1434,7 @@
             (QREFELT $ 92))) 
 
 (DEFUN |PLOT;coerce;$Of;45| (|r| $)
-  (PROG (|f| |l| #1=#:G415 |p| #2=#:G414 |h| |yRange| |xRange| #3=#:G413
+  (PROG (|f| |l| #1=#:G391 |p| #2=#:G390 |h| |yRange| |xRange| #3=#:G389
          |curve| |tRange| |plotSymbol| |tSymbol| |ySymbol| |xSymbol| |spaces|)
     (RETURN
      (SEQ
@@ -1494,7 +1494,7 @@
 (DEFUN |Plot| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G417)
+     (PROG (#1=#:G393)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Plot|) . #2=(|Plot|))

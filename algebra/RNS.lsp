@@ -6,17 +6,17 @@
 (DEFPARAMETER |RealNumberSystem;AL| 'NIL) 
 
 (DEFUN |RealNumberSystem| ()
-  (LET (#:G138)
+  (LET (#:G114)
     (COND (|RealNumberSystem;AL|)
           (T (SETQ |RealNumberSystem;AL| (|RealNumberSystem;|)))))) 
 
 (DEFUN |RealNumberSystem;| ()
-  (PROG (#1=#:G136)
+  (PROG (#1=#:G112)
     (RETURN
      (PROG1
          (LETT #1#
                (|sublisV|
-                (PAIR '(#2=#:G132 #3=#:G133 #4=#:G134 #5=#:G135)
+                (PAIR '(#2=#:G108 #3=#:G109 #4=#:G110 #5=#:G111)
                       (LIST '(|Integer|) '(|Fraction| (|Integer|))
                             '(|Pattern| (|Float|)) '(|Float|)))
                 (|Join| (|Field|) (|OrderedRing|) (|RealConstant|)

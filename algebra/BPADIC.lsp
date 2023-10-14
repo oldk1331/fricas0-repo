@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |BalancedPAdicInteger;|)) 
 
-(DEFUN |BalancedPAdicInteger| (#1=#:G142)
+(DEFUN |BalancedPAdicInteger| (#1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

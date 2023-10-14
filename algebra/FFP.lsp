@@ -8,7 +8,7 @@
   (SPADCALL (QREFELT $ 7) (SPADCALL |x| (QREFELT $ 36)) (QREFELT $ 37))) 
 
 (DEFUN |FFP;basis;PiV;3| (|n| $)
-  (PROG (#1=#:G141 |i| #2=#:G140 |a|)
+  (PROG (#1=#:G117 |i| #2=#:G116 |a|)
     (RETURN
      (SEQ
       (COND
@@ -33,7 +33,7 @@
            (QREFELT $ 46)))))))))) 
 
 (DEFUN |FFP;degree;$Pi;4| (|x| $)
-  (PROG (#1=#:G144 |y| #2=#:G147 |i| |m|)
+  (PROG (#1=#:G120 |y| #2=#:G123 |i| |m|)
     (RETURN
      (SEQ (LETT |y| (|spadConstant| $ 31) . #3=(|FFP;degree;$Pi;4|))
           (LETT |m|
@@ -50,7 +50,7 @@
              (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
 
 (DEFUN |FFP;minimalPolynomial;$Sup;5| (|x| $)
-  (PROG (#1=#:G151 #2=#:G150 #3=#:G152 #4=#:G156 |i| |v| |y| #5=#:G155 |m|)
+  (PROG (#1=#:G127 #2=#:G126 #3=#:G128 #4=#:G132 |i| |v| |y| #5=#:G131 |m|)
     (RETURN
      (SEQ
       (LETT |y| (|spadConstant| $ 31) . #6=(|FFP;minimalPolynomial;$Sup;5|))
@@ -80,7 +80,7 @@
         (COND (#1# #2#) ('T (|spadConstant| $ 63))))))))) 
 
 (DEFUN |FFP;normal?;$B;6| (|x| $)
-  (PROG (|l| |a| #1=#:G161 |i|)
+  (PROG (|l| |a| #1=#:G137 |i|)
     (RETURN
      (SEQ
       (LETT |l| (LIST (SPADCALL (SPADCALL |x| (QREFELT $ 52)) (QREFELT $ 66)))
@@ -157,7 +157,7 @@
 (DEFUN |FFP;representationType;U;29| ($) (CONS 1 "polynomial")) 
 
 (DEFUN |FFP;tableForDiscreteLogarithm;IT;30| (|fac| $)
-  (PROG (|tbl| #1=#:G203)
+  (PROG (|tbl| #1=#:G179)
     (RETURN
      (SEQ (COND ((QREFELT $ 25) (|FFP;initializeLog| $)))
           (LETT |tbl|
@@ -204,8 +204,8 @@
       (EXIT (SPADCALL (QREFELT $ 128))))))) 
 
 (DEFUN |FFP;initializeLog| ($)
-  (PROG (#1=#:G225 |a| #2=#:G231 #3=#:G219 |i| |tbl| |n| |d| |l| |base| |fac|
-         #4=#:G230 |f| |limit|)
+  (PROG (#1=#:G201 |a| #2=#:G207 #3=#:G195 |i| |tbl| |n| |d| |l| |base| |fac|
+         #4=#:G206 |f| |limit|)
     (RETURN
      (SEQ (COND ((QREFELT $ 26) (|FFP;initializeElt| $)))
           (LETT |limit| 30 . #5=(|FFP;initializeLog|))
@@ -274,10 +274,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldExtensionByPolynomial| (&REST #1=#:G266)
+(DEFUN |FiniteFieldExtensionByPolynomial| (&REST #1=#:G242)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G267)
+     (PROG (#2=#:G243)
        (RETURN
         (COND
          ((LETT #2#
@@ -298,7 +298,7 @@
                     '|FiniteFieldExtensionByPolynomial|))))))))))) 
 
 (DEFUN |FiniteFieldExtensionByPolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G265 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G241 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldExtensionByPolynomial|))

@@ -24,7 +24,7 @@
   (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
 
 (DEFUN |ORDCOMP;coerce;$Of;8| (|x| $)
-  (PROG (#1=#:G139 |e|)
+  (PROG (#1=#:G115 |e|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
@@ -41,7 +41,7 @@
                 (#2# (SPADCALL |e| (QREFELT $ 23)))))))))))) 
 
 (DEFUN |ORDCOMP;whatInfinity;$Si;9| (|x| $)
-  (PROG (#1=#:G139)
+  (PROG (#1=#:G115)
     (RETURN
      (COND ((QEQCAR |x| 0) 0)
            ((PROG2 (LETT #1# |x| |ORDCOMP;whatInfinity;$Si;9|)
@@ -146,10 +146,10 @@
 
 (DECLAIM (NOTINLINE |OrderedCompletion;|)) 
 
-(DEFUN |OrderedCompletion| (#1=#:G207)
+(DEFUN |OrderedCompletion| (#1=#:G183)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G208)
+     (PROG (#2=#:G184)
        (RETURN
         (COND
          ((LETT #2#
@@ -166,7 +166,7 @@
               (HREM |$ConstructorCache| '|OrderedCompletion|))))))))))) 
 
 (DEFUN |OrderedCompletion;| (|#1|)
-  (PROG (|pv$| #1=#:G206 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G182 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|OrderedCompletion|))

@@ -10,7 +10,7 @@
 (DEFUN |TABLEAU;listOfLists;$L;2| (|x| $) |x|) 
 
 (DEFUN |TABLEAU;makeupv| (|n| |ls| $)
-  (PROG (#1=#:G133 |i| #2=#:G134 |s| |v|)
+  (PROG (#1=#:G109 |i| #2=#:G110 |s| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |n| (SPADCALL " " (QREFELT $ 13)) (QREFELT $ 16))
@@ -31,7 +31,7 @@
       (EXIT |v|))))) 
 
 (DEFUN |TABLEAU;maketab| (|lls| $)
-  (PROG (|ll| #1=#:G141 |i| #2=#:G140 |sz|)
+  (PROG (|ll| #1=#:G117 |i| #2=#:G116 |sz|)
     (RETURN
      (SEQ
       (LETT |ll|
@@ -66,10 +66,10 @@
 
 (DECLAIM (NOTINLINE |Tableau;|)) 
 
-(DEFUN |Tableau| (#1=#:G143)
+(DEFUN |Tableau| (#1=#:G119)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G120)
        (RETURN
         (COND
          ((LETT #2#

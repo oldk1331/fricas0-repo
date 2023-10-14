@@ -19,10 +19,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeries;|)) 
 
-(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G184)
+(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -41,8 +41,8 @@
               (HREM |$ConstructorCache| '|UnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G183 |pv$| #2=#:G174 #3=#:G175 #4=#:G177 #5=#:G178 #6=#:G179
-         #7=#:G180 #8=#:G182 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G159 |pv$| #2=#:G150 #3=#:G151 #4=#:G153 #5=#:G154 #6=#:G155
+         #7=#:G156 #8=#:G158 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #9=(|UnivariateLaurentSeries|))

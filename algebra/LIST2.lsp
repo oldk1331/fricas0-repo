@@ -11,10 +11,10 @@
 
 (DECLAIM (NOTINLINE |ListFunctions2;|)) 
 
-(DEFUN |ListFunctions2| (&REST #1=#:G135)
+(DEFUN |ListFunctions2| (&REST #1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

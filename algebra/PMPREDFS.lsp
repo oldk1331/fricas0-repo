@@ -28,7 +28,7 @@
       (EXIT (SPADCALL |kk| NIL (QREFELT $ 16))))))) 
 
 (DEFUN |PMPREDFS;suchThat;FLF;5| (|p| |l| $)
-  (PROG (#1=#:G146 |f| #2=#:G145)
+  (PROG (#1=#:G122 |f| #2=#:G121)
     (RETURN
      (SEQ
       (COND
@@ -50,10 +50,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAttachPredicates;|)) 
 
-(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G147)
+(DEFUN |FunctionSpaceAttachPredicates| (&REST #1=#:G123)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G124)
        (RETURN
         (COND
          ((LETT #2#

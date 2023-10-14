@@ -16,7 +16,7 @@
 (DEFUN |HOAGG-;#;ANni;2| (|c| $) (LENGTH (SPADCALL |c| (QREFELT $ 14)))) 
 
 (DEFUN |HOAGG-;any?;MAB;3| (|f| |c| $)
-  (PROG (#1=#:G144 #2=#:G145 |x|)
+  (PROG (#1=#:G120 #2=#:G121 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -35,7 +35,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HOAGG-;every?;MAB;4| (|f| |c| $)
-  (PROG (#1=#:G149 #2=#:G150 |x|)
+  (PROG (#1=#:G125 #2=#:G126 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -55,7 +55,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HOAGG-;count;MANni;5| (|f| |c| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G155 |x|)
+  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G131 |x|)
     (RETURN
      (SEQ
       (PROGN
@@ -104,7 +104,7 @@
     (RETURN (PROGN (SPADCALL |e| |x| (QREFELT $ 23)))))) 
 
 (DEFUN |HOAGG-;=;2AB;9| (|x| |y| $)
-  (PROG (#1=#:G164 #2=#:G165 |a| #3=#:G166 |b|)
+  (PROG (#1=#:G140 #2=#:G141 |a| #3=#:G142 |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -132,7 +132,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HOAGG-;coerce;AOf;10| (|x| $)
-  (PROG (#1=#:G171 |a| #2=#:G170)
+  (PROG (#1=#:G147 |a| #2=#:G146)
     (RETURN
      (SEQ
       (SPADCALL

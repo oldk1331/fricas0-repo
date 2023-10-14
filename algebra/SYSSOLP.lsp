@@ -5,7 +5,7 @@
   (SPADCALL (SPADCALL |r| (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (DEFUN |SYSSOLP;makeP2F| (|p| $)
-  (PROG (#1=#:G148 |v| |lv|)
+  (PROG (#1=#:G124 |v| |lv|)
     (RETURN
      (SEQ (LETT |lv| (SPADCALL |p| (QREFELT $ 13)) . #2=(|SYSSOLP;makeP2F|))
           (EXIT
@@ -23,7 +23,7 @@
               (EXIT (SPADCALL |p| (QREFELT $ 16))))))))))) 
 
 (DEFUN |SYSSOLP;makeEq| (|p| |lv| $)
-  (PROG (|up| #1=#:G150 #2=#:G153 |x| |lx| |np| |z|)
+  (PROG (|up| #1=#:G126 #2=#:G129 |x| |lx| |np| |z|)
     (RETURN
      (SEQ (LETT |z| (SPADCALL |lv| (QREFELT $ 20)) . #3=(|SYSSOLP;makeEq|))
           (LETT |np| (SPADCALL (|SYSSOLP;makeP2F| |p| $) (QREFELT $ 21)) . #3#)
@@ -62,7 +62,7 @@
 (DEFUN |SYSSOLP;newInF| (|n| $) (|SYSSOLP;varInF| (SPADCALL (QREFELT $ 39)) $)) 
 
 (DEFUN |SYSSOLP;testDegree| (|f| |lv| $)
-  (PROG (#1=#:G157 #2=#:G156 #3=#:G158 #4=#:G160 |vv|)
+  (PROG (#1=#:G133 #2=#:G132 #3=#:G134 #4=#:G136 |vv|)
     (RETURN
      (SEQ
       (PROGN
@@ -84,11 +84,11 @@
        (COND (#1# #2#) ('T 'NIL))))))) 
 
 (DEFUN |SYSSOLP;triangularSystems;LLL;7| (|lf| |lv| $)
-  (PROG (#1=#:G197 |pf| #2=#:G196 #3=#:G195 |pr| #4=#:G194 |parRes| #5=#:G171
-         #6=#:G170 #7=#:G172 #8=#:G193 |fq| #9=#:G192 #10=#:G191 |gb| |lp|
-         #11=#:G190 |f| #12=#:G189 |lq| |df| #13=#:G188 #14=#:G187 |lvv|
-         #15=#:G165 #16=#:G186 |vv| #17=#:G185 |push| DP OV |dmp| #18=#:G184
-         |ff| #19=#:G183 |fp| |p|)
+  (PROG (#1=#:G173 |pf| #2=#:G172 #3=#:G171 |pr| #4=#:G170 |parRes| #5=#:G147
+         #6=#:G146 #7=#:G148 #8=#:G169 |fq| #9=#:G168 #10=#:G167 |gb| |lp|
+         #11=#:G166 |f| #12=#:G165 |lq| |df| #13=#:G164 #14=#:G163 |lvv|
+         #15=#:G141 #16=#:G162 |vv| #17=#:G161 |push| DP OV |dmp| #18=#:G160
+         |ff| #19=#:G159 |fp| |p|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |lv|) (NULL |lf|)) NIL)
@@ -459,7 +459,7 @@
    |var| (QREFELT $ 58))) 
 
 (DEFUN |SYSSOLP;solve;FSL;11| (|pol| |var| $)
-  (PROG (#1=#:G213 |ff| #2=#:G212 |fp| |p|)
+  (PROG (#1=#:G189 |ff| #2=#:G188 |fp| |p|)
     (RETURN
      (SEQ
       (COND
@@ -492,7 +492,7 @@
        ('T NIL)))))) 
 
 (DEFUN |SYSSOLP;makePolys| (|l| $)
-  (PROG (#1=#:G217 |e| #2=#:G216)
+  (PROG (#1=#:G193 |e| #2=#:G192)
     (RETURN
      (SEQ
       (PROGN
@@ -513,8 +513,8 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |SYSSOLP;linSolve| (|lp| |lv| $)
-  (PROG (|eqs| #1=#:G237 |i| #2=#:G236 |sym| #3=#:G235 |p| |zeron| |rhs|
-         #4=#:G224 |rec| |lr| #5=#:G234 |f| #6=#:G233)
+  (PROG (|eqs| #1=#:G213 |i| #2=#:G212 |sym| #3=#:G211 |p| |zeron| |rhs|
+         #4=#:G200 |rec| |lr| #5=#:G210 |f| #6=#:G209)
     (RETURN
      (SEQ
       (LETT |lr|
@@ -595,7 +595,7 @@
                (EXIT (CONS 0 |eqs|)))))))))) 
 
 (DEFUN |SYSSOLP;solve;LL;14| (|lr| $)
-  (PROG (|lv| #1=#:G239 #2=#:G238 #3=#:G240 #4=#:G243 |p|)
+  (PROG (|lv| #1=#:G215 #2=#:G214 #3=#:G216 #4=#:G219 |p|)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -625,7 +625,7 @@
       (EXIT (SPADCALL |lr| |lv| (QREFELT $ 86))))))) 
 
 (DEFUN |SYSSOLP;solve;LL;15| (|le| $)
-  (PROG (|lv| #1=#:G245 #2=#:G244 #3=#:G246 #4=#:G249 |p| |lr|)
+  (PROG (|lv| #1=#:G221 #2=#:G220 #3=#:G222 #4=#:G225 |p| |lr|)
     (RETURN
      (SEQ (LETT |lr| (|SYSSOLP;makePolys| |le| $) . #5=(|SYSSOLP;solve;LL;15|))
           (LETT |lv|
@@ -662,9 +662,9 @@
   (SPADCALL (|SYSSOLP;makePolys| |le| $) |lv| (QREFELT $ 86))) 
 
 (DEFUN |SYSSOLP;checkLinear| (|lr| |vl| $)
-  (PROG (#1=#:G258 #2=#:G257 #3=#:G259 #4=#:G266 |pol| #5=#:G261 #6=#:G253
-         #7=#:G252 #8=#:G254 #9=#:G265 |x| #10=#:G264 |f| |ld| #11=#:G263
-         #12=#:G262)
+  (PROG (#1=#:G234 #2=#:G233 #3=#:G235 #4=#:G242 |pol| #5=#:G237 #6=#:G229
+         #7=#:G228 #8=#:G230 #9=#:G241 |x| #10=#:G240 |f| |ld| #11=#:G239
+         #12=#:G238)
     (RETURN
      (SEQ
       (EXIT
@@ -739,8 +739,8 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |SYSSOLP;solve;LLL;18| (|lr| |vl| $)
-  (PROG (#1=#:G282 |f| #2=#:G281 #3=#:G280 |pr| #4=#:G279 |parRes| |eqns| |rhs|
-         |lhs| #5=#:G278 |i| |soln|)
+  (PROG (#1=#:G258 |f| #2=#:G257 #3=#:G256 |pr| #4=#:G255 |parRes| |eqns| |rhs|
+         |lhs| #5=#:G254 |i| |soln|)
     (RETURN
      (SEQ
       (COND ((NULL |vl|) NIL)
@@ -827,10 +827,10 @@
 
 (DECLAIM (NOTINLINE |SystemSolvePackage;|)) 
 
-(DEFUN |SystemSolvePackage| (#1=#:G283)
+(DEFUN |SystemSolvePackage| (#1=#:G259)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G284)
+     (PROG (#2=#:G260)
        (RETURN
         (COND
          ((LETT #2#

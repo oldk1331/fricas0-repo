@@ -182,7 +182,7 @@
 (DEFUN |OpenMathDevice| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G173)
+     (PROG (#1=#:G149)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OpenMathDevice|)

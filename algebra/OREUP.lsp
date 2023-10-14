@@ -9,10 +9,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateSkewPolynomial;|)) 
 
-(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G146)
+(DEFUN |UnivariateSkewPolynomial| (&REST #1=#:G122)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G147)
+     (PROG (#2=#:G123)
        (RETURN
         (COND
          ((LETT #2#

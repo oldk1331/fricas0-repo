@@ -8,7 +8,7 @@
             (QREFELT $ 18))) 
 
 (DEFUN |PUSHVAR;pushdown;PPRLPPR;2| (|g| |lv| $)
-  (PROG (|vals| #1=#:G136 |x| #2=#:G135)
+  (PROG (|vals| #1=#:G112 |x| #2=#:G111)
     (RETURN
      (SEQ
       (LETT |vals|
@@ -33,7 +33,7 @@
       (EXIT (SPADCALL |g| |lv| |vals| (QREFELT $ 22))))))) 
 
 (DEFUN |PUSHVAR;map;M2PPR;3| (|f| |p| $)
-  (PROG (|v| #1=#:G138)
+  (PROG (|v| #1=#:G114)
     (RETURN
      (SEQ
       (COND
@@ -61,7 +61,7 @@
     (RETURN (PROGN (SPADCALL |f| |x| (QREFELT $ 30)))))) 
 
 (DEFUN |PUSHVAR;pushupCoef| (|c| |lv| $)
-  (PROG (|uc| |ppr| |v2| |v| #1=#:G156)
+  (PROG (|uc| |ppr| |v2| |v| #1=#:G132)
     (RETURN
      (SEQ
       (COND ((SPADCALL |c| (QREFELT $ 37)) (SPADCALL |c| (QREFELT $ 38)))
@@ -157,10 +157,10 @@
 
 (DECLAIM (NOTINLINE |PushVariables;|)) 
 
-(DEFUN |PushVariables| (&REST #1=#:G176)
+(DEFUN |PushVariables| (&REST #1=#:G152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G177)
+     (PROG (#2=#:G153)
        (RETURN
         (COND
          ((LETT #2#

@@ -96,10 +96,10 @@
 
 (DECLAIM (NOTINLINE |ModularRing;|)) 
 
-(DEFUN |ModularRing| (&REST #1=#:G184)
+(DEFUN |ModularRing| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#

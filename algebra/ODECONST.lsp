@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ODECONST;constDsolve;LFSR;1| (|op| |g| |x| $)
-  (PROG (#1=#:G134 |b|)
+  (PROG (#1=#:G110 |b|)
     (RETURN
      (SEQ
       (LETT |b| (|ODECONST;homoBasis| |op| (SPADCALL |x| (QREFELT $ 10)) $)
@@ -27,7 +27,7 @@
     (RETURN (PROGN (SPADCALL |f1| |x| (QREFELT $ 12)))))) 
 
 (DEFUN |ODECONST;homoBasis| (|op| |x| $)
-  (PROG (|b| #1=#:G145 |ff| |p|)
+  (PROG (|b| #1=#:G121 |ff| |p|)
     (RETURN
      (SEQ (LETT |p| (|spadConstant| $ 21) . #2=(|ODECONST;homoBasis|))
           (SEQ G190
@@ -65,7 +65,7 @@
           (EXIT |b|))))) 
 
 (DEFUN |ODECONST;basisSol| (|p| |n| |x| $)
-  (PROG (|xn| |l| #1=#:G153 |f| #2=#:G152 |i| |ll|)
+  (PROG (|xn| |l| #1=#:G129 |f| #2=#:G128 |i| |ll|)
     (RETURN
      (SEQ
       (LETT |l| (|ODECONST;basisSqfr| |p| |x| $) . #3=(|ODECONST;basisSol|))
@@ -112,7 +112,7 @@
                    (EXIT |l|))))))))) 
 
 (DEFUN |ODECONST;basisSqfr| (|p| |x| $)
-  (PROG (#1=#:G158 |a| #2=#:G157 |d|)
+  (PROG (#1=#:G134 |a| #2=#:G133 |d|)
     (RETURN
      (SEQ (LETT |d| (SPADCALL |p| (QREFELT $ 42)) . #3=(|ODECONST;basisSqfr|))
           (EXIT
@@ -147,7 +147,7 @@
                    (EXIT (NREVERSE #2#))))))))))) 
 
 (DEFUN |ODECONST;quadSol| (|p| |x| $)
-  (PROG (#1=#:G169 |a| #2=#:G168 #3=#:G166 |i| |r| |y| |u| |delta| |c| |b|)
+  (PROG (#1=#:G145 |a| #2=#:G144 #3=#:G142 |i| |r| |y| |u| |delta| |c| |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -227,10 +227,10 @@
 
 (DECLAIM (NOTINLINE |ConstantLODE;|)) 
 
-(DEFUN |ConstantLODE| (&REST #1=#:G170)
+(DEFUN |ConstantLODE| (&REST #1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#

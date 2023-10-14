@@ -6,7 +6,7 @@
 (DEFUN |MATSTOR;rep| (|m| $) |m|) 
 
 (DEFUN |MATSTOR;copy!;3M;2| (|c| |a| $)
-  (PROG (#1=#:G163 |j| |cRow| |aRow| #2=#:G162 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G139 |j| |cRow| |aRow| #2=#:G138 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;copy!;3M;2|))
           (LETT |n| (ANCOLS |a|) . #3#)
@@ -34,7 +34,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;plus!;4M;3| (|c| |a| |b| $)
-  (PROG (#1=#:G174 |j| |cRow| |bRow| |aRow| #2=#:G173 |i| |cc| |bb| |aa| |n|
+  (PROG (#1=#:G150 |j| |cRow| |bRow| |aRow| #2=#:G149 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;plus!;4M;3|))
@@ -76,7 +76,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;minus!;3M;4| (|c| |a| $)
-  (PROG (#1=#:G183 |j| |cRow| |aRow| #2=#:G182 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G159 |j| |cRow| |aRow| #2=#:G158 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;minus!;3M;4|))
           (LETT |n| (ANCOLS |a|) . #3#)
@@ -107,7 +107,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;minus!;4M;5| (|c| |a| |b| $)
-  (PROG (#1=#:G194 |j| |cRow| |bRow| |aRow| #2=#:G193 |i| |cc| |bb| |aa| |n|
+  (PROG (#1=#:G170 |j| |cRow| |bRow| |aRow| #2=#:G169 |i| |cc| |bb| |aa| |n|
          |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;minus!;4M;5|))
@@ -149,7 +149,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;leftScalarTimes!;MR2M;6| (|c| |r| |a| $)
-  (PROG (#1=#:G203 |j| |cRow| |aRow| #2=#:G202 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G179 |j| |cRow| |aRow| #2=#:G178 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;leftScalarTimes!;MR2M;6|))
           (LETT |n| (ANCOLS |a|) . #3#)
@@ -181,7 +181,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;rightScalarTimes!;2MRM;7| (|c| |a| |r| $)
-  (PROG (#1=#:G212 |j| |cRow| |aRow| #2=#:G211 |i| |cc| |aa| |n| |m|)
+  (PROG (#1=#:G188 |j| |cRow| |aRow| #2=#:G187 |i| |cc| |aa| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #3=(|MATSTOR;rightScalarTimes!;2MRM;7|))
           (LETT |n| (ANCOLS |a|) . #3#)
@@ -221,7 +221,7 @@
           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))))) 
 
 (DEFUN |MATSTOR;times!;4M;9| (|c| |a| |b| $)
-  (PROG (|sum| |k| |cRow| |aRow| |i| #1=#:G225 |j| |n1| |m1| |bCol| |cc| |bb|
+  (PROG (|sum| |k| |cRow| |aRow| |i| #1=#:G201 |j| |n1| |m1| |bCol| |cc| |bb|
          |aa| |p| |n| |m|)
     (RETURN
      (SEQ (LETT |m| (ANROWS |a|) . #2=(|MATSTOR;times!;4M;9|))
@@ -271,7 +271,7 @@
           (EXIT |c|))))) 
 
 (DEFUN |MATSTOR;power!;4MNniM;10| (|a| |b| |c| |m| |p| $)
-  (PROG (#1=#:G240 |flag| |nn| |mm|)
+  (PROG (#1=#:G216 |flag| |nn| |mm|)
     (RETURN
      (SEQ
       (EXIT
@@ -345,10 +345,10 @@
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
-(DEFUN |StorageEfficientMatrixOperations| (#1=#:G244)
+(DEFUN |StorageEfficientMatrixOperations| (#1=#:G220)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G245)
+     (PROG (#2=#:G221)
        (RETURN
         (COND
          ((LETT #2#

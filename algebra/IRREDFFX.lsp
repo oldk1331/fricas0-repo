@@ -65,10 +65,10 @@
 
 (DECLAIM (NOTINLINE |IrredPolyOverFiniteField;|)) 
 
-(DEFUN |IrredPolyOverFiniteField| (#1=#:G151)
+(DEFUN |IrredPolyOverFiniteField| (#1=#:G127)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G128)
        (RETURN
         (COND
          ((LETT #2#
@@ -86,7 +86,7 @@
               (HREM |$ConstructorCache| '|IrredPolyOverFiniteField|))))))))))) 
 
 (DEFUN |IrredPolyOverFiniteField;| (|#1|)
-  (PROG (#1=#:G135 #2=#:G134 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G111 #2=#:G110 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|IrredPolyOverFiniteField|))

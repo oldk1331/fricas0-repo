@@ -55,7 +55,7 @@
 (DEFUN |OpenMathError| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G143)
+     (PROG (#1=#:G119)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OpenMathError|)

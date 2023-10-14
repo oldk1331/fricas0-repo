@@ -38,9 +38,9 @@
   (|min_DF| (|max_DF| |x| (|minus_DF| (QREFELT $ 16))) (QREFELT $ 16))) 
 
 (DEFUN |DRAWCX;drawComplex;M2SBTdv;3| (|f| |realRange| |imagRange| |arrows?| $)
-  (PROG (|real| |imag| #1=#:G159 |a| |arrow| |p2| |len| |p1| |arg| #2=#:G158
-         |j| #3=#:G157 |i| |space| |llp| |lp| |p| #4=#:G156 #5=#:G155 |z|
-         #6=#:G154 #7=#:G153 |funTable| #8=#:G133 #9=#:G131 |delImag|
+  (PROG (|real| |imag| #1=#:G135 |a| |arrow| |p2| |len| |p1| |arg| #2=#:G134
+         |j| #3=#:G133 |i| |space| |llp| |lp| |p| #4=#:G132 #5=#:G131 |z|
+         #6=#:G130 #7=#:G129 |funTable| #8=#:G109 #9=#:G107 |delImag|
          |delReal|)
     (RETURN
      (SEQ
@@ -185,8 +185,8 @@
       (EXIT (SPADCALL |space| "Complex Function" (QREFELT $ 42))))))) 
 
 (DEFUN |DRAWCX;drawComplexVectorField;M2STdv;4| (|f| |realRange| |imagRange| $)
-  (PROG (|real| |imag| #1=#:G169 |a| |arrow| |p2| |scaleLen| |p1| |len| |arg|
-         |z| #2=#:G168 |j| #3=#:G167 |i| |space| |delImag| |delReal|)
+  (PROG (|real| |imag| #1=#:G145 |a| |arrow| |p2| |scaleLen| |p1| |len| |arg|
+         |z| #2=#:G144 |j| #3=#:G143 |i| |space| |delImag| |delReal|)
     (RETURN
      (SEQ
       (LETT |delReal|
@@ -263,7 +263,7 @@
 (DEFUN |DrawComplex| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G174)
+     (PROG (#1=#:G150)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DrawComplex|)

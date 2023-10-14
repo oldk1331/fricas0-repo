@@ -46,10 +46,10 @@
 
 (DECLAIM (NOTINLINE |PendantTree;|)) 
 
-(DEFUN |PendantTree| (#1=#:G149)
+(DEFUN |PendantTree| (#1=#:G125)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G126)
        (RETURN
         (COND
          ((LETT #2#
@@ -64,7 +64,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|PendantTree|))))))))))) 
 
 (DEFUN |PendantTree;| (|#1|)
-  (PROG (|pv$| #1=#:G146 #2=#:G147 #3=#:G148 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G122 #2=#:G123 #3=#:G124 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|PendantTree|))

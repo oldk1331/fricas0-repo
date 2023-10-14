@@ -11,7 +11,7 @@
 (DEFUN |TBAGG-;indices;SL;4| (|t| $) (SPADCALL |t| (QREFELT $ 18))) 
 
 (DEFUN |TBAGG-;coerce;SOf;5| (|t| $)
-  (PROG (#1=#:G151 |k| #2=#:G150)
+  (PROG (#1=#:G127 |k| #2=#:G126)
     (RETURN
      (SEQ
       (SPADCALL "table"
@@ -53,7 +53,7 @@
       (EXIT (COND ((QEQCAR |r| 0) (QCDR |r|)) ('T |e|))))))) 
 
 (DEFUN |TBAGG-;map!;M2S;8| (|f| |t| $)
-  (PROG (#1=#:G166 |k|)
+  (PROG (#1=#:G142 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|TBAGG-;map!;M2S;8|))
@@ -68,7 +68,7 @@
       (EXIT |t|))))) 
 
 (DEFUN |TBAGG-;map;M3S;9| (|f| |s| |t| $)
-  (PROG (#1=#:G171 |k| |z|)
+  (PROG (#1=#:G147 |k| |z|)
     (RETURN
      (SEQ (LETT |z| (SPADCALL (QREFELT $ 34)) . #2=(|TBAGG-;map;M3S;9|))
           (SEQ (LETT |k| NIL . #2#)
@@ -88,7 +88,7 @@
           (EXIT |z|))))) 
 
 (DEFUN |TBAGG-;parts;SL;10| (|t| $)
-  (PROG (#1=#:G176 |k| #2=#:G175)
+  (PROG (#1=#:G152 |k| #2=#:G151)
     (RETURN
      (SEQ
       (PROGN
@@ -106,7 +106,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |TBAGG-;parts;SL;11| (|t| $)
-  (PROG (#1=#:G180 |k| #2=#:G179)
+  (PROG (#1=#:G156 |k| #2=#:G155)
     (RETURN
      (SEQ
       (PROGN
@@ -125,7 +125,7 @@
 (DEFUN |TBAGG-;entries;SL;12| (|t| $) (SPADCALL |t| (QREFELT $ 42))) 
 
 (DEFUN |TBAGG-;=;2SB;13| (|s| |t| $)
-  (PROG (#1=#:G187 #2=#:G191 |e| #3=#:G192 |k|)
+  (PROG (#1=#:G163 #2=#:G167 |e| #3=#:G168 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -159,7 +159,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |TBAGG-;map;M2S;14| (|f| |t| $)
-  (PROG (|ke| #1=#:G199 |k| |z|)
+  (PROG (|ke| #1=#:G175 |k| |z|)
     (RETURN
      (SEQ (LETT |z| (SPADCALL (QREFELT $ 34)) . #2=(|TBAGG-;map;M2S;14|))
           (SEQ (LETT |k| NIL . #2#)
@@ -177,7 +177,7 @@
           (EXIT |z|))))) 
 
 (DEFUN |TBAGG-;map!;M2S;15| (|f| |t| $)
-  (PROG (#1=#:G209 |ke| |lke| #2=#:G202 #3=#:G208 |k|)
+  (PROG (#1=#:G185 |ke| |lke| #2=#:G178 #3=#:G184 |k|)
     (RETURN
      (SEQ (LETT |lke| NIL . #4=(|TBAGG-;map!;M2S;15|))
           (SEQ (LETT |k| NIL . #4#)
@@ -222,7 +222,7 @@
                    (SPADCALL |t| (|SPADfirst| |ks|) (QREFELT $ 22)))))))))) 
 
 (DEFUN |TBAGG-;find;MSU;17| (|f| |t| $)
-  (PROG (#1=#:G224 #2=#:G225 |ke|)
+  (PROG (#1=#:G200 #2=#:G201 |ke|)
     (RETURN
      (SEQ
       (EXIT
@@ -258,7 +258,7 @@
           (SPADCALL (QCAR |k|) |t| (QREFELT $ 53)) (EXIT |k|))))) 
 
 (DEFUN |TBAGG-;any?;MSB;21| (|f| |t| $)
-  (PROG (#1=#:G243 #2=#:G244 |k|)
+  (PROG (#1=#:G219 #2=#:G220 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -278,7 +278,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |TBAGG-;every?;MSB;22| (|f| |t| $)
-  (PROG (#1=#:G248 #2=#:G249 |k|)
+  (PROG (#1=#:G224 #2=#:G225 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -299,7 +299,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |TBAGG-;count;MSNni;23| (|f| |t| $)
-  (PROG (|tally| #1=#:G253 |k|)
+  (PROG (|tally| #1=#:G229 |k|)
     (RETURN
      (SEQ (LETT |tally| 0 . #2=(|TBAGG-;count;MSNni;23|))
           (SEQ (LETT |k| NIL . #2#)

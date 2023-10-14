@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |RegularTriangularSetCategory;AL| 'NIL) 
 
-(DEFUN |RegularTriangularSetCategory| (&REST #1=#:G165)
-  (LET (#2=#:G166)
+(DEFUN |RegularTriangularSetCategory| (&REST #1=#:G141)
+  (LET (#2=#:G142)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -23,7 +23,7 @@
       #2#)))) 
 
 (DEFUN |RegularTriangularSetCategory;| (|t#1| |t#2| |t#3| |t#4|)
-  (PROG (#1=#:G164)
+  (PROG (#1=#:G140)
     (RETURN
      (PROG1
          (LETT #1#

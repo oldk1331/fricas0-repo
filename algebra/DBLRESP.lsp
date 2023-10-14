@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DBLRESP;remove0| (|p| $)
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (SPADCALL
       (PROG2
@@ -26,7 +26,7 @@
   (|DBLRESP;UP22| (SPADCALL |x1| (QREFELT $ 24)) $)) 
 
 (DEFUN |DBLRESP;doubleResultant;RMUP;4| (|h| |derivation| $)
-  (PROG (|r| |d| #1=#:G136 |g| |cd|)
+  (PROG (|r| |d| #1=#:G112 |g| |cd|)
     (RETURN
      (SEQ
       (LETT |cd| (SPADCALL (SPADCALL |h| (QREFELT $ 29)) (QREFELT $ 32))
@@ -75,10 +75,10 @@
 
 (DECLAIM (NOTINLINE |DoubleResultantPackage;|)) 
 
-(DEFUN |DoubleResultantPackage| (&REST #1=#:G141)
+(DEFUN |DoubleResultantPackage| (&REST #1=#:G117)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G142)
+     (PROG (#2=#:G118)
        (RETURN
         (COND
          ((LETT #2#

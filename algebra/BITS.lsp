@@ -8,7 +8,7 @@
 (DEFUN |Bits| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G137)
+     (PROG (#1=#:G113)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Bits|) . #2=(|Bits|))
@@ -23,7 +23,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|Bits|))))))))))) 
 
 (DEFUN |Bits;| ()
-  (PROG (|dv$| $ #1=#:G133 |pv$| #2=#:G135 #3=#:G134)
+  (PROG (|dv$| $ #1=#:G109 |pv$| #2=#:G111 #3=#:G110)
     (RETURN
      (PROGN
       (LETT |dv$| '(|Bits|) . #4=(|Bits|))

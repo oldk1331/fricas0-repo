@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |PolynomialCategory;AL| 'NIL) 
 
-(DEFUN |PolynomialCategory| (&REST #1=#:G148)
-  (LET (#2=#:G149)
+(DEFUN |PolynomialCategory| (&REST #1=#:G124)
+  (LET (#2=#:G125)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PolynomialCategory;AL|))
       (CDR #2#))
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |PolynomialCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G147)
+  (PROG (#1=#:G123)
     (RETURN
      (PROG1
          (LETT #1#

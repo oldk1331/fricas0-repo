@@ -98,10 +98,10 @@
 
 (DECLAIM (NOTINLINE |OnePointCompletion;|)) 
 
-(DEFUN |OnePointCompletion| (#1=#:G190)
+(DEFUN |OnePointCompletion| (#1=#:G166)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G191)
+     (PROG (#2=#:G167)
        (RETURN
         (COND
          ((LETT #2#
@@ -119,7 +119,7 @@
               (HREM |$ConstructorCache| '|OnePointCompletion|))))))))))) 
 
 (DEFUN |OnePointCompletion;| (|#1|)
-  (PROG (|pv$| #1=#:G189 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G165 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|OnePointCompletion|))

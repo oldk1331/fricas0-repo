@@ -324,7 +324,7 @@
           (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|))))) 
 
 (DEFUN |SCENE;createSceneGrid;DfSb$;45| (|stepSize| |bb| $)
-  (PROG (|ln| |i| |gp| |stepsy| #1=#:G769 |stepsx| #2=#:G768 |maxy| |maxx|
+  (PROG (|ln| |i| |gp| |stepsy| #1=#:G745 |stepsx| #2=#:G744 |maxy| |maxx|
          |miny| |minx|)
     (RETURN
      (SEQ
@@ -485,7 +485,7 @@
           (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|))))) 
 
 (DEFUN |SCENE;createScenePattern1| (|step| |bb| $)
-  (PROG (|ln| |pts| |j| #1=#:G802 |i| |mt2| #2=#:G801 |mt1| |gp| |stepSize|
+  (PROG (|ln| |pts| |j| #1=#:G778 |i| |mt2| #2=#:G777 |mt1| |gp| |stepSize|
          |maxy| |maxx| |miny| |minx|)
     (RETURN
      (SEQ
@@ -623,7 +623,7 @@
                  (SPADCALL |ifs2| (QREFELT $ 62)) (QREFELT $ 58))))))) 
 
 (DEFUN |SCENE;subdivideLine| (|level| |inLine| $)
-  (PROG (#1=#:G809 |res| |lastPt| |midpt| #2=#:G812 |x|)
+  (PROG (#1=#:G785 |res| |lastPt| |midpt| #2=#:G788 |x|)
     (RETURN
      (SEQ
       (COND ((EQL |level| 0) |inLine|)
@@ -667,8 +667,8 @@
                     |res| $))))))))) 
 
 (DEFUN |SCENE;createScenePattern3| (|level| |bb| $)
-  (PROG (|ln| |lev2| |pts2| #1=#:G824 |l2| |pts| #2=#:G823 |j| #3=#:G822
-         #4=#:G821 |i| #5=#:G820 |ycoords| |xcoords| |scale| |maxy| |maxx|
+  (PROG (|ln| |lev2| |pts2| #1=#:G800 |l2| |pts| #2=#:G799 |j| #3=#:G798
+         #4=#:G797 |i| #5=#:G796 |ycoords| |xcoords| |scale| |maxy| |maxx|
          |miny| |minx|)
     (RETURN
      (SEQ
@@ -760,7 +760,7 @@
       (EXIT (LETT |ln| (SPADCALL |pts2| (QREFELT $ 32)) . #6#)))))) 
 
 (DEFUN |SCENE;createScenePattern;SNniSb$;57| (|ptype| |step| |bb| $)
-  (PROG (#1=#:G826)
+  (PROG (#1=#:G802)
     (RETURN
      (SEQ
       (EXIT
@@ -800,7 +800,7 @@
       (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|))))) 
 
 (DEFUN |SCENE;createSceneRuler;SPTSb$;61| (|ptype| |offset| |bb| $)
-  (PROG (|str| |d| |pz| #1=#:G856 |x| |stepI| |gp| |suffix| |zeroes|
+  (PROG (|str| |d| |pz| #1=#:G832 |x| |stepI| |gp| |suffix| |zeroes|
          |maxPrimaryNorm| |minPrimaryNorm| |divn| |expStep| |stepSize|
          |maxSecondary| |maxPrimary| |minSecondary| |minPrimary|)
     (RETURN
@@ -1114,7 +1114,7 @@
 
 (DEFUN |SCENE;pathString| (|pts| |tran| |bb| |sc| |clipEn| |useInteger| $)
   (PROG (|lastValid| |ptStr| |thisStr| |minusy| |pntNum| |valid| |param2|
-         #1=#:G984 |param| #2=#:G983 |line|)
+         #1=#:G960 |param| #2=#:G959 |line|)
     (RETURN
      (SEQ (LETT |ptStr| "" . #3=(|SCENE;pathString|))
           (LETT |lastValid| 'T . #3#)
@@ -1205,7 +1205,7 @@
           (EXIT |ptStr|))))) 
 
 (DEFUN |SCENE;shorternArrow| (|pts| |bb| $)
-  (PROG (|newend| |newstart| |relpt| #1=#:G989 |reductionFactor| |arrLength|
+  (PROG (|newend| |newstart| |relpt| #1=#:G965 |reductionFactor| |arrLength|
          |endpt| |startpt| |totalwidth|)
     (RETURN
      (SEQ
@@ -1259,7 +1259,7 @@
        (|pts| |tran| |bb| |mat| |sc| |clipEn| |mode| |size| $)
   (PROG (|nodeEles| |x| |nodeAtts| |linWidth| |ptStr| |thisStr| |minusEndy|
          |endPoint| |minusStarty| |aline| |startPoint| |pntNum| |valid|
-         |param2| #1=#:G1006 |param| #2=#:G1005 |line|)
+         |param2| #1=#:G982 |param| #2=#:G981 |line|)
     (RETURN
      (SEQ (LETT |nodeEles| NIL . #3=(|SCENE;lineArrow|))
           (SEQ (LETT |line| NIL . #3#) (LETT #2# |pts| . #3#) G190
@@ -1452,7 +1452,7 @@
 
 (DEFUN |SCENE;faceString| (|faces| |tran| |bb| |sc| |clipEn| $)
   (PROG (|ptStr| |lastValid| |thisStr| |minusy| |pntNum| |valid| |param2|
-         |param| #1=#:G1019 |i| #2=#:G1018 |ln|)
+         |param| #1=#:G995 |i| #2=#:G994 |ln|)
     (RETURN
      (SEQ (LETT |ptStr| "" . #3=(|SCENE;faceString|))
           (LETT |lastValid| 'T . #3#)
@@ -1528,12 +1528,12 @@
 
 (DEFUN |SCENE;toSVG;$RStSbDf2BSnpXe;82|
        (|n| |mat| |tran| |bb| |scale| |clipEn| |useInteger| |npt| $)
-  (PROG (|nodeEles| |xch| #1=#:G1104 |ch| |nodeName| |nde| |name| |nn|
-         #2=#:G1037 #3=#:G1038 |nodeAtts| |linWidth| #4=#:G1035 |ptStr|
-         |endPointM| |startPointM| |endPoint| |startPoint| #5=#:G1034
-         #6=#:G1102 #7=#:G1033 |bb2| #8=#:G1031 |clipEn2| |tran2| #9=#:G1032
-         #10=#:G1030 |param2| |nodeAttsTxt| #11=#:G1103 |nam| |mat2|
-         #12=#:G1029 #13=#:G1036 |sh| |sw| |sy| |sx| |ry| |rx| |r2| #14=#:G1028
+  (PROG (|nodeEles| |xch| #1=#:G1080 |ch| |nodeName| |nde| |name| |nn|
+         #2=#:G1013 #3=#:G1014 |nodeAtts| |linWidth| #4=#:G1011 |ptStr|
+         |endPointM| |startPointM| |endPoint| |startPoint| #5=#:G1010
+         #6=#:G1078 #7=#:G1009 |bb2| #8=#:G1007 |clipEn2| |tran2| #9=#:G1008
+         #10=#:G1006 |param2| |nodeAttsTxt| #11=#:G1079 |nam| |mat2|
+         #12=#:G1005 #13=#:G1012 |sh| |sw| |sy| |sx| |ry| |rx| |r2| #14=#:G1004
          |viewBoxStr| |offsety| |offsetx| |scale2| |maxy| |maxx| |miny| |minx|
          |mkr| |mkrAtts| |pth| |pthAtts| |np2|)
     (RETURN
@@ -2592,10 +2592,10 @@
         |filename| (QREFELT $ 182))))))) 
 
 (DEFUN |SCENE;boundary1| (|n| |tran| |scale| |useInteger| |npt| |fontScale| $)
-  (PROG (|res| |res2| #1=#:G1171 |ch| #2=#:G1170 |p| #3=#:G1169 |lp| |pts2|
-         #4=#:G1128 #5=#:G1168 #6=#:G1127 |tran2| #7=#:G1126 |pt2| |pt1|
-         #8=#:G1124 |w| |h| #9=#:G1165 #10=#:G1130 #11=#:G1167 #12=#:G1166
-         |pts| #13=#:G1122 |fontScale2| |maxx| |minx| |bb2| #14=#:G1125)
+  (PROG (|res| |res2| #1=#:G1147 |ch| #2=#:G1146 |p| #3=#:G1145 |lp| |pts2|
+         #4=#:G1104 #5=#:G1144 #6=#:G1103 |tran2| #7=#:G1102 |pt2| |pt1|
+         #8=#:G1100 |w| |h| #9=#:G1141 #10=#:G1106 #11=#:G1143 #12=#:G1142
+         |pts| #13=#:G1098 |fontScale2| |maxx| |minx| |bb2| #14=#:G1101)
     (RETURN
      (SEQ
       (EXIT
@@ -2916,7 +2916,7 @@
         (|div_DF| |fontScale| (FLOAT 1000 MOST-POSITIVE-DOUBLE-FLOAT)) $)))))) 
 
 (DEFUN |SCENE;pointString| (|pts| |tran| |bb| $)
-  (PROG (|ptStr| |thisStr| |param2| #1=#:G1178 |param| |lastValid|)
+  (PROG (|ptStr| |thisStr| |param2| #1=#:G1154 |param| |lastValid|)
     (RETURN
      (SEQ (LETT |ptStr| NIL . #2=(|SCENE;pointString|))
           (LETT |lastValid| 'T . #2#)
@@ -2946,7 +2946,7 @@
           (EXIT |ptStr|))))) 
 
 (DEFUN |SCENE;pointIndexString| (|pts| |tran| |bb| $)
-  (PROG (|ptStr| #1=#:G1185 |param| #2=#:G1184 |line|)
+  (PROG (|ptStr| #1=#:G1161 |param| #2=#:G1160 |line|)
     (RETURN
      (SEQ (LETT |ptStr| NIL . #3=(|SCENE;pointIndexString|))
           (SEQ (LETT |line| NIL . #3#) (LETT #2# |pts| . #3#) G190
@@ -2991,9 +2991,9 @@
           (EXIT |nodeName|))))) 
 
 (DEFUN |SCENE;toX3D;$RStSbXe;91| (|n| |mat| |tran| |bb| $)
-  (PROG (|nodeEles| |xch| #1=#:G1246 |ch| #2=#:G1244 |ifset| |coord| #3=#:G1201
-         |nodeAtts| |ifsR| |meshR| #4=#:G1202 #5=#:G1196 #6=#:G1198 |bb2|
-         #7=#:G1199 |tran2| #8=#:G1200 |mat2| #9=#:G1197 |inner| #10=#:G1245
+  (PROG (|nodeEles| |xch| #1=#:G1222 |ch| #2=#:G1220 |ifset| |coord| #3=#:G1177
+         |nodeAtts| |ifsR| |meshR| #4=#:G1178 #5=#:G1172 #6=#:G1174 |bb2|
+         #7=#:G1175 |tran2| #8=#:G1176 |mat2| #9=#:G1173 |inner| #10=#:G1221
          |nodeName|)
     (RETURN
      (SEQ
@@ -3327,11 +3327,11 @@
 
 (DEFUN |SCENE;toObj;$RRRStSbV;94|
        (|n| |ptLst| |indexLst| |indexNxt| |tran| |bb| $)
-  (PROG (#1=#:G1326 |ch| #2=#:G1312 |i2| #3=#:G1325 |j| #4=#:G1324 #5=#:G1323
-         |k| #6=#:G1322 |p1| #7=#:G1266 |i1| #8=#:G1321 #9=#:G1320 #10=#:G1319
-         #11=#:G1318 |ifsR| |meshR| #12=#:G1261 #13=#:G1317 #14=#:G1316
-         #15=#:G1315 #16=#:G1314 |bb2| #17=#:G1264 |tran2| #18=#:G1265
-         #19=#:G1313 |mx| |mn| |offsety| |offsetRequired| |offsetx| |miny|
+  (PROG (#1=#:G1302 |ch| #2=#:G1288 |i2| #3=#:G1301 |j| #4=#:G1300 #5=#:G1299
+         |k| #6=#:G1298 |p1| #7=#:G1242 |i1| #8=#:G1297 #9=#:G1296 #10=#:G1295
+         #11=#:G1294 |ifsR| |meshR| #12=#:G1237 #13=#:G1293 #14=#:G1292
+         #15=#:G1291 #16=#:G1290 |bb2| #17=#:G1240 |tran2| #18=#:G1241
+         #19=#:G1289 |mx| |mn| |offsety| |offsetRequired| |offsetx| |miny|
          |minx| |nodeName|)
     (RETURN
      (SEQ
@@ -3698,7 +3698,7 @@
             (SPADCALL (QCAR |bb|) (QCDR |bb|) (QREFELT $ 10)) (QREFELT $ 199))) 
 
 (DEFUN |SCENE;writeObj;$SV;96| (|n| |filename| $)
-  (PROG (|s| #1=#:G1337 |i| #2=#:G1336 |row| #3=#:G1335 |v| |f1|
+  (PROG (|s| #1=#:G1313 |i| #2=#:G1312 |row| #3=#:G1311 |v| |f1|
          |defaultBounds| |defaultTransform| |indexNxt| |indexLst| |ptLst|)
     (RETURN
      (SEQ
@@ -3829,7 +3829,7 @@
    ('T |r|))) 
 
 (DEFUN |SCENE;createPlot1Din2D;MSNni$;103| (|f| |tRange| |numPts| $)
-  (PROG (|branches| |newl| #1=#:G1369 |p| |p0| |t| |l| #2=#:G1368 |i| |s| |h|)
+  (PROG (|branches| |newl| #1=#:G1345 |p| |p0| |t| |l| #2=#:G1344 |i| |s| |h|)
     (RETURN
      (SEQ (|SCENE;checkRange| |tRange| $)
           (LETT |l| (SPADCALL |tRange| (QREFELT $ 139))
@@ -3982,7 +3982,7 @@
       (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|))))) 
 
 (DEFUN |SCENE;createPlot1Din3Dparametric;MSNni$;111| (|psc| |seg| |numPts| $)
-  (PROG (|p| |t| |l| #1=#:G1408 |i| |s| |h| |tRange| |f|)
+  (PROG (|p| |t| |l| #1=#:G1384 |i| |s| |h| |tRange| |f|)
     (RETURN
      (SEQ (LETT |f| |psc| . #2=(|SCENE;createPlot1Din3Dparametric;MSNni$;111|))
           (LETT |tRange| (|SCENE;normalize| |seg| $) . #2#)
@@ -4143,7 +4143,7 @@
       (SPADCALL |n| |c| (QREFELT $ 20)) (EXIT |c|))))) 
 
 (DEFUN |SCENE;outputLPoints| (|ps| $)
-  (PROG (#1=#:G1473)
+  (PROG (#1=#:G1449)
     (RETURN
      (SEQ
       (EXIT
@@ -4162,7 +4162,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCENE;outputLLPoints| (|ps| $)
-  (PROG (#1=#:G1477 #2=#:G1479 |x| #3=#:G1478)
+  (PROG (#1=#:G1453 #2=#:G1455 |x| #3=#:G1454)
     (RETURN
      (SEQ
       (EXIT
@@ -4197,7 +4197,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCENE;outputLIndexes| (|ps| $)
-  (PROG (#1=#:G1482)
+  (PROG (#1=#:G1458)
     (RETURN
      (SEQ
       (EXIT
@@ -4216,7 +4216,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCENE;outputLLIndexes| (|ps| $)
-  (PROG (#1=#:G1486 #2=#:G1488 |x| #3=#:G1487)
+  (PROG (#1=#:G1462 #2=#:G1464 |x| #3=#:G1463)
     (RETURN
      (SEQ
       (EXIT
@@ -4251,10 +4251,10 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SCENE;coerce;$Of;124| (|n| $)
-  (PROG (|s| |nam| #1=#:G1507 |nn| #2=#:G1506 |sz| #3=#:G1504 |md| |ofs| |ena|
-         |str| #4=#:G1503 |m| |pts| |pt| #5=#:G1502 |ix| #6=#:G1500 |tr|
-         #7=#:G1501 |npt| #8=#:G1499 |p| |t| |mo| #9=#:G1498 |fc| |lc| |lw|
-         |pt2| #10=#:G1505 |pt1| |tp| #11=#:G1497)
+  (PROG (|s| |nam| #1=#:G1483 |nn| #2=#:G1482 |sz| #3=#:G1480 |md| |ofs| |ena|
+         |str| #4=#:G1479 |m| |pts| |pt| #5=#:G1478 |ix| #6=#:G1476 |tr|
+         #7=#:G1477 |npt| #8=#:G1475 |p| |t| |mo| #9=#:G1474 |fc| |lc| |lw|
+         |pt2| #10=#:G1481 |pt1| |tp| #11=#:G1473)
     (RETURN
      (SEQ (LETT |s| "scene " . #12=(|SCENE;coerce;$Of;124|))
           (COND
@@ -4719,10 +4719,10 @@
 
 (DECLAIM (NOTINLINE |Scene;|)) 
 
-(DEFUN |Scene| (#1=#:G1535)
+(DEFUN |Scene| (#1=#:G1511)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1536)
+     (PROG (#2=#:G1512)
        (RETURN
         (COND
          ((LETT #2#

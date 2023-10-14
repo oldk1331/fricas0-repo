@@ -52,7 +52,7 @@
         (#2# (CONS 1 "failed")))))))) 
 
 (DEFUN |JBP;groebner;2L;7| (|lp| $)
-  (PROG (LJV |lj| #1=#:G157 |p| #2=#:G156)
+  (PROG (LJV |lj| #1=#:G133 |p| #2=#:G132)
     (RETURN
      (SEQ (SPADCALL "groebner" (QREFELT $ 32))
           (LETT |lj|
@@ -87,10 +87,10 @@
 
 (DECLAIM (NOTINLINE |JetBundlePolynomial;|)) 
 
-(DEFUN |JetBundlePolynomial| (&REST #1=#:G197)
+(DEFUN |JetBundlePolynomial| (&REST #1=#:G173)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G198)
+     (PROG (#2=#:G174)
        (RETURN
         (COND
          ((LETT #2#
@@ -109,7 +109,7 @@
               (HREM |$ConstructorCache| '|JetBundlePolynomial|))))))))))) 
 
 (DEFUN |JetBundlePolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G196 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G172 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|JetBundlePolynomial|))

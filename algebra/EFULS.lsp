@@ -280,7 +280,7 @@
                           (#2# (CONS 0 (QCDR |sinInv|))))))))))))) 
 
 (DEFUN |EFULS;atanIfCan;ULSU;25| (|uls| $)
-  (PROG (|z| |cc| #1=#:G303 |rat| |lc| #2=#:G302 |ord| |coef|)
+  (PROG (|z| |cc| #1=#:G279 |rat| |lc| #2=#:G278 |ord| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -350,7 +350,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |EFULS;acotIfCan;ULSU;26| (|uls| $)
-  (PROG (|z| |cc| #1=#:G314 |rat| |lc| #2=#:G313 |ord| |coef|)
+  (PROG (|z| |cc| #1=#:G290 |rat| |lc| #2=#:G289 |ord| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -584,7 +584,7 @@
   (|EFULS;applyOrError| (ELT $ 72) "acsch" |uls| $)) 
 
 (DEFUN |EFULS;atan;2ULS;56| (|uls| $)
-  (PROG (|z| |cc| |rat| |lc| #1=#:G481 |ord| |coef|)
+  (PROG (|z| |cc| |rat| |lc| #1=#:G457 |ord| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -659,7 +659,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |EFULS;acot;2ULS;57| (|uls| $)
-  (PROG (|z| |cc| |rat| |lc| #1=#:G492 |ord| |coef|)
+  (PROG (|z| |cc| |rat| |lc| #1=#:G468 |ord| |coef|)
     (RETURN
      (SEQ
       (EXIT
@@ -723,10 +723,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariateLaurentSeries;|)) 
 
-(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G494)
+(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G470)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G495)
+     (PROG (#2=#:G471)
        (RETURN
         (COND
          ((LETT #2#

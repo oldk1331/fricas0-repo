@@ -91,7 +91,7 @@
                       (#2# (CONS 0 (* (QCDR |un|) (QCDR |ud|)))))))))))))) 
 
 (DEFUN |SIGNRF;psign| (|p| $)
-  (PROG (|ans| #1=#:G176 |u| #2=#:G177 |term| |s| |r|)
+  (PROG (|ans| #1=#:G152 |u| #2=#:G153 |term| |s| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -163,7 +163,7 @@
              ('T (|SIGNRF;listSign| (CDR |l|) (QCDR |u|) $)))))))) 
 
 (DEFUN |SIGNRF;listSign| (|l| |s| $)
-  (PROG (#1=#:G186 #2=#:G190 |u| #3=#:G191 |term|)
+  (PROG (#1=#:G162 #2=#:G166 |u| #3=#:G167 |term|)
     (RETURN
      (SEQ
       (EXIT
@@ -196,7 +196,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SIGNRF;termSign| (|term| $)
-  (PROG (#1=#:G196 #2=#:G198 #3=#:G199 |var|)
+  (PROG (#1=#:G172 #2=#:G174 #3=#:G175 |var|)
     (RETURN
      (SEQ
       (EXIT
@@ -224,10 +224,10 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionSign;|)) 
 
-(DEFUN |RationalFunctionSign| (#1=#:G200)
+(DEFUN |RationalFunctionSign| (#1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G201)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FR;convert;$If;1| (|x| $)
-  (PROG (|l| |iFun| |iExpon| |iFactor| #1=#:G218 |rec| |lf|)
+  (PROG (|l| |iFun| |iExpon| |iFactor| #1=#:G194 |rec| |lf|)
     (RETURN
      (SEQ
       (COND
@@ -144,7 +144,7 @@
   (SPADCALL (SPADCALL |r| (QREFELT $ 47)) |u| (QREFELT $ 51))) 
 
 (DEFUN |FR;factors;$L;19| (|u| $)
-  (PROG (#1=#:G296 |fe| #2=#:G295)
+  (PROG (#1=#:G272 |fe| #2=#:G271)
     (RETURN
      (SEQ
       (PROGN
@@ -164,7 +164,7 @@
 (DEFUN |FR;expand;$R;20| (|u| $) (SPADCALL |u| (QREFELT $ 57))) 
 
 (DEFUN |FR;negexp?| (|x| $)
-  (PROG (#1=#:G300 #2=#:G299 #3=#:G301 #4=#:G303 |y|)
+  (PROG (#1=#:G276 #2=#:G275 #3=#:G277 #4=#:G279 |y|)
     (RETURN
      (SEQ
       (PROGN
@@ -194,7 +194,7 @@
 (DEFUN |FR;rationalIfCan;$U;24| (|x| $) (CONS 0 (SPADCALL |x| (QREFELT $ 63)))) 
 
 (DEFUN |FR;rational;$F;25| (|x| $)
-  (PROG (#1=#:G316 #2=#:G315 #3=#:G317 #4=#:G319 |f|)
+  (PROG (#1=#:G292 #2=#:G291 #3=#:G293 #4=#:G295 |f|)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 66))
@@ -230,7 +230,7 @@
   (SPADCALL |x| (SPADCALL |v| (QREFELT $ 58)) (QREFELT $ 72))) 
 
 (DEFUN |FR;eval;$L$;27| (|x| |l| $)
-  (PROG (#1=#:G324 |e| #2=#:G323)
+  (PROG (#1=#:G300 |e| #2=#:G299)
     (RETURN
      (SEQ
       (SPADCALL |x|
@@ -257,7 +257,7 @@
                 (QREFELT $ 80)))))) 
 
 (DEFUN |FR;eval;$LL$;28| (|x| |ls| |lv| $)
-  (PROG (#1=#:G328 |v| #2=#:G327)
+  (PROG (#1=#:G304 |v| #2=#:G303)
     (RETURN
      (SEQ
       (SPADCALL |x| |ls|
@@ -276,7 +276,7 @@
                 (QREFELT $ 85)))))) 
 
 (DEFUN |FR;convert;$F;29| (|x| $)
-  (PROG (#1=#:G335 #2=#:G334 #3=#:G336 #4=#:G338 |f|)
+  (PROG (#1=#:G311 #2=#:G310 #3=#:G312 #4=#:G314 |f|)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 88))
@@ -307,7 +307,7 @@
                 (QREFELT $ 90)))))) 
 
 (DEFUN |FR;convert;$Df;30| (|x| $)
-  (PROG (#1=#:G345 #2=#:G344 #3=#:G346 #4=#:G348 |f|)
+  (PROG (#1=#:G321 #2=#:G320 #3=#:G322 #4=#:G324 |f|)
     (RETURN
      (SEQ
       (|mul_DF| (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 94))
@@ -353,7 +353,7 @@
             $)))))) 
 
 (DEFUN |FR;^;$Nni$;32| (|u| |n| $)
-  (PROG (#1=#:G363 |x| #2=#:G362)
+  (PROG (#1=#:G339 |x| #2=#:G338)
     (RETURN
      (SEQ
       (|FR;mkFF| (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |n| (QREFELT $ 100))
@@ -423,7 +423,7 @@
                         (#1# (CONS |f| |l|))))))))))))))) 
 
 (DEFUN |FR;coerce;$Of;35| (|x| $)
-  (PROG (|e| |l| #1=#:G400 |rec| |lf|)
+  (PROG (|e| |l| #1=#:G376 |rec| |lf|)
     (RETURN
      (SEQ
       (COND
@@ -485,7 +485,7 @@
         ('T (|FR;qexpand| |u| $)))) 
 
 (DEFUN |FR;qexpand| (|u| $)
-  (PROG (#1=#:G405 #2=#:G404 #3=#:G406 #4=#:G408 #5=#:G410 |y|)
+  (PROG (#1=#:G381 #2=#:G380 #3=#:G382 #4=#:G384 #5=#:G386 |y|)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL |u| (QREFELT $ 12))
@@ -584,7 +584,7 @@
                      ('T (CONS 0 (|FR;mkFF| (QCDR |r|) NIL $)))))))))))) 
 
 (DEFUN |FR;reciprocal| (|u| $)
-  (PROG (#1=#:G480 |y| #2=#:G479 #3=#:G469)
+  (PROG (#1=#:G456 |y| #2=#:G455 #3=#:G445)
     (RETURN
      (SEQ
       (|FR;mkFF|
@@ -674,7 +674,7 @@
           (QREFELT $ 59))))) 
 
 (DEFUN |FR;differentiate;$M$;53| (|u| |deriv| $)
-  (PROG (#1=#:G526 #2=#:G525 #3=#:G527 #4=#:G522 #5=#:G531 |fact| |ans|)
+  (PROG (#1=#:G502 #2=#:G501 #3=#:G503 #4=#:G498 #5=#:G507 |fact| |ans|)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -734,7 +734,7 @@
                  (QREFELT $ 141))))))) 
 
 (DEFUN |FR;map;M2$;54| (|fn| |u| $)
-  (PROG (#1=#:G535 #2=#:G534 #3=#:G536 #4=#:G538 |f|)
+  (PROG (#1=#:G511 #2=#:G510 #3=#:G512 #4=#:G514 |f|)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 12)) |fn|)
@@ -798,7 +798,7 @@
           (COND (|goodQuotient| (CONS 0 |v1|)) (#2# (CONS 1 "failed"))))))))))) 
 
 (DEFUN |FR;unitNormal;$R;56| (|u| $)
-  (PROG (|vl| |as| |un| |e| #1=#:G559 |ucar| #2=#:G574 |x| |ur|)
+  (PROG (|vl| |as| |un| |e| #1=#:G535 |ucar| #2=#:G550 |x| |ur|)
     (RETURN
      (SEQ
       (LETT |ur|
@@ -907,7 +907,7 @@
                 |u1| (QREFELT $ 53)))))))))) 
 
 (DEFUN |FR;gcd;3$;59| (|u| |v| $)
-  (PROG (|x1| |f3| |f1| |i| |y| |f2| #1=#:G609 |j| #2=#:G608 |x|)
+  (PROG (|x1| |f3| |f1| |i| |y| |f2| #1=#:G585 |j| #2=#:G584 |x|)
     (RETURN
      (SEQ
       (COND
@@ -1028,10 +1028,10 @@
 
 (DECLAIM (NOTINLINE |Factored;|)) 
 
-(DEFUN |Factored| (#1=#:G629)
+(DEFUN |Factored| (#1=#:G605)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G630)
+     (PROG (#2=#:G606)
        (RETURN
         (COND
          ((LETT #2#
@@ -1046,7 +1046,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Factored|))))))))))) 
 
 (DEFUN |Factored;| (|#1|)
-  (PROG (|pv$| #1=#:G628 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G604 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Factored|))

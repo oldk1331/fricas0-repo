@@ -59,7 +59,7 @@
 (DEFUN |SULS;numer;$Suts;14| (|uls| $) (SPADCALL |uls| (QREFELT $ 36))) 
 
 (DEFUN |SULS;denom;$Suts;15| (|uls| $)
-  (PROG (#1=#:G168)
+  (PROG (#1=#:G144)
     (RETURN
      (SPADCALL (|spadConstant| $ 15)
                (PROG1
@@ -96,7 +96,7 @@
   (SPADCALL |uls| (QREFELT $ 50))) 
 
 (DEFUN |SULS;elt;3$;23| (|uls1| |uls2| $)
-  (PROG (#1=#:G195 |uls3| |recipr| |ord|)
+  (PROG (#1=#:G171 |uls3| |recipr| |ord|)
     (RETURN
      (SEQ
       (COND
@@ -130,7 +130,7 @@
        (#3# (SPADCALL |uls1| |uls2| (QREFELT $ 52)))))))) 
 
 (DEFUN |SULS;rationalFunction;$IF;24| (|uls| |n| $)
-  (PROG (#1=#:G206 |c| |v| |poly| #2=#:G205 |m| #3=#:G202 |e|)
+  (PROG (#1=#:G182 |c| |v| |poly| #2=#:G181 |m| #3=#:G178 |e|)
     (RETURN
      (SEQ
       (COND
@@ -290,7 +290,7 @@
                         (QREFELT $ 27)))))))))) 
 
 (DEFUN |SULS;coerce;$Of;57| (|uls| $)
-  (PROG (|degr| #1=#:G252 |count| |nx| |st|)
+  (PROG (|degr| #1=#:G228 |count| |nx| |st|)
     (RETURN
      (SEQ
       (LETT |st| (SPADCALL |uls| (QREFELT $ 136)) . #2=(|SULS;coerce;$Of;57|))
@@ -326,10 +326,10 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
 
-(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G299)
+(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G275)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G300)
+     (PROG (#2=#:G276)
        (RETURN
         (COND
          ((LETT #2#
@@ -349,8 +349,8 @@
                     '|SparseUnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |SparseUnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G298 |pv$| #2=#:G289 #3=#:G290 #4=#:G292 #5=#:G293 #6=#:G294
-         #7=#:G295 #8=#:G297 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G274 |pv$| #2=#:G265 #3=#:G266 #4=#:G268 #5=#:G269 #6=#:G270
+         #7=#:G271 #8=#:G273 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #9=(|SparseUnivariateLaurentSeries|))

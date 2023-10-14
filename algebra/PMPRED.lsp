@@ -9,10 +9,10 @@
 
 (DECLAIM (NOTINLINE |AttachPredicates;|)) 
 
-(DEFUN |AttachPredicates| (#1=#:G130)
+(DEFUN |AttachPredicates| (#1=#:G106)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G131)
+     (PROG (#2=#:G107)
        (RETURN
         (COND
          ((LETT #2#

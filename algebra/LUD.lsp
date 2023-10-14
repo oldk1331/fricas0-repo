@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LUD;LUDecomp;MR;1| (AA $)
-  (PROG (|k| |d| |Pivs| |i0| |s| #1=#:G153 |i| #2=#:G152 #3=#:G151 |j| |PermV|
-         #4=#:G134 |maxC| |minC| |maxR| |minR| A)
+  (PROG (|k| |d| |Pivs| |i0| |s| #1=#:G129 |i| #2=#:G128 #3=#:G127 |j| |PermV|
+         #4=#:G110 |maxC| |minC| |maxR| |minR| A)
     (RETURN
      (SEQ (LETT A (SPADCALL AA (QREFELT $ 8)) . #5=(|LUD;LUDecomp;MR;1|))
           (LETT |minR| 1 . #5#) (LETT |maxR| (SPADCALL A (QREFELT $ 10)) . #5#)
@@ -107,7 +107,7 @@
               (EXIT (VECTOR A |PermV| |Pivs|)))))))))) 
 
 (DEFUN |LUD;LUSolve;MV2V;2| (LU |Perm| XX $)
-  (PROG (|s| |j| |i| |ii| #1=#:G164 |ip| |maxR| |minR| X)
+  (PROG (|s| |j| |i| |ii| #1=#:G140 |ip| |maxR| |minR| X)
     (RETURN
      (SEQ (LETT X (SPADCALL XX (QREFELT $ 26)) . #2=(|LUD;LUSolve;MV2V;2|))
           (LETT |minR| 1 . #2#)
@@ -170,7 +170,7 @@
                   (EXIT X))))))))) 
 
 (DEFUN |LUD;LUInverse;MR;3| (A $)
-  (PROG (|res| |v| #1=#:G172 |i| |n| |Alu|)
+  (PROG (|res| |v| #1=#:G148 |i| |n| |Alu|)
     (RETURN
      (SEQ (LETT |Alu| (SPADCALL A (QREFELT $ 24)) . #2=(|LUD;LUInverse;MR;3|))
           (LETT |n| (ANCOLS A) . #2#)
@@ -191,10 +191,10 @@
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 
 
-(DEFUN |LUDecomposition| (#1=#:G173)
+(DEFUN |LUDecomposition| (#1=#:G149)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G174)
+     (PROG (#2=#:G150)
        (RETURN
         (COND
          ((LETT #2#

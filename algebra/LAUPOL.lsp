@@ -108,7 +108,7 @@
                   (EXIT (SPADCALL (ELT $ 59) |l| (QREFELT $ 61)))))))))) 
 
 (DEFUN |LAUPOL;coefficient;$IR;23| (|p| |n| $)
-  (PROG (#1=#:G177 |m|)
+  (PROG (#1=#:G153 |m|)
     (RETURN
      (SEQ
       (LETT |m| (- |n| (SPADCALL |p| (QREFELT $ 19)))
@@ -175,7 +175,7 @@
                      $))))))))) 
 
 (DEFUN |LAUPOL;+;3$;28| (|p| |q| $)
-  (PROG (#1=#:G199 #2=#:G198 |d|)
+  (PROG (#1=#:G175 #2=#:G174 |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |q| (QREFELT $ 52)) |p|)
@@ -221,7 +221,7 @@
                   $))))))))))) 
 
 (DEFUN |LAUPOL;mkgpol| (|n| |p| $)
-  (PROG (#1=#:G205 |d|)
+  (PROG (#1=#:G181 |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 47)) (|spadConstant| $ 9))
@@ -263,7 +263,7 @@
                      (QCDR |r|) $))))))))) 
 
 (DEFUN |LAUPOL;retractIfCan;$U;31| (|p| $)
-  (PROG (#1=#:G222)
+  (PROG (#1=#:G198)
     (RETURN
      (COND ((< (SPADCALL |p| (QREFELT $ 19)) 0) (|error| "Not retractable"))
            ('T
@@ -292,7 +292,7 @@
    (QREFELT $ 22))) 
 
 (DEFUN |LAUPOL;separate;FR;34| (|f| $)
-  (PROG (|qr| |bc| #1=#:G242 |q| #2=#:G238 |tn| |n|)
+  (PROG (|qr| |bc| #1=#:G218 |q| #2=#:G214 |tn| |n|)
     (RETURN
      (SEQ
       (LETT |n|
@@ -336,7 +336,7 @@
         (SPADCALL (QCDR |qr|) |q| (QREFELT $ 96)))))))) 
 
 (DEFUN |LAUPOL;divide;2$R;35| (|p| |q| $)
-  (PROG (|qr| #1=#:G253 |c|)
+  (PROG (|qr| #1=#:G229 |c|)
     (RETURN
      (SEQ
       (LETT |c|
@@ -390,10 +390,10 @@
 
 (DECLAIM (NOTINLINE |LaurentPolynomial;|)) 
 
-(DEFUN |LaurentPolynomial| (&REST #1=#:G282)
+(DEFUN |LaurentPolynomial| (&REST #1=#:G258)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G283)
+     (PROG (#2=#:G259)
        (RETURN
         (COND
          ((LETT #2#

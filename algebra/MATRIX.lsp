@@ -21,7 +21,7 @@
   (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
 (DEFUN |MATRIX;swapRows!;$2I$;5| (|x| |i1| |i2| $)
-  (PROG (|t2| |t1| #1=#:G2109 |j|)
+  (PROG (|t2| |t1| #1=#:G2085 |j|)
     (RETURN
      (SEQ
       (COND
@@ -46,7 +46,7 @@
                 (EXIT |x|)))))))))) 
 
 (DEFUN |MATRIX;copy;2$;6| (|m| $)
-  (PROG (#1=#:G2115 |j| #2=#:G2114 |i| |ans|)
+  (PROG (#1=#:G2091 |j| #2=#:G2090 |i| |ans|)
     (RETURN
      (SEQ
       (LETT |ans| (MAKE_MATRIX (ANROWS |m|) (ANCOLS |m|))
@@ -80,7 +80,7 @@
 (DEFUN |MATRIX;inverse;$U;13| (|x| $) (SPADCALL |x| (QREFELT $ 34))) 
 
 (DEFUN |MATRIX;diagonalMatrix;V$;14| (|v| $)
-  (PROG (#1=#:G2132 |i| #2=#:G2133 |j| #3=#:G2134 |k| |ans| |n|)
+  (PROG (#1=#:G2108 |i| #2=#:G2109 |j| #3=#:G2110 |k| |ans| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;14|))
           (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 37)) . #4#)
@@ -110,10 +110,10 @@
 
 (DECLAIM (NOTINLINE |Matrix;|)) 
 
-(DEFUN |Matrix| (#1=#:G2146)
+(DEFUN |Matrix| (#1=#:G2122)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2147)
+     (PROG (#2=#:G2123)
        (RETURN
         (COND
          ((LETT #2#
@@ -127,7 +127,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Matrix|))))))))))) 
 
 (DEFUN |Matrix;| (|#1|)
-  (PROG (|pv$| #1=#:G2143 #2=#:G2144 #3=#:G2145 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2119 #2=#:G2120 #3=#:G2121 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))

@@ -8,7 +8,7 @@
   (QEQCAR (SPADCALL |b| |n| (QREFELT $ 18)) 0)) 
 
 (DEFUN |IROOT;perfectNthRoot;IR;3| (|n| $)
-  (PROG (|p| #1=#:G152 |e| #2=#:G149 |r| |m|)
+  (PROG (|p| #1=#:G128 |e| #2=#:G125 |r| |m|)
     (RETURN
      (SEQ
       (COND
@@ -62,7 +62,7 @@
              (EXIT (CONS |n| |e|))))))))) 
 
 (DEFUN |IROOT;approxNthRoot;INniI;4| (|a| |n| $)
-  (PROG (|z| |y| |xn| |x| |n1| #1=#:G159 |l|)
+  (PROG (|z| |y| |xn| |x| |n1| #1=#:G135 |l|)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (|error| "invalid arguments")) ((EQL |n| 1) |a|)
@@ -169,7 +169,7 @@
         ('T (CONS 1 "failed")))))))) 
 
 (DEFUN |IROOT;approxSqrt;2I;7| (|a| $)
-  (PROG (|old| |new| |#G18| |#G17| |#G16| |#G15| #1=#:G183 |s| |n|)
+  (PROG (|old| |new| |#G18| |#G17| |#G16| |#G15| #1=#:G159 |s| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -237,10 +237,10 @@
 
 (DECLAIM (NOTINLINE |IntegerRoots;|)) 
 
-(DEFUN |IntegerRoots| (#1=#:G184)
+(DEFUN |IntegerRoots| (#1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G185)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#

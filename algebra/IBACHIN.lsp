@@ -34,7 +34,7 @@
     (RETURN (PROGN (SPADCALL |k1| |q| (QREFELT $ 12)))))) 
 
 (DEFUN |IBACHIN;listConjugateBases;R2NniL;2| (|bas| |q| |n| $)
-  (PROG (|outList| |newBasis| |bDen| |bInv| |b| #1=#:G143 |i|)
+  (PROG (|outList| |newBasis| |bDen| |bInv| |b| #1=#:G119 |i|)
     (RETURN
      (SEQ
       (LETT |outList| (SPADCALL |bas| (QREFELT $ 17))
@@ -63,7 +63,7 @@
     (RETURN (PROGN (SPADCALL |k1| |q| (QREFELT $ 12)))))) 
 
 (DEFUN |IBACHIN;factorList;K3NniL;3| (|a| |q| |n| |k| $)
-  (PROG (|outList| |coef| #1=#:G148 |i| |xx|)
+  (PROG (|outList| |coef| #1=#:G124 |i| |xx|)
     (RETURN
      (SEQ
       (LETT |coef| (SPADCALL |a| 0 (QREFELT $ 22))
@@ -118,7 +118,7 @@
           (EXIT (NREVERSE |outList|)))))) 
 
 (DEFUN |IBACHIN;basesToPolyLists| (|basisList| |lcm| $)
-  (PROG (#1=#:G158 |b| #2=#:G157)
+  (PROG (#1=#:G134 |b| #2=#:G133)
     (RETURN
      (SEQ
       (PROGN
@@ -139,7 +139,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |IBACHIN;approximateExtendedEuclidean| (|f| |g| |p| |n| $)
-  (PROG (|t| |s| |pPower| |quorem| |tau| |sigma| |rhs| #1=#:G163 |num| |i| |t1|
+  (PROG (|t| |s| |pPower| |quorem| |tau| |sigma| |rhs| #1=#:G139 |num| |i| |t1|
          |s1| |tt1| |ss1| |ee| |gBar| |fBar| |gSUP| |fSUP| |sae|)
     (RETURN
      (SEQ
@@ -324,8 +324,8 @@
     (RETURN (PROGN (SPADCALL |r1| |p| (QREFELT $ 41)))))) 
 
 (DEFUN |IBACHIN;mapChineseToList| (|list| |polyList| |i| |den| $)
-  (PROG (#1=#:G195 |pp| #2=#:G194 |invPoly| |n| #3=#:G187 |prime| |factoredDen|
-         |q| |j| |p| #4=#:G193)
+  (PROG (#1=#:G171 |pp| #2=#:G170 |invPoly| |n| #3=#:G163 |prime| |factoredDen|
+         |q| |j| |p| #4=#:G169)
     (RETURN
      (SEQ (LETT |q| (|spadConstant| $ 36) . #5=(|IBACHIN;mapChineseToList|))
           (SEQ (LETT |j| 1 . #5#) (LETT #4# (- |i| 1) . #5#) G190
@@ -381,7 +381,7 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |IBACHIN;polyListToMatrix| (|polyList| |n| $)
-  (PROG (|poly| |i| #1=#:G202 |mat|)
+  (PROG (|poly| |i| #1=#:G178 |mat|)
     (RETURN
      (SEQ
       (LETT |mat| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 10))
@@ -409,8 +409,8 @@
       (EXIT |mat|))))) 
 
 (DEFUN |IBACHIN;chineseRemainder;LLNniR;9| (|factors| |factorBases| |n| $)
-  (PROG (|matInv| |mat| |basisPolys| |basisPolyLists| |polyList| |i| #1=#:G215
-         |pList| |factorBasisPolyLists| |denLCM| #2=#:G214 |base| #3=#:G213)
+  (PROG (|matInv| |mat| |basisPolys| |basisPolyLists| |polyList| |i| #1=#:G191
+         |pList| |factorBasisPolyLists| |denLCM| #2=#:G190 |base| #3=#:G189)
     (RETURN
      (SEQ
       (LETT |denLCM|
@@ -471,10 +471,10 @@
 
 (DECLAIM (NOTINLINE |ChineseRemainderToolsForIntegralBases;|)) 
 
-(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G216)
+(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G192)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G217)
+     (PROG (#2=#:G193)
        (RETURN
         (COND
          ((LETT #2#

@@ -5,7 +5,7 @@
   (SPADCALL |x| |p| |l| (ELT $ 14) (QREFELT $ 16))) 
 
 (DEFUN |PMPLCAT;patternMatch;PPPmrMPmr;2| (|x| |p| |l| |vmatch| $)
-  (PROG (#1=#:G201 |ex| |ep| |uur| |uu| |u| |lx| |v| |r|)
+  (PROG (#1=#:G177 |ex| |ep| |uur| |uu| |u| |lx| |v| |r|)
     (RETURN
      (SEQ
       (COND
@@ -215,7 +215,7 @@
     (RETURN (PROGN (SPADCALL |p1| |p2| |p3| |vmatch| (QREFELT $ 16)))))) 
 
 (DEFUN |PMPLCAT;patternMatch;PPPmrMPmr;2!0| (|l1| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G155 #5=#:G127)
+  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G131 #5=#:G103)
     (RETURN
      (SEQ
       (PROGN
@@ -234,10 +234,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchPolynomialCategory;|)) 
 
-(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G209)
+(DEFUN |PatternMatchPolynomialCategory| (&REST #1=#:G185)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G210)
+     (PROG (#2=#:G186)
        (RETURN
         (COND
          ((LETT #2#

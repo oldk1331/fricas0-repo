@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IDPO;=;2$B;1| (|x| |y| $)
-  (PROG (#1=#:G174)
+  (PROG (#1=#:G150)
     (RETURN
      (SEQ
       (EXIT
@@ -28,7 +28,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IDPO;coerce;$Of;2| (|x| $)
-  (PROG (#1=#:G178 |t| #2=#:G177)
+  (PROG (#1=#:G154 |t| #2=#:G153)
     (RETURN
      (SEQ
       (SPADCALL
@@ -56,7 +56,7 @@
    ('T (LIST (CONS |s| |r|))))) 
 
 (DEFUN |IDPO;map;M2$;4| (|f| |x| $)
-  (PROG (|a| #1=#:G185 |tm| #2=#:G184)
+  (PROG (|a| #1=#:G161 |tm| #2=#:G160)
     (RETURN
      (SEQ
       (PROGN
@@ -85,7 +85,7 @@
   (COND ((NULL |x|) (|spadConstant| $ 21)) ('T (QCDR (|SPADfirst| |x|))))) 
 
 (DEFUN |IDPO;smaller?;2$B;7| (|x| |y| $)
-  (PROG (#1=#:G193)
+  (PROG (#1=#:G169)
     (RETURN
      (SEQ
       (EXIT
@@ -150,7 +150,7 @@
 (DEFUN |IDPO;monomial;AS$;8| (|r| |s| $) (LIST (CONS |s| |r|))) 
 
 (DEFUN |IDPO;map;M2$;9| (|f| |x| $)
-  (PROG (#1=#:G198 |tm| #2=#:G197)
+  (PROG (#1=#:G174 |tm| #2=#:G173)
     (RETURN
      (SEQ
       (PROGN
@@ -178,7 +178,7 @@
    ('T (QCDR (|SPADfirst| |x|))))) 
 
 (DEFUN |IDPO;smaller?;2$B;12| (|x| |y| $)
-  (PROG (#1=#:G206)
+  (PROG (#1=#:G182)
     (RETURN
      (SEQ
       (EXIT
@@ -243,7 +243,7 @@
 (DEFUN |IDPO;listOfTerms;$L;18| (|x| $) |x|) 
 
 (DEFUN |IDPO;hashUpdate!;Hs$Hs;19| (|s| |x| $)
-  (PROG (#1=#:G220 |t| |xl|)
+  (PROG (#1=#:G196 |t| |xl|)
     (RETURN
      (SEQ (LETT |xl| |x| . #2=(|IDPO;hashUpdate!;Hs$Hs;19|))
           (SEQ (LETT |t| NIL . #2#) (LETT #1# |xl| . #2#) G190
@@ -377,7 +377,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |IDPO;+;3$;24| (|x| |y| $)
-  (PROG (#1=#:G261 |msi| |degy| |degx|)
+  (PROG (#1=#:G237 |msi| |degy| |degx|)
     (RETURN
      (SEQ
       (EXIT
@@ -400,7 +400,7 @@
 (DEFUN |IDPO;+;3$;25| (|x| |y| $) (|IDPO;add_gen| |x| |y| $)) 
 
 (DEFUN |IDPO;*;Pi2$;26| (|n| |x| $)
-  (PROG (|a| #1=#:G266 |u| #2=#:G265)
+  (PROG (|a| #1=#:G242 |u| #2=#:G241)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 20)) ((EQL |n| 1) |x|)
@@ -423,7 +423,7 @@
                    (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |IDPO;-;2$;27| (|x| $)
-  (PROG (#1=#:G270 |u| #2=#:G269)
+  (PROG (#1=#:G246 |u| #2=#:G245)
     (RETURN
      (SEQ
       (PROGN
@@ -443,7 +443,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |IDPO;*;I2$;28| (|n| |x| $)
-  (PROG (|a| #1=#:G274 |u| #2=#:G273)
+  (PROG (|a| #1=#:G250 |u| #2=#:G249)
     (RETURN
      (SEQ
       (COND ((EQL |n| 0) (|spadConstant| $ 20)) ((EQL |n| 1) |x|)
@@ -536,7 +536,7 @@
                   (EXIT |res|)))))))) 
 
 (DEFUN |IDPO;subtractIfCan;2$U;30| (|x| |y| $)
-  (PROG (|res| |endcell| |newcell| |r| #1=#:G323 |ru|)
+  (PROG (|res| |endcell| |newcell| |r| #1=#:G299 |ru|)
     (RETURN
      (SEQ
       (EXIT
@@ -694,10 +694,10 @@
 
 (DECLAIM (NOTINLINE |IndexedDirectProductObject;|)) 
 
-(DEFUN |IndexedDirectProductObject| (&REST #1=#:G331)
+(DEFUN |IndexedDirectProductObject| (&REST #1=#:G307)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G332)
+     (PROG (#2=#:G308)
        (RETURN
         (COND
          ((LETT #2#

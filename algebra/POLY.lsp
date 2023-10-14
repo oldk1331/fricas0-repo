@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POLY;coerce;$Of;1| (|p| $)
-  (PROG (|a| #1=#:G131 |r|)
+  (PROG (|a| #1=#:G107 |r|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |p| (QREFELT $ 8)) . #2=(|POLY;coerce;$Of;1|))
           (EXIT
@@ -31,10 +31,10 @@
 
 (DECLAIM (NOTINLINE |Polynomial;|)) 
 
-(DEFUN |Polynomial| (#1=#:G170)
+(DEFUN |Polynomial| (#1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#
@@ -49,7 +49,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Polynomial|))))))))))) 
 
 (DEFUN |Polynomial;| (|#1|)
-  (PROG (#1=#:G169 |pv$| #2=#:G166 #3=#:G167 #4=#:G168 $ |dv$| DV$1)
+  (PROG (#1=#:G145 |pv$| #2=#:G142 #3=#:G143 #4=#:G144 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Polynomial|))

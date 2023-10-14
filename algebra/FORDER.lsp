@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FORDER;order;FdNni;1| (|d| $)
-  (PROG (|dd| #1=#:G131 |i|)
+  (PROG (|dd| #1=#:G107 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -28,10 +28,10 @@
 
 (DECLAIM (NOTINLINE |FindOrderFinite;|)) 
 
-(DEFUN |FindOrderFinite| (&REST #1=#:G132)
+(DEFUN |FindOrderFinite| (&REST #1=#:G108)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G133)
+     (PROG (#2=#:G109)
        (RETURN
         (COND
          ((LETT #2#

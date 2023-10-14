@@ -25,10 +25,10 @@
 
 (DECLAIM (NOTINLINE |FourierComponent;|)) 
 
-(DEFUN |FourierComponent| (#1=#:G144)
+(DEFUN |FourierComponent| (#1=#:G120)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G145)
+     (PROG (#2=#:G121)
        (RETURN
         (COND
          ((LETT #2#

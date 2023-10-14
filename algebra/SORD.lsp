@@ -50,7 +50,7 @@
   (SPADCALL |o1| |o2| (QREFELT $ 40))) 
 
 (DEFUN |SORD;ordinalAdd;3$;15| (|o1| |o2| $)
-  (PROG (|p2| #1=#:G163 |t| |p1| |lt| |e|)
+  (PROG (|p2| #1=#:G139 |t| |p1| |lt| |e|)
     (RETURN
      (SEQ (LETT |p1| |o1| . #2=(|SORD;ordinalAdd;3$;15|))
           (LETT |p2| |o2| . #2#)
@@ -94,7 +94,7 @@
           (EXIT (SPADCALL |p| (QREFELT $ 32))))))) 
 
 (DEFUN |SORD;limitPart;2$;17| (|o| $)
-  (PROG (#1=#:G168)
+  (PROG (#1=#:G144)
     (RETURN
      (PROG2
          (LETT #1#
@@ -247,7 +247,7 @@
 (DEFUN |SmallOrdinal| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G194)
+     (PROG (#1=#:G170)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SmallOrdinal|)

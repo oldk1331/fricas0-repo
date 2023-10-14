@@ -82,7 +82,7 @@
 (DEFUN |SCONF;nan?| (|x| $) (SPADCALL |x| |x| (QREFELT $ 28))) 
 
 (DEFUN |SCONF;Pnan?;$B;9| (|p| $)
-  (PROG (#1=#:G154 #2=#:G155 |i|)
+  (PROG (#1=#:G130 #2=#:G131 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -203,7 +203,7 @@
   (COND ((SPADCALL (QREFELT $ 6) 2 (QREFELT $ 21)) (QAREF1 |pt| 16)) ('T 0.0))) 
 
 (DEFUN |SCONF;screenCoords;$L;21| (|pt| $)
-  (PROG (#1=#:G177)
+  (PROG (#1=#:G153)
     (RETURN
      (SEQ
       (EXIT
@@ -220,7 +220,7 @@
 (DEFUN |SCONF;extendedCoords;$L;22| (|pt| $) (SPADCALL |pt| (QREFELT $ 45))) 
 
 (DEFUN |SCONF;normalisePoint;2$;23| (|pt| $)
-  (PROG (|infin| |index| #1=#:G188 |x| |pt2| #2=#:G187 |scaleFactor|)
+  (PROG (|infin| |index| #1=#:G164 |x| |pt2| #2=#:G163 |scaleFactor|)
     (RETURN
      (SEQ
       (EXIT
@@ -278,7 +278,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SCONF;toPoint;2$;24| (|p| $)
-  (PROG (#1=#:G192 |i| |pt|)
+  (PROG (#1=#:G168 |i| |pt|)
     (RETURN
      (SEQ (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) . #2=(|SCONF;toPoint;2$;24|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#) G190
@@ -288,7 +288,7 @@
           (QSETAREF1 |pt| 1 (|minus_DF| 1.0)) (EXIT |pt|))))) 
 
 (DEFUN |SCONF;toVector;2$;25| (|p| $)
-  (PROG (#1=#:G196 |i| |pt|)
+  (PROG (#1=#:G172 |i| |pt|)
     (RETURN
      (SEQ
       (LETT |pt| (MAKEARR1 (QREFELT $ 9) 0.0) . #2=(|SCONF;toVector;2$;25|))
@@ -319,7 +319,7 @@
 (DEFUN |SCONF;latex;$S;29| (|s| $) "\\mbox{\\bf Unimplemented}") 
 
 (DEFUN |SCONF;=;2$B;30| (|x| |y| $)
-  (PROG (#1=#:G204 #2=#:G205 |i|)
+  (PROG (#1=#:G180 #2=#:G181 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -340,7 +340,7 @@
   (COND ((SPADCALL |x| |y| (QREFELT $ 60)) 'NIL) ('T 'T))) 
 
 (DEFUN |SCONF;coerce;$Of;32| (|pt| $)
-  (PROG (|eles| #1=#:G211 |i| #2=#:G210)
+  (PROG (|eles| #1=#:G187 |i| #2=#:G186)
     (RETURN
      (SEQ
       (LETT |eles|
@@ -361,10 +361,10 @@
 
 (DECLAIM (NOTINLINE |SConformal;|)) 
 
-(DEFUN |SConformal| (#1=#:G212)
+(DEFUN |SConformal| (#1=#:G188)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G213)
+     (PROG (#2=#:G189)
        (RETURN
         (COND
          ((LETT #2#

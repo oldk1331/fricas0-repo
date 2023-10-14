@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |UPMP;noKaratsuba;3U;1| (|a| |b| $)
-  (PROG (|res| #1=#:G149 |u| |lu|)
+  (PROG (|res| #1=#:G125 |u| |lu|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 9)) |a|)
@@ -75,7 +75,7 @@
           (SPADCALL |w| |d| (QREFELT $ 27)) (QREFELT $ 26))))))))) 
 
 (DEFUN |UPMP;karatsuba;2U2NniU;3| (|a| |b| |l| |k| $)
-  (PROG (|w| |v| |u| |lb| |hb| |rec| |la| |ha| #1=#:G158 |n| |d| |db| |da|)
+  (PROG (|w| |v| |u| |lb| |hb| |rec| |la| |ha| #1=#:G134 |n| |d| |db| |da|)
     (RETURN
      (SEQ
       (COND
@@ -139,10 +139,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialMultiplicationPackage;|)) 
 
-(DEFUN |UnivariatePolynomialMultiplicationPackage| (&REST #1=#:G168)
+(DEFUN |UnivariatePolynomialMultiplicationPackage| (&REST #1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G169)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#

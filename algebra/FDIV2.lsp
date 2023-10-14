@@ -23,10 +23,10 @@
 
 (DECLAIM (NOTINLINE |FiniteDivisorFunctions2;|)) 
 
-(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G161)
+(DEFUN |FiniteDivisorFunctions2| (&REST #1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NCODIV;leftDivide;2PR;1| (|a| |b| $)
-  (PROG (|q| |r| |h| #1=#:G131 |iv|)
+  (PROG (|q| |r| |h| #1=#:G107 |iv|)
     (RETURN
      (SEQ (LETT |q| (|spadConstant| $ 8) . #2=(|NCODIV;leftDivide;2PR;1|))
           (LETT |r| |a| . #2#)
@@ -121,10 +121,10 @@
 
 (DECLAIM (NOTINLINE |NonCommutativeOperatorDivision;|)) 
 
-(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G158)
+(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

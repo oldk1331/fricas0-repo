@@ -6,15 +6,15 @@
 (DEFPARAMETER |SetCategory;AL| 'NIL) 
 
 (DEFUN |SetCategory| ()
-  (LET (#:G130)
+  (LET (#:G106)
     (COND (|SetCategory;AL|) (T (SETQ |SetCategory;AL| (|SetCategory;|)))))) 
 
 (DEFUN |SetCategory;| ()
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (PROG1
          (LETT #1#
-               (|sublisV| (PAIR '(#2=#:G127) (LIST '(|OutputForm|)))
+               (|sublisV| (PAIR '(#2=#:G103) (LIST '(|OutputForm|)))
                           (|Join| (|BasicType|) (|CoercibleTo| '#2#)
                                   (|mkCategory|
                                    '(((|hash| ((|SingleInteger|) $)) T)

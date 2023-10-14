@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |CSTTOOLS;cycleElt;STU;1| (|x| $)
-  (PROG (#1=#:G139 #2=#:G145 |y| |i|)
+  (PROG (#1=#:G115 #2=#:G121 |y| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -35,7 +35,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |CSTTOOLS;computeCycleLength;STNni;2| (|cycElt| $)
-  (PROG (#1=#:G146 #2=#:G149 |y| |i|)
+  (PROG (#1=#:G122 #2=#:G125 |y| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -57,7 +57,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |CSTTOOLS;computeCycleEntry;3ST;3| (|x| |cycElt| $)
-  (PROG (|y| #1=#:G154)
+  (PROG (|y| #1=#:G130)
     (RETURN
      (SEQ
       (EXIT
@@ -81,10 +81,10 @@
 
 (DECLAIM (NOTINLINE |CyclicStreamTools;|)) 
 
-(DEFUN |CyclicStreamTools| (&REST #1=#:G155)
+(DEFUN |CyclicStreamTools| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

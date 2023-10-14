@@ -27,10 +27,10 @@
 
 (DECLAIM (NOTINLINE |Reference;|)) 
 
-(DEFUN |Reference| (#1=#:G1778)
+(DEFUN |Reference| (#1=#:G1754)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1779)
+     (PROG (#2=#:G1755)
        (RETURN
         (COND
          ((LETT #2#

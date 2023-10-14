@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PIT;split;PMR;1| (|p| |der| $)
-  (PROG (|rec1| #1=#:G133 |pbar| |gdif| |gder| |p1| |rec0| |up1| |p0| |up| |v|)
+  (PROG (|rec1| #1=#:G109 |pbar| |gdif| |gder| |p1| |rec0| |up1| |p0| |up| |v|)
     (RETURN
      (SEQ (LETT |v| (SPADCALL |p| (QREFELT $ 10)) . #2=(|PIT;split;PMR;1|))
           (EXIT
@@ -66,7 +66,7 @@
     (LETT P (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G133)
+      (PROG (#2=#:G109)
         (RETURN
          (PROG2 (LETT #2# (SPADCALL |x| |p0| (QREFELT $ 18)) NIL)
              (QCDR #2#)
@@ -74,10 +74,10 @@
 
 (DECLAIM (NOTINLINE |ParallelIntegrationTools;|)) 
 
-(DEFUN |ParallelIntegrationTools| (&REST #1=#:G145)
+(DEFUN |ParallelIntegrationTools| (&REST #1=#:G121)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G146)
+     (PROG (#2=#:G122)
        (RETURN
         (COND
          ((LETT #2#

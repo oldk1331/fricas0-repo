@@ -8,7 +8,7 @@
    |y| |x| (QREFELT $ 16))) 
 
 (DEFUN |ODEEF;solve;LLSU;2| (|leq| |lop| |x| $)
-  (PROG (#1=#:G157 |eq| #2=#:G156)
+  (PROG (#1=#:G133 |eq| #2=#:G132)
     (RETURN
      (SEQ
       (SPADCALL
@@ -48,7 +48,7 @@
              ('T (CONS 0 (QCDR (QCDR |u|)))))))))) 
 
 (DEFUN |ODEEF;solve;MVSU;5| (|m| |v| |x| $)
-  (PROG (#1=#:G194 |i| #2=#:G193 |rec| |uu| |Lx|)
+  (PROG (#1=#:G170 |i| #2=#:G169 |rec| |uu| |Lx|)
     (RETURN
      (SEQ
       (LETT |Lx|
@@ -335,8 +335,8 @@
                      (#2# (CONS 0 (QCDR |uuu|))))))))))))) 
 
 (DEFUN |ODEEF;parseSYS| (|eqs| |ly| |x| $)
-  (PROG (|rec| #1=#:G261 |u| #2=#:G268 |eq| |lk1| #3=#:G267 |f| #4=#:G266 |lk0|
-         #5=#:G265 #6=#:G264 |lf| #7=#:G263 |y| #8=#:G262 |xx| |v| |m| |n|)
+  (PROG (|rec| #1=#:G237 |u| #2=#:G244 |eq| |lk1| #3=#:G243 |f| #4=#:G242 |lk0|
+         #5=#:G241 #6=#:G240 |lf| #7=#:G239 |y| #8=#:G238 |xx| |v| |m| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -421,7 +421,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ODEEF;parseSYSeq| (|eq| |l0| |l1| |lf| |x| $)
-  (PROG (|ci| #1=#:G293 |y| |i| |v| |c| |n| |k| |l| #2=#:G292 #3=#:G291)
+  (PROG (|ci| #1=#:G269 |y| |i| |v| |c| |n| |k| |l| #2=#:G268 #3=#:G267)
     (RETURN
      (SEQ
       (LETT |l|
@@ -480,7 +480,7 @@
       (EXIT (CONS 0 (VECTOR |n| |v| (SPADCALL |eq| (QREFELT $ 75))))))))) 
 
 (DEFUN |ODEEF;parseODE| (|diffeq| |y| |x| $)
-  (PROG (|eqrhs| |d| |u| |k| |l| |ny| |c| |f| |i| |n| #1=#:G301 |m| #2=#:G317)
+  (PROG (|eqrhs| |d| |u| |k| |l| |ny| |c| |f| |i| |n| #1=#:G277 |m| #2=#:G293)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |y| (SPADCALL |x| (QREFELT $ 45)) (QREFELT $ 46))
@@ -583,7 +583,7 @@
                    (EXIT (CONS 1 (CONS |diffeq| |c|))))))))))))))) 
 
 (DEFUN |ODEEF;parseLODE| (|diffeq| |l| |p| |y| $)
-  (PROG (|d| #1=#:G320 |c| #2=#:G325 |k|)
+  (PROG (|d| #1=#:G296 |c| #2=#:G301 |k|)
     (RETURN
      (SEQ
       (COND
@@ -642,7 +642,7 @@
         "getfreelincoeff: not a linear ordinary differential equation")))))) 
 
 (DEFUN |ODEEF;getfreelincoeff1| (|f| |k| |ly| $)
-  (PROG (#1=#:G329 #2=#:G332 |y| |c|)
+  (PROG (#1=#:G305 #2=#:G308 |y| |c|)
     (RETURN
      (SEQ
       (LETT |c| (|ODEEF;getlincoeff| |f| |k| $)
@@ -679,7 +679,7 @@
             ('T (QCDR |u|)))))))) 
 
 (DEFUN |ODEEF;getcoeff| (|f| |k| $)
-  (PROG (#1=#:G346 |p| |r|)
+  (PROG (#1=#:G322 |p| |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -710,10 +710,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionODESolver;|)) 
 
-(DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G348)
+(DEFUN |ElementaryFunctionODESolver| (&REST #1=#:G324)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G349)
+     (PROG (#2=#:G325)
        (RETURN
         (COND
          ((LETT #2#

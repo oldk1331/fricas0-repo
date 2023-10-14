@@ -17,7 +17,7 @@
             (QREFELT $ 21))) 
 
 (DEFUN |GB;groebner;2L;3| (|Pol| $)
-  (PROG (#1=#:G136 |x| #2=#:G135)
+  (PROG (#1=#:G112 |x| #2=#:G111)
     (RETURN
      (SEQ
       (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
@@ -55,7 +55,7 @@
             (QREFELT $ 29))) 
 
 (DEFUN |GB;groebner;LSL;4| (|Pol| |xx1| $)
-  (PROG (#1=#:G144 |x| #2=#:G143)
+  (PROG (#1=#:G120 |x| #2=#:G119)
     (RETURN
      (SEQ
       (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
@@ -110,7 +110,7 @@
             (QREFELT $ 29))) 
 
 (DEFUN |GB;groebner;L2SL;5| (|Pol| |xx1| |xx2| $)
-  (PROG (#1=#:G155 |x| #2=#:G154)
+  (PROG (#1=#:G131 |x| #2=#:G130)
     (RETURN
      (SEQ
       (COND ((SPADCALL |Pol| NIL (QREFELT $ 23)) |Pol|)
@@ -217,10 +217,10 @@
 
 (DECLAIM (NOTINLINE |GroebnerPackage;|)) 
 
-(DEFUN |GroebnerPackage| (&REST #1=#:G156)
+(DEFUN |GroebnerPackage| (&REST #1=#:G132)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G157)
+     (PROG (#2=#:G133)
        (RETURN
         (COND
          ((LETT #2#

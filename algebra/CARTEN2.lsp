@@ -4,7 +4,7 @@
 (DEFUN |CARTEN2;reshape;LCtCt;1| (|l| |s| $) (SPADCALL |l| (QREFELT $ 12))) 
 
 (DEFUN |CARTEN2;map;MCtCt;2| (|f| |s| $)
-  (PROG (#1=#:G132 |e| #2=#:G131)
+  (PROG (#1=#:G108 |e| #2=#:G107)
     (RETURN
      (SEQ
       (SPADCALL
@@ -21,10 +21,10 @@
 
 (DECLAIM (NOTINLINE |CartesianTensorFunctions2;|)) 
 
-(DEFUN |CartesianTensorFunctions2| (&REST #1=#:G133)
+(DEFUN |CartesianTensorFunctions2| (&REST #1=#:G109)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G110)
        (RETURN
         (COND
          ((LETT #2#

@@ -8,7 +8,7 @@
             (|RETSOL;PQ2P| (SPADCALL |f| (QREFELT $ 16)) $) (QREFELT $ 18))) 
 
 (DEFUN |RETSOL;LEQQ2F| (|l| $)
-  (PROG (#1=#:G132 |eq| #2=#:G131)
+  (PROG (#1=#:G108 |eq| #2=#:G107)
     (RETURN
      (SEQ
       (PROGN
@@ -30,7 +30,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |RETSOL;solveRetract;LLL;4| (|lp| |lv| $)
-  (PROG (#1=#:G143 |l| #2=#:G142 #3=#:G141 |p| #4=#:G140 |u|)
+  (PROG (#1=#:G119 |l| #2=#:G118 #3=#:G117 |p| #4=#:G116 |u|)
     (RETURN
      (SEQ
       (LETT |u| (|RETSOL;QIfCan| |lp| $) . #5=(|RETSOL;solveRetract;LLL;4|))
@@ -63,7 +63,7 @@
                (EXIT (NREVERSE #2#))))))))))) 
 
 (DEFUN |RETSOL;QIfCan| (|l| $)
-  (PROG (|ans| #1=#:G153 |u| #2=#:G154 |p|)
+  (PROG (|ans| #1=#:G129 |u| #2=#:G130 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -83,7 +83,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |RETSOL;PQIfCan| (|p| $)
-  (PROG (|up| |ans| #1=#:G170 |v| |s| |r| |u|)
+  (PROG (|up| |ans| #1=#:G146 |v| |s| |r| |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -142,10 +142,10 @@
 
 (DECLAIM (NOTINLINE |RetractSolvePackage;|)) 
 
-(DEFUN |RetractSolvePackage| (&REST #1=#:G171)
+(DEFUN |RetractSolvePackage| (&REST #1=#:G147)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G172)
+     (PROG (#2=#:G148)
        (RETURN
         (COND
          ((LETT #2#

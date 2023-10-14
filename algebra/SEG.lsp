@@ -80,7 +80,7 @@
                         (QREFELT $ 32))))))))) 
 
 (DEFUN |SEG;expand;LL;13| (|ls| $)
-  (PROG (|l| |lr| |inc| |h| #1=#:G161 |s|)
+  (PROG (|l| |lr| |inc| |h| #1=#:G137 |s|)
     (RETURN
      (SEQ (LETT |lr| NIL . #2=(|SEG;expand;LL;13|))
           (SEQ (LETT |s| NIL . #2#) (LETT #1# |ls| . #2#) G190
@@ -150,10 +150,10 @@
 
 (DECLAIM (NOTINLINE |Segment;|)) 
 
-(DEFUN |Segment| (#1=#:G170)
+(DEFUN |Segment| (#1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#

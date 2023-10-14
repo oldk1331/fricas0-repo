@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IBATOOL;diagonalProduct;MR;1| (|m| $)
-  (PROG (|ans| #1=#:G140 |i| #2=#:G141 |j|)
+  (PROG (|ans| #1=#:G116 |i| #2=#:G117 |j|)
     (RETURN
      (SEQ
       (LETT |ans| (|spadConstant| $ 9) . #3=(|IBATOOL;diagonalProduct;MR;1|))
@@ -22,7 +22,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |IBATOOL;matrixGcd;MRNniR;2| (|mat| |sing| |n| $)
-  (PROG (#1=#:G147 |d| |mij| |j| |i|)
+  (PROG (#1=#:G123 |d| |mij| |j| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -51,7 +51,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |IBATOOL;divideIfCan!;2MRIR;3| (|matrix| |matrixOut| |prime| |n| $)
-  (PROG (#1=#:G155 |a| |j| |i|)
+  (PROG (#1=#:G131 |a| |j| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -87,7 +87,7 @@
           (EXIT |e|))))) 
 
 (DEFUN |IBATOOL;idealiserMatrix;3M;5| (|ideal| |idealinv| $)
-  (PROG (#1=#:G168 |k| #2=#:G167 |j| |m| |r| #3=#:G166 |i| |v| |mc| |mr| |bigm|
+  (PROG (#1=#:G144 |k| #2=#:G143 |j| |m| |r| #3=#:G142 |i| |v| |mc| |mr| |bigm|
          |n|)
     (RETURN
      (SEQ
@@ -141,7 +141,7 @@
                  (QREFELT $ 35))))))) 
 
 (DEFUN |IBATOOL;idealiser;2MRM;7| (|ideal| |idealinv| |denom| $)
-  (PROG (|bigm| #1=#:G172)
+  (PROG (|bigm| #1=#:G148)
     (RETURN
      (SEQ
       (LETT |bigm|
@@ -208,10 +208,10 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisTools;|)) 
 
-(DEFUN |IntegralBasisTools| (&REST #1=#:G189)
+(DEFUN |IntegralBasisTools| (&REST #1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G190)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#

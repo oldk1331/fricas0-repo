@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |QuaternionCategory;AL| 'NIL) 
 
-(DEFUN |QuaternionCategory| (#1=#:G161)
-  (LET (#2=#:G162)
+(DEFUN |QuaternionCategory| (#1=#:G137)
+  (LET (#2=#:G138)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |QuaternionCategory;AL|))
       (CDR #2#))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |QuaternionCategory;| (|t#1|)
-  (PROG (#1=#:G160)
+  (PROG (#1=#:G136)
     (RETURN
      (PROG1
          (LETT #1#

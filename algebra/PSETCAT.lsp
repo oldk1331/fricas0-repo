@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |PolynomialSetCategory;AL| 'NIL) 
 
-(DEFUN |PolynomialSetCategory| (&REST #1=#:G173)
-  (LET (#2=#:G174)
+(DEFUN |PolynomialSetCategory| (&REST #1=#:G149)
+  (LET (#2=#:G150)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PolynomialSetCategory;AL|))
       (CDR #2#))
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |PolynomialSetCategory;| (|t#1| |t#2| |t#3| |t#4|)
-  (PROG (#1=#:G172)
+  (PROG (#1=#:G148)
     (RETURN
      (PROG1
          (LETT #1#
@@ -29,7 +29,7 @@
                       (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)
                             (|devaluate| |t#3|) (|devaluate| |t#4|)))
                 (|sublisV|
-                 (PAIR '(#2=#:G170 #3=#:G171)
+                 (PAIR '(#2=#:G146 #3=#:G147)
                        (LIST '(|List| |t#4|) '(|List| |t#4|)))
                  (COND (|PolynomialSetCategory;CAT|)
                        ('T

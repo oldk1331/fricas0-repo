@@ -19,7 +19,7 @@
 (DEFUN |AlgebraicNumber| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G162)
+     (PROG (#1=#:G138)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|AlgebraicNumber|)

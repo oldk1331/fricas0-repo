@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SYMPOLY;*;3$;1| (|p1| |p2| $)
-  (PROG (#1=#:G132 #2=#:G131 #3=#:G133 #4=#:G139 |t2| #5=#:G138 #6=#:G137 |t1|)
+  (PROG (#1=#:G108 #2=#:G107 #3=#:G109 #4=#:G115 |t2| #5=#:G114 #6=#:G113 |t1|)
     (RETURN
      (SEQ
       (COND ((OR (NULL |p1|) (NULL |p2|)) (|spadConstant| $ 9))
@@ -55,7 +55,7 @@
                 (COND (#1# #2#) (#7# (|spadConstant| $ 9)))))))))))) 
 
 (DEFUN |SYMPOLY;*;3$;2| (|p1| |p2| $)
-  (PROG (#1=#:G141 #2=#:G140 #3=#:G142 |r| #4=#:G148 |t2| #5=#:G147 #6=#:G146
+  (PROG (#1=#:G117 #2=#:G116 #3=#:G118 |r| #4=#:G124 |t2| #5=#:G123 #6=#:G122
          |t1|)
     (RETURN
      (SEQ
@@ -118,10 +118,10 @@
 
 (DECLAIM (NOTINLINE |SymmetricPolynomial;|)) 
 
-(DEFUN |SymmetricPolynomial| (#1=#:G168)
+(DEFUN |SymmetricPolynomial| (#1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G169)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#
@@ -139,7 +139,7 @@
               (HREM |$ConstructorCache| '|SymmetricPolynomial|))))))))))) 
 
 (DEFUN |SymmetricPolynomial;| (|#1|)
-  (PROG (|pv$| #1=#:G164 #2=#:G165 #3=#:G166 #4=#:G167 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G140 #2=#:G141 #3=#:G142 #4=#:G143 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|SymmetricPolynomial|))

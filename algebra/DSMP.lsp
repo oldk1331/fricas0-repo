@@ -20,10 +20,10 @@
 
 (DECLAIM (NOTINLINE |DifferentialSparseMultivariatePolynomial;|)) 
 
-(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G182)
+(DEFUN |DifferentialSparseMultivariatePolynomial| (&REST #1=#:G158)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G183)
+     (PROG (#2=#:G159)
        (RETURN
         (COND
          ((LETT #2#
@@ -46,7 +46,7 @@
                     '|DifferentialSparseMultivariatePolynomial|))))))))))) 
 
 (DEFUN |DifferentialSparseMultivariatePolynomial;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G181 |pv$| #2=#:G178 #3=#:G179 #4=#:G180 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G157 |pv$| #2=#:G154 #3=#:G155 #4=#:G156 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

@@ -64,7 +64,7 @@
      (SEQ (LETT |g| |f| |AUTOMOR;apply|) (EXIT (SPADCALL |r| |n| |g|)))))) 
 
 (DEFUN |AUTOMOR;iterat| (|f| |g| |n| |r| $)
-  (PROG (#1=#:G163 #2=#:G161)
+  (PROG (#1=#:G139 #2=#:G137)
     (RETURN
      (COND
       ((< |n| 0)
@@ -127,10 +127,10 @@
 
 (DECLAIM (NOTINLINE |Automorphism;|)) 
 
-(DEFUN |Automorphism| (#1=#:G178)
+(DEFUN |Automorphism| (#1=#:G154)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G179)
+     (PROG (#2=#:G155)
        (RETURN
         (COND
          ((LETT #2#

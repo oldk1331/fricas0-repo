@@ -8,7 +8,7 @@
    ('T (SPADCALL |jv| (QREFELT $ 12))))) 
 
 (DEFUN |JBX;retractIfCan;JbeU;2| (|p| $)
-  (PROG (#1=#:G146 |jv| #2=#:G145)
+  (PROG (#1=#:G122 |jv| #2=#:G121)
     (RETURN
      (SEQ
       (COND
@@ -46,10 +46,10 @@
 
 (DECLAIM (NOTINLINE |JetBundleXExpression;|)) 
 
-(DEFUN |JetBundleXExpression| (#1=#:G210)
+(DEFUN |JetBundleXExpression| (#1=#:G186)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G211)
+     (PROG (#2=#:G187)
        (RETURN
         (COND
          ((LETT #2#
@@ -67,7 +67,7 @@
               (HREM |$ConstructorCache| '|JetBundleXExpression|))))))))))) 
 
 (DEFUN |JetBundleXExpression;| (|#1|)
-  (PROG (|pv$| #1=#:G208 #2=#:G209 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G184 #2=#:G185 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|JetBundleXExpression|))

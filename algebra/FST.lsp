@@ -93,7 +93,7 @@
 (DEFUN |FortranScalarType| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G183)
+     (PROG (#1=#:G159)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranScalarType|)

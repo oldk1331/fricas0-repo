@@ -5,7 +5,7 @@
   (|INVLAPLA;ilt| |expr| |ivar| |ovar| $)) 
 
 (DEFUN |INVLAPLA;freeOf?| (|p| |v| $)
-  (PROG (#1=#:G142 #2=#:G141 #3=#:G143 #4=#:G145 |c|)
+  (PROG (#1=#:G118 #2=#:G117 #3=#:G119 #4=#:G121 |c|)
     (RETURN
      (SEQ
       (PROGN
@@ -72,8 +72,8 @@
            (|INVLAPLA;iltsqfr| (QVELT |rsplit| 1) |t| $) (QREFELT $ 40)))))))))) 
 
 (DEFUN |INVLAPLA;iltsqfr| (|r| |t| $)
-  (PROG (#1=#:G164 #2=#:G163 #3=#:G165 #4=#:G171 |a| #5=#:G172 |b| |nl|
-         #6=#:G161 |ql| #7=#:G170 |qq| #8=#:G169 |q| |p|)
+  (PROG (#1=#:G140 #2=#:G139 #3=#:G141 #4=#:G147 |a| #5=#:G148 |b| |nl|
+         #6=#:G137 |ql| #7=#:G146 |qq| #8=#:G145 |q| |p|)
     (RETURN
      (SEQ
       (COND
@@ -145,7 +145,7 @@
                     (COND (#1# #2#) (#9# (|spadConstant| $ 17)))))))))))))))) 
 
 (DEFUN |INVLAPLA;iltirred| (|p| |q| |t| $)
-  (PROG (#1=#:G178 #2=#:G177 #3=#:G179 #4=#:G184 |root| |q1| |roots| |alpha|
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G160 |root| |q1| |roots| |alpha|
          |d| |b| |e| |c| |a| |cp|)
     (RETURN
      (SEQ
@@ -260,10 +260,10 @@
 
 (DECLAIM (NOTINLINE |InverseLaplaceTransform;|)) 
 
-(DEFUN |InverseLaplaceTransform| (&REST #1=#:G185)
+(DEFUN |InverseLaplaceTransform| (&REST #1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G186)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#

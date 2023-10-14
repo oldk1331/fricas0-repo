@@ -18,8 +18,8 @@
        (EXIT (SPADCALL (QREFELT $ 34))))) 
 
 (DEFUN |RSETGCD;toseInvertible?;PTSB;5| (|p| |ts| $)
-  (PROG (#1=#:G201 #2=#:G206 |g| #3=#:G208 |gwt| |lgwt| |ts_v-| |ts_v|
-         #4=#:G197 #5=#:G193 #6=#:G207 |bwt| |toCheck| |v| |q|)
+  (PROG (#1=#:G177 #2=#:G182 |g| #3=#:G184 |gwt| |lgwt| |ts_v-| |ts_v|
+         #4=#:G173 #5=#:G169 #6=#:G183 |bwt| |toCheck| |v| |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -98,9 +98,9 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RSETGCD;toseInvertible?;PTSL;6| (|p| |ts| $)
-  (PROG (|lbwt| #1=#:G237 |bwt| #2=#:G236 |inv| |ts_h| |h| |ts_g| |g| #3=#:G235
-         |gwt| |lgwt| |ts_v+| |ts_v-| |ts_v| #4=#:G216 #5=#:G233 |newq|
-         #6=#:G234 |toCheck| |v| |q|)
+  (PROG (|lbwt| #1=#:G213 |bwt| #2=#:G212 |inv| |ts_h| |h| |ts_g| |g| #3=#:G211
+         |gwt| |lgwt| |ts_v+| |ts_v-| |ts_v| #4=#:G192 #5=#:G209 |newq|
+         #6=#:G210 |toCheck| |v| |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -255,8 +255,8 @@
   (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 64))) 
 
 (DEFUN |RSETGCD;toseInvertibleSet;PTSL;7| (|p| |ts| $)
-  (PROG (|toSave| |inv| |ts_h| |h| |g| #1=#:G266 |gwt| |lgwt| |ts_v+| |ts_v-|
-         |ts_v| #2=#:G249 #3=#:G264 |newq| #4=#:G265 |bwt| |toCheck| |v| |q|
+  (PROG (|toSave| |inv| |ts_h| |h| |g| #1=#:G242 |gwt| |lgwt| |ts_v+| |ts_v-|
+         |ts_v| #2=#:G225 #3=#:G240 |newq| #4=#:G241 |bwt| |toCheck| |v| |q|
          |e| |k|)
     (RETURN
      (SEQ
@@ -423,7 +423,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |RSETGCD;toseSquareFreePart_wip| (|p| |ts| $)
-  (PROG (|lpwt| |sfp| |g| |us| #1=#:G275 |gwt| |lgwt| |q| |v|)
+  (PROG (|lpwt| |sfp| |g| |us| #1=#:G251 |gwt| |lgwt| |q| |v|)
     (RETURN
      (SEQ
       (COND ((EQL (SPADCALL |p| (QREFELT $ 77)) 1) (LIST (CONS |p| |ts|)))
@@ -466,7 +466,7 @@
   (|RSETGCD;toseSquareFreePart_wip| |p| |ts| $)) 
 
 (DEFUN |RSETGCD;prepareSubResAlgo;2PTSL;11| (|p1| |p2| |ts| $)
-  (PROG (|toSee| |toSave| |newp2| |s| #1=#:G282 |p3| #2=#:G295 |bwt| |lbwt|
+  (PROG (|toSee| |toSave| |newp2| |s| #1=#:G258 |p3| #2=#:G271 |bwt| |lbwt|
          |lpwt| |v|)
     (RETURN
      (SEQ
@@ -587,7 +587,7 @@
 
 (DEFUN |RSETGCD;internalLastSubResultant;2PTS2BL;13|
        (|p1| |p2| |ts| |b1| |b2| $)
-  (PROG (|toSave| |toSee| |s| #1=#:G310 |p3| #2=#:G315 |e| |k|)
+  (PROG (|toSave| |toSee| |s| #1=#:G286 |p3| #2=#:G291 |e| |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -639,9 +639,9 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RSETGCD;internalLastSubResultant;LVBL;14| (|llpwt| |v| |b2| $)
-  (PROG (#1=#:G338 |lpwt| |s| |p2| |p1| |#G80| |#G79| |toReturn| #2=#:G337 |p3|
-         |delta| #3=#:G325 |toSee| #4=#:G334 #5=#:G336 |bwt| |lbwt| |ts|
-         #6=#:G335)
+  (PROG (#1=#:G314 |lpwt| |s| |p2| |p1| |#G80| |#G79| |toReturn| #2=#:G313 |p3|
+         |delta| #3=#:G301 |toSee| #4=#:G310 #5=#:G312 |bwt| |lbwt| |ts|
+         #6=#:G311)
     (RETURN
      (SEQ
       (EXIT
@@ -846,10 +846,10 @@
 
 (DECLAIM (NOTINLINE |RegularTriangularSetGcdPackage;|)) 
 
-(DEFUN |RegularTriangularSetGcdPackage| (&REST #1=#:G352)
+(DEFUN |RegularTriangularSetGcdPackage| (&REST #1=#:G328)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G353)
+     (PROG (#2=#:G329)
        (RETURN
         (COND
          ((LETT #2#

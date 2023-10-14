@@ -73,7 +73,7 @@
                                 (QREFELT $ 41)))))))))))) 
 
 (DEFUN |RCFIELD-;^;SFS;8| (|x| |rn| $)
-  (PROG (#1=#:G166)
+  (PROG (#1=#:G142)
     (RETURN
      (SPADCALL (SPADCALL |x| (SPADCALL |rn| (QREFELT $ 45)) (QREFELT $ 46))
                (PROG1
@@ -82,7 +82,7 @@
                (QREFELT $ 8))))) 
 
 (DEFUN |RCFIELD-;nthRoot;SIS;9| (|x| |n| $)
-  (PROG (#1=#:G170 #2=#:G168)
+  (PROG (#1=#:G146 #2=#:G144)
     (RETURN
      (COND ((ZEROP |n|) |x|)
            ((MINUSP |n|)

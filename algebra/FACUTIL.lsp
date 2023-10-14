@@ -33,8 +33,8 @@
           (QREFELT $ 22))))) 
 
 (DEFUN |FACUTIL;degree;SupLL;4| (|f| |lvar| $)
-  (PROG (|ldeg| #1=#:G137 #2=#:G136 #3=#:G138 #4=#:G144 |fc| #5=#:G143 |xx|
-         #6=#:G142 |coefs|)
+  (PROG (|ldeg| #1=#:G113 #2=#:G112 #3=#:G114 #4=#:G120 |fc| #5=#:G119 |xx|
+         #6=#:G118 |coefs|)
     (RETURN
      (SEQ
       (LETT |coefs| (SPADCALL |f| (QREFELT $ 37))
@@ -82,7 +82,7 @@
              . #7#)))))) 
 
 (DEFUN |FACUTIL;variables;SupL;5| (|f| $)
-  (PROG (#1=#:G146 #2=#:G145 #3=#:G147 #4=#:G149 |cf|)
+  (PROG (#1=#:G122 #2=#:G121 #3=#:G123 #4=#:G125 |cf|)
     (RETURN
      (SEQ
       (PROGN
@@ -108,7 +108,7 @@
             (QREFELT $ 49))) 
 
 (DEFUN |FACUTIL;normalDeriv;SupISup;8| (|f| |m| $)
-  (PROG (|n| |ris| #1=#:G154 |n1| |k| |#G1|)
+  (PROG (|n| |ris| #1=#:G130 |n1| |k| |#G1|)
     (RETURN
      (SEQ
       (LETT |#G1| (SPADCALL |f| (QREFELT $ 18))
@@ -154,10 +154,10 @@
 
 (DECLAIM (NOTINLINE |FactoringUtilities;|)) 
 
-(DEFUN |FactoringUtilities| (&REST #1=#:G160)
+(DEFUN |FactoringUtilities| (&REST #1=#:G136)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G137)
        (RETURN
         (COND
          ((LETT #2#

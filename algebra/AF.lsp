@@ -86,7 +86,7 @@
         ('T (|error| "Unknown operator")))) 
 
 (DEFUN |AF;inrootof;Sup2F;7| (|q| |x| $)
-  (PROG (#1=#:G220 |r| |rx| |d|)
+  (PROG (#1=#:G196 |r| |rx| |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |q| (QREFELT $ 53)) (|spadConstant| $ 54))
@@ -131,7 +131,7 @@
                   #1# (EXIT #1#)))))))))))) 
 
 (DEFUN |AF;UP2R| (|p| $)
-  (PROG (|ans| #1=#:G234 |r|)
+  (PROG (|ans| #1=#:G210 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -225,7 +225,7 @@
                            (QREFELT $ 85))))))))))))) 
 
 (DEFUN |AF;root_sum1| (|expr| |p| |x| $)
-  (PROG (|nexpr| |res| #1=#:G259 |i| |xs| |k|)
+  (PROG (|nexpr| |res| #1=#:G235 |i| |xs| |k|)
     (RETURN
      (SEQ
       (COND
@@ -422,7 +422,7 @@
                  (QREFELT $ 114))))))) 
 
 (DEFUN |AF;hackroot| (|x| |n| $)
-  (PROG (#1=#:G401 |rx| |dx|)
+  (PROG (#1=#:G377 |rx| |dx|)
     (RETURN
      (SEQ
       (EXIT
@@ -479,7 +479,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |AF;inroot| (|l| $)
-  (PROG (|pr| |u| |r| #1=#:G415 |x| |n|)
+  (PROG (|pr| |u| |r| #1=#:G391 |x| |n|)
     (RETURN
      (SEQ
       (COND
@@ -533,7 +533,7 @@
          #1# (EXIT #1#)))))))) 
 
 (DEFUN |AF;inroot0| (|x| |n| |num?| |den?| $)
-  (PROG (#1=#:G419 |rec| #2=#:G428 #3=#:G425 #4=#:G421 |rd| |rn|)
+  (PROG (#1=#:G395 |rec| #2=#:G404 #3=#:G401 #4=#:G397 |rd| |rn|)
     (RETURN
      (SEQ
       (LETT |rn|
@@ -636,7 +636,7 @@
 (DEFUN |AF;iroot;RIF;26| (|r| |n| $) (|AF;iroot0| |r| |n| $)) 
 
 (DEFUN |AF;iroot0| (|r| |n| $)
-  (PROG (|rec| #1=#:G440)
+  (PROG (|rec| #1=#:G416)
     (RETURN
      (SEQ
       (LETT |rec|
@@ -676,7 +676,7 @@
         (#2# (SPADCALL (QREFELT $ 116) |x| (QREFELT $ 153))))))))) 
 
 (DEFUN |AF;minPoly;KSup;29| (|k| $)
-  (PROG (#1=#:G451)
+  (PROG (#1=#:G427)
     (RETURN
      (COND
       ((SPADCALL |k| (QREFELT $ 13) (QREFELT $ 142))
@@ -736,10 +736,10 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunction;|)) 
 
-(DEFUN |AlgebraicFunction| (&REST #1=#:G464)
+(DEFUN |AlgebraicFunction| (&REST #1=#:G440)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G465)
+     (PROG (#2=#:G441)
        (RETURN
         (COND
          ((LETT #2#

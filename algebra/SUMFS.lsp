@@ -37,7 +37,7 @@
              ('T (QCDR |u|)))))))) 
 
 (DEFUN |SUMFS;notRF?| (|f| |k| $)
-  (PROG (#1=#:G147 #2=#:G149 #3=#:G150 |kk|)
+  (PROG (#1=#:G123 #2=#:G125 #3=#:G126 |kk|)
     (RETURN
      (SEQ
       (EXIT
@@ -109,10 +109,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceSum;|)) 
 
-(DEFUN |FunctionSpaceSum| (&REST #1=#:G158)
+(DEFUN |FunctionSpaceSum| (&REST #1=#:G134)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G159)
+     (PROG (#2=#:G135)
        (RETURN
         (COND
          ((LETT #2#

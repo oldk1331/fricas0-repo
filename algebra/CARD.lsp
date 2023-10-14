@@ -70,7 +70,7 @@
    ((EQL |n| 0) (|spadConstant| $ 12)) ('T |x|))) 
 
 (DEFUN |CARD;^;3$;12| (|x| |y| $)
-  (PROG (#1=#:G182)
+  (PROG (#1=#:G158)
     (RETURN
      (COND
       ((SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25))
@@ -100,7 +100,7 @@
 (DEFUN |CARD;countable?;$B;14| (|x| $) (< (QCAR |x|) 1)) 
 
 (DEFUN |CARD;retract;$Nni;15| (|x| $)
-  (PROG (#1=#:G191)
+  (PROG (#1=#:G167)
     (RETURN
      (COND
       ((SPADCALL |x| (QREFELT $ 24))
@@ -109,7 +109,7 @@
       ('T (|error| "Not finite")))))) 
 
 (DEFUN |CARD;retractIfCan;$U;16| (|x| $)
-  (PROG (#1=#:G197)
+  (PROG (#1=#:G173)
     (RETURN
      (COND
       ((SPADCALL |x| (QREFELT $ 24))
@@ -129,7 +129,7 @@
 (DEFUN |CardinalNumber| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G206)
+     (PROG (#1=#:G182)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|)

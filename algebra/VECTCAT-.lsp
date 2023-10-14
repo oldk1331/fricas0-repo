@@ -55,7 +55,7 @@
     (RETURN (PROGN (SPADCALL |r| |x| (QREFELT $ 29)))))) 
 
 (DEFUN |VECTCAT-;dot;2SR;8| (|u| |v| $)
-  (PROG (#1=#:G152 #2=#:G151 #3=#:G153 #4=#:G156 |i|)
+  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G132 |i|)
     (RETURN
      (SEQ
       (COND
@@ -83,7 +83,7 @@
          (COND (#1# #2#) (#5# (|spadConstant| $ 17)))))))))) 
 
 (DEFUN |VECTCAT-;outerProduct;2SM;9| (|u| |v| $)
-  (PROG (#1=#:G163 |i| #2=#:G162 #3=#:G161 |j| #4=#:G160)
+  (PROG (#1=#:G139 |i| #2=#:G138 #3=#:G137 |j| #4=#:G136)
     (RETURN
      (SEQ
       (SPADCALL

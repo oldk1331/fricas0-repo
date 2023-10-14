@@ -18,7 +18,7 @@
   (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 19))) 
 
 (DEFUN |IJB;index;$Pi;4| (|jv| $)
-  (PROG (#1=#:G139)
+  (PROG (#1=#:G115)
     (RETURN
      (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |IJB;index;$Pi;4|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -32,7 +32,7 @@
                  ((EQL |t| 2) '|Dep|) ('T '|Deriv|))))))) 
 
 (DEFUN |IJB;CheckZeroIndex| (|il| $)
-  (PROG (#1=#:G147 #2=#:G148 |i|)
+  (PROG (#1=#:G123 #2=#:G124 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -57,7 +57,7 @@
    ('T (LIST 1 |up|)))) 
 
 (DEFUN |IJB;U;Pi$;8| (|up| $)
-  (PROG (#1=#:G153 |i| #2=#:G152)
+  (PROG (#1=#:G129 |i| #2=#:G128)
     (RETURN
      (SEQ
       (COND
@@ -92,8 +92,8 @@
 (DEFUN |IJB;numDepVar;Pi;12| ($) (QREFELT $ 10)) 
 
 (DEFUN |IJB;name;$S;13| (|jv| $)
-  (PROG (#1=#:G176 |j| #2=#:G175 #3=#:G174 #4=#:G173 #5=#:G172 |i| #6=#:G171
-         #7=#:G170 #8=#:G169 |jt|)
+  (PROG (#1=#:G152 |j| #2=#:G151 #3=#:G150 #4=#:G149 #5=#:G148 |i| #6=#:G147
+         #7=#:G146 #8=#:G145 |jt|)
     (RETURN
      (SEQ (LETT |jt| (SPADCALL |jv| (QREFELT $ 24)) . #9=(|IJB;name;$S;13|))
           (EXIT
@@ -246,7 +246,7 @@
 (DEFUN |IJB;opdisp| (|l| $) (|SPADfirst| |l|)) 
 
 (DEFUN |IJB;coerce;$E;15| (|jv| $)
-  (PROG (|arg| #1=#:G187 |j| #2=#:G186 #3=#:G185 |i| #4=#:G184 |jop| |tmp|
+  (PROG (|arg| #1=#:G163 |j| #2=#:G162 #3=#:G161 |i| #4=#:G160 |jop| |tmp|
          |opname|)
     (RETURN
      (SEQ
@@ -309,10 +309,10 @@
 
 (DECLAIM (NOTINLINE |IndexedJetBundle;|)) 
 
-(DEFUN |IndexedJetBundle| (&REST #1=#:G194)
+(DEFUN |IndexedJetBundle| (&REST #1=#:G170)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G195)
+     (PROG (#2=#:G171)
        (RETURN
         (COND
          ((LETT #2#

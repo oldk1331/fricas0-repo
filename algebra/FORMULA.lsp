@@ -32,7 +32,7 @@
           (EXIT |f|))))) 
 
 (DEFUN |FORMULA;display;$IV;4| (|f| |len| $)
-  (PROG (#1=#:G165 |s| #2=#:G164 |t| #3=#:G163 #4=#:G162)
+  (PROG (#1=#:G141 |s| #2=#:G140 |t| #3=#:G139 #4=#:G138)
     (RETURN
      (SEQ
       (SEQ (LETT |s| NIL . #5=(|FORMULA;display;$IV;4|))
@@ -91,7 +91,7 @@
 (DEFUN |FORMULA;setEpilogue!;$2L;11| (|f| |l| $) (QSETVELT |f| 2 |l|)) 
 
 (DEFUN |FORMULA;coerce;$Of;12| (|f| $)
-  (PROG (|l| #1=#:G182 |s| #2=#:G181 |t| #3=#:G180 #4=#:G179)
+  (PROG (|l| #1=#:G158 |s| #2=#:G157 |t| #3=#:G156 #4=#:G155)
     (RETURN
      (SEQ (LETT |l| NIL . #5=(|FORMULA;coerce;$Of;12|))
           (SEQ (LETT |s| NIL . #5#) (LETT #4# (QVELT |f| 0) . #5#) G190
@@ -125,7 +125,7 @@
           (EXIT (SPADCALL (REVERSE |l|) (QREFELT $ 40))))))) 
 
 (DEFUN |FORMULA;postcondition| (|str| $)
-  (PROG (#1=#:G189 |i| |minus| |plus| |len|)
+  (PROG (#1=#:G165 |i| |minus| |plus| |len|)
     (RETURN
      (SEQ (LETT |len| (QCSIZE |str|) . #2=(|FORMULA;postcondition|))
           (EXIT
@@ -159,7 +159,7 @@
        (EXIT (|FORMULA;splitLong1| |str| |len| $)))) 
 
 (DEFUN |FORMULA;splitLong1| (|str| |len| $)
-  (PROG (|l| |s| |ls| |lss| #1=#:G200 |ss|)
+  (PROG (|l| |s| |ls| |lss| #1=#:G176 |ss|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|FORMULA;splitLong1|)) (LETT |s| "" . #2#)
           (LETT |ls| 0 . #2#)
@@ -527,7 +527,7 @@
   (|FORMULA;group| (|FORMULA;formatNaryNoGroup| |op| |args| |prec| $) $)) 
 
 (DEFUN |FORMULA;formatNaryNoGroup| (|op| |args| |prec| $)
-  (PROG (|s| |l| #1=#:G249 |a| |opPrec| |p|)
+  (PROG (|s| |l| #1=#:G225 |a| |opPrec| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |args|) "")
@@ -651,7 +651,7 @@
 (DEFUN |ScriptFormulaFormat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G265)
+     (PROG (#1=#:G241)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ScriptFormulaFormat|)

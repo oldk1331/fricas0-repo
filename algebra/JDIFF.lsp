@@ -24,7 +24,7 @@
               (QREFELT $ 27))))) 
 
 (DEFUN |JDIFF;coerce;$Of;6| (|om| $)
-  (PROG (#1=#:G160 |c| #2=#:G161 |jb| #3=#:G159)
+  (PROG (#1=#:G136 |c| #2=#:G137 |jb| #3=#:G135)
     (RETURN
      (SEQ
       (COND
@@ -78,7 +78,7 @@
 (DEFUN |JDIFF;zero?;$B;12| (|om| $) (NULL (QCDR |om|))) 
 
 (DEFUN |JDIFF;-;2$;13| (|om| $)
-  (PROG (#1=#:G172 |c| #2=#:G171)
+  (PROG (#1=#:G148 |c| #2=#:G147)
     (RETURN
      (SEQ
       (CONS
@@ -94,7 +94,7 @@
        (QCDR |om|)))))) 
 
 (DEFUN |JDIFF;+;3$;14| (|om1| |om2| $)
-  (PROG (|lj2| |lc2| |resJ| |resC| |sum| #1=#:G189 |c1| #2=#:G190 |j1|)
+  (PROG (|lj2| |lc2| |resJ| |resC| |sum| #1=#:G165 |c1| #2=#:G166 |j1|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |om1| (QREFELT $ 48)) |om2|)
@@ -154,7 +154,7 @@
                      (SPADCALL (NREVERSE |resJ|) |lj2| (QREFELT $ 56))))))))))) 
 
 (DEFUN |JDIFF;*;D2$;15| (|f| |om| $)
-  (PROG (#1=#:G195 |c| #2=#:G194)
+  (PROG (#1=#:G171 |c| #2=#:G170)
     (RETURN
      (SEQ
       (COND ((SPADCALL |f| (QREFELT $ 54)) (|spadConstant| $ 47))
@@ -175,7 +175,7 @@
               (QCDR |om|)))))))) 
 
 (DEFUN |JDIFF;d;D$;16| (|f| $)
-  (PROG (|Co| #1=#:G201 |jv| #2=#:G200 JV)
+  (PROG (|Co| #1=#:G177 |jv| #2=#:G176 JV)
     (RETURN
      (SEQ
       (LETT JV (NREVERSE (SPADCALL |f| (QREFELT $ 60))) . #3=(|JDIFF;d;D$;16|))
@@ -203,7 +203,7 @@
                (EXIT (CONS |Co| JV)))))))))) 
 
 (DEFUN |JDIFF;eval;$JvfD;17| (|om| |v| $)
-  (PROG (|lj2| |lc2| |res| #1=#:G214 |c1| #2=#:G215 |j1|)
+  (PROG (|lj2| |lc2| |res| #1=#:G190 |c1| #2=#:G191 |j1|)
     (RETURN
      (SEQ
       (COND
@@ -257,10 +257,10 @@
 
 (DECLAIM (NOTINLINE |JetDifferential;|)) 
 
-(DEFUN |JetDifferential| (&REST #1=#:G221)
+(DEFUN |JetDifferential| (&REST #1=#:G197)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G222)
+     (PROG (#2=#:G198)
        (RETURN
         (COND
          ((LETT #2#
@@ -278,7 +278,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|JetDifferential|))))))))))) 
 
 (DEFUN |JetDifferential;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G220 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G196 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|JetDifferential|))

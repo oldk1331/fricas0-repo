@@ -12,7 +12,7 @@
 (DEFUN |BinaryExpansion| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G163)
+     (PROG (#1=#:G139)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|BinaryExpansion|)
@@ -29,7 +29,7 @@
              ((NOT #1#) (HREM |$ConstructorCache| '|BinaryExpansion|))))))))))) 
 
 (DEFUN |BinaryExpansion;| ()
-  (PROG (|dv$| $ #1=#:G161 |pv$|)
+  (PROG (|dv$| $ #1=#:G137 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|BinaryExpansion|) . #2=(|BinaryExpansion|))

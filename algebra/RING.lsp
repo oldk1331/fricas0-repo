@@ -6,11 +6,11 @@
 (DEFPARAMETER |Ring;AL| 'NIL) 
 
 (DEFUN |Ring| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|Ring;AL|) (T (SETQ |Ring;AL| (|Ring;|)))))) 
 
 (DEFUN |Ring;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

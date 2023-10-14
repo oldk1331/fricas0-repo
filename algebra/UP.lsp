@@ -9,10 +9,10 @@
 
 (DECLAIM (NOTINLINE |UnivariatePolynomial;|)) 
 
-(DEFUN |UnivariatePolynomial| (&REST #1=#:G179)
+(DEFUN |UnivariatePolynomial| (&REST #1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G180)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#
@@ -31,7 +31,7 @@
               (HREM |$ConstructorCache| '|UnivariatePolynomial|))))))))))) 
 
 (DEFUN |UnivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G178 |pv$| #2=#:G175 #3=#:G176 #4=#:G177 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G154 |pv$| #2=#:G151 #3=#:G152 #4=#:G153 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|UnivariatePolynomial|))

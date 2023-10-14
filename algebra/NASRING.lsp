@@ -6,12 +6,12 @@
 (DEFPARAMETER |NonAssociativeRing;AL| 'NIL) 
 
 (DEFUN |NonAssociativeRing| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|NonAssociativeRing;AL|)
           (T (SETQ |NonAssociativeRing;AL| (|NonAssociativeRing;|)))))) 
 
 (DEFUN |NonAssociativeRing;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

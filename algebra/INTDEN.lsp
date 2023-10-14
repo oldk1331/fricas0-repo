@@ -16,10 +16,10 @@
   (|error| "No factor for polynomials over R")) 
 
 (DEFUN |INTDEN;li_factors| (|df| |k| |lk| |x| $)
-  (PROG (|res| |f2| |k2| #1=#:G245 |c| #2=#:G246 |ki| #3=#:G244 |u1| #4=#:G242
-         |ui| #5=#:G243 #6=#:G241 |d| |cd| |sv| |su| |ulst| #7=#:G240 |kk|
-         #8=#:G239 |dvvec| #9=#:G238 #10=#:G237 |vlst| #11=#:G236 #12=#:G235
-         |rsum| |deg1| |f1| #13=#:G234 |fac| |u0| |nk| |dummy| |lfac|)
+  (PROG (|res| |f2| |k2| #1=#:G221 |c| #2=#:G222 |ki| #3=#:G220 |u1| #4=#:G218
+         |ui| #5=#:G219 #6=#:G217 |d| |cd| |sv| |su| |ulst| #7=#:G216 |kk|
+         #8=#:G215 |dvvec| #9=#:G214 #10=#:G213 |vlst| #11=#:G212 #12=#:G211
+         |rsum| |deg1| |f1| #13=#:G210 |fac| |u0| |nk| |dummy| |lfac|)
     (RETURN
      (SEQ
       (LETT |lfac| (SPADCALL (SPADCALL |df| (QREFELT $ 23)) (QREFELT $ 26))
@@ -365,10 +365,10 @@
                 (QREFELT $ 44)))))) 
 
 (DEFUN |INTDEN;poly_factors| (|df| |k| |lk| |x| $)
-  (PROG (|res| |f2| |k2| #1=#:G313 |c| #2=#:G314 |ki| #3=#:G312 |u1| #4=#:G310
-         |ui| #5=#:G311 #6=#:G309 |d| |cd| |sv| |su| |ulst| #7=#:G308 |kk|
-         #8=#:G307 |dvvec| #9=#:G306 #10=#:G305 |vlst| #11=#:G304 #12=#:G303
-         |lprod| |f1| |tc| |deg1| #13=#:G302 |fac| |v0| |nk| |dummy| |lfac|)
+  (PROG (|res| |f2| |k2| #1=#:G289 |c| #2=#:G290 |ki| #3=#:G288 |u1| #4=#:G286
+         |ui| #5=#:G287 #6=#:G285 |d| |cd| |sv| |su| |ulst| #7=#:G284 |kk|
+         #8=#:G283 |dvvec| #9=#:G282 #10=#:G281 |vlst| #11=#:G280 #12=#:G279
+         |lprod| |f1| |tc| |deg1| #13=#:G278 |fac| |v0| |nk| |dummy| |lfac|)
     (RETURN
      (SEQ
       (LETT |lfac| (SPADCALL (SPADCALL |df| (QREFELT $ 23)) (QREFELT $ 26))
@@ -768,7 +768,7 @@
 
 (DEFUN |INTDEN;decompose| (|nn| |elden| |lidens| $)
   (PROG (|res| |l1| |elfac| |cden| |cnum| |ct| |i| |nfacs| |pfr| |nd| |fdens|
-         |ndf1| #1=#:G331 |nden| #2=#:G330 |ndens| |nden1|)
+         |ndf1| #1=#:G307 |nden| #2=#:G306 |ndens| |nden1|)
     (RETURN
      (SEQ (LETT |nden1| |elden| . #3=(|INTDEN;decompose|))
           (LETT |ndens| |lidens| . #3#)
@@ -822,7 +822,7 @@
                   (EXIT (CONS (LIST |elfac| |nden1|) |res|)))))))))) 
 
 (DEFUN |INTDEN;p_power_in_q| (|p| |q| $)
-  (PROG (|res| #1=#:G333 |qq|)
+  (PROG (|res| #1=#:G309 |qq|)
     (RETURN
      (SEQ (LETT |res| 0 . #2=(|INTDEN;p_power_in_q|))
           (SEQ G190
@@ -868,11 +868,11 @@
        ('T (SPADCALL (SPADCALL |k| (QREFELT $ 61)) (QREFELT $ 104)))))))) 
 
 (DEFUN |INTDEN;li_int1| (|f| |u| |x| $)
-  (PROG (#1=#:G398 |c| |j| #2=#:G397 |sl| |sl0| |eqsl| |eqs| #3=#:G395 |p1|
-         #4=#:G396 |coef| |lpow| |pp| #5=#:G394 |lpow0| |coefs| #6=#:G393 |nf1|
-         |cc| #7=#:G388 |ccru| |ccu| |dup| #8=#:G361 |nup| #9=#:G359 |n| |m|
-         |qu| |degdu| |degnu| |degdf| |degnf| |du| |nu| |df1| |vk2| #10=#:G392
-         |k| #11=#:G391 |f1| |deru| |k1| |vk| #12=#:G390 #13=#:G389)
+  (PROG (#1=#:G374 |c| |j| #2=#:G373 |sl| |sl0| |eqsl| |eqs| #3=#:G371 |p1|
+         #4=#:G372 |coef| |lpow| |pp| #5=#:G370 |lpow0| |coefs| #6=#:G369 |nf1|
+         |cc| #7=#:G364 |ccru| |ccu| |dup| #8=#:G337 |nup| #9=#:G335 |n| |m|
+         |qu| |degdu| |degnu| |degdf| |degnf| |du| |nu| |df1| |vk2| #10=#:G368
+         |k| #11=#:G367 |f1| |deru| |k1| |vk| #12=#:G366 #13=#:G365)
     (RETURN
      (SEQ
       (EXIT
@@ -1271,10 +1271,10 @@
   (SPADCALL (SPADCALL |x1| (QREFELT $ 56)) (QREFELT $ 143))) 
 
 (DEFUN |INTDEN;li_int3| (|f| |rf| |k| |lk| |x| $)
-  (PROG (|res| #1=#:G441 |zz| |lle| |logs| #2=#:G440 |e| |zzl| |rf1k| |elpart|
-         |lli| #3=#:G435 |liu| |tf| |c_shift| |ddf| |rf1| |rfc| |deg1| |linum|
-         |u1| #4=#:G439 |lifac| |cfac| |liden| #5=#:G438 |ldr| |u0| |dummy|
-         |lifacs| |elfac| |dn| |elden| |lidens| #6=#:G437 #7=#:G436 |ldrs|)
+  (PROG (|res| #1=#:G417 |zz| |lle| |logs| #2=#:G416 |e| |zzl| |rf1k| |elpart|
+         |lli| #3=#:G411 |liu| |tf| |c_shift| |ddf| |rf1| |rfc| |deg1| |linum|
+         |u1| #4=#:G415 |lifac| |cfac| |liden| #5=#:G414 |ldr| |u0| |dummy|
+         |lifacs| |elfac| |dn| |elden| |lidens| #6=#:G413 #7=#:G412 |ldrs|)
     (RETURN
      (SEQ
       (EXIT
@@ -1695,12 +1695,12 @@
          (EXIT (SPADCALL |c| |res| (QREFELT $ 52)))))))))) 
 
 (DEFUN |INTDEN;poly_int3| (|f| |rf| |k| |lk| |x| $)
-  (PROG (|res| #1=#:G484 |zz| |lle| #2=#:G475 |ii| #3=#:G483 |e| |zzl| |rf1k|
+  (PROG (|res| #1=#:G460 |zz| |lle| #2=#:G451 |ii| #3=#:G459 |e| |zzl| |rf1k|
          |elpart| |lpoly| |polyu| |tf| |c_shift| |ddf| |rf1| |rfc| |deg1|
-         |polynum| |v1| #4=#:G482 |polyfac| |cfac| |polyden| #5=#:G480 |ldr|
-         #6=#:G481 |polyden1| |logs| |u0| |dummy| |polyfacs| |elfac| |dn|
-         |elden| |polydens1| #7=#:G479 |p| #8=#:G478 |polydens| #9=#:G477
-         #10=#:G476 |ldrs|)
+         |polynum| |v1| #4=#:G458 |polyfac| |cfac| |polyden| #5=#:G456 |ldr|
+         #6=#:G457 |polyden1| |logs| |u0| |dummy| |polyfacs| |elfac| |dn|
+         |elden| |polydens1| #7=#:G455 |p| #8=#:G454 |polydens| #9=#:G453
+         #10=#:G452 |ldrs|)
     (RETURN
      (SEQ
       (EXIT
@@ -2022,7 +2022,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |INTDEN;li_int;FKSR;15| (|rf| |k| |x| $)
-  (PROG (|res| |lk| #1=#:G492 |kk| #2=#:G491 |f|)
+  (PROG (|res| |lk| #1=#:G468 |kk| #2=#:G467 |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |rf| |k| (QREFELT $ 186))
@@ -2056,7 +2056,7 @@
         (#4# (QCDR |res|)))))))) 
 
 (DEFUN |INTDEN;poly_int;FKSR;16| (|rf| |k| |x| $)
-  (PROG (|res| |lk| #1=#:G499 |kk| #2=#:G498 |f|)
+  (PROG (|res| |lk| #1=#:G475 |kk| #2=#:G474 |f|)
     (RETURN
      (SEQ
       (LETT |f| (SPADCALL |rf| |k| (QREFELT $ 186))
@@ -2091,10 +2091,10 @@
 
 (DECLAIM (NOTINLINE |DenominatorIntegration;|)) 
 
-(DEFUN |DenominatorIntegration| (#1=#:G500)
+(DEFUN |DenominatorIntegration| (#1=#:G476)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G501)
+     (PROG (#2=#:G477)
        (RETURN
         (COND
          ((LETT #2#
@@ -2146,7 +2146,7 @@
               (6 . |coerce|) (|SparseUnivariatePolynomial| 12) (|Mapping| 12 9)
               (|SparseUnivariatePolynomial| 9)
               (|SparseUnivariatePolynomialFunctions2| 9 12) (11 . |map|)
-              '#:G127 (|Factored| 9)
+              '#:G103 (|Factored| 9)
               (|MultivariateFactorize| 8 (|IndexedExponents| 8) 6 9)
               (17 . |factor|) (22 . |factor|)
               (|Record| (|:| |factor| 9) (|:| |exponent| 31)) (|List| 24)

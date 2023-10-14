@@ -121,10 +121,10 @@
 
 (DECLAIM (NOTINLINE |DenavitHartenbergMatrix;|)) 
 
-(DEFUN |DenavitHartenbergMatrix| (#1=#:G151)
+(DEFUN |DenavitHartenbergMatrix| (#1=#:G127)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G128)
        (RETURN
         (COND
          ((LETT #2#
@@ -142,7 +142,7 @@
               (HREM |$ConstructorCache| '|DenavitHartenbergMatrix|))))))))))) 
 
 (DEFUN |DenavitHartenbergMatrix;| (|#1|)
-  (PROG (|pv$| #1=#:G148 #2=#:G149 #3=#:G150 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G124 #2=#:G125 #3=#:G126 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|DenavitHartenbergMatrix|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |STR;qelt| (|m| |i| |j| $)
-  (PROG (#1=#:G131)
+  (PROG (#1=#:G107)
     (RETURN
      (QAREF1
       (QAREF1
@@ -85,7 +85,7 @@
 
 (DEFUN |STR;stranslate;6Df$;6|
        (|offsetx| |offsety| |offsetz| |scalex| |scaley| |scalez| $)
-  (PROG (#1=#:G168 |pp| |trConf| CA |m|)
+  (PROG (#1=#:G144 |pp| |trConf| CA |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -171,7 +171,7 @@
 (DEFUN |STR;identity;$;7| ($) (CONS 3 "iden")) 
 
 (DEFUN |STR;applyTransPt2| (|tr| |inpt| $)
-  (PROG (|b| #1=#:G131 |a| |vin| #2=#:G176)
+  (PROG (|b| #1=#:G107 |a| |vin| #2=#:G152)
     (RETURN
      (SEQ
       (EXIT
@@ -272,7 +272,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;applyTransPt3| (|tr| |inpt| $)
-  (PROG (|c| #1=#:G131 |b| |a| |vin| #2=#:G183)
+  (PROG (|c| #1=#:G107 |b| |a| |vin| #2=#:G159)
     (RETURN
      (SEQ
       (EXIT
@@ -452,7 +452,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;applyTransCx| (|tr| |inpt| $)
-  (PROG (|res| |f| #1=#:G132 #2=#:G186)
+  (PROG (|res| |f| #1=#:G108 #2=#:G162)
     (RETURN
      (SEQ
       (EXIT
@@ -478,7 +478,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |STR;applyTransConf2| (|tr| |inpt| $)
-  (PROG (|res| |conjugation| |trConf| #1=#:G133 |ptConf| CA |m| #2=#:G189)
+  (PROG (|res| |conjugation| |trConf| #1=#:G109 |ptConf| CA |m| #2=#:G165)
     (RETURN
      (SEQ
       (EXIT
@@ -539,7 +539,7 @@
           (EXIT (SPADCALL 0.0 0.0 (QREFELT $ 49)))))))) 
 
 (DEFUN |STR;compound2| (|tr| |inpt| $)
-  (PROG (#1=#:G200 #2=#:G131 |j| |i| |arr|)
+  (PROG (#1=#:G176 #2=#:G107 |j| |i| |arr|)
     (RETURN
      (SEQ
       (EXIT
@@ -631,7 +631,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STR;compound3| (|tr| |inpt| $)
-  (PROG (#1=#:G209 #2=#:G131 |j| |i| |arr|)
+  (PROG (#1=#:G185 #2=#:G107 |j| |i| |arr|)
     (RETURN
      (SEQ
       (EXIT
@@ -747,7 +747,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STR;compoundConf2| (|tr| |inpt| $)
-  (PROG (#1=#:G211 |resConf| |inptConf| #2=#:G133 |trConf| CA |m|)
+  (PROG (#1=#:G187 |resConf| |inptConf| #2=#:G109 |trConf| CA |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -782,7 +782,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STR;compound;3$;16| (|tr| |inpt| $)
-  (PROG (#1=#:G221 |fn| |in2| |in1|)
+  (PROG (#1=#:G197 |fn| |in2| |in1|)
     (RETURN
      (SEQ
       (EXIT
@@ -825,7 +825,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |STR;outputArray| (|x| $)
-  (PROG (#1=#:G230 |i| #2=#:G229 |m|)
+  (PROG (#1=#:G206 |i| #2=#:G205 |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |x|) . #3=(|STR;outputArray|))
           (EXIT
@@ -844,7 +844,7 @@
             (QREFELT $ 62))))))) 
 
 (DEFUN |STR;outputMatrix| (|x| $)
-  (PROG (|l| #1=#:G242 |j| #2=#:G241 #3=#:G240 |i| #4=#:G239 |m|)
+  (PROG (|l| #1=#:G218 |j| #2=#:G217 #3=#:G216 |i| #4=#:G215 |m|)
     (RETURN
      (SEQ (LETT |m| (QVSIZE |x|) . #5=(|STR;outputMatrix|))
           (LETT |l|
@@ -880,7 +880,7 @@
           (EXIT (SPADCALL |l| (QREFELT $ 64))))))) 
 
 (DEFUN |STR;coerce;$Of;19| (|tr| $)
-  (PROG (#1=#:G133 #2=#:G244 #3=#:G131)
+  (PROG (#1=#:G109 #2=#:G220 #3=#:G107)
     (RETURN
      (SEQ
       (EXIT
@@ -921,10 +921,10 @@
 
 (DECLAIM (NOTINLINE |STransform;|)) 
 
-(DEFUN |STransform| (#1=#:G245)
+(DEFUN |STransform| (#1=#:G221)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G246)
+     (PROG (#2=#:G222)
        (RETURN
         (COND
          ((LETT #2#

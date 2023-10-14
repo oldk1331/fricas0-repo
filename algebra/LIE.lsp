@@ -18,10 +18,10 @@
 
 (DECLAIM (NOTINLINE |AssociatedLieAlgebra;|)) 
 
-(DEFUN |AssociatedLieAlgebra| (&REST #1=#:G139)
+(DEFUN |AssociatedLieAlgebra| (&REST #1=#:G115)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G116)
        (RETURN
         (COND
          ((LETT #2#

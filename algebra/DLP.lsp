@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DLP;shanksDiscLogAlgorithm;2MNniU;1| (|logbase| |c| |p| $)
-  (PROG (|a| |disclog| |found| |rho| |i| |b| |end| #1=#:G148 #2=#:G136
-         |exptable| |n| |l| #3=#:G147 |limit|)
+  (PROG (|a| |disclog| |found| |rho| |i| |b| |end| #1=#:G124 #2=#:G112
+         |exptable| |n| |l| #3=#:G123 |limit|)
     (RETURN
      (SEQ (LETT |limit| 30 . #4=(|DLP;shanksDiscLogAlgorithm;2MNniU;1|))
           (EXIT
@@ -95,10 +95,10 @@
 
 (DECLAIM (NOTINLINE |DiscreteLogarithmPackage;|)) 
 
-(DEFUN |DiscreteLogarithmPackage| (#1=#:G149)
+(DEFUN |DiscreteLogarithmPackage| (#1=#:G125)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G126)
        (RETURN
         (COND
          ((LETT #2#

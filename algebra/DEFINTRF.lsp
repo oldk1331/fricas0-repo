@@ -7,7 +7,7 @@
    (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14)) 'NIL $)) 
 
 (DEFUN |DEFINTRF;nopole| (|f| |x| |a| |b| $)
-  (PROG (|ans| #1=#:G151 |v| #2=#:G152 |g| |u| |k|)
+  (PROG (|ans| #1=#:G127 |v| #2=#:G128 |g| |u| |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -89,10 +89,10 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionDefiniteIntegration;|)) 
 
-(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G177)
+(DEFUN |RationalFunctionDefiniteIntegration| (#1=#:G153)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G178)
+     (PROG (#2=#:G154)
        (RETURN
         (COND
          ((LETT #2#

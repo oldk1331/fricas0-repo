@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PMTOOLS;negConstant| (|l| $)
-  (PROG (#1=#:G169 #2=#:G171 |r| #3=#:G172 |x|)
+  (PROG (#1=#:G145 #2=#:G147 |r| #3=#:G148 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -32,7 +32,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PMTOOLS;tryToMatch| (|lp| |rc| |ident| |pmatch| $)
-  (PROG (|ls| #1=#:G183 |l| |rec| #2=#:G184 |p|)
+  (PROG (|ls| #1=#:G159 |l| |rec| #2=#:G160 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -88,7 +88,7 @@
                   |pmatch| (QREFELT $ 32)))))))) 
 
 (DEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!1| (|l1| $)
-  (PROG (#1=#:G200 #2=#:G199 #3=#:G201 #4=#:G203 #5=#:G128)
+  (PROG (#1=#:G176 #2=#:G175 #3=#:G177 #4=#:G179 #5=#:G104)
     (RETURN
      (SEQ
       (PROGN
@@ -106,7 +106,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 9)))))))) 
 
 (DEFUN |PMTOOLS;patternMatchTimes;LLPmrMPmr;3!0| (|l1| $)
-  (PROG (#1=#:G190 #2=#:G189 #3=#:G191 #4=#:G193 #5=#:G127)
+  (PROG (#1=#:G166 #2=#:G165 #3=#:G167 #4=#:G169 #5=#:G103)
     (RETURN
      (SEQ
       (PROGN
@@ -124,7 +124,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 9)))))))) 
 
 (DEFUN |PMTOOLS;findMatch| (|p| |ls| |l| |ident| |pmatch| $)
-  (PROG (|l1| |t| #1=#:G219 |x| #2=#:G218 |bad|)
+  (PROG (|l1| |t| #1=#:G195 |x| #2=#:G194 |bad|)
     (RETURN
      (SEQ
       (LETT |bad|
@@ -190,7 +190,7 @@
        (#1# (CONS 0 NIL))))))) 
 
 (DEFUN |PMTOOLS;filterMatchedPatterns| (|lp| |ls| |l| $)
-  (PROG (#1=#:G242 |rc| #2=#:G243 |p|)
+  (PROG (#1=#:G218 |rc| #2=#:G219 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -217,7 +217,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PMTOOLS;selBestGen| (|l| $)
-  (PROG (#1=#:G244 #2=#:G247 |ans| #3=#:G248 |p|)
+  (PROG (#1=#:G220 #2=#:G223 |ans| #3=#:G224 |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -247,7 +247,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8| (|ls| |lp| |op| |l| |pmatch| $)
-  (PROG (|rec| |u| |rc| |l4| |l3| |l2| |l1| |lpm| #1=#:G338 |ident|)
+  (PROG (|rec| |u| |rc| |l4| |l3| |l2| |l1| |lpm| #1=#:G314 |ident|)
     (RETURN
      (SEQ
       (EXIT
@@ -464,10 +464,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
 
-(DEFUN |PatternMatchTools| (&REST #1=#:G339)
+(DEFUN |PatternMatchTools| (&REST #1=#:G315)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G340)
+     (PROG (#2=#:G316)
        (RETURN
         (COND
          ((LETT #2#

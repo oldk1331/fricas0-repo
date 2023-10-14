@@ -41,7 +41,7 @@
   (SPADCALL (SPADCALL |cl| (QREFELT $ 31)) (QREFELT $ 32))) 
 
 (DEFUN |CCLASS;convert;$L;14| (|cl| $)
-  (PROG (#1=#:G144 |i| #2=#:G143)
+  (PROG (#1=#:G120 |i| #2=#:G119)
     (RETURN
      (SEQ
       (PROGN
@@ -57,7 +57,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |CCLASS;charClass;S$;15| (|s| $)
-  (PROG (|j| #1=#:G149 |i| |cl|)
+  (PROG (|j| #1=#:G125 |i| |cl|)
     (RETURN
      (SEQ
       (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
@@ -74,7 +74,7 @@
       (EXIT |cl|))))) 
 
 (DEFUN |CCLASS;charClass;L$;16| (|l| $)
-  (PROG (|j| #1=#:G154 |c| |cl|)
+  (PROG (|j| #1=#:G130 |c| |cl|)
     (RETURN
      (SEQ
       (LETT |cl| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
@@ -94,7 +94,7 @@
   (SPADCALL (SPADCALL |cl| (QREFELT $ 33)) (QREFELT $ 43))) 
 
 (DEFUN |CCLASS;#;$Nni;18| (|a| $)
-  (PROG (|n| #1=#:G159 |i|)
+  (PROG (|n| #1=#:G135 |i|)
     (RETURN
      (SEQ (LETT |n| 0 . #2=(|CCLASS;#;$Nni;18|))
           (SEQ (LETT |i| 0 . #2#) (LETT #1# (- (QREFELT $ 7) 1) . #2#) G190
@@ -132,7 +132,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |CCLASS;inspect;$C;23| (|a| $)
-  (PROG (#1=#:G170 #2=#:G171 |i|)
+  (PROG (#1=#:G146 #2=#:G147 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -152,7 +152,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CCLASS;extract!;$C;24| (|a| $)
-  (PROG (#1=#:G175 #2=#:G176 |i|)
+  (PROG (#1=#:G151 #2=#:G152 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -174,7 +174,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |CCLASS;map;M2$;25| (|f| |a| $)
-  (PROG (#1=#:G181 |i| |b|)
+  (PROG (#1=#:G157 |i| |b|)
     (RETURN
      (SEQ
       (LETT |b| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 36))
@@ -191,7 +191,7 @@
       (EXIT |b|))))) 
 
 (DEFUN |CCLASS;map!;M2$;26| (|f| |a| $)
-  (PROG (#1=#:G185 |i|)
+  (PROG (#1=#:G161 |i|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 54) 'NIL (QREFELT $ 55))
           (SEQ (LETT |i| 0 . #2=(|CCLASS;map!;M2$;26|))
@@ -208,7 +208,7 @@
           (EXIT (SPADCALL |a| (QREFELT $ 54) 0 (QREFELT $ 56))))))) 
 
 (DEFUN |CCLASS;parts;$L;27| (|a| $)
-  (PROG (#1=#:G189 |i| #2=#:G188)
+  (PROG (#1=#:G165 |i| #2=#:G164)
     (RETURN
      (SEQ
       (PROGN
@@ -228,7 +228,7 @@
 (DEFUN |CharacterClass| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G198)
+     (PROG (#1=#:G174)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|CharacterClass|)
@@ -245,7 +245,7 @@
              ((NOT #1#) (HREM |$ConstructorCache| '|CharacterClass|))))))))))) 
 
 (DEFUN |CharacterClass;| ()
-  (PROG (|dv$| $ #1=#:G195 |pv$| #2=#:G196)
+  (PROG (|dv$| $ #1=#:G171 |pv$| #2=#:G172)
     (RETURN
      (PROGN
       (LETT |dv$| '(|CharacterClass|) . #3=(|CharacterClass|))

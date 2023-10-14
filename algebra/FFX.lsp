@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldExtension;|)) 
 
-(DEFUN |FiniteFieldExtension| (&REST #1=#:G162)
+(DEFUN |FiniteFieldExtension| (&REST #1=#:G138)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G163)
+     (PROG (#2=#:G139)
        (RETURN
         (COND
          ((LETT #2#
@@ -25,7 +25,7 @@
               (HREM |$ConstructorCache| '|FiniteFieldExtension|))))))))))) 
 
 (DEFUN |FiniteFieldExtension;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G161 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G137 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldExtension|))

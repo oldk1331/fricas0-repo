@@ -50,7 +50,7 @@
    (EXIT (QREFELT $ 34)))) 
 
 (DEFUN |ALGFF;vect| (|m| $)
-  (PROG (#1=#:G170 #2=#:G172 |i| #3=#:G171)
+  (PROG (#1=#:G146 #2=#:G148 |i| #3=#:G147)
     (RETURN
      (SEQ
       (PROGN
@@ -75,8 +75,8 @@
    (QREFELT $ 61))) 
 
 (DEFUN |ALGFF;knownInfBasis;NniV;13| (|d| $)
-  (PROG (#1=#:G190 |j| #2=#:G189 |i| |invib| |ib| #3=#:G186 #4=#:G188 #5=#:G187
-         |alpha| #6=#:G185 #7=#:G184)
+  (PROG (#1=#:G166 |j| #2=#:G165 |i| |invib| |ib| #3=#:G162 #4=#:G164 #5=#:G163
+         |alpha| #6=#:G161 #7=#:G160)
     (RETURN
      (SEQ
       (COND
@@ -144,8 +144,8 @@
       (EXIT (SPADCALL (QREFELT $ 73))))))) 
 
 (DEFUN |ALGFF;getInfBasis| ($)
-  (PROG (#1=#:G213 |j| #2=#:G212 |i| |invib2| |ib2| #3=#:G211 #4=#:G210 |invib|
-         |invalpha| #5=#:G207 #6=#:G209 #7=#:G208 |alpha| #8=#:G206 #9=#:G205
+  (PROG (#1=#:G189 |j| #2=#:G188 |i| |invib2| |ib2| #3=#:G187 #4=#:G186 |invib|
+         |invalpha| #5=#:G183 #6=#:G185 #7=#:G184 |alpha| #8=#:G182 #9=#:G181
          |ninvmod| |r| |invmod| |x|)
     (RETURN
      (SEQ
@@ -296,8 +296,8 @@
     (RETURN (PROGN (SPADCALL |s| |x| (QREFELT $ 76)))))) 
 
 (DEFUN |ALGFF;startUp| (|b| $)
-  (PROG (|dsc| |dsc0| #1=#:G232 |j| #2=#:G231 |i| |invib2| #3=#:G221 |ib2|
-         #4=#:G230 #5=#:G229 |ib| |nmod|)
+  (PROG (|dsc| |dsc0| #1=#:G208 |j| #2=#:G207 |i| |invib2| #3=#:G197 |ib2|
+         #4=#:G206 #5=#:G205 |ib| |nmod|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 13) |b| (QREFELT $ 94))
           (LETT |nmod| (SPADCALL (ELT $ 46) (QREFELT $ 9) (QREFELT $ 86))
@@ -430,7 +430,7 @@
               (EXIT (SPADCALL (QREFELT $ 73))))))))))) 
 
 (DEFUN |ALGFF;integralDerivationMatrix;MR;16| (|d| $)
-  (PROG (#1=#:G245 #2=#:G247 |i| #3=#:G246 |w|)
+  (PROG (#1=#:G221 #2=#:G223 |i| #3=#:G222 |w|)
     (RETURN
      (SEQ
       (LETT |w| (SPADCALL (QREFELT $ 41))
@@ -485,10 +485,10 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunctionField;|)) 
 
-(DEFUN |AlgebraicFunctionField| (&REST #1=#:G298)
+(DEFUN |AlgebraicFunctionField| (&REST #1=#:G274)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G299)
+     (PROG (#2=#:G275)
        (RETURN
         (COND
          ((LETT #2#
@@ -507,7 +507,7 @@
               (HREM |$ConstructorCache| '|AlgebraicFunctionField|))))))))))) 
 
 (DEFUN |AlgebraicFunctionField;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G141 |pv$| #2=#:G296 #3=#:G297 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G117 |pv$| #2=#:G272 #3=#:G273 $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|AlgebraicFunctionField|))

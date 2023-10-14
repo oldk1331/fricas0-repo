@@ -17,10 +17,10 @@
 
 (DECLAIM (NOTINLINE |Ruleset;|)) 
 
-(DEFUN |Ruleset| (&REST #1=#:G133)
+(DEFUN |Ruleset| (&REST #1=#:G109)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G134)
+     (PROG (#2=#:G110)
        (RETURN
         (COND
          ((LETT #2#

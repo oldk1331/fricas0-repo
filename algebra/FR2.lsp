@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FR2;map;MFF;1| (|func| |f| $)
-  (PROG (#1=#:G129 #2=#:G128 #3=#:G130 #4=#:G133 |g|)
+  (PROG (#1=#:G105 #2=#:G104 #3=#:G106 #4=#:G109 |g|)
     (RETURN
      (SEQ
       (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |func|)
@@ -33,10 +33,10 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
 
-(DEFUN |FactoredFunctions2| (&REST #1=#:G134)
+(DEFUN |FactoredFunctions2| (&REST #1=#:G110)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G111)
        (RETURN
         (COND
          ((LETT #2#

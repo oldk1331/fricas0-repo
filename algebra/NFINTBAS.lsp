@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |NFINTBAS;frobMatrix| (|rb| |rbinv| |rbden| |p| $)
-  (PROG (#1=#:G142 |mat| |a| #2=#:G148 |j| #3=#:G149 |jj| #4=#:G146 |i|
-         #5=#:G147 |ii| |v| |b| |n|)
+  (PROG (#1=#:G118 |mat| |a| #2=#:G124 |j| #3=#:G125 |jj| #4=#:G122 |i|
+         #5=#:G123 |ii| |v| |b| |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL (QREFELT $ 9)) . #6=(|NFINTBAS;frobMatrix|))
           (LETT |b| (SPADCALL (QREFELT $ 11)) . #6#)
@@ -53,7 +53,7 @@
              (|check_union| (QEQCAR #1# 0) (|Matrix| (|Integer|)) #1#))))))) 
 
 (DEFUN |NFINTBAS;wildPrimes| (|factoredDisc| |n| $)
-  (PROG (|ans| #1=#:G156 |f|)
+  (PROG (|ans| #1=#:G132 |f|)
     (RETURN
      (SEQ (LETT |ans| NIL . #2=(|NFINTBAS;wildPrimes|))
           (SEQ (LETT |f| NIL . #2#)
@@ -72,7 +72,7 @@
           (EXIT |ans|))))) 
 
 (DEFUN |NFINTBAS;tameProduct| (|factoredDisc| |n| $)
-  (PROG (|ans| #1=#:G163 |f|)
+  (PROG (|ans| #1=#:G139 |f|)
     (RETURN
      (SEQ (LETT |ans| 1 . #2=(|NFINTBAS;tameProduct|))
           (SEQ (LETT |f| NIL . #2#)
@@ -92,7 +92,7 @@
 
 (DEFUN |NFINTBAS;integralBasis;R;4| ($)
   (PROG (|runningRbinv| |runningRb| |runningRbden| |mat| |disc| |rbden| |rbinv|
-         |rb| |lb| #1=#:G175 |p| |matrixOut| |sing| |wilds| |factoredDisc|
+         |rb| |lb| #1=#:G151 |p| |matrixOut| |sing| |wilds| |factoredDisc|
          |disc0| |n| |traceMat|)
     (RETURN
      (SEQ
@@ -192,7 +192,7 @@
           (EXIT (VECTOR (QVELT |lb| 0) (QVELT |lb| 1) (QVELT |lb| 2))))))))))) 
 
 (DEFUN |NFINTBAS;iTameLocalIntegralBasis| (|traceMat| |disc| |sing| $)
-  (PROG (|tfm| #1=#:G186 #2=#:G192 |oldIndex| |indexChange| |rbinv| |rbden|
+  (PROG (|tfm| #1=#:G162 #2=#:G168 |oldIndex| |indexChange| |rbinv| |rbden|
          |rb| |g| |index| |idinv| |id| |disc0| |n|)
     (RETURN
      (SEQ
@@ -270,8 +270,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |NFINTBAS;iWildLocalIntegralBasis| (|matrixOut| |disc| |p| $)
-  (PROG (#1=#:G231 #2=#:G235 |oldIndex| |indexChange| |rbinv| |rbden| |rb|
-         |index| |idinv| |id| |tfm| #3=#:G229 |lp| #4=#:G195 |p2| |disc0| |n|)
+  (PROG (#1=#:G207 #2=#:G211 |oldIndex| |indexChange| |rbinv| |rbden| |rb|
+         |index| |idinv| |id| |tfm| #3=#:G205 |lp| #4=#:G171 |p2| |disc0| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -356,7 +356,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |NFINTBAS;discriminant;I;8| ($)
-  (PROG (#1=#:G238 |index| |rbden| |rb| |intBas| |disc|)
+  (PROG (#1=#:G214 |index| |rbden| |rb| |intBas| |disc|)
     (RETURN
      (SEQ
       (LETT |disc| (SPADCALL (SPADCALL (QREFELT $ 36)) (QREFELT $ 37))
@@ -382,10 +382,10 @@
 
 (DECLAIM (NOTINLINE |NumberFieldIntegralBasis;|)) 
 
-(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G242)
+(DEFUN |NumberFieldIntegralBasis| (&REST #1=#:G218)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G243)
+     (PROG (#2=#:G219)
        (RETURN
         (COND
          ((LETT #2#

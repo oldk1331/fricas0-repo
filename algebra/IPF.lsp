@@ -4,7 +4,7 @@
 (DEFUN |IPF;generator;$;1| ($) (|spadConstant| $ 15)) 
 
 (DEFUN |IPF;^;$I$;2| (|x| |n| $)
-  (PROG (|r| #1=#:G136)
+  (PROG (|r| #1=#:G112)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (|spadConstant| $ 15))
@@ -66,7 +66,7 @@
 (DEFUN |IPF;representationType;U;10| ($) (CONS 0 "prime")) 
 
 (DEFUN |IPF;tableForDiscreteLogarithm;IT;11| (|fac| $)
-  (PROG (|tbl| #1=#:G175)
+  (PROG (|tbl| #1=#:G151)
     (RETURN
      (SEQ (COND ((QREFELT $ 10) (|IPF;initializeLog| $)))
           (LETT |tbl|
@@ -96,8 +96,8 @@
    (SETELT $ 11 'NIL) (EXIT (SPADCALL (QREFELT $ 58))))) 
 
 (DEFUN |IPF;initializeLog| ($)
-  (PROG (#1=#:G193 |a| #2=#:G199 #3=#:G187 |i| |tbl| |n| |d| |l| |base| |fac|
-         #4=#:G198 |f| |limit|)
+  (PROG (#1=#:G169 |a| #2=#:G175 #3=#:G163 |i| |tbl| |n| |d| |l| |base| |fac|
+         #4=#:G174 |f| |limit|)
     (RETURN
      (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
           (LETT |limit| 30 . #5=(|IPF;initializeLog|))
@@ -193,10 +193,10 @@
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
-(DEFUN |InnerPrimeField| (#1=#:G236)
+(DEFUN |InnerPrimeField| (#1=#:G212)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G237)
+     (PROG (#2=#:G213)
        (RETURN
         (COND
          ((LETT #2#
@@ -249,7 +249,7 @@
               '|initelt?| (|Table| 45 47) (0 . |table|) '|discLogTable|
               (4 . |One|) |IPF;generator;$;1| (|Boolean|) (8 . |zero?|)
               (13 . |Zero|) (|Integer|) (17 . |positiveRemainder|)
-              (|NonNegativeInteger|) (23 . ^) |IPF;^;$I$;2| (29 . <=) '#:G131
+              (|NonNegativeInteger|) (23 . ^) |IPF;^;$I$;2| (29 . <=) '#:G107
               (|SingleInteger|) (35 . |coerce|) '|q| |IPF;convert;$I;5|
               (40 . |invmod|) (46 . |coerce|) (|Union| $ '"failed")
               (51 . |recip|) (56 . |invmod|) |IPF;normalElement;$;6|

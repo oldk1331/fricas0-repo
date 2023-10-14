@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RESULT;cleanUpDomainForm| (|d| $)
-  (PROG (#1=#:G140 |u| #2=#:G139)
+  (PROG (#1=#:G116 |u| #2=#:G115)
     (RETURN
      (SEQ
       (COND
@@ -56,7 +56,7 @@
    (QREFELT $ 30))) 
 
 (DEFUN |RESULT;coerce;$Of;4| (|r| $)
-  (PROG (#1=#:G149 |key| #2=#:G148)
+  (PROG (#1=#:G125 |key| #2=#:G124)
     (RETURN
      (SEQ
       (SPADCALL
@@ -87,7 +87,7 @@
 (DEFUN |Result| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G202)
+     (PROG (#1=#:G178)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Result|) . #2=(|Result|))
@@ -102,7 +102,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|Result|))))))))))) 
 
 (DEFUN |Result;| ()
-  (PROG (|dv$| $ #1=#:G198 #2=#:G197 |pv$| #3=#:G199 #4=#:G200)
+  (PROG (|dv$| $ #1=#:G174 #2=#:G173 |pv$| #3=#:G175 #4=#:G176)
     (RETURN
      (PROGN
       (LETT |dv$| '(|Result|) . #5=(|Result|))

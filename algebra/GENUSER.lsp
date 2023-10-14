@@ -336,7 +336,7 @@
                                          (QREFELT $ 28))))))))))))))))) 
 
 (DEFUN |GENUSER;exquo2| (|x| |y| $)
-  (PROG (#1=#:G428 #2=#:G425 |tx| |n| |cyinv| |ky| #3=#:G414 |ty|)
+  (PROG (#1=#:G404 #2=#:G401 |tx| |n| |cyinv| |ky| #3=#:G390 |ty|)
     (RETURN
      (SEQ
       (EXIT
@@ -535,7 +535,7 @@
                                  (QREFELT $ 96))))))))))))) 
 
 (DEFUN |GENUSER;removeZeros;$Expon$;28| (|x| |ki| $)
-  (PROG (|xs| #1=#:G528 |tx|)
+  (PROG (|xs| #1=#:G504 |tx|)
     (RETURN
      (SEQ
       (EXIT
@@ -564,7 +564,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GENUSER;apply_taylor;S2$;29| (|stc| |x| $)
-  (PROG (|xs| #1=#:G534 |tx|)
+  (PROG (|xs| #1=#:G510 |tx|)
     (RETURN
      (SEQ (LETT |xs| |x| . #2=(|GENUSER;apply_taylor;S2$;29|))
           (SEQ
@@ -607,7 +607,7 @@
             (#3# (|error| "apply_taylor: x has negative order")))))))) 
 
 (DEFUN |GENUSER;=;2$B;30| (|x| |y| $)
-  (PROG (|st| #1=#:G545 |tst| |i| |n|)
+  (PROG (|st| #1=#:G521 |tst| |i| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -634,7 +634,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GENUSER;order;$2Expon;31| (|x| |ki| $)
-  (PROG (|xs| #1=#:G553 |tx|)
+  (PROG (|xs| #1=#:G529 |tx|)
     (RETURN
      (SEQ
       (EXIT
@@ -664,7 +664,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GENUSER;order;$Expon;32| (|x| $)
-  (PROG (|xs| #1=#:G560 |tx|)
+  (PROG (|xs| #1=#:G536 |tx|)
     (RETURN
      (SEQ
       (EXIT
@@ -691,7 +691,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |GENUSER;extend;$Expon$;33| (|x| |ki| $)
-  (PROG (|xs| #1=#:G567 |tx|)
+  (PROG (|xs| #1=#:G543 |tx|)
     (RETURN
      (SEQ
       (EXIT
@@ -747,7 +747,7 @@
                                         (QREFELT $ 28)))))))))))))))) 
 
 (DEFUN |GENUSER;truncate;$2Expon$;35| (|x| |k1| |k2| $)
-  (PROG (|xs| #1=#:G597 |tx| #2=#:G599 |#G70| |#G69|)
+  (PROG (|xs| #1=#:G573 |tx| #2=#:G575 |#G70| |#G69|)
     (RETURN
      (SEQ
       (EXIT
@@ -783,7 +783,7 @@
 (DEFUN |GENUSER;complete;2$;36| (|x| $) (SPADCALL |x| (QREFELT $ 105))) 
 
 (DEFUN |GENUSER;coefficient;$ExponCoef;37| (|x| |ki| $)
-  (PROG (|xs| #1=#:G607 |tx|)
+  (PROG (|xs| #1=#:G583 |tx|)
     (RETURN
      (SEQ
       (EXIT
@@ -913,10 +913,10 @@
 
 (DECLAIM (NOTINLINE |GeneralizedUnivariatePowerSeries;|)) 
 
-(DEFUN |GeneralizedUnivariatePowerSeries| (&REST #1=#:G768)
+(DEFUN |GeneralizedUnivariatePowerSeries| (&REST #1=#:G744)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G769)
+     (PROG (#2=#:G745)
        (RETURN
         (COND
          ((LETT #2#
@@ -937,7 +937,7 @@
                     '|GeneralizedUnivariatePowerSeries|))))))))))) 
 
 (DEFUN |GeneralizedUnivariatePowerSeries;| (|#1| |#2| |#3| |#4|)
-  (PROG (|pv$| #1=#:G761 #2=#:G762 #3=#:G763 #4=#:G764 #5=#:G766 $ |dv$| DV$4
+  (PROG (|pv$| #1=#:G737 #2=#:G738 #3=#:G739 #4=#:G740 #5=#:G742 $ |dv$| DV$4
          DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

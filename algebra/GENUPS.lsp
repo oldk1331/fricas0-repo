@@ -579,10 +579,10 @@
 
 (DECLAIM (NOTINLINE |GenerateUnivariatePowerSeries;|)) 
 
-(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G211)
+(DEFUN |GenerateUnivariatePowerSeries| (&REST #1=#:G187)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G212)
+     (PROG (#2=#:G188)
        (RETURN
         (COND
          ((LETT #2#

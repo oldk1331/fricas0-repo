@@ -34,7 +34,7 @@
   (|PATTERN;isTaggedOp| |p| (SPADCALL 3 (QREFELT $ 33)) $)) 
 
 (DEFUN |PATTERN;isExpt;$U;13| (|p| $)
-  (PROG (#1=#:G251)
+  (PROG (#1=#:G227)
     (RETURN
      (COND
       ((QEQCAR (QVELT |p| 1) 2)
@@ -49,7 +49,7 @@
       ('T (CONS 1 "failed")))))) 
 
 (DEFUN |PATTERN;isQuotient;$U;14| (|p| $)
-  (PROG (#1=#:G270)
+  (PROG (#1=#:G246)
     (RETURN
      (COND
       ((QEQCAR (QVELT |p| 1) 3)
@@ -64,7 +64,7 @@
   (COND ((NULL (SPADCALL |p| (QREFELT $ 43))) 'NIL) ('T 'T))) 
 
 (DEFUN |PATTERN;quoted?;$B;16| (|p| $)
-  (PROG (#1=#:G288)
+  (PROG (#1=#:G264)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -82,7 +82,7 @@
       ('T 'NIL))))) 
 
 (DEFUN |PATTERN;generic?;$B;17| (|p| $)
-  (PROG (#1=#:G299)
+  (PROG (#1=#:G275)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -101,7 +101,7 @@
       ('T 'NIL))))) 
 
 (DEFUN |PATTERN;multiple?;$B;18| (|p| $)
-  (PROG (#1=#:G310)
+  (PROG (#1=#:G286)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -120,7 +120,7 @@
       ('T 'NIL))))) 
 
 (DEFUN |PATTERN;optional?;$B;19| (|p| $)
-  (PROG (#1=#:G321)
+  (PROG (#1=#:G297)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -147,7 +147,7 @@
   (|PATTERN;taggedElt| (SPADCALL 6 (QREFELT $ 33)) (LIST |p1| |p2|) $)) 
 
 (DEFUN |PATTERN;LPAT2O| (|f| |l| $)
-  (PROG (#1=#:G342 |x| #2=#:G341)
+  (PROG (#1=#:G318 |x| #2=#:G317)
     (RETURN
      (SEQ
       (SPADCALL |f|
@@ -166,7 +166,7 @@
                 (QREFELT $ 55)))))) 
 
 (DEFUN |PATTERN;retract;$R;24| (|p| $)
-  (PROG (#1=#:G347)
+  (PROG (#1=#:G323)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 28))
@@ -179,7 +179,7 @@
   (|PATTERN;taggedElt| (SPADCALL 3 (QREFELT $ 33)) |l| $)) 
 
 (DEFUN |PATTERN;retractIfCan;$U;26| (|p| $)
-  (PROG (#1=#:G362)
+  (PROG (#1=#:G338)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 28))
@@ -220,7 +220,7 @@
        (#2# (CONS 1 "failed"))))))) 
 
 (DEFUN |PATTERN;incmax| (|l| $)
-  (PROG (#1=#:G396 |p| #2=#:G395)
+  (PROG (#1=#:G372 |p| #2=#:G371)
     (RETURN
      (SEQ
       (+ 1
@@ -283,7 +283,7 @@
      (CONS 1 (VECTOR 0 |o| |l|)) (|PATTERN;incmax| |l| $) $)))) 
 
 (DEFUN |PATTERN;isOp;$U;36| (|p| $)
-  (PROG (#1=#:G460)
+  (PROG (#1=#:G436)
     (RETURN
      (SEQ
       (COND
@@ -323,7 +323,7 @@
       (EXIT (CONS 1 "failed")))))) 
 
 (DEFUN |PATTERN;isTaggedOp| (|p| |t| $)
-  (PROG (#1=#:G480)
+  (PROG (#1=#:G456)
     (RETURN
      (SEQ
       (COND
@@ -459,7 +459,7 @@
                             (LIST |p1| |p2|) $))))))))))))))))) 
 
 (DEFUN |PATTERN;isOp;$BoU;46| (|p| |o| $)
-  (PROG (#1=#:G541)
+  (PROG (#1=#:G517)
     (RETURN
      (SEQ
       (COND
@@ -501,7 +501,7 @@
       (EXIT (CONS 1 "failed")))))) 
 
 (DEFUN |PATTERN;predicates;$L;47| (|p| $)
-  (PROG (#1=#:G559)
+  (PROG (#1=#:G535)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -518,7 +518,7 @@
       ('T NIL))))) 
 
 (DEFUN |PATTERN;setPredicates;$L$;48| (|p| |l| $)
-  (PROG (#1=#:G570)
+  (PROG (#1=#:G546)
     (RETURN
      (SEQ
       (COND
@@ -538,7 +538,7 @@
        ('T (|error| "Can only attach predicates to generic symbol"))))))) 
 
 (DEFUN |PATTERN;resetBadValues;2$;49| (|p| $)
-  (PROG (#1=#:G582)
+  (PROG (#1=#:G558)
     (RETURN
      (SEQ
       (COND
@@ -558,7 +558,7 @@
        ('T (|error| "Can only attach bad values to generic symbol"))))))) 
 
 (DEFUN |PATTERN;addBadValue;$A$;50| (|p| |a| $)
-  (PROG (#1=#:G594)
+  (PROG (#1=#:G570)
     (RETURN
      (SEQ
       (COND
@@ -605,7 +605,7 @@
        ('T (|error| "Can only attach bad values to generic symbol"))))))) 
 
 (DEFUN |PATTERN;getBadValues;$L;51| (|p| $)
-  (PROG (#1=#:G607)
+  (PROG (#1=#:G583)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 46))
@@ -622,7 +622,7 @@
       ('T (|error| "Not a generic symbol")))))) 
 
 (DEFUN |PATTERN;SYM2O| (|p| $)
-  (PROG (#1=#:G620 |i| #2=#:G619 |sy|)
+  (PROG (#1=#:G596 |i| #2=#:G595 |sy|)
     (RETURN
      (SEQ
       (LETT |sy| (SPADCALL (QVELT |p| 1) (QREFELT $ 110))
@@ -659,7 +659,7 @@
                (QREFELT $ 115))))))))) 
 
 (DEFUN |PATTERN;variables;$L;53| (|p| $)
-  (PROG (#1=#:G637 #2=#:G626 |r| #3=#:G636 #4=#:G628 #5=#:G627 |q|)
+  (PROG (#1=#:G613 #2=#:G602 |r| #3=#:G612 #4=#:G604 #5=#:G603 |q|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 25)) (SPADCALL (QREFELT $ 94)))
@@ -737,8 +737,8 @@
                          (#6# (SPADCALL (QREFELT $ 94)))))))))))) 
 
 (DEFUN |PATTERN;PAT2O| (|p| $)
-  (PROG (#1=#:G643 |u| |l| #2=#:G665 |x| #3=#:G664 #4=#:G645 #5=#:G644
-         #6=#:G646)
+  (PROG (#1=#:G619 |u| |l| #2=#:G641 |x| #3=#:G640 #4=#:G621 #5=#:G620
+         #6=#:G622)
     (RETURN
      (SEQ
       (COND ((QEQCAR |p| 0) (SPADCALL (CDR |p|) (QREFELT $ 119)))
@@ -953,7 +953,7 @@
                   (#8# (SPADCALL |l| (QCDR |u|)))))))))))))) 
 
 (DEFUN |PATTERN;patcopy| (|p| $)
-  (PROG (#1=#:G672 #2=#:G673 #3=#:G681 #4=#:G671 |x| #5=#:G680 #6=#:G674)
+  (PROG (#1=#:G648 #2=#:G649 #3=#:G657 #4=#:G647 |x| #5=#:G656 #6=#:G650)
     (RETURN
      (SEQ
       (COND ((QEQCAR |p| 0) (CONS 0 (CDR |p|)))
@@ -1094,7 +1094,7 @@
                                       #1#))))))))))) 
 
 (DEFUN |PATTERN;pateq?| (|p1| |p2| $)
-  (PROG (#1=#:G688 #2=#:G687 #3=#:G690 #4=#:G689)
+  (PROG (#1=#:G664 #2=#:G663 #3=#:G666 #4=#:G665)
     (RETURN
      (COND
       ((QEQCAR |p1| 0)
@@ -1233,7 +1233,7 @@
       (#5# 'NIL))))) 
 
 (DEFUN |PATTERN;retractIfCan;$U;57| (|p| $)
-  (PROG (#1=#:G710)
+  (PROG (#1=#:G686)
     (RETURN
      (COND
       ((SPADCALL |p| (QREFELT $ 29))
@@ -1272,10 +1272,10 @@
 
 (DECLAIM (NOTINLINE |Pattern;|)) 
 
-(DEFUN |Pattern| (#1=#:G730)
+(DEFUN |Pattern| (#1=#:G706)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G731)
+     (PROG (#2=#:G707)
        (RETURN
         (COND
          ((LETT #2#

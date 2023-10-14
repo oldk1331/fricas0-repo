@@ -321,7 +321,7 @@
 (DEFUN |ISUPS;terms;$S;29| (|x| $) (SPADCALL |x| (QREFELT $ 13))) 
 
 (DEFUN |ISUPS;zero?;$B;30| (|ups| $)
-  (PROG (#1=#:G381 |i| |count| |n| |ref| |x|)
+  (PROG (#1=#:G357 |i| |count| |n| |ref| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -822,7 +822,7 @@
     (RETURN (PROGN (SPADCALL (|spadConstant| $ 30) |x1| |op|))))) 
 
 (DEFUN |ISUPS;iPlus2| (|op| |ups1| |ups2| $)
-  (PROG (|refer| |deg| |yDeg| #1=#:G767 |y| |yRefer| |xDeg| |x| |xRefer|)
+  (PROG (|refer| |deg| |yDeg| #1=#:G743 |y| |yRefer| |xDeg| |x| |xRefer|)
     (RETURN
      (SEQ
       (EXIT
@@ -1151,7 +1151,7 @@
                 $))))))))))))) 
 
 (DEFUN |ISUPS;*;3$;49| (|ups1| |ups2| $)
-  (PROG (|refer| |deg| |yDeg| #1=#:G870 |y| |yRefer| |xDeg| |x| |xRefer|)
+  (PROG (|refer| |deg| |yDeg| #1=#:G846 |y| |yRefer| |xDeg| |x| |xRefer|)
     (RETURN
      (SEQ
       (EXIT
@@ -1315,8 +1315,8 @@
                  (QREFELT $ 11))))))) 
 
 (DEFUN |ISUPS;iExquo;2$BU;52| (|ups1| |ups2| |taylor?| $)
-  (PROG (|nx| #1=#:G934 #2=#:G940 |deg| |nn| |ry| |ny| |yCoef| |yTerm|
-         #3=#:G921 |n| |y| |yRefer| |x| |xRefer|)
+  (PROG (|nx| #1=#:G910 #2=#:G916 |deg| |nn| |ry| |ny| |yCoef| |yTerm|
+         #3=#:G897 |n| |y| |yRefer| |x| |xRefer|)
     (RETURN
      (SEQ
       (EXIT
@@ -1485,7 +1485,7 @@
     (LETT |n0| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (|nn| |yyOrd| |xTerm| |xCoef| |n1| #2=#:G998 |yn1| |z| |zRefer|
+      (PROG (|nn| |yyOrd| |xTerm| |xCoef| |n1| #2=#:G974 |yn1| |z| |zRefer|
              |prodRefer| |prod| |coRefer| |co| |degr|)
         (RETURN
          (SEQ
@@ -1622,7 +1622,7 @@
     (RETURN (PROGN (SPADCALL |xCoef| |s| (QREFELT $ 72)))))) 
 
 (DEFUN |ISUPS;iCompose;3$;55| (|ups1| |ups2| $)
-  (PROG (|compRefer| |yOrd| #1=#:G1016 |i| |n| |yRefer| |y| |xRefer| |x|)
+  (PROG (|compRefer| |yOrd| #1=#:G992 |i| |n| |yRefer| |y| |xRefer| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -1778,7 +1778,7 @@
       (EXIT (SPADCALL (|ISUPS;makeTerm| 0 |a| $) |ansStr| (QREFELT $ 17))))))) 
 
 (DEFUN |ISUPS;cPower;$Coef$;60| (|f| |r| $)
-  (PROG (|ansStr| |ansRef| |intRef| |yStr| |yRef| |y| |fInv| #1=#:G1060 |fp|)
+  (PROG (|ansStr| |ansRef| |intRef| |yStr| |yRef| |y| |fInv| #1=#:G1036 |fp|)
     (RETURN
      (SEQ
       (LETT |fp| (SPADCALL |f| (QREFELT $ 71)) . #2=(|ISUPS;cPower;$Coef$;60|))
@@ -2060,7 +2060,7 @@
     (RETURN (PROGN (|ISUPS;tan0| |cc| |s| |ansRef| |fpStr| |fpRef| |sign| $))))) 
 
 (DEFUN |ISUPS;orderOrFailed| (|uts| $)
-  (PROG (#1=#:G1096 |n| |x|)
+  (PROG (#1=#:G1072 |n| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -2086,7 +2086,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cRationalPower;$F$;67| (|uts| |r| $)
-  (PROG (|uts2| |uts1| |ccPow| #1=#:G1111 #2=#:G1105 |num| |ccInv| |cc| |n|
+  (PROG (|uts2| |uts1| |ccPow| #1=#:G1087 #2=#:G1081 |num| |ccInv| |cc| |n|
          |order| |ord0|)
     (RETURN
      (SEQ
@@ -2180,7 +2180,7 @@
         (SPADCALL (STRCONC "exp: " (QREFELT $ 128)) (QREFELT $ 141)))))))) 
 
 (DEFUN |ISUPS;cLog;2$;69| (|uts| $)
-  (PROG (|y| #1=#:G1124 |cc|)
+  (PROG (|y| #1=#:G1100 |cc|)
     (RETURN
      (SEQ
       (COND
@@ -2278,7 +2278,7 @@
         (SPADCALL (STRCONC "cot: " (QREFELT $ 128)) (QREFELT $ 141)))))))) 
 
 (DEFUN |ISUPS;cSec;2$;75| (|uts| $)
-  (PROG (#1=#:G1148 |cosUts| |cc|)
+  (PROG (#1=#:G1124 |cosUts| |cc|)
     (RETURN
      (SEQ
       (COND
@@ -2314,7 +2314,7 @@
          (SPADCALL (STRCONC "sec: " (QREFELT $ 128)) (QREFELT $ 141))))))))) 
 
 (DEFUN |ISUPS;cCsc;2$;76| (|uts| $)
-  (PROG (#1=#:G1155 |sinUts|)
+  (PROG (#1=#:G1131 |sinUts|)
     (RETURN
      (SEQ
       (COND
@@ -2341,7 +2341,7 @@
          (SPADCALL (STRCONC "csc: " (QREFELT $ 128)) (QREFELT $ 141))))))))) 
 
 (DEFUN |ISUPS;cAsin;2$;77| (|uts| $)
-  (PROG (|c0| #1=#:G1175 |order| |ord| |x| |cc|)
+  (PROG (|c0| #1=#:G1151 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -2426,7 +2426,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cAcos;2$;78| (|uts| $)
-  (PROG (|c0| #1=#:G1191 |order| |ord| |cc| |x|)
+  (PROG (|c0| #1=#:G1167 |order| |ord| |cc| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -2511,7 +2511,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cAtan;2$;79| (|uts| $)
-  (PROG (|y| #1=#:G1194 |cc|)
+  (PROG (|y| #1=#:G1170 |cc|)
     (RETURN
      (SEQ
       (COND
@@ -2598,7 +2598,7 @@
          (SPADCALL (STRCONC "acot: " (QREFELT $ 128)) (QREFELT $ 141))))))))) 
 
 (DEFUN |ISUPS;cAsec;2$;81| (|uts| $)
-  (PROG (|z| |y| #1=#:G1224 |order| |ord| |x| |cc|)
+  (PROG (|z| |y| #1=#:G1200 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -2669,7 +2669,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cAcsc;2$;82| (|uts| $)
-  (PROG (|z| |y| #1=#:G1242 |order| |ord| |x| |cc|)
+  (PROG (|z| |y| #1=#:G1218 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -2790,7 +2790,7 @@
         (SPADCALL (STRCONC "tanh: " (QREFELT $ 128)) (QREFELT $ 141)))))))) 
 
 (DEFUN |ISUPS;cCoth;2$;87| (|uts| $)
-  (PROG (#1=#:G1261 |tanhUts|)
+  (PROG (#1=#:G1237 |tanhUts|)
     (RETURN
      (SEQ
       (LETT |tanhUts| (SPADCALL |uts| (QREFELT $ 181))
@@ -2812,7 +2812,7 @@
            (|check_union| (QEQCAR #1# 0) $ #1#))))))))) 
 
 (DEFUN |ISUPS;cSech;2$;88| (|uts| $)
-  (PROG (#1=#:G1268 |coshUts|)
+  (PROG (#1=#:G1244 |coshUts|)
     (RETURN
      (SEQ
       (LETT |coshUts| (SPADCALL |uts| (QREFELT $ 179))
@@ -2832,7 +2832,7 @@
            (|check_union| (QEQCAR #1# 0) $ #1#))))))))) 
 
 (DEFUN |ISUPS;cCsch;2$;89| (|uts| $)
-  (PROG (#1=#:G1274 |sinhUts|)
+  (PROG (#1=#:G1250 |sinhUts|)
     (RETURN
      (SEQ
       (LETT |sinhUts| (SPADCALL |uts| (QREFELT $ 178))
@@ -2852,7 +2852,7 @@
            (|check_union| (QEQCAR #1# 0) $ #1#))))))))) 
 
 (DEFUN |ISUPS;cAsinh;2$;90| (|uts| $)
-  (PROG (#1=#:G1286 |order| |ord| |cc| |x|)
+  (PROG (#1=#:G1262 |order| |ord| |cc| |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -2904,7 +2904,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cAcosh;2$;91| (|uts| $)
-  (PROG (#1=#:G1300 |order| |ord| |x| |cc|)
+  (PROG (#1=#:G1276 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -3056,7 +3056,7 @@
          (SPADCALL (STRCONC "acoth: " (QREFELT $ 128)) (QREFELT $ 141))))))))) 
 
 (DEFUN |ISUPS;cAsech;2$;94| (|uts| $)
-  (PROG (|utsInv| #1=#:G1330 |order| |ord| |x| |cc|)
+  (PROG (|utsInv| #1=#:G1306 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -3148,7 +3148,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISUPS;cAcsch;2$;95| (|uts| $)
-  (PROG (|utsInv| #1=#:G1344 |order| |ord| |x| |cc|)
+  (PROG (|utsInv| #1=#:G1320 |order| |ord| |x| |cc|)
     (RETURN
      (SEQ
       (EXIT
@@ -3300,10 +3300,10 @@
 
 (DECLAIM (NOTINLINE |InnerSparseUnivariatePowerSeries;|)) 
 
-(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1375)
+(DEFUN |InnerSparseUnivariatePowerSeries| (#1=#:G1351)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1376)
+     (PROG (#2=#:G1352)
        (RETURN
         (COND
          ((LETT #2#
@@ -3323,8 +3323,8 @@
                     '|InnerSparseUnivariatePowerSeries|))))))))))) 
 
 (DEFUN |InnerSparseUnivariatePowerSeries;| (|#1|)
-  (PROG (|pv$| #1=#:G1367 #2=#:G1368 #3=#:G1369 #4=#:G1370 #5=#:G1371
-         #6=#:G1374 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G1343 #2=#:G1344 #3=#:G1345 #4=#:G1346 #5=#:G1347
+         #6=#:G1350 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #7=(|InnerSparseUnivariatePowerSeries|))

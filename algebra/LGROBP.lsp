@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |LGROBP;reduceRow| (M |v| |lastRow| |pivots| $)
-  (PROG (|a1| #1=#:G138 |kk| #2=#:G146 |vk| |b| |k| |mj| |j| |dim|)
+  (PROG (|a1| #1=#:G114 |kk| #2=#:G122 |vk| |b| |k| |mj| |j| |dim|)
     (RETURN
      (SEQ (LETT |a1| (|spadConstant| $ 13) . #3=(|LGROBP;reduceRow|))
           (LETT |b| (|spadConstant| $ 14) . #3#)
@@ -88,10 +88,10 @@
                     (SPADCALL (QCDR |ggm|) (QCDR |gm|) (QREFELT $ 22)))))))))))) 
 
 (DEFUN |LGROBP;totolex;LL;3| (B $)
-  (PROG (|nBasis| |i| |ltresult| |result| |antc| #1=#:G169 #2=#:G168 #3=#:G170
-         #4=#:G179 |c| #5=#:G180 |b| |cordlist| #6=#:G178 |k| #7=#:G177 |j|
-         |lm| |orecfmon| |ofirstmon| |veccoef| #8=#:G161 #9=#:G158 |cc|
-         |recfmon| |v| |firstmon| |pivots| |linmat| |ndim1| |ndim| #10=#:G151
+  (PROG (|nBasis| |i| |ltresult| |result| |antc| #1=#:G145 #2=#:G144 #3=#:G146
+         #4=#:G155 |c| #5=#:G156 |b| |cordlist| #6=#:G154 |k| #7=#:G153 |j|
+         |lm| |orecfmon| |ofirstmon| |veccoef| #8=#:G137 #9=#:G134 |cc|
+         |recfmon| |v| |firstmon| |pivots| |linmat| |ndim1| |ndim| #10=#:G127
          |vBasis|)
     (RETURN
      (SEQ (LETT |result| NIL . #11=(|LGROBP;totolex;LL;3|))
@@ -292,9 +292,9 @@
       (EXIT (SPADCALL |oldBasis| |algBasis| |x| (QREFELT $ 67))))))) 
 
 (DEFUN |LGROBP;minPol;2LOvlHdmp;5| (|oldBasis| |algBasis| |x| $)
-  (PROG (#1=#:G199 |g| #2=#:G193 #3=#:G200 |k| |j| |lm| |veccoef| |omult|
-         #4=#:G188 |f| #5=#:G185 |cc| |recf| |i| |pivots| |linmat| |ndim1|
-         |ndim| #6=#:G183 |nvp|)
+  (PROG (#1=#:G175 |g| #2=#:G169 #3=#:G176 |k| |j| |lm| |veccoef| |omult|
+         #4=#:G164 |f| #5=#:G161 |cc| |recf| |i| |pivots| |linmat| |ndim1|
+         |ndim| #6=#:G159 |nvp|)
     (RETURN
      (SEQ
       (EXIT
@@ -424,7 +424,7 @@
      (QREFELT $ 38))))) 
 
 (DEFUN |LGROBP;computeBasis;2L;7| (B $)
-  (PROG (|result| |part| #1=#:G209 |var| |mB| #2=#:G208 |f| #3=#:G207)
+  (PROG (|result| |part| #1=#:G185 |var| |mB| #2=#:G184 |f| #3=#:G183)
     (RETURN
      (SEQ
       (LETT |mB|
@@ -459,7 +459,7 @@
       (EXIT |result|))))) 
 
 (DEFUN |LGROBP;intcompBasis;Ovl3L;8| (|x| |lr| |mB| $)
-  (PROG (|part| |g| #1=#:G214 |f|)
+  (PROG (|part| |g| #1=#:G190 |f|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |lr| NIL (QREFELT $ 84)) |lr|)
@@ -509,7 +509,7 @@
           (EXIT |vv|))))) 
 
 (DEFUN |LGROBP;anticoord;LDmpLDmp;10| (|vv| |mf| B $)
-  (PROG (#1=#:G226 |f| #2=#:G227 |c|)
+  (PROG (#1=#:G202 |f| #2=#:G203 |c|)
     (RETURN
      (SEQ
       (SEQ (LETT |c| NIL . #3=(|LGROBP;anticoord;LDmpLDmp;10|))
@@ -529,7 +529,7 @@
       (EXIT |mf|))))) 
 
 (DEFUN |LGROBP;choosemon;DmpLDmp;11| (|mf| |nB| $)
-  (PROG (#1=#:G231 |dx| #2=#:G236 |xx| #3=#:G237 |x|)
+  (PROG (#1=#:G207 |dx| #2=#:G212 |xx| #3=#:G213 |x|)
     (RETURN
      (SEQ
       (EXIT
@@ -573,12 +573,12 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |LGROBP;linGenPos;LR;12| (B $)
-  (PROG (|nBasis| |i| |ltresult| |result| |antc| #1=#:G262 #2=#:G261 #3=#:G263
-         #4=#:G276 |c| #5=#:G277 |b| |cordlist| #6=#:G275 |j| #7=#:G274 |lm|
-         |orecfmon| |ofirstmon| |veccoef| #8=#:G255 #9=#:G252 |cc| |recfmon|
-         |v| |firstmon| |lx| |nval| #10=#:G244 #11=#:G243 #12=#:G245 #13=#:G272
-         |r| #14=#:G273 |vv| |rval| #15=#:G271 |ii| |pivots| |linmat| |ndim1|
-         |ndim| #16=#:G239 |vBasis|)
+  (PROG (|nBasis| |i| |ltresult| |result| |antc| #1=#:G238 #2=#:G237 #3=#:G239
+         #4=#:G252 |c| #5=#:G253 |b| |cordlist| #6=#:G251 |j| #7=#:G250 |lm|
+         |orecfmon| |ofirstmon| |veccoef| #8=#:G231 #9=#:G228 |cc| |recfmon|
+         |v| |firstmon| |lx| |nval| #10=#:G220 #11=#:G219 #12=#:G221 #13=#:G248
+         |r| #14=#:G249 |vv| |rval| #15=#:G247 |ii| |pivots| |linmat| |ndim1|
+         |ndim| #16=#:G215 |vBasis|)
     (RETURN
      (SEQ (LETT |result| NIL . #17=(|LGROBP;linGenPos;LR;12|))
           (LETT |ltresult| NIL . #17#)
@@ -819,8 +819,8 @@
           (EXIT (CONS |result| |rval|)))))) 
 
 (DEFUN |LGROBP;groebgen;LR;13| (L $)
-  (PROG (LL #1=#:G290 |f| #2=#:G289 |val| #3=#:G282 #4=#:G281 #5=#:G283 |i|
-         |ll| #6=#:G288 |nvar1| #7=#:G279 |xn|)
+  (PROG (LL #1=#:G266 |f| #2=#:G265 |val| #3=#:G258 #4=#:G257 #5=#:G259 |i|
+         |ll| #6=#:G264 |nvar1| #7=#:G255 |xn|)
     (RETURN
      (SEQ
       (LETT |xn| (SPADCALL (QREFELT $ 12) '|last| (QREFELT $ 93))
@@ -892,10 +892,10 @@
 
 (DECLAIM (NOTINLINE |LinGroebnerPackage;|)) 
 
-(DEFUN |LinGroebnerPackage| (&REST #1=#:G293)
+(DEFUN |LinGroebnerPackage| (&REST #1=#:G269)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G294)
+     (PROG (#2=#:G270)
        (RETURN
         (COND
          ((LETT #2#
@@ -914,7 +914,7 @@
               (HREM |$ConstructorCache| '|LinGroebnerPackage|))))))))))) 
 
 (DEFUN |LinGroebnerPackage;| (|#1| |#2|)
-  (PROG (#1=#:G134 #2=#:G292 |yx| #3=#:G291 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G110 #2=#:G268 |yx| #3=#:G267 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN

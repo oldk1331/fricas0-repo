@@ -34,7 +34,7 @@
           (EXIT |g|))))) 
 
 (DEFUN |FSINT;rinteg| (|i| |f| |x| |h| $)
-  (PROG (|l| #1=#:G165 #2=#:G164)
+  (PROG (|l| #1=#:G141 #2=#:G140)
     (RETURN
      (SEQ
       (COND
@@ -88,7 +88,7 @@
                  (QREFELT $ 51))))))) 
 
 (DEFUN |FSINT;find_int| (|i| |t| $)
-  (PROG (#1=#:G175 |akl| #2=#:G176 |k| |ii| |k0| |ail|)
+  (PROG (#1=#:G151 |akl| #2=#:G152 |k| |ii| |k0| |ail|)
     (RETURN
      (SEQ
       (EXIT
@@ -121,8 +121,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FSINT;postSubst| (|f| |lv| |lk| |ltan| |x| $)
-  (PROG (#1=#:G201 |k| #2=#:G200 #3=#:G199 #4=#:G198 |ltemp| #5=#:G197
-         #6=#:G196 |uk| |tf| |u| #7=#:G194 |v| #8=#:G195)
+  (PROG (#1=#:G177 |k| #2=#:G176 #3=#:G175 #4=#:G174 |ltemp| #5=#:G173
+         #6=#:G172 |uk| |tf| |u| #7=#:G170 |v| #8=#:G171)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #9=(|FSINT;postSubst|)) (LETT #8# |lk| . #9#)
@@ -229,7 +229,7 @@
       (EXIT (SPADCALL |f| |x| (QREFELT $ 80))))))) 
 
 (DEFUN |FSINT;inv_lst| (|lt| |le| $)
-  (PROG (|rese| |resk| |ie| |ik| |k1| |e1| #1=#:G213 |k| #2=#:G214 |e| |im|)
+  (PROG (|rese| |resk| |ie| |ik| |k1| |e1| #1=#:G189 |k| #2=#:G190 |e| |im|)
     (RETURN
      (SEQ (LETT |resk| NIL . #3=(|FSINT;inv_lst|)) (LETT |rese| NIL . #3#)
           (LETT |im|
@@ -307,10 +307,10 @@
   (COND ((NULL |ltan|) |rt|) ((NULL (CDR (CDR |l|))) 'NIL) ('T 'T))) 
 
 (DEFUN |FSINT;integrate;FSU;12| (|f| |x| $)
-  (PROG (#1=#:G256 |h| #2=#:G255 |u| |ovals| |okers| |ltg| |i| |gg| |rtg1|
-         |tgg1| #3=#:G254 |k| #4=#:G253 |tgg0| |gg0| |el| |rtg| |tg| #5=#:G252
-         #6=#:G251 |g| |rec| |evals| |ekers| |vk| |vu| #7=#:G249 #8=#:G250 |v|
-         |etf| #9=#:G248 #10=#:G247 |ht| |ltf| |tf|)
+  (PROG (#1=#:G232 |h| #2=#:G231 |u| |ovals| |okers| |ltg| |i| |gg| |rtg1|
+         |tgg1| #3=#:G230 |k| #4=#:G229 |tgg0| |gg0| |el| |rtg| |tg| #5=#:G228
+         #6=#:G227 |g| |rec| |evals| |ekers| |vk| |vu| #7=#:G225 #8=#:G226 |v|
+         |etf| #9=#:G224 #10=#:G223 |ht| |ltf| |tf|)
     (RETURN
      (SEQ
       (COND
@@ -515,10 +515,10 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceIntegration;|)) 
 
-(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G257)
+(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G233)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G258)
+     (PROG (#2=#:G234)
        (RETURN
         (COND
          ((LETT #2#

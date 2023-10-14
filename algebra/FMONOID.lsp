@@ -58,7 +58,7 @@
                            (QREFELT $ 46)))))))))))) 
 
 (DEFUN |FMONOID;overlap;2$R;12| (|la| |ar| $)
-  (PROG (|lla| |l| #1=#:G193 |m| #2=#:G182 |ru| #3=#:G176 |lar| |la0|)
+  (PROG (|lla| |l| #1=#:G169 |m| #2=#:G158 |ru| #3=#:G152 |lar| |la0|)
     (RETURN
      (SEQ
       (EXIT
@@ -173,7 +173,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |FMONOID;divide;2$U;13| (|lar| |a| $)
-  (PROG (|Nlar| |llar| |l| #1=#:G210 #2=#:G217 #3=#:G204 |q| |Na| |la|)
+  (PROG (|Nlar| |llar| |l| #1=#:G186 #2=#:G193 #3=#:G180 |q| |Na| |la|)
     (RETURN
      (SEQ
       (EXIT
@@ -259,7 +259,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FMONOID;hclf;3$;14| (|f| |g| $)
-  (PROG (#1=#:G219 #2=#:G223 |h| #3=#:G224 |f0| #4=#:G225 |g0|)
+  (PROG (#1=#:G195 #2=#:G199 |h| #3=#:G200 |f0| #4=#:G201 |g0|)
     (RETURN
      (SEQ
       (EXIT
@@ -307,7 +307,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FMONOID;lquo;2$U;15| (|aq| |a| $)
-  (PROG (#1=#:G233 |laq| #2=#:G239 #3=#:G240 |a0|)
+  (PROG (#1=#:G209 |laq| #2=#:G215 #3=#:G216 |a0|)
     (RETURN
      (SEQ
       (EXIT
@@ -367,7 +367,7 @@
              ('T (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 24)))))))))) 
 
 (DEFUN |FMONOID;<;2$B;17| (|a| |b| $)
-  (PROG (|na| |la| |lb| #1=#:G254 |nb| #2=#:G251 #3=#:G263)
+  (PROG (|na| |la| |lb| #1=#:G230 |nb| #2=#:G227 #3=#:G239)
     (RETURN
      (SEQ
       (EXIT
@@ -439,10 +439,10 @@
 
 (DECLAIM (NOTINLINE |FreeMonoid;|)) 
 
-(DEFUN |FreeMonoid| (#1=#:G267)
+(DEFUN |FreeMonoid| (#1=#:G243)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G268)
+     (PROG (#2=#:G244)
        (RETURN
         (COND
          ((LETT #2#

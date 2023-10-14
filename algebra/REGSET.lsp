@@ -34,7 +34,7 @@
 (DEFUN |REGSET;roughUnitIdeal?;$B;11| (|ts| $) 'NIL) 
 
 (DEFUN |REGSET;coerce;$Of;12| (|ts| $)
-  (PROG (#1=#:G187 |p| #2=#:G186 |lp|)
+  (PROG (#1=#:G163 |p| #2=#:G162 |lp|)
     (RETURN
      (SEQ
       (LETT |lp| (REVERSE (|REGSET;rep| |ts| $)) . #3=(|REGSET;coerce;$Of;12|))
@@ -162,7 +162,7 @@
            ('T (CONS 1 "failed"))))))) 
 
 (DEFUN |REGSET;removeZero;P$P;22| (|p| |ts| $)
-  (PROG (|q| #1=#:G256 #2=#:G247 |ts_v-| |v|)
+  (PROG (|q| #1=#:G232 #2=#:G223 |ts_v-| |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -236,7 +236,7 @@
 
 (DEFUN |REGSET;internalAugment;P$5BL;25|
        (|p| |ts| |rem?| |red?| |prim?| |sqfr?| |extend?| $)
-  (PROG (#1=#:G270 |us| #2=#:G269 |lts| #3=#:G268 |f| #4=#:G267 |lsfp| |ts_v+|
+  (PROG (#1=#:G246 |us| #2=#:G245 |lts| #3=#:G244 |f| #4=#:G243 |lsfp| |ts_v+|
          |ts_v-| |v|)
     (RETURN
      (SEQ
@@ -307,7 +307,7 @@
    ('T (SPADCALL |p| |ts| 'T 'T 'T 'T 'T (QREFELT $ 68))))) 
 
 (DEFUN |REGSET;extend;P$L;27| (|p| |ts| $)
-  (PROG (|lts| #1=#:G279 |us| |split| |v|)
+  (PROG (|lts| #1=#:G255 |us| |split| |v|)
     (RETURN
      (SEQ
       (COND
@@ -422,7 +422,7 @@
       (EXIT |lts|))))) 
 
 (DEFUN |REGSET;internalZeroSetSplit;L3BL;39| (|lp| |clos?| |info?| |prep?| $)
-  (PROG (|lts| #1=#:G316 |p| |ts| |pp|)
+  (PROG (|lts| #1=#:G292 |p| |ts| |pp|)
     (RETURN
      (SEQ
       (COND
@@ -490,9 +490,9 @@
    ('T 'NIL))) 
 
 (DEFUN |REGSET;pre_process;L2BR;44| (|lp| |clos?| |info?| $)
-  (PROG (#1=#:G368 |lp2| |lts| #2=#:G381 |p| |lp3| #3=#:G380 |lp4| #4=#:G379
-         #5=#:G378 #6=#:G377 #7=#:G376 #8=#:G375 #9=#:G374 #10=#:G373
-         #11=#:G372 #12=#:G371 #13=#:G370 |lp1| #14=#:G369 |ts|)
+  (PROG (#1=#:G344 |lp2| |lts| #2=#:G357 |p| |lp3| #3=#:G356 |lp4| #4=#:G355
+         #5=#:G354 #6=#:G353 #7=#:G352 #8=#:G351 #9=#:G350 #10=#:G349
+         #11=#:G348 #12=#:G347 #13=#:G346 |lp1| #14=#:G345 |ts|)
     (RETURN
      (SEQ
       (EXIT
@@ -780,10 +780,10 @@
 
 (DECLAIM (NOTINLINE |RegularTriangularSet;|)) 
 
-(DEFUN |RegularTriangularSet| (&REST #1=#:G400)
+(DEFUN |RegularTriangularSet| (&REST #1=#:G376)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G401)
+     (PROG (#2=#:G377)
        (RETURN
         (COND
          ((LETT #2#
@@ -802,7 +802,7 @@
               (HREM |$ConstructorCache| '|RegularTriangularSet|))))))))))) 
 
 (DEFUN |RegularTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G399 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G375 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|RegularTriangularSet|))

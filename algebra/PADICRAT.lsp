@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |PAdicRational;|)) 
 
-(DEFUN |PAdicRational| (#1=#:G164)
+(DEFUN |PAdicRational| (#1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G165)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|PAdicRational|))))))))))) 
 
 (DEFUN |PAdicRational;| (|#1|)
-  (PROG (|pv$| #1=#:G163 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G139 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|PAdicRational|))

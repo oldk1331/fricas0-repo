@@ -68,7 +68,7 @@
 (DEFUN |TBCMPPK;makingStats?;B;8| ($) (QREFELT $ 13)) 
 
 (DEFUN |TBCMPPK;extractIfCan;KeyU;9| (|k| $)
-  (PROG (#1=#:G152 |s|)
+  (PROG (#1=#:G128 |s|)
     (RETURN
      (SEQ
       (EXIT
@@ -99,10 +99,10 @@
 
 (DECLAIM (NOTINLINE |TabulatedComputationPackage;|)) 
 
-(DEFUN |TabulatedComputationPackage| (&REST #1=#:G155)
+(DEFUN |TabulatedComputationPackage| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

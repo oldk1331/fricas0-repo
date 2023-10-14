@@ -8,7 +8,7 @@
   (SPADCALL |s| (|spadConstant| $ 7) (QREFELT $ 9))) 
 
 (DEFUN |MHROWRED;non0| (|v| |rown| $)
-  (PROG (#1=#:G159 |ans| |allZero| #2=#:G160 |i|)
+  (PROG (#1=#:G135 |ans| |allZero| #2=#:G136 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -37,7 +37,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |MHROWRED;mkMat| (|x| |l| $)
-  (PROG (|ll| #1=#:G178 |i| #2=#:G177)
+  (PROG (|ll| #1=#:G154 |i| #2=#:G153)
     (RETURN
      (SEQ
       (COND
@@ -68,9 +68,9 @@
        (#4# (SPADCALL |ll| (QREFELT $ 26)))))))) 
 
 (DEFUN |MHROWRED;diagSubMatrix| (|x| $)
-  (PROG (#1=#:G224 #2=#:G226 #3=#:G237 |r| #4=#:G236 #5=#:G235 |z| #6=#:G234
-         #7=#:G233 #8=#:G232 #9=#:G229 #10=#:G231 #11=#:G230 |a| |l| #12=#:G185
-         |u| #13=#:G228 |i| #14=#:G227)
+  (PROG (#1=#:G200 #2=#:G202 #3=#:G213 |r| #4=#:G212 #5=#:G211 |z| #6=#:G210
+         #7=#:G209 #8=#:G208 #9=#:G205 #10=#:G207 #11=#:G206 |a| |l| #12=#:G161
+         |u| #13=#:G204 |i| #14=#:G203)
     (RETURN
      (SEQ
       (EXIT
@@ -203,8 +203,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MHROWRED;determinantOfMinor| (|x| $)
-  (PROG (#1=#:G242 #2=#:G245 |j| |d| #3=#:G250 |n| |i| |lr| #4=#:G249 #5=#:G248
-         |lc| #6=#:G247 #7=#:G246 |nc| |nr|)
+  (PROG (#1=#:G218 #2=#:G221 |j| |d| #3=#:G226 |n| |i| |lr| #4=#:G225 #5=#:G224
+         |lc| #6=#:G223 #7=#:G222 |nc| |nr|)
     (RETURN
      (SEQ
       (EXIT
@@ -287,7 +287,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MHROWRED;enumerateBinomial| (|l| |m| |i| $)
-  (PROG (#1=#:G255 |b| #2=#:G256 |n| |j| |m1|)
+  (PROG (#1=#:G231 |b| #2=#:G232 |n| |j| |m1|)
     (RETURN
      (SEQ
       (EXIT
@@ -352,7 +352,7 @@
     (RETURN (PROGN (SPADCALL |s| |m| (QREFELT $ 47)))))) 
 
 (DEFUN |MHROWRED;order| (|m| |p| $)
-  (PROG (#1=#:G272 |mm| |i|)
+  (PROG (#1=#:G248 |mm| |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -422,9 +422,9 @@
                    (QREFELT $ 61))))))))) 
 
 (DEFUN |MHROWRED;rowEchelonLocal;M2RM;13| (|y| |m| |p| $)
-  (PROG (|i| #1=#:G316 |k1| |qr| #2=#:G315 |k| |v2| |q| #3=#:G298 |pivot| |d|
-         |b| |a| |#G79| |x| #4=#:G292 |pivord| |rown| |npivord| #5=#:G312 |j|
-         |minr| |ncols| |nrows| #6=#:G289)
+  (PROG (|i| #1=#:G292 |k1| |qr| #2=#:G291 |k| |v2| |q| #3=#:G274 |pivot| |d|
+         |b| |a| |#G79| |x| #4=#:G268 |pivord| |rown| |npivord| #5=#:G288 |j|
+         |minr| |ncols| |nrows| #6=#:G265)
     (RETURN
      (SEQ
       (LETT |m|
@@ -600,8 +600,8 @@
   (SPADCALL (|MHROWRED;vconc| |y| |m| $) (QREFELT $ 43))) 
 
 (DEFUN |MHROWRED;rowEchelon;MRM;15| (|y| |m| $)
-  (PROG (|i| #1=#:G345 |k1| |qr| #2=#:G344 |k| |xij| |jj| |un| |v2| |v1| |a1|
-         |b1| |#G94| #3=#:G324 |#G93| |d| |b| |a| |#G92| |x| |rown| #4=#:G341
+  (PROG (|i| #1=#:G321 |k1| |qr| #2=#:G320 |k| |xij| |jj| |un| |v2| |v1| |a1|
+         |b1| |#G94| #3=#:G300 |#G93| |d| |b| |a| |#G92| |x| |rown| #4=#:G317
          |j| |minr| |ncols| |nrows|)
     (RETURN
      (SEQ
@@ -793,10 +793,10 @@
 
 (DECLAIM (NOTINLINE |ModularHermitianRowReduction;|)) 
 
-(DEFUN |ModularHermitianRowReduction| (#1=#:G346)
+(DEFUN |ModularHermitianRowReduction| (#1=#:G322)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G347)
+     (PROG (#2=#:G323)
        (RETURN
         (COND
          ((LETT #2#

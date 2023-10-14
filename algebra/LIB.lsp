@@ -14,7 +14,7 @@
 (DEFUN |Library| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G180)
+     (PROG (#1=#:G156)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Library|) . #2=(|Library|))
@@ -29,7 +29,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|Library|))))))))))) 
 
 (DEFUN |Library;| ()
-  (PROG (|dv$| $ #1=#:G176 #2=#:G175 |pv$| #3=#:G177 #4=#:G178)
+  (PROG (|dv$| $ #1=#:G152 #2=#:G151 |pv$| #3=#:G153 #4=#:G154)
     (RETURN
      (PROGN
       (LETT |dv$| '(|Library|) . #5=(|Library|))

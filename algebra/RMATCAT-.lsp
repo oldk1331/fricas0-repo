@@ -5,7 +5,7 @@
   (EXPT (SPADCALL (QREFELT $ 13)) (* (QREFELT $ 7) (QREFELT $ 8)))) 
 
 (DEFUN |RMATCAT-;random;S;2| ($)
-  (PROG (#1=#:G147 |i| #2=#:G146 #3=#:G145 |j| #4=#:G144)
+  (PROG (#1=#:G123 |i| #2=#:G122 #3=#:G121 |j| #4=#:G120)
     (RETURN
      (SEQ
       (SPADCALL
@@ -34,7 +34,7 @@
        (QREFELT $ 17)))))) 
 
 (DEFUN |RMATCAT-;lookup;SPi;3| (|x| $)
-  (PROG (#1=#:G151 |pow| |res| #2=#:G155 |c| #3=#:G154 |r| |l| |s|)
+  (PROG (#1=#:G127 |pow| |res| #2=#:G131 |c| #3=#:G130 |r| |l| |s|)
     (RETURN
      (SEQ (LETT |s| (SPADCALL (QREFELT $ 13)) . #4=(|RMATCAT-;lookup;SPi;3|))
           (LETT |pow| 1 . #4#) (LETT |l| (SPADCALL |x| (QREFELT $ 19)) . #4#)
@@ -62,7 +62,7 @@
              (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
 
 (DEFUN |RMATCAT-;index;PiS;4| (|i| $)
-  (PROG (|res| |old| |row| |el| #1=#:G157 #2=#:G165 |j| #3=#:G164 |s|)
+  (PROG (|res| |old| |row| |el| #1=#:G133 #2=#:G141 |j| #3=#:G140 |s|)
     (RETURN
      (SEQ (LETT |s| (SPADCALL (QREFELT $ 13)) . #4=(|RMATCAT-;index;PiS;4|))
           (LETT |old| (DIVIDE2 (- |i| 1) |s|) . #4#) (LETT |res| NIL . #4#)
@@ -94,7 +94,7 @@
 (DEFUN |RMATCAT-;square?;SB;7| (|x| $) (EQL (QREFELT $ 7) (QREFELT $ 8))) 
 
 (DEFUN |RMATCAT-;diagonal?;SB;8| (|x| $)
-  (PROG (#1=#:G171 #2=#:G174 #3=#:G176 |j| #4=#:G175 |i|)
+  (PROG (#1=#:G147 #2=#:G150 #3=#:G152 |j| #4=#:G151 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -132,7 +132,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RMATCAT-;symmetric?;SB;9| (|x| $)
-  (PROG (#1=#:G178 #2=#:G182 #3=#:G184 |j| #4=#:G183 |i| |mc| |mr|)
+  (PROG (#1=#:G154 #2=#:G158 #3=#:G160 |j| #4=#:G159 |i| |mc| |mr|)
     (RETURN
      (SEQ
       (EXIT
@@ -171,7 +171,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |RMATCAT-;antisymmetric?;SB;10| (|x| $)
-  (PROG (#1=#:G186 #2=#:G190 #3=#:G192 |j| #4=#:G191 |i| |mc| |mr| |nRows|)
+  (PROG (#1=#:G162 #2=#:G166 #3=#:G168 |j| #4=#:G167 |i| |mc| |mr| |nRows|)
     (RETURN
      (SEQ
       (EXIT

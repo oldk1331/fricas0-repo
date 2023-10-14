@@ -6,7 +6,7 @@
 (DEFUN |GALFACTU;length;UPF;2| (|p| $) (SPADCALL |p| 1 (QREFELT $ 14))) 
 
 (DEFUN |GALFACTU;norm;UPPiF;3| (|f| |p| $)
-  (PROG (|n| #1=#:G136 |c|)
+  (PROG (|n| #1=#:G112 |c|)
     (RETURN
      (SEQ (LETT |n| (|spadConstant| $ 16) . #2=(|GALFACTU;norm;UPPiF;3|))
           (SEQ (LETT |c| NIL . #2#)
@@ -30,7 +30,7 @@
 (DEFUN |GALFACTU;quadraticNorm;UPF;4| (|f| $) (SPADCALL |f| 2 (QREFELT $ 14))) 
 
 (DEFUN |GALFACTU;infinityNorm;UPF;5| (|f| $)
-  (PROG (|n| #1=#:G141 |c|)
+  (PROG (|n| #1=#:G117 |c|)
     (RETURN
      (SEQ (LETT |n| (|spadConstant| $ 16) . #2=(|GALFACTU;infinityNorm;UPF;5|))
           (SEQ (LETT |c| NIL . #2#)
@@ -126,7 +126,7 @@
   (SPADCALL |p| 2 (QREFELT $ 47))) 
 
 (DEFUN |GALFACTU;rootBound;UPI;8| (|p| $)
-  (PROG (|b4| |b3| |b2| |cl| |b1| |c| #1=#:G150 |i| |lc| |n|)
+  (PROG (|b4| |b3| |b2| |cl| |b1| |c| #1=#:G126 |i| |lc| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |p| (QREFELT $ 28))
@@ -232,7 +232,7 @@
           (QREFELT $ 46))))))))) 
 
 (DEFUN |GALFACTU;bombieriNorm;UPPiF;10| (|f| |p| $)
-  (PROG (|b| #1=#:G181 |dd| #2=#:G164 |i| #3=#:G185 |d|)
+  (PROG (|b| #1=#:G157 |dd| #2=#:G140 |i| #3=#:G161 |d|)
     (RETURN
      (SEQ
       (EXIT
@@ -319,10 +319,10 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
 
-(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G187)
+(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G163)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G188)
+     (PROG (#2=#:G164)
        (RETURN
         (COND
          ((LETT #2#

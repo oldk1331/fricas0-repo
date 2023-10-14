@@ -159,10 +159,10 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrderRational;|)) 
 
-(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G168)
+(DEFUN |PointsOfFiniteOrderRational| (&REST #1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G169)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#

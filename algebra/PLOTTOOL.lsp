@@ -30,7 +30,7 @@
                          (QREFELT $ 12)))))))))) 
 
 (DEFUN |PLOTTOOL;select| (|l| |f| |g| $)
-  (PROG (|m| #1=#:G132 |p|)
+  (PROG (|m| #1=#:G108 |p|)
     (RETURN
      (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|) . #2=(|PLOTTOOL;select|))
           (SEQ (LETT |p| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -51,7 +51,7 @@
             (|PLOTTOOL;select| |list| (ELT $ 19) (ELT $ 17) $) (QREFELT $ 18))) 
 
 (DEFUN |PLOTTOOL;select2| (|l| |f| |g| $)
-  (PROG (|m| #1=#:G150 |p|)
+  (PROG (|m| #1=#:G126 |p|)
     (RETURN
      (SEQ (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|) . #2=(|PLOTTOOL;select2|))
           (SEQ (LETT |p| NIL . #2#) (LETT #1# (CDR |l|) . #2#) G190
@@ -99,7 +99,7 @@
 (DEFUN |PlotTools| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G167)
+     (PROG (#1=#:G143)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PlotTools|) . #2=(|PlotTools|))

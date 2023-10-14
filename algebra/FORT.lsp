@@ -56,7 +56,7 @@
   (|makeFort| |name| |args| |decls| |res| |returnType| NIL)) 
 
 (DEFUN |FORT;dimensions| (|type| $)
-  (PROG (#1=#:G152 |u| #2=#:G151)
+  (PROG (#1=#:G128 |u| #2=#:G127)
     (RETURN
      (SEQ
       (SPADCALL
@@ -82,7 +82,7 @@
                (|FORT;dimensions| |type| $) (SPADCALL |type| (QREFELT $ 46)))) 
 
 (DEFUN |FORT;makeAspList| (|asp| |syms| $)
-  (PROG (#1=#:G162 |u| #2=#:G161 |symtab|)
+  (PROG (#1=#:G138 |u| #2=#:G137 |symtab|)
     (RETURN
      (SEQ
       (LETT |symtab| (SPADCALL |asp| |syms| (QREFELT $ 49))
@@ -111,7 +111,7 @@
                           (EXIT (NREVERSE #2#)))))))))) 
 
 (DEFUN |FORT;linkToFortran;SLTstLSe;9| (|name| |aArgs| |syms| |res| $)
-  (PROG (|asps| #1=#:G169 |u| #2=#:G168 |rt| |symbolList| |symbolTable|
+  (PROG (|asps| #1=#:G145 |u| #2=#:G144 |rt| |symbolList| |symbolTable|
          |dummies| |arguments|)
     (RETURN
      (SEQ
@@ -150,7 +150,7 @@
 (DEFUN |FortranPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G171)
+     (PROG (#1=#:G147)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranPackage|)

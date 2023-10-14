@@ -15,10 +15,10 @@
 
 (DECLAIM (NOTINLINE |IntegerLinearDependence;|)) 
 
-(DEFUN |IntegerLinearDependence| (#1=#:G140)
+(DEFUN |IntegerLinearDependence| (#1=#:G116)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G117)
        (RETURN
         (COND
          ((LETT #2#

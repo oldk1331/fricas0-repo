@@ -13,7 +13,7 @@
 (DEFUN |IFARRAY;empty;$;3| ($) (VECTOR 0 0 (MAKE-ARRAY 0))) 
 
 (DEFUN |IFARRAY;#;$Nni;4| (|r| $)
-  (PROG (#1=#:G156)
+  (PROG (#1=#:G132)
     (RETURN
      (PROG1 (LETT #1# (QVELT |r| 1) |IFARRAY;#;$Nni;4|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
@@ -34,7 +34,7 @@
           (SETELT $ 9 |b|) (EXIT |oldval|))))) 
 
 (DEFUN |IFARRAY;flexibleArray;L$;10| (|l| $)
-  (PROG (#1=#:G170 |i| #2=#:G171 |y| |a| |x| |n|)
+  (PROG (#1=#:G146 |i| #2=#:G147 |y| |a| |x| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |l|) . #3=(|IFARRAY;flexibleArray;L$;10|))
           (EXIT
@@ -85,7 +85,7 @@
          (EXIT (|IFARRAY;growWith| |r| |n| |x| $))))))))) 
 
 (DEFUN |IFARRAY;growWith| (|r| |n| |x| $)
-  (PROG (#1=#:G188 |k| |a| |y| #2=#:G183)
+  (PROG (#1=#:G164 |k| |a| |y| #2=#:G159)
     (RETURN
      (SEQ
       (LETT |y|
@@ -102,7 +102,7 @@
       (QSETVELT |r| 0 |n|) (QSETVELT |r| 2 |y|) (EXIT |r|))))) 
 
 (DEFUN |IFARRAY;shrink| (|r| |i| $)
-  (PROG (#1=#:G198 |k| |y| |a| #2=#:G190 |n|)
+  (PROG (#1=#:G174 |k| |y| |a| #2=#:G166 |n|)
     (RETURN
      (SEQ (QSETVELT |r| 1 (- (QVELT |r| 1) |i|))
           (EXIT
@@ -140,7 +140,7 @@
                            (QSETVELT |r| 2 |y|) (EXIT |r|))))))))))))) 
 
 (DEFUN |IFARRAY;copy;2$;16| (|r| $)
-  (PROG (#1=#:G203 |k| |v| |a| |n|)
+  (PROG (#1=#:G179 |k| |v| |a| |n|)
     (RETURN
      (SEQ (LETT |n| (SPADCALL |r| (QREFELT $ 15)) . #2=(|IFARRAY;copy;2$;16|))
           (LETT |a| (QVELT |r| 2) . #2#)
@@ -187,7 +187,7 @@
       (EXIT (SPADCALL |a| |b| (+ |n| (QREFELT $ 7)) (QREFELT $ 41))))))) 
 
 (DEFUN |IFARRAY;remove!;M2$;23| (|g| |a| $)
-  (PROG (|k| #1=#:G228 |i|)
+  (PROG (|k| #1=#:G204 |i|)
     (RETURN
      (SEQ (LETT |k| 0 . #2=(|IFARRAY;remove!;M2$;23|))
           (SEQ (LETT |i| 0 . #2#)
@@ -206,7 +206,7 @@
            (|IFARRAY;shrink| |a| (- (SPADCALL |a| (QREFELT $ 15)) |k|) $)))))) 
 
 (DEFUN |IFARRAY;delete!;$I$;24| (|r| |i1| $)
-  (PROG (#1=#:G234 |k| |i|)
+  (PROG (#1=#:G210 |k| |i|)
     (RETURN
      (SEQ (LETT |i| (- |i1| (QREFELT $ 7)) . #2=(|IFARRAY;delete!;$I$;24|))
           (COND
@@ -290,7 +290,7 @@
           (EXIT |b|))))) 
 
 (DEFUN |IFARRAY;merge!;M3$;28| (|g| |a| |b| $)
-  (PROG (|k| #1=#:G260 |j| |i| |n| |m|)
+  (PROG (|k| #1=#:G236 |j| |i| |n| |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |a| (QREFELT $ 15)) . #2=(|IFARRAY;merge!;M3$;28|))
@@ -327,7 +327,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |IFARRAY;select!;M2$;29| (|g| |a| $)
-  (PROG (|k| #1=#:G267 |i|)
+  (PROG (|k| #1=#:G243 |i|)
     (RETURN
      (SEQ (LETT |k| 0 . #2=(|IFARRAY;select!;M2$;29|))
           (SEQ (LETT |i| 0 . #2#)
@@ -345,7 +345,7 @@
            (|IFARRAY;shrink| |a| (- (SPADCALL |a| (QREFELT $ 15)) |k|) $)))))) 
 
 (DEFUN |IFARRAY;removeDuplicates!;2$;30| (|a| $)
-  (PROG (|i| |nlim| |j| #1=#:G276 |k| |nlim0| |ct|)
+  (PROG (|i| |nlim| |j| #1=#:G252 |k| |nlim0| |ct|)
     (RETURN
      (SEQ
       (LETT |ct| (SPADCALL |a| (QREFELT $ 15))
@@ -418,10 +418,10 @@
 
 (DECLAIM (NOTINLINE |IndexedFlexibleArray;|)) 
 
-(DEFUN |IndexedFlexibleArray| (&REST #1=#:G294)
+(DEFUN |IndexedFlexibleArray| (&REST #1=#:G270)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G295)
+     (PROG (#2=#:G271)
        (RETURN
         (COND
          ((LETT #2#
@@ -440,7 +440,7 @@
               (HREM |$ConstructorCache| '|IndexedFlexibleArray|))))))))))) 
 
 (DEFUN |IndexedFlexibleArray;| (|#1| |#2|)
-  (PROG (#1=#:G293 |pv$| #2=#:G289 #3=#:G290 #4=#:G291 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G269 |pv$| #2=#:G265 #3=#:G266 #4=#:G267 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedFlexibleArray|))

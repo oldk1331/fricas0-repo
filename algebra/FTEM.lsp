@@ -50,7 +50,7 @@
       (EXIT |line|))))) 
 
 (DEFUN |FTEM;processTemplate;2Fn;7| (|tp| $)
-  (PROG (|active| |line| #1=#:G143 |endInput| |fp|)
+  (PROG (|active| |line| #1=#:G119 |endInput| |fp|)
     (RETURN
      (SEQ
       (LETT |fp| (SPADCALL |tp| "input" (QREFELT $ 28))
@@ -105,7 +105,7 @@
 (DEFUN |FortranTemplate| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G150)
+     (PROG (#1=#:G126)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranTemplate|)

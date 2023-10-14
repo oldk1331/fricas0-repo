@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |COMMONOP;operator;SBo;1| (|s| $)
-  (PROG (#1=#:G131 #2=#:G133 #3=#:G134 |op|)
+  (PROG (#1=#:G107 #2=#:G109 #3=#:G110 |op|)
     (RETURN
      (SEQ
       (EXIT
@@ -63,9 +63,9 @@
             ('T (SPADCALL |e| |x| (QREFELT $ 154))))))))) 
 
 (DEFUN |COMMONOP;startUp| (|b| $)
-  (PROG (#1=#:G200 |op| #2=#:G199 #3=#:G198 #4=#:G197 #5=#:G196 #6=#:G195
-         #7=#:G194 #8=#:G193 #9=#:G192 #10=#:G191 #11=#:G190 #12=#:G189
-         #13=#:G188)
+  (PROG (#1=#:G176 |op| #2=#:G175 #3=#:G174 #4=#:G173 #5=#:G172 #6=#:G171
+         #7=#:G170 #8=#:G169 #9=#:G168 #10=#:G167 #11=#:G166 #12=#:G165
+         #13=#:G164)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 9) |b| (QREFELT $ 155))
           (SPADCALL (QREFELT $ 46) (ELT $ 145) (QREFELT $ 157))
@@ -233,7 +233,7 @@
 (DEFUN |CommonOperators| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G202)
+     (PROG (#1=#:G178)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|CommonOperators|)

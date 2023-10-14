@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |EVALCYC;evp| (|fn| |pt| $)
-  (PROG (#1=#:G128 #2=#:G127 #3=#:G129 #4=#:G131 |i|)
+  (PROG (#1=#:G104 #2=#:G103 #3=#:G105 #4=#:G107 |i|)
     (RETURN
      (SEQ
       (PROGN
@@ -35,10 +35,10 @@
 
 (DECLAIM (NOTINLINE |EvaluateCycleIndicators;|)) 
 
-(DEFUN |EvaluateCycleIndicators| (#1=#:G135)
+(DEFUN |EvaluateCycleIndicators| (#1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

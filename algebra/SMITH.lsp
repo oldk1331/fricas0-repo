@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |SMITH;test1| (|sm| |b| |m1| $)
-  (PROG (|km| #1=#:G140 #2=#:G144)
+  (PROG (|km| #1=#:G116 #2=#:G120)
     (RETURN
      (SEQ
       (EXIT
@@ -30,7 +30,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SMITH;test2| (|sm| |b| |n1| |dk| $)
-  (PROG (#1=#:G155 |c| |k| |sol|)
+  (PROG (#1=#:G131 |c| |k| |sol|)
     (RETURN
      (SEQ
       (EXIT
@@ -55,7 +55,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SMITH;isDiagonal?| (|m| $)
-  (PROG (#1=#:G160 |j| |i| |n1| |m1|)
+  (PROG (#1=#:G136 |j| |i| |n1| |m1|)
     (RETURN
      (SEQ
       (EXIT
@@ -130,7 +130,7 @@
     (RETURN (PROGN (SPADCALL |a| |x| (QREFELT $ 27)))))) 
 
 (DEFUN |SMITH;ijDivide| (|sf| |i| |j| $)
-  (PROG (|rMat| |lMat| |mjj| #1=#:G177 |mii| |d| |extGcd| |m|)
+  (PROG (|rMat| |lMat| |mjj| #1=#:G153 |mii| |d| |extGcd| |m|)
     (RETURN
      (SEQ (LETT |m| (QVELT |sf| 0) . #2=(|SMITH;ijDivide|))
           (LETT |mii| (SPADCALL |m| |i| |i| (QREFELT $ 11)) . #2#)
@@ -178,7 +178,7 @@
   (SPADCALL (SPADCALL (|spadConstant| $ 42) |x| (QREFELT $ 43)) (QREFELT $ 39))) 
 
 (DEFUN |SMITH;lastStep| (|sf| $)
-  (PROG (#1=#:G189 |j| |mii| |i| |m1| |m|)
+  (PROG (#1=#:G165 |j| |mii| |i| |m1| |m|)
     (RETURN
      (SEQ
       (EXIT
@@ -219,9 +219,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SMITH;findEqMat| (|m| |t| $)
-  (PROG (#1=#:G220 |u1| #2=#:G202 #3=#:G212 #4=#:G211 #5=#:G213 #6=#:G225 |k|
-         |j0| |tjj| |j| |i| |t11| |mm| |t1| |u| |mmh| #7=#:G224 #8=#:G195
-         #9=#:G194 #10=#:G196 #11=#:G192 #12=#:G191 #13=#:G193 |n1| |m1|)
+  (PROG (#1=#:G196 |u1| #2=#:G178 #3=#:G188 #4=#:G187 #5=#:G189 #6=#:G201 |k|
+         |j0| |tjj| |j| |i| |t11| |mm| |t1| |u| |mmh| #7=#:G200 #8=#:G171
+         #9=#:G170 #10=#:G172 #11=#:G168 #12=#:G167 #13=#:G169 |n1| |m1|)
     (RETURN
      (SEQ
       (EXIT
@@ -521,7 +521,7 @@
                                  (QVELT |cm2| 2))))))))))))))))) 
 
 (DEFUN |SMITH;diophantineSystem;MColR;14| (|m| |b| $)
-  (PROG (|lsol| |i| #1=#:G249 |sol| |rm| |t2| |n1| |dk| |t1| |b1| |lm| |m1|
+  (PROG (|lsol| |i| #1=#:G225 |sol| |rm| |t2| |n1| |dk| |t1| |b1| |lm| |m1|
          |sm| |sf|)
     (RETURN
      (SEQ
@@ -581,10 +581,10 @@
 
 (DECLAIM (NOTINLINE |SmithNormalForm;|)) 
 
-(DEFUN |SmithNormalForm| (&REST #1=#:G250)
+(DEFUN |SmithNormalForm| (&REST #1=#:G226)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G251)
+     (PROG (#2=#:G227)
        (RETURN
         (COND
          ((LETT #2#

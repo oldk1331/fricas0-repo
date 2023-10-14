@@ -17,14 +17,14 @@
     (LETT |polR| (QREFELT $$ 0) . #1#)
     (RETURN
      (PROGN
-      (PROG (#2=#:G302)
+      (PROG (#2=#:G278)
         (RETURN
          (PROG2 (LETT #2# (SPADCALL |p1| |r| (QREFELT $ 18)) NIL)
              (QCDR #2#)
            (|check_union| (QEQCAR #2# 0) |polR| #2#)))))))) 
 
 (DEFUN |PRS;pseudoDivide;2polRR;3| (P Q $)
-  (PROG (#1=#:G317 |quot| |mon| #2=#:G309 |i| #3=#:G308 |delta| |co| #4=#:G307
+  (PROG (#1=#:G293 |quot| |mon| #2=#:G285 |i| #3=#:G284 |delta| |co| #4=#:G283
          |degQ| |degP| |#G11| |#G10| |lcQ|)
     (RETURN
      (SEQ
@@ -105,7 +105,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;divide;2polRR;4| (F G $)
-  (PROG (#1=#:G332 |quot| |mon| #2=#:G326 #3=#:G324 |delta| #4=#:G320 |degG|
+  (PROG (#1=#:G308 |quot| |mon| #2=#:G302 #3=#:G300 |delta| #4=#:G296 |degG|
          |lcG|)
     (RETURN
      (SEQ
@@ -166,7 +166,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;resultant_naif;2polRR;5| (P Q $)
-  (PROG (|#G23| |#G22| |a| #1=#:G337 U #2=#:G343 |degQ| |degP| |#G21| |#G20|)
+  (PROG (|#G23| |#G22| |a| #1=#:G313 U #2=#:G319 |degQ| |degP| |#G21| |#G20|)
     (RETURN
      (SEQ
       (EXIT
@@ -232,7 +232,7 @@
 
 (DEFUN |PRS;resultantEuclidean_naif;2polRR;6| (P Q $)
   (PROG (|cf2| |cf1| |old_cf2| |old_cf1| |#G33| |#G32| |#G31| |#G30| |#G29|
-         |#G28| |a| #1=#:G353 |divid| #2=#:G359 #3=#:G348 |degQ| |degP| |#G27|
+         |#G28| |a| #1=#:G329 |divid| #2=#:G335 #3=#:G324 |degQ| |degP| |#G27|
          |#G26|)
     (RETURN
      (SEQ
@@ -338,8 +338,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;semiResultantEuclidean_naif;2polRR;7| (P Q $)
-  (PROG (|cf2| |old_cf2| |#G41| |#G40| |#G39| |#G38| |a| #1=#:G369 |divid|
-         #2=#:G375 #3=#:G364 |degQ| |degP| |#G37| |#G36|)
+  (PROG (|cf2| |old_cf2| |#G41| |#G40| |#G39| |#G38| |a| #1=#:G345 |divid|
+         #2=#:G351 #3=#:G340 |degQ| |degP| |#G37| |#G36|)
     (RETURN
      (SEQ
       (EXIT
@@ -430,7 +430,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;Lazard;2RNniR;8| (|x| |y| |n| $)
-  (PROG (#1=#:G381 |c| #2=#:G379 |a| #3=#:G387 #4=#:G377 |b|)
+  (PROG (#1=#:G357 |c| #2=#:G355 |a| #3=#:G363 #4=#:G353 |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -502,7 +502,7 @@
       #3# (EXIT #3#))))) 
 
 (DEFUN |PRS;Lazard2;polR2RNnipolR;9| (F |x| |y| |n| $)
-  (PROG (#1=#:G394 #2=#:G390 #3=#:G388)
+  (PROG (#1=#:G370 #2=#:G366 #3=#:G364)
     (RETURN
      (SEQ
       (EXIT
@@ -533,7 +533,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;Lazard3| (V |x| |y| |n| $)
-  (PROG (#1=#:G398 #2=#:G395)
+  (PROG (#1=#:G374 #2=#:G371)
     (RETURN
      (SEQ
       (EXIT
@@ -557,7 +557,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;next_sousResultant2;3polRRpolR;11| (P Q Z |s| $)
-  (PROG (#1=#:G409 A #2=#:G400 H #3=#:G410 |i| |#G66| |#G65| |#G64| |e| |d|
+  (PROG (#1=#:G385 A #2=#:G376 H #3=#:G386 |i| |#G66| |#G65| |#G64| |e| |d|
          |#G63| |#G62| |se| |c| |lcP| |#G61| |#G60| |#G59|)
     (RETURN
      (SEQ
@@ -659,8 +659,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;next_sousResultant3| (VP VQ |s| |ss| $)
-  (PROG (#1=#:G423 #2=#:G415 #3=#:G424 |i| |divid| |rr| |r| |#G77| |#G76|
-         #4=#:G411 |delta| |e| |c| |lcP| |#G75| |#G74| Q P |#G73| |#G72|)
+  (PROG (#1=#:G399 #2=#:G391 #3=#:G400 |i| |divid| |rr| |r| |#G77| |#G76|
+         #4=#:G387 |delta| |e| |c| |lcP| |#G75| |#G74| Q P |#G73| |#G72|)
     (RETURN
      (SEQ
       (EXIT
@@ -764,8 +764,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;algo_new| (P Q $)
-  (PROG (|s| |#G84| |#G83| #1=#:G432 Z |delta| #2=#:G426 |#G82| |#G81|
-         #3=#:G425)
+  (PROG (|s| |#G84| |#G83| #1=#:G408 Z |delta| #2=#:G402 |#G82| |#G81|
+         #3=#:G401)
     (RETURN
      (SEQ
       (EXIT
@@ -827,7 +827,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;resultant;2polRR;14| (P Q $)
-  (PROG (#1=#:G439 |#G88| |#G87|)
+  (PROG (#1=#:G415 |#G88| |#G87|)
     (RETURN
      (SEQ
       (EXIT
@@ -861,8 +861,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;subResultantEuclidean| (P Q $)
-  (PROG (|s| VQ VP |#G94| |#G93| |ss| #1=#:G451 |l| |delta| #2=#:G444 |e|
-         |#G92| |#G91| |pdiv| #3=#:G442)
+  (PROG (|s| VQ VP |#G94| |#G93| |ss| #1=#:G427 |l| |delta| #2=#:G420 |e|
+         |#G92| |#G91| |pdiv| #3=#:G418)
     (RETURN
      (SEQ
       (EXIT
@@ -945,7 +945,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;resultantEuclidean;2polRR;16| (P Q $)
-  (PROG (#1=#:G464 |s| #2=#:G459 |degP| |l| |e|)
+  (PROG (#1=#:G440 |s| #2=#:G435 |degP| |l| |e|)
     (RETURN
      (SEQ
       (EXIT
@@ -1011,8 +1011,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiSubResultantEuclidean| (P Q $)
-  (PROG (|s| VQ VP |#G102| |#G101| |ss| #1=#:G476 |l| |delta| #2=#:G469 |e|
-         |#G100| |#G99| |pdiv| #3=#:G467)
+  (PROG (|s| VQ VP |#G102| |#G101| |ss| #1=#:G452 |l| |delta| #2=#:G445 |e|
+         |#G100| |#G99| |pdiv| #3=#:G443)
     (RETURN
      (SEQ
       (EXIT
@@ -1088,7 +1088,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiResultantEuclidean2;2polRR;18| (P Q $)
-  (PROG (#1=#:G486 |s| #2=#:G480 |degP|)
+  (PROG (#1=#:G462 |s| #2=#:G456 |degP|)
     (RETURN
      (SEQ
       (EXIT
@@ -1147,8 +1147,8 @@
       (EXIT (CONS (QVELT |result| 0) (QVELT |result| 2))))))) 
 
 (DEFUN |PRS;indiceSubResultant;2polRNnipolR;20| (P Q |i| $)
-  (PROG (|s| |#G117| |#G116| #1=#:G512 Z #2=#:G505 |degQ| |degP| |#G115|
-         |#G114| |#G113| |#G112| #3=#:G503 #4=#:G498 |delta| #5=#:G496 |#G111|
+  (PROG (|s| |#G117| |#G116| #1=#:G488 Z #2=#:G481 |degQ| |degP| |#G115|
+         |#G114| |#G113| |#G112| #3=#:G479 #4=#:G474 |delta| #5=#:G472 |#G111|
          |#G110|)
     (RETURN
      (SEQ
@@ -1272,9 +1272,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;indiceSubResultantEuclidean;2polRNniR;21| (P Q |i| $)
-  (PROG (|s| VQ VP |#G130| |#G129| |ss| #1=#:G537 VZ #2=#:G529 |degQ| |degP|
-         |#G128| |#G127| |#G126| |#G125| |pdiv| #3=#:G527 #4=#:G522 |delta|
-         #5=#:G520 |l| |e|)
+  (PROG (|s| VQ VP |#G130| |#G129| |ss| #1=#:G513 VZ #2=#:G505 |degQ| |degP|
+         |#G128| |#G127| |#G126| |#G125| |pdiv| #3=#:G503 #4=#:G498 |delta|
+         #5=#:G496 |l| |e|)
     (RETURN
      (SEQ
       (EXIT
@@ -1451,9 +1451,9 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiIndiceSubResultantEuclidean;2polRNniR;22| (P Q |i| $)
-  (PROG (|s| VQ VP |#G139| |#G138| |ss| #1=#:G560 VZ #2=#:G550 |degQ| |degP|
-         |#G137| |#G136| |#G135| |#G134| |pdiv| #3=#:G548 #4=#:G543 |delta|
-         #5=#:G541)
+  (PROG (|s| VQ VP |#G139| |#G138| |ss| #1=#:G536 VZ #2=#:G526 |degQ| |degP|
+         |#G137| |#G136| |#G135| |#G134| |pdiv| #3=#:G524 #4=#:G519 |delta|
+         #5=#:G517)
     (RETURN
      (SEQ
       (EXIT
@@ -1603,8 +1603,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;degreeSubResultant;2polRNnipolR;23| (P Q |i| $)
-  (PROG (|s| |#G152| |#G151| Z #1=#:G574 #2=#:G580 |#G150| |#G149| #3=#:G571
-         #4=#:G566 |delta| #5=#:G564 |#G148| |#G147|)
+  (PROG (|s| |#G152| |#G151| Z #1=#:G550 #2=#:G556 |#G150| |#G149| #3=#:G547
+         #4=#:G542 |delta| #5=#:G540 |#G148| |#G147|)
     (RETURN
      (SEQ
       (EXIT
@@ -1714,8 +1714,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;degreeSubResultantEuclidean;2polRNniR;24| (P Q |i| $)
-  (PROG (|s| VQ VP |#G162| |#G161| |ss| #1=#:G597 #2=#:G603 |#G160| |#G159|
-         |pdiv| #3=#:G593 #4=#:G588 |delta| #5=#:G586 |l|)
+  (PROG (|s| VQ VP |#G162| |#G161| |ss| #1=#:G573 #2=#:G579 |#G160| |#G159|
+         |pdiv| #3=#:G569 #4=#:G564 |delta| #5=#:G562 |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -1854,8 +1854,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;semiDegreeSubResultantEuclidean;2polRNniR;25| (P Q |i| $)
-  (PROG (|s| VQ VP |#G169| |#G168| |ss| #1=#:G618 #2=#:G625 |#G167| |#G166|
-         |pdiv| #3=#:G614 #4=#:G609 |delta| #5=#:G607)
+  (PROG (|s| VQ VP |#G169| |#G168| |ss| #1=#:G594 #2=#:G601 |#G167| |#G166|
+         |pdiv| #3=#:G590 #4=#:G585 |delta| #5=#:G583)
     (RETURN
      (SEQ
       (EXIT
@@ -1983,7 +1983,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;lastSubResultant;3polR;26| (P Q $)
-  (PROG (|s| |#G180| |#G179| #1=#:G638 Z #2=#:G631 |#G178| |#G177| #3=#:G630
+  (PROG (|s| |#G180| |#G179| #1=#:G614 Z #2=#:G607 |#G178| |#G177| #3=#:G606
          |#G176| |#G175|)
     (RETURN
      (SEQ
@@ -2070,8 +2070,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;lastSubResultantEuclidean;2polRR;27| (P Q $)
-  (PROG (|s| VQ VP |#G186| |#G185| |ss| #1=#:G658 VZ #2=#:G652 Z |#G184|
-         |#G183| |pdiv| #3=#:G650 #4=#:G645 |degP| |l|)
+  (PROG (|s| VQ VP |#G186| |#G185| |ss| #1=#:G634 VZ #2=#:G628 Z |#G184|
+         |#G183| |pdiv| #3=#:G626 #4=#:G621 |degP| |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -2196,8 +2196,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiLastSubResultantEuclidean;2polRR;28| (P Q $)
-  (PROG (|s| VQ VP |#G192| |#G191| |ss| #1=#:G677 VZ #2=#:G670 Z |#G190|
-         |#G189| |pdiv| #3=#:G668 #4=#:G663 |degP|)
+  (PROG (|s| VQ VP |#G192| |#G191| |ss| #1=#:G653 VZ #2=#:G646 Z |#G190|
+         |#G189| |pdiv| #3=#:G644 #4=#:G639 |degP|)
     (RETURN
      (SEQ
       (EXIT
@@ -2311,8 +2311,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;chainSubResultants;2polRL;29| (P Q $)
-  (PROG (|s| |#G202| |#G201| #1=#:G692 L Z |delta| #2=#:G685 |#G200| |#G199|
-         #3=#:G684 |#G198| |#G197|)
+  (PROG (|s| |#G202| |#G201| #1=#:G668 L Z |delta| #2=#:G661 |#G200| |#G199|
+         #3=#:G660 |#G198| |#G197|)
     (RETURN
      (SEQ
       (EXIT
@@ -2425,8 +2425,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;schema;2polRL;30| (P Q $)
-  (PROG (|s| |#G210| |#G209| #1=#:G705 L Z |delta| #2=#:G698 |e| |#G208|
-         |#G207| #3=#:G697 |#G206| |#G205|)
+  (PROG (|s| |#G210| |#G209| #1=#:G681 L Z |delta| #2=#:G674 |e| |#G208|
+         |#G207| #3=#:G673 |#G206| |#G205|)
     (RETURN
      (SEQ
       (EXIT
@@ -2524,7 +2524,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;subResultantGcd;3polR;31| (P Q $)
-  (PROG (|s| |#G218| |#G217| Z #1=#:G711 #2=#:G720 |#G216| |#G215| #3=#:G710
+  (PROG (|s| |#G218| |#G217| Z #1=#:G687 #2=#:G696 |#G216| |#G215| #3=#:G686
          |#G214| |#G213|)
     (RETURN
      (SEQ
@@ -2614,8 +2614,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;subResultantGcdEuclidean;2polRR;32| (P Q $)
-  (PROG (|s| VQ VP |#G224| |#G223| |ss| #1=#:G729 #2=#:G738 |e| |#G222| |#G221|
-         |pdiv| #3=#:G727 |l|)
+  (PROG (|s| VQ VP |#G224| |#G223| |ss| #1=#:G705 #2=#:G714 |e| |#G222| |#G221|
+         |pdiv| #3=#:G703 |l|)
     (RETURN
      (SEQ
       (EXIT
@@ -2734,8 +2734,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |PRS;semiSubResultantGcdEuclidean2;2polRR;33| (P Q $)
-  (PROG (|s| VQ VP |#G230| |#G229| |ss| #1=#:G745 #2=#:G756 |e| |#G228| |#G227|
-         |pdiv| #3=#:G743)
+  (PROG (|s| VQ VP |#G230| |#G229| |ss| #1=#:G721 #2=#:G732 |e| |#G228| |#G227|
+         |pdiv| #3=#:G719)
     (RETURN
      (SEQ
       (EXIT
@@ -2838,7 +2838,7 @@
       (EXIT (CONS (QVELT |result| 0) (QVELT |result| 2))))))) 
 
 (DEFUN |PRS;discriminant;polRR;35| (P $)
-  (PROG (#1=#:G771 #2=#:G767 #3=#:G764 |d| |r| |dP| |a| #4=#:G762)
+  (PROG (#1=#:G747 #2=#:G743 #3=#:G740 |d| |r| |dP| |a| #4=#:G738)
     (RETURN
      (SEQ
       (EXIT
@@ -2895,8 +2895,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;discriminantEuclidean;polRR;36| (P $)
-  (PROG (#1=#:G798 |cr| #2=#:G792 |c2| #3=#:G790 |c1| #4=#:G785 #5=#:G778
-         #6=#:G775 |d| |rE| |dP| |a| #7=#:G773)
+  (PROG (#1=#:G774 |cr| #2=#:G768 |c2| #3=#:G766 |c1| #4=#:G761 #5=#:G754
+         #6=#:G751 |d| |rE| |dP| |a| #7=#:G749)
     (RETURN
      (SEQ
       (EXIT
@@ -3010,8 +3010,8 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiDiscriminantEuclidean;polRR;37| (P $)
-  (PROG (#1=#:G820 |cr| #2=#:G814 |c2| #3=#:G812 #4=#:G805 #5=#:G802 |d| |rE|
-         |dP| |a| #6=#:G800)
+  (PROG (#1=#:G796 |cr| #2=#:G790 |c2| #3=#:G788 #4=#:G781 #5=#:G778 |d| |rE|
+         |dP| |a| #6=#:G776)
     (RETURN
      (SEQ
       (EXIT
@@ -3097,7 +3097,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;resultantReduit;2polRR;38| (P Q $)
-  (PROG (#1=#:G827 #2=#:G823 |l| |UVs| UV)
+  (PROG (#1=#:G803 #2=#:G799 |l| |UVs| UV)
     (RETURN
      (SEQ
       (EXIT
@@ -3132,7 +3132,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;resultantReduitEuclidean;2polRR;39| (P Q $)
-  (PROG (#1=#:G839 |rr| #2=#:G834 |c2| #3=#:G831 |c1| |gl| |l| |UVs| UV)
+  (PROG (#1=#:G815 |rr| #2=#:G810 |c2| #3=#:G807 |c1| |gl| |l| |UVs| UV)
     (RETURN
      (SEQ
       (EXIT
@@ -3181,7 +3181,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;semiResultantReduitEuclidean;2polRR;40| (P Q $)
-  (PROG (#1=#:G851 |rr| #2=#:G846 |c2| #3=#:G843 |gl| |l| |UVs| UV)
+  (PROG (#1=#:G827 |rr| #2=#:G822 |c2| #3=#:G819 |gl| |l| |UVs| UV)
     (RETURN
      (SEQ
       (EXIT
@@ -3221,7 +3221,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;gcd_naif| (P Q $)
-  (PROG (|#G250| |#G249| #1=#:G860 #2=#:G853)
+  (PROG (|#G250| |#G249| #1=#:G836 #2=#:G829)
     (RETURN
      (SEQ
       (EXIT
@@ -3261,7 +3261,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PRS;gcd;3polR;42| (P Q $)
-  (PROG (#1=#:G867 G #2=#:G862 |cQ| |cP|)
+  (PROG (#1=#:G843 G #2=#:G838 |cQ| |cP|)
     (RETURN
      (SEQ
       (EXIT
@@ -3294,10 +3294,10 @@
 
 (DECLAIM (NOTINLINE |PseudoRemainderSequence;|)) 
 
-(DEFUN |PseudoRemainderSequence| (&REST #1=#:G868)
+(DEFUN |PseudoRemainderSequence| (&REST #1=#:G844)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G869)
+     (PROG (#2=#:G845)
        (RETURN
         (COND
          ((LETT #2#

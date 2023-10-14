@@ -6,7 +6,7 @@
 (DEFUN |ZMOD;characteristic;Nni;2| ($) (QREFELT $ 6)) 
 
 (DEFUN |ZMOD;lookup;$Pi;3| (|x| $)
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (COND ((SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 6))
            ('T
@@ -180,10 +180,10 @@
 
 (DECLAIM (NOTINLINE |IntegerMod;|)) 
 
-(DEFUN |IntegerMod| (#1=#:G196)
+(DEFUN |IntegerMod| (#1=#:G172)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G197)
+     (PROG (#2=#:G173)
        (RETURN
         (COND
          ((LETT #2#
@@ -278,7 +278,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|NonNegativeInteger|)
               |ZMOD;size;Nni;1| |ZMOD;characteristic;Nni;2| (|Boolean|)
               (0 . |zero?|) (|Integer|) (5 . |convert|) (|PositiveInteger|)
-              |ZMOD;lookup;$Pi;3| (10 . <=) '#:G130 '|Rep| (|SingleInteger|)
+              |ZMOD;lookup;$Pi;3| (10 . <=) '#:G106 '|Rep| (|SingleInteger|)
               (16 . |coerce|) '|q| (21 . |positiveRemainder|) (|OutputForm|)
               (27 . |coerce|) (32 . |coerce|) (37 . |coerce|) (42 . |Zero|)
               (46 . |One|) (50 . |init|) (54 . +) (60 . =)

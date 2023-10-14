@@ -68,7 +68,7 @@
 
 (DEFUN |DRAWCURV;draw;E2SLTdv;4| (|eq| |x| |y| |l| $)
   (PROG (|crCol| |ptCol| |scaledRanges| |acplot| |floatRanges| |yRangeFloat|
-         |xRangeFloat| |yRange| |xRange| |ranges| #1=#:G149 |ratRange|
+         |xRangeFloat| |yRange| |xRange| |ranges| #1=#:G125 |ratRange|
          |floatRange| |p|)
     (RETURN
      (SEQ
@@ -155,10 +155,10 @@
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForAlgebraicCurves;|)) 
 
-(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G159)
+(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G135)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G136)
        (RETURN
         (COND
          ((LETT #2#

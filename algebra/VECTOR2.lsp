@@ -10,7 +10,7 @@
 (DEFUN |VECTOR2;map;MVV;3| (|f| |v| $) (SPADCALL |f| |v| (QREFELT $ 17))) 
 
 (DEFUN |VECTOR2;map;MVU;4| (|f| |a| $)
-  (PROG (|res| #1=#:G139 #2=#:G151 |r| #3=#:G152 |u|)
+  (PROG (|res| #1=#:G115 #2=#:G127 |r| #3=#:G128 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -40,10 +40,10 @@
 
 (DECLAIM (NOTINLINE |VectorFunctions2;|)) 
 
-(DEFUN |VectorFunctions2| (&REST #1=#:G153)
+(DEFUN |VectorFunctions2| (&REST #1=#:G129)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G154)
+     (PROG (#2=#:G130)
        (RETURN
         (COND
          ((LETT #2#

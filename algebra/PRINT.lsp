@@ -8,7 +8,7 @@
 (DEFUN |PrintPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G129)
+     (PROG (#1=#:G105)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|PrintPackage|)

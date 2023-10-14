@@ -47,7 +47,7 @@
        (#1# (|CONTFRAC;eucWhole| |a| $))))))) 
 
 (DEFUN |CONTFRAC;=;2$B;4| (|x| |y| $)
-  (PROG (|yl| |xl| #1=#:G173)
+  (PROG (|yl| |xl| #1=#:G149)
     (RETURN
      (SEQ
       (EXIT
@@ -638,10 +638,10 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G333)
+(DEFUN |ContinuedFraction| (#1=#:G309)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G334)
+     (PROG (#2=#:G310)
        (RETURN
         (COND
          ((LETT #2#

@@ -38,7 +38,7 @@
       (EXIT |s|))))) 
 
 (DEFUN |PADE;pade;2Nni2PSU;5| (|l| |m| |gps| |dps| $)
-  (PROG (|approx| #1=#:G158 |d| #2=#:G159 |p| |dlist| |plist| |ad|)
+  (PROG (|approx| #1=#:G134 |d| #2=#:G135 |p| |dlist| |plist| |ad|)
     (RETURN
      (SEQ
       (LETT |ad| (|PADE;padeNormalize| |l| |m| |gps| |dps| $)
@@ -75,7 +75,7 @@
                    (EXIT (CONS 0 |approx|)))))))))) 
 
 (DEFUN |PADE;padecf;2Nni2PSU;6| (|l| |m| |gps| |dps| $)
-  (PROG (|blist| #1=#:G171 |d| #2=#:G170 |alist| |ad|)
+  (PROG (|blist| #1=#:G147 |d| #2=#:G146 |alist| |ad|)
     (RETURN
      (SEQ
       (LETT |ad| (|PADE;padeNormalize| |l| |m| |gps| |dps| $)
@@ -134,9 +134,9 @@
               (EXIT (|PADE;padeInner| |l| |m| |gps| |dps| $))))))))) 
 
 (DEFUN |PADE;padeInner| (|l| |m| |gps| |dps| $)
-  (PROG (|#G44| #1=#:G192 |#G43| |d| |g| |degbd| #2=#:G191 |h| #3=#:G187
-         |alist| #4=#:G198 |alpha| |plist| |s| |p| #5=#:G185 |pk| |k| #6=#:G184
-         |d0| |j| |#G40| |#G39| |#G38| #7=#:G181 |#G37| |#G36| |#G35| |#G34|
+  (PROG (|#G44| #1=#:G168 |#G43| |d| |g| |degbd| #2=#:G167 |h| #3=#:G163
+         |alist| #4=#:G174 |alpha| |plist| |s| |p| #5=#:G161 |pk| |k| #6=#:G160
+         |d0| |j| |#G40| |#G39| |#G38| #7=#:G157 |#G37| |#G36| |#G35| |#G34|
          |#G33|)
     (RETURN
      (SEQ
@@ -312,10 +312,10 @@
 
 (DECLAIM (NOTINLINE |PadeApproximants;|)) 
 
-(DEFUN |PadeApproximants| (&REST #1=#:G199)
+(DEFUN |PadeApproximants| (&REST #1=#:G175)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G200)
+     (PROG (#2=#:G176)
        (RETURN
         (COND
          ((LETT #2#

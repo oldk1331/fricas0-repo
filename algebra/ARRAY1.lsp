@@ -11,7 +11,7 @@
 (DEFUN |ARRAY1;qsetelt!;$I2S;2| (|x| |i| |s| $) (QSETAREF1O |x| |i| |s| 1)) 
 
 (DEFUN |ARRAY1;oneDimensionalArray;L$;3| (|u| $)
-  (PROG (|i| #1=#:G2155 |x| |a| |n|)
+  (PROG (|i| #1=#:G2131 |x| |a| |n|)
     (RETURN
      (SEQ (LETT |n| (LENGTH |u|) . #2=(|ARRAY1;oneDimensionalArray;L$;3|))
           (EXIT
@@ -38,10 +38,10 @@
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
-(DEFUN |OneDimensionalArray| (#1=#:G2169)
+(DEFUN |OneDimensionalArray| (#1=#:G2145)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2170)
+     (PROG (#2=#:G2146)
        (RETURN
         (COND
          ((LETT #2#
@@ -59,7 +59,7 @@
               (HREM |$ConstructorCache| '|OneDimensionalArray|))))))))))) 
 
 (DEFUN |OneDimensionalArray;| (|#1|)
-  (PROG (#1=#:G2168 |pv$| #2=#:G2164 #3=#:G2165 #4=#:G2166 $ |dv$| DV$1)
+  (PROG (#1=#:G2144 |pv$| #2=#:G2140 #3=#:G2141 #4=#:G2142 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|OneDimensionalArray|))

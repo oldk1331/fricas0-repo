@@ -6,12 +6,12 @@
 (DEFPARAMETER |FortranVectorCategory;AL| 'NIL) 
 
 (DEFUN |FortranVectorCategory| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|FortranVectorCategory;AL|)
           (T (SETQ |FortranVectorCategory;AL| (|FortranVectorCategory;|)))))) 
 
 (DEFUN |FortranVectorCategory;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

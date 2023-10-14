@@ -6,12 +6,12 @@
 (DEFPARAMETER |EuclideanDomain;AL| 'NIL) 
 
 (DEFUN |EuclideanDomain| ()
-  (LET (#:G146)
+  (LET (#:G122)
     (COND (|EuclideanDomain;AL|)
           (T (SETQ |EuclideanDomain;AL| (|EuclideanDomain;|)))))) 
 
 (DEFUN |EuclideanDomain;| ()
-  (PROG (#1=#:G144)
+  (PROG (#1=#:G120)
     (RETURN
      (PROG1
          (LETT #1#

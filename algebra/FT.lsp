@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |FT;coerce;$Of;1| (|a| $)
-  (PROG (#1=#:G142 |u| #2=#:G141 |t|)
+  (PROG (#1=#:G118 |u| #2=#:G117 |t|)
     (RETURN
      (SEQ
       (COND
@@ -57,7 +57,7 @@
 (DEFUN |FT;external?;$B;4| (|u| $) (QVELT |u| 2)) 
 
 (DEFUN |FT;construct;ULB$;5| (|t| |d| |e| $)
-  (PROG (#1=#:G155 |l| #2=#:G154)
+  (PROG (#1=#:G131 |l| #2=#:G130)
     (RETURN
      (SEQ
       (COND
@@ -126,7 +126,7 @@
 (DEFUN |FortranType| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G179)
+     (PROG (#1=#:G155)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranType|)

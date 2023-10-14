@@ -9,7 +9,7 @@
    "" "")) 
 
 (DEFUN |COMPCODE;genFuncDeclar| (|content| |numb| $)
-  (PROG (|resStr| |notfst| #1=#:G142 |thisTerm| |resType| |deduct| #2=#:G141
+  (PROG (|resStr| |notfst| #1=#:G118 |thisTerm| |resType| |deduct| #2=#:G117
          |fac|)
     (RETURN
      (SEQ
@@ -68,7 +68,7 @@
    " Implementation ==> add" "")) 
 
 (DEFUN |COMPCODE;genLambdaTerm| (|n| |boundL| $)
-  (PROG (|s| |ch| |boundL2| |varName| #1=#:G155 |i|)
+  (PROG (|s| |ch| |boundL2| |varName| #1=#:G131 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -131,7 +131,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMPCODE;genFuncDefn| (|content| |numb| $)
-  (PROG (#1=#:G159 |lhst| |lhsn| |lhs| |var| |sl|)
+  (PROG (#1=#:G135 |lhst| |lhsn| |lhs| |var| |sl|)
     (RETURN
      (SEQ
       (EXIT
@@ -168,7 +168,7 @@
 
 (DEFUN |COMPCODE;writeCategory;L3SV;8|
        (|content| |filename| |shortName| |longName| $)
-  (PROG (#1=#:G167 |line| |lines| |fnNum| #2=#:G166 |thisEq| |f1|)
+  (PROG (#1=#:G143 |line| |lines| |fnNum| #2=#:G142 |thisEq| |f1|)
     (RETURN
      (SEQ
       (LETT |f1|
@@ -202,7 +202,7 @@
 
 (DEFUN |COMPCODE;writePackage;L4SV;9|
        (|content| |filename| |shortName| |longName| |catName| $)
-  (PROG (#1=#:G174 |line| |lines| |fnNum| #2=#:G173 |thisEq| |f1|)
+  (PROG (#1=#:G150 |line| |lines| |fnNum| #2=#:G149 |thisEq| |f1|)
     (RETURN
      (SEQ
       (LETT |f1|
@@ -240,7 +240,7 @@
 (DEFUN |compCode| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G176)
+     (PROG (#1=#:G152)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|compCode|) . #2=(|compCode|))

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |COMPUTIL;Ski2Lambda| (|s| $)
-  (PROG (#1=#:G175 |s112| |s12| |s2| |c112| |c111| |subsubnodes2| |c12| |c11|
+  (PROG (#1=#:G151 |s112| |s12| |s2| |c112| |c111| |subsubnodes2| |c12| |c11|
          |subsubnodes| |s1| |c2| |c1| |subnodes| |strVar3| |strVar2| |strVar1|
          |strVar|)
     (RETURN
@@ -200,7 +200,7 @@
           (EXIT |term|))))) 
 
 (DEFUN |COMPUTIL;lambdaOverSki| (|var| |sk| $)
-  (PROG (#1=#:G185 |right| |left| |ch|)
+  (PROG (#1=#:G161 |right| |left| |ch|)
     (RETURN
      (SEQ
       (EXIT
@@ -279,7 +279,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMPUTIL;coerce;LSkic;4| (|lam| $)
-  (PROG (#1=#:G201 |c32| |c31| |ch3| |cxx| |c33| |s3| |c3| |lamUn| |c2| |c1|
+  (PROG (#1=#:G177 |c32| |c31| |ch3| |cxx| |c33| |s3| |c3| |lamUn| |c2| |c1|
          |ch|)
     (RETURN
      (SEQ
@@ -418,7 +418,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMPUTIL;coerce;SkicIl;5| (|s| $)
-  (PROG (#1=#:G219 |bc| |ac| |ab| |c| |b| |a| |c112| |c111| |subsubnodes2|
+  (PROG (#1=#:G195 |bc| |ac| |ab| |c| |b| |a| |c112| |c111| |subsubnodes2|
          |c12| |c11| |subsubnodes| |c2| |c1| |subnodes|)
     (RETURN
      (SEQ
@@ -563,10 +563,10 @@
 
 (DECLAIM (NOTINLINE |compUtil;|)) 
 
-(DEFUN |compUtil| (#1=#:G220)
+(DEFUN |compUtil| (#1=#:G196)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G221)
+     (PROG (#2=#:G197)
        (RETURN
         (COND
          ((LETT #2#

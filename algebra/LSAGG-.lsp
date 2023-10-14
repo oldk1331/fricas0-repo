@@ -111,7 +111,7 @@
               (EXIT |r|)))))))) 
 
 (DEFUN |LSAGG-;insert!;SAIA;7| (|s| |x| |i| $)
-  (PROG (|z| |y| #1=#:G221 |m|)
+  (PROG (|z| |y| #1=#:G197 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 31)) . #2=(|LSAGG-;insert!;SAIA;7|))
@@ -132,7 +132,7 @@
                (EXIT |x|))))))))) 
 
 (DEFUN |LSAGG-;insert!;2AIA;8| (|w| |x| |i| $)
-  (PROG (|z| |y| #1=#:G225 |m|)
+  (PROG (|z| |y| #1=#:G201 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 31)) . #2=(|LSAGG-;insert!;2AIA;8|))
@@ -194,7 +194,7 @@
                    (EXIT |x|))))))))) 
 
 (DEFUN |LSAGG-;delete!;AIA;10| (|x| |i| $)
-  (PROG (|y| #1=#:G238 |m|)
+  (PROG (|y| #1=#:G214 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 31)) . #2=(|LSAGG-;delete!;AIA;10|))
@@ -214,7 +214,7 @@
                (EXIT |x|))))))))) 
 
 (DEFUN |LSAGG-;delete!;AUsA;11| (|x| |i| $)
-  (PROG (#1=#:G245 |t| #2=#:G244 #3=#:G243 |h| |m| |l|)
+  (PROG (#1=#:G221 |t| #2=#:G220 #3=#:G219 |h| |m| |l|)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |i| (QREFELT $ 39)) . #4=(|LSAGG-;delete!;AUsA;11|))
@@ -302,7 +302,7 @@
         ('T |k|))))))) 
 
 (DEFUN |LSAGG-;mergeSort| (|f| |p| |n| $)
-  (PROG (|q| |l| #1=#:G267)
+  (PROG (|q| |l| #1=#:G243)
     (RETURN
      (SEQ
       (COND
@@ -327,7 +327,7 @@
                (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 23))))))))))) 
 
 (DEFUN |LSAGG-;sorted?;MAB;15| (|f| |l| $)
-  (PROG (|p| #1=#:G283)
+  (PROG (|p| #1=#:G259)
     (RETURN
      (SEQ
       (EXIT
@@ -469,7 +469,7 @@
           (EXIT (SPADCALL |y| (QREFELT $ 47))))))) 
 
 (DEFUN |LSAGG-;copyInto!;2AIA;22| (|y| |x| |s| $)
-  (PROG (|z| #1=#:G316 |m|)
+  (PROG (|z| #1=#:G292 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |y| (QREFELT $ 31))
@@ -503,7 +503,7 @@
                (EXIT |y|))))))))) 
 
 (DEFUN |LSAGG-;position;SA2I;23| (|w| |x| |s| $)
-  (PROG (|k| #1=#:G324 |m|)
+  (PROG (|k| #1=#:G300 |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |x| (QREFELT $ 31)) . #2=(|LSAGG-;position;SA2I;23|))
@@ -563,7 +563,7 @@
      (PROGN (SPADCALL |x| (SPADCALL |p| (QREFELT $ 18)) (QREFELT $ 61)))))) 
 
 (DEFUN |LSAGG-;<;2AB;25| (|x| |y| $)
-  (PROG (#1=#:G344)
+  (PROG (#1=#:G320)
     (RETURN
      (SEQ
       (EXIT

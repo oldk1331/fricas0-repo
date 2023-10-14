@@ -6,7 +6,7 @@
 (DEFUN |GuessInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G146)
+     (PROG (#1=#:G122)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|GuessInteger|)

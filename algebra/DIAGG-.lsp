@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DIAGG-;dictionary;LA;1| (|l| $)
-  (PROG (#1=#:G141 |x| |d|)
+  (PROG (#1=#:G117 |x| |d|)
     (RETURN
      (SEQ (LETT |d| (SPADCALL (QREFELT $ 8)) . #2=(|DIAGG-;dictionary;LA;1|))
           (SEQ (LETT |x| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -46,7 +46,7 @@
     (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 23)))))) 
 
 (DEFUN |DIAGG-;remove!;M2A;4| (|f| |t| $)
-  (PROG (#1=#:G158 |m|)
+  (PROG (#1=#:G134 |m|)
     (RETURN
      (SEQ
       (SEQ (LETT |m| NIL . #2=(|DIAGG-;remove!;M2A;4|))

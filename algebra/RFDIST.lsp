@@ -95,7 +95,7 @@
                 (QREFELT $ 18)))))) 
 
 (DEFUN |RFDIST;chiSquare1;NniF;7| (|dgfree| $)
-  (PROG (|x| #1=#:G147 |i|)
+  (PROG (|x| #1=#:G123 |i|)
     (RETURN
      (SEQ (LETT |x| (|spadConstant| $ 21) . #2=(|RFDIST;chiSquare1;NniF;7|))
           (SEQ (LETT |i| 1 . #2#) (LETT #1# (QUOTIENT2 |dgfree| 2) . #2#) G190
@@ -195,7 +195,7 @@
 (DEFUN |RandomFloatDistributions| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G172)
+     (PROG (#1=#:G148)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|RandomFloatDistributions|)

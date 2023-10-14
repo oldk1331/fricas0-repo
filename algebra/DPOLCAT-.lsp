@@ -12,7 +12,7 @@
      (PROGN (SPADCALL (SPADCALL |s| |n| (QREFELT $ 12)) (QREFELT $ 13)))))) 
 
 (DEFUN |DPOLCAT-;differentiate;AMA;2| (|p| |d| $)
-  (PROG (#1=#:G156 |ans| #2=#:G162 #3=#:G161 #4=#:G163 #5=#:G169 |v| #6=#:G159
+  (PROG (#1=#:G132 |ans| #2=#:G138 #3=#:G137 #4=#:G139 #5=#:G145 |v| #6=#:G135
          |lc| |t| |u| |l|)
     (RETURN
      (SEQ
@@ -82,7 +82,7 @@
                  (QREFELT $ 27))))))) 
 
 (DEFUN |DPOLCAT-;order;ANni;3| (|p| $)
-  (PROG (#1=#:G171 #2=#:G170 #3=#:G172 #4=#:G175 |v|)
+  (PROG (#1=#:G147 #2=#:G146 #3=#:G148 #4=#:G151 |v|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 34)) 0)
@@ -107,8 +107,8 @@
               (COND (#1# #2#) (#5# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;order;ASNni;4| (|p| |s| $)
-  (PROG (#1=#:G178 #2=#:G177 #3=#:G179 #4=#:G185 #5=#:G127 |vv| #6=#:G184 |v|
-         #7=#:G183)
+  (PROG (#1=#:G154 #2=#:G153 #3=#:G155 #4=#:G161 #5=#:G103 |vv| #6=#:G160 |v|
+         #7=#:G159)
     (RETURN
      (SEQ
       (COND
@@ -152,8 +152,8 @@
          (COND (#1# #2#) ('T (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;degree;ASNni;5| (|p| |s| $)
-  (PROG (|d| #1=#:G188 #2=#:G187 #3=#:G189 #4=#:G197 #5=#:G128 |lv| #6=#:G196
-         |v| #7=#:G195 #8=#:G194 |lp|)
+  (PROG (|d| #1=#:G164 #2=#:G163 #3=#:G165 #4=#:G173 #5=#:G104 |lv| #6=#:G172
+         |v| #7=#:G171 #8=#:G170 |lp|)
     (RETURN
      (SEQ (LETT |d| 0 . #9=(|DPOLCAT-;degree;ASNni;5|))
           (SEQ (LETT |lp| NIL . #9#)
@@ -216,8 +216,8 @@
           (EXIT |d|))))) 
 
 (DEFUN |DPOLCAT-;weights;AL;6| (|p| $)
-  (PROG (|ws| |w| #1=#:G200 #2=#:G199 #3=#:G201 #4=#:G209 #5=#:G211 |v|
-         #6=#:G212 |d| #7=#:G210 #8=#:G129 |dv| |lv| #9=#:G208 |lp| |mp|)
+  (PROG (|ws| |w| #1=#:G176 #2=#:G175 #3=#:G177 #4=#:G185 #5=#:G187 |v|
+         #6=#:G188 |d| #7=#:G186 #8=#:G105 |dv| |lv| #9=#:G184 |lp| |mp|)
     (RETURN
      (SEQ (LETT |ws| NIL . #10=(|DPOLCAT-;weights;AL;6|))
           (EXIT
@@ -315,7 +315,7 @@
                    (EXIT |ws|))))))))) 
 
 (DEFUN |DPOLCAT-;weight;ANni;7| (|p| $)
-  (PROG (#1=#:G214 #2=#:G213 #3=#:G215 #4=#:G218 #5=#:G130 |ws|)
+  (PROG (#1=#:G190 #2=#:G189 #3=#:G191 #4=#:G194 #5=#:G106 |ws|)
     (RETURN
      (SEQ
       (COND
@@ -341,9 +341,9 @@
          (COND (#1# #2#) (#7# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;weights;ASL;8| (|p| |s| $)
-  (PROG (|ws| |w| #1=#:G222 #2=#:G221 #3=#:G223 #4=#:G233 #5=#:G235 |v|
-         #6=#:G236 |d| #7=#:G234 #8=#:G131 |dv| |lv| #9=#:G232 #10=#:G231
-         #11=#:G230 |lp| |mp|)
+  (PROG (|ws| |w| #1=#:G198 #2=#:G197 #3=#:G199 #4=#:G209 #5=#:G211 |v|
+         #6=#:G212 |d| #7=#:G210 #8=#:G107 |dv| |lv| #9=#:G208 #10=#:G207
+         #11=#:G206 |lp| |mp|)
     (RETURN
      (SEQ (LETT |ws| NIL . #12=(|DPOLCAT-;weights;ASL;8|))
           (EXIT
@@ -460,7 +460,7 @@
                    (EXIT |ws|))))))))) 
 
 (DEFUN |DPOLCAT-;weight;ASNni;9| (|p| |s| $)
-  (PROG (#1=#:G238 #2=#:G237 #3=#:G239 #4=#:G242 #5=#:G132 |ws|)
+  (PROG (#1=#:G214 #2=#:G213 #3=#:G215 #4=#:G218 #5=#:G108 |ws|)
     (RETURN
      (SEQ
       (COND
@@ -492,7 +492,7 @@
    1)) 
 
 (DEFUN |DPOLCAT-;leader;AV;11| (|p| $)
-  (PROG (#1=#:G245 #2=#:G244 #3=#:G246 #4=#:G249 #5=#:G133 |vl|)
+  (PROG (#1=#:G221 #2=#:G220 #3=#:G222 #4=#:G225 #5=#:G109 |vl|)
     (RETURN
      (SEQ
       (LETT |vl| (SPADCALL |p| (QREFELT $ 18)) . #6=(|DPOLCAT-;leader;AV;11|))
@@ -537,7 +537,7 @@
              ('T (SPADCALL (QCDR |v|) (QREFELT $ 70))))))))) 
 
 (DEFUN |DPOLCAT-;differentialVariables;AL;16| (|p| $)
-  (PROG (#1=#:G264 |v| #2=#:G263)
+  (PROG (#1=#:G240 |v| #2=#:G239)
     (RETURN
      (SEQ
       (SPADCALL
@@ -563,8 +563,8 @@
     (RETURN (PROGN (SPADCALL |p| |n| (QREFELT $ 75)))))) 
 
 (DEFUN |DPOLCAT-;eval;ALLA;18| (|p| |sl| |rl| $)
-  (PROG (|rrl| |t| |i| #1=#:G282 #2=#:G281 |r| |vl| |j| #3=#:G280 #4=#:G279 |s|
-         #5=#:G278 |ordp|)
+  (PROG (|rrl| |t| |i| #1=#:G258 #2=#:G257 |r| |vl| |j| #3=#:G256 #4=#:G255 |s|
+         #5=#:G254 |ordp|)
     (RETURN
      (SEQ
       (LETT |ordp| (SPADCALL |p| (QREFELT $ 77))
@@ -635,8 +635,8 @@
       (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 82))))))) 
 
 (DEFUN |DPOLCAT-;eval;ALLA;19| (|p| |sl| |rl| $)
-  (PROG (|rrl| |t| |i| #1=#:G298 #2=#:G297 |r| |vl| |j| #3=#:G296 #4=#:G295 |s|
-         #5=#:G294 |ordp|)
+  (PROG (|rrl| |t| |i| #1=#:G274 #2=#:G273 |r| |vl| |j| #3=#:G272 #4=#:G271 |s|
+         #5=#:G270 |ordp|)
     (RETURN
      (SEQ
       (LETT |ordp| (SPADCALL |p| (QREFELT $ 77))
@@ -707,7 +707,7 @@
       (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 87))))))) 
 
 (DEFUN |DPOLCAT-;eval;ALA;20| (|p| |l| $)
-  (PROG (#1=#:G305 |e| #2=#:G304 #3=#:G303 #4=#:G302)
+  (PROG (#1=#:G281 |e| #2=#:G280 #3=#:G279 #4=#:G278)
     (RETURN
      (SEQ
       (SPADCALL |p|

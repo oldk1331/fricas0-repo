@@ -45,7 +45,7 @@
        (#2# (SPADCALL (QREFELT $ 18)))))))) 
 
 (DEFUN |PMINS;patternMatchInner| (|x| |p| |l| $)
-  (PROG (|r| #1=#:G178 |v| |uvr| |uv| |w| |pr| |uur| |uu| |ur| |u|)
+  (PROG (|r| #1=#:G154 |v| |uvr| |uv| |w| |pr| |uur| |uu| |ur| |u|)
     (RETURN
      (SEQ
       (COND
@@ -173,10 +173,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchIntegerNumberSystem;|)) 
 
-(DEFUN |PatternMatchIntegerNumberSystem| (#1=#:G186)
+(DEFUN |PatternMatchIntegerNumberSystem| (#1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G187)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#

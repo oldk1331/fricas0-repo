@@ -28,10 +28,10 @@
 
 (DECLAIM (NOTINLINE |DistributionFunctions2;|)) 
 
-(DEFUN |DistributionFunctions2| (&REST #1=#:G138)
+(DEFUN |DistributionFunctions2| (&REST #1=#:G114)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G139)
+     (PROG (#2=#:G115)
        (RETURN
         (COND
          ((LETT #2#

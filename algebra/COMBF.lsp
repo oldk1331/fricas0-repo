@@ -310,7 +310,7 @@
     (RETURN (PROGN (|COMBF;K2fact| |x| |l| $))))) 
 
 (DEFUN |COMBF;K2fact| (|k| |l| $)
-  (PROG (|p| |n| |args| #1=#:G236 |a| #2=#:G235 #3=#:G234 |kf| |v| #4=#:G233)
+  (PROG (|p| |n| |args| #1=#:G212 |a| #2=#:G211 #3=#:G210 |kf| |v| #4=#:G209)
     (RETURN
      (SEQ
       (COND
@@ -424,7 +424,7 @@
    ('T (SPADCALL (QREFELT $ 13) |x| (QREFELT $ 101))))) 
 
 (DEFUN |COMBF;ibinom| (|l| $)
-  (PROG (#1=#:G260 |p| |n|)
+  (PROG (#1=#:G236 |p| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -451,7 +451,7 @@
    ('T (SPADCALL (QREFELT $ 14) |l| (QREFELT $ 98))))) 
 
 (DEFUN |COMBF;iidsum;LF;37| (|l| $)
-  (PROG (#1=#:G274 #2=#:G273 #3=#:G275 #4=#:G278 |i| #5=#:G276 |k| |r2| |r1|)
+  (PROG (#1=#:G250 #2=#:G249 #3=#:G251 #4=#:G254 |i| #5=#:G252 |k| |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -503,7 +503,7 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |COMBF;iidprod;LF;38| (|l| $)
-  (PROG (#1=#:G289 #2=#:G288 #3=#:G290 #4=#:G293 |i| #5=#:G291 |k| |r2| |r1|)
+  (PROG (#1=#:G265 #2=#:G264 #3=#:G266 #4=#:G269 |i| #5=#:G267 |k| |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -602,7 +602,7 @@
              ('T (SPADCALL (|SPADfirst| |l|) (QCDR |r|) (QREFELT $ 116))))))))) 
 
 (DEFUN |COMBF;ipow;LF;42| (|l| $)
-  (PROG (#1=#:G322 |y| |rec| |u| |n| |x|)
+  (PROG (#1=#:G298 |y| |rec| |u| |n| |x|)
     (RETURN
      (SEQ
       (COND
@@ -669,7 +669,7 @@
                             (QREFELT $ 87))))))))) 
 
 (DEFUN |COMBF;iiperm;LF;44| (|l| $)
-  (PROG (#1=#:G337 |r2| |r1|)
+  (PROG (#1=#:G313 |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -696,7 +696,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMBF;iibinom;LF;45| (|l| $)
-  (PROG (#1=#:G355 |r2| |r1| |ans| #2=#:G358 |i| |t| |s| #3=#:G357)
+  (PROG (#1=#:G331 |r2| |r1| |ans| #2=#:G334 |i| |t| |s| #3=#:G333)
     (RETURN
      (SEQ
       (EXIT
@@ -817,7 +817,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMBF;iibinom;LF;46| (|l| $)
-  (PROG (#1=#:G364 |r2| |r1|)
+  (PROG (#1=#:G340 |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -846,7 +846,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |COMBF;iibinom;LF;47| (|l| $)
-  (PROG (#1=#:G371 |r2| |r1|)
+  (PROG (#1=#:G347 |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -881,7 +881,7 @@
 (DEFUN |COMBF;iiperm;LF;50| (|l| $) (|COMBF;iperm| |l| $)) 
 
 (DEFUN |COMBF;iipow;LF;51| (|l| $)
-  (PROG (#1=#:G381 |r2| |r1|)
+  (PROG (#1=#:G357 |r2| |r1|)
     (RETURN
      (SEQ
       (EXIT
@@ -921,10 +921,10 @@
 
 (DECLAIM (NOTINLINE |CombinatorialFunction;|)) 
 
-(DEFUN |CombinatorialFunction| (&REST #1=#:G437)
+(DEFUN |CombinatorialFunction| (&REST #1=#:G413)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G438)
+     (PROG (#2=#:G414)
        (RETURN
         (COND
          ((LETT #2#

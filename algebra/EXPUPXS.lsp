@@ -56,10 +56,10 @@
 
 (DECLAIM (NOTINLINE |ExponentialOfUnivariatePuiseuxSeries;|)) 
 
-(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G170)
+(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#
@@ -81,7 +81,7 @@
                     '|ExponentialOfUnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |ExponentialOfUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G162 #2=#:G163 #3=#:G164 #4=#:G165 #5=#:G166 #6=#:G168 $
+  (PROG (|pv$| #1=#:G138 #2=#:G139 #3=#:G140 #4=#:G141 #5=#:G142 #6=#:G144 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

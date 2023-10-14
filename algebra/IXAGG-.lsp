@@ -10,7 +10,7 @@
 (DEFUN |IXAGG-;entry?;EntrySB;3| (|x| |a| $) (SPADCALL |x| |a| (QREFELT $ 16))) 
 
 (DEFUN |IXAGG-;maxIndex;SIndex;4| (|a| $)
-  (PROG (#1=#:G142 #2=#:G141 #3=#:G143 #4=#:G145 #5=#:G127)
+  (PROG (#1=#:G118 #2=#:G117 #3=#:G119 #4=#:G121 #5=#:G103)
     (RETURN
      (SEQ
       (PROGN
@@ -30,7 +30,7 @@
        (COND (#1# #2#) ('T (|IdentityError| '|max|)))))))) 
 
 (DEFUN |IXAGG-;minIndex;SIndex;5| (|a| $)
-  (PROG (#1=#:G147 #2=#:G146 #3=#:G148 #4=#:G150 #5=#:G128)
+  (PROG (#1=#:G123 #2=#:G122 #3=#:G124 #4=#:G126 #5=#:G104)
     (RETURN
      (SEQ
       (PROGN
@@ -56,7 +56,7 @@
   (SPADCALL |f| (SPADCALL |a| (QREFELT $ 27)) (QREFELT $ 29))) 
 
 (DEFUN |IXAGG-;map!;M2S;8| (|f| |a| $)
-  (PROG (#1=#:G157 |i|)
+  (PROG (#1=#:G133 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| NIL . #2=(|IXAGG-;map!;M2S;8|))
@@ -71,7 +71,7 @@
       (EXIT |a|))))) 
 
 (DEFUN |IXAGG-;fill!;SEntryS;9| (|a| |x| $)
-  (PROG (#1=#:G161 |i|)
+  (PROG (#1=#:G137 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| NIL . #2=(|IXAGG-;fill!;SEntryS;9|))

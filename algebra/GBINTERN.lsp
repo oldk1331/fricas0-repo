@@ -13,7 +13,7 @@
         ('T (SPADCALL (QVELT |cp1| 0) (QVELT |cp2| 0) (QREFELT $ 14))))) 
 
 (DEFUN |GBINTERN;makeCrit;RDpolNniR;4| (|sp1| |p2| |totdeg2| $)
-  (PROG (|tdeg| |e2| #1=#:G148 |e1| |deg| |p1|)
+  (PROG (|tdeg| |e2| #1=#:G124 |e1| |deg| |p1|)
     (RETURN
      (SEQ (LETT |p1| (QCDR |sp1|) . #2=(|GBINTERN;makeCrit;RDpolNniR;4|))
           (LETT |deg|
@@ -52,8 +52,8 @@
           (EXIT (VECTOR |deg| |tdeg| |p1| |p2|)))))) 
 
 (DEFUN |GBINTERN;gbasis;L2IL;5| (|Pol| |xx1| |xx2| $)
-  (PROG (#1=#:G195 |x| #2=#:G194 |xx| |redPols| |basPols| D D1 #3=#:G193
-         #4=#:G192 #5=#:G182 |h| |s| D0 #6=#:G191 #7=#:G190 #8=#:G189 #9=#:G188
+  (PROG (#1=#:G171 |x| #2=#:G170 |xx| |redPols| |basPols| D D1 #3=#:G169
+         #4=#:G168 #5=#:G158 |h| |s| D0 #6=#:G167 #7=#:G166 #8=#:G165 #9=#:G164
          |toth| |Pol1|)
     (RETURN
      (SEQ
@@ -325,7 +325,7 @@
                            (SPADCALL D1 (CDR D2) (QREFELT $ 38))))))))))))) 
 
 (DEFUN |GBINTERN;gcdCo| (|c1| |c2| $)
-  (PROG (#1=#:G216 |d|)
+  (PROG (#1=#:G192 |d|)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL |c1| |c2| (QREFELT $ 61)) . #2=(|GBINTERN;gcdCo|))
@@ -339,7 +339,7 @@
           (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))))))) 
 
 (DEFUN |GBINTERN;sPol;RDpol;12| (|p| $)
-  (PROG (#1=#:G222 |cc| |fj| |fi| |Tij|)
+  (PROG (#1=#:G198 |cc| |fj| |fi| |Tij|)
     (RETURN
      (SEQ (LETT |Tij| (QVELT |p| 0) . #2=(|GBINTERN;sPol;RDpol;12|))
           (LETT |fi| (QVELT |p| 2) . #2#) (LETT |fj| (QVELT |p| 3) . #2#)
@@ -743,10 +743,10 @@
 
 (DECLAIM (NOTINLINE |GroebnerInternalPackage;|)) 
 
-(DEFUN |GroebnerInternalPackage| (&REST #1=#:G288)
+(DEFUN |GroebnerInternalPackage| (&REST #1=#:G264)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G289)
+     (PROG (#2=#:G265)
        (RETURN
         (COND
          ((LETT #2#

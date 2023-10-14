@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PDRING-;differentiate;ALA;1| (|r| |l| $)
-  (PROG (#1=#:G137 |s|)
+  (PROG (#1=#:G113 |s|)
     (RETURN
      (SEQ
       (SEQ (LETT |s| NIL . #2=(|PDRING-;differentiate;ALA;1|))
@@ -24,7 +24,7 @@
       (EXIT |r|))))) 
 
 (DEFUN |PDRING-;differentiate;ALLA;3| (|r| |ls| |ln| $)
-  (PROG (#1=#:G144 |s| #2=#:G145 |n|)
+  (PROG (#1=#:G120 |s| #2=#:G121 |n|)
     (RETURN
      (SEQ
       (SEQ (LETT |n| NIL . #3=(|PDRING-;differentiate;ALLA;3|))

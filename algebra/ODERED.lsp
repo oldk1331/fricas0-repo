@@ -4,7 +4,7 @@
 (DEFUN |ODERED;matF2L| (|m| $) (SPADCALL (ELT $ 13) |m| (QREFELT $ 18))) 
 
 (DEFUN |ODERED;reduceLODE;LOAR;2| (|l| |g| $)
-  (PROG (|mdi| |sys| #1=#:G138 |i| #2=#:G136 #3=#:G137 |j| |md| |n|)
+  (PROG (|mdi| |sys| #1=#:G114 |i| #2=#:G112 #3=#:G113 |j| |md| |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL (QREFELT $ 20)) . #4=(|ODERED;reduceLODE;LOAR;2|))
@@ -63,10 +63,10 @@
 
 (DECLAIM (NOTINLINE |ReduceLODE;|)) 
 
-(DEFUN |ReduceLODE| (&REST #1=#:G139)
+(DEFUN |ReduceLODE| (&REST #1=#:G115)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G116)
        (RETURN
         (COND
          ((LETT #2#

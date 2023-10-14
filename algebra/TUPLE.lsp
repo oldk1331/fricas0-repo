@@ -22,7 +22,7 @@
    ('T 'NIL))) 
 
 (DEFUN |TUPLE;coerce;$Of;6| (|x| $)
-  (PROG (#1=#:G143 |i| #2=#:G142)
+  (PROG (#1=#:G119 |i| #2=#:G118)
     (RETURN
      (SEQ
       (SPADCALL
@@ -43,10 +43,10 @@
 
 (DECLAIM (NOTINLINE |Tuple;|)) 
 
-(DEFUN |Tuple| (#1=#:G144)
+(DEFUN |Tuple| (#1=#:G120)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G145)
+     (PROG (#2=#:G121)
        (RETURN
         (COND
          ((LETT #2#

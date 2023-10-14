@@ -63,8 +63,8 @@
           (EXIT |w|))))) 
 
 (DEFUN |INEP;inteigen| (A |p| |fact| $)
-  (PROG (|res| |soln| |i| |wk| #1=#:G188 |vec| |sln2| |j| B |alg| |ppol| |lr|
-         |wf| #2=#:G187 |vecr| B1 |alpha| |pol| #3=#:G186 |ff| |lff| AM MM
+  (PROG (|res| |soln| |i| |wk| #1=#:G164 |vec| |sln2| |j| B |alg| |ppol| |lr|
+         |wf| #2=#:G163 |vecr| B1 |alpha| |pol| #3=#:G162 |ff| |lff| AM MM
          |dimA|)
     (RETURN
      (SEQ (LETT |dimA| (ANROWS A) . #4=(|INEP;inteigen|))
@@ -316,7 +316,7 @@
           (EXIT |res|))))) 
 
 (DEFUN |INEP;solve1;SupParL;8| (|up| |eps| $)
-  (PROG (|upi| |denom| #1=#:G190 #2=#:G189 #3=#:G191 #4=#:G195 |c|)
+  (PROG (|upi| |denom| #1=#:G166 #2=#:G165 #3=#:G167 #4=#:G171 |c|)
     (RETURN
      (SEQ
       (LETT |denom|
@@ -342,7 +342,7 @@
       (EXIT (SPADCALL |upi| |eps| (QREFELT $ 80))))))) 
 
 (DEFUN |INEP;solve1;SupParL;9| (|up| |eps| $)
-  (PROG (|upgi| |denom| #1=#:G197 #2=#:G196 #3=#:G198 #4=#:G202 |c|)
+  (PROG (|upgi| |denom| #1=#:G173 #2=#:G172 #3=#:G174 #4=#:G178 |c|)
     (RETURN
      (SEQ
       (LETT |denom|
@@ -382,8 +382,8 @@
             (QREFELT $ 85))) 
 
 (DEFUN |INEP;innerEigenvectors;MParML;10| (A |eps| |fact| $)
-  (PROG (|sln| |nsl| #1=#:G217 |ep| #2=#:G216 #3=#:G215 |alg| |lmult| |lvect|
-         |lval| |leva| #4=#:G214 |lev| |n| |sln1| |pol|)
+  (PROG (|sln| |nsl| #1=#:G193 |ep| #2=#:G192 #3=#:G191 |alg| |lmult| |lvect|
+         |lval| |leva| #4=#:G190 |lev| |n| |sln1| |pol|)
     (RETURN
      (SEQ
       (LETT |pol| (SPADCALL A (QREFELT $ 93))
@@ -444,7 +444,7 @@
       (EXIT |sln|))))) 
 
 (DEFUN |INEP;charpol;MSup;11| (A $)
-  (PROG (|j| |i| B |dimA| #1=#:G218)
+  (PROG (|j| |i| B |dimA| #1=#:G194)
     (RETURN
      (SEQ
       (LETT |dimA|
@@ -483,10 +483,10 @@
 
 (DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
 
-(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G225)
+(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G201)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G226)
+     (PROG (#2=#:G202)
        (RETURN
         (COND
          ((LETT #2#

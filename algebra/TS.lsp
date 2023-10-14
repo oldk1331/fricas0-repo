@@ -22,10 +22,10 @@
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
-(DEFUN |TaylorSeries| (#1=#:G140)
+(DEFUN |TaylorSeries| (#1=#:G116)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G117)
        (RETURN
         (COND
          ((LETT #2#
@@ -41,7 +41,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|))))))))))) 
 
 (DEFUN |TaylorSeries;| (|#1|)
-  (PROG (|pv$| #1=#:G139 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G115 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|TaylorSeries|))

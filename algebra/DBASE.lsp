@@ -6,7 +6,7 @@
 (DEFUN |DBASE;coerce;L$;1| (|u| $) |u|) 
 
 (DEFUN |DBASE;elt;$SDl;2| (|data| |s| $)
-  (PROG (#1=#:G131 |x| #2=#:G130)
+  (PROG (#1=#:G107 |x| #2=#:G106)
     (RETURN
      (SEQ
       (SPADCALL
@@ -23,7 +23,7 @@
        (QREFELT $ 14)))))) 
 
 (DEFUN |DBASE;elt;$Qe$;3| (|data| |eq| $)
-  (PROG (#1=#:G136 |x| #2=#:G135 |val| |field|)
+  (PROG (#1=#:G112 |x| #2=#:G111 |val| |field|)
     (RETURN
      (SEQ
       (LETT |field| (SPADCALL |eq| (QREFELT $ 17)) . #3=(|DBASE;elt;$Qe$;3|))
@@ -53,7 +53,7 @@
   (SPADCALL (LENGTH |data|) (QREFELT $ 30))) 
 
 (DEFUN |DBASE;display;$V;7| (|data| $)
-  (PROG (#1=#:G142 |x|)
+  (PROG (#1=#:G118 |x|)
     (RETURN
      (SEQ (LETT |x| NIL . #2=(|DBASE;display;$V;7|)) (LETT #1# |data| . #2#)
           G190
@@ -63,7 +63,7 @@
           (GO G190) G191 (EXIT NIL))))) 
 
 (DEFUN |DBASE;fullDisplay;$V;8| (|data| $)
-  (PROG (#1=#:G145 |x|)
+  (PROG (#1=#:G121 |x|)
     (RETURN
      (SEQ (LETT |x| NIL . #2=(|DBASE;fullDisplay;$V;8|))
           (LETT #1# |data| . #2#) G190
@@ -73,7 +73,7 @@
           (GO G190) G191 (EXIT NIL))))) 
 
 (DEFUN |DBASE;fullDisplay;$2PiV;9| (|data| |n| |m| $)
-  (PROG (#1=#:G148 |x| |i|)
+  (PROG (#1=#:G124 |x| |i|)
     (RETURN
      (SEQ (LETT |i| 1 . #2=(|DBASE;fullDisplay;$2PiV;9|)) (LETT |x| NIL . #2#)
           (LETT #1# |data| . #2#) G190
@@ -87,10 +87,10 @@
 
 (DECLAIM (NOTINLINE |Database;|)) 
 
-(DEFUN |Database| (#1=#:G149)
+(DEFUN |Database| (#1=#:G125)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G150)
+     (PROG (#2=#:G126)
        (RETURN
         (COND
          ((LETT #2#

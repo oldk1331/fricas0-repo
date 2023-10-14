@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |FlexibleArray;|)) 
 
-(DEFUN |FlexibleArray| (#1=#:G139)
+(DEFUN |FlexibleArray| (#1=#:G115)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G116)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,7 +22,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|FlexibleArray|))))))))))) 
 
 (DEFUN |FlexibleArray;| (|#1|)
-  (PROG (#1=#:G138 |pv$| #2=#:G134 #3=#:G135 #4=#:G136 $ |dv$| DV$1)
+  (PROG (#1=#:G114 |pv$| #2=#:G110 #3=#:G111 #4=#:G112 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|FlexibleArray|))

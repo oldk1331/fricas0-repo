@@ -184,7 +184,7 @@
          (EXIT |mM|)))))))) 
 
 (DEFUN |NSMP;prem;3$;19| (|a| |b| $)
-  (PROG (#1=#:G284 |test| |delta| |term| #2=#:G271 #3=#:G287 |r| #4=#:G252
+  (PROG (#1=#:G260 |test| |delta| |term| #2=#:G247 #3=#:G263 |r| #4=#:G228
          |lcb| |db|)
     (RETURN
      (SEQ
@@ -293,7 +293,7 @@
              (SPADCALL |c| (QVELT |cPS| 3) (QREFELT $ 60)))))))) 
 
 (DEFUN |NSMP;lazyPrem;3$;22| (|a| |b| $)
-  (PROG (|test| |term| #1=#:G302 |lcb| |db|)
+  (PROG (|test| |term| #1=#:G278 |lcb| |db|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |b| 0) (|error| "in lazyPrem$NSMP: ground? #2"))
@@ -346,7 +346,7 @@
                 (EXIT |a|)))))))))) 
 
 (DEFUN |NSMP;lazyPquo;3$;23| (|a| |b| $)
-  (PROG (|test| |q| |term| #1=#:G314 |lcb| |db|)
+  (PROG (|test| |q| |term| #1=#:G290 |lcb| |db|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |b| 0) (|error| " in lazyPquo$NSMP: #2 is constant"))
@@ -407,7 +407,7 @@
                 (EXIT |q|)))))))))) 
 
 (DEFUN |NSMP;lazyPseudoDivide;2$R;24| (|a| |b| $)
-  (PROG (#1=#:G333 |test| |delta| |q| |term| #2=#:G329 |lcb| |db| |cgqr|)
+  (PROG (#1=#:G309 |test| |delta| |q| |term| #2=#:G305 |lcb| |db| |cgqr|)
     (RETURN
      (SEQ
       (COND
@@ -476,7 +476,7 @@
                         |q| |a|))))))))))) 
 
 (DEFUN |NSMP;lazyResidueClass;2$R;25| (|a| |b| $)
-  (PROG (|test| |pow| |term| #1=#:G346 |db| |lrc| |lcb|)
+  (PROG (|test| |pow| |term| #1=#:G322 |db| |lrc| |lcb|)
     (RETURN
      (SEQ
       (COND
@@ -548,7 +548,7 @@
                  ('T (|error| "in exactQuotient$NSMP: bad args")))))))) 
 
 (DEFUN |NSMP;LazardQuotient;2$Nni$;27| (|x| |y| |n| $)
-  (PROG (#1=#:G363 |c| |a| #2=#:G369 #3=#:G362 |b|)
+  (PROG (#1=#:G339 |c| |a| #2=#:G345 #3=#:G338 |b|)
     (RETURN
      (SEQ
       (EXIT
@@ -605,7 +605,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |NSMP;LazardQuotient2;3$Nni$;28| (|p| |a| |b| |n| $)
-  (PROG (|c| #1=#:G373)
+  (PROG (|c| #1=#:G349)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (|error| " in LazardQuotient2$NSMP: bad #4"))
@@ -716,7 +716,7 @@
      ('T (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 103))))))) 
 
 (DEFUN |NSMP;subResultantChain;2$L;35| (|a| |b| $)
-  (PROG (#1=#:G419 |up| #2=#:G418)
+  (PROG (#1=#:G395 |up| #2=#:G394)
     (RETURN
      (SEQ
       (COND
@@ -799,7 +799,7 @@
     (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
 
 (DEFUN |NSMP;exactQuotient;$R$;39| (|a| |b| $)
-  (PROG (#1=#:G435)
+  (PROG (#1=#:G411)
     (RETURN
      (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
            ((QEQCAR |a| 0)
@@ -823,7 +823,7 @@
     (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
 
 (DEFUN |NSMP;exactQuotient!;$R$;40| (|a| |b| $)
-  (PROG (#1=#:G444)
+  (PROG (#1=#:G420)
     (RETURN
      (SEQ
       (COND ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109)) |a|)
@@ -917,10 +917,10 @@
 
 (DECLAIM (NOTINLINE |NewSparseMultivariatePolynomial;|)) 
 
-(DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G501)
+(DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G477)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G502)
+     (PROG (#2=#:G478)
        (RETURN
         (COND
          ((LETT #2#
@@ -941,7 +941,7 @@
                     '|NewSparseMultivariatePolynomial|))))))))))) 
 
 (DEFUN |NewSparseMultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G500 |pv$| #2=#:G496 #3=#:G497 #4=#:G498 #5=#:G499 $ |dv$| DV$2
+  (PROG (#1=#:G476 |pv$| #2=#:G472 #3=#:G473 #4=#:G474 #5=#:G475 $ |dv$| DV$2
          DV$1)
     (RETURN
      (PROGN

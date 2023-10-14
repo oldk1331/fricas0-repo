@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |DERHAM;totalDifferential;E$;1| (|f| $)
-  (PROG (|divs| #1=#:G135 |i| #2=#:G134)
+  (PROG (|divs| #1=#:G111 |i| #2=#:G110)
     (RETURN
      (SEQ
       (LETT |divs|
@@ -40,7 +40,7 @@
      (SPADCALL (SPADCALL |x| (QREFELT $ 31)) (QREFELT $ 32)) (QREFELT $ 19))))) 
 
 (DEFUN |DERHAM;displayList| (|x| $)
-  (PROG (#1=#:G145 |i| #2=#:G144 |le|)
+  (PROG (#1=#:G121 |i| #2=#:G120 |le|)
     (RETURN
      (SEQ (LETT |le| (SPADCALL |x| (QREFELT $ 39)) . #3=(|DERHAM;displayList|))
           (EXIT
@@ -80,7 +80,7 @@
 (DEFUN |DERHAM;terms| (|a| $) |a|) 
 
 (DEFUN |DERHAM;coerce;$Of;7| (|a| $)
-  (PROG (#1=#:G157 |t| #2=#:G156 |ta|)
+  (PROG (#1=#:G133 |t| #2=#:G132 |ta|)
     (RETURN
      (SEQ
       (COND
@@ -116,10 +116,10 @@
 
 (DECLAIM (NOTINLINE |DeRhamComplex;|)) 
 
-(DEFUN |DeRhamComplex| (&REST #1=#:G167)
+(DEFUN |DeRhamComplex| (&REST #1=#:G143)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G144)
        (RETURN
         (COND
          ((LETT #2#
@@ -137,7 +137,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|DeRhamComplex|))))))))))) 
 
 (DEFUN |DeRhamComplex;| (|#1| |#2|)
-  (PROG (#1=#:G166 |liv| #2=#:G165 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G142 |liv| #2=#:G141 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RDIST;weighted;LM;1| (|lvw| $)
-  (PROG (|totwt| #1=#:G141 |k| |i| |wv| |kv| |n| |kl| |w| |u| #2=#:G140 |r|
+  (PROG (|totwt| #1=#:G117 |k| |i| |wv| |kv| |n| |kl| |w| |u| #2=#:G116 |r|
          |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 8)) . #3=(|RDIST;weighted;LM;1|))
@@ -92,10 +92,10 @@
 
 (DECLAIM (NOTINLINE |RandomDistributions;|)) 
 
-(DEFUN |RandomDistributions| (#1=#:G168)
+(DEFUN |RandomDistributions| (#1=#:G144)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G169)
+     (PROG (#2=#:G145)
        (RETURN
         (COND
          ((LETT #2#

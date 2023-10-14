@@ -10,7 +10,7 @@
         ('T (SPADCALL (|spadConstant| $ 19) (QREFELT $ 21))))) 
 
 (DEFUN |ODERAT;ratDsolve1| (|op| |lg| $)
-  (PROG (|sys1| |l| #1=#:G162 |i| #2=#:G161 #3=#:G160 |q| #4=#:G159 |rec| |d|)
+  (PROG (|sys1| |l| #1=#:G138 |i| #2=#:G137 #3=#:G136 |q| #4=#:G135 |rec| |d|)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL |op| |lg| (QREFELT $ 25)) . #5=(|ODERAT;ratDsolve1|))
@@ -55,9 +55,9 @@
       (EXIT (CONS (QCAR |rec|) (SPADCALL |sys1| (QREFELT $ 37)))))))) 
 
 (DEFUN |ODERAT;ratDsolve0| (|op| |g| $)
-  (PROG (#1=#:G202 |v| #2=#:G201 |part| #3=#:G188 |sol| |m| |sys2| |sys1| |h|
-         |lb| |l| |lsol| |opq| #4=#:G200 |q| |rec| |u| #5=#:G165 |b| |uu|
-         #6=#:G199 |f|)
+  (PROG (#1=#:G178 |v| #2=#:G177 |part| #3=#:G164 |sol| |m| |sys2| |sys1| |h|
+         |lb| |l| |lsol| |opq| #4=#:G176 |q| |rec| |u| #5=#:G141 |b| |uu|
+         #6=#:G175 |f|)
     (RETURN
      (SEQ
       (COND
@@ -258,7 +258,7 @@
       (EXIT (SPADCALL (QCAR |rec|) (QREFELT $ 73))))))) 
 
 (DEFUN |ODERAT;regularPoint| (|l| |lg| $)
-  (PROG (#1=#:G209 #2=#:G213 |j| |i| |a|)
+  (PROG (#1=#:G185 #2=#:G189 |j| |i| |a|)
     (RETURN
      (SEQ
       (EXIT
@@ -307,7 +307,7 @@
           (EXIT (SPADCALL |v| (QREFELT $ 87))))))) 
 
 (DEFUN |ODERAT;candidates| (|op| |lg| |d| $)
-  (PROG (|part| #1=#:G228 |g| #2=#:G227 |a1| |hom| |i| #3=#:G226 |e| |q| |f|
+  (PROG (|part| #1=#:G204 |g| #2=#:G203 |a1| |hom| |i| #3=#:G202 |e| |q| |f|
          |dd| |solver| |tools| |uts| |m| |n|)
     (RETURN
      (SEQ
@@ -484,7 +484,7 @@
        (SPADCALL |l1| |f|) (|compiledLookupCheck| '+ (LIST '$ '$ '$) |uts|)))))) 
 
 (DEFUN |ODERAT;nzero?| (|v| $)
-  (PROG (#1=#:G230 #2=#:G232 #3=#:G233 |i|)
+  (PROG (#1=#:G206 #2=#:G208 #3=#:G209 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -507,7 +507,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |ODERAT;UPfact| (|n| $)
-  (PROG (#1=#:G237 #2=#:G236 #3=#:G238 #4=#:G242 #5=#:G235 |i| |z|)
+  (PROG (#1=#:G213 #2=#:G212 #3=#:G214 #4=#:G218 #5=#:G211 |i| |z|)
     (RETURN
      (SEQ
       (COND ((ZEROP |n|) (|spadConstant| $ 20))
@@ -576,7 +576,7 @@
       (EXIT (VECTOR |mup| |lamb| |lf|)))))) 
 
 (DEFUN |ODERAT;infIndicialEquation| (|lambda| |lf| $)
-  (PROG (|ans| #1=#:G253 |i| #2=#:G254 |f|)
+  (PROG (|ans| #1=#:G229 |i| #2=#:G230 |f|)
     (RETURN
      (SEQ
       (LETT |ans| (|spadConstant| $ 57) . #3=(|ODERAT;infIndicialEquation|))
@@ -602,7 +602,7 @@
       (EXIT |ans|))))) 
 
 (DEFUN |ODERAT;infBound| (|l| |lg| $)
-  (PROG (#1=#:G262 |m| |mm| #2=#:G266 |g| #3=#:G258 |n| |rec|)
+  (PROG (#1=#:G238 |m| |mm| #2=#:G242 |g| #3=#:G234 |n| |rec|)
     (RETURN
      (SEQ (LETT |rec| (|ODERAT;infMuLambda| |l| $) . #4=(|ODERAT;infBound|))
           (LETT |n|
@@ -655,7 +655,7 @@
                                       #1#))))))))))) 
 
 (DEFUN |ODERAT;makeDot| (|v| |bas| $)
-  (PROG (|ans| |i| #1=#:G270 |b|)
+  (PROG (|ans| |i| #1=#:G246 |b|)
     (RETURN
      (SEQ (LETT |ans| (|spadConstant| $ 55) . #2=(|ODERAT;makeDot|))
           (SEQ (LETT |b| NIL . #2#) (LETT #1# |bas| . #2#) (LETT |i| 1 . #2#)
@@ -695,7 +695,7 @@
       (EXIT (|ODERAT;ratDsolve1| (QCAR |rec|) (QCDR |rec|) $)))))) 
 
 (DEFUN |ODERAT;ratDsolve;LodoFR;18| (|op| |g| $)
-  (PROG (#1=#:G283 |c|)
+  (PROG (#1=#:G259 |c|)
     (RETURN
      (COND
       ((SPADCALL
@@ -718,7 +718,7 @@
         $)))))) 
 
 (DEFUN |ODERAT;ratDsolve;LodoLR;19| (|op| |lg| $)
-  (PROG (#1=#:G295 |g| #2=#:G294 #3=#:G289 |c|)
+  (PROG (#1=#:G271 |g| #2=#:G270 #3=#:G265 |c|)
     (RETURN
      (SEQ
       (COND
@@ -759,10 +759,10 @@
 
 (DECLAIM (NOTINLINE |RationalLODE;|)) 
 
-(DEFUN |RationalLODE| (&REST #1=#:G296)
+(DEFUN |RationalLODE| (&REST #1=#:G272)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G297)
+     (PROG (#2=#:G273)
        (RETURN
         (COND
          ((LETT #2#

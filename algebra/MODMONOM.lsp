@@ -25,10 +25,10 @@
 
 (DECLAIM (NOTINLINE |ModuleMonomial;|)) 
 
-(DEFUN |ModuleMonomial| (&REST #1=#:G140)
+(DEFUN |ModuleMonomial| (&REST #1=#:G116)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G141)
+     (PROG (#2=#:G117)
        (RETURN
         (COND
          ((LETT #2#

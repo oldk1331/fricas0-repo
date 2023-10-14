@@ -60,10 +60,10 @@
 
 (DECLAIM (NOTINLINE |ListToMap;|)) 
 
-(DEFUN |ListToMap| (&REST #1=#:G142)
+(DEFUN |ListToMap| (&REST #1=#:G118)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G143)
+     (PROG (#2=#:G119)
        (RETURN
         (COND
          ((LETT #2#

@@ -13,7 +13,7 @@
   (SPADCALL (CDR (CDR |jv|)) (QREFELT $ 22))) 
 
 (DEFUN |JBUNDLE;index;$Pi;4| (|jv| $)
-  (PROG (#1=#:G144)
+  (PROG (#1=#:G120)
     (RETURN
      (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |JBUNDLE;index;$Pi;4|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -27,7 +27,7 @@
                  ((EQL |t| 2) '|Dep|) ('T '|Deriv|))))))) 
 
 (DEFUN |JBUNDLE;CheckZeroIndex| (|il| $)
-  (PROG (#1=#:G152 #2=#:G153 |i|)
+  (PROG (#1=#:G128 #2=#:G129 |i|)
     (RETURN
      (SEQ
       (EXIT
@@ -52,7 +52,7 @@
    ('T (LIST 1 |up|)))) 
 
 (DEFUN |JBUNDLE;U;Pi$;8| (|up| $)
-  (PROG (#1=#:G158 |i| #2=#:G157)
+  (PROG (#1=#:G134 |i| #2=#:G133)
     (RETURN
      (SEQ
       (COND
@@ -79,7 +79,7 @@
    ('T (CONS 3 (CONS |up| |lo|))))) 
 
 (DEFUN |JBUNDLE;coerce;S$;10| (|s| $)
-  (PROG (#1=#:G166 #2=#:G163 |pos|)
+  (PROG (#1=#:G142 #2=#:G139 |pos|)
     (RETURN
      (SEQ
       (LETT |pos| (SPADCALL |s| (QREFELT $ 6) (QREFELT $ 37))
@@ -104,7 +104,7 @@
           (QREFELT $ 31))))))))) 
 
 (DEFUN |JBUNDLE;D;SL$;11| (|u| |der| $)
-  (PROG (#1=#:G174 |lower| #2=#:G170 |pos| #3=#:G178 |d| |up|)
+  (PROG (#1=#:G150 |lower| #2=#:G146 |pos| #3=#:G154 |d| |up|)
     (RETURN
      (SEQ
       (LETT |up| (SPADCALL |u| (QREFELT $ 7) (QREFELT $ 37))
@@ -147,19 +147,19 @@
 (DEFUN |JBUNDLE;One;$;12| ($) (LIST 0 1)) 
 
 (DEFUN |JBUNDLE;numIndVar;Pi;13| ($)
-  (PROG (#1=#:G180)
+  (PROG (#1=#:G156)
     (RETURN
      (PROG1 (LETT #1# (QREFELT $ 8) |JBUNDLE;numIndVar;Pi;13|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |JBUNDLE;numDepVar;Pi;14| ($)
-  (PROG (#1=#:G182)
+  (PROG (#1=#:G158)
     (RETURN
      (PROG1 (LETT #1# (QREFELT $ 9) |JBUNDLE;numDepVar;Pi;14|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
 
 (DEFUN |JBUNDLE;name;$S;15| (|jv| $)
-  (PROG (|lower| #1=#:G190 |j| |res| |mu| |i| |jt|)
+  (PROG (|lower| #1=#:G166 |j| |res| |mu| |i| |jt|)
     (RETURN
      (SEQ
       (COND
@@ -201,7 +201,7 @@
 (DEFUN |JBUNDLE;opdisp| (|l| $) (|SPADfirst| |l|)) 
 
 (DEFUN |JBUNDLE;coerce;$E;17| (|jv| $)
-  (PROG (|arg| #1=#:G198 |i| #2=#:G197 |jop| |tmp| |opname|)
+  (PROG (|arg| #1=#:G174 |i| #2=#:G173 |jop| |tmp| |opname|)
     (RETURN
      (SEQ
       (COND
@@ -243,10 +243,10 @@
 
 (DECLAIM (NOTINLINE |JetBundle;|)) 
 
-(DEFUN |JetBundle| (&REST #1=#:G205)
+(DEFUN |JetBundle| (&REST #1=#:G181)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G206)
+     (PROG (#2=#:G182)
        (RETURN
         (COND
          ((LETT #2#

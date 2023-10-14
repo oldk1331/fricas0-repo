@@ -116,7 +116,7 @@
                    (SPADCALL |n| (- |m| 1) (QREFELT $ 47)) (QREFELT $ 46))))) 
 
 (DEFUN |OUTFORM;matrix;L$;29| (|ll| $)
-  (PROG (|lv| #1=#:G1633 |l| #2=#:G1632)
+  (PROG (|lv| #1=#:G1609 |l| #2=#:G1608)
     (RETURN
      (SEQ
       (LETT |lv|
@@ -141,7 +141,7 @@
   (CONS (|OUTFORM;eform| 'AGGSET $) |l|)) 
 
 (DEFUN |OUTFORM;blankSeparate;L$;33| (|l| $)
-  (PROG (|l1| #1=#:G1641 |u| |c|)
+  (PROG (|l1| #1=#:G1617 |u| |c|)
     (RETURN
      (SEQ
       (LETT |c| (|OUTFORM;eform| 'CONCATB $)
@@ -286,7 +286,7 @@
   (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 17))) 
 
 (DEFUN |OUTFORM;infix?;$B;71| (|a| $)
-  (PROG (|e| #1=#:G1685)
+  (PROG (|e| #1=#:G1661)
     (RETURN
      (SEQ
       (EXIT
@@ -393,7 +393,7 @@
   (SPADCALL (LIST (|OUTFORM;eform| 'TAG $) |a| |b|) (QREFELT $ 17))) 
 
 (DEFUN |OUTFORM;differentiate;$Nni$;95| (|a| |nn| $)
-  (PROG (|s| |r| #1=#:G1717)
+  (PROG (|s| |r| #1=#:G1693)
     (RETURN
      (SEQ
       (COND ((ZEROP |nn|) |a|) ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 106)))
@@ -454,7 +454,7 @@
 (DEFUN |OutputForm| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1732)
+     (PROG (#1=#:G1708)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)

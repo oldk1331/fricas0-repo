@@ -14,7 +14,7 @@
 (DEFUN |SKICOMB;S;$;5| ($) (CONS 0 'S)) 
 
 (DEFUN |SKICOMB;parseBracketTerm| (|t1| |pin| $)
-  (PROG (|p1| #1=#:G182 |ch| |trm| |r2|)
+  (PROG (|p1| #1=#:G158 |ch| |trm| |r2|)
     (RETURN
      (SEQ
       (EXIT
@@ -49,7 +49,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;parseCombinatorTerm| (|t1| |pin| $)
-  (PROG (#1=#:G187 |ch| |p1|)
+  (PROG (#1=#:G163 |ch| |p1|)
     (RETURN
      (SEQ
       (EXIT
@@ -69,7 +69,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;parseOneTerm| (|t1| |pin| $)
-  (PROG (|p1| |res| |r| |r2| |ch| #1=#:G200)
+  (PROG (|p1| |res| |r| |r2| |ch| #1=#:G176)
     (RETURN
      (SEQ
       (EXIT
@@ -109,7 +109,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;parseTerm;SNniR;9| (|t1| |pin| $)
-  (PROG (|res| #1=#:G209 |i| |ch| |stck| |p1| |r| #2=#:G208)
+  (PROG (|res| #1=#:G185 |i| |ch| |stck| |p1| |r| #2=#:G184)
     (RETURN
      (SEQ
       (EXIT
@@ -154,7 +154,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SKICOMB;parseSki;S$;10| (|t1| $)
-  (PROG (|r| #1=#:G210)
+  (PROG (|r| #1=#:G186)
     (RETURN
      (SEQ
       (LETT |r|
@@ -169,7 +169,7 @@
       (EXIT (QCAR |r|)))))) 
 
 (DEFUN |SKICOMB;getChildren;$L;11| (|n| $)
-  (PROG (#1=#:G166 #2=#:G216)
+  (PROG (#1=#:G142 #2=#:G192)
     (RETURN
      (SEQ
       (EXIT
@@ -199,7 +199,7 @@
 (DEFUN |SKICOMB;variable?;$B;13| (|n| $) (QEQCAR |n| 2)) 
 
 (DEFUN |SKICOMB;isI?;$B;14| (|n| $)
-  (PROG (#1=#:G225)
+  (PROG (#1=#:G201)
     (RETURN
      (SEQ
       (EXIT
@@ -212,7 +212,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;isK?;$B;15| (|n| $)
-  (PROG (#1=#:G232)
+  (PROG (#1=#:G208)
     (RETURN
      (SEQ
       (EXIT
@@ -225,7 +225,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;isS?;$B;16| (|n| $)
-  (PROG (#1=#:G239)
+  (PROG (#1=#:G215)
     (RETURN
      (SEQ
       (EXIT
@@ -238,7 +238,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;getVariable;$UT;17| (|n| $)
-  (PROG (#1=#:G241)
+  (PROG (#1=#:G217)
     (RETURN
      (SEQ
       (EXIT
@@ -250,7 +250,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;freeVariable?;$UTB;18| (|n| |s| $)
-  (PROG (#1=#:G250)
+  (PROG (#1=#:G226)
     (RETURN
      (SEQ
       (EXIT
@@ -314,7 +314,7 @@
           (EXIT |s|))))) 
 
 (DEFUN |SKICOMB;redux1| (|n| $)
-  (PROG (#1=#:G268 |leftleftright| |leftleftleft| |leftright| |leftleft|
+  (PROG (#1=#:G244 |leftleftright| |leftleftleft| |leftright| |leftleft|
          |right| |left|)
     (RETURN
      (SEQ
@@ -363,7 +363,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |SKICOMB;redux;2$;21| (|n| $)
-  (PROG (|triesLeft| #1=#:G270 |thisResult| |lastResult|)
+  (PROG (|triesLeft| #1=#:G246 |thisResult| |lastResult|)
     (RETURN
      (SEQ (LETT |lastResult| (CONS 0 'I) . #2=(|SKICOMB;redux;2$;21|))
           (LETT |thisResult| (|SKICOMB;redux1| |n| $) . #2#)
@@ -389,7 +389,7 @@
           (EXIT |thisResult|))))) 
 
 (DEFUN |SKICOMB;=;2$B;22| (|x| |y| $)
-  (PROG (#1=#:G287)
+  (PROG (#1=#:G263)
     (RETURN
      (SEQ
       (EXIT
@@ -431,10 +431,10 @@
 
 (DECLAIM (NOTINLINE |SKICombinators;|)) 
 
-(DEFUN |SKICombinators| (#1=#:G289)
+(DEFUN |SKICombinators| (#1=#:G265)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G290)
+     (PROG (#2=#:G266)
        (RETURN
         (COND
          ((LETT #2#

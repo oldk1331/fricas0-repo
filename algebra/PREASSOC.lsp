@@ -12,7 +12,7 @@
       (EXIT (CONS 1 "failed")))))) 
 
 (DEFUN |PREASSOC;makeMonic| (|op| $)
-  (PROG (#1=#:G146 |u| #2=#:G147 #3=#:G139 |i| |a| |n| |lc|)
+  (PROG (#1=#:G122 |u| #2=#:G123 #3=#:G115 |i| |a| |n| |lc|)
     (RETURN
      (SEQ
       (EXIT
@@ -409,10 +409,10 @@
 
 (DECLAIM (NOTINLINE |PrecomputedAssociatedEquations;|)) 
 
-(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G170)
+(DEFUN |PrecomputedAssociatedEquations| (&REST #1=#:G146)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G171)
+     (PROG (#2=#:G147)
        (RETURN
         (COND
          ((LETT #2#

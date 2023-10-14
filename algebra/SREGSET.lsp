@@ -36,7 +36,7 @@
 (DEFUN |SREGSET;roughUnitIdeal?;$B;11| (|ts| $) 'NIL) 
 
 (DEFUN |SREGSET;coerce;$Of;12| (|ts| $)
-  (PROG (#1=#:G190 |p| #2=#:G189 |lp|)
+  (PROG (#1=#:G166 |p| #2=#:G165 |lp|)
     (RETURN
      (SEQ
       (LETT |lp| (REVERSE (|SREGSET;rep| |ts| $))
@@ -174,7 +174,7 @@
               (#2# (CONS 1 "failed"))))))))) 
 
 (DEFUN |SREGSET;removeZero;P$P;22| (|p| |ts| $)
-  (PROG (|q| #1=#:G260 #2=#:G251 |ts_v-| |v|)
+  (PROG (|q| #1=#:G236 #2=#:G227 |ts_v-| |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -248,7 +248,7 @@
 
 (DEFUN |SREGSET;internalAugment;P$5BL;25|
        (|p| |ts| |rem?| |red?| |prim?| |sqfr?| |extend?| $)
-  (PROG (#1=#:G280 |us| #2=#:G279 |lts| |sfp| #3=#:G278 |pwt| |lpwt| #4=#:G277
+  (PROG (#1=#:G256 |us| #2=#:G255 |lts| |sfp| #3=#:G254 |pwt| |lpwt| #4=#:G253
          |f| |lsfp| |ts_v+| |ts_v-| |v|)
     (RETURN
      (SEQ
@@ -339,7 +339,7 @@
    ('T (SPADCALL |p| |ts| 'T 'T 'T 'T 'T (QREFELT $ 75))))) 
 
 (DEFUN |SREGSET;extend;P$L;27| (|p| |ts| $)
-  (PROG (|lts| #1=#:G289 |us| |split| |v|)
+  (PROG (|lts| #1=#:G265 |us| |split| |v|)
     (RETURN
      (SEQ
       (COND
@@ -456,7 +456,7 @@
       (EXIT |lts|))))) 
 
 (DEFUN |SREGSET;internalZeroSetSplit;L3BL;39| (|lp| |clos?| |info?| |prep?| $)
-  (PROG (|lts| #1=#:G324 |p| |ts| |pp|)
+  (PROG (|lts| #1=#:G300 |p| |ts| |pp|)
     (RETURN
      (SEQ
       (COND
@@ -524,9 +524,9 @@
    ('T 'NIL))) 
 
 (DEFUN |SREGSET;pre_process;L2BR;44| (|lp| |clos?| |info?| $)
-  (PROG (#1=#:G376 |lp2| |lts| #2=#:G389 |p| |lp3| #3=#:G388 |lp4| #4=#:G387
-         #5=#:G386 #6=#:G385 #7=#:G384 #8=#:G383 #9=#:G382 #10=#:G381
-         #11=#:G380 #12=#:G379 #13=#:G378 |lp1| #14=#:G377 |ts|)
+  (PROG (#1=#:G352 |lp2| |lts| #2=#:G365 |p| |lp3| #3=#:G364 |lp4| #4=#:G363
+         #5=#:G362 #6=#:G361 #7=#:G360 #8=#:G359 #9=#:G358 #10=#:G357
+         #11=#:G356 #12=#:G355 #13=#:G354 |lp1| #14=#:G353 |ts|)
     (RETURN
      (SEQ
       (EXIT
@@ -815,10 +815,10 @@
 
 (DECLAIM (NOTINLINE |SquareFreeRegularTriangularSet;|)) 
 
-(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G408)
+(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G384)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G409)
+     (PROG (#2=#:G385)
        (RETURN
         (COND
          ((LETT #2#
@@ -838,7 +838,7 @@
                     '|SquareFreeRegularTriangularSet|))))))))))) 
 
 (DEFUN |SquareFreeRegularTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G407 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G383 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|SquareFreeRegularTriangularSet|))

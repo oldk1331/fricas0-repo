@@ -16,7 +16,7 @@
         ('T |n|))) 
 
 (DEFUN |HEUGCD;height| (|f| $)
-  (PROG (|k| #1=#:G150)
+  (PROG (|k| #1=#:G126)
     (RETURN
      (SEQ (LETT |k| 1 . #2=(|HEUGCD;height|))
           (SEQ G190
@@ -55,7 +55,7 @@
           (EXIT |d|))))) 
 
 (DEFUN |HEUGCD;smallest_to_front| (|l| $)
-  (PROG (|ress| |smallest| #1=#:G163 |p|)
+  (PROG (|ress| |smallest| #1=#:G139 |p|)
     (RETURN
      (SEQ (LETT |ress| NIL . #2=(|HEUGCD;smallest_to_front|))
           (LETT |smallest| (|SPADfirst| |l|) . #2#)
@@ -74,7 +74,7 @@
           (EXIT (CONS |smallest| |ress|)))))) 
 
 (DEFUN |HEUGCD;lintgcd;LI;7| (|lval| $)
-  (PROG (|val| #1=#:G169 |val1|)
+  (PROG (|val| #1=#:G145 |val1|)
     (RETURN
      (SEQ
       (COND ((NULL |lval|) 0) ((SPADCALL 1 |lval| (QREFELT $ 25)) 1)
@@ -93,7 +93,7 @@
               (EXIT |val|)))))))) 
 
 (DEFUN |HEUGCD;content;LL;8| (|listf| $)
-  (PROG (#1=#:G173 |f| #2=#:G172)
+  (PROG (#1=#:G149 |f| #2=#:G148)
     (RETURN
      (SEQ
       (PROGN
@@ -113,7 +113,7 @@
             (EXIT (NREVERSE #2#)))))))) 
 
 (DEFUN |HEUGCD;contprim| (|listf| $)
-  (PROG (#1=#:G176 |c| #2=#:G181 |f| #3=#:G180)
+  (PROG (#1=#:G152 |c| #2=#:G157 |f| #3=#:G156)
     (RETURN
      (SEQ
       (PROGN
@@ -140,8 +140,8 @@
             (EXIT (NREVERSE #3#)))))))) 
 
 (DEFUN |HEUGCD;constcase| (|listdeg| |listf| $)
-  (PROG (#1=#:G197 |lcf| #2=#:G196 |d| |lclistf| #3=#:G195 |f| #4=#:G194
-         #5=#:G185 #6=#:G184 #7=#:G186 #8=#:G193 |n| |lind|)
+  (PROG (#1=#:G173 |lcf| #2=#:G172 |d| |lclistf| #3=#:G171 |f| #4=#:G170
+         #5=#:G161 #6=#:G160 #7=#:G162 #8=#:G169 |n| |lind|)
     (RETURN
      (SEQ
       (LETT |lind|
@@ -212,7 +212,7 @@
                               (EXIT (NREVERSE #2#)))))))))))))))) 
 
 (DEFUN |HEUGCD;testDivide| (|listf| |g| $)
-  (PROG (|result| #1=#:G208 |f1| #2=#:G209 |f|)
+  (PROG (|result| #1=#:G184 |f1| #2=#:G185 |f|)
     (RETURN
      (SEQ
       (EXIT
@@ -235,7 +235,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |HEUGCD;lincase| (|listdeg| |listf| $)
-  (PROG (|result| #1=#:G221 |f1| #2=#:G222 |f| |g| |n|)
+  (PROG (|result| #1=#:G197 |f1| #2=#:G198 |f| |g| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -266,11 +266,11 @@
         ('T |f|))) 
 
 (DEFUN |HEUGCD;localgcd| (|listf| $)
-  (PROG (#1=#:G239 #2=#:G257 |f| #3=#:G256 |gg| |answr| #4=#:G244 |nvalue|
-         #5=#:G250 |result| |flag| |f1| #6=#:G255 |d| |contd| |dd| |dval|
-         |listval| #7=#:G254 #8=#:G253 |k| |minf| #9=#:G235 #10=#:G234
-         #11=#:G236 #12=#:G252 |hgt| #13=#:G231 #14=#:G230 #15=#:G232
-         #16=#:G251)
+  (PROG (#1=#:G215 #2=#:G233 |f| #3=#:G232 |gg| |answr| #4=#:G220 |nvalue|
+         #5=#:G226 |result| |flag| |f1| #6=#:G231 |d| |contd| |dd| |dval|
+         |listval| #7=#:G230 #8=#:G229 |k| |minf| #9=#:G211 #10=#:G210
+         #11=#:G212 #12=#:G228 |hgt| #13=#:G207 #14=#:G206 #15=#:G208
+         #16=#:G227)
     (RETURN
      (SEQ
       (EXIT
@@ -429,12 +429,12 @@
       #5# (EXIT #5#))))) 
 
 (DEFUN |HEUGCD;internal| (|flag| |listf| $)
-  (PROG (|ans| #1=#:G300 |p| #2=#:G301 |q| #3=#:G299 |result| |#G53| |#G52|
-         #4=#:G288 |fa| |ga| #5=#:G280 |lcg| #6=#:G298 |g| |f| |listdeg|
-         #7=#:G297 #8=#:G296 |minpol| #9=#:G295 |term| #10=#:G294 |contgcd|
-         |Cgcd| #11=#:G293 #12=#:G292 |contlistf| #13=#:G267 #14=#:G291
-         #15=#:G290 |minpol1| |mdeg| #16=#:G264 #17=#:G263 #18=#:G265
-         #19=#:G289 |nlf|)
+  (PROG (|ans| #1=#:G276 |p| #2=#:G277 |q| #3=#:G275 |result| |#G53| |#G52|
+         #4=#:G264 |fa| |ga| #5=#:G256 |lcg| #6=#:G274 |g| |f| |listdeg|
+         #7=#:G273 #8=#:G272 |minpol| #9=#:G271 |term| #10=#:G270 |contgcd|
+         |Cgcd| #11=#:G269 #12=#:G268 |contlistf| #13=#:G243 #14=#:G267
+         #15=#:G266 |minpol1| |mdeg| #16=#:G240 #17=#:G239 #18=#:G241
+         #19=#:G265 |nlf|)
     (RETURN
      (SEQ
       (EXIT
@@ -697,10 +697,10 @@
 
 (DECLAIM (NOTINLINE |HeuGcd;|)) 
 
-(DEFUN |HeuGcd| (#1=#:G326)
+(DEFUN |HeuGcd| (#1=#:G302)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G327)
+     (PROG (#2=#:G303)
        (RETURN
         (COND
          ((LETT #2#

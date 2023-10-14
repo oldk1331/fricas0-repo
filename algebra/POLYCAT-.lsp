@@ -2,8 +2,8 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |POLYCAT-;eval;SLS;1| (|p| |l| $)
-  (PROG (#1=#:G168 |e| #2=#:G167 |lvar| #3=#:G166 #4=#:G165 #5=#:G158
-         #6=#:G164)
+  (PROG (#1=#:G144 |e| #2=#:G143 |lvar| #3=#:G142 #4=#:G141 #5=#:G134
+         #6=#:G140)
     (RETURN
      (SEQ
       (COND ((NULL |l|) |p|)
@@ -77,7 +77,7 @@
       ('T (CONS 0 |l|)))))) 
 
 (DEFUN |POLYCAT-;isTimes;SU;3| (|p| $)
-  (PROG (|r| |l| #1=#:G187 |v| #2=#:G186 |lv|)
+  (PROG (|r| |l| #1=#:G163 |v| #2=#:G162 |lv|)
     (RETURN
      (SEQ
       (COND
@@ -151,7 +151,7 @@
      (CDR |lv|) (CDR |ln|) (QREFELT $ 47))))) 
 
 (DEFUN |POLYCAT-;retract;SVarSet;7| (|p| $)
-  (PROG (|q| #1=#:G208)
+  (PROG (|q| #1=#:G184)
     (RETURN
      (SEQ
       (LETT |q|
@@ -166,7 +166,7 @@
              ('T (|error| "Polynomial is not a single variable")))))))) 
 
 (DEFUN |POLYCAT-;retractIfCan;SU;8| (|p| $)
-  (PROG (#1=#:G216 |q|)
+  (PROG (#1=#:G192 |q|)
     (RETURN
      (SEQ
       (EXIT
@@ -185,7 +185,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |POLYCAT-;totalDegree;SNni;9| (|p| $)
-  (PROG (|u| |d| #1=#:G219)
+  (PROG (|u| |d| #1=#:G195)
     (RETURN
      (SEQ
       (COND ((SPADCALL |p| (QREFELT $ 52)) 0)
@@ -218,7 +218,7 @@
               (EXIT |d|)))))))) 
 
 (DEFUN |POLYCAT-;totalDegreeSorted;SLNni;10| (|p| |lv| $)
-  (PROG (|u| |d| |w| |v0| |v| #1=#:G227)
+  (PROG (|u| |d| |w| |v0| |v| #1=#:G203)
     (RETURN
      (SEQ
       (COND ((OR (SPADCALL |p| (QREFELT $ 52)) (NULL |lv|)) 0)
@@ -284,7 +284,7 @@
   (SPADCALL (SPADCALL |p| |var| (QREFELT $ 42)) (QREFELT $ 71))) 
 
 (DEFUN |POLYCAT-;allMonoms| (|l| $)
-  (PROG (#1=#:G248 |p| #2=#:G247)
+  (PROG (#1=#:G224 |p| #2=#:G223)
     (RETURN
      (SEQ
       (SPADCALL
@@ -303,7 +303,7 @@
        (QREFELT $ 76)))))) 
 
 (DEFUN |POLYCAT-;P2R| (|p| |b| |n| $)
-  (PROG (#1=#:G252 |i| #2=#:G253 |bj| |w|)
+  (PROG (#1=#:G228 |i| #2=#:G229 |bj| |w|)
     (RETURN
      (SEQ (LETT |w| (MAKEARR1 |n| (|spadConstant| $ 54)) . #3=(|POLYCAT-;P2R|))
           (SEQ (LETT |bj| NIL . #3#) (LETT #2# |b| . #3#)
@@ -321,7 +321,7 @@
           (EXIT |w|))))) 
 
 (DEFUN |POLYCAT-;eq2R| (|l| |b| $)
-  (PROG (#1=#:G260 |p| #2=#:G259 #3=#:G258 |bj| #4=#:G257)
+  (PROG (#1=#:G236 |p| #2=#:G235 #3=#:G234 |bj| #4=#:G233)
     (RETURN
      (SEQ
       (SPADCALL
@@ -356,7 +356,7 @@
        (QREFELT $ 83)))))) 
 
 (DEFUN |POLYCAT-;reducedSystem;MM;17| (|m| $)
-  (PROG (|l| |mm| |d| #1=#:G273 |bj| #2=#:G272 |b| #3=#:G271 |r| #4=#:G270)
+  (PROG (|l| |mm| |d| #1=#:G249 |bj| #2=#:G248 |b| #3=#:G247 |r| #4=#:G246)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |m| (QREFELT $ 86))
@@ -406,8 +406,8 @@
       (EXIT |mm|))))) 
 
 (DEFUN |POLYCAT-;reducedSystem;MVR;18| (|m| |v| $)
-  (PROG (|r| |l| |w| |mm| |n| |d| #1=#:G288 |bj| #2=#:G287 |b| #3=#:G286 |s|
-         #4=#:G285)
+  (PROG (|r| |l| |w| |mm| |n| |d| #1=#:G264 |bj| #2=#:G263 |b| #3=#:G262 |s|
+         #4=#:G261)
     (RETURN
      (SEQ
       (LETT |l| (SPADCALL |m| (QREFELT $ 86))
@@ -480,7 +480,7 @@
   (SPADCALL |pp| (QREFELT $ 112))) 
 
 (DEFUN |POLYCAT-;factor;SF;23| (|p| $)
-  (PROG (#1=#:G321 |ww| #2=#:G320 |ansSUP| |up| #3=#:G319 |w| #4=#:G318 |ansR|
+  (PROG (#1=#:G297 |ww| #2=#:G296 |ansSUP| |up| #3=#:G295 |w| #4=#:G294 |ansR|
          |v|)
     (RETURN
      (SEQ
@@ -542,11 +542,11 @@
                 (QREFELT $ 125))))))))))) 
 
 (DEFUN |POLYCAT-;conditionP;MU;24| (|mat| $)
-  (PROG (#1=#:G344 #2=#:G343 #3=#:G345 |i| #4=#:G363 |m| #5=#:G360 #6=#:G362
-         |mons| #7=#:G361 |ans| |monslist| |llR| #8=#:G358 |u| #9=#:G359 |v|
-         #10=#:G357 |redmons| |deg1| #11=#:G332 #12=#:G349 |nd| #13=#:G356 |d|
-         #14=#:G355 |degs| |vars| #15=#:G354 #16=#:G327 #17=#:G326 #18=#:G328
-         #19=#:G353 #20=#:G352 |l| |ch| #21=#:G351 |z| #22=#:G350 |ll|)
+  (PROG (#1=#:G320 #2=#:G319 #3=#:G321 |i| #4=#:G339 |m| #5=#:G336 #6=#:G338
+         |mons| #7=#:G337 |ans| |monslist| |llR| #8=#:G334 |u| #9=#:G335 |v|
+         #10=#:G333 |redmons| |deg1| #11=#:G308 #12=#:G325 |nd| #13=#:G332 |d|
+         #14=#:G331 |degs| |vars| #15=#:G330 #16=#:G303 #17=#:G302 #18=#:G304
+         #19=#:G329 #20=#:G328 |l| |ch| #21=#:G327 |z| #22=#:G326 |ll|)
     (RETURN
      (SEQ
       (EXIT
@@ -790,7 +790,7 @@
               (EXIT (|POLYCAT-;charthRootlv| |p| |vars| |ch| $)))))))))) 
 
 (DEFUN |POLYCAT-;charthRootlv| (|p| |vars| |ch| $)
-  (PROG (#1=#:G392 |ansx| |ans| #2=#:G385 |d| |cp| |dd| |v|)
+  (PROG (#1=#:G368 |ansx| |ans| #2=#:G361 |d| |cp| |dd| |v|)
     (RETURN
      (SEQ
       (EXIT
@@ -886,7 +886,7 @@
 (DEFUN |POLYCAT-;squareFree;SF;30| (|p| $) (SPADCALL |p| (QREFELT $ 159))) 
 
 (DEFUN |POLYCAT-;squareFreePart;2S;31| (|p| $)
-  (PROG (#1=#:G402 #2=#:G401 #3=#:G403 #4=#:G405 |f| |s|)
+  (PROG (#1=#:G378 #2=#:G377 #3=#:G379 #4=#:G381 |f| |s|)
     (RETURN
      (SEQ
       (SPADCALL
@@ -915,7 +915,7 @@
   (SPADCALL (SPADCALL |p| |v| (QREFELT $ 42)) (QREFELT $ 166))) 
 
 (DEFUN |POLYCAT-;primitivePart;2S;33| (|p| $)
-  (PROG (#1=#:G408)
+  (PROG (#1=#:G384)
     (RETURN
      (COND ((SPADCALL |p| (QREFELT $ 168)) |p|)
            ('T
@@ -932,7 +932,7 @@
              1)))))) 
 
 (DEFUN |POLYCAT-;primitivePart;SVarSetS;34| (|p| |v| $)
-  (PROG (#1=#:G414)
+  (PROG (#1=#:G390)
     (RETURN
      (COND ((SPADCALL |p| (QREFELT $ 168)) |p|)
            ('T

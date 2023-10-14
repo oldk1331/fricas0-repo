@@ -34,7 +34,7 @@
 (DEFUN |GTSET;roughUnitIdeal?;$B;11| (|ts| $) 'NIL) 
 
 (DEFUN |GTSET;coerce;$Of;12| (|ts| $)
-  (PROG (#1=#:G155 |p| #2=#:G154 |lp|)
+  (PROG (#1=#:G131 |p| #2=#:G130 |lp|)
     (RETURN
      (SEQ
       (LETT |lp| (REVERSE (|GTSET;rep| |ts| $)) . #3=(|GTSET;coerce;$Of;12|))
@@ -130,10 +130,10 @@
 
 (DECLAIM (NOTINLINE |GeneralTriangularSet;|)) 
 
-(DEFUN |GeneralTriangularSet| (&REST #1=#:G214)
+(DEFUN |GeneralTriangularSet| (&REST #1=#:G190)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G215)
+     (PROG (#2=#:G191)
        (RETURN
         (COND
          ((LETT #2#
@@ -152,7 +152,7 @@
               (HREM |$ConstructorCache| '|GeneralTriangularSet|))))))))))) 
 
 (DEFUN |GeneralTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G213 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G189 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralTriangularSet|))

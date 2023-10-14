@@ -8,7 +8,7 @@
   (|EXPRODE;diffRhsK| (SPADCALL |f| (QREFELT $ 17)) |g| $)) 
 
 (DEFUN |EXPRODE;k2exquo| (|k| $)
-  (PROG (#1=#:G141 |f| #2=#:G140 |op|)
+  (PROG (#1=#:G117 |f| #2=#:G116 |op|)
     (RETURN
      (SEQ
       (COND
@@ -77,7 +77,7 @@
    ('T (|error| "Improper initial value")))) 
 
 (DEFUN |EXPRODE;findCompat| (|yx| |l| $)
-  (PROG (#1=#:G153 #2=#:G155 #3=#:G156 |eq|)
+  (PROG (#1=#:G129 #2=#:G131 #3=#:G132 |eq|)
     (RETURN
      (SEQ
       (EXIT
@@ -107,7 +107,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |EXPRODE;findEq| (|k| |x| |sys| $)
-  (PROG (#1=#:G158 #2=#:G160 #3=#:G161 |eq|)
+  (PROG (#1=#:G134 #2=#:G136 #3=#:G137 |eq|)
     (RETURN
      (SEQ
       (EXIT
@@ -202,7 +202,7 @@
                 $))))))))) 
 
 (DEFUN |EXPRODE;checkSystem| (|diffeq| |yx| |lv| $)
-  (PROG (#1=#:G169 #2=#:G171 #3=#:G172 |k|)
+  (PROG (#1=#:G145 #2=#:G147 #3=#:G148 |k|)
     (RETURN
      (SEQ
       (EXIT
@@ -236,7 +236,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |EXPRODE;seriesSolve;LLELA;13| (|l| |y| |eqx| |eqy| $)
-  (PROG (#1=#:G176 |deq| #2=#:G175)
+  (PROG (#1=#:G152 |deq| #2=#:G151)
     (RETURN
      (SEQ
       (SPADCALL
@@ -258,7 +258,7 @@
        |y| |eqx| |eqy| (QREFELT $ 75)))))) 
 
 (DEFUN |EXPRODE;seriesSolve;LLELA;14| (|l| |y| |eqx| |y0| $)
-  (PROG (#1=#:G181 |deq| #2=#:G180)
+  (PROG (#1=#:G157 |deq| #2=#:G156)
     (RETURN
      (SEQ
       (SPADCALL
@@ -280,7 +280,7 @@
        |y| |eqx| |y0| (QREFELT $ 77)))))) 
 
 (DEFUN |EXPRODE;seriesSolve;LLELA;15| (|l| |ly| |eqx| |eqy| $)
-  (PROG (#1=#:G185 |y| #2=#:G184)
+  (PROG (#1=#:G161 |y| #2=#:G160)
     (RETURN
      (SEQ
       (SPADCALL |l| |ly| |eqx|
@@ -327,7 +327,7 @@
             (QREFELT $ 81))) 
 
 (DEFUN |EXPRODE;seriesSolve;FBoEFA;20| (|diffeq| |y| |eqx| |y0| $)
-  (PROG (|center| |f| |yx| |sy| |x| #1=#:G191)
+  (PROG (|center| |f| |yx| |sy| |x| #1=#:G167)
     (RETURN
      (SEQ
       (LETT |x|
@@ -405,7 +405,7 @@
                                                           |center|))))))))) 
 
 (DEFUN |EXPRODE;seriesSolve;FBoELA;21| (|diffeq| |y| |eqx| |y0| $)
-  (PROG (|center| |f| |yx| |sy| |x| #1=#:G197)
+  (PROG (|center| |f| |yx| |sy| |x| #1=#:G173)
     (RETURN
      (SEQ
       (LETT |x|
@@ -486,9 +486,9 @@
                                                           |center|))))))))) 
 
 (DEFUN |EXPRODE;seriesSolve;LLELA;22| (|sys| |ly| |eqx| |l0| $)
-  (PROG (#1=#:G223 |f| #2=#:G222 |center| |l| #3=#:G221 |eq| #4=#:G220
-         #5=#:G219 |k| #6=#:G218 |lelt| |m| #7=#:G217 #8=#:G216 |yx| #9=#:G215
-         |y| #10=#:G214 |fsy| |sy| |x| #11=#:G203 |kx|)
+  (PROG (#1=#:G199 |f| #2=#:G198 |center| |l| #3=#:G197 |eq| #4=#:G196
+         #5=#:G195 |k| #6=#:G194 |lelt| |m| #7=#:G193 #8=#:G192 |yx| #9=#:G191
+         |y| #10=#:G190 |fsy| |sy| |x| #11=#:G179 |kx|)
     (RETURN
      (SEQ
       (LETT |x|
@@ -666,10 +666,10 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceODESolver;|)) 
 
-(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G224)
+(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G200)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G225)
+     (PROG (#2=#:G201)
        (RETURN
         (COND
          ((LETT #2#

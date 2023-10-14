@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator1;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperator1| (#1=#:G143)
+(DEFUN |LinearOrdinaryDifferentialOperator1| (#1=#:G119)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G144)
+     (PROG (#2=#:G120)
        (RETURN
         (COND
          ((LETT #2#

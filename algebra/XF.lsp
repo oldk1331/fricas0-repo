@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |ExtensionField;AL| 'NIL) 
 
-(DEFUN |ExtensionField| (#1=#:G129)
-  (LET (#2=#:G130)
+(DEFUN |ExtensionField| (#1=#:G105)
+  (LET (#2=#:G106)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |ExtensionField;AL|)) (CDR #2#))
      (T
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |ExtensionField;| (|t#1|)
-  (PROG (#1=#:G128)
+  (PROG (#1=#:G104)
     (RETURN
      (PROG1
          (LETT #1#

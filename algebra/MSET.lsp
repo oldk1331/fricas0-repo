@@ -18,7 +18,7 @@
 (DEFUN |MSET;brace;$;6| ($) (SPADCALL (QREFELT $ 12))) 
 
 (DEFUN |MSET;construct;L$;7| (|l| $)
-  (PROG (|n| #1=#:G156 |e| |t|)
+  (PROG (|n| #1=#:G132 |e| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 11)) . #2=(|MSET;construct;L$;7|))
           (LETT |n| 0 . #2#)
@@ -53,7 +53,7 @@
 (DEFUN |MSET;members;$L;15| (|ms| $) (SPADCALL (QCDR |ms|) (QREFELT $ 35))) 
 
 (DEFUN |MSET;coerce;$Of;16| (|ms| $)
-  (PROG (|l| |item| |n| |ex| #1=#:G170 |e| |colon| |t|)
+  (PROG (|l| |item| |n| |ex| #1=#:G146 |e| |colon| |t|)
     (RETURN
      (SEQ (LETT |l| NIL . #2=(|MSET;coerce;$Of;16|))
           (LETT |t| (QCDR |ms|) . #2#) (LETT |colon| ": " . #2#)
@@ -77,7 +77,7 @@
           (EXIT (SPADCALL |l| (QREFELT $ 43))))))) 
 
 (DEFUN |MSET;duplicates;$L;17| (|ms| $)
-  (PROG (|ld| #1=#:G174 |n| #2=#:G180 |e| |t|)
+  (PROG (|ld| #1=#:G150 |n| #2=#:G156 |e| |t|)
     (RETURN
      (SEQ (LETT |ld| NIL . #3=(|MSET;duplicates;$L;17|))
           (LETT |t| (QCDR |ms|) . #3#)
@@ -136,13 +136,13 @@
 (DEFUN |MSET;empty?;$B;22| (|ms| $) (EQL (QCAR |ms|) 0)) 
 
 (DEFUN |MSET;#;$Nni;23| (|ms| $)
-  (PROG (#1=#:G197)
+  (PROG (#1=#:G173)
     (RETURN
      (PROG1 (LETT #1# (QCAR |ms|) |MSET;#;$Nni;23|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
 
 (DEFUN |MSET;count;S$Nni;24| (|e| |ms| $)
-  (PROG (#1=#:G199)
+  (PROG (#1=#:G175)
     (RETURN
      (PROG1 (LETT #1# (|MSET;elt| (QCDR |ms|) |e| $) |MSET;count;S$Nni;24|)
        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))))) 
@@ -187,7 +187,7 @@
                   (EXIT |ms|)))))))) 
 
 (DEFUN |MSET;remove!;M$I$;26| (|p| |ms| |max| $)
-  (PROG (#1=#:G216 |n| #2=#:G222 |e| |t|)
+  (PROG (#1=#:G192 |n| #2=#:G198 |e| |t|)
     (RETURN
      (SEQ
       (COND ((ZEROP |max|) (SPADCALL |p| |ms| (QREFELT $ 64)))
@@ -264,7 +264,7 @@
           (EXIT |ms|))))) 
 
 (DEFUN |MSET;remove!;M2$;30| (|p| |ms| $)
-  (PROG (#1=#:G236 |e| |t|)
+  (PROG (#1=#:G212 |e| |t|)
     (RETURN
      (SEQ (LETT |t| (QCDR |ms|) . #2=(|MSET;remove!;M2$;30|))
           (SEQ (LETT |e| NIL . #2#)
@@ -300,7 +300,7 @@
             ('T (|spadConstant| $ 70))))))) 
 
 (DEFUN |MSET;removeDuplicates!;2$;32| (|ms| $)
-  (PROG (#1=#:G247 |e| |l| |t|)
+  (PROG (#1=#:G223 |e| |l| |t|)
     (RETURN
      (SEQ (LETT |t| (QCDR |ms|) . #2=(|MSET;removeDuplicates!;2$;32|))
           (LETT |l| (SPADCALL |t| (QREFELT $ 35)) . #2#)
@@ -319,7 +319,7 @@
        (EXIT |ms|))) 
 
 (DEFUN |MSET;map!;M2$;34| (|f| |ms| $)
-  (PROG (#1=#:G256 |e| |t1| |t|)
+  (PROG (#1=#:G232 |e| |t1| |t|)
     (RETURN
      (SEQ (LETT |t| (QCDR |ms|) . #2=(|MSET;map!;M2$;34|))
           (LETT |t1| (SPADCALL (QREFELT $ 11)) . #2#)
@@ -339,7 +339,7 @@
   (SPADCALL |f| (SPADCALL |ms| (QREFELT $ 66)) (QREFELT $ 75))) 
 
 (DEFUN |MSET;parts;$L;36| (|m| $)
-  (PROG (|l| #1=#:G264 |i| #2=#:G263 |e| |t|)
+  (PROG (|l| #1=#:G240 |i| #2=#:G239 |e| |t|)
     (RETURN
      (SEQ (LETT |l| NIL . #3=(|MSET;parts;$L;36|)) (LETT |t| (QCDR |m|) . #3#)
           (SEQ (LETT |e| NIL . #3#)
@@ -359,7 +359,7 @@
           (EXIT |l|))))) 
 
 (DEFUN |MSET;union;3$;37| (|m1| |m2| $)
-  (PROG (#1=#:G270 |e| #2=#:G269 |t2| |t1| |t|)
+  (PROG (#1=#:G246 |e| #2=#:G245 |t2| |t1| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 11)) . #3=(|MSET;union;3$;37|))
           (LETT |t1| (QCDR |m1|) . #3#) (LETT |t2| (QCDR |m2|) . #3#)
@@ -386,7 +386,7 @@
           (EXIT (CONS (+ (QCAR |m1|) (QCAR |m2|)) |t|)))))) 
 
 (DEFUN |MSET;intersect;3$;38| (|m1| |m2| $)
-  (PROG (|n| |m| #1=#:G276 |e| |t2| |t1| |t|)
+  (PROG (|n| |m| #1=#:G252 |e| |t2| |t1| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 11)) . #2=(|MSET;intersect;3$;38|))
           (LETT |t1| (QCDR |m1|) . #2#) (LETT |t2| (QCDR |m2|) . #2#)
@@ -412,7 +412,7 @@
           (EXIT (CONS |n| |t|)))))) 
 
 (DEFUN |MSET;difference;3$;39| (|m1| |m2| $)
-  (PROG (|n| |k2| |k1| #1=#:G282 |e| |t2| |t1| |t|)
+  (PROG (|n| |k2| |k1| #1=#:G258 |e| |t2| |t1| |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL (QREFELT $ 11)) . #2=(|MSET;difference;3$;39|))
           (LETT |t1| (QCDR |m1|) . #2#) (LETT |t2| (QCDR |m2|) . #2#)
@@ -441,7 +441,7 @@
             (SPADCALL |m2| |m1| (QREFELT $ 79)) (QREFELT $ 77))) 
 
 (DEFUN |MSET;=;2$B;41| (|m1| |m2| $)
-  (PROG (#1=#:G288 #2=#:G291 #3=#:G293 |e| #4=#:G286 #5=#:G292 |t2| |t1|)
+  (PROG (#1=#:G264 #2=#:G267 #3=#:G269 |e| #4=#:G262 #5=#:G268 |t2| |t1|)
     (RETURN
      (SEQ
       (EXIT
@@ -493,7 +493,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MSET;<;2$B;42| (|m1| |m2| $)
-  (PROG (#1=#:G296 #2=#:G299 #3=#:G300 |e| |t2| |t1|)
+  (PROG (#1=#:G272 #2=#:G275 #3=#:G276 |e| |t2| |t1|)
     (RETURN
      (SEQ
       (EXIT
@@ -525,7 +525,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MSET;subset?;2$B;43| (|m1| |m2| $)
-  (PROG (#1=#:G303 #2=#:G306 #3=#:G307 |e| |t2| |t1|)
+  (PROG (#1=#:G279 #2=#:G282 #3=#:G283 |e| |t2| |t1|)
     (RETURN
      (SEQ
       (EXIT
@@ -560,10 +560,10 @@
 
 (DECLAIM (NOTINLINE |Multiset;|)) 
 
-(DEFUN |Multiset| (#1=#:G314)
+(DEFUN |Multiset| (#1=#:G290)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G315)
+     (PROG (#2=#:G291)
        (RETURN
         (COND
          ((LETT #2#
@@ -578,7 +578,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Multiset|))))))))))) 
 
 (DEFUN |Multiset;| (|#1|)
-  (PROG (#1=#:G313 |pv$| $ |dv$| DV$1)
+  (PROG (#1=#:G289 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Multiset|))

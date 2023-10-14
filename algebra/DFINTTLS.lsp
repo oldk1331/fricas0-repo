@@ -29,7 +29,7 @@
         ('T (|error| "integrate: last argument must be 'noPole'")))) 
 
 (DEFUN |DFINTTLS;computeInt;KF2OcBU;5| (|k| |f| |a| |b| |eval?| $)
-  (PROG (#1=#:G163 |ia| |ib|)
+  (PROG (#1=#:G139 |ia| |ib|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |f| '|integral| (QREFELT $ 25)) (CONS 1 "failed"))
@@ -106,7 +106,7 @@
                      (#2# (CONS 1 "failed")))))))))))) 
 
 (DEFUN |DFINTTLS;mkLogPos| (|f| $)
-  (PROG (|lv| |lk| |v| #1=#:G192 |k|)
+  (PROG (|lv| |lk| |v| #1=#:G168 |k|)
     (RETURN
      (SEQ (LETT |lk| NIL . #2=(|DFINTTLS;mkLogPos|)) (LETT |lv| NIL . #2#)
           (SEQ (LETT |k| NIL . #2#)
@@ -164,7 +164,7 @@
    |b| |incl?| (QREFELT $ 75))) 
 
 (DEFUN |DFINTTLS;checkForZero;Sup2OcBU;11| (|q| |a| |b| |incl?| $)
-  (PROG (|u| #1=#:G228 |i| |d|)
+  (PROG (|u| #1=#:G204 |i| |d|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |q| (QREFELT $ 77)) (CONS 0 'NIL))
@@ -202,7 +202,7 @@
               #1# (EXIT #1#)))))))) 
 
 (DEFUN |DFINTTLS;maprat| (|p| $)
-  (PROG (|ans| #1=#:G243 |r| |c|)
+  (PROG (|ans| #1=#:G219 |r| |c|)
     (RETURN
      (SEQ
       (EXIT
@@ -276,9 +276,9 @@
                           (CONS 0 (CONS (QCDR |q|) (QCDR |t|))))))))))))))))) 
 
 (DEFUN |DFINTTLS;findRealZero| (|p| |i| |incl?| $)
-  (PROG (|ep| #1=#:G266 |l| #2=#:G280 |u| #3=#:G292 |t| #4=#:G291 |bounds|
-         #5=#:G276 #6=#:G275 #7=#:G277 #8=#:G290 #9=#:G273 #10=#:G272
-         #11=#:G274 #12=#:G289 |r|)
+  (PROG (|ep| #1=#:G242 |l| #2=#:G256 |u| #3=#:G268 |t| #4=#:G267 |bounds|
+         #5=#:G252 #6=#:G251 #7=#:G253 #8=#:G266 #9=#:G249 #10=#:G248
+         #11=#:G250 #12=#:G265 |r|)
     (RETURN
      (SEQ
       (LETT |p| (SPADCALL |p| (QREFELT $ 101)) . #13=(|DFINTTLS;findRealZero|))
@@ -456,7 +456,7 @@
        ('T (|spadConstant| $ 106))))))) 
 
 (DEFUN |DFINTTLS;checkBudan| (|p| |a| |b| |incl?| $)
-  (PROG (|v| |m| #1=#:G309 |vb| |va| |zb?| |bb| #2=#:G297 |n| #3=#:G310 |za?|
+  (PROG (|v| |m| #1=#:G285 |vb| |va| |zb?| |bb| #2=#:G273 |n| #3=#:G286 |za?|
          |aa| |r|)
     (RETURN
      (SEQ (LETT |r| (SPADCALL |b| (QREFELT $ 34)) . #4=(|DFINTTLS;checkBudan|))
@@ -614,7 +614,7 @@
                                                                  110)))))))))))))))))) 
 
 (DEFUN |DFINTTLS;posRoot| (|p| |incl0?| $)
-  (PROG (|v| #1=#:G351 |z0?|)
+  (PROG (|v| #1=#:G327 |z0?|)
     (RETURN
      (SEQ
       (EXIT
@@ -653,7 +653,7 @@
                     (#2# (CONS 0 (SPADCALL (QCDR |u|) (QREFELT $ 58))))))))))))) 
 
 (DEFUN |DFINTTLS;var| (|q| $)
-  (PROG (|lastCoef| |i| #1=#:G374 |next|)
+  (PROG (|lastCoef| |i| #1=#:G350 |next|)
     (RETURN
      (SEQ
       (EXIT
@@ -700,10 +700,10 @@
 
 (DECLAIM (NOTINLINE |DefiniteIntegrationTools;|)) 
 
-(DEFUN |DefiniteIntegrationTools| (&REST #1=#:G375)
+(DEFUN |DefiniteIntegrationTools| (&REST #1=#:G351)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G376)
+     (PROG (#2=#:G352)
        (RETURN
         (COND
          ((LETT #2#

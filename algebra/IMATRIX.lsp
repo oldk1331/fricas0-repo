@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |IMATRIX;swapRows!;$2I$;1| (|x| |i1| |i2| $)
-  (PROG (|t2| |t1| #1=#:G140 |j| |co| |ro|)
+  (PROG (|t2| |t1| #1=#:G116 |j| |co| |ro|)
     (RETURN
      (SEQ
       (COND
@@ -44,10 +44,10 @@
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 
 
-(DEFUN |IndexedMatrix| (&REST #1=#:G164)
+(DEFUN |IndexedMatrix| (&REST #1=#:G140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G165)
+     (PROG (#2=#:G141)
        (RETURN
         (COND
          ((LETT #2#
@@ -65,7 +65,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|))))))))))) 
 
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G161 #2=#:G162 #3=#:G163 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G137 #2=#:G138 #3=#:G139 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedMatrix|))

@@ -33,10 +33,10 @@
 
 (DECLAIM (NOTINLINE |SegmentBinding;|)) 
 
-(DEFUN |SegmentBinding| (#1=#:G139)
+(DEFUN |SegmentBinding| (#1=#:G115)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G140)
+     (PROG (#2=#:G116)
        (RETURN
         (COND
          ((LETT #2#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |GCNAALG;eval| (|rf| |a| $)
-  (PROG (|bot| |top| |lEq| #1=#:G142 |i| #2=#:G141 |s| #3=#:G140 |coefOfa|)
+  (PROG (|bot| |top| |lEq| #1=#:G118 |i| #2=#:G117 |s| #3=#:G116 |coefOfa|)
     (RETURN
      (SEQ
       (LETT |coefOfa|
@@ -55,7 +55,7 @@
   (SPADCALL (SPADCALL |a| |b| (QREFELT $ 52)) (QREFELT $ 53))) 
 
 (DEFUN |GCNAALG;genericLeftDiscriminant;F;3| ($)
-  (PROG (|m| #1=#:G151 |a| #2=#:G150 #3=#:G149 |b| #4=#:G148 |listBasis|)
+  (PROG (|m| #1=#:G127 |a| #2=#:G126 #3=#:G125 |b| #4=#:G124 |listBasis|)
     (RETURN
      (SEQ
       (LETT |listBasis| (SPADCALL (SPADCALL (QREFELT $ 56)) (QREFELT $ 59))
@@ -101,7 +101,7 @@
   (SPADCALL (SPADCALL |a| |b| (QREFELT $ 52)) (QREFELT $ 65))) 
 
 (DEFUN |GCNAALG;genericRightDiscriminant;F;5| ($)
-  (PROG (|m| #1=#:G160 |a| #2=#:G159 #3=#:G158 |b| #4=#:G157 |listBasis|)
+  (PROG (|m| #1=#:G136 |a| #2=#:G135 #3=#:G134 |b| #4=#:G133 |listBasis|)
     (RETURN
      (SEQ
       (LETT |listBasis| (SPADCALL (SPADCALL (QREFELT $ 56)) (QREFELT $ 59))
@@ -196,7 +196,7 @@
     (RETURN (PROGN (|GCNAALG;eval| |x| |a| $))))) 
 
 (DEFUN |GCNAALG;genericLeftTrace;$F;12| (|a| $)
-  (PROG (|rf| |d1| #1=#:G175)
+  (PROG (|rf| |d1| #1=#:G151)
     (RETURN
      (SEQ (COND ((QREFELT $ 71) (|GCNAALG;initializeLeft| $)))
           (LETT |d1|
@@ -210,7 +210,7 @@
           (EXIT (SPADCALL |rf| (QREFELT $ 87))))))) 
 
 (DEFUN |GCNAALG;genericRightTrace;$F;13| (|a| $)
-  (PROG (|rf| |d1| #1=#:G178)
+  (PROG (|rf| |d1| #1=#:G154)
     (RETURN
      (SEQ (COND ((QREFELT $ 76) (|GCNAALG;initializeRight| $)))
           (LETT |d1|
@@ -278,7 +278,7 @@
 (DEFUN |GCNAALG;generic;$;18| ($) (QREFELT $ 35)) 
 
 (DEFUN |GCNAALG;generic;VV$;19| (|vs| |ve| $)
-  (PROG (|v| #1=#:G199 #2=#:G201 |i| #3=#:G200)
+  (PROG (|v| #1=#:G175 #2=#:G177 |i| #3=#:G176)
     (RETURN
      (SEQ
       (COND
@@ -311,7 +311,7 @@
                     (QREFELT $ 99)))))))))) 
 
 (DEFUN |GCNAALG;generic;SV$;20| (|s| |ve| $)
-  (PROG (|sFC| #1=#:G208 #2=#:G210 |i| #3=#:G209 |lON| #4=#:G207 |q| #5=#:G206)
+  (PROG (|sFC| #1=#:G184 #2=#:G186 |i| #3=#:G185 |lON| #4=#:G183 |q| #5=#:G182)
     (RETURN
      (SEQ
       (LETT |lON|
@@ -344,8 +344,8 @@
       (EXIT (SPADCALL |sFC| |ve| (QREFELT $ 100))))))) 
 
 (DEFUN |GCNAALG;generic;V$;21| (|ve| $)
-  (PROG (|v| #1=#:G222 #2=#:G224 |i| #3=#:G223 |sFC| #4=#:G219 #5=#:G221
-         #6=#:G220 |lON| #7=#:G218 |q| #8=#:G217)
+  (PROG (|v| #1=#:G198 #2=#:G200 |i| #3=#:G199 |sFC| #4=#:G195 #5=#:G197
+         #6=#:G196 |lON| #7=#:G194 |q| #8=#:G193)
     (RETURN
      (SEQ
       (LETT |lON|
@@ -406,10 +406,10 @@
 
 (DECLAIM (NOTINLINE |GenericNonAssociativeAlgebra;|)) 
 
-(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G240)
+(DEFUN |GenericNonAssociativeAlgebra| (&REST #1=#:G216)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G241)
+     (PROG (#2=#:G217)
        (RETURN
         (COND
          ((LETT #2#
@@ -429,8 +429,8 @@
                     '|GenericNonAssociativeAlgebra|))))))))))) 
 
 (DEFUN |GenericNonAssociativeAlgebra;| (|#1| |#2| |#3| |#4|)
-  (PROG (|v| #1=#:G238 |i| #2=#:G239 #3=#:G235 #4=#:G237 #5=#:G236 |q|
-         #6=#:G234 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (|v| #1=#:G214 |i| #2=#:G215 #3=#:G211 #4=#:G213 #5=#:G212 |q|
+         #6=#:G210 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (SEQ
       (PROGN

@@ -19,7 +19,7 @@
         ('T (SPADCALL (QVELT |cp1| 0) (QVELT |cp2| 0) (QREFELT $ 16))))) 
 
 (DEFUN |NGROEB;makeCrit| (|sp1| |p2| |totdeg2| $)
-  (PROG (|tdeg| |e2| #1=#:G146 |e1| |deg| |p1|)
+  (PROG (|tdeg| |e2| #1=#:G122 |e1| |deg| |p1|)
     (RETURN
      (SEQ (LETT |p1| (QCDR |sp1|) . #2=(|NGROEB;makeCrit|))
           (LETT |deg|
@@ -58,8 +58,8 @@
           (EXIT (VECTOR |deg| |tdeg| |p1| |p2|)))))) 
 
 (DEFUN |NGROEB;gbasis| (|Pol| $)
-  (PROG (#1=#:G180 |x| #2=#:G179 |redPols| |basPols| D D1 #3=#:G178 #4=#:G177
-         #5=#:G169 |h| |s| D0 #6=#:G176 #7=#:G175 #8=#:G174 #9=#:G173 |toth|
+  (PROG (#1=#:G156 |x| #2=#:G155 |redPols| |basPols| D D1 #3=#:G154 #4=#:G153
+         #5=#:G145 |h| |s| D0 #6=#:G152 #7=#:G151 #8=#:G150 #9=#:G149 |toth|
          |Pol1|)
     (RETURN
      (SEQ
@@ -218,7 +218,7 @@
             (QREFELT $ 24))) 
 
 (DEFUN |NGROEB;sPol;RDpol;9| (|p| $)
-  (PROG (|cc| |fj| #1=#:G187 |fi| |Tij|)
+  (PROG (|cc| |fj| #1=#:G163 |fi| |Tij|)
     (RETURN
      (SEQ (LETT |Tij| (QVELT |p| 0) . #2=(|NGROEB;sPol;RDpol;9|))
           (LETT |fi| (QVELT |p| 2) . #2#) (LETT |fj| (QVELT |p| 3) . #2#)
@@ -406,10 +406,10 @@
 
 (DECLAIM (NOTINLINE |NGroebnerPackage;|)) 
 
-(DEFUN |NGroebnerPackage| (&REST #1=#:G225)
+(DEFUN |NGroebnerPackage| (&REST #1=#:G201)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G226)
+     (PROG (#2=#:G202)
        (RETURN
         (COND
          ((LETT #2#

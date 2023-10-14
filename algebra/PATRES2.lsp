@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PATRES2;map;MPmrPmr;1| (|f| |r| $)
-  (PROG (#1=#:G135 |rec| #2=#:G134)
+  (PROG (#1=#:G111 |rec| #2=#:G110)
     (RETURN
      (SEQ
       (COND ((SPADCALL |r| (QREFELT $ 11)) (SPADCALL (QREFELT $ 13)))
@@ -28,10 +28,10 @@
 
 (DECLAIM (NOTINLINE |PatternMatchResultFunctions2;|)) 
 
-(DEFUN |PatternMatchResultFunctions2| (&REST #1=#:G136)
+(DEFUN |PatternMatchResultFunctions2| (&REST #1=#:G112)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G113)
        (RETURN
         (COND
          ((LETT #2#

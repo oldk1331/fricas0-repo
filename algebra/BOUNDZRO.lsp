@@ -23,7 +23,7 @@
       (EXIT (COND ((QEQCAR |r| 0) (|BOUNDZRO;negint| (QCDR |r|) $)) ('T 0))))))) 
 
 (DEFUN |BOUNDZRO;negint| (|r| $)
-  (PROG (#1=#:G141 |u|)
+  (PROG (#1=#:G117 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -39,7 +39,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |BOUNDZRO;bringDown| (|f| $)
-  (PROG (#1=#:G147 |k| #2=#:G146 |t|)
+  (PROG (#1=#:G123 |k| #2=#:G122 |t|)
     (RETURN
      (SEQ (LETT |t| (SPADCALL |f| (QREFELT $ 25)) . #3=(|BOUNDZRO;bringDown|))
           (EXIT
@@ -90,7 +90,7 @@
          (|BOUNDZRO;qbound| |p| (SPADCALL (ELT $ 30) |p| (QREFELT $ 35)) $)))) 
 
 (DEFUN |BOUNDZRO;qbound| (|p| |q| $)
-  (PROG (|bound| |r| #1=#:G162 |rec|)
+  (PROG (|bound| |r| #1=#:G138 |rec|)
     (RETURN
      (SEQ (LETT |bound| 0 . #2=(|BOUNDZRO;qbound|))
           (SEQ (LETT |rec| NIL . #2#)
@@ -122,10 +122,10 @@
 
 (DECLAIM (NOTINLINE |BoundIntegerRoots;|)) 
 
-(DEFUN |BoundIntegerRoots| (&REST #1=#:G163)
+(DEFUN |BoundIntegerRoots| (&REST #1=#:G139)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G140)
        (RETURN
         (COND
          ((LETT #2#

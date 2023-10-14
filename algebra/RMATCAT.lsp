@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |RectangularMatrixCategory;AL| 'NIL) 
 
-(DEFUN |RectangularMatrixCategory| (&REST #1=#:G134)
-  (LET (#2=#:G135)
+(DEFUN |RectangularMatrixCategory| (&REST #1=#:G110)
+  (LET (#2=#:G111)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -22,7 +22,7 @@
       #2#)))) 
 
 (DEFUN |RectangularMatrixCategory;| (|t#1| |t#2| |t#3| |t#4| |t#5|)
-  (PROG (#1=#:G133)
+  (PROG (#1=#:G109)
     (RETURN
      (PROG1
          (LETT #1#

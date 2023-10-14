@@ -404,7 +404,7 @@
                (EXIT |s|))))))))) 
 
 (DEFUN |TMFORM;formatIntBody| (|body| |opPrec| $)
-  (PROG (#1=#:G264 |bvarS| |bvarL| |bvar| |bodyL|)
+  (PROG (#1=#:G240 |bvarS| |bvarL| |bvar| |bodyL|)
     (RETURN
      (SEQ
       (EXIT
@@ -577,7 +577,7 @@
    (|TMFORM;formatNaryNoGroup| |op| |sep| |opprec| |args| |prec| $) $)) 
 
 (DEFUN |TMFORM;formatNaryNoGroup| (|op| |sep| |opprec| |args| |prec| $)
-  (PROG (|s| |l| #1=#:G294 |a| |opPrec| |ops| |tmpS| |p|)
+  (PROG (|s| |l| #1=#:G270 |a| |opPrec| |ops| |tmpS| |p|)
     (RETURN
      (SEQ
       (COND ((NULL |args|) "")
@@ -896,7 +896,7 @@
 (DEFUN |TexmacsFormat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G330)
+     (PROG (#1=#:G306)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|)

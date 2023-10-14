@@ -15,10 +15,10 @@
 
 (DECLAIM (NOTINLINE |FiniteSetAggregateFunctions2;|)) 
 
-(DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G135)
+(DEFUN |FiniteSetAggregateFunctions2| (&REST #1=#:G111)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G136)
+     (PROG (#2=#:G112)
        (RETURN
         (COND
          ((LETT #2#

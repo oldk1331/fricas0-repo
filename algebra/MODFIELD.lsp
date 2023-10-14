@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |ModularField;|)) 
 
-(DEFUN |ModularField| (&REST #1=#:G155)
+(DEFUN |ModularField| (&REST #1=#:G131)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G156)
+     (PROG (#2=#:G132)
        (RETURN
         (COND
          ((LETT #2#

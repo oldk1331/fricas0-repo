@@ -6,14 +6,14 @@
 (DEFPARAMETER |CancellationAbelianMonoid;AL| 'NIL) 
 
 (DEFUN |CancellationAbelianMonoid| ()
-  (LET (#:G129)
+  (LET (#:G105)
     (COND (|CancellationAbelianMonoid;AL|)
           (T
            (SETQ |CancellationAbelianMonoid;AL|
                    (|CancellationAbelianMonoid;|)))))) 
 
 (DEFUN |CancellationAbelianMonoid;| ()
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

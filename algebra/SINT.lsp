@@ -251,7 +251,7 @@
 (DEFUN |SingleInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1878)
+     (PROG (#1=#:G1854)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SingleInteger|)

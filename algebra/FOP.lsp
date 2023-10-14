@@ -70,7 +70,7 @@
 (DEFUN |FortranOutputStackPackage| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G151)
+     (PROG (#1=#:G127)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|FortranOutputStackPackage|)

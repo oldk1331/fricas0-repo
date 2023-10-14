@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |LinearlyExplicitRingOver;AL| 'NIL) 
 
-(DEFUN |LinearlyExplicitRingOver| (#1=#:G128)
-  (LET (#2=#:G129)
+(DEFUN |LinearlyExplicitRingOver| (#1=#:G104)
+  (LET (#2=#:G105)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LinearlyExplicitRingOver;AL|))
       (CDR #2#))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |LinearlyExplicitRingOver;| (|t#1|)
-  (PROG (#1=#:G127)
+  (PROG (#1=#:G103)
     (RETURN
      (PROG1
          (LETT #1#

@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |ZDSOLVE;convert;NsmpNsmp;1| (|q| $)
-  (PROG (|q2| |lq2| |iq2| |v2| #1=#:G156 |d| |v|)
+  (PROG (|q2| |lq2| |iq2| |v2| #1=#:G132 |d| |v|)
     (RETURN
      (SEQ
       (COND
@@ -46,9 +46,9 @@
                     (QREFELT $ 35)))))))))) 
 
 (DEFUN |ZDSOLVE;squareFree;RcL;2| (|ts| $)
-  (PROG (|toSee| |newlq| #1=#:G187 |q| #2=#:G186 |newts| |st| #3=#:G185 |sfqwt|
-         |lsfqwt| |lq| |toSave| |lqwt| #4=#:G184 |f| |lf| #5=#:G183 |p|
-         #6=#:G182 |irred?|)
+  (PROG (|toSee| |newlq| #1=#:G163 |q| #2=#:G162 |newts| |st| #3=#:G161 |sfqwt|
+         |lsfqwt| |lq| |toSave| |lqwt| #4=#:G160 |f| |lf| #5=#:G159 |p|
+         #6=#:G158 |irred?|)
     (RETURN
      (SEQ (LETT |irred?| 'NIL . #7=(|ZDSOLVE;squareFree;RcL;2|))
           (LETT |st| (SPADCALL (LIST (QREFELT $ 19)) (QREFELT $ 39)) . #7#)
@@ -163,7 +163,7 @@
           (EXIT |toSave|))))) 
 
 (DEFUN |ZDSOLVE;triangSolve;L2BL;3| (|lp| |info?| |lextri?| $)
-  (PROG (|lq| #1=#:G192 |p| #2=#:G191)
+  (PROG (|lq| #1=#:G168 |p| #2=#:G167)
     (RETURN
      (SEQ
       (LETT |lq|
@@ -251,9 +251,9 @@
       (EXIT (CDR |lq2|)))))) 
 
 (DEFUN |ZDSOLVE;realSolve;RcL;11| (|ts| $)
-  (PROG (|toSee| #1=#:G230 |urcRoot| |urcRoots| |urc| |lv| #2=#:G219 |qrc|
-         #3=#:G228 |r| #4=#:G229 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G227
-         |sts| #6=#:G226 |lsts|)
+  (PROG (|toSee| #1=#:G206 |urcRoot| |urcRoots| |urc| |lv| #2=#:G195 |qrc|
+         #3=#:G204 |r| #4=#:G205 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G203
+         |sts| #6=#:G202 |lsts|)
     (RETURN
      (SEQ
       (LETT |lsts| (SPADCALL |ts| (QREFELT $ 59))
@@ -335,11 +335,11 @@
       (EXIT |toSave|))))) 
 
 (DEFUN |ZDSOLVE;realSolve;L3BL;12| (|lp| |info?| |check?| |lextri?| $)
-  (PROG (#1=#:G247 |prc| #2=#:G262 |rr| #3=#:G263 |symb| #4=#:G261 |realsol|
-         #5=#:G260 |p| |toSee| #6=#:G259 |urcRoot| |urcRoots| |urc| |lv|
-         #7=#:G241 |qrc| #8=#:G257 |r| #9=#:G258 |v| |lq2| |q2| |toSave| |lr|
-         |wip| #10=#:G256 |sts| #11=#:G255 |lsts| #12=#:G254 |ts| |lts| |lq|
-         #13=#:G253 #14=#:G252)
+  (PROG (#1=#:G223 |prc| #2=#:G238 |rr| #3=#:G239 |symb| #4=#:G237 |realsol|
+         #5=#:G236 |p| |toSee| #6=#:G235 |urcRoot| |urcRoots| |urc| |lv|
+         #7=#:G217 |qrc| #8=#:G233 |r| #9=#:G234 |v| |lq2| |q2| |toSave| |lr|
+         |wip| #10=#:G232 |sts| #11=#:G231 |lsts| #12=#:G230 |ts| |lts| |lq|
+         #13=#:G229 #14=#:G228)
     (RETURN
      (SEQ
       (LETT |lq|
@@ -508,9 +508,9 @@
   (SPADCALL |lp| 'NIL 'NIL 'NIL (QREFELT $ 109))) 
 
 (DEFUN |ZDSOLVE;positiveSolve;RcL;16| (|ts| $)
-  (PROG (|toSee| #1=#:G287 |urcRoot| |urcRoots| |urc| |lv| #2=#:G275 |qrc|
-         #3=#:G285 |r| #4=#:G286 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G284
-         |sts| #6=#:G283 |lsts|)
+  (PROG (|toSee| #1=#:G263 |urcRoot| |urcRoots| |urc| |lv| #2=#:G251 |qrc|
+         #3=#:G261 |r| #4=#:G262 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G260
+         |sts| #6=#:G259 |lsts|)
     (RETURN
      (SEQ
       (LETT |lsts| (SPADCALL |ts| (QREFELT $ 59))
@@ -594,10 +594,10 @@
       (EXIT |toSave|))))) 
 
 (DEFUN |ZDSOLVE;positiveSolve;L2BL;17| (|lp| |info?| |lextri?| $)
-  (PROG (|toSee| #1=#:G313 |urcRoot| |urcRoots| |urc| |lv| #2=#:G298 |qrc|
-         #3=#:G311 |r| #4=#:G312 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G310
-         |sts| #6=#:G309 |lsts| #7=#:G308 |ts| |lts| |lq| #8=#:G307 |p|
-         #9=#:G306)
+  (PROG (|toSee| #1=#:G289 |urcRoot| |urcRoots| |urc| |lv| #2=#:G274 |qrc|
+         #3=#:G287 |r| #4=#:G288 |v| |lq2| |q2| |toSave| |lr| |wip| #5=#:G286
+         |sts| #6=#:G285 |lsts| #7=#:G284 |ts| |lts| |lq| #8=#:G283 |p|
+         #9=#:G282)
     (RETURN
      (SEQ
       (LETT |lq|
@@ -715,8 +715,8 @@
   (SPADCALL |lp| 'NIL 'NIL (QREFELT $ 115))) 
 
 (DEFUN |ZDSOLVE;univariateSolve;RcL;20| (|ts| $)
-  (PROG (|toSave| |lc| #1=#:G332 |q2| #2=#:G331 |g| #3=#:G318 #4=#:G330 |us|
-         |lus| #5=#:G329 |st| |toSee|)
+  (PROG (|toSave| |lc| #1=#:G308 |q2| #2=#:G307 |g| #3=#:G294 #4=#:G306 |us|
+         |lus| #5=#:G305 |st| |toSee|)
     (RETURN
      (SEQ
       (LETT |toSee| (SPADCALL |ts| (QREFELT $ 59))
@@ -783,10 +783,10 @@
       (EXIT |toSave|))))) 
 
 (DEFUN |ZDSOLVE;univariateSolve;L3BL;21| (|lp| |info?| |check?| |lextri?| $)
-  (PROG (|toSave| |lc| #1=#:G369 |q2| #2=#:G368 |g| #3=#:G350 #4=#:G348 |rems|
-         #5=#:G367 #6=#:G366 #7=#:G365 |us| |lus| #8=#:G364 |st| |lq2|
-         #9=#:G363 |p| #10=#:G362 |toSee| #11=#:G361 |ts| |lts| |lq| #12=#:G360
-         #13=#:G359)
+  (PROG (|toSave| |lc| #1=#:G345 |q2| #2=#:G344 |g| #3=#:G326 #4=#:G324 |rems|
+         #5=#:G343 #6=#:G342 #7=#:G341 |us| |lus| #8=#:G340 |st| |lq2|
+         #9=#:G339 |p| #10=#:G338 |toSee| #11=#:G337 |ts| |lts| |lq| #12=#:G336
+         #13=#:G335)
     (RETURN
      (SEQ
       (LETT |lq|
@@ -956,10 +956,10 @@
 
 (DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 
 
-(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G376)
+(DEFUN |ZeroDimensionalSolvePackage| (&REST #1=#:G352)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G377)
+     (PROG (#2=#:G353)
        (RETURN
         (COND
          ((LETT #2#
@@ -979,7 +979,7 @@
                     '|ZeroDimensionalSolvePackage|))))))))))) 
 
 (DEFUN |ZeroDimensionalSolvePackage;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G156 |pv$| $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G132 |pv$| $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|ZeroDimensionalSolvePackage|))

@@ -4,8 +4,8 @@
 (DEFUN |MULDEP;solveOverQ| (|m| |v| $) (SPADCALL |m| |v| (QREFELT $ 10))) 
 
 (DEFUN |MULDEP;logDependenceQ;LFU;2| (|lq| |q| $)
-  (PROG (|qv| #1=#:G149 |i| #2=#:G148 |m| |j| #3=#:G147 #4=#:G146 #5=#:G145
-         |tm| |li| #6=#:G144 |k0| |bas| |dr| |v| |n|)
+  (PROG (|qv| #1=#:G125 |i| #2=#:G124 |m| |j| #3=#:G123 #4=#:G122 #5=#:G121
+         |tm| |li| #6=#:G120 |k0| |bas| |dr| |v| |n|)
     (RETURN
      (SEQ
       (COND ((NULL |lq|) (CONS 1 "failed"))
@@ -127,7 +127,7 @@
 (DEFUN |MultiplicativeDependence| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G151)
+     (PROG (#1=#:G127)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|MultiplicativeDependence|)

@@ -150,7 +150,7 @@
                      (QREFELT $ 39))))))))))) 
 
 (DEFUN |ILIST;=;2$B;22| (|x| |y| $)
-  (PROG (#1=#:G1053)
+  (PROG (#1=#:G1029)
     (RETURN
      (SEQ
       (EXIT
@@ -176,7 +176,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILIST;member?;S$B;23| (|s| |x| $)
-  (PROG (#1=#:G1058)
+  (PROG (#1=#:G1034)
     (RETURN
      (SEQ
       (EXIT
@@ -296,7 +296,7 @@
               (QRPLACD |t| (COND ((NULL |p|) |q|) (#1# |p|))) (EXIT |r|)))))))) 
 
 (DEFUN |ILIST;split!;$I$;30| (|p| |n| $)
-  (PROG (|q| #1=#:G1104)
+  (PROG (|q| #1=#:G1080)
     (RETURN
      (SEQ
       (COND ((< |n| 1) (|error| "index out of range"))
@@ -314,7 +314,7 @@
               (LETT |q| (QCDR |p|) . #2#) (QRPLACD |p| NIL) (EXIT |q|)))))))) 
 
 (DEFUN |ILIST;mergeSort| (|f| |p| |n| $)
-  (PROG (|q| |l| #1=#:G1108)
+  (PROG (|q| |l| #1=#:G1084)
     (RETURN
      (SEQ
       (COND
@@ -339,10 +339,10 @@
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
-(DEFUN |IndexedList| (&REST #1=#:G1129)
+(DEFUN |IndexedList| (&REST #1=#:G1105)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1130)
+     (PROG (#2=#:G1106)
        (RETURN
         (COND
          ((LETT #2#
@@ -359,7 +359,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|))))))))))) 
 
 (DEFUN |IndexedList;| (|#1| |#2|)
-  (PROG (#1=#:G1127 #2=#:G1128 |pv$| #3=#:G1124 #4=#:G1125 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1103 #2=#:G1104 |pv$| #3=#:G1100 #4=#:G1101 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedList|))

@@ -7,7 +7,7 @@
 (DEFUN |DRAWPT;draw;LTdv;2| (|lp| $) (SPADCALL |lp| NIL (QREFELT $ 13))) 
 
 (DEFUN |DRAWPT;draw;2LLTdv;3| (|lx| |ly| |l| $)
-  (PROG (#1=#:G136 |x| #2=#:G137 |y| #3=#:G135)
+  (PROG (#1=#:G112 |x| #2=#:G113 |y| #3=#:G111)
     (RETURN
      (SEQ
       (SPADCALL
@@ -124,7 +124,7 @@
 (DEFUN |TopLevelDrawFunctionsForPoints| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G151)
+     (PROG (#1=#:G127)
        (RETURN
         (COND
          ((LETT #1#

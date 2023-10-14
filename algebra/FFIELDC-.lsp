@@ -36,7 +36,7 @@
   (CONS 0 (SPADCALL |x| (QREFELT $ 25)))) 
 
 (DEFUN |FFIELDC-;createPrimitiveElement;S;8| ($)
-  (PROG (|found| |e| #1=#:G180 |i| |start| |sm1|)
+  (PROG (|found| |e| #1=#:G156 |i| |start| |sm1|)
     (RETURN
      (SEQ
       (LETT |sm1| (- (SPADCALL (QREFELT $ 33)) 1)
@@ -64,7 +64,7 @@
       (EXIT |e|))))) 
 
 (DEFUN |FFIELDC-;primitive?;SB;9| (|a| $)
-  (PROG (|equalone| #1=#:G190 |exp| |q| |explist|)
+  (PROG (|equalone| #1=#:G166 |exp| |q| |explist|)
     (RETURN
      (SEQ
       (COND ((SPADCALL |a| (QREFELT $ 14)) 'NIL)
@@ -91,7 +91,7 @@
               (EXIT (COND (|equalone| 'NIL) (#2# 'T)))))))))) 
 
 (DEFUN |FFIELDC-;order;SPi;10| (|e| $)
-  (PROG (|ord| |goon| |a| #1=#:G199 |j| |primeDivisor| #2=#:G198 |rec| |lof|)
+  (PROG (|ord| |goon| |a| #1=#:G175 |j| |primeDivisor| #2=#:G174 |rec| |lof|)
     (RETURN
      (SEQ
       (COND
@@ -131,7 +131,7 @@
 
 (DEFUN |FFIELDC-;discreteLog;SNni;11| (|b| $)
   (PROG (|a| |disclog| |mult| |c| |disc1| |found| |rho| |i| |end| |n|
-         |exptable| |exp| #1=#:G217 |t| |fac| #2=#:G216 |f| |groupord| |gen|
+         |exptable| |exp| #1=#:G193 |t| |fac| #2=#:G192 |f| |groupord| |gen|
          |faclist|)
     (RETURN
      (SEQ
@@ -246,8 +246,8 @@
                       (EXIT |disclog|)))))))))))) 
 
 (DEFUN |FFIELDC-;discreteLog;2SU;12| (|logbase| |b| $)
-  (PROG (|a| |mult| |disclog| |rho| #1=#:G237 |rhoHelp| |exp| #2=#:G239 |t|
-         |primroot| |fac| #3=#:G238 |f| |faclist| |groupord|)
+  (PROG (|a| |mult| |disclog| |rho| #1=#:G213 |rhoHelp| |exp| #2=#:G215 |t|
+         |primroot| |fac| #3=#:G214 |f| |faclist| |groupord|)
     (RETURN
      (SEQ
       (EXIT
@@ -333,7 +333,7 @@
 (DEFUN |FFIELDC-;factorPolynomial| (|f| $) (SPADCALL |f| (QREFELT $ 77))) 
 
 (DEFUN |FFIELDC-;factorSquareFreePolynomial| (|f| $)
-  (PROG (#1=#:G248 #2=#:G247 #3=#:G249 #4=#:G252 |u| |flist|)
+  (PROG (#1=#:G224 #2=#:G223 #3=#:G225 #4=#:G228 |u| |flist|)
     (RETURN
      (SEQ
       (COND

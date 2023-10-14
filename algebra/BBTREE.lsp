@@ -139,10 +139,10 @@
 
 (DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
 
-(DEFUN |BalancedBinaryTree| (#1=#:G198)
+(DEFUN |BalancedBinaryTree| (#1=#:G174)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G199)
+     (PROG (#2=#:G175)
        (RETURN
         (COND
          ((LETT #2#
@@ -160,7 +160,7 @@
               (HREM |$ConstructorCache| '|BalancedBinaryTree|))))))))))) 
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
-  (PROG (|pv$| #1=#:G195 #2=#:G196 #3=#:G197 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G171 #2=#:G172 #3=#:G173 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|BalancedBinaryTree|))

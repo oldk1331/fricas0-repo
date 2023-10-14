@@ -30,7 +30,7 @@
 (DEFUN |RandomNumberSource| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G135)
+     (PROG (#1=#:G111)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|RandomNumberSource|)

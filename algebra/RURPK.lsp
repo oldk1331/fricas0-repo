@@ -2,10 +2,10 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |RURPK;rur;L2BL;1| (|lp| |univ?| |check?| $)
-  (PROG (|toReturn| |lc| #1=#:G195 |q| #2=#:G194 |g| #3=#:G143 #4=#:G193 |us|
-         #5=#:G192 |lus| #6=#:G191 |ts| |toSee| |newlq| #7=#:G190 #8=#:G189
-         |newts| #9=#:G188 |qwt| |lsfqwt| #10=#:G187 #11=#:G186 #12=#:G185 |fq|
-         |lfq| #13=#:G154 |lq| |toSave| |lqwt| |rif| #14=#:G184 |p|)
+  (PROG (|toReturn| |lc| #1=#:G171 |q| #2=#:G170 |g| #3=#:G119 #4=#:G169 |us|
+         #5=#:G168 |lus| #6=#:G167 |ts| |toSee| |newlq| #7=#:G166 #8=#:G165
+         |newts| #9=#:G164 |qwt| |lsfqwt| #10=#:G163 #11=#:G162 #12=#:G161 |fq|
+         |lfq| #13=#:G130 |lq| |toSave| |lqwt| |rif| #14=#:G160 |p|)
     (RETURN
      (SEQ
       (LETT |lp| (SPADCALL (ELT $ 23) |lp| (QREFELT $ 26))
@@ -309,10 +309,10 @@
 
 (DECLAIM (NOTINLINE |RationalUnivariateRepresentationPackage;|)) 
 
-(DEFUN |RationalUnivariateRepresentationPackage| (&REST #1=#:G200)
+(DEFUN |RationalUnivariateRepresentationPackage| (&REST #1=#:G176)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G201)
+     (PROG (#2=#:G177)
        (RETURN
         (COND
          ((LETT #2#
@@ -334,7 +334,7 @@
                     '|RationalUnivariateRepresentationPackage|))))))))))) 
 
 (DEFUN |RationalUnivariateRepresentationPackage;| (|#1| |#2|)
-  (PROG (#1=#:G136 |pv$| $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G112 |pv$| $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|)

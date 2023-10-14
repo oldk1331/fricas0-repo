@@ -2,7 +2,7 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |TENSPO2;linearExtend;MTpM2;1| (|f| |x| $)
-  (PROG (|res| #1=#:G133 |t|)
+  (PROG (|res| #1=#:G109 |t|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 11) . #2=(|TENSPO2;linearExtend;MTpM2;1|))
@@ -26,10 +26,10 @@
 
 (DECLAIM (NOTINLINE |TensorPowerFunctions2;|)) 
 
-(DEFUN |TensorPowerFunctions2| (&REST #1=#:G134)
+(DEFUN |TensorPowerFunctions2| (&REST #1=#:G110)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G135)
+     (PROG (#2=#:G111)
        (RETURN
         (COND
          ((LETT #2#

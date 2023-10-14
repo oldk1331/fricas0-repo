@@ -117,7 +117,7 @@
                           (QREFELT $ 37))))))))))) 
 
 (DEFUN |MKFLCFN;mkLispList| (|l| $)
-  (PROG (|ans| #1=#:G171 |u| #2=#:G172 |s|)
+  (PROG (|ans| #1=#:G147 |u| #2=#:G148 |s|)
     (RETURN
      (SEQ
       (EXIT
@@ -208,10 +208,10 @@
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
 
-(DEFUN |MakeFloatCompiledFunction| (#1=#:G189)
+(DEFUN |MakeFloatCompiledFunction| (#1=#:G165)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G190)
+     (PROG (#2=#:G166)
        (RETURN
         (COND
          ((LETT #2#

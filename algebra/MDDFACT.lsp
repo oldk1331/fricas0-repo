@@ -20,7 +20,7 @@
         ((EQL |q| 0) (CONS 0 |p|)) ('T (CONS 1 "failed")))) 
 
 (DEFUN |MDDFACT;modInverse| (|c| |p| $)
-  (PROG (#1=#:G149)
+  (PROG (#1=#:G125)
     (RETURN
      (QCAR
       (PROG2
@@ -101,7 +101,7 @@
       (EXIT (SPADCALL |ans| (QREFELT $ 23))))))) 
 
 (DEFUN |MDDFACT;ddfactor| (|u| $)
-  (PROG (#1=#:G188 |f| #2=#:G187 |ans| |c|)
+  (PROG (#1=#:G164 |f| #2=#:G163 |ans| |c|)
     (RETURN
      (SEQ
       (COND
@@ -133,7 +133,7 @@
    (QREFELT $ 23))) 
 
 (DEFUN |MDDFACT;factor;UIL;12| (|u| |q| $)
-  (PROG (#1=#:G195 |f| #2=#:G194 |ans| |dv| |v|)
+  (PROG (#1=#:G171 |f| #2=#:G170 |ans| |dv| |v|)
     (RETURN
      (SEQ
       (LETT |v| (SPADCALL |u| |q| (QREFELT $ 32))
@@ -162,7 +162,7 @@
                      (EXIT (NREVERSE #2#))))))))))))) 
 
 (DEFUN |MDDFACT;ddfact| (|u| $)
-  (PROG (#1=#:G200 #2=#:G204 |d| |ans| |g| |w| |c| |m| |p|)
+  (PROG (#1=#:G176 #2=#:G180 |d| |ans| |g| |w| |c| |m| |p|)
     (RETURN
      (SEQ
       (EXIT
@@ -231,7 +231,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |MDDFACT;ddFact;UIL;14| (|u| |q| $)
-  (PROG (#1=#:G213 |dd| #2=#:G212 |ans|)
+  (PROG (#1=#:G189 |dd| #2=#:G188 |ans|)
     (RETURN
      (SEQ
       (LETT |ans| (|MDDFACT;ddfact| (SPADCALL |u| |q| (QREFELT $ 32)) $)
@@ -269,7 +269,7 @@
         (QREFELT $ 23))))))) 
 
 (DEFUN |MDDFACT;sepfact| (|factList| $)
-  (PROG (#1=#:G218 #2=#:G217 #3=#:G219 #4=#:G221 |f|)
+  (PROG (#1=#:G194 #2=#:G193 #3=#:G195 #4=#:G197 |f|)
     (RETURN
      (SEQ
       (PROGN
@@ -288,7 +288,7 @@
        (COND (#1# #2#) ('T NIL))))))) 
 
 (DEFUN |MDDFACT;separateFactors;LIL;17| (|uddList| |q| $)
-  (PROG (#1=#:G231 |f| #2=#:G230 |ans| #3=#:G229 |udd| #4=#:G228)
+  (PROG (#1=#:G207 |f| #2=#:G206 |ans| #3=#:G205 |udd| #4=#:G204)
     (RETURN
      (SEQ
       (LETT |ans|
@@ -338,8 +338,8 @@
                              (QREFELT $ 51)))))))))) 
 
 (DEFUN |MDDFACT;sepFact1| (|f| $)
-  (PROG (#1=#:G250 |x| |ss| |s| |ans| |stack| |df1| |f1| #2=#:G259 |fact|
-         |flist| |t| #3=#:G258 |y| |du| |i| |u| |c| |d| |p|)
+  (PROG (#1=#:G226 |x| |ss| |s| |ans| |stack| |df1| |f1| #2=#:G235 |fact|
+         |flist| |t| #3=#:G234 |y| |du| |i| |u| |c| |d| |p|)
     (RETURN
      (SEQ (LETT |u| (QCAR |f|) . #4=(|MDDFACT;sepFact1|))
           (LETT |p| (SPADCALL |u| (QREFELT $ 26)) . #4#)
@@ -538,7 +538,7 @@
                                   (CDR |ans|))))))))))))))) 
 
 (DEFUN |MDDFACT;probSplit| (|u| |t| |d| $)
-  (PROG (|g| |f2| |n| |r| #1=#:G307 #2=#:G306 |f1| |p|)
+  (PROG (|g| |f2| |n| |r| #1=#:G283 #2=#:G282 |f1| |p|)
     (RETURN
      (SEQ (LETT |p| (SPADCALL |u| (QREFELT $ 26)) . #3=(|MDDFACT;probSplit|))
           (EXIT
@@ -618,10 +618,10 @@
 
 (DECLAIM (NOTINLINE |ModularDistinctDegreeFactorizer;|)) 
 
-(DEFUN |ModularDistinctDegreeFactorizer| (#1=#:G321)
+(DEFUN |ModularDistinctDegreeFactorizer| (#1=#:G297)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G322)
+     (PROG (#2=#:G298)
        (RETURN
         (COND
          ((LETT #2#
