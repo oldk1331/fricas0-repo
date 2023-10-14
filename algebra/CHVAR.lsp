@@ -143,7 +143,7 @@
                          (SPADCALL
                           (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40))
                           (QREFELT $ 30))
-                         |r1inv| |inf_deg|))))))))
+                         (QCAR |r1|) |inf_deg|))))))))
           (LETT |x|
                 (SPADCALL
                  (SPADCALL
