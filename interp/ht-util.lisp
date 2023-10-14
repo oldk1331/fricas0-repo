@@ -369,8 +369,8 @@
  
 ; mapStringize l ==
 ;   ATOM l => l
-;   RPLACA(l, basicStringize CAR l)
-;   RPLACD(l, mapStringize CDR l)
+;   RPLACA(l, basicStringize first l)
+;   RPLACD(l, mapStringize rest l)
 ;   l
  
 (DEFUN |mapStringize| (|l|)
@@ -1614,8 +1614,8 @@
 ;     str := NSUBSTITUTE(char '_", $funnyQuote, form)
 ;     NSUBSTITUTE(char '_\, $funnyBacks, str)
 ;   CONSP form =>
-;     unescapeStringsInForm CAR form
-;     unescapeStringsInForm CDR form
+;     unescapeStringsInForm first form
+;     unescapeStringsInForm rest form
 ;     form
 ;   form
  

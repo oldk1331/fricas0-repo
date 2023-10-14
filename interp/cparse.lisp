@@ -39,7 +39,7 @@
 ;                  ncSoftError(tokPosn $stok,'S2CY0009, [])
 ;                  pfWrong(pfDocument ['"stack empty"],pfListOf [])
 ;               else
-;                  CAR $stack
+;                  first $stack
  
 (DEFUN |npParse| (|stream|)
   (PROG (|$ttok| |$stok| |$stack| |$inputStream| |found|)
@@ -116,7 +116,7 @@
 ;       $stok:=
 ;           if null $inputStream
 ;           then tokConstruct("ERROR","NOMORE",tokPosn $stok)
-;           else CAR $inputStream
+;           else first $inputStream
 ;       $ttok:=tokPart $stok
  
 (DEFUN |npFirstTok| ()
@@ -131,7 +131,7 @@
       (SETQ |$ttok| (|tokPart| |$stok|))))))
  
 ; npNext() ==
-;      $inputStream := CDR($inputStream)
+;      $inputStream := rest($inputStream)
 ;      npFirstTok()
  
 (DEFUN |npNext| ()
@@ -143,9 +143,9 @@
 (DEFUN |npState| () (PROG () (RETURN (CONS |$inputStream| |$stack|))))
  
 ; npRestore(x)==
-;       $inputStream:=CAR x
+;       $inputStream := first x
 ;       npFirstTok()
-;       $stack:=CDR x
+;       $stack := rest x
 ;       true
  
 (DEFUN |npRestore| (|x|)
@@ -179,8 +179,8 @@
       (|npNext|)))))
  
 ; npPop1()==
-;        a:=CAR $stack
-;        $stack:=CDR $stack
+;        a := first $stack
+;        $stack := rest $stack
 ;        a
  
 (DEFUN |npPop1| ()
@@ -200,7 +200,7 @@
  
 ; npPop3()==
 ;        a:=CADDR $stack
-;        RPLACD(CDR $stack,CDDDR $stack)
+;        RPLACD(rest $stack, CDDDR $stack)
 ;        a
  
 (DEFUN |npPop3| ()

@@ -28,11 +28,11 @@
 ; evalInlineCode() ==
 ;   args := getCLArgs()
 ;   while args repeat
-;     arg := CAR args
-;     args := CDR args
+;     arg := first args
+;     args := rest args
 ;     if arg = '"-eval" and args then
-;       CATCH('SPAD_READER, CATCH('top_level, parseAndEvalStr CAR(args)))
-;       args := CDR args
+;       CATCH('SPAD_READER, CATCH('top_level, parseAndEvalStr first(args)))
+;       args := rest args
  
 (DEFUN |evalInlineCode| ()
   (PROG (|arg| |args|)
@@ -367,13 +367,13 @@
  
 ; intloopProcess(n,interactive,s)==
 ;      StreamNull s => n
-;      [lines,ptree]:=CAR s
+;      [lines, ptree] := first s
 ;      pfAbSynOp?(ptree,"command")=>
 ;             if interactive then setCurrentLine tokPart ptree
 ;             InterpExecuteSpadSystemCommand(tokPart ptree)
-;             intloopProcess(n ,interactive ,CDR s)
-;      intloopProcess(intloopSpadProcess(n,lines,ptree,interactive)
-;                  ,interactive ,CDR s)
+;             intloopProcess(n, interactive, rest s)
+;      intloopProcess(intloopSpadProcess(n, lines, ptree, interactive),
+;                  interactive, rest s)
  
 (DEFUN |intloopProcess| (|n| |interactive| |s|)
   (PROG (|LETTMP#1| |lines| |ptree|)
@@ -396,15 +396,15 @@
                 |interactive| (CDR |s|))))))))))
  
 ; intloopEchoParse s==
-;          [dq,stream]:=CAR s
-;          [lines,rest]:=ncloopDQlines(dq,$lines)
+;          [dq, stream] := first s
+;          [lines, restl] := ncloopDQlines(dq, $lines)
 ;          setCurrentLine(mkLineList(lines))
 ;          if $EchoLines then ncloopPrintLines lines
-;          $lines:=rest
-;          cons([[lines,npParse dqToList dq]],CDR s)
+;          $lines := restl
+;          cons([[lines, npParse dqToList dq]], rest s)
  
 (DEFUN |intloopEchoParse| (|s|)
-  (PROG (|LETTMP#1| |dq| |stream| |lines| CDR)
+  (PROG (|LETTMP#1| |dq| |stream| |lines| |restl|)
     (RETURN
      (PROGN
       (SETQ |LETTMP#1| (CAR |s|))
@@ -412,10 +412,10 @@
       (SETQ |stream| (CADR |LETTMP#1|))
       (SETQ |LETTMP#1| (|ncloopDQlines| |dq| |$lines|))
       (SETQ |lines| (CAR |LETTMP#1|))
-      (SETQ CDR (CADR |LETTMP#1|))
+      (SETQ |restl| (CADR |LETTMP#1|))
       (|setCurrentLine| (|mkLineList| |lines|))
       (COND (|$EchoLines| (|ncloopPrintLines| |lines|)))
-      (SETQ |$lines| CDR)
+      (SETQ |$lines| |restl|)
       (CONS (LIST (LIST |lines| (|npParse| (|dqToList| |dq|)))) (CDR |s|))))))
  
 ; intloopInclude0(st, name, n) ==
@@ -619,8 +619,8 @@
     (RETURN (|sayKeyedMsg| (|packageTran| |key|) (|packageTran| |args|)))))
  
 ; mkLineList lines ==
-;   l := [CDR line for line in lines | nonBlank CDR line]
-;   #l = 1 => CAR l
+;   l := [rest line for line in lines | nonBlank rest line]
+;   #l = 1 => first l
 ;   l
  
 (DEFUN |mkLineList| (|lines|)
@@ -735,7 +735,7 @@
 ;          else
 ;             [a,b]:= streamChop(n-1,cdr s)
 ;             line:=car s
-;             c:=ncloopPrefix?('")command",CDR line)
+;             c := ncloopPrefix?('")command", rest line)
 ;             d:= cons(car line,if c then c else cdr line)
 ;             [cons(d,a),b]
  
@@ -751,7 +751,7 @@
             (LIST (CONS |d| |a|) |b|))))))
  
 ; ncloopPrintLines lines ==
-;         for line in lines repeat WRITE_-LINE CDR line
+;         for line in lines repeat WRITE_-LINE rest line
 ;         WRITE_-LINE '" "
  
 (DEFUN |ncloopPrintLines| (|lines|)
@@ -785,12 +785,12 @@
        ('T |fn|))))))
  
 ; ncloopParse s==
-;          [dq,stream]:=CAR s
-;          [lines,rest]:=ncloopDQlines(dq,stream)
-;          cons([[lines,npParse dqToList dq]],CDR s)
+;          [dq, stream] := first s
+;          [lines, .] := ncloopDQlines(dq, stream)
+;          cons([[lines, npParse dqToList dq]], rest s)
  
 (DEFUN |ncloopParse| (|s|)
-  (PROG (|LETTMP#1| |dq| |stream| |lines| CDR)
+  (PROG (|LETTMP#1| |dq| |stream| |lines|)
     (RETURN
      (PROGN
       (SETQ |LETTMP#1| (CAR |s|))
@@ -798,7 +798,6 @@
       (SETQ |stream| (CADR |LETTMP#1|))
       (SETQ |LETTMP#1| (|ncloopDQlines| |dq| |stream|))
       (SETQ |lines| (CAR |LETTMP#1|))
-      (SETQ CDR (CADR |LETTMP#1|))
       (CONS (LIST (LIST |lines| (|npParse| (|dqToList| |dq|)))) (CDR |s|))))))
  
 ; ncloopInclude0(st, name, n) ==

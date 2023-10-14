@@ -582,7 +582,7 @@
  
 ; getCon(head1) ==
 ;     SYMBOLP head1 => head1
-;     CAR head1
+;     first head1
  
 (DEFUN |getCon| (|head1|)
   (PROG () (RETURN (COND ((SYMBOLP |head1|) |head1|) ('T (CAR |head1|))))))
@@ -650,9 +650,9 @@
 ;     untypedDefs := []
 ;     for def in $globalDefs repeat
 ;         ["DEF", form, sig, sc, body] := def
-;         cosig := CONS(nil, [categoryForm? ty for ty in CDR(sig)])
-;         SETDATABASE(CAR form, 'COSIG, cosig)
-;         if null CAR(sig) then
+;         cosig := CONS(nil, [categoryForm? ty for ty in rest(sig)])
+;         SETDATABASE(first form, 'COSIG, cosig)
+;         if null first(sig) then
 ;             untypedDefs := [def, :untypedDefs]
 ;         else
 ;             handleKind(def)
@@ -745,7 +745,7 @@
 ; handleKind(df is ['DEF,form,sig,sc,body]) ==
 ;     [op,:argl] := form
 ; 
-;     null CAR(sig) => nil
+;     null first(sig) => nil
 ;     if sig is [["Category"], :.] then
 ;         if body is ['add,cat,capsule] then
 ;             body := cat
@@ -859,7 +859,7 @@
 ;         ["DEF", form, sig, sc, body] := def
 ;         if sig is [["Category"], :.] then
 ;             SAY(["doing", form, sig])
-;             not("and"/[categoryForm? ty for ty in CDR(sig)]) =>
+;             not("and"/[categoryForm? ty for ty in rest(sig)]) =>
 ;                 hcats := cons(def, hcats)
 ;             boo_comp1(def)
 ;     for def in hcats repeat boo_comp1(def)

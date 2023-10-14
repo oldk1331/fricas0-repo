@@ -18,7 +18,7 @@
 ;           else RPLACD(s,QCDDR f)
 ;         else RPLACD(r,QCDR f)
 ;       else RPLACD(first items,f)
-;       RPLACA(items,addConsDB CAR items)
+;       RPLACA(items, addConsDB first items)
 ;   u and markUnique u
  
 (DEFUN |getOperationAlistFromLisplib| (|x|)

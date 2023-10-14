@@ -274,10 +274,10 @@
 ;   simp pred ==
 ;     pred is [op,:r] =>
 ;       op = 'has => simpHas(pred,first r,first rest r)
-;       op = 'HasCategory => simp ['has,CAR r,simpDevaluate CADR r]
+;       op = 'HasCategory => simp ['has, first r, simpDevaluate CADR r]
 ;       op = 'HasSignature =>
 ;          [op,sig] := simpDevaluate CADR r
-;          ['has,CAR r,['SIGNATURE,op,sig]]
+;          ['has, first r, ['SIGNATURE, op, sig]]
 ;       op = 'HasAttribute => BREAK()
 ;       MEMQ(op,'(AND OR NOT)) =>
 ;         null (u := MKPF([simp p for p in r],op)) => nil
@@ -300,8 +300,8 @@
 ;     IDENTP npred or null hasIdent npred => npred
 ;     pred
 ;   eval (pred := ['has,d,cat]) ==
-;     x := hasCat(CAR d,CAR cat)
-;     y := CDR cat =>
+;     x := hasCat(first d, first cat)
+;     y := rest cat =>
 ;       npred := or/[p for [args,:p] in x | y = args] => simp npred
 ;       false  --if not there, it is false
 ;     x
@@ -1257,7 +1257,7 @@
 ; --      at is ['ATTRIBUTE,z3] =>
 ; --          BREAK()
 ;       if at is ['ATTRIBUTE,z3] and not atom z3 and
-;         constructor? CAR z3 then
+;         constructor? first z3 then
 ;           cats:= CONS(['IF,quickAnd(['has,z1,z2], thePred),z3,'noBranch],cats)
 ;       at is ['IF, pred, :.] =>
 ;         cats := makeCatPred(at, cats, curPred)
@@ -1631,7 +1631,7 @@
   (PROG () (RETURN (MAPHASH '|clearCategoryTable1| *HASCATEGORY-HASH*))))
  
 ; clearCategoryTable1(key,val) ==
-;   (CAR key=$cname)=> HREM(_*HASCATEGORY_-HASH_*,key)
+;   (first key = $cname) => HREM(_*HASCATEGORY_-HASH_*, key)
 ;   nil
  
 (DEFUN |clearCategoryTable1| (|key| |val|)
@@ -1646,7 +1646,7 @@
 ;     extensions:= nil
 ;     for (extension:= [catForm,:.]) in GETDATABASE(key,'ANCESTORS)
 ;       repeat
-;         MEMQ(CAR catForm,catNames) => nil
+;         MEMQ(first catForm, catNames) => nil
 ;         extensions:= [extension,:extensions]
 ;     HPUT(_*ANCESTORS_-HASH_*,key,extensions)
  

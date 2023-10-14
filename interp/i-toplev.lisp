@@ -608,7 +608,7 @@
             (#1# |c|))))))
  
 ; interpret(x, :restargs) ==
-;   posnForm := if PAIRP restargs then CAR restargs else restargs
+;   posnForm := if PAIRP restargs then first restargs else restargs
 ;   --type analyzes and evaluates expression x, returns object
 ;   $env:local := [[NIL]]
 ;   $genValue:local := true       --evaluate all generated code

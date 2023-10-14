@@ -50,7 +50,7 @@
       (SETQ |ln| (|lnCreate| |eb| |str| |gno| |lno| |ufo|))
       (CONS (CONS |ln| 1) |str|)))))
  
-; incPos f == CAR f
+; incPos f == first f
  
 (DEFUN |incPos| (|f|) (PROG () (RETURN (CAR |f|))))
  
@@ -277,7 +277,7 @@
  
 ; incNConsoles ufos==
 ;         a:=MEMBER('"console",ufos)
-;         if a then 1+incNConsoles CDR a else 0
+;         if a then 1+incNConsoles rest a else 0
  
 (DEFUN |incNConsoles| (|ufos|)
   (PROG (|a|)
@@ -572,7 +572,7 @@
   (PROG ()
     (RETURN (|Delay| #'|incLude1| (LIST |eb| |ss| |ln| |ufos| |states|)))))
  
-; Rest s==>incLude (eb,CDR ss,lno,ufos,states)
+; Rest s ==> incLude(eb, rest ss, lno, ufos, states)
  
 (DEFMACRO |Rest| (|bfVar#3|)
   (PROG ()
@@ -591,7 +591,7 @@
 ;                      '")--premature end",  lno,ufos), StreamNil)
 ;                 StreamNil
 ; 
-;             str  :=  EXPAND_-TABS CAR ss
+;             str  :=  EXPAND_-TABS first ss
 ;             info :=  incClassify str
 ; 
 ;             not info.0 =>
@@ -660,7 +660,7 @@
 ;                     Skipping? state => IfSkipToEnd
 ;                     if ifCond(str,info) then IfKeepPart else IfSkipPart
 ;                 cons(xlOK(eb,str,lno,ufos.0),
-;                       incLude(eb,CDR ss,lno,ufos,cons(s1,states)))
+;                       incLude(eb, rest ss, lno, ufos, cons(s1, states)))
 ;             info.2 = '"elseif" =>
 ;                 not If? state and not Elseif? state =>
 ;                     cons(xlIfSyntax(eb, str,lno,ufos,info,states),
@@ -676,7 +676,7 @@
 ;                             else ElseifSkipPart
 ;                          else ElseifSkipToEnd
 ;                      cons(xlOK(eb,str,lno,ufos.0),
-;                         incLude(eb,CDR ss,lno,ufos,cons(s1,rest states)))
+;                         incLude(eb, rest ss, lno, ufos, cons(s1, rest states)))
 ;                 else
 ;                     cons(xlIfBug(eb, str, lno,ufos), StreamNil)
 ; 
@@ -690,7 +690,7 @@
 ;                            then ElseKeepPart
 ;                            else ElseSkipToEnd
 ;                       cons(xlOK(eb,str,lno,ufos.0),
-;                         incLude(eb,CDR ss,lno,ufos,cons(s1,rest states)))
+;                         incLude(eb, rest ss, lno, ufos, cons(s1, rest states)))
 ;                 else
 ;                     cons(xlIfBug(eb, str, lno,ufos), StreamNil)
 ; 
@@ -699,7 +699,7 @@
 ;                     cons(xlIfSyntax(eb, str,lno,ufos,info,states),
 ;                         StreamNil)
 ;                 cons(xlOK(eb,str,lno,ufos.0),
-;                          incLude(eb,CDR ss,lno,ufos,rest states))
+;                          incLude(eb, rest ss, lno, ufos, rest states))
 ; 
 ;             cons(xlCmdBug(eb, str, lno,ufos), StreamNil)
  

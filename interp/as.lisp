@@ -269,7 +269,7 @@
 ; --children:= mySort HGET($childrenHash,con)
 ;   alists  := HGET($opHash,con)
 ;   opAlist := SUBLISLIS($FormalMapVariableList, IFCDR form, CDDR alists)
-;   ancestorAlist:= SUBLISLIS($FormalMapVariableList, IFCDR form, CAR alists)
+;   ancestorAlist := SUBLISLIS($FormalMapVariableList, IFCDR form, first alists)
 ;   catAttrs := [[x,:true] for x in getAttributesFromCATEGORY $constructorCategory]
 ;   attributeAlist := REMDUP [:CADR alists,:catAttrs]
 ;   documentation :=
@@ -1678,12 +1678,12 @@
 ;     [name,:[asytranApplySpecial(x, levels, local?) for x in arglist]]
 ;   null arglist => [name]
 ;   name is [ 'RestrictTo, :.] =>
-;     asytranApply(['Apply, CAR CDR name,:arglist], levels, local?)
+;     asytranApply(['Apply, first rest name, :arglist], levels, local?)
 ;   name is [ 'Qualify, :.] =>
-;     asytranApply(['Apply, CAR CDR name,:arglist], levels, local?)
-;   name is 'string => asytranLiteral CAR arglist
-;   name is 'integer => asytranLiteral CAR arglist
-;   name is 'float => asytranLiteral CAR arglist
+;     asytranApply(['Apply, first rest name, :arglist], levels, local?)
+;   name is 'string => asytranLiteral first arglist
+;   name is 'integer => asytranLiteral first arglist
+;   name is 'float => asytranLiteral first arglist
 ;   name = 'Enumeration =>
 ;     ["Enumeration",:[asytranEnumItem arg for arg in arglist]]
 ;   [:argl,lastArg] := arglist
@@ -1757,7 +1757,7 @@
                       NIL))))))))))
  
 ; asytranLiteral(lit) ==
-;   CAR CDR lit
+;   first rest lit
  
 (DEFUN |asytranLiteral| (|lit|) (PROG () (RETURN (CAR (CDR |lit|)))))
  
@@ -2724,7 +2724,7 @@
 ;   conpart := asyTypeJoinStack REVERSE $conStack
 ;   conpart =>
 ;     catpart     => ['Join,:conpart,catpart]
-;     CDR conpart => ['Join,:conpart]
+;     rest conpart => ['Join, :conpart]
 ;     conpart
 ;   catpart
  

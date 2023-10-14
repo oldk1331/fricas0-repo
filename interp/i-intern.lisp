@@ -248,8 +248,8 @@
  
 ; mkAtree2(x,op,argl) ==
 ;   nargl := #argl
-;   (op= '_-) and (nargl = 1) and (INTEGERP CAR argl) =>
-;     mkAtree1(- CAR argl)
+;   (op= '_-) and (nargl = 1) and (INTEGERP first argl) =>
+;     mkAtree1(- first argl)
 ;   op='_: and argl is [y,z] => [mkAtreeNode 'Declare,:argl]
 ;   op='COLLECT => [mkAtreeNode op,:transformCollect argl]
 ;   op= 'break =>
@@ -528,7 +528,7 @@
 ;       lowTest
 ;     mkAtree1 z
 ;   x is ['IF,p,'noBranch,a] => mkAtree1 ['IF,['not,p],a,'noBranch]
-;   x is ['RULEDEF,:.] => [mkAtreeNode 'RULEDEF,:CDR x]
+;   x is ['RULEDEF, :.] => [mkAtreeNode 'RULEDEF, :rest x]
 ;   x is ['MDEF,sym,junk1,junk2,val] =>
 ;     -- new macros look like  macro f ==  or macro f(x) ===
 ;     -- so transform into that format
@@ -579,7 +579,7 @@
 ; --  a is [op,p1,:pr] =>
 ; --    null pr => mkAtree1 ['DEF,[op,["|",p1,pred]],:r]
 ; --    mkAtree1 ['DEF,[op,["|",['Tuple,p1,:pr],pred]],:r]
-; --  [mkAtreeNode 'DEF, CDR y,pred,false]
+; --  [mkAtreeNode 'DEF, rest y, pred, false]
 ; --x is ['otherwise,u] =>
 ; --  throwMessage '"   otherwise is no longer supported."
 ;   z :=
@@ -1710,8 +1710,8 @@
  
 ; get0(x,prop,e) ==
 ;   null atom x => get(QCAR x,prop,e)
-;   u:= QLASSQ(x,CAR QCAR e) => QLASSQ(prop,u)
-;   (tail:= CDR QCAR e) and (u:= fastSearchCurrentEnv(x,tail)) =>
+;   u := QLASSQ(x, first QCAR e) => QLASSQ(prop, u)
+;   (tail := rest QCAR e) and (u := fastSearchCurrentEnv(x, tail)) =>
 ;     QLASSQ(prop,u)
 ;   nil
  
@@ -1847,9 +1847,9 @@
       ('T |e|)))))
  
 ; fastSearchCurrentEnv(x,currentEnv) ==
-;   u:= QLASSQ(x,CAR currentEnv) => u
+;   u := QLASSQ(x, first currentEnv) => u
 ;   while (currentEnv:= QCDR currentEnv) repeat
-;     u:= QLASSQ(x,CAR currentEnv) => u
+;     u := QLASSQ(x, first currentEnv) => u
  
 (DEFUN |fastSearchCurrentEnv| (|x| |currentEnv|)
   (PROG (|u|)
@@ -2064,15 +2064,15 @@
  
 (DEFUN |objSetMode| (|obj| |mode|) (PROG () (RETURN (RPLACA |obj| |mode|))))
  
-; objVal obj == CDR obj
+; objVal obj == rest obj
  
 (DEFUN |objVal| (|obj|) (PROG () (RETURN (CDR |obj|))))
  
-; objValUnwrap obj == unwrap CDR obj
+; objValUnwrap obj == unwrap rest obj
  
 (DEFUN |objValUnwrap| (|obj|) (PROG () (RETURN (|unwrap| (CDR |obj|)))))
  
-; objMode obj == CAR obj
+; objMode obj == first obj
  
 (DEFUN |objMode| (|obj|) (PROG () (RETURN (CAR |obj|))))
  
@@ -2104,11 +2104,11 @@
 (DEFUN |asTupleNewCode0| (|listForm|)
   (PROG () (RETURN (LIST '|asTupleNew0| |listForm|))))
  
-; asTupleSize(at) == CAR at
+; asTupleSize(at) == first at
  
 (DEFUN |asTupleSize| (|at|) (PROG () (RETURN (CAR |at|))))
  
-; asTupleAsVector(at) == CDR at
+; asTupleAsVector(at) == rest at
  
 (DEFUN |asTupleAsVector| (|at|) (PROG () (RETURN (CDR |at|))))
  

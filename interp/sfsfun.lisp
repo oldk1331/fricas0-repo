@@ -26,7 +26,7 @@
   (PROG () (RETURN (CADR (MULTIPLE-VALUE-LIST (FLOOR |x|))))))
  
 ; intpart(x) ==
-;         CAR(MULTIPLE_-VALUE_-LIST(FLOOR(x)))
+;         first(MULTIPLE_-VALUE_-LIST(FLOOR(x)))
  
 (DEFUN |intpart| (|x|)
   (PROG () (RETURN (CAR (MULTIPLE-VALUE-LIST (FLOOR |x|))))))
@@ -170,7 +170,7 @@
 ;                  else
 ;                         Pi := dfPi
 ;                         lx := MULTIPLE_-VALUE_-LIST(FLOOR(x))
-;                         intpartx := CAR(lx)+1
+;                         intpartx := first(lx)+1
 ;                         restx := CADR(lx)
 ;                         if ZEROP restx  -- case of negative non-integer value
 ;                         then
@@ -1599,7 +1599,7 @@
 ;         ipv := IMAGPART(v)
 ;         rpv := REALPART(v)
 ;         lm := MULTIPLE_-VALUE_-LIST(FLOOR(rpv))
-;         m := CAR(lm)    --- floor of real part of v
+;         m := first(lm)    --- floor of real part of v
 ;         n := 2*MAX(20,m+10)  --- how large the back recurrence should be
 ;         tv := CADR(lm)+(v-rpv) ---  fractional part of real part of v
 ;                         --- plus imaginary part of v
@@ -2144,7 +2144,7 @@
           (SQRT |opzsqroh|))
        |hornerresult|)))))
  
-; s_to_c(c) == COMPLEX(CAR c, CDR c)
+; s_to_c(c) == COMPLEX(first c, CDR c)
  
 (DEFUN |s_to_c| (|c|) (PROG () (RETURN (COMPLEX (CAR |c|) (CDR |c|)))))
  

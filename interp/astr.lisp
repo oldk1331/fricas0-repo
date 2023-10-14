@@ -42,7 +42,7 @@
 ; ncEltQ(x,k) ==
 ;    r := ASSQ(k,ncAlist x)
 ;    NULL r => ncBug ('S2CB0007,[k])
-;    CDR r
+;    rest r
  
 (DEFUN |ncEltQ| (|x| |k|)
   (PROG (|r|)

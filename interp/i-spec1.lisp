@@ -203,9 +203,9 @@
 ; 
 ;   sublist := [[var,:GENSYM()] for var in vars]
 ;   body := sublisNQ(sublist,body)
-;   vars := [CDR v for v in sublist]
+;   vars := [rest v for v in sublist]
 ; 
-;   for m in CDR types for var in vars repeat
+;   for m in rest types for var in vars repeat
 ;     $env:= put(var,'mode,m,$env)
 ;     mkLocalVar($mapName,var)
 ;   for lvar in getLocalVars($mapName,body) repeat
@@ -332,7 +332,7 @@
         (|compileADEFBody| |t| |vars| |types| |body| (CAR |types|))))))))
  
 ; compileTargetedADEF(t,vars,types,body) ==
-;   val := compileBody(body,CAR types)
+;   val := compileBody(body, first types)
 ;   computedResultType := objMode val
 ;   body := wrapMapBodyWithCatch flattenCOND objVal val
 ;   compileADEFBody(t,vars,types,body,computedResultType)
@@ -376,7 +376,7 @@
 ;   -- MCD 13/3/96
 ;   if not $definingMap and ($genValue or $compilingMap) then
 ;     fun := compileInteractive [$mapName,['LAMBDA,[:vars,'envArg],body]]
-;     code := wrap RPLACA(fun, SYMBOL_-FUNCTION CAR fun)
+;     code := wrap RPLACA(fun, SYMBOL_-FUNCTION first fun)
 ;   else
 ;     $freeVariables := []
 ;     $boundVariables := [minivectorName,:vars]
@@ -1522,8 +1522,8 @@
 ;       NIL
 ;     upLoopIterSTEP(index,lower,step,upperList)
 ;     newIter := ['STEP,index,lower,step,:upperList]
-;     RPLACA(iter,CAR newIter)
-;     RPLACD(iter,CDR newIter)
+;     RPLACA(iter, first newIter)
+;     RPLACD(iter, rest newIter)
 ; 
 ;   iterMs isnt [['List,ud]] => throwKeyedMsg("S2IS0006",[index])
 ;   put(index,'mode,ud,$env)
@@ -2299,8 +2299,8 @@
 ;       NIL
 ;     upStreamIterSTEP(index,lower,step,upperList)
 ;     newIter := ['STEP,index,lower,step,:upperList]
-;     RPLACA(iter,CAR newIter)
-;     RPLACD(iter,CDR newIter)
+;     RPLACA(iter, first newIter)
+;     RPLACD(iter, rest newIter)
 ; 
 ;   (iterMs isnt [['List,ud]]) and (iterMs isnt [['Stream,ud]])
 ;     and (iterMs isnt [['InfinitTuple, ud]]) =>
@@ -2520,7 +2520,7 @@
 ;   -- build stream collect for case of iterating over a single stream
 ;   --  In this case we don't need to build records
 ;   form := mkAndApplyPredicates itrl
-;   bodyVec := mkIterFun(CAR $indexVars,body,$localVars)
+;   bodyVec := mkIterFun(first $indexVars, body, $localVars)
 ;   form := [mkAtreeNode 'map,bodyVec,form]
 ;   bottomUp form
 ;   val := getValue form
@@ -2747,7 +2747,7 @@
 ;       ["ELT","envArg",positionInVec(0,#($freeVariables))]
 ;     v
 ;   LISTP v =>
-;     CDR(LASTTAIL v) => -- Must be a better way to check for a genuine list?
+;     rest(LASTTAIL v) => -- Must be a better way to check for a genuine list?
 ;       v
 ;     [op,:args] := v
 ;     LISTP op =>
@@ -2972,7 +2972,7 @@
 ;                mkAtreeNode 'makeRecord]
 ;     form := [mkAtreeNode 'map,zipFun,s1,s2]
 ;     [form,:zipType]
-;   [form,:zipType] := mkZipCode CDR indexList
+;   [form, :zipType] := mkZipCode rest indexList
 ;   [[.,:s],:.] := indexList
 ;   t := CADR objMode getValue s
 ;   zipFun := [mkAtreeNode 'Dollar, ['MakeRecord,mkEvalable t,
@@ -3154,7 +3154,7 @@
 ;   ATOM form =>
 ;     (VECP form) and (form.0 = old) => new
 ;     form
-;   [subVecNodes(new,old,CAR form), :subVecNodes(new,old,CDR form)]
+;   [subVecNodes(new, old, first form), :subVecNodes(new, old, rest form)]
  
 (DEFUN |subVecNodes| (|new| |old| |form|)
   (PROG ()
@@ -3234,12 +3234,12 @@
 ;   isTaggedUnion tar => upTaggedUnionConstruct(op,l,tar)
 ;   aggs := '(List)
 ;   if tar and PAIRP(tar) and not isPartialMode(tar) then
-;     CAR(tar) in aggs =>
+;     first(tar) in aggs =>
 ;       ud :=
 ;         (l is [[realOp, :.]]) and (getUnname(realOp) = 'COLLECT) => tar
 ;         CADR tar
 ;       for x in l repeat if not getTarget(x) then putTarget(x,ud)
-;     CAR(tar) in '(Matrix SquareMatrix RectangularMatrix) =>
+;     first(tar) in '(Matrix SquareMatrix RectangularMatrix) =>
 ;       vec := ['List,underDomainOf tar]
 ;       for x in l repeat if not getTarget(x) then putTarget(x,vec)
 ;   argModeSetList:= [bottomUp x for x in l]
@@ -4119,11 +4119,11 @@
 ;   -- replaces all sharps in x by the arguments of domain d
 ;   -- all replaces the triangle variables
 ;   SL:= NIL
-;   for e in CDR d for var in $FormalMapVariableList repeat
+;   for e in rest d for var in $FormalMapVariableList repeat
 ;     SL:= CONS(CONS(var,e),SL)
 ;   x := subCopy(x,SL)
 ;   SL:= NIL
-;   for e in CDR d for var in $TriangleVariableList repeat
+;   for e in rest d for var in $TriangleVariableList repeat
 ;     SL:= CONS(CONS(var,e),SL)
 ;   subCopy(x,SL)
  
@@ -4331,7 +4331,7 @@
  
 ; deleteAll(x,l) ==
 ;   null l => nil
-;   x = CAR(l) => deleteAll(x,CDR l)
+;   x = first(l) => deleteAll(x, rest l)
 ;   [first l,:deleteAll(x,rest l)]
  
 (DEFUN |deleteAll| (|x| |l|)

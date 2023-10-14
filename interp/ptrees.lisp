@@ -6,8 +6,8 @@
 ; tokConstruct(hd,tok,:pos)==
 ;          a:=cons(hd,tok)
 ;          IFCAR pos =>
-;              pfNoPosition? CAR pos=> a
-;              ncPutQ(a,"posn",CAR pos)
+;              pfNoPosition? first pos => a
+;              ncPutQ(a, "posn", first pos)
 ;              a
 ;          a
  
@@ -26,13 +26,13 @@
  
 (DEFUN |tokType| (|x|) (PROG () (RETURN (|ncTag| |x|))))
  
-; tokPart x== CDR x
+; tokPart x == rest x
  
 (DEFUN |tokPart| (|x|) (PROG () (RETURN (CDR |x|))))
  
 ; tokPosn x==
 ;      a:= ASSQ("posn",ncAlist x)
-;      if a then CDR a else pfNoPosition()
+;      if a then rest a else pfNoPosition()
  
 (DEFUN |tokPosn| (|x|)
   (PROG (|a|)
@@ -42,7 +42,7 @@
       (COND (|a| (CDR |a|)) ('T (|pfNoPosition|)))))))
  
 ; pfAbSynOp form ==
-;     hd := CAR form
+;     hd := first form
 ;     IFCAR hd or hd
  
 (DEFUN |pfAbSynOp| (|form|)
@@ -50,7 +50,7 @@
     (RETURN (PROGN (SETQ |hd| (CAR |form|)) (OR (IFCAR |hd|) |hd|)))))
  
 ; pfAbSynOp?(form, op) ==
-;     hd := CAR form
+;     hd := first form
 ;     EQ(hd, op) or EQCAR(hd, op)
  
 (DEFUN |pfAbSynOp?| (|form| |op|)
@@ -87,7 +87,7 @@
  
 (DEFUN |pfTree| (|x| |y|) (PROG () (RETURN (CONS |x| |y|))))
  
-; pfParts  form       == CDR form       -- was ==>
+; pfParts  form       == rest form       -- was ==>
  
 (DEFUN |pfParts| (|form|) (PROG () (RETURN (CDR |form|))))
  

@@ -429,7 +429,7 @@
 ;       original:= delete(x,original)
 ;       [xsig,xpred,:ximplem]:= x
 ; --      if xsig ~= esig then   -- not quite strong enough
-;       if CAR xsig ~= CAR esig or CADR xsig ~= CADR esig then
+;       if first xsig ~= first esig or CADR xsig ~= CADR esig then
 ; -- the new version won't get confused by "constant"markers
 ;          if ximplem is [["Subsumed",:.],:.] then
 ;             original := [x,:original]
@@ -438,7 +438,7 @@
 ;        else epred:=mkOr(epred,xpred)
 ; -- this used always to be done, as noted below, but that's not safe
 ;       if not(ximplem is [["Subsumed",:.],:.]) then eimplem:= ximplem
-;       if eimplem then esig:=[CAR esig,CADR esig]
+;       if eimplem then esig := [first esig, CADR esig]
 ;            -- in case there's a constant marker
 ;       e:= [esig,epred,:eimplem]
 ; --    e:= [esig,mkOr(xpred,epred),:ximplem]
@@ -601,7 +601,7 @@
 ;     a is ["and",:a'] and member(b,a') => LIST b
 ;     b is ["and",:b'] and member(a,b') => LIST a
 ;     [a,b]
-;   LENGTH l = 1 => CAR l
+;   LENGTH l = 1 => first l
 ;   ["OR",:l]
  
 (DEFUN |mkOr| (|a| |b|)
@@ -739,7 +739,7 @@
 ;       DescendantP(bcat,acat) => LIST b
 ;       [a,b]
 ;     [a,b]
-;   LENGTH l = 1 => CAR l
+;   LENGTH l = 1 => first l
 ;   ["AND",:l]
  
 (DEFUN |mkAnd| (|a| |b|)
@@ -1101,12 +1101,12 @@
 ;   --returns a list of them and all their fundamental ancestors
 ;   --also as two-lists with the appropriate conditions
 ;   l=nil => nil
-;   [l1, cond1] := CAR l
+;   [l1, cond1] := first l
 ;   f1:= CatEval l1
 ;   ans := FindFundAncs rest l
 ;   -- Does not work with Shoe (garbage items ???)
 ;   --  ll := [[CatEval xf, mkAnd(cond1, xc)] for [xf, xc] in CADR f1.4]
-;   ll := [[CatEval CAR x, mkAnd(cond1, get_cond(x))] for x in CADR f1.4]
+;   ll := [[CatEval first x, mkAnd(cond1, get_cond(x))] for x in CADR f1.4]
 ;   for u in ll repeat
 ;         [u1, uc] := u
 ;         x:= ASSQ(u1, ans) =>
@@ -1209,8 +1209,8 @@
  
 ; CatEval x ==
 ;   REFVECP x => x
-;   $InteractiveMode => CAR compMakeCategoryObject(x,$CategoryFrame)
-;   CAR compMakeCategoryObject(x,$e)
+;   $InteractiveMode => first compMakeCategoryObject(x, $CategoryFrame)
+;   first compMakeCategoryObject(x, $e)
  
 (DEFUN |CatEval| (|x|)
   (PROG ()

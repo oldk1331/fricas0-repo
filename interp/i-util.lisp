@@ -172,8 +172,8 @@
 ;   -- d1 and d2 are different domains
 ;   subDomainList := '(Integer NonNegativeInteger PositiveInteger)
 ;   ATOM d1 or ATOM d2 => nil
-;   l := MEMQ(CAR d2, subDomainList) =>
-;     MEMQ(CAR d1, CDR l)
+;   l := MEMQ(first d2, subDomainList) =>
+;     MEMQ(first d1, rest l)
 ;   nil
  
 (DEFUN |isSubDomain| (|d1| |d2|)
@@ -216,13 +216,13 @@
 ;   u':= last u
 ;   [[domain,slot],op,sig]:= u'
 ;   domain':=eval mkEvalable domain
-;   not EQ(CAR ELT(domain',slot),Undef) =>
+;   not EQ(first ELT(domain', slot), Undef) =>
 ; -- OK - thefunction is now defined
 ;     [:u'',.]:=u
 ;     if $reportBottomUpFlag then
 ;       sayMessage concat ['"   Retrospective determination of slot",'%b,
 ;         slot,'%d,'"of",'%b,:prefix2String domain,'%d]
-;     APPLY(CAR ELT(domain',slot),[:u'',CDR ELT(domain',slot)])
+;     APPLY(first ELT(domain', slot), [:u'', rest ELT(domain', slot)])
 ;   throwKeyedMsg("S2IF0008",[formatOpSignature(op,sig),domain])
  
 (DEFUN |Undef| (&REST |u|)

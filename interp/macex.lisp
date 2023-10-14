@@ -139,7 +139,7 @@
 ; macSubstituteId( replist , pform ) ==
 ;     ex := AlistAssocQ( pfIdSymbol pform , replist )
 ;     ex =>
-;         RPLPAIR(pform,CDR ex)
+;         RPLPAIR(pform, rest ex)
 ;         pform
 ;     pform
  

@@ -36,7 +36,7 @@
            ('T (|poNoPosition|))))))
  
 ; poIsPos? pos ==
-;     PAIRP pos and PAIRP CAR pos and LENGTH CAR pos = 5
+;     PAIRP pos and PAIRP first pos and LENGTH first pos = 5
  
 (DEFUN |poIsPos?| (|pos|)
   (PROG ()
@@ -115,7 +115,7 @@
   (PROG () (RETURN (NULL (|lnFileName?| |lineObject|)))))
  
 ; poGetLineObject posn ==
-;     CAR posn
+;     first posn
  
 (DEFUN |poGetLineObject| (|posn|) (PROG () (RETURN (CAR |posn|))))
  
@@ -199,7 +199,7 @@
             (APPEND (|pfSourcePositions| (CAR |x|))
                     (|pfSourcePositionlist| (CDR |x|))))))))
  
-; poCharPosn posn       == CDR posn
+; poCharPosn posn == rest posn
  
 (DEFUN |poCharPosn| (|posn|) (PROG () (RETURN (CDR |posn|))))
  

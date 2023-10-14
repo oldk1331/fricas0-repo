@@ -18,7 +18,7 @@
 ;     else if null y
 ;          then x
 ;          else
-;               RPLACD (CDR x,CAR y)
+;               RPLACD(CDR x, first y)
 ;               RPLACD (x,    CDR y)
 ;               x
  
@@ -41,7 +41,7 @@
      (COND ((NULL |ld|) NIL) ((NULL (CDR |ld|)) (CAR |ld|))
            ('T (|dqAppend| (CAR |ld|) (|dqConcat| (CDR |ld|))))))))
  
-; dqToList s==if null s then nil else CAR s
+; dqToList s == if null s then nil else first s
  
 (DEFUN |dqToList| (|s|)
   (PROG () (RETURN (COND ((NULL |s|) NIL) ('T (CAR |s|))))))
@@ -52,7 +52,7 @@
 ;     else if null y
 ;          then nil
 ;          else
-;               RPLACD (CDR x,CAR y)
+;               RPLACD (CDR x, first y)
 ;               RPLACD (x,    CDR y)
 ;               x
  

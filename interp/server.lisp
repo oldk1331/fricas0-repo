@@ -386,7 +386,7 @@
  
 ; parseAndInterpToString str ==
 ;   v := applyWithOutputToString('parseAndEvalStr, [str])
-;   breakIntoLines CDR v
+;   breakIntoLines rest v
  
 (DEFUN |parseAndInterpToString| (|str|)
   (PROG (|v|)

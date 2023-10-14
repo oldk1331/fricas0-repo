@@ -441,10 +441,10 @@
 ;   op := opTran op
 ;   op = "->" =>
 ;     args := pf0TupleParts pfApplicationArg pf
-;     if pfTuple? CAR args then
-;       typeList := [pf2Sex1 arg for arg in pf0TupleParts CAR args]
+;     if pfTuple? first args then
+;       typeList := [pf2Sex1 arg for arg in pf0TupleParts first args]
 ;     else
-;       typeList := [pf2Sex1 CAR args]
+;       typeList := [pf2Sex1 first args]
 ;     args := [pf2Sex1 CADR args, :typeList]
 ;     ["Mapping", :args]
 ;   symEqual(op, ":") and $insideRule = 'left =>
@@ -457,9 +457,9 @@
 ;       pfSuchThat2Sex args
 ;     argSex := rest pf2Sex1 args
 ;     symEqual(op, "AND") =>
-;       ["and", CAR argSex, CADR argSex]
+;       ["and", first argSex, CADR argSex]
 ;     symEqual(op, "OR") =>
-;       ["or", CAR argSex, CADR argSex]
+;       ["or", first argSex, CADR argSex]
 ;     symEqual(op, "Iterate") =>
 ;       ["iterate"]
 ;     symEqual(op, "by") =>
@@ -608,7 +608,7 @@
  
 ; pfDefinition2Sex pf ==
 ;   $insideApplication =>
-;     ["OPTARG", pf2Sex1 CAR pf0DefinitionLhsItems pf,
+;     ["OPTARG", pf2Sex1 first pf0DefinitionLhsItems pf,
 ;      pf2Sex1 pfDefinitionRhs pf]
 ;   idList := [pf2Sex1 x for x in pf0DefinitionLhsItems pf]
 ;   #idList ~= 1 =>
@@ -1129,7 +1129,7 @@
 ;   for pred in $predicateList repeat
 ;     [name, predLhs, :predRhs] := pred
 ;     vars := patternVarsOf predRhs
-;     CDR vars =>  -- if there is more than one patternVariable
+;     rest(vars) =>  -- if there is more than one patternVariable
 ;       ruleLhs := NSUBST(predLhs, name, ruleLhs)
 ;       $multiVarPredicateList := [pred, :$multiVarPredicateList]
 ;     predicate :=
@@ -1178,7 +1178,7 @@
 ;   null $multiVarPredicateList => rule
 ;   varList := patternVarsOf [rhs for [.,.,:rhs] in $multiVarPredicateList]
 ;   predBody :=
-;     CDR $multiVarPredicateList =>
+;     rest $multiVarPredicateList =>
 ;       ['AND, :[:pvarPredTran(rhs, varList) for [.,.,:rhs] in
 ;         $multiVarPredicateList]]
 ;     [[.,.,:rhs],:.] := $multiVarPredicateList
@@ -1351,7 +1351,7 @@
 ; pfSuchThat2Sex args ==
 ;   name := GENTEMP()
 ;   argList := pf0TupleParts args
-;   lhsSex := pf2Sex1 CAR argList
+;   lhsSex := pf2Sex1 first argList
 ;   rhsSex := pf2Sex CADR argList
 ;   $predicateList := [[name, lhsSex, :rhsSex], :$predicateList]
 ;   name

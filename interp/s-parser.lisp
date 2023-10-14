@@ -13,16 +13,16 @@
  
 ; MAKEOP(X, Y) ==
 ;     if OR(NOT (CDR X), NUMBERP (SECOND X)) then
-;         X := CONS(FIRST X, X)
-;     MAKEPROP(FIRST X, Y, X)
+;         X := CONS(first X, X)
+;     MAKEPROP(first X, Y, X)
  
 (DEFUN MAKEOP (X Y)
   (PROG ()
     (RETURN
      (PROGN
       (COND
-       ((OR (NULL (CDR X)) (NUMBERP (SECOND X))) (SETQ X (CONS (FIRST X) X))))
-      (MAKEPROP (FIRST X) Y X)))))
+       ((OR (NULL (CDR X)) (NUMBERP (SECOND X))) (SETQ X (CONS (CAR X) X))))
+      (MAKEPROP (CAR X) Y X)))))
  
 ; init_parser_properties() ==
 ;     for j in _
@@ -222,7 +222,7 @@
       (PUSH |el1| |$reduction_stack|)
       |el3|))))
  
-; top_of_stack() == CAR($reduction_stack)
+; top_of_stack() == first($reduction_stack)
  
 (DEFUN |top_of_stack| () (PROG () (RETURN (CAR |$reduction_stack|))))
  
@@ -997,7 +997,7 @@
     (RETURN (COND ((SETQ |y| (GET |x| |ind|)) (ELEMN |y| 4 105)) ('T 105)))))
  
 ; parse_getSemanticForm(ind, y) ==
-;     AND(y, FUNCALL(CAR y)) => true
+;     AND(y, FUNCALL(first y)) => true
 ;     ind = "Nud" => parse_Prefix()
 ;     ind = "Led" => parse_Infix()
 ;     nil

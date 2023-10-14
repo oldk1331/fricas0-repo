@@ -1048,14 +1048,14 @@
 ;         nil
 ;       newEntry :=
 ;         u := assoc(entry,data) =>           --key seen before? look on DATA
-;           RPLACA(CDR u,CADR u or exposeFlag)--yes, expose if any 1 is exposed
+;           RPLACA(rest u, CADR u or exposeFlag)--yes, expose if any 1 is exposed
 ;           u
 ;         data := [y := [entry,exposeFlag,:tail],:data]
 ;         y                                   --no, create new entry in DATA
 ;       if member(key,'(origins conditions)) then
 ;         r := CDDR newEntry
 ;         if atom r then r := nil             --clear out possible 'ASCONST
-;         RPLACD(CDR newEntry,                --store op/sigs under key if needed
+;         RPLACD(rest newEntry,             --store op/sigs under key if needed
 ;           insert([dbMakeSignature(op,item),exposeFlag,:tail],r))
 ;   if member(key,'(origins conditions)) then
 ;     for entry in data repeat   --sort list of entries (after the 2nd)
@@ -1063,7 +1063,7 @@
 ;       tail :=
 ;         atom tail => tail
 ;         listSort(function LEXLESSEQP,tail)
-;       RPLACD(CDR entry,tail)
+;       RPLACD(rest entry, tail)
 ;   data := listSort(function LEXLESSEQP,data)
 ;   data
  
@@ -1264,12 +1264,13 @@
 ;         while u repeat
 ;           key := CDDAR u  --implementor
 ;           entries :=
-;             [[CAR u,true],:[u and [CAR u,true] while key = CDDAR (u := rest u)]]
+;             [[first u, true],
+;              :[u and [first u, true] while key = CDDAR(u := rest u)]]
 ;           alist := [[key,gn key,:entries],:alist]
 ;       NREVERSE alist
 ;     gn key ==
 ;       atom key => true
-;       isExposedConstructor CAR key
+;       isExposedConstructor first key
  
 (DEFUN |dbGatherDataImplementation| (|htPage| |opAlist|)
   (PROG (|$predicateList| |others| |constants| |nowheres| |defexports|
@@ -1402,10 +1403,11 @@
  
 ; dbReduceOpAlist(opAlist,data,branch) ==
 ;   branch = 'signatures => dbReduceBySignature(opAlist,CAAR data,CADAR data)
-;   branch = 'origins => dbReduceBySelection(opAlist,CAR data,function CADDR)
-;   branch = 'conditions => dbReduceBySelection(opAlist,CAR data,function CADR)
+;   branch = 'origins => dbReduceBySelection(opAlist, first data, function CADDR)
+;   branch = 'conditions =>
+;       dbReduceBySelection(opAlist, first data, function CADR)
 ;   branch = 'implementation => dbReduceByOpSignature(opAlist,CDDR data)
-;   branch = 'parameters => dbReduceByForm(opAlist,CAR data)
+;   branch = 'parameters => dbReduceByForm(opAlist, first data)
 ;   systemError ['"Unexpected branch: ",branch]
  
 (DEFUN |dbReduceOpAlist| (|opAlist| |data| |branch|)
@@ -1742,7 +1744,7 @@
 ;   domOriginAlist := nil --list of domain origins
 ;   for [op,:items] in opAlist repeat
 ;     for [.,predicate,origin,:.] in items repeat
-;       conname := CAR origin
+;       conname := first origin
 ;       GETDATABASE(conname,'CONSTRUCTORKIND) = 'category =>
 ;         pred := simpOrDumb(predicate, QLASSQ(conname, catOriginAlist) or true)
 ;         catOriginAlist := insertAlist(conname,pred,catOriginAlist)
@@ -1750,7 +1752,7 @@
 ;       domOriginAlist := insertAlist(conname,pred,domOriginAlist)
 ;   --the following is similar to "domainsOf" but do not sort immediately
 ;   u := [COPY key for key in HKEYS _*HASCATEGORY_-HASH_*
-;           | QLASSQ(CDR key, catOriginAlist)]
+;           | QLASSQ(rest key, catOriginAlist)]
 ;   for pair in u repeat
 ;     [dom,:cat] := pair
 ;     QLASSQ(cat, catOriginAlist) = 'etc => RPLACD(pair, 'etc)
@@ -1932,7 +1934,7 @@
       #'|bcPred|))))
  
 ; dbShowKind conform ==
-;   conname := CAR conform
+;   conname := first conform
 ;   kind := GETDATABASE(conname,'CONSTRUCTORKIND)
 ;   kind = 'domain =>
 ;     (s := PNAME conname).(MAXINDEX s) = '_& => '"default package"
@@ -2451,7 +2453,7 @@
 ;   for pair in opAlist repeat
 ;     RPLACD(pair,[test for item in rest pair | test]) where test ==
 ;       [head,:tail] := item
-;       CAR tail = true => item
+;       first tail = true => item
 ;       pred := simpHasPred SUBLISLIS(form1,form2,QCAR tail)
 ;       null pred => false
 ;       RPLACD(item,[pred])
@@ -2687,7 +2689,7 @@
 ;       for [op,:alist] in opAlist repeat
 ;         for [sig,:tail] in alist repeat
 ;           condition? => --the only purpose here is to find a non-trivial pred
-;             null atom (pred := CAR tail) => return ($value := pred)
+;             null atom (pred := first tail) => return ($value := pred)
 ;             'skip
 ;           u :=
 ;             tail is [.,origin,:.] and origin =>
@@ -2698,7 +2700,7 @@
 ;             dbGetDocTable(op,sig,docTable,which,nil)
 ;           origin := IFCAR u or origin
 ;           docCode := IFCDR u   --> (doc . code)
-; --        if null FIXP CDR docCode then harhar(op) -->
+; --        if null FIXP rest docCode then harhar(op) -->
 ;           if null doc and which = '"attribute" then doc := getRegistry(op,sig)
 ;           RPLACD(tail,[origin,isExposedConstructor opOf origin,:docCode])
 ;         $value => return $value
@@ -3226,7 +3228,7 @@
 ;   $predEvalAlist : local := nil
 ;   $returnNowhereFromGoGet: local := true
 ;   domname := dom.0
-;   conname := CAR domname
+;   conname := first domname
 ;   abb := getConstructorAbbreviation conname
 ;   opAlist := getOperationAlistFromLisplib conname
 ;   "append"/[REMDUP [[op1,:fn] for [sig,slot,pred,key,:.] in u
@@ -3249,7 +3251,7 @@
 ;           f = 'nowhere => 'nowhere           --see replaceGoGetSlot
 ;           f = function makeSpadConstant => 'constant
 ;           f = function IDENTITY => 'constant
-;           f = function newGoGet => substitute('_$, domname, devaluate CAR r)
+;           f = function newGoGet => substitute('_$, domname, devaluate first r)
 ;           null VECP r => systemError devaluateList r
 ;           substitute('_$, domname, devaluate r)
 ;         'nowhere

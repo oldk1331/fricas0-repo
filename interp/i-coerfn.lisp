@@ -940,7 +940,7 @@
 ;     y:= coerceInt(objNewWrap([[e1,:c]],S1),T) =>
 ;       -- need to be careful about zeros
 ;       p:= ASSQ(exp,x) =>
-;         c' := SPADCALL(CDR p,objValUnwrap(y),plusfunc)
+;         c' := SPADCALL(rest p, objValUnwrap(y), plusfunc)
 ;         c' = zero => x := REMALIST(x,exp)
 ;         RPLACD(p,c')
 ;       zero = objValUnwrap(y) => 'iterate
@@ -1103,8 +1103,8 @@
        NIL (VEC2LIST |v|) NIL 0)))))
  
 ; removeListElt(l,pos) ==
-;   pos = 0 => CDR l
-;   [CAR l, :removeListElt(CDR l,pos-1)]
+;   pos = 0 => rest l
+;   [first l, :removeListElt(rest l, pos - 1)]
  
 (DEFUN |removeListElt| (|l| |pos|)
   (PROG ()
@@ -1257,7 +1257,7 @@
 ; 
 ;     null rest v2 =>
 ;         for term in univ repeat
-;             RPLACA(term, VECTOR CAR term)
+;             RPLACA(term, VECTOR first term)
 ;         univ
 ; 
 ;     -- more than one variable
@@ -1500,11 +1500,11 @@
 ;     sup        := ['SparseUnivariatePolynomial, source]
 ; 
 ;     fracUniv   := SPADCALL(u, varKernel, univFunc)
-;     denom      := CDR fracUniv
+;     denom      := rest fracUniv
 ; 
 ;     not equalOne(denom, sup) => coercionFailure()
 ; 
-;     numer      := CAR fracUniv
+;     numer      := first fracUniv
 ;     uniType := ['UnivariatePolynomial, var, source]
 ;     (z := coerceInt(objNewWrap(numer, uniType), target)) => objValUnwrap z
 ;     coercionFailure()
@@ -4068,9 +4068,9 @@
  
 ; Scr2Scr(u, source is [.,S], target is [.,T]) ==
 ;   u = '_$fromCoerceable_$ => canCoerce(S,T)
-;   null (v := coerceInt(objNewWrap(CDR u,S),T)) =>
+;   null (v := coerceInt(objNewWrap(rest u, S), T)) =>
 ;     coercionFailure()
-;   [CAR u, :objValUnwrap(v)]
+;   [first u, :objValUnwrap(v)]
  
 (DEFUN |Scr2Scr| (|u| |source| |target|)
   (PROG (T$ S |v|)
@@ -5711,8 +5711,8 @@
 ;   package := ['ExpressionToUnivariatePowerSeries, S, E]
 ;   func := getFunctionFromDomain(type, package, [E, EQtype])
 ;   newObj := SPADCALL(objValUnwrap(newU), eq, func)
-;   newType := CAR newObj
-;   newVal  := CDR newObj
+;   newType := first newObj
+;   newVal  := rest newObj
 ;   newType = target => newVal
 ;   finalObj := coerceInt(objNewWrap(newVal, newType), target)
 ;   null finalObj => coercionFailure()

@@ -3,7 +3,7 @@
  
 (IN-PACKAGE "BOOT")
  
-; pileColumn t==CDR tokPosn CAAR t
+; pileColumn t == rest tokPosn CAAR t
  
 (DEFUN |pileColumn| (|t|) (PROG () (RETURN (CDR (|tokPosn| (CAAR |t|))))))
  
@@ -177,9 +177,9 @@
 ;     then [false,n,[],s]
 ;     else
 ;         [h,t]:=[car s,cdr s]
-;         hh:=pileColumn CAR h
+;         hh := pileColumn first h
 ;         if hh > n
-;         then pileForests(CAR h,hh,t)
+;         then pileForests(first h, hh, t)
 ;         else [false,n,[],s]
  
 (DEFUN |pileTree| (|n| |s|)
@@ -197,9 +197,9 @@
 ;     then [false,n,[],s]
 ;     else
 ;         [h,t]:=[car s,cdr s]
-;         hh:=pileColumn CAR h
+;         hh := pileColumn first h
 ;         if hh = n
-;         then pileForests(CAR h,hh,t)
+;         then pileForests(first h, hh, t)
 ;         else [false,n,[],s]
  
 (DEFUN |eqpileTree| (|n| |s|)

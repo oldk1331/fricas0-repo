@@ -11,8 +11,8 @@
 ;   null x or EQCAR (x,"nullstream") => true
 ;   while EQCAR(x,"nonnullstream") repeat
 ;           st:=APPLY(CADR x,CDDR x)
-;           RPLACA(x,CAR st)
-;           RPLACD(x,CDR st)
+;           RPLACA(x, first st)
+;           RPLACD(x, rest st)
 ;   EQCAR(x,"nullstream")
  
 (DEFUN |StreamNull| (|x|)

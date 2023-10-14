@@ -345,8 +345,8 @@
 ;   forwardPointer:= al
 ;   val:= nil
 ;   until EQ(forwardPointer,al) repeat
-;     EQUAL(CAAR forwardPointer,x) => return (val:= CAR forwardPointer)
-;     forwardPointer:= CDR forwardPointer
+;     EQUAL(CAAR forwardPointer,x) => return (val := first forwardPointer)
+;     forwardPointer := rest forwardPointer
 ;   val
  
 (DEFUN |assocCircular| (|x| |al|)
@@ -690,7 +690,7 @@
  
 ; NUMOFNODES(x) ==
 ;     ATOM(x) => 0
-;     NUMOFNODES(CAR(x)) + NUMOFNODES(CDR(x)) + 1
+;     NUMOFNODES(first(x)) + NUMOFNODES(rest(x)) + 1
  
 (DEFUN NUMOFNODES (|x|)
   (PROG ()

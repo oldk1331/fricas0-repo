@@ -2956,7 +2956,7 @@
 ;     dist:=dist-3
 ;     width:=width-3
 ;     ans:=
-;       for v in CDR u repeat
+;       for v in rest u repeat
 ;         (ans:=LargeMatrixp(v,width,dist)) => return largeMatrixAlist ans
 ;         dist:=dist - WIDTH v
 ;         dist<0 => return nil
@@ -2975,7 +2975,7 @@
 ;     ans
 ;       --Relying that falling out of a loop gives nil
 ;   ans:=
-;     for v in CDR u repeat
+;     for v in rest u repeat
 ;       (ans:=LargeMatrixp(v,width,dist)) => return largeMatrixAlist ans
 ;       dist:=dist - WIDTH v
 ;       dist<0 => return nil
@@ -3097,7 +3097,7 @@
 ;     --Adds the matrix to the look-aside list, and returns a name for it
 ;   name:=
 ;     for v in $MatrixList repeat
-;         EQUAL(m,CDR v) => return CAR v
+;         EQUAL(m, CDR v) => return first v
 ;   name => name
 ;   name:=INTERNL('"matrix",STRINGIMAGE($MatrixCount:=$MatrixCount+1))
 ;   $MatrixList:=[[name,:m],:$MatrixList]
@@ -3162,7 +3162,7 @@
 ;   -- doesn't work since rassoc seems to use an EQ test, and returns the
 ;   -- pair anyway. JHD 28/2/93
 ;   op = 'MATRIX =>
-;     l':=SubstWhileDesizingList(CDR l)
+;     l' := SubstWhileDesizingList(rest l)
 ;     u :=
 ;       -- CDR l=l' => u
 ;       -- this was a CONS-saving optimisation, but it doesn't work JHD 28/2/93
@@ -3202,7 +3202,7 @@
 ;      tail:=res
 ;      for i in b repeat
 ;         if ATOM i then  RPLACD(tail,[i]) else RPLACD(tail,[SubstWhileDesizing(i)])
-;         tail:=CDR tail
+;         tail := rest tail
 ;      res
 ;    u
  
@@ -5627,7 +5627,7 @@
 (DEFUN |boxSub| (|x|) (PROG () (RETURN (+ (|subspan| (ELT |x| 1)) 1))))
  
 ; boxSuper(x) ==
-;   null CDR x => 0
+;   null rest x => 0
 ;   hl :=
 ;     null CDDR x => 0
 ;     true => 2 + subspan x.2 + superspan x.2
@@ -5647,7 +5647,7 @@
              (COND (T (+ (+ |hl| 1) (|superspan| (ELT |x| 1)))))))))))
  
 ; boxWidth(x) ==
-;   null CDR x => 0
+;   null rest x => 0
 ;   wl :=
 ;     null CDDR x => 0
 ;     true => WIDTH x.2

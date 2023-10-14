@@ -16,9 +16,9 @@
 (DEFPARAMETER |$insideCompTypeOf| NIL)
  
 ; initEnvHashTable(l) ==
-;   for u in CAR(CAR(l)) repeat
-;       for v in CDR(u) repeat
-;             HPUT($envHashTable, [CAR u, CAR v], true)
+;   for u in first(first(l)) repeat
+;       for v in rest(u) repeat
+;             HPUT($envHashTable, [first u, first v], true)
  
 (DEFUN |initEnvHashTable| (|l|)
   (PROG ()
@@ -558,7 +558,7 @@
 ;           free
 ;         not getmode(u, e) => free
 ;         [[u,:1],:free]
-;       op:=CAR u
+;       op := first u
 ;       MEMQ(op, '(QUOTE GO function)) => free
 ;       EQ(op,'LAMBDA) =>
 ;         bound:=UNIONQ(bound,CADR u)
@@ -571,15 +571,15 @@
 ;           free:=FreeList(v,bound,free,e)
 ;         free
 ;       EQ(op,'SEQ) =>
-;         for v in CDR u | NOT ATOM v repeat
+;         for v in rest u | NOT ATOM v repeat
 ;           free:=FreeList(v,bound,free,e)
 ;         free
 ;       EQ(op,'COND) =>
-;         for v in CDR u repeat
+;         for v in rest u repeat
 ;           for vv in v repeat
 ;             free:=FreeList(vv,bound,free,e)
 ;         free
-;       if ATOM op then u:=CDR u  --Atomic functions aren't descended
+;       if ATOM op then u := rest u  --Atomic functions aren't descended
 ;       for v in u repeat
 ;         free:=FreeList(v,bound,free,e)
 ;       free
@@ -602,7 +602,8 @@
 ;     body:= CDDR expandedFunction
 ;     if locals then
 ;       if body is [['DECLARE,:.],:.] then
-;         body:=[CAR body,['PROG,locals,:scode,['RETURN,['PROGN,:CDR body]]]]
+;         body := [first body, ['PROG, locals, :scode,
+;                               ['RETURN, ['PROGN, :rest body]]]]
 ;       else body:=[['PROG,locals,:scode,['RETURN,['PROGN,:body]]]]
 ;     vec:=['VECTOR,:NREVERSE vec]
 ;     ['LAMBDA,[:vl,"$$"],:body]
@@ -1600,7 +1601,7 @@
 ;        (v:=assoc([dc,:nsig],modemapList)) and v is [.,[ncond,:.]] then
 ;            deleteList:=[u,:deleteList]
 ;            if not PredImplies(ncond,cond) then
-;              newList := [[CAR u,[cond,['ELT,dc,nil]]],:newList]
+;                newList := [[first u, [cond, ['ELT, dc, nil]]], :newList]
 ;   if deleteList then modemapList:=[u for u in modemapList | not MEMQ(u,deleteList)]
 ;   -- We can use MEMQ since deleteList was built out of members of modemapList
 ;   -- its important that subsumed ops (newList) be considered last
@@ -2368,7 +2369,7 @@
 ;      else form:=
 ;          $QuickLet => ["LET",id,x]
 ;          ["LET",id,x,
-;             (isDomainForm(x,e') => ['ELT,id,0];CAR outputComp(id,e'))]
+;             (isDomainForm(x, e') => ['ELT, id, 0]; first outputComp(id, e'))]
 ;   [form,m',e']
  
 (DEFUN |finish_setq_single| (T$ |m| |id| |val| |currentProplist|)

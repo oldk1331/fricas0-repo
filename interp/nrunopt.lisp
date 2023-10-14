@@ -171,7 +171,7 @@
 ;     --identified by a 0 in slot position
 ;   if r is [n,:s] then
 ;     slot :=
-;       n is [p,:.] => p  --the CDR is linenumber of function definition
+;       n is [p, :.] => p  --the rest is linenumber of function definition
 ;       n
 ;     predCode :=
 ;       s is [pred,:.] => predicateBitIndex pred
@@ -265,7 +265,7 @@
 ;   --  entry is be ignored (e.g. init: -> $ in ULS)
 ;     while (u := assoc(b,subacc)) repeat b := CADR u
 ;     u := assoc(b,acc) or systemError nil
-;     if null CADR u then u := [CAR u,1] --mark as missing operation
+;     if null CADR u then u := [first u, 1] --mark as missing operation
 ;     y := [[a,'Subsumed],u,:y] --makes subsuming signature follow one subsumed
 ;     z := insert(b,z)  --mark a signature as already present
 ;   [:y,:[w for (w := [c,:.]) in acc | not member(c,z)]] --add those not subsuming
@@ -383,7 +383,7 @@
 ;   dollar.4 :=
 ;     VECP CDDR proto4 => BREAK()
 ;     bitVector := dollar.3
-;     predvec := CAR proto4
+;     predvec := first proto4
 ;     packagevec := CADR proto4
 ;     auxvec := LIST2VEC [fn for i in 0..MAXINDEX predvec] where fn ==
 ;       null testBitVector(bitVector,predvec.i) => nil
@@ -712,7 +712,7 @@
 ; isHasDollarPred pred ==
 ;   pred is [op,:r] =>
 ;     MEMQ(op,'(AND and OR or NOT not)) => or/[isHasDollarPred x for x in r]
-;     op is "HasCategory" => CAR r = '$
+;     op is "HasCategory" => first r = '$
 ;     false
 ;   false
  
@@ -964,7 +964,7 @@
  
 ; buildPredVector(init, n, l) == fn(init, 2^n, l) where fn(acc, n, l) ==
 ;   null l => acc
-;   if CAR l then acc := acc + n
+;   if first l then acc := acc + n
 ;   fn(acc,n + n,rest l)
  
 (DEFUN |buildPredVector| (|init| |n| |l|)
@@ -1007,7 +1007,7 @@
 ;   sixEtc := [5 + i for i in 1..#$pairlis]
 ;   formals := ASSOCRIGHT $pairlis
 ;   for x in slot1 repeat
-;        RPLACA(x,EQSUBSTLIST(CONS("$$",sixEtc),CONS('$,formals),CAR x))
+;        RPLACA(x, EQSUBSTLIST(CONS("$$", sixEtc), CONS('$,formals), first x))
 ;   -----------code to make a new style slot4 -----------------
 ;   predList := ASSOCRIGHT slot1  --is list of predicate indices
 ;   maxPredList := "MAX"/predList
@@ -1485,7 +1485,7 @@
 ;   proto4 := $infovec.3
 ;   u := CDDR proto4
 ;   VECP u => BREAK()
-;   CDR u                 --new style
+;   rest u                 --new style
  
 (DEFUN |getCodeVector| ()
   (PROG (|u| |proto4|)
@@ -1697,7 +1697,7 @@
 ;   u := $infovec.3
 ;   VECP CDDR u => BREAK()
 ;   $predvec:= GETDATABASE(con,'PREDICATES)
-;   catpredvec := CAR u
+;   catpredvec := first u
 ;   catinfo := CADR u
 ;   catvec := CADDR u
 ;   for i in 0..MAXINDEX catvec repeat
@@ -1761,7 +1761,7 @@
 ;   $predvec:= GETDATABASE(con,'PREDICATES)
 ;   u := $infovec.3
 ;   catvec := CADR u
-;   catinfo := CAR u
+;   catinfo := first u
 ;   for i in 0..MAXINDEX catvec repeat
 ;     sayBrightlyNT bright i
 ;     [form,:predNumber] := catvec.i
@@ -1815,7 +1815,7 @@
 ;   sayBrightly '"Operation data from slot 1"
 ;   PRINT_-FULL $infovec.1
 ;   vec := getCodeVector()
-;   vec := (PAIRP vec => CDR vec; vec)
+;   vec := (PAIRP vec => rest vec; vec)
 ;   sayBrightly ['"Information vector has ",SIZE vec,'" entries"]
 ;   dcData1 vec
  
@@ -1903,7 +1903,7 @@
 ;     VECP CDDR slot4 => BREAK()
 ;     CADDR slot4
 ;   n := MAXINDEX catvec
-;   cSize := sum(nodeSize(2),vectorSize(SIZE CAR slot4),vectorSize(n + 1),
+;   cSize := sum(nodeSize(2), vectorSize(SIZE first slot4), vectorSize(n + 1),
 ;                nodeSize(+/[numberOfNodes catvec.i for i in 0..n]))
 ;   codeVector :=
 ;     VECP CDDR slot4 => BREAK()
@@ -2320,7 +2320,7 @@
 ;     sayBrightlyNT ['"..",:bright form2String domform,"of cat "]
 ;     PRINT u
 ;     sayBrightlyNT bright msg
-;     if v then PRINT CAR v else TERPRI()
+;     if v then PRINT first v else TERPRI()
 ;   extends => 'lookupIncomplete
 ;   'lookupComplete
  
@@ -2603,7 +2603,7 @@
 ;   u = v => true
 ;   uvec := uvec or (compMakeCategoryObject(u, $EmptyEnvironment)).expr
 ;   slot4 := uvec.4
-;   prinAncestorList := CAR slot4
+;   prinAncestorList := first slot4
 ;   member(v,prinAncestorList) => true
 ;   vOp := IFCAR v
 ;   if similarForm := assoc(vOp,prinAncestorList) then

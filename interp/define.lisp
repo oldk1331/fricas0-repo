@@ -709,7 +709,7 @@
 ;     if $extraParms then
 ;       formals:=actuals:=nil
 ;       for u in $extraParms repeat
-;         formals:=[CAR u,:formals]
+;         formals := [first u, :formals]
 ;         actuals:=[MKQ CDR u,:actuals]
 ;       body := ['sublisV,['PAIR,['QUOTE,formals],['LIST,:actuals]],body]
 ;     if argl then body:=  -- always subst for args after extraparms
@@ -1050,7 +1050,7 @@
 ;                    while cb repeat
 ;                      ATOM cb => return nil
 ;                      cb is [['LET,'Rep,v,:.],:.] => return (u:=v)
-;                      cb:=CDR cb
+;                      cb := rest cb
 ;                  u
 ;       then $e:= augModemapsFromCategoryRep('_$,ab,cb,target,$e)
 ;       else $e:= augModemapsFromCategory('_$,'_$,'_$,target,$e)
@@ -3342,7 +3342,7 @@
 ;   ['COND, _
 ;     ['$bootStrapMode, _
 ;         ['VECTOR,mkDomainConstructor functorForm,nil,nil,nil,nil,nil]],
-;     [''T, ['systemError,['LIST,''%b,MKQ CAR functorForm,''%d,'"from", _
+;     [''T, ['systemError, ['LIST, ''%b, MKQ first functorForm, ''%d, '"from", _
 ;       ''%b,MKQ namestring sourceFile,''%d,'"needs to be compiled"]]]]
  
 (DEFUN |bootStrapError| (|functorForm| |sourceFile|)
@@ -3365,8 +3365,9 @@
 ;     [['COND, _
 ;        ['$bootStrapMode, _
 ;            code],_
-;        [''T, ['systemError,['LIST,''%b,MKQ CAR $functorForm,''%d,'"from", _
-;          ''%b, MKQ namestring($edit_file), ''%d, '"needs to be compiled"]]]],
+;        [''T, ['systemError, ['LIST, ''%b, MKQ first $functorForm, ''%d,
+;          '"from", ''%b, MKQ namestring($edit_file), ''%d, _
+;          '"needs to be compiled"]]]],
 ;      m, e]
 ;   $addFormLhs: local:= $addForm
 ;   addForm := $addForm
@@ -3976,8 +3977,8 @@
 ;     oldFLP' := oldFLP
 ;     n := 0
 ;     while oldFLP' repeat
-;         oldFLP' := CDR oldFLP'
-;         flp1 := CDR flp1
+;         oldFLP' := rest oldFLP'
+;         flp1 := rest flp1
 ;         n := n + 1
 ;     -- Now we have to add code to compile all the elements
 ;     -- of functorLocalParameters that were added during the

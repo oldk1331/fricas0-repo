@@ -279,7 +279,7 @@
 ;   addFunction =>
 ;     if $monitorNewWorld then
 ;       sayLooking1(concat('"<----add-chain function found for ",
-;         form2String devaluate addFormDomain,'"<----"),CDR addFunction)
+;         form2String devaluate addFormDomain, '"<----"), rest addFunction)
 ;     addFunction
 ;   nil
  
@@ -378,7 +378,7 @@
 ;             not nrunNumArgCheck(#(QCDR sig),byteVector,opvec.code,endPos) => nil
 ;             --numOfArgs := byteVector.(opvec.code)
 ;             --numOfArgs ~= #(QCDR sig) => nil
-;             packageForm := [entry,'$,:CDR cat]
+;             packageForm := [entry, '$, :rest cat]
 ;             package := evalSlotDomain(packageForm,dom)
 ;             packageVec.i := package
 ;             package
@@ -580,11 +580,11 @@
 ;     form2String devaluate dom,'"-----> searching default packages for ",op)
 ;   predvec := dom.3
 ;   slot4 := dom.4
-;   packageVec := CAR slot4
-;   catVec := CAR QCDR slot4
+;   packageVec := first slot4
+;   catVec := first QCDR slot4
 ;   nsig := substitute(dom.0, dollar.0, sig)
 ;   for i in 0..MAXINDEX packageVec | (entry := ELT(packageVec,i))
-;       and (VECP entry or (predIndex := CDR (node := ELT(catVec,i))) and
+;       and (VECP entry or (predIndex := rest(node := ELT(catVec, i))) and
 ;           (EQ(predIndex,0) or testBitVector(predvec,predIndex))) repeat
 ;     package :=
 ;       VECP entry =>
@@ -605,7 +605,7 @@
 ;             byteVector := CDDR infovec.3
 ;             numOfArgs := byteVector.(opvec.code)
 ;             numOfArgs ~= #(QCDR sig) => nil
-;             packageForm := [entry,'$,:CDR cat]
+;             packageForm := [entry, '$, :rest cat]
 ;             package := evalSlotDomain(packageForm,dom)
 ;             packageVec.i := package
 ;             package
@@ -877,8 +877,8 @@
   (PROG () (RETURN (|lazyMatchArg2| |s| |a| |dollar| |domain| T))))
  
 ; lazyMatch(source,lazyt,dollar,domain) ==
-;   lazyt is [op,:argl] and null atom source and op=CAR source
-;     and #(sargl := CDR source) = #argl =>
+;   lazyt is [op, :argl] and null atom source and op = first source
+;     and #(sargl := rest source) = #argl =>
 ;       MEMQ(op,'(Record Union)) and first argl is [":",:.] =>
 ;         and/[stag = atag and lazyMatchArg(s,a,dollar,domain)
 ;               for [.,stag,s] in sargl for [.,atag,a] in argl]
@@ -1035,7 +1035,7 @@
 ;     x = '$ and (arg = dollarName or arg = domainName) => true
 ;     x = dollarName and arg = domainName => true
 ;     ATOM x or ATOM arg => false
-;     xt and CAR x = CAR arg =>
+;     xt and first x = first arg =>
 ;       lazyMatchArgDollarCheck(x,arg,dollarName,domainName)
 ;     false
  
@@ -1130,7 +1130,8 @@
 ;     slotIndex := numvec.(i + 2 + numberOfArgs)
 ;     newStart := add_SI(start, add_SI(numberOfArgs, 4))
 ;     slot := domain.slotIndex
-;     null atom slot and EQ(CAR slot,CAR arg) and EQ(CDR slot,CDR arg) => return (success := true)
+;     null atom slot and EQ(first slot, first arg) and EQ(rest slot, rest arg) =>
+;         return (success := true)
 ;     start := add_SI(start, add_SI(numberOfArgs, 4))
 ;   success
  
@@ -1401,7 +1402,8 @@
 ;                   l is [ w1,['ATTRIBUTE,w2]] =>
 ;                        BREAK()
 ;                        newHasTest(w1,w2)
-;                   l is [ w1,['SIGNATURE,:w2]] => compiledLookup(CAR w2,CADR w2, eval mkEvalable w1)
+;                   l is [ w1, ['SIGNATURE, :w2]] =>
+;                       compiledLookup(first w2, CADR w2, eval mkEvalable w1)
 ;                   newHasTest(first  l ,first rest l)
 ;              pred = 'OR => or/[evalCond i for i in l]
 ;              pred = 'AND => and/[evalCond i for i in l]

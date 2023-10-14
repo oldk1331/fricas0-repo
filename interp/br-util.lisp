@@ -671,7 +671,7 @@
            ((EQ |name| '|Enumeration|) '(|Enumeration| |a| |b|))
            ('T (GETDATABASE |name| 'CONSTRUCTORFORM))))))
  
-; getConstructorArgs conname == CDR getConstructorForm conname
+; getConstructorArgs conname == rest getConstructorForm conname
  
 (DEFUN |getConstructorArgs| (|conname|)
   (PROG () (RETURN (CDR (|getConstructorForm| |conname|)))))
