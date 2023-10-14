@@ -681,9 +681,14 @@
                (|constoken1| |ln| |linepos| |b|
                 (+ |n| (|lnExtraBlanks| |linepos|)) |nb|)))))))))
  
-; lfid x== ["id",INTERN(x, '"BOOT")]
+; DEFPARAMETER($boot_package, FIND_-PACKAGE('"BOOT"))
  
-(DEFUN |lfid| (|x|) (PROG () (RETURN (LIST '|id| (INTERN |x| "BOOT")))))
+(DEFPARAMETER |$boot_package| (FIND-PACKAGE "BOOT"))
+ 
+; lfid x== ["id", INTERN(x, $boot_package)]
+ 
+(DEFUN |lfid| (|x|)
+  (PROG () (RETURN (LIST '|id| (INTERN |x| |$boot_package|)))))
  
 ; lfkey x==["key",keyword x]
  

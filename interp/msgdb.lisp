@@ -43,14 +43,13 @@
 ; wordFrom(l,i) ==
 ;   maxIndex := MAXINDEX l
 ;   k := or/[j for j in i..maxIndex | l.j ~= char ('_ ) ] or return nil
-;   buf := '""
+;   k0 := k
 ;   while k <= maxIndex and (c := l.k) ~= char ('_ ) repeat
-;     buf := STRCONC(buf,c)
 ;     k := k + 1
-;   [buf,k+1]
+;   [SUBSEQ(l, k0, k), k + 1]
  
 (DEFUN |wordFrom| (|l| |i|)
-  (PROG (|maxIndex| |k| |buf| |c|)
+  (PROG (|maxIndex| |k| |k0| |c|)
     (RETURN
      (PROGN
       (SETQ |maxIndex| (MAXINDEX |l|))
@@ -67,7 +66,7 @@
                    (SETQ |j| (+ |j| 1))))
                 NIL |i|)
                (RETURN NIL)))
-      (SETQ |buf| "")
+      (SETQ |k0| |k|)
       ((LAMBDA ()
          (LOOP
           (COND
@@ -75,9 +74,8 @@
              (AND (NOT (< |maxIndex| |k|))
                   (NOT (EQUAL (SETQ |c| (ELT |l| |k|)) (|char| '| |)))))
             (RETURN NIL))
-           (#1#
-            (PROGN (SETQ |buf| (STRCONC |buf| |c|)) (SETQ |k| (+ |k| 1))))))))
-      (LIST |buf| (+ |k| 1))))))
+           (#1# (SETQ |k| (+ |k| 1)))))))
+      (LIST (SUBSEQ |l| |k0| |k|) (+ |k| 1))))))
  
 ; DEFPARAMETER($msg_hash, nil)
  

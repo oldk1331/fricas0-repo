@@ -32,9 +32,13 @@
          (CONS '|special| (COPY-TREE |$InitialDomainsInScope|)))
    (|addBinding| '|$Information| NIL (|makeInitialModemapFrame|))))
  
-; set_nonblank(val) == SETF(NONBLANK, val)
+; DEFPARAMETER($NONBLANK, nil)
  
-(DEFUN |set_nonblank| (|val|) (PROG () (RETURN (SETF NONBLANK |val|))))
+(DEFPARAMETER $NONBLANK NIL)
+ 
+; set_nonblank(val) == SETF($NONBLANK, val)
+ 
+(DEFUN |set_nonblank| (|val|) (PROG () (RETURN (SETF $NONBLANK |val|))))
  
 ; current_line_number() ==
 ;     tok := CURRENT_-TOKEN()

@@ -124,7 +124,6 @@
 ;   FORCE_-OUTPUT()
 ;   not $SpadServer =>
 ;     read_-line(stream)
-;   IN_-STREAM: fluid := stream
 ;   _*EOF_*: fluid := NIL
 ;   line :=
 ;    while not $EndServerSession and not _*EOF_* repeat
@@ -177,16 +176,15 @@
 ;   ""
  
 (DEFUN |serverReadLine| (|stream|)
-  (PROG (*EOF* IN-STREAM |line| |form| |stringBuf| |currentFrame| |frameName|
-         |l| |action|)
-    (DECLARE (SPECIAL *EOF* IN-STREAM))
+  (PROG (*EOF* |line| |form| |stringBuf| |currentFrame| |frameName| |l|
+         |action|)
+    (DECLARE (SPECIAL *EOF*))
     (RETURN
      (PROGN
       (FORCE-OUTPUT)
       (COND ((NULL |$SpadServer|) (|read-line| |stream|))
             (#1='T
              (PROGN
-              (SETQ IN-STREAM |stream|)
               (SETQ *EOF* NIL)
               (SETQ |line|
                       ((LAMBDA ()

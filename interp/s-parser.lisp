@@ -11,6 +11,10 @@
  
 (DEFPARAMETER $LABLASOC NIL)
  
+; DEFVAR($NONBLANK, nil)
+ 
+(DEFVAR $NONBLANK NIL)
+ 
 ; MAKEOP(X, Y) ==
 ;     if OR(NOT (CDR X), NUMBERP (SECOND X)) then
 ;         X := CONS(first X, X)
@@ -1186,7 +1190,7 @@
 ;     OR(
 ;        AND(parse_VarForm(),
 ;            OPTIONAL AND(
-;               NONBLANK, current_symbol() = "(", MUST parse_Enclosure(),
+;               $NONBLANK, current_symbol() = "(", MUST parse_Enclosure(),
 ;               push_reduction("parse_Primary1",
 ;                              [pop_stack_2(), pop_stack_1()]))),
 ;        parse_Quad(), parse_String(), parse_IntegerTok(),
@@ -1204,7 +1208,7 @@
      (OR
       (AND (|parse_VarForm|)
            (OPTIONAL
-            (AND NONBLANK (EQ (|current_symbol|) '|(|)
+            (AND $NONBLANK (EQ (|current_symbol|) '|(|)
                  (MUST (|parse_Enclosure|))
                  (|push_reduction| '|parse_Primary1|
                   (LIST (|pop_stack_2|) (|pop_stack_1|))))))
@@ -1366,13 +1370,13 @@
  
 ; parse_NBGliphTok(tok) ==
 ;    AND(match_current_token("KEYWORD", tok),
-;        NONBLANK,
+;        $NONBLANK,
 ;        ACTION(advance_token()))
  
 (DEFUN |parse_NBGliphTok| (|tok|)
   (PROG ()
     (RETURN
-     (AND (|match_current_token| 'KEYWORD |tok|) NONBLANK
+     (AND (|match_current_token| 'KEYWORD |tok|) $NONBLANK
           (ACTION (|advance_token|))))))
  
 ; parse_AnyId() ==
