@@ -704,38 +704,13 @@
        (|ncloopInclude1| |a| |n|))
       ('T (PROGN (|InterpExecuteSpadSystemCommand| |line|) |n|))))))
  
-; ncloopEscaped x==
-;      esc :=false
-;      done:=false
-;      for i in (# x) - 1 .. 0 by -1 while not done repeat
-;          done:=
-;               x.i='" ".0 =>false
-;               x.i='"__".0=>
-;                        esc:=true
-;                        true
-;               true
-;      esc
+; ncloopEscaped x == #x > 0 and x.(#x - 1) = '"__".0
  
 (DEFUN |ncloopEscaped| (|x|)
-  (PROG (|esc| |done|)
+  (PROG ()
     (RETURN
-     (PROGN
-      (SETQ |esc| NIL)
-      (SETQ |done| NIL)
-      ((LAMBDA (|bfVar#4| |i|)
-         (LOOP
-          (COND
-           ((OR (COND ((MINUSP |bfVar#4|) (< |i| 0)) (T (> |i| 0))) |done|)
-            (RETURN NIL))
-           (#1='T
-            (SETQ |done|
-                    (COND ((EQUAL (ELT |x| |i|) (ELT " " 0)) NIL)
-                          ((EQUAL (ELT |x| |i|) (ELT "_" 0))
-                           (PROGN (SETQ |esc| T) T))
-                          (#1# T)))))
-          (SETQ |i| (+ |i| |bfVar#4|))))
-       (- 1) (- (LENGTH |x|) 1))
-      |esc|))))
+     (AND (< 0 (LENGTH |x|))
+          (EQUAL (ELT |x| (- (LENGTH |x|) 1)) (ELT "_" 0))))))
  
 ; ncloopDQlines (dq,stream)==
 ;         StreamNull stream
@@ -783,13 +758,13 @@
   (PROG ()
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#5| |line|)
+      ((LAMBDA (|bfVar#4| |line|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#5|) (PROGN (SETQ |line| (CAR |bfVar#5|)) NIL))
+           ((OR (ATOM |bfVar#4|) (PROGN (SETQ |line| (CAR |bfVar#4|)) NIL))
             (RETURN NIL))
            ('T (WRITE-LINE (CDR |line|))))
-          (SETQ |bfVar#5| (CDR |bfVar#5|))))
+          (SETQ |bfVar#4| (CDR |bfVar#4|))))
        |lines| NIL)
       (WRITE-LINE " ")))))
  
@@ -977,15 +952,15 @@
 (DEFUN |ncConversationPhase,wrapup| (|carrier|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#6| |m|)
+     ((LAMBDA (|bfVar#5| |m|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#6|) (PROGN (SETQ |m| (CAR |bfVar#6|)) NIL))
+          ((OR (ATOM |bfVar#5|) (PROGN (SETQ |m| (CAR |bfVar#5|)) NIL))
            (RETURN NIL))
           ('T
            (|ncPutQ| |carrier| '|messages|
             (CONS |m| (|ncEltQ| |carrier| '|messages|)))))
-         (SETQ |bfVar#6| (CDR |bfVar#6|))))
+         (SETQ |bfVar#5| (CDR |bfVar#5|))))
       |$ncMsgList| NIL))))
  
 ; ncloopPrefix?(prefix,whole) ==
@@ -1002,9 +977,9 @@
            (#1='T
             (PROGN
              (SETQ |good| T)
-             ((LAMBDA (|bfVar#7| |i| |j|)
+             ((LAMBDA (|bfVar#6| |i| |j|)
                 (LOOP
-                 (COND ((OR (> |i| |bfVar#7|) (NOT |good|)) (RETURN NIL))
+                 (COND ((OR (> |i| |bfVar#6|) (NOT |good|)) (RETURN NIL))
                        (#1#
                         (SETQ |good|
                                 (EQUAL (ELT |prefix| |i|) (ELT |whole| |j|)))))
