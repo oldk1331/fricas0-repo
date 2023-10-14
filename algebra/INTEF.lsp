@@ -1462,6 +1462,26 @@
         (EXIT (|spadConstant| $ 63))))
       #2# (EXIT #2#))))) 
 
+(DEFUN |INTEF;risch_de_solver| (|x3| |x4| |eta| |x| $)
+  (PROG ()
+    (RETURN
+     (SPADCALL |x3| |eta| |x4| |x|
+               (CONS #'|INTEF;risch_de_solver!0| (VECTOR $ |x|))
+               (CONS #'|INTEF;risch_de_solver!1| (VECTOR $ |x|))
+               (QREFELT $ 216))))) 
+
+(DEFUN |INTEF;risch_de_solver!1| (|x7| |x8| $$)
+  (PROG (|x| $)
+    (LETT |x| (QREFELT $$ 1) . #1=(|INTEF;risch_de_solver|))
+    (LETT $ (QREFELT $$ 0) . #1#)
+    (RETURN (PROGN (SPADCALL |x7| |x| |x8| (QREFELT $ 38)))))) 
+
+(DEFUN |INTEF;risch_de_solver!0| (|x5| |x6| $$)
+  (PROG (|x| $)
+    (LETT |x| (QREFELT $$ 1) . #1=(|INTEF;risch_de_solver|))
+    (LETT $ (QREFELT $$ 0) . #1#)
+    (RETURN (PROGN (SPADCALL |x5| |x| |x6| (QREFELT $ 35)))))) 
+
 (DEFUN |INTEF;expint| (|f| |x| |k| $)
   (PROG (|r1| |eta|)
     (RETURN
@@ -1473,45 +1493,27 @@
                       (CONS #'|INTEF;expint!1| (VECTOR |eta| |x| $))
                       (CONS #'|INTEF;expint!2|
                             (VECTOR (QREFELT $ 209) |x| |k|))
-                      (CONS #'|INTEF;expint!5| (VECTOR $ |x| |eta|))
-                      (QREFELT $ 214))
+                      (CONS #'|INTEF;expint!3| (VECTOR $ |x| |eta|))
+                      (QREFELT $ 218))
             . #1#)
       (EXIT
        (SPADCALL
-        (SPADCALL (CONS #'|INTEF;expint!6| (VECTOR $ |k|)) (QCAR |r1|)
+        (SPADCALL (CONS #'|INTEF;expint!4| (VECTOR $ |k|)) (QCAR |r1|)
                   (QREFELT $ 57))
         (SPADCALL (QCDR |r1|) |x| (QREFELT $ 58)) (QREFELT $ 59))))))) 
 
-(DEFUN |INTEF;expint!6| (|x1| $$)
+(DEFUN |INTEF;expint!4| (|x1| $$)
   (PROG (|k| $)
     (LETT |k| (QREFELT $$ 1) . #1=(|INTEF;expint|))
     (LETT $ (QREFELT $$ 0) . #1#)
     (RETURN (PROGN (SPADCALL |x1| |k| (QREFELT $ 52)))))) 
 
-(DEFUN |INTEF;expint!5| (|x3| |x4| $$)
+(DEFUN |INTEF;expint!3| (|x3| |x4| $$)
   (PROG (|eta| |x| $)
     (LETT |eta| (QREFELT $$ 2) . #1=(|INTEF;expint|))
     (LETT |x| (QREFELT $$ 1) . #1#)
     (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN
-     (PROGN
-      (PROG ()
-        (RETURN
-         (SPADCALL |x3| |eta| |x4| |x| (CONS #'|INTEF;expint!3| (VECTOR $ |x|))
-                   (CONS #'|INTEF;expint!4| (VECTOR $ |x|))
-                   (QREFELT $ 197)))))))) 
-
-(DEFUN |INTEF;expint!4| (|x7| |x8| $$)
-  (PROG (|x| $)
-    (LETT |x| (QREFELT $$ 1) NIL)
-    (LETT $ (QREFELT $$ 0) NIL)
-    (RETURN (PROGN (SPADCALL |x7| |x| |x8| (QREFELT $ 38)))))) 
-
-(DEFUN |INTEF;expint!3| (|x5| |x6| $$)
-  (PROG (|x| $)
-    (LETT |x| (QREFELT $$ 1) NIL)
-    (LETT $ (QREFELT $$ 0) NIL)
-    (RETURN (PROGN (SPADCALL |x5| |x| |x6| (QREFELT $ 35)))))) 
+    (RETURN (PROGN (|INTEF;risch_de_solver| |x3| |x4| |eta| |x| $))))) 
 
 (DEFUN |INTEF;expint!2| (|rf| $$)
   (PROG (|k| |x| |denint_poly|)
@@ -1541,8 +1543,8 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;primlimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G619 |lg| #2=#:G618 |u1| #3=#:G617 |u| #4=#:G616 |lk|
-         #5=#:G615 |a| #6=#:G614)
+  (PROG (|u2| |l| #1=#:G620 |lg| #2=#:G619 |u1| #3=#:G618 |u| #4=#:G617 |lk|
+         #5=#:G616 |a| #6=#:G615)
     (RETURN
      (SEQ
       (LETT |lk|
@@ -1585,7 +1587,7 @@
                                     . #7#)))
                             (LETT #3# (CDR #3#) . #7#) (GO G190) G191
                             (EXIT (NREVERSE #4#))))
-                      (QREFELT $ 217))
+                      (QREFELT $ 221))
             . #7#)
       (EXIT
        (COND ((QEQCAR |u1| 1) (CONS 1 "failed"))
@@ -1624,7 +1626,7 @@
                                          (QREFELT $ 52))
                                (QCAR (QCDR |u2|)) (QREFELT $ 110))
                               (SPADCALL (QCDR (QCDR |u2|)) |l|
-                                        (QREFELT $ 219))))))))))))))) 
+                                        (QREFELT $ 223))))))))))))))) 
 
 (DEFUN |INTEF;primlimint!2| (|x3| $$)
   (PROG (|x| |k| |lk| $)
@@ -1657,7 +1659,7 @@
     (RETURN (PROGN (SPADCALL |x2| |x| (QREFELT $ 19)))))) 
 
 (DEFUN |INTEF;explimint| (|f| |x| |k| |lu| $)
-  (PROG (|u2| |l| #1=#:G649 |lg| #2=#:G648 |u1| #3=#:G647 |u| #4=#:G646 |eta|)
+  (PROG (|u2| |l| #1=#:G650 |lg| #2=#:G649 |u1| #3=#:G648 |u| #4=#:G647 |eta|)
     (RETURN
      (SEQ
       (LETT |eta| (|SPADfirst| (SPADCALL |k| (QREFELT $ 18)))
@@ -1681,7 +1683,7 @@
                                     . #5#)))
                             (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                             (EXIT (NREVERSE #4#))))
-                      (QREFELT $ 220))
+                      (QREFELT $ 224))
             . #5#)
       (EXIT
        (COND ((QEQCAR |u1| 1) (CONS 1 "failed"))
@@ -1720,7 +1722,7 @@
                                          (QREFELT $ 52))
                                (QCAR (QCDR |u2|)) (QREFELT $ 110))
                               (SPADCALL (QCDR (QCDR |u2|)) |l|
-                                        (QREFELT $ 219))))))))))))))) 
+                                        (QREFELT $ 223))))))))))))))) 
 
 (DEFUN |INTEF;explimint!4| (|x1| |x2| $$)
   (PROG (|eta| |x| $)
@@ -1770,10 +1772,10 @@
 
 (DECLAIM (NOTINLINE |ElementaryIntegration;|)) 
 
-(DEFUN |ElementaryIntegration| (&REST #1=#:G650)
+(DEFUN |ElementaryIntegration| (&REST #1=#:G651)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G651)
+     (PROG (#2=#:G652)
        (RETURN
         (COND
          ((LETT #2#
@@ -1799,7 +1801,7 @@
        (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryIntegration|))
        (LETT DV$2 (|devaluate| |#2|) . #1#)
        (LETT |dv$| (LIST '|ElementaryIntegration| DV$1 DV$2) . #1#)
-       (LETT $ (GETREFV 221) . #1#)
+       (LETT $ (GETREFV 225) . #1#)
        (QSETREFV $ 0 |dv$|)
        (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
        (|haddProp| |$ConstructorCache| '|ElementaryIntegration|
@@ -1883,7 +1885,7 @@
               (40 . |coerce|) (45 . +) (|Mapping| 7 7) (51 . |differentiate|)
               (|PositiveInteger|) (58 . *)
               (|Record| (|:| |coeff| 7) (|:| |logand| 7))
-              (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| 218))
+              (|Record| (|:| |mainpart| 7) (|:| |limitedlogs| 222))
               (|Union| 33 '"failed") |INTEF;lflimitedint;FSLU;24|
               (|Record| (|:| |ratpart| 7) (|:| |coeff| 7))
               (|Union| 36 '"failed") |INTEF;lfextendedint;FSFU;23|
@@ -1958,16 +1960,20 @@
               (641 . |li_int|) '|denint_li| (648 . |poly_int|) '|denint_poly|
               (|Record| (|:| |answer| 46) (|:| |logpart| 46) (|:| |ir| 55))
               (|Mapping| 210 46) (655 . |primintegrate|) (663 . |union|)
-              (669 . |expintegrate|) (|Record| (|:| |answer| 182) (|:| |a0| 7))
-              (|Union| 215 '"failed") (677 . |primlimitedint|) (|List| 32)
-              (685 . |concat|) (691 . |explimitedint|))
-           '#(|lflimitedint| 699 |lfintegrate| 706 |lfinfieldint| 712
-              |lfextlimint| 718 |lfextendedint| 726)
+              (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |primpart| 7)
+                        (|:| |sol?| 10))
+              (|ElementaryRischDEX2| 6 7) (669 . |risch_de_ext|)
+              (|Mapping| 214 40 7) (679 . |expintegrate|)
+              (|Record| (|:| |answer| 182) (|:| |a0| 7))
+              (|Union| 219 '"failed") (687 . |primlimitedint|) (|List| 32)
+              (695 . |concat|) (701 . |explimitedint|))
+           '#(|lflimitedint| 709 |lfintegrate| 716 |lfinfieldint| 722
+              |lfextlimint| 728 |lfextendedint| 736)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 220
+                             (|makeByteWordVec2| 224
                                                  '(2 12 10 0 11 13 1 12 14 0 15
                                                    2 14 10 0 11 16 1 12 17 0 18
                                                    2 7 0 0 11 19 2 7 20 0 21 22
@@ -2033,10 +2039,11 @@
                                                    202 203 204 11 206 3 205 202
                                                    203 204 11 208 4 49 45 46 47
                                                    211 193 212 2 141 119 119
-                                                   119 213 4 49 45 46 47 211
-                                                   198 214 4 49 216 46 47 193
-                                                   184 217 2 218 0 0 0 219 4 49
-                                                   216 46 47 198 184 220 3 0 34
+                                                   119 213 6 215 214 40 7 7 11
+                                                   41 42 216 4 49 45 46 47 211
+                                                   217 218 4 49 220 46 47 193
+                                                   184 221 2 222 0 0 0 223 4 49
+                                                   220 46 47 198 184 224 3 0 34
                                                    7 11 17 35 2 0 53 7 11 58 2
                                                    0 187 7 11 188 4 0 37 7 11
                                                    12 119 190 3 0 37 7 11 7
