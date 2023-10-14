@@ -2089,10 +2089,11 @@
 (DEFUN |ElementaryFunction!20| (|x| $)
   (SPADCALL
    (SPADCALL
-    (SPADCALL |x|
+    (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
               (SPADCALL
-               (SPADCALL (|spadConstant| $ 48) (SPADCALL |x| 2 (QREFELT $ 118))
-                         (QREFELT $ 120))
+               (SPADCALL
+                (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118)) (QREFELT $ 121))
+                (|spadConstant| $ 48) (QREFELT $ 120))
                (QREFELT $ 50))
               (QREFELT $ 122))
     (QREFELT $ 121))
@@ -2101,10 +2102,11 @@
 (DEFUN |ElementaryFunction!19| (|x| $)
   (SPADCALL
    (SPADCALL
-    (SPADCALL |x|
+    (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
               (SPADCALL
-               (SPADCALL (|spadConstant| $ 48) (SPADCALL |x| 2 (QREFELT $ 118))
-                         (QREFELT $ 119))
+               (SPADCALL
+                (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118)) (QREFELT $ 121))
+                (|spadConstant| $ 48) (QREFELT $ 119))
                (QREFELT $ 50))
               (QREFELT $ 122))
     (QREFELT $ 121))
@@ -2163,9 +2165,11 @@
 (DEFUN |ElementaryFunction!10| (|x| $)
   (SPADCALL
    (SPADCALL
-    (SPADCALL |x|
+    (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
               (SPADCALL
-               (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118)) (|spadConstant| $ 48)
+               (SPADCALL (|spadConstant| $ 48)
+                         (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
+                                   (QREFELT $ 121))
                          (QREFELT $ 119))
                (QREFELT $ 50))
               (QREFELT $ 122))
@@ -2174,9 +2178,11 @@
 
 (DEFUN |ElementaryFunction!9| (|x| $)
   (SPADCALL
-   (SPADCALL |x|
+   (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
              (SPADCALL
-              (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118)) (|spadConstant| $ 48)
+              (SPADCALL (|spadConstant| $ 48)
+                        (SPADCALL (SPADCALL |x| 2 (QREFELT $ 118))
+                                  (QREFELT $ 121))
                         (QREFELT $ 119))
               (QREFELT $ 50))
              (QREFELT $ 122))
