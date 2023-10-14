@@ -310,7 +310,6 @@
 ; scanPunCons()==
 ;     listing := HKEYS scanKeyTable
 ;     a := make_BVEC(256, 0)
-; --  SETSIZE(a,256)
 ;     for i in 0..255 repeat SETELT_BVEC(a, i, 0)
 ;     for k in listing repeat
 ;        if not startsId? k.0 then
@@ -698,8 +697,7 @@
  
 (DEFUN |lfkey| (|x|) (PROG () (RETURN (LIST '|key| (|keyword| |x|)))))
  
-; lfinteger x==
-;            ["integer",x]
+; lfinteger x == ["integer", x]
  
 (DEFUN |lfinteger| (|x|) (PROG () (RETURN (LIST '|integer| |x|))))
  
