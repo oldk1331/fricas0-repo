@@ -240,6 +240,7 @@
 ;   -- put target info on args for certain operations
 ;   target = $OutputForm => NIL
 ;   target = $Any        => NIL
+;   target is ['Union, dom, tag] and tag = '"failed" => NIL
 ;   n := LENGTH arglist
 ;   pushDownOnArithmeticVariables(op,target,arglist)
 ;   (pdArgs := pushDownOp?(op,n)) =>
@@ -277,10 +278,21 @@
 ;   NIL
  
 (DEFUN |pushDownTargetInfo| (|op| |target| |arglist|)
-  (PROG (|n| |pdArgs| |x| |nargs| |ISTMP#1| S |targ|)
+  (PROG (|ISTMP#1| |dom| |ISTMP#2| |tag| |n| |pdArgs| |x| |nargs| S |targ|)
     (RETURN
      (COND ((EQUAL |target| |$OutputForm|) NIL) ((EQUAL |target| |$Any|) NIL)
-           (#1='T
+           ((AND (CONSP |target|) (EQ (CAR |target|) '|Union|)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |target|))
+                  (AND (CONSP |ISTMP#1|)
+                       (PROGN
+                        (SETQ |dom| (CAR |ISTMP#1|))
+                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                        (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
+                             (PROGN (SETQ |tag| (CAR |ISTMP#2|)) #1='T)))))
+                 (EQUAL |tag| "failed"))
+            NIL)
+           (#1#
             (PROGN
              (SETQ |n| (LENGTH |arglist|))
              (|pushDownOnArithmeticVariables| |op| |target| |arglist|)
