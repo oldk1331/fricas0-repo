@@ -349,7 +349,7 @@
  
 ; checkPmParse parse ==
 ;   STRINGP parse => parse
-;   fn parse => parse where fn(u) ==
+;   (fn parse => parse) where fn(u) ==
 ;     u is [op,:args] =>
 ;       MEMQ(op,'(and or not)) and and/[checkPmParse x for x in args]
 ;     STRINGP u => true
@@ -359,7 +359,8 @@
 (DEFUN |checkPmParse| (|parse|)
   (PROG ()
     (RETURN
-     (COND ((STRINGP |parse|) |parse|) ((|fn| |parse|) |parse|) ('T NIL)))))
+     (COND ((STRINGP |parse|) |parse|) ((|checkPmParse,fn| |parse|) |parse|)
+           ('T NIL)))))
 (DEFUN |checkPmParse,fn| (|u|)
   (PROG (|op| |args|)
     (RETURN
