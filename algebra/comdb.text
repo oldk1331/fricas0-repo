@@ -1578,9 +1578,9 @@
 144173`\spad{chvar(f(x,{}y),{} p(x,{}y))} returns \spad{[g(z,{}t),{} q(z,{}t),{} c1(x),{} c2(x),{} n]} such that under the change of variable \spad{z = c1(x)},{} \spad{t = y * c2(x)},{} one gets \spad{f(x,{}y) = c1'(x)g(c1(x),{}c2(x)y)} The algebraic relation between \spad{x} and \spad{y} is \spad{p(x,{} y) = 0}. The algebraic relation between \spad{z} and \spad{t} is
 144173`-- \spad{q(z,{} t) = 0}.
 144317`\spad{\spad{Ci}(f)} denotes the cosine integral
-144392`\spad{\spad{Ci}(f)} denotes the cosine integral
-144441`\spad{\spad{Ci}(f)} denotes the cosine integral
-144498`\spad{\spad{Ci}(x)} returns the cosine integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{cos(x) / x dx}.
+144366`\spad{\spad{Ci}(x)} returns the cosine integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{cos(x) / x dx}.
+144420`\spad{\spad{Ci}(f)} denotes the cosine integral
+144495`\spad{\spad{Ci}(f)} denotes the cosine integral
 144552`\axiom{class(\spad{jv})} yields the class of the jet variable \axiom{\spad{jv}} (Class of multi-index for derivative,{} 0 else).
 144615`\axiom{class(\spad{f})} is defined as the highest class of the jet variables effectively occurring in \axiom{\spad{f}}.
 144690`\axiom{class(ind)} yields the class of the multi-index \axiom{ind} (Position for first non-vanishing entry).
@@ -2844,9 +2844,9 @@
 293572`to allow entries like: ee[1,{}2]
 293643`\spad{eFromBinaryMap(n)} sets the appropriate Grassmann basis,{} for example: eFromBinaryMap(0) = 1 (scalar) eFromBinaryMap(1) = \spad{e1} eFromBinaryMap(2) = \spad{e2} eFromBinaryMap(3) = e1/\e2
 293723`\spad{\spad{Ei}(f)} denotes the exponential integral
-293798`\spad{\spad{Ei}(f)} denotes the exponential integral
-293847`\spad{\spad{Ei}(f)} denotes the exponential integral
-293904`\spad{\spad{Ei}(x)} returns the exponential integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{exp(x)/x dx}.
+293772`\spad{\spad{Ei}(x)} returns the exponential integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{exp(x)/x dx}.
+293826`\spad{\spad{Ei}(f)} denotes the exponential integral
+293901`\spad{\spad{Ei}(f)} denotes the exponential integral
 293958`\spad{eigenMatrix(m)} returns the matrix \spad{b} such that \spad{b*m*(inverse b)} is diagonal,{} or "failed" if no such \spad{b} exists.
 294089`\spad{eigenvalues(m)} returns the eigenvalues of the matrix \spad{m} which are expressible as rational functions over the rational numbers.
 294234`\spad{eigenvector(eigval,{}m)} returns the eigenvectors belonging to the eigenvalue \spad{eigval} for the matrix \spad{m}.
@@ -2999,9 +2999,9 @@
 309628`\spad{equation(v,{}a..b)} creates a segment binding value with variable \spad{v} and segment \spad{a..b}. Note that the interpreter parses \spad{v=a..b} to this form.
 309693`\spad{equation(s,{}"a")} creates a new equation.
 309750`\spad{erf(f)} denotes the error function
-309826`\spad{erf(f)} denotes the error function
-309876`\spad{erf(f)} denotes the error function
-309934`\spad{erf(x)} returns the error function of \spad{x},{} \spadignore{i.e.} \spad{2 / sqrt(\%\spad{pi})} times the integral of \spad{exp(-x^2) dx}.
+309800`\spad{erf(x)} returns the error function of \spad{x},{} \spadignore{i.e.} \spad{2 / sqrt(\%\spad{pi})} times the integral of \spad{exp(-x^2) dx}.
+309855`\spad{erf(f)} denotes the error function
+309931`\spad{erf(f)} denotes the error function
 309989`\spad{error(lmsg)} displays error message \spad{lmsg} and terminates.
 310045`\spad{error(msg)} displays error message \spad{msg} and terminates.
 310095`\spad{error(nam,{}lmsg)} displays error messages \spad{lmsg} preceded by a message containing the name \spad{nam} of the function in which the error is contained.
@@ -3405,13 +3405,13 @@
 356585`\spad{freePoissonDistribution(a)} produces a free Poisson distribution of variance \spad{a}.
 356667`the variable indicated by \spad{'s'} is free if it does not appear in node \spad{'n'} or any of its subnodes.
 356731`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
-356812`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
-356867`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
-356930`fresnelC is the Fresnel integral \spad{C},{} defined by \spad{C(x) = integrate(cos(\%pi*t^2/2),{}t=0..x)}
+356786`fresnelC is the Fresnel integral \spad{C},{} defined by \spad{C(x) = integrate(cos(\%pi*t^2/2),{}t=0..x)}
+356846`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
+356927`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
 356990`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
-357071`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
-357126`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
-357189`fresnelS is the Fresnel integral \spad{S},{} defined by \spad{S(x) = integrate(sin(\%pi*t^2/2),{}t=0..x)}
+357045`fresnelS is the Fresnel integral \spad{S},{} defined by \spad{S(x) = integrate(sin(\%pi*t^2/2),{}t=0..x)}
+357105`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
+357186`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
 357249`\spad{frobenius(x)} \undocumented
 357324`\spad{Frobenius(x)} \undocumented
 357447`\spad{Frobenius(a)} returns \spad{a ^ q} where \spad{q} is the \spad{size()\$F}.
@@ -4498,9 +4498,9 @@
 485419`\spad{lhs(r)} returns the left hand side of the rule \spad{r}.
 485467`\spad{lhs(eqn)} returns the left hand side of equation \spad{eqn}.
 485505`\spad{\spad{li}(f)} denotes the logarithmic integral
-485580`\spad{\spad{li}(f)} denotes the logarithmic integral
-485629`\spad{\spad{li}(f)} denotes the logarithmic integral
-485686`\spad{\spad{li}(x)} returns the logarithmic integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{dx / log(x)}.
+485554`\spad{\spad{li}(x)} returns the logarithmic integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{dx / log(x)}.
+485608`\spad{\spad{li}(f)} denotes the logarithmic integral
+485683`\spad{\spad{li}(f)} denotes the logarithmic integral
 485740`\spad{li2(z)} is polylog(2,{} \spad{z})
 485813`\spad{library(ln)} creates a new library file.
 485858`\axiom{lie(\spad{v},{} \spad{w})} calculates the Lie derivative of \axiom{\spad{w}} with respect to \axiom{\spad{v}}. (This yields the commutator of the fields.)
@@ -7111,9 +7111,9 @@
 764116`\spad{shuffle(l1,{}l2)} forms the stream of all shuffles of \spad{l1} \indented{1}{and \spad{l2},{} \spadignore{i.e.} all sequences that can be formed from} \indented{1}{merging \spad{l1} and \spad{l2}.}
 764218`\spad{shufflein(l,{}st)} maps shuffle(\spad{l},{}\spad{u}) on to all \indented{1}{members \spad{u} of \spad{st},{} concatenating the results.}
 764330`\spad{\spad{Si}(f)} denotes the sine integral
-764406`\spad{\spad{Si}(f)} denotes the sine integral
-764456`\spad{\spad{Si}(f)} denotes the sine integral
-764514`\spad{\spad{Si}(x)} returns the sine integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{sin(x) / x dx}.
+764380`\spad{\spad{Si}(x)} returns the sine integral of \spad{x},{} \spadignore{i.e.} the integral of \spad{sin(x) / x dx}.
+764435`\spad{\spad{Si}(f)} denotes the sine integral
+764511`\spad{\spad{Si}(f)} denotes the sine integral
 764569`\spad{sierpinskiDivide(me,{}level)} for each edge of each face calculate a new point in the centre of the edge,{} then build a new set of faces which include the new points.
 764642`\spad{sign(r)} \undocumented
 764750`\spad{sign(x)} is 1 if \spad{x} is positive,{} \spad{-1} if \spad{x} is negative,{} 0 if \spad{x} equals 0.

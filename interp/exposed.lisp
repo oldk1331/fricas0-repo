@@ -128,6 +128,7 @@
   (|FlexibleArray| . FARRAY)
   (|Float| . FLOAT)
   (|FloatEllipticFunctions| . FELFUN)
+  (|FloatLiouvilianFunctions| . FLIOUFUN)
   (|FloatingRealPackage| . FLOATRP)
   (|FloatingComplexPackage| . FLOATCP)
   (|FloatSpecialFunctions| . FSFUN)
