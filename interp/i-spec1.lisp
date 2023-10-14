@@ -4056,7 +4056,9 @@
 ; declareMap(var,mode) ==
 ;   -- declare a Mapping property
 ;   (v := get(var, 'value, $e)) and objVal(v) isnt ['SPADMAP, :.] =>
-;     throwKeyedMsg("S2IS0019",[var])
+;       objMode(v) = mode => putHist(var, 'mode, mode, $e)
+;       mode = get(var, 'mode, $e) => nil
+;       throwKeyedMsg("S2IS0019", [var])
 ;   isPartialMode mode => throwKeyedMsg("S2IM0004",NIL)
 ;   putHist(var,'mode,mode,$e)
  
@@ -4069,9 +4071,12 @@
              (PROGN
               (SETQ |ISTMP#1| (|objVal| |v|))
               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'SPADMAP)))))
-       (|throwKeyedMsg| 'S2IS0019 (LIST |var|)))
+       (COND
+        ((EQUAL (|objMode| |v|) |mode|) (|putHist| |var| '|mode| |mode| |$e|))
+        ((EQUAL |mode| (|get| |var| '|mode| |$e|)) NIL)
+        (#1='T (|throwKeyedMsg| 'S2IS0019 (LIST |var|)))))
       ((|isPartialMode| |mode|) (|throwKeyedMsg| 'S2IM0004 NIL))
-      ('T (|putHist| |var| '|mode| |mode| |$e|))))))
+      (#1# (|putHist| |var| '|mode| |mode| |$e|))))))
  
 ; containsLocalVar(tree) ==
 ;     or/[CONTAINED(var, tree) for var in $localVars] or
