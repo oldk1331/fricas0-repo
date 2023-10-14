@@ -890,8 +890,8 @@
  |RittWuCompare| |mainMonomials| |mainCoefficients| |leastMonomial|
  |mainMonomial| |quasiMonic?| |monic?| |deepestInitial| |iteratedInitials|
  |deepestTail| |head| |mdeg| |mvar| |relativeApprox| |rootOf| |allRootsOf|
- |definingPolynomial| |positive?| |negative?| |zero?| |augment|
- |lastSubResultant| |lastSubResultantElseSplit| |invertibleSet| |invertible?|
+ |definingPolynomial| |positive?| |negative?| |augment| |lastSubResultant|
+ |lastSubResultantElseSplit| |invertibleSet| |invertible?|
  |invertibleElseSplit?| |purelyAlgebraicLeadingMonomial?|
  |algebraicCoefficients?| |purelyTranscendental?| |purelyAlgebraic?|
  |prepareSubResAlgo| |internalLastSubResultant| |integralLastSubResultant|
@@ -1062,15 +1062,15 @@
  LODO2FUN RF2UTS |seriesSolve| |parseVarTerm| |parseVar| |toString| |getType|
  |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
  |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |magnitude| |length| |cross| |outerProduct| |dot| - |zero| |vector| |scan|
- |reduce| |graphCurves| |drawCurves| |update| |show| |scale| |connect| |region|
- |points| |units| |getGraph| |putGraph| |graphs| |graphStates| |graphState|
- |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close| |write|
- |colorDef| |reset| |intensity| |lighting| |clipSurface| |showClipRegion|
- |showRegion| |hitherPlane| |eyeDistance| |perspective| |translate| |zoom|
- |rotate| |drawStyle| |outlineRender| |diagonals| |axes| |controlPanel|
- |viewpoint| |dimensions| |title| |resize| |move| |options| |modifyPointData|
- |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
+ |magnitude| |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector|
+ |scan| |reduce| |graphCurves| |drawCurves| |update| |show| |scale| |connect|
+ |region| |points| |units| |getGraph| |putGraph| |graphs| |graphStates|
+ |graphState| |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close|
+ |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
+ |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
+ |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
+ |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
+ |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
  |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
  |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
  |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|

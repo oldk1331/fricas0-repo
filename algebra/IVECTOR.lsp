@@ -127,8 +127,8 @@
               (|NonNegativeInteger|) (|Boolean|) (|List| 6) (|Equation| 6)
               (|List| 12) (|Integer|) (|Mapping| 10 6) (|Mapping| 10 6 6)
               (|UniversalSegment| 14) (|Void|) (|Mapping| 6 6) (|OutputForm|)
-              (|InputForm|) (|Matrix| 6) (|SingleInteger|) (|String|)
-              (|HashState|) (|List| $) (|Union| 6 '"failed") (|List| 14))
+              (|InputForm|) (|Matrix| 6) (|HashState|) (|SingleInteger|)
+              (|String|) (|List| $) (|Union| 6 '"failed") (|List| 14))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 11

@@ -253,8 +253,8 @@
               |MATRIX;diagonalMatrix;V$;14| (|Symbol|) (|InputForm|)
               (97 . |convert|) (|List| 50) (102 . |listOfLists|)
               (107 . |convert|) (|List| $) (112 . |convert|) (117 . |convert|)
-              (|List| 6) (|List| 52) (|Equation| 6) (|Mapping| 13 6)
-              (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
+              (|List| 6) (|Equation| 6) (|List| 51) (|Mapping| 13 6)
+              (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
               (|Void|) (|List| (|List| 25)) (|Union| 6 '"one") (|List| 7)
               (|Mapping| 6 7 7) (|Mapping| 6 6 6) (|Mapping| 6 6))
            '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|

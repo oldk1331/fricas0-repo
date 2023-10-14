@@ -143,8 +143,8 @@
               (25 . |convert|) (|Mapping| 6 6 6) (|NonNegativeInteger|)
               (|Boolean|) (|Equation| 6) (|List| 24) (|Mapping| 23 6)
               (|Mapping| 23 6 6) (|UniversalSegment| 7) (|Void|)
-              (|Mapping| 6 6) (|OutputForm|) (|Matrix| 6) (|HashState|)
-              (|SingleInteger|) (|String|) (|Union| 6 '"failed") (|List| 7))
+              (|Mapping| 6 6) (|OutputForm|) (|Matrix| 6) (|SingleInteger|)
+              (|HashState|) (|String|) (|Union| 6 '"failed") (|List| 7))
            '#(|vector| 30 |qsetelt!| 35 |qelt| 42 |parts| 48 |convert| 53
               |construct| 58)
            'NIL
