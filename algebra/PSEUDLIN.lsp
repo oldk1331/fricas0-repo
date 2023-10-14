@@ -35,19 +35,23 @@
         (|PSEUDLIN;normalForm0| M |sig| (SPADCALL |sig| (QREFELT $ 17)) |der|
          $)) 
 
-(SDEFUN |PSEUDLIN;companionBlocks;MVL;4|
-        ((R |Matrix| K) (|w| |Vector| K)
-         ($ |List| (|Record| (|:| C (|Matrix| K)) (|:| |g| (|Vector| K)))))
+(SDEFUN |PSEUDLIN;companionBlocks;MLL;4|
+        ((R |Matrix| K) (|lw| |List| (|Vector| K))
+         ($ |List|
+          (|Record| (|:| C (|Matrix| K)) (|:| |lg| (|List| (|Vector| K))))))
         (SPROG
          ((|i| #1=(|Integer|))
-          (|l| (|List| (|Record| (|:| C (|Matrix| K)) (|:| |g| (|Vector| K)))))
-          (#2=#:G154 NIL) (|k| NIL) (|v| (|Vector| K)) (#3=#:G146 NIL)
+          (|l|
+           (|List|
+            (|Record| (|:| C (|Matrix| K)) (|:| |lg| (|List| (|Vector| K))))))
+          (|lv| (|List| (|Vector| K))) (#2=#:G157 NIL) (|k| NIL)
+          (|v| (|Vector| K)) (#3=#:G146 NIL) (#4=#:G156 NIL) (|w| NIL)
           (|j| #1#) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |i| 1 . #4=(|PSEUDLIN;companionBlocks;MVL;4|))
-              (LETT |n| (ANROWS R) . #4#) (LETT |l| NIL . #4#)
+         (SEQ (LETT |i| 1 . #5=(|PSEUDLIN;companionBlocks;MLL;4|))
+              (LETT |n| (ANROWS R) . #5#) (LETT |l| NIL . #5#)
               (SEQ G190
                    (COND ((NULL (SPADCALL |i| |n| (QREFELT $ 22))) (GO G191)))
-                   (SEQ (LETT |j| |i| . #4#)
+                   (SEQ (LETT |j| |i| . #5#)
                         (SEQ G190
                              (COND
                               ((NULL
@@ -58,33 +62,45 @@
                                    (|spadConstant| $ 23) (QREFELT $ 25)))
                                  ('T 'NIL)))
                                (GO G191)))
-                             (SEQ (EXIT (LETT |j| (+ |j| 1) . #4#))) NIL
+                             (SEQ (EXIT (LETT |j| (+ |j| 1) . #5#))) NIL
                              (GO G190) G191 (EXIT NIL))
-                        (LETT |v|
-                              (MAKEARR1
-                               (PROG1 (LETT #3# (+ (- |j| |i|) 1) . #4#)
-                                 (|check_subtype2| (>= #3# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   '(|Integer|) #3#))
-                               (|spadConstant| $ 26))
-                              . #4#)
-                        (SEQ (LETT |k| |i| . #4#) (LETT #2# |j| . #4#) G190
-                             (COND ((> |k| #2#) (GO G191)))
+                        (LETT |lv| NIL . #5#)
+                        (SEQ (LETT |w| NIL . #5#) (LETT #4# |lw| . #5#) G190
+                             (COND
+                              ((OR (ATOM #4#)
+                                   (PROGN (LETT |w| (CAR #4#) . #5#) NIL))
+                               (GO G191)))
                              (SEQ
-                              (EXIT
-                               (SPADCALL |v| (+ (- |k| |i|) 1)
-                                         (SPADCALL |w| |k| (QREFELT $ 28))
-                                         (QREFELT $ 29))))
-                             (LETT |k| (+ |k| 1) . #4#) (GO G190) G191
+                              (LETT |v|
+                                    (MAKEARR1
+                                     (PROG1 (LETT #3# (+ (- |j| |i|) 1) . #5#)
+                                       (|check_subtype2| (>= #3# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #3#))
+                                     (|spadConstant| $ 26))
+                                    . #5#)
+                              (SEQ (LETT |k| |i| . #5#) (LETT #2# |j| . #5#)
+                                   G190 (COND ((> |k| #2#) (GO G191)))
+                                   (SEQ
+                                    (EXIT
+                                     (SPADCALL |v| (+ (- |k| |i|) 1)
+                                               (SPADCALL |w| |k|
+                                                         (QREFELT $ 28))
+                                               (QREFELT $ 29))))
+                                   (LETT |k| (+ |k| 1) . #5#) (GO G190) G191
+                                   (EXIT NIL))
+                              (EXIT (LETT |lv| (CONS |v| |lv|) . #5#)))
+                             (LETT #4# (CDR #4#) . #5#) (GO G190) G191
                              (EXIT NIL))
+                        (LETT |lv| (NREVERSE |lv|) . #5#)
                         (LETT |l|
                               (CONS
                                (CONS
                                 (SPADCALL R |i| |j| |i| |j| (QREFELT $ 30))
-                                |v|)
+                                |lv|)
                                |l|)
-                              . #4#)
-                        (EXIT (LETT |i| (+ |j| 1) . #4#)))
+                              . #5#)
+                        (EXIT (LETT |i| (+ |j| 1) . #5#)))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
 
@@ -95,13 +111,13 @@
           (|:| |Ainv| (|Matrix| K))))
         (SPROG
          ((|i| (|Integer|)) (|Binv| (|Matrix| K)) (B (|Matrix| K))
-          (E (|Matrix| K)) (#1=#:G189 NIL) (#2=#:G191 NIL) (|k| NIL)
-          (#3=#:G190 NIL)
+          (E (|Matrix| K)) (#1=#:G192 NIL) (#2=#:G194 NIL) (|k| NIL)
+          (#3=#:G193 NIL)
           (|recOfMatrices|
            (|Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
                      (|:| |Ainv| (|Matrix| K))))
-          (|j| (|Integer|)) (#4=#:G188 NIL) (#5=#:G187 NIL) (#6=#:G183 NIL)
-          (#7=#:G184 NIL) (#8=#:G186 NIL) (#9=#:G185 NIL)
+          (|j| (|Integer|)) (#4=#:G191 NIL) (#5=#:G190 NIL) (#6=#:G186 NIL)
+          (#7=#:G187 NIL) (#8=#:G189 NIL) (#9=#:G188 NIL)
           (N (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -121,14 +137,14 @@
                                    . #10#)
                              (GO G190) G191 (EXIT NIL))
                         #9#)
-                       (QREFELT $ 34))
+                       (QREFELT $ 35))
                       . #10#)
-                (LETT |Binv| (SPADCALL B (QREFELT $ 35)) . #10#)
+                (LETT |Binv| (SPADCALL B (QREFELT $ 36)) . #10#)
                 (COND
-                 ((SPADCALL M (QREFELT $ 36))
+                 ((SPADCALL M (QREFELT $ 37))
                   (PROGN
                    (LETT #6# (VECTOR M B |Binv|) . #10#)
-                   (GO #11=#:G182))))
+                   (GO #11=#:G185))))
                 (LETT |i| 1 . #10#)
                 (SEQ G190 (COND ((NULL (< |i| N)) (GO G191)))
                      (SEQ (LETT |j| (+ |i| 1) . #10#)
@@ -149,7 +165,7 @@
                             ((SPADCALL |j| N (QREFELT $ 22))
                              (SEQ
                               (COND
-                               ((SPADCALL |j| (+ |i| 1) (QREFELT $ 38))
+                               ((SPADCALL |j| (+ |i| 1) (QREFELT $ 39))
                                 (SEQ
                                  (LETT E
                                        (|PSEUDLIN;permutationMatrix| N
@@ -170,7 +186,7 @@
                                                (SPADCALL
                                                 (SPADCALL M |i| (+ |i| 1)
                                                           (QREFELT $ 24))
-                                                (QREFELT $ 39))
+                                                (QREFELT $ 40))
                                                (QREFELT $ 11))
                                      $)
                                     . #10#)
@@ -186,7 +202,7 @@
                                    (SEQ
                                     (EXIT
                                      (COND
-                                      ((SPADCALL |j| (+ |i| 1) (QREFELT $ 38))
+                                      ((SPADCALL |j| (+ |i| 1) (QREFELT $ 39))
                                        (SEQ
                                         (LETT E
                                               (|PSEUDLIN;addMatrix| N (+ |i| 1)
@@ -196,7 +212,7 @@
                                                           (SPADCALL M |i| |j|
                                                                     (QREFELT $
                                                                              24))
-                                                          (QREFELT $ 40))
+                                                          (QREFELT $ 41))
                                                          (QREFELT $ 11))
                                                $)
                                               . #10#)
@@ -288,7 +304,7 @@
                                         . #10#)
                                   (SPADCALL M (+ |i| 1) (+ |i| 1)
                                             (QVELT |recOfMatrices| 0)
-                                            (QREFELT $ 41))
+                                            (QREFELT $ 42))
                                   (LETT E
                                         (SPADCALL
                                          (PROGN
@@ -311,15 +327,15 @@
                                                      . #10#)
                                                (GO G190) G191 (EXIT NIL))
                                           #3#)
-                                         (QREFELT $ 34))
+                                         (QREFELT $ 35))
                                         . #10#)
                                   (SPADCALL E (+ |i| 1) (+ |i| 1)
                                             (QVELT |recOfMatrices| 1)
-                                            (QREFELT $ 41))
+                                            (QREFELT $ 42))
                                   (LETT B (SPADCALL B E (QREFELT $ 14)) . #10#)
                                   (SPADCALL E (+ |i| 1) (+ |i| 1)
                                             (QVELT |recOfMatrices| 2)
-                                            (QREFELT $ 41))
+                                            (QREFELT $ 42))
                                   (LETT |Binv|
                                         (SPADCALL E |Binv| (QREFELT $ 14))
                                         . #10#)
@@ -331,8 +347,8 @@
 (SDEFUN |PSEUDLIN;mulMatrix|
         ((N |Integer|) (|i| |Integer|) (|a| K) ($ |Matrix| K))
         (SPROG
-         ((M (|Matrix| K)) (#1=#:G195 NIL) (#2=#:G197 NIL) (|j| NIL)
-          (#3=#:G196 NIL))
+         ((M (|Matrix| K)) (#1=#:G198 NIL) (#2=#:G200 NIL) (|j| NIL)
+          (#3=#:G199 NIL))
          (SEQ
           (LETT M
                 (SPADCALL
@@ -347,15 +363,15 @@
                              . #4#)
                        (GO G190) G191 (EXIT NIL))
                   #3#)
-                 (QREFELT $ 34))
+                 (QREFELT $ 35))
                 . #4#)
-          (SPADCALL M |i| |i| |a| (QREFELT $ 42)) (EXIT M)))) 
+          (SPADCALL M |i| |i| |a| (QREFELT $ 43)) (EXIT M)))) 
 
 (SDEFUN |PSEUDLIN;addMatrix|
         ((N |Integer|) (|i| |Integer|) (|k| |Integer|) (|a| K) ($ |Matrix| K))
         (SPROG
-         ((A (|Matrix| K)) (#1=#:G201 NIL) (#2=#:G203 NIL) (|j| NIL)
-          (#3=#:G202 NIL))
+         ((A (|Matrix| K)) (#1=#:G204 NIL) (#2=#:G206 NIL) (|j| NIL)
+          (#3=#:G205 NIL))
          (SEQ
           (LETT A
                 (SPADCALL
@@ -370,15 +386,15 @@
                              . #4#)
                        (GO G190) G191 (EXIT NIL))
                   #3#)
-                 (QREFELT $ 34))
+                 (QREFELT $ 35))
                 . #4#)
-          (SPADCALL A |i| |k| |a| (QREFELT $ 42)) (EXIT A)))) 
+          (SPADCALL A |i| |k| |a| (QREFELT $ 43)) (EXIT A)))) 
 
 (SDEFUN |PSEUDLIN;permutationMatrix|
         ((N |Integer|) (|i| |Integer|) (|k| |Integer|) ($ |Matrix| K))
         (SPROG
-         ((P (|Matrix| K)) (#1=#:G207 NIL) (#2=#:G209 NIL) (|j| NIL)
-          (#3=#:G208 NIL))
+         ((P (|Matrix| K)) (#1=#:G210 NIL) (#2=#:G212 NIL) (|j| NIL)
+          (#3=#:G211 NIL))
          (SEQ
           (LETT P
                 (SPADCALL
@@ -393,21 +409,21 @@
                              . #4#)
                        (GO G190) G191 (EXIT NIL))
                   #3#)
-                 (QREFELT $ 34))
+                 (QREFELT $ 35))
                 . #4#)
           (SPADCALL P |i| |i|
-                    (SPADCALL P |k| |k| (|spadConstant| $ 26) (QREFELT $ 42))
-                    (QREFELT $ 42))
+                    (SPADCALL P |k| |k| (|spadConstant| $ 26) (QREFELT $ 43))
+                    (QREFELT $ 43))
           (SPADCALL P |i| |k|
-                    (SPADCALL P |k| |i| (|spadConstant| $ 23) (QREFELT $ 42))
-                    (QREFELT $ 42))
+                    (SPADCALL P |k| |i| (|spadConstant| $ 23) (QREFELT $ 43))
+                    (QREFELT $ 43))
           (EXIT P)))) 
 
 (DECLAIM (NOTINLINE |PseudoLinearNormalForm;|)) 
 
-(DEFUN |PseudoLinearNormalForm| (#1=#:G210)
+(DEFUN |PseudoLinearNormalForm| (#1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G211)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#
@@ -429,7 +445,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|PseudoLinearNormalForm|))
           (LETT |dv$| (LIST '|PseudoLinearNormalForm| DV$1) . #1#)
-          (LETT $ (GETREFV 43) . #1#)
+          (LETT $ (GETREFV 44) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PseudoLinearNormalForm| (LIST DV$1)
@@ -449,8 +465,8 @@
               |PSEUDLIN;normalForm;MAMR;3| (|Boolean|) (|Integer|) (34 . <=)
               (40 . |One|) (44 . |elt|) (51 . =) (57 . |Zero|) (|Vector| 6)
               (61 . |elt|) (67 . |setelt!|) (74 . |subMatrix|)
-              (|Record| (|:| C 8) (|:| |g| 27)) (|List| 31)
-              |PSEUDLIN;companionBlocks;MVL;4| (83 . |diagonalMatrix|)
+              (|Record| (|:| C 8) (|:| |lg| 33)) (|List| 31) (|List| 27)
+              |PSEUDLIN;companionBlocks;MLL;4| (83 . |diagonalMatrix|)
               (88 . |copy|) (93 . |diagonal?|) (98 . |One|) (102 . ~=)
               (108 . |inv|) (113 . -) (118 . |setsubMatrix!|)
               (126 . |setelt!|))
@@ -458,7 +474,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 42
+                             (|makeByteWordVec2| 43
                                                  '(1 8 7 0 9 2 10 6 0 6 11 2 8
                                                    0 12 0 13 2 8 0 0 0 14 2 8 0
                                                    0 0 15 1 10 0 0 17 2 21 20 0
@@ -466,11 +482,11 @@
                                                    24 2 6 20 0 0 25 0 6 0 26 2
                                                    27 6 0 21 28 3 27 6 0 21 6
                                                    29 5 8 0 0 21 21 21 21 30 1
-                                                   8 0 27 34 1 8 0 0 35 1 8 20
-                                                   0 36 0 10 0 37 2 21 20 0 0
-                                                   38 1 6 0 0 39 1 6 0 0 40 4 8
-                                                   0 0 21 21 0 41 4 8 6 0 21 21
-                                                   6 42 3 0 18 8 10 12 19 2 0
-                                                   32 8 27 33 4 0 8 8 8 10 12
+                                                   8 0 27 35 1 8 0 0 36 1 8 20
+                                                   0 37 0 10 0 38 2 21 20 0 0
+                                                   39 1 6 0 0 40 1 6 0 0 41 4 8
+                                                   0 0 21 21 0 42 4 8 6 0 21 21
+                                                   6 43 3 0 18 8 10 12 19 2 0
+                                                   32 8 33 34 4 0 8 8 8 10 12
                                                    16)))))
            '|lookupComplete|)) 
