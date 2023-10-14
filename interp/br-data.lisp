@@ -848,7 +848,7 @@
 ;   $outStream: local := MAKE_-OUTSTREAM '"temp.text"
 ;   $x : local := nil
 ;   $attribute? : local := true     --do not surround first word
-;   pathname := STRCONC(getEnv '"AXIOM",'"/algebra/gloss.text")
+;   pathname := '"gloss.text"
 ;   instream := MAKE_-INSTREAM pathname
 ;   keypath  := '"glosskey.text"
 ;   OBEY STRCONC('"rm -f ",keypath)
@@ -903,7 +903,7 @@
       (SETQ |$outStream| (MAKE-OUTSTREAM "temp.text"))
       (SETQ |$x| NIL)
       (SETQ |$attribute?| T)
-      (SETQ |pathname| (STRCONC (|getEnv| "AXIOM") "/algebra/gloss.text"))
+      (SETQ |pathname| "gloss.text")
       (SETQ |instream| (MAKE-INSTREAM |pathname|))
       (SETQ |keypath| "glosskey.text")
       (OBEY (STRCONC "rm -f " |keypath|))
