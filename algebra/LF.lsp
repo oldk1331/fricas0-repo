@@ -258,7 +258,7 @@
         ('T (|error| "Not a Liouvillian operator")))) 
 
 (DEFUN |LF;pint| (|l| $)
-  (SPADCALL (CONS (SPADCALL '|integral| (QREFELT $ 118)) |l|) (QREFELT $ 119))) 
+  (SPADCALL (CONS (SPADCALL '|integral| (QREFELT $ 119)) |l|) (QREFELT $ 120))) 
 
 (DEFUN |LF;inint| (|l| $)
   (PROG (|r2|)
@@ -266,31 +266,31 @@
      (SEQ
       (LETT |r2|
             (SPADCALL
-             (LIST (SPADCALL '|::| (QREFELT $ 118))
-                   (SPADCALL (SPADCALL |l| (QREFELT $ 49)) (QREFELT $ 120))
-                   (SPADCALL '|Symbol| (QREFELT $ 118)))
-             (QREFELT $ 119))
+             (LIST (SPADCALL '|::| (QREFELT $ 119))
+                   (SPADCALL (SPADCALL |l| (QREFELT $ 49)) (QREFELT $ 121))
+                   (SPADCALL '|Symbol| (QREFELT $ 119)))
+             (QREFELT $ 120))
             |LF;inint|)
       (EXIT
-       (|LF;pint| (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 120)) |r2|)
+       (|LF;pint| (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 121)) |r2|)
         $)))))) 
 
 (DEFUN |LF;indint| (|l| $)
   (|LF;pint|
-   (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 120))
+   (LIST (SPADCALL (|LF;integrand| |l| $) (QREFELT $ 121))
          (SPADCALL
-          (CONS (SPADCALL '= (QREFELT $ 118))
-                (LIST (SPADCALL (SPADCALL |l| (QREFELT $ 49)) (QREFELT $ 120))
+          (CONS (SPADCALL '= (QREFELT $ 119))
+                (LIST (SPADCALL (SPADCALL |l| (QREFELT $ 49)) (QREFELT $ 121))
                       (SPADCALL
-                       (CONS (SPADCALL 'SEGMENT (QREFELT $ 118))
+                       (CONS (SPADCALL 'SEGMENT (QREFELT $ 119))
                              (LIST
                               (SPADCALL (SPADCALL (CDR |l|) (QREFELT $ 49))
-                                        (QREFELT $ 120))
+                                        (QREFELT $ 121))
                               (SPADCALL
                                (SPADCALL (CDR (CDR |l|)) (QREFELT $ 49))
-                               (QREFELT $ 120))))
-                       (QREFELT $ 119))))
-          (QREFELT $ 119)))
+                               (QREFELT $ 121))))
+                       (QREFELT $ 120))))
+          (QREFELT $ 120)))
    $)) 
 
 (DEFUN |LiouvillianFunction| (&REST #1=#:G264)
@@ -321,7 +321,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|LiouvillianFunction|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|LiouvillianFunction| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 121) . #1#)
+      (LETT $ (GETREFV 122) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|LiouvillianFunction| (LIST DV$1 DV$2)
@@ -371,29 +371,39 @@
       (SPADCALL (QREFELT $ 26) (CONS #'|LiouvillianFunction!7| $)
                 (QREFELT $ 104))
       (SPADCALL (QREFELT $ 16) '|%specialEqual|
-                (CONS (|function| |LF;eqint|) $) (QREFELT $ 116))
+                (CONS (|function| |LF;eqint|) $) (QREFELT $ 117))
       (SPADCALL (QREFELT $ 16) '|%specialDiff| (CONS (|function| |LF;dvint|) $)
-                (QREFELT $ 116))
+                (QREFELT $ 117))
       (SPADCALL (QREFELT $ 17) '|%specialDiff|
-                (CONS (|function| |LF;dviint|) $) (QREFELT $ 116))
+                (CONS (|function| |LF;dviint|) $) (QREFELT $ 117))
       (SPADCALL (QREFELT $ 18) '|%specialDiff|
-                (CONS (|function| |LF;dvdint|) $) (QREFELT $ 116))
+                (CONS (|function| |LF;dvdint|) $) (QREFELT $ 117))
       (SPADCALL (QREFELT $ 18) '|%specialDisp| (CONS (|function| |LF;ddint|) $)
-                (QREFELT $ 116))
+                (QREFELT $ 117))
       (COND
        ((|HasCategory| |#1| '(|ConvertibleTo| (|InputForm|)))
         (PROGN
          (SPADCALL (QREFELT $ 16) '|%specialInput|
-                   (CONS (|function| |LF;inint|) $) (QREFELT $ 116))
+                   (CONS (|function| |LF;inint|) $) (QREFELT $ 117))
          (SPADCALL (QREFELT $ 18) '|%specialInput|
-                   (CONS (|function| |LF;indint|) $) (QREFELT $ 116)))))
+                   (CONS (|function| |LF;indint|) $) (QREFELT $ 117)))))
       $)))) 
 
 (DEFUN |LiouvillianFunction!7| (|z1| $)
-  (SPADCALL (SPADCALL |z1| 2 (QREFELT $ 110)) (QREFELT $ 105))) 
+  (SPADCALL
+   (SPADCALL
+    (SPADCALL (SPADCALL (QREFELT $ 113)) (SPADCALL |z1| 2 (QREFELT $ 110))
+              (QREFELT $ 73))
+    (SPADCALL 2 (QREFELT $ 115)) (QREFELT $ 103))
+   (QREFELT $ 105))) 
 
 (DEFUN |LiouvillianFunction!6| (|z1| $)
-  (SPADCALL (SPADCALL |z1| 2 (QREFELT $ 110)) (QREFELT $ 102))) 
+  (SPADCALL
+   (SPADCALL
+    (SPADCALL (SPADCALL (QREFELT $ 113)) (SPADCALL |z1| 2 (QREFELT $ 110))
+              (QREFELT $ 73))
+    (SPADCALL 2 (QREFELT $ 115)) (QREFELT $ 103))
+   (QREFELT $ 102))) 
 
 (DEFUN |LiouvillianFunction!5| (|z1| $)
   (SPADCALL (SPADCALL |z1| (QREFELT $ 107))
@@ -449,16 +459,17 @@
               (264 . |evaluate|) (270 . |sin|) (275 . /) (281 . |derivative|)
               (287 . |cos|) (292 . |exp|) (297 . |log|) (302 . |inv|)
               (|PositiveInteger|) (307 . ^) (313 . -) (318 . *) (324 . |pi|)
-              (328 . |sqrt|) (|None|) (333 . |setProperty|) (|InputForm|)
-              (340 . |convert|) (345 . |convert|) (350 . |convert|))
-           '#(|operator| 355 |li| 360 |integral| 365 |fresnelS| 377 |fresnelC|
-              382 |erf| 387 |dilog| 392 |belong?| 397 |Si| 402 |Ei| 407 |Ci|
-              412)
+              (328 . |sqrt|) (333 . |coerce|) (|None|) (338 . |setProperty|)
+              (|InputForm|) (345 . |convert|) (350 . |convert|)
+              (355 . |convert|))
+           '#(|operator| 360 |li| 365 |integral| 370 |fresnelS| 382 |fresnelC|
+              387 |erf| 392 |dilog| 397 |belong?| 402 |Si| 407 |Ei| 412 |Ci|
+              417)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 120
+                             (|makeByteWordVec2| 121
                                                  '(0 9 0 10 1 7 0 9 11 1 14 13
                                                    9 15 2 7 0 13 0 27 2 13 36 0
                                                    9 37 1 7 36 0 39 0 7 0 40 2
@@ -487,13 +498,13 @@
                                                    1 7 0 0 106 1 7 0 0 107 1 7
                                                    0 0 108 2 7 0 0 109 110 1 7
                                                    0 0 111 2 7 0 109 0 112 0 7
-                                                   0 113 1 7 0 0 114 3 13 0 0 9
-                                                   115 116 1 9 117 0 118 1 117
-                                                   0 54 119 1 7 117 0 120 1 0
-                                                   13 13 96 1 0 7 7 32 2 0 7 7
-                                                   87 93 2 0 7 7 9 56 1 0 7 7
-                                                   34 1 0 7 7 35 1 0 7 7 31 1 0
-                                                   7 7 33 1 0 36 13 38 1 0 7 7
-                                                   28 1 0 7 7 30 1 0 7 7
-                                                   29)))))
+                                                   0 113 1 7 0 0 114 1 7 0 68
+                                                   115 3 13 0 0 9 116 117 1 9
+                                                   118 0 119 1 118 0 54 120 1 7
+                                                   118 0 121 1 0 13 13 96 1 0 7
+                                                   7 32 2 0 7 7 87 93 2 0 7 7 9
+                                                   56 1 0 7 7 34 1 0 7 7 35 1 0
+                                                   7 7 31 1 0 7 7 33 1 0 36 13
+                                                   38 1 0 7 7 28 1 0 7 7 30 1 0
+                                                   7 7 29)))))
            '|lookupComplete|)) 

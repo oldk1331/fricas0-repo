@@ -3333,9 +3333,9 @@
 351248`\spad{freePoissonDistribution(a)} produces a free Poisson distribution of variance \spad{a}.
 351330`the variable indicated by \spad{'s'} is free if it does not appear in node \spad{'n'} or any of its subnodes.
 351394`\spad{fresnelC(f)} denotes the Fresnel integral \spad{C}
-351449`fresnelC is the Fresnel integral \spad{C},{} defined by \spad{C(x) = integrate(cos(t^2),{}t=0..x)}
+351449`fresnelC is the Fresnel integral \spad{C},{} defined by \spad{C(x) = integrate(cos(\%pi*t^2/2),{}t=0..x)}
 351509`\spad{fresnelS(f)} denotes the Fresnel integral \spad{S}
-351564`fresnelS is the Fresnel integral \spad{S},{} defined by \spad{S(x) = integrate(sin(t^2),{}t=0..x)}
+351564`fresnelS is the Fresnel integral \spad{S},{} defined by \spad{S(x) = integrate(sin(\%pi*t^2/2),{}t=0..x)}
 351624`\spad{frobenius(x)} \undocumented
 351699`\spad{Frobenius(x)} \undocumented
 351822`\spad{Frobenius(a)} returns \spad{a ^ q} where \spad{q} is the \spad{size()\$F}.
