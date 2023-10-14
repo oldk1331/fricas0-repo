@@ -10,15 +10,6 @@
 ;   t1 = t2 => triple
 ;   val := objVal triple
 ; 
-;   -- if request is for a coerce to t2 from a coerce from
-;   -- to to t1, and t1 = Void or canCoerce(t0,t2), then optimize
-; 
-;   (val is ['coerceOrCroak,trip,t1', .]) and
-;     (t0 := objCodeMode trip) and ([.,val0] := objCodeVal trip) and
-;       ( (t1 = $Void) or canCoerceFrom(removeQuote t0,t2) ) =>
-;          -- just generate code for coercion, don't coerce constants
-;          -- might be too big
-;          intCodeGenCOERCE(objNew(val0, removeQuote t0), t2)
 ; 
 ;   val is ['THROW,label,code] =>
 ;     if label is ['QUOTE, l] then label := l
@@ -80,10 +71,21 @@
 ;   -- 2. Set up a failure point otherwise
 ; 
 ;   intCodeGenCoerce1(val,t1,t2)
+; 
+; intCodeGenCoerce1(val,t1,t2) ==
+;   -- Internal function to previous one
+;   -- designed to ensure that we don't use coerceOrCroak on mappings
+; --(t2 is ['Mapping,:.]) => THROW('coerceOrCroaker, 'croaked)
+;   objNew(['coerceOrCroak,mkObjCode(['wrap,val],t1),
+;         MKQ t2, MKQ $mapName],t2)
+; 
+; --% Map components
+; 
+; wrapMapBodyWithCatch body ==
  
 (DEFUN |intCodeGenCOERCE| (|triple| |t2|)
-  (PROG (|t1| |val| |ISTMP#1| |trip| |ISTMP#2| |t1'| |ISTMP#3| |t0| |LETTMP#1|
-         |val0| |label| |code| |l| |lastCode| |conds| |p| |v| |val'| |pred|)
+  (PROG (|t1| |val| |ISTMP#1| |label| |ISTMP#2| |code| |l| |lastCode| |conds|
+         |p| |v| |t1'| |val'| |pred|)
     (RETURN
      (PROGN
       (SETQ |t1| (|objMode| |triple|))
@@ -92,28 +94,6 @@
              (PROGN
               (SETQ |val| (|objVal| |triple|))
               (COND
-               ((AND (CONSP |val|) (EQ (CAR |val|) '|coerceOrCroak|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |val|))
-                      (AND (CONSP |ISTMP#1|)
-                           (PROGN
-                            (SETQ |trip| (CAR |ISTMP#1|))
-                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|)
-                                 (PROGN
-                                  (SETQ |t1'| (CAR |ISTMP#2|))
-                                  (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                                  (AND (CONSP |ISTMP#3|)
-                                       (EQ (CDR |ISTMP#3|) NIL)))))))
-                     (SETQ |t0| (|objCodeMode| |trip|))
-                     (PROGN
-                      (SETQ |LETTMP#1| (|objCodeVal| |trip|))
-                      (SETQ |val0| (CADR |LETTMP#1|))
-                      |LETTMP#1|)
-                     (OR (EQUAL |t1| |$Void|)
-                         (|canCoerceFrom| (|removeQuote| |t0|) |t2|)))
-                (|intCodeGenCOERCE| (|objNew| |val0| (|removeQuote| |t0|))
-                 |t2|))
                ((AND (CONSP |val|) (EQ (CAR |val|) 'THROW)
                      (PROGN
                       (SETQ |ISTMP#1| (CDR |val|))
