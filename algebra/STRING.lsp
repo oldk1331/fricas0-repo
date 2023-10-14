@@ -57,7 +57,7 @@
 (DEFUN |String| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1878)
+     (PROG (#1=#:G1882)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
@@ -72,7 +72,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|))))))))))) 
 
 (DEFUN |String;| ()
-  (PROG (|dv$| $ #1=#:G1874 #2=#:G1875 |pv$| #3=#:G1876)
+  (PROG (|dv$| $ #1=#:G1878 #2=#:G1879 |pv$| #3=#:G1880)
     (RETURN
      (PROGN
       (LETT |dv$| '(|String|) . #4=(|String|))

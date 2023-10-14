@@ -85,10 +85,10 @@
                                                             (|#| LJV)
                                                             (|NonNegativeInteger|)))))))))) 
 
-(DEFUN |JetBundlePolynomial| (&REST #1=#:G194)
+(DEFUN |JetBundlePolynomial| (&REST #1=#:G195)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G195)
+     (PROG (#2=#:G196)
        (RETURN
         (COND
          ((LETT #2#
@@ -107,13 +107,13 @@
               (HREM |$ConstructorCache| '|JetBundlePolynomial|))))))))))) 
 
 (DEFUN |JetBundlePolynomial;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G193 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G194 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|JetBundlePolynomial|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|JetBundlePolynomial| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 91) . #2#)
+      (LETT $ (GETREFV 92) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -264,9 +264,10 @@
               (|Union| '"failed" (|List| 64))
               (|Record| (|:| |Sys| 42) (|:| JM 82) (|:| |Depend| 80))
               (|SparseEchelonMatrix| 7 $)
-              (|Record| (|:| |DSys| 42) (|:| |JVars| 38)) (|PositiveInteger|)
-              (|Record| (|:| |DPhi| $) (|:| |JVars| 9)) (|Symbol|)
+              (|Record| (|:| |DPhi| $) (|:| |JVars| 9)) (|PositiveInteger|)
+              (|Record| (|:| |DSys| 42) (|:| |JVars| 38)) (|Symbol|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| 86) (|SingleInteger|) (|String|))
            '#(|variables| 118 |subst| 123 |solveFor| 130 |retract| 136
               |numerator| 141 |jetVariables| 146 |ground?| 151 |groebner| 156
@@ -275,16 +276,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 20
-                                '(0 0 1 0 0 1 0 0 0 0 0 7 20 0 0 0 0 0 0 7 8 9
-                                  20 14 0 0 0 7 0 0 0 0 0 7 7 0 0 0 0 0 0 0 0 2
-                                  3 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 5 6 10 11
-                                  12))
+                                '(0 0 1 0 0 1 0 0 0 0 0 0 7 20 0 0 0 0 0 0 7 8
+                                  9 20 14 0 0 0 7 0 0 0 0 0 7 7 0 0 0 0 0 0 0 0
+                                  2 3 13 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 5 6 10
+                                  11 12))
             (CONS
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |JetBundleFunctionCategory&|
                 |FiniteAbelianMonoidRing&| |UniqueFactorizationDomain&|
                 |AbelianMonoidRing&| |GcdDomain&| NIL
-                |FullyLinearlyExplicitRingOver&| |Algebra&| |Algebra&|
+                |FullyLinearlyExplicitRingOver&| NIL |Algebra&| |Algebra&|
                 |Algebra&| |PartialDifferentialRing&| NIL
                 |PartialDifferentialRing&| |EntireRing&| |Module&| NIL
                 |Module&| NIL NIL |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
@@ -303,7 +304,7 @@
                  (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 6 (|IndexedExponents| 7)) (|GcdDomain|)
                  (|IntegralDomain|) (|FullyLinearlyExplicitRingOver| 6)
-                 (|Algebra| $$) (|Algebra| 51) (|Algebra| 6)
+                 (|LeftOreRing|) (|Algebra| $$) (|Algebra| 51) (|Algebra| 6)
                  (|PartialDifferentialRing| 86) (|LinearlyExplicitRingOver| 6)
                  (|PartialDifferentialRing| 7) (|EntireRing|) (|Module| $$)
                  (|CommutativeRing|) (|Module| 51) (|CharacteristicNonZero|)

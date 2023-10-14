@@ -483,10 +483,10 @@
               'NIL)
              ('T 'T))))))) 
 
-(DEFUN |AlgebraicFunctionField| (&REST #1=#:G295)
+(DEFUN |AlgebraicFunctionField| (&REST #1=#:G296)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G296)
+     (PROG (#2=#:G297)
        (RETURN
         (COND
          ((LETT #2#
@@ -505,7 +505,7 @@
               (HREM |$ConstructorCache| '|AlgebraicFunctionField|))))))))))) 
 
 (DEFUN |AlgebraicFunctionField;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G139 |pv$| #2=#:G293 #3=#:G294 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G139 |pv$| #2=#:G294 #3=#:G295 $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|AlgebraicFunctionField|))
@@ -513,7 +513,7 @@
       (LETT DV$3 (|devaluate| |#3|) . #4#)
       (LETT DV$4 (|devaluate| |#4|) . #4#)
       (LETT |dv$| (LIST '|AlgebraicFunctionField| DV$1 DV$2 DV$3 DV$4) . #4#)
-      (LETT $ (GETREFV 166) . #4#)
+      (LETT $ (GETREFV 167) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -644,23 +644,24 @@
               |ALGFF;integralDerivationMatrix;MR;16| (|Vector| 7)
               (334 . |represents|) |ALGFF;integralRepresents;VUP$;17|
               (|Union| 6 '#1="failed") (340 . |retractIfCan|) (345 . |gcd|)
-              (351 . |ground?|) |ALGFF;branchPoint?;UPB;18| (|List| 130)
-              (|List| 22) (|Symbol|) (|Fraction| 52)
+              (351 . |ground?|) |ALGFF;branchPoint?;UPB;18| (|Symbol|)
+              (|List| 128) (|List| 22) (|Fraction| 52)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|List| $) (|SparseUnivariatePolynomial| $)
-              (|Union| 133 '"failed")
-              (|Record| (|:| |coef| 133) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              (|List| $) (|Record| (|:| |coef| 134) (|:| |generator| $))
+              (|SparseUnivariatePolynomial| $) (|Union| 134 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 139 '"failed") (|Factored| $) (|Fraction| 8)
-              (|InputForm|) (|PositiveInteger|) (|OnePointCompletion| 144)
-              (|Union| 22 '"failed") (|Union| 40 '"failed") (|Matrix| $)
-              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 149)
-              (|Table| 144 22)
+              (|Union| 139 '"failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Factored| $) (|Fraction| 8) (|InputForm|) (|PositiveInteger|)
+              (|OnePointCompletion| 145) (|Union| 22 '"failed")
+              (|Union| 40 '"failed") (|Matrix| $)
+              (|Record| (|:| |factor| 52) (|:| |exponent| 52)) (|List| 150)
+              (|Table| 145 22)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Matrix| 52)
-              (|Record| (|:| |mat| 153) (|:| |vec| (|Vector| 52)))
+              (|Record| (|:| |mat| 154) (|:| |vec| (|Vector| 52)))
               (|Union| 131 '#1#) (|Union| 52 '#1#) (|List| (|Polynomial| 6))
               (|List| (|List| 6)) (|Union| 7 '"failed")
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
@@ -679,16 +680,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 2 2 4 4 4 3 0 4 0 4 3 0 0 3 3 3 0 0 0 1 3
-                                  3 3 5 7 12 10 0 0 0 3 0 0 0 0 0 3 3 0 0 0 0 0
-                                  0 0 0 6 2 0 0 0 0 0 0 0 0 3 3 3 6 8 9))
+                                '(0 0 2 2 4 4 4 3 0 4 0 4 3 0 0 3 3 3 3 0 0 0 1
+                                  3 3 3 5 7 12 10 0 0 0 3 0 0 0 0 0 3 3 0 0 0 0
+                                  0 0 0 0 6 2 0 0 0 0 0 0 0 0 3 3 3 6 8 9))
             (CONS
              '#(|FunctionFieldCategory&| |MonogenicAlgebra&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |FramedAlgebra&| |GcdDomain&| |FiniteRankAlgebra&| NIL
                 |DivisionRing&| |Algebra&| |FullyLinearlyExplicitRingOver&|
-                |Algebra&| |Algebra&| |DifferentialExtension&| NIL NIL
+                |Algebra&| NIL |Algebra&| |DifferentialExtension&| NIL NIL
                 |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
                 NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
@@ -705,13 +706,13 @@
                  (|FiniteRankAlgebra| (|Fraction| 7) 8) (|IntegralDomain|)
                  (|DivisionRing|) (|Algebra| (|Fraction| 7))
                  (|FullyLinearlyExplicitRingOver| (|Fraction| 7))
-                 (|Algebra| $$) (|Algebra| 131)
+                 (|Algebra| $$) (|LeftOreRing|) (|Algebra| 131)
                  (|DifferentialExtension| (|Fraction| 7))
                  (|LinearlyExplicitRingOver| (|Fraction| 7))
                  (|CommutativeRing|) (|Module| (|Fraction| 7))
                  (|CharacteristicZero|) (|Module| $$) (|EntireRing|)
                  (|Module| 131) (|CharacteristicNonZero|) (|DifferentialRing|)
-                 (|PartialDifferentialRing| 130)
+                 (|PartialDifferentialRing| 128)
                  (|LinearlyExplicitRingOver| 52) (|BiModule| $$ $$) (|Ring|)
                  (|BiModule| (|Fraction| 7) (|Fraction| 7))
                  (|BiModule| 131 131) (|LeftModule| $$) (|RightModule| $$)
@@ -724,8 +725,8 @@
                  (|FullyRetractableTo| (|Fraction| 7)) (|SetCategory|)
                  (|RetractableTo| (|Fraction| 7)) (|ConvertibleTo| 8)
                  (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 165) (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|ConvertibleTo| 143)
+                 (|CoercibleTo| 166) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|ConvertibleTo| 144)
                  (|RetractableTo| 131) (|RetractableTo| 52))
               (|makeByteWordVec2| 127
                                   '(1 11 0 10 12 0 8 0 15 0 0 0 16 0 17 0 18 1

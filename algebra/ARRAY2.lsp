@@ -12,10 +12,10 @@
 (DEFUN |ARRAY2;qsetelt!;$2I2R;2| (|m| |i| |j| |r| $)
   (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2193)
+(DEFUN |TwoDimensionalArray| (#1=#:G2197)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2194)
+     (PROG (#2=#:G2198)
        (RETURN
         (COND
          ((LETT #2#
@@ -33,7 +33,7 @@
               (HREM |$ConstructorCache| '|TwoDimensionalArray|))))))))))) 
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
-  (PROG (|pv$| #1=#:G2191 #2=#:G2192 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2195 #2=#:G2196 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #3=(|TwoDimensionalArray|))

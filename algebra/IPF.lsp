@@ -191,10 +191,10 @@
 
 (DEFUN |IPF;charthRoot;2$;26| (|x| $) |x|) 
 
-(DEFUN |InnerPrimeField| (#1=#:G233)
+(DEFUN |InnerPrimeField| (#1=#:G234)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G234)
+     (PROG (#2=#:G235)
        (RETURN
         (COND
          ((LETT #2#
@@ -215,7 +215,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPrimeField|))
       (LETT |dv$| (LIST '|InnerPrimeField| DV$1) . #1#)
-      (LETT $ (GETREFV 104) . #1#)
+      (LETT $ (GETREFV 105) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|InnerPrimeField| (LIST DV$1)
@@ -276,10 +276,11 @@
               (|OnePointCompletion| 45) (|Matrix| $) (|Union| 71 '"failed")
               (|InputForm|) (|List| $) (|Union| 22 '"failed") (|Fraction| 20)
               (|Union| 92 '#1="failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 96 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 97 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 92) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|String|) (|OutputForm|))
            '#(|zero?| 147 |tableForDiscreteLogarithm| 152 |retractIfCan| 157
@@ -295,16 +296,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0))
+                                  0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
-                |Algebra&| |Module&| |DifferentialRing&| NIL |Module&|
-                |EntireRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
+                |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
+                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
                 |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
@@ -314,11 +315,11 @@
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|VectorSpace| $$) (|Algebra| 94)
-                 (|Algebra| $$) (|Module| $$) (|DifferentialRing|)
-                 (|CharacteristicNonZero|) (|Module| 94) (|EntireRing|)
-                 (|CommutativeRing|) (|CharacteristicZero|) (|BiModule| $$ $$)
-                 (|BiModule| 94 94) (|Ring|) (|LeftModule| $$)
-                 (|RightModule| 94) (|LeftModule| 94) (|Rng|)
+                 (|LeftOreRing|) (|Algebra| $$) (|Module| $$)
+                 (|DifferentialRing|) (|CharacteristicNonZero|) (|Module| 94)
+                 (|CommutativeRing|) (|EntireRing|) (|CharacteristicZero|)
+                 (|BiModule| $$ $$) (|BiModule| 94 94) (|Ring|)
+                 (|LeftModule| $$) (|RightModule| 94) (|LeftModule| 94) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|StepThrough|) (|Finite|)
@@ -326,7 +327,7 @@
                  (|ConvertibleTo| 20) (|RetractableTo| $$) (|ConvertibleTo| 91)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 103))
+                 (|BasicType|) (|CoercibleTo| 104))
               (|makeByteWordVec2| 85
                                   '(0 12 0 13 0 0 0 15 1 0 17 0 18 0 0 0 19 2
                                     20 0 0 0 21 2 5 0 0 22 23 2 20 17 0 0 25 1

@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |BalancedPAdicRational| (#1=#:G161)
+(DEFUN |BalancedPAdicRational| (#1=#:G162)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G162)
+     (PROG (#2=#:G163)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,12 +22,12 @@
               (HREM |$ConstructorCache| '|BalancedPAdicRational|))))))))))) 
 
 (DEFUN |BalancedPAdicRational;| (|#1|)
-  (PROG (|pv$| #1=#:G160 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G161 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|BalancedPAdicRational|))
       (LETT |dv$| (LIST '|BalancedPAdicRational| DV$1) . #2#)
-      (LETT $ (GETREFV 56) . #2#)
+      (LETT $ (GETREFV 57) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -166,27 +166,29 @@
               (|ContinuedFraction| 36) (|Matrix| 15)
               (|Record| (|:| |mat| 39) (|:| |vec| (|Vector| 15)))
               (|Mapping| 15 15) (|Union| 15 '#2#) (|Factored| $)
-              (|Union| 45 '#3="failed") (|List| $)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 44 '#3="failed") (|Union| 47 '#3#) (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 47 '#3#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef| 45) (|:| |generator| $))
+              (|Record| (|:| |coef| 47) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|PositiveInteger|) (|SingleInteger|) (|String|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 3 4
-                                  7 15 16 17 0 0 0 0 7 0 0 0 0 0 0 0 7 0 7 0 0
-                                  7 0 0 0 0 9 0 0 0 25 11 20 21 0 0 6 13 0 0 0
-                                  0 0 0 0 0 0 2 5 6 6 8 10 10 12 13 14 18 19))
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
+                                  4 7 15 16 17 0 0 0 0 7 0 0 0 0 0 0 0 7 0 7 0
+                                  0 7 0 0 0 0 9 0 0 0 25 11 20 21 0 0 6 13 0 0
+                                  0 0 0 0 0 0 0 2 5 6 6 8 10 10 12 13 14 18
+                                  19))
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
                 NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
-                |Algebra&| |Algebra&| |Algebra&| NIL |Module&| |Module&|
-                |EntireRing&| NIL |Module&| NIL NIL |OrderedRing&|
+                |Algebra&| |Algebra&| NIL |Algebra&| NIL |Module&| |Module&|
+                NIL |EntireRing&| |Module&| NIL NIL |OrderedRing&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|
@@ -204,10 +206,10 @@
                  (|FullyLinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
                  (|DifferentialExtension| (|BalancedPAdicInteger| 6))
                  (|Algebra| (|BalancedPAdicInteger| 6)) (|Algebra| 36)
-                 (|Algebra| $$)
+                 (|LeftOreRing|) (|Algebra| $$)
                  (|LinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
                  (|Module| (|BalancedPAdicInteger| 6)) (|Module| 36)
-                 (|EntireRing|) (|CommutativeRing|) (|Module| $$)
+                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|OrderedRing|) (|PartialDifferentialRing| 19)
                  (|DifferentialRing|) (|LinearlyExplicitRingOver| 24)
@@ -231,7 +233,7 @@
                  (|Type|) (|RetractableTo| (|BalancedPAdicInteger| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 55) (|RetractableTo| 19)
+                 (|BasicType|) (|CoercibleTo| 56) (|RetractableTo| 19)
                  (|ConvertibleTo| 11) (|ConvertibleTo| 32) (|ConvertibleTo| 33)
                  (|PartialOrder|) (|RetractableTo| 36) (|RetractableTo| 24)
                  (|InnerEvalable| 19 (|BalancedPAdicInteger| 6))

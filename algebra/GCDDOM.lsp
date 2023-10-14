@@ -12,7 +12,7 @@
     (RETURN
      (PROG1
          (LETT #1#
-               (|Join| (|IntegralDomain|)
+               (|Join| (|IntegralDomain|) (|LeftOreRing|)
                        (|mkCategory|
                         '(((|gcd| ($ $ $)) T) ((|gcd| ($ (|List| $))) T)
                           ((|lcm| ($ $ $)) T) ((|lcm| ($ (|List| $))) T)

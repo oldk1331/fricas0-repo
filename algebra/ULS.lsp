@@ -17,10 +17,10 @@
 
 (DEFUN |ULS;integrate;$V$;5| (|x| |v| $) (SPADCALL |x| (QREFELT $ 25))) 
 
-(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G181)
+(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G182)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G182)
+     (PROG (#2=#:G183)
        (RETURN
         (COND
          ((LETT #2#
@@ -39,15 +39,15 @@
               (HREM |$ConstructorCache| '|UnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G180 |pv$| #2=#:G171 #3=#:G172 #4=#:G174 #5=#:G175 #6=#:G176
-         #7=#:G177 #8=#:G179 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G181 |pv$| #2=#:G172 #3=#:G173 #4=#:G175 #5=#:G176 #6=#:G177
+         #7=#:G178 #8=#:G180 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #9=(|UnivariateLaurentSeries|))
       (LETT DV$2 (|devaluate| |#2|) . #9#)
       (LETT DV$3 (|devaluate| |#3|) . #9#)
       (LETT |dv$| (LIST '|UnivariateLaurentSeries| DV$1 DV$2 DV$3) . #9#)
-      (LETT $ (GETREFV 81) . #9#)
+      (LETT $ (GETREFV 82) . #9#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -720,14 +720,15 @@
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|List| 53) (|Mapping| 32 32)
               (|Record| (|:| |mat| 58) (|:| |vec| (|Vector| 32))) (|Matrix| 32)
-              (|List| $) (|Record| (|:| |coef| 59) (|:| |generator| $))
-              (|Union| 59 '"failed")
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              (|List| $) (|Record| (|:| |coef| 60) (|:| |generator| $))
+              (|Union| 60 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 64 '"failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 65 '"failed")
               (|Factored| $) (|Fraction| (|Polynomial| 6)) (|Stream| 6)
               (|Union| 32 '"failed") (|Record| (|:| |k| 16) (|:| |c| 6))
-              (|Stream| 70) (|Mapping| 6 16) (|PositiveInteger|) (|List| 76)
+              (|Stream| 71) (|Mapping| 6 16) (|PositiveInteger|) (|List| 77)
               (|List| 16) (|SingletonAsOrderedSet|) (|Mapping| 6 6) (|String|)
               (|OutputForm|) (|SingleInteger|))
            '#(|variable| 49 |monomial| 54 |integrate| 60 |differentiate| 71
@@ -735,19 +736,19 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 52
-                                '(0 0 2 2 0 2 31 0 2 2 0 2 7 2 24 19 24 48 2 2
-                                  2 19 24 24 48 33 4 23 7 2 39 40 2 13 0 23 48
-                                  7 2 52 0 0 23 47 48 48 7 2 2 52 7 51 42 7 50
-                                  0 42 27 49 2 0 0 28 9 2 16 17 0 48 6 11 2 0 0
-                                  0 0 1 23 24 2 2 48 48 48 48 48 48 38 3 5 6 6
-                                  27 8 8 10 11 12 14 15 2))
+                                '(0 0 2 2 0 2 31 0 2 2 0 2 7 2 24 19 24 2 48 2
+                                  2 2 19 24 24 48 33 4 23 7 2 39 40 2 13 0 23
+                                  48 7 2 52 0 0 23 47 48 48 7 2 2 52 7 51 42 7
+                                  50 0 42 27 49 2 0 0 28 9 2 16 17 0 48 6 11 2
+                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 38 3 5
+                                  6 6 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&| NIL
                 |QuotientFieldCategory&| |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
-                NIL |DivisionRing&| NIL |Algebra&| |Algebra&| |Algebra&|
+                NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
                 |Algebra&| |DifferentialExtension&|
                 |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
                 |EntireRing&| |Module&| NIL NIL NIL |OrderedRing&| |Module&|
@@ -772,10 +773,11 @@
                  (|QuotientFieldCategory| (|UnivariateTaylorSeries| 6 7 8))
                  (|Field|) (|UnivariatePowerSeriesCategory| 6 16)
                  (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
-                 (|PowerSeriesCategory| 6 16 76) (|PrincipalIdealDomain|)
+                 (|PowerSeriesCategory| 6 16 77) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 16)
                  (|GcdDomain|) (|OrderedIntegralDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|Algebra| 6) (|Algebra| $$) (|Algebra| 50)
+                 (|IntegralDomain|) (|Algebra| 6) (|Algebra| $$)
+                 (|LeftOreRing|) (|Algebra| 50)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
                  (|FullyLinearlyExplicitRingOver|
@@ -808,7 +810,7 @@
                  (|Patternable| (|UnivariateTaylorSeries| 6 7 8))
                  (|RetractableTo| (|UnivariateTaylorSeries| 6 7 8))
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
-                 (|CoercibleTo| 79) (|Eltable| $$ $$) (|CommutativeStar|)
+                 (|CoercibleTo| 80) (|Eltable| $$ $$) (|CommutativeStar|)
                  (|noZeroDivisors|) (|canonicalUnitNormal|)
                  (|canonicalsClosed|) (|TrigonometricFunctionCategory|)
                  (|ArcTrigonometricFunctionCategory|)

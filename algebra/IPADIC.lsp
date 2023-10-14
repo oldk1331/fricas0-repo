@@ -726,10 +726,10 @@
                      (SPADCALL (ELT $ 84) (NREVERSE |l|)
                                (QREFELT $ 87)))))))))))) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G437)
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G438)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G438)
+     (PROG (#2=#:G439)
        (RETURN
         (COND
          ((LETT #2#
@@ -754,7 +754,7 @@
       (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerPAdicInteger|))
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT |dv$| (LIST '|InnerPAdicInteger| DV$1 DV$2) . #1#)
-      (LETT $ (GETREFV 98) . #1#)
+      (LETT $ (GETREFV 99) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|InnerPAdicInteger| (LIST DV$1 DV$2)
@@ -805,40 +805,42 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 91 '#1#)
               (|Record| (|:| |coef| 82) (|:| |generator| $))
               (|SparseUnivariatePolynomial| $)
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|String|) (|SingleInteger|))
            '#(~= 225 |zero?| 231 |unitNormal| 236 |unitCanonical| 241 |unit?|
               246 |subtractIfCan| 251 |sqrt| 257 |sizeLess?| 263 |sample| 269
               |root| 273 |rem| 279 |recip| 285 |quotientByP| 290 |quo| 295
               |principalIdeal| 301 |order| 306 |one?| 311 |multiEuclidean| 316
-              |modulus| 322 |moduloP| 326 |lcm| 331 |latex| 342 |hash| 347
-              |gcdPolynomial| 352 |gcd| 358 |extendedEuclidean| 369 |extend|
-              382 |exquo| 388 |expressIdealMember| 394 |euclideanSize| 400
-              |divide| 405 |digits| 411 |complete| 416 |coerce| 421
-              |characteristic| 436 |associates?| 440 |approximate| 446 ^ 452
-              |Zero| 464 |One| 468 = 472 - 478 + 489 * 495)
+              |modulus| 322 |moduloP| 326 |lcmCoef| 331 |lcm| 337 |latex| 348
+              |hash| 353 |gcdPolynomial| 358 |gcd| 364 |extendedEuclidean| 375
+              |extend| 388 |exquo| 394 |expressIdealMember| 400 |euclideanSize|
+              406 |divide| 411 |digits| 417 |complete| 422 |coerce| 427
+              |characteristic| 442 |associates?| 446 |approximate| 452 ^ 458
+              |Zero| 470 |One| 474 = 478 - 484 + 495 * 501)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0))
             (CONS
-             '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL |Algebra&| NIL NIL
-                |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL |AbelianGroup&|
-                NIL NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
-                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
-                NIL)
+             '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL NIL |Algebra&| NIL
+                NIL |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL
+                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
+                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
+                |BasicType&| NIL)
              (CONS
               '#((|PAdicIntegerCategory| 6) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|GcdDomain|) (|IntegralDomain|)
-                 (|Algebra| $$) (|CommutativeRing|) (|CharacteristicZero|)
-                 (|EntireRing|) (|Module| $$) (|BiModule| $$ $$) (|Ring|)
-                 (|LeftModule| $$) (|Rng|) (|RightModule| $$) (|AbelianGroup|)
+                 (|LeftOreRing|) (|Algebra| $$) (|CommutativeRing|)
+                 (|CharacteristicZero|) (|EntireRing|) (|Module| $$)
+                 (|BiModule| $$ $$) (|Ring|) (|LeftModule| $$) (|Rng|)
+                 (|RightModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 8))
-              (|makeByteWordVec2| 97
+              (|makeByteWordVec2| 98
                                   '(1 9 8 0 10 2 12 0 0 9 20 1 12 0 0 22 2 9 0
                                     0 0 24 2 9 0 0 0 25 2 9 26 0 0 27 2 9 0 0 0
                                     28 1 12 26 0 30 1 12 9 0 31 1 12 0 0 33 2 9
@@ -851,20 +853,20 @@
                                     73 2 8 0 0 0 75 1 8 0 0 76 2 8 0 0 0 77 1
                                     12 26 0 78 2 12 26 0 0 79 1 12 26 0 80 1 13
                                     8 0 81 2 8 0 0 82 83 2 8 0 0 0 84 2 86 8 85
-                                    0 87 2 0 26 0 0 1 1 0 26 0 1 1 0 95 0 1 1 0
+                                    0 87 2 0 26 0 0 1 1 0 26 0 1 1 0 96 0 1 1 0
                                     0 0 1 1 0 26 0 1 2 0 58 0 0 1 2 0 0 0 9 68
                                     2 0 26 0 0 1 0 0 0 1 2 0 0 69 9 74 2 0 0 0
                                     0 1 1 0 58 0 59 1 0 0 0 34 2 0 0 0 0 1 1 0
                                     93 82 1 1 0 13 0 15 1 0 26 0 1 2 0 89 82 0
-                                    1 0 0 9 29 1 0 9 0 32 2 0 0 0 0 1 1 0 0 82
-                                    1 1 0 96 0 1 1 0 97 0 1 2 0 94 94 94 1 2 0
-                                    0 0 0 1 1 0 0 82 1 2 0 90 0 0 1 3 0 92 0 0
-                                    0 1 2 0 0 0 9 21 2 0 58 0 0 61 2 0 89 82 0
-                                    1 1 0 13 0 16 2 0 62 0 0 63 1 0 17 0 18 1 0
-                                    0 0 23 1 0 0 0 1 1 0 0 9 53 1 0 8 0 88 0 0
-                                    13 14 2 0 26 0 0 1 2 0 9 0 9 37 2 0 0 0 13
-                                    1 2 0 0 0 65 1 0 0 0 35 0 0 0 19 2 0 26 0 0
-                                    40 2 0 0 0 0 38 1 0 0 0 52 2 0 0 0 0 51 2 0
-                                    0 9 0 55 2 0 0 0 0 56 2 0 0 13 0 1 2 0 0 65
-                                    0 1)))))
+                                    1 0 0 9 29 1 0 9 0 32 2 0 95 0 0 1 2 0 0 0
+                                    0 1 1 0 0 82 1 1 0 97 0 1 1 0 98 0 1 2 0 94
+                                    94 94 1 2 0 0 0 0 1 1 0 0 82 1 2 0 90 0 0 1
+                                    3 0 92 0 0 0 1 2 0 0 0 9 21 2 0 58 0 0 61 2
+                                    0 89 82 0 1 1 0 13 0 16 2 0 62 0 0 63 1 0
+                                    17 0 18 1 0 0 0 23 1 0 0 0 1 1 0 0 9 53 1 0
+                                    8 0 88 0 0 13 14 2 0 26 0 0 1 2 0 9 0 9 37
+                                    2 0 0 0 13 1 2 0 0 0 65 1 0 0 0 35 0 0 0 19
+                                    2 0 26 0 0 40 2 0 0 0 0 38 1 0 0 0 52 2 0 0
+                                    0 0 51 2 0 0 9 0 55 2 0 0 0 0 56 2 0 0 13 0
+                                    1 2 0 0 65 0 1)))))
            '|lookupComplete|)) 

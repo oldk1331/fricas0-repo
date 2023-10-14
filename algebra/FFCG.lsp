@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |FiniteFieldCyclicGroup| (&REST #1=#:G159)
+(DEFUN |FiniteFieldCyclicGroup| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,13 +23,13 @@
               (HREM |$ConstructorCache| '|FiniteFieldCyclicGroup|))))))))))) 
 
 (DEFUN |FiniteFieldCyclicGroup;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G158 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G159 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldCyclicGroup|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|FiniteFieldCyclicGroup| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 47) . #2#)
+      (LETT $ (GETREFV 48) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -69,32 +69,33 @@
               (0 . |createPrimitivePoly|) (|OnePointCompletion| 9)
               (|Union| $ '"failed") (|Union| 15 '"failed")
               (|NonNegativeInteger|) (|List| $) (|InputForm|)
-              (|Record| (|:| |factor| 23) (|:| |exponent| 23)) (|List| 18)
-              (|Union| 31 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
-              (|Boolean|) (|Union| 8 '"failed")
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|SparseUnivariatePolynomial| $) (|PrimitiveArray| 46)
-              (|PrimeField| 6) (|Matrix| 29) (|Vector| $) (|Vector| 29)
-              (|CardinalNumber|) (|Union| 29 '"failed") (|Fraction| 23)
-              (|Factored| $) (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 37 '#1="failed") (|Union| 16 '#1#)
+              (|Union| 32 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
+              (|Record| (|:| |factor| 21) (|:| |exponent| 21)) (|List| 22)
+              (|Boolean|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|Union| 8 '"failed") (|SparseUnivariatePolynomial| $)
+              (|PrimitiveArray| 47) (|PrimeField| 6) (|Vector| 29)
+              (|Matrix| 29) (|Vector| $) (|CardinalNumber|)
+              (|Union| 29 '"failed") (|Fraction| 21) (|Factored| $)
+              (|Union| 16 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 39 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 16) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
-                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0 0
-                                  0 0 0 0 0 0 2))
+                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
+                                  0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
-                |Algebra&| |Module&| |Module&| |EntireRing&| NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
+                |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
@@ -105,10 +106,11 @@
                  (|FieldOfPrimeCharacteristic|) (|Field|) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|VectorSpace| (|PrimeField| 6)) (|Algebra| 35) (|Algebra| $$)
-                 (|Module| (|PrimeField| 6)) (|Module| 35) (|EntireRing|)
-                 (|CommutativeRing|) (|Module| $$) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|DifferentialRing|)
+                 (|VectorSpace| (|PrimeField| 6)) (|Algebra| 35)
+                 (|LeftOreRing|) (|Algebra| $$) (|Module| (|PrimeField| 6))
+                 (|Module| 35) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|DifferentialRing|)
                  (|BiModule| (|PrimeField| 6) (|PrimeField| 6))
                  (|BiModule| 35 35) (|BiModule| $$ $$) (|Ring|)
                  (|RightModule| (|PrimeField| 6))
@@ -120,6 +122,6 @@
                  (|SetCategory|) (|RetractableTo| (|PrimeField| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 45) (|ConvertibleTo| 17))
+                 (|BasicType|) (|CoercibleTo| 46) (|ConvertibleTo| 17))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 

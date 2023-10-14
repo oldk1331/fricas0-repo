@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |FiniteFieldExtension| (&REST #1=#:G159)
+(DEFUN |FiniteFieldExtension| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -23,13 +23,13 @@
               (HREM |$ConstructorCache| '|FiniteFieldExtension|))))))))))) 
 
 (DEFUN |FiniteFieldExtension;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G158 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G159 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldExtension|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|FiniteFieldExtension| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 45) . #2#)
+      (LETT $ (GETREFV 46) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -72,25 +72,26 @@
               (|Union| 8 '"failed") (|SparseUnivariatePolynomial| $)
               (|Vector| 6) (|Matrix| 6) (|Vector| $) (|CardinalNumber|)
               (|Union| 6 '"failed") (|Fraction| 21) (|Factored| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 35 '#1="failed") (|Union| 16 '#1#)
+              (|Union| 16 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 37 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 16) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
-                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0 0
-                                  0 0 0 0 0 0 2))
+                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
+                                  0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
-                |Algebra&| |Module&| |Module&| |EntireRing&| NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
+                |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
@@ -101,18 +102,18 @@
                  (|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|VectorSpace| 6) (|Algebra| 33)
-                 (|Algebra| $$) (|Module| 6) (|Module| 33) (|EntireRing|)
-                 (|CommutativeRing|) (|Module| $$) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|DifferentialRing|) (|BiModule| 6 6)
-                 (|BiModule| 33 33) (|BiModule| $$ $$) (|Ring|)
-                 (|RightModule| 6) (|LeftModule| 6) (|RightModule| 33)
-                 (|LeftModule| 33) (|LeftModule| $$) (|Rng|) (|RightModule| $$)
-                 (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
-                 (|AbelianSemiGroup|) (|Finite|) (|StepThrough|)
-                 (|SetCategory|) (|RetractableTo| 6) (|canonicalsClosed|)
-                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 43)
-                 (|ConvertibleTo| 17))
+                 (|LeftOreRing|) (|Algebra| $$) (|Module| 6) (|Module| 33)
+                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|DifferentialRing|) (|BiModule| 6 6) (|BiModule| 33 33)
+                 (|BiModule| $$ $$) (|Ring|) (|RightModule| 6) (|LeftModule| 6)
+                 (|RightModule| 33) (|LeftModule| 33) (|LeftModule| $$) (|Rng|)
+                 (|RightModule| $$) (|AbelianGroup|)
+                 (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
+                 (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|Finite|) (|StepThrough|) (|SetCategory|) (|RetractableTo| 6)
+                 (|canonicalsClosed|) (|canonicalUnitNormal|)
+                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 44) (|ConvertibleTo| 17))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 

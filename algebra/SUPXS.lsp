@@ -63,10 +63,10 @@
                  (SPADCALL |x| (QREFELT $ 12)) (SPADCALL |x| (QREFELT $ 55))
                  (QREFELT $ 57))))))) 
 
-(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G183)
+(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G184)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G184)
+     (PROG (#2=#:G185)
        (RETURN
         (COND
          ((LETT #2#
@@ -86,15 +86,15 @@
                     '|SparseUnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |SparseUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G174 #2=#:G175 #3=#:G176 #4=#:G177 #5=#:G178 #6=#:G179
-         #7=#:G181 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G175 #2=#:G176 #3=#:G177 #4=#:G178 #5=#:G179 #6=#:G180
+         #7=#:G182 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #8=(|SparseUnivariatePuiseuxSeries|))
       (LETT DV$2 (|devaluate| |#2|) . #8#)
       (LETT DV$3 (|devaluate| |#3|) . #8#)
       (LETT |dv$| (LIST '|SparseUnivariatePuiseuxSeries| DV$1 DV$2 DV$3) . #8#)
-      (LETT $ (GETREFV 83) . #8#)
+      (LETT $ (GETREFV 84) . #8#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -440,18 +440,18 @@
               (103 . |explicitEntries?|) (|OrderedCompletion| 53) (108 . |elt|)
               (|Union| 53 '"failed") (113 . |retractIfCan|) (|Integer|)
               (118 . |extend|) (124 . |rationalPower|) (|OutputForm|)
-              (129 . |seriesToOutputForm|) |SUPXS;coerce;$Of;9|
-              (|NonNegativeInteger|) (|List| 10) (|List| 59)
-              (|Union| $ '"failed")
+              (129 . |seriesToOutputForm|) |SUPXS;coerce;$Of;9| (|List| 10)
+              (|NonNegativeInteger|) (|List| 60) (|Union| $ '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $)
-              (|Record| (|:| |coef| 64) (|:| |generator| $))
-              (|Union| 64 '"failed")
+              (|Union| 65 '"failed")
+              (|Record| (|:| |coef| 65) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 69 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 71 '"failed")
               (|Factored| $) (|Stream| 6) (|Record| (|:| |k| 17) (|:| |c| 6))
-              (|Stream| 74) (|PositiveInteger|) (|List| 78)
+              (|Stream| 75) (|PositiveInteger|) (|List| 79)
               (|SingletonAsOrderedSet|) (|List| 17) (|Mapping| 6 6)
               (|SingleInteger|) (|String|))
            '#(|variable| 138 |retractIfCan| 143 |rationalPower| 153 |monomial|
@@ -460,16 +460,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 27
-                                '(0 0 6 0 6 0 6 6 0 6 15 6 9 15 7 1 2 9 4 3 15
-                                  14 15 7 0 14 19 7 0 0 14 18 19 7 7 23 21 25 0
-                                  21 27 0 0 0 7 0 0 0 0 0 5 17 14 15 6 6 7 7 7
-                                  7 7 7))
+                                '(0 0 6 0 6 0 6 6 0 6 15 6 9 15 6 7 1 2 9 4 3
+                                  15 14 15 7 0 14 19 7 0 0 14 18 19 7 7 23 21
+                                  25 0 21 27 0 0 0 7 0 0 0 0 0 5 17 14 15 6 6 7
+                                  7 7 7 7 7))
             (CONS
              '#(|UnivariatePuiseuxSeriesConstructorCategory&| NIL |Field&|
                 |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PowerSeriesCategory&| NIL |UniqueFactorizationDomain&|
                 |AbelianMonoidRing&| |GcdDomain&| NIL |DivisionRing&|
-                |Algebra&| |Algebra&| |Algebra&| NIL NIL |Module&|
+                |Algebra&| |Algebra&| NIL |Algebra&| NIL NIL |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| |Module&| NIL
                 |EntireRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL |Monoid&| |AbelianMonoid&|
@@ -486,10 +486,10 @@
                                                                 6 7 8))
                  (|UnivariatePuiseuxSeriesCategory| 6) (|Field|)
                  (|UnivariatePowerSeriesCategory| 6 17) (|EuclideanDomain|)
-                 (|PowerSeriesCategory| 6 17 78) (|PrincipalIdealDomain|)
+                 (|PowerSeriesCategory| 6 17 79) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 17)
                  (|GcdDomain|) (|IntegralDomain|) (|DivisionRing|)
-                 (|Algebra| 6) (|Algebra| $$) (|Algebra| 17)
+                 (|Algebra| 6) (|Algebra| $$) (|LeftOreRing|) (|Algebra| 17)
                  (|CharacteristicNonZero|) (|CharacteristicZero|) (|Module| 6)
                  (|PartialDifferentialRing| 10) (|DifferentialRing|)
                  (|Module| $$) (|CommutativeRing|) (|EntireRing|) (|Module| 17)

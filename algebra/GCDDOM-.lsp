@@ -140,13 +140,31 @@
                        (SPADCALL (|spadConstant| $ 16) |e1| (QREFELT $ 33))
                        |p1| (QREFELT $ 40)))))))))))) 
 
+(DEFUN |GCDDOM-;lcmCoef;2SR;5| (|c1| |c2| $)
+  (PROG (|cc2| #1=#:G176 |cc1| |g|)
+    (RETURN
+     (SEQ
+      (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 10))
+            . #2=(|GCDDOM-;lcmCoef;2SR;5|))
+      (LETT |cc1|
+            (PROG2 (LETT #1# (SPADCALL |c2| |g| (QREFELT $ 12)) . #2#)
+                (QCDR #1#)
+              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+            . #2#)
+      (LETT |cc2|
+            (PROG2 (LETT #1# (SPADCALL |c1| |g| (QREFELT $ 12)) . #2#)
+                (QCDR #1#)
+              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+            . #2#)
+      (EXIT (VECTOR (SPADCALL |cc1| |c1| (QREFELT $ 13)) |cc1| |cc2|)))))) 
+
 (DEFUN |GcdDomain&| (|#1|)
   (PROG (|pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|GcdDomain&|))
       (LETT |dv$| (LIST '|GcdDomain&| DV$1) . #1#)
-      (LETT $ (GETREFV 43) . #1#)
+      (LETT $ (GETREFV 45) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|stuffDomainSlots| $)
@@ -168,12 +186,14 @@
               (98 . |degree|) (103 . |subResultantGcd|)
               (109 . |leadingCoefficient|) (114 . *) (120 . |primitivePart|)
               (125 . *) (|SparseUnivariatePolynomial| $)
-              |GCDDOM-;gcdPolynomial;3Sup;4|)
-           '#(|lcm| 131 |gcdPolynomial| 142 |gcd| 148) 'NIL
+              |GCDDOM-;gcdPolynomial;3Sup;4|
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
+              |GCDDOM-;lcmCoef;2SR;5|)
+           '#(|lcmCoef| 131 |lcm| 137 |gcdPolynomial| 148 |gcd| 154) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 42
+                             (|makeByteWordVec2| 44
                                                  '(0 6 0 7 2 6 8 0 0 9 2 6 0 0
                                                    0 10 2 6 11 0 0 12 2 6 0 0 0
                                                    13 2 6 0 0 0 15 0 6 0 16 4
@@ -184,7 +204,8 @@
                                                    2 23 0 6 28 33 2 23 11 0 0
                                                    34 1 23 28 0 35 2 23 0 0 0
                                                    36 1 23 6 0 37 2 23 0 6 0 38
-                                                   1 23 0 0 39 2 23 0 0 0 40 1
-                                                   0 0 20 21 2 0 0 0 0 14 2 0
-                                                   41 41 41 42 1 0 0 20 22)))))
+                                                   1 23 0 0 39 2 23 0 0 0 40 2
+                                                   0 43 0 0 44 2 0 0 0 0 14 1 0
+                                                   0 20 21 2 0 41 41 41 42 1 0
+                                                   0 20 22)))))
            '|lookupComplete|)) 

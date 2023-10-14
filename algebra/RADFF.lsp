@@ -579,10 +579,10 @@
         (#2='T 'T)))
       (#2# 'NIL))))) 
 
-(DEFUN |RadicalFunctionField| (&REST #1=#:G354)
+(DEFUN |RadicalFunctionField| (&REST #1=#:G355)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G355)
+     (PROG (#2=#:G356)
        (RETURN
         (COND
          ((LETT #2#
@@ -601,7 +601,7 @@
               (HREM |$ConstructorCache| '|RadicalFunctionField|))))))))))) 
 
 (DEFUN |RadicalFunctionField;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (#1=#:G143 |pv$| #2=#:G352 #3=#:G353 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G143 |pv$| #2=#:G353 #3=#:G354 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|RadicalFunctionField|))
@@ -611,7 +611,7 @@
       (LETT DV$5 (|devaluate| |#5|) . #4#)
       (LETT |dv$| (LIST '|RadicalFunctionField| DV$1 DV$2 DV$3 DV$4 DV$5)
             . #4#)
-      (LETT $ (GETREFV 187) . #4#)
+      (LETT $ (GETREFV 188) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -766,20 +766,21 @@
               (382 . |coerce|) (387 . -) (|List| 153) (|List| 13) (|Symbol|)
               (|Fraction| 35)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $)
-              (|Union| 156 '"failed")
-              (|Record| (|:| |coef| 156) (|:| |generator| $))
+              (|Union| 157 '"failed")
+              (|Record| (|:| |coef| 157) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 162 '"failed") (|Mapping| 11 11) (|Fraction| 8)
+              (|Union| 163 '"failed") (|Mapping| 11 11) (|Fraction| 8)
               (|InputForm|) (|OnePointCompletion| 144) (|Union| 13 '"failed")
               (|Union| 43 '"failed") (|Matrix| $)
-              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 171)
+              (|Record| (|:| |factor| 35) (|:| |exponent| 35)) (|List| 172)
               (|Table| 144 13)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Matrix| 35)
-              (|Record| (|:| |mat| 175) (|:| |vec| (|Vector| 35)))
+              (|Record| (|:| |mat| 176) (|:| |vec| (|Vector| 35)))
               (|Union| 154 '#1#) (|Union| 35 '#1#) (|List| (|Polynomial| 6))
               (|List| (|List| 6))
               (|Record| (|:| |num| $) (|:| |den| 7) (|:| |derivden| 7)
@@ -798,16 +799,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 2 2 4 4 4 3 0 4 0 4 3 0 0 3 3 3 0 0 0 1 3
-                                  3 3 5 7 12 10 0 0 0 3 0 0 0 0 0 3 3 0 0 0 0 0
-                                  0 0 0 6 2 0 0 0 0 0 0 0 0 3 3 3 6 8 9))
+                                '(0 0 2 2 4 4 4 3 0 4 0 4 3 0 0 3 3 3 3 0 0 0 1
+                                  3 3 3 5 7 12 10 0 0 0 3 0 0 0 0 0 3 3 0 0 0 0
+                                  0 0 0 0 6 2 0 0 0 0 0 0 0 0 3 3 3 6 8 9))
             (CONS
              '#(|FunctionFieldCategory&| |MonogenicAlgebra&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |FramedAlgebra&| |GcdDomain&| |FiniteRankAlgebra&| NIL
                 |DivisionRing&| |Algebra&| |FullyLinearlyExplicitRingOver&|
-                |Algebra&| |Algebra&| |DifferentialExtension&| NIL NIL
+                |Algebra&| NIL |Algebra&| |DifferentialExtension&| NIL NIL
                 |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
                 NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
@@ -824,7 +825,7 @@
                  (|FiniteRankAlgebra| (|Fraction| 7) 8) (|IntegralDomain|)
                  (|DivisionRing|) (|Algebra| (|Fraction| 7))
                  (|FullyLinearlyExplicitRingOver| (|Fraction| 7))
-                 (|Algebra| $$) (|Algebra| 154)
+                 (|Algebra| $$) (|LeftOreRing|) (|Algebra| 154)
                  (|DifferentialExtension| (|Fraction| 7))
                  (|LinearlyExplicitRingOver| (|Fraction| 7))
                  (|CommutativeRing|) (|Module| (|Fraction| 7))
@@ -843,8 +844,8 @@
                  (|FullyRetractableTo| (|Fraction| 7)) (|SetCategory|)
                  (|RetractableTo| (|Fraction| 7)) (|ConvertibleTo| 8)
                  (|CommutativeStar|) (|unitsKnown|) (|BasicType|)
-                 (|CoercibleTo| 186) (|noZeroDivisors|) (|canonicalUnitNormal|)
-                 (|canonicalsClosed|) (|ConvertibleTo| 166)
+                 (|CoercibleTo| 187) (|noZeroDivisors|) (|canonicalUnitNormal|)
+                 (|canonicalsClosed|) (|ConvertibleTo| 167)
                  (|RetractableTo| 154) (|RetractableTo| 35))
               (|makeByteWordVec2| 150
                                   '(0 11 0 12 2 8 0 11 13 14 1 8 0 11 15 2 8 0

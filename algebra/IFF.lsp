@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |InnerFiniteField| (&REST #1=#:G159)
+(DEFUN |InnerFiniteField| (&REST #1=#:G160)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G160)
+     (PROG (#2=#:G161)
        (RETURN
         (COND
          ((LETT #2#
@@ -22,13 +22,13 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|InnerFiniteField|))))))))))) 
 
 (DEFUN |InnerFiniteField;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G158 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G159 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|InnerFiniteField|))
       (LETT DV$2 (|devaluate| |#2|) . #2#)
       (LETT |dv$| (LIST '|InnerFiniteField| DV$1 DV$2) . #2#)
-      (LETT $ (GETREFV 44) . #2#)
+      (LETT $ (GETREFV 45) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -69,25 +69,26 @@
               (|SparseUnivariatePolynomial| $) (|InnerPrimeField| 6)
               (|Vector| 26) (|Matrix| 26) (|Vector| $) (|CardinalNumber|)
               (|Union| 26 '"failed") (|Fraction| 18) (|Factored| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 34 '#1="failed") (|Union| 12 '#1#)
+              (|Union| 12 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 36 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 12) (|:| |generator| $))
+              (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|String|) (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
-                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2 0
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0 0
-                                  0 0 0 0 0 0 2))
+                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
+                                  0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
-                |Algebra&| |Module&| |Module&| |EntireRing&| NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
+                |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|
@@ -99,8 +100,9 @@
                  (|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|VectorSpace| (|InnerPrimeField| 6))
-                 (|Algebra| 32) (|Algebra| $$) (|Module| (|InnerPrimeField| 6))
-                 (|Module| 32) (|EntireRing|) (|CommutativeRing|) (|Module| $$)
+                 (|Algebra| 32) (|LeftOreRing|) (|Algebra| $$)
+                 (|Module| (|InnerPrimeField| 6)) (|Module| 32)
+                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|DifferentialRing|)
                  (|BiModule| (|InnerPrimeField| 6) (|InnerPrimeField| 6))
@@ -114,6 +116,6 @@
                  (|SetCategory|) (|RetractableTo| (|InnerPrimeField| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 42) (|ConvertibleTo| 14))
+                 (|BasicType|) (|CoercibleTo| 43) (|ConvertibleTo| 14))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
