@@ -285,7 +285,7 @@
 ;    else if null cdr x
 ;         then
 ;            f:= car x
-;            if EQ(tokPart CAAR f,"IF")
+;            if EQ(tokPart CAAR f,"if")
 ;            then enPile f
 ;            else f
 ;         else enPile separatePiles x
@@ -295,7 +295,7 @@
     (RETURN
      (COND ((NULL |x|) NIL)
            ((NULL (CDR |x|)) (SETQ |f| (CAR |x|))
-            (COND ((EQ (|tokPart| (CAAR |f|)) 'IF) (|enPile| |f|))
+            (COND ((EQ (|tokPart| (CAAR |f|)) '|if|) (|enPile| |f|))
                   (#1='T |f|)))
            (#1# (|enPile| (|separatePiles| |x|)))))))
  

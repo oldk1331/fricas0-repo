@@ -175,100 +175,56 @@
                 (LIST '|integer| 'NUMBER) (LIST '|float| 'SPADFLOAT))))
  
 ; $trans_key := [ _
-;                 ["ADD", "add"], _
-;                 ["AND", "and"], _
 ;                 ["ARROW", "->"], _
 ;                 ["AT", "@"], _
 ;                 ["BAR", "|"], _
 ;                 ["BECOMES", ":="], _
-;                 ["BY", "by"], _
 ;                 ["CARAT", "^"], _
-;                 ["CASE", "case"], _
 ;                 ["COERCE", "::"], _
 ;                 ["COLON", ":"], _
 ;                 ["COMMA", ","], _
 ;                 ["DEF", "=="], _
-;                 ["DIV", "div"], _
 ;                 ["DOT", "."], _
-;                 ["ELSE", "else"], _
 ;                 ["EQUAL", "="], _
 ;                 ["EXIT", "=>"], _
-;                 ["EXIT2", "exit"], _
-;                 ["EXQUO", "exquo"], _
-;                 ["FOR", "for"], _
 ;                 ["GE", ">="], _
 ;                 ["GIVES", "+->"], _
 ;                 ["GT", ">"], _
-;                 ["HAS", "has"], _
-;                 ["IF", "if"], _
-;                 ["IMPORT", "import"], _
-;                 ["IN", "in"], _
-;                 ["IS", "is"], _
 ;                 ["LE", "<="], _
-;                 ["LEAVE", "leave"], _
 ;                 ["LT", "<"], _
 ;                 ["MDEF", "==>"], _
 ;                 ["MINUS", "-"], _
-;                 ["NOT", "not"], _
 ;                 ["NOTEQUAL", "~="], _
-;                 ["OR", "or"], _
 ;                 ["PLUS", "+"], _
-;                 ["QUO", "quo"], _
-;                 ["PRETEND", "pretend"], _
-;                 ["REM", "rem"], _
-;                 ["REPEAT", "repeat"], _
-;                 ["RETURN", "return"], _
 ;                 ["SEG", ".."], _
 ;                 ["SEMICOLON", ";"], _
 ;                 ["SLASH", "/"], _
-;                 ["THEN", "then"], _
 ;                 ["TIMES", "*"], _
-;                 ["UNTIL", "until"], _
-;                 ["WHERE", "where"], _
-;                 ["WHILE", "while"], _
-;                 ["WITH", "with"], _
-;                 ["BACKSET", ";"], _
-;                 ["CATCH", "catch"], _
-;                 ["TRY", "try"], _
-;                 ["FINALLY", "finally"]]
+;                 ["BACKSET", ";"]]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key|
-          (LIST (LIST 'ADD '|add|) (LIST 'AND '|and|) (LIST 'ARROW '->)
-                (LIST 'AT '@) (LIST 'BAR '|\||) (LIST 'BECOMES '|:=|)
-                (LIST 'BY '|by|) (LIST 'CARAT '^) (LIST 'CASE '|case|)
-                (LIST 'COERCE '|::|) (LIST 'COLON '|:|) (LIST 'COMMA '|,|)
-                (LIST 'DEF '==) (LIST 'DIV '|div|) (LIST 'DOT '|.|)
-                (LIST 'ELSE '|else|) (LIST 'EQUAL '=) (LIST 'EXIT '=>)
-                (LIST 'EXIT2 '|exit|) (LIST 'EXQUO '|exquo|) (LIST 'FOR '|for|)
-                (LIST 'GE '>=) (LIST 'GIVES '+->) (LIST 'GT '>)
-                (LIST 'HAS '|has|) (LIST 'IF '|if|) (LIST 'IMPORT '|import|)
-                (LIST 'IN '|in|) (LIST 'IS '|is|) (LIST 'LE '<=)
-                (LIST 'LEAVE '|leave|) (LIST 'LT '<) (LIST 'MDEF '==>)
-                (LIST 'MINUS '-) (LIST 'NOT '|not|) (LIST 'NOTEQUAL '~=)
-                (LIST 'OR '|or|) (LIST 'PLUS '+) (LIST 'QUO '|quo|)
-                (LIST 'PRETEND '|pretend|) (LIST 'REM '|rem|)
-                (LIST 'REPEAT '|repeat|) (LIST 'RETURN '|return|)
-                (LIST 'SEG '|..|) (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/)
-                (LIST 'THEN '|then|) (LIST 'TIMES '*) (LIST 'UNTIL '|until|)
-                (LIST 'WHERE '|where|) (LIST 'WHILE '|while|)
-                (LIST 'WITH '|with|) (LIST 'BACKSET '|;|)
-                (LIST 'CATCH '|catch|) (LIST 'TRY '|try|)
-                (LIST 'FINALLY '|finally|))))
+          (LIST (LIST 'ARROW '->) (LIST 'AT '@) (LIST 'BAR '|\||)
+                (LIST 'BECOMES '|:=|) (LIST 'CARAT '^) (LIST 'COERCE '|::|)
+                (LIST 'COLON '|:|) (LIST 'COMMA '|,|) (LIST 'DEF '==)
+                (LIST 'DOT '|.|) (LIST 'EQUAL '=) (LIST 'EXIT '=>)
+                (LIST 'GE '>=) (LIST 'GIVES '+->) (LIST 'GT '>) (LIST 'LE '<=)
+                (LIST 'LT '<) (LIST 'MDEF '==>) (LIST 'MINUS '-)
+                (LIST 'NOTEQUAL '~=) (LIST 'PLUS '+) (LIST 'SEG '|..|)
+                (LIST 'SEMICOLON '|;|) (LIST 'SLASH '/) (LIST 'TIMES '*)
+                (LIST 'BACKSET '|;|))))
  
 ; $trans_key_id := [ _
-;                 ["BREAK", "break"], _
+;                 ["break", "break"], _
 ;                 ["DEFAULT", "default"], _
-;                 ["FREE", "free"], _
 ;                 ["RULE", "rule"], _
 ;                 ["fooo", "baaar"] _
 ;                 ]
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$trans_key_id|
-          (LIST (LIST 'BREAK '|break|) (LIST 'DEFAULT '|default|)
-                (LIST 'FREE '|free|) (LIST 'RULE '|rule|)
-                (LIST '|fooo| '|baaar|))))
+          (LIST (LIST '|break| '|break|) (LIST 'DEFAULT '|default|)
+                (LIST 'RULE '|rule|) (LIST '|fooo| '|baaar|))))
  
 ; DEFVAR($paren_level)
  
@@ -333,7 +289,7 @@
 ;             ntok1 := first $toklst
 ;             ntype1 := first(ntok1)
 ;             nsym := ntok1.1
-;             if ntype1 = "key" and nsym in ["THEN", "ELSE"] then
+;             if ntype1 = "key" and nsym in ["then", "else"] then
 ;                 return ntokreader(token)
 ;         type1 = "key" and sym = "BACKSET" and $ignorable_backset =>
 ;             ntokreader(token)
@@ -345,7 +301,7 @@
 ;             ntok1 := first $toklst
 ;             ntype1 := first(ntok1)
 ;             nsym := ntok1.1
-;             if ntype1 = "key" and nsym in ["THEN", "ELSE",
+;             if ntype1 = "key" and nsym in ["then", "else",
 ;                   "COMMA", "SEMICOLON"] then
 ;                 PUSH($ignored_tab, $tab_states)
 ;                 $ignored_tab := true
@@ -439,7 +395,8 @@
              (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
              (SETQ |nsym| (ELT |ntok1| 1))
              (COND
-              ((AND (EQ |ntype1| '|key|) (|member| |nsym| (LIST 'THEN 'ELSE)))
+              ((AND (EQ |ntype1| '|key|)
+                    (|member| |nsym| (LIST '|then| '|else|)))
                (RETURN (|ntokreader| |token|))))))
            (COND
             ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignorable_backset|)
@@ -457,7 +414,8 @@
                 (SETQ |nsym| (ELT |ntok1| 1))
                 (COND
                  ((AND (EQ |ntype1| '|key|)
-                       (|member| |nsym| (LIST 'THEN 'ELSE 'COMMA 'SEMICOLON)))
+                       (|member| |nsym|
+                        (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
                   (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
                   (RETURN (|ntokreader| |token|)))
                  (#1# (PUSH |$ignored_tab| |$tab_states|)

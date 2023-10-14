@@ -661,15 +661,15 @@
   (PROG () (RETURN (AND (|npDDInfKey| |s|) (OR (|npEqKey| 'BACKSET) T)))))
  
 ; npConditional f==
-;   if  npEqKey "IF" and (npLogical() or npTrap()) and
+;   if  npEqKey "if" and (npLogical() or npTrap()) and
 ;                    (npEqKey "BACKSET" or true)
 ;   then
 ;            if npEqKey "SETTAB"
-;            then if npEqKey "THEN"
+;            then if npEqKey "then"
 ;                 then  (APPLY(f,nil) or npTrap()) and npElse(f)
 ;                         and npEqKey "BACKTAB"
 ;                 else  npMissing "then"
-;            else if npEqKey "THEN"
+;            else if npEqKey "then"
 ;                 then (APPLY(f,nil) or npTrap()) and npElse(f)
 ;                 else npMissing "then"
 ;   else false
@@ -678,16 +678,16 @@
   (PROG ()
     (RETURN
      (COND
-      ((AND (|npEqKey| 'IF) (OR (|npLogical|) (|npTrap|))
+      ((AND (|npEqKey| '|if|) (OR (|npLogical|) (|npTrap|))
             (OR (|npEqKey| 'BACKSET) T))
        (COND
         ((|npEqKey| 'SETTAB)
          (COND
-          ((|npEqKey| 'THEN)
+          ((|npEqKey| '|then|)
            (AND (OR (APPLY |f| NIL) (|npTrap|)) (|npElse| |f|)
                 (|npEqKey| 'BACKTAB)))
           (#1='T (|npMissing| '|then|))))
-        ((|npEqKey| 'THEN)
+        ((|npEqKey| '|then|)
          (AND (OR (APPLY |f| NIL) (|npTrap|)) (|npElse| |f|)))
         (#1# (|npMissing| '|then|))))
       (#1# NIL)))))
@@ -715,13 +715,14 @@
  
 ; npBacksetElse()==
 ;     if npEqKey "BACKSET"
-;     then npEqKey "ELSE"
-;     else npEqKey "ELSE"
+;     then npEqKey "else"
+;     else npEqKey "else"
  
 (DEFUN |npBacksetElse| ()
   (PROG ()
     (RETURN
-     (COND ((|npEqKey| 'BACKSET) (|npEqKey| 'ELSE)) ('T (|npEqKey| 'ELSE))))))
+     (COND ((|npEqKey| 'BACKSET) (|npEqKey| '|else|))
+           ('T (|npEqKey| '|else|))))))
  
 ; npWConditional f==
 ;     if npConditional f
@@ -1016,9 +1017,10 @@
 (DEFUN |npColonQuery| ()
   (PROG () (RETURN (|npTypedForm| 'ATAT #'|pfRetractTo|))))
  
-; npPretend() == npTypedForm("PRETEND",function pfPretend)
+; npPretend() == npTypedForm("pretend", function pfPretend)
  
-(DEFUN |npPretend| () (PROG () (RETURN (|npTypedForm| 'PRETEND #'|pfPretend|))))
+(DEFUN |npPretend| ()
+  (PROG () (RETURN (|npTypedForm| '|pretend| #'|pfPretend|))))
  
 ; npTypeStyle()==
 ;  npCoerceTo() or npRestrict() or npPretend() or npColonQuery()
@@ -1060,10 +1062,11 @@
       #'|npPower|))))
  
 ; npRemainder()==
-;     npLeftAssoc('(REM QUO EXQUO)  ,function npProduct)
+;     npLeftAssoc(["rem", "quo", "exquo"], function npProduct)
  
 (DEFUN |npRemainder| ()
-  (PROG () (RETURN (|npLeftAssoc| '(REM QUO EXQUO) #'|npProduct|))))
+  (PROG ()
+    (RETURN (|npLeftAssoc| (LIST '|rem| '|quo| '|exquo|) #'|npProduct|))))
  
 ; npTerm()==
 ;    npInfGeneric '(MINUS PLUS) and (npRemainder()
@@ -1116,9 +1119,9 @@
                  (|npPush| (|pfApplication| (|npPop1|) (|npPop1|)))))
            T)))))
  
-; npBy()== npLeftAssoc ('(BY),function npInterval)
+; npBy()== npLeftAssoc(["by"], function npInterval)
  
-(DEFUN |npBy| () (PROG () (RETURN (|npLeftAssoc| '(BY) #'|npInterval|))))
+(DEFUN |npBy| () (PROG () (RETURN (|npLeftAssoc| (LIST '|by|) #'|npInterval|))))
  
 ; npAmpersand()==  npEqKey "AMPERSAND" and (npName() or npTrap())
  
@@ -1175,26 +1178,29 @@
 (DEFUN |npQuiver| ()
   (PROG () (RETURN (|npRightAssoc| '(ARROW LARROW) #'|npRelation|))))
  
-; npDiscrim() ==    npLeftAssoc ('(CASE HAS), function npQuiver)
+; npDiscrim() ==    npLeftAssoc(["case", "has"], function npQuiver)
  
 (DEFUN |npDiscrim| ()
-  (PROG () (RETURN (|npLeftAssoc| '(CASE HAS) #'|npQuiver|))))
+  (PROG () (RETURN (|npLeftAssoc| (LIST '|case| '|has|) #'|npQuiver|))))
  
-; npDisjand() ==    npLeftAssoc('(AND ),function npDiscrim)
+; npDisjand() == npLeftAssoc(["and"], function npDiscrim)
  
-(DEFUN |npDisjand| () (PROG () (RETURN (|npLeftAssoc| '(AND) #'|npDiscrim|))))
+(DEFUN |npDisjand| ()
+  (PROG () (RETURN (|npLeftAssoc| (LIST '|and|) #'|npDiscrim|))))
  
-; npLogical()   ==  npLeftAssoc('(OR ),function npDisjand)
+; npLogical() == npLeftAssoc(["or"], function npDisjand)
  
-(DEFUN |npLogical| () (PROG () (RETURN (|npLeftAssoc| '(OR) #'|npDisjand|))))
+(DEFUN |npLogical| ()
+  (PROG () (RETURN (|npLeftAssoc| (LIST '|or|) #'|npDisjand|))))
  
 ; npSuch() == npLeftAssoc( '(BAR),function npLogical)
  
 (DEFUN |npSuch| () (PROG () (RETURN (|npLeftAssoc| '(BAR) #'|npLogical|))))
  
-; npMatch()   ==    npLeftAssoc ('(IS ISNT ), function npSuch)
+; npMatch()   ==  npLeftAssoc(["is", "isnt"], function npSuch)
  
-(DEFUN |npMatch| () (PROG () (RETURN (|npLeftAssoc| '(IS ISNT) #'|npSuch|))))
+(DEFUN |npMatch| ()
+  (PROG () (RETURN (|npLeftAssoc| (LIST '|is| '|isnt|) #'|npSuch|))))
  
 ; npType()    ==  npMatch()  and
 ;                 a:=npPop1()
@@ -1424,7 +1430,7 @@
   (PROG () (RETURN (|npAndOr| 'DO #'|npStatement| #'|pfNovalue|))))
  
 ; npReturn()==
-;          npEqKey "RETURN" and
+;          npEqKey "return" and
 ;           (npExpress() or npPush pfNothing()) and
 ;            (npEqKey "FROM" and (npName() or npTrap()) and
 ;               npPush pfReturn (npPop2(),npPop1()) or
@@ -1433,7 +1439,7 @@
 (DEFUN |npReturn| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'RETURN) (OR (|npExpress|) (|npPush| (|pfNothing|)))
+     (AND (|npEqKey| '|return|) (OR (|npExpress|) (|npPush| (|pfNothing|)))
           (OR
            (AND (|npEqKey| 'FROM) (OR (|npName|) (|npTrap|))
                 (|npPush| (|pfReturn| (|npPop2|) (|npPop1|))))
@@ -1441,21 +1447,21 @@
  
 ; npLoop()==
 ;      npIterators() and
-;       (npCompMissing "REPEAT" and
+;       (npCompMissing "repeat" and
 ;          (npAssign() or npTrap()) and
 ;             npPush pfLp(npPop2(),npPop1()))
 ;                 or
-;                   npEqKey "REPEAT" and (npAssign() or npTrap()) and
+;                   npEqKey "repeat" and (npAssign() or npTrap()) and
 ;                        npPush pfLoop1 npPop1 ()
  
 (DEFUN |npLoop| ()
   (PROG ()
     (RETURN
      (OR
-      (AND (|npIterators|) (|npCompMissing| 'REPEAT)
+      (AND (|npIterators|) (|npCompMissing| '|repeat|)
            (OR (|npAssign|) (|npTrap|))
            (|npPush| (|pfLp| (|npPop2|) (|npPop1|))))
-      (AND (|npEqKey| 'REPEAT) (OR (|npAssign|) (|npTrap|))
+      (AND (|npEqKey| '|repeat|) (OR (|npAssign|) (|npTrap|))
            (|npPush| (|pfLoop1| (|npPop1|))))))))
  
 ; npSuchThat()==npAndOr("BAR",function npLogical,function pfSuchthat)
@@ -1463,29 +1469,29 @@
 (DEFUN |npSuchThat| ()
   (PROG () (RETURN (|npAndOr| 'BAR #'|npLogical| #'|pfSuchthat|))))
  
-; npWhile()==npAndOr ("WHILE",function npLogical,function pfWhile)
+; npWhile() == npAndOr("while", function npLogical, function pfWhile)
  
 (DEFUN |npWhile| ()
-  (PROG () (RETURN (|npAndOr| 'WHILE #'|npLogical| #'|pfWhile|))))
+  (PROG () (RETURN (|npAndOr| '|while| #'|npLogical| #'|pfWhile|))))
  
 ; npForIn()==
-;   npEqKey "FOR" and (npVariable() or npTrap()) and (npCompMissing "IN")
+;   npEqKey "for" and (npVariable() or npTrap()) and (npCompMissing "in")
 ;       and ((npBy()  or npTrap()) and
 ;          npPush pfForin(npPop2(),npPop1()))
  
 (DEFUN |npForIn| ()
   (PROG ()
     (RETURN
-     (AND (|npEqKey| 'FOR) (OR (|npVariable|) (|npTrap|)) (|npCompMissing| 'IN)
-          (OR (|npBy|) (|npTrap|))
+     (AND (|npEqKey| '|for|) (OR (|npVariable|) (|npTrap|))
+          (|npCompMissing| '|in|) (OR (|npBy|) (|npTrap|))
           (|npPush| (|pfForin| (|npPop2|) (|npPop1|)))))))
  
 ; npBreak()==
-;      npEqKey "BREAK" and  npPush pfBreak pfNothing ()
+;      npEqKey "break" and  npPush pfBreak pfNothing ()
  
 (DEFUN |npBreak| ()
   (PROG ()
-    (RETURN (AND (|npEqKey| 'BREAK) (|npPush| (|pfBreak| (|pfNothing|)))))))
+    (RETURN (AND (|npEqKey| '|break|) (|npPush| (|pfBreak| (|pfNothing|)))))))
  
 ; npIterate()==
 ;      npEqKey "ITERATE" and  npPush pfIterate pfNothing ()
@@ -1520,10 +1526,10 @@
      (AND (|npPC| #'|npSQualTypelist|)
           (|npPush| (|pfUnSequence| (|npPop1|)))))))
  
-; npImport()==npAndOr("IMPORT",function npQualTypelist,function pfImport)
+; npImport() == npAndOr("import", function npQualTypelist, function pfImport)
  
 (DEFUN |npImport| ()
-  (PROG () (RETURN (|npAndOr| 'IMPORT #'|npQualTypelist| #'|pfImport|))))
+  (PROG () (RETURN (|npAndOr| '|import| #'|npQualTypelist| #'|pfImport|))))
  
 ; npInline()==npAndOr("INLINE",function npQualTypelist,function pfInline)
  
@@ -1621,13 +1627,13 @@
   (PROG () (RETURN (AND (|npEqKey| 'RULE) (|npPP| #'|npSingleRule|)))))
  
 ; npAdd(extra)==
-;      npEqKey "ADD" and
+;      npEqKey "add" and
 ;        a:=npState()
 ;        npDefinitionOrStatement() or npTrap()
-;        npEqPeek "IN" =>
+;        npEqPeek "in" =>
 ;                npRestore a
 ;                (npVariable() or npTrap()) and
-;                      npCompMissing "IN"  and
+;                      npCompMissing "in"  and
 ;                          (npDefinitionOrStatement() or npTrap()) and
 ;                             npPush pfAdd(npPop2(),npPop1(),extra)
 ;        npPush pfAdd(pfNothing(),npPop1(),extra)
@@ -1635,15 +1641,15 @@
 (DEFUN |npAdd| (|extra|)
   (PROG (|a|)
     (RETURN
-     (AND (|npEqKey| 'ADD)
+     (AND (|npEqKey| '|add|)
           (PROGN
            (SETQ |a| (|npState|))
            (OR (|npDefinitionOrStatement|) (|npTrap|))
            (COND
-            ((|npEqPeek| 'IN)
+            ((|npEqPeek| '|in|)
              (PROGN
               (|npRestore| |a|)
-              (AND (OR (|npVariable|) (|npTrap|)) (|npCompMissing| 'IN)
+              (AND (OR (|npVariable|) (|npTrap|)) (|npCompMissing| '|in|)
                    (OR (|npDefinitionOrStatement|) (|npTrap|))
                    (|npPush| (|pfAdd| (|npPop2|) (|npPop1|) |extra|)))))
             ('T (|npPush| (|pfAdd| (|pfNothing|) (|npPop1|) |extra|)))))))))
@@ -1660,13 +1666,13 @@
           (|npPush| (LIST (|pfAdd| (|pfNothing|) (|npPop1|) (|pfNothing|))))))))
  
 ; npWith(extra)==
-;      npEqKey "WITH" and
+;      npEqKey "with" and
 ;        a:=npState()
 ;        npCategoryL() or npTrap()
-;        npEqPeek "IN" =>
+;        npEqPeek "in" =>
 ;                npRestore a
 ;                (npVariable() or npTrap()) and
-;                      npCompMissing "IN"  and
+;                      npCompMissing "in"  and
 ;                           (npCategoryL() or npTrap()) and
 ;                               npPush pfWith(npPop2(),npPop1(),extra)
 ;        npPush pfWith(pfNothing(),npPop1(),extra)
@@ -1674,15 +1680,15 @@
 (DEFUN |npWith| (|extra|)
   (PROG (|a|)
     (RETURN
-     (AND (|npEqKey| 'WITH)
+     (AND (|npEqKey| '|with|)
           (PROGN
            (SETQ |a| (|npState|))
            (OR (|npCategoryL|) (|npTrap|))
            (COND
-            ((|npEqPeek| 'IN)
+            ((|npEqPeek| '|in|)
              (PROGN
               (|npRestore| |a|)
-              (AND (OR (|npVariable|) (|npTrap|)) (|npCompMissing| 'IN)
+              (AND (OR (|npVariable|) (|npTrap|)) (|npCompMissing| '|in|)
                    (OR (|npCategoryL|) (|npTrap|))
                    (|npPush| (|pfWith| (|npPop2|) (|npPop1|) |extra|)))))
             ('T (|npPush| (|pfWith| (|pfNothing|) (|npPop1|) |extra|)))))))))
@@ -1831,7 +1837,7 @@
 ; npQualified(f)==
 ;     if FUNCALL f
 ;     then
-;      while npEqKey "WHERE" and (npDefinition() or npTrap()) repeat
+;      while npEqKey "where" and (npDefinition() or npTrap()) repeat
 ;              npPush pfWhere(npPop1(),npPop1())
 ;      true
 ;     else  npLetQualified  f
@@ -1844,7 +1850,7 @@
        ((LAMBDA ()
           (LOOP
            (COND
-            ((NOT (AND (|npEqKey| 'WHERE) (OR (|npDefinition|) (|npTrap|))))
+            ((NOT (AND (|npEqKey| '|where|) (OR (|npDefinition|) (|npTrap|))))
              (RETURN NIL))
             (#1='T (|npPush| (|pfWhere| (|npPop1|) (|npPop1|))))))))
        T)
@@ -1853,7 +1859,7 @@
 ; npLetQualified f==
 ;       npEqKey "LET" and
 ;       (npDefinition() or npTrap()) and
-;       npCompMissing "IN"  and
+;       npCompMissing "in"  and
 ;       (FUNCALL f or npTrap()) and
 ;       npPush pfWhere(npPop2(),npPop1())
  
@@ -1861,7 +1867,7 @@
   (PROG ()
     (RETURN
      (AND (|npEqKey| 'LET) (OR (|npDefinition|) (|npTrap|))
-          (|npCompMissing| 'IN) (OR (FUNCALL |f|) (|npTrap|))
+          (|npCompMissing| '|in|) (OR (FUNCALL |f|) (|npTrap|))
           (|npPush| (|pfWhere| (|npPop2|) (|npPop1|)))))))
  
 ; npQualifiedDefinition()==
