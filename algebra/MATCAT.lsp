@@ -7,8 +7,8 @@
 
 (DEFPARAMETER |MatrixCategory;AL| 'NIL) 
 
-(DEFUN |MatrixCategory| (&REST #1=#:G162)
-  (LET (#2=#:G163)
+(DEFUN |MatrixCategory| (&REST #1=#:G164)
+  (LET (#2=#:G165)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |MatrixCategory;AL|))
       (CDR #2#))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |MatrixCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G161)
+  (PROG (#1=#:G163)
     (RETURN
      (PROG1
          (LETT #1#
