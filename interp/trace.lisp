@@ -105,6 +105,7 @@
 ;     (1 < # $options) and not hasOption($options,'nonquietly) =>
 ;       throwKeyedMsg("S2IT0021",NIL)
 ;     untrace l
+;     clearConstructorCaches()
 ;   hasOption($options,'stats) =>
 ;     (1 < # $options) =>
 ;       throwKeyedMsg("S2IT0001",['")trace ... )stats"])
@@ -188,7 +189,7 @@
          ((AND (< 1 (LENGTH |$options|))
                (NULL (|hasOption| |$options| '|nonquietly|)))
           (|throwKeyedMsg| 'S2IT0021 NIL))
-         (#1# (|untrace| |l|))))
+         (#1# (PROGN (|untrace| |l|) (|clearConstructorCaches|)))))
        ((|hasOption| |$options| '|stats|)
         (COND
          ((< 1 (LENGTH |$options|))
