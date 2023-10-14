@@ -284,52 +284,25 @@
 ; appChar(string,x,y,d) ==
 ;   if CHARP string then string := PNAME string
 ;   line:= LASSOC(y,d) =>
-;     if MAXINDEX string = 1 and char(string.0) = char "%" then
-;       string.1="b" =>
-;         bumpDeltaIfTrue:= true
-;         string.0:= EBCDIC 29
-;         string.1:= EBCDIC 200
-;       string.1="d" =>
-;         bumpDeltaIfTrue:= true
-;         string.0:= EBCDIC 29
-;         string.1:= EBCDIC 65
 ;     shiftedX:= (y=0 => x+$highlightDelta; x)
 ;       --shift x for brightening characters -- presently only if y=0
 ;     RPLACSTR(line,shiftedX,n:=#string,string,0,n)
-;     if bumpDeltaIfTrue=true then $highlightDelta:= $highlightDelta+1
 ;     d
 ;   appChar(string, x, y, nconc(d,
 ;             [[y, :make_full_CVEC(10 + $LINELENGTH + $MARGIN, " ")]]))
  
 (DEFUN |appChar| (|string| |x| |y| |d|)
-  (PROG (|line| |bumpDeltaIfTrue| |shiftedX| |n|)
+  (PROG (|line| |shiftedX| |n|)
     (RETURN
      (PROGN
       (COND ((CHARP |string|) (SETQ |string| (PNAME |string|))))
       (COND
        ((SETQ |line| (LASSOC |y| |d|))
         (PROGN
-         (COND
-          ((AND (EQL (MAXINDEX |string|) 1)
-                (EQUAL (|char| (ELT |string| 0)) (|char| '%)))
-           (COND
-            ((EQ (ELT |string| 1) '|b|)
-             (PROGN
-              (SETQ |bumpDeltaIfTrue| T)
-              (SETF (ELT |string| 0) (EBCDIC 29))
-              (SETF (ELT |string| 1) (EBCDIC 200))))
-            ((EQ (ELT |string| 1) '|d|)
-             (PROGN
-              (SETQ |bumpDeltaIfTrue| T)
-              (SETF (ELT |string| 0) (EBCDIC 29))
-              (SETF (ELT |string| 1) (EBCDIC 65)))))))
          (SETQ |shiftedX|
                  (COND ((EQL |y| 0) (+ |x| |$highlightDelta|)) (#1='T |x|)))
          (RPLACSTR |line| |shiftedX| (SETQ |n| (LENGTH |string|)) |string| 0
           |n|)
-         (COND
-          ((EQUAL |bumpDeltaIfTrue| T)
-           (SETQ |$highlightDelta| (+ |$highlightDelta| 1))))
          |d|))
        (#1#
         (|appChar| |string| |x| |y|
@@ -2461,31 +2434,18 @@
       |d|))))
  
 ; outformWidth u ==  --WIDTH as called from OUTFORM to do a COPY
-;   STRINGP u =>
-;     u = $EmptyString => 0
-;     u.0 = char "%" and ((u.1 = char 'b) or (u.1 = char 'd)) => 1
-;     #u
+;   STRINGP u => #u
 ;   atom u => # atom2String u
 ;   WIDTH COPY u
  
 (DEFUN |outformWidth| (|u|)
   (PROG ()
     (RETURN
-     (COND
-      ((STRINGP |u|)
-       (COND ((EQUAL |u| |$EmptyString|) 0)
-             ((AND (EQUAL (ELT |u| 0) (|char| '%))
-                   (OR (EQUAL (ELT |u| 1) (|char| '|b|))
-                       (EQUAL (ELT |u| 1) (|char| '|d|))))
-              1)
-             (#1='T (LENGTH |u|))))
-      ((ATOM |u|) (LENGTH (|atom2String| |u|))) (#1# (WIDTH (COPY |u|)))))))
+     (COND ((STRINGP |u|) (LENGTH |u|))
+           ((ATOM |u|) (LENGTH (|atom2String| |u|))) ('T (WIDTH (COPY |u|)))))))
  
 ; WIDTH u ==
-;   STRINGP u =>
-;     u = $EmptyString => 0
-;     u.0 = char "%" and ((u.1 = char 'b) or (u.1 = char 'd)) => 1
-;     #u
+;   STRINGP u => #u
 ;   INTEGERP u =>
 ;     if (u < 0) then
 ;       negative := 1
@@ -2540,60 +2500,56 @@
 (DEFUN WIDTH (|u|)
   (PROG (|negative| |l| |k| |l10| |su| |l10i| |ISTMP#1| |ISTMP#2| |n|)
     (RETURN
-     (COND
-      ((STRINGP |u|)
-       (COND ((EQUAL |u| |$EmptyString|) 0)
-             ((AND (EQUAL (ELT |u| 0) (|char| '%))
-                   (OR (EQUAL (ELT |u| 1) (|char| '|b|))
-                       (EQUAL (ELT |u| 1) (|char| '|d|))))
-              1)
-             (#1='T (LENGTH |u|))))
-      ((INTEGERP |u|)
-       (PROGN
-        (COND ((MINUSP |u|) (SETQ |negative| 1) (SETQ |u| (- |u|)))
-              (#1# (SETQ |negative| 0)))
-        (COND
-         ((< |u| 100000000)
-          (PROGN
-           (SETQ |l|
-                   (COND ((< |u| 10) 1) ((< |u| 100) 2) ((< |u| 1000) 3)
-                         ((< |u| 10000) 4) ((< |u| 100000) 5)
-                         ((< |u| 1000000) 6) ((< |u| 10000000) 7) (#1# 8)))
-           (+ |l| |negative|)))
-         (#1#
-          (PROGN
-           (SETQ |k| (INTEGER-LENGTH |u|))
-           (COND
-            ((< MOST-POSITIVE-DOUBLE-FLOAT |k|)
-             (PROGN
-              (SAY '|Number too big|)
-              (THROW '|outputFailure| '|outputFailure|)))
-            (#1#
-             (PROGN
-              (COND ((< |k| 61) (SETQ |l10| (LOG10 (FLOAT |u| 1.0))))
-                    (#1# (SETQ |su| (ASH |u| (- (- |k| 54))))
-                     (SETQ |l10|
-                             (+ (LOG10 (FLOAT |su| 1.0))
-                                (* 0.30102999566398125
-                                   (FLOAT (- |k| 54) 1.0))))))
-              (SETQ |l10i| (FLOOR (+ |l10| 1.0e-9)))
-              (COND
-               ((< |l10i| 10000)
-                (COND ((< |l10i| (- |l10| 1.0e-9)) (+ (+ 1 |negative|) |l10i|))
+     (COND ((STRINGP |u|) (LENGTH |u|))
+           ((INTEGERP |u|)
+            (PROGN
+             (COND ((MINUSP |u|) (SETQ |negative| 1) (SETQ |u| (- |u|)))
+                   (#1='T (SETQ |negative| 0)))
+             (COND
+              ((< |u| 100000000)
+               (PROGN
+                (SETQ |l|
+                        (COND ((< |u| 10) 1) ((< |u| 100) 2) ((< |u| 1000) 3)
+                              ((< |u| 10000) 4) ((< |u| 100000) 5)
+                              ((< |u| 1000000) 6) ((< |u| 10000000) 7)
+                              (#1# 8)))
+                (+ |l| |negative|)))
+              (#1#
+               (PROGN
+                (SETQ |k| (INTEGER-LENGTH |u|))
+                (COND
+                 ((< MOST-POSITIVE-DOUBLE-FLOAT |k|)
+                  (PROGN
+                   (SAY '|Number too big|)
+                   (THROW '|outputFailure| '|outputFailure|)))
+                 (#1#
+                  (PROGN
+                   (COND ((< |k| 61) (SETQ |l10| (LOG10 (FLOAT |u| 1.0))))
+                         (#1# (SETQ |su| (ASH |u| (- (- |k| 54))))
+                          (SETQ |l10|
+                                  (+ (LOG10 (FLOAT |su| 1.0))
+                                     (* 0.30102999566398125
+                                        (FLOAT (- |k| 54) 1.0))))))
+                   (SETQ |l10i| (FLOOR (+ |l10| 1.0e-9)))
+                   (COND
+                    ((< |l10i| 10000)
+                     (COND
+                      ((< |l10i| (- |l10| 1.0e-9)) (+ (+ 1 |negative|) |l10i|))
                       ((< |u| (EXPT 10 |l10i|)) (+ |negative| |l10i|))
                       (#1# (+ (+ 1 |negative|) |l10i|))))
-               (#1#
-                (+ (+ 1 |negative|)
-                   (FLOOR (* |l10| (+ 1.0 1.0e-12))))))))))))))
-      ((ATOM |u|) (LENGTH (|atom2String| |u|)))
-      ((PROGN
-        (SETQ |ISTMP#1| (|putWidth| |u|))
-        (AND (CONSP |ISTMP#1|)
-             (PROGN
-              (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-              (AND (CONSP |ISTMP#2|) (PROGN (SETQ |n| (CDR |ISTMP#2|)) #1#)))))
-       |n|)
-      (#1# (THROW '|outputFailure| '|outputFailure|))))))
+                    (#1#
+                     (+ (+ 1 |negative|)
+                        (FLOOR (* |l10| (+ 1.0 1.0e-12))))))))))))))
+           ((ATOM |u|) (LENGTH (|atom2String| |u|)))
+           ((PROGN
+             (SETQ |ISTMP#1| (|putWidth| |u|))
+             (AND (CONSP |ISTMP#1|)
+                  (PROGN
+                   (SETQ |ISTMP#2| (CAR |ISTMP#1|))
+                   (AND (CONSP |ISTMP#2|)
+                        (PROGN (SETQ |n| (CDR |ISTMP#2|)) #1#)))))
+            |n|)
+           (#1# (THROW '|outputFailure| '|outputFailure|))))))
  
 ; putWidth u ==
 ;   atom u or u is [[.,:n],:.] and NUMBERP n => u
