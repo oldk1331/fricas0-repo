@@ -3057,9 +3057,9 @@ odefiningPolynomial`1`n`(F)->F`pAlgebraicFunction(R,F)`has(R,RetractableTo(Integ
 odefiningPolynomial`1`x`(_$)->_$`cExpressionSpace`has(_$,Ring)`396536
 odefiningPolynomial`1`x`(_$)->ThePols`cRealRootCharacterizationCategory(TheField,ThePols)``396630
 odegree`1`n`(_$)->Expon`cSolvableSkewPolynomialCategory(R,Expon,VarSet)``396742
-odegree`1`n`(_$)->Integer`dDeRhamComplex(CoefRing,listIndVar)``396829
-odegree`1`n`(_$)->Integer`dLaurentPolynomial(R,UP)``396917
-odegree`1`n`(_$)->NonNegativeInteger`dAntiSymm(R,lVar)``396955
+odegree`1`n`(_$)->Integer`dLaurentPolynomial(R,UP)``396829
+odegree`1`n`(_$)->NonNegativeInteger`dAntiSymm(R,lVar)``396867
+odegree`1`n`(_$)->NonNegativeInteger`dDeRhamComplex(CoefRing,listIndVar)``396935
 odegree`1`n`(_$)->NonNegativeInteger`dExtAlgBasis``397023
 odegree`1`n`(A)->E`xDifferentialPolynomialCategory&(A,R,S,V,E)``0
 odegree`1`n`(MPT)->Integer`cModularAlgebraicGcdOperations(MPT,MD)``397192
