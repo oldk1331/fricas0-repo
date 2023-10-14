@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4733 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4734 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -676,8 +676,8 @@
  |isCompound?| |parseLambda| |lambda| |laplace| |trailingCoefficient|
  |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
  |LyndonBasis| |zeroDimensional?| |fglmIfCan| |lexTriangular|
- |squareFreeLexTriangular| |belong?| |operator| |fresnelC| |fresnelS| |erf|
- |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex|
+ |squareFreeLexTriangular| |belong?| |operator| |fresnelC| |fresnelS| |erfi|
+ |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex|
  |minPol| |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon|
  |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
  |linearDependence| |solveLinear| |reducedSystem| |setDifference|
