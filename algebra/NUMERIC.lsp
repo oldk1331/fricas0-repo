@@ -171,20 +171,20 @@
 
 (DEFUN |NUMERIC;numericIfCan;EU;13| (|x| $)
   (|trappedSpadEvalUnion|
-   (SPADCALL (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) (QREFELT $ 52)))) 
+   (SPADCALL (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) (QREFELT $ 51)))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EU;14| (|x| $)
-  (SPADCALL (SPADCALL (ELT $ 54) |x| (QREFELT $ 58)) (QREFELT $ 59))) 
+  (SPADCALL (SPADCALL (ELT $ 53) |x| (QREFELT $ 57)) (QREFELT $ 58))) 
 
 (DEFUN |NUMERIC;numericIfCan;EPiU;15| (|x| |n| $)
   (PROG (|old|)
     (RETURN
-     (SEQ (LETT |old| (SPADCALL (QREFELT $ 61)) |NUMERIC;numericIfCan;EPiU;15|)
+     (SEQ (LETT |old| (SPADCALL (QREFELT $ 60)) |NUMERIC;numericIfCan;EPiU;15|)
           (EXIT
            (|finally|
             (SEQ (SPADCALL |n| (QREFELT $ 29))
-                 (EXIT (SPADCALL |x| (QREFELT $ 53))))
-            (SPADCALL |old| (QREFELT $ 62)))))))) 
+                 (EXIT (SPADCALL |x| (QREFELT $ 52))))
+            (SPADCALL |old| (QREFELT $ 61)))))))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EPiU;16| (|x| |n| $)
   (PROG (|ans| |x'| |old|)
@@ -192,12 +192,12 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;complexNumericIfCan;EPiU;16|))
-      (LETT |x'| (SPADCALL (ELT $ 54) |x| (QREFELT $ 58)) . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 59)) . #1#)
+      (LETT |x'| (SPADCALL (ELT $ 53) |x| (QREFELT $ 57)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 58)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EU;17| (|x| $)
-  (SPADCALL (SPADCALL (ELT $ 65) |x| (QREFELT $ 69)) (QREFELT $ 70))) 
+  (SPADCALL (SPADCALL (ELT $ 64) |x| (QREFELT $ 68)) (QREFELT $ 69))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EPiU;18| (|x| |n| $)
   (PROG (|ans| |x'| |old|)
@@ -205,16 +205,16 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;complexNumericIfCan;EPiU;18|))
-      (LETT |x'| (SPADCALL (ELT $ 65) |x| (QREFELT $ 69)) . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 70)) . #1#)
+      (LETT |x'| (SPADCALL (ELT $ 64) |x| (QREFELT $ 68)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
-(DEFUN |NUMERIC;convert| (|x| $) (SPADCALL (ELT $ 45) |x| (QREFELT $ 73))) 
+(DEFUN |NUMERIC;convert| (|x| $) (SPADCALL (ELT $ 45) |x| (QREFELT $ 72))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EU;20| (|x| $)
   (SPADCALL
-   (SPADCALL (CONS (|function| |NUMERIC;convert|) $) |x| (QREFELT $ 69))
-   (QREFELT $ 70))) 
+   (SPADCALL (CONS (|function| |NUMERIC;convert|) $) |x| (QREFELT $ 68))
+   (QREFELT $ 69))) 
 
 (DEFUN |NUMERIC;complexNumericIfCan;EPiU;21| (|x| |n| $)
   (PROG (|ans| |x'| |old|)
@@ -224,14 +224,14 @@
             . #1=(|NUMERIC;complexNumericIfCan;EPiU;21|))
       (LETT |x'|
             (SPADCALL (CONS (|function| |NUMERIC;convert|) $) |x|
-                      (QREFELT $ 69))
+                      (QREFELT $ 68))
             . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 70)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
 (DEFUN |NUMERIC;numeric;SF;22| (|s| $) (SPADCALL |s| (QREFELT $ 45))) 
 
-(DEFUN |NUMERIC;complexNumeric;SC;23| (|s| $) (SPADCALL |s| (QREFELT $ 74))) 
+(DEFUN |NUMERIC;complexNumeric;SC;23| (|s| $) (SPADCALL |s| (QREFELT $ 73))) 
 
 (DEFUN |NUMERIC;complexNumeric;SPiC;24| (|s| |n| $)
   (PROG (|ans| |old|)
@@ -243,10 +243,10 @@
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
 (DEFUN |NUMERIC;complexNumeric;SC;25| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 45)) (QREFELT $ 75))) 
+  (SPADCALL (SPADCALL |s| (QREFELT $ 45)) (QREFELT $ 74))) 
 
 (DEFUN |NUMERIC;complexNumeric;SPiC;26| (|s| |n| $)
-  (SPADCALL (SPADCALL |s| |n| (QREFELT $ 76)) (QREFELT $ 75))) 
+  (SPADCALL (SPADCALL |s| |n| (QREFELT $ 75)) (QREFELT $ 74))) 
 
 (DEFUN |NUMERIC;complexNumeric;PC;27| (|p| $)
   (PROG (|p'|)
@@ -272,7 +272,7 @@
           "Cannot compute the numerical value of a non-constant polynomial"))
         ('T (SPADCALL (QCDR |p'|) |n| (QREFELT $ 16))))))))) 
 
-(DEFUN |NUMERIC;complexNumeric;CC;29| (|s| $) (SPADCALL |s| (QREFELT $ 65))) 
+(DEFUN |NUMERIC;complexNumeric;CC;29| (|s| $) (SPADCALL |s| (QREFELT $ 64))) 
 
 (DEFUN |NUMERIC;complexNumeric;CPiC;30| (|s| |n| $)
   (PROG (|ans| |old|)
@@ -283,7 +283,7 @@
       (LETT |ans| (SPADCALL |s| (QREFELT $ 12)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
-(DEFUN |NUMERIC;complexNumeric;CC;31| (|s| $) (SPADCALL |s| (QREFELT $ 65))) 
+(DEFUN |NUMERIC;complexNumeric;CC;31| (|s| $) (SPADCALL |s| (QREFELT $ 64))) 
 
 (DEFUN |NUMERIC;complexNumeric;CPiC;32| (|s| |n| $)
   (PROG (|ans| |old|)
@@ -298,7 +298,7 @@
   (PROG (|s'|)
     (RETURN
      (SEQ
-      (LETT |s'| (SPADCALL |s| (QREFELT $ 79)) |NUMERIC;complexNumeric;CC;33|)
+      (LETT |s'| (SPADCALL |s| (QREFELT $ 78)) |NUMERIC;complexNumeric;CC;33|)
       (EXIT
        (COND
         ((QEQCAR |s'| 1)
@@ -310,7 +310,7 @@
   (PROG (|ans| |old| |s'|)
     (RETURN
      (SEQ
-      (LETT |s'| (SPADCALL |s| (QREFELT $ 79))
+      (LETT |s'| (SPADCALL |s| (QREFELT $ 78))
             . #1=(|NUMERIC;complexNumeric;CPiC;34|))
       (EXIT
        (COND
@@ -373,22 +373,22 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;numeric;PPiF;39|))
-      (LETT |ans| (SPADCALL |p| (QREFELT $ 80)) . #1#)
+      (LETT |ans| (SPADCALL |p| (QREFELT $ 79)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
 (DEFUN |NUMERIC;numeric;FF;40| (|f| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 80))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 80))
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 79))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 79))
             (QREFELT $ 34))) 
 
 (DEFUN |NUMERIC;complexNumeric;FC;41| (|f| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 81))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 81))
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 80))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) (QREFELT $ 80))
             (QREFELT $ 36))) 
 
 (DEFUN |NUMERIC;complexNumeric;FPiC;42| (|f| |n| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) |n| (QREFELT $ 82))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) |n| (QREFELT $ 82))
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 32)) |n| (QREFELT $ 81))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 33)) |n| (QREFELT $ 81))
             (QREFELT $ 36))) 
 
 (DEFUN |NUMERIC;numeric;FPiF;43| (|f| |n| $)
@@ -397,17 +397,17 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;numeric;FPiF;43|))
-      (LETT |ans| (SPADCALL |f| (QREFELT $ 84)) . #1#)
+      (LETT |ans| (SPADCALL |f| (QREFELT $ 83)) . #1#)
       (SPADCALL |old| (QREFELT $ 29)) (EXIT |ans|))))) 
 
 (DEFUN |NUMERIC;complexNumeric;FC;44| (|f| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) (QREFELT $ 77))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 77))
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) (QREFELT $ 76))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 42)) (QREFELT $ 76))
             (QREFELT $ 36))) 
 
 (DEFUN |NUMERIC;complexNumeric;FPiC;45| (|f| |n| $)
-  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) |n| (QREFELT $ 78))
-            (SPADCALL (SPADCALL |f| (QREFELT $ 42)) |n| (QREFELT $ 78))
+  (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 41)) |n| (QREFELT $ 77))
+            (SPADCALL (SPADCALL |f| (QREFELT $ 42)) |n| (QREFELT $ 77))
             (QREFELT $ 36))) 
 
 (DEFUN |NUMERIC;numeric;EF;46| (|x| $)
@@ -415,7 +415,7 @@
     (RETURN
      (SEQ
       (LETT |x'|
-            (SPADCALL (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) (QREFELT $ 90))
+            (SPADCALL (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) (QREFELT $ 51))
             |NUMERIC;numeric;EF;46|)
       (EXIT
        (COND
@@ -429,7 +429,7 @@
     (RETURN
      (SEQ
       (LETT |x'|
-            (SPADCALL (SPADCALL (ELT $ 25) |x| (QREFELT $ 94)) (QREFELT $ 70))
+            (SPADCALL (SPADCALL (ELT $ 25) |x| (QREFELT $ 92)) (QREFELT $ 69))
             |NUMERIC;complexNumeric;EC;47|)
       (EXIT
        (COND
@@ -445,7 +445,7 @@
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;numeric;EPiF;48|))
       (LETT |x'| (SPADCALL (ELT $ 45) |x| (QREFELT $ 50)) . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 90)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 51)) . #1#)
       (SPADCALL |old| (QREFELT $ 29))
       (EXIT
        (COND
@@ -460,8 +460,8 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;complexNumeric;EPiC;49|))
-      (LETT |x'| (SPADCALL (ELT $ 25) |x| (QREFELT $ 94)) . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 70)) . #1#)
+      (LETT |x'| (SPADCALL (ELT $ 25) |x| (QREFELT $ 92)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)) . #1#)
       (SPADCALL |old| (QREFELT $ 29))
       (EXIT
        (COND
@@ -475,7 +475,7 @@
     (RETURN
      (SEQ
       (LETT |x'|
-            (SPADCALL (SPADCALL (ELT $ 12) |x| (QREFELT $ 69)) (QREFELT $ 70))
+            (SPADCALL (SPADCALL (ELT $ 12) |x| (QREFELT $ 68)) (QREFELT $ 69))
             |NUMERIC;complexNumeric;EC;50|)
       (EXIT
        (COND
@@ -490,8 +490,8 @@
      (SEQ
       (LETT |old| (SPADCALL |n| (QREFELT $ 29))
             . #1=(|NUMERIC;complexNumeric;EPiC;51|))
-      (LETT |x'| (SPADCALL (ELT $ 12) |x| (QREFELT $ 69)) . #1#)
-      (LETT |ans| (SPADCALL |x'| (QREFELT $ 70)) . #1#)
+      (LETT |x'| (SPADCALL (ELT $ 12) |x| (QREFELT $ 68)) . #1#)
+      (LETT |ans| (SPADCALL |x'| (QREFELT $ 69)) . #1#)
       (SPADCALL |old| (QREFELT $ 29))
       (EXIT
        (COND
@@ -500,10 +500,10 @@
           "Cannot compute the numerical value of a non-constant expression"))
         ('T (QCDR |ans|)))))))) 
 
-(DEFUN |Numeric| (#1=#:G362)
+(DEFUN |Numeric| (#1=#:G359)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G363)
+     (PROG (#2=#:G360)
        (RETURN
         (COND
          ((LETT #2#
@@ -518,12 +518,12 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Numeric|))))))))))) 
 
 (DEFUN |Numeric;| (|#1|)
-  (PROG (|pv$| #1=#:G361 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G358 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #2=(|Numeric|))
       (LETT |dv$| (LIST '|Numeric| DV$1) . #2#)
-      (LETT $ (GETREFV 100) . #2#)
+      (LETT $ (GETREFV 98) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -595,17 +595,17 @@
          (COND
           ((|HasCategory| |#1| '(|OrderedSet|))
            (PROGN
-            (QSETREFV $ 53
+            (QSETREFV $ 52
                       (CONS (|dispatchFunction| |NUMERIC;numericIfCan;EU;13|)
                             $))
-            (QSETREFV $ 60
+            (QSETREFV $ 59
                       (CONS
                        (|dispatchFunction| |NUMERIC;complexNumericIfCan;EU;14|)
                        $))
-            (QSETREFV $ 63
+            (QSETREFV $ 62
                       (CONS (|dispatchFunction| |NUMERIC;numericIfCan;EPiU;15|)
                             $))
-            (QSETREFV $ 64
+            (QSETREFV $ 63
                       (CONS
                        (|dispatchFunction|
                         |NUMERIC;complexNumericIfCan;EPiU;16|)
@@ -613,24 +613,24 @@
             (COND
              ((|HasCategory| |#1| '(|RealConstant|))
               (PROGN
-               (QSETREFV $ 59
+               (QSETREFV $ 58
                          (CONS
                           (|dispatchFunction|
                            |NUMERIC;complexNumericIfCan;EU;17|)
                           $))
-               (QSETREFV $ 71
+               (QSETREFV $ 70
                          (CONS
                           (|dispatchFunction|
                            |NUMERIC;complexNumericIfCan;EPiU;18|)
                           $))))
              ('T
               (PROGN
-               (QSETREFV $ 59
+               (QSETREFV $ 58
                          (CONS
                           (|dispatchFunction|
                            |NUMERIC;complexNumericIfCan;EU;20|)
                           $))
-               (QSETREFV $ 71
+               (QSETREFV $ 70
                          (CONS
                           (|dispatchFunction|
                            |NUMERIC;complexNumericIfCan;EPiU;21|)
@@ -655,10 +655,10 @@
       (COND
        ((|testBitVector| |pv$| 4)
         (PROGN
-         (QSETREFV $ 77
+         (QSETREFV $ 76
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;PC;27|)
                          $))
-         (QSETREFV $ 78
+         (QSETREFV $ 77
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;PPiC;28|)
                          $))
          (COND
@@ -693,51 +693,51 @@
       (COND
        ((|testBitVector| |pv$| 3)
         (PROGN
-         (QSETREFV $ 80 (CONS (|dispatchFunction| |NUMERIC;numeric;PF;36|) $))
-         (QSETREFV $ 81
+         (QSETREFV $ 79 (CONS (|dispatchFunction| |NUMERIC;numeric;PF;36|) $))
+         (QSETREFV $ 80
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;PC;37|)
                          $))
-         (QSETREFV $ 82
+         (QSETREFV $ 81
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;PPiC;38|)
                          $))
-         (QSETREFV $ 83
+         (QSETREFV $ 82
                    (CONS (|dispatchFunction| |NUMERIC;numeric;PPiF;39|) $)))))
       (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
-         (QSETREFV $ 84 (CONS (|dispatchFunction| |NUMERIC;numeric;FF;40|) $))
-         (QSETREFV $ 85
+         (QSETREFV $ 83 (CONS (|dispatchFunction| |NUMERIC;numeric;FF;40|) $))
+         (QSETREFV $ 84
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;FC;41|)
                          $))
-         (QSETREFV $ 86
+         (QSETREFV $ 85
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;FPiC;42|)
                          $))
-         (QSETREFV $ 87
+         (QSETREFV $ 86
                    (CONS (|dispatchFunction| |NUMERIC;numeric;FPiF;43|) $))
-         (QSETREFV $ 88
+         (QSETREFV $ 87
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;FC;44|)
                          $))
-         (QSETREFV $ 89
+         (QSETREFV $ 88
                    (CONS (|dispatchFunction| |NUMERIC;complexNumeric;FPiC;45|)
                          $))
          (COND
           ((|HasCategory| |#1| '(|OrderedSet|))
            (PROGN
-            (QSETREFV $ 91
+            (QSETREFV $ 89
                       (CONS (|dispatchFunction| |NUMERIC;numeric;EF;46|) $))
-            (QSETREFV $ 95
+            (QSETREFV $ 93
                       (CONS (|dispatchFunction| |NUMERIC;complexNumeric;EC;47|)
                             $))
-            (QSETREFV $ 96
+            (QSETREFV $ 94
                       (CONS (|dispatchFunction| |NUMERIC;numeric;EPiF;48|) $))
-            (QSETREFV $ 97
+            (QSETREFV $ 95
                       (CONS
                        (|dispatchFunction| |NUMERIC;complexNumeric;EPiC;49|)
                        $))
-            (QSETREFV $ 98
+            (QSETREFV $ 96
                       (CONS (|dispatchFunction| |NUMERIC;complexNumeric;EC;50|)
                             $))
-            (QSETREFV $ 99
+            (QSETREFV $ 97
                       (CONS
                        (|dispatchFunction| |NUMERIC;complexNumeric;EPiC;51|)
                        $))))))))
@@ -762,14 +762,13 @@
               (119 . |denom|) (124 . |complexNumericIfCan|)
               (129 . |complexNumericIfCan|) (135 . |convert|) (|Expression| 21)
               (|Mapping| 21 6) (|Expression| 6) (|ExpressionFunctions2| 6 21)
-              (140 . |map|) (|Union| (|AlgebraicNumber|) '"failed")
-              (146 . |retractIfCan|) (151 . |numericIfCan|) (156 . |coerce|)
-              (|Expression| 11) (|Mapping| 11 6) (|ExpressionFunctions2| 6 11)
-              (161 . |map|) (167 . |complexNumericIfCan|)
-              (172 . |complexNumericIfCan|) (177 . |bits|) (181 . |bits|)
-              (186 . |numericIfCan|) (192 . |complexNumericIfCan|)
-              (198 . |convert|) (|Expression| 10) (|Mapping| 10 11)
-              (|ExpressionFunctions2| 11 10) (203 . |map|)
+              (140 . |map|) (146 . |retractIfCan|) (151 . |numericIfCan|)
+              (156 . |coerce|) (|Expression| 11) (|Mapping| 11 6)
+              (|ExpressionFunctions2| 6 11) (161 . |map|)
+              (167 . |complexNumericIfCan|) (172 . |complexNumericIfCan|)
+              (177 . |bits|) (181 . |bits|) (186 . |numericIfCan|)
+              (192 . |complexNumericIfCan|) (198 . |convert|) (|Expression| 10)
+              (|Mapping| 10 11) (|ExpressionFunctions2| 11 10) (203 . |map|)
               (209 . |retractIfCan|) (214 . |complexNumericIfCan|)
               (|ComplexFunctions2| 6 21) (220 . |map|) (226 . |convert|)
               (231 . |coerce|) |NUMERIC;numeric;SPiF;35|
@@ -778,18 +777,18 @@
               (262 . |complexNumeric|) (268 . |numeric|) (274 . |numeric|)
               (279 . |complexNumeric|) (284 . |complexNumeric|)
               (290 . |numeric|) (296 . |complexNumeric|)
-              (301 . |complexNumeric|) (307 . |retractIfCan|) (312 . |numeric|)
-              (|Mapping| 10 6) (|ExpressionFunctions2| 6 10) (317 . |map|)
-              (323 . |complexNumeric|) (328 . |numeric|)
-              (334 . |complexNumeric|) (340 . |complexNumeric|)
-              (345 . |complexNumeric|))
-           '#(|numericIfCan| 351 |numeric| 384 |complexNumericIfCan| 428
-              |complexNumeric| 494)
+              (301 . |complexNumeric|) (307 . |numeric|) (|Mapping| 10 6)
+              (|ExpressionFunctions2| 6 10) (312 . |map|)
+              (318 . |complexNumeric|) (323 . |numeric|)
+              (329 . |complexNumeric|) (335 . |complexNumeric|)
+              (340 . |complexNumeric|))
+           '#(|numericIfCan| 346 |numeric| 379 |complexNumericIfCan| 423
+              |complexNumeric| 489)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 99
+                             (|makeByteWordVec2| 97
                                                  '(1 8 7 0 9 1 0 10 11 12 1 0
                                                    13 8 14 2 0 10 11 15 16 2 0
                                                    13 8 15 17 1 19 18 0 20 1 0
@@ -803,45 +802,44 @@
                                                    23 31 15 39 1 40 8 0 41 1 40
                                                    8 0 42 1 0 13 40 43 2 0 13
                                                    40 15 44 1 6 21 0 45 2 49 46
-                                                   47 48 50 1 46 51 0 52 1 0 23
-                                                   48 53 1 11 0 6 54 2 57 55 56
-                                                   48 58 1 0 13 55 59 1 0 13 48
-                                                   60 0 21 15 61 1 21 15 15 62
-                                                   2 0 23 48 15 63 2 0 13 48 15
-                                                   64 1 11 10 0 65 2 68 66 67
-                                                   55 69 1 66 13 0 70 2 0 13 55
-                                                   15 71 2 72 10 47 11 73 1 6
-                                                   10 0 74 1 10 0 21 75 1 0 10
-                                                   8 77 2 0 10 8 15 78 1 11 18
-                                                   0 79 1 0 21 19 80 1 0 10 19
-                                                   81 2 0 10 19 15 82 2 0 21 19
-                                                   15 83 1 0 21 31 84 1 0 10 31
-                                                   85 2 0 10 31 15 86 2 0 21 31
-                                                   15 87 1 0 10 40 88 2 0 10 40
-                                                   15 89 1 46 23 0 90 1 0 21 48
-                                                   91 2 93 66 92 48 94 1 0 10
-                                                   48 95 2 0 21 48 15 96 2 0 10
-                                                   48 15 97 1 0 10 55 98 2 0 10
-                                                   55 15 99 1 2 23 48 53 2 2 23
-                                                   48 15 63 1 1 23 31 35 2 1 23
-                                                   31 15 39 2 3 23 19 15 30 1 3
-                                                   23 19 24 1 2 21 48 91 2 2 21
-                                                   48 15 96 1 1 21 31 84 2 1 21
-                                                   31 15 87 2 3 21 19 15 83 1 3
-                                                   21 19 80 2 0 21 6 15 76 1 0
-                                                   21 6 22 1 2 13 48 60 2 2 13
-                                                   48 15 64 2 2 13 55 15 71 1 2
-                                                   13 55 59 2 4 13 8 15 17 1 4
-                                                   13 8 14 1 1 13 31 37 2 1 13
-                                                   31 15 38 2 1 13 40 15 44 1 1
-                                                   13 40 43 1 3 13 19 26 2 3 13
-                                                   19 15 28 1 2 10 48 95 1 2 10
-                                                   55 98 2 2 10 48 15 97 2 2 10
-                                                   55 15 99 1 4 10 11 12 1 4 10
-                                                   8 77 2 4 10 11 15 16 2 4 10
-                                                   8 15 78 1 1 10 31 85 2 1 10
-                                                   31 15 86 2 1 10 40 15 89 1 1
-                                                   10 40 88 2 3 10 19 15 82 1 3
-                                                   10 19 81 1 0 10 6 25 2 0 10
-                                                   6 15 27)))))
+                                                   47 48 50 1 46 23 0 51 1 0 23
+                                                   48 52 1 11 0 6 53 2 56 54 55
+                                                   48 57 1 0 13 54 58 1 0 13 48
+                                                   59 0 21 15 60 1 21 15 15 61
+                                                   2 0 23 48 15 62 2 0 13 48 15
+                                                   63 1 11 10 0 64 2 67 65 66
+                                                   54 68 1 65 13 0 69 2 0 13 54
+                                                   15 70 2 71 10 47 11 72 1 6
+                                                   10 0 73 1 10 0 21 74 1 0 10
+                                                   8 76 2 0 10 8 15 77 1 11 18
+                                                   0 78 1 0 21 19 79 1 0 10 19
+                                                   80 2 0 10 19 15 81 2 0 21 19
+                                                   15 82 1 0 21 31 83 1 0 10 31
+                                                   84 2 0 10 31 15 85 2 0 21 31
+                                                   15 86 1 0 10 40 87 2 0 10 40
+                                                   15 88 1 0 21 48 89 2 91 65
+                                                   90 48 92 1 0 10 48 93 2 0 21
+                                                   48 15 94 2 0 10 48 15 95 1 0
+                                                   10 54 96 2 0 10 54 15 97 1 2
+                                                   23 48 52 2 2 23 48 15 62 1 1
+                                                   23 31 35 2 1 23 31 15 39 2 3
+                                                   23 19 15 30 1 3 23 19 24 1 2
+                                                   21 48 89 2 2 21 48 15 94 1 1
+                                                   21 31 83 2 1 21 31 15 86 2 3
+                                                   21 19 15 82 1 3 21 19 79 2 0
+                                                   21 6 15 75 1 0 21 6 22 1 2
+                                                   13 48 59 2 2 13 48 15 63 2 2
+                                                   13 54 15 70 1 2 13 54 58 2 4
+                                                   13 8 15 17 1 4 13 8 14 1 1
+                                                   13 31 37 2 1 13 31 15 38 2 1
+                                                   13 40 15 44 1 1 13 40 43 1 3
+                                                   13 19 26 2 3 13 19 15 28 1 2
+                                                   10 48 93 1 2 10 54 96 2 2 10
+                                                   48 15 95 2 2 10 54 15 97 1 4
+                                                   10 11 12 1 4 10 8 76 2 4 10
+                                                   11 15 16 2 4 10 8 15 77 1 1
+                                                   10 31 84 2 1 10 31 15 85 2 1
+                                                   10 40 15 88 1 1 10 40 87 2 3
+                                                   10 19 15 81 1 3 10 19 80 1 0
+                                                   10 6 25 2 0 10 6 15 27)))))
            '|lookupComplete|)) 
