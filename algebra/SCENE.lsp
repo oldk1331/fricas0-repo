@@ -4798,10 +4798,11 @@
           (|pts| (|List| (|List| PT))) (|pt| (|List| PT)) (#5=#:G1485 NIL)
           (|ix| (|List| (|List| (|NonNegativeInteger|)))) (#6=#:G1483 NIL)
           (|tr| (|STransform| PT)) (#7=#:G1484 NIL) (|npt| (|List| (|String|)))
-          (#8=#:G1482 NIL) (|p| (PT)) (|t| (|String|)) (|mo| (|DoubleFloat|))
-          (#9=#:G1481 NIL) (|fc| (|String|)) (|lc| (|String|))
-          (|lw| (|DoubleFloat|)) (|pt2| (PT)) (#10=#:G1488 NIL) (|pt1| (PT))
-          (|tp| (|Symbol|)) (#11=#:G1480 NIL))
+          (#8=#:G1482 NIL) (|p| (PT)) (|sz1| (|NonNegativeInteger|))
+          (|t| (|String|)) (|mo| (|DoubleFloat|)) (#9=#:G1481 NIL)
+          (|fc| (|String|)) (|lc| (|String|)) (|lw| (|DoubleFloat|))
+          (|pt2| (PT)) (#10=#:G1488 NIL) (|pt1| (PT)) (|tp| (|Symbol|))
+          (#11=#:G1480 NIL))
          (SEQ (LETT |s| "scene " . #12=(|SCENE;coerce;$Of;124|))
               (COND
                ((EQUAL (QVELT |n| 0) 'ROOT)
@@ -4964,7 +4965,7 @@
                                          #8#))
                         0)
                        . #12#)
-                 (LETT |sz|
+                 (LETT |sz1|
                        (QVELT
                         (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                             (QCDR #8#)
@@ -5010,7 +5011,7 @@
                   (LETT |s|
                         (SPADCALL
                          (LIST |s| "text=" (SPADCALL |t| (QREFELT $ 277))
-                               " sz=" (SPADCALL |sz| (QREFELT $ 269)) " p="
+                               " sz=" (SPADCALL |sz1| (QREFELT $ 269)) " p="
                                (SPADCALL |p| (QREFELT $ 264)) " npt="
                                (SPADCALL |npt| (QREFELT $ 278)))
                          (QREFELT $ 273))
