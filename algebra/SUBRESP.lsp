@@ -10,10 +10,14 @@
                                     (|spadConstant| $ 9) (QREFELT $ 12))
                           . #2=(|SUBRESP;primitivePart;UPRUP;1|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 6))
-                                           (|:| |coef2| (QREFELT $ 6)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 6))
+                                            (|:| |coef2| (QREFELT $ 6)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 6))
+                                             (|:| |coef2| (QREFELT $ 6)))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (EXIT
            (SPADCALL
@@ -65,9 +69,9 @@
                                             (- (SPADCALL |p2| (QREFELT $ 21))
                                                1)
                                             . #4#)
-                                    (|check_subtype| (>= #3# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #3#))
+                                    (|check_subtype2| (>= #3# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #3#))
                                   |p1|)
                        (EXIT
                         (QSETAREF1 |res| 0
@@ -88,8 +92,9 @@
                                   (LETT #2#
                                         (- (SPADCALL |p1| (QREFELT $ 21)) 1)
                                         . #4#)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
+                                (|check_subtype2| (>= #2# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #2#))
                               |p2|)
                    (EXIT
                     (QSETAREF1 |res| 0
@@ -137,10 +142,10 @@
                                                       (PROG1
                                                           (LETT #1# (- |n| 1)
                                                                 . #4#)
-                                                        (|check_subtype|
+                                                        (|check_subtype2|
                                                          (>= #1# 0)
                                                          '(|NonNegativeInteger|)
-                                                         #1#))
+                                                         '(|Integer|) #1#))
                                                       F))))))
                                   ((< (SPADCALL F (QREFELT $ 21)) |n|)
                                    (|error| "strange result !"))

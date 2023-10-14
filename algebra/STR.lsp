@@ -5,10 +5,20 @@
                 (QAREF1
                  (PROG2 (LETT #1# |m| |STR;qelt|)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0)
-                                  (|PrimitiveArray|
-                                   (|PrimitiveArray| (|DoubleFloat|)))
-                                  #1#))
+                   (|check_union2| (QEQCAR #1# 0)
+                                   (|PrimitiveArray|
+                                    (|PrimitiveArray| (|DoubleFloat|)))
+                                   (|Union|
+                                    (|:| |mtx|
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|))))
+                                    (|:| |general|
+                                         (|Mapping| (QREFELT $ 6)
+                                                    (QREFELT $ 6)))
+                                    (|:| |multiv|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                    (|:| |iden| "iden"))
+                                   #1#))
                  |i|)
                 |j|))) 
 
@@ -234,10 +244,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6="iden"))
+                                         #2#))
                        0)
                       0)
                      (SPADCALL |vin| 1 (QREFELT $ 13)))
@@ -246,10 +268,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        0)
                       1)
                      (SPADCALL |vin| 2 (QREFELT $ 13))))
@@ -258,10 +292,22 @@
                      (QAREF1
                       (PROG2 (LETT #2# |tr| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|PrimitiveArray|
-                                        (|PrimitiveArray| (|DoubleFloat|)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|PrimitiveArray|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |mtx|
+                                              (|PrimitiveArray|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|))))
+                                         (|:| |general|
+                                              (|Mapping| (QREFELT $ 6)
+                                                         (QREFELT $ 6)))
+                                         (|:| |multiv|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                         (|:| |iden| #6#))
+                                        #2#))
                       0)
                      2)
                     (SPADCALL |vin| 3 (QREFELT $ 13))))
@@ -274,10 +320,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        1)
                       0)
                      (SPADCALL |vin| 1 (QREFELT $ 13)))
@@ -286,10 +344,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        1)
                       1)
                      (SPADCALL |vin| 2 (QREFELT $ 13))))
@@ -298,10 +368,22 @@
                      (QAREF1
                       (PROG2 (LETT #2# |tr| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|PrimitiveArray|
-                                        (|PrimitiveArray| (|DoubleFloat|)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|PrimitiveArray|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |mtx|
+                                              (|PrimitiveArray|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|))))
+                                         (|:| |general|
+                                              (|Mapping| (QREFELT $ 6)
+                                                         (QREFELT $ 6)))
+                                         (|:| |multiv|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                         (|:| |iden| #6#))
+                                        #2#))
                       1)
                      2)
                     (SPADCALL |vin| 3 (QREFELT $ 13))))
@@ -341,10 +423,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6="iden"))
+                                          #2#))
                         0)
                        0)
                       (SPADCALL |vin| 1 (QREFELT $ 13)))
@@ -353,10 +447,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6#))
+                                          #2#))
                         0)
                        1)
                       (SPADCALL |vin| 2 (QREFELT $ 13))))
@@ -365,10 +471,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        0)
                       2)
                      (SPADCALL |vin| 3 (QREFELT $ 13))))
@@ -377,10 +495,22 @@
                      (QAREF1
                       (PROG2 (LETT #2# |tr| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|PrimitiveArray|
-                                        (|PrimitiveArray| (|DoubleFloat|)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|PrimitiveArray|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |mtx|
+                                              (|PrimitiveArray|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|))))
+                                         (|:| |general|
+                                              (|Mapping| (QREFELT $ 6)
+                                                         (QREFELT $ 6)))
+                                         (|:| |multiv|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                         (|:| |iden| #6#))
+                                        #2#))
                       0)
                      3)
                     (SPADCALL |vin| 4 (QREFELT $ 13))))
@@ -394,10 +524,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6#))
+                                          #2#))
                         1)
                        0)
                       (SPADCALL |vin| 1 (QREFELT $ 13)))
@@ -406,10 +548,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6#))
+                                          #2#))
                         1)
                        1)
                       (SPADCALL |vin| 2 (QREFELT $ 13))))
@@ -418,10 +572,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        1)
                       2)
                      (SPADCALL |vin| 3 (QREFELT $ 13))))
@@ -430,10 +596,22 @@
                      (QAREF1
                       (PROG2 (LETT #2# |tr| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|PrimitiveArray|
-                                        (|PrimitiveArray| (|DoubleFloat|)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|PrimitiveArray|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |mtx|
+                                              (|PrimitiveArray|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|))))
+                                         (|:| |general|
+                                              (|Mapping| (QREFELT $ 6)
+                                                         (QREFELT $ 6)))
+                                         (|:| |multiv|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                         (|:| |iden| #6#))
+                                        #2#))
                       1)
                      3)
                     (SPADCALL |vin| 4 (QREFELT $ 13))))
@@ -447,10 +625,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6#))
+                                          #2#))
                         2)
                        0)
                       (SPADCALL |vin| 1 (QREFELT $ 13)))
@@ -459,10 +649,22 @@
                        (QAREF1
                         (PROG2 (LETT #2# |tr| . #4#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 0)
-                                         (|PrimitiveArray|
-                                          (|PrimitiveArray| (|DoubleFloat|)))
-                                         #2#))
+                          (|check_union2| (QEQCAR #2# 0)
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |mtx|
+                                                (|PrimitiveArray|
+                                                 (|PrimitiveArray|
+                                                  (|DoubleFloat|))))
+                                           (|:| |general|
+                                                (|Mapping| (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                           (|:| |multiv|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|)))
+                                           (|:| |iden| #6#))
+                                          #2#))
                         2)
                        1)
                       (SPADCALL |vin| 2 (QREFELT $ 13))))
@@ -471,10 +673,22 @@
                       (QAREF1
                        (PROG2 (LETT #2# |tr| . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0)
-                                        (|PrimitiveArray|
-                                         (|PrimitiveArray| (|DoubleFloat|)))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|PrimitiveArray|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |mtx|
+                                               (|PrimitiveArray|
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))))
+                                          (|:| |general|
+                                               (|Mapping| (QREFELT $ 6)
+                                                          (QREFELT $ 6)))
+                                          (|:| |multiv|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|)))
+                                          (|:| |iden| #6#))
+                                         #2#))
                        2)
                       2)
                      (SPADCALL |vin| 3 (QREFELT $ 13))))
@@ -483,10 +697,22 @@
                      (QAREF1
                       (PROG2 (LETT #2# |tr| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|PrimitiveArray|
-                                        (|PrimitiveArray| (|DoubleFloat|)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|PrimitiveArray|
+                                         (|PrimitiveArray| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |mtx|
+                                              (|PrimitiveArray|
+                                               (|PrimitiveArray|
+                                                (|DoubleFloat|))))
+                                         (|:| |general|
+                                              (|Mapping| (QREFELT $ 6)
+                                                         (QREFELT $ 6)))
+                                         (|:| |multiv|
+                                              (|PrimitiveArray|
+                                               (|DoubleFloat|)))
+                                         (|:| |iden| #6#))
+                                        #2#))
                       2)
                      3)
                     (SPADCALL |vin| 4 (QREFELT $ 13))))
@@ -517,9 +743,19 @@
             (LETT |f|
                   (PROG2 (LETT #1# |tr| . #3#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 1)
-                                   (|Mapping| (QREFELT $ 6) (QREFELT $ 6))
-                                   #1#))
+                    (|check_union2| (QEQCAR #1# 1)
+                                    (|Mapping| (QREFELT $ 6) (QREFELT $ 6))
+                                    (|Union|
+                                     (|:| |mtx|
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|))))
+                                     (|:| |general|
+                                          (|Mapping| (QREFELT $ 6)
+                                                     (QREFELT $ 6)))
+                                     (|:| |multiv|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                     (|:| |iden| "iden"))
+                                    #1#))
                   . #3#)
             (LETT |res| (SPADCALL |inpt| |f|) . #3#) (EXIT |res|)))
           #4# (EXIT #2#)))) 
@@ -581,8 +817,19 @@
             (LETT |trConf|
                   (PROG2 (LETT #1# |tr| . #4#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 2)
-                                   (|PrimitiveArray| (|DoubleFloat|)) #1#))
+                    (|check_union2| (QEQCAR #1# 2)
+                                    (|PrimitiveArray| (|DoubleFloat|))
+                                    (|Union|
+                                     (|:| |mtx|
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|))))
+                                     (|:| |general|
+                                          (|Mapping| (QREFELT $ 6)
+                                                     (QREFELT $ 6)))
+                                     (|:| |multiv|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                     (|:| |iden| "iden"))
+                                    #1#))
                   . #4#)
             (LETT |conjugation|
                   (SPADCALL
@@ -635,11 +882,24 @@
                                                  (QAREF1
                                                   (PROG2 (LETT #2# |tr| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4="iden"))
                                                      #2#))
                                                   0)
                                                  |j|)
@@ -648,11 +908,24 @@
                                                   (PROG2
                                                       (LETT #2# |inpt| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4#))
                                                      #2#))
                                                   |i|)
                                                  0))
@@ -661,11 +934,24 @@
                                                  (QAREF1
                                                   (PROG2 (LETT #2# |tr| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4#))
                                                      #2#))
                                                   1)
                                                  |j|)
@@ -674,11 +960,24 @@
                                                   (PROG2
                                                       (LETT #2# |inpt| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4#))
                                                      #2#))
                                                   |i|)
                                                  1)))
@@ -687,11 +986,24 @@
                                                 (QAREF1
                                                  (PROG2 (LETT #2# |tr| . #3#)
                                                      (QCDR #2#)
-                                                   (|check_union|
+                                                   (|check_union2|
                                                     (QEQCAR #2# 0)
                                                     (|PrimitiveArray|
                                                      (|PrimitiveArray|
                                                       (|DoubleFloat|)))
+                                                    (|Union|
+                                                     (|:| |mtx|
+                                                          (|PrimitiveArray|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|))))
+                                                     (|:| |general|
+                                                          (|Mapping|
+                                                           (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                                     (|:| |multiv|
+                                                          (|PrimitiveArray|
+                                                           (|DoubleFloat|)))
+                                                     (|:| |iden| #4#))
                                                     #2#))
                                                  2)
                                                 |j|)
@@ -699,19 +1011,32 @@
                                                 (QAREF1
                                                  (PROG2 (LETT #2# |inpt| . #3#)
                                                      (QCDR #2#)
-                                                   (|check_union|
+                                                   (|check_union2|
                                                     (QEQCAR #2# 0)
                                                     (|PrimitiveArray|
                                                      (|PrimitiveArray|
                                                       (|DoubleFloat|)))
+                                                    (|Union|
+                                                     (|:| |mtx|
+                                                          (|PrimitiveArray|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|))))
+                                                     (|:| |general|
+                                                          (|Mapping|
+                                                           (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                                     (|:| |multiv|
+                                                          (|PrimitiveArray|
+                                                           (|DoubleFloat|)))
+                                                     (|:| |iden| #4#))
                                                     #2#))
                                                  |i|)
                                                 2))))))
                                 (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                                 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-                (EXIT (PROGN (LETT #1# (CONS 0 |arr|) . #3#) (GO #4=#:G182)))))
-          #4# (EXIT #1#)))) 
+                (EXIT (PROGN (LETT #1# (CONS 0 |arr|) . #3#) (GO #5=#:G182)))))
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |STR;compound3| ((|tr| $) (|inpt| $) ($ $))
         (SPROG
@@ -737,11 +1062,24 @@
                                                   (QAREF1
                                                    (PROG2 (LETT #2# |tr| . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
                                                       (|PrimitiveArray|
                                                        (|PrimitiveArray|
                                                         (|DoubleFloat|)))
+                                                      (|Union|
+                                                       (|:| |mtx|
+                                                            (|PrimitiveArray|
+                                                             (|PrimitiveArray|
+                                                              (|DoubleFloat|))))
+                                                       (|:| |general|
+                                                            (|Mapping|
+                                                             (QREFELT $ 6)
+                                                             (QREFELT $ 6)))
+                                                       (|:| |multiv|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|)))
+                                                       (|:| |iden| #4="iden"))
                                                       #2#))
                                                    0)
                                                   |j|)
@@ -750,11 +1088,24 @@
                                                    (PROG2
                                                        (LETT #2# |inpt| . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
                                                       (|PrimitiveArray|
                                                        (|PrimitiveArray|
                                                         (|DoubleFloat|)))
+                                                      (|Union|
+                                                       (|:| |mtx|
+                                                            (|PrimitiveArray|
+                                                             (|PrimitiveArray|
+                                                              (|DoubleFloat|))))
+                                                       (|:| |general|
+                                                            (|Mapping|
+                                                             (QREFELT $ 6)
+                                                             (QREFELT $ 6)))
+                                                       (|:| |multiv|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|)))
+                                                       (|:| |iden| #4#))
                                                       #2#))
                                                    |i|)
                                                   0))
@@ -763,11 +1114,24 @@
                                                   (QAREF1
                                                    (PROG2 (LETT #2# |tr| . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
                                                       (|PrimitiveArray|
                                                        (|PrimitiveArray|
                                                         (|DoubleFloat|)))
+                                                      (|Union|
+                                                       (|:| |mtx|
+                                                            (|PrimitiveArray|
+                                                             (|PrimitiveArray|
+                                                              (|DoubleFloat|))))
+                                                       (|:| |general|
+                                                            (|Mapping|
+                                                             (QREFELT $ 6)
+                                                             (QREFELT $ 6)))
+                                                       (|:| |multiv|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|)))
+                                                       (|:| |iden| #4#))
                                                       #2#))
                                                    1)
                                                   |j|)
@@ -776,11 +1140,24 @@
                                                    (PROG2
                                                        (LETT #2# |inpt| . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
                                                       (|PrimitiveArray|
                                                        (|PrimitiveArray|
                                                         (|DoubleFloat|)))
+                                                      (|Union|
+                                                       (|:| |mtx|
+                                                            (|PrimitiveArray|
+                                                             (|PrimitiveArray|
+                                                              (|DoubleFloat|))))
+                                                       (|:| |general|
+                                                            (|Mapping|
+                                                             (QREFELT $ 6)
+                                                             (QREFELT $ 6)))
+                                                       (|:| |multiv|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|)))
+                                                       (|:| |iden| #4#))
                                                       #2#))
                                                    |i|)
                                                   1)))
@@ -789,11 +1166,24 @@
                                                  (QAREF1
                                                   (PROG2 (LETT #2# |tr| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4#))
                                                      #2#))
                                                   2)
                                                  |j|)
@@ -802,11 +1192,24 @@
                                                   (PROG2
                                                       (LETT #2# |inpt| . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
                                                      (|PrimitiveArray|
                                                       (|PrimitiveArray|
                                                        (|DoubleFloat|)))
+                                                     (|Union|
+                                                      (|:| |mtx|
+                                                           (|PrimitiveArray|
+                                                            (|PrimitiveArray|
+                                                             (|DoubleFloat|))))
+                                                      (|:| |general|
+                                                           (|Mapping|
+                                                            (QREFELT $ 6)
+                                                            (QREFELT $ 6)))
+                                                      (|:| |multiv|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|)))
+                                                      (|:| |iden| #4#))
                                                      #2#))
                                                   |i|)
                                                  2)))
@@ -815,11 +1218,24 @@
                                                 (QAREF1
                                                  (PROG2 (LETT #2# |tr| . #3#)
                                                      (QCDR #2#)
-                                                   (|check_union|
+                                                   (|check_union2|
                                                     (QEQCAR #2# 0)
                                                     (|PrimitiveArray|
                                                      (|PrimitiveArray|
                                                       (|DoubleFloat|)))
+                                                    (|Union|
+                                                     (|:| |mtx|
+                                                          (|PrimitiveArray|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|))))
+                                                     (|:| |general|
+                                                          (|Mapping|
+                                                           (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                                     (|:| |multiv|
+                                                          (|PrimitiveArray|
+                                                           (|DoubleFloat|)))
+                                                     (|:| |iden| #4#))
                                                     #2#))
                                                  3)
                                                 |j|)
@@ -827,19 +1243,32 @@
                                                 (QAREF1
                                                  (PROG2 (LETT #2# |inpt| . #3#)
                                                      (QCDR #2#)
-                                                   (|check_union|
+                                                   (|check_union2|
                                                     (QEQCAR #2# 0)
                                                     (|PrimitiveArray|
                                                      (|PrimitiveArray|
                                                       (|DoubleFloat|)))
+                                                    (|Union|
+                                                     (|:| |mtx|
+                                                          (|PrimitiveArray|
+                                                           (|PrimitiveArray|
+                                                            (|DoubleFloat|))))
+                                                     (|:| |general|
+                                                          (|Mapping|
+                                                           (QREFELT $ 6)
+                                                           (QREFELT $ 6)))
+                                                     (|:| |multiv|
+                                                          (|PrimitiveArray|
+                                                           (|DoubleFloat|)))
+                                                     (|:| |iden| #4#))
                                                     #2#))
                                                  |i|)
                                                 3))))))
                                 (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                                 (EXIT NIL))))
                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-                (EXIT (PROGN (LETT #1# (CONS 0 |arr|) . #3#) (GO #4=#:G192)))))
-          #4# (EXIT #1#)))) 
+                (EXIT (PROGN (LETT #1# (CONS 0 |arr|) . #3#) (GO #5=#:G192)))))
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |STR;compoundConf2| ((|tr| $) (|inpt| $) ($ $))
         (SPROG
@@ -882,21 +1311,43 @@
             (LETT |trConf|
                   (PROG2 (LETT #2# |tr| . #4#)
                       (QCDR #2#)
-                    (|check_union| (QEQCAR #2# 2)
-                                   (|PrimitiveArray| (|DoubleFloat|)) #2#))
+                    (|check_union2| (QEQCAR #2# 2)
+                                    (|PrimitiveArray| (|DoubleFloat|))
+                                    (|Union|
+                                     (|:| |mtx|
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|))))
+                                     (|:| |general|
+                                          (|Mapping| (QREFELT $ 6)
+                                                     (QREFELT $ 6)))
+                                     (|:| |multiv|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                     (|:| |iden| #5="iden"))
+                                    #2#))
                   . #4#)
             (LETT |inptConf|
                   (PROG2 (LETT #2# |inpt| . #4#)
                       (QCDR #2#)
-                    (|check_union| (QEQCAR #2# 2)
-                                   (|PrimitiveArray| (|DoubleFloat|)) #2#))
+                    (|check_union2| (QEQCAR #2# 2)
+                                    (|PrimitiveArray| (|DoubleFloat|))
+                                    (|Union|
+                                     (|:| |mtx|
+                                          (|PrimitiveArray|
+                                           (|PrimitiveArray| (|DoubleFloat|))))
+                                     (|:| |general|
+                                          (|Mapping| (QREFELT $ 6)
+                                                     (QREFELT $ 6)))
+                                     (|:| |multiv|
+                                          (|PrimitiveArray| (|DoubleFloat|)))
+                                     (|:| |iden| #5#))
+                                    #2#))
                   . #4#)
             (LETT |resConf|
                   (SPADCALL |trConf| |inptConf|
                             (|compiledLookupCheck| '* (LIST '$ '$ '$) CA))
                   . #4#)
-            (EXIT (PROGN (LETT #1# (CONS 2 |resConf|) . #4#) (GO #5=#:G195)))))
-          #5# (EXIT #1#)))) 
+            (EXIT (PROGN (LETT #1# (CONS 2 |resConf|) . #4#) (GO #6=#:G195)))))
+          #6# (EXIT #1#)))) 
 
 (SDEFUN |STR;compound;3$;16| ((|tr| $) (|inpt| $) ($ $))
         (SPROG
@@ -1031,11 +1482,25 @@
                                      (|STR;outputMatrix|
                                       (PROG2 (LETT #3# |tr| . #4#)
                                           (QCDR #3#)
-                                        (|check_union| (QEQCAR #3# 0)
-                                                       (|PrimitiveArray|
+                                        (|check_union2| (QEQCAR #3# 0)
                                                         (|PrimitiveArray|
-                                                         (|DoubleFloat|)))
-                                                       #3#))
+                                                         (|PrimitiveArray|
+                                                          (|DoubleFloat|)))
+                                                        (|Union|
+                                                         (|:| |mtx|
+                                                              (|PrimitiveArray|
+                                                               (|PrimitiveArray|
+                                                                (|DoubleFloat|))))
+                                                         (|:| |general|
+                                                              (|Mapping|
+                                                               (QREFELT $ 6)
+                                                               (QREFELT $ 6)))
+                                                         (|:| |multiv|
+                                                              (|PrimitiveArray|
+                                                               (|DoubleFloat|)))
+                                                         (|:| |iden|
+                                                              #6="iden"))
+                                                        #3#))
                                       $)
                                      (QREFELT $ 65))
                            . #4#)
@@ -1045,10 +1510,23 @@
                              (|STR;outputArray|
                               (PROG2 (LETT #1# |tr| . #4#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 2)
-                                               (|PrimitiveArray|
-                                                (|DoubleFloat|))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 2)
+                                                (|PrimitiveArray|
+                                                 (|DoubleFloat|))
+                                                (|Union|
+                                                 (|:| |mtx|
+                                                      (|PrimitiveArray|
+                                                       (|PrimitiveArray|
+                                                        (|DoubleFloat|))))
+                                                 (|:| |general|
+                                                      (|Mapping| (QREFELT $ 6)
+                                                                 (QREFELT $
+                                                                          6)))
+                                                 (|:| |multiv|
+                                                      (|PrimitiveArray|
+                                                       (|DoubleFloat|)))
+                                                 (|:| |iden| #6#))
+                                                #1#))
                               $)
                              (QREFELT $ 65)))))
                 #5# (EXIT #2#)))) 

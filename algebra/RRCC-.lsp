@@ -25,12 +25,12 @@
                   ('T (CONS 0 (SPADCALL |liste| |n| (QREFELT $ 21))))))))) 
 
 (SDEFUN |RRCC-;recip;ThePolsSU;5|
-        ((|toInv| |ThePols|) (|rootChar| S) ($ |Union| |ThePols| "failed"))
+        ((|toInv| |ThePols|) (|rootChar| S) ($ |Union| |ThePols| #1="failed"))
         (SPROG
          ((|d|
            (|Record| (|:| |coef| (|List| |ThePols|))
                      (|:| |generator| |ThePols|)))
-          (|defPol| (|ThePols|)) (#1=#:G127 NIL)
+          (|defPol| (|ThePols|)) (#2=#:G127 NIL)
           (|res| (|Union| |TheField| "failed")))
          (SEQ
           (COND
@@ -38,19 +38,19 @@
             (SEQ
              (LETT |res|
                    (SPADCALL (SPADCALL |toInv| (QREFELT $ 26)) (QREFELT $ 27))
-                   . #2=(|RRCC-;recip;ThePolsSU;5|))
+                   . #3=(|RRCC-;recip;ThePolsSU;5|))
              (EXIT
               (COND ((QEQCAR |res| 1) (CONS 1 "failed"))
-                    (#3='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
-           (#3#
-            (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)) . #2#)
+                    (#4='T (CONS 0 (SPADCALL (QCDR |res|) (QREFELT $ 28))))))))
+           (#4#
+            (SEQ (LETT |defPol| (SPADCALL |rootChar| (QREFELT $ 29)) . #3#)
                  (LETT |d| (SPADCALL (LIST |defPol| |toInv|) (QREFELT $ 31))
-                       . #2#)
+                       . #3#)
                  (EXIT
                   (COND
                    ((SPADCALL (QCDR |d|) |rootChar| (QREFELT $ 32))
                     (CONS 1 "failed"))
-                   (#3#
+                   (#4#
                     (SEQ
                      (COND
                       ((SPADCALL (SPADCALL (QCDR |d|) (QREFELT $ 25)) 0
@@ -58,19 +58,20 @@
                        (SEQ
                         (LETT |defPol|
                               (PROG2
-                                  (LETT #1#
+                                  (LETT #2#
                                         (SPADCALL |defPol| (QCDR |d|)
                                                   (QREFELT $ 34))
-                                        . #2#)
-                                  (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 0) (QREFELT $ 8)
-                                               #1#))
-                              . #2#)
+                                        . #3#)
+                                  (QCDR #2#)
+                                (|check_union2| (QEQCAR #2# 0) (QREFELT $ 8)
+                                                (|Union| (QREFELT $ 8) #1#)
+                                                #2#))
+                              . #3#)
                         (EXIT
                          (LETT |d|
                                (SPADCALL (LIST |defPol| |toInv|)
                                          (QREFELT $ 31))
-                               . #2#)))))
+                               . #3#)))))
                      (EXIT
                       (CONS 0 (SPADCALL (QCAR |d|) 2 (QREFELT $ 36)))))))))))))) 
 

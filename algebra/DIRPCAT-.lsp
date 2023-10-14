@@ -109,8 +109,9 @@
                     (SPADCALL |r| |i|
                               (SPADCALL
                                (PROG1 (LETT #1# (+ 1 (QCDR |d|)) . #3#)
-                                 (|check_subtype| (> #1# 0)
-                                                  '(|PositiveInteger|) #1#))
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #1#))
                                (QREFELT $ 53))
                               (QREFELT $ 54))
                     (EXIT (LETT |n0| (QCAR |d|) . #3#)))
@@ -140,7 +141,8 @@
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (PROG1 (LETT #1# |res| . #3#)
-             (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+             (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                               #1#)))))) 
 
 (DECLAIM (NOTINLINE |DirectProductCategory&;|)) 
 

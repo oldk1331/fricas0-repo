@@ -299,10 +299,14 @@
                           (LETT #3# (SPADCALL |num| |pPower| (QREFELT $ 40))
                                 . #8#)
                           (QCDR #3#)
-                        (|check_union| (QEQCAR #3# 0)
-                                       (|SparseUnivariatePolynomial|
-                                        (QREFELT $ 7))
-                                       #3#))
+                        (|check_union2| (QEQCAR #3# 0)
+                                        (|SparseUnivariatePolynomial|
+                                         (QREFELT $ 7))
+                                        (|Union|
+                                         (|SparseUnivariatePolynomial|
+                                          (QREFELT $ 7))
+                                         "failed")
+                                        #3#))
                       . #8#)
                 (LETT |sigma|
                       (SPADCALL
@@ -410,7 +414,8 @@
           (LETT |n|
                 (PROG1
                     (LETT #3# (SPADCALL |factoredDen| 1 (QREFELT $ 55)) . #5#)
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #5#)
           (LETT |invPoly|
                 (QCAR

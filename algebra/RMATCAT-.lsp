@@ -63,7 +63,8 @@
                (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (PROG1 (LETT #1# |res| . #4#)
-             (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+             (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                               #1#)))))) 
 
 (SDEFUN |RMATCAT-;index;PiS;4| ((|i| |PositiveInteger|) ($ S))
         (SPROG
@@ -85,8 +86,9 @@
                           (LETT |el|
                                 (SPADCALL
                                  (PROG1 (LETT #1# (+ (QCDR |old|) 1) . #4#)
-                                   (|check_subtype| (> #1# 0)
-                                                    '(|PositiveInteger|) #1#))
+                                   (|check_subtype2| (> #1# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 23))
                                 . #4#)
                           (LETT |row| (CONS |el| |row|) . #4#)

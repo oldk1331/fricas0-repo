@@ -640,9 +640,9 @@
                        (LETT |bmap|
                              (SPADCALL |bmap|
                                        (PROG1 (LETT #5# |i| . #9#)
-                                         (|check_subtype| (>= #5# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #5#))
+                                         (|check_subtype2| (>= #5# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #5#))
                                        (QREFELT $ 60))
                              . #9#)))))
                (LETT #6# (CDR #6#) . #9#) (GO G190) G191 (EXIT NIL))
@@ -749,7 +749,8 @@
                (+ |a|
                   (*
                    (PROG1 (LETT #1# (- |b| 1) |WGRPH;indexProd|)
-                     (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                     (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #1#))
                    (LENGTH (QCAR |aObj|)))))) 
 
 (SDEFUN |WGRPH;*;2$Wg;22|
@@ -1490,9 +1491,9 @@
                                             1)
                                            |offsetX|)
                                           . #9#)
-                                  (|check_subtype| (>= #5# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #5#))
+                                  (|check_subtype2| (>= #5# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #5#))
                                 (PROG1
                                     (LETT #4#
                                           (+
@@ -1502,9 +1503,9 @@
                                             2)
                                            |offsetY|)
                                           . #9#)
-                                  (|check_subtype| (>= #4# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #4#))
+                                  (|check_subtype2| (>= #4# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #4#))
                                 (|spadConstant| $ 9))
                                (QREFELT $ 81))))
                (LETT |oi| (|inc_SI| |oi|) . #9#) (GO G190) G191 (EXIT NIL))
@@ -1582,9 +1583,9 @@
                                             1)
                                            |offsetX|)
                                           . #9#)
-                                  (|check_subtype| (>= #5# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #5#))
+                                  (|check_subtype2| (>= #5# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #5#))
                                 (PROG1
                                     (LETT #4#
                                           (+
@@ -1594,9 +1595,9 @@
                                             2)
                                            |offsetY|)
                                           . #9#)
-                                  (|check_subtype| (>= #4# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #4#))
+                                  (|check_subtype2| (>= #4# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #4#))
                                 (|spadConstant| $ 9))
                                (QREFELT $ 81))))
                (LETT |oi| (|inc_SI| |oi|) . #9#) (GO G190) G191 (EXIT NIL))

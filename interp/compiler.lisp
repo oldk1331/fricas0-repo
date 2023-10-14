@@ -4847,7 +4847,8 @@
 ;   pred:=isSubset(m',T.mode,e) =>
 ;     gg:=GENSYM()
 ;     pred:= substitute(gg,"*",pred)
-;     code := ['PROG1, ['LET, gg, T.expr], ['check_subtype, pred, MKQ m', gg]]
+;     code := ['PROG1, ['LET, gg, T.expr],
+;                      ['check_subtype2, pred, MKQ m', MKQ T.mode, gg]]
 ;     [code,m',T.env]
  
 (DEFUN |compCoerce1| (|x| |m'| |e|)
@@ -4868,7 +4869,8 @@
               (SETQ |pred| (|substitute| |gg| '* |pred|))
               (SETQ |code|
                       (LIST 'PROG1 (LIST 'LET |gg| (CAR T$))
-                            (LIST '|check_subtype| |pred| (MKQ |m'|) |gg|)))
+                            (LIST '|check_subtype2| |pred| (MKQ |m'|)
+                                  (MKQ (CADR T$)) |gg|)))
               (LIST |code| |m'| (CADDR T$)))))))))
  
 ; coerceByModemap([x,m,e],m') ==

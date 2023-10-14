@@ -183,13 +183,13 @@
                                (LETT #5#
                                      (MAX (SPADCALL |abs_z| (QREFELT $ 53)) 5)
                                      . #7#)
-                             (|check_subtype| (> #5# 0) '(|PositiveInteger|)
-                                              #5#))
+                             (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #5#))
                            . #7#)
                      (LETT |lz|
                            (PROG1 (LETT #4# (INTEGER-LENGTH |oz|) . #7#)
-                             (|check_subtype| (> #4# 0) '(|PositiveInteger|)
-                                              #4#))
+                             (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #4#))
                            . #7#)
                      (SPADCALL (+ (+ |oz| |lz|) 30) (QREFELT $ 42))
                      (LETT |loss|
@@ -246,8 +246,8 @@
                                             (QREFELT $ 57))
                                            10))
                                      . #7#)
-                             (|check_subtype| (> #3# 0) '(|PositiveInteger|)
-                                              #3#))
+                             (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #3#))
                            . #7#)
                      (SPADCALL |l1| (QREFELT $ 42))
                      (LETT |result|
@@ -273,15 +273,16 @@
                                        (QREFELT $ 53))
                                       5)
                                      . #7#)
-                             (|check_subtype| (> #2# 0) '(|PositiveInteger|)
-                                              #2#))
+                             (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #2#))
                            . #7#)
                      (LETT |l1|
                            (+
                             (+ (+ |l| |llog|)
                                (PROG1 (LETT #1# (INTEGER-LENGTH |l|) . #7#)
-                                 (|check_subtype| (> #1# 0)
-                                                  '(|PositiveInteger|) #1#)))
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #1#)))
                             12)
                            . #7#)
                      (SPADCALL |l1| (QREFELT $ 42))
@@ -432,8 +433,9 @@
                            (+
                             (+ |l|
                                (PROG1 (LETT #2# (INTEGER-LENGTH |l|) . #4#)
-                                 (|check_subtype| (> #2# 0)
-                                                  '(|PositiveInteger|) #2#)))
+                                 (|check_subtype2| (> #2# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #2#)))
                             12)
                            . #4#)
                      (SPADCALL |l1| (QREFELT $ 42))

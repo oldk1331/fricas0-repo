@@ -116,8 +116,11 @@
                                   (QREFELT $ 41))
                                  . #4#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0) (|Stream| (QREFELT $ 6))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|Stream| (QREFELT $ 6))
+                                         (|Union| (|Stream| (QREFELT $ 6))
+                                                  "failed")
+                                         #2#))
                        . #4#)
                  (LETT |sn1|
                        (SPADCALL |invden|

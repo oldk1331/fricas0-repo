@@ -135,9 +135,9 @@
                          (LETT #5#
                                (EXPT |g|
                                      (PROG1 (LETT #6# (- |n| |df|) . #27#)
-                                       (|check_subtype| (>= #6# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #6#)))
+                                       (|check_subtype2| (>= #6# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #6#)))
                                . #27#)
                          (COND (#3# (LETT #4# (* #4# #5#) . #27#))
                                ('T
@@ -155,8 +155,8 @@
                          (LETT #1#
                                (SPADCALL (* |normprod| |nm|) (QREFELT $ 17))
                                . #27#)
-                       (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                        #1#))
+                       (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #1#))
                      (QREFELT $ 18)))))) 
 
 (SDEFUN |GENEEZ;compBound;BPLNni;2|
@@ -282,10 +282,14 @@
                                     (QREFELT $ 34))
                           |GENEEZ;modInverse|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 6))
-                                           (|:| |coef2| (QREFELT $ 6)))
-                                 #1#))))) 
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 6))
+                                            (|:| |coef2| (QREFELT $ 6)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 6))
+                                             (|:| |coef2| (QREFELT $ 6)))
+                                   "failed")
+                                  #1#))))) 
 
 (SDEFUN |GENEEZ;exactquo| ((|u| BP) (|v| BP) (|p| R) ($ |Union| BP "failed"))
         (SPROG
@@ -579,8 +583,11 @@
                                               |lmodk| (QREFELT $ 60))
                                              . #18#)
                                        (QCDR #1#)
-                                     (|check_union| (QEQCAR #1# 0)
-                                                    (QREFELT $ 7) #1#))
+                                     (|check_union2| (QEQCAR #1# 0)
+                                                     (QREFELT $ 7)
+                                                     (|Union| (QREFELT $ 7)
+                                                              "failed")
+                                                     #1#))
                                    . #18#)
                              (EXIT (LETT |oldsol| |nsol| . #18#)))))))))))
                 NIL (GO G190) G191 (EXIT NIL)))
@@ -1080,7 +1087,9 @@
                                              |pmod| (QREFELT $ 60))
                                    . #14#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                           (|Union| (QREFELT $ 7) "failed")
+                                           #1#))
                          . #14#)
                    (EXIT
                     (|GENEEZ;liftSol| |soln| |a| |pmod| |pmod| |lpolys| |ftab|

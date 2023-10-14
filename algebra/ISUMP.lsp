@@ -100,8 +100,10 @@
                                           (SPADCALL |d| |di| (QREFELT $ 51))
                                           . #8#)
                                     (QCDR #5#)
-                                  (|check_union| (QEQCAR #5# 0) (|Integer|)
-                                                 #5#))
+                                  (|check_union2| (QEQCAR #5# 0) (|Integer|)
+                                                  (|Union| (|Integer|)
+                                                           "failed")
+                                                  #5#))
                                 |pi| (QREFELT $ 52))
                                . #8#)
                          (COND

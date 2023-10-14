@@ -78,9 +78,9 @@
                             (SPADCALL
                              (EXPT (QREFELT $ 6)
                                    (PROG1 (LETT #2# |n| . #4#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#)))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#)))
                              (|PADICRC;getZp| |x| $) (QREFELT $ 34))
                             (|PADICRC;getZp| |y| $) (QREFELT $ 35)))
                           (#3#
@@ -88,9 +88,9 @@
                             (SPADCALL
                              (EXPT (QREFELT $ 6)
                                    (PROG1 (LETT #1# (- |n|) . #4#)
-                                     (|check_subtype| (>= #1# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #1#)))
+                                     (|check_subtype2| (>= #1# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #1#)))
                              (|PADICRC;getZp| |y| $) (QREFELT $ 34))
                             (|PADICRC;getZp| |x| $) (QREFELT $ 35))))))))))) 
 
@@ -108,9 +108,9 @@
                               (SPADCALL
                                (EXPT (QREFELT $ 6)
                                      (PROG1 (LETT #2# |n| . #3#)
-                                       (|check_subtype| (>= #2# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #2#)))
+                                       (|check_subtype2| (>= #2# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #2#)))
                                (|PADICRC;getZp| |x| $) (QREFELT $ 34))
                               (QREFELT $ 37))
                     $))
@@ -120,9 +120,9 @@
                               (SPADCALL
                                (EXPT (QREFELT $ 6)
                                      (PROG1 (LETT #1# (- |n|) . #3#)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#)))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#)))
                                (|PADICRC;getZp| |y| $) (QREFELT $ 34))
                               (QREFELT $ 37))
                     $))))))) 
@@ -145,8 +145,9 @@
                      (SPADCALL
                       (EXPT (QREFELT $ 6)
                             (PROG1 (LETT #2# |n| . #3#)
-                              (|check_subtype| (>= #2# 0)
-                                               '(|NonNegativeInteger|) #2#)))
+                              (|check_subtype2| (>= #2# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #2#)))
                       (|PADICRC;getZp| |x| $) (QREFELT $ 34))
                      (|PADICRC;getZp| |y| $) (QREFELT $ 41))
                     $))
@@ -156,9 +157,9 @@
                               (SPADCALL
                                (EXPT (QREFELT $ 6)
                                      (PROG1 (LETT #1# (- |n|) . #3#)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#)))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#)))
                                (|PADICRC;getZp| |y| $) (QREFELT $ 34))
                               (QREFELT $ 41))
                     $))))))) 
@@ -180,15 +181,17 @@
                      ((SPADCALL |n| (QREFELT $ 46))
                       (SPADCALL |x|
                                 (PROG1 (LETT #2# |n| . #3=(|PADICRC;^;$I$;17|))
-                                  (|check_subtype| (> #2# 0)
-                                                   '(|PositiveInteger|) #2#))
+                                  (|check_subtype2| (> #2# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|Integer|) #2#))
                                 (QREFELT $ 49)))
                      ('T
                       (SPADCALL
                        (SPADCALL |x|
                                  (PROG1 (LETT #1# (- |n|) . #3#)
-                                   (|check_subtype| (> #1# 0)
-                                                    '(|PositiveInteger|) #1#))
+                                   (|check_subtype2| (> #1# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 49))
                        (QREFELT $ 50)))))) 
 

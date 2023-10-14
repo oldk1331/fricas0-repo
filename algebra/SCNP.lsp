@@ -64,11 +64,30 @@
                    (QCDR
                     (PROG2 (LETT #1# |n| . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 2)
-                                     (|Record| (|:| |ch| (|List| $))
-                                               (|:| |listHNM|
-                                                    (|List| (|String|))))
-                                     #1#))))))
+                      (|check_union2| (QEQCAR #1# 2)
+                                      (|Record| (|:| |ch| (|List| $))
+                                                (|:| |listHNM|
+                                                     (|List| (|String|))))
+                                      (|Union|
+                                       (|:| |pt|
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |nd|
+                                            (|Record|
+                                             (|:| |listND|
+                                                  (|List|
+                                                   (|Scene| (QREFELT $ 6))))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |br|
+                                            (|Record| (|:| |ch| (|List| $))
+                                                      (|:| |listHNM|
+                                                           (|List|
+                                                            (|String|))))))
+                                      #1#))))))
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |SCNP;findPoint;$SPT;8| ((|n| $) (|ptName| |String|) ($ PT))
@@ -85,11 +104,30 @@
                      (QCAR
                       (PROG2 (LETT #4# |n| . #5=(|SCNP;findPoint;$SPT;8|))
                           (QCDR #4#)
-                        (|check_union| (QEQCAR #4# 2)
-                                       (|Record| (|:| |ch| (|List| $))
-                                                 (|:| |listHNM|
-                                                      (|List| (|String|))))
-                                       #4#)))
+                        (|check_union2| (QEQCAR #4# 2)
+                                        (|Record| (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))
+                                        (|Union|
+                                         (|:| |pt|
+                                              (|Record|
+                                               (|:| |listPT|
+                                                    (|List| (QREFELT $ 6)))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |nd|
+                                              (|Record|
+                                               (|:| |listND|
+                                                    (|List|
+                                                     (|Scene| (QREFELT $ 6))))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |br|
+                                              (|Record| (|:| |ch| (|List| $))
+                                                        (|:| |listHNM|
+                                                             (|List|
+                                                              (|String|))))))
+                                        #4#)))
                      . #5#)
                (COND
                 ((SPADCALL |c| NIL (QREFELT $ 21))
@@ -112,12 +150,32 @@
                         (QCDR
                          (PROG2 (LETT #2# |n| . #5#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 0)
-                                          (|Record|
-                                           (|:| |listPT|
-                                                (|List| (QREFELT $ 6)))
-                                           (|:| |listNM| (|List| (|String|))))
-                                          #2#))))
+                           (|check_union2| (QEQCAR #2# 0)
+                                           (|Record|
+                                            (|:| |listPT|
+                                                 (|List| (QREFELT $ 6)))
+                                            (|:| |listNM| (|List| (|String|))))
+                                           (|Union|
+                                            (|:| |pt|
+                                                 (|Record|
+                                                  (|:| |listPT|
+                                                       (|List| (QREFELT $ 6)))
+                                                  (|:| |listNM|
+                                                       (|List| (|String|)))))
+                                            (|:| |nd|
+                                                 (|Record|
+                                                  (|:| |listND|
+                                                       (|List|
+                                                        (|Scene|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |listNM|
+                                                       (|List| (|String|)))))
+                                            (|:| |br|
+                                                 (|Record|
+                                                  (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))))
+                                           #2#))))
                        . #5#)
                  G190 (COND ((|greater_SI| |sNum| #3#) (GO G191)))
                  (SEQ
@@ -126,12 +184,33 @@
                          (QCDR
                           (PROG2 (LETT #2# |n| . #5#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0)
-                                           (|Record|
-                                            (|:| |listPT|
-                                                 (|List| (QREFELT $ 6)))
-                                            (|:| |listNM| (|List| (|String|))))
-                                           #2#)))
+                            (|check_union2| (QEQCAR #2# 0)
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|))))
+                                            (|Union|
+                                             (|:| |pt|
+                                                  (|Record|
+                                                   (|:| |listPT|
+                                                        (|List| (QREFELT $ 6)))
+                                                   (|:| |listNM|
+                                                        (|List| (|String|)))))
+                                             (|:| |nd|
+                                                  (|Record|
+                                                   (|:| |listND|
+                                                        (|List|
+                                                         (|Scene|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |listNM|
+                                                        (|List| (|String|)))))
+                                             (|:| |br|
+                                                  (|Record|
+                                                   (|:| |ch| (|List| $))
+                                                   (|:| |listHNM|
+                                                        (|List| (|String|))))))
+                                            #2#)))
                          |sNum| (QREFELT $ 27))
                         . #5#)
                   (EXIT
@@ -143,13 +222,37 @@
                              (QCAR
                               (PROG2 (LETT #2# |n| . #5#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 0)
-                                               (|Record|
-                                                (|:| |listPT|
-                                                     (|List| (QREFELT $ 6)))
-                                                (|:| |listNM|
-                                                     (|List| (|String|))))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 0)
+                                                (|Record|
+                                                 (|:| |listPT|
+                                                      (|List| (QREFELT $ 6)))
+                                                 (|:| |listNM|
+                                                      (|List| (|String|))))
+                                                (|Union|
+                                                 (|:| |pt|
+                                                      (|Record|
+                                                       (|:| |listPT|
+                                                            (|List|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |listNM|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |nd|
+                                                      (|Record|
+                                                       (|:| |listND|
+                                                            (|List|
+                                                             (|Scene|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |listNM|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |br|
+                                                      (|Record|
+                                                       (|:| |ch| (|List| $))
+                                                       (|:| |listHNM|
+                                                            (|List|
+                                                             (|String|))))))
+                                                #2#)))
                              |sNum| (QREFELT $ 28))
                             . #5#)
                       (GO #6#))))))
@@ -168,40 +271,116 @@
                  (RPLACA
                   #2=(PROG2 (LETT #1# |n| . #3=(|SCNP;addPoints!;$S2$;9|))
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 2)
-                                      (|Record| (|:| |ch| (|List| $))
-                                                (|:| |listHNM|
-                                                     (|List| (|String|))))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 2)
+                                       (|Record| (|:| |ch| (|List| $))
+                                                 (|:| |listHNM|
+                                                      (|List| (|String|))))
+                                       (|Union|
+                                        (|:| |pt|
+                                             (|Record|
+                                              (|:| |listPT|
+                                                   (|List| (QREFELT $ 6)))
+                                              (|:| |listNM|
+                                                   (|List| (|String|)))))
+                                        (|:| |nd|
+                                             (|Record|
+                                              (|:| |listND|
+                                                   (|List|
+                                                    (|Scene| (QREFELT $ 6))))
+                                              (|:| |listNM|
+                                                   (|List| (|String|)))))
+                                        (|:| |br|
+                                             (|Record| (|:| |ch| (|List| $))
+                                                       (|:| |listHNM|
+                                                            (|List|
+                                                             (|String|))))))
+                                       #1#))
                   (SPADCALL
                    (QCAR
                     (PROG2 (LETT #1# |n| . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 2)
-                                     (|Record| (|:| |ch| (|List| $))
-                                               (|:| |listHNM|
-                                                    (|List| (|String|))))
-                                     #1#)))
+                      (|check_union2| (QEQCAR #1# 2)
+                                      (|Record| (|:| |ch| (|List| $))
+                                                (|:| |listHNM|
+                                                     (|List| (|String|))))
+                                      (|Union|
+                                       (|:| |pt|
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |nd|
+                                            (|Record|
+                                             (|:| |listND|
+                                                  (|List|
+                                                   (|Scene| (QREFELT $ 6))))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |br|
+                                            (|Record| (|:| |ch| (|List| $))
+                                                      (|:| |listHNM|
+                                                           (|List|
+                                                            (|String|))))))
+                                      #1#)))
                    |pts| (QREFELT $ 29)))
                  (QCAR #2#))
                 (PROGN
                  (RPLACD
                   #4=(PROG2 (LETT #1# |n| . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 2)
-                                      (|Record| (|:| |ch| (|List| $))
-                                                (|:| |listHNM|
-                                                     (|List| (|String|))))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 2)
+                                       (|Record| (|:| |ch| (|List| $))
+                                                 (|:| |listHNM|
+                                                      (|List| (|String|))))
+                                       (|Union|
+                                        (|:| |pt|
+                                             (|Record|
+                                              (|:| |listPT|
+                                                   (|List| (QREFELT $ 6)))
+                                              (|:| |listNM|
+                                                   (|List| (|String|)))))
+                                        (|:| |nd|
+                                             (|Record|
+                                              (|:| |listND|
+                                                   (|List|
+                                                    (|Scene| (QREFELT $ 6))))
+                                              (|:| |listNM|
+                                                   (|List| (|String|)))))
+                                        (|:| |br|
+                                             (|Record| (|:| |ch| (|List| $))
+                                                       (|:| |listHNM|
+                                                            (|List|
+                                                             (|String|))))))
+                                       #1#))
                   (SPADCALL
                    (QCDR
                     (PROG2 (LETT #1# |n| . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 2)
-                                     (|Record| (|:| |ch| (|List| $))
-                                               (|:| |listHNM|
-                                                    (|List| (|String|))))
-                                     #1#)))
+                      (|check_union2| (QEQCAR #1# 2)
+                                      (|Record| (|:| |ch| (|List| $))
+                                                (|:| |listHNM|
+                                                     (|List| (|String|))))
+                                      (|Union|
+                                       (|:| |pt|
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |nd|
+                                            (|Record|
+                                             (|:| |listND|
+                                                  (|List|
+                                                   (|Scene| (QREFELT $ 6))))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |br|
+                                            (|Record| (|:| |ch| (|List| $))
+                                                      (|:| |listHNM|
+                                                           (|List|
+                                                            (|String|))))))
+                                      #1#)))
                    |ptName| (QREFELT $ 30)))
                  (QCDR #4#))
                 (EXIT |pts|)))) 
@@ -227,11 +406,30 @@
                      (QCAR
                       (PROG2 (LETT #3# |n| . #4#)
                           (QCDR #3#)
-                        (|check_union| (QEQCAR #3# 2)
-                                       (|Record| (|:| |ch| (|List| $))
-                                                 (|:| |listHNM|
-                                                      (|List| (|String|))))
-                                       #3#)))
+                        (|check_union2| (QEQCAR #3# 2)
+                                        (|Record| (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))
+                                        (|Union|
+                                         (|:| |pt|
+                                              (|Record|
+                                               (|:| |listPT|
+                                                    (|List| (QREFELT $ 6)))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |nd|
+                                              (|Record|
+                                               (|:| |listND|
+                                                    (|List|
+                                                     (|Scene| (QREFELT $ 6))))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |br|
+                                              (|Record| (|:| |ch| (|List| $))
+                                                        (|:| |listHNM|
+                                                             (|List|
+                                                              (|String|))))))
+                                        #3#)))
                      . #4#)
                (COND
                 ((SPADCALL |c| NIL (QREFELT $ 21))
@@ -240,22 +438,60 @@
                    (RPLACA
                     #5=(PROG2 (LETT #3# |n| . #4#)
                            (QCDR #3#)
-                         (|check_union| (QEQCAR #3# 2)
-                                        (|Record| (|:| |ch| (|List| $))
-                                                  (|:| |listHNM|
-                                                       (|List| (|String|))))
-                                        #3#))
+                         (|check_union2| (QEQCAR #3# 2)
+                                         (|Record| (|:| |ch| (|List| $))
+                                                   (|:| |listHNM|
+                                                        (|List| (|String|))))
+                                         (|Union|
+                                          (|:| |pt|
+                                               (|Record|
+                                                (|:| |listPT|
+                                                     (|List| (QREFELT $ 6)))
+                                                (|:| |listNM|
+                                                     (|List| (|String|)))))
+                                          (|:| |nd|
+                                               (|Record|
+                                                (|:| |listND|
+                                                     (|List|
+                                                      (|Scene| (QREFELT $ 6))))
+                                                (|:| |listNM|
+                                                     (|List| (|String|)))))
+                                          (|:| |br|
+                                               (|Record| (|:| |ch| (|List| $))
+                                                         (|:| |listHNM|
+                                                              (|List|
+                                                               (|String|))))))
+                                         #3#))
                     (LIST |scnd|))
                    (QCAR #5#))
                   (PROGN
                    (RPLACD
                     #6=(PROG2 (LETT #3# |n| . #4#)
                            (QCDR #3#)
-                         (|check_union| (QEQCAR #3# 2)
-                                        (|Record| (|:| |ch| (|List| $))
-                                                  (|:| |listHNM|
-                                                       (|List| (|String|))))
-                                        #3#))
+                         (|check_union2| (QEQCAR #3# 2)
+                                         (|Record| (|:| |ch| (|List| $))
+                                                   (|:| |listHNM|
+                                                        (|List| (|String|))))
+                                         (|Union|
+                                          (|:| |pt|
+                                               (|Record|
+                                                (|:| |listPT|
+                                                     (|List| (QREFELT $ 6)))
+                                                (|:| |listNM|
+                                                     (|List| (|String|)))))
+                                          (|:| |nd|
+                                               (|Record|
+                                                (|:| |listND|
+                                                     (|List|
+                                                      (|Scene| (QREFELT $ 6))))
+                                                (|:| |listNM|
+                                                     (|List| (|String|)))))
+                                          (|:| |br|
+                                               (|Record| (|:| |ch| (|List| $))
+                                                         (|:| |listHNM|
+                                                              (|List|
+                                                               (|String|))))))
+                                         #3#))
                     (LIST "useNames"))
                    (QCDR #6#))
                   (EXIT (PROGN (LETT #2# |scnd| . #4#) (GO #7=#:G173))))))
@@ -270,31 +506,88 @@
                 (RPLACA
                  #8=(PROG2 (LETT #3# |n| . #4#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 2)
-                                     (|Record| (|:| |ch| (|List| $))
-                                               (|:| |listHNM|
-                                                    (|List| (|String|))))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 2)
+                                      (|Record| (|:| |ch| (|List| $))
+                                                (|:| |listHNM|
+                                                     (|List| (|String|))))
+                                      (|Union|
+                                       (|:| |pt|
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |nd|
+                                            (|Record|
+                                             (|:| |listND|
+                                                  (|List|
+                                                   (|Scene| (QREFELT $ 6))))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |br|
+                                            (|Record| (|:| |ch| (|List| $))
+                                                      (|:| |listHNM|
+                                                           (|List|
+                                                            (|String|))))))
+                                      #3#))
                  (SPADCALL |c| |scnd| (QREFELT $ 29)))
                 (QCAR #8#))
                (PROGN
                 (RPLACD
                  #9=(PROG2 (LETT #3# |n| . #4#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 2)
-                                     (|Record| (|:| |ch| (|List| $))
-                                               (|:| |listHNM|
-                                                    (|List| (|String|))))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 2)
+                                      (|Record| (|:| |ch| (|List| $))
+                                                (|:| |listHNM|
+                                                     (|List| (|String|))))
+                                      (|Union|
+                                       (|:| |pt|
+                                            (|Record|
+                                             (|:| |listPT|
+                                                  (|List| (QREFELT $ 6)))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |nd|
+                                            (|Record|
+                                             (|:| |listND|
+                                                  (|List|
+                                                   (|Scene| (QREFELT $ 6))))
+                                             (|:| |listNM|
+                                                  (|List| (|String|)))))
+                                       (|:| |br|
+                                            (|Record| (|:| |ch| (|List| $))
+                                                      (|:| |listHNM|
+                                                           (|List|
+                                                            (|String|))))))
+                                      #3#))
                  (SPADCALL
                   (QCDR
                    (PROG2 (LETT #3# |n| . #4#)
                        (QCDR #3#)
-                     (|check_union| (QEQCAR #3# 2)
-                                    (|Record| (|:| |ch| (|List| $))
-                                              (|:| |listHNM|
-                                                   (|List| (|String|))))
-                                    #3#)))
+                     (|check_union2| (QEQCAR #3# 2)
+                                     (|Record| (|:| |ch| (|List| $))
+                                               (|:| |listHNM|
+                                                    (|List| (|String|))))
+                                     (|Union|
+                                      (|:| |pt|
+                                           (|Record|
+                                            (|:| |listPT|
+                                                 (|List| (QREFELT $ 6)))
+                                            (|:| |listNM|
+                                                 (|List| (|String|)))))
+                                      (|:| |nd|
+                                           (|Record|
+                                            (|:| |listND|
+                                                 (|List|
+                                                  (|Scene| (QREFELT $ 6))))
+                                            (|:| |listNM|
+                                                 (|List| (|String|)))))
+                                      (|:| |br|
+                                           (|Record| (|:| |ch| (|List| $))
+                                                     (|:| |listHNM|
+                                                          (|List|
+                                                           (|String|))))))
+                                     #3#)))
                   "useNames" (QREFELT $ 30)))
                 (QCDR #9#))
                (EXIT (PROGN (LETT #2# |scnd| . #4#) (GO #7#))))))
@@ -302,44 +595,106 @@
              (RPLACA
               #10=(PROG2 (LETT #1# |n| . #4#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 1)
-                                   (|Record|
-                                    (|:| |listND|
-                                         (|List| (|Scene| (QREFELT $ 6))))
-                                    (|:| |listNM| (|List| (|String|))))
-                                   #1#))
+                    (|check_union2| (QEQCAR #1# 1)
+                                    (|Record|
+                                     (|:| |listND|
+                                          (|List| (|Scene| (QREFELT $ 6))))
+                                     (|:| |listNM| (|List| (|String|))))
+                                    (|Union|
+                                     (|:| |pt|
+                                          (|Record|
+                                           (|:| |listPT|
+                                                (|List| (QREFELT $ 6)))
+                                           (|:| |listNM| (|List| (|String|)))))
+                                     (|:| |nd|
+                                          (|Record|
+                                           (|:| |listND|
+                                                (|List|
+                                                 (|Scene| (QREFELT $ 6))))
+                                           (|:| |listNM| (|List| (|String|)))))
+                                     (|:| |br|
+                                          (|Record| (|:| |ch| (|List| $))
+                                                    (|:| |listHNM|
+                                                         (|List|
+                                                          (|String|))))))
+                                    #1#))
               (SPADCALL
                (QCAR
                 (PROG2 (LETT #1# |n| . #4#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 1)
-                                 (|Record|
-                                  (|:| |listND|
-                                       (|List| (|Scene| (QREFELT $ 6))))
-                                  (|:| |listNM| (|List| (|String|))))
-                                 #1#)))
+                  (|check_union2| (QEQCAR #1# 1)
+                                  (|Record|
+                                   (|:| |listND|
+                                        (|List| (|Scene| (QREFELT $ 6))))
+                                   (|:| |listNM| (|List| (|String|))))
+                                  (|Union|
+                                   (|:| |pt|
+                                        (|Record|
+                                         (|:| |listPT| (|List| (QREFELT $ 6)))
+                                         (|:| |listNM| (|List| (|String|)))))
+                                   (|:| |nd|
+                                        (|Record|
+                                         (|:| |listND|
+                                              (|List| (|Scene| (QREFELT $ 6))))
+                                         (|:| |listNM| (|List| (|String|)))))
+                                   (|:| |br|
+                                        (|Record| (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))))
+                                  #1#)))
                |sc| (QREFELT $ 34)))
              (QCAR #10#))
             (PROGN
              (RPLACD
               #11=(PROG2 (LETT #1# |n| . #4#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 1)
-                                   (|Record|
-                                    (|:| |listND|
-                                         (|List| (|Scene| (QREFELT $ 6))))
-                                    (|:| |listNM| (|List| (|String|))))
-                                   #1#))
+                    (|check_union2| (QEQCAR #1# 1)
+                                    (|Record|
+                                     (|:| |listND|
+                                          (|List| (|Scene| (QREFELT $ 6))))
+                                     (|:| |listNM| (|List| (|String|))))
+                                    (|Union|
+                                     (|:| |pt|
+                                          (|Record|
+                                           (|:| |listPT|
+                                                (|List| (QREFELT $ 6)))
+                                           (|:| |listNM| (|List| (|String|)))))
+                                     (|:| |nd|
+                                          (|Record|
+                                           (|:| |listND|
+                                                (|List|
+                                                 (|Scene| (QREFELT $ 6))))
+                                           (|:| |listNM| (|List| (|String|)))))
+                                     (|:| |br|
+                                          (|Record| (|:| |ch| (|List| $))
+                                                    (|:| |listHNM|
+                                                         (|List|
+                                                          (|String|))))))
+                                    #1#))
               (SPADCALL
                (QCDR
                 (PROG2 (LETT #1# |n| . #4#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 1)
-                                 (|Record|
-                                  (|:| |listND|
-                                       (|List| (|Scene| (QREFELT $ 6))))
-                                  (|:| |listNM| (|List| (|String|))))
-                                 #1#)))
+                  (|check_union2| (QEQCAR #1# 1)
+                                  (|Record|
+                                   (|:| |listND|
+                                        (|List| (|Scene| (QREFELT $ 6))))
+                                   (|:| |listNM| (|List| (|String|))))
+                                  (|Union|
+                                   (|:| |pt|
+                                        (|Record|
+                                         (|:| |listPT| (|List| (QREFELT $ 6)))
+                                         (|:| |listNM| (|List| (|String|)))))
+                                   (|:| |nd|
+                                        (|Record|
+                                         (|:| |listND|
+                                              (|List| (|Scene| (QREFELT $ 6))))
+                                         (|:| |listNM| (|List| (|String|)))))
+                                   (|:| |br|
+                                        (|Record| (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))))
+                                  #1#)))
                |ptName| (QREFELT $ 30)))
              (QCDR #11#))
             (EXIT |n|)))
@@ -363,11 +718,30 @@
                      (QCAR
                       (PROG2 (LETT #5# |n| . #6=(|SCNP;findNode;$SS;11|))
                           (QCDR #5#)
-                        (|check_union| (QEQCAR #5# 2)
-                                       (|Record| (|:| |ch| (|List| $))
-                                                 (|:| |listHNM|
-                                                      (|List| (|String|))))
-                                       #5#)))
+                        (|check_union2| (QEQCAR #5# 2)
+                                        (|Record| (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))
+                                        (|Union|
+                                         (|:| |pt|
+                                              (|Record|
+                                               (|:| |listPT|
+                                                    (|List| (QREFELT $ 6)))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |nd|
+                                              (|Record|
+                                               (|:| |listND|
+                                                    (|List|
+                                                     (|Scene| (QREFELT $ 6))))
+                                               (|:| |listNM|
+                                                    (|List| (|String|)))))
+                                         (|:| |br|
+                                              (|Record| (|:| |ch| (|List| $))
+                                                        (|:| |listHNM|
+                                                             (|List|
+                                                              (|String|))))))
+                                        #5#)))
                      . #6#)
                (COND
                 ((SPADCALL |c| NIL (QREFELT $ 21))
@@ -385,26 +759,66 @@
                         (QCDR
                          (PROG2 (LETT #2# |n| . #6#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 1)
-                                          (|Record|
-                                           (|:| |listND|
-                                                (|List|
-                                                 (|Scene| (QREFELT $ 6))))
-                                           (|:| |listNM| (|List| (|String|))))
-                                          #2#))))
+                           (|check_union2| (QEQCAR #2# 1)
+                                           (|Record|
+                                            (|:| |listND|
+                                                 (|List|
+                                                  (|Scene| (QREFELT $ 6))))
+                                            (|:| |listNM| (|List| (|String|))))
+                                           (|Union|
+                                            (|:| |pt|
+                                                 (|Record|
+                                                  (|:| |listPT|
+                                                       (|List| (QREFELT $ 6)))
+                                                  (|:| |listNM|
+                                                       (|List| (|String|)))))
+                                            (|:| |nd|
+                                                 (|Record|
+                                                  (|:| |listND|
+                                                       (|List|
+                                                        (|Scene|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |listNM|
+                                                       (|List| (|String|)))))
+                                            (|:| |br|
+                                                 (|Record|
+                                                  (|:| |ch| (|List| $))
+                                                  (|:| |listHNM|
+                                                       (|List| (|String|))))))
+                                           #2#))))
                        . #6#)
                  (LETT |name| NIL . #6#)
                  (LETT #3#
                        (QCDR
                         (PROG2 (LETT #2# |n| . #6#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 1)
-                                         (|Record|
-                                          (|:| |listND|
-                                               (|List|
-                                                (|Scene| (QREFELT $ 6))))
-                                          (|:| |listNM| (|List| (|String|))))
-                                         #2#)))
+                          (|check_union2| (QEQCAR #2# 1)
+                                          (|Record|
+                                           (|:| |listND|
+                                                (|List|
+                                                 (|Scene| (QREFELT $ 6))))
+                                           (|:| |listNM| (|List| (|String|))))
+                                          (|Union|
+                                           (|:| |pt|
+                                                (|Record|
+                                                 (|:| |listPT|
+                                                      (|List| (QREFELT $ 6)))
+                                                 (|:| |listNM|
+                                                      (|List| (|String|)))))
+                                           (|:| |nd|
+                                                (|Record|
+                                                 (|:| |listND|
+                                                      (|List|
+                                                       (|Scene|
+                                                        (QREFELT $ 6))))
+                                                 (|:| |listNM|
+                                                      (|List| (|String|)))))
+                                           (|:| |br|
+                                                (|Record| (|:| |ch| (|List| $))
+                                                          (|:| |listHNM|
+                                                               (|List|
+                                                                (|String|))))))
+                                          #2#)))
                        . #6#)
                  G190
                  (COND
@@ -421,14 +835,39 @@
                              (QCAR
                               (PROG2 (LETT #2# |n| . #6#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 1)
-                                               (|Record|
-                                                (|:| |listND|
-                                                     (|List|
-                                                      (|Scene| (QREFELT $ 6))))
-                                                (|:| |listNM|
-                                                     (|List| (|String|))))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 1)
+                                                (|Record|
+                                                 (|:| |listND|
+                                                      (|List|
+                                                       (|Scene|
+                                                        (QREFELT $ 6))))
+                                                 (|:| |listNM|
+                                                      (|List| (|String|))))
+                                                (|Union|
+                                                 (|:| |pt|
+                                                      (|Record|
+                                                       (|:| |listPT|
+                                                            (|List|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |listNM|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |nd|
+                                                      (|Record|
+                                                       (|:| |listND|
+                                                            (|List|
+                                                             (|Scene|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |listNM|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |br|
+                                                      (|Record|
+                                                       (|:| |ch| (|List| $))
+                                                       (|:| |listHNM|
+                                                            (|List|
+                                                             (|String|))))))
+                                                #2#)))
                              |namei| (QREFELT $ 36))
                             . #6#)
                       (GO #7#))))))

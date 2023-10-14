@@ -273,9 +273,10 @@
                                                                                $
                                                                                29)))
                                                                             . #3#)
-                                                                    (|check_subtype|
+                                                                    (|check_subtype2|
                                                                      (>= #1# 0)
                                                                      '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
                                                                      #1#))
                                                                   (QREFELT $
                                                                            51))
@@ -352,7 +353,8 @@
                                  (QREFELT $ 65))
                                 . #2=(|PFR;coerce;F$;14|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                        (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                        (|Union| (QREFELT $ 6) "failed") #1#))
                       . #2#)
                 (LETT |r1|
                       (SPADCALL |u|
@@ -431,7 +433,9 @@
                    (LETT |u|
                          (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 65)) . #2#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                           (|Union| (QREFELT $ 6) "failed")
+                                           #1#))
                          . #2#)
                    (EXIT
                     (|PFR;partialFractionNormalized|

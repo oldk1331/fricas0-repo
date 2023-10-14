@@ -5,7 +5,8 @@
                 (PROG1
                     (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 10))))
                           |FINITE-;random;S;1|)
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #1#))
                 (QREFELT $ 12)))) 
 
 (SDEFUN |FINITE-;enumerate;L;2| (($ |List| S))
@@ -22,8 +23,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #1# |i| . #4#)
-                                  (|check_subtype| (> #1# 0)
-                                                   '(|PositiveInteger|) #1#))
+                                  (|check_subtype2| (> #1# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
                                 (QREFELT $ 12))
                                #3#)
                               . #4#)))

@@ -102,8 +102,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #10# |i| . #13#)
-                                  (|check_subtype| (> #10# 0)
-                                                   '(|PositiveInteger|) #10#))
+                                  (|check_subtype2| (> #10# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #10#))
                                 (QREFELT $ 14))
                                #12#)
                               . #13#)))
@@ -119,8 +121,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #7# |i| . #13#)
-                                  (|check_subtype| (> #7# 0)
-                                                   '(|PositiveInteger|) #7#))
+                                  (|check_subtype2| (> #7# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #7#))
                                 (QREFELT $ 15))
                                #9#)
                               . #13#)))

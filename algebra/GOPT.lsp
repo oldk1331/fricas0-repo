@@ -19,8 +19,8 @@
                  (SPADCALL
                   (CONS 0
                         (PROG1 (LETT #1# (- (QCDR |d|) 1) |GOPT;maxSubst;U$;4|)
-                          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                           #1#)))
+                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #1#)))
                   (QREFELT $ 12)))
                 ('T (SPADCALL (CONS 1 (QCDR |d|)) (QREFELT $ 12)))))) 
 

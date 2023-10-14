@@ -624,8 +624,8 @@
                       (SPADCALL
                        (SPADCALL (QCDR |rn|) (QCDR |rd|) (QREFELT $ 123))
                        (PROG1 (LETT #4# |n| . #7#)
-                         (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                          #4#))
+                         (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #4#))
                        (QREFELT $ 145))
                       . #7#)
                 (EXIT
@@ -639,8 +639,9 @@
               (LETT |rec|
                     (SPADCALL (SPADCALL (QCDR |rn|) (QREFELT $ 136))
                               (PROG1 (LETT #3# |n| . #7#)
-                                (|check_subtype| (>= #3# 0)
-                                                 '(|NonNegativeInteger|) #3#))
+                                (|check_subtype2| (>= #3# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #3#))
                               (QREFELT $ 145))
                     . #7#)
               (EXIT
@@ -654,8 +655,11 @@
                                                          (QREFELT $ 147))
                                                . #7#)
                                          (QCDR #1#)
-                                       (|check_union| (QEQCAR #1# 0)
-                                                      (|Integer|) #1#))
+                                       (|check_union2| (QEQCAR #1# 0)
+                                                       (|Integer|)
+                                                       (|Union| (|Integer|)
+                                                                #8="failed")
+                                                       #1#))
                                      (QREFELT $ 128))
                            (SPADCALL (SPADCALL |x| (QREFELT $ 129))
                                      (QREFELT $ 134))
@@ -667,8 +671,9 @@
               (LETT |rec|
                     (SPADCALL (SPADCALL (QCDR |rd|) (QREFELT $ 136))
                               (PROG1 (LETT #2# |n| . #7#)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
+                                (|check_subtype2| (>= #2# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #2#))
                               (QREFELT $ 145))
                     . #7#)
               (EXIT
@@ -683,7 +688,8 @@
                                                 (QREFELT $ 147))
                                       . #7#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                              (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                              (|Union| (|Integer|) #8#) #1#))
                             (QREFELT $ 128))
                   (QREFELT $ 50))
                  |n| |num?| 'T $)
@@ -716,8 +722,9 @@
           (LETT |rec|
                 (SPADCALL |r|
                           (PROG1 (LETT #1# |n| . #2=(|AF;iroot0|))
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 150))
                 . #2#)
           (EXIT
@@ -773,8 +780,9 @@
                                                  (QREFELT $ 21))
                                        (QREFELT $ 117))
                                       |AF;minPoly;KSup;29|)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 102))
                   (SPADCALL (|SPADfirst| (SPADCALL |k| (QREFELT $ 73)))
                             (QREFELT $ 155))

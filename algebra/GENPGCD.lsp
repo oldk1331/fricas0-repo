@@ -42,10 +42,14 @@
                                            (SPADCALL |p1| |c1| (QREFELT $ 20))
                                            . #8#)
                                      (QCDR #5#)
-                                   (|check_union| (QEQCAR #5# 0)
-                                                  (|SparseUnivariatePolynomial|
-                                                   (QREFELT $ 9))
-                                                  #5#))
+                                   (|check_union2| (QEQCAR #5# 0)
+                                                   (|SparseUnivariatePolynomial|
+                                                    (QREFELT $ 9))
+                                                   (|Union|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 9))
+                                                    #9="failed")
+                                                   #5#))
                                  . #8#)
                            (LETT |p2|
                                  (PROG2
@@ -53,10 +57,14 @@
                                            (SPADCALL |p2| |c2| (QREFELT $ 20))
                                            . #8#)
                                      (QCDR #5#)
-                                   (|check_union| (QEQCAR #5# 0)
-                                                  (|SparseUnivariatePolynomial|
-                                                   (QREFELT $ 9))
-                                                  #5#))
+                                   (|check_union2| (QEQCAR #5# 0)
+                                                   (|SparseUnivariatePolynomial|
+                                                    (QREFELT $ 9))
+                                                   (|Union|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 9))
+                                                    #9#)
+                                                   #5#))
                                  . #8#)
                            (EXIT
                             (COND
@@ -196,7 +204,7 @@
                                                     (SPADCALL |c1| |c2|
                                                               (QREFELT $ 23))
                                                     . #8#)
-                                              (GO #9=#:G176)))
+                                              (GO #10=#:G176)))
                                             (#7#
                                              (LETT |v|
                                                    (|GENPGCD;variables| |g| $)
@@ -211,7 +219,7 @@
                                           |g| |v| |p2| |v2| $)
                                          (SPADCALL |c1| |c2| (QREFELT $ 23))
                                          (QREFELT $ 24)))))))))))))))))))))))
-          #9# (EXIT #2#)))) 
+          #10# (EXIT #2#)))) 
 
 (SDEFUN |GENPGCD;randomR;R;2| (($ R))
         (SPROG ((|v| (|Union| R "failed")))
@@ -442,10 +450,14 @@
                                                               (QREFELT $ 57))
                                                     . #15#)
                                               (QCDR #4#)
-                                            (|check_union| (QEQCAR #4# 0)
-                                                           (|SparseUnivariatePolynomial|
-                                                            (QREFELT $ 8))
-                                                           #4#))
+                                            (|check_union2| (QEQCAR #4# 0)
+                                                            (|SparseUnivariatePolynomial|
+                                                             (QREFELT $ 8))
+                                                            (|Union|
+                                                             (|SparseUnivariatePolynomial|
+                                                              (QREFELT $ 8))
+                                                             #17="failed")
+                                                            #4#))
                                           . #15#)
                                     (EXIT
                                      (COND
@@ -476,10 +488,15 @@
                                                                            57))
                                                         . #15#)
                                                   (QCDR #4#)
-                                                (|check_union| (QEQCAR #4# 0)
-                                                               (|SparseUnivariatePolynomial|
-                                                                (QREFELT $ 8))
-                                                               #4#))
+                                                (|check_union2| (QEQCAR #4# 0)
+                                                                (|SparseUnivariatePolynomial|
+                                                                 (QREFELT $ 8))
+                                                                (|Union|
+                                                                 (|SparseUnivariatePolynomial|
+                                                                  (QREFELT $
+                                                                           8))
+                                                                 #17#)
+                                                                #4#))
                                               . #15#)
                                         (EXIT
                                          (COND
@@ -576,8 +593,8 @@
                                                                       "next"))))
                                                                   . #15#)
                                                             (GO
-                                                             #17=#:G216)))))))
-                                                      #17# (EXIT #1#))
+                                                             #18=#:G216)))))))
+                                                      #18# (EXIT #1#))
                                                      NIL (GO G190) G191
                                                      (EXIT NIL))
                                                 (EXIT
@@ -1081,16 +1098,19 @@
                                      (LETT #1# (SPADCALL |p1| (QREFELT $ 99))
                                            . #2=(|GENPGCD;better|))
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                                  #1#))
+                                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                                   (|Union| (QREFELT $ 7)
+                                                            #3="failed")
+                                                   #1#))
                                  (QREFELT $ 70))
                        (SPADCALL |p2|
                                  (PROG2
                                      (LETT #1# (SPADCALL |p2| (QREFELT $ 99))
                                            . #2#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                                  #1#))
+                                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                                   (|Union| (QREFELT $ 7) #3#)
+                                                   #1#))
                                  (QREFELT $ 70))))))) 
 
 (DECLAIM (NOTINLINE |GeneralPolynomialGcdPackage;|)) 

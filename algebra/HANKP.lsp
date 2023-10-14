@@ -15,8 +15,10 @@
                                             (QREFELT $ 10))
                                   . #5=(|HANKP;HankelMatrix;LM;1|))
                             (QCDR #4#)
-                          (|check_union| (QEQCAR #4# 0) (|NonNegativeInteger|)
-                                         #4#))
+                          (|check_union2| (QEQCAR #4# 0) (|NonNegativeInteger|)
+                                          (|Union| (|NonNegativeInteger|)
+                                                   "failed")
+                                          #4#))
                         . #5#)
                   (LETT |lloc| (CONS (|spadConstant| $ 11) |l|) . #5#)
                   (EXIT

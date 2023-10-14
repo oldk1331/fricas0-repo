@@ -304,13 +304,14 @@
                                                             '|variable|
                                                             (LIST
                                                              (LIST '|Union| '$
-                                                                   '"failed")
+                                                                   '#24="failed")
                                                              (LIST '|Symbol|))
                                                             OV))
                                                  . #22#)
                                            (QCDR #17#)
-                                         (|check_union| (QEQCAR #17# 0) OV
-                                                        #17#))
+                                         (|check_union2| (QEQCAR #17# 0) OV
+                                                         (|Union| OV #24#)
+                                                         #17#))
                                        #19#)
                                       . #22#)))
                               (LETT #18# (CDR #18#) . #22#) (GO G190) G191
@@ -740,11 +741,16 @@
                    (LETT |rhs|
                          (PROG2 (LETT #4# (QCAR |rec|) . #7#)
                              (QCDR #4#)
-                           (|check_union| (QEQCAR #4# 0)
-                                          (|Vector|
-                                           (|Fraction|
-                                            (|Polynomial| (QREFELT $ 6))))
-                                          #4#))
+                           (|check_union2| (QEQCAR #4# 0)
+                                           (|Vector|
+                                            (|Fraction|
+                                             (|Polynomial| (QREFELT $ 6))))
+                                           (|Union|
+                                            (|Vector|
+                                             (|Fraction|
+                                              (|Polynomial| (QREFELT $ 6))))
+                                            "failed")
+                                           #4#))
                          . #7#)
                    (LETT |zeron| (SPADCALL (LENGTH |lv|) (QREFELT $ 75)) . #7#)
                    (SEQ (LETT |p| NIL . #7#) (LETT #3# (QCDR |rec|) . #7#) G190

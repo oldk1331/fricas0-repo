@@ -45,7 +45,9 @@
                              (LETT #1# (SPADCALL |p| (QREFELT $ 28))
                                    . #2=(|PUSHVAR;map;M2PPR;3|))
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 8) #1#))
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 8)
+                                           (|Union| (QREFELT $ 8) "failed")
+                                           #1#))
                          . #2#)
                    (EXIT
                     (SPADCALL
@@ -73,7 +75,8 @@
                             (LETT #1# (SPADCALL |c| (QREFELT $ 40))
                                   . #3=(|PUSHVAR;pushupCoef|))
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                          (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                          (|Union| (|Symbol|) "failed") #1#))
                         . #3#)
                   (LETT |v2| (SPADCALL |v| (QREFELT $ 42)) . #3#)
                   (LETT |uc| (SPADCALL |c| |v| (QREFELT $ 43)) . #3#)

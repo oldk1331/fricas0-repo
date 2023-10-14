@@ -138,8 +138,8 @@
                   (LETT |irrPoly|
                         (SPADCALL
                          (PROG1 (LETT #11# |r| . #13#)
-                           (|check_subtype| (> #11# 0) '(|PositiveInteger|)
-                                            #11#))
+                           (|check_subtype2| (> #11# 0) '(|PositiveInteger|)
+                                             '(|NonNegativeInteger|) #11#))
                          (QREFELT $ 45))
                         . #13#)
                   (LETT E
@@ -424,7 +424,8 @@
                                                  (|SparseUnivariatePolynomial|
                                                   E)))))
                                   . #13#)
-                          (|check_subtype| (> #4# 0) '(|PositiveInteger|) #4#))
+                          (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                            '(|NonNegativeInteger|) #4#))
                         . #13#)
                   (LETT |henselInfo|
                         (SPADCALL |poly| |primaries| |prime| |deg|
@@ -956,9 +957,9 @@
                             (LETT #13#
                                   (CONS
                                    (PROG1 (LETT #11# (QCDR |f|) . #18#)
-                                     (|check_subtype| (>= #11# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #11#))
+                                     (|check_subtype2| (>= #11# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #11#))
                                    #13#)
                                   . #18#)))
                           (LETT #12# (CDR #12#) . #18#) (GO G190) G191
@@ -980,9 +981,10 @@
                                    (SPADCALL (QCAR |f|)
                                              (PROG1
                                                  (LETT #8# (QCDR |f|) . #18#)
-                                               (|check_subtype| (>= #8# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #8#))
+                                               (|check_subtype2| (>= #8# 0)
+                                                                 '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
+                                                                 #8#))
                                              (|compiledLookupCheck| '^
                                                                     (LIST '$ '$
                                                                           (LIST
@@ -1045,7 +1047,8 @@
                                  (* (SPADCALL |redDisc| |prime| (QREFELT $ 58))
                                     (SPADCALL |prime| (QREFELT $ 59))))
                               . #18#)
-                      (|check_subtype| (> #5# 0) '(|PositiveInteger|) #5#))
+                      (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                        '(|NonNegativeInteger|) #5#))
                     . #18#)
               (LETT |henselInfo|
                     (SPADCALL |p| |primaries| |prime| |deg| (QREFELT $ 63))

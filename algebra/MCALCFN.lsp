@@ -33,8 +33,8 @@
                      (PROG1
                          (LETT #1# (QVSIZE |vf|)
                                . #2=(|MCALCFN;localDivergence|))
-                       (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                        #1#)))
+                       (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #1#)))
                 . #2#)
           (LETT |ans| (|spadConstant| $ 17) . #2#)
           (SEQ (LETT |i| 1 . #2#) G190
@@ -62,8 +62,8 @@
           (LETT |n|
                 (MIN (LENGTH |xlist|)
                      (PROG1 (LETT #1# (SPADCALL |vf| (QREFELT $ 22)) . #2#)
-                       (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                        #1#)))
+                       (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #1#)))
                 . #2#)
           (LETT |ans| (|spadConstant| $ 17) . #2#)
           (SEQ (LETT |i| 1 . #2#) G190

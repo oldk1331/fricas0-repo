@@ -621,11 +621,12 @@
                                                                             #12#
                                                                             |nsols|
                                                                             . #22#)
-                                                                         (|check_subtype|
+                                                                         (|check_subtype2|
                                                                           (>
                                                                            #12#
                                                                            0)
                                                                           '(|PositiveInteger|)
+                                                                          '(|Integer|)
                                                                           #12#))
                                                                        |degs_sum|
                                                                        (QREFELT
@@ -745,11 +746,12 @@
                                                                            #10#
                                                                            |nsols|
                                                                            . #22#)
-                                                                        (|check_subtype|
+                                                                        (|check_subtype2|
                                                                          (>=
                                                                           #10#
                                                                           0)
                                                                          '(|NonNegativeInteger|)
+                                                                         '(|Integer|)
                                                                          #10#))
                                                                       0)
                                                                      . #22#)
@@ -811,11 +813,12 @@
                                                                             #9#
                                                                             |nsols|
                                                                             . #22#)
-                                                                         (|check_subtype|
+                                                                         (|check_subtype2|
                                                                           (>=
                                                                            #9#
                                                                            0)
                                                                           '(|NonNegativeInteger|)
+                                                                          '(|Integer|)
                                                                           #9#))
                                                                        (MAKE-ARRAY
                                                                         0))
@@ -1001,11 +1004,12 @@
                                                                             |ii|
                                                                             1)
                                                                            . #22#)
-                                                                        (|check_subtype|
+                                                                        (|check_subtype2|
                                                                          (>=
                                                                           #6#
                                                                           0)
                                                                          '(|NonNegativeInteger|)
+                                                                         '(|Integer|)
                                                                          #6#))
                                                                       (|spadConstant|
                                                                        $ 91))
@@ -1167,10 +1171,10 @@
                                              (SPADCALL |term|
                                                        (PROG1
                                                            (LETT #4# |j| . #5#)
-                                                         (|check_subtype|
+                                                         (|check_subtype2|
                                                           (>= #4# 0)
                                                           '(|NonNegativeInteger|)
-                                                          #4#))
+                                                          '(|Integer|) #4#))
                                                        (QREFELT $ 109))
                                              (QREFELT $ 110))
                                    . #5#)))
@@ -1198,10 +1202,10 @@
                                                                     (+ |i|
                                                                        |k|))
                                                                    . #5#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #2# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #2#))
+                                                            '(|Integer|) #2#))
                                                          (QREFELT $ 114))
                                                (QREFELT $ 115))
                                      . #5#)))
@@ -1220,9 +1224,9 @@
                   (SPADCALL |res|
                             (SPADCALL |term|
                                       (PROG1 (LETT #1# |j| . #5#)
-                                        (|check_subtype| (>= #1# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #1#))
+                                        (|check_subtype2| (>= #1# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #1#))
                                       (QREFELT $ 109))
                             (QREFELT $ 110))
                   . #5#)))
@@ -1680,9 +1684,10 @@
                                                                (LETT #4#
                                                                      (- |ii| 1)
                                                                      . #16#)
-                                                             (|check_subtype|
+                                                             (|check_subtype2|
                                                               (>= #4# 0)
                                                               '(|NonNegativeInteger|)
+                                                              '(|Integer|)
                                                               #4#))
                                                            (|spadConstant| $
                                                                            108))
@@ -1905,9 +1910,10 @@
                         (LETT |mress|
                               (MAKE_MATRIX1 |m|
                                             (PROG1 (LETT #5# (- |ii| 1) . #14#)
-                                              (|check_subtype| (>= #5# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #5#))
+                                              (|check_subtype2| (>= #5# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #5#))
                                             (|spadConstant| $ 91))
                               . #14#)
                         (SEQ (LETT |i| 1 . #14#) (LETT #4# (- |ii| 1) . #14#)

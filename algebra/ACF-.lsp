@@ -157,9 +157,9 @@
                      (SEQ (LETT |i| 0 . #4#)
                           (LETT #1#
                                 (PROG1 (LETT #2# (- |n| 1) . #4#)
-                                  (|check_subtype| (>= #2# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #2#))
+                                  (|check_subtype2| (>= #2# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #2#))
                                 . #4#)
                           G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                           (SEQ
@@ -217,10 +217,14 @@
                                (LETT #1# (SPADCALL |p| |h| (QREFELT $ 68))
                                      . #7#)
                                (QCDR #1#)
-                             (|check_union| (QEQCAR #1# 0)
-                                            (|SparseUnivariatePolynomial|
-                                             (QREFELT $ 6))
-                                            #1#))
+                             (|check_union2| (QEQCAR #1# 0)
+                                             (|SparseUnivariatePolynomial|
+                                              (QREFELT $ 6))
+                                             (|Union|
+                                              (|SparseUnivariatePolynomial|
+                                               (QREFELT $ 6))
+                                              #9="failed")
+                                             #1#))
                            . #7#)
                      (LETT |groots| (|ACF-;allroots| |g| |y| |fn| $) . #7#)
                      (EXIT
@@ -293,10 +297,15 @@
                                                                            74))
                                                         . #7#)
                                                   (QCDR #1#)
-                                                (|check_union| (QEQCAR #1# 0)
-                                                               (|SparseUnivariatePolynomial|
-                                                                (QREFELT $ 6))
-                                                               #1#))
+                                                (|check_union2| (QEQCAR #1# 0)
+                                                                (|SparseUnivariatePolynomial|
+                                                                 (QREFELT $ 6))
+                                                                (|Union|
+                                                                 (|SparseUnivariatePolynomial|
+                                                                  (QREFELT $
+                                                                           6))
+                                                                 #9#)
+                                                                #1#))
                                               . #7#)
                                         (EXIT
                                          (LETT |ans| (CONS |alpha| |ans|)

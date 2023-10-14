@@ -25,9 +25,9 @@
                        (SPADCALL
                         (SPADCALL |l|
                                   (PROG1 (LETT #3# (QCAR |u|) . #5#)
-                                    (|check_subtype| (>= #3# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #3#))
+                                    (|check_subtype2| (>= #3# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #3#))
                                   (QREFELT $ 18))
                         |l| (QREFELT $ 20)))
                       . #5#)
@@ -43,14 +43,14 @@
                                                        (LETT #2#
                                                              (- (QCDR |u|) 1)
                                                              . #5#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #2# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #2#)))
+                                                      '(|Integer|) #2#)))
                                              . #5#)
-                                     (|check_subtype| (>= #1# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #1#))
+                                     (|check_subtype2| (>= #1# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #1#))
                                    (QREFELT $ 18))
                          . #5#)))))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
@@ -99,9 +99,10 @@
                                                  (PROG1
                                                      (LETT #5# (QCAR |u|)
                                                            . #9#)
-                                                   (|check_subtype| (>= #5# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #5#))
+                                                   (|check_subtype2| (>= #5# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #5#))
                                                  (QREFELT $ 18))
                                        |z| (QREFELT $ 20)))
                                      #7#)
@@ -133,10 +134,10 @@
                                                               (LETT #1#
                                                                     (QCAR |u|)
                                                                     . #9#)
-                                                            (|check_subtype|
+                                                            (|check_subtype2|
                                                              (>= #1# 0)
                                                              '(|NonNegativeInteger|)
-                                                             #1#))
+                                                             '(|Integer|) #1#))
                                                           (QREFELT $ 18))
                                                 #3#)
                                                . #9#)))

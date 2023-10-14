@@ -52,7 +52,9 @@
                     (LETT #3# (SPADCALL (|FRMOD;intmat| $) (QREFELT $ 40))
                           . #4=(|FRMOD;getinvintmat|))
                     (QCDR #3#)
-                  (|check_union| (QEQCAR #3# 0) (|Matrix| (QREFELT $ 7)) #3#))
+                  (|check_union2| (QEQCAR #3# 0) (|Matrix| (QREFELT $ 7))
+                                  (|Union| (|Matrix| (QREFELT $ 7)) "failed")
+                                  #3#))
                 . #4#)
           (SEQ (LETT |i| 1 . #4#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 41)) . #4#) G190

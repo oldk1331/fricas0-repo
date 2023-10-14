@@ -13,7 +13,8 @@
 (SDEFUN |JBUNDLE;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
         (SPROG ((#1=#:G121 NIL))
                (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |JBUNDLE;index;$Pi;4|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;type;$S;5| ((|jv| $) ($ |Symbol|))
         (SPROG ((|t| (|NonNegativeInteger|)))
@@ -95,12 +96,14 @@
                       (#4='T
                        (SPADCALL
                         (PROG1 (LETT #2# |pos| . #3#)
-                          (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+                          (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                            '(|Integer|) #2#))
                         (QREFELT $ 32)))))))
                   (#4#
                    (SPADCALL
                     (PROG1 (LETT #1# |pos| . #3#)
-                      (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                      (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                        '(|Integer|) #1#))
                     (QREFELT $ 31)))))))) 
 
 (SDEFUN |JBUNDLE;D;SL$;11| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
@@ -132,8 +135,9 @@
                            (LETT |lower|
                                  (CONS
                                   (PROG1 (LETT #2# |pos| . #5#)
-                                    (|check_subtype| (> #2# 0)
-                                                     '(|PositiveInteger|) #2#))
+                                    (|check_subtype2| (> #2# 0)
+                                                      '(|PositiveInteger|)
+                                                      '(|Integer|) #2#))
                                   |lower|)
                                  . #5#)))))
                        (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
@@ -141,7 +145,8 @@
                   (EXIT
                    (SPADCALL
                     (PROG1 (LETT #1# |up| . #5#)
-                      (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                      (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                        '(|Integer|) #1#))
                     |lower| (QREFELT $ 41)))))))))) 
 
 (PUT '|JBUNDLE;One;$;12| '|SPADreplace| '(XLAM NIL (LIST 0 1))) 
@@ -151,12 +156,14 @@
 (SDEFUN |JBUNDLE;numIndVar;Pi;13| (($ |PositiveInteger|))
         (SPROG ((#1=#:G158 NIL))
                (PROG1 (LETT #1# (QREFELT $ 8) |JBUNDLE;numIndVar;Pi;13|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;numDepVar;Pi;14| (($ |PositiveInteger|))
         (SPROG ((#1=#:G160 NIL))
                (PROG1 (LETT #1# (QREFELT $ 9) |JBUNDLE;numDepVar;Pi;14|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |JBUNDLE;name;$S;15| ((|jv| $) ($ |Symbol|))
         (SPROG

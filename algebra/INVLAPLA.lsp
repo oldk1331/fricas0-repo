@@ -129,11 +129,16 @@
                                 (LETT #6# (SPADCALL |ql| |p| (QREFELT $ 50))
                                       . #10#)
                                 (QCDR #6#)
-                              (|check_union| (QEQCAR #6# 0)
-                                             (|List|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 7)))
-                                             #6#))
+                              (|check_union2| (QEQCAR #6# 0)
+                                              (|List|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 7)))
+                                              (|Union|
+                                               (|List|
+                                                (|SparseUnivariatePolynomial|
+                                                 (QREFELT $ 7)))
+                                               "failed")
+                                              #6#))
                             . #10#)
                       (EXIT
                        (PROGN

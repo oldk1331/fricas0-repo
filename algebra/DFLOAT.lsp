@@ -45,7 +45,8 @@
                                        (QREFELT $ 23))
                                       (QREFELT $ 24)))
                            |DFLOAT;bits;Pi;8|)
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #1#)))))) 
 
 (PUT '|DFLOAT;max;$;9| '|SPADreplace| '(XLAM NIL MOST-POSITIVE-DOUBLE-FLOAT)) 
 
@@ -308,8 +309,8 @@
                     ((>= (QCDR |n|) 0)
                      (SPADCALL
                       (PROG1 (LETT #1# (QCDR |n|) . #2#)
-                        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                         #1#))
+                        (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #1#))
                       |y| (QREFELT $ 115)))
                     (#3='T
                      (|error|
@@ -466,8 +467,8 @@
                          (PROG1
                              (LETT #1# (- (SPADCALL (QREFELT $ 22)) 1)
                                    |DFLOAT;retract;$F;95|)
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          (SPADCALL (QREFELT $ 18)) (QREFELT $ 152)))) 
 
 (SDEFUN |DFLOAT;retractIfCan;$U;96|
@@ -478,8 +479,9 @@
                                (PROG1
                                    (LETT #1# (- (SPADCALL (QREFELT $ 22)) 1)
                                          |DFLOAT;retractIfCan;$U;96|)
-                                 (|check_subtype| (>= #1# 0)
-                                                  '(|NonNegativeInteger|) #1#))
+                                 (|check_subtype2| (>= #1# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #1#))
                                (SPADCALL (QREFELT $ 18)) (QREFELT $ 152))))) 
 
 (SDEFUN |DFLOAT;retract;$I;97| ((|x| $) ($ |Integer|))
@@ -580,16 +582,18 @@
                 (* |nu|
                    (EXPT BASE
                          (PROG1 (LETT #10# |ex| . #12#)
-                           (|check_subtype| (>= #10# 0) '(|NonNegativeInteger|)
-                                            #10#))))
+                           (|check_subtype2| (>= #10# 0)
+                                             '(|NonNegativeInteger|)
+                                             '(|Integer|) #10#))))
                 (QREFELT $ 164)))
               (#13='T
                (SEQ
                 (LETT |de|
                       (EXPT BASE
                             (PROG1 (LETT #9# (- |ex|) . #12#)
-                              (|check_subtype| (>= #9# 0)
-                                               '(|NonNegativeInteger|) #9#)))
+                              (|check_subtype2| (>= #9# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #9#)))
                       . #12#)
                 (EXIT
                  (COND ((< |b| 2) (|error| "base must be > 1"))

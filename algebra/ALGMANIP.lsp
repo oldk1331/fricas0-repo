@@ -286,8 +286,9 @@
                    (SEQ
                     (LETT |ne|
                           (PROG1 (LETT #4# (REM (QCDR |fr|) |n|) . #6#)
-                            (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                             #4#))
+                            (|check_subtype2| (>= #4# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #4#))
                           . #6#)
                     (LETT |ng| (GCD |ne| |n|) . #6#)
                     (LETT |nn|
@@ -295,8 +296,11 @@
                               (LETT #3# (SPADCALL |n| |ng| (QREFELT $ 82))
                                     . #6#)
                               (QCDR #3#)
-                            (|check_union| (QEQCAR #3# 0)
-                                           (|NonNegativeInteger|) #3#))
+                            (|check_union2| (QEQCAR #3# 0)
+                                            (|NonNegativeInteger|)
+                                            (|Union| (|NonNegativeInteger|)
+                                                     #7="failed")
+                                            #3#))
                           . #6#)
                     (LETT |ne|
                           (PROG1
@@ -307,17 +311,22 @@
                                                         (QREFELT $ 82))
                                               . #6#)
                                         (QCDR #3#)
-                                      (|check_union| (QEQCAR #3# 0)
-                                                     (|NonNegativeInteger|)
-                                                     #3#))
+                                      (|check_union2| (QEQCAR #3# 0)
+                                                      (|NonNegativeInteger|)
+                                                      (|Union|
+                                                       (|NonNegativeInteger|)
+                                                       #7#)
+                                                      #3#))
                                     . #6#)
-                            (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                             #2#))
+                            (|check_subtype2| (>= #2# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #2#))
                           . #6#)
                     (LETT |ce|
                           (PROG1 (LETT #1# (QUOTIENT2 (QCDR |fr|) |n|) . #6#)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           . #6#)
                     (LETT |rr|
                           (COND
@@ -362,12 +371,16 @@
                                     (QREFELT $ 89))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|SparseMultivariatePolynomial| (QREFELT $ 6)
-                                                                 (|Kernel|
-                                                                  (QREFELT $
-                                                                           7)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|SparseMultivariatePolynomial| (QREFELT $ 6)
+                                                                  (|Kernel|
+                                                                   (QREFELT $
+                                                                            7)))
+                                  (|Union|
+                                   (|SparseMultivariatePolynomial|
+                                    (QREFELT $ 6) (|Kernel| (QREFELT $ 7)))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (EXIT
            (SPADCALL
@@ -389,7 +402,8 @@
                 . #2#)
           (LETT |n|
                 (PROG1 (LETT #1# (SPADCALL |nf| (QREFELT $ 97)) . #2#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |op| (SPADCALL |k| (QREFELT $ 25)) . #2#)
           (EXIT
@@ -566,10 +580,10 @@
                                                              (QUOTIENT2 |n|
                                                                         |m|)
                                                              . #5#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #1# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #1#))
+                                                      '(|Integer|) #1#))
                                                    (QREFELT $ 107))
                                          #3#)
                                         . #5#)))
@@ -636,7 +650,8 @@
                           (SPADCALL (SPADCALL |arg| (QREFELT $ 48))
                                     (QREFELT $ 97))
                           . #2#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |ans| (|spadConstant| $ 111) . #2#)
           (LETT |q| (SPADCALL |p| |k| (QREFELT $ 112)) . #2#)
@@ -773,9 +788,9 @@
                                                    (SPADCALL |q|
                                                              (QREFELT $ 131))
                                                    . #4#)
-                                           (|check_subtype| (>= #1# 0)
-                                                            '(|NonNegativeInteger|)
-                                                            #1#))
+                                           (|check_subtype2| (>= #1# 0)
+                                                             '(|NonNegativeInteger|)
+                                                             '(|Integer|) #1#))
                                          (QREFELT $ 102))
                                (QCDR |qr|) (QREFELT $ 132))
                               (QREFELT $ 85)))))))))
@@ -798,7 +813,8 @@
                            (SPADCALL (SPADCALL |arg| (QREFELT $ 48))
                                      (QREFELT $ 97))
                            . #2#)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#))
                  (QREFELT $ 135))
                 . #2#)
           (EXIT

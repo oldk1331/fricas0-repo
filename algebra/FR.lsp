@@ -589,9 +589,10 @@
                                    (SPADCALL (QVELT |y| 1)
                                              (PROG1
                                                  (LETT #4# (QVELT |y| 2) . #6#)
-                                               (|check_subtype| (>= #4# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #4#))
+                                               (|check_subtype2| (>= #4# 0)
+                                                                 '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
+                                                                 #4#))
                                              (QREFELT $ 100))
                                    . #6#)
                              (COND
@@ -697,7 +698,8 @@
                                      (QREFELT $ 130))
                            . #4=(|FR;reciprocal|))
                      (QCDR #3#)
-                   (|check_union| (QEQCAR #3# 0) (QREFELT $ 6) #3#))
+                   (|check_union2| (QEQCAR #3# 0) (QREFELT $ 6)
+                                   (|Union| (QREFELT $ 6) "failed") #3#))
                  (PROGN
                   (LETT #2# NIL . #4#)
                   (SEQ (LETT |y| NIL . #4#)
@@ -817,7 +819,8 @@
                                               (QREFELT $ 139))
                                     . #6=(|FR;differentiate;$M$;53|))
                               (QCDR #4#)
-                            (|check_union| (QEQCAR #4# 0) $ #4#))
+                            (|check_union2| (QEQCAR #4# 0) $
+                                            (|Union| $ #7="failed") #4#))
                           (QREFELT $ 53))
                 . #6#)
           (EXIT
@@ -848,7 +851,8 @@
                                                          (QREFELT $ 139))
                                                . #6#)
                                          (QCDR #4#)
-                                       (|check_union| (QEQCAR #4# 0) $ #4#))
+                                       (|check_union2| (QEQCAR #4# 0) $
+                                                       (|Union| $ #7#) #4#))
                                      (QREFELT $ 53))
                                     . #6#)
                               (COND
@@ -973,8 +977,9 @@
                               . #4#)
                         (LETT |e|
                               (PROG1 (LETT #2# (ABS (QVELT |x| 2)) . #4#)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
+                                (|check_subtype2| (>= #2# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #2#))
                               . #4#)
                         (COND
                          ((< (QVELT |x| 2) 0)

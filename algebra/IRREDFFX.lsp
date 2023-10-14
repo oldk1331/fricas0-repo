@@ -113,10 +113,12 @@
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9
               (PROG1 (LETT #2# (SPADCALL (QREFELT $ 8)) . #3#)
-                (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#)))
+                (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                  '(|NonNegativeInteger|) #2#)))
     (QSETREFV $ 11
               (PROG1 (LETT #1# (SPADCALL (QREFELT $ 10)) . #3#)
-                (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))
+                (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                  '(|NonNegativeInteger|) #1#)))
     $))) 
 
 (MAKEPROP '|IrredPolyOverFiniteField| '|infovec|

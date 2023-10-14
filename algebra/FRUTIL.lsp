@@ -32,9 +32,10 @@
                                               (PROG1
                                                   (LETT #3# (QVELT |item| 2)
                                                         . #5#)
-                                                (|check_subtype| (>= #3# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #3#))
+                                                (|check_subtype2| (>= #3# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #3#))
                                               (QREFELT $ 17))
                                     (QREFELT $ 9))
                           . #5#)

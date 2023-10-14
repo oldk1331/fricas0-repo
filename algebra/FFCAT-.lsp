@@ -86,7 +86,8 @@
                                     (QREFELT $ 55))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 8) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 8)
+                                  (|Union| (QREFELT $ 8) "failed") #1#))
                 . #2#)
           (EXIT
            (VECTOR
@@ -279,15 +280,17 @@
                                               (|FFCAT-;ispoint| |p|
                                                (SPADCALL
                                                 (PROG1 (LETT #2# |x| . #7#)
-                                                  (|check_subtype| (> #2# 0)
-                                                                   '(|PositiveInteger|)
-                                                                   #2#))
+                                                  (|check_subtype2| (> #2# 0)
+                                                                    '(|PositiveInteger|)
+                                                                    '(|NonNegativeInteger|)
+                                                                    #2#))
                                                 (QREFELT $ 111))
                                                (SPADCALL
                                                 (PROG1 (LETT #1# |y| . #7#)
-                                                  (|check_subtype| (> #1# 0)
-                                                                   '(|PositiveInteger|)
-                                                                   #1#))
+                                                  (|check_subtype2| (> #1# 0)
+                                                                    '(|PositiveInteger|)
+                                                                    '(|NonNegativeInteger|)
+                                                                    #1#))
                                                 (QREFELT $ 111))
                                                $)
                                               . #7#))
@@ -366,9 +369,10 @@
                                                   (PROG1
                                                       (LETT #5# (- |i| |mini|)
                                                             . #12#)
-                                                    (|check_subtype| (>= #5# 0)
-                                                                     '(|NonNegativeInteger|)
-                                                                     #5#))
+                                                    (|check_subtype2|
+                                                     (>= #5# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #5#))
                                                   (QREFELT $ 121))
                                         (QREFELT $ 122))
                                        . #12#)
@@ -398,8 +402,9 @@
                      (PROG2
                          (LETT #1# (SPADCALL |n| |d| (QREFELT $ 125)) . #12#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                      #1#))))))))))) 
+                       (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                       (|Union| (QREFELT $ 7) "failed")
+                                       #1#))))))))))) 
 
 (SDEFUN |FFCAT-;elt;S3F;17| ((|f| S) (|x| F) (|y| F) ($ F))
         (SPROG
@@ -420,7 +425,8 @@
             (#3#
              (PROG2 (LETT #1# (SPADCALL |n| |d| (QREFELT $ 125)) . #2#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#)))))))) 
+               (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                               (|Union| (QREFELT $ 7) "failed") #1#)))))))) 
 
 (SDEFUN |FFCAT-;primitivePart;2S;18| ((|f| S) ($ S))
         (SPROG
@@ -529,8 +535,12 @@
                                     (QREFELT $ 143))
                           . #5=(|FFCAT-;complementaryBasis;2V;20|))
                     (QCDR #4#)
-                  (|check_union| (QEQCAR #4# 0)
-                                 (|Matrix| (|Fraction| (QREFELT $ 8))) #4#))
+                  (|check_union2| (QEQCAR #4# 0)
+                                  (|Matrix| (|Fraction| (QREFELT $ 8)))
+                                  (|Union|
+                                   (|Matrix| (|Fraction| (QREFELT $ 8)))
+                                   "failed")
+                                  #4#))
                 . #5#)
           (EXIT
            (PROGN
@@ -618,16 +628,20 @@
                                 (LETT #2# (SPADCALL |d| 2 (QREFELT $ 163))
                                       . #3#)
                                 (QCDR #2#)
-                              (|check_union| (QEQCAR #2# 0) (|Integer|) #2#))
+                              (|check_union2| (QEQCAR #2# 0) (|Integer|)
+                                              (|Union| (|Integer|) #4="failed")
+                                              #2#))
                             (SPADCALL (QREFELT $ 164)))
                            (SPADCALL (QREFELT $ 29)) (QREFELT $ 163))
                           . #3#)
                     (QCDR #2#)
-                  (|check_union| (QEQCAR #2# 0) (|Integer|) #2#))
+                  (|check_union2| (QEQCAR #2# 0) (|Integer|)
+                                  (|Union| (|Integer|) #4#) #2#))
                 . #3#)
           (EXIT
            (PROG1 (LETT #1# (+ |dd| 1) . #3#)
-             (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+             (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
+                               #1#)))))) 
 
 (SDEFUN |FFCAT-;repOrder|
         ((|m| |Matrix| (|Fraction| UP)) (|i| |Integer|) ($ |Integer|))
@@ -689,8 +703,9 @@
                   (SPADCALL
                    (SPADCALL (|spadConstant| $ 136)
                              (PROG1 (LETT #2# (- |n|) . #3=(|FFCAT-;rfmonom|))
-                               (|check_subtype| (>= #2# 0)
-                                                '(|NonNegativeInteger|) #2#))
+                               (|check_subtype2| (>= #2# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #2#))
                              (QREFELT $ 137))
                    (QREFELT $ 56))
                   (QREFELT $ 57)))
@@ -698,8 +713,9 @@
                  (SPADCALL
                   (SPADCALL (|spadConstant| $ 136)
                             (PROG1 (LETT #1# |n| . #3#)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 137))
                   (QREFELT $ 56)))))) 
 

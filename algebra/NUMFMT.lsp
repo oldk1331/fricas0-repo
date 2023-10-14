@@ -143,10 +143,10 @@
                                                          (PROG1
                                                              (LETT #2# |d|
                                                                    . #3#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #2# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #2#))
+                                                            '(|Integer|) #2#))
                                                          (QREFELT $ 43))
                                                         |s|)
                                                        . #3#)
@@ -351,7 +351,8 @@
               (STRCONC "Improper Roman numeral: " (STRINGIMAGE |tot|))))
             ('T
              (PROG1 (LETT #1# |tot| . #3#)
-               (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))))) 
+               (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                 #1#)))))))) 
 
 (DECLAIM (NOTINLINE |NumberFormats;|)) 
 

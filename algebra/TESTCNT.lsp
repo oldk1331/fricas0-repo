@@ -589,10 +589,10 @@
                                                       (LETT #16#
                                                             (- (QREFELT $ 6) 2)
                                                             . #21#)
-                                                    (|check_subtype|
+                                                    (|check_subtype2|
                                                      (>= #16# 0)
                                                      '(|NonNegativeInteger|)
-                                                     #16#))
+                                                     '(|Integer|) #16#))
                                                   (|STR_to_CHAR| "-"))
                                                  (QREFELT $ 25))
                                        (QREFELT $ 27))
@@ -798,10 +798,10 @@
                                                              (- (QREFELT $ 6)
                                                                 2)
                                                              . #21#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #10# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #10#))
+                                                      '(|Integer|) #10#))
                                                    (|STR_to_CHAR| "-"))
                                                   (QREFELT $ 25))
                                         (QREFELT $ 27))
@@ -919,9 +919,9 @@
                                              (- 24 (QCSIZE (QCAR |tstsuite|)))
                                              0)
                                             . #21#)
-                                    (|check_subtype| (>= #5# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #5#))
+                                    (|check_subtype2| (>= #5# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #5#))
                                   (|STR_to_CHAR| " "))
                                  (SPADCALL
                                   (|make_full_CVEC|
@@ -930,9 +930,9 @@
                                              (MAX (- 5 (QCSIZE |sfailedCases|))
                                                   0)
                                              . #21#)
-                                     (|check_subtype| (>= #4# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #4#))
+                                     (|check_subtype2| (>= #4# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #4#))
                                    (|STR_to_CHAR| " "))
                                   (SPADCALL |sfailedCases|
                                             (SPADCALL
@@ -945,9 +945,10 @@
                                                              |stotalCases|))
                                                          0)
                                                         . #21#)
-                                                (|check_subtype| (>= #3# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #3#))
+                                                (|check_subtype2| (>= #3# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #3#))
                                               (|STR_to_CHAR| " "))
                                              (SPADCALL "("
                                                        (SPADCALL |stotalCases|
@@ -964,11 +965,12 @@
                                                                                      |sfailedTests|))
                                                                                    0)
                                                                                   . #21#)
-                                                                               (|check_subtype|
+                                                                               (|check_subtype2|
                                                                                 (>=
                                                                                  #2#
                                                                                  0)
                                                                                 '(|NonNegativeInteger|)
+                                                                                '(|Integer|)
                                                                                 #2#))
                                                                              (|STR_to_CHAR|
                                                                               " "))
@@ -986,11 +988,12 @@
                                                                                        |stotalTests|))
                                                                                      0)
                                                                                     . #21#)
-                                                                                 (|check_subtype|
+                                                                                 (|check_subtype2|
                                                                                   (>=
                                                                                    #1#
                                                                                    0)
                                                                                   '(|NonNegativeInteger|)
+                                                                                  '(|Integer|)
                                                                                   #1#))
                                                                                (|STR_to_CHAR|
                                                                                 " "))

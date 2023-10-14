@@ -51,20 +51,24 @@
                     (LETT #2#
                           (SPADCALL |u|
                                     (PROG1 (LETT #3# |g| . #9#)
-                                      (|check_subtype| (> #3# 0)
-                                                       '(|PositiveInteger|)
-                                                       #3#))
+                                      (|check_subtype2| (> #3# 0)
+                                                        '(|PositiveInteger|)
+                                                        '(|Integer|) #3#))
                                     (QREFELT $ 18))
                           . #9#)
                     (QCDR #2#)
-                  (|check_union| (QEQCAR #2# 0)
-                                 (|SparseUnivariatePolynomial| (QREFELT $ 6))
-                                 #2#))
+                  (|check_union2| (QEQCAR #2# 0)
+                                  (|SparseUnivariatePolynomial| (QREFELT $ 6))
+                                  (|Union|
+                                   (|SparseUnivariatePolynomial| (QREFELT $ 6))
+                                   "failed")
+                                  #2#))
                 . #9#)
           (EXIT
            (CONS |u|
                  (PROG1 (LETT #1# |g| . #9#)
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))))) 
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #1#))))))) 
 
 (SDEFUN |DEGRED;rootOfUnity|
         ((|j| |Integer|) (|n| |Integer|) ($ |Expression| R2))

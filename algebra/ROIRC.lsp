@@ -332,8 +332,8 @@
            (PROGN
             (SPROG ((#2=#:G202 NIL))
                    (PROG1 (LETT #2# (SPADCALL |d| |z| (QREFELT $ 46)) NIL)
-                     (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                      #2#))))))) 
+                     (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #2#))))))) 
 
 (SDEFUN |ROIRC;rootBound| ((|p| |ThePolDom|) ($ |TheField|))
         (SPROG ((|res| (|TheField|)) (|raw| (|TheField|)))
@@ -367,7 +367,8 @@
          (SEQ
           (LETT |nv|
                 (PROG1 (LETT #3# (- |vl| |vr|) . #4=(|ROIRC;sturmNthRoot|))
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #4#)
           (EXIT
            (COND ((< |nv| |n|) (CONS 1 "failed"))
@@ -399,8 +400,8 @@
                      ((SPADCALL |o| 0 (QREFELT $ 53))
                       (|ROIRC;sturmNthRoot| |lp| |int| |r| |vi| |vr|
                        (PROG1 (LETT #1# |o| . #4#)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))
                        $))
                      (#5#
                       (|ROIRC;sturmNthRoot| |lp| |l| |int| |vl| |vi| |n|
@@ -422,7 +423,8 @@
             (SEQ
              (LETT |n|
                    (PROG1 (LETT #3# (- |vl| |vr|) . #5=(|ROIRC;sturmIsolate|))
-                     (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                     (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #3#))
                    . #5#)
              (EXIT
               (COND ((ZEROP |n|) NIL) ((EQL |n| 1) (LIST (CONS |l| |r|)))
@@ -771,9 +773,9 @@
 
 (SDEFUN |ROIRC;linearRecip|
         ((|toTest| |ThePolDom|) (|rootChar| $)
-         ($ |Union| |ThePolDom| "failed"))
+         ($ |Union| |ThePolDom| #1="failed"))
         (SPROG
-         ((#1=#:G286 NIL) (|newPol| (|ThePolDom|))
+         ((#2=#:G286 NIL) (|newPol| (|ThePolDom|))
           (|r| (|Union| |TheField| "failed")) (|c| (|TheField|)))
          (SEQ
           (LETT |c|
@@ -782,11 +784,11 @@
                   (SPADCALL (SPADCALL |toTest| (QREFELT $ 17)) (QREFELT $ 82))
                   (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 79))
                  (QREFELT $ 19))
-                . #2=(|ROIRC;linearRecip|))
+                . #3=(|ROIRC;linearRecip|))
           (LETT |r|
                 (SPADCALL (SPADCALL (QVELT |rootChar| 2) |c| (QREFELT $ 20))
                           (QREFELT $ 83))
-                . #2#)
+                . #3#)
           (EXIT
            (COND
             ((QEQCAR |r| 1)
@@ -797,21 +799,22 @@
                           (QREFELT $ 79))
                 (|spadConstant| $ 14) (QREFELT $ 54))
                (CONS 1 "failed"))
-              (#3='T
+              (#4='T
                (SEQ
                 (LETT |newPol|
                       (PROG2
-                          (LETT #1#
+                          (LETT #2#
                                 (SPADCALL (QVELT |rootChar| 2) |toTest|
                                           (QREFELT $ 84))
-                                . #2#)
-                          (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-                      . #2#)
+                                . #3#)
+                          (QCDR #2#)
+                        (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                        (|Union| (QREFELT $ 7) #1#) #2#))
+                      . #3#)
                 (EXIT
                  (CONS 0
                        (PROG2
-                           (LETT #1#
+                           (LETT #2#
                                  (SPADCALL
                                   (SPADCALL (|spadConstant| $ 39)
                                             (SPADCALL
@@ -822,14 +825,15 @@
                                              |newPol| (QREFELT $ 85))
                                             (QREFELT $ 80))
                                   |toTest| (QREFELT $ 84))
-                                 . #2#)
-                           (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                        #1#))))))))
-            (#3#
+                                 . #3#)
+                           (QCDR #2#)
+                         (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                         (|Union| (QREFELT $ 7) #1#)
+                                         #2#))))))))
+            (#4#
              (CONS 0
                    (PROG2
-                       (LETT #1#
+                       (LETT #2#
                              (SPADCALL
                               (SPADCALL (|spadConstant| $ 39)
                                         (SPADCALL (QCDR |r|)
@@ -837,18 +841,19 @@
                                                   (QREFELT $ 85))
                                         (QREFELT $ 80))
                               |toTest| (QREFELT $ 84))
-                             . #2#)
-                       (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))))))))) 
+                             . #3#)
+                       (QCDR #2#)
+                     (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                     (|Union| (QREFELT $ 7) #1#) #2#))))))))) 
 
 (SDEFUN |ROIRC;recip;ThePolDom$U;24|
         ((|toTest| |ThePolDom|) (|rootChar| $)
-         ($ |Union| |ThePolDom| "failed"))
+         ($ |Union| |ThePolDom| #1="failed"))
         (SPROG
          ((|d|
            (|Record| (|:| |coef1| |ThePolDom|) (|:| |coef2| |ThePolDom|)
                      (|:| |generator| |ThePolDom|)))
-          (#1=#:G296 NIL) (|c| (|TheField|)) (|newPol| (|ThePolDom|)))
+          (#2=#:G296 NIL) (|c| (|TheField|)) (|newPol| (|ThePolDom|)))
          (SEQ
           (COND
            ((OR (EQL (SPADCALL |toTest| (QREFELT $ 12)) 0)
@@ -861,16 +866,16 @@
               (|error| "IRC: recip: Linear Defining Polynomial"))
              ((EQL (SPADCALL |toTest| (QREFELT $ 12)) 1)
               (|ROIRC;linearRecip| |toTest| |rootChar| $))
-             (#2='T
+             (#3='T
               (SEQ
                (LETT |d|
                      (SPADCALL (QVELT |rootChar| 2) |toTest| (QREFELT $ 88))
-                     . #3=(|ROIRC;recip;ThePolDom$U;24|))
+                     . #4=(|ROIRC;recip;ThePolDom$U;24|))
                (EXIT
                 (COND
                  ((EQL (SPADCALL (QVELT |d| 2) (QREFELT $ 12)) 0)
                   (CONS 0 (QVELT |d| 1)))
-                 (#2#
+                 (#3#
                   (SEQ (QSETVELT |d| 2 (SPADCALL (QVELT |d| 2) (QREFELT $ 57)))
                        (EXIT
                         (COND
@@ -883,19 +888,20 @@
                             (QREFELT $ 79))
                            (|spadConstant| $ 14) (QREFELT $ 54))
                           (CONS 1 "failed"))
-                         (#2#
+                         (#3#
                           (SEQ
                            (LETT |newPol|
                                  (PROG2
-                                     (LETT #1#
+                                     (LETT #2#
                                            (SPADCALL (QVELT |rootChar| 2)
                                                      (QVELT |d| 2)
                                                      (QREFELT $ 84))
-                                           . #3#)
-                                     (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                                  #1#))
-                                 . #3#)
+                                           . #4#)
+                                     (QCDR #2#)
+                                   (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                                   (|Union| (QREFELT $ 7) #1#)
+                                                   #2#))
+                                 . #4#)
                            (EXIT
                             (COND
                              ((EQL (SPADCALL |newPol| (QREFELT $ 12)) 1)
@@ -909,7 +915,7 @@
                                        (SPADCALL |newPol| 0 (QREFELT $ 16))
                                        (QREFELT $ 79))
                                       (QREFELT $ 19))
-                                     . #3#)
+                                     . #4#)
                                (EXIT
                                 (CONS 0
                                       (SPADCALL
@@ -926,11 +932,11 @@
                                        (SPADCALL |toTest| (QREFELT $ 17))
                                        (QREFELT $ 18))
                                       (QREFELT $ 19))
-                                     . #3#)
+                                     . #4#)
                                (EXIT
                                 (CONS 0
                                       (PROG2
-                                          (LETT #1#
+                                          (LETT #2#
                                                 (SPADCALL
                                                  (SPADCALL
                                                   (|spadConstant| $ 39)
@@ -942,16 +948,19 @@
                                                    |newPol| (QREFELT $ 85))
                                                   (QREFELT $ 80))
                                                  |toTest| (QREFELT $ 84))
-                                                . #3#)
-                                          (QCDR #1#)
-                                        (|check_union| (QEQCAR #1# 0)
-                                                       (QREFELT $ 7) #1#))))))
-                             (#2#
+                                                . #4#)
+                                          (QCDR #2#)
+                                        (|check_union2| (QEQCAR #2# 0)
+                                                        (QREFELT $ 7)
+                                                        (|Union| (QREFELT $ 7)
+                                                                 #1#)
+                                                        #2#))))))
+                             (#3#
                               (SEQ
                                (LETT |d|
                                      (SPADCALL |newPol| |toTest|
                                                (QREFELT $ 88))
-                                     . #3#)
+                                     . #4#)
                                (EXIT (CONS 0 (QVELT |d| 1))))))))))))))))))))))) 
 
 (SDEFUN |ROIRC;linearSign|
@@ -1064,8 +1073,10 @@
                                                    (QREFELT $ 84))
                                          . #4#)
                                    (QCDR #1#)
-                                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                                #1#)))
+                                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                                 (|Union| (QREFELT $ 7)
+                                                          "failed")
+                                                 #1#)))
                      (EXIT
                       (LETT |toTest|
                             (SPADCALL |toTest| (QVELT |newChar| 2)

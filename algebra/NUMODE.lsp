@@ -21,55 +21,64 @@
           (LETT |y|
                 (MAKEARR1
                  (PROG1 (LETT #13# |nvar| . #14=(|NUMODE;rk4a;VI4FIMV;1|))
-                   (|check_subtype| (>= #13# 0) '(|NonNegativeInteger|) #13#))
+                   (|check_subtype2| (>= #13# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #13#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |yscal|
                 (MAKEARR1
                  (PROG1 (LETT #12# |nvar| . #14#)
-                   (|check_subtype| (>= #12# 0) '(|NonNegativeInteger|) #12#))
+                   (|check_subtype2| (>= #12# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #12#))
                  (SPADCALL 1 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |dydx|
                 (MAKEARR1
                  (PROG1 (LETT #11# |nvar| . #14#)
-                   (|check_subtype| (>= #11# 0) '(|NonNegativeInteger|) #11#))
+                   (|check_subtype2| (>= #11# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #11#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t1|
                 (MAKEARR1
                  (PROG1 (LETT #10# |nvar| . #14#)
-                   (|check_subtype| (>= #10# 0) '(|NonNegativeInteger|) #10#))
+                   (|check_subtype2| (>= #10# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #10#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t2|
                 (MAKEARR1
                  (PROG1 (LETT #9# |nvar| . #14#)
-                   (|check_subtype| (>= #9# 0) '(|NonNegativeInteger|) #9#))
+                   (|check_subtype2| (>= #9# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #9#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t3|
                 (MAKEARR1
                  (PROG1 (LETT #8# |nvar| . #14#)
-                   (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|) #8#))
+                   (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #8#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t4|
                 (MAKEARR1
                  (PROG1 (LETT #7# |nvar| . #14#)
-                   (|check_subtype| (>= #7# 0) '(|NonNegativeInteger|) #7#))
+                   (|check_subtype2| (>= #7# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #7#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t5|
                 (MAKEARR1
                  (PROG1 (LETT #6# |nvar| . #14#)
-                   (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                   (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #6#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |t6|
                 (MAKEARR1
                  (PROG1 (LETT #5# |nvar| . #14#)
-                   (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                   (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #5#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #14#)
           (LETT |step|
@@ -185,43 +194,50 @@
           (LETT |t1|
                 (MAKEARR1
                  (PROG1 (LETT #8# |n| . #9=(|NUMODE;rk4qc;VIFRFVMV;2|))
-                   (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|) #8#))
+                   (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #8#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t2|
                 (MAKEARR1
                  (PROG1 (LETT #7# |n| . #9#)
-                   (|check_subtype| (>= #7# 0) '(|NonNegativeInteger|) #7#))
+                   (|check_subtype2| (>= #7# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #7#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t3|
                 (MAKEARR1
                  (PROG1 (LETT #6# |n| . #9#)
-                   (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                   (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #6#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t4|
                 (MAKEARR1
                  (PROG1 (LETT #5# |n| . #9#)
-                   (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                   (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #5#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t5|
                 (MAKEARR1
                  (PROG1 (LETT #4# |n| . #9#)
-                   (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|) #4#))
+                   (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #4#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t6|
                 (MAKEARR1
                  (PROG1 (LETT #3# |n| . #9#)
-                   (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #3#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (LETT |t7|
                 (MAKEARR1
                  (PROG1 (LETT #2# |n| . #9#)
-                   (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #9#)
           (SPADCALL |t7| |y| |x| |derivs|)
@@ -399,31 +415,36 @@
           (LETT |yt|
                 (MAKEARR1
                  (PROG1 (LETT #7# |nvar| . #8=(|NUMODE;rk4f;VI2FIMV;5|))
-                   (|check_subtype| (>= #7# 0) '(|NonNegativeInteger|) #7#))
+                   (|check_subtype2| (>= #7# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #7#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #8#)
           (LETT |dyt|
                 (MAKEARR1
                  (PROG1 (LETT #6# |nvar| . #8#)
-                   (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                   (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #6#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #8#)
           (LETT |dym|
                 (MAKEARR1
                  (PROG1 (LETT #5# |nvar| . #8#)
-                   (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                   (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #5#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #8#)
           (LETT |dydx|
                 (MAKEARR1
                  (PROG1 (LETT #4# |nvar| . #8#)
-                   (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|) #4#))
+                   (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #4#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #8#)
           (LETT |ynew|
                 (MAKEARR1
                  (PROG1 (LETT #3# |nvar| . #8#)
-                   (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #3#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #8#)
           (LETT |h|
@@ -453,25 +474,29 @@
           (LETT |t1|
                 (MAKEARR1
                  (PROG1 (LETT #5# |n| . #6=(|NUMODE;rk4;VI2FMV;6|))
-                   (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                   (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #5#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #6#)
           (LETT |t2|
                 (MAKEARR1
                  (PROG1 (LETT #4# |n| . #6#)
-                   (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|) #4#))
+                   (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #4#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #6#)
           (LETT |t3|
                 (MAKEARR1
                  (PROG1 (LETT #3# |n| . #6#)
-                   (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #3#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #6#)
           (LETT |t4|
                 (MAKEARR1
                  (PROG1 (LETT #2# |n| . #6#)
-                   (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#))
                  (SPADCALL 0 0 10 (QREFELT $ 10)))
                 . #6#)
           (SPADCALL |t1| |y| |x| |derivs|)

@@ -73,12 +73,14 @@
                 ((< |n| 0)
                  (|AUTOMOR;iter| |g|
                   (PROG1 (LETT #2# (- |n|) . #3=(|AUTOMOR;iterat|))
-                    (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                    (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #2#))
                   |r| $))
                 ('T
                  (|AUTOMOR;iter| |f|
                   (PROG1 (LETT #1# |n| . #3#)
-                    (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #1#))
                   |r| $))))) 
 
 (SDEFUN |AUTOMOR;iter|

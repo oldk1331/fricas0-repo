@@ -130,9 +130,9 @@
                       (SPADCALL (QREFELT $ 10)
                                 (SPADCALL
                                  (PROG1 (LETT #3# (- (+ |n| 1) |l|) . #5#)
-                                   (|check_subtype| (>= #3# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #3#))
+                                   (|check_subtype2| (>= #3# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #3#))
                                  0 (QREFELT $ 9))
                                 (QREFELT $ 39))
                       (SEQ (LETT |i| 1 . #5#) G190
@@ -196,9 +196,9 @@
                       (SPADCALL (QREFELT $ 15)
                                 (SPADCALL
                                  (PROG1 (LETT #2# (- (+ |n| 1) |l|) . #4#)
-                                   (|check_subtype| (>= #2# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #2#))
+                                   (|check_subtype2| (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
                                  (|spadConstant| $ 17) (QREFELT $ 14))
                                 (QREFELT $ 46))
                       (SEQ (LETT |i| 1 . #4#) G190
@@ -527,9 +527,10 @@
                                                 (PROG1
                                                     (LETT #5# (QCDR |entry|)
                                                           . #8#)
-                                                  (|check_subtype| (>= #5# 0)
-                                                                   '(|NonNegativeInteger|)
-                                                                   #5#))
+                                                  (|check_subtype2| (>= #5# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #5#))
                                                 1))
                                          1)
                                         (- (QCAR |entry|) 1) (QREFELT $ 18))
@@ -583,10 +584,10 @@
                                                    (PROG1
                                                        (LETT #5# (QCDR |entry|)
                                                              . #8#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #5# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #5#)))
+                                                      '(|Integer|) #5#)))
                                                 |k|))
                                          1)
                                         (- (EXPT (QCAR |entry|) |k|) 1)

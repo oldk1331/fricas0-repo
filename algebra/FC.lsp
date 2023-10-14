@@ -160,8 +160,9 @@
                 (EXIT
                  (SPADCALL |l|
                            (PROG1 (LETT #1# (- (LENGTH |l|) 2) . #2#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 30)))))) 
 
 (SDEFUN |FC;getfortarrayexp1!0| ((|name| NIL)) |name|) 
@@ -370,7 +371,7 @@
         (SPROG
          ((|expr| (|List| (|String|))) (|elseBranch| ($)) (#1=#:G214 NIL)
           (|rec|
-           (|Union| (|:| |nullBranch| "null")
+           (|Union| (|:| |nullBranch| #2="null")
                     (|:| |assignmentBranch|
                          (|Record| (|:| |var| (|Symbol|))
                                    (|:| |arrayIndex|
@@ -408,48 +409,262 @@
                          (|Record| (|:| |name| (|Symbol|))
                                    (|:| |contents| (|List| (|Symbol|)))))
                     (|:| |printBranch| (|List| (|OutputForm|))))))
-         (SEQ (LETT |rec| (SPADCALL |f| (QREFELT $ 55)) . #2=(|FC;getElseIf|))
+         (SEQ (LETT |rec| (SPADCALL |f| (QREFELT $ 55)) . #3=(|FC;getElseIf|))
               (LETT |expr|
                     (|FC;fortFormatElseIf|
                      (SPADCALL
                       (QVELT
-                       (PROG2 (LETT #1# |rec| . #2#)
+                       (PROG2 (LETT #1# |rec| . #3#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 3)
-                                        (|Record| (|:| |switch| (|Switch|))
-                                                  (|:| |thenClause| $)
-                                                  (|:| |elseClause| $))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 3)
+                                         (|Record| (|:| |switch| (|Switch|))
+                                                   (|:| |thenClause| $)
+                                                   (|:| |elseClause| $))
+                                         (|Union| (|:| |nullBranch| #2#)
+                                                  (|:| |assignmentBranch|
+                                                       (|Record|
+                                                        (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                                  (|:| |arrayAssignmentBranch|
+                                                       (|Record|
+                                                        (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                                  (|:| |conditionalBranch|
+                                                       (|Record|
+                                                        (|:| |switch|
+                                                             (|Switch|))
+                                                        (|:| |thenClause| $)
+                                                        (|:| |elseClause| $)))
+                                                  (|:| |returnBranch|
+                                                       (|Record|
+                                                        (|:| |empty?|
+                                                             (|Boolean|))
+                                                        (|:| |value|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                                  (|:| |blockBranch|
+                                                       (|List| $))
+                                                  (|:| |commentBranch|
+                                                       (|List| (|String|)))
+                                                  (|:| |callBranch| (|String|))
+                                                  (|:| |forBranch|
+                                                       (|Record|
+                                                        (|:| |range|
+                                                             (|SegmentBinding|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |span|
+                                                             (|Polynomial|
+                                                              (|Integer|)))
+                                                        (|:| |body| $)))
+                                                  (|:| |labelBranch|
+                                                       (|SingleInteger|))
+                                                  (|:| |loopBranch|
+                                                       (|Record|
+                                                        (|:| |switch|
+                                                             (|Switch|))
+                                                        (|:| |body| $)))
+                                                  (|:| |commonBranch|
+                                                       (|Record|
+                                                        (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                                  (|:| |printBranch|
+                                                       (|List|
+                                                        (|OutputForm|))))
+                                         #1#))
                        0)
                       (QREFELT $ 57))
                      $)
-                    . #2#)
+                    . #3#)
               (LETT |expr|
                     (APPEND |expr|
                             (|FC;getBody|
                              (QVELT
-                              (PROG2 (LETT #1# |rec| . #2#)
+                              (PROG2 (LETT #1# |rec| . #3#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 3)
-                                               (|Record|
-                                                (|:| |switch| (|Switch|))
-                                                (|:| |thenClause| $)
-                                                (|:| |elseClause| $))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 3)
+                                                (|Record|
+                                                 (|:| |switch| (|Switch|))
+                                                 (|:| |thenClause| $)
+                                                 (|:| |elseClause| $))
+                                                (|Union| (|:| |nullBranch| #2#)
+                                                         (|:|
+                                                          |assignmentBranch|
+                                                          (|Record|
+                                                           (|:| |var|
+                                                                (|Symbol|))
+                                                           (|:| |arrayIndex|
+                                                                (|List|
+                                                                 (|Polynomial|
+                                                                  (|Integer|))))
+                                                           (|:| |rand|
+                                                                (|Record|
+                                                                 (|:|
+                                                                  |ints2Floats?|
+                                                                  (|Boolean|))
+                                                                 (|:| |expr|
+                                                                      (|OutputForm|))))))
+                                                         (|:|
+                                                          |arrayAssignmentBranch|
+                                                          (|Record|
+                                                           (|:| |var|
+                                                                (|Symbol|))
+                                                           (|:| |rand|
+                                                                (|OutputForm|))
+                                                           (|:| |ints2Floats?|
+                                                                (|Boolean|))))
+                                                         (|:|
+                                                          |conditionalBranch|
+                                                          (|Record|
+                                                           (|:| |switch|
+                                                                (|Switch|))
+                                                           (|:| |thenClause| $)
+                                                           (|:| |elseClause|
+                                                                $)))
+                                                         (|:| |returnBranch|
+                                                              (|Record|
+                                                               (|:| |empty?|
+                                                                    (|Boolean|))
+                                                               (|:| |value|
+                                                                    (|Record|
+                                                                     (|:|
+                                                                      |ints2Floats?|
+                                                                      (|Boolean|))
+                                                                     (|:|
+                                                                      |expr|
+                                                                      (|OutputForm|))))))
+                                                         (|:| |blockBranch|
+                                                              (|List| $))
+                                                         (|:| |commentBranch|
+                                                              (|List|
+                                                               (|String|)))
+                                                         (|:| |callBranch|
+                                                              (|String|))
+                                                         (|:| |forBranch|
+                                                              (|Record|
+                                                               (|:| |range|
+                                                                    (|SegmentBinding|
+                                                                     (|Polynomial|
+                                                                      (|Integer|))))
+                                                               (|:| |span|
+                                                                    (|Polynomial|
+                                                                     (|Integer|)))
+                                                               (|:| |body| $)))
+                                                         (|:| |labelBranch|
+                                                              (|SingleInteger|))
+                                                         (|:| |loopBranch|
+                                                              (|Record|
+                                                               (|:| |switch|
+                                                                    (|Switch|))
+                                                               (|:| |body| $)))
+                                                         (|:| |commonBranch|
+                                                              (|Record|
+                                                               (|:| |name|
+                                                                    (|Symbol|))
+                                                               (|:| |contents|
+                                                                    (|List|
+                                                                     (|Symbol|)))))
+                                                         (|:| |printBranch|
+                                                              (|List|
+                                                               (|OutputForm|))))
+                                                #1#))
                               1)
                              $))
-                    . #2#)
+                    . #3#)
               (LETT |elseBranch|
                     (QVELT
-                     (PROG2 (LETT #1# |rec| . #2#)
+                     (PROG2 (LETT #1# |rec| . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 3)
-                                      (|Record| (|:| |switch| (|Switch|))
-                                                (|:| |thenClause| $)
-                                                (|:| |elseClause| $))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 3)
+                                       (|Record| (|:| |switch| (|Switch|))
+                                                 (|:| |thenClause| $)
+                                                 (|:| |elseClause| $))
+                                       (|Union| (|:| |nullBranch| #2#)
+                                                (|:| |assignmentBranch|
+                                                     (|Record|
+                                                      (|:| |var| (|Symbol|))
+                                                      (|:| |arrayIndex|
+                                                           (|List|
+                                                            (|Polynomial|
+                                                             (|Integer|))))
+                                                      (|:| |rand|
+                                                           (|Record|
+                                                            (|:| |ints2Floats?|
+                                                                 (|Boolean|))
+                                                            (|:| |expr|
+                                                                 (|OutputForm|))))))
+                                                (|:| |arrayAssignmentBranch|
+                                                     (|Record|
+                                                      (|:| |var| (|Symbol|))
+                                                      (|:| |rand|
+                                                           (|OutputForm|))
+                                                      (|:| |ints2Floats?|
+                                                           (|Boolean|))))
+                                                (|:| |conditionalBranch|
+                                                     (|Record|
+                                                      (|:| |switch| (|Switch|))
+                                                      (|:| |thenClause| $)
+                                                      (|:| |elseClause| $)))
+                                                (|:| |returnBranch|
+                                                     (|Record|
+                                                      (|:| |empty?|
+                                                           (|Boolean|))
+                                                      (|:| |value|
+                                                           (|Record|
+                                                            (|:| |ints2Floats?|
+                                                                 (|Boolean|))
+                                                            (|:| |expr|
+                                                                 (|OutputForm|))))))
+                                                (|:| |blockBranch| (|List| $))
+                                                (|:| |commentBranch|
+                                                     (|List| (|String|)))
+                                                (|:| |callBranch| (|String|))
+                                                (|:| |forBranch|
+                                                     (|Record|
+                                                      (|:| |range|
+                                                           (|SegmentBinding|
+                                                            (|Polynomial|
+                                                             (|Integer|))))
+                                                      (|:| |span|
+                                                           (|Polynomial|
+                                                            (|Integer|)))
+                                                      (|:| |body| $)))
+                                                (|:| |labelBranch|
+                                                     (|SingleInteger|))
+                                                (|:| |loopBranch|
+                                                     (|Record|
+                                                      (|:| |switch| (|Switch|))
+                                                      (|:| |body| $)))
+                                                (|:| |commonBranch|
+                                                     (|Record|
+                                                      (|:| |name| (|Symbol|))
+                                                      (|:| |contents|
+                                                           (|List|
+                                                            (|Symbol|)))))
+                                                (|:| |printBranch|
+                                                     (|List| (|OutputForm|))))
+                                       #1#))
                      2)
-                    . #2#)
+                    . #3#)
               (COND
                ((NULL (QEQCAR (SPADCALL |elseBranch| (QREFELT $ 45)) 0))
                 (EXIT
@@ -462,10 +677,10 @@
                           (APPEND |expr|
                                   (SPADCALL (SPADCALL 'ELSE (QREFELT $ 8)) 'NIL
                                             (QREFELT $ 14)))
-                          . #2#)
+                          . #3#)
                     (EXIT
                      (LETT |expr| (APPEND |expr| (|FC;getBody| |elseBranch| $))
-                           . #2#))))))))
+                           . #3#))))))))
               (EXIT |expr|)))) 
 
 (SDEFUN |FC;getContinue| ((|label| |SingleInteger|) ($ |List| (|String|)))
@@ -649,7 +864,7 @@
           (#5=#:G321 NIL) (#6=#:G320 NIL) (#7=#:G319 NIL) (#8=#:G318 NIL)
           (#9=#:G317 NIL) (#10=#:G316 NIL) (#11=#:G315 NIL) (#12=#:G314 NIL)
           (|rec|
-           (|Union| (|:| |nullBranch| "null")
+           (|Union| (|:| |nullBranch| #13="null")
                     (|:| |assignmentBranch|
                          (|Record| (|:| |var| (|Symbol|))
                                    (|:| |arrayIndex|
@@ -698,134 +913,968 @@
                     (|:| |Save| "save") (|:| |Stop| "stop")
                     (|:| |Common| "common") (|:| |Print| "print"))))
          (SEQ
-          (LETT |opp| (SPADCALL |f| (QREFELT $ 45)) . #13=(|FC;getCode;$L;36|))
-          (LETT |rec| (SPADCALL |f| (QREFELT $ 55)) . #13#)
+          (LETT |opp| (SPADCALL |f| (QREFELT $ 45)) . #14=(|FC;getCode;$L;36|))
+          (LETT |rec| (SPADCALL |f| (QREFELT $ 55)) . #14#)
           (EXIT
            (COND
             ((QEQCAR |opp| 1)
              (|FC;getAssign|
-              (PROG2 (LETT #12# |rec| . #13#)
+              (PROG2 (LETT #12# |rec| . #14#)
                   (QCDR #12#)
-                (|check_union| (QEQCAR #12# 1)
-                               (|Record| (|:| |var| (|Symbol|))
-                                         (|:| |arrayIndex|
-                                              (|List|
-                                               (|Polynomial| (|Integer|))))
-                                         (|:| |rand|
+                (|check_union2| (QEQCAR #12# 1)
+                                (|Record| (|:| |var| (|Symbol|))
+                                          (|:| |arrayIndex|
+                                               (|List|
+                                                (|Polynomial| (|Integer|))))
+                                          (|:| |rand|
+                                               (|Record|
+                                                (|:| |ints2Floats?|
+                                                     (|Boolean|))
+                                                (|:| |expr| (|OutputForm|)))))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
                                               (|Record|
-                                               (|:| |ints2Floats?| (|Boolean|))
-                                               (|:| |expr| (|OutputForm|)))))
-                               #12#))
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #12#))
               $))
             ((QEQCAR |opp| 12)
              (|FC;getArrayAssign|
-              (PROG2 (LETT #11# |rec| . #13#)
+              (PROG2 (LETT #11# |rec| . #14#)
                   (QCDR #11#)
-                (|check_union| (QEQCAR #11# 2)
-                               (|Record| (|:| |var| (|Symbol|))
-                                         (|:| |rand| (|OutputForm|))
-                                         (|:| |ints2Floats?| (|Boolean|)))
-                               #11#))
+                (|check_union2| (QEQCAR #11# 2)
+                                (|Record| (|:| |var| (|Symbol|))
+                                          (|:| |rand| (|OutputForm|))
+                                          (|:| |ints2Floats?| (|Boolean|)))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #11#))
               $))
             ((QEQCAR |opp| 2)
              (|FC;getCond|
-              (PROG2 (LETT #10# |rec| . #13#)
+              (PROG2 (LETT #10# |rec| . #14#)
                   (QCDR #10#)
-                (|check_union| (QEQCAR #10# 3)
-                               (|Record| (|:| |switch| (|Switch|))
-                                         (|:| |thenClause| $)
-                                         (|:| |elseClause| $))
-                               #10#))
+                (|check_union2| (QEQCAR #10# 3)
+                                (|Record| (|:| |switch| (|Switch|))
+                                          (|:| |thenClause| $)
+                                          (|:| |elseClause| $))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #10#))
               $))
             ((QEQCAR |opp| 3)
              (|FC;getReturn|
-              (PROG2 (LETT #9# |rec| . #13#)
+              (PROG2 (LETT #9# |rec| . #14#)
                   (QCDR #9#)
-                (|check_union| (QEQCAR #9# 4)
-                               (|Record| (|:| |empty?| (|Boolean|))
-                                         (|:| |value|
+                (|check_union2| (QEQCAR #9# 4)
+                                (|Record| (|:| |empty?| (|Boolean|))
+                                          (|:| |value|
+                                               (|Record|
+                                                (|:| |ints2Floats?|
+                                                     (|Boolean|))
+                                                (|:| |expr| (|OutputForm|)))))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
                                               (|Record|
-                                               (|:| |ints2Floats?| (|Boolean|))
-                                               (|:| |expr| (|OutputForm|)))))
-                               #9#))
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #9#))
               $))
             ((QEQCAR |opp| 4)
              (|FC;getBlock|
-              (PROG2 (LETT #8# |rec| . #13#)
+              (PROG2 (LETT #8# |rec| . #14#)
                   (QCDR #8#)
-                (|check_union| (QEQCAR #8# 5) (|List| $) #8#))
+                (|check_union2| (QEQCAR #8# 5) (|List| $)
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #8#))
               $))
             ((QEQCAR |opp| 5)
              (|FC;getComment|
-              (PROG2 (LETT #7# |rec| . #13#)
+              (PROG2 (LETT #7# |rec| . #14#)
                   (QCDR #7#)
-                (|check_union| (QEQCAR #7# 6) (|List| (|String|)) #7#))
+                (|check_union2| (QEQCAR #7# 6) (|List| (|String|))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #7#))
               $))
             ((QEQCAR |opp| 6)
              (|FC;getCall|
-              (PROG2 (LETT #6# |rec| . #13#)
+              (PROG2 (LETT #6# |rec| . #14#)
                   (QCDR #6#)
-                (|check_union| (QEQCAR #6# 7) (|String|) #6#))
+                (|check_union2| (QEQCAR #6# 7) (|String|)
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #6#))
               $))
             ((QEQCAR |opp| 7)
              (|FC;getFor|
-              (PROG2 (LETT #5# |rec| . #13#)
+              (PROG2 (LETT #5# |rec| . #14#)
                   (QCDR #5#)
-                (|check_union| (QEQCAR #5# 8)
-                               (|Record|
-                                (|:| |range|
-                                     (|SegmentBinding|
-                                      (|Polynomial| (|Integer|))))
-                                (|:| |span| (|Polynomial| (|Integer|)))
-                                (|:| |body| $))
-                               #5#))
+                (|check_union2| (QEQCAR #5# 8)
+                                (|Record|
+                                 (|:| |range|
+                                      (|SegmentBinding|
+                                       (|Polynomial| (|Integer|))))
+                                 (|:| |span| (|Polynomial| (|Integer|)))
+                                 (|:| |body| $))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #5#))
               $))
             ((QEQCAR |opp| 11)
              (|FC;getContinue|
-              (PROG2 (LETT #4# |rec| . #13#)
+              (PROG2 (LETT #4# |rec| . #14#)
                   (QCDR #4#)
-                (|check_union| (QEQCAR #4# 9) (|SingleInteger|) #4#))
+                (|check_union2| (QEQCAR #4# 9) (|SingleInteger|)
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #4#))
               $))
             ((QEQCAR |opp| 10)
              (|FC;getGoto|
-              (PROG2 (LETT #4# |rec| . #13#)
+              (PROG2 (LETT #4# |rec| . #14#)
                   (QCDR #4#)
-                (|check_union| (QEQCAR #4# 9) (|SingleInteger|) #4#))
+                (|check_union2| (QEQCAR #4# 9) (|SingleInteger|)
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #4#))
               $))
             ((QEQCAR |opp| 9)
              (|FC;getRepeat|
-              (PROG2 (LETT #3# |rec| . #13#)
+              (PROG2 (LETT #3# |rec| . #14#)
                   (QCDR #3#)
-                (|check_union| (QEQCAR #3# 10)
-                               (|Record| (|:| |switch| (|Switch|))
-                                         (|:| |body| $))
-                               #3#))
+                (|check_union2| (QEQCAR #3# 10)
+                                (|Record| (|:| |switch| (|Switch|))
+                                          (|:| |body| $))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #3#))
               $))
             ((QEQCAR |opp| 8)
              (|FC;getWhile|
-              (PROG2 (LETT #3# |rec| . #13#)
+              (PROG2 (LETT #3# |rec| . #14#)
                   (QCDR #3#)
-                (|check_union| (QEQCAR #3# 10)
-                               (|Record| (|:| |switch| (|Switch|))
-                                         (|:| |body| $))
-                               #3#))
+                (|check_union2| (QEQCAR #3# 10)
+                                (|Record| (|:| |switch| (|Switch|))
+                                          (|:| |body| $))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #3#))
               $))
             ((QEQCAR |opp| 13) (|FC;getSave| $))
             ((QEQCAR |opp| 14) (|FC;getStop| $))
             ((QEQCAR |opp| 16)
              (|FC;getPrint|
-              (PROG2 (LETT #2# |rec| . #13#)
+              (PROG2 (LETT #2# |rec| . #14#)
                   (QCDR #2#)
-                (|check_union| (QEQCAR #2# 12) (|List| (|OutputForm|)) #2#))
+                (|check_union2| (QEQCAR #2# 12) (|List| (|OutputForm|))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #2#))
               $))
             ((QEQCAR |opp| 15)
              (|FC;getCommon|
-              (PROG2 (LETT #1# |rec| . #13#)
+              (PROG2 (LETT #1# |rec| . #14#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 11)
-                               (|Record| (|:| |name| (|Symbol|))
-                                         (|:| |contents| (|List| (|Symbol|))))
-                               #1#))
+                (|check_union2| (QEQCAR #1# 11)
+                                (|Record| (|:| |name| (|Symbol|))
+                                          (|:| |contents| (|List| (|Symbol|))))
+                                (|Union| (|:| |nullBranch| #13#)
+                                         (|:| |assignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |arrayIndex|
+                                                             (|List|
+                                                              (|Polynomial|
+                                                               (|Integer|))))
+                                                        (|:| |rand|
+                                                             (|Record|
+                                                              (|:|
+                                                               |ints2Floats?|
+                                                               (|Boolean|))
+                                                              (|:| |expr|
+                                                                   (|OutputForm|))))))
+                                         (|:| |arrayAssignmentBranch|
+                                              (|Record| (|:| |var| (|Symbol|))
+                                                        (|:| |rand|
+                                                             (|OutputForm|))
+                                                        (|:| |ints2Floats?|
+                                                             (|Boolean|))))
+                                         (|:| |conditionalBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |thenClause| $)
+                                               (|:| |elseClause| $)))
+                                         (|:| |returnBranch|
+                                              (|Record|
+                                               (|:| |empty?| (|Boolean|))
+                                               (|:| |value|
+                                                    (|Record|
+                                                     (|:| |ints2Floats?|
+                                                          (|Boolean|))
+                                                     (|:| |expr|
+                                                          (|OutputForm|))))))
+                                         (|:| |blockBranch| (|List| $))
+                                         (|:| |commentBranch|
+                                              (|List| (|String|)))
+                                         (|:| |callBranch| (|String|))
+                                         (|:| |forBranch|
+                                              (|Record|
+                                               (|:| |range|
+                                                    (|SegmentBinding|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                               (|:| |span|
+                                                    (|Polynomial| (|Integer|)))
+                                               (|:| |body| $)))
+                                         (|:| |labelBranch| (|SingleInteger|))
+                                         (|:| |loopBranch|
+                                              (|Record|
+                                               (|:| |switch| (|Switch|))
+                                               (|:| |body| $)))
+                                         (|:| |commonBranch|
+                                              (|Record| (|:| |name| (|Symbol|))
+                                                        (|:| |contents|
+                                                             (|List|
+                                                              (|Symbol|)))))
+                                         (|:| |printBranch|
+                                              (|List| (|OutputForm|))))
+                                #1#))
               $))
             ('T (|error| "Unsupported program construct."))))))) 
 

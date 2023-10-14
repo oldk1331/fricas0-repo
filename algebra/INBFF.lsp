@@ -9,9 +9,9 @@
                                   (PROG1
                                       (LETT #1# (- (QVSIZE |a|) 1)
                                             . #2=(|INBFF;inv;2V;1|))
-                                    (|check_subtype| (>= #1# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #1#))
+                                    (|check_subtype2| (>= #1# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #1#))
                                   (QREFELT $ 15))
                                  1 (QREFELT $ 19))
                        1 (QREFELT $ 20))
@@ -44,14 +44,16 @@
                                                (PROG1
                                                    (LETT #2# (QVSIZE |a|)
                                                          . #3=(|INBFF;^;VIV;2|))
-                                                 (|check_subtype| (> #2# 0)
-                                                                  '(|PositiveInteger|)
-                                                                  #2#))
+                                                 (|check_subtype2| (> #2# 0)
+                                                                   '(|PositiveInteger|)
+                                                                   '(|NonNegativeInteger|)
+                                                                   #2#))
                                                (QREFELT $ 28))
                                      1)
                                     (QREFELT $ 29))
                           . #3#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #3#)
           (EXIT
            (COND ((ZEROP |e|) (MAKEARR1 (QVSIZE |a|) (QREFELT $ 12)))
@@ -324,11 +326,12 @@
                       ((EQL |erg| 0)
                        (PROG1
                            (LETT #2# (EXPT (QREFELT $ 9) (QVSIZE |x|)) . #3#)
-                         (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#)))
+                         (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                           '(|NonNegativeInteger|) #2#)))
                       ('T
                        (PROG1 (LETT #1# |erg| . #3#)
-                         (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                          #1#)))))))) 
+                         (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                           '(|Integer|) #1#)))))))) 
 
 (SDEFUN |INBFF;norm;VPiV;7|
         ((|a| |Vector| GF) (|d| |PositiveInteger|) ($ |Vector| GF))
@@ -623,9 +626,9 @@
                    (LETT #4#
                          (SPADCALL (SPADCALL |x| |i| (QREFELT $ 22))
                                    (PROG1 (LETT #5# (- |i| 1) . #7#)
-                                     (|check_subtype| (>= #5# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #5#))
+                                     (|check_subtype2| (>= #5# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #5#))
                                    (QREFELT $ 72))
                          . #7#)
                    (COND

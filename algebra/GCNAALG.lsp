@@ -229,7 +229,8 @@
                         (LETT #1#
                               (- (SPADCALL (QREFELT $ 70) (QREFELT $ 85)) 1)
                               . #2=(|GCNAALG;genericLeftTrace;$F;12|))
-                      (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                      (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #1#))
                     . #2#)
               (LETT |rf| (SPADCALL (QREFELT $ 70) |d1| (QREFELT $ 86)) . #2#)
               (LETT |rf| (|GCNAALG;eval| |rf| |a| $) . #2#)
@@ -246,7 +247,8 @@
                         (LETT #1#
                               (- (SPADCALL (QREFELT $ 75) (QREFELT $ 85)) 1)
                               . #2=(|GCNAALG;genericRightTrace;$F;13|))
-                      (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                      (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #1#))
                     . #2#)
               (LETT |rf| (SPADCALL (QREFELT $ 75) |d1| (QREFELT $ 86)) . #2#)
               (LETT |rf| (|GCNAALG;eval| |rf| |a| $) . #2#)

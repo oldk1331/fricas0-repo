@@ -31,7 +31,8 @@
                                       (QREFELT $ 18))
                             . #2=(|NEWTON;newtonAux|))
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3="failed") #1#))
                   (QREFELT $ 19)))
                 ('T
                  (SPADCALL
@@ -42,7 +43,8 @@
                                        (QREFELT $ 18))
                              . #2#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                     (|Union| (QREFELT $ 6) #3#) #1#))
                    (QREFELT $ 19))
                   (SPADCALL
                    (SPADCALL (QREFELT $ 13) (SPADCALL |k| (QREFELT $ 19))

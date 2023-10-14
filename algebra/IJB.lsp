@@ -18,7 +18,8 @@
 (SDEFUN |IJB;index;$Pi;4| ((|jv| $) ($ |PositiveInteger|))
         (SPROG ((#1=#:G116 NIL))
                (PROG1 (LETT #1# (|SPADfirst| (CDR |jv|)) |IJB;index;$Pi;4|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |IJB;type;$S;5| ((|jv| $) ($ |Symbol|))
         (SPROG ((|t| (|NonNegativeInteger|)))

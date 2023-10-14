@@ -3,7 +3,9 @@
         (SPROG ((#1=#:G109 NIL))
                (PROG2 (LETT #1# (SPADCALL |m| (QREFELT $ 9)) |PSEUDLIN;inv|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (|Matrix| (QREFELT $ 6)) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (|Matrix| (QREFELT $ 6))
+                                 (|Union| (|Matrix| (QREFELT $ 6)) "failed")
+                                 #1#)))) 
 
 (SDEFUN |PSEUDLIN;changeBase;2MAMM;2|
         ((M |Matrix| K) (A |Matrix| K) (|sig| |Automorphism| K)
@@ -61,8 +63,9 @@
                         (LETT |v|
                               (MAKEARR1
                                (PROG1 (LETT #2# (+ (- |j| |i|) 1) . #3#)
-                                 (|check_subtype| (>= #2# 0)
-                                                  '(|NonNegativeInteger|) #2#))
+                                 (|check_subtype2| (>= #2# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #2#))
                                (|spadConstant| $ 26))
                               . #3#)
                         (SEQ (LETT |k| |i| . #3#) G190

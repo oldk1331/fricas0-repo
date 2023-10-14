@@ -345,8 +345,13 @@
                       (SPADCALL
                        (PROG2 (LETT #1# |w| |SYMTAB;oForm2|)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Polynomial| (|Integer|)) #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Polynomial| (|Integer|))
+                                         (|Union| (|:| S (|Symbol|))
+                                                  (|:| P
+                                                       (|Polynomial|
+                                                        (|Integer|))))
+                                         #1#))
                        (QREFELT $ 59)))))) 
 
 (SDEFUN |SYMTAB;oForm|
@@ -370,14 +375,24 @@
                               (LETT #1#
                                     (PROG2 (LETT #2# |v| . #4#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 1)
-                                                     (|List|
+                                      (|check_union2| (QEQCAR #2# 1)
+                                                      (|List|
+                                                       (|Union|
+                                                        (|:| S (|Symbol|))
+                                                        (|:| P
+                                                             (|Polynomial|
+                                                              (|Integer|)))))
                                                       (|Union|
-                                                       (|:| S (|Symbol|))
-                                                       (|:| P
-                                                            (|Polynomial|
-                                                             (|Integer|)))))
-                                                     #2#))
+                                                       (|:| |name| (|Symbol|))
+                                                       (|:| |bounds|
+                                                            (|List|
+                                                             (|Union|
+                                                              (|:| S
+                                                                   (|Symbol|))
+                                                              (|:| P
+                                                                   (|Polynomial|
+                                                                    (|Integer|)))))))
+                                                      #2#))
                                     . #4#)
                               G190
                               (COND

@@ -131,9 +131,12 @@
                                                                             33))
                                                          . #16#)
                                                    (QCDR #1#)
-                                                 (|check_union| (QEQCAR #1# 0)
-                                                                (QREFELT $ 7)
-                                                                #1#))
+                                                 (|check_union2| (QEQCAR #1# 0)
+                                                                 (QREFELT $ 7)
+                                                                 (|Union|
+                                                                  (QREFELT $ 7)
+                                                                  #18="failed")
+                                                                 #1#))
                                                #10#)
                                               . #16#)))
                                       (LETT #9# (CDR #9#) . #16#) (GO G190)
@@ -212,9 +215,12 @@
                                                                 (QREFELT $ 38))
                                                       . #16#)
                                                 (QCDR #1#)
-                                              (|check_union| (QEQCAR #1# 0)
-                                                             (QREFELT $ 7)
-                                                             #1#))
+                                              (|check_union2| (QEQCAR #1# 0)
+                                                              (QREFELT $ 7)
+                                                              (|Union|
+                                                               (QREFELT $ 7)
+                                                               #18#)
+                                                              #1#))
                                             #4#)
                                            . #16#)))
                                    (LETT #2#
@@ -459,9 +465,12 @@
                                                                           38))
                                                        . #4#)
                                                  (QCDR #3#)
-                                               (|check_union| (QEQCAR #3# 0)
-                                                              (QREFELT $ 7)
-                                                              #3#))
+                                               (|check_union2| (QEQCAR #3# 0)
+                                                               (QREFELT $ 7)
+                                                               (|Union|
+                                                                (QREFELT $ 7)
+                                                                "failed")
+                                                               #3#))
                                              . #4#)
                                        (EXIT
                                         (COND
@@ -546,10 +555,14 @@
                                     (QREFELT $ 64))
                           |INMODGCD;modInverse|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 6))
-                                           (|:| |coef2| (QREFELT $ 6)))
-                                 #1#))))) 
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 6))
+                                            (|:| |coef2| (QREFELT $ 6)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 6))
+                                             (|:| |coef2| (QREFELT $ 6)))
+                                   "failed")
+                                  #1#))))) 
 
 (SDEFUN |INMODGCD;exactquo| ((|u| BP) (|v| BP) (|p| R) ($ |Union| BP "failed"))
         (SPROG

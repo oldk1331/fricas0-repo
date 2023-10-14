@@ -576,9 +576,12 @@
                                                                        $ 40))
                                                                      . #4#)
                                                                (QCDR #3#)
-                                                             (|check_union|
+                                                             (|check_union2|
                                                               (QEQCAR #3# 0)
                                                               (QREFELT $ 7)
+                                                              (|Union|
+                                                               (QREFELT $ 7)
+                                                               "failed")
                                                               #3#))
                                                            . #4#)
                                                      (EXIT

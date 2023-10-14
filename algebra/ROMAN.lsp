@@ -25,8 +25,8 @@
                          (SPADCALL
                           (SPADCALL
                            (PROG1 (LETT #1# |n| . #2#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 22))
                           (QREFELT $ 23))
                          (QREFELT $ 24)))))))) 

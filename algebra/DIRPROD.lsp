@@ -135,7 +135,8 @@
                     (LIST
                      (SPADCALL
                       (PROG1 (LETT #3# (+ (REM |p| N) 1) . #4#)
-                        (|check_subtype| (> #3# 0) '(|PositiveInteger|) #3#))
+                        (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                          '(|Integer|) #3#))
                       (QREFELT $ 30)))
                     . #4#)
               (SEQ (LETT |i| 2 . #4#) (LETT #2# (QREFELT $ 6) . #4#) G190
@@ -146,8 +147,9 @@
                                (CONS
                                 (SPADCALL
                                  (PROG1 (LETT #1# (+ (REM |p| N) 1) . #4#)
-                                   (|check_subtype| (> #1# 0)
-                                                    '(|PositiveInteger|) #1#))
+                                   (|check_subtype2| (> #1# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 30))
                                 L)
                                . #4#)))
@@ -195,7 +197,8 @@
                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT
                (PROG1 (LETT #1# (+ L 1) . #3#)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                   #1#)))))) 
 
 (SDEFUN |DIRPROD;+;3$;14| ((|u| $) (|v| $) ($ $))
         (SPADCALL (ELT $ 38) |u| |v| (QREFELT $ 40))) 

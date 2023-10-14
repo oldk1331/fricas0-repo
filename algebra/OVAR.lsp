@@ -44,9 +44,10 @@
                       (LETT #1#
                             (CONS 0
                                   (PROG1 (LETT #2# |i| . #4#)
-                                    (|check_subtype| (> #2# 0)
-                                                     '(|PositiveInteger|)
-                                                     #2#)))
+                                    (|check_subtype2| (> #2# 0)
+                                                      '(|PositiveInteger|)
+                                                      '(|NonNegativeInteger|)
+                                                      #2#)))
                             . #4#)
                       (GO #5=#:G122))))))
                  (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #3# (CDR #3#) . #4#))

@@ -5,8 +5,11 @@
                    (LETT #1# (SPADCALL |xx| (QREFELT $ 11))
                          |POLTOPOL;variable1|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0)
-                                (|OrderedVariableList| (QREFELT $ 6)) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0)
+                                 (|OrderedVariableList| (QREFELT $ 6))
+                                 (|Union| (|OrderedVariableList| (QREFELT $ 6))
+                                          "failed")
+                                 #1#)))) 
 
 (SDEFUN |POLTOPOL;pToHdmp;PHdmp;2|
         ((|pol| |Polynomial| R)

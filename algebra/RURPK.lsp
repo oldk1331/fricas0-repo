@@ -188,19 +188,33 @@
                                                              (QREFELT $ 39))
                                                    . #15#)
                                              (QCDR #13#)
-                                           (|check_union| (QEQCAR #13# 0)
-                                                          (|SquareFreeRegularTriangularSet|
-                                                           (QREFELT $ 6)
-                                                           (|IndexedExponents|
-                                                            (|OrderedVariableList|
-                                                             (QREFELT $ 13)))
-                                                           (|OrderedVariableList|
-                                                            (QREFELT $ 13))
-                                                           (|NewSparseMultivariatePolynomial|
+                                           (|check_union2| (QEQCAR #13# 0)
+                                                           (|SquareFreeRegularTriangularSet|
                                                             (QREFELT $ 6)
+                                                            (|IndexedExponents|
+                                                             (|OrderedVariableList|
+                                                              (QREFELT $ 13)))
                                                             (|OrderedVariableList|
-                                                             (QREFELT $ 13))))
-                                                          #13#))
+                                                             (QREFELT $ 13))
+                                                            (|NewSparseMultivariatePolynomial|
+                                                             (QREFELT $ 6)
+                                                             (|OrderedVariableList|
+                                                              (QREFELT $ 13))))
+                                                           (|Union|
+                                                            (|SquareFreeRegularTriangularSet|
+                                                             (QREFELT $ 6)
+                                                             (|IndexedExponents|
+                                                              (|OrderedVariableList|
+                                                               (QREFELT $ 13)))
+                                                             (|OrderedVariableList|
+                                                              (QREFELT $ 13))
+                                                             (|NewSparseMultivariatePolynomial|
+                                                              (QREFELT $ 6)
+                                                              (|OrderedVariableList|
+                                                               (QREFELT $
+                                                                        13))))
+                                                            "failed")
+                                                           #13#))
                                          (QREFELT $ 40))
                                         (SEQ
                                          (LETT |lfq|
@@ -393,12 +407,18 @@
                                                            (QREFELT $ 65))
                                                  . #15#)
                                            (QCDR #3#)
-                                         (|check_union| (QEQCAR #3# 0)
-                                                        (|NewSparseMultivariatePolynomial|
-                                                         (QREFELT $ 6)
-                                                         (|OrderedVariableList|
-                                                          (QREFELT $ 13)))
-                                                        #3#))
+                                         (|check_union2| (QEQCAR #3# 0)
+                                                         (|NewSparseMultivariatePolynomial|
+                                                          (QREFELT $ 6)
+                                                          (|OrderedVariableList|
+                                                           (QREFELT $ 13)))
+                                                         (|Union|
+                                                          (|NewSparseMultivariatePolynomial|
+                                                           (QREFELT $ 6)
+                                                           (|OrderedVariableList|
+                                                            (QREFELT $ 13)))
+                                                          "failed")
+                                                         #3#))
                                        (QREFELT $ 67))
                                       . #15#)
                                 (LETT |lc|
@@ -503,8 +523,11 @@
     (QSETREFV $ 17
               (PROG2 (LETT #1# (SPADCALL (QREFELT $ 10) (QREFELT $ 16)) . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0)
-                               (|OrderedVariableList| (QREFELT $ 13)) #1#)))
+                (|check_union2| (QEQCAR #1# 0)
+                                (|OrderedVariableList| (QREFELT $ 13))
+                                (|Union| (|OrderedVariableList| (QREFELT $ 13))
+                                         "failed")
+                                #1#)))
     (QSETREFV $ 20 (SPADCALL (QREFELT $ 17) (QREFELT $ 19)))
     $))) 
 

@@ -66,7 +66,8 @@
                                     (QREFELT $ 28))
                           . #3#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) #4="failed") #1#))
                 . #3#)
           (SEQ G190
                (COND
@@ -89,7 +90,8 @@
                                           (QREFELT $ 28))
                                 . #3#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                        (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                        (|Union| (QREFELT $ 7) #4#) #1#))
                       . #3#)
                 (LETT |qtil|
                       (SPADCALL
@@ -102,7 +104,8 @@
                                   |qbar| (QREFELT $ 28))
                                  . #3#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                         (|Union| (QREFELT $ 7) #4#) #1#))
                        (QREFELT $ 34))
                       . #3#)
                 (LETT |bc|
@@ -111,10 +114,14 @@
                                 (SPADCALL |qtil| |qbarhat| |a| (QREFELT $ 37))
                                 . #3#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0)
-                                       (|Record| (|:| |coef1| (QREFELT $ 7))
-                                                 (|:| |coef2| (QREFELT $ 7)))
-                                       #2#))
+                        (|check_union2| (QEQCAR #2# 0)
+                                        (|Record| (|:| |coef1| (QREFELT $ 7))
+                                                  (|:| |coef2| (QREFELT $ 7)))
+                                        (|Union|
+                                         (|Record| (|:| |coef1| (QREFELT $ 7))
+                                                   (|:| |coef2| (QREFELT $ 7)))
+                                         "failed")
+                                        #2#))
                       . #3#)
                 (LETT |qr| (SPADCALL (QCAR |bc|) |qbarhat| (QREFELT $ 14))
                       . #3#)
@@ -133,7 +140,8 @@
                                   (SPADCALL |qhat| |qbarhat| (QREFELT $ 28))
                                   . #3#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                          (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                          (|Union| (QREFELT $ 7) #4#) #1#))
                         (QREFELT $ 33))
                        (QREFELT $ 38))
                       . #3#)

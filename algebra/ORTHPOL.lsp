@@ -67,7 +67,9 @@
                                               (QREFELT $ 25))
                                     . #3#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                            (|Union| (|Integer|) "failed")
+                                            #1#))
                           . #3#)
                     (LETT |p0| (SPADCALL |p0| |x| (QREFELT $ 16)) . #3#)
                     (EXIT

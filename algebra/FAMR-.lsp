@@ -184,7 +184,9 @@
                               (LETT #1# (SPADCALL |x| |c| (QREFELT $ 51))
                                     . #2#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                            (|Union| (QREFELT $ 6) "failed")
+                                            #1#))
                           (QREFELT $ 52))))))))) 
 
 (DECLAIM (NOTINLINE |FiniteAbelianMonoidRing&;|)) 

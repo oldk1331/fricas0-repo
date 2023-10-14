@@ -20,16 +20,19 @@
                                    (LETT #1# (SPADCALL |a| |cf| (QREFELT $ 15))
                                          . #2#)
                                    (QCDR #1#)
-                                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6)
-                                                #1#))
+                                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                                 (|Union| (QREFELT $ 6)
+                                                          #3="failed")
+                                                 #1#))
                                . #2#)
                          (LETT |b1|
                                (PROG2
                                    (LETT #1# (SPADCALL |b| |cf| (QREFELT $ 15))
                                          . #2#)
                                    (QCDR #1#)
-                                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6)
-                                                #1#))
+                                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                                 (|Union| (QREFELT $ 6) #3#)
+                                                 #1#))
                                . #2#)
                          (EXIT (CONS 0 (VECTOR |a1| |b1| |cf|)))))))))) 
 

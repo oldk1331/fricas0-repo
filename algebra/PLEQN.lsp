@@ -1537,27 +1537,49 @@
                       (CONS
                        (PROG2 (LETT #1# |rec3| . #2#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0)
-                                        (|Record|
-                                         (|:| |eqzro| (|List| (QREFELT $ 9)))
-                                         (|:| |neqzro| (|List| (QREFELT $ 9)))
-                                         (|:| |wcond|
-                                              (|List|
-                                               (|Polynomial| (QREFELT $ 6))))
-                                         (|:| |bsoln|
-                                              (|Record|
-                                               (|:| |partsol|
-                                                    (|Vector|
-                                                     (|Fraction|
-                                                      (|Polynomial|
-                                                       (QREFELT $ 6)))))
-                                               (|:| |basis|
-                                                    (|List|
+                         (|check_union2| (QEQCAR #1# 0)
+                                         (|Record|
+                                          (|:| |eqzro| (|List| (QREFELT $ 9)))
+                                          (|:| |neqzro| (|List| (QREFELT $ 9)))
+                                          (|:| |wcond|
+                                               (|List|
+                                                (|Polynomial| (QREFELT $ 6))))
+                                          (|:| |bsoln|
+                                               (|Record|
+                                                (|:| |partsol|
                                                      (|Vector|
                                                       (|Fraction|
                                                        (|Polynomial|
-                                                        (QREFELT $ 6)))))))))
-                                        #1#))
+                                                        (QREFELT $ 6)))))
+                                                (|:| |basis|
+                                                     (|List|
+                                                      (|Vector|
+                                                       (|Fraction|
+                                                        (|Polynomial|
+                                                         (QREFELT $ 6)))))))))
+                                         (|Union|
+                                          (|Record|
+                                           (|:| |eqzro| (|List| (QREFELT $ 9)))
+                                           (|:| |neqzro|
+                                                (|List| (QREFELT $ 9)))
+                                           (|:| |wcond|
+                                                (|List|
+                                                 (|Polynomial| (QREFELT $ 6))))
+                                           (|:| |bsoln|
+                                                (|Record|
+                                                 (|:| |partsol|
+                                                      (|Vector|
+                                                       (|Fraction|
+                                                        (|Polynomial|
+                                                         (QREFELT $ 6)))))
+                                                 (|:| |basis|
+                                                      (|List|
+                                                       (|Vector|
+                                                        (|Fraction|
+                                                         (|Polynomial|
+                                                          (QREFELT $ 6)))))))))
+                                          "failed")
+                                         #1#))
                        |rksoln|)
                       . #2#)
                 (EXIT (LETT |rec3| (SPADCALL |infile| (QREFELT $ 147)) . #2#)))

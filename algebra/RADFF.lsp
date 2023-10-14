@@ -211,7 +211,8 @@
                 . #6=(|RADFF;iBasis|))
           (LETT |d1|
                 (PROG1 (LETT #5# (- |d| 1) . #6#)
-                  (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                  (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #5#))
                 . #6#)
           (EXIT
            (PROGN
@@ -620,7 +621,8 @@
                                        (QREFELT $ 142))
                              |RADFF;singular?;FB;29|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                     (|Union| (QREFELT $ 7) "failed") #1#))
                    |point| (QREFELT $ 53))
                   (QREFELT $ 54)))
                 ('T 'NIL)))) 
@@ -645,7 +647,8 @@
                                          (QREFELT $ 142))
                                |RADFF;branchPoint?;FB;30|)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                       (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                       (|Union| (QREFELT $ 7) "failed") #1#))
                      |point| (QREFELT $ 53))
                     (QREFELT $ 54))
                    'NIL)
@@ -761,7 +764,8 @@
     (QSETREFV $ 28 (SPADCALL (|spadConstant| $ 25) (QREFELT $ 27)))
     (QSETREFV $ 29
               (PROG1 (LETT #1# (- |#5| 1) . #4#)
-                (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                  '(|Integer|) #1#)))
     (QSETREFV $ 30
               (SPADCALL (SPADCALL (|spadConstant| $ 12) |#5| (QREFELT $ 14))
                         (SPADCALL |#4| (QREFELT $ 15)) (QREFELT $ 16)))

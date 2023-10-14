@@ -310,7 +310,9 @@
                               (SPADCALL |f| (QREFELT $ 23)) (QREFELT $ 39))
                              . #2#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                     (|Union| (QREFELT $ 6) #3="failed")
+                                     #1#)))))
                 (EXIT
                  (SPADCALL
                   (PROG2
@@ -321,7 +323,8 @@
                              (SPADCALL |f| (QREFELT $ 23)) (QREFELT $ 39))
                             . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3#) #1#))
                   (QREFELT $ 34)))))) 
 
 (SDEFUN |BEZOUT;bezoutDiscriminant;UPR;5| ((|f| UP) ($ R))

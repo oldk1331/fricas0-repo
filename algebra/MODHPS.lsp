@@ -2180,16 +2180,18 @@
                     ((|domainEqual| |#1|
                                     (|PrimeField|
                                      (PROG1 (LETT #32# (QREFELT $ 55) . #33#)
-                                       (|check_subtype| (> #32# 0)
-                                                        '(|PositiveInteger|)
-                                                        #32#))))
+                                       (|check_subtype2| (> #32# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
+                                                         #32#))))
                      (COND
                       ((|domainEqual| |#2|
                                       (|PrimeField|
                                        (PROG1 (LETT #31# (QREFELT $ 55) . #33#)
-                                         (|check_subtype| (> #31# 0)
-                                                          '(|PositiveInteger|)
-                                                          #31#))))
+                                         (|check_subtype2| (> #31# 0)
+                                                           '(|PositiveInteger|)
+                                                           '(|NonNegativeInteger|)
+                                                           #31#))))
                        (QSETREFV $ 21
                                  (CONS
                                   (|dispatchFunction|
@@ -2235,16 +2237,18 @@
                   ((|domainEqual| |#1|
                                   (|PrimeField|
                                    (PROG1 (LETT #30# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #30# 0)
-                                                      '(|PositiveInteger|)
-                                                      #30#))))
+                                     (|check_subtype2| (> #30# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #30#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
                                      (PROG1 (LETT #29# (QREFELT $ 55) . #33#)
-                                       (|check_subtype| (> #29# 0)
-                                                        '(|PositiveInteger|)
-                                                        #29#))))
+                                       (|check_subtype2| (> #29# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
+                                                         #29#))))
                      (QSETREFV $ 21
                                (CONS
                                 (|dispatchFunction|
@@ -2302,16 +2306,18 @@
                   ((|domainEqual| |#1|
                                   (|PrimeField|
                                    (PROG1 (LETT #28# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #28# 0)
-                                                      '(|PositiveInteger|)
-                                                      #28#))))
+                                     (|check_subtype2| (> #28# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #28#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
                                      (PROG1 (LETT #27# (QREFELT $ 55) . #33#)
-                                       (|check_subtype| (> #27# 0)
-                                                        '(|PositiveInteger|)
-                                                        #27#))))
+                                       (|check_subtype2| (> #27# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
+                                                         #27#))))
                      (QSETREFV $ 21
                                (CONS
                                 (|dispatchFunction|
@@ -2356,16 +2362,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #26# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #26# 0)
-                                                    '(|PositiveInteger|)
-                                                    #26#))))
+                                   (|check_subtype2| (> #26# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #26#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #25# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #25# 0)
-                                                      '(|PositiveInteger|)
-                                                      #25#))))
+                                     (|check_subtype2| (> #25# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #25#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2434,16 +2442,18 @@
                   ((|domainEqual| |#1|
                                   (|PrimeField|
                                    (PROG1 (LETT #24# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #24# 0)
-                                                      '(|PositiveInteger|)
-                                                      #24#))))
+                                     (|check_subtype2| (> #24# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #24#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
                                      (PROG1 (LETT #23# (QREFELT $ 55) . #33#)
-                                       (|check_subtype| (> #23# 0)
-                                                        '(|PositiveInteger|)
-                                                        #23#))))
+                                       (|check_subtype2| (> #23# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
+                                                         #23#))))
                      (QSETREFV $ 21
                                (CONS
                                 (|dispatchFunction|
@@ -2488,16 +2498,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #22# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #22# 0)
-                                                    '(|PositiveInteger|)
-                                                    #22#))))
+                                   (|check_subtype2| (> #22# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #22#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #21# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #21# 0)
-                                                      '(|PositiveInteger|)
-                                                      #21#))))
+                                     (|check_subtype2| (> #21# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #21#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2553,16 +2565,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #20# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #20# 0)
-                                                    '(|PositiveInteger|)
-                                                    #20#))))
+                                   (|check_subtype2| (> #20# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #20#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #19# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #19# 0)
-                                                      '(|PositiveInteger|)
-                                                      #19#))))
+                                     (|check_subtype2| (> #19# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #19#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2606,15 +2620,18 @@
               ((|domainEqual| |#1|
                               (|PrimeField|
                                (PROG1 (LETT #18# (QREFELT $ 55) . #33#)
-                                 (|check_subtype| (> #18# 0)
-                                                  '(|PositiveInteger|) #18#))))
+                                 (|check_subtype2| (> #18# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #18#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
                                  (PROG1 (LETT #17# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #17# 0)
-                                                    '(|PositiveInteger|)
-                                                    #17#))))
+                                   (|check_subtype2| (> #17# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #17#))))
                  (QSETREFV $ 21
                            (CONS
                             (|dispatchFunction|
@@ -2698,16 +2715,18 @@
                   ((|domainEqual| |#1|
                                   (|PrimeField|
                                    (PROG1 (LETT #16# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #16# 0)
-                                                      '(|PositiveInteger|)
-                                                      #16#))))
+                                     (|check_subtype2| (> #16# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #16#))))
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
                                      (PROG1 (LETT #15# (QREFELT $ 55) . #33#)
-                                       (|check_subtype| (> #15# 0)
-                                                        '(|PositiveInteger|)
-                                                        #15#))))
+                                       (|check_subtype2| (> #15# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
+                                                         #15#))))
                      (QSETREFV $ 21
                                (CONS
                                 (|dispatchFunction|
@@ -2752,16 +2771,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #14# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #14# 0)
-                                                    '(|PositiveInteger|)
-                                                    #14#))))
+                                   (|check_subtype2| (> #14# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #14#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #13# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #13# 0)
-                                                      '(|PositiveInteger|)
-                                                      #13#))))
+                                     (|check_subtype2| (> #13# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #13#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2817,16 +2838,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #12# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #12# 0)
-                                                    '(|PositiveInteger|)
-                                                    #12#))))
+                                   (|check_subtype2| (> #12# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #12#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #11# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #11# 0)
-                                                      '(|PositiveInteger|)
-                                                      #11#))))
+                                     (|check_subtype2| (> #11# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #11#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2870,15 +2893,18 @@
               ((|domainEqual| |#1|
                               (|PrimeField|
                                (PROG1 (LETT #10# (QREFELT $ 55) . #33#)
-                                 (|check_subtype| (> #10# 0)
-                                                  '(|PositiveInteger|) #10#))))
+                                 (|check_subtype2| (> #10# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #10#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
                                  (PROG1 (LETT #9# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #9# 0)
-                                                    '(|PositiveInteger|)
-                                                    #9#))))
+                                   (|check_subtype2| (> #9# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #9#))))
                  (QSETREFV $ 21
                            (CONS
                             (|dispatchFunction|
@@ -2945,16 +2971,18 @@
                 ((|domainEqual| |#1|
                                 (|PrimeField|
                                  (PROG1 (LETT #8# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #8# 0)
-                                                    '(|PositiveInteger|)
-                                                    #8#))))
+                                   (|check_subtype2| (> #8# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #8#))))
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
                                    (PROG1 (LETT #7# (QREFELT $ 55) . #33#)
-                                     (|check_subtype| (> #7# 0)
-                                                      '(|PositiveInteger|)
-                                                      #7#))))
+                                     (|check_subtype2| (> #7# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #7#))))
                    (QSETREFV $ 21
                              (CONS
                               (|dispatchFunction|
@@ -2998,15 +3026,18 @@
               ((|domainEqual| |#1|
                               (|PrimeField|
                                (PROG1 (LETT #6# (QREFELT $ 55) . #33#)
-                                 (|check_subtype| (> #6# 0)
-                                                  '(|PositiveInteger|) #6#))))
+                                 (|check_subtype2| (> #6# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #6#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
                                  (PROG1 (LETT #5# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #5# 0)
-                                                    '(|PositiveInteger|)
-                                                    #5#))))
+                                   (|check_subtype2| (> #5# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #5#))))
                  (QSETREFV $ 21
                            (CONS
                             (|dispatchFunction|
@@ -3061,15 +3092,18 @@
               ((|domainEqual| |#1|
                               (|PrimeField|
                                (PROG1 (LETT #4# (QREFELT $ 55) . #33#)
-                                 (|check_subtype| (> #4# 0)
-                                                  '(|PositiveInteger|) #4#))))
+                                 (|check_subtype2| (> #4# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #4#))))
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
                                  (PROG1 (LETT #3# (QREFELT $ 55) . #33#)
-                                   (|check_subtype| (> #3# 0)
-                                                    '(|PositiveInteger|)
-                                                    #3#))))
+                                   (|check_subtype2| (> #3# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|NonNegativeInteger|)
+                                                     #3#))))
                  (QSETREFV $ 21
                            (CONS
                             (|dispatchFunction|
@@ -3112,14 +3146,17 @@
             ((|domainEqual| |#1|
                             (|PrimeField|
                              (PROG1 (LETT #2# (QREFELT $ 55) . #33#)
-                               (|check_subtype| (> #2# 0) '(|PositiveInteger|)
-                                                #2#))))
+                               (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                                 '(|NonNegativeInteger|)
+                                                 #2#))))
              (COND
               ((|domainEqual| |#2|
                               (|PrimeField|
                                (PROG1 (LETT #1# (QREFELT $ 55) . #33#)
-                                 (|check_subtype| (> #1# 0)
-                                                  '(|PositiveInteger|) #1#))))
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #1#))))
                (QSETREFV $ 21
                          (CONS
                           (|dispatchFunction| |MODHPS;HP_solve;LL2SNniMMU;127|)

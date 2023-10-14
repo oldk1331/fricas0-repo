@@ -285,8 +285,9 @@
                  (LETT |x| (SPADCALL |sol| |i| (QREFELT $ 42)) . #2#)
                  (SPADCALL |sol| |i|
                            (PROG1 (LETT #1# (- |x| 1) . #2#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 43))
                  (LETT |flag|
                        (|DIOSP;verifySolution| |sol| (QVELT |graph| 2) 1 1
@@ -336,9 +337,10 @@
                                        (SPADCALL |sol| |i|
                                                  (PROG1
                                                      (LETT #4# (- |x| 1) . #6#)
-                                                   (|check_subtype| (>= #4# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #4#))
+                                                   (|check_subtype2| (>= #4# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #4#))
                                                  (QREFELT $ 43))
                                        (EXIT
                                         (COND

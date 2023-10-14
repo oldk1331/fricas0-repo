@@ -48,19 +48,32 @@
                            |modulus| (|spadConstant| $ 33) (QREFELT $ 36))
                           . #2=(|INTPAF;RF2UPUP|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record|
-                                  (|:| |coef1|
-                                       (|SparseUnivariatePolynomial|
-                                        (|Fraction|
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record|
+                                   (|:| |coef1|
+                                        (|SparseUnivariatePolynomial|
+                                         (|Fraction|
+                                          (|SparseUnivariatePolynomial|
+                                           (QREFELT $ 7)))))
+                                   (|:| |coef2|
+                                        (|SparseUnivariatePolynomial|
+                                         (|Fraction|
+                                          (|SparseUnivariatePolynomial|
+                                           (QREFELT $ 7))))))
+                                  (|Union|
+                                   (|Record|
+                                    (|:| |coef1|
                                          (|SparseUnivariatePolynomial|
-                                          (QREFELT $ 7)))))
-                                  (|:| |coef2|
-                                       (|SparseUnivariatePolynomial|
-                                        (|Fraction|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 7)))))
+                                    (|:| |coef2|
                                          (|SparseUnivariatePolynomial|
-                                          (QREFELT $ 7))))))
-                                 #1#))
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 7))))))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (EXIT
            (SPADCALL
@@ -278,14 +291,22 @@
                     (LETT #2# (SPADCALL |modulus| (QREFELT $ 82))
                           . #3=(|INTPAF;prootintegrate1|))
                     (QCDR #2#)
-                  (|check_union| (QEQCAR #2# 0)
-                                 (|Record|
-                                  (|:| |radicand|
-                                       (|Fraction|
-                                        (|SparseUnivariatePolynomial|
-                                         (QREFELT $ 7))))
-                                  (|:| |deg| (|NonNegativeInteger|)))
-                                 #2#))
+                  (|check_union2| (QEQCAR #2# 0)
+                                  (|Record|
+                                   (|:| |radicand|
+                                        (|Fraction|
+                                         (|SparseUnivariatePolynomial|
+                                          (QREFELT $ 7))))
+                                   (|:| |deg| (|NonNegativeInteger|)))
+                                  (|Union|
+                                   (|Record|
+                                    (|:| |radicand|
+                                         (|Fraction|
+                                          (|SparseUnivariatePolynomial|
+                                           (QREFELT $ 7))))
+                                    (|:| |deg| (|NonNegativeInteger|)))
+                                   #4="failed")
+                                  #2#))
                 . #3#)
           (LETT |uu| (|INTPAF;changeVarIfCan| |ff| (QCAR |r|) (QCDR |r|) $)
                 . #3#)
@@ -340,14 +361,24 @@
                                     (SPADCALL (QVELT |cv| 1) (QREFELT $ 82))
                                     . #3#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0)
-                                           (|Record|
-                                            (|:| |radicand|
-                                                 (|Fraction|
-                                                  (|SparseUnivariatePolynomial|
-                                                   (QREFELT $ 7))))
-                                            (|:| |deg| (|NonNegativeInteger|)))
-                                           #2#))
+                            (|check_union2| (QEQCAR #2# 0)
+                                            (|Record|
+                                             (|:| |radicand|
+                                                  (|Fraction|
+                                                   (|SparseUnivariatePolynomial|
+                                                    (QREFELT $ 7))))
+                                             (|:| |deg|
+                                                  (|NonNegativeInteger|)))
+                                            (|Union|
+                                             (|Record|
+                                              (|:| |radicand|
+                                                   (|Fraction|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7))))
+                                              (|:| |deg|
+                                                   (|NonNegativeInteger|)))
+                                             #4#)
+                                            #2#))
                           . #3#)
                     (LETT |qprime|
                           (SPADCALL
@@ -390,7 +421,7 @@
                                      $)
                                     (QREFELT $ 77))))
                                  . #3#)
-                           (GO #4=#:G230))))))))
+                           (GO #5=#:G230))))))))
                     (LETT |curve|
                           (|RadicalFunctionField| (QREFELT $ 7)
                                                   (|SparseUnivariatePolynomial|
@@ -458,7 +489,7 @@
                                               (|IntegrationResultFunctions2|
                                                |curve| (ELT $ 7))))
                       (SPADCALL |x| (QREFELT $ 20)) $))))
-              #4# (EXIT #1#)))))))) 
+              #5# (EXIT #1#)))))))) 
 
 (SDEFUN |INTPAF;prootintegrate1!2| ((|x1| NIL) ($$ NIL))
         (PROG ($ |curve| |cv| |x| |y|)
@@ -527,9 +558,10 @@
                       (SPADCALL |n|
                                 (SPADCALL (SPADCALL |a| (QREFELT $ 110))
                                           (PROG1 (LETT #1# (- |n| 1) . #2#)
-                                            (|check_subtype| (>= #1# 0)
-                                                             '(|NonNegativeInteger|)
-                                                             #1#))
+                                            (|check_subtype2| (>= #1# 0)
+                                                              '(|NonNegativeInteger|)
+                                                              '(|Integer|)
+                                                              #1#))
                                           (QREFELT $ 58))
                                 (QREFELT $ 111))
                       (|INTPAF;chv| |f| |n| |a|
@@ -820,14 +852,22 @@
             (LETT |r|
                   (PROG2 (LETT #10# (SPADCALL |modulus| (QREFELT $ 82)) . #11#)
                       (QCDR #10#)
-                    (|check_union| (QEQCAR #10# 0)
-                                   (|Record|
-                                    (|:| |radicand|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 7))))
-                                    (|:| |deg| (|NonNegativeInteger|)))
-                                   #10#))
+                    (|check_union2| (QEQCAR #10# 0)
+                                    (|Record|
+                                     (|:| |radicand|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 7))))
+                                     (|:| |deg| (|NonNegativeInteger|)))
+                                    (|Union|
+                                     (|Record|
+                                      (|:| |radicand|
+                                           (|Fraction|
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 7))))
+                                      (|:| |deg| (|NonNegativeInteger|)))
+                                     "failed")
+                                    #10#))
                   . #11#)
             (LETT |rec| (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 122))
                   . #11#)
@@ -885,8 +925,10 @@
                                                        (QREFELT $ 144))
                                              . #11#)
                                        (QCDR #6#)
-                                     (|check_union| (QEQCAR #6# 0) (|Symbol|)
-                                                    #6#))
+                                     (|check_union2| (QEQCAR #6# 0) (|Symbol|)
+                                                     (|Union| (|Symbol|)
+                                                              "failed")
+                                                     #6#))
                                    |rde|)
                                   . #11#)
                             (EXIT
@@ -1000,7 +1042,8 @@
                                (SPADCALL
                                 (PROG2 (LETT #3# (QCAR |rc|) . #11#)
                                     (QCDR #3#)
-                                  (|check_union| (QEQCAR #3# 0) |curve| #3#))
+                                  (|check_union2| (QEQCAR #3# 0) |curve|
+                                                  (|Union| |curve| #4#) #3#))
                                 (|compiledLookupCheck| '|lift|
                                                        (LIST
                                                         (LIST
@@ -1101,14 +1144,22 @@
           (LETT |r|
                 (PROG2 (LETT #3# (SPADCALL |modulus| (QREFELT $ 82)) . #8#)
                     (QCDR #3#)
-                  (|check_union| (QEQCAR #3# 0)
-                                 (|Record|
-                                  (|:| |radicand|
-                                       (|Fraction|
-                                        (|SparseUnivariatePolynomial|
-                                         (QREFELT $ 7))))
-                                  (|:| |deg| (|NonNegativeInteger|)))
-                                 #3#))
+                  (|check_union2| (QEQCAR #3# 0)
+                                  (|Record|
+                                   (|:| |radicand|
+                                        (|Fraction|
+                                         (|SparseUnivariatePolynomial|
+                                          (QREFELT $ 7))))
+                                   (|:| |deg| (|NonNegativeInteger|)))
+                                  (|Union|
+                                   (|Record|
+                                    (|:| |radicand|
+                                         (|Fraction|
+                                          (|SparseUnivariatePolynomial|
+                                           (QREFELT $ 7))))
+                                    (|:| |deg| (|NonNegativeInteger|)))
+                                   #9="failed")
+                                  #3#))
                 . #8#)
           (LETT |rec| (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 122)) . #8#)
           (LETT |dqdx|
@@ -1133,9 +1184,10 @@
                                             (PROG1
                                                 (LETT #7# (- (QVELT |rec| 0) 1)
                                                       . #8#)
-                                              (|check_subtype| (>= #7# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #7#))
+                                              (|check_subtype2| (>= #7# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #7#))
                                             (QREFELT $ 58))
                                   (QREFELT $ 153))
                         . #8#)
@@ -1166,7 +1218,7 @@
                                  . #8#))
                           ('T
                            (|error|
-                            #9="failed - cannot handle that integrand")))))
+                            #10="failed - cannot handle that integrand")))))
                        (LETT #6# (CDR #6#) . #8#) (GO G190) G191 (EXIT NIL))
                   (LETT |m|
                         (SPADCALL
@@ -1187,21 +1239,29 @@
                                (QREFELT $ 113))
                      (NREVERSE |l|) (QREFELT $ 158))
                     (QREFELT $ 162)))))
-            (#10='T
+            (#11='T
              (SEQ (LETT |cv| (SPADCALL |ff| |modulus| (QREFELT $ 101)) . #8#)
                   (LETT |r|
                         (PROG2
                             (LETT #3# (SPADCALL (QVELT |cv| 1) (QREFELT $ 82))
                                   . #8#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 0)
-                                         (|Record|
-                                          (|:| |radicand|
-                                               (|Fraction|
-                                                (|SparseUnivariatePolynomial|
-                                                 (QREFELT $ 7))))
-                                          (|:| |deg| (|NonNegativeInteger|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 0)
+                                          (|Record|
+                                           (|:| |radicand|
+                                                (|Fraction|
+                                                 (|SparseUnivariatePolynomial|
+                                                  (QREFELT $ 7))))
+                                           (|:| |deg| (|NonNegativeInteger|)))
+                                          (|Union|
+                                           (|Record|
+                                            (|:| |radicand|
+                                                 (|Fraction|
+                                                  (|SparseUnivariatePolynomial|
+                                                   (QREFELT $ 7))))
+                                            (|:| |deg| (|NonNegativeInteger|)))
+                                           #9#)
+                                          #3#))
                         . #8#)
                   (LETT |dqdx|
                         (SPADCALL
@@ -1271,8 +1331,8 @@
                    (COND
                     ((QEQCAR |ui| 1)
                      (COND ((NULL |lu|) (CONS 1 "failed"))
-                           (#10# (|error| #9#))))
-                    (#10#
+                           (#11# (|error| #10#))))
+                    (#11#
                      (CONS 0
                            (CONS
                             (|INTPAF;UPUP2F1|
@@ -1374,14 +1434,22 @@
             (LETT |r|
                   (PROG2 (LETT #2# (SPADCALL |modulus| (QREFELT $ 82)) . #8#)
                       (QCDR #2#)
-                    (|check_union| (QEQCAR #2# 0)
-                                   (|Record|
-                                    (|:| |radicand|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 7))))
-                                    (|:| |deg| (|NonNegativeInteger|)))
-                                   #2#))
+                    (|check_union2| (QEQCAR #2# 0)
+                                    (|Record|
+                                     (|:| |radicand|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 7))))
+                                     (|:| |deg| (|NonNegativeInteger|)))
+                                    (|Union|
+                                     (|Record|
+                                      (|:| |radicand|
+                                           (|Fraction|
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 7))))
+                                      (|:| |deg| (|NonNegativeInteger|)))
+                                     #9="failed")
+                                    #2#))
                   . #8#)
             (LETT |rec| (SPADCALL (QCAR |r|) (QCDR |r|) (QREFELT $ 122)) . #8#)
             (LETT |dqdx|
@@ -1431,10 +1499,10 @@
                                                                         0)
                                                                  1)
                                                                 . #8#)
-                                                        (|check_subtype|
+                                                        (|check_subtype2|
                                                          (>= #5# 0)
                                                          '(|NonNegativeInteger|)
-                                                         #5#))
+                                                         '(|Integer|) #5#))
                                                       (QREFELT $ 58))
                                             (QREFELT $ 153))
                                   . #8#)
@@ -1460,21 +1528,29 @@
                                     (VECTOR $ |m| |rec| |k| |x|))
                               |res1| (QREFELT $ 168))))
                            . #8#)
-                     (GO #9=#:G404))))))))))
+                     (GO #10=#:G404))))))))))
             (LETT |cv| (SPADCALL |ff| |modulus| (QREFELT $ 101)) . #8#)
             (LETT |g1| (SPADCALL |g| |x| |k| |p| (QREFELT $ 68)) . #8#)
             (LETT |r|
                   (PROG2
                       (LETT #2# (SPADCALL (QVELT |cv| 1) (QREFELT $ 82)) . #8#)
                       (QCDR #2#)
-                    (|check_union| (QEQCAR #2# 0)
-                                   (|Record|
-                                    (|:| |radicand|
-                                         (|Fraction|
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 7))))
-                                    (|:| |deg| (|NonNegativeInteger|)))
-                                   #2#))
+                    (|check_union2| (QEQCAR #2# 0)
+                                    (|Record|
+                                     (|:| |radicand|
+                                          (|Fraction|
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 7))))
+                                     (|:| |deg| (|NonNegativeInteger|)))
+                                    (|Union|
+                                     (|Record|
+                                      (|:| |radicand|
+                                           (|Fraction|
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 7))))
+                                      (|:| |deg| (|NonNegativeInteger|)))
+                                     #9#)
+                                    #2#))
                   . #8#)
             (LETT |curve|
                   (|RadicalFunctionField| (QREFELT $ 7)
@@ -1570,7 +1646,7 @@
                                                                    |curve|))
                                   (QVELT |cv| 2) (QVELT |cv| 3) |x| |k| $)
                                  |uc|)))))))))
-          #9# (EXIT #4#)))) 
+          #10# (EXIT #4#)))) 
 
 (SDEFUN |INTPAF;prootextint!0| ((|x1| NIL) ($$ NIL))
         (PROG (|x| |k| |rec| |m| $)
@@ -1593,7 +1669,8 @@
                      (LETT #1# (SPADCALL |x| (QREFELT $ 144))
                            |INTPAF;palgRDE1|)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                   (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                   (|Union| (|Symbol|) "failed") #1#))
                  $)))) 
 
 (SDEFUN |INTPAF;palgLODE1|
@@ -1781,7 +1858,8 @@
                               (SPADCALL
                                (PROG2 (LETT #4# (QCAR |rec|) . #8#)
                                    (QCDR #4#)
-                                 (|check_union| (QEQCAR #4# 0) |curve| #4#))
+                                 (|check_union2| (QEQCAR #4# 0) |curve|
+                                                 (|Union| |curve| #3#) #4#))
                                (|compiledLookupCheck| '|lift|
                                                       (LIST
                                                        (LIST

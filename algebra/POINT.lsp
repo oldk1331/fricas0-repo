@@ -20,7 +20,8 @@
                (PROG1
                    (LETT #1# (SPADCALL |p| (QREFELT $ 14))
                          |POINT;dimension;$Pi;2|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |POINT;convert;L$;3| ((|l| |List| R) ($ $))
         (SPADCALL |l| (QREFELT $ 13))) 

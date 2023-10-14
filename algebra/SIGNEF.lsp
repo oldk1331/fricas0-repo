@@ -225,10 +225,14 @@
                                      (|SIGNEF;ofesign|
                                       (PROG2 (LETT #3# (QCAR (QCDR |u|)) . #7#)
                                           (QCDR #3#)
-                                        (|check_union| (QEQCAR #3# 0)
-                                                       (|OrderedCompletion|
-                                                        (QREFELT $ 7))
-                                                       #3#))
+                                        (|check_union2| (QEQCAR #3# 0)
+                                                        (|OrderedCompletion|
+                                                         (QREFELT $ 7))
+                                                        (|Union|
+                                                         (|OrderedCompletion|
+                                                          (QREFELT $ 7))
+                                                         #4#)
+                                                        #3#))
                                       $)
                                      . #7#)
                                (EXIT
@@ -241,10 +245,16 @@
                                                    (LETT #3# (QCDR (QCDR |u|))
                                                          . #7#)
                                                    (QCDR #3#)
-                                                 (|check_union| (QEQCAR #3# 0)
-                                                                (|OrderedCompletion|
-                                                                 (QREFELT $ 7))
-                                                                #3#))
+                                                 (|check_union2| (QEQCAR #3# 0)
+                                                                 (|OrderedCompletion|
+                                                                  (QREFELT $
+                                                                           7))
+                                                                 (|Union|
+                                                                  (|OrderedCompletion|
+                                                                   (QREFELT $
+                                                                            7))
+                                                                  #4#)
+                                                                 #3#))
                                                $)
                                               . #7#)
                                         (EXIT

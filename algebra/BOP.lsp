@@ -124,8 +124,8 @@
                 ('T
                  (CONS 0
                        (PROG1 (LETT #1# |n| . #2#)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))))))) 
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))))))) 
 
 (SDEFUN |BOP;copy;2$;26| ((|op| $) ($ $))
         (SPROG ((#1=#:G190 NIL) (|r| NIL) (#2=#:G189 NIL))

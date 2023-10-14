@@ -32,10 +32,14 @@
                                        (LETT #1# (SPADCALL |s| (QREFELT $ 14))
                                              . #5#)
                                        (QCDR #1#)
-                                     (|check_union| (QEQCAR #1# 0)
-                                                    (|OrderedVariableList|
-                                                     (QREFELT $ 7))
-                                                    #1#))
+                                     (|check_union2| (QEQCAR #1# 0)
+                                                     (|OrderedVariableList|
+                                                      (QREFELT $ 7))
+                                                     (|Union|
+                                                      (|OrderedVariableList|
+                                                       (QREFELT $ 7))
+                                                      #6="failed")
+                                                     #1#))
                                    #4#)
                                   . #5#)))
                           (LETT #3# (CDR #3#) . #5#) (GO G190) G191
@@ -52,10 +56,14 @@
                                   (LETT #1# (SPADCALL |m| (QREFELT $ 18))
                                         . #5#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 0)
-                                               (|OrderedVariableList|
-                                                (QREFELT $ 7))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 0)
+                                                (|OrderedVariableList|
+                                                 (QREFELT $ 7))
+                                                (|Union|
+                                                 (|OrderedVariableList|
+                                                  (QREFELT $ 7))
+                                                 #6#)
+                                                #1#))
                               . #5#)
                         (EXIT
                          (COND

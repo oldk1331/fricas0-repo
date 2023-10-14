@@ -39,9 +39,9 @@
                                   (SPADCALL (QREFELT $ 12) (QREFELT $ 13)))
                           (SETELT $ 15
                                   (PROG1 (LETT #2# (- (QREFELT $ 14) 1) . #4#)
-                                    (|check_subtype| (>= #2# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #2#)))
+                                    (|check_subtype2| (>= #2# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #2#)))
                           (SETELT $ 18
                                   (+ (SPADCALL 2 (QREFELT $ 15) (QREFELT $ 17))
                                      1))
@@ -325,8 +325,8 @@
                         . #2=(|MODMON;monomial;RNni$;28|))
                   (LETT |k2|
                         (PROG1 (LETT #1# (- |e| (* |k1| (QREFELT $ 18))) . #2#)
-                          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                           #1#))
+                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #1#))
                         . #2#)
                   (EXIT
                    (SPADCALL
@@ -537,7 +537,8 @@
     (QSETREFV $ 14 (SPADCALL (QREFELT $ 12) (QREFELT $ 13)))
     (QSETREFV $ 15
               (PROG1 (LETT #1# (- (QREFELT $ 14) 1) . #7#)
-                (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                  '(|Integer|) #1#)))
     (QSETREFV $ 18 (+ (SPADCALL 2 (QREFELT $ 15) (QREFELT $ 17)) 1))
     (QSETREFV $ 19 (|HasCategory| |#1| '(|FiniteFieldCategory|)))
     (QSETREFV $ 24 (SPADCALL 0 (|spadConstant| $ 20) (QREFELT $ 23)))

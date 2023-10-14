@@ -34,7 +34,8 @@
                 (PROG1
                     (LETT #1# (QVSIZE (SPADCALL (QREFELT $ 10)))
                           |FAXF-;extensionDegree;Opc;4|)
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #1#))
                 (QREFELT $ 27)))) 
 
 (SDEFUN |FAXF-;degree;SOpc;5|
@@ -76,7 +77,8 @@
                (PROG1
                    (LETT #1# (QVSIZE (SPADCALL (QREFELT $ 10)))
                          |FAXF-;extensionDegree;Pi;9|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |FAXF-;trace;SF;10| ((|a| S) ($ F))
         (SPROG ((|abs| (F)) (#1=#:G139 NIL) (|i| NIL) (|b| (|Vector| S)))
@@ -246,9 +248,12 @@
                                    (QREFELT $ 75))
                          |FAXF-;linearAssociatedLog;SSup;14|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0)
-                                (|SparseUnivariatePolynomial| (QREFELT $ 7))
-                                #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0)
+                                 (|SparseUnivariatePolynomial| (QREFELT $ 7))
+                                 (|Union|
+                                  (|SparseUnivariatePolynomial| (QREFELT $ 7))
+                                  "failed")
+                                 #1#)))) 
 
 (SDEFUN |FAXF-;linearAssociatedOrder;SSup;15|
         ((|x| S) ($ |SparseUnivariatePolynomial| F))
@@ -368,8 +373,8 @@
               (EXIT
                (SPADCALL |e|
                          (PROG1 (LETT #1# |pow| . #2#)
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          (QREFELT $ 96)))))
             ('T
              (|error|
@@ -433,8 +438,8 @@
                       (LETT |res|
                             (SPADCALL
                              (PROG1 (LETT #3# |i| . #4#)
-                               (|check_subtype| (> #3# 0) '(|PositiveInteger|)
-                                                #3#))
+                               (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                                 '(|NonNegativeInteger|) #3#))
                              (QREFELT $ 103))
                             . #4#)
                       (EXIT

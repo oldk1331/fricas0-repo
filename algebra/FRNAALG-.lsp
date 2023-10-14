@@ -187,11 +187,11 @@
         (SPROG
          ((#1=#:G148 NIL)
           (|res|
-           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+           (|Record| (|:| |particular| (|Union| (|Vector| R) #2="failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
          (SEQ
           (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
-                . #2=(|FRNAALG-;leftUnit;U;6|))
+                . #3=(|FRNAALG-;leftUnit;U;6|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |res|) 1)
@@ -200,10 +200,11 @@
             ('T
              (CONS 0
                    (SPADCALL
-                    (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                    (PROG2 (LETT #1# (QCAR |res|) . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                      (|Union| (|Vector| (QREFELT $ 7)) #2#)
+                                      #1#))
                     (QREFELT $ 62))))))))) 
 
 (SDEFUN |FRNAALG-;leftUnits;U;7|
@@ -212,11 +213,11 @@
         (SPROG
          ((#1=#:G162 NIL)
           (|res|
-           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+           (|Record| (|:| |particular| (|Union| (|Vector| R) #2="failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
          (SEQ
           (LETT |res| (|FRNAALG-;leftUnitsInternal| $)
-                . #2=(|FRNAALG-;leftUnits;U;7|))
+                . #3=(|FRNAALG-;leftUnits;U;7|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |res|) 1)
@@ -226,10 +227,11 @@
              (CONS 0
                    (CONS
                     (SPADCALL
-                     (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                     (PROG2 (LETT #1# (QCAR |res|) . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                       (|Union| (|Vector| (QREFELT $ 7)) #2#)
+                                       #1#))
                      (QREFELT $ 62))
                     (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69)))))))))) 
 
@@ -289,11 +291,11 @@
         (SPROG
          ((#1=#:G184 NIL)
           (|res|
-           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+           (|Record| (|:| |particular| (|Union| (|Vector| R) #2="failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
          (SEQ
           (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
-                . #2=(|FRNAALG-;rightUnit;U;9|))
+                . #3=(|FRNAALG-;rightUnit;U;9|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |res|) 1)
@@ -302,10 +304,11 @@
             ('T
              (CONS 0
                    (SPADCALL
-                    (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                    (PROG2 (LETT #1# (QCAR |res|) . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                      (|Union| (|Vector| (QREFELT $ 7)) #2#)
+                                      #1#))
                     (QREFELT $ 62))))))))) 
 
 (SDEFUN |FRNAALG-;rightUnits;U;10|
@@ -314,11 +317,11 @@
         (SPROG
          ((#1=#:G195 NIL)
           (|res|
-           (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
+           (|Record| (|:| |particular| (|Union| (|Vector| R) #2="failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
          (SEQ
           (LETT |res| (|FRNAALG-;rightUnitsInternal| $)
-                . #2=(|FRNAALG-;rightUnits;U;10|))
+                . #3=(|FRNAALG-;rightUnits;U;10|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |res|) 1)
@@ -328,10 +331,11 @@
              (CONS 0
                    (CONS
                     (SPADCALL
-                     (PROG2 (LETT #1# (QCAR |res|) . #2#)
+                     (PROG2 (LETT #1# (QCAR |res|) . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 7))
+                                       (|Union| (|Vector| (QREFELT $ 7)) #2#)
+                                       #1#))
                      (QREFELT $ 62))
                     (SPADCALL (ELT $ 62) (QCDR |res|) (QREFELT $ 69)))))))))) 
 
@@ -405,8 +409,11 @@
                        (SPADCALL
                         (PROG2 (LETT #1# (QCAR |res|) . #2#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0)
-                                         (|Vector| (QREFELT $ 7)) #1#))
+                          (|check_union2| (QEQCAR #1# 0)
+                                          (|Vector| (QREFELT $ 7))
+                                          (|Union| (|Vector| (QREFELT $ 7))
+                                                   "failed")
+                                          #1#))
                         (QREFELT $ 62))))))))) 
 
 (SDEFUN |FRNAALG-;apply;M2S;12| ((|m| |Matrix| R) (|a| S) ($ S))

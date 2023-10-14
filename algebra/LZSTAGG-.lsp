@@ -34,9 +34,9 @@
                                 (PROG1
                                     (LETT #1# (- |n| 1)
                                           |LZSTAGG-;less?;ANniB;2|)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 21)))))) 
 
 (SDEFUN |LZSTAGG-;more?;ANniB;3|
@@ -48,9 +48,9 @@
                                 (PROG1
                                     (LETT #1# (- |n| 1)
                                           |LZSTAGG-;more?;ANniB;3|)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 23)))))) 
 
 (SDEFUN |LZSTAGG-;size?;ANniB;4|
@@ -62,9 +62,9 @@
                                 (PROG1
                                     (LETT #1# (- |n| 1)
                                           |LZSTAGG-;size?;ANniB;4|)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 25)))))) 
 
 (SDEFUN |LZSTAGG-;#;ANni;5| ((|x| A) ($ |NonNegativeInteger|))
@@ -363,13 +363,15 @@
                             (PROG1
                                 (LETT #2# (- |n| 1)
                                       . #3=(|LZSTAGG-;delete;AIA;17|))
-                              (|check_subtype| (>= #2# 0)
-                                               '(|NonNegativeInteger|) #2#))
+                              (|check_subtype2| (>= #2# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #2#))
                             (QREFELT $ 48))
                   (SPADCALL |x|
                             (PROG1 (LETT #1# (+ (- |n| 1) 1) . #3#)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 49))
                   (QREFELT $ 50)))))) 
 
@@ -400,16 +402,16 @@
                             (SPADCALL
                              (SPADCALL |x|
                                        (PROG1 (LETT #3# (- |low| 1) . #4#)
-                                         (|check_subtype| (>= #3# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #3#))
+                                         (|check_subtype2| (>= #3# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #3#))
                                        (QREFELT $ 48))
                              (SPADCALL |x|
                                        (PROG1
                                            (LETT #2# (+ (- |high| 1) 1) . #4#)
-                                         (|check_subtype| (>= #2# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #2#))
+                                         (|check_subtype2| (>= #2# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #2#))
                                        (QREFELT $ 49))
                              (QREFELT $ 50)))))))))
             ((NULL (SPADCALL |low| |x| (QREFELT $ 47)))
@@ -417,8 +419,8 @@
             ('T
              (SPADCALL |x|
                        (PROG1 (LETT #1# (- |low| 1) . #4#)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))
                        (QREFELT $ 48)))))))) 
 
 (SDEFUN |LZSTAGG-;elt;AUsA;19|
@@ -447,21 +449,22 @@
                             (SPADCALL
                              (SPADCALL |x|
                                        (PROG1 (LETT #3# (- |low| 1) . #4#)
-                                         (|check_subtype| (>= #3# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #3#))
+                                         (|check_subtype2| (>= #3# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #3#))
                                        (QREFELT $ 49))
                              (PROG1 (LETT #2# (+ (- |high| |low|) 1) . #4#)
-                               (|check_subtype| (>= #2# 0)
-                                                '(|NonNegativeInteger|) #2#))
+                               (|check_subtype2| (>= #2# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #2#))
                              (QREFELT $ 48)))))))))
             ((NULL (SPADCALL |low| |x| (QREFELT $ 47)))
              (|error| "elt: index out of range"))
             ('T
              (SPADCALL |x|
                        (PROG1 (LETT #1# (- |low| 1) . #4#)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))
                        (QREFELT $ 49)))))))) 
 
 (SDEFUN |LZSTAGG-;insert;SAIA;20| ((|s| S) (|x| A) (|n| |Integer|) ($ A))
@@ -476,8 +479,8 @@
                          (PROG1
                              (LETT #1# (- |n| 1)
                                    . #2=(|LZSTAGG-;insert;SAIA;20|))
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          . #2#)
                    (EXIT
                     (SPADCALL
@@ -499,8 +502,8 @@
                          (PROG1
                              (LETT #1# (- |n| 1)
                                    . #2=(|LZSTAGG-;insert;2AIA;21|))
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          . #2#)
                    (EXIT
                     (SPADCALL
@@ -726,9 +729,9 @@
                                      (PROG1
                                          (LETT #1# (- |n| 1)
                                                |LZSTAGG-;first;ANniA;37|)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#))
                                      (QREFELT $ 48))
                            (QREFELT $ 36)))))) 
 
@@ -749,9 +752,9 @@
                                 (PROG1
                                     (LETT #1# (- |n| 1)
                                           |LZSTAGG-;rest;ANniA;40|)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 49)))))) 
 
 (SDEFUN |LZSTAGG-;last;AS;41| ((|x| A) ($ S))
@@ -817,9 +820,9 @@
                            (SPADCALL
                             (SPADCALL |x|
                                       (PROG1 (LETT #1# (- |m| |n|) . #3#)
-                                        (|check_subtype| (>= #1# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #1#))
+                                        (|check_subtype2| (>= #1# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #1#))
                                       (QREFELT $ 49))
                             (QREFELT $ 56))))))))))) 
 

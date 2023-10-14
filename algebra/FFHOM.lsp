@@ -91,11 +91,15 @@
                                   (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
                                         . #9#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 0)
-                                               (|Matrix| (QREFELT $ 7)) #2#))
+                                (|check_union2| (QEQCAR #2# 0)
+                                                (|Matrix| (QREFELT $ 7))
+                                                (|Union|
+                                                 (|Matrix| (QREFELT $ 7))
+                                                 #10="failed")
+                                                #2#))
                               (QREFELT $ 52)))
                      (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
-               (#10='T
+               (#11='T
                 (SEQ (SETELT $ 21 (SPADCALL |mat| (QREFELT $ 52)))
                      (SETELT $ 20
                              (SPADCALL
@@ -103,11 +107,14 @@
                                   (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
                                         . #9#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 0)
-                                               (|Matrix| (QREFELT $ 7)) #2#))
+                                (|check_union2| (QEQCAR #2# 0)
+                                                (|Matrix| (QREFELT $ 7))
+                                                (|Union|
+                                                 (|Matrix| (QREFELT $ 7)) #10#)
+                                                #2#))
                               (QREFELT $ 52)))
                      (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))))))
-           (#10#
+           (#11#
             (SEQ (LETT |dPbig| (QREFELT $ 32) . #9#)
                  (LETT |rTbig| (QREFELT $ 26) . #9#)
                  (LETT |dPsmall| (QREFELT $ 30) . #9#)
@@ -202,8 +209,11 @@
                  (LETT |mat|
                        (PROG2 (LETT #2# (SPADCALL |mat| (QREFELT $ 54)) . #9#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0) (|Matrix| (QREFELT $ 7))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 0)
+                                         (|Matrix| (QREFELT $ 7))
+                                         (|Union| (|Matrix| (QREFELT $ 7))
+                                                  #10#)
+                                         #2#))
                        . #9#)
                  (LETT |matbs| (SPADCALL |degsmall| |degbig| (QREFELT $ 19))
                        . #9#)
@@ -237,8 +247,12 @@
                                    (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
                                          . #9#)
                                    (QCDR #2#)
-                                 (|check_union| (QEQCAR #2# 0)
-                                                (|Matrix| (QREFELT $ 7)) #2#))
+                                 (|check_union2| (QEQCAR #2# 0)
+                                                 (|Matrix| (QREFELT $ 7))
+                                                 (|Union|
+                                                  (|Matrix| (QREFELT $ 7))
+                                                  #10#)
+                                                 #2#))
                                |matsb| (QREFELT $ 66))
                               . #9#)
                         (EXIT
@@ -269,8 +283,12 @@
                                     (LETT #2# (SPADCALL |mat| (QREFELT $ 54))
                                           . #9#)
                                     (QCDR #2#)
-                                  (|check_union| (QEQCAR #2# 0)
-                                                 (|Matrix| (QREFELT $ 7)) #2#))
+                                  (|check_union2| (QEQCAR #2# 0)
+                                                  (|Matrix| (QREFELT $ 7))
+                                                  (|Union|
+                                                   (|Matrix| (QREFELT $ 7))
+                                                   #10#)
+                                                  #2#))
                                 |matbs| (QREFELT $ 66))
                                . #9#)))))
                  (EXIT
@@ -278,7 +296,7 @@
                    ((SPADCALL |dPbig| (QREFELT $ 32) (QREFELT $ 43))
                     (SEQ (SETELT $ 20 |matsb|) (SETELT $ 21 |matbs|)
                          (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
-                   (#10#
+                   (#11#
                     (SEQ (SETELT $ 20 |matbs|) (SETELT $ 21 |matsb|)
                          (SETELT $ 27 'NIL)
                          (EXIT (SPADCALL (QREFELT $ 56))))))))))))) 

@@ -88,7 +88,8 @@
                           (SPADCALL (QVELT |sn| 0) (QVELT |sd| 0)
                                     (QREFELT $ 29))
                           . #3#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #3#)
           (EXIT
            (VECTOR |m| (SPADCALL (QVELT |sn| 1) (QVELT |sd| 1) (QREFELT $ 30))
@@ -120,7 +121,8 @@
                           (SPADCALL (QVELT |sn| 0) (QVELT |sd| 0)
                                     (QREFELT $ 29))
                           . #3#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #3#)
           (EXIT
            (VECTOR |m|
@@ -271,7 +273,8 @@
                                     (QVELT |sn| 0) (QVELT |sd| 0))
                               (QREFELT $ 59))
                              . #5#)
-                     (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                     (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #1#))
                    . #5#)
              (EXIT
               (VECTOR |m|

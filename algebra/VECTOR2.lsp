@@ -37,8 +37,11 @@
                                    (CONS
                                     (PROG2 (LETT #2# |r| . #5#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 0)
-                                                     (QREFELT $ 7) #2#))
+                                      (|check_union2| (QEQCAR #2# 0)
+                                                      (QREFELT $ 7)
+                                                      (|Union| (QREFELT $ 7)
+                                                               #1#)
+                                                      #2#))
                                     |res|)
                                    . #5#)))))
                      (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))

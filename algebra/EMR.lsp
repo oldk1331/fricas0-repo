@@ -111,10 +111,10 @@
                                    (LETT |xv|
                                          (SPADCALL |xv|
                                                    (PROG1 (LETT #2# |d| . #3#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #2# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #2#))
+                                                      '(|Integer|) #2#))
                                                    (SPADCALL |xv|
                                                              (QREFELT $ 13))
                                                    |yv| (QREFELT $ 34))

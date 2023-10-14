@@ -6,22 +6,22 @@
         (SPROG
          ((|q| (UP)) (|ee| (|NonNegativeInteger|)) (#1=#:G110 NIL)
           (#2=#:G128 NIL) (|c| (|Union| R "failed"))
-          (|e| (|Union| (|NonNegativeInteger|) "failed")) (|lc| (R)))
+          (|e| (|Union| (|NonNegativeInteger|) #3="failed")) (|lc| (R)))
          (SEQ
           (EXIT
            (COND
             ((SPADCALL |p2| (QREFELT $ 9))
              (|error| "divideIfCan: division by zero"))
-            (#3='T
+            (#4='T
              (SEQ
               (LETT |lc| (SPADCALL |p2| (QREFELT $ 10))
-                    . #4=(|UPDIVP;divideIfCan;2UPU;1|))
+                    . #5=(|UPDIVP;divideIfCan;2UPU;1|))
               (EXIT
                (COND
                 ((SPADCALL |lc| (|spadConstant| $ 11) (QREFELT $ 13))
                  (CONS 0 (SPADCALL |p1| |p2| (QREFELT $ 15))))
-                (#3#
-                 (SEQ (LETT |q| (|spadConstant| $ 16) . #4#)
+                (#4#
+                 (SEQ (LETT |q| (|spadConstant| $ 16) . #5#)
                       (SEQ G190
                            (COND
                             ((NULL
@@ -30,35 +30,38 @@
                                      (SPADCALL (SPADCALL |p1| (QREFELT $ 18))
                                                (SPADCALL |p2| (QREFELT $ 18))
                                                (QREFELT $ 20))
-                                     . #4#)
+                                     . #5#)
                                (EXIT (COND ((QEQCAR |e| 1) 'NIL) ('T 'T)))))
                              (GO G191)))
                            (SEQ
                             (LETT |c|
                                   (SPADCALL (SPADCALL |p1| (QREFELT $ 10)) |lc|
                                             (QREFELT $ 21))
-                                  . #4#)
+                                  . #5#)
                             (EXIT
                              (COND
                               ((QEQCAR |c| 1)
                                (PROGN
-                                (LETT #2# (CONS 1 "failed") . #4#)
-                                (GO #5=#:G127)))
+                                (LETT #2# (CONS 1 "failed") . #5#)
+                                (GO #6=#:G127)))
                               ('T
                                (SEQ
                                 (LETT |ee|
-                                      (PROG2 (LETT #1# |e| . #4#)
+                                      (PROG2 (LETT #1# |e| . #5#)
                                           (QCDR #1#)
-                                        (|check_union| (QEQCAR #1# 0)
-                                                       (|NonNegativeInteger|)
-                                                       #1#))
-                                      . #4#)
+                                        (|check_union2| (QEQCAR #1# 0)
+                                                        (|NonNegativeInteger|)
+                                                        (|Union|
+                                                         (|NonNegativeInteger|)
+                                                         #3#)
+                                                        #1#))
+                                      . #5#)
                                 (LETT |q|
                                       (SPADCALL |q|
                                                 (SPADCALL (QCDR |c|) |ee|
                                                           (QREFELT $ 22))
                                                 (QREFELT $ 23))
-                                      . #4#)
+                                      . #5#)
                                 (EXIT
                                  (LETT |p1|
                                        (SPADCALL |p1|
@@ -71,10 +74,10 @@
                                                             (QREFELT $ 26))
                                                            (QREFELT $ 27))
                                                  (QREFELT $ 28))
-                                       . #4#)))))))
+                                       . #5#)))))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS 0 (CONS |q| |p1|)))))))))))
-          #5# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |UPDIVP;divideIfCan;2UPU;1!0| ((|x| NIL) ($$ NIL))
         (PROG (|ee| $)

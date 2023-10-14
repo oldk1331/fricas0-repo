@@ -20,7 +20,8 @@
             (SPADCALL
              (PROG2 (LETT #1# |r| . #2#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+               (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                               (|Union| (QREFELT $ 7) "failed") #1#))
              |p| |l| (QREFELT $ 17)))
            (#3='T
             (SEQ (LETT |u| (SPADCALL |p| (QREFELT $ 20)) . #2#)

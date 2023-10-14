@@ -80,7 +80,8 @@
                            (QREFELT $ 34))
                           . #5=(|UTSODETL;LODO2FUN;LM;3|))
                     (QCDR #4#)
-                  (|check_union| (QEQCAR #4# 0) (QREFELT $ 9) #4#))
+                  (|check_union2| (QEQCAR #4# 0) (QREFELT $ 9)
+                                  (|Union| (QREFELT $ 9) "failed") #4#))
                 . #5#)
           (LETT |n|
                 (PROG1
@@ -88,7 +89,8 @@
                           (SPADCALL (SPADCALL |op| (QREFELT $ 35))
                                     (|spadConstant| $ 36) (QREFELT $ 38))
                           . #5#)
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #5#)
           (LETT |v|
                 (PROGN
@@ -156,7 +158,8 @@
                            (QREFELT $ 34))
                           |UTSODETL;RF2UTS;FUTS;5|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
+                                  (|Union| (QREFELT $ 9) "failed") #1#))
                 (QREFELT $ 43)))) 
 
 (DECLAIM (NOTINLINE |UTSodetools;|)) 

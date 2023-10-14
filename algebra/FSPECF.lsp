@@ -2944,8 +2944,9 @@
                (SPADCALL
                 (SPADCALL |lp|
                           (PROG1 (LETT #1# (- |i| 1) |FSPECF;replace_i|)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 268))
                 (CONS |v| (SPADCALL |lp| |i| (QREFELT $ 269))) (QREFELT $ 78)))) 
 
@@ -2967,8 +2968,8 @@
                 (SEQ
                  (LETT |nn|
                        (PROG1 (LETT #4# (- |n| 2) . #5#)
-                         (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                          #4#))
+                         (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #4#))
                        . #5#)
                  (LETT |pq| (SPADCALL |l| |nn| (QREFELT $ 269)) . #5#)
                  (LETT |pqi| (|FSPECF;get_int_listf| |pq| $) . #5#)
@@ -3036,7 +3037,8 @@
          (SEQ (LETT |n| (LENGTH |l|) . #4=(|FSPECF;dvhypergeom|))
               (LETT |nn|
                     (PROG1 (LETT #3# (- |n| 2) . #4#)
-                      (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                      (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #3#))
                     . #4#)
               (LETT |pq| (SPADCALL |l| |nn| (QREFELT $ 269)) . #4#)
               (LETT |pqi| (|FSPECF;get_int_listf| |pq| $) . #4#)
@@ -3120,7 +3122,8 @@
          (SEQ (LETT |n| (LENGTH |l|) . #3=(|FSPECF;dvmeijer|))
               (LETT |nn|
                     (PROG1 (LETT #2# (- |n| 4) . #3#)
-                      (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                      (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #2#))
                     . #3#)
               (LETT |l0| |l| . #3#)
               (LETT |nl| (SPADCALL |l| |nn| (QREFELT $ 269)) . #3#)
@@ -3222,7 +3225,8 @@
                 (PROG1
                     (LETT #1# (- (LENGTH |lo|) |n|)
                           . #2=(|FSPECF;get_int_listi|))
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |lo| (SPADCALL |lo| |n0| (QREFELT $ 275)) . #2#)
           (LETT |rl| NIL . #2#)
@@ -3275,7 +3279,8 @@
                 (PROG1
                     (LETT #1# (- (LENGTH |lo|) |n|)
                           . #2=(|FSPECF;get_int_listo|))
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |lo| (SPADCALL |lo| |n0| (QREFELT $ 279)) . #2#)
           (LETT |rl| NIL . #2#)
@@ -3297,7 +3302,8 @@
          (SEQ
           (LETT |n0|
                 (PROG1 (LETT #2# (- (LENGTH |lo|) 2) . #3=(|FSPECF;dhyper0|))
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #3#)
           (LETT |pql| (|FSPECF;get_int_listo| 2 |lo| $) . #3#)
           (LETT |lo| (SPADCALL |lo| |n0| (QREFELT $ 280)) . #3#)
@@ -3327,7 +3333,8 @@
          (SEQ
           (LETT |n0|
                 (PROG1 (LETT #1# (- (LENGTH |lo|) 4) . #2=(|FSPECF;dmeijer0|))
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |nl| (|FSPECF;get_int_listo| 4 |lo| $) . #2#)
           (LETT |lo| (SPADCALL |lo| |n0| (QREFELT $ 280)) . #2#)
@@ -3522,28 +3529,29 @@
                         (SPADCALL (SPADCALL 2 (QREFELT $ 76)) (QREFELT $ 86))
                         . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) |#2| #1#)))
+                (|check_union2| (QEQCAR #1# 0) |#2| (|Union| |#2| #3="failed")
+                                #1#)))
     (QSETREFV $ 88
               (PROG2
                   (LETT #1#
                         (SPADCALL (SPADCALL 3 (QREFELT $ 76)) (QREFELT $ 86))
                         . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) |#2| #1#)))
+                (|check_union2| (QEQCAR #1# 0) |#2| (|Union| |#2| #3#) #1#)))
     (QSETREFV $ 89
               (PROG2
                   (LETT #1#
                         (SPADCALL (SPADCALL 4 (QREFELT $ 76)) (QREFELT $ 86))
                         . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) |#2| #1#)))
+                (|check_union2| (QEQCAR #1# 0) |#2| (|Union| |#2| #3#) #1#)))
     (QSETREFV $ 90
               (PROG2
                   (LETT #1#
                         (SPADCALL (SPADCALL 6 (QREFELT $ 76)) (QREFELT $ 86))
                         . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) |#2| #1#)))
+                (|check_union2| (QEQCAR #1# 0) |#2| (|Union| |#2| #3#) #1#)))
     (QSETREFV $ 93 (SPADCALL 2 (QREFELT $ 88) (QREFELT $ 92)))
     (QSETREFV $ 94 (SPADCALL 3 (QREFELT $ 87) (QREFELT $ 92)))
     (QSETREFV $ 102 (SPADCALL '|whittakerM| (QREFELT $ 12)))

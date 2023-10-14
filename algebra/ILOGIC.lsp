@@ -151,10 +151,25 @@
                         (QVELT
                          (PROG2 (LETT #2# |n| . #3#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 2)
-                                          (|Record| (|:| |typ| (|Symbol|))
-                                                    (|:| |c1| $) (|:| |c2| $))
-                                          #2#))
+                           (|check_union2| (QEQCAR #2# 2)
+                                           (|Record| (|:| |typ| (|Symbol|))
+                                                     (|:| |c1| $) (|:| |c2| $))
+                                           (|Union|
+                                            (|:| |const|
+                                                 (|Record|
+                                                  (|:| |val| (|Symbol|))))
+                                            (|:| |var|
+                                                 (|Record|
+                                                  (|:| |str| (|String|))))
+                                            (|:| |binaryOp|
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $) (|:| |c2| $)))
+                                            (|:| |unaryOp|
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $))))
+                                           #2#))
                          0)
                         'IMPLY)
                        (PROGN
@@ -164,22 +179,62 @@
                                 (QVELT
                                  (PROG2 (LETT #2# |n| . #3#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 2)
-                                                  (|Record|
-                                                   (|:| |typ| (|Symbol|))
-                                                   (|:| |c1| $) (|:| |c2| $))
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 2)
+                                                   (|Record|
+                                                    (|:| |typ| (|Symbol|))
+                                                    (|:| |c1| $) (|:| |c2| $))
+                                                   (|Union|
+                                                    (|:| |const|
+                                                         (|Record|
+                                                          (|:| |val|
+                                                               (|Symbol|))))
+                                                    (|:| |var|
+                                                         (|Record|
+                                                          (|:| |str|
+                                                               (|String|))))
+                                                    (|:| |binaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $)
+                                                          (|:| |c2| $)))
+                                                    (|:| |unaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $))))
+                                                   #2#))
                                  1)
                                 (QREFELT $ 19))
                                (SPADCALL
                                 (QVELT
                                  (PROG2 (LETT #2# |n| . #3#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 2)
-                                                  (|Record|
-                                                   (|:| |typ| (|Symbol|))
-                                                   (|:| |c1| $) (|:| |c2| $))
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 2)
+                                                   (|Record|
+                                                    (|:| |typ| (|Symbol|))
+                                                    (|:| |c1| $) (|:| |c2| $))
+                                                   (|Union|
+                                                    (|:| |const|
+                                                         (|Record|
+                                                          (|:| |val|
+                                                               (|Symbol|))))
+                                                    (|:| |var|
+                                                         (|Record|
+                                                          (|:| |str|
+                                                               (|String|))))
+                                                    (|:| |binaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $)
+                                                          (|:| |c2| $)))
+                                                    (|:| |unaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $))))
+                                                   #2#))
                                  2)
                                 (QREFELT $ 19))
                                (QREFELT $ 18))
@@ -190,10 +245,25 @@
                         (QVELT
                          (PROG2 (LETT #2# |n| . #3#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 2)
-                                          (|Record| (|:| |typ| (|Symbol|))
-                                                    (|:| |c1| $) (|:| |c2| $))
-                                          #2#))
+                           (|check_union2| (QEQCAR #2# 2)
+                                           (|Record| (|:| |typ| (|Symbol|))
+                                                     (|:| |c1| $) (|:| |c2| $))
+                                           (|Union|
+                                            (|:| |const|
+                                                 (|Record|
+                                                  (|:| |val| (|Symbol|))))
+                                            (|:| |var|
+                                                 (|Record|
+                                                  (|:| |str| (|String|))))
+                                            (|:| |binaryOp|
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $) (|:| |c2| $)))
+                                            (|:| |unaryOp|
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $))))
+                                           #2#))
                          0)
                         'AND)
                        (PROGN
@@ -203,22 +273,62 @@
                                 (QVELT
                                  (PROG2 (LETT #2# |n| . #3#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 2)
-                                                  (|Record|
-                                                   (|:| |typ| (|Symbol|))
-                                                   (|:| |c1| $) (|:| |c2| $))
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 2)
+                                                   (|Record|
+                                                    (|:| |typ| (|Symbol|))
+                                                    (|:| |c1| $) (|:| |c2| $))
+                                                   (|Union|
+                                                    (|:| |const|
+                                                         (|Record|
+                                                          (|:| |val|
+                                                               (|Symbol|))))
+                                                    (|:| |var|
+                                                         (|Record|
+                                                          (|:| |str|
+                                                               (|String|))))
+                                                    (|:| |binaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $)
+                                                          (|:| |c2| $)))
+                                                    (|:| |unaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $))))
+                                                   #2#))
                                  1)
                                 (QREFELT $ 19))
                                (SPADCALL
                                 (QVELT
                                  (PROG2 (LETT #2# |n| . #3#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 2)
-                                                  (|Record|
-                                                   (|:| |typ| (|Symbol|))
-                                                   (|:| |c1| $) (|:| |c2| $))
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 2)
+                                                   (|Record|
+                                                    (|:| |typ| (|Symbol|))
+                                                    (|:| |c1| $) (|:| |c2| $))
+                                                   (|Union|
+                                                    (|:| |const|
+                                                         (|Record|
+                                                          (|:| |val|
+                                                               (|Symbol|))))
+                                                    (|:| |var|
+                                                         (|Record|
+                                                          (|:| |str|
+                                                               (|String|))))
+                                                    (|:| |binaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $)
+                                                          (|:| |c2| $)))
+                                                    (|:| |unaryOp|
+                                                         (|Record|
+                                                          (|:| |typ|
+                                                               (|Symbol|))
+                                                          (|:| |c1| $))))
+                                                   #2#))
                                  2)
                                 (QREFELT $ 19))
                                (QREFELT $ 14))
@@ -230,10 +340,26 @@
                          (QVELT
                           (PROG2 (LETT #2# |n| . #3#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 2)
-                                           (|Record| (|:| |typ| (|Symbol|))
-                                                     (|:| |c1| $) (|:| |c2| $))
-                                           #2#))
+                            (|check_union2| (QEQCAR #2# 2)
+                                            (|Record| (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $)
+                                                      (|:| |c2| $))
+                                            (|Union|
+                                             (|:| |const|
+                                                  (|Record|
+                                                   (|:| |val| (|Symbol|))))
+                                             (|:| |var|
+                                                  (|Record|
+                                                   (|:| |str| (|String|))))
+                                             (|:| |binaryOp|
+                                                  (|Record|
+                                                   (|:| |typ| (|Symbol|))
+                                                   (|:| |c1| $) (|:| |c2| $)))
+                                             (|:| |unaryOp|
+                                                  (|Record|
+                                                   (|:| |typ| (|Symbol|))
+                                                   (|:| |c1| $))))
+                                            #2#))
                           0)
                          'OR)
                         (PROGN
@@ -243,22 +369,62 @@
                                  (QVELT
                                   (PROG2 (LETT #2# |n| . #3#)
                                       (QCDR #2#)
-                                    (|check_union| (QEQCAR #2# 2)
-                                                   (|Record|
-                                                    (|:| |typ| (|Symbol|))
-                                                    (|:| |c1| $) (|:| |c2| $))
-                                                   #2#))
+                                    (|check_union2| (QEQCAR #2# 2)
+                                                    (|Record|
+                                                     (|:| |typ| (|Symbol|))
+                                                     (|:| |c1| $) (|:| |c2| $))
+                                                    (|Union|
+                                                     (|:| |const|
+                                                          (|Record|
+                                                           (|:| |val|
+                                                                (|Symbol|))))
+                                                     (|:| |var|
+                                                          (|Record|
+                                                           (|:| |str|
+                                                                (|String|))))
+                                                     (|:| |binaryOp|
+                                                          (|Record|
+                                                           (|:| |typ|
+                                                                (|Symbol|))
+                                                           (|:| |c1| $)
+                                                           (|:| |c2| $)))
+                                                     (|:| |unaryOp|
+                                                          (|Record|
+                                                           (|:| |typ|
+                                                                (|Symbol|))
+                                                           (|:| |c1| $))))
+                                                    #2#))
                                   1)
                                  (QREFELT $ 19))
                                 (SPADCALL
                                  (QVELT
                                   (PROG2 (LETT #2# |n| . #3#)
                                       (QCDR #2#)
-                                    (|check_union| (QEQCAR #2# 2)
-                                                   (|Record|
-                                                    (|:| |typ| (|Symbol|))
-                                                    (|:| |c1| $) (|:| |c2| $))
-                                                   #2#))
+                                    (|check_union2| (QEQCAR #2# 2)
+                                                    (|Record|
+                                                     (|:| |typ| (|Symbol|))
+                                                     (|:| |c1| $) (|:| |c2| $))
+                                                    (|Union|
+                                                     (|:| |const|
+                                                          (|Record|
+                                                           (|:| |val|
+                                                                (|Symbol|))))
+                                                     (|:| |var|
+                                                          (|Record|
+                                                           (|:| |str|
+                                                                (|String|))))
+                                                     (|:| |binaryOp|
+                                                          (|Record|
+                                                           (|:| |typ|
+                                                                (|Symbol|))
+                                                           (|:| |c1| $)
+                                                           (|:| |c2| $)))
+                                                     (|:| |unaryOp|
+                                                          (|Record|
+                                                           (|:| |typ|
+                                                                (|Symbol|))
+                                                           (|:| |c1| $))))
+                                                    #2#))
                                   2)
                                  (QREFELT $ 19))
                                 (QREFELT $ 15))
@@ -291,10 +457,24 @@
                       (QVELT
                        (PROG2 (LETT #2# |n| . #3#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 2)
-                                        (|Record| (|:| |typ| (|Symbol|))
-                                                  (|:| |c1| $) (|:| |c2| $))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 2)
+                                         (|Record| (|:| |typ| (|Symbol|))
+                                                   (|:| |c1| $) (|:| |c2| $))
+                                         (|Union|
+                                          (|:| |const|
+                                               (|Record|
+                                                (|:| |val| (|Symbol|))))
+                                          (|:| |var|
+                                               (|Record|
+                                                (|:| |str| (|String|))))
+                                          (|:| |binaryOp|
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $)
+                                                         (|:| |c2| $)))
+                                          (|:| |unaryOp|
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $))))
+                                         #2#))
                        0)
                       'AND))
                     (PROGN (LETT #1# (LIST |n|) . #3#) (GO #4#))))
@@ -471,10 +651,27 @@
                              (QCDR
                               (PROG2 (LETT #2# |n| . #3#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 3)
-                                               (|Record| (|:| |typ| (|Symbol|))
-                                                         (|:| |c1| $))
-                                               #2#))))
+                                (|check_union2| (QEQCAR #2# 3)
+                                                (|Record|
+                                                 (|:| |typ| (|Symbol|))
+                                                 (|:| |c1| $))
+                                                (|Union|
+                                                 (|:| |const|
+                                                      (|Record|
+                                                       (|:| |val| (|Symbol|))))
+                                                 (|:| |var|
+                                                      (|Record|
+                                                       (|:| |str| (|String|))))
+                                                 (|:| |binaryOp|
+                                                      (|Record|
+                                                       (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $)
+                                                       (|:| |c2| $)))
+                                                 (|:| |unaryOp|
+                                                      (|Record|
+                                                       (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $))))
+                                                #2#))))
                             . #3#)
                       (GO #4#)))))))
                 #4# (EXIT #1#)))) 
@@ -824,8 +1021,9 @@
                           (PROG1
                               (LETT #1# (SPADCALL |t1| (QREFELT $ 44))
                                     . #2=(|ILOGIC;parseIL;S$;25|))
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 38))
                 . #2#)
           (EXIT (QCAR |r|))))) 
@@ -858,11 +1056,27 @@
                             (QVELT
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 2)
-                                              (|Record| (|:| |typ| (|Symbol|))
-                                                        (|:| |c1| $)
-                                                        (|:| |c2| $))
-                                              #2#))
+                               (|check_union2| (QEQCAR #2# 2)
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $)
+                                                         (|:| |c2| $))
+                                               (|Union|
+                                                (|:| |const|
+                                                     (|Record|
+                                                      (|:| |val| (|Symbol|))))
+                                                (|:| |var|
+                                                     (|Record|
+                                                      (|:| |str| (|String|))))
+                                                (|:| |binaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $)
+                                                      (|:| |c2| $)))
+                                                (|:| |unaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $))))
+                                               #2#))
                              0)
                             'AND)
                            (LETT |s1| "/\\" . #3#)))
@@ -871,11 +1085,27 @@
                             (QVELT
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 2)
-                                              (|Record| (|:| |typ| (|Symbol|))
-                                                        (|:| |c1| $)
-                                                        (|:| |c2| $))
-                                              #2#))
+                               (|check_union2| (QEQCAR #2# 2)
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $)
+                                                         (|:| |c2| $))
+                                               (|Union|
+                                                (|:| |const|
+                                                     (|Record|
+                                                      (|:| |val| (|Symbol|))))
+                                                (|:| |var|
+                                                     (|Record|
+                                                      (|:| |str| (|String|))))
+                                                (|:| |binaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $)
+                                                      (|:| |c2| $)))
+                                                (|:| |unaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $))))
+                                               #2#))
                              0)
                             'OR)
                            (LETT |s1| "\\/" . #3#)))
@@ -888,13 +1118,35 @@
                                          (QVELT
                                           (PROG2 (LETT #2# |n| . #3#)
                                               (QCDR #2#)
-                                            (|check_union| (QEQCAR #2# 2)
-                                                           (|Record|
-                                                            (|:| |typ|
-                                                                 (|Symbol|))
-                                                            (|:| |c1| $)
-                                                            (|:| |c2| $))
-                                                           #2#))
+                                            (|check_union2| (QEQCAR #2# 2)
+                                                            (|Record|
+                                                             (|:| |typ|
+                                                                  (|Symbol|))
+                                                             (|:| |c1| $)
+                                                             (|:| |c2| $))
+                                                            (|Union|
+                                                             (|:| |const|
+                                                                  (|Record|
+                                                                   (|:| |val|
+                                                                        (|Symbol|))))
+                                                             (|:| |var|
+                                                                  (|Record|
+                                                                   (|:| |str|
+                                                                        (|String|))))
+                                                             (|:| |binaryOp|
+                                                                  (|Record|
+                                                                   (|:| |typ|
+                                                                        (|Symbol|))
+                                                                   (|:| |c1| $)
+                                                                   (|:| |c2|
+                                                                        $)))
+                                                             (|:| |unaryOp|
+                                                                  (|Record|
+                                                                   (|:| |typ|
+                                                                        (|Symbol|))
+                                                                   (|:| |c1|
+                                                                        $))))
+                                                            #2#))
                                           1)
                                          (QREFELT $ 46))
                                         |s1|
@@ -902,13 +1154,35 @@
                                          (QVELT
                                           (PROG2 (LETT #2# |n| . #3#)
                                               (QCDR #2#)
-                                            (|check_union| (QEQCAR #2# 2)
-                                                           (|Record|
-                                                            (|:| |typ|
-                                                                 (|Symbol|))
-                                                            (|:| |c1| $)
-                                                            (|:| |c2| $))
-                                                           #2#))
+                                            (|check_union2| (QEQCAR #2# 2)
+                                                            (|Record|
+                                                             (|:| |typ|
+                                                                  (|Symbol|))
+                                                             (|:| |c1| $)
+                                                             (|:| |c2| $))
+                                                            (|Union|
+                                                             (|:| |const|
+                                                                  (|Record|
+                                                                   (|:| |val|
+                                                                        (|Symbol|))))
+                                                             (|:| |var|
+                                                                  (|Record|
+                                                                   (|:| |str|
+                                                                        (|String|))))
+                                                             (|:| |binaryOp|
+                                                                  (|Record|
+                                                                   (|:| |typ|
+                                                                        (|Symbol|))
+                                                                   (|:| |c1| $)
+                                                                   (|:| |c2|
+                                                                        $)))
+                                                             (|:| |unaryOp|
+                                                                  (|Record|
+                                                                   (|:| |typ|
+                                                                        (|Symbol|))
+                                                                   (|:| |c1|
+                                                                        $))))
+                                                            #2#))
                                           2)
                                          (QREFELT $ 46))
                                         ")")
@@ -958,11 +1232,27 @@
                             (QVELT
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 2)
-                                              (|Record| (|:| |typ| (|Symbol|))
-                                                        (|:| |c1| $)
-                                                        (|:| |c2| $))
-                                              #2#))
+                               (|check_union2| (QEQCAR #2# 2)
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $)
+                                                         (|:| |c2| $))
+                                               (|Union|
+                                                (|:| |const|
+                                                     (|Record|
+                                                      (|:| |val| (|Symbol|))))
+                                                (|:| |var|
+                                                     (|Record|
+                                                      (|:| |str| (|String|))))
+                                                (|:| |binaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $)
+                                                      (|:| |c2| $)))
+                                                (|:| |unaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $))))
+                                               #2#))
                              0)
                             'AND)
                            (LETT |s1| "/\\" . #3#)))
@@ -971,11 +1261,27 @@
                             (QVELT
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 2)
-                                              (|Record| (|:| |typ| (|Symbol|))
-                                                        (|:| |c1| $)
-                                                        (|:| |c2| $))
-                                              #2#))
+                               (|check_union2| (QEQCAR #2# 2)
+                                               (|Record| (|:| |typ| (|Symbol|))
+                                                         (|:| |c1| $)
+                                                         (|:| |c2| $))
+                                               (|Union|
+                                                (|:| |const|
+                                                     (|Record|
+                                                      (|:| |val| (|Symbol|))))
+                                                (|:| |var|
+                                                     (|Record|
+                                                      (|:| |str| (|String|))))
+                                                (|:| |binaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $)
+                                                      (|:| |c2| $)))
+                                                (|:| |unaryOp|
+                                                     (|Record|
+                                                      (|:| |typ| (|Symbol|))
+                                                      (|:| |c1| $))))
+                                               #2#))
                              0)
                             'OR)
                            (LETT |s1| "\\/" . #3#)))
@@ -988,12 +1294,32 @@
                                     (QVELT
                                      (PROG2 (LETT #2# |n| . #3#)
                                          (QCDR #2#)
-                                       (|check_union| (QEQCAR #2# 2)
-                                                      (|Record|
-                                                       (|:| |typ| (|Symbol|))
-                                                       (|:| |c1| $)
-                                                       (|:| |c2| $))
-                                                      #2#))
+                                       (|check_union2| (QEQCAR #2# 2)
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $)
+                                                        (|:| |c2| $))
+                                                       (|Union|
+                                                        (|:| |const|
+                                                             (|Record|
+                                                              (|:| |val|
+                                                                   (|Symbol|))))
+                                                        (|:| |var|
+                                                             (|Record|
+                                                              (|:| |str|
+                                                                   (|String|))))
+                                                        (|:| |binaryOp|
+                                                             (|Record|
+                                                              (|:| |typ|
+                                                                   (|Symbol|))
+                                                              (|:| |c1| $)
+                                                              (|:| |c2| $)))
+                                                        (|:| |unaryOp|
+                                                             (|Record|
+                                                              (|:| |typ|
+                                                                   (|Symbol|))
+                                                              (|:| |c1| $))))
+                                                       #2#))
                                      1)
                                     (QREFELT $ 46))
                                    |s1|
@@ -1001,12 +1327,32 @@
                                     (QVELT
                                      (PROG2 (LETT #2# |n| . #3#)
                                          (QCDR #2#)
-                                       (|check_union| (QEQCAR #2# 2)
-                                                      (|Record|
-                                                       (|:| |typ| (|Symbol|))
-                                                       (|:| |c1| $)
-                                                       (|:| |c2| $))
-                                                      #2#))
+                                       (|check_union2| (QEQCAR #2# 2)
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $)
+                                                        (|:| |c2| $))
+                                                       (|Union|
+                                                        (|:| |const|
+                                                             (|Record|
+                                                              (|:| |val|
+                                                                   (|Symbol|))))
+                                                        (|:| |var|
+                                                             (|Record|
+                                                              (|:| |str|
+                                                                   (|String|))))
+                                                        (|:| |binaryOp|
+                                                             (|Record|
+                                                              (|:| |typ|
+                                                                   (|Symbol|))
+                                                              (|:| |c1| $)
+                                                              (|:| |c2| $)))
+                                                        (|:| |unaryOp|
+                                                             (|Record|
+                                                              (|:| |typ|
+                                                                   (|Symbol|))
+                                                              (|:| |c1| $))))
+                                                       #2#))
                                      2)
                                     (QREFELT $ 46)))
                                   (QREFELT $ 47))

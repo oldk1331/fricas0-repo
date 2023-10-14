@@ -664,7 +664,14 @@
                      (LETT |ssl|
                            (PROG2 (LETT #3# |ss| . #4#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0) (QREFELT $ 67) #3#))
+                             (|check_union2| (QEQCAR #3# 0) (QREFELT $ 67)
+                                             (|Union|
+                                              (|:| |%series| (QREFELT $ 67))
+                                              (|:| |%problem|
+                                                   (|Record|
+                                                    (|:| |func| (|String|))
+                                                    (|:| |prob| (|String|)))))
+                                             #3#))
                            . #4#)
                      (LETT |kk| 0 . #4#) (LETT |ssl0| |ssl| . #4#)
                      (SEQ

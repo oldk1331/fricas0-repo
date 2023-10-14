@@ -18,7 +18,8 @@
                                       (QREFELT $ 17))
                             . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                    (|Union| (QREFELT $ 7) "failed") #1#))
                   |b|))))) 
 
 (SDEFUN |ODECONST;constDsolve;LFSR;1!0| ((|f1| NIL) ($$ NIL))

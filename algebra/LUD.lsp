@@ -23,8 +23,8 @@
                   (LETT |PermV|
                         (MAKEARR1
                          (PROG1 (LETT #4# (+ (- |maxR| |minR|) 1) . #5#)
-                           (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                            #4#))
+                           (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #4#))
                          0)
                         . #5#)
                   (LETT |Pivs| NIL . #5#)

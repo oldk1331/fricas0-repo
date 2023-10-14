@@ -333,7 +333,8 @@
                    (LETT #1# (SPADCALL |r| |s| (QREFELT $ 62))
                          |PSETCAT-;iexactQuo;3R;22|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                 (|Union| (QREFELT $ 7) "failed") #1#)))) 
 
 (SDEFUN |PSETCAT-;exactQuo| ((|r| R) (|s| R) ($ R))
         (SPADCALL |r| |s| (QREFELT $ 63))) 

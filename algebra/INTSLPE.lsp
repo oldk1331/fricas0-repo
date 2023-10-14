@@ -12,40 +12,40 @@
           (|ans|
            (|Union|
             (|Vector| (|List| (|SparseUnivariatePolynomial| (|Integer|))))
-            "failed"))
-          (|deg| #2=(|NonNegativeInteger|)) (#3=#:G109 NIL) (#4=#:G108 #2#)
-          (#5=#:G110 #2#) (#6=#:G120 NIL) (|u| NIL))
+            #2="failed"))
+          (|deg| #3=(|NonNegativeInteger|)) (#4=#:G109 NIL) (#5=#:G108 #3#)
+          (#6=#:G110 #3#) (#7=#:G120 NIL) (|u| NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 6) |lp| (QREFELT $ 11))
             (SEQ
              (LETT |deg|
                    (PROGN
-                    (LETT #3# NIL
-                          . #7=(|INTSLPE;solveLinearPolynomialEquation;LSupU;1|))
-                    (SEQ (LETT |u| NIL . #7#) (LETT #6# |lp| . #7#) G190
+                    (LETT #4# NIL
+                          . #8=(|INTSLPE;solveLinearPolynomialEquation;LSupU;1|))
+                    (SEQ (LETT |u| NIL . #8#) (LETT #7# |lp| . #8#) G190
                          (COND
-                          ((OR (ATOM #6#)
-                               (PROGN (LETT |u| (CAR #6#) . #7#) NIL))
+                          ((OR (ATOM #7#)
+                               (PROGN (LETT |u| (CAR #7#) . #8#) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (PROGN
-                            (LETT #5# (SPADCALL |u| (QREFELT $ 14)) . #7#)
-                            (COND (#3# (LETT #4# (+ #4# #5#) . #7#))
+                            (LETT #6# (SPADCALL |u| (QREFELT $ 14)) . #8#)
+                            (COND (#4# (LETT #5# (+ #5# #6#) . #8#))
                                   ('T
                                    (PROGN
-                                    (LETT #4# #5# . #7#)
-                                    (LETT #3# 'T . #7#)))))))
-                         (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
-                    (COND (#3# #4#) ('T 0)))
-                   . #7#)
-             (LETT |ans| (CONS 1 "failed") . #7#) (SETELT $ 7 2147483647)
+                                    (LETT #5# #6# . #8#)
+                                    (LETT #4# 'T . #8#)))))))
+                         (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
+                    (COND (#4# #5#) ('T 0)))
+                   . #8#)
+             (LETT |ans| (CONS 1 "failed") . #8#) (SETELT $ 7 2147483647)
              (SEQ G190 (COND ((NULL (QEQCAR |ans| 1)) (GO G191)))
                   (SEQ
                    (LETT |ans|
                          (SPADCALL |deg| (QREFELT $ 7) |lp| (QREFELT $ 18))
-                         . #7#)
+                         . #8#)
                    (EXIT
                     (COND
                      ((QEQCAR |ans| 1)
@@ -53,17 +53,23 @@
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
               (SETELT $ 8
-                      (PROG2 (LETT #1# |ans| . #7#)
+                      (PROG2 (LETT #1# |ans| . #8#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0)
-                                       (|Vector|
-                                        (|List|
-                                         (|SparseUnivariatePolynomial|
-                                          (|Integer|))))
-                                       #1#)))))))
+                        (|check_union2| (QEQCAR #1# 0)
+                                        (|Vector|
+                                         (|List|
+                                          (|SparseUnivariatePolynomial|
+                                           (|Integer|))))
+                                        (|Union|
+                                         (|Vector|
+                                          (|List|
+                                           (|SparseUnivariatePolynomial|
+                                            (|Integer|))))
+                                         #2#)
+                                        #1#)))))))
           (LETT |answer|
                 (SPADCALL |p| (QREFELT $ 7) (QREFELT $ 8) (QREFELT $ 23))
-                . #7#)
+                . #8#)
           (EXIT |answer|)))) 
 
 (DECLAIM (NOTINLINE |IntegerSolveLinearPolynomialEquation;|)) 

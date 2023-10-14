@@ -101,9 +101,10 @@
                                                                 (LETT #2#
                                                                       (- |i| 1)
                                                                       . #6#)
-                                                              (|check_subtype|
+                                                              (|check_subtype2|
                                                                (>= #2# 0)
                                                                '(|NonNegativeInteger|)
+                                                               '(|Integer|)
                                                                #2#))
                                                             (- |j| 1)
                                                             (QREFELT $ 29))
@@ -112,9 +113,10 @@
                                                                 (LETT #1#
                                                                       (- |i| 1)
                                                                       . #6#)
-                                                              (|check_subtype|
+                                                              (|check_subtype2|
                                                                (>= #1# 0)
                                                                '(|NonNegativeInteger|)
+                                                               '(|Integer|)
                                                                #1#))
                                                             |j| (QREFELT $ 29))
                                                            (QREFELT $ 15))

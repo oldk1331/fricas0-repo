@@ -83,14 +83,16 @@
                    (SEQ
                     (LETT |q1|
                           (PROG1 (LETT #3# (- |q| 1) . #4#)
-                            (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                             #3#))
+                            (|check_subtype2| (>= #3# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #3#))
                           . #4#)
                     (LETT |l|
                           (|SETMN;enum|
                            (PROG1 (LETT #2# (- |p| 1) . #4#)
-                             (|check_subtype| (>= #2# 0)
-                                              '(|NonNegativeInteger|) #2#))
+                             (|check_subtype2| (>= #2# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #2#))
                            |q1| (QREFELT $ 7) $)
                           . #4#)
                     (COND
@@ -120,8 +122,9 @@
                                       (SPADCALL (QREFELT $ 7) (QREFELT $ 6)
                                                 (QREFELT $ 44))
                                       |SETMN;size;Nni;7|)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 45))))
                 (EXIT (SPADCALL (QREFELT $ 17) (QREFELT $ 42)))))) 
 
@@ -144,12 +147,14 @@
                                                          (QREFELT $ 33))
                                                (QREFELT $ 47))
                                      . #3=(|SETMN;lookup;$Pi;8|))
-                             (|check_subtype| (>= #2# 0)
-                                              '(|NonNegativeInteger|) #2#)))
+                             (|check_subtype2| (>= #2# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #2#)))
                    (QCDR |s|))))
                 (EXIT
                  (PROG1 (LETT #1# (QCDR |s|) . #3#)
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|NonNegativeInteger|) #1#)))))) 
 
 (SDEFUN |SETMN;index;Pi$;9| ((|p| |PositiveInteger|) ($ $))
         (SEQ
@@ -233,8 +238,8 @@
               (SPADCALL |newb| |i| 'T (QREFELT $ 39))
               (SPADCALL |newb|
                         (PROG1 (LETT #1# (- |i| 1) . #2#)
-                          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                           #1#))
+                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #1#))
                         'NIL (QREFELT $ 39))
               (EXIT (CONS 0 (CONS |newb| 0)))))) 
 

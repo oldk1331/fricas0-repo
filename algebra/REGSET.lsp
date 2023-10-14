@@ -195,8 +195,10 @@
                                            (SPADCALL |ts| |v| (QREFELT $ 55))
                                            . #3#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 0) (QREFELT $ 9)
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                                   (|Union| (QREFELT $ 9)
+                                                            "failed")
+                                                   #2#))
                                  (QREFELT $ 56))
                        . #3#)
                  (EXIT

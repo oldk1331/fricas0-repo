@@ -15,7 +15,8 @@
 (SDEFUN |IFARRAY;#;$Nni;4| ((|r| $) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G133 NIL))
                (PROG1 (LETT #1# (QVELT |r| 1) |IFARRAY;#;$Nni;4|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |IFARRAY;fill!;$S$;5| ((|r| $) (|x| S) ($ $))
         (SEQ (SPADCALL (QVELT |r| 2) |x| (QREFELT $ 17)) (EXIT |r|))) 
@@ -98,7 +99,8 @@
           (LETT |y|
                 (MAKEARR1
                  (PROG1 (LETT #2# |n| . #3=(|IFARRAY;growWith|))
-                   (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#))
                  |x|)
                 . #3#)
           (LETT |a| (QVELT |r| 2) . #3#)
@@ -135,9 +137,9 @@
                                (LETT |y|
                                      (|IFARRAY;newa|
                                       (PROG1 (LETT #2# |n| . #3#)
-                                        (|check_subtype| (>= #2# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #2#))
+                                        (|check_subtype2| (>= #2# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #2#))
                                       (LETT |a| (QVELT |r| 2) . #3#) $)
                                      . #3#)
                                (SEQ (LETT |k| 0 . #3#)

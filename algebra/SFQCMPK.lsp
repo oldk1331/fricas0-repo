@@ -121,24 +121,30 @@
                                     (LETT #1# (SPADCALL |us| (QREFELT $ 52))
                                           . #3=(|SFQCMPK;subTriSet?;2TSB;7|))
                                     (QCDR #1#)
-                                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 10)
-                                                 #1#))
+                                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 10)
+                                                  (|Union| (QREFELT $ 10)
+                                                           #4="failed")
+                                                  #1#))
                                 (QREFELT $ 53)))
                      ((SPADCALL
                        (PROG2 (LETT #2# (SPADCALL |ts| (QREFELT $ 55)) . #3#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
+                         (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                         (|Union| (QREFELT $ 9) #4#) #2#))
                        (PROG2 (LETT #2# (SPADCALL |us| (QREFELT $ 55)) . #3#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
+                         (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                         (|Union| (QREFELT $ 9) #4#) #2#))
                        (QREFELT $ 56))
                       (SPADCALL
                        (PROG2 (LETT #1# (SPADCALL |ts| (QREFELT $ 52)) . #3#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 10) #1#))
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 10)
+                                         (|Union| (QREFELT $ 10) #4#) #1#))
                        (PROG2 (LETT #1# (SPADCALL |us| (QREFELT $ 52)) . #3#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 10) #1#))
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 10)
+                                         (|Union| (QREFELT $ 10) #4#) #1#))
                        (QREFELT $ 53)))
                      ('T 'NIL)))) 
 
@@ -222,8 +228,10 @@
                                                   (QREFELT $ 66))
                                         . #8#)
                                   (QCDR #6#)
-                                (|check_union| (QEQCAR #6# 0) (QREFELT $ 9)
-                                               #6#))
+                                (|check_union2| (QEQCAR #6# 0) (QREFELT $ 9)
+                                                (|Union| (QREFELT $ 9)
+                                                         "failed")
+                                                #6#))
                               (QREFELT $ 65)))
                           (PROGN
                            (LETT #5#
@@ -309,8 +317,10 @@
                                                   (QREFELT $ 66))
                                         . #7#)
                                   (QCDR #5#)
-                                (|check_union| (QEQCAR #5# 0) (QREFELT $ 9)
-                                               #5#))
+                                (|check_union2| (QEQCAR #5# 0) (QREFELT $ 9)
+                                                (|Union| (QREFELT $ 9)
+                                                         "failed")
+                                                #5#))
                               (QREFELT $ 65)))
                           (PROGN
                            (LETT #4#
@@ -706,8 +716,12 @@
                                                               (QREFELT $ 96))
                                                     . #10#)
                                               (QCDR #2#)
-                                            (|check_union| (QEQCAR #2# 0)
-                                                           (QREFELT $ 9) #2#))
+                                            (|check_union2| (QEQCAR #2# 0)
+                                                            (QREFELT $ 9)
+                                                            (|Union|
+                                                             (QREFELT $ 9)
+                                                             "failed")
+                                                            #2#))
                                           . #10#)
                                     (EXIT
                                      (COND
@@ -929,7 +943,7 @@
                                                                            |newBranch|
                                                                            . #12#)
                                                                      (QCDR #5#)
-                                                                   (|check_union|
+                                                                   (|check_union2|
                                                                     (QEQCAR #5#
                                                                             0)
                                                                     (|Record|
@@ -947,6 +961,24 @@
                                                                       (|List|
                                                                        (QREFELT
                                                                         $ 9))))
+                                                                    (|Union|
+                                                                     (|Record|
+                                                                      (|:| |eq|
+                                                                           (|List|
+                                                                            (QREFELT
+                                                                             $
+                                                                             9)))
+                                                                      (|:|
+                                                                       |tower|
+                                                                       (QREFELT
+                                                                        $ 10))
+                                                                      (|:|
+                                                                       |ineq|
+                                                                       (|List|
+                                                                        (QREFELT
+                                                                         $
+                                                                         9))))
+                                                                     "failed")
                                                                     #5#))
                                                                  |branches|)
                                                                 . #12#)))))))))))

@@ -991,26 +991,32 @@
            (|Union|
             (|SparseMultivariatePolynomial| (|Expression| R)
                                             (|Kernel| (|Expression| R)))
-            "failed")))
-         (SEQ (LETT |res| 0 . #2=(|INTDEN;p_power_in_q|))
+            #2="failed")))
+         (SEQ (LETT |res| 0 . #3=(|INTDEN;p_power_in_q|))
               (SEQ G190
                    (COND
                     ((NULL
                       (QEQCAR
-                       (LETT |qq| (SPADCALL |q| |p| (QREFELT $ 99)) . #2#) 0))
+                       (LETT |qq| (SPADCALL |q| |p| (QREFELT $ 99)) . #3#) 0))
                      (GO G191)))
                    (SEQ
                     (LETT |q|
-                          (PROG2 (LETT #1# |qq| . #2#)
+                          (PROG2 (LETT #1# |qq| . #3#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0)
-                                           (|SparseMultivariatePolynomial|
-                                            (|Expression| (QREFELT $ 6))
-                                            (|Kernel|
-                                             (|Expression| (QREFELT $ 6))))
-                                           #1#))
-                          . #2#)
-                    (EXIT (LETT |res| (+ |res| 1) . #2#)))
+                            (|check_union2| (QEQCAR #1# 0)
+                                            (|SparseMultivariatePolynomial|
+                                             (|Expression| (QREFELT $ 6))
+                                             (|Kernel|
+                                              (|Expression| (QREFELT $ 6))))
+                                            (|Union|
+                                             (|SparseMultivariatePolynomial|
+                                              (|Expression| (QREFELT $ 6))
+                                              (|Kernel|
+                                               (|Expression| (QREFELT $ 6))))
+                                             #2#)
+                                            #1#))
+                          . #3#)
+                    (EXIT (LETT |res| (+ |res| 1) . #3#)))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -1255,9 +1261,10 @@
                                     ((SPADCALL |n| 0 (QREFELT $ 119))
                                      (SPADCALL |nu|
                                                (PROG1 (LETT #12# |n| . #19#)
-                                                 (|check_subtype| (>= #12# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #12#))
+                                                 (|check_subtype2| (>= #12# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #12#))
                                                (QREFELT $ 120)))
                                     (#20# (|spadConstant| $ 102)))
                                    . #19#)
@@ -1266,9 +1273,10 @@
                                     ((SPADCALL |m| 0 (QREFELT $ 119))
                                      (SPADCALL |du|
                                                (PROG1 (LETT #11# |m| . #19#)
-                                                 (|check_subtype| (>= #11# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #11#))
+                                                 (|check_subtype2| (>= #11# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #11#))
                                                (QREFELT $ 120)))
                                     (#20# (|spadConstant| $ 102)))
                                    . #19#)

@@ -171,7 +171,8 @@
                        (LETT #1# (SPADCALL |f| (QREFELT $ 65))
                              . #2=(|MPRFF;pushup;PRFOVPRF;4|))
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                     (|Union| (QREFELT $ 7) "failed") #1#))
                    . #2#)
              (LETT |g| (SPADCALL |f| |v| (QREFELT $ 43)) . #2#)
              (EXIT

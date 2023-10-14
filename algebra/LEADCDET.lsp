@@ -19,18 +19,19 @@
                       (SEQ (LETT |j| 0 . #5#)
                            (LETT #3#
                                  (PROG1 (LETT #4# (- |i| 1) . #5#)
-                                   (|check_subtype| (>= #4# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #4#))
+                                   (|check_subtype2| (>= #4# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #4#))
                                  . #5#)
                            G190 (COND ((|greater_SI| |j| #3#) (GO G191)))
                            (SEQ
                             (LETT |y|
                                   (SPADCALL |distlist|
                                             (PROG1 (LETT #2# (- |i| |j|) . #5#)
-                                              (|check_subtype| (>= #2# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #2#))
+                                              (|check_subtype2| (>= #2# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #2#))
                                             (QREFELT $ 12))
                                   . #5#)
                             (SEQ G190

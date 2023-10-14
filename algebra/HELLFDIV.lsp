@@ -65,7 +65,8 @@
                                         (QREFELT $ 60))
                               . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                      (|Union| (QREFELT $ 7) #4="failed") #1#))
                     . #3#)
               (LETT |b|
                     (SPADCALL (SPADCALL (|SPADfirst| |h|) |a1| (QREFELT $ 57))
@@ -92,7 +93,8 @@
                     (SPADCALL
                      (PROG2 (LETT #1# (SPADCALL |b| |d| (QREFELT $ 60)) . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                       (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                       (|Union| (QREFELT $ 7) #4#) #1#))
                      |a| (QREFELT $ 64))
                     . #3#)
               (LETT |dd|
@@ -230,7 +232,8 @@
                                 (QVELT |rec| 2) (QREFELT $ 60))
                                . #2#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                       (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                       (|Union| (QREFELT $ 7) "failed") #1#))
                      |a| (QREFELT $ 64)))))))))) 
 
 (SDEFUN |HELLFDIV;coerce;$Of;13| ((|d| $) ($ |OutputForm|))
@@ -282,7 +285,9 @@
                                        |a| (QREFELT $ 60))
                                       . #2#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                              (|Union| (QREFELT $ 7) "failed")
+                                              #1#))
                             . #2#)
                       (LETT |b0|
                             (SPADCALL (SPADCALL |b| (QREFELT $ 103)) |a0|
@@ -445,7 +450,8 @@
                             (QVELT |rec| 2) (QREFELT $ 60))
                            . #2#)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                   (|Union| (QREFELT $ 7) "failed") #1#))
                  |a| (QREFELT $ 64))
                 . #2#)
           (EXIT
@@ -508,7 +514,8 @@
     (QSETREFV $ 15
               (PROG2 (LETT #2# (QREFELT $ 13) . #3#)
                   (QCDR #2#)
-                (|check_union| (QEQCAR #2# 0) |#2| #2#)))
+                (|check_union2| (QEQCAR #2# 0) |#2| (|Union| |#2| #4="failed")
+                                #2#)))
     (QSETREFV $ 22
               (PROG2
                   (LETT #1#
@@ -517,7 +524,8 @@
                          (QREFELT $ 21))
                         . #3#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) (|Integer|) #1#)))
+                (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                (|Union| (|Integer|) #4#) #1#)))
     (QSETREFV $ 26 (SPADCALL '|div| (QREFELT $ 25)))
     (QSETREFV $ 28 (SPADCALL 0 (QREFELT $ 27)))
     $))) 

@@ -1321,10 +1321,14 @@
                                 (LETT #1# (SPADCALL |pp| |c| (QREFELT $ 30))
                                       . #4#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|SparseUnivariatePolynomial|
-                                              (QREFELT $ 9))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|SparseUnivariatePolynomial|
+                                               (QREFELT $ 9))
+                                              (|Union|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 9))
+                                               "failed")
+                                              #1#))
                             . #4#)
                       (EXIT
                        (SPADCALL
@@ -1462,9 +1466,12 @@
                                                                               151))
                                                                     . #20#)
                                                               (QCDR #3#)
-                                                            (|check_union|
+                                                            (|check_union2|
                                                              (QEQCAR #3# 0)
                                                              (QREFELT $ 9)
+                                                             (|Union|
+                                                              (QREFELT $ 9)
+                                                              #22="failed")
                                                              #3#))
                                                           (|PFBR;raise|
                                                            (QVELT |u| 1) $)
@@ -1574,7 +1581,7 @@
                                                      (PROGN
                                                       (LETT #8# |$NoValue|
                                                             . #20#)
-                                                      (GO #22=#:G413)))))
+                                                      (GO #23=#:G413)))))
                                               ('T
                                                (LETT |factors|
                                                      (QCAR (QCDR |hen|))
@@ -1585,15 +1592,15 @@
                                                          . #20#))
                                                  . #20#)
                                            (GO G190) G191 (EXIT NIL)))
-                                     #22# (EXIT #8#))
+                                     #23# (EXIT #8#))
                                     (EXIT
                                      (COND
                                       (OK
                                        (PROGN
                                         (LETT #7# |$NoValue| . #20#)
-                                        (GO #23=#:G416))))))))))
+                                        (GO #24=#:G416))))))))))
                            NIL (GO G190) G191 (EXIT NIL)))
-                     #23# (EXIT #7#))
+                     #24# (EXIT #7#))
                     (LETT |factors|
                           (PROGN
                            (LETT #6# NIL . #20#)
@@ -1620,9 +1627,10 @@
                                                                              156))
                                                           . #20#)
                                                     (QCDR #3#)
-                                                  (|check_union| (QEQCAR #3# 0)
-                                                                 (QREFELT $ 9)
-                                                                 #3#))
+                                                  (|check_union2|
+                                                   (QEQCAR #3# 0) (QREFELT $ 9)
+                                                   (|Union| (QREFELT $ 9) #22#)
+                                                   #3#))
                                                 . #20#)
                                           (EXIT
                                            (PROG2
@@ -1631,10 +1639,14 @@
                                                                (QREFELT $ 30))
                                                      . #20#)
                                                (QCDR #4#)
-                                             (|check_union| (QEQCAR #4# 0)
-                                                            (|SparseUnivariatePolynomial|
-                                                             (QREFELT $ 9))
-                                                            #4#))))
+                                             (|check_union2| (QEQCAR #4# 0)
+                                                             (|SparseUnivariatePolynomial|
+                                                              (QREFELT $ 9))
+                                                             (|Union|
+                                                              (|SparseUnivariatePolynomial|
+                                                               (QREFELT $ 9))
+                                                              "failed")
+                                                             #4#))))
                                          #6#)
                                         . #20#)))
                                 (LETT #5# (CDR #5#) . #20#) (GO G190) G191
@@ -1652,7 +1664,8 @@
                            (LETT #3# (SPADCALL |lcppPow| (QREFELT $ 157))
                                  . #20#)
                            (QCDR #3#)
-                         (|check_union| (QEQCAR #3# 0) (QREFELT $ 9) #3#))
+                         (|check_union2| (QEQCAR #3# 0) (QREFELT $ 9)
+                                         (|Union| (QREFELT $ 9) #22#) #3#))
                        (QREFELT $ 142))
                       (PROGN
                        (LETT #2# NIL . #20#)

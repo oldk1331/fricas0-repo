@@ -301,11 +301,16 @@
                                            (QREFELT $ 85))
                                  . #2=(|INTTOOLS;psimp|))
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0)
-                                        (|SparseMultivariatePolynomial|
-                                         (QREFELT $ 6)
-                                         (|Kernel| (QREFELT $ 7)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 0)
+                                         (|SparseMultivariatePolynomial|
+                                          (QREFELT $ 6)
+                                          (|Kernel| (QREFELT $ 7)))
+                                         (|Union|
+                                          (|SparseMultivariatePolynomial|
+                                           (QREFELT $ 6)
+                                           (|Kernel| (QREFELT $ 7)))
+                                          "failed")
+                                         #1#))
                        . #2#)
                  (QREFELT $ 88))
                 . #2#)

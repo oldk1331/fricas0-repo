@@ -112,7 +112,8 @@
               (PROG2
                   (LETT #1# #3=(SPADCALL (QREFELT $ 11) (QREFELT $ 13)) . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) #3# #1#)))
+                (|check_union2| (QEQCAR #1# 0) #3# (|Union| #3# "failed")
+                                #1#)))
     $))) 
 
 (MAKEPROP '|AssociatedJordanAlgebra| '|infovec|

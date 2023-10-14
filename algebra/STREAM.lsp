@@ -269,9 +269,10 @@
                                       (SPADCALL
                                        (SPADCALL |x|
                                                  (PROG1 (LETT #1# |d| . #2#)
-                                                   (|check_subtype| (>= #1# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #1#))
+                                                   (|check_subtype2| (>= #1# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #1#))
                                                  (QREFELT $ 49))
                                        (QREFELT $ 50))
                                       . #2#)
@@ -528,9 +529,10 @@
                            (LETT |y|
                                  (SPADCALL |x|
                                            (PROG1 (LETT #3# (- |low| 1) . #4#)
-                                             (|check_subtype| (>= #3# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #3#))
+                                             (|check_subtype2| (>= #3# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #3#))
                                            (QREFELT $ 88))
                                  . #4#)
                            (SEQ (LETT |i| 0 . #4#)
@@ -550,8 +552,9 @@
               (LETT |x|
                     (SPADCALL |x|
                               (PROG1 (LETT #1# (- |low| 1) . #4#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               (QREFELT $ 88))
                     . #4#)
               (|STREAM;setrst!| |x| |x| $)
@@ -622,9 +625,9 @@
                                                                              94)
                                                              (QREFELT $ 96))
                                                    NIL)
-                                           (|check_subtype| (>= #2# 0)
-                                                            '(|NonNegativeInteger|)
-                                                            #2#))
+                                           (|check_subtype2| (>= #2# 0)
+                                                             '(|NonNegativeInteger|)
+                                                             '(|Integer|) #2#))
                                          (QREFELT $ 49))
                                (QREFELT $ 45))))))))) 
 
@@ -758,9 +761,10 @@
                                         (LETT |nLessD|
                                               (PROG1
                                                   (LETT #2# (- |n| |d|) . #4#)
-                                                (|check_subtype| (>= #2# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #2#))
+                                                (|check_subtype2| (>= #2# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #2#))
                                               . #4#)
                                         (LETT |y|
                                               (SPADCALL
@@ -779,10 +783,10 @@
                                                    (PROG1
                                                        (LETT #1# (- |d| 1)
                                                              . #4#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #1# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #1#))
+                                                      '(|Integer|) #1#))
                                                    (QREFELT $ 88))
                                          |y| $)
                                         (EXIT |x|))))))))))))))) 
@@ -841,9 +845,10 @@
                                             (PROG1
                                                 (LETT #1# (- (- |n| 1) 1)
                                                       . #2#)
-                                              (|check_subtype| (>= #1# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #1#))
+                                              (|check_subtype2| (>= #1# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #1#))
                                             (QREFELT $ 88))
                                   . #2#)
                             (LETT |y| (SPADCALL |x| (QREFELT $ 31)) . #2#)

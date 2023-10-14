@@ -61,9 +61,9 @@
                                    (PROG1
                                        (LETT #1# (SPADCALL |r| (QREFELT $ 37))
                                              . #2#)
-                                     (|check_subtype| (> #1# 0)
-                                                      '(|PositiveInteger|)
-                                                      #1#))
+                                     (|check_subtype2| (> #1# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|Integer|) #1#))
                                    (QREFELT $ 39))))
                   ('T (CONS 1 "failed"))))))) 
 

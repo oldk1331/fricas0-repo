@@ -13,8 +13,9 @@
                               (PROG1
                                   (LETT #1# (- |n| 1)
                                         . #2=(|XDPOLY;sh;$Nni$;2|))
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               . #2#)
                         (EXIT
                          (SPADCALL |p| (SPADCALL |p| |n1| (QREFELT $ 17))
@@ -133,131 +134,151 @@
 
 (SDEFUN |XDPOLY;rquo;$Ofm$;10| ((|p| $) (|w| |OrderedFreeMonoid| |vl|) ($ $))
         (SPROG
-         ((#1=#:G141 NIL) (|r| (|Union| (|OrderedFreeMonoid| |vl|) "failed"))
-          (#2=#:G147 NIL) (|t| NIL) (#3=#:G146 NIL))
+         ((#1=#:G141 NIL)
+          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+          (#3=#:G147 NIL) (|t| NIL) (#4=#:G146 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL . #4=(|XDPOLY;rquo;$Ofm$;10|))
-           (SEQ (LETT |t| NIL . #4#) (LETT #2# |p| . #4#) G190
+           (LETT #4# NIL . #5=(|XDPOLY;rquo;$Ofm$;10|))
+           (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
-                 ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#) . #4#) NIL))
+                 ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((SEQ
-                     (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 48)) . #4#)
+                     (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 48)) . #5#)
                      (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
-                    (LETT #3#
+                    (LETT #4#
                           (CONS
                            (CONS
-                            (PROG2 (LETT #1# |r| . #4#)
+                            (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|OrderedFreeMonoid|
-                                              (QREFELT $ 6))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|OrderedFreeMonoid|
+                                               (QREFELT $ 6))
+                                              (|Union|
+                                               (|OrderedFreeMonoid|
+                                                (QREFELT $ 6))
+                                               #2#)
+                                              #1#))
                             (QCDR |t|))
-                           #3#)
-                          . #4#)))))
-                (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                (EXIT (NREVERSE #3#))))))) 
+                           #4#)
+                          . #5#)))))
+                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |XDPOLY;lquo;$Ofm$;11| ((|p| $) (|w| |OrderedFreeMonoid| |vl|) ($ $))
         (SPROG
-         ((#1=#:G149 NIL) (|r| (|Union| (|OrderedFreeMonoid| |vl|) "failed"))
-          (#2=#:G155 NIL) (|t| NIL) (#3=#:G154 NIL))
+         ((#1=#:G149 NIL)
+          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+          (#3=#:G155 NIL) (|t| NIL) (#4=#:G154 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL . #4=(|XDPOLY;lquo;$Ofm$;11|))
-           (SEQ (LETT |t| NIL . #4#) (LETT #2# |p| . #4#) G190
+           (LETT #4# NIL . #5=(|XDPOLY;lquo;$Ofm$;11|))
+           (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
-                 ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#) . #4#) NIL))
+                 ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((SEQ
-                     (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 50)) . #4#)
+                     (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 50)) . #5#)
                      (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
-                    (LETT #3#
+                    (LETT #4#
                           (CONS
                            (CONS
-                            (PROG2 (LETT #1# |r| . #4#)
+                            (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|OrderedFreeMonoid|
-                                              (QREFELT $ 6))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|OrderedFreeMonoid|
+                                               (QREFELT $ 6))
+                                              (|Union|
+                                               (|OrderedFreeMonoid|
+                                                (QREFELT $ 6))
+                                               #2#)
+                                              #1#))
                             (QCDR |t|))
-                           #3#)
-                          . #4#)))))
-                (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                (EXIT (NREVERSE #3#))))))) 
+                           #4#)
+                          . #5#)))))
+                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |XDPOLY;rquo;$vl$;12| ((|p| $) (|v| |vl|) ($ $))
         (SPROG
-         ((#1=#:G157 NIL) (|r| (|Union| (|OrderedFreeMonoid| |vl|) "failed"))
-          (#2=#:G163 NIL) (|t| NIL) (#3=#:G162 NIL))
+         ((#1=#:G157 NIL)
+          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+          (#3=#:G163 NIL) (|t| NIL) (#4=#:G162 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL . #4=(|XDPOLY;rquo;$vl$;12|))
-           (SEQ (LETT |t| NIL . #4#) (LETT #2# |p| . #4#) G190
+           (LETT #4# NIL . #5=(|XDPOLY;rquo;$vl$;12|))
+           (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
-                 ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#) . #4#) NIL))
+                 ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((SEQ
-                     (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 52)) . #4#)
+                     (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 52)) . #5#)
                      (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
-                    (LETT #3#
+                    (LETT #4#
                           (CONS
                            (CONS
-                            (PROG2 (LETT #1# |r| . #4#)
+                            (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|OrderedFreeMonoid|
-                                              (QREFELT $ 6))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|OrderedFreeMonoid|
+                                               (QREFELT $ 6))
+                                              (|Union|
+                                               (|OrderedFreeMonoid|
+                                                (QREFELT $ 6))
+                                               #2#)
+                                              #1#))
                             (QCDR |t|))
-                           #3#)
-                          . #4#)))))
-                (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                (EXIT (NREVERSE #3#))))))) 
+                           #4#)
+                          . #5#)))))
+                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |XDPOLY;lquo;$vl$;13| ((|p| $) (|v| |vl|) ($ $))
         (SPROG
-         ((#1=#:G165 NIL) (|r| (|Union| (|OrderedFreeMonoid| |vl|) "failed"))
-          (#2=#:G171 NIL) (|t| NIL) (#3=#:G170 NIL))
+         ((#1=#:G165 NIL)
+          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+          (#3=#:G171 NIL) (|t| NIL) (#4=#:G170 NIL))
          (SEQ
           (PROGN
-           (LETT #3# NIL . #4=(|XDPOLY;lquo;$vl$;13|))
-           (SEQ (LETT |t| NIL . #4#) (LETT #2# |p| . #4#) G190
+           (LETT #4# NIL . #5=(|XDPOLY;lquo;$vl$;13|))
+           (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
-                 ((OR (ATOM #2#) (PROGN (LETT |t| (CAR #2#) . #4#) NIL))
+                 ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
                   (GO G191)))
                 (SEQ
                  (EXIT
                   (COND
                    ((SEQ
-                     (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 54)) . #4#)
+                     (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 54)) . #5#)
                      (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
-                    (LETT #3#
+                    (LETT #4#
                           (CONS
                            (CONS
-                            (PROG2 (LETT #1# |r| . #4#)
+                            (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|OrderedFreeMonoid|
-                                              (QREFELT $ 6))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|OrderedFreeMonoid|
+                                               (QREFELT $ 6))
+                                              (|Union|
+                                               (|OrderedFreeMonoid|
+                                                (QREFELT $ 6))
+                                               #2#)
+                                              #1#))
                             (QCDR |t|))
-                           #3#)
-                          . #4#)))))
-                (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                (EXIT (NREVERSE #3#))))))) 
+                           #4#)
+                          . #5#)))))
+                (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                (EXIT (NREVERSE #4#))))))) 
 
 (SDEFUN |XDPOLY;shw|
         ((|w1| |OrderedFreeMonoid| |vl|) (|w2| |OrderedFreeMonoid| |vl|) ($ $))

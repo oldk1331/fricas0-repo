@@ -1173,9 +1173,9 @@
                                                 (SPADCALL |depj|
                                                           (QREFELT $ 144)))
                                              . #13#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))
                                    |depj|)
                                   . #13#)))))
                         (LETT |k| (+ |k| -1) . #13#) (GO G190) G191 (EXIT NIL))

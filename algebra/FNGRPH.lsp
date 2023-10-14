@@ -427,8 +427,9 @@
                       (+ |a|
                          (*
                           (PROG1 (LETT #1# (- |b| 1) . #2=(|FNGRPH;indexProd|))
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (LENGTH (QCAR |aObj|))))
                       . #2#)
                 (EXIT |x|)))) 
@@ -622,13 +623,13 @@
                 (LETT |newObj| (SPADCALL |newOb| |i| (QREFELT $ 31)) . #10#)
                 (LETT |newX|
                       (PROG1 (LETT #6# (+ (QVELT |oldObj| 1) |offsetX|) . #10#)
-                        (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|)
-                                         #6#))
+                        (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #6#))
                       . #10#)
                 (LETT |newY|
                       (PROG1 (LETT #5# (+ (QVELT |oldObj| 2) |offsetY|) . #10#)
-                        (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                         #5#))
+                        (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #5#))
                       . #10#)
                 (LETT |newNext|
                       (SPADCALL |m| (QVELT |oldObj| 3) (QREFELT $ 20)) . #10#)
@@ -707,13 +708,13 @@
                 (LETT |newObj| (SPADCALL |newOb| |i| (QREFELT $ 31)) . #10#)
                 (LETT |newX|
                       (PROG1 (LETT #6# (+ (QVELT |oldObj| 1) |offsetX|) . #10#)
-                        (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|)
-                                         #6#))
+                        (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #6#))
                       . #10#)
                 (LETT |newY|
                       (PROG1 (LETT #5# (+ (QVELT |oldObj| 2) |offsetY|) . #10#)
-                        (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                         #5#))
+                        (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #5#))
                       . #10#)
                 (LETT |incoming| (SPADCALL |s| |oi| (QREFELT $ 70)) . #10#)
                 (COND

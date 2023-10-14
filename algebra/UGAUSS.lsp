@@ -129,11 +129,13 @@
                        (LETT |ress|
                              (SPADCALL
                               (PROG1 (LETT #3# (- |j| |count|) . #5#)
-                                (|check_subtype| (>= #3# 0)
-                                                 '(|NonNegativeInteger|) #3#))
+                                (|check_subtype2| (>= #3# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #3#))
                               (PROG1 (LETT #2# (- |k| |count|) . #5#)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
+                                (|check_subtype2| (>= #2# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #2#))
                               (QREFELT $ 16))
                              . #5#)
                        (LETT |i0| 0 . #5#)

@@ -51,7 +51,8 @@
                    (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT
                (PROG1 (LETT #1# (SPADCALL |m| (QREFELT $ 57)) . #3#)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))))) 
 
 (SDEFUN |FFP;minimalPolynomial;$Sup;5|
         ((|x| $) ($ |SparseUnivariatePolynomial| GF))
@@ -199,7 +200,8 @@
                      (PROG1
                          (LETT #1# |fac|
                                . #2=(|FFP;tableForDiscreteLogarithm;IT;30|))
-                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                       (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                         '(|Integer|) #1#))
                      (QREFELT $ 29) (QREFELT $ 118))
                     . #2#)
               (EXIT
@@ -277,9 +279,9 @@
                         (SEQ (LETT |i| 0 . #5#)
                              (LETT #2#
                                    (PROG1 (LETT #3# (- |n| 1) . #5#)
-                                     (|check_subtype| (>= #3# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #3#))
+                                     (|check_subtype2| (>= #3# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #3#))
                                    . #5#)
                              G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                              (SEQ
@@ -295,8 +297,8 @@
                          (SPADCALL
                           (CONS
                            (PROG1 (LETT #1# |fac| . #5#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #1#))
                            (SPADCALL |tbl| (QREFELT $ 133)))
                           (QREFELT $ 29) (QREFELT $ 135))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))

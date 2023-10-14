@@ -263,9 +263,12 @@
                                                     (PROG2
                                                         (LETT #1# |test| . #3#)
                                                         (QCDR #1#)
-                                                      (|check_union|
+                                                      (|check_union2|
                                                        (QEQCAR #1# 0)
-                                                       (QREFELT $ 9) #1#))
+                                                       (QREFELT $ 9)
+                                                       (|Union| (QREFELT $ 9)
+                                                                "failed")
+                                                       #1#))
                                                     . #3#)))
                                             NIL (GO G190) G191 (EXIT NIL))))
                                  NIL (GO G190) G191 (EXIT NIL))
@@ -471,13 +474,13 @@
            (|Union|
             (|Record| (|:| |bas| #2=(|GeneralTriangularSet| R E V P))
                       (|:| |top| #3=(|List| P)))
-            "failed"))
+            #4="failed"))
           (|rs| #3#) (|bs| #2#))
          (SEQ
           (LETT |rec| (SPADCALL |lp| (QREFELT $ 74))
-                . #4=(|PSETPK;crushedSet;2L;22|))
-          (LETT |contradiction| (QEQCAR |rec| 1) . #4#)
-          (LETT |finished| 'NIL . #4#)
+                . #5=(|PSETPK;crushedSet;2L;22|))
+          (LETT |contradiction| (QEQCAR |rec| 1) . #5#)
+          (LETT |finished| 'NIL . #5#)
           (SEQ G190
                (COND
                 ((NULL (COND ((OR |finished| |contradiction|) 'NIL) ('T 'T)))
@@ -485,37 +488,53 @@
                (SEQ
                 (LETT |bs|
                       (QCAR
-                       (PROG2 (LETT #1# |rec| . #4#)
+                       (PROG2 (LETT #1# |rec| . #5#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0)
-                                        (|Record|
-                                         (|:| |bas|
-                                              (|GeneralTriangularSet|
-                                               (QREFELT $ 6) (QREFELT $ 7)
-                                               (QREFELT $ 8) (QREFELT $ 9)))
-                                         (|:| |top| (|List| (QREFELT $ 9))))
-                                        #1#)))
-                      . #4#)
+                         (|check_union2| (QEQCAR #1# 0)
+                                         (|Record|
+                                          (|:| |bas|
+                                               (|GeneralTriangularSet|
+                                                (QREFELT $ 6) (QREFELT $ 7)
+                                                (QREFELT $ 8) (QREFELT $ 9)))
+                                          (|:| |top| (|List| (QREFELT $ 9))))
+                                         (|Union|
+                                          (|Record|
+                                           (|:| |bas|
+                                                (|GeneralTriangularSet|
+                                                 (QREFELT $ 6) (QREFELT $ 7)
+                                                 (QREFELT $ 8) (QREFELT $ 9)))
+                                           (|:| |top| (|List| (QREFELT $ 9))))
+                                          #4#)
+                                         #1#)))
+                      . #5#)
                 (LETT |rs|
                       (QCDR
-                       (PROG2 (LETT #1# |rec| . #4#)
+                       (PROG2 (LETT #1# |rec| . #5#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0)
-                                        (|Record|
-                                         (|:| |bas|
-                                              (|GeneralTriangularSet|
-                                               (QREFELT $ 6) (QREFELT $ 7)
-                                               (QREFELT $ 8) (QREFELT $ 9)))
-                                         (|:| |top| (|List| (QREFELT $ 9))))
-                                        #1#)))
-                      . #4#)
-                (LETT |rs| (SPADCALL |rs| |bs| (QREFELT $ 77)) . #4#)
+                         (|check_union2| (QEQCAR #1# 0)
+                                         (|Record|
+                                          (|:| |bas|
+                                               (|GeneralTriangularSet|
+                                                (QREFELT $ 6) (QREFELT $ 7)
+                                                (QREFELT $ 8) (QREFELT $ 9)))
+                                          (|:| |top| (|List| (QREFELT $ 9))))
+                                         (|Union|
+                                          (|Record|
+                                           (|:| |bas|
+                                                (|GeneralTriangularSet|
+                                                 (QREFELT $ 6) (QREFELT $ 7)
+                                                 (QREFELT $ 8) (QREFELT $ 9)))
+                                           (|:| |top| (|List| (QREFELT $ 9))))
+                                          #4#)
+                                         #1#)))
+                      . #5#)
+                (LETT |rs| (SPADCALL |rs| |bs| (QREFELT $ 77)) . #5#)
                 (LETT |contradiction|
                       (COND ((NULL |rs|) 'NIL)
                             ('T
                              (SPADCALL (|SPADfirst| |rs|) (|spadConstant| $ 47)
                                        (QREFELT $ 78))))
-                      . #4#)
+                      . #5#)
                 (EXIT
                  (COND
                   ((NULL |contradiction|)
@@ -523,9 +542,9 @@
                     (LETT |rs|
                           (SPADCALL |rs| (|PSETPK;autoRemainder| |bs| $)
                                     (QREFELT $ 66))
-                          . #4#)
-                    (LETT |rec| (SPADCALL |rs| (QREFELT $ 74)) . #4#)
-                    (LETT |contradiction| (QEQCAR |rec| 1) . #4#)
+                          . #5#)
+                    (LETT |rec| (SPADCALL |rs| (QREFELT $ 74)) . #5#)
+                    (LETT |contradiction| (QEQCAR |rec| 1) . #5#)
                     (EXIT
                      (COND
                       ((NULL |contradiction|)
@@ -533,24 +552,36 @@
                              (COND
                               ((SPADCALL
                                 (QCAR
-                                 (PROG2 (LETT #1# |rec| . #4#)
+                                 (PROG2 (LETT #1# |rec| . #5#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0)
-                                                  (|Record|
-                                                   (|:| |bas|
-                                                        (|GeneralTriangularSet|
-                                                         (QREFELT $ 6)
-                                                         (QREFELT $ 7)
-                                                         (QREFELT $ 8)
-                                                         (QREFELT $ 9)))
-                                                   (|:| |top|
-                                                        (|List|
-                                                         (QREFELT $ 9))))
-                                                  #1#)))
+                                   (|check_union2| (QEQCAR #1# 0)
+                                                   (|Record|
+                                                    (|:| |bas|
+                                                         (|GeneralTriangularSet|
+                                                          (QREFELT $ 6)
+                                                          (QREFELT $ 7)
+                                                          (QREFELT $ 8)
+                                                          (QREFELT $ 9)))
+                                                    (|:| |top|
+                                                         (|List|
+                                                          (QREFELT $ 9))))
+                                                   (|Union|
+                                                    (|Record|
+                                                     (|:| |bas|
+                                                          (|GeneralTriangularSet|
+                                                           (QREFELT $ 6)
+                                                           (QREFELT $ 7)
+                                                           (QREFELT $ 8)
+                                                           (QREFELT $ 9)))
+                                                     (|:| |top|
+                                                          (|List|
+                                                           (QREFELT $ 9))))
+                                                    #4#)
+                                                   #1#)))
                                 |bs| (QREFELT $ 79))
                                'NIL)
                               ('T 'T))
-                             . #4#)))))))))
+                             . #5#)))))))))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND (|contradiction| (LIST (|spadConstant| $ 47))) ('T |rs|)))))) 
@@ -594,33 +625,57 @@
                               (QCAR
                                (PROG2 (LETT #4# |rec| . #5#)
                                    (QCDR #4#)
-                                 (|check_union| (QEQCAR #4# 0)
-                                                (|Record|
-                                                 (|:| |bas|
-                                                      (|GeneralTriangularSet|
-                                                       (QREFELT $ 6)
-                                                       (QREFELT $ 7)
-                                                       (QREFELT $ 8)
-                                                       (QREFELT $ 9)))
-                                                 (|:| |top|
-                                                      (|List| (QREFELT $ 9))))
-                                                #4#)))
+                                 (|check_union2| (QEQCAR #4# 0)
+                                                 (|Record|
+                                                  (|:| |bas|
+                                                       (|GeneralTriangularSet|
+                                                        (QREFELT $ 6)
+                                                        (QREFELT $ 7)
+                                                        (QREFELT $ 8)
+                                                        (QREFELT $ 9)))
+                                                  (|:| |top|
+                                                       (|List| (QREFELT $ 9))))
+                                                 (|Union|
+                                                  (|Record|
+                                                   (|:| |bas|
+                                                        (|GeneralTriangularSet|
+                                                         (QREFELT $ 6)
+                                                         (QREFELT $ 7)
+                                                         (QREFELT $ 8)
+                                                         (QREFELT $ 9)))
+                                                   (|:| |top|
+                                                        (|List|
+                                                         (QREFELT $ 9))))
+                                                  #6="failed")
+                                                 #4#)))
                               . #5#)
                         (LETT |rs|
                               (QCDR
                                (PROG2 (LETT #4# |rec| . #5#)
                                    (QCDR #4#)
-                                 (|check_union| (QEQCAR #4# 0)
-                                                (|Record|
-                                                 (|:| |bas|
-                                                      (|GeneralTriangularSet|
-                                                       (QREFELT $ 6)
-                                                       (QREFELT $ 7)
-                                                       (QREFELT $ 8)
-                                                       (QREFELT $ 9)))
-                                                 (|:| |top|
-                                                      (|List| (QREFELT $ 9))))
-                                                #4#)))
+                                 (|check_union2| (QEQCAR #4# 0)
+                                                 (|Record|
+                                                  (|:| |bas|
+                                                       (|GeneralTriangularSet|
+                                                        (QREFELT $ 6)
+                                                        (QREFELT $ 7)
+                                                        (QREFELT $ 8)
+                                                        (QREFELT $ 9)))
+                                                  (|:| |top|
+                                                       (|List| (QREFELT $ 9))))
+                                                 (|Union|
+                                                  (|Record|
+                                                   (|:| |bas|
+                                                        (|GeneralTriangularSet|
+                                                         (QREFELT $ 6)
+                                                         (QREFELT $ 7)
+                                                         (QREFELT $ 8)
+                                                         (QREFELT $ 9)))
+                                                   (|:| |top|
+                                                        (|List|
+                                                         (QREFELT $ 9))))
+                                                  #6#)
+                                                 #4#)))
                               . #5#)
                         (LETT |ar| (CONS 0 |bs2|) . #5#)
                         (COND
@@ -629,11 +684,19 @@
                            (LETT |bs2|
                                  (PROG2 (LETT #3# |ar| . #5#)
                                      (QCDR #3#)
-                                   (|check_union| (QEQCAR #3# 0)
-                                                  (|GeneralTriangularSet|
-                                                   (QREFELT $ 6) (QREFELT $ 7)
-                                                   (QREFELT $ 8) (QREFELT $ 9))
-                                                  #3#))
+                                   (|check_union2| (QEQCAR #3# 0)
+                                                   (|GeneralTriangularSet|
+                                                    (QREFELT $ 6) (QREFELT $ 7)
+                                                    (QREFELT $ 8)
+                                                    (QREFELT $ 9))
+                                                   (|Union|
+                                                    (|GeneralTriangularSet|
+                                                     (QREFELT $ 6)
+                                                     (QREFELT $ 7)
+                                                     (QREFELT $ 8)
+                                                     (QREFELT $ 9))
+                                                    (|List| (QREFELT $ 9)))
+                                                   #3#))
                                  . #5#)
                            (COND
                             ((SPADCALL |bs2| |bs1| (QREFELT $ 79))
@@ -654,8 +717,16 @@
                                 (SPADCALL
                                  (PROG2 (LETT #2# |ar| . #5#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 1)
-                                                  (|List| (QREFELT $ 9)) #2#))
+                                   (|check_union2| (QEQCAR #2# 1)
+                                                   (|List| (QREFELT $ 9))
+                                                   (|Union|
+                                                    (|GeneralTriangularSet|
+                                                     (QREFELT $ 6)
+                                                     (QREFELT $ 7)
+                                                     (QREFELT $ 8)
+                                                     (QREFELT $ 9))
+                                                    (|List| (QREFELT $ 9)))
+                                                   #2#))
                                  |rs| (QREFELT $ 66))
                                 . #5#)))
                         (EXIT
@@ -931,8 +1002,11 @@
                                             (SPADCALL |p| |cp| (QREFELT $ 45))
                                             . #4#)
                                       (QCDR #1#)
-                                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 9)
-                                                   #1#))
+                                    (|check_union2| (QEQCAR #1# 0)
+                                                    (QREFELT $ 9)
+                                                    (|Union| (QREFELT $ 9)
+                                                             #5="failed")
+                                                    #1#))
                                   . #4#)
                             (COND
                              ((NULL (SPADCALL |newcp| (QREFELT $ 23)))
@@ -985,9 +1059,12 @@
                                          (LETT |newcp|
                                                (PROG2 (LETT #1# |test| . #4#)
                                                    (QCDR #1#)
-                                                 (|check_union| (QEQCAR #1# 0)
-                                                                (QREFELT $ 9)
-                                                                #1#))
+                                                 (|check_union2| (QEQCAR #1# 0)
+                                                                 (QREFELT $ 9)
+                                                                 (|Union|
+                                                                  (QREFELT $ 9)
+                                                                  #5#)
+                                                                 #1#))
                                                . #4#)))))
                                      NIL (GO G190) G191 (EXIT NIL))))))
                             (COND
@@ -1029,8 +1106,11 @@
                                             (SPADCALL |p| |cp| (QREFELT $ 45))
                                             . #3#)
                                       (QCDR #2#)
-                                    (|check_union| (QEQCAR #2# 0) (QREFELT $ 9)
-                                                   #2#))
+                                    (|check_union2| (QEQCAR #2# 0)
+                                                    (QREFELT $ 9)
+                                                    (|Union| (QREFELT $ 9)
+                                                             #4="failed")
+                                                    #2#))
                                   . #3#)
                             (COND
                              ((NULL (SPADCALL |newcp| (QREFELT $ 23)))
@@ -1067,9 +1147,12 @@
                                                                         $ 45))
                                                              . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
-                                                      (QREFELT $ 9) #2#))
+                                                      (QREFELT $ 9)
+                                                      (|Union| (QREFELT $ 9)
+                                                               #4#)
+                                                      #2#))
                                                    . #3#)))))
                                          NIL (GO G190) G191 (EXIT NIL))))))
                             (COND
@@ -1111,8 +1194,11 @@
                                             (SPADCALL |p| |cp| (QREFELT $ 45))
                                             . #3#)
                                       (QCDR #2#)
-                                    (|check_union| (QEQCAR #2# 0) (QREFELT $ 9)
-                                                   #2#))
+                                    (|check_union2| (QEQCAR #2# 0)
+                                                    (QREFELT $ 9)
+                                                    (|Union| (QREFELT $ 9)
+                                                             #4="failed")
+                                                    #2#))
                                   . #3#)
                             (LETT |newp| (SPADCALL |newp| (QREFELT $ 107))
                                   . #3#)
@@ -1144,9 +1230,12 @@
                                                                        $ 45))
                                                             . #3#)
                                                       (QCDR #2#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #2# 0)
-                                                     (QREFELT $ 9) #2#))
+                                                     (QREFELT $ 9)
+                                                     (|Union| (QREFELT $ 9)
+                                                              #4#)
+                                                     #2#))
                                                   . #3#)))))))
                                       (EXIT
                                        (COND
@@ -1170,9 +1259,12 @@
                                                                         $ 45))
                                                              . #3#)
                                                        (QCDR #2#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #2# 0)
-                                                      (QREFELT $ 9) #2#))
+                                                      (QREFELT $ 9)
+                                                      (|Union| (QREFELT $ 9)
+                                                               #4#)
+                                                      #2#))
                                                    . #3#)))))))))
                                  NIL (GO G190) G191 (EXIT NIL))
                             (COND
@@ -1228,53 +1320,60 @@
         ((|a| P) (|b| P) ($ |List| P))
         (SPROG
          ((#1=#:G523 NIL) (#2=#:G517 NIL) (|g| (P)) (|d| (P))
-          (|c| (|Union| P "failed")))
+          (|c| (|Union| P #3="failed")))
          (SEQ
           (EXIT
            (SEQ
             (LETT |c| (SPADCALL |b| |a| (QREFELT $ 45))
-                  . #3=(|PSETPK;unprotectedRemoveRedundantFactors;2PL;38|))
+                  . #4=(|PSETPK;unprotectedRemoveRedundantFactors;2PL;38|))
             (EXIT
              (COND
               ((QEQCAR |c| 0)
                (SEQ
                 (LETT |d|
-                      (PROG2 (LETT #2# |c| . #3#)
+                      (PROG2 (LETT #2# |c| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
-                      . #3#)
+                        (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                        (|Union| (QREFELT $ 9) #3#) #2#))
+                      . #4#)
                 (EXIT
                  (COND
                   ((SPADCALL |d| (QREFELT $ 23))
-                   (PROGN (LETT #1# (LIST |a|) . #3#) (GO #4=#:G522)))
-                  (#5='T (PROGN (LETT #1# (LIST |a| |d|) . #3#) (GO #4#)))))))
-              (#5#
-               (SEQ (LETT |g| (SPADCALL |a| |b| (QREFELT $ 114)) . #3#)
+                   (PROGN (LETT #1# (LIST |a|) . #4#) (GO #5=#:G522)))
+                  (#6='T (PROGN (LETT #1# (LIST |a| |d|) . #4#) (GO #5#)))))))
+              (#6#
+               (SEQ (LETT |g| (SPADCALL |a| |b| (QREFELT $ 114)) . #4#)
                     (EXIT
                      (COND
                       ((SPADCALL |g| (QREFELT $ 23))
-                       (PROGN (LETT #1# (LIST |a| |b|) . #3#) (GO #4#)))
-                      (#5#
+                       (PROGN (LETT #1# (LIST |a| |b|) . #4#) (GO #5#)))
+                      (#6#
                        (PROGN
                         (LETT #1#
                               (LIST |g|
                                     (PROG2
                                         (LETT #2#
                                               (SPADCALL |a| |g| (QREFELT $ 45))
-                                              . #3#)
+                                              . #4#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 0)
-                                                     (QREFELT $ 9) #2#))
+                                      (|check_union2| (QEQCAR #2# 0)
+                                                      (QREFELT $ 9)
+                                                      (|Union| (QREFELT $ 9)
+                                                               #3#)
+                                                      #2#))
                                     (PROG2
                                         (LETT #2#
                                               (SPADCALL |b| |g| (QREFELT $ 45))
-                                              . #3#)
+                                              . #4#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 0)
-                                                     (QREFELT $ 9) #2#)))
-                              . #3#)
-                        (GO #4#)))))))))))
-          #4# (EXIT #1#)))) 
+                                      (|check_union2| (QEQCAR #2# 0)
+                                                      (QREFELT $ 9)
+                                                      (|Union| (QREFELT $ 9)
+                                                               #3#)
+                                                      #2#)))
+                              . #4#)
+                        (GO #5#)))))))))))
+          #5# (EXIT #1#)))) 
 
 (PUT '|PSETPK;removeSquaresIfCan;2L;39| '|SPADreplace| '(XLAM (|lp|) |lp|)) 
 
@@ -1319,40 +1418,41 @@
         ((|a| P) (|b| P) ($ |List| P))
         (SPROG
          ((#1=#:G545 NIL) (|d| (P)) (|#G102| (P)) (|#G101| (P)) (#2=#:G538 NIL)
-          (|c| (|Union| P "failed")))
+          (|c| (|Union| P #3="failed")))
          (SEQ
           (EXIT
            (SEQ
             (LETT |c| (SPADCALL |b| |a| (QREFELT $ 45))
-                  . #3=(|PSETPK;unprotectedRemoveRedundantFactors;2PL;42|))
+                  . #4=(|PSETPK;unprotectedRemoveRedundantFactors;2PL;42|))
             (EXIT
              (COND
               ((QEQCAR |c| 0)
                (SEQ
                 (LETT |d|
-                      (PROG2 (LETT #2# |c| . #3#)
+                      (PROG2 (LETT #2# |c| . #4#)
                           (QCDR #2#)
-                        (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
-                      . #3#)
+                        (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                        (|Union| (QREFELT $ 9) #3#) #2#))
+                      . #4#)
                 (EXIT
                  (COND
                   ((SPADCALL |d| (QREFELT $ 23))
-                   (PROGN (LETT #1# (LIST |a|) . #3#) (GO #4=#:G544)))
-                  (#5='T
+                   (PROGN (LETT #1# (LIST |a|) . #4#) (GO #5=#:G544)))
+                  (#6='T
                    (SEQ
                     (COND
                      ((SPADCALL |d| |a| (QREFELT $ 14))
                       (PROGN
-                       (LETT |#G101| |d| . #3#)
-                       (LETT |#G102| |a| . #3#)
-                       (LETT |a| |#G101| . #3#)
-                       (LETT |d| |#G102| . #3#))))
+                       (LETT |#G101| |d| . #4#)
+                       (LETT |#G102| |a| . #4#)
+                       (LETT |a| |#G101| . #4#)
+                       (LETT |d| |#G102| . #4#))))
                     (EXIT
                      (PROGN
-                      (LETT #1# (SPADCALL |a| |d| (QREFELT $ 117)) . #3#)
-                      (GO #4#)))))))))
-              (#5# (PROGN (LETT #1# (LIST |a| |b|) . #3#) (GO #4#)))))))
-          #4# (EXIT #1#)))) 
+                      (LETT #1# (SPADCALL |a| |d| (QREFELT $ 117)) . #4#)
+                      (GO #5#)))))))))
+              (#6# (PROGN (LETT #1# (LIST |a| |b|) . #4#) (GO #5#)))))))
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |PSETPK;removeRedundantFactors;2L;43| ((|lp| |List| P) ($ |List| P))
         (SPROG

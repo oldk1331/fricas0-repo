@@ -39,7 +39,10 @@
                 (SPADCALL
                  (PROG2 (LETT #1# |g1| . #3#)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))
+                   (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
+                                   (|Union| (|Stream| (QREFELT $ 6))
+                                            #4="failed")
+                                   #1#))
                  (QREFELT $ 20))
                 . #3#)
           (LETT |f1| (SPADCALL (SPADCALL |f| (QREFELT $ 12)) (QREFELT $ 25))
@@ -49,7 +52,8 @@
             (SPADCALL
              (PROG2 (LETT #1# |f1| . #3#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))
+               (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
+                               (|Union| (|Stream| (QREFELT $ 6)) #4#) #1#))
              (QREFELT $ 12))
             (QREFELT $ 21)))))) 
 
@@ -71,7 +75,9 @@
             (SPADCALL
              (PROG2 (LETT #1# |boo| . #2#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))
+               (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
+                               (|Union| (|Stream| (QREFELT $ 6)) "failed")
+                               #1#))
              (QREFELT $ 13))
             (QREFELT $ 28)))))) 
 
@@ -92,7 +98,9 @@
              (SPADCALL
               (PROG2 (LETT #1# |mom| . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))
+                (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
+                                (|Union| (|Stream| (QREFELT $ 6)) "failed")
+                                #1#))
               (QREFELT $ 13))
              (QREFELT $ 27))
             (QREFELT $ 28)))))) 
@@ -217,7 +225,8 @@
               (LETT |gseries1|
                     (PROG2 (LETT #2# (SPADCALL |gseries| (QREFELT $ 25)) NIL)
                         (QCDR #2#)
-                      (|check_union| (QEQCAR #2# 0) (|Stream| R) #2#))
+                      (|check_union2| (QEQCAR #2# 0) (|Stream| R)
+                                      (|Union| (|Stream| R) "failed") #2#))
                     NIL)
               (LETT |gseries1| (SPADCALL |gseries1| (QREFELT $ 12)) NIL)
               (LETT |a|

@@ -106,9 +106,9 @@
                              (CONS
                               (CONS |e|
                                     (PROG1 (LETT #1# |n| . #3#)
-                                      (|check_subtype| (>= #1# 0)
-                                                       '(|NonNegativeInteger|)
-                                                       #1#)))
+                                      (|check_subtype2| (>= #1# 0)
+                                                        '(|NonNegativeInteger|)
+                                                        '(|Integer|) #1#)))
                               |ld|)
                              . #3#)))))
                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
@@ -149,14 +149,16 @@
 (SDEFUN |MSET;#;$Nni;22| ((|ms| $) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G173 NIL))
                (PROG1 (LETT #1# (QCAR |ms|) |MSET;#;$Nni;22|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |MSET;count;S$Nni;23| ((|e| S) (|ms| $) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G175 NIL))
                (PROG1
                    (LETT #1# (|MSET;elt| (QCDR |ms|) |e| $)
                          |MSET;count;S$Nni;23|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |MSET;remove!;S$I$;24| ((|e| S) (|ms| $) (|max| |Integer|) ($ $))
         (SPROG ((|n| (|Integer|)) (|t| (|Table| S (|Integer|))))

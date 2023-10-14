@@ -221,9 +221,9 @@
                          (EXPT 2
                                (PROG1
                                    (LETT #1# (- |b| 1) . #2=(|CLIF;e;Pi$;15|))
-                                 (|check_subtype| (>= #1# 0)
-                                                  '(|NonNegativeInteger|)
-                                                  #1#)))
+                                 (|check_subtype2| (>= #1# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #1#)))
                          . #2#)
                    (LETT |z| (MAKEARR1 (QREFELT $ 21) (|spadConstant| $ 30))
                          . #2#)
@@ -286,8 +286,8 @@
                       . #2=(|CLIF;ePseudoscalar;$;19|))
                 (LETT |i|
                       (PROG1 (LETT #1# (- (QREFELT $ 21) 1) . #2#)
-                        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                         #1#))
+                        (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #1#))
                       . #2#)
                 (QSETAREF1 |p| |i| (|spadConstant| $ 46)) (EXIT |p|)))) 
 
@@ -1475,8 +1475,8 @@
                (SEQ
                 (LETT |bn|
                       (PROG1 (LETT #3# (- |b| 1) . #8#)
-                        (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                         #3#))
+                        (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #3#))
                       . #8#)
                 (EXIT
                  (COND
@@ -1491,8 +1491,9 @@
                     (EXIT
                      (LETT |bz|
                            (PROG1 (LETT #2# (- |bz| (EXPT 2 |bn|)) . #8#)
-                             (|check_subtype| (>= #2# 0)
-                                              '(|NonNegativeInteger|) #2#))
+                             (|check_subtype2| (>= #2# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #2#))
                            . #8#))))
                   ('T (LETT |bz| (+ |bz| (EXPT 2 |bn|)) . #8#)))))
                (LETT #4# (CDR #4#) . #8#) (GO G190) G191 (EXIT NIL))
@@ -1604,8 +1605,9 @@
                    (LETT |Sm|
                          (|CLIF;localPowerSets|
                           (PROG1 (LETT #3# (- |j| 1) . #4#)
-                            (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                             #3#))
+                            (|check_subtype2| (>= #3# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #3#))
                           $)
                          . #4#)
                    (LETT |Sn| NIL . #4#)

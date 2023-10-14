@@ -33,9 +33,9 @@
                                                (ABS
                                                 (SPADCALL |f| (QREFELT $ 18)))
                                                . #2#)
-                                       (|check_subtype| (> #1# 0)
-                                                        '(|PositiveInteger|)
-                                                        #1#)))
+                                       (|check_subtype2| (> #1# 0)
+                                                         '(|PositiveInteger|)
+                                                         '(|Integer|) #1#)))
                                 . #2#)
                           (EXIT
                            (LETT |f| (SPADCALL |f| (QREFELT $ 19)) . #2#)))
@@ -155,7 +155,9 @@
                               (LETT #1# (SPADCALL |f| |c| (QREFELT $ 31))
                                     . #4#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))
+                            (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                            (|Union| (QREFELT $ 6) "failed")
+                                            #1#)))
                          #3#)
                         . #4#)))
                 (LETT #2# (CDR #2#) . #4#) (GO G190) G191
@@ -413,8 +415,10 @@
                                                      (QREFELT $ 31))
                                            . #18#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 6)
-                                                  #1#))
+                                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                                   (|Union| (QREFELT $ 6)
+                                                            #20="failed")
+                                                   #1#))
                                  . #18#)
                            (LETT |result| (LIST |d|) . #18#)
                            (LETT |flag| 'T . #18#)
@@ -440,7 +444,7 @@
                             (|flag|
                              (PROGN
                               (LETT #5# (REVERSE |result|) . #18#)
-                              (GO #20=#:G229))))
+                              (GO #21=#:G229))))
                            (LETT |nvalue| (QUOTIENT2 (* |answr| 832040) 317811)
                                  . #18#)
                            (COND
@@ -449,8 +453,10 @@
                            (EXIT
                             (LETT |answr|
                                   (PROG1 (LETT #4# |nvalue| . #18#)
-                                    (|check_subtype| (> #4# 0)
-                                                     '(|PositiveInteger|) #4#))
+                                    (|check_subtype2| (> #4# 0)
+                                                      '(|PositiveInteger|)
+                                                      '(|NonNegativeInteger|)
+                                                      #4#))
                                   . #18#)))
                           (LETT |k| (|inc_SI| |k|) . #18#) (GO G190) G191
                           (EXIT NIL))
@@ -477,13 +483,17 @@
                                                                (QREFELT $ 38))
                                                      . #18#)
                                                (QCDR #1#)
-                                             (|check_union| (QEQCAR #1# 0)
-                                                            (QREFELT $ 6) #1#))
+                                             (|check_union2| (QEQCAR #1# 0)
+                                                             (QREFELT $ 6)
+                                                             (|Union|
+                                                              (QREFELT $ 6)
+                                                              #20#)
+                                                             #1#))
                                            #3#)
                                           . #18#)))
                                   (LETT #2# (CDR #2#) . #18#) (GO G190) G191
                                   (EXIT (NREVERSE #3#))))))))))))
-          #20# (EXIT #5#)))) 
+          #21# (EXIT #5#)))) 
 
 (SDEFUN |HEUGCD;internal|
         ((|flag| |Union| "gcdprim" "gcd" "gcdcofactprim" "gcdcofact")
@@ -573,9 +583,12 @@
                                                                        $ 38))
                                                             . #23#)
                                                       (QCDR #14#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #14# 0)
-                                                     (QREFELT $ 6) #14#))
+                                                     (QREFELT $ 6)
+                                                     (|Union| (QREFELT $ 6)
+                                                              "failed")
+                                                     #14#))
                                                   #16#)
                                                  . #23#)))
                                          (LETT #15# (CDR #15#) . #23#)

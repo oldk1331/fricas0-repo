@@ -41,9 +41,9 @@
                        (LETT |x|
                              (SPADCALL |x|
                                        (PROG1 (LETT #1# |i| . #2#)
-                                         (|check_subtype| (>= #1# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #1#))
+                                         (|check_subtype2| (>= #1# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #1#))
                                        (QREFELT $ 21))
                              . #2#)
                        (QREFELT $ 17)))
@@ -65,8 +65,9 @@
                   (SPADCALL
                    (SPADCALL |x|
                              (PROG1 (LETT #4# |l| . #5#)
-                               (|check_subtype| (>= #4# 0)
-                                                '(|NonNegativeInteger|) #4#))
+                               (|check_subtype2| (>= #4# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #4#))
                              (QREFELT $ 21))
                    (QREFELT $ 26)))
                  ('T
@@ -81,13 +82,14 @@
                            (SPADCALL
                             (SPADCALL |x|
                                       (PROG1 (LETT #2# |l| . #5#)
-                                        (|check_subtype| (>= #2# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #2#))
+                                        (|check_subtype2| (>= #2# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #2#))
                                       (QREFELT $ 21))
                             (PROG1 (LETT #1# (+ (- |h| |l|) 1) . #5#)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 29)))))))))))) 
 
 (SDEFUN |STAGG-;concat;3A;7| ((|x| A) (|y| A) ($ A))
@@ -161,9 +163,9 @@
                        (LETT |x|
                              (SPADCALL |x|
                                        (PROG1 (LETT #1# |i| . #2#)
-                                         (|check_subtype| (>= #1# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #1#))
+                                         (|check_subtype2| (>= #1# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #1#))
                                        (QREFELT $ 21))
                              . #2#)
                        (QREFELT $ 17)))
@@ -197,9 +199,10 @@
                             (LETT |y|
                                   (SPADCALL |x|
                                             (PROG1 (LETT #2# |l| . #3#)
-                                              (|check_subtype| (>= #2# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #2#))
+                                              (|check_subtype2| (>= #2# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #2#))
                                             (QREFELT $ 21))
                                   . #3#)
                             (LETT |z|
@@ -207,9 +210,10 @@
                                             (PROG1
                                                 (LETT #1# (+ (- |h| |l|) 1)
                                                       . #3#)
-                                              (|check_subtype| (>= #1# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #1#))
+                                              (|check_subtype2| (>= #1# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #1#))
                                             (QREFELT $ 21))
                                   . #3#)
                             (SEQ G190

@@ -174,7 +174,8 @@
                           (LETT #1# (SPADCALL |p| (QREFELT $ 36))
                                 . #2=(|POLYCAT-;retract;SVarSet;7|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
+                        (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
+                                        (|Union| (QREFELT $ 9) "failed") #1#))
                       . #2#)
                 (EXIT
                  (COND
@@ -214,8 +215,11 @@
                                       (LETT #1# (SPADCALL |p| (QREFELT $ 36))
                                             . #2=(|POLYCAT-;totalDegree;SNni;9|))
                                       (QCDR #1#)
-                                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 9)
-                                                   #1#))
+                                    (|check_union2| (QEQCAR #1# 0)
+                                                    (QREFELT $ 9)
+                                                    (|Union| (QREFELT $ 9)
+                                                             "failed")
+                                                    #1#))
                                   (QREFELT $ 42))
                         . #2#)
                   (LETT |d| 0 . #2#)
@@ -253,8 +257,12 @@
                                                   (SPADCALL |p| (QREFELT $ 36))
                                                   . #3=(|POLYCAT-;totalDegreeSorted;SLNni;10|))
                                             (QCDR #2#)
-                                          (|check_union| (QEQCAR #2# 0)
-                                                         (QREFELT $ 9) #2#))
+                                          (|check_union2| (QEQCAR #2# 0)
+                                                          (QREFELT $ 9)
+                                                          (|Union|
+                                                           (QREFELT $ 9)
+                                                           "failed")
+                                                          #2#))
                                         . #3#)
                                   (QREFELT $ 42))
                         . #3#)
@@ -734,10 +742,10 @@
                                                      (PROG1
                                                          (LETT #13# (QCDR |nd|)
                                                                . #25#)
-                                                       (|check_subtype|
+                                                       (|check_subtype2|
                                                         (>= #13# 0)
                                                         '(|NonNegativeInteger|)
-                                                        #13#))))))
+                                                        '(|Integer|) #13#))))))
                                                  #16#)
                                                 . #25#)))
                                         (LETT #15# (CDR #15#) . #25#) (GO G190)
@@ -972,9 +980,10 @@
                                                                      (QCDR
                                                                       |dd|)
                                                                      . #4#)
-                                                             (|check_subtype|
+                                                             (|check_subtype2|
                                                               (>= #3# 0)
                                                               '(|NonNegativeInteger|)
+                                                              '(|Integer|)
                                                               #3#))
                                                            (QREFELT $ 31))
                                                  (QREFELT $ 145))
@@ -1065,7 +1074,9 @@
                                             (QREFELT $ 170))
                                   |POLYCAT-;primitivePart;2S;33|)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                          (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                          (|Union| (QREFELT $ 6) "failed")
+                                          #1#))
                         (QREFELT $ 172))
                        1))))) 
 
@@ -1082,7 +1093,9 @@
                                             (QREFELT $ 175))
                                   |POLYCAT-;primitivePart;SVarSetS;34|)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                          (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                          (|Union| (QREFELT $ 6) "failed")
+                                          #1#))
                         (QREFELT $ 172))
                        1))))) 
 

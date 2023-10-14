@@ -15,7 +15,8 @@
                                    (QREFELT $ 30))
                          |FS-;retract;SS;4|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                 (|Union| (|Symbol|) "failed") #1#)))) 
 
 (SDEFUN |FS-;applyQuote;S2S;5| ((|s| |Symbol|) (|x| S) ($ S))
         (SPADCALL |s| (LIST |x|) (QREFELT $ 33))) 
@@ -695,7 +696,8 @@
                               (LETT #1# (SPADCALL |g| (QREFELT $ 30))
                                     |FS-;dfeval|)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                            (|Union| (|Symbol|) "failed") #1#))
                           (QREFELT $ 164))
                 |g| (SPADCALL |l| (QREFELT $ 53)) (QREFELT $ 54)))) 
 
@@ -1025,9 +1027,12 @@
                                      (LETT #1# (SPADCALL |p| (QREFELT $ 112))
                                            . #2#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0)
-                                                  (|Kernel| (QREFELT $ 6))
-                                                  #1#))))
+                                   (|check_union2| (QEQCAR #1# 0)
+                                                   (|Kernel| (QREFELT $ 6))
+                                                   (|Union|
+                                                    (|Kernel| (QREFELT $ 6))
+                                                    "failed")
+                                                   #1#))))
                                . #2#)
                          (EXIT
                           (SPADCALL
@@ -1281,7 +1286,8 @@
                (SPADCALL
                 (PROG2 (LETT #1# (SPADCALL |x| (QREFELT $ 30)) NIL)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                  (|Union| (|Symbol|) "failed") #1#))
                 (QREFELT $ 214)))) 
 
 (SDEFUN |FS-;isExpt;SBoU;55|
@@ -1530,8 +1536,10 @@
                    (LETT #1# (|FS-;smpret| (SPADCALL |x| (QREFELT $ 90)) $)
                          |FS-;retract;SP;64|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
-                                #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
+                                 (|Union| (|Polynomial| (QREFELT $ 7))
+                                          "failed")
+                                 #1#)))) 
 
 (SDEFUN |FS-;retractIfCan;SU;65| ((|x| S) ($ |Union| R "failed"))
         (CONS 0 (SPADCALL (SPADCALL |x| (QREFELT $ 90)) (QREFELT $ 237)))) 
@@ -1747,14 +1755,17 @@
                     (LETT #1# (|FS-;smpret| (SPADCALL |x| (QREFELT $ 90)) $)
                           . #2=(|FS-;retract;SF;94|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
+                                  (|Union| (|Polynomial| (QREFELT $ 7))
+                                           #3="failed")
+                                  #1#))
                 (PROG2
                     (LETT #1# (|FS-;smpret| (SPADCALL |x| (QREFELT $ 289)) $)
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Polynomial| (QREFELT $ 7))
+                                  (|Union| (|Polynomial| (QREFELT $ 7)) #3#)
+                                  #1#))
                 (QREFELT $ 310)))) 
 
 (SDEFUN |FS-;retract;SR;95| ((|x| S) ($ R))
@@ -1769,7 +1780,8 @@
                           (QREFELT $ 313))
                          |FS-;retract;SR;95|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                 (|Union| (QREFELT $ 7) "failed") #1#)))) 
 
 (SDEFUN |FS-;coerce;SOf;96| ((|x| S) ($ |OutputForm|))
         (COND

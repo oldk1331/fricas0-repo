@@ -270,9 +270,9 @@
                             (LETT |delta|
                                   (PROG1
                                       (LETT #1# (- (- |oldDeg| |deg|) 1) . #2#)
-                                    (|check_subtype| (>= #1# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #1#))
+                                    (|check_subtype2| (>= #1# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #1#))
                                   . #2#)
                             (SEQ (LETT |i| 1 . #2#) G190
                                  (COND ((|greater_SI| |i| |delta|) (GO G191)))
@@ -346,9 +346,9 @@
                           (EXIT
                            (LETT |n|
                                  (PROG1 (LETT #1# (- |n| 1) . #2#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  . #2#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
@@ -437,7 +437,8 @@
              (LETT |n2| |#G84| . #3#))))
           (LETT |m|
                 (PROG1 (LETT #2# (- |n2| |n1|) . #3#)
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #3#)
           (LETT |st|
                 (SPADCALL (SPADCALL (|UTS;stream| |x| $) |n1| (QREFELT $ 125))

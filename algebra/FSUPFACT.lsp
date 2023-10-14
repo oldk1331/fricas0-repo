@@ -234,10 +234,18 @@
                    (SPADCALL
                     (PROG2 (LETT #1# |q| . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 1)
-                                     (|SparseUnivariatePolynomial|
-                                      (|AlgebraicNumber|))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 1)
+                                      (|SparseUnivariatePolynomial|
+                                       (|AlgebraicNumber|))
+                                      (|Union|
+                                       (|:| |overq|
+                                            (|SparseUnivariatePolynomial|
+                                             (|Fraction| (|Integer|))))
+                                       (|:| |overan|
+                                            (|SparseUnivariatePolynomial|
+                                             (|AlgebraicNumber|)))
+                                       (|:| |failed| (|Boolean|)))
+                                      #1#))
                     (QREFELT $ 97))))
             ('T (CONS 1 "failed"))))))) 
 

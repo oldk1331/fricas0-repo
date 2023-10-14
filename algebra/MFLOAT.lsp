@@ -255,7 +255,8 @@
                   ('T
                    (PROG2 (LETT #1# |result| . #2#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (|Integer|) #1#)))))))) 
+                     (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                     (|Union| (|Integer|) "failed") #1#)))))))) 
 
 (SDEFUN |MFLOAT;precision;2Pi;20|
         ((|p| |PositiveInteger|) ($ |PositiveInteger|))

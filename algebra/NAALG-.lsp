@@ -11,12 +11,13 @@
                                         (PROG1
                                             (LETT #2# (- |n| 1)
                                                   . #3=(|NAALG-;plenaryPower;SPiS;1|))
-                                          (|check_subtype| (>= #2# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #2#))
+                                          (|check_subtype2| (>= #2# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #2#))
                                         . #3#)
-                                (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                                 #1#))
+                                (|check_subtype2| (> #1# 0)
+                                                  '(|PositiveInteger|)
+                                                  '(|NonNegativeInteger|) #1#))
                               . #3#)
                         (EXIT
                          (SPADCALL (SPADCALL |a| |n1| (QREFELT $ 10))

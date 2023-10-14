@@ -72,7 +72,8 @@
              (LETT |ts_v|
                    (PROG2 (LETT #5# (SPADCALL |ts| |v| (QREFELT $ 34)) . #7#)
                        (QCDR #5#)
-                     (|check_union| (QEQCAR #5# 0) (QREFELT $ 9) #5#))
+                     (|check_union2| (QEQCAR #5# 0) (QREFELT $ 9)
+                                     (|Union| (QREFELT $ 9) "failed") #5#))
                    . #7#)
              (COND
               ((< (SPADCALL |p| (QREFELT $ 35))
@@ -245,7 +246,9 @@
                               (LETT #2# (SPADCALL |p| |lmp| (QREFELT $ 62))
                                     . #3#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
+                            (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                            (|Union| (QREFELT $ 9) "failed")
+                                            #2#))
                           . #3#)))))))
               (LETT |ip|
                     (SPADCALL (SPADCALL |p| (QREFELT $ 63)) (QREFELT $ 64))
@@ -365,7 +368,9 @@
                               (LETT #2# (SPADCALL |p| |lmp| (QREFELT $ 62))
                                     . #3#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0) (QREFELT $ 9) #2#))
+                            (|check_union2| (QEQCAR #2# 0) (QREFELT $ 9)
+                                            (|Union| (QREFELT $ 9) "failed")
+                                            #2#))
                           . #3#)))))))
               (LETT |ip|
                     (SPADCALL (SPADCALL |p| (QREFELT $ 63)) (QREFELT $ 64))

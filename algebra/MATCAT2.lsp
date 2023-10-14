@@ -38,9 +38,9 @@
         ((|f| |Mapping| (|Union| R2 "failed") R1) (|m| M1)
          ($ |Union| M2 "failed"))
         (SPROG
-         ((#1=#:G117 NIL) (#2=#:G131 NIL) (|r| (|Union| R2 "failed"))
-          (#3=#:G134 NIL) (|j| NIL) (#4=#:G135 NIL) (|l| NIL) (#5=#:G132 NIL)
-          (|i| NIL) (#6=#:G133 NIL) (|k| NIL) (|ans| (M2)))
+         ((#1=#:G117 NIL) (#2=#:G131 NIL) (|r| (|Union| R2 #3="failed"))
+          (#4=#:G134 NIL) (|j| NIL) (#5=#:G135 NIL) (|l| NIL) (#6=#:G132 NIL)
+          (|i| NIL) (#7=#:G133 NIL) (|k| NIL) (|ans| (M2)))
          (SEQ
           (EXIT
            (SEQ
@@ -48,44 +48,47 @@
                   (SPADCALL (SPADCALL |m| (QREFELT $ 15))
                             (SPADCALL |m| (QREFELT $ 16)) (|spadConstant| $ 17)
                             (QREFELT $ 18))
-                  . #7=(|MATCAT2;map;MM1U;2|))
-            (SEQ (LETT |k| (SPADCALL |ans| (QREFELT $ 22)) . #7#)
-                 (LETT #6# (SPADCALL |ans| (QREFELT $ 23)) . #7#)
-                 (LETT |i| (SPADCALL |m| (QREFELT $ 20)) . #7#)
-                 (LETT #5# (SPADCALL |m| (QREFELT $ 21)) . #7#) G190
-                 (COND ((OR (> |i| #5#) (> |k| #6#)) (GO G191)))
+                  . #8=(|MATCAT2;map;MM1U;2|))
+            (SEQ (LETT |k| (SPADCALL |ans| (QREFELT $ 22)) . #8#)
+                 (LETT #7# (SPADCALL |ans| (QREFELT $ 23)) . #8#)
+                 (LETT |i| (SPADCALL |m| (QREFELT $ 20)) . #8#)
+                 (LETT #6# (SPADCALL |m| (QREFELT $ 21)) . #8#) G190
+                 (COND ((OR (> |i| #6#) (> |k| #7#)) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |l| (SPADCALL |ans| (QREFELT $ 26)) . #7#)
-                        (LETT #4# (SPADCALL |ans| (QREFELT $ 27)) . #7#)
-                        (LETT |j| (SPADCALL |m| (QREFELT $ 24)) . #7#)
-                        (LETT #3# (SPADCALL |m| (QREFELT $ 25)) . #7#) G190
-                        (COND ((OR (> |j| #3#) (> |l| #4#)) (GO G191)))
+                   (SEQ (LETT |l| (SPADCALL |ans| (QREFELT $ 26)) . #8#)
+                        (LETT #5# (SPADCALL |ans| (QREFELT $ 27)) . #8#)
+                        (LETT |j| (SPADCALL |m| (QREFELT $ 24)) . #8#)
+                        (LETT #4# (SPADCALL |m| (QREFELT $ 25)) . #8#) G190
+                        (COND ((OR (> |j| #4#) (> |l| #5#)) (GO G191)))
                         (SEQ
                          (LETT |r|
                                (SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 28))
                                          |f|)
-                               . #7#)
+                               . #8#)
                          (EXIT
                           (COND
                            ((SPADCALL |r| (CONS 1 "failed") (QREFELT $ 34))
                             (PROGN
-                             (LETT #2# (CONS 1 "failed") . #7#)
-                             (GO #8=#:G130)))
+                             (LETT #2# (CONS 1 "failed") . #8#)
+                             (GO #9=#:G130)))
                            ('T
                             (SPADCALL |ans| |k| |l|
-                                      (PROG2 (LETT #1# |r| . #7#)
+                                      (PROG2 (LETT #1# |r| . #8#)
                                           (QCDR #1#)
-                                        (|check_union| (QEQCAR #1# 0)
-                                                       (QREFELT $ 10) #1#))
+                                        (|check_union2| (QEQCAR #1# 0)
+                                                        (QREFELT $ 10)
+                                                        (|Union| (QREFELT $ 10)
+                                                                 #3#)
+                                                        #1#))
                                       (QREFELT $ 29))))))
-                        (LETT |j| (PROG1 (+ |j| 1) (LETT |l| (+ |l| 1) . #7#))
-                              . #7#)
+                        (LETT |j| (PROG1 (+ |j| 1) (LETT |l| (+ |l| 1) . #8#))
+                              . #8#)
                         (GO G190) G191 (EXIT NIL))))
-                 (LETT |i| (PROG1 (+ |i| 1) (LETT |k| (+ |k| 1) . #7#)) . #7#)
+                 (LETT |i| (PROG1 (+ |i| 1) (LETT |k| (+ |k| 1) . #8#)) . #8#)
                  (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ans|))))
-          #8# (EXIT #2#)))) 
+          #9# (EXIT #2#)))) 
 
 (SDEFUN |MATCAT2;reduce;MM12R2;3|
         ((|f| |Mapping| R2 R1 R2) (|m| M1) (|ident| R2) ($ R2))

@@ -86,7 +86,8 @@
                 (PROG1
                     (LETT #1# (SPADCALL |rn| (QREFELT $ 47))
                           |RCFIELD-;^;SFS;8|)
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                    #1#))
                 (QREFELT $ 8)))) 
 
 (SDEFUN |RCFIELD-;nthRoot;SIS;9| ((|x| S) (|n| |Integer|) ($ S))
@@ -98,15 +99,17 @@
                                  (PROG1
                                      (LETT #2# (- |n|)
                                            . #3=(|RCFIELD-;nthRoot;SIS;9|))
-                                   (|check_subtype| (> #2# 0)
-                                                    '(|PositiveInteger|) #2#))
+                                   (|check_subtype2| (> #2# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #2#))
                                  (QREFELT $ 8))
                        (QREFELT $ 49)))
                      ('T
                       (SPADCALL |x|
                                 (PROG1 (LETT #1# |n| . #3#)
-                                  (|check_subtype| (> #1# 0)
-                                                   '(|PositiveInteger|) #1#))
+                                  (|check_subtype2| (> #1# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 8)))))) 
 
 (SDEFUN |RCFIELD-;allRootsOf;SupL;10|

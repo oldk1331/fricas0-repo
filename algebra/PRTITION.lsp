@@ -46,8 +46,12 @@
                                      (LETT #1# (SPADCALL |n| 1 (QREFELT $ 24))
                                            |PRTITION;*;Nni2$;8|)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0)
-                                                  (|NonNegativeInteger|) #1#))
+                                   (|check_union2| (QEQCAR #1# 0)
+                                                   (|NonNegativeInteger|)
+                                                   (|Union|
+                                                    (|NonNegativeInteger|)
+                                                    "failed")
+                                                   #1#))
                                  |x| (QREFELT $ 25))
                                 (QREFELT $ 21)))))) 
 

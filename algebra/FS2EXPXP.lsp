@@ -184,11 +184,20 @@
                                         (QREFELT $ 59))
                               . #4#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 0)
-                                     (|UnivariatePuiseuxSeries| (QREFELT $ 7)
-                                                                (QREFELT $ 8)
-                                                                (QREFELT $ 9))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 0)
+                                      (|UnivariatePuiseuxSeries| (QREFELT $ 7)
+                                                                 (QREFELT $ 8)
+                                                                 (QREFELT $ 9))
+                                      (|Union|
+                                       (|:| |%series|
+                                            (|UnivariatePuiseuxSeries|
+                                             (QREFELT $ 7) (QREFELT $ 8)
+                                             (QREFELT $ 9)))
+                                       (|:| |%problem|
+                                            (|Record| (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                      #3#))
                     (QREFELT $ 62))))
             (#5='T
              (SEQ (LETT |sum| (SPADCALL |fcn| (QREFELT $ 64)) . #4#)
@@ -356,13 +365,20 @@
                    (LETT |xxp|
                          (PROG2 (LETT #3# |b| . #4#)
                              (QCDR #3#)
-                           (|check_union| (QEQCAR #3# 0)
-                                          (|ExponentialExpansion| (QREFELT $ 6)
-                                                                  (QREFELT $ 7)
-                                                                  (QREFELT $ 8)
-                                                                  (QREFELT $
-                                                                           9))
-                                          #3#))
+                           (|check_union2| (QEQCAR #3# 0)
+                                           (|ExponentialExpansion|
+                                            (QREFELT $ 6) (QREFELT $ 7)
+                                            (QREFELT $ 8) (QREFELT $ 9))
+                                           (|Union|
+                                            (|:| |%expansion|
+                                                 (|ExponentialExpansion|
+                                                  (QREFELT $ 6) (QREFELT $ 7)
+                                                  (QREFELT $ 8) (QREFELT $ 9)))
+                                            (|:| |%problem|
+                                                 (|Record|
+                                                  (|:| |func| (|String|))
+                                                  (|:| |prob| (|String|)))))
+                                           #3#))
                          . #4#)
                    (EXIT
                     (COND
@@ -384,9 +400,9 @@
                               (SEQ
                                (LETT |nn|
                                      (PROG1 (LETT #2# (- |n|) . #4#)
-                                       (|check_subtype| (>= #2# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #2#))
+                                       (|check_subtype2| (>= #2# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #2#))
                                      . #4#)
                                (EXIT
                                 (CONS 0
@@ -558,23 +574,49 @@
                                     (CONS 1
                                           (PROG2 (LETT #4# |root| . #5#)
                                               (QCDR #4#)
-                                            (|check_union| (QEQCAR #4# 1)
-                                                           (|Record|
-                                                            (|:| |func|
-                                                                 (|String|))
-                                                            (|:| |prob|
-                                                                 (|String|)))
-                                                           #4#)))
+                                            (|check_union2| (QEQCAR #4# 1)
+                                                            (|Record|
+                                                             (|:| |func|
+                                                                  (|String|))
+                                                             (|:| |prob|
+                                                                  (|String|)))
+                                                            (|Union|
+                                                             (|:| |%series|
+                                                                  (|UnivariatePuiseuxSeries|
+                                                                   (QREFELT $
+                                                                            7)
+                                                                   (QREFELT $
+                                                                            8)
+                                                                   (QREFELT $
+                                                                            9)))
+                                                             (|:| |%problem|
+                                                                  (|Record|
+                                                                   (|:| |func|
+                                                                        (|String|))
+                                                                   (|:| |prob|
+                                                                        (|String|)))))
+                                                            #4#)))
                                     . #5#)
                               (GO #9#)))
                             (#8#
                              (PROG2 (LETT #2# |root| . #5#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 0)
-                                              (|UnivariatePuiseuxSeries|
-                                               (QREFELT $ 7) (QREFELT $ 8)
-                                               (QREFELT $ 9))
-                                              #2#))))))
+                               (|check_union2| (QEQCAR #2# 0)
+                                               (|UnivariatePuiseuxSeries|
+                                                (QREFELT $ 7) (QREFELT $ 8)
+                                                (QREFELT $ 9))
+                                               (|Union|
+                                                (|:| |%series|
+                                                     (|UnivariatePuiseuxSeries|
+                                                      (QREFELT $ 7)
+                                                      (QREFELT $ 8)
+                                                      (QREFELT $ 9)))
+                                                (|:| |%problem|
+                                                     (|Record|
+                                                      (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                               #2#))))))
                          . #5#)
                    (LETT |deg|
                          (SPADCALL (SPADCALL |nInv| (QREFELT $ 105))
@@ -720,7 +762,8 @@
               (EXIT
                (|FS2EXPXP;nthRootToXXP| (|SPADfirst| |args|)
                 (PROG1 (LETT #1# |n| . #2#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 |posCheck?| $))))
             (#3#
              (|FS2EXPXP;stateProblem|
@@ -837,13 +880,20 @@
                    (LETT |xxp|
                          (PROG2 (LETT #2# |result| . #3#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 0)
-                                          (|ExponentialExpansion| (QREFELT $ 6)
-                                                                  (QREFELT $ 7)
-                                                                  (QREFELT $ 8)
-                                                                  (QREFELT $
-                                                                           9))
-                                          #2#))
+                           (|check_union2| (QEQCAR #2# 0)
+                                           (|ExponentialExpansion|
+                                            (QREFELT $ 6) (QREFELT $ 7)
+                                            (QREFELT $ 8) (QREFELT $ 9))
+                                           (|Union|
+                                            (|:| |%expansion|
+                                                 (|ExponentialExpansion|
+                                                  (QREFELT $ 6) (QREFELT $ 7)
+                                                  (QREFELT $ 8) (QREFELT $ 9)))
+                                            (|:| |%problem|
+                                                 (|Record|
+                                                  (|:| |func| (|String|))
+                                                  (|:| |prob| (|String|)))))
+                                           #2#))
                          . #3#)
                    (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #3#)
                    (EXIT
@@ -1001,11 +1051,21 @@
                      (LETT |xxp|
                            (PROG2 (LETT #6# |result| . #7#)
                                (QCDR #6#)
-                             (|check_union| (QEQCAR #6# 0)
-                                            (|ExponentialExpansion|
-                                             (QREFELT $ 6) (QREFELT $ 7)
-                                             (QREFELT $ 8) (QREFELT $ 9))
-                                            #6#))
+                             (|check_union2| (QEQCAR #6# 0)
+                                             (|ExponentialExpansion|
+                                              (QREFELT $ 6) (QREFELT $ 7)
+                                              (QREFELT $ 8) (QREFELT $ 9))
+                                             (|Union|
+                                              (|:| |%expansion|
+                                                   (|ExponentialExpansion|
+                                                    (QREFELT $ 6) (QREFELT $ 7)
+                                                    (QREFELT $ 8)
+                                                    (QREFELT $ 9)))
+                                              (|:| |%problem|
+                                                   (|Record|
+                                                    (|:| |func| (|String|))
+                                                    (|:| |prob| (|String|)))))
+                                             #6#))
                            . #7#)
                      (LETT |num| (SPADCALL |xxp| (QREFELT $ 85)) . #7#)
                      (LETT |den| (SPADCALL |xxp| (QREFELT $ 92)) . #7#)
@@ -1051,23 +1111,51 @@
                                       (CONS 1
                                             (PROG2 (LETT #5# |res| . #7#)
                                                 (QCDR #5#)
-                                              (|check_union| (QEQCAR #5# 1)
-                                                             (|Record|
-                                                              (|:| |func|
-                                                                   (|String|))
-                                                              (|:| |prob|
-                                                                   (|String|)))
-                                                             #5#)))
+                                              (|check_union2| (QEQCAR #5# 1)
+                                                              (|Record|
+                                                               (|:| |func|
+                                                                    (|String|))
+                                                               (|:| |prob|
+                                                                    (|String|)))
+                                                              (|Union|
+                                                               (|:| |%series|
+                                                                    (|UnivariatePuiseuxSeries|
+                                                                     (QREFELT $
+                                                                              7)
+                                                                     (QREFELT $
+                                                                              8)
+                                                                     (QREFELT $
+                                                                              9)))
+                                                               (|:| |%problem|
+                                                                    (|Record|
+                                                                     (|:|
+                                                                      |func|
+                                                                      (|String|))
+                                                                     (|:|
+                                                                      |prob|
+                                                                      (|String|)))))
+                                                              #5#)))
                                       . #7#)
                                 (GO #11#)))
                               (#8#
                                (PROG2 (LETT #3# |res| . #7#)
                                    (QCDR #3#)
-                                 (|check_union| (QEQCAR #3# 0)
-                                                (|UnivariatePuiseuxSeries|
-                                                 (QREFELT $ 7) (QREFELT $ 8)
-                                                 (QREFELT $ 9))
-                                                #3#))))))
+                                 (|check_union2| (QEQCAR #3# 0)
+                                                 (|UnivariatePuiseuxSeries|
+                                                  (QREFELT $ 7) (QREFELT $ 8)
+                                                  (QREFELT $ 9))
+                                                 (|Union|
+                                                  (|:| |%series|
+                                                       (|UnivariatePuiseuxSeries|
+                                                        (QREFELT $ 7)
+                                                        (QREFELT $ 8)
+                                                        (QREFELT $ 9)))
+                                                  (|:| |%problem|
+                                                       (|Record|
+                                                        (|:| |func| (|String|))
+                                                        (|:| |prob|
+                                                             (|String|)))))
+                                                 #3#))))))
                            . #7#)
                      (LETT |numLog|
                            (SPADCALL
@@ -1118,13 +1206,20 @@
                    (LETT |xxp|
                          (PROG2 (LETT #3# |xxpArg| . #4#)
                              (QCDR #3#)
-                           (|check_union| (QEQCAR #3# 0)
-                                          (|ExponentialExpansion| (QREFELT $ 6)
-                                                                  (QREFELT $ 7)
-                                                                  (QREFELT $ 8)
-                                                                  (QREFELT $
-                                                                           9))
-                                          #3#))
+                           (|check_union2| (QEQCAR #3# 0)
+                                           (|ExponentialExpansion|
+                                            (QREFELT $ 6) (QREFELT $ 7)
+                                            (QREFELT $ 8) (QREFELT $ 9))
+                                           (|Union|
+                                            (|:| |%expansion|
+                                                 (|ExponentialExpansion|
+                                                  (QREFELT $ 6) (QREFELT $ 7)
+                                                  (QREFELT $ 8) (QREFELT $ 9)))
+                                            (|:| |%problem|
+                                                 (|Record|
+                                                  (|:| |func| (|String|))
+                                                  (|:| |prob| (|String|)))))
+                                           #3#))
                          . #4#)
                    (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #4#)
                    (EXIT
@@ -1152,12 +1247,18 @@
                                          (LETT #2# (SPADCALL |upxs| |fcn|)
                                                . #4#)
                                          (QCDR #2#)
-                                       (|check_union| (QEQCAR #2# 0)
-                                                      (|UnivariatePuiseuxSeries|
-                                                       (QREFELT $ 7)
-                                                       (QREFELT $ 8)
-                                                       (QREFELT $ 9))
-                                                      #2#))
+                                       (|check_union2| (QEQCAR #2# 0)
+                                                       (|UnivariatePuiseuxSeries|
+                                                        (QREFELT $ 7)
+                                                        (QREFELT $ 8)
+                                                        (QREFELT $ 9))
+                                                       (|Union|
+                                                        (|UnivariatePuiseuxSeries|
+                                                         (QREFELT $ 7)
+                                                         (QREFELT $ 8)
+                                                         (QREFELT $ 9))
+                                                        #6="failed")
+                                                       #2#))
                                      (QREFELT $ 62))))
                              (#5#
                               (SEQ
@@ -1176,12 +1277,18 @@
                                              (LETT #2# (SPADCALL |upxs| |fcn|)
                                                    . #4#)
                                              (QCDR #2#)
-                                           (|check_union| (QEQCAR #2# 0)
-                                                          (|UnivariatePuiseuxSeries|
-                                                           (QREFELT $ 7)
-                                                           (QREFELT $ 8)
-                                                           (QREFELT $ 9))
-                                                          #2#))
+                                           (|check_union2| (QEQCAR #2# 0)
+                                                           (|UnivariatePuiseuxSeries|
+                                                            (QREFELT $ 7)
+                                                            (QREFELT $ 8)
+                                                            (QREFELT $ 9))
+                                                           (|Union|
+                                                            (|UnivariatePuiseuxSeries|
+                                                             (QREFELT $ 7)
+                                                             (QREFELT $ 8)
+                                                             (QREFELT $ 9))
+                                                            #6#)
+                                                           #2#))
                                          (QREFELT $ 62))))
                                  ((|FS2EXPXP;opInOpList?| '|log| |xOpList| $)
                                   (|FS2EXPXP;stateProblem| |fcnName|
@@ -1193,12 +1300,18 @@
                                              (LETT #2# (SPADCALL |upxs| |fcn|)
                                                    . #4#)
                                              (QCDR #2#)
-                                           (|check_union| (QEQCAR #2# 0)
-                                                          (|UnivariatePuiseuxSeries|
-                                                           (QREFELT $ 7)
-                                                           (QREFELT $ 8)
-                                                           (QREFELT $ 9))
-                                                          #2#))
+                                           (|check_union2| (QEQCAR #2# 0)
+                                                           (|UnivariatePuiseuxSeries|
+                                                            (QREFELT $ 7)
+                                                            (QREFELT $ 8)
+                                                            (QREFELT $ 9))
+                                                           (|Union|
+                                                            (|UnivariatePuiseuxSeries|
+                                                             (QREFELT $ 7)
+                                                             (QREFELT $ 8)
+                                                             (QREFELT $ 9))
+                                                            #6#)
+                                                           #2#))
                                          (QREFELT $ 62))))
                                  (#5#
                                   (|FS2EXPXP;stateProblem| |fcnName|
@@ -1245,12 +1358,21 @@
               (LETT |xxp|
                     (PROG2 (LETT #4# |xxpArg| . #5#)
                         (QCDR #4#)
-                      (|check_union| (QEQCAR #4# 0)
-                                     (|ExponentialExpansion| (QREFELT $ 6)
-                                                             (QREFELT $ 7)
-                                                             (QREFELT $ 8)
-                                                             (QREFELT $ 9))
-                                     #4#))
+                      (|check_union2| (QEQCAR #4# 0)
+                                      (|ExponentialExpansion| (QREFELT $ 6)
+                                                              (QREFELT $ 7)
+                                                              (QREFELT $ 8)
+                                                              (QREFELT $ 9))
+                                      (|Union|
+                                       (|:| |%expansion|
+                                            (|ExponentialExpansion|
+                                             (QREFELT $ 6) (QREFELT $ 7)
+                                             (QREFELT $ 8) (QREFELT $ 9)))
+                                       (|:| |%problem|
+                                            (|Record| (|:| |func| (|String|))
+                                                      (|:| |prob|
+                                                           (|String|)))))
+                                      #4#))
                     . #5#)
               (LETT |f| (SPADCALL |xxp| (QREFELT $ 112)) . #5#)
               (EXIT
@@ -1483,11 +1605,21 @@
                       (LETT |ups|
                             (PROG2 (LETT #4# |result| . #6#)
                                 (QCDR #4#)
-                              (|check_union| (QEQCAR #4# 0)
-                                             (|UnivariatePuiseuxSeries|
-                                              (QREFELT $ 7) (QREFELT $ 8)
-                                              (QREFELT $ 9))
-                                             #4#))
+                              (|check_union2| (QEQCAR #4# 0)
+                                              (|UnivariatePuiseuxSeries|
+                                               (QREFELT $ 7) (QREFELT $ 8)
+                                               (QREFELT $ 9))
+                                              (|Union|
+                                               (|:| |%series|
+                                                    (|UnivariatePuiseuxSeries|
+                                                     (QREFELT $ 7)
+                                                     (QREFELT $ 8)
+                                                     (QREFELT $ 9)))
+                                               (|:| |%problem|
+                                                    (|Record|
+                                                     (|:| |func| (|String|))
+                                                     (|:| |prob| (|String|)))))
+                                              #4#))
                             . #6#)
                       (LETT |coef|
                             (SPADCALL |ups| (|spadConstant| $ 117)

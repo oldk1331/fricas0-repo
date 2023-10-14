@@ -35,8 +35,12 @@
                                                     |a1| (QREFELT $ 24))
                                                    . #3#)
                                              (QCDR #1#)
-                                           (|check_union| (QEQCAR #1# 0)
-                                                          (QREFELT $ 7) #1#))
+                                           (|check_union2| (QEQCAR #1# 0)
+                                                           (QREFELT $ 7)
+                                                           (|Union|
+                                                            (QREFELT $ 7)
+                                                            #4="failed")
+                                                           #1#))
                                          (QREFELT $ 25))))
                              (LETT |kk| (|inc_SI| |kk|) . #3#) (GO G190) G191
                              (EXIT NIL))
@@ -67,8 +71,11 @@
                                                     |a1| (QREFELT $ 24))
                                                    . #3#)
                                              (QCDR #1#)
-                                           (|check_union| (QEQCAR #1# 0)
-                                                          (QREFELT $ 7) #1#))
+                                           (|check_union2| (QEQCAR #1# 0)
+                                                           (QREFELT $ 7)
+                                                           (|Union|
+                                                            (QREFELT $ 7) #4#)
+                                                           #1#))
                                          (QREFELT $ 25))))
                              (LETT |kk| (+ |kk| 1) . #3#) (GO G190) G191
                              (EXIT NIL))
@@ -146,7 +153,8 @@
               (LETT |nBasis| (LIST (|spadConstant| $ 41)) . #14#)
               (LETT |ndim|
                     (PROG1 (LETT #13# (LENGTH |vBasis|) . #14#)
-                      (|check_subtype| (> #13# 0) '(|PositiveInteger|) #13#))
+                      (|check_subtype2| (> #13# 0) '(|PositiveInteger|)
+                                        '(|NonNegativeInteger|) #13#))
                     . #14#)
               (LETT |ndim1| (+ |ndim| 1) . #14#)
               (LETT |linmat|
@@ -207,10 +215,14 @@
                                                  (QREFELT $ 55))
                                        . #14#)
                                  (QCDR #12#)
-                               (|check_union| (QEQCAR #12# 0)
-                                              (|HomogeneousDistributedMultivariatePolynomial|
-                                               (QREFELT $ 6) (QREFELT $ 7))
-                                              #12#)))
+                               (|check_union2| (QEQCAR #12# 0)
+                                               (|HomogeneousDistributedMultivariatePolynomial|
+                                                (QREFELT $ 6) (QREFELT $ 7))
+                                               (|Union|
+                                                (|HomogeneousDistributedMultivariatePolynomial|
+                                                 (QREFELT $ 6) (QREFELT $ 7))
+                                                "failed")
+                                               #12#)))
                      (QCAR |recfmon|))
                     (PROGN
                      (RPLACD |recfmon|
@@ -220,8 +232,9 @@
                                                  (QREFELT $ 24))
                                        . #14#)
                                  (QCDR #11#)
-                               (|check_union| (QEQCAR #11# 0) (QREFELT $ 7)
-                                              #11#)))
+                               (|check_union2| (QEQCAR #11# 0) (QREFELT $ 7)
+                                               (|Union| (QREFELT $ 7) "failed")
+                                               #11#)))
                      (QCDR |recfmon|))
                     (LETT |veccoef|
                           (SPADCALL (QCAR |recfmon|) |vBasis| (QREFELT $ 56))
@@ -390,7 +403,8 @@
             (LETT |omult| (|spadConstant| $ 13) . #7#)
             (LETT |ndim|
                   (PROG1 (LETT #6# (LENGTH |algBasis|) . #7#)
-                    (|check_subtype| (> #6# 0) '(|PositiveInteger|) #6#))
+                    (|check_subtype2| (> #6# 0) '(|PositiveInteger|)
+                                      '(|NonNegativeInteger|) #6#))
                   . #7#)
             (LETT |ndim1| (+ |ndim| 1) . #7#)
             (LETT |linmat| (SPADCALL |ndim| (+ (* 2 |ndim|) 1) (QREFELT $ 44))
@@ -419,17 +433,23 @@
                              (LETT #5# (SPADCALL |f| |cc| (QREFELT $ 55))
                                    . #7#)
                              (QCDR #5#)
-                           (|check_union| (QEQCAR #5# 0)
-                                          (|HomogeneousDistributedMultivariatePolynomial|
-                                           (QREFELT $ 6) (QREFELT $ 7))
-                                          #5#))
+                           (|check_union2| (QEQCAR #5# 0)
+                                           (|HomogeneousDistributedMultivariatePolynomial|
+                                            (QREFELT $ 6) (QREFELT $ 7))
+                                           (|Union|
+                                            (|HomogeneousDistributedMultivariatePolynomial|
+                                             (QREFELT $ 6) (QREFELT $ 7))
+                                            "failed")
+                                           #5#))
                          . #7#)
                    (LETT |omult|
                          (PROG2
                              (LETT #4# (SPADCALL |omult| |cc| (QREFELT $ 24))
                                    . #7#)
                              (QCDR #4#)
-                           (|check_union| (QEQCAR #4# 0) (QREFELT $ 7) #4#))
+                           (|check_union2| (QEQCAR #4# 0) (QREFELT $ 7)
+                                           (|Union| (QREFELT $ 7) "failed")
+                                           #4#))
                          . #7#)
                    (LETT |veccoef| (SPADCALL |f| |algBasis| (QREFELT $ 56))
                          . #7#)
@@ -484,10 +504,11 @@
                                                                         (- |k|
                                                                            |ndim1|)
                                                                         . #7#)
-                                                                     (|check_subtype|
+                                                                     (|check_subtype2|
                                                                       (>= #2#
                                                                           0)
                                                                       '(|NonNegativeInteger|)
+                                                                      '(|Integer|)
                                                                       #2#))
                                                                    (QREFELT $
                                                                             70))
@@ -698,10 +719,14 @@
                                                    (QREFELT $ 50))
                                          . #4#)
                                    (QCDR #1#)
-                                 (|check_union| (QEQCAR #1# 0)
-                                                (|DistributedMultivariatePolynomial|
-                                                 (QREFELT $ 6) (QREFELT $ 7))
-                                                #1#))
+                                 (|check_union2| (QEQCAR #1# 0)
+                                                 (|DistributedMultivariatePolynomial|
+                                                  (QREFELT $ 6) (QREFELT $ 7))
+                                                 (|Union|
+                                                  (|DistributedMultivariatePolynomial|
+                                                   (QREFELT $ 6) (QREFELT $ 7))
+                                                  "failed")
+                                                 #1#))
                                . #4#)))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT |mf|)))))
@@ -752,7 +777,8 @@
               (LETT |nBasis| (LIST (|spadConstant| $ 41)) . #20#)
               (LETT |ndim|
                     (PROG1 (LETT #19# (LENGTH |vBasis|) . #20#)
-                      (|check_subtype| (> #19# 0) '(|PositiveInteger|) #19#))
+                      (|check_subtype2| (> #19# 0) '(|PositiveInteger|)
+                                        '(|NonNegativeInteger|) #19#))
                     . #20#)
               (LETT |ndim1| (+ |ndim| 1) . #20#)
               (LETT |linmat|
@@ -872,10 +898,14 @@
                                                  (QREFELT $ 55))
                                        . #20#)
                                  (QCDR #11#)
-                               (|check_union| (QEQCAR #11# 0)
-                                              (|HomogeneousDistributedMultivariatePolynomial|
-                                               (QREFELT $ 6) (QREFELT $ 7))
-                                              #11#)))
+                               (|check_union2| (QEQCAR #11# 0)
+                                               (|HomogeneousDistributedMultivariatePolynomial|
+                                                (QREFELT $ 6) (QREFELT $ 7))
+                                               (|Union|
+                                                (|HomogeneousDistributedMultivariatePolynomial|
+                                                 (QREFELT $ 6) (QREFELT $ 7))
+                                                "failed")
+                                               #11#)))
                      (QCAR |recfmon|))
                     (PROGN
                      (RPLACD |recfmon|
@@ -885,8 +915,9 @@
                                                  (QREFELT $ 24))
                                        . #20#)
                                  (QCDR #10#)
-                               (|check_union| (QEQCAR #10# 0) (QREFELT $ 7)
-                                              #10#)))
+                               (|check_union2| (QEQCAR #10# 0) (QREFELT $ 7)
+                                               (|Union| (QREFELT $ 7) "failed")
+                                               #10#)))
                      (QCDR |recfmon|))
                     (LETT |veccoef|
                           (SPADCALL (QCAR |recfmon|) |vBasis| (QREFELT $ 56))
@@ -1024,7 +1055,8 @@
           (LETT |val| (SPADCALL |xn| (QREFELT $ 94)) . #9#)
           (LETT |nvar1|
                 (PROG1 (LETT #8# (- (LENGTH (QREFELT $ 12)) 1) . #9#)
-                  (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|) #8#))
+                  (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #8#))
                 . #9#)
           (LETT |ll|
                 (PROGN
@@ -1142,10 +1174,16 @@
                                   (LETT #1# (SPADCALL |yx| (QREFELT $ 11))
                                         . #4#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 0)
-                                               (|OrderedVariableList|
-                                                (SPADCALL |yx| (QREFELT $ 11)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 0)
+                                                (|OrderedVariableList|
+                                                 (SPADCALL |yx|
+                                                           (QREFELT $ 11)))
+                                                (|Union|
+                                                 (|OrderedVariableList|
+                                                  (SPADCALL |yx|
+                                                            (QREFELT $ 11)))
+                                                 "failed")
+                                                #1#))
                               #3#)
                              . #4#)))
                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191

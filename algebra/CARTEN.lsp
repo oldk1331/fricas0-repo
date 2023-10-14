@@ -168,7 +168,8 @@
                              2 (QREFELT $ 31))
                             . #7#)
                       (QCDR #6#)
-                    (|check_union| (QEQCAR #6# 0) (|Integer|) #6#))
+                    (|check_union2| (QEQCAR #6# 0) (|Integer|)
+                                    (|Union| (|Integer|) "failed") #6#))
                   . #7#)
             (LETT |n| 0 . #7#)
             (SEQ (LETT |i| 1 . #7#) (LETT #5# (QVSIZE |v|) . #7#) G190

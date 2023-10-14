@@ -28,8 +28,9 @@
                                        (- (SPADCALL |r| (QREFELT $ 12))
                                           (SPADCALL |b| (QREFELT $ 12)))
                                        . #2#)
-                               (|check_subtype| (>= #1# 0)
-                                                '(|NonNegativeInteger|) #1#))
+                               (|check_subtype2| (>= #1# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #1#))
                              (QREFELT $ 17))
                             . #2#)
                       (LETT |r|

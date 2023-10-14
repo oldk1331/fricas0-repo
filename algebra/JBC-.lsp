@@ -63,9 +63,9 @@
                        (SEQ (LETT |nu| (SPADCALL |mu| (QREFELT $ 24)) . #4#)
                             (SPADCALL |nu| |i|
                                       (PROG1 (LETT #1# (- |k| 1) . #4#)
-                                        (|check_subtype| (>= #1# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #1#))
+                                        (|check_subtype2| (>= #1# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #1#))
                                       (QREFELT $ 22))
                             (LETT |tmp| (SPADCALL |nu| (QREFELT $ 26)) . #4#)
                             (EXIT
@@ -91,7 +91,8 @@
             (SPROG ((#2=#:G161 NIL))
                    (SPADCALL
                     (PROG1 (LETT #2# |i| NIL)
-                      (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+                      (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                        '(|NonNegativeInteger|) #2#))
                     |x| (QREFELT $ 27))))))) 
 
 (SDEFUN |JBC-;repeatedIndex;SL;4| ((|jv| S) ($ |List| (|PositiveInteger|)))
@@ -146,8 +147,8 @@
                                    (SPADCALL (+ |q| (QREFELT $ 9))
                                              (QREFELT $ 9) (QREFELT $ 42))
                                    |JBC-;dimJ;2Nni;8|)
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          (QREFELT $ 43)))) 
 
 (SDEFUN |JBC-;dimS;2Nni;9|
@@ -160,8 +161,8 @@
                                              (- (QREFELT $ 9) 1)
                                              (QREFELT $ 42))
                                    |JBC-;dimS;2Nni;9|)
-                           (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                            #1#))
+                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #1#))
                          (QREFELT $ 43)))) 
 
 (SDEFUN |JBC-;X;S;10| (($ S)) (SPADCALL 1 (QREFELT $ 46))) 
@@ -200,9 +201,10 @@
                                (LETT |lop|
                                      (CONS
                                       (PROG1 (LETT #1# |i| . #3#)
-                                        (|check_subtype| (> #1# 0)
-                                                         '(|PositiveInteger|)
-                                                         #1#))
+                                        (|check_subtype2| (> #1# 0)
+                                                          '(|PositiveInteger|)
+                                                          '(|NonNegativeInteger|)
+                                                          #1#))
                                       |lop|)
                                      . #3#)))))
                       (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
@@ -239,9 +241,9 @@
                                                           (QREFELT $ 9)
                                                           (QREFELT $ 42))
                                                 . #4#)
-                                        (|check_subtype| (>= #3# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #3#))
+                                        (|check_subtype2| (>= #3# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #3#))
                                       (QREFELT $ 43))
                             . #4#)
                       (QSETAREF1O (QREFELT $ 66) (+ (QREFELT $ 69) |q|) |res|
@@ -271,9 +273,9 @@
                                                      (QREFELT $ 9)
                                                      (QREFELT $ 42))
                                            . #4#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 43))
                        . #4#)
                  (QSETAREF1O (QREFELT $ 66) (+ (QREFELT $ 69) |q|) |res| 1)
@@ -304,9 +306,9 @@
                                                  (- (QREFELT $ 9) 1)
                                                  (QREFELT $ 42))
                                                 . #4#)
-                                        (|check_subtype| (>= #3# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #3#))
+                                        (|check_subtype2| (>= #3# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #3#))
                                       (QREFELT $ 43))
                             . #4#)
                       (QSETAREF1O (QREFELT $ 67) (+ (QREFELT $ 69) |q|) |res|
@@ -336,9 +338,9 @@
                                             (- (+ |q| (QREFELT $ 9)) 1)
                                             (- (QREFELT $ 9) 1) (QREFELT $ 42))
                                            . #4#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 43))
                        . #4#)
                  (QSETAREF1O (QREFELT $ 67) (+ (QREFELT $ 69) |q|) |res| 1)
@@ -463,9 +465,9 @@
                                (LETT |res|
                                      (CONS
                                       (PROG1 (LETT #1# (- |i1| |i2|) . #6#)
-                                        (|check_subtype| (>= #1# 0)
-                                                         '(|NonNegativeInteger|)
-                                                         #1#))
+                                        (|check_subtype2| (>= #1# 0)
+                                                          '(|NonNegativeInteger|)
+                                                          '(|Integer|) #1#))
                                       |res|)
                                      . #6#)))))
                            (LETT #3#
@@ -499,9 +501,9 @@
                      (SEQ
                       (SPADCALL |mind| |pos|
                                 (PROG1 (LETT #1# (- |mi| 1) . #2#)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 22))
                       (EXIT
                        (CONS 0
@@ -685,8 +687,8 @@
                           (CONS
                            (SPADCALL
                             (PROG1 (LETT #18# |i| . #20#)
-                              (|check_subtype| (> #18# 0) '(|PositiveInteger|)
-                                               #18#))
+                              (|check_subtype2| (> #18# 0) '(|PositiveInteger|)
+                                                '(|NonNegativeInteger|) #18#))
                             (QREFELT $ 46))
                            #19#)
                           . #20#)))
@@ -705,9 +707,10 @@
                                  (CONS
                                   (LIST
                                    (PROG1 (LETT #15# |i| . #20#)
-                                     (|check_subtype| (> #15# 0)
-                                                      '(|PositiveInteger|)
-                                                      #15#)))
+                                     (|check_subtype2| (> #15# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #15#)))
                                   #17#)
                                  . #20#)))
                          (LETT |i| (|inc_SI| |i|) . #20#) (GO G190) G191
@@ -724,9 +727,10 @@
                                  (CONS
                                   (LIST
                                    (PROG1 (LETT #13# |i| . #20#)
-                                     (|check_subtype| (> #13# 0)
-                                                      '(|PositiveInteger|)
-                                                      #13#)))
+                                     (|check_subtype2| (> #13# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #13#)))
                                   #14#)
                                  . #20#)))
                          (LETT |i| (+ |i| -1) . #20#) (GO G190) G191
@@ -752,9 +756,10 @@
                                            (CONS
                                             (CONS
                                              (PROG1 (LETT #10# |j| . #20#)
-                                               (|check_subtype| (> #10# 0)
-                                                                '(|PositiveInteger|)
-                                                                #10#))
+                                               (|check_subtype2| (> #10# 0)
+                                                                 '(|PositiveInteger|)
+                                                                 '(|NonNegativeInteger|)
+                                                                 #10#))
                                              |ind|)
                                             |NIndList|)
                                            . #20#)))
@@ -783,9 +788,10 @@
                                  (CONS
                                   (SPADCALL
                                    (PROG1 (LETT #7# |k| . #20#)
-                                     (|check_subtype| (> #7# 0)
-                                                      '(|PositiveInteger|)
-                                                      #7#))
+                                     (|check_subtype2| (> #7# 0)
+                                                       '(|PositiveInteger|)
+                                                       '(|NonNegativeInteger|)
+                                                       #7#))
                                    |ind| (QREFELT $ 56))
                                   JV)
                                  . #20#)))
@@ -805,8 +811,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #4# |i| . #20#)
-                                  (|check_subtype| (> #4# 0)
-                                                   '(|PositiveInteger|) #4#))
+                                  (|check_subtype2| (> #4# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #4#))
                                 (QREFELT $ 46))
                                #6#)
                               . #20#)))
@@ -822,8 +830,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #1# |i| . #20#)
-                                  (|check_subtype| (> #1# 0)
-                                                   '(|PositiveInteger|) #1#))
+                                  (|check_subtype2| (> #1# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
                                 (QREFELT $ 48))
                                #3#)
                               . #20#)))
@@ -857,9 +867,10 @@
                                       (CONS
                                        (LIST
                                         (PROG1 (LETT #7# |i| . #10#)
-                                          (|check_subtype| (> #7# 0)
-                                                           '(|PositiveInteger|)
-                                                           #7#)))
+                                          (|check_subtype2| (> #7# 0)
+                                                            '(|PositiveInteger|)
+                                                            '(|NonNegativeInteger|)
+                                                            #7#)))
                                        #9#)
                                       . #10#)))
                               (LETT |i| (+ |i| 1) . #10#) (GO G190) G191
@@ -887,9 +898,10 @@
                                                 (CONS
                                                  (CONS
                                                   (PROG1 (LETT #4# |j| . #10#)
-                                                    (|check_subtype| (> #4# 0)
-                                                                     '(|PositiveInteger|)
-                                                                     #4#))
+                                                    (|check_subtype2| (> #4# 0)
+                                                                      '(|PositiveInteger|)
+                                                                      '(|NonNegativeInteger|)
+                                                                      #4#))
                                                   |ind|)
                                                  |NIndList|)
                                                 . #10#)))
@@ -919,9 +931,10 @@
                                       (CONS
                                        (SPADCALL
                                         (PROG1 (LETT #1# |k| . #10#)
-                                          (|check_subtype| (> #1# 0)
-                                                           '(|PositiveInteger|)
-                                                           #1#))
+                                          (|check_subtype2| (> #1# 0)
+                                                            '(|PositiveInteger|)
+                                                            '(|NonNegativeInteger|)
+                                                            #1#))
                                         |ind| (QREFELT $ 56))
                                        JV)
                                       . #10#)))

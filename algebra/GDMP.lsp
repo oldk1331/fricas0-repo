@@ -83,42 +83,46 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |GDMP;mainVariable;$U;6|
-        ((|p| $) ($ |Union| (|OrderedVariableList| |vl|) "failed"))
+        ((|p| $) ($ |Union| (|OrderedVariableList| |vl|) #1="failed"))
         (SPROG
-         ((#1=#:G160 NIL) (|vv| (|OrderedVariableList| |vl|)) (#2=#:G150 NIL)
-          (#3=#:G161 NIL) (|v| NIL))
+         ((#2=#:G160 NIL) (|vv| (|OrderedVariableList| |vl|)) (#3=#:G150 NIL)
+          (#4=#:G161 NIL) (|v| NIL))
          (SEQ
           (EXIT
            (COND ((SPADCALL |p| (QREFELT $ 13)) (CONS 1 "failed"))
                  ('T
                   (SEQ
-                   (SEQ (LETT |v| NIL . #4=(|GDMP;mainVariable;$U;6|))
-                        (LETT #3# (QREFELT $ 6) . #4#) G190
+                   (SEQ (LETT |v| NIL . #5=(|GDMP;mainVariable;$U;6|))
+                        (LETT #4# (QREFELT $ 6) . #5#) G190
                         (COND
-                         ((OR (ATOM #3#)
-                              (PROGN (LETT |v| (CAR #3#) . #4#) NIL))
+                         ((OR (ATOM #4#)
+                              (PROGN (LETT |v| (CAR #4#) . #5#) NIL))
                           (GO G191)))
                         (SEQ
                          (LETT |vv|
                                (PROG2
-                                   (LETT #2# (SPADCALL |v| (QREFELT $ 34))
-                                         . #4#)
-                                   (QCDR #2#)
-                                 (|check_union| (QEQCAR #2# 0)
-                                                (|OrderedVariableList|
-                                                 (QREFELT $ 6))
-                                                #2#))
-                               . #4#)
+                                   (LETT #3# (SPADCALL |v| (QREFELT $ 34))
+                                         . #5#)
+                                   (QCDR #3#)
+                                 (|check_union2| (QEQCAR #3# 0)
+                                                 (|OrderedVariableList|
+                                                  (QREFELT $ 6))
+                                                 (|Union|
+                                                  (|OrderedVariableList|
+                                                   (QREFELT $ 6))
+                                                  #1#)
+                                                 #3#))
+                               . #5#)
                          (EXIT
                           (COND
                            ((SPADCALL (SPADCALL |p| |vv| (QREFELT $ 35)) 0
                                       (QREFELT $ 36))
                             (PROGN
-                             (LETT #1# (CONS 0 |vv|) . #4#)
-                             (GO #5=#:G159))))))
-                        (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+                             (LETT #2# (CONS 0 |vv|) . #5#)
+                             (GO #6=#:G159))))))
+                        (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
                    (EXIT (CONS 1 "failed"))))))
-          #5# (EXIT #1#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |GDMP;ground?;$B;7| ((|p| $) ($ |Boolean|))
         (QEQCAR (SPADCALL |p| (QREFELT $ 38)) 1)) 
@@ -279,8 +283,8 @@
                            (CONS
                             (SPADCALL
                              (PROG1 (LETT #1# |i| . #5#)
-                               (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                                #1#))
+                               (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                                 '(|NonNegativeInteger|) #1#))
                              (QREFELT $ 72))
                             #3#)
                            . #5#)))))

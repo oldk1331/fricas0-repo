@@ -909,10 +909,14 @@
                                              (QREFELT $ 72))
                                    . #12#)
                              (QCDR #2#)
-                           (|check_union| (QEQCAR #2# 0)
-                                          (|SparseUnivariatePolynomial|
-                                           (QREFELT $ 9))
-                                          #2#))
+                           (|check_union2| (QEQCAR #2# 0)
+                                           (|SparseUnivariatePolynomial|
+                                            (QREFELT $ 9))
+                                           (|Union|
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 9))
+                                            "failed")
+                                           #2#))
                          . #12#)
                    (LETT |tlist| (QVELT |ldcoef| 3) . #12#)
                    (EXIT
@@ -984,9 +988,10 @@
                                                         (QREFELT $ 80))
                                               (PROG1
                                                   (LETT #2# (- |n| |m|) . #3#)
-                                                (|check_subtype| (>= #2# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #2#))
+                                                (|check_subtype2| (>= #2# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #2#))
                                               (QREFELT $ 81))
                                              (QREFELT $ 45))
                                    . #3#)
@@ -1022,8 +1027,8 @@
                (SEQ
                 (LETT |i|
                       (PROG1 (LETT #1# |k| . #2#)
-                        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                         #1#))
+                        (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #1#))
                       . #2#)
                 (COND
                  ((OR (NULL |lterm|)

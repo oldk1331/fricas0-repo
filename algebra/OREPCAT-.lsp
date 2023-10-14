@@ -101,7 +101,8 @@
                                    (QREFELT $ 34))
                          |OREPCAT-;primitivePart;2S;7|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                 (|Union| (QREFELT $ 6) "failed") #1#)))) 
 
 (SDEFUN |OREPCAT-;leftQuotient;3S;8| ((|a| S) (|b| S) ($ S))
         (QCAR (SPADCALL |a| |b| (QREFELT $ 37)))) 

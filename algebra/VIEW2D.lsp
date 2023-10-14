@@ -58,7 +58,9 @@
                                        (QREFELT $ 33))
                              |VIEW2D;getGraph;$PiGi;6|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (|GraphImage|) #1#)))))))) 
+                     (|check_union2| (QEQCAR #1# 0) (|GraphImage|)
+                                     (|Union| (|GraphImage|) "undefined")
+                                     #1#)))))))) 
 
 (PUT '|VIEW2D;graphStates;$V;7| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 2))) 

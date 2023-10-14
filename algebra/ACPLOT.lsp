@@ -2064,140 +2064,140 @@
          ($ |Record| (|:| |newPt| (|Point| (|DoubleFloat|)))
           (|:| |type| (|String|))))
         (SPROG
-         ((|critPt| #2=(|Union| (|Point| (|DoubleFloat|)) "failed"))
-          (|bdryPt| #2#) (|pt| #3=(|Point| (|DoubleFloat|)))
-          (|x2| #4=(|DoubleFloat|)) (#5=#:G481 NIL)
-          (|x2New| #6=(|Union| (|DoubleFloat|) "failed"))
+         ((|critPt| #2=(|Union| (|Point| (|DoubleFloat|)) #3="failed"))
+          (|bdryPt| #2#) (|pt| #4=(|Point| (|DoubleFloat|)))
+          (|x2| #5=(|DoubleFloat|)) (#6=#:G481 NIL)
+          (|x2New| #7=(|Union| (|DoubleFloat|) "failed"))
           (|f| (|SparseUnivariatePolynomial| (|DoubleFloat|)))
-          (|y2| (|DoubleFloat|)) (|y2New| #6#) (|y2Approx| #4#)
-          (|x2Approx| #4#) (|lookingFor| (|String|)) (|incVar| #1#)
-          (#7=#:G452 NIL) (|critPt2| #2#) (|critPt1| #2#) (|pt2| #3#)
-          (|pt1| #3#) (|x2Temp| #4#) (|y2Temp| #4#) (|yHi| #4#)
-          (|yLo| #8=(|DoubleFloat|))
-          (|yPointList| #9=(|List| (|Point| (|DoubleFloat|)))) (|xHi| #4#)
-          (|xLo| #10=(|DoubleFloat|)) (|xPointList| #9#) (|yy| #8#) (|xx| #10#)
-          (#11=#:G482 NIL) (|y2Approxx| #4#) (|x2Approxx| #4#)
-          (|deltaY| #12=(|DoubleFloat|)) (|incVar0| #1#) (|deltaX| #12#)
-          (|py| #13=(|DoubleFloat|)) (|px| #13#) (|y1| #8#) (|x1| #10#)
-          (|y0| #8#) (|x0| #10#) (|yMaxSF| (|DoubleFloat|))
+          (|y2| (|DoubleFloat|)) (|y2New| #7#) (|y2Approx| #5#)
+          (|x2Approx| #5#) (|lookingFor| (|String|)) (|incVar| #1#)
+          (#8=#:G452 NIL) (|critPt2| #2#) (|critPt1| #2#) (|pt2| #4#)
+          (|pt1| #4#) (|x2Temp| #5#) (|y2Temp| #5#) (|yHi| #5#)
+          (|yLo| #9=(|DoubleFloat|))
+          (|yPointList| #10=(|List| (|Point| (|DoubleFloat|)))) (|xHi| #5#)
+          (|xLo| #11=(|DoubleFloat|)) (|xPointList| #10#) (|yy| #9#)
+          (|xx| #11#) (#12=#:G482 NIL) (|y2Approxx| #5#) (|x2Approxx| #5#)
+          (|deltaY| #13=(|DoubleFloat|)) (|incVar0| #1#) (|deltaX| #13#)
+          (|py| #14=(|DoubleFloat|)) (|px| #14#) (|y1| #9#) (|x1| #11#)
+          (|y0| #9#) (|x0| #11#) (|yMaxSF| (|DoubleFloat|))
           (|yMinSF| (|DoubleFloat|)) (|xMaxSF| (|DoubleFloat|))
           (|xMinSF| (|DoubleFloat|)))
          (SEQ
           (EXIT
            (SEQ
             (LETT |xMinSF| (|ACPLOT;getXMin| |corners| $)
-                  . #14=(|ACPLOT;computeNextPt|))
-            (LETT |xMaxSF| (|ACPLOT;getXMax| |corners| $) . #14#)
-            (LETT |yMinSF| (|ACPLOT;getYMin| |corners| $) . #14#)
-            (LETT |yMaxSF| (|ACPLOT;getYMax| |corners| $) . #14#)
-            (LETT |x0| (SPADCALL |p0| (QREFELT $ 28)) . #14#)
-            (LETT |y0| (SPADCALL |p0| (QREFELT $ 27)) . #14#)
-            (LETT |x1| (SPADCALL |p1| (QREFELT $ 28)) . #14#)
-            (LETT |y1| (SPADCALL |p1| (QREFELT $ 27)) . #14#)
+                  . #15=(|ACPLOT;computeNextPt|))
+            (LETT |xMaxSF| (|ACPLOT;getXMax| |corners| $) . #15#)
+            (LETT |yMinSF| (|ACPLOT;getYMin| |corners| $) . #15#)
+            (LETT |yMaxSF| (|ACPLOT;getYMax| |corners| $) . #15#)
+            (LETT |x0| (SPADCALL |p0| (QREFELT $ 28)) . #15#)
+            (LETT |y0| (SPADCALL |p0| (QREFELT $ 27)) . #15#)
+            (LETT |x1| (SPADCALL |p1| (QREFELT $ 28)) . #15#)
+            (LETT |y1| (SPADCALL |p1| (QREFELT $ 27)) . #15#)
             (LETT |px|
                   (SPADCALL
                    (SPADCALL |dpdxSF| (LIST |x| |y|) (LIST |x1| |y1|)
                              (QREFELT $ 130))
                    (QREFELT $ 131))
-                  . #14#)
+                  . #15#)
             (LETT |py|
                   (SPADCALL
                    (SPADCALL |dpdySF| (LIST |x| |y|) (LIST |x1| |y1|)
                              (QREFELT $ 130))
                    (QREFELT $ 131))
-                  . #14#)
+                  . #15#)
             (COND
              ((SPADCALL (|abs_DF| |py|) (|abs_DF| |px|) (QREFELT $ 112))
-              (SEQ (LETT |incVar0| (LETT |incVar| |x| . #14#) . #14#)
+              (SEQ (LETT |incVar0| (LETT |incVar| |x| . #15#) . #15#)
                    (LETT |deltaX|
                          (COND ((SPADCALL |x1| |x0| (QREFELT $ 112)) |delta|)
-                               (#15='T (|minus_DF| |delta|)))
-                         . #14#)
-                   (LETT |x2Approx| (|add_DF| |x1| |deltaX|) . #14#)
+                               (#16='T (|minus_DF| |delta|)))
+                         . #15#)
+                   (LETT |x2Approx| (|add_DF| |x1| |deltaX|) . #15#)
                    (EXIT
                     (LETT |y2Approx|
                           (|add_DF| |y1|
                                     (|mul_DF| (|minus_DF| (|div_DF| |px| |py|))
                                               |deltaX|))
-                          . #14#))))
-             (#15#
-              (SEQ (LETT |incVar0| (LETT |incVar| |y| . #14#) . #14#)
+                          . #15#))))
+             (#16#
+              (SEQ (LETT |incVar0| (LETT |incVar| |y| . #15#) . #15#)
                    (LETT |deltaY|
                          (COND ((SPADCALL |y1| |y0| (QREFELT $ 112)) |delta|)
-                               (#15# (|minus_DF| |delta|)))
-                         . #14#)
+                               (#16# (|minus_DF| |delta|)))
+                         . #15#)
                    (LETT |x2Approx|
                          (|add_DF| |x1|
                                    (|mul_DF| (|minus_DF| (|div_DF| |py| |px|))
                                              |deltaY|))
-                         . #14#)
-                   (EXIT (LETT |y2Approx| (|add_DF| |y1| |deltaY|) . #14#)))))
-            (LETT |lookingFor| (QREFELT $ 16) . #14#)
+                         . #15#)
+                   (EXIT (LETT |y2Approx| (|add_DF| |y1| |deltaY|) . #15#)))))
+            (LETT |lookingFor| (QREFELT $ 16) . #15#)
             (COND
              ((SPADCALL |x2Approx| |xMaxSF| (QREFELT $ 93))
-              (SEQ (LETT |incVar| |x| . #14#)
-                   (LETT |lookingFor| (QREFELT $ 17) . #14#)
-                   (LETT |x2Approx| |xMaxSF| . #14#)
+              (SEQ (LETT |incVar| |x| . #15#)
+                   (LETT |lookingFor| (QREFELT $ 17) . #15#)
+                   (LETT |x2Approx| |xMaxSF| . #15#)
                    (EXIT
                     (LETT |y2Approx|
                           (|add_DF| |y1|
                                     (|mul_DF| (|minus_DF| (|div_DF| |px| |py|))
                                               (|sub_DF| |x2Approx| |x1|)))
-                          . #14#))))
+                          . #15#))))
              ((SPADCALL |x2Approx| |xMinSF| (QREFELT $ 90))
-              (SEQ (LETT |incVar| |x| . #14#)
-                   (LETT |lookingFor| (QREFELT $ 17) . #14#)
-                   (LETT |x2Approx| |xMinSF| . #14#)
+              (SEQ (LETT |incVar| |x| . #15#)
+                   (LETT |lookingFor| (QREFELT $ 17) . #15#)
+                   (LETT |x2Approx| |xMinSF| . #15#)
                    (EXIT
                     (LETT |y2Approx|
                           (|add_DF| |y1|
                                     (|mul_DF| (|minus_DF| (|div_DF| |px| |py|))
                                               (|sub_DF| |x2Approx| |x1|)))
-                          . #14#)))))
+                          . #15#)))))
             (COND
              ((SPADCALL |y2Approx| |yMaxSF| (QREFELT $ 93))
-              (SEQ (LETT |incVar| |y| . #14#)
-                   (LETT |lookingFor| (QREFELT $ 17) . #14#)
-                   (LETT |y2Approx| |yMaxSF| . #14#)
+              (SEQ (LETT |incVar| |y| . #15#)
+                   (LETT |lookingFor| (QREFELT $ 17) . #15#)
+                   (LETT |y2Approx| |yMaxSF| . #15#)
                    (EXIT
                     (LETT |x2Approx|
                           (|add_DF| |x1|
                                     (|mul_DF| (|minus_DF| (|div_DF| |py| |px|))
                                               (|sub_DF| |y2Approx| |y1|)))
-                          . #14#))))
+                          . #15#))))
              ((SPADCALL |y2Approx| |yMinSF| (QREFELT $ 90))
-              (SEQ (LETT |incVar| |y| . #14#)
-                   (LETT |lookingFor| (QREFELT $ 17) . #14#)
-                   (LETT |y2Approx| |yMinSF| . #14#)
+              (SEQ (LETT |incVar| |y| . #15#)
+                   (LETT |lookingFor| (QREFELT $ 17) . #15#)
+                   (LETT |y2Approx| |yMinSF| . #15#)
                    (EXIT
                     (LETT |x2Approx|
                           (|add_DF| |x1|
                                     (|mul_DF| (|minus_DF| (|div_DF| |py| |px|))
                                               (|sub_DF| |y2Approx| |y1|)))
-                          . #14#)))))
+                          . #15#)))))
             (COND
              ((|less_DF| |x1| |x2Approx|)
-              (SEQ (LETT |xLo| |x1| . #14#)
-                   (EXIT (LETT |xHi| |x2Approx| . #14#))))
-             (#15#
-              (SEQ (LETT |xLo| |x2Approx| . #14#)
-                   (EXIT (LETT |xHi| |x1| . #14#)))))
+              (SEQ (LETT |xLo| |x1| . #15#)
+                   (EXIT (LETT |xHi| |x2Approx| . #15#))))
+             (#16#
+              (SEQ (LETT |xLo| |x2Approx| . #15#)
+                   (EXIT (LETT |xHi| |x1| . #15#)))))
             (COND
              ((|less_DF| |y1| |y2Approx|)
-              (SEQ (LETT |yLo| |y1| . #14#)
-                   (EXIT (LETT |yHi| |y2Approx| . #14#))))
-             (#15#
-              (SEQ (LETT |yLo| |y2Approx| . #14#)
-                   (EXIT (LETT |yHi| |y1| . #14#)))))
-            (LETT |x2Approxx| |x2Approx| . #14#)
-            (LETT |y2Approxx| |y2Approx| . #14#) (LETT |xPointList| NIL . #14#)
-            (LETT |yPointList| NIL . #14#)
-            (SEQ (LETT |pt| NIL . #14#) (LETT #11# |crits| . #14#) G190
+              (SEQ (LETT |yLo| |y1| . #15#)
+                   (EXIT (LETT |yHi| |y2Approx| . #15#))))
+             (#16#
+              (SEQ (LETT |yLo| |y2Approx| . #15#)
+                   (EXIT (LETT |yHi| |y1| . #15#)))))
+            (LETT |x2Approxx| |x2Approx| . #15#)
+            (LETT |y2Approxx| |y2Approx| . #15#) (LETT |xPointList| NIL . #15#)
+            (LETT |yPointList| NIL . #15#)
+            (SEQ (LETT |pt| NIL . #15#) (LETT #12# |crits| . #15#) G190
                  (COND
-                  ((OR (ATOM #11#) (PROGN (LETT |pt| (CAR #11#) . #14#) NIL))
+                  ((OR (ATOM #12#) (PROGN (LETT |pt| (CAR #12#) . #15#) NIL))
                    (GO G191)))
-                 (SEQ (LETT |xx| (SPADCALL |pt| (QREFELT $ 28)) . #14#)
-                      (LETT |yy| (SPADCALL |pt| (QREFELT $ 27)) . #14#)
+                 (SEQ (LETT |xx| (SPADCALL |pt| (QREFELT $ 28)) . #15#)
+                      (LETT |yy| (SPADCALL |pt| (QREFELT $ 27)) . #15#)
                       (COND
                        ((|eql_DF| |xx| |x2Approx|)
                         (COND
@@ -2208,7 +2208,7 @@
                                        (|abs_DF| (|sub_DF| |yy| |yHi|)))
                              |delta|)
                             (LETT |xPointList| (CONS |pt| |xPointList|)
-                                  . #14#)))))))
+                                  . #15#)))))))
                       (COND
                        ((|less_DF| |xLo| |xx|)
                         (COND
@@ -2218,19 +2218,19 @@
                              (|min_DF| (|abs_DF| (|sub_DF| |yy| |yLo|))
                                        (|abs_DF| (|sub_DF| |yy| |yHi|)))
                              |delta|)
-                            (SEQ (LETT |xPointList| (CONS |pt| NIL) . #14#)
-                                 (LETT |x2Approx| |xx| . #14#)
+                            (SEQ (LETT |xPointList| (CONS |pt| NIL) . #15#)
+                                 (LETT |x2Approx| |xx| . #15#)
                                  (EXIT
                                   (COND
                                    ((|less_DF| |xx| |x1|)
-                                    (LETT |xLo| |xx| . #14#))
-                                   ('T (LETT |xHi| |xx| . #14#)))))))))))
+                                    (LETT |xLo| |xx| . #15#))
+                                   ('T (LETT |xHi| |xx| . #15#)))))))))))
                       (COND
                        ((|eql_DF| |yy| |y2Approx|)
                         (COND
                          ((NULL (|eql_DF| |yy| |y1|))
                           (LETT |yPointList| (CONS |pt| |yPointList|)
-                                . #14#)))))
+                                . #15#)))))
                       (EXIT
                        (COND
                         ((|less_DF| |yLo| |yy|)
@@ -2241,21 +2241,21 @@
                               (|min_DF| (|abs_DF| (|sub_DF| |xx| |xLo|))
                                         (|abs_DF| (|sub_DF| |xx| |xHi|)))
                               |delta|)
-                             (SEQ (LETT |yPointList| (CONS |pt| NIL) . #14#)
-                                  (LETT |y2Approx| |yy| . #14#)
+                             (SEQ (LETT |yPointList| (CONS |pt| NIL) . #15#)
+                                  (LETT |y2Approx| |yy| . #15#)
                                   (EXIT
                                    (COND
                                     ((|less_DF| |yy| |y1|)
-                                     (LETT |yLo| |yy| . #14#))
-                                    ('T (LETT |yHi| |yy| . #14#)))))))))))))
-                 (LETT #11# (CDR #11#) . #14#) (GO G190) G191 (EXIT NIL))
+                                     (LETT |yLo| |yy| . #15#))
+                                    ('T (LETT |yHi| |yy| . #15#)))))))))))))
+                 (LETT #12# (CDR #12#) . #15#) (GO G190) G191 (EXIT NIL))
             (COND
              ((NULL (NULL |xPointList|))
               (COND
                ((NULL (NULL |yPointList|))
                 (COND
                  ((SPADCALL |xPointList| |yPointList| (QREFELT $ 136))
-                  (SEQ (LETT |incVar| |incVar0| . #14#)
+                  (SEQ (LETT |incVar| |incVar0| . #15#)
                        (COND
                         ((EQUAL |incVar| |x|)
                          (LETT |y2Approx|
@@ -2263,29 +2263,29 @@
                                          (|mul_DF|
                                           (|minus_DF| (|div_DF| |px| |py|))
                                           (|sub_DF| |x2Approx| |x1|)))
-                               . #14#))
-                        (#15#
+                               . #15#))
+                        (#16#
                          (LETT |x2Approx|
                                (|add_DF| |x1|
                                          (|mul_DF|
                                           (|minus_DF| (|div_DF| |py| |px|))
                                           (|sub_DF| |y2Approx| |y1|)))
-                               . #14#)))
-                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #14#))))
+                               . #15#)))
+                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #15#))))
                  ((EQUAL |incVar0| |x|)
                   (SEQ
                    (LETT |x2Temp|
                          (|add_DF| |x1|
                                    (|mul_DF| (|minus_DF| (|div_DF| |py| |px|))
                                              (|sub_DF| |y2Approx| |y1|)))
-                         . #14#)
+                         . #15#)
                    (LETT |f|
                          (|ACPLOT;SFPolyToUPoly|
                           (SPADCALL |pSF| |y| |y2Approx| (QREFELT $ 137)) $)
-                         . #14#)
+                         . #15#)
                    (LETT |x2New|
                          (|ACPLOT;newtonApprox| |f| |x2Temp| |err| |bound| $)
-                         . #14#)
+                         . #15#)
                    (EXIT
                     (COND
                      ((QEQCAR |x2New| 1)
@@ -2295,52 +2295,52 @@
                                        (|mul_DF|
                                         (|minus_DF| (|div_DF| |px| |py|))
                                         (|sub_DF| |x2Approx| |x1|)))
-                             . #14#)
-                       (LETT |incVar| |x| . #14#)
-                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #14#))))
-                     (#15#
+                             . #15#)
+                       (LETT |incVar| |x| . #15#)
+                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #15#))))
+                     (#16#
                       (SEQ
                        (LETT |y2Temp|
                              (|add_DF| |y1|
                                        (|mul_DF|
                                         (|minus_DF| (|div_DF| |px| |py|))
                                         (|sub_DF| |x2Approx| |x1|)))
-                             . #14#)
+                             . #15#)
                        (LETT |f|
                              (|ACPLOT;SFPolyToUPoly|
                               (SPADCALL |pSF| |x| |x2Approx| (QREFELT $ 137))
                               $)
-                             . #14#)
+                             . #15#)
                        (LETT |y2New|
                              (|ACPLOT;newtonApprox| |f| |y2Temp| |err| |bound|
                               $)
-                             . #14#)
+                             . #15#)
                        (EXIT
                         (COND
                          ((QEQCAR |y2New| 1)
                           (PROGN
-                           (LETT #5#
+                           (LETT #6#
                                  (|ACPLOT;computeNextPt| |pSF| |dpdxSF|
                                   |dpdySF| |x| |y| |p0| |p1| |corners|
                                   (|abs_DF|
                                    (|div_DF_I| (|sub_DF| |x2Approx| |x1|) 2))
                                   |err| |bound| |crits| |bdry| $)
-                                 . #14#)
-                           (GO #16=#:G480)))
-                         (#15#
+                                 . #15#)
+                           (GO #17=#:G480)))
+                         (#16#
                           (SEQ
                            (LETT |pt1|
                                  (|ACPLOT;makePt| |x2Approx| (QCDR |y2New|) $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |pt2|
                                  (|ACPLOT;makePt| (QCDR |x2New|) |y2Approx| $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |critPt1|
                                  (|ACPLOT;findPtOnList| |pt1| |crits| $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |critPt2|
                                  (|ACPLOT;findPtOnList| |pt2| |crits| $)
-                                 . #14#)
+                                 . #15#)
                            (COND
                             ((QEQCAR |critPt1| 1)
                              (COND
@@ -2352,64 +2352,68 @@
                                    (|abs_DF| (|sub_DF| |x2Temp| |x1|))
                                    (QREFELT $ 112))
                                   (PROGN
-                                   (LETT #5# (CONS |pt1| (QREFELT $ 16))
-                                         . #14#)
-                                   (GO #16#)))
-                                 (#15#
+                                   (LETT #6# (CONS |pt1| (QREFELT $ 16))
+                                         . #15#)
+                                   (GO #17#)))
+                                 (#16#
                                   (PROGN
-                                   (LETT #5# (CONS |pt2| (QREFELT $ 16))
-                                         . #14#)
-                                   (GO #16#)))))))))
+                                   (LETT #6# (CONS |pt2| (QREFELT $ 16))
+                                         . #15#)
+                                   (GO #17#)))))))))
                            (EXIT
                             (COND
                              ((QEQCAR |critPt1| 1)
                               (PROGN
-                               (LETT #5#
+                               (LETT #6#
                                      (CONS
-                                      (PROG2 (LETT #7# |critPt2| . #14#)
-                                          (QCDR #7#)
-                                        (|check_union| (QEQCAR #7# 0)
-                                                       (|Point|
-                                                        (|DoubleFloat|))
-                                                       #7#))
+                                      (PROG2 (LETT #8# |critPt2| . #15#)
+                                          (QCDR #8#)
+                                        (|check_union2| (QEQCAR #8# 0)
+                                                        (|Point|
+                                                         (|DoubleFloat|))
+                                                        (|Union|
+                                                         (|Point|
+                                                          (|DoubleFloat|))
+                                                         #3#)
+                                                        #8#))
                                       (QREFELT $ 18))
-                                     . #14#)
-                               (GO #16#)))
+                                     . #15#)
+                               (GO #17#)))
                              ((QEQCAR |critPt2| 1)
                               (PROGN
-                               (LETT #5# (CONS (QCDR |critPt1|) (QREFELT $ 18))
-                                     . #14#)
-                               (GO #16#)))
-                             (#15#
+                               (LETT #6# (CONS (QCDR |critPt1|) (QREFELT $ 18))
+                                     . #15#)
+                               (GO #17#)))
+                             (#16#
                               (COND
                                ((SPADCALL (|abs_DF| (|sub_DF| |x2Approx| |x1|))
                                           (|abs_DF| (|sub_DF| |x2Temp| |x1|))
                                           (QREFELT $ 112))
                                 (PROGN
-                                 (LETT #5#
+                                 (LETT #6#
                                        (CONS (QCDR |critPt2|) (QREFELT $ 18))
-                                       . #14#)
-                                 (GO #16#)))
-                               (#15#
+                                       . #15#)
+                                 (GO #17#)))
+                               (#16#
                                 (PROGN
-                                 (LETT #5#
+                                 (LETT #6#
                                        (CONS (QCDR |critPt1|) (QREFELT $ 18))
-                                       . #14#)
-                                 (GO #16#)))))))))))))))))
-                 (#15#
+                                       . #15#)
+                                 (GO #17#)))))))))))))))))
+                 (#16#
                   (SEQ
                    (LETT |y2Temp|
                          (|add_DF| |y1|
                                    (|mul_DF| (|minus_DF| (|div_DF| |px| |py|))
                                              (|sub_DF| |x2Approx| |x1|)))
-                         . #14#)
+                         . #15#)
                    (LETT |f|
                          (|ACPLOT;SFPolyToUPoly|
                           (SPADCALL |pSF| |x| |x2Approx| (QREFELT $ 137)) $)
-                         . #14#)
+                         . #15#)
                    (LETT |y2New|
                          (|ACPLOT;newtonApprox| |f| |y2Temp| |err| |bound| $)
-                         . #14#)
+                         . #15#)
                    (EXIT
                     (COND
                      ((QEQCAR |y2New| 1)
@@ -2419,52 +2423,52 @@
                                        (|mul_DF|
                                         (|minus_DF| (|div_DF| |py| |px|))
                                         (|sub_DF| |y2Approx| |y1|)))
-                             . #14#)
-                       (LETT |incVar| |y| . #14#)
-                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #14#))))
-                     (#15#
+                             . #15#)
+                       (LETT |incVar| |y| . #15#)
+                       (EXIT (LETT |lookingFor| (QREFELT $ 18) . #15#))))
+                     (#16#
                       (SEQ
                        (LETT |x2Temp|
                              (|add_DF| |x1|
                                        (|mul_DF|
                                         (|minus_DF| (|div_DF| |py| |px|))
                                         (|sub_DF| |y2Approx| |y1|)))
-                             . #14#)
+                             . #15#)
                        (LETT |f|
                              (|ACPLOT;SFPolyToUPoly|
                               (SPADCALL |pSF| |y| |y2Approx| (QREFELT $ 137))
                               $)
-                             . #14#)
+                             . #15#)
                        (LETT |x2New|
                              (|ACPLOT;newtonApprox| |f| |x2Temp| |err| |bound|
                               $)
-                             . #14#)
+                             . #15#)
                        (EXIT
                         (COND
                          ((QEQCAR |x2New| 1)
                           (PROGN
-                           (LETT #5#
+                           (LETT #6#
                                  (|ACPLOT;computeNextPt| |pSF| |dpdxSF|
                                   |dpdySF| |x| |y| |p0| |p1| |corners|
                                   (|abs_DF|
                                    (|div_DF_I| (|sub_DF| |y2Approx| |y1|) 2))
                                   |err| |bound| |crits| |bdry| $)
-                                 . #14#)
-                           (GO #16#)))
-                         (#15#
+                                 . #15#)
+                           (GO #17#)))
+                         (#16#
                           (SEQ
                            (LETT |pt1|
                                  (|ACPLOT;makePt| |x2Approx| (QCDR |y2New|) $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |pt2|
                                  (|ACPLOT;makePt| (QCDR |x2New|) |y2Approx| $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |critPt1|
                                  (|ACPLOT;findPtOnList| |pt1| |crits| $)
-                                 . #14#)
+                                 . #15#)
                            (LETT |critPt2|
                                  (|ACPLOT;findPtOnList| |pt2| |crits| $)
-                                 . #14#)
+                                 . #15#)
                            (COND
                             ((QEQCAR |critPt1| 1)
                              (COND
@@ -2476,50 +2480,54 @@
                                    (|abs_DF| (|sub_DF| |y2Temp| |y1|))
                                    (QREFELT $ 112))
                                   (PROGN
-                                   (LETT #5# (CONS |pt2| (QREFELT $ 16))
-                                         . #14#)
-                                   (GO #16#)))
-                                 (#15#
+                                   (LETT #6# (CONS |pt2| (QREFELT $ 16))
+                                         . #15#)
+                                   (GO #17#)))
+                                 (#16#
                                   (PROGN
-                                   (LETT #5# (CONS |pt1| (QREFELT $ 16))
-                                         . #14#)
-                                   (GO #16#)))))))))
+                                   (LETT #6# (CONS |pt1| (QREFELT $ 16))
+                                         . #15#)
+                                   (GO #17#)))))))))
                            (EXIT
                             (COND
                              ((QEQCAR |critPt1| 1)
                               (PROGN
-                               (LETT #5#
+                               (LETT #6#
                                      (CONS
-                                      (PROG2 (LETT #7# |critPt2| . #14#)
-                                          (QCDR #7#)
-                                        (|check_union| (QEQCAR #7# 0)
-                                                       (|Point|
-                                                        (|DoubleFloat|))
-                                                       #7#))
+                                      (PROG2 (LETT #8# |critPt2| . #15#)
+                                          (QCDR #8#)
+                                        (|check_union2| (QEQCAR #8# 0)
+                                                        (|Point|
+                                                         (|DoubleFloat|))
+                                                        (|Union|
+                                                         (|Point|
+                                                          (|DoubleFloat|))
+                                                         #3#)
+                                                        #8#))
                                       (QREFELT $ 18))
-                                     . #14#)
-                               (GO #16#)))
+                                     . #15#)
+                               (GO #17#)))
                              ((QEQCAR |critPt2| 1)
                               (PROGN
-                               (LETT #5# (CONS (QCDR |critPt1|) (QREFELT $ 18))
-                                     . #14#)
-                               (GO #16#)))
-                             (#15#
+                               (LETT #6# (CONS (QCDR |critPt1|) (QREFELT $ 18))
+                                     . #15#)
+                               (GO #17#)))
+                             (#16#
                               (COND
                                ((SPADCALL (|abs_DF| (|sub_DF| |y2Approx| |y1|))
                                           (|abs_DF| (|sub_DF| |y2Temp| |y1|))
                                           (QREFELT $ 112))
                                 (PROGN
-                                 (LETT #5#
+                                 (LETT #6#
                                        (CONS (QCDR |critPt1|) (QREFELT $ 18))
-                                       . #14#)
-                                 (GO #16#)))
-                               (#15#
+                                       . #15#)
+                                 (GO #17#)))
+                               (#16#
                                 (PROGN
-                                 (LETT #5#
+                                 (LETT #6#
                                        (CONS (QCDR |critPt2|) (QREFELT $ 18))
-                                       . #14#)
-                                 (GO #16#))))))))))))))))))))))
+                                       . #15#)
+                                 (GO #17#))))))))))))))))))))))
             (COND
              ((NULL (NULL |xPointList|))
               (COND
@@ -2529,45 +2537,45 @@
                        (|add_DF| |y1|
                                  (|mul_DF| (|minus_DF| (|div_DF| |px| |py|))
                                            (|sub_DF| |x2Approx| |x1|)))
-                       . #14#)
+                       . #15#)
                  (EXIT
                   (COND
                    ((EQUAL |incVar0| |x|)
-                    (SEQ (LETT |incVar| |x| . #14#)
-                         (EXIT (LETT |lookingFor| (QREFELT $ 18) . #14#))))
-                   (#15#
+                    (SEQ (LETT |incVar| |x| . #15#)
+                         (EXIT (LETT |lookingFor| (QREFELT $ 18) . #15#))))
+                   (#16#
                     (SEQ
                      (LETT |f|
                            (|ACPLOT;SFPolyToUPoly|
                             (SPADCALL |pSF| |x| |x2Approx| (QREFELT $ 137)) $)
-                           . #14#)
+                           . #15#)
                      (LETT |y2New|
                            (|ACPLOT;newtonApprox| |f| |y2Approx| |err| |bound|
                             $)
-                           . #14#)
+                           . #15#)
                      (EXIT
                       (COND
                        ((QEQCAR |y2New| 1)
-                        (SEQ (LETT |x2Approx| |x2Approxx| . #14#)
-                             (EXIT (LETT |y2Approx| |y2Approxx| . #14#))))
-                       (#15#
+                        (SEQ (LETT |x2Approx| |x2Approxx| . #15#)
+                             (EXIT (LETT |y2Approx| |y2Approxx| . #15#))))
+                       (#16#
                         (SEQ
                          (LETT |pt|
                                (|ACPLOT;makePt| |x2Approx| (QCDR |y2New|) $)
-                               . #14#)
+                               . #15#)
                          (LETT |critPt| (|ACPLOT;findPtOnList| |pt| |crits| $)
-                               . #14#)
+                               . #15#)
                          (EXIT
                           (COND
                            ((QEQCAR |critPt| 1)
                             (PROGN
-                             (LETT #5# (CONS |pt| (QREFELT $ 16)) . #14#)
-                             (GO #16#)))
-                           (#15#
+                             (LETT #6# (CONS |pt| (QREFELT $ 16)) . #15#)
+                             (GO #17#)))
+                           (#16#
                             (PROGN
-                             (LETT #5# (CONS (QCDR |critPt|) (QREFELT $ 18))
-                                   . #14#)
-                             (GO #16#))))))))))))))))))
+                             (LETT #6# (CONS (QCDR |critPt|) (QREFELT $ 18))
+                                   . #15#)
+                             (GO #17#))))))))))))))))))
             (COND
              ((NULL |xPointList|)
               (COND
@@ -2577,107 +2585,107 @@
                        (|add_DF| |x1|
                                  (|mul_DF| (|minus_DF| (|div_DF| |py| |px|))
                                            (|sub_DF| |y2Approx| |y1|)))
-                       . #14#)
+                       . #15#)
                  (EXIT
                   (COND
                    ((EQUAL |incVar0| |y|)
-                    (SEQ (LETT |incVar| |y| . #14#)
-                         (EXIT (LETT |lookingFor| (QREFELT $ 18) . #14#))))
-                   (#15#
+                    (SEQ (LETT |incVar| |y| . #15#)
+                         (EXIT (LETT |lookingFor| (QREFELT $ 18) . #15#))))
+                   (#16#
                     (SEQ
                      (LETT |f|
                            (|ACPLOT;SFPolyToUPoly|
                             (SPADCALL |pSF| |y| |y2Approx| (QREFELT $ 137)) $)
-                           . #14#)
+                           . #15#)
                      (LETT |x2New|
                            (|ACPLOT;newtonApprox| |f| |x2Approx| |err| |bound|
                             $)
-                           . #14#)
+                           . #15#)
                      (EXIT
                       (COND
                        ((QEQCAR |x2New| 1)
-                        (SEQ (LETT |x2Approx| |x2Approxx| . #14#)
-                             (EXIT (LETT |y2Approx| |y2Approxx| . #14#))))
-                       (#15#
+                        (SEQ (LETT |x2Approx| |x2Approxx| . #15#)
+                             (EXIT (LETT |y2Approx| |y2Approxx| . #15#))))
+                       (#16#
                         (SEQ
                          (LETT |pt|
                                (|ACPLOT;makePt| (QCDR |x2New|) |y2Approx| $)
-                               . #14#)
+                               . #15#)
                          (LETT |critPt| (|ACPLOT;findPtOnList| |pt| |crits| $)
-                               . #14#)
+                               . #15#)
                          (EXIT
                           (COND
                            ((QEQCAR |critPt| 1)
                             (PROGN
-                             (LETT #5# (CONS |pt| (QREFELT $ 16)) . #14#)
-                             (GO #16#)))
-                           (#15#
+                             (LETT #6# (CONS |pt| (QREFELT $ 16)) . #15#)
+                             (GO #17#)))
+                           (#16#
                             (PROGN
-                             (LETT #5# (CONS (QCDR |critPt|) (QREFELT $ 18))
-                                   . #14#)
-                             (GO #16#))))))))))))))))))
+                             (LETT #6# (CONS (QCDR |critPt|) (QREFELT $ 18))
+                                   . #15#)
+                             (GO #17#))))))))))))))))))
             (COND
              ((EQUAL |incVar| |x|)
-              (SEQ (LETT |x2| |x2Approx| . #14#)
+              (SEQ (LETT |x2| |x2Approx| . #15#)
                    (LETT |f|
                          (|ACPLOT;SFPolyToUPoly|
                           (SPADCALL |pSF| |x| |x2| (QREFELT $ 137)) $)
-                         . #14#)
+                         . #15#)
                    (LETT |y2New|
                          (|ACPLOT;newtonApprox| |f| |y2Approx| |err| |bound| $)
-                         . #14#)
+                         . #15#)
                    (EXIT
                     (COND
                      ((QEQCAR |y2New| 1)
                       (PROGN
-                       (LETT #5#
+                       (LETT #6#
                              (|ACPLOT;computeNextPt| |pSF| |dpdxSF| |dpdySF|
                               |x| |y| |p0| |p1| |corners|
                               (|abs_DF| (|div_DF_I| (|sub_DF| |x2| |x1|) 2))
                               |err| |bound| |crits| |bdry| $)
-                             . #14#)
-                       (GO #16#)))
-                     (#15# (LETT |y2| (QCDR |y2New|) . #14#))))))
-             (#15#
-              (SEQ (LETT |y2| |y2Approx| . #14#)
+                             . #15#)
+                       (GO #17#)))
+                     (#16# (LETT |y2| (QCDR |y2New|) . #15#))))))
+             (#16#
+              (SEQ (LETT |y2| |y2Approx| . #15#)
                    (LETT |f|
                          (|ACPLOT;SFPolyToUPoly|
                           (SPADCALL |pSF| |y| |y2| (QREFELT $ 137)) $)
-                         . #14#)
+                         . #15#)
                    (LETT |x2New|
                          (|ACPLOT;newtonApprox| |f| |x2Approx| |err| |bound| $)
-                         . #14#)
+                         . #15#)
                    (EXIT
                     (COND
                      ((QEQCAR |x2New| 1)
                       (PROGN
-                       (LETT #5#
+                       (LETT #6#
                              (|ACPLOT;computeNextPt| |pSF| |dpdxSF| |dpdySF|
                               |x| |y| |p0| |p1| |corners|
                               (|abs_DF| (|div_DF_I| (|sub_DF| |y2| |y1|) 2))
                               |err| |bound| |crits| |bdry| $)
-                             . #14#)
-                       (GO #16#)))
-                     (#15# (LETT |x2| (QCDR |x2New|) . #14#)))))))
-            (LETT |pt| (|ACPLOT;makePt| |x2| |y2| $) . #14#)
+                             . #15#)
+                       (GO #17#)))
+                     (#16# (LETT |x2| (QCDR |x2New|) . #15#)))))))
+            (LETT |pt| (|ACPLOT;makePt| |x2| |y2| $) . #15#)
             (EXIT
              (COND
               ((EQUAL |lookingFor| (QREFELT $ 16)) (CONS |pt| |lookingFor|))
               ((EQUAL |lookingFor| (QREFELT $ 17))
                (SEQ
-                (LETT |bdryPt| (|ACPLOT;findPtOnList| |pt| |bdry| $) . #14#)
+                (LETT |bdryPt| (|ACPLOT;findPtOnList| |pt| |bdry| $) . #15#)
                 (EXIT
                  (COND
                   ((QEQCAR |bdryPt| 1)
                    (|error| "couldn't find boundary point"))
-                  (#15# (CONS (QCDR |bdryPt|) (QREFELT $ 17)))))))
-              (#15#
+                  (#16# (CONS (QCDR |bdryPt|) (QREFELT $ 17)))))))
+              (#16#
                (SEQ
-                (LETT |critPt| (|ACPLOT;findPtOnList| |pt| |crits| $) . #14#)
+                (LETT |critPt| (|ACPLOT;findPtOnList| |pt| |crits| $) . #15#)
                 (EXIT
                  (COND ((QEQCAR |critPt| 1) (CONS |pt| (QREFELT $ 16)))
-                       (#15# (CONS (QCDR |critPt|) (QREFELT $ 18)))))))))))
-          #16# (EXIT #5#)))) 
+                       (#16# (CONS (QCDR |critPt|) (QREFELT $ 18)))))))))))
+          #17# (EXIT #6#)))) 
 
 (SDEFUN |ACPLOT;newtonApprox|
         ((|f| |SparseUnivariatePolynomial| (|DoubleFloat|))

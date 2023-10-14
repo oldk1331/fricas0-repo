@@ -68,41 +68,50 @@
            (|Union|
             (|Record| (|:| |coef1| (|SparseUnivariatePolynomial| GF))
                       (|:| |coef2| (|SparseUnivariatePolynomial| GF)))
-            "failed"))
+            #2="failed"))
           (|xm| (|SparseUnivariatePolynomial| GF)))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 69)) (CONS 0 (|spadConstant| $ 19)))
-                (#2='T
+                (#3='T
                  (SEQ
                   (LETT |xm|
                         (SPADCALL
                          (SPADCALL (|spadConstant| $ 27) (QREFELT $ 17)
                                    (QREFELT $ 58))
                          (|spadConstant| $ 21) (QREFELT $ 59))
-                        . #3=(|FFNBP;linearAssociatedLog;2$U;7|))
+                        . #4=(|FFNBP;linearAssociatedLog;2$U;7|))
                   (LETT |e|
                         (SPADCALL (SPADCALL |b| (QREFELT $ 60)) |xm|
                                   (SPADCALL |x| (QREFELT $ 60)) (QREFELT $ 72))
-                        . #3#)
+                        . #4#)
                   (EXIT
                    (COND
                     ((SPADCALL |e| (CONS 1 "failed") (QREFELT $ 75))
                      (CONS 1 "failed"))
-                    (#2#
+                    (#3#
                      (SEQ
                       (LETT |e1|
-                            (PROG2 (LETT #1# |e| . #3#)
+                            (PROG2 (LETT #1# |e| . #4#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|Record|
-                                              (|:| |coef1|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 6)))
-                                              (|:| |coef2|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 6))))
-                                             #1#))
-                            . #3#)
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|Record|
+                                               (|:| |coef1|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 6)))
+                                               (|:| |coef2|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 6))))
+                                              (|Union|
+                                               (|Record|
+                                                (|:| |coef1|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 6)))
+                                                (|:| |coef2|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 6))))
+                                               #2#)
+                                              #1#))
+                            . #4#)
                       (EXIT (CONS 0 (QCAR |e1|))))))))))))) 
 
 (SDEFUN |FFNBP;getMultiplicationTable;V;8|
@@ -296,9 +305,9 @@
                         (SEQ (LETT |i| 0 . #5#)
                              (LETT #2#
                                    (PROG1 (LETT #3# (- |n| 1) . #5#)
-                                     (|check_subtype| (>= #3# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #3#))
+                                     (|check_subtype2| (>= #3# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #3#))
                                    . #5#)
                              G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                              (SEQ
@@ -314,8 +323,8 @@
                          (SPADCALL
                           (CONS
                            (PROG1 (LETT #1# |fac| . #5#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #1#))
                            (SPADCALL |tbl| (QREFELT $ 139)))
                           (QREFELT $ 49) (QREFELT $ 141))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
@@ -335,7 +344,8 @@
                      (PROG1
                          (LETT #1# |fac|
                                . #2=(|FFNBP;tableForDiscreteLogarithm;IT;26|))
-                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                       (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                         '(|Integer|) #1#))
                      (QREFELT $ 49) (QREFELT $ 143))
                     . #2#)
               (EXIT
@@ -615,8 +625,9 @@
                                     (- (SPADCALL (QREFELT $ 20) (QREFELT $ 38))
                                        1)
                                     . #5#)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 43))
                 (QREFELT $ 44)))
      (QSETREFV $ 46 1)

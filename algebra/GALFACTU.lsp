@@ -160,9 +160,10 @@
                                 (SPADCALL
                                  (SPADCALL |p|
                                            (PROG1 (LETT #1# (- |n| |i|) . #2#)
-                                             (|check_subtype| (>= #1# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #1#))
+                                             (|check_subtype2| (>= #1# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #1#))
                                            (QREFELT $ 48))
                                  (QREFELT $ 19))
                                 (QREFELT $ 20))
@@ -293,9 +294,10 @@
                                                   (PROG1
                                                       (LETT #2# (- |d| |i|)
                                                             . #4#)
-                                                    (|check_subtype| (>= #2# 0)
-                                                                     '(|NonNegativeInteger|)
-                                                                     #2#))
+                                                    (|check_subtype2|
+                                                     (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
                                                   (QREFELT $ 48))
                                         (QREFELT $ 19))
                                        (QREFELT $ 20))
@@ -318,9 +320,10 @@
                                        (SPADCALL
                                         (SPADCALL |f|
                                                   (PROG1 (LETT #1# |dd| . #4#)
-                                                    (|check_subtype| (>= #1# 0)
-                                                                     '(|NonNegativeInteger|)
-                                                                     #1#))
+                                                    (|check_subtype2|
+                                                     (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                                   (QREFELT $ 48))
                                         (QREFELT $ 19))
                                        (QREFELT $ 20))

@@ -37,10 +37,23 @@
                      (QCDR
                       (PROG2 (LETT #4# |x| . #6#)
                           (QCDR #4#)
-                        (|check_union| (QEQCAR #4# 2)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |parts| (|List| $)))
-                                       #4#)))
+                        (|check_union2| (QEQCAR #4# 2)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |parts| (|List| $)))
+                                        (|Union| (|:| |nul| #8="none")
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #4#)))
                      . #6#)
                (COND
                 ((EQL (SPADCALL |p| (QREFELT $ 18)) 0)
@@ -76,10 +89,23 @@
                      (QCDR
                       (PROG2 (LETT #4# |y| . #6#)
                           (QCDR #4#)
-                        (|check_union| (QEQCAR #4# 2)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |parts| (|List| $)))
-                                       #4#)))
+                        (|check_union2| (QEQCAR #4# 2)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |parts| (|List| $)))
+                                        (|Union| (|:| |nul| #8#)
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #4#)))
                      . #6#)
                (COND
                 ((EQL (SPADCALL |p| (QREFELT $ 18)) 0)
@@ -112,44 +138,92 @@
                   (QVELT
                    (PROG2 (LETT #1# |x| . #6#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 1)
-                                    (|Record| (|:| |ty| (|Symbol|))
-                                              (|:| |control1| (QREFELT $ 6))
-                                              (|:| |control2| (QREFELT $ 6)))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 1)
+                                     (|Record| (|:| |ty| (|Symbol|))
+                                               (|:| |control1| (QREFELT $ 6))
+                                               (|:| |control2| (QREFELT $ 6)))
+                                     (|Union| (|:| |nul| #8#)
+                                              (|:| |simple|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6))))
+                                              (|:| |compound|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |parts| (|List| $)))))
+                                     #1#))
                    1)
                   . #6#)
             (LETT |xmax|
                   (QVELT
                    (PROG2 (LETT #1# |x| . #6#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 1)
-                                    (|Record| (|:| |ty| (|Symbol|))
-                                              (|:| |control1| (QREFELT $ 6))
-                                              (|:| |control2| (QREFELT $ 6)))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 1)
+                                     (|Record| (|:| |ty| (|Symbol|))
+                                               (|:| |control1| (QREFELT $ 6))
+                                               (|:| |control2| (QREFELT $ 6)))
+                                     (|Union| (|:| |nul| #8#)
+                                              (|:| |simple|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6))))
+                                              (|:| |compound|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |parts| (|List| $)))))
+                                     #1#))
                    2)
                   . #6#)
             (LETT |ymin|
                   (QVELT
                    (PROG2 (LETT #1# |y| . #6#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 1)
-                                    (|Record| (|:| |ty| (|Symbol|))
-                                              (|:| |control1| (QREFELT $ 6))
-                                              (|:| |control2| (QREFELT $ 6)))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 1)
+                                     (|Record| (|:| |ty| (|Symbol|))
+                                               (|:| |control1| (QREFELT $ 6))
+                                               (|:| |control2| (QREFELT $ 6)))
+                                     (|Union| (|:| |nul| #8#)
+                                              (|:| |simple|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6))))
+                                              (|:| |compound|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |parts| (|List| $)))))
+                                     #1#))
                    1)
                   . #6#)
             (LETT |ymax|
                   (QVELT
                    (PROG2 (LETT #1# |y| . #6#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 1)
-                                    (|Record| (|:| |ty| (|Symbol|))
-                                              (|:| |control1| (QREFELT $ 6))
-                                              (|:| |control2| (QREFELT $ 6)))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 1)
+                                     (|Record| (|:| |ty| (|Symbol|))
+                                               (|:| |control1| (QREFELT $ 6))
+                                               (|:| |control2| (QREFELT $ 6)))
+                                     (|Union| (|:| |nul| #8#)
+                                              (|:| |simple|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6))))
+                                              (|:| |compound|
+                                                   (|Record|
+                                                    (|:| |ty| (|Symbol|))
+                                                    (|:| |parts| (|List| $)))))
+                                     #1#))
                    2)
                   . #6#)
             (COND
@@ -157,11 +231,22 @@
                (QVELT
                 (PROG2 (LETT #1# |x| . #6#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 1)
-                                 (|Record| (|:| |ty| (|Symbol|))
-                                           (|:| |control1| (QREFELT $ 6))
-                                           (|:| |control2| (QREFELT $ 6)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 1)
+                                  (|Record| (|:| |ty| (|Symbol|))
+                                            (|:| |control1| (QREFELT $ 6))
+                                            (|:| |control2| (QREFELT $ 6)))
+                                  (|Union| (|:| |nul| #8#)
+                                           (|:| |simple|
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                           (|:| |compound|
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                  #1#))
                 0)
                '|ellipoid|)
               (SEQ
@@ -170,24 +255,50 @@
                       (QVELT
                        (PROG2 (LETT #1# |x| . #6#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Record| (|:| |ty| (|Symbol|))
-                                                  (|:| |control1|
-                                                       (QREFELT $ 6))
-                                                  (|:| |control2|
-                                                       (QREFELT $ 6)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Record| (|:| |ty| (|Symbol|))
+                                                   (|:| |control1|
+                                                        (QREFELT $ 6))
+                                                   (|:| |control2|
+                                                        (QREFELT $ 6)))
+                                         (|Union| (|:| |nul| #8#)
+                                                  (|:| |simple|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6))))
+                                                  (|:| |compound|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |parts|
+                                                             (|List| $)))))
+                                         #1#))
                        1)
                       (QVELT
                        (PROG2 (LETT #1# |x| . #6#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Record| (|:| |ty| (|Symbol|))
-                                                  (|:| |control1|
-                                                       (QREFELT $ 6))
-                                                  (|:| |control2|
-                                                       (QREFELT $ 6)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Record| (|:| |ty| (|Symbol|))
+                                                   (|:| |control1|
+                                                        (QREFELT $ 6))
+                                                   (|:| |control2|
+                                                        (QREFELT $ 6)))
+                                         (|Union| (|:| |nul| #8#)
+                                                  (|:| |simple|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6))))
+                                                  (|:| |compound|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |parts|
+                                                             (|List| $)))))
+                                         #1#))
                        2)
                       (QREFELT $ 23))
                      . #6#)
@@ -197,24 +308,50 @@
                        (QVELT
                         (PROG2 (LETT #1# |x| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         1)
                        (QVELT
                         (PROG2 (LETT #1# |x| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         2)
                        (QREFELT $ 24))
                       . #6#)))))
@@ -223,11 +360,22 @@
                (QVELT
                 (PROG2 (LETT #1# |y| . #6#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 1)
-                                 (|Record| (|:| |ty| (|Symbol|))
-                                           (|:| |control1| (QREFELT $ 6))
-                                           (|:| |control2| (QREFELT $ 6)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 1)
+                                  (|Record| (|:| |ty| (|Symbol|))
+                                            (|:| |control1| (QREFELT $ 6))
+                                            (|:| |control2| (QREFELT $ 6)))
+                                  (|Union| (|:| |nul| #8#)
+                                           (|:| |simple|
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                           (|:| |compound|
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                  #1#))
                 0)
                '|ellipoid|)
               (SEQ
@@ -236,24 +384,50 @@
                       (QVELT
                        (PROG2 (LETT #1# |y| . #6#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Record| (|:| |ty| (|Symbol|))
-                                                  (|:| |control1|
-                                                       (QREFELT $ 6))
-                                                  (|:| |control2|
-                                                       (QREFELT $ 6)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Record| (|:| |ty| (|Symbol|))
+                                                   (|:| |control1|
+                                                        (QREFELT $ 6))
+                                                   (|:| |control2|
+                                                        (QREFELT $ 6)))
+                                         (|Union| (|:| |nul| #8#)
+                                                  (|:| |simple|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6))))
+                                                  (|:| |compound|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |parts|
+                                                             (|List| $)))))
+                                         #1#))
                        1)
                       (QVELT
                        (PROG2 (LETT #1# |y| . #6#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Record| (|:| |ty| (|Symbol|))
-                                                  (|:| |control1|
-                                                       (QREFELT $ 6))
-                                                  (|:| |control2|
-                                                       (QREFELT $ 6)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Record| (|:| |ty| (|Symbol|))
+                                                   (|:| |control1|
+                                                        (QREFELT $ 6))
+                                                   (|:| |control2|
+                                                        (QREFELT $ 6)))
+                                         (|Union| (|:| |nul| #8#)
+                                                  (|:| |simple|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6))))
+                                                  (|:| |compound|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |parts|
+                                                             (|List| $)))))
+                                         #1#))
                        2)
                       (QREFELT $ 23))
                      . #6#)
@@ -263,24 +437,50 @@
                        (QVELT
                         (PROG2 (LETT #1# |y| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         1)
                        (QVELT
                         (PROG2 (LETT #1# |y| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         2)
                        (QREFELT $ 24))
                       . #6#)))))
@@ -310,10 +510,23 @@
                      (QCDR
                       (PROG2 (LETT #3# |n| . #4#)
                           (QCDR #3#)
-                        (|check_union| (QEQCAR #3# 2)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |parts| (|List| $)))
-                                       #3#)))
+                        (|check_union2| (QEQCAR #3# 2)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |parts| (|List| $)))
+                                        (|Union| (|:| |nul| "none")
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #3#)))
                      . #4#)
                (COND
                 ((EQL (SPADCALL |pa| (QREFELT $ 18)) 0)
@@ -373,10 +586,23 @@
                      (QCDR
                       (PROG2 (LETT #5# |n| . #6#)
                           (QCDR #5#)
-                        (|check_union| (QEQCAR #5# 2)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |parts| (|List| $)))
-                                       #5#)))
+                        (|check_union2| (QEQCAR #5# 2)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |parts| (|List| $)))
+                                        (|Union| (|:| |nul| #8="none")
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #5#)))
                      . #6#)
                (SEQ (LETT |sub| NIL . #6#) (LETT #4# |pa| . #6#) G190
                     (COND
@@ -397,13 +623,26 @@
                       (QVELT
                        (PROG2 (LETT #1# |n| . #6#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 1)
-                                        (|Record| (|:| |ty| (|Symbol|))
-                                                  (|:| |control1|
-                                                       (QREFELT $ 6))
-                                                  (|:| |control2|
-                                                       (QREFELT $ 6)))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 1)
+                                         (|Record| (|:| |ty| (|Symbol|))
+                                                   (|:| |control1|
+                                                        (QREFELT $ 6))
+                                                   (|:| |control2|
+                                                        (QREFELT $ 6)))
+                                         (|Union| (|:| |nul| #8#)
+                                                  (|:| |simple|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6))))
+                                                  (|:| |compound|
+                                                       (|Record|
+                                                        (|:| |ty| (|Symbol|))
+                                                        (|:| |parts|
+                                                             (|List| $)))))
+                                         #1#))
                        1)
                       |p| (QREFELT $ 23))
                      . #6#)
@@ -421,26 +660,52 @@
                         (QVELT
                          (PROG2 (LETT #1# |n| . #6#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 1)
-                                          (|Record| (|:| |ty| (|Symbol|))
-                                                    (|:| |control1|
-                                                         (QREFELT $ 6))
-                                                    (|:| |control2|
-                                                         (QREFELT $ 6)))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 1)
+                                           (|Record| (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6)))
+                                           (|Union| (|:| |nul| #8#)
+                                                    (|:| |simple|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                                    (|:| |compound|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                           #1#))
                          2)
                         (QREFELT $ 32))
                        (SPADCALL
                         (QVELT
                          (PROG2 (LETT #1# |n| . #6#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 1)
-                                          (|Record| (|:| |ty| (|Symbol|))
-                                                    (|:| |control1|
-                                                         (QREFELT $ 6))
-                                                    (|:| |control2|
-                                                         (QREFELT $ 6)))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 1)
+                                           (|Record| (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6)))
+                                           (|Union| (|:| |nul| #8#)
+                                                    (|:| |simple|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                                    (|:| |compound|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                           #1#))
                          2)
                         (QREFELT $ 32)))
                       (|mul_DF|
@@ -448,26 +713,52 @@
                         (QVELT
                          (PROG2 (LETT #1# |n| . #6#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 1)
-                                          (|Record| (|:| |ty| (|Symbol|))
-                                                    (|:| |control1|
-                                                         (QREFELT $ 6))
-                                                    (|:| |control2|
-                                                         (QREFELT $ 6)))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 1)
+                                           (|Record| (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6)))
+                                           (|Union| (|:| |nul| #8#)
+                                                    (|:| |simple|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                                    (|:| |compound|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                           #1#))
                          2)
                         (QREFELT $ 33))
                        (SPADCALL
                         (QVELT
                          (PROG2 (LETT #1# |n| . #6#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 1)
-                                          (|Record| (|:| |ty| (|Symbol|))
-                                                    (|:| |control1|
-                                                         (QREFELT $ 6))
-                                                    (|:| |control2|
-                                                         (QREFELT $ 6)))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 1)
+                                           (|Record| (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6)))
+                                           (|Union| (|:| |nul| #8#)
+                                                    (|:| |simple|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6))))
+                                                    (|:| |compound|
+                                                         (|Record|
+                                                          (|:| |ty| (|Symbol|))
+                                                          (|:| |parts|
+                                                               (|List| $)))))
+                                           #1#))
                          2)
                         (QREFELT $ 33))))
                      . #6#)
@@ -480,24 +771,50 @@
                        (QVELT
                         (PROG2 (LETT #1# |n| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         1)
                        (QVELT
                         (PROG2 (LETT #1# |n| . #6#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record| (|:| |ty| (|Symbol|))
-                                                   (|:| |control1|
-                                                        (QREFELT $ 6))
-                                                   (|:| |control2|
-                                                        (QREFELT $ 6)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record| (|:| |ty| (|Symbol|))
+                                                    (|:| |control1|
+                                                         (QREFELT $ 6))
+                                                    (|:| |control2|
+                                                         (QREFELT $ 6)))
+                                          (|Union| (|:| |nul| #8#)
+                                                   (|:| |simple|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |control1|
+                                                              (QREFELT $ 6))
+                                                         (|:| |control2|
+                                                              (QREFELT $ 6))))
+                                                   (|:| |compound|
+                                                        (|Record|
+                                                         (|:| |ty| (|Symbol|))
+                                                         (|:| |parts|
+                                                              (|List| $)))))
+                                          #1#))
                         2)
                        (QREFELT $ 35)))))
           #7# (EXIT #2#)))) 
@@ -526,24 +843,52 @@
                      (QVELT
                       (PROG2 (LETT #4# |n| . #6#)
                           (QCDR #4#)
-                        (|check_union| (QEQCAR #4# 1)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |control1| (QREFELT $ 6))
-                                                 (|:| |control2|
-                                                      (QREFELT $ 6)))
-                                       #4#))
+                        (|check_union2| (QEQCAR #4# 1)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |control1|
+                                                       (QREFELT $ 6))
+                                                  (|:| |control2|
+                                                       (QREFELT $ 6)))
+                                        (|Union| (|:| |nul| #8="none")
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #4#))
                       1)
                      . #6#)
                (LETT |rad|
                      (QVELT
                       (PROG2 (LETT #4# |n| . #6#)
                           (QCDR #4#)
-                        (|check_union| (QEQCAR #4# 1)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |control1| (QREFELT $ 6))
-                                                 (|:| |control2|
-                                                      (QREFELT $ 6)))
-                                       #4#))
+                        (|check_union2| (QEQCAR #4# 1)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |control1|
+                                                       (QREFELT $ 6))
+                                                  (|:| |control2|
+                                                       (QREFELT $ 6)))
+                                        (|Union| (|:| |nul| #8#)
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #4#))
                       2)
                      . #6#)
                (LETT |pRel| (SPADCALL |p| |centre| (QREFELT $ 23)) . #6#)
@@ -581,20 +926,48 @@
                     (QVELT
                      (PROG2 (LETT #4# |n| . #6#)
                          (QCDR #4#)
-                       (|check_union| (QEQCAR #4# 1)
-                                      (|Record| (|:| |ty| (|Symbol|))
-                                                (|:| |control1| (QREFELT $ 6))
-                                                (|:| |control2| (QREFELT $ 6)))
-                                      #4#))
+                       (|check_union2| (QEQCAR #4# 1)
+                                       (|Record| (|:| |ty| (|Symbol|))
+                                                 (|:| |control1| (QREFELT $ 6))
+                                                 (|:| |control2|
+                                                      (QREFELT $ 6)))
+                                       (|Union| (|:| |nul| #8#)
+                                                (|:| |simple|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |control1|
+                                                           (QREFELT $ 6))
+                                                      (|:| |control2|
+                                                           (QREFELT $ 6))))
+                                                (|:| |compound|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |parts|
+                                                           (|List| $)))))
+                                       #4#))
                      1)
                     (QVELT
                      (PROG2 (LETT #4# |n| . #6#)
                          (QCDR #4#)
-                       (|check_union| (QEQCAR #4# 1)
-                                      (|Record| (|:| |ty| (|Symbol|))
-                                                (|:| |control1| (QREFELT $ 6))
-                                                (|:| |control2| (QREFELT $ 6)))
-                                      #4#))
+                       (|check_union2| (QEQCAR #4# 1)
+                                       (|Record| (|:| |ty| (|Symbol|))
+                                                 (|:| |control1| (QREFELT $ 6))
+                                                 (|:| |control2|
+                                                      (QREFELT $ 6)))
+                                       (|Union| (|:| |nul| #8#)
+                                                (|:| |simple|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |control1|
+                                                           (QREFELT $ 6))
+                                                      (|:| |control2|
+                                                           (QREFELT $ 6))))
+                                                (|:| |compound|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |parts|
+                                                           (|List| $)))))
+                                       #4#))
                      2)
                     (QREFELT $ 24))
                    (QREFELT $ 42))
@@ -607,20 +980,48 @@
                     (QVELT
                      (PROG2 (LETT #4# |n| . #6#)
                          (QCDR #4#)
-                       (|check_union| (QEQCAR #4# 1)
-                                      (|Record| (|:| |ty| (|Symbol|))
-                                                (|:| |control1| (QREFELT $ 6))
-                                                (|:| |control2| (QREFELT $ 6)))
-                                      #4#))
+                       (|check_union2| (QEQCAR #4# 1)
+                                       (|Record| (|:| |ty| (|Symbol|))
+                                                 (|:| |control1| (QREFELT $ 6))
+                                                 (|:| |control2|
+                                                      (QREFELT $ 6)))
+                                       (|Union| (|:| |nul| #8#)
+                                                (|:| |simple|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |control1|
+                                                           (QREFELT $ 6))
+                                                      (|:| |control2|
+                                                           (QREFELT $ 6))))
+                                                (|:| |compound|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |parts|
+                                                           (|List| $)))))
+                                       #4#))
                      2)
                     (QVELT
                      (PROG2 (LETT #4# |n| . #6#)
                          (QCDR #4#)
-                       (|check_union| (QEQCAR #4# 1)
-                                      (|Record| (|:| |ty| (|Symbol|))
-                                                (|:| |control1| (QREFELT $ 6))
-                                                (|:| |control2| (QREFELT $ 6)))
-                                      #4#))
+                       (|check_union2| (QEQCAR #4# 1)
+                                       (|Record| (|:| |ty| (|Symbol|))
+                                                 (|:| |control1| (QREFELT $ 6))
+                                                 (|:| |control2|
+                                                      (QREFELT $ 6)))
+                                       (|Union| (|:| |nul| #8#)
+                                                (|:| |simple|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |control1|
+                                                           (QREFELT $ 6))
+                                                      (|:| |control2|
+                                                           (QREFELT $ 6))))
+                                                (|:| |compound|
+                                                     (|Record|
+                                                      (|:| |ty| (|Symbol|))
+                                                      (|:| |parts|
+                                                           (|List| $)))))
+                                       #4#))
                      1)
                     (QREFELT $ 23))
                    (QREFELT $ 42))
@@ -633,11 +1034,11 @@
                   (COND
                    ((SPADCALL |yp| 0.0 (QREFELT $ 45))
                     (|div_DF| (|mul_DF| |b| |xp|) |yp|))
-                   (#8='T (|add_DF| |a| 1.0)))
+                   (#9='T (|add_DF| |a| 1.0)))
                   . #6#)
             (LETT |y|
                   (COND ((SPADCALL |yp| 0.0 (QREFELT $ 34)) |b|)
-                        (#8# (|minus_DF| |b|)))
+                        (#9# (|minus_DF| |b|)))
                   . #6#)
             (COND ((|less_DF| |yp| 0.0) (LETT |x| (|minus_DF| |x|) . #6#)))
             (COND
@@ -648,11 +1049,11 @@
                      (COND
                       ((SPADCALL |xp| 0.0 (QREFELT $ 45))
                        (|div_DF| (|mul_DF| |a| |yp|) |xp|))
-                      (#8# |b|))
+                      (#9# |b|))
                      . #6#)
                (LETT |x|
                      (COND ((SPADCALL |xp| 0.0 (QREFELT $ 34)) |a|)
-                           (#8# (|minus_DF| |a|)))
+                           (#9# (|minus_DF| |a|)))
                      . #6#)
                (EXIT
                 (COND
@@ -707,40 +1108,89 @@
                               (PROG2
                                   (LETT #1# |n| . #3=(|SBOUND;getMin;$PT;13|))
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #4="none")
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #1#))
                               1)
                              (QVELT
                               (PROG2 (LETT #1# |n| . #3#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #4#)
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #1#))
                               2)
                              (QREFELT $ 23))
                             (QREFELT $ 49))
                            . #3#)
-                     (GO #4=#:G217))))
+                     (GO #5=#:G217))))
                   (EXIT
                    (QVELT
                     (PROG2 (LETT #1# |n| . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 1)
-                                     (|Record| (|:| |ty| (|Symbol|))
-                                               (|:| |control1| (QREFELT $ 6))
-                                               (|:| |control2| (QREFELT $ 6)))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 1)
+                                      (|Record| (|:| |ty| (|Symbol|))
+                                                (|:| |control1| (QREFELT $ 6))
+                                                (|:| |control2| (QREFELT $ 6)))
+                                      (|Union| (|:| |nul| #4#)
+                                               (|:| |simple|
+                                                    (|Record|
+                                                     (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6))))
+                                               (|:| |compound|
+                                                    (|Record|
+                                                     (|:| |ty| (|Symbol|))
+                                                     (|:| |parts|
+                                                          (|List| $)))))
+                                      #1#))
                     1))))
-                #4# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |SBOUND;getMax;$PT;14| ((|n| $) ($ PT))
         (SPROG ((#1=#:G125 NIL) (#2=#:G223 NIL))
@@ -757,40 +1207,89 @@
                               (PROG2
                                   (LETT #1# |n| . #3=(|SBOUND;getMax;$PT;14|))
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #4="none")
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #1#))
                               1)
                              (QVELT
                               (PROG2 (LETT #1# |n| . #3#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #4#)
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #1#))
                               2)
                              (QREFELT $ 24))
                             (QREFELT $ 49))
                            . #3#)
-                     (GO #4=#:G222))))
+                     (GO #5=#:G222))))
                   (EXIT
                    (QVELT
                     (PROG2 (LETT #1# |n| . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 1)
-                                     (|Record| (|:| |ty| (|Symbol|))
-                                               (|:| |control1| (QREFELT $ 6))
-                                               (|:| |control2| (QREFELT $ 6)))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 1)
+                                      (|Record| (|:| |ty| (|Symbol|))
+                                                (|:| |control1| (QREFELT $ 6))
+                                                (|:| |control2| (QREFELT $ 6)))
+                                      (|Union| (|:| |nul| #4#)
+                                               (|:| |simple|
+                                                    (|Record|
+                                                     (|:| |ty| (|Symbol|))
+                                                     (|:| |control1|
+                                                          (QREFELT $ 6))
+                                                     (|:| |control2|
+                                                          (QREFELT $ 6))))
+                                               (|:| |compound|
+                                                    (|Record|
+                                                     (|:| |ty| (|Symbol|))
+                                                     (|:| |parts|
+                                                          (|List| $)))))
+                                      #1#))
                     2))))
-                #4# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |SBOUND;getCentre;$PT;15| ((|n| $) ($ PT))
         (SPROG ((#1=#:G125 NIL) (#2=#:G228 NIL))
@@ -805,16 +1304,34 @@
                             (PROG2
                                 (LETT #1# |n| . #3=(|SBOUND;getCentre;$PT;15|))
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 1)
-                                             (|Record| (|:| |ty| (|Symbol|))
-                                                       (|:| |control1|
-                                                            (QREFELT $ 6))
-                                                       (|:| |control2|
-                                                            (QREFELT $ 6)))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 1)
+                                              (|Record| (|:| |ty| (|Symbol|))
+                                                        (|:| |control1|
+                                                             (QREFELT $ 6))
+                                                        (|:| |control2|
+                                                             (QREFELT $ 6)))
+                                              (|Union| (|:| |nul| #4="none")
+                                                       (|:| |simple|
+                                                            (|Record|
+                                                             (|:| |ty|
+                                                                  (|Symbol|))
+                                                             (|:| |control1|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |control2|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                       (|:| |compound|
+                                                            (|Record|
+                                                             (|:| |ty|
+                                                                  (|Symbol|))
+                                                             (|:| |parts|
+                                                                  (|List|
+                                                                   $)))))
+                                              #1#))
                             1)
                            . #3#)
-                     (GO #4=#:G227))))
+                     (GO #5=#:G227))))
                   (EXIT
                    (SPADCALL
                     (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40)) (QREFELT $ 41))
@@ -822,26 +1339,54 @@
                      (QVELT
                       (PROG2 (LETT #1# |n| . #3#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |control1| (QREFELT $ 6))
-                                                 (|:| |control2|
-                                                      (QREFELT $ 6)))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 1)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |control1|
+                                                       (QREFELT $ 6))
+                                                  (|:| |control2|
+                                                       (QREFELT $ 6)))
+                                        (|Union| (|:| |nul| #4#)
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #1#))
                       1)
                      (QVELT
                       (PROG2 (LETT #1# |n| . #3#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1)
-                                       (|Record| (|:| |ty| (|Symbol|))
-                                                 (|:| |control1| (QREFELT $ 6))
-                                                 (|:| |control2|
-                                                      (QREFELT $ 6)))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 1)
+                                        (|Record| (|:| |ty| (|Symbol|))
+                                                  (|:| |control1|
+                                                       (QREFELT $ 6))
+                                                  (|:| |control2|
+                                                       (QREFELT $ 6)))
+                                        (|Union| (|:| |nul| #4#)
+                                                 (|:| |simple|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |control1|
+                                                            (QREFELT $ 6))
+                                                       (|:| |control2|
+                                                            (QREFELT $ 6))))
+                                                 (|:| |compound|
+                                                      (|Record|
+                                                       (|:| |ty| (|Symbol|))
+                                                       (|:| |parts|
+                                                            (|List| $)))))
+                                        #1#))
                       2)
                      (QREFELT $ 24))
                     (QREFELT $ 42)))))
-                #4# (EXIT #2#)))) 
+                #5# (EXIT #2#)))) 
 
 (SDEFUN |SBOUND;link;2$L;16| ((|m| $) (|n| $) ($ |List| PT))
         (SPROG ((|bn| (PT)) (|bm| (PT)))
@@ -887,13 +1432,31 @@
                              (QVELT
                               (PROG2 (LETT #5# |n| . #6#)
                                   (QCDR #5#)
-                                (|check_union| (QEQCAR #5# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #5#))
+                                (|check_union2| (QEQCAR #5# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #8="none")
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #5#))
                               1)
                              (QREFELT $ 58))
                             (SPADCALL '-> (QREFELT $ 55))
@@ -901,13 +1464,31 @@
                              (QVELT
                               (PROG2 (LETT #5# |n| . #6#)
                                   (QCDR #5#)
-                                (|check_union| (QEQCAR #5# 1)
-                                               (|Record| (|:| |ty| (|Symbol|))
-                                                         (|:| |control1|
-                                                              (QREFELT $ 6))
-                                                         (|:| |control2|
-                                                              (QREFELT $ 6)))
-                                               #5#))
+                                (|check_union2| (QEQCAR #5# 1)
+                                                (|Record| (|:| |ty| (|Symbol|))
+                                                          (|:| |control1|
+                                                               (QREFELT $ 6))
+                                                          (|:| |control2|
+                                                               (QREFELT $ 6)))
+                                                (|Union| (|:| |nul| #8#)
+                                                         (|:| |simple|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |control1|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |control2|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                         (|:| |compound|
+                                                              (|Record|
+                                                               (|:| |ty|
+                                                                    (|Symbol|))
+                                                               (|:| |parts|
+                                                                    (|List|
+                                                                     $)))))
+                                                #5#))
                               2)
                              (QREFELT $ 58)))
                       (QREFELT $ 59))
@@ -922,11 +1503,31 @@
                                (QCDR
                                 (PROG2 (LETT #2# |n| . #6#)
                                     (QCDR #2#)
-                                  (|check_union| (QEQCAR #2# 2)
-                                                 (|Record|
-                                                  (|:| |ty| (|Symbol|))
-                                                  (|:| |parts| (|List| $)))
-                                                 #2#)))
+                                  (|check_union2| (QEQCAR #2# 2)
+                                                  (|Record|
+                                                   (|:| |ty| (|Symbol|))
+                                                   (|:| |parts| (|List| $)))
+                                                  (|Union| (|:| |nul| #8#)
+                                                           (|:| |simple|
+                                                                (|Record|
+                                                                 (|:| |ty|
+                                                                      (|Symbol|))
+                                                                 (|:|
+                                                                  |control1|
+                                                                  (QREFELT $
+                                                                           6))
+                                                                 (|:|
+                                                                  |control2|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                           (|:| |compound|
+                                                                (|Record|
+                                                                 (|:| |ty|
+                                                                      (|Symbol|))
+                                                                 (|:| |parts|
+                                                                      (|List|
+                                                                       $)))))
+                                                  #2#)))
                                . #6#)
                          G190
                          (COND

@@ -19,11 +19,16 @@
                           (QREFELT $ 24))
                          |RDEEF;RF2GP|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0)
-                                (|LaurentPolynomial| (QREFELT $ 7)
-                                                     (|SparseUnivariatePolynomial|
-                                                      (QREFELT $ 7)))
-                                #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0)
+                                 (|LaurentPolynomial| (QREFELT $ 7)
+                                                      (|SparseUnivariatePolynomial|
+                                                       (QREFELT $ 7)))
+                                 (|Union|
+                                  (|LaurentPolynomial| (QREFELT $ 7)
+                                                       (|SparseUnivariatePolynomial|
+                                                        (QREFELT $ 7)))
+                                  "failed")
+                                 #1#)))) 
 
 (SDEFUN |RDEEF;logdiff|
         ((|twr| |List| (|Kernel| F)) (|bad| |List| (|Kernel| F))
@@ -250,9 +255,10 @@
                                                                    (LETT #1#
                                                                          |m|
                                                                          . #3#)
-                                                                 (|check_subtype|
+                                                                 (|check_subtype2|
                                                                   (>= #1# 0)
                                                                   '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
                                                                   #1#))
                                                                (QREFELT $ 79))
                                                      (QREFELT $ 80))
@@ -355,9 +361,10 @@
                                                                    (LETT #4#
                                                                          |m|
                                                                          . #6#)
-                                                                 (|check_subtype|
+                                                                 (|check_subtype2|
                                                                   (>= #4# 0)
                                                                   '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
                                                                   #4#))
                                                                (QREFELT $ 79))
                                                      (QREFELT $ 80))
@@ -904,22 +911,45 @@
                       (LETT |w|
                             (PROG2 (LETT #4# |v| . #10#)
                                 (QCDR #4#)
-                              (|check_union| (QEQCAR #4# 1)
-                                             (|Record|
-                                              (|:| |b|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 7)))
-                                              (|:| |c|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 7)))
-                                              (|:| |m| (|Integer|))
-                                              (|:| |alpha|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 7)))
-                                              (|:| |beta|
-                                                   (|SparseUnivariatePolynomial|
-                                                    (QREFELT $ 7))))
-                                             #4#))
+                              (|check_union2| (QEQCAR #4# 1)
+                                              (|Record|
+                                               (|:| |b|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7)))
+                                               (|:| |c|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7)))
+                                               (|:| |m| (|Integer|))
+                                               (|:| |alpha|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7)))
+                                               (|:| |beta|
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7))))
+                                              (|Union|
+                                               (|:| |ans|
+                                                    (|Record|
+                                                     (|:| |ans|
+                                                          (|SparseUnivariatePolynomial|
+                                                           (QREFELT $ 7)))
+                                                     (|:| |nosol|
+                                                          (|Boolean|))))
+                                               (|:| |eq|
+                                                    (|Record|
+                                                     (|:| |b|
+                                                          (|SparseUnivariatePolynomial|
+                                                           (QREFELT $ 7)))
+                                                     (|:| |c|
+                                                          (|SparseUnivariatePolynomial|
+                                                           (QREFELT $ 7)))
+                                                     (|:| |m| (|Integer|))
+                                                     (|:| |alpha|
+                                                          (|SparseUnivariatePolynomial|
+                                                           (QREFELT $ 7)))
+                                                     (|:| |beta|
+                                                          (|SparseUnivariatePolynomial|
+                                                           (QREFELT $ 7))))))
+                                              #4#))
                             . #10#)
                       (EXIT
                        (COND
@@ -1044,8 +1074,9 @@
                                                   (MAX (- |nb|) (- |lb| |nc|)))
                                              . #3#)
                                        . #3#)
-                               (|check_subtype| (>= #1# 0)
-                                                '(|NonNegativeInteger|) #1#))
+                               (|check_subtype2| (>= #1# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #1#))
                              (QREFELT $ 104))
                    . #3#)
              (LETT |v|
@@ -1170,22 +1201,44 @@
                  (LETT |w|
                        (PROG2 (LETT #2# |v| . #3#)
                            (QCDR #2#)
-                         (|check_union| (QEQCAR #2# 1)
-                                        (|Record|
-                                         (|:| |b|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 7)))
-                                         (|:| |c|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 7)))
-                                         (|:| |m| (|Integer|))
-                                         (|:| |alpha|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 7)))
-                                         (|:| |beta|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 7))))
-                                        #2#))
+                         (|check_union2| (QEQCAR #2# 1)
+                                         (|Record|
+                                          (|:| |b|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 7)))
+                                          (|:| |c|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 7)))
+                                          (|:| |m| (|Integer|))
+                                          (|:| |alpha|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 7)))
+                                          (|:| |beta|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 7))))
+                                         (|Union|
+                                          (|:| |ans|
+                                               (|Record|
+                                                (|:| |ans|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7)))
+                                                (|:| |nosol| (|Boolean|))))
+                                          (|:| |eq|
+                                               (|Record|
+                                                (|:| |b|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7)))
+                                                (|:| |c|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7)))
+                                                (|:| |m| (|Integer|))
+                                                (|:| |alpha|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7)))
+                                                (|:| |beta|
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7))))))
+                                         #2#))
                        . #3#)
                  (EXIT
                   (COND
@@ -1666,9 +1719,10 @@
                                                         (QREFELT $ 62))
                                               (QVELT |u| 0) (QREFELT $ 86))
                                              (PROG1 (LETT #1# (- |m| 1) . #4#)
-                                               (|check_subtype| (>= #1# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #1#))
+                                               (|check_subtype2| (>= #1# 0)
+                                                                 '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
+                                                                 #1#))
                                              (QREFELT $ 104))
                                             (QREFELT $ 173))
                                            . #4#)
@@ -1818,13 +1872,19 @@
                                                                              174))
                                                           . #9#)
                                                     (QCDR #2#)
-                                                  (|check_union| (QEQCAR #2# 0)
-                                                                 (|LaurentPolynomial|
-                                                                  (QREFELT $ 7)
-                                                                  (|SparseUnivariatePolynomial|
-                                                                   (QREFELT $
-                                                                            7)))
-                                                                 #2#))
+                                                  (|check_union2|
+                                                   (QEQCAR #2# 0)
+                                                   (|LaurentPolynomial|
+                                                    (QREFELT $ 7)
+                                                    (|SparseUnivariatePolynomial|
+                                                     (QREFELT $ 7)))
+                                                   (|Union|
+                                                    (|LaurentPolynomial|
+                                                     (QREFELT $ 7)
+                                                     (|SparseUnivariatePolynomial|
+                                                      (QREFELT $ 7)))
+                                                    "failed")
+                                                   #2#))
                                                 (QREFELT $ 160))
                                       (CONS #'|RDEEF;expdegrad!0|
                                             (VECTOR |extint| |limint| |x| $

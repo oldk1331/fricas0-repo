@@ -14,8 +14,9 @@
                      ((COMPLEXP
                        (SPADCALL |nums|
                                  (PROG1 (LETT #2# |i| . #4#)
-                                   (|check_subtype| (> #2# 0)
-                                                    '(|PositiveInteger|) #2#))
+                                   (|check_subtype2| (> #2# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #2#))
                                  (QREFELT $ 12)))
                       (PROGN
                        (LETT #1#
@@ -333,9 +334,9 @@
                                         (PROG1
                                             (LETT #4# (- |len| |givenLen|)
                                                   . #7#)
-                                          (|check_subtype| (>= #4# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #4#))
+                                          (|check_subtype2| (>= #4# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #4#))
                                         1)
                                        (SPADCALL (QREFELT $ 60))
                                        (QREFELT $ 61))
@@ -355,9 +356,9 @@
                                         (PROG1
                                             (LETT #3# (- |len| |givenLen|)
                                                   . #7#)
-                                          (|check_subtype| (>= #3# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #3#))
+                                          (|check_subtype2| (>= #3# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #3#))
                                         1)
                                        (SPADCALL (QREFELT $ 64))
                                        (QREFELT $ 61))
@@ -377,9 +378,9 @@
                                         (PROG1
                                             (LETT #1# (- |len| |givenLen|)
                                                   . #7#)
-                                          (|check_subtype| (>= #1# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #1#))
+                                          (|check_subtype2| (>= #1# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #1#))
                                         1)
                                        (SPADCALL (QREFELT $ 65))
                                        (QREFELT $ 67))

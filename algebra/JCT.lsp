@@ -42,9 +42,10 @@
                     (LETT |tmp|
                           (SPADCALL |ly|
                                     (PROG1 (LETT #1# |i| . #3#)
-                                      (|check_subtype| (> #1# 0)
-                                                       '(|PositiveInteger|)
-                                                       #1#))
+                                      (|check_subtype2| (> #1# 0)
+                                                        '(|PositiveInteger|)
+                                                        '(|NonNegativeInteger|)
+                                                        #1#))
                                     JM (QREFELT $ 33))
                           . #3#)
                     (EXIT
@@ -100,9 +101,10 @@
                               (LETT |pint|
                                     (SPADCALL |jv|
                                               (PROG1 (LETT #5# |i| . #6#)
-                                                (|check_subtype| (> #5# 0)
-                                                                 '(|PositiveInteger|)
-                                                                 #5#))
+                                                (|check_subtype2| (> #5# 0)
+                                                                  '(|PositiveInteger|)
+                                                                  '(|NonNegativeInteger|)
+                                                                  #5#))
                                               (QREFELT $ 52))
                                     . #6#)
                               (LETT |qint| (SPADCALL |pint| (QREFELT $ 53))
@@ -136,9 +138,10 @@
                                                                      (LETT #1#
                                                                            |k|
                                                                            . #6#)
-                                                                   (|check_subtype|
+                                                                   (|check_subtype2|
                                                                     (> #1# 0)
                                                                     '(|PositiveInteger|)
+                                                                    '(|NonNegativeInteger|)
                                                                     #1#))
                                                                  (QREFELT $
                                                                           55))

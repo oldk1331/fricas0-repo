@@ -46,10 +46,14 @@
                                     (QREFELT $ 23))
                           |GHENSEL;modInverse|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 6))
-                                           (|:| |coef2| (QREFELT $ 6)))
-                                 #1#))))) 
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 6))
+                                            (|:| |coef2| (QREFELT $ 6)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 6))
+                                             (|:| |coef2| (QREFELT $ 6)))
+                                   "failed")
+                                  #1#))))) 
 
 (SDEFUN |GHENSEL;exactquo| ((|u| TP) (|v| TP) (|p| RP) ($ |Union| TP "failed"))
         (SPROG
@@ -367,7 +371,9 @@
                           (SPADCALL |fl1| (|spadConstant| $ 48) (QREFELT $ 51))
                           . #12#)
                     (QCDR #9#)
-                  (|check_union| (QEQCAR #9# 0) (|List| (QREFELT $ 29)) #9#))
+                  (|check_union2| (QEQCAR #9# 0) (|List| (QREFELT $ 29))
+                                  (|Union| (|List| (QREFELT $ 29)) "failed")
+                                  #9#))
                 . #12#)
           (LETT |Modulus| |prime| . #12#)
           (LETT |fln|

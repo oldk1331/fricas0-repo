@@ -888,9 +888,9 @@
 ;                     gg:=GENSYM()
 ;                     $InteractiveMode =>
 ;                       ['XLAM,["#1"],['PROG1,['QCDR,"#1"],
-;                         ['check_union, ['QEQCAR, "#1", i], type, "#1"]]]
+;                         ['check_union2, ['QEQCAR, "#1", i], type, form, "#1"]]]
 ;                     ['XLAM,["#1"],['PROG2,['LET,gg,"#1"],['QCDR,gg],
-;                       ['check_union, ['QEQCAR, gg, i], type, gg]]]
+;                       ['check_union2, ['QEQCAR, gg, i], type, form, gg]]]
 ;   [cList,e]
  
 (DEFUN |mkNewUnionFunList| (|name| |form| |e|)
@@ -948,11 +948,12 @@
                                                                   (LIST 'QCDR
                                                                         '|#1|)
                                                                   (LIST
-                                                                   '|check_union|
+                                                                   '|check_union2|
                                                                    (LIST
                                                                     'QEQCAR
                                                                     '|#1| |i|)
                                                                    |type|
+                                                                   |form|
                                                                    '|#1|))))
                                                      (#1#
                                                       (LIST 'XLAM (LIST '|#1|)
@@ -963,11 +964,12 @@
                                                                   (LIST 'QCDR
                                                                         |gg|)
                                                                   (LIST
-                                                                   '|check_union|
+                                                                   '|check_union2|
                                                                    (LIST
                                                                     'QEQCAR
                                                                     |gg| |i|)
                                                                    |type|
+                                                                   |form|
                                                                    |gg|)))))))
                                              (LIST '|case|
                                                    (LIST '(|Boolean|) |name|
@@ -1041,7 +1043,7 @@
 ;                   ref:=gg
 ;                   q:= substitute(gg,"#1",p)
 ;                ['XLAM,["#1"],['PROG2,['LET,gg,"#1"],ref,
-;                     ['check_union, q, t, gg]]]
+;                     ['check_union2, q, t, form, gg]]]
 ;              downFun() ==
 ;                 p is ['EQCAR,x,.] =>
 ;                   ['XLAM,["#1"],['QCDR,"#1"]]
@@ -1174,8 +1176,8 @@
                                                                     '|#1|)
                                                               |ref|
                                                               (LIST
-                                                               '|check_union|
-                                                               |q| |t|
+                                                               '|check_union2|
+                                                               |q| |t| |form|
                                                                |gg|)))))
                                            (LIST '|autoCoerce| (LIST |t| |g|)
                                                  (COND

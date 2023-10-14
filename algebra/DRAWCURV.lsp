@@ -81,13 +81,13 @@
           (|yRangeFloat| #1=(|Segment| (|Float|))) (|xRangeFloat| #1#)
           (|yRange| #2=(|Segment| (|Fraction| (|Integer|)))) (|xRange| #2#)
           (|ranges| (|List| (|Segment| (|Fraction| (|Integer|)))))
-          (#3=#:G126 NIL) (|ratRange| #4=(|Union| (|Any|) "failed"))
+          (#3=#:G126 NIL) (|ratRange| #4=(|Union| (|Any|) #5="failed"))
           (|floatRange| #4#) (|p| (|Polynomial| (|Integer|))))
          (SEQ
           (LETT |p| (|DRAWCURV;polyEquation| |eq| $)
-                . #5=(|DRAWCURV;draw;E2SLTdv;4|))
-          (LETT |floatRange| (SPADCALL |l| '|rangeFloat| (QREFELT $ 42)) . #5#)
-          (LETT |ratRange| (SPADCALL |l| '|rangeRat| (QREFELT $ 42)) . #5#)
+                . #6=(|DRAWCURV;draw;E2SLTdv;4|))
+          (LETT |floatRange| (SPADCALL |l| '|rangeFloat| (QREFELT $ 42)) . #6#)
+          (LETT |ratRange| (SPADCALL |l| '|rangeRat| (QREFELT $ 42)) . #6#)
           (COND
            ((QEQCAR |floatRange| 1)
             (COND
@@ -95,75 +95,76 @@
               (EXIT
                (|error|
                 "draw: you must specify ranges for an implicit plot"))))))
-          (LETT |ranges| NIL . #5#) (LETT |floatRanges| NIL . #5#)
+          (LETT |ranges| NIL . #6#) (LETT |floatRanges| NIL . #6#)
           (LETT |xRange|
                 (SPADCALL (|spadConstant| $ 46) (|spadConstant| $ 46)
                           (QREFELT $ 48))
-                . #5#)
+                . #6#)
           (LETT |yRange|
                 (SPADCALL (|spadConstant| $ 46) (|spadConstant| $ 46)
                           (QREFELT $ 48))
-                . #5#)
+                . #6#)
           (LETT |xRangeFloat|
                 (SPADCALL (|spadConstant| $ 49) (|spadConstant| $ 49)
                           (QREFELT $ 19))
-                . #5#)
+                . #6#)
           (LETT |yRangeFloat|
                 (SPADCALL (|spadConstant| $ 49) (|spadConstant| $ 49)
                           (QREFELT $ 19))
-                . #5#)
+                . #6#)
           (COND
            ((QEQCAR |ratRange| 1)
             (SEQ
              (LETT |floatRanges|
                    (SPADCALL
-                    (PROG2 (LETT #3# |floatRange| . #5#)
+                    (PROG2 (LETT #3# |floatRange| . #6#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 0) (|Any|) #3#))
+                      (|check_union2| (QEQCAR #3# 0) (|Any|)
+                                      (|Union| (|Any|) #5#) #3#))
                     (QREFELT $ 53))
-                   . #5#)
+                   . #6#)
              (COND
               ((NULL (SPADCALL |floatRanges| 2 (QREFELT $ 55)))
                (EXIT (|error| "draw: you must specify two ranges"))))
-             (LETT |xRangeFloat| (|SPADfirst| |floatRanges|) . #5#)
-             (LETT |yRangeFloat| (SPADCALL |floatRanges| (QREFELT $ 56)) . #5#)
+             (LETT |xRangeFloat| (|SPADfirst| |floatRanges|) . #6#)
+             (LETT |yRangeFloat| (SPADCALL |floatRanges| (QREFELT $ 56)) . #6#)
              (LETT |xRange| (SPADCALL (ELT $ 57) |xRangeFloat| (QREFELT $ 60))
-                   . #5#)
+                   . #6#)
              (LETT |yRange| (SPADCALL (ELT $ 57) |yRangeFloat| (QREFELT $ 60))
-                   . #5#)
-             (EXIT (LETT |ranges| (LIST |xRange| |yRange|) . #5#))))
-           (#6='T
+                   . #6#)
+             (EXIT (LETT |ranges| (LIST |xRange| |yRange|) . #6#))))
+           (#7='T
             (SEQ
-             (LETT |ranges| (SPADCALL (QCDR |ratRange|) (QREFELT $ 63)) . #5#)
+             (LETT |ranges| (SPADCALL (QCDR |ratRange|) (QREFELT $ 63)) . #6#)
              (COND
               ((NULL (SPADCALL |ranges| 2 (QREFELT $ 64)))
                (EXIT (|error| "draw: you must specify two ranges"))))
-             (LETT |xRange| (|SPADfirst| |ranges|) . #5#)
-             (LETT |yRange| (SPADCALL |ranges| (QREFELT $ 65)) . #5#)
+             (LETT |xRange| (|SPADfirst| |ranges|) . #6#)
+             (LETT |yRange| (SPADCALL |ranges| (QREFELT $ 65)) . #6#)
              (LETT |xRangeFloat| (SPADCALL (ELT $ 66) |xRange| (QREFELT $ 69))
-                   . #5#)
+                   . #6#)
              (LETT |yRangeFloat| (SPADCALL (ELT $ 66) |yRange| (QREFELT $ 69))
-                   . #5#)
+                   . #6#)
              (EXIT
-              (LETT |floatRanges| (LIST |xRangeFloat| |yRangeFloat|) . #5#)))))
+              (LETT |floatRanges| (LIST |xRangeFloat| |yRangeFloat|) . #6#)))))
           (LETT |acplot|
-                (SPADCALL |p| |x| |y| |xRange| |yRange| (QREFELT $ 71)) . #5#)
+                (SPADCALL |p| |x| |y| |xRange| |yRange| (QREFELT $ 71)) . #6#)
           (COND
            ((SPADCALL |l| (SPADCALL (QREFELT $ 73)) (QREFELT $ 76))
             (SEQ
              (LETT |scaledRanges|
                    (|DRAWCURV;drawToScaleRanges| |xRangeFloat| |yRangeFloat| $)
-                   . #5#)
+                   . #6#)
              (EXIT
               (LETT |l| (CONS (SPADCALL |scaledRanges| (QREFELT $ 77)) |l|)
-                    . #5#))))
-           (#6#
+                    . #6#))))
+           (#7#
             (LETT |l| (CONS (SPADCALL |floatRanges| (QREFELT $ 77)) |l|)
-                  . #5#)))
+                  . #6#)))
           (LETT |ptCol| (SPADCALL |l| (SPADCALL (QREFELT $ 80)) (QREFELT $ 81))
-                . #5#)
+                . #6#)
           (LETT |crCol| (SPADCALL |l| (SPADCALL (QREFELT $ 82)) (QREFELT $ 83))
-                . #5#)
+                . #6#)
           (EXIT
            (SPADCALL (SPADCALL |acplot| (QREFELT $ 85)) |ptCol| |crCol|
                      (SPADCALL (QREFELT $ 87)) |l| (QREFELT $ 90)))))) 

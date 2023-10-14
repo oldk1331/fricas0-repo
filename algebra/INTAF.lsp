@@ -55,14 +55,22 @@
           (LETT |r|
                 (PROG2 (LETT #1# (SPADCALL (QCDR |r1|) (QREFELT $ 27)) . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record|
-                                  (|:| |radicand|
-                                       (|Fraction|
-                                        (|SparseUnivariatePolynomial|
-                                         (QREFELT $ 7))))
-                                  (|:| |deg| (|NonNegativeInteger|)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record|
+                                   (|:| |radicand|
+                                        (|Fraction|
+                                         (|SparseUnivariatePolynomial|
+                                          (QREFELT $ 7))))
+                                   (|:| |deg| (|NonNegativeInteger|)))
+                                  (|Union|
+                                   (|Record|
+                                    (|:| |radicand|
+                                         (|Fraction|
+                                          (|SparseUnivariatePolynomial|
+                                           (QREFELT $ 7))))
+                                    (|:| |deg| (|NonNegativeInteger|)))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (LETT |q| (SPADCALL (QCAR |r|) (QREFELT $ 28)) . #2#)
           (LETT |curve|

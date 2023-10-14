@@ -28,9 +28,9 @@
                               (-
                                (EXPT |d|
                                      (PROG1 (LETT #1# |n| . #3#)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#)))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#)))
                                |sum|)
                               |n|)
                              . #3#)))))))) 
@@ -67,8 +67,8 @@
               (LETT |v|
                     (MAKEARR1
                      (PROG1 (LETT #3# |siz| . #4#)
-                       (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                        #3#))
+                       (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #3#))
                      NIL)
                     . #4#)
               (SEQ (LETT |i| 1 . #4#) G190

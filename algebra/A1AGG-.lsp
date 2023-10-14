@@ -304,7 +304,8 @@
                 . #2#)
           (LETT |l|
                 (PROG1 (LETT #1# (MAX 0 (+ (- |n| |m|) 1)) . #2#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |c| (|A1AGG-;stupidnew| |l| |a| |b| $) . #2#)
           (SEQ (LETT |j| |m| . #2#)
@@ -396,7 +397,8 @@
           (LETT |r|
                 (|A1AGG-;stupidnew|
                  (PROG1 (LETT #1# (MAX 0 (+ (- |h| |l|) 1)) . #2#)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#))
                  |a| |a| $)
                 . #2#)
           (SEQ (LETT |i| |l| . #2#)
@@ -552,8 +554,9 @@
                                         |l|)
                                      1)
                                     . #4#)
-                            (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                             #3#))
+                            (|check_subtype2| (>= #3# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #3#))
                           |a| |a| $)
                          . #4#)
                    (SEQ (LETT |i| (SPADCALL |a| (QREFELT $ 9)) . #4#)
@@ -595,7 +598,8 @@
                     (PROG1
                         (LETT #3# (- (SPADCALL |x| (QREFELT $ 46)) 1)
                               . #4=(|A1AGG-;delete;AIA;23|))
-                      (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                      (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #3#))
                     |x| |x| $)
                    . #4#)
              (SEQ (LETT |j| (SPADCALL |x| (QREFELT $ 9)) . #4#)

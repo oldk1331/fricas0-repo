@@ -115,16 +115,16 @@
            (|Union|
             (|Record| (|:| |left| (|Fraction| (|Integer|)))
                       (|:| |right| (|Fraction| (|Integer|))))
-            "failed"))
-          (#2=#:G140 NIL) (|int| NIL) (#3=#:G139 NIL))
-         (SEQ (LETT F (|REAL0;makeSqfr| F $) . #4=(|REAL0;realZeros;PolRL;7|))
+            #2="failed"))
+          (#3=#:G140 NIL) (|int| NIL) (#4=#:G139 NIL))
+         (SEQ (LETT F (|REAL0;makeSqfr| F $) . #5=(|REAL0;realZeros;PolRL;7|))
               (EXIT
                (PROGN
-                (LETT #3# NIL . #4#)
-                (SEQ (LETT |int| NIL . #4#)
-                     (LETT #2# (|REAL0;ReZeroSqfr| F $) . #4#) G190
+                (LETT #4# NIL . #5#)
+                (SEQ (LETT |int| NIL . #5#)
+                     (LETT #3# (|REAL0;ReZeroSqfr| F $) . #5#) G190
                      (COND
-                      ((OR (ATOM #2#) (PROGN (LETT |int| (CAR #2#) . #4#) NIL))
+                      ((OR (ATOM #3#) (PROGN (LETT |int| (CAR #3#) . #5#) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -132,25 +132,34 @@
                         ((QEQCAR
                           (LETT |rint|
                                 (SPADCALL F |int| |bounds| (QREFELT $ 31))
-                                . #4#)
+                                . #5#)
                           0)
-                         (LETT #3#
+                         (LETT #4#
                                (CONS
-                                (PROG2 (LETT #1# |rint| . #4#)
+                                (PROG2 (LETT #1# |rint| . #5#)
                                     (QCDR #1#)
-                                  (|check_union| (QEQCAR #1# 0)
-                                                 (|Record|
-                                                  (|:| |left|
-                                                       (|Fraction|
-                                                        (|Integer|)))
-                                                  (|:| |right|
-                                                       (|Fraction|
-                                                        (|Integer|))))
-                                                 #1#))
-                                #3#)
-                               . #4#)))))
-                     (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                     (EXIT (NREVERSE #3#)))))))) 
+                                  (|check_union2| (QEQCAR #1# 0)
+                                                  (|Record|
+                                                   (|:| |left|
+                                                        (|Fraction|
+                                                         (|Integer|)))
+                                                   (|:| |right|
+                                                        (|Fraction|
+                                                         (|Integer|))))
+                                                  (|Union|
+                                                   (|Record|
+                                                    (|:| |left|
+                                                         (|Fraction|
+                                                          (|Integer|)))
+                                                    (|:| |right|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                                   #2#)
+                                                  #1#))
+                                #4#)
+                               . #5#)))))
+                     (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                     (EXIT (NREVERSE #4#)))))))) 
 
 (SDEFUN |REAL0;realZeros;PolRFL;8|
         ((F |Pol|)
@@ -508,9 +517,9 @@
                           (* |cc|
                              (EXPT |c|
                                    (PROG1 (LETT #2# (- |d| |n|) . #3#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))))
                           . #3#)
                     (LETT G
                           (SPADCALL G
@@ -622,10 +631,10 @@
                                                                             $
                                                                             38)))
                                                               . #2#)
-                                                      (|check_subtype|
+                                                      (|check_subtype2|
                                                        (>= #1# 0)
                                                        '(|NonNegativeInteger|)
-                                                       #1#))
+                                                       '(|Integer|) #1#))
                                                     (QREFELT $ 42))
                                           (QREFELT $ 47))
                                 . #2#)
@@ -756,8 +765,11 @@
                                                           (QREFELT $ 44))
                                                 . #5#)
                                           (QCDR #4#)
-                                        (|check_union| (QEQCAR #4# 0)
-                                                       (QREFELT $ 6) #4#))
+                                        (|check_union2| (QEQCAR #4# 0)
+                                                        (QREFELT $ 6)
+                                                        (|Union| (QREFELT $ 6)
+                                                                 #6="failed")
+                                                        #4#))
                                       . #5#)
                                 (EXIT
                                  (LETT |u|
@@ -789,8 +801,11 @@
                                                           (QREFELT $ 44))
                                                 . #5#)
                                           (QCDR #4#)
-                                        (|check_union| (QEQCAR #4# 0)
-                                                       (QREFELT $ 6) #4#))
+                                        (|check_union2| (QEQCAR #4# 0)
+                                                        (QREFELT $ 6)
+                                                        (|Union| (QREFELT $ 6)
+                                                                 #6#)
+                                                        #4#))
                                       . #5#)
                                 (LETT |v|
                                       (SPADCALL (|REAL0;transMultInv| |bd| F $)

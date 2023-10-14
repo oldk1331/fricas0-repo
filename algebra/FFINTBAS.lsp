@@ -91,8 +91,11 @@
                                (LETT #1# (SPADCALL |rb| |g| (QREFELT $ 42))
                                      . #4#)
                                (QCDR #1#)
-                             (|check_union| (QEQCAR #1# 0)
-                                            (|Matrix| (QREFELT $ 6)) #1#))
+                             (|check_union2| (QEQCAR #1# 0)
+                                             (|Matrix| (QREFELT $ 6))
+                                             (|Union| (|Matrix| (QREFELT $ 6))
+                                                      #5="failed")
+                                             #1#))
                            . #4#)))
                    (LETT |rbden|
                          (SPADCALL |rbden| (SPADCALL |sing| |g| (QREFELT $ 43))
@@ -118,7 +121,7 @@
                      (EXIT
                       (PROGN
                        (LETT #2# (VECTOR |rb| |rbden| |rbinv|) . #4#)
-                       (GO #5=#:G128)))))
+                       (GO #6=#:G128)))))
                    (EXIT
                     (LETT |tfm|
                           (PROG2
@@ -132,11 +135,14 @@
                                      (QREFELT $ 42))
                                     . #4#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0)
-                                           (|Matrix| (QREFELT $ 6)) #1#))
+                            (|check_union2| (QEQCAR #1# 0)
+                                            (|Matrix| (QREFELT $ 6))
+                                            (|Union| (|Matrix| (QREFELT $ 6))
+                                                     #5#)
+                                            #1#))
                           . #4#)))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #5# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |FFINTBAS;integralBasis;R;3|
         (($ |Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)

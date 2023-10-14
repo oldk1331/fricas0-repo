@@ -13,13 +13,13 @@
 (SDEFUN |BRILL;primeEnough?| ((|n| |Integer|) (|b| |Integer|) ($ |Boolean|))
         (SPROG
          ((#1=#:G127 NIL) (#2=#:G128 NIL) (|bb| (|Float|)) (#3=#:G120 NIL)
-          (|d| (|Union| (|Integer|) "failed")) (|i| NIL))
+          (|d| (|Union| (|Integer|) #4="failed")) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
             (LETT |bb| (SPADCALL |b| (QREFELT $ 13))
-                  . #4=(|BRILL;primeEnough?|))
-            (SEQ (LETT |i| 2 . #4#) G190
+                  . #5=(|BRILL;primeEnough?|))
+            (SEQ (LETT |i| 2 . #5#) G190
                  (COND ((|greater_SI| |i| |b|) (GO G191)))
                  (SEQ
                   (EXIT
@@ -27,22 +27,23 @@
                         (COND
                          ((NULL
                            (QEQCAR
-                            (LETT |d| (SPADCALL |n| |i| (QREFELT $ 15)) . #4#)
+                            (LETT |d| (SPADCALL |n| |i| (QREFELT $ 15)) . #5#)
                             0))
                           (GO G191)))
                         (SEQ
                          (EXIT
                           (SEQ
                            (LETT |n|
-                                 (PROG2 (LETT #3# |d| . #4#)
+                                 (PROG2 (LETT #3# |d| . #5#)
                                      (QCDR #3#)
-                                   (|check_union| (QEQCAR #3# 0) (|Integer|)
-                                                  #3#))
-                                 . #4#)
+                                   (|check_union2| (QEQCAR #3# 0) (|Integer|)
+                                                   (|Union| (|Integer|) #4#)
+                                                   #3#))
+                                 . #5#)
                            (LETT |bb|
                                  (SPADCALL |bb| (SPADCALL |i| (QREFELT $ 13))
                                            (QREFELT $ 16))
-                                 . #4#)
+                                 . #5#)
                            (EXIT
                             (COND
                              ((SPADCALL |bb| (|spadConstant| $ 17)
@@ -50,15 +51,15 @@
                               (PROGN
                                (LETT #1#
                                      (PROGN
-                                      (LETT #2# 'NIL . #4#)
-                                      (GO #5=#:G126))
-                                     . #4#)
-                               (GO #6=#:G122)))))))
-                         #6# (EXIT #1#))
+                                      (LETT #2# 'NIL . #5#)
+                                      (GO #6=#:G126))
+                                     . #5#)
+                               (GO #7=#:G122)))))))
+                         #7# (EXIT #1#))
                         NIL (GO G190) G191 (EXIT NIL))))
-                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+                 (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |n| (QREFELT $ 20)))))
-          #5# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (SDEFUN |BRILL;brillhartTrials;Nni;3| (($ |NonNegativeInteger|)) (QREFELT $ 21)) 
 

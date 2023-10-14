@@ -121,7 +121,9 @@
              (LETT |k|
                    (PROG2 (LETT #1# (SPADCALL |k| 1 (QREFELT $ 35)) . #3#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (|NonNegativeInteger|) #1#))
+                     (|check_union2| (QEQCAR #1# 0) (|NonNegativeInteger|)
+                                     (|Union| (|NonNegativeInteger|) "failed")
+                                     #1#))
                    . #3#)
              (LETT |rec| (SPADCALL |a| |n| (QREFELT $ 23)) . #3#)
              (LETT |ha| (QCAR |rec|) . #3#) (LETT |la| (QCDR |rec|) . #3#)

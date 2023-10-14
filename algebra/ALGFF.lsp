@@ -400,9 +400,12 @@
               (LETT |invib2|
                     (PROG2 (LETT #3# (SPADCALL |ib2| (QREFELT $ 99)) . #6#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 0)
-                                     (|Matrix| (|Fraction| (QREFELT $ 7)))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 0)
+                                      (|Matrix| (|Fraction| (QREFELT $ 7)))
+                                      (|Union|
+                                       (|Matrix| (|Fraction| (QREFELT $ 7)))
+                                       "failed")
+                                      #3#))
                     . #6#)
               (SEQ (LETT |i| 1 . #6#)
                    (LETT #2# (SPADCALL |ib2| (QREFELT $ 53)) . #6#) G190
@@ -634,7 +637,8 @@
     (QSETREFV $ 24 (SPADCALL |#4| (QREFELT $ 23)))
     (QSETREFV $ 27
               (PROG1 (LETT #1# (- (QREFELT $ 24) 1) . #4#)
-                (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                  '(|Integer|) #1#)))
     (QSETREFV $ 30 (SPADCALL (QREFELT $ 24) (QREFELT $ 24) (QREFELT $ 29)))
     (QSETREFV $ 32 (SPADCALL (QREFELT $ 30) (QREFELT $ 31)))
     (QSETREFV $ 33 (SPADCALL (QREFELT $ 30) (QREFELT $ 31)))

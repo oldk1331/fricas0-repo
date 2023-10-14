@@ -142,7 +142,7 @@
           (|r| (UP)) (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G156 NIL)
           (|a1| (F)) (|ra| (|Union| F "failed")) (#3=#:G148 NIL)
-          (|u| (|Union| UP "failed")) (|g| (UP)))
+          (|u| (|Union| UP #4="failed")) (|g| (UP)))
          (SEQ
           (COND
            ((SPADCALL |cc| (QREFELT $ 11))
@@ -150,64 +150,72 @@
                   (VECTOR (|spadConstant| $ 9) (|spadConstant| $ 9) 0
                           (|spadConstant| $ 9) (|spadConstant| $ 9))))
            ((< |d| 0) (CONS 1 "failed"))
-           (#4='T
+           (#5='T
             (SEQ
              (LETT |u|
                    (SPADCALL |cc|
                              (LETT |g| (SPADCALL |aa| |bb| (QREFELT $ 32))
-                                   . #5=(|RDETR;SPDE|))
+                                   . #6=(|RDETR;SPDE|))
                              (QREFELT $ 34))
-                   . #5#)
+                   . #6#)
              (EXIT
               (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
-                    (#4#
+                    (#5#
                      (SEQ
                       (LETT |aa|
                             (PROG2
                                 (LETT #3# (SPADCALL |aa| |g| (QREFELT $ 34))
-                                      . #5#)
+                                      . #6#)
                                 (QCDR #3#)
-                              (|check_union| (QEQCAR #3# 0) (QREFELT $ 7) #3#))
-                            . #5#)
+                              (|check_union2| (QEQCAR #3# 0) (QREFELT $ 7)
+                                              (|Union| (QREFELT $ 7) #4#) #3#))
+                            . #6#)
                       (LETT |bb|
                             (PROG2
                                 (LETT #3# (SPADCALL |bb| |g| (QREFELT $ 34))
-                                      . #5#)
+                                      . #6#)
                                 (QCDR #3#)
-                              (|check_union| (QEQCAR #3# 0) (QREFELT $ 7) #3#))
-                            . #5#)
-                      (LETT |cc| (QCDR |u|) . #5#)
-                      (LETT |ra| (SPADCALL |aa| (QREFELT $ 36)) . #5#)
+                              (|check_union2| (QEQCAR #3# 0) (QREFELT $ 7)
+                                              (|Union| (QREFELT $ 7) #4#) #3#))
+                            . #6#)
+                      (LETT |cc| (QCDR |u|) . #6#)
+                      (LETT |ra| (SPADCALL |aa| (QREFELT $ 36)) . #6#)
                       (EXIT
                        (COND
                         ((QEQCAR |ra| 0)
                          (SEQ
                           (LETT |a1| (SPADCALL (QCDR |ra|) (QREFELT $ 37))
-                                . #5#)
+                                . #6#)
                           (EXIT
                            (CONS 0
                                  (VECTOR (SPADCALL |a1| |bb| (QREFELT $ 38))
                                          (SPADCALL |a1| |cc| (QREFELT $ 38))
                                          |d| (|spadConstant| $ 13)
                                          (|spadConstant| $ 9))))))
-                        (#4#
+                        (#5#
                          (SEQ
                           (LETT |bc|
                                 (PROG2
                                     (LETT #2#
                                           (SPADCALL |bb| |aa| |cc|
                                                     (QREFELT $ 41))
-                                          . #5#)
+                                          . #6#)
                                     (QCDR #2#)
-                                  (|check_union| (QEQCAR #2# 0)
-                                                 (|Record|
-                                                  (|:| |coef1| (QREFELT $ 7))
-                                                  (|:| |coef2| (QREFELT $ 7)))
-                                                 #2#))
-                                . #5#)
+                                  (|check_union2| (QEQCAR #2# 0)
+                                                  (|Record|
+                                                   (|:| |coef1| (QREFELT $ 7))
+                                                   (|:| |coef2| (QREFELT $ 7)))
+                                                  (|Union|
+                                                   (|Record|
+                                                    (|:| |coef1| (QREFELT $ 7))
+                                                    (|:| |coef2|
+                                                         (QREFELT $ 7)))
+                                                   "failed")
+                                                  #2#))
+                                . #6#)
                           (LETT |qr| (SPADCALL (QCAR |bc|) |aa| (QREFELT $ 43))
-                                . #5#)
-                          (LETT |r| (QCDR |qr|) . #5#)
+                                . #6#)
+                          (LETT |r| (QCDR |qr|) . #6#)
                           (LETT |v|
                                 (|RDETR;SPDE| |aa|
                                  (SPADCALL |bb| (SPADCALL |aa| |derivation|)
@@ -220,10 +228,10 @@
                                   (SPADCALL |r| |derivation|) (QREFELT $ 44))
                                  (- |d| (SPADCALL |aa| (QREFELT $ 17)))
                                  |derivation| $)
-                                . #5#)
+                                . #6#)
                           (EXIT
                            (COND ((QEQCAR |v| 1) (CONS 1 "failed"))
-                                 (#4#
+                                 (#5#
                                   (CONS 0
                                         (VECTOR (QVELT (QCDR |v|) 0)
                                                 (QVELT (QCDR |v|) 1)
@@ -281,8 +289,9 @@
                            (SPADCALL (SPADCALL |cc| (QREFELT $ 27)) |lb|
                                      (QREFELT $ 46))
                            (PROG1 (LETT #1# |n| . #4#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 15))
                           . #4#)
                     (LETT |cc|
@@ -350,9 +359,9 @@
                                              (SPADCALL |n| |lt| (QREFELT $ 47))
                                              (QREFELT $ 46))
                                    (PROG1 (LETT #2# |n| . #4#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))
                                    (QREFELT $ 15))
                                   . #4#)
                             (LETT |cc|
@@ -423,36 +432,37 @@
                     (|:| |c| (|Fraction| UP)) (|:| |t| UP))
           "failed"))
         (SPROG
-         ((|u| (|Union| UP "failed")) (|aa| (UP)) (|tt| (UP)) (#1=#:G200 NIL)
-          (|gg| (UP)) (|e| (UP)) (|d| (UP)))
+         ((|u| (|Union| UP #1="failed")) (|aa| (UP)) (|tt| (UP))
+          (#2=#:G200 NIL) (|gg| (UP)) (|e| (UP)) (|d| (UP)))
          (SEQ
           (LETT |gg|
                 (SPADCALL
                  (LETT |d| (SPADCALL |f| |derivation| (QREFELT $ 52))
-                       . #2=(|RDETR;monomRDE;2FMU;5|))
-                 (LETT |e| (SPADCALL |g| |derivation| (QREFELT $ 52)) . #2#)
+                       . #3=(|RDETR;monomRDE;2FMU;5|))
+                 (LETT |e| (SPADCALL |g| |derivation| (QREFELT $ 52)) . #3#)
                  (QREFELT $ 32))
-                . #2#)
+                . #3#)
           (LETT |tt|
                 (PROG2
-                    (LETT #1#
+                    (LETT #2#
                           (SPADCALL
                            (SPADCALL |e| (SPADCALL |e| (QREFELT $ 53))
                                      (QREFELT $ 32))
                            (SPADCALL |gg| (SPADCALL |gg| (QREFELT $ 53))
                                      (QREFELT $ 32))
                            (QREFELT $ 34))
-                          . #2#)
-                    (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
-                . #2#)
+                          . #3#)
+                    (QCDR #2#)
+                  (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) #1#) #2#))
+                . #3#)
           (LETT |u|
                 (SPADCALL
                  (SPADCALL |tt|
-                           (LETT |aa| (SPADCALL |d| |tt| (QREFELT $ 22)) . #2#)
+                           (LETT |aa| (SPADCALL |d| |tt| (QREFELT $ 22)) . #3#)
                            (QREFELT $ 22))
                  |e| (QREFELT $ 34))
-                . #2#)
+                . #3#)
           (EXIT
            (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
                  ('T
@@ -508,10 +518,22 @@
                                              (ELT $ 53) (QREFELT $ 31))
                                    . #2#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0)
-                                          (|Record| (|:| |ans| (QREFELT $ 7))
-                                                    (|:| |nosol| (|Boolean|)))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 0)
+                                           (|Record| (|:| |ans| (QREFELT $ 7))
+                                                     (|:| |nosol| (|Boolean|)))
+                                           (|Union|
+                                            (|:| |ans|
+                                                 (|Record|
+                                                  (|:| |ans| (QREFELT $ 7))
+                                                  (|:| |nosol| (|Boolean|))))
+                                            (|:| |eq|
+                                                 (|Record|
+                                                  (|:| |b| (QREFELT $ 7))
+                                                  (|:| |c| (QREFELT $ 7))
+                                                  (|:| |m| (|Integer|))
+                                                  (|:| |alpha| (QREFELT $ 7))
+                                                  (|:| |beta| (QREFELT $ 7)))))
+                                           #1#))
                          . #2#)
                    (EXIT
                     (CONS

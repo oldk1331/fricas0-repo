@@ -10,7 +10,8 @@
                                 (SPADCALL (SPADCALL |r0| |rn| (QREFELT $ 11))
                                           (QREFELT $ 13))
                                 . #2=(|TSEREXPP;rescale|))
-                        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                        (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                          '(|Integer|) #1#))
                       . #2#)
                 (EXIT
                  (SPADCALL (SPADCALL |p| (QREFELT $ 14)) |s| (QREFELT $ 16)))))) 

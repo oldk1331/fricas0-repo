@@ -127,8 +127,8 @@
                    (LETT |vv|
                          (SPADCALL
                           (PROG1 (LETT #5# (- (QREFELT $ 6) 1) . #11#)
-                            (|check_subtype| (> #5# 0) '(|PositiveInteger|)
-                                             #5#))
+                            (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                              '(|Integer|) #5#))
                           (QREFELT $ 13))
                          . #11#)
                    (QREFELT $ 6) (LETT |b| (|spadConstant| $ 8) . #11#)
@@ -186,9 +186,9 @@
                                          (PROG1
                                              (LETT #2# (- (QREFELT $ 6) 1)
                                                    . #11#)
-                                           (|check_subtype| (> #2# 0)
-                                                            '(|PositiveInteger|)
-                                                            #2#))
+                                           (|check_subtype2| (> #2# 0)
+                                                             '(|PositiveInteger|)
+                                                             '(|Integer|) #2#))
                                          (QREFELT $ 29))
                                . #11#)
                          (EXIT
@@ -275,8 +275,9 @@
                         (LETT |vv|
                               (SPADCALL
                                (PROG1 (LETT #7# (- (QREFELT $ 6) 1) . #12#)
-                                 (|check_subtype| (> #7# 0)
-                                                  '(|PositiveInteger|) #7#))
+                                 (|check_subtype2| (> #7# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #7#))
                                (QREFELT $ 13))
                               . #12#)
                         (QREFELT $ 6) (LETT |b| (|spadConstant| $ 8) . #12#)
@@ -344,9 +345,10 @@
                                               (PROG1
                                                   (LETT #4# (- (QREFELT $ 6) 1)
                                                         . #12#)
-                                                (|check_subtype| (> #4# 0)
-                                                                 '(|PositiveInteger|)
-                                                                 #4#))
+                                                (|check_subtype2| (> #4# 0)
+                                                                  '(|PositiveInteger|)
+                                                                  '(|Integer|)
+                                                                  #4#))
                                               (QREFELT $ 29))
                                     . #12#)
                               (EXIT
@@ -363,9 +365,9 @@
                                         (PROG1
                                             (LETT #2# (- (QREFELT $ 6) 1)
                                                   . #12#)
-                                          (|check_subtype| (>= #2# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #2#))
+                                          (|check_subtype2| (>= #2# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #2#))
                                         (QREFELT $ 42))
                               . #12#)
                         (EXIT
@@ -373,8 +375,9 @@
                              (LETT #1# (SPADCALL |a| |b| (QREFELT $ 43))
                                    . #12#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 7)
-                                          #1#)))))))))
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                           (|Union| (QREFELT $ 7) "failed")
+                                           #1#)))))))))
           #13# (EXIT #11#)))) 
 
 (DECLAIM (NOTINLINE |Permanent;|)) 

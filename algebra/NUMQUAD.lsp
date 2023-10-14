@@ -234,7 +234,8 @@
             (LETT |table|
                   (MAKEARR1
                    (PROG1 (LETT #5# (+ |nmax| 1) . #6#)
-                     (|check_subtype| (> #5# 0) '(|PositiveInteger|) #5#))
+                     (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                       '(|Integer|) #5#))
                    (SPADCALL 0 0 10 (QREFELT $ 10)))
                   . #6#)
             (LETT |n| 1 . #6#) (LETT |pts| 1 . #6#)
@@ -759,7 +760,8 @@
             (LETT |table|
                   (MAKEARR1
                    (PROG1 (LETT #4# (+ |nmax| 1) . #5#)
-                     (|check_subtype| (> #4# 0) '(|PositiveInteger|) #4#))
+                     (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                       '(|Integer|) #4#))
                    (SPADCALL 0 0 10 (QREFELT $ 10)))
                   . #5#)
             (LETT |n| 1 . #5#) (LETT |pts| 1 . #5#)

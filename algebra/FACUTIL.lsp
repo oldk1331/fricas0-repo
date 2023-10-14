@@ -165,9 +165,10 @@
                                                         (QREFELT $ 55))
                                               (PROG1
                                                   (LETT #2# (- |n| |m|) . #3#)
-                                                (|check_subtype| (>= #2# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #2#))
+                                                (|check_subtype2| (>= #2# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #2#))
                                               (QREFELT $ 28))
                                              (QREFELT $ 31))
                                    . #3#)

@@ -151,7 +151,13 @@
               (LETT |uls|
                     (PROG2 (LETT #3# |ans| . #9#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 0) |Uls| #3#))
+                      (|check_union2| (QEQCAR #3# 0) |Uls|
+                                      (|Union| (|:| |%series| |Uls|)
+                                               (|:| |%problem|
+                                                    (|Record|
+                                                     (|:| |func| (|String|))
+                                                     (|:| |prob| (|String|)))))
+                                      #3#))
                     . #9#)
               (LETT |uts|
                     (SPADCALL |uls|
@@ -532,7 +538,13 @@
                (SPADCALL
                 (PROG2 (LETT #1# |ans| . #8#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) |Uls| #1#))
+                  (|check_union2| (QEQCAR #1# 0) |Uls|
+                                  (|Union| (|:| |%series| |Uls|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  #1#))
                 (|compiledLookupCheck| '|coerce|
                                        (LIST (LIST '|Any|)
                                              (LIST '|UnivariateLaurentSeries|
@@ -882,7 +894,13 @@
                (SPADCALL
                 (PROG2 (LETT #1# |ans| . #8#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) |Ups| #1#))
+                  (|check_union2| (QEQCAR #1# 0) |Ups|
+                                  (|Union| (|:| |%series| |Ups|)
+                                           (|:| |%problem|
+                                                (|Record|
+                                                 (|:| |func| (|String|))
+                                                 (|:| |prob| (|String|)))))
+                                  #1#))
                 (|compiledLookupCheck| '|coerce|
                                        (LIST (LIST '|Any|)
                                              (LIST '|UnivariatePuiseuxSeries|
@@ -1288,10 +1306,18 @@
                     (SPADCALL
                      (PROG2 (LETT #7# |ansG| . #15#)
                          (QCDR #7#)
-                       (|check_union| (QEQCAR #7# 0)
-                                      (|UnivariatePuiseuxSeries| (QREFELT $ 7)
-                                                                 |x| |a|)
-                                      #7#))
+                       (|check_union2| (QEQCAR #7# 0)
+                                       (|UnivariatePuiseuxSeries| (QREFELT $ 7)
+                                                                  |x| |a|)
+                                       (|Union|
+                                        (|:| |%series|
+                                             (|UnivariatePuiseuxSeries|
+                                              (QREFELT $ 7) |x| |a|))
+                                        (|:| |%problem|
+                                             (|Record| (|:| |func| (|String|))
+                                                       (|:| |prob|
+                                                            (|String|)))))
+                                       #7#))
                      (|compiledLookupCheck| '|coerce|
                                             (LIST '$
                                                   (LIST

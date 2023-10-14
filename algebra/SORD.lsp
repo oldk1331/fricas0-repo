@@ -116,7 +116,7 @@
                                    (QREFELT $ 41))
                          |SORD;limitPart;2$;17|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) $ #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) $ (|Union| $ "failed") #1#)))) 
 
 (SDEFUN |SORD;ordinalMul;3$;18| ((|o1| $) (|o2| $) ($ $))
         (SPROG ((|lo| ($)) (|hi| ($)) (|e| ($)))

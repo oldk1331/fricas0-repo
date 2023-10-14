@@ -120,9 +120,9 @@
                        ('T
                         (SPADCALL (|LAUPOL;poly| |p| $)
                                   (PROG1 (LETT #1# |m| . #2#)
-                                    (|check_subtype| (>= #1# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #1#))
+                                    (|check_subtype2| (>= #1# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #1#))
                                   (QREFELT $ 48)))))))) 
 
 (SDEFUN |LAUPOL;differentiate;$M$;24|
@@ -198,9 +198,10 @@
                              (SPADCALL (|LAUPOL;poly| |p| $)
                                        (SPADCALL (|spadConstant| $ 13)
                                                  (PROG1 (LETT #2# |d| . #4#)
-                                                   (|check_subtype| (>= #2# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #2#))
+                                                   (|check_subtype2| (>= #2# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #2#))
                                                  (QREFELT $ 37))
                                        (QREFELT $ 43))
                              (|LAUPOL;poly| |q| $) (QREFELT $ 64))
@@ -213,10 +214,10 @@
                                                           (PROG1
                                                               (LETT #1# (- |d|)
                                                                     . #4#)
-                                                            (|check_subtype|
+                                                            (|check_subtype2|
                                                              (>= #1# 0)
                                                              '(|NonNegativeInteger|)
-                                                             #1#))
+                                                             '(|Integer|) #1#))
                                                           (QREFELT $ 37))
                                                 (QREFELT $ 43))
                                       (QREFELT $ 64))
@@ -249,7 +250,9 @@
                                               (QREFELT $ 79))
                                     . #2#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                            (|Union| (QREFELT $ 7) "failed")
+                                            #1#))
                           (+ |n| |d|) $)))))))) 
 
 (SDEFUN |LAUPOL;exquo;2$U;30| ((|p| $) (|q| $) ($ |Union| $ #1="failed"))
@@ -282,9 +285,10 @@
                                                      (SPADCALL |p|
                                                                (QREFELT $ 19))
                                                      |LAUPOL;retractIfCan;$U;31|)
-                                             (|check_subtype| (>= #1# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #1#))
+                                             (|check_subtype2| (>= #1# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #1#))
                                            (QREFELT $ 37))
                                  (QREFELT $ 43))))))) 
 
@@ -325,7 +329,8 @@
                                     (QREFELT $ 79))
                           . #3#)
                     (QCDR #2#)
-                  (|check_union| (QEQCAR #2# 0) (QREFELT $ 7) #2#))
+                  (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) "failed") #2#))
                 . #3#)
           (LETT |bc|
                 (PROG2
@@ -334,10 +339,14 @@
                                     (QREFELT $ 93))
                           . #3#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 7))
-                                           (|:| |coef2| (QREFELT $ 7)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 7))
+                                            (|:| |coef2| (QREFELT $ 7)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 7))
+                                             (|:| |coef2| (QREFELT $ 7)))
+                                   "failed")
+                                  #1#))
                 . #3#)
           (LETT |qr| (SPADCALL (QCAR |bc|) |q| (QREFELT $ 95)) . #3#)
           (EXIT
@@ -368,9 +377,9 @@
                                                (- (SPADCALL |p| (QREFELT $ 19))
                                                   |c|)
                                                . #3#)
-                                       (|check_subtype| (>= #2# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #2#))
+                                       (|check_subtype2| (>= #2# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #2#))
                                      (QREFELT $ 37))
                            (QREFELT $ 43))
                  (|LAUPOL;poly| |q| $) (QREFELT $ 95))

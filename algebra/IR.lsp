@@ -436,15 +436,24 @@
                                            |numlog| (QREFELT $ 88))
                                  . #5#)
                            (QCDR #3#)
-                         (|check_union| (QEQCAR #3# 0)
-                                        (|Record|
-                                         (|:| |coef1|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 6)))
-                                         (|:| |coef2|
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 6))))
-                                        #3#))
+                         (|check_union2| (QEQCAR #3# 0)
+                                         (|Record|
+                                          (|:| |coef1|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 6)))
+                                          (|:| |coef2|
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 6))))
+                                         (|Union|
+                                          (|Record|
+                                           (|:| |coef1|
+                                                (|SparseUnivariatePolynomial|
+                                                 (QREFELT $ 6)))
+                                           (|:| |coef2|
+                                                (|SparseUnivariatePolynomial|
+                                                 (QREFELT $ 6))))
+                                          "failed")
+                                         #3#))
                        . #5#)
                  (LETT |algans| (QCAR |diflog|) . #5#)
                  (LETT |ans| (|spadConstant| $ 17) . #5#)

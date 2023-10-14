@@ -214,7 +214,8 @@
                  (|OREPCTO;localLeftDivide| |a| |b| |sigma|
                   (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) "failed") #1#))
                   $))
                 ('T (|error| "monicLeftDivide: divisor is not monic"))))) 
 
@@ -230,7 +231,8 @@
                  (|OREPCTO;localRightDivide| |a| |b| |sigma|
                   (PROG2 (LETT #1# (SPADCALL |u| (QREFELT $ 37)) . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) "failed") #1#))
                   $))
                 ('T (|error| "monicRightDivide: divisor is not monic"))))) 
 

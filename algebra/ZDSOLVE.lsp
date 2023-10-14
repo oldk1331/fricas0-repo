@@ -32,10 +32,14 @@
                                                  (QREFELT $ 15))
                                        . #2#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 0)
-                                              (|OrderedVariableList|
-                                               (QREFELT $ 8))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 0)
+                                               (|OrderedVariableList|
+                                                (QREFELT $ 8))
+                                               (|Union|
+                                                (|OrderedVariableList|
+                                                 (QREFELT $ 8))
+                                                "failed")
+                                               #1#))
                              . #2#)
                        (LETT |iq2|
                              (SPADCALL (SPADCALL |q| (QREFELT $ 31))
@@ -513,7 +517,9 @@
                            (PROG2
                                (LETT #3# (SPADCALL |qrc| (QREFELT $ 99)) . #8#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0) (|Symbol|) #3#))
+                             (|check_union2| (QEQCAR #3# 0) (|Symbol|)
+                                             (|Union| (|Symbol|) "failed")
+                                             #3#))
                            |lv|)
                           . #8#)
                     (LETT |urc| (SPADCALL |qrc| (QREFELT $ 100)) . #8#)
@@ -687,7 +693,9 @@
                                (LETT #8# (SPADCALL |qrc| (QREFELT $ 99))
                                      . #16#)
                                (QCDR #8#)
-                             (|check_union| (QEQCAR #8# 0) (|Symbol|) #8#))
+                             (|check_union2| (QEQCAR #8# 0) (|Symbol|)
+                                             (|Union| (|Symbol|) "failed")
+                                             #8#))
                            |lv|)
                           . #16#)
                     (LETT |urc| (SPADCALL |qrc| (QREFELT $ 100)) . #16#)
@@ -888,7 +896,9 @@
                            (PROG2
                                (LETT #3# (SPADCALL |qrc| (QREFELT $ 99)) . #8#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0) (|Symbol|) #3#))
+                             (|check_union2| (QEQCAR #3# 0) (|Symbol|)
+                                             (|Union| (|Symbol|) "failed")
+                                             #3#))
                            |lv|)
                           . #8#)
                     (LETT |urc| (SPADCALL |qrc| (QREFELT $ 100)) . #8#)
@@ -1059,7 +1069,9 @@
                                (LETT #3# (SPADCALL |qrc| (QREFELT $ 99))
                                      . #11#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0) (|Symbol|) #3#))
+                             (|check_union2| (QEQCAR #3# 0) (|Symbol|)
+                                             (|Union| (|Symbol|) "failed")
+                                             #3#))
                            |lv|)
                           . #11#)
                     (LETT |urc| (SPADCALL |qrc| (QREFELT $ 100)) . #11#)
@@ -1153,12 +1165,18 @@
                                                       (QREFELT $ 121))
                                             . #6#)
                                       (QCDR #3#)
-                                    (|check_union| (QEQCAR #3# 0)
-                                                   (|NewSparseMultivariatePolynomial|
-                                                    (QREFELT $ 6)
-                                                    (|OrderedVariableList|
-                                                     (QREFELT $ 8)))
-                                                   #3#))
+                                    (|check_union2| (QEQCAR #3# 0)
+                                                    (|NewSparseMultivariatePolynomial|
+                                                     (QREFELT $ 6)
+                                                     (|OrderedVariableList|
+                                                      (QREFELT $ 8)))
+                                                    (|Union|
+                                                     (|NewSparseMultivariatePolynomial|
+                                                      (QREFELT $ 6)
+                                                      (|OrderedVariableList|
+                                                       (QREFELT $ 8)))
+                                                     "failed")
+                                                    #3#))
                                   (QREFELT $ 122))
                                  . #6#)
                            (LETT |lc|
@@ -1367,12 +1385,18 @@
                                                       (QREFELT $ 121))
                                             . #14#)
                                       (QCDR #3#)
-                                    (|check_union| (QEQCAR #3# 0)
-                                                   (|NewSparseMultivariatePolynomial|
-                                                    (QREFELT $ 6)
-                                                    (|OrderedVariableList|
-                                                     (QREFELT $ 8)))
-                                                   #3#))
+                                    (|check_union2| (QEQCAR #3# 0)
+                                                    (|NewSparseMultivariatePolynomial|
+                                                     (QREFELT $ 6)
+                                                     (|OrderedVariableList|
+                                                      (QREFELT $ 8)))
+                                                    (|Union|
+                                                     (|NewSparseMultivariatePolynomial|
+                                                      (QREFELT $ 6)
+                                                      (|OrderedVariableList|
+                                                       (QREFELT $ 8)))
+                                                     "failed")
+                                                    #3#))
                                   (QREFELT $ 122))
                                  . #14#)
                            (LETT |lc|
@@ -1479,8 +1503,9 @@
     (QSETREFV $ 16
               (PROG2 (LETT #1# (SPADCALL (QREFELT $ 12) (QREFELT $ 15)) . #2#)
                   (QCDR #1#)
-                (|check_union| (QEQCAR #1# 0) (|OrderedVariableList| |#3|)
-                               #1#)))
+                (|check_union2| (QEQCAR #1# 0) (|OrderedVariableList| |#3|)
+                                (|Union| (|OrderedVariableList| |#3|) "failed")
+                                #1#)))
     (QSETREFV $ 19 (SPADCALL (QREFELT $ 16) (QREFELT $ 18)))
     $))) 
 

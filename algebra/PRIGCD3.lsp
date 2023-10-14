@@ -296,10 +296,15 @@
                                                          (QREFELT $ 27))
                                                . #7#)
                                          (QCDR #2#)
-                                       (|check_union| (QEQCAR #2# 0)
-                                                      (|SparseMultivariatePolynomial|
-                                                       (|Integer|) (|Symbol|))
-                                                      #2#))
+                                       (|check_union2| (QEQCAR #2# 0)
+                                                       (|SparseMultivariatePolynomial|
+                                                        (|Integer|) (|Symbol|))
+                                                       (|Union|
+                                                        (|SparseMultivariatePolynomial|
+                                                         (|Integer|)
+                                                         (|Symbol|))
+                                                        #9="failed")
+                                                       #2#))
                                      . #7#)
                                (LETT |mlc1|
                                      (PROG2
@@ -308,10 +313,15 @@
                                                          (QREFELT $ 27))
                                                . #7#)
                                          (QCDR #2#)
-                                       (|check_union| (QEQCAR #2# 0)
-                                                      (|SparseMultivariatePolynomial|
-                                                       (|Integer|) (|Symbol|))
-                                                      #2#))
+                                       (|check_union2| (QEQCAR #2# 0)
+                                                       (|SparseMultivariatePolynomial|
+                                                        (|Integer|) (|Symbol|))
+                                                       (|Union|
+                                                        (|SparseMultivariatePolynomial|
+                                                         (|Integer|)
+                                                         (|Symbol|))
+                                                        #9#)
+                                                       #2#))
                                      . #7#)
                                (EXIT
                                 (LETT |p|
@@ -325,10 +335,10 @@
                                                        (LETT #1#
                                                              (- |degp| |degm|)
                                                              . #7#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #1# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #1#))
+                                                      '(|Integer|) #1#))
                                                    (QREFELT $ 13))
                                                   (QREFELT $ 14))
                                         |m| (QREFELT $ 14))
@@ -373,35 +383,35 @@
           (#3=#:G193 NIL)
           (|mquo|
            (|Union| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|))
-                    "failed"))
-          (|alm| #4=(|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-          (|alcr| #5=(|Record| (|:| |lcx0lc| #2#) (|:| |lcx0m| #4#)))
-          (|blm| #4#) (|blc| #2#) (|blcr| #5#))
+                    #4="failed"))
+          (|alm| #5=(|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
+          (|alcr| #6=(|Record| (|:| |lcx0lc| #2#) (|:| |lcx0m| #5#)))
+          (|blm| #5#) (|blc| #2#) (|blcr| #6#))
          (SEQ
           (EXIT
            (SEQ
             (LETT |blcr| (SPADCALL |b| |xvars| (QREFELT $ 10))
-                  . #6=(|PRIGCD3;alg_trial_division;2SmpL2LB;7|))
-            (LETT |blc| (QCAR |blcr|) . #6#) (LETT |blm| (QCDR |blcr|) . #6#)
+                  . #7=(|PRIGCD3;alg_trial_division;2SmpL2LB;7|))
+            (LETT |blc| (QCAR |blcr|) . #7#) (LETT |blm| (QCDR |blcr|) . #7#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (EXIT
                     (COND
                      ((SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 31))
-                      (PROGN (LETT #3# 'T . #6#) (GO #7=#:G192)))
+                      (PROGN (LETT #3# 'T . #7#) (GO #8=#:G192)))
                      ('T
                       (SEQ
                        (LETT |alcr| (SPADCALL |a| |xvars| (QREFELT $ 10))
-                             . #6#)
-                       (LETT |alc| (QCAR |alcr|) . #6#)
-                       (LETT |alm| (QCDR |alcr|) . #6#)
+                             . #7#)
+                       (LETT |alc| (QCAR |alcr|) . #7#)
+                       (LETT |alm| (QCDR |alcr|) . #7#)
                        (LETT |mquo| (SPADCALL |alm| |blm| (QREFELT $ 27))
-                             . #6#)
+                             . #7#)
                        (EXIT
                         (COND
                          ((QEQCAR |mquo| 1)
-                          (PROGN (LETT #3# 'NIL . #6#) (GO #7#)))
+                          (PROGN (LETT #3# 'NIL . #7#) (GO #8#)))
                          ('T
                           (SEQ
                            (LETT |g|
@@ -410,29 +420,37 @@
                                         (SPADCALL |alc| |zvars|
                                                   (QREFELT $ 23)))
                                   (QREFELT $ 25))
-                                 . #6#)
+                                 . #7#)
                            (LETT |alc|
                                  (PROG2
                                      (LETT #1#
                                            (SPADCALL |alc| |g| (QREFELT $ 27))
-                                           . #6#)
+                                           . #7#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0)
-                                                  (|SparseMultivariatePolynomial|
-                                                   (|Integer|) (|Symbol|))
-                                                  #1#))
-                                 . #6#)
+                                   (|check_union2| (QEQCAR #1# 0)
+                                                   (|SparseMultivariatePolynomial|
+                                                    (|Integer|) (|Symbol|))
+                                                   (|Union|
+                                                    (|SparseMultivariatePolynomial|
+                                                     (|Integer|) (|Symbol|))
+                                                    #4#)
+                                                   #1#))
+                                 . #7#)
                            (LETT |s|
                                  (PROG2
                                      (LETT #1#
                                            (SPADCALL |blc| |g| (QREFELT $ 27))
-                                           . #6#)
+                                           . #7#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0)
-                                                  (|SparseMultivariatePolynomial|
-                                                   (|Integer|) (|Symbol|))
-                                                  #1#))
-                                 . #6#)
+                                   (|check_union2| (QEQCAR #1# 0)
+                                                   (|SparseMultivariatePolynomial|
+                                                    (|Integer|) (|Symbol|))
+                                                   (|Union|
+                                                    (|SparseMultivariatePolynomial|
+                                                     (|Integer|) (|Symbol|))
+                                                    #4#)
+                                                   #1#))
+                                 . #7#)
                            (EXIT
                             (LETT |a|
                                   (SPADCALL
@@ -443,9 +461,9 @@
                                               |b| (QREFELT $ 14))
                                              (QREFELT $ 28))
                                    |lm| |xvars| |zvars| (QREFELT $ 30))
-                                  . #6#)))))))))))
+                                  . #7#)))))))))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #3#)))) 
+          #8# (EXIT #3#)))) 
 
 (DECLAIM (NOTINLINE |PrimGCD;|)) 
 

@@ -31,8 +31,8 @@
             (SEQ (LETT |i| 0 . #4#)
                  (LETT #2#
                        (PROG1 (LETT #3# (- |n| 1) . #4#)
-                         (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                          #3#))
+                         (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #3#))
                        . #4#)
                  G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                  (SEQ

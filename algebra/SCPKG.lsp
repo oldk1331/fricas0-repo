@@ -22,7 +22,8 @@
                 (PROG1
                     (LETT #2# (SPADCALL |b| (QREFELT $ 18))
                           . #3=(|SCPKG;coordinates;MLV;2|))
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #3#)
           (LETT |n|
                 (* (ANROWS (SPADCALL |b| 1 (QREFELT $ 20)))
@@ -55,8 +56,9 @@
             ('T
              (PROG2 (LETT #1# (QCAR |res|) . #3#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
-                              #1#)))))))) 
+               (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
+                               (|Union| (|Vector| (QREFELT $ 6)) "failed")
+                               #1#)))))))) 
 
 (SDEFUN |SCPKG;structuralConstants;LV;3|
         ((|b| |List| (|Matrix| R)) ($ |Vector| (|Matrix| R)))
@@ -69,7 +71,8 @@
                 (PROG1
                     (LETT #3# (SPADCALL |b| (QREFELT $ 18))
                           . #4=(|SCPKG;structuralConstants;LV;3|))
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #4#)
           (LETT |sC|
                 (PROGN

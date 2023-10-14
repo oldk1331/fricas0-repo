@@ -77,11 +77,13 @@
                 (MAKE_MATRIX1
                  (+
                   (PROG1 (LETT #12# (QREFELT $ 14) . #14#)
-                    (|check_subtype| (>= #12# 0) '(|NonNegativeInteger|) #12#))
+                    (|check_subtype2| (>= #12# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #12#))
                   1)
                  (+
                   (PROG1 (LETT #11# (QREFELT $ 15) . #14#)
-                    (|check_subtype| (>= #11# 0) '(|NonNegativeInteger|) #11#))
+                    (|check_subtype2| (>= #11# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #11#))
                   1)
                  (CONS 0.0 0.0))
                 . #14#)

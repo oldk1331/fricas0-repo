@@ -177,7 +177,8 @@
                                  (EXIT NIL))
                             (COND (#2# #3#) (#9='T 0)))
                            . #8#)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#)))
                 (#9# (|error| "not a homogeneous element")))))) 
 
 (SDEFUN |ANTISYM;zo| ((|p| |Integer|) (|q| |Integer|) ($ |List| (|Integer|)))

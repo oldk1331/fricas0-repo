@@ -184,8 +184,9 @@
                           (PROG1
                               (LETT #9# |n|
                                     . #10=(|LWORD;LyndonWordsList1;LPiOda;10|))
-                            (|check_subtype| (>= #9# 0) '(|NonNegativeInteger|)
-                                             #9#))
+                            (|check_subtype2| (>= #9# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #9#))
                           NIL (QREFELT $ 45))
                          . #10#)
                    (LETT |lbase1|

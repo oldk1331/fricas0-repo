@@ -24,9 +24,9 @@
                    (LETT |t|
                          (SPADCALL (SPADCALL |a| (QREFELT $ 26))
                                    (PROG1 (LETT #2# (- |da| |db|) . #3#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))
                                    (QREFELT $ 10))
                          . #3#)
                    (LETT |a|
@@ -82,9 +82,10 @@
                                (LETT |t|
                                      (SPADCALL |c|
                                                (PROG1 (LETT #4# |p| . #8#)
-                                                 (|check_subtype| (>= #4# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #4#))
+                                                 (|check_subtype2| (>= #4# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #4#))
                                                (QREFELT $ 37))
                                      . #8#)
                                (LETT |c| (|PNTHEORY;MonicQuotient| |t| |c| $)
@@ -93,8 +94,8 @@
                       NIL (GO G190) G191 (EXIT NIL))
                  (LETT |m|
                        (PROG1 (LETT #2# (QUOTIENT2 |n| |s|) . #8#)
-                         (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                          #2#))
+                         (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #2#))
                        . #8#)
                  (EXIT (SPADCALL |c| |m| (QREFELT $ 37))))))))) 
 
@@ -142,9 +143,10 @@
                                (SPADCALL (SPADCALL |i| (QREFELT $ 43))
                                          (EXPT 2
                                                (PROG1 (LETT #2# |i| . #5#)
-                                                 (|check_subtype| (>= #2# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #2#)))
+                                                 (|check_subtype2| (>= #2# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #2#)))
                                          (QREFELT $ 44))
                                (SPADCALL |t| (SPADCALL 1 2 (QREFELT $ 44))
                                          (QREFELT $ 45))

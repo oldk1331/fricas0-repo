@@ -19,7 +19,8 @@
                (PROG1
                    (LETT #1# (+ 1 (SPADCALL |c| (QREFELT $ 16)))
                          |CHAR;lookup;$Pi;5|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                   #1#)))) 
 
 (SDEFUN |CHAR;char;I$;6| ((|n| |Integer|) ($ $)) (SPADCALL |n| (QREFELT $ 18))) 
 

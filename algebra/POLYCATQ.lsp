@@ -12,19 +12,19 @@
         (SPROG
          ((|nd| (F)) (|cofact| #1=(|SparseUnivariatePolynomial| F)) (|cf2| #1#)
           (#2=#:G118 NIL)
-          (|ndu| (|Union| (|SparseUnivariatePolynomial| F) "failed"))
+          (|ndu| (|Union| (|SparseUnivariatePolynomial| F) #3="failed"))
           (|nd1| (|SparseUnivariatePolynomial| F)) (|cf1| #1#) (|c0| (F))
-          (|c1| (F)) (|c2| (F)) (|df| #3=(|SparseUnivariatePolynomial| F))
-          (|nf| #3#))
+          (|c1| (F)) (|c2| (F)) (|df| #4=(|SparseUnivariatePolynomial| F))
+          (|nf| #4#))
          (SEQ
           (LETT |nf|
                 (SPADCALL (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 11)) |x| $)
                           |modulus| (QREFELT $ 20))
-                . #4=(|POLYCATQ;univ_root|))
+                . #5=(|POLYCATQ;univ_root|))
           (LETT |df|
                 (SPADCALL (|POLYCATQ;P2UP| (SPADCALL |f| (QREFELT $ 12)) |x| $)
                           |modulus| (QREFELT $ 20))
-                . #4#)
+                . #5#)
           (LETT |cofact|
                 (COND
                  ((EQL |k| 2)
@@ -34,9 +34,9 @@
                              (QREFELT $ 24))
                             (QREFELT $ 25)))
                  ((EQL |k| 3)
-                  (SEQ (LETT |c2| (SPADCALL |df| 2 (QREFELT $ 26)) . #4#)
-                       (LETT |c1| (SPADCALL |df| 1 (QREFELT $ 26)) . #4#)
-                       (LETT |c0| (SPADCALL |df| 0 (QREFELT $ 26)) . #4#)
+                  (SEQ (LETT |c2| (SPADCALL |df| 2 (QREFELT $ 26)) . #5#)
+                       (LETT |c1| (SPADCALL |df| 1 (QREFELT $ 26)) . #5#)
+                       (LETT |c0| (SPADCALL |df| 0 (QREFELT $ 26)) . #5#)
                        (EXIT
                         (SPADCALL
                          (SPADCALL
@@ -69,31 +69,35 @@
                                               (QREFELT $ 22))
                                     1 (QREFELT $ 24))
                                    (QREFELT $ 25))
-                         . #4#)
-                   (LETT |nd1| (SPADCALL |df| |cf1| (QREFELT $ 37)) . #4#)
-                   (LETT |ndu| (SPADCALL |nd1| 2 (QREFELT $ 39)) . #4#)
+                         . #5#)
+                   (LETT |nd1| (SPADCALL |df| |cf1| (QREFELT $ 37)) . #5#)
+                   (LETT |ndu| (SPADCALL |nd1| 2 (QREFELT $ 39)) . #5#)
                    (LETT |cf2|
                          (SPADCALL
-                          (PROG2 (LETT #2# |ndu| . #4#)
+                          (PROG2 (LETT #2# |ndu| . #5#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0)
-                                           (|SparseUnivariatePolynomial|
-                                            (QREFELT $ 10))
-                                           #2#))
+                            (|check_union2| (QEQCAR #2# 0)
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 10))
+                                            (|Union|
+                                             (|SparseUnivariatePolynomial|
+                                              (QREFELT $ 10))
+                                             #3#)
+                                            #2#))
                           (QREFELT $ 19)
                           (SPADCALL
                            (SPADCALL (|spadConstant| $ 21) (QREFELT $ 22)) 2
                            (QREFELT $ 24))
                           (QREFELT $ 25))
-                         . #4#)
+                         . #5#)
                    (EXIT (SPADCALL |cf1| |cf2| (QREFELT $ 37))))))
-                . #4#)
+                . #5#)
           (LETT |nd|
                 (SPADCALL
                  (SPADCALL (SPADCALL |df| |cofact| (QREFELT $ 37)) |modulus|
                            (QREFELT $ 20))
                  (QREFELT $ 40))
-                . #4#)
+                . #5#)
           (EXIT
            (SPADCALL
             (SPADCALL (SPADCALL |nf| |cofact| (QREFELT $ 37)) |modulus|

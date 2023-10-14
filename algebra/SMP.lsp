@@ -889,8 +889,12 @@
                      (PROG2
                          (LETT #2# (SPADCALL |a| |mona| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $)
+                                        #5="failed")
+                                       #2#))
                      . #4#)))
              (LETT |contb| (SPADCALL |b| (QREFELT $ 142)) . #4#)
              (LETT |monb|
@@ -903,8 +907,11 @@
                      (PROG2
                          (LETT #2# (SPADCALL |b| |monb| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $) #5#)
+                                       #2#))
                      . #4#)))
              (LETT |mong|
                    (SPADCALL (SPADCALL |conta| |contb| (QREFELT $ 140))
@@ -919,10 +926,10 @@
                 (COND
                  ((NULL (QEQCAR (SPADCALL |a| |b| (QREFELT $ 146)) 1))
                   (SPADCALL |mong| |b| (QREFELT $ 147)))
-                 (#5='T |mong|)))
+                 (#6='T |mong|)))
                ((NULL (QEQCAR (SPADCALL |b| |a| (QREFELT $ 146)) 1))
                 (SPADCALL |mong| |a| (QREFELT $ 147)))
-               (#5# |mong|))))))))) 
+               (#6# |mong|))))))))) 
 
 (SDEFUN |SMP;content;$VarSet$;46| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
@@ -1029,8 +1036,12 @@
                      (PROG2
                          (LETT #2# (SPADCALL |a| |mona| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $)
+                                        #5="failed")
+                                       #2#))
                      . #4#)))
              (LETT |contb| (SPADCALL |b| (QREFELT $ 142)) . #4#)
              (LETT |monb|
@@ -1043,8 +1054,11 @@
                      (PROG2
                          (LETT #2# (SPADCALL |b| |monb| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $) #5#)
+                                       #2#))
                      . #4#)))
              (LETT |mong|
                    (SPADCALL (SPADCALL |conta| |contb| (QREFELT $ 140))
@@ -1059,10 +1073,10 @@
                 (COND
                  ((NULL (QEQCAR (SPADCALL |a| |b| (QREFELT $ 146)) 1))
                   (SPADCALL |mong| |b| (QREFELT $ 147)))
-                 (#5='T |mong|)))
+                 (#6='T |mong|)))
                ((NULL (QEQCAR (SPADCALL |b| |a| (QREFELT $ 146)) 1))
                 (SPADCALL |mong| |a| (QREFELT $ 147)))
-               (#5# |mong|))))))))) 
+               (#6# |mong|))))))))) 
 
 (SDEFUN |SMP;content;$VarSet$;53| ((|p| $) (|mvar| |VarSet|) ($ $))
         (COND ((QEQCAR |p| 0) |p|)
@@ -1152,8 +1166,12 @@
                      (PROG2
                          (LETT #2# (SPADCALL |a| |mona| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $)
+                                        #5="failed")
+                                       #2#))
                      . #4#)))
              (LETT |contb| (SPADCALL |b| (QREFELT $ 142)) . #4#)
              (LETT |monb|
@@ -1166,8 +1184,11 @@
                      (PROG2
                          (LETT #2# (SPADCALL |b| |monb| (QREFELT $ 146)) . #4#)
                          (QCDR #2#)
-                       (|check_union| (QEQCAR #2# 0)
-                                      (|SparseUnivariatePolynomial| $) #2#))
+                       (|check_union2| (QEQCAR #2# 0)
+                                       (|SparseUnivariatePolynomial| $)
+                                       (|Union|
+                                        (|SparseUnivariatePolynomial| $) #5#)
+                                       #2#))
                      . #4#)))
              (LETT |mong|
                    (SPADCALL (SPADCALL |conta| |contb| (QREFELT $ 140))
@@ -1182,10 +1203,10 @@
                 (COND
                  ((NULL (QEQCAR (SPADCALL |a| |b| (QREFELT $ 146)) 1))
                   (SPADCALL |mong| |b| (QREFELT $ 147)))
-                 (#5='T |mong|)))
+                 (#6='T |mong|)))
                ((NULL (QEQCAR (SPADCALL |b| |a| (QREFELT $ 146)) 1))
                 (SPADCALL |mong| |a| (QREFELT $ 147)))
-               (#5# |mong|))))))))) 
+               (#6# |mong|))))))))) 
 
 (SDEFUN |SMP;coerce;$Of;56| ((|p| $) ($ |OutputForm|))
         (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 156)))

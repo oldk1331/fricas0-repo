@@ -16,9 +16,10 @@
                                 (SPADCALL
                                  (SPADCALL |p|
                                            (PROG1 (LETT #1# |i| . #4#)
-                                             (|check_subtype| (> #1# 0)
-                                                              '(|PositiveInteger|)
-                                                              #1#))
+                                             (|check_subtype2| (> #1# 0)
+                                                               '(|PositiveInteger|)
+                                                               '(|Integer|)
+                                                               #1#))
                                            (QREFELT $ 12))
                                  |mapping|)
                                 #3#)

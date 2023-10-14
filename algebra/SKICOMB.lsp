@@ -189,8 +189,9 @@
                           (PROG1
                               (LETT #1# (SPADCALL |t1| (QREFELT $ 30))
                                     . #2=(|SKICOMB;parseSki;S$;10|))
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 20))
                 . #2#)
           (EXIT (QCAR |r|))))) 
@@ -210,15 +211,25 @@
                     (QCAR
                      (PROG2 (LETT #1# |n| . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |c1| $) (|:| |c2| $))
-                                      #1#)))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |c1| $) (|:| |c2| $))
+                                       (|Union| (|:| |lf| (|Symbol|))
+                                                (|:| |nd|
+                                                     (|Record| (|:| |c1| $)
+                                                               (|:| |c2| $)))
+                                                (|:| |vr| (QREFELT $ 6)))
+                                       #1#)))
                     (QCDR
                      (PROG2 (LETT #1# |n| . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |c1| $) (|:| |c2| $))
-                                      #1#)))))))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |c1| $) (|:| |c2| $))
+                                       (|Union| (|:| |lf| (|Symbol|))
+                                                (|:| |nd|
+                                                     (|Record| (|:| |c1| $)
+                                                               (|:| |c2| $)))
+                                                (|:| |vr| (QREFELT $ 6)))
+                                       #1#)))))))
                 #4# (EXIT #2#)))) 
 
 (SDEFUN |SKICOMB;atom?;$B;12| ((|n| $) ($ |Boolean|))
@@ -430,8 +441,9 @@
                               . #2#)
                         (LETT |triesLeft|
                               (PROG1 (LETT #1# (- |triesLeft| 1) . #2#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               . #2#)
                         (EXIT
                          (|sayBrightly|

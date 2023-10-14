@@ -10,8 +10,8 @@
                       (PROG1
                           (LETT #1# (SPADCALL |x| (QREFELT $ 13))
                                 |ZMOD;lookup;$Pi;3|)
-                        (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                         #1#)))))) 
+                        (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                          '(|Integer|) #1#)))))) 
 
 (SDEFUN |ZMOD;bloodyCompiler| ((|n| |Integer|) ($ $))
         (SPADCALL |n| (QREFELT $ 6) (QREFELT $ 22))) 

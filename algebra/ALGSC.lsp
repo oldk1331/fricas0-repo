@@ -27,7 +27,8 @@
                 (PROG1
                     (LETT #2# (SPADCALL |b| (QREFELT $ 31))
                           . #3=(|ALGSC;coordinates;$VV;6|))
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #3#)
           (LETT |transitionMatrix|
                 (MAKE_MATRIX1 (QREFELT $ 7) |m| (|spadConstant| $ 32)) . #3#)
@@ -56,8 +57,9 @@
             ('T
              (PROG2 (LETT #1# (QCAR |res|) . #3#)
                  (QCDR #1#)
-               (|check_union| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
-                              #1#)))))))) 
+               (|check_union2| (QEQCAR #1# 0) (|Vector| (QREFELT $ 6))
+                               (|Union| (|Vector| (QREFELT $ 6)) "failed")
+                               #1#)))))))) 
 
 (SDEFUN |ALGSC;basis;V;7| (($ |Vector| $))
         (SPROG
@@ -73,8 +75,8 @@
                   (SETELT #4# #2#
                           (SPADCALL
                            (PROG1 (LETT #1# |i| . #6#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|NonNegativeInteger|) #1#))
                            (QREFELT $ 43)))))
                 (LETT #2#
                       (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|) . #6#))

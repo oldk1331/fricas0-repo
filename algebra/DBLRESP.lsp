@@ -11,7 +11,8 @@
                                     (QREFELT $ 16))
                           |DBLRESP;remove0|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) "failed") #1#))
                 (QREFELT $ 17)))) 
 
 (SDEFUN |DBLRESP;UP22| ((|p| UP) ($ |SparseUnivariatePolynomial| UP))
@@ -46,7 +47,8 @@
                                     (QREFELT $ 16))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) "failed") #1#))
                 . #2#)
           (LETT |r|
                 (SPADCALL

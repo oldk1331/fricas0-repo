@@ -604,14 +604,17 @@
                               (LETT #1# (SPADCALL |n1| |g1| (QREFELT $ 144))
                                     . #10#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                            (|Union| (|Integer|) #11="failed")
+                                            #1#))
                           . #10#)
                     (LETT |np1|
                           (PROG2
                               (LETT #1# (SPADCALL |pow1| |g1| (QREFELT $ 144))
                                     . #10#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                            (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                            (|Union| (|Integer|) #11#) #1#))
                           . #10#)
                     (EXIT
                      (SEQ (LETT |pow2| 0 . #10#) (LETT #4# (- |n2| 1) . #10#)
@@ -636,8 +639,11 @@
                                                              (QREFELT $ 144))
                                                    . #10#)
                                              (QCDR #1#)
-                                           (|check_union| (QEQCAR #1# 0)
-                                                          (|Integer|) #1#))
+                                           (|check_union2| (QEQCAR #1# 0)
+                                                           (|Integer|)
+                                                           (|Union| (|Integer|)
+                                                                    #11#)
+                                                           #1#))
                                          . #10#)
                                    (LETT |np2|
                                          (PROG2
@@ -646,8 +652,11 @@
                                                              (QREFELT $ 144))
                                                    . #10#)
                                              (QCDR #1#)
-                                           (|check_union| (QEQCAR #1# 0)
-                                                          (|Integer|) #1#))
+                                           (|check_union2| (QEQCAR #1# 0)
+                                                           (|Integer|)
+                                                           (|Union| (|Integer|)
+                                                                    #11#)
+                                                           #1#))
                                          . #10#)
                                    (LETT |nn|
                                          (SPADCALL |nn1| |nn2| (QREFELT $ 145))
@@ -664,9 +673,12 @@
                                                                            144))
                                                                 . #10#)
                                                           (QCDR #1#)
-                                                        (|check_union|
+                                                        (|check_union2|
                                                          (QEQCAR #1# 0)
-                                                         (|Integer|) #1#)))
+                                                         (|Integer|)
+                                                         (|Union| (|Integer|)
+                                                                  #11#)
+                                                         #1#)))
                                                    (QREFELT $ 146))
                                          . #10#)
                                    (LETT |bb2|
@@ -681,9 +693,12 @@
                                                                            144))
                                                                 . #10#)
                                                           (QCDR #1#)
-                                                        (|check_union|
+                                                        (|check_union2|
                                                          (QEQCAR #1# 0)
-                                                         (|Integer|) #1#)))
+                                                         (|Integer|)
+                                                         (|Union| (|Integer|)
+                                                                  #11#)
+                                                         #1#)))
                                                    (QREFELT $ 146))
                                          . #10#)
                                    (LETT |nr|

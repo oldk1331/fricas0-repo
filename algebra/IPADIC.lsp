@@ -623,7 +623,9 @@
                                       |pPow| (QREFELT $ 71))
                                      NIL)
                                (QCDR #2#)
-                             (|check_union| (QEQCAR #2# 0) (|Integer|) #2#))
+                             (|check_union2| (QEQCAR #2# 0) (|Integer|)
+                                             (|Union| (|Integer|) "failed")
+                                             #2#))
                            (QREFELT $ 72))
                           NIL)
                     (LETT |digit|

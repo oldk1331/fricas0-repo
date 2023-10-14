@@ -113,7 +113,8 @@
           (LETT |partition|
                 (MAKEARR1
                  (PROG1 (LETT #5# |m| . #6#)
-                   (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                   (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #5#))
                  0)
                 . #6#)
           (EXIT
@@ -258,11 +259,13 @@
                 . #17=(|SGCF;nextLatticePermutation;2LBL;6|))
           (LETT |columns|
                 (PROG1 (LETT #16# (|SPADfirst| |lambda|) . #17#)
-                  (|check_subtype| (>= #16# 0) '(|NonNegativeInteger|) #16#))
+                  (|check_subtype2| (>= #16# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #16#))
                 . #17#)
           (LETT |rows|
                 (PROG1 (LETT #15# (|SPADfirst| |lprime|) . #17#)
-                  (|check_subtype| (>= #15# 0) '(|NonNegativeInteger|) #15#))
+                  (|check_subtype2| (>= #15# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #15#))
                 . #17#)
           (LETT |n|
                 (PROG1
@@ -291,7 +294,8 @@
                                 (EXIT NIL))
                            (COND (#10# #11#) (#18='T 0)))
                           . #17#)
-                  (|check_subtype| (>= #9# 0) '(|NonNegativeInteger|) #9#))
+                  (|check_subtype2| (>= #9# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #9#))
                 . #17#)
           (EXIT
            (COND
@@ -304,8 +308,8 @@
                                   (SPADCALL |lattP| |rightPosition|
                                             (QREFELT $ 17))
                                   . #17#)
-                          (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|)
-                                           #8#))
+                          (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #8#))
                         . #17#)
                   (LETT |ready| 'NIL . #17#)
                   (SEQ (LETT #7# NIL . #17#) G190 (COND (#7# (GO G191)))
@@ -317,9 +321,9 @@
                                                       (- |rightPosition| 1)
                                                       (QREFELT $ 17))
                                             . #17#)
-                                    (|check_subtype| (>= #6# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #6#))
+                                    (|check_subtype2| (>= #6# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #6#))
                                   . #17#)
                             (SPADCALL |help| |rightEntry|
                                       (+
@@ -423,9 +427,9 @@
                             (LETT |rightPosition|
                                   (PROG1
                                       (LETT #4# (- |rightPosition| 1) . #17#)
-                                    (|check_subtype| (>= #4# 0)
-                                                     '(|NonNegativeInteger|)
-                                                     #4#))
+                                    (|check_subtype2| (>= #4# 0)
+                                                      '(|NonNegativeInteger|)
+                                                      '(|Integer|) #4#))
                                   . #17#)
                             (EXIT
                              (COND
@@ -468,11 +472,13 @@
                 . #4=(|SGCF;makeYoungTableau;2LM;7|))
           (LETT |columns|
                 (PROG1 (LETT #3# (|SPADfirst| |lambda|) . #4#)
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #4#)
           (LETT |rows|
                 (PROG1 (LETT #2# (|SPADfirst| |lprime|) . #4#)
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #4#)
           (LETT |ytab| (MAKE_MATRIX1 |rows| |columns| 0) . #4#)
           (LETT |help| (MAKEARR1 |columns| 1) . #4#) (LETT |i| -1 . #4#)
@@ -537,8 +543,8 @@
                   (SEQ
                    (LETT |i|
                          (PROG1 (LETT #6# (- |nrow| 1) . #8#)
-                           (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|)
-                                            #6#))
+                           (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                             '(|Integer|) #6#))
                          . #8#)
                    (LETT |vrest|
                          (SPADCALL (SPADCALL |coleman| |i| (QREFELT $ 38))
@@ -561,8 +567,9 @@
                            (PROGN (LETT #5# |cnull| . #8#) (GO #9=#:G211))))
                          (LETT |i|
                                (PROG1 (LETT #4# (- |i| 1) . #8#)
-                                 (|check_subtype| (>= #4# 0)
-                                                  '(|NonNegativeInteger|) #4#))
+                                 (|check_subtype2| (>= #4# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #4#))
                                . #8#)
                          (LETT |vrest|
                                (SPADCALL |vrest|
@@ -595,8 +602,8 @@
                 (SEQ
                  (LETT |i|
                        (PROG1 (LETT #3# (+ |j| 1) . #8#)
-                         (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                          #3#))
+                         (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #3#))
                        . #8#)
                  (LETT #2# (- |nrow| 1) . #8#) G190
                  (COND ((> |i| #2#) (GO G191)))
@@ -773,9 +780,10 @@
                                   (SPADCALL |pi|
                                             (+
                                              (PROG1 (LETT #5# |j| . #7#)
-                                               (|check_subtype| (>= #5# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #5#))
+                                               (|check_subtype2| (>= #5# 0)
+                                                                 '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
+                                                                 #5#))
                                              |alphasum|)
                                             (QREFELT $ 17))
                                   |help|)
@@ -788,8 +796,9 @@
                                            (SPADCALL |alpha| |i|
                                                      (QREFELT $ 17)))
                                         . #7#)
-                                (|check_subtype| (>= #4# 0)
-                                                 '(|NonNegativeInteger|) #4#))
+                                (|check_subtype2| (>= #4# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #4#))
                               . #7#)
                         (EXIT
                          (LETT |temp|
@@ -808,9 +817,9 @@
                                  (CONS
                                   (+
                                    (PROG1 (LETT #3# |j| . #7#)
-                                     (|check_subtype| (>= #3# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #3#))
+                                     (|check_subtype2| (>= #3# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #3#))
                                    |betasum|)
                                   |help|)
                                  . #7#)))
@@ -822,8 +831,9 @@
                                            (SPADCALL |beta| |i|
                                                      (QREFELT $ 17)))
                                         . #7#)
-                                (|check_subtype| (>= #2# 0)
-                                                 '(|NonNegativeInteger|) #2#))
+                                (|check_subtype2| (>= #2# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #2#))
                               . #7#)
                         (EXIT
                          (SEQ (LETT |j| 1 . #7#) G190

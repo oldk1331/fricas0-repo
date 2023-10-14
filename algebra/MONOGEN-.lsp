@@ -27,8 +27,9 @@
                          #4=(PROG1
                                 (LETT #3# (- (SPADCALL (QREFELT $ 27)) 1)
                                       . #5=(|MONOGEN-;basis;V;7|))
-                              (|check_subtype| (>= #3# 0)
-                                               '(|NonNegativeInteger|) #3#))))
+                              (|check_subtype2| (>= #3# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #3#))))
                        . #5#)
                  (SEQ (LETT |i| 0 . #5#) (LETT #1# #4# . #5#) G190
                       (COND ((|greater_SI| |i| #1#) (GO G191)))

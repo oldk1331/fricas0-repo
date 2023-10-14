@@ -77,7 +77,8 @@
           (LETT |r|
                 (SPADCALL
                  (PROG1 (LETT #4# (+ (- |m| (+ (- |h| |l|) 1)) |n|) . #6#)
-                   (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|) #4#))
+                   (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #4#))
                  (STR_ELT "   " 0) (QREFELT $ 9))
                 . #6#)
           (SEQ (LETT |i| 0 . #6#) (LETT #3# (- |l| 1) . #6#) (LETT |k| 0 . #6#)
@@ -532,7 +533,8 @@
                                             . #7#)
                                       (QREFELT $ 49))
                             . #7#)
-                    (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                    (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #6#))
                   . #7#)
             (EXIT
              (COND
@@ -557,8 +559,8 @@
                                 (SPADCALL |dontcare| |pattern| (+ |p| 1)
                                           (QREFELT $ 49))
                                 . #7#)
-                        (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                         #5#))
+                        (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #5#))
                       . #7#)
                 (SEQ G190
                      (COND
@@ -577,8 +579,9 @@
                                       (SPADCALL |s| |target| |i|
                                                 (QREFELT $ 48))
                                       . #7#)
-                              (|check_subtype| (>= #4# 0)
-                                               '(|NonNegativeInteger|) #4#))
+                              (|check_subtype2| (>= #4# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #4#))
                             . #7#)
                       (EXIT
                        (COND
@@ -596,9 +599,9 @@
                                            (SPADCALL |dontcare| |pattern|
                                                      (+ |q| 1) (QREFELT $ 49))
                                            . #7#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  . #7#)))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND

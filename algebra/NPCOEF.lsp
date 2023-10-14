@@ -199,10 +199,10 @@
                                                   (PROG1
                                                       (LETT #10# (- |ndet| 1)
                                                             . #23#)
-                                                    (|check_subtype|
+                                                    (|check_subtype2|
                                                      (>= #10# 0)
                                                      '(|NonNegativeInteger|)
-                                                     #10#))
+                                                     '(|Integer|) #10#))
                                                   . #23#)
                                             (EXIT
                                              (LETT |detufact|
@@ -358,9 +358,10 @@
                                                                  (QREFELT $
                                                                           56))
                                                        . #7#)
-                                               (|check_subtype| (>= #5# 0)
-                                                                '(|NonNegativeInteger|)
-                                                                #5#))
+                                               (|check_subtype2| (>= #5# 0)
+                                                                 '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
+                                                                 #5#))
                                              . #7#)))))))
                              (LETT #6# (CDR #6#) . #7#) (GO G190) G191
                              (EXIT NIL))
@@ -384,8 +385,10 @@
                                  (SPADCALL |vterm| |poselt| (QREFELT $ 58)))
                                 (PROG2 (LETT #2# |pp| . #7#)
                                     (QCDR #2#)
-                                  (|check_union| (QEQCAR #2# 0) (QREFELT $ 10)
-                                                 #2#))
+                                  (|check_union2| (QEQCAR #2# 0) (QREFELT $ 10)
+                                                  (|Union| (QREFELT $ 10)
+                                                           "failed")
+                                                  #2#))
                                 |poselt|)))))
                   #10# (EXIT #3#)))
                 (#9# (CONS 1 "failed"))))))) 
@@ -523,7 +526,8 @@
               (LETT |table| NIL . #6#)
               (LETT |degu|
                     (PROG1 (LETT #5# (- (QVSIZE |vu|) 1) . #6#)
-                      (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                      (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                        '(|Integer|) #5#))
                     . #6#)
               (LETT |prelim|
                     (PROGN
@@ -735,9 +739,10 @@
                                                                   (QREFELT $
                                                                            64))
                                                         . #19#)
-                                                (|check_subtype| (>= #6# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #6#))
+                                                (|check_subtype2| (>= #6# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #6#))
                                               . #19#)
                                         (LETT |lterase| (CONS |k| |lterase|)
                                               . #19#)

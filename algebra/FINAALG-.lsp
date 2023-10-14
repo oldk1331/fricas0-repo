@@ -390,7 +390,8 @@
                 (PROG1
                     (LETT #3# (QVSIZE |b|)
                           . #4=(|FINAALG-;structuralConstants;VV;10|))
-                  (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
                 . #4#)
           (LETT |sC|
                 (PROGN

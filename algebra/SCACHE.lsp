@@ -260,8 +260,9 @@
                         (EXIT
                          (|SCACHE;insertInCache|
                           (PROG1 (LETT #1# (+ |l| 1) . #6#)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           |x| |pos| $))))))))))))
           #7# (EXIT #2#)))) 
 
@@ -282,8 +283,9 @@
                                   (LETT #1#
                                         (- (SPADCALL |y| (QREFELT $ 15)) |pos|)
                                         . #2#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               2))
                           (QREFELT $ 16))
                 (|SCACHE;insertBefore| |before| |x| $) (EXIT |x|)))) 

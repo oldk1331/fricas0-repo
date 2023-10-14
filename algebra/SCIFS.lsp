@@ -13,7 +13,8 @@
          ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G114 NIL))
                (PROG1 (LETT #1# (+ (* |j| |c|) |i|) |SCIFS;meshIndex|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |SCIFS;smesh;LB$;4|
         ((|ptin| |List| (|List| PT)) (|clos| |Boolean|) ($ $))
@@ -274,8 +275,8 @@
                         (PROG1
                             (LETT #5# (- (SPADCALL |faceIx| (QREFELT $ 25)) 1)
                                   . #9#)
-                          (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                           #5#))
+                          (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #5#))
                         . #9#)
                   (LETT |index2| 0 . #9#)
                   (SEQ (LETT |offset| 1 . #9#)
@@ -313,8 +314,8 @@
             (EXIT
              (SPADCALL (CONS |in2| |pt2|)
                        (PROG1 (LETT #1# (- |level| 1) . #9#)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))
                        (QREFELT $ 35)))))
           #10# (EXIT #2#)))) 
 

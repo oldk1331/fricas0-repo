@@ -11,8 +11,12 @@
                                     (QREFELT $ 13))
                           |QALGSET2;f|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|OrderedVariableList| (QREFELT $ 10)) #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|OrderedVariableList| (QREFELT $ 10))
+                                  (|Union|
+                                   (|OrderedVariableList| (QREFELT $ 10))
+                                   "failed")
+                                  #1#))
                 (QREFELT $ 18)))) 
 
 (SDEFUN |QALGSET2;g|
@@ -30,8 +34,12 @@
                                       (QREFELT $ 24))
                             |QALGSET2;g|)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0)
-                                   (|OrderedVariableList| (QREFELT $ 6)) #1#))
+                    (|check_union2| (QEQCAR #1# 0)
+                                    (|OrderedVariableList| (QREFELT $ 6))
+                                    (|Union|
+                                     (|OrderedVariableList| (QREFELT $ 6))
+                                     "failed")
+                                    #1#))
                   (QREFELT $ 25)))))) 
 
 (SDEFUN |QALGSET2;npoly|
@@ -228,9 +236,12 @@
                         (LETT #1# (SPADCALL (QREFELT $ 9) (QREFELT $ 13))
                               . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0)
-                                     (|OrderedVariableList| (QREFELT $ 10))
-                                     #1#)))
+                      (|check_union2| (QEQCAR #1# 0)
+                                      (|OrderedVariableList| (QREFELT $ 10))
+                                      (|Union|
+                                       (|OrderedVariableList| (QREFELT $ 10))
+                                       "failed")
+                                      #1#)))
           $))) 
 
 (MAKEPROP '|QuasiAlgebraicSet2| '|infovec|

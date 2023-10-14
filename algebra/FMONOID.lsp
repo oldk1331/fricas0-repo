@@ -135,9 +135,10 @@
                                                               (|SPADfirst|
                                                                |lla|)))
                                                             . #5#)
-                                                    (|check_subtype| (>= #4# 0)
-                                                                     '(|NonNegativeInteger|)
-                                                                     #4#)))
+                                                    (|check_subtype2|
+                                                     (>= #4# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #4#)))
                                             (CDR |lar|))
                                            (QREFELT $ 46)))
                                   . #5#)
@@ -176,10 +177,10 @@
                                                                (|SPADfirst|
                                                                 |lar|)))
                                                              . #5#)
-                                                     (|check_subtype|
+                                                     (|check_subtype2|
                                                       (>= #3# 0)
                                                       '(|NonNegativeInteger|)
-                                                      #3#)))
+                                                      '(|Integer|) #3#)))
                                                   (QREFELT $ 51))
                                         . #5#)
                                   (EXIT
@@ -281,10 +282,10 @@
                                                                      (|SPADfirst|
                                                                       |la|)))
                                                                    . #5#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #4# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #4#)))
+                                                            '(|Integer|) #4#)))
                                                         (QREFELT $ 51))
                                               . #5#)))
                                       (EXIT
@@ -410,9 +411,9 @@
                                                  (- (QCDR (|SPADfirst| |laq|))
                                                     (QCDR |a0|))
                                                  . #4#)
-                                         (|check_subtype| (>= #1# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #1#)))
+                                         (|check_subtype2| (>= #1# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #1#)))
                                  (QREFELT $ 61))))))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 0 (SPADCALL |laq| (QREFELT $ 46))))))))
@@ -476,9 +477,9 @@
                                              (- (QCDR (|SPADfirst| |la|))
                                                 (QCDR (|SPADfirst| |lb|)))
                                              . #5#)
-                                     (|check_subtype| (>= #3# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #3#)))
+                                     (|check_subtype2| (>= #3# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #3#)))
                              (CDR |lb|))
                             . #5#)
                       (LETT |lb| (CDR |lb|) . #5#)
@@ -493,9 +494,9 @@
                                              (- (QCDR (|SPADfirst| |lb|))
                                                 (QCDR (|SPADfirst| |la|)))
                                              . #5#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#)))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#)))
                              (CDR |la|))
                             . #5#)
                       (LETT |la| (CDR |la|) . #5#)

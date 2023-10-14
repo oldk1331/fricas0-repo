@@ -33,8 +33,9 @@
                                         (QREFELT $ 26))
                                        |m|)
                                       . #5#)
-                              (|check_subtype| (>= #3# 0)
-                                               '(|NonNegativeInteger|) #3#))
+                              (|check_subtype2| (>= #3# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #3#))
                             (|spadConstant| $ 7) (QREFELT $ 17))
                            (QREFELT $ 29))
                  (SEQ (LETT |i| |m| . #5#)
@@ -370,8 +371,9 @@
                              (PROG1
                                  (LETT #3# (SPADCALL |m| (QREFELT $ 26))
                                        . #4=(|COMBINAT;stirling1;3I;6|))
-                               (|check_subtype| (>= #3# 0)
-                                                '(|NonNegativeInteger|) #3#))
+                               (|check_subtype2| (>= #3# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #3#))
                              (QREFELT $ 49)))
                   ('T
                    (SEQ
@@ -406,8 +408,9 @@
                                (PROG1
                                    (LETT #1# (SPADCALL |m| (QREFELT $ 26))
                                          . #4#)
-                                 (|check_subtype| (>= #1# 0)
-                                                  '(|NonNegativeInteger|) #1#))
+                                 (|check_subtype2| (>= #1# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #1#))
                                (QREFELT $ 49))))))))))) 
 
 (SDEFUN |COMBINAT;stirling2;3I;7| ((|n| I) (|m| I) ($ I))
@@ -456,9 +459,10 @@
                                                                     (QREFELT $
                                                                              26))
                                                           . #3#)
-                                                  (|check_subtype| (>= #1# 0)
-                                                                   '(|NonNegativeInteger|)
-                                                                   #1#))
+                                                  (|check_subtype2| (>= #1# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #1#))
                                                 (QREFELT $ 56))
                                                (QREFELT $ 33))
                                               (QREFELT $ 28))
@@ -480,7 +484,8 @@
                           (QREFELT $ 59))
                          |COMBINAT;catalan;2I;8|)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))) 
+                 (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                 (|Union| (QREFELT $ 6) "failed") #1#)))) 
 
 (DECLAIM (NOTINLINE |IntegerCombinatoricFunctions;|)) 
 

@@ -18,11 +18,11 @@
           (|doSplitting?| #6=(|Boolean|))
           (|irreducibleFactors| (|List| |Dpol|)) (|terminateWithBasis| #6#)
           (|stopDividing| #6#) (#7=#:G118 NIL)
-          (|nPq| (|Union| |Dpol| "failed")) (#8=#:G153 NIL) (#9=#:G152 NIL)
+          (|nPq| (|Union| |Dpol| #8="failed")) (#9=#:G153 NIL) (#10=#:G152 NIL)
           (|q| NIL) (|h| (|Dpol|)))
-         (SEQ (LETT |doSplitting?| 'NIL . #10=(|GBF;createGroebnerBases|))
-              (LETT |terminateWithBasis| 'NIL . #10#)
-              (LETT |allReducedFactors| NIL . #10#)
+         (SEQ (LETT |doSplitting?| 'NIL . #11=(|GBF;createGroebnerBases|))
+              (LETT |terminateWithBasis| 'NIL . #11#)
+              (LETT |allReducedFactors| NIL . #11#)
               (SEQ G190
                    (COND
                     ((NULL
@@ -32,7 +32,7 @@
                    (SEQ
                     (LETT |terminateWithBasis|
                           (COND ((NULL |inputPolys|) (NULL |lcP|)) ('T 'NIL))
-                          . #10#)
+                          . #11#)
                     (EXIT
                      (COND
                       ((NULL |terminateWithBasis|)
@@ -44,28 +44,28 @@
                                  (LETT |h|
                                        (SPADCALL (|SPADfirst| |lcP|)
                                                  (QREFELT $ 12))
-                                       . #10#)
-                                 (LETT |lcP| (CDR |lcP|) . #10#)
+                                       . #11#)
+                                 (LETT |lcP| (CDR |lcP|) . #11#)
                                  (EXIT
                                   (SPADCALL
                                    (SPADCALL |h| |redPols| (QREFELT $ 14))
                                    (QREFELT $ 15)))))
                                ('T
                                 (SEQ
-                                 (LETT |p| (|SPADfirst| |inputPolys|) . #10#)
-                                 (LETT |inputPolys| (CDR |inputPolys|) . #10#)
+                                 (LETT |p| (|SPADfirst| |inputPolys|) . #11#)
+                                 (LETT |inputPolys| (CDR |inputPolys|) . #11#)
                                  (EXIT
                                   (SPADCALL
                                    (SPADCALL |p| |redPols| (QREFELT $ 14))
                                    (QREFELT $ 15))))))
-                              . #10#)
+                              . #11#)
                         (EXIT
                          (COND
                           ((SPADCALL |nP| (|spadConstant| $ 16) (QREFELT $ 18))
                            (SEQ
                             (LETT |basis| (LIST (CONS 0 (|spadConstant| $ 16)))
-                                  . #10#)
-                            (EXIT (LETT |terminateWithBasis| 'T . #10#))))
+                                  . #11#)
+                            (EXIT (LETT |terminateWithBasis| 'T . #11#))))
                           ('T
                            (SEQ
                             (EXIT
@@ -75,42 +75,45 @@
                                (PROGN
                                 (LETT #4#
                                       (SEQ
-                                       (SEQ (LETT |q| NIL . #10#)
-                                            (LETT #9# |nonZeroRestrictions|
-                                                  . #10#)
+                                       (SEQ (LETT |q| NIL . #11#)
+                                            (LETT #10# |nonZeroRestrictions|
+                                                  . #11#)
                                             G190
                                             (COND
-                                             ((OR (ATOM #9#)
+                                             ((OR (ATOM #10#)
                                                   (PROGN
-                                                   (LETT |q| (CAR #9#) . #10#)
+                                                   (LETT |q| (CAR #10#) . #11#)
                                                    NIL))
                                               (GO G191)))
                                             (SEQ
-                                             (LETT |stopDividing| 'NIL . #10#)
+                                             (LETT |stopDividing| 'NIL . #11#)
                                              (EXIT
-                                              (SEQ (LETT #8# NIL . #10#) G190
-                                                   (COND (#8# (GO G191)))
+                                              (SEQ (LETT #9# NIL . #11#) G190
+                                                   (COND (#9# (GO G191)))
                                                    (SEQ
                                                     (LETT |nPq|
                                                           (SPADCALL |nP| |q|
                                                                     (QREFELT $
                                                                              24))
-                                                          . #10#)
+                                                          . #11#)
                                                     (LETT |stopDividing|
                                                           (QEQCAR |nPq| 1)
-                                                          . #10#)
+                                                          . #11#)
                                                     (COND
                                                      ((NULL |stopDividing|)
                                                       (LETT |nP|
                                                             (PROG2
                                                                 (LETT #7# |nPq|
-                                                                      . #10#)
+                                                                      . #11#)
                                                                 (QCDR #7#)
-                                                              (|check_union|
+                                                              (|check_union2|
                                                                (QEQCAR #7# 0)
                                                                (QREFELT $ 9)
+                                                               (|Union|
+                                                                (QREFELT $ 9)
+                                                                #8#)
                                                                #7#))
-                                                            . #10#)))
+                                                            . #11#)))
                                                     (EXIT
                                                      (LETT |stopDividing|
                                                            (COND
@@ -121,11 +124,11 @@
                                                                         (QREFELT
                                                                          $ 25))
                                                               (QREFELT $ 26))))
-                                                           . #10#)))
-                                                   (LETT #8# |stopDividing|
-                                                         . #10#)
+                                                           . #11#)))
+                                                   (LETT #9# |stopDividing|
+                                                         . #11#)
                                                    (GO G190) G191 (EXIT NIL))))
-                                            (LETT #9# (CDR #9#) . #10#)
+                                            (LETT #10# (CDR #10#) . #11#)
                                             (GO G190) G191 (EXIT NIL))
                                        (EXIT
                                         (COND
@@ -137,10 +140,10 @@
                                                  (LIST
                                                   (CONS 0
                                                         (|spadConstant| $ 16)))
-                                                 . #10#)
+                                                 . #11#)
                                            (EXIT
                                             (LETT |terminateWithBasis| 'T
-                                                  . #10#))))
+                                                  . #11#))))
                                          ('T
                                           (SEQ
                                            (LETT |nP|
@@ -148,7 +151,7 @@
                                                   (SPADCALL |nP| |redPols|
                                                             (QREFELT $ 14))
                                                   (QREFELT $ 15))
-                                                 . #10#)
+                                                 . #11#)
                                            (EXIT
                                             (COND
                                              ((SPADCALL
@@ -160,10 +163,10 @@
                                                       (CONS 0
                                                             (|spadConstant| $
                                                                             16)))
-                                                     . #10#)
+                                                     . #11#)
                                                (EXIT
                                                 (LETT |terminateWithBasis| 'T
-                                                      . #10#))))
+                                                      . #11#))))
                                              ((SPADCALL |nP|
                                                         (|spadConstant| $ 21)
                                                         (QREFELT $ 22))
@@ -171,7 +174,7 @@
                                                (LETT |irreducibleFactors|
                                                      (|GBF;createAllFactors|
                                                       |nP| $)
-                                                     . #10#)
+                                                     . #11#)
                                                (LETT |doSplitting?|
                                                      (COND
                                                       ((NULL
@@ -179,22 +182,22 @@
                                                          |irreducibleFactors|))
                                                        'NIL)
                                                       ('T 'T))
-                                                     . #10#)
+                                                     . #11#)
                                                (EXIT
                                                 (COND
                                                  (|doSplitting?|
                                                   (SEQ
-                                                   (SEQ (LETT |fnP| NIL . #10#)
+                                                   (SEQ (LETT |fnP| NIL . #11#)
                                                         (LETT #5#
                                                               |irreducibleFactors|
-                                                              . #10#)
+                                                              . #11#)
                                                         G190
                                                         (COND
                                                          ((OR (ATOM #5#)
                                                               (PROGN
                                                                (LETT |fnP|
                                                                      (CAR #5#)
-                                                                     . #10#)
+                                                                     . #11#)
                                                                NIL))
                                                           (GO G191)))
                                                         (SEQ
@@ -206,35 +209,35 @@
                                                                            $
                                                                            14))
                                                                 (QREFELT $ 15))
-                                                               . #10#)
+                                                               . #11#)
                                                          (EXIT
                                                           (LETT
                                                            |allReducedFactors|
                                                            (CONS |fnP|
                                                                  |allReducedFactors|)
-                                                           . #10#)))
+                                                           . #11#)))
                                                         (LETT #5# (CDR #5#)
-                                                              . #10#)
+                                                              . #11#)
                                                         (GO G190) G191
                                                         (EXIT NIL))
                                                    (EXIT
                                                     (LETT |allReducedFactors|
                                                           (REVERSE
                                                            |allReducedFactors|)
-                                                          . #10#))))
+                                                          . #11#))))
                                                  ('T
                                                   (SEQ
                                                    (LETT |nP|
                                                          (|SPADfirst|
                                                           |irreducibleFactors|)
-                                                         . #10#)
+                                                         . #11#)
                                                    (LETT |lcP|
                                                          (|GBF;updateCritPairs|
                                                           |lcP|
                                                           (|GBF;newPairs|
                                                            |basis| |nP| $)
                                                           |nP| $)
-                                                         . #10#)
+                                                         . #11#)
                                                    (LETT |basis|
                                                          (|GBF;updateBasis|
                                                           |basis| |nP|
@@ -242,27 +245,27 @@
                                                                     (QREFELT $
                                                                              28))
                                                           $)
-                                                         . #10#)
+                                                         . #11#)
                                                    (EXIT
                                                     (LETT |redPols|
                                                           (SPADCALL |redPols|
                                                                     |nP|
                                                                     (QREFELT $
                                                                              29))
-                                                          . #10#)))))))))))))))
-                                      . #10#)
-                                (GO #11=#:G135)))))
-                            #11# (EXIT #4#))))))))))
+                                                          . #11#)))))))))))))))
+                                      . #11#)
+                                (GO #12=#:G135)))))
+                            #12# (EXIT #4#))))))))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
                 (|doSplitting?|
                  (SEQ
-                  (SEQ (LETT |fnP| NIL . #10#)
-                       (LETT #3# |allReducedFactors| . #10#) G190
+                  (SEQ (LETT |fnP| NIL . #11#)
+                       (LETT #3# |allReducedFactors| . #11#) G190
                        (COND
                         ((OR (ATOM #3#)
-                             (PROGN (LETT |fnP| (CAR #3#) . #10#) NIL))
+                             (PROGN (LETT |fnP| (CAR #3#) . #11#) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -274,16 +277,16 @@
                                   (SPADCALL
                                    (CONS #'|GBF;createGroebnerBases!0| $)
                                    (CONS |fnP| |inputPolys|) (QREFELT $ 32))
-                                  . #10#)
+                                  . #11#)
                             (LETT |listOfBases|
                                   (|GBF;createGroebnerBases| |basis| |redPols|
                                    |nonZeroRestrictions| |newInputPolys| |lcP|
                                    |listOfBases| |info| $)
-                                  . #10#)
+                                  . #11#)
                             (EXIT
                              (LETT |nonZeroRestrictions|
                                    (CONS |fnP| |nonZeroRestrictions|)
-                                   . #10#))))
+                                   . #11#))))
                           ('T
                            (SEQ
                             (COND
@@ -294,8 +297,8 @@
                              (LETT |listOfBases|
                                    (CONS (LIST (|spadConstant| $ 16))
                                          |listOfBases|)
-                                   . #10#)))))))
-                       (LETT #3# (CDR #3#) . #10#) (GO G190) G191 (EXIT NIL))
+                                   . #11#)))))))
+                       (LETT #3# (CDR #3#) . #11#) (GO G190) G191 (EXIT NIL))
                   (EXIT |listOfBases|)))
                 ('T
                  (SEQ
@@ -303,24 +306,24 @@
                         (SPADCALL
                          (SPADCALL (CONS #'|GBF;createGroebnerBases!1| $)
                                    (PROGN
-                                    (LETT #2# NIL . #10#)
-                                    (SEQ (LETT |p| NIL . #10#)
-                                         (LETT #1# |basis| . #10#) G190
+                                    (LETT #2# NIL . #11#)
+                                    (SEQ (LETT |p| NIL . #11#)
+                                         (LETT #1# |basis| . #11#) G190
                                          (COND
                                           ((OR (ATOM #1#)
                                                (PROGN
-                                                (LETT |p| (CAR #1#) . #10#)
+                                                (LETT |p| (CAR #1#) . #11#)
                                                 NIL))
                                            (GO G191)))
                                          (SEQ
                                           (EXIT
                                            (LETT #2# (CONS (QCDR |p|) #2#)
-                                                 . #10#)))
-                                         (LETT #1# (CDR #1#) . #10#) (GO G190)
+                                                 . #11#)))
+                                         (LETT #1# (CDR #1#) . #11#) (GO G190)
                                          G191 (EXIT (NREVERSE #2#))))
                                    (QREFELT $ 32))
                          (QREFELT $ 37))
-                        . #10#)
+                        . #11#)
                   (COND
                    (|info|
                     (SEQ

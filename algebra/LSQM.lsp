@@ -121,9 +121,10 @@
                                   (CONS
                                    (SPADCALL
                                     (PROG1 (LETT #1# |i| . #4#)
-                                      (|check_subtype| (> #1# 0)
-                                                       '(|PositiveInteger|)
-                                                       #1#))
+                                      (|check_subtype2| (> #1# 0)
+                                                        '(|PositiveInteger|)
+                                                        '(|NonNegativeInteger|)
+                                                        #1#))
                                     (QREFELT $ 33))
                                    #3#)
                                   . #4#)))

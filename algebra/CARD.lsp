@@ -83,9 +83,9 @@
                         (CONS -1
                               (EXPT (QCDR |x|)
                                     (PROG1 (LETT #1# (QCDR |y|) |CARD;^;3$;12|)
-                                      (|check_subtype| (>= #1# 0)
-                                                       '(|NonNegativeInteger|)
-                                                       #1#)))))))
+                                      (|check_subtype2| (>= #1# 0)
+                                                        '(|NonNegativeInteger|)
+                                                        '(|Integer|) #1#)))))))
                 ((SPADCALL |x| (|spadConstant| $ 12) (QREFELT $ 25))
                  (|spadConstant| $ 12))
                 ((SPADCALL |x| (|spadConstant| $ 11) (QREFELT $ 25))
@@ -105,7 +105,8 @@
                (COND
                 ((SPADCALL |x| (QREFELT $ 24))
                  (PROG1 (LETT #1# (QCDR |x|) |CARD;retract;$Nni;15|)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#)))
                 ('T (|error| "Not finite"))))) 
 
 (SDEFUN |CARD;retractIfCan;$U;16|
@@ -115,8 +116,8 @@
                 ((SPADCALL |x| (QREFELT $ 24))
                  (CONS 0
                        (PROG1 (LETT #1# (QCDR |x|) |CARD;retractIfCan;$U;16|)
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))))
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |CARD;generalizedContinuumHypothesisAssumed?;B;17| (($ |Boolean|))

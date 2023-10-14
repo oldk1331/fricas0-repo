@@ -405,7 +405,8 @@
                           (TRUNCATE
                            (|div_DF| (|sub_DF| |maxx| |minx|) |stepSize|))
                           . #5#)
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #5#)
           (LETT |stepsy|
                 (PROG1
@@ -413,7 +414,8 @@
                           (TRUNCATE
                            (|div_DF| (|sub_DF| |maxy| |miny|) |stepSize|))
                           . #5#)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #5#)
           (LETT |gp| (SPADCALL (QREFELT $ 18)) . #5#)
           (SEQ (LETT |i| 1 . #5#) G190
@@ -752,8 +754,8 @@
                       (EXIT
                        (|SCENE;subdivideLine|
                         (PROG1 (LETT #1# (- |level| 1) . #3#)
-                          (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                           #1#))
+                          (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #1#))
                         |res| $)))))))) 
 
 (SDEFUN |SCENE;createScenePattern3|
@@ -1816,9 +1818,83 @@
                        (LETT |bb2|
                              (PROG2 (LETT #11# (QVELT |n| 2) . #23#)
                                  (QCDR #11#)
-                               (|check_union| (QEQCAR #11# 3)
-                                              (|SBoundary| (QREFELT $ 6))
-                                              #11#))
+                               (|check_union2| (QEQCAR #11# 3)
+                                               (|SBoundary| (QREFELT $ 6))
+                                               (|Union|
+                                                (|:| |points|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |material|
+                                                     (|Record|
+                                                      (|:| |lineWidth|
+                                                           (|DoubleFloat|))
+                                                      (|:| |lineCol|
+                                                           (|String|))
+                                                      (|:| |fillCol|
+                                                           (|String|))
+                                                      (|:| |matOpacity|
+                                                           (|DoubleFloat|))))
+                                                (|:| |text|
+                                                     (|Record|
+                                                      (|:| |txt| (|String|))
+                                                      (|:| |siz|
+                                                           (|NonNegativeInteger|))
+                                                      (|:| |pos| (QREFELT $ 6))
+                                                      (|:| |np|
+                                                           (|List|
+                                                            (|String|)))))
+                                                (|:| |boundbox|
+                                                     (|SBoundary|
+                                                      (QREFELT $ 6)))
+                                                (|:| |trans|
+                                                     (|STransform|
+                                                      (QREFELT $ 6)))
+                                                (|:| |ifs|
+                                                     (|Record|
+                                                      (|:| |inx|
+                                                           (|List|
+                                                            (|List|
+                                                             (|NonNegativeInteger|))))
+                                                      (|:| |pts|
+                                                           (|List|
+                                                            (QREFELT $ 6)))))
+                                                (|:| |arrws|
+                                                     (|Record|
+                                                      (|:| |ln|
+                                                           (|List|
+                                                            (|List|
+                                                             (QREFELT $ 6))))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |arrw|
+                                                     (|Record|
+                                                      (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |shpe|
+                                                     (|Record|
+                                                      (|:| |shptype|
+                                                           (|Symbol|))
+                                                      (|:| |centre|
+                                                           (QREFELT $ 6))
+                                                      (|:| |size|
+                                                           (QREFELT $ 6))
+                                                      (|:| |fill|
+                                                           (|Boolean|))))
+                                                (|:| |nodename|
+                                                     (|Record|
+                                                      (|:| |nme| (|String|))
+                                                      (|:| |node| $)))
+                                                (|:| |np|
+                                                     (|SceneNamedPoints|
+                                                      (QREFELT $ 6)))
+                                                (|:| |empty| #24="empty"))
+                                               #11#))
                              . #23#)
                        (COND
                         ((SPADCALL |bb2| (QREFELT $ 164))
@@ -1869,7 +1945,7 @@
                                                   |scale2|))))
                                 (QREFELT $ 118))
                                . #23#))
-                        (#24='T
+                        (#25='T
                          (LETT |viewBoxStr|
                                (SPADCALL
                                 (LIST "0.0 0.0 "
@@ -1907,10 +1983,98 @@
                                     (|SCENE;pathString|
                                      (PROG2 (LETT #19# (QVELT |n| 2) . #23#)
                                          (QCDR #19#)
-                                       (|check_union| (QEQCAR #19# 0)
-                                                      (|List|
-                                                       (|List| (QREFELT $ 6)))
-                                                      #19#))
+                                       (|check_union2| (QEQCAR #19# 0)
+                                                       (|List|
+                                                        (|List| (QREFELT $ 6)))
+                                                       (|Union|
+                                                        (|:| |points|
+                                                             (|List|
+                                                              (|List|
+                                                               (QREFELT $ 6))))
+                                                        (|:| |material|
+                                                             (|Record|
+                                                              (|:| |lineWidth|
+                                                                   (|DoubleFloat|))
+                                                              (|:| |lineCol|
+                                                                   (|String|))
+                                                              (|:| |fillCol|
+                                                                   (|String|))
+                                                              (|:| |matOpacity|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |text|
+                                                             (|Record|
+                                                              (|:| |txt|
+                                                                   (|String|))
+                                                              (|:| |siz|
+                                                                   (|NonNegativeInteger|))
+                                                              (|:| |pos|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |np|
+                                                                   (|List|
+                                                                    (|String|)))))
+                                                        (|:| |boundbox|
+                                                             (|SBoundary|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |trans|
+                                                             (|STransform|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |ifs|
+                                                             (|Record|
+                                                              (|:| |inx|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (|NonNegativeInteger|))))
+                                                              (|:| |pts|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6)))))
+                                                        (|:| |arrws|
+                                                             (|Record|
+                                                              (|:| |ln|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (QREFELT $
+                                                                              6))))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |arrw|
+                                                             (|Record|
+                                                              (|:| |st|
+                                                                   (|String|))
+                                                              (|:| |en|
+                                                                   (|String|))
+                                                              (|:| |offset|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |shpe|
+                                                             (|Record|
+                                                              (|:| |shptype|
+                                                                   (|Symbol|))
+                                                              (|:| |centre|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |size|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |fill|
+                                                                   (|Boolean|))))
+                                                        (|:| |nodename|
+                                                             (|Record|
+                                                              (|:| |nme|
+                                                                   (|String|))
+                                                              (|:| |node| $)))
+                                                        (|:| |np|
+                                                             (|SceneNamedPoints|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |empty| #24#))
+                                                       #19#))
                                      |tran2| |bb2| |scale2| |clipEn2|
                                      |useInteger| $)
                                     (QREFELT $ 158))
@@ -1947,16 +2111,105 @@
                                    (QVELT
                                     (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                                         (QCDR #17#)
-                                      (|check_union| (QEQCAR #17# 8)
-                                                     (|Record|
-                                                      (|:| |shptype|
-                                                           (|Symbol|))
-                                                      (|:| |centre|
-                                                           (QREFELT $ 6))
-                                                      (|:| |size|
-                                                           (QREFELT $ 6))
-                                                      (|:| |fill| (|Boolean|)))
-                                                     #17#))
+                                      (|check_union2| (QEQCAR #17# 8)
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|)))
+                                                      (|Union|
+                                                       (|:| |points|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |material|
+                                                            (|Record|
+                                                             (|:| |lineWidth|
+                                                                  (|DoubleFloat|))
+                                                             (|:| |lineCol|
+                                                                  (|String|))
+                                                             (|:| |fillCol|
+                                                                  (|String|))
+                                                             (|:| |matOpacity|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |text|
+                                                            (|Record|
+                                                             (|:| |txt|
+                                                                  (|String|))
+                                                             (|:| |siz|
+                                                                  (|NonNegativeInteger|))
+                                                             (|:| |pos|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |np|
+                                                                  (|List|
+                                                                   (|String|)))))
+                                                       (|:| |boundbox|
+                                                            (|SBoundary|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |trans|
+                                                            (|STransform|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |ifs|
+                                                            (|Record|
+                                                             (|:| |inx|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (|NonNegativeInteger|))))
+                                                             (|:| |pts|
+                                                                  (|List|
+                                                                   (QREFELT $
+                                                                            6)))))
+                                                       (|:| |arrws|
+                                                            (|Record|
+                                                             (|:| |ln|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |arrw|
+                                                            (|Record|
+                                                             (|:| |st|
+                                                                  (|String|))
+                                                             (|:| |en|
+                                                                  (|String|))
+                                                             (|:| |offset|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |shpe|
+                                                            (|Record|
+                                                             (|:| |shptype|
+                                                                  (|Symbol|))
+                                                             (|:| |centre|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |size|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |fill|
+                                                                  (|Boolean|))))
+                                                       (|:| |nodename|
+                                                            (|Record|
+                                                             (|:| |nme|
+                                                                  (|String|))
+                                                             (|:| |node| $)))
+                                                       (|:| |np|
+                                                            (|SceneNamedPoints|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |empty| #24#))
+                                                      #17#))
                                     1)
                                    (QREFELT $ 149))
                          . #23#)
@@ -1965,16 +2218,105 @@
                                    (QVELT
                                     (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                                         (QCDR #17#)
-                                      (|check_union| (QEQCAR #17# 8)
-                                                     (|Record|
-                                                      (|:| |shptype|
-                                                           (|Symbol|))
-                                                      (|:| |centre|
-                                                           (QREFELT $ 6))
-                                                      (|:| |size|
-                                                           (QREFELT $ 6))
-                                                      (|:| |fill| (|Boolean|)))
-                                                     #17#))
+                                      (|check_union2| (QEQCAR #17# 8)
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|)))
+                                                      (|Union|
+                                                       (|:| |points|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |material|
+                                                            (|Record|
+                                                             (|:| |lineWidth|
+                                                                  (|DoubleFloat|))
+                                                             (|:| |lineCol|
+                                                                  (|String|))
+                                                             (|:| |fillCol|
+                                                                  (|String|))
+                                                             (|:| |matOpacity|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |text|
+                                                            (|Record|
+                                                             (|:| |txt|
+                                                                  (|String|))
+                                                             (|:| |siz|
+                                                                  (|NonNegativeInteger|))
+                                                             (|:| |pos|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |np|
+                                                                  (|List|
+                                                                   (|String|)))))
+                                                       (|:| |boundbox|
+                                                            (|SBoundary|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |trans|
+                                                            (|STransform|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |ifs|
+                                                            (|Record|
+                                                             (|:| |inx|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (|NonNegativeInteger|))))
+                                                             (|:| |pts|
+                                                                  (|List|
+                                                                   (QREFELT $
+                                                                            6)))))
+                                                       (|:| |arrws|
+                                                            (|Record|
+                                                             (|:| |ln|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |arrw|
+                                                            (|Record|
+                                                             (|:| |st|
+                                                                  (|String|))
+                                                             (|:| |en|
+                                                                  (|String|))
+                                                             (|:| |offset|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |shpe|
+                                                            (|Record|
+                                                             (|:| |shptype|
+                                                                  (|Symbol|))
+                                                             (|:| |centre|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |size|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |fill|
+                                                                  (|Boolean|))))
+                                                       (|:| |nodename|
+                                                            (|Record|
+                                                             (|:| |nme|
+                                                                  (|String|))
+                                                             (|:| |node| $)))
+                                                       (|:| |np|
+                                                            (|SceneNamedPoints|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |empty| #24#))
+                                                      #17#))
                                     2)
                                    (QREFELT $ 149))
                          . #23#)
@@ -1992,12 +2334,73 @@
                       (QVELT
                        (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                            (QCDR #17#)
-                         (|check_union| (QEQCAR #17# 8)
-                                        (|Record| (|:| |shptype| (|Symbol|))
-                                                  (|:| |centre| (QREFELT $ 6))
-                                                  (|:| |size| (QREFELT $ 6))
-                                                  (|:| |fill| (|Boolean|)))
-                                        #17#))
+                         (|check_union2| (QEQCAR #17# 8)
+                                         (|Record| (|:| |shptype| (|Symbol|))
+                                                   (|:| |centre| (QREFELT $ 6))
+                                                   (|:| |size| (QREFELT $ 6))
+                                                   (|:| |fill| (|Boolean|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #17#))
                        0)
                       '|rect|)
                      (SEQ (LETT |nodeName| "rect" . #23#)
@@ -2018,12 +2421,73 @@
                       (QVELT
                        (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                            (QCDR #17#)
-                         (|check_union| (QEQCAR #17# 8)
-                                        (|Record| (|:| |shptype| (|Symbol|))
-                                                  (|:| |centre| (QREFELT $ 6))
-                                                  (|:| |size| (QREFELT $ 6))
-                                                  (|:| |fill| (|Boolean|)))
-                                        #17#))
+                         (|check_union2| (QEQCAR #17# 8)
+                                         (|Record| (|:| |shptype| (|Symbol|))
+                                                   (|:| |centre| (QREFELT $ 6))
+                                                   (|:| |size| (QREFELT $ 6))
+                                                   (|:| |fill| (|Boolean|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #17#))
                        0)
                       '|ellipse|)
                      (SEQ (LETT |nodeName| "ellipse" . #23#)
@@ -2035,12 +2499,73 @@
                       (QVELT
                        (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                            (QCDR #17#)
-                         (|check_union| (QEQCAR #17# 8)
-                                        (|Record| (|:| |shptype| (|Symbol|))
-                                                  (|:| |centre| (QREFELT $ 6))
-                                                  (|:| |size| (QREFELT $ 6))
-                                                  (|:| |fill| (|Boolean|)))
-                                        #17#))
+                         (|check_union2| (QEQCAR #17# 8)
+                                         (|Record| (|:| |shptype| (|Symbol|))
+                                                   (|:| |centre| (QREFELT $ 6))
+                                                   (|:| |size| (QREFELT $ 6))
+                                                   (|:| |fill| (|Boolean|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #17#))
                        0)
                       '|box|)
                      (SEQ (LETT |nodeName| "rect" . #23#)
@@ -2061,12 +2586,73 @@
                       (QVELT
                        (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                            (QCDR #17#)
-                         (|check_union| (QEQCAR #17# 8)
-                                        (|Record| (|:| |shptype| (|Symbol|))
-                                                  (|:| |centre| (QREFELT $ 6))
-                                                  (|:| |size| (QREFELT $ 6))
-                                                  (|:| |fill| (|Boolean|)))
-                                        #17#))
+                         (|check_union2| (QEQCAR #17# 8)
+                                         (|Record| (|:| |shptype| (|Symbol|))
+                                                   (|:| |centre| (QREFELT $ 6))
+                                                   (|:| |size| (QREFELT $ 6))
+                                                   (|:| |fill| (|Boolean|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #17#))
                        0)
                       '|sphere|)
                      (SEQ (LETT |nodeName| "ellipse" . #23#)
@@ -2101,12 +2687,72 @@
                     ((QVELT
                       (PROG2 (LETT #17# (QVELT |n| 2) . #23#)
                           (QCDR #17#)
-                        (|check_union| (QEQCAR #17# 8)
-                                       (|Record| (|:| |shptype| (|Symbol|))
-                                                 (|:| |centre| (QREFELT $ 6))
-                                                 (|:| |size| (QREFELT $ 6))
-                                                 (|:| |fill| (|Boolean|)))
-                                       #17#))
+                        (|check_union2| (QEQCAR #17# 8)
+                                        (|Record| (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|)))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #24#))
+                                        #17#))
                       3)
                      (LETT |nodeAtts|
                            (SPADCALL |nodeAtts|
@@ -2116,7 +2762,7 @@
                                                (QREFELT $ 158))
                                      (QREFELT $ 166))
                            . #23#))
-                    (#24#
+                    (#25#
                      (LETT |nodeAtts|
                            (SPADCALL |nodeAtts|
                                      (SPADCALL "fill" "none" (QREFELT $ 158))
@@ -2146,15 +2792,90 @@
                         (LETT |mat2|
                               (PROG2 (LETT #16# (QVELT |n| 2) . #23#)
                                   (QCDR #16#)
-                                (|check_union| (QEQCAR #16# 1)
-                                               (|Record|
-                                                (|:| |lineWidth|
-                                                     (|DoubleFloat|))
-                                                (|:| |lineCol| (|String|))
-                                                (|:| |fillCol| (|String|))
-                                                (|:| |matOpacity|
-                                                     (|DoubleFloat|)))
-                                               #16#))
+                                (|check_union2| (QEQCAR #16# 1)
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|)))
+                                                (|Union|
+                                                 (|:| |points|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |material|
+                                                      (|Record|
+                                                       (|:| |lineWidth|
+                                                            (|DoubleFloat|))
+                                                       (|:| |lineCol|
+                                                            (|String|))
+                                                       (|:| |fillCol|
+                                                            (|String|))
+                                                       (|:| |matOpacity|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |text|
+                                                      (|Record|
+                                                       (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |boundbox|
+                                                      (|SBoundary|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |trans|
+                                                      (|STransform|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |ifs|
+                                                      (|Record|
+                                                       (|:| |inx|
+                                                            (|List|
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                       (|:| |pts|
+                                                            (|List|
+                                                             (QREFELT $ 6)))))
+                                                 (|:| |arrws|
+                                                      (|Record|
+                                                       (|:| |ln|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |arrw|
+                                                      (|Record|
+                                                       (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |shpe|
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|))))
+                                                 (|:| |nodename|
+                                                      (|Record|
+                                                       (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                                 (|:| |np|
+                                                      (|SceneNamedPoints|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |empty| #24#))
+                                                #16#))
                               . #23#)))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'TEXT)
@@ -2168,15 +2889,83 @@
                           (QVELT
                            (PROG2 (LETT #13# (QVELT |n| 2) . #23#)
                                (QCDR #13#)
-                             (|check_union| (QEQCAR #13# 2)
-                                            (|Record| (|:| |txt| (|String|))
-                                                      (|:| |siz|
-                                                           (|NonNegativeInteger|))
-                                                      (|:| |pos| (QREFELT $ 6))
-                                                      (|:| |np|
-                                                           (|List|
-                                                            (|String|))))
-                                            #13#))
+                             (|check_union2| (QEQCAR #13# 2)
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|))))
+                                             (|Union|
+                                              (|:| |points|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |material|
+                                                   (|Record|
+                                                    (|:| |lineWidth|
+                                                         (|DoubleFloat|))
+                                                    (|:| |lineCol| (|String|))
+                                                    (|:| |fillCol| (|String|))
+                                                    (|:| |matOpacity|
+                                                         (|DoubleFloat|))))
+                                              (|:| |text|
+                                                   (|Record|
+                                                    (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|)))))
+                                              (|:| |boundbox|
+                                                   (|SBoundary| (QREFELT $ 6)))
+                                              (|:| |trans|
+                                                   (|STransform|
+                                                    (QREFELT $ 6)))
+                                              (|:| |ifs|
+                                                   (|Record|
+                                                    (|:| |inx|
+                                                         (|List|
+                                                          (|List|
+                                                           (|NonNegativeInteger|))))
+                                                    (|:| |pts|
+                                                         (|List|
+                                                          (QREFELT $ 6)))))
+                                              (|:| |arrws|
+                                                   (|Record|
+                                                    (|:| |ln|
+                                                         (|List|
+                                                          (|List|
+                                                           (QREFELT $ 6))))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|))))
+                                              (|:| |arrw|
+                                                   (|Record|
+                                                    (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|))))
+                                              (|:| |shpe|
+                                                   (|Record|
+                                                    (|:| |shptype| (|Symbol|))
+                                                    (|:| |centre|
+                                                         (QREFELT $ 6))
+                                                    (|:| |size| (QREFELT $ 6))
+                                                    (|:| |fill| (|Boolean|))))
+                                              (|:| |nodename|
+                                                   (|Record|
+                                                    (|:| |nme| (|String|))
+                                                    (|:| |node| $)))
+                                              (|:| |np|
+                                                   (|SceneNamedPoints|
+                                                    (QREFELT $ 6)))
+                                              (|:| |empty| #24#))
+                                             #13#))
                            3)
                           NIL (QREFELT $ 167))
                          (SEQ
@@ -2185,17 +2974,107 @@
                                      (QVELT
                                       (PROG2 (LETT #13# (QVELT |n| 2) . #23#)
                                           (QCDR #13#)
-                                        (|check_union| (QEQCAR #13# 2)
-                                                       (|Record|
-                                                        (|:| |txt| (|String|))
-                                                        (|:| |siz|
-                                                             (|NonNegativeInteger|))
-                                                        (|:| |pos|
-                                                             (QREFELT $ 6))
-                                                        (|:| |np|
-                                                             (|List|
-                                                              (|String|))))
-                                                       #13#))
+                                        (|check_union2| (QEQCAR #13# 2)
+                                                        (|Record|
+                                                         (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|))))
+                                                        (|Union|
+                                                         (|:| |points|
+                                                              (|List|
+                                                               (|List|
+                                                                (QREFELT $
+                                                                         6))))
+                                                         (|:| |material|
+                                                              (|Record|
+                                                               (|:| |lineWidth|
+                                                                    (|DoubleFloat|))
+                                                               (|:| |lineCol|
+                                                                    (|String|))
+                                                               (|:| |fillCol|
+                                                                    (|String|))
+                                                               (|:|
+                                                                |matOpacity|
+                                                                (|DoubleFloat|))))
+                                                         (|:| |text|
+                                                              (|Record|
+                                                               (|:| |txt|
+                                                                    (|String|))
+                                                               (|:| |siz|
+                                                                    (|NonNegativeInteger|))
+                                                               (|:| |pos|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |np|
+                                                                    (|List|
+                                                                     (|String|)))))
+                                                         (|:| |boundbox|
+                                                              (|SBoundary|
+                                                               (QREFELT $ 6)))
+                                                         (|:| |trans|
+                                                              (|STransform|
+                                                               (QREFELT $ 6)))
+                                                         (|:| |ifs|
+                                                              (|Record|
+                                                               (|:| |inx|
+                                                                    (|List|
+                                                                     (|List|
+                                                                      (|NonNegativeInteger|))))
+                                                               (|:| |pts|
+                                                                    (|List|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                         (|:| |arrws|
+                                                              (|Record|
+                                                               (|:| |ln|
+                                                                    (|List|
+                                                                     (|List|
+                                                                      (QREFELT
+                                                                       $ 6))))
+                                                               (|:| |mode|
+                                                                    (|Symbol|))
+                                                               (|:| |size|
+                                                                    (|DoubleFloat|))))
+                                                         (|:| |arrw|
+                                                              (|Record|
+                                                               (|:| |st|
+                                                                    (|String|))
+                                                               (|:| |en|
+                                                                    (|String|))
+                                                               (|:| |offset|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |mode|
+                                                                    (|Symbol|))
+                                                               (|:| |size|
+                                                                    (|DoubleFloat|))))
+                                                         (|:| |shpe|
+                                                              (|Record|
+                                                               (|:| |shptype|
+                                                                    (|Symbol|))
+                                                               (|:| |centre|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |size|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |fill|
+                                                                    (|Boolean|))))
+                                                         (|:| |nodename|
+                                                              (|Record|
+                                                               (|:| |nme|
+                                                                    (|String|))
+                                                               (|:| |node| $)))
+                                                         (|:| |np|
+                                                              (|SceneNamedPoints|
+                                                               (QREFELT $ 6)))
+                                                         (|:| |empty| #24#))
+                                                        #13#))
                                       3)
                                      . #23#)
                                G190
@@ -2216,7 +3095,7 @@
                                                       (LETT #13# (QVELT |n| 2)
                                                             . #23#)
                                                       (QCDR #13#)
-                                                    (|check_union|
+                                                    (|check_union2|
                                                      (QEQCAR #13# 2)
                                                      (|Record|
                                                       (|:| |txt| (|String|))
@@ -2226,6 +3105,90 @@
                                                       (|:| |np|
                                                            (|List|
                                                             (|String|))))
+                                                     (|Union|
+                                                      (|:| |points|
+                                                           (|List|
+                                                            (|List|
+                                                             (QREFELT $ 6))))
+                                                      (|:| |material|
+                                                           (|Record|
+                                                            (|:| |lineWidth|
+                                                                 (|DoubleFloat|))
+                                                            (|:| |lineCol|
+                                                                 (|String|))
+                                                            (|:| |fillCol|
+                                                                 (|String|))
+                                                            (|:| |matOpacity|
+                                                                 (|DoubleFloat|))))
+                                                      (|:| |text|
+                                                           (|Record|
+                                                            (|:| |txt|
+                                                                 (|String|))
+                                                            (|:| |siz|
+                                                                 (|NonNegativeInteger|))
+                                                            (|:| |pos|
+                                                                 (QREFELT $ 6))
+                                                            (|:| |np|
+                                                                 (|List|
+                                                                  (|String|)))))
+                                                      (|:| |boundbox|
+                                                           (|SBoundary|
+                                                            (QREFELT $ 6)))
+                                                      (|:| |trans|
+                                                           (|STransform|
+                                                            (QREFELT $ 6)))
+                                                      (|:| |ifs|
+                                                           (|Record|
+                                                            (|:| |inx|
+                                                                 (|List|
+                                                                  (|List|
+                                                                   (|NonNegativeInteger|))))
+                                                            (|:| |pts|
+                                                                 (|List|
+                                                                  (QREFELT $
+                                                                           6)))))
+                                                      (|:| |arrws|
+                                                           (|Record|
+                                                            (|:| |ln|
+                                                                 (|List|
+                                                                  (|List|
+                                                                   (QREFELT $
+                                                                            6))))
+                                                            (|:| |mode|
+                                                                 (|Symbol|))
+                                                            (|:| |size|
+                                                                 (|DoubleFloat|))))
+                                                      (|:| |arrw|
+                                                           (|Record|
+                                                            (|:| |st|
+                                                                 (|String|))
+                                                            (|:| |en|
+                                                                 (|String|))
+                                                            (|:| |offset|
+                                                                 (QREFELT $ 6))
+                                                            (|:| |mode|
+                                                                 (|Symbol|))
+                                                            (|:| |size|
+                                                                 (|DoubleFloat|))))
+                                                      (|:| |shpe|
+                                                           (|Record|
+                                                            (|:| |shptype|
+                                                                 (|Symbol|))
+                                                            (|:| |centre|
+                                                                 (QREFELT $ 6))
+                                                            (|:| |size|
+                                                                 (QREFELT $ 6))
+                                                            (|:| |fill|
+                                                                 (|Boolean|))))
+                                                      (|:| |nodename|
+                                                           (|Record|
+                                                            (|:| |nme|
+                                                                 (|String|))
+                                                            (|:| |node| $)))
+                                                      (|:| |np|
+                                                           (|SceneNamedPoints|
+                                                            (QREFELT $ 6)))
+                                                      (|:| |empty| #24#))
                                                      #13#))
                                                   2)
                                                  (QREFELT $ 103))
@@ -2240,7 +3203,7 @@
                                                        (LETT #13# (QVELT |n| 2)
                                                              . #23#)
                                                        (QCDR #13#)
-                                                     (|check_union|
+                                                     (|check_union2|
                                                       (QEQCAR #13# 2)
                                                       (|Record|
                                                        (|:| |txt| (|String|))
@@ -2251,6 +3214,94 @@
                                                        (|:| |np|
                                                             (|List|
                                                              (|String|))))
+                                                      (|Union|
+                                                       (|:| |points|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |material|
+                                                            (|Record|
+                                                             (|:| |lineWidth|
+                                                                  (|DoubleFloat|))
+                                                             (|:| |lineCol|
+                                                                  (|String|))
+                                                             (|:| |fillCol|
+                                                                  (|String|))
+                                                             (|:| |matOpacity|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |text|
+                                                            (|Record|
+                                                             (|:| |txt|
+                                                                  (|String|))
+                                                             (|:| |siz|
+                                                                  (|NonNegativeInteger|))
+                                                             (|:| |pos|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |np|
+                                                                  (|List|
+                                                                   (|String|)))))
+                                                       (|:| |boundbox|
+                                                            (|SBoundary|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |trans|
+                                                            (|STransform|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |ifs|
+                                                            (|Record|
+                                                             (|:| |inx|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (|NonNegativeInteger|))))
+                                                             (|:| |pts|
+                                                                  (|List|
+                                                                   (QREFELT $
+                                                                            6)))))
+                                                       (|:| |arrws|
+                                                            (|Record|
+                                                             (|:| |ln|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |arrw|
+                                                            (|Record|
+                                                             (|:| |st|
+                                                                  (|String|))
+                                                             (|:| |en|
+                                                                  (|String|))
+                                                             (|:| |offset|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |mode|
+                                                                  (|Symbol|))
+                                                             (|:| |size|
+                                                                  (|DoubleFloat|))))
+                                                       (|:| |shpe|
+                                                            (|Record|
+                                                             (|:| |shptype|
+                                                                  (|Symbol|))
+                                                             (|:| |centre|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |size|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |fill|
+                                                                  (|Boolean|))))
+                                                       (|:| |nodename|
+                                                            (|Record|
+                                                             (|:| |nme|
+                                                                  (|String|))
+                                                             (|:| |node| $)))
+                                                       (|:| |np|
+                                                            (|SceneNamedPoints|
+                                                             (QREFELT $ 6)))
+                                                       (|:| |empty| #24#))
                                                       #13#))
                                                    1))
                                                  (QREFELT $ 158))
@@ -2293,24 +3344,121 @@
                                   (SPADCALL "g" |nodeEles| |nodeAtts|
                                             (QREFELT $ 161))
                                   . #23#)
-                            (GO #25=#:G1077))))))
+                            (GO #26=#:G1077))))))
                        (LETT |param2|
                              (SPADCALL |tran|
                                        (QVELT
                                         (PROG2 (LETT #13# (QVELT |n| 2) . #23#)
                                             (QCDR #13#)
-                                          (|check_union| (QEQCAR #13# 2)
-                                                         (|Record|
-                                                          (|:| |txt|
-                                                               (|String|))
-                                                          (|:| |siz|
-                                                               (|NonNegativeInteger|))
-                                                          (|:| |pos|
-                                                               (QREFELT $ 6))
-                                                          (|:| |np|
-                                                               (|List|
-                                                                (|String|))))
-                                                         #13#))
+                                          (|check_union2| (QEQCAR #13# 2)
+                                                          (|Record|
+                                                           (|:| |txt|
+                                                                (|String|))
+                                                           (|:| |siz|
+                                                                (|NonNegativeInteger|))
+                                                           (|:| |pos|
+                                                                (QREFELT $ 6))
+                                                           (|:| |np|
+                                                                (|List|
+                                                                 (|String|))))
+                                                          (|Union|
+                                                           (|:| |points|
+                                                                (|List|
+                                                                 (|List|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                           (|:| |material|
+                                                                (|Record|
+                                                                 (|:|
+                                                                  |lineWidth|
+                                                                  (|DoubleFloat|))
+                                                                 (|:| |lineCol|
+                                                                      (|String|))
+                                                                 (|:| |fillCol|
+                                                                      (|String|))
+                                                                 (|:|
+                                                                  |matOpacity|
+                                                                  (|DoubleFloat|))))
+                                                           (|:| |text|
+                                                                (|Record|
+                                                                 (|:| |txt|
+                                                                      (|String|))
+                                                                 (|:| |siz|
+                                                                      (|NonNegativeInteger|))
+                                                                 (|:| |pos|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                 (|:| |np|
+                                                                      (|List|
+                                                                       (|String|)))))
+                                                           (|:| |boundbox|
+                                                                (|SBoundary|
+                                                                 (QREFELT $
+                                                                          6)))
+                                                           (|:| |trans|
+                                                                (|STransform|
+                                                                 (QREFELT $
+                                                                          6)))
+                                                           (|:| |ifs|
+                                                                (|Record|
+                                                                 (|:| |inx|
+                                                                      (|List|
+                                                                       (|List|
+                                                                        (|NonNegativeInteger|))))
+                                                                 (|:| |pts|
+                                                                      (|List|
+                                                                       (QREFELT
+                                                                        $
+                                                                        6)))))
+                                                           (|:| |arrws|
+                                                                (|Record|
+                                                                 (|:| |ln|
+                                                                      (|List|
+                                                                       (|List|
+                                                                        (QREFELT
+                                                                         $
+                                                                         6))))
+                                                                 (|:| |mode|
+                                                                      (|Symbol|))
+                                                                 (|:| |size|
+                                                                      (|DoubleFloat|))))
+                                                           (|:| |arrw|
+                                                                (|Record|
+                                                                 (|:| |st|
+                                                                      (|String|))
+                                                                 (|:| |en|
+                                                                      (|String|))
+                                                                 (|:| |offset|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                 (|:| |mode|
+                                                                      (|Symbol|))
+                                                                 (|:| |size|
+                                                                      (|DoubleFloat|))))
+                                                           (|:| |shpe|
+                                                                (|Record|
+                                                                 (|:| |shptype|
+                                                                      (|Symbol|))
+                                                                 (|:| |centre|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                 (|:| |size|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                 (|:| |fill|
+                                                                      (|Boolean|))))
+                                                           (|:| |nodename|
+                                                                (|Record|
+                                                                 (|:| |nme|
+                                                                      (|String|))
+                                                                 (|:| |node|
+                                                                      $)))
+                                                           (|:| |np|
+                                                                (|SceneNamedPoints|
+                                                                 (QREFELT $
+                                                                          6)))
+                                                           (|:| |empty| #24#))
+                                                          #13#))
                                         2)
                                        (QREFELT $ 149))
                              . #23#)
@@ -2322,18 +3470,122 @@
                                           (PROG2
                                               (LETT #13# (QVELT |n| 2) . #23#)
                                               (QCDR #13#)
-                                            (|check_union| (QEQCAR #13# 2)
-                                                           (|Record|
-                                                            (|:| |txt|
-                                                                 (|String|))
-                                                            (|:| |siz|
-                                                                 (|NonNegativeInteger|))
-                                                            (|:| |pos|
-                                                                 (QREFELT $ 6))
-                                                            (|:| |np|
-                                                                 (|List|
-                                                                  (|String|))))
-                                                           #13#))
+                                            (|check_union2| (QEQCAR #13# 2)
+                                                            (|Record|
+                                                             (|:| |txt|
+                                                                  (|String|))
+                                                             (|:| |siz|
+                                                                  (|NonNegativeInteger|))
+                                                             (|:| |pos|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |np|
+                                                                  (|List|
+                                                                   (|String|))))
+                                                            (|Union|
+                                                             (|:| |points|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                             (|:| |material|
+                                                                  (|Record|
+                                                                   (|:|
+                                                                    |lineWidth|
+                                                                    (|DoubleFloat|))
+                                                                   (|:|
+                                                                    |lineCol|
+                                                                    (|String|))
+                                                                   (|:|
+                                                                    |fillCol|
+                                                                    (|String|))
+                                                                   (|:|
+                                                                    |matOpacity|
+                                                                    (|DoubleFloat|))))
+                                                             (|:| |text|
+                                                                  (|Record|
+                                                                   (|:| |txt|
+                                                                        (|String|))
+                                                                   (|:| |siz|
+                                                                        (|NonNegativeInteger|))
+                                                                   (|:| |pos|
+                                                                        (QREFELT
+                                                                         $ 6))
+                                                                   (|:| |np|
+                                                                        (|List|
+                                                                         (|String|)))))
+                                                             (|:| |boundbox|
+                                                                  (|SBoundary|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |trans|
+                                                                  (|STransform|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |ifs|
+                                                                  (|Record|
+                                                                   (|:| |inx|
+                                                                        (|List|
+                                                                         (|List|
+                                                                          (|NonNegativeInteger|))))
+                                                                   (|:| |pts|
+                                                                        (|List|
+                                                                         (QREFELT
+                                                                          $
+                                                                          6)))))
+                                                             (|:| |arrws|
+                                                                  (|Record|
+                                                                   (|:| |ln|
+                                                                        (|List|
+                                                                         (|List|
+                                                                          (QREFELT
+                                                                           $
+                                                                           6))))
+                                                                   (|:| |mode|
+                                                                        (|Symbol|))
+                                                                   (|:| |size|
+                                                                        (|DoubleFloat|))))
+                                                             (|:| |arrw|
+                                                                  (|Record|
+                                                                   (|:| |st|
+                                                                        (|String|))
+                                                                   (|:| |en|
+                                                                        (|String|))
+                                                                   (|:|
+                                                                    |offset|
+                                                                    (QREFELT $
+                                                                             6))
+                                                                   (|:| |mode|
+                                                                        (|Symbol|))
+                                                                   (|:| |size|
+                                                                        (|DoubleFloat|))))
+                                                             (|:| |shpe|
+                                                                  (|Record|
+                                                                   (|:|
+                                                                    |shptype|
+                                                                    (|Symbol|))
+                                                                   (|:|
+                                                                    |centre|
+                                                                    (QREFELT $
+                                                                             6))
+                                                                   (|:| |size|
+                                                                        (QREFELT
+                                                                         $ 6))
+                                                                   (|:| |fill|
+                                                                        (|Boolean|))))
+                                                             (|:| |nodename|
+                                                                  (|Record|
+                                                                   (|:| |nme|
+                                                                        (|String|))
+                                                                   (|:| |node|
+                                                                        $)))
+                                                             (|:| |np|
+                                                                  (|SceneNamedPoints|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |empty|
+                                                                  #24#))
+                                                            #13#))
                                           1))
                                         (QREFELT $ 158))
                               (SPADCALL "x"
@@ -2361,22 +3613,126 @@
                                           (PROG2
                                               (LETT #13# (QVELT |n| 2) . #23#)
                                               (QCDR #13#)
-                                            (|check_union| (QEQCAR #13# 2)
-                                                           (|Record|
-                                                            (|:| |txt|
-                                                                 (|String|))
-                                                            (|:| |siz|
-                                                                 (|NonNegativeInteger|))
-                                                            (|:| |pos|
-                                                                 (QREFELT $ 6))
-                                                            (|:| |np|
-                                                                 (|List|
-                                                                  (|String|))))
-                                                           #13#))
+                                            (|check_union2| (QEQCAR #13# 2)
+                                                            (|Record|
+                                                             (|:| |txt|
+                                                                  (|String|))
+                                                             (|:| |siz|
+                                                                  (|NonNegativeInteger|))
+                                                             (|:| |pos|
+                                                                  (QREFELT $
+                                                                           6))
+                                                             (|:| |np|
+                                                                  (|List|
+                                                                   (|String|))))
+                                                            (|Union|
+                                                             (|:| |points|
+                                                                  (|List|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6))))
+                                                             (|:| |material|
+                                                                  (|Record|
+                                                                   (|:|
+                                                                    |lineWidth|
+                                                                    (|DoubleFloat|))
+                                                                   (|:|
+                                                                    |lineCol|
+                                                                    (|String|))
+                                                                   (|:|
+                                                                    |fillCol|
+                                                                    (|String|))
+                                                                   (|:|
+                                                                    |matOpacity|
+                                                                    (|DoubleFloat|))))
+                                                             (|:| |text|
+                                                                  (|Record|
+                                                                   (|:| |txt|
+                                                                        (|String|))
+                                                                   (|:| |siz|
+                                                                        (|NonNegativeInteger|))
+                                                                   (|:| |pos|
+                                                                        (QREFELT
+                                                                         $ 6))
+                                                                   (|:| |np|
+                                                                        (|List|
+                                                                         (|String|)))))
+                                                             (|:| |boundbox|
+                                                                  (|SBoundary|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |trans|
+                                                                  (|STransform|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |ifs|
+                                                                  (|Record|
+                                                                   (|:| |inx|
+                                                                        (|List|
+                                                                         (|List|
+                                                                          (|NonNegativeInteger|))))
+                                                                   (|:| |pts|
+                                                                        (|List|
+                                                                         (QREFELT
+                                                                          $
+                                                                          6)))))
+                                                             (|:| |arrws|
+                                                                  (|Record|
+                                                                   (|:| |ln|
+                                                                        (|List|
+                                                                         (|List|
+                                                                          (QREFELT
+                                                                           $
+                                                                           6))))
+                                                                   (|:| |mode|
+                                                                        (|Symbol|))
+                                                                   (|:| |size|
+                                                                        (|DoubleFloat|))))
+                                                             (|:| |arrw|
+                                                                  (|Record|
+                                                                   (|:| |st|
+                                                                        (|String|))
+                                                                   (|:| |en|
+                                                                        (|String|))
+                                                                   (|:|
+                                                                    |offset|
+                                                                    (QREFELT $
+                                                                             6))
+                                                                   (|:| |mode|
+                                                                        (|Symbol|))
+                                                                   (|:| |size|
+                                                                        (|DoubleFloat|))))
+                                                             (|:| |shpe|
+                                                                  (|Record|
+                                                                   (|:|
+                                                                    |shptype|
+                                                                    (|Symbol|))
+                                                                   (|:|
+                                                                    |centre|
+                                                                    (QREFELT $
+                                                                             6))
+                                                                   (|:| |size|
+                                                                        (QREFELT
+                                                                         $ 6))
+                                                                   (|:| |fill|
+                                                                        (|Boolean|))))
+                                                             (|:| |nodename|
+                                                                  (|Record|
+                                                                   (|:| |nme|
+                                                                        (|String|))
+                                                                   (|:| |node|
+                                                                        $)))
+                                                             (|:| |np|
+                                                                  (|SceneNamedPoints|
+                                                                   (QREFELT $
+                                                                            6)))
+                                                             (|:| |empty|
+                                                                  #24#))
+                                                            #13#))
                                           0)
                                          |nodeAtts| (QREFELT $ 169))
                                . #23#)
-                         (GO #25#))))))
+                         (GO #26#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'TRANSFORM)
                   (SEQ (LETT |nodeName| "g" . #23#)
@@ -2389,9 +3745,85 @@
                               (SPADCALL
                                (PROG2 (LETT #12# (QVELT |n| 2) . #23#)
                                    (QCDR #12#)
-                                 (|check_union| (QEQCAR #12# 4)
-                                                (|STransform| (QREFELT $ 6))
-                                                #12#))
+                                 (|check_union2| (QEQCAR #12# 4)
+                                                 (|STransform| (QREFELT $ 6))
+                                                 (|Union|
+                                                  (|:| |points|
+                                                       (|List|
+                                                        (|List|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |material|
+                                                       (|Record|
+                                                        (|:| |lineWidth|
+                                                             (|DoubleFloat|))
+                                                        (|:| |lineCol|
+                                                             (|String|))
+                                                        (|:| |fillCol|
+                                                             (|String|))
+                                                        (|:| |matOpacity|
+                                                             (|DoubleFloat|))))
+                                                  (|:| |text|
+                                                       (|Record|
+                                                        (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                                  (|:| |boundbox|
+                                                       (|SBoundary|
+                                                        (QREFELT $ 6)))
+                                                  (|:| |trans|
+                                                       (|STransform|
+                                                        (QREFELT $ 6)))
+                                                  (|:| |ifs|
+                                                       (|Record|
+                                                        (|:| |inx|
+                                                             (|List|
+                                                              (|List|
+                                                               (|NonNegativeInteger|))))
+                                                        (|:| |pts|
+                                                             (|List|
+                                                              (QREFELT $ 6)))))
+                                                  (|:| |arrws|
+                                                       (|Record|
+                                                        (|:| |ln|
+                                                             (|List|
+                                                              (|List|
+                                                               (QREFELT $ 6))))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                                  (|:| |arrw|
+                                                       (|Record|
+                                                        (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                                  (|:| |shpe|
+                                                       (|Record|
+                                                        (|:| |shptype|
+                                                             (|Symbol|))
+                                                        (|:| |centre|
+                                                             (QREFELT $ 6))
+                                                        (|:| |size|
+                                                             (QREFELT $ 6))
+                                                        (|:| |fill|
+                                                             (|Boolean|))))
+                                                  (|:| |nodename|
+                                                       (|Record|
+                                                        (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                                  (|:| |np|
+                                                       (|SceneNamedPoints|
+                                                        (QREFELT $ 6)))
+                                                  (|:| |empty| #24#))
+                                                 #12#))
                                |tran| (QREFELT $ 171))
                               . #23#)))))
                 (COND
@@ -2405,9 +3837,84 @@
                         (LETT |bb2|
                               (PROG2 (LETT #11# (QVELT |n| 2) . #23#)
                                   (QCDR #11#)
-                                (|check_union| (QEQCAR #11# 3)
-                                               (|SBoundary| (QREFELT $ 6))
-                                               #11#))
+                                (|check_union2| (QEQCAR #11# 3)
+                                                (|SBoundary| (QREFELT $ 6))
+                                                (|Union|
+                                                 (|:| |points|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |material|
+                                                      (|Record|
+                                                       (|:| |lineWidth|
+                                                            (|DoubleFloat|))
+                                                       (|:| |lineCol|
+                                                            (|String|))
+                                                       (|:| |fillCol|
+                                                            (|String|))
+                                                       (|:| |matOpacity|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |text|
+                                                      (|Record|
+                                                       (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |boundbox|
+                                                      (|SBoundary|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |trans|
+                                                      (|STransform|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |ifs|
+                                                      (|Record|
+                                                       (|:| |inx|
+                                                            (|List|
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                       (|:| |pts|
+                                                            (|List|
+                                                             (QREFELT $ 6)))))
+                                                 (|:| |arrws|
+                                                      (|Record|
+                                                       (|:| |ln|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |arrw|
+                                                      (|Record|
+                                                       (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |shpe|
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|))))
+                                                 (|:| |nodename|
+                                                      (|Record|
+                                                       (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                                 (|:| |np|
+                                                      (|SceneNamedPoints|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |empty| #24#))
+                                                #11#))
                               . #23#)))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'IFS)
@@ -2423,17 +3930,117 @@
                                          (PROG2
                                              (LETT #10# (QVELT |n| 2) . #23#)
                                              (QCDR #10#)
-                                           (|check_union| (QEQCAR #10# 5)
-                                                          (|Record|
-                                                           (|:| |inx|
-                                                                (|List|
+                                           (|check_union2| (QEQCAR #10# 5)
+                                                           (|Record|
+                                                            (|:| |inx|
                                                                  (|List|
-                                                                  (|NonNegativeInteger|))))
-                                                           (|:| |pts|
-                                                                (|List|
-                                                                 (QREFELT $
+                                                                  (|List|
+                                                                   (|NonNegativeInteger|))))
+                                                            (|:| |pts|
+                                                                 (|List|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                           (|Union|
+                                                            (|:| |points|
+                                                                 (|List|
+                                                                  (|List|
+                                                                   (QREFELT $
+                                                                            6))))
+                                                            (|:| |material|
+                                                                 (|Record|
+                                                                  (|:|
+                                                                   |lineWidth|
+                                                                   (|DoubleFloat|))
+                                                                  (|:|
+                                                                   |lineCol|
+                                                                   (|String|))
+                                                                  (|:|
+                                                                   |fillCol|
+                                                                   (|String|))
+                                                                  (|:|
+                                                                   |matOpacity|
+                                                                   (|DoubleFloat|))))
+                                                            (|:| |text|
+                                                                 (|Record|
+                                                                  (|:| |txt|
+                                                                       (|String|))
+                                                                  (|:| |siz|
+                                                                       (|NonNegativeInteger|))
+                                                                  (|:| |pos|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |np|
+                                                                       (|List|
+                                                                        (|String|)))))
+                                                            (|:| |boundbox|
+                                                                 (|SBoundary|
+                                                                  (QREFELT $
+                                                                           6)))
+                                                            (|:| |trans|
+                                                                 (|STransform|
+                                                                  (QREFELT $
+                                                                           6)))
+                                                            (|:| |ifs|
+                                                                 (|Record|
+                                                                  (|:| |inx|
+                                                                       (|List|
+                                                                        (|List|
+                                                                         (|NonNegativeInteger|))))
+                                                                  (|:| |pts|
+                                                                       (|List|
+                                                                        (QREFELT
+                                                                         $
+                                                                         6)))))
+                                                            (|:| |arrws|
+                                                                 (|Record|
+                                                                  (|:| |ln|
+                                                                       (|List|
+                                                                        (|List|
+                                                                         (QREFELT
+                                                                          $
                                                                           6))))
-                                                          #10#))
+                                                                  (|:| |mode|
+                                                                       (|Symbol|))
+                                                                  (|:| |size|
+                                                                       (|DoubleFloat|))))
+                                                            (|:| |arrw|
+                                                                 (|Record|
+                                                                  (|:| |st|
+                                                                       (|String|))
+                                                                  (|:| |en|
+                                                                       (|String|))
+                                                                  (|:| |offset|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |mode|
+                                                                       (|Symbol|))
+                                                                  (|:| |size|
+                                                                       (|DoubleFloat|))))
+                                                            (|:| |shpe|
+                                                                 (|Record|
+                                                                  (|:|
+                                                                   |shptype|
+                                                                   (|Symbol|))
+                                                                  (|:| |centre|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |size|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |fill|
+                                                                       (|Boolean|))))
+                                                            (|:| |nodename|
+                                                                 (|Record|
+                                                                  (|:| |nme|
+                                                                       (|String|))
+                                                                  (|:| |node|
+                                                                       $)))
+                                                            (|:| |np|
+                                                                 (|SceneNamedPoints|
+                                                                  (QREFELT $
+                                                                           6)))
+                                                            (|:| |empty| #24#))
+                                                           #10#))
                                          |tran2| |bb2| |scale2| |clipEn2| $)
                                         (QREFELT $ 158))
                               (SPADCALL "fill" (QVELT |mat2| 2)
@@ -2450,7 +4057,7 @@
                                (SPADCALL |nodeName| NIL |nodeAtts|
                                          (QREFELT $ 161))
                                . #23#)
-                         (GO #25#))))))
+                         (GO #26#))))))
                 (COND
                  ((EQUAL (QVELT |n| 0) 'ARROWS)
                   (SEQ (LETT |nodeName| "g" . #23#)
@@ -2464,42 +4071,285 @@
                                (QVELT
                                 (PROG2 (LETT #8# (QVELT |n| 2) . #23#)
                                     (QCDR #8#)
-                                  (|check_union| (QEQCAR #8# 6)
-                                                 (|Record|
-                                                  (|:| |ln|
-                                                       (|List|
+                                  (|check_union2| (QEQCAR #8# 6)
+                                                  (|Record|
+                                                   (|:| |ln|
                                                         (|List|
-                                                         (QREFELT $ 6))))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                                 #8#))
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                                  (|Union|
+                                                   (|:| |points|
+                                                        (|List|
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |material|
+                                                        (|Record|
+                                                         (|:| |lineWidth|
+                                                              (|DoubleFloat|))
+                                                         (|:| |lineCol|
+                                                              (|String|))
+                                                         (|:| |fillCol|
+                                                              (|String|))
+                                                         (|:| |matOpacity|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |text|
+                                                        (|Record|
+                                                         (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                                   (|:| |boundbox|
+                                                        (|SBoundary|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |trans|
+                                                        (|STransform|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |ifs|
+                                                        (|Record|
+                                                         (|:| |inx|
+                                                              (|List|
+                                                               (|List|
+                                                                (|NonNegativeInteger|))))
+                                                         (|:| |pts|
+                                                              (|List|
+                                                               (QREFELT $
+                                                                        6)))))
+                                                   (|:| |arrws|
+                                                        (|Record|
+                                                         (|:| |ln|
+                                                              (|List|
+                                                               (|List|
+                                                                (QREFELT $
+                                                                         6))))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |arrw|
+                                                        (|Record|
+                                                         (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |shpe|
+                                                        (|Record|
+                                                         (|:| |shptype|
+                                                              (|Symbol|))
+                                                         (|:| |centre|
+                                                              (QREFELT $ 6))
+                                                         (|:| |size|
+                                                              (QREFELT $ 6))
+                                                         (|:| |fill|
+                                                              (|Boolean|))))
+                                                   (|:| |nodename|
+                                                        (|Record|
+                                                         (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                                   (|:| |np|
+                                                        (|SceneNamedPoints|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |empty| #24#))
+                                                  #8#))
                                 0)
                                |tran2| |bb2| |mat2| |scale2| |clipEn2|
                                (QVELT
                                 (PROG2 (LETT #8# (QVELT |n| 2) . #23#)
                                     (QCDR #8#)
-                                  (|check_union| (QEQCAR #8# 6)
-                                                 (|Record|
-                                                  (|:| |ln|
-                                                       (|List|
+                                  (|check_union2| (QEQCAR #8# 6)
+                                                  (|Record|
+                                                   (|:| |ln|
                                                         (|List|
-                                                         (QREFELT $ 6))))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                                 #8#))
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                                  (|Union|
+                                                   (|:| |points|
+                                                        (|List|
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |material|
+                                                        (|Record|
+                                                         (|:| |lineWidth|
+                                                              (|DoubleFloat|))
+                                                         (|:| |lineCol|
+                                                              (|String|))
+                                                         (|:| |fillCol|
+                                                              (|String|))
+                                                         (|:| |matOpacity|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |text|
+                                                        (|Record|
+                                                         (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                                   (|:| |boundbox|
+                                                        (|SBoundary|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |trans|
+                                                        (|STransform|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |ifs|
+                                                        (|Record|
+                                                         (|:| |inx|
+                                                              (|List|
+                                                               (|List|
+                                                                (|NonNegativeInteger|))))
+                                                         (|:| |pts|
+                                                              (|List|
+                                                               (QREFELT $
+                                                                        6)))))
+                                                   (|:| |arrws|
+                                                        (|Record|
+                                                         (|:| |ln|
+                                                              (|List|
+                                                               (|List|
+                                                                (QREFELT $
+                                                                         6))))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |arrw|
+                                                        (|Record|
+                                                         (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |shpe|
+                                                        (|Record|
+                                                         (|:| |shptype|
+                                                              (|Symbol|))
+                                                         (|:| |centre|
+                                                              (QREFELT $ 6))
+                                                         (|:| |size|
+                                                              (QREFELT $ 6))
+                                                         (|:| |fill|
+                                                              (|Boolean|))))
+                                                   (|:| |nodename|
+                                                        (|Record|
+                                                         (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                                   (|:| |np|
+                                                        (|SceneNamedPoints|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |empty| #24#))
+                                                  #8#))
                                 1)
                                (QVELT
                                 (PROG2 (LETT #8# (QVELT |n| 2) . #23#)
                                     (QCDR #8#)
-                                  (|check_union| (QEQCAR #8# 6)
-                                                 (|Record|
-                                                  (|:| |ln|
-                                                       (|List|
+                                  (|check_union2| (QEQCAR #8# 6)
+                                                  (|Record|
+                                                   (|:| |ln|
                                                         (|List|
-                                                         (QREFELT $ 6))))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                                 #8#))
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                                  (|Union|
+                                                   (|:| |points|
+                                                        (|List|
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |material|
+                                                        (|Record|
+                                                         (|:| |lineWidth|
+                                                              (|DoubleFloat|))
+                                                         (|:| |lineCol|
+                                                              (|String|))
+                                                         (|:| |fillCol|
+                                                              (|String|))
+                                                         (|:| |matOpacity|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |text|
+                                                        (|Record|
+                                                         (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                                   (|:| |boundbox|
+                                                        (|SBoundary|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |trans|
+                                                        (|STransform|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |ifs|
+                                                        (|Record|
+                                                         (|:| |inx|
+                                                              (|List|
+                                                               (|List|
+                                                                (|NonNegativeInteger|))))
+                                                         (|:| |pts|
+                                                              (|List|
+                                                               (QREFELT $
+                                                                        6)))))
+                                                   (|:| |arrws|
+                                                        (|Record|
+                                                         (|:| |ln|
+                                                              (|List|
+                                                               (|List|
+                                                                (QREFELT $
+                                                                         6))))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |arrw|
+                                                        (|Record|
+                                                         (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                                   (|:| |shpe|
+                                                        (|Record|
+                                                         (|:| |shptype|
+                                                              (|Symbol|))
+                                                         (|:| |centre|
+                                                              (QREFELT $ 6))
+                                                         (|:| |size|
+                                                              (QREFELT $ 6))
+                                                         (|:| |fill|
+                                                              (|Boolean|))))
+                                                   (|:| |nodename|
+                                                        (|Record|
+                                                         (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                                   (|:| |np|
+                                                        (|SceneNamedPoints|
+                                                         (QREFELT $ 6)))
+                                                   (|:| |empty| #24#))
+                                                  #8#))
                                 2)
                                $)
                               . #23#)))))
@@ -2518,35 +4368,245 @@
                                                    (LETT #5# (QVELT |n| 2)
                                                          . #23#)
                                                    (QCDR #5#)
-                                                 (|check_union| (QEQCAR #5# 7)
-                                                                (|Record|
-                                                                 (|:| |st|
-                                                                      (|String|))
-                                                                 (|:| |en|
-                                                                      (|String|))
-                                                                 (|:| |offset|
-                                                                      (QREFELT
-                                                                       $ 6))
-                                                                 (|:| |mode|
-                                                                      (|Symbol|))
-                                                                 (|:| |size|
-                                                                      (|DoubleFloat|)))
-                                                                #5#))
+                                                 (|check_union2| (QEQCAR #5# 7)
+                                                                 (|Record|
+                                                                  (|:| |st|
+                                                                       (|String|))
+                                                                  (|:| |en|
+                                                                       (|String|))
+                                                                  (|:| |offset|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |mode|
+                                                                       (|Symbol|))
+                                                                  (|:| |size|
+                                                                       (|DoubleFloat|)))
+                                                                 (|Union|
+                                                                  (|:| |points|
+                                                                       (|List|
+                                                                        (|List|
+                                                                         (QREFELT
+                                                                          $
+                                                                          6))))
+                                                                  (|:|
+                                                                   |material|
+                                                                   (|Record|
+                                                                    (|:|
+                                                                     |lineWidth|
+                                                                     (|DoubleFloat|))
+                                                                    (|:|
+                                                                     |lineCol|
+                                                                     (|String|))
+                                                                    (|:|
+                                                                     |fillCol|
+                                                                     (|String|))
+                                                                    (|:|
+                                                                     |matOpacity|
+                                                                     (|DoubleFloat|))))
+                                                                  (|:| |text|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |txt|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |siz|
+                                                                         (|NonNegativeInteger|))
+                                                                        (|:|
+                                                                         |pos|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |np|
+                                                                         (|List|
+                                                                          (|String|)))))
+                                                                  (|:|
+                                                                   |boundbox|
+                                                                   (|SBoundary|
+                                                                    (QREFELT $
+                                                                             6)))
+                                                                  (|:| |trans|
+                                                                       (|STransform|
+                                                                        (QREFELT
+                                                                         $ 6)))
+                                                                  (|:| |ifs|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |inx|
+                                                                         (|List|
+                                                                          (|List|
+                                                                           (|NonNegativeInteger|))))
+                                                                        (|:|
+                                                                         |pts|
+                                                                         (|List|
+                                                                          (QREFELT
+                                                                           $
+                                                                           6)))))
+                                                                  (|:| |arrws|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |ln|
+                                                                         (|List|
+                                                                          (|List|
+                                                                           (QREFELT
+                                                                            $
+                                                                            6))))
+                                                                        (|:|
+                                                                         |mode|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (|DoubleFloat|))))
+                                                                  (|:| |arrw|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |st|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |en|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |offset|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |mode|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (|DoubleFloat|))))
+                                                                  (|:| |shpe|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |shptype|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |centre|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |fill|
+                                                                         (|Boolean|))))
+                                                                  (|:|
+                                                                   |nodename|
+                                                                   (|Record|
+                                                                    (|:| |nme|
+                                                                         (|String|))
+                                                                    (|:| |node|
+                                                                         $)))
+                                                                  (|:| |np|
+                                                                       (|SceneNamedPoints|
+                                                                        (QREFELT
+                                                                         $ 6)))
+                                                                  (|:| |empty|
+                                                                       #24#))
+                                                                 #5#))
                                                0)
                                               (QREFELT $ 168))
                                     (QVELT
                                      (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                                          (QCDR #5#)
-                                       (|check_union| (QEQCAR #5# 7)
-                                                      (|Record|
-                                                       (|:| |st| (|String|))
-                                                       (|:| |en| (|String|))
-                                                       (|:| |offset|
-                                                            (QREFELT $ 6))
-                                                       (|:| |mode| (|Symbol|))
-                                                       (|:| |size|
-                                                            (|DoubleFloat|)))
-                                                      #5#))
+                                       (|check_union2| (QEQCAR #5# 7)
+                                                       (|Record|
+                                                        (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|)))
+                                                       (|Union|
+                                                        (|:| |points|
+                                                             (|List|
+                                                              (|List|
+                                                               (QREFELT $ 6))))
+                                                        (|:| |material|
+                                                             (|Record|
+                                                              (|:| |lineWidth|
+                                                                   (|DoubleFloat|))
+                                                              (|:| |lineCol|
+                                                                   (|String|))
+                                                              (|:| |fillCol|
+                                                                   (|String|))
+                                                              (|:| |matOpacity|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |text|
+                                                             (|Record|
+                                                              (|:| |txt|
+                                                                   (|String|))
+                                                              (|:| |siz|
+                                                                   (|NonNegativeInteger|))
+                                                              (|:| |pos|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |np|
+                                                                   (|List|
+                                                                    (|String|)))))
+                                                        (|:| |boundbox|
+                                                             (|SBoundary|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |trans|
+                                                             (|STransform|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |ifs|
+                                                             (|Record|
+                                                              (|:| |inx|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (|NonNegativeInteger|))))
+                                                              (|:| |pts|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6)))))
+                                                        (|:| |arrws|
+                                                             (|Record|
+                                                              (|:| |ln|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (QREFELT $
+                                                                              6))))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |arrw|
+                                                             (|Record|
+                                                              (|:| |st|
+                                                                   (|String|))
+                                                              (|:| |en|
+                                                                   (|String|))
+                                                              (|:| |offset|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |shpe|
+                                                             (|Record|
+                                                              (|:| |shptype|
+                                                                   (|Symbol|))
+                                                              (|:| |centre|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |size|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |fill|
+                                                                   (|Boolean|))))
+                                                        (|:| |nodename|
+                                                             (|Record|
+                                                              (|:| |nme|
+                                                                   (|String|))
+                                                              (|:| |node| $)))
+                                                        (|:| |np|
+                                                             (|SceneNamedPoints|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |empty| #24#))
+                                                       #5#))
                                      2)
                                     (QREFELT $ 103))
                                    (QREFELT $ 149))
@@ -2560,35 +4620,245 @@
                                                    (LETT #5# (QVELT |n| 2)
                                                          . #23#)
                                                    (QCDR #5#)
-                                                 (|check_union| (QEQCAR #5# 7)
-                                                                (|Record|
-                                                                 (|:| |st|
-                                                                      (|String|))
-                                                                 (|:| |en|
-                                                                      (|String|))
-                                                                 (|:| |offset|
-                                                                      (QREFELT
-                                                                       $ 6))
-                                                                 (|:| |mode|
-                                                                      (|Symbol|))
-                                                                 (|:| |size|
-                                                                      (|DoubleFloat|)))
-                                                                #5#))
+                                                 (|check_union2| (QEQCAR #5# 7)
+                                                                 (|Record|
+                                                                  (|:| |st|
+                                                                       (|String|))
+                                                                  (|:| |en|
+                                                                       (|String|))
+                                                                  (|:| |offset|
+                                                                       (QREFELT
+                                                                        $ 6))
+                                                                  (|:| |mode|
+                                                                       (|Symbol|))
+                                                                  (|:| |size|
+                                                                       (|DoubleFloat|)))
+                                                                 (|Union|
+                                                                  (|:| |points|
+                                                                       (|List|
+                                                                        (|List|
+                                                                         (QREFELT
+                                                                          $
+                                                                          6))))
+                                                                  (|:|
+                                                                   |material|
+                                                                   (|Record|
+                                                                    (|:|
+                                                                     |lineWidth|
+                                                                     (|DoubleFloat|))
+                                                                    (|:|
+                                                                     |lineCol|
+                                                                     (|String|))
+                                                                    (|:|
+                                                                     |fillCol|
+                                                                     (|String|))
+                                                                    (|:|
+                                                                     |matOpacity|
+                                                                     (|DoubleFloat|))))
+                                                                  (|:| |text|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |txt|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |siz|
+                                                                         (|NonNegativeInteger|))
+                                                                        (|:|
+                                                                         |pos|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |np|
+                                                                         (|List|
+                                                                          (|String|)))))
+                                                                  (|:|
+                                                                   |boundbox|
+                                                                   (|SBoundary|
+                                                                    (QREFELT $
+                                                                             6)))
+                                                                  (|:| |trans|
+                                                                       (|STransform|
+                                                                        (QREFELT
+                                                                         $ 6)))
+                                                                  (|:| |ifs|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |inx|
+                                                                         (|List|
+                                                                          (|List|
+                                                                           (|NonNegativeInteger|))))
+                                                                        (|:|
+                                                                         |pts|
+                                                                         (|List|
+                                                                          (QREFELT
+                                                                           $
+                                                                           6)))))
+                                                                  (|:| |arrws|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |ln|
+                                                                         (|List|
+                                                                          (|List|
+                                                                           (QREFELT
+                                                                            $
+                                                                            6))))
+                                                                        (|:|
+                                                                         |mode|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (|DoubleFloat|))))
+                                                                  (|:| |arrw|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |st|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |en|
+                                                                         (|String|))
+                                                                        (|:|
+                                                                         |offset|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |mode|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (|DoubleFloat|))))
+                                                                  (|:| |shpe|
+                                                                       (|Record|
+                                                                        (|:|
+                                                                         |shptype|
+                                                                         (|Symbol|))
+                                                                        (|:|
+                                                                         |centre|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |size|
+                                                                         (QREFELT
+                                                                          $ 6))
+                                                                        (|:|
+                                                                         |fill|
+                                                                         (|Boolean|))))
+                                                                  (|:|
+                                                                   |nodename|
+                                                                   (|Record|
+                                                                    (|:| |nme|
+                                                                         (|String|))
+                                                                    (|:| |node|
+                                                                         $)))
+                                                                  (|:| |np|
+                                                                       (|SceneNamedPoints|
+                                                                        (QREFELT
+                                                                         $ 6)))
+                                                                  (|:| |empty|
+                                                                       #24#))
+                                                                 #5#))
                                                1)
                                               (QREFELT $ 168))
                                     (QVELT
                                      (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                                          (QCDR #5#)
-                                       (|check_union| (QEQCAR #5# 7)
-                                                      (|Record|
-                                                       (|:| |st| (|String|))
-                                                       (|:| |en| (|String|))
-                                                       (|:| |offset|
-                                                            (QREFELT $ 6))
-                                                       (|:| |mode| (|Symbol|))
-                                                       (|:| |size|
-                                                            (|DoubleFloat|)))
-                                                      #5#))
+                                       (|check_union2| (QEQCAR #5# 7)
+                                                       (|Record|
+                                                        (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|)))
+                                                       (|Union|
+                                                        (|:| |points|
+                                                             (|List|
+                                                              (|List|
+                                                               (QREFELT $ 6))))
+                                                        (|:| |material|
+                                                             (|Record|
+                                                              (|:| |lineWidth|
+                                                                   (|DoubleFloat|))
+                                                              (|:| |lineCol|
+                                                                   (|String|))
+                                                              (|:| |fillCol|
+                                                                   (|String|))
+                                                              (|:| |matOpacity|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |text|
+                                                             (|Record|
+                                                              (|:| |txt|
+                                                                   (|String|))
+                                                              (|:| |siz|
+                                                                   (|NonNegativeInteger|))
+                                                              (|:| |pos|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |np|
+                                                                   (|List|
+                                                                    (|String|)))))
+                                                        (|:| |boundbox|
+                                                             (|SBoundary|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |trans|
+                                                             (|STransform|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |ifs|
+                                                             (|Record|
+                                                              (|:| |inx|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (|NonNegativeInteger|))))
+                                                              (|:| |pts|
+                                                                   (|List|
+                                                                    (QREFELT $
+                                                                             6)))))
+                                                        (|:| |arrws|
+                                                             (|Record|
+                                                              (|:| |ln|
+                                                                   (|List|
+                                                                    (|List|
+                                                                     (QREFELT $
+                                                                              6))))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |arrw|
+                                                             (|Record|
+                                                              (|:| |st|
+                                                                   (|String|))
+                                                              (|:| |en|
+                                                                   (|String|))
+                                                              (|:| |offset|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |mode|
+                                                                   (|Symbol|))
+                                                              (|:| |size|
+                                                                   (|DoubleFloat|))))
+                                                        (|:| |shpe|
+                                                             (|Record|
+                                                              (|:| |shptype|
+                                                                   (|Symbol|))
+                                                              (|:| |centre|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |size|
+                                                                   (QREFELT $
+                                                                            6))
+                                                              (|:| |fill|
+                                                                   (|Boolean|))))
+                                                        (|:| |nodename|
+                                                             (|Record|
+                                                              (|:| |nme|
+                                                                   (|String|))
+                                                              (|:| |node| $)))
+                                                        (|:| |np|
+                                                             (|SceneNamedPoints|
+                                                              (QREFELT $ 6)))
+                                                        (|:| |empty| #24#))
+                                                       #5#))
                                      2)
                                     (QREFELT $ 103))
                                    (QREFELT $ 149))
@@ -2608,24 +4878,148 @@
                       (QVELT
                        (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                            (QCDR #5#)
-                         (|check_union| (QEQCAR #5# 7)
-                                        (|Record| (|:| |st| (|String|))
-                                                  (|:| |en| (|String|))
-                                                  (|:| |offset| (QREFELT $ 6))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                        #5#))
+                         (|check_union2| (QEQCAR #5# 7)
+                                         (|Record| (|:| |st| (|String|))
+                                                   (|:| |en| (|String|))
+                                                   (|:| |offset| (QREFELT $ 6))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #5#))
                        0)
                       (QVELT
                        (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                            (QCDR #5#)
-                         (|check_union| (QEQCAR #5# 7)
-                                        (|Record| (|:| |st| (|String|))
-                                                  (|:| |en| (|String|))
-                                                  (|:| |offset| (QREFELT $ 6))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                        #5#))
+                         (|check_union2| (QEQCAR #5# 7)
+                                         (|Record| (|:| |st| (|String|))
+                                                   (|:| |en| (|String|))
+                                                   (|:| |offset| (QREFELT $ 6))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #5#))
                        1))
                      (LETT |ptStr|
                            (SPADCALL
@@ -2638,7 +5032,7 @@
                                   "c -50,25 -50,-50 0,-25")
                             (QREFELT $ 118))
                            . #23#))
-                    (#24#
+                    (#25#
                      (LETT |ptStr|
                            (SPADCALL
                             (LIST "M"
@@ -2658,15 +5052,79 @@
                          (QVELT
                           (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                               (QCDR #5#)
-                            (|check_union| (QEQCAR #5# 7)
-                                           (|Record| (|:| |st| (|String|))
-                                                     (|:| |en| (|String|))
-                                                     (|:| |offset|
-                                                          (QREFELT $ 6))
-                                                     (|:| |mode| (|Symbol|))
-                                                     (|:| |size|
-                                                          (|DoubleFloat|)))
-                                           #5#))
+                            (|check_union2| (QEQCAR #5# 7)
+                                            (|Record| (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|)))
+                                            (|Union|
+                                             (|:| |points|
+                                                  (|List|
+                                                   (|List| (QREFELT $ 6))))
+                                             (|:| |material|
+                                                  (|Record|
+                                                   (|:| |lineWidth|
+                                                        (|DoubleFloat|))
+                                                   (|:| |lineCol| (|String|))
+                                                   (|:| |fillCol| (|String|))
+                                                   (|:| |matOpacity|
+                                                        (|DoubleFloat|))))
+                                             (|:| |text|
+                                                  (|Record|
+                                                   (|:| |txt| (|String|))
+                                                   (|:| |siz|
+                                                        (|NonNegativeInteger|))
+                                                   (|:| |pos| (QREFELT $ 6))
+                                                   (|:| |np|
+                                                        (|List| (|String|)))))
+                                             (|:| |boundbox|
+                                                  (|SBoundary| (QREFELT $ 6)))
+                                             (|:| |trans|
+                                                  (|STransform| (QREFELT $ 6)))
+                                             (|:| |ifs|
+                                                  (|Record|
+                                                   (|:| |inx|
+                                                        (|List|
+                                                         (|List|
+                                                          (|NonNegativeInteger|))))
+                                                   (|:| |pts|
+                                                        (|List|
+                                                         (QREFELT $ 6)))))
+                                             (|:| |arrws|
+                                                  (|Record|
+                                                   (|:| |ln|
+                                                        (|List|
+                                                         (|List|
+                                                          (QREFELT $ 6))))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|))))
+                                             (|:| |arrw|
+                                                  (|Record|
+                                                   (|:| |st| (|String|))
+                                                   (|:| |en| (|String|))
+                                                   (|:| |offset| (QREFELT $ 6))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|))))
+                                             (|:| |shpe|
+                                                  (|Record|
+                                                   (|:| |shptype| (|Symbol|))
+                                                   (|:| |centre| (QREFELT $ 6))
+                                                   (|:| |size| (QREFELT $ 6))
+                                                   (|:| |fill| (|Boolean|))))
+                                             (|:| |nodename|
+                                                  (|Record|
+                                                   (|:| |nme| (|String|))
+                                                   (|:| |node| $)))
+                                             (|:| |np|
+                                                  (|SceneNamedPoints|
+                                                   (QREFELT $ 6)))
+                                             (|:| |empty| #24#))
+                                            #5#))
                           4)
                          . #23#)
                    (COND
@@ -2674,13 +5132,75 @@
                       (QVELT
                        (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                            (QCDR #5#)
-                         (|check_union| (QEQCAR #5# 7)
-                                        (|Record| (|:| |st| (|String|))
-                                                  (|:| |en| (|String|))
-                                                  (|:| |offset| (QREFELT $ 6))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                        #5#))
+                         (|check_union2| (QEQCAR #5# 7)
+                                         (|Record| (|:| |st| (|String|))
+                                                   (|:| |en| (|String|))
+                                                   (|:| |offset| (QREFELT $ 6))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #5#))
                        3)
                       '|proportional|)
                      (LETT |linWidth|
@@ -2693,15 +5213,90 @@
                             (QVELT
                              (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                                  (QCDR #5#)
-                               (|check_union| (QEQCAR #5# 7)
-                                              (|Record| (|:| |st| (|String|))
-                                                        (|:| |en| (|String|))
-                                                        (|:| |offset|
-                                                             (QREFELT $ 6))
-                                                        (|:| |mode| (|Symbol|))
-                                                        (|:| |size|
-                                                             (|DoubleFloat|)))
-                                              #5#))
+                               (|check_union2| (QEQCAR #5# 7)
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|)))
+                                               (|Union|
+                                                (|:| |points|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |material|
+                                                     (|Record|
+                                                      (|:| |lineWidth|
+                                                           (|DoubleFloat|))
+                                                      (|:| |lineCol|
+                                                           (|String|))
+                                                      (|:| |fillCol|
+                                                           (|String|))
+                                                      (|:| |matOpacity|
+                                                           (|DoubleFloat|))))
+                                                (|:| |text|
+                                                     (|Record|
+                                                      (|:| |txt| (|String|))
+                                                      (|:| |siz|
+                                                           (|NonNegativeInteger|))
+                                                      (|:| |pos| (QREFELT $ 6))
+                                                      (|:| |np|
+                                                           (|List|
+                                                            (|String|)))))
+                                                (|:| |boundbox|
+                                                     (|SBoundary|
+                                                      (QREFELT $ 6)))
+                                                (|:| |trans|
+                                                     (|STransform|
+                                                      (QREFELT $ 6)))
+                                                (|:| |ifs|
+                                                     (|Record|
+                                                      (|:| |inx|
+                                                           (|List|
+                                                            (|List|
+                                                             (|NonNegativeInteger|))))
+                                                      (|:| |pts|
+                                                           (|List|
+                                                            (QREFELT $ 6)))))
+                                                (|:| |arrws|
+                                                     (|Record|
+                                                      (|:| |ln|
+                                                           (|List|
+                                                            (|List|
+                                                             (QREFELT $ 6))))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |arrw|
+                                                     (|Record|
+                                                      (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |shpe|
+                                                     (|Record|
+                                                      (|:| |shptype|
+                                                           (|Symbol|))
+                                                      (|:| |centre|
+                                                           (QREFELT $ 6))
+                                                      (|:| |size|
+                                                           (QREFELT $ 6))
+                                                      (|:| |fill|
+                                                           (|Boolean|))))
+                                                (|:| |nodename|
+                                                     (|Record|
+                                                      (|:| |nme| (|String|))
+                                                      (|:| |node| $)))
+                                                (|:| |np|
+                                                     (|SceneNamedPoints|
+                                                      (QREFELT $ 6)))
+                                                (|:| |empty| #24#))
+                                               #5#))
                              4))
                            . #23#)))
                    (COND
@@ -2709,13 +5304,75 @@
                       (QVELT
                        (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                            (QCDR #5#)
-                         (|check_union| (QEQCAR #5# 7)
-                                        (|Record| (|:| |st| (|String|))
-                                                  (|:| |en| (|String|))
-                                                  (|:| |offset| (QREFELT $ 6))
-                                                  (|:| |mode| (|Symbol|))
-                                                  (|:| |size| (|DoubleFloat|)))
-                                        #5#))
+                         (|check_union2| (QEQCAR #5# 7)
+                                         (|Record| (|:| |st| (|String|))
+                                                   (|:| |en| (|String|))
+                                                   (|:| |offset| (QREFELT $ 6))
+                                                   (|:| |mode| (|Symbol|))
+                                                   (|:| |size|
+                                                        (|DoubleFloat|)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #24#))
+                                         #5#))
                        3)
                       '|variable|)
                      (LETT |linWidth|
@@ -2724,15 +5381,90 @@
                             (QVELT
                              (PROG2 (LETT #5# (QVELT |n| 2) . #23#)
                                  (QCDR #5#)
-                               (|check_union| (QEQCAR #5# 7)
-                                              (|Record| (|:| |st| (|String|))
-                                                        (|:| |en| (|String|))
-                                                        (|:| |offset|
-                                                             (QREFELT $ 6))
-                                                        (|:| |mode| (|Symbol|))
-                                                        (|:| |size|
-                                                             (|DoubleFloat|)))
-                                              #5#))
+                               (|check_union2| (QEQCAR #5# 7)
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|)))
+                                               (|Union|
+                                                (|:| |points|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |material|
+                                                     (|Record|
+                                                      (|:| |lineWidth|
+                                                           (|DoubleFloat|))
+                                                      (|:| |lineCol|
+                                                           (|String|))
+                                                      (|:| |fillCol|
+                                                           (|String|))
+                                                      (|:| |matOpacity|
+                                                           (|DoubleFloat|))))
+                                                (|:| |text|
+                                                     (|Record|
+                                                      (|:| |txt| (|String|))
+                                                      (|:| |siz|
+                                                           (|NonNegativeInteger|))
+                                                      (|:| |pos| (QREFELT $ 6))
+                                                      (|:| |np|
+                                                           (|List|
+                                                            (|String|)))))
+                                                (|:| |boundbox|
+                                                     (|SBoundary|
+                                                      (QREFELT $ 6)))
+                                                (|:| |trans|
+                                                     (|STransform|
+                                                      (QREFELT $ 6)))
+                                                (|:| |ifs|
+                                                     (|Record|
+                                                      (|:| |inx|
+                                                           (|List|
+                                                            (|List|
+                                                             (|NonNegativeInteger|))))
+                                                      (|:| |pts|
+                                                           (|List|
+                                                            (QREFELT $ 6)))))
+                                                (|:| |arrws|
+                                                     (|Record|
+                                                      (|:| |ln|
+                                                           (|List|
+                                                            (|List|
+                                                             (QREFELT $ 6))))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |arrw|
+                                                     (|Record|
+                                                      (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |shpe|
+                                                     (|Record|
+                                                      (|:| |shptype|
+                                                           (|Symbol|))
+                                                      (|:| |centre|
+                                                           (QREFELT $ 6))
+                                                      (|:| |size|
+                                                           (QREFELT $ 6))
+                                                      (|:| |fill|
+                                                           (|Boolean|))))
+                                                (|:| |nodename|
+                                                     (|Record|
+                                                      (|:| |nme| (|String|))
+                                                      (|:| |node| $)))
+                                                (|:| |np|
+                                                     (|SceneNamedPoints|
+                                                      (QREFELT $ 6)))
+                                                (|:| |empty| #24#))
+                                               #5#))
                              4))
                            . #23#)))
                    (LETT |nodeAtts|
@@ -2760,10 +5492,84 @@
                    (SPADCALL |np2| "points"
                              (PROG2 (LETT #4# (QVELT |n| 2) . #23#)
                                  (QCDR #4#)
-                               (|check_union| (QEQCAR #4# 10)
-                                              (|SceneNamedPoints|
-                                               (QREFELT $ 6))
-                                              #4#))
+                               (|check_union2| (QEQCAR #4# 10)
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6))
+                                               (|Union|
+                                                (|:| |points|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |material|
+                                                     (|Record|
+                                                      (|:| |lineWidth|
+                                                           (|DoubleFloat|))
+                                                      (|:| |lineCol|
+                                                           (|String|))
+                                                      (|:| |fillCol|
+                                                           (|String|))
+                                                      (|:| |matOpacity|
+                                                           (|DoubleFloat|))))
+                                                (|:| |text|
+                                                     (|Record|
+                                                      (|:| |txt| (|String|))
+                                                      (|:| |siz|
+                                                           (|NonNegativeInteger|))
+                                                      (|:| |pos| (QREFELT $ 6))
+                                                      (|:| |np|
+                                                           (|List|
+                                                            (|String|)))))
+                                                (|:| |boundbox|
+                                                     (|SBoundary|
+                                                      (QREFELT $ 6)))
+                                                (|:| |trans|
+                                                     (|STransform|
+                                                      (QREFELT $ 6)))
+                                                (|:| |ifs|
+                                                     (|Record|
+                                                      (|:| |inx|
+                                                           (|List|
+                                                            (|List|
+                                                             (|NonNegativeInteger|))))
+                                                      (|:| |pts|
+                                                           (|List|
+                                                            (QREFELT $ 6)))))
+                                                (|:| |arrws|
+                                                     (|Record|
+                                                      (|:| |ln|
+                                                           (|List|
+                                                            (|List|
+                                                             (QREFELT $ 6))))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |arrw|
+                                                     (|Record|
+                                                      (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                                (|:| |shpe|
+                                                     (|Record|
+                                                      (|:| |shptype|
+                                                           (|Symbol|))
+                                                      (|:| |centre|
+                                                           (QREFELT $ 6))
+                                                      (|:| |size|
+                                                           (QREFELT $ 6))
+                                                      (|:| |fill|
+                                                           (|Boolean|))))
+                                                (|:| |nodename|
+                                                     (|Record|
+                                                      (|:| |nme| (|String|))
+                                                      (|:| |node| $)))
+                                                (|:| |np|
+                                                     (|SceneNamedPoints|
+                                                      (QREFELT $ 6)))
+                                                (|:| |empty| #24#))
+                                               #4#))
                              (QREFELT $ 172))
                    (EXIT (LETT |nodeName| "g" . #23#)))))
                 (COND
@@ -2775,10 +5581,74 @@
                    (LETT |nn|
                          (PROG2 (LETT #3# (QVELT |n| 2) . #23#)
                              (QCDR #3#)
-                           (|check_union| (QEQCAR #3# 9)
-                                          (|Record| (|:| |nme| (|String|))
-                                                    (|:| |node| $))
-                                          #3#))
+                           (|check_union2| (QEQCAR #3# 9)
+                                           (|Record| (|:| |nme| (|String|))
+                                                     (|:| |node| $))
+                                           (|Union|
+                                            (|:| |points|
+                                                 (|List|
+                                                  (|List| (QREFELT $ 6))))
+                                            (|:| |material|
+                                                 (|Record|
+                                                  (|:| |lineWidth|
+                                                       (|DoubleFloat|))
+                                                  (|:| |lineCol| (|String|))
+                                                  (|:| |fillCol| (|String|))
+                                                  (|:| |matOpacity|
+                                                       (|DoubleFloat|))))
+                                            (|:| |text|
+                                                 (|Record|
+                                                  (|:| |txt| (|String|))
+                                                  (|:| |siz|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |pos| (QREFELT $ 6))
+                                                  (|:| |np|
+                                                       (|List| (|String|)))))
+                                            (|:| |boundbox|
+                                                 (|SBoundary| (QREFELT $ 6)))
+                                            (|:| |trans|
+                                                 (|STransform| (QREFELT $ 6)))
+                                            (|:| |ifs|
+                                                 (|Record|
+                                                  (|:| |inx|
+                                                       (|List|
+                                                        (|List|
+                                                         (|NonNegativeInteger|))))
+                                                  (|:| |pts|
+                                                       (|List|
+                                                        (QREFELT $ 6)))))
+                                            (|:| |arrws|
+                                                 (|Record|
+                                                  (|:| |ln|
+                                                       (|List|
+                                                        (|List|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |arrw|
+                                                 (|Record|
+                                                  (|:| |st| (|String|))
+                                                  (|:| |en| (|String|))
+                                                  (|:| |offset| (QREFELT $ 6))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |shpe|
+                                                 (|Record|
+                                                  (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|))))
+                                            (|:| |nodename|
+                                                 (|Record|
+                                                  (|:| |nme| (|String|))
+                                                  (|:| |node| $)))
+                                            (|:| |np|
+                                                 (|SceneNamedPoints|
+                                                  (QREFELT $ 6)))
+                                            (|:| |empty| #24#))
+                                           #3#))
                          . #23#)
                    (LETT |name| (QCAR |nn|) . #23#)
                    (LETT |nde| (QCDR |nn|) . #23#) (LETT |nodeName| "g" . #23#)
@@ -2803,10 +5673,74 @@
                    (LETT |nn|
                          (PROG2 (LETT #3# (QVELT |n| 2) . #23#)
                              (QCDR #3#)
-                           (|check_union| (QEQCAR #3# 9)
-                                          (|Record| (|:| |nme| (|String|))
-                                                    (|:| |node| $))
-                                          #3#))
+                           (|check_union2| (QEQCAR #3# 9)
+                                           (|Record| (|:| |nme| (|String|))
+                                                     (|:| |node| $))
+                                           (|Union|
+                                            (|:| |points|
+                                                 (|List|
+                                                  (|List| (QREFELT $ 6))))
+                                            (|:| |material|
+                                                 (|Record|
+                                                  (|:| |lineWidth|
+                                                       (|DoubleFloat|))
+                                                  (|:| |lineCol| (|String|))
+                                                  (|:| |fillCol| (|String|))
+                                                  (|:| |matOpacity|
+                                                       (|DoubleFloat|))))
+                                            (|:| |text|
+                                                 (|Record|
+                                                  (|:| |txt| (|String|))
+                                                  (|:| |siz|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |pos| (QREFELT $ 6))
+                                                  (|:| |np|
+                                                       (|List| (|String|)))))
+                                            (|:| |boundbox|
+                                                 (|SBoundary| (QREFELT $ 6)))
+                                            (|:| |trans|
+                                                 (|STransform| (QREFELT $ 6)))
+                                            (|:| |ifs|
+                                                 (|Record|
+                                                  (|:| |inx|
+                                                       (|List|
+                                                        (|List|
+                                                         (|NonNegativeInteger|))))
+                                                  (|:| |pts|
+                                                       (|List|
+                                                        (QREFELT $ 6)))))
+                                            (|:| |arrws|
+                                                 (|Record|
+                                                  (|:| |ln|
+                                                       (|List|
+                                                        (|List|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |arrw|
+                                                 (|Record|
+                                                  (|:| |st| (|String|))
+                                                  (|:| |en| (|String|))
+                                                  (|:| |offset| (QREFELT $ 6))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |shpe|
+                                                 (|Record|
+                                                  (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|))))
+                                            (|:| |nodename|
+                                                 (|Record|
+                                                  (|:| |nme| (|String|))
+                                                  (|:| |node| $)))
+                                            (|:| |np|
+                                                 (|SceneNamedPoints|
+                                                  (QREFELT $ 6)))
+                                            (|:| |empty| #24#))
+                                           #3#))
                          . #23#)
                    (LETT |name| (QCAR |nn|) . #23#)
                    (LETT |nde| (SPADCALL |np2| |name| (QREFELT $ 176)) . #23#)
@@ -2826,7 +5760,7 @@
                  (COND
                   ((< (SPADCALL (QVELT |n| 1) (QREFELT $ 177)) 1)
                    (SPADCALL |nodeName| |nodeEles| |nodeAtts| (QREFELT $ 161)))
-                  (#24#
+                  (#25#
                    (SEQ
                     (SEQ (LETT |ch| NIL . #23#) (LETT #1# (QVELT |n| 1) . #23#)
                          G190
@@ -2850,7 +5784,7 @@
                     (EXIT
                      (SPADCALL |nodeName| |nodeEles| |nodeAtts|
                                (QREFELT $ 161)))))))))
-          #25# (EXIT #9#)))) 
+          #26# (EXIT #9#)))) 
 
 (SDEFUN |SCENE;toSVG;$RStRDf2BSnpXe;83|
         ((|n| $)
@@ -2935,8 +5869,68 @@
                (LETT |bb2|
                      (PROG2 (LETT #19# (QVELT |n| 2) . #20#)
                          (QCDR #19#)
-                       (|check_union| (QEQCAR #19# 3)
-                                      (|SBoundary| (QREFELT $ 6)) #19#))
+                       (|check_union2| (QEQCAR #19# 3)
+                                       (|SBoundary| (QREFELT $ 6))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #21="empty"))
+                                       #19#))
                      . #20#)
                (COND
                 ((NULL (SPADCALL |bb2| (QREFELT $ 164)))
@@ -2964,8 +5958,68 @@
                (LETT |pts|
                      (PROG2 (LETT #17# (QVELT |n| 2) . #20#)
                          (QCDR #17#)
-                       (|check_union| (QEQCAR #17# 0)
-                                      (|List| (|List| (QREFELT $ 6))) #17#))
+                       (|check_union2| (QEQCAR #17# 0)
+                                       (|List| (|List| (QREFELT $ 6)))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #21#))
+                                       #17#))
                      . #20#)
                (EXIT
                 (SEQ (LETT |lp| NIL . #20#) (LETT #16# |pts| . #20#) G190
@@ -2999,24 +6053,144 @@
                      (QVELT
                       (PROG2 (LETT #14# (QVELT |n| 2) . #20#)
                           (QCDR #14#)
-                        (|check_union| (QEQCAR #14# 8)
-                                       (|Record| (|:| |shptype| (|Symbol|))
-                                                 (|:| |centre| (QREFELT $ 6))
-                                                 (|:| |size| (QREFELT $ 6))
-                                                 (|:| |fill| (|Boolean|)))
-                                       #14#))
+                        (|check_union2| (QEQCAR #14# 8)
+                                        (|Record| (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|)))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #21#))
+                                        #14#))
                       1)
                      . #20#)
                (LETT |pt2|
                      (QVELT
                       (PROG2 (LETT #14# (QVELT |n| 2) . #20#)
                           (QCDR #14#)
-                        (|check_union| (QEQCAR #14# 8)
-                                       (|Record| (|:| |shptype| (|Symbol|))
-                                                 (|:| |centre| (QREFELT $ 6))
-                                                 (|:| |size| (QREFELT $ 6))
-                                                 (|:| |fill| (|Boolean|)))
-                                       #14#))
+                        (|check_union2| (QEQCAR #14# 8)
+                                        (|Record| (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|)))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #21#))
+                                        #14#))
                       2)
                      . #20#)
                (COND
@@ -3024,12 +6198,69 @@
                   (QVELT
                    (PROG2 (LETT #14# (QVELT |n| 2) . #20#)
                        (QCDR #14#)
-                     (|check_union| (QEQCAR #14# 8)
-                                    (|Record| (|:| |shptype| (|Symbol|))
-                                              (|:| |centre| (QREFELT $ 6))
-                                              (|:| |size| (QREFELT $ 6))
-                                              (|:| |fill| (|Boolean|)))
-                                    #14#))
+                     (|check_union2| (QEQCAR #14# 8)
+                                     (|Record| (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|)))
+                                     (|Union|
+                                      (|:| |points|
+                                           (|List| (|List| (QREFELT $ 6))))
+                                      (|:| |material|
+                                           (|Record|
+                                            (|:| |lineWidth| (|DoubleFloat|))
+                                            (|:| |lineCol| (|String|))
+                                            (|:| |fillCol| (|String|))
+                                            (|:| |matOpacity|
+                                                 (|DoubleFloat|))))
+                                      (|:| |text|
+                                           (|Record| (|:| |txt| (|String|))
+                                                     (|:| |siz|
+                                                          (|NonNegativeInteger|))
+                                                     (|:| |pos| (QREFELT $ 6))
+                                                     (|:| |np|
+                                                          (|List|
+                                                           (|String|)))))
+                                      (|:| |boundbox|
+                                           (|SBoundary| (QREFELT $ 6)))
+                                      (|:| |trans|
+                                           (|STransform| (QREFELT $ 6)))
+                                      (|:| |ifs|
+                                           (|Record|
+                                            (|:| |inx|
+                                                 (|List|
+                                                  (|List|
+                                                   (|NonNegativeInteger|))))
+                                            (|:| |pts|
+                                                 (|List| (QREFELT $ 6)))))
+                                      (|:| |arrws|
+                                           (|Record|
+                                            (|:| |ln|
+                                                 (|List|
+                                                  (|List| (QREFELT $ 6))))
+                                            (|:| |mode| (|Symbol|))
+                                            (|:| |size| (|DoubleFloat|))))
+                                      (|:| |arrw|
+                                           (|Record| (|:| |st| (|String|))
+                                                     (|:| |en| (|String|))
+                                                     (|:| |offset|
+                                                          (QREFELT $ 6))
+                                                     (|:| |mode| (|Symbol|))
+                                                     (|:| |size|
+                                                          (|DoubleFloat|))))
+                                      (|:| |shpe|
+                                           (|Record| (|:| |shptype| (|Symbol|))
+                                                     (|:| |centre|
+                                                          (QREFELT $ 6))
+                                                     (|:| |size| (QREFELT $ 6))
+                                                     (|:| |fill| (|Boolean|))))
+                                      (|:| |nodename|
+                                           (|Record| (|:| |nme| (|String|))
+                                                     (|:| |node| $)))
+                                      (|:| |np|
+                                           (|SceneNamedPoints| (QREFELT $ 6)))
+                                      (|:| |empty| #21#))
+                                     #14#))
                    0)
                   '|ellipse|)
                  (PROGN
@@ -3037,7 +6268,7 @@
                         (SPADCALL (SPADCALL |tran| |pt1| (QREFELT $ 149)) |pt2|
                                   (QREFELT $ 186))
                         . #20#)
-                  (GO #21=#:G1141))))
+                  (GO #22=#:G1141))))
                (LETT |res|
                      (SPADCALL |res| (SPADCALL |tran| |pt1| (QREFELT $ 149))
                                (QREFELT $ 185))
@@ -3063,15 +6294,97 @@
                                 (QVELT
                                  (PROG2 (LETT #11# (QVELT |n| 2) . #20#)
                                      (QCDR #11#)
-                                   (|check_union| (QEQCAR #11# 2)
-                                                  (|Record|
-                                                   (|:| |txt| (|String|))
-                                                   (|:| |siz|
-                                                        (|NonNegativeInteger|))
-                                                   (|:| |pos| (QREFELT $ 6))
-                                                   (|:| |np|
-                                                        (|List| (|String|))))
-                                                  #11#))
+                                   (|check_union2| (QEQCAR #11# 2)
+                                                   (|Record|
+                                                    (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|))))
+                                                   (|Union|
+                                                    (|:| |points|
+                                                         (|List|
+                                                          (|List|
+                                                           (QREFELT $ 6))))
+                                                    (|:| |material|
+                                                         (|Record|
+                                                          (|:| |lineWidth|
+                                                               (|DoubleFloat|))
+                                                          (|:| |lineCol|
+                                                               (|String|))
+                                                          (|:| |fillCol|
+                                                               (|String|))
+                                                          (|:| |matOpacity|
+                                                               (|DoubleFloat|))))
+                                                    (|:| |text|
+                                                         (|Record|
+                                                          (|:| |txt|
+                                                               (|String|))
+                                                          (|:| |siz|
+                                                               (|NonNegativeInteger|))
+                                                          (|:| |pos|
+                                                               (QREFELT $ 6))
+                                                          (|:| |np|
+                                                               (|List|
+                                                                (|String|)))))
+                                                    (|:| |boundbox|
+                                                         (|SBoundary|
+                                                          (QREFELT $ 6)))
+                                                    (|:| |trans|
+                                                         (|STransform|
+                                                          (QREFELT $ 6)))
+                                                    (|:| |ifs|
+                                                         (|Record|
+                                                          (|:| |inx|
+                                                               (|List|
+                                                                (|List|
+                                                                 (|NonNegativeInteger|))))
+                                                          (|:| |pts|
+                                                               (|List|
+                                                                (QREFELT $
+                                                                         6)))))
+                                                    (|:| |arrws|
+                                                         (|Record|
+                                                          (|:| |ln|
+                                                               (|List|
+                                                                (|List|
+                                                                 (QREFELT $
+                                                                          6))))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                                    (|:| |arrw|
+                                                         (|Record|
+                                                          (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                                    (|:| |shpe|
+                                                         (|Record|
+                                                          (|:| |shptype|
+                                                               (|Symbol|))
+                                                          (|:| |centre|
+                                                               (QREFELT $ 6))
+                                                          (|:| |size|
+                                                               (QREFELT $ 6))
+                                                          (|:| |fill|
+                                                               (|Boolean|))))
+                                                    (|:| |nodename|
+                                                         (|Record|
+                                                          (|:| |nme|
+                                                               (|String|))
+                                                          (|:| |node| $)))
+                                                    (|:| |np|
+                                                         (|SceneNamedPoints|
+                                                          (QREFELT $ 6)))
+                                                    (|:| |empty| #21#))
+                                                   #11#))
                                  1)
                                 MOST-POSITIVE-DOUBLE-FLOAT))
                      . #20#)
@@ -3086,14 +6399,78 @@
                         (QVELT
                          (PROG2 (LETT #11# (QVELT |n| 2) . #20#)
                              (QCDR #11#)
-                           (|check_union| (QEQCAR #11# 2)
-                                          (|Record| (|:| |txt| (|String|))
-                                                    (|:| |siz|
-                                                         (|NonNegativeInteger|))
-                                                    (|:| |pos| (QREFELT $ 6))
-                                                    (|:| |np|
-                                                         (|List| (|String|))))
-                                          #11#))
+                           (|check_union2| (QEQCAR #11# 2)
+                                           (|Record| (|:| |txt| (|String|))
+                                                     (|:| |siz|
+                                                          (|NonNegativeInteger|))
+                                                     (|:| |pos| (QREFELT $ 6))
+                                                     (|:| |np|
+                                                          (|List| (|String|))))
+                                           (|Union|
+                                            (|:| |points|
+                                                 (|List|
+                                                  (|List| (QREFELT $ 6))))
+                                            (|:| |material|
+                                                 (|Record|
+                                                  (|:| |lineWidth|
+                                                       (|DoubleFloat|))
+                                                  (|:| |lineCol| (|String|))
+                                                  (|:| |fillCol| (|String|))
+                                                  (|:| |matOpacity|
+                                                       (|DoubleFloat|))))
+                                            (|:| |text|
+                                                 (|Record|
+                                                  (|:| |txt| (|String|))
+                                                  (|:| |siz|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |pos| (QREFELT $ 6))
+                                                  (|:| |np|
+                                                       (|List| (|String|)))))
+                                            (|:| |boundbox|
+                                                 (|SBoundary| (QREFELT $ 6)))
+                                            (|:| |trans|
+                                                 (|STransform| (QREFELT $ 6)))
+                                            (|:| |ifs|
+                                                 (|Record|
+                                                  (|:| |inx|
+                                                       (|List|
+                                                        (|List|
+                                                         (|NonNegativeInteger|))))
+                                                  (|:| |pts|
+                                                       (|List|
+                                                        (QREFELT $ 6)))))
+                                            (|:| |arrws|
+                                                 (|Record|
+                                                  (|:| |ln|
+                                                       (|List|
+                                                        (|List|
+                                                         (QREFELT $ 6))))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |arrw|
+                                                 (|Record|
+                                                  (|:| |st| (|String|))
+                                                  (|:| |en| (|String|))
+                                                  (|:| |offset| (QREFELT $ 6))
+                                                  (|:| |mode| (|Symbol|))
+                                                  (|:| |size|
+                                                       (|DoubleFloat|))))
+                                            (|:| |shpe|
+                                                 (|Record|
+                                                  (|:| |shptype| (|Symbol|))
+                                                  (|:| |centre| (QREFELT $ 6))
+                                                  (|:| |size| (QREFELT $ 6))
+                                                  (|:| |fill| (|Boolean|))))
+                                            (|:| |nodename|
+                                                 (|Record|
+                                                  (|:| |nme| (|String|))
+                                                  (|:| |node| $)))
+                                            (|:| |np|
+                                                 (|SceneNamedPoints|
+                                                  (QREFELT $ 6)))
+                                            (|:| |empty| #21#))
+                                           #11#))
                          0))
                        MOST-POSITIVE-DOUBLE-FLOAT))
                      . #20#)
@@ -3101,14 +6478,74 @@
                      (QVELT
                       (PROG2 (LETT #11# (QVELT |n| 2) . #20#)
                           (QCDR #11#)
-                        (|check_union| (QEQCAR #11# 2)
-                                       (|Record| (|:| |txt| (|String|))
-                                                 (|:| |siz|
-                                                      (|NonNegativeInteger|))
-                                                 (|:| |pos| (QREFELT $ 6))
-                                                 (|:| |np|
-                                                      (|List| (|String|))))
-                                       #11#))
+                        (|check_union2| (QEQCAR #11# 2)
+                                        (|Record| (|:| |txt| (|String|))
+                                                  (|:| |siz|
+                                                       (|NonNegativeInteger|))
+                                                  (|:| |pos| (QREFELT $ 6))
+                                                  (|:| |np|
+                                                       (|List| (|String|))))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #21#))
+                                        #11#))
                       2)
                      . #20#)
                (LETT |res|
@@ -3130,8 +6567,68 @@
                     (SPADCALL
                      (PROG2 (LETT #10# (QVELT |n| 2) . #20#)
                          (QCDR #10#)
-                       (|check_union| (QEQCAR #10# 4)
-                                      (|STransform| (QREFELT $ 6)) #10#))
+                       (|check_union2| (QEQCAR #10# 4)
+                                       (|STransform| (QREFELT $ 6))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #21#))
+                                       #10#))
                      |tran| (QREFELT $ 171))
                     . #20#)))
             (COND
@@ -3144,13 +6641,74 @@
                      (QCDR
                       (PROG2 (LETT #9# (QVELT |n| 2) . #20#)
                           (QCDR #9#)
-                        (|check_union| (QEQCAR #9# 5)
-                                       (|Record|
-                                        (|:| |inx|
-                                             (|List|
-                                              (|List| (|NonNegativeInteger|))))
-                                        (|:| |pts| (|List| (QREFELT $ 6))))
-                                       #9#)))
+                        (|check_union2| (QEQCAR #9# 5)
+                                        (|Record|
+                                         (|:| |inx|
+                                              (|List|
+                                               (|List|
+                                                (|NonNegativeInteger|))))
+                                         (|:| |pts| (|List| (QREFELT $ 6))))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #21#))
+                                        #9#)))
                      . #20#)
                (EXIT
                 (SEQ (LETT |p| NIL . #20#) (LETT #8# |pts2| . #20#) G190
@@ -3172,13 +6730,73 @@
                      (QVELT
                       (PROG2 (LETT #7# (QVELT |n| 2) . #20#)
                           (QCDR #7#)
-                        (|check_union| (QEQCAR #7# 6)
-                                       (|Record|
-                                        (|:| |ln|
-                                             (|List| (|List| (QREFELT $ 6))))
-                                        (|:| |mode| (|Symbol|))
-                                        (|:| |size| (|DoubleFloat|)))
-                                       #7#))
+                        (|check_union2| (QEQCAR #7# 6)
+                                        (|Record|
+                                         (|:| |ln|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |mode| (|Symbol|))
+                                         (|:| |size| (|DoubleFloat|)))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #21#))
+                                        #7#))
                       0)
                      . #20#)
                (EXIT
@@ -3230,7 +6848,7 @@
                          . #20#)))
                  (LETT #4# (CDR #4#) . #20#) (GO G190) G191 (EXIT NIL))
             (EXIT |res|)))
-          #21# (EXIT #13#)))) 
+          #22# (EXIT #13#)))) 
 
 (SDEFUN |SCENE;boundary;$DfSb;87|
         ((|n| $) (|fontScale| |DoubleFloat|) ($ |SBoundary| PT))
@@ -3375,8 +6993,68 @@
                (LETT |bb2|
                      (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                          (QCDR #8#)
-                       (|check_union| (QEQCAR #8# 3)
-                                      (|SBoundary| (QREFELT $ 6)) #8#))
+                       (|check_union2| (QEQCAR #8# 3)
+                                       (|SBoundary| (QREFELT $ 6))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #13="empty"))
+                                       #8#))
                      . #12#)
                (COND
                 ((SPADCALL |bb2| (QREFELT $ 164))
@@ -3411,19 +7089,76 @@
                        (SPADCALL |nodeName| (LIST |inner|) |nodeAtts|
                                  (QREFELT $ 161))
                        . #12#)
-                 (GO #13=#:G1221))))))
+                 (GO #14=#:G1221))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'MATERIAL)
               (LETT |mat2|
                     (PROG2 (LETT #10# (QVELT |n| 2) . #12#)
                         (QCDR #10#)
-                      (|check_union| (QEQCAR #10# 1)
-                                     (|Record|
-                                      (|:| |lineWidth| (|DoubleFloat|))
-                                      (|:| |lineCol| (|String|))
-                                      (|:| |fillCol| (|String|))
-                                      (|:| |matOpacity| (|DoubleFloat|)))
-                                     #10#))
+                      (|check_union2| (QEQCAR #10# 1)
+                                      (|Record|
+                                       (|:| |lineWidth| (|DoubleFloat|))
+                                       (|:| |lineCol| (|String|))
+                                       (|:| |fillCol| (|String|))
+                                       (|:| |matOpacity| (|DoubleFloat|)))
+                                      (|Union|
+                                       (|:| |points|
+                                            (|List| (|List| (QREFELT $ 6))))
+                                       (|:| |material|
+                                            (|Record|
+                                             (|:| |lineWidth| (|DoubleFloat|))
+                                             (|:| |lineCol| (|String|))
+                                             (|:| |fillCol| (|String|))
+                                             (|:| |matOpacity|
+                                                  (|DoubleFloat|))))
+                                       (|:| |text|
+                                            (|Record| (|:| |txt| (|String|))
+                                                      (|:| |siz|
+                                                           (|NonNegativeInteger|))
+                                                      (|:| |pos| (QREFELT $ 6))
+                                                      (|:| |np|
+                                                           (|List|
+                                                            (|String|)))))
+                                       (|:| |boundbox|
+                                            (|SBoundary| (QREFELT $ 6)))
+                                       (|:| |trans|
+                                            (|STransform| (QREFELT $ 6)))
+                                       (|:| |ifs|
+                                            (|Record|
+                                             (|:| |inx|
+                                                  (|List|
+                                                   (|List|
+                                                    (|NonNegativeInteger|))))
+                                             (|:| |pts|
+                                                  (|List| (QREFELT $ 6)))))
+                                       (|:| |arrws|
+                                            (|Record|
+                                             (|:| |ln|
+                                                  (|List|
+                                                   (|List| (QREFELT $ 6))))
+                                             (|:| |mode| (|Symbol|))
+                                             (|:| |size| (|DoubleFloat|))))
+                                       (|:| |arrw|
+                                            (|Record| (|:| |st| (|String|))
+                                                      (|:| |en| (|String|))
+                                                      (|:| |offset|
+                                                           (QREFELT $ 6))
+                                                      (|:| |mode| (|Symbol|))
+                                                      (|:| |size|
+                                                           (|DoubleFloat|))))
+                                       (|:| |shpe|
+                                            (|Record|
+                                             (|:| |shptype| (|Symbol|))
+                                             (|:| |centre| (QREFELT $ 6))
+                                             (|:| |size| (QREFELT $ 6))
+                                             (|:| |fill| (|Boolean|))))
+                                       (|:| |nodename|
+                                            (|Record| (|:| |nme| (|String|))
+                                                      (|:| |node| $)))
+                                       (|:| |np|
+                                            (|SceneNamedPoints| (QREFELT $ 6)))
+                                       (|:| |empty| #13#))
+                                      #10#))
                     . #12#)))
             (COND
              ((EQUAL (QVELT |n| 0) 'TRANSFORM)
@@ -3436,8 +7171,70 @@
                       (SPADCALL
                        (PROG2 (LETT #9# (QVELT |n| 2) . #12#)
                            (QCDR #9#)
-                         (|check_union| (QEQCAR #9# 4)
-                                        (|STransform| (QREFELT $ 6)) #9#))
+                         (|check_union2| (QEQCAR #9# 4)
+                                         (|STransform| (QREFELT $ 6))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #13#))
+                                         #9#))
                        |tran| (QREFELT $ 171))
                       . #12#)))))
             (COND
@@ -3450,8 +7247,69 @@
                 (LETT |bb2|
                       (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                           (QCDR #8#)
-                        (|check_union| (QEQCAR #8# 3)
-                                       (|SBoundary| (QREFELT $ 6)) #8#))
+                        (|check_union2| (QEQCAR #8# 3)
+                                        (|SBoundary| (QREFELT $ 6))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #13#))
+                                        #8#))
                       . #12#)))))
             (COND
              ((EQUAL (QVELT |n| 0) 'TEXT)
@@ -3466,15 +7324,99 @@
                                  (QVELT
                                   (PROG2 (LETT #7# (QVELT |n| 2) . #12#)
                                       (QCDR #7#)
-                                    (|check_union| (QEQCAR #7# 2)
-                                                   (|Record|
-                                                    (|:| |txt| (|String|))
-                                                    (|:| |siz|
-                                                         (|NonNegativeInteger|))
-                                                    (|:| |pos| (QREFELT $ 6))
-                                                    (|:| |np|
-                                                         (|List| (|String|))))
-                                                   #7#))
+                                    (|check_union2| (QEQCAR #7# 2)
+                                                    (|Record|
+                                                     (|:| |txt| (|String|))
+                                                     (|:| |siz|
+                                                          (|NonNegativeInteger|))
+                                                     (|:| |pos| (QREFELT $ 6))
+                                                     (|:| |np|
+                                                          (|List| (|String|))))
+                                                    (|Union|
+                                                     (|:| |points|
+                                                          (|List|
+                                                           (|List|
+                                                            (QREFELT $ 6))))
+                                                     (|:| |material|
+                                                          (|Record|
+                                                           (|:| |lineWidth|
+                                                                (|DoubleFloat|))
+                                                           (|:| |lineCol|
+                                                                (|String|))
+                                                           (|:| |fillCol|
+                                                                (|String|))
+                                                           (|:| |matOpacity|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |text|
+                                                          (|Record|
+                                                           (|:| |txt|
+                                                                (|String|))
+                                                           (|:| |siz|
+                                                                (|NonNegativeInteger|))
+                                                           (|:| |pos|
+                                                                (QREFELT $ 6))
+                                                           (|:| |np|
+                                                                (|List|
+                                                                 (|String|)))))
+                                                     (|:| |boundbox|
+                                                          (|SBoundary|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |trans|
+                                                          (|STransform|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |ifs|
+                                                          (|Record|
+                                                           (|:| |inx|
+                                                                (|List|
+                                                                 (|List|
+                                                                  (|NonNegativeInteger|))))
+                                                           (|:| |pts|
+                                                                (|List|
+                                                                 (QREFELT $
+                                                                          6)))))
+                                                     (|:| |arrws|
+                                                          (|Record|
+                                                           (|:| |ln|
+                                                                (|List|
+                                                                 (|List|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                           (|:| |mode|
+                                                                (|Symbol|))
+                                                           (|:| |size|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |arrw|
+                                                          (|Record|
+                                                           (|:| |st|
+                                                                (|String|))
+                                                           (|:| |en|
+                                                                (|String|))
+                                                           (|:| |offset|
+                                                                (QREFELT $ 6))
+                                                           (|:| |mode|
+                                                                (|Symbol|))
+                                                           (|:| |size|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |shpe|
+                                                          (|Record|
+                                                           (|:| |shptype|
+                                                                (|Symbol|))
+                                                           (|:| |centre|
+                                                                (QREFELT $ 6))
+                                                           (|:| |size|
+                                                                (QREFELT $ 6))
+                                                           (|:| |fill|
+                                                                (|Boolean|))))
+                                                     (|:| |nodename|
+                                                          (|Record|
+                                                           (|:| |nme|
+                                                                (|String|))
+                                                           (|:| |node| $)))
+                                                     (|:| |np|
+                                                          (|SceneNamedPoints|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |empty| #13#))
+                                                    #7#))
                                   0)
                                  (QREFELT $ 158)))
                       . #12#)))))
@@ -3489,8 +7431,70 @@
                       (|SPADfirst|
                        (PROG2 (LETT #6# (QVELT |n| 2) . #12#)
                            (QCDR #6#)
-                         (|check_union| (QEQCAR #6# 0)
-                                        (|List| (|List| (QREFELT $ 6))) #6#)))
+                         (|check_union2| (QEQCAR #6# 0)
+                                         (|List| (|List| (QREFELT $ 6)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #13#))
+                                         #6#)))
                       (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 90))
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
@@ -3523,7 +7527,7 @@
                  (LETT #2#
                        (SPADCALL "Shape" (LIST |ifset|) NIL (QREFELT $ 161))
                        . #12#)
-                 (GO #13#))))))
+                 (GO #14#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'SHAPE)
               (COND
@@ -3541,13 +7545,76 @@
                        (QVELT
                         (PROG2 (LETT #5# (QVELT |n| 2) . #12#)
                             (QCDR #5#)
-                          (|check_union| (QEQCAR #5# 6)
-                                         (|Record|
-                                          (|:| |ln|
-                                               (|List| (|List| (QREFELT $ 6))))
-                                          (|:| |mode| (|Symbol|))
-                                          (|:| |size| (|DoubleFloat|)))
-                                         #5#))
+                          (|check_union2| (QEQCAR #5# 6)
+                                          (|Record|
+                                           (|:| |ln|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |mode| (|Symbol|))
+                                           (|:| |size| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #5#))
                         0))
                       (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 90))
                                 (QREFELT $ 91))
@@ -3581,7 +7648,7 @@
                  (LETT #2#
                        (SPADCALL "Shape" (LIST |ifset|) NIL (QREFELT $ 161))
                        . #12#)
-                 (GO #13#))))))
+                 (GO #14#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'IFS)
               (SEQ
@@ -3595,16 +7662,100 @@
                                  (QCAR
                                   (PROG2 (LETT #4# (QVELT |n| 2) . #12#)
                                       (QCDR #4#)
-                                    (|check_union| (QEQCAR #4# 5)
-                                                   (|Record|
-                                                    (|:| |inx|
-                                                         (|List|
+                                    (|check_union2| (QEQCAR #4# 5)
+                                                    (|Record|
+                                                     (|:| |inx|
                                                           (|List|
-                                                           (|NonNegativeInteger|))))
-                                                    (|:| |pts|
-                                                         (|List|
-                                                          (QREFELT $ 6))))
-                                                   #4#)))
+                                                           (|List|
+                                                            (|NonNegativeInteger|))))
+                                                     (|:| |pts|
+                                                          (|List|
+                                                           (QREFELT $ 6))))
+                                                    (|Union|
+                                                     (|:| |points|
+                                                          (|List|
+                                                           (|List|
+                                                            (QREFELT $ 6))))
+                                                     (|:| |material|
+                                                          (|Record|
+                                                           (|:| |lineWidth|
+                                                                (|DoubleFloat|))
+                                                           (|:| |lineCol|
+                                                                (|String|))
+                                                           (|:| |fillCol|
+                                                                (|String|))
+                                                           (|:| |matOpacity|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |text|
+                                                          (|Record|
+                                                           (|:| |txt|
+                                                                (|String|))
+                                                           (|:| |siz|
+                                                                (|NonNegativeInteger|))
+                                                           (|:| |pos|
+                                                                (QREFELT $ 6))
+                                                           (|:| |np|
+                                                                (|List|
+                                                                 (|String|)))))
+                                                     (|:| |boundbox|
+                                                          (|SBoundary|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |trans|
+                                                          (|STransform|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |ifs|
+                                                          (|Record|
+                                                           (|:| |inx|
+                                                                (|List|
+                                                                 (|List|
+                                                                  (|NonNegativeInteger|))))
+                                                           (|:| |pts|
+                                                                (|List|
+                                                                 (QREFELT $
+                                                                          6)))))
+                                                     (|:| |arrws|
+                                                          (|Record|
+                                                           (|:| |ln|
+                                                                (|List|
+                                                                 (|List|
+                                                                  (QREFELT $
+                                                                           6))))
+                                                           (|:| |mode|
+                                                                (|Symbol|))
+                                                           (|:| |size|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |arrw|
+                                                          (|Record|
+                                                           (|:| |st|
+                                                                (|String|))
+                                                           (|:| |en|
+                                                                (|String|))
+                                                           (|:| |offset|
+                                                                (QREFELT $ 6))
+                                                           (|:| |mode|
+                                                                (|Symbol|))
+                                                           (|:| |size|
+                                                                (|DoubleFloat|))))
+                                                     (|:| |shpe|
+                                                          (|Record|
+                                                           (|:| |shptype|
+                                                                (|Symbol|))
+                                                           (|:| |centre|
+                                                                (QREFELT $ 6))
+                                                           (|:| |size|
+                                                                (QREFELT $ 6))
+                                                           (|:| |fill|
+                                                                (|Boolean|))))
+                                                     (|:| |nodename|
+                                                          (|Record|
+                                                           (|:| |nme|
+                                                                (|String|))
+                                                           (|:| |node| $)))
+                                                     (|:| |np|
+                                                          (|SceneNamedPoints|
+                                                           (QREFELT $ 6)))
+                                                     (|:| |empty| #13#))
+                                                    #4#)))
                                  |tran| |bb| $)
                                 (QREFELT $ 193)))
                      . #12#)
@@ -3617,17 +7768,128 @@
                                             (PROG2
                                                 (LETT #4# (QVELT |n| 2) . #12#)
                                                 (QCDR #4#)
-                                              (|check_union| (QEQCAR #4# 5)
-                                                             (|Record|
-                                                              (|:| |inx|
-                                                                   (|List|
+                                              (|check_union2| (QEQCAR #4# 5)
+                                                              (|Record|
+                                                               (|:| |inx|
                                                                     (|List|
-                                                                     (|NonNegativeInteger|))))
-                                                              (|:| |pts|
-                                                                   (|List|
-                                                                    (QREFELT $
+                                                                     (|List|
+                                                                      (|NonNegativeInteger|))))
+                                                               (|:| |pts|
+                                                                    (|List|
+                                                                     (QREFELT $
+                                                                              6))))
+                                                              (|Union|
+                                                               (|:| |points|
+                                                                    (|List|
+                                                                     (|List|
+                                                                      (QREFELT
+                                                                       $ 6))))
+                                                               (|:| |material|
+                                                                    (|Record|
+                                                                     (|:|
+                                                                      |lineWidth|
+                                                                      (|DoubleFloat|))
+                                                                     (|:|
+                                                                      |lineCol|
+                                                                      (|String|))
+                                                                     (|:|
+                                                                      |fillCol|
+                                                                      (|String|))
+                                                                     (|:|
+                                                                      |matOpacity|
+                                                                      (|DoubleFloat|))))
+                                                               (|:| |text|
+                                                                    (|Record|
+                                                                     (|:| |txt|
+                                                                          (|String|))
+                                                                     (|:| |siz|
+                                                                          (|NonNegativeInteger|))
+                                                                     (|:| |pos|
+                                                                          (QREFELT
+                                                                           $
+                                                                           6))
+                                                                     (|:| |np|
+                                                                          (|List|
+                                                                           (|String|)))))
+                                                               (|:| |boundbox|
+                                                                    (|SBoundary|
+                                                                     (QREFELT $
+                                                                              6)))
+                                                               (|:| |trans|
+                                                                    (|STransform|
+                                                                     (QREFELT $
+                                                                              6)))
+                                                               (|:| |ifs|
+                                                                    (|Record|
+                                                                     (|:| |inx|
+                                                                          (|List|
+                                                                           (|List|
+                                                                            (|NonNegativeInteger|))))
+                                                                     (|:| |pts|
+                                                                          (|List|
+                                                                           (QREFELT
+                                                                            $
+                                                                            6)))))
+                                                               (|:| |arrws|
+                                                                    (|Record|
+                                                                     (|:| |ln|
+                                                                          (|List|
+                                                                           (|List|
+                                                                            (QREFELT
+                                                                             $
                                                                              6))))
-                                                             #4#)))
+                                                                     (|:|
+                                                                      |mode|
+                                                                      (|Symbol|))
+                                                                     (|:|
+                                                                      |size|
+                                                                      (|DoubleFloat|))))
+                                                               (|:| |arrw|
+                                                                    (|Record|
+                                                                     (|:| |st|
+                                                                          (|String|))
+                                                                     (|:| |en|
+                                                                          (|String|))
+                                                                     (|:|
+                                                                      |offset|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                     (|:|
+                                                                      |mode|
+                                                                      (|Symbol|))
+                                                                     (|:|
+                                                                      |size|
+                                                                      (|DoubleFloat|))))
+                                                               (|:| |shpe|
+                                                                    (|Record|
+                                                                     (|:|
+                                                                      |shptype|
+                                                                      (|Symbol|))
+                                                                     (|:|
+                                                                      |centre|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                     (|:|
+                                                                      |size|
+                                                                      (QREFELT
+                                                                       $ 6))
+                                                                     (|:|
+                                                                      |fill|
+                                                                      (|Boolean|))))
+                                                               (|:| |nodename|
+                                                                    (|Record|
+                                                                     (|:| |nme|
+                                                                          (|String|))
+                                                                     (|:|
+                                                                      |node|
+                                                                      $)))
+                                                               (|:| |np|
+                                                                    (|SceneNamedPoints|
+                                                                     (QREFELT $
+                                                                              6)))
+                                                               (|:| |empty|
+                                                                    #13#))
+                                                              #4#)))
                                            |tran2| |bb2| $)
                                           (QREFELT $ 193)))
                                (QREFELT $ 161))
@@ -3641,7 +7903,7 @@
                  (LETT #2#
                        (SPADCALL "Shape" (LIST |ifset|) NIL (QREFELT $ 161))
                        . #12#)
-                 (GO #13#))))))
+                 (GO #14#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'DEF)
               (COND
@@ -3679,7 +7941,7 @@
                     (EXIT
                      (SPADCALL |nodeName| |nodeEles| |nodeAtts|
                                (QREFELT $ 161)))))))))
-          #13# (EXIT #2#)))) 
+          #14# (EXIT #2#)))) 
 
 (SDEFUN |SCENE;toX3D;$RStRXe;92|
         ((|n| $)
@@ -3748,8 +8010,68 @@
                (LETT |bb2|
                      (PROG2 (LETT #17# (QVELT |n| 2) . #21#)
                          (QCDR #17#)
-                       (|check_union| (QEQCAR #17# 3)
-                                      (|SBoundary| (QREFELT $ 6)) #17#))
+                       (|check_union2| (QEQCAR #17# 3)
+                                       (|SBoundary| (QREFELT $ 6))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #22="empty"))
+                                       #17#))
                      . #21#)
                (COND
                 ((SPADCALL |bb2| (QREFELT $ 164))
@@ -3817,7 +8139,7 @@
                       (SPADCALL |ch| |ptLst| |indexLst| |indexNxt| |tran2|
                                 |bb2| (QREFELT $ 199))))
                     (LETT #19# (CDR #19#) . #21#) (GO G190) G191 (EXIT NIL))
-               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #22=#:G1290))))))
+               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #23=#:G1290))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'TRANSFORM)
               (SEQ
@@ -3829,8 +8151,70 @@
                       (SPADCALL
                        (PROG2 (LETT #18# (QVELT |n| 2) . #21#)
                            (QCDR #18#)
-                         (|check_union| (QEQCAR #18# 4)
-                                        (|STransform| (QREFELT $ 6)) #18#))
+                         (|check_union2| (QEQCAR #18# 4)
+                                         (|STransform| (QREFELT $ 6))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #22#))
+                                         #18#))
                        |tran| (QREFELT $ 171))
                       . #21#)))))
             (COND
@@ -3842,10 +8226,70 @@
                (LETT |bb2|
                      (PROG2 (LETT #17# (QVELT |n| 2) . #21#)
                          (QCDR #17#)
-                       (|check_union| (QEQCAR #17# 3)
-                                      (|SBoundary| (QREFELT $ 6)) #17#))
+                       (|check_union2| (QEQCAR #17# 3)
+                                       (|SBoundary| (QREFELT $ 6))
+                                       (|Union|
+                                        (|:| |points|
+                                             (|List| (|List| (QREFELT $ 6))))
+                                        (|:| |material|
+                                             (|Record|
+                                              (|:| |lineWidth| (|DoubleFloat|))
+                                              (|:| |lineCol| (|String|))
+                                              (|:| |fillCol| (|String|))
+                                              (|:| |matOpacity|
+                                                   (|DoubleFloat|))))
+                                        (|:| |text|
+                                             (|Record| (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                        (|:| |boundbox|
+                                             (|SBoundary| (QREFELT $ 6)))
+                                        (|:| |trans|
+                                             (|STransform| (QREFELT $ 6)))
+                                        (|:| |ifs|
+                                             (|Record|
+                                              (|:| |inx|
+                                                   (|List|
+                                                    (|List|
+                                                     (|NonNegativeInteger|))))
+                                              (|:| |pts|
+                                                   (|List| (QREFELT $ 6)))))
+                                        (|:| |arrws|
+                                             (|Record|
+                                              (|:| |ln|
+                                                   (|List|
+                                                    (|List| (QREFELT $ 6))))
+                                              (|:| |mode| (|Symbol|))
+                                              (|:| |size| (|DoubleFloat|))))
+                                        (|:| |arrw|
+                                             (|Record| (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                        (|:| |shpe|
+                                             (|Record|
+                                              (|:| |shptype| (|Symbol|))
+                                              (|:| |centre| (QREFELT $ 6))
+                                              (|:| |size| (QREFELT $ 6))
+                                              (|:| |fill| (|Boolean|))))
+                                        (|:| |nodename|
+                                             (|Record| (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                        (|:| |np|
+                                             (|SceneNamedPoints|
+                                              (QREFELT $ 6)))
+                                        (|:| |empty| #22#))
+                                       #17#))
                      . #21#)
-               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #22#))))))
+               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #23#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'LINE)
               (SEQ
@@ -3857,8 +8301,70 @@
                       (|SPADfirst|
                        (PROG2 (LETT #12# (QVELT |n| 2) . #21#)
                            (QCDR #12#)
-                         (|check_union| (QEQCAR #12# 0)
-                                        (|List| (|List| (QREFELT $ 6))) #12#)))
+                         (|check_union2| (QEQCAR #12# 0)
+                                         (|List| (|List| (QREFELT $ 6)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #22#))
+                                         #12#)))
                       (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 90))
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
@@ -3918,7 +8424,7 @@
                          (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                             (LENGTH |p1|))
                          (QREFELT $ 207))
-               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #22#))))))
+               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #23#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'SHAPE)
               (COND
@@ -3935,8 +8441,70 @@
                       (|SPADfirst|
                        (PROG2 (LETT #12# (QVELT |n| 2) . #21#)
                            (QCDR #12#)
-                         (|check_union| (QEQCAR #12# 0)
-                                        (|List| (|List| (QREFELT $ 6))) #12#)))
+                         (|check_union2| (QEQCAR #12# 0)
+                                         (|List| (|List| (QREFELT $ 6)))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #22#))
+                                         #12#)))
                       (SPADCALL (SPADCALL 25 -2 10 (QREFELT $ 90))
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
@@ -3995,7 +8563,7 @@
                          (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                             (LENGTH |p1|))
                          (QREFELT $ 207))
-               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #22#))))))
+               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #23#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'IFS)
               (SEQ
@@ -4006,25 +8574,147 @@
                      (QCAR
                       (PROG2 (LETT #7# (QVELT |n| 2) . #21#)
                           (QCDR #7#)
-                        (|check_union| (QEQCAR #7# 5)
-                                       (|Record|
-                                        (|:| |inx|
-                                             (|List|
-                                              (|List| (|NonNegativeInteger|))))
-                                        (|:| |pts| (|List| (QREFELT $ 6))))
-                                       #7#)))
+                        (|check_union2| (QEQCAR #7# 5)
+                                        (|Record|
+                                         (|:| |inx|
+                                              (|List|
+                                               (|List|
+                                                (|NonNegativeInteger|))))
+                                         (|:| |pts| (|List| (QREFELT $ 6))))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #22#))
+                                        #7#)))
                      . #21#)
                (LETT |p1|
                      (QCDR
                       (PROG2 (LETT #7# (QVELT |n| 2) . #21#)
                           (QCDR #7#)
-                        (|check_union| (QEQCAR #7# 5)
-                                       (|Record|
-                                        (|:| |inx|
-                                             (|List|
-                                              (|List| (|NonNegativeInteger|))))
-                                        (|:| |pts| (|List| (QREFELT $ 6))))
-                                       #7#)))
+                        (|check_union2| (QEQCAR #7# 5)
+                                        (|Record|
+                                         (|:| |inx|
+                                              (|List|
+                                               (|List|
+                                                (|NonNegativeInteger|))))
+                                         (|:| |pts| (|List| (QREFELT $ 6))))
+                                        (|Union|
+                                         (|:| |points|
+                                              (|List| (|List| (QREFELT $ 6))))
+                                         (|:| |material|
+                                              (|Record|
+                                               (|:| |lineWidth|
+                                                    (|DoubleFloat|))
+                                               (|:| |lineCol| (|String|))
+                                               (|:| |fillCol| (|String|))
+                                               (|:| |matOpacity|
+                                                    (|DoubleFloat|))))
+                                         (|:| |text|
+                                              (|Record| (|:| |txt| (|String|))
+                                                        (|:| |siz|
+                                                             (|NonNegativeInteger|))
+                                                        (|:| |pos|
+                                                             (QREFELT $ 6))
+                                                        (|:| |np|
+                                                             (|List|
+                                                              (|String|)))))
+                                         (|:| |boundbox|
+                                              (|SBoundary| (QREFELT $ 6)))
+                                         (|:| |trans|
+                                              (|STransform| (QREFELT $ 6)))
+                                         (|:| |ifs|
+                                              (|Record|
+                                               (|:| |inx|
+                                                    (|List|
+                                                     (|List|
+                                                      (|NonNegativeInteger|))))
+                                               (|:| |pts|
+                                                    (|List| (QREFELT $ 6)))))
+                                         (|:| |arrws|
+                                              (|Record|
+                                               (|:| |ln|
+                                                    (|List|
+                                                     (|List| (QREFELT $ 6))))
+                                               (|:| |mode| (|Symbol|))
+                                               (|:| |size| (|DoubleFloat|))))
+                                         (|:| |arrw|
+                                              (|Record| (|:| |st| (|String|))
+                                                        (|:| |en| (|String|))
+                                                        (|:| |offset|
+                                                             (QREFELT $ 6))
+                                                        (|:| |mode| (|Symbol|))
+                                                        (|:| |size|
+                                                             (|DoubleFloat|))))
+                                         (|:| |shpe|
+                                              (|Record|
+                                               (|:| |shptype| (|Symbol|))
+                                               (|:| |centre| (QREFELT $ 6))
+                                               (|:| |size| (QREFELT $ 6))
+                                               (|:| |fill| (|Boolean|))))
+                                         (|:| |nodename|
+                                              (|Record| (|:| |nme| (|String|))
+                                                        (|:| |node| $)))
+                                         (|:| |np|
+                                              (|SceneNamedPoints|
+                                               (QREFELT $ 6)))
+                                         (|:| |empty| #22#))
+                                        #7#)))
                      . #21#)
                (LETT |i2|
                      (PROGN
@@ -4077,7 +8767,7 @@
                          (+ (SPADCALL |indexNxt| (QREFELT $ 200))
                             (LENGTH |p1|))
                          (QREFELT $ 207))
-               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #22#))))))
+               (EXIT (PROGN (LETT #2# (|Void|) . #21#) (GO #23#))))))
             (COND
              ((EQUAL (QVELT |n| 0) 'DEF)
               (COND
@@ -4105,7 +8795,7 @@
                           (LETT #1# (CDR #1#) . #21#) (GO G190) G191
                           (EXIT NIL))
                      (EXIT (|Void|))))))))
-          #22# (EXIT #2#)))) 
+          #23# (EXIT #2#)))) 
 
 (SDEFUN |SCENE;toObj;$RRRStRV;95|
         ((|n| $) (|ptLst| |Reference| (|List| PT))
@@ -4812,9 +9502,84 @@
                              (SPADCALL
                               (PROG2 (LETT #6# (QVELT |n| 2) . #12#)
                                   (QCDR #6#)
-                                (|check_union| (QEQCAR #6# 3)
-                                               (|SBoundary| (QREFELT $ 6))
-                                               #6#))
+                                (|check_union2| (QEQCAR #6# 3)
+                                                (|SBoundary| (QREFELT $ 6))
+                                                (|Union|
+                                                 (|:| |points|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |material|
+                                                      (|Record|
+                                                       (|:| |lineWidth|
+                                                            (|DoubleFloat|))
+                                                       (|:| |lineCol|
+                                                            (|String|))
+                                                       (|:| |fillCol|
+                                                            (|String|))
+                                                       (|:| |matOpacity|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |text|
+                                                      (|Record|
+                                                       (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |boundbox|
+                                                      (|SBoundary|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |trans|
+                                                      (|STransform|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |ifs|
+                                                      (|Record|
+                                                       (|:| |inx|
+                                                            (|List|
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                       (|:| |pts|
+                                                            (|List|
+                                                             (QREFELT $ 6)))))
+                                                 (|:| |arrws|
+                                                      (|Record|
+                                                       (|:| |ln|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |arrw|
+                                                      (|Record|
+                                                       (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |shpe|
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|))))
+                                                 (|:| |nodename|
+                                                      (|Record|
+                                                       (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                                 (|:| |np|
+                                                      (|SceneNamedPoints|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |empty| #13="empty"))
+                                                #6#))
                               (QREFELT $ 272)))
                        (QREFELT $ 273))
                       . #12#)))
@@ -4829,9 +9594,84 @@
                              (|SCENE;outputLLPoints|
                               (PROG2 (LETT #11# (QVELT |n| 2) . #12#)
                                   (QCDR #11#)
-                                (|check_union| (QEQCAR #11# 0)
-                                               (|List| (|List| (QREFELT $ 6)))
-                                               #11#))
+                                (|check_union2| (QEQCAR #11# 0)
+                                                (|List| (|List| (QREFELT $ 6)))
+                                                (|Union|
+                                                 (|:| |points|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |material|
+                                                      (|Record|
+                                                       (|:| |lineWidth|
+                                                            (|DoubleFloat|))
+                                                       (|:| |lineCol|
+                                                            (|String|))
+                                                       (|:| |fillCol|
+                                                            (|String|))
+                                                       (|:| |matOpacity|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |text|
+                                                      (|Record|
+                                                       (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |boundbox|
+                                                      (|SBoundary|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |trans|
+                                                      (|STransform|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |ifs|
+                                                      (|Record|
+                                                       (|:| |inx|
+                                                            (|List|
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                       (|:| |pts|
+                                                            (|List|
+                                                             (QREFELT $ 6)))))
+                                                 (|:| |arrws|
+                                                      (|Record|
+                                                       (|:| |ln|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |arrw|
+                                                      (|Record|
+                                                       (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |shpe|
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|))))
+                                                 (|:| |nodename|
+                                                      (|Record|
+                                                       (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                                 (|:| |np|
+                                                      (|SceneNamedPoints|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |empty| #13#))
+                                                #11#))
                               $))
                        (QREFELT $ 273))
                       . #12#)))
@@ -4842,36 +9682,225 @@
                        (QVELT
                         (PROG2 (LETT #10# (QVELT |n| 2) . #12#)
                             (QCDR #10#)
-                          (|check_union| (QEQCAR #10# 8)
-                                         (|Record| (|:| |shptype| (|Symbol|))
-                                                   (|:| |centre| (QREFELT $ 6))
-                                                   (|:| |size| (QREFELT $ 6))
-                                                   (|:| |fill| (|Boolean|)))
-                                         #10#))
+                          (|check_union2| (QEQCAR #10# 8)
+                                          (|Record| (|:| |shptype| (|Symbol|))
+                                                    (|:| |centre|
+                                                         (QREFELT $ 6))
+                                                    (|:| |size| (QREFELT $ 6))
+                                                    (|:| |fill| (|Boolean|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #10#))
                         0)
                        . #12#)
                  (LETT |pt1|
                        (QVELT
                         (PROG2 (LETT #10# (QVELT |n| 2) . #12#)
                             (QCDR #10#)
-                          (|check_union| (QEQCAR #10# 8)
-                                         (|Record| (|:| |shptype| (|Symbol|))
-                                                   (|:| |centre| (QREFELT $ 6))
-                                                   (|:| |size| (QREFELT $ 6))
-                                                   (|:| |fill| (|Boolean|)))
-                                         #10#))
+                          (|check_union2| (QEQCAR #10# 8)
+                                          (|Record| (|:| |shptype| (|Symbol|))
+                                                    (|:| |centre|
+                                                         (QREFELT $ 6))
+                                                    (|:| |size| (QREFELT $ 6))
+                                                    (|:| |fill| (|Boolean|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #10#))
                         1)
                        . #12#)
                  (LETT |pt2|
                        (QVELT
                         (PROG2 (LETT #10# (QVELT |n| 2) . #12#)
                             (QCDR #10#)
-                          (|check_union| (QEQCAR #10# 8)
-                                         (|Record| (|:| |shptype| (|Symbol|))
-                                                   (|:| |centre| (QREFELT $ 6))
-                                                   (|:| |size| (QREFELT $ 6))
-                                                   (|:| |fill| (|Boolean|)))
-                                         #10#))
+                          (|check_union2| (QEQCAR #10# 8)
+                                          (|Record| (|:| |shptype| (|Symbol|))
+                                                    (|:| |centre|
+                                                         (QREFELT $ 6))
+                                                    (|:| |size| (QREFELT $ 6))
+                                                    (|:| |fill| (|Boolean|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #10#))
                         2)
                        . #12#)
                  (EXIT
@@ -4890,52 +9919,300 @@
                        (QVELT
                         (PROG2 (LETT #9# (QVELT |n| 2) . #12#)
                             (QCDR #9#)
-                          (|check_union| (QEQCAR #9# 1)
-                                         (|Record|
-                                          (|:| |lineWidth| (|DoubleFloat|))
-                                          (|:| |lineCol| (|String|))
-                                          (|:| |fillCol| (|String|))
-                                          (|:| |matOpacity| (|DoubleFloat|)))
-                                         #9#))
+                          (|check_union2| (QEQCAR #9# 1)
+                                          (|Record|
+                                           (|:| |lineWidth| (|DoubleFloat|))
+                                           (|:| |lineCol| (|String|))
+                                           (|:| |fillCol| (|String|))
+                                           (|:| |matOpacity| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #9#))
                         0)
                        . #12#)
                  (LETT |lc|
                        (QVELT
                         (PROG2 (LETT #9# (QVELT |n| 2) . #12#)
                             (QCDR #9#)
-                          (|check_union| (QEQCAR #9# 1)
-                                         (|Record|
-                                          (|:| |lineWidth| (|DoubleFloat|))
-                                          (|:| |lineCol| (|String|))
-                                          (|:| |fillCol| (|String|))
-                                          (|:| |matOpacity| (|DoubleFloat|)))
-                                         #9#))
+                          (|check_union2| (QEQCAR #9# 1)
+                                          (|Record|
+                                           (|:| |lineWidth| (|DoubleFloat|))
+                                           (|:| |lineCol| (|String|))
+                                           (|:| |fillCol| (|String|))
+                                           (|:| |matOpacity| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #9#))
                         1)
                        . #12#)
                  (LETT |fc|
                        (QVELT
                         (PROG2 (LETT #9# (QVELT |n| 2) . #12#)
                             (QCDR #9#)
-                          (|check_union| (QEQCAR #9# 1)
-                                         (|Record|
-                                          (|:| |lineWidth| (|DoubleFloat|))
-                                          (|:| |lineCol| (|String|))
-                                          (|:| |fillCol| (|String|))
-                                          (|:| |matOpacity| (|DoubleFloat|)))
-                                         #9#))
+                          (|check_union2| (QEQCAR #9# 1)
+                                          (|Record|
+                                           (|:| |lineWidth| (|DoubleFloat|))
+                                           (|:| |lineCol| (|String|))
+                                           (|:| |fillCol| (|String|))
+                                           (|:| |matOpacity| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #9#))
                         2)
                        . #12#)
                  (LETT |mo|
                        (QVELT
                         (PROG2 (LETT #9# (QVELT |n| 2) . #12#)
                             (QCDR #9#)
-                          (|check_union| (QEQCAR #9# 1)
-                                         (|Record|
-                                          (|:| |lineWidth| (|DoubleFloat|))
-                                          (|:| |lineCol| (|String|))
-                                          (|:| |fillCol| (|String|))
-                                          (|:| |matOpacity| (|DoubleFloat|)))
-                                         #9#))
+                          (|check_union2| (QEQCAR #9# 1)
+                                          (|Record|
+                                           (|:| |lineWidth| (|DoubleFloat|))
+                                           (|:| |lineCol| (|String|))
+                                           (|:| |fillCol| (|String|))
+                                           (|:| |matOpacity| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #9#))
                         3)
                        . #12#)
                  (EXIT
@@ -4955,56 +10232,304 @@
                        (QVELT
                         (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                             (QCDR #8#)
-                          (|check_union| (QEQCAR #8# 2)
-                                         (|Record| (|:| |txt| (|String|))
-                                                   (|:| |siz|
-                                                        (|NonNegativeInteger|))
-                                                   (|:| |pos| (QREFELT $ 6))
-                                                   (|:| |np|
-                                                        (|List| (|String|))))
-                                         #8#))
+                          (|check_union2| (QEQCAR #8# 2)
+                                          (|Record| (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #8#))
                         0)
                        . #12#)
                  (LETT |sz1|
                        (QVELT
                         (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                             (QCDR #8#)
-                          (|check_union| (QEQCAR #8# 2)
-                                         (|Record| (|:| |txt| (|String|))
-                                                   (|:| |siz|
-                                                        (|NonNegativeInteger|))
-                                                   (|:| |pos| (QREFELT $ 6))
-                                                   (|:| |np|
-                                                        (|List| (|String|))))
-                                         #8#))
+                          (|check_union2| (QEQCAR #8# 2)
+                                          (|Record| (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #8#))
                         1)
                        . #12#)
                  (LETT |p|
                        (QVELT
                         (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                             (QCDR #8#)
-                          (|check_union| (QEQCAR #8# 2)
-                                         (|Record| (|:| |txt| (|String|))
-                                                   (|:| |siz|
-                                                        (|NonNegativeInteger|))
-                                                   (|:| |pos| (QREFELT $ 6))
-                                                   (|:| |np|
-                                                        (|List| (|String|))))
-                                         #8#))
+                          (|check_union2| (QEQCAR #8# 2)
+                                          (|Record| (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #8#))
                         2)
                        . #12#)
                  (LETT |npt|
                        (QVELT
                         (PROG2 (LETT #8# (QVELT |n| 2) . #12#)
                             (QCDR #8#)
-                          (|check_union| (QEQCAR #8# 2)
-                                         (|Record| (|:| |txt| (|String|))
-                                                   (|:| |siz|
-                                                        (|NonNegativeInteger|))
-                                                   (|:| |pos| (QREFELT $ 6))
-                                                   (|:| |np|
-                                                        (|List| (|String|))))
-                                         #8#))
+                          (|check_union2| (QEQCAR #8# 2)
+                                          (|Record| (|:| |txt| (|String|))
+                                                    (|:| |siz|
+                                                         (|NonNegativeInteger|))
+                                                    (|:| |pos| (QREFELT $ 6))
+                                                    (|:| |np|
+                                                         (|List| (|String|))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #8#))
                         3)
                        . #12#)
                  (EXIT
@@ -5022,8 +10547,70 @@
                  (LETT |tr|
                        (PROG2 (LETT #7# (QVELT |n| 2) . #12#)
                            (QCDR #7#)
-                         (|check_union| (QEQCAR #7# 4)
-                                        (|STransform| (QREFELT $ 6)) #7#))
+                         (|check_union2| (QEQCAR #7# 4)
+                                         (|STransform| (QREFELT $ 6))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #13#))
+                                         #7#))
                        . #12#)
                  (EXIT
                   (LETT |s|
@@ -5040,9 +10627,84 @@
                              (SPADCALL
                               (PROG2 (LETT #6# (QVELT |n| 2) . #12#)
                                   (QCDR #6#)
-                                (|check_union| (QEQCAR #6# 3)
-                                               (|SBoundary| (QREFELT $ 6))
-                                               #6#))
+                                (|check_union2| (QEQCAR #6# 3)
+                                                (|SBoundary| (QREFELT $ 6))
+                                                (|Union|
+                                                 (|:| |points|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |material|
+                                                      (|Record|
+                                                       (|:| |lineWidth|
+                                                            (|DoubleFloat|))
+                                                       (|:| |lineCol|
+                                                            (|String|))
+                                                       (|:| |fillCol|
+                                                            (|String|))
+                                                       (|:| |matOpacity|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |text|
+                                                      (|Record|
+                                                       (|:| |txt| (|String|))
+                                                       (|:| |siz|
+                                                            (|NonNegativeInteger|))
+                                                       (|:| |pos|
+                                                            (QREFELT $ 6))
+                                                       (|:| |np|
+                                                            (|List|
+                                                             (|String|)))))
+                                                 (|:| |boundbox|
+                                                      (|SBoundary|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |trans|
+                                                      (|STransform|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |ifs|
+                                                      (|Record|
+                                                       (|:| |inx|
+                                                            (|List|
+                                                             (|List|
+                                                              (|NonNegativeInteger|))))
+                                                       (|:| |pts|
+                                                            (|List|
+                                                             (QREFELT $ 6)))))
+                                                 (|:| |arrws|
+                                                      (|Record|
+                                                       (|:| |ln|
+                                                            (|List|
+                                                             (|List|
+                                                              (QREFELT $ 6))))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |arrw|
+                                                      (|Record|
+                                                       (|:| |st| (|String|))
+                                                       (|:| |en| (|String|))
+                                                       (|:| |offset|
+                                                            (QREFELT $ 6))
+                                                       (|:| |mode| (|Symbol|))
+                                                       (|:| |size|
+                                                            (|DoubleFloat|))))
+                                                 (|:| |shpe|
+                                                      (|Record|
+                                                       (|:| |shptype|
+                                                            (|Symbol|))
+                                                       (|:| |centre|
+                                                            (QREFELT $ 6))
+                                                       (|:| |size|
+                                                            (QREFELT $ 6))
+                                                       (|:| |fill|
+                                                            (|Boolean|))))
+                                                 (|:| |nodename|
+                                                      (|Record|
+                                                       (|:| |nme| (|String|))
+                                                       (|:| |node| $)))
+                                                 (|:| |np|
+                                                      (|SceneNamedPoints|
+                                                       (QREFELT $ 6)))
+                                                 (|:| |empty| #13#))
+                                                #6#))
                               (QREFELT $ 272)))
                        (QREFELT $ 273))
                       . #12#)))
@@ -5053,27 +10715,151 @@
                        (QCAR
                         (PROG2 (LETT #5# (QVELT |n| 2) . #12#)
                             (QCDR #5#)
-                          (|check_union| (QEQCAR #5# 5)
-                                         (|Record|
-                                          (|:| |inx|
-                                               (|List|
+                          (|check_union2| (QEQCAR #5# 5)
+                                          (|Record|
+                                           (|:| |inx|
                                                 (|List|
-                                                 (|NonNegativeInteger|))))
-                                          (|:| |pts| (|List| (QREFELT $ 6))))
-                                         #5#)))
+                                                 (|List|
+                                                  (|NonNegativeInteger|))))
+                                           (|:| |pts| (|List| (QREFELT $ 6))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #5#)))
                        . #12#)
                  (LETT |pt|
                        (QCDR
                         (PROG2 (LETT #5# (QVELT |n| 2) . #12#)
                             (QCDR #5#)
-                          (|check_union| (QEQCAR #5# 5)
-                                         (|Record|
-                                          (|:| |inx|
-                                               (|List|
+                          (|check_union2| (QEQCAR #5# 5)
+                                          (|Record|
+                                           (|:| |inx|
                                                 (|List|
-                                                 (|NonNegativeInteger|))))
-                                          (|:| |pts| (|List| (QREFELT $ 6))))
-                                         #5#)))
+                                                 (|List|
+                                                  (|NonNegativeInteger|))))
+                                           (|:| |pts| (|List| (QREFELT $ 6))))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #5#)))
                        . #12#)
                  (EXIT
                   (LETT |s|
@@ -5090,39 +10876,228 @@
                        (QVELT
                         (PROG2 (LETT #4# (QVELT |n| 2) . #12#)
                             (QCDR #4#)
-                          (|check_union| (QEQCAR #4# 6)
-                                         (|Record|
-                                          (|:| |ln|
-                                               (|List| (|List| (QREFELT $ 6))))
-                                          (|:| |mode| (|Symbol|))
-                                          (|:| |size| (|DoubleFloat|)))
-                                         #4#))
+                          (|check_union2| (QEQCAR #4# 6)
+                                          (|Record|
+                                           (|:| |ln|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |mode| (|Symbol|))
+                                           (|:| |size| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #4#))
                         0)
                        . #12#)
                  (LETT |m|
                        (QVELT
                         (PROG2 (LETT #4# (QVELT |n| 2) . #12#)
                             (QCDR #4#)
-                          (|check_union| (QEQCAR #4# 6)
-                                         (|Record|
-                                          (|:| |ln|
-                                               (|List| (|List| (QREFELT $ 6))))
-                                          (|:| |mode| (|Symbol|))
-                                          (|:| |size| (|DoubleFloat|)))
-                                         #4#))
+                          (|check_union2| (QEQCAR #4# 6)
+                                          (|Record|
+                                           (|:| |ln|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |mode| (|Symbol|))
+                                           (|:| |size| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #4#))
                         1)
                        . #12#)
                  (LETT |sz|
                        (QVELT
                         (PROG2 (LETT #4# (QVELT |n| 2) . #12#)
                             (QCDR #4#)
-                          (|check_union| (QEQCAR #4# 6)
-                                         (|Record|
-                                          (|:| |ln|
-                                               (|List| (|List| (QREFELT $ 6))))
-                                          (|:| |mode| (|Symbol|))
-                                          (|:| |size| (|DoubleFloat|)))
-                                         #4#))
+                          (|check_union2| (QEQCAR #4# 6)
+                                          (|Record|
+                                           (|:| |ln|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |mode| (|Symbol|))
+                                           (|:| |size| (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #4#))
                         2)
                        . #12#)
                  (EXIT
@@ -5141,70 +11116,385 @@
                        (QVELT
                         (PROG2 (LETT #3# (QVELT |n| 2) . #12#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 7)
-                                         (|Record| (|:| |st| (|String|))
-                                                   (|:| |en| (|String|))
-                                                   (|:| |offset| (QREFELT $ 6))
-                                                   (|:| |mode| (|Symbol|))
-                                                   (|:| |size|
-                                                        (|DoubleFloat|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 7)
+                                          (|Record| (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #3#))
                         0)
                        . #12#)
                  (LETT |ena|
                        (QVELT
                         (PROG2 (LETT #3# (QVELT |n| 2) . #12#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 7)
-                                         (|Record| (|:| |st| (|String|))
-                                                   (|:| |en| (|String|))
-                                                   (|:| |offset| (QREFELT $ 6))
-                                                   (|:| |mode| (|Symbol|))
-                                                   (|:| |size|
-                                                        (|DoubleFloat|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 7)
+                                          (|Record| (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #3#))
                         1)
                        . #12#)
                  (LETT |ofs|
                        (QVELT
                         (PROG2 (LETT #3# (QVELT |n| 2) . #12#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 7)
-                                         (|Record| (|:| |st| (|String|))
-                                                   (|:| |en| (|String|))
-                                                   (|:| |offset| (QREFELT $ 6))
-                                                   (|:| |mode| (|Symbol|))
-                                                   (|:| |size|
-                                                        (|DoubleFloat|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 7)
+                                          (|Record| (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #3#))
                         2)
                        . #12#)
                  (LETT |md|
                        (QVELT
                         (PROG2 (LETT #3# (QVELT |n| 2) . #12#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 7)
-                                         (|Record| (|:| |st| (|String|))
-                                                   (|:| |en| (|String|))
-                                                   (|:| |offset| (QREFELT $ 6))
-                                                   (|:| |mode| (|Symbol|))
-                                                   (|:| |size|
-                                                        (|DoubleFloat|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 7)
+                                          (|Record| (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #3#))
                         3)
                        . #12#)
                  (LETT |sz|
                        (QVELT
                         (PROG2 (LETT #3# (QVELT |n| 2) . #12#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 7)
-                                         (|Record| (|:| |st| (|String|))
-                                                   (|:| |en| (|String|))
-                                                   (|:| |offset| (QREFELT $ 6))
-                                                   (|:| |mode| (|Symbol|))
-                                                   (|:| |size|
-                                                        (|DoubleFloat|)))
-                                         #3#))
+                          (|check_union2| (QEQCAR #3# 7)
+                                          (|Record| (|:| |st| (|String|))
+                                                    (|:| |en| (|String|))
+                                                    (|:| |offset|
+                                                         (QREFELT $ 6))
+                                                    (|:| |mode| (|Symbol|))
+                                                    (|:| |size|
+                                                         (|DoubleFloat|)))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #3#))
                         4)
                        . #12#)
                  (EXIT
@@ -5225,10 +11515,72 @@
                        (QCAR
                         (PROG2 (LETT #2# (QVELT |n| 2) . #12#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 9)
-                                         (|Record| (|:| |nme| (|String|))
-                                                   (|:| |node| $))
-                                         #2#)))
+                          (|check_union2| (QEQCAR #2# 9)
+                                          (|Record| (|:| |nme| (|String|))
+                                                    (|:| |node| $))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #2#)))
                        . #12#)
                  (EXIT
                   (LETT |s|
@@ -5244,10 +11596,72 @@
                        (QCAR
                         (PROG2 (LETT #2# (QVELT |n| 2) . #12#)
                             (QCDR #2#)
-                          (|check_union| (QEQCAR #2# 9)
-                                         (|Record| (|:| |nme| (|String|))
-                                                   (|:| |node| $))
-                                         #2#)))
+                          (|check_union2| (QEQCAR #2# 9)
+                                          (|Record| (|:| |nme| (|String|))
+                                                    (|:| |node| $))
+                                          (|Union|
+                                           (|:| |points|
+                                                (|List|
+                                                 (|List| (QREFELT $ 6))))
+                                           (|:| |material|
+                                                (|Record|
+                                                 (|:| |lineWidth|
+                                                      (|DoubleFloat|))
+                                                 (|:| |lineCol| (|String|))
+                                                 (|:| |fillCol| (|String|))
+                                                 (|:| |matOpacity|
+                                                      (|DoubleFloat|))))
+                                           (|:| |text|
+                                                (|Record|
+                                                 (|:| |txt| (|String|))
+                                                 (|:| |siz|
+                                                      (|NonNegativeInteger|))
+                                                 (|:| |pos| (QREFELT $ 6))
+                                                 (|:| |np|
+                                                      (|List| (|String|)))))
+                                           (|:| |boundbox|
+                                                (|SBoundary| (QREFELT $ 6)))
+                                           (|:| |trans|
+                                                (|STransform| (QREFELT $ 6)))
+                                           (|:| |ifs|
+                                                (|Record|
+                                                 (|:| |inx|
+                                                      (|List|
+                                                       (|List|
+                                                        (|NonNegativeInteger|))))
+                                                 (|:| |pts|
+                                                      (|List| (QREFELT $ 6)))))
+                                           (|:| |arrws|
+                                                (|Record|
+                                                 (|:| |ln|
+                                                      (|List|
+                                                       (|List| (QREFELT $ 6))))
+                                                 (|:| |mode| (|Symbol|))
+                                                 (|:| |size| (|DoubleFloat|))))
+                                           (|:| |arrw|
+                                                (|Record| (|:| |st| (|String|))
+                                                          (|:| |en| (|String|))
+                                                          (|:| |offset|
+                                                               (QREFELT $ 6))
+                                                          (|:| |mode|
+                                                               (|Symbol|))
+                                                          (|:| |size|
+                                                               (|DoubleFloat|))))
+                                           (|:| |shpe|
+                                                (|Record|
+                                                 (|:| |shptype| (|Symbol|))
+                                                 (|:| |centre| (QREFELT $ 6))
+                                                 (|:| |size| (QREFELT $ 6))
+                                                 (|:| |fill| (|Boolean|))))
+                                           (|:| |nodename|
+                                                (|Record|
+                                                 (|:| |nme| (|String|))
+                                                 (|:| |node| $)))
+                                           (|:| |np|
+                                                (|SceneNamedPoints|
+                                                 (QREFELT $ 6)))
+                                           (|:| |empty| #13#))
+                                          #2#)))
                        . #12#)
                  (EXIT
                   (LETT |s|
@@ -5262,9 +11676,70 @@
                  (LETT |nam|
                        (PROG2 (LETT #1# (QVELT |n| 2) . #12#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 10)
-                                        (|SceneNamedPoints| (QREFELT $ 6))
-                                        #1#))
+                         (|check_union2| (QEQCAR #1# 10)
+                                         (|SceneNamedPoints| (QREFELT $ 6))
+                                         (|Union|
+                                          (|:| |points|
+                                               (|List| (|List| (QREFELT $ 6))))
+                                          (|:| |material|
+                                               (|Record|
+                                                (|:| |lineWidth|
+                                                     (|DoubleFloat|))
+                                                (|:| |lineCol| (|String|))
+                                                (|:| |fillCol| (|String|))
+                                                (|:| |matOpacity|
+                                                     (|DoubleFloat|))))
+                                          (|:| |text|
+                                               (|Record| (|:| |txt| (|String|))
+                                                         (|:| |siz|
+                                                              (|NonNegativeInteger|))
+                                                         (|:| |pos|
+                                                              (QREFELT $ 6))
+                                                         (|:| |np|
+                                                              (|List|
+                                                               (|String|)))))
+                                          (|:| |boundbox|
+                                               (|SBoundary| (QREFELT $ 6)))
+                                          (|:| |trans|
+                                               (|STransform| (QREFELT $ 6)))
+                                          (|:| |ifs|
+                                               (|Record|
+                                                (|:| |inx|
+                                                     (|List|
+                                                      (|List|
+                                                       (|NonNegativeInteger|))))
+                                                (|:| |pts|
+                                                     (|List| (QREFELT $ 6)))))
+                                          (|:| |arrws|
+                                               (|Record|
+                                                (|:| |ln|
+                                                     (|List|
+                                                      (|List| (QREFELT $ 6))))
+                                                (|:| |mode| (|Symbol|))
+                                                (|:| |size| (|DoubleFloat|))))
+                                          (|:| |arrw|
+                                               (|Record| (|:| |st| (|String|))
+                                                         (|:| |en| (|String|))
+                                                         (|:| |offset|
+                                                              (QREFELT $ 6))
+                                                         (|:| |mode|
+                                                              (|Symbol|))
+                                                         (|:| |size|
+                                                              (|DoubleFloat|))))
+                                          (|:| |shpe|
+                                               (|Record|
+                                                (|:| |shptype| (|Symbol|))
+                                                (|:| |centre| (QREFELT $ 6))
+                                                (|:| |size| (QREFELT $ 6))
+                                                (|:| |fill| (|Boolean|))))
+                                          (|:| |nodename|
+                                               (|Record| (|:| |nme| (|String|))
+                                                         (|:| |node| $)))
+                                          (|:| |np|
+                                               (|SceneNamedPoints|
+                                                (QREFELT $ 6)))
+                                          (|:| |empty| #13#))
+                                         #1#))
                        . #12#)
                  (EXIT
                   (LETT |s|

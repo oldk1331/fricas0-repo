@@ -74,7 +74,9 @@
           (LETT |mgf|
                 (PROG2 (LETT #1# (SPADCALL |mgf| (QREFELT $ 38)) . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6)) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Stream| (QREFELT $ 6))
+                                  (|Union| (|Stream| (QREFELT $ 6)) "failed")
+                                  #1#))
                 . #2#)
           (EXIT
            (SPADCALL (SPADCALL (SPADCALL |mgf| (QREFELT $ 39)) (QREFELT $ 16))

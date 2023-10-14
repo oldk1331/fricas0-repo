@@ -3,35 +3,35 @@
         ((|lp| |List| FPP) (|p| FPP) ($ |Union| (|List| FPP) "failed"))
         (SPROG
          ((|answer| (|Union| (|List| FPP) "failed")) (#1=#:G114 NIL)
-          (#2=#:G117 NIL) (|ans| (|Union| (|Vector| (|List| FPP)) "failed"))
-          (|deg| #3=(|NonNegativeInteger|)) (#4=#:G111 NIL) (#5=#:G110 #3#)
-          (#6=#:G112 #3#) (#7=#:G129 NIL) (|u| NIL))
+          (#2=#:G117 NIL) (|ans| (|Union| (|Vector| (|List| FPP)) #3="failed"))
+          (|deg| #4=(|NonNegativeInteger|)) (#5=#:G111 NIL) (#6=#:G110 #4#)
+          (#7=#:G112 #4#) (#8=#:G129 NIL) (|u| NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 9) |lp| (QREFELT $ 18))
             (SEQ
              (LETT |deg|
                    (PROGN
-                    (LETT #4# NIL
-                          . #8=(|FFSLPE;solveLinearPolynomialEquation;LFPPU;1|))
-                    (SEQ (LETT |u| NIL . #8#) (LETT #7# |lp| . #8#) G190
+                    (LETT #5# NIL
+                          . #9=(|FFSLPE;solveLinearPolynomialEquation;LFPPU;1|))
+                    (SEQ (LETT |u| NIL . #9#) (LETT #8# |lp| . #9#) G190
                          (COND
-                          ((OR (ATOM #7#)
-                               (PROGN (LETT |u| (CAR #7#) . #8#) NIL))
+                          ((OR (ATOM #8#)
+                               (PROGN (LETT |u| (CAR #8#) . #9#) NIL))
                            (GO G191)))
                          (SEQ
                           (EXIT
                            (PROGN
-                            (LETT #6# (SPADCALL |u| (QREFELT $ 19)) . #8#)
-                            (COND (#4# (LETT #5# (+ #5# #6#) . #8#))
+                            (LETT #7# (SPADCALL |u| (QREFELT $ 19)) . #9#)
+                            (COND (#5# (LETT #6# (+ #6# #7#) . #9#))
                                   ('T
                                    (PROGN
-                                    (LETT #5# #6# . #8#)
-                                    (LETT #4# 'T . #8#)))))))
-                         (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
-                    (COND (#4# #5#) ('T 0)))
-                   . #8#)
-             (LETT |ans| (CONS 1 "failed") . #8#)
+                                    (LETT #6# #7# . #9#)
+                                    (LETT #5# 'T . #9#)))))))
+                         (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
+                    (COND (#5# #6#) ('T 0)))
+                   . #9#)
+             (LETT |ans| (CONS 1 "failed") . #9#)
              (SETELT $ 14
                      (SPADCALL
                       (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
@@ -41,7 +41,7 @@
                   (SEQ
                    (LETT |ans|
                          (SPADCALL |deg| (QREFELT $ 14) |lp| (QREFELT $ 23))
-                         . #8#)
+                         . #9#)
                    (EXIT
                     (COND
                      ((QEQCAR |ans| 1)
@@ -51,10 +51,12 @@
                                    (LETT #2#
                                          (SPADCALL (QREFELT $ 14)
                                                    (QREFELT $ 25))
-                                         . #8#)
+                                         . #9#)
                                    (QCDR #2#)
-                                 (|check_union| (QEQCAR #2# 0) (QREFELT $ 7)
-                                                #2#)))
+                                 (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                                 (|Union| (QREFELT $ 7)
+                                                          #10="failed")
+                                                 #2#)))
                        (EXIT
                         (SEQ G190
                              (COND
@@ -76,22 +78,27 @@
                                            (LETT #2#
                                                  (SPADCALL (QREFELT $ 14)
                                                            (QREFELT $ 25))
-                                                 . #8#)
+                                                 . #9#)
                                            (QCDR #2#)
-                                         (|check_union| (QEQCAR #2# 0)
-                                                        (QREFELT $ 7) #2#)))))
+                                         (|check_union2| (QEQCAR #2# 0)
+                                                         (QREFELT $ 7)
+                                                         (|Union| (QREFELT $ 7)
+                                                                  #10#)
+                                                         #2#)))))
                              NIL (GO G190) G191 (EXIT NIL))))))))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
               (SETELT $ 15
-                      (PROG2 (LETT #1# |ans| . #8#)
+                      (PROG2 (LETT #1# |ans| . #9#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0)
-                                       (|Vector| (|List| (QREFELT $ 8)))
-                                       #1#)))))))
+                        (|check_union2| (QEQCAR #1# 0)
+                                        (|Vector| (|List| (QREFELT $ 8)))
+                                        (|Union|
+                                         (|Vector| (|List| (QREFELT $ 8))) #3#)
+                                        #1#)))))))
           (LETT |answer|
                 (SPADCALL |p| (QREFELT $ 14) (QREFELT $ 15) (QREFELT $ 32))
-                . #8#)
+                . #9#)
           (EXIT |answer|)))) 
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 

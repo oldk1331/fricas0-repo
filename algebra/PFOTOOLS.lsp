@@ -120,8 +120,9 @@
                                  (PROG1
                                      (LETT #1# (SPADCALL |p| (QREFELT $ 33))
                                            . #2#)
-                                   (|check_subtype| (> #1# 0)
-                                                    '(|PositiveInteger|) #1#))
+                                   (|check_subtype2| (> #1# 0)
+                                                     '(|PositiveInteger|)
+                                                     '(|Integer|) #1#))
                                  . #2#)))
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |p|)))) 
@@ -144,7 +145,8 @@
                                        (QREFELT $ 40))
                              . #2#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                     (|Union| (QREFELT $ 6) "failed") #1#))
                    (QREFELT $ 41))
                   (QREFELT $ 31)))))) 
 

@@ -47,13 +47,15 @@
                            (+ (QUOTIENT2 (- |n| 1) (SPADCALL (QREFELT $ 33)))
                               1)
                            . #3=(|PRODUCT;index;Pi$;10|))
-                   (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+                   (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #2#))
                  (QREFELT $ 36))
                 (SPADCALL
                  (PROG1
                      (LETT #1# (+ (REM (- |n| 1) (SPADCALL (QREFELT $ 33))) 1)
                            . #3#)
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #1#))
                  (QREFELT $ 37))
                 (QREFELT $ 19)))) 
 
@@ -70,7 +72,8 @@
                              (SPADCALL (QREFELT $ 33)))
                           (SPADCALL (QCDR |x|) (QREFELT $ 43)))
                          |PRODUCT;lookup;$Pi;12|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                   #1#)))) 
 
 (SDEFUN |PRODUCT;hashUpdate!;Hs$Hs;13|
         ((|s| |HashState|) (|x| $) ($ |HashState|))

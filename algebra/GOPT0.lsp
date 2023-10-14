@@ -38,7 +38,8 @@
             ((QEQCAR |d| 0)
              (CONS 0
                    (PROG1 (LETT #1# (+ (QCDR |d|) 1) . #2#)
-                     (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))
+                     (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                       '(|NonNegativeInteger|) #1#))))
             ('T (CONS 1 (QCDR |d|)))))))) 
 
 (SDEFUN |GOPT0;maxDegree;LU;5|

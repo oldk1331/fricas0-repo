@@ -14,9 +14,9 @@
                    (LETT #3#
                          (SPADCALL (SPADCALL |v| |i| (QREFELT $ 14))
                                    (PROG1 (LETT #4# (- |i| 1) . #6#)
-                                     (|check_subtype| (>= #4# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #4#))
+                                     (|check_subtype2| (>= #4# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #4#))
                                    (QREFELT $ 18))
                          . #6#)
                    (COND
@@ -56,7 +56,8 @@
             (PROG1
                 (LETT #1# (SPADCALL (- (+ |n| |m|) 1) (- |n| 1) (QREFELT $ 33))
                       . #2#)
-              (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+              (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
+                                #1#))
             (LIST |un|) (LIST |a|) |diff| $))))) 
 
 (SDEFUN |LODOOPS;killer|

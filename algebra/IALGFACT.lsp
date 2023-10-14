@@ -89,8 +89,12 @@
                                                               (QREFELT $ 29))
                                                     . #4#)
                                               (QCDR #1#)
-                                            (|check_union| (QEQCAR #1# 0)
-                                                           (QREFELT $ 9) #1#))
+                                            (|check_union2| (QEQCAR #1# 0)
+                                                            (QREFELT $ 9)
+                                                            (|Union|
+                                                             (QREFELT $ 9)
+                                                             "failed")
+                                                            #1#))
                                           . #4#)
                                     (EXIT
                                      (LETT |listerm|

@@ -36,11 +36,25 @@
                             (QCAR
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 3)
-                                              (|Record| (|:| |c3| $)
-                                                        (|:| |nm|
-                                                             (QREFELT $ 6)))
-                                              #2#))))
+                               (|check_union2| (QEQCAR #2# 3)
+                                               (|Record| (|:| |c3| $)
+                                                         (|:| |nm|
+                                                              (QREFELT $ 6)))
+                                               (|Union|
+                                                (|:| |boundTerm|
+                                                     (|Record|
+                                                      (|:| |varBound|
+                                                           (|NonNegativeInteger|))))
+                                                (|:| |freeTerm| (QREFELT $ 6))
+                                                (|:| |compoundTerm|
+                                                     (|Record| (|:| |c1| $)
+                                                               (|:| |c2| $)))
+                                                (|:| |lambdaTerm|
+                                                     (|Record| (|:| |c3| $)
+                                                               (|:| |nm|
+                                                                    (QREFELT $
+                                                                             6)))))
+                                               #2#))))
                            . #3#)
                      (GO #4#))))
                   (EXIT NIL)))
@@ -95,11 +109,25 @@
                            (QCDR
                             (PROG2 (LETT #2# |n| . #3#)
                                 (QCDR #2#)
-                              (|check_union| (QEQCAR #2# 3)
-                                             (|Record| (|:| |c3| $)
-                                                       (|:| |nm|
-                                                            (QREFELT $ 6)))
-                                             #2#)))
+                              (|check_union2| (QEQCAR #2# 3)
+                                              (|Record| (|:| |c3| $)
+                                                        (|:| |nm|
+                                                             (QREFELT $ 6)))
+                                              (|Union|
+                                               (|:| |boundTerm|
+                                                    (|Record|
+                                                     (|:| |varBound|
+                                                          (|NonNegativeInteger|))))
+                                               (|:| |freeTerm| (QREFELT $ 6))
+                                               (|:| |compoundTerm|
+                                                    (|Record| (|:| |c1| $)
+                                                              (|:| |c2| $)))
+                                               (|:| |lambdaTerm|
+                                                    (|Record| (|:| |c3| $)
+                                                              (|:| |nm|
+                                                                   (QREFELT $
+                                                                            6)))))
+                                              #2#)))
                            . #3#)
                      (GO #4#))))
                   (EXIT (SPADCALL "error" (QREFELT $ 24)))))
@@ -394,8 +422,9 @@
                           (PROG1
                               (LETT #1# (SPADCALL |t1| (QREFELT $ 38))
                                     . #2=(|LAMBDA;parseLambda;S$;20|))
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 34))
                 . #2#)
           (EXIT (QCAR |r|))))) 
@@ -525,20 +554,48 @@
                              (QCAR
                               (PROG2 (LETT #2# |n| . #3#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 3)
-                                               (|Record| (|:| |c3| $)
-                                                         (|:| |nm|
-                                                              (QREFELT $ 6)))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 3)
+                                                (|Record| (|:| |c3| $)
+                                                          (|:| |nm|
+                                                               (QREFELT $ 6)))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              |a| |b| (QREFELT $ 51))
                             (QCDR
                              (PROG2 (LETT #2# |n| . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 3)
-                                              (|Record| (|:| |c3| $)
-                                                        (|:| |nm|
-                                                             (QREFELT $ 6)))
-                                              #2#)))
+                               (|check_union2| (QEQCAR #2# 3)
+                                               (|Record| (|:| |c3| $)
+                                                         (|:| |nm|
+                                                              (QREFELT $ 6)))
+                                               (|Union|
+                                                (|:| |boundTerm|
+                                                     (|Record|
+                                                      (|:| |varBound|
+                                                           (|NonNegativeInteger|))))
+                                                (|:| |freeTerm| (QREFELT $ 6))
+                                                (|:| |compoundTerm|
+                                                     (|Record| (|:| |c1| $)
+                                                               (|:| |c2| $)))
+                                                (|:| |lambdaTerm|
+                                                     (|Record| (|:| |c3| $)
+                                                               (|:| |nm|
+                                                                    (QREFELT $
+                                                                             6)))))
+                                               #2#)))
                             (QREFELT $ 13))
                            . #3#)
                      (GO #4#))))
@@ -563,7 +620,22 @@
                       ((SPADCALL
                         (PROG2 (LETT #3# |n| . #4#)
                             (QCDR #3#)
-                          (|check_union| (QEQCAR #3# 1) (QREFELT $ 6) #3#))
+                          (|check_union2| (QEQCAR #3# 1) (QREFELT $ 6)
+                                          (|Union|
+                                           (|:| |boundTerm|
+                                                (|Record|
+                                                 (|:| |varBound|
+                                                      (|NonNegativeInteger|))))
+                                           (|:| |freeTerm| (QREFELT $ 6))
+                                           (|:| |compoundTerm|
+                                                (|Record| (|:| |c1| $)
+                                                          (|:| |c2| $)))
+                                           (|:| |lambdaTerm|
+                                                (|Record| (|:| |c3| $)
+                                                          (|:| |nm|
+                                                               (QREFELT $
+                                                                        6)))))
+                                          #3#))
                         |s| (QREFELT $ 26))
                        (PROGN
                         (LETT #1# (SPADCALL |i| (QREFELT $ 9)) . #4#)
@@ -574,8 +646,22 @@
                              (SPADCALL
                               (PROG2 (LETT #3# |n| . #4#)
                                   (QCDR #3#)
-                                (|check_union| (QEQCAR #3# 1) (QREFELT $ 6)
-                                               #3#))
+                                (|check_union2| (QEQCAR #3# 1) (QREFELT $ 6)
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #3#))
                               (QREFELT $ 10))
                              . #4#)
                        (GO #5#))))))
@@ -599,19 +685,47 @@
                              (QCAR
                               (PROG2 (LETT #2# |n| . #4#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 2)
-                                               (|Record| (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 2)
+                                                (|Record| (|:| |c1| $)
+                                                          (|:| |c2| $))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              |i| |s| $)
                             (|LAMBDA;bindTerm|
                              (QCDR
                               (PROG2 (LETT #2# |n| . #4#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 2)
-                                               (|Record| (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 2)
+                                                (|Record| (|:| |c1| $)
+                                                          (|:| |c2| $))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              |i| |s| $)
                             (QREFELT $ 11))
                            . #4#)
@@ -672,22 +786,56 @@
                                    (QCAR
                                     (PROG2 (LETT #3# |n| . #4#)
                                         (QCDR #3#)
-                                      (|check_union| (QEQCAR #3# 3)
-                                                     (|Record| (|:| |c3| $)
-                                                               (|:| |nm|
-                                                                    (QREFELT $
-                                                                             6)))
-                                                     #3#)))
+                                      (|check_union2| (QEQCAR #3# 3)
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))
+                                                      (|Union|
+                                                       (|:| |boundTerm|
+                                                            (|Record|
+                                                             (|:| |varBound|
+                                                                  (|NonNegativeInteger|))))
+                                                       (|:| |freeTerm|
+                                                            (QREFELT $ 6))
+                                                       (|:| |compoundTerm|
+                                                            (|Record|
+                                                             (|:| |c1| $)
+                                                             (|:| |c2| $)))
+                                                       (|:| |lambdaTerm|
+                                                            (|Record|
+                                                             (|:| |c3| $)
+                                                             (|:| |nm|
+                                                                  (QREFELT $
+                                                                           6)))))
+                                                      #3#)))
                                    (+ |i| 1) |s| $)
                                   (QCDR
                                    (PROG2 (LETT #3# |n| . #4#)
                                        (QCDR #3#)
-                                     (|check_union| (QEQCAR #3# 3)
-                                                    (|Record| (|:| |c3| $)
-                                                              (|:| |nm|
-                                                                   (QREFELT $
-                                                                            6)))
-                                                    #3#)))))
+                                     (|check_union2| (QEQCAR #3# 3)
+                                                     (|Record| (|:| |c3| $)
+                                                               (|:| |nm|
+                                                                    (QREFELT $
+                                                                             6)))
+                                                     (|Union|
+                                                      (|:| |boundTerm|
+                                                           (|Record|
+                                                            (|:| |varBound|
+                                                                 (|NonNegativeInteger|))))
+                                                      (|:| |freeTerm|
+                                                           (QREFELT $ 6))
+                                                      (|:| |compoundTerm|
+                                                           (|Record|
+                                                            (|:| |c1| $)
+                                                            (|:| |c2| $)))
+                                                      (|:| |lambdaTerm|
+                                                           (|Record|
+                                                            (|:| |c3| $)
+                                                            (|:| |nm|
+                                                                 (QREFELT $
+                                                                          6)))))
+                                                     #3#)))))
                            . #4#)
                      (GO #5#))))
                   (COND
@@ -699,19 +847,47 @@
                              (QCAR
                               (PROG2 (LETT #2# |n| . #4#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 2)
-                                               (|Record| (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 2)
+                                                (|Record| (|:| |c1| $)
+                                                          (|:| |c2| $))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              |i| |s| $)
                             (|LAMBDA;unbindTerm|
                              (QCDR
                               (PROG2 (LETT #2# |n| . #4#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 2)
-                                               (|Record| (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 2)
+                                                (|Record| (|:| |c1| $)
+                                                          (|:| |c2| $))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              |i| |s| $)
                             (QREFELT $ 11))
                            . #4#)
@@ -762,11 +938,25 @@
                              (QCDR
                               (PROG2 (LETT #2# |term1| . #3#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 3)
-                                               (|Record| (|:| |c3| $)
-                                                         (|:| |nm|
-                                                              (QREFELT $ 6)))
-                                               #2#)))
+                                (|check_union2| (QEQCAR #2# 3)
+                                                (|Record| (|:| |c3| $)
+                                                          (|:| |nm|
+                                                               (QREFELT $ 6)))
+                                                (|Union|
+                                                 (|:| |boundTerm|
+                                                      (|Record|
+                                                       (|:| |varBound|
+                                                            (|NonNegativeInteger|))))
+                                                 (|:| |freeTerm| (QREFELT $ 6))
+                                                 (|:| |compoundTerm|
+                                                      (|Record| (|:| |c1| $)
+                                                                (|:| |c2| $)))
+                                                 (|:| |lambdaTerm|
+                                                      (|Record| (|:| |c3| $)
+                                                                (|:| |nm|
+                                                                     (QREFELT $
+                                                                              6)))))
+                                                #2#)))
                              (QREFELT $ 44))
                             . #3#)
                       (EXIT

@@ -329,10 +329,10 @@
                                                                        |d|)
                                                                     1)
                                                                    . #6#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #4# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #4#))
+                                                            '(|Integer|) #4#))
                                                          |fprod|
                                                          (QREFELT $ 37))
                                                . #6#))
@@ -345,9 +345,10 @@
                                                                (LETT #3#
                                                                      (- |d| 1)
                                                                      . #6#)
-                                                             (|check_subtype|
+                                                             (|check_subtype2|
                                                               (>= #3# 0)
                                                               '(|NonNegativeInteger|)
+                                                              '(|Integer|)
                                                               #3#))
                                                            |fprod|
                                                            (QREFELT $ 41))

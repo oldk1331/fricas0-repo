@@ -117,9 +117,10 @@
                         ((|domainEqual| (QREFELT $ 6)
                                         (|PrimeField|
                                          (PROG1 (LETT #4# |cc| . #5#)
-                                           (|check_subtype| (> #4# 0)
-                                                            '(|PositiveInteger|)
-                                                            #4#))))
+                                           (|check_subtype2| (> #4# 0)
+                                                             '(|PositiveInteger|)
+                                                             '(|NonNegativeInteger|)
+                                                             #4#))))
                          (EXIT
                           (CONS #'|IMATLIN;rowEchelon;2M;5!0|
                                 (VECTOR $ |cc|)))))))))
@@ -257,14 +258,14 @@
                (SEQ
                 (LETT |rk|
                       (PROG1 (LETT #8# (- |rk| 1) . #9#)
-                        (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|)
-                                         #8#))
+                        (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #8#))
                       . #9#)
                 (EXIT
                  (LETT |row|
                        (PROG1 (LETT #6# (- |row| 1) . #9#)
-                         (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|)
-                                          #6#))
+                         (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #6#))
                        . #9#)))
                NIL (GO G190) G191 (EXIT NIL))
           (COND
@@ -585,9 +586,10 @@
                         ((|domainEqual| (QREFELT $ 6)
                                         (|PrimeField|
                                          (PROG1 (LETT #4# |cc| . #5#)
-                                           (|check_subtype| (> #4# 0)
-                                                            '(|PositiveInteger|)
-                                                            #4#))))
+                                           (|check_subtype2| (> #4# 0)
+                                                             '(|PositiveInteger|)
+                                                             '(|NonNegativeInteger|)
+                                                             #4#))))
                          (EXIT
                           (CONS #'|IMATLIN;rowEchelon;2M;10!0|
                                 (VECTOR $ |cc|)))))))))
@@ -729,14 +731,14 @@
                (SEQ
                 (LETT |rk|
                       (PROG1 (LETT #8# (- |rk| 1) . #9#)
-                        (|check_subtype| (>= #8# 0) '(|NonNegativeInteger|)
-                                         #8#))
+                        (|check_subtype2| (>= #8# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #8#))
                       . #9#)
                 (EXIT
                  (LETT |row|
                        (PROG1 (LETT #6# (- |row| 1) . #9#)
-                         (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|)
-                                          #6#))
+                         (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #6#))
                        . #9#)))
                NIL (GO G190) G191 (EXIT NIL))
           (COND
@@ -1028,8 +1030,9 @@
                     (EXIT
                      (LETT |rk|
                            (PROG1 (LETT #1# (- |rk| 1) . #2#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            . #2#)))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |rk|)))) 
@@ -1041,7 +1044,8 @@
                          (- (SPADCALL |x| (QREFELT $ 48))
                             (SPADCALL |x| (QREFELT $ 50)))
                          |IMATLIN;nullity;MNni;14|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |IMATLIN;generalizedInverse;2M;15| ((|x| M) ($ M))
         (SPROG
@@ -1153,12 +1157,13 @@
                             (|compiledLookupCheck| '|inverse|
                                                    (LIST
                                                     (LIST '|Union| '$
-                                                          '"failed")
+                                                          '#7="failed")
                                                     '$)
                                                    (|Matrix| FSUP)))
                            . #6#)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Matrix| FSUP) #1#))
+                   (|check_union2| (QEQCAR #1# 0) (|Matrix| FSUP)
+                                   (|Union| (|Matrix| FSUP) #7#) #1#))
                  |ty|
                  (|compiledLookupCheck| '* (LIST '$ '$ '$) (|Matrix| FSUP)))
                 . #6#)

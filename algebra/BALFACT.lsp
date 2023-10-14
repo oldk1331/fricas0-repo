@@ -14,7 +14,9 @@
                        (PROG2
                            (LETT #1# (SPADCALL |a| |g| (QREFELT $ 14)) . #2#)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                         (|Union| (QREFELT $ 7) #3="failed")
+                                         #1#))
                        |n| (QREFELT $ 16))
                       . #2#)
                 (EXIT
@@ -36,8 +38,11 @@
                                                        (QREFELT $ 14))
                                              . #2#)
                                        (QCDR #1#)
-                                     (|check_union| (QEQCAR #1# 0)
-                                                    (QREFELT $ 7) #1#))
+                                     (|check_union2| (QEQCAR #1# 0)
+                                                     (QREFELT $ 7)
+                                                     (|Union| (QREFELT $ 7)
+                                                              #3#)
+                                                     #1#))
                                    $)
                                   (QREFELT $ 22)))))))) 
 

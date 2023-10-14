@@ -486,10 +486,14 @@
                                                           (QREFELT $ 99))
                                                 . #4#)
                                           (QCDR #3#)
-                                        (|check_union| (QEQCAR #3# 0)
-                                                       (|SparseUnivariatePolynomial|
-                                                        (QREFELT $ 7))
-                                                       #3#))
+                                        (|check_union2| (QEQCAR #3# 0)
+                                                        (|SparseUnivariatePolynomial|
+                                                         (QREFELT $ 7))
+                                                        (|Union|
+                                                         (|SparseUnivariatePolynomial|
+                                                          (QREFELT $ 7))
+                                                         "failed")
+                                                        #3#))
                                       (QVELT |lg| 2))
                               $)
                              $)

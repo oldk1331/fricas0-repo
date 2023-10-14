@@ -51,9 +51,9 @@
                               (EXIT
                                (LETT |n|
                                      (PROG1 (LETT #1# (- |n| 1) . #2#)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#))
                                      . #2#)))
                          NIL (GO G190) G191 (EXIT NIL))
                     (COND

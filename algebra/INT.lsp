@@ -270,7 +270,9 @@
                                                    (QREFELT $ 79))
                                                   . #2#)
                                             (QCDR #1#)
-                                          (|check_union| (QEQCAR #1# 0) $ #1#))
+                                          (|check_union2| (QEQCAR #1# 0) $
+                                                          (|Union| $ "failed")
+                                                          #1#))
                                         (QREFELT $ 100))
                                        (QREFELT $ 104))
                              (QREFELT $ 106)))))))) 

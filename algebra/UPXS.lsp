@@ -97,8 +97,9 @@
                                     (QREFELT $ 55))
                           |term| 0
                           (PROG1 (LETT #1# |m| . #2#)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           $)
                          . #2#)
                    (EXIT

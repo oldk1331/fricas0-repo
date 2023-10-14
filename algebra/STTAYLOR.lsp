@@ -622,7 +622,7 @@
           (RETURN (PROGN (|STTAYLOR;lagrangere| |x| |y| $))))) 
 
 (SDEFUN |STTAYLOR;revert;2S;28| ((|x| |Stream| A) ($ |Stream| A))
-        (SPROG ((#1=#:G438 NIL) (|y| (|Union| (|Stream| A) "failed")))
+        (SPROG ((#1=#:G438 NIL) (|y| (|Union| (|Stream| A) #2="failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 10))
@@ -631,12 +631,12 @@
                   (COND
                    ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 10))
                     (|error| "revert: should be nonzero"))
-                   (#2='T
+                   (#3='T
                     (SEQ
                      (LETT |y|
                            (SPADCALL (SPADCALL |x| (QREFELT $ 11))
                                      (QREFELT $ 38))
-                           . #3=(|STTAYLOR;revert;2S;28|))
+                           . #4=(|STTAYLOR;revert;2S;28|))
                      (EXIT
                       (COND
                        ((QEQCAR |y| 0)
@@ -645,15 +645,18 @@
                              (LETT #1#
                                    (SPADCALL (SPADCALL |x| (QREFELT $ 11))
                                              (QREFELT $ 38))
-                                   . #3#)
+                                   . #4#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0)
-                                          (|Stream| (QREFELT $ 6)) #1#))
+                           (|check_union2| (QEQCAR #1# 0)
+                                           (|Stream| (QREFELT $ 6))
+                                           (|Union| (|Stream| (QREFELT $ 6))
+                                                    #2#)
+                                           #1#))
                          (QREFELT $ 89)))
-                       (#2#
+                       (#3#
                         (|error|
                          "revert: should start 0, x, ... with invertible x"))))))))
-                 (#2# (|error| "revert: should start 0, x, ...")))))) 
+                 (#3# (|error| "revert: should start 0, x, ...")))))) 
 
 (SDEFUN |STTAYLOR;addiag;SS;29|
         ((|ststa| |Stream| (|Stream| A)) ($ |Stream| A))
@@ -865,8 +868,9 @@
                (|STTAYLOR;ms| (+ |a| |b|) 0
                 (SPADCALL |x|
                           (PROG1 (LETT #1# |a| |STTAYLOR;multisect;2I2S;38|)
-                            (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                             #1#))
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
                           (QREFELT $ 106))
                 $))) 
 
@@ -1117,9 +1121,10 @@
                                       (SPADCALL
                                        (SPADCALL |co|
                                                  (PROG1 (LETT #2# |num| . #5#)
-                                                   (|check_subtype| (>= #2# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #2#))
+                                                   (|check_subtype2| (>= #2# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #2#))
                                                  (QREFELT $ 130))
                                        (SPADCALL
                                         (CONS #'|STTAYLOR;powern;F2S;50!1|
@@ -1131,9 +1136,10 @@
                                        (SPADCALL (QCDR |invCo|)
                                                  (PROG1
                                                      (LETT #1# (- |num|) . #5#)
-                                                   (|check_subtype| (>= #1# 0)
-                                                                    '(|NonNegativeInteger|)
-                                                                    #1#))
+                                                   (|check_subtype2| (>= #1# 0)
+                                                                     '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
+                                                                     #1#))
                                                  (QREFELT $ 130))
                                        (SPADCALL
                                         (CONS #'|STTAYLOR;powern;F2S;50!2|

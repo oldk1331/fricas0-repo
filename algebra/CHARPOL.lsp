@@ -8,7 +8,8 @@
                 (PROG1
                     (LETT #1# (ANROWS A)
                           . #2=(|CHARPOL;characteristicPolynomial;M2R;1|))
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #1#))
                 . #2#)
           (EXIT
            (COND

@@ -227,11 +227,16 @@
               (LETT |d|
                     (PROG2 (LETT #3# (SPADCALL |d| |g| (QREFELT $ 98)) . #4#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 0)
-                                     (|SparseUnivariatePolynomial|
+                      (|check_union2| (QEQCAR #3# 0)
                                       (|SparseUnivariatePolynomial|
-                                       (|Fraction| (|Integer|))))
-                                     #3#))
+                                       (|SparseUnivariatePolynomial|
+                                        (|Fraction| (|Integer|))))
+                                      (|Union|
+                                       (|SparseUnivariatePolynomial|
+                                        (|SparseUnivariatePolynomial|
+                                         (|Fraction| (|Integer|))))
+                                       "failed")
+                                      #3#))
                     . #4#)
               (EXIT
                (COND
@@ -1334,39 +1339,45 @@
          ((#1=#:G462 NIL) (|p| (|PositiveInteger|)) (#2=#:G464 NIL)
           (|u|
            (|Union| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
-                    "failed"))
-          (#3=#:G460 NIL))
+                    #3="failed"))
+          (#4=#:G460 NIL))
          (SEQ
           (LETT |p|
                 (PROG1
-                    (LETT #3#
+                    (LETT #4#
                           (SPADCALL (SPADCALL (QREFELT $ 151)) (QREFELT $ 187))
-                          . #4=(|PFO;kgetGoodPrime|))
-                  (|check_subtype| (> #3# 0) '(|PositiveInteger|) #3#))
-                . #4#)
+                          . #5=(|PFO;kgetGoodPrime|))
+                  (|check_subtype2| (> #4# 0) '(|PositiveInteger|) '(|Integer|)
+                                    #4#))
+                . #5#)
           (SEQ G190
                (COND
                 ((NULL
                   (QEQCAR
                    (LETT |u| (|PFO;goodRed| |rec| |res| |h| |b| |d| |p| $)
-                         . #4#)
+                         . #5#)
                    1))
                  (GO G191)))
                (SEQ
                 (EXIT
                  (LETT |p|
-                       (PROG1 (LETT #2# (SPADCALL |p| (QREFELT $ 187)) . #4#)
-                         (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
-                       . #4#)))
+                       (PROG1 (LETT #2# (SPADCALL |p| (QREFELT $ 187)) . #5#)
+                         (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                           '(|Integer|) #2#))
+                       . #5#)))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT
            (CONS |p|
-                 (PROG2 (LETT #1# |u| . #4#)
+                 (PROG2 (LETT #1# |u| . #5#)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0)
-                                  (|SparseUnivariatePolynomial|
-                                   (|Fraction| (|Integer|)))
-                                  #1#))))))) 
+                   (|check_union2| (QEQCAR #1# 0)
+                                   (|SparseUnivariatePolynomial|
+                                    (|Fraction| (|Integer|)))
+                                   (|Union|
+                                    (|SparseUnivariatePolynomial|
+                                     (|Fraction| (|Integer|)))
+                                    #3#)
+                                   #1#))))))) 
 
 (SDEFUN |PFO;goodRed|
         ((|rec| |Record|

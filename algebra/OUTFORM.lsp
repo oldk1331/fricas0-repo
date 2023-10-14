@@ -394,8 +394,10 @@
                                (PROG1
                                    (LETT #1# |nn|
                                          . #2=(|OUTFORM;differentiate;$Nni$;90|))
-                                 (|check_subtype| (> #1# 0)
-                                                  '(|PositiveInteger|) #1#))
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|NonNegativeInteger|)
+                                                   #1#))
                                (QREFELT $ 113))
                               . #2#)
                         (LETT |s| (SPADCALL |r| (QREFELT $ 114)) . #2#)

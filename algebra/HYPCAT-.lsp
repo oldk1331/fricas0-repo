@@ -37,7 +37,10 @@
                             (PROG2
                                 (LETT #1# (SPADCALL |e| (QREFELT $ 9)) . #2#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                              (|Union| (QREFELT $ 6)
+                                                       #3="failed")
+                                              #1#))
                             (QREFELT $ 19))
                   (PROG2
                       (LETT #1#
@@ -45,7 +48,8 @@
                                       (QREFELT $ 9))
                             . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3#) #1#))
                   (QREFELT $ 14)))))) 
 
 (SDEFUN |HYPCAT-;sinh;2S;6| ((|x| S) ($ S))
@@ -59,7 +63,10 @@
                             (PROG2
                                 (LETT #1# (SPADCALL |e| (QREFELT $ 9)) . #2#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                              (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                              (|Union| (QREFELT $ 6)
+                                                       #3="failed")
+                                              #1#))
                             (QREFELT $ 23))
                   (PROG2
                       (LETT #1#
@@ -67,7 +74,8 @@
                                       (QREFELT $ 9))
                             . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3#) #1#))
                   (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |HyperbolicFunctionCategory&;|)) 

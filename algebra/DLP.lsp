@@ -51,9 +51,9 @@
                       (SEQ (LETT |i| 0 . #4#)
                            (LETT #1#
                                  (PROG1 (LETT #2# (- |n| 1) . #4#)
-                                   (|check_subtype| (>= #2# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #2#))
+                                   (|check_subtype2| (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
                                  . #4#)
                            G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                            (SEQ

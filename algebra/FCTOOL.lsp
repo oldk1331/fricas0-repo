@@ -1522,7 +1522,8 @@
         (SPROG ((#1=#:G505 NIL))
                (|make_full_CVEC|
                 (PROG1 (LETT #1# |x| |FCTOOL;make_spaces|)
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 (STR_ELT "   " 0)))) 
 
 (SDEFUN |FCTOOL;fortran2Lines1|
@@ -1795,8 +1796,11 @@
                     (SPADCALL
                      (PROG2 (LETT #1# |returnType| . #2#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (|FortranScalarType|)
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 0) (|FortranScalarType|)
+                                       (|Union|
+                                        (|:| |fst| (|FortranScalarType|))
+                                        (|:| |void| "void"))
+                                       #1#))
                      (QREFELT $ 104))
                     (QREFELT $ 16))
                    . #2#)

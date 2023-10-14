@@ -176,8 +176,10 @@
                                  |denom| (QREFELT $ 43))
                                 . #2=(|IBATOOL;idealiser;2MRM;7|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0) (|Matrix| (QREFELT $ 6))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 0) (|Matrix| (QREFELT $ 6))
+                                        (|Union| (|Matrix| (QREFELT $ 6))
+                                                 "failed")
+                                        #1#))
                       . #2#)
                 (EXIT
                  (SPADCALL

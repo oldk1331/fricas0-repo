@@ -445,8 +445,9 @@
             (LETT |words|
                   (SPADCALL |word|
                             (PROG1 (LETT #3# |randomInteger| . #4#)
-                              (|check_subtype| (>= #3# 0)
-                                               '(|NonNegativeInteger|) #3#))
+                              (|check_subtype2| (>= #3# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #3#))
                             (QREFELT $ 45))
                   . #4#)))
           (COND
@@ -470,9 +471,9 @@
                         (APPEND
                          (SPADCALL |word|
                                    (PROG1 (LETT #2# |randomInteger| . #4#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))
                                    (QREFELT $ 45))
                          |words|)
                         . #4#)))
@@ -1400,10 +1401,10 @@
                                                                      |ii|)
                                                                     1)
                                                                    . #20#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #7# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #7#))
+                                                            '(|Integer|) #7#))
                                                          . #20#)
                                                    (EXIT
                                                     (PROGN

@@ -101,8 +101,8 @@
           (SEQ (LETT |i| 1 . #5#)
                (LETT #3#
                      (PROG1 (LETT #4# (- |n| 1) . #5#)
-                       (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                        #4#))
+                       (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #4#))
                      . #5#)
                G190 (COND ((|greater_SI| |i| #3#) (GO G191)))
                (SEQ
@@ -116,8 +116,8 @@
           (SEQ (LETT |i| 0 . #5#)
                (LETT #1#
                      (PROG1 (LETT #2# (- |n| 1) . #5#)
-                       (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                        #2#))
+                       (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #2#))
                      . #5#)
                G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ

@@ -31,15 +31,17 @@
                        (LETT |c|
                              (SPADCALL
                               (PROG1 (LETT #2# |h| . #3#)
-                                (|check_subtype| (> #2# 0) '(|PositiveInteger|)
-                                                 #2#))
+                                (|check_subtype2| (> #2# 0)
+                                                  '(|PositiveInteger|)
+                                                  '(|Integer|) #2#))
                               (QREFELT $ 25))
                              . #3#)
                        (LETT |m|
                              (SPADCALL
                               (PROG1 (LETT #1# (+ |j| |n|) . #3#)
-                                (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                                 #1#))
+                                (|check_subtype2| (> #1# 0)
+                                                  '(|PositiveInteger|)
+                                                  '(|Integer|) #1#))
                               (QREFELT $ 26))
                              . #3#)
                        (EXIT

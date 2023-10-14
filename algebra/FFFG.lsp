@@ -48,9 +48,9 @@
                                 (PROG1
                                     (LETT #1# (- |k| |l|)
                                           |FFFG;DiffAction;2NniVD;5|)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 (QREFELT $ 9)))))) 
 
 (SDEFUN |FFFG;DiffC;NniL;6| ((|total| |NonNegativeInteger|) ($ |List| D))
@@ -139,8 +139,9 @@
                                        (SPADCALL |x| (|spadConstant| $ 38)
                                                  (QREFELT $ 39))
                                        NIL)
-                               (|check_subtype| (>= #2# 0)
-                                                '(|NonNegativeInteger|) #2#))
+                               (|check_subtype2| (>= #2# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #2#))
                              |y| (QREFELT $ 37))))))) 
 
 (SDEFUN |FFFG;nextVector!|
@@ -202,10 +203,10 @@
                                                        (PROG1
                                                            (LETT #3# |sum|
                                                                  . #5#)
-                                                         (|check_subtype|
+                                                         (|check_subtype2|
                                                           (>= #3# 0)
                                                           '(|NonNegativeInteger|)
-                                                          #3#))
+                                                          '(|Integer|) #3#))
                                                        (QREFELT $ 52))
                                              (EXIT (LETT |sum| 0 . #5#)))))))
                                         (LETT |j| (|inc_SI| |j|) . #5#)
@@ -242,8 +243,9 @@
                                                    (QREFELT $ 49))
                                          1)
                                         . #5#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               (QREFELT $ 52))))))
                 (EXIT (CONS 1 |v|))))))))
           #6# (EXIT #2#)))) 
@@ -349,14 +351,15 @@
                                   (LETT |sum|
                                         (PROG1
                                             (LETT #2# (- |sum| |maxEta|) . #4#)
-                                          (|check_subtype| (>= #2# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #2#))
+                                          (|check_subtype2| (>= #2# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #2#))
                                         . #4#)))))
                           (EXIT
                            (PROG1 (LETT #1# |entry| . #4#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))))
                          #3#)
                         . #4#)))
                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
@@ -434,8 +437,8 @@
           (LETT |eta|
                 (LIST |d|
                       (PROG1 (LETT #1# (- N |d|) . #2#)
-                        (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                         #1#)))
+                        (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #1#)))
                 . #2#)
           (LETT M (SPADCALL |x| |c| |eta| (QREFELT $ 43)) . #2#)
           (EXIT
@@ -509,10 +512,14 @@
                                                        |d| (QREFELT $ 88))
                                                       . #2#)
                                                 (QCDR #1#)
-                                              (|check_union| (QEQCAR #1# 0)
-                                                             (|SparseUnivariatePolynomial|
-                                                              (QREFELT $ 6))
-                                                             #1#))
+                                              (|check_union2| (QEQCAR #1# 0)
+                                                              (|SparseUnivariatePolynomial|
+                                                               (QREFELT $ 6))
+                                                              (|Union|
+                                                               (|SparseUnivariatePolynomial|
+                                                                (QREFELT $ 6))
+                                                               #3="failed")
+                                                              #1#))
                                             . #2#)
                                       (QSETAREF2O M |i| |l| |Mil| 1 1)
                                       (LETT |pl| (QAREF1O |p| |l| 1) . #2#)
@@ -534,10 +541,14 @@
                                                          (QREFELT $ 88))
                                                . #2#)
                                          (QCDR #1#)
-                                       (|check_union| (QEQCAR #1# 0)
-                                                      (|SparseUnivariatePolynomial|
-                                                       (QREFELT $ 6))
-                                                      #1#))
+                                       (|check_union2| (QEQCAR #1# 0)
+                                                       (|SparseUnivariatePolynomial|
+                                                        (QREFELT $ 6))
+                                                       (|Union|
+                                                        (|SparseUnivariatePolynomial|
+                                                         (QREFELT $ 6))
+                                                        #3#)
+                                                       #1#))
                                      1 1)))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT M)))) 
@@ -644,9 +655,10 @@
                                                                              102))
                                                           1)
                                                          . #4#)
-                                                 (|check_subtype| (>= #1# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #1#))
+                                                 (|check_subtype2| (>= #1# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #1#))
                                                (QREFELT $ 32))
                                               (QREFELT $ 99)))
                                    ('T

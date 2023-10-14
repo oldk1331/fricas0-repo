@@ -314,8 +314,9 @@
                    (SPADCALL
                     (SPADCALL |x|
                               (PROG1 (LETT #1# (- |m| |n|) . #2#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               (QREFELT $ 46))
                     (QREFELT $ 47)))))))) 
 
@@ -433,9 +434,9 @@
                                         (PROG1
                                             (LETT #1# (- |n| 1)
                                                   . #2=(|URAGG-;split!;AIA;32|))
-                                          (|check_subtype| (>= #1# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #1#))
+                                          (|check_subtype2| (>= #1# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #1#))
                                         (QREFELT $ 46))
                               . #2#)
                         (LETT |q| (SPADCALL |p| (QREFELT $ 14)) . #2#)

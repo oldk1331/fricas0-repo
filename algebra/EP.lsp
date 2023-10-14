@@ -113,7 +113,8 @@
          (SEQ
           (LETT |dimA|
                 (PROG1 (LETT #1# (ANROWS A) . #2=(|EP;charpol|))
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #1#))
                 . #2#)
           (EXIT
            (COND
@@ -497,12 +498,14 @@
                   (PROG1
                       (LETT #2# (- (+ 1 |k|) |g|)
                             . #3=(|EP;generalizedEigenvector;UM2NniL;14|))
-                    (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                    (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #2#))
                   $))
                 ('T
                  (|EP;intAlgEig| (QCDR |alpha|) A
                   (PROG1 (LETT #1# (- (+ 1 |k|) |g|) . #3#)
-                    (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                    (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                      '(|Integer|) #1#))
                   $))))) 
 
 (SDEFUN |EP;generalizedEigenvector;RML;15|
@@ -612,9 +615,10 @@
                                     (VECTOR (CONS 0 |vec|)
                                             (PROG1
                                                 (LETT #3# (QCDR |fact|) . #6#)
-                                              (|check_subtype| (>= #3# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #3#))
+                                              (|check_subtype2| (>= #3# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #3#))
                                             (|EP;intRatEig| |vec| A 1 $))
                                     |ratSol|)
                                    . #6#))))
@@ -628,9 +632,10 @@
                                     (VECTOR (CONS 1 |alpha|)
                                             (PROG1
                                                 (LETT #2# (QCDR |fact|) . #6#)
-                                              (|check_subtype| (>= #2# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #2#))
+                                              (|check_subtype2| (>= #2# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #2#))
                                             (|EP;intAlgEig| |alpha| A 1 $))
                                     |algSol|)
                                    . #6#)))))))

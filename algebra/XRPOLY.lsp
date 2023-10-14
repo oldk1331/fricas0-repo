@@ -83,7 +83,8 @@
             (SEQ
              (LETT |n1|
                    (PROG1 (LETT #3# (- |n| 1) . #4=(|XRPOLY;trunc;$Nni$;5|))
-                     (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                     (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #3#))
                    . #4#)
              (LETT |lt|
                    (PROGN
@@ -170,8 +171,8 @@
                  (SEQ
                   (LETT |n1|
                         (PROG1 (LETT #3# (- |n| 1) . #4=(|XRPOLY;sh;$Nni$;7|))
-                          (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                           #3#))
+                          (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #3#))
                         . #4#)
                   (LETT |p1|
                         (SPADCALL |n| (SPADCALL |p| |n1| (QREFELT $ 46))

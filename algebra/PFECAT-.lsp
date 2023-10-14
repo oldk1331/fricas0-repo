@@ -20,10 +20,14 @@
                               (LETT #1# (SPADCALL |f| |cf| (QREFELT $ 13))
                                     . #2#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0)
-                                           (|SparseUnivariatePolynomial|
-                                            (QREFELT $ 6))
-                                           #1#))
+                            (|check_union2| (QEQCAR #1# 0)
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 6))
+                                            (|Union|
+                                             (|SparseUnivariatePolynomial|
+                                              (QREFELT $ 6))
+                                             #3="failed")
+                                            #1#))
                           . #2#)))
                   (LETT |cg| (SPADCALL |g| (QREFELT $ 10)) . #2#)
                   (COND
@@ -33,10 +37,14 @@
                               (LETT #1# (SPADCALL |g| |cg| (QREFELT $ 13))
                                     . #2#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0)
-                                           (|SparseUnivariatePolynomial|
-                                            (QREFELT $ 6))
-                                           #1#))
+                            (|check_union2| (QEQCAR #1# 0)
+                                            (|SparseUnivariatePolynomial|
+                                             (QREFELT $ 6))
+                                            (|Union|
+                                             (|SparseUnivariatePolynomial|
+                                              (QREFELT $ 6))
+                                             #3#)
+                                            #1#))
                           . #2#)))
                   (LETT |ans| (SPADCALL |f| |g| (QREFELT $ 14)) . #2#)
                   (EXIT
@@ -49,10 +57,14 @@
                                                  (QREFELT $ 13))
                                        . #2#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 0)
-                                              (|SparseUnivariatePolynomial|
-                                               (QREFELT $ 6))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 0)
+                                               (|SparseUnivariatePolynomial|
+                                                (QREFELT $ 6))
+                                               (|Union|
+                                                (|SparseUnivariatePolynomial|
+                                                 (QREFELT $ 6))
+                                                #3#)
+                                               #1#))
                              (QREFELT $ 16))))))))) 
 
 (SDEFUN |PFECAT-;charthRoot;SU;2| ((|f| S) ($ |Union| S "failed"))

@@ -97,7 +97,8 @@
 (SDEFUN |SAE;rank;Pi;20| (($ |PositiveInteger|))
         (SPROG ((#1=#:G145 NIL))
                (PROG1 (LETT #1# (QREFELT $ 17) |SAE;rank;Pi;20|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                   '(|NonNegativeInteger|) #1#)))) 
 
 (SDEFUN |SAE;basis;V;21| (($ |Vector| $))
         (SPADCALL (QREFELT $ 38) (QREFELT $ 79))) 
@@ -342,8 +343,9 @@
                        (LETT |a|
                              (SPADCALL
                               (PROG1 (LETT #1# |h| . #2#)
-                                (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                                 #1#))
+                                (|check_subtype2| (> #1# 0)
+                                                  '(|PositiveInteger|)
+                                                  '(|Integer|) #1#))
                               (QREFELT $ 120))
                              . #2#)
                        (EXIT
@@ -507,22 +509,24 @@
              (SPADCALL
               (PROG2 (LETT #4# #8=(QREFELT $ 12) . #7#)
                   (QCDR #4#)
-                (|check_union| (QEQCAR #4# 0) #8# #4#))
+                (|check_union2| (QEQCAR #4# 0) #8# (|Union| #8# #9="failed")
+                                #4#))
               |#3| (QREFELT $ 14)))
      (QSETREFV $ 17 (SPADCALL |#3| (QREFELT $ 16)))
      (QSETREFV $ 21
                (PROG2
                    (LETT #3# (SPADCALL (QREFELT $ 17) 1 (QREFELT $ 20)) . #7#)
                    (QCDR #3#)
-                 (|check_union| (QEQCAR #3# 0) (|NonNegativeInteger|) #3#)))
+                 (|check_union2| (QEQCAR #3# 0) (|NonNegativeInteger|)
+                                 (|Union| (|NonNegativeInteger|) #9#) #3#)))
      (QSETREFV $ 24 (SPADCALL (QREFELT $ 17) (QREFELT $ 17) (QREFELT $ 23)))
      (QSETREFV $ 28 (SPADCALL 'T (QREFELT $ 27)))
      (QSETREFV $ 34 (SPADCALL (|spadConstant| $ 31) (QREFELT $ 33)))
      (QSETREFV $ 35 (SPADCALL 'T (QREFELT $ 27)))
      (QSETREFV $ 38
                (PROGN
-                (LETT #2# (GETREFV (|inc_SI| #9=(QREFELT $ 21))) . #7#)
-                (SEQ (LETT |i| 0 . #7#) (LETT #1# #9# . #7#) G190
+                (LETT #2# (GETREFV (|inc_SI| #10=(QREFELT $ 21))) . #7#)
+                (SEQ (LETT |i| 0 . #7#) (LETT #1# #10# . #7#) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT

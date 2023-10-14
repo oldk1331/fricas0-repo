@@ -97,9 +97,9 @@
                    (LETT |denPow|
                          (SPADCALL |rbden|
                                    (PROG1 (LETT #6# (- |p| 1) . #7#)
-                                     (|check_subtype| (>= #6# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #6#))
+                                     (|check_subtype2| (>= #6# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #6#))
                                    (QREFELT $ 38))
                          . #7#)
                    (LETT |coMat0| (SPADCALL |coor0| |denPow| (QREFELT $ 40))

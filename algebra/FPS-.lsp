@@ -12,7 +12,8 @@
                                          (QREFELT $ 14))
                                13301))
                          |FPS-;digits;Pi;2|)
-                 (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))) 
+                 (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
+                                   #1#)))) 
 
 (SDEFUN |FPS-;toString;SNniS;3|
         ((|x| S) (|n| |NonNegativeInteger|) ($ |String|))

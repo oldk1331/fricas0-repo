@@ -60,7 +60,8 @@
                 (LETT |e|
                       (SPADCALL
                        (PROG1 (LETT #1# |i| . #2#)
-                         (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                         (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                           '(|Integer|) #1#))
                        (QREFELT $ 12))
                       . #2#)
                 (EXIT

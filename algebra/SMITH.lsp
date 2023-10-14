@@ -24,9 +24,9 @@
                             (EXIT
                              (LETT |km|
                                    (PROG1 (LETT #2# (- |km| 1) . #4#)
-                                     (|check_subtype| (>= #2# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #2#))
+                                     (|check_subtype2| (>= #2# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #2#))
                                    . #4#)))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS 0 |km|))))
@@ -163,12 +163,14 @@
               (LETT |mii|
                     (PROG2 (LETT #1# (SPADCALL |mii| |d| (QREFELT $ 20)) . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                      (|Union| (QREFELT $ 6) #3="failed") #1#))
                     . #2#)
               (LETT |mjj|
                     (PROG2 (LETT #1# (SPADCALL |mjj| |d| (QREFELT $ 20)) . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                      (|Union| (QREFELT $ 6) #3#) #1#))
                     . #2#)
               (LETT |lMat|
                     (|SMITH;elRow2| (QVELT |sf| 1) (QVELT |extGcd| 0) |j| |i|
@@ -363,8 +365,11 @@
                                                |t11| (QREFELT $ 20))
                                               . #15#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 0)
-                                                     (QREFELT $ 6) #2#))
+                                      (|check_union2| (QEQCAR #2# 0)
+                                                      (QREFELT $ 6)
+                                                      (|Union| (QREFELT $ 6)
+                                                               #18="failed")
+                                                      #2#))
                                     (QREFELT $ 40))
                           (EXIT
                            (SEQ (LETT |j| 2 . #15#) G190
@@ -463,9 +468,10 @@
                                                            (QREFELT $ 20))
                                                           . #15#)
                                                     (QCDR #2#)
-                                                  (|check_union| (QEQCAR #2# 0)
-                                                                 (QREFELT $ 6)
-                                                                 #2#))
+                                                  (|check_union2|
+                                                   (QEQCAR #2# 0) (QREFELT $ 6)
+                                                   (|Union| (QREFELT $ 6) #18#)
+                                                   #2#))
                                                 (QREFELT $ 40))))
                                 (LETT |j| (|inc_SI| |j|) . #15#) (GO G190) G191
                                 (EXIT NIL))))
@@ -480,11 +486,16 @@
                                                (SPADCALL |u1| (QREFELT $ 61))
                                                . #15#)
                                          (QCDR #1#)
-                                       (|check_union| (QEQCAR #1# 0)
-                                                      (|Matrix|
-                                                       (|Fraction|
-                                                        (QREFELT $ 6)))
-                                                      #1#))
+                                       (|check_union2| (QEQCAR #1# 0)
+                                                       (|Matrix|
+                                                        (|Fraction|
+                                                         (QREFELT $ 6)))
+                                                       (|Union|
+                                                        (|Matrix|
+                                                         (|Fraction|
+                                                          (QREFELT $ 6)))
+                                                        "failed")
+                                                       #1#))
                                      (QREFELT $ 64))))))))))
           #17# (EXIT #7#)))) 
 

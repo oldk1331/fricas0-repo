@@ -263,15 +263,16 @@
                                 (SPADCALL
                                  (SPADCALL |tab|
                                            (PROG1 (LETT #5# |pin| . #19#)
-                                             (|check_subtype| (>= #5# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #5#))
+                                             (|check_subtype2| (>= #5# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #5#))
                                            (QREFELT $ 29))
                                  |pi|
                                  (PROG1 (LETT #4# |pout| . #19#)
-                                   (|check_subtype| (>= #4# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #4#))
+                                   (|check_subtype2| (>= #4# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #4#))
                                  (QREFELT $ 16))))
                               (LETT |pt| (|inc_SI| |pt|) . #19#) (GO G190) G191
                               (EXIT NIL))))
@@ -587,7 +588,8 @@
                (+ |a|
                   (*
                    (PROG1 (LETT #1# (- |b| 1) |MFGRPH;indexProd|)
-                     (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                     (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #1#))
                    (LENGTH (QCAR |aObj|)))))) 
 
 (SDEFUN |MFGRPH;tensorNext|
@@ -1041,13 +1043,13 @@
                 (LETT |newObj| (SPADCALL |newOb| |i| (QREFELT $ 24)) . #9#)
                 (LETT |newX|
                       (PROG1 (LETT #5# (+ (QVELT |oldObj| 1) |offsetX|) . #9#)
-                        (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                         #5#))
+                        (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #5#))
                       . #9#)
                 (LETT |newY|
                       (PROG1 (LETT #4# (+ (QVELT |oldObj| 2) |offsetY|) . #9#)
-                        (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                         #4#))
+                        (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #4#))
                       . #9#)
                 (LETT |newNext| NIL . #9#)
                 (SEQ (LETT |n| NIL . #9#) (LETT #3# (QVELT |oldObj| 3) . #9#)
@@ -1118,13 +1120,13 @@
                 (LETT |newObj| (SPADCALL |newOb| |i| (QREFELT $ 24)) . #9#)
                 (LETT |newX|
                       (PROG1 (LETT #5# (+ (QVELT |oldObj| 1) |offsetX|) . #9#)
-                        (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|)
-                                         #5#))
+                        (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #5#))
                       . #9#)
                 (LETT |newY|
                       (PROG1 (LETT #4# (+ (QVELT |oldObj| 2) |offsetY|) . #9#)
-                        (|check_subtype| (>= #4# 0) '(|NonNegativeInteger|)
-                                         #4#))
+                        (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                          '(|Integer|) #4#))
                       . #9#)
                 (LETT |newNext| NIL . #9#)
                 (SEQ (LETT |n| NIL . #9#) (LETT #3# (QVELT |oldObj| 3) . #9#)

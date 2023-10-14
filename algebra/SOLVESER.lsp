@@ -35,10 +35,10 @@
                                                                (+ (- |n| |i|)
                                                                   1)
                                                                . #3#)
-                                                       (|check_subtype|
+                                                       (|check_subtype2|
                                                         (>= #1# 0)
                                                         '(|NonNegativeInteger|)
-                                                        #1#))
+                                                        '(|Integer|) #1#))
                                                      (QREFELT $ 24))
                                            (QREFELT $ 25))
                                  (QREFELT $ 26))
@@ -123,18 +123,19 @@
           (#2=#:G177 NIL)
           (|solvar|
            (|Record|
-            (|:| |particular| (|Union| (|Vector| (|Expression| R)) "failed"))
+            (|:| |particular|
+                 (|Union| (|Vector| (|Expression| R)) #3="failed"))
             (|:| |basis| (|List| (|Vector| (|Expression| R))))))
           (|coeffma| (|Matrix| (|Expression| R)))
           (|vec| (|Vector| (|Expression| R)))
-          (|coeffmat| (|Matrix| (|Expression| R))) (#3=#:G168 NIL) (|i| NIL))
+          (|coeffmat| (|Matrix| (|Expression| R))) (#4=#:G168 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
             (LETT |coeffmat|
                   (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| $ 40))
-                  . #4=(|SOLVESER;subsSolve|))
-            (SEQ (LETT |i| 0 . #4#) G190
+                  . #5=(|SOLVESER;subsSolve|))
+            (SEQ (LETT |i| 0 . #5#) G190
                  (COND ((|greater_SI| |i| M) (GO G191)))
                  (SEQ
                   (EXIT
@@ -145,42 +146,47 @@
                                      (SPADCALL
                                       (SPADCALL G1
                                                 (PROG1
-                                                    (LETT #3# (- M |i|) . #4#)
-                                                  (|check_subtype| (>= #3# 0)
-                                                                   '(|NonNegativeInteger|)
-                                                                   #3#))
+                                                    (LETT #4# (- M |i|) . #5#)
+                                                  (|check_subtype2| (>= #4# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #4#))
                                                 (QREFELT $ 41))
                                       (SPADCALL G2 |i| (QREFELT $ 41))
                                       (QREFELT $ 42))
                                      (+ |DegF| 1) (QREFELT $ 43))
                                     (QREFELT $ 45))
                                    (QREFELT $ 46))
-                         . #4#)))
-                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 43)) . #4#)
+                         . #5#)))
+                 (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
+            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 43)) . #5#)
             (LETT |coeffma|
                   (SPADCALL |coeffmat| 1 (+ |DegF| 1) 2 (+ M 2) (QREFELT $ 47))
-                  . #4#)
-            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 51)) . #4#)
+                  . #5#)
+            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 51)) . #5#)
             (EXIT
              (COND
               ((QEQCAR (QCAR |solvar|) 1)
-               (PROGN (LETT #2# (CONS 1 "failed") . #4#) (GO #5=#:G176)))
+               (PROGN (LETT #2# (CONS 1 "failed") . #5#) (GO #6=#:G176)))
               ('T
                (SEQ
                 (LETT |solvevarlist|
-                      (PROG2 (LETT #1# (QCAR |solvar|) . #4#)
+                      (PROG2 (LETT #1# (QCAR |solvar|) . #5#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 0)
-                                       (|Vector| (|Expression| (QREFELT $ 6)))
-                                       #1#))
-                      . #4#)
+                        (|check_union2| (QEQCAR #1# 0)
+                                        (|Vector| (|Expression| (QREFELT $ 6)))
+                                        (|Union|
+                                         (|Vector|
+                                          (|Expression| (QREFELT $ 6)))
+                                         #3#)
+                                        #1#))
+                      . #5#)
                 (LETT |resul|
                       (SPADCALL (SPADCALL |solvevarlist| HH M (QREFELT $ 27))
                                 (QREFELT $ 29))
-                      . #4#)
+                      . #5#)
                 (EXIT (CONS 0 |resul|))))))))
-          #5# (EXIT #2#)))) 
+          #6# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |TransSolvePackageService;|)) 
 

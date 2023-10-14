@@ -78,32 +78,34 @@
                       (QREFELT $ 50)))))) 
 
 (SDEFUN |ODERTRIC;FifCan|
-        ((|f| |Fraction| (|Polynomial| F)) ($ |Union| F "failed"))
-        (SPROG ((#1=#:G138 NIL) (|d| #2=(|Union| F "failed")) (|n| #2#))
+        ((|f| |Fraction| (|Polynomial| F)) ($ |Union| F #1="failed"))
+        (SPROG ((#2=#:G138 NIL) (|d| #3=(|Union| F "failed")) (|n| #3#))
                (SEQ
                 (COND
                  ((QEQCAR
                    (LETT |n|
                          (SPADCALL (SPADCALL |f| (QREFELT $ 55))
                                    (QREFELT $ 57))
-                         . #3=(|ODERTRIC;FifCan|))
+                         . #4=(|ODERTRIC;FifCan|))
                    0)
                   (COND
                    ((QEQCAR
                      (LETT |d|
                            (SPADCALL (SPADCALL |f| (QREFELT $ 58))
                                      (QREFELT $ 57))
-                           . #3#)
+                           . #4#)
                      0)
                     (EXIT
                      (CONS 0
                            (SPADCALL
-                            (PROG2 (LETT #1# |n| . #3#)
-                                (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
-                            (PROG2 (LETT #1# |d| . #3#)
-                                (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                            (PROG2 (LETT #2# |n| . #4#)
+                                (QCDR #2#)
+                              (|check_union2| (QEQCAR #2# 0) (QREFELT $ 6)
+                                              (|Union| (QREFELT $ 6) #1#) #2#))
+                            (PROG2 (LETT #2# |d| . #4#)
+                                (QCDR #2#)
+                              (|check_union2| (QEQCAR #2# 0) (QREFELT $ 6)
+                                              (|Union| (QREFELT $ 6) #1#) #2#))
                             (QREFELT $ 59))))))))
                 (EXIT (CONS 1 "failed"))))) 
 
@@ -303,9 +305,10 @@
                                                                      (QREFELT $
                                                                               83)))
                                                         . #2#)
-                                                (|check_subtype| (>= #1# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #1#))
+                                                (|check_subtype2| (>= #1# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #1#))
                                               (QREFELT $ 85))
                                     (QREFELT $ 86))
                           . #2#)
@@ -330,9 +333,9 @@
                    (LETT #3#
                          (SPADCALL (SPADCALL |s| |i| (QREFELT $ 88))
                                    (PROG1 (LETT #4# (- |n| |i|) . #5#)
-                                     (|check_subtype| (>= #4# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #4#))
+                                     (|check_subtype2| (>= #4# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #4#))
                                    (QREFELT $ 89))
                          . #5#)
                    (COND
@@ -392,9 +395,9 @@
                                                                 (QREFELT $
                                                                          83)))
                                                    . #5#)
-                                           (|check_subtype| (>= #4# 0)
-                                                            '(|NonNegativeInteger|)
-                                                            #4#))
+                                           (|check_subtype2| (>= #4# 0)
+                                                             '(|NonNegativeInteger|)
+                                                             '(|Integer|) #4#))
                                          (QREFELT $ 85))
                                (|ODERTRIC;reverseUP| |c| $) (QREFELT $ 102))
                               . #5#)

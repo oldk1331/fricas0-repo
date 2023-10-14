@@ -58,7 +58,9 @@
                           (EXPT |rbden| |p|) (QREFELT $ 28))
                          . #6#)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 0) (|Matrix| (|Integer|)) #1#)))))) 
+                 (|check_union2| (QEQCAR #1# 0) (|Matrix| (|Integer|))
+                                 (|Union| (|Matrix| (|Integer|)) "failed")
+                                 #1#)))))) 
 
 (SDEFUN |NFINTBAS;wildPrimes|
         ((|factoredDisc| |Factored| (|Integer|)) (|n| |Integer|)
@@ -291,8 +293,11 @@
                                (LETT #3# (SPADCALL |rb| |g| (QREFELT $ 28))
                                      . #6#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0)
-                                            (|Matrix| (|Integer|)) #3#))
+                             (|check_union2| (QEQCAR #3# 0)
+                                             (|Matrix| (|Integer|))
+                                             (|Union| (|Matrix| (|Integer|))
+                                                      #7="failed")
+                                             #3#))
                            . #6#)))
                    (LETT |rbden| (* |rbden| (QUOTIENT2 |sing| |g|)) . #6#)
                    (LETT |rbinv| (SPADCALL |rb| |rbden| (QREFELT $ 50)) . #6#)
@@ -304,7 +309,7 @@
                      ((EQL |indexChange| 1)
                       (PROGN
                        (LETT #4# (VECTOR |rb| |rbden| |rbinv| |disc|) . #6#)
-                       (GO #7=#:G169)))
+                       (GO #8=#:G169)))
                      ('T
                       (LETT |tfm|
                             (PROG2
@@ -318,11 +323,14 @@
                                        (* |rbden| |rbden|) (QREFELT $ 28))
                                       . #6#)
                                 (QCDR #3#)
-                              (|check_union| (QEQCAR #3# 0)
-                                             (|Matrix| (|Integer|)) #3#))
+                              (|check_union2| (QEQCAR #3# 0)
+                                              (|Matrix| (|Integer|))
+                                              (|Union| (|Matrix| (|Integer|))
+                                                       #7#)
+                                              #3#))
                             . #6#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
-          #7# (EXIT #4#)))) 
+          #8# (EXIT #4#)))) 
 
 (SDEFUN |NFINTBAS;iWildLocalIntegralBasis|
         ((|matrixOut| |Matrix| (|Integer|)) (|disc| . #1=(|Integer|))
@@ -351,7 +359,8 @@
             (LETT |lp|
                   (SPADCALL
                    (PROG1 (LETT #6# |p| . #7#)
-                     (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                     (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #6#))
                    |n| (QREFELT $ 61))
                   . #7#)
             (EXIT
@@ -361,8 +370,9 @@
                          (SPADCALL
                           (|NFINTBAS;frobMatrix| |rb| |rbinv| |rbden|
                            (PROG1 (LETT #5# |p| . #7#)
-                             (|check_subtype| (>= #5# 0)
-                                              '(|NonNegativeInteger|) #5#))
+                             (|check_subtype2| (>= #5# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #5#))
                            $)
                           |lp| (QREFELT $ 62))
                          . #7#)
@@ -444,14 +454,16 @@
                                     (QREFELT $ 53))
                           . #4#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                  (|Union| (|Integer|) #5="failed") #1#))
                 . #4#)
           (EXIT
            (PROG2
                (LETT #1# (SPADCALL |disc| (* |index| |index|) (QREFELT $ 53))
                      . #4#)
                (QCDR #1#)
-             (|check_union| (QEQCAR #1# 0) (|Integer|) #1#)))))) 
+             (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                             (|Union| (|Integer|) #5#) #1#)))))) 
 
 (DECLAIM (NOTINLINE |NumberFieldIntegralBasis;|)) 
 

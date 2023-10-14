@@ -95,8 +95,10 @@
                      ('T
                       (SPADCALL |x|
                                 (PROG1 (LETT #1# |n| |ITAYLOR;^;$Nni$;17|)
-                                  (|check_subtype| (> #1# 0)
-                                                   '(|PositiveInteger|) #1#))
+                                  (|check_subtype2| (> #1# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
                                 (QREFELT $ 47)))))) 
 
 (SDEFUN |ITAYLOR;characteristic;Nni;18| (($ |NonNegativeInteger|))

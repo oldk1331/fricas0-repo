@@ -20,9 +20,12 @@
                   ((SPADCALL
                     (PROG2 (LETT #1# (SPADCALL |s| (QREFELT $ 16)) . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0)
-                                     (|OrderedVariableList| (QREFELT $ 7))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 0)
+                                      (|OrderedVariableList| (QREFELT $ 7))
+                                      (|Union|
+                                       (|OrderedVariableList| (QREFELT $ 7))
+                                       "failed")
+                                      #1#))
                     |lv| (QREFELT $ 18))
                    (LETT |truels| (CONS |s| |truels|) . #3#)))))
                (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))

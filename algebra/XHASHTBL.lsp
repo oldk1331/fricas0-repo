@@ -168,7 +168,8 @@
 (SDEFUN |XHASHTBL;#;$Nni;9| ((|x| $) ($ |NonNegativeInteger|))
         (SPROG ((#1=#:G188 NIL))
                (PROG1 (LETT #1# (QVELT |x| 0) |XHASHTBL;#;$Nni;9|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |XHASHTBL;search;Key$U;10|
         ((|k| |Key|) (|x| $) ($ |Union| |Entry| "failed"))

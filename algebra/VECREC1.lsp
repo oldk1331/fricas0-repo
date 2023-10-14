@@ -7,7 +7,8 @@
           (LETT |polyvec|
                 (MAKEARR1
                  (PROG1 (LETT #2# |npoly| . #3=(|VECREC1;empty;2I$;1|))
-                   (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#))
                  (GETREFV_U32 0 0))
                 . #3#)
           (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |npoly| 1) . #3#) G190
@@ -46,9 +47,9 @@
                         (QSETAREF1 |nvec| |i|
                                    (GETREFV_U32
                                     (PROG1 (LETT #1# |m| . #3#)
-                                      (|check_subtype| (>= #1# 0)
-                                                       '(|NonNegativeInteger|)
-                                                       #1#))
+                                      (|check_subtype2| (>= #1# 0)
+                                                        '(|NonNegativeInteger|)
+                                                        '(|Integer|) #1#))
                                     0))
                         (LETT |ndl| (CDR |ndl|) . #3#)
                         (EXIT
@@ -84,8 +85,9 @@
                     (LETT |np|
                           (GETREFV_U32
                            (PROG1 (LETT #1# |n| . #3#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            0)
                           . #3#)
                     (LETT |op| (QAREF1 |polyvec| |i|) . #3#)
@@ -150,9 +152,10 @@
                                 (GETREFV_U32
                                  (SPADCALL 2
                                            (PROG1 (LETT #1# |npt1| . #4#)
-                                             (|check_subtype| (>= #1# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #1#))
+                                             (|check_subtype2| (>= #1# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #1#))
                                            (QREFELT $ 26))
                                  0)
                                 . #4#)
@@ -317,17 +320,19 @@
                                 (QSETVELT |state| 9
                                           (MAKEARR1
                                            (PROG1 (LETT #5# |n| . #6#)
-                                             (|check_subtype| (>= #5# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #5#))
+                                             (|check_subtype2| (>= #5# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #5#))
                                            (GETREFV_U32 0 0)))
                                 (EXIT
                                  (QSETVELT |state| 10
                                            (MAKEARR1
                                             (PROG1 (LETT #4# |n| . #6#)
-                                              (|check_subtype| (>= #4# 0)
-                                                               '(|NonNegativeInteger|)
-                                                               #4#))
+                                              (|check_subtype2| (>= #4# 0)
+                                                                '(|NonNegativeInteger|)
+                                                                '(|Integer|)
+                                                                #4#))
                                             (GETREFV_U32 0 0)))))))
                              (LETT |nums| (QVELT |state| 9) . #6#)
                              (LETT |dens| (QVELT |state| 10) . #6#)

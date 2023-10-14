@@ -1651,8 +1651,8 @@
                       (LETT B
                             (|MATCAT-;B0|
                              (PROG1 (LETT #5# (- |n| 2) . #6#)
-                               (|check_subtype| (> #5# 0) '(|PositiveInteger|)
-                                                #5#))
+                               (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                                 '(|Integer|) #5#))
                              $)
                             . #6#)
                       (LETT C (SPADCALL |r| B (QREFELT $ 89)) . #6#)

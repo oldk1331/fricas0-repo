@@ -34,15 +34,15 @@
                                      (LETT #2#
                                            (+ (- (LENGTH |cyc|) |minpos|) 1)
                                            . #4#)
-                                   (|check_subtype| (>= #2# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #2#))
+                                   (|check_subtype2| (>= #2# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #2#))
                                  (QREFELT $ 18))
                        (SPADCALL |cyc|
                                  (PROG1 (LETT #1# (- |minpos| 1) . #4#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  (QREFELT $ 19))
                        (QREFELT $ 20)))))))) 
 
@@ -376,7 +376,8 @@
                       . #2=(|PERM;order;$Nni;16|))
                 (EXIT
                  (PROG1 (LETT #1# |ord| . #2#)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#)))))) 
 
 (SDEFUN |PERM;sign;$I;17| ((|p| $) ($ |Integer|))
         (COND ((SPADCALL |p| (QREFELT $ 58)) 1) ('T -1))) 
@@ -687,8 +688,10 @@
                               (CONS
                                (SPADCALL
                                 (PROG1 (LETT #1# |i| . #4#)
-                                  (|check_subtype| (> #1# 0)
-                                                   '(|PositiveInteger|) #1#))
+                                  (|check_subtype2| (> #1# 0)
+                                                    '(|PositiveInteger|)
+                                                    '(|NonNegativeInteger|)
+                                                    #1#))
                                 (QREFELT $ 95))
                                #3#)
                               . #4#)))

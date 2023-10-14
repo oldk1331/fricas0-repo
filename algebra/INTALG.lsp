@@ -127,18 +127,18 @@
           (|rr|
            (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (|nfac| (|Fraction| (|Integer|))) (#1=#:G204 NIL)
-          (|nfac_ok| (|Boolean|)) (|ndu| #2=(|Union| (|Integer|) "failed"))
+          (|nfac_ok| (|Boolean|)) (|ndu| #2=(|Union| (|Integer|) #3="failed"))
           (|nnu| #2#) (|facu| (|Union| (|Fraction| (|Integer|)) "failed"))
-          (|fac| (F)) (|cp| (F)) (|p| (UP)) (#3=#:G219 NIL) (|f| NIL)
-          (|n| #4=(|NonNegativeInteger|)) (|rp1| (UP)) (#5=#:G218 NIL)
-          (|l| #4#) (|cp1| (F)) (|k| (|NonNegativeInteger|)) (|p1| (UP)))
-         (SEQ (LETT |p1| (QCAR |f1|) . #6=(|INTALG;find_multiples|))
+          (|fac| (F)) (|cp| (F)) (|p| (UP)) (#4=#:G219 NIL) (|f| NIL)
+          (|n| #5=(|NonNegativeInteger|)) (|rp1| (UP)) (#6=#:G218 NIL)
+          (|l| #5#) (|cp1| (F)) (|k| (|NonNegativeInteger|)) (|p1| (UP)))
+         (SEQ (LETT |p1| (QCAR |f1|) . #7=(|INTALG;find_multiples|))
               (LETT |res|
                     (LIST (VECTOR |p1| (QCDR |f1|) (|spadConstant| $ 62)))
-                    . #6#)
-              (LETT |rr| NIL . #6#)
-              (LETT |k| (SPADCALL |p1| (QREFELT $ 64)) . #6#)
-              (LETT |rp1| (SPADCALL |p1| (QREFELT $ 65)) . #6#)
+                    . #7#)
+              (LETT |rr| NIL . #7#)
+              (LETT |k| (SPADCALL |p1| (QREFELT $ 64)) . #7#)
+              (LETT |rp1| (SPADCALL |p1| (QREFELT $ 65)) . #7#)
               (SEQ
                (EXIT
                 (SEQ G190
@@ -146,24 +146,24 @@
                       ((NULL
                         (SPADCALL |rp1| (|spadConstant| $ 66) (QREFELT $ 67)))
                        (GO G191)))
-                     (SEQ (LETT |cp1| (SPADCALL |rp1| (QREFELT $ 68)) . #6#)
-                          (LETT |l| (SPADCALL |rp1| (QREFELT $ 64)) . #6#)
+                     (SEQ (LETT |cp1| (SPADCALL |rp1| (QREFELT $ 68)) . #7#)
+                          (LETT |l| (SPADCALL |rp1| (QREFELT $ 64)) . #7#)
                           (COND
                            ((ODDP (- |k| |l|))
                             (PROGN
-                             (LETT #5# |$NoValue| . #6#)
-                             (GO #7=#:G199))))
+                             (LETT #6# |$NoValue| . #7#)
+                             (GO #8=#:G199))))
                           (EXIT
-                           (LETT |rp1| (SPADCALL |rp1| (QREFELT $ 65)) . #6#)))
+                           (LETT |rp1| (SPADCALL |rp1| (QREFELT $ 65)) . #7#)))
                      NIL (GO G190) G191 (EXIT NIL)))
-               #7# (EXIT #5#))
-              (LETT |n| (- |k| |l|) . #6#)
-              (SEQ (LETT |f| NIL . #6#) (LETT #3# |lp| . #6#) G190
+               #8# (EXIT #6#))
+              (LETT |n| (- |k| |l|) . #7#)
+              (SEQ (LETT |f| NIL . #7#) (LETT #4# |lp| . #7#) G190
                    (COND
-                    ((OR (ATOM #3#) (PROGN (LETT |f| (CAR #3#) . #6#) NIL))
+                    ((OR (ATOM #4#) (PROGN (LETT |f| (CAR #4#) . #7#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |rr| (CONS |f| |rr|) . #6#)
-                        (LETT |p| (QCAR |f|) . #6#)
+                   (SEQ (LETT |rr| (CONS |f| |rr|) . #7#)
+                        (LETT |p| (QCAR |f|) . #7#)
                         (EXIT
                          (COND
                           ((SPADCALL (SPADCALL |p| (QREFELT $ 64)) |k|
@@ -171,7 +171,7 @@
                            "iterate")
                           ('T
                            (SEQ
-                            (LETT |cp| (SPADCALL |p| |l| (QREFELT $ 70)) . #6#)
+                            (LETT |cp| (SPADCALL |p| |l| (QREFELT $ 70)) . #7#)
                             (EXIT
                              (COND
                               ((SPADCALL |cp| (|spadConstant| $ 30)
@@ -181,14 +181,14 @@
                                (SEQ
                                 (LETT |fac|
                                       (SPADCALL |cp| |cp1| (QREFELT $ 72))
-                                      . #6#)
+                                      . #7#)
                                 (LETT |facu| (SPADCALL |fac| (QREFELT $ 74))
-                                      . #6#)
+                                      . #7#)
                                 (EXIT
                                  (COND ((QEQCAR |facu| 1) "iterate")
                                        ('T
-                                        (SEQ (LETT |nfac| (QCDR |facu|) . #6#)
-                                             (LETT |nfac_ok| 'T . #6#)
+                                        (SEQ (LETT |nfac| (QCDR |facu|) . #7#)
+                                             (LETT |nfac_ok| 'T . #7#)
                                              (COND
                                               ((SPADCALL |n| 1 (QREFELT $ 77))
                                                (SEQ
@@ -198,11 +198,11 @@
                                                                  (QREFELT $
                                                                           78))
                                                        |n| (QREFELT $ 81))
-                                                      . #6#)
+                                                      . #7#)
                                                 (EXIT
                                                  (COND
                                                   ((QEQCAR |nnu| 1)
-                                                   (LETT |nfac_ok| 'NIL . #6#))
+                                                   (LETT |nfac_ok| 'NIL . #7#))
                                                   ('T
                                                    (SEQ
                                                     (LETT |ndu|
@@ -211,12 +211,12 @@
                                                                      (QREFELT $
                                                                               82))
                                                            |n| (QREFELT $ 81))
-                                                          . #6#)
+                                                          . #7#)
                                                     (EXIT
                                                      (COND
                                                       ((QEQCAR |nnu| 1)
                                                        (LETT |nfac_ok| 'NIL
-                                                             . #6#))
+                                                             . #7#))
                                                       ('T
                                                        (LETT |nfac|
                                                              (SPADCALL
@@ -224,14 +224,17 @@
                                                               (PROG2
                                                                   (LETT #1#
                                                                         |ndu|
-                                                                        . #6#)
+                                                                        . #7#)
                                                                   (QCDR #1#)
-                                                                (|check_union|
+                                                                (|check_union2|
                                                                  (QEQCAR #1# 0)
                                                                  (|Integer|)
+                                                                 (|Union|
+                                                                  (|Integer|)
+                                                                  #3#)
                                                                  #1#))
                                                               (QREFELT $ 83))
-                                                             . #6#)))))))))))
+                                                             . #7#)))))))))))
                                              (EXIT
                                               (COND
                                                (|nfac_ok|
@@ -267,13 +270,13 @@
                                                                   (QCDR |f|)
                                                                   |nfac|)
                                                           |res|)
-                                                         . #6#)
+                                                         . #7#)
                                                    (EXIT
                                                     (LETT |rr| (CDR |rr|)
-                                                          . #6#))))))
+                                                          . #7#))))))
                                                ('T "iterate"))))))))))))))))
-                   (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL))
-              (LETT |res| (NREVERSE |res|) . #6#) (EXIT (CONS |res| |rr|))))) 
+                   (LETT #4# (CDR #4#) . #7#) (GO G190) G191 (EXIT NIL))
+              (LETT |res| (NREVERSE |res|) . #7#) (EXIT (CONS |res| |rr|))))) 
 
 (SDEFUN |INTALG;handle_multiples1|
         ((|rec| |Record| (|:| |num| R) (|:| |den| UP) (|:| |derivden| UP)
@@ -1054,9 +1057,10 @@
                                                                               64))
                                                            1)
                                                           . #13#)
-                                                  (|check_subtype| (>= #3# 0)
-                                                                   '(|NonNegativeInteger|)
-                                                                   #3#))
+                                                  (|check_subtype2| (>= #3# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #3#))
                                                 (QREFELT $ 70))
                                       . #13#)
                                 (QREFELT $ 145))
@@ -1142,9 +1146,10 @@
                                                                             64))
                                                          1)
                                                         . #13#)
-                                                (|check_subtype| (>= #1# 0)
-                                                                 '(|NonNegativeInteger|)
-                                                                 #1#))
+                                                (|check_subtype2| (>= #1# 0)
+                                                                  '(|NonNegativeInteger|)
+                                                                  '(|Integer|)
+                                                                  #1#))
                                               (QREFELT $ 70))
                                     . #13#)
                               (QREFELT $ 145))

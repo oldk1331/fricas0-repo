@@ -259,7 +259,8 @@
                 (EXIT
                  (PROG2 (LETT #1# (QVELT |x| 0) . #2#)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (|Boolean|) #1#)))))) 
+                   (|check_union2| (QEQCAR #1# 0) (|Boolean|)
+                                   (|Union| (|Boolean|) "failed") #1#)))))) 
 
 (SDEFUN |QALGSET;empty;$;7| (($ $))
         (VECTOR (CONS 0 'T) (LIST (|spadConstant| $ 32)) (|spadConstant| $ 27))) 

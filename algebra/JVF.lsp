@@ -271,9 +271,10 @@
                                                        (PROG1
                                                            (LETT #14# |j|
                                                                  . #20#)
-                                                         (|check_subtype|
+                                                         (|check_subtype2|
                                                           (> #14# 0)
                                                           '(|PositiveInteger|)
+                                                          '(|NonNegativeInteger|)
                                                           #14#))
                                                        |jm| (QREFELT $ 71)))
                                             1 1)))
@@ -332,9 +333,10 @@
                                       (CONS
                                        (SPADCALL
                                         (PROG1 (LETT #9# |i| . #20#)
-                                          (|check_subtype| (> #9# 0)
-                                                           '(|PositiveInteger|)
-                                                           #9#))
+                                          (|check_subtype2| (> #9# 0)
+                                                            '(|PositiveInteger|)
+                                                            '(|NonNegativeInteger|)
+                                                            #9#))
                                         (QREFELT $ 18))
                                        #11#)
                                       . #20#)))
@@ -383,24 +385,30 @@
                                                                    (LETT #5#
                                                                          |k|
                                                                          . #20#)
-                                                                 (|check_subtype|
+                                                                 (|check_subtype2|
                                                                   (> #5# 0)
                                                                   '(|PositiveInteger|)
+                                                                  '(|NonNegativeInteger|)
                                                                   #5#))
                                                                (QREFELT $ 78))
                                                      . #20#)
                                                (QCDR #4#)
-                                             (|check_union| (QEQCAR #4# 0)
-                                                            (QREFELT $ 6) #4#))
+                                             (|check_union2| (QEQCAR #4# 0)
+                                                             (QREFELT $ 6)
+                                                             (|Union|
+                                                              (QREFELT $ 6)
+                                                              "0")
+                                                             #4#))
                                            . #20#)
                                      (LETT |newco|
                                            (QCAR
                                             (SPADCALL |co|
                                                       (PROG1
                                                           (LETT #3# |k| . #20#)
-                                                        (|check_subtype|
+                                                        (|check_subtype2|
                                                          (> #3# 0)
                                                          '(|PositiveInteger|)
+                                                         '(|NonNegativeInteger|)
                                                          #3#))
                                                       |jm| (QREFELT $ 71)))
                                            . #20#)

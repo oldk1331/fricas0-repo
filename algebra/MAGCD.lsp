@@ -1069,9 +1069,10 @@
                                                                 (LETT #10#
                                                                       |ncc|
                                                                       . #17#)
-                                                              (|check_subtype|
+                                                              (|check_subtype2|
                                                                (>= #10# 0)
                                                                '(|NonNegativeInteger|)
+                                                               '(|Integer|)
                                                                #10#))
                                                             (QREFELT $ 76))
                                                            . #17#)))))

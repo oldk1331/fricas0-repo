@@ -844,7 +844,8 @@
           (LETT |nexps|
                 (GETREFV_U32
                  (PROG1 (LETT #3# |nn1| . #4#)
-                   (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #3#))
                  0)
                 . #4#)
           (LETT |m| (QVSIZE |ov2|) . #4#)
@@ -1115,17 +1116,17 @@
                                 (LETT |cv|
                                       (GETREFV_U32
                                        (PROG1 (LETT #8# |r_cnt| . #13#)
-                                         (|check_subtype| (>= #8# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #8#))
+                                         (|check_subtype2| (>= #8# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #8#))
                                        0)
                                       . #13#)
                                 (LETT |ev|
                                       (GETREFV_U32
                                        (PROG1 (LETT #7# |r_cnt| . #13#)
-                                         (|check_subtype| (>= #7# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #7#))
+                                         (|check_subtype2| (>= #7# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #7#))
                                        0)
                                       . #13#)
                                 (LETT |ov| (MAKEARR1 (* |nsols| |m|) 0) . #13#)
@@ -1183,17 +1184,17 @@
                                 (LETT |ncv|
                                       (GETREFV_U32
                                        (PROG1 (LETT #6# |k| . #13#)
-                                         (|check_subtype| (>= #6# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #6#))
+                                         (|check_subtype2| (>= #6# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #6#))
                                        0)
                                       . #13#)
                                 (LETT |nev|
                                       (GETREFV_U32
                                        (PROG1 (LETT #4# |k| . #13#)
-                                         (|check_subtype| (>= #4# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #4#))
+                                         (|check_subtype2| (>= #4# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #4#))
                                        0)
                                       . #13#)
                                 (SEQ (LETT |i| 0 . #13#)

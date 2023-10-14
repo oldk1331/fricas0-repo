@@ -83,7 +83,8 @@
           (COND
            ((EQL
              (PROG1 (LETT #6# |i| . #7=(|REP2;fingerPrint|))
-               (|check_subtype| (> #6# 0) '(|PositiveInteger|) #6#))
+               (|check_subtype2| (> #6# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #6#))
              1)
             (LETT |x|
                   (SPADCALL (SPADCALL |a| |b| (QREFELT $ 16))
@@ -91,7 +92,8 @@
                   . #7#))
            ((EQL
              (PROG1 (LETT #5# |i| . #7#)
-               (|check_subtype| (> #5# 0) '(|PositiveInteger|) #5#))
+               (|check_subtype2| (> #5# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #5#))
              2)
             (LETT |x|
                   (SPADCALL
@@ -101,7 +103,8 @@
                   . #7#))
            ((EQL
              (PROG1 (LETT #4# |i| . #7#)
-               (|check_subtype| (> #4# 0) '(|PositiveInteger|) #4#))
+               (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #4#))
              3)
             (LETT |x|
                   (SPADCALL |a| (SPADCALL |b| |x| (QREFELT $ 17))
@@ -109,12 +112,14 @@
                   . #7#))
            ((EQL
              (PROG1 (LETT #3# |i| . #7#)
-               (|check_subtype| (> #3# 0) '(|PositiveInteger|) #3#))
+               (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #3#))
              4)
             (LETT |x| (SPADCALL |x| |b| (QREFELT $ 16)) . #7#))
            ((EQL
              (PROG1 (LETT #2# |i| . #7#)
-               (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+               (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #2#))
              5)
             (LETT |x|
                   (SPADCALL |x| (SPADCALL |a| |b| (QREFELT $ 17))
@@ -122,7 +127,8 @@
                   . #7#))
            ((EQL
              (PROG1 (LETT #1# |i| . #7#)
-               (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+               (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                 '(|NonNegativeInteger|) #1#))
              6)
             (LETT |x|
                   (SPADCALL (SPADCALL |x| |a| (QREFELT $ 18))
@@ -466,8 +472,11 @@
                                                (QREFELT $ 56))
                                      . #6#)
                                (QCDR #3#)
-                             (|check_union| (QEQCAR #3# 0)
-                                            (|Matrix| (QREFELT $ 6)) #3#))
+                             (|check_union2| (QEQCAR #3# 0)
+                                             (|Matrix| (QREFELT $ 6))
+                                             (|Union| (|Matrix| (QREFELT $ 6))
+                                                      "failed")
+                                             #3#))
                            . #6#)
                      (SPADCALL
                       "  The inverse of the transition matrix computed"
@@ -604,10 +613,14 @@
                                                            (QREFELT $ 56))
                                                  . #6#)
                                            (QCDR #1#)
-                                         (|check_union| (QEQCAR #1# 0)
-                                                        (|Matrix|
-                                                         (QREFELT $ 6))
-                                                        #1#))
+                                         (|check_union2| (QEQCAR #1# 0)
+                                                         (|Matrix|
+                                                          (QREFELT $ 6))
+                                                         (|Union|
+                                                          (|Matrix|
+                                                           (QREFELT $ 6))
+                                                          "failed")
+                                                         #1#))
                                        (QREFELT $ 48))
                                       (QREFELT $ 61))))
                           (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
@@ -789,11 +802,13 @@
                                                            (QREFELT $ 56))
                                                           . #8#)
                                                     (QCDR #2#)
-                                                  (|check_union| (QEQCAR #2# 0)
-                                                                 (|Matrix|
-                                                                  (QREFELT $
-                                                                           6))
-                                                                 #2#))
+                                                  (|check_union2|
+                                                   (QEQCAR #2# 0)
+                                                   (|Matrix| (QREFELT $ 6))
+                                                   (|Union|
+                                                    (|Matrix| (QREFELT $ 6))
+                                                    "failed")
+                                                   #2#))
                                                 (QREFELT $ 17))
                                       . #8#)
                                 (LETT |foundResult| 'T . #8#)
@@ -993,7 +1008,9 @@
                     (LETT #3# (SPADCALL |transitionMatrix| (QREFELT $ 56))
                           . #6#)
                     (QCDR #3#)
-                  (|check_union| (QEQCAR #3# 0) (|Matrix| (QREFELT $ 6)) #3#))
+                  (|check_union2| (QEQCAR #3# 0) (|Matrix| (QREFELT $ 6))
+                                  (|Union| (|Matrix| (QREFELT $ 6)) "failed")
+                                  #3#))
                 . #6#)
           (SPADCALL "  The inverse of the transition matrix computed"
                     (QREFELT $ 54))
@@ -1038,7 +1055,8 @@
           (LETT |zz|
                 (SPADCALL
                  (PROG1 (LETT #6# |n| . #7=(|REP2;my_min|))
-                   (|check_subtype| (>= #6# 0) '(|NonNegativeInteger|) #6#))
+                   (|check_subtype2| (>= #6# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #6#))
                  (QREFELT $ 74))
                 . #7#)
           (LETT |v| |zz| . #7#)
@@ -1126,7 +1144,8 @@
          (SEQ
           (LETT |nn|
                 (PROG1 (LETT #5# |n| . #6=(|REP2;m_eval|))
-                  (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                  (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #5#))
                 . #6#)
           (LETT |res| (SPADCALL |nn| |nn| (QREFELT $ 23)) . #6#)
           (LETT |id|
@@ -1255,7 +1274,8 @@
             (LETT |result| NIL . #3#)
             (LETT |q|
                   (PROG1 (LETT #2# (SPADCALL (QREFELT $ 101)) . #3#)
-                    (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+                    (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                      '(|NonNegativeInteger|) #2#))
                   . #3#)
             (COND
              (|randomelements|
@@ -1453,8 +1473,8 @@
                                       (+ (SPADCALL |iR| |j| (QREFELT $ 116))
                                          |q|)
                                       . #7#)
-                              (|check_subtype| (> #3# 0) '(|PositiveInteger|)
-                                               #3#))
+                              (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                                '(|Integer|) #3#))
                             (QREFELT $ 117))
                            (QREFELT $ 113))))
                (LETT |j| (|inc_SI| |j|) . #7#) (GO G190) G191 (EXIT NIL))

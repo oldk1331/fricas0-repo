@@ -31,8 +31,9 @@
                  (SPADCALL (SPADCALL |p| |n| (QREFELT $ 32))
                            (|WEIER;streamlikeUniv| |p|
                             (PROG1 (LETT #1# (- |n| 1) |WEIER;streamlikeUniv|)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             $)
                            (QREFELT $ 34)))))) 
 

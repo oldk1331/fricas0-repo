@@ -41,8 +41,8 @@
                (SEQ
                 (VECTOR (LENGTH |inds|)
                         (PROG1 (LETT #3# |n| . #4=(|SEM;new;LI$;8|))
-                          (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                           #3#))
+                          (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #3#))
                         |inds|
                         (PROGN
                          (LETT #2# (GETREFV |n|) . #4#)
@@ -330,8 +330,8 @@
                         (PROG1
                             (LETT #3# (- (QVELT A 1) 1)
                                   . #4=(|SEM;deleteRow!;$IV;17|))
-                          (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                           #3#))
+                          (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #3#))
                         . #4#)
                   (LETT |resRows| (MAKEARR1 |nr| (QREFELT $ 14)) . #4#)
                   (SEQ (LETT |l| 1 . #4#) (LETT #2# (- |i| 1) . #4#) G190
@@ -429,7 +429,8 @@
           (LETT |nr|
                 (PROG1
                     (LETT #1# (+ (- |i2| |i1|) 1) . #2=(|SEM;extract;$2I$;20|))
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |resRows| (MAKEARR1 |nr| (QREFELT $ 14)) . #2#)
           (LETT |newInds| NIL . #2#)
@@ -887,8 +888,9 @@
                       (|finished?|
                        (LETT |rk|
                              (PROG1 (LETT #8# (- |i| 1) . #18#)
-                               (|check_subtype| (>= #8# 0)
-                                                '(|NonNegativeInteger|) #8#))
+                               (|check_subtype2| (>= #8# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #8#))
                              . #18#))
                       ('T
                        (SEQ (LETT |pivind| (|SPADfirst| (QCAR |r|)) . #18#)
@@ -1217,8 +1219,12 @@
                                                                (QREFELT $ 102))
                                                      . #4#)
                                                (QCDR #1#)
-                                             (|check_union| (QEQCAR #1# 0)
-                                                            (QREFELT $ 7) #1#))
+                                             (|check_union2| (QEQCAR #1# 0)
+                                                             (QREFELT $ 7)
+                                                             (|Union|
+                                                              (QREFELT $ 7)
+                                                              "failed")
+                                                             #1#))
                                            #3#)
                                           . #4#)))
                                   (LETT #2# (CDR #2#) . #4#) (GO G190) G191
@@ -1321,8 +1327,9 @@
                       (|finished?|
                        (LETT |rk|
                              (PROG1 (LETT #9# (- |i| 1) . #19#)
-                               (|check_subtype| (>= #9# 0)
-                                                '(|NonNegativeInteger|) #9#))
+                               (|check_subtype2| (>= #9# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #9#))
                              . #19#))
                       ('T
                        (SEQ (LETT |pivind| (|SPADfirst| (QCAR |r|)) . #19#)

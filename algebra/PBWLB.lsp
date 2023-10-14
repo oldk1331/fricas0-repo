@@ -132,7 +132,8 @@
                 . #7#)
           (EXIT
            (PROG1 (LETT #1# |n| . #7#)
-             (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+             (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|) '(|Integer|)
+                               #1#)))))) 
 
 (SDEFUN |PBWLB;recursif| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((NULL |y|) 'NIL) ((NULL |x|) 'T)

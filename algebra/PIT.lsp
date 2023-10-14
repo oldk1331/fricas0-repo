@@ -40,8 +40,10 @@
                                        (SPADCALL |gder| |gdif| (QREFELT $ 18))
                                        . #3#)
                                  (QCDR #2#)
-                               (|check_union| (QEQCAR #2# 0) (QREFELT $ 8)
-                                              #2#))
+                               (|check_union2| (QEQCAR #2# 0) (QREFELT $ 8)
+                                               (|Union| (QREFELT $ 8)
+                                                        #5="failed")
+                                               #2#))
                              . #3#)
                        (EXIT
                         (COND
@@ -58,8 +60,10 @@
                                                       (QREFELT $ 18))
                                             . #3#)
                                       (QCDR #2#)
-                                    (|check_union| (QEQCAR #2# 0) (QREFELT $ 8)
-                                                   #2#))
+                                    (|check_union2| (QEQCAR #2# 0)
+                                                    (QREFELT $ 8)
+                                                    (|Union| (QREFELT $ 8) #5#)
+                                                    #2#))
                                   |der| (QREFELT $ 22))
                                  . #3#)
                            (EXIT
@@ -80,7 +84,8 @@
             (SPROG ((#2=#:G110 NIL))
                    (PROG2 (LETT #2# (SPADCALL |x| |p0| (QREFELT $ 18)) NIL)
                        (QCDR #2#)
-                     (|check_union| (QEQCAR #2# 0) P #2#))))))) 
+                     (|check_union2| (QEQCAR #2# 0) P (|Union| P "failed")
+                                     #2#))))))) 
 
 (DECLAIM (NOTINLINE |ParallelIntegrationTools;|)) 
 

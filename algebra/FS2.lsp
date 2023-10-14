@@ -45,7 +45,9 @@
                                     (QREFELT $ 27))
                                    |FS2;map;MAB;3|)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
+                           (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
+                                           (|Union| (QREFELT $ 9) "failed")
+                                           #1#))
                          (QREFELT $ 28)))) 
 
 (SDEFUN |FS2;map;MAB;4| ((|f| |Mapping| S R) (|x| A) ($ B))

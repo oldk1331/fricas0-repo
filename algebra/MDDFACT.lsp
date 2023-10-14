@@ -24,10 +24,14 @@
                     (LETT #1# (SPADCALL |c| |p| 1 (QREFELT $ 15))
                           |MDDFACT;modInverse|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (|Integer|))
-                                           (|:| |coef2| (|Integer|)))
-                                 #1#))))) 
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (|Integer|))
+                                            (|:| |coef2| (|Integer|)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (|Integer|))
+                                             (|:| |coef2| (|Integer|)))
+                                   "failed")
+                                  #1#))))) 
 
 (SDEFUN |MDDFACT;exactquo|
         ((|u| U) (|v| U) (|p| |Integer|) ($ |Union| U "failed"))
@@ -613,14 +617,16 @@
                                         (-
                                          (EXPT |p|
                                                (PROG1 (LETT #2# |d| . #3#)
-                                                 (|check_subtype| (>= #2# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #2#)))
+                                                 (|check_subtype2| (>= #2# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #2#)))
                                          1)
                                         2)
                                        . #3#)
-                               (|check_subtype| (>= #1# 0)
-                                                '(|NonNegativeInteger|) #1#))
+                               (|check_subtype2| (>= #1# 0)
+                                                 '(|NonNegativeInteger|)
+                                                 '(|Integer|) #1#))
                              . #3#)
                        (LETT |n| (|MDDFACT;exptmod| |t| |r| |u| $) . #3#)
                        (LETT |f2|

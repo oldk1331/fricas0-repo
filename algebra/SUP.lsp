@@ -162,9 +162,10 @@
                                          (CONS
                                           (CONS
                                            (PROG1 (LETT #2# (QCDR |m|) . #4#)
-                                             (|check_subtype| (>= #2# 0)
-                                                              '(|NonNegativeInteger|)
-                                                              #2#))
+                                             (|check_subtype2| (>= #2# 0)
+                                                               '(|NonNegativeInteger|)
+                                                               '(|Integer|)
+                                                               #2#))
                                            (QCDR (|SPADfirst| |p|)))
                                           (QCDR |u|)))))))))))))))) 
 
@@ -203,9 +204,12 @@
                                                            (QREFELT $ 38))
                                                  . #4#)
                                            (QCDR #2#)
-                                         (|check_union| (QEQCAR #2# 0)
-                                                        (|NonNegativeInteger|)
-                                                        #2#))
+                                         (|check_union2| (QEQCAR #2# 0)
+                                                         (|NonNegativeInteger|)
+                                                         (|Union|
+                                                          (|NonNegativeInteger|)
+                                                          "failed")
+                                                         #2#))
                                        (QCDR |t|))
                                       |highp|)
                                      . #4#)))
@@ -233,8 +237,12 @@
                                                     (QREFELT $ 38))
                                           . #4#)
                                     (QCDR #1#)
-                                  (|check_union| (QEQCAR #1# 0)
-                                                 (|NonNegativeInteger|) #1#))
+                                  (|check_union2| (QEQCAR #1# 0)
+                                                  (|NonNegativeInteger|)
+                                                  (|Union|
+                                                   (|NonNegativeInteger|)
+                                                   "failed")
+                                                  #1#))
                                 (QCDR |t|))
                                #3#)
                               . #4#)))
@@ -585,8 +593,8 @@
                                   (MAX (+ (- (QCAR (|SPADfirst| |p1|)) |e|) 1)
                                        0)
                                   . #5#)
-                          (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|)
-                                           #3#))
+                          (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #3#))
                         . #5#)
                   (SEQ
                    (EXIT
@@ -614,9 +622,9 @@
                           (EXIT
                            (LETT |e1|
                                  (PROG1 (LETT #1# (- |e1| 1) . #5#)
-                                   (|check_subtype| (>= #1# 0)
-                                                    '(|NonNegativeInteger|)
-                                                    #1#))
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
                                  . #5#)))
                          NIL (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #2#))
@@ -717,10 +725,10 @@
                                                                         |tm|)
                                                                        . #4#))
                                                               . #4#)
-                                                      (|check_subtype|
+                                                      (|check_subtype2|
                                                        (>= #1# 0)
                                                        '(|NonNegativeInteger|)
-                                                       #1#))
+                                                       '(|Integer|) #1#))
                                                     (QREFELT $ 102))
                                           (QREFELT $ 43))
                                 (QCDR |tm|) (QREFELT $ 44))
@@ -763,10 +771,10 @@
                                                                         |tm|)
                                                                        . #4#))
                                                               . #4#)
-                                                      (|check_subtype|
+                                                      (|check_subtype2|
                                                        (>= #1# 0)
                                                        '(|NonNegativeInteger|)
-                                                       #1#))
+                                                       '(|Integer|) #1#))
                                                     (QREFELT $ 12))
                                           (QREFELT $ 25))
                                 (SPADCALL (QCDR |tm|) (QREFELT $ 53))
@@ -892,7 +900,8 @@
                               (LETT #1# (SPADCALL |p| |ct| (QREFELT $ 130))
                                     . #2#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 0) $ #1#))
+                            (|check_union2| (QEQCAR #1# 0) $
+                                            (|Union| $ "failed") #1#))
                           (QREFELT $ 131))))))))) 
 
 (SDEFUN |SUP;gcd;3$;42| ((|p1| $) (|p2| $) ($ $))

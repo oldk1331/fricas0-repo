@@ -414,7 +414,8 @@
                              (- (SPADCALL |oper| (QREFELT $ 54))
                                 (LENGTH |sols|))
                              . #6=(|LODEEF;homosolve1|))
-                     (|check_subtype| (>= #5# 0) '(|NonNegativeInteger|) #5#))
+                     (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #5#))
                    . #6#))
             |sols|)
            ('T
@@ -657,13 +658,13 @@
            (|Record|
             (|:| |particular|
                  (|Union| (|Fraction| (|SparseUnivariatePolynomial| F))
-                          "failed"))
+                          #2="failed"))
             (|:| |basis|
                  (|List| (|Fraction| (|SparseUnivariatePolynomial| F))))))
           (|op|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction| (|SparseUnivariatePolynomial| F)))))
-         (SEQ (LETT |op| (|LODEEF;ulodo| |eq| |k| $) . #2=(|LODEEF;rfSolve|))
+         (SEQ (LETT |op| (|LODEEF;ulodo| |eq| |k| $) . #3=(|LODEEF;rfSolve|))
               (EXIT
                (COND
                 ((NULL
@@ -675,28 +676,33 @@
                   (LETT |rc|
                         (SPADCALL |op| (SPADCALL |g| |k| (QREFELT $ 134))
                                   (QREFELT $ 143))
-                        . #2#)
+                        . #3#)
                   (EXIT
                    (COND
                     ((QEQCAR (QCAR |rc|) 1)
                      (|LODEEF;doVarParams| |eq| |g|
                       (|LODEEF;homosolve| |eq| |op| (QCDR |rc|) |k| |x| $) |x|
                       $))
-                    (#3='T
+                    (#4='T
                      (CONS 0
                            (CONS
                             (SPADCALL
-                             (PROG2 (LETT #1# (QCAR |rc|) . #2#)
+                             (PROG2 (LETT #1# (QCAR |rc|) . #3#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 0)
-                                              (|Fraction|
-                                               (|SparseUnivariatePolynomial|
-                                                (QREFELT $ 7)))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 0)
+                                               (|Fraction|
+                                                (|SparseUnivariatePolynomial|
+                                                 (QREFELT $ 7)))
+                                               (|Union|
+                                                (|Fraction|
+                                                 (|SparseUnivariatePolynomial|
+                                                  (QREFELT $ 7)))
+                                                #2#)
+                                               #1#))
                              |k| (QREFELT $ 87))
                             (|LODEEF;homosolve| |eq| |op| (QCDR |rc|) |k| |x|
                              $))))))))
-                (#3#
+                (#4#
                  (|LODEEF;doVarParams| |eq| |g|
                   (|LODEEF;homosolve| |eq| |op|
                    (QCDR
@@ -828,11 +834,11 @@
         (SPROG
          ((#1=#:G310 NIL)
           (|rec|
-           (|Record| (|:| |particular| (|Union| F "failed"))
+           (|Record| (|:| |particular| (|Union| F #2="failed"))
                      (|:| |basis| (|List| F)))))
          (SEQ
           (LETT |rec| (SPADCALL |op| |g| |kx| |k| |x| (QREFELT $ 163))
-                . #2=(|LODEEF;palgSolve|))
+                . #3=(|LODEEF;palgSolve|))
           (EXIT
            (COND
             ((QEQCAR (QCAR |rec|) 1)
@@ -841,9 +847,10 @@
             ('T
              (CONS 0
                    (CONS
-                    (PROG2 (LETT #1# (QCAR |rec|) . #2#)
+                    (PROG2 (LETT #1# (QCAR |rec|) . #3#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                      (|Union| (QREFELT $ 7) #2#) #1#))
                     (|LODEEF;homosolve1| |op| (QCDR |rec|) |k| |x| $))))))))) 
 
 (DECLAIM (NOTINLINE |ElementaryFunctionLODESolver;|)) 

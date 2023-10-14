@@ -255,9 +255,9 @@
                (SPADCALL (|spadConstant| $ 19)
                          (SPADCALL (|spadConstant| $ 22)
                                    (PROG1 (LETT #1# |i| NIL)
-                                     (|check_subtype| (>= #1# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #1#))
+                                     (|check_subtype2| (>= #1# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #1#))
                                    (QREFELT $ 24))
                          (QREFELT $ 25)))) 
 

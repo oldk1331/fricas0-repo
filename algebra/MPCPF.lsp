@@ -17,7 +17,9 @@
                         (PROG2
                             (LETT #8# (SPADCALL |p| |c| (QREFELT $ 20)) . #10#)
                             (QCDR #8#)
-                          (|check_union| (QEQCAR #8# 0) (QREFELT $ 9) #8#))
+                          (|check_union2| (QEQCAR #8# 0) (QREFELT $ 9)
+                                          (|Union| (QREFELT $ 9) "failed")
+                                          #8#))
                         . #10#)
                   (LETT |vars| (SPADCALL |p| (QREFELT $ 22)) . #10#)
                   (LETT |g|

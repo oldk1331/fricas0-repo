@@ -43,7 +43,10 @@
                                               (QREFELT $ 21))
                                     . #9#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0) (QREFELT $ 7) #2#))
+                            (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                            (|Union| (QREFELT $ 7)
+                                                     #10="failed")
+                                            #2#))
                           . #9#)
                     |iden| (QREFELT $ 23))
                    . #9#)
@@ -73,16 +76,17 @@
                                                             . #9#)
                                                       (PROG1
                                                           (LETT #7# |j| . #9#)
-                                                        (|check_subtype|
+                                                        (|check_subtype2|
                                                          (>= #7# 0)
                                                          '(|NonNegativeInteger|)
-                                                         #7#))
+                                                         '(|Integer|) #7#))
                                                       (QREFELT $ 36))
                                                      (QREFELT $ 21))
                                            . #9#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 0) (QREFELT $ 7)
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                                   (|Union| (QREFELT $ 7) #10#)
+                                                   #2#))
                                  . #9#)
                            (SPADCALL |v| |derivation|) (QREFELT $ 23))
                           . #9#)
@@ -95,7 +99,8 @@
                                       (QREFELT $ 21))
                                      . #9#)
                                (QCDR #2#)
-                             (|check_union| (QEQCAR #2# 0) (QREFELT $ 7) #2#))
+                             (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                             (|Union| (QREFELT $ 7) #10#) #2#))
                            |m| (QREFELT $ 37))
                           . #9#)
                     (LETT |nn| (- 1 (SPADCALL |inum| (QREFELT $ 38))) . #9#)
@@ -124,9 +129,10 @@
                                                                       (LETT #6#
                                                                             |j|
                                                                             . #9#)
-                                                                    (|check_subtype|
+                                                                    (|check_subtype2|
                                                                      (>= #6# 0)
                                                                      '(|NonNegativeInteger|)
+                                                                     '(|Integer|)
                                                                      #6#))
                                                                   (QREFELT $
                                                                            36))
@@ -139,13 +145,13 @@
                                       (LETT #5#
                                             (GETREFV
                                              (|inc_SI|
-                                              (- #10=(QVSIZE |inum|)
-                                                 #11=(SPADCALL |inum|
+                                              (- #11=(QVSIZE |inum|)
+                                                 #12=(SPADCALL |inum|
                                                                (QREFELT $
                                                                         38)))))
                                             . #9#)
-                                      (SEQ (LETT |i| #11# . #9#)
-                                           (LETT #4# #10# . #9#)
+                                      (SEQ (LETT |i| #12# . #9#)
+                                           (LETT #4# #11# . #9#)
                                            (LETT #3# 0 . #9#) G190
                                            (COND ((> |i| #4#) (GO G191)))
                                            (SEQ
@@ -186,9 +192,12 @@
                                                                           21))
                                                                 . #9#)
                                                           (QCDR #2#)
-                                                        (|check_union|
+                                                        (|check_union2|
                                                          (QEQCAR #2# 0)
-                                                         (QREFELT $ 7) #2#))
+                                                         (QREFELT $ 7)
+                                                         (|Union| (QREFELT $ 7)
+                                                                  #10#)
+                                                         #2#))
                                                       (SPADCALL |u|
                                                                 (SPADCALL
                                                                  (QAREF1O |sol|

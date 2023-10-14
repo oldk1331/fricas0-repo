@@ -41,7 +41,8 @@
                                         (QREFELT $ 20))
                               . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                      (|Union| (QREFELT $ 7) #3="failed") #1#))
                     . #2#)
               (LETT |e2|
                     (PROG2
@@ -50,7 +51,8 @@
                                         (QREFELT $ 20))
                               . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                      (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                      (|Union| (QREFELT $ 7) #3#) #1#))
                     . #2#)
               (LETT |tdeg|
                     (MAX
@@ -449,10 +451,12 @@
                  (CONS
                   (PROG2 (LETT #1# (SPADCALL |c1| |d| (QREFELT $ 62)) . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3="failed") #1#))
                   (PROG2 (LETT #1# (SPADCALL |c2| |d| (QREFELT $ 62)) . #2#)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))))) 
+                    (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                    (|Union| (QREFELT $ 6) #3#) #1#))))))) 
 
 (SDEFUN |GBINTERN;sPol;RDpol;12|
         ((|p| |Record| (|:| |lcmfij| |Expon|)
@@ -481,8 +485,11 @@
                                                         (QREFELT $ 20))
                                               . #2#)
                                         (QCDR #1#)
-                                      (|check_union| (QEQCAR #1# 0)
-                                                     (QREFELT $ 7) #1#))
+                                      (|check_union2| (QEQCAR #1# 0)
+                                                      (QREFELT $ 7)
+                                                      (|Union| (QREFELT $ 7)
+                                                               #3="failed")
+                                                      #1#))
                                     (QREFELT $ 23))
                           (QREFELT $ 65))
                 (SPADCALL (SPADCALL |fj| (QREFELT $ 64))
@@ -496,8 +503,11 @@
                                                         (QREFELT $ 20))
                                               . #2#)
                                         (QCDR #1#)
-                                      (|check_union| (QEQCAR #1# 0)
-                                                     (QREFELT $ 7) #1#))
+                                      (|check_union2| (QEQCAR #1# 0)
+                                                      (QREFELT $ 7)
+                                                      (|Union| (QREFELT $ 7)
+                                                               #3#)
+                                                      #1#))
                                     (QREFELT $ 23))
                           (QREFELT $ 65))
                 (QREFELT $ 66)))))) 

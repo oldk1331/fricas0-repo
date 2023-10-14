@@ -99,10 +99,14 @@
                     (LETT #1# (SPADCALL |l| |r| (QREFELT $ 42))
                           . #2=(|LODOF;recurfactor|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|LinearOrdinaryDifferentialOperator1|
-                                  (|Fraction| (QREFELT $ 7)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|LinearOrdinaryDifferentialOperator1|
+                                   (|Fraction| (QREFELT $ 7)))
+                                  (|Union|
+                                   (|LinearOrdinaryDifferentialOperator1|
+                                    (|Fraction| (QREFELT $ 7)))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (EXIT (|LODOF;innerFactor| |q| |zeros| |ezfactor| 'T $))))) 
 

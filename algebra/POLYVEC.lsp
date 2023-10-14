@@ -620,8 +620,9 @@
                    (LETT |r|
                          (GETREFV_U32
                           (PROG1 (LETT #2# |d| . #3#)
-                            (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                             #2#))
+                            (|check_subtype2| (>= #2# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #2#))
                           0)
                          . #3#)
                    (SEQ (LETT |i| 0 . #3#) (LETT #1# (- |d| 1) . #3#) G190

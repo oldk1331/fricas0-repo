@@ -59,9 +59,10 @@
                                                                     (QREFELT $
                                                                              21))
                                                           . #11=(|ASSOCEQ;associatedSystem;LPiR;2|))
-                                                  (|check_subtype| (> #10# 0)
-                                                                   '(|PositiveInteger|)
-                                                                   #10#))
+                                                  (|check_subtype2| (> #10# 0)
+                                                                    '(|PositiveInteger|)
+                                                                    '(|NonNegativeInteger|)
+                                                                    #10#))
                                                 . #11#))
                 . #11#)
           (LETT |w|
@@ -78,7 +79,8 @@
           (LETT M (MAKE_MATRIX1 |s| |s| (|spadConstant| $ 22)) . #11#)
           (LETT |m1|
                 (PROG1 (LETT #8# (- |m| 1) . #11#)
-                  (|check_subtype| (> #8# 0) '(|PositiveInteger|) #8#))
+                  (|check_subtype2| (> #8# 0) '(|PositiveInteger|) '(|Integer|)
+                                    #8#))
                 . #11#)
           (LETT |an| (SPADCALL |op| (QREFELT $ 26)) . #11#)
           (LETT |a|
@@ -97,8 +99,10 @@
                                             |an| (QREFELT $ 29))
                                            . #11#)
                                      (QCDR #5#)
-                                   (|check_union| (QEQCAR #5# 0) (QREFELT $ 6)
-                                                  #5#))
+                                   (|check_union2| (QEQCAR #5# 0) (QREFELT $ 6)
+                                                   (|Union| (QREFELT $ 6)
+                                                            "failed")
+                                                   #5#))
                                  (QREFELT $ 30)))))
                       (LETT |j| (|inc_SI| |j|) . #11#) (GO G190) G191
                       (EXIT NIL))
@@ -131,9 +135,10 @@
                           (LETT |u|
                                 (SPADCALL |wi|
                                           (PROG1 (LETT #4# |k| . #11#)
-                                            (|check_subtype| (> #4# 0)
-                                                             '(|PositiveInteger|)
-                                                             #4#))
+                                            (|check_subtype2| (> #4# 0)
+                                                              '(|PositiveInteger|)
+                                                              '(|NonNegativeInteger|)
+                                                              #4#))
                                           (|compiledLookupCheck|
                                            '|incrementKthElement|
                                            (LIST (LIST '|Union| '$ '#1#) '$
@@ -174,9 +179,10 @@
                                 (LETT |u|
                                       (SPADCALL |wi| |m|
                                                 (PROG1 (LETT #3# |j| . #11#)
-                                                  (|check_subtype| (> #3# 0)
-                                                                   '(|PositiveInteger|)
-                                                                   #3#))
+                                                  (|check_subtype2| (> #3# 0)
+                                                                    '(|PositiveInteger|)
+                                                                    '(|NonNegativeInteger|)
+                                                                    #3#))
                                                 (|compiledLookupCheck|
                                                  '|replaceKthElement|
                                                  (LIST (LIST '|Union| '$ '#1#)
@@ -205,9 +211,10 @@
                                                           (PROG1
                                                               (LETT #2# |j|
                                                                     . #11#)
-                                                            (|check_subtype|
+                                                            (|check_subtype2|
                                                              (> #2# 0)
                                                              '(|PositiveInteger|)
+                                                             '(|NonNegativeInteger|)
                                                              #2#))
                                                           (|compiledLookupCheck|
                                                            '|delta|
@@ -390,9 +397,10 @@
                                                                       (QREFELT
                                                                        $ 21))
                                                                      . #3#)
-                                                             (|check_subtype|
+                                                             (|check_subtype2|
                                                               (> #2# 0)
                                                               '(|PositiveInteger|)
+                                                              '(|NonNegativeInteger|)
                                                               #2#)))
                                  . #3#)
                            (LETT |w|

@@ -53,8 +53,8 @@
           (SEQ (LETT |i| 0 . #3#)
                (LETT #1#
                      (PROG1 (LETT #2# (- (QUOTIENT2 (QVSIZE |v|) 2) 1) . #3#)
-                       (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                        #2#))
+                       (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                         '(|Integer|) #2#))
                      . #3#)
                G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ

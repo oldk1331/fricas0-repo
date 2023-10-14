@@ -26,7 +26,8 @@
                 (PROG1
                     (LETT #2# (- (SPADCALL |m| (QREFELT $ 21)) 1)
                           . #3=(|LSMP;aSolution|))
-                  (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#))
+                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #2#))
                 . #3#)
           (LETT |rk| (SPADCALL |m| (QREFELT $ 24)) . #3#)
           (SEQ G190

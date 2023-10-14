@@ -185,9 +185,10 @@
                                                              (LETT #7#
                                                                    (QCDR |w|)
                                                                    . #8#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (> #7# 0)
                                                             '(|PositiveInteger|)
+                                                            '(|Integer|)
                                                             #7#))))
                                                   . #8#)
                                             (GO #9=#:G195))
@@ -225,9 +226,10 @@
                             (CONS 0
                                   (CONS |c|
                                         (PROG1 (LETT #2# |d| . #8#)
-                                          (|check_subtype| (> #2# 0)
-                                                           '(|PositiveInteger|)
-                                                           #2#)))))))))
+                                          (|check_subtype2| (> #2# 0)
+                                                            '(|PositiveInteger|)
+                                                            '(|NonNegativeInteger|)
+                                                            #2#)))))))))
               (#11# (CONS 1 "failed"))))))
           #9# (EXIT #6#)))) 
 

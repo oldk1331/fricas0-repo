@@ -345,9 +345,9 @@
                                         (PROG1
                                             (LETT #1# (- |n| 1)
                                                   . #2=(|ILIST;split!;$I$;32|))
-                                          (|check_subtype| (>= #1# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #1#))
+                                          (|check_subtype2| (>= #1# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #1#))
                                         (QREFELT $ 34))
                               . #2#)
                         (LETT |q| (QCDR |p|) . #2#) (QRPLACD |p| NIL)
@@ -371,8 +371,9 @@
                         (SEQ
                          (LETT |l|
                                (PROG1 (LETT #1# (QUOTIENT2 |n| 2) . #2#)
-                                 (|check_subtype| (>= #1# 0)
-                                                  '(|NonNegativeInteger|) #1#))
+                                 (|check_subtype2| (>= #1# 0)
+                                                   '(|NonNegativeInteger|)
+                                                   '(|Integer|) #1#))
                                . #2#)
                          (LETT |q| (SPADCALL |p| |l| (QREFELT $ 63)) . #2#)
                          (LETT |p| (|ILIST;mergeSort| |f| |p| |l| $) . #2#)

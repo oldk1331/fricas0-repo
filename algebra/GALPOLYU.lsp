@@ -88,9 +88,10 @@
                                                 (PROG1
                                                     (LETT #1# (- |n| |i|)
                                                           . #2#)
-                                                  (|check_subtype| (>= #1# 0)
-                                                                   '(|NonNegativeInteger|)
-                                                                   #1#))
+                                                  (|check_subtype2| (>= #1# 0)
+                                                                    '(|NonNegativeInteger|)
+                                                                    '(|Integer|)
+                                                                    #1#))
                                                 (QREFELT $ 31))
                                       |i| (QREFELT $ 32))
                                      (QREFELT $ 33))

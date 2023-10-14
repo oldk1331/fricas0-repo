@@ -133,8 +133,8 @@
                             (PROG1
                                 (LETT #1# (SPADCALL |c| (QREFELT $ 40))
                                       |EFSTRUC;tanQ;F2F;12|)
-                              (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                               #1#))
+                              (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                                '(|Integer|) #1#))
                             (QREFELT $ 44))
                   (QREFELT $ 46))
                  (QREFELT $ 48))
@@ -148,8 +148,8 @@
                            (PROG1
                                (LETT #1# (SPADCALL |c| (QREFELT $ 40))
                                      |EFSTRUC;tanQ;F2F;13|)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 44))
                  (QREFELT $ 46))
                 (SPADCALL |c| (QREFELT $ 49)) (QREFELT $ 50)))) 
@@ -2738,7 +2738,8 @@
                                      (QREFELT $ 154))
                            (QREFELT $ 155))
                           . #2=(|EFSTRUC;irootDep;KU;50|))
-                  (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#))
+                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #1#))
                 . #2#)
           (LETT |pr|
                 (SPADCALL (|SPADfirst| (SPADCALL |k| (QREFELT $ 32))) |n|

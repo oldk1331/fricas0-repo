@@ -132,9 +132,9 @@
                          (SEQ
                           (LETT |pow|
                                 (PROG1 (LETT #1# (- |xExpon| |oldDeg|) . #3#)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 . #3#)
                           (LETT |oldDeg| |xExpon| . #3#)
                           (LETT |monPow|
@@ -195,9 +195,9 @@
                          (SEQ
                           (LETT |pow|
                                 (PROG1 (LETT #1# (- |xExpon| |oldDeg|) . #3#)
-                                  (|check_subtype| (>= #1# 0)
-                                                   '(|NonNegativeInteger|)
-                                                   #1#))
+                                  (|check_subtype2| (>= #1# 0)
+                                                    '(|NonNegativeInteger|)
+                                                    '(|Integer|) #1#))
                                 . #3#)
                           (LETT |oldDeg| |xExpon| . #3#)
                           (LETT |monPow|
@@ -420,7 +420,8 @@
                (PROG1
                    (LETT #1# (SPADCALL |x| (QREFELT $ 121))
                          |SUTS;order;$Nni;31|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |SUTS;order;$2Nni;32|
         ((|x| $) (|n| . #1=(|NonNegativeInteger|)) ($ . #1#))
@@ -428,7 +429,8 @@
                (PROG1
                    (LETT #2# (SPADCALL |x| |n| (QREFELT $ 123))
                          |SUTS;order;$2Nni;32|)
-                 (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#)))) 
+                 (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #2#)))) 
 
 (SDEFUN |SUTS;elt;3$;33| ((|uts1| $) (|uts2| $) ($ $))
         (COND

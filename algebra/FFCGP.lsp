@@ -17,7 +17,8 @@
                      (LETT #1#
                            (QUOTIENT2 (QREFELT $ 22) (GCD (QREFELT $ 22) |x|))
                            |FFCGP;order;$Pi;3|)
-                   (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#)))))) 
+                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                     '(|Integer|) #1#)))))) 
 
 (SDEFUN |FFCGP;primitive?;$B;4| ((|x| $) ($ |Boolean|))
         (COND
@@ -107,8 +108,9 @@
                                          (+ 1
                                             (SPADCALL |i| |m| (QREFELT $ 68)))
                                          . #4#)
-                                 (|check_subtype| (> #1# 0)
-                                                  '(|PositiveInteger|) #1#))
+                                 (|check_subtype2| (> #1# 0)
+                                                   '(|PositiveInteger|)
+                                                   '(|Integer|) #1#))
                                (QREFELT $ 69)))))
                     (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
                #3#)))))))) 
@@ -205,47 +207,53 @@
                                                    (QREFELT $ 103))
                                          . #2=(|FFCGP;coerce;GF$;16|))
                                    (QCDR #1#)
-                                 (|check_union| (QEQCAR #1# 0)
-                                                (|NonNegativeInteger|) #1#))
+                                 (|check_union2| (QEQCAR #1# 0)
+                                                 (|NonNegativeInteger|)
+                                                 (|Union|
+                                                  (|NonNegativeInteger|)
+                                                  "failed")
+                                                 #1#))
                                (QREFELT $ 23))
                               . #2#)
                         (EXIT
                          (SPADCALL |log| (QREFELT $ 22) (QREFELT $ 104))))))))) 
 
 (SDEFUN |FFCGP;retractIfCan;$U;17| ((|x| $) ($ |Union| GF "failed"))
-        (SPROG ((#1=#:G190 NIL) (|u| (|Union| $ "failed")))
+        (SPROG ((#1=#:G190 NIL) (|u| (|Union| $ #2="failed")))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 45)) (CONS 0 (|spadConstant| $ 49)))
-                 (#2='T
+                 (#3='T
                   (SEQ
                    (LETT |u| (SPADCALL |x| (QREFELT $ 23) (QREFELT $ 106))
-                         . #3=(|FFCGP;retractIfCan;$U;17|))
+                         . #4=(|FFCGP;retractIfCan;$U;17|))
                    (EXIT
                     (COND
                      ((SPADCALL |u| (CONS 1 "failed") (QREFELT $ 108))
                       (CONS 1 "failed"))
-                     (#2#
+                     (#3#
                       (CONS 0
                             (SPADCALL (QREFELT $ 34)
-                                      (PROG2 (LETT #1# |u| . #3#)
+                                      (PROG2 (LETT #1# |u| . #4#)
                                           (QCDR #1#)
-                                        (|check_union| (QEQCAR #1# 0) $ #1#))
+                                        (|check_union2| (QEQCAR #1# 0) $
+                                                        (|Union| $ #2#) #1#))
                                       (QREFELT $ 109)))))))))))) 
 
 (SDEFUN |FFCGP;retract;$GF;18| ((|x| $) ($ GF))
-        (SPROG ((#1=#:G202 NIL) (|a| (|Union| GF "failed")))
+        (SPROG ((#1=#:G202 NIL) (|a| (|Union| GF #2="failed")))
                (SEQ
                 (LETT |a| (SPADCALL |x| (QREFELT $ 111))
-                      . #2=(|FFCGP;retract;$GF;18|))
+                      . #3=(|FFCGP;retract;$GF;18|))
                 (EXIT
                  (COND
                   ((SPADCALL |a| (CONS 1 "failed") (QREFELT $ 112))
                    (|error| "element not in ground field"))
                   ('T
-                   (PROG2 (LETT #1# |a| . #2#)
+                   (PROG2 (LETT #1# |a| . #3#)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))))))) 
+                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                     (|Union| (QREFELT $ 6) #2#) #1#)))))))) 
 
 (SDEFUN |FFCGP;basis;V;19| (($ |Vector| $))
         (SPROG
@@ -261,8 +269,8 @@
                   (SETELT #4# #2#
                           (SPADCALL
                            (PROG1 (LETT #1# |i| . #6#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|NonNegativeInteger|) #1#))
                            (QREFELT $ 69)))))
                 (LETT #2#
                       (PROG1 (|inc_SI| #2#) (LETT |i| (|inc_SI| |i|) . #6#))
@@ -281,27 +289,32 @@
         ((|b| $) (|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
         (SPROG
          ((|e1| (|Record| (|:| |coef1| $) (|:| |coef2| $))) (#1=#:G221 NIL)
-          (|e| (|Union| (|Record| (|:| |coef1| $) (|:| |coef2| $)) "failed")))
+          (|e|
+           (|Union| (|Record| (|:| |coef1| $) (|:| |coef2| $)) #2="failed")))
          (SEQ
           (COND ((SPADCALL |x| (QREFELT $ 45)) (CONS 1 "failed"))
-                (#2='T
+                (#3='T
                  (SEQ
                   (LETT |e| (SPADCALL |b| (QREFELT $ 22) |x| (QREFELT $ 118))
-                        . #3=(|FFCGP;discreteLog;2$U;21|))
+                        . #4=(|FFCGP;discreteLog;2$U;21|))
                   (EXIT
                    (COND
                     ((SPADCALL |e| (CONS 1 "failed") (QREFELT $ 121))
                      (CONS 1 "failed"))
-                    (#2#
+                    (#3#
                      (SEQ
                       (LETT |e1|
-                            (PROG2 (LETT #1# |e| . #3#)
+                            (PROG2 (LETT #1# |e| . #4#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0)
-                                             (|Record| (|:| |coef1| $)
-                                                       (|:| |coef2| $))
-                                             #1#))
-                            . #3#)
+                              (|check_union2| (QEQCAR #1# 0)
+                                              (|Record| (|:| |coef1| $)
+                                                        (|:| |coef2| $))
+                                              (|Union|
+                                               (|Record| (|:| |coef1| $)
+                                                         (|:| |coef2| $))
+                                               #2#)
+                                              #1#))
+                            . #4#)
                       (EXIT
                        (CONS 0
                              (SPADCALL (QCAR |e1|) (QREFELT $ 22)

@@ -198,7 +198,8 @@
                                     (QREFELT $ 50))
                           . #2=(|DFSFUN;airyAi;2Df;21|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|DoubleFloat|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
+                                  (|Union| (|DoubleFloat|) #3="failed") #1#))
                 . #2#)
           (LETT |athird|
                 (PROG2
@@ -207,7 +208,8 @@
                                     (QREFELT $ 50))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|DoubleFloat|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
+                                  (|Union| (|DoubleFloat|) #3#) #1#))
                 . #2#)
           (LETT |eta|
                 (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 52))
@@ -235,8 +237,10 @@
                           (SPADCALL (SPADCALL 2 (QREFELT $ 47)) (QREFELT $ 55))
                           . #2=(|DFSFUN;airyAi;2C;22|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
+                                  (|Union| (|Complex| (|DoubleFloat|))
+                                           #3="failed")
+                                  #1#))
                 . #2#)
           (LETT |athird|
                 (PROG2
@@ -244,8 +248,9 @@
                           (SPADCALL (SPADCALL 3 (QREFELT $ 47)) (QREFELT $ 55))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
+                                  (|Union| (|Complex| (|DoubleFloat|)) #3#)
+                                  #1#))
                 . #2#)
           (LETT |eta|
                 (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 56))
@@ -276,7 +281,8 @@
                                     (QREFELT $ 50))
                           . #2=(|DFSFUN;airyBi;2Df;23|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|DoubleFloat|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
+                                  (|Union| (|DoubleFloat|) #3="failed") #1#))
                 . #2#)
           (LETT |athird|
                 (PROG2
@@ -285,7 +291,8 @@
                                     (QREFELT $ 50))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|DoubleFloat|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|DoubleFloat|)
+                                  (|Union| (|DoubleFloat|) #3#) #1#))
                 . #2#)
           (LETT |eta|
                 (|mul_DF| (SPADCALL 2 |athird| (QREFELT $ 52))
@@ -313,8 +320,10 @@
                           (SPADCALL (SPADCALL 2 (QREFELT $ 47)) (QREFELT $ 55))
                           . #2=(|DFSFUN;airyBi;2C;24|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
+                                  (|Union| (|Complex| (|DoubleFloat|))
+                                           #3="failed")
+                                  #1#))
                 . #2#)
           (LETT |athird|
                 (PROG2
@@ -322,8 +331,9 @@
                           (SPADCALL (SPADCALL 3 (QREFELT $ 47)) (QREFELT $ 55))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Complex| (|DoubleFloat|))
+                                  (|Union| (|Complex| (|DoubleFloat|)) #3#)
+                                  #1#))
                 . #2#)
           (LETT |eta|
                 (SPADCALL (SPADCALL 2 |athird| (QREFELT $ 56))

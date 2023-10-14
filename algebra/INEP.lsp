@@ -587,7 +587,8 @@
          (SEQ
           (LETT |dimA|
                 (PROG1 (LETT #1# (ANROWS A) . #2=(|INEP;charpol;MSup;11|))
-                  (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #1#))
                 . #2#)
           (EXIT
            (COND

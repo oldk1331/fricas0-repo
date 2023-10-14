@@ -203,11 +203,16 @@
                         (LETT #1# (SPADCALL |deq| |y| |x| (QREFELT $ 63))
                               . #2#)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 0)
-                                     (|Record| (|:| |particular| (QREFELT $ 7))
-                                               (|:| |basis|
-                                                    (|List| (QREFELT $ 7))))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 0)
+                                      (|Record|
+                                       (|:| |particular| (QREFELT $ 7))
+                                       (|:| |basis| (|List| (QREFELT $ 7))))
+                                      (|Union|
+                                       (|Record|
+                                        (|:| |particular| (QREFELT $ 7))
+                                        (|:| |basis| (|List| (QREFELT $ 7))))
+                                       (QREFELT $ 7) "failed")
+                                      #1#))
                     . #2#)
               (EXIT
                (CONS 0
@@ -312,12 +317,18 @@
                              (LETT #1# (SPADCALL |deq| |y| |x| (QREFELT $ 63))
                                    . #2#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 0)
-                                          (|Record|
-                                           (|:| |particular| (QREFELT $ 7))
-                                           (|:| |basis|
-                                                (|List| (QREFELT $ 7))))
-                                          #1#))
+                           (|check_union2| (QEQCAR #1# 0)
+                                           (|Record|
+                                            (|:| |particular| (QREFELT $ 7))
+                                            (|:| |basis|
+                                                 (|List| (QREFELT $ 7))))
+                                           (|Union|
+                                            (|Record|
+                                             (|:| |particular| (QREFELT $ 7))
+                                             (|:| |basis|
+                                                  (|List| (QREFELT $ 7))))
+                                            (QREFELT $ 7) "failed")
+                                           #1#))
                          . #2#)
                    (EXIT
                     (CONS 0

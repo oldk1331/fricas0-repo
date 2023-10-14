@@ -36,10 +36,12 @@
                  (PROG1
                      (LETT #2# (- (SPADCALL |x| (QREFELT $ 27)))
                            . #3=(|INS-;euclideanSize;SNni;9|))
-                   (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|) #2#)))
+                   (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #2#)))
                 ('T
                  (PROG1 (LETT #1# (SPADCALL |x| (QREFELT $ 27)) . #3#)
-                   (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))))) 
+                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                     '(|Integer|) #1#)))))) 
 
 (SDEFUN |INS-;convert;SF;10| ((|x| S) ($ |Float|))
         (SPADCALL (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 30))) 

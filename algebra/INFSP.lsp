@@ -752,12 +752,13 @@
                                                     '|variable|
                                                     (LIST
                                                      (LIST '|Union| '$
-                                                           '"failed")
+                                                           '#49="failed")
                                                      (LIST '|Symbol|))
                                                     OV))
                                          . #48#)
                                    (QCDR #43#)
-                                 (|check_union| (QEQCAR #43# 0) OV #43#))
+                                 (|check_union2| (QEQCAR #43# 0) OV
+                                                 (|Union| OV #49#) #43#))
                                #45#)
                               . #48#)))
                       (LETT #44# (CDR #44#) . #48#) (GO G190) G191
@@ -852,7 +853,7 @@
                                                 (|DistributedMultivariatePolynomial|
                                                  |lv| (ELT $ 6))))))
              NIL)
-            (#49='T
+            (#50='T
              (SEQ
               (COND
                ((SPADCALL |lq| NIL
@@ -935,7 +936,7 @@
                                               (LETT #33# 'T . #48#)))))))
                                         (LETT #37# (CDR #37#) . #48#) (GO G190)
                                         G191 (EXIT NIL))
-                                   (COND (#33# #34#) (#49# 'T)))
+                                   (COND (#33# #34#) (#50# 'T)))
                                   (LETT #39# (CONS |pr| #39#) . #48#)))))
                               (LETT #38# (CDR #38#) . #48#) (GO G190) G191
                               (EXIT (NREVERSE #39#))))
@@ -1039,8 +1040,8 @@
                                     (LETT |listGen| (CONS |res| |listGen|)
                                           . #48#)
                                     . #48#)
-                              (GO #50=#:G275)))))))
-                    #50# (EXIT #20#))
+                              (GO #51=#:G275)))))))
+                    #51# (EXIT #20#))
                    (LETT #32# (CDR #32#) . #48#) (GO G190) G191 (EXIT NIL))
               (LETT |result| NIL . #48#)
               (COND
@@ -1127,7 +1128,7 @@
                                    (LETT #12# 'T . #48#)))))))
                              (LETT #15# (CDR #15#) . #48#) (GO G190) G191
                              (EXIT NIL))
-                        (COND (#12# #13#) (#49# NIL)))
+                        (COND (#12# #13#) (#50# NIL)))
                        . #48#)
                  (EXIT
                   (SEQ (LETT |gres| NIL . #48#) (LETT #11# |listGen| . #48#)

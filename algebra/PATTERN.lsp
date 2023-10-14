@@ -63,11 +63,39 @@
                  (CONS 0
                        (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;isExpt;$U;13|)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 2)
-                                        (|Record| (|:| |val| $)
-                                                  (|:| |exponent|
-                                                       (|NonNegativeInteger|)))
-                                        #1#))))
+                         (|check_union2| (QEQCAR #1# 2)
+                                         (|Record| (|:| |val| $)
+                                                   (|:| |exponent|
+                                                        (|NonNegativeInteger|)))
+                                         (|Union| (|:| |ret| (QREFELT $ 6))
+                                                  (|:| |ker|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |op|
+                                                             (|BasicOperator|))
+                                                        (|:| |arg|
+                                                             (|List| $))))
+                                                  (|:| |exp|
+                                                       (|Record| (|:| |val| $)
+                                                                 (|:|
+                                                                  |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                                  (|:| |qot|
+                                                       (|Record| (|:| |num| $)
+                                                                 (|:| |den|
+                                                                      $)))
+                                                  (|:| |sym|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |val| (|Symbol|))
+                                                        (|:| |pred|
+                                                             (|List| (|Any|)))
+                                                        (|:| |bad|
+                                                             (|List|
+                                                              (|Any|))))))
+                                         #1#))))
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |PATTERN;isQuotient;$U;14|
@@ -79,9 +107,37 @@
                        (PROG2
                            (LETT #1# (QVELT |p| 1) |PATTERN;isQuotient;$U;14|)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 3)
-                                        (|Record| (|:| |num| $) (|:| |den| $))
-                                        #1#))))
+                         (|check_union2| (QEQCAR #1# 3)
+                                         (|Record| (|:| |num| $) (|:| |den| $))
+                                         (|Union| (|:| |ret| (QREFELT $ 6))
+                                                  (|:| |ker|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |op|
+                                                             (|BasicOperator|))
+                                                        (|:| |arg|
+                                                             (|List| $))))
+                                                  (|:| |exp|
+                                                       (|Record| (|:| |val| $)
+                                                                 (|:|
+                                                                  |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                                  (|:| |qot|
+                                                       (|Record| (|:| |num| $)
+                                                                 (|:| |den|
+                                                                      $)))
+                                                  (|:| |sym|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |val| (|Symbol|))
+                                                        (|:| |pred|
+                                                             (|List| (|Any|)))
+                                                        (|:| |bad|
+                                                             (|List|
+                                                              (|Any|))))))
+                                         #1#))))
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |PATTERN;hasPredicate?;$B;15| ((|p| $) ($ |Boolean|))
@@ -95,12 +151,36 @@
                   (QVELT
                    (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;quoted?;$B;16|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 4)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |val| (|Symbol|))
-                                              (|:| |pred| (|List| (|Any|)))
-                                              (|:| |bad| (|List| (|Any|))))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 4)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |val| (|Symbol|))
+                                               (|:| |pred| (|List| (|Any|)))
+                                               (|:| |bad| (|List| (|Any|))))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #1#))
                    0)))
                 ('T 'NIL)))) 
 
@@ -112,12 +192,36 @@
                   (QVELT
                    (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;generic?;$B;17|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 4)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |val| (|Symbol|))
-                                              (|:| |pred| (|List| (|Any|)))
-                                              (|:| |bad| (|List| (|Any|))))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 4)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |val| (|Symbol|))
+                                               (|:| |pred| (|List| (|Any|)))
+                                               (|:| |bad| (|List| (|Any|))))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #1#))
                    0)
                   1 $))
                 ('T 'NIL)))) 
@@ -130,12 +234,36 @@
                   (QVELT
                    (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;multiple?;$B;18|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 4)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |val| (|Symbol|))
-                                              (|:| |pred| (|List| (|Any|)))
-                                              (|:| |bad| (|List| (|Any|))))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 4)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |val| (|Symbol|))
+                                               (|:| |pred| (|List| (|Any|)))
+                                               (|:| |bad| (|List| (|Any|))))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #1#))
                    0)
                   (SPADCALL 2 (QREFELT $ 33)) $))
                 ('T 'NIL)))) 
@@ -148,12 +276,36 @@
                   (QVELT
                    (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;optional?;$B;19|)
                        (QCDR #1#)
-                     (|check_union| (QEQCAR #1# 4)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |val| (|Symbol|))
-                                              (|:| |pred| (|List| (|Any|)))
-                                              (|:| |bad| (|List| (|Any|))))
-                                    #1#))
+                     (|check_union2| (QEQCAR #1# 4)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |val| (|Symbol|))
+                                               (|:| |pred| (|List| (|Any|)))
+                                               (|:| |bad| (|List| (|Any|))))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #1#))
                    0)
                   (SPADCALL 4 (QREFELT $ 33)) $))
                 ('T 'NIL)))) 
@@ -197,7 +349,28 @@
                 ((SPADCALL |p| (QREFELT $ 28))
                  (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;retract;$R;24|)
                      (QCDR #1#)
-                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#)))
+                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                   (|Union| (|:| |ret| (QREFELT $ 6))
+                                            (|:| |ker|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $))))
+                                            (|:| |exp|
+                                                 (|Record| (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                            (|:| |qot|
+                                                 (|Record| (|:| |num| $)
+                                                           (|:| |den| $)))
+                                            (|:| |sym|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad|
+                                                       (|List| (|Any|))))))
+                                   #1#)))
                 ('T (|error| "Not retractable"))))) 
 
 (SDEFUN |PATTERN;convert;L$;25| ((|l| |List| $) ($ $))
@@ -212,7 +385,36 @@
                            (LETT #1# (QVELT |p| 1)
                                  |PATTERN;retractIfCan;$U;26|)
                            (QCDR #1#)
-                         (|check_union| (QEQCAR #1# 0) (QREFELT $ 6) #1#))))
+                         (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
+                                         (|Union| (|:| |ret| (QREFELT $ 6))
+                                                  (|:| |ker|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |op|
+                                                             (|BasicOperator|))
+                                                        (|:| |arg|
+                                                             (|List| $))))
+                                                  (|:| |exp|
+                                                       (|Record| (|:| |val| $)
+                                                                 (|:|
+                                                                  |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                                  (|:| |qot|
+                                                       (|Record| (|:| |num| $)
+                                                                 (|:| |den|
+                                                                      $)))
+                                                  (|:| |sym|
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |val| (|Symbol|))
+                                                        (|:| |pred|
+                                                             (|List| (|Any|)))
+                                                        (|:| |bad|
+                                                             (|List|
+                                                              (|Any|))))))
+                                         #1#))))
                 ('T (CONS 1 "failed"))))) 
 
 (SDEFUN |PATTERN;withPredicates;$L$;27| ((|p| $) (|l| |List| (|Any|)) ($ $))
@@ -334,11 +536,36 @@
                       (PROG2
                           (LETT #1# (QVELT |p| 1) . #2=(|PATTERN;isOp;$U;36|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1)
-                                       (|Record| (|:| |tag| (|SingleInteger|))
-                                                 (|:| |op| (|BasicOperator|))
-                                                 (|:| |arg| (|List| $)))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 1)
+                                        (|Record| (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $)))
+                                        (|Union| (|:| |ret| (QREFELT $ 6))
+                                                 (|:| |ker|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |op|
+                                                            (|BasicOperator|))
+                                                       (|:| |arg| (|List| $))))
+                                                 (|:| |exp|
+                                                      (|Record| (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                 (|:| |qot|
+                                                      (|Record| (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                 (|:| |sym|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |val| (|Symbol|))
+                                                       (|:| |pred|
+                                                            (|List| (|Any|)))
+                                                       (|:| |bad|
+                                                            (|List|
+                                                             (|Any|))))))
+                                        #1#))
                       0))
                     (EXIT
                      (CONS 0
@@ -346,22 +573,72 @@
                             (QVELT
                              (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 1)
-                                              (|Record|
-                                               (|:| |tag| (|SingleInteger|))
-                                               (|:| |op| (|BasicOperator|))
-                                               (|:| |arg| (|List| $)))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 1)
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |op| (|BasicOperator|))
+                                                (|:| |arg| (|List| $)))
+                                               (|Union|
+                                                (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                               #1#))
                              1)
                             (QVELT
                              (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 1)
-                                              (|Record|
-                                               (|:| |tag| (|SingleInteger|))
-                                               (|:| |op| (|BasicOperator|))
-                                               (|:| |arg| (|List| $)))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 1)
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |op| (|BasicOperator|))
+                                                (|:| |arg| (|List| $)))
+                                               (|Union|
+                                                (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                               #1#))
                              2))))))))
                 (EXIT (CONS 1 "failed"))))) 
 
@@ -377,11 +654,36 @@
                       (PROG2
                           (LETT #1# (QVELT |p| 1) . #2=(|PATTERN;isTaggedOp|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1)
-                                       (|Record| (|:| |tag| (|SingleInteger|))
-                                                 (|:| |op| (|BasicOperator|))
-                                                 (|:| |arg| (|List| $)))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 1)
+                                        (|Record| (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $)))
+                                        (|Union| (|:| |ret| (QREFELT $ 6))
+                                                 (|:| |ker|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |op|
+                                                            (|BasicOperator|))
+                                                       (|:| |arg| (|List| $))))
+                                                 (|:| |exp|
+                                                      (|Record| (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                 (|:| |qot|
+                                                      (|Record| (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                 (|:| |sym|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |val| (|Symbol|))
+                                                       (|:| |pred|
+                                                            (|List| (|Any|)))
+                                                       (|:| |bad|
+                                                            (|List|
+                                                             (|Any|))))))
+                                        #1#))
                       0)
                      |t|)
                     (EXIT
@@ -389,12 +691,37 @@
                            (QVELT
                             (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 1)
-                                             (|Record|
-                                              (|:| |tag| (|SingleInteger|))
-                                              (|:| |op| (|BasicOperator|))
-                                              (|:| |arg| (|List| $)))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 1)
+                                              (|Record|
+                                               (|:| |tag| (|SingleInteger|))
+                                               (|:| |op| (|BasicOperator|))
+                                               (|:| |arg| (|List| $)))
+                                              (|Union|
+                                               (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                              #1#))
                             2)))))))
                 (EXIT (CONS 1 "failed"))))) 
 
@@ -533,23 +860,76 @@
                           (LETT #1# (QVELT |p| 1)
                                 . #2=(|PATTERN;isOp;$BoU;46|))
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1)
-                                       (|Record| (|:| |tag| (|SingleInteger|))
-                                                 (|:| |op| (|BasicOperator|))
-                                                 (|:| |arg| (|List| $)))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 1)
+                                        (|Record| (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $)))
+                                        (|Union| (|:| |ret| (QREFELT $ 6))
+                                                 (|:| |ker|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |op|
+                                                            (|BasicOperator|))
+                                                       (|:| |arg| (|List| $))))
+                                                 (|:| |exp|
+                                                      (|Record| (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                 (|:| |qot|
+                                                      (|Record| (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                 (|:| |sym|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |val| (|Symbol|))
+                                                       (|:| |pred|
+                                                            (|List| (|Any|)))
+                                                       (|:| |bad|
+                                                            (|List|
+                                                             (|Any|))))))
+                                        #1#))
                       0))
                     (COND
                      ((SPADCALL
                        (QVELT
                         (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 1)
-                                         (|Record|
-                                          (|:| |tag| (|SingleInteger|))
-                                          (|:| |op| (|BasicOperator|))
-                                          (|:| |arg| (|List| $)))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 1)
+                                          (|Record|
+                                           (|:| |tag| (|SingleInteger|))
+                                           (|:| |op| (|BasicOperator|))
+                                           (|:| |arg| (|List| $)))
+                                          (|Union| (|:| |ret| (QREFELT $ 6))
+                                                   (|:| |ker|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |op|
+                                                              (|BasicOperator|))
+                                                         (|:| |arg|
+                                                              (|List| $))))
+                                                   (|:| |exp|
+                                                        (|Record| (|:| |val| $)
+                                                                  (|:|
+                                                                   |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                                   (|:| |qot|
+                                                        (|Record| (|:| |num| $)
+                                                                  (|:| |den|
+                                                                       $)))
+                                                   (|:| |sym|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |val| (|Symbol|))
+                                                         (|:| |pred|
+                                                              (|List| (|Any|)))
+                                                         (|:| |bad|
+                                                              (|List|
+                                                               (|Any|))))))
+                                          #1#))
                         1)
                        |o| (QREFELT $ 104))
                       (EXIT
@@ -557,12 +937,38 @@
                              (QVELT
                               (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 1)
-                                               (|Record|
-                                                (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                               #1#))
+                                (|check_union2| (QEQCAR #1# 1)
+                                                (|Record|
+                                                 (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                                (|Union|
+                                                 (|:| |ret| (QREFELT $ 6))
+                                                 (|:| |ker|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |op|
+                                                            (|BasicOperator|))
+                                                       (|:| |arg| (|List| $))))
+                                                 (|:| |exp|
+                                                      (|Record| (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                 (|:| |qot|
+                                                      (|Record| (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                 (|:| |sym|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |val| (|Symbol|))
+                                                       (|:| |pred|
+                                                            (|List| (|Any|)))
+                                                       (|:| |bad|
+                                                            (|List|
+                                                             (|Any|))))))
+                                                #1#))
                               2)))))))))
                 (EXIT (CONS 1 "failed"))))) 
 
@@ -573,12 +979,35 @@
                  (QVELT
                   (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;predicates;$L;47|)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 4)
-                                   (|Record| (|:| |tag| (|SingleInteger|))
-                                             (|:| |val| (|Symbol|))
-                                             (|:| |pred| (|List| (|Any|)))
-                                             (|:| |bad| (|List| (|Any|))))
-                                   #1#))
+                    (|check_union2| (QEQCAR #1# 4)
+                                    (|Record| (|:| |tag| (|SingleInteger|))
+                                              (|:| |val| (|Symbol|))
+                                              (|:| |pred| (|List| (|Any|)))
+                                              (|:| |bad| (|List| (|Any|))))
+                                    (|Union| (|:| |ret| (QREFELT $ 6))
+                                             (|:| |ker|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |op| (|BasicOperator|))
+                                                   (|:| |arg| (|List| $))))
+                                             (|:| |exp|
+                                                  (|Record| (|:| |val| $)
+                                                            (|:| |exponent|
+                                                                 (|NonNegativeInteger|))))
+                                             (|:| |qot|
+                                                  (|Record| (|:| |num| $)
+                                                            (|:| |den| $)))
+                                             (|:| |sym|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |val| (|Symbol|))
+                                                   (|:| |pred|
+                                                        (|List| (|Any|)))
+                                                   (|:| |bad|
+                                                        (|List| (|Any|))))))
+                                    #1#))
                   2))
                 ('T NIL)))) 
 
@@ -592,12 +1021,36 @@
                     (PROG2
                         (LETT #1# (QVELT |p| 1) |PATTERN;setPredicates;$L$;48|)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 4)
-                                     (|Record| (|:| |tag| (|SingleInteger|))
-                                               (|:| |val| (|Symbol|))
-                                               (|:| |pred| (|List| (|Any|)))
-                                               (|:| |bad| (|List| (|Any|))))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 4)
+                                      (|Record| (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #1#))
                     2 |l|)
                    (EXIT |p|)))
                  ('T
@@ -613,12 +1066,36 @@
                     (PROG2
                         (LETT #1# (QVELT |p| 1) |PATTERN;resetBadValues;2$;49|)
                         (QCDR #1#)
-                      (|check_union| (QEQCAR #1# 4)
-                                     (|Record| (|:| |tag| (|SingleInteger|))
-                                               (|:| |val| (|Symbol|))
-                                               (|:| |pred| (|List| (|Any|)))
-                                               (|:| |bad| (|List| (|Any|))))
-                                     #1#))
+                      (|check_union2| (QEQCAR #1# 4)
+                                      (|Record| (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #1#))
                     3 NIL)
                    (EXIT |p|)))
                  ('T
@@ -638,39 +1115,120 @@
                                      (LETT #1# (QVELT |p| 1)
                                            . #2=(|PATTERN;addBadValue;$A$;50|))
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 4)
-                                                  (|Record|
-                                                   (|:| |tag|
-                                                        (|SingleInteger|))
-                                                   (|:| |val| (|Symbol|))
-                                                   (|:| |pred|
-                                                        (|List| (|Any|)))
-                                                   (|:| |bad|
-                                                        (|List| (|Any|))))
-                                                  #1#))
+                                   (|check_union2| (QEQCAR #1# 4)
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))
+                                                   (|Union|
+                                                    (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                                   #1#))
                                  3)
                                 (QREFELT $ 107)))
                      (QSETVELT
                       (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                           (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 4)
-                                       (|Record| (|:| |tag| (|SingleInteger|))
-                                                 (|:| |val| (|Symbol|))
-                                                 (|:| |pred| (|List| (|Any|)))
-                                                 (|:| |bad| (|List| (|Any|))))
-                                       #1#))
+                        (|check_union2| (QEQCAR #1# 4)
+                                        (|Record| (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad| (|List| (|Any|))))
+                                        (|Union| (|:| |ret| (QREFELT $ 6))
+                                                 (|:| |ker|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |op|
+                                                            (|BasicOperator|))
+                                                       (|:| |arg| (|List| $))))
+                                                 (|:| |exp|
+                                                      (|Record| (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                 (|:| |qot|
+                                                      (|Record| (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                 (|:| |sym|
+                                                      (|Record|
+                                                       (|:| |tag|
+                                                            (|SingleInteger|))
+                                                       (|:| |val| (|Symbol|))
+                                                       (|:| |pred|
+                                                            (|List| (|Any|)))
+                                                       (|:| |bad|
+                                                            (|List|
+                                                             (|Any|))))))
+                                        #1#))
                       3
                       (CONS |a|
                             (QVELT
                              (PROG2 (LETT #1# (QVELT |p| 1) . #2#)
                                  (QCDR #1#)
-                               (|check_union| (QEQCAR #1# 4)
-                                              (|Record|
-                                               (|:| |tag| (|SingleInteger|))
-                                               (|:| |val| (|Symbol|))
-                                               (|:| |pred| (|List| (|Any|)))
-                                               (|:| |bad| (|List| (|Any|))))
-                                              #1#))
+                               (|check_union2| (QEQCAR #1# 4)
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))
+                                               (|Union|
+                                                (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                               #1#))
                              3)))))
                    (EXIT |p|)))
                  ('T
@@ -683,12 +1241,35 @@
                  (QVELT
                   (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;getBadValues;$L;51|)
                       (QCDR #1#)
-                    (|check_union| (QEQCAR #1# 4)
-                                   (|Record| (|:| |tag| (|SingleInteger|))
-                                             (|:| |val| (|Symbol|))
-                                             (|:| |pred| (|List| (|Any|)))
-                                             (|:| |bad| (|List| (|Any|))))
-                                   #1#))
+                    (|check_union2| (QEQCAR #1# 4)
+                                    (|Record| (|:| |tag| (|SingleInteger|))
+                                              (|:| |val| (|Symbol|))
+                                              (|:| |pred| (|List| (|Any|)))
+                                              (|:| |bad| (|List| (|Any|))))
+                                    (|Union| (|:| |ret| (QREFELT $ 6))
+                                             (|:| |ker|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |op| (|BasicOperator|))
+                                                   (|:| |arg| (|List| $))))
+                                             (|:| |exp|
+                                                  (|Record| (|:| |val| $)
+                                                            (|:| |exponent|
+                                                                 (|NonNegativeInteger|))))
+                                             (|:| |qot|
+                                                  (|Record| (|:| |num| $)
+                                                            (|:| |den| $)))
+                                             (|:| |sym|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |val| (|Symbol|))
+                                                   (|:| |pred|
+                                                        (|List| (|Any|)))
+                                                   (|:| |bad|
+                                                        (|List| (|Any|))))))
+                                    #1#))
                   3))
                 ('T (|error| "Not a generic symbol"))))) 
 
@@ -767,11 +1348,40 @@
                                (QCAR
                                 (PROG2 (LETT #5# |q| . #7#)
                                     (QCDR #5#)
-                                  (|check_union| (QEQCAR #5# 2)
-                                                 (|Record| (|:| |val| $)
-                                                           (|:| |exponent|
-                                                                (|NonNegativeInteger|)))
-                                                 #5#)))
+                                  (|check_union2| (QEQCAR #5# 2)
+                                                  (|Record| (|:| |val| $)
+                                                            (|:| |exponent|
+                                                                 (|NonNegativeInteger|)))
+                                                  (|Union|
+                                                   (|:| |ret| (QREFELT $ 6))
+                                                   (|:| |ker|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |op|
+                                                              (|BasicOperator|))
+                                                         (|:| |arg|
+                                                              (|List| $))))
+                                                   (|:| |exp|
+                                                        (|Record| (|:| |val| $)
+                                                                  (|:|
+                                                                   |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                                   (|:| |qot|
+                                                        (|Record| (|:| |num| $)
+                                                                  (|:| |den|
+                                                                       $)))
+                                                   (|:| |sym|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |val| (|Symbol|))
+                                                         (|:| |pred|
+                                                              (|List| (|Any|)))
+                                                         (|:| |bad|
+                                                              (|List|
+                                                               (|Any|))))))
+                                                  #5#)))
                                (QREFELT $ 116)))
                              ((QEQCAR |q| 3)
                               (SPADCALL
@@ -779,19 +1389,81 @@
                                 (QCAR
                                  (PROG2 (LETT #4# |q| . #7#)
                                      (QCDR #4#)
-                                   (|check_union| (QEQCAR #4# 3)
-                                                  (|Record| (|:| |num| $)
-                                                            (|:| |den| $))
-                                                  #4#)))
+                                   (|check_union2| (QEQCAR #4# 3)
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $))
+                                                   (|Union|
+                                                    (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                                   #4#)))
                                 (QREFELT $ 116))
                                (SPADCALL
                                 (QCDR
                                  (PROG2 (LETT #4# |q| . #7#)
                                      (QCDR #4#)
-                                   (|check_union| (QEQCAR #4# 3)
-                                                  (|Record| (|:| |num| $)
-                                                            (|:| |den| $))
-                                                  #4#)))
+                                   (|check_union2| (QEQCAR #4# 3)
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $))
+                                                   (|Union|
+                                                    (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                                   #4#)))
                                 (QREFELT $ 116))
                                (QREFELT $ 117)))
                              ((QEQCAR |q| 1)
@@ -803,15 +1475,55 @@
                                            (QVELT
                                             (PROG2 (LETT #2# |q| . #7#)
                                                 (QCDR #2#)
-                                              (|check_union| (QEQCAR #2# 1)
-                                                             (|Record|
-                                                              (|:| |tag|
-                                                                   (|SingleInteger|))
-                                                              (|:| |op|
-                                                                   (|BasicOperator|))
-                                                              (|:| |arg|
-                                                                   (|List| $)))
-                                                             #2#))
+                                              (|check_union2| (QEQCAR #2# 1)
+                                                              (|Record|
+                                                               (|:| |tag|
+                                                                    (|SingleInteger|))
+                                                               (|:| |op|
+                                                                    (|BasicOperator|))
+                                                               (|:| |arg|
+                                                                    (|List|
+                                                                     $)))
+                                                              (|Union|
+                                                               (|:| |ret|
+                                                                    (QREFELT $
+                                                                             6))
+                                                               (|:| |ker|
+                                                                    (|Record|
+                                                                     (|:| |tag|
+                                                                          (|SingleInteger|))
+                                                                     (|:| |op|
+                                                                          (|BasicOperator|))
+                                                                     (|:| |arg|
+                                                                          (|List|
+                                                                           $))))
+                                                               (|:| |exp|
+                                                                    (|Record|
+                                                                     (|:| |val|
+                                                                          $)
+                                                                     (|:|
+                                                                      |exponent|
+                                                                      (|NonNegativeInteger|))))
+                                                               (|:| |qot|
+                                                                    (|Record|
+                                                                     (|:| |num|
+                                                                          $)
+                                                                     (|:| |den|
+                                                                          $)))
+                                                               (|:| |sym|
+                                                                    (|Record|
+                                                                     (|:| |tag|
+                                                                          (|SingleInteger|))
+                                                                     (|:| |val|
+                                                                          (|Symbol|))
+                                                                     (|:|
+                                                                      |pred|
+                                                                      (|List|
+                                                                       (|Any|)))
+                                                                     (|:| |bad|
+                                                                          (|List|
+                                                                           (|Any|))))))
+                                                              #2#))
                                             2)
                                            . #7#)
                                      G190
@@ -860,12 +1572,35 @@
                  (|PATTERN;SYM2O|
                   (PROG2 (LETT #6# |p| . #7=(|PATTERN;PAT2O|))
                       (QCDR #6#)
-                    (|check_union| (QEQCAR #6# 4)
-                                   (|Record| (|:| |tag| (|SingleInteger|))
-                                             (|:| |val| (|Symbol|))
-                                             (|:| |pred| (|List| (|Any|)))
-                                             (|:| |bad| (|List| (|Any|))))
-                                   #6#))
+                    (|check_union2| (QEQCAR #6# 4)
+                                    (|Record| (|:| |tag| (|SingleInteger|))
+                                              (|:| |val| (|Symbol|))
+                                              (|:| |pred| (|List| (|Any|)))
+                                              (|:| |bad| (|List| (|Any|))))
+                                    (|Union| (|:| |ret| (QREFELT $ 6))
+                                             (|:| |ker|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |op| (|BasicOperator|))
+                                                   (|:| |arg| (|List| $))))
+                                             (|:| |exp|
+                                                  (|Record| (|:| |val| $)
+                                                            (|:| |exponent|
+                                                                 (|NonNegativeInteger|))))
+                                             (|:| |qot|
+                                                  (|Record| (|:| |num| $)
+                                                            (|:| |den| $)))
+                                             (|:| |sym|
+                                                  (|Record|
+                                                   (|:| |tag|
+                                                        (|SingleInteger|))
+                                                   (|:| |val| (|Symbol|))
+                                                   (|:| |pred|
+                                                        (|List| (|Any|)))
+                                                   (|:| |bad|
+                                                        (|List| (|Any|))))))
+                                    #6#))
                   $))
                 ((QEQCAR |p| 2)
                  (SPADCALL
@@ -873,21 +1608,69 @@
                    (QCAR
                     (PROG2 (LETT #5# |p| . #7#)
                         (QCDR #5#)
-                      (|check_union| (QEQCAR #5# 2)
-                                     (|Record| (|:| |val| $)
-                                               (|:| |exponent|
-                                                    (|NonNegativeInteger|)))
-                                     #5#)))
+                      (|check_union2| (QEQCAR #5# 2)
+                                      (|Record| (|:| |val| $)
+                                                (|:| |exponent|
+                                                     (|NonNegativeInteger|)))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #5#)))
                    (QREFELT $ 51))
                   (SPADCALL
                    (QCDR
                     (PROG2 (LETT #5# |p| . #7#)
                         (QCDR #5#)
-                      (|check_union| (QEQCAR #5# 2)
-                                     (|Record| (|:| |val| $)
-                                               (|:| |exponent|
-                                                    (|NonNegativeInteger|)))
-                                     #5#)))
+                      (|check_union2| (QEQCAR #5# 2)
+                                      (|Record| (|:| |val| $)
+                                                (|:| |exponent|
+                                                     (|NonNegativeInteger|)))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #5#)))
                    (QREFELT $ 112))
                   (QREFELT $ 120)))
                 ((QEQCAR |p| 3)
@@ -896,17 +1679,65 @@
                    (QCAR
                     (PROG2 (LETT #4# |p| . #7#)
                         (QCDR #4#)
-                      (|check_union| (QEQCAR #4# 3)
-                                     (|Record| (|:| |num| $) (|:| |den| $))
-                                     #4#)))
+                      (|check_union2| (QEQCAR #4# 3)
+                                      (|Record| (|:| |num| $) (|:| |den| $))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #4#)))
                    (QREFELT $ 51))
                   (SPADCALL
                    (QCDR
                     (PROG2 (LETT #4# |p| . #7#)
                         (QCDR #4#)
-                      (|check_union| (QEQCAR #4# 3)
-                                     (|Record| (|:| |num| $) (|:| |den| $))
-                                     #4#)))
+                      (|check_union2| (QEQCAR #4# 3)
+                                      (|Record| (|:| |num| $) (|:| |den| $))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #4#)))
                    (QREFELT $ 51))
                   (QREFELT $ 121)))
                 (#8='T
@@ -915,77 +1746,245 @@
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      0)
                     1)
                    (|PATTERN;LPAT2O| (ELT $ 122)
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      2)
                     $))
                   ((|eql_SI|
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      0)
                     (SPADCALL 2 (QREFELT $ 33)))
                    (|PATTERN;LPAT2O| (ELT $ 123)
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      2)
                     $))
                   ((|eql_SI|
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      0)
                     (SPADCALL 3 (QREFELT $ 33)))
                    (SPADCALL
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      2)
                     (QREFELT $ 124)))
                   ((|eql_SI|
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      0)
                     (SPADCALL 4 (QREFELT $ 33)))
                    (SPADCALL 0 (QREFELT $ 125)))
@@ -993,11 +1992,35 @@
                     (QVELT
                      (PROG2 (LETT #1# |p| . #7#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 1)
-                                      (|Record| (|:| |tag| (|SingleInteger|))
-                                                (|:| |op| (|BasicOperator|))
-                                                (|:| |arg| (|List| $)))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 1)
+                                       (|Record| (|:| |tag| (|SingleInteger|))
+                                                 (|:| |op| (|BasicOperator|))
+                                                 (|:| |arg| (|List| $)))
+                                       (|Union| (|:| |ret| (QREFELT $ 6))
+                                                (|:| |ker|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |op|
+                                                           (|BasicOperator|))
+                                                      (|:| |arg| (|List| $))))
+                                                (|:| |exp|
+                                                     (|Record| (|:| |val| $)
+                                                               (|:| |exponent|
+                                                                    (|NonNegativeInteger|))))
+                                                (|:| |qot|
+                                                     (|Record| (|:| |num| $)
+                                                               (|:| |den| $)))
+                                                (|:| |sym|
+                                                     (|Record|
+                                                      (|:| |tag|
+                                                           (|SingleInteger|))
+                                                      (|:| |val| (|Symbol|))
+                                                      (|:| |pred|
+                                                           (|List| (|Any|)))
+                                                      (|:| |bad|
+                                                           (|List| (|Any|))))))
+                                       #1#))
                      0)
                     (SPADCALL 5 (QREFELT $ 33)))
                    (SPADCALL 1 (QREFELT $ 125)))
@@ -1011,15 +2034,48 @@
                                       (QVELT
                                        (PROG2 (LETT #1# |p| . #7#)
                                            (QCDR #1#)
-                                         (|check_union| (QEQCAR #1# 1)
-                                                        (|Record|
-                                                         (|:| |tag|
-                                                              (|SingleInteger|))
-                                                         (|:| |op|
-                                                              (|BasicOperator|))
-                                                         (|:| |arg|
-                                                              (|List| $)))
-                                                        #1#))
+                                         (|check_union2| (QEQCAR #1# 1)
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $)))
+                                                         (|Union|
+                                                          (|:| |ret|
+                                                               (QREFELT $ 6))
+                                                          (|:| |ker|
+                                                               (|Record|
+                                                                (|:| |tag|
+                                                                     (|SingleInteger|))
+                                                                (|:| |op|
+                                                                     (|BasicOperator|))
+                                                                (|:| |arg|
+                                                                     (|List|
+                                                                      $))))
+                                                          (|:| |exp|
+                                                               (|Record|
+                                                                (|:| |val| $)
+                                                                (|:| |exponent|
+                                                                     (|NonNegativeInteger|))))
+                                                          (|:| |qot|
+                                                               (|Record|
+                                                                (|:| |num| $)
+                                                                (|:| |den| $)))
+                                                          (|:| |sym|
+                                                               (|Record|
+                                                                (|:| |tag|
+                                                                     (|SingleInteger|))
+                                                                (|:| |val|
+                                                                     (|Symbol|))
+                                                                (|:| |pred|
+                                                                     (|List|
+                                                                      (|Any|)))
+                                                                (|:| |bad|
+                                                                     (|List|
+                                                                      (|Any|))))))
+                                                         #1#))
                                        2)
                                       . #7#)
                                 G190
@@ -1041,12 +2097,37 @@
                            (QVELT
                             (PROG2 (LETT #1# |p| . #7#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 1)
-                                             (|Record|
-                                              (|:| |tag| (|SingleInteger|))
-                                              (|:| |op| (|BasicOperator|))
-                                              (|:| |arg| (|List| $)))
-                                             #1#))
+                              (|check_union2| (QEQCAR #1# 1)
+                                              (|Record|
+                                               (|:| |tag| (|SingleInteger|))
+                                               (|:| |op| (|BasicOperator|))
+                                               (|:| |arg| (|List| $)))
+                                              (|Union|
+                                               (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                              #1#))
                             1)
                            (QREFELT $ 128))
                           . #7#)
@@ -1059,12 +2140,42 @@
                           (QVELT
                            (PROG2 (LETT #1# |p| . #7#)
                                (QCDR #1#)
-                             (|check_union| (QEQCAR #1# 1)
-                                            (|Record|
-                                             (|:| |tag| (|SingleInteger|))
-                                             (|:| |op| (|BasicOperator|))
-                                             (|:| |arg| (|List| $)))
-                                            #1#))
+                             (|check_union2| (QEQCAR #1# 1)
+                                             (|Record|
+                                              (|:| |tag| (|SingleInteger|))
+                                              (|:| |op| (|BasicOperator|))
+                                              (|:| |arg| (|List| $)))
+                                             (|Union| (|:| |ret| (QREFELT $ 6))
+                                                      (|:| |ker|
+                                                           (|Record|
+                                                            (|:| |tag|
+                                                                 (|SingleInteger|))
+                                                            (|:| |op|
+                                                                 (|BasicOperator|))
+                                                            (|:| |arg|
+                                                                 (|List| $))))
+                                                      (|:| |exp|
+                                                           (|Record|
+                                                            (|:| |val| $)
+                                                            (|:| |exponent|
+                                                                 (|NonNegativeInteger|))))
+                                                      (|:| |qot|
+                                                           (|Record|
+                                                            (|:| |num| $)
+                                                            (|:| |den| $)))
+                                                      (|:| |sym|
+                                                           (|Record|
+                                                            (|:| |tag|
+                                                                 (|SingleInteger|))
+                                                            (|:| |val|
+                                                                 (|Symbol|))
+                                                            (|:| |pred|
+                                                                 (|List|
+                                                                  (|Any|)))
+                                                            (|:| |bad|
+                                                                 (|List|
+                                                                  (|Any|))))))
+                                             #1#))
                            1)
                           (QREFELT $ 129))
                          (QREFELT $ 110))
@@ -1107,49 +2218,169 @@
                         (QVELT
                          (PROG2 (LETT #6# |p| . #7=(|PATTERN;patcopy|))
                              (QCDR #6#)
-                           (|check_union| (QEQCAR #6# 4)
-                                          (|Record|
-                                           (|:| |tag| (|SingleInteger|))
-                                           (|:| |val| (|Symbol|))
-                                           (|:| |pred| (|List| (|Any|)))
-                                           (|:| |bad| (|List| (|Any|))))
-                                          #6#))
-                         0)
-                        (QVELT
-                         (PROG2 (LETT #6# |p| . #7#)
-                             (QCDR #6#)
-                           (|check_union| (QEQCAR #6# 4)
-                                          (|Record|
-                                           (|:| |tag| (|SingleInteger|))
-                                           (|:| |val| (|Symbol|))
-                                           (|:| |pred| (|List| (|Any|)))
-                                           (|:| |bad| (|List| (|Any|))))
-                                          #6#))
-                         1)
-                        (SPADCALL
-                         (QVELT
-                          (PROG2 (LETT #6# |p| . #7#)
-                              (QCDR #6#)
-                            (|check_union| (QEQCAR #6# 4)
+                           (|check_union2| (QEQCAR #6# 4)
                                            (|Record|
                                             (|:| |tag| (|SingleInteger|))
                                             (|:| |val| (|Symbol|))
                                             (|:| |pred| (|List| (|Any|)))
                                             (|:| |bad| (|List| (|Any|))))
+                                           (|Union| (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
                                            #6#))
+                         0)
+                        (QVELT
+                         (PROG2 (LETT #6# |p| . #7#)
+                             (QCDR #6#)
+                           (|check_union2| (QEQCAR #6# 4)
+                                           (|Record|
+                                            (|:| |tag| (|SingleInteger|))
+                                            (|:| |val| (|Symbol|))
+                                            (|:| |pred| (|List| (|Any|)))
+                                            (|:| |bad| (|List| (|Any|))))
+                                           (|Union| (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                           #6#))
+                         1)
+                        (SPADCALL
+                         (QVELT
+                          (PROG2 (LETT #6# |p| . #7#)
+                              (QCDR #6#)
+                            (|check_union2| (QEQCAR #6# 4)
+                                            (|Record|
+                                             (|:| |tag| (|SingleInteger|))
+                                             (|:| |val| (|Symbol|))
+                                             (|:| |pred| (|List| (|Any|)))
+                                             (|:| |bad| (|List| (|Any|))))
+                                            (|Union| (|:| |ret| (QREFELT $ 6))
+                                                     (|:| |ker|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |op|
+                                                                (|BasicOperator|))
+                                                           (|:| |arg|
+                                                                (|List| $))))
+                                                     (|:| |exp|
+                                                          (|Record|
+                                                           (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                                     (|:| |qot|
+                                                          (|Record|
+                                                           (|:| |num| $)
+                                                           (|:| |den| $)))
+                                                     (|:| |sym|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |val|
+                                                                (|Symbol|))
+                                                           (|:| |pred|
+                                                                (|List|
+                                                                 (|Any|)))
+                                                           (|:| |bad|
+                                                                (|List|
+                                                                 (|Any|))))))
+                                            #6#))
                           2)
                          (QREFELT $ 131))
                         (SPADCALL
                          (QVELT
                           (PROG2 (LETT #6# |p| . #7#)
                               (QCDR #6#)
-                            (|check_union| (QEQCAR #6# 4)
-                                           (|Record|
-                                            (|:| |tag| (|SingleInteger|))
-                                            (|:| |val| (|Symbol|))
-                                            (|:| |pred| (|List| (|Any|)))
-                                            (|:| |bad| (|List| (|Any|))))
-                                           #6#))
+                            (|check_union2| (QEQCAR #6# 4)
+                                            (|Record|
+                                             (|:| |tag| (|SingleInteger|))
+                                             (|:| |val| (|Symbol|))
+                                             (|:| |pred| (|List| (|Any|)))
+                                             (|:| |bad| (|List| (|Any|))))
+                                            (|Union| (|:| |ret| (QREFELT $ 6))
+                                                     (|:| |ker|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |op|
+                                                                (|BasicOperator|))
+                                                           (|:| |arg|
+                                                                (|List| $))))
+                                                     (|:| |exp|
+                                                          (|Record|
+                                                           (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                                     (|:| |qot|
+                                                          (|Record|
+                                                           (|:| |num| $)
+                                                           (|:| |den| $)))
+                                                     (|:| |sym|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |val|
+                                                                (|Symbol|))
+                                                           (|:| |pred|
+                                                                (|List|
+                                                                 (|Any|)))
+                                                           (|:| |bad|
+                                                                (|List|
+                                                                 (|Any|))))))
+                                            #6#))
                           3)
                          (QREFELT $ 131)))))
                 ((QEQCAR |p| 1)
@@ -1158,22 +2389,82 @@
                         (QVELT
                          (PROG2 (LETT #4# |p| . #7#)
                              (QCDR #4#)
-                           (|check_union| (QEQCAR #4# 1)
-                                          (|Record|
-                                           (|:| |tag| (|SingleInteger|))
-                                           (|:| |op| (|BasicOperator|))
-                                           (|:| |arg| (|List| $)))
-                                          #4#))
+                           (|check_union2| (QEQCAR #4# 1)
+                                           (|Record|
+                                            (|:| |tag| (|SingleInteger|))
+                                            (|:| |op| (|BasicOperator|))
+                                            (|:| |arg| (|List| $)))
+                                           (|Union| (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                           #4#))
                          0)
                         (QVELT
                          (PROG2 (LETT #4# |p| . #7#)
                              (QCDR #4#)
-                           (|check_union| (QEQCAR #4# 1)
-                                          (|Record|
-                                           (|:| |tag| (|SingleInteger|))
-                                           (|:| |op| (|BasicOperator|))
-                                           (|:| |arg| (|List| $)))
-                                          #4#))
+                           (|check_union2| (QEQCAR #4# 1)
+                                           (|Record|
+                                            (|:| |tag| (|SingleInteger|))
+                                            (|:| |op| (|BasicOperator|))
+                                            (|:| |arg| (|List| $)))
+                                           (|Union| (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                           #4#))
                          1)
                         (PROGN
                          (LETT #5# NIL . #7#)
@@ -1182,14 +2473,47 @@
                                     (QVELT
                                      (PROG2 (LETT #4# |p| . #7#)
                                          (QCDR #4#)
-                                       (|check_union| (QEQCAR #4# 1)
-                                                      (|Record|
-                                                       (|:| |tag|
-                                                            (|SingleInteger|))
-                                                       (|:| |op|
-                                                            (|BasicOperator|))
-                                                       (|:| |arg| (|List| $)))
-                                                      #4#))
+                                       (|check_union2| (QEQCAR #4# 1)
+                                                       (|Record|
+                                                        (|:| |tag|
+                                                             (|SingleInteger|))
+                                                        (|:| |op|
+                                                             (|BasicOperator|))
+                                                        (|:| |arg| (|List| $)))
+                                                       (|Union|
+                                                        (|:| |ret|
+                                                             (QREFELT $ 6))
+                                                        (|:| |ker|
+                                                             (|Record|
+                                                              (|:| |tag|
+                                                                   (|SingleInteger|))
+                                                              (|:| |op|
+                                                                   (|BasicOperator|))
+                                                              (|:| |arg|
+                                                                   (|List|
+                                                                    $))))
+                                                        (|:| |exp|
+                                                             (|Record|
+                                                              (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                                        (|:| |qot|
+                                                             (|Record|
+                                                              (|:| |num| $)
+                                                              (|:| |den| $)))
+                                                        (|:| |sym|
+                                                             (|Record|
+                                                              (|:| |tag|
+                                                                   (|SingleInteger|))
+                                                              (|:| |val|
+                                                                   (|Symbol|))
+                                                              (|:| |pred|
+                                                                   (|List|
+                                                                    (|Any|)))
+                                                              (|:| |bad|
+                                                                   (|List|
+                                                                    (|Any|))))))
+                                                       #4#))
                                      2)
                                     . #7#)
                               G190
@@ -1211,19 +2535,79 @@
                          (QCAR
                           (PROG2 (LETT #2# |p| . #7#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 3)
-                                           (|Record| (|:| |num| $)
-                                                     (|:| |den| $))
-                                           #2#)))
+                            (|check_union2| (QEQCAR #2# 3)
+                                            (|Record| (|:| |num| $)
+                                                      (|:| |den| $))
+                                            (|Union| (|:| |ret| (QREFELT $ 6))
+                                                     (|:| |ker|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |op|
+                                                                (|BasicOperator|))
+                                                           (|:| |arg|
+                                                                (|List| $))))
+                                                     (|:| |exp|
+                                                          (|Record|
+                                                           (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                                     (|:| |qot|
+                                                          (|Record|
+                                                           (|:| |num| $)
+                                                           (|:| |den| $)))
+                                                     (|:| |sym|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |val|
+                                                                (|Symbol|))
+                                                           (|:| |pred|
+                                                                (|List|
+                                                                 (|Any|)))
+                                                           (|:| |bad|
+                                                                (|List|
+                                                                 (|Any|))))))
+                                            #2#)))
                          (QREFELT $ 61))
                         (SPADCALL
                          (QCDR
                           (PROG2 (LETT #2# |p| . #7#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 3)
-                                           (|Record| (|:| |num| $)
-                                                     (|:| |den| $))
-                                           #2#)))
+                            (|check_union2| (QEQCAR #2# 3)
+                                            (|Record| (|:| |num| $)
+                                                      (|:| |den| $))
+                                            (|Union| (|:| |ret| (QREFELT $ 6))
+                                                     (|:| |ker|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |op|
+                                                                (|BasicOperator|))
+                                                           (|:| |arg|
+                                                                (|List| $))))
+                                                     (|:| |exp|
+                                                          (|Record|
+                                                           (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                                     (|:| |qot|
+                                                          (|Record|
+                                                           (|:| |num| $)
+                                                           (|:| |den| $)))
+                                                     (|:| |sym|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |val|
+                                                                (|Symbol|))
+                                                           (|:| |pred|
+                                                                (|List|
+                                                                 (|Any|)))
+                                                           (|:| |bad|
+                                                                (|List|
+                                                                 (|Any|))))))
+                                            #2#)))
                          (QREFELT $ 61)))))
                 ('T
                  (CONS 2
@@ -1232,20 +2616,80 @@
                          (QCAR
                           (PROG2 (LETT #1# |p| . #7#)
                               (QCDR #1#)
-                            (|check_union| (QEQCAR #1# 2)
-                                           (|Record| (|:| |val| $)
-                                                     (|:| |exponent|
-                                                          (|NonNegativeInteger|)))
-                                           #1#)))
+                            (|check_union2| (QEQCAR #1# 2)
+                                            (|Record| (|:| |val| $)
+                                                      (|:| |exponent|
+                                                           (|NonNegativeInteger|)))
+                                            (|Union| (|:| |ret| (QREFELT $ 6))
+                                                     (|:| |ker|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |op|
+                                                                (|BasicOperator|))
+                                                           (|:| |arg|
+                                                                (|List| $))))
+                                                     (|:| |exp|
+                                                          (|Record|
+                                                           (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                                     (|:| |qot|
+                                                          (|Record|
+                                                           (|:| |num| $)
+                                                           (|:| |den| $)))
+                                                     (|:| |sym|
+                                                          (|Record|
+                                                           (|:| |tag|
+                                                                (|SingleInteger|))
+                                                           (|:| |val|
+                                                                (|Symbol|))
+                                                           (|:| |pred|
+                                                                (|List|
+                                                                 (|Any|)))
+                                                           (|:| |bad|
+                                                                (|List|
+                                                                 (|Any|))))))
+                                            #1#)))
                          (QREFELT $ 61))
                         (QCDR
                          (PROG2 (LETT #1# |p| . #7#)
                              (QCDR #1#)
-                           (|check_union| (QEQCAR #1# 2)
-                                          (|Record| (|:| |val| $)
-                                                    (|:| |exponent|
-                                                         (|NonNegativeInteger|)))
-                                          #1#)))))))))) 
+                           (|check_union2| (QEQCAR #1# 2)
+                                           (|Record| (|:| |val| $)
+                                                     (|:| |exponent|
+                                                          (|NonNegativeInteger|)))
+                                           (|Union| (|:| |ret| (QREFELT $ 6))
+                                                    (|:| |ker|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |op|
+                                                               (|BasicOperator|))
+                                                          (|:| |arg|
+                                                               (|List| $))))
+                                                    (|:| |exp|
+                                                         (|Record|
+                                                          (|:| |val| $)
+                                                          (|:| |exponent|
+                                                               (|NonNegativeInteger|))))
+                                                    (|:| |qot|
+                                                         (|Record|
+                                                          (|:| |num| $)
+                                                          (|:| |den| $)))
+                                                    (|:| |sym|
+                                                         (|Record|
+                                                          (|:| |tag|
+                                                               (|SingleInteger|))
+                                                          (|:| |val|
+                                                               (|Symbol|))
+                                                          (|:| |pred|
+                                                               (|List|
+                                                                (|Any|)))
+                                                          (|:| |bad|
+                                                               (|List|
+                                                                (|Any|))))))
+                                           #1#)))))))))) 
 
 (SDEFUN |PATTERN;pateq?|
         ((|p1| |Union| (|:| |ret| R)
@@ -1288,15 +2732,57 @@
                 (QCAR
                  (PROG2 (LETT #4# |p1| . #6=(|PATTERN;pateq?|))
                      (QCDR #4#)
-                   (|check_union| (QEQCAR #4# 3)
-                                  (|Record| (|:| |num| $) (|:| |den| $)) #4#)))
+                   (|check_union2| (QEQCAR #4# 3)
+                                   (|Record| (|:| |num| $) (|:| |den| $))
+                                   (|Union| (|:| |ret| (QREFELT $ 6))
+                                            (|:| |ker|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $))))
+                                            (|:| |exp|
+                                                 (|Record| (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                            (|:| |qot|
+                                                 (|Record| (|:| |num| $)
+                                                           (|:| |den| $)))
+                                            (|:| |sym|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad|
+                                                       (|List| (|Any|))))))
+                                   #4#)))
                 (QCAR (CDR |p2|)) (QREFELT $ 78))
                (SPADCALL
                 (QCDR
                  (PROG2 (LETT #4# |p1| . #6#)
                      (QCDR #4#)
-                   (|check_union| (QEQCAR #4# 3)
-                                  (|Record| (|:| |num| $) (|:| |den| $)) #4#)))
+                   (|check_union2| (QEQCAR #4# 3)
+                                   (|Record| (|:| |num| $) (|:| |den| $))
+                                   (|Union| (|:| |ret| (QREFELT $ 6))
+                                            (|:| |ker|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $))))
+                                            (|:| |exp|
+                                                 (|Record| (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                            (|:| |qot|
+                                                 (|Record| (|:| |num| $)
+                                                           (|:| |den| $)))
+                                            (|:| |sym|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad|
+                                                       (|List| (|Any|))))))
+                                   #4#)))
                 (QCDR (CDR |p2|)) (QREFELT $ 78)))
               (#5# 'NIL)))
             (#5# 'NIL)))
@@ -1308,12 +2794,32 @@
                 (QVELT
                  (PROG2 (LETT #3# |p1| . #6#)
                      (QCDR #3#)
-                   (|check_union| (QEQCAR #3# 4)
-                                  (|Record| (|:| |tag| (|SingleInteger|))
-                                            (|:| |val| (|Symbol|))
-                                            (|:| |pred| (|List| (|Any|)))
-                                            (|:| |bad| (|List| (|Any|))))
-                                  #3#))
+                   (|check_union2| (QEQCAR #3# 4)
+                                   (|Record| (|:| |tag| (|SingleInteger|))
+                                             (|:| |val| (|Symbol|))
+                                             (|:| |pred| (|List| (|Any|)))
+                                             (|:| |bad| (|List| (|Any|))))
+                                   (|Union| (|:| |ret| (QREFELT $ 6))
+                                            (|:| |ker|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $))))
+                                            (|:| |exp|
+                                                 (|Record| (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                            (|:| |qot|
+                                                 (|Record| (|:| |num| $)
+                                                           (|:| |den| $)))
+                                            (|:| |sym|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad|
+                                                       (|List| (|Any|))))))
+                                   #3#))
                  1)
                 (QVELT (CDR |p2|) 1))
                (COND
@@ -1322,12 +2828,36 @@
                    (QVELT
                     (PROG2 (LETT #3# |p1| . #6#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 4)
-                                     (|Record| (|:| |tag| (|SingleInteger|))
-                                               (|:| |val| (|Symbol|))
-                                               (|:| |pred| (|List| (|Any|)))
-                                               (|:| |bad| (|List| (|Any|))))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 4)
+                                      (|Record| (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #3#))
                     2)
                    (QREFELT $ 134))
                   (SPADCALL (QVELT (CDR |p2|) 2) (QREFELT $ 134))
@@ -1337,12 +2867,36 @@
                    (QVELT
                     (PROG2 (LETT #3# |p1| . #6#)
                         (QCDR #3#)
-                      (|check_union| (QEQCAR #3# 4)
-                                     (|Record| (|:| |tag| (|SingleInteger|))
-                                               (|:| |val| (|Symbol|))
-                                               (|:| |pred| (|List| (|Any|)))
-                                               (|:| |bad| (|List| (|Any|))))
-                                     #3#))
+                      (|check_union2| (QEQCAR #3# 4)
+                                      (|Record| (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))
+                                      (|Union| (|:| |ret| (QREFELT $ 6))
+                                               (|:| |ker|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |op|
+                                                          (|BasicOperator|))
+                                                     (|:| |arg| (|List| $))))
+                                               (|:| |exp|
+                                                    (|Record| (|:| |val| $)
+                                                              (|:| |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                               (|:| |qot|
+                                                    (|Record| (|:| |num| $)
+                                                              (|:| |den| $)))
+                                               (|:| |sym|
+                                                    (|Record|
+                                                     (|:| |tag|
+                                                          (|SingleInteger|))
+                                                     (|:| |val| (|Symbol|))
+                                                     (|:| |pred|
+                                                          (|List| (|Any|)))
+                                                     (|:| |bad|
+                                                          (|List| (|Any|))))))
+                                      #3#))
                     3)
                    (QREFELT $ 134))
                   (SPADCALL (QVELT (CDR |p2|) 3) (QREFELT $ 134))
@@ -1358,11 +2912,31 @@
                 (QVELT
                  (PROG2 (LETT #2# |p1| . #6#)
                      (QCDR #2#)
-                   (|check_union| (QEQCAR #2# 1)
-                                  (|Record| (|:| |tag| (|SingleInteger|))
-                                            (|:| |op| (|BasicOperator|))
-                                            (|:| |arg| (|List| $)))
-                                  #2#))
+                   (|check_union2| (QEQCAR #2# 1)
+                                   (|Record| (|:| |tag| (|SingleInteger|))
+                                             (|:| |op| (|BasicOperator|))
+                                             (|:| |arg| (|List| $)))
+                                   (|Union| (|:| |ret| (QREFELT $ 6))
+                                            (|:| |ker|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |op| (|BasicOperator|))
+                                                  (|:| |arg| (|List| $))))
+                                            (|:| |exp|
+                                                 (|Record| (|:| |val| $)
+                                                           (|:| |exponent|
+                                                                (|NonNegativeInteger|))))
+                                            (|:| |qot|
+                                                 (|Record| (|:| |num| $)
+                                                           (|:| |den| $)))
+                                            (|:| |sym|
+                                                 (|Record|
+                                                  (|:| |tag| (|SingleInteger|))
+                                                  (|:| |val| (|Symbol|))
+                                                  (|:| |pred| (|List| (|Any|)))
+                                                  (|:| |bad|
+                                                       (|List| (|Any|))))))
+                                   #2#))
                  0)
                 (QVELT (CDR |p2|) 0))
                (COND
@@ -1370,22 +2944,70 @@
                   (QVELT
                    (PROG2 (LETT #2# |p1| . #6#)
                        (QCDR #2#)
-                     (|check_union| (QEQCAR #2# 1)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |op| (|BasicOperator|))
-                                              (|:| |arg| (|List| $)))
-                                    #2#))
+                     (|check_union2| (QEQCAR #2# 1)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |op| (|BasicOperator|))
+                                               (|:| |arg| (|List| $)))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #2#))
                    1)
                   (QVELT (CDR |p2|) 1) (QREFELT $ 104))
                  (SPADCALL
                   (QVELT
                    (PROG2 (LETT #2# |p1| . #6#)
                        (QCDR #2#)
-                     (|check_union| (QEQCAR #2# 1)
-                                    (|Record| (|:| |tag| (|SingleInteger|))
-                                              (|:| |op| (|BasicOperator|))
-                                              (|:| |arg| (|List| $)))
-                                    #2#))
+                     (|check_union2| (QEQCAR #2# 1)
+                                     (|Record| (|:| |tag| (|SingleInteger|))
+                                               (|:| |op| (|BasicOperator|))
+                                               (|:| |arg| (|List| $)))
+                                     (|Union| (|:| |ret| (QREFELT $ 6))
+                                              (|:| |ker|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |op|
+                                                         (|BasicOperator|))
+                                                    (|:| |arg| (|List| $))))
+                                              (|:| |exp|
+                                                   (|Record| (|:| |val| $)
+                                                             (|:| |exponent|
+                                                                  (|NonNegativeInteger|))))
+                                              (|:| |qot|
+                                                   (|Record| (|:| |num| $)
+                                                             (|:| |den| $)))
+                                              (|:| |sym|
+                                                   (|Record|
+                                                    (|:| |tag|
+                                                         (|SingleInteger|))
+                                                    (|:| |val| (|Symbol|))
+                                                    (|:| |pred|
+                                                         (|List| (|Any|)))
+                                                    (|:| |bad|
+                                                         (|List| (|Any|))))))
+                                     #2#))
                    2)
                   (QVELT (CDR |p2|) 2) (QREFELT $ 136)))
                 (#5# 'NIL)))
@@ -1397,21 +3019,59 @@
               (QCDR
                (PROG2 (LETT #1# |p1| . #6#)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 2)
-                                (|Record| (|:| |val| $)
-                                          (|:| |exponent|
-                                               (|NonNegativeInteger|)))
-                                #1#)))
+                 (|check_union2| (QEQCAR #1# 2)
+                                 (|Record| (|:| |val| $)
+                                           (|:| |exponent|
+                                                (|NonNegativeInteger|)))
+                                 (|Union| (|:| |ret| (QREFELT $ 6))
+                                          (|:| |ker|
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |op| (|BasicOperator|))
+                                                (|:| |arg| (|List| $))))
+                                          (|:| |exp|
+                                               (|Record| (|:| |val| $)
+                                                         (|:| |exponent|
+                                                              (|NonNegativeInteger|))))
+                                          (|:| |qot|
+                                               (|Record| (|:| |num| $)
+                                                         (|:| |den| $)))
+                                          (|:| |sym|
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))))
+                                 #1#)))
               (QCDR (CDR |p2|)))
              (SPADCALL
               (QCAR
                (PROG2 (LETT #1# |p1| . #6#)
                    (QCDR #1#)
-                 (|check_union| (QEQCAR #1# 2)
-                                (|Record| (|:| |val| $)
-                                          (|:| |exponent|
-                                               (|NonNegativeInteger|)))
-                                #1#)))
+                 (|check_union2| (QEQCAR #1# 2)
+                                 (|Record| (|:| |val| $)
+                                           (|:| |exponent|
+                                                (|NonNegativeInteger|)))
+                                 (|Union| (|:| |ret| (QREFELT $ 6))
+                                          (|:| |ker|
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |op| (|BasicOperator|))
+                                                (|:| |arg| (|List| $))))
+                                          (|:| |exp|
+                                               (|Record| (|:| |val| $)
+                                                         (|:| |exponent|
+                                                              (|NonNegativeInteger|))))
+                                          (|:| |qot|
+                                               (|Record| (|:| |num| $)
+                                                         (|:| |den| $)))
+                                          (|:| |sym|
+                                               (|Record|
+                                                (|:| |tag| (|SingleInteger|))
+                                                (|:| |val| (|Symbol|))
+                                                (|:| |pred| (|List| (|Any|)))
+                                                (|:| |bad| (|List| (|Any|))))))
+                                 #1#)))
               (QCAR (CDR |p2|)) (QREFELT $ 78)))
             (#5# 'NIL)))
           (#5# 'NIL)))) 
@@ -1426,13 +3086,41 @@
                             (LETT #1# (QVELT |p| 1)
                                   |PATTERN;retractIfCan;$U;57|)
                             (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 4)
-                                         (|Record|
-                                          (|:| |tag| (|SingleInteger|))
-                                          (|:| |val| (|Symbol|))
-                                          (|:| |pred| (|List| (|Any|)))
-                                          (|:| |bad| (|List| (|Any|))))
-                                         #1#))
+                          (|check_union2| (QEQCAR #1# 4)
+                                          (|Record|
+                                           (|:| |tag| (|SingleInteger|))
+                                           (|:| |val| (|Symbol|))
+                                           (|:| |pred| (|List| (|Any|)))
+                                           (|:| |bad| (|List| (|Any|))))
+                                          (|Union| (|:| |ret| (QREFELT $ 6))
+                                                   (|:| |ker|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |op|
+                                                              (|BasicOperator|))
+                                                         (|:| |arg|
+                                                              (|List| $))))
+                                                   (|:| |exp|
+                                                        (|Record| (|:| |val| $)
+                                                                  (|:|
+                                                                   |exponent|
+                                                                   (|NonNegativeInteger|))))
+                                                   (|:| |qot|
+                                                        (|Record| (|:| |num| $)
+                                                                  (|:| |den|
+                                                                       $)))
+                                                   (|:| |sym|
+                                                        (|Record|
+                                                         (|:| |tag|
+                                                              (|SingleInteger|))
+                                                         (|:| |val| (|Symbol|))
+                                                         (|:| |pred|
+                                                              (|List| (|Any|)))
+                                                         (|:| |bad|
+                                                              (|List|
+                                                               (|Any|))))))
+                                          #1#))
                         1)))
                 ('T (CONS 1 "failed"))))) 
 

@@ -234,12 +234,20 @@
                                                     (QREFELT $ 59))
                                           . #10#)
                                     (QCDR #8#)
-                                  (|check_union| (QEQCAR #8# 0)
-                                                 (|DistributedMultivariatePolynomial|
-                                                  (QREFELT $ 6)
-                                                  (|Fraction|
-                                                   (|Polynomial| (|Integer|))))
-                                                 #8#))
+                                  (|check_union2| (QEQCAR #8# 0)
+                                                  (|DistributedMultivariatePolynomial|
+                                                   (QREFELT $ 6)
+                                                   (|Fraction|
+                                                    (|Polynomial|
+                                                     (|Integer|))))
+                                                  (|Union|
+                                                   (|DistributedMultivariatePolynomial|
+                                                    (QREFELT $ 6)
+                                                    (|Fraction|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                                   #11="failed")
+                                                  #8#))
                                 . #10#)
                           (EXIT (SPADCALL (LIST |g|) (QREFELT $ 31)))))
                     (#9#
@@ -260,12 +268,20 @@
                                                     (QREFELT $ 59))
                                           . #10#)
                                     (QCDR #8#)
-                                  (|check_union| (QEQCAR #8# 0)
-                                                 (|DistributedMultivariatePolynomial|
-                                                  (QREFELT $ 6)
-                                                  (|Fraction|
-                                                   (|Polynomial| (|Integer|))))
-                                                 #8#))
+                                  (|check_union2| (QEQCAR #8# 0)
+                                                  (|DistributedMultivariatePolynomial|
+                                                   (QREFELT $ 6)
+                                                   (|Fraction|
+                                                    (|Polynomial|
+                                                     (|Integer|))))
+                                                  (|Union|
+                                                   (|DistributedMultivariatePolynomial|
+                                                    (QREFELT $ 6)
+                                                    (|Fraction|
+                                                     (|Polynomial|
+                                                      (|Integer|))))
+                                                   #11#)
+                                                  #8#))
                                 . #10#)
                           (LETT |Id|
                                 (SPADCALL
@@ -509,10 +525,14 @@
                                                            (QREFELT $ 86))
                                                  . #4#)
                                            (QCDR #2#)
-                                         (|check_union| (QEQCAR #2# 0)
-                                                        (|OrderedVariableList|
-                                                         (QREFELT $ 6))
-                                                        #2#))
+                                         (|check_union2| (QEQCAR #2# 0)
+                                                         (|OrderedVariableList|
+                                                          (QREFELT $ 6))
+                                                         (|Union|
+                                                          (|OrderedVariableList|
+                                                           (QREFELT $ 6))
+                                                          "failed")
+                                                         #2#))
                                        |x| (QREFELT $ 88)))
                                      ('T 'NIL)))
                                    (GO G191)))
@@ -936,9 +956,9 @@
                     (LETT |g|
                           (SPADCALL (QCAR |ef|)
                                     (PROG1 (LETT #2# (QCDR |ef|) . #5#)
-                                      (|check_subtype| (>= #2# 0)
-                                                       '(|NonNegativeInteger|)
-                                                       #2#))
+                                      (|check_subtype2| (>= #2# 0)
+                                                        '(|NonNegativeInteger|)
+                                                        '(|Integer|) #2#))
                                     (QREFELT $ 106))
                           . #5#)
                     (LETT J1
@@ -1104,33 +1124,40 @@
             (|DistributedMultivariatePolynomial| |vl|
                                                  (|Fraction|
                                                   (|Polynomial| (|Integer|))))
-            "failed"))
+            #2="failed"))
           (|cf| (|Fraction| (|Polynomial| (|Integer|)))) (|xp| (|Symbol|))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (SPADCALL |t| |x| (QREFELT $ 67))
-                . #2=(|IDECOMP;pushdterm|))
-          (LETT |xp| (SPADCALL |x| (QREFELT $ 109)) . #2#)
+                . #3=(|IDECOMP;pushdterm|))
+          (LETT |xp| (SPADCALL |x| (QREFELT $ 109)) . #3#)
           (LETT |cf|
                 (SPADCALL
                  (SPADCALL (|spadConstant| $ 110) |xp| |n| (QREFELT $ 111))
                  (QREFELT $ 112))
-                . #2#)
+                . #3#)
           (LETT |newt|
                 (SPADCALL |t|
                           (SPADCALL (|spadConstant| $ 47) |x| |n|
                                     (QREFELT $ 113))
                           (QREFELT $ 59))
-                . #2#)
+                . #3#)
           (EXIT
            (SPADCALL |cf|
-                     (PROG2 (LETT #1# |newt| . #2#)
+                     (PROG2 (LETT #1# |newt| . #3#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0)
-                                      (|DistributedMultivariatePolynomial|
-                                       (QREFELT $ 6)
-                                       (|Fraction| (|Polynomial| (|Integer|))))
-                                      #1#))
+                       (|check_union2| (QEQCAR #1# 0)
+                                       (|DistributedMultivariatePolynomial|
+                                        (QREFELT $ 6)
+                                        (|Fraction|
+                                         (|Polynomial| (|Integer|))))
+                                       (|Union|
+                                        (|DistributedMultivariatePolynomial|
+                                         (QREFELT $ 6)
+                                         (|Fraction|
+                                          (|Polynomial| (|Integer|))))
+                                        #2#)
+                                       #1#))
                      (QREFELT $ 114)))))) 
 
 (SDEFUN |IDECOMP;pushup|
@@ -1327,10 +1354,10 @@
                                                          (LETT #2#
                                                                (- (QCDR |i|) 1)
                                                                . #5#)
-                                                       (|check_subtype|
+                                                       (|check_subtype2|
                                                         (>= #2# 0)
                                                         '(|NonNegativeInteger|)
-                                                        #2#)))
+                                                        '(|Integer|) #2#)))
                                                . #5#)
                                          (COND
                                           ((NULL
@@ -1611,15 +1638,17 @@
                 (PROG1
                     (LETT #2# (SPADCALL |uf| (QREFELT $ 137))
                           . #3=(|IDECOMP;testPower|))
-                  (|check_subtype| (> #2# 0) '(|PositiveInteger|) #2#))
+                  (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #2#))
                 . #3#)
           (LETT |trailp|
                 (SPADCALL
                  (SPADCALL (SPADCALL |df| (QREFELT $ 11)) (QREFELT $ 118))
                  (SPADCALL |uf|
                            (PROG1 (LETT #1# (- |df| 1) . #3#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            (QREFELT $ 138))
                  (QREFELT $ 114))
                 . #3#)
@@ -2038,10 +2067,14 @@
                                                                              162))
                                                                    . #20#)
                                                              (QCDR #6#)
-                                                           (|check_union|
+                                                           (|check_union2|
                                                             (QEQCAR #6# 0)
                                                             (|OrderedVariableList|
                                                              (QREFELT $ 6))
+                                                            (|Union|
+                                                             (|OrderedVariableList|
+                                                              (QREFELT $ 6))
+                                                             "failed")
                                                             #6#))
                                                          |newVars|
                                                          (QREFELT $ 153))
@@ -2163,17 +2196,24 @@
                                   (LETT #2# (SPADCALL |xx| (QREFELT $ 43))
                                         . #5#)
                                   (QCDR #2#)
-                                (|check_union| (QEQCAR #2# 0)
-                                               (|OrderedVariableList|
-                                                (SPADCALL |xx| (QREFELT $ 43)))
-                                               #2#))
+                                (|check_union2| (QEQCAR #2# 0)
+                                                (|OrderedVariableList|
+                                                 (SPADCALL |xx|
+                                                           (QREFELT $ 43)))
+                                                (|Union|
+                                                 (|OrderedVariableList|
+                                                  (SPADCALL |xx|
+                                                            (QREFELT $ 43)))
+                                                 "failed")
+                                                #2#))
                               #4#)
                              . #5#)))
                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                      (EXIT (NREVERSE #4#)))))
      (QSETREFV $ 46
                (PROG1 (LETT #1# (- (LENGTH (QREFELT $ 44)) 1) . #5#)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))
      $)))) 
 
 (MAKEPROP '|IdealDecompositionPackage| '|infovec|

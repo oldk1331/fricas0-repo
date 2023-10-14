@@ -14,8 +14,9 @@
                                         (SPADCALL |n| (- (QREFELT $ 6) 1)
                                                   (QREFELT $ 21))
                                         . #2=(|IPF;^;$I$;2|))
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
                               . #2#)
                         (EXIT (SPADCALL |x| |r| (QREFELT $ 23))))))))) 
 
@@ -81,7 +82,8 @@
                      (PROG1
                          (LETT #1# |fac|
                                . #2=(|IPF;tableForDiscreteLogarithm;IT;11|))
-                       (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))
+                       (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                         '(|Integer|) #1#))
                      (QREFELT $ 14) (QREFELT $ 46))
                     . #2#)
               (EXIT
@@ -140,9 +142,9 @@
                         (SEQ (LETT |i| 0 . #5#)
                              (LETT #2#
                                    (PROG1 (LETT #3# (- |n| 1) . #5#)
-                                     (|check_subtype| (>= #3# 0)
-                                                      '(|NonNegativeInteger|)
-                                                      #3#))
+                                     (|check_subtype2| (>= #3# 0)
+                                                       '(|NonNegativeInteger|)
+                                                       '(|Integer|) #3#))
                                    . #5#)
                              G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                              (SEQ
@@ -158,8 +160,8 @@
                          (SPADCALL
                           (CONS
                            (PROG1 (LETT #1# |fac| . #5#)
-                             (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                              #1#))
+                             (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                               '(|Integer|) #1#))
                            (SPADCALL |tbl| (QREFELT $ 63)))
                           (QREFELT $ 14) (QREFELT $ 65))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))

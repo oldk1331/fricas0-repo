@@ -6,10 +6,14 @@
                     (LETT #1# (SPADCALL |c| |p| 1 (QREFELT $ 10))
                           |VECREC2;modInverse|)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (|Integer|))
-                                           (|:| |coef2| (|Integer|)))
-                                 #1#))))) 
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (|Integer|))
+                                            (|:| |coef2| (|Integer|)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (|Integer|))
+                                             (|:| |coef2| (|Integer|)))
+                                   "failed")
+                                  #1#))))) 
 
 (SDEFUN |VECREC2;empty;I$;2| ((|nint| |Integer|) ($ $))
         (SPROG ((|intvec| (|PrimitiveArray| (|Integer|))) (#1=#:G123 NIL))
@@ -17,8 +21,8 @@
                 (LETT |intvec|
                       (MAKEARR1
                        (PROG1 (LETT #1# |nint| . #2=(|VECREC2;empty;I$;2|))
-                         (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|)
-                                          #1#))
+                         (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                           '(|Integer|) #1#))
                        0)
                       . #2#)
                 (EXIT
@@ -80,9 +84,10 @@
                                                (PROG1
                                                    (LETT #5# (QVELT |state| 3)
                                                          . #7#)
-                                                 (|check_subtype| (>= #5# 0)
-                                                                  '(|NonNegativeInteger|)
-                                                                  #5#))
+                                                 (|check_subtype2| (>= #5# 0)
+                                                                   '(|NonNegativeInteger|)
+                                                                   '(|Integer|)
+                                                                   #5#))
                                                0))
                                     (LETT |bintvec| (QVELT |state| 5) . #7#)
                                     (SEQ (LETT |i| 0 . #7#)
@@ -255,17 +260,17 @@
                             (QSETVELT |state| 9
                                       (MAKEARR1
                                        (PROG1 (LETT #6# |n| . #7#)
-                                         (|check_subtype| (>= #6# 0)
-                                                          '(|NonNegativeInteger|)
-                                                          #6#))
+                                         (|check_subtype2| (>= #6# 0)
+                                                           '(|NonNegativeInteger|)
+                                                           '(|Integer|) #6#))
                                        0))
                             (EXIT
                              (QSETVELT |state| 10
                                        (MAKEARR1
                                         (PROG1 (LETT #5# |n| . #7#)
-                                          (|check_subtype| (>= #5# 0)
-                                                           '(|NonNegativeInteger|)
-                                                           #5#))
+                                          (|check_subtype2| (>= #5# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #5#))
                                         0))))))
                          (LETT |nums| (QVELT |state| 9) . #7#)
                          (LETT |dens| (QVELT |state| 10) . #7#)
@@ -464,7 +469,9 @@
                                                 (QREFELT $ 36))
                                       . #3#)
                                 (QCDR #1#)
-                              (|check_union| (QEQCAR #1# 0) (|Integer|) #1#))
+                              (|check_union2| (QEQCAR #1# 0) (|Integer|)
+                                              (|Union| (|Integer|) #4="failed")
+                                              #1#))
                             . #3#)
                       (EXIT
                        (QSETAREF1 |res| |i| (* (QAREF1 |nums| |i|) |tmpp2|))))
@@ -487,8 +494,11 @@
                                                            (QREFELT $ 36))
                                                  . #3#)
                                            (QCDR #1#)
-                                         (|check_union| (QEQCAR #1# 0)
-                                                        (|Integer|) #1#)))))
+                                         (|check_union2| (QEQCAR #1# 0)
+                                                         (|Integer|)
+                                                         (|Union| (|Integer|)
+                                                                  #4#)
+                                                         #1#)))))
                           (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
                           (EXIT NIL))))))))
                (LETT |ib| (|inc_SI| |ib|) . #3#) (GO G190) G191 (EXIT NIL))

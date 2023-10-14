@@ -16,7 +16,8 @@
                 . #5=(|FFPOLY2;rootOfIrreduciblePoly;SupF;1|))
           (LETT |deg|
                 (PROG1 (LETT #4# (SPADCALL |pf| (QREFELT $ 11)) . #5#)
-                  (|check_subtype| (> #4# 0) '(|PositiveInteger|) #4#))
+                  (|check_subtype2| (> #4# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #4#))
                 . #5#)
           (EXIT
            (COND ((EQL |deg| 0) (|error| "no roots"))

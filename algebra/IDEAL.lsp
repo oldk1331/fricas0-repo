@@ -93,7 +93,9 @@
                           (CONS
                            (PROG2 (LETT #1# (|IDEAL;oldpoly| |f| $) . #4#)
                                (QCDR #1#)
-                             (|check_union| (QEQCAR #1# 0) (QREFELT $ 9) #1#))
+                             (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
+                                             (|Union| (QREFELT $ 9) "failed")
+                                             #1#))
                            #3#)
                           . #4#)))
                   (LETT #2# (CDR #2#) . #4#) (GO G190) G191
@@ -430,8 +432,10 @@
                                            (SPADCALL |g| |f| (QREFELT $ 43))
                                            . #4#)
                                      (QCDR #1#)
-                                   (|check_union| (QEQCAR #1# 0) (QREFELT $ 9)
-                                                  #1#))
+                                   (|check_union2| (QEQCAR #1# 0) (QREFELT $ 9)
+                                                   (|Union| (QREFELT $ 9)
+                                                            "failed")
+                                                   #1#))
                                  #3#)
                                 . #4#)))
                         (LETT #2# (CDR #2#) . #4#) (GO G190) G191
@@ -533,9 +537,10 @@
                                           (PROG1
                                               (LETT #1# (- |n| 1)
                                                     |IDEAL;^;$Nni$;20|)
-                                            (|check_subtype| (>= #1# 0)
-                                                             '(|NonNegativeInteger|)
-                                                             #1#))
+                                            (|check_subtype2| (>= #1# 0)
+                                                              '(|NonNegativeInteger|)
+                                                              '(|Integer|)
+                                                              #1#))
                                           (QREFELT $ 91))
                                 (QREFELT $ 90)))))) 
 
@@ -774,8 +779,11 @@
                                                  (SPADCALL |f| (QREFELT $ 102))
                                                  . #3#)
                                            (QCDR #1#)
-                                         (|check_union| (QEQCAR #1# 0)
-                                                        (QREFELT $ 8) #1#))
+                                         (|check_union2| (QEQCAR #1# 0)
+                                                         (QREFELT $ 8)
+                                                         (|Union| (QREFELT $ 8)
+                                                                  "failed")
+                                                         #1#))
                                        . #3#)
                                  (EXIT
                                   (COND
@@ -1221,13 +1229,16 @@
                                                             '|variable|
                                                             (LIST
                                                              (LIST '|Union| '$
-                                                                   '"failed")
+                                                                   '#28="failed")
                                                              (LIST '|Symbol|))
                                                             |VarSet1|))
                                                  . #27#)
                                            (QCDR #15#)
-                                         (|check_union| (QEQCAR #15# 0)
-                                                        |VarSet1| #15#))
+                                         (|check_union2| (QEQCAR #15# 0)
+                                                         |VarSet1|
+                                                         (|Union| |VarSet1|
+                                                                  #28#)
+                                                         #15#))
                                        #17#)
                                       . #27#)))
                               (LETT #16# (CDR #16#) . #27#) (GO G190) G191
@@ -1452,10 +1463,10 @@
                                           (QREFELT $ 140))
                                 (PROGN
                                  (LETT #8# |$NoValue| . #27#)
-                                 (GO #28=#:G408))))
+                                 (GO #29=#:G408))))
                               (EXIT (LETT |lf| (CDR |lf|) . #27#)))
                          NIL (GO G190) G191 (EXIT NIL)))
-                   #28# (EXIT #8#))
+                   #29# (EXIT #8#))
                   (LETT |solsn| NIL . #27#)
                   (SEQ (LETT |q| NIL . #27#) (LETT #7# |lf| . #27#) G190
                        (COND

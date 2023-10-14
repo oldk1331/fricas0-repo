@@ -90,9 +90,10 @@
                                                               (PROG1
                                                                   (LETT #3# |j|
                                                                         . #4#)
-                                                                (|check_subtype|
+                                                                (|check_subtype2|
                                                                  (>= #3# 0)
                                                                  '(|NonNegativeInteger|)
+                                                                 '(|Integer|)
                                                                  #3#))))
                                                      (SPADCALL (REVERSE |rl|)
                                                                |l|
@@ -148,8 +149,8 @@
                  (LETT |v|
                        (MAKEARR1
                         (PROG1 (LETT #2# (- (EXPT 2 |ndim|) 1) . #3#)
-                          (|check_subtype| (>= #2# 0) '(|NonNegativeInteger|)
-                                           #2#))
+                          (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
+                                            '(|Integer|) #2#))
                         (CONS 1 "uncomputed"))
                        . #3#)
                  (LETT |minR| (SPADCALL |x| (QREFELT $ 17)) . #3#)
@@ -331,9 +332,12 @@
                                                                        $ 50))
                                                                      . #7#)
                                                                (QCDR #5#)
-                                                             (|check_union|
+                                                             (|check_union2|
                                                               (QEQCAR #5# 0)
                                                               (QREFELT $ 6)
+                                                              (|Union|
+                                                               (QREFELT $ 6)
+                                                               #9="failed")
                                                               #5#))
                                                            (QREFELT $ 51))))
                                                (LETT |l| (+ |l| 1) . #7#)
@@ -382,9 +386,12 @@
                                                                          $ 50))
                                                                        . #7#)
                                                                  (QCDR #5#)
-                                                               (|check_union|
+                                                               (|check_union2|
                                                                 (QEQCAR #5# 0)
                                                                 (QREFELT $ 6)
+                                                                (|Union|
+                                                                 (QREFELT $ 6)
+                                                                 #9#)
                                                                 #5#))
                                                              (QREFELT $ 51))))
                                                  (LETT |l| (+ |l| 1) . #7#)
@@ -401,13 +408,13 @@
                                      (LETT #2#
                                            (PROGN
                                             (LETT #3# |$NoValue| . #7#)
-                                            (GO #9=#:G223))
+                                            (GO #10=#:G223))
                                            . #7#)
-                                     (GO #10=#:G221)))))))
-                               #10# (EXIT #2#))))))
+                                     (GO #11=#:G221)))))))
+                               #11# (EXIT #2#))))))
                           (LETT |j| (+ |j| 1) . #7#) (GO G190) G191
                           (EXIT NIL)))
-                    #9# (EXIT #3#))
+                    #10# (EXIT #3#))
                    (COND
                     ((SPADCALL |ans|
                                (SPADCALL (|spadConstant| $ 21) (QREFELT $ 48))
@@ -499,8 +506,10 @@
                                             (QREFELT $ 50))
                                            . #9#)
                                      (QCDR #2#)
-                                   (|check_union| (QEQCAR #2# 0) (QREFELT $ 6)
-                                                  #2#))
+                                   (|check_union2| (QEQCAR #2# 0) (QREFELT $ 6)
+                                                   (|Union| (QREFELT $ 6)
+                                                            "failed")
+                                                   #2#))
                                  (QREFELT $ 53))))
                      (LETT |j| (+ |j| 1) . #9#) (GO G190) G191 (EXIT NIL))
                 (EXIT (LETT |iCol| (- |iCol| 1) . #9#)))
@@ -655,8 +664,9 @@
                     (EXIT
                      (LETT |rk|
                            (PROG1 (LETT #1# (- |rk| 1) . #2#)
-                             (|check_subtype| (>= #1# 0)
-                                              '(|NonNegativeInteger|) #1#))
+                             (|check_subtype2| (>= #1# 0)
+                                               '(|NonNegativeInteger|)
+                                               '(|Integer|) #1#))
                            . #2#)))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |rk|)))) 
@@ -668,7 +678,8 @@
                          (- (SPADCALL |x| (QREFELT $ 27))
                             (SPADCALL |x| (QREFELT $ 69)))
                          |MATLIN;nullity;MNni;22|)
-                 (|check_subtype| (>= #1# 0) '(|NonNegativeInteger|) #1#)))) 
+                 (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
+                                   '(|Integer|) #1#)))) 
 
 (SDEFUN |MATLIN;normalizedDivide;2RR;23|
         ((|n| R) (|d| R) ($ |Record| (|:| |quotient| R) (|:| |remainder| R)))
@@ -792,9 +803,12 @@
                                                           |d| (QREFELT $ 50))
                                                          . #5#)
                                                    (QCDR #3#)
-                                                 (|check_union| (QEQCAR #3# 0)
-                                                                (QREFELT $ 6)
-                                                                #3#))
+                                                 (|check_union2| (QEQCAR #3# 0)
+                                                                 (QREFELT $ 6)
+                                                                 (|Union|
+                                                                  (QREFELT $ 6)
+                                                                  #7="failed")
+                                                                 #3#))
                                                . #5#)
                                          (LETT |a1|
                                                (PROG2
@@ -806,9 +820,12 @@
                                                           |d| (QREFELT $ 50))
                                                          . #5#)
                                                    (QCDR #3#)
-                                                 (|check_union| (QEQCAR #3# 0)
-                                                                (QREFELT $ 6)
-                                                                #3#))
+                                                 (|check_union2| (QEQCAR #3# 0)
+                                                                 (QREFELT $ 6)
+                                                                 (|Union|
+                                                                  (QREFELT $ 6)
+                                                                  #7#)
+                                                                 #3#))
                                                . #5#)
                                          (SEQ (LETT |k1| (+ |j| 1) . #5#) G190
                                               (COND

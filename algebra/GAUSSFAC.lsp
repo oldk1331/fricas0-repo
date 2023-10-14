@@ -22,11 +22,16 @@
                                         (SPADCALL |v| |p| |u| (QREFELT $ 12))
                                         |GAUSSFAC;exactquo|)
                                   (QCDR #1#)
-                                (|check_union| (QEQCAR #1# 0)
-                                               (|Record|
-                                                (|:| |coef1| (|Integer|))
-                                                (|:| |coef2| (|Integer|)))
-                                               #1#)))
+                                (|check_union2| (QEQCAR #1# 0)
+                                                (|Record|
+                                                 (|:| |coef1| (|Integer|))
+                                                 (|:| |coef2| (|Integer|)))
+                                                (|Union|
+                                                 (|Record|
+                                                  (|:| |coef1| (|Integer|))
+                                                  (|:| |coef2| (|Integer|)))
+                                                 "failed")
+                                                #1#)))
                              |p| (QREFELT $ 7))))))) 
 
 (SDEFUN |GAUSSFAC;findelt| ((|q| |Integer|) ($ |Integer|))
@@ -44,7 +49,9 @@
                     (LETT |r|
                           (PROG2 (LETT #3# |r1| . #4#)
                               (QCDR #3#)
-                            (|check_union| (QEQCAR #3# 0) (|Integer|) #3#))
+                            (|check_union2| (QEQCAR #3# 0) (|Integer|)
+                                            (|Union| (|Integer|) "failed")
+                                            #3#))
                           . #4#)
                     (EXIT (LETT |r1| (SPADCALL |r| 2 (QREFELT $ 9)) . #4#)))
                    NIL (GO G190) G191 (EXIT NIL))
@@ -62,9 +69,9 @@
                      (LETT |s|
                            (SPADCALL (SPADCALL |i| |q| (QREFELT $ 18))
                                      (PROG1 (LETT #1# |r| . #4#)
-                                       (|check_subtype| (>= #1# 0)
-                                                        '(|NonNegativeInteger|)
-                                                        #1#))
+                                       (|check_subtype2| (>= #1# 0)
+                                                         '(|NonNegativeInteger|)
+                                                         '(|Integer|) #1#))
                                      (QREFELT $ 22))
                            . #4#)))
                    (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
@@ -135,9 +142,10 @@
                                          (SPADCALL
                                           (SPADCALL 0 -1 (QREFELT $ 16))
                                           (PROG1 (LETT #2# (REM |exp| 4) . #4#)
-                                            (|check_subtype| (>= #2# 0)
-                                                             '(|NonNegativeInteger|)
-                                                             #2#))
+                                            (|check_subtype2| (>= #2# 0)
+                                                              '(|NonNegativeInteger|)
+                                                              '(|Integer|)
+                                                              #2#))
                                           (QREFELT $ 38))
                                          (QREFELT $ 39))
                                . #4#))))
@@ -223,8 +231,11 @@
                                              (SPADCALL |a| |d| (QREFELT $ 9))
                                              . #12#)
                                        (QCDR #10#)
-                                     (|check_union| (QEQCAR #10# 0) (|Integer|)
-                                                    #10#))
+                                     (|check_union2| (QEQCAR #10# 0)
+                                                     (|Integer|)
+                                                     (|Union| (|Integer|)
+                                                              #13="failed")
+                                                     #10#))
                                    . #12#)
                              (LETT |b|
                                    (PROG2
@@ -232,8 +243,10 @@
                                              (SPADCALL |b| |d| (QREFELT $ 9))
                                              . #12#)
                                        (QCDR #10#)
-                                     (|check_union| (QEQCAR #10# 0) (|Integer|)
-                                                    #10#))
+                                     (|check_union2| (QEQCAR #10# 0)
+                                                     (|Integer|)
+                                                     (|Union| (|Integer|) #13#)
+                                                     #10#))
                                    . #12#)
                              (LETT |r| (|GAUSSFAC;intfactor| |d| $) . #12#)
                              (LETT |result| (SPADCALL |r| (QREFELT $ 54))
@@ -280,10 +293,10 @@
                                                          (PROG1
                                                              (LETT #6# |exp|
                                                                    . #12#)
-                                                           (|check_subtype|
+                                                           (|check_subtype2|
                                                             (>= #6# 0)
                                                             '(|NonNegativeInteger|)
-                                                            #6#))
+                                                            '(|Integer|) #6#))
                                                          (QREFELT $ 38))
                                                         (QREFELT $ 57))
                                               . #12#)
@@ -324,10 +337,10 @@
                                                         (PROG1
                                                             (LETT #1# |exp|
                                                                   . #12#)
-                                                          (|check_subtype|
+                                                          (|check_subtype2|
                                                            (>= #1# 0)
                                                            '(|NonNegativeInteger|)
-                                                           #1#))
+                                                           '(|Integer|) #1#))
                                                         (QREFELT $ 38))
                                               . #12#)
                                         (LETT |m|

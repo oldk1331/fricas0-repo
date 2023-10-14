@@ -12,7 +12,7 @@
         (SPROG
          ((|p| (|NonNegativeInteger|)) (#1=#:G129 NIL)
           (|e| (|NonNegativeInteger|)) (#2=#:G126 NIL)
-          (|r| (|Union| I "failed")) (|m| NIL))
+          (|r| (|Union| I #3="failed")) (|m| NIL))
          (SEQ
           (COND
            ((OR (SPADCALL |n| (|spadConstant| $ 8) (QREFELT $ 20))
@@ -22,8 +22,8 @@
                               (QREFELT $ 20))))
             (CONS |n| 1))
            ('T
-            (SEQ (LETT |e| 1 . #3=(|IROOT;perfectNthRoot;IR;3|))
-                 (LETT |p| 2 . #3#)
+            (SEQ (LETT |e| 1 . #4=(|IROOT;perfectNthRoot;IR;3|))
+                 (LETT |p| 2 . #4#)
                  (SEQ G190
                       (COND
                        ((NULL
@@ -34,25 +34,28 @@
                                    (QREFELT $ 25)))
                         (GO G191)))
                       (SEQ
-                       (SEQ (LETT |m| 0 . #3#) G190
+                       (SEQ (LETT |m| 0 . #4#) G190
                             (COND
                              ((NULL
                                (QEQCAR
                                 (LETT |r| (SPADCALL |n| |p| (QREFELT $ 18))
-                                      . #3#)
+                                      . #4#)
                                 0))
                               (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT |n|
-                                    (PROG2 (LETT #2# |r| . #3#)
+                                    (PROG2 (LETT #2# |r| . #4#)
                                         (QCDR #2#)
-                                      (|check_union| (QEQCAR #2# 0)
-                                                     (QREFELT $ 6) #2#))
-                                    . #3#)))
-                            (LETT |m| (|inc_SI| |m|) . #3#) (GO G190) G191
+                                      (|check_union2| (QEQCAR #2# 0)
+                                                      (QREFELT $ 6)
+                                                      (|Union| (QREFELT $ 6)
+                                                               #3#)
+                                                      #2#))
+                                    . #4#)))
+                            (LETT |m| (|inc_SI| |m|) . #4#) (GO G190) G191
                             (EXIT NIL))
-                       (LETT |e| (* |e| (EXPT |p| |m|)) . #3#)
+                       (LETT |e| (* |e| (EXPT |p| |m|)) . #4#)
                        (EXIT
                         (LETT |p|
                               (PROG1
@@ -62,10 +65,11 @@
                                           (SPADCALL |p| (QREFELT $ 10))
                                           (QREFELT $ 27))
                                          (QREFELT $ 28))
-                                        . #3#)
-                                (|check_subtype| (>= #1# 0)
-                                                 '(|NonNegativeInteger|) #1#))
-                              . #3#)))
+                                        . #4#)
+                                (|check_subtype2| (>= #1# 0)
+                                                  '(|NonNegativeInteger|)
+                                                  '(|Integer|) #1#))
+                              . #4#)))
                       NIL (GO G190) G191 (EXIT NIL))
                  (EXIT (CONS |n| |e|)))))))) 
 
@@ -120,8 +124,9 @@
                       (LETT |z| (|spadConstant| $ 8) . #3#)
                       (LETT |n1|
                             (PROG1 (LETT #1# (- |n| 1) . #3#)
-                              (|check_subtype| (>= #1# 0)
-                                               '(|NonNegativeInteger|) #1#))
+                              (|check_subtype2| (>= #1# 0)
+                                                '(|NonNegativeInteger|)
+                                                '(|Integer|) #1#))
                             . #3#)
                       (SEQ G190
                            (COND

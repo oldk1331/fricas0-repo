@@ -390,7 +390,8 @@
                            (QREFELT $ 86))
                           . #2=(|EXPRODE;seriesSolve;FBoEFA;20|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                  (|Union| (|Symbol|) "failed") #1#))
                 . #2#)
           (LETT |sy| (SPADCALL |y| (QREFELT $ 87)) . #2#)
           (LETT |yx|
@@ -469,7 +470,8 @@
                            (QREFELT $ 86))
                           . #2=(|EXPRODE;seriesSolve;FBoELA;21|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (|Symbol|) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (|Symbol|)
+                                  (|Union| (|Symbol|) "failed") #1#))
                 . #2#)
           (LETT |sy| (SPADCALL (QREFELT $ 89)) . #2#)
           (LETT |yx|
@@ -560,7 +562,8 @@
                            (QREFELT $ 86))
                           . #12#)
                     (QCDR #11#)
-                  (|check_union| (QEQCAR #11# 0) (|Symbol|) #11#))
+                  (|check_union2| (QEQCAR #11# 0) (|Symbol|)
+                                  (|Union| (|Symbol|) "failed") #11#))
                 . #12#)
           (LETT |fsy|
                 (SPADCALL (LETT |sy| (SPADCALL (QREFELT $ 89)) . #12#)

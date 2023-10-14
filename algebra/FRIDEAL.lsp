@@ -186,7 +186,9 @@
                                     |nrm| (QREFELT $ 74))
                                    . #4#)
                              (QCDR #3#)
-                           (|check_union| (QEQCAR #3# 0) (QREFELT $ 6) #3#))
+                           (|check_union2| (QEQCAR #3# 0) (QREFELT $ 6)
+                                           (|Union| (QREFELT $ 6) "failed")
+                                           #3#))
                          |nrm| (QREFELT $ 41))
                         (QREFELT $ 75))
                        (PROGN
@@ -257,8 +259,12 @@
                            (QREFELT $ 88))
                           . #5=(|FRIDEAL;inv;2$;14|))
                     (QCDR #4#)
-                  (|check_union| (QEQCAR #4# 0)
-                                 (|Matrix| (|Fraction| (QREFELT $ 8))) #4#))
+                  (|check_union2| (QEQCAR #4# 0)
+                                  (|Matrix| (|Fraction| (QREFELT $ 8)))
+                                  (|Union|
+                                   (|Matrix| (|Fraction| (QREFELT $ 8)))
+                                   "failed")
+                                  #4#))
                 . #5#)
           (LETT |cd|
                 (SPADCALL
@@ -517,7 +523,8 @@
             (SEQ
              (LETT |n|
                    (PROG1 (LETT #3# |m| . #4=(|FRIDEAL;^;$I$;20|))
-                     (|check_subtype| (>= #3# 0) '(|NonNegativeInteger|) #3#))
+                     (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                       '(|Integer|) #3#))
                    . #4#)
              (LETT |v| (SPADCALL |i| (QREFELT $ 17)) . #4#)
              (EXIT

@@ -28,8 +28,8 @@
                    (LETT |t|
                          (|TANEXP;tanPIa|
                           (PROG1 (LETT #1# |n| . #2=(|TANEXP;tanNa;RIR;3|))
-                            (|check_subtype| (> #1# 0) '(|PositiveInteger|)
-                                             #1#))
+                            (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
+                                              '(|Integer|) #1#))
                           $)
                          . #2#)
                    (QREFELT $ 12))

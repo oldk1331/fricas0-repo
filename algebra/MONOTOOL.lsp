@@ -22,7 +22,8 @@
                            (QREFELT $ 17))
                           . #2=(|MONOTOOL;split;UPMR;2|))
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                  (|Union| (QREFELT $ 7) #3="failed") #1#))
                 . #2#)
           (EXIT
            (COND
@@ -35,7 +36,8 @@
                      (PROG2
                          (LETT #1# (SPADCALL |p| |pbar| (QREFELT $ 17)) . #2#)
                          (QCDR #1#)
-                       (|check_union| (QEQCAR #1# 0) (QREFELT $ 7) #1#))
+                       (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
+                                       (|Union| (QREFELT $ 7) #3#) #1#))
                      |derivation| (QREFELT $ 12))
                     . #2#)
               (EXIT
@@ -77,7 +79,9 @@
                               (LETT #2# (SPADCALL |r| |g| (QREFELT $ 17))
                                     . #4#)
                               (QCDR #2#)
-                            (|check_union| (QEQCAR #2# 0) (QREFELT $ 7) #2#))
+                            (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
+                                            (|Union| (QREFELT $ 7) "failed")
+                                            #2#))
                           . #4#)
                     (EXIT
                      (COND
@@ -118,10 +122,14 @@
                                     (QREFELT $ 44))
                           . #2#)
                     (QCDR #1#)
-                  (|check_union| (QEQCAR #1# 0)
-                                 (|Record| (|:| |coef1| (QREFELT $ 7))
-                                           (|:| |coef2| (QREFELT $ 7)))
-                                 #1#))
+                  (|check_union2| (QEQCAR #1# 0)
+                                  (|Record| (|:| |coef1| (QREFELT $ 7))
+                                            (|:| |coef2| (QREFELT $ 7)))
+                                  (|Union|
+                                   (|Record| (|:| |coef1| (QREFELT $ 7))
+                                             (|:| |coef2| (QREFELT $ 7)))
+                                   "failed")
+                                  #1#))
                 . #2#)
           (EXIT
            (VECTOR (QCAR |qr|)
