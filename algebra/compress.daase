@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4614 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4635 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -205,11 +205,13 @@
  |ListAggregate| |LinearSystemMatrixPackage| |LinearSystemMatrixPackage1|
  |LinearSystemPolynomialPackage| |LieSquareMatrix| |LUDecomposition|
  |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
- |ThreeDimensionalMatrix| |Magma| |MappingPackageInternalHacks1|
- |MappingPackageInternalHacks2| |MappingPackageInternalHacks3|
- |MappingPackage1| |MappingPackage2| |MappingPackage3| |MatrixCategory&|
- |MatrixCategory| |MatrixCategoryFunctions2| |MatrixLinearAlgebraFunctions|
- |Matrix| |StorageEfficientMatrixOperations| |MultiVariableCalculusFunctions|
+ |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcdOperations|
+ |ModularAlgebraicGcdTools2| |ModularAlgebraicGcdTools3| |Magma|
+ |MappingPackageInternalHacks1| |MappingPackageInternalHacks2|
+ |MappingPackageInternalHacks3| |MappingPackage1| |MappingPackage2|
+ |MappingPackage3| |MatrixCategory&| |MatrixCategory|
+ |MatrixCategoryFunctions2| |MatrixLinearAlgebraFunctions| |Matrix|
+ |StorageEfficientMatrixOperations| |MultiVariableCalculusFunctions|
  |MatrixCommonDenominator| |MachineComplex| |MultiDictionary|
  |ModularDistinctDegreeFactorizer| |MeshCreationRoutinesForThreeDimensions|
  |MultifunctionGraph| |MultFiniteFactorize| |MachineFloat|
@@ -290,34 +292,35 @@
  |PolynomialCategoryQuotientFunctions| |PolynomialCategoryLifting|
  |PolynomialRoots| |U32VectorPolynomialOperations| |PartialOrder&|
  |PartialOrder| |PlottablePlaneCurveCategory| |PolynomialRing|
- |PrecomputedAssociatedEquations| |PrimitiveArray| |PrimitiveArrayFunctions2|
- |PrimitiveFunctionCategory| |PrimitiveElement| |IntegerPrimesPackage|
- |PrintPackage| |Product| |PriorityQueueAggregate| |PseudoRemainderSequence|
- |Partition| |PowerSeriesCategory&| |PowerSeriesCategory|
- |PlottableSpaceCurveCategory| |PolynomialSetCategory&| |PolynomialSetCategory|
- |PolynomialSetUtilitiesPackage| |PseudoLinearNormalForm|
- |PolynomialSquareFree| |PointCategory| |PointFunctions2| |PointPackage|
- |PartialTranscendentalFunctions| |PushVariables|
- |PAdicWildFunctionFieldIntegralBasis| |QuasiAlgebraicSet| |QuasiAlgebraicSet2|
- |QuasiComponentPackage| |QueryEquation| |QuotientFieldCategory&|
- |QuotientFieldCategory| |QuotientFieldCategoryFunctions2| |QuadraticForm|
- |QueueAggregate| |Quaternion| |GeneralQuaternion| |QuaternionCategory&|
- |QuaternionCategory| |QuaternionCategoryFunctions2| |Queue| |RadicalCategory&|
- |RadicalCategory| |RadicalFunctionField| |RadixExpansion| |RadixUtilities|
- |RandomNumberSource| |RationalFactorize| |RationalRetractions|
- |RecursiveAggregate&| |RecursiveAggregate| |RealClosedField&|
- |RealClosedField| |ElementaryRischDE| |ElementaryRischDESystem|
- |TranscendentalRischDE| |TranscendentalRischDESystem| |RandomDistributions|
- |ReducedDivisor| |RealConstant| |RealZeroPackage| |RealZeroPackageQ|
- |RealSolvePackage| |RealClosure| |RecurrenceOperator| |ReductionOfOrder|
- |Reference| |RegularTriangularSet| |RadicalEigenPackage|
- |RepresentationPackage1| |RepresentationPackage2| |RepeatedDoubling|
- |RepeatedSquaring| |ResolveLatticeCompletion| |ResidueRing| |Result|
- |RetractableFrom&| |RetractableFrom| |RetractableTo&| |RetractableTo|
- |RetractSolvePackage| |RationalFunction| |RandomFloatDistributions|
- |RationalFunctionFactor| |RationalFunctionFactorizer| |RegularChain|
- |RandomIntegerDistributions| |Ring&| |Ring| |RationalInterpolation|
- |RectangularMatrixCategory&| |RectangularMatrixCategory| |RectangularMatrix|
+ |PrecomputedAssociatedEquations| |PrimGCD| |PrimitiveArray|
+ |PrimitiveArrayFunctions2| |PrimitiveFunctionCategory| |PrimitiveElement|
+ |IntegerPrimesPackage| |PrintPackage| |Product| |PriorityQueueAggregate|
+ |PseudoRemainderSequence| |Partition| |PowerSeriesCategory&|
+ |PowerSeriesCategory| |PlottableSpaceCurveCategory| |PolynomialSetCategory&|
+ |PolynomialSetCategory| |PolynomialSetUtilitiesPackage|
+ |PseudoLinearNormalForm| |PolynomialSquareFree| |PointCategory|
+ |PointFunctions2| |PointPackage| |PartialTranscendentalFunctions|
+ |PushVariables| |PAdicWildFunctionFieldIntegralBasis| |QuasiAlgebraicSet|
+ |QuasiAlgebraicSet2| |QuasiComponentPackage| |QueryEquation|
+ |QuotientFieldCategory&| |QuotientFieldCategory|
+ |QuotientFieldCategoryFunctions2| |QuadraticForm| |QueueAggregate|
+ |Quaternion| |GeneralQuaternion| |QuaternionCategory&| |QuaternionCategory|
+ |QuaternionCategoryFunctions2| |Queue| |RadicalCategory&| |RadicalCategory|
+ |RadicalFunctionField| |RadixExpansion| |RadixUtilities| |RandomNumberSource|
+ |RationalFactorize| |RationalRetractions| |RecursiveAggregate&|
+ |RecursiveAggregate| |RealClosedField&| |RealClosedField| |ElementaryRischDE|
+ |ElementaryRischDESystem| |TranscendentalRischDE|
+ |TranscendentalRischDESystem| |RandomDistributions| |ReducedDivisor|
+ |RealConstant| |RealZeroPackage| |RealZeroPackageQ| |RealSolvePackage|
+ |RealClosure| |RecurrenceOperator| |ReductionOfOrder| |Reference|
+ |RegularTriangularSet| |RadicalEigenPackage| |RepresentationPackage1|
+ |RepresentationPackage2| |RepeatedDoubling| |RepeatedSquaring|
+ |ResolveLatticeCompletion| |ResidueRing| |Result| |RetractableFrom&|
+ |RetractableFrom| |RetractableTo&| |RetractableTo| |RetractSolvePackage|
+ |RationalFunction| |RandomFloatDistributions| |RationalFunctionFactor|
+ |RationalFunctionFactorizer| |RegularChain| |RandomIntegerDistributions|
+ |Ring&| |Ring| |RationalInterpolation| |RectangularMatrixCategory&|
+ |RectangularMatrixCategory| |RectangularMatrix|
  |RectangularMatrixCategoryFunctions2| |RightModule| |Rng| |RealNumberSystem&|
  |RealNumberSystem| |RightOpenIntervalRootCharacterization| |RomanNumeral|
  |RecursivePolynomialCategory&| |RecursivePolynomialCategory|
@@ -674,49 +677,51 @@
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
  |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
  |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
- |iter| |arg1| |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag|
- |curryRight| |curryLeft| |constantRight| |constantLeft| |twist|
- |kronecker_prod1| |positivePower| |setsubMatrix!| |subMatrix| |swapColumns!|
- |swapRows!| |vertConcat| |horizConcat| |squareTop| |kroneckerSum|
- |kroneckerProduct| |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!|
- |invertIfCan| |copy!| |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!|
- |times!| |power!| |gradient| |divergence| |laplacian| |hessian|
- |bandedHessian| |jacobian| |bandedJacobian| |duplicates| |removeDuplicates!|
- |linears| |ddFact| |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var|
- |meshPar1Var| |ptFunc| |limit| |contraAdjoint| |coAdjoint|
- |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
- |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
- |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
- |unaryFunction| |compiledFunction| |corrPoly| |lifting| |lifting1| |exprex|
- |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M|
- |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA|
- |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
- |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
- |setPoly| |index| |exponent| |exQuo| |moebius| |cumulant2moment|
- |moment2cumulant| |moment2nthjacobi| |moment2jacobi| |moment2jacobi2|
- |freecumulant2moment| |moment2freecumulant| |booleancumulant2moment|
- |moment2booleancumulant| |qcumulant2nthmoment| |hankelDeterminant|
- |jacobi2poly| |moment2Stransform| |moment2monotonecumulant| |rightRecip|
- |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
- |one?| |splitSquarefree| |normalDenom| |reshape| |totalfract| |pushdterm|
- |pushucoef| |pushuconst| |numberOfMonomials| |members| |multiset|
- |systemCommand| |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd|
- |univcase| |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree|
- |normDeriv2| |plenaryPower| |antiCommutator| |commutator| |associator|
- |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
- |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
- |complexEigenvalues| |complexEigenvectors| |newton| |shift|
- |normalizedAssociate| |normalize| |outputArgs| |normInvertible?| |normFactors|
- |npcoef| |listexp| |characteristicPolynomial| |realEigenvalues|
- |realEigenvectors| |halfExtendedResultant2| |halfExtendedResultant1|
- |extendedResultant| |subResultantsChain| |lazyPseudoQuotient|
- |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric| |complexNumeric|
- |numericIfCan| |complexNumericIfCan| |FormatArabic| |ScanArabic| |FormatRoman|
- |ScanRoman| |ScanFloatIgnoreSpaces| |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a|
- |rk4qc| |rk4f| |aromberg| |asimpson| |atrapezoidal| |romberg| |simpson|
- |trapezoidal| |rombergo| |simpsono| |trapezoidalo| |sup| |inv| |imagE| |imagk|
- |imagj| |imagi| |octon| |constDsolve| |expint| |diff| |algDsolve| |denomLODE|
- |indicialEquations| |indicialEquation| |denomRicDE| |leadingCoefficientRicDE|
+ |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
+ |pack_exps| |repack1| |pack_exps0| |m_inverse| |iter| |arg1| |arg2| |comp|
+ |nullary| |id| |recur| |const| |curry| |diag| |curryRight| |curryLeft|
+ |constantRight| |constantLeft| |twist| |kronecker_prod1| |positivePower|
+ |setsubMatrix!| |subMatrix| |swapColumns!| |swapRows!| |vertConcat|
+ |horizConcat| |squareTop| |kroneckerSum| |kroneckerProduct| |elRow1!|
+ |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!|
+ |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
+ |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
+ |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |limit|
+ |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
+ |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
+ |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
+ |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
+ |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
+ |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
+ |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
+ |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthjacobi|
+ |moment2jacobi| |moment2jacobi2| |freecumulant2moment| |moment2freecumulant|
+ |booleancumulant2moment| |moment2booleancumulant| |qcumulant2nthmoment|
+ |hankelDeterminant| |jacobi2poly| |moment2Stransform|
+ |moment2monotonecumulant| |rightRecip| |leftRecip| |leftPower| |rightPower|
+ |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
+ |reshape| |totalfract| |pushdterm| |pushucoef| |pushuconst|
+ |numberOfMonomials| |members| |multiset| |systemCommand| |mergeDifference|
+ |logDependenceQ| |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree|
+ |intChoose| |coefChoose| |myDegree| |normDeriv2| |plenaryPower|
+ |antiCommutator| |commutator| |associator| |naiveBeckermannLabahn|
+ |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
+ |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
+ |complexEigenvectors| |newton| |shift| |normalizedAssociate| |normalize|
+ |outputArgs| |normInvertible?| |normFactors| |npcoef| |listexp|
+ |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
+ |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
+ |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
+ |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
+ |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
+ |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
+ |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|
+ |constDsolve| |expint| |diff| |algDsolve| |denomLODE| |indicialEquations|
+ |indicialEquation| |denomRicDE| |leadingCoefficientRicDE|
  |constantCoefficientRicDE| |changeVar| |ratDsolve|
  |indicialEquationAtInfinity| |reduceLODE| |singRicDE| |polyRicDE| |ricDsolve|
  |triangulate| |solveInField| |wronskianMatrix| |variationOfParameters|
@@ -794,17 +799,19 @@
  |vector_add_mul| |mul_by_binomial| |mul_by_scalar| |mul|
  |truncated_multiplication| |truncated_mul_add| |pow| |divide!| |remainder!|
  |vector_combination| |to_mod_pa| |lcm| |extended_gcd| < > >= <=
- |firstUncouplingMatrix| |integral| |primitiveElement| |nextPrime| |prevPrime|
- |primes| |print| |merge!| |resultantEuclidean| |semiResultantEuclidean2|
- |semiResultantEuclidean1| |indiceSubResultant| |indiceSubResultantEuclidean|
- |semiIndiceSubResultantEuclidean| |degreeSubResultant|
- |degreeSubResultantEuclidean| |semiDegreeSubResultantEuclidean|
- |lastSubResultantEuclidean| |semiLastSubResultantEuclidean|
- |subResultantGcdEuclidean| |semiSubResultantGcdEuclidean2|
- |semiSubResultantGcdEuclidean1| |discriminantEuclidean|
- |semiDiscriminantEuclidean| |chainSubResultants| |schema| |resultantReduit|
- |resultantReduitEuclidean| |semiResultantReduitEuclidean| |divide| |Lazard|
- |Lazard2| |next_sousResultant2| |resultant_naif| |resultantEuclidean_naif|
+ |firstUncouplingMatrix| |lcx0| |lcz| |coeffs0| |coeffs1| |alg_reduce0|
+ |alg_reduce| |alg_trial_division| |integral| |primitiveElement| |nextPrime|
+ |prevPrime| |primes| |print| |merge!| |resultantEuclidean|
+ |semiResultantEuclidean2| |semiResultantEuclidean1| |indiceSubResultant|
+ |indiceSubResultantEuclidean| |semiIndiceSubResultantEuclidean|
+ |degreeSubResultant| |degreeSubResultantEuclidean|
+ |semiDegreeSubResultantEuclidean| |lastSubResultantEuclidean|
+ |semiLastSubResultantEuclidean| |subResultantGcdEuclidean|
+ |semiSubResultantGcdEuclidean2| |semiSubResultantGcdEuclidean1|
+ |discriminantEuclidean| |semiDiscriminantEuclidean| |chainSubResultants|
+ |schema| |resultantReduit| |resultantReduitEuclidean|
+ |semiResultantReduitEuclidean| |divide| |Lazard| |Lazard2|
+ |next_sousResultant2| |resultant_naif| |resultantEuclidean_naif|
  |semiResultantEuclidean_naif| |pdct| |powers| |partition| |complete| |pole?|
  |monomial| |leadingMonomial| |zRange| |yRange| |xRange| |listBranches|
  |triangular?| |rewriteIdealWithRemainder| |rewriteIdealWithHeadRemainder|
