@@ -2321,13 +2321,16 @@
 ;     not(IDENTP(op)) =>
 ;         stackAndThrow ['"Bad name for internal function:", op]
 ;     nbody := ["+->", argl, body]
-;     nf := ["LET",  [":", op, ["Mapping", :signature]], nbody]
-;     ress := comp(nf, m, e)
-;     ress
+;     fmode := ["Mapping", :signature]
+;     [., ., e'] := compMakeDeclaration([":", op, fmode], $EmptyMode, e)
+;     T := compWithMappingMode(nbody, fmode, e')
+;     T or return nil
+;     currentProplist := getProplist(op, e)
+;     finish_setq_single(T, fmode, op, nbody, currentProplist)
  
 (DEFUN |compInternalFunction| (|df| |m| |e|)
-  (PROG (|form| |signature| |specialCases| |body| |op| |argl| |nbody| |nf|
-         |ress|)
+  (PROG (|form| |signature| |specialCases| |body| |op| |argl| |nbody| |fmode|
+         |LETTMP#1| |e'| T$ |currentProplist|)
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2342,11 +2345,15 @@
        ('T
         (PROGN
          (SETQ |nbody| (LIST '+-> |argl| |body|))
-         (SETQ |nf|
-                 (LIST 'LET (LIST '|:| |op| (CONS '|Mapping| |signature|))
-                       |nbody|))
-         (SETQ |ress| (|comp| |nf| |m| |e|))
-         |ress|)))))))
+         (SETQ |fmode| (CONS '|Mapping| |signature|))
+         (SETQ |LETTMP#1|
+                 (|compMakeDeclaration| (LIST '|:| |op| |fmode|) |$EmptyMode|
+                  |e|))
+         (SETQ |e'| (CADDR |LETTMP#1|))
+         (SETQ T$ (|compWithMappingMode| |nbody| |fmode| |e'|))
+         (OR T$ (RETURN NIL))
+         (SETQ |currentProplist| (|getProplist| |op| |e|))
+         (|finish_setq_single| T$ |fmode| |op| |nbody| |currentProplist|))))))))
  
 ; compDefineCapsuleFunction(df is ['DEF,form,signature,specialCases,body],
 ;   m,oldE,$prefix,$formalArgList) ==

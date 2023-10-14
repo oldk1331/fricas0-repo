@@ -2318,7 +2318,35 @@
 ;            (T:=comp(val,maxm'',E)) => T
 ;         (T:= comp(val,$EmptyMode,E)) and getmode(T.mode,E) =>
 ;           assignError(val,T.mode,id,m'')
-;   T':= [x,m',e']:= convert(T,m) or return nil
+;   finish_setq_single(T, m, id, val, currentProplist)
+ 
+(DEFUN |setqSingle| (|id| |val| |m| E)
+  (PROG (|$insideSetqSingleIfTrue| |maxm''| T$ |m''| |currentProplist|)
+    (DECLARE (SPECIAL |$insideSetqSingleIfTrue|))
+    (RETURN
+     (PROGN
+      (SETQ |$insideSetqSingleIfTrue| T)
+      (SETQ |currentProplist| (|getProplist| |id| E))
+      (SETQ |m''|
+              (OR (|get| |id| '|mode| E) (|getmode| |id| E)
+                  (COND ((EQUAL |m| |$NoValueMode|) |$EmptyMode|) ('T |m|))))
+      (SETQ T$
+              (OR
+               (COND ((SETQ T$ (|comp| |val| |m''| E)) T$)
+                     ((AND (NULL (|get| |id| '|mode| E))
+                           (NOT
+                            (EQUAL |m''|
+                                   (SETQ |maxm''| (|maxSuperType| |m''| E))))
+                           (SETQ T$ (|comp| |val| |maxm''| E)))
+                      T$)
+                     ((AND (SETQ T$ (|comp| |val| |$EmptyMode| E))
+                           (|getmode| (CADR T$) E))
+                      (|assignError| |val| (CADR T$) |id| |m''|)))
+               (RETURN NIL)))
+      (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))
+ 
+; finish_setq_single(T, m, id, val, currentProplist) ==
+;   T' := [x, m', e'] := convert(T, m) or return nil
 ;   if $profileCompiler = true then
 ;     null IDENTP id => nil
 ;     key :=
@@ -2343,53 +2371,32 @@
 ;             (isDomainForm(x,e') => ['ELT,id,0];CAR outputComp(id,e'))]
 ;   [form,m',e']
  
-(DEFUN |setqSingle| (|id| |val| |m| E)
-  (PROG (|$insideSetqSingleIfTrue| |form| |k| |newProplist| |key| |T'| |e'|
-         |m'| |x| |LETTMP#1| |maxm''| T$ |m''| |currentProplist|)
-    (DECLARE (SPECIAL |$insideSetqSingleIfTrue|))
+(DEFUN |finish_setq_single| (T$ |m| |id| |val| |currentProplist|)
+  (PROG (|LETTMP#1| |x| |m'| |e'| |T'| |key| |newProplist| |k| |form|)
     (RETURN
      (PROGN
-      (SETQ |$insideSetqSingleIfTrue| T)
-      (SETQ |currentProplist| (|getProplist| |id| E))
-      (SETQ |m''|
-              (OR (|get| |id| '|mode| E) (|getmode| |id| E)
-                  (COND ((EQUAL |m| |$NoValueMode|) |$EmptyMode|)
-                        (#1='T |m|))))
-      (SETQ T$
-              (OR
-               (COND ((SETQ T$ (|comp| |val| |m''| E)) T$)
-                     ((AND (NULL (|get| |id| '|mode| E))
-                           (NOT
-                            (EQUAL |m''|
-                                   (SETQ |maxm''| (|maxSuperType| |m''| E))))
-                           (SETQ T$ (|comp| |val| |maxm''| E)))
-                      T$)
-                     ((AND (SETQ T$ (|comp| |val| |$EmptyMode| E))
-                           (|getmode| (CADR T$) E))
-                      (|assignError| |val| (CADR T$) |id| |m''|)))
-               (RETURN NIL)))
       (SETQ |T'|
               (PROGN
                (SETQ |LETTMP#1| (OR (|convert| T$ |m|) (RETURN NIL)))
                (SETQ |x| (CAR |LETTMP#1|))
-               (SETQ |m'| (CADR . #2=(|LETTMP#1|)))
-               (SETQ |e'| (CADDR . #2#))
+               (SETQ |m'| (CADR . #1=(|LETTMP#1|)))
+               (SETQ |e'| (CADDR . #1#))
                |LETTMP#1|))
       (COND
        ((EQUAL |$profileCompiler| T)
         (COND ((NULL (IDENTP |id|)) NIL)
-              (#1#
+              (#2='T
                (PROGN
                 (SETQ |key|
                         (COND ((MEMQ |id| (CDR |$form|)) '|arguments|)
-                              (#1# '|locals|)))
+                              (#2# '|locals|)))
                 (|profileRecord| |key| |id| (CADR T$)))))))
       (SETQ |newProplist|
               (|consProplistOf| |id| |currentProplist| '|value|
                (|removeEnv| (CONS |val| (CDR T$)))))
       (SETQ |e'|
               (COND ((CONSP |id|) |e'|)
-                    (#1# (|addBinding| |id| |newProplist| |e'|))))
+                    (#2# (|addBinding| |id| |newProplist| |e'|))))
       (COND
        ((|isDomainForm| |val| |e'|)
         (COND
@@ -2401,14 +2408,14 @@
       (COND
        ((SETQ |k| (|NRTassocIndex| |id|))
         (SETQ |form| (LIST 'SETELT '$ |k| |x|)))
-       (#1#
+       (#2#
         (SETQ |form|
                 (COND (|$QuickLet| (LIST 'LET |id| |x|))
-                      (#1#
+                      (#2#
                        (LIST 'LET |id| |x|
                              (COND
                               ((|isDomainForm| |x| |e'|) (LIST 'ELT |id| 0))
-                              (#1# (CAR (|outputComp| |id| |e'|))))))))))
+                              (#2# (CAR (|outputComp| |id| |e'|))))))))))
       (LIST |form| |m'| |e'|)))))
  
 ; assignError(val,m',form,m) ==
