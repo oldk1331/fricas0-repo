@@ -870,7 +870,7 @@
 (DEFUN |INTDEN;li_int1| (|f| |u| |x| $)
   (PROG (#1=#:G374 |c| |j| #2=#:G373 |sl| |sl0| |eqsl| |eqs| #3=#:G371 |p1|
          #4=#:G372 |coef| |lpow| |pp| #5=#:G370 |lpow0| |coefs| #6=#:G369 |nf1|
-         |cc| #7=#:G364 |ccru| |ccu| |dup| #8=#:G337 |nup| #9=#:G335 |n| |m|
+         |cc| #7=#:G364 |ccru| |ccu| |dup| #8=#:G337 |nup| #9=#:G335 |m| |n|
          |qu| |degdu| |degnu| |degdf| |degnf| |du| |nu| |df1| |vk2| #10=#:G368
          |k| #11=#:G367 |f1| |deru| |k1| |vk| #12=#:G366 #13=#:G365)
     (RETURN
@@ -1037,6 +1037,8 @@
                                (PROGN
                                 (LETT #7# (CONS 1 "failed") . #14#)
                                 (GO #7#))))))))
+                         (LETT |n| (MAX |n| 0) . #14#)
+                         (LETT |m| (MAX |m| 0) . #14#)
                          (LETT |nup|
                                (COND
                                 ((SPADCALL |n| 0 (QREFELT $ 118))
