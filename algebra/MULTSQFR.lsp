@@ -756,7 +756,7 @@
 
 (DEFUN |MULTSQFR;lift;Sup2SupPLLLU;7|
        (|ud| |g0| |g1| |lcoef| |lvar| |ldeg| |lval| $)
-  (PROG (|p1| |p0| |#G50| |#G49| |#G48| |#G47| |plist| |leadlist| |lcg0|
+  (PROG (|p1| |p0| |#G54| |#G53| |#G52| |#G51| |plist| |leadlist| |lcg0|
          |leadpol| |lcd|)
     (RETURN
      (SEQ (LETT |leadpol| 'NIL . #1=(|MULTSQFR;lift;Sup2SupPLLLU;7|))
@@ -796,20 +796,20 @@
                  (#2#
                   (SEQ
                    (PROGN
-                    (LETT |#G47| (SPADCALL (QCDR |plist|) 1 (QREFELT $ 68))
+                    (LETT |#G51| (SPADCALL (QCDR |plist|) 1 (QREFELT $ 68))
                           . #1#)
-                    (LETT |#G48| (SPADCALL (QCDR |plist|) 2 (QREFELT $ 68))
+                    (LETT |#G52| (SPADCALL (QCDR |plist|) 2 (QREFELT $ 68))
                           . #1#)
-                    (LETT |p0| |#G47| . #1#)
-                    (LETT |p1| |#G48| . #1#))
+                    (LETT |p0| |#G51| . #1#)
+                    (LETT |p1| |#G52| . #1#))
                    (COND
                     ((SPADCALL (SPADCALL |p0| |lvar| |lval| (QREFELT $ 72))
                                |g0| (QREFELT $ 144))
                      (PROGN
-                      (LETT |#G49| |p1| . #1#)
-                      (LETT |#G50| |p0| . #1#)
-                      (LETT |p0| |#G49| . #1#)
-                      (LETT |p1| |#G50| . #1#))))
+                      (LETT |#G53| |p1| . #1#)
+                      (LETT |#G54| |p0| . #1#)
+                      (LETT |p0| |#G53| . #1#)
+                      (LETT |p1| |#G54| . #1#))))
                    (EXIT
                     (CONS 0
                           (LIST (SPADCALL |p0| (QREFELT $ 145))

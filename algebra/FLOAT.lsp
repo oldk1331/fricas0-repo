@@ -1296,7 +1296,7 @@
 (DEFUN |FLOAT;sub| (|x| |y| $) (|FLOAT;plus| |x| (|FLOAT;negate| |y| $) $)) 
 
 (DEFUN |FLOAT;plus| (|x| |y| $)
-  (PROG (|mw| |ey| |ex| |my| |mx| |#G122| |#G121| |#G120| |#G119| |de|)
+  (PROG (|mw| |ey| |ex| |my| |mx| |#G124| |#G123| |#G122| |#G121| |de|)
     (RETURN
      (SEQ (LETT |mx| (QCAR |x|) . #1=(|FLOAT;plus|))
           (LETT |my| (QCAR |y|) . #1#)
@@ -1327,14 +1327,14 @@
                                     (COND
                                      ((< |ex| |ey|)
                                       (PROGN
-                                       (LETT |#G119| |my| . #1#)
-                                       (LETT |#G120| |mx| . #1#)
-                                       (LETT |#G121| |ey| . #1#)
-                                       (LETT |#G122| |ex| . #1#)
-                                       (LETT |mx| |#G119| . #1#)
-                                       (LETT |my| |#G120| . #1#)
-                                       (LETT |ex| |#G121| . #1#)
-                                       (LETT |ey| |#G122| . #1#))))
+                                       (LETT |#G121| |my| . #1#)
+                                       (LETT |#G122| |mx| . #1#)
+                                       (LETT |#G123| |ey| . #1#)
+                                       (LETT |#G124| |ex| . #1#)
+                                       (LETT |mx| |#G121| . #1#)
+                                       (LETT |my| |#G122| . #1#)
+                                       (LETT |ex| |#G123| . #1#)
+                                       (LETT |ey| |#G124| . #1#))))
                                     (LETT |mw|
                                           (+ |my|
                                              (|FLOAT;shift2| |mx| (- |ex| |ey|)
@@ -1545,16 +1545,16 @@
              (EXIT (SPADCALL |y| (QREFELT $ 48)))))))))) 
 
 (DEFUN |FLOAT;convert10| (|x| |d| $)
-  (PROG (|h| |r| #1=#:G552 |b| |q| |#G152| |e| |m|)
+  (PROG (|h| |r| #1=#:G552 |b| |q| |#G154| |e| |m|)
     (RETURN
      (SEQ (LETT |m| (QCAR |x|) . #2=(|FLOAT;convert10|))
           (LETT |e| (QCDR |x|) . #2#)
           (LETT |b| (SPADCALL (QREFELT $ 55)) . #2#)
           (PROGN
-           (LETT |#G152| (DIVIDE2 (ABS |e|) |b|) . #2#)
-           (LETT |q| (QCAR |#G152|) . #2#)
-           (LETT |r| (QCDR |#G152|) . #2#)
-           |#G152|)
+           (LETT |#G154| (DIVIDE2 (ABS |e|) |b|) . #2#)
+           (LETT |q| (QCAR |#G154|) . #2#)
+           (LETT |r| (QCDR |#G154|) . #2#)
+           |#G154|)
           (LETT |b| (EXPT 2 |b|) . #2#)
           (LETT |r|
                 (EXPT 2
@@ -1627,7 +1627,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |FLOAT;normalize10| (|x| |p| $)
-  (PROG (|ex| |ma| #1=#:G574 |r| |#G162| #2=#:G570 |e|)
+  (PROG (|ex| |ma| #1=#:G574 |r| |#G164| #2=#:G570 |e|)
     (RETURN
      (SEQ (LETT |ma| (QCAR |x|) . #3=(|FLOAT;normalize10|))
           (LETT |ex| (QCDR |x|) . #3#)
@@ -1645,10 +1645,10 @@
                    . #3#)
              (LETT |ex| (+ |ex| |e|) . #3#)
              (PROGN
-              (LETT |#G162| (DIVIDE2 |ma| 10) . #3#)
-              (LETT |ma| (QCAR |#G162|) . #3#)
-              (LETT |r| (QCDR |#G162|) . #3#)
-              |#G162|)
+              (LETT |#G164| (DIVIDE2 |ma| 10) . #3#)
+              (LETT |ma| (QCAR |#G164|) . #3#)
+              (LETT |r| (QCDR |#G164|) . #3#)
+              |#G164|)
              (EXIT
               (COND
                ((SPADCALL |r| 4 (QREFELT $ 68))
@@ -2377,8 +2377,8 @@
   (SPADCALL |f| |d| 10 (QREFELT $ 191))) 
 
 (DEFUN |FLOAT;rationalApproximation;$2NniF;127| (|f| |d| |b| $)
-  (PROG (|t| |s| |#G224| |#G223| |q1| |q0| |#G222| |#G221| |p1| |p0| |#G220|
-         |#G219| #1=#:G750 |q2| |p2| |r| |q| |#G218| |tol| |de| #2=#:G743
+  (PROG (|t| |s| |#G227| |#G226| |q1| |q0| |#G225| |#G224| |p1| |p0| |#G223|
+         |#G222| #1=#:G750 |q2| |p2| |r| |q| |#G221| |tol| |de| #2=#:G743
          #3=#:G741 |ex| |nu|)
     (RETURN
      (SEQ
@@ -2413,10 +2413,10 @@
          (SEQ G190 NIL
               (SEQ
                (PROGN
-                (LETT |#G218| (DIVIDE2 |s| |t|) . #4#)
-                (LETT |q| (QCAR |#G218|) . #4#)
-                (LETT |r| (QCDR |#G218|) . #4#)
-                |#G218|)
+                (LETT |#G221| (DIVIDE2 |s| |t|) . #4#)
+                (LETT |q| (QCAR |#G221|) . #4#)
+                (LETT |r| (QCDR |#G221|) . #4#)
+                |#G221|)
                (LETT |p2| (+ (* |q| |p1|) |p0|) . #4#)
                (LETT |q2| (+ (* |q| |q1|) |q0|) . #4#)
                (COND
@@ -2432,21 +2432,21 @@
                   (LETT #1# (SPADCALL |p2| |q2| (QREFELT $ 200)) . #4#)
                   (GO #1#))))
                (PROGN
-                (LETT |#G219| |p1| . #4#)
-                (LETT |#G220| |p2| . #4#)
-                (LETT |p0| |#G219| . #4#)
-                (LETT |p1| |#G220| . #4#))
+                (LETT |#G222| |p1| . #4#)
+                (LETT |#G223| |p2| . #4#)
+                (LETT |p0| |#G222| . #4#)
+                (LETT |p1| |#G223| . #4#))
                (PROGN
-                (LETT |#G221| |q1| . #4#)
-                (LETT |#G222| |q2| . #4#)
-                (LETT |q0| |#G221| . #4#)
-                (LETT |q1| |#G222| . #4#))
+                (LETT |#G224| |q1| . #4#)
+                (LETT |#G225| |q2| . #4#)
+                (LETT |q0| |#G224| . #4#)
+                (LETT |q1| |#G225| . #4#))
                (EXIT
                 (PROGN
-                 (LETT |#G223| |t| . #4#)
-                 (LETT |#G224| |r| . #4#)
-                 (LETT |s| |#G223| . #4#)
-                 (LETT |t| |#G224| . #4#))))
+                 (LETT |#G226| |t| . #4#)
+                 (LETT |#G227| |r| . #4#)
+                 (LETT |s| |#G226| . #4#)
+                 (LETT |t| |#G227| . #4#))))
               NIL (GO G190) G191 (EXIT NIL)))))
       #1# (EXIT #1#))))) 
 

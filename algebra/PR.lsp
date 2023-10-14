@@ -392,8 +392,8 @@
                  (#2# (SEQ (RPLACD |endcell| |newcell|) (EXIT |res|))))))))) 
 
 (DEFUN |PR;*;3$;22| (|p1| |p2| $)
-  (PROG (|res| #1=#:G315 |tx| #2=#:G314 |xx| |degy| |degx| |#G68| |#G67| |yy|
-         |#G66| |#G65| |ly| |lx|)
+  (PROG (|res| #1=#:G315 |tx| #2=#:G314 |xx| |degy| |degx| |#G70| |#G69| |yy|
+         |#G68| |#G67| |ly| |lx|)
     (RETURN
      (SEQ (LETT |xx| |p1| . #3=(|PR;*;3$;22|))
           (EXIT
@@ -413,16 +413,16 @@
                                          ((< |ly| |lx|)
                                           (SEQ
                                            (PROGN
-                                            (LETT |#G65| |yy| . #3#)
-                                            (LETT |#G66| |xx| . #3#)
-                                            (LETT |xx| |#G65| . #3#)
-                                            (LETT |yy| |#G66| . #3#))
+                                            (LETT |#G67| |yy| . #3#)
+                                            (LETT |#G68| |xx| . #3#)
+                                            (LETT |xx| |#G67| . #3#)
+                                            (LETT |yy| |#G68| . #3#))
                                            (EXIT
                                             (PROGN
-                                             (LETT |#G67| |p2| . #3#)
-                                             (LETT |#G68| |p1| . #3#)
-                                             (LETT |p1| |#G67| . #3#)
-                                             (LETT |p2| |#G68| . #3#))))))))))
+                                             (LETT |#G69| |p2| . #3#)
+                                             (LETT |#G70| |p1| . #3#)
+                                             (LETT |p1| |#G69| . #3#)
+                                             (LETT |p2| |#G70| . #3#))))))))))
                                 (LETT |degx| (QCAR (|SPADfirst| |xx|)) . #3#)
                                 (LETT |degy| (QCAR (|SPADfirst| |yy|)) . #3#)
                                 (EXIT
@@ -594,7 +594,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PR;unitNormal;$R;28| (|p| $)
-  (PROG (|a| |cf| |u| |#G84|)
+  (PROG (|a| |cf| |u| |#G86|)
     (RETURN
      (SEQ
       (COND
@@ -605,12 +605,12 @@
        ('T
         (SEQ
          (PROGN
-          (LETT |#G84| (SPADCALL (QCDR (|SPADfirst| |p|)) (QREFELT $ 64))
+          (LETT |#G86| (SPADCALL (QCDR (|SPADfirst| |p|)) (QREFELT $ 64))
                 . #1=(|PR;unitNormal;$R;28|))
-          (LETT |u| (QVELT |#G84| 0) . #1#)
-          (LETT |cf| (QVELT |#G84| 1) . #1#)
-          (LETT |a| (QVELT |#G84| 2) . #1#)
-          |#G84|)
+          (LETT |u| (QVELT |#G86| 0) . #1#)
+          (LETT |cf| (QVELT |#G86| 1) . #1#)
+          (LETT |a| (QVELT |#G86| 2) . #1#)
+          |#G86|)
          (EXIT
           (VECTOR (SPADCALL |u| (QREFELT $ 36))
                   (CONS (CONS (QCAR (|SPADfirst| |p|)) |cf|)
@@ -618,7 +618,7 @@
                   (SPADCALL |a| (QREFELT $ 36))))))))))) 
 
 (DEFUN |PR;unitCanonical;2$;29| (|p| $)
-  (PROG (|a| |cf| |u| |#G86|)
+  (PROG (|a| |cf| |u| |#G88|)
     (RETURN
      (SEQ
       (COND
@@ -629,12 +629,12 @@
        ('T
         (SEQ
          (PROGN
-          (LETT |#G86| (SPADCALL (QCDR (|SPADfirst| |p|)) (QREFELT $ 64))
+          (LETT |#G88| (SPADCALL (QCDR (|SPADfirst| |p|)) (QREFELT $ 64))
                 . #1=(|PR;unitCanonical;2$;29|))
-          (LETT |u| (QVELT |#G86| 0) . #1#)
-          (LETT |cf| (QVELT |#G86| 1) . #1#)
-          (LETT |a| (QVELT |#G86| 2) . #1#)
-          |#G86|)
+          (LETT |u| (QVELT |#G88| 0) . #1#)
+          (LETT |cf| (QVELT |#G88| 1) . #1#)
+          (LETT |a| (QVELT |#G88| 2) . #1#)
+          |#G88|)
          (EXIT
           (CONS (CONS (QCAR (|SPADfirst| |p|)) |cf|)
                 (SPADCALL |a| (CDR |p|) (QREFELT $ 50))))))))))) 

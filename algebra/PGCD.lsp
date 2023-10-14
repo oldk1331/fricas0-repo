@@ -274,7 +274,7 @@
 (DEFUN |PGCD;notCoprime| (|g| |p2| |ldeg| |lvar1| |ltry| $)
   (PROG (|ulist| #1=#:G213 #2=#:G224 |uf| #3=#:G223 |gd1| |dl| |ul| |l| |gd2|
          #4=#:G222 |gdl| |lgcd| |lquo| |d| |lcpol| |ug1| |lval| |newchoice|
-         |#G32| |#G31| |p2l| #5=#:G206 |#G30| |#G29| |lg| |l1| |g1|)
+         |#G33| |#G32| |p2l| #5=#:G206 |#G31| |#G30| |lg| |l1| |g1|)
     (RETURN
      (SEQ
       (EXIT
@@ -290,10 +290,10 @@
               . #6#)
         (LETT |lg| (|PGCD;localgcd| |l1| |p2| |lvar1| |ltry| $) . #6#)
         (PROGN
-         (LETT |#G29| (QCAR |lg|) . #6#)
-         (LETT |#G30| (QCDR |lg|) . #6#)
-         (LETT |l| |#G29| . #6#)
-         (LETT |ltry| |#G30| . #6#))
+         (LETT |#G30| (QCAR |lg|) . #6#)
+         (LETT |#G31| (QCDR |lg|) . #6#)
+         (LETT |l| |#G30| . #6#)
+         (LETT |ltry| |#G31| . #6#))
         (LETT |lval| (|SPADfirst| |ltry|) . #6#)
         (LETT |p2l|
               (PROG2 (LETT #5# (SPADCALL |p2| |l| (QREFELT $ 19)) . #6#)
@@ -303,10 +303,10 @@
                                #5#))
               . #6#)
         (PROGN
-         (LETT |#G31| |l| . #6#)
          (LETT |#G32| |l| . #6#)
-         (LETT |gd1| |#G31| . #6#)
-         (LETT |gd2| |#G32| . #6#))
+         (LETT |#G33| |l| . #6#)
+         (LETT |gd1| |#G32| . #6#)
+         (LETT |gd2| |#G33| . #6#))
         (LETT |ul| (SPADCALL |l| |lvar1| |lval| (QREFELT $ 31)) . #6#)
         (LETT |dl| (SPADCALL |ul| (QREFELT $ 32)) . #6#)
         (COND
@@ -403,8 +403,8 @@
       #4# (EXIT #4#))))) 
 
 (DEFUN |PGCD;gcdPrimitive;3Sup;6| (|p1| |p2| $)
-  (PROG (|result| |totResult| |ltry| |lvar| |d2| |d1| |#G39| |#G38| |#G37|
-         |#G36|)
+  (PROG (|result| |totResult| |ltry| |lvar| |d2| |d1| |#G40| |#G39| |#G38|
+         |#G37|)
     (RETURN
      (SEQ
       (SEQ
@@ -416,16 +416,16 @@
          ((SPADCALL |d1| |d2| (QREFELT $ 56))
           (SEQ
            (PROGN
-            (LETT |#G36| |p2| . #1#)
-            (LETT |#G37| |p1| . #1#)
-            (LETT |p1| |#G36| . #1#)
-            (LETT |p2| |#G37| . #1#))
+            (LETT |#G37| |p2| . #1#)
+            (LETT |#G38| |p1| . #1#)
+            (LETT |p1| |#G37| . #1#)
+            (LETT |p2| |#G38| . #1#))
            (EXIT
             (PROGN
-             (LETT |#G38| |d2| . #1#)
-             (LETT |#G39| |d1| . #1#)
-             (LETT |d1| |#G38| . #1#)
-             (LETT |d2| |#G39| . #1#))))))))
+             (LETT |#G39| |d2| . #1#)
+             (LETT |#G40| |d1| . #1#)
+             (LETT |d1| |#G39| . #1#)
+             (LETT |d2| |#G40| . #1#))))))))
       (EXIT
        (COND
         ((EQL (SPADCALL |p1| (QREFELT $ 21)) 0)
@@ -618,17 +618,17 @@
       (EXIT |q|))))) 
 
 (DEFUN |PGCD;gcd;3Sup;12| (|p1| |p2| $)
-  (PROG (#1=#:G275 |c2| |c1| |#G57| |#G56|)
+  (PROG (#1=#:G275 |c2| |c1| |#G58| |#G57|)
     (RETURN
      (SEQ
       (COND
        ((SPADCALL (SPADCALL |p1| (QREFELT $ 21)) (SPADCALL |p2| (QREFELT $ 21))
                   (QREFELT $ 56))
         (PROGN
-         (LETT |#G56| |p2| . #2=(|PGCD;gcd;3Sup;12|))
-         (LETT |#G57| |p1| . #2#)
-         (LETT |p1| |#G56| . #2#)
-         (LETT |p2| |#G57| . #2#))))
+         (LETT |#G57| |p2| . #2=(|PGCD;gcd;3Sup;12|))
+         (LETT |#G58| |p1| . #2#)
+         (LETT |p1| |#G57| . #2#)
+         (LETT |p2| |#G58| . #2#))))
       (EXIT
        (COND
         ((EQL (SPADCALL |p1| (QREFELT $ 21)) 0)
@@ -688,14 +688,14 @@
 
 (DEFUN |PGCD;lift?| (|p1| |p2| |uterm| |ldeg| |lvar| $)
   (PROG (|l| |lgcd| |f| #1=#:G287 |nolift| #2=#:G294 |uf| |listpol| |d| |lval|
-         |#G66| |#G65| |leadpol|)
+         |#G67| |#G66| |leadpol|)
     (RETURN
      (SEQ (LETT |leadpol| 'NIL . #3=(|PGCD;lift?|))
           (PROGN
-           (LETT |#G65| (QVELT |uterm| 0) . #3#)
-           (LETT |#G66| (|SPADfirst| (QVELT |uterm| 1)) . #3#)
-           (LETT |listpol| |#G65| . #3#)
-           (LETT |lval| |#G66| . #3#))
+           (LETT |#G66| (QVELT |uterm| 0) . #3#)
+           (LETT |#G67| (|SPADfirst| (QVELT |uterm| 1)) . #3#)
+           (LETT |listpol| |#G66| . #3#)
+           (LETT |lval| |#G67| . #3#))
           (LETT |d| (|SPADfirst| |listpol|) . #3#)
           (LETT |listpol| (CDR |listpol|) . #3#) (LETT |nolift| 'T . #3#)
           (SEQ
@@ -739,7 +739,7 @@
                           (#4# (CONS 0 (QCDR |l|))))))))))))) 
 
 (DEFUN |PGCD;lift| (|f| |d| |uf| |lgcd| |lvar| |ldeg| |lval| $)
-  (PROG (|p1| |p0| |#G82| |#G81| |#G80| |#G79| |plist| |pl| |lg| |leadlist|
+  (PROG (|p1| |p0| |#G83| |#G82| |#G81| |#G80| |plist| |pl| |lg| |leadlist|
          #1=#:G300 |lcd| #2=#:G313 |n0| #3=#:G314 |n1| #4=#:G312 |leadpol| |df|
          |lcf|)
     (RETURN
@@ -823,18 +823,18 @@
                  (#6#
                   (SEQ (LETT |plist| (QCDR |pl|) . #5#)
                        (PROGN
-                        (LETT |#G79| (|SPADfirst| |plist|) . #5#)
-                        (LETT |#G80| (SPADCALL |plist| 2 (QREFELT $ 90)) . #5#)
-                        (LETT |p0| |#G79| . #5#)
-                        (LETT |p1| |#G80| . #5#))
+                        (LETT |#G80| (|SPADfirst| |plist|) . #5#)
+                        (LETT |#G81| (SPADCALL |plist| 2 (QREFELT $ 90)) . #5#)
+                        (LETT |p0| |#G80| . #5#)
+                        (LETT |p1| |#G81| . #5#))
                        (COND
                         ((SPADCALL (SPADCALL |p0| |lvar| |lval| (QREFELT $ 31))
                                    (|SPADfirst| |lg|) (QREFELT $ 101))
                          (PROGN
-                          (LETT |#G81| |p1| . #5#)
-                          (LETT |#G82| |p0| . #5#)
-                          (LETT |p0| |#G81| . #5#)
-                          (LETT |p1| |#G82| . #5#))))
+                          (LETT |#G82| |p1| . #5#)
+                          (LETT |#G83| |p0| . #5#)
+                          (LETT |p0| |#G82| . #5#)
+                          (LETT |p1| |#G83| . #5#))))
                        (EXIT
                         (COND
                          (|leadpol|

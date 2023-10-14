@@ -622,8 +622,8 @@
                          (QREFELT $ 43)))))))))) 
 
 (DEFUN |FELFUN;sn_cn_dn| (|z| |m| $)
-  (PROG (|ni| |d1| |c1| |s1| |#G77| |#G76| |#G75| |#G74| |#G73| |#G72| |ms1|
-         |nr| |#G71| |#G70| |#G69| |iu| |den| |ms2| |s2| |ctwo| |zz1| |z1|
+  (PROG (|ni| |d1| |c1| |s1| |#G81| |#G80| |#G79| |#G78| |#G77| |#G76| |ms1|
+         |nr| |#G75| |#G74| |#G73| |iu| |den| |ms2| |s2| |ctwo| |zz1| |z1|
          |iz1| |itau| |tau| |ppi| |kk2| |ll2| |kn| |mp| |ms0| |m1| |iz| |kk|
          |ll| |eps| |res| |pl| |k| |cc| |prec| |obits|)
     (RETURN
@@ -841,41 +841,41 @@
                   ((>= |nr| 2)
                    (SEQ
                     (PROGN
-                     (LETT |#G69| (SPADCALL |s1| (QREFELT $ 80)) . #2#)
-                     (LETT |#G70| (SPADCALL |c1| (QREFELT $ 80)) . #2#)
-                     (LETT |#G71| |d1| . #2#)
-                     (LETT |s1| |#G69| . #2#)
-                     (LETT |c1| |#G70| . #2#)
-                     (LETT |d1| |#G71| . #2#))
+                     (LETT |#G73| (SPADCALL |s1| (QREFELT $ 80)) . #2#)
+                     (LETT |#G74| (SPADCALL |c1| (QREFELT $ 80)) . #2#)
+                     (LETT |#G75| |d1| . #2#)
+                     (LETT |s1| |#G73| . #2#)
+                     (LETT |c1| |#G74| . #2#)
+                     (LETT |d1| |#G75| . #2#))
                     (EXIT (LETT |nr| (- |nr| 2) . #2#)))))
                  (COND
                   ((EQL |nr| 1)
                    (SEQ (LETT |ms1| (SPADCALL |m1| (QREFELT $ 40)) . #2#)
                         (EXIT
                          (PROGN
-                          (LETT |#G72| (SPADCALL |c1| |d1| (QREFELT $ 43))
+                          (LETT |#G76| (SPADCALL |c1| |d1| (QREFELT $ 43))
                                 . #2#)
-                          (LETT |#G73|
+                          (LETT |#G77|
                                 (SPADCALL
                                  (SPADCALL (SPADCALL |ms1| |s1| (QREFELT $ 52))
                                            |d1| (QREFELT $ 43))
                                  (QREFELT $ 80))
                                 . #2#)
-                          (LETT |#G74| (SPADCALL |ms1| |d1| (QREFELT $ 43))
+                          (LETT |#G78| (SPADCALL |ms1| |d1| (QREFELT $ 43))
                                 . #2#)
-                          (LETT |s1| |#G72| . #2#)
-                          (LETT |c1| |#G73| . #2#)
-                          (LETT |d1| |#G74| . #2#))))))
+                          (LETT |s1| |#G76| . #2#)
+                          (LETT |c1| |#G77| . #2#)
+                          (LETT |d1| |#G78| . #2#))))))
                  (COND
                   ((>= |ni| 2)
                    (SEQ
                     (PROGN
-                     (LETT |#G75| |s1| . #2#)
-                     (LETT |#G76| (SPADCALL |c1| (QREFELT $ 80)) . #2#)
-                     (LETT |#G77| (SPADCALL |d1| (QREFELT $ 80)) . #2#)
-                     (LETT |s1| |#G75| . #2#)
-                     (LETT |c1| |#G76| . #2#)
-                     (LETT |d1| |#G77| . #2#))
+                     (LETT |#G79| |s1| . #2#)
+                     (LETT |#G80| (SPADCALL |c1| (QREFELT $ 80)) . #2#)
+                     (LETT |#G81| (SPADCALL |d1| (QREFELT $ 80)) . #2#)
+                     (LETT |s1| |#G79| . #2#)
+                     (LETT |c1| |#G80| . #2#)
+                     (LETT |d1| |#G81| . #2#))
                     (EXIT (LETT |ni| (- |ni| 2) . #2#)))))
                  (EXIT
                   (COND
@@ -1172,7 +1172,7 @@
       (EXIT (LIST |g2| |g3| |t3|)))))) 
 
 (DEFUN |FELFUN;reduce_periods| (|w1| |w2| $)
-  (PROG (|aw1| #1=#:G314 |rit| |tau| |aw2| |#G106| |#G105| |#G104| |#G103|)
+  (PROG (|aw1| #1=#:G314 |rit| |tau| |aw2| |#G110| |#G109| |#G108| |#G107|)
     (RETURN
      (SEQ
       (EXIT
@@ -1187,16 +1187,16 @@
                 ((SPADCALL |aw2| |aw1| (QREFELT $ 74))
                  (SEQ
                   (PROGN
-                   (LETT |#G103| |w2| . #2#)
-                   (LETT |#G104| |w1| . #2#)
-                   (LETT |w1| |#G103| . #2#)
-                   (LETT |w2| |#G104| . #2#))
+                   (LETT |#G107| |w2| . #2#)
+                   (LETT |#G108| |w1| . #2#)
+                   (LETT |w1| |#G107| . #2#)
+                   (LETT |w2| |#G108| . #2#))
                   (EXIT
                    (PROGN
-                    (LETT |#G105| |aw2| . #2#)
-                    (LETT |#G106| |aw1| . #2#)
-                    (LETT |aw1| |#G105| . #2#)
-                    (LETT |aw2| |#G106| . #2#))))))
+                    (LETT |#G109| |aw2| . #2#)
+                    (LETT |#G110| |aw1| . #2#)
+                    (LETT |aw1| |#G109| . #2#)
+                    (LETT |aw2| |#G110| . #2#))))))
                (LETT |tau| (SPADCALL |w1| |w2| (QREFELT $ 43)) . #2#)
                (COND
                 ((SPADCALL (SPADCALL |tau| (QREFELT $ 86))

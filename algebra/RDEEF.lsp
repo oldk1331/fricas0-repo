@@ -499,8 +499,8 @@
 
 (DEFUN |RDEEF;polyDElog|
        (|twr| |aa| |bb| |cc| |x| |t| |driv| |limint| |extint| $)
-  (PROG (|u| |w| #1=#:G417 |v| |n| |nn| |r| |i| #2=#:G401 #3=#:G432 |ans|
-         |alph| |if0| #4=#:G434 #5=#:G433 |lk1| |lk0| |f0| |da| |db| |t'|)
+  (PROG (|u3| |u2| |w| #1=#:G417 |v| |n| |nn| |r| |i| #2=#:G401 #3=#:G432 |ans|
+         |alph| |if0| #4=#:G434 |u| #5=#:G433 |lk1| |lk0| |f0| |da| |db| |t'|)
     (RETURN
      (SEQ
       (EXIT
@@ -714,7 +714,7 @@
                             (CONS 1 "failed"))
                            (#6#
                             (SEQ
-                             (LETT |u|
+                             (LETT |u2|
                                    (SPADCALL (QVELT |w| 1)
                                              (CONS #'|RDEEF;polyDElog!1|
                                                    (VECTOR |extint| |t'|))
@@ -722,31 +722,31 @@
                                    . #7#)
                              (EXIT
                               (COND
-                               ((OR (QEQCAR |u| 1)
+                               ((OR (QEQCAR |u2| 1)
                                     (SPADCALL
-                                     (SPADCALL (QCDR |u|) (QREFELT $ 133))
+                                     (SPADCALL (QCDR |u2|) (QREFELT $ 133))
                                      (QVELT |w| 2) (QREFELT $ 79)))
                                 (CONS 1 "failed"))
                                ('T
                                 (CONS 0
                                       (SPADCALL
-                                       (SPADCALL (QVELT |w| 3) (QCDR |u|)
+                                       (SPADCALL (QVELT |w| 3) (QCDR |u2|)
                                                  (QREFELT $ 146))
                                        (QVELT |w| 4) (QREFELT $ 139))))))))))
                          (#6#
                           (SEQ
-                           (LETT |u|
+                           (LETT |u3|
                                  (|RDEEF;logdegrad| |twr|
                                   (SPADCALL (QVELT |w| 0) (QREFELT $ 147))
                                   (QVELT |w| 1) (QVELT |w| 2) |x| |t| |limint|
                                   |extint| $)
                                  . #7#)
                            (EXIT
-                            (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
+                            (COND ((QEQCAR |u3| 1) (CONS 1 "failed"))
                                   (#6#
                                    (CONS 0
                                          (SPADCALL
-                                          (SPADCALL (QVELT |w| 3) (QCDR |u|)
+                                          (SPADCALL (QVELT |w| 3) (QCDR |u3|)
                                                     (QREFELT $ 146))
                                           (QVELT |w| 4)
                                           (QREFELT $ 139))))))))))))))))))))))

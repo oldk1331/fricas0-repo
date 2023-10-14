@@ -32,7 +32,11 @@
             (COND
              ((|HasCategory| (QREFELT $ 9) '(|EuclideanDomain|))
               (EXIT (SPADCALL |p| (QREFELT $ 21)))))))
-          (EXIT (SPADCALL |p| (QREFELT $ 23)))))))))))) 
+          (EXIT
+           (COND
+            ((|HasCategory| (QREFELT $ 9) '(|GcdDomain|))
+             (SPADCALL |p| (QREFELT $ 23)))
+            (#1# (|error| "factor for this domain is unimplemented"))))))))))))) 
 
 (DEFUN |GeneralizedMultivariateFactorize| (&REST #1=#:G128)
   (PROG ()

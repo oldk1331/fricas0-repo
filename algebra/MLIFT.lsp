@@ -296,7 +296,7 @@
          #5=#:G237 |lalpha| |flalpha| |mc| #6=#:G216 #7=#:G209 #8=#:G208
          #9=#:G210 #10=#:G236 |pol| |k| |polc| |mj| #11=#:G234 |tpol|
          #12=#:G235 |clist| #13=#:G233 #14=#:G231 |p| #15=#:G232 |lcp|
-         #16=#:G230 |clv| |tlv| |#G40| |#G39| #17=#:G229 #18=#:G228 #19=#:G227
+         #16=#:G230 |clv| |tlv| |#G41| |#G40| #17=#:G229 #18=#:G228 #19=#:G227
          #20=#:G226 #21=#:G225 #22=#:G224 |subsval| |subsvar| |ldeg| |degj| |v|
          |conglist| |li| |x| |j| |testp| |nvar|)
     (RETURN
@@ -404,10 +404,10 @@
                                    . #23#))))
                           ('T
                            (PROGN
-                            (LETT |#G39| |tlist| . #23#)
-                            (LETT |#G40| |coeflist| . #23#)
-                            (LETT |tlv| |#G39| . #23#)
-                            (LETT |clv| |#G40| . #23#))))
+                            (LETT |#G40| |tlist| . #23#)
+                            (LETT |#G41| |coeflist| . #23#)
+                            (LETT |tlv| |#G40| . #23#)
+                            (LETT |clv| |#G41| . #23#))))
                          (LETT |plist|
                                (PROGN
                                 (LETT #16# NIL . #23#)
