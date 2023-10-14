@@ -278,21 +278,15 @@
 ;     if u = "MAKEPROP" and $TRACELETFLAG then
 ;         rplac(first x, "MAKEPROP-SAY")
 ;     MEMQ(u, '(SPADLET SETQ LET)) =>
-;         if NOT($BOOT) or MEMQ($FUNNAME, $traceletFunctions) then
-;             NCONC(x, $FUNNAME_TAIL)
-;             RPLACA(x, "LETT")
-;         else if $TRACELETFLAG then
-;             -- this devious trick (due to RDJ) is needed since the compile
-;             -- looks only at global variables in top-level environment;
-;             -- thus SPADLET cannot itself test for such flags (7/83).
-;             RPLACA(x, "/TRACE-LET")
-;         else if u = "LET" then RPLACA(x, "SPADLET")
+;         NCONC(x, $FUNNAME_TAIL)
+;         RPLACA(x, "LETT")
 ;         compTran1(CDDR x)
 ;         NOT(u = "SETQ") =>
 ;             IDENTP(CADR(x)) => PUSHLOCVAR(CADR(x))
 ;             EQCAR(CADR(x), "FLUID") =>
 ;                 PUSH(CADADR(x), $fluidVars)
 ;                 rplac(CADR(x), CADADR(x))
+;             BREAK()
 ;             MAPC(FUNCTION PUSHLOCVAR, LISTOFATOMS(CADR x))
 ;     MEMQ(u, '(PROG LAMBDA)) =>
 ;         $newBindings : local := nil
@@ -320,12 +314,8 @@
                      (COND
                       ((MEMQ |u| '(SPADLET SETQ LET))
                        (PROGN
-                        (COND
-                         ((OR (NULL $BOOT)
-                              (MEMQ $FUNNAME |$traceletFunctions|))
-                          (NCONC |x| $FUNNAME_TAIL) (RPLACA |x| 'LETT))
-                         ($TRACELETFLAG (RPLACA |x| '/TRACE-LET))
-                         ((EQ |u| 'LET) (RPLACA |x| 'SPADLET)))
+                        (NCONC |x| $FUNNAME_TAIL)
+                        (RPLACA |x| 'LETT)
                         (|compTran1| (CDDR |x|))
                         (COND
                          ((NULL (EQ |u| 'SETQ))
@@ -335,8 +325,10 @@
                                   (PUSH (CADADR |x|) |$fluidVars|)
                                   (|rplac| (CADR |x|) (CADADR |x|))))
                                 (#1#
-                                 (MAPC #'PUSHLOCVAR
-                                       (LISTOFATOMS (CADR |x|)))))))))
+                                 (PROGN
+                                  (BREAK)
+                                  (MAPC #'PUSHLOCVAR
+                                        (LISTOFATOMS (CADR |x|))))))))))
                       ((MEMQ |u| '(PROG LAMBDA))
                        (PROGN
                         (SETQ |$newBindings| NIL)
@@ -471,33 +463,6 @@
         (SETQ |a| (|compFluidize| (QCAR |x|)))
         (SETQ |b| (|compFluidize| (QCDR |x|)))
         (COND (|a| (CONS |a| |b|)) (#1# |b|))))))))
- 
-; compFluidize1(x) ==
-;     x and SYMBOLP(x) and x ~= "$" and x ~= "$$" and _
-;       SCHAR('"$", 0) = SCHAR(PNAME(x), 0) _
-;       and not(DIGITP (SCHAR(PNAME(x), 1))) => ["FLUID", x]
-;     ATOM(x) => x
-;     QCAR(x) = "FLUID" => x
-;     a := compFluidize1(QCAR(x))
-;     b := compFluidize1(QCDR(x))
-;     a = QCAR(x) and b = QCDR(x) => x
-;     CONS(a, b)
- 
-(DEFUN |compFluidize1| (|x|)
-  (PROG (|a| |b|)
-    (RETURN
-     (COND
-      ((AND |x| (SYMBOLP |x|) (NOT (EQ |x| '$)) (NOT (EQ |x| '$$))
-            (EQUAL (SCHAR "$" 0) (SCHAR (PNAME |x|) 0))
-            (NULL (DIGITP (SCHAR (PNAME |x|) 1))))
-       (LIST 'FLUID |x|))
-      ((ATOM |x|) |x|) ((EQ (QCAR |x|) 'FLUID) |x|)
-      (#1='T
-       (PROGN
-        (SETQ |a| (|compFluidize1| (QCAR |x|)))
-        (SETQ |b| (|compFluidize1| (QCDR |x|)))
-        (COND ((AND (EQUAL |a| (QCAR |x|)) (EQUAL |b| (QCDR |x|))) |x|)
-              (#1# (CONS |a| |b|)))))))))
  
 ; PUSHLOCVAR(x) ==
 ;     x ~= "$" and SCHAR('"$", 0) = SCHAR(PNAME(x), 0) _
