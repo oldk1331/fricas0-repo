@@ -1839,7 +1839,7 @@
 ;      names
 ;   macros := REMDUP macros
 ; 
-;   null macros => sayBrightly '"   There are no Axiom macros."
+;   null macros => sayBrightly '"   There are no FriCAS macros."
 ; 
 ;   -- first do user defined ones
 ; 
@@ -1851,7 +1851,7 @@
 ;             first := NIL
 ;         displayParserMacro macro
 ;     macro in imacs => 'iterate
-;     sayBrightly (["   ",'%b, macro, '%d, " is not a known Axiom macro."])
+;     sayBrightly (["   ",'%b, macro, '%d, " is not a known FriCAS macro."])
 ; 
 ;   -- now system ones
 ; 
@@ -1875,7 +1875,7 @@
       (SETQ |macros|
               (COND ((NULL |names|) (APPEND |imacs| |pmacs|)) (#1='T |names|)))
       (SETQ |macros| (REMDUP |macros|))
-      (COND ((NULL |macros|) (|sayBrightly| "   There are no Axiom macros."))
+      (COND ((NULL |macros|) (|sayBrightly| "   There are no FriCAS macros."))
             (#1#
              (PROGN
               (SETQ CAR T)
@@ -1898,7 +1898,7 @@
                      (#1#
                       (|sayBrightly|
                        (LIST '|   | '|%b| |macro| '|%d|
-                             '| is not a known Axiom macro.|))))))
+                             '| is not a known FriCAS macro.|))))))
                   (SETQ |bfVar#36| (CDR |bfVar#36|))))
                |macros| NIL)
               (SETQ CAR T)
