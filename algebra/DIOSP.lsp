@@ -338,7 +338,7 @@
               |DIOSP;dioSolve;ER;1| (|List| 18) (52 . |coefficients|)
               (|Vector| 18) (57 . |vector|) (62 . |min|) (|Mapping| 18 18 18)
               (68 . |reduce|) (74 . |max|) (80 . |zero|) (85 . >) (91 . |elt|)
-              (97 . |setelt|) (|Record| (|:| |vert| 29) (|:| |free| 13))
+              (97 . |setelt|) (|Record| (|:| |vert| 29) (|:| |is_free| 13))
               (|Vector| 39) (104 . |elt|) (110 . |elt|) (116 . |setelt|)
               (123 . |copy|))
            '#(|dioSolve| 128) 'NIL
