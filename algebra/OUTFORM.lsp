@@ -108,11 +108,17 @@
                                   (PROGN (LETT |l| (CAR #1#) . #3#) NIL))
                               (GO G191)))
                             (SEQ
-                             (EXIT (LETT #2# (CONS (LIST2VEC |l|) #2#) . #3#)))
+                             (EXIT
+                              (LETT #2#
+                                    (CONS (CONS (|OUTFORM;eform| 'ROW $) |l|)
+                                          #2#)
+                                    . #3#)))
                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                             (EXIT (NREVERSE #2#))))
                       . #3#)
-                (EXIT (CONS (|OUTFORM;eform| 'MATRIX $) (LIST2VEC |lv|)))))) 
+                (EXIT
+                 (CONS (|OUTFORM;eform| 'MATRIX $)
+                       (CONS (|OUTFORM;eform| 'NIL $) |lv|)))))) 
 
 (SDEFUN |OUTFORM;pile;L$;25| ((|l| |List| $) ($ $))
         (CONS (|OUTFORM;eform| 'SC $) |l|)) 
