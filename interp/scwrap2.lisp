@@ -32,18 +32,10 @@
          (CONS '|special| (COPY-TREE |$InitialDomainsInScope|)))
    (|addBinding| '|$Information| NIL (|makeInitialModemapFrame|))))
  
-; DEFPARAMETER($NONBLANK, nil)
- 
-(DEFPARAMETER $NONBLANK NIL)
- 
-; set_nonblank(val) == SETF($NONBLANK, val)
- 
-(DEFUN |set_nonblank| (|val|) (PROG () (RETURN (SETF $NONBLANK |val|))))
- 
 ; current_line_number() ==
 ;     tok := current_token()
 ;     tok =>
-;          pos := TOKEN_-NONBLANK(tok)
+;          pos := TOKEN_-LINE_NUM(tok)
 ;          pos and INTEGERP(pos) => pos
 ;          nil
 ;     nil
@@ -56,9 +48,21 @@
       (COND
        (|tok|
         (PROGN
-         (SETQ |pos| (TOKEN-NONBLANK |tok|))
+         (SETQ |pos| (TOKEN-LINE_NUM |tok|))
          (COND ((AND |pos| (INTEGERP |pos|)) |pos|) (#1='T NIL))))
        (#1# NIL))))))
+ 
+; current_token_is_nonblank() ==
+;     tok := current_token()
+;     tok => TOKEN_-NONBLANK(tok)
+;     nil
+ 
+(DEFUN |current_token_is_nonblank| ()
+  (PROG (|tok|)
+    (RETURN
+     (PROGN
+      (SETQ |tok| (|current_token|))
+      (COND (|tok| (TOKEN-NONBLANK |tok|)) ('T NIL))))))
  
 ; spad_syntax_error(wanted, parsing) ==
 ;     FORMAT(true, '"******** Spad syntax error detected ********")
@@ -262,7 +266,6 @@
  
 ; ntokreader(token) ==
 ;     nonblank_flag := nil
-;     set_nonblank(nil)
 ;     if $toklst then
 ;         tok1 := first $toklst
 ;         $toklst := rest $toklst
@@ -271,6 +274,7 @@
 ;         pos := tok1.4
 ;         line_info := first(rest(pos))
 ;         line_no := first(rest(rest(line_info)))
+;         char_no := rest(rest(pos))
 ;         if not($curent_line_number = line_no) then
 ;             $prev_line := $curent_line
 ;             $prev_line_number := $curent_line_number
@@ -286,7 +290,6 @@
 ;             sym := make_float(mant_i, mant_f, mant_fl, exp)
 ;         if sym = "(" and type1 = "key" and tok1.3 = "nonblank" then
 ;             nonblank_flag := true
-;             set_nonblank(true) 
 ;         type := ASSQ(type1, $trans_table)
 ;         greater_SI($paren_level, 0) and type1 = "key" and _
 ;           sym in ["BACKSET", "BACKTAB", "SETTAB"] =>
@@ -348,24 +351,24 @@
 ;             sym :=
 ;                 sym1 => sym1.1
 ;                 sym
-;         TOKEN_-INSTALL(sym, type, token, line_no)
+;         token_install(sym, type, nonblank_flag, line_no, char_no, token)
 ;     else
-;         TOKEN_-INSTALL(nil, "*EOF", token, nil)
+;         token_install(nil, "*EOF", nil, nil, 0, token)
  
 (DEFUN |ntokreader| (|token|)
   (PROG (|nonblank_flag| |tok1| |type1| |sym| |pos| |line_info| |line_no|
-         |mant_i| |exp| |mant_fl| |mant_f| |type| |ntok1| |ntype1| |nsym|
-         |sym1| |sym2|)
+         |char_no| |mant_i| |exp| |mant_fl| |mant_f| |type| |ntok1| |ntype1|
+         |nsym| |sym1| |sym2|)
     (RETURN
      (PROGN
       (SETQ |nonblank_flag| NIL)
-      (|set_nonblank| NIL)
       (COND
        (|$toklst| (SETQ |tok1| (CAR |$toklst|))
         (SETQ |$toklst| (CDR |$toklst|)) (SETQ |type1| (CAR |tok1|))
         (SETQ |sym| (ELT |tok1| 1)) (SETQ |pos| (ELT |tok1| 4))
         (SETQ |line_info| (CAR (CDR |pos|)))
         (SETQ |line_no| (CAR (CDR (CDR |line_info|))))
+        (SETQ |char_no| (CDR (CDR |pos|)))
         (COND
          ((NULL (EQUAL |$curent_line_number| |line_no|))
           (SETQ |$prev_line| |$curent_line|)
@@ -384,7 +387,7 @@
         (COND
          ((AND (EQ |sym| '|(|) (EQ |type1| '|key|)
                (EQ (ELT |tok1| 3) '|nonblank|))
-          (SETQ |nonblank_flag| T) (|set_nonblank| T)))
+          (SETQ |nonblank_flag| T)))
         (SETQ |type| (ASSQ |type1| |$trans_table|))
         (COND
          ((AND (|greater_SI| |$paren_level| 0) (EQ |type1| '|key|)
@@ -459,8 +462,9 @@
                    (COND
                     (|sym2| (SETQ |type| 'IDENTIFIER) (SETQ |sym1| |sym2|)))
                    (SETQ |sym| (COND (|sym1| (ELT |sym1| 1)) (#1# |sym|))))))))
-              (TOKEN-INSTALL |sym| |type| |token| |line_no|))))))))
-       (#1# (TOKEN-INSTALL NIL '*EOF |token| NIL)))))))
+              (|token_install| |sym| |type| |nonblank_flag| |line_no| |char_no|
+               |token|))))))))
+       (#1# (|token_install| NIL '*EOF NIL NIL 0 |token|)))))))
  
 ; DEFVAR($token_reader)
  
