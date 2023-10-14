@@ -8563,7 +8563,7 @@
 920138`Attaching assertions to symbols for pattern matching. Date Created: 21 Mar 1989 Date Last Updated: 23 May 1990
 920189`This package provides pattern matching functions on function spaces.
 920318`This package provides pattern matching functions on integers.
-920400`\spadtype{PatternMatchIntegration} provides functions that use the pattern matcher to find some indefinite and definite integrals involving special functions and found in the litterature.
+920400`\spadtype{PatternMatchIntegration} provides functions that use the pattern matcher to find some indefinite and definite integrals involving special functions and found in the literature.
 920516`This package provides pattern matching functions on kernels.
 920607`This package provides pattern matching functions on lists.
 920724`This package provides pattern matching functions on polynomials.
