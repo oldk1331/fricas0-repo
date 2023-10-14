@@ -416,24 +416,13 @@
                  (EXIT (NREVERSE #2#))))))))) 
 
 (DEFUN |EP;eigenvectors;ML;17| (A $)
-  (PROG (|algSol| #1=#:G253 |alpha| |ratSol| #2=#:G251 |vec| |pol| #3=#:G259
-         |fact| |lff| AM MM |p| |x| |n|)
+  (PROG (|algSol| #1=#:G246 |alpha| |ratSol| #2=#:G244 |vec| |pol| #3=#:G252
+         |fact| |lff| |p| |x| |n|)
     (RETURN
      (SEQ (LETT |n| (ANROWS A) . #4=(|EP;eigenvectors;ML;17|))
           (LETT |x| (SPADCALL (QREFELT $ 45)) . #4#)
           (LETT |p| (SPADCALL (|EP;charpol| A |x| $) (QREFELT $ 46)) . #4#)
-          (LETT MM
-                (|ModularField|
-                 (|SparseUnivariatePolynomial|
-                  (|Fraction| (|Polynomial| (QREFELT $ 6))))
-                 (|SparseUnivariatePolynomial|
-                  (|Fraction| (|Polynomial| (QREFELT $ 6))))
-                 (CONS (|function| |EP;reduction|) $)
-                 (CONS (|function| |EP;merge|) $)
-                 (CONS (|function| |EP;exactquo|) $))
-                . #4#)
-          (LETT AM (|Matrix| MM) . #4#) (LETT |ratSol| NIL . #4#)
-          (LETT |algSol| NIL . #4#)
+          (LETT |ratSol| NIL . #4#) (LETT |algSol| NIL . #4#)
           (LETT |lff| (SPADCALL (SPADCALL |p| (QREFELT $ 85)) (QREFELT $ 88))
                 . #4#)
           (SEQ (LETT |fact| NIL . #4#) (LETT #3# |lff| . #4#) G190
@@ -486,10 +475,10 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G260)
+(DEFUN |EigenPackage| (#1=#:G253)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G261)
+     (PROG (#2=#:G254)
        (RETURN
         (COND
          ((LETT #2#
