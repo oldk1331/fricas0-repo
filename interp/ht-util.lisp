@@ -1321,7 +1321,7 @@
 ;   CATCH('SPAD_READER, parseAndInterpret command)
 ; --  MRX I'm not sure whether I should call ioHook("startPrompt")/ioHook("endOfPrompt") here
 ;   princPrompt()
-;   FINISH_-OUTPUT()
+;   FORCE_-OUTPUT()
  
 (DEFUN |executeInterpreterCommand| (|command|)
   (PROG ()
@@ -1332,7 +1332,7 @@
       (|setCurrentLine| |command|)
       (CATCH 'SPAD_READER (|parseAndInterpret| |command|))
       (|princPrompt|)
-      (FINISH-OUTPUT)))))
+      (FORCE-OUTPUT)))))
  
 ; typeCheckInputAreas htPage ==
 ;   -- This needs to be severly beefed up

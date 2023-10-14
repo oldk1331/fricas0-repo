@@ -166,7 +166,7 @@
 ;         parseAndInterpret stringBuf)))
 ; --  MRX I'm not sure whether I should call ioHook("startPrompt")/ioHook("endOfPrompt") here
 ;       princPrompt()
-;       FINISH_-OUTPUT()
+;       FORCE_-OUTPUT()
 ;     action = $NonSmanSession =>
 ;       $SpadServer := nil
 ;     action = $KillLispSystem =>
@@ -255,7 +255,7 @@
                                     (CATCH 'SPAD_READER
                                       (|parseAndInterpret| |stringBuf|))))
                                 (|princPrompt|)
-                                (FINISH-OUTPUT)))
+                                (FORCE-OUTPUT)))
                               ((EQUAL |action| |$NonSmanSession|)
                                (SETQ |$SpadServer| NIL))
                               ((EQUAL |action| |$KillLispSystem|) (QUIT))

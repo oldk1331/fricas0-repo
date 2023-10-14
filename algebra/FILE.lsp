@@ -42,9 +42,13 @@
 
 (SDEFUN |FILE;reopen!;$S$;6| ((|f| $) (|mode| |String|) ($ $))
         (SPROG ((|fname| (|FileName|)))
-               (SEQ (LETT |fname| (QVELT |f| 0) |FILE;reopen!;$S$;6|)
-                    (QSETVELT |f| 1 (|FILE;defstream| |fname| |mode| $))
-                    (QSETVELT |f| 2 |mode|) (EXIT |f|)))) 
+               (SEQ
+                (COND
+                 ((EQUAL (QVELT |f| 2) "output")
+                  (SPADCALL |f| (QREFELT $ 23))))
+                (LETT |fname| (QVELT |f| 0) |FILE;reopen!;$S$;6|)
+                (QSETVELT |f| 1 (|FILE;defstream| |fname| |mode| $))
+                (QSETVELT |f| 2 |mode|) (EXIT |f|)))) 
 
 (SDEFUN |FILE;close!;2$;7| ((|f| $) ($ $))
         (SEQ (SHUT (QVELT |f| 1)) (QSETVELT |f| 2 "closed") (EXIT |f|))) 
@@ -61,7 +65,7 @@
         (SPROG ((|x| (|None|)))
                (SEQ
                 (COND
-                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 26))
+                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 28))
                   (|error| "File not in read state"))
                  (#1='T
                   (SEQ (LETT |x| (VMREAD (QVELT |f| 1)) |FILE;read!;$S;10|)
@@ -73,7 +77,7 @@
         (SPROG ((|x| (|None|)))
                (SEQ
                 (COND
-                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 26))
+                 ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 28))
                   (|error| "File not in read state"))
                  (#1='T
                   (SEQ
@@ -85,7 +89,7 @@
 (SDEFUN |FILE;write!;$2S;12| ((|f| $) (|x| S) ($ S))
         (SEQ
          (COND
-          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 26))
+          ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 28))
            (|error| "File not in write state"))
           ('T
            (SEQ (|print_full2| |x| (QVELT |f| 1)) (TERPRI (QVELT |f| 1))
@@ -93,15 +97,15 @@
 
 (SDEFUN |FILE;flush;$V;13| ((|f| $) ($ |Void|))
         (COND
-         ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 26))
+         ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 28))
           (|error| "File not in write state"))
          ('T (FORCE-OUTPUT (QVELT |f| 1))))) 
 
 (DECLAIM (NOTINLINE |File;|)) 
 
-(DEFUN |File| (#1=#:G153)
+(DEFUN |File| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#
@@ -139,11 +143,11 @@
               (|FileName|) (0 . |readable?|) (|OutputForm|) (5 . |coerce|)
               (|String|) (10 . |coerce|) (15 . |writable?|) (20 . |coerce|)
               (25 . =) |FILE;=;2$B;2| |FILE;coerce;$Of;3| |FILE;open;FnS$;5|
-              |FILE;open;Fn$;4| |FILE;reopen!;$S$;6| |FILE;close!;2$;7|
-              |FILE;name;$Fn;8| |FILE;iomode;$S;9| (31 . ~=) |FILE;read!;$S;10|
+              |FILE;open;Fn$;4| (|Void|) |FILE;flush;$V;13|
+              |FILE;reopen!;$S$;6| |FILE;close!;2$;7| |FILE;name;$Fn;8|
+              |FILE;iomode;$S;9| (31 . ~=) |FILE;read!;$S;10|
               (|Union| 6 '"failed") |FILE;readIfCan!;$U;11|
-              |FILE;write!;$2S;12| (|Void|) |FILE;flush;$V;13| (|HashState|)
-              (|SingleInteger|))
+              |FILE;write!;$2S;12| (|HashState|) (|SingleInteger|))
            '#(~= 37 |write!| 43 |reopen!| 49 |readIfCan!| 55 |read!| 60 |open|
               65 |name| 76 |latex| 81 |iomode| 86 |hashUpdate!| 91 |hash| 97
               |flush| 102 |coerce| 107 |close!| 112 = 117)
@@ -156,11 +160,11 @@
                         (|makeByteWordVec2| 34
                                             '(1 9 8 0 10 1 9 11 0 12 1 9 13 0
                                               14 1 9 8 0 15 1 13 11 0 16 2 9 8
-                                              0 0 17 2 13 8 0 0 26 2 0 8 0 0 1
-                                              2 0 6 0 6 30 2 0 0 0 13 22 1 0 28
-                                              0 29 1 0 6 0 27 1 0 0 9 21 2 0 0
-                                              9 13 20 1 0 9 0 24 1 0 13 0 1 1 0
-                                              13 0 25 2 0 33 33 0 1 1 0 34 0 1
-                                              1 0 31 0 32 1 0 11 0 19 1 0 0 0
-                                              23 2 0 8 0 0 18)))))
+                                              0 0 17 2 13 8 0 0 28 2 0 8 0 0 1
+                                              2 0 6 0 6 32 2 0 0 0 13 24 1 0 30
+                                              0 31 1 0 6 0 29 1 0 0 9 21 2 0 0
+                                              9 13 20 1 0 9 0 26 1 0 13 0 1 1 0
+                                              13 0 27 2 0 33 33 0 1 1 0 34 0 1
+                                              1 0 22 0 23 1 0 11 0 19 1 0 0 0
+                                              25 2 0 8 0 0 18)))))
            '|lookupComplete|)) 
