@@ -45,6 +45,11 @@
                                     (|NonNegativeInteger|)))
                                   T)
                                  ((|matrix| ($ (|List| (|List| |t#1|)))) T)
+                                 ((|matrix|
+                                   ($ (|NonNegativeInteger|)
+                                    (|NonNegativeInteger|)
+                                    (|Mapping| |t#1| (|Integer|) (|Integer|))))
+                                  T)
                                  ((|scalarMatrix|
                                    ($ (|NonNegativeInteger|) |t#1|))
                                   T)

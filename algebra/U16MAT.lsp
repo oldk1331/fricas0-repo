@@ -57,7 +57,7 @@
 (DEFUN |U16Matrix| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2329)
+     (PROG (#1=#:G2330)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|U16Matrix|) . #2=(|U16Matrix|))
@@ -72,7 +72,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|U16Matrix|))))))))))) 
 
 (DEFUN |U16Matrix;| ()
-  (PROG (|dv$| $ #1=#:G2327 #2=#:G2326 #3=#:G2325 |pv$|)
+  (PROG (|dv$| $ #1=#:G2328 #2=#:G2327 #3=#:G2326 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|U16Matrix|) . #4=(|U16Matrix|))
@@ -151,15 +151,15 @@
               |positivePower| 157 |parts| 163 |nullity| 168 |nullSpace| 173
               |nrows| 178 |new| 183 |ncols| 190 |more?| 195 |minordet| 201
               |minRowIndex| 206 |minColIndex| 211 |members| 216 |member?| 221
-              |maxRowIndex| 227 |maxColIndex| 232 |matrix| 237 |map!| 242 |map|
-              248 |listOfLists| 269 |less?| 274 |latex| 280 |kronecker_prod1|
-              285 |kroneckerSum| 296 |kroneckerProduct| 307 |inverse| 318
-              |horizConcat| 323 |hashUpdate!| 329 |hash| 335 |fill!| 340
-              |exquo| 346 |every?| 352 |eval| 358 |eq?| 384 |empty?| 390
-              |empty| 395 |elt| 399 |diagonalMatrix| 421 |diagonal?| 431
-              |determinant| 436 |count| 441 |copy| 453 |columnSpace| 458
-              |column| 463 |coerce| 469 |any?| 479 |antisymmetric?| 485 ^ 490
-              |Pfaffian| 502 = 507 / 513 - 519 + 530 * 536 |#| 572)
+              |maxRowIndex| 227 |maxColIndex| 232 |matrix| 237 |map!| 249 |map|
+              255 |listOfLists| 276 |less?| 281 |latex| 287 |kronecker_prod1|
+              292 |kroneckerSum| 303 |kroneckerProduct| 314 |inverse| 325
+              |horizConcat| 330 |hashUpdate!| 336 |hash| 342 |fill!| 347
+              |exquo| 353 |every?| 359 |eval| 365 |eq?| 391 |empty?| 397
+              |empty| 402 |elt| 406 |diagonalMatrix| 428 |diagonal?| 438
+              |determinant| 443 |count| 448 |copy| 460 |columnSpace| 465
+              |column| 470 |coerce| 476 |any?| 486 |antisymmetric?| 492 ^ 497
+              |Pfaffian| 509 = 514 / 520 - 526 + 537 * 543 |#| 579)
            'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
@@ -188,26 +188,26 @@
                                          0 10 3 0 0 9 9 6 20 1 0 9 0 11 2 0 24
                                          0 9 1 1 11 6 0 1 1 0 6 0 7 1 0 6 0 8 1
                                          13 21 0 1 2 14 24 6 0 1 1 0 6 0 12 1 0
-                                         6 0 13 1 0 0 37 1 2 0 0 39 0 1 4 0 0
-                                         38 0 0 6 1 3 0 0 38 0 0 1 2 0 0 39 0 1
-                                         1 0 37 0 1 2 0 24 0 9 1 1 1 30 0 1 7 0
-                                         32 0 6 33 34 9 9 35 1 1 0 0 34 1 2 0 0
-                                         0 0 1 2 0 0 0 0 1 1 0 0 34 1 1 12 27 0
-                                         1 2 0 0 0 0 1 2 1 29 29 0 1 1 1 28 0 1
-                                         2 0 0 0 6 1 2 10 27 0 6 1 2 13 24 31 0
-                                         1 3 2 0 0 21 21 1 3 2 0 0 6 6 1 2 2 0
-                                         0 22 1 2 2 0 0 23 1 2 0 24 0 0 1 1 0
-                                         24 0 1 0 0 0 18 3 0 0 0 21 21 1 4 0 6
-                                         0 6 6 6 1 3 0 6 0 6 6 15 1 0 0 34 1 1
-                                         0 0 21 1 1 0 24 0 1 1 11 6 0 1 2 14 9
-                                         6 0 1 2 13 9 31 0 1 1 0 0 0 1 1 9 26 0
-                                         1 2 0 36 0 6 1 1 5 25 0 1 1 0 0 36 1 2
-                                         13 24 31 0 1 1 7 24 0 1 2 12 0 0 6 1 2
-                                         8 0 0 9 1 1 11 6 0 1 2 15 24 0 0 1 2
-                                         12 0 0 6 1 2 7 0 0 0 1 1 7 0 0 1 2 0 0
-                                         0 0 1 2 7 0 6 0 1 2 0 36 0 36 1 2 0 36
-                                         36 0 1 2 0 0 0 6 1 2 0 0 0 0 1 2 0 0 6
-                                         0 1 1 13 9 0 1)))))
+                                         6 0 13 1 0 0 37 1 3 0 0 9 9 38 1 2 0 0
+                                         39 0 1 4 0 0 38 0 0 6 1 3 0 0 38 0 0 1
+                                         2 0 0 39 0 1 1 0 37 0 1 2 0 24 0 9 1 1
+                                         1 30 0 1 7 0 32 0 6 33 34 9 9 35 1 1 0
+                                         0 34 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0
+                                         34 1 1 12 27 0 1 2 0 0 0 0 1 2 1 29 29
+                                         0 1 1 1 28 0 1 2 0 0 0 6 1 2 10 27 0 6
+                                         1 2 13 24 31 0 1 3 2 0 0 21 21 1 3 2 0
+                                         0 6 6 1 2 2 0 0 22 1 2 2 0 0 23 1 2 0
+                                         24 0 0 1 1 0 24 0 1 0 0 0 18 3 0 0 0
+                                         21 21 1 4 0 6 0 6 6 6 1 3 0 6 0 6 6 15
+                                         1 0 0 34 1 1 0 0 21 1 1 0 24 0 1 1 11
+                                         6 0 1 2 14 9 6 0 1 2 13 9 31 0 1 1 0 0
+                                         0 1 1 9 26 0 1 2 0 36 0 6 1 1 5 25 0 1
+                                         1 0 0 36 1 2 13 24 31 0 1 1 7 24 0 1 2
+                                         12 0 0 6 1 2 8 0 0 9 1 1 11 6 0 1 2 15
+                                         24 0 0 1 2 12 0 0 6 1 2 7 0 0 0 1 1 7
+                                         0 0 1 2 0 0 0 0 1 2 7 0 6 0 1 2 0 36 0
+                                         36 1 2 0 36 36 0 1 2 0 0 0 6 1 2 0 0 0
+                                         0 1 2 0 0 6 0 1 1 13 9 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|U16Matrix| 'NILADIC T) 

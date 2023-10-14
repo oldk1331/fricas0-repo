@@ -44,10 +44,10 @@
 
 (DECLAIM (NOTINLINE |IndexedMatrix;|)) 
 
-(DEFUN |IndexedMatrix| (&REST #1=#:G163)
+(DEFUN |IndexedMatrix| (&REST #1=#:G164)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G164)
+     (PROG (#2=#:G165)
        (RETURN
         (COND
          ((LETT #2#
@@ -65,14 +65,14 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedMatrix|))))))))))) 
 
 (DEFUN |IndexedMatrix;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G160 #2=#:G161 #3=#:G162 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G161 #2=#:G162 #3=#:G163 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedMatrix|))
       (LETT DV$2 (|devaluate| |#2|) . #4#)
       (LETT DV$3 (|devaluate| |#3|) . #4#)
       (LETT |dv$| (LIST '|IndexedMatrix| DV$1 DV$2 DV$3) . #4#)
-      (LETT $ (GETREFV 53) . #4#)
+      (LETT $ (GETREFV 54) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -168,7 +168,8 @@
               (|Mapping| 12 6) (|OutputForm|) (|SingleInteger|) (|HashState|)
               (|String|) (|Void|) (|List| (|List| 23)) (|List| $)
               (|Union| 6 '"one") (|IndexedVector| 6 8) (|IndexedVector| 6 7)
-              (|List| 9) (|List| 35) (|Mapping| 6 6 6) (|Mapping| 6 6))
+              (|List| 9) (|List| 35) (|Mapping| 6 9 9) (|Mapping| 6 6 6)
+              (|Mapping| 6 6))
            '#(|swapRows!| 91 |rowEchelon| 98 |rank| 103 |nullity| 108
               |nullSpace| 113 |minordet| 118 |minRowIndex| 123 |maxRowIndex|
               128 |maxColIndex| 133 |inverse| 138 |determinant| 143)

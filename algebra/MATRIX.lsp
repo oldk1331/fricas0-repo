@@ -90,10 +90,10 @@
 
 (DECLAIM (NOTINLINE |Matrix;|)) 
 
-(DEFUN |Matrix| (#1=#:G2139)
+(DEFUN |Matrix| (#1=#:G2140)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2140)
+     (PROG (#2=#:G2141)
        (RETURN
         (COND
          ((LETT #2#
@@ -107,12 +107,12 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Matrix|))))))))))) 
 
 (DEFUN |Matrix;| (|#1|)
-  (PROG (|pv$| #1=#:G2136 #2=#:G2137 #3=#:G2138 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2137 #2=#:G2138 #3=#:G2139 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))
       (LETT |dv$| (LIST '|Matrix| DV$1) . #4#)
-      (LETT $ (GETREFV 63) . #4#)
+      (LETT $ (GETREFV 64) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -236,7 +236,7 @@
               (|List| 6) (|List| 51) (|Equation| 6) (|Mapping| 13 6)
               (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
               (|Void|) (|List| (|List| 24)) (|Union| 6 '"one") (|List| 7)
-              (|Mapping| 6 6 6) (|Mapping| 6 6))
+              (|Mapping| 6 7 7) (|Mapping| 6 6 6) (|Mapping| 6 6))
            '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|
               145 |qelt| 153 |nullity| 160 |nullSpace| 165 |minordet| 170
               |minRowIndex| 175 |minColIndex| 180 |maxRowIndex| 185
