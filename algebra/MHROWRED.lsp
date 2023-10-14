@@ -373,7 +373,7 @@
               ((SPADCALL (LETT |d| (|MHROWRED;determinantOfMinor| |x| $) . #1#)
                          (QREFELT $ 42))
                (SPADCALL |x| (QREFELT $ 43)))
-              (#2='T (SPADCALL |x| |d| (QREFELT $ 44)))))
+              (#2='T (|MHROWRED;rowEchelon1| |x| |d| $))))
             (#2#
              (SPADCALL (QCDR (QCDR |u|)) (QCAR (QCDR |u|)) (QREFELT $ 44)))))))) 
 
@@ -654,24 +654,40 @@
           (EXIT |x|)))) 
 
 (SDEFUN |MHROWRED;rowEchelon;MRM;14| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+        (|MHROWRED;rowEchelon1| |y| |m| $)) 
+
+(SDEFUN |MHROWRED;rowEchelon1| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
         (SPADCALL (|MHROWRED;vconc| |y| |m| $) (QREFELT $ 43))) 
 
-(SDEFUN |MHROWRED;rowEchelon;MRM;15| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+(SDEFUN |MHROWRED;rowEchelon;MRM;16| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
         (SPROG
-         ((|i| #1=(|Integer|)) (#2=#:G321 NIL) (|k1| NIL)
+         ((|m1| (R)) (|d| (R)) (|nc| (|NonNegativeInteger|))
+          (|nr| (|NonNegativeInteger|)))
+         (SEQ (LETT |nr| (ANROWS |y|) . #1=(|MHROWRED;rowEchelon;MRM;16|))
+              (LETT |nc| (ANCOLS |y|) . #1#)
+              (EXIT
+               (COND
+                ((EQL |nr| |nc|)
+                 (SEQ (LETT |d| (SPADCALL |y| (QREFELT $ 36)) . #1#)
+                      (LETT |m1| (SPADCALL |d| |m| (QREFELT $ 37)) . #1#)
+                      (EXIT (|MHROWRED;rowEchelon1| |y| |m1| $))))
+                ('T (|MHROWRED;rowEchelon1| |y| |m| $))))))) 
+
+(SDEFUN |MHROWRED;rowEchelon1| ((|y| |Matrix| R) (|m| R) ($ |Matrix| R))
+        (SPROG
+         ((|i| #1=(|Integer|)) (#2=#:G325 NIL) (|k1| NIL)
           (|qr| (|Record| (|:| |quotient| R) (|:| |remainder| R)))
-          (#3=#:G320 NIL) (|k| NIL) (|xij| (R)) (|jj| NIL)
+          (#3=#:G324 NIL) (|k| NIL) (|xij| (R)) (|jj| NIL)
           (|un|
            (|Record| (|:| |unit| R) (|:| |canonical| R) (|:| |associate| R)))
-          (|v2| (R)) (|v1| (R)) (|a1| (R)) (|b1| (R)) (|#G94| (R))
-          (#4=#:G300 NIL) (|#G93| (R)) (|d| (R)) (|b| (R)) (|a| (R))
-          (|#G92|
+          (|v2| (R)) (|v1| (R)) (|a1| (R)) (|b1| (R)) (|#G98| (R))
+          (#4=#:G304 NIL) (|#G97| (R)) (|d| (R)) (|b| (R)) (|a| (R))
+          (|#G96|
            (|Record| (|:| |coef1| R) (|:| |coef2| R) (|:| |generator| R)))
-          (|x| (|Matrix| R)) (|rown| (|Integer|)) (#5=#:G317 NIL) (|j| NIL)
+          (|x| (|Matrix| R)) (|rown| (|Integer|)) (#5=#:G321 NIL) (|j| NIL)
           (|minr| #1#) (|ncols| (|Integer|)) (|nrows| (|Integer|)))
          (SEQ
-          (LETT |x| (|MHROWRED;vconc| |y| |m| $)
-                . #6=(|MHROWRED;rowEchelon;MRM;15|))
+          (LETT |x| (|MHROWRED;vconc| |y| |m| $) . #6=(|MHROWRED;rowEchelon1|))
           (LETT |nrows| (SPADCALL |x| (QREFELT $ 16)) . #6#)
           (LETT |ncols| (SPADCALL |x| (QREFELT $ 31)) . #6#)
           (LETT |minr| (LETT |i| 1 . #6#) . #6#)
@@ -715,17 +731,17 @@
                                    ('T
                                     (SEQ
                                      (PROGN
-                                      (LETT |#G92|
+                                      (LETT |#G96|
                                             (SPADCALL (QAREF2O |x| |i| |j| 1 1)
                                                       (QAREF2O |x| |k| |j| 1 1)
                                                       (QREFELT $ 67))
                                             . #6#)
-                                      (LETT |a| (QVELT |#G92| 0) . #6#)
-                                      (LETT |b| (QVELT |#G92| 1) . #6#)
-                                      (LETT |d| (QVELT |#G92| 2) . #6#)
-                                      |#G92|)
+                                      (LETT |a| (QVELT |#G96| 0) . #6#)
+                                      (LETT |b| (QVELT |#G96| 1) . #6#)
+                                      (LETT |d| (QVELT |#G96| 2) . #6#)
+                                      |#G96|)
                                      (PROGN
-                                      (LETT |#G93|
+                                      (LETT |#G97|
                                             (PROG2
                                                 (LETT #4#
                                                       (SPADCALL
@@ -738,7 +754,7 @@
                                                              (QREFELT $ 6)
                                                              #4#))
                                             . #6#)
-                                      (LETT |#G94|
+                                      (LETT |#G98|
                                             (PROG2
                                                 (LETT #4#
                                                       (SPADCALL
@@ -751,8 +767,8 @@
                                                              (QREFELT $ 6)
                                                              #4#))
                                             . #6#)
-                                      (LETT |b1| |#G93| . #6#)
-                                      (LETT |a1| |#G94| . #6#))
+                                      (LETT |b1| |#G97| . #6#)
+                                      (LETT |a1| |#G98| . #6#))
                                      (SEQ (LETT |k1| (+ |j| 1) . #6#) G190
                                           (COND ((> |k1| |ncols|) (GO G191)))
                                           (SEQ
@@ -864,9 +880,9 @@
 
 (DECLAIM (NOTINLINE |ModularHermitianRowReduction;|)) 
 
-(DEFUN |ModularHermitianRowReduction| (#1=#:G322)
+(DEFUN |ModularHermitianRowReduction| (#1=#:G326)
   (SPROG NIL
-         (PROG (#2=#:G323)
+         (PROG (#2=#:G327)
            (RETURN
             (COND
              ((LETT #2#
@@ -911,13 +927,15 @@
                        $))))
           (COND
            ((|HasCategory| |#1| '(|Field|))
-            (QSETREFV $ 44
-                      (CONS (|dispatchFunction| |MHROWRED;rowEchelon;MRM;14|)
-                            $)))
+            (PROGN
+             (QSETREFV $ 44
+                       (CONS (|dispatchFunction| |MHROWRED;rowEchelon;MRM;14|)
+                             $))))
            ('T
-            (QSETREFV $ 44
-                      (CONS (|dispatchFunction| |MHROWRED;rowEchelon;MRM;15|)
-                            $))))
+            (PROGN
+             (QSETREFV $ 44
+                       (CONS (|dispatchFunction| |MHROWRED;rowEchelon;MRM;16|)
+                             $)))))
           $))) 
 
 (MAKEPROP '|ModularHermitianRowReduction| '|infovec|
