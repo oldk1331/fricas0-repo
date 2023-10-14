@@ -61,13 +61,14 @@
 ;            ['"break",   "BREAK" ],_
 ;            ['"by",        "BY" ],_
 ;            ['"case",     "CASE" ],_
+;            ['"catch",  "CATCH"], _
 ;            ['"default",  "DEFAULT" ],_
 ;            ['"define",  "DEFN" ],_
 ;            ['"do",        "DO"],_
 ;            ['"else",    "ELSE" ],_
-;            ['"exit",    "EXIT" ],_
 ;            ['"exquo",   "EXQUO"], _
 ;            ['"export","EXPORT" ],_
+;            ['"finally", "FINALLY"], _
 ;            ['"for",      "FOR" ],_
 ;            ['"free",    "FREE" ],_
 ;            ['"from",    "FROM" ],_
@@ -83,6 +84,7 @@
 ;            ['"local", "local" ],_
 ;            ['"macro", "MACRO" ],_
 ;            ['"mod", "MOD" ],_
+;            ['"not", "NOT" ], _
 ;            ['"or", "OR" ],_
 ;            ['"pretend","PRETEND" ],_
 ;            ['"quo","QUO" ],_
@@ -91,6 +93,7 @@
 ;            ['"return","RETURN" ],_
 ;            ['"rule","RULE" ],_
 ;            ['"then","THEN" ],_
+;            ['"try", "TRY"], _
 ;            ['"until", "UNTIL" ],_
 ;            ['"where","WHERE" ],_
 ;            ['"while","WHILE" ],_
@@ -119,6 +122,7 @@
 ;            ['"^","CARAT" ],_
 ;            ['"..","SEG" ],_
 ;            ['"#","#" ],_
+;            ['"#1", "#1" ],_
 ;            ['"&","AMPERSAND" ],_
 ;            ['"$","$" ],_
 ;            ['"/","SLASH" ],_
@@ -159,38 +163,40 @@
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |scanKeyWords|
           (LIST (LIST "add" 'ADD) (LIST "and" 'AND) (LIST "break" 'BREAK)
-                (LIST "by" 'BY) (LIST "case" 'CASE) (LIST "default" 'DEFAULT)
-                (LIST "define" 'DEFN) (LIST "do" 'DO) (LIST "else" 'ELSE)
-                (LIST "exit" 'EXIT) (LIST "exquo" 'EXQUO)
-                (LIST "export" 'EXPORT) (LIST "for" 'FOR) (LIST "free" 'FREE)
-                (LIST "from" 'FROM) (LIST "has" 'HAS) (LIST "if" 'IF)
-                (LIST "import" 'IMPORT) (LIST "in" 'IN) (LIST "inline" 'INLINE)
-                (LIST "is" 'IS) (LIST "isnt" 'ISNT) (LIST "iterate" 'ITERATE)
+                (LIST "by" 'BY) (LIST "case" 'CASE) (LIST "catch" 'CATCH)
+                (LIST "default" 'DEFAULT) (LIST "define" 'DEFN) (LIST "do" 'DO)
+                (LIST "else" 'ELSE) (LIST "exquo" 'EXQUO)
+                (LIST "export" 'EXPORT) (LIST "finally" 'FINALLY)
+                (LIST "for" 'FOR) (LIST "free" 'FREE) (LIST "from" 'FROM)
+                (LIST "has" 'HAS) (LIST "if" 'IF) (LIST "import" 'IMPORT)
+                (LIST "in" 'IN) (LIST "inline" 'INLINE) (LIST "is" 'IS)
+                (LIST "isnt" 'ISNT) (LIST "iterate" 'ITERATE)
                 (LIST "leave" 'LEAVE) (LIST "local" '|local|)
-                (LIST "macro" 'MACRO) (LIST "mod" 'MOD) (LIST "or" 'OR)
-                (LIST "pretend" 'PRETEND) (LIST "quo" 'QUO) (LIST "rem" 'REM)
-                (LIST "repeat" 'REPEAT) (LIST "return" 'RETURN)
-                (LIST "rule" 'RULE) (LIST "then" 'THEN) (LIST "until" 'UNTIL)
-                (LIST "where" 'WHERE) (LIST "while" 'WHILE) (LIST "with" 'WITH)
-                (LIST "yield" 'YIELD) (LIST "|" 'BAR) (LIST "." 'DOT)
-                (LIST "::" 'COERCE) (LIST ":" 'COLON) (LIST ":-" 'COLONDASH)
-                (LIST "@" 'AT) (LIST "@@" 'ATAT) (LIST "," 'COMMA)
-                (LIST ";" 'SEMICOLON) (LIST "**" 'POWER) (LIST "*" 'TIMES)
-                (LIST "+" 'PLUS) (LIST "-" 'MINUS) (LIST "<" 'LT)
-                (LIST ">" 'GT) (LIST "<=" 'LE) (LIST ">=" 'GE)
-                (LIST "=" 'EQUAL) (LIST "~=" 'NOTEQUAL) (LIST "~" '~)
-                (LIST "^" 'CARAT) (LIST ".." 'SEG) (LIST "#" '|#|)
-                (LIST "&" 'AMPERSAND) (LIST "$" '$) (LIST "/" 'SLASH)
-                (LIST "\\" 'BACKSLASH) (LIST "//" 'SLASHSLASH)
-                (LIST "\\\\" 'BACKSLASHBACKSLASH) (LIST "/\\" 'SLASHBACKSLASH)
-                (LIST "\\/" 'BACKSLASHSLASH) (LIST "=>" 'EXIT)
-                (LIST ":=" 'BECOMES) (LIST "==" 'DEF) (LIST "==>" 'MDEF)
-                (LIST "->" 'ARROW) (LIST "<-" 'LARROW) (LIST "+->" 'GIVES)
-                (LIST "(" '|(|) (LIST ")" '|)|) (LIST "(|" '|(\||)
-                (LIST "|)" '|\|)|) (LIST "[" '[) (LIST "]" ']) (LIST "[_]" '[])
-                (LIST "{" '{) (LIST "}" '}) (LIST "{_}" '{}) (LIST "[|" '|[\||)
-                (LIST "|]" '|\|]|) (LIST "[|_|]" '|[\|\|]|) (LIST "{|" '|{\||)
-                (LIST "|}" '|\|}|) (LIST "{|_|}" '|{\|\|}|) (LIST "<<" 'OANGLE)
+                (LIST "macro" 'MACRO) (LIST "mod" 'MOD) (LIST "not" 'NOT)
+                (LIST "or" 'OR) (LIST "pretend" 'PRETEND) (LIST "quo" 'QUO)
+                (LIST "rem" 'REM) (LIST "repeat" 'REPEAT)
+                (LIST "return" 'RETURN) (LIST "rule" 'RULE) (LIST "then" 'THEN)
+                (LIST "try" 'TRY) (LIST "until" 'UNTIL) (LIST "where" 'WHERE)
+                (LIST "while" 'WHILE) (LIST "with" 'WITH) (LIST "yield" 'YIELD)
+                (LIST "|" 'BAR) (LIST "." 'DOT) (LIST "::" 'COERCE)
+                (LIST ":" 'COLON) (LIST ":-" 'COLONDASH) (LIST "@" 'AT)
+                (LIST "@@" 'ATAT) (LIST "," 'COMMA) (LIST ";" 'SEMICOLON)
+                (LIST "**" 'POWER) (LIST "*" 'TIMES) (LIST "+" 'PLUS)
+                (LIST "-" 'MINUS) (LIST "<" 'LT) (LIST ">" 'GT) (LIST "<=" 'LE)
+                (LIST ">=" 'GE) (LIST "=" 'EQUAL) (LIST "~=" 'NOTEQUAL)
+                (LIST "~" '~) (LIST "^" 'CARAT) (LIST ".." 'SEG)
+                (LIST "#" '|#|) (LIST "#1" '|#1|) (LIST "&" 'AMPERSAND)
+                (LIST "$" '$) (LIST "/" 'SLASH) (LIST "\\" 'BACKSLASH)
+                (LIST "//" 'SLASHSLASH) (LIST "\\\\" 'BACKSLASHBACKSLASH)
+                (LIST "/\\" 'SLASHBACKSLASH) (LIST "\\/" 'BACKSLASHSLASH)
+                (LIST "=>" 'EXIT) (LIST ":=" 'BECOMES) (LIST "==" 'DEF)
+                (LIST "==>" 'MDEF) (LIST "->" 'ARROW) (LIST "<-" 'LARROW)
+                (LIST "+->" 'GIVES) (LIST "(" '|(|) (LIST ")" '|)|)
+                (LIST "(|" '|(\||) (LIST "|)" '|\|)|) (LIST "[" '[)
+                (LIST "]" ']) (LIST "[_]" '[]) (LIST "{" '{) (LIST "}" '})
+                (LIST "{_}" '{}) (LIST "[|" '|[\||) (LIST "|]" '|\|]|)
+                (LIST "[|_|]" '|[\|\|]|) (LIST "{|" '|{\||) (LIST "|}" '|\|}|)
+                (LIST "{|_|}" '|{\|\|}|) (LIST "<<" 'OANGLE)
                 (LIST ">>" 'CANGLE) (LIST "'" '|'|) (LIST "`" 'BACKQUOTE))))
  
 ; scanKeyTableCons()==
@@ -450,6 +456,50 @@
  
 (DEFVAR |$sz|)
  
+; DEFPARAMETER($was_nonblank, false)
+ 
+(DEFPARAMETER |$was_nonblank| NIL)
+ 
+; DEFVAR($comment_indent, 0)
+ 
+(DEFVAR |$comment_indent| 0)
+ 
+; DEFVAR($current_comment_block, nil)
+ 
+(DEFVAR |$current_comment_block| NIL)
+ 
+; DEFVAR($last_nonempty_linepos, nil)
+ 
+(DEFVAR |$last_nonempty_linepos| NIL)
+ 
+; DEFVAR($spad_scanner, false)
+ 
+(DEFVAR |$spad_scanner| NIL)
+ 
+; finish_comment() ==
+;     NULL($current_comment_block) => nil
+;     pos :=
+;         $comment_indent = 0 =>
+;             first(rest(rest($linepos))) - 1
+;         first(rest(rest($last_nonempty_linepos)))
+;     PUSH([pos, :NREVERSE($current_comment_block)], $COMBLOCKLIST)
+;     $current_comment_block := nil
+ 
+(DEFUN |finish_comment| ()
+  (PROG (|pos|)
+    (RETURN
+     (COND ((NULL |$current_comment_block|) NIL)
+           (#1='T
+            (PROGN
+             (SETQ |pos|
+                     (COND
+                      ((EQL |$comment_indent| 0)
+                       (- (CAR (CDR (CDR |$linepos|))) 1))
+                      (#1# (CAR (CDR (CDR |$last_nonempty_linepos|))))))
+             (PUSH (CONS |pos| (NREVERSE |$current_comment_block|))
+                   $COMBLOCKLIST)
+             (SETQ |$current_comment_block| NIL)))))))
+ 
 ; scanIgnoreLine(ln,n)==
 ;     if n = $sz then
 ;         false
@@ -502,6 +552,7 @@
 ;    $n:local:=nil
 ;    $sz:local := nil
 ;    $floatok:local:=true
+;    $was_nonblank := false
 ;    not nextline s => CONS(nil,nil)
 ;    if null scanIgnoreLine($ln,$n) -- line of spaces or starts ) or >
 ;    then cons(nil,$r)
@@ -509,17 +560,22 @@
 ;       toks:=[]
 ;       a:= incPrefix?('"command",1,$ln)
 ;       a =>
-;                  $ln:=SUBSTRING($ln,8,nil)
-;                  b:= dqUnit constoken($ln,$linepos,["command",$ln],0)
-;                  cons([[b,s]],$r)
+;            $ln := SUBSTRING($ln, 8, nil)
+;            b := dqUnit constoken($ln, $linepos, ["command", $ln], 0)
+;            cons([[b, s]], $r)
 ; 
-;       while $n<$sz repeat toks:=dqAppend(toks,scanToken())
+;       while $n<$sz repeat
+;           tok := scanToken()
+;           if tok and $spad_scanner then finish_comment()
+;           toks:=dqAppend(toks, tok)
 ;       if null toks
 ;       then cons([],$r)
-;       else cons([[toks,s]],$r)
+;       else
+;           $last_nonempty_linepos := $linepos
+;           cons([[toks,s]],$r)
  
 (DEFUN |lineoftoks| (|s|)
-  (PROG (|$floatok| |$sz| |$n| |$linepos| |$ln| |$r| |$f| |b| |a| |toks|)
+  (PROG (|$floatok| |$sz| |$n| |$linepos| |$ln| |$r| |$f| |tok| |b| |a| |toks|)
     (DECLARE (SPECIAL |$floatok| |$sz| |$n| |$linepos| |$ln| |$r| |$f|))
     (RETURN
      (PROGN
@@ -530,6 +586,7 @@
       (SETQ |$n| NIL)
       (SETQ |$sz| NIL)
       (SETQ |$floatok| T)
+      (SETQ |$was_nonblank| NIL)
       (COND ((NULL (|nextline| |s|)) (CONS NIL NIL))
             (#1='T
              (COND ((NULL (|scanIgnoreLine| |$ln| |$n|)) (CONS NIL |$r|))
@@ -550,11 +607,15 @@
                           (LOOP
                            (COND ((NOT (< |$n| |$sz|)) (RETURN NIL))
                                  (#1#
-                                  (SETQ |toks|
-                                          (|dqAppend| |toks|
-                                                      (|scanToken|))))))))
+                                  (PROGN
+                                   (SETQ |tok| (|scanToken|))
+                                   (COND
+                                    ((AND |tok| |$spad_scanner|)
+                                     (|finish_comment|)))
+                                   (SETQ |toks|
+                                           (|dqAppend| |toks| |tok|))))))))
                        (COND ((NULL |toks|) (CONS NIL |$r|))
-                             (#1#
+                             (#1# (SETQ |$last_nonempty_linepos| |$linepos|)
                               (CONS (LIST (LIST |toks| |s|)) |$r|))))))))))))))
  
 ; scanToken () ==
@@ -577,16 +638,19 @@
 ;             startsId? ch              => scanWord  (false)
 ;             is_white?(c)              =>
 ;                            scanSpace ()
+;                            $was_nonblank := false
 ;                            []
 ;             c = STRING_CHAR           => scanString ()
 ;             digit? ch                 => scanNumber ()
 ;             c=ESCAPE                  => scanEscape()
 ;             scanError ()
 ;       null b => nil
-;       dqUnit constoken(ln,linepos,b,n+lnExtraBlanks linepos)
+;       nb := $was_nonblank and b.0 = "key" and b.1 = "("
+;       $was_nonblank := true
+;       dqUnit constoken1(ln, linepos, b, n + lnExtraBlanks linepos, nb)
  
 (DEFUN |scanToken| ()
-  (PROG (|b| |ch| |n| |linepos| |c| |ln|)
+  (PROG (|nb| |b| |ch| |n| |linepos| |c| |ln|)
     (RETURN
      (PROGN
       (SETQ |ln| |$ln|)
@@ -601,15 +665,21 @@
                      (PROGN (SETQ |$n| (+ |$n| 1)) (|lfid| "?")))
                     ((|punctuation?| |c|) (|scanPunct|))
                     ((|startsId?| |ch|) (|scanWord| NIL))
-                    ((|is_white?| |c|) (PROGN (|scanSpace|) NIL))
+                    ((|is_white?| |c|)
+                     (PROGN (|scanSpace|) (SETQ |$was_nonblank| NIL) NIL))
                     ((EQUAL |c| STRING_CHAR) (|scanString|))
                     ((|digit?| |ch|) (|scanNumber|))
                     ((EQUAL |c| ESCAPE) (|scanEscape|)) (#1='T (|scanError|))))
       (COND ((NULL |b|) NIL)
             (#1#
-             (|dqUnit|
-              (|constoken| |ln| |linepos| |b|
-               (+ |n| (|lnExtraBlanks| |linepos|))))))))))
+             (PROGN
+              (SETQ |nb|
+                      (AND |$was_nonblank| (EQ (ELT |b| 0) '|key|)
+                           (EQ (ELT |b| 1) '|(|)))
+              (SETQ |$was_nonblank| T)
+              (|dqUnit|
+               (|constoken1| |ln| |linepos| |b|
+                (+ |n| (|lnExtraBlanks| |linepos|)) |nb|)))))))))
  
 ; lfid x== ["id",INTERN(x, '"BOOT")]
  
@@ -642,9 +712,9 @@
      (COND ((EQL (LENGTH |x|) 1) (LIST '|char| |x|))
            ('T (LIST '|string| |x|))))))
  
-; lfcomment x== ["comment", x]
+; lfcomment (n, lp, x) == ["comment", x]
  
-(DEFUN |lfcomment| (|x|) (PROG () (RETURN (LIST '|comment| |x|))))
+(DEFUN |lfcomment| (|n| |lp| |x|) (PROG () (RETURN (LIST '|comment| |x|))))
  
 ; lfnegcomment x== ["negcomment", x]
  
@@ -658,19 +728,26 @@
  
 (DEFUN |lfspaces| (|x|) (PROG () (RETURN (LIST '|spaces| |x|))))
  
-; constoken(ln,lp,b,n)==
+; constoken1(ln, lp, b, n, nb) ==
 ; --  [b.0,b.1,cons(lp,n)]
 ;        a:=cons(b.0,b.1)
+;        if nb then ncPutQ(a, "nonblank", true)
 ;        ncPutQ(a,"posn",cons(lp,n))
 ;        a
  
-(DEFUN |constoken| (|ln| |lp| |b| |n|)
+(DEFUN |constoken1| (|ln| |lp| |b| |n| |nb|)
   (PROG (|a|)
     (RETURN
      (PROGN
       (SETQ |a| (CONS (ELT |b| 0) (ELT |b| 1)))
+      (COND (|nb| (|ncPutQ| |a| '|nonblank| T)))
       (|ncPutQ| |a| '|posn| (CONS |lp| |n|))
       |a|))))
+ 
+; constoken(ln, lp, b, n) == constoken1(ln, lp, b, n, false)
+ 
+(DEFUN |constoken| (|ln| |lp| |b| |n|)
+  (PROG () (RETURN (|constoken1| |ln| |lp| |b| |n| NIL))))
  
 ; scanEscape()==
 ;          $n:=$n+1
@@ -765,15 +842,28 @@
 ; scanComment()==
 ;       n:=$n
 ;       $n:=$sz
-;       lfcomment SUBSTRING($ln,n,nil)
+;       c_str := SUBSTRING($ln,n,nil)
+;       if $spad_scanner then
+;           if not(n = $comment_indent) then
+;               finish_comment()
+;           $comment_indent := n
+;           PUSH(CONCAT(make_full_CVEC(n, '" "), c_str), $current_comment_block)
+;       lfcomment(n, $linepos, c_str)
  
 (DEFUN |scanComment| ()
-  (PROG (|n|)
+  (PROG (|c_str| |n|)
     (RETURN
      (PROGN
       (SETQ |n| |$n|)
       (SETQ |$n| |$sz|)
-      (|lfcomment| (SUBSTRING |$ln| |n| NIL))))))
+      (SETQ |c_str| (SUBSTRING |$ln| |n| NIL))
+      (COND
+       (|$spad_scanner|
+        (COND ((NULL (EQUAL |n| |$comment_indent|)) (|finish_comment|)))
+        (SETQ |$comment_indent| |n|)
+        (PUSH (CONCAT (|make_full_CVEC| |n| " ") |c_str|)
+              |$current_comment_block|)))
+      (|lfcomment| |n| |$linepos| |c_str|)))))
  
 ; scanPunct()==
 ;             sss:=subMatch($ln,$n)
@@ -901,16 +991,13 @@
 ;                   str:=SUBSTRING($ln,n,mn-n)-- before escape
 ;                   $n:=mn+1
 ;                   a:=scanEsc() -- case of end of line when false
-;                   b:=if a
-;                      then
-;                        ec := $ln.$n
-;                        $n:=$n+1
-;                        CONCAT(ec, scanS())
-;                       else scanS()
-;                   e_concat(str, b)
+;                   not(a) => CONCAT(str, scanS())
+;                   ec := $ln.$n
+;                   $n := $n + 1
+;                   e_concat(str, CONCAT(ec, scanS()))
  
 (DEFUN |scanS| ()
-  (PROG (|b| |ec| |a| |str| |mn| |escsym| |strsym| |n|)
+  (PROG (|ec| |a| |str| |mn| |escsym| |strsym| |n|)
     (RETURN
      (COND
       ((NOT (< |$n| |$sz|))
@@ -930,12 +1017,12 @@
          (SUBSTRING |$ln| |n| (- |mn| |n|)))
         (#1# (SETQ |str| (SUBSTRING |$ln| |n| (- |mn| |n|)))
          (SETQ |$n| (+ |mn| 1)) (SETQ |a| (|scanEsc|))
-         (SETQ |b|
-                 (COND
-                  (|a| (SETQ |ec| (ELT |$ln| |$n|)) (SETQ |$n| (+ |$n| 1))
-                   (CONCAT |ec| (|scanS|)))
-                  (#1# (|scanS|))))
-         (|e_concat| |str| |b|))))))))
+         (COND ((NULL |a|) (CONCAT |str| (|scanS|)))
+               (#1#
+                (PROGN
+                 (SETQ |ec| (ELT |$ln| |$n|))
+                 (SETQ |$n| (+ |$n| 1))
+                 (|e_concat| |str| (CONCAT |ec| (|scanS|)))))))))))))
  
 ; posend(line,n)==
 ;      while n<#line and idChar? line.n repeat n:=n+1
@@ -1007,7 +1094,7 @@
 ;           $floatok:=false
 ;           if esp or aaa.0
 ;           then lfid w
-;           else if keyword? w
+;           else if (keyword? w and ($spad_scanner or w ~= '"not"))
 ;                then
 ;                   $floatok:=true
 ;                   lfkey w
@@ -1021,7 +1108,9 @@
       (SETQ |w| (ELT |aaa| 1))
       (SETQ |$floatok| NIL)
       (COND ((OR |esp| (ELT |aaa| 0)) (|lfid| |w|))
-            ((|keyword?| |w|) (SETQ |$floatok| T) (|lfkey| |w|))
+            ((AND (|keyword?| |w|)
+                  (OR |$spad_scanner| (NOT (EQUAL |w| "not"))))
+             (SETQ |$floatok| T) (|lfkey| |w|))
             ('T (|lfid| |w|)))))))
  
 ; spleI(dig)==spleI1(dig,false)

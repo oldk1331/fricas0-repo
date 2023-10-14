@@ -380,7 +380,6 @@
       (#1# |u|)))))
  
 ; postError msg ==
-;   BUMPERRORCOUNT 'precompilation
 ;   xmsg:=
 ;     BOUNDP("$defOp") and not $InteractiveMode =>
 ;         [$defOp, '": " , :msg]
@@ -392,7 +391,6 @@
   (PROG (|xmsg|)
     (RETURN
      (PROGN
-      (BUMPERRORCOUNT '|precompilation|)
       (SETQ |xmsg|
               (COND
                ((AND (BOUNDP '|$defOp|) (NULL |$InteractiveMode|))

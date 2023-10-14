@@ -392,6 +392,61 @@
                   (SETQ |val| (CONS (|pop_stack_1|) |val|))))))))
       (COND (|val| (|push_lform0| (NREVERSE |val|))) (#1# NIL))))))
  
+; getSignatureDocumentation2(n1, n2) ==
+;     val1 := getSignatureDocumentation(n1) => val1
+;     not(n2) =>
+;         $COMBLOCKLIST is [[n, :val], :rr] and n1 <= n =>
+;             $COMBLOCKLIST := rr
+;             val
+;         nil
+;     nr := n2 + 1
+;     for pp in $COMBLOCKLIST repeat
+;         if pp is [n, :val] and n1 <= n and n <= n2 then
+;             nr := n
+;     nr <= n2 => getSignatureDocumentation(nr)
+;     nil
+ 
+(DEFUN |getSignatureDocumentation2| (|n1| |n2|)
+  (PROG (|val1| |ISTMP#1| |n| |val| |rr| |nr|)
+    (RETURN
+     (COND ((SETQ |val1| (|getSignatureDocumentation| |n1|)) |val1|)
+           ((NULL |n2|)
+            (COND
+             ((AND (CONSP $COMBLOCKLIST)
+                   (PROGN
+                    (SETQ |ISTMP#1| (CAR $COMBLOCKLIST))
+                    (AND (CONSP |ISTMP#1|)
+                         (PROGN
+                          (SETQ |n| (CAR |ISTMP#1|))
+                          (SETQ |val| (CDR |ISTMP#1|))
+                          #1='T)))
+                   (PROGN (SETQ |rr| (CDR $COMBLOCKLIST)) #1#)
+                   (NOT (< |n| |n1|)))
+              (PROGN (SETQ $COMBLOCKLIST |rr|) |val|))
+             (#1# NIL)))
+           (#1#
+            (PROGN
+             (SETQ |nr| (+ |n2| 1))
+             ((LAMBDA (|bfVar#3| |pp|)
+                (LOOP
+                 (COND
+                  ((OR (ATOM |bfVar#3|)
+                       (PROGN (SETQ |pp| (CAR |bfVar#3|)) NIL))
+                   (RETURN NIL))
+                  (#1#
+                   (COND
+                    ((AND (CONSP |pp|)
+                          (PROGN
+                           (SETQ |n| (CAR |pp|))
+                           (SETQ |val| (CDR |pp|))
+                           #1#)
+                          (NOT (< |n| |n1|)) (NOT (< |n2| |n|)))
+                     (SETQ |nr| |n|)))))
+                 (SETQ |bfVar#3| (CDR |bfVar#3|))))
+              $COMBLOCKLIST NIL)
+             (COND ((NOT (< |n2| |nr|)) (|getSignatureDocumentation| |nr|))
+                   (#1# NIL))))))))
+ 
 ; parse_Category() ==
 ;     match_symbol "if" =>
 ;         MUST parse_Expression()
@@ -424,13 +479,13 @@
 ;                 nil
 ;             MUST match_symbol "}"
 ;             push_lform2("CATEGORY", pop_stack_1(), tail_val)
-;     G1 := LINE_-NUMBER CURRENT_-LINE
+;     G1 := current_line_number()
 ;     not(parse_Application()) => nil
 ;     MUST
 ;         OR(
 ;               AND(match_symbol ":", MUST parse_Expression(),
 ;                   push_form3("Signature", pop_stack_2(), pop_stack_1(),
-;                              getSignatureDocumentation(G1))),
+;                       getSignatureDocumentation2(G1, current_line_number()))),
 ;               AND(push_form1("Attribute", pop_stack_1()),
 ;                   ACTION recordAttributeDocumentation(top_of_stack(), G1)))
  
@@ -482,14 +537,16 @@
                 (|push_lform2| 'CATEGORY (|pop_stack_1|) |tail_val|))))))
       (#1#
        (PROGN
-        (SETQ G1 (LINE-NUMBER CURRENT-LINE))
+        (SETQ G1 (|current_line_number|))
         (COND ((NULL (|parse_Application|)) NIL)
               (#1#
                (MUST
                 (OR
                  (AND (|match_symbol| '|:|) (MUST (|parse_Expression|))
                       (|push_form3| '|Signature| (|pop_stack_2|)
-                       (|pop_stack_1|) (|getSignatureDocumentation| G1)))
+                       (|pop_stack_1|)
+                       (|getSignatureDocumentation2| G1
+                        (|current_line_number|))))
                  (AND (|push_form1| '|Attribute| (|pop_stack_1|))
                       (ACTION
                        (|recordAttributeDocumentation| (|top_of_stack|)

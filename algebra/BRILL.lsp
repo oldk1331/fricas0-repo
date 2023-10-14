@@ -119,9 +119,12 @@
                                     (COND
                                      ((ODDP |largeEnough|)
                                       (COND
-                                       ((OR |even0| |even1|)
+                                       (|even0|
                                         (LETT |largeEnough| (+ |largeEnough| 1)
-                                              . #4#)))))
+                                              . #4#))))
+                                     (|even1|
+                                      (LETT |largeEnough| (+ |largeEnough| 1)
+                                            . #4#)))
                                     (LETT |count|
                                           (+
                                            (* (COND (|polyx2| 2) (#3# 1))

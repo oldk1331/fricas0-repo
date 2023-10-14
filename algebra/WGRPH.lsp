@@ -1289,7 +1289,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |WGRPH;getWeightBetween| (|s| |i1| |i2| $)
-  (PROG (|res| |isDisjoint| #1=#:G523 |arr| |arrs|)
+  (PROG (|res| |isDisjoint| #1=#:G520 |arr| |arrs|)
     (RETURN
      (SEQ (LETT |isDisjoint| 'T . #2=(|WGRPH;getWeightBetween|))
           (LETT |res| (|spadConstant| $ 9) . #2#)
@@ -1307,24 +1307,18 @@
                      (COND
                       ((EQL (QVELT |arr| 3) |i2|)
                        (SEQ (LETT |res| (QVELT |arr| 1) . #2#)
-                            (EXIT (LETT |isDisjoint| 'NIL . #2#))))
-                      ((EQL (QVELT |arr| 2) |i1|)
-                       (COND
-                        ((EQL (QVELT |arr| 3) |i2|)
-                         (COND
-                          ((SPADCALL (QVELT |arr| 1) |res| (QREFELT $ 88))
-                           (LETT |res| (QVELT |arr| 1) . #2#))))))))
-                    ((EQL (QVELT |arr| 2) |i1|)
+                            (EXIT (LETT |isDisjoint| 'NIL . #2#))))))))
+                  ((EQL (QVELT |arr| 2) |i1|)
+                   (COND
+                    ((EQL (QVELT |arr| 3) |i2|)
                      (COND
-                      ((EQL (QVELT |arr| 3) |i2|)
-                       (COND
-                        ((SPADCALL (QVELT |arr| 1) |res| (QREFELT $ 88))
-                         (LETT |res| (QVELT |arr| 1) . #2#)))))))))))
+                      ((SPADCALL (QVELT |arr| 1) |res| (QREFELT $ 88))
+                       (LETT |res| (QVELT |arr| 1) . #2#)))))))))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|))))) 
 
 (DEFUN |WGRPH;routeNodeWeight;$LW;35| (|s| |r| $)
-  (PROG (|lasti| |fst| |res| |w| #1=#:G529 |i|)
+  (PROG (|lasti| |fst| |res| |w| #1=#:G526 |i|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 9) . #2=(|WGRPH;routeNodeWeight;$LW;35|))
@@ -1343,7 +1337,7 @@
       (EXIT |res|))))) 
 
 (DEFUN |WGRPH;routeArrowWeight;$LW;36| (|s| |r| $)
-  (PROG (|res| |a| #1=#:G535 |i|)
+  (PROG (|res| |a| #1=#:G532 |i|)
     (RETURN
      (SEQ
       (LETT |res| (|spadConstant| $ 9) . #2=(|WGRPH;routeArrowWeight;$LW;36|))
@@ -1378,10 +1372,10 @@
            (LETT |u| (|inc_SI| |u|) . #1#) (GO G190) G191 (EXIT NIL))
       (EXIT |m|))))) 
 
-(DEFUN |WeightedGraph| (&REST #1=#:G548)
+(DEFUN |WeightedGraph| (&REST #1=#:G545)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G549)
+     (PROG (#2=#:G546)
        (RETURN
         (COND
          ((LETT #2#
