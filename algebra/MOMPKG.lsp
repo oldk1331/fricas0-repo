@@ -11,7 +11,7 @@
                    (QREFELT $ 12))
          (QREFELT $ 13))) 
 
-(SDEFUN |MOMPKG;freecumulant2moment;2S;3|
+(SDEFUN |MOMPKG;freeCumulant2moment;2S;3|
         ((|cum| |Sequence| R) ($ |Sequence| R))
         (SPADCALL
          (SPADCALL
@@ -24,7 +24,7 @@
           (QREFELT $ 12))
          (QREFELT $ 21))) 
 
-(SDEFUN |MOMPKG;moment2freecumulant;2S;4|
+(SDEFUN |MOMPKG;moment2freeCumulant;2S;4|
         ((|mom| |Sequence| R) ($ |Sequence| R))
         (SPROG
          ((#1=#:G109 NIL) (|f1| #2=(|Union| (|Stream| R) "failed"))
@@ -33,7 +33,7 @@
           (LETT |g|
                 (SPADCALL (|spadConstant| $ 17) (SPADCALL |mom| (QREFELT $ 9))
                           (QREFELT $ 23))
-                . #3=(|MOMPKG;moment2freecumulant;2S;4|))
+                . #3=(|MOMPKG;moment2freeCumulant;2S;4|))
           (LETT |g1| (SPADCALL |g| (QREFELT $ 25)) . #3#)
           (LETT |f|
                 (SPADCALL
@@ -53,7 +53,7 @@
              (QREFELT $ 12))
             (QREFELT $ 21)))))) 
 
-(SDEFUN |MOMPKG;booleancumulant2moment;2S;5|
+(SDEFUN |MOMPKG;booleanCumulant2moment;2S;5|
         ((|x| |Sequence| R) ($ |Sequence| R))
         (SPROG
          ((#1=#:G114 NIL) (|boo| (|Union| (|Stream| R) "failed"))
@@ -64,7 +64,7 @@
                           (SPADCALL (SPADCALL |x| (QREFELT $ 27))
                                     (QREFELT $ 9))
                           (QREFELT $ 23))
-                . #2=(|MOMPKG;booleancumulant2moment;2S;5|))
+                . #2=(|MOMPKG;booleanCumulant2moment;2S;5|))
           (LETT |boo| (SPADCALL |rec| (QREFELT $ 25)) . #2#)
           (EXIT
            (SPADCALL
@@ -75,7 +75,7 @@
              (QREFELT $ 13))
             (QREFELT $ 28)))))) 
 
-(SDEFUN |MOMPKG;moment2booleancumulant;2S;6|
+(SDEFUN |MOMPKG;moment2booleanCumulant;2S;6|
         ((|x| |Sequence| R) ($ |Sequence| R))
         (SPROG
          ((#1=#:G119 NIL) (|mom| (|Union| (|Stream| R) "failed"))
@@ -84,7 +84,7 @@
           (LETT |boo|
                 (SPADCALL (|spadConstant| $ 17) (SPADCALL |x| (QREFELT $ 9))
                           (QREFELT $ 23))
-                . #2=(|MOMPKG;moment2booleancumulant;2S;6|))
+                . #2=(|MOMPKG;moment2booleanCumulant;2S;6|))
           (LETT |mom| (SPADCALL |boo| (QREFELT $ 25)) . #2#)
           (EXIT
            (SPADCALL
@@ -106,14 +106,14 @@
           (QREFELT $ 38))
          (QREFELT $ 39))) 
 
-(SDEFUN |MOMPKG;moment2nthjacobi;LR;8|
+(SDEFUN |MOMPKG;moment2nthJacobi;LR;8|
         ((|mom| |List| R)
          ($ |Record| (|:| |an| (|List| R)) (|:| |bn| (|List| R))))
         (SPROG
          ((N (|Integer|)) (G (|List| R)) (#1=#:G138 NIL) (|h| NIL)
           (#2=#:G137 NIL) (H (|List| R)) (|Hk| (R)) (#3=#:G136 NIL) (|l| NIL)
           (|k| NIL) (|bb| #4=(|List| R)) (|aa| #4#) (|bk| (R)) (|ak| (R)))
-         (SEQ (LETT N (LENGTH |mom|) . #5=(|MOMPKG;moment2nthjacobi;LR;8|))
+         (SEQ (LETT N (LENGTH |mom|) . #5=(|MOMPKG;moment2nthJacobi;LR;8|))
               (LETT G |mom| . #5#) (LETT |aa| NIL . #5#) (LETT |bb| NIL . #5#)
               (SEQ G190 (COND ((NULL (SPADCALL N 1 (QREFELT $ 43))) (GO G191)))
                    (SEQ (LETT |ak| (|SPADfirst| G) . #5#)
@@ -384,7 +384,7 @@
               (EXIT
                (VECTOR (|spadConstant| $ 94) (|spadConstant| $ 96) S))))))))) 
 
-(SDEFUN |MOMPKG;moment2monotonecumulantgenerator|
+(SDEFUN |MOMPKG;moment2monotoneCumulantGenerator|
         ((|srm| |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
           (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R)))
          ($ |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
@@ -400,7 +400,7 @@
           (EXIT
            (SEQ
             (LETT |mt| (QVELT |srm| 0)
-                  . #4=(|MOMPKG;moment2monotonecumulantgenerator|))
+                  . #4=(|MOMPKG;moment2monotoneCumulantGenerator|))
             (LETT |rr| (QVELT |srm| 1) . #4#) (LETT |mm| (QVELT |srm| 2) . #4#)
             (LETT |n| (+ (LENGTH |rr|) 1) . #4#)
             (LETT |tmp| (|spadConstant| $ 87) . #4#)
@@ -447,7 +447,7 @@
               (GO #1#)))))
           #1# (EXIT #1#)))) 
 
-(SDEFUN |MOMPKG;moment2monotonecumulant;2S;15|
+(SDEFUN |MOMPKG;moment2monotoneCumulant;2S;15|
         ((|mm| |Sequence| R) ($ |Sequence| R))
         (SPROG
          ((|res1| (|Stream| R))
@@ -462,7 +462,7 @@
          (SEQ
           (LETT |m1t|
                 (SPADCALL (SPADCALL |mm| (QREFELT $ 105)) 1 (QREFELT $ 71))
-                . #1=(|MOMPKG;moment2monotonecumulant;2S;15|))
+                . #1=(|MOMPKG;moment2monotoneCumulant;2S;15|))
           (LETT |r1| (SPADCALL |mm| (QREFELT $ 105)) . #1#)
           (LETT |mtr1|
                 (VECTOR (LIST |m1t|) (LIST |r1|)
@@ -471,24 +471,139 @@
                 . #1#)
           (LETT |res|
                 (SPADCALL
-                 (CONS (|function| |MOMPKG;moment2monotonecumulantgenerator|)
+                 (CONS (|function| |MOMPKG;moment2monotoneCumulantGenerator|)
                        $)
                  |mtr1| (QREFELT $ 109))
                 . #1#)
           (LETT |res1|
-                (SPADCALL (CONS #'|MOMPKG;moment2monotonecumulant;2S;15!0| $)
+                (SPADCALL (CONS #'|MOMPKG;moment2monotoneCumulant;2S;15!0| $)
                           |res| (QREFELT $ 113))
                 . #1#)
           (EXIT (SPADCALL |res1| (QREFELT $ 13)))))) 
 
-(SDEFUN |MOMPKG;moment2monotonecumulant;2S;15!0| ((|s| NIL) ($ NIL))
+(SDEFUN |MOMPKG;moment2monotoneCumulant;2S;15!0| ((|s| NIL) ($ NIL))
         (SPADCALL (QVELT |s| 1) (QREFELT $ 110))) 
+
+(SDEFUN |MOMPKG;monotoneCumulant2momentGenerator|
+        ((|srm| |Record| (|:| |cum| (|Stream| R))
+          (|:| |momt| (|List| (|SparseUnivariatePolynomial| R))))
+         ($ |Record| (|:| |cum| (|Stream| R))
+          (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
+        (SPROG
+         ((#1=#:G194 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
+          (|mnt| (|SparseUnivariatePolynomial| R)) (|rr| (|Stream| R))
+          (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G195 NIL) (|k| NIL)
+          (#3=#:G196 NIL) (|m| NIL) (|n| (|Integer|))
+          (|mt| (|List| (|SparseUnivariatePolynomial| R))))
+         (SEQ
+          (EXIT
+           (SEQ
+            (LETT |mt| (QCDR |srm|)
+                  . #4=(|MOMPKG;monotoneCumulant2momentGenerator|))
+            (LETT |rr| (QCAR |srm|) . #4#) (LETT |n| (+ (LENGTH |mt|) 1) . #4#)
+            (LETT |tmp| (|spadConstant| $ 87) . #4#)
+            (SEQ (LETT |m| NIL . #4#) (LETT #3# |mt| . #4#) (LETT |k| 1 . #4#)
+                 (LETT #2# (- |n| 1) . #4#) G190
+                 (COND
+                  ((OR (|greater_SI| |k| #2#) (ATOM #3#)
+                       (PROGN (LETT |m| (CAR #3#) . #4#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (LETT |tmp|
+                        (SPADCALL |tmp|
+                                  (SPADCALL
+                                   (SPADCALL (- (+ |n| 1) |k|) |m|
+                                             (QREFELT $ 115))
+                                   (SPADCALL |rr| (QREFELT $ 53))
+                                   (QREFELT $ 101))
+                                  (QREFELT $ 102))
+                        . #4#)
+                  (EXIT (LETT |rr| (SPADCALL |rr| (QREFELT $ 12)) . #4#)))
+                 (LETT |k| (PROG1 (|inc_SI| |k|) (LETT #3# (CDR #3#) . #4#))
+                       . #4#)
+                 (GO G190) G191 (EXIT NIL))
+            (LETT |mnt|
+                  (SPADCALL
+                   (SPADCALL (QREFELT $ 99) (SPADCALL |rr| (QREFELT $ 53))
+                             (QREFELT $ 101))
+                   (SPADCALL |tmp| (QREFELT $ 103)) (QREFELT $ 102))
+                  . #4#)
+            (LETT |mtnew| (CONS |mnt| |mt|) . #4#)
+            (EXIT
+             (PROGN (LETT #1# (CONS (QCAR |srm|) |mtnew|) . #4#) (GO #1#)))))
+          #1# (EXIT #1#)))) 
+
+(SDEFUN |MOMPKG;monotoneCumulant2moment;2S;17|
+        ((|rr| |Sequence| R) ($ |Sequence| R))
+        (SPROG
+         ((|res1| (|Stream| R))
+          (|res|
+           (|Stream|
+            (|Record| (|:| |cum| (|Stream| R))
+                      (|:| |momt| (|List| (|SparseUnivariatePolynomial| R))))))
+          (|mtr1|
+           (|Record| (|:| |cum| (|Stream| R))
+                     (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
+          (|m1t| (|SparseUnivariatePolynomial| R)))
+         (SEQ
+          (LETT |m1t|
+                (SPADCALL (SPADCALL |rr| (QREFELT $ 105)) 1 (QREFELT $ 71))
+                . #1=(|MOMPKG;monotoneCumulant2moment;2S;17|))
+          (LETT |mtr1| (CONS (SPADCALL |rr| (QREFELT $ 9)) (LIST |m1t|)) . #1#)
+          (LETT |res|
+                (SPADCALL
+                 (CONS (|function| |MOMPKG;monotoneCumulant2momentGenerator|)
+                       $)
+                 |mtr1| (QREFELT $ 119))
+                . #1#)
+          (LETT |res1|
+                (SPADCALL (CONS #'|MOMPKG;monotoneCumulant2moment;2S;17!0| $)
+                          |res| (QREFELT $ 124))
+                . #1#)
+          (EXIT (SPADCALL |res1| (QREFELT $ 13)))))) 
+
+(SDEFUN |MOMPKG;monotoneCumulant2moment;2S;17!0| ((|s| NIL) ($ NIL))
+        (SPADCALL (SPADCALL (QCDR |s|) (QREFELT $ 121)) (|spadConstant| $ 17)
+                  (QREFELT $ 104))) 
+
+(SDEFUN |MOMPKG;monotoneCumulant2momentPoly;SS;18|
+        ((|rr| |Sequence| R) ($ |Sequence| (|SparseUnivariatePolynomial| R)))
+        (SPROG
+         ((|res1| (|Stream| (|SparseUnivariatePolynomial| R)))
+          (|res|
+           (|Stream|
+            (|Record| (|:| |cum| (|Stream| R))
+                      (|:| |momt| (|List| (|SparseUnivariatePolynomial| R))))))
+          (|mtr1|
+           (|Record| (|:| |cum| (|Stream| R))
+                     (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
+          (|m1t| (|SparseUnivariatePolynomial| R)))
+         (SEQ
+          (LETT |m1t|
+                (SPADCALL (SPADCALL |rr| (QREFELT $ 105)) 1 (QREFELT $ 71))
+                . #1=(|MOMPKG;monotoneCumulant2momentPoly;SS;18|))
+          (LETT |mtr1| (CONS (SPADCALL |rr| (QREFELT $ 9)) (LIST |m1t|)) . #1#)
+          (LETT |res|
+                (SPADCALL
+                 (CONS (|function| |MOMPKG;monotoneCumulant2momentGenerator|)
+                       $)
+                 |mtr1| (QREFELT $ 119))
+                . #1#)
+          (LETT |res1|
+                (SPADCALL
+                 (CONS #'|MOMPKG;monotoneCumulant2momentPoly;SS;18!0| $) |res|
+                 (QREFELT $ 128))
+                . #1#)
+          (EXIT (SPADCALL |res1| (QREFELT $ 130)))))) 
+
+(SDEFUN |MOMPKG;monotoneCumulant2momentPoly;SS;18!0| ((|s| NIL) ($ NIL))
+        (SPADCALL (QCDR |s|) (QREFELT $ 121))) 
 
 (DECLAIM (NOTINLINE |MomentPackage;|)) 
 
-(DEFUN |MomentPackage| (#1=#:G190)
+(DEFUN |MomentPackage| (#1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G191)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#
@@ -508,7 +623,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|MomentPackage|))
           (LETT |dv$| (LIST '|MomentPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 115) . #1#)
+          (LETT $ (GETREFV 132) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -530,7 +645,7 @@
             (PROGN
              (QSETREFV $ 52
                        (CONS
-                        (|dispatchFunction| |MOMPKG;moment2nthjacobi;LR;8|) $))
+                        (|dispatchFunction| |MOMPKG;moment2nthJacobi;LR;8|) $))
              (QSETREFV $ 59
                        (CONS (|dispatchFunction| |MOMPKG;moment2jacobi2;SS;9|)
                              $))
@@ -549,7 +664,18 @@
              (QSETREFV $ 114
                        (CONS
                         (|dispatchFunction|
-                         |MOMPKG;moment2monotonecumulant;2S;15|)
+                         |MOMPKG;moment2monotoneCumulant;2S;15|)
+                        $))
+             (SETELT $ 99 (SPADCALL (|spadConstant| $ 17) 1 (QREFELT $ 71)))
+             (QSETREFV $ 125
+                       (CONS
+                        (|dispatchFunction|
+                         |MOMPKG;monotoneCumulant2moment;2S;17|)
+                        $))
+             (QSETREFV $ 131
+                       (CONS
+                        (|dispatchFunction|
+                         |MOMPKG;monotoneCumulant2momentPoly;SS;18|)
                         $)))))
           $))) 
 
@@ -562,17 +688,17 @@
               (20 . |log1|) |MOMPKG;moment2cumulant;2S;2| (25 . |One|)
               (29 . |concat|) (|StreamTaylorSeriesOperations| 6)
               (35 . |lagrange|) (40 . |coerce|)
-              |MOMPKG;freecumulant2moment;2S;3| (45 . |cons|)
+              |MOMPKG;freeCumulant2moment;2S;3| (45 . |cons|)
               (|Union| 7 '"failed") (51 . |recip|)
-              |MOMPKG;moment2freecumulant;2S;4| (56 . -) (61 . |rest|)
-              |MOMPKG;booleancumulant2moment;2S;5|
-              |MOMPKG;moment2booleancumulant;2S;6| (|PositiveInteger|)
+              |MOMPKG;moment2freeCumulant;2S;4| (56 . -) (61 . |rest|)
+              |MOMPKG;booleanCumulant2moment;2S;5|
+              |MOMPKG;moment2booleanCumulant;2S;6| (|PositiveInteger|)
               (|NonNegativeInteger|) (66 . *) (|List| 6) (72 . |firstn|)
               (|Matrix| 6) (|HankelPackage| 6) (78 . |HankelMatrix|)
               (83 . |determinant|) |MOMPKG;hankelDeterminant;SNniR;7|
               (|Boolean|) (|Integer|) (88 . >) (94 . |second|) (99 . *)
               (105 . -) (111 . |concat|) (117 . -) (122 . |elt|) (128 . /)
-              (|Record| (|:| |an| 34) (|:| |bn| 34)) (134 . |moment2nthjacobi|)
+              (|Record| (|:| |an| 34) (|:| |bn| 34)) (134 . |moment2nthJacobi|)
               (139 . |first|) (144 . |inv|) (149 . |rst|) (154 . *)
               (|Record| (|:| |an| 6) (|:| |bn| 6)) (|Stream| 57)
               (160 . |moment2jacobi2|) (165 . |cons|) (171 . |One|)
@@ -591,21 +717,28 @@
               (|Record| (|:| |puiseux| 88) (|:| |laurent| 88) (|:| |coef| 8))
               (291 . |moment2Stransform|) '|t| (296 . *) (302 . *) (308 . +)
               (314 . |integrate|) (319 . |elt|) (325 . |first|)
-              (|Record| (|:| |momt| (|List| 69)) (|:| |cum| 34) (|:| |mom| 7))
+              (|Record| (|:| |momt| 120) (|:| |cum| 34) (|:| |mom| 7))
               (|Mapping| 106 106) (|Stream| 106) (330 . |stream|)
               (336 . |first|) (|Mapping| 6 106) (|StreamFunctions2| 106 6)
-              (341 . |map|) (347 . |moment2monotonecumulant|))
-           '#(|qcumulant2nthmoment| 352 |moment2nthjacobi| 359
-              |moment2monotonecumulant| 364 |moment2jacobi2| 369
-              |moment2jacobi| 374 |moment2freecumulant| 379 |moment2cumulant|
-              384 |moment2booleancumulant| 389 |moment2Stransform| 394
-              |jacobi2poly| 399 |hankelDeterminant| 405 |freecumulant2moment|
-              411 |cumulant2moment| 416 |booleancumulant2moment| 421)
+              (341 . |map|) (347 . |moment2monotoneCumulant|) (352 . *)
+              (|Record| (|:| |cum| 7) (|:| |momt| 120)) (|Mapping| 116 116)
+              (|Stream| 116) (358 . |stream|) (|List| 69) (364 . |first|)
+              (|Mapping| 6 116) (|StreamFunctions2| 116 6) (369 . |map|)
+              (375 . |monotoneCumulant2moment|) (|Mapping| 69 116)
+              (|StreamFunctions2| 116 69) (380 . |map|) (|Sequence| 69)
+              (386 . |sequence|) (391 . |monotoneCumulant2momentPoly|))
+           '#(|qcumulant2nthmoment| 396 |monotoneCumulant2momentPoly| 403
+              |monotoneCumulant2moment| 408 |moment2nthJacobi| 413
+              |moment2monotoneCumulant| 418 |moment2jacobi2| 428
+              |moment2jacobi| 433 |moment2freeCumulant| 438 |moment2cumulant|
+              443 |moment2booleanCumulant| 448 |moment2Stransform| 453
+              |jacobi2poly| 458 |hankelDeterminant| 464 |freeCumulant2moment|
+              470 |cumulant2moment| 475 |booleanCumulant2moment| 480)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 114
+                             (|makeByteWordVec2| 131
                                                  '(1 8 7 0 9 1 10 7 7 11 1 7 0
                                                    0 12 1 8 0 7 13 1 10 7 7 15
                                                    0 6 0 17 2 7 0 6 0 18 1 19 7
@@ -636,11 +769,17 @@
                                                    6 0 6 104 1 8 6 0 105 2 108
                                                    0 107 106 109 1 34 6 0 110 2
                                                    112 7 111 108 113 1 0 8 8
-                                                   114 3 0 6 6 8 32 1 1 2 51 34
-                                                   52 1 1 8 8 114 1 2 58 8 59 1
-                                                   2 67 8 68 1 0 8 8 26 1 0 8 8
-                                                   16 1 0 8 8 30 1 1 97 8 98 2
-                                                   0 80 7 7 84 2 0 6 8 32 40 1
-                                                   0 8 8 22 1 0 8 8 14 1 0 8 8
-                                                   29)))))
+                                                   114 2 69 0 42 0 115 2 118 0
+                                                   117 116 119 1 120 69 0 121 2
+                                                   123 7 122 118 124 1 0 8 8
+                                                   125 2 127 80 126 118 128 1
+                                                   129 0 80 130 1 0 129 8 131 3
+                                                   0 6 6 8 32 1 1 0 129 8 131 1
+                                                   0 8 8 125 1 2 51 34 52 1 1 8
+                                                   8 114 1 0 8 8 114 1 2 58 8
+                                                   59 1 2 67 8 68 1 0 8 8 26 1
+                                                   0 8 8 16 1 0 8 8 30 1 1 97 8
+                                                   98 2 0 80 7 7 84 2 0 6 8 32
+                                                   40 1 0 8 8 22 1 0 8 8 14 1 0
+                                                   8 8 29)))))
            '|lookupComplete|)) 

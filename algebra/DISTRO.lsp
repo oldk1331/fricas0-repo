@@ -99,70 +99,87 @@
 (SDEFUN |DISTRO;distributionByBooleanCumulants;S$;14| ((|mm| |Stream| R) ($ $))
         (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 36))) 
 
-(SDEFUN |DISTRO;booleanCumulantFromJacobi;I2SR;15|
-        ((|n| |Integer|) (|aa| |Sequence| R) (|bb| |Sequence| R) ($ R))
-        (COND ((ZEROP |n|) (|spadConstant| $ 38))
-              ((EQL |n| 1) (SPADCALL |aa| 1 (QREFELT $ 40)))
-              ('T
-               (SPADCALL (SPADCALL |bb| 1 (QREFELT $ 40))
-                         (SPADCALL (- |n| 2) (SPADCALL |aa| (QREFELT $ 41))
-                                   (SPADCALL |bb| (QREFELT $ 41))
-                                   (QREFELT $ 42))
-                         (QREFELT $ 43))))) 
+(SDEFUN |DISTRO;distributionByMonotoneCumulants;S$;15|
+        ((|mc| |Sequence| R) ($ $))
+        (SPROG ((|mm| (|Sequence| R)))
+               (SEQ
+                (LETT |mm| (SPADCALL |mc| (QREFELT $ 38))
+                      |DISTRO;distributionByMonotoneCumulants;S$;15|)
+                (EXIT
+                 (|DISTRO;per|
+                  (VECTOR |mm| (SPADCALL |mm| (QREFELT $ 17))
+                          (SPADCALL |mm| (QREFELT $ 18))
+                          (SPADCALL |mm| (QREFELT $ 19)))
+                  $))))) 
 
-(SDEFUN |DISTRO;distributionByJacobiParameters;2S$;16|
+(SDEFUN |DISTRO;distributionByMonotoneCumulants;S$;16|
+        ((|mm| |Stream| R) ($ $))
+        (SPADCALL (SPADCALL |mm| (QREFELT $ 13)) (QREFELT $ 39))) 
+
+(SDEFUN |DISTRO;booleanCumulantFromJacobi;I2SR;17|
+        ((|n| |Integer|) (|aa| |Sequence| R) (|bb| |Sequence| R) ($ R))
+        (COND ((ZEROP |n|) (|spadConstant| $ 41))
+              ((EQL |n| 1) (SPADCALL |aa| 1 (QREFELT $ 43)))
+              ('T
+               (SPADCALL (SPADCALL |bb| 1 (QREFELT $ 43))
+                         (SPADCALL (- |n| 2) (SPADCALL |aa| (QREFELT $ 44))
+                                   (SPADCALL |bb| (QREFELT $ 44))
+                                   (QREFELT $ 45))
+                         (QREFELT $ 46))))) 
+
+(SDEFUN |DISTRO;distributionByJacobiParameters;2S$;18|
         ((|aa| |Sequence| R) (|bb| |Sequence| R) ($ $))
         (SPROG ((|mom| (|Stream| R)) (|rior| (|Stream| (|List| R))))
                (SEQ
                 (LETT |rior|
                       (SPADCALL (SPADCALL |aa| (QREFELT $ 26))
-                                (SPADCALL |bb| (QREFELT $ 26)) (QREFELT $ 46))
-                      . #1=(|DISTRO;distributionByJacobiParameters;2S$;16|))
+                                (SPADCALL |bb| (QREFELT $ 26)) (QREFELT $ 49))
+                      . #1=(|DISTRO;distributionByJacobiParameters;2S$;18|))
                 (LETT |mom|
-                      (SPADCALL (SPADCALL |rior| (QREFELT $ 47))
+                      (SPADCALL (SPADCALL |rior| (QREFELT $ 50))
                                 (QREFELT $ 22))
                       . #1#)
                 (EXIT
                  (SPADCALL (SPADCALL |mom| (QREFELT $ 13)) (QREFELT $ 14)))))) 
 
-(SDEFUN |DISTRO;distributionByJacobiParameters;2S$;17|
+(SDEFUN |DISTRO;distributionByJacobiParameters;2S$;19|
         ((|aa| |Stream| R) (|bb| |Stream| R) ($ $))
         (SPADCALL (SPADCALL |aa| (QREFELT $ 13)) (SPADCALL |bb| (QREFELT $ 13))
-                  (QREFELT $ 48))) 
+                  (QREFELT $ 51))) 
 
-(SDEFUN |DISTRO;construct;4S$;18|
+(SDEFUN |DISTRO;construct;4S$;20|
         ((|mom| |Sequence| R) (|ccum| |Sequence| R) (|fcum| |Sequence| R)
          (|bcum| |Sequence| R) ($ $))
         (|DISTRO;per| (VECTOR |mom| |ccum| |fcum| |bcum|) $)) 
 
-(SDEFUN |DISTRO;monotoneCumulants;$S;19| ((|x| $) ($ |Sequence| R))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 52))) 
+(SDEFUN |DISTRO;monotoneCumulants;$S;21| ((|x| $) ($ |Sequence| R))
+        (SPADCALL (SPADCALL |x| (QREFELT $ 54)) (QREFELT $ 55))) 
 
-(SDEFUN |DISTRO;distributionBySTransform;2FS$;20|
+(SDEFUN |DISTRO;distributionBySTransform;2FS$;22|
         ((|puiseux| |Fraction| (|Integer|)) (|laurent| |Fraction| (|Integer|))
          (|coef| |Sequence| R) ($ $))
         (SPROG
          ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| #2=(|Stream| R))
-          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G147 NIL) (|chi| (|Stream| R)))
+          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G150 NIL) (|chi| (|Stream| R)))
          (SEQ
           (EXIT
            (COND
-            ((SPADCALL |puiseux| (|spadConstant| $ 55) (QREFELT $ 57))
+            ((SPADCALL |puiseux| (|spadConstant| $ 58) (QREFELT $ 60))
              (SEQ
               (LETT |z1z|
                     (SPADCALL (|spadConstant| $ 8)
                               (SPADCALL
-                               (LIST (|spadConstant| $ 38)
-                                     (SPADCALL (|spadConstant| $ 38)
-                                               (QREFELT $ 58)))
+                               (LIST (|spadConstant| $ 41)
+                                     (SPADCALL (|spadConstant| $ 41)
+                                               (QREFELT $ 61)))
                                (QREFELT $ 11))
                               (QREFELT $ 23))
-                    . #4=(|DISTRO;distributionBySTransform;2FS$;20|))
+                    . #4=(|DISTRO;distributionBySTransform;2FS$;22|))
               (LETT |chi|
                     (SPADCALL (SPADCALL |coef| (QREFELT $ 26)) |z1z|
-                              (QREFELT $ 60))
+                              (QREFELT $ 63))
                     . #4#)
-              (LETT |psi| (SPADCALL |chi| (QREFELT $ 61)) . #4#)
+              (LETT |psi| (SPADCALL |chi| (QREFELT $ 64)) . #4#)
               (EXIT
                (PROGN
                 (LETT #3#
@@ -172,11 +189,11 @@
                        (QREFELT $ 14))
                       . #4#)
                 (GO #3#)))))
-            ((SPADCALL |puiseux| (SPADCALL 1 2 (QREFELT $ 62)) (QREFELT $ 57))
+            ((SPADCALL |puiseux| (SPADCALL 1 2 (QREFELT $ 65)) (QREFELT $ 60))
              (COND
               ((SPADCALL |laurent|
-                         (SPADCALL (|spadConstant| $ 55) (QREFELT $ 63))
-                         (QREFELT $ 57))
+                         (SPADCALL (|spadConstant| $ 58) (QREFELT $ 66))
+                         (QREFELT $ 60))
                (SEQ (LETT S2 |coef| . #4#)
                     (LETT |chi2|
                           (SPADCALL (|spadConstant| $ 8)
@@ -185,17 +202,17 @@
                           . #4#)
                     (LETT |z1z|
                           (SPADCALL
-                           (LIST (|spadConstant| $ 38) (|spadConstant| $ 8)
-                                 (SPADCALL (|spadConstant| $ 38)
-                                           (QREFELT $ 58))
+                           (LIST (|spadConstant| $ 41) (|spadConstant| $ 8)
+                                 (SPADCALL (|spadConstant| $ 41)
+                                           (QREFELT $ 61))
                                  (|spadConstant| $ 8))
                            (QREFELT $ 11))
                           . #4#)
-                    (LETT |chi2| (SPADCALL |chi2| |z1z| (QREFELT $ 60)) . #4#)
-                    (LETT |psi2| (SPADCALL |chi2| (QREFELT $ 61)) . #4#)
+                    (LETT |chi2| (SPADCALL |chi2| |z1z| (QREFELT $ 63)) . #4#)
+                    (LETT |psi2| (SPADCALL |chi2| (QREFELT $ 64)) . #4#)
                     (LETT |psi|
-                          (SPADCALL (SPADCALL 2 (QREFELT $ 64)) |psi2|
-                                    (QREFELT $ 65))
+                          (SPADCALL (SPADCALL 2 (QREFELT $ 67)) |psi2|
+                                    (QREFELT $ 68))
                           . #4#)
                     (EXIT
                      (SPADCALL
@@ -205,15 +222,15 @@
             (#5# (|error| "Not an S-transform"))))
           #3# (EXIT #3#)))) 
 
-(SDEFUN |DISTRO;distributionBySTransform;R$;21|
+(SDEFUN |DISTRO;distributionBySTransform;R$;23|
         ((S |Record| (|:| |puiseux| (|Fraction| (|Integer|)))
           (|:| |laurent| (|Fraction| (|Integer|))) (|:| |coef| (|Sequence| R)))
          ($ $))
-        (SPADCALL (QVELT S 0) (QVELT S 1) (QVELT S 2) (QREFELT $ 66))) 
+        (SPADCALL (QVELT S 0) (QVELT S 1) (QVELT S 2) (QREFELT $ 69))) 
 
-(SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;22| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;24| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((|Sxyc| (|Stream| R)) (#1=#:G161 NIL) (|Syc| #2=(|Stream| R))
+         ((|Sxyc| (|Stream| R)) (#1=#:G164 NIL) (|Syc| #2=(|Stream| R))
           (|Sxc| #2#)
           (|Sy|
            #3=(|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
@@ -223,107 +240,107 @@
          (SEQ
           (EXIT
            (SEQ
-            (LETT |Sx| (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 69))
-                  . #4=(|DISTRO;freeMultiplicativeConvolution;3$;22|))
-            (LETT |Sy| (SPADCALL (SPADCALL |y| (QREFELT $ 51)) (QREFELT $ 69))
+            (LETT |Sx| (SPADCALL (SPADCALL |x| (QREFELT $ 54)) (QREFELT $ 72))
+                  . #4=(|DISTRO;freeMultiplicativeConvolution;3$;24|))
+            (LETT |Sy| (SPADCALL (SPADCALL |y| (QREFELT $ 54)) (QREFELT $ 72))
                   . #4#)
             (COND
-             ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 62))
-                        (QREFELT $ 57))
+             ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 65))
+                        (QREFELT $ 60))
               (COND
-               ((SPADCALL (QVELT |Sy| 0) (SPADCALL 1 2 (QREFELT $ 62))
-                          (QREFELT $ 57))
+               ((SPADCALL (QVELT |Sy| 0) (SPADCALL 1 2 (QREFELT $ 65))
+                          (QREFELT $ 60))
                 (EXIT (SPADCALL (QREFELT $ 15)))))))
             (LETT |Sxc| (SPADCALL (QVELT |Sx| 2) (QREFELT $ 26)) . #4#)
             (LETT |Syc| (SPADCALL (QVELT |Sy| 2) (QREFELT $ 26)) . #4#)
             (COND
-             ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 55) (QREFELT $ 57))
+             ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 58) (QREFELT $ 60))
               (COND
-               ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 55) (QREFELT $ 57))
-                (SEQ (LETT |Sxyc| (SPADCALL |Sxc| |Syc| (QREFELT $ 60)) . #4#)
+               ((SPADCALL (QVELT |Sx| 0) (|spadConstant| $ 58) (QREFELT $ 60))
+                (SEQ (LETT |Sxyc| (SPADCALL |Sxc| |Syc| (QREFELT $ 63)) . #4#)
                      (EXIT
                       (PROGN
                        (LETT #1#
-                             (SPADCALL (|spadConstant| $ 55)
-                                       (|spadConstant| $ 70)
+                             (SPADCALL (|spadConstant| $ 58)
+                                       (|spadConstant| $ 73)
                                        (SPADCALL |Sxyc| (QREFELT $ 13))
-                                       (QREFELT $ 66))
+                                       (QREFELT $ 69))
                              . #4#)
                        (GO #1#)))))
-               ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 62))
-                          (QREFELT $ 57))
+               ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 65))
+                          (QREFELT $ 60))
                 (LETT |Sxyc|
-                      (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 71))
-                                (QREFELT $ 60))
+                      (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 74))
+                                (QREFELT $ 63))
                       . #4#))
                (#5='T
                 (LETT |Sxyc|
-                      (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 71)) |Syc|
-                                (QREFELT $ 60))
+                      (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 74)) |Syc|
+                                (QREFELT $ 63))
                       . #4#))))
-             ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 62))
-                        (QREFELT $ 57))
+             ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 65))
+                        (QREFELT $ 60))
               (LETT |Sxyc|
-                    (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 71))
-                              (QREFELT $ 60))
+                    (SPADCALL |Sxc| (SPADCALL 2 0 |Syc| (QREFELT $ 74))
+                              (QREFELT $ 63))
                     . #4#))
              (#5#
               (LETT |Sxyc|
-                    (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 71)) |Syc|
-                              (QREFELT $ 60))
+                    (SPADCALL (SPADCALL 2 0 |Sxc| (QREFELT $ 74)) |Syc|
+                              (QREFELT $ 63))
                     . #4#)))
             (EXIT
-             (SPADCALL (SPADCALL 1 2 (QREFELT $ 62))
-                       (SPADCALL (|spadConstant| $ 55) (QREFELT $ 63))
-                       (SPADCALL |Sxyc| (QREFELT $ 13)) (QREFELT $ 66)))))
+             (SPADCALL (SPADCALL 1 2 (QREFELT $ 65))
+                       (SPADCALL (|spadConstant| $ 58) (QREFELT $ 66))
+                       (SPADCALL |Sxyc| (QREFELT $ 13)) (QREFELT $ 69)))))
           #1# (EXIT #1#)))) 
 
-(SDEFUN |DISTRO;coerce;$Of;23| ((|x| $) ($ |OutputForm|))
-        (SPADCALL (QVELT (|DISTRO;rep| |x| $) 0) (QREFELT $ 74))) 
+(SDEFUN |DISTRO;coerce;$Of;25| ((|x| $) ($ |OutputForm|))
+        (SPADCALL (QVELT (|DISTRO;rep| |x| $) 0) (QREFELT $ 77))) 
 
-(SDEFUN |DISTRO;moment;$NniR;24| ((|x| $) (|n| |NonNegativeInteger|) ($ R))
+(SDEFUN |DISTRO;moment;$NniR;26| ((|x| $) (|n| |NonNegativeInteger|) ($ R))
         (SPROG ((|mm| (|Sequence| R)))
                (SEQ
-                (COND ((ZEROP |n|) (|spadConstant| $ 38))
+                (COND ((ZEROP |n|) (|spadConstant| $ 41))
                       ('T
                        (SEQ
                         (LETT |mm| (QVELT (|DISTRO;rep| |x| $) 0)
-                              |DISTRO;moment;$NniR;24|)
-                        (EXIT (SPADCALL |mm| |n| (QREFELT $ 40))))))))) 
+                              |DISTRO;moment;$NniR;26|)
+                        (EXIT (SPADCALL |mm| |n| (QREFELT $ 43))))))))) 
 
-(SDEFUN |DISTRO;classicalCumulant;$PiR;25|
+(SDEFUN |DISTRO;classicalCumulant;$PiR;27|
         ((|x| $) (|n| |PositiveInteger|) ($ R))
         (SPROG ((|cc| (|Sequence| R)))
                (SEQ
                 (LETT |cc| (QVELT (|DISTRO;rep| |x| $) 1)
-                      |DISTRO;classicalCumulant;$PiR;25|)
-                (EXIT (SPADCALL |cc| |n| (QREFELT $ 40)))))) 
+                      |DISTRO;classicalCumulant;$PiR;27|)
+                (EXIT (SPADCALL |cc| |n| (QREFELT $ 43)))))) 
 
-(SDEFUN |DISTRO;freeCumulant;$PiR;26| ((|x| $) (|n| |PositiveInteger|) ($ R))
+(SDEFUN |DISTRO;freeCumulant;$PiR;28| ((|x| $) (|n| |PositiveInteger|) ($ R))
         (SPROG ((|fc| (|Sequence| R)))
                (SEQ
                 (LETT |fc| (QVELT (|DISTRO;rep| |x| $) 2)
-                      |DISTRO;freeCumulant;$PiR;26|)
-                (EXIT (SPADCALL |fc| |n| (QREFELT $ 40)))))) 
+                      |DISTRO;freeCumulant;$PiR;28|)
+                (EXIT (SPADCALL |fc| |n| (QREFELT $ 43)))))) 
 
-(SDEFUN |DISTRO;booleanCumulant;$PiR;27|
+(SDEFUN |DISTRO;booleanCumulant;$PiR;29|
         ((|x| $) (|n| |PositiveInteger|) ($ R))
         (SPROG ((|fc| (|Sequence| R)))
                (SEQ
                 (LETT |fc| (QVELT (|DISTRO;rep| |x| $) 3)
-                      |DISTRO;booleanCumulant;$PiR;27|)
-                (EXIT (SPADCALL |fc| |n| (QREFELT $ 40)))))) 
+                      |DISTRO;booleanCumulant;$PiR;29|)
+                (EXIT (SPADCALL |fc| |n| (QREFELT $ 43)))))) 
 
-(SDEFUN |DISTRO;moments;$S;28| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;moments;$S;30| ((|x| $) ($ |Sequence| R))
         (QVELT (|DISTRO;rep| |x| $) 0)) 
 
-(SDEFUN |DISTRO;classicalCumulants;$S;29| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;classicalCumulants;$S;31| ((|x| $) ($ |Sequence| R))
         (QVELT (|DISTRO;rep| |x| $) 1)) 
 
-(SDEFUN |DISTRO;freeCumulants;$S;30| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;freeCumulants;$S;32| ((|x| $) ($ |Sequence| R))
         (QVELT (|DISTRO;rep| |x| $) 2)) 
 
-(SDEFUN |DISTRO;booleanCumulants;$S;31| ((|x| $) ($ |Sequence| R))
+(SDEFUN |DISTRO;booleanCumulants;$S;33| ((|x| $) ($ |Sequence| R))
         (QVELT (|DISTRO;rep| |x| $) 3)) 
 
 (SDEFUN |DISTRO;hankelDeterminants1|
@@ -341,88 +358,88 @@
           (RETURN
            (PROGN
             (SPADCALL
-             (SPADCALL (SPADCALL |x| (QREFELT $ 51)) |n| (QREFELT $ 85))
+             (SPADCALL (SPADCALL |x| (QREFELT $ 54)) |n| (QREFELT $ 88))
              (|DISTRO;hankelDeterminants1| |x|
-              (SPADCALL |n| (|spadConstant| $ 86) (QREFELT $ 87)) $)
+              (SPADCALL |n| (|spadConstant| $ 89) (QREFELT $ 90)) $)
              (QREFELT $ 23)))))) 
 
-(SDEFUN |DISTRO;hankelDeterminants;$S;33| ((|x| $) ($ |Stream| R))
+(SDEFUN |DISTRO;hankelDeterminants;$S;35| ((|x| $) ($ |Stream| R))
         (|DISTRO;hankelDeterminants1| |x| 1 $)) 
 
-(SDEFUN |DISTRO;jacobiParameters;$R;34|
+(SDEFUN |DISTRO;jacobiParameters;$R;36|
         ((|x| $) ($ |Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R))))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 90))) 
+        (SPADCALL (SPADCALL |x| (QREFELT $ 54)) (QREFELT $ 93))) 
 
-(SDEFUN |DISTRO;orthogonalPolynomials;$S;35|
+(SDEFUN |DISTRO;orthogonalPolynomials;$S;37|
         ((|x| $) ($ |Stream| (|SparseUnivariatePolynomial| R)))
         (SPROG
          ((|jac| (|Record| (|:| |an| (|Stream| R)) (|:| |bn| (|Stream| R)))))
          (SEQ
-          (LETT |jac| (SPADCALL |x| (QREFELT $ 91))
-                |DISTRO;orthogonalPolynomials;$S;35|)
-          (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 93)))))) 
+          (LETT |jac| (SPADCALL |x| (QREFELT $ 94))
+                |DISTRO;orthogonalPolynomials;$S;37|)
+          (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 96)))))) 
 
-(SDEFUN |DISTRO;jacobiParameters;$R;36|
+(SDEFUN |DISTRO;jacobiParameters;$R;38|
         ((|x| $)
          ($ |Record| (|:| |an| (|Stream| (|Fraction| R)))
           (|:| |bn| (|Stream| (|Fraction| R)))))
         (SPROG ((|mm| (|Stream| (|Fraction| R))) (|mm1| (|Stream| R)))
                (SEQ
                 (LETT |mm1|
-                      (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 26))
-                      . #1=(|DISTRO;jacobiParameters;$R;36|))
-                (LETT |mm| (SPADCALL (ELT $ 96) |mm1| (QREFELT $ 100)) . #1#)
+                      (SPADCALL (SPADCALL |x| (QREFELT $ 54)) (QREFELT $ 26))
+                      . #1=(|DISTRO;jacobiParameters;$R;38|))
+                (LETT |mm| (SPADCALL (ELT $ 99) |mm1| (QREFELT $ 103)) . #1#)
                 (EXIT
-                 (SPADCALL (SPADCALL |mm| (QREFELT $ 102)) (QREFELT $ 105)))))) 
+                 (SPADCALL (SPADCALL |mm| (QREFELT $ 105)) (QREFELT $ 108)))))) 
 
-(SDEFUN |DISTRO;orthogonalPolynomials;$S;37|
+(SDEFUN |DISTRO;orthogonalPolynomials;$S;39|
         ((|x| $) ($ |Stream| (|SparseUnivariatePolynomial| (|Fraction| R))))
         (SPROG
          ((|jac|
            (|Record| (|:| |an| (|Stream| (|Fraction| R)))
                      (|:| |bn| (|Stream| (|Fraction| R))))))
          (SEQ
-          (LETT |jac| (SPADCALL |x| (QREFELT $ 106))
-                |DISTRO;orthogonalPolynomials;$S;37|)
-          (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 108)))))) 
+          (LETT |jac| (SPADCALL |x| (QREFELT $ 109))
+                |DISTRO;orthogonalPolynomials;$S;39|)
+          (EXIT (SPADCALL (QCAR |jac|) (QCDR |jac|) (QREFELT $ 111)))))) 
 
-(SDEFUN |DISTRO;classicalConvolution;3$;38| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;classicalConvolution;3$;40| ((|x| $) (|y| $) ($ $))
         (SPADCALL
-         (SPADCALL (SPADCALL |x| (QREFELT $ 82)) (SPADCALL |y| (QREFELT $ 82))
-                   (QREFELT $ 110))
+         (SPADCALL (SPADCALL |x| (QREFELT $ 85)) (SPADCALL |y| (QREFELT $ 85))
+                   (QREFELT $ 113))
          (QREFELT $ 30))) 
 
-(SDEFUN |DISTRO;freeConvolution;3$;39| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;freeConvolution;3$;41| ((|x| $) (|y| $) ($ $))
         (SPADCALL
-         (SPADCALL (SPADCALL |x| (QREFELT $ 83)) (SPADCALL |y| (QREFELT $ 83))
-                   (QREFELT $ 110))
+         (SPADCALL (SPADCALL |x| (QREFELT $ 86)) (SPADCALL |y| (QREFELT $ 86))
+                   (QREFELT $ 113))
          (QREFELT $ 33))) 
 
-(SDEFUN |DISTRO;booleanConvolution;3$;40| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;booleanConvolution;3$;42| ((|x| $) (|y| $) ($ $))
         (SPADCALL
-         (SPADCALL (SPADCALL |x| (QREFELT $ 84)) (SPADCALL |y| (QREFELT $ 84))
-                   (QREFELT $ 110))
+         (SPADCALL (SPADCALL |x| (QREFELT $ 87)) (SPADCALL |y| (QREFELT $ 87))
+                   (QREFELT $ 113))
          (QREFELT $ 36))) 
 
-(SDEFUN |DISTRO;monotoneConvolution;3$;41| ((|x| $) (|y| $) ($ $))
+(SDEFUN |DISTRO;monotoneConvolution;3$;43| ((|x| $) (|y| $) ($ $))
         (SPADCALL
          (SPADCALL
           (SPADCALL
            (SPADCALL
             (SPADCALL
              (SPADCALL (|spadConstant| $ 8)
-                       (SPADCALL (|spadConstant| $ 38)
-                                 (SPADCALL (SPADCALL |x| (QREFELT $ 51))
+                       (SPADCALL (|spadConstant| $ 41)
+                                 (SPADCALL (SPADCALL |x| (QREFELT $ 54))
                                            (QREFELT $ 26))
                                  (QREFELT $ 23))
                        (QREFELT $ 23))
              (SPADCALL (|spadConstant| $ 8)
-                       (SPADCALL (|spadConstant| $ 38)
-                                 (SPADCALL (SPADCALL |y| (QREFELT $ 51))
+                       (SPADCALL (|spadConstant| $ 41)
+                                 (SPADCALL (SPADCALL |y| (QREFELT $ 54))
                                            (QREFELT $ 26))
                                  (QREFELT $ 23))
                        (QREFELT $ 23))
-             (QREFELT $ 114))
+             (QREFELT $ 117))
             (QREFELT $ 22))
            (QREFELT $ 22))
           (QREFELT $ 13))
@@ -457,22 +474,22 @@
                                     (SPADCALL |res| (QREFELT $ 22)) |n| $)
                                    (QREFELT $ 23))))))))) 
 
-(SDEFUN |DISTRO;^;$Pi$;43| ((|x| $) (|n| |PositiveInteger|) ($ $))
+(SDEFUN |DISTRO;^;$Pi$;45| ((|x| $) (|n| |PositiveInteger|) ($ $))
         (SPROG ((|momn| (|Stream| R)))
                (SEQ
                 (LETT |momn|
                       (|DISTRO;nth|
-                       (SPADCALL (SPADCALL |x| (QREFELT $ 51)) (QREFELT $ 26))
+                       (SPADCALL (SPADCALL |x| (QREFELT $ 54)) (QREFELT $ 26))
                        |n| $)
-                      |DISTRO;^;$Pi$;43|)
+                      |DISTRO;^;$Pi$;45|)
                 (EXIT
                  (SPADCALL (SPADCALL |momn| (QREFELT $ 13)) (QREFELT $ 14)))))) 
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G217)
+(DEFUN |Distribution| (#1=#:G220)
   (SPROG NIL
-         (PROG (#2=#:G218)
+         (PROG (#2=#:G221)
            (RETURN
             (COND
              ((LETT #2#
@@ -492,7 +509,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|Distribution|))
           (LETT |dv$| (LIST '|Distribution| DV$1) . #1#)
-          (LETT $ (GETREFV 120) . #1#)
+          (LETT $ (GETREFV 123) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -523,47 +540,47 @@
           (COND
            ((|testBitVector| |pv$| 3)
             (PROGN
-             (QSETREFV $ 53
+             (QSETREFV $ 56
                        (CONS
-                        (|dispatchFunction| |DISTRO;monotoneCumulants;$S;19|)
+                        (|dispatchFunction| |DISTRO;monotoneCumulants;$S;21|)
                         $))
-             (QSETREFV $ 66
+             (QSETREFV $ 69
                        (CONS
                         (|dispatchFunction|
-                         |DISTRO;distributionBySTransform;2FS$;20|)
+                         |DISTRO;distributionBySTransform;2FS$;22|)
                         $))
-             (QSETREFV $ 68
+             (QSETREFV $ 71
                        (CONS
                         (|dispatchFunction|
-                         |DISTRO;distributionBySTransform;R$;21|)
+                         |DISTRO;distributionBySTransform;R$;23|)
                         $))
-             (QSETREFV $ 72
+             (QSETREFV $ 75
                        (CONS
                         (|dispatchFunction|
-                         |DISTRO;freeMultiplicativeConvolution;3$;22|)
+                         |DISTRO;freeMultiplicativeConvolution;3$;24|)
                         $)))))
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 91
-                       (CONS
-                        (|dispatchFunction| |DISTRO;jacobiParameters;$R;34|)
-                        $))
              (QSETREFV $ 94
-                       (CONS
-                        (|dispatchFunction|
-                         |DISTRO;orthogonalPolynomials;$S;35|)
-                        $))))
-           ((|HasCategory| |#1| '(|IntegralDomain|))
-            (PROGN
-             (QSETREFV $ 106
                        (CONS
                         (|dispatchFunction| |DISTRO;jacobiParameters;$R;36|)
                         $))
-             (QSETREFV $ 109
+             (QSETREFV $ 97
                        (CONS
                         (|dispatchFunction|
                          |DISTRO;orthogonalPolynomials;$S;37|)
+                        $))))
+           ((|HasCategory| |#1| '(|IntegralDomain|))
+            (PROGN
+             (QSETREFV $ 109
+                       (CONS
+                        (|dispatchFunction| |DISTRO;jacobiParameters;$R;38|)
+                        $))
+             (QSETREFV $ 112
+                       (CONS
+                        (|dispatchFunction|
+                         |DISTRO;orthogonalPolynomials;$S;39|)
                         $)))))
           $))) 
 
@@ -573,114 +590,119 @@
               (|List| 6) (|Stream| 6) (4 . |repeating|) (|Sequence| 6)
               (9 . |sequence|) |DISTRO;distributionByMoments;S$;4|
               |DISTRO;Zero;$;3| (|MomentPackage| 6) (14 . |moment2cumulant|)
-              (19 . |moment2freecumulant|) (24 . |moment2booleancumulant|)
+              (19 . |moment2freeCumulant|) (24 . |moment2booleanCumulant|)
               |DISTRO;distributionByMoments;S$;5| (29 . |first|) (34 . |rest|)
               (39 . |cons|) (|Mapping| $) (45 . |delay|) (50 . |stream|)
               |DISTRO;distributionByEvenMoments;S$;7|
               |DISTRO;distributionByEvenMoments;S$;8| (55 . |cumulant2moment|)
               |DISTRO;distributionByClassicalCumulants;S$;9|
               |DISTRO;distributionByClassicalCumulants;S$;10|
-              (60 . |freecumulant2moment|)
+              (60 . |freeCumulant2moment|)
               |DISTRO;distributionByFreeCumulants;S$;11|
               |DISTRO;distributionByFreeCumulants;S$;12|
-              (65 . |booleancumulant2moment|)
+              (65 . |booleanCumulant2moment|)
               |DISTRO;distributionByBooleanCumulants;S$;13|
-              |DISTRO;distributionByBooleanCumulants;S$;14| (70 . |One|)
-              (|Integer|) (74 . |elt|) (80 . |rest|)
-              |DISTRO;booleanCumulantFromJacobi;I2SR;15| (85 . *) (|Stream| 9)
-              (|PathArrayPackage| 6) (91 . |jacobiPathArray|) (97 . |bottom|)
-              |DISTRO;distributionByJacobiParameters;2S$;16|
-              |DISTRO;distributionByJacobiParameters;2S$;17|
-              |DISTRO;construct;4S$;18| |DISTRO;moments;$S;28|
-              (102 . |moment2monotonecumulant|) (107 . |monotoneCumulants|)
-              (|Fraction| 39) (112 . |One|) (|Boolean|) (116 . =) (122 . -)
-              (|StreamTaylorSeriesOperations| 6) (127 . *) (133 . |revert|)
-              (138 . /) (144 . -) (149 . |coerce|) (154 . |powern|)
-              (160 . |distributionBySTransform|)
-              (|Record| (|:| |puiseux| 54) (|:| |laurent| 54) (|:| |coef| 12))
-              (167 . |distributionBySTransform|) (172 . |moment2Stransform|)
-              (177 . |Zero|) (181 . |invmultisect|)
-              (188 . |freeMultiplicativeConvolution|) (|OutputForm|)
-              (194 . |coerce|) |DISTRO;coerce;$Of;23| (|NonNegativeInteger|)
-              |DISTRO;moment;$NniR;24| (|PositiveInteger|)
-              |DISTRO;classicalCumulant;$PiR;25| |DISTRO;freeCumulant;$PiR;26|
-              |DISTRO;booleanCumulant;$PiR;27|
-              |DISTRO;classicalCumulants;$S;29| |DISTRO;freeCumulants;$S;30|
-              |DISTRO;booleanCumulants;$S;31| (199 . |hankelDeterminant|)
-              (205 . |One|) (209 . +) |DISTRO;hankelDeterminants;$S;33|
-              (|Record| (|:| |an| 10) (|:| |bn| 10)) (215 . |moment2jacobi|)
-              (220 . |jacobiParameters|)
-              (|Stream| (|SparseUnivariatePolynomial| 6)) (225 . |jacobi2poly|)
-              (231 . |orthogonalPolynomials|) (|Fraction| 6) (236 . |coerce|)
-              (|Stream| 95) (|Mapping| 95 6) (|StreamFunctions2| 6 95)
-              (241 . |map|) (|Sequence| 95) (247 . |sequence|)
-              (|Record| (|:| |an| 97) (|:| |bn| 97)) (|MomentPackage| 95)
-              (252 . |moment2jacobi|) (257 . |jacobiParameters|)
-              (|Stream| (|SparseUnivariatePolynomial| 95))
-              (262 . |jacobi2poly|) (268 . |orthogonalPolynomials|) (273 . +)
-              |DISTRO;classicalConvolution;3$;38|
-              |DISTRO;freeConvolution;3$;39| |DISTRO;booleanConvolution;3$;40|
-              (279 . |compose|) |DISTRO;monotoneConvolution;3$;41|
-              |DISTRO;^;$Pi$;43| (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 285 |orthogonalPolynomials| 291 |monotoneCumulants| 301
-              |monotoneConvolution| 306 |moments| 312 |moment| 317 |latex| 323
-              |jacobiParameters| 328 |hashUpdate!| 338 |hash| 344
-              |hankelDeterminants| 349 |freeMultiplicativeConvolution| 354
-              |freeCumulants| 360 |freeCumulant| 365 |freeConvolution| 371
-              |distributionBySTransform| 377 |distributionByMoments| 389
-              |distributionByJacobiParameters| 399
-              |distributionByFreeCumulants| 411 |distributionByEvenMoments| 421
-              |distributionByClassicalCumulants| 431
-              |distributionByBooleanCumulants| 441 |construct| 451 |coerce| 459
-              |classicalCumulants| 464 |classicalCumulant| 469
-              |classicalConvolution| 475 |booleanCumulants| 481
-              |booleanCumulantFromJacobi| 486 |booleanCumulant| 493
-              |booleanConvolution| 499 ^ 505 |Zero| 511 = 515)
+              |DISTRO;distributionByBooleanCumulants;S$;14|
+              (70 . |monotoneCumulant2moment|)
+              |DISTRO;distributionByMonotoneCumulants;S$;15|
+              |DISTRO;distributionByMonotoneCumulants;S$;16| (75 . |One|)
+              (|Integer|) (79 . |elt|) (85 . |rest|)
+              |DISTRO;booleanCumulantFromJacobi;I2SR;17| (90 . *) (|Stream| 9)
+              (|PathArrayPackage| 6) (96 . |jacobiPathArray|) (102 . |bottom|)
+              |DISTRO;distributionByJacobiParameters;2S$;18|
+              |DISTRO;distributionByJacobiParameters;2S$;19|
+              |DISTRO;construct;4S$;20| |DISTRO;moments;$S;30|
+              (107 . |moment2monotoneCumulant|) (112 . |monotoneCumulants|)
+              (|Fraction| 42) (117 . |One|) (|Boolean|) (121 . =) (127 . -)
+              (|StreamTaylorSeriesOperations| 6) (132 . *) (138 . |revert|)
+              (143 . /) (149 . -) (154 . |coerce|) (159 . |powern|)
+              (165 . |distributionBySTransform|)
+              (|Record| (|:| |puiseux| 57) (|:| |laurent| 57) (|:| |coef| 12))
+              (172 . |distributionBySTransform|) (177 . |moment2Stransform|)
+              (182 . |Zero|) (186 . |invmultisect|)
+              (193 . |freeMultiplicativeConvolution|) (|OutputForm|)
+              (199 . |coerce|) |DISTRO;coerce;$Of;25| (|NonNegativeInteger|)
+              |DISTRO;moment;$NniR;26| (|PositiveInteger|)
+              |DISTRO;classicalCumulant;$PiR;27| |DISTRO;freeCumulant;$PiR;28|
+              |DISTRO;booleanCumulant;$PiR;29|
+              |DISTRO;classicalCumulants;$S;31| |DISTRO;freeCumulants;$S;32|
+              |DISTRO;booleanCumulants;$S;33| (204 . |hankelDeterminant|)
+              (210 . |One|) (214 . +) |DISTRO;hankelDeterminants;$S;35|
+              (|Record| (|:| |an| 10) (|:| |bn| 10)) (220 . |moment2jacobi|)
+              (225 . |jacobiParameters|)
+              (|Stream| (|SparseUnivariatePolynomial| 6)) (230 . |jacobi2poly|)
+              (236 . |orthogonalPolynomials|) (|Fraction| 6) (241 . |coerce|)
+              (|Stream| 98) (|Mapping| 98 6) (|StreamFunctions2| 6 98)
+              (246 . |map|) (|Sequence| 98) (252 . |sequence|)
+              (|Record| (|:| |an| 100) (|:| |bn| 100)) (|MomentPackage| 98)
+              (257 . |moment2jacobi|) (262 . |jacobiParameters|)
+              (|Stream| (|SparseUnivariatePolynomial| 98))
+              (267 . |jacobi2poly|) (273 . |orthogonalPolynomials|) (278 . +)
+              |DISTRO;classicalConvolution;3$;40|
+              |DISTRO;freeConvolution;3$;41| |DISTRO;booleanConvolution;3$;42|
+              (284 . |compose|) |DISTRO;monotoneConvolution;3$;43|
+              |DISTRO;^;$Pi$;45| (|String|) (|SingleInteger|) (|HashState|))
+           '#(~= 290 |orthogonalPolynomials| 296 |monotoneCumulants| 306
+              |monotoneConvolution| 311 |moments| 317 |moment| 322 |latex| 328
+              |jacobiParameters| 333 |hashUpdate!| 343 |hash| 349
+              |hankelDeterminants| 354 |freeMultiplicativeConvolution| 359
+              |freeCumulants| 365 |freeCumulant| 370 |freeConvolution| 376
+              |distributionBySTransform| 382 |distributionByMonotoneCumulants|
+              394 |distributionByMoments| 404 |distributionByJacobiParameters|
+              414 |distributionByFreeCumulants| 426 |distributionByEvenMoments|
+              436 |distributionByClassicalCumulants| 446
+              |distributionByBooleanCumulants| 456 |construct| 466 |coerce| 474
+              |classicalCumulants| 479 |classicalCumulant| 484
+              |classicalConvolution| 490 |booleanCumulants| 496
+              |booleanCumulantFromJacobi| 501 |booleanCumulant| 508
+              |booleanConvolution| 514 ^ 520 |Zero| 526 = 530)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|DistributionCategory| 6) (|SetCategory|)
-                           (|BasicType|) (|CoercibleTo| 73))
-                        (|makeByteWordVec2| 119
+                           (|BasicType|) (|CoercibleTo| 76))
+                        (|makeByteWordVec2| 122
                                             '(0 6 0 8 1 10 0 9 11 1 12 0 10 13
                                               1 16 12 12 17 1 16 12 12 18 1 16
                                               12 12 19 1 10 6 0 21 1 10 0 0 22
                                               2 10 0 6 0 23 1 10 0 24 25 1 12
                                               10 0 26 1 16 12 12 29 1 16 12 12
-                                              32 1 16 12 12 35 0 6 0 38 2 12 6
-                                              0 39 40 1 12 0 0 41 2 6 0 0 0 43
-                                              2 45 44 10 10 46 1 45 10 44 47 1
-                                              16 12 12 52 1 0 12 0 53 0 54 0 55
-                                              2 54 56 0 0 57 1 6 0 0 58 2 59 10
-                                              10 10 60 1 59 10 10 61 2 54 0 39
-                                              39 62 1 54 0 0 63 1 54 0 39 64 2
-                                              59 10 54 10 65 3 0 0 54 54 12 66
-                                              1 0 0 67 68 1 16 67 12 69 0 54 0
-                                              70 3 59 10 39 39 10 71 2 0 0 0 0
-                                              72 1 12 73 0 74 2 16 6 12 76 85 0
-                                              76 0 86 2 76 0 0 0 87 1 16 89 12
-                                              90 1 0 89 0 91 2 16 92 10 10 93 1
-                                              0 92 0 94 1 95 0 6 96 2 99 97 98
-                                              10 100 1 101 0 97 102 1 104 103
-                                              101 105 1 0 103 0 106 2 104 107
-                                              97 97 108 1 0 107 0 109 2 12 0 0
-                                              0 110 2 59 10 10 10 114 2 0 56 0
-                                              0 1 1 2 107 0 109 1 1 92 0 94 1 3
-                                              12 0 53 2 0 0 0 0 115 1 0 12 0 51
-                                              2 0 6 0 76 77 1 0 117 0 1 1 2 103
-                                              0 106 1 1 89 0 91 2 0 119 119 0 1
-                                              1 0 118 0 1 1 0 10 0 88 2 3 0 0 0
-                                              72 1 0 12 0 83 2 0 6 0 78 80 2 0
-                                              0 0 0 112 3 3 0 54 54 12 66 1 3 0
-                                              67 68 1 0 0 12 14 1 0 0 10 20 2 0
-                                              0 10 10 49 2 0 0 12 12 48 1 0 0
-                                              12 33 1 0 0 10 34 1 0 0 10 28 1 0
-                                              0 12 27 1 0 0 10 31 1 0 0 12 30 1
-                                              0 0 12 36 1 0 0 10 37 4 0 0 12 12
-                                              12 12 50 1 0 73 0 75 1 0 12 0 82
-                                              2 0 6 0 78 79 2 0 0 0 0 111 1 0
-                                              12 0 84 3 0 6 39 12 12 42 2 0 6 0
-                                              78 81 2 0 0 0 0 113 2 0 0 0 78
-                                              116 0 0 0 15 2 0 56 0 0 1)))))
+                                              32 1 16 12 12 35 1 16 12 12 38 0
+                                              6 0 41 2 12 6 0 42 43 1 12 0 0 44
+                                              2 6 0 0 0 46 2 48 47 10 10 49 1
+                                              48 10 47 50 1 16 12 12 55 1 0 12
+                                              0 56 0 57 0 58 2 57 59 0 0 60 1 6
+                                              0 0 61 2 62 10 10 10 63 1 62 10
+                                              10 64 2 57 0 42 42 65 1 57 0 0 66
+                                              1 57 0 42 67 2 62 10 57 10 68 3 0
+                                              0 57 57 12 69 1 0 0 70 71 1 16 70
+                                              12 72 0 57 0 73 3 62 10 42 42 10
+                                              74 2 0 0 0 0 75 1 12 76 0 77 2 16
+                                              6 12 79 88 0 79 0 89 2 79 0 0 0
+                                              90 1 16 92 12 93 1 0 92 0 94 2 16
+                                              95 10 10 96 1 0 95 0 97 1 98 0 6
+                                              99 2 102 100 101 10 103 1 104 0
+                                              100 105 1 107 106 104 108 1 0 106
+                                              0 109 2 107 110 100 100 111 1 0
+                                              110 0 112 2 12 0 0 0 113 2 62 10
+                                              10 10 117 2 0 59 0 0 1 1 2 110 0
+                                              112 1 1 95 0 97 1 3 12 0 56 2 0 0
+                                              0 0 118 1 0 12 0 54 2 0 6 0 79 80
+                                              1 0 120 0 1 1 2 106 0 109 1 1 92
+                                              0 94 2 0 122 122 0 1 1 0 121 0 1
+                                              1 0 10 0 91 2 3 0 0 0 75 1 0 12 0
+                                              86 2 0 6 0 81 83 2 0 0 0 0 115 3
+                                              3 0 57 57 12 69 1 3 0 70 71 1 0 0
+                                              10 40 1 0 0 12 39 1 0 0 12 14 1 0
+                                              0 10 20 2 0 0 10 10 52 2 0 0 12
+                                              12 51 1 0 0 12 33 1 0 0 10 34 1 0
+                                              0 10 28 1 0 0 12 27 1 0 0 10 31 1
+                                              0 0 12 30 1 0 0 12 36 1 0 0 10 37
+                                              4 0 0 12 12 12 12 53 1 0 76 0 78
+                                              1 0 12 0 85 2 0 6 0 81 82 2 0 0 0
+                                              0 114 1 0 12 0 87 3 0 6 42 12 12
+                                              45 2 0 6 0 81 84 2 0 0 0 0 116 2
+                                              0 0 0 81 119 0 0 0 15 2 0 59 0 0
+                                              1)))))
            '|lookupComplete|)) 

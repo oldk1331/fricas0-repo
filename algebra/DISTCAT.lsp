@@ -58,6 +58,12 @@
                                                       ((|hankelDeterminants|
                                                         ((|Stream| |t#1|) $))
                                                        T)
+                                                      ((|monotoneCumulants|
+                                                        ((|Sequence| |t#1|) $))
+                                                       (|has| |t#1|
+                                                              (|Algebra|
+                                                               (|Fraction|
+                                                                (|Integer|)))))
                                                       ((|jacobiParameters|
                                                         ((|Record|
                                                           (|:| |an|
@@ -126,8 +132,8 @@
                                                       (|Stream|
                                                        (|SparseUnivariatePolynomial|
                                                         |t#1|))
-                                                      (|Stream| |t#1|)
                                                       (|Sequence| |t#1|)
+                                                      (|Stream| |t#1|)
                                                       (|NonNegativeInteger|))
                                                     NIL))
                                            . #2=(|DistributionCategory|)))))

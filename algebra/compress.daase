@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4755 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4758 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -486,34 +486,35 @@
  |dioSolve| |directProduct| |additive?| |multiplicative?| |zeta| |newLine|
  |copies| |say| |sayLength| |monotoneConvolution| |booleanConvolution|
  |freeConvolution| |classicalConvolution| |orthogonalPolynomials|
- |jacobiParameters| |hankelDeterminants| |booleanCumulants| |freeCumulants|
- |classicalCumulants| |moments| |booleanCumulant| |freeCumulant|
- |classicalCumulant| |moment| |gaussianDistribution| |poissonDistribution|
- |wignerDistribution| |freePoissonDistribution| |bernoulliDistribution01|
- |arcsineDistribution| |monotoneCumulants| |booleanCumulantFromJacobi|
- |distributionByJacobiParameters| |distributionByBooleanCumulants|
- |distributionByFreeCumulants| |distributionByClassicalCumulants|
- |distributionByEvenMoments| |distributionByMoments| |mapall|
- |R1_to_R2_coercion| |setnext!| |setprevious!| |next| |previous| |datalist|
- |shanksDiscLogAlgorithm| |separant| |leader| |isobaric?| |weights|
- |differentialVariables| |extractBottom!| |extractTop!| |insertBottom!|
- |insertTop!| |bottom!| |top!| |dequeue| |makeObject| |recolor| |drawComplex|
- |drawComplexVectorField| |setRealSteps| |setImagSteps| |setClipValue| |draw|
- |option?| |range| |colorFunction| |curveColor| |pointColor| |clip|
- |clipBoolean| |style| |toScale| |pointColorPalette| |curveColorPalette|
- |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius| |JContinuedFraction|
- |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin|
- |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
- |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
- |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
- |localReal?| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
- |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
- |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
- |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
- |eigenvalues| |eigenvector| |generalizedEigenvector| |generalizedEigenvectors|
- |eigenvectors| |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero|
- |swap| |error| |minPoly| |operators| |tower| |kernels| |mainKernel|
- |distribute| |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
+ |jacobiParameters| |monotoneCumulants| |hankelDeterminants| |booleanCumulants|
+ |freeCumulants| |classicalCumulants| |moments| |booleanCumulant|
+ |freeCumulant| |classicalCumulant| |moment| |gaussianDistribution|
+ |poissonDistribution| |wignerDistribution| |freePoissonDistribution|
+ |bernoulliDistribution01| |arcsineDistribution| |booleanCumulantFromJacobi|
+ |distributionByJacobiParameters| |distributionByMonotoneCumulants|
+ |distributionByBooleanCumulants| |distributionByFreeCumulants|
+ |distributionByClassicalCumulants| |distributionByEvenMoments|
+ |distributionByMoments| |mapall| |R1_to_R2_coercion| |setnext!| |setprevious!|
+ |next| |previous| |datalist| |shanksDiscLogAlgorithm| |separant| |leader|
+ |isobaric?| |weights| |differentialVariables| |extractBottom!| |extractTop!|
+ |insertBottom!| |insertTop!| |bottom!| |top!| |dequeue| |makeObject| |recolor|
+ |drawComplex| |drawComplexVectorField| |setRealSteps| |setImagSteps|
+ |setClipValue| |draw| |option?| |range| |colorFunction| |curveColor|
+ |pointColor| |clip| |clipBoolean| |style| |toScale| |pointColorPalette|
+ |curveColorPalette| |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius|
+ |JContinuedFraction| |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3|
+ |iiexp| |iilog| |iisin| |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin|
+ |iiacos| |iiatan| |iiacot| |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh|
+ |iicoth| |iisech| |iicsch| |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech|
+ |iiacsch| |specialTrigs| |localReal?| |do_quo| |rischNormalize|
+ |realLiouvillian| |realElementary| |validExponential| |rootNormalize| |rmap|
+ |tanQ| |irootDep| |select!| |delete!| |sncndn| |lin_sol| |ellipticRC|
+ |ellipticRD| |ellipticRF| |ellipticRJ| |qsetelt!| |unit?| |associates?|
+ |unitCanonical| |unitNormal| |eigenvalues| |eigenvector|
+ |generalizedEigenvector| |generalizedEigenvectors| |eigenvectors|
+ |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
+ |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
+ |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |simplifyPower| |number?|
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
@@ -717,10 +718,11 @@
  |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
  |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
  |setPoly| |index| |exponent| |exQuo| |moebius| |cumulant2moment|
- |moment2cumulant| |moment2nthjacobi| |moment2jacobi| |moment2jacobi2|
- |freecumulant2moment| |moment2freecumulant| |booleancumulant2moment|
- |moment2booleancumulant| |qcumulant2nthmoment| |hankelDeterminant|
- |jacobi2poly| |moment2Stransform| |moment2monotonecumulant| |rightRecip|
+ |moment2cumulant| |moment2nthJacobi| |moment2jacobi| |moment2jacobi2|
+ |freeCumulant2moment| |moment2freeCumulant| |booleanCumulant2moment|
+ |moment2booleanCumulant| |monotoneCumulant2moment|
+ |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
+ |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant| |rightRecip|
  |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
  |one?| |splitSquarefree| |normalDenom| |reshape| |totalfract| |pushdterm|
  |pushucoef| |pushuconst| |numberOfMonomials| |monomials| |mrv_normalize|
