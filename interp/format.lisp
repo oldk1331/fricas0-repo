@@ -1019,18 +1019,24 @@
                  (SETQ |bfVar#26| (CDR |bfVar#26|))))
               "" |x| NIL)))))))
  
+; DEFPARAMETER($from_unparse, false)
+ 
+(DEFPARAMETER |$from_unparse| NIL)
+ 
 ; unparseInputForm u ==
 ;   $formatSigAsTeX: local := 1
 ;   $InteractiveMode: local := false
+;   $from_unparse : local := true
 ;   form2StringLocal u
  
 (DEFUN |unparseInputForm| (|u|)
-  (PROG (|$InteractiveMode| |$formatSigAsTeX|)
-    (DECLARE (SPECIAL |$InteractiveMode| |$formatSigAsTeX|))
+  (PROG (|$from_unparse| |$InteractiveMode| |$formatSigAsTeX|)
+    (DECLARE (SPECIAL |$from_unparse| |$InteractiveMode| |$formatSigAsTeX|))
     (RETURN
      (PROGN
       (SETQ |$formatSigAsTeX| 1)
       (SETQ |$InteractiveMode| NIL)
+      (SETQ |$from_unparse| T)
       (|form2StringLocal| |u|)))))
  
 ; form2String u ==
@@ -2399,8 +2405,11 @@
 ;       concat(application2String(f, argl, linkInfo), '"$", _
 ;              form2String1 t)
 ;   null argl =>
-;     (op' := isInternalFunctionName(op)) => op'
-;     app2StringWrap(formWrapId op, linkInfo)
+;     res1 := 
+;        (op' := isInternalFunctionName(op)) => op'
+;        app2StringWrap(formWrapId op, linkInfo)
+;     $from_unparse => concat(res1,'"()")
+;     res1
 ;   1=#argl =>
 ;     first argl is ["<",:.] => concat(op,first argl)
 ;     concat(app2StringWrap(formWrapId op, linkInfo), '"(", first argl, '")")
@@ -2419,7 +2428,7 @@
 ;                         concat("_(",concat(tuple2String argl,"_)")))
  
 (DEFUN |application2String| (|op| |argl| |linkInfo|)
-  (PROG (|ISTMP#1| |t| |ISTMP#2| |f| |op'|)
+  (PROG (|ISTMP#1| |t| |ISTMP#2| |f| |op'| |res1|)
     (RETURN
      (COND
       ((AND (CONSP |op|) (EQ (CAR |op|) '|$elt|)
@@ -2434,8 +2443,11 @@
        (|concat| (|application2String| |f| |argl| |linkInfo|) "$"
         (|form2String1| |t|)))
       ((NULL |argl|)
-       (COND ((SETQ |op'| (|isInternalFunctionName| |op|)) |op'|)
-             (#1# (|app2StringWrap| (|formWrapId| |op|) |linkInfo|))))
+       (PROGN
+        (SETQ |res1|
+                (COND ((SETQ |op'| (|isInternalFunctionName| |op|)) |op'|)
+                      (#1# (|app2StringWrap| (|formWrapId| |op|) |linkInfo|))))
+        (COND (|$from_unparse| (|concat| |res1| "()")) (#1# |res1|))))
       ((EQL 1 (LENGTH |argl|))
        (COND
         ((PROGN
