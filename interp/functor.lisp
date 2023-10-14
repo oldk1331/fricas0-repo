@@ -40,13 +40,9 @@
 ;   v:=get(first u,'modemap,$e)
 ;   ATOM v =>
 ;     error ['"compCategories: could not get proper modemap for operator",first u]
-;   if rest v then
-;     sayBrightly ['"compCategories: ", '%b, '"Warning", '%d,
-;                  '"ignoring unexpected stuff at end of modemap"]
-;     pp rest v
-;   -- the next line "fixes" a bad modemap which sometimes appears ....
-;   --
-;   if rest v and NULL CAAAR v then v := rest v
+;   rest v =>
+;     error ['"compCategories: unexpected stuff at end of modemap",
+;            rest v]
 ;   v:= CDDAAR v
 ;   v:=resolvePatternVars(v, rest u) -- replaces #n forms
 ;   -- select the modemap part of the first entry, and skip result etc.
@@ -110,16 +106,12 @@
                 (LIST
                  "compCategories: could not get proper modemap for operator"
                  (CAR |u|))))
+              ((CDR |v|)
+               (|error|
+                (LIST "compCategories: unexpected stuff at end of modemap"
+                      (CDR |v|))))
               (#1#
                (PROGN
-                (COND
-                 ((CDR |v|)
-                  (|sayBrightly|
-                   (LIST "compCategories: " '|%b| "Warning" '|%d|
-                         "ignoring unexpected stuff at end of modemap"))
-                  (|pp| (CDR |v|))))
-                (COND
-                 ((AND (CDR |v|) (NULL (CAAAR |v|))) (SETQ |v| (CDR |v|))))
                 (SETQ |v| (CDDAAR |v|))
                 (SETQ |v| (|resolvePatternVars| |v| (CDR |u|)))
                 (SETQ |u|

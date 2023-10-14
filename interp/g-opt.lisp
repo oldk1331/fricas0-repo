@@ -431,7 +431,6 @@
 ;   u is ["Vector",:.] => Vector Integer()
 ;   u is ["OneDimensionalArray", :.] => OneDimensionalArray Integer()
 ;   u is ["PrimitiveArray",:.] => PrimitiveArray Integer()
-;   -- u is ["FactoredForm",:.] => FactoredForm Integer()
 ;   u is ["Matrix", :.] => Matrix Integer()
 ;   u is ["TwoDimensionalArray", :.] => TwoDimensionalArray Integer()
 ;   eval u
@@ -513,13 +512,6 @@
 ;     rplac(rest x,CDAR x)
 ;     rplac(first x,fn)
 ;     if fn is ["XLAM",:.] then x:=first optimize [x]
-;     x is ["EQUAL",:args] =>
-;                 --DEF-EQUAL is really an optimiser
-;                 -- RPLACW(x,DEF_-EQUAL args)
-;                 z := DEF_-EQUAL args
-;                 RPLACA(x, first z)
-;                 RPLACD(x, CDR z)
-;                 x
 ;     x
 ;   [fn,:a]:= first x
 ;   rplac(first x, "SPADCALL")
@@ -528,7 +520,7 @@
 ;   x
  
 (DEFUN |optSpecialCall| (|x| |y| |n|)
-  (PROG (|yval| |fn| |args| |z| |LETTMP#1| |a|)
+  (PROG (|yval| |fn| |LETTMP#1| |a|)
     (RETURN
      (PROGN
       (SETQ |yval| (|optCallEval| |y|))
@@ -548,15 +540,7 @@
          (COND
           ((AND (CONSP |fn|) (EQ (CAR |fn|) 'XLAM))
            (SETQ |x| (CAR (|optimize| (LIST |x|))))))
-         (COND
-          ((AND (CONSP |x|) (EQ (CAR |x|) 'EQUAL)
-                (PROGN (SETQ |args| (CDR |x|)) #1#))
-           (PROGN
-            (SETQ |z| (DEF-EQUAL |args|))
-            (RPLACA |x| (CAR |z|))
-            (RPLACD |x| (CDR |z|))
-            |x|))
-          (#1# |x|))))
+         |x|))
        (#1#
         (PROGN
          (SETQ |LETTMP#1| (CAR |x|))

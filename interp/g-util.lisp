@@ -160,25 +160,6 @@
                              (SETQ |ok| NIL)))))))))))
              |alist|))))))
  
-; deleteLassoc(x,y) ==
-;   y is [[a,:.],:y'] =>
-;     EQ(x,a) => y'
-;     [first y,:deleteLassoc(x,y')]
-;   y
- 
-(DEFUN |deleteLassoc| (|x| |y|)
-  (PROG (|ISTMP#1| |a| |y'|)
-    (RETURN
-     (COND
-      ((AND (CONSP |y|)
-            (PROGN
-             (SETQ |ISTMP#1| (CAR |y|))
-             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1='T)))
-            (PROGN (SETQ |y'| (CDR |y|)) #1#))
-       (COND ((EQ |x| |a|) |y'|)
-             (#1# (CONS (CAR |y|) (|deleteLassoc| |x| |y'|)))))
-      (#1# |y|)))))
- 
 ; deleteAssoc(x,y) ==
 ;   y is [[a,:.],:y'] =>
 ;    a=x => deleteAssoc(x,y')
@@ -295,29 +276,6 @@
                           (SETQ |ok| NIL))
                          (#1# (SETQ |i| (+ |i| 1)))))))))
              |ok|))))))
- 
-; stringChar2Integer(str,pos) ==
-;   -- replaces GETSTRINGDIGIT in UT LISP
-;   -- returns small integer represented by character in position pos
-;   -- in string str. Returns NIL if not a digit or other error.
-;   if IDENTP str then str := PNAME str
-;   null (STRINGP(str) and
-;     INTEGERP(pos) and (pos >= 0) and (pos < QCSIZE(str))) => NIL
-;   not DIGITP(d := SCHAR(str,pos)) => NIL
-;   DIG2FIX d
- 
-(DEFUN |stringChar2Integer| (|str| |pos|)
-  (PROG (|d|)
-    (RETURN
-     (PROGN
-      (COND ((IDENTP |str|) (SETQ |str| (PNAME |str|))))
-      (COND
-       ((NULL
-         (AND (STRINGP |str|) (INTEGERP |pos|) (NOT (MINUSP |pos|))
-              (< |pos| (QCSIZE |str|))))
-        NIL)
-       ((NULL (DIGITP (SETQ |d| (SCHAR |str| |pos|)))) NIL)
-       ('T (DIG2FIX |d|)))))))
  
 ; dropLeadingBlanks str ==
 ;   str := object2String str
@@ -766,90 +724,6 @@
         (COND ((AND (EQ |a| |u|) (EQ (CDR |e|) |v|)) |e|)
               (#1# (CONS |u| |v|)))))))))
  
-; str2Outform s ==
-;   parse := ncParseFromString s or systemError '"String for TeX will not parse"
-;   parse2Outform parse
- 
-(DEFUN |str2Outform| (|s|)
-  (PROG (|parse|)
-    (RETURN
-     (PROGN
-      (SETQ |parse|
-              (OR (|ncParseFromString| |s|)
-                  (|systemError| "String for TeX will not parse")))
-      (|parse2Outform| |parse|)))))
- 
-; parse2Outform x ==
-;   x is [op,:argl] =>
-;     nargl := [parse2Outform y for y in argl]
-;     op = 'construct => ['BRACKET,['ARGLST,:[parse2Outform y for y in argl]]]
-;     op = 'brace and nargl is [[BRACKET,:r]] => ['BRACE,:r]
-;     [op,:nargl]
-;   x
- 
-(DEFUN |parse2Outform| (|x|)
-  (PROG (|op| |argl| |nargl| |ISTMP#1| BRACKET |r|)
-    (RETURN
-     (COND
-      ((AND (CONSP |x|)
-            (PROGN (SETQ |op| (CAR |x|)) (SETQ |argl| (CDR |x|)) #1='T))
-       (PROGN
-        (SETQ |nargl|
-                ((LAMBDA (|bfVar#11| |bfVar#10| |y|)
-                   (LOOP
-                    (COND
-                     ((OR (ATOM |bfVar#10|)
-                          (PROGN (SETQ |y| (CAR |bfVar#10|)) NIL))
-                      (RETURN (NREVERSE |bfVar#11|)))
-                     (#1#
-                      (SETQ |bfVar#11|
-                              (CONS (|parse2Outform| |y|) |bfVar#11|))))
-                    (SETQ |bfVar#10| (CDR |bfVar#10|))))
-                 NIL |argl| NIL))
-        (COND
-         ((EQ |op| '|construct|)
-          (LIST 'BRACKET
-                (CONS 'ARGLST
-                      ((LAMBDA (|bfVar#13| |bfVar#12| |y|)
-                         (LOOP
-                          (COND
-                           ((OR (ATOM |bfVar#12|)
-                                (PROGN (SETQ |y| (CAR |bfVar#12|)) NIL))
-                            (RETURN (NREVERSE |bfVar#13|)))
-                           (#1#
-                            (SETQ |bfVar#13|
-                                    (CONS (|parse2Outform| |y|) |bfVar#13|))))
-                          (SETQ |bfVar#12| (CDR |bfVar#12|))))
-                       NIL |argl| NIL))))
-         ((AND (EQ |op| '|brace|) (CONSP |nargl|) (EQ (CDR |nargl|) NIL)
-               (PROGN
-                (SETQ |ISTMP#1| (CAR |nargl|))
-                (AND (CONSP |ISTMP#1|)
-                     (PROGN
-                      (SETQ BRACKET (CAR |ISTMP#1|))
-                      (SETQ |r| (CDR |ISTMP#1|))
-                      #1#))))
-          (CONS 'BRACE |r|))
-         (#1# (CONS |op| |nargl|)))))
-      (#1# |x|)))))
- 
-; str2Tex s ==
-;   outf := str2Outform s
-;   val := coerceInt(mkObj(wrap outf, '(OutputForm)), '(TexFormat))
-;   val := objValUnwrap val
-;   CAR val.1
- 
-(DEFUN |str2Tex| (|s|)
-  (PROG (|outf| |val|)
-    (RETURN
-     (PROGN
-      (SETQ |outf| (|str2Outform| |s|))
-      (SETQ |val|
-              (|coerceInt| (|mkObj| (|wrap| |outf|) '(|OutputForm|))
-               '(|TexFormat|)))
-      (SETQ |val| (|objValUnwrap| |val|))
-      (CAR (ELT |val| 1))))))
- 
 ; opOf x ==
 ;   atom x => x
 ;   first x
@@ -893,16 +767,16 @@
   (PROG (|u| |signal|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#14| |contour|)
+      ((LAMBDA (|bfVar#10| |contour|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#14|)
-                (PROGN (SETQ |contour| (CAR |bfVar#14|)) NIL))
+           ((OR (ATOM |bfVar#10|)
+                (PROGN (SETQ |contour| (CAR |bfVar#10|)) NIL))
             (RETURN NIL))
            ('T
             (COND
              ((SETQ |u| (ASSQ |x| |contour|)) (RETURN (SETQ |signal| |u|))))))
-          (SETQ |bfVar#14| (CDR |bfVar#14|))))
+          (SETQ |bfVar#10| (CDR |bfVar#10|))))
        |currentEnv| NIL)
       (IFCDR |signal|)))))
  
@@ -996,14 +870,14 @@
              (PROGN
               (COND
                (|$envHashTable|
-                ((LAMBDA (|bfVar#15| |u|)
+                ((LAMBDA (|bfVar#11| |u|)
                    (LOOP
                     (COND
-                     ((OR (ATOM |bfVar#15|)
-                          (PROGN (SETQ |u| (CAR |bfVar#15|)) NIL))
+                     ((OR (ATOM |bfVar#11|)
+                          (PROGN (SETQ |u| (CAR |bfVar#11|)) NIL))
                       (RETURN NIL))
                      (#2# (HPUT |$envHashTable| (LIST |var| (CAR |u|)) T)))
-                    (SETQ |bfVar#15| (CDR |bfVar#15|))))
+                    (SETQ |bfVar#11| (CDR |bfVar#11|))))
                  |proplist| NIL)))
               (COND
                (|$InteractiveMode|
@@ -1052,15 +926,15 @@
     (RETURN
      (PROGN
       (SETQ |r| |u|)
-      ((LAMBDA (|bfVar#16| |x| |bfVar#17| |y|)
+      ((LAMBDA (|bfVar#12| |x| |bfVar#13| |y|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL)
-                (ATOM |bfVar#17|) (PROGN (SETQ |y| (CAR |bfVar#17|)) NIL))
+           ((OR (ATOM |bfVar#12|) (PROGN (SETQ |x| (CAR |bfVar#12|)) NIL)
+                (ATOM |bfVar#13|) (PROGN (SETQ |y| (CAR |bfVar#13|)) NIL))
             (RETURN NIL))
            ('T (SETQ |r| (CDR |r|))))
-          (SETQ |bfVar#16| (CDR |bfVar#16|))
-          (SETQ |bfVar#17| (CDR |bfVar#17|))))
+          (SETQ |bfVar#12| (CDR |bfVar#12|))
+          (SETQ |bfVar#13| (CDR |bfVar#13|))))
        |u| NIL |v| NIL)
       |r|))))
  
@@ -1116,14 +990,14 @@
       (COND ((MINUSP |k|) |s|)
             ((EQUAL (ELT |s| |k|) |$blank|)
              (PROGN
-              ((LAMBDA (|bfVar#18| |i|)
+              ((LAMBDA (|bfVar#14| |i|)
                  (LOOP
                   (COND
-                   ((OR (COND ((MINUSP |bfVar#18|) (< |i| 0)) (T (> |i| 0)))
+                   ((OR (COND ((MINUSP |bfVar#14|) (< |i| 0)) (T (> |i| 0)))
                         (NOT (EQUAL (ELT |s| |i|) |$blank|)))
                     (RETURN NIL))
                    (#1='T (SETQ |j| |i|)))
-                  (SETQ |i| (+ |i| |bfVar#18|))))
+                  (SETQ |i| (+ |i| |bfVar#14|))))
                (- 1) |k|)
               (SUBSTRING |s| 0 |j|)))
             (#1# |s|))))))
@@ -1206,13 +1080,13 @@
  
 (EVAL-WHEN (EVAL LOAD)
   (SETQ |$currentSysList|
-          ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
+          ((LAMBDA (|bfVar#16| |bfVar#15| |x|)
              (LOOP
               (COND
-               ((OR (ATOM |bfVar#19|) (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
-                (RETURN (NREVERSE |bfVar#20|)))
-               ('T (SETQ |bfVar#20| (CONS (|opOf| |x|) |bfVar#20|))))
-              (SETQ |bfVar#19| (CDR |bfVar#19|))))
+               ((OR (ATOM |bfVar#15|) (PROGN (SETQ |x| (CAR |bfVar#15|)) NIL))
+                (RETURN (NREVERSE |bfVar#16|)))
+               ('T (SETQ |bfVar#16| (CONS (|opOf| |x|) |bfVar#16|))))
+              (SETQ |bfVar#15| (CDR |bfVar#15|))))
            NIL |$htSystemCommands| NIL)))
  
 ; $outStream   := nil
