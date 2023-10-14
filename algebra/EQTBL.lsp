@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |EqTable| (&REST #1=#:G174)
+(DEFUN |EqTable| (&REST #1=#:G178)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G175)
+     (PROG (#2=#:G179)
        (RETURN
         (COND
          ((LETT #2#
@@ -20,13 +20,13 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|EqTable|))))))))))) 
 
 (DEFUN |EqTable;| (|#1| |#2|)
-  (PROG (#1=#:G173 |pv$| #2=#:G171 #3=#:G172 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G177 #2=#:G176 |pv$| #3=#:G174 #4=#:G175 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|EqTable|))
-      (LETT DV$2 (|devaluate| |#2|) . #4#)
-      (LETT |dv$| (LIST '|EqTable| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 32) . #4#)
+      (LETT DV$1 (|devaluate| |#1|) . #5=(|EqTable|))
+      (LETT DV$2 (|devaluate| |#2|) . #5#)
+      (LETT |dv$| (LIST '|EqTable| DV$1 DV$2) . #5#)
+      (LETT $ (GETREFV 32) . #5#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -36,12 +36,36 @@
                                            (|Record| (|:| |key| |#1|)
                                                      (|:| |entry| |#2|))
                                            '(|ConvertibleTo| (|InputForm|)))
+                                          (|HasCategory|
+                                           (|Record| (|:| |key| |#1|)
+                                                     (|:| |entry| |#2|))
+                                           '(|BasicType|))
+                                          (|HasCategory| |#1| '(|OrderedSet|))
+                                          (LETT #4#
+                                                (|HasCategory| |#2|
+                                                               '(|SetCategory|))
+                                                . #5#)
+                                          (AND
+                                           (|HasCategory| |#2|
+                                                          (LIST '|Evalable|
+                                                                (|devaluate|
+                                                                 |#2|)))
+                                           #4#)
+                                          (OR
+                                           (|HasCategory| |#2|
+                                                          '(|CoercibleTo|
+                                                            (|OutputForm|)))
+                                           (|HasCategory|
+                                            (|Record| (|:| |key| |#1|)
+                                                      (|:| |entry| |#2|))
+                                            '(|CoercibleTo| (|OutputForm|))))
+                                          (|HasCategory| |#2| '(|BasicType|))
                                           (LETT #3#
                                                 (|HasCategory|
                                                  (|Record| (|:| |key| |#1|)
                                                            (|:| |entry| |#2|))
                                                  '(|SetCategory|))
-                                                . #4#)
+                                                . #5#)
                                           (AND
                                            (|HasCategory|
                                             (|Record| (|:| |key| |#1|)
@@ -55,47 +79,52 @@
                                                               (|devaluate|
                                                                |#2|)))))
                                            #3#)
-                                          (|HasCategory| |#1| '(|OrderedSet|))
                                           (OR
-                                           (|HasCategory| |#2|
-                                                          '(|CoercibleTo|
-                                                            (|OutputForm|)))
+                                           (|HasCategory| |#2| '(|BasicType|))
+                                           #4#
                                            (|HasCategory|
                                             (|Record| (|:| |key| |#1|)
                                                       (|:| |entry| |#2|))
-                                            '(|CoercibleTo| (|OutputForm|))))
-                                          (LETT #2#
-                                                (|HasCategory| |#2|
-                                                               '(|SetCategory|))
-                                                . #4#)
-                                          (AND
-                                           (|HasCategory| |#2|
-                                                          (LIST '|Evalable|
-                                                                (|devaluate|
-                                                                 |#2|)))
-                                           #2#)
-                                          (OR #2# #3#)
+                                            '(|BasicType|))
+                                           #3#)
+                                          (OR #4# #3#)
                                           (OR
                                            (|HasCategory| |#2|
                                                           '(|CoercibleTo|
                                                             (|OutputForm|)))
-                                           #2#
+                                           #4#
                                            (|HasCategory|
                                             (|Record| (|:| |key| |#1|)
                                                       (|:| |entry| |#2|))
                                             '(|CoercibleTo| (|OutputForm|)))
                                            #3#)))
-                      . #4#))
+                      . #5#))
       (|haddProp| |$ConstructorCache| '|EqTable| (LIST DV$1 DV$2) (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
       (QSETREFV $ 7 |#2|)
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 512))
-      (AND #1# #3# (|augmentPredVector| $ 1024))
-      (AND #2# #1# (|augmentPredVector| $ 2048))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
+      (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
            (|augmentPredVector| $ 4096))
+      (AND #2#
+           (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
+                          '(|BasicType|))
+           (|augmentPredVector| $ 8192))
+      (AND #4# #2# (|augmentPredVector| $ 16384))
+      (AND
+       (LETT #1#
+             (AND (|HasCategory| |#2| '(|BasicType|))
+                  (|HasCategory| $ '(|finiteAggregate|)))
+             . #5#)
+       (|augmentPredVector| $ 32768))
+      (AND
+       (OR #1# #4#
+           (AND #2#
+                (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
+                               '(|BasicType|)))
+           #3#)
+       (|augmentPredVector| $ 65536))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|augmentPredVector| $ 131072))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -111,9 +140,9 @@
               (|List| 6) (|Union| 7 '"failed") (|Union| 8 '"failed"))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 9
-                                '(0 0 0 0 0 0 0 0 0 0 0 3 7 8 0 0 0 0 3 1 7 8
-                                  9))
+            (|makeByteWordVec2| 12
+                                '(0 0 0 0 0 0 0 0 0 0 0 9 5 11 0 0 0 0 9 1 5 10
+                                  12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
                 |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|

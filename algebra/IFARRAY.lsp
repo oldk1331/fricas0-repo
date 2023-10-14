@@ -416,10 +416,10 @@
                                 (QREFELT $ 50)))
                      (#2# |a|))))))))))) 
 
-(DEFUN |IndexedFlexibleArray| (&REST #1=#:G291)
+(DEFUN |IndexedFlexibleArray| (&REST #1=#:G292)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G292)
+     (PROG (#2=#:G293)
        (RETURN
         (COND
          ((LETT #2#
@@ -438,13 +438,13 @@
               (HREM |$ConstructorCache| '|IndexedFlexibleArray|))))))))))) 
 
 (DEFUN |IndexedFlexibleArray;| (|#1| |#2|)
-  (PROG (#1=#:G290 |pv$| #2=#:G287 #3=#:G288 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G291 |pv$| #2=#:G287 #3=#:G288 #4=#:G289 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedFlexibleArray|))
-      (LETT DV$2 (|devaluate| |#2|) . #4#)
-      (LETT |dv$| (LIST '|IndexedFlexibleArray| DV$1 DV$2) . #4#)
-      (LETT $ (GETREFV 71) . #4#)
+      (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedFlexibleArray|))
+      (LETT DV$2 (|devaluate| |#2|) . #5#)
+      (LETT |dv$| (LIST '|IndexedFlexibleArray| DV$1 DV$2) . #5#)
+      (LETT $ (GETREFV 71) . #5#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -454,21 +454,19 @@
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #3#
+                                          (LETT #4#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #4#)
+                                                . #5#)
                                           (OR
                                            (|HasCategory| |#1| '(|OrderedSet|))
-                                           #3#)
+                                           #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #3#)
+                                           #4#)
                                           (OR
                                            (AND
                                             (|HasCategory| |#1|
@@ -482,33 +480,45 @@
                                                            (LIST '|Evalable|
                                                                  (|devaluate|
                                                                   |#1|)))
-                                            #3#))
+                                            #4#))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
+                                          (LETT #3#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #5#)
+                                          (OR #3#
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedSet|))
+                                              #4#)
                                           (LETT #2#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #4#)
+                                                . #5#)
                                           (OR #2#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #3#))))
-                      . #4#))
+                                               #4#))))
+                      . #5#))
       (|haddProp| |$ConstructorCache| '|IndexedFlexibleArray| (LIST DV$1 DV$2)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
       (QSETREFV $ 7 |#2|)
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 512))
-      (AND #3# #1# (|augmentPredVector| $ 1024))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
            (|augmentPredVector| $ 2048))
+      (AND #4# #1# (|augmentPredVector| $ 4096))
+      (AND #3# #1# (|augmentPredVector| $ 8192))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|augmentPredVector| $ 16384))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
            (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 4096))
+           (|augmentPredVector| $ 32768))
+      (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 65536))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 8
                 (|Record| (|:| |physLen| (|Integer|))
@@ -516,7 +526,7 @@
                           (|:| |f| (|PrimitiveArray| |#1|))))
       (QSETREFV $ 9 'T)
       (COND
-       ((|testBitVector| |pv$| 4)
+       ((|testBitVector| |pv$| 3)
         (PROGN
          (QSETREFV $ 56
                    (CONS (|dispatchFunction| |IFARRAY;removeDuplicates!;2$;30|)
@@ -569,8 +579,9 @@
               |any?| 644 >= 650 > 656 = 662 <= 668 < 674 |#| 680)
            'NIL
            (CONS
-            (|makeByteWordVec2| 9
-                                '(0 0 0 0 0 0 2 0 2 0 0 7 5 0 0 0 0 7 1 5 9 2))
+            (|makeByteWordVec2| 11
+                                '(0 0 0 0 0 0 2 0 2 0 0 6 4 0 0 0 0 6 1 9 11
+                                  2))
             (CONS
              '#(|OneDimensionalArrayAggregate&| |FiniteLinearAggregate&|
                 |ExtensibleLinearAggregate&| |LinearAggregate&|
@@ -592,37 +603,37 @@
                                     2 12 22 0 0 29 2 12 0 30 0 31 2 0 22 0 0 40
                                     3 0 0 0 0 12 41 1 46 12 0 47 1 46 22 0 48 1
                                     46 12 0 49 2 6 22 0 0 53 2 12 22 0 0 54 1
-                                    46 0 12 55 1 0 0 0 56 1 0 0 0 57 2 4 22 0 0
-                                    1 3 12 61 0 12 12 1 1 2 22 0 1 2 0 22 34 0
-                                    1 1 13 0 0 1 2 12 0 34 0 1 1 2 0 0 1 2 0 0
-                                    34 0 1 2 2 22 0 0 1 2 0 22 0 10 1 1 0 22 22
-                                    23 3 12 6 0 46 6 1 3 12 6 0 12 6 26 2 0 0
-                                    43 0 52 2 10 0 43 0 1 0 0 0 1 1 12 0 0 1 1
-                                    0 0 0 1 1 0 0 0 57 1 4 0 0 56 1 11 0 0 1 2
-                                    4 0 6 0 1 2 0 0 43 0 44 2 11 0 6 0 1 2 10 0
-                                    43 0 1 4 11 6 58 0 6 6 1 3 10 6 58 0 6 1 2
-                                    10 6 58 0 1 3 12 6 0 12 6 1 2 0 6 0 12 1 3
-                                    4 12 6 0 12 1 2 4 12 6 0 1 2 0 12 43 0 1 2
-                                    0 0 0 12 13 1 0 10 0 11 1 10 24 0 1 2 0 0
-                                    10 6 21 2 0 22 0 10 1 1 3 12 0 20 2 2 0 0 0
+                                    46 0 12 55 1 0 0 0 56 1 0 0 0 57 2 17 22 0
+                                    0 1 3 15 61 0 12 12 1 1 2 22 0 1 2 0 22 34
+                                    0 1 1 16 0 0 1 2 15 0 34 0 1 1 2 0 0 1 2 0
+                                    0 34 0 1 2 2 22 0 0 1 2 0 22 0 10 1 1 0 22
+                                    22 23 3 15 6 0 46 6 1 3 15 6 0 12 6 26 2 0
+                                    0 43 0 52 2 12 0 43 0 1 0 0 0 1 1 15 0 0 1
+                                    1 0 0 0 1 1 0 0 0 57 1 3 0 0 56 1 14 0 0 1
+                                    2 3 0 6 0 1 2 0 0 43 0 44 2 14 0 6 0 1 2 12
+                                    0 43 0 1 4 14 6 58 0 6 6 1 3 12 6 58 0 6 1
+                                    2 12 6 58 0 1 3 15 6 0 12 6 1 2 0 6 0 12 1
+                                    3 3 12 6 0 12 1 2 3 12 6 0 1 2 0 12 43 0 1
+                                    2 0 0 0 12 13 1 0 10 0 11 1 12 24 0 1 2 0 0
+                                    10 6 21 2 0 22 0 10 1 1 7 12 0 20 2 2 0 0 0
                                     1 2 2 0 0 0 1 3 0 0 34 0 0 35 2 2 0 0 0 1 3
-                                    0 0 34 0 0 36 1 10 24 0 1 2 11 22 6 0 1 1 3
-                                    12 0 19 2 2 0 0 0 1 2 12 0 62 0 1 3 0 0 58
-                                    0 0 1 2 0 0 62 0 1 2 0 22 0 10 1 1 4 66 0 1
+                                    0 0 34 0 0 36 1 12 24 0 1 2 14 22 6 0 1 1 7
+                                    12 0 19 2 2 0 0 0 1 2 15 0 62 0 1 3 0 0 58
+                                    0 0 1 2 0 0 62 0 1 2 0 22 0 10 1 1 3 66 0 1
                                     3 0 0 0 0 12 51 3 0 0 6 0 12 37 3 0 0 6 0
                                     12 1 3 0 0 0 0 12 1 1 0 70 0 1 2 0 22 12 0
-                                    1 2 4 67 67 0 1 1 4 65 0 1 1 0 0 24 27 1 3
-                                    6 0 1 2 0 69 43 0 1 2 12 0 0 6 18 2 10 22
-                                    43 0 1 3 6 0 0 6 6 1 3 6 0 0 24 24 1 2 6 0
-                                    0 59 1 2 6 0 0 60 1 2 0 22 0 0 40 2 11 22 6
+                                    1 2 3 67 67 0 1 1 3 65 0 1 1 0 0 24 27 1 7
+                                    6 0 1 2 0 69 43 0 1 2 15 0 0 6 18 2 12 22
+                                    43 0 1 3 5 0 0 6 6 1 3 5 0 0 24 24 1 2 5 0
+                                    0 59 1 2 5 0 0 60 1 2 0 22 0 0 40 2 13 22 6
                                     0 1 1 0 24 0 1 1 0 22 0 1 0 0 0 14 2 0 0 0
                                     46 1 2 0 6 0 12 33 3 0 6 0 12 6 1 2 0 0 0
                                     46 50 2 0 0 0 12 45 2 0 0 0 12 1 2 0 0 0 46
-                                    1 2 11 10 6 0 1 2 10 10 43 0 1 3 12 0 0 0
+                                    1 2 14 10 6 0 1 2 12 10 43 0 1 3 15 0 0 0
                                     12 41 1 0 0 0 32 1 1 64 0 1 1 0 0 24 1 2 0
                                     0 0 6 39 2 0 0 0 0 42 1 0 0 68 1 2 0 0 6 0
-                                    38 2 0 0 0 0 1 2 0 0 0 6 1 1 8 63 0 1 2 10
-                                    22 43 0 1 2 2 22 0 0 1 2 2 22 0 0 1 2 4 22
-                                    0 0 1 2 2 22 0 0 1 2 2 22 0 0 1 1 10 10 0
+                                    38 2 0 0 0 0 1 2 0 0 0 6 1 1 10 63 0 1 2 12
+                                    22 43 0 1 2 2 22 0 0 1 2 2 22 0 0 1 2 17 22
+                                    0 0 1 2 2 22 0 0 1 2 2 22 0 0 1 1 12 10 0
                                     15)))))
            '|lookupComplete|)) 

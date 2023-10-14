@@ -202,7 +202,7 @@
                                                            (|Integer|)))
                                           (|HasCategory| |#2|
                                                          '(|EuclideanDomain|))
-                                          (|HasCategory| |#2| '(|SetCategory|))
+                                          (|HasCategory| |#2| '(|BasicType|))
                                           (AND
                                            (|HasCategory| |#2|
                                                           (LIST '|Evalable|
@@ -295,7 +295,7 @@
            (|augmentPredVector| $ 1048576))
       (AND (|HasCategory| $ '(|finiteAggregate|))
            (|augmentPredVector| $ 2097152))
-      (AND (|HasCategory| |#2| '(|SetCategory|))
+      (AND (|HasCategory| |#2| '(|BasicType|))
            (|HasCategory| $ '(|finiteAggregate|))
            (|augmentPredVector| $ 4194304))
       (SETF |pv$| (QREFELT $ 3))

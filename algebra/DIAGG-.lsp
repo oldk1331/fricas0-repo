@@ -77,9 +77,13 @@
        ((|HasCategory| |#1| '(|finiteAggregate|))
         (PROGN
          (QSETREFV $ 17 (CONS (|dispatchFunction| |DIAGG-;select!;M2A;2|) $))
-         (QSETREFV $ 25 (CONS (|dispatchFunction| |DIAGG-;=;2AB;3|) $))
-         (QSETREFV $ 27
-                   (CONS (|dispatchFunction| |DIAGG-;remove!;M2A;4|) $)))))
+         (COND
+          ((|HasCategory| |#2| '(|BasicType|))
+           (PROGN
+            (QSETREFV $ 25 (CONS (|dispatchFunction| |DIAGG-;=;2AB;3|) $))
+            (QSETREFV $ 27
+                      (CONS (|dispatchFunction| |DIAGG-;remove!;M2A;4|)
+                            $))))))))
       $)))) 
 
 (MAKEPROP '|Dictionary&| '|infovec|

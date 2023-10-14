@@ -83,7 +83,7 @@
 (DEFUN |SYMBOL;convert;$P;20| (|x| $) (SPADCALL |x| (QREFELT $ 73))) 
 
 (DEFUN |SYMBOL;syprefix| (|sc| $)
-  (PROG (#1=#:G1966 |n| #2=#:G1965 |ns|)
+  (PROG (#1=#:G1984 |n| #2=#:G1983 |ns|)
     (RETURN
      (SEQ
       (LETT |ns|
@@ -280,7 +280,7 @@
       (EXIT |s|))))) 
 
 (DEFUN |SYMBOL;anyRadix| (|n| |s| $)
-  (PROG (#1=#:G2020 |ns| |qr|)
+  (PROG (#1=#:G2038 |ns| |qr|)
     (RETURN
      (SEQ
       (EXIT
@@ -352,7 +352,7 @@
                  (QREFELT $ 79))))))) 
 
 (DEFUN |SYMBOL;resetNew;V;30| ($)
-  (PROG (#1=#:G2040 |k|)
+  (PROG (#1=#:G2058 |k|)
     (RETURN
      (SEQ (SPADCALL (QREFELT $ 9) 0 (QREFELT $ 93))
           (SEQ (LETT |k| NIL . #2=(|SYMBOL;resetNew;V;30|))
@@ -367,7 +367,7 @@
 (DEFUN |SYMBOL;scripted?;$B;31| (|sy| $) (COND ((ATOM |sy|) 'NIL) ('T 'T))) 
 
 (DEFUN |SYMBOL;name;2$;32| (|sy| $)
-  (PROG (#1=#:G2044 #2=#:G2046 #3=#:G2047 |i| |str|)
+  (PROG (#1=#:G2062 #2=#:G2064 #3=#:G2065 |i| |str|)
     (RETURN
      (SEQ
       (EXIT
@@ -411,8 +411,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |SYMBOL;scripts;$R;33| (|sy| $)
-  (PROG (|allscripts| #1=#:G2061 |a| #2=#:G2060 |i| #3=#:G2059 |n| |m|
-         |nscripts| #4=#:G2050 |j| |nstr| |str| |lscripts|)
+  (PROG (|allscripts| #1=#:G2079 |a| #2=#:G2078 |i| #3=#:G2077 |n| |m|
+         |nscripts| #4=#:G2068 |j| |nstr| |str| |lscripts|)
     (RETURN
      (SEQ
       (COND
@@ -523,7 +523,7 @@
 (DEFUN |Symbol| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2068)
+     (PROG (#1=#:G2086)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Symbol|) . #2=(|Symbol|))

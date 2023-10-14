@@ -68,15 +68,13 @@
                                                     ((|NonNegativeInteger|)
                                                      |t#1| $))
                                                    (AND
-                                                    (|has| |t#1|
-                                                           (|SetCategory|))
+                                                    (|has| |t#1| (|BasicType|))
                                                     (|has| $
                                                            (|finiteAggregate|))))
                                                   ((|member?|
                                                     ((|Boolean|) |t#1| $))
                                                    (AND
-                                                    (|has| |t#1|
-                                                           (|SetCategory|))
+                                                    (|has| |t#1| (|BasicType|))
                                                     (|has| $
                                                            (|finiteAggregate|)))))
                                                 '(((|CoercibleTo|
@@ -92,7 +90,12 @@
                                                     (|has| |t#1|
                                                            (|Evalable| |t#1|))
                                                     (|has| |t#1|
-                                                           (|SetCategory|)))))
+                                                           (|SetCategory|))))
+                                                  ((|BasicType|)
+                                                   (AND
+                                                    (|has| |t#1| (|BasicType|))
+                                                    (|has| $
+                                                           (|finiteAggregate|)))))
                                                 '((|Boolean|)
                                                   (|NonNegativeInteger|)
                                                   (|List| |t#1|))

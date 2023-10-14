@@ -1,10 +1,10 @@
 
 (/VERSIONCHECK 2) 
 
-(DEFUN |FlexibleArray| (#1=#:G136)
+(DEFUN |FlexibleArray| (#1=#:G137)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G137)
+     (PROG (#2=#:G138)
        (RETURN
         (COND
          ((LETT #2#
@@ -20,12 +20,12 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|FlexibleArray|))))))))))) 
 
 (DEFUN |FlexibleArray;| (|#1|)
-  (PROG (#1=#:G135 |pv$| #2=#:G132 #3=#:G133 $ |dv$| DV$1)
+  (PROG (#1=#:G136 |pv$| #2=#:G132 #3=#:G133 #4=#:G134 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|FlexibleArray|))
-      (LETT |dv$| (LIST '|FlexibleArray| DV$1) . #4#)
-      (LETT $ (GETREFV 27) . #4#)
+      (LETT DV$1 (|devaluate| |#1|) . #5=(|FlexibleArray|))
+      (LETT |dv$| (LIST '|FlexibleArray| DV$1) . #5#)
+      (LETT $ (GETREFV 27) . #5#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -35,21 +35,19 @@
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
                                           (|HasCategory| |#1| '(|OrderedSet|))
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (LETT #3#
+                                          (LETT #4#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #4#)
+                                                . #5#)
                                           (OR
                                            (|HasCategory| |#1| '(|OrderedSet|))
-                                           #3#)
+                                           #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #3#)
+                                           #4#)
                                           (OR
                                            (AND
                                             (|HasCategory| |#1|
@@ -63,31 +61,43 @@
                                                            (LIST '|Evalable|
                                                                  (|devaluate|
                                                                   |#1|)))
-                                            #3#))
+                                            #4#))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
+                                          (LETT #3#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #5#)
+                                          (OR #3#
+                                              (|HasCategory| |#1|
+                                                             '(|OrderedSet|))
+                                              #4#)
                                           (LETT #2#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #4#)
+                                                . #5#)
                                           (OR #2#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #3#))))
-                      . #4#))
+                                               #4#))))
+                      . #5#))
       (|haddProp| |$ConstructorCache| '|FlexibleArray| (LIST DV$1) (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 512))
-      (AND #3# #1# (|augmentPredVector| $ 1024))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
            (|augmentPredVector| $ 2048))
+      (AND #4# #1# (|augmentPredVector| $ 4096))
+      (AND #3# #1# (|augmentPredVector| $ 8192))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|augmentPredVector| $ 16384))
       (AND (|HasCategory| |#1| '(|OrderedSet|))
            (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 4096))
+           (|augmentPredVector| $ 32768))
+      (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 65536))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -102,8 +112,9 @@
               (|List| $) (|Union| 6 '"failed") (|List| 13))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 9
-                                '(0 0 0 0 0 0 2 0 2 0 0 7 5 0 0 0 0 7 1 5 9 2))
+            (|makeByteWordVec2| 11
+                                '(0 0 0 0 0 0 2 0 2 0 0 6 4 0 0 0 0 6 1 9 11
+                                  2))
             (CONS
              '#(|OneDimensionalArrayAggregate&| |FiniteLinearAggregate&|
                 |ExtensibleLinearAggregate&| |LinearAggregate&|

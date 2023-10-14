@@ -615,10 +615,10 @@
       (QSETREFV $ 7 |#2|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
-       ((|HasCategory| |#2| '(|SetCategory|))
+       ((|HasCategory| |#2| '(|BasicType|))
         (QSETREFV $ 52 (CONS (|dispatchFunction| |LSAGG-;reduce;MA3S;17|) $))))
       (COND
-       ((|HasCategory| |#2| '(|SetCategory|))
+       ((|HasCategory| |#2| '(|BasicType|))
         (PROGN
          (QSETREFV $ 60
                    (CONS (|dispatchFunction| |LSAGG-;position;SA2I;23|) $))

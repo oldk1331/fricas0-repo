@@ -119,10 +119,10 @@
           (|spadConstant| $ 7)))
    (QREFELT $ 10))) 
 
-(DEFUN |DenavitHartenbergMatrix| (#1=#:G147)
+(DEFUN |DenavitHartenbergMatrix| (#1=#:G148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G148)
+     (PROG (#2=#:G149)
        (RETURN
         (COND
          ((LETT #2#
@@ -140,39 +140,44 @@
               (HREM |$ConstructorCache| '|DenavitHartenbergMatrix|))))))))))) 
 
 (DEFUN |DenavitHartenbergMatrix;| (|#1|)
-  (PROG (|pv$| #1=#:G145 #2=#:G146 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G145 #2=#:G146 #3=#:G147 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|DenavitHartenbergMatrix|))
-      (LETT |dv$| (LIST '|DenavitHartenbergMatrix| DV$1) . #3#)
-      (LETT $ (GETREFV 51) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|DenavitHartenbergMatrix|))
+      (LETT |dv$| (LIST '|DenavitHartenbergMatrix| DV$1) . #4#)
+      (LETT $ (GETREFV 51) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #2#))
+                                               #3#))
                                           (|HasCategory| |#1|
                                                          '(|AbelianGroup|))
                                           (|HasCategory| |#1| '(|Monoid|))
@@ -183,14 +188,16 @@
                                           (|HasCategory| |#1|
                                                          '(|CommutativeRing|))
                                           (|HasCategory| |#1| '(|Field|))))
-                      . #3#))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|DenavitHartenbergMatrix| (LIST DV$1)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 1024))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
       (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 2048))
+           (|augmentPredVector| $ 8192))
+      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+           (|augmentPredVector| $ 16384))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -229,7 +236,7 @@
               |antisymmetric?| 584 ^ 589 |Pfaffian| 601 = 606 / 612 - 618 + 629
               * 635 |#| 677)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|MatrixCategory&| |TwoDimensionalArrayCategory&|
                      |HomogeneousAggregate&| |Aggregate&| |Evalable&|
@@ -248,7 +255,7 @@
                                          13 2 0 12 0 12 14 2 12 6 0 15 16 1 18
                                          0 17 19 0 6 0 21 2 6 0 0 0 22 1 6 0 15
                                          23 2 6 0 0 0 24 1 6 0 0 25 1 6 0 0 26
-                                         1 6 0 0 27 2 1 33 0 0 1 2 0 0 34 34 1
+                                         1 6 0 0 27 2 15 33 0 0 1 2 0 0 34 34 1
                                          2 0 0 0 0 1 1 0 0 0 1 1 0 0 12 1 3 0 0
                                          6 6 6 32 1 0 33 0 1 3 0 0 0 15 15 1 3
                                          0 0 0 15 15 1 5 0 0 0 15 15 15 15 1 1
@@ -256,32 +263,32 @@
                                          0 15 15 0 1 4 0 0 0 48 48 0 1 4 0 6 0
                                          15 15 6 1 3 0 0 0 15 12 1 3 0 0 0 15
                                          12 1 3 0 0 6 6 6 31 2 0 0 34 6 1 0 0 0
-                                         1 1 7 0 0 1 2 0 12 0 15 1 1 0 0 6 30 1
-                                         0 0 6 29 1 0 0 6 28 1 8 34 0 1 4 0 6 0
-                                         15 15 6 1 3 0 6 0 15 15 1 2 0 0 0 15 1
-                                         1 0 17 0 1 1 8 34 0 1 1 8 39 0 1 1 0
-                                         34 0 1 3 0 0 34 34 6 1 1 0 34 0 1 2 0
-                                         33 0 34 1 1 9 6 0 1 1 0 15 0 1 1 0 15
-                                         0 1 1 11 17 0 1 2 12 33 6 0 1 1 0 15 0
-                                         1 1 0 15 0 1 1 0 0 9 10 2 0 0 50 0 1 4
-                                         0 0 49 0 0 6 1 3 0 0 49 0 0 1 2 0 0 50
-                                         0 1 1 0 9 0 1 2 0 33 0 34 1 1 1 42 0 1
-                                         7 0 44 0 15 45 46 34 34 47 1 1 0 0 46
-                                         1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 46 1 1
-                                         10 40 0 1 0 0 0 11 2 0 0 0 0 1 2 1 43
-                                         43 0 1 1 1 41 0 1 2 0 0 0 6 1 2 8 40 0
-                                         6 1 2 11 33 37 0 1 3 2 0 0 17 17 1 2 2
-                                         0 0 35 1 3 2 0 0 6 6 1 2 2 0 0 36 1 2
-                                         0 33 0 0 1 1 0 33 0 1 0 0 0 1 3 0 0 0
-                                         48 48 1 4 0 6 0 15 15 6 1 3 0 6 0 15
-                                         15 1 1 0 0 17 1 1 0 0 46 1 1 0 33 0 1
-                                         1 9 6 0 1 2 12 34 6 0 1 2 11 34 37 0 1
-                                         1 0 0 0 1 1 7 39 0 1 2 0 12 0 15 1 1 3
-                                         38 0 1 1 0 0 12 1 2 11 33 37 0 1 1 5
-                                         33 0 1 2 10 0 0 15 1 2 6 0 0 34 1 1 9
-                                         6 0 1 2 1 33 0 0 1 2 10 0 0 6 1 1 5 0
-                                         0 1 2 5 0 0 0 1 2 0 0 0 0 1 2 5 0 15 0
-                                         1 2 0 18 0 18 20 2 0 12 0 12 14 2 0 12
-                                         12 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0 0
-                                         0 1 1 11 34 0 1)))))
+                                         1 1 9 0 0 1 2 0 12 0 15 1 1 0 0 6 30 1
+                                         0 0 6 29 1 0 0 6 28 1 10 34 0 1 4 0 6
+                                         0 15 15 6 1 3 0 6 0 15 15 1 2 0 0 0 15
+                                         1 1 0 17 0 1 1 10 34 0 1 1 10 39 0 1 1
+                                         0 34 0 1 3 0 0 34 34 6 1 1 0 34 0 1 2
+                                         0 33 0 34 1 1 11 6 0 1 1 0 15 0 1 1 0
+                                         15 0 1 1 13 17 0 1 2 14 33 6 0 1 1 0
+                                         15 0 1 1 0 15 0 1 1 0 0 9 10 2 0 0 50
+                                         0 1 4 0 0 49 0 0 6 1 3 0 0 49 0 0 1 2
+                                         0 0 50 0 1 1 0 9 0 1 2 0 33 0 34 1 1 1
+                                         42 0 1 7 0 44 0 15 45 46 34 34 47 1 1
+                                         0 0 46 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0
+                                         46 1 1 12 40 0 1 0 0 0 11 2 0 0 0 0 1
+                                         2 1 43 43 0 1 1 1 41 0 1 2 0 0 0 6 1 2
+                                         10 40 0 6 1 2 13 33 37 0 1 3 2 0 0 17
+                                         17 1 2 2 0 0 35 1 3 2 0 0 6 6 1 2 2 0
+                                         0 36 1 2 0 33 0 0 1 1 0 33 0 1 0 0 0 1
+                                         3 0 0 0 48 48 1 4 0 6 0 15 15 6 1 3 0
+                                         6 0 15 15 1 1 0 0 17 1 1 0 0 46 1 1 0
+                                         33 0 1 1 11 6 0 1 2 14 34 6 0 1 2 13
+                                         34 37 0 1 1 0 0 0 1 1 9 39 0 1 2 0 12
+                                         0 15 1 1 5 38 0 1 1 0 0 12 1 2 13 33
+                                         37 0 1 1 7 33 0 1 2 12 0 0 15 1 2 8 0
+                                         0 34 1 1 11 6 0 1 2 15 33 0 0 1 2 12 0
+                                         0 6 1 1 7 0 0 1 2 7 0 0 0 1 2 0 0 0 0
+                                         1 2 7 0 15 0 1 2 0 18 0 18 20 2 0 12 0
+                                         12 14 2 0 12 12 0 1 2 0 0 6 0 1 2 0 0
+                                         0 6 1 2 0 0 0 0 1 1 13 34 0 1)))))
            '|lookupComplete|)) 

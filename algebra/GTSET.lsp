@@ -128,10 +128,10 @@
          (CONS 1 "failed"))
         ('T (CONS 0 (|GTSET;per| (CONS |p| (|GTSET;rep| |ts| $)) $))))) 
 
-(DEFUN |GeneralTriangularSet| (&REST #1=#:G213)
+(DEFUN |GeneralTriangularSet| (&REST #1=#:G212)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G214)
+     (PROG (#2=#:G213)
        (RETURN
         (COND
          ((LETT #2#
@@ -150,37 +150,35 @@
               (HREM |$ConstructorCache| '|GeneralTriangularSet|))))))))))) 
 
 (DEFUN |GeneralTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G212 |pv$| #2=#:G211 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G211 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|GeneralTriangularSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT DV$3 (|devaluate| |#3|) . #3#)
-      (LETT DV$4 (|devaluate| |#4|) . #3#)
-      (LETT |dv$| (LIST '|GeneralTriangularSet| DV$1 DV$2 DV$3 DV$4) . #3#)
-      (LETT $ (GETREFV 69) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralTriangularSet|))
+      (LETT DV$2 (|devaluate| |#2|) . #2#)
+      (LETT DV$3 (|devaluate| |#3|) . #2#)
+      (LETT DV$4 (|devaluate| |#4|) . #2#)
+      (LETT |dv$| (LIST '|GeneralTriangularSet| DV$1 DV$2 DV$3 DV$4) . #2#)
+      (LETT $ (GETREFV 69) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#4|
-                                                               '(|SetCategory|))
-                                                . #3#)
                                           (AND
                                            (|HasCategory| |#4|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#4|)))
-                                           #2#)
+                                           (|HasCategory| |#4|
+                                                          '(|SetCategory|)))
+                                          (|HasCategory| |#4|
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| |#4| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|IntegralDomain|))
                                           (|HasCategory| |#3| '(|Finite|))))
-                      . #3#))
+                      . #2#))
       (|haddProp| |$ConstructorCache| '|GeneralTriangularSet|
                   (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -189,9 +187,9 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
            (|augmentPredVector| $ 64))
-      (AND #2# #1# (|augmentPredVector| $ 128))
+      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -244,7 +242,7 @@
               |basicSet| 575 |autoReduced?| 588 |any?| 594 |algebraicVariables|
               600 |algebraic?| 605 = 611 |#| 617)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 3 0 0 0 0 0 0 0 3 1))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(|TriangularSetCategory&| |PolynomialSetCategory&|
                      |Collection&| |HomogeneousAggregate&| |SetCategory&|
@@ -286,10 +284,10 @@
                                          0 14 9 0 1 2 0 9 9 0 1 2 0 68 68 0 1 1
                                          0 67 0 1 1 0 34 0 35 2 0 34 53 0 1 2 0
                                          38 0 9 48 2 0 0 0 9 1 2 7 14 53 0 1 2
-                                         3 0 0 51 1 2 3 0 0 52 1 3 3 0 0 9 9 1
-                                         3 3 0 0 10 10 1 2 0 14 0 0 1 1 0 14 0
+                                         1 0 0 51 1 2 1 0 0 52 1 3 1 0 0 9 9 1
+                                         3 1 0 0 10 10 1 2 0 14 0 0 1 1 0 14 0
                                          15 0 0 0 13 1 0 49 0 1 2 8 49 9 0 1 2
-                                         7 49 53 0 1 1 0 0 0 12 1 1 54 0 1 1 0
+                                         7 49 53 0 1 1 0 0 0 12 1 2 54 0 1 1 0
                                          0 10 20 2 0 0 0 8 42 2 0 0 0 8 44 1 0
                                          0 0 1 2 0 0 0 8 1 1 0 10 0 40 1 0 10 0
                                          40 1 0 27 0 31 1 5 49 0 1 3 0 64 10 53

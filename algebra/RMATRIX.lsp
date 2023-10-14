@@ -123,10 +123,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 34)) (QREFELT $ 55)))
    (QREFELT $ 57))) 
 
-(DEFUN |RectangularMatrix| (&REST #1=#:G175)
+(DEFUN |RectangularMatrix| (&REST #1=#:G174)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G176)
+     (PROG (#2=#:G175)
        (RETURN
         (COND
          ((LETT #2#
@@ -145,15 +145,14 @@
               (HREM |$ConstructorCache| '|RectangularMatrix|))))))))))) 
 
 (DEFUN |RectangularMatrix;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G174 |pv$| #2=#:G169 #3=#:G170 #4=#:G171 #5=#:G173 $ |dv$| DV$3
-         DV$2 DV$1)
+  (PROG (#1=#:G173 |pv$| #2=#:G169 #3=#:G170 #4=#:G172 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #6=(|RectangularMatrix|))
-      (LETT DV$2 (|devaluate| |#2|) . #6#)
-      (LETT DV$3 (|devaluate| |#3|) . #6#)
-      (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3) . #6#)
-      (LETT $ (GETREFV 70) . #6#)
+      (LETT DV$1 (|devaluate| |#1|) . #5=(|RectangularMatrix|))
+      (LETT DV$2 (|devaluate| |#2|) . #5#)
+      (LETT DV$3 (|devaluate| |#3|) . #5#)
+      (LETT |dv$| (LIST '|RectangularMatrix| DV$1 DV$2 DV$3) . #5#)
+      (LETT $ (GETREFV 70) . #5#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -162,23 +161,20 @@
                                           (|HasCategory| |#3|
                                                          '(|AbelianGroup|))
                                           (|HasCategory| |#3| '(|Finite|))
-                                          (LETT #5#
+                                          (LETT #4#
                                                 (|HasCategory| |#3| '(|Field|))
-                                                . #6#)
+                                                . #5#)
                                           (OR
                                            (|HasCategory| |#3|
                                                           '(|CommutativeRing|))
-                                           #5#)
-                                          (LETT #4#
-                                                (|HasCategory| |#3|
-                                                               '(|SetCategory|))
-                                                . #6#)
+                                           #4#)
                                           (AND
                                            (|HasCategory| |#3|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#3|)))
-                                           #4#)
+                                           (|HasCategory| |#3|
+                                                          '(|SetCategory|)))
                                           (OR
                                            (AND
                                             (|HasCategory| |#3|
@@ -192,7 +188,7 @@
                                                            (LIST '|Evalable|
                                                                  (|devaluate|
                                                                   |#3|)))
-                                            #5#)
+                                            #4#)
                                            (AND
                                             (|HasCategory| |#3|
                                                            (LIST '|Evalable|
@@ -204,7 +200,9 @@
                                                            (LIST '|Evalable|
                                                                  (|devaluate|
                                                                   |#3|)))
-                                            #4#))
+                                            (|HasCategory| |#3|
+                                                           '(|SetCategory|))))
+                                          (|HasCategory| |#3| '(|BasicType|))
                                           (|HasCategory| |#3|
                                                          '(|EuclideanDomain|))
                                           (|HasCategory| |#3|
@@ -212,7 +210,7 @@
                                           (LETT #3#
                                                 (|HasCategory| |#3|
                                                                '(|AbelianMonoid|))
-                                                . #6#)
+                                                . #5#)
                                           (OR
                                            (|HasCategory| |#3|
                                                           '(|AbelianGroup|))
@@ -221,7 +219,7 @@
                                                 (|HasCategory| |#3|
                                                                '(|ConvertibleTo|
                                                                  (|InputForm|)))
-                                                . #6#)
+                                                . #5#)
                                           (OR #2#
                                               (AND
                                                (|HasCategory| |#3|
@@ -243,10 +241,10 @@
                                                               '(|CommutativeRing|))
                                                (|HasCategory| |#3|
                                                               '(|Finite|)))
-                                              (AND #5#
+                                              (AND #4#
                                                    (|HasCategory| |#3|
                                                                   '(|Finite|))))))
-                      . #6#))
+                      . #5#))
       (|haddProp| |$ConstructorCache| '|RectangularMatrix|
                   (LIST DV$1 DV$2 DV$3) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -255,9 +253,10 @@
       (QSETREFV $ 8 |#3|)
       (AND (|HasCategory| $ '(|shallowlyMutable|))
            (|augmentPredVector| $ 8192))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
            (|augmentPredVector| $ 16384))
-      (AND #4# #1# (|augmentPredVector| $ 32768))
+      (AND (|HasCategory| |#3| '(|BasicType|)) #1#
+           (|augmentPredVector| $ 32768))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 12 (SPADCALL |#1| |#2| (|spadConstant| $ 9) (QREFELT $ 11)))
       (COND
@@ -325,7 +324,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 13
-                                '(0 3 4 0 0 0 1 1 11 0 0 2 0 0 7 0 0 0 0 0 7
+                                '(0 3 4 0 0 0 1 1 11 0 0 2 0 0 6 0 0 0 0 0 6
                                   13))
             (CONS
              '#(|RectangularMatrixCategory&| |VectorSpace&| |Module&| NIL NIL
@@ -364,7 +363,7 @@
                                     0 1 2 0 0 63 0 1 1 2 65 0 1 1 0 22 0 1 2 0
                                     17 0 10 1 1 0 67 0 1 1 2 0 65 1 2 0 69 69 0
                                     1 1 0 68 0 1 2 9 64 0 8 1 2 15 17 62 0 1 2
-                                    6 0 0 59 1 2 6 0 0 60 1 3 6 0 0 61 61 1 3 6
+                                    5 0 0 59 1 2 5 0 0 60 1 3 5 0 0 61 61 1 3 5
                                     0 0 8 8 1 2 0 17 0 0 1 0 2 56 1 1 0 17 0 1
                                     0 0 0 1 4 0 8 0 19 19 8 1 3 0 8 0 19 19 1 0
                                     3 49 51 1 0 17 0 1 2 16 10 8 0 1 2 15 10 62

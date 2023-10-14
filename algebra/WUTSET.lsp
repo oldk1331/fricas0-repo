@@ -451,10 +451,10 @@
       (EXIT
        (SPADCALL (ELT $ 84) (SPADCALL |lts| (QREFELT $ 79)) (QREFELT $ 86))))))) 
 
-(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G304)
+(DEFUN |WuWenTsunTriangularSet| (&REST #1=#:G303)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G305)
+     (PROG (#2=#:G304)
        (RETURN
         (COND
          ((LETT #2#
@@ -473,37 +473,35 @@
               (HREM |$ConstructorCache| '|WuWenTsunTriangularSet|))))))))))) 
 
 (DEFUN |WuWenTsunTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G303 |pv$| #2=#:G302 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G302 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|WuWenTsunTriangularSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT DV$3 (|devaluate| |#3|) . #3#)
-      (LETT DV$4 (|devaluate| |#4|) . #3#)
-      (LETT |dv$| (LIST '|WuWenTsunTriangularSet| DV$1 DV$2 DV$3 DV$4) . #3#)
-      (LETT $ (GETREFV 105) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #2=(|WuWenTsunTriangularSet|))
+      (LETT DV$2 (|devaluate| |#2|) . #2#)
+      (LETT DV$3 (|devaluate| |#3|) . #2#)
+      (LETT DV$4 (|devaluate| |#4|) . #2#)
+      (LETT |dv$| (LIST '|WuWenTsunTriangularSet| DV$1 DV$2 DV$3 DV$4) . #2#)
+      (LETT $ (GETREFV 105) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#4|
-                                                               '(|SetCategory|))
-                                                . #3#)
                                           (AND
                                            (|HasCategory| |#4|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#4|)))
-                                           #2#)
+                                           (|HasCategory| |#4|
+                                                          '(|SetCategory|)))
+                                          (|HasCategory| |#4|
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| |#4| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|IntegralDomain|))
                                           (|HasCategory| |#3| '(|Finite|))))
-                      . #3#))
+                      . #2#))
       (|haddProp| |$ConstructorCache| '|WuWenTsunTriangularSet|
                   (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -512,9 +510,9 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
            (|augmentPredVector| $ 64))
-      (AND #2# #1# (|augmentPredVector| $ 128))
+      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
       (SETF |pv$| (QREFELT $ 3))
       (COND
        ((|HasCategory| |#1| '(|GcdDomain|))
@@ -574,7 +572,7 @@
               |empty| 388 |coerce| 392 |characteristicSet| 402
               |characteristicSerie| 414 |basicSet| 426)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 3 0 0 0 0 0 0 0 3 1))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(|TriangularSetCategory&| |PolynomialSetCategory&|
                      |Collection&| |HomogeneousAggregate&| |SetCategory&|

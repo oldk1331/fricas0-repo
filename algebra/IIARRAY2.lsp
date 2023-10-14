@@ -8,7 +8,7 @@
 (DEFUN |IIARRAY2;empty;$;2| ($) (MAKE-ARRAY 0)) 
 
 (DEFUN |IIARRAY2;new;2NniR$;3| (|rows| |cols| |a| $)
-  (PROG (#1=#:G2172 |i| |arr|)
+  (PROG (#1=#:G2193 |i| |arr|)
     (RETURN
      (SEQ
       (COND
@@ -71,7 +71,7 @@
    ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 29))))) 
 
 (DEFUN |IIARRAY2;latex;$S;14| (|m| $)
-  (PROG (|s| #1=#:G2203 |j| #2=#:G2202 |i| #3=#:G2201)
+  (PROG (|s| #1=#:G2224 |j| #2=#:G2223 |i| #3=#:G2222)
     (RETURN
      (SEQ (LETT |s| "\\left[ \\begin{array}{" . #4=(|IIARRAY2;latex;$S;14|))
           (SEQ (LETT |j| (SPADCALL |m| (QREFELT $ 21)) . #4#)
@@ -106,10 +106,10 @@
                (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT (STRCONC |s| "\\end{array} \\right]")))))) 
 
-(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2209)
+(DEFUN |InnerIndexedTwoDimensionalArray| (&REST #1=#:G2231)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2210)
+     (PROG (#2=#:G2232)
        (RETURN
         (COND
          ((LETT #2#
@@ -130,46 +130,52 @@
                     '|InnerIndexedTwoDimensionalArray|))))))))))) 
 
 (DEFUN |InnerIndexedTwoDimensionalArray;| (|#1| |#2| |#3| |#4| |#5|)
-  (PROG (|pv$| #1=#:G2207 #2=#:G2208 $ |dv$| DV$5 DV$4 DV$3 DV$2 DV$1)
+  (PROG (|pv$| #1=#:G2228 #2=#:G2229 #3=#:G2230 $ |dv$| DV$5 DV$4 DV$3 DV$2
+         DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|InnerIndexedTwoDimensionalArray|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT DV$3 (|devaluate| |#3|) . #3#)
-      (LETT DV$4 (|devaluate| |#4|) . #3#)
-      (LETT DV$5 (|devaluate| |#5|) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|InnerIndexedTwoDimensionalArray|))
+      (LETT DV$2 (|devaluate| |#2|) . #4#)
+      (LETT DV$3 (|devaluate| |#3|) . #4#)
+      (LETT DV$4 (|devaluate| |#4|) . #4#)
+      (LETT DV$5 (|devaluate| |#5|) . #4#)
       (LETT |dv$|
             (LIST '|InnerIndexedTwoDimensionalArray| DV$1 DV$2 DV$3 DV$4 DV$5)
-            . #3#)
-      (LETT $ (GETREFV 43) . #3#)
+            . #4#)
+      (LETT $ (GETREFV 43) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #2#))))
-                      . #3#))
+                                               #3#))))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|InnerIndexedTwoDimensionalArray|
                   (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -178,9 +184,11 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (QSETREFV $ 10 |#5|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
       (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 32))
+           (|augmentPredVector| $ 128))
+      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+           (|augmentPredVector| $ 256))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 11 (|PrimitiveArray| (|PrimitiveArray| |#1|)))
       (COND
@@ -212,7 +220,7 @@
               |eq?| 231 |empty?| 237 |empty| 242 |elt| 246 |count| 261 |copy|
               273 |column| 278 |coerce| 284 |any?| 289 = 295 |#| 301)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|TwoDimensionalArrayCategory&| |HomogeneousAggregate&|
                      |Aggregate&| |Evalable&| |SetCategory&| NIL NIL NIL
@@ -225,22 +233,22 @@
                       (|CoercibleTo| 38))
                    (|makeByteWordVec2| 42
                                        '(1 11 12 0 13 1 11 16 0 17 2 16 12 0 0
-                                         27 1 6 31 0 32 1 0 31 0 33 2 1 12 0 0
+                                         27 1 6 31 0 32 1 0 31 0 33 2 9 12 0 0
                                          1 2 0 12 0 18 1 4 0 6 0 16 16 6 30 3 0
                                          0 0 16 9 1 3 0 0 0 16 10 1 0 0 0 1 2 0
                                          9 0 16 1 4 0 6 0 16 16 6 29 3 0 6 0 16
                                          16 26 1 0 34 0 1 1 0 18 0 22 3 0 0 18
                                          18 6 19 1 0 18 0 24 2 0 12 0 18 1 1 0
-                                         16 0 20 1 0 16 0 21 1 5 34 0 1 2 6 12
+                                         16 0 20 1 0 16 0 21 1 7 34 0 1 2 8 12
                                          6 0 1 1 0 16 0 23 1 0 16 0 25 2 0 0 42
                                          0 1 3 0 0 41 0 0 1 4 0 0 41 0 0 6 1 2
                                          0 0 42 0 1 2 0 12 0 18 1 1 1 31 0 33 2
-                                         1 39 39 0 1 1 1 40 0 1 2 0 0 0 6 1 2 5
+                                         1 39 39 0 1 1 1 40 0 1 2 0 0 0 6 1 2 7
                                          12 37 0 1 3 2 0 0 6 6 1 3 2 0 0 34 34
                                          1 2 2 0 0 35 1 2 2 0 0 36 1 2 0 12 0 0
                                          1 1 0 12 0 14 0 0 0 15 4 0 6 0 16 16 6
-                                         1 3 0 6 0 16 16 28 2 6 18 6 0 1 2 5 18
-                                         37 0 1 1 0 0 0 1 2 0 10 0 16 1 1 3 38
-                                         0 1 2 5 12 37 0 1 2 1 12 0 0 1 1 5 18
+                                         1 3 0 6 0 16 16 28 2 8 18 6 0 1 2 7 18
+                                         37 0 1 1 0 0 0 1 2 0 10 0 16 1 1 5 38
+                                         0 1 2 7 12 37 0 1 2 9 12 0 0 1 1 7 18
                                          0 1)))))
            '|lookupComplete|)) 

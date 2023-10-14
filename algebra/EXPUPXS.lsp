@@ -54,10 +54,10 @@
   (SPADCALL "%e" (SPADCALL (SPADCALL |f| (QREFELT $ 10)) (QREFELT $ 35))
             (QREFELT $ 36))) 
 
-(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G167)
+(DEFUN |ExponentialOfUnivariatePuiseuxSeries| (&REST #1=#:G168)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G168)
+     (PROG (#2=#:G169)
        (RETURN
         (COND
          ((LETT #2#
@@ -79,7 +79,7 @@
                     '|ExponentialOfUnivariatePuiseuxSeries|))))))))))) 
 
 (DEFUN |ExponentialOfUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
-  (PROG (|pv$| #1=#:G159 #2=#:G160 #3=#:G161 #4=#:G162 #5=#:G163 #6=#:G165 $
+  (PROG (|pv$| #1=#:G160 #2=#:G161 #3=#:G162 #4=#:G163 #5=#:G164 #6=#:G166 $
          |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN

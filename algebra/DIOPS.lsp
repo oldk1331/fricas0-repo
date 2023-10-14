@@ -33,8 +33,10 @@
                                                     ($ (|List| |t#1|)))
                                                    T)
                                                   ((|remove!| ($ |t#1| $))
-                                                   (|has| $
-                                                          (|finiteAggregate|)))
+                                                   (AND
+                                                    (|has| |t#1| (|BasicType|))
+                                                    (|has| $
+                                                           (|finiteAggregate|))))
                                                   ((|remove!|
                                                     ($
                                                      (|Mapping| (|Boolean|)
@@ -49,7 +51,15 @@
                                                      $))
                                                    (|has| $
                                                           (|finiteAggregate|))))
-                                                NIL '((|List| |t#1|)) NIL))
+                                                '(((|CoercibleTo|
+                                                    (|OutputForm|))
+                                                   (AND
+                                                    (|has| |t#1|
+                                                           (|CoercibleTo|
+                                                            (|OutputForm|)))
+                                                    (|has| $
+                                                           (|finiteAggregate|)))))
+                                                '((|List| |t#1|)) NIL))
                                        . #2=(|DictionaryOperations|)))))
                . #2#)
        (SETELT #1# 0 (LIST '|DictionaryOperations| (|devaluate| |t#1|))))))) 

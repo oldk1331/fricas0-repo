@@ -29,7 +29,8 @@
 ;     dom.2 := NIL
 ;     dom.3 := ['RecordCategory,:QCDR dom.0]
 ;     dom.4 :=
-;           [[ '(SetCategory) ],[ '(SetCategory) ]]
+;           [[ '(SetCategory) ], [ '(BasicType),
+;              '(CoercibleTo (OutputForm)), '(SetCategory) ]]
 ;     dom.5 := [rest a for a in args]
 ;     dom.6 := [function RecordEqual, :dom]
 ;     dom.7 := [function RecordPrint, :dom]
@@ -70,7 +71,9 @@
       (SETF (ELT |dom| 2) NIL)
       (SETF (ELT |dom| 3) (CONS '|RecordCategory| (QCDR (ELT |dom| 0))))
       (SETF (ELT |dom| 4)
-              (LIST (LIST '(|SetCategory|)) (LIST '(|SetCategory|))))
+              (LIST (LIST '(|SetCategory|))
+                    (LIST '(|BasicType|) '(|CoercibleTo| (|OutputForm|))
+                          '(|SetCategory|))))
       (SETF (ELT |dom| 5)
               ((LAMBDA (|bfVar#4| |bfVar#3| |a|)
                  (LOOP
@@ -246,7 +249,8 @@
 ;     dom.3 :=
 ;       '(SetCategory)
 ;     dom.4 :=
-;           [[ '(SetCategory) ],[ '(SetCategory) ]]
+;           [[ '(SetCategory) ],[ '(BasicType),
+;              '(CoercibleTo (OutputForm)),  '(SetCategory) ]]
 ;     dom.5 := args
 ;     dom.6 := [function UnionEqual, :dom]
 ;     dom.7 := [function UnionPrint, :dom]
@@ -298,7 +302,9 @@
       (SETF (ELT |dom| 2) NIL)
       (SETF (ELT |dom| 3) '(|SetCategory|))
       (SETF (ELT |dom| 4)
-              (LIST (LIST '(|SetCategory|)) (LIST '(|SetCategory|))))
+              (LIST (LIST '(|SetCategory|))
+                    (LIST '(|BasicType|) '(|CoercibleTo| (|OutputForm|))
+                          '(|SetCategory|))))
       (SETF (ELT |dom| 5) |args|)
       (SETF (ELT |dom| 6) (CONS #'|UnionEqual| |dom|))
       (SETF (ELT |dom| 7) (CONS #'|UnionPrint| |dom|))

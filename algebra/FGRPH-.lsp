@@ -1038,14 +1038,14 @@
       (EXIT (* (+ (QCAR |d|) 1) 2)))))) 
 
 (DEFUN |FGRPH-;subdiagramSvg;SA2BV;49| (|sc| |n| |dispArrowName| |deep| $)
-  (PROG (#1=#:G517 |s| |arrNode| |offset| |tnode| |fnode| |subArrNode| |subToY|
-         |subFromY| |subToX| |subFromX| |innerObTo| |innerObFrom| #2=#:G522
-         |subArrow| #3=#:G523 |subArrowN| |mp| |mt| |rema| |arrNumber|
-         |arrIndex| |midY| |midX| |toY| #4=#:G507 |fromY| #5=#:G506 |toX|
-         #6=#:G505 |fromX| #7=#:G504 #8=#:G520 |arrow| #9=#:G521 |arrn|
-         |innerOb| |innerObs| |subNd| #10=#:G519 |nd| |arrs| |indexBounds| |tn|
+  (PROG (#1=#:G518 |s| |arrNode| |offset| |tnode| |fnode| |subArrNode| |subToY|
+         |subFromY| |subToX| |subFromX| |innerObTo| |innerObFrom| #2=#:G523
+         |subArrow| #3=#:G524 |subArrowN| |mp| |mt| |rema| |arrNumber|
+         |arrIndex| |midY| |midX| |toY| #4=#:G508 |fromY| #5=#:G507 |toX|
+         #6=#:G506 |fromX| #7=#:G505 #8=#:G521 |arrow| #9=#:G522 |arrn|
+         |innerOb| |innerObs| |subNd| #10=#:G520 |nd| |arrs| |indexBounds| |tn|
          |ellip| |sh| |subgraph| |indexPointy| |indexPointx| |y| |x|
-         |indexNodes| #11=#:G518 |i| |ls| |mt8| |mt7| |mt6| |mt5| |mt4| |mt3|
+         |indexNodes| #11=#:G519 |i| |ls| |mt8| |mt7| |mt6| |mt5| |mt4| |mt3|
          |mt2| |mt1|)
     (RETURN
      (SEQ
@@ -1399,7 +1399,7 @@
       (EXIT (SPADCALL |sc| |fileName| (QREFELT $ 159))))))) 
 
 (DEFUN |FGRPH-;diagramWidth;ANni;52| (|s| $)
-  (PROG (|maxx| #1=#:G533 |i| |ls|)
+  (PROG (|maxx| #1=#:G534 |i| |ls|)
     (RETURN
      (SEQ (LETT |maxx| 0 . #2=(|FGRPH-;diagramWidth;ANni;52|))
           (LETT |ls| (SPADCALL |s| (QREFELT $ 10)) . #2#)
@@ -1416,7 +1416,7 @@
           (EXIT |maxx|))))) 
 
 (DEFUN |FGRPH-;diagramHeight;ANni;53| (|s| $)
-  (PROG (|maxy| #1=#:G539 |i| |ls|)
+  (PROG (|maxy| #1=#:G540 |i| |ls|)
     (RETURN
      (SEQ (LETT |maxy| 0 . #2=(|FGRPH-;diagramHeight;ANni;53|))
           (LETT |ls| (SPADCALL |s| (QREFELT $ 10)) . #2#)
@@ -1433,7 +1433,7 @@
           (EXIT |maxy|))))) 
 
 (DEFUN |FGRPH-;looseEquals;2AB;54| (|x| |y| $)
-  (PROG (#1=#:G555 #2=#:G556 |i| |ary| |arx|)
+  (PROG (#1=#:G556 #2=#:G557 |i| |ary| |arx|)
     (RETURN
      (SEQ
       (EXIT
@@ -1470,7 +1470,7 @@
 (DEFUN |FGRPH-;hash;ASi;55| (|s| $) 0) 
 
 (DEFUN |FGRPH-;latex;AS;56| (|n| $)
-  (PROG (|fst| |s| #1=#:G568 |arrow| |arrStr| #2=#:G566 |arrs| #3=#:G567 |i|
+  (PROG (|fst| |s| #1=#:G571 |arrow| |arrStr| #2=#:G569 |arrs| #3=#:G570 |i|
          |ls|)
     (RETURN
      (SEQ
@@ -1532,7 +1532,7 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FGRPH-;=;2AB;57| (|x| |y| $)
-  (PROG (#1=#:G576)
+  (PROG (#1=#:G581)
     (RETURN
      (SEQ
       (EXIT
@@ -1552,8 +1552,8 @@
   (COND ((SPADCALL |x| |y| (QREFELT $ 174)) 'NIL) ('T 'T))) 
 
 (DEFUN |FGRPH-;coerceSubgraph| (|n| $)
-  (PROG (|fst| |s| |stTo| |stFrom| #1=#:G590 |arrow| |arrStr| #2=#:G588 |arrs|
-         |st| #3=#:G589 |i| |ls|)
+  (PROG (|fst| |s| |stTo| |stFrom| #1=#:G597 |arrow| |arrStr| #2=#:G595 |arrs|
+         |st| #3=#:G596 |i| |ls|)
     (RETURN
      (SEQ
       (EXIT
@@ -1603,8 +1603,8 @@
       #2# (EXIT #2#))))) 
 
 (DEFUN |FGRPH-;coerce;AOf;60| (|n| $)
-  (PROG (|fst| |s| |stTo| |stFrom| #1=#:G602 |arrow| |arrStr| #2=#:G600 |arrs|
-         |st| #3=#:G601 |i| |ls|)
+  (PROG (|fst| |s| |stTo| |stFrom| #1=#:G611 |arrow| |arrStr| #2=#:G609 |arrs|
+         |st| #3=#:G610 |i| |ls|)
     (RETURN
      (SEQ
       (EXIT

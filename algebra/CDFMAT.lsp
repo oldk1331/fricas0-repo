@@ -49,7 +49,7 @@
   (MAKE-CDOUBLE-MATRIX |rows| |cols|)) 
 
 (DEFUN |CDFMAT;new;2NniC$;13| (|rows| |cols| |a| $)
-  (PROG (#1=#:G2560 |j| #2=#:G2559 |i| |res|)
+  (PROG (#1=#:G2592 |j| #2=#:G2591 |i| |res|)
     (RETURN
      (SEQ
       (LETT |res| (MAKE-CDOUBLE-MATRIX |rows| |cols|)
@@ -68,7 +68,7 @@
 (DEFUN |ComplexDoubleFloatMatrix| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2573)
+     (PROG (#1=#:G2606)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatMatrix|)
@@ -87,12 +87,12 @@
               (HREM |$ConstructorCache| '|ComplexDoubleFloatMatrix|))))))))))) 
 
 (DEFUN |ComplexDoubleFloatMatrix;| ()
-  (PROG (|dv$| $ #1=#:G2571 #2=#:G2570 |pv$|)
+  (PROG (|dv$| $ #1=#:G2604 #2=#:G2603 #3=#:G2602 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|ComplexDoubleFloatMatrix|)
-            . #3=(|ComplexDoubleFloatMatrix|))
-      (LETT $ (GETREFV 42) . #3#)
+            . #4=(|ComplexDoubleFloatMatrix|))
+      (LETT $ (GETREFV 42) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -102,7 +102,7 @@
                                                 (|HasCategory|
                                                  (|Complex| (|DoubleFloat|))
                                                  '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory|
                                             (|Complex| (|DoubleFloat|))
@@ -112,10 +112,16 @@
                                           (LETT #2#
                                                 (|HasCategory|
                                                  (|Complex| (|DoubleFloat|))
+                                                 '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #1#)
+                                          (LETT #3#
+                                                (|HasCategory|
+                                                 (|Complex| (|DoubleFloat|))
                                                  '(|CoercibleTo|
                                                    (|OutputForm|)))
-                                                . #3#)
-                                          (OR #2#
+                                                . #4#)
+                                          (OR #3#
                                               (AND
                                                (|HasCategory|
                                                 (|Complex| (|DoubleFloat|))
@@ -140,13 +146,15 @@
                                           (|HasCategory|
                                            (|Complex| (|DoubleFloat|))
                                            '(|Field|))))
-                      . #3#))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|ComplexDoubleFloatMatrix| NIL
                   (CONS 1 $))
       (|stuffDomainSlots| $)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 1024))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) #1#
-           (|augmentPredVector| $ 2048))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
+           (|augmentPredVector| $ 8192))
+      (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #1#)
+           (|augmentPredVector| $ 16384))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -183,7 +191,7 @@
               |column| 463 |coerce| 469 |any?| 479 |antisymmetric?| 485 ^ 490
               |Pfaffian| 502 = 507 / 513 - 519 + 530 * 536 |#| 572)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|MatrixCategory&| |TwoDimensionalArrayCategory&|
                      |HomogeneousAggregate&| |Aggregate&| |Evalable&|
@@ -197,39 +205,40 @@
                       (|shallowlyMutable|) (|InnerEvalable| 14 14)
                       (|BasicType|) (|CoercibleTo| 26))
                    (|makeByteWordVec2| 41
-                                       '(2 1 25 0 0 1 2 0 0 9 9 1 2 0 0 0 0 1 1
-                                         0 0 0 1 1 0 0 37 1 1 0 25 0 1 3 0 0 0
-                                         6 6 1 3 0 0 0 6 6 1 5 0 0 0 6 6 6 6 1
-                                         1 0 0 0 1 1 0 25 0 1 2 0 25 0 9 1 4 0
-                                         0 0 6 6 0 1 4 0 0 0 38 38 0 1 4 0 14 0
-                                         6 6 14 18 3 0 0 0 6 37 1 3 0 0 0 6 37
-                                         1 2 0 0 9 14 1 0 0 0 1 1 7 0 0 1 2 0
-                                         37 0 6 1 1 8 9 0 1 4 0 14 0 6 6 14 17
-                                         2 0 0 6 6 20 3 0 14 0 6 6 15 2 0 0 0 6
-                                         1 1 0 22 0 1 1 8 9 0 1 1 8 27 0 1 1 0
-                                         9 0 10 3 0 0 9 9 14 21 1 0 9 0 11 2 0
-                                         25 0 9 1 1 9 14 0 1 1 0 6 0 7 1 0 6 0
-                                         8 1 11 22 0 1 2 12 25 14 0 1 1 0 6 0
-                                         12 1 0 6 0 13 1 0 0 39 1 2 0 0 41 0 1
-                                         4 0 0 40 0 0 14 1 3 0 0 40 0 0 1 2 0 0
-                                         41 0 1 1 0 39 0 1 2 0 25 0 9 1 1 1 31
-                                         0 1 7 0 33 0 6 34 35 9 9 36 1 1 0 0 35
-                                         1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 35 1 1
-                                         10 28 0 1 2 0 0 0 0 1 2 1 30 30 0 1 1
-                                         1 29 0 1 2 0 0 0 14 1 2 8 28 0 14 1 2
-                                         11 25 32 0 1 3 2 0 0 22 22 1 3 2 0 0
-                                         14 14 1 2 2 0 0 23 1 2 2 0 0 24 1 2 0
-                                         25 0 0 1 1 0 25 0 1 0 0 0 19 3 0 0 0
-                                         38 38 1 4 0 14 0 6 6 14 1 3 0 14 0 6 6
-                                         16 1 0 0 35 1 1 0 0 22 1 1 0 25 0 1 1
-                                         9 14 0 1 2 12 9 14 0 1 2 11 9 32 0 1 1
-                                         0 0 0 1 1 7 27 0 1 2 0 37 0 6 1 1 3 26
-                                         0 1 1 0 0 37 1 2 11 25 32 0 1 1 5 25 0
-                                         1 2 10 0 0 6 1 2 6 0 0 9 1 1 9 14 0 1
-                                         2 1 25 0 0 1 2 10 0 0 14 1 2 5 0 0 0 1
-                                         1 5 0 0 1 2 0 0 0 0 1 2 5 0 6 0 1 2 0
-                                         37 0 37 1 2 0 37 37 0 1 2 0 0 0 14 1 2
-                                         0 0 0 0 1 2 0 0 14 0 1 1 11 9 0 1)))))
+                                       '(2 15 25 0 0 1 2 0 0 9 9 1 2 0 0 0 0 1
+                                         1 0 0 0 1 1 0 0 37 1 1 0 25 0 1 3 0 0
+                                         0 6 6 1 3 0 0 0 6 6 1 5 0 0 0 6 6 6 6
+                                         1 1 0 0 0 1 1 0 25 0 1 2 0 25 0 9 1 4
+                                         0 0 0 6 6 0 1 4 0 0 0 38 38 0 1 4 0 14
+                                         0 6 6 14 18 3 0 0 0 6 37 1 3 0 0 0 6
+                                         37 1 2 0 0 9 14 1 0 0 0 1 1 9 0 0 1 2
+                                         0 37 0 6 1 1 10 9 0 1 4 0 14 0 6 6 14
+                                         17 2 0 0 6 6 20 3 0 14 0 6 6 15 2 0 0
+                                         0 6 1 1 0 22 0 1 1 10 9 0 1 1 10 27 0
+                                         1 1 0 9 0 10 3 0 0 9 9 14 21 1 0 9 0
+                                         11 2 0 25 0 9 1 1 11 14 0 1 1 0 6 0 7
+                                         1 0 6 0 8 1 13 22 0 1 2 14 25 14 0 1 1
+                                         0 6 0 12 1 0 6 0 13 1 0 0 39 1 2 0 0
+                                         41 0 1 4 0 0 40 0 0 14 1 3 0 0 40 0 0
+                                         1 2 0 0 41 0 1 1 0 39 0 1 2 0 25 0 9 1
+                                         1 1 31 0 1 7 0 33 0 6 34 35 9 9 36 1 1
+                                         0 0 35 1 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0
+                                         35 1 1 12 28 0 1 2 0 0 0 0 1 2 1 30 30
+                                         0 1 1 1 29 0 1 2 0 0 0 14 1 2 10 28 0
+                                         14 1 2 13 25 32 0 1 3 2 0 0 22 22 1 3
+                                         2 0 0 14 14 1 2 2 0 0 23 1 2 2 0 0 24
+                                         1 2 0 25 0 0 1 1 0 25 0 1 0 0 0 19 3 0
+                                         0 0 38 38 1 4 0 14 0 6 6 14 1 3 0 14 0
+                                         6 6 16 1 0 0 35 1 1 0 0 22 1 1 0 25 0
+                                         1 1 11 14 0 1 2 14 9 14 0 1 2 13 9 32
+                                         0 1 1 0 0 0 1 1 9 27 0 1 2 0 37 0 6 1
+                                         1 5 26 0 1 1 0 0 37 1 2 13 25 32 0 1 1
+                                         7 25 0 1 2 12 0 0 6 1 2 8 0 0 9 1 1 11
+                                         14 0 1 2 15 25 0 0 1 2 12 0 0 14 1 2 7
+                                         0 0 0 1 1 7 0 0 1 2 0 0 0 0 1 2 7 0 6
+                                         0 1 2 0 37 0 37 1 2 0 37 37 0 1 2 0 0
+                                         0 14 1 2 0 0 0 0 1 2 0 0 14 0 1 1 13 9
+                                         0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ComplexDoubleFloatMatrix| 'NILADIC T) 

@@ -164,6 +164,7 @@
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
+                                          (|HasCategory| |#2| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|finiteAggregate|))
                                           (|HasCategory| |#1|
@@ -182,10 +183,10 @@
       (QSETREFV $ 7 |#2|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
-       ((|testBitVector| |pv$| 3)
+       ((|testBitVector| |pv$| 4)
         (QSETREFV $ 12 (CONS (|dispatchFunction| |HOAGG-;eval;ALA;1|) $))))
       (COND
-       ((|testBitVector| |pv$| 1)
+       ((|testBitVector| |pv$| 2)
         (PROGN
          (QSETREFV $ 16 (CONS (|dispatchFunction| |HOAGG-;#;ANni;2|) $))
          (QSETREFV $ 19 (CONS (|dispatchFunction| |HOAGG-;any?;MAB;3|) $))
@@ -193,16 +194,17 @@
          (QSETREFV $ 21 (CONS (|dispatchFunction| |HOAGG-;count;MANni;5|) $))
          (QSETREFV $ 22 (CONS (|dispatchFunction| |HOAGG-;members;AL;6|) $))
          (COND
-          ((|testBitVector| |pv$| 4)
+          ((|testBitVector| |pv$| 1)
            (PROGN
             (QSETREFV $ 25
                       (CONS (|dispatchFunction| |HOAGG-;count;SANni;7|) $))
             (QSETREFV $ 27
                       (CONS (|dispatchFunction| |HOAGG-;member?;SAB;8|) $))
-            (QSETREFV $ 31 (CONS (|dispatchFunction| |HOAGG-;=;2AB;9|) $))
-            (QSETREFV $ 37
-                      (CONS (|dispatchFunction| |HOAGG-;coerce;AOf;10|)
-                            $))))))))
+            (QSETREFV $ 31 (CONS (|dispatchFunction| |HOAGG-;=;2AB;9|) $)))))
+         (COND
+          ((|testBitVector| |pv$| 6)
+           (QSETREFV $ 37
+                     (CONS (|dispatchFunction| |HOAGG-;coerce;AOf;10|) $)))))))
       $)))) 
 
 (MAKEPROP '|HomogeneousAggregate&| '|infovec|

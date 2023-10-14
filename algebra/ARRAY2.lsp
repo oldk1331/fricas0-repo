@@ -12,10 +12,10 @@
 (DEFUN |ARRAY2;qsetelt!;$2I2R;2| (|m| |i| |j| |r| $)
   (QSETAREF2O |m| |i| |j| |r| 1 1)) 
 
-(DEFUN |TwoDimensionalArray| (#1=#:G2218)
+(DEFUN |TwoDimensionalArray| (#1=#:G2241)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2219)
+     (PROG (#2=#:G2242)
        (RETURN
         (COND
          ((LETT #2#
@@ -33,47 +33,54 @@
               (HREM |$ConstructorCache| '|TwoDimensionalArray|))))))))))) 
 
 (DEFUN |TwoDimensionalArray;| (|#1|)
-  (PROG (|pv$| #1=#:G2216 #2=#:G2217 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2238 #2=#:G2239 #3=#:G2240 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|TwoDimensionalArray|))
-      (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1) . #3#)
-      (LETT $ (GETREFV 23) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|TwoDimensionalArray|))
+      (LETT |dv$| (LIST '|TwoDimensionalArray| DV$1) . #4#)
+      (LETT $ (GETREFV 23) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #2#))))
-                      . #3#))
+                                               #3#))))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|TwoDimensionalArray| (LIST DV$1)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
       (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 32))
+           (|augmentPredVector| $ 128))
+      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+           (|augmentPredVector| $ 256))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -88,7 +95,7 @@
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Mapping| 6 6 6) (|Mapping| 6 6) (|OneDimensionalArray| 6))
            '#(|qsetelt!| 0 |qelt| 8) 'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|TwoDimensionalArrayCategory&| |HomogeneousAggregate&|
                      |Aggregate&| |Evalable&| |SetCategory&| NIL NIL NIL

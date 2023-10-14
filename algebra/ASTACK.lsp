@@ -59,10 +59,10 @@
 
 (DEFUN |ASTACK;empty;$;13| ($) (SPADCALL 0 0 (QREFELT $ 38))) 
 
-(DEFUN |ArrayStack| (#1=#:G154)
+(DEFUN |ArrayStack| (#1=#:G155)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G155)
+     (PROG (#2=#:G156)
        (RETURN
         (COND
          ((LETT #2#
@@ -77,47 +77,54 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|ArrayStack|))))))))))) 
 
 (DEFUN |ArrayStack;| (|#1|)
-  (PROG (|pv$| #1=#:G152 #2=#:G153 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G152 #2=#:G153 #3=#:G154 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|ArrayStack|))
-      (LETT |dv$| (LIST '|ArrayStack| DV$1) . #3#)
-      (LETT $ (GETREFV 47) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|ArrayStack|))
+      (LETT |dv$| (LIST '|ArrayStack| DV$1) . #4#)
+      (LETT $ (GETREFV 47) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #2#))))
-                      . #3#))
+                                               #3#))))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|ArrayStack| (LIST DV$1) (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16))
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 32))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 128))
       (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 64))
+           (|augmentPredVector| $ 256))
+      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+           (|augmentPredVector| $ 512))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 7 (|IndexedFlexibleArray| |#1| 0))
       $)))) 
@@ -144,7 +151,7 @@
               |copy| 238 |coerce| 243 |bag| 248 |arrayStack| 253 |any?| 258 =
               264 |#| 270)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(NIL |BagAggregate&| |HomogeneousAggregate&| |Aggregate&|
                      |Evalable&| |SetCategory&| NIL NIL NIL |InnerEvalable&|
@@ -160,17 +167,17 @@
                                          18 17 0 19 2 7 6 0 20 21 1 6 17 0 22 1
                                          23 17 0 24 1 7 11 0 27 2 7 0 6 0 32 1
                                          7 20 0 33 2 7 0 0 20 34 1 7 0 18 36 2
-                                         7 0 8 6 38 2 1 11 0 0 1 1 0 6 0 35 2 0
-                                         11 0 8 1 0 0 0 1 2 0 6 6 0 30 1 0 6 0
-                                         28 1 6 18 0 1 2 0 11 0 8 1 1 6 18 0 1
-                                         2 7 11 6 0 1 2 5 0 43 0 1 2 0 0 43 0 1
-                                         2 0 11 0 8 1 1 1 45 0 1 1 0 6 0 1 2 0
-                                         0 6 0 31 2 1 46 46 0 1 1 1 44 0 1 1 0
-                                         6 0 29 2 6 11 42 0 1 3 2 0 0 18 18 1 2
-                                         2 0 0 40 1 3 2 0 0 6 6 1 2 2 0 0 41 1
-                                         2 0 11 0 0 1 1 0 11 0 16 0 0 0 39 1 0
-                                         8 0 26 2 7 8 6 0 1 2 6 8 42 0 1 1 0 0
-                                         0 15 1 3 17 0 25 1 0 0 18 1 1 0 0 18
-                                         37 2 6 11 42 0 1 2 1 11 0 0 13 1 6 8 0
-                                         10)))))
+                                         7 0 8 6 38 2 10 11 0 0 1 1 0 6 0 35 2
+                                         0 11 0 8 1 0 0 0 1 2 0 6 6 0 30 1 0 6
+                                         0 28 1 8 18 0 1 2 0 11 0 8 1 1 8 18 0
+                                         1 2 9 11 6 0 1 2 7 0 43 0 1 2 0 0 43 0
+                                         1 2 0 11 0 8 1 1 1 45 0 1 1 0 6 0 1 2
+                                         0 0 6 0 31 2 1 46 46 0 1 1 1 44 0 1 1
+                                         0 6 0 29 2 8 11 42 0 1 3 2 0 0 18 18 1
+                                         2 2 0 0 40 1 3 2 0 0 6 6 1 2 2 0 0 41
+                                         1 2 0 11 0 0 1 1 0 11 0 16 0 0 0 39 1
+                                         0 8 0 26 2 9 8 6 0 1 2 8 8 42 0 1 1 0
+                                         0 0 15 1 5 17 0 25 1 0 0 18 1 1 0 0 18
+                                         37 2 8 11 42 0 1 2 10 11 0 0 13 1 8 8
+                                         0 10)))))
            '|lookupComplete|)) 

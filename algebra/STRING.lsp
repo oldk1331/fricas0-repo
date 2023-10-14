@@ -57,7 +57,7 @@
 (DEFUN |String| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1902)
+     (PROG (#1=#:G1920)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
@@ -72,7 +72,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|String|))))))))))) 
 
 (DEFUN |String;| ()
-  (PROG (|dv$| $ #1=#:G1898 #2=#:G1899 |pv$| #3=#:G1900)
+  (PROG (|dv$| $ #1=#:G1916 #2=#:G1917 |pv$| #3=#:G1918)
     (RETURN
      (PROGN
       (LETT |dv$| '(|String|) . #4=(|String|))
@@ -86,8 +86,6 @@
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
                                           (|HasCategory| (|Character|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory| (|Integer|)
                                                          '(|OrderedSet|))
                                           (LETT #1#
                                                 (|HasCategory| (|Character|)
@@ -108,17 +106,24 @@
                                                              (|Character|)))
                                             (|HasCategory| (|Character|)
                                                            '(|OrderedSet|)))
-                                           #2#)))
+                                           #2#)
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
+                                          (|HasCategory| (|Character|)
+                                                         '(|BasicType|))))
                       . #4#))
       (|haddProp| |$ConstructorCache| '|String| NIL (CONS 1 $))
       (|stuffDomainSlots| $)
       (AND (LETT #3# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 64))
-      (AND #3# #1# (|augmentPredVector| $ 128))
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
+           (|augmentPredVector| $ 128))
+      (AND #3# #1# (|augmentPredVector| $ 256))
+      (AND #3# (|HasCategory| (|Character|) '(|BasicType|))
+           (|augmentPredVector| $ 512))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|augmentPredVector| $ 1024))
       (AND (|HasCategory| $ '(|shallowlyMutable|))
            (|HasCategory| (|Character|) '(|OrderedSet|))
-           (|augmentPredVector| $ 512))
+           (|augmentPredVector| $ 2048))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -142,8 +147,8 @@
               54 |OMwrite| 59)
            'NIL
            (CONS
-            (|makeByteWordVec2| 6
-                                '(0 0 0 0 0 0 0 2 0 2 0 0 0 6 0 0 0 0 0 0 0 6 1
+            (|makeByteWordVec2| 5
+                                '(0 0 0 0 0 0 0 2 0 2 0 0 0 5 0 0 0 0 0 0 0 5 1
                                   2))
             (CONS
              '#(NIL |StringAggregate&| |OneDimensionalArrayAggregate&|
@@ -166,7 +171,7 @@
               (|makeByteWordVec2| 28
                                   '(0 9 0 10 2 12 0 11 9 13 1 12 14 0 15 2 12
                                     14 0 11 16 1 12 14 0 17 1 12 14 0 18 1 0 0
-                                    6 7 1 0 0 6 8 3 9 26 0 6 26 28 2 0 26 0 6
+                                    6 7 1 0 0 6 8 3 11 26 0 6 26 28 2 0 26 0 6
                                     27 1 1 24 0 25 3 0 14 12 0 20 23 2 0 11 0
                                     20 21 2 0 14 12 0 22 1 0 11 0 19)))))
            '|lookupIncomplete|)) 

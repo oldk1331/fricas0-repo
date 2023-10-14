@@ -196,6 +196,8 @@
                                                                '(|CancellationAbelianMonoid|))
                                                 #4# #3#
                                                 (|HasCategory| |#4| '(|Ring|)))
+                                               (|HasCategory| |#4|
+                                                              '(|BasicType|))
                                                (AND
                                                 (|HasCategory| |#4|
                                                                (LIST
@@ -535,12 +537,15 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (AND (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 17179869184))
+           (|augmentPredVector| $ 34359738368))
+      (AND (|HasCategory| |#4| '(|BasicType|))
+           (|HasCategory| $ '(|finiteAggregate|))
+           (|augmentPredVector| $ 68719476736))
       (AND (|HasCategory| |#4| '(|SetCategory|))
            (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 34359738368))
+           (|augmentPredVector| $ 137438953472))
       (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 68719476736))
+           (|augmentPredVector| $ 274877906944))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 10 (|Vector| |#4|))
       $)))) 
@@ -562,11 +567,11 @@
               (|HashState|) (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
-            (|makeByteWordVec2| 31
+            (|makeByteWordVec2| 32
                                 '(0 1 8 2 2 10 4 8 2 13 14 15 9 3 4 8 16 0 0 9
                                   2 5 11 8 16 5 19 5 2 18 0 5 2 6 20 0 0 5 6 12
-                                  0 0 0 22 17 0 0 0 0 0 0 22 5 7 8 12 17 31
-                                  28))
+                                  0 0 0 23 17 0 0 0 0 0 0 23 5 7 8 12 17 32
+                                  29))
             (CONS
              '#(|DirectProductCategory&| |VectorSpace&| |Algebra&|
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|

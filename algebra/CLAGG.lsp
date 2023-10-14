@@ -68,20 +68,17 @@
                                                                 |t#1|)
                                                      $ |t#1| |t#1|))
                                                    (AND
-                                                    (|has| |t#1|
-                                                           (|SetCategory|))
+                                                    (|has| |t#1| (|BasicType|))
                                                     (|has| $
                                                            (|finiteAggregate|))))
                                                   ((|remove| ($ |t#1| $))
                                                    (AND
-                                                    (|has| |t#1|
-                                                           (|SetCategory|))
+                                                    (|has| |t#1| (|BasicType|))
                                                     (|has| $
                                                            (|finiteAggregate|))))
                                                   ((|removeDuplicates| ($ $))
                                                    (AND
-                                                    (|has| |t#1|
-                                                           (|SetCategory|))
+                                                    (|has| |t#1| (|BasicType|))
                                                     (|has| $
                                                            (|finiteAggregate|)))))
                                                 '(((|ConvertibleTo|

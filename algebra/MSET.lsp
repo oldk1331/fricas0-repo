@@ -558,10 +558,10 @@
 
 (DEFUN |MSET;<=;2$B;44| (|m1| |m2| $) (SPADCALL |m1| |m2| (QREFELT $ 84))) 
 
-(DEFUN |Multiset| (#1=#:G313)
+(DEFUN |Multiset| (#1=#:G312)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G314)
+     (PROG (#2=#:G313)
        (RETURN
         (COND
          ((LETT #2#
@@ -576,44 +576,42 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Multiset|))))))))))) 
 
 (DEFUN |Multiset;| (|#1|)
-  (PROG (#1=#:G312 |pv$| #2=#:G311 $ |dv$| DV$1)
+  (PROG (#1=#:G311 |pv$| $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|Multiset|))
-      (LETT |dv$| (LIST '|Multiset| DV$1) . #3#)
-      (LETT $ (GETREFV 93) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #2=(|Multiset|))
+      (LETT |dv$| (LIST '|Multiset| DV$1) . #2#)
+      (LETT $ (GETREFV 93) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (|HasCategory| |#1|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#1|
-                                                               '(|SetCategory|))
-                                                . #3#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)))
-                      . #3#))
+                                           (|HasCategory| |#1|
+                                                          '(|SetCategory|)))
+                                          (|HasCategory| |#1|
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| |#1| '(|BasicType|))))
+                      . #2#))
       (|haddProp| |$ConstructorCache| '|Multiset| (LIST DV$1) (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
       (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 8))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
            (|augmentPredVector| $ 16))
-      (AND #2# #1# (|augmentPredVector| $ 32))
+      (AND (|HasCategory| |#1| '(|BasicType|)) #1# (|augmentPredVector| $ 32))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 7
                 (|Record| (|:| |count| (|Integer|))
                           (|:| |table| (|Table| |#1| (|Integer|)))))
       (COND
-       ((|testBitVector| |pv$| 1)
+       ((|testBitVector| |pv$| 2)
         (QSETREFV $ 34 (CONS (|dispatchFunction| |MSET;convert;$If;14|) $))))
       $)))) 
 
@@ -660,7 +658,7 @@
               |convert| 455 |construct| 460 |coerce| 465 |brace| 470 |bag| 479
               |any?| 484 >= 490 > 496 = 502 <= 508 < 514 |#| 520)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 3 1))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(NIL NIL |DictionaryOperations&| |SetAggregate&|
                      |BagAggregate&| |Collection&| |HomogeneousAggregate&|
@@ -688,7 +686,7 @@
                                          2 0 0 6 0 1 2 0 0 0 0 80 2 0 39 0 0 84
                                          2 0 39 0 57 1 1 0 0 19 24 0 0 0 15 2 5
                                          0 63 0 71 2 5 0 63 0 1 0 0 0 1 1 0 0 0
-                                         72 1 6 0 0 1 2 5 0 6 0 60 2 5 0 63 0
+                                         72 1 6 0 0 1 2 6 0 6 0 60 2 5 0 63 0
                                          64 3 0 0 6 0 17 62 3 0 0 63 0 17 65 2
                                          6 0 6 0 1 2 5 0 63 0 1 3 0 0 6 0 17 67
                                          3 0 0 63 0 17 68 4 6 6 86 0 6 6 1 3 5
@@ -699,12 +697,12 @@
                                          0 91 0 1 2 0 0 0 0 78 1 0 6 0 53 3 0 0
                                          6 0 57 73 2 0 0 6 0 54 2 0 89 89 0 1 1
                                          0 90 0 1 2 0 92 63 0 1 1 0 6 0 52 2 5
-                                         39 63 0 1 3 3 0 0 6 6 1 3 3 0 0 19 19
-                                         1 2 3 0 0 87 1 2 3 0 0 88 1 2 0 39 0 0
+                                         39 63 0 1 3 1 0 0 6 6 1 3 1 0 0 19 19
+                                         1 2 1 0 0 87 1 2 1 0 0 88 1 2 0 39 0 0
                                          1 1 0 39 0 48 0 0 0 12 1 0 46 0 47 2 0
                                          0 0 0 79 2 0 0 0 6 1 0 0 0 14 1 0 0 19
                                          23 2 6 57 6 0 59 2 5 57 63 0 1 1 0 0 0
-                                         66 1 1 28 0 34 1 0 0 19 20 1 0 37 0 44
+                                         66 1 2 28 0 34 1 0 0 19 20 1 0 37 0 44
                                          1 0 0 19 25 0 0 0 16 1 0 0 19 22 2 5
                                          39 63 0 1 2 0 39 0 0 1 2 0 39 0 0 1 2
                                          0 39 0 0 82 2 0 39 0 0 85 2 0 39 0 0

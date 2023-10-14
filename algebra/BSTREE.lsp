@@ -68,10 +68,10 @@
       (LETT |a| (SPADCALL |x| |t| (QREFELT $ 23)) |BSTREE;insertRoot!;S2$;4|)
       (EXIT (SPADCALL (QCAR |a|) |x| (QCDR |a|) (QREFELT $ 24))))))) 
 
-(DEFUN |BinarySearchTree| (#1=#:G151)
+(DEFUN |BinarySearchTree| (#1=#:G152)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G152)
+     (PROG (#2=#:G153)
        (RETURN
         (COND
          ((LETT #2#
@@ -87,48 +87,55 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|BinarySearchTree|))))))))))) 
 
 (DEFUN |BinarySearchTree;| (|#1|)
-  (PROG (|pv$| #1=#:G149 #2=#:G150 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G149 #2=#:G150 #3=#:G151 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|BinarySearchTree|))
-      (LETT |dv$| (LIST '|BinarySearchTree| DV$1) . #3#)
-      (LETT $ (GETREFV 40) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|BinarySearchTree|))
+      (LETT |dv$| (LIST '|BinarySearchTree| DV$1) . #4#)
+      (LETT $ (GETREFV 40) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #2#))))
-                      . #3#))
+                                               #3#))))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|BinarySearchTree| (LIST DV$1)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
       (AND #2# (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 32))
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+           (|augmentPredVector| $ 128))
+      (AND (OR (AND #2# (|HasCategory| $ '(|finiteAggregate|))) #3#)
+           (|augmentPredVector| $ 256))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 7 (|BinaryTree| |#1|))
       $)))) 
@@ -156,7 +163,7 @@
               331 |children| 336 |child?| 341 |binarySearchTree| 347 |any?| 352
               = 358 |#| 364)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|BinaryTreeCategory&| |BinaryRecursiveAggregate&|
                      |RecursiveAggregate&| |HomogeneousAggregate&| |Aggregate&|
@@ -172,23 +179,23 @@
                                        '(0 0 0 8 1 7 0 6 9 1 0 13 0 14 1 0 6 0
                                          15 2 6 13 0 0 16 1 0 0 0 17 2 0 0 0 0
                                          18 1 0 0 0 19 2 0 0 0 0 20 2 6 13 0 0
-                                         21 3 0 0 0 6 0 24 2 1 13 0 0 1 1 0 6 0
-                                         15 2 0 22 6 0 23 2 0 13 0 26 1 2 7 6 0
-                                         6 1 2 7 0 0 0 18 2 7 0 0 0 20 3 7 0 0
-                                         30 0 1 3 7 0 0 31 0 1 3 7 6 0 33 6 1 2
-                                         7 0 0 32 1 0 0 0 1 1 0 0 0 17 1 5 11 0
-                                         1 1 0 32 0 1 2 1 13 0 0 1 3 0 0 0 6 0
-                                         24 2 0 13 0 26 1 1 5 11 0 1 2 6 13 6 0
-                                         1 2 7 0 34 0 1 2 0 0 34 0 1 2 0 13 0
-                                         26 1 1 0 0 0 19 1 0 11 0 1 1 0 13 0 1
-                                         1 1 38 0 1 2 0 0 6 0 25 2 0 0 6 0 10 2
-                                         1 37 37 0 1 1 1 36 0 1 2 5 13 29 0 1 3
-                                         2 0 0 11 11 1 3 2 0 0 6 6 1 2 2 0 0 27
-                                         1 2 2 0 0 28 1 2 0 13 0 0 1 1 0 13 0
-                                         14 0 0 0 8 2 0 0 0 30 1 2 0 0 0 31 1 2
-                                         0 6 0 33 1 2 0 39 0 0 1 1 0 13 0 1 2 6
-                                         26 6 0 1 2 5 26 29 0 1 1 0 0 0 1 1 3
-                                         35 0 1 1 0 32 0 1 2 1 13 0 0 1 1 0 0
-                                         11 12 2 5 13 29 0 1 2 1 13 0 0 1 1 5
-                                         26 0 1)))))
+                                         21 3 0 0 0 6 0 24 2 9 13 0 0 1 1 0 6 0
+                                         15 2 0 22 6 0 23 2 0 13 0 26 1 2 10 6
+                                         0 6 1 2 10 0 0 0 18 2 10 0 0 0 20 3 10
+                                         0 0 30 0 1 3 10 0 0 31 0 1 3 10 6 0 33
+                                         6 1 2 10 0 0 32 1 0 0 0 1 1 0 0 0 17 1
+                                         7 11 0 1 1 0 32 0 1 2 1 13 0 0 1 3 0 0
+                                         0 6 0 24 2 0 13 0 26 1 1 7 11 0 1 2 8
+                                         13 6 0 1 2 10 0 34 0 1 2 0 0 34 0 1 2
+                                         0 13 0 26 1 1 0 0 0 19 1 0 11 0 1 1 0
+                                         13 0 1 1 1 38 0 1 2 0 0 6 0 25 2 0 0 6
+                                         0 10 2 1 37 37 0 1 1 1 36 0 1 2 7 13
+                                         29 0 1 3 2 0 0 11 11 1 3 2 0 0 6 6 1 2
+                                         2 0 0 27 1 2 2 0 0 28 1 2 0 13 0 0 1 1
+                                         0 13 0 14 0 0 0 8 2 0 0 0 30 1 2 0 0 0
+                                         31 1 2 0 6 0 33 1 2 0 39 0 0 1 1 0 13
+                                         0 1 2 8 26 6 0 1 2 7 26 29 0 1 1 0 0 0
+                                         1 1 5 35 0 1 1 0 32 0 1 2 1 13 0 0 1 1
+                                         0 0 11 12 2 7 13 29 0 1 2 9 13 0 0 1 1
+                                         7 26 0 1)))))
            '|lookupComplete|)) 

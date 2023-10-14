@@ -311,10 +311,10 @@
         (EXIT |s|)))
       #1# (EXIT #1#))))) 
 
-(DEFUN |ListMultiDictionary| (#1=#:G242)
+(DEFUN |ListMultiDictionary| (#1=#:G244)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G243)
+     (PROG (#2=#:G245)
        (RETURN
         (COND
          ((LETT #2#
@@ -332,51 +332,62 @@
               (HREM |$ConstructorCache| '|ListMultiDictionary|))))))))))) 
 
 (DEFUN |ListMultiDictionary;| (|#1|)
-  (PROG (#1=#:G241 |pv$| #2=#:G239 #3=#:G240 $ |dv$| DV$1)
+  (PROG (#1=#:G243 #2=#:G242 |pv$| #3=#:G239 #4=#:G240 #5=#:G241 $ |dv$| DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #4=(|ListMultiDictionary|))
-      (LETT |dv$| (LIST '|ListMultiDictionary| DV$1) . #4#)
-      (LETT $ (GETREFV 75) . #4#)
+      (LETT DV$1 (|devaluate| |#1|) . #6=(|ListMultiDictionary|))
+      (LETT |dv$| (LIST '|ListMultiDictionary| DV$1) . #6#)
+      (LETT $ (GETREFV 75) . #6#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #3#
+                                          (LETT #5#
                                                 (|HasCategory| |#1|
                                                                '(|SetCategory|))
-                                                . #4#)
+                                                . #6#)
                                           (AND
                                            (|HasCategory| |#1|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#1|)))
-                                           #3#)
+                                           #5#)
                                           (|HasCategory| |#1|
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
-                                          (LETT #2#
+                                          (LETT #4#
+                                                (|HasCategory| |#1|
+                                                               '(|BasicType|))
+                                                . #6#)
+                                          (OR #4# #5#)
+                                          (LETT #3#
                                                 (|HasCategory| |#1|
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #4#)
-                                          (OR #2#
+                                                . #6#)
+                                          (OR #3#
                                               (AND
                                                (|HasCategory| |#1|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#1|)))
-                                               #3#))))
-                      . #4#))
+                                               #5#))))
+                      . #6#))
       (|haddProp| |$ConstructorCache| '|ListMultiDictionary| (LIST DV$1)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #4#)
-           (|augmentPredVector| $ 64))
-      (AND #3# #1# (|augmentPredVector| $ 128))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 128))
+      (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
+           (|augmentPredVector| $ 256))
+      (AND
+       (LETT #1#
+             (AND (|HasCategory| |#1| '(|BasicType|))
+                  (|HasCategory| $ '(|finiteAggregate|)))
+             . #6#)
+       (|augmentPredVector| $ 512))
+      (AND (OR #1# #5#) (|augmentPredVector| $ 1024))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 7 (|Reference| (|List| |#1|)))
       (COND
@@ -431,7 +442,7 @@
               |dictionary| 387 |count| 396 |copy| 408 |convert| 413 |construct|
               418 |coerce| 423 |bag| 428 |any?| 433 = 439 |#| 445)
            'NIL
-           (CONS (|makeByteWordVec2| 5 '(0 0 0 0 0 0 2 1 0 0 0 2 1 5 3))
+           (CONS (|makeByteWordVec2| 7 '(0 0 0 0 0 0 2 1 0 0 0 2 5 7 3))
                  (CONS
                   '#(NIL |DictionaryOperations&| |BagAggregate&| |Collection&|
                      |HomogeneousAggregate&| |Aggregate&| |Evalable&|
@@ -454,22 +465,22 @@
                                          53 2 0 15 6 0 55 2 15 20 0 0 56 2 8 20
                                          0 0 60 2 0 20 0 0 61 2 6 20 0 0 62 3 8
                                          0 0 63 0 64 2 6 20 0 0 65 2 8 0 6 0 66
-                                         2 15 20 0 0 67 2 1 20 0 0 1 3 0 0 6 6
-                                         0 41 2 0 20 0 15 1 2 7 0 50 0 54 2 7 0
-                                         50 0 1 0 0 0 1 1 0 0 0 43 1 8 0 0 1 2
-                                         7 0 50 0 51 2 7 0 6 0 49 2 8 0 6 0 1 2
-                                         7 0 50 0 1 4 8 6 68 0 6 6 1 2 7 6 68 0
-                                         1 3 7 6 68 0 6 1 1 7 8 0 9 2 0 20 0 15
-                                         1 1 7 8 0 1 2 8 20 6 0 1 2 6 0 33 0 37
-                                         2 0 0 33 0 35 2 0 20 0 15 1 1 1 73 0 1
-                                         1 0 6 0 44 3 0 0 6 0 15 40 2 0 0 6 0
-                                         26 2 1 71 71 0 1 1 1 72 0 1 2 0 74 50
-                                         0 1 1 0 6 0 46 2 7 20 50 0 1 3 2 0 0 6
-                                         6 1 3 2 0 0 8 8 1 2 2 0 0 69 1 2 2 0 0
-                                         70 1 2 0 20 0 0 1 1 0 20 0 21 0 0 0 25
-                                         1 0 20 0 47 1 0 58 0 59 1 0 0 8 18 0 0
-                                         0 23 2 8 15 6 0 55 2 7 15 50 0 1 1 0 0
-                                         0 19 1 3 28 0 32 1 0 0 8 1 1 4 10 0 14
-                                         1 0 0 8 22 2 7 20 50 0 1 2 1 20 0 0 61
-                                         1 7 15 0 16)))))
+                                         2 15 20 0 0 67 2 11 20 0 0 1 3 0 0 6 6
+                                         0 41 2 0 20 0 15 1 2 9 0 50 0 54 2 9 0
+                                         50 0 1 0 0 0 1 1 0 0 0 43 1 10 0 0 1 2
+                                         10 0 6 0 49 2 9 0 50 0 51 2 10 0 6 0 1
+                                         2 9 0 50 0 1 4 10 6 68 0 6 6 1 2 9 6
+                                         68 0 1 3 9 6 68 0 6 1 1 9 8 0 9 2 0 20
+                                         0 15 1 1 9 8 0 1 2 10 20 6 0 1 2 8 0
+                                         33 0 37 2 0 0 33 0 35 2 0 20 0 15 1 1
+                                         1 73 0 1 1 0 6 0 44 3 0 0 6 0 15 40 2
+                                         0 0 6 0 26 2 1 71 71 0 1 1 1 72 0 1 2
+                                         0 74 50 0 1 1 0 6 0 46 2 9 20 50 0 1 3
+                                         2 0 0 6 6 1 3 2 0 0 8 8 1 2 2 0 0 69 1
+                                         2 2 0 0 70 1 2 0 20 0 0 1 1 0 20 0 21
+                                         0 0 0 25 1 0 20 0 47 1 0 58 0 59 0 0 0
+                                         23 1 0 0 8 18 2 10 15 6 0 55 2 9 15 50
+                                         0 1 1 0 0 0 19 1 3 28 0 32 1 0 0 8 1 1
+                                         6 10 0 14 1 0 0 8 22 2 9 20 50 0 1 2
+                                         11 20 0 0 61 1 9 15 0 16)))))
            '|lookupComplete|)) 

@@ -167,6 +167,8 @@
                                                 (|HasCategory| |#3| '(|Ring|)))
                                                (|HasCategory| |#3|
                                                               '(|SetCategory|))
+                                               (|HasCategory| |#3|
+                                                              '(|BasicType|))
                                                (AND
                                                 (|HasCategory| |#3|
                                                                (LIST
@@ -330,6 +332,30 @@
                                                                   |#3|)))
                                                  (|HasCategory| |#3|
                                                                 '(|SetCategory|))))
+                                               (OR
+                                                (|HasCategory| |#3|
+                                                               '(|LinearlyExplicitRingOver|
+                                                                 (|Integer|)))
+                                                (|HasCategory| |#3|
+                                                               '(|PartialDifferentialRing|
+                                                                 (|Symbol|)))
+                                                #3#
+                                                (|HasCategory| |#3|
+                                                               '(|BasicType|))
+                                                (|HasCategory| |#3|
+                                                               '(|CancellationAbelianMonoid|))
+                                                #5# #4#
+                                                (|HasCategory| |#3| '(|Field|))
+                                                (|HasCategory| |#3|
+                                                               '(|Finite|))
+                                                (|HasCategory| |#3|
+                                                               '(|Monoid|))
+                                                (|HasCategory| |#3|
+                                                               '(|OrderedAbelianMonoidSup|))
+                                                #6#
+                                                (|HasCategory| |#3| '(|Ring|))
+                                                (|HasCategory| |#3|
+                                                               '(|SetCategory|)))
                                                (OR
                                                 (|HasCategory| |#3|
                                                                '(|LinearlyExplicitRingOver|
@@ -579,12 +605,21 @@
       (QSETREFV $ 7 |#2|)
       (QSETREFV $ 8 |#3|)
       (AND (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 137438953472))
+           (|augmentPredVector| $ 549755813888))
+      (AND (|HasCategory| |#3| '(|BasicType|))
+           (|HasCategory| $ '(|finiteAggregate|))
+           (|augmentPredVector| $ 1099511627776))
       (AND (|HasCategory| |#3| '(|SetCategory|))
            (|HasCategory| $ '(|finiteAggregate|))
-           (|augmentPredVector| $ 274877906944))
+           (|augmentPredVector| $ 2199023255552))
       (AND (|HasCategory| $ '(|shallowlyMutable|))
-           (|augmentPredVector| $ 549755813888))
+           (|augmentPredVector| $ 4398046511104))
+      (AND
+       (OR
+        (AND (|HasCategory| |#3| '(|BasicType|))
+             (|HasCategory| $ '(|finiteAggregate|)))
+        (|HasCategory| |#3| '(|SetCategory|)))
+       (|augmentPredVector| $ 8796093022208))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 9 (|Vector| |#3|))
       $)))) 
@@ -606,11 +641,11 @@
               (|List| 11))
            '#(|qelt| 28 < 34) 'NIL
            (CONS
-            (|makeByteWordVec2| 37
+            (|makeByteWordVec2| 39
                                 '(0 1 8 2 2 10 4 8 2 13 14 15 9 3 4 8 17 9 2 5
-                                  11 8 17 5 17 5 2 16 0 5 2 6 16 0 5 6 12 30 0
-                                  0 28 29 18 0 0 0 0 28 36 5 7 8 12 29 18 37
-                                  33))
+                                  11 8 17 5 17 5 2 16 0 5 2 6 16 0 5 6 12 32 0
+                                  0 29 31 18 0 0 0 0 29 38 5 7 8 12 30 18 39
+                                  35))
             (CONS
              '#(|DirectProductCategory&| |VectorSpace&| |Algebra&|
                 |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|

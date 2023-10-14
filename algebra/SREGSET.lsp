@@ -813,10 +813,10 @@
                            (GO #1#)))))))))))))
       #1# (EXIT #1#))))) 
 
-(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G407)
+(DEFUN |SquareFreeRegularTriangularSet| (&REST #1=#:G406)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G408)
+     (PROG (#2=#:G407)
        (RETURN
         (COND
          ((LETT #2#
@@ -836,38 +836,36 @@
                     '|SquareFreeRegularTriangularSet|))))))))))) 
 
 (DEFUN |SquareFreeRegularTriangularSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G406 |pv$| #2=#:G405 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G405 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|SquareFreeRegularTriangularSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT DV$3 (|devaluate| |#3|) . #3#)
-      (LETT DV$4 (|devaluate| |#4|) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #2=(|SquareFreeRegularTriangularSet|))
+      (LETT DV$2 (|devaluate| |#2|) . #2#)
+      (LETT DV$3 (|devaluate| |#3|) . #2#)
+      (LETT DV$4 (|devaluate| |#4|) . #2#)
       (LETT |dv$| (LIST '|SquareFreeRegularTriangularSet| DV$1 DV$2 DV$3 DV$4)
-            . #3#)
-      (LETT $ (GETREFV 153) . #3#)
+            . #2#)
+      (LETT $ (GETREFV 153) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#4|
-                                                               '(|SetCategory|))
-                                                . #3#)
                                           (AND
                                            (|HasCategory| |#4|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#4|)))
-                                           #2#)
+                                           (|HasCategory| |#4|
+                                                          '(|SetCategory|)))
+                                          (|HasCategory| |#4|
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| |#4| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|IntegralDomain|))
                                           (|HasCategory| |#3| '(|Finite|))))
-                      . #3#))
+                      . #2#))
       (|haddProp| |$ConstructorCache| '|SquareFreeRegularTriangularSet|
                   (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -876,9 +874,9 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
            (|augmentPredVector| $ 64))
-      (AND #2# #1# (|augmentPredVector| $ 128))
+      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 128))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -978,7 +976,7 @@
               1052 |algebraicVariables| 1058 |algebraicCoefficients?| 1063
               |algebraic?| 1069 = 1075 |#| 1081)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 0 0 0 3 0 0 0 0 0 0 0 3 1))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(NIL |RegularTriangularSetCategory&|
                      |TriangularSetCategory&| |PolynomialSetCategory&|
@@ -1053,11 +1051,11 @@
                                          1 0 34 0 35 2 0 34 126 0 1 2 0 38 0 9
                                          48 2 0 29 10 0 1 2 0 29 10 29 87 2 0
                                          29 9 0 91 2 0 29 9 29 1 2 0 0 0 9 1 2
-                                         7 14 126 0 1 2 3 0 0 137 1 2 3 0 0 138
-                                         1 3 3 0 0 10 10 1 3 3 0 0 9 9 1 2 0 14
+                                         7 14 126 0 1 2 1 0 0 137 1 2 1 0 0 138
+                                         1 3 1 0 0 10 10 1 3 1 0 0 9 9 1 2 0 14
                                          0 0 1 1 0 14 0 15 0 0 0 13 1 0 56 0 1
                                          2 8 56 9 0 1 2 7 56 126 0 1 1 0 0 0 12
-                                         1 1 139 0 1 1 0 0 10 20 2 0 0 0 8 42 2
+                                         1 2 139 0 1 1 0 0 10 20 2 0 0 0 8 42 2
                                          0 0 0 8 44 1 0 0 0 1 2 0 0 0 8 1 1 0
                                          10 0 40 1 0 10 0 40 1 0 27 0 31 1 5 56
                                          0 1 2 0 149 10 46 1 3 0 149 10 126 46

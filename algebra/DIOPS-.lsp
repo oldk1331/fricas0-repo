@@ -41,6 +41,10 @@
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
+                                          (|HasCategory| |#2| '(|BasicType|))
+                                          (|HasCategory| |#2|
+                                                         '(|CoercibleTo|
+                                                           (|OutputForm|)))
                                           (|HasCategory| |#1|
                                                          '(|finiteAggregate|))))
                       . #1#))
@@ -49,10 +53,13 @@
       (QSETREFV $ 7 |#2|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
-       ((|testBitVector| |pv$| 1)
+       ((|testBitVector| |pv$| 3)
         (PROGN
          (QSETREFV $ 14 (CONS (|dispatchFunction| |DIOPS-;copy;2A;3|) $))
-         (QSETREFV $ 21 (CONS (|dispatchFunction| |DIOPS-;coerce;AOf;4|) $)))))
+         (COND
+          ((|testBitVector| |pv$| 2)
+           (QSETREFV $ 21
+                     (CONS (|dispatchFunction| |DIOPS-;coerce;AOf;4|) $)))))))
       $)))) 
 
 (MAKEPROP '|DictionaryOperations&| '|infovec|

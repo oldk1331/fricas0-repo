@@ -638,10 +638,10 @@
          (QCAR #2#))))
       (EXIT (SPADCALL |a| (QREFELT $ 75))))))) 
 
-(DEFUN |SplittingTree| (&REST #1=#:G354)
+(DEFUN |SplittingTree| (&REST #1=#:G355)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G355)
+     (PROG (#2=#:G356)
        (RETURN
         (COND
          ((LETT #2#
@@ -659,23 +659,23 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|SplittingTree|))))))))))) 
 
 (DEFUN |SplittingTree;| (|#1| |#2|)
-  (PROG (|pv$| #1=#:G352 #2=#:G353 $ |dv$| DV$2 DV$1)
+  (PROG (|pv$| #1=#:G352 #2=#:G353 #3=#:G354 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|SplittingTree|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT |dv$| (LIST '|SplittingTree| DV$1 DV$2) . #3#)
-      (LETT $ (GETREFV 98) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #4=(|SplittingTree|))
+      (LETT DV$2 (|devaluate| |#2|) . #4#)
+      (LETT |dv$| (LIST '|SplittingTree| DV$1 DV$2) . #4#)
+      (LETT $ (GETREFV 98) . #4#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (LETT #2#
+                                          (LETT #3#
                                                 (|HasCategory|
                                                  (|SplittingNode| |#1| |#2|)
                                                  '(|SetCategory|))
-                                                . #3#)
+                                                . #4#)
                                           (AND
                                            (|HasCategory|
                                             (|SplittingNode| |#1| |#2|)
@@ -683,13 +683,19 @@
                                                   (LIST '|SplittingNode|
                                                         (|devaluate| |#1|)
                                                         (|devaluate| |#2|))))
-                                           #2#)
+                                           #3#)
+                                          (LETT #2#
+                                                (|HasCategory|
+                                                 (|SplittingNode| |#1| |#2|)
+                                                 '(|BasicType|))
+                                                . #4#)
+                                          (OR #2# #3#)
                                           (LETT #1#
                                                 (|HasCategory|
                                                  (|SplittingNode| |#1| |#2|)
                                                  '(|CoercibleTo|
                                                    (|OutputForm|)))
-                                                . #3#)
+                                                . #4#)
                                           (OR #1#
                                               (AND
                                                (|HasCategory|
@@ -699,17 +705,19 @@
                                                             (|devaluate| |#1|)
                                                             (|devaluate|
                                                              |#2|))))
-                                               #2#))))
-                      . #3#))
+                                               #3#))))
+                      . #4#))
       (|haddProp| |$ConstructorCache| '|SplittingTree| (LIST DV$1 DV$2)
                   (CONS 1 $))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
       (QSETREFV $ 7 |#2|)
-      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 64))
       (AND (|HasCategory| $ '(|finiteAggregate|)) #2#
-           (|augmentPredVector| $ 32))
-      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
+           (|augmentPredVector| $ 128))
+      (AND (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #2#) #3#)
+           (|augmentPredVector| $ 256))
+      (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 512))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -759,7 +767,7 @@
               465 |coerce| 470 |children| 475 |child?| 480 |any?| 486 = 492 |#|
               498)
            'NIL
-           (CONS (|makeByteWordVec2| 4 '(0 0 0 2 1 0 0 0 2 1 4))
+           (CONS (|makeByteWordVec2| 6 '(0 0 0 2 1 0 0 0 2 4 6))
                  (CONS
                   '#(|RecursiveAggregate&| |HomogeneousAggregate&| |Aggregate&|
                      |Evalable&| |SetCategory&| NIL NIL NIL |InnerEvalable&|
@@ -785,24 +793,24 @@
                                          65 0 67 2 65 0 0 0 68 1 65 0 0 69 1 65
                                          0 11 70 2 65 0 0 0 71 2 8 0 0 18 76 3
                                          8 18 0 0 82 83 1 13 0 0 85 0 6 0 86 0
-                                         7 0 87 3 8 0 6 7 18 88 2 1 18 0 0 1 1
+                                         7 0 87 3 8 0 6 7 18 88 2 9 18 0 0 1 1
                                          0 8 0 25 1 0 0 0 75 3 0 18 8 0 82 84 4
                                          0 0 0 0 13 82 90 3 0 0 0 0 13 89 2 0
-                                         18 0 55 1 2 7 8 0 8 42 3 7 8 0 96 8 1
-                                         2 7 0 0 11 40 0 0 0 1 1 0 78 0 79 2 0
-                                         0 8 0 38 2 0 0 8 0 30 1 5 13 0 1 1 0
+                                         18 0 55 1 2 10 8 0 8 42 3 10 8 0 96 8
+                                         1 2 10 0 0 11 40 0 0 0 1 1 0 78 0 79 2
+                                         0 0 8 0 38 2 0 0 8 0 30 1 7 13 0 1 1 0
                                          11 0 50 2 0 18 8 0 81 2 1 18 0 0 1 2 0
-                                         18 0 55 1 1 5 13 0 54 2 6 18 8 0 1 2 7
-                                         0 44 0 46 2 0 0 44 0 45 2 0 18 0 55 1
-                                         1 0 13 0 52 1 0 18 0 41 1 1 64 0 1 2 1
-                                         93 93 0 1 1 1 94 0 1 1 0 73 0 74 2 5
+                                         18 0 55 1 1 7 13 0 54 2 8 18 8 0 1 2
+                                         10 0 44 0 46 2 0 0 44 0 45 2 0 18 0 55
+                                         1 1 0 13 0 52 1 0 18 0 41 1 1 64 0 1 2
+                                         1 93 93 0 1 1 1 94 0 1 1 0 73 0 74 2 7
                                          18 95 0 1 3 2 0 0 13 13 1 3 2 0 0 8 8
                                          1 2 2 0 0 91 1 2 2 0 0 92 1 2 0 18 0 0
                                          49 1 0 18 0 22 0 0 0 24 2 0 8 0 96 1 2
-                                         0 97 0 0 1 1 0 18 0 43 2 6 55 8 0 1 2
-                                         5 55 95 0 1 1 0 0 0 48 4 0 0 6 7 6 15
+                                         0 97 0 0 1 1 0 18 0 43 2 8 55 8 0 1 2
+                                         7 55 95 0 1 1 0 0 0 48 4 0 0 6 7 6 15
                                          17 3 0 0 6 7 11 12 3 0 0 6 7 13 14 1 0
-                                         0 8 9 1 0 15 0 80 1 3 65 0 72 1 0 11 0
-                                         28 2 1 18 0 0 1 2 5 18 95 0 1 2 1 18 0
-                                         0 63 1 5 55 0 57)))))
+                                         0 8 9 1 0 15 0 80 1 5 65 0 72 1 0 11 0
+                                         28 2 1 18 0 0 1 2 7 18 95 0 1 2 9 18 0
+                                         0 63 1 7 55 0 57)))))
            '|lookupComplete|)) 

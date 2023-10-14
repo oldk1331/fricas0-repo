@@ -11,8 +11,10 @@
       (LETT |r| (SPADCALL (QCAR |p|) |t| (QREFELT $ 10))
             |KDAGG-;member?;RSB;2|)
       (EXIT
-       (COND ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) (QCDR |p|) (QREFELT $ 13)))
-             ('T 'NIL))))))) 
+       (COND
+        ((QEQCAR |r| 0)
+         (SPADCALL (CONS 0 (QCDR |r|)) (CONS 0 (QCDR |p|)) (QREFELT $ 13)))
+        ('T 'NIL))))))) 
 
 (DEFUN |KDAGG-;keys;SL;3| (|t| $)
   (PROG (#1=#:G150 |x| #2=#:G149)
@@ -62,7 +64,7 @@
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 19
-                                                 '(2 6 9 7 0 10 2 8 11 0 0 13 1
+                                                 '(2 6 9 7 0 10 2 9 11 0 0 13 1
                                                    6 16 0 17 1 0 18 0 19 2 0 11
                                                    14 0 15 1 0 18 0 19 2 0 11 7
                                                    0 12)))))

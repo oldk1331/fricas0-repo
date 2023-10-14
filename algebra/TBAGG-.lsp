@@ -332,18 +332,28 @@
       (QSETREFV $ 8 |#3|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
+       ((|HasCategory| |#3| '(|CoercibleTo| (|OutputForm|)))
+        (QSETREFV $ 27 (CONS (|dispatchFunction| |TBAGG-;coerce;SOf;5|) $))))
+      (COND
        ((|HasCategory| |#1| '(|finiteAggregate|))
         (PROGN
          (QSETREFV $ 39 (CONS (|dispatchFunction| |TBAGG-;parts;SL;10|) $))
          (QSETREFV $ 41 (CONS (|dispatchFunction| |TBAGG-;parts;SL;11|) $))
          (QSETREFV $ 43 (CONS (|dispatchFunction| |TBAGG-;entries;SL;12|) $))
-         (QSETREFV $ 49 (CONS (|dispatchFunction| |TBAGG-;=;2SB;13|) $))
+         (COND
+          ((|HasCategory| |#3| '(|BasicType|))
+           (QSETREFV $ 49 (CONS (|dispatchFunction| |TBAGG-;=;2SB;13|) $))))
          (QSETREFV $ 51 (CONS (|dispatchFunction| |TBAGG-;map;M2S;14|) $))
-         (QSETREFV $ 53 (CONS (|dispatchFunction| |TBAGG-;map!;M2S;15|) $))
+         (COND
+          ((|HasCategory| |#3| '(|BasicType|))
+           (QSETREFV $ 53 (CONS (|dispatchFunction| |TBAGG-;map!;M2S;15|) $))))
          (QSETREFV $ 54 (CONS (|dispatchFunction| |TBAGG-;inspect;SR;16|) $))
          (QSETREFV $ 58 (CONS (|dispatchFunction| |TBAGG-;find;MSU;17|) $))
          (QSETREFV $ 59 (CONS (|dispatchFunction| |TBAGG-;index?;KeySB;18|) $))
-         (QSETREFV $ 61 (CONS (|dispatchFunction| |TBAGG-;remove!;R2S;19|) $))
+         (COND
+          ((|HasCategory| |#3| '(|BasicType|))
+           (QSETREFV $ 61
+                     (CONS (|dispatchFunction| |TBAGG-;remove!;R2S;19|) $))))
          (QSETREFV $ 63 (CONS (|dispatchFunction| |TBAGG-;extract!;SR;20|) $))
          (QSETREFV $ 65 (CONS (|dispatchFunction| |TBAGG-;any?;MSB;21|) $))
          (QSETREFV $ 66 (CONS (|dispatchFunction| |TBAGG-;every?;MSB;22|) $))
@@ -360,22 +370,22 @@
               |TBAGG-;insert!;R2S;3| (|List| 7) (16 . |keys|)
               |TBAGG-;indices;SL;4| (|OutputForm|) (21 . |coerce|) (26 . |elt|)
               (32 . |coerce|) (37 . =) (|List| $) (43 . |prefix|)
-              |TBAGG-;coerce;SOf;5| (|Union| 8 '"failed") (49 . |search|)
+              (49 . |coerce|) (|Union| 8 '"failed") (54 . |search|)
               |TBAGG-;elt;SKeyEntry;6| |TBAGG-;elt;SKey2Entry;7|
-              (|Mapping| 8 8) |TBAGG-;map!;M2S;8| (55 . |table|) (|Boolean|)
-              (59 . |key?|) (|Mapping| 8 8 8) |TBAGG-;map;M3S;9| (65 . |parts|)
-              (|List| 8) (70 . |parts|) (75 . |parts|) (80 . |entries|)
-              (85 . |eq?|) (|NonNegativeInteger|) (91 . |#|) (96 . ~=)
-              (102 . ~=) (108 . =) (|Mapping| 11 11) (114 . |map|)
-              (120 . |remove!|) (126 . |map!|) (132 . |inspect|)
-              (137 . |parts|) (|Union| 11 '"failed") (|Mapping| 35 11)
-              (142 . |find|) (148 . |index?|) (154 . |member?|)
-              (160 . |remove!|) (166 . |inspect|) (171 . |extract!|)
-              (|Mapping| 35 8) (176 . |any?|) (182 . |every?|) (188 . |count|))
-           '#(|table| 194 |remove!| 203 |parts| 209 |map!| 219 |map| 231
-              |inspect| 244 |insert!| 249 |indices| 255 |index?| 260 |find| 266
-              |extract!| 272 |every?| 277 |entries| 283 |elt| 288 |count| 301
-              |coerce| 307 |any?| 312 = 318)
+              (|Mapping| 8 8) |TBAGG-;map!;M2S;8| (60 . |table|) (|Boolean|)
+              (64 . |key?|) (|Mapping| 8 8 8) |TBAGG-;map;M3S;9| (70 . |parts|)
+              (|List| 8) (75 . |parts|) (80 . |parts|) (85 . |entries|)
+              (90 . |eq?|) (|NonNegativeInteger|) (96 . |#|) (101 . ~=)
+              (107 . ~=) (113 . =) (|Mapping| 11 11) (119 . |map|)
+              (125 . |remove!|) (131 . |map!|) (137 . |inspect|)
+              (142 . |parts|) (|Union| 11 '"failed") (|Mapping| 35 11)
+              (147 . |find|) (153 . |index?|) (159 . |member?|)
+              (165 . |remove!|) (171 . |inspect|) (176 . |extract!|)
+              (|Mapping| 35 8) (181 . |any?|) (187 . |every?|) (193 . |count|))
+           '#(|table| 199 |remove!| 208 |parts| 214 |map!| 224 |map| 236
+              |inspect| 249 |insert!| 254 |indices| 260 |index?| 265 |find| 271
+              |extract!| 277 |every?| 282 |entries| 288 |elt| 293 |count| 306
+              |coerce| 312 |any?| 317 = 323)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -385,28 +395,28 @@
                                                    7 8 15 1 6 17 0 18 1 7 20 0
                                                    21 2 6 8 0 7 22 1 8 20 0 23
                                                    2 20 0 0 0 24 2 20 0 0 25 26
-                                                   2 6 28 7 0 29 0 6 0 34 2 6
-                                                   35 7 0 36 1 0 12 0 39 1 0 40
-                                                   0 41 1 6 40 0 42 1 0 40 0 43
-                                                   2 6 35 0 0 44 1 6 45 0 46 2
-                                                   45 35 0 0 47 2 8 35 0 0 48 2
-                                                   0 35 0 0 49 2 0 0 50 0 51 2
-                                                   6 28 7 0 52 2 0 0 50 0 53 1
-                                                   0 11 0 54 1 6 12 0 55 2 0 56
-                                                   57 0 58 2 0 35 7 0 59 2 6 35
-                                                   11 0 60 2 0 0 11 0 61 1 6 11
-                                                   0 62 1 0 11 0 63 2 0 35 64 0
-                                                   65 2 0 35 64 0 66 2 0 45 64
-                                                   0 67 0 0 0 10 1 0 0 12 14 2
-                                                   0 0 11 0 61 1 0 40 0 41 1 0
-                                                   12 0 39 2 0 0 32 0 33 2 0 0
-                                                   50 0 53 3 0 0 37 0 0 38 2 0
-                                                   0 50 0 51 1 0 11 0 54 2 0 0
-                                                   11 0 16 1 0 17 0 19 2 0 35 7
-                                                   0 59 2 0 56 57 0 58 1 0 11 0
-                                                   63 2 0 35 64 0 66 1 0 40 0
-                                                   43 3 0 8 0 7 8 31 2 0 8 0 7
-                                                   30 2 0 45 64 0 67 1 0 20 0
-                                                   27 2 0 35 64 0 65 2 0 35 0 0
-                                                   49)))))
+                                                   1 0 20 0 27 2 6 28 7 0 29 0
+                                                   6 0 34 2 6 35 7 0 36 1 0 12
+                                                   0 39 1 0 40 0 41 1 6 40 0 42
+                                                   1 0 40 0 43 2 6 35 0 0 44 1
+                                                   6 45 0 46 2 45 35 0 0 47 2 8
+                                                   35 0 0 48 2 0 35 0 0 49 2 0
+                                                   0 50 0 51 2 6 28 7 0 52 2 0
+                                                   0 50 0 53 1 0 11 0 54 1 6 12
+                                                   0 55 2 0 56 57 0 58 2 0 35 7
+                                                   0 59 2 6 35 11 0 60 2 0 0 11
+                                                   0 61 1 6 11 0 62 1 0 11 0 63
+                                                   2 0 35 64 0 65 2 0 35 64 0
+                                                   66 2 0 45 64 0 67 0 0 0 10 1
+                                                   0 0 12 14 2 0 0 11 0 61 1 0
+                                                   40 0 41 1 0 12 0 39 2 0 0 32
+                                                   0 33 2 0 0 50 0 53 3 0 0 37
+                                                   0 0 38 2 0 0 50 0 51 1 0 11
+                                                   0 54 2 0 0 11 0 16 1 0 17 0
+                                                   19 2 0 35 7 0 59 2 0 56 57 0
+                                                   58 1 0 11 0 63 2 0 35 64 0
+                                                   66 1 0 40 0 43 3 0 8 0 7 8
+                                                   31 2 0 8 0 7 30 2 0 45 64 0
+                                                   67 1 0 20 0 27 2 0 35 64 0
+                                                   65 2 0 35 0 0 49)))))
            '|lookupComplete|)) 

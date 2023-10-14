@@ -102,10 +102,10 @@
 
 (DEFUN |GPOLSET;convert;L$;13| (|lp| $) (SPADCALL |lp| (QREFELT $ 13))) 
 
-(DEFUN |GeneralPolynomialSet| (&REST #1=#:G174)
+(DEFUN |GeneralPolynomialSet| (&REST #1=#:G173)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G175)
+     (PROG (#2=#:G174)
        (RETURN
         (COND
          ((LETT #2#
@@ -124,36 +124,34 @@
               (HREM |$ConstructorCache| '|GeneralPolynomialSet|))))))))))) 
 
 (DEFUN |GeneralPolynomialSet;| (|#1| |#2| |#3| |#4|)
-  (PROG (#1=#:G173 |pv$| #2=#:G172 $ |dv$| DV$4 DV$3 DV$2 DV$1)
+  (PROG (#1=#:G172 |pv$| $ |dv$| DV$4 DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #3=(|GeneralPolynomialSet|))
-      (LETT DV$2 (|devaluate| |#2|) . #3#)
-      (LETT DV$3 (|devaluate| |#3|) . #3#)
-      (LETT DV$4 (|devaluate| |#4|) . #3#)
-      (LETT |dv$| (LIST '|GeneralPolynomialSet| DV$1 DV$2 DV$3 DV$4) . #3#)
-      (LETT $ (GETREFV 63) . #3#)
+      (LETT DV$1 (|devaluate| |#1|) . #2=(|GeneralPolynomialSet|))
+      (LETT DV$2 (|devaluate| |#2|) . #2#)
+      (LETT DV$3 (|devaluate| |#3|) . #2#)
+      (LETT DV$4 (|devaluate| |#4|) . #2#)
+      (LETT |dv$| (LIST '|GeneralPolynomialSet| DV$1 DV$2 DV$3 DV$4) . #2#)
+      (LETT $ (GETREFV 63) . #2#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
                       (|buildPredVector| 0 0
                                          (LIST
-                                          (|HasCategory| |#4|
-                                                         '(|ConvertibleTo|
-                                                           (|InputForm|)))
-                                          (LETT #2#
-                                                (|HasCategory| |#4|
-                                                               '(|SetCategory|))
-                                                . #3#)
                                           (AND
                                            (|HasCategory| |#4|
                                                           (LIST '|Evalable|
                                                                 (|devaluate|
                                                                  |#4|)))
-                                           #2#)
+                                           (|HasCategory| |#4|
+                                                          '(|SetCategory|)))
+                                          (|HasCategory| |#4|
+                                                         '(|ConvertibleTo|
+                                                           (|InputForm|)))
+                                          (|HasCategory| |#4| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|IntegralDomain|))))
-                      . #3#))
+                      . #2#))
       (|haddProp| |$ConstructorCache| '|GeneralPolynomialSet|
                   (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -162,9 +160,9 @@
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
       (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16))
-      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
+      (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
            (|augmentPredVector| $ 32))
-      (AND #2# #1# (|augmentPredVector| $ 64))
+      (AND (|HasCategory| |#4| '(|BasicType|)) #1# (|augmentPredVector| $ 64))
       (SETF |pv$| (QREFELT $ 3))
       (QSETREFV $ 10 (|List| |#4|))
       $)))) 
@@ -204,7 +202,7 @@
               |collectUpper| 388 |collectUnder| 394 |collect| 400 |coerce| 406
               |any?| 421 = 427 |#| 433)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(0 0 0 0 0 3 0 0 0 0 0 0 0 3 1))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
                   '#(|PolynomialSetCategory&| |Collection&|
                      |HomogeneousAggregate&| |SetCategory&| |Aggregate&|
@@ -236,11 +234,11 @@
                                          23 2 0 0 19 0 21 1 0 40 0 1 2 0 24 8 0
                                          1 2 0 24 0 50 1 1 0 61 0 1 2 4 6 6 6 1
                                          2 4 56 9 0 1 2 0 60 60 0 1 1 0 62 0 1
-                                         2 0 59 54 0 1 2 6 24 54 0 1 2 3 0 0 52
-                                         1 2 3 0 0 53 1 3 3 0 0 11 11 1 3 3 0 0
+                                         2 0 59 54 0 1 2 6 24 54 0 1 2 1 0 0 52
+                                         1 2 1 0 0 53 1 3 1 0 0 11 11 1 3 1 0 0
                                          9 9 1 2 0 24 0 0 1 1 0 24 0 39 0 0 0
                                          17 2 7 50 9 0 1 2 6 50 54 0 1 1 0 0 0
-                                         16 1 1 55 0 1 1 0 0 11 49 1 0 0 11 13
+                                         16 1 2 55 0 1 1 0 0 11 49 1 0 0 11 13
                                          2 0 0 0 8 1 2 0 0 0 8 1 2 0 0 0 8 1 1
                                          0 11 0 48 1 0 11 0 48 1 0 34 0 38 2 6
                                          24 54 0 1 2 0 24 0 0 30 1 6 50 0

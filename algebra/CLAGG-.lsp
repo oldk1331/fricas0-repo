@@ -77,7 +77,7 @@
                                           (|HasCategory| |#2|
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
-                                          (|HasCategory| |#2| '(|SetCategory|))
+                                          (|HasCategory| |#2| '(|BasicType|))
                                           (|HasCategory| |#1|
                                                          '(|finiteAggregate|))))
                       . #1#))

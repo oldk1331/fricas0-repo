@@ -57,7 +57,7 @@
 (DEFUN |DFLOAT;precision;Pi;10| ($) (FLOAT-DIGITS 0.0)) 
 
 (DEFUN |DFLOAT;bits;Pi;11| ($)
-  (PROG (#1=#:G434)
+  (PROG (#1=#:G444)
     (RETURN
      (COND ((EQL (FLOAT-RADIX 0.0) 2) (FLOAT-DIGITS 0.0))
            ((EQL (FLOAT-RADIX 0.0) 16) (* 4 (FLOAT-DIGITS 0.0)))
@@ -304,7 +304,7 @@
 (DEFUN |DFLOAT;Gamma;2$;79| (|x| $) (SPADCALL |x| (QREFELT $ 117))) 
 
 (DEFUN |DFLOAT;polygamma;3$;80| (|x| |y| $)
-  (PROG (#1=#:G520 |n|)
+  (PROG (#1=#:G530 |n|)
     (RETURN
      (SEQ
       (LETT |n| (SPADCALL |x| (QREFELT $ 120)) . #2=(|DFLOAT;polygamma;3$;80|))
@@ -451,7 +451,7 @@
          (EXIT |theta|)))))))) 
 
 (DEFUN |DFLOAT;retract;$F;98| (|x| $)
-  (PROG (#1=#:G551)
+  (PROG (#1=#:G561)
     (RETURN
      (SPADCALL |x|
                (PROG1
@@ -460,7 +460,7 @@
                (FLOAT-RADIX 0.0) (QREFELT $ 159))))) 
 
 (DEFUN |DFLOAT;retractIfCan;$U;99| (|x| $)
-  (PROG (#1=#:G556)
+  (PROG (#1=#:G566)
     (RETURN
      (CONS 0
            (SPADCALL |x|
@@ -497,7 +497,7 @@
 (DEFUN |DFLOAT;abs;2$;103| (|x| $) (FLOAT-SIGN 1.0 |x|)) 
 
 (DEFUN |DFLOAT;manexp| (|x| $)
-  (PROG (|two53| |me| #1=#:G574 |s|)
+  (PROG (|two53| |me| #1=#:G584 |s|)
     (RETURN
      (SEQ
       (EXIT
@@ -533,8 +533,8 @@
 
 (DEFUN |DFLOAT;rationalApproximation;$2NniF;105| (|f| |d| |b| $)
   (PROG (|t| |s| |#G148| |#G147| |q1| |q0| |#G146| |#G145| |p1| |p0| |#G144|
-         |#G143| #1=#:G604 |q2| |p2| |r| |q| |#G142| |tol| |de| #2=#:G596
-         #3=#:G594 BASE |ex| |nu| |#G141|)
+         |#G143| #1=#:G614 |q2| |p2| |r| |q| |#G142| |tol| |de| #2=#:G606
+         #3=#:G604 BASE |ex| |nu| |#G141|)
     (RETURN
      (SEQ
       (EXIT
@@ -616,7 +616,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |DFLOAT;^;$F$;106| (|x| |r| $)
-  (PROG (#1=#:G613 |d| |n|)
+  (PROG (#1=#:G623 |d| |n|)
     (RETURN
      (SEQ
       (EXIT
@@ -666,7 +666,7 @@
 (DEFUN |DoubleFloat| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G627)
+     (PROG (#1=#:G637)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloat|)

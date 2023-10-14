@@ -320,7 +320,7 @@
          (EXIT (CONS 0 |k|))))))))) 
 
 (DEFUN |ES-;allKernels| (|f| $)
-  (PROG (|s| |t| |arg| |n| |s0| |u| #1=#:G292 |k| |l|)
+  (PROG (|s| |t| |arg| |n| |s0| |u| #1=#:G293 |k| |l|)
     (RETURN
      (SEQ
       (LETT |s|
@@ -374,7 +374,7 @@
    ('T (|ES-;okkernel| |op| |args| $)))) 
 
 (DEFUN |ES-;okkernel| (|op| |l| $)
-  (PROG (#1=#:G302 |f| #2=#:G301)
+  (PROG (#1=#:G303 |f| #2=#:G302)
     (RETURN
      (SEQ
       (SPADCALL
@@ -405,7 +405,7 @@
        (QREFELT $ 92)))))) 
 
 (DEFUN |ES-;elt;BoLS;38| (|op| |args| $)
-  (PROG (|v| #1=#:G313 |u|)
+  (PROG (|v| #1=#:G314 |u|)
     (RETURN
      (SEQ
       (EXIT
@@ -475,7 +475,7 @@
                  ('T (SPADCALL (QCDR |k|) |op| (QREFELT $ 50))))))))) 
 
 (DEFUN |ES-;unwrap| (|l| |x| $)
-  (PROG (#1=#:G341 |k|)
+  (PROG (#1=#:G342 |k|)
     (RETURN
      (SEQ
       (SEQ (LETT |k| NIL . #2=(|ES-;unwrap|)) (LETT #1# (NREVERSE |l|) . #2#)
@@ -493,7 +493,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |ES-;distribute;3S;44| (|x| |y| $)
-  (PROG (#1=#:G349 |k| #2=#:G348 |ky|)
+  (PROG (#1=#:G350 |k| #2=#:G349 |ky|)
     (RETURN
      (SEQ
       (LETT |ky| (SPADCALL |y| (QREFELT $ 56)) . #3=(|ES-;distribute;3S;44|))
@@ -531,7 +531,7 @@
           (EXIT (SPADCALL |f| (QCAR |rec|) (QCDR |rec|) (QREFELT $ 130))))))) 
 
 (DEFUN |ES-;mkKerLists| (|leq| $)
-  (PROG (|lv| |lk| |k| #1=#:G368 |eq|)
+  (PROG (|lv| |lk| |k| #1=#:G369 |eq|)
     (RETURN
      (SEQ (LETT |lk| NIL . #2=(|ES-;mkKerLists|)) (LETT |lv| NIL . #2#)
           (SEQ (LETT |eq| NIL . #2#) (LETT #1# |leq| . #2#) G190

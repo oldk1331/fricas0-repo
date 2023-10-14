@@ -4,7 +4,7 @@
 (DEFUN |SortedExponentVector| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2586)
+     (PROG (#1=#:G2620)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|)
@@ -22,11 +22,11 @@
               (HREM |$ConstructorCache| '|SortedExponentVector|))))))))))) 
 
 (DEFUN |SortedExponentVector;| ()
-  (PROG (|dv$| $ #1=#:G2582 #2=#:G2583 #3=#:G2581 |pv$| #4=#:G2584)
+  (PROG (|dv$| $ #1=#:G2616 #2=#:G2617 #3=#:G2615 #4=#:G2614 |pv$| #5=#:G2618)
     (RETURN
      (PROGN
-      (LETT |dv$| '(|SortedExponentVector|) . #5=(|SortedExponentVector|))
-      (LETT $ (GETREFV 25) . #5#)
+      (LETT |dv$| '(|SortedExponentVector|) . #6=(|SortedExponentVector|))
+      (LETT $ (GETREFV 25) . #6#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -40,7 +40,7 @@
                                           (LETT #1#
                                                 (|HasCategory| (|Integer|)
                                                                '(|SetCategory|))
-                                                . #5#)
+                                                . #6#)
                                           (OR
                                            (|HasCategory| (|Integer|)
                                                           '(|OrderedSet|))
@@ -52,7 +52,7 @@
                                                                   (|Integer|)))
                                                  (|HasCategory| (|Integer|)
                                                                 '(|SetCategory|)))
-                                                . #5#)
+                                                . #6#)
                                           (OR
                                            (AND
                                             (|HasCategory| (|Integer|)
@@ -63,21 +63,31 @@
                                            #2#)
                                           (LETT #3#
                                                 (|HasCategory| (|Integer|)
+                                                               '(|BasicType|))
+                                                . #6#)
+                                          (OR #3#
+                                              (|HasCategory| (|Integer|)
+                                                             '(|OrderedSet|))
+                                              #1#)
+                                          (LETT #4#
+                                                (|HasCategory| (|Integer|)
                                                                '(|CoercibleTo|
                                                                  (|OutputForm|)))
-                                                . #5#)
-                                          (OR #3# #2#)))
-                      . #5#))
+                                                . #6#)
+                                          (OR #4# #2#)))
+                      . #6#))
       (|haddProp| |$ConstructorCache| '|SortedExponentVector| NIL (CONS 1 $))
       (|stuffDomainSlots| $)
-      (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-           (|augmentPredVector| $ 256))
-      (AND #4# #1# (|augmentPredVector| $ 512))
-      (AND (|HasCategory| $ '(|shallowlyMutable|))
+      (AND (LETT #5# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
            (|augmentPredVector| $ 1024))
+      (AND #5# #1# (|augmentPredVector| $ 2048))
+      (AND #5# #3# (|augmentPredVector| $ 4096))
+      (AND (|HasCategory| $ '(|shallowlyMutable|))
+           (|augmentPredVector| $ 8192))
       (AND (|HasCategory| $ '(|shallowlyMutable|))
            (|HasCategory| (|Integer|) '(|OrderedSet|))
-           (|augmentPredVector| $ 2048))
+           (|augmentPredVector| $ 16384))
+      (AND (OR (AND #5# #3#) #1#) (|augmentPredVector| $ 32768))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -91,7 +101,8 @@
               (|Union| 6 '"failed"))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 8 '(0 0 0 0 0 2 0 2 0 0 6 4 0 0 0 0 6 1 4 8 2))
+            (|makeByteWordVec2| 10
+                                '(0 0 0 0 0 2 0 2 0 0 6 4 0 0 0 0 6 1 8 10 2))
             (CONS
              '#(|OneDimensionalArrayAggregate&| |FiniteLinearAggregate&|
                 |LinearAggregate&| |IndexedAggregate&| |Collection&|
