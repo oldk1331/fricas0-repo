@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4834 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4833 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -411,7 +411,7 @@
  |UnivariateLaurentSeriesFunctions2| |UnivariateLaurentSeriesCategory|
  |UnivariateLaurentSeriesConstructorCategory&|
  |UnivariateLaurentSeriesConstructorCategory|
- |UnivariateLaurentSeriesConstructor| |UnivariateFactorize| |UniversalSegment|
+ |UnivariateLaurentSeriesConstructor| |UniversalSegment|
  |UniversalSegmentFunctions2| |Untyped| |UnivariatePolynomial|
  |UnivariatePolynomialFunctions2| |UnivariatePolynomialCommonDenominator|
  |UnivariatePolynomialDecompositionPackage|
@@ -614,26 +614,26 @@
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
- |tryFunctionalDecomposition?| |tryFunctionalDecomposition| |btwFact|
- |beauzamyBound| |bombieriNorm| |rootBound| |singleFactorBound| |quadraticNorm|
- |infinityNorm| |scaleRoots| |shiftRoots| |degreePartition| |factorOfDegree|
- |factorsOfDegree| |pascalTriangle| |rangePascalTriangle| |sizePascalTriangle|
- |fillPascalTriangle| |safeCeiling| |safeFloor| |safetyMargin| |sumSquares|
- |euclideanNormalForm| |euclideanGroebner| |factorGroebnerBasis|
- |groebnerFactorize| |credPol| |gbasis| |critT| |critM| |critB| |critBonD|
- |critMTonD1| |critMonD1| |redPo| |updatF| |updatD| |minGbasis| |lepol|
- |prinshINFO| |prindINFO| |fprindINFO| |prinpolINFO| |prinb| |critpOrder|
- |makeCrit| |gcdBasis| |gcdDecomposition| |conditionsForIdempotents|
- |genericRightDiscriminant| |genericRightTraceForm| |genericLeftDiscriminant|
- |genericLeftTraceForm| |genericRightNorm| |genericRightTrace|
- |genericRightMinimalPolynomial| |rightRankPolynomial| |genericLeftNorm|
- |genericLeftTrace| |genericLeftMinimalPolynomial| |leftRankPolynomial|
- |generic| |rightUnits| |leftUnits| |gnuDraw| |compBound| |tablePow| |solveid|
- |testModulus| |removeZeros| |infsum| |HenselLift| |completeHensel| |multMonom|
- |build| |leadingIndex| |leadingExponent| |option| |checkOptions| |displayKind|
- |indexName| |variableName| |functionNames| |functionName| |one|
- |checkExtraValues| |safety| |allDegrees| |maxMixedDegree| |maxDegree|
- |maxLevel| |Somos| |homogeneous| |maxPower| |maxSubst| |maxShift|
+ |tryFunctionalDecomposition?| |tryFunctionalDecomposition| |henselFact|
+ |btwFact| |beauzamyBound| |bombieriNorm| |rootBound| |singleFactorBound|
+ |quadraticNorm| |infinityNorm| |scaleRoots| |shiftRoots| |degreePartition|
+ |factorOfDegree| |factorsOfDegree| |pascalTriangle| |rangePascalTriangle|
+ |sizePascalTriangle| |fillPascalTriangle| |safeCeiling| |safeFloor|
+ |safetyMargin| |sumSquares| |euclideanNormalForm| |euclideanGroebner|
+ |factorGroebnerBasis| |groebnerFactorize| |credPol| |gbasis| |critT| |critM|
+ |critB| |critBonD| |critMTonD1| |critMonD1| |redPo| |updatF| |updatD|
+ |minGbasis| |lepol| |prinshINFO| |prindINFO| |fprindINFO| |prinpolINFO|
+ |prinb| |critpOrder| |makeCrit| |gcdBasis| |gcdDecomposition|
+ |conditionsForIdempotents| |genericRightDiscriminant| |genericRightTraceForm|
+ |genericLeftDiscriminant| |genericLeftTraceForm| |genericRightNorm|
+ |genericRightTrace| |genericRightMinimalPolynomial| |rightRankPolynomial|
+ |genericLeftNorm| |genericLeftTrace| |genericLeftMinimalPolynomial|
+ |leftRankPolynomial| |generic| |rightUnits| |leftUnits| |gnuDraw| |compBound|
+ |tablePow| |solveid| |testModulus| |removeZeros| |infsum| |HenselLift|
+ |completeHensel| |multMonom| |build| |leadingIndex| |leadingExponent| |option|
+ |checkOptions| |displayKind| |indexName| |variableName| |functionNames|
+ |functionName| |one| |checkExtraValues| |safety| |allDegrees| |maxMixedDegree|
+ |maxDegree| |maxLevel| |Somos| |homogeneous| |maxPower| |maxSubst| |maxShift|
  |maxDerivative| |GospersMethod| |primitiveMonomials| |totalDegreeSorted|
  |totalDegree| |nextSubsetGray| |firstSubsetGray| |clipPointsDefault|
  |drawToScale| |adaptive| |putColorInfo| |appendPoint| |component| |ranges|
@@ -882,35 +882,35 @@
  |numerator| |denom| |numer| |quadraticForm| |back| |front| |rotate!|
  |dequeue!| |enqueue!| |quatern| |imagK| |imagJ| |imagI| |conjugate| |queue|
  |nthRoot| |fractRadix| |wholeRadix| |cycleRagits| |prefixRagits| |fractRagits|
- |wholeRagits| |radix| |randnum| |reseed| |seed| |rational| |rational?|
- |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes|
- |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
- |multi_SPDE| |rischDEsys| |ei_int| |risch_de_ext| |do_risch_DE| |param_rde|
- |param_rde2| |exp_lower_bound| |monomRDE| |baseRDE| |polyRDE| |SPDEnocancel1|
- |monomRDEsys| |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints|
- |realZeros| |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq|
- |values| |eltable?| |ReduceOrder| |setref| |deref| |ref| |radicalEigenvectors|
- |radicalEigenvector| |radicalEigenvalues| |eigenMatrix| |normalise|
- |gramschmidt| |orthonormalBasis| |antisymmetricTensors| |createGenericMatrix|
- |symmetricTensors| |tensorProduct| |permutationRepresentation|
- |completeEchelonBasis| |createRandomElement| |cyclicSubmodule|
- |standardBasisOfCyclicSubmodule| |areEquivalent?| |isAbsolutelyIrreducible?|
- |meatAxe| |scanOneDimSubspaces| |double| |expt| |lift| |showArrayValues|
- |showScalarValues| |solveRetract| |variables| |mainVariable| |univariate|
- |multivariate| |uniform01| |normal01| |exponential1| |chiSquare1| |normal|
- |exponential| |chiSquare| F |t| |factorFraction| |alg_split_roots|
- |alg_split_root0| |uniform| |binomial| |poisson| |geometric| |ridHack1|
- |interpolate| |nullity| |column| |qelt| |maxColIndex| |minColIndex|
- |maxRowIndex| |minRowIndex| |antisymmetric?| |symmetric?| |diagonal?|
- |square?| |matrix| |rectangularMatrix| |annihilate?| |characteristic| |round|
- |fractionPart| |wholePart| |floor| |ceiling| |norm| |mightHaveRoots| |refine|
- |middle| |size| |right| |left| |roman| |mainSquareFreePart|
- |mainPrimitivePart| |mainContent| |primitivePart!| |gcd| |iexactQuo|
- |next_subResultant2| |LazardQuotient2| |LazardQuotient| |subResultantChain|
- |halfExtendedSubResultantGcd2| |halfExtendedSubResultantGcd1|
- |extendedSubResultantGcd| |exactQuotient!| |exactQuotient|
- |primPartElseUnitCanonical!| |primPartElseUnitCanonical| |retract|
- |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
+ |wholeRagits| |radix| |randnum| |reseed| |seed| |factorSquareFree| |rational|
+ |rational?| |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?|
+ |leaves| |nodes| |rename| |rename!| |mainValue| |mainDefiningPolynomial|
+ |mainForm| |sqrt| |multi_SPDE| |rischDEsys| |ei_int| |risch_de_ext|
+ |do_risch_DE| |param_rde| |param_rde2| |exp_lower_bound| |monomRDE| |baseRDE|
+ |polyRDE| |SPDEnocancel1| |monomRDEsys| |baseRDEsys| |weighted| |rdHack1|
+ |midpoint| |midpoints| |realZeros| |mainCharacterization| |algebraicOf|
+ |makeRec| |makeFEq| |getEq| |values| |eltable?| |ReduceOrder| |setref| |deref|
+ |ref| |radicalEigenvectors| |radicalEigenvector| |radicalEigenvalues|
+ |eigenMatrix| |normalise| |gramschmidt| |orthonormalBasis|
+ |antisymmetricTensors| |createGenericMatrix| |symmetricTensors|
+ |tensorProduct| |permutationRepresentation| |completeEchelonBasis|
+ |createRandomElement| |cyclicSubmodule| |standardBasisOfCyclicSubmodule|
+ |areEquivalent?| |isAbsolutelyIrreducible?| |meatAxe| |scanOneDimSubspaces|
+ |double| |expt| |lift| |showArrayValues| |showScalarValues| |solveRetract|
+ |variables| |mainVariable| |univariate| |multivariate| |uniform01| |normal01|
+ |exponential1| |chiSquare1| |normal| |exponential| |chiSquare| F |t|
+ |factorFraction| |alg_split_roots| |alg_split_root0| |uniform| |binomial|
+ |poisson| |geometric| |ridHack1| |interpolate| |nullity| |column| |qelt|
+ |maxColIndex| |minColIndex| |maxRowIndex| |minRowIndex| |antisymmetric?|
+ |symmetric?| |diagonal?| |square?| |matrix| |rectangularMatrix| |annihilate?|
+ |characteristic| |round| |fractionPart| |wholePart| |floor| |ceiling| |norm|
+ |mightHaveRoots| |refine| |middle| |size| |right| |left| |roman|
+ |mainSquareFreePart| |mainPrimitivePart| |mainContent| |primitivePart!| |gcd|
+ |iexactQuo| |next_subResultant2| |LazardQuotient2| |LazardQuotient|
+ |subResultantChain| |halfExtendedSubResultantGcd2|
+ |halfExtendedSubResultantGcd1| |extendedSubResultantGcd| |exactQuotient!|
+ |exactQuotient| |primPartElseUnitCanonical!| |primPartElseUnitCanonical|
+ |retract| |retractIfCan| |lazyResidueClass| |monicModulo| |lazyPseudoDivide|
  |lazyPremWithDefault| |lazyPquo| |lazyPrem| |pquo| |prem| |supRittWu?|
  |RittWuCompare| |mainMonomials| |mainCoefficients| |leastMonomial|
  |mainMonomial| |quasiMonic?| |monic?| |deepestInitial| |iteratedInitials|
@@ -1067,38 +1067,37 @@
  |loopPoints| |select| |generalTwoFactor| |tryTwoFactor| |generalSqFr|
  |twoFactor| |doFactor| |qnew| |undirectedGraph| |setOrder| |getOrder| |less?|
  |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
- |resetVariableOrder| |prime?| |hadamard| |pre_gauss| |pre_smith|
- |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |factor|
- |factorSquareFree| |henselFact| |hasHi| |segment| SEGMENT |fmecg|
- |commonDenominator| |clearDenominator| |splitDenominator|
- |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
- |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan| |noKaratsuba|
- |karatsubaOnce| |karatsuba| |separate| |pseudoDivide| |pseudoQuotient|
- |composite| |subResultantGcd| |resultant| |discriminant| |pseudoRemainder|
- |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide| |divideExponents|
- |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval| |extend| |approximate|
- |truncate| |order| |center| |terms| |squareFreePart| |BumInSepFFE|
- |multiplyExponents| |laurentIfCan| |laurent| |laurentRep| |rationalPower|
- |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!| |qsetrest!|
- |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!| |concat!|
- |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail| |last| |rest|
- |elt| |first| |concat| |invmultisect| |multisect| |revert| |generalLambert|
- |evenlambert| |oddlambert| |lambert| |lagrange| |differentiate|
- |univariatePolynomial| |integrate| ^ |polynomial| |multiplyCoefficients|
- |quoByVar| |coefficients| |series| |stFunc1| |stFunc2| |stFuncN|
- |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS
- |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
- |variable| |add_slots| |repack_polys| |empty| |chinese_update| |hensel_update|
- |rational_reconstruction| |remove_denoms| |reconstruct| |magnitude| |length|
- |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan| |reduce|
- |graphCurves| |drawCurves| |update| |show| |scale| |connect| |region| |points|
- |units| |getGraph| |putGraph| |graphs| |graphStates| |graphState|
- |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close| |write|
- |colorDef| |reset| |intensity| |lighting| |clipSurface| |showClipRegion|
- |showRegion| |hitherPlane| |eyeDistance| |perspective| |translate| |zoom|
- |rotate| |drawStyle| |outlineRender| |diagonals| |axes| |controlPanel|
- |viewpoint| |dimensions| |title| |resize| |move| |options| |modifyPointData|
- |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
+ |resetVariableOrder| |factor| |prime?| |hadamard| |pre_gauss| |pre_smith|
+ |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |hasHi|
+ |segment| SEGMENT |fmecg| |commonDenominator| |clearDenominator|
+ |splitDenominator| |monicRightFactorIfCan| |rightFactorIfCan|
+ |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan|
+ |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
+ |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
+ |pseudoRemainder| |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide|
+ |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
+ |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
+ |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
+ |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
+ |qsetrest!| |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!|
+ |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
+ |last| |rest| |elt| |first| |concat| |invmultisect| |multisect| |revert|
+ |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
+ |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
+ |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
+ |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
+ LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
+ |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
+ |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
+ |magnitude| |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector|
+ |scan| |reduce| |graphCurves| |drawCurves| |update| |show| |scale| |connect|
+ |region| |points| |units| |getGraph| |putGraph| |graphs| |graphStates|
+ |graphState| |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close|
+ |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
+ |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
+ |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
+ |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
+ |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
  |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
  |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
  |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
