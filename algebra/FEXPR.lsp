@@ -181,8 +181,8 @@
                    (COND ((QEQCAR |m| 0) (QCDR |m|))
                          ('T
                           (|error|
-                           (LIST |mathprint|
-                                 (LIST "Extra symbols detected:"
+                           (LIST '|mathprint|
+                                 (LIST 'CONCAT "Extra symbols detected:"
                                        (SPADCALL
                                         (PROGN
                                          (LETT #2# NIL . #5#)
@@ -288,8 +288,8 @@
            ((NULL (NULL |extras|))
             (EXIT
              (|error|
-              (LIST |mathprint|
-                    (LIST "Non FORTRAN-77 functions detected:"
+              (LIST '|mathprint|
+                    (LIST 'CONCAT "Non FORTRAN-77 functions detected:"
                           (SPADCALL
                            (PROGN
                             (LETT #2# NIL . #5#)
@@ -453,7 +453,8 @@
                  (COND
                   ((QEQCAR |res| 1)
                    (|error|
-                    (LIST |mathprint| (LIST "Illegal Symbol Detected:" NIL))))
+                    (LIST '|mathprint|
+                          (LIST 'CONCAT "Illegal Symbol Detected:" NIL))))
                   ('T (QCDR |res|))))))) 
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 

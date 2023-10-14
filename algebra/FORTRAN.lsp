@@ -67,8 +67,8 @@
                    (LETT |s2| (|FORTRAN;mkString| |target| $) . #2#)
                    (EXIT
                     (|error|
-                     (LIST |mathprint|
-                           (LIST "Incompatible variable lists:"
+                     (LIST '|mathprint|
+                           (LIST 'CONCAT "Incompatible variable lists:"
                                  (SPADCALL |s1| (QREFELT $ 50))
                                  (SPADCALL |s2| (QREFELT $ 50))))))))
                  ('T (SPADCALL (QREFELT $ 51))))))) 

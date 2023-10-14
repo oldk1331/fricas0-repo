@@ -809,20 +809,20 @@
                            (COND
                             ((< |v| 0)
                              (|error|
-                              (LIST |mathprint|
-                                    (LIST
-                                     (|coerceRe2E| |int|
-                                                   (ELT
-                                                    (|Record|
-                                                     (|:| |left|
-                                                          (|Fraction|
-                                                           (|Integer|)))
-                                                     (|:| |right|
-                                                          (|Fraction|
-                                                           (|Integer|))))
-                                                    0))
-                                     "is not a valid isolation interval for"
-                                     (SPADCALL F (QREFELT $ 67)))))))
+                              (LIST '|mathprint|
+                                    (LIST 'CONCAT
+                                          (|coerceRe2E| |int|
+                                                        (ELT
+                                                         (|Record|
+                                                          (|:| |left|
+                                                               (|Fraction|
+                                                                (|Integer|)))
+                                                          (|:| |right|
+                                                               (|Fraction|
+                                                                (|Integer|))))
+                                                         0))
+                                          "is not a valid isolation interval for"
+                                          (SPADCALL F (QREFELT $ 67)))))))
                            (COND
                             ((SPADCALL |eps| (|spadConstant| $ 41)
                                        (QREFELT $ 68))

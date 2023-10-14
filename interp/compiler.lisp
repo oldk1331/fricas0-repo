@@ -1381,8 +1381,8 @@
 ; outputComp(x,e) ==
 ;   u:=comp(['_:_:, x, $OutputForm], $OutputForm, e) => u
 ;   x is ['construct,:argl] =>
-;     [['LIST, :[([.,.,e] := outputComp(x, e)).expr for x in argl]],_
-;            $OutputForm, e]
+;     [['LIST, ['QUOTE, 'CONCAT], :[([.,.,e] := outputComp(x, e)).expr
+;         for x in argl]], $OutputForm, e]
 ;   (v:= get(x,"value",e)) and (v.mode is ['Union,:l]) =>
 ;     [['coerceUn2E, x, v.mode], $OutputForm, e]
 ;   SAY ["outputComp strange x ", x]
@@ -1398,23 +1398,24 @@
             (PROGN (SETQ |argl| (CDR |x|)) #1='T))
        (LIST
         (CONS 'LIST
-              ((LAMBDA (|bfVar#28| |bfVar#27| |x|)
-                 (LOOP
-                  (COND
-                   ((OR (ATOM |bfVar#27|)
-                        (PROGN (SETQ |x| (CAR |bfVar#27|)) NIL))
-                    (RETURN (NREVERSE |bfVar#28|)))
-                   (#1#
-                    (SETQ |bfVar#28|
-                            (CONS
-                             (CAR
-                              (PROGN
-                               (SETQ |LETTMP#1| (|outputComp| |x| |e|))
-                               (SETQ |e| (CADDR |LETTMP#1|))
-                               |LETTMP#1|))
-                             |bfVar#28|))))
-                  (SETQ |bfVar#27| (CDR |bfVar#27|))))
-               NIL |argl| NIL))
+              (CONS (LIST 'QUOTE 'CONCAT)
+                    ((LAMBDA (|bfVar#28| |bfVar#27| |x|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#27|)
+                              (PROGN (SETQ |x| (CAR |bfVar#27|)) NIL))
+                          (RETURN (NREVERSE |bfVar#28|)))
+                         (#1#
+                          (SETQ |bfVar#28|
+                                  (CONS
+                                   (CAR
+                                    (PROGN
+                                     (SETQ |LETTMP#1| (|outputComp| |x| |e|))
+                                     (SETQ |e| (CADDR |LETTMP#1|))
+                                     |LETTMP#1|))
+                                   |bfVar#28|))))
+                        (SETQ |bfVar#27| (CDR |bfVar#27|))))
+                     NIL |argl| NIL)))
         |$OutputForm| |e|))
       ((AND (SETQ |v| (|get| |x| '|value| |e|))
             (PROGN
@@ -1432,7 +1433,7 @@
 ;               [[op, u.expr], m, e]
 ;           SAY ["compiling call to error ", argl]
 ;           u := outputComp(arg, e) =>
-;               [[op, ['LIST, 'mathprint, u.expr]], m, e]
+;               [[op, ['LIST, ['QUOTE, 'mathprint], u.expr]], m, e]
 ;           nil
 ;       SAY ["compiling call to error ", argl]
 ;       nil
@@ -1479,7 +1480,9 @@
               (SAY (LIST '|compiling call to error | |argl|))
               (COND
                ((SETQ |u| (|outputComp| |arg| |e|))
-                (LIST (LIST |op| (LIST 'LIST '|mathprint| (CAR |u|))) |m| |e|))
+                (LIST
+                 (LIST |op| (LIST 'LIST (LIST 'QUOTE '|mathprint|) (CAR |u|)))
+                 |m| |e|))
                (#1# NIL)))))))
          (#1# (PROGN (SAY (LIST '|compiling call to error | |argl|)) NIL))))
        ((AND (CONSP |op|) (EQ (CAR |op|) '|Sel|)

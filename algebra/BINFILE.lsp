@@ -6,22 +6,22 @@
           (COND
            ((NULL (SPADCALL |fn| (QREFELT $ 9)))
             (|error|
-             (LIST |mathprint|
-                   (LIST "File is not readable"
+             (LIST '|mathprint|
+                   (LIST 'CONCAT "File is not readable"
                          (SPADCALL |fn| (QREFELT $ 11))))))
            (#1='T (BINARY_OPEN_INPUT (SPADCALL |fn| (QREFELT $ 13))))))
          ((EQUAL |mode| "output")
           (COND
            ((NULL (SPADCALL |fn| (QREFELT $ 14)))
             (|error|
-             (LIST |mathprint|
-                   (LIST "File is not writable"
+             (LIST '|mathprint|
+                   (LIST 'CONCAT "File is not writable"
                          (SPADCALL |fn| (QREFELT $ 11))))))
            (#1# (BINARY_OPEN_OUTPUT (SPADCALL |fn| (QREFELT $ 13))))))
          ('T
           (|error|
-           (LIST |mathprint|
-                 (LIST "IO mode must be input or output"
+           (LIST '|mathprint|
+                 (LIST 'CONCAT "IO mode must be input or output"
                        (SPADCALL |mode| (QREFELT $ 15)))))))) 
 
 (SDEFUN |BINFILE;open;FnS$;2| ((|fname| |FileName|) (|mode| |String|) ($ $))

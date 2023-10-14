@@ -13,7 +13,7 @@
                              (QREFELT $ 14)))
                   (EXIT
                    (|error|
-                    (LIST |mathprint|
+                    (LIST '|mathprint|
                           (SPADCALL
                            (LIST |stringFn|
                                  "is not a legal Fortran Source File.")
@@ -32,7 +32,7 @@
              (SEQ (SPADCALL (QREFELT $ 20))
                   (EXIT
                    (|error|
-                    (LIST |mathprint|
+                    (LIST '|mathprint|
                           (SPADCALL (LIST |source| "is not readable")
                                     (QREFELT $ 16)))))))))
           (LETT |target| (SPADCALL (QREFELT $ 21)) . #1#)

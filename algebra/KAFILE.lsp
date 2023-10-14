@@ -7,8 +7,8 @@
           (|rMkOstream| (SPADCALL |fn| (QREFELT $ 11))))
          ('T
           (|error|
-           (LIST |mathprint|
-                 (LIST "IO mode must be input or output"
+           (LIST '|mathprint|
+                 (LIST 'CONCAT "IO mode must be input or output"
                        (SPADCALL |mode| (QREFELT $ 13)))))))) 
 
 (SDEFUN |KAFILE;=;2$B;2| ((|f1| $) (|f2| $) ($ |Boolean|))
@@ -54,8 +54,8 @@
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 24))
                   (|error|
-                   (LIST |mathprint|
-                         (LIST "File not in read state"
+                   (LIST '|mathprint|
+                         (LIST 'CONCAT "File not in read state"
                                (SPADCALL |f| (QREFELT $ 18))))))
                  (#1='T
                   (SEQ
@@ -65,8 +65,8 @@
                     (COND
                      ((NULL |ks|)
                       (|error|
-                       (LIST |mathprint|
-                             (LIST "Attempt to read empty file"
+                       (LIST '|mathprint|
+                             (LIST 'CONCAT "Attempt to read empty file"
                                    (SPADCALL |f| (QREFELT $ 18))))))
                      (#1#
                       (SEQ (LETT |ix| (RANDOM (LENGTH |ks|)) . #2#)
@@ -84,8 +84,8 @@
          (COND
           ((SPADCALL (QVELT |f| 2) "output" (QREFELT $ 24))
            (|error|
-            (LIST |mathprint|
-                  (LIST "File not in write state"
+            (LIST '|mathprint|
+                  (LIST 'CONCAT "File not in write state"
                         (SPADCALL |f| (QREFELT $ 18))))))
           ('T
            (SEQ (SPADRWRITE (QCAR |pr|) (QCDR |pr|) (QVELT |f| 1))
