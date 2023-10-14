@@ -155,6 +155,21 @@
  
 (EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (|init_parser_properties|))))
  
+; MUST(x) ==
+;     x => true
+;     spad_syntax_error(nil, nil)
+ 
+(DEFUN MUST (|x|)
+  (PROG () (RETURN (COND (|x| T) ('T (|spad_syntax_error| NIL NIL))))))
+ 
+; OPTIONAL(x) == true
+ 
+(DEFUN OPTIONAL (|x|) (PROG () (RETURN T)))
+ 
+; ACTION(x) == true
+ 
+(DEFUN ACTION (|x|) (PROG () (RETURN T)))
+ 
 ; symbol_is?(x) == EQ(current_symbol(), x)
  
 (DEFUN |symbol_is?| (|x|) (PROG () (RETURN (EQ (|current_symbol|) |x|))))
@@ -168,6 +183,15 @@
     (RETURN
      (COND ((|match_current_token| 'KEYWORD |x|) (PROGN (|advance_token|) T))
            ('T NIL)))))
+ 
+; expect_symbol(x) ==
+;     match_symbol(x) => true
+;     spad_syntax_error(x, nil)
+ 
+(DEFUN |expect_symbol| (|x|)
+  (PROG ()
+    (RETURN
+     (COND ((|match_symbol| |x|) T) ('T (|spad_syntax_error| |x| NIL))))))
  
 ; DEFPARAMETER($reduction_stack, nil)
  
@@ -450,7 +474,7 @@
 ;         tail_val :=
 ;             repetition(";", FUNCTION parse_Category) => pop_stack_1()
 ;             nil
-;         MUST match_symbol(closer)
+;         expect_symbol(closer)
 ;         val1 := pop_stack_1()
 ;         IFCAR(val1) = "if" and tail_val = nil => push_lform0(val1)
 ;         push_lform2("CATEGORY", val1, tail_val)
@@ -467,7 +491,7 @@
                       (COND
                        ((|repetition| '|;| #'|parse_Category|) (|pop_stack_1|))
                        (#1# NIL)))
-              (MUST (|match_symbol| |closer|))
+              (|expect_symbol| |closer|)
               (SETQ |val1| (|pop_stack_1|))
               (COND
                ((AND (EQ (IFCAR |val1|) '|if|) (NULL |tail_val|))
@@ -478,7 +502,7 @@
 ;     match_symbol("if") =>
 ;         MUST parse_Expression()
 ;         cond := pop_stack_1()
-;         MUST match_symbol "then"
+;         expect_symbol "then"
 ;         MUST parse_Category()
 ;         else_val :=
 ;             match_symbol "else" =>
@@ -507,7 +531,7 @@
        (PROGN
         (MUST (|parse_Expression|))
         (SETQ |cond| (|pop_stack_1|))
-        (MUST (|match_symbol| '|then|))
+        (|expect_symbol| '|then|)
         (MUST (|parse_Category|))
         (SETQ |else_val|
                 (COND
@@ -719,7 +743,7 @@
 ; parse_Conditional() ==
 ;     not(match_symbol "if") => nil
 ;     MUST parse_Expression()
-;     MUST match_symbol "then"
+;     expect_symbol "then"
 ;     MUST parse_Expression()
 ;     else_val :=
 ;         match_symbol "else" =>
@@ -735,7 +759,7 @@
            (#1='T
             (PROGN
              (MUST (|parse_Expression|))
-             (MUST (|match_symbol| '|then|))
+             (|expect_symbol| '|then|)
              (MUST (|parse_Expression|))
              (SETQ |else_val|
                      (COND
@@ -821,26 +845,26 @@
  
 ; parse_Loop() ==
 ;     OR(AND(repetition(nil, FUNCTION parse_Iterator),
-;            MUST match_symbol "repeat", MUST parse_Expr 110,
+;            expect_symbol "repeat", MUST parse_Expr 110,
 ;            push_lform1("REPEAT", [:pop_stack_2(), pop_stack_1()])),
-;        AND(match_symbol "repeat", MUST parse_Expr 110,
+;        AND(expect_symbol "repeat", MUST parse_Expr 110,
 ;            push_form1("REPEAT", pop_stack_1())))
  
 (DEFUN |parse_Loop| ()
   (PROG ()
     (RETURN
      (OR
-      (AND (|repetition| NIL #'|parse_Iterator|)
-           (MUST (|match_symbol| '|repeat|)) (MUST (|parse_Expr| 110))
+      (AND (|repetition| NIL #'|parse_Iterator|) (|expect_symbol| '|repeat|)
+           (MUST (|parse_Expr| 110))
            (|push_lform1| 'REPEAT
             (APPEND (|pop_stack_2|) (CONS (|pop_stack_1|) NIL))))
-      (AND (|match_symbol| '|repeat|) (MUST (|parse_Expr| 110))
+      (AND (|expect_symbol| '|repeat|) (MUST (|parse_Expr| 110))
            (|push_form1| 'REPEAT (|pop_stack_1|)))))))
  
 ; parse_Iterator() ==
 ;     match_symbol "for" =>
 ;         MUST parse_Primary()
-;         MUST match_symbol "in"
+;         expect_symbol "in"
 ;         MUST parse_Expression()
 ;         by_val :=
 ;               AND(match_symbol "by", MUST parse_Expr 200) => pop_stack_1()
@@ -870,7 +894,7 @@
       ((|match_symbol| '|for|)
        (PROGN
         (MUST (|parse_Primary|))
-        (MUST (|match_symbol| '|in|))
+        (|expect_symbol| '|in|)
         (MUST (|parse_Expression|))
         (SETQ |by_val|
                 (COND
@@ -1163,15 +1187,15 @@
  
 ; parse_Enclosure1(closer) ==
 ;     MUST OR(
-;             AND(parse_Expr 6, MUST match_symbol(closer)),
-;             AND(match_symbol(closer), push_form0("@Tuple")))
+;             AND(parse_Expr 6, expect_symbol(closer)),
+;             AND(expect_symbol(closer), push_form0("@Tuple")))
  
 (DEFUN |parse_Enclosure1| (|closer|)
   (PROG ()
     (RETURN
      (MUST
-      (OR (AND (|parse_Expr| 6) (MUST (|match_symbol| |closer|)))
-          (AND (|match_symbol| |closer|) (|push_form0| '|@Tuple|)))))))
+      (OR (AND (|parse_Expr| 6) (|expect_symbol| |closer|))
+          (AND (|expect_symbol| |closer|) (|push_form0| '|@Tuple|)))))))
  
 ; parse_Enclosure() ==
 ;     match_symbol "(" => parse_Enclosure1(")")
@@ -1229,7 +1253,7 @@
 ; parse_Sequence() ==
 ;     match_symbol "[" =>
 ;         MUST(parse_Sequence1())
-;         MUST(match_symbol "]")
+;         expect_symbol "]"
 ;     nil
  
 (DEFUN |parse_Sequence| ()
@@ -1237,7 +1261,7 @@
     (RETURN
      (COND
       ((|match_symbol| '[)
-       (PROGN (MUST (|parse_Sequence1|)) (MUST (|match_symbol| ']))))
+       (PROGN (MUST (|parse_Sequence1|)) (|expect_symbol| '])))
       ('T NIL)))))
  
 ; parse_Sequence1() ==
