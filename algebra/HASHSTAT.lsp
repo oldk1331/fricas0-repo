@@ -1,21 +1,21 @@
 
 (/VERSIONCHECK 2) 
 
-(PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL FNVBASIS)) 
+(PUT '|HASHSTAT;new;$;1| '|SPADreplace| '(XLAM NIL HASHSTATE-BASIS)) 
 
-(DEFUN |HASHSTAT;new;$;1| ($) FNVBASIS) 
+(DEFUN |HASHSTAT;new;$;1| ($) HASHSTATE-BASIS) 
 
-(PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'FNV-MAKE-FIXNUM) 
+(PUT '|HASHSTAT;value;$Si;2| '|SPADreplace| 'HASHSTATE-MAKE-FIXNUM) 
 
-(DEFUN |HASHSTAT;value;$Si;2| (|hs| $) (FNV-MAKE-FIXNUM |hs|)) 
+(DEFUN |HASHSTAT;value;$Si;2| (|hs| $) (HASHSTATE-MAKE-FIXNUM |hs|)) 
 
-(PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'FNV-1A) 
+(PUT '|HASHSTAT;update!;$Si$;3| '|SPADreplace| 'HASHSTATE-UPDATE) 
 
-(DEFUN |HASHSTAT;update!;$Si$;3| (|hs| |i| $) (FNV-1A |hs| |i|)) 
+(DEFUN |HASHSTAT;update!;$Si$;3| (|hs| |i| $) (HASHSTATE-UPDATE |hs| |i|)) 
 
-(PUT '|HASHSTAT;modulo| '|SPADreplace| 'FNV-MOD) 
+(PUT '|HASHSTAT;modulo| '|SPADreplace| 'HASHSTATE-MOD) 
 
-(DEFUN |HASHSTAT;modulo| (|hs| |i| $) (FNV-MOD |hs| |i|)) 
+(DEFUN |HASHSTAT;modulo| (|hs| |i| $) (HASHSTATE-MOD |hs| |i|)) 
 
 (DEFUN |HashState| ()
   (PROG ()

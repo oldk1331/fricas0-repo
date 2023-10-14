@@ -95,9 +95,9 @@
          (CONS 0 (SPADCALL |c1| (QREFELT $ 21) (QREFELT $ 38))))
         ('T (CONS 1 "failed")))))))) 
 
-(PUT '|ZMOD;hashUpdate!;Hs$Hs;22| '|SPADreplace| 'FNV-1A) 
+(PUT '|ZMOD;hashUpdate!;Hs$Hs;22| '|SPADreplace| 'HASHSTATE-UPDATE) 
 
-(DEFUN |ZMOD;hashUpdate!;Hs$Hs;22| (|hs| |s| $) (FNV-1A |hs| |s|)) 
+(DEFUN |ZMOD;hashUpdate!;Hs$Hs;22| (|hs| |s| $) (HASHSTATE-UPDATE |hs| |s|)) 
 
 (PUT '|ZMOD;convert;$I;23| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
@@ -175,7 +175,8 @@
          (CONS 0 (SPADCALL |c1| (QREFELT $ 6) (QREFELT $ 38))))
         ('T (CONS 1 "failed")))))))) 
 
-(DEFUN |ZMOD;hashUpdate!;Hs$Hs;40| (|hs| |s| $) (FNV-1A |hs| (SXHASH |s|))) 
+(DEFUN |ZMOD;hashUpdate!;Hs$Hs;40| (|hs| |s| $)
+  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |IntegerMod| (#1=#:G194)
   (PROG ()

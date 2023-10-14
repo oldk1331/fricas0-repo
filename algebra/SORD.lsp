@@ -18,7 +18,8 @@
 
 (DEFUN |SORD;hashUpdate!;Hs$Hs;8| (|hs| |p| $)
   (COND
-   ((SPADCALL |p| (QREFELT $ 17)) (FNV-1A |hs| (SPADCALL 6672 (QREFELT $ 23))))
+   ((SPADCALL |p| (QREFELT $ 17))
+    (HASHSTATE-UPDATE |hs| (SPADCALL 6672 (QREFELT $ 23))))
    ('T (SPADCALL |hs| |p| (QREFELT $ 25))))) 
 
 (DEFUN |SORD;coerce;Nni$;9| (|n| $)

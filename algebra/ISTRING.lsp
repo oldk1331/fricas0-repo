@@ -463,7 +463,8 @@
   (|stringMatch| |pattern| |target|
                  (CHARACTER (SPADCALL |wildcard| (QREFELT $ 69))))) 
 
-(DEFUN |ISTRING;hashUpdate!;Hs$Hs;35| (|hs| |s| $) (FNV-1A |hs| (SXHASH |s|))) 
+(DEFUN |ISTRING;hashUpdate!;Hs$Hs;35| (|hs| |s| $)
+  (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |ISTRING;match?;2$CB;36| (|pattern| |target| |dontcare| $)
   (PROG (|q| #1=#:G1348 |p| |i| #2=#:G1356 #3=#:G1347 |s| #4=#:G1346 #5=#:G1343
