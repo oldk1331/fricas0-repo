@@ -2578,6 +2578,15 @@
                  NIL |sig| NIL))))))
       (#1# |s|)))))
  
+; form_to_abbrev(x) ==
+;     $abbreviateTypes : local := true
+;     form2String(x)
+ 
+(DEFUN |form_to_abbrev| (|x|)
+  (PROG (|$abbreviateTypes|)
+    (DECLARE (SPECIAL |$abbreviateTypes|))
+    (RETURN (PROGN (SETQ |$abbreviateTypes| T) (|form2String| |x|)))))
+ 
 ; pred2English x ==
 ;   x is ['IF,cond,thenClause,elseClause] =>
 ;     c := concat('"if ",pred2English cond)
@@ -2593,15 +2602,15 @@
 ;   x is ['NOT,l] =>
 ;     concat('"not ",pred2English l)
 ;   x is [op,a,b] and op in '(has ofCategory) =>
-;     concat(pred2English a,'%b,'"has",'%d,form2String abbreviate b)
+;     concat(pred2English a, '%b, '"has",'%d, form_to_abbrev b)
 ;   x is [op,a,b] and op in '(HasSignature HasCategory) =>
 ;     concat(prefix2String0 formatPredParts a,'%b,'"has",'%d,
 ;       prefix2String0 formatPredParts b)
 ;   x is [op,a,b] and op in '(ofType getDomainView) =>
 ;     if b is ['QUOTE,b'] then b := b'
-;     concat(pred2English a,'": ",form2String abbreviate b)
+;     concat(pred2English a, '": ", form_to_abbrev b)
 ;   x is [op,a,b] and op in '(isDomain domainEqual) =>
-;     concat(pred2English a,'" = ",form2String abbreviate b)
+;     concat(pred2English a, '" = ", form_to_abbrev b)
 ;   x is [op,:.] and (translation := LASSOC(op,'(
 ;     (_< . " < ") (_<_= . " <= ")
 ;       (_> . " > ") (_>_= . " >= ") (_=  . " = ") (_^_= . " _^_= ")))) =>
@@ -2687,7 +2696,7 @@
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#)))))
             (|member| |op| '(|has| |ofCategory|)))
        (|concat| (|pred2English| |a|) '|%b| "has" '|%d|
-        (|form2String| (|abbreviate| |b|))))
+        (|form_to_abbrev| |b|)))
       ((AND (CONSP |x|)
             (PROGN
              (SETQ |op| (CAR |x|))
@@ -2720,8 +2729,7 @@
                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                      (PROGN (SETQ |b'| (CAR |ISTMP#1|)) #1#))))
           (SETQ |b| |b'|)))
-        (|concat| (|pred2English| |a|) ": "
-         (|form2String| (|abbreviate| |b|)))))
+        (|concat| (|pred2English| |a|) ": " (|form_to_abbrev| |b|))))
       ((AND (CONSP |x|)
             (PROGN
              (SETQ |op| (CAR |x|))
@@ -2733,8 +2741,7 @@
                    (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                         (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#)))))
             (|member| |op| '(|isDomain| |domainEqual|)))
-       (|concat| (|pred2English| |a|) " = "
-        (|form2String| (|abbreviate| |b|))))
+       (|concat| (|pred2English| |a|) " = " (|form_to_abbrev| |b|)))
       ((AND (CONSP |x|) (PROGN (SETQ |op| (CAR |x|)) #1#)
             (SETQ |translation|
                     (LASSOC |op|
