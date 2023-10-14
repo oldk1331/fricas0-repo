@@ -431,7 +431,7 @@
 ;              args
 ;         LISTP(args) =>
 ;              [arg1, sig1] := argsToSig(args)
-;              sig1 =>
+;              sig1 or NULL(args) =>
 ;                  ress := compAtSign(["@", ["+->", arg1, body],
 ;                                   ["Mapping", target, :sig1]], m, e)
 ;                  ress
@@ -470,7 +470,7 @@
             (SETQ |arg1| (CAR |LETTMP#1|))
             (SETQ |sig1| (CADR |LETTMP#1|))
             (COND
-             (|sig1|
+             ((OR |sig1| (NULL |args|))
               (PROGN
                (SETQ |ress|
                        (|compAtSign|
