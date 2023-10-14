@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4680 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4687 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -67,6 +67,7 @@
  |DrawOptionFunctions1| |DifferentialSparseMultivariatePolynomial|
  |DistributionContinuedFractionPackage| |DifferentialVariableCategory&|
  |DifferentialVariableCategory| |ExtAlgBasis| |ElementaryFunction|
+ |ElementaryFunctionsGeneralizedUnivariatePowerSeries|
  |ElementaryFunctionStructurePackage|
  |ElementaryFunctionsUnivariateLaurentSeries|
  |ElementaryFunctionsUnivariatePuiseuxSeries| |ExtensibleLinearAggregate&|
@@ -135,7 +136,8 @@
  |GroebnerInternalPackage| |GcdBasis| |GcdDomain&| |GcdDomain|
  |GenericNonAssociativeAlgebra| |GeneralDistributedMultivariatePolynomial|
  |GenExEuclid| |GeneralizedMultivariateFactorize| |GeneralPolynomialGcdPackage|
- |GenUFactorize| |GenerateUnivariatePowerSeries| |GeneralHenselPackage|
+ |GenUFactorize| |GenerateUnivariatePowerSeries|
+ |GeneralizedUnivariatePowerSeries| |GeneralHenselPackage|
  |GeneralModulePolynomial| |GuessOption| |GuessOptionFunctions0|
  |GosperSummationMethod| |GeneralPolynomialSet| |GradedAlgebra&|
  |GradedAlgebra| |GrayCode| |GraphicsDefaults| |GraphImage| |GradedModule&|
@@ -377,10 +379,11 @@
  |TrigonometricFunctionCategory| |TrigonometricManipulations|
  |TriangularMatrixOperations| |TranscendentalManipulations| |TaylorSeries|
  |TaylorSeriesExpansion&| |TaylorSeriesExpansion|
- |TaylorSeriesExpansionLaurent| |TaylorSeriesExpansionPuiseux|
- |TaylorSeriesExpansionTaylor| |TriangularSetCategory&| |TriangularSetCategory|
- |TubePlot| |TubePlotTools| |Tuple| |TwoFactorize| |Type| |Typed| |U16Matrix|
- |U16Vector| |U32Matrix| |U32Vector| |U8Matrix| |U8Vector| |UndirectedGraph|
+ |TaylorSeriesExpansionGeneralized| |TaylorSeriesExpansionLaurent|
+ |TaylorSeriesExpansionPuiseux| |TaylorSeriesExpansionTaylor|
+ |TriangularSetCategory&| |TriangularSetCategory| |TubePlot| |TubePlotTools|
+ |Tuple| |TwoFactorize| |Type| |Typed| |U16Matrix| |U16Vector| |U32Matrix|
+ |U32Vector| |U8Matrix| |U8Vector| |UndirectedGraph|
  |UserDefinedPartialOrdering| |UserDefinedVariableOrdering|
  |UniqueFactorizationDomain&| |UniqueFactorizationDomain|
  |UnivariateFormalPowerSeries| |UnivariateFormalPowerSeriesFunctions|
@@ -490,7 +493,7 @@
  |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
  |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
  |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
- |localReal?| |rischNormalize| |realLiouvillian| |realElementary|
+ |localReal?| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
  |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
  |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
  |ellipticRJ| |qsetelt!| |eigenvalues| |eigenvector| |generalizedEigenvector|
@@ -592,11 +595,11 @@
  |genericRightTrace| |genericRightMinimalPolynomial| |rightRankPolynomial|
  |genericLeftNorm| |genericLeftTrace| |genericLeftMinimalPolynomial|
  |leftRankPolynomial| |generic| |rightUnits| |leftUnits| |compBound| |tablePow|
- |solveid| |testModulus| |HenselLift| |completeHensel| |multMonom| |build|
- |leadingIndex| |leadingExponent| |option| |checkOptions| |displayKind|
- |indexName| |variableName| |functionNames| |functionName| |one|
- |checkExtraValues| |safety| |allDegrees| |maxMixedDegree| |maxDegree|
- |maxLevel| |Somos| |homogeneous| |maxPower| |maxSubst| |maxShift|
+ |solveid| |testModulus| |removeZeros| |apply_taylor| |infsum| |HenselLift|
+ |completeHensel| |multMonom| |build| |leadingIndex| |leadingExponent| |option|
+ |checkOptions| |displayKind| |indexName| |variableName| |functionNames|
+ |functionName| |one| |checkExtraValues| |safety| |allDegrees| |maxMixedDegree|
+ |maxDegree| |maxLevel| |Somos| |homogeneous| |maxPower| |maxSubst| |maxShift|
  |maxDerivative| |GospersMethod| |nextSubsetGray| |firstSubsetGray|
  |clipPointsDefault| |drawToScale| |adaptive| |putColorInfo| |appendPoint|
  |component| |ranges| |pointLists| |makeGraphImage| |graphImage| |groebSolve|
