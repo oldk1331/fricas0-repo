@@ -2563,8 +2563,18 @@
 ;   [x,m',e]:= convert(T,m) or return nil
 ;   -- 1.1 exit if result is a list
 ;   m1 is ["List",D] =>
-;     for y in nameList repeat e:= put(y,"value",[genSomeVariable(),D,$noEnv],e)
-;     convert([["PROGN",x,["LET",nameList,g],g],m',e],m)
+;     g2 := genVariable()
+;     e := addBinding(g2, nil, e)
+;     e := put(g2, "mode", m1, e)
+;     T := compSetq1(g2, g, m1, e) or return nil
+;     [x2, ., e] := convert(T, m1) or return nil
+;     ass_list := []
+;     for y in nameList repeat
+;         e := put(y, "value", [genSomeVariable(), D, $noEnv], e)
+;         ass_list := cons(["LET", y, ["SPADfirst", g2]], ass_list)
+;         ass_list := cons(["LET", g2, ["CDR", g2]], ass_list)
+;     ass_list := nreverse(rest(ass_list))
+;     convert([["PROGN",x, x2, :ass_list, g], m', e], m)
 ;   -- 2 verify that the #nameList = number of parts of right-hand-side
 ;   selectorModePairs:=
 ;                                                 --list of modes
@@ -2584,8 +2594,8 @@
 ;   else [MKPROGN [x,:assignList,g],m',e]
  
 (DEFUN |setqMultiple| (|nameList| |val| |m| |e|)
-  (PROG (|l| |g| |LETTMP#1| |m1| T$ |x| |m'| |ISTMP#1| D |selectorModePairs|
-         |y| |z| |assignList|)
+  (PROG (|l| |g| |LETTMP#1| |m1| T$ |x| |m'| |ISTMP#1| D |g2| |x2| |ass_list|
+         |selectorModePairs| |y| |z| |assignList|)
     (RETURN
      (COND
       ((AND (CONSP |val|) (EQ (CAR |val|) 'CONS) (EQUAL |m| |$NoValueMode|))
@@ -2616,19 +2626,38 @@
                 (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                      (PROGN (SETQ D (CAR |ISTMP#1|)) #1#))))
           (PROGN
+           (SETQ |g2| (|genVariable|))
+           (SETQ |e| (|addBinding| |g2| NIL |e|))
+           (SETQ |e| (|put| |g2| '|mode| |m1| |e|))
+           (SETQ T$ (OR (|compSetq1| |g2| |g| |m1| |e|) (RETURN NIL)))
+           (SETQ |LETTMP#1| (OR (|convert| T$ |m1|) (RETURN NIL)))
+           (SETQ |x2| (CAR |LETTMP#1|))
+           (SETQ |e| (CADDR |LETTMP#1|))
+           (SETQ |ass_list| NIL)
            ((LAMBDA (|bfVar#78| |y|)
               (LOOP
                (COND
                 ((OR (ATOM |bfVar#78|) (PROGN (SETQ |y| (CAR |bfVar#78|)) NIL))
                  (RETURN NIL))
                 (#1#
-                 (SETQ |e|
-                         (|put| |y| '|value|
-                          (LIST (|genSomeVariable|) D |$noEnv|) |e|))))
+                 (PROGN
+                  (SETQ |e|
+                          (|put| |y| '|value|
+                           (LIST (|genSomeVariable|) D |$noEnv|) |e|))
+                  (SETQ |ass_list|
+                          (CONS (LIST 'LET |y| (LIST '|SPADfirst| |g2|))
+                                |ass_list|))
+                  (SETQ |ass_list|
+                          (CONS (LIST 'LET |g2| (LIST 'CDR |g2|))
+                                |ass_list|)))))
                (SETQ |bfVar#78| (CDR |bfVar#78|))))
             |nameList| NIL)
+           (SETQ |ass_list| (NREVERSE (CDR |ass_list|)))
            (|convert|
-            (LIST (LIST 'PROGN |x| (LIST 'LET |nameList| |g|) |g|) |m'| |e|)
+            (LIST
+             (CONS 'PROGN
+                   (CONS |x| (CONS |x2| (APPEND |ass_list| (CONS |g| NIL)))))
+             |m'| |e|)
             |m|)))
          (#1#
           (PROGN
