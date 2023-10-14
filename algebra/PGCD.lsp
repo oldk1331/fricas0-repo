@@ -234,47 +234,43 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PGCD;imposelc| (|lipol| |lvar| |lval| |leadc| $)
-  (PROG (|result| #1=#:G197 |p1| #2=#:G203 |pol| #3=#:G204 |leadpol|)
+  (PROG (|result| #1=#:G205 |p1u| |p1| #2=#:G206 |pol| #3=#:G207 |leadpol|)
     (RETURN
-     (SEQ (LETT |result| NIL . #4=(|PGCD;imposelc|))
-          (SEQ (LETT |leadpol| NIL . #4#) (LETT #3# |leadc| . #4#)
-               (LETT |pol| NIL . #4#) (LETT #2# |lipol| . #4#) G190
-               (COND
-                ((OR (ATOM #2#) (PROGN (LETT |pol| (CAR #2#) . #4#) NIL)
-                     (ATOM #3#) (PROGN (LETT |leadpol| (CAR #3#) . #4#) NIL))
-                 (GO G191)))
-               (SEQ
-                (LETT |p1|
-                      (SPADCALL
-                       (SPADCALL
-                        (SPADCALL |leadpol| |lvar| |lval| (QREFELT $ 43))
-                        (QREFELT $ 44))
-                       |pol| (QREFELT $ 45))
-                      . #4#)
-                (EXIT
-                 (LETT |result|
-                       (CONS
-                        (PROG2
-                            (LETT #1#
-                                  (SPADCALL |p1|
-                                            (SPADCALL |pol| (QREFELT $ 46))
-                                            (QREFELT $ 47))
-                                  . #4#)
-                            (QCDR #1#)
-                          (|check_union| (QEQCAR #1# 0)
-                                         (|SparseUnivariatePolynomial|
-                                          (QREFELT $ 8))
-                                         #1#))
-                        |result|)
-                       . #4#)))
-               (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#)) . #4#)
-               (GO G190) G191 (EXIT NIL))
-          (EXIT (REVERSE |result|)))))) 
+     (SEQ
+      (EXIT
+       (SEQ (LETT |result| NIL . #4=(|PGCD;imposelc|))
+            (SEQ (LETT |leadpol| NIL . #4#) (LETT #3# |leadc| . #4#)
+                 (LETT |pol| NIL . #4#) (LETT #2# |lipol| . #4#) G190
+                 (COND
+                  ((OR (ATOM #2#) (PROGN (LETT |pol| (CAR #2#) . #4#) NIL)
+                       (ATOM #3#) (PROGN (LETT |leadpol| (CAR #3#) . #4#) NIL))
+                   (GO G191)))
+                 (SEQ
+                  (LETT |p1|
+                        (SPADCALL
+                         (SPADCALL
+                          (SPADCALL |leadpol| |lvar| |lval| (QREFELT $ 43))
+                          (QREFELT $ 44))
+                         |pol| (QREFELT $ 45))
+                        . #4#)
+                  (LETT |p1u|
+                        (SPADCALL |p1| (SPADCALL |pol| (QREFELT $ 46))
+                                  (QREFELT $ 47))
+                        . #4#)
+                  (EXIT
+                   (COND
+                    ((QEQCAR |p1u| 1)
+                     (PROGN (LETT #1# (CONS 1 "failed") . #4#) (GO #1#)))
+                    ('T (LETT |result| (CONS (QCDR |p1u|) |result|) . #4#)))))
+                 (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#)) . #4#)
+                 (GO G190) G191 (EXIT NIL))
+            (EXIT (CONS 0 (REVERSE |result|)))))
+      #1# (EXIT #1#))))) 
 
 (DEFUN |PGCD;notCoprime| (|g| |p2| |ldeg| |lvar1| |ltry| $)
-  (PROG (|ulist| #1=#:G213 #2=#:G224 |uf| #3=#:G223 |gd1| |dl| |ul| |l| |gd2|
-         #4=#:G222 |gdl| |lgcd| |lquo| |d| |lcpol| |ug1| |lval| |newchoice|
-         |#G33| |#G32| |p2l| #5=#:G206 |#G31| |#G30| |lg| |l1| |g1|)
+  (PROG (|ulist| #1=#:G216 #2=#:G227 |uf| #3=#:G226 |gd1| |dl| |ul| |l| |gd2|
+         #4=#:G225 |gdl| |lgcd| |lquo| |d| |lcpol| |ug1| |lval| |newchoice|
+         |#G33| |#G32| |p2l| #5=#:G209 |#G31| |#G30| |lg| |l1| |g1|)
     (RETURN
      (SEQ
       (EXIT
@@ -477,7 +473,7 @@
                       (EXIT |result|))))))))))))))))) 
 
 (DEFUN |PGCD;localgcd| (|p1| |p2| |lvar| |ltry| $)
-  (PROG (#1=#:G244 |h| |ldeg| |dd| |ud| |listpol| |uterm| #2=#:G165)
+  (PROG (#1=#:G247 |h| |ldeg| |dd| |ud| |listpol| |uterm| #2=#:G165)
     (RETURN
      (SEQ
       (LETT |uterm|
@@ -544,7 +540,7 @@
                     |md| (QREFELT $ 75)))))))))) 
 
 (DEFUN |PGCD;better| (|p1| |p2| $)
-  (PROG (#1=#:G254)
+  (PROG (#1=#:G257)
     (RETURN
      (COND ((SPADCALL |p1| (QREFELT $ 76)) 'T)
            ((SPADCALL |p2| (QREFELT $ 76)) 'NIL)
@@ -564,7 +560,7 @@
                        (QREFELT $ 79)))))))) 
 
 (DEFUN |PGCD;best_to_front| (|l| $)
-  (PROG (|ress| |best| #1=#:G264 |p|)
+  (PROG (|ress| |best| #1=#:G267 |p|)
     (RETURN
      (SEQ (LETT |ress| NIL . #2=(|PGCD;best_to_front|))
           (LETT |best| (|SPADfirst| |l|) . #2#)
@@ -583,7 +579,7 @@
           (EXIT (CONS |best| |ress|)))))) 
 
 (DEFUN |PGCD;gcdTermList| (|p1| |p2| $)
-  (PROG (|q| #1=#:G271 |term| #2=#:G272 |termList| #3=#:G266)
+  (PROG (|q| #1=#:G274 |term| #2=#:G275 |termList| #3=#:G269)
     (RETURN
      (SEQ
       (LETT |termList|
@@ -618,7 +614,7 @@
       (EXIT |q|))))) 
 
 (DEFUN |PGCD;gcd;3Sup;12| (|p1| |p2| $)
-  (PROG (#1=#:G275 |c2| |c1| |#G58| |#G57|)
+  (PROG (#1=#:G278 |c2| |c1| |#G58| |#G57|)
     (RETURN
      (SEQ
       (COND
@@ -687,7 +683,7 @@
    (QREFELT $ 75))) 
 
 (DEFUN |PGCD;lift?| (|p1| |p2| |uterm| |ldeg| |lvar| $)
-  (PROG (|l| |lgcd| |f| #1=#:G287 |nolift| #2=#:G294 |uf| |listpol| |d| |lval|
+  (PROG (|l| |lgcd| |f| #1=#:G290 |nolift| #2=#:G297 |uf| |listpol| |d| |lval|
          |#G67| |#G66| |leadpol|)
     (RETURN
      (SEQ (LETT |leadpol| 'NIL . #3=(|PGCD;lift?|))
@@ -739,9 +735,9 @@
                           (#4# (CONS 0 (QCDR |l|))))))))))))) 
 
 (DEFUN |PGCD;lift| (|f| |d| |uf| |lgcd| |lvar| |ldeg| |lval| $)
-  (PROG (|p1| |p0| |#G83| |#G82| |#G81| |#G80| |plist| |pl| |lg| |leadlist|
-         #1=#:G300 |lcd| #2=#:G313 |n0| #3=#:G314 |n1| #4=#:G312 |leadpol| |df|
-         |lcf|)
+  (PROG (|p1| |p0| |#G83| |#G82| |#G81| |#G80| |plist| |pl| |lg| |lgu|
+         |leadlist| #1=#:G303 |lcd| #2=#:G317 |n0| #3=#:G318 |n1| #4=#:G316
+         |leadpol| |df| |lcf|)
     (RETURN
      (SEQ (LETT |leadpol| 'NIL . #5=(|PGCD;lift|))
           (LETT |lcf| (SPADCALL |f| (QREFELT $ 50)) . #5#)
@@ -811,39 +807,48 @@
                  (EXIT
                   (LETT |uf| (SPADCALL |lcd| |uf| (QREFELT $ 97)) . #5#)))))
           (LETT |leadlist| (LIST |lgcd| |lcf|) . #5#)
-          (LETT |lg|
+          (LETT |lgu|
                 (|PGCD;imposelc| (LIST |d| |uf|) |lvar| |lval| |leadlist| $)
                 . #5#)
-          (LETT |pl|
-                (SPADCALL |f| |lvar| |lg| |lval| |leadlist| |ldeg|
-                          (QREFELT $ 16) (QREFELT $ 100))
-                . #5#)
           (EXIT
-           (COND ((QEQCAR |pl| 1) (CONS 1 "failed"))
+           (COND ((QEQCAR |lgu| 1) (CONS 1 "failed"))
                  (#6#
-                  (SEQ (LETT |plist| (QCDR |pl|) . #5#)
-                       (PROGN
-                        (LETT |#G80| (|SPADfirst| |plist|) . #5#)
-                        (LETT |#G81| (SPADCALL |plist| 2 (QREFELT $ 90)) . #5#)
-                        (LETT |p0| |#G80| . #5#)
-                        (LETT |p1| |#G81| . #5#))
-                       (COND
-                        ((SPADCALL (SPADCALL |p0| |lvar| |lval| (QREFELT $ 31))
-                                   (|SPADfirst| |lg|) (QREFELT $ 101))
-                         (PROGN
-                          (LETT |#G82| |p1| . #5#)
-                          (LETT |#G83| |p0| . #5#)
-                          (LETT |p0| |#G82| . #5#)
-                          (LETT |p1| |#G83| . #5#))))
+                  (SEQ (LETT |lg| (QCDR |lgu|) . #5#)
+                       (LETT |pl|
+                             (SPADCALL |f| |lvar| |lg| |lval| |leadlist| |ldeg|
+                                       (QREFELT $ 16) (QREFELT $ 100))
+                             . #5#)
                        (EXIT
-                        (COND
-                         (|leadpol|
-                          (SPADCALL |p0| (SPADCALL |p0| (QREFELT $ 84))
-                                    (QREFELT $ 102)))
-                         (#6# (CONS 0 |p0|)))))))))))) 
+                        (COND ((QEQCAR |pl| 1) (CONS 1 "failed"))
+                              (#6#
+                               (SEQ (LETT |plist| (QCDR |pl|) . #5#)
+                                    (PROGN
+                                     (LETT |#G80| (|SPADfirst| |plist|) . #5#)
+                                     (LETT |#G81|
+                                           (SPADCALL |plist| 2 (QREFELT $ 90))
+                                           . #5#)
+                                     (LETT |p0| |#G80| . #5#)
+                                     (LETT |p1| |#G81| . #5#))
+                                    (COND
+                                     ((SPADCALL
+                                       (SPADCALL |p0| |lvar| |lval|
+                                                 (QREFELT $ 31))
+                                       (|SPADfirst| |lg|) (QREFELT $ 101))
+                                      (PROGN
+                                       (LETT |#G82| |p1| . #5#)
+                                       (LETT |#G83| |p0| . #5#)
+                                       (LETT |p0| |#G82| . #5#)
+                                       (LETT |p1| |#G83| . #5#))))
+                                    (EXIT
+                                     (COND
+                                      (|leadpol|
+                                       (SPADCALL |p0|
+                                                 (SPADCALL |p0| (QREFELT $ 84))
+                                                 (QREFELT $ 102)))
+                                      (#6# (CONS 0 |p0|)))))))))))))))) 
 
 (DEFUN |PGCD;gcd;3P;16| (|p1| |p2| $)
-  (PROG (|mv2| #1=#:G319 |mv1|)
+  (PROG (|mv2| #1=#:G323 |mv1|)
     (RETURN
      (SEQ
       (COND
@@ -901,7 +906,7 @@
                         (#3# (|PGCD;gcdTermList| |p2| |p1| $))))))))))))))) 
 
 (DEFUN |PGCD;gcd;LP;17| (|listp| $)
-  (PROG (#1=#:G329 |f| #2=#:G330 |g| |lf|)
+  (PROG (#1=#:G333 |f| #2=#:G334 |g| |lf|)
     (RETURN
      (SEQ
       (EXIT
@@ -922,7 +927,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |PGCD;gcd;LSup;18| (|listp| $)
-  (PROG (#1=#:G339 |f| #2=#:G340 |g| |lf|)
+  (PROG (#1=#:G343 |f| #2=#:G344 |g| |lf|)
     (RETURN
      (SEQ
       (EXIT
@@ -950,7 +955,7 @@
             (QREFELT $ 110))) 
 
 (DEFUN |PGCD;gcdPrimitive;3P;19| (|p1| |p2| $)
-  (PROG (|up2| |up1| #1=#:G346 |mp| |md| |mv2| #2=#:G343 |mv1|)
+  (PROG (|up2| |up1| #1=#:G350 |mp| |md| |mv2| #2=#:G347 |mv1|)
     (RETURN
      (SEQ
       (LETT |p1| (SPADCALL |p1| (QREFELT $ 103))
@@ -1025,7 +1030,7 @@
                  (#4# (|spadConstant| $ 41)))))))))))) 
 
 (DEFUN |PGCD;gcdPrimitive;LP;20| (|listp| $)
-  (PROG (#1=#:G360 |f| #2=#:G361 |g| |lf|)
+  (PROG (#1=#:G364 |f| #2=#:G365 |g| |lf|)
     (RETURN
      (SEQ
       (EXIT
@@ -1048,10 +1053,10 @@
         (EXIT |f|)))
       #1# (EXIT #1#))))) 
 
-(DEFUN |PolynomialGcdPackage| (&REST #1=#:G362)
+(DEFUN |PolynomialGcdPackage| (&REST #1=#:G366)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G363)
+     (PROG (#2=#:G367)
        (RETURN
         (COND
          ((LETT #2#
