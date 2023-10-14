@@ -2403,10 +2403,10 @@
  
 ; depthOfRecursion(opName,body) ==
 ;   -- returns the "depth" of recursive calls of opName in body
-;   mapRecurDepth(opName,nil,body)
+;   mapRecurDepth(opName, [nil], body)
  
 (DEFUN |depthOfRecursion| (|opName| |body|)
-  (PROG () (RETURN (|mapRecurDepth| |opName| NIL |body|))))
+  (PROG () (RETURN (|mapRecurDepth| |opName| (LIST NIL) |body|))))
  
 ; mapRecurDepth(opName,opList,body) ==
 ;   -- walks over the map body counting depth of recursive calls
@@ -2417,10 +2417,11 @@
 ;       atom argl => 0
 ;       argl => "MAX"/[mapRecurDepth(opName,opList,x) for x in argl]
 ;       0
-;     op in opList => argc
+;     op in first(opList) => argc
 ;     op=opName => 1 + argc
 ;     (obj := get(op, 'value, $e)) and objVal obj is ['SPADMAP, :mapDef] =>
-;       mapRecurDepth(opName,[op,:opList],getMapBody(op,mapDef))
+;       opList.0 := [op, :first(opList)]
+;       mapRecurDepth(opName, opList, getMapBody(op, mapDef))
 ;         + argc
 ;     argc
 ;   keyedSystemError("S2GE0016",['"mapRecurDepth",
@@ -2453,17 +2454,19 @@
                                 (SETQ |bfVar#78| (CDR |bfVar#78|))))
                              -999999 |argl| NIL))
                            (#1# 0)))
-             (COND ((|member| |op| |opList|) |argc|)
+             (COND ((|member| |op| (CAR |opList|)) |argc|)
                    ((EQUAL |op| |opName|) (+ 1 |argc|))
                    ((AND (SETQ |obj| (|get| |op| '|value| |$e|))
                          (PROGN
                           (SETQ |ISTMP#1| (|objVal| |obj|))
                           (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'SPADMAP)
                                (PROGN (SETQ |mapDef| (CDR |ISTMP#1|)) #1#))))
-                    (+
-                     (|mapRecurDepth| |opName| (CONS |op| |opList|)
-                      (|getMapBody| |op| |mapDef|))
-                     |argc|))
+                    (PROGN
+                     (SETF (ELT |opList| 0) (CONS |op| (CAR |opList|)))
+                     (+
+                      (|mapRecurDepth| |opName| |opList|
+                       (|getMapBody| |op| |mapDef|))
+                      |argc|)))
                    (#1# |argc|))))
            (#1#
             (|keyedSystemError| 'S2GE0016
