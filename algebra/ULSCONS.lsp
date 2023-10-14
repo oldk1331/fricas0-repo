@@ -162,8 +162,7 @@
                                         (QREFELT $ 53)))
                              ('T
                               (SPADCALL (|spadConstant| $ 14)
-                                        (|ULSCONS;recsToCoefs|
-                                         (SPADCALL |st| (QREFELT $ 52))
+                                        (|ULSCONS;recsToCoefs| |st|
                                          (SPADCALL |n| (|spadConstant| $ 41)
                                                    (QREFELT $ 42))
                                          $)
