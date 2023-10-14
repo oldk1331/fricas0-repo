@@ -188,15 +188,12 @@
                    ((SPADCALL |b| (QREFELT $ 37))
                     (PROGN (LETT #1# |a| . #2#) (GO #3#))))
                   (EXIT
-                   (COND
-                    ((SPADCALL |a| |b| (QREFELT $ 38)) (|spadConstant| $ 21))
-                    ('T
-                     (SPADCALL
-                      (SPADCALL (SPADCALL |a| (QREFELT $ 27))
-                                (SPADCALL |b| (QREFELT $ 28)) (QREFELT $ 29))
-                      (SPADCALL (SPADCALL |a| (QREFELT $ 28))
-                                (SPADCALL |b| (QREFELT $ 27)) (QREFELT $ 29))
-                      (QREFELT $ 26)))))))
+                   (SPADCALL
+                    (SPADCALL (SPADCALL |a| (QREFELT $ 27))
+                              (SPADCALL |b| (QREFELT $ 28)) (QREFELT $ 29))
+                    (SPADCALL (SPADCALL |a| (QREFELT $ 28))
+                              (SPADCALL |b| (QREFELT $ 27)) (QREFELT $ 29))
+                    (QREFELT $ 26)))))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |INTRVL;*;3$;19| ((|a| $) (|b| $) ($ $))
