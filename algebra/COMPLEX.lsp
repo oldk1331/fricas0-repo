@@ -109,10 +109,10 @@
 
 (DECLAIM (NOTINLINE |Complex;|)) 
 
-(DEFUN |Complex| (#1=#:G2526)
+(DEFUN |Complex| (#1=#:G2532)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2527)
+     (PROG (#2=#:G2533)
        (RETURN
         (COND
          ((LETT #2#
@@ -127,7 +127,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Complex|))))))))))) 
 
 (DEFUN |Complex;| (|#1|)
-  (PROG (|pv$| #1=#:G2522 #2=#:G2523 #3=#:G2524 #4=#:G2525 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2528 #2=#:G2529 #3=#:G2530 #4=#:G2531 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Complex|))

@@ -55,7 +55,7 @@
 (DEFUN |U8Matrix| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G2383)
+     (PROG (#1=#:G2389)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|U8Matrix|) . #2=(|U8Matrix|))
@@ -70,7 +70,7 @@
             (COND ((NOT #1#) (HREM |$ConstructorCache| '|U8Matrix|))))))))))) 
 
 (DEFUN |U8Matrix;| ()
-  (PROG (|dv$| $ #1=#:G2381 #2=#:G2380 #3=#:G2379 |pv$|)
+  (PROG (|dv$| $ #1=#:G2387 #2=#:G2386 #3=#:G2385 |pv$|)
     (RETURN
      (PROGN
       (LETT |dv$| '(|U8Matrix|) . #4=(|U8Matrix|))

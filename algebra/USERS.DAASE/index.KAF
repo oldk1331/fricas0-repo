@@ -1,4 +1,4 @@
-330095              (|FunctionSpaceUnivariatePolynomialFactor| |GenUFactorize|
+330168              (|FunctionSpaceUnivariatePolynomialFactor| |GenUFactorize|
                                                                |LinearOrdinaryDifferentialOperatorFactorizer|)
 (|GenericNonAssociativeAlgebra|)
 (|Expression|)
@@ -4978,6 +4978,7 @@
                                      |IndexedList| |IndexedMatrix|
                                      |IndexedOneDimensionalArray|
                                      |IndexedString| |IndexedVector|
+                                     |InnerMatrixLinearAlgebraFunctions|
                                      |InnerModularHermitePade|
                                      |InnerNormalBasisFieldFunctions|
                                      |InnerPrimeField|
@@ -5068,11 +5069,11 @@
 (|LiePolynomial| |XPBWPolynomial| |XPolynomial|)
 (|Scene| |XmlElement|)
 (|ExportXml| |Scene|)
-(("XmlElement" 0 330073) ("XmlAttribute" 0 330050)
- ("XRecursivePolynomial" 0 330001) ("XPolynomialRing" 0 329974)
- ("XPBWPolynomial" 0 329954) ("XDistributedPolynomial" 0 329845)
- ("WildFunctionFieldIntegralBasis" 0 329805) ("WeightedPolynomials" 0 329773)
- ("WeightedGraph" 0 329755) ("Void" 0 320632) ("ViewportPackage" 0 320543)
+(("XmlElement" 0 330146) ("XmlAttribute" 0 330123)
+ ("XRecursivePolynomial" 0 330074) ("XPolynomialRing" 0 330047)
+ ("XPBWPolynomial" 0 330027) ("XDistributedPolynomial" 0 329918)
+ ("WildFunctionFieldIntegralBasis" 0 329878) ("WeightedPolynomials" 0 329846)
+ ("WeightedGraph" 0 329828) ("Void" 0 320632) ("ViewportPackage" 0 320543)
  ("ViewDefaultsPackage" 0 320275) ("VectorSpace&" 0 NIL)
  ("VectorModularReconstructor" 0 320225)
  ("VectorIntegerReconstructor" 0 320154) ("VectorFunctions2" 0 319823)
