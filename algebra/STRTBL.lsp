@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |StringTable;|)) 
 
-(DEFUN |StringTable| (#1=#:G158)
+(DEFUN |StringTable| (#1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#
@@ -20,7 +20,7 @@
 
 (DEFUN |StringTable;| (|#1|)
   (SPROG
-   ((#1=#:G157 NIL) (#2=#:G156 NIL) (|pv$| NIL) (#3=#:G154 NIL) (#4=#:G155 NIL)
+   ((#1=#:G158 NIL) (#2=#:G157 NIL) (|pv$| NIL) (#3=#:G155 NIL) (#4=#:G156 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|StringTable|))

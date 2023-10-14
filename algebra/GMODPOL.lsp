@@ -42,9 +42,9 @@
 
 (DECLAIM (NOTINLINE |GeneralModulePolynomial;|)) 
 
-(DEFUN |GeneralModulePolynomial| (&REST #1=#:G135)
+(DEFUN |GeneralModulePolynomial| (&REST #1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G136)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

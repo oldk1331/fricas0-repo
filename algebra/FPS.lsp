@@ -4,12 +4,12 @@
 (DEFPARAMETER |FloatingPointSystem;AL| 'NIL) 
 
 (DEFUN |FloatingPointSystem| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|FloatingPointSystem;AL|)
           (T (SETQ |FloatingPointSystem;AL| (|FloatingPointSystem;|)))))) 
 
 (DEFUN |FloatingPointSystem;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|RealNumberSystem|) (|Approximate|)

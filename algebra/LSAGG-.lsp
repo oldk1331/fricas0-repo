@@ -122,7 +122,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |LSAGG-;insert!;SAIA;7| ((|s| S) (|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G197 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G198 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;insert!;SAIA;7|))
@@ -146,7 +146,7 @@
                          (EXIT |x|)))))))) 
 
 (SDEFUN |LSAGG-;insert!;2AIA;8| ((|w| A) (|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G201 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G202 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;insert!;2AIA;8|))
@@ -215,7 +215,7 @@
                              (EXIT |x|)))))))) 
 
 (SDEFUN |LSAGG-;delete!;AIA;10| ((|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|y| (A)) (#1=#:G214 NIL) (|m| (|Integer|)))
+        (SPROG ((|y| (A)) (#1=#:G215 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;delete!;AIA;10|))
@@ -240,7 +240,7 @@
 (SDEFUN |LSAGG-;delete!;AUsA;11|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) ($ A))
         (SPROG
-         ((#1=#:G221 NIL) (|t| (A)) (#2=#:G220 NIL) (#3=#:G219 NIL)
+         ((#1=#:G222 NIL) (|t| (A)) (#2=#:G221 NIL) (#3=#:G220 NIL)
           (|h| (|Integer|)) (|m| (|Integer|)) (|l| (|Integer|)))
          (SEQ
           (LETT |l| (SPADCALL |i| (QREFELT $ 39))
@@ -335,7 +335,7 @@
 
 (SDEFUN |LSAGG-;mergeSort|
         ((|f| |Mapping| (|Boolean|) S S) (|p| A) (|n| |Integer|) ($ A))
-        (SPROG ((|q| (A)) (|l| (|NonNegativeInteger|)) (#1=#:G243 NIL))
+        (SPROG ((|q| (A)) (|l| (|NonNegativeInteger|)) (#1=#:G244 NIL))
                (SEQ
                 (COND
                  ((EQL |n| 2)
@@ -362,7 +362,7 @@
 
 (SDEFUN |LSAGG-;sorted?;MAB;15|
         ((|f| |Mapping| (|Boolean|) S S) (|l| A) ($ |Boolean|))
-        (SPROG ((|p| (A)) (#1=#:G260 NIL))
+        (SPROG ((|p| (A)) (#1=#:G261 NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |l| (QREFELT $ 16)) 'T)
@@ -383,7 +383,7 @@
                                    (SPADCALL (SPADCALL |l| (QREFELT $ 18))
                                              (SPADCALL |p| (QREFELT $ 18))
                                              |f|))
-                                  (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G259)))
+                                  (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G260)))
                                  ('T
                                   (LETT |p|
                                         (SPADCALL (LETT |l| |p| . #2#)
@@ -519,7 +519,7 @@
                 (EXIT (SPADCALL |y| (QREFELT $ 47)))))) 
 
 (SDEFUN |LSAGG-;copyInto!;2AIA;22| ((|y| A) (|x| A) (|s| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (#1=#:G293 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (#1=#:G294 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |y| (QREFELT $ 31))
                       . #2=(|LSAGG-;copyInto!;2AIA;22|))
@@ -556,7 +556,7 @@
 
 (SDEFUN |LSAGG-;position;SA2I;23|
         ((|w| S) (|x| A) (|s| |Integer|) ($ |Integer|))
-        (SPROG ((|k| NIL) (#1=#:G301 NIL) (|m| (|Integer|)))
+        (SPROG ((|k| NIL) (#1=#:G302 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;position;SA2I;23|))
@@ -626,7 +626,7 @@
             (SPADCALL |x| (SPADCALL |p| (QREFELT $ 18)) (QREFELT $ 61)))))) 
 
 (SDEFUN |LSAGG-;<;2AB;25| ((|x| A) (|y| A) ($ |Boolean|))
-        (SPROG ((#1=#:G322 NIL))
+        (SPROG ((#1=#:G323 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -651,7 +651,7 @@
                                             (SPADCALL |y| (QREFELT $ 18))
                                             (QREFELT $ 64))
                                   . #2=(|LSAGG-;<;2AB;25|))
-                            (GO #3=#:G321)))
+                            (GO #3=#:G322)))
                           ('T
                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 17)) . #2#)
                                 (EXIT

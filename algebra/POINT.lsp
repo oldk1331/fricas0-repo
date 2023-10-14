@@ -1,6 +1,6 @@
 
 (SDEFUN |POINT;point;L$;1| ((|l| |List| R) ($ $))
-        (SPROG ((#1=#:G108 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
+        (SPROG ((#1=#:G109 NIL) (|x| NIL) (|i| NIL) (|pt| ($)))
                (SEQ
                 (LETT |pt| (SPADCALL (LENGTH |l|) 'R (QREFELT $ 8))
                       . #2=(|POINT;point;L$;1|))
@@ -16,7 +16,7 @@
                 (EXIT |pt|)))) 
 
 (SDEFUN |POINT;dimension;$Pi;2| ((|p| $) ($ |PositiveInteger|))
-        (SPROG ((#1=#:G109 NIL))
+        (SPROG ((#1=#:G110 NIL))
                (PROG1
                    (LETT #1# (SPADCALL |p| (QREFELT $ 14))
                          |POINT;dimension;$Pi;2|)
@@ -58,9 +58,9 @@
 
 (DECLAIM (NOTINLINE |Point;|)) 
 
-(DEFUN |Point| (#1=#:G129)
+(DEFUN |Point| (#1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#
@@ -76,7 +76,7 @@
 
 (DEFUN |Point;| (|#1|)
   (SPROG
-   ((#1=#:G128 NIL) (|pv$| NIL) (#2=#:G124 NIL) (#3=#:G125 NIL) (#4=#:G126 NIL)
+   ((#1=#:G129 NIL) (|pv$| NIL) (#2=#:G125 NIL) (#3=#:G126 NIL) (#4=#:G127 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Point|))

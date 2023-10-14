@@ -80,7 +80,7 @@
                                           (QREFELT $ 41))))))))))) 
 
 (SDEFUN |RCFIELD-;^;SFS;8| ((|x| S) (|rn| |Fraction| (|Integer|)) ($ S))
-        (SPROG ((#1=#:G142 NIL))
+        (SPROG ((#1=#:G143 NIL))
                (SPADCALL
                 (SPADCALL |x| (SPADCALL |rn| (QREFELT $ 45)) (QREFELT $ 46))
                 (PROG1
@@ -90,7 +90,7 @@
                 (QREFELT $ 8)))) 
 
 (SDEFUN |RCFIELD-;nthRoot;SIS;9| ((|x| S) (|n| |Integer|) ($ S))
-        (SPROG ((#1=#:G146 NIL) (#2=#:G144 NIL))
+        (SPROG ((#1=#:G147 NIL) (#2=#:G145 NIL))
                (COND ((ZEROP |n|) |x|)
                      ((MINUSP |n|)
                       (SPADCALL

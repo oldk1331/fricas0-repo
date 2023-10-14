@@ -10,7 +10,7 @@
 (SDEFUN |FRMOD;basis;$V;3| ((|m| $) ($ |Vector| A)) |m|) 
 
 (SDEFUN |FRMOD;rowdiv| ((|r| |Vector| R) (|f| R) ($ |Vector| F))
-        (SPROG ((#1=#:G109 NIL) (#2=#:G111 NIL) (|i| NIL) (#3=#:G110 NIL))
+        (SPROG ((#1=#:G110 NIL) (#2=#:G112 NIL) (|i| NIL) (#3=#:G111 NIL))
                (SEQ
                 (PROGN
                  (LETT #3#
@@ -44,8 +44,8 @@
 
 (SDEFUN |FRMOD;getinvintmat| (($ |Boolean|))
         (SPROG
-         ((#1=#:G123 NIL) (|j| NIL) (#2=#:G122 NIL) (|i| NIL)
-          (|m| (|Matrix| F)) (#3=#:G116 NIL))
+         ((#1=#:G124 NIL) (|j| NIL) (#2=#:G123 NIL) (|i| NIL)
+          (|m| (|Matrix| F)) (#3=#:G117 NIL))
          (SEQ
           (LETT |m|
                 (PROG2
@@ -73,7 +73,7 @@
 
 (SDEFUN |FRMOD;getintmat| (($ |Boolean|))
         (SPROG
-         ((#1=#:G129 NIL) (|j| NIL) (#2=#:G128 NIL) (|i| NIL)
+         ((#1=#:G130 NIL) (|j| NIL) (#2=#:G129 NIL) (|i| NIL)
           (|m| (|Matrix| F)))
          (SEQ
           (LETT |m| (SPADCALL (QREFELT $ 10) (QREFELT $ 37))
@@ -111,7 +111,7 @@
 
 (SDEFUN |FRMOD;vectProd| ((|v1| |Vector| A) (|v2| |Vector| A) ($ |Vector| A))
         (SPROG
-         ((|k| (|Integer|)) (#1=#:G140 NIL) (|j| NIL) (#2=#:G139 NIL) (|i| NIL)
+         ((|k| (|Integer|)) (#1=#:G141 NIL) (|j| NIL) (#2=#:G140 NIL) (|i| NIL)
           (|v| (|Vector| A)))
          (SEQ
           (LETT |k|
@@ -154,7 +154,7 @@
 
 (SDEFUN |FRMOD;*;3$;14| ((|m1| $) (|m2| $) ($ $))
         (SPROG
-         ((|u| (A)) (#1=#:G148 NIL) (|i| NIL) (#2=#:G147 NIL)
+         ((|u| (A)) (#1=#:G149 NIL) (|i| NIL) (#2=#:G148 NIL)
           (|m| (|Matrix| R))
           (|cd| (|Record| (|:| |num| (|Matrix| R)) (|:| |den| R))))
          (SEQ
@@ -202,9 +202,9 @@
 
 (DECLAIM (NOTINLINE |FramedModule;|)) 
 
-(DEFUN |FramedModule| (&REST #1=#:G150)
+(DEFUN |FramedModule| (&REST #1=#:G151)
   (SPROG NIL
-         (PROG (#2=#:G151)
+         (PROG (#2=#:G152)
            (RETURN
             (COND
              ((LETT #2#

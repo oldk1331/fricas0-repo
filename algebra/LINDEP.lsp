@@ -118,9 +118,9 @@
 
 (DECLAIM (NOTINLINE |LinearDependence;|)) 
 
-(DEFUN |LinearDependence| (&REST #1=#:G168)
+(DEFUN |LinearDependence| (&REST #1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G169)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#
@@ -140,7 +140,7 @@
 
 (DEFUN |LinearDependence;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G167 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G168 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|LinearDependence|))
     (LETT DV$2 (|devaluate| |#2|) . #2#)

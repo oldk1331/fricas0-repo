@@ -15,8 +15,8 @@
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
-          (#1=#:G123 NIL) (|v| NIL) (#2=#:G122 NIL) (|u| (R)) (#3=#:G108 NIL)
-          (|fitem| (|Factored| R)) (#4=#:G121 NIL) (|item| NIL))
+          (#1=#:G124 NIL) (|v| NIL) (#2=#:G123 NIL) (|u| (R)) (#3=#:G109 NIL)
+          (|fitem| (|Factored| R)) (#4=#:G122 NIL) (|item| NIL))
          (SEQ
           (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #5=(|FRUTIL;refine;FMF;2|))
           (LETT |l| NIL . #5#)
@@ -79,9 +79,9 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
 
-(DEFUN |FactoredFunctionUtilities| (#1=#:G124)
+(DEFUN |FactoredFunctionUtilities| (#1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

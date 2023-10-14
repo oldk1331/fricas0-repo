@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |QueueAggregate;AL| 'NIL) 
 
-(DEFUN |QueueAggregate| (#1=#:G104)
-  (LET (#2=#:G105)
+(DEFUN |QueueAggregate| (#1=#:G105)
+  (LET (#2=#:G106)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |QueueAggregate;AL|)) (CDR #2#))
      (T
@@ -16,7 +16,7 @@
       #2#)))) 
 
 (DEFUN |QueueAggregate;| (|t#1|)
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

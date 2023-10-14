@@ -21,7 +21,7 @@
 
 (SDEFUN |FSPRMELT;K2P|
         ((|k| |Kernel| F) (|l| |List| (|Symbol|)) ($ |Polynomial| F))
-        (SPROG ((#1=#:G117 NIL) (|v| (|Union| (|Symbol|) "failed")))
+        (SPROG ((#1=#:G118 NIL) (|v| (|Union| (|Symbol|) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -35,7 +35,7 @@
                        ((SPADCALL (QCDR |v|) |l| (QREFELT $ 28))
                         (PROGN
                          (LETT #1# (SPADCALL (QCDR |v|) (QREFELT $ 29)) . #2#)
-                         (GO #3=#:G115))))))))
+                         (GO #3=#:G116))))))))
                   (EXIT
                    (SPADCALL (SPADCALL |k| (QREFELT $ 31)) (QREFELT $ 14)))))
                 #3# (EXIT #1#)))) 
@@ -46,18 +46,18 @@
           (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
           (|:| |prim| (|SparseUnivariatePolynomial| F))))
         (SPROG
-         ((#1=#:G125 NIL) (#2=#:G124 (F)) (#3=#:G126 (F)) (#4=#:G139 NIL)
-          (|c| NIL) (#5=#:G140 NIL) (|a| NIL)
+         ((#1=#:G126 NIL) (#2=#:G125 (F)) (#3=#:G127 (F)) (#4=#:G140 NIL)
+          (|c| NIL) (#5=#:G141 NIL) (|a| NIL)
           (|rec|
            (|Record| (|:| |coef| (|List| (|Integer|)))
                      (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |prim| (|SparseUnivariatePolynomial| F))))
-          (|pols| (|List| (|Polynomial| F))) (#6=#:G137 NIL) (|k| NIL)
-          (#7=#:G138 NIL) (|v| NIL) (#8=#:G136 NIL)
-          (|kers| (|List| (|Kernel| F))) (#9=#:G135 NIL) (#10=#:G134 NIL)
-          (|vv| (|List| F)) (#11=#:G133 NIL) (#12=#:G132 NIL)
-          (|vars| (|List| (|Symbol|))) (#13=#:G131 NIL) (|i| NIL)
-          (#14=#:G130 NIL) (|u| (|String|)) (|uu| (|Symbol|)))
+          (|pols| (|List| (|Polynomial| F))) (#6=#:G138 NIL) (|k| NIL)
+          (#7=#:G139 NIL) (|v| NIL) (#8=#:G137 NIL)
+          (|kers| (|List| (|Kernel| F))) (#9=#:G136 NIL) (#10=#:G135 NIL)
+          (|vv| (|List| F)) (#11=#:G134 NIL) (#12=#:G133 NIL)
+          (|vars| (|List| (|Symbol|))) (#13=#:G132 NIL) (|i| NIL)
+          (#14=#:G131 NIL) (|u| (|String|)) (|uu| (|Symbol|)))
          (SEQ
           (LETT |u|
                 (SPADCALL
@@ -342,9 +342,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpacePrimitiveElement;|)) 
 
-(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G160)
+(DEFUN |FunctionSpacePrimitiveElement| (&REST #1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

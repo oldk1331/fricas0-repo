@@ -8,7 +8,7 @@
                          (QREFELT $ 15))))) 
 
 (SDEFUN |FLAGG2;map;MAB;2| ((|f| |Mapping| R S) (|l| A) ($ B))
-        (SPROG ((#1=#:G113 NIL) (|s| NIL) (#2=#:G112 NIL))
+        (SPROG ((#1=#:G114 NIL) (|s| NIL) (#2=#:G113 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -41,7 +41,7 @@
                                    (QREFELT $ 24))))))))) 
 
 (SDEFUN |FLAGG2;map;MAB;4| ((|f| |Mapping| R S) (|l| A) ($ B))
-        (SPROG ((|i| (|Integer|)) (#1=#:G123 NIL) (|a| NIL) (|w| (B)))
+        (SPROG ((|i| (|Integer|)) (#1=#:G124 NIL) (|a| NIL) (|w| (B)))
                (SEQ
                 (LETT |i|
                       (SPADCALL
@@ -63,7 +63,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;5| ((|fn| |Mapping| R S R) (|l| A) (|ident| R) ($ B))
         (SPROG
-         ((|i| (|Integer|)) (|vl| (R)) (#1=#:G128 NIL) (|a| NIL) (|w| (B)))
+         ((|i| (|Integer|)) (|vl| (R)) (#1=#:G129 NIL) (|a| NIL) (|w| (B)))
          (SEQ
           (LETT |i|
                 (SPADCALL
@@ -89,7 +89,7 @@
           (EXIT |w|)))) 
 
 (SDEFUN |FLAGG2;map;MAB;6| ((|f| |Mapping| R S) (|l| A) ($ B))
-        (SPROG ((#1=#:G132 NIL) (|s| NIL) (#2=#:G131 NIL))
+        (SPROG ((#1=#:G133 NIL) (|s| NIL) (#2=#:G132 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -123,7 +123,7 @@
 
 (SDEFUN |FLAGG2;reduce;MA2R;8|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ R))
-        (SPROG ((|val| (R)) (#1=#:G141 NIL) (|i| NIL))
+        (SPROG ((|val| (R)) (#1=#:G142 NIL) (|i| NIL))
                (SEQ (LETT |val| |ident| . #2=(|FLAGG2;reduce;MA2R;8|))
                     (SEQ (LETT |i| (SPADCALL |v| (QREFELT $ 31)) . #2#)
                          (LETT #1# (SPADCALL |v| (QREFELT $ 32)) . #2#) G190
@@ -138,7 +138,7 @@
                     (EXIT |val|)))) 
 
 (SDEFUN |FLAGG2;map;MAB;9| ((|f| |Mapping| R S) (|v| A) ($ B))
-        (SPROG ((#1=#:G145 NIL) (|i| NIL) (#2=#:G144 NIL))
+        (SPROG ((#1=#:G146 NIL) (|i| NIL) (#2=#:G145 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -160,7 +160,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;10|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
-        (SPROG ((|w| (B)) (#1=#:G150 NIL) (|i| NIL))
+        (SPROG ((|w| (B)) (#1=#:G151 NIL) (|i| NIL))
                (SEQ
                 (LETT |w| (SPADCALL (QREFELT $ 22))
                       . #2=(|FLAGG2;scan;MARB;10|))
@@ -178,7 +178,7 @@
                 (EXIT (SPADCALL |w| (QREFELT $ 34)))))) 
 
 (SDEFUN |FLAGG2;map;MAB;11| ((|f| |Mapping| R S) (|v| A) ($ B))
-        (SPROG ((#1=#:G154 NIL) (|i| NIL) (|w| (B)))
+        (SPROG ((#1=#:G155 NIL) (|i| NIL) (|w| (B)))
                (SEQ
                 (LETT |w|
                       (SPADCALL (SPADCALL |v| (QREFELT $ 26)) NIL
@@ -198,7 +198,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;12|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
-        (SPROG ((|vl| (R)) (#1=#:G158 NIL) (|i| NIL) (|w| (B)))
+        (SPROG ((|vl| (R)) (#1=#:G159 NIL) (|i| NIL) (|w| (B)))
                (SEQ
                 (LETT |w|
                       (SPADCALL (SPADCALL |v| (QREFELT $ 26)) NIL
@@ -221,7 +221,7 @@
                 (EXIT |w|)))) 
 
 (SDEFUN |FLAGG2;map;MAB;13| ((|f| |Mapping| R S) (|v| A) ($ B))
-        (SPROG ((#1=#:G162 NIL) (|i| NIL) (#2=#:G161 NIL))
+        (SPROG ((#1=#:G163 NIL) (|i| NIL) (#2=#:G162 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -243,7 +243,7 @@
 
 (SDEFUN |FLAGG2;scan;MARB;14|
         ((|fn| |Mapping| R S R) (|v| A) (|ident| R) ($ B))
-        (SPROG ((|w| (B)) (#1=#:G167 NIL) (|i| NIL))
+        (SPROG ((|w| (B)) (#1=#:G168 NIL) (|i| NIL))
                (SEQ
                 (LETT |w| (SPADCALL (QREFELT $ 22))
                       . #2=(|FLAGG2;scan;MARB;14|))
@@ -262,9 +262,9 @@
 
 (DECLAIM (NOTINLINE |FiniteLinearAggregateFunctions2;|)) 
 
-(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G168)
+(DEFUN |FiniteLinearAggregateFunctions2| (&REST #1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G169)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#

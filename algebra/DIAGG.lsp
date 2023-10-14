@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |Dictionary;AL| 'NIL) 
 
-(DEFUN |Dictionary| (#1=#:G108)
-  (LET (#2=#:G109)
+(DEFUN |Dictionary| (#1=#:G109)
+  (LET (#2=#:G110)
     (COND ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |Dictionary;AL|)) (CDR #2#))
           (T
            (SETQ |Dictionary;AL|
@@ -15,7 +15,7 @@
            #2#)))) 
 
 (DEFUN |Dictionary;| (|t#1|)
-  (SPROG ((#1=#:G107 NIL))
+  (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

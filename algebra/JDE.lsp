@@ -13,10 +13,10 @@
         (SPROG
          ((|resPro?| (|List| (|Boolean|)))
           (|resDer| (|List| (|NonNegativeInteger|))) (|b| (|Boolean|))
-          (#1=#:G165 NIL) (|i| NIL) (#2=#:G164 NIL)
-          (|j| (|NonNegativeInteger|)) (#3=#:G163 NIL) (#4=#:G162 NIL)
-          (#5=#:G161 NIL) (|d| NIL) (#6=#:G160 NIL) (#7=#:G159 NIL)
-          (#8=#:G158 NIL) (#9=#:G157 NIL))
+          (#1=#:G166 NIL) (|i| NIL) (#2=#:G165 NIL)
+          (|j| (|NonNegativeInteger|)) (#3=#:G164 NIL) (#4=#:G163 NIL)
+          (#5=#:G162 NIL) (|d| NIL) (#6=#:G161 NIL) (#7=#:G160 NIL)
+          (#8=#:G159 NIL) (#9=#:G158 NIL))
          (SEQ
           (COND
            ((QEQCAR |dep| 0)
@@ -128,8 +128,8 @@
 (SDEFUN |JDE;copy;2$;3| ((|De| $) ($ $))
         (SPROG
          ((|newOrd| (|List| (|NonNegativeInteger|)))
-          (|newSys| (|List| |SysRec|)) (#1=#:G176 NIL) (|sys| NIL)
-          (#2=#:G175 NIL))
+          (|newSys| (|List| |SysRec|)) (#1=#:G177 NIL) (|sys| NIL)
+          (#2=#:G176 NIL))
          (SEQ
           (LETT |newSys|
                 (PROGN
@@ -163,8 +163,8 @@
 
 (SDEFUN |JDE;retract;$L;5| ((|De| $) ($ |List| D))
         (SPROG
-         ((|LSys| (|List| (|List| D))) (#1=#:G185 NIL) (|sys| NIL)
-          (#2=#:G184 NIL))
+         ((|LSys| (|List| (|List| D))) (#1=#:G186 NIL) (|sys| NIL)
+          (#2=#:G185 NIL))
          (SEQ
           (LETT |LSys|
                 (PROGN
@@ -182,7 +182,7 @@
 
 (SDEFUN |JDE;jacobiMatrix;$L;6|
         ((|De| $) ($ |List| (|SparseEchelonMatrix| JB D)))
-        (SPROG ((#1=#:G189 NIL) (|sys| NIL) (#2=#:G188 NIL))
+        (SPROG ((#1=#:G190 NIL) (|sys| NIL) (#2=#:G189 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|JDE;jacobiMatrix;$L;6|))
@@ -197,8 +197,8 @@
 
 (SDEFUN |JDE;printSys;LOf;7| ((|sys| |List| D) ($ |OutputForm|))
         (SPROG
-         ((|tmp| (|List| (|OutputForm|))) (#1=#:G197 NIL) (|eq| NIL)
-          (|leq| (|List| (|Equation| D))) (#2=#:G196 NIL) (#3=#:G195 NIL))
+         ((|tmp| (|List| (|OutputForm|))) (#1=#:G198 NIL) (|eq| NIL)
+          (|leq| (|List| (|Equation| D))) (#2=#:G197 NIL) (#3=#:G196 NIL))
          (SEQ
           (COND ((NULL |sys|) (SPADCALL (QREFELT $ 47)))
                 ('T
@@ -241,7 +241,7 @@
         (SPADCALL (SPADCALL |De| (QREFELT $ 43)) (QREFELT $ 54))) 
 
 (SDEFUN |JDE;display;$V;9| ((|De| $) ($ |Void|))
-        (SPROG ((#1=#:G205 NIL) (|sys| NIL) (#2=#:G206 NIL) (|ord| NIL))
+        (SPROG ((#1=#:G206 NIL) (|sys| NIL) (#2=#:G207 NIL) (|ord| NIL))
                (SEQ
                 (SEQ (LETT |ord| NIL . #3=(|JDE;display;$V;9|))
                      (LETT #2# (QCDR |De|) . #3#) (LETT |sys| NIL . #3#)
@@ -300,17 +300,17 @@
         ((|sys| |List| D) (|jm| |SparseEchelonMatrix| JB D)
          (|der| |List| (|NonNegativeInteger|)) ($ $))
         (SPROG
-         ((|resSys| (|List| |SysRec|)) (|rec| (|SysRec|)) (#1=#:G227 NIL)
-          (|ord| NIL) (|i| NIL) (|pos| (|Integer|)) (#2=#:G224 NIL) (|eq| NIL)
-          (#3=#:G225 NIL) (#4=#:G226 NIL) (|q| NIL) (|j| NIL)
+         ((|resSys| (|List| |SysRec|)) (|rec| (|SysRec|)) (#1=#:G228 NIL)
+          (|ord| NIL) (|i| NIL) (|pos| (|Integer|)) (#2=#:G225 NIL) (|eq| NIL)
+          (#3=#:G226 NIL) (#4=#:G227 NIL) (|q| NIL) (|j| NIL)
           (|vjm| (|Vector| (|SparseEchelonMatrix| JB D)))
           (|vder| (|Vector| (|List| (|NonNegativeInteger|))))
           (|vsys| (|Vector| (|List| D)))
           (|ljm| (|List| (|SparseEchelonMatrix| JB D))) (|inds| (|List| JB))
-          (#5=#:G223 NIL) (|nord| (|NonNegativeInteger|))
+          (#5=#:G224 NIL) (|nord| (|NonNegativeInteger|))
           (|resOrd| (|List| (|NonNegativeInteger|)))
-          (|lord| (|List| (|NonNegativeInteger|))) (#6=#:G222 NIL)
-          (#7=#:G221 NIL))
+          (|lord| (|List| (|NonNegativeInteger|))) (#6=#:G223 NIL)
+          (#7=#:G222 NIL))
          (SEQ
           (LETT |lord|
                 (PROGN
@@ -426,8 +426,8 @@
 (SDEFUN |JDE;makeSystem;L$;11| ((|sys| |List| D) ($ $))
         (SPROG
          ((|jm| (|SparseEchelonMatrix| JB D))
-          (|der| (|List| (|NonNegativeInteger|))) (#1=#:G236 NIL) (|eq| NIL)
-          (#2=#:G235 NIL) (|nsys| (|List| D)) (#3=#:G234 NIL) (#4=#:G233 NIL))
+          (|der| (|List| (|NonNegativeInteger|))) (#1=#:G237 NIL) (|eq| NIL)
+          (#2=#:G236 NIL) (|nsys| (|List| D)) (#3=#:G235 NIL) (#4=#:G234 NIL))
          (SEQ
           (COND ((NULL |sys|) (CONS NIL NIL))
                 ('T
@@ -563,10 +563,10 @@
 (SDEFUN |JDE;dimension;$2Nni;14|
         ((|De| $) (|q| |NonNegativeInteger|) ($ |NonNegativeInteger|))
         (SPROG
-         ((|res| (|NonNegativeInteger|)) (#1=#:G263 NIL)
+         ((|res| (|NonNegativeInteger|)) (#1=#:G264 NIL)
           (|resSys| (|List| |SysRec|)) (|d| (|NonNegativeInteger|))
-          (|simp?| (|Boolean|)) (|qq| (|Integer|)) (|j| NIL) (#2=#:G267 NIL)
-          (|sys| NIL) (#3=#:G268 NIL) (|ord| NIL)
+          (|simp?| (|Boolean|)) (|qq| (|Integer|)) (|j| NIL) (#2=#:G268 NIL)
+          (|sys| NIL) (#3=#:G269 NIL) (|ord| NIL)
           (|tord| (|List| (|NonNegativeInteger|))) (|tsys| (|List| |SysRec|)))
          (SEQ
           (COND ((NULL (QCDR |De|)) (SPADCALL |q| (QREFELT $ 98)))
@@ -650,9 +650,9 @@
 (SDEFUN |JDE;simplify;$R;15|
         ((|De| $) ($ |Record| (|:| |SDe| $) (|:| IC (|List| D))))
         (SPROG
-         ((|u?| (|Boolean|)) (#1=#:G320 NIL) (#2=#:G333 NIL)
-          (|j| (|NonNegativeInteger|)) (#3=#:G334 NIL) (|lj| (|List| JB))
-          (#4=#:G332 NIL) (|eq| NIL) (|i| NIL)
+         ((|u?| (|Boolean|)) (#1=#:G321 NIL) (#2=#:G334 NIL)
+          (|j| (|NonNegativeInteger|)) (#3=#:G335 NIL) (|lj| (|List| JB))
+          (#4=#:G333 NIL) (|eq| NIL) (|i| NIL)
           (|jm0| (|SparseEchelonMatrix| JB D))
           (|tord| (|List| (|NonNegativeInteger|))) (|tsys| (|List| |SysRec|))
           (|resOrd| #5=(|List| (|NonNegativeInteger|)))
@@ -661,7 +661,7 @@
           (|newPro?| (|List| (|Boolean|)))
           (|newDer| (|List| (|NonNegativeInteger|))) (|newEqs| #6=(|List| D))
           (|pos2| #7=(|Integer|)) (|pos1| #7#) (|ICs| #8=(|List| D))
-          (|o| (|NonNegativeInteger|)) (#9=#:G330 NIL) (#10=#:G331 NIL)
+          (|o| (|NonNegativeInteger|)) (#9=#:G331 NIL) (#10=#:G332 NIL)
           (|pro?| NIL)
           (|ad|
            (|Record| (|:| |Der| (|List| (|NonNegativeInteger|)))
@@ -1016,19 +1016,19 @@
         (SPROG
          ((|tmp| (|Record| (|:| |SDe| $) (|:| IC (|List| D)))) (|res| ($))
           (|pOrd| (|List| (|NonNegativeInteger|))) (|pSys| (|List| |SysRec|))
-          (|lastOrd| #1=(|NonNegativeInteger|)) (#2=#:G385 NIL) (|j| NIL)
-          (#3=#:G384 NIL) (|lastRec| (|SysRec|)) (|pRec| (|SysRec|))
-          (#4=#:G383 NIL) (|i| NIL) (#5=#:G382 NIL) (#6=#:G381 NIL)
-          (#7=#:G380 NIL) (|pJM| (|SparseEchelonMatrix| JB D))
+          (|lastOrd| #1=(|NonNegativeInteger|)) (#2=#:G386 NIL) (|j| NIL)
+          (#3=#:G385 NIL) (|lastRec| (|SysRec|)) (|pRec| (|SysRec|))
+          (#4=#:G384 NIL) (|i| NIL) (#5=#:G383 NIL) (#6=#:G382 NIL)
+          (#7=#:G381 NIL) (|pJM| (|SparseEchelonMatrix| JB D))
           (|pIC| #8=(|List| D)) (|pJV| (|List| (|List| JB)))
           (|pDer| (|List| (|NonNegativeInteger|))) (|pEqs| #8#)
           (|FDiff| (|Record| (|:| |DPhi| D) (|:| |JVars| (|List| JB))))
-          (#9=#:G352 NIL) (|jmeq| (|SparseEchelonMatrix| JB D))
-          (#10=#:G377 NIL) (|eq| NIL) (#11=#:G378 NIL) (#12=#:G379 NIL)
-          (|pro?| NIL) (|k| NIL) (#13=#:G375 NIL) (|rec| (|SysRec|))
-          (#14=#:G376 NIL) (|ord| NIL) (#15=#:G374 NIL) (#16=#:G373 NIL)
-          (#17=#:G372 NIL) (#18=#:G371 NIL) (#19=#:G343 NIL) (#20=#:G369 NIL)
-          (#21=#:G370 NIL) (|q| #1#))
+          (#9=#:G353 NIL) (|jmeq| (|SparseEchelonMatrix| JB D))
+          (#10=#:G378 NIL) (|eq| NIL) (#11=#:G379 NIL) (#12=#:G380 NIL)
+          (|pro?| NIL) (|k| NIL) (#13=#:G376 NIL) (|rec| (|SysRec|))
+          (#14=#:G377 NIL) (|ord| NIL) (#15=#:G375 NIL) (#16=#:G374 NIL)
+          (#17=#:G373 NIL) (#18=#:G372 NIL) (#19=#:G344 NIL) (#20=#:G370 NIL)
+          (#21=#:G371 NIL) (|q| #1#))
          (SEQ (LETT |pEqs| NIL . #22=(|JDE;prolong;$R;17|))
               (LETT |pDer| NIL . #22#) (LETT |pJV| NIL . #22#)
               (LETT |pIC| NIL . #22#)
@@ -1303,17 +1303,17 @@
          ((|tmp| (|Record| (|:| |SDe| $) (|:| IC (|List| D)))) (|res| ($))
           (|pOrd| #1=(|List| (|NonNegativeInteger|)))
           (|pSys| (|List| |SysRec|)) (|lastOrd| #2=(|NonNegativeInteger|))
-          (|lastRec| (|SysRec|)) (#3=#:G432 NIL) (|j| NIL) (#4=#:G431 NIL)
-          (|pRec| (|SysRec|)) (#5=#:G430 NIL) (|i| NIL) (#6=#:G429 NIL)
-          (#7=#:G428 NIL) (#8=#:G427 NIL) (|pIC| #9=(|List| D))
+          (|lastRec| (|SysRec|)) (#3=#:G433 NIL) (|j| NIL) (#4=#:G432 NIL)
+          (|pRec| (|SysRec|)) (#5=#:G431 NIL) (|i| NIL) (#6=#:G430 NIL)
+          (#7=#:G429 NIL) (#8=#:G428 NIL) (|pIC| #9=(|List| D))
           (|pJM| (|SparseEchelonMatrix| JB D)) (|pDer| #1#)
           (|pJV| (|List| (|List| JB))) (|pEqs| #9#)
           (|FDiff| (|Record| (|:| |DPhi| D) (|:| |JVars| (|List| JB))))
-          (#10=#:G400 NIL) (|jmeq| (|SparseEchelonMatrix| JB D))
-          (#11=#:G424 NIL) (|eq| NIL) (#12=#:G425 NIL) (#13=#:G426 NIL)
-          (|pro?| NIL) (|k| NIL) (#14=#:G422 NIL) (|rec| (|SysRec|))
-          (#15=#:G423 NIL) (|ord| #2#) (#16=#:G421 NIL) (#17=#:G420 NIL)
-          (#18=#:G390 NIL) (#19=#:G418 NIL) (#20=#:G419 NIL)
+          (#10=#:G401 NIL) (|jmeq| (|SparseEchelonMatrix| JB D))
+          (#11=#:G425 NIL) (|eq| NIL) (#12=#:G426 NIL) (#13=#:G427 NIL)
+          (|pro?| NIL) (|k| NIL) (#14=#:G423 NIL) (|rec| (|SysRec|))
+          (#15=#:G424 NIL) (|ord| #2#) (#16=#:G422 NIL) (#17=#:G421 NIL)
+          (#18=#:G391 NIL) (#19=#:G419 NIL) (#20=#:G420 NIL)
           (|tord| (|List| (|NonNegativeInteger|))) (|tsys| (|List| |SysRec|))
           (|cDe| ($)))
          (SEQ
@@ -1605,8 +1605,8 @@
         (SPROG
          ((|LBeta| (|List| (|NonNegativeInteger|))) (|k| NIL)
           (|MSum| #1=(|NonNegativeInteger|))
-          (|LastClass| (|NonNegativeInteger|)) (|BetaI| #1#) (#2=#:G448 NIL)
-          (|CurClass| (|NonNegativeInteger|)) (#3=#:G447 NIL) (|jv| NIL)
+          (|LastClass| (|NonNegativeInteger|)) (|BetaI| #1#) (#2=#:G449 NIL)
+          (|CurClass| (|NonNegativeInteger|)) (#3=#:G448 NIL) (|jv| NIL)
           (|pivs|
            (|Record| (|:| |Indices| (|List| JB)) (|:| |Entries| (|List| D))))
           (|ech| #4=(|SparseEchelonMatrix| JB D))
@@ -1655,13 +1655,13 @@
 (SDEFUN |JDE;prolongSymbol;2Sem;21|
         ((|Symb| |SparseEchelonMatrix| JB D) ($ |SparseEchelonMatrix| JB D))
         (SPROG
-         ((|ninds| (|List| JB)) (#1=#:G458 NIL) (#2=#:G471 NIL) (#3=#:G483 NIL)
-          (|jv| NIL) (#4=#:G482 NIL) (|i| NIL)
+         ((|ninds| (|List| JB)) (#1=#:G459 NIL) (#2=#:G472 NIL) (#3=#:G484 NIL)
+          (|jv| NIL) (#4=#:G483 NIL) (|i| NIL)
           (|r|
            (|Record| (|:| |Indices| (|List| JB)) (|:| |Entries| (|List| D))))
-          (#5=#:G481 NIL) (|j| NIL) (|res| (|SparseEchelonMatrix| JB D))
-          (|newInds| (|List| JB)) (#6=#:G456 NIL) (#7=#:G480 NIL)
-          (#8=#:G479 NIL) (|oldInds| (|List| JB)))
+          (#5=#:G482 NIL) (|j| NIL) (|res| (|SparseEchelonMatrix| JB D))
+          (|newInds| (|List| JB)) (#6=#:G457 NIL) (#7=#:G481 NIL)
+          (#8=#:G480 NIL) (|oldInds| (|List| JB)))
          (SEQ
           (LETT |oldInds| (SPADCALL |Symb| (QREFELT $ 62))
                 . #9=(|JDE;prolongSymbol;2Sem;21|))
@@ -1781,7 +1781,7 @@
         (SPROG
          ((|newBeta| (|List| (|NonNegativeInteger|)))
           (|msum| #1=(|NonNegativeInteger|)) (|rank| #1#) (|sum| #1#)
-          (#2=#:G489 NIL) (|beta| NIL) (|k| NIL)
+          (#2=#:G490 NIL) (|beta| NIL) (|k| NIL)
           (|oldBeta| (|List| (|NonNegativeInteger|))))
          (SEQ
           (LETT |oldBeta| (REVERSE (QVELT |mv| 2))
@@ -1838,8 +1838,8 @@
         ((|llc| |Matrix| D) (|mu| |List| (|NonNegativeInteger|))
          (|nu| |List| (|NonNegativeInteger|)) ($ D))
         (SPROG
-         ((|res| (D)) (|prod| (D)) (#1=#:G503 NIL) (|si| NIL) (#2=#:G504 NIL)
-          (|mi| NIL) (#3=#:G502 NIL) (|s| NIL) (|q| (|NonNegativeInteger|))
+         ((|res| (D)) (|prod| (D)) (#1=#:G504 NIL) (|si| NIL) (#2=#:G505 NIL)
+          (|mi| NIL) (#3=#:G503 NIL) (|s| NIL) (|q| (|NonNegativeInteger|))
           (|rmu| (|List| (|PositiveInteger|)))
           (|snu| (|List| (|List| (|PositiveInteger|)))))
          (SEQ
@@ -1883,16 +1883,16 @@
         ((|Symb| |SparseEchelonMatrix| JB D) (|chi| |JetDifferential| JB D)
          ($ |SparseEchelonMatrix| JB D))
         (SPROG
-         ((|le| (|List| D)) (|li| (|List| JB)) (#1=#:G513 NIL) (#2=#:G528 NIL)
-          (|i| NIL) (#3=#:G529 NIL) (|s| NIL)
+         ((|le| (|List| D)) (|li| (|List| JB)) (#1=#:G514 NIL) (#2=#:G529 NIL)
+          (|i| NIL) (#3=#:G530 NIL) (|s| NIL)
           (|mu| (|List| (|NonNegativeInteger|))) (|a| #4=(|PositiveInteger|))
-          (#5=#:G526 NIL) (|jv| NIL) (#6=#:G527 NIL) (|ent| NIL)
+          (#5=#:G527 NIL) (|jv| NIL) (#6=#:G528 NIL) (|ent| NIL)
           (|sum| (|Vector| D))
           (|r|
            (|Record| (|:| |Indices| (|List| JB)) (|:| |Entries| (|List| D))))
-          (#7=#:G525 NIL) (|k| NIL) (|res| (|SparseEchelonMatrix| JB D))
-          (#8=#:G507 NIL) (#9=#:G524 NIL) (|cinds| (|List| #4#))
-          (#10=#:G523 NIL) (|d| NIL) (#11=#:G522 NIL) (|coeffs| (|List| D))
+          (#7=#:G526 NIL) (|k| NIL) (|res| (|SparseEchelonMatrix| JB D))
+          (#8=#:G508 NIL) (#9=#:G525 NIL) (|cinds| (|List| #4#))
+          (#10=#:G524 NIL) (|d| NIL) (#11=#:G523 NIL) (|coeffs| (|List| D))
           (|diffs| (|List| JB)))
          (SEQ
           (LETT |diffs| (SPADCALL |chi| (QREFELT $ 161))
@@ -2026,12 +2026,12 @@
          ((|rres|
            #1=(|Record| (|:| |Indices| (|List| JB))
                         (|:| |Entries| (|List| D))))
-          (|s| (D)) (|mu| #2=(|List| (|NonNegativeInteger|))) (#3=#:G551 NIL)
-          (|jv| NIL) (#4=#:G552 NIL) (|ent| NIL) (|r| #1#) (#5=#:G550 NIL)
-          (|k| NIL) (|nu| #2#) (|a| (|PositiveInteger|)) (#6=#:G549 NIL)
-          (|vv| NIL) (|res| (|SparseEchelonMatrix| JB D)) (#7=#:G533 NIL)
-          (#8=#:G548 NIL) (|j| NIL) (|i| NIL) (#9=#:G547 NIL) (|chi| NIL)
-          (|mco| (|Matrix| D)) (|inds| (|List| JB)) (#10=#:G531 NIL)
+          (|s| (D)) (|mu| #2=(|List| (|NonNegativeInteger|))) (#3=#:G552 NIL)
+          (|jv| NIL) (#4=#:G553 NIL) (|ent| NIL) (|r| #1#) (#5=#:G551 NIL)
+          (|k| NIL) (|nu| #2#) (|a| (|PositiveInteger|)) (#6=#:G550 NIL)
+          (|vv| NIL) (|res| (|SparseEchelonMatrix| JB D)) (#7=#:G534 NIL)
+          (#8=#:G549 NIL) (|j| NIL) (|i| NIL) (#9=#:G548 NIL) (|chi| NIL)
+          (|mco| (|Matrix| D)) (|inds| (|List| JB)) (#10=#:G532 NIL)
           (|q| (|NonNegativeInteger|)))
          (SEQ
           (LETT |q|
@@ -2153,9 +2153,9 @@
 
 (DECLAIM (NOTINLINE |JetDifferentialEquation;|)) 
 
-(DEFUN |JetDifferentialEquation| (&REST #1=#:G553)
+(DEFUN |JetDifferentialEquation| (&REST #1=#:G554)
   (SPROG NIL
-         (PROG (#2=#:G554)
+         (PROG (#2=#:G555)
            (RETURN
             (COND
              ((LETT #2#

@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |UnivariateSkewPolynomialCategory;AL| 'NIL) 
 
-(DEFUN |UnivariateSkewPolynomialCategory| (#1=#:G116)
-  (LET (#2=#:G117)
+(DEFUN |UnivariateSkewPolynomialCategory| (#1=#:G117)
+  (LET (#2=#:G118)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |UnivariateSkewPolynomialCategory;| (|t#1|)
-  (SPROG ((#1=#:G115 NIL))
+  (SPROG ((#1=#:G116 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

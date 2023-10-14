@@ -25,9 +25,9 @@
 
 (DECLAIM (NOTINLINE |GeneralSparseTable;|)) 
 
-(DEFUN |GeneralSparseTable| (&REST #1=#:G167)
+(DEFUN |GeneralSparseTable| (&REST #1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#
@@ -47,7 +47,7 @@
 
 (DEFUN |GeneralSparseTable;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G166 NIL) (#2=#:G165 NIL) (|pv$| NIL) (#3=#:G163 NIL) (#4=#:G164 NIL)
+   ((#1=#:G167 NIL) (#2=#:G166 NIL) (|pv$| NIL) (#3=#:G164 NIL) (#4=#:G165 NIL)
     ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|GeneralSparseTable|))

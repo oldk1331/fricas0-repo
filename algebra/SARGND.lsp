@@ -143,7 +143,7 @@
         "\\mbox{\\bf Unimplemented}") 
 
 (SDEFUN |SARGND;=;2$B;31| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G159 NIL))
+        (SPROG ((#1=#:G160 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -151,7 +151,7 @@
                    ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
                     (PROGN
                      (LETT #1# 'NIL . #2=(|SARGND;=;2$B;31|))
-                     (GO #3=#:G158))))
+                     (GO #3=#:G159))))
                   (COND
                    ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
                     (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))
@@ -181,7 +181,7 @@
 
 (DEFUN |SArgand| ()
   (SPROG NIL
-         (PROG (#1=#:G164)
+         (PROG (#1=#:G165)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SArgand|) . #2=(|SArgand|))

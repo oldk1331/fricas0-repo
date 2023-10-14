@@ -64,9 +64,9 @@
 
 (DECLAIM (NOTINLINE |BinaryTree;|)) 
 
-(DEFUN |BinaryTree| (#1=#:G139)
+(DEFUN |BinaryTree| (#1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G140)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#
@@ -83,7 +83,7 @@
 
 (DEFUN |BinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G136 NIL) (#2=#:G137 NIL) (#3=#:G138 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G137 NIL) (#2=#:G138 NIL) (#3=#:G139 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|BinaryTree|))

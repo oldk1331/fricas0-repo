@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |AlgebraicallyClosedFunctionSpace;AL| 'NIL) 
 
-(DEFUN |AlgebraicallyClosedFunctionSpace| (#1=#:G116)
-  (LET (#2=#:G117)
+(DEFUN |AlgebraicallyClosedFunctionSpace| (#1=#:G117)
+  (LET (#2=#:G118)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |AlgebraicallyClosedFunctionSpace;| (|t#1|)
-  (SPROG ((#1=#:G115 NIL))
+  (SPROG ((#1=#:G116 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

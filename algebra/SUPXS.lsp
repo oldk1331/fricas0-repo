@@ -79,9 +79,9 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariatePuiseuxSeries;|)) 
 
-(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G162)
+(DEFUN |SparseUnivariatePuiseuxSeries| (&REST #1=#:G163)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G164)
            (RETURN
             (COND
              ((LETT #2#
@@ -103,8 +103,8 @@
 
 (DEFUN |SparseUnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G153 NIL) (#2=#:G154 NIL) (#3=#:G155 NIL) (#4=#:G156 NIL)
-    (#5=#:G157 NIL) (#6=#:G158 NIL) (#7=#:G160 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G154 NIL) (#2=#:G155 NIL) (#3=#:G156 NIL) (#4=#:G157 NIL)
+    (#5=#:G158 NIL) (#6=#:G159 NIL) (#7=#:G161 NIL) ($ NIL) (|dv$| NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|SparseUnivariatePuiseuxSeries|))

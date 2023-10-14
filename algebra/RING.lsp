@@ -4,11 +4,11 @@
 (DEFPARAMETER |Ring;AL| 'NIL) 
 
 (DEFUN |Ring| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|Ring;AL|) (T (SETQ |Ring;AL| (|Ring;|)))))) 
 
 (DEFUN |Ring;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Rng|) (|SemiRing|) (|LeftModule| '$)

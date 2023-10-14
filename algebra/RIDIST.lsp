@@ -10,7 +10,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|a| NIL) (|b| NIL) (|l| NIL) (|m| NIL) (#2=#:G123 NIL) (|w| NIL)
+             ((|a| NIL) (|b| NIL) (|l| NIL) (|m| NIL) (#2=#:G124 NIL) (|w| NIL)
               (|mqnext| NIL) (|n| NIL) (|mq| NIL))
              (SEQ (LETT |a| (SPADCALL |aTob| (QREFELT $ 8)) NIL)
                   (LETT |b| (SPADCALL |aTob| (QREFELT $ 9)) NIL)
@@ -74,7 +74,7 @@
 
 (DEFUN |RandomIntegerDistributions| ()
   (SPROG NIL
-         (PROG (#1=#:G134)
+         (PROG (#1=#:G135)
            (RETURN
             (COND
              ((LETT #1#

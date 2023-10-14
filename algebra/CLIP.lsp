@@ -21,7 +21,7 @@
                      (|:| |yValues| (|Segment| (|DoubleFloat|)))))
           (|denn| #5=(|Integer|)) (|numm| #6=(|Integer|))
           (|single_eps| (|DoubleFloat|)) (|yDiff| #7=(|DoubleFloat|))
-          (|xDiff| #7#) (|k| NIL) (#8=#:G171 NIL) (|pt| NIL)
+          (|xDiff| #7#) (|k| NIL) (#8=#:G172 NIL) (|pt| NIL)
           (|firstPt| (|Point| (|DoubleFloat|))) (|lastN| (|Integer|))
           (|clipNum| (|Integer|)) (|den| #5#) (|num| #6#)
           (|n| (|NonNegativeInteger|))
@@ -374,8 +374,8 @@
           (|:| |xValues| (|Segment| (|DoubleFloat|)))
           (|:| |yValues| (|Segment| (|DoubleFloat|)))))
         (SPROG
-         ((|yMax| #1=(|DoubleFloat|)) (|yMin| #1#) (#2=#:G210 NIL) (|pt| NIL)
-          (#3=#:G209 NIL) (|list| NIL)
+         ((|yMax| #1=(|DoubleFloat|)) (|yMin| #1#) (#2=#:G211 NIL) (|pt| NIL)
+          (#3=#:G210 NIL) (|list| NIL)
           (|lists| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|xMax| (|DoubleFloat|)) (|xMin| (|DoubleFloat|))
           (|denn| #4=(|Integer|)) (|numm| #5=(|Integer|))
@@ -577,8 +577,8 @@
         ((|lists| |List| (|List| (|Point| (|DoubleFloat|))))
          ($ |Union| (|Point| (|DoubleFloat|)) "failed"))
         (SPROG
-         ((#1=#:G228 NIL) (#2=#:G227 NIL) (#3=#:G229 NIL) (#4=#:G231 NIL)
-          (|p| NIL) (#5=#:G230 NIL) (|list| NIL))
+         ((#1=#:G229 NIL) (#2=#:G228 NIL) (#3=#:G230 NIL) (#4=#:G232 NIL)
+          (|p| NIL) (#5=#:G231 NIL) (|list| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -613,14 +613,14 @@
                                           (LETT #2#
                                                 (PROGN
                                                  (LETT #3# (CONS 0 |p|) . #6#)
-                                                 (GO #7=#:G226))
+                                                 (GO #7=#:G227))
                                                 . #6#)
-                                          (GO #8=#:G222))))))
+                                          (GO #8=#:G223))))))
                                      (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                                      (EXIT NIL)))
                                #8# (EXIT #2#))
                               . #6#)
-                        (GO #9=#:G224))))))
+                        (GO #9=#:G225))))))
                    (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL)))
              #9# (EXIT #1#))
             (EXIT (CONS 1 "failed"))))
@@ -634,9 +634,9 @@
           (|:| |xValues| (|Segment| (|DoubleFloat|)))
           (|:| |yValues| (|Segment| (|DoubleFloat|)))))
         (SPROG
-         ((#1=#:G266 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
-          (#2=#:G265 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
-          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G264 NIL)
+         ((#1=#:G267 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
+          (#2=#:G266 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
+          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G265 NIL)
           (|pointList| NIL))
          (SEQ (LETT |lists| NIL . #4=(|CLIP;clipWithRanges;L4DfR;13|))
               (SEQ (LETT |pointList| NIL . #4#) (LETT #3# |pointLists| . #4#)
@@ -782,7 +782,7 @@
 
 (DEFUN |TwoDimensionalPlotClipping| ()
   (SPROG NIL
-         (PROG (#1=#:G276)
+         (PROG (#1=#:G277)
            (RETURN
             (COND
              ((LETT #1#

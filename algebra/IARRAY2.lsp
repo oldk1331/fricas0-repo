@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |IndexedTwoDimensionalArray;|)) 
 
-(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G109)
+(DEFUN |IndexedTwoDimensionalArray| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#
@@ -24,7 +24,7 @@
 
 (DEFUN |IndexedTwoDimensionalArray;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G106 NIL) (#2=#:G107 NIL) (#3=#:G108 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G107 NIL) (#2=#:G108 NIL) (#3=#:G109 NIL) ($ NIL)
     (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|IndexedTwoDimensionalArray|))

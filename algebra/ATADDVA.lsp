@@ -4,12 +4,12 @@
 (DEFPARAMETER |additiveValuation;AL| 'NIL) 
 
 (DEFUN |additiveValuation| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|additiveValuation;AL|)
           (T (SETQ |additiveValuation;AL| (|additiveValuation;|)))))) 
 
 (DEFUN |additiveValuation;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
                    |additiveValuation|)

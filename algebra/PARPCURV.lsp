@@ -12,9 +12,9 @@
 
 (DECLAIM (NOTINLINE |ParametricPlaneCurve;|)) 
 
-(DEFUN |ParametricPlaneCurve| (#1=#:G108)
+(DEFUN |ParametricPlaneCurve| (#1=#:G109)
   (SPROG NIL
-         (PROG (#2=#:G109)
+         (PROG (#2=#:G110)
            (RETURN
             (COND
              ((LETT #2#

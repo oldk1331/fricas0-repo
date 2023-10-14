@@ -1,6 +1,6 @@
 
 (SDEFUN |FSRED;newReduc;V;1| (($ |Void|))
-        (SPROG ((#1=#:G107 NIL) (|k| NIL))
+        (SPROG ((#1=#:G108 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|FSRED;newReduc;V;1|))
                      (LETT #1# (SPADCALL (QREFELT $ 11) (QREFELT $ 13)) . #2#)
@@ -51,7 +51,7 @@
 
 (SDEFUN |FSRED;bringDown;FF;3| ((|f| F) ($ |Fraction| (|Integer|)))
         (SPROG
-         ((#1=#:G124 NIL) (|k| NIL) (#2=#:G123 NIL)
+         ((#1=#:G125 NIL) (|k| NIL) (#2=#:G124 NIL)
           (|lk| (|List| (|Kernel| F))))
          (SEQ
           (SPADCALL
@@ -94,9 +94,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceReduce;|)) 
 
-(DEFUN |FunctionSpaceReduce| (&REST #1=#:G131)
+(DEFUN |FunctionSpaceReduce| (&REST #1=#:G132)
   (SPROG NIL
-         (PROG (#2=#:G132)
+         (PROG (#2=#:G133)
            (RETURN
             (COND
              ((LETT #2#

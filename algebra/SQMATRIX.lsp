@@ -8,9 +8,9 @@
 
 (SDEFUN |SQMATRIX;matrix;L$;4| ((|l| |List| (|List| R)) ($ $))
         (SPROG
-         ((#1=#:G122 NIL) (|j| NIL) (#2=#:G123 NIL) (|r| NIL) (#3=#:G120 NIL)
-          (|i| NIL) (#4=#:G121 NIL) (|ll| NIL) (|ans| (|Matrix| R))
-          (#5=#:G118 NIL) (#6=#:G119 NIL))
+         ((#1=#:G123 NIL) (|j| NIL) (#2=#:G124 NIL) (|r| NIL) (#3=#:G121 NIL)
+          (|i| NIL) (#4=#:G122 NIL) (|ll| NIL) (|ans| (|Matrix| R))
+          (#5=#:G119 NIL) (#6=#:G120 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |l|) (QREFELT $ 6) (QREFELT $ 19))
@@ -31,7 +31,7 @@
                         (PROGN
                          (LETT #5# (|error| "matrix: wrong number of columns")
                                . #7#)
-                         (GO #8=#:G112))))))
+                         (GO #8=#:G113))))))
                     (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL)))
               #8# (EXIT #5#))
              (LETT |ans|
@@ -122,7 +122,7 @@
 
 (SDEFUN |SQMATRIX;nullSpace;$L;20|
         ((|x| $) ($ |List| (|DirectProduct| |ndim| R)))
-        (SPROG ((#1=#:G146 NIL) (|c| NIL) (#2=#:G145 NIL))
+        (SPROG ((#1=#:G147 NIL) (|c| NIL) (#2=#:G146 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|SQMATRIX;nullSpace;$L;20|))
@@ -161,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |SquareMatrix;|)) 
 
-(DEFUN |SquareMatrix| (&REST #1=#:G179)
+(DEFUN |SquareMatrix| (&REST #1=#:G180)
   (SPROG NIL
-         (PROG (#2=#:G180)
+         (PROG (#2=#:G181)
            (RETURN
             (COND
              ((LETT #2#
@@ -182,7 +182,7 @@
 
 (DEFUN |SquareMatrix;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G175 NIL) (#2=#:G176 NIL) (#3=#:G178 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G176 NIL) (#2=#:G177 NIL) (#3=#:G179 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|SquareMatrix|))

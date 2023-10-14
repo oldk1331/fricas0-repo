@@ -22,7 +22,7 @@
         ((|x| |Expression| R) (|vl| |List| (|Kernel| (|Expression| R)))
          ($ |List| (|Expression| R)))
         (SPROG
-         ((#1=#:G130 NIL) (|v| NIL) (#2=#:G129 NIL)
+         ((#1=#:G131 NIL) (|v| NIL) (#2=#:G130 NIL)
           (|nx0|
            (|SparseMultivariatePolynomial| R (|Kernel| (|Expression| R))))
           (|nx1|
@@ -30,8 +30,8 @@
           (|ml|
            (|List|
             (|SparseMultivariatePolynomial| R (|Kernel| (|Expression| R)))))
-          (#3=#:G127 NIL) (#4=#:G128 NIL) (|c| NIL) (#5=#:G126 NIL)
-          (|res0| (|List| (|Expression| R))) (#6=#:G125 NIL) (#7=#:G124 NIL)
+          (#3=#:G128 NIL) (#4=#:G129 NIL) (|c| NIL) (#5=#:G127 NIL)
+          (|res0| (|List| (|Expression| R))) (#6=#:G126 NIL) (#7=#:G125 NIL)
           (|nx|
            (|SparseMultivariatePolynomial| R (|Kernel| (|Expression| R)))))
          (SEQ
@@ -109,17 +109,17 @@
         ((|eql| |List| (|Expression| R)) (|vl| |List| (|Symbol|))
          ($ |Union| (|List| (|Expression| R)) "failed"))
         (SPROG
-         ((#1=#:G147 NIL)
+         ((#1=#:G148 NIL)
           (|ss|
            (|Record|
             (|:| |particular| (|Union| (|Vector| (|Expression| R)) "failed"))
             (|:| |basis| (|List| (|Vector| (|Expression| R))))))
-          (|eqm| (|Matrix| (|Expression| R))) (#2=#:G161 NIL) (|ll| NIL)
-          (#3=#:G160 NIL) (|rh| (|Vector| (|Expression| R))) (#4=#:G159 NIL)
-          (#5=#:G158 NIL) (|eqll| (|List| (|List| (|Expression| R))))
-          (#6=#:G157 NIL) (|p| NIL) (#7=#:G156 NIL)
-          (|coefk| (|List| (|Kernel| (|Expression| R)))) (#8=#:G155 NIL)
-          (|c| NIL) (#9=#:G154 NIL))
+          (|eqm| (|Matrix| (|Expression| R))) (#2=#:G162 NIL) (|ll| NIL)
+          (#3=#:G161 NIL) (|rh| (|Vector| (|Expression| R))) (#4=#:G160 NIL)
+          (#5=#:G159 NIL) (|eqll| (|List| (|List| (|Expression| R))))
+          (#6=#:G158 NIL) (|p| NIL) (#7=#:G157 NIL)
+          (|coefk| (|List| (|Kernel| (|Expression| R)))) (#8=#:G156 NIL)
+          (|c| NIL) (#9=#:G155 NIL))
          (SEQ
           (LETT |coefk|
                 (PROGN
@@ -201,9 +201,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionLinearSolve;|)) 
 
-(DEFUN |ExpressionLinearSolve| (#1=#:G162)
+(DEFUN |ExpressionLinearSolve| (#1=#:G163)
   (SPROG NIL
-         (PROG (#2=#:G163)
+         (PROG (#2=#:G164)
            (RETURN
             (COND
              ((LETT #2#

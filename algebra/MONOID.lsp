@@ -4,11 +4,11 @@
 (DEFPARAMETER |Monoid;AL| 'NIL) 
 
 (DEFUN |Monoid| ()
-  (LET (#:G106)
+  (LET (#:G107)
     (COND (|Monoid;AL|) (T (SETQ |Monoid;AL| (|Monoid;|)))))) 
 
 (DEFUN |Monoid;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|SemiGroup|)

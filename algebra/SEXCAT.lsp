@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |SExpressionCategory;AL| 'NIL) 
 
-(DEFUN |SExpressionCategory| (&REST #1=#:G104)
-  (LET (#2=#:G105)
+(DEFUN |SExpressionCategory| (&REST #1=#:G105)
+  (LET (#2=#:G106)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |SExpressionCategory;AL|))
       (CDR #2#))
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |SExpressionCategory;| (|t#1| |t#2| |t#3| |t#4| |t#5|)
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

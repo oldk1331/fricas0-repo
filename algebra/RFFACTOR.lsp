@@ -122,9 +122,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionFactorizer;|)) 
 
-(DEFUN |RationalFunctionFactorizer| (#1=#:G107)
+(DEFUN |RationalFunctionFactorizer| (#1=#:G108)
   (SPROG NIL
-         (PROG (#2=#:G108)
+         (PROG (#2=#:G109)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,7 +1,7 @@
 
 (SDEFUN |NCODIV;leftDivide;2PR;1|
         ((|a| P) (|b| P) ($ |Record| (|:| |quotient| P) (|:| |remainder| P)))
-        (SPROG ((|q| (P)) (|r| (P)) (|h| (P)) (#1=#:G107 NIL) (|iv| (F)))
+        (SPROG ((|q| (P)) (|r| (P)) (|h| (P)) (#1=#:G108 NIL) (|iv| (F)))
                (SEQ
                 (LETT |q| (|spadConstant| $ 8)
                       . #2=(|NCODIV;leftDivide;2PR;1|))
@@ -129,9 +129,9 @@
 
 (DECLAIM (NOTINLINE |NonCommutativeOperatorDivision;|)) 
 
-(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G134)
+(DEFUN |NonCommutativeOperatorDivision| (&REST #1=#:G135)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G136)
            (RETURN
             (COND
              ((LETT #2#

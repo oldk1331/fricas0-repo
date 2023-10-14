@@ -1,6 +1,6 @@
 
 (SDEFUN |PSEUDLIN;inv| ((|m| |Matrix| K) ($ |Matrix| K))
-        (SPROG ((#1=#:G108 NIL))
+        (SPROG ((#1=#:G109 NIL))
                (PROG2 (LETT #1# (SPADCALL |m| (QREFELT $ 9)) |PSEUDLIN;inv|)
                    (QCDR #1#)
                  (|check_union| (QEQCAR #1# 0) (|Matrix| (QREFELT $ 6)) #1#)))) 
@@ -39,7 +39,7 @@
         (SPROG
          ((|i| #1=(|Integer|))
           (|l| (|List| (|Record| (|:| C (|Matrix| K)) (|:| |g| (|Vector| K)))))
-          (|k| NIL) (|v| (|Vector| K)) (#2=#:G145 NIL) (|j| #1#)
+          (|k| NIL) (|v| (|Vector| K)) (#2=#:G146 NIL) (|j| #1#)
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |i| 1 . #3=(|PSEUDLIN;companionBlocks;MVL;4|))
               (LETT |n| (ANROWS R) . #3#) (LETT |l| NIL . #3#)
@@ -92,11 +92,11 @@
           (|:| |Ainv| (|Matrix| K))))
         (SPROG
          ((|i| (|Integer|)) (|Binv| (|Matrix| K)) (B (|Matrix| K))
-          (E (|Matrix| K)) (#1=#:G184 NIL) (|k| NIL) (#2=#:G185 NIL)
+          (E (|Matrix| K)) (#1=#:G185 NIL) (|k| NIL) (#2=#:G186 NIL)
           (|recOfMatrices|
            (|Record| (|:| R (|Matrix| K)) (|:| A (|Matrix| K))
                      (|:| |Ainv| (|Matrix| K))))
-          (|j| (|Integer|)) (#3=#:G181 NIL) (#4=#:G182 NIL) (#5=#:G183 NIL)
+          (|j| (|Integer|)) (#3=#:G182 NIL) (#4=#:G183 NIL) (#5=#:G184 NIL)
           (N (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -120,7 +120,7 @@
                 (LETT |Binv| (SPADCALL B (QREFELT $ 35)) . #6#)
                 (COND
                  ((SPADCALL M (QREFELT $ 36))
-                  (PROGN (LETT #3# (VECTOR M B |Binv|) . #6#) (GO #7=#:G180))))
+                  (PROGN (LETT #3# (VECTOR M B |Binv|) . #6#) (GO #7=#:G181))))
                 (LETT |i| 1 . #6#)
                 (SEQ G190 (COND ((NULL (< |i| N)) (GO G191)))
                      (SEQ (LETT |j| (+ |i| 1) . #6#)
@@ -320,7 +320,7 @@
 
 (SDEFUN |PSEUDLIN;mulMatrix|
         ((N |Integer|) (|i| |Integer|) (|a| K) ($ |Matrix| K))
-        (SPROG ((M (|Matrix| K)) (#1=#:G189 NIL) (|j| NIL) (#2=#:G190 NIL))
+        (SPROG ((M (|Matrix| K)) (#1=#:G190 NIL) (|j| NIL) (#2=#:G191 NIL))
                (SEQ
                 (LETT M
                       (SPADCALL
@@ -342,7 +342,7 @@
 
 (SDEFUN |PSEUDLIN;addMatrix|
         ((N |Integer|) (|i| |Integer|) (|k| |Integer|) (|a| K) ($ |Matrix| K))
-        (SPROG ((A (|Matrix| K)) (#1=#:G194 NIL) (|j| NIL) (#2=#:G195 NIL))
+        (SPROG ((A (|Matrix| K)) (#1=#:G195 NIL) (|j| NIL) (#2=#:G196 NIL))
                (SEQ
                 (LETT A
                       (SPADCALL
@@ -364,7 +364,7 @@
 
 (SDEFUN |PSEUDLIN;permutationMatrix|
         ((N |Integer|) (|i| |Integer|) (|k| |Integer|) ($ |Matrix| K))
-        (SPROG ((P (|Matrix| K)) (#1=#:G199 NIL) (|j| NIL) (#2=#:G200 NIL))
+        (SPROG ((P (|Matrix| K)) (#1=#:G200 NIL) (|j| NIL) (#2=#:G201 NIL))
                (SEQ
                 (LETT P
                       (SPADCALL
@@ -395,9 +395,9 @@
 
 (DECLAIM (NOTINLINE |PseudoLinearNormalForm;|)) 
 
-(DEFUN |PseudoLinearNormalForm| (#1=#:G201)
+(DEFUN |PseudoLinearNormalForm| (#1=#:G202)
   (SPROG NIL
-         (PROG (#2=#:G202)
+         (PROG (#2=#:G203)
            (RETURN
             (COND
              ((LETT #2#

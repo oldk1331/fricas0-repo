@@ -1,6 +1,6 @@
 
 (SDEFUN |RESULT;cleanUpDomainForm| ((|d| |SExpression|) ($ |OutputForm|))
-        (SPROG ((#1=#:G116 NIL) (|u| NIL) (#2=#:G115 NIL))
+        (SPROG ((#1=#:G117 NIL) (|u| NIL) (#2=#:G116 NIL))
                (SEQ
                 (COND
                  ((NULL (SPADCALL |d| (QREFELT $ 15)))
@@ -58,7 +58,7 @@
          (QREFELT $ 30))) 
 
 (SDEFUN |RESULT;coerce;$Of;4| ((|r| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G125 NIL) (|key| NIL) (#2=#:G124 NIL))
+        (SPROG ((#1=#:G126 NIL) (|key| NIL) (#2=#:G125 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -93,7 +93,7 @@
 
 (DEFUN |Result| ()
   (SPROG NIL
-         (PROG (#1=#:G180)
+         (PROG (#1=#:G181)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Result|) . #2=(|Result|))
@@ -109,8 +109,8 @@
 
 (DEFUN |Result;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G176 NIL) (#2=#:G175 NIL) (|pv$| NIL)
-    (#3=#:G177 NIL) (#4=#:G178 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G177 NIL) (#2=#:G176 NIL) (|pv$| NIL)
+    (#3=#:G178 NIL) (#4=#:G179 NIL))
    (PROGN
     (LETT |dv$| '(|Result|) . #5=(|Result|))
     (LETT $ (GETREFV 59) . #5#)

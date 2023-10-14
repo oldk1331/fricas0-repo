@@ -4,14 +4,14 @@
 (DEFPARAMETER |AlgebraicallyClosedField;AL| 'NIL) 
 
 (DEFUN |AlgebraicallyClosedField| ()
-  (LET (#:G118)
+  (LET (#:G119)
     (COND (|AlgebraicallyClosedField;AL|)
           (T
            (SETQ |AlgebraicallyClosedField;AL|
                    (|AlgebraicallyClosedField;|)))))) 
 
 (DEFUN |AlgebraicallyClosedField;| ()
-  (SPROG ((#1=#:G116 NIL))
+  (SPROG ((#1=#:G117 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Field|) (|RadicalCategory|)

@@ -4,12 +4,12 @@
 (DEFPARAMETER |OrderedAbelianMonoid;AL| 'NIL) 
 
 (DEFUN |OrderedAbelianMonoid| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|OrderedAbelianMonoid;AL|)
           (T (SETQ |OrderedAbelianMonoid;AL| (|OrderedAbelianMonoid;|)))))) 
 
 (DEFUN |OrderedAbelianMonoid;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1# (|Join| (|OrderedAbelianSemiGroup|) (|AbelianMonoid|))
                    |OrderedAbelianMonoid|)

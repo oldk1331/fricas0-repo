@@ -60,7 +60,7 @@
                                     (|:| |logand|
                                          (|Fraction| (|Polynomial| F)))))))
           "failed"))
-        (SPROG ((#1=#:G135 NIL) (|u| NIL) (#2=#:G134 NIL))
+        (SPROG ((#1=#:G136 NIL) (|u| NIL) (#2=#:G135 NIL))
                (SEQ
                 (SPADCALL
                  (CONS #'|INTRF;limitedIntegrate;FSLU;4!0| (VECTOR $ |x|))
@@ -94,9 +94,9 @@
 
 (DECLAIM (NOTINLINE |RationalFunctionIntegration;|)) 
 
-(DEFUN |RationalFunctionIntegration| (#1=#:G136)
+(DEFUN |RationalFunctionIntegration| (#1=#:G137)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G138)
            (RETURN
             (COND
              ((LETT #2#

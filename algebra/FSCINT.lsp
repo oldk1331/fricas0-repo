@@ -30,8 +30,8 @@
 (SDEFUN |FSCINT;internalIntegrate;FSIr;7|
         ((|f| F) (|x| |Symbol|) ($ |IntegrationResult| F))
         (SPROG
-         ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G136 NIL)
-          (|k| NIL) (#2=#:G135 NIL) (#3=#:G134 NIL) (#4=#:G133 NIL))
+         ((|g| (F)) (|h| (|Expression| (|Complex| R))) (#1=#:G137 NIL)
+          (|k| NIL) (#2=#:G136 NIL) (#3=#:G135 NIL) (#4=#:G134 NIL))
          (SEQ
           (LETT |f| (SPADCALL |f| (SPADCALL |x| (QREFELT $ 37)) (QREFELT $ 38))
                 . #5=(|FSCINT;internalIntegrate;FSIr;7|))
@@ -133,9 +133,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceComplexIntegration;|)) 
 
-(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G137)
+(DEFUN |FunctionSpaceComplexIntegration| (&REST #1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G138)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#
@@ -223,7 +223,7 @@
               |FSCINT;internalIntegrate;FSIr;7|
               (|IntegrationResultToFunction| 6 7) (20 . |complexExpand|)
               (|IntegrationTools| 6 7) (25 . |removeConstantTerm|)
-              |FSCINT;complexIntegrate;FSF;2| '#:G103
+              |FSCINT;complexIntegrate;FSF;2| '#:G104
               (|ElementaryIntegration| 6 7) (31 . |lfintegrate|)
               (|Record| (|:| |special| 7) (|:| |integrand| 7))
               (|Union| 29 '"failed") (|PatternMatchIntegration| 6 7)

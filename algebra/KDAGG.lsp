@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |KeyedDictionary;AL| 'NIL) 
 
-(DEFUN |KeyedDictionary| (&REST #1=#:G107)
-  (LET (#2=#:G108)
+(DEFUN |KeyedDictionary| (&REST #1=#:G108)
+  (LET (#2=#:G109)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |KeyedDictionary;AL|))
       (CDR #2#))
@@ -17,14 +17,14 @@
       #2#)))) 
 
 (DEFUN |KeyedDictionary;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G106 NIL))
+  (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
                     (PAIR '(|t#1| |t#2|)
                           (LIST (|devaluate| |t#1|) (|devaluate| |t#2|)))
                     (|sublisV|
-                     (PAIR '(#2=#:G105)
+                     (PAIR '(#2=#:G106)
                            (LIST
                             '(|Record| (|:| |key| |t#1|) (|:| |entry| |t#2|))))
                      (COND (|KeyedDictionary;CAT|)

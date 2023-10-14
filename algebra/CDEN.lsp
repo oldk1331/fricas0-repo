@@ -72,9 +72,9 @@
 
 (DECLAIM (NOTINLINE |CommonDenominator;|)) 
 
-(DEFUN |CommonDenominator| (&REST #1=#:G120)
+(DEFUN |CommonDenominator| (&REST #1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#

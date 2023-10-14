@@ -104,7 +104,7 @@
 
 (SDEFUN |LF;eqint| ((|k1| |Kernel| F) (|k2| |Kernel| F) ($ |Boolean|))
         (SPROG
-         ((|res| (|Boolean|)) (#1=#:G164 NIL) (|a2| #2=(|List| F)) (|a1| #2#))
+         ((|res| (|Boolean|)) (#1=#:G165 NIL) (|a2| #2=(|List| F)) (|a1| #2#))
          (SEQ
           (EXIT
            (SEQ (LETT |a1| (SPADCALL |k1| (QREFELT $ 70)) . #3=(|LF;eqint|))
@@ -114,7 +114,7 @@
                                 (SPADCALL |k2| (QREFELT $ 71)) (QREFELT $ 72))
                       . #3#)
                 (COND
-                 ((NULL |res|) (PROGN (LETT #1# |res| . #3#) (GO #4=#:G163))))
+                 ((NULL |res|) (PROGN (LETT #1# |res| . #3#) (GO #4=#:G164))))
                 (LETT |res| (SPADCALL |a1| |a2| (QREFELT $ 73)) . #3#)
                 (COND (|res| (PROGN (LETT #1# |res| . #3#) (GO #4#))))
                 (EXIT
@@ -175,8 +175,8 @@
 
 (SDEFUN |LF;dviint| ((|l| |List| F) (|v| |Symbol|) ($ F))
         (SPROG
-         ((|m| (|Integer|)) (|lv| (|List| (|Symbol|))) (#1=#:G182 NIL)
-          (|vf| NIL) (#2=#:G181 NIL) (|lvf| (|List| F))
+         ((|m| (|Integer|)) (|lv| (|List| (|Symbol|))) (#1=#:G183 NIL)
+          (|vf| NIL) (#2=#:G182 NIL) (|lvf| (|List| F))
           (|n| (|NonNegativeInteger|))
           (|nu| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
@@ -348,9 +348,9 @@
 
 (DECLAIM (NOTINLINE |LiouvillianFunction;|)) 
 
-(DEFUN |LiouvillianFunction| (&REST #1=#:G268)
+(DEFUN |LiouvillianFunction| (&REST #1=#:G269)
   (SPROG NIL
-         (PROG (#2=#:G269)
+         (PROG (#2=#:G270)
            (RETURN
             (COND
              ((LETT #2#

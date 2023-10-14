@@ -15,7 +15,7 @@
 
 (SDEFUN |MTHING;mergeDifference1|
         ((|x| . #1=(|List| S)) (|fy| S) (|ry| |List| S) ($ |List| S))
-        (SPROG ((#2=#:G114 NIL) (|frx| (S)) (|rx| #1#))
+        (SPROG ((#2=#:G115 NIL) (|frx| (S)) (|rx| #1#))
                (SEQ
                 (EXIT
                  (SEQ (LETT |rx| |x| . #3=(|MTHING;mergeDifference1|))
@@ -37,7 +37,7 @@
                                          ((NULL |ry|)
                                           (PROGN
                                            (LETT #2# |x| . #3#)
-                                           (GO #4=#:G113)))
+                                           (GO #4=#:G114)))
                                          ('T
                                           (SEQ
                                            (LETT |fy| (|SPADfirst| |ry|) . #3#)
@@ -65,9 +65,9 @@
 
 (DECLAIM (NOTINLINE |MergeThing;|)) 
 
-(DEFUN |MergeThing| (#1=#:G115)
+(DEFUN |MergeThing| (#1=#:G116)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G117)
            (RETURN
             (COND
              ((LETT #2#

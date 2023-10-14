@@ -2,9 +2,9 @@
 (SDEFUN |M3D;matrixConcat3D;S3$;1|
         ((|dir| |Symbol|) (|mat1| $) (|mat2| $) ($ $))
         (SPROG
-         ((|retVal| ($)) (#1=#:G131 NIL) (|j| NIL)
-          (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G130 NIL)
-          (|i| NIL) (#3=#:G129 NIL)
+         ((|retVal| ($)) (#1=#:G132 NIL) (|j| NIL)
+          (|temp| (|PrimitiveArray| (|PrimitiveArray| R))) (#2=#:G131 NIL)
+          (|i| NIL) (#3=#:G130 NIL)
           (|matRep2|
            #4=(|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
           (|matRep1| #4#) (|kDim2| #5=(|NonNegativeInteger|)) (|jDim2| #5#)
@@ -219,7 +219,7 @@
 (SDEFUN |M3D;identityMatrix;Nni$;8| ((|iLength| |NonNegativeInteger|) ($ $))
         (SPROG
          ((|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
-          (|row1| (|PrimitiveArray| R)) (#1=#:G145 NIL) (|count| NIL)
+          (|row1| (|PrimitiveArray| R)) (#1=#:G146 NIL) (|count| NIL)
           (|row2empty| (|PrimitiveArray| (|PrimitiveArray| R)))
           (|row1empty| (|PrimitiveArray| R))
           (|retValueRep|
@@ -313,8 +313,8 @@
          ((|resultMatrix| ($)) (|element| (R)) (|k| NIL) (|j| NIL) (|i| NIL)
           (|row3| (|PrimitiveArray| (|PrimitiveArray| (|PrimitiveArray| R))))
           (|row2| (|PrimitiveArray| (|PrimitiveArray| R)))
-          (|row1| (|PrimitiveArray| R)) (#1=#:G170 NIL) (#2=#:G172 NIL)
-          (|subSubList| NIL) (#3=#:G171 NIL) (|subList| NIL)
+          (|row1| (|PrimitiveArray| R)) (#1=#:G171 NIL) (#2=#:G173 NIL)
+          (|subSubList| NIL) (#3=#:G172 NIL) (|subList| NIL)
           (|kLength| (|NonNegativeInteger|)) (|jLength| (|NonNegativeInteger|))
           (|iLength| (|NonNegativeInteger|)))
          (SEQ
@@ -367,7 +367,7 @@
                                         (|error|
                                          "can not have an irregular shaped matrix")
                                         . #4#)
-                                  (GO #5=#:G156))))))
+                                  (GO #5=#:G157))))))
                              (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                              (EXIT NIL)))
                        #5# (EXIT #1#))))))
@@ -415,9 +415,9 @@
 
 (DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
 
-(DEFUN |ThreeDimensionalMatrix| (#1=#:G178)
+(DEFUN |ThreeDimensionalMatrix| (#1=#:G179)
   (SPROG NIL
-         (PROG (#2=#:G179)
+         (PROG (#2=#:G180)
            (RETURN
             (COND
              ((LETT #2#
@@ -436,7 +436,7 @@
 
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G175 NIL) (#2=#:G176 NIL) (#3=#:G177 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G176 NIL) (#2=#:G177 NIL) (#3=#:G178 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|ThreeDimensionalMatrix|))

@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |PowerSeriesCategory;AL| 'NIL) 
 
-(DEFUN |PowerSeriesCategory| (&REST #1=#:G109)
-  (LET (#2=#:G110)
+(DEFUN |PowerSeriesCategory| (&REST #1=#:G110)
+  (LET (#2=#:G111)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PowerSeriesCategory;AL|))
       (CDR #2#))
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |PowerSeriesCategory;| (|t#1| |t#2| |t#3|)
-  (SPROG ((#1=#:G108 NIL))
+  (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

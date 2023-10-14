@@ -22,7 +22,7 @@
            (|Record|
             (|:| |radicand| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |deg| (|NonNegativeInteger|))))
-          (#1=#:G109 NIL)
+          (#1=#:G110 NIL)
           (|f1|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -320,9 +320,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicIntegration;|)) 
 
-(DEFUN |AlgebraicIntegration| (&REST #1=#:G134)
+(DEFUN |AlgebraicIntegration| (&REST #1=#:G135)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G136)
            (RETURN
             (COND
              ((LETT #2#

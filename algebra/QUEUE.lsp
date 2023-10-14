@@ -52,9 +52,9 @@
 
 (DECLAIM (NOTINLINE |Queue;|)) 
 
-(DEFUN |Queue| (#1=#:G137)
+(DEFUN |Queue| (#1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G138)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#
@@ -70,7 +70,7 @@
 
 (DEFUN |Queue;| (|#1|)
   (SPROG
-   ((#1=#:G136 NIL) (|pv$| NIL) (#2=#:G133 NIL) (#3=#:G134 NIL) (#4=#:G135 NIL)
+   ((#1=#:G137 NIL) (|pv$| NIL) (#2=#:G134 NIL) (#3=#:G135 NIL) (#4=#:G136 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Queue|))

@@ -6,8 +6,8 @@
         ((|l| LO) (|g| A)
          ($ |Record| (|:| |mat| (|Matrix| L)) (|:| |vec| (|Vector| F))))
         (SPROG
-         ((|mdi| (|Matrix| L)) (|sys| #1=(|Matrix| L)) (#2=#:G115 NIL)
-          (|i| NIL) (#3=#:G113 NIL) (#4=#:G114 NIL) (|j| NIL) (|md| #1#)
+         ((|mdi| (|Matrix| L)) (|sys| #1=(|Matrix| L)) (#2=#:G116 NIL)
+          (|i| NIL) (#3=#:G114 NIL) (#4=#:G115 NIL) (|j| NIL) (|md| #1#)
           (|n| (|PositiveInteger|)))
          (SEQ
           (LETT |n| (SPADCALL (QREFELT $ 20))
@@ -69,9 +69,9 @@
 
 (DECLAIM (NOTINLINE |ReduceLODE;|)) 
 
-(DEFUN |ReduceLODE| (&REST #1=#:G116)
+(DEFUN |ReduceLODE| (&REST #1=#:G117)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G118)
            (RETURN
             (COND
              ((LETT #2#

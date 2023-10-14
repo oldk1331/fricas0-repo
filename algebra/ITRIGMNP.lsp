@@ -38,8 +38,8 @@
 (SDEFUN |ITRIGMNP;ker2explogs|
         ((|k| |Kernel| FG) (|l| |List| (|Kernel| FG)) ($ FG))
         (SPROG
-         ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G165 NIL) (|a| NIL)
-          (#2=#:G164 NIL) (|kf| (FG)))
+         ((|e| (FG)) (|z| (FG)) (|args| (|List| FG)) (#1=#:G166 NIL) (|a| NIL)
+          (#2=#:G165 NIL) (|kf| (FG)))
          (SEQ
           (LETT |kf| (SPADCALL |k| (QREFELT $ 47))
                 . #3=(|ITRIGMNP;ker2explogs|))
@@ -216,10 +216,10 @@
 (SDEFUN |ITRIGMNP;ker2trigs|
         ((|op| |BasicOperator|) (|arg| |List| (|Complex| F)) ($ |Complex| F))
         (SPROG
-         ((#1=#:G225 NIL) (|x| NIL) (#2=#:G224 NIL) (#3=#:G223 NIL)
-          (#4=#:G222 NIL) (|a| (|Complex| F)) (#5=#:G221 NIL) (#6=#:G220 NIL)
-          (#7=#:G183 NIL) (#8=#:G182 #9=(|Boolean|)) (#10=#:G184 #9#)
-          (#11=#:G219 NIL))
+         ((#1=#:G226 NIL) (|x| NIL) (#2=#:G225 NIL) (#3=#:G224 NIL)
+          (#4=#:G223 NIL) (|a| (|Complex| F)) (#5=#:G222 NIL) (#6=#:G221 NIL)
+          (#7=#:G184 NIL) (#8=#:G183 #9=(|Boolean|)) (#10=#:G185 #9#)
+          (#11=#:G220 NIL))
          (SEQ
           (COND
            ((PROGN
@@ -405,8 +405,8 @@
           (|den|
            #2=(|SparseUnivariatePolynomial|
                (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))))
-          (|num| #2#) (|arg| (|List| (|Complex| F))) (#3=#:G241 NIL) (|x| NIL)
-          (#4=#:G240 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| FG))
+          (|num| #2#) (|arg| (|List| (|Complex| F))) (#3=#:G242 NIL) (|x| NIL)
+          (#4=#:G241 NIL) (|op| (|BasicOperator|)) (|k| (|Kernel| FG))
           (|m| (|Union| (|Kernel| FG) "failed"))
           (|df| (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG)))
           (|nf| (|SparseMultivariatePolynomial| (|Complex| R) (|Kernel| FG))))
@@ -556,9 +556,9 @@
 
 (DECLAIM (NOTINLINE |InnerTrigonometricManipulations;|)) 
 
-(DEFUN |InnerTrigonometricManipulations| (&REST #1=#:G252)
+(DEFUN |InnerTrigonometricManipulations| (&REST #1=#:G253)
   (SPROG NIL
-         (PROG (#2=#:G253)
+         (PROG (#2=#:G254)
            (RETURN
             (COND
              ((LETT #2#

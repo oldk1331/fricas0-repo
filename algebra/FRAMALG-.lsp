@@ -21,7 +21,7 @@
         (SPADCALL |x| (SPADCALL (QREFELT $ 15)) (QREFELT $ 25))) 
 
 (SDEFUN |FRAMALG-;coordinates;VM;8| ((|v| |Vector| S) ($ |Matrix| R))
-        (SPROG ((#1=#:G120 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
+        (SPROG ((#1=#:G121 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
                       (MAKE_MATRIX1 (QVSIZE |v|) (SPADCALL (QREFELT $ 28))
@@ -44,7 +44,7 @@
 
 (SDEFUN |FRAMALG-;regularRepresentation;SM;9| ((|x| S) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G124 NIL) (|i| NIL) (|j| NIL) (|b| (|Vector| S))
+         ((#1=#:G125 NIL) (|i| NIL) (|j| NIL) (|b| (|Vector| S))
           (|m| (|Matrix| R)) (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |m|
@@ -87,8 +87,8 @@
 
 (SDEFUN |FRAMALG-;minimalPolynomial;SUP;11| ((|x| S) ($ UP))
         (SPROG
-         ((#1=#:G130 NIL) (#2=#:G129 (UP)) (#3=#:G131 (UP)) (#4=#:G135 NIL)
-          (|i| NIL) (|v| (|Vector| R)) (|y| (S)) (#5=#:G134 NIL)
+         ((#1=#:G131 NIL) (#2=#:G130 (UP)) (#3=#:G132 (UP)) (#4=#:G136 NIL)
+          (|i| NIL) (|v| (|Vector| R)) (|y| (S)) (#5=#:G135 NIL)
           (|m| (|Matrix| R)) (|n| (|PositiveInteger|)))
          (SEQ
           (LETT |y| (|spadConstant| $ 42)

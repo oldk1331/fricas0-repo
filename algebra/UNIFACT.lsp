@@ -1,7 +1,7 @@
 
 (SDEFUN |UNIFACT;factor;ZPF;1| ((|m| ZP) ($ |Factored| ZP))
         (SPROG
-         ((#1=#:G140 NIL) (|u| NIL) (#2=#:G139 NIL)
+         ((#1=#:G141 NIL) (|u| NIL) (#2=#:G140 NIL)
           (|ctp|
            (|Record| (|:| |unit| (|Integer|)) (|:| |canonical| (|Integer|))
                      (|:| |associate| (|Integer|))))
@@ -42,7 +42,7 @@
 
 (SDEFUN |UNIFACT;factorSquareFree;ZPF;2| ((|m| ZP) ($ |Factored| ZP))
         (SPROG
-         ((#1=#:G154 NIL) (|u| NIL) (#2=#:G153 NIL)
+         ((#1=#:G155 NIL) (|u| NIL) (#2=#:G154 NIL)
           (|ctp|
            (|Record| (|:| |unit| (|Integer|)) (|:| |canonical| (|Integer|))
                      (|:| |associate| (|Integer|))))
@@ -92,7 +92,7 @@
 
 (SDEFUN |UNIFACT;eisenstein| ((|m| ZP) ($ |Boolean|))
         (SPROG
-         ((#1=#:G167 NIL) (#2=#:G168 NIL) (|r| NIL)
+         ((#1=#:G168 NIL) (#2=#:G169 NIL) (|r| NIL)
           (|fc| (|Factored| (|Integer|))) (|trail| #3=(|Integer|)) (|lead| #3#)
           (|c| (|Integer|)))
          (SEQ
@@ -141,7 +141,7 @@
                                                 (QREFELT $ 37))
                                       (PROGN
                                        (LETT #1# 'T . #4#)
-                                       (GO #5=#:G166))))))))))
+                                       (GO #5=#:G167))))))))))
                               (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT 'NIL)))))))
@@ -170,14 +170,14 @@
 
 (SDEFUN |UNIFACT;bound| ((|m| ZP) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G186 NIL) (|cbound| (|PositiveInteger|))
-          (|j| (|PositiveInteger|)) (#2=#:G183 NIL)
-          (|bin0| #3=(|NonNegativeInteger|)) (#4=#:G182 NIL) (|bin1| #3#)
-          (#5=#:G189 NIL) (#6=#:G181 NIL) (|i| NIL) (#7=#:G179 NIL)
-          (|nm| (|NonNegativeInteger|)) (#8=#:G177 NIL) (|norm| (|Integer|))
-          (#9=#:G175 NIL) (#10=#:G174 #11=(|Integer|)) (#12=#:G176 #11#)
+         ((#1=#:G187 NIL) (|cbound| (|PositiveInteger|))
+          (|j| (|PositiveInteger|)) (#2=#:G184 NIL)
+          (|bin0| #3=(|NonNegativeInteger|)) (#4=#:G183 NIL) (|bin1| #3#)
+          (#5=#:G190 NIL) (#6=#:G182 NIL) (|i| NIL) (#7=#:G180 NIL)
+          (|nm| (|NonNegativeInteger|)) (#8=#:G178 NIL) (|norm| (|Integer|))
+          (#9=#:G176 NIL) (#10=#:G175 #11=(|Integer|)) (#12=#:G177 #11#)
           (|k| NIL) (|nmq2| (|NonNegativeInteger|))
-          (|lcm| (|NonNegativeInteger|)) (#13=#:G173 NIL))
+          (|lcm| (|NonNegativeInteger|)) (#13=#:G174 NIL))
          (SEQ
           (LETT |lcm|
                 (PROG1
@@ -263,8 +263,8 @@
           (|Record| (|:| |factor| ZP) (|:| |degree| (|Integer|))))
          ($ |Integer|))
         (SPROG
-         ((|ans| (|Integer|)) (#1=#:G194 NIL) (|d| (|NonNegativeInteger|))
-          (#2=#:G200 NIL) (|dd| NIL))
+         ((|ans| (|Integer|)) (#1=#:G195 NIL) (|d| (|NonNegativeInteger|))
+          (#2=#:G201 NIL) (|dd| NIL))
          (SEQ (LETT |ans| 0 . #3=(|UNIFACT;numFactors|))
               (SEQ (LETT |dd| NIL . #3#) (LETT #2# |ddlist| . #3#) G190
                    (COND
@@ -382,8 +382,8 @@
 
 (SDEFUN |UNIFACT;henselfact| ((|m| ZP) ($ |List| ZP))
         (SPROG
-         ((#1=#:G224 NIL) (#2=#:G223 #3=(|List| ZP)) (#4=#:G225 #3#)
-          (#5=#:G230 NIL) (|mm| (ZP)) (|faclist| #3#) (#6=#:G221 NIL)
+         ((#1=#:G225 NIL) (#2=#:G224 #3=(|List| ZP)) (#4=#:G226 #3#)
+          (#5=#:G231 NIL) (|mm| (ZP)) (|faclist| #3#) (#6=#:G222 NIL)
           (|deggcd| (|NonNegativeInteger|)))
          (SEQ
           (LETT |deggcd| (SPADCALL |m| (QREFELT $ 42))
@@ -439,7 +439,7 @@
 
 (SDEFUN |UNIFACT;quadratic| ((|m| ZP) ($ |List| ZP))
         (SPROG
-         ((#1=#:G234 NIL) (|m0| (ZP)) (|beta| (|Integer|))
+         ((#1=#:G235 NIL) (|m0| (ZP)) (|beta| (|Integer|))
           (|alpha| (|Integer|)) (|d| (|Integer|)) (|d2| (|Integer|)))
          (SEQ
           (LETT |d|
@@ -509,15 +509,15 @@
         (SPROG
          ((|factorlist|
            (|List| (|Record| (|:| |irr| ZP) (|:| |pow| (|Integer|)))))
-          (#1=#:G294 NIL) (|pf| NIL) (#2=#:G293 NIL) (|fln| (|List| ZP))
-          (#3=#:G292 NIL) (#4=#:G291 NIL) (|pol| (ZP)) (|d1| #5=(|Integer|))
-          (#6=#:G290 NIL) (|l1| NIL)
+          (#1=#:G295 NIL) (|pf| NIL) (#2=#:G294 NIL) (|fln| (|List| ZP))
+          (#3=#:G293 NIL) (#4=#:G292 NIL) (|pol| (ZP)) (|d1| #5=(|Integer|))
+          (#6=#:G291 NIL) (|l1| NIL)
           (|llf| (|List| (|Record| (|:| |factor| ZP) (|:| |exponent| #5#))))
-          (|irrFact| (|Factored| ZP)) (#7=#:G289 NIL) (#8=#:G288 NIL)
-          (#9=#:G287 NIL) (|v| NIL) (#10=#:G286 NIL) (|lf1| (ZP)) (|lf0| (ZP))
+          (|irrFact| (|Factored| ZP)) (#7=#:G290 NIL) (#8=#:G289 NIL)
+          (#9=#:G288 NIL) (|v| NIL) (#10=#:G287 NIL) (|lf1| (ZP)) (|lf0| (ZP))
           (|#G35| (ZP)) (|#G34| (ZP)) (|lfq| (|List| ZP)) (|fac| (ZP))
-          (#11=#:G285 NIL) (|sfac| NIL) (#12=#:G284 NIL) (|lcPol| (ZP))
-          (|d| (|NonNegativeInteger|)) (|c| (|Integer|)) (#13=#:G247 NIL))
+          (#11=#:G286 NIL) (|sfac| NIL) (#12=#:G285 NIL) (|lcPol| (ZP))
+          (|d| (|NonNegativeInteger|)) (|c| (|Integer|)) (#13=#:G248 NIL))
          (SEQ (LETT |factorlist| NIL . #14=(|UNIFACT;henselFact;ZPBR;16|))
               (LETT |c| (SPADCALL |m| (QREFELT $ 27)) . #14#)
               (LETT |m|
@@ -834,9 +834,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateFactorize;|)) 
 
-(DEFUN |UnivariateFactorize| (#1=#:G295)
+(DEFUN |UnivariateFactorize| (#1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G296)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#

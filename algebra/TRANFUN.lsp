@@ -4,14 +4,14 @@
 (DEFPARAMETER |TranscendentalFunctionCategory;AL| 'NIL) 
 
 (DEFUN |TranscendentalFunctionCategory| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|TranscendentalFunctionCategory;AL|)
           (T
            (SETQ |TranscendentalFunctionCategory;AL|
                    (|TranscendentalFunctionCategory;|)))))) 
 
 (DEFUN |TranscendentalFunctionCategory;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|TrigonometricFunctionCategory|)

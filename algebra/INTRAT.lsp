@@ -127,9 +127,9 @@
 
 (DECLAIM (NOTINLINE |RationalIntegration;|)) 
 
-(DEFUN |RationalIntegration| (&REST #1=#:G135)
+(DEFUN |RationalIntegration| (&REST #1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G136)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

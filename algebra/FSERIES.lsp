@@ -5,7 +5,7 @@
                (|spadConstant| $ 15)))) 
 
 (SDEFUN |FSERIES;coerce;Fc$;2| ((|e| |FourierComponent| E) ($ $))
-        (SPROG ((#1=#:G121 NIL))
+        (SPROG ((#1=#:G122 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -37,7 +37,7 @@
                                (SPADCALL (|spadConstant| $ 15)
                                          (QREFELT $ 24))))
                              . #2#)
-                       (GO #3=#:G120))))))
+                       (GO #3=#:G121))))))
                   (EXIT (LIST (CONS |e| (|spadConstant| $ 15))))))
                 #3# (EXIT #1#)))) 
 
@@ -77,9 +77,9 @@
 
 (SDEFUN |FSERIES;*;3$;4| ((|x1| $) (|x2| $) ($ $))
         (SPROG
-         ((#1=#:G127 NIL) (#2=#:G126 ($)) (#3=#:G128 ($)) (#4=#:G130 NIL)
-          (#5=#:G129 ($)) (#6=#:G131 ($)) (#7=#:G134 NIL) (|t2| NIL)
-          (#8=#:G133 NIL) (|t1| NIL))
+         ((#1=#:G128 NIL) (#2=#:G127 ($)) (#3=#:G129 ($)) (#4=#:G131 NIL)
+          (#5=#:G130 ($)) (#6=#:G132 ($)) (#7=#:G135 NIL) (|t2| NIL)
+          (#8=#:G134 NIL) (|t1| NIL))
          (SEQ
           (COND ((OR (NULL |x1|) (NULL |x2|)) (|spadConstant| $ 10))
                 ('T
@@ -151,9 +151,9 @@
 
 (DECLAIM (NOTINLINE |FourierSeries;|)) 
 
-(DEFUN |FourierSeries| (&REST #1=#:G141)
+(DEFUN |FourierSeries| (&REST #1=#:G142)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G143)
            (RETURN
             (COND
              ((LETT #2#

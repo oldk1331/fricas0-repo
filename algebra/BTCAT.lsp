@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |BinaryTreeCategory;AL| 'NIL) 
 
-(DEFUN |BinaryTreeCategory| (#1=#:G108)
-  (LET (#2=#:G109)
+(DEFUN |BinaryTreeCategory| (#1=#:G109)
+  (LET (#2=#:G110)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |BinaryTreeCategory;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |BinaryTreeCategory;| (|t#1|)
-  (SPROG ((#1=#:G107 NIL))
+  (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

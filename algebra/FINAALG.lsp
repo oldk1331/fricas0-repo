@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FiniteRankNonAssociativeAlgebra;AL| 'NIL) 
 
-(DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G125)
-  (LET (#2=#:G126)
+(DEFUN |FiniteRankNonAssociativeAlgebra| (#1=#:G126)
+  (LET (#2=#:G127)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -20,7 +20,7 @@
       #2#)))) 
 
 (DEFUN |FiniteRankNonAssociativeAlgebra;| (|t#1|)
-  (SPROG ((#1=#:G124 NIL))
+  (SPROG ((#1=#:G125 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

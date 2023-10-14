@@ -4,11 +4,11 @@
 (DEFPARAMETER |Comparable;AL| 'NIL) 
 
 (DEFUN |Comparable| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|Comparable;AL|) (T (SETQ |Comparable;AL| (|Comparable;|)))))) 
 
 (DEFUN |Comparable;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|SetCategory|)

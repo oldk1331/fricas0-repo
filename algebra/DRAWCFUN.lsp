@@ -385,7 +385,7 @@
          (|func| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
           (|DoubleFloat|))
          ($ |List| (|List| (|Point| (|DoubleFloat|)))))
-        (SPROG ((#1=#:G184 NIL) (|p| NIL) (#2=#:G183 NIL) (|lp| NIL))
+        (SPROG ((#1=#:G185 NIL) (|p| NIL) (#2=#:G184 NIL) (|lp| NIL))
                (SEQ
                 (SEQ (LETT |lp| NIL . #3=(|DRAWCFUN;colorPoints|))
                      (LETT #2# |llp| . #3#) G190
@@ -419,7 +419,7 @@
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((#1=#:G219 NIL) (|b| NIL)
+         ((#1=#:G220 NIL) (|b| NIL)
           (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|c3| #2=(|Union| (|Any|) "failed"))
           (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -554,7 +554,7 @@
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((#1=#:G237 NIL) (|b| NIL)
+         ((#1=#:G238 NIL) (|b| NIL)
           (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|tub| (|TubePlot| (|Plot3D|))) (|rad| (|DoubleFloat|))
@@ -1136,7 +1136,7 @@
 
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G395)
+         (PROG (#1=#:G396)
            (RETURN
             (COND
              ((LETT #1#

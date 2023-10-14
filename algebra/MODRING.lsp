@@ -101,9 +101,9 @@
 
 (DECLAIM (NOTINLINE |ModularRing;|)) 
 
-(DEFUN |ModularRing| (&REST #1=#:G160)
+(DEFUN |ModularRing| (&REST #1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

@@ -39,7 +39,7 @@
          ($ |Union| (|List| F) "failed"))
         (SPROG
          ((|k| (|Kernel| F)) (|vl| (|List| (|Kernel| F))) (|y2| (F)) (|y1| (F))
-          (#2=#:G152 NIL) (|u2| #1#) (|u1| #1#) (|nfp| (F)))
+          (#2=#:G153 NIL) (|u2| #1#) (|u1| #1#) (|nfp| (F)))
          (SEQ
           (COND
            ((SPADCALL |g1| (QREFELT $ 21))
@@ -64,7 +64,7 @@
                        ((QEQCAR |u1| 1)
                         (PROGN
                          (LETT #2# (CONS 1 #4="failed") . #3#)
-                         (GO #5=#:G129)))
+                         (GO #5=#:G130)))
                        (#6='T
                         (SEQ (LETT |u2| (SPADCALL |g1| NIL |limint|) . #3#)
                              (EXIT
@@ -111,9 +111,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryRischDESystem;|)) 
 
-(DEFUN |ElementaryRischDESystem| (&REST #1=#:G153)
+(DEFUN |ElementaryRischDESystem| (&REST #1=#:G154)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G155)
            (RETURN
             (COND
              ((LETT #2#

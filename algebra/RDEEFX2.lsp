@@ -65,9 +65,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryRischDEX2;|)) 
 
-(DEFUN |ElementaryRischDEX2| (&REST #1=#:G161)
+(DEFUN |ElementaryRischDEX2| (&REST #1=#:G162)
   (SPROG NIL
-         (PROG (#2=#:G162)
+         (PROG (#2=#:G163)
            (RETURN
             (COND
              ((LETT #2#

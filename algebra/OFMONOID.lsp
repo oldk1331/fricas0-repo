@@ -1,7 +1,7 @@
 
 (SDEFUN |OFMONOID;lquo;$SU;1| ((|w| $) (|l| S) ($ |Union| $ "failed"))
         (SPROG
-         ((#1=#:G116 NIL)
+         ((#1=#:G117 NIL)
           (|fx| (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|))))
           (|x|
            (|List|
@@ -42,7 +42,7 @@
                        ('T (CONS 0 (SPADCALL (QCDR |r|) (QREFELT $ 18))))))))) 
 
 (SDEFUN |OFMONOID;length;$Nni;3| ((|x| $) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G136 NIL) (|f| NIL) (#2=#:G135 NIL))
+        (SPROG ((#1=#:G137 NIL) (|f| NIL) (#2=#:G136 NIL))
                (SEQ
                 (SPADCALL (ELT $ 21)
                           (PROGN
@@ -61,7 +61,7 @@
                           0 (QREFELT $ 24))))) 
 
 (SDEFUN |OFMONOID;varList;$L;4| ((|x| $) ($ |List| S))
-        (SPROG ((|le| (|List| S)) (#1=#:G142 NIL) (|t| NIL) (#2=#:G141 NIL))
+        (SPROG ((|le| (|List| S)) (#1=#:G143 NIL) (|t| NIL) (#2=#:G142 NIL))
                (SEQ
                 (LETT |le|
                       (PROGN
@@ -91,7 +91,7 @@
 
 (SDEFUN |OFMONOID;rest;2$;6| ((|w| $) ($ $))
         (SPROG
-         ((#1=#:G147 NIL)
+         ((#1=#:G148 NIL)
           (|fx| (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|))))
           (|x|
            (|List|
@@ -122,7 +122,7 @@
          ((|la|
            #1=(|List|
                (|Record| (|:| |gen| S) (|:| |exp| (|NonNegativeInteger|)))))
-          (|lb| #1#) (#2=#:G157 NIL) (#3=#:G154 NIL) (#4=#:G167 NIL))
+          (|lb| #1#) (#2=#:G158 NIL) (#3=#:G155 NIL) (#4=#:G168 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -138,7 +138,7 @@
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 32))
-                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G166)))
+                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G167)))
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 33))
                      (PROGN (LETT #4# 'T . #5#) (GO #6#)))
@@ -198,9 +198,9 @@
 
 (DECLAIM (NOTINLINE |OrderedFreeMonoid;|)) 
 
-(DEFUN |OrderedFreeMonoid| (#1=#:G179)
+(DEFUN |OrderedFreeMonoid| (#1=#:G180)
   (SPROG NIL
-         (PROG (#2=#:G180)
+         (PROG (#2=#:G181)
            (RETURN
             (COND
              ((LETT #2#

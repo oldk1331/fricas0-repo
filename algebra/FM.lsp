@@ -1,6 +1,6 @@
 
 (SDEFUN |FM;*;R2$;1| ((|r| R) (|x| $) ($ $))
-        (SPROG ((#1=#:G121 NIL) (|u| NIL) (#2=#:G120 NIL))
+        (SPROG ((#1=#:G122 NIL) (|u| NIL) (#2=#:G121 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
                       ((SPADCALL |r| (QREFELT $ 11) (QREFELT $ 15)) |x|)
@@ -25,7 +25,7 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |FM;*;R2$;2| ((|r| R) (|x| $) ($ $))
-        (SPROG ((|a| (R)) (#1=#:G126 NIL) (|u| NIL) (#2=#:G125 NIL))
+        (SPROG ((|a| (R)) (#1=#:G127 NIL) (|u| NIL) (#2=#:G126 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
                       ((SPADCALL |r| (QREFELT $ 11) (QREFELT $ 15)) |x|)
@@ -52,7 +52,7 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |FM;*;$R$;3| ((|x| $) (|r| R) ($ $))
-        (SPROG ((#1=#:G131 NIL) (|u| NIL) (#2=#:G130 NIL))
+        (SPROG ((#1=#:G132 NIL) (|u| NIL) (#2=#:G131 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
                       ((SPADCALL |r| (QREFELT $ 11) (QREFELT $ 15)) |x|)
@@ -77,7 +77,7 @@
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |FM;*;$R$;4| ((|x| $) (|r| R) ($ $))
-        (SPROG ((|a| (R)) (#1=#:G136 NIL) (|u| NIL) (#2=#:G135 NIL))
+        (SPROG ((|a| (R)) (#1=#:G137 NIL) (|u| NIL) (#2=#:G136 NIL))
                (SEQ
                 (COND ((SPADCALL |r| (QREFELT $ 13)) (|spadConstant| $ 14))
                       ((SPADCALL |r| (QREFELT $ 11) (QREFELT $ 15)) |x|)
@@ -116,7 +116,7 @@
          ('T (LIST (CONS |s| |r|))))) 
 
 (SDEFUN |FM;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
-        (SPROG ((|le| (|List| (|OutputForm|))) (#1=#:G149 NIL) (|rec| NIL))
+        (SPROG ((|le| (|List| (|OutputForm|))) (#1=#:G150 NIL) (|rec| NIL))
                (SEQ
                 (COND
                  ((NULL |x|) (SPADCALL (|spadConstant| $ 10) (QREFELT $ 23)))
@@ -152,7 +152,7 @@
                        (EXIT (SPADCALL (ELT $ 26) |le| (QREFELT $ 29))))))))) 
 
 (SDEFUN |FM;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G164 NIL) (|rec| NIL) (#2=#:G163 NIL))
+        (SPROG ((#1=#:G165 NIL) (|rec| NIL) (#2=#:G164 NIL))
                (SEQ
                 (SPADCALL (ELT $ 26)
                           (PROGN
@@ -182,7 +182,7 @@
 (SDEFUN |FM;leadingMonomial;$S;9| ((|x| $) ($ S)) (QCAR (|SPADfirst| |x|))) 
 
 (SDEFUN |FM;support;$L;10| ((|x| $) ($ |List| S))
-        (SPROG ((#1=#:G169 NIL) (|t| NIL) (#2=#:G168 NIL))
+        (SPROG ((#1=#:G170 NIL) (|t| NIL) (#2=#:G169 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|FM;support;$L;10|))
@@ -195,7 +195,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |FM;coefficients;$L;11| ((|x| $) ($ |List| R))
-        (SPROG ((#1=#:G173 NIL) (|t| NIL) (#2=#:G172 NIL))
+        (SPROG ((#1=#:G174 NIL) (|t| NIL) (#2=#:G173 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|FM;coefficients;$L;11|))
@@ -208,7 +208,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |FM;monomials;$L;12| ((|x| $) ($ |List| $))
-        (SPROG ((#1=#:G177 NIL) (|t| NIL) (#2=#:G176 NIL))
+        (SPROG ((#1=#:G178 NIL) (|t| NIL) (#2=#:G177 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|FM;monomials;$L;12|))
@@ -268,7 +268,7 @@
         (LENGTH (SPADCALL |x| (QREFELT $ 53)))) 
 
 (SDEFUN |FM;linearExtend;M$R;21| ((|f| |Mapping| R S) (|x| $) ($ R))
-        (SPROG ((|res| (R)) (#1=#:G207 NIL) (|t| NIL))
+        (SPROG ((|res| (R)) (#1=#:G208 NIL) (|t| NIL))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 54)) (|spadConstant| $ 10))
                       ('T
@@ -298,9 +298,9 @@
 
 (DECLAIM (NOTINLINE |FreeModule;|)) 
 
-(DEFUN |FreeModule| (&REST #1=#:G212)
+(DEFUN |FreeModule| (&REST #1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G213)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#

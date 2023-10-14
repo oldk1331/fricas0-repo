@@ -45,7 +45,7 @@
 
 (SDEFUN |HELLFDIV;+;3$;8| ((|d1| $) (|d2| $) ($ $))
         (SPROG
-         ((|dd| ($)) (|b| (UP)) (#1=#:G120 NIL) (|a| (UP)) (|h| #2=(|List| UP))
+         ((|dd| ($)) (|b| (UP)) (#1=#:G121 NIL) (|a| (UP)) (|h| #2=(|List| UP))
           (|d| (UP)) (|rec| (|Record| (|:| |coef| #2#) (|:| |generator| UP)))
           (|b2| (UP)) (|b1| (UP)) (|a2| (UP)) (|a1| (UP)))
          (SEQ (LETT |a1| (QVELT |d1| 0) . #3=(|HELLFDIV;+;3$;8|))
@@ -192,7 +192,7 @@
 
 (SDEFUN |HELLFDIV;redpolyIfCan| ((|h| R) (|a| UP) ($ |Union| UP "failed"))
         (SPROG
-         ((#1=#:G120 NIL)
+         ((#1=#:G121 NIL)
           (|rec|
            (|Record| (|:| |coef1| UP) (|:| |coef2| UP) (|:| |generator| UP)))
           (|q| (|Fraction| UP)) (|p| (UPUP)))
@@ -259,7 +259,7 @@
 
 (SDEFUN |HELLFDIV;reduce;2$;14| ((|d| $) ($ $))
         (SPROG
-         ((|g| (R)) (|b0| (UP)) (|a0| (UP)) (#1=#:G120 NIL) (|b| (UP))
+         ((|g| (R)) (|b0| (UP)) (|a0| (UP)) (#1=#:G121 NIL) (|b| (UP))
           (|a| (UP)))
          (SEQ
           (COND ((QVELT |d| 3) |d|)
@@ -364,7 +364,7 @@
 
 (SDEFUN |HELLFDIV;intReduce| ((|h| R) (|b| UP) ($ R))
         (SPROG
-         ((#1=#:G198 NIL) (#2=#:G200 NIL) (|i| NIL) (#3=#:G199 NIL)
+         ((#1=#:G199 NIL) (#2=#:G201 NIL) (|i| NIL) (#3=#:G200 NIL)
           (|v| (|Vector| UP)))
          (SEQ
           (LETT |v| (QCAR (SPADCALL |h| (QREFELT $ 116)))
@@ -393,7 +393,7 @@
 (SDEFUN |HELLFDIV;divisor;R3UPF$;20|
         ((|h| R) (|a| UP) (|dp| UP) (|g| UP) (|r| F) ($ $))
         (SPROG
-         ((|bb| (UP)) (#1=#:G120 NIL)
+         ((|bb| (UP)) (#1=#:G121 NIL)
           (|rec|
            (|Record| (|:| |coef1| UP) (|:| |coef2| UP) (|:| |generator| UP)))
           (|b| (|Fraction| UP)) (|hh| (UPUP)))
@@ -454,9 +454,9 @@
 
 (DECLAIM (NOTINLINE |HyperellipticFiniteDivisor;|)) 
 
-(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G207)
+(DEFUN |HyperellipticFiniteDivisor| (&REST #1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#
@@ -477,7 +477,7 @@
 
 (DEFUN |HyperellipticFiniteDivisor;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G126 NIL) (#2=#:G120 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL)
+   ((#1=#:G127 NIL) (#2=#:G121 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #3=(|HyperellipticFiniteDivisor|))

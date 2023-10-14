@@ -57,7 +57,7 @@
          (EXIT (QREFELT $ 34)))) 
 
 (SDEFUN |ALGFF;vect| ((|m| |Matrix| (|Fraction| UP)) ($ |Vector| $))
-        (SPROG ((#1=#:G146 NIL) (#2=#:G148 NIL) (|i| NIL) (#3=#:G147 NIL))
+        (SPROG ((#1=#:G147 NIL) (#2=#:G149 NIL) (|i| NIL) (#3=#:G148 NIL))
                (SEQ
                 (PROGN
                  (LETT #3# (GETREFV #4=(SPADCALL |m| (QREFELT $ 53)))
@@ -86,10 +86,10 @@
 
 (SDEFUN |ALGFF;knownInfBasis;NniV;13| ((|d| |NonNegativeInteger|) ($ |Void|))
         (SPROG
-         ((#1=#:G166 NIL) (|j| NIL) (#2=#:G165 NIL) (|i| NIL)
-          (|invib| #3=(|Matrix| (|Fraction| UP))) (|ib| #3#) (#4=#:G162 NIL)
-          (#5=#:G164 NIL) (#6=#:G163 NIL) (|alpha| (|Vector| (|Fraction| UP)))
-          (#7=#:G161 NIL) (#8=#:G160 NIL))
+         ((#1=#:G167 NIL) (|j| NIL) (#2=#:G166 NIL) (|i| NIL)
+          (|invib| #3=(|Matrix| (|Fraction| UP))) (|ib| #3#) (#4=#:G163 NIL)
+          (#5=#:G165 NIL) (#6=#:G164 NIL) (|alpha| (|Vector| (|Fraction| UP)))
+          (#7=#:G162 NIL) (#8=#:G161 NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 13) (QREFELT $ 35))
@@ -161,15 +161,15 @@
 
 (SDEFUN |ALGFF;getInfBasis| (($ |Void|))
         (SPROG
-         ((#1=#:G189 NIL) (|j| NIL) (#2=#:G188 NIL) (|i| NIL)
-          (|invib2| #3=(|Matrix| (|Fraction| UP))) (|ib2| #3#) (#4=#:G187 NIL)
-          (#5=#:G186 NIL)
+         ((#1=#:G190 NIL) (|j| NIL) (#2=#:G189 NIL) (|i| NIL)
+          (|invib2| #3=(|Matrix| (|Fraction| UP))) (|ib2| #3#) (#4=#:G188 NIL)
+          (#5=#:G187 NIL)
           (|invib|
            (|Record| (|:| |basis| (|Matrix| UP)) (|:| |basisDen| UP)
                      (|:| |basisInv| (|Matrix| UP))))
-          (|invalpha| (|Vector| (|Fraction| UP))) (#6=#:G183 NIL)
-          (#7=#:G185 NIL) (#8=#:G184 NIL) (|alpha| (|Vector| (|Fraction| UP)))
-          (#9=#:G182 NIL) (#10=#:G181 NIL)
+          (|invalpha| (|Vector| (|Fraction| UP))) (#6=#:G184 NIL)
+          (#7=#:G186 NIL) (#8=#:G185 NIL) (|alpha| (|Vector| (|Fraction| UP)))
+          (#9=#:G183 NIL) (#10=#:G182 NIL)
           (|ninvmod| (|SparseUnivariatePolynomial| UP))
           (|r| (|Record| (|:| |coef| (|Fraction| UP)) (|:| |poly| UPUP)))
           (|invmod| (UPUP)) (|x| (|Fraction| UP)))
@@ -325,10 +325,10 @@
 
 (SDEFUN |ALGFF;startUp| ((|b| |Boolean|) ($ |Void|))
         (SPROG
-         ((|dsc| (|Fraction| UP)) (|dsc0| (|Fraction| UP)) (#1=#:G208 NIL)
-          (|j| NIL) (#2=#:G207 NIL) (|i| NIL)
-          (|invib2| (|Matrix| (|Fraction| UP))) (#3=#:G197 NIL)
-          (|ib2| (|Matrix| (|Fraction| UP))) (#4=#:G206 NIL) (#5=#:G205 NIL)
+         ((|dsc| (|Fraction| UP)) (|dsc0| (|Fraction| UP)) (#1=#:G209 NIL)
+          (|j| NIL) (#2=#:G208 NIL) (|i| NIL)
+          (|invib2| (|Matrix| (|Fraction| UP))) (#3=#:G198 NIL)
+          (|ib2| (|Matrix| (|Fraction| UP))) (#4=#:G207 NIL) (#5=#:G206 NIL)
           (|ib|
            (|Record| (|:| |basis| (|Matrix| UP)) (|:| |basisDen| UP)
                      (|:| |basisInv| (|Matrix| UP))))
@@ -471,7 +471,7 @@
         ((|d| |Mapping| UP UP)
          ($ |Record| (|:| |num| (|Matrix| UP)) (|:| |den| UP)))
         (SPROG
-         ((#1=#:G221 NIL) (#2=#:G223 NIL) (|i| NIL) (#3=#:G222 NIL)
+         ((#1=#:G222 NIL) (#2=#:G224 NIL) (|i| NIL) (#3=#:G223 NIL)
           (|w| (|Vector| $)))
          (SEQ
           (LETT |w| (SPADCALL (QREFELT $ 41))
@@ -528,9 +528,9 @@
 
 (DECLAIM (NOTINLINE |AlgebraicFunctionField;|)) 
 
-(DEFUN |AlgebraicFunctionField| (&REST #1=#:G274)
+(DEFUN |AlgebraicFunctionField| (&REST #1=#:G275)
   (SPROG NIL
-         (PROG (#2=#:G275)
+         (PROG (#2=#:G276)
            (RETURN
             (COND
              ((LETT #2#
@@ -550,7 +550,7 @@
 
 (DEFUN |AlgebraicFunctionField;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((#1=#:G117 NIL) (|pv$| NIL) (#2=#:G272 NIL) (#3=#:G273 NIL) ($ NIL)
+   ((#1=#:G118 NIL) (|pv$| NIL) (#2=#:G273 NIL) (#3=#:G274 NIL) ($ NIL)
     (|dv$| NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|AlgebraicFunctionField|))

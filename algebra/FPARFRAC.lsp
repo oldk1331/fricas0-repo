@@ -29,7 +29,7 @@
               (SPADCALL |f| (QREFELT $ 37)))) 
 
 (SDEFUN |FPARFRAC;differentiate;2$;7| ((|f| $) ($ $))
-        (SPROG ((#1=#:G125 NIL) (|rec| NIL) (#2=#:G124 NIL))
+        (SPROG ((#1=#:G126 NIL) (|rec| NIL) (#2=#:G125 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL (SPADCALL |f| (QREFELT $ 36)) (QREFELT $ 40))
@@ -76,7 +76,7 @@
                               (QREFELT $ 42))))))) 
 
 (SDEFUN |FPARFRAC;convert;$F;10| ((|f| $) ($ |Fraction| UP))
-        (SPROG ((|ans| (|Fraction| UP)) (#1=#:G136 NIL) (|rec| NIL))
+        (SPROG ((|ans| (|Fraction| UP)) (#1=#:G137 NIL) (|rec| NIL))
                (SEQ
                 (LETT |ans|
                       (SPADCALL (SPADCALL |f| (QREFELT $ 36)) (QREFELT $ 44))
@@ -109,12 +109,12 @@
         (SPROG
          ((|ans| (|Fraction| UP))
           (|t| #1=(|SparseUnivariatePolynomial| (|Fraction| UP)))
-          (#2=#:G150 NIL) (|i| NIL)
+          (#2=#:G151 NIL) (|i| NIL)
           (|rec|
            (|Record| (|:| |coef1| #1#)
                      (|:| |coef2|
                           (|SparseUnivariatePolynomial| (|Fraction| UP)))))
-          (#3=#:G143 NIL) (|p| (|SparseUnivariatePolynomial| (|Fraction| UP)))
+          (#3=#:G144 NIL) (|p| (|SparseUnivariatePolynomial| (|Fraction| UP)))
           (|aa| (|SparseUnivariatePolynomial| (|Fraction| UP)))
           (|hh| #4=(|SparseUnivariatePolynomial| (|Fraction| UP))) (|dd| #4#)
           (|a| (F)) (|m| (|NonNegativeInteger|)))
@@ -196,7 +196,7 @@
 
 (SDEFUN |FPARFRAC;fullPartialFraction;F$;13| ((|f| |Fraction| UP) ($ $))
         (SPROG
-         ((#1=#:G154 NIL) (#2=#:G159 NIL) (|rec| NIL) (#3=#:G158 NIL)
+         ((#1=#:G155 NIL) (#2=#:G160 NIL) (|rec| NIL) (#3=#:G159 NIL)
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
           (|d| (UP)))
          (SEQ
@@ -255,12 +255,12 @@
            (|List|
             (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
                       (|:| |num| UP))))
-          (#1=#:G167 NIL) (|qq| (UP)) (|lval| (|List| UP))
+          (#1=#:G168 NIL) (|qq| (UP)) (|lval| (|List| UP))
           (|lvar| (|List| (|OrderlyDifferentialVariable| (|Symbol|))))
           (|h| (|Fraction| (|OrderlyDifferentialPolynomial| UP))) (|pp| (UP))
           (|p| (|OrderlyDifferentialPolynomial| UP)) (|m| NIL) (|cn| (UP))
           (|c| (UP)) (|rec| (|Record| (|:| |coef1| UP) (|:| |coef2| UP)))
-          (#2=#:G163 NIL) (|q1| (UP)) (|q0| (UP))
+          (#2=#:G164 NIL) (|q1| (UP)) (|q0| (UP))
           (|un| (|OrderlyDifferentialPolynomial| UP))
           (|u1| (|OrderlyDifferentialPolynomial| UP)) (|b| (UP)) (|e| (UP)))
          (SEQ (LETT |ans| NIL . #3=(|FPARFRAC;fullParFrac|))
@@ -422,7 +422,7 @@
                     (|:| |num| UP)))
          ($ |OutputForm|))
         (SPROG
-         ((|ans| (|OutputForm|)) (#1=#:G182 NIL)
+         ((|ans| (|OutputForm|)) (#1=#:G183 NIL)
           (|rec|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |center| UP)
                      (|:| |num| UP))))
@@ -502,9 +502,9 @@
 
 (DECLAIM (NOTINLINE |FullPartialFractionExpansion;|)) 
 
-(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G188)
+(DEFUN |FullPartialFractionExpansion| (&REST #1=#:G189)
   (SPROG NIL
-         (PROG (#2=#:G189)
+         (PROG (#2=#:G190)
            (RETURN
             (COND
              ((LETT #2#

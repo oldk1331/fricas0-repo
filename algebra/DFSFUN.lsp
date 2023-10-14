@@ -188,7 +188,7 @@
 
 (SDEFUN |DFSFUN;airyAi;2Df;21| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG
-         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G136 NIL)
+         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G137 NIL)
           (|ahalf| (|DoubleFloat|)))
          (SEQ
           (LETT |ahalf|
@@ -226,7 +226,7 @@
         ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
         (SPROG
          ((|eta| (|Complex| (|DoubleFloat|)))
-          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G141 NIL)
+          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G142 NIL)
           (|ahalf| (|Complex| (|DoubleFloat|))))
          (SEQ
           (LETT |ahalf|
@@ -266,7 +266,7 @@
 
 (SDEFUN |DFSFUN;airyBi;2Df;23| ((|x| |DoubleFloat|) ($ |DoubleFloat|))
         (SPROG
-         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G146 NIL)
+         ((|eta| (|DoubleFloat|)) (|athird| (|DoubleFloat|)) (#1=#:G147 NIL)
           (|ahalf| (|DoubleFloat|)))
          (SEQ
           (LETT |ahalf|
@@ -304,7 +304,7 @@
         ((|z| |Complex| (|DoubleFloat|)) ($ |Complex| (|DoubleFloat|)))
         (SPROG
          ((|eta| (|Complex| (|DoubleFloat|)))
-          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G151 NIL)
+          (|athird| (|Complex| (|DoubleFloat|))) (#1=#:G152 NIL)
           (|ahalf| (|Complex| (|DoubleFloat|))))
          (SEQ
           (LETT |ahalf|
@@ -346,7 +346,7 @@
 
 (DEFUN |DoubleFloatSpecialFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G156)
+         (PROG (#1=#:G157)
            (RETURN
             (COND
              ((LETT #1#

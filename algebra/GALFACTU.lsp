@@ -5,7 +5,7 @@
         (SPADCALL |p| 1 (QREFELT $ 14))) 
 
 (SDEFUN |GALFACTU;norm;UPPiF;3| ((|f| UP) (|p| |PositiveInteger|) ($ F))
-        (SPROG ((|n| (F)) (#1=#:G112 NIL) (|c| NIL))
+        (SPROG ((|n| (F)) (#1=#:G113 NIL) (|c| NIL))
                (SEQ
                 (LETT |n| (|spadConstant| $ 16) . #2=(|GALFACTU;norm;UPPiF;3|))
                 (SEQ (LETT |c| NIL . #2#)
@@ -30,7 +30,7 @@
         (SPADCALL |f| 2 (QREFELT $ 14))) 
 
 (SDEFUN |GALFACTU;infinityNorm;UPF;5| ((|f| UP) ($ F))
-        (SPROG ((|n| (F)) (#1=#:G117 NIL) (|c| NIL))
+        (SPROG ((|n| (F)) (#1=#:G118 NIL) (|c| NIL))
                (SEQ
                 (LETT |n| (|spadConstant| $ 16)
                       . #2=(|GALFACTU;infinityNorm;UPF;5|))
@@ -132,7 +132,7 @@
 (SDEFUN |GALFACTU;rootBound;UPI;8| ((|p| UP) ($ |Integer|))
         (SPROG
          ((|b4| (F)) (|b3| (F)) (|b2| (F)) (|cl| (F)) (|b1| (F)) (|c| (F))
-          (#1=#:G126 NIL) (|i| NIL) (|lc| (F)) (|n| (|NonNegativeInteger|)))
+          (#1=#:G127 NIL) (|i| NIL) (|lc| (F)) (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (SPADCALL |p| (QREFELT $ 28))
                 . #2=(|GALFACTU;rootBound;UPI;8|))
@@ -246,8 +246,8 @@
 (SDEFUN |GALFACTU;bombieriNorm;UPPiF;10|
         ((|f| UP) (|p| |PositiveInteger|) ($ F))
         (SPROG
-         ((|b| (F)) (#1=#:G157 NIL) (|dd| (|Integer|)) (#2=#:G140 NIL)
-          (|i| NIL) (#3=#:G162 NIL) (|d| (|NonNegativeInteger|)))
+         ((|b| (F)) (#1=#:G158 NIL) (|dd| (|Integer|)) (#2=#:G141 NIL)
+          (|i| NIL) (#3=#:G163 NIL) (|d| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
@@ -258,7 +258,7 @@
                    (SPADCALL (SPADCALL |f| 0 (QREFELT $ 50)) (QREFELT $ 19))
                    (QREFELT $ 20))
                   . #4#)
-            (COND ((ZEROP |d|) (PROGN (LETT #3# |b| . #4#) (GO #5=#:G161)))
+            (COND ((ZEROP |d|) (PROGN (LETT #3# |b| . #4#) (GO #5=#:G162)))
                   ('T (LETT |b| (SPADCALL |b| |p| (QREFELT $ 21)) . #4#)))
             (LETT |b|
                   (SPADCALL |b|
@@ -337,9 +337,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupFactorizationUtilities;|)) 
 
-(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G164)
+(DEFUN |GaloisGroupFactorizationUtilities| (&REST #1=#:G165)
   (SPROG NIL
-         (PROG (#2=#:G165)
+         (PROG (#2=#:G166)
            (RETURN
             (COND
              ((LETT #2#

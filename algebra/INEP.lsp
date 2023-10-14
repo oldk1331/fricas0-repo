@@ -111,11 +111,11 @@
                              (|Matrix| (|SparseUnivariatePolynomial| K))))))))
           (|soln| (|List| (|Matrix| (|SparseUnivariatePolynomial| K))))
           (|i| NIL) (|wk| (|Matrix| (|SparseUnivariatePolynomial| K)))
-          (#1=#:G164 NIL) (|vec| NIL) (|sln2| (|List| (|Vector| MM))) (|j| NIL)
+          (#1=#:G165 NIL) (|vec| NIL) (|sln2| (|List| (|Vector| MM))) (|j| NIL)
           (B (AM)) (|alg| (MM)) (|ppol| (|SparseUnivariatePolynomial| K))
-          (|lr| (|List| (|Matrix| F))) (|wf| (|Matrix| F)) (#2=#:G163 NIL)
+          (|lr| (|List| (|Matrix| F))) (|wf| (|Matrix| F)) (#2=#:G164 NIL)
           (|vecr| NIL) (B1 (|Matrix| K)) (|alpha| (K))
-          (|pol| #3=(|SparseUnivariatePolynomial| K)) (#4=#:G162 NIL)
+          (|pol| #3=(|SparseUnivariatePolynomial| K)) (#4=#:G163 NIL)
           (|ff| NIL)
           (|lff|
            (|List| (|Record| (|:| |factor| #3#) (|:| |exponent| (|Integer|)))))
@@ -404,8 +404,8 @@
         ((|up| |SparseUnivariatePolynomial| K) (|eps| |Par|) ($ |List| F))
         (SPROG
          ((|upi| (|SparseUnivariatePolynomial| (|Integer|)))
-          (|denom| #1=(|Integer|)) (#2=#:G166 NIL) (#3=#:G165 #1#)
-          (#4=#:G167 #1#) (#5=#:G171 NIL) (|c| NIL))
+          (|denom| #1=(|Integer|)) (#2=#:G167 NIL) (#3=#:G166 #1#)
+          (#4=#:G168 #1#) (#5=#:G172 NIL) (|c| NIL))
          (SEQ
           (LETT |denom|
                 (PROGN
@@ -437,8 +437,8 @@
         ((|up| |SparseUnivariatePolynomial| K) (|eps| |Par|) ($ |List| F))
         (SPROG
          ((|upgi| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (|denom| #1=(|Integer|)) (#2=#:G173 NIL) (#3=#:G172 #1#)
-          (#4=#:G174 #1#) (#5=#:G178 NIL) (|c| NIL))
+          (|denom| #1=(|Integer|)) (#2=#:G174 NIL) (#3=#:G173 #1#)
+          (#4=#:G175 #1#) (#5=#:G179 NIL) (|c| NIL))
          (SEQ
           (LETT |denom|
                 (PROGN
@@ -496,7 +496,7 @@
           (|nsl|
            (|Record| (|:| |outval| F) (|:| |outmult| (|Integer|))
                      (|:| |outvect| (|List| (|Matrix| F)))))
-          (#1=#:G193 NIL) (|ep| NIL) (#2=#:G192 NIL) (#3=#:G191 NIL)
+          (#1=#:G194 NIL) (|ep| NIL) (#2=#:G193 NIL) (#3=#:G192 NIL)
           (|alg| NIL) (|lmult| (|Integer|))
           (|lvect| (|List| (|Matrix| (|SparseUnivariatePolynomial| K))))
           (|lval| (|List| F))
@@ -506,7 +506,7 @@
                      (|:| |poleigen|
                           (|List|
                            (|Matrix| (|SparseUnivariatePolynomial| K))))))
-          (#4=#:G190 NIL) (|lev| NIL) (|n| (|NonNegativeInteger|))
+          (#4=#:G191 NIL) (|lev| NIL) (|n| (|NonNegativeInteger|))
           (|sln1|
            (|List|
             (|Union|
@@ -583,7 +583,7 @@
         ((A |Matrix| K) ($ |SparseUnivariatePolynomial| K))
         (SPROG
          ((|j| NIL) (|i| NIL) (B (|Matrix| (|SparseUnivariatePolynomial| K)))
-          (|dimA| (|PositiveInteger|)) (#1=#:G194 NIL))
+          (|dimA| (|PositiveInteger|)) (#1=#:G195 NIL))
          (SEQ
           (LETT |dimA|
                 (PROG1 (LETT #1# (ANROWS A) . #2=(|INEP;charpol;MSup;11|))
@@ -623,9 +623,9 @@
 
 (DECLAIM (NOTINLINE |InnerNumericEigenPackage;|)) 
 
-(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G201)
+(DEFUN |InnerNumericEigenPackage| (&REST #1=#:G202)
   (SPROG NIL
-         (PROG (#2=#:G202)
+         (PROG (#2=#:G203)
            (RETURN
             (COND
              ((LETT #2#

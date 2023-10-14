@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldCyclicGroup;|)) 
 
-(DEFUN |FiniteFieldCyclicGroup| (&REST #1=#:G138)
+(DEFUN |FiniteFieldCyclicGroup| (&REST #1=#:G139)
   (SPROG NIL
-         (PROG (#2=#:G139)
+         (PROG (#2=#:G140)
            (RETURN
             (COND
              ((LETT #2#
@@ -23,7 +23,7 @@
 
 (DEFUN |FiniteFieldCyclicGroup;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G137 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G138 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldCyclicGroup|))
     (LETT DV$2 (|devaluate| |#2|) . #2#)

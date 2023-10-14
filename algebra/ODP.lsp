@@ -4,9 +4,9 @@
 
 (DECLAIM (NOTINLINE |OrderedDirectProduct;|)) 
 
-(DEFUN |OrderedDirectProduct| (&REST #1=#:G126)
+(DEFUN |OrderedDirectProduct| (&REST #1=#:G127)
   (SPROG NIL
-         (PROG (#2=#:G127)
+         (PROG (#2=#:G128)
            (RETURN
             (COND
              ((LETT #2#
@@ -26,8 +26,8 @@
 
 (DEFUN |OrderedDirectProduct;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G120 NIL) (#2=#:G121 NIL) (#3=#:G122 NIL) (#4=#:G123 NIL)
-    (#5=#:G124 NIL) (#6=#:G125 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G121 NIL) (#2=#:G122 NIL) (#3=#:G123 NIL) (#4=#:G124 NIL)
+    (#5=#:G125 NIL) (#6=#:G126 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|OrderedDirectProduct|))

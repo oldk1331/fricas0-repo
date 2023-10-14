@@ -4,11 +4,11 @@
 (DEFPARAMETER |OrderedSet;AL| 'NIL) 
 
 (DEFUN |OrderedSet| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|OrderedSet;AL|) (T (SETQ |OrderedSet;AL| (|OrderedSet;|)))))) 
 
 (DEFUN |OrderedSet;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Comparable|) (|PartialOrder|)

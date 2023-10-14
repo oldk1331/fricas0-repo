@@ -2,8 +2,8 @@
 (SDEFUN |FR2;map;MFF;1|
         ((|func| |Mapping| S R) (|f| |Factored| R) ($ |Factored| S))
         (SPROG
-         ((#1=#:G105 NIL) (#2=#:G104 #3=(|Factored| S)) (#4=#:G106 #3#)
-          (#5=#:G109 NIL) (|g| NIL))
+         ((#1=#:G106 NIL) (#2=#:G105 #3=(|Factored| S)) (#4=#:G107 #3#)
+          (#5=#:G110 NIL) (|g| NIL))
          (SEQ
           (SPADCALL (SPADCALL (SPADCALL |f| (QREFELT $ 9)) |func|)
                     (PROGN
@@ -35,9 +35,9 @@
 
 (DECLAIM (NOTINLINE |FactoredFunctions2;|)) 
 
-(DEFUN |FactoredFunctions2| (&REST #1=#:G110)
+(DEFUN |FactoredFunctions2| (&REST #1=#:G111)
   (SPROG NIL
-         (PROG (#2=#:G111)
+         (PROG (#2=#:G112)
            (RETURN
             (COND
              ((LETT #2#

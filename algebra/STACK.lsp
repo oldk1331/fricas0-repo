@@ -17,7 +17,7 @@
          (EXIT |s|))) 
 
 (SDEFUN |STACK;coerce;$Of;5| ((|d| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G115 NIL) (|e| NIL) (#2=#:G114 NIL))
+        (SPROG ((#1=#:G116 NIL) (|e| NIL) (#2=#:G115 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -90,9 +90,9 @@
 
 (DECLAIM (NOTINLINE |Stack;|)) 
 
-(DEFUN |Stack| (#1=#:G144)
+(DEFUN |Stack| (#1=#:G145)
   (SPROG NIL
-         (PROG (#2=#:G145)
+         (PROG (#2=#:G146)
            (RETURN
             (COND
              ((LETT #2#
@@ -108,7 +108,7 @@
 
 (DEFUN |Stack;| (|#1|)
   (SPROG
-   ((#1=#:G143 NIL) (|pv$| NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (#4=#:G142 NIL)
+   ((#1=#:G144 NIL) (|pv$| NIL) (#2=#:G141 NIL) (#3=#:G142 NIL) (#4=#:G143 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Stack|))

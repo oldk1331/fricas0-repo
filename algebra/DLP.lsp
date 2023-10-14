@@ -5,9 +5,9 @@
         (SPROG
          ((|a| (M)) (|disclog| (|Integer|)) (|found| (|Boolean|))
           (|rho| (|Union| (|NonNegativeInteger|) "failed")) (|i| NIL) (|b| (M))
-          (|end| (|Integer|)) (#1=#:G124 NIL) (#2=#:G112 NIL)
+          (|end| (|Integer|)) (#1=#:G125 NIL) (#2=#:G113 NIL)
           (|exptable| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
-          (|n| (|Integer|)) (|l| (|Integer|)) (#3=#:G123 NIL)
+          (|n| (|Integer|)) (|l| (|Integer|)) (#3=#:G124 NIL)
           (|limit| (|Integer|)))
          (SEQ (LETT |limit| 30 . #4=(|DLP;shanksDiscLogAlgorithm;2MNniU;1|))
               (EXIT
@@ -103,9 +103,9 @@
 
 (DECLAIM (NOTINLINE |DiscreteLogarithmPackage;|)) 
 
-(DEFUN |DiscreteLogarithmPackage| (#1=#:G125)
+(DEFUN |DiscreteLogarithmPackage| (#1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

@@ -1,7 +1,7 @@
 
 (SDEFUN |SUBRESP;primitivePart;UPRUP;1| ((|p| UP) (|q| R) ($ UP))
         (SPROG
-         ((|rec| (|Record| (|:| |coef1| R) (|:| |coef2| R))) (#1=#:G114 NIL))
+         ((|rec| (|Record| (|:| |coef1| R) (|:| |coef2| R))) (#1=#:G115 NIL))
          (SEQ
           (LETT |rec|
                 (PROG2
@@ -37,8 +37,8 @@
 (SDEFUN |SUBRESP;subresultantVector;2UPPa;2|
         ((|p1| UP) (|p2| UP) ($ |PrimitiveArray| UP))
         (SPROG
-         ((|n| (|NonNegativeInteger|)) (|Sn| (UP)) (#1=#:G132 NIL)
-          (|l| (|List| UP)) (F (UP)) (#2=#:G125 NIL) (#3=#:G120 NIL)
+         ((|n| (|NonNegativeInteger|)) (|Sn| (UP)) (#1=#:G133 NIL)
+          (|l| (|List| UP)) (F (UP)) (#2=#:G126 NIL) (#3=#:G121 NIL)
           (|res| (|PrimitiveArray| UP)))
          (SEQ
           (LETT |res|
@@ -167,9 +167,9 @@
 
 (DECLAIM (NOTINLINE |SubResultantPackage;|)) 
 
-(DEFUN |SubResultantPackage| (&REST #1=#:G145)
+(DEFUN |SubResultantPackage| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#

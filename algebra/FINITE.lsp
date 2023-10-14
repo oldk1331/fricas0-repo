@@ -4,14 +4,14 @@
 (DEFPARAMETER |Finite;AL| 'NIL) 
 
 (DEFUN |Finite| ()
-  (LET (#:G106)
+  (LET (#:G107)
     (COND (|Finite;AL|) (T (SETQ |Finite;AL| (|Finite;|)))))) 
 
 (DEFUN |Finite;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G103) (LIST '(|InputForm|)))
+                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|InputForm|)))
                               (|Join| (|SetCategory|) (|ConvertibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|size| ((|NonNegativeInteger|))) T)

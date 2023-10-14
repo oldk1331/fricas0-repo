@@ -20,7 +20,7 @@
         (SPADCALL |p| (SPADCALL |v| (QREFELT $ 17)) (QREFELT $ 18))) 
 
 (SDEFUN |PATTERN1;badValues;PL;4| ((|p| |Pattern| R) ($ |List| D))
-        (SPROG ((#1=#:G113 NIL) (|v| NIL) (#2=#:G112 NIL))
+        (SPROG ((#1=#:G114 NIL) (|v| NIL) (#2=#:G113 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|PATTERN1;badValues;PL;4|))
@@ -63,7 +63,7 @@
           ('T (SPADCALL |l| (SPADCALL (QCDR |rec|) (QREFELT $ 38))))))) 
 
 (SDEFUN |PATTERN1;applyAll| ((|l| |List| (|Any|)) (|d| D) ($ |Boolean|))
-        (SPROG ((#1=#:G128 NIL) (#2=#:G129 NIL) (#3=#:G130 NIL) (|f| NIL))
+        (SPROG ((#1=#:G129 NIL) (#2=#:G130 NIL) (#3=#:G131 NIL) (|f| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -84,9 +84,9 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# 'NIL . #4#)
-                                     (GO #5=#:G127))
+                                     (GO #5=#:G128))
                                     . #4#)
-                              (GO #6=#:G125))))))
+                              (GO #6=#:G126))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT 'T)))
@@ -95,7 +95,7 @@
 (SDEFUN |PATTERN1;suchThat;PLP;10|
         ((|p| |Pattern| R) (|l| |List| (|Mapping| (|Boolean|) D))
          ($ |Pattern| R))
-        (SPROG ((#1=#:G136 NIL) (|f| NIL) (#2=#:G135 NIL))
+        (SPROG ((#1=#:G137 NIL) (|f| NIL) (#2=#:G136 NIL))
                (SEQ
                 (|PATTERN1;st| |p|
                  (PROGN
@@ -114,9 +114,9 @@
 
 (DECLAIM (NOTINLINE |PatternFunctions1;|)) 
 
-(DEFUN |PatternFunctions1| (&REST #1=#:G137)
+(DEFUN |PatternFunctions1| (&REST #1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G138)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#

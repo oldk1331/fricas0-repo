@@ -4,13 +4,13 @@
 (DEFPARAMETER |FortranFunctionCategory;AL| 'NIL) 
 
 (DEFUN |FortranFunctionCategory| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|FortranFunctionCategory;AL|)
           (T
            (SETQ |FortranFunctionCategory;AL| (|FortranFunctionCategory;|)))))) 
 
 (DEFUN |FortranFunctionCategory;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|FortranProgramCategory|)

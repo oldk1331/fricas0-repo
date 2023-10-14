@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |XAlgebra;AL| 'NIL) 
 
-(DEFUN |XAlgebra| (#1=#:G104)
-  (LET (#2=#:G105)
+(DEFUN |XAlgebra| (#1=#:G105)
+  (LET (#2=#:G106)
     (COND ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |XAlgebra;AL|)) (CDR #2#))
           (T
            (SETQ |XAlgebra;AL|
@@ -15,7 +15,7 @@
            #2#)))) 
 
 (DEFUN |XAlgebra;| (|t#1|)
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

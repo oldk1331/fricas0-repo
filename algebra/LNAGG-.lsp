@@ -1,6 +1,6 @@
 
 (SDEFUN |LNAGG-;indices;AL;1| ((|a| A) ($ |List| (|Integer|)))
-        (SPROG ((#1=#:G115 NIL) (|i| NIL) (#2=#:G114 NIL))
+        (SPROG ((#1=#:G116 NIL) (|i| NIL) (#2=#:G115 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|LNAGG-;indices;AL;1|))

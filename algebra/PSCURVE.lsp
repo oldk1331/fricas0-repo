@@ -4,17 +4,17 @@
 (DEFPARAMETER |PlottableSpaceCurveCategory;AL| 'NIL) 
 
 (DEFUN |PlottableSpaceCurveCategory| ()
-  (LET (#:G106)
+  (LET (#:G107)
     (COND (|PlottableSpaceCurveCategory;AL|)
           (T
            (SETQ |PlottableSpaceCurveCategory;AL|
                    (|PlottableSpaceCurveCategory;|)))))) 
 
 (DEFUN |PlottableSpaceCurveCategory;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G103) (LIST '(|OutputForm|)))
+                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|OutputForm|)))
                               (|Join| (|CoercibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|listBranches|

@@ -46,9 +46,9 @@
 
 (DECLAIM (NOTINLINE |PendantTree;|)) 
 
-(DEFUN |PendantTree| (#1=#:G125)
+(DEFUN |PendantTree| (#1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#
@@ -65,7 +65,7 @@
 
 (DEFUN |PendantTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G122 NIL) (#2=#:G123 NIL) (#3=#:G124 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G123 NIL) (#2=#:G124 NIL) (#3=#:G125 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|PendantTree|))

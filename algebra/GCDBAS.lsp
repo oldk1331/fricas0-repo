@@ -7,7 +7,7 @@
          ($ |Union|
           (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R))
           "failed"))
-        (SPROG ((|b1| (R)) (#1=#:G115 NIL) (|a1| (R)) (|cf| (R)))
+        (SPROG ((|b1| (R)) (#1=#:G116 NIL) (|a1| (R)) (|cf| (R)))
                (SEQ
                 (LETT |cf| (SPADCALL |a| |b| (QREFELT $ 11))
                       . #2=(|GCDBAS;splitNums|))
@@ -90,15 +90,15 @@
          ($ |Record| (|:| |basis| #1=(|Vector| R))
           (|:| |transform| #2=(|Matrix| (|Integer|)))))
         (SPROG
-         ((#3=#:G166 NIL) (|i| NIL) (#4=#:G165 NIL)
-          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G164 NIL) (|l| NIL)
+         ((#3=#:G167 NIL) (|i| NIL) (#4=#:G166 NIL)
+          (|nv| (|Vector| (|Integer|))) (|a| (R)) (#5=#:G165 NIL) (|l| NIL)
           (|m| (|NonNegativeInteger|)) (|firstAdded| (|Boolean|))
           (|c| (|Integer|)) (|k| NIL) (|ov| (|Vector| (|Integer|)))
           (|n1| #6=(|NonNegativeInteger|)) (|ct1| #2#) (|cb1| #1#)
           (|dr1|
            (|Record| (|:| |basis| (|Vector| R))
                      (|:| |transform| (|Matrix| (|Integer|)))))
-          (#7=#:G163 NIL) (|cf| (R)) (|b1| (R)) (|a1| (R))
+          (#7=#:G164 NIL) (|cf| (R)) (|b1| (R)) (|a1| (R))
           (|sr| (|Record| (|:| |fac1| R) (|:| |fac2| R) (|:| |commonfac| R)))
           (|sr1|
            (|Union|
@@ -623,9 +623,9 @@
 
 (DECLAIM (NOTINLINE |GcdBasis;|)) 
 
-(DEFUN |GcdBasis| (#1=#:G167)
+(DEFUN |GcdBasis| (#1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#

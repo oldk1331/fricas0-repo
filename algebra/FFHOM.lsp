@@ -51,7 +51,7 @@
 
 (SDEFUN |FFHOM;initialize| (($ |Void|))
         (SPROG
-         ((|matbs| #1=(|Matrix| GF)) (#2=#:G133 NIL) (|matsb| #1#) (|i| NIL)
+         ((|matbs| #1=(|Matrix| GF)) (#2=#:G134 NIL) (|matsb| #1#) (|i| NIL)
           (|mat| #1#)
           (|arr| (|PrimitiveArray| (|SparseUnivariatePolynomial| GF)))
           (|rowind| (|Integer|)) (|ra| (|Integer|))
@@ -63,7 +63,7 @@
           (|rTbig| (|Union| #4# #5# #6# #7#))
           (|dPbig| (|SparseUnivariatePolynomial| GF))
           (|degbig| (|NonNegativeInteger|)) (|degsmall| (|NonNegativeInteger|))
-          (#8=#:G155 NIL))
+          (#8=#:G156 NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 30) (QREFELT $ 32) (QREFELT $ 43))
@@ -379,9 +379,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldHomomorphisms;|)) 
 
-(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G170)
+(DEFUN |FiniteFieldHomomorphisms| (&REST #1=#:G171)
   (SPROG NIL
-         (PROG (#2=#:G171)
+         (PROG (#2=#:G172)
            (RETURN
             (COND
              ((LETT #2#
@@ -443,7 +443,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|PositiveInteger|) (0 . |extensionDegree|)
               '|degree1| (4 . |extensionDegree|) '|degree2| (|Boolean|)
-              (|NonNegativeInteger|) (8 . ~=) '#:G103 (|Matrix| 7)
+              (|NonNegativeInteger|) (8 . ~=) '#:G104 (|Matrix| 7)
               (14 . |zero|) '|conMat1to2| '|conMat2to1|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (20 . |representationType|) '|repType1|

@@ -6,7 +6,7 @@
                          (SPADCALL (QCDR |t|) (QREFELT $ 12)) (QREFELT $ 13))))) 
 
 (SDEFUN |INDE;coerce;$Of;2| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G117 NIL) (|t| NIL) (#2=#:G116 NIL))
+        (SPROG ((#1=#:G118 NIL) (|t| NIL) (#2=#:G117 NIL))
                (SEQ
                 (COND ((NULL |x|) (SPADCALL 1 (QREFELT $ 15)))
                       ((NULL (CDR |x|)) (|INDE;coerceOF| (|SPADfirst| |x|) $))
@@ -34,9 +34,9 @@
 
 (DECLAIM (NOTINLINE |IndexedExponents;|)) 
 
-(DEFUN |IndexedExponents| (#1=#:G124)
+(DEFUN |IndexedExponents| (#1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

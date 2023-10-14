@@ -4,16 +4,16 @@
 (DEFPARAMETER |RealNumberSystem;AL| 'NIL) 
 
 (DEFUN |RealNumberSystem| ()
-  (LET (#:G114)
+  (LET (#:G115)
     (COND (|RealNumberSystem;AL|)
           (T (SETQ |RealNumberSystem;AL| (|RealNumberSystem;|)))))) 
 
 (DEFUN |RealNumberSystem;| ()
-  (SPROG ((#1=#:G112 NIL))
+  (SPROG ((#1=#:G113 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
-                    (PAIR '(#2=#:G108 #3=#:G109 #4=#:G110 #5=#:G111)
+                    (PAIR '(#2=#:G109 #3=#:G110 #4=#:G111 #5=#:G112)
                           (LIST '(|Integer|) '(|Fraction| (|Integer|))
                                 '(|Pattern| (|Float|)) '(|Float|)))
                     (|Join| (|Field|) (|OrderedRing|) (|RealConstant|)

@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |QuaternionCategory;AL| 'NIL) 
 
-(DEFUN |QuaternionCategory| (#1=#:G137)
-  (LET (#2=#:G138)
+(DEFUN |QuaternionCategory| (#1=#:G138)
+  (LET (#2=#:G139)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |QuaternionCategory;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |QuaternionCategory;| (|t#1|)
-  (SPROG ((#1=#:G136 NIL))
+  (SPROG ((#1=#:G137 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))

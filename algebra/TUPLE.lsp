@@ -21,7 +21,7 @@
          ('T 'NIL))) 
 
 (SDEFUN |TUPLE;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G119 NIL) (|i| NIL) (#2=#:G118 NIL))
+        (SPROG ((#1=#:G120 NIL) (|i| NIL) (#2=#:G119 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -43,9 +43,9 @@
 
 (DECLAIM (NOTINLINE |Tuple;|)) 
 
-(DEFUN |Tuple| (#1=#:G120)
+(DEFUN |Tuple| (#1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#

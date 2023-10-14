@@ -4,14 +4,14 @@
 (DEFPARAMETER |SetCategory;AL| 'NIL) 
 
 (DEFUN |SetCategory| ()
-  (LET (#:G106)
+  (LET (#:G107)
     (COND (|SetCategory;AL|) (T (SETQ |SetCategory;AL| (|SetCategory;|)))))) 
 
 (DEFUN |SetCategory;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
-                   (|sublisV| (PAIR '(#2=#:G103) (LIST '(|OutputForm|)))
+                   (|sublisV| (PAIR '(#2=#:G104) (LIST '(|OutputForm|)))
                               (|Join| (|BasicType|) (|CoercibleTo| '#2#)
                                       (|mkCategory|
                                        '(((|hash| ((|SingleInteger|) $)) T)

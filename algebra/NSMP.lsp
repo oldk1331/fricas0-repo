@@ -205,9 +205,9 @@
 
 (SDEFUN |NSMP;prem;3$;19| ((|a| $) (|b| $) ($ $))
         (SPROG
-         ((#1=#:G260 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
-          (|term| ($)) (#2=#:G247 NIL) (#3=#:G264 NIL) (|r| (D))
-          (#4=#:G228 NIL) (|lcb| ($)) (|db| (|NonNegativeInteger|)))
+         ((#1=#:G261 NIL) (|test| (|Integer|)) (|delta| (|Integer|))
+          (|term| ($)) (#2=#:G248 NIL) (#3=#:G265 NIL) (|r| (D))
+          (#4=#:G229 NIL) (|lcb| ($)) (|db| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (COND ((QEQCAR |b| 0) (|error| "in prem$NSMP: ground? #2"))
@@ -249,7 +249,7 @@
                          ((SPADCALL |r| (QREFELT $ 26))
                           (PROGN
                            (LETT #3# (SPADCALL |r| (QREFELT $ 27)) . #6#)
-                           (GO #7=#:G263)))
+                           (GO #7=#:G264)))
                          (#5# (CONS 1 (CONS (QCAR (QCDR |a|)) |r|)))))))
                      (#5#
                       (SEQ
@@ -331,7 +331,7 @@
 
 (SDEFUN |NSMP;lazyPrem;3$;22| ((|a| $) (|b| $) ($ $))
         (SPROG
-         ((|test| (|Integer|)) (|term| ($)) (#1=#:G279 NIL) (|lcb| ($))
+         ((|test| (|Integer|)) (|term| ($)) (#1=#:G280 NIL) (|lcb| ($))
           (|db| (|NonNegativeInteger|)))
          (SEQ
           (COND ((QEQCAR |b| 0) (|error| "in lazyPrem$NSMP: ground? #2"))
@@ -395,7 +395,7 @@
 
 (SDEFUN |NSMP;lazyPquo;3$;23| ((|a| $) (|b| $) ($ $))
         (SPROG
-         ((|test| (|Integer|)) (|q| ($)) (|term| ($)) (#1=#:G291 NIL)
+         ((|test| (|Integer|)) (|q| ($)) (|term| ($)) (#1=#:G292 NIL)
           (|lcb| ($)) (|db| (|NonNegativeInteger|)))
          (SEQ
           (COND ((QEQCAR |b| 0) (|error| " in lazyPquo$NSMP: #2 is constant"))
@@ -471,8 +471,8 @@
          ($ |Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
           (|:| |quotient| $) (|:| |remainder| $)))
         (SPROG
-         ((#1=#:G310 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| ($))
-          (|term| ($)) (#2=#:G306 NIL) (|lcb| ($))
+         ((#1=#:G311 NIL) (|test| (|Integer|)) (|delta| (|Integer|)) (|q| ($))
+          (|term| ($)) (#2=#:G307 NIL) (|lcb| ($))
           (|db| (|NonNegativeInteger|))
           (|cgqr|
            (|Record| (|:| |coef| $) (|:| |gap| (|NonNegativeInteger|))
@@ -552,7 +552,7 @@
           (|:| |power| (|NonNegativeInteger|))))
         (SPROG
          ((|test| (|Integer|)) (|pow| (|NonNegativeInteger|)) (|term| ($))
-          (#1=#:G323 NIL) (|db| (|NonNegativeInteger|))
+          (#1=#:G324 NIL) (|db| (|NonNegativeInteger|))
           (|lrc|
            (|Record| (|:| |polnum| D) (|:| |polden| $)
                      (|:| |power| (|NonNegativeInteger|))))
@@ -632,8 +632,8 @@
 (SDEFUN |NSMP;LazardQuotient;2$Nni$;27|
         ((|x| $) (|y| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG
-         ((#1=#:G340 NIL) (|c| ($)) (|a| (|NonNegativeInteger|))
-          (#2=#:G347 NIL) (#3=#:G339 NIL) (|b| (|NonNegativeInteger|)))
+         ((#1=#:G341 NIL) (|c| ($)) (|a| (|NonNegativeInteger|))
+          (#2=#:G348 NIL) (#3=#:G340 NIL) (|b| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (COND ((ZEROP |n|) (|error| "LazardQuotient$NSMP : n = 0"))
@@ -661,7 +661,7 @@
                               (EXIT
                                (COND
                                 ((EQL |a| 1)
-                                 (PROGN (LETT #2# |c| . #4#) (GO #5=#:G346)))
+                                 (PROGN (LETT #2# |c| . #4#) (GO #5=#:G347)))
                                 ('T
                                  (SEQ (LETT |a| (QUOTIENT2 |a| 2) . #4#)
                                       (LETT |c|
@@ -693,7 +693,7 @@
 
 (SDEFUN |NSMP;LazardQuotient2;3$Nni$;28|
         ((|p| $) (|a| $) (|b| $) (|n| |NonNegativeInteger|) ($ $))
-        (SPROG ((|c| ($)) (#1=#:G351 NIL))
+        (SPROG ((|c| ($)) (#1=#:G352 NIL))
                (SEQ
                 (COND
                  ((ZEROP |n|) (|error| " in LazardQuotient2$NSMP: bad #4"))
@@ -820,7 +820,7 @@
             (SPADCALL (QCDR (QCDR |a|)) (QCDR (QCDR |b|)) (QREFELT $ 103))))))) 
 
 (SDEFUN |NSMP;subResultantChain;2$L;35| ((|a| $) (|b| $) ($ |List| $))
-        (SPROG ((#1=#:G397 NIL) (|up| NIL) (#2=#:G396 NIL))
+        (SPROG ((#1=#:G398 NIL) (|up| NIL) (#2=#:G397 NIL))
                (SEQ
                 (COND
                  ((OR (QEQCAR |a| 0) (QEQCAR |b| 0))
@@ -912,7 +912,7 @@
           (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 112)))))) 
 
 (SDEFUN |NSMP;exactQuotient;$R$;39| ((|a| $) (|b| R) ($ $))
-        (SPROG ((#1=#:G413 NIL))
+        (SPROG ((#1=#:G414 NIL))
                (COND
                 ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
                  |a|)
@@ -938,7 +938,7 @@
           (RETURN (PROGN (SPADCALL |a1| |b| (QREFELT $ 111)))))) 
 
 (SDEFUN |NSMP;exactQuotient!;$R$;40| ((|a| $) (|b| R) ($ $))
-        (SPROG ((#1=#:G422 NIL))
+        (SPROG ((#1=#:G423 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |b| (QCDR (|spadConstant| $ 35)) (QREFELT $ 109))
@@ -1038,9 +1038,9 @@
 
 (DECLAIM (NOTINLINE |NewSparseMultivariatePolynomial;|)) 
 
-(DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G479)
+(DEFUN |NewSparseMultivariatePolynomial| (&REST #1=#:G480)
   (SPROG NIL
-         (PROG (#2=#:G480)
+         (PROG (#2=#:G481)
            (RETURN
             (COND
              ((LETT #2#
@@ -1063,8 +1063,8 @@
 
 (DEFUN |NewSparseMultivariatePolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G478 NIL) (|pv$| NIL) (#2=#:G474 NIL) (#3=#:G475 NIL) (#4=#:G476 NIL)
-    (#5=#:G477 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G479 NIL) (|pv$| NIL) (#2=#:G475 NIL) (#3=#:G476 NIL) (#4=#:G477 NIL)
+    (#5=#:G478 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #6=(|NewSparseMultivariatePolynomial|))
     (LETT DV$2 (|devaluate| |#2|) . #6#)

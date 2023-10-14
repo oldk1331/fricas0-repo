@@ -139,8 +139,8 @@
                       (|:| |alpha| UP) (|:| |beta| UP))
             #1#))
           (|r| (UP)) (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G157 NIL)
-          (|a1| (F)) (|ra| (|Union| F "failed")) (#3=#:G149 NIL)
+          (|bc| (|Record| (|:| |coef1| UP) (|:| |coef2| UP))) (#2=#:G158 NIL)
+          (|a1| (F)) (|ra| (|Union| F "failed")) (#3=#:G150 NIL)
           (|u| (|Union| UP "failed")) (|g| (UP)))
          (SEQ
           (COND
@@ -242,7 +242,7 @@
         ((|bb| UP) (|cc| UP) (|d| |Integer|) (|derivation| |Mapping| UP UP)
          ($ |Record| (|:| |ans| UP) (|:| |nosol| (|Boolean|))))
         (SPROG
-         ((|q| (UP)) (|r| (UP)) (#1=#:G168 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL)
+         ((|q| (UP)) (|r| (UP)) (#1=#:G169 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL)
           (|n| (|Integer|)) (|lb| (F)) (|db| (|Integer|)))
          (SEQ
           (EXIT
@@ -262,7 +262,7 @@
                           (EXIT
                            (PROGN
                             (LETT #3# (CONS |q| 'T) . #4#)
-                            (GO #5=#:G172))))
+                            (GO #5=#:G173))))
                          ('T
                           (SEQ
                            (LETT |n| (- (SPADCALL |cc| (QREFELT $ 17)) |db|)
@@ -276,7 +276,7 @@
                                       (LETT #3# (CONS |q| 'T) . #4#)
                                       (GO #5#))
                                      . #4#)
-                               (GO #6=#:G169))))))))
+                               (GO #6=#:G170))))))))
                         (LETT |r|
                               (SPADCALL
                                (SPADCALL (SPADCALL |cc| (QREFELT $ 24)) |lb|
@@ -310,8 +310,8 @@
                (|Record| (|:| |b| UP) (|:| |c| UP) (|:| |m| (|Integer|))
                          (|:| |alpha| UP) (|:| |beta| UP)))))
         (SPROG
-         ((|q| (UP)) (|r| (F)) (#1=#:G191 NIL) (|db| (|NonNegativeInteger|))
-          (#2=#:G180 NIL) (#3=#:G190 NIL) (|n| (|Integer|)))
+         ((|q| (UP)) (|r| (F)) (#1=#:G192 NIL) (|db| (|NonNegativeInteger|))
+          (#2=#:G181 NIL) (#3=#:G191 NIL) (|n| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ (LETT |q| (|spadConstant| $ 9) . #4=(|RDETR;SPDEnocancel2|))
@@ -328,7 +328,7 @@
                           (EXIT
                            (PROGN
                             (LETT #1# (CONS 0 (CONS |q| 'T)) . #4#)
-                            (GO #5=#:G189))))
+                            (GO #5=#:G190))))
                          ('T
                           (SEQ
                            (LETT |n| (- (SPADCALL |cc| (QREFELT $ 17)) |dtm1|)
@@ -342,7 +342,7 @@
                                       (LETT #1# (CONS 0 (CONS |q| 'T)) . #4#)
                                       (GO #5#))
                                      . #4#)
-                               (GO #6=#:G186))))))))
+                               (GO #6=#:G187))))))))
                         (EXIT
                          (COND
                           ((SPADCALL |n| 0 (QREFELT $ 23))
@@ -426,7 +426,7 @@
                     (|:| |c| (|Fraction| UP)) (|:| |t| UP))
           "failed"))
         (SPROG
-         ((|u| (|Union| UP "failed")) (|aa| (UP)) (|tt| (UP)) (#1=#:G201 NIL)
+         ((|u| (|Union| UP "failed")) (|aa| (UP)) (|tt| (UP)) (#1=#:G202 NIL)
           (|gg| (UP)) (|e| (UP)) (|d| (UP)))
          (SEQ
           (LETT |gg|
@@ -479,7 +479,7 @@
          ($ |Record| (|:| |ans| (|Fraction| UP)) (|:| |nosol| (|Boolean|))))
         (SPROG
          ((|v| (|Record| (|:| |ans| UP) (|:| |nosol| (|Boolean|))))
-          (#1=#:G218 NIL) (|n| (|Integer|)) (|cc| (UP)) (|bb| (UP))
+          (#1=#:G219 NIL) (|n| (|Integer|)) (|cc| (UP)) (|bb| (UP))
           (|u|
            (|Union|
             (|Record| (|:| |a| UP) (|:| |b| (|Fraction| UP))
@@ -554,9 +554,9 @@
 
 (DECLAIM (NOTINLINE |TranscendentalRischDE;|)) 
 
-(DEFUN |TranscendentalRischDE| (&REST #1=#:G233)
+(DEFUN |TranscendentalRischDE| (&REST #1=#:G234)
   (SPROG NIL
-         (PROG (#2=#:G234)
+         (PROG (#2=#:G235)
            (RETURN
             (COND
              ((LETT #2#

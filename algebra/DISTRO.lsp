@@ -160,7 +160,7 @@
          (|coef| |Sequence| R) ($ $))
         (SPROG
          ((|psi| #1=(|Stream| R)) (|psi2| #1#) (|chi2| #2=(|Stream| R))
-          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G151 NIL) (|chi| (|Stream| R)))
+          (|z1z| #2#) (S2 (|Sequence| R)) (#3=#:G152 NIL) (|chi| (|Stream| R)))
          (SEQ
           (EXIT
            (COND
@@ -188,7 +188,7 @@
                                  (QREFELT $ 13))
                        (QREFELT $ 14))
                       . #4#)
-                (GO #5=#:G150)))))
+                (GO #5=#:G151)))))
             ((SPADCALL |puiseux| (SPADCALL 1 2 (QREFELT $ 65)) (QREFELT $ 60))
              (COND
               ((SPADCALL |laurent|
@@ -230,7 +230,7 @@
 
 (SDEFUN |DISTRO;freeMultiplicativeConvolution;3$;24| ((|x| $) (|y| $) ($ $))
         (SPROG
-         ((|Sxyc| (|Stream| R)) (#1=#:G166 NIL) (|Syc| #2=(|Stream| R))
+         ((|Sxyc| (|Stream| R)) (#1=#:G167 NIL) (|Syc| #2=(|Stream| R))
           (|Sxc| #2#)
           (|Sy|
            #3=(|Record| (|:| |puiseux| (|Fraction| (|Integer|)))
@@ -266,7 +266,7 @@
                                        (SPADCALL |Sxyc| (QREFELT $ 13))
                                        (QREFELT $ 69))
                              . #4#)
-                       (GO #5=#:G165)))))
+                       (GO #5=#:G166)))))
                ((SPADCALL (QVELT |Sx| 0) (SPADCALL 1 2 (QREFELT $ 65))
                           (QREFELT $ 60))
                 (LETT |Sxyc|
@@ -487,9 +487,9 @@
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G222)
+(DEFUN |Distribution| (#1=#:G223)
   (SPROG NIL
-         (PROG (#2=#:G223)
+         (PROG (#2=#:G224)
            (RETURN
             (COND
              ((LETT #2#

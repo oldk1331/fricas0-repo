@@ -68,7 +68,7 @@
 
 (SDEFUN |AUTOMOR;iterat|
         ((|f| |Mapping| R R) (|g| |Mapping| R R) (|n| |Integer|) (|r| R) ($ R))
-        (SPROG ((#1=#:G139 NIL) (#2=#:G137 NIL))
+        (SPROG ((#1=#:G140 NIL) (#2=#:G138 NIL))
                (COND
                 ((< |n| 0)
                  (|AUTOMOR;iter| |g|
@@ -134,9 +134,9 @@
 
 (DECLAIM (NOTINLINE |Automorphism;|)) 
 
-(DEFUN |Automorphism| (#1=#:G154)
+(DEFUN |Automorphism| (#1=#:G155)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G156)
            (RETURN
             (COND
              ((LETT #2#

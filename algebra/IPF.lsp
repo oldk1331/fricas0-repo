@@ -2,7 +2,7 @@
 (SDEFUN |IPF;generator;$;1| (($ $)) (|spadConstant| $ 15)) 
 
 (SDEFUN |IPF;^;$I$;2| ((|x| $) (|n| |Integer|) ($ $))
-        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G112 NIL))
+        (SPROG ((|r| (|NonNegativeInteger|)) (#1=#:G113 NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 15))
                       ((SPADCALL |x| (QREFELT $ 18)) (|spadConstant| $ 19))
@@ -74,7 +74,7 @@
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
                     "failed"))
-          (#1=#:G151 NIL))
+          (#1=#:G152 NIL))
          (SEQ (COND ((QREFELT $ 10) (|IPF;initializeLog| $)))
               (LETT |tbl|
                     (SPADCALL
@@ -105,10 +105,10 @@
 
 (SDEFUN |IPF;initializeLog| (($ |Void|))
         (SPROG
-         ((#1=#:G169 NIL) (|a| ($)) (#2=#:G175 NIL) (#3=#:G163 NIL) (|i| NIL)
+         ((#1=#:G170 NIL) (|a| ($)) (#2=#:G176 NIL) (#3=#:G164 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
-          (|fac| (|Integer|)) (#4=#:G174 NIL) (|f| NIL) (|limit| (|Integer|)))
+          (|fac| (|Integer|)) (#4=#:G175 NIL) (|f| NIL) (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 11) (|IPF;initializeElt| $)))
               (LETT |limit| 30 . #5=(|IPF;initializeLog|))
               (SEQ (LETT |f| NIL . #5#) (LETT #4# (QREFELT $ 9) . #5#) G190
@@ -214,9 +214,9 @@
 
 (DECLAIM (NOTINLINE |InnerPrimeField;|)) 
 
-(DEFUN |InnerPrimeField| (#1=#:G212)
+(DEFUN |InnerPrimeField| (#1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G213)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#
@@ -271,7 +271,7 @@
               '|initelt?| (|Table| 45 47) (0 . |table|) '|discLogTable|
               (4 . |One|) |IPF;generator;$;1| (|Boolean|) (8 . |zero?|)
               (13 . |Zero|) (|Integer|) (17 . |positiveRemainder|)
-              (|NonNegativeInteger|) (23 . ^) |IPF;^;$I$;2| (29 . <=) '#:G107
+              (|NonNegativeInteger|) (23 . ^) |IPF;^;$I$;2| (29 . <=) '#:G108
               (|SingleInteger|) (35 . |coerce|) '|q| |IPF;convert;$I;5|
               (40 . |invmod|) (46 . |coerce|) (|Union| $ '"failed")
               (51 . |recip|) (56 . |invmod|) |IPF;normalElement;$;6|

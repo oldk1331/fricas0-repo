@@ -109,7 +109,7 @@
          ($ |Fraction| (|Polynomial| R)))
         (SPROG
          ((|j| NIL) (|i| NIL) (B (|Matrix| (|Fraction| (|Polynomial| R))))
-          (|dimA| (|PositiveInteger|)) (#1=#:G132 NIL))
+          (|dimA| (|PositiveInteger|)) (#1=#:G133 NIL))
          (SEQ
           (LETT |dimA|
                 (PROG1 (LETT #1# (ANROWS A) . #2=(|EP;charpol|))
@@ -166,11 +166,11 @@
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R)))))
         (SPROG
-         ((#1=#:G158 NIL) (|ls| NIL) (#2=#:G157 NIL) (#3=#:G156 NIL) (|lr| NIL)
-          (#4=#:G155 NIL)
+         ((#1=#:G159 NIL) (|ls| NIL) (#2=#:G158 NIL) (#3=#:G157 NIL) (|lr| NIL)
+          (#4=#:G156 NIL)
           (|lsym| (|List| (|SuchThat| (|Symbol|) (|Polynomial| R))))
           (|lrat| (|List| (|Fraction| (|Polynomial| R))))
-          (|alg| (|Polynomial| R)) (#5=#:G154 NIL) (|eq| NIL)
+          (|alg| (|Polynomial| R)) (#5=#:G155 NIL) (|eq| NIL)
           (|pol| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|)))
          (SEQ
           (LETT |x| (SPADCALL (QREFELT $ 45)) . #6=(|EP;eigenvalues;ML;10|))
@@ -229,7 +229,7 @@
          (A |Matrix| (|Fraction| (|Polynomial| R))) (|m| |NonNegativeInteger|)
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((#1=#:G170 NIL) (|v| NIL) (#2=#:G169 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G171 NIL) (|v| NIL) (#2=#:G170 NIL) (|j| NIL) (|i| NIL)
           (B (|Matrix| (|Fraction| (|Polynomial| R))))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS A) . #3=(|EP;intRatEig|))
@@ -277,7 +277,7 @@
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG
          ((|sol| (|List| (|Matrix| (|Fraction| (|Polynomial| R))))) (|i| NIL)
-          (|w| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G194 NIL)
+          (|w| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G195 NIL)
           (|vec| NIL) (|j| NIL) (B (AM)) (|alg| (MM))
           (|pol| (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
           (|x| (|Symbol|))
@@ -490,7 +490,7 @@
          (A |Matrix| (|Fraction| (|Polynomial| R))) (|k| |NonNegativeInteger|)
          (|g| |NonNegativeInteger|)
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
-        (SPROG ((#1=#:G199 NIL) (#2=#:G198 NIL))
+        (SPROG ((#1=#:G200 NIL) (#2=#:G199 NIL))
                (COND
                 ((QEQCAR |alpha| 0)
                  (|EP;intRatEig| (QCDR |alpha|) A
@@ -527,7 +527,7 @@
            (|:| |geneigvec|
                 (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
         (SPROG
-         ((#1=#:G214 NIL) (|leg| NIL) (#2=#:G213 NIL)
+         ((#1=#:G215 NIL) (|leg| NIL) (#2=#:G214 NIL)
           (|leig|
            (|List|
             (|Record|
@@ -573,9 +573,9 @@
                 (|:| |eigmult| (|NonNegativeInteger|))
                 (|:| |eigvec|
                      (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
-          (#2=#:G222 NIL) (|alpha| (|SuchThat| (|Symbol|) (|Polynomial| R)))
-          (|ratSol| #1#) (#3=#:G220 NIL) (|vec| (|Fraction| (|Polynomial| R)))
-          (|pol| #4=(|Polynomial| R)) (#5=#:G228 NIL) (|fact| NIL)
+          (#2=#:G223 NIL) (|alpha| (|SuchThat| (|Symbol|) (|Polynomial| R)))
+          (|ratSol| #1#) (#3=#:G221 NIL) (|vec| (|Fraction| (|Polynomial| R)))
+          (|pol| #4=(|Polynomial| R)) (#5=#:G229 NIL) (|fact| NIL)
           (|lff|
            (|List| (|Record| (|:| |factor| #4#) (|:| |exponent| (|Integer|)))))
           (|p| (|Polynomial| R)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|)))
@@ -639,9 +639,9 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G229)
+(DEFUN |EigenPackage| (#1=#:G230)
   (SPROG NIL
-         (PROG (#2=#:G230)
+         (PROG (#2=#:G231)
            (RETURN
             (COND
              ((LETT #2#

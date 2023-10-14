@@ -52,7 +52,7 @@
           (|fun2c| #2=(|SparseUnivariatePolynomial| F)) (|ppcc| #2#)
           (|c2| (|Fraction| (|Integer|))) (|c1| (|Fraction| (|Integer|)))
           (|fun1| #1#) (|fun1c| #2#) (|fun| (|SparseUnivariatePolynomial| F))
-          (|ppc| (|SparseUnivariatePolynomial| F)) (#3=#:G124 NIL)
+          (|ppc| (|SparseUnivariatePolynomial| F)) (#3=#:G125 NIL)
           (|ppr| (|SparseUnivariatePolynomial| F))
           (|pol1| #4=(|SparseUnivariatePolynomial| F)) (|pol0| #4#)
           (|polu|
@@ -196,7 +196,7 @@
             (|Record| (|:| |scalar| (|Fraction| (|Integer|)))
                       (|:| |coeff| (|SparseUnivariatePolynomial| F))
                       (|:| |logand| (|SparseUnivariatePolynomial| F)))))
-          (#1=#:G192 NIL) (|ll| NIL) (|rp1| (F)) (|rp| (F)))
+          (#1=#:G193 NIL) (|ll| NIL) (|rp1| (F)) (|rp| (F)))
          (SEQ
           (LETT |rp| (SPADCALL |irf| (QREFELT $ 71))
                 . #2=(|INTG0;rationalize_ir;IrKIr;7|))
@@ -509,7 +509,7 @@
                     (|:| |limitedlogs|
                          (|List| (|Record| (|:| |coeff| F) (|:| |logand| F)))))
           "failed"))
-        (SPROG ((#1=#:G236 NIL) (|u| NIL) (#2=#:G235 NIL))
+        (SPROG ((#1=#:G237 NIL) (|u| NIL) (#2=#:G236 NIL))
                (SEQ
                 (SPADCALL
                  (CONS #'|INTG0;palglimint0;F2KLKFFU;14!0| (VECTOR $ |y|))
@@ -547,7 +547,7 @@
          (|rischde| |Mapping| #1=(|Union| F #2="failed") F F (|Symbol|))
          (|z| |Kernel| F) (|xx| F)
          (|dx| |Fraction| (|SparseUnivariatePolynomial| F)) ($ |Union| F #2#))
-        (SPROG ((|u| #1#) (#3=#:G241 NIL))
+        (SPROG ((|u| #1#) (#3=#:G242 NIL))
                (SEQ
                 (LETT |u|
                       (SPADCALL
@@ -630,7 +630,7 @@
                          (|List| (|Record| (|:| |coeff| F) (|:| |logand| F)))))
           "failed"))
         (SPROG
-         ((#1=#:G283 NIL) (|u| NIL) (#2=#:G282 NIL)
+         ((#1=#:G284 NIL) (|u| NIL) (#2=#:G283 NIL)
           (|pr|
            (|Record| (|:| |diff| F)
                      (|:| |subs|
@@ -676,7 +676,7 @@
          (|rischde| |Mapping| #1=(|Union| F #2="failed") F F (|Symbol|))
          (|den| F) (|radi| |SparseUnivariatePolynomial| F) ($ |Union| F #2#))
         (SPROG
-         ((|u| #1#) (#3=#:G290 NIL)
+         ((|u| #1#) (#3=#:G291 NIL)
           (|pr|
            (|Record| (|:| |diff| F)
                      (|:| |subs|
@@ -718,8 +718,8 @@
          ($ |Record| (|:| |particular| (|Union| F "failed"))
           (|:| |basis| (|List| F))))
         (SPROG
-         ((#1=#:G302 NIL) (|bas| (|List| F)) (#2=#:G312 NIL) (|b| NIL)
-          (#3=#:G311 NIL)
+         ((#1=#:G303 NIL) (|bas| (|List| F)) (#2=#:G313 NIL) (|b| NIL)
+          (#3=#:G312 NIL)
           (|rec|
            (|Record|
             (|:| |particular|
@@ -733,7 +733,7 @@
           (|op|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
-          (#4=#:G310 NIL) (|i| NIL)
+          (#4=#:G311 NIL) (|i| NIL)
           (|d|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
@@ -822,8 +822,8 @@
          ($ |Record| (|:| |particular| (|Union| F "failed"))
           (|:| |basis| (|List| F))))
         (SPROG
-         ((#2=#:G319 NIL) (|bas| (|List| F)) (#3=#:G328 NIL) (|b| NIL)
-          (#4=#:G327 NIL)
+         ((#2=#:G320 NIL) (|bas| (|List| F)) (#3=#:G329 NIL) (|b| NIL)
+          (#4=#:G328 NIL)
           (|rec|
            (|Record|
             (|:| |particular|
@@ -837,7 +837,7 @@
           (|op|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction| (|SparseUnivariatePolynomial| F))))
-          (#5=#:G326 NIL) (|i| NIL) (|lv| (|List| F)) (|lk| (|List| #1#))
+          (#5=#:G327 NIL) (|i| NIL) (|lv| (|List| F)) (|lk| (|List| #1#))
           (|d|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction| (|SparseUnivariatePolynomial| F)))))
@@ -908,9 +908,9 @@
 
 (DECLAIM (NOTINLINE |GenusZeroIntegration;|)) 
 
-(DEFUN |GenusZeroIntegration| (&REST #1=#:G329)
+(DEFUN |GenusZeroIntegration| (&REST #1=#:G330)
   (SPROG NIL
-         (PROG (#2=#:G330)
+         (PROG (#2=#:G331)
            (RETURN
             (COND
              ((LETT #2#

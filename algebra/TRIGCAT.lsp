@@ -4,14 +4,14 @@
 (DEFPARAMETER |TrigonometricFunctionCategory;AL| 'NIL) 
 
 (DEFUN |TrigonometricFunctionCategory| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|TrigonometricFunctionCategory;AL|)
           (T
            (SETQ |TrigonometricFunctionCategory;AL|
                    (|TrigonometricFunctionCategory;|)))))) 
 
 (DEFUN |TrigonometricFunctionCategory;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join|

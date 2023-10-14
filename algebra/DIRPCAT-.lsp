@@ -10,7 +10,7 @@
 
 (SDEFUN |DIRPCAT-;equation2R| ((|v| |Vector| S) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G123 NIL) (|j| NIL) (#2=#:G122 NIL) (|i| NIL)
+         ((#1=#:G124 NIL) (|j| NIL) (#2=#:G123 NIL) (|i| NIL)
           (|ans| (|Matrix| R)))
          (SEQ
           (LETT |ans|
@@ -36,7 +36,7 @@
           (EXIT |ans|)))) 
 
 (SDEFUN |DIRPCAT-;reducedSystem;MM;5| ((|m| |Matrix| S) ($ |Matrix| R))
-        (SPROG ((#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL))
+        (SPROG ((#1=#:G131 NIL) (|i| NIL) (#2=#:G130 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |m| (QREFELT $ 26))
@@ -93,11 +93,11 @@
 
 (SDEFUN |DIRPCAT-;index;PiS;10| ((|n| |PositiveInteger|) ($ S))
         (SPROG
-         ((|n0| (|Integer|)) (#1=#:G141 NIL)
+         ((|n0| (|Integer|)) (#1=#:G142 NIL)
           (|d|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (#2=#:G146 NIL) (|i| NIL) (|r| (|Vector| R))
+          (#2=#:G147 NIL) (|i| NIL) (|r| (|Vector| R))
           (|s| (|NonNegativeInteger|)))
          (SEQ
           (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;index;PiS;10|))
@@ -119,8 +119,8 @@
 
 (SDEFUN |DIRPCAT-;lookup;SPi;11| ((|v| S) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G149 NIL) (|pow| (|NonNegativeInteger|)) (|res| (|Integer|))
-          (#2=#:G152 NIL) (|i| NIL) (|s| (|NonNegativeInteger|)))
+         ((#1=#:G150 NIL) (|pow| (|NonNegativeInteger|)) (|res| (|Integer|))
+          (#2=#:G153 NIL) (|i| NIL) (|s| (|NonNegativeInteger|)))
          (SEQ
           (LETT |s| (SPADCALL (QREFELT $ 50)) . #3=(|DIRPCAT-;lookup;SPi;11|))
           (LETT |pow| 1 . #3#) (LETT |res| 1 . #3#)

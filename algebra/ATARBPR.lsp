@@ -4,12 +4,12 @@
 (DEFPARAMETER |arbitraryPrecision;AL| 'NIL) 
 
 (DEFUN |arbitraryPrecision| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|arbitraryPrecision;AL|)
           (T (SETQ |arbitraryPrecision;AL| (|arbitraryPrecision;|)))))) 
 
 (DEFUN |arbitraryPrecision;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
                    |arbitraryPrecision|)

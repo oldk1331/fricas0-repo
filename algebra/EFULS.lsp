@@ -304,9 +304,9 @@
 
 (SDEFUN |EFULS;atanIfCan;ULSU;25| ((|uls| ULS) ($ |Union| ULS "failed"))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G281 NIL)
+         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G282 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G280 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#2=#:G281 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -325,7 +325,7 @@
                                   (QREFELT $ 18))
                         (PROGN
                          (LETT #2# (CONS 1 "failed") . #3#)
-                         (GO #4=#:G278))))))))
+                         (GO #4=#:G279))))))))
               (LETT |cc|
                     (COND
                      ((< |ord| 0)
@@ -357,7 +357,7 @@
                        (#5#
                         (PROGN
                          (LETT #1# (CONS 1 "failed") . #3#)
-                         (GO #6=#:G279)))))
+                         (GO #6=#:G280)))))
                      ((SPADCALL |coef| (|spadConstant| $ 12) (QREFELT $ 18))
                       (|spadConstant| $ 12))
                      ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 98)))
@@ -386,9 +386,9 @@
 
 (SDEFUN |EFULS;acotIfCan;ULSU;26| ((|uls| ULS) ($ |Union| ULS "failed"))
         (SPROG
-         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G294 NIL)
+         ((|z| (|Union| ULS "failed")) (|cc| (|Coef|)) (#1=#:G295 NIL)
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#2=#:G293 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#2=#:G294 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -407,7 +407,7 @@
                                   (QREFELT $ 18))
                         (PROGN
                          (LETT #2# (CONS 1 "failed") . #3#)
-                         (GO #4=#:G291))))))))
+                         (GO #4=#:G292))))))))
               (LETT |cc|
                     (COND
                      ((< |ord| 0)
@@ -427,7 +427,7 @@
                            (#5='T
                             (PROGN
                              (LETT #1# (CONS 1 "failed") . #3#)
-                             (GO #6=#:G292)))))))
+                             (GO #6=#:G293)))))))
                        (#5# (|spadConstant| $ 12))))
                      ((QREFELT $ 10) (SPADCALL |coef| (QREFELT $ 104)))
                      (#5# (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #6#))))
@@ -641,7 +641,7 @@
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G463 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#1=#:G464 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -660,7 +660,7 @@
                              (|error|
                               "atan: series expansion has logarithmic term")
                              . #2#)
-                       (GO #3=#:G461))))))))
+                       (GO #3=#:G462))))))))
             (LETT |cc|
                   (COND
                    ((< |ord| 0)
@@ -722,7 +722,7 @@
         (SPROG
          ((|z| (|Union| ULS "failed")) (|cc| (|Coef|))
           (|rat| (|Union| (|Fraction| (|Integer|)) "failed")) (|lc| (|Coef|))
-          (#1=#:G475 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
+          (#1=#:G476 NIL) (|ord| (|Integer|)) (|coef| (|Coef|)))
          (SEQ
           (EXIT
            (SEQ
@@ -741,7 +741,7 @@
                              (|error|
                               "acot: series expansion has logarithmic term")
                              . #2#)
-                       (GO #3=#:G473))))))))
+                       (GO #3=#:G474))))))))
             (LETT |cc|
                   (COND
                    ((< |ord| 0)
@@ -788,9 +788,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionsUnivariateLaurentSeries;|)) 
 
-(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G476)
+(DEFUN |ElementaryFunctionsUnivariateLaurentSeries| (&REST #1=#:G477)
   (SPROG NIL
-         (PROG (#2=#:G477)
+         (PROG (#2=#:G478)
            (RETURN
             (COND
              ((LETT #2#

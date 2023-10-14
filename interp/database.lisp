@@ -334,7 +334,7 @@
  
 ; getUsersOfConstructor(con) ==
 ;   stream := readLib('USERS, 'DATABASE)
-;   val := rread(con, stream)
+;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
  
@@ -343,13 +343,13 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| 'USERS 'DATABASE))
-      (SETQ |val| (|rread| |con| |stream|))
+      (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
  
 ; getDependentsOfConstructor(con) ==
 ;   stream := readLib('DEPENDENTS, 'DATABASE)
-;   val := rread(con, stream)
+;   val := rread_list(con, stream)
 ;   RSHUT stream
 ;   val
  
@@ -358,7 +358,7 @@
     (RETURN
      (PROGN
       (SETQ |stream| (|readLib| 'DEPENDENTS 'DATABASE))
-      (SETQ |val| (|rread| |con| |stream|))
+      (SETQ |val| (|rread_list| |con| |stream|))
       (RSHUT |stream|)
       |val|))))
  

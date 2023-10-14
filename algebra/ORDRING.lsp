@@ -4,11 +4,11 @@
 (DEFPARAMETER |OrderedRing;AL| 'NIL) 
 
 (DEFUN |OrderedRing| ()
-  (LET (#:G111)
+  (LET (#:G112)
     (COND (|OrderedRing;AL|) (T (SETQ |OrderedRing;AL| (|OrderedRing;|)))))) 
 
 (DEFUN |OrderedRing;| ()
-  (SPROG ((#1=#:G109 NIL))
+  (SPROG ((#1=#:G110 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|OrderedAbelianGroup|) (|Ring|)

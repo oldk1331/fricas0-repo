@@ -37,7 +37,7 @@
                        ('T (QCDR |u|))))))) 
 
 (SDEFUN |SUMFS;notRF?| ((|f| F) (|k| |Kernel| F) ($ |Boolean|))
-        (SPROG ((#1=#:G126 NIL) (#2=#:G127 NIL) (#3=#:G128 NIL) (|kk| NIL))
+        (SPROG ((#1=#:G127 NIL) (#2=#:G128 NIL) (#3=#:G129 NIL) (|kk| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -62,9 +62,9 @@
                                 (LETT #1#
                                       (PROGN
                                        (LETT #2# 'T . #4#)
-                                       (GO #5=#:G125))
+                                       (GO #5=#:G126))
                                       . #4#)
-                                (GO #6=#:G123))))))))
+                                (GO #6=#:G124))))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT 'NIL)))
@@ -115,9 +115,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceSum;|)) 
 
-(DEFUN |FunctionSpaceSum| (&REST #1=#:G136)
+(DEFUN |FunctionSpaceSum| (&REST #1=#:G137)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G138)
            (RETURN
             (COND
              ((LETT #2#

@@ -22,12 +22,12 @@
         ((|p| |Polynomial| R) (|facq| |Factored| (|Polynomial| R))
          (|v| |Symbol|) ($ |Any|))
         (SPROG
-         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G111 NIL)
-          (#2=#:G110 (|fup|)) (#3=#:G112 (|fup|)) (#4=#:G117 NIL) (|ff| NIL)
+         ((|pfup| (|PartialFraction| |up|)) (|nflist| (|fup|)) (#1=#:G112 NIL)
+          (#2=#:G111 (|fup|)) (#3=#:G113 (|fup|)) (#4=#:G118 NIL) (|ff| NIL)
           (|fcont| (|up|))
           (|ffact|
            (|List| (|Record| (|:| |irr| |up|) (|:| |pow| (|Integer|)))))
-          (#5=#:G116 NIL) (|u| NIL) (#6=#:G115 NIL)
+          (#5=#:G117 NIL) (|u| NIL) (#6=#:G116 NIL)
           (|fup|
            (|Join| (|IntegralDomain|) (|DifferentialExtension| |up|)
                    (|Algebra| |up|) (|FullyEvalableOver| |up|)
@@ -196,9 +196,9 @@
 
 (DECLAIM (NOTINLINE |PartialFractionPackage;|)) 
 
-(DEFUN |PartialFractionPackage| (#1=#:G118)
+(DEFUN |PartialFractionPackage| (#1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#

@@ -64,8 +64,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|lm| NIL) (|ck_m| NIL) (#2=#:G123 NIL) (|cm| NIL)
-              (#3=#:G122 NIL) (|m| NIL) (#4=#:G121 NIL) (|ss| NIL) (|two| NIL)
+             ((|lm| NIL) (|ck_m| NIL) (#2=#:G124 NIL) (|cm| NIL)
+              (#3=#:G123 NIL) (|m| NIL) (#4=#:G122 NIL) (|ss| NIL) (|two| NIL)
               (|three| NIL) (|ck| NIL))
              (SEQ (LETT |lm| (SPADCALL |lcr| (QREFELT $ 31)) NIL)
                   (LETT |ss| (|spadConstant| $ 9) NIL)
@@ -206,9 +206,9 @@
 
 (DECLAIM (NOTINLINE |SpecialFunctionUnivariateTaylorSeries;|)) 
 
-(DEFUN |SpecialFunctionUnivariateTaylorSeries| (&REST #1=#:G133)
+(DEFUN |SpecialFunctionUnivariateTaylorSeries| (&REST #1=#:G134)
   (SPROG NIL
-         (PROG (#2=#:G134)
+         (PROG (#2=#:G135)
            (RETURN
             (COND
              ((LETT #2#

@@ -50,7 +50,7 @@
 
 (SDEFUN |ANY;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
         (SPROG
-         ((#1=#:G126 NIL) (|a| NIL) (#2=#:G125 NIL)
+         ((#1=#:G127 NIL) (|a| NIL) (#2=#:G126 NIL)
           (|dom1| (|List| (|Symbol|))) (|p| (|Symbol|))
           (|obj1| (|OutputForm|)))
          (SEQ
@@ -101,7 +101,7 @@
 
 (DEFUN |Any| ()
   (SPROG NIL
-         (PROG (#1=#:G131)
+         (PROG (#1=#:G132)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Any|) . #2=(|Any|))

@@ -41,9 +41,9 @@
 
 (DECLAIM (NOTINLINE |PatternMatchListResult;|)) 
 
-(DEFUN |PatternMatchListResult| (&REST #1=#:G124)
+(DEFUN |PatternMatchListResult| (&REST #1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

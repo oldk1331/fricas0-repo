@@ -153,9 +153,9 @@
 
 (DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
 
-(DEFUN |BalancedBinaryTree| (#1=#:G174)
+(DEFUN |BalancedBinaryTree| (#1=#:G175)
   (SPROG NIL
-         (PROG (#2=#:G175)
+         (PROG (#2=#:G176)
            (RETURN
             (COND
              ((LETT #2#
@@ -174,7 +174,7 @@
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G171 NIL) (#2=#:G172 NIL) (#3=#:G173 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|BalancedBinaryTree|))

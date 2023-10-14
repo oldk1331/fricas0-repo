@@ -45,7 +45,7 @@
            (|List|
             (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                       (|:| |basisInv| (|Matrix| R)))))
-          (|newBasis| #1#) (|bDen| (R)) (|bInv| #3#) (|b| #2#) (#4=#:G119 NIL)
+          (|newBasis| #1#) (|bDen| (R)) (|bInv| #3#) (|b| #2#) (#4=#:G120 NIL)
           (|i| NIL))
          (SEQ
           (LETT |outList| (SPADCALL |bas| (QREFELT $ 17))
@@ -81,7 +81,7 @@
          ($ |List| (|SparseUnivariatePolynomial| K)))
         (SPROG
          ((|outList| (|List| (|SparseUnivariatePolynomial| K)))
-          (|coef| #1=(|SparseUnivariatePolynomial| K)) (#2=#:G124 NIL)
+          (|coef| #1=(|SparseUnivariatePolynomial| K)) (#2=#:G125 NIL)
           (|i| NIL) (|xx| #1#))
          (SEQ
           (LETT |coef| (SPADCALL |a| 0 (QREFELT $ 22))
@@ -143,7 +143,7 @@
           (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                     (|:| |basisInv| (|Matrix| R))))
          (|lcm| R) ($ |List| (|List| UP)))
-        (SPROG ((#1=#:G134 NIL) (|b| NIL) (#2=#:G133 NIL))
+        (SPROG ((#1=#:G135 NIL) (|b| NIL) (#2=#:G134 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|IBACHIN;basesToPolyLists|))
@@ -171,7 +171,7 @@
            (|Record| (|:| |quotient| (|SparseUnivariatePolynomial| R))
                      (|:| |remainder| (|SparseUnivariatePolynomial| R))))
           (|tau| #2=(|SparseUnivariatePolynomial| R)) (|sigma| #2#)
-          (|rhs| (|SparseUnivariatePolynomial| R)) (#3=#:G139 NIL)
+          (|rhs| (|SparseUnivariatePolynomial| R)) (#3=#:G140 NIL)
           (|num| (|SparseUnivariatePolynomial| R)) (|i| NIL) (|t1| #1#)
           (|s1| #1#) (|tt1| #4=(|SparseUnivariatePolynomial| |sae|))
           (|ss1| #5=(|SparseUnivariatePolynomial| |sae|))
@@ -380,10 +380,10 @@
         ((|list| |List| UP) (|polyList| |List| UP) (|i| |Integer|) (|den| R)
          ($ |List| UP))
         (SPROG
-         ((#1=#:G171 NIL) (|pp| NIL) (#2=#:G170 NIL) (|invPoly| (UP))
-          (|n| (|NonNegativeInteger|)) (#3=#:G163 NIL) (|prime| (R))
+         ((#1=#:G172 NIL) (|pp| NIL) (#2=#:G171 NIL) (|invPoly| (UP))
+          (|n| (|NonNegativeInteger|)) (#3=#:G164 NIL) (|prime| (R))
           (|factoredDen| (|Factored| R)) (|q| (UP)) (|j| NIL) (|p| (UP))
-          (#4=#:G169 NIL))
+          (#4=#:G170 NIL))
          (SEQ
           (LETT |q| (|spadConstant| $ 36) . #5=(|IBACHIN;mapChineseToList|))
           (SEQ (LETT |j| 1 . #5#) (LETT #4# (- |i| 1) . #5#) G190
@@ -440,7 +440,7 @@
 
 (SDEFUN |IBACHIN;polyListToMatrix|
         ((|polyList| |List| UP) (|n| |NonNegativeInteger|) ($ |Matrix| R))
-        (SPROG ((|poly| (UP)) (|i| NIL) (#1=#:G178 NIL) (|mat| (|Matrix| R)))
+        (SPROG ((|poly| (UP)) (|i| NIL) (#1=#:G179 NIL) (|mat| (|Matrix| R)))
                (SEQ
                 (LETT |mat| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 10))
                       . #2=(|IBACHIN;polyListToMatrix|))
@@ -484,9 +484,9 @@
         (SPROG
          ((|matInv| (|Matrix| R)) (|mat| (|Matrix| R))
           (|basisPolys| (|List| UP)) (|basisPolyLists| (|List| (|List| UP)))
-          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G191 NIL) (|pList| NIL)
+          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G192 NIL) (|pList| NIL)
           (|factorBasisPolyLists| (|List| (|List| UP))) (|denLCM| (R))
-          (#2=#:G190 NIL) (|base| NIL) (#3=#:G189 NIL))
+          (#2=#:G191 NIL) (|base| NIL) (#3=#:G190 NIL))
          (SEQ
           (LETT |denLCM|
                 (SPADCALL (ELT $ 64)
@@ -552,9 +552,9 @@
 
 (DECLAIM (NOTINLINE |ChineseRemainderToolsForIntegralBases;|)) 
 
-(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G192)
+(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G193)
   (SPROG NIL
-         (PROG (#2=#:G193)
+         (PROG (#2=#:G194)
            (RETURN
             (COND
              ((LETT #2#

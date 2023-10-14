@@ -4,14 +4,14 @@
 (DEFPARAMETER |ElementaryFunctionCategory;AL| 'NIL) 
 
 (DEFUN |ElementaryFunctionCategory| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|ElementaryFunctionCategory;AL|)
           (T
            (SETQ |ElementaryFunctionCategory;AL|
                    (|ElementaryFunctionCategory;|)))))) 
 
 (DEFUN |ElementaryFunctionCategory;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join|

@@ -2,8 +2,8 @@
 (SDEFUN |LEADCDET;polCase;ZNniLB;1|
         ((|d| Z) (|nk| |NonNegativeInteger|) (|lval| |List| Z) ($ |Boolean|))
         (SPROG
-         ((|distlist| (|List| Z)) (#1=#:G121 NIL) (|q| (Z)) (|y| (Z))
-          (#2=#:G112 NIL) (#3=#:G122 NIL) (#4=#:G111 NIL) (|j| NIL) (|i| NIL))
+         ((|distlist| (|List| Z)) (#1=#:G122 NIL) (|q| (Z)) (|y| (Z))
+          (#2=#:G113 NIL) (#3=#:G123 NIL) (#4=#:G112 NIL) (|j| NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |distlist| (LIST |d|) . #5=(|LEADCDET;polCase;ZNniLB;1|))
@@ -50,7 +50,7 @@
                              (COND
                               ((SPADCALL |q| (|spadConstant| $ 15)
                                          (QREFELT $ 21))
-                               (PROGN (LETT #1# 'NIL . #5#) (GO #6=#:G120))))))
+                               (PROGN (LETT #1# 'NIL . #5#) (GO #6=#:G121))))))
                            (LETT |j| (|inc_SI| |j|) . #5#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT
@@ -60,14 +60,14 @@
           #6# (EXIT #1#)))) 
 
 (SDEFUN |LEADCDET;checkpow| ((|a| Z) (|b| Z) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G130 NIL) (|qt| (|Union| Z "failed")) (|i| NIL))
+        (SPROG ((#1=#:G131 NIL) (|qt| (|Union| Z "failed")) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ (LETT |i| 0 . #2=(|LEADCDET;checkpow|)) G190 NIL
                       (SEQ (LETT |qt| (SPADCALL |b| |a| (QREFELT $ 25)) . #2#)
                            (COND
                             ((QEQCAR |qt| 1)
-                             (PROGN (LETT #1# |i| . #2#) (GO #3=#:G129))))
+                             (PROGN (LETT #1# |i| . #2#) (GO #3=#:G130))))
                            (EXIT (LETT |b| (QCDR |qt|) . #2#)))
                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                       (EXIT NIL)))
@@ -141,10 +141,10 @@
                     (|:| |corrfact| (|List| (|SparseUnivariatePolynomial| Z))))
           "failed"))
         (SPROG
-         ((|i| NIL) (#1=#:G172 NIL) (#2=#:G166 NIL) (#3=#:G171 NIL) (|k| NIL)
-          (|c| (Z)) (|d| (Z)) (|h| (|NonNegativeInteger|)) (#4=#:G170 NIL)
-          (|aux| (|List| P)) (#5=#:G169 NIL) (|vlp| (|List| Z)) (#6=#:G168 NIL)
-          (|lexp| (|List| (|Integer|))) (|lpol| (|List| P)) (#7=#:G167 NIL)
+         ((|i| NIL) (#1=#:G173 NIL) (#2=#:G167 NIL) (#3=#:G172 NIL) (|k| NIL)
+          (|c| (Z)) (|d| (Z)) (|h| (|NonNegativeInteger|)) (#4=#:G171 NIL)
+          (|aux| (|List| P)) (#5=#:G170 NIL) (|vlp| (|List| Z)) (#6=#:G169 NIL)
+          (|lexp| (|List| (|Integer|))) (|lpol| (|List| P)) (#7=#:G168 NIL)
           (|fpl| NIL) (|nf| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -226,7 +226,7 @@
                                                 (QREFELT $ 43))
                                       (PROGN
                                        (LETT #2# (CONS 1 "failed") . #8#)
-                                       (GO #9=#:G165))))
+                                       (GO #9=#:G166))))
                                     (SPADCALL |lexp| |k|
                                               (-
                                                (SPADCALL |lexp| |k|
@@ -307,9 +307,9 @@
 
 (DECLAIM (NOTINLINE |LeadingCoefDetermination;|)) 
 
-(DEFUN |LeadingCoefDetermination| (&REST #1=#:G173)
+(DEFUN |LeadingCoefDetermination| (&REST #1=#:G174)
   (SPROG NIL
-         (PROG (#2=#:G174)
+         (PROG (#2=#:G175)
            (RETURN
             (COND
              ((LETT #2#

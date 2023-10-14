@@ -10,13 +10,13 @@
 (SDEFUN |SCPKG;coordinates;MLV;2|
         ((|x| |Matrix| R) (|b| |List| (|Matrix| R)) ($ |Vector| R))
         (SPROG
-         ((#1=#:G123 NIL)
+         ((#1=#:G124 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R)))))
           (|i| NIL) (|transitionMatrix| (|Matrix| R))
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|))
-          (#2=#:G118 NIL))
+          (#2=#:G119 NIL))
          (SEQ
           (LETT |m|
                 (PROG1
@@ -62,8 +62,8 @@
         ((|b| |List| (|Matrix| R)) ($ |Vector| (|Matrix| R)))
         (SPROG
          ((|k| NIL) (|covec| (|Vector| R)) (|j| NIL) (|i| NIL)
-          (|sC| (|Vector| (|Matrix| R))) (#1=#:G135 NIL) (#2=#:G136 NIL)
-          (|m| (|NonNegativeInteger|)) (#3=#:G127 NIL))
+          (|sC| (|Vector| (|Matrix| R))) (#1=#:G136 NIL) (#2=#:G137 NIL)
+          (|m| (|NonNegativeInteger|)) (#3=#:G128 NIL))
          (SEQ
           (LETT |m|
                 (PROG1
@@ -241,9 +241,9 @@
 
 (DECLAIM (NOTINLINE |StructuralConstantsPackage;|)) 
 
-(DEFUN |StructuralConstantsPackage| (#1=#:G158)
+(DEFUN |StructuralConstantsPackage| (#1=#:G159)
   (SPROG NIL
-         (PROG (#2=#:G159)
+         (PROG (#2=#:G160)
            (RETURN
             (COND
              ((LETT #2#

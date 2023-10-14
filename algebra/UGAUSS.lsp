@@ -4,7 +4,7 @@
          (|pivotsk| |Vector| (|Integer|)) ($ |Void|))
         (SPROG
          ((|l| NIL) (|pp| (|Integer|)) (|n| NIL) (|ml| #1=(|Integer|))
-          (|l0| (|Integer|)) (#2=#:G127 NIL) (|pv| #1#) (|i| NIL)
+          (|l0| (|Integer|)) (#2=#:G128 NIL) (|pv| #1#) (|i| NIL)
           (|k| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|)))
          (SEQ (LETT |j| (ANROWS |m|) . #3=(|UGAUSS;pre_gauss0|))
               (LETT |k| (ANCOLS |m|) . #3#)
@@ -37,7 +37,7 @@
                                      (EXIT
                                       (PROGN
                                        (LETT #2# |$NoValue| . #3#)
-                                       (GO #4=#:G116))))))))))))
+                                       (GO #4=#:G117))))))))))))
                             (LETT |l| (|inc_SI| |l|) . #3#) (GO G190) G191
                             (EXIT NIL)))
                       #4# (EXIT #2#))
@@ -104,7 +104,7 @@
         ((|m| |Matrix| (|Integer|)) ($ |Matrix| (|Integer|)))
         (SPROG
          ((|l0| #1=(|NonNegativeInteger|)) (|l| NIL) (|i0| #1#) (|i| NIL)
-          (|ress| (|Matrix| (|Integer|))) (#2=#:G133 NIL) (#3=#:G132 NIL)
+          (|ress| (|Matrix| (|Integer|))) (#2=#:G134 NIL) (#3=#:G133 NIL)
           (|count| #1#) (|pivotsk| #4=(|Vector| (|Integer|))) (|pivotsj| #4#)
           (|k| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|)))
          (SEQ (LETT |j| (ANROWS |m|) . #5=(|UGAUSS;pre_smith;2M;3|))
@@ -171,7 +171,7 @@
 
 (DEFUN |UnitGaussianElimination| ()
   (SPROG NIL
-         (PROG (#1=#:G144)
+         (PROG (#1=#:G145)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|UnitGaussianElimination|)

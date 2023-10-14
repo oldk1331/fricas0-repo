@@ -4,12 +4,12 @@
 (DEFPARAMETER |lazyRepresentation;AL| 'NIL) 
 
 (DEFUN |lazyRepresentation| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|lazyRepresentation;AL|)
           (T (SETQ |lazyRepresentation;AL| (|lazyRepresentation;|)))))) 
 
 (DEFUN |lazyRepresentation;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1# (|Join| (|mkCategory| NIL NIL 'NIL NIL))
                    |lazyRepresentation|)

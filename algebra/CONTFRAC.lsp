@@ -51,7 +51,7 @@
 (SDEFUN |CONTFRAC;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
          ((|yl| #1=(|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
-          (|xl| #1#) (#2=#:G150 NIL))
+          (|xl| #1#) (#2=#:G151 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -79,7 +79,7 @@
                             ((SPADCALL (QCDR (SPADCALL |xl| (QREFELT $ 32)))
                                        (QCDR (SPADCALL |yl| (QREFELT $ 32)))
                                        (QREFELT $ 30))
-                             (PROGN (LETT #2# 'NIL . #3#) (GO #5=#:G149)))
+                             (PROGN (LETT #2# 'NIL . #3#) (GO #5=#:G150)))
                             ('T
                              (SEQ
                               (LETT |xl| (SPADCALL |xl| (QREFELT $ 33)) . #3#)
@@ -712,9 +712,9 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G310)
+(DEFUN |ContinuedFraction| (#1=#:G311)
   (SPROG NIL
-         (PROG (#2=#:G311)
+         (PROG (#2=#:G312)
            (RETURN
             (COND
              ((LETT #2#

@@ -2,7 +2,7 @@
 (SDEFUN |ALGFACT;allk|
         ((|l| |List| (|AlgebraicNumber|))
          ($ |List| (|Kernel| (|AlgebraicNumber|))))
-        (SPROG ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL))
+        (SPROG ((#1=#:G113 NIL) (|x| NIL) (#2=#:G112 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL
@@ -50,8 +50,8 @@
 
 (SDEFUN |ALGFACT;split;UPF;7| ((|p| UP) ($ |Factored| UP))
         (SPROG
-         ((#1=#:G120 NIL) (#2=#:G119 #3=(|Factored| UP)) (#4=#:G121 #3#)
-          (#5=#:G124 NIL) (|fc| NIL) (|fp| (|Factored| UP)))
+         ((#1=#:G121 NIL) (#2=#:G120 #3=(|Factored| UP)) (#4=#:G122 #3#)
+          (#5=#:G125 NIL) (|fc| NIL) (|fp| (|Factored| UP)))
          (SEQ
           (LETT |fp| (SPADCALL |p| (QREFELT $ 27))
                 . #6=(|ALGFACT;split;UPF;7|))
@@ -86,7 +86,7 @@
                      (QREFELT $ 37)))))) 
 
 (SDEFUN |ALGFACT;extend| ((|p| UP) (|n| |Integer|) ($ |Factored| UP))
-        (SPROG ((#1=#:G130 NIL) (#2=#:G126 NIL) (|q| (UP)))
+        (SPROG ((#1=#:G131 NIL) (#2=#:G127 NIL) (|q| (UP)))
                (SEQ
                 (COND
                  ((EQL (SPADCALL |p| (QREFELT $ 40)) 1)
@@ -118,7 +118,7 @@
                               (QREFELT $ 35))))))))) 
 
 (SDEFUN |ALGFACT;doublyTransitive?;UPB;9| ((|p| UP) ($ |Boolean|))
-        (SPROG ((#1=#:G135 NIL))
+        (SPROG ((#1=#:G136 NIL))
                (COND
                 ((|ALGFACT;irred?| |p| $)
                  (|ALGFACT;irred?|
@@ -151,8 +151,8 @@
         ((|p| UP) (|l| |List| #1=(|Kernel| (|AlgebraicNumber|)))
          ($ |Factored| UP))
         (SPROG
-         ((#2=#:G157 NIL) (#3=#:G156 #4=(|Factored| UP)) (#5=#:G158 #4#)
-          (#6=#:G166 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
+         ((#2=#:G158 NIL) (#3=#:G157 #4=(|Factored| UP)) (#5=#:G159 #4#)
+          (#6=#:G167 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
           (|fr| (|Factored| |ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -165,9 +165,9 @@
                                 (|AlgebraicNumber|))))
           (|newl| (|List| (|Kernel| (|AlgebraicNumber|))))
           (|q| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (|alpha| #1#) (#7=#:G147 NIL) (#8=#:G146 #1#) (#9=#:G148 #1#)
-          (#10=#:G165 NIL) (#11=#:G103 NIL) (#12=#:G143 NIL) (#13=#:G142 #4#)
-          (#14=#:G144 #4#) (#15=#:G164 NIL) (|dc| NIL)
+          (|alpha| #1#) (#7=#:G148 NIL) (#8=#:G147 #1#) (#9=#:G149 #1#)
+          (#10=#:G166 NIL) (#11=#:G104 NIL) (#12=#:G144 NIL) (#13=#:G143 #4#)
+          (#14=#:G145 #4#) (#15=#:G165 NIL) (|dc| NIL)
           (|dr|
            (|Factored|
             (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
@@ -440,9 +440,9 @@
 
 (DECLAIM (NOTINLINE |AlgFactor;|)) 
 
-(DEFUN |AlgFactor| (#1=#:G167)
+(DEFUN |AlgFactor| (#1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#

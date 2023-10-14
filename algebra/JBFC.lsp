@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |JetBundleFunctionCategory;AL| 'NIL) 
 
-(DEFUN |JetBundleFunctionCategory| (#1=#:G159)
-  (LET (#2=#:G160)
+(DEFUN |JetBundleFunctionCategory| (#1=#:G160)
+  (LET (#2=#:G161)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |JetBundleFunctionCategory;AL|))
       (CDR #2#))
@@ -17,11 +17,11 @@
       #2#)))) 
 
 (DEFUN |JetBundleFunctionCategory;| (|t#1|)
-  (SPROG ((#1=#:G158 NIL))
+  (SPROG ((#1=#:G159 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                              (|sublisV| (PAIR '(#2=#:G157) (LIST '(|Symbol|)))
+                              (|sublisV| (PAIR '(#2=#:G158) (LIST '(|Symbol|)))
                                          (COND
                                           (|JetBundleFunctionCategory;CAT|)
                                           ('T

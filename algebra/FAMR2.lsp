@@ -10,9 +10,9 @@
 
 (DECLAIM (NOTINLINE |FiniteAbelianMonoidRingFunctions2;|)) 
 
-(DEFUN |FiniteAbelianMonoidRingFunctions2| (&REST #1=#:G107)
+(DEFUN |FiniteAbelianMonoidRingFunctions2| (&REST #1=#:G108)
   (SPROG NIL
-         (PROG (#2=#:G108)
+         (PROG (#2=#:G109)
            (RETURN
             (COND
              ((LETT #2#

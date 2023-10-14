@@ -62,7 +62,7 @@
                      ('T |x|)))) 
 
 (SDEFUN |PADICRC;=;2$B;11| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G301 NIL) (#2=#:G249 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G302 NIL) (#2=#:G250 NIL) (|n| (|Integer|)))
                (SEQ
                 (COND ((EQ |x| |y|) 'T)
                       (#3='T
@@ -95,7 +95,7 @@
                             (|PADICRC;getZp| |x| $) (QREFELT $ 35))))))))))) 
 
 (SDEFUN |PADICRC;+;3$;12| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G315 NIL) (#2=#:G312 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G316 NIL) (#2=#:G313 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| $) (|PADICRC;getExpon| |y| $))
@@ -132,7 +132,7 @@
          (SPADCALL (|PADICRC;getZp| |x| $) (QREFELT $ 39)) $)) 
 
 (SDEFUN |PADICRC;-;3$;14| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G329 NIL) (#2=#:G326 NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G330 NIL) (#2=#:G327 NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n|
                       (- (|PADICRC;getExpon| |x| $) (|PADICRC;getExpon| |y| $))
@@ -175,7 +175,7 @@
          $)) 
 
 (SDEFUN |PADICRC;^;$I$;17| ((|x| $) (|n| |Integer|) ($ $))
-        (SPROG ((#1=#:G336 NIL) (#2=#:G335 NIL))
+        (SPROG ((#1=#:G337 NIL) (#2=#:G336 NIL))
                (COND ((ZEROP |n|) (|spadConstant| $ 16))
                      ((SPADCALL |n| (QREFELT $ 46))
                       (SPADCALL |x|
@@ -407,9 +407,9 @@
 
 (DECLAIM (NOTINLINE |PAdicRationalConstructor;|)) 
 
-(DEFUN |PAdicRationalConstructor| (&REST #1=#:G427)
+(DEFUN |PAdicRationalConstructor| (&REST #1=#:G428)
   (SPROG NIL
-         (PROG (#2=#:G428)
+         (PROG (#2=#:G429)
            (RETURN
             (COND
              ((LETT #2#
@@ -430,7 +430,7 @@
 
 (DEFUN |PAdicRationalConstructor;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G426 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G427 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|PAdicRationalConstructor|))
     (LETT DV$2 (|devaluate| |#2|) . #2#)

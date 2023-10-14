@@ -42,9 +42,9 @@
          ((|cijk| (R)) (|mxjk| (|Polynomial| R)) (|k| NIL) (|j| NIL)
           (|mo| (|Polynomial| R)) (|i| NIL)
           (|mx| #1=(|Matrix| (|Polynomial| R))) (|x| #1#)
-          (|symbolsForCoef| (|Vector| (|Symbol|))) (#2=#:G130 NIL)
-          (#3=#:G132 NIL) (#4=#:G131 NIL) (|listOfNumbers| (|List| (|String|)))
-          (|q| NIL) (#5=#:G129 NIL) (|gamma| (|Vector| (|Matrix| R)))
+          (|symbolsForCoef| (|Vector| (|Symbol|))) (#2=#:G131 NIL)
+          (#3=#:G133 NIL) (#4=#:G132 NIL) (|listOfNumbers| (|List| (|String|)))
+          (|q| NIL) (#5=#:G130 NIL) (|gamma| (|Vector| (|Matrix| R)))
           (|b| (|Vector| S)) (|n| (|PositiveInteger|)))
          (SEQ
           (LETT |n| (SPADCALL (QREFELT $ 11))
@@ -185,7 +185,7 @@
 
 (SDEFUN |FRNAALG-;leftUnit;U;6| (($ |Union| S "failed"))
         (SPROG
-         ((#1=#:G147 NIL)
+         ((#1=#:G148 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
@@ -210,7 +210,7 @@
         (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
           "failed"))
         (SPROG
-         ((#1=#:G161 NIL)
+         ((#1=#:G162 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
@@ -287,7 +287,7 @@
 
 (SDEFUN |FRNAALG-;rightUnit;U;9| (($ |Union| S "failed"))
         (SPROG
-         ((#1=#:G183 NIL)
+         ((#1=#:G184 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
@@ -312,7 +312,7 @@
         (($ |Union| (|Record| (|:| |particular| S) (|:| |basis| (|List| S)))
           "failed"))
         (SPROG
-         ((#1=#:G194 NIL)
+         ((#1=#:G195 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R))))))
@@ -337,7 +337,7 @@
 
 (SDEFUN |FRNAALG-;unit;U;11| (($ |Union| S "failed"))
         (SPROG
-         ((#1=#:G210 NIL)
+         ((#1=#:G211 NIL)
           (|res|
            (|Record| (|:| |particular| (|Union| (|Vector| R) "failed"))
                      (|:| |basis| (|List| (|Vector| R)))))
@@ -454,7 +454,7 @@
         (SPADCALL |v| (SPADCALL (QREFELT $ 29)) (QREFELT $ 86))) 
 
 (SDEFUN |FRNAALG-;coordinates;VM;25| ((|v| |Vector| S) ($ |Matrix| R))
-        (SPROG ((#1=#:G232 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
+        (SPROG ((#1=#:G233 NIL) (|i| NIL) (|j| NIL) (|m| (|Matrix| R)))
                (SEQ
                 (LETT |m|
                       (MAKE_MATRIX1 (QVSIZE |v|) (SPADCALL (QREFELT $ 11))

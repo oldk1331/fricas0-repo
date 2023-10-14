@@ -22,7 +22,7 @@
         (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
 
 (SDEFUN |ORDCOMP;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G115 NIL) (|e| (|OutputForm|)))
+        (SPROG ((#1=#:G116 NIL) (|e| (|OutputForm|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
                       (#2='T
@@ -39,7 +39,7 @@
                           (#2# (SPADCALL |e| (QREFELT $ 23))))))))))) 
 
 (SDEFUN |ORDCOMP;whatInfinity;$Si;9| ((|x| $) ($ |SingleInteger|))
-        (SPROG ((#1=#:G115 NIL))
+        (SPROG ((#1=#:G116 NIL))
                (COND ((QEQCAR |x| 0) 0)
                      ((PROG2 (LETT #1# |x| |ORDCOMP;whatInfinity;$Si;9|)
                           (QCDR #1#)
@@ -149,9 +149,9 @@
 
 (DECLAIM (NOTINLINE |OrderedCompletion;|)) 
 
-(DEFUN |OrderedCompletion| (#1=#:G183)
+(DEFUN |OrderedCompletion| (#1=#:G184)
   (SPROG NIL
-         (PROG (#2=#:G184)
+         (PROG (#2=#:G185)
            (RETURN
             (COND
              ((LETT #2#
@@ -169,7 +169,7 @@
                   (HREM |$ConstructorCache| '|OrderedCompletion|)))))))))) 
 
 (DEFUN |OrderedCompletion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G182 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G183 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|OrderedCompletion|))
           (LETT |dv$| (LIST '|OrderedCompletion| DV$1) . #2#)

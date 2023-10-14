@@ -3,7 +3,7 @@
         ((M |Matrix| F) (|v| |Vector| F) (|lastRow| |Integer|)
          (|pivots| |Vector| (|Integer|)) ($ |Vector| F))
         (SPROG
-         ((|a1| (F)) (#1=#:G114 NIL) (|kk| NIL) (#2=#:G122 NIL) (|vk| (F))
+         ((|a1| (F)) (#1=#:G115 NIL) (|kk| NIL) (#2=#:G123 NIL) (|vk| (F))
           (|b| (F)) (|k| (|Integer|)) (|mj| (|Vector| F)) (|j| NIL)
           (|dim| (|NonNegativeInteger|)))
          (SEQ (LETT |a1| (|spadConstant| $ 13) . #3=(|LGROBP;reduceRow|))
@@ -118,17 +118,17 @@
           (|ltresult| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (|result| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (|antc| #2=(|DistributedMultivariatePolynomial| |lv| F))
-          (#3=#:G145 NIL) (#4=#:G144 #2#) (#5=#:G146 #2#) (#6=#:G155 NIL)
-          (|c| NIL) (#7=#:G156 NIL) (|b| NIL) (|cordlist| (|List| F))
-          (#8=#:G154 NIL) (|k| NIL) (#9=#:G153 NIL)
+          (#3=#:G146 NIL) (#4=#:G145 #2#) (#5=#:G147 #2#) (#6=#:G156 NIL)
+          (|c| NIL) (#7=#:G157 NIL) (|b| NIL) (|cordlist| (|List| F))
+          (#8=#:G155 NIL) (|k| NIL) (#9=#:G154 NIL)
           (|j| #10=(|NonNegativeInteger|)) (|lm| (|Vector| F))
           (|orecfmon|
            (|Record|
             (|:| |poly|
                  (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
             (|:| |mult| F)))
-          (|ofirstmon| #1#) (|veccoef| (|Vector| F)) (#11=#:G137 NIL)
-          (#12=#:G134 NIL) (|cc| (F))
+          (|ofirstmon| #1#) (|veccoef| (|Vector| F)) (#11=#:G138 NIL)
+          (#12=#:G135 NIL) (|cc| (F))
           (|recfmon|
            (|Record|
             (|:| |poly|
@@ -137,7 +137,7 @@
           (|v| (|Union| (|DistributedMultivariatePolynomial| |lv| F) "failed"))
           (|firstmon| #1#) (|pivots| (|Vector| (|Integer|)))
           (|linmat| (|Matrix| F)) (|ndim1| #10#) (|ndim| (|PositiveInteger|))
-          (#13=#:G127 NIL)
+          (#13=#:G128 NIL)
           (|vBasis|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
          (SEQ (LETT |result| NIL . #14=(|LGROBP;totolex;LL;3|))
@@ -365,13 +365,13 @@
          (|x| |OrderedVariableList| |lv|)
          ($ |HomogeneousDistributedMultivariatePolynomial| |lv| F))
         (SPROG
-         ((#1=#:G176 NIL)
+         ((#1=#:G177 NIL)
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-          (#2=#:G169 NIL) (#3=#:G177 NIL) (|k| NIL)
+          (#2=#:G170 NIL) (#3=#:G178 NIL) (|k| NIL)
           (|j| (|NonNegativeInteger|)) (|lm| (|Vector| F))
-          (|veccoef| (|Vector| F)) (|omult| (F)) (#4=#:G164 NIL)
+          (|veccoef| (|Vector| F)) (|omult| (F)) (#4=#:G165 NIL)
           (|f| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-          (#5=#:G161 NIL) (|cc| (F))
+          (#5=#:G162 NIL) (|cc| (F))
           (|recf|
            (|Record|
             (|:| |poly|
@@ -379,7 +379,7 @@
             (|:| |mult| F)))
           (|i| NIL) (|pivots| (|Vector| (|Integer|))) (|linmat| (|Matrix| F))
           (|ndim1| (|NonNegativeInteger|)) (|ndim| (|PositiveInteger|))
-          (#6=#:G159 NIL)
+          (#6=#:G160 NIL)
           (|nvp| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
          (SEQ
           (EXIT
@@ -498,7 +498,7 @@
                                       (EXIT NIL))
                                  (EXIT (SPADCALL |g| (QREFELT $ 71))))
                             . #7#)
-                      (GO #8=#:G175))))
+                      (GO #8=#:G176))))
                    (SPADCALL |pivots| |i| |j| (QREFELT $ 46))
                    (EXIT (SPADCALL |linmat| |i| |lm| (QREFELT $ 65))))
                   (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL)))))
@@ -529,10 +529,10 @@
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
           (|part|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
-          (#1=#:G186 NIL) (|var| NIL)
+          (#1=#:G187 NIL) (|var| NIL)
           (|mB|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
-          (#2=#:G185 NIL) (|f| NIL) (#3=#:G184 NIL))
+          (#2=#:G186 NIL) (|f| NIL) (#3=#:G185 NIL))
          (SEQ
           (LETT |mB|
                 (PROGN
@@ -576,7 +576,7 @@
          ((|part|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F)))
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
-          (#1=#:G191 NIL) (|f| NIL))
+          (#1=#:G192 NIL) (|f| NIL))
          (SEQ
           (COND ((SPADCALL |lr| NIL (QREFELT $ 84)) |lr|)
                 ('T
@@ -638,7 +638,7 @@
         ((|vv| |List| F) (|mf| |DistributedMultivariatePolynomial| |lv| F)
          (B |List| (|DistributedMultivariatePolynomial| |lv| F))
          ($ |DistributedMultivariatePolynomial| |lv| F))
-        (SPROG ((#1=#:G203 NIL) (|f| NIL) (#2=#:G204 NIL) (|c| NIL))
+        (SPROG ((#1=#:G204 NIL) (|f| NIL) (#2=#:G205 NIL) (|c| NIL))
                (SEQ
                 (SEQ (LETT |c| NIL . #3=(|LGROBP;anticoord;LDmpLDmp;10|))
                      (LETT #2# |vv| . #3#) (LETT |f| NIL . #3#)
@@ -663,8 +663,8 @@
          (|nB| |List| (|DistributedMultivariatePolynomial| |lv| F))
          ($ |DistributedMultivariatePolynomial| |lv| F))
         (SPROG
-         ((#1=#:G208 NIL) (|dx| (|NonNegativeInteger|)) (#2=#:G214 NIL)
-          (|xx| (|DistributedMultivariatePolynomial| |lv| F)) (#3=#:G215 NIL)
+         ((#1=#:G209 NIL) (|dx| (|NonNegativeInteger|)) (#2=#:G215 NIL)
+          (|xx| (|DistributedMultivariatePolynomial| |lv| F)) (#3=#:G216 NIL)
           (|x| NIL))
          (SEQ
           (EXIT
@@ -686,7 +686,7 @@
                         (COND
                          ((SPADCALL (QCAR (SPADCALL |mf| |nB| (QREFELT $ 98)))
                                     (|spadConstant| $ 61) (QREFELT $ 49))
-                          (PROGN (LETT #2# |mf| . #4#) (GO #5=#:G213))))
+                          (PROGN (LETT #2# |mf| . #4#) (GO #5=#:G214))))
                         (LETT |dx| (SPADCALL |mf| |x| (QREFELT $ 99)) . #4#)
                         (EXIT
                          (LETT |mf|
@@ -718,17 +718,17 @@
           (|ltresult| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (|result| (|List| (|DistributedMultivariatePolynomial| |lv| F)))
           (|antc| #2=(|DistributedMultivariatePolynomial| |lv| F))
-          (#3=#:G240 NIL) (#4=#:G239 #2#) (#5=#:G241 #2#) (#6=#:G254 NIL)
-          (|c| (|Integer|)) (#7=#:G255 NIL) (|b| NIL) (|cordlist| (|List| F))
-          (#8=#:G253 NIL) (|j| (|NonNegativeInteger|)) (#9=#:G252 NIL)
+          (#3=#:G241 NIL) (#4=#:G240 #2#) (#5=#:G242 #2#) (#6=#:G255 NIL)
+          (|c| (|Integer|)) (#7=#:G256 NIL) (|b| NIL) (|cordlist| (|List| F))
+          (#8=#:G254 NIL) (|j| (|NonNegativeInteger|)) (#9=#:G253 NIL)
           (|lm| (|Vector| F))
           (|orecfmon|
            (|Record|
             (|:| |poly|
                  (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
             (|:| |mult| F)))
-          (|ofirstmon| #1#) (|veccoef| (|Vector| F)) (#10=#:G233 NIL)
-          (#11=#:G230 NIL) (|cc| (F))
+          (|ofirstmon| #1#) (|veccoef| (|Vector| F)) (#10=#:G234 NIL)
+          (#11=#:G231 NIL) (|cc| (F))
           (|recfmon|
            (|Record|
             (|:| |poly|
@@ -737,13 +737,13 @@
           (|v| (|Union| (|DistributedMultivariatePolynomial| |lv| F) "failed"))
           (|firstmon| #1#) (|lx| (|OrderedVariableList| |lv|))
           (|nval| (|DistributedMultivariatePolynomial| |lv| F))
-          (#12=#:G222 NIL)
-          (#13=#:G221 #14=(|DistributedMultivariatePolynomial| |lv| F))
-          (#15=#:G223 #14#) (#16=#:G250 NIL) (|r| NIL) (#17=#:G251 NIL)
-          (|vv| NIL) (|rval| (|List| (|Integer|))) (#18=#:G249 NIL) (|ii| NIL)
+          (#12=#:G223 NIL)
+          (#13=#:G222 #14=(|DistributedMultivariatePolynomial| |lv| F))
+          (#15=#:G224 #14#) (#16=#:G251 NIL) (|r| NIL) (#17=#:G252 NIL)
+          (|vv| NIL) (|rval| (|List| (|Integer|))) (#18=#:G250 NIL) (|ii| NIL)
           (|pivots| (|Vector| (|Integer|))) (|linmat| (|Matrix| F))
           (|ndim1| (|NonNegativeInteger|)) (|ndim| (|PositiveInteger|))
-          (#19=#:G217 NIL)
+          (#19=#:G218 NIL)
           (|vBasis|
            (|List| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))))
          (SEQ (LETT |result| NIL . #20=(|LGROBP;linGenPos;LR;12|))
@@ -1012,11 +1012,11 @@
           (|:| |glval| (|List| (|Integer|)))))
         (SPROG
          ((LL (|List| (|DistributedMultivariatePolynomial| |lv| F)))
-          (#1=#:G268 NIL) (|f| NIL) (#2=#:G267 NIL)
-          (|val| (|DistributedMultivariatePolynomial| |lv| F)) (#3=#:G260 NIL)
-          (#4=#:G259 #5=(|DistributedMultivariatePolynomial| |lv| F))
-          (#6=#:G261 #5#) (|i| NIL) (|ll| (|List| (|Integer|))) (#7=#:G266 NIL)
-          (|nvar1| (|NonNegativeInteger|)) (#8=#:G257 NIL)
+          (#1=#:G269 NIL) (|f| NIL) (#2=#:G268 NIL)
+          (|val| (|DistributedMultivariatePolynomial| |lv| F)) (#3=#:G261 NIL)
+          (#4=#:G260 #5=(|DistributedMultivariatePolynomial| |lv| F))
+          (#6=#:G262 #5#) (|i| NIL) (|ll| (|List| (|Integer|))) (#7=#:G267 NIL)
+          (|nvar1| (|NonNegativeInteger|)) (#8=#:G258 NIL)
           (|xn| (|OrderedVariableList| |lv|)))
          (SEQ
           (LETT |xn| (SPADCALL (QREFELT $ 12) '|last| (QREFELT $ 93))
@@ -1089,9 +1089,9 @@
 
 (DECLAIM (NOTINLINE |LinGroebnerPackage;|)) 
 
-(DEFUN |LinGroebnerPackage| (&REST #1=#:G271)
+(DEFUN |LinGroebnerPackage| (&REST #1=#:G272)
   (SPROG NIL
-         (PROG (#2=#:G272)
+         (PROG (#2=#:G273)
            (RETURN
             (COND
              ((LETT #2#
@@ -1111,7 +1111,7 @@
 
 (DEFUN |LinGroebnerPackage;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G110 NIL) (#2=#:G270 NIL) (|yx| NIL) (#3=#:G269 NIL) (|pv$| NIL)
+   ((#1=#:G111 NIL) (#2=#:G271 NIL) (|yx| NIL) (#3=#:G270 NIL) (|pv$| NIL)
     ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN

@@ -4,7 +4,7 @@
          (|g| |SparseUnivariatePolynomial| S)
          ($ |SparseUnivariatePolynomial| S))
         (SPROG
-         ((#1=#:G119 NIL) (|ans| (|SparseUnivariatePolynomial| S)) (|cg| (S))
+         ((#1=#:G120 NIL) (|ans| (|SparseUnivariatePolynomial| S)) (|cg| (S))
           (|cf| (S)))
          (SEQ
           (COND ((SPADCALL |f| (QREFELT $ 9)) |g|)

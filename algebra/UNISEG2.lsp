@@ -19,9 +19,9 @@
 
 (DECLAIM (NOTINLINE |UniversalSegmentFunctions2;|)) 
 
-(DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G109)
+(DEFUN |UniversalSegmentFunctions2| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

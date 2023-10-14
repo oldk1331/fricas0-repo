@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |FreeModuleCategory;AL| 'NIL) 
 
-(DEFUN |FreeModuleCategory| (&REST #1=#:G108)
-  (LET (#2=#:G109)
+(DEFUN |FreeModuleCategory| (&REST #1=#:G109)
+  (LET (#2=#:G110)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |FreeModuleCategory;AL|))
       (CDR #2#))
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |FreeModuleCategory;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G107 NIL))
+  (SPROG ((#1=#:G108 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

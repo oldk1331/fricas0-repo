@@ -89,9 +89,9 @@
 
 (DECLAIM (NOTINLINE |Octonion;|)) 
 
-(DEFUN |Octonion| (#1=#:G168)
+(DEFUN |Octonion| (#1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G169)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#

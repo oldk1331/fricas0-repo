@@ -7,17 +7,17 @@
 (SDEFUN |TENSOR;tensor;M1M2$;2| ((|x1| M1) (|x2| M2) ($ $))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
-          (#1=#:G119 NIL) (|s2| NIL) (#2=#:G118 NIL) (|s1| NIL)
+          (#1=#:G120 NIL) (|s2| NIL) (#2=#:G119 NIL) (|s1| NIL)
           (|ltx2| (|List| (|Record| (|:| |k| B2) (|:| |c| R))))
           (|ltx1| (|List| (|Record| (|:| |k| B1) (|:| |c| R))))
-          (#3=#:G117 NIL))
+          (#3=#:G118 NIL))
          (SEQ
           (EXIT
            (COND
             ((OR (SPADCALL |x1| (QREFELT $ 14)) (SPADCALL |x2| (QREFELT $ 16)))
              (PROGN
               (LETT #3# (|spadConstant| $ 15) . #4=(|TENSOR;tensor;M1M2$;2|))
-              (GO #5=#:G116)))
+              (GO #5=#:G117)))
             ('T
              (SEQ (LETT |ltx1| (SPADCALL |x1| (QREFELT $ 19)) . #4#)
                   (LETT |ltx2| (SPADCALL |x2| (QREFELT $ 22)) . #4#)
@@ -56,9 +56,9 @@
 (SDEFUN |TENSOR;*;3$;3| ((|x1| $) (|x2| $) ($ $))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Product| B1 B2)) (|:| |c| R))))
-          (#1=#:G128 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
+          (#1=#:G129 NIL) (|t| NIL) (|t2b| (M2)) (|t2a| (M1)) (|t1b| (M2))
           (|t1a| (M1)) (|t2k| #2=(|Product| B1 B2)) (|t1k| #2#) (|t2c| (R))
-          (|t1c| (R)) (#3=#:G127 NIL) (|t2| NIL) (#4=#:G126 NIL) (|t1| NIL))
+          (|t1c| (R)) (#3=#:G128 NIL) (|t2| NIL) (#4=#:G127 NIL) (|t1| NIL))
          (SEQ (LETT |res| NIL . #5=(|TENSOR;*;3$;3|))
               (SEQ (LETT |t1| NIL . #5#)
                    (LETT #4# (SPADCALL |x1| (QREFELT $ 29)) . #5#) G190
@@ -128,7 +128,7 @@
 
 (SDEFUN |TENSOR;coerce;$Of;4| ((|x| $) ($ |OutputForm|))
         (SPROG
-         ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G136 NIL)
+         ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G137 NIL)
           (|rec| NIL))
          (SEQ
           (COND
@@ -170,9 +170,9 @@
 
 (DECLAIM (NOTINLINE |TensorProduct;|)) 
 
-(DEFUN |TensorProduct| (&REST #1=#:G146)
+(DEFUN |TensorProduct| (&REST #1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#

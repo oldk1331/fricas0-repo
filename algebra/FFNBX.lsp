@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtension;|)) 
 
-(DEFUN |FiniteFieldNormalBasisExtension| (&REST #1=#:G143)
+(DEFUN |FiniteFieldNormalBasisExtension| (&REST #1=#:G144)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G145)
            (RETURN
             (COND
              ((LETT #2#
@@ -26,7 +26,7 @@
 
 (DEFUN |FiniteFieldNormalBasisExtension;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G142 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G143 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|FiniteFieldNormalBasisExtension|))
     (LETT DV$2 (|devaluate| |#2|) . #2#)

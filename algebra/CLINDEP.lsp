@@ -2,8 +2,8 @@
 (SDEFUN |CLINDEP;kmap|
         ((|k| |Kernel| (|Expression| R)) ($ |Expression| (|Expression| R)))
         (SPROG
-         ((#1=#:G114 NIL) (|a| NIL) (#2=#:G113 NIL) (|op| (|BasicOperator|))
-          (#3=#:G111 NIL) (|is_const| (|Boolean|)) (#4=#:G112 NIL) (|d| NIL)
+         ((#1=#:G115 NIL) (|a| NIL) (#2=#:G114 NIL) (|op| (|BasicOperator|))
+          (#3=#:G112 NIL) (|is_const| (|Boolean|)) (#4=#:G113 NIL) (|d| NIL)
           (|kf| (|Expression| R)))
          (SEQ (LETT |is_const| 'T . #5=(|CLINDEP;kmap|))
               (LETT |kf| (SPADCALL |k| (QREFELT $ 10)) . #5#)
@@ -22,7 +22,7 @@
                               (EXIT
                                (PROGN
                                 (LETT #3# |$NoValue| . #5#)
-                                (GO #6=#:G106))))))))
+                                (GO #6=#:G107))))))))
                      (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL)))
                #6# (EXIT #3#))
               (EXIT
@@ -133,9 +133,9 @@
 
 (DECLAIM (NOTINLINE |ConstantLinearDependence;|)) 
 
-(DEFUN |ConstantLinearDependence| (&REST #1=#:G145)
+(DEFUN |ConstantLinearDependence| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#

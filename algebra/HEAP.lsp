@@ -4,7 +4,7 @@
 (SDEFUN |HEAP;heap;L$;2| ((|l| |List| S) ($ $)) (SPADCALL |l| (QREFELT $ 11))) 
 
 (SDEFUN |HEAP;siftUp| ((|r| $) (|i| |Integer|) (|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G116 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
+        (SPROG ((#1=#:G117 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
                (SEQ
                 (LETT |t| (SPADCALL |r| |i| (QREFELT $ 14))
                       . #3=(|HEAP;siftUp|))
@@ -42,7 +42,7 @@
                            ('T
                             (PROGN
                              (LETT #1# |$NoValue| . #3#)
-                             (GO #4=#:G113))))))
+                             (GO #4=#:G114))))))
                         NIL (GO G190) G191 (EXIT NIL)))
                   #4# (EXIT #1#)))))) 
 
@@ -66,7 +66,7 @@
                                           (EXIT |t|)))))))))))) 
 
 (SDEFUN |HEAP;insert!;S2$;5| ((|x| S) (|r| $) ($ $))
-        (SPROG ((|j| (|Integer|)) (#1=#:G126 NIL) (|i| (|Integer|)))
+        (SPROG ((|j| (|Integer|)) (#1=#:G127 NIL) (|i| (|Integer|)))
                (SEQ
                 (LETT |j| (SPADCALL |r| (QREFELT $ 21))
                       . #2=(|HEAP;insert!;S2$;5|))
@@ -87,7 +87,7 @@
                                         (QREFELT $ 27))
                               (PROGN
                                (LETT #1# |$NoValue| . #2#)
-                               (GO #3=#:G123))))
+                               (GO #3=#:G124))))
                             (SPADCALL |r| |j| (SPADCALL |r| |i| (QREFELT $ 14))
                                       (QREFELT $ 19))
                             (EXIT (LETT |j| |i| . #2#)))
@@ -122,9 +122,9 @@
 
 (DECLAIM (NOTINLINE |Heap;|)) 
 
-(DEFUN |Heap| (#1=#:G146)
+(DEFUN |Heap| (#1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#
@@ -140,7 +140,7 @@
 
 (DEFUN |Heap;| (|#1|)
   (SPROG
-   ((#1=#:G145 NIL) (|pv$| NIL) (#2=#:G142 NIL) (#3=#:G143 NIL) (#4=#:G144 NIL)
+   ((#1=#:G146 NIL) (|pv$| NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (#4=#:G145 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Heap|))

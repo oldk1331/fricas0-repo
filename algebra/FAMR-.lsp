@@ -20,7 +20,7 @@
         ((|x| S) (|y| S) (|nn| |NonNegativeInteger|) ($ S))
         (SPROG
          ((|yn| (S)) (|i| (|NonNegativeInteger|)) (|bincoef| (|Integer|))
-          (|ans| (S)) (#1=#:G126 NIL) (|xn| NIL) (|powl| (|List| S)))
+          (|ans| (S)) (#1=#:G127 NIL) (|xn| NIL) (|powl| (|List| S)))
          (SEQ
           (COND ((EQL |nn| 0) (|spadConstant| $ 17))
                 ('T
@@ -95,7 +95,7 @@
           (RETURN (PROGN (SPADCALL |x1| |r| (QREFELT $ 38)))))) 
 
 (SDEFUN |FAMR-;exquo;SRU;8| ((|x| S) (|r| R) ($ |Union| S "failed"))
-        (SPROG ((|ans| (S)) (#1=#:G154 NIL) (|t| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G155 NIL) (|t| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (COND
@@ -122,7 +122,7 @@
                             ((QEQCAR |t| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #2#)
-                              (GO #3=#:G153)))
+                              (GO #3=#:G154)))
                             ('T
                              (SEQ
                               (LETT |ans|
@@ -171,7 +171,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |FAMR-;primitivePart;2S;10| ((|x| S) ($ S))
-        (SPROG ((#1=#:G162 NIL) (|c| (R)))
+        (SPROG ((#1=#:G163 NIL) (|c| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 29)) |x|)
                       ('T

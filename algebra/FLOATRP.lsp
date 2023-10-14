@@ -3,7 +3,7 @@
         ((|nres| |List| |Par|) (|lv| |List| (|Symbol|))
          ($ |List| (|Equation| (|Polynomial| |Par|))))
         (SPROG
-         ((#1=#:G108 NIL) (|x| NIL) (#2=#:G109 NIL) (|r| NIL) (#3=#:G107 NIL))
+         ((#1=#:G109 NIL) (|x| NIL) (#2=#:G110 NIL) (|r| NIL) (#3=#:G108 NIL))
          (SEQ
           (PROGN
            (LETT #3# NIL . #4=(|FLOATRP;makeEq|))
@@ -35,9 +35,9 @@
          (|lv| |List| (|Symbol|)) (|eps| |Par|) ($ |List| (|List| |Par|)))
         (SPROG
          ((|lden| (|List| #1=(|Polynomial| (|Integer|)))) (|dp| #1#)
-          (#2=#:G118 NIL) (|p| NIL) (#3=#:G117 NIL)
-          (|lnum| (|List| (|Polynomial| (|Integer|)))) (#4=#:G116 NIL)
-          (#5=#:G115 NIL))
+          (#2=#:G119 NIL) (|p| NIL) (#3=#:G118 NIL)
+          (|lnum| (|List| (|Polynomial| (|Integer|)))) (#4=#:G117 NIL)
+          (#5=#:G116 NIL))
          (SEQ
           (LETT |lnum|
                 (PROGN
@@ -76,13 +76,13 @@
         ((|lp| |List| (|Fraction| (|Polynomial| (|Integer|)))) (|eps| |Par|)
          ($ |List| (|List| (|Equation| (|Polynomial| |Par|)))))
         (SPROG
-         ((#1=#:G138 NIL) (|numres| NIL) (#2=#:G137 NIL)
-          (|lv| #3=(|List| (|Symbol|))) (#4=#:G125 NIL) (#5=#:G124 #3#)
-          (#6=#:G126 #3#) (#7=#:G136 NIL) (|dp| #8=(|Polynomial| (|Integer|)))
-          (#9=#:G122 NIL) (#10=#:G121 #3#) (#11=#:G123 #3#) (#12=#:G135 NIL)
-          (|np| NIL) (|lden| (|List| #8#)) (#13=#:G134 NIL) (|p| NIL)
-          (#14=#:G133 NIL) (|lnum| (|List| (|Polynomial| (|Integer|))))
-          (#15=#:G132 NIL) (#16=#:G131 NIL))
+         ((#1=#:G139 NIL) (|numres| NIL) (#2=#:G138 NIL)
+          (|lv| #3=(|List| (|Symbol|))) (#4=#:G126 NIL) (#5=#:G125 #3#)
+          (#6=#:G127 #3#) (#7=#:G137 NIL) (|dp| #8=(|Polynomial| (|Integer|)))
+          (#9=#:G123 NIL) (#10=#:G122 #3#) (#11=#:G124 #3#) (#12=#:G136 NIL)
+          (|np| NIL) (|lden| (|List| #8#)) (#13=#:G135 NIL) (|p| NIL)
+          (#14=#:G134 NIL) (|lnum| (|List| (|Polynomial| (|Integer|))))
+          (#15=#:G133 NIL) (#16=#:G132 NIL))
          (SEQ
           (LETT |lnum|
                 (PROGN
@@ -195,15 +195,15 @@
         ((|le| |List| (|Equation| (|Fraction| (|Polynomial| (|Integer|)))))
          (|eps| |Par|) ($ |List| (|List| (|Equation| (|Polynomial| |Par|)))))
         (SPROG
-         ((#1=#:G161 NIL) (|numres| NIL) (#2=#:G160 NIL)
-          (|lv| #3=(|List| (|Symbol|))) (#4=#:G146 NIL) (#5=#:G145 #3#)
-          (#6=#:G147 #3#) (#7=#:G159 NIL) (|dp| #8=(|Polynomial| (|Integer|)))
-          (#9=#:G143 NIL) (#10=#:G142 #3#) (#11=#:G144 #3#) (#12=#:G158 NIL)
-          (|np| NIL) (|lden| (|List| #8#)) (#13=#:G157 NIL) (|p| NIL)
-          (#14=#:G156 NIL) (|lnum| (|List| (|Polynomial| (|Integer|))))
-          (#15=#:G155 NIL) (#16=#:G154 NIL)
+         ((#1=#:G162 NIL) (|numres| NIL) (#2=#:G161 NIL)
+          (|lv| #3=(|List| (|Symbol|))) (#4=#:G147 NIL) (#5=#:G146 #3#)
+          (#6=#:G148 #3#) (#7=#:G160 NIL) (|dp| #8=(|Polynomial| (|Integer|)))
+          (#9=#:G144 NIL) (#10=#:G143 #3#) (#11=#:G145 #3#) (#12=#:G159 NIL)
+          (|np| NIL) (|lden| (|List| #8#)) (#13=#:G158 NIL) (|p| NIL)
+          (#14=#:G157 NIL) (|lnum| (|List| (|Polynomial| (|Integer|))))
+          (#15=#:G156 NIL) (#16=#:G155 NIL)
           (|lp| (|List| (|Fraction| (|Polynomial| (|Integer|)))))
-          (#17=#:G153 NIL) (|ep| NIL) (#18=#:G152 NIL))
+          (#17=#:G154 NIL) (|ep| NIL) (#18=#:G153 NIL))
          (SEQ
           (LETT |lp|
                 (PROGN
@@ -336,7 +336,7 @@
         ((|p| |Fraction| (|Polynomial| (|Integer|))) (|eps| |Par|)
          ($ |List| (|Equation| (|Polynomial| |Par|))))
         (SPROG
-         ((#1=#:G170 NIL) (|val| NIL) (#2=#:G169 NIL)
+         ((#1=#:G171 NIL) (|val| NIL) (#2=#:G170 NIL)
           (|x| (|Polynomial| |Par|)) (|mvar| (|Union| (|Symbol|) "failed")))
          (SEQ
           (LETT |mvar| (SPADCALL (SPADCALL |p| (QREFELT $ 15)) (QREFELT $ 42))
@@ -379,9 +379,9 @@
 
 (DECLAIM (NOTINLINE |FloatingRealPackage;|)) 
 
-(DEFUN |FloatingRealPackage| (#1=#:G172)
+(DEFUN |FloatingRealPackage| (#1=#:G173)
   (SPROG NIL
-         (PROG (#2=#:G173)
+         (PROG (#2=#:G174)
            (RETURN
             (COND
              ((LETT #2#

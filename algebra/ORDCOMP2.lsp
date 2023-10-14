@@ -20,9 +20,9 @@
 
 (DECLAIM (NOTINLINE |OrderedCompletionFunctions2;|)) 
 
-(DEFUN |OrderedCompletionFunctions2| (&REST #1=#:G108)
+(DEFUN |OrderedCompletionFunctions2| (&REST #1=#:G109)
   (SPROG NIL
-         (PROG (#2=#:G109)
+         (PROG (#2=#:G110)
            (RETURN
             (COND
              ((LETT #2#

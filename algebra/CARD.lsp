@@ -70,7 +70,7 @@
          ((EQL |n| 0) (|spadConstant| $ 12)) ('T |x|))) 
 
 (SDEFUN |CARD;^;3$;12| ((|x| $) (|y| $) ($ $))
-        (SPROG ((#1=#:G158 NIL))
+        (SPROG ((#1=#:G159 NIL))
                (COND
                 ((SPADCALL |y| (|spadConstant| $ 12) (QREFELT $ 25))
                  (COND
@@ -101,7 +101,7 @@
 (SDEFUN |CARD;countable?;$B;14| ((|x| $) ($ |Boolean|)) (< (QCAR |x|) 1)) 
 
 (SDEFUN |CARD;retract;$Nni;15| ((|x| $) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G167 NIL))
+        (SPROG ((#1=#:G168 NIL))
                (COND
                 ((SPADCALL |x| (QREFELT $ 24))
                  (PROG1 (LETT #1# (QCDR |x|) |CARD;retract;$Nni;15|)
@@ -110,7 +110,7 @@
 
 (SDEFUN |CARD;retractIfCan;$U;16|
         ((|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
-        (SPROG ((#1=#:G173 NIL))
+        (SPROG ((#1=#:G174 NIL))
                (COND
                 ((SPADCALL |x| (QREFELT $ 24))
                  (CONS 0
@@ -130,7 +130,7 @@
 
 (DEFUN |CardinalNumber| ()
   (SPROG NIL
-         (PROG (#1=#:G182)
+         (PROG (#1=#:G183)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|CardinalNumber|)

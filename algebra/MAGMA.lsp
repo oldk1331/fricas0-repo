@@ -145,9 +145,9 @@
 
 (DECLAIM (NOTINLINE |Magma;|)) 
 
-(DEFUN |Magma| (#1=#:G143)
+(DEFUN |Magma| (#1=#:G144)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G145)
            (RETURN
             (COND
              ((LETT #2#

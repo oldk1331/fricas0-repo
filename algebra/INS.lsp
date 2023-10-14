@@ -4,18 +4,18 @@
 (DEFPARAMETER |IntegerNumberSystem;AL| 'NIL) 
 
 (DEFUN |IntegerNumberSystem| ()
-  (LET (#:G123)
+  (LET (#:G124)
     (COND (|IntegerNumberSystem;AL|)
           (T (SETQ |IntegerNumberSystem;AL| (|IntegerNumberSystem;|)))))) 
 
 (DEFUN |IntegerNumberSystem;| ()
-  (SPROG ((#1=#:G121 NIL))
+  (SPROG ((#1=#:G122 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
                     (PAIR
-                     '(#2=#:G115 #3=#:G116 #4=#:G117 #5=#:G118 #6=#:G119
-                       #7=#:G120)
+                     '(#2=#:G116 #3=#:G117 #4=#:G118 #5=#:G119 #6=#:G120
+                       #7=#:G121)
                      (LIST '(|Integer|) '(|Integer|) '(|Integer|)
                            '(|InputForm|) '(|Pattern| (|Integer|))
                            '(|Integer|)))

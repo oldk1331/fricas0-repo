@@ -76,12 +76,12 @@
            (|List|
             (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
                       (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))))
-          (#2=#:G195 NIL) (|x| NIL) (#3=#:G194 NIL) (|leh| (|Dom|))
+          (#2=#:G196 NIL) (|x| NIL) (#3=#:G195 NIL) (|leh| (|Dom|))
           (|e| (|Expon|)) (|eh| (|Dpol|)) (|ep| (|Dpol|))
           (D0
            (|Record| (|:| |lcmfij| |Expon|) (|:| |lcmcij| |Dom|)
                      (|:| |poli| |Dpol|) (|:| |polj| |Dpol|)))
-          (#4=#:G193 NIL) (#5=#:G192 NIL) (|lch| (|Dom|)) (|en| (|Expon|))
+          (#4=#:G194 NIL) (#5=#:G193 NIL) (|lch| (|Dom|)) (|en| (|Expon|))
           (|Pol1| (|List| |Dpol|)) (|h| (|Dpol|)))
          (SEQ
           (LETT |Pol1|
@@ -519,7 +519,7 @@
         ((|h| |Dpol|) (H |List| |Dpol|) (|Hh| |List| |Dpol|)
          (|Hhh| |List| |Dpol|) ($ |List| |Dpol|))
         (SPROG
-         ((|hp| (|Dpol|)) (|hpp| (|List| |Dpol|)) (#1=#:G216 NIL)
+         ((|hp| (|Dpol|)) (|hpp| (|List| |Dpol|)) (#1=#:G217 NIL)
           (|plc|
            (|Record| (|:| |coef1| |Dom|) (|:| |coef2| |Dom|)
                      (|:| |generator| |Dom|)))
@@ -593,7 +593,7 @@
 
 (SDEFUN |GBEUCLID;crithdelH| ((|h| |Dpol|) (H |List| |Dpol|) ($ |List| |Dpol|))
         (SPROG
-         ((#1=#:G225 NIL)
+         ((#1=#:G226 NIL)
           (|plc|
            (|Record| (|:| |coef1| |Dom|) (|:| |coef2| |Dom|)
                      (|:| |generator| |Dom|)))
@@ -672,7 +672,7 @@
           (|:| |poli| |Dpol|) (|:| |polj| |Dpol|))
          ($ |Dpol|))
         (SPROG
-         ((#1=#:G239 NIL) (#2=#:G236 NIL) (|lij| (|Dom|)) (|fj| (|Dpol|))
+         ((#1=#:G240 NIL) (#2=#:G237 NIL) (|lij| (|Dom|)) (|fj| (|Dpol|))
           (|fi| (|Dpol|)) (|Tij| (|Expon|)))
          (SEQ (LETT |Tij| (QVELT |p| 0) . #3=(|GBEUCLID;esPol|))
               (LETT |fi| (QVELT |p| 2) . #3#) (LETT |fj| (QVELT |p| 3) . #3#)
@@ -729,7 +729,7 @@
         (SPROG
          ((|q1| (|Dom|))
           (|sdf1| (|Record| (|:| |quotient| |Dom|) (|:| |remainder| |Dom|)))
-          (#1=#:G251 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
+          (#1=#:G252 NIL) (|e| (|Union| |Expon| "failed")) (|ls| (|Dom|))
           (|lf1| (|Dom|)) (|ds| (|Expon|)) (|f1| (|Dpol|)))
          (SEQ
           (EXIT
@@ -751,7 +751,7 @@
                      ((OR (QEQCAR |e| 1) (SPADCALL |ls| |lf1| (QREFELT $ 24)))
                       (PROGN
                        (LETT #1# (|GBEUCLID;eRed| |s| (CDR H) |Hh| $) . #2#)
-                       (GO #3=#:G249))))))
+                       (GO #3=#:G250))))))
                   (LETT |sdf1| (SPADCALL |ls| |lf1| (QREFELT $ 58)) . #2#)
                   (LETT |q1| (QCAR |sdf1|) . #2#)
                   (EXIT
@@ -798,7 +798,7 @@
 
 (SDEFUN |GBEUCLID;ecritM|
         ((|e1| |Expon|) (|c1| |Dom|) (|e2| |Expon|) (|c2| |Dom|) ($ |Boolean|))
-        (SPROG ((#1=#:G264 NIL) (|en| (|Union| |Expon| "failed")))
+        (SPROG ((#1=#:G265 NIL) (|en| (|Union| |Expon| "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -809,7 +809,7 @@
                     (COND
                      ((OR (QEQCAR |en| 1)
                           (QEQCAR (SPADCALL |c2| |c1| (QREFELT $ 55)) 1))
-                      (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G262))))))
+                      (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G263))))))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
@@ -1054,9 +1054,9 @@
 
 (DECLAIM (NOTINLINE |EuclideanGroebnerBasisPackage;|)) 
 
-(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G296)
+(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G297)
   (SPROG NIL
-         (PROG (#2=#:G297)
+         (PROG (#2=#:G298)
            (RETURN
             (COND
              ((LETT #2#

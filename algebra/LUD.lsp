@@ -5,8 +5,8 @@
           (|:| |Pivots| (|List| D))))
         (SPROG
          ((|k| NIL) (|d| (D)) (|Pivs| (|List| D)) (|i0| (|Integer|)) (|s| (D))
-          (#1=#:G129 NIL) (|i| NIL) (#2=#:G128 NIL) (#3=#:G127 NIL) (|j| NIL)
-          (|PermV| (|Vector| (|Integer|))) (#4=#:G110 NIL) (|maxC| (|Integer|))
+          (#1=#:G130 NIL) (|i| NIL) (#2=#:G129 NIL) (#3=#:G128 NIL) (|j| NIL)
+          (|PermV| (|Vector| (|Integer|))) (#4=#:G111 NIL) (|maxC| (|Integer|))
           (|minC| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (A (|Matrix| D)))
          (SEQ (LETT A (SPADCALL AA (QREFELT $ 8)) . #5=(|LUD;LUDecomp;MR;1|))
@@ -123,7 +123,7 @@
         ((LU |Matrix| D) (|Perm| |Vector| (|Integer|)) (XX |Vector| D)
          ($ |Vector| D))
         (SPROG
-         ((|s| (D)) (|j| NIL) (|i| NIL) (|ii| (|Integer|)) (#1=#:G140 NIL)
+         ((|s| (D)) (|j| NIL) (|i| NIL) (|ii| (|Integer|)) (#1=#:G141 NIL)
           (|ip| (|Integer|)) (|maxR| (|Integer|)) (|minR| (|Integer|))
           (X (|Vector| D)))
          (SEQ (LETT X (SPADCALL XX (QREFELT $ 26)) . #2=(|LUD;LUSolve;MV2V;2|))
@@ -195,7 +195,7 @@
         ((A |Matrix| D)
          ($ |Record| (|:| |Inv| (|Matrix| D)) (|:| |Pivots| (|List| D))))
         (SPROG
-         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G148 NIL) (|i| NIL)
+         ((|res| (|Matrix| D)) (|v| (|Vector| D)) (#1=#:G149 NIL) (|i| NIL)
           (|n| (|NonNegativeInteger|))
           (|Alu|
            (|Record| (|:| LU (|Matrix| D)) (|:| |Perm| (|Vector| (|Integer|)))
@@ -220,9 +220,9 @@
 
 (DECLAIM (NOTINLINE |LUDecomposition;|)) 
 
-(DEFUN |LUDecomposition| (#1=#:G149)
+(DEFUN |LUDecomposition| (#1=#:G150)
   (SPROG NIL
-         (PROG (#2=#:G150)
+         (PROG (#2=#:G151)
            (RETURN
             (COND
              ((LETT #2#

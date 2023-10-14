@@ -118,7 +118,7 @@
         ((|listOfThings| |List| (|String|)) ($ |List| (|String|)))
         (SPROG
          ((|thingsToWrite| (|List| (|String|))) (|writeTypeInt| (|Integer|))
-          (#1=#:G139 NIL) (|aTypeOfFile| NIL))
+          (#1=#:G140 NIL) (|aTypeOfFile| NIL))
          (SEQ
           (LETT |thingsToWrite| NIL . #2=(|VIEWDEF;viewWriteDefault;2L;26|))
           (SEQ (LETT |aTypeOfFile| NIL . #2#) (LETT #1# |listOfThings| . #2#)
@@ -150,7 +150,7 @@
 
 (DEFUN |ViewDefaultsPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G141)
+         (PROG (#1=#:G142)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ViewDefaultsPackage|)

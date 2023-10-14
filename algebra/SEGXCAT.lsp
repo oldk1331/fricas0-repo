@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |SegmentExpansionCategory;AL| 'NIL) 
 
-(DEFUN |SegmentExpansionCategory| (&REST #1=#:G104)
-  (LET (#2=#:G105)
+(DEFUN |SegmentExpansionCategory| (&REST #1=#:G105)
+  (LET (#2=#:G106)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#) |SegmentExpansionCategory;AL|))
@@ -19,7 +19,7 @@
       #2#)))) 
 
 (DEFUN |SegmentExpansionCategory;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

@@ -7,7 +7,7 @@
 (SDEFUN |FLASORT;siftUp|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
          (|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G119 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
+        (SPROG ((#1=#:G120 NIL) (|j| #2=(|Integer|)) (|k| #2#) (|t| (S)))
                (SEQ
                 (LETT |t| (SPADCALL |r| |i| (QREFELT $ 13))
                       . #3=(|FLASORT;siftUp|))
@@ -45,7 +45,7 @@
                            ('T
                             (PROGN
                              (LETT #1# |$NoValue| . #3#)
-                             (GO #4=#:G116))))))
+                             (GO #4=#:G117))))))
                         NIL (GO G190) G191 (EXIT NIL)))
                   #4# (EXIT #1#)))))) 
 
@@ -112,7 +112,7 @@
 (SDEFUN |FLASORT;QuickSort|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) (|i| |Integer|)
          (|j| |Integer|) ($ V))
-        (SPROG ((|k| (|Integer|)) (#1=#:G152 NIL) (|n| (|Integer|)))
+        (SPROG ((|k| (|Integer|)) (#1=#:G153 NIL) (|n| (|Integer|)))
                (SEQ
                 (EXIT
                  (SEQ G190 NIL
@@ -126,7 +126,7 @@
                            (EXIT
                             (COND
                              ((< |n| 2)
-                              (PROGN (LETT #1# |r| . #2#) (GO #3=#:G151)))
+                              (PROGN (LETT #1# |r| . #2#) (GO #3=#:G152)))
                              ('T
                               (SEQ
                                (LETT |k|

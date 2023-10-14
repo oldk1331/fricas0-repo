@@ -23,7 +23,7 @@
          ($ |Record| (|:| |cnum| (|Complex| (|Integer|)))
           (|:| |cden| (|Integer|))))
         (SPROG
-         ((#1=#:G107 NIL) (|ccd| (|Integer|)) (|dcci| #2=(|Integer|))
+         ((#1=#:G108 NIL) (|ccd| (|Integer|)) (|dcci| #2=(|Integer|))
           (|dccr| #2#) (|cci| (|Fraction| (|Integer|)))
           (|ccr| (|Fraction| (|Integer|))))
          (SEQ
@@ -57,11 +57,11 @@
         (SPROG
          ((|dris1| #1=(|Integer|))
           (|pris| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (#2=#:G113 NIL) (|dris| #1#)
+          (#2=#:G114 NIL) (|dris| #1#)
           (|cdf|
            (|Record| (|:| |cnum| (|Complex| (|Integer|)))
                      (|:| |cden| (|Integer|))))
-          (|cf| (|Complex| (|Fraction| (|Integer|)))) (#3=#:G120 NIL) (|i| NIL)
+          (|cf| (|Complex| (|Fraction| (|Integer|)))) (#3=#:G121 NIL) (|i| NIL)
           (|pdris| #1#))
          (SEQ (LETT |pris| (|spadConstant| $ 28) . #4=(|COMPFACT;conv|))
               (LETT |dris| 1 . #4#) (LETT |dris1| 1 . #4#)
@@ -125,7 +125,7 @@
                       (|:| |fctr| PR) (|:| |xpnt| (|Integer|)))))
           (|expf| (|Integer|))
           (|fact| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (#1=#:G135 NIL) (|ff| NIL) (#2=#:G134 NIL) (|f| NIL) (#3=#:G133 NIL))
+          (#1=#:G136 NIL) (|ff| NIL) (#2=#:G135 NIL) (|f| NIL) (#3=#:G134 NIL))
          (SEQ
           (COND
            ((|domainEqual| (|Complex| (QREFELT $ 6))
@@ -214,9 +214,9 @@
 
 (DECLAIM (NOTINLINE |ComplexFactorization;|)) 
 
-(DEFUN |ComplexFactorization| (&REST #1=#:G139)
+(DEFUN |ComplexFactorization| (&REST #1=#:G140)
   (SPROG NIL
-         (PROG (#2=#:G140)
+         (PROG (#2=#:G141)
            (RETURN
             (COND
              ((LETT #2#

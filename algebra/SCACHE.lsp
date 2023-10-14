@@ -1,6 +1,6 @@
 
 (SDEFUN |SCACHE;expandCache| ((|x| S) ($ |Void|))
-        (SPROG ((#1=#:G118 NIL) (|k| NIL) (|ocache| (|PrimitiveArray| S)))
+        (SPROG ((#1=#:G119 NIL) (|k| NIL) (|ocache| (|PrimitiveArray| S)))
                (SEQ
                 (COND
                  ((EQL (QREFELT $ 8) (QREFELT $ 9))
@@ -22,7 +22,7 @@
                 (EXIT (SPADCALL (QREFELT $ 14)))))) 
 
 (SDEFUN |SCACHE;insertBefore| ((|l| |NonNegativeInteger|) (|x| S) ($ |Void|))
-        (SPROG ((#1=#:G122 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
+        (SPROG ((#1=#:G123 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
                (SEQ (|SCACHE;expandCache| |x| $)
                     (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;insertBefore|))
                     (SEQ (LETT |k| 0 . #2#)
@@ -42,7 +42,7 @@
 (SDEFUN |SCACHE;shiftCache|
         ((|l| |NonNegativeInteger|) (|n| |NonNegativeInteger|) ($ |Void|))
         (SPROG
-         ((|x| (S)) (#1=#:G127 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
+         ((|x| (S)) (#1=#:G128 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
          (SEQ (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;shiftCache|))
               (SEQ (LETT |k| |l| . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#)
                    G190 (COND ((> |k| #1#) (GO G191)))
@@ -55,7 +55,7 @@
 
 (SDEFUN |SCACHE;clearCache;V;4| (($ |Void|))
         (SPROG
-         ((|x| (S)) (#1=#:G132 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
+         ((|x| (S)) (#1=#:G133 NIL) (|k| NIL) (|vscan| (|PrimitiveArray| S)))
          (SEQ (LETT |vscan| (QREFELT $ 7) . #2=(|SCACHE;clearCache;V;4|))
               (SEQ (LETT |k| 0 . #2#) (LETT #1# (- (QREFELT $ 9) 1) . #2#) G190
                    (COND ((|greater_SI| |k| #1#) (GO G191)))
@@ -73,7 +73,7 @@
 (SDEFUN |SCACHE;linearSearch;SMU;6|
         ((|x| S) (|equal?| |Mapping| (|Boolean|) S) ($ |Union| S "failed"))
         (SPROG
-         ((#1=#:G150 NIL) (|k| (|Integer|)) (|vscan| (|PrimitiveArray| S))
+         ((#1=#:G151 NIL) (|k| (|Integer|)) (|vscan| (|PrimitiveArray| S))
           (|y| (S)))
          (SEQ
           (EXIT
@@ -90,7 +90,7 @@
                               (EXIT
                                (PROGN
                                 (LETT #1# (CONS 0 |y|) . #2#)
-                                (GO #3=#:G149)))))
+                                (GO #3=#:G150)))))
                             ('T
                              (SEQ (LETT |vscan| (QREFELT $ 7) . #2#)
                                   (SEQ G190
@@ -122,7 +122,7 @@
 (SDEFUN |SCACHE;enterInCache;SMS;8|
         ((|x| S) (|triage| |Mapping| (|Integer|) S S) ($ S))
         (SPROG
-         ((#1=#:G176 NIL) (|pos| (|NonNegativeInteger|)) (#2=#:G182 NIL)
+         ((#1=#:G177 NIL) (|pos| (|NonNegativeInteger|)) (#2=#:G183 NIL)
           (|l| #3=(|Integer|)) (|m| #4=(|Integer|)) (|i| #5=(|Integer|))
           (|i0| #5#) (|l0| #3#) (|vscan| (|PrimitiveArray| S))
           (|cp| (|Integer|)) (|y| (S)) (|has_vm| (|Boolean|)) (|vm| (S))
@@ -137,7 +137,7 @@
                   ((ZEROP (QREFELT $ 9))
                    (SEQ (SPADCALL |x| 1024 (QREFELT $ 16))
                         (|SCACHE;insertAtEnd| |x| $)
-                        (EXIT (PROGN (LETT #2# |x| . #6#) (GO #7=#:G181)))))
+                        (EXIT (PROGN (LETT #2# |x| . #6#) (GO #7=#:G182)))))
                   (#8='T
                    (SEQ
                     (SEQ G190 (COND ((NULL (< (+ |l| 1) |m|)) (GO G191)))
@@ -268,7 +268,7 @@
 (SDEFUN |SCACHE;insertInCache|
         ((|before| |NonNegativeInteger|) (|x| S) (|pos| |NonNegativeInteger|)
          ($ S))
-        (SPROG ((#1=#:G184 NIL) (|y| (S)))
+        (SPROG ((#1=#:G185 NIL) (|y| (S)))
                (SEQ
                 (LETT |y| (QAREF1 (QREFELT $ 7) |before|)
                       . #2=(|SCACHE;insertInCache|))
@@ -290,9 +290,9 @@
 
 (DECLAIM (NOTINLINE |SortedCache;|)) 
 
-(DEFUN |SortedCache| (#1=#:G187)
+(DEFUN |SortedCache| (#1=#:G188)
   (SPROG NIL
-         (PROG (#2=#:G188)
+         (PROG (#2=#:G189)
            (RETURN
             (COND
              ((LETT #2#

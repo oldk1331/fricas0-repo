@@ -1,7 +1,7 @@
 
 (SDEFUN |MRF2;map;MMrMr;1|
         ((|fn| |Mapping| S R) (|u| |MonoidRing| R M) ($ |MonoidRing| S M))
-        (SPROG ((|res| (|MonoidRing| S M)) (#1=#:G108 NIL) (|te| NIL))
+        (SPROG ((|res| (|MonoidRing| S M)) (#1=#:G109 NIL) (|te| NIL))
                (SEQ
                 (LETT |res| (|spadConstant| $ 10) . #2=(|MRF2;map;MMrMr;1|))
                 (SEQ (LETT |te| NIL . #2#)
@@ -22,9 +22,9 @@
 
 (DECLAIM (NOTINLINE |MonoidRingFunctions2;|)) 
 
-(DEFUN |MonoidRingFunctions2| (&REST #1=#:G109)
+(DEFUN |MonoidRingFunctions2| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

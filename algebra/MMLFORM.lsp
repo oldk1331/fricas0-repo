@@ -62,7 +62,7 @@
 
 (SDEFUN |MMLFORM;exprex;OfS;7| ((|expr| |OutputForm|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G189 NIL) (|a| NIL)
+         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G190 NIL) (|a| NIL)
           (|nargs| (|Integer|)) (|args| (|List| (|OutputForm|))) (|sop| #1#)
           (|op| (|OutputForm|)) (|le| (|List| (|OutputForm|))))
          (SEQ
@@ -205,7 +205,7 @@
 
 (SDEFUN |MMLFORM;atomize| ((|expr| |OutputForm|) ($ |List| (|OutputForm|)))
         (SPROG
-         ((|le| (|List| (|OutputForm|))) (#1=#:G213 NIL) (|a| NIL)
+         ((|le| (|List| (|OutputForm|))) (#1=#:G214 NIL) (|a| NIL)
           (|letmp| (|List| (|OutputForm|))))
          (SEQ (LETT |le| NIL . #2=(|MMLFORM;atomize|))
               (COND
@@ -320,7 +320,7 @@
         (SPROG
          ((|tmp| (|String|)) (|base| (|String|)) (|tmp3| #1=(|String|))
           (|tmp2| #1#) (|tmp1| #1#) (|n| (|NonNegativeInteger|))
-          (#2=#:G268 NIL) (|u| NIL) (#3=#:G267 NIL) (|prescript| (|Boolean|)))
+          (#2=#:G269 NIL) (|u| NIL) (#3=#:G268 NIL) (|prescript| (|Boolean|)))
          (SEQ (LETT |prescript| 'NIL . #4=(|MMLFORM;formatSpecial|))
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "<mtext>theMap(...)</mtext>")
@@ -640,7 +640,7 @@
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
          ((|arg2| (|OutputForm|)) (|s| (|String|)) (|commaTest| (|String|))
-          (#1=#:G276 NIL) (|i| NIL) (|commaS| (|String|)))
+          (#1=#:G277 NIL) (|i| NIL) (|commaS| (|String|)))
          (SEQ
           (LETT |arg2| (SPADCALL |args| (QREFELT $ 47))
                 . #2=(|MMLFORM;formatPrime|))
@@ -909,7 +909,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G314 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G315 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -1180,7 +1180,7 @@
 
 (DEFUN |MathMLFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G346)
+         (PROG (#1=#:G347)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|)

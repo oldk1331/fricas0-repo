@@ -6,7 +6,7 @@
         (SPADCALL |x| (QREFELT $ 9))) 
 
 (SDEFUN |STAGG-;first;ANniA;3| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
-        (SPROG ((|i| NIL) (#1=#:G126 NIL))
+        (SPROG ((|i| NIL) (#1=#:G127 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -31,7 +31,7 @@
               ('T (SPADCALL |x| (QREFELT $ 18))))) 
 
 (SDEFUN |STAGG-;elt;AIS;5| ((|x| A) (|i| |Integer|) ($ S))
-        (SPROG ((#1=#:G130 NIL))
+        (SPROG ((#1=#:G131 NIL))
                (SEQ
                 (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
                       . #2=(|STAGG-;elt;AIS;5|))
@@ -53,7 +53,7 @@
 (SDEFUN |STAGG-;elt;AUsA;6|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) ($ A))
         (SPROG
-         ((#1=#:G139 NIL) (#2=#:G138 NIL) (|h| #3=(|Integer|)) (#4=#:G135 NIL)
+         ((#1=#:G140 NIL) (#2=#:G139 NIL) (|h| #3=(|Integer|)) (#4=#:G136 NIL)
           (|l| #3#))
          (SEQ
           (LETT |l|
@@ -94,7 +94,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 26)) |y| (QREFELT $ 31))) 
 
 (SDEFUN |STAGG-;concat;LA;8| ((|l| |List| A) ($ A))
-        (SPROG ((|res| (A)) (#1=#:G148 NIL) (|x| NIL) (|l1| (|List| A)))
+        (SPROG ((|res| (A)) (#1=#:G149 NIL) (|x| NIL) (|l1| (|List| A)))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL (QREFELT $ 28)))
                       ('T
@@ -151,7 +151,7 @@
                     (EXIT |x|)))) 
 
 (SDEFUN |STAGG-;setelt;AI2S;11| ((|x| A) (|i| |Integer|) (|s| S) ($ S))
-        (SPROG ((#1=#:G161 NIL))
+        (SPROG ((#1=#:G162 NIL))
                (SEQ
                 (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
                       . #2=(|STAGG-;setelt;AI2S;11|))
@@ -173,7 +173,7 @@
 (SDEFUN |STAGG-;setelt;AUs2S;12|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
-         ((|y| (A)) (|z| (A)) (#1=#:G168 NIL) (#2=#:G167 NIL) (|h| (|Integer|))
+         ((|y| (A)) (|z| (A)) (#1=#:G169 NIL) (#2=#:G168 NIL) (|h| (|Integer|))
           (|l| (|Integer|)))
          (SEQ
           (LETT |l|

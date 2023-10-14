@@ -10,7 +10,7 @@
 
 (DEFUN |DecimalExpansion| ()
   (SPROG NIL
-         (PROG (#1=#:G139)
+         (PROG (#1=#:G140)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DecimalExpansion|)
@@ -28,7 +28,7 @@
                   (HREM |$ConstructorCache| '|DecimalExpansion|)))))))))) 
 
 (DEFUN |DecimalExpansion;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G137 NIL) (|pv$| NIL))
+  (SPROG ((|dv$| NIL) ($ NIL) (#1=#:G138 NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DecimalExpansion|) . #2=(|DecimalExpansion|))
           (LETT $ (GETREFV 55) . #2#)

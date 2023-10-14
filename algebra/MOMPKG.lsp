@@ -27,7 +27,7 @@
 (SDEFUN |MOMPKG;moment2freeCumulant;2S;4|
         ((|mom| |Sequence| R) ($ |Sequence| R))
         (SPROG
-         ((#1=#:G109 NIL) (|f1| #2=(|Union| (|Stream| R) "failed"))
+         ((#1=#:G110 NIL) (|f1| #2=(|Union| (|Stream| R) "failed"))
           (|f| (|Stream| R)) (|g1| #2#) (|g| (|Stream| R)))
          (SEQ
           (LETT |g|
@@ -56,7 +56,7 @@
 (SDEFUN |MOMPKG;booleanCumulant2moment;2S;5|
         ((|x| |Sequence| R) ($ |Sequence| R))
         (SPROG
-         ((#1=#:G114 NIL) (|boo| (|Union| (|Stream| R) "failed"))
+         ((#1=#:G115 NIL) (|boo| (|Union| (|Stream| R) "failed"))
           (|rec| (|Stream| R)))
          (SEQ
           (LETT |rec|
@@ -78,7 +78,7 @@
 (SDEFUN |MOMPKG;moment2booleanCumulant;2S;6|
         ((|x| |Sequence| R) ($ |Sequence| R))
         (SPROG
-         ((#1=#:G119 NIL) (|mom| (|Union| (|Stream| R) "failed"))
+         ((#1=#:G120 NIL) (|mom| (|Union| (|Stream| R) "failed"))
           (|boo| (|Stream| R)))
          (SEQ
           (LETT |boo|
@@ -110,8 +110,8 @@
         ((|mom| |List| R)
          ($ |Record| (|:| |an| (|List| R)) (|:| |bn| (|List| R))))
         (SPROG
-         ((N (|Integer|)) (G (|List| R)) (#1=#:G138 NIL) (|h| NIL)
-          (#2=#:G137 NIL) (H (|List| R)) (|Hk| (R)) (#3=#:G136 NIL) (|l| NIL)
+         ((N (|Integer|)) (G (|List| R)) (#1=#:G139 NIL) (|h| NIL)
+          (#2=#:G138 NIL) (H (|List| R)) (|Hk| (R)) (#3=#:G137 NIL) (|l| NIL)
           (|k| NIL) (|bb| #4=(|List| R)) (|aa| #4#) (|bk| (R)) (|ak| (R)))
          (SEQ (LETT N (LENGTH |mom|) . #5=(|MOMPKG;moment2nthJacobi;LR;8|))
               (LETT G |mom| . #5#) (LETT |aa| NIL . #5#) (LETT |bb| NIL . #5#)
@@ -207,7 +207,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|gseries| NIL) (#2=#:G140 NIL) (|a| NIL) (|gseries1| NIL)
+             ((|gseries| NIL) (#2=#:G141 NIL) (|a| NIL) (|gseries1| NIL)
               (|b| NIL) (|b1| NIL))
              (SEQ
               (LETT |gseries|
@@ -390,10 +390,10 @@
          ($ |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
           (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R))))
         (SPROG
-         ((#1=#:G182 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
+         ((#1=#:G183 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|rrnew| (|List| R)) (|mnt| (|SparseUnivariatePolynomial| R))
           (|rn| (R)) (|tmp| (|SparseUnivariatePolynomial| R)) (|k| NIL)
-          (#2=#:G183 NIL) (|r| NIL) (#3=#:G184 NIL) (|m| NIL) (|n| (|Integer|))
+          (#2=#:G184 NIL) (|r| NIL) (#3=#:G185 NIL) (|m| NIL) (|n| (|Integer|))
           (|mm| (|Stream| R)) (|rr| (|List| R))
           (|mt| (|List| (|SparseUnivariatePolynomial| R))))
          (SEQ
@@ -444,7 +444,7 @@
              (PROGN
               (LETT #1# (VECTOR |mtnew| |rrnew| (SPADCALL |mm| (QREFELT $ 12)))
                     . #4#)
-              (GO #5=#:G181)))))
+              (GO #5=#:G182)))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;moment2monotoneCumulant;2S;15|
@@ -490,10 +490,10 @@
          ($ |Record| (|:| |cum| (|Stream| R))
           (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
         (SPROG
-         ((#1=#:G196 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
+         ((#1=#:G197 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|mnt| (|SparseUnivariatePolynomial| R)) (|rr| (|Stream| R))
-          (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G197 NIL) (|k| NIL)
-          (#3=#:G198 NIL) (|m| NIL) (|n| (|Integer|))
+          (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G198 NIL) (|k| NIL)
+          (#3=#:G199 NIL) (|m| NIL) (|n| (|Integer|))
           (|mt| (|List| (|SparseUnivariatePolynomial| R))))
          (SEQ
           (EXIT
@@ -532,7 +532,7 @@
             (EXIT
              (PROGN
               (LETT #1# (CONS (QCAR |srm|) |mtnew|) . #4#)
-              (GO #5=#:G195)))))
+              (GO #5=#:G196)))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;monotoneCumulant2moment;2S;17|
@@ -603,9 +603,9 @@
 
 (DECLAIM (NOTINLINE |MomentPackage;|)) 
 
-(DEFUN |MomentPackage| (#1=#:G210)
+(DEFUN |MomentPackage| (#1=#:G211)
   (SPROG NIL
-         (PROG (#2=#:G211)
+         (PROG (#2=#:G212)
            (RETURN
             (COND
              ((LETT #2#

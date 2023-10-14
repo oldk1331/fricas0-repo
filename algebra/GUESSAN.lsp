@@ -3,7 +3,7 @@
 
 (DEFUN |GuessAlgebraicNumber| ()
   (SPROG NIL
-         (PROG (#1=#:G122)
+         (PROG (#1=#:G123)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GuessAlgebraicNumber|)

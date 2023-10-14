@@ -91,7 +91,7 @@
 
 (DEFUN |BinaryFile| ()
   (SPROG NIL
-         (PROG (#1=#:G157)
+         (PROG (#1=#:G158)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|BinaryFile|)

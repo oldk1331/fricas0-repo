@@ -3,12 +3,12 @@
         ((|p1| . #1=(|UnivariatePolynomial| |x| R)) (|p2| . #1#)
          ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
-         ((|Lc2| (|UnivariatePolynomial| |x| R)) (#2=#:G126 NIL)
-          (|Lc1| (|UnivariatePolynomial| |x| R)) (|c1| (R)) (#3=#:G123 NIL)
+         ((|Lc2| (|UnivariatePolynomial| |x| R)) (#2=#:G127 NIL)
+          (|Lc1| (|UnivariatePolynomial| |x| R)) (|c1| (R)) (#3=#:G124 NIL)
           (|LSubr| (|List| #1#)) (|i| NIL) (|in2| (|Integer|))
-          (|in1| (|Integer|)) (#4=#:G119 NIL)
+          (|in1| (|Integer|)) (#4=#:G120 NIL)
           (|Pr| (|UnivariatePolynomial| |x| R)) (|n| (|NonNegativeInteger|))
-          (#5=#:G117 NIL) (|d2| #6=(|NonNegativeInteger|)) (|d1| #6#))
+          (#5=#:G118 NIL) (|d2| #6=(|NonNegativeInteger|)) (|d1| #6#))
          (SEQ
           (LETT |d1| (SPADCALL |p1| (QREFELT $ 10))
                 . #7=(|SHP;subresultantSequenceBegin|))
@@ -82,11 +82,11 @@
         ((|LcsI| |List| (|UnivariatePolynomial| |x| R))
          ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
-         ((|LSub| (|List| #1=(|UnivariatePolynomial| |x| R))) (#2=#:G188 NIL)
-          (|k| NIL) (|pr2| #1#) (#3=#:G133 NIL) (#4=#:G183 NIL)
-          (|pr1| (|UnivariatePolynomial| |x| R)) (#5=#:G178 NIL)
-          (#6=#:G176 NIL) (|c1| (R)) (|in1| (|NonNegativeInteger|))
-          (#7=#:G131 NIL) (|d2| #8=(|NonNegativeInteger|)) (|d1| #8#)
+         ((|LSub| (|List| #1=(|UnivariatePolynomial| |x| R))) (#2=#:G189 NIL)
+          (|k| NIL) (|pr2| #1#) (#3=#:G134 NIL) (#4=#:G184 NIL)
+          (|pr1| (|UnivariatePolynomial| |x| R)) (#5=#:G179 NIL)
+          (#6=#:G177 NIL) (|c1| (R)) (|in1| (|NonNegativeInteger|))
+          (#7=#:G132 NIL) (|d2| #8=(|NonNegativeInteger|)) (|d1| #8#)
           (|p1| (|UnivariatePolynomial| |x| R))
           (|p2| (|UnivariatePolynomial| |x| R)))
          (SEQ
@@ -187,7 +187,7 @@
         ((|p1| . #1=(|UnivariatePolynomial| |x| R)) (|p2| . #1#)
          ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
-         ((|Lin| (|List| (|UnivariatePolynomial| |x| R))) (#2=#:G196 NIL)
+         ((|Lin| (|List| (|UnivariatePolynomial| |x| R))) (#2=#:G197 NIL)
           (|j| NIL) (|indf| (|NonNegativeInteger|)))
          (SEQ
           (LETT |Lin| (|SHP;subresultantSequenceBegin| |p1| |p2| $)
@@ -231,9 +231,9 @@
          ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
          ((|List2| (|List| (|UnivariatePolynomial| |x| R)))
-          (|Pr1| (|UnivariatePolynomial| |x| R)) (#1=#:G203 NIL)
-          (#2=#:G201 NIL) (|Pr0| (|UnivariatePolynomial| |x| R))
-          (#3=#:G209 NIL) (|j| NIL) (|c1| (R))
+          (|Pr1| (|UnivariatePolynomial| |x| R)) (#1=#:G204 NIL)
+          (#2=#:G202 NIL) (|Pr0| (|UnivariatePolynomial| |x| R))
+          (#3=#:G210 NIL) (|j| NIL) (|c1| (R))
           (|List1| (|List| (|UnivariatePolynomial| |x| R)))
           (|q| #4=(|NonNegativeInteger|)) (|p| #4#))
          (SEQ
@@ -275,7 +275,7 @@
           (EXIT |List2|)))) 
 
 (SDEFUN |SHP;delta| ((|int1| |NonNegativeInteger|) ($ R))
-        (SPROG ((#1=#:G211 NIL))
+        (SPROG ((#1=#:G212 NIL))
                (SPADCALL (SPADCALL (|spadConstant| $ 11) (QREFELT $ 23))
                          (PROG2
                              (LETT #1#
@@ -293,13 +293,13 @@
          (|c1| R) ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
          ((|List2| (|List| (|UnivariatePolynomial| |x| R)))
-          (|Pr6| #1=(|UnivariatePolynomial| |x| R)) (#2=#:G343 NIL)
-          (#3=#:G342 NIL) (#4=#:G349 NIL) (|j| NIL)
+          (|Pr6| #1=(|UnivariatePolynomial| |x| R)) (#2=#:G344 NIL)
+          (#3=#:G343 NIL) (#4=#:G350 NIL) (|j| NIL)
           (|List1| (|List| (|UnivariatePolynomial| |x| R)))
-          (|Listf| (|List| #1#)) (#5=#:G348 NIL) (|Pr5| #1#) (#6=#:G330 NIL)
-          (#7=#:G328 NIL) (|Pr4| #1#) (#8=#:G240 NIL) (|Pr3| #1#)
-          (#9=#:G228 NIL) (|r| (|NonNegativeInteger|)) (|c2| (R))
-          (|Pr2| (|UnivariatePolynomial| |x| R)) (#10=#:G215 NIL)
+          (|Listf| (|List| #1#)) (#5=#:G349 NIL) (|Pr5| #1#) (#6=#:G331 NIL)
+          (#7=#:G329 NIL) (|Pr4| #1#) (#8=#:G241 NIL) (|Pr3| #1#)
+          (#9=#:G229 NIL) (|r| (|NonNegativeInteger|)) (|c2| (R))
+          (|Pr2| (|UnivariatePolynomial| |x| R)) (#10=#:G216 NIL)
           (|Pr1| (|UnivariatePolynomial| |x| R)) (|sc1| (R)))
          (SEQ
           (LETT |sc1| (SPADCALL (SPADCALL |c1| (QREFELT $ 38)) (QREFELT $ 39))
@@ -411,9 +411,9 @@
          (|c1| R) ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
          ((|List2| (|List| (|UnivariatePolynomial| |x| R)))
-          (|Pr5| (|UnivariatePolynomial| |x| R)) (#1=#:G361 NIL)
-          (|Pr4| #2=(|UnivariatePolynomial| |x| R)) (#3=#:G359 NIL)
-          (#4=#:G358 NIL) (#5=#:G367 NIL) (|j| NIL)
+          (|Pr5| (|UnivariatePolynomial| |x| R)) (#1=#:G362 NIL)
+          (|Pr4| #2=(|UnivariatePolynomial| |x| R)) (#3=#:G360 NIL)
+          (#4=#:G359 NIL) (#5=#:G368 NIL) (|j| NIL)
           (|List1| (|List| (|UnivariatePolynomial| |x| R)))
           (|Listf| (|List| #2#)) (|Pr3| #2#) (|Pr2| #2#) (|Pr1| #2#)
           (|sc1| (R)))
@@ -473,12 +473,12 @@
          (|c1| R) ($ |List| (|UnivariatePolynomial| |x| R)))
         (SPROG
          ((|List2| (|List| (|UnivariatePolynomial| |x| R)))
-          (|Pr3| (|UnivariatePolynomial| |x| R)) (#1=#:G382 NIL)
-          (|Pr2| #2=(|UnivariatePolynomial| |x| R)) (#3=#:G380 NIL)
-          (#4=#:G379 NIL) (#5=#:G388 NIL) (#6=#:G370 NIL) (|j| NIL)
+          (|Pr3| (|UnivariatePolynomial| |x| R)) (#1=#:G383 NIL)
+          (|Pr2| #2=(|UnivariatePolynomial| |x| R)) (#3=#:G381 NIL)
+          (#4=#:G380 NIL) (#5=#:G389 NIL) (#6=#:G371 NIL) (|j| NIL)
           (|List1| (|List| (|UnivariatePolynomial| |x| R)))
           (|Listf| (|List| #2#)) (|Pr1| #2#) (|v| (|NonNegativeInteger|))
-          (|q1| (|NonNegativeInteger|)) (#7=#:G368 NIL) (|sc1| (R)))
+          (|q1| (|NonNegativeInteger|)) (#7=#:G369 NIL) (|sc1| (R)))
          (SEQ
           (LETT |sc1| (SPADCALL (SPADCALL |c1| (QREFELT $ 38)) (QREFELT $ 39))
                 . #8=(|SHP;polsth3|))
@@ -563,7 +563,7 @@
         ((|p1| |UnivariatePolynomial| |x| R)
          (|p2| |UnivariatePolynomial| |x| R) ($ |List| R))
         (SPROG
-         ((#1=#:G391 NIL) (#2=#:G396 NIL) (|p| NIL) (|j| NIL) (#3=#:G395 NIL)
+         ((#1=#:G392 NIL) (#2=#:G397 NIL) (|p| NIL) (|j| NIL) (#3=#:G396 NIL)
           (|qp| (|NonNegativeInteger|))
           (|List1| (|List| (|UnivariatePolynomial| |x| R))))
          (SEQ
@@ -662,7 +662,7 @@
 (SDEFUN |SHP;epsil|
         ((|int1| |NonNegativeInteger|) (|elt1| R) (|elt2| R) ($ |Integer|))
         (SPROG
-         ((|ct4| (|Integer|)) (|ct3| (|NonNegativeInteger|)) (#1=#:G407 NIL)
+         ((|ct4| (|Integer|)) (|ct3| (|NonNegativeInteger|)) (#1=#:G408 NIL)
           (|ct2| #2=(|Integer|)) (|ct1| #2#))
          (SEQ
           (COND ((OR (EQL |int1| 0) (ODDP |int1|)) 0)
@@ -771,7 +771,7 @@
         ((|p1| |UnivariatePolynomial| |x| R)
          (|p2| |UnivariatePolynomial| |x| R) ($ |Integer|))
         (SPROG
-         ((#1=#:G424 NIL) (#2=#:G430 NIL) (|p| NIL) (|j| NIL) (#3=#:G429 NIL)
+         ((#1=#:G425 NIL) (#2=#:G431 NIL) (|p| NIL) (|j| NIL) (#3=#:G430 NIL)
           (|qp| (|NonNegativeInteger|))
           (|List1| (|List| (|UnivariatePolynomial| |x| R))))
          (SEQ
@@ -820,14 +820,14 @@
         ((|p1| |UnivariatePolynomial| |x| R)
          (|p2| |UnivariatePolynomial| |x| R) ($ |Integer|))
         (SPROG
-         ((#1=#:G454 NIL) (|f| NIL) (#2=#:G453 NIL)
+         ((#1=#:G455 NIL) (|f| NIL) (#2=#:G454 NIL)
           (|sqfr|
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| (|UnivariatePolynomial| |x| R))
                       (|:| |xpnt| (|Integer|)))))
           (SH (|List| (|UnivariatePolynomial| |x| R))) (|ans| (|Integer|))
-          (#3=#:G432 NIL) (#4=#:G452 NIL) (|p| NIL) (|j| NIL) (#5=#:G451 NIL)
+          (#3=#:G433 NIL) (#4=#:G453 NIL) (|p| NIL) (|j| NIL) (#5=#:G452 NIL)
           (|qp| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -928,9 +928,9 @@
 
 (DECLAIM (NOTINLINE |SturmHabichtPackage;|)) 
 
-(DEFUN |SturmHabichtPackage| (&REST #1=#:G456)
+(DEFUN |SturmHabichtPackage| (&REST #1=#:G457)
   (SPROG NIL
-         (PROG (#2=#:G457)
+         (PROG (#2=#:G458)
            (RETURN
             (COND
              ((LETT #2#

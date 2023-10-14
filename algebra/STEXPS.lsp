@@ -21,7 +21,7 @@
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#2=#:G161 NIL) (#3=#:G160 NIL) (|res| NIL) (|llp| NIL)
+              (#2=#:G162 NIL) (#3=#:G161 NIL) (|res| NIL) (|llp| NIL)
               (|xp| NIL))
              (SEQ
               (EXIT
@@ -34,7 +34,7 @@
                             (SPADCALL |x| (QREFELT $ 10)))
                         (PROGN
                          (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                         (GO #4=#:G159)))
+                         (GO #4=#:G160)))
                        ('T (LETT |x| (SPADCALL |x| (QREFELT $ 15)) NIL))))
                      ('T
                       (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 16)) NIL)
@@ -64,7 +64,7 @@
                                 ('T
                                  (PROGN
                                   (LETT #3# |$NoValue| NIL)
-                                  (GO #5=#:G155)))))
+                                  (GO #5=#:G156)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -195,9 +195,9 @@
 
 (DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
 
-(DEFUN |StreamExponentialSeriesOperations| (#1=#:G189)
+(DEFUN |StreamExponentialSeriesOperations| (#1=#:G190)
   (SPROG NIL
-         (PROG (#2=#:G190)
+         (PROG (#2=#:G191)
            (RETURN
             (COND
              ((LETT #2#

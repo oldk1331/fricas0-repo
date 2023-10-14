@@ -2,10 +2,10 @@
 (SDEFUN |FFSLPE;solveLinearPolynomialEquation;LFPPU;1|
         ((|lp| |List| FPP) (|p| FPP) ($ |Union| (|List| FPP) "failed"))
         (SPROG
-         ((|answer| (|Union| (|List| FPP) "failed")) (#1=#:G113 NIL)
-          (#2=#:G116 NIL) (|ans| (|Union| (|Vector| (|List| FPP)) "failed"))
-          (|deg| #3=(|NonNegativeInteger|)) (#4=#:G110 NIL) (#5=#:G109 #3#)
-          (#6=#:G111 #3#) (#7=#:G128 NIL) (|u| NIL))
+         ((|answer| (|Union| (|List| FPP) "failed")) (#1=#:G114 NIL)
+          (#2=#:G117 NIL) (|ans| (|Union| (|Vector| (|List| FPP)) "failed"))
+          (|deg| #3=(|NonNegativeInteger|)) (#4=#:G111 NIL) (#5=#:G110 #3#)
+          (#6=#:G112 #3#) (#7=#:G129 NIL) (|u| NIL))
          (SEQ
           (COND
            ((SPADCALL (QREFELT $ 9) |lp| (QREFELT $ 18))
@@ -96,9 +96,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldSolveLinearPolynomialEquation;|)) 
 
-(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G129)
+(DEFUN |FiniteFieldSolveLinearPolynomialEquation| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#

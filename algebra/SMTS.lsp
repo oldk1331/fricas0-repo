@@ -39,7 +39,7 @@
 
 (SDEFUN |SMTS;coefficient;$NniSMP;5|
         ((|x| $) (|n| |NonNegativeInteger|) ($ SMP))
-        (SPROG ((#1=#:G142 NIL) (|u| (|Rep|)))
+        (SPROG ((#1=#:G143 NIL) (|u| (|Rep|)))
                (SEQ (LETT |u| |x| . #2=(|SMTS;coefficient;$NniSMP;5|))
                     (SEQ G190
                          (COND
@@ -240,7 +240,7 @@
 
 (SDEFUN |SMTS;sortmfirst| ((|p| SMP) (|vl| |List| |Var|) (|q| |List| $) ($ $))
         (SPROG
-         ((|nq| (|List| $)) (#1=#:G192 NIL) (|i| NIL) (#2=#:G191 NIL)
+         ((|nq| (|List| $)) (#1=#:G193 NIL) (|i| NIL) (#2=#:G192 NIL)
           (|nlv| (|List| |Var|)))
          (SEQ
           (LETT |nlv| (SPADCALL (ELT $ 89) |vl| (QREFELT $ 91))
@@ -285,8 +285,8 @@
 
 (SDEFUN |SMTS;eval;$LL$;20| ((|s| $) (|v| |List| |Var|) (|q| |List| $) ($ $))
         (SPROG
-         ((|nq| (|List| (|Stream| SMP))) (#1=#:G207 NIL) (|i| NIL)
-          (#2=#:G206 NIL))
+         ((|nq| (|List| (|Stream| SMP))) (#1=#:G208 NIL) (|i| NIL)
+          (#2=#:G207 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |v|) (SPADCALL |q| (QREFELT $ 99))
@@ -714,9 +714,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G400)
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G401)
   (SPROG NIL
-         (PROG (#2=#:G401)
+         (PROG (#2=#:G402)
            (RETURN
             (COND
              ((LETT #2#
@@ -739,7 +739,7 @@
 
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G399 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G400 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateTaylorSeries|))

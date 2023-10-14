@@ -18,7 +18,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 24))) 
 
 (SDEFUN |MONOGEN-;basis;V;7| (($ |Vector| S))
-        (SPROG ((#1=#:G124 NIL) (|i| NIL) (#2=#:G123 NIL) (#3=#:G120 NIL))
+        (SPROG ((#1=#:G125 NIL) (|i| NIL) (#2=#:G124 NIL) (#3=#:G121 NIL))
                (SEQ
                 (PROGN
                  (LETT #2#
@@ -51,7 +51,7 @@
                   (QREFELT $ 34))) 
 
 (SDEFUN |MONOGEN-;random;S;10| (($ S))
-        (SPROG ((#1=#:G129 NIL) (#2=#:G131 NIL) (|i| NIL) (#3=#:G130 NIL))
+        (SPROG ((#1=#:G130 NIL) (#2=#:G132 NIL) (|i| NIL) (#3=#:G131 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN

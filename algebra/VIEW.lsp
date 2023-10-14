@@ -20,9 +20,9 @@
          ($ |GraphImage|))
         (SPROG
          ((|listOfPointSizes| (|List| (|PositiveInteger|))) (|i| NIL)
-          (#1=#:G113 NIL) (|listOfLineColors| (|List| (|Palette|)))
-          (#2=#:G112 NIL) (|listOfPointColors| (|List| (|Palette|)))
-          (#3=#:G111 NIL) (|len| (|NonNegativeInteger|)))
+          (#1=#:G114 NIL) (|listOfLineColors| (|List| (|Palette|)))
+          (#2=#:G113 NIL) (|listOfPointColors| (|List| (|Palette|)))
+          (#3=#:G112 NIL) (|len| (|NonNegativeInteger|)))
          (SEQ
           (LETT |len| (LENGTH |listOfListsOfPoints|)
                 . #4=(|VIEW;graphCurves;L2PPiLGi;3|))
@@ -98,7 +98,7 @@
 
 (DEFUN |ViewportPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G121)
+         (PROG (#1=#:G122)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|)

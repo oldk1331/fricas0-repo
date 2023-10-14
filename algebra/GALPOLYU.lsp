@@ -2,7 +2,7 @@
 (SDEFUN |GALPOLYU;factorsOfDegree;PiFL;1|
         ((|d| |PositiveInteger|) (|r| |Factored| UP) ($ |List| UP))
         (SPROG
-         ((|lfact| (|List| UP)) (#1=#:G111 NIL) (|i| NIL) (#2=#:G110 NIL)
+         ((|lfact| (|List| UP)) (#1=#:G112 NIL) (|i| NIL) (#2=#:G111 NIL)
           (|fr| NIL))
          (SEQ (LETT |lfact| NIL . #3=(|GALPOLYU;factorsOfDegree;PiFL;1|))
               (SEQ (LETT |fr| NIL . #3#)
@@ -26,7 +26,7 @@
 
 (SDEFUN |GALPOLYU;factorOfDegree;PiFUP;2|
         ((|d| |PositiveInteger|) (|r| |Factored| UP) ($ UP))
-        (SPROG ((#1=#:G116 NIL) (|factor| (UP)) (#2=#:G117 NIL) (|i| NIL))
+        (SPROG ((#1=#:G117 NIL) (|factor| (UP)) (#2=#:G118 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -40,7 +40,7 @@
                         (EXIT
                          (COND
                           ((EQL (SPADCALL |factor| (QREFELT $ 13)) |d|)
-                           (PROGN (LETT #1# |factor| . #3#) (GO #4=#:G115))))))
+                           (PROGN (LETT #1# |factor| . #3#) (GO #4=#:G116))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT (|error| "factorOfDegree: Bad arguments"))))
@@ -48,7 +48,7 @@
 
 (SDEFUN |GALPOLYU;degreePartition;FM;3|
         ((|r| |Factored| UP) ($ |Multiset| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G121 NIL) (|i| NIL) (#2=#:G120 NIL))
+        (SPROG ((#1=#:G122 NIL) (|i| NIL) (#2=#:G121 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -74,7 +74,7 @@
 
 (SDEFUN |GALPOLYU;reverse;2UP;5| ((|p| UP) ($ UP))
         (SPROG
-         ((|r| (UP)) (#1=#:G123 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
+         ((|r| (UP)) (#1=#:G124 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |r| (|spadConstant| $ 17) . #2=(|GALPOLYU;reverse;2UP;5|))
               (LETT |n| (SPADCALL |p| (QREFELT $ 13)) . #2#)
               (SEQ (LETT |i| 0 . #2#) G190
@@ -147,9 +147,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
 
-(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G142)
+(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G143)
   (SPROG NIL
-         (PROG (#2=#:G143)
+         (PROG (#2=#:G144)
            (RETURN
             (COND
              ((LETT #2#

@@ -4,11 +4,11 @@
 (DEFPARAMETER |Aggregate;AL| 'NIL) 
 
 (DEFUN |Aggregate| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|Aggregate;AL|) (T (SETQ |Aggregate;AL| (|Aggregate;|)))))) 
 
 (DEFUN |Aggregate;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Type|)

@@ -83,9 +83,9 @@
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
-(DEFUN |FreeGroup| (#1=#:G154)
+(DEFUN |FreeGroup| (#1=#:G155)
   (SPROG NIL
-         (PROG (#2=#:G155)
+         (PROG (#2=#:G156)
            (RETURN
             (COND
              ((LETT #2#

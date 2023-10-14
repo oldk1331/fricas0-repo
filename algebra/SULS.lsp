@@ -77,7 +77,7 @@
 
 (SDEFUN |SULS;denom;$Suts;15|
         ((|uls| $) ($ |SparseUnivariateTaylorSeries| |Coef| |var| |cen|))
-        (SPROG ((#1=#:G144 NIL))
+        (SPROG ((#1=#:G145 NIL))
                (SPADCALL (|spadConstant| $ 15)
                          (PROG1
                              (LETT #1# (- (SPADCALL |uls| 0 (QREFELT $ 24)))
@@ -122,7 +122,7 @@
 
 (SDEFUN |SULS;elt;3$;23| ((|uls1| $) (|uls2| $) ($ $))
         (SPROG
-         ((#1=#:G171 NIL) (|uls3| ($)) (|recipr| (|Union| $ "failed"))
+         ((#1=#:G172 NIL) (|uls3| ($)) (|recipr| (|Union| $ "failed"))
           (|ord| (|Integer|)))
          (SEQ
           (COND
@@ -158,10 +158,10 @@
 (SDEFUN |SULS;rationalFunction;$IF;24|
         ((|uls| $) (|n| |Integer|) ($ |Fraction| (|Polynomial| |Coef|)))
         (SPROG
-         ((#1=#:G182 NIL) (|c| (|Fraction| (|Polynomial| |Coef|)))
+         ((#1=#:G183 NIL) (|c| (|Fraction| (|Polynomial| |Coef|)))
           (|v| (|Fraction| (|Polynomial| |Coef|)))
-          (|poly| (|Fraction| (|Polynomial| |Coef|))) (#2=#:G181 NIL)
-          (|m| (|Integer|)) (#3=#:G178 NIL) (|e| (|Integer|)))
+          (|poly| (|Fraction| (|Polynomial| |Coef|))) (#2=#:G182 NIL)
+          (|m| (|Integer|)) (#3=#:G179 NIL) (|e| (|Integer|)))
          (SEQ
           (COND
            ((ZEROP
@@ -333,7 +333,7 @@
 
 (SDEFUN |SULS;coerce;$Of;57| ((|uls| $) ($ |OutputForm|))
         (SPROG
-         ((|degr| (|Integer|)) (#1=#:G228 NIL) (|count| (|NonNegativeInteger|))
+         ((|degr| (|Integer|)) (#1=#:G229 NIL) (|count| (|NonNegativeInteger|))
           (|nx| (|Union| (|Integer|) "failed"))
           (|st| (|Stream| (|Record| (|:| |k| (|Integer|)) (|:| |c| |Coef|)))))
          (SEQ
@@ -373,9 +373,9 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
 
-(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G276)
+(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G277)
   (SPROG NIL
-         (PROG (#2=#:G277)
+         (PROG (#2=#:G278)
            (RETURN
             (COND
              ((LETT #2#
@@ -397,9 +397,9 @@
 
 (DEFUN |SparseUnivariateLaurentSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G275 NIL) (|pv$| NIL) (#2=#:G265 NIL) (#3=#:G266 NIL) (#4=#:G268 NIL)
-    (#5=#:G269 NIL) (#6=#:G270 NIL) (#7=#:G271 NIL) (#8=#:G273 NIL)
-    (#9=#:G274 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G276 NIL) (|pv$| NIL) (#2=#:G266 NIL) (#3=#:G267 NIL) (#4=#:G269 NIL)
+    (#5=#:G270 NIL) (#6=#:G271 NIL) (#7=#:G272 NIL) (#8=#:G274 NIL)
+    (#9=#:G275 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #10=(|SparseUnivariateLaurentSeries|))
     (LETT DV$2 (|devaluate| |#2|) . #10#)

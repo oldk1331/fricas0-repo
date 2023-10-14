@@ -4,11 +4,11 @@
 (DEFPARAMETER |EntireRing;AL| 'NIL) 
 
 (DEFUN |EntireRing| ()
-  (LET (#:G112)
+  (LET (#:G113)
     (COND (|EntireRing;AL|) (T (SETQ |EntireRing;AL| (|EntireRing;|)))))) 
 
 (DEFUN |EntireRing;| ()
-  (SPROG ((#1=#:G110 NIL))
+  (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|Ring|) (|BiModule| '$ '$) (|noZeroDivisors|)

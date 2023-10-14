@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateFormalPowerSeries;|)) 
 
-(DEFUN |UnivariateFormalPowerSeries| (#1=#:G119)
+(DEFUN |UnivariateFormalPowerSeries| (#1=#:G120)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G121)
            (RETURN
             (COND
              ((LETT #2#
@@ -24,8 +24,8 @@
 
 (DEFUN |UnivariateFormalPowerSeries;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G111 NIL) (#2=#:G112 NIL) (#3=#:G113 NIL) (#4=#:G114 NIL)
-    (#5=#:G115 NIL) (#6=#:G118 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G112 NIL) (#2=#:G113 NIL) (#3=#:G114 NIL) (#4=#:G115 NIL)
+    (#5=#:G116 NIL) (#6=#:G119 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|UnivariateFormalPowerSeries|))
     (LETT |dv$| (LIST '|UnivariateFormalPowerSeries| DV$1) . #7#)

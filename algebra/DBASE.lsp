@@ -5,7 +5,7 @@
 
 (SDEFUN |DBASE;elt;$SDl;2|
         ((|data| $) (|s| |Symbol|) ($ |DataList| (|String|)))
-        (SPROG ((#1=#:G107 NIL) (|x| NIL) (#2=#:G106 NIL))
+        (SPROG ((#1=#:G108 NIL) (|x| NIL) (#2=#:G107 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -24,7 +24,7 @@
 
 (SDEFUN |DBASE;elt;$Qe$;3| ((|data| $) (|eq| |QueryEquation|) ($ $))
         (SPROG
-         ((#1=#:G112 NIL) (|x| NIL) (#2=#:G111 NIL) (|val| (|String|))
+         ((#1=#:G113 NIL) (|x| NIL) (#2=#:G112 NIL) (|val| (|String|))
           (|field| (|Symbol|)))
          (SEQ
           (LETT |field| (SPADCALL |eq| (QREFELT $ 17))
@@ -56,7 +56,7 @@
         (SPADCALL (LENGTH |data|) (QREFELT $ 30))) 
 
 (SDEFUN |DBASE;display;$V;7| ((|data| $) ($ |Void|))
-        (SPROG ((#1=#:G118 NIL) (|x| NIL))
+        (SPROG ((#1=#:G119 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL . #2=(|DBASE;display;$V;7|))
                     (LETT #1# |data| . #2#) G190
                     (COND
@@ -66,7 +66,7 @@
                     (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |DBASE;fullDisplay;$V;8| ((|data| $) ($ |Void|))
-        (SPROG ((#1=#:G121 NIL) (|x| NIL))
+        (SPROG ((#1=#:G122 NIL) (|x| NIL))
                (SEQ (LETT |x| NIL . #2=(|DBASE;fullDisplay;$V;8|))
                     (LETT #1# |data| . #2#) G190
                     (COND
@@ -77,7 +77,7 @@
 
 (SDEFUN |DBASE;fullDisplay;$2PiV;9|
         ((|data| $) (|n| |PositiveInteger|) (|m| |PositiveInteger|) ($ |Void|))
-        (SPROG ((#1=#:G124 NIL) (|x| NIL) (|i| NIL))
+        (SPROG ((#1=#:G125 NIL) (|x| NIL) (|i| NIL))
                (SEQ (LETT |i| 1 . #2=(|DBASE;fullDisplay;$2PiV;9|))
                     (LETT |x| NIL . #2#) (LETT #1# |data| . #2#) G190
                     (COND
@@ -93,9 +93,9 @@
 
 (DECLAIM (NOTINLINE |Database;|)) 
 
-(DEFUN |Database| (#1=#:G125)
+(DEFUN |Database| (#1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G126)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#

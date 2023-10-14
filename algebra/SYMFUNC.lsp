@@ -10,8 +10,8 @@
 
 (SDEFUN |SYMFUNC;symFunc;LV;2| ((|l| |List| R) ($ |Vector| R))
         (SPROG
-         ((#1=#:G105 NIL) (#2=#:G104 #3=(|SparseUnivariatePolynomial| R))
-          (#4=#:G106 #3#) (#5=#:G108 NIL) (|a| NIL))
+         ((#1=#:G106 NIL) (#2=#:G105 #3=(|SparseUnivariatePolynomial| R))
+          (#4=#:G107 #3#) (#5=#:G109 NIL) (|a| NIL))
          (SEQ
           (|SYMFUNC;signFix|
            (PROGN
@@ -39,7 +39,7 @@
         ((|p| |SparseUnivariatePolynomial| R) (|n| |NonNegativeInteger|)
          ($ |Vector| R))
         (SPROG
-         ((#1=#:G114 NIL) (#2=#:G110 NIL) (|i| NIL) (|m| (|Integer|))
+         ((#1=#:G115 NIL) (#2=#:G111 NIL) (|i| NIL) (|m| (|Integer|))
           (|v| (|Vector| R)))
          (SEQ
           (LETT |m|
@@ -71,9 +71,9 @@
 
 (DECLAIM (NOTINLINE |SymmetricFunctions;|)) 
 
-(DEFUN |SymmetricFunctions| (#1=#:G115)
+(DEFUN |SymmetricFunctions| (#1=#:G116)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G117)
            (RETURN
             (COND
              ((LETT #2#

@@ -6,8 +6,8 @@
 
 (SDEFUN |MATSTOR;copy!;3M;2| ((|c| |Matrix| R) (|a| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G139 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|aRow| #2#) (#3=#:G138 NIL) (|i| NIL)
+         ((#1=#:G140 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|aRow| #2#) (#3=#:G139 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|aa| #4#)
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;copy!;3M;2|))
@@ -40,8 +40,8 @@
 (SDEFUN |MATSTOR;plus!;4M;3|
         ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G150 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|bRow| #2#) (|aRow| #2#) (#3=#:G149 NIL) (|i| NIL)
+         ((#1=#:G151 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|bRow| #2#) (|aRow| #2#) (#3=#:G150 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|bb| #4#)
           (|aa| #4#) (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;plus!;4M;3|))
@@ -87,8 +87,8 @@
 (SDEFUN |MATSTOR;minus!;3M;4|
         ((|c| |Matrix| R) (|a| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G159 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|aRow| #2#) (#3=#:G158 NIL) (|i| NIL)
+         ((#1=#:G160 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|aRow| #2#) (#3=#:G159 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|aa| #4#)
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;minus!;3M;4|))
@@ -123,8 +123,8 @@
 (SDEFUN |MATSTOR;minus!;4M;5|
         ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G170 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|bRow| #2#) (|aRow| #2#) (#3=#:G169 NIL) (|i| NIL)
+         ((#1=#:G171 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|bRow| #2#) (|aRow| #2#) (#3=#:G170 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|bb| #4#)
           (|aa| #4#) (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;minus!;4M;5|))
@@ -170,8 +170,8 @@
 (SDEFUN |MATSTOR;leftScalarTimes!;MR2M;6|
         ((|c| |Matrix| R) (|r| R) (|a| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G179 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|aRow| #2#) (#3=#:G178 NIL) (|i| NIL)
+         ((#1=#:G180 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|aRow| #2#) (#3=#:G179 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|aa| #4#)
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;leftScalarTimes!;MR2M;6|))
@@ -206,8 +206,8 @@
 (SDEFUN |MATSTOR;rightScalarTimes!;2MRM;7|
         ((|c| |Matrix| R) (|a| |Matrix| R) (|r| R) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G188 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
-          (|aRow| #2#) (#3=#:G187 NIL) (|i| NIL)
+         ((#1=#:G189 NIL) (|j| NIL) (|cRow| #2=(|PrimitiveArray| R))
+          (|aRow| #2#) (#3=#:G188 NIL) (|i| NIL)
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|aa| #4#)
           (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ (LETT |m| (ANROWS |a|) . #5=(|MATSTOR;rightScalarTimes!;2MRM;7|))
@@ -255,7 +255,7 @@
         ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
         (SPROG
          ((|sum| (R)) (|k| NIL) (|cRow| #1=(|PrimitiveArray| R)) (|aRow| #1#)
-          (|i| NIL) (#2=#:G201 NIL) (|j| NIL) (|n1| #3=(|Integer|)) (|m1| #3#)
+          (|i| NIL) (#2=#:G202 NIL) (|j| NIL) (|n1| #3=(|Integer|)) (|m1| #3#)
           (|bCol| (|PrimitiveArray| R))
           (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|bb| #4#)
           (|aa| #4#) (|p| #5=(|NonNegativeInteger|)) (|n| #5#)
@@ -312,7 +312,7 @@
         ((|a| |Matrix| R) (|b| |Matrix| R) (|c| |Matrix| R) (|m| |Matrix| R)
          (|p| |NonNegativeInteger|) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G217 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
+         ((#1=#:G218 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
           (|mm| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -363,7 +363,7 @@
                            (EXIT
                             (COND
                              ((EQL |p| 1)
-                              (PROGN (LETT #1# |a| . #2#) (GO #7=#:G216)))
+                              (PROGN (LETT #1# |a| . #2#) (GO #7=#:G217)))
                              ('T
                               (SEQ (LETT |p| (QUOTIENT2 |p| 2) . #2#)
                                    (SPADCALL |c| |b| |b| (QREFELT $ 20))
@@ -389,9 +389,9 @@
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
-(DEFUN |StorageEfficientMatrixOperations| (#1=#:G221)
+(DEFUN |StorageEfficientMatrixOperations| (#1=#:G222)
   (SPROG NIL
-         (PROG (#2=#:G222)
+         (PROG (#2=#:G223)
            (RETURN
             (COND
              ((LETT #2#

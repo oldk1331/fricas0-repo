@@ -4,12 +4,12 @@
 (DEFPARAMETER |StringCategory;AL| 'NIL) 
 
 (DEFUN |StringCategory| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|StringCategory;AL|)
           (T (SETQ |StringCategory;AL| (|StringCategory;|)))))) 
 
 (DEFUN |StringCategory;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|StringAggregate|) (|SetCategory|) (|OpenMath|)

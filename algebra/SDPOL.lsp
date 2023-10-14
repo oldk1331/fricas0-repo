@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |SequentialDifferentialPolynomial;|)) 
 
-(DEFUN |SequentialDifferentialPolynomial| (#1=#:G149)
+(DEFUN |SequentialDifferentialPolynomial| (#1=#:G150)
   (SPROG NIL
-         (PROG (#2=#:G150)
+         (PROG (#2=#:G151)
            (RETURN
             (COND
              ((LETT #2#
@@ -24,7 +24,7 @@
 
 (DEFUN |SequentialDifferentialPolynomial;| (|#1|)
   (SPROG
-   ((#1=#:G148 NIL) (|pv$| NIL) (#2=#:G145 NIL) (#3=#:G146 NIL) (#4=#:G147 NIL)
+   ((#1=#:G149 NIL) (|pv$| NIL) (#2=#:G146 NIL) (#3=#:G147 NIL) (#4=#:G148 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|SequentialDifferentialPolynomial|))

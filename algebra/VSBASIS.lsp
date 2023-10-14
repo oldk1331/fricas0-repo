@@ -15,7 +15,7 @@
 
 (SDEFUN |VSBASIS;column2matrix| ((|Lv| |List| (|Vector| R)) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G124 NIL) (|k| NIL) (#2=#:G125 NIL) (|v| NIL) (M (|Matrix| R))
+         ((#1=#:G125 NIL) (|k| NIL) (#2=#:G126 NIL) (|v| NIL) (M (|Matrix| R))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (QVSIZE (SPADCALL |Lv| 1 (QREFELT $ 17)))
@@ -66,7 +66,7 @@
 
 (SDEFUN |VSBASIS;subVector|
         ((|v| |Vector| R) (|a| |Integer|) (|b| |Integer|) ($ |Vector| R))
-        (SPROG ((#1=#:G139 NIL) (|k| NIL) (|vv| (|Vector| R)) (#2=#:G135 NIL))
+        (SPROG ((#1=#:G140 NIL) (|k| NIL) (|vv| (|Vector| R)) (#2=#:G136 NIL))
                (SEQ
                 (LETT |vv|
                       (MAKEARR1
@@ -89,8 +89,8 @@
 (SDEFUN |VSBASIS;linearSum|
         ((|t| |Vector| R) (|Lv| |List| (|Vector| R)) ($ |Vector| R))
         (SPROG
-         ((#1=#:G147 NIL) (|j| NIL) (|t2| (R)) (#2=#:G145 NIL) (|k| NIL)
-          (#3=#:G146 NIL) (|v2| NIL) (|vv| (|Vector| R)))
+         ((#1=#:G148 NIL) (|j| NIL) (|t2| (R)) (#2=#:G146 NIL) (|k| NIL)
+          (#3=#:G147 NIL) (|v2| NIL) (|vv| (|Vector| R)))
          (SEQ
           (LETT |vv|
                 (MAKEARR1 (QVSIZE (SPADCALL |Lv| 1 (QREFELT $ 17)))
@@ -131,10 +131,10 @@
 
 (SDEFUN |VSBASIS;intBasis;3$;16| ((B1 $) (B2 $) ($ $))
         (SPROG
-         ((#1=#:G161 NIL) (|cc| NIL) (#2=#:G160 NIL)
-          (|LcoeffB1| (|List| (|Vector| R))) (#3=#:G159 NIL) (|kv| NIL)
-          (#4=#:G158 NIL) (|lker| (|List| (|Vector| R))) (|k| NIL)
-          (#5=#:G157 NIL) (|v| NIL) (#6=#:G156 NIL) (|w| NIL) (M (|Matrix| R))
+         ((#1=#:G162 NIL) (|cc| NIL) (#2=#:G161 NIL)
+          (|LcoeffB1| (|List| (|Vector| R))) (#3=#:G160 NIL) (|kv| NIL)
+          (#4=#:G159 NIL) (|lker| (|List| (|Vector| R))) (|k| NIL)
+          (#5=#:G158 NIL) (|v| NIL) (#6=#:G157 NIL) (|w| NIL) (M (|Matrix| R))
           (|d2| #7=(|NonNegativeInteger|)) (|d1| #7#) (|Lw| (|Rep|))
           (|Lv| (|Rep|)))
          (SEQ (LETT |Lv| B1 . #8=(|VSBASIS;intBasis;3$;16|))
@@ -213,7 +213,7 @@
                          (EXIT (NREVERSE #2#)))))))))))) 
 
 (SDEFUN |VSBASIS;intBasis;L$;17| ((LLB |List| (|List| (|Vector| R))) ($ $))
-        (SPROG ((|res| ($)) (#1=#:G167 NIL) (LB NIL))
+        (SPROG ((|res| ($)) (#1=#:G168 NIL) (LB NIL))
                (SEQ
                 (COND
                  ((EQL (LENGTH LLB) 0)
@@ -238,7 +238,7 @@
                    (EXIT |res|))))))) 
 
 (SDEFUN |VSBASIS;intBasis;L$;18| ((LLB |List| $) ($ $))
-        (SPROG ((|res| ($)) (#1=#:G173 NIL) (LB NIL))
+        (SPROG ((|res| ($)) (#1=#:G174 NIL) (LB NIL))
                (SEQ
                 (COND
                  ((EQL (SPADCALL LLB (QREFELT $ 48)) 0)
@@ -306,8 +306,8 @@
 
 (SDEFUN |VSBASIS;complementSpace;L$;26| ((|Lv| |List| (|Vector| R)) ($ $))
         (SPROG
-         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G193 NIL) (|k| NIL)
-          (#2=#:G194 NIL) (|v| NIL) (#3=#:G192 NIL)
+         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G194 NIL) (|k| NIL)
+          (#2=#:G195 NIL) (|v| NIL) (#3=#:G193 NIL)
           (|n| (|NonNegativeInteger|)) (M (|Matrix| R))
           (|Lw| (|List| (|Vector| R))) (|bc| (|List| (|Vector| R)))
           (|dim| (|NonNegativeInteger|)))
@@ -376,8 +376,8 @@
 
 (SDEFUN |VSBASIS;complementSpace;2$;28| ((B $) ($ $))
         (SPROG
-         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G202 NIL) (|k| NIL)
-          (#2=#:G203 NIL) (|v| NIL) (|n| (|NonNegativeInteger|))
+         ((|ind| (|NonNegativeInteger|)) (RES ($)) (#1=#:G203 NIL) (|k| NIL)
+          (#2=#:G204 NIL) (|v| NIL) (|n| (|NonNegativeInteger|))
           (M (|Matrix| R)) (|Lw| (|List| (|Vector| R)))
           (|bc| (|List| (|Vector| R))) (|dim| (|NonNegativeInteger|)))
          (SEQ
@@ -447,9 +447,9 @@
 
 (DECLAIM (NOTINLINE |VectorSpaceBasis;|)) 
 
-(DEFUN |VectorSpaceBasis| (#1=#:G216)
+(DEFUN |VectorSpaceBasis| (#1=#:G217)
   (SPROG NIL
-         (PROG (#2=#:G217)
+         (PROG (#2=#:G218)
            (RETURN
             (COND
              ((LETT #2#

@@ -25,7 +25,7 @@
                        ('T 0)))))) 
 
 (SDEFUN |BOUNDZRO;negint| ((|r| |Fraction| (|Integer|)) ($ |Integer|))
-        (SPROG ((#1=#:G119 NIL) (|u| (|Union| (|Integer|) "failed")))
+        (SPROG ((#1=#:G120 NIL) (|u| (|Union| (|Integer|) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -39,13 +39,13 @@
                        ((< (QCDR |u|) 0)
                         (PROGN
                          (LETT #1# (QCDR |u|) . #2#)
-                         (GO #3=#:G117))))))))
+                         (GO #3=#:G118))))))))
                   (EXIT 0)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |BOUNDZRO;bringDown| ((|f| F) ($ |Fraction| (|Integer|)))
         (SPROG
-         ((#1=#:G124 NIL) (|k| NIL) (#2=#:G123 NIL)
+         ((#1=#:G125 NIL) (|k| NIL) (#2=#:G124 NIL)
           (|t| (|List| (|Kernel| F))))
          (SEQ
           (LETT |t| (SPADCALL |f| (QREFELT $ 25)) . #3=(|BOUNDZRO;bringDown|))
@@ -103,7 +103,7 @@
         ((|p| UP) (|q| |SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
          ($ |Integer|))
         (SPROG
-         ((|bound| (|Integer|)) (|r| (|Integer|)) (#1=#:G139 NIL) (|rec| NIL))
+         ((|bound| (|Integer|)) (|r| (|Integer|)) (#1=#:G140 NIL) (|rec| NIL))
          (SEQ (LETT |bound| 0 . #2=(|BOUNDZRO;qbound|))
               (SEQ (LETT |rec| NIL . #2#)
                    (LETT #1#
@@ -136,9 +136,9 @@
 
 (DECLAIM (NOTINLINE |BoundIntegerRoots;|)) 
 
-(DEFUN |BoundIntegerRoots| (&REST #1=#:G140)
+(DEFUN |BoundIntegerRoots| (&REST #1=#:G141)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G142)
            (RETURN
             (COND
              ((LETT #2#

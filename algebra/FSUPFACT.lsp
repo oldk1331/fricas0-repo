@@ -138,8 +138,8 @@
          ((|ff1|
            (|Factored| (|SparseUnivariatePolynomial| (|AlgebraicNumber|))))
           (|p1| (UP)) (|pa| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (#1=#:G291 NIL) (|a1u| (|Union| (|AlgebraicNumber|) "failed"))
-          (|la1| (|List| (|AlgebraicNumber|))) (#2=#:G292 NIL) (|a| NIL))
+          (#1=#:G292 NIL) (|a1u| (|Union| (|AlgebraicNumber|) "failed"))
+          (|la1| (|List| (|AlgebraicNumber|))) (#2=#:G293 NIL) (|a| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |la1| NIL . #3=(|FSUPFACT;ffactor1;UPLF;16|))
@@ -159,7 +159,7 @@
                                  ((QEQCAR |a1u| 1)
                                   (PROGN
                                    (LETT #1# (|FSUPFACT;ffactor2| |p| $) . #3#)
-                                   (GO #4=#:G290)))
+                                   (GO #4=#:G291)))
                                  ('T
                                   (LETT |la1| (CONS (QCDR |a1u|) |la1|)
                                         . #3#)))))
@@ -212,7 +212,7 @@
           (|Factored| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
           "failed"))
         (SPROG
-         ((#1=#:G297 NIL)
+         ((#1=#:G298 NIL)
           (|q|
            (|Union|
             (|:| |overq|
@@ -248,7 +248,7 @@
           (|:| |overan| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
           (|:| |failed| (|Boolean|))))
         (SPROG
-         ((#1=#:G319 NIL)
+         ((#1=#:G320 NIL)
           (|ansa| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
           (|ra| (|Union| (|AlgebraicNumber|) #2="failed"))
           (|goforq?| (|Boolean|))
@@ -315,7 +315,7 @@
                                ('T
                                 (PROGN
                                  (LETT #1# (CONS 2 'T) . #3#)
-                                 (GO #4=#:G318)))))))))))
+                                 (GO #4=#:G319)))))))))))
                    ('T
                     (SEQ
                      (LETT |ra|
@@ -368,7 +368,7 @@
           (|:| |overan| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
           (|:| |failed| (|Boolean|))))
         (SPROG
-         ((#1=#:G338 NIL)
+         ((#1=#:G339 NIL)
           (|ansq| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
           (|rq| (|Union| (|Fraction| (|Integer|)) "failed")))
          (SEQ
@@ -394,7 +394,7 @@
                                               (QREFELT $ 101))
                                     (QREFELT $ 102))
                           . #2#))
-                   ('T (PROGN (LETT #1# (CONS 2 'T) . #2#) (GO #3=#:G337))))
+                   ('T (PROGN (LETT #1# (CONS 2 'T) . #2#) (GO #3=#:G338))))
                   (EXIT (LETT |p| (SPADCALL |p| (QREFELT $ 85)) . #2#)))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ansq|))))
@@ -483,8 +483,8 @@
                                           (|Kernel| F))
           "failed"))
         (SPROG
-         ((#1=#:G360 NIL) (#2=#:G359 #3=(|Boolean|)) (#4=#:G361 #3#)
-          (#5=#:G368 NIL) (|c| NIL))
+         ((#1=#:G361 NIL) (#2=#:G360 #3=(|Boolean|)) (#4=#:G362 #3#)
+          (#5=#:G369 NIL) (|c| NIL))
          (SEQ
           (COND
            ((PROGN
@@ -521,9 +521,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceUnivariatePolynomialFactor;|)) 
 
-(DEFUN |FunctionSpaceUnivariatePolynomialFactor| (&REST #1=#:G369)
+(DEFUN |FunctionSpaceUnivariatePolynomialFactor| (&REST #1=#:G370)
   (SPROG NIL
-         (PROG (#2=#:G370)
+         (PROG (#2=#:G371)
            (RETURN
             (COND
              ((LETT #2#

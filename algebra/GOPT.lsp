@@ -13,7 +13,7 @@
 
 (SDEFUN |GOPT;maxSubst;U$;4|
         ((|d| |Union| (|PositiveInteger|) "arbitrary") ($ $))
-        (SPROG ((#1=#:G128 NIL))
+        (SPROG ((#1=#:G129 NIL))
                (COND
                 ((QEQCAR |d| 0)
                  (SPADCALL
@@ -89,7 +89,7 @@
 
 (SDEFUN |GOPT;option;LSU;23|
         ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))
-        (SPROG ((#1=#:G190 NIL) (#2=#:G191 NIL) (#3=#:G192 NIL) (|x| NIL))
+        (SPROG ((#1=#:G191 NIL) (#2=#:G192 NIL) (#3=#:G193 NIL) (|x| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -109,9 +109,9 @@
                               (LETT #1#
                                     (PROGN
                                      (LETT #2# (CONS 0 (QCDR |x|)) . #4#)
-                                     (GO #5=#:G189))
+                                     (GO #5=#:G190))
                                     . #4#)
-                              (GO #6=#:G184))))))
+                              (GO #6=#:G185))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT (CONS 1 "failed"))))
@@ -121,7 +121,7 @@
 
 (DEFUN |GuessOption| ()
   (SPROG NIL
-         (PROG (#1=#:G194)
+         (PROG (#1=#:G195)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GuessOption|)

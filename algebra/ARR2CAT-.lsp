@@ -2,8 +2,8 @@
 (SDEFUN |ARR2CAT-;any?;MSB;1|
         ((|f| |Mapping| (|Boolean|) R) (|m| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G179 NIL) (#2=#:G180 NIL) (#3=#:G182 NIL) (|j| NIL)
-          (#4=#:G181 NIL) (|i| NIL))
+         ((#1=#:G180 NIL) (#2=#:G181 NIL) (#3=#:G183 NIL) (|j| NIL)
+          (#4=#:G182 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -22,9 +22,9 @@
                       (COND
                        ((SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 15)) |f|)
                         (PROGN
-                         (LETT #1# (PROGN (LETT #2# 'T . #5#) (GO #6=#:G178))
+                         (LETT #1# (PROGN (LETT #2# 'T . #5#) (GO #6=#:G179))
                                . #5#)
-                         (GO #7=#:G174))))))
+                         (GO #7=#:G175))))))
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #1#))
              (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
@@ -34,8 +34,8 @@
 (SDEFUN |ARR2CAT-;every?;MSB;2|
         ((|f| |Mapping| (|Boolean|) R) (|m| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G188 NIL) (#2=#:G189 NIL) (#3=#:G191 NIL) (|j| NIL)
-          (#4=#:G190 NIL) (|i| NIL))
+         ((#1=#:G189 NIL) (#2=#:G190 NIL) (#3=#:G192 NIL) (|j| NIL)
+          (#4=#:G191 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -55,9 +55,9 @@
                        ((NULL
                          (SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 15)) |f|))
                         (PROGN
-                         (LETT #1# (PROGN (LETT #2# 'NIL . #5#) (GO #6=#:G187))
+                         (LETT #1# (PROGN (LETT #2# 'NIL . #5#) (GO #6=#:G188))
                                . #5#)
-                         (GO #7=#:G184))))))
+                         (GO #7=#:G185))))))
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #1#))
              (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
@@ -96,8 +96,8 @@
 (SDEFUN |ARR2CAT-;count;MSNni;8|
         ((|f| |Mapping| (|Boolean|) R) (|m| S) ($ |NonNegativeInteger|))
         (SPROG
-         ((|num| (|NonNegativeInteger|)) (#1=#:G208 NIL) (|j| NIL)
-          (#2=#:G207 NIL) (|i| NIL))
+         ((|num| (|NonNegativeInteger|)) (#1=#:G209 NIL) (|j| NIL)
+          (#2=#:G208 NIL) (|i| NIL))
          (SEQ (LETT |num| 0 . #3=(|ARR2CAT-;count;MSNni;8|))
               (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 11)) . #3#)
                    (LETT #2# (SPADCALL |m| (QREFELT $ 12)) . #3#) G190
@@ -120,7 +120,7 @@
 
 (SDEFUN |ARR2CAT-;parts;SL;9| ((|m| S) ($ |List| R))
         (SPROG
-         ((|entryList| (|List| R)) (#1=#:G214 NIL) (|j| NIL) (#2=#:G213 NIL)
+         ((|entryList| (|List| R)) (#1=#:G215 NIL) (|j| NIL) (#2=#:G214 NIL)
           (|i| NIL))
          (SEQ (LETT |entryList| NIL . #3=(|ARR2CAT-;parts;SL;9|))
               (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 12)) . #3#)
@@ -144,8 +144,8 @@
 
 (SDEFUN |ARR2CAT-;listOfLists;SL;10| ((|x| S) ($ |List| (|List| R)))
         (SPROG
-         ((|ll| (|List| (|List| R))) (|l| (|List| R)) (#1=#:G221 NIL) (|j| NIL)
-          (#2=#:G220 NIL) (|i| NIL))
+         ((|ll| (|List| (|List| R))) (|l| (|List| R)) (#1=#:G222 NIL) (|j| NIL)
+          (#2=#:G221 NIL) (|i| NIL))
          (SEQ (LETT |ll| NIL . #3=(|ARR2CAT-;listOfLists;SL;10|))
               (SEQ (LETT |i| (SPADCALL |x| (QREFELT $ 12)) . #3#)
                    (LETT #2# (SPADCALL |x| (QREFELT $ 11)) . #3#) G190
@@ -171,7 +171,7 @@
         ((|x| S) (|i1| |Integer|) (|i2| |Integer|) (|j1| |Integer|)
          (|j2| |Integer|) ($ S))
         (SPROG
-         ((#1=#:G233 NIL) (|j| NIL) (|l| NIL) (#2=#:G232 NIL) (|i| NIL)
+         ((#1=#:G234 NIL) (|j| NIL) (|l| NIL) (#2=#:G233 NIL) (|i| NIL)
           (|k| NIL) (|y| (S)) (|cols| #3=(|NonNegativeInteger|)) (|rows| #3#))
          (SEQ
           (COND ((< (+ |i2| 1) |i1|) (|error| "subMatrix: bad row indices"))
@@ -223,9 +223,9 @@
         ((|x| S) (|rowList| |List| (|Integer|)) (|colList| |List| (|Integer|))
          ($ S))
         (SPROG
-         ((#1=#:G250 NIL) (|ej| NIL) (#2=#:G251 NIL) (|j| NIL) (#3=#:G248 NIL)
-          (|ei| NIL) (#4=#:G249 NIL) (|i| NIL) (|y| (S)) (#5=#:G244 NIL)
-          (#6=#:G247 NIL) (#7=#:G245 NIL) (#8=#:G246 NIL))
+         ((#1=#:G251 NIL) (|ej| NIL) (#2=#:G252 NIL) (|j| NIL) (#3=#:G249 NIL)
+          (|ei| NIL) (#4=#:G250 NIL) (|i| NIL) (|y| (S)) (#5=#:G245 NIL)
+          (#6=#:G248 NIL) (#7=#:G246 NIL) (#8=#:G247 NIL))
          (SEQ
           (SEQ
            (EXIT
@@ -242,7 +242,7 @@
                                    (QREFELT $ 28)))
                      (PROGN
                       (LETT #7# (|error| "elt: index out of range") . #9#)
-                      (GO #10=#:G236))))))
+                      (GO #10=#:G237))))))
                  (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL)))
            #10# (EXIT #7#))
           (SEQ
@@ -259,7 +259,7 @@
                                    (QREFELT $ 28)))
                      (PROGN
                       (LETT #5# (|error| "elt: index out of range") . #9#)
-                      (GO #11=#:G239))))))
+                      (GO #11=#:G240))))))
                  (LETT #6# (CDR #6#) . #9#) (GO G190) G191 (EXIT NIL)))
            #11# (EXIT #5#))
           (LETT |y|
@@ -336,7 +336,7 @@
         ((|x| S) (|sr| |Segment| (|Integer|)) (|sc| |Segment| (|Integer|))
          ($ S))
         (SPROG
-         ((#1=#:G265 NIL) (|j| NIL) (|l| NIL) (#2=#:G264 NIL) (|i| NIL)
+         ((#1=#:G266 NIL) (|j| NIL) (|l| NIL) (#2=#:G265 NIL) (|i| NIL)
           (|k| NIL) (|y| (S)) (|nc| #3=(|NonNegativeInteger|)) (|nr| #3#)
           (|ic| #4=(|Integer|)) (|ir| #4#) (|uc| #5=(|Integer|))
           (|lc| #6=(|Integer|)) (|ur| #5#) (|lr| #6#))
@@ -398,7 +398,7 @@
 (SDEFUN |ARR2CAT-;check_segs|
         ((|ls| |List| (|Segment| (|Integer|))) (|lb| |Integer|)
          (|ub| |Integer|) ($ |NonNegativeInteger|))
-        (SPROG ((|res| (|NonNegativeInteger|)) (#1=#:G269 NIL) (|s| NIL))
+        (SPROG ((|res| (|NonNegativeInteger|)) (#1=#:G270 NIL) (|s| NIL))
                (SEQ (LETT |res| 0 . #2=(|ARR2CAT-;check_segs|))
                     (SEQ (LETT |s| NIL . #2#) (LETT #1# |ls| . #2#) G190
                          (COND
@@ -418,9 +418,9 @@
         ((|x| S) (|lsr| |List| (|Segment| (|Integer|)))
          (|lsc| |List| (|Segment| (|Integer|))) ($ S))
         (SPROG
-         ((|i| (|Integer|)) (|j| (|Integer|)) (#1=#:G281 NIL) (#2=#:G282 NIL)
-          (|l| NIL) (#3=#:G280 NIL) (|sc| NIL) (|k| NIL) (|ir| (|Integer|))
-          (|ur| (|Integer|)) (|lr| (|Integer|)) (#4=#:G279 NIL) (|sr| NIL)
+         ((|i| (|Integer|)) (|j| (|Integer|)) (#1=#:G282 NIL) (#2=#:G283 NIL)
+          (|l| NIL) (#3=#:G281 NIL) (|sc| NIL) (|k| NIL) (|ir| (|Integer|))
+          (|ur| (|Integer|)) (|lr| (|Integer|)) (#4=#:G280 NIL) (|sr| NIL)
           (|y| (S)) (|nc| #5=(|NonNegativeInteger|)) (|nr| #5#))
          (SEQ
           (LETT |nr|
@@ -492,9 +492,9 @@
         ((|x| S) (|rowList| |List| (|Integer|)) (|colList| |List| (|Integer|))
          (|y| S) ($ S))
         (SPROG
-         ((#1=#:G301 NIL) (|ej| NIL) (#2=#:G302 NIL) (|j| NIL) (#3=#:G299 NIL)
-          (|ei| NIL) (#4=#:G300 NIL) (|i| NIL) (#5=#:G295 NIL) (#6=#:G298 NIL)
-          (#7=#:G296 NIL) (#8=#:G297 NIL))
+         ((#1=#:G302 NIL) (|ej| NIL) (#2=#:G303 NIL) (|j| NIL) (#3=#:G300 NIL)
+          (|ei| NIL) (#4=#:G301 NIL) (|i| NIL) (#5=#:G296 NIL) (#6=#:G299 NIL)
+          (#7=#:G297 NIL) (#8=#:G298 NIL))
          (SEQ
           (SEQ
            (EXIT
@@ -511,7 +511,7 @@
                                    (QREFELT $ 28)))
                      (PROGN
                       (LETT #7# (|error| "setelt: index out of range") . #9#)
-                      (GO #10=#:G285))))))
+                      (GO #10=#:G286))))))
                  (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL)))
            #10# (EXIT #7#))
           (SEQ
@@ -528,7 +528,7 @@
                                    (QREFELT $ 28)))
                      (PROGN
                       (LETT #5# (|error| "setelt: index out of range") . #9#)
-                      (GO #11=#:G288))))))
+                      (GO #11=#:G289))))))
                  (LETT #6# (CDR #6#) . #9#) (GO G190) G191 (EXIT NIL)))
            #11# (EXIT #5#))
           (COND
@@ -570,7 +570,7 @@
         ((|x| S) (|sr| |Segment| (|Integer|)) (|sc| |Segment| (|Integer|))
          (|y| S) ($ S))
         (SPROG
-         ((#1=#:G310 NIL) (|j| NIL) (|l| NIL) (#2=#:G309 NIL) (|i| NIL)
+         ((#1=#:G311 NIL) (|j| NIL) (|l| NIL) (#2=#:G310 NIL) (|i| NIL)
           (|k| NIL) (|nc| #3=(|NonNegativeInteger|)) (|nr| #3#)
           (|ic| #4=(|Integer|)) (|ir| #4#) (|uc| #5=(|Integer|))
           (|lc| #6=(|Integer|)) (|ur| #5#) (|lr| #6#))
@@ -631,9 +631,9 @@
         ((|x| S) (|lsr| |List| (|Segment| (|Integer|)))
          (|lsc| |List| (|Segment| (|Integer|))) (|y| S) ($ S))
         (SPROG
-         ((|i| (|Integer|)) (|j| (|Integer|)) (#1=#:G324 NIL) (#2=#:G325 NIL)
-          (|l| NIL) (#3=#:G323 NIL) (|sc| NIL) (|k| NIL) (|ir| (|Integer|))
-          (|ur| (|Integer|)) (|lr| (|Integer|)) (#4=#:G322 NIL) (|sr| NIL)
+         ((|i| (|Integer|)) (|j| (|Integer|)) (#1=#:G325 NIL) (#2=#:G326 NIL)
+          (|l| NIL) (#3=#:G324 NIL) (|sc| NIL) (|k| NIL) (|ir| (|Integer|))
+          (|ur| (|Integer|)) (|lr| (|Integer|)) (#4=#:G323 NIL) (|sr| NIL)
           (|nc| #5=(|NonNegativeInteger|)) (|nr| #5#))
          (SEQ
           (LETT |nr|
@@ -707,7 +707,7 @@
 (SDEFUN |ARR2CAT-;setsubMatrix!;S2I2S;20|
         ((|x| S) (|i1| |Integer|) (|j1| |Integer|) (|y| S) ($ S))
         (SPROG
-         ((#1=#:G335 NIL) (|j| NIL) (|l| NIL) (#2=#:G334 NIL) (|i| NIL)
+         ((#1=#:G336 NIL) (|j| NIL) (|l| NIL) (#2=#:G335 NIL) (|i| NIL)
           (|k| NIL) (|j2| #3=(|Integer|)) (|i2| #3#))
          (SEQ
           (LETT |i2| (- (+ |i1| (SPADCALL |y| (QREFELT $ 21))) 1)
@@ -751,7 +751,7 @@
 
 (SDEFUN |ARR2CAT-;swapRows!;S2IS;21|
         ((|x| S) (|i1| |Integer|) (|i2| |Integer|) ($ S))
-        (SPROG ((|r| (R)) (#1=#:G345 NIL) (|j| NIL))
+        (SPROG ((|r| (R)) (#1=#:G346 NIL) (|j| NIL))
                (SEQ
                 (COND
                  ((OR (< |i1| (SPADCALL |x| (QREFELT $ 11)))
@@ -784,7 +784,7 @@
 
 (SDEFUN |ARR2CAT-;swapColumns!;S2IS;22|
         ((|x| S) (|j1| |Integer|) (|j2| |Integer|) ($ S))
-        (SPROG ((|r| (R)) (#1=#:G355 NIL) (|i| NIL))
+        (SPROG ((|r| (R)) (#1=#:G356 NIL) (|i| NIL))
                (SEQ
                 (COND
                  ((OR (< |j1| (SPADCALL |x| (QREFELT $ 13)))
@@ -817,7 +817,7 @@
 
 (SDEFUN |ARR2CAT-;transpose;2S;23| ((|x| S) ($ S))
         (SPROG
-         ((#1=#:G361 NIL) (|j| NIL) (#2=#:G360 NIL) (|i| NIL) (|ans| (S)))
+         ((#1=#:G362 NIL) (|j| NIL) (#2=#:G361 NIL) (|i| NIL) (|ans| (S)))
          (SEQ
           (LETT |ans|
                 (SPADCALL (SPADCALL |x| (QREFELT $ 22))
@@ -842,7 +842,7 @@
 
 (SDEFUN |ARR2CAT-;squareTop;2S;24| ((|x| S) ($ S))
         (SPROG
-         ((#1=#:G368 NIL) (|j| NIL) (#2=#:G367 NIL) (|i| NIL) (|ans| (S))
+         ((#1=#:G369 NIL) (|j| NIL) (#2=#:G368 NIL) (|i| NIL) (|ans| (S))
           (|cols| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -876,9 +876,9 @@
 
 (SDEFUN |ARR2CAT-;horizConcat;LS;26| ((|la| |List| S) ($ S))
         (SPROG
-         ((|l| (|Integer|)) (#1=#:G383 NIL) (|j| NIL) (#2=#:G382 NIL) (|a| NIL)
-          (#3=#:G381 NIL) (|i| NIL) (|ans| (S)) (|nc| (|NonNegativeInteger|))
-          (#4=#:G380 NIL) (|nr| (|NonNegativeInteger|)) (|a1| (S)))
+         ((|l| (|Integer|)) (#1=#:G384 NIL) (|j| NIL) (#2=#:G383 NIL) (|a| NIL)
+          (#3=#:G382 NIL) (|i| NIL) (|ans| (S)) (|nc| (|NonNegativeInteger|))
+          (#4=#:G381 NIL) (|nr| (|NonNegativeInteger|)) (|a1| (S)))
          (SEQ
           (COND ((NULL |la|) (|error| "horizConcat: empty list"))
                 ('T
@@ -940,9 +940,9 @@
 
 (SDEFUN |ARR2CAT-;vertConcat;LS;28| ((|la| |List| S) ($ S))
         (SPROG
-         ((|l| (|Integer|)) (#1=#:G397 NIL) (|j| NIL) (#2=#:G396 NIL) (|i| NIL)
-          (#3=#:G395 NIL) (|a| NIL) (|ans| (S)) (|nr| (|NonNegativeInteger|))
-          (#4=#:G394 NIL) (|nc| (|NonNegativeInteger|)) (|a1| (S)))
+         ((|l| (|Integer|)) (#1=#:G398 NIL) (|j| NIL) (#2=#:G397 NIL) (|i| NIL)
+          (#3=#:G396 NIL) (|a| NIL) (|ans| (S)) (|nr| (|NonNegativeInteger|))
+          (#4=#:G395 NIL) (|nc| (|NonNegativeInteger|)) (|a1| (S)))
          (SEQ
           (COND ((NULL |la|) (|error| "vertConcat: empty list"))
                 ('T
@@ -997,7 +997,7 @@
                   (EXIT |ans|))))))) 
 
 (SDEFUN |ARR2CAT-;blockConcat;LS;29| ((LLA |List| (|List| S)) ($ S))
-        (SPROG ((#1=#:G401 NIL) (LA NIL) (#2=#:G400 NIL))
+        (SPROG ((#1=#:G402 NIL) (LA NIL) (#2=#:G401 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -1017,7 +1017,7 @@
 (SDEFUN |ARR2CAT-;vertSplit;SPiL;30|
         ((A S) (|r| |PositiveInteger|) ($ |List| S))
         (SPROG
-         ((#1=#:G410 NIL) (|i| NIL) (#2=#:G409 NIL) (|mac| (|Integer|))
+         ((#1=#:G411 NIL) (|i| NIL) (#2=#:G410 NIL) (|mac| (|Integer|))
           (|mic| (|Integer|)) (|mir| (|Integer|))
           (|dr| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
@@ -1054,7 +1054,7 @@
 (SDEFUN |ARR2CAT-;vertSplit;SLL;31|
         ((A S) (|lr| |List| (|PositiveInteger|)) ($ |List| S))
         (SPROG
-         ((#1=#:G430 NIL) (|i| NIL) (#2=#:G429 NIL) (|mac| (|Integer|))
+         ((#1=#:G431 NIL) (|i| NIL) (#2=#:G430 NIL) (|mac| (|Integer|))
           (|mic| (|Integer|)) (|mir| (|Integer|))
           (|l| (|List| (|PositiveInteger|))))
          (SEQ
@@ -1095,7 +1095,7 @@
 (SDEFUN |ARR2CAT-;horizSplit;SPiL;32|
         ((A S) (|c| |PositiveInteger|) ($ |List| S))
         (SPROG
-         ((#1=#:G439 NIL) (|i| NIL) (#2=#:G438 NIL) (|mic| (|Integer|))
+         ((#1=#:G440 NIL) (|i| NIL) (#2=#:G439 NIL) (|mic| (|Integer|))
           (|mar| (|Integer|)) (|mir| (|Integer|))
           (|dc| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
@@ -1133,7 +1133,7 @@
 (SDEFUN |ARR2CAT-;horizSplit;SLL;33|
         ((A S) (|lc| |List| (|PositiveInteger|)) ($ |List| S))
         (SPROG
-         ((#1=#:G459 NIL) (|i| NIL) (#2=#:G458 NIL) (|mic| (|Integer|))
+         ((#1=#:G460 NIL) (|i| NIL) (#2=#:G459 NIL) (|mic| (|Integer|))
           (|mar| (|Integer|)) (|mir| (|Integer|))
           (|l| (|List| (|PositiveInteger|))))
          (SEQ
@@ -1174,7 +1174,7 @@
 (SDEFUN |ARR2CAT-;blockSplit;S2PiL;34|
         ((A S) (|nr| |PositiveInteger|) (|nc| |PositiveInteger|)
          ($ |List| (|List| S)))
-        (SPROG ((#1=#:G463 NIL) (X NIL) (#2=#:G462 NIL))
+        (SPROG ((#1=#:G464 NIL) (X NIL) (#2=#:G463 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|ARR2CAT-;blockSplit;S2PiL;34|))
@@ -1193,7 +1193,7 @@
 (SDEFUN |ARR2CAT-;blockSplit;S2LL;35|
         ((A S) (|lr| |List| (|PositiveInteger|))
          (|lc| |List| (|PositiveInteger|)) ($ |List| (|List| S)))
-        (SPROG ((#1=#:G467 NIL) (X NIL) (#2=#:G466 NIL))
+        (SPROG ((#1=#:G468 NIL) (X NIL) (#2=#:G467 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|ARR2CAT-;blockSplit;S2LL;35|))
@@ -1211,7 +1211,7 @@
 
 (SDEFUN |ARR2CAT-;copy;2S;36| ((|m| S) ($ S))
         (SPROG
-         ((#1=#:G473 NIL) (|j| NIL) (#2=#:G472 NIL) (|i| NIL) (|ans| (S)))
+         ((#1=#:G474 NIL) (|j| NIL) (#2=#:G473 NIL) (|i| NIL) (|ans| (S)))
          (SEQ
           (LETT |ans|
                 (SPADCALL (SPADCALL |m| (QREFELT $ 21))
@@ -1235,7 +1235,7 @@
           (EXIT |ans|)))) 
 
 (SDEFUN |ARR2CAT-;fill!;SRS;37| ((|m| S) (|r| R) ($ S))
-        (SPROG ((#1=#:G479 NIL) (|j| NIL) (#2=#:G478 NIL) (|i| NIL))
+        (SPROG ((#1=#:G480 NIL) (|j| NIL) (#2=#:G479 NIL) (|i| NIL))
                (SEQ
                 (SEQ
                  (LETT |i| (SPADCALL |m| (QREFELT $ 11))
@@ -1254,7 +1254,7 @@
 
 (SDEFUN |ARR2CAT-;map;M2S;38| ((|f| |Mapping| R R) (|m| S) ($ S))
         (SPROG
-         ((#1=#:G486 NIL) (|j| NIL) (#2=#:G485 NIL) (|i| NIL) (|ans| (S)))
+         ((#1=#:G487 NIL) (|j| NIL) (#2=#:G486 NIL) (|i| NIL) (|ans| (S)))
          (SEQ
           (LETT |ans|
                 (SPADCALL (SPADCALL |m| (QREFELT $ 21))
@@ -1279,7 +1279,7 @@
           (EXIT |ans|)))) 
 
 (SDEFUN |ARR2CAT-;map!;M2S;39| ((|f| |Mapping| R R) (|m| S) ($ S))
-        (SPROG ((#1=#:G492 NIL) (|j| NIL) (#2=#:G491 NIL) (|i| NIL))
+        (SPROG ((#1=#:G493 NIL) (|j| NIL) (#2=#:G492 NIL) (|i| NIL))
                (SEQ
                 (SEQ
                  (LETT |i| (SPADCALL |m| (QREFELT $ 11))
@@ -1303,7 +1303,7 @@
 
 (SDEFUN |ARR2CAT-;map;M3S;40| ((|f| |Mapping| R R R) (|m| S) (|n| S) ($ S))
         (SPROG
-         ((#1=#:G501 NIL) (|j| NIL) (#2=#:G500 NIL) (|i| NIL) (|ans| (S)))
+         ((#1=#:G502 NIL) (|j| NIL) (#2=#:G501 NIL) (|i| NIL) (|ans| (S)))
          (SEQ
           (COND
            ((OR
@@ -1381,7 +1381,7 @@
 
 (SDEFUN |ARR2CAT-;setRow!;SIRowS;42|
         ((|m| S) (|i| |Integer|) (|v| |Row|) ($ S))
-        (SPROG ((#1=#:G511 NIL) (|j| NIL) (#2=#:G512 NIL) (|k| NIL))
+        (SPROG ((#1=#:G512 NIL) (|j| NIL) (#2=#:G513 NIL) (|k| NIL))
                (SEQ
                 (COND
                  ((OR (< |i| (SPADCALL |m| (QREFELT $ 11)))
@@ -1408,7 +1408,7 @@
 
 (SDEFUN |ARR2CAT-;setColumn!;SIColS;43|
         ((|m| S) (|j| |Integer|) (|v| |Col|) ($ S))
-        (SPROG ((#1=#:G518 NIL) (|i| NIL) (#2=#:G519 NIL) (|k| NIL))
+        (SPROG ((#1=#:G519 NIL) (|i| NIL) (#2=#:G520 NIL) (|k| NIL))
                (SEQ
                 (COND
                  ((OR (< |j| (SPADCALL |m| (QREFELT $ 13)))
@@ -1435,8 +1435,8 @@
 
 (SDEFUN |ARR2CAT-;=;2SB;44| ((|m| S) (|n| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G528 NIL) (#2=#:G529 NIL) (#3=#:G531 NIL) (|j| NIL)
-          (#4=#:G530 NIL) (|i| NIL))
+         ((#1=#:G529 NIL) (#2=#:G530 NIL) (#3=#:G532 NIL) (|j| NIL)
+          (#4=#:G531 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (COND ((SPADCALL |m| |n| (QREFELT $ 105)) 'T)
@@ -1469,9 +1469,9 @@
                                 (LETT #1#
                                       (PROGN
                                        (LETT #2# 'NIL . #5#)
-                                       (GO #6=#:G527))
+                                       (GO #6=#:G528))
                                       . #5#)
-                                (GO #7=#:G523))))))
+                                (GO #7=#:G524))))))
                            (LETT |j| (+ |j| 1) . #5#) (GO G190) G191
                            (EXIT NIL)))
                      #7# (EXIT #1#))
@@ -1481,8 +1481,8 @@
 
 (SDEFUN |ARR2CAT-;member?;RSB;45| ((|r| R) (|m| S) ($ |Boolean|))
         (SPROG
-         ((#1=#:G537 NIL) (#2=#:G538 NIL) (#3=#:G540 NIL) (|j| NIL)
-          (#4=#:G539 NIL) (|i| NIL))
+         ((#1=#:G538 NIL) (#2=#:G539 NIL) (#3=#:G541 NIL) (|j| NIL)
+          (#4=#:G540 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1502,9 +1502,9 @@
                        ((SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 15)) |r|
                                   (QREFELT $ 106))
                         (PROGN
-                         (LETT #1# (PROGN (LETT #2# 'T . #5#) (GO #6=#:G536))
+                         (LETT #1# (PROGN (LETT #2# 'T . #5#) (GO #6=#:G537))
                                . #5#)
-                         (GO #7=#:G533))))))
+                         (GO #7=#:G534))))))
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #1#))
              (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
@@ -1524,7 +1524,7 @@
 
 (SDEFUN |ARR2CAT-;row;SIRow;47| ((|m| S) (|i| |Integer|) ($ |Row|))
         (SPROG
-         ((#1=#:G548 NIL) (|j| NIL) (#2=#:G549 NIL) (|k| NIL) (|v| (|Row|)))
+         ((#1=#:G549 NIL) (|j| NIL) (#2=#:G550 NIL) (|k| NIL) (|v| (|Row|)))
          (SEQ
           (COND
            ((OR (< |i| (SPADCALL |m| (QREFELT $ 11)))
@@ -1550,7 +1550,7 @@
 
 (SDEFUN |ARR2CAT-;column;SICol;48| ((|m| S) (|j| |Integer|) ($ |Col|))
         (SPROG
-         ((#1=#:G555 NIL) (|i| NIL) (#2=#:G556 NIL) (|k| NIL) (|v| (|Col|)))
+         ((#1=#:G556 NIL) (|i| NIL) (#2=#:G557 NIL) (|k| NIL) (|v| (|Col|)))
          (SEQ
           (COND
            ((OR (< |j| (SPADCALL |m| (QREFELT $ 13)))
@@ -1576,8 +1576,8 @@
 
 (SDEFUN |ARR2CAT-;coerce;SOf;49| ((|m| S) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|List| (|OutputForm|)))) (#1=#:G564 NIL) (|j| NIL)
-          (#2=#:G563 NIL) (#3=#:G562 NIL) (|i| NIL) (#4=#:G561 NIL))
+         ((|l| (|List| (|List| (|OutputForm|)))) (#1=#:G565 NIL) (|j| NIL)
+          (#2=#:G564 NIL) (#3=#:G563 NIL) (|i| NIL) (#4=#:G562 NIL))
          (SEQ
           (LETT |l|
                 (PROGN

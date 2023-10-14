@@ -7,7 +7,7 @@
 (SDEFUN |CARTEN2;map;MCtCt;2|
         ((|f| |Mapping| T$ S) (|s| |CartesianTensor| |minix| |dim| S)
          ($ |CartesianTensor| |minix| |dim| T$))
-        (SPROG ((#1=#:G108 NIL) (|e| NIL) (#2=#:G107 NIL))
+        (SPROG ((#1=#:G109 NIL) (|e| NIL) (#2=#:G108 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -25,9 +25,9 @@
 
 (DECLAIM (NOTINLINE |CartesianTensorFunctions2;|)) 
 
-(DEFUN |CartesianTensorFunctions2| (&REST #1=#:G109)
+(DEFUN |CartesianTensorFunctions2| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

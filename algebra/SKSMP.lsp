@@ -45,7 +45,7 @@
 (SDEFUN |SKSMP;*;3$;5| ((|x| $) (|y| $) ($ $))
         (SPROG
          ((|ru| (|Upol|)) (|yu| (|Upol|)) (|xu| (|Upol|)) (|v| (|Var|))
-          (#1=#:G133 NIL))
+          (#1=#:G134 NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (QREFELT $ 34))
@@ -75,7 +75,7 @@
 
 (SDEFUN |SKSMP;exquo;2$U;7| ((|x| $) (|y| $) ($ |Union| $ "failed"))
         (SPROG
-         ((|res| ($)) (|cc| ($)) (#1=#:G156 NIL)
+         ((|res| ($)) (|cc| ($)) (#1=#:G157 NIL)
           (|cu| (|Union| (|SparseMultivariatePolynomial| R |Var|) "failed"))
           (|lx| (|SparseMultivariatePolynomial| R |Var|)) (|lx1| ($))
           (|ly| (|SparseMultivariatePolynomial| R |Var|))
@@ -103,7 +103,7 @@
                                      (QREFELT $ 52))
                            (PROGN
                             (LETT #1# (CONS 1 "failed") . #2#)
-                            (GO #3=#:G155)))
+                            (GO #3=#:G156)))
                           ('T
                            (SEQ (LETT |lx| |lx1| . #2#)
                                 (LETT |cu| (SPADCALL |lx| |ly| (QREFELT $ 53))
@@ -150,7 +150,7 @@
               ('T (SPADCALL |x| |n| (QREFELT $ 58))))) 
 
 (SDEFUN |SKSMP;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
-        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G162 NIL))
+        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G163 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 34))
@@ -174,9 +174,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G181)
+(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G182)
   (SPROG NIL
-         (PROG (#2=#:G182)
+         (PROG (#2=#:G183)
            (RETURN
             (COND
              ((LETT #2#
@@ -199,7 +199,7 @@
 
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G180 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (#1=#:G181 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateSkewPolynomial|))

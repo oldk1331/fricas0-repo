@@ -49,7 +49,7 @@
         (SPADCALL (SPADCALL |i| (QREFELT $ 34)) (QREFELT $ 27))) 
 
 (SDEFUN |UPXSCONS;laurentIfCan;$U;13| ((|upxs| $) ($ |Union| ULS "failed"))
-        (SPROG ((#1=#:G140 NIL) (|r| (|Fraction| (|Integer|))))
+        (SPROG ((#1=#:G141 NIL) (|r| (|Fraction| (|Integer|))))
                (SEQ
                 (LETT |r| (|UPXSCONS;getExpon| |upxs| $)
                       . #2=(|UPXSCONS;laurentIfCan;$U;13|))
@@ -782,9 +782,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesConstructor;|)) 
 
-(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G372)
+(DEFUN |UnivariatePuiseuxSeriesConstructor| (&REST #1=#:G373)
   (SPROG NIL
-         (PROG (#2=#:G373)
+         (PROG (#2=#:G374)
            (RETURN
             (COND
              ((LETT #2#
@@ -807,8 +807,8 @@
 
 (DEFUN |UnivariatePuiseuxSeriesConstructor;| (|#1| |#2|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G363 NIL) (#2=#:G364 NIL) (#3=#:G365 NIL) (#4=#:G366 NIL)
-    (#5=#:G367 NIL) (#6=#:G368 NIL) (#7=#:G370 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G364 NIL) (#2=#:G365 NIL) (#3=#:G366 NIL) (#4=#:G367 NIL)
+    (#5=#:G368 NIL) (#6=#:G369 NIL) (#7=#:G371 NIL) ($ NIL) (|dv$| NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|UnivariatePuiseuxSeriesConstructor|))

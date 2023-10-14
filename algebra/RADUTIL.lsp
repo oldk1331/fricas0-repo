@@ -17,7 +17,7 @@
 
 (DEFUN |RadixUtilities| ()
   (SPROG NIL
-         (PROG (#1=#:G105)
+         (PROG (#1=#:G106)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|RadixUtilities|)

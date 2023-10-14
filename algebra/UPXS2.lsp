@@ -9,9 +9,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesFunctions2;|)) 
 
-(DEFUN |UnivariatePuiseuxSeriesFunctions2| (&REST #1=#:G105)
+(DEFUN |UnivariatePuiseuxSeriesFunctions2| (&REST #1=#:G106)
   (SPROG NIL
-         (PROG (#2=#:G106)
+         (PROG (#2=#:G107)
            (RETURN
             (COND
              ((LETT #2#

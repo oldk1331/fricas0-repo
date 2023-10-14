@@ -11,8 +11,8 @@
         ((|g| |Mapping| #1=(|List| (|Stream| A)) (|List| (|Stream| A)))
          (|n| |Integer|) ($ |List| (|Stream| A)))
         (SPROG
-         ((#2=#:G113 NIL) (|xi| NIL) (#3=#:G114 NIL) (|ji| NIL) (|j| #1#)
-          (|x| (|List| (|Stream| A))) (|i| NIL) (#4=#:G112 NIL))
+         ((#2=#:G114 NIL) (|xi| NIL) (#3=#:G115 NIL) (|ji| NIL) (|j| #1#)
+          (|x| (|List| (|Stream| A))) (|i| NIL) (#4=#:G113 NIL))
          (SEQ
           (LETT |x|
                 (PROGN
@@ -40,9 +40,9 @@
 
 (DECLAIM (NOTINLINE |ParadoxicalCombinatorsForStreams;|)) 
 
-(DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G115)
+(DEFUN |ParadoxicalCombinatorsForStreams| (#1=#:G116)
   (SPROG NIL
-         (PROG (#2=#:G116)
+         (PROG (#2=#:G117)
            (RETURN
             (COND
              ((LETT #2#

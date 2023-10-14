@@ -5,7 +5,7 @@
           (|:| |basis| (|List| R))))
         (SPROG
          ((|u| #1=(|Union| (|Vector| (|Fraction| UP)) "failed"))
-          (|bas| (|List| R)) (#2=#:G123 NIL) (|v| NIL) (#3=#:G122 NIL)
+          (|bas| (|List| R)) (#2=#:G124 NIL) (|v| NIL) (#3=#:G123 NIL)
           (|sol|
            (|Record| (|:| |particular| #1#)
                      (|:| |basis| (|List| (|Vector| (|Fraction| UP))))))
@@ -44,9 +44,9 @@
 
 (DECLAIM (NOTINLINE |PureAlgebraicLODE;|)) 
 
-(DEFUN |PureAlgebraicLODE| (&REST #1=#:G124)
+(DEFUN |PureAlgebraicLODE| (&REST #1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

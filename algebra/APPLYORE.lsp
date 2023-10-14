@@ -1,6 +1,6 @@
 
 (SDEFUN |APPLYORE;apply;PM2M;1| ((|p| P) (|f| |Mapping| M M) (|m| M) ($ M))
-        (SPROG ((|mn| (M)) (|w| (M)) (#1=#:G108 NIL) (|i| NIL))
+        (SPROG ((|mn| (M)) (|w| (M)) (#1=#:G109 NIL) (|i| NIL))
                (SEQ
                 (LETT |w| (|spadConstant| $ 9) . #2=(|APPLYORE;apply;PM2M;1|))
                 (LETT |mn| |m| . #2#)
@@ -21,9 +21,9 @@
 
 (DECLAIM (NOTINLINE |ApplyUnivariateSkewPolynomial;|)) 
 
-(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G109)
+(DEFUN |ApplyUnivariateSkewPolynomial| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G110)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#

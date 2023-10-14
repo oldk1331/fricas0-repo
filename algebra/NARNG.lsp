@@ -4,12 +4,12 @@
 (DEFPARAMETER |NonAssociativeRng;AL| 'NIL) 
 
 (DEFUN |NonAssociativeRng| ()
-  (LET (#:G105)
+  (LET (#:G106)
     (COND (|NonAssociativeRng;AL|)
           (T (SETQ |NonAssociativeRng;AL| (|NonAssociativeRng;|)))))) 
 
 (DEFUN |NonAssociativeRng;| ()
-  (SPROG ((#1=#:G103 NIL))
+  (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|AbelianGroup|) (|Monad|)

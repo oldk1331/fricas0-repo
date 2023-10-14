@@ -3,7 +3,7 @@
         ((|x| |Expression| (|Integer|)) (|y| |Expression| (|Integer|))
          (|z| |Expression| (|Integer|)) ($ |Symbol|))
         (SPROG
-         ((|t2| #1=(|Symbol|)) (|t1| #1#) (#2=#:G122 NIL)
+         ((|t2| #1=(|Symbol|)) (|t1| #1#) (#2=#:G123 NIL)
           (|varList3| #3=(|List| (|Symbol|))) (|varList2| #3#)
           (|varList1| #3#))
          (SEQ
@@ -44,7 +44,7 @@
                                        (|error|
                                         "tubePlot: only one variable may be used")
                                        . #4#)
-                                 (GO #7=#:G112)))))
+                                 (GO #7=#:G113)))))
                              #7# (EXIT #2#)))))))))
             (#6#
              (SEQ (LETT |t1| (|SPADfirst| |varList1|) . #4#)
@@ -268,7 +268,7 @@
 
 (DEFUN |ExpressionTubePlot| ()
   (SPROG NIL
-         (PROG (#1=#:G145)
+         (PROG (#1=#:G146)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ExpressionTubePlot|)

@@ -2,7 +2,7 @@
 (SDEFUN |SHDP;lessThanRlex|
         ((|v1| $) (|v2| $) (|low| |NonNegativeInteger|)
          (|high| |NonNegativeInteger|) ($ |Boolean|))
-        (SPROG ((#1=#:G115 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)))
+        (SPROG ((#1=#:G116 NIL) (|i| NIL) (|n2| (S)) (|n1| (S)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -34,7 +34,7 @@
                                   ((SPADCALL (SPADCALL |v2| |i| (QREFELT $ 12))
                                              (SPADCALL |v1| |i| (QREFELT $ 12))
                                              (QREFELT $ 15))
-                                   (PROGN (LETT #1# 'T . #2#) (GO #3=#:G114))))
+                                   (PROGN (LETT #1# 'T . #2#) (GO #3=#:G115))))
                                  (EXIT
                                   (COND
                                    ((SPADCALL
@@ -48,7 +48,7 @@
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SHDP;<;2$B;2| ((|v1| $) (|v2| $) ($ |Boolean|))
-        (SPROG ((#1=#:G121 NIL) (#2=#:G122 NIL) (|i| NIL))
+        (SPROG ((#1=#:G122 NIL) (#2=#:G123 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (COND ((|SHDP;lessThanRlex| |v1| |v2| 1 (QREFELT $ 7) $) 'T)
@@ -65,7 +65,7 @@
                                             (QREFELT $ 16))
                                   (PROGN
                                    (LETT #1# 'NIL . #3#)
-                                   (GO #4=#:G120))))))
+                                   (GO #4=#:G121))))))
                               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT
@@ -75,9 +75,9 @@
 
 (DECLAIM (NOTINLINE |SplitHomogeneousDirectProduct;|)) 
 
-(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G145)
+(DEFUN |SplitHomogeneousDirectProduct| (&REST #1=#:G146)
   (SPROG NIL
-         (PROG (#2=#:G146)
+         (PROG (#2=#:G147)
            (RETURN
             (COND
              ((LETT #2#
@@ -99,8 +99,8 @@
 
 (DEFUN |SplitHomogeneousDirectProduct;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G139 NIL) (#2=#:G140 NIL) (#3=#:G141 NIL) (#4=#:G142 NIL)
-    (#5=#:G143 NIL) (#6=#:G144 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G140 NIL) (#2=#:G141 NIL) (#3=#:G142 NIL) (#4=#:G143 NIL)
+    (#5=#:G144 NIL) (#6=#:G145 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|SplitHomogeneousDirectProduct|))

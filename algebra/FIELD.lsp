@@ -4,11 +4,11 @@
 (DEFPARAMETER |Field;AL| 'NIL) 
 
 (DEFUN |Field| ()
-  (LET (#:G110)
+  (LET (#:G111)
     (COND (|Field;AL|) (T (SETQ |Field;AL| (|Field;|)))))) 
 
 (DEFUN |Field;| ()
-  (SPROG ((#1=#:G108 NIL))
+  (SPROG ((#1=#:G109 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|EuclideanDomain|) (|UniqueFactorizationDomain|)

@@ -13,8 +13,8 @@
          ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
           (|:| |mat| (|Matrix| F))))
         (SPROG
-         ((|sys1| (|Matrix| UP)) (|l| (|List| (|Fraction| UP))) (#1=#:G138 NIL)
-          (|i| NIL) (#2=#:G137 NIL) (#3=#:G136 NIL) (|q| NIL) (#4=#:G135 NIL)
+         ((|sys1| (|Matrix| UP)) (|l| (|List| (|Fraction| UP))) (#1=#:G139 NIL)
+          (|i| NIL) (#2=#:G138 NIL) (#3=#:G137 NIL) (|q| NIL) (#4=#:G136 NIL)
           (|rec|
            (|Record| (|:| |basis| (|List| (|Fraction| UP)))
                      (|:| |particular| (|List| (|Fraction| UP)))))
@@ -71,8 +71,8 @@
          ($ |Record| (|:| |particular| (|Union| (|Fraction| UP) #1="failed"))
           (|:| |basis| (|List| (|Fraction| UP)))))
         (SPROG
-         ((#2=#:G178 NIL) (|v| (|Vector| F)) (#3=#:G177 NIL)
-          (|part| (|Union| (|Fraction| UP) #1#)) (#4=#:G164 NIL)
+         ((#2=#:G179 NIL) (|v| (|Vector| F)) (#3=#:G178 NIL)
+          (|part| (|Union| (|Fraction| UP) #1#)) (#4=#:G165 NIL)
           (|sol|
            (|Record| (|:| |particular| (|Union| (|Vector| F) "failed"))
                      (|:| |basis| (|List| (|Vector| F)))))
@@ -81,13 +81,13 @@
           (|sys1|
            (|Record| (|:| |mat| (|Matrix| UP)) (|:| |vec| (|Vector| UP))))
           (|h| (|Fraction| UP)) (|lb| #5=(|List| (|Fraction| UP))) (|l| #5#)
-          (|lsol| #5#) (|opq| (|Fraction| UP)) (#6=#:G176 NIL) (|q| NIL)
+          (|lsol| #5#) (|opq| (|Fraction| UP)) (#6=#:G177 NIL) (|q| NIL)
           (|rec|
            (|Record| (|:| |basis| (|List| (|Fraction| UP)))
                      (|:| |particular| (|List| (|Fraction| UP)))))
-          (|u| (|Union| UP "failed")) (#7=#:G141 NIL)
+          (|u| (|Union| UP "failed")) (#7=#:G142 NIL)
           (|b| (|List| (|Fraction| UP)))
-          (|uu| (|Union| (|Fraction| UP) "failed")) (#8=#:G175 NIL) (|f| NIL))
+          (|uu| (|Union| (|Fraction| UP) "failed")) (#8=#:G176 NIL) (|f| NIL))
          (SEQ
           (COND
            ((ZEROP (SPADCALL |op| (QREFELT $ 38)))
@@ -309,7 +309,7 @@
 (SDEFUN |ODERAT;regularPoint|
         ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
          (|lg| |List| (|Fraction| UP)) ($ |Integer|))
-        (SPROG ((#1=#:G190 NIL) (#2=#:G191 NIL) (|j| (F)) (|i| NIL) (|a| (UP)))
+        (SPROG ((#1=#:G191 NIL) (#2=#:G192 NIL) (|j| (F)) (|i| NIL) (|a| (UP)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -335,7 +335,7 @@
                                                . #3#)
                                          (QREFELT $ 84))
                                (|spadConstant| $ 56) (QREFELT $ 82))
-                              (PROGN (LETT #2# |i| . #3#) (GO #4=#:G189)))
+                              (PROGN (LETT #2# |i| . #3#) (GO #4=#:G190)))
                              ('T
                               (SEQ
                                (EXIT
@@ -350,7 +350,7 @@
                                           (LETT #2# (- |i|) . #3#)
                                           (GO #4#))
                                          . #3#)
-                                   (GO #5=#:G185)))))
+                                   (GO #5=#:G186)))))
                                #5# (EXIT #1#))))))
                           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                           (EXIT NIL)))))))
@@ -371,9 +371,9 @@
          ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
           (|:| |particular| (|List| (|Fraction| UP)))))
         (SPROG
-         ((|part| (|List| (|Fraction| UP))) (#1=#:G206 NIL) (|g| NIL)
-          (#2=#:G205 NIL) (|a1| (|Fraction| UP))
-          (|hom| (|List| (|Fraction| UP))) (|i| NIL) (#3=#:G204 NIL)
+         ((|part| (|List| (|Fraction| UP))) (#1=#:G207 NIL) (|g| NIL)
+          (#2=#:G206 NIL) (|a1| (|Fraction| UP))
+          (|hom| (|List| (|Fraction| UP))) (|i| NIL) (#3=#:G205 NIL)
           (|e| (|List| F)) (|q| (|NonNegativeInteger|))
           (|f| (|Mapping| |uts| (|List| |uts|))) (|dd| (|uts|))
           (|solver|
@@ -601,7 +601,7 @@
              (|compiledLookupCheck| '+ (LIST '$ '$ '$) |uts|)))))) 
 
 (SDEFUN |ODERAT;nzero?| ((|v| |Vector| F) ($ |Boolean|))
-        (SPROG ((#1=#:G211 NIL) (#2=#:G212 NIL) (#3=#:G213 NIL) (|i| NIL))
+        (SPROG ((#1=#:G212 NIL) (#2=#:G213 NIL) (#3=#:G214 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -617,9 +617,9 @@
                        (COND
                         ((NULL (SPADCALL (QAREF1O |v| |i| 1) (QREFELT $ 91)))
                          (PROGN
-                          (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #5=#:G210))
+                          (LETT #1# (PROGN (LETT #2# 'T . #4#) (GO #5=#:G211))
                                 . #4#)
-                          (GO #6=#:G208))))))
+                          (GO #6=#:G209))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT 'NIL)))
@@ -627,8 +627,8 @@
 
 (SDEFUN |ODERAT;UPfact| ((|n| |NonNegativeInteger|) ($ UP))
         (SPROG
-         ((#1=#:G217 NIL) (#2=#:G216 (UP)) (#3=#:G218 (UP)) (#4=#:G222 NIL)
-          (#5=#:G215 NIL) (|i| NIL) (|z| (UP)))
+         ((#1=#:G218 NIL) (#2=#:G217 (UP)) (#3=#:G219 (UP)) (#4=#:G223 NIL)
+          (#5=#:G216 NIL) (|i| NIL) (|z| (UP)))
          (SEQ
           (COND ((ZEROP |n|) (|spadConstant| $ 20))
                 (#6='T
@@ -710,7 +710,7 @@
 (SDEFUN |ODERAT;infIndicialEquation|
         ((|lambda| |List| (|NonNegativeInteger|)) (|lf| |List| UP) ($ UP))
         (SPROG
-         ((|ans| (UP)) (#1=#:G233 NIL) (|i| NIL) (#2=#:G234 NIL) (|f| NIL))
+         ((|ans| (UP)) (#1=#:G234 NIL) (|i| NIL) (#2=#:G235 NIL) (|f| NIL))
          (SEQ
           (LETT |ans| (|spadConstant| $ 57)
                 . #3=(|ODERAT;infIndicialEquation|))
@@ -739,8 +739,8 @@
         ((|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
          (|lg| |List| (|Fraction| UP)) ($ |NonNegativeInteger|))
         (SPROG
-         ((#1=#:G242 NIL) (|m| #2=(|Integer|)) (|mm| #2#) (#3=#:G246 NIL)
-          (|g| NIL) (#4=#:G238 NIL) (|n| (|Integer|))
+         ((#1=#:G243 NIL) (|m| #2=(|Integer|)) (|mm| #2#) (#3=#:G247 NIL)
+          (|g| NIL) (#4=#:G239 NIL) (|n| (|Integer|))
           (|rec|
            (|Record| (|:| |mu| (|Integer|))
                      (|:| |lambda| (|List| (|NonNegativeInteger|)))
@@ -798,7 +798,7 @@
 
 (SDEFUN |ODERAT;makeDot|
         ((|v| |Vector| F) (|bas| |List| (|Fraction| UP)) ($ |Fraction| UP))
-        (SPROG ((|ans| (|Fraction| UP)) (|i| NIL) (#1=#:G250 NIL) (|b| NIL))
+        (SPROG ((|ans| (|Fraction| UP)) (|i| NIL) (#1=#:G251 NIL) (|b| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 55) . #2=(|ODERAT;makeDot|))
                     (SEQ (LETT |b| NIL . #2#) (LETT #1# |bas| . #2#)
                          (LETT |i| 1 . #2#) G190
@@ -862,7 +862,7 @@
          (|g| |Fraction| UP)
          ($ |Record| (|:| |particular| (|Union| (|Fraction| UP) "failed"))
           (|:| |basis| (|List| (|Fraction| UP)))))
-        (SPROG ((#1=#:G263 NIL) (|c| (UP)))
+        (SPROG ((#1=#:G264 NIL) (|c| (UP)))
                (COND
                 ((SPADCALL
                   (LETT |c| (SPADCALL |op| (QREFELT $ 110))
@@ -888,7 +888,7 @@
          ($ |Record| (|:| |basis| (|List| (|Fraction| UP)))
           (|:| |mat| (|Matrix| F))))
         (SPROG
-         ((#1=#:G275 NIL) (|g| NIL) (#2=#:G274 NIL) (#3=#:G269 NIL) (|c| (UP)))
+         ((#1=#:G276 NIL) (|g| NIL) (#2=#:G275 NIL) (#3=#:G270 NIL) (|c| (UP)))
          (SEQ
           (COND
            ((SPADCALL
@@ -926,9 +926,9 @@
 
 (DECLAIM (NOTINLINE |RationalLODE;|)) 
 
-(DEFUN |RationalLODE| (&REST #1=#:G276)
+(DEFUN |RationalLODE| (&REST #1=#:G277)
   (SPROG NIL
-         (PROG (#2=#:G277)
+         (PROG (#2=#:G278)
            (RETURN
             (COND
              ((LETT #2#

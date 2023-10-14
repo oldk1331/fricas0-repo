@@ -103,13 +103,13 @@
           (|henselInfo|
            (|Record| (|:| |plist| #3#)
                      (|:| |modulo| (|SparseUnivariatePolynomial| E))))
-          (|deg| (|PositiveInteger|)) (#4=#:G132 NIL)
+          (|deg| (|PositiveInteger|)) (#4=#:G133 NIL)
           (|primaries|
            (|List|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| E))))
-          (#5=#:G153 NIL) (|ff| NIL) (#6=#:G152 NIL)
+          (#5=#:G154 NIL) (|ff| NIL) (#6=#:G153 NIL)
           (|redFactors| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#7=#:G151 NIL) (|f| NIL) (#8=#:G150 NIL)
+          (#7=#:G152 NIL) (|f| NIL) (#8=#:G151 NIL)
           (|factorListSAE|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| |sae|))
@@ -121,7 +121,7 @@
           (|prime| #10=(|SparseUnivariatePolynomial| E)) (|redDisc| #10#)
           (|redDisc0| (R)) (|poly| #9#)
           (E (|MonogenicAlgebra| K (|SparseUnivariatePolynomial| K)))
-          (|irrPoly| (|SparseUnivariatePolynomial| K)) (#11=#:G124 NIL)
+          (|irrPoly| (|SparseUnivariatePolynomial| K)) (#11=#:G125 NIL)
           (|r| #12=(|NonNegativeInteger|)) (|disc0| (R)) (|n| #12#))
          (SEQ
           (LETT |n| (SPADCALL |poly0| (QREFELT $ 36))
@@ -796,19 +796,19 @@
           (|base|
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R))))
-          (|degPp| (|NonNegativeInteger|)) (#1=#:G191 NIL) (|pp| NIL)
-          (#2=#:G192 NIL) (|k| NIL) (#3=#:G193 NIL) (|qq| NIL)
+          (|degPp| (|NonNegativeInteger|)) (#1=#:G192 NIL) (|pp| NIL)
+          (#2=#:G193 NIL) (|k| NIL) (#3=#:G194 NIL) (|qq| NIL)
           (|degPrime| (|NonNegativeInteger|)) (|henselFactors| #4=(|List| UP))
           (|henselInfo| (|Record| (|:| |plist| #4#) (|:| |modulo| R)))
-          (|deg| (|PositiveInteger|)) (#5=#:G171 NIL) (|primaries| (|List| UP))
-          (#6=#:G190 NIL) (|ff| NIL) (#7=#:G189 NIL)
+          (|deg| (|PositiveInteger|)) (#5=#:G172 NIL) (|primaries| (|List| UP))
+          (#6=#:G191 NIL) (|ff| NIL) (#7=#:G190 NIL)
           (|redPrimaries| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#8=#:G167 NIL) (#9=#:G188 NIL) (|f| NIL) (#10=#:G187 NIL)
-          (|expons| (|List| (|NonNegativeInteger|))) (#11=#:G165 NIL)
-          (#12=#:G186 NIL) (#13=#:G185 NIL) (|primes| (|List| UP))
-          (#14=#:G184 NIL) (#15=#:G183 NIL)
+          (#8=#:G168 NIL) (#9=#:G189 NIL) (|f| NIL) (#10=#:G188 NIL)
+          (|expons| (|List| (|NonNegativeInteger|))) (#11=#:G166 NIL)
+          (#12=#:G187 NIL) (#13=#:G186 NIL) (|primes| (|List| UP))
+          (#14=#:G185 NIL) (#15=#:G184 NIL)
           (|redPrimes| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#16=#:G182 NIL) (#17=#:G181 NIL)
+          (#16=#:G183 NIL) (#17=#:G182 NIL)
           (|factorListSAE|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| |sae|))
@@ -1117,7 +1117,7 @@
 
 (SDEFUN |PWFFINTB;listSquaredFactors| ((|px| R) ($ |List| R))
         (SPROG
-         ((|ans| (|List| R)) (#1=#:G203 NIL) (|f| NIL)
+         ((|ans| (|List| R)) (#1=#:G204 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
          (SEQ (LETT |ans| NIL . #2=(|PWFFINTB;listSquaredFactors|))
               (LETT |factored| (SPADCALL |px| (QREFELT $ 74)) . #2#)
@@ -1144,7 +1144,7 @@
           (|lb|
            (|Record| (|:| |basis| #3#) (|:| |basisDen| R) (|:| |basisInv| #2#)
                      (|:| |discr| R)))
-          (#4=#:G211 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
+          (#4=#:G212 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
          (SEQ
           (LETT |p| (SPADCALL (QREFELT $ 70))
@@ -1201,9 +1201,9 @@
 
 (DECLAIM (NOTINLINE |PAdicWildFunctionFieldIntegralBasis;|)) 
 
-(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G212)
+(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G213)
   (SPROG NIL
-         (PROG (#2=#:G213)
+         (PROG (#2=#:G214)
            (RETURN
             (COND
              ((LETT #2#

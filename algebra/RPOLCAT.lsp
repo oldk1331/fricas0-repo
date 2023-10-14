@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |RecursivePolynomialCategory;AL| 'NIL) 
 
-(DEFUN |RecursivePolynomialCategory| (&REST #1=#:G240)
-  (LET (#2=#:G241)
+(DEFUN |RecursivePolynomialCategory| (&REST #1=#:G241)
+  (LET (#2=#:G242)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluateList| #1#)
@@ -21,7 +21,7 @@
       #2#)))) 
 
 (DEFUN |RecursivePolynomialCategory;| (|t#1| |t#2| |t#3|)
-  (SPROG ((#1=#:G239 NIL))
+  (SPROG ((#1=#:G240 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|

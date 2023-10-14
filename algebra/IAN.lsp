@@ -31,7 +31,7 @@
          ($
           . #2=(|Record| (|:| |num| (|SparseUnivariatePolynomial| $))
                          (|:| |den| $))))
-        (SPROG ((#3=#:G123 NIL) (|rec| #2#) (|zz| #1#) (|dd| ($)))
+        (SPROG ((#3=#:G124 NIL) (|rec| #2#) (|zz| #1#) (|dd| ($)))
                (SEQ
                 (EXIT
                  (SEQ (LETT |zz| |z| . #4=(|IAN;findDenominator|))
@@ -70,7 +70,7 @@
                                               (SPADCALL (QCDR |rec|) |dd|
                                                         (QREFELT $ 45)))
                                         . #4#)
-                                  (GO #5=#:G122))))))))
+                                  (GO #5=#:G123))))))))
                            NIL (GO G190) G191 (EXIT NIL))
                       (EXIT (CONS |z| (|spadConstant| $ 40)))))
                 #5# (EXIT #3#)))) 
@@ -169,7 +169,7 @@
                          (SPADCALL |d| |p| (QREFELT $ 84)) (QREFELT $ 62)))))) 
 
 (SDEFUN |IAN;norm;$L$;13| ((|z| $) (|l| |List| (|Kernel| $)) ($ $))
-        (SPROG ((#1=#:G146 NIL) (|k| NIL))
+        (SPROG ((#1=#:G147 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|IAN;norm;$L$;13|))
                      (LETT #1# |l| . #2#) G190
@@ -218,7 +218,7 @@
 (SDEFUN |IAN;norm;SupLSup;15|
         ((|z| |SparseUnivariatePolynomial| $) (|l| |List| (|Kernel| $))
          ($ |SparseUnivariatePolynomial| $))
-        (SPROG ((#1=#:G153 NIL) (|k| NIL))
+        (SPROG ((#1=#:G154 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|IAN;norm;SupLSup;15|))
                      (LETT #1# |l| . #2#) G190
@@ -251,7 +251,7 @@
 
 (DEFUN |InnerAlgebraicNumber| ()
   (SPROG NIL
-         (PROG (#1=#:G189)
+         (PROG (#1=#:G190)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|InnerAlgebraicNumber|)

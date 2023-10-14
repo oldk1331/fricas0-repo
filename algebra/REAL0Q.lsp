@@ -1,7 +1,7 @@
 
 (SDEFUN |REAL0Q;convert2PolInt|
         ((|f| |Pol|) ($ |SparseUnivariatePolynomial| (|Integer|)))
-        (SPROG ((|pden| (|Integer|)) (#1=#:G108 NIL) (|c| NIL) (#2=#:G107 NIL))
+        (SPROG ((|pden| (|Integer|)) (#1=#:G109 NIL) (|c| NIL) (#2=#:G108 NIL))
                (SEQ
                 (LETT |pden|
                       (SPADCALL
@@ -83,9 +83,9 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackageQ;|)) 
 
-(DEFUN |RealZeroPackageQ| (#1=#:G124)
+(DEFUN |RealZeroPackageQ| (#1=#:G125)
   (SPROG NIL
-         (PROG (#2=#:G125)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
              ((LETT #2#

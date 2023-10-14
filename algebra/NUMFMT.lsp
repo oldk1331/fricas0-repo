@@ -109,9 +109,9 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (|j| NIL) (#1=#:G168 NIL)
+         ((|s| (|String|)) (|mm| (|String|)) (|j| NIL) (#1=#:G169 NIL)
           (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|)) (|i| NIL)
-          (#2=#:G155 NIL))
+          (#2=#:G156 NIL))
          (SEQ (LETT |n| |pn| . #3=(|NUMFMT;FormatRoman;PiS;9|))
               (LETT |d| (+ (REM |n| 10) (QREFELT $ 39)) . #3#)
               (LETT |n| (QUOTIENT2 |n| 10) . #3#)
@@ -262,8 +262,8 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G179 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G182 NIL) (|i| (|Integer|))
+         ((#1=#:G180 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G183 NIL) (|i| (|Integer|))
           (|c| (|Character|)) (|k| NIL) (|nprens| (|PositiveInteger|)))
          (SEQ
           (LETT |s| (SPADCALL |s| (QREFELT $ 53))
@@ -332,7 +332,7 @@
                                                    (|error|
                                                     "Improper Roman numeral: unbalanced ')'")
                                                    . #3#)
-                                             (GO #4=#:G171)))))))
+                                             (GO #4=#:G172)))))))
                                        #4# (EXIT #2#))
                                       (LETT |k| (|inc_SI| |k|) . #3#) (GO G190)
                                       G191 (EXIT NIL))
@@ -361,7 +361,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G184)
+         (PROG (#1=#:G185)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)

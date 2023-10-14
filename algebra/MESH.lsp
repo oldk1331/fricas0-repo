@@ -1,6 +1,6 @@
 
 (SDEFUN |MESH;numberCheck| ((|nums| |Point| (|DoubleFloat|)) ($ |Void|))
-        (SPROG ((#1=#:G112 NIL) (#2=#:G108 NIL) (#3=#:G113 NIL) (|i| NIL))
+        (SPROG ((#1=#:G113 NIL) (#2=#:G109 NIL) (#3=#:G114 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -22,7 +22,7 @@
                              (|error|
                               "An unexpected complex number was encountered in the calculations.")
                              . #4#)
-                       (GO #5=#:G110))))))
+                       (GO #5=#:G111))))))
                   (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                 #5# (EXIT #1#)))) 
 
@@ -69,9 +69,9 @@
          (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
          (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G134 NIL)
-          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G133 NIL)
-          (|l| NIL) (#5=#:G132 NIL) (|someV| #6=(|DoubleFloat|))
+         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G135 NIL)
+          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G134 NIL)
+          (|l| NIL) (#5=#:G133 NIL) (|someV| #6=(|DoubleFloat|))
           (|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (|someU| #6#)
           (|lp| (|List| (|Point| (|DoubleFloat|)))) (|pt| #2#) (|iu| NIL)
           (|iv| NIL) (|vstep| #7=(|DoubleFloat|)) (|ustep| #7#)
@@ -208,7 +208,7 @@
 
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (SPROG NIL
-         (PROG (#1=#:G185)
+         (PROG (#1=#:G186)
            (RETURN
             (COND
              ((LETT #1#

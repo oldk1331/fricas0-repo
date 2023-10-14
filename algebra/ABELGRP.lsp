@@ -4,11 +4,11 @@
 (DEFPARAMETER |AbelianGroup;AL| 'NIL) 
 
 (DEFUN |AbelianGroup| ()
-  (LET (#:G106)
+  (LET (#:G107)
     (COND (|AbelianGroup;AL|) (T (SETQ |AbelianGroup;AL| (|AbelianGroup;|)))))) 
 
 (DEFUN |AbelianGroup;| ()
-  (SPROG ((#1=#:G104 NIL))
+  (SPROG ((#1=#:G105 NIL))
          (PROG1
              (LETT #1#
                    (|Join| (|CancellationAbelianMonoid|)

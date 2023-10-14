@@ -3,11 +3,11 @@
         ((|p| |SparseUnivariatePolynomial| (|Fraction| P))
          ($ |Factored| (|SparseUnivariatePolynomial| (|Fraction| P))))
         (SPROG
-         ((#1=#:G121 NIL) (|u| NIL) (#2=#:G120 NIL)
+         ((#1=#:G122 NIL) (|u| NIL) (#2=#:G121 NIL)
           (|ffact| (|Factored| (|SparseUnivariatePolynomial| P)))
           (|ipol| (|SparseUnivariatePolynomial| P))
           (|pol| (|SparseUnivariatePolynomial| (|Fraction| P))) (|pden| (P))
-          (#3=#:G119 NIL) (|c| NIL) (#4=#:G118 NIL))
+          (#3=#:G120 NIL) (|c| NIL) (#4=#:G119 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| $ 13) (QREFELT $ 15))
@@ -84,11 +84,11 @@
         ((|p| |SparseUnivariatePolynomial| (|Fraction| P))
          ($ |Factored| (|SparseUnivariatePolynomial| (|Fraction| P))))
         (SPROG
-         ((#1=#:G139 NIL) (|u| NIL) (#2=#:G138 NIL)
+         ((#1=#:G140 NIL) (|u| NIL) (#2=#:G139 NIL)
           (|ffact| (|Factored| (|SparseUnivariatePolynomial| P)))
           (|ipol| (|SparseUnivariatePolynomial| P))
           (|pol| (|SparseUnivariatePolynomial| (|Fraction| P))) (|pden| (P))
-          (#3=#:G137 NIL) (|c| NIL) (#4=#:G136 NIL))
+          (#3=#:G138 NIL) (|c| NIL) (#4=#:G137 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| $ 13) (QREFELT $ 15))
@@ -155,9 +155,9 @@
 
 (DECLAIM (NOTINLINE |SupFractionFactorizer;|)) 
 
-(DEFUN |SupFractionFactorizer| (&REST #1=#:G140)
+(DEFUN |SupFractionFactorizer| (&REST #1=#:G141)
   (SPROG NIL
-         (PROG (#2=#:G141)
+         (PROG (#2=#:G142)
            (RETURN
             (COND
              ((LETT #2#

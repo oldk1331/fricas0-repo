@@ -64,7 +64,7 @@
          (A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
          ($ |List| (|Matrix| (|Expression| (|Integer|)))))
         (SPROG
-         ((#1=#:G123 NIL) (|v| NIL) (#2=#:G122 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G124 NIL) (|v| NIL) (#2=#:G123 NIL) (|j| NIL) (|i| NIL)
           (B (|Matrix| (|Expression| (|Integer|))))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS A) . #3=(|REP;radicalEigenvector;EML;5|))
@@ -118,14 +118,14 @@
                       (|:| |radmult| (|Integer|))
                       (|:| |radvect|
                            (|List| (|Matrix| (|Expression| (|Integer|))))))))
-          (|nsl| #1#) (#2=#:G147 NIL) (|ep| NIL) (#3=#:G146 NIL)
-          (#4=#:G145 NIL) (|alg| NIL)
+          (|nsl| #1#) (#2=#:G148 NIL) (|ep| NIL) (#3=#:G147 NIL)
+          (#4=#:G146 NIL) (|alg| NIL)
           (|lval| (|List| (|Expression| (|Integer|)))) (|xx| (|Symbol|))
           (|sym| (|SuchThat| (|Symbol|) (|Polynomial| (|Integer|))))
-          (#5=#:G128 NIL) (#6=#:G127 NIL)
+          (#5=#:G129 NIL) (#6=#:G128 NIL)
           (|veclist| (|List| (|Matrix| (|Expression| (|Integer|))))) (|i| NIL)
-          (|m| (|Matrix| (|Expression| (|Integer|)))) (#7=#:G144 NIL)
-          (|ll| NIL) (#8=#:G143 NIL) (|eig| NIL) (|n| (|NonNegativeInteger|))
+          (|m| (|Matrix| (|Expression| (|Integer|)))) (#7=#:G145 NIL)
+          (|ll| NIL) (#8=#:G144 NIL) (|eig| NIL) (|n| (|NonNegativeInteger|))
           (|leig|
            (|List|
             (|Record|
@@ -250,14 +250,14 @@
          ($ |List| (|Matrix| (|Expression| (|Integer|)))))
         (SPROG
          ((|orth| (|List| (|Matrix| (|Expression| (|Integer|)))))
-          (|pol| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G155 NIL)
-          (#2=#:G154 (RMR)) (#3=#:G156 (RMR)) (#4=#:G162 NIL) (|w| NIL)
-          (#5=#:G161 NIL) (|v| (|Matrix| (|Expression| (|Integer|))))
+          (|pol| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G156 NIL)
+          (#2=#:G155 (RMR)) (#3=#:G157 (RMR)) (#4=#:G163 NIL) (|w| NIL)
+          (#5=#:G162 NIL) (|v| (|Matrix| (|Expression| (|Integer|))))
           (RMR
            (|Join|
             (|RectangularMatrixCategory|
              #6=(PROG1
-                    (LET #7=#:G149
+                    (LET #7=#:G150
                       |n|)
                   (|check_subtype| (> #7# 0) '(|PositiveInteger|) #7#))
              #8=(|call| (XLAM |ignore| 1)) #9=(|Expression| (|Integer|))
@@ -272,7 +272,7 @@
                  |noBranch|)
              (SIGNATURE |rectangularMatrix| ($ (|Matrix| #9#)))
              (SIGNATURE |coerce| ((|Matrix| #9#) $)))))
-          (#10=#:G150 NIL) (|n| (|NonNegativeInteger|)))
+          (#10=#:G151 NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |lvect| NIL (QREFELT $ 58)) NIL)
                 ('T
@@ -364,10 +364,10 @@
         ((A |Matrix| (|Fraction| (|Polynomial| (|Integer|))))
          ($ |Union| (|Matrix| (|Expression| (|Integer|))) "failed"))
         (SPROG
-         ((|d| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G178 NIL) (|v| NIL)
+         ((|d| (|Matrix| (|Expression| (|Integer|)))) (#1=#:G179 NIL) (|v| NIL)
           (|n| (|NonNegativeInteger|))
           (|lef| #2=(|List| (|Matrix| (|Expression| (|Integer|)))))
-          (#3=#:G168 NIL) (#4=#:G167 #2#) (#5=#:G169 #2#) (#6=#:G177 NIL)
+          (#3=#:G169 NIL) (#4=#:G168 #2#) (#5=#:G170 #2#) (#6=#:G178 NIL)
           (|eiv| NIL))
          (SEQ
           (LETT |lef|
@@ -415,7 +415,7 @@
         (SPROG
          ((|basis| (|List| (|Matrix| (|Expression| (|Integer|)))))
           (|lvec| (|List| (|Matrix| (|Expression| (|Integer|)))))
-          (#1=#:G187 NIL) (|alterm| NIL) (|n| (|NonNegativeInteger|))
+          (#1=#:G188 NIL) (|alterm| NIL) (|n| (|NonNegativeInteger|))
           (|alglist|
            (|List|
             (|Record| (|:| |radval| (|Expression| (|Integer|)))
@@ -462,7 +462,7 @@
 
 (DEFUN |RadicalEigenPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G189)
+         (PROG (#1=#:G190)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|RadicalEigenPackage|)
