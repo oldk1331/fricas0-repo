@@ -670,7 +670,7 @@
 ; augmentPredCode(n,lastPl) ==
 ;   ['LIST,:pl] := mungeAddGensyms(lastPl,$predGensymAlist)
 ;   delta := 2^n
-;   l := [(u := MKPF([x,['augmentPredVector,$,delta]],'AND);
+;   l := [(u := MKPF([x, ['augmentPredVector, '$, delta]], 'AND);
 ;          delta:=2 * delta; u) for x in pl]
  
 (DEFUN |augmentPredCode| (|n| |lastPl|)
@@ -694,7 +694,7 @@
                               (SETQ |u|
                                       (MKPF
                                        (LIST |x|
-                                             (LIST '|augmentPredVector| $
+                                             (LIST '|augmentPredVector| '$
                                                    |delta|))
                                        'AND))
                               (SETQ |delta| (* 2 |delta|))

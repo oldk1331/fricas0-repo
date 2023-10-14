@@ -4256,7 +4256,7 @@
  
 ; compMakeCategoryObject(c,$e) ==
 ;   not isCategoryForm(c,$e) => nil
-;   u:= mkEvalableCategoryForm c => [eval u,$Category,$e]
+;   u := mkEvalableCategoryForm c => [c_eval u, $Category, $e]
 ;   nil
  
 (DEFUN |compMakeCategoryObject| (|c| |$e|)
@@ -4265,7 +4265,7 @@
     (RETURN
      (COND ((NULL (|isCategoryForm| |c| |$e|)) NIL)
            ((SETQ |u| (|mkEvalableCategoryForm| |c|))
-            (LIST (|eval| |u|) |$Category| |$e|))
+            (LIST (|c_eval| |u|) |$Category| |$e|))
            ('T NIL)))))
  
 ; quotifyCategoryArgument x == MKQ x
