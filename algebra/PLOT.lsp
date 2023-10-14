@@ -9,8 +9,8 @@
         ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|outList| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|newl| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G140 NIL) (|p| NIL)
-          (#2=#:G139 NIL) (|curve| NIL))
+          (|newl| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G139 NIL) (|p| NIL)
+          (#2=#:G138 NIL) (|curve| NIL))
          (SEQ (LETT |outList| NIL . #3=(|PLOT;listBranches;$L;3|))
               (SEQ (LETT |curve| NIL . #3#) (LETT #2# (QVELT |plot| 4) . #3#)
                    G190
@@ -88,7 +88,7 @@
            (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
          (|i| |Integer|) ($ |Segment| (|DoubleFloat|)))
         (SPROG
-         ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G149 NIL) (|r| NIL)
+         ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G148 NIL) (|r| NIL)
           (|rr|
            (|Record|
             (|:| |source|
@@ -178,7 +178,7 @@
          (|f| |Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|)))
          (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          ($ |DoubleFloat|))
-        (SPROG ((|m| #1#) (|n| #1#) (#2=#:G173 NIL) (|p| NIL))
+        (SPROG ((|m| #1#) (|n| #1#) (#2=#:G172 NIL) (|p| NIL))
                (SEQ
                 (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|)
                       . #3=(|PLOT;select|))
@@ -210,9 +210,9 @@
           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|yRange| #4=(|Segment| (|DoubleFloat|))) (|xRange| #4#) (|p| #3#)
-          (|t| #2#) (#5=#:G206 NIL) (|i| NIL) (|d| #6=(|DoubleFloat|))
+          (|t| #2#) (#5=#:G205 NIL) (|i| NIL) (|d| #6=(|DoubleFloat|))
           (|n| (|Integer|)) (|q| (|List| (|Point| (|DoubleFloat|))))
-          (|c| (|List| (|DoubleFloat|))) (|s| #6#) (#7=#:G205 NIL) (|f| #1#)
+          (|c| (|List| (|DoubleFloat|))) (|s| #6#) (#7=#:G204 NIL) (|f| #1#)
           (|h| (|DoubleFloat|)) (|l| (|DoubleFloat|)))
          (SEQ
           (EXIT
@@ -250,7 +250,7 @@
                  ((NULL |c|)
                   (PROGN
                    (LETT #7# (|PLOT;basicPlot| |f| |nRange| $) . #8#)
-                   (GO #9=#:G204))))
+                   (GO #9=#:G203))))
                 (COND
                  ((|less_DF| (|SPADfirst| |c|) |h|)
                   (SEQ (LETT |c| (CONS |h| |c|) . #8#)
@@ -339,19 +339,14 @@
           (|:| |knots| #2=(|List| (|DoubleFloat|)))
           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
         (SPROG
-         ((|p| #3#) (|t| #2#)
-          (|todo2| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|todo1| (|List| (|List| (|DoubleFloat|)))) (|tj| #4=(|DoubleFloat|))
-          (|tm| #4#) (|st| #5=(|List| (|DoubleFloat|))) (|n| (|Integer|))
-          (#6=#:G253 NIL) (|dp| (|DoubleFloat|)) (|s2| #7=(|DoubleFloat|))
-          (|s1| #7#) (|b2| #4#) (|a2| #4#) (|b1| #4#) (|a1| #4#)
-          (|y2| #8=(|DoubleFloat|)) (|x2| #9=(|DoubleFloat|)) (|y1| #8#)
-          (|x1| #9#) (|y0| #8#) (|x0| #9#)
-          (|sp| #10=(|List| (|Point| (|DoubleFloat|)))) (|t2| (|DoubleFloat|))
-          (|t1| (|DoubleFloat|)) (|t0| (|DoubleFloat|))
-          (|todop| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|todot| (|List| (|List| (|DoubleFloat|)))) (|headerp| #10#)
-          (|headert| #5#) (|tLimit| #4#) (|maxLength| #4#) (|minLength| #4#)
+         ((|p| #3#) (|t| #2#) (|tj| #4=(|DoubleFloat|)) (|n| (|Integer|))
+          (#5=#:G240 NIL) (|sp| #6=(|List| (|Point| (|DoubleFloat|))))
+          (|st| #7=(|List| (|DoubleFloat|))) (|dp| (|DoubleFloat|))
+          (|s2| #8=(|DoubleFloat|)) (|s1| #8#) (|b2| #4#) (|a2| #4#) (|b1| #4#)
+          (|a1| #4#) (|y2| #9=(|DoubleFloat|)) (|x2| #10=(|DoubleFloat|))
+          (|y1| #9#) (|x1| #10#) (|y0| #9#) (|x0| #10#) (|t2| (|DoubleFloat|))
+          (|t1| (|DoubleFloat|)) (|t0| (|DoubleFloat|)) (|headerp| #6#)
+          (|headert| #7#) (|tLimit| #4#) (|maxLength| #4#) (|minLength| #4#)
           (|f| #1#) (|tDiff| #11=(|DoubleFloat|)) (|h| (|DoubleFloat|))
           (|l| (|DoubleFloat|)) (|yDiff| #11#) (|xDiff| #11#))
          (SEQ
@@ -411,43 +406,8 @@
                                            (#13#
                                             (SEQ (LETT |headert| |t| . #12#)
                                                  (LETT |headerp| |p| . #12#)
-                                                 (LETT |st| |t| . #12#)
-                                                 (LETT |sp| |p| . #12#)
-                                                 (LETT |todot| NIL . #12#)
-                                                 (LETT |todop| NIL . #12#)
-                                                 (SEQ G190
-                                                      (COND
-                                                       ((NULL
-                                                         (COND
-                                                          ((NULL
-                                                            (CDR (CDR |st|)))
-                                                           'NIL)
-                                                          ('T 'T)))
-                                                        (GO G191)))
-                                                      (SEQ
-                                                       (LETT |todot|
-                                                             (SPADCALL |todot|
-                                                                       |st|
-                                                                       (QREFELT
-                                                                        $ 60))
-                                                             . #12#)
-                                                       (LETT |todop|
-                                                             (SPADCALL |todop|
-                                                                       |sp|
-                                                                       (QREFELT
-                                                                        $ 61))
-                                                             . #12#)
-                                                       (LETT |st| (CDR |st|)
-                                                             . #12#)
-                                                       (EXIT
-                                                        (LETT |sp| (CDR |sp|)
-                                                              . #12#)))
-                                                      NIL (GO G190) G191
-                                                      (EXIT NIL))
                                                  (LETT |st| |headert| . #12#)
                                                  (LETT |sp| |headerp| . #12#)
-                                                 (LETT |todo1| |todot| . #12#)
-                                                 (LETT |todo2| |todop| . #12#)
                                                  (LETT |n| 0 . #12#)
                                                  (SEQ
                                                   (EXIT
@@ -455,15 +415,12 @@
                                                         (COND
                                                          ((NULL
                                                            (COND
-                                                            ((NULL |todo1|)
+                                                            ((NULL
+                                                              (CDR (CDR |st|)))
                                                              'NIL)
                                                             ('T 'T)))
                                                           (GO G191)))
                                                         (SEQ
-                                                         (LETT |st|
-                                                               (|SPADfirst|
-                                                                |todo1|)
-                                                               . #12#)
                                                          (LETT |t0|
                                                                (|SPADfirst|
                                                                 |st|)
@@ -478,17 +435,17 @@
                                                                (SPADCALL |st|
                                                                          (QREFELT
                                                                           $
-                                                                          62))
+                                                                          59))
                                                                . #12#)
                                                          (COND
                                                           ((SPADCALL |t2| |h|
                                                                      (QREFELT $
                                                                               26))
                                                            (PROGN
-                                                            (LETT #6#
+                                                            (LETT #5#
                                                                   |$NoValue|
                                                                   . #12#)
-                                                            (GO #14=#:G233))))
+                                                            (GO #14=#:G220))))
                                                          (EXIT
                                                           (COND
                                                            ((|less_DF|
@@ -496,35 +453,15 @@
                                                                        |t0|)
                                                              |tLimit|)
                                                             (SEQ
-                                                             (LETT |todo1|
-                                                                   (CDR
-                                                                    |todo1|)
-                                                                   . #12#)
-                                                             (LETT |todo2|
-                                                                   (CDR
-                                                                    |todo2|)
+                                                             (LETT |st|
+                                                                   (CDR |st|)
                                                                    . #12#)
                                                              (EXIT
-                                                              (COND
-                                                               ((NULL
-                                                                 (NULL
-                                                                  |todo1|))
-                                                                (SEQ
-                                                                 (LETT |t|
-                                                                       (|SPADfirst|
-                                                                        |todo1|)
-                                                                       . #12#)
-                                                                 (EXIT
-                                                                  (LETT |p|
-                                                                        (|SPADfirst|
-                                                                         |todo2|)
-                                                                        . #12#))))))))
+                                                              (LETT |sp|
+                                                                    (CDR |sp|)
+                                                                    . #12#))))
                                                            ('T
                                                             (SEQ
-                                                             (LETT |sp|
-                                                                   (|SPADfirst|
-                                                                    |todo2|)
-                                                                   . #12#)
                                                              (LETT |x0|
                                                                    (SPADCALL
                                                                     (|SPADfirst|
@@ -544,7 +481,7 @@
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              63))
+                                                                              60))
                                                                     (QREFELT $
                                                                              55))
                                                                    . #12#)
@@ -553,7 +490,7 @@
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              63))
+                                                                              60))
                                                                     (QREFELT $
                                                                              58))
                                                                    . #12#)
@@ -562,7 +499,7 @@
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              64))
+                                                                              61))
                                                                     (QREFELT $
                                                                              55))
                                                                    . #12#)
@@ -571,7 +508,7 @@
                                                                     (SPADCALL
                                                                      |sp|
                                                                      (QREFELT $
-                                                                              64))
+                                                                              61))
                                                                     (QREFELT $
                                                                              58))
                                                                    . #12#)
@@ -605,13 +542,13 @@
                                                                      (SPADCALL
                                                                       |a1| 2
                                                                       (QREFELT
-                                                                       $ 66))
+                                                                       $ 63))
                                                                      (SPADCALL
                                                                       |b1| 2
                                                                       (QREFELT
-                                                                       $ 66)))
+                                                                       $ 63)))
                                                                     (QREFELT $
-                                                                             67))
+                                                                             64))
                                                                    . #12#)
                                                              (LETT |s2|
                                                                    (SPADCALL
@@ -619,13 +556,13 @@
                                                                      (SPADCALL
                                                                       |a2| 2
                                                                       (QREFELT
-                                                                       $ 66))
+                                                                       $ 63))
                                                                      (SPADCALL
                                                                       |b2| 2
                                                                       (QREFELT
-                                                                       $ 66)))
+                                                                       $ 63)))
                                                                     (QREFELT $
-                                                                             67))
+                                                                             64))
                                                                    . #12#)
                                                              (LETT |dp|
                                                                    (|add_DF|
@@ -650,33 +587,16 @@
                                                                      |s2| 0.0))
                                                                    (EXIT
                                                                     (SEQ
-                                                                     (LETT
-                                                                      |todo1|
-                                                                      (CDR
-                                                                       |todo1|)
-                                                                      . #12#)
-                                                                     (LETT
-                                                                      |todo2|
-                                                                      (CDR
-                                                                       |todo2|)
-                                                                      . #12#)
+                                                                     (LETT |st|
+                                                                           (CDR
+                                                                            |st|)
+                                                                           . #12#)
                                                                      (EXIT
-                                                                      (COND
-                                                                       ((NULL
-                                                                         (NULL
-                                                                          |todo1|))
-                                                                        (SEQ
-                                                                         (LETT
-                                                                          |t|
-                                                                          (|SPADfirst|
-                                                                           |todo1|)
-                                                                          . #12#)
-                                                                         (EXIT
-                                                                          (LETT
-                                                                           |p|
-                                                                           (|SPADfirst|
-                                                                            |todo2|)
-                                                                           . #12#)))))))))
+                                                                      (LETT
+                                                                       |sp|
+                                                                       (CDR
+                                                                        |sp|)
+                                                                       . #12#)))))
                                                                   ((|less_DF|
                                                                     |s1|
                                                                     |minLength|)
@@ -698,32 +618,16 @@
                                                                      (EXIT
                                                                       (SEQ
                                                                        (LETT
-                                                                        |todo1|
+                                                                        |st|
                                                                         (CDR
-                                                                         |todo1|)
-                                                                        . #12#)
-                                                                       (LETT
-                                                                        |todo2|
-                                                                        (CDR
-                                                                         |todo2|)
+                                                                         |st|)
                                                                         . #12#)
                                                                        (EXIT
-                                                                        (COND
-                                                                         ((NULL
-                                                                           (NULL
-                                                                            |todo1|))
-                                                                          (SEQ
-                                                                           (LETT
-                                                                            |t|
-                                                                            (|SPADfirst|
-                                                                             |todo1|)
-                                                                            . #12#)
-                                                                           (EXIT
-                                                                            (LETT
-                                                                             |p|
-                                                                             (|SPADfirst|
-                                                                              |todo2|)
-                                                                             . #12#)))))))))))
+                                                                        (LETT
+                                                                         |sp|
+                                                                         (CDR
+                                                                          |sp|)
+                                                                         . #12#)))))))
                                                                   ('T
                                                                    (COND
                                                                     ((SPADCALL
@@ -739,32 +643,16 @@
                                                                      (EXIT
                                                                       (SEQ
                                                                        (LETT
-                                                                        |todo1|
+                                                                        |st|
                                                                         (CDR
-                                                                         |todo1|)
-                                                                        . #12#)
-                                                                       (LETT
-                                                                        |todo2|
-                                                                        (CDR
-                                                                         |todo2|)
+                                                                         |st|)
                                                                         . #12#)
                                                                        (EXIT
-                                                                        (COND
-                                                                         ((NULL
-                                                                           (NULL
-                                                                            |todo1|))
-                                                                          (SEQ
-                                                                           (LETT
-                                                                            |t|
-                                                                            (|SPADfirst|
-                                                                             |todo1|)
-                                                                            . #12#)
-                                                                           (EXIT
-                                                                            (LETT
-                                                                             |p|
-                                                                             (|SPADfirst|
-                                                                              |todo2|)
-                                                                             . #12#))))))))))))))))
+                                                                        (LETT
+                                                                         |sp|
+                                                                         (CDR
+                                                                          |sp|)
+                                                                         . #12#))))))))))))
                                                              (COND
                                                               ((SPADCALL |n|
                                                                          (QREFELT
@@ -773,7 +661,7 @@
                                                                           $
                                                                           35))
                                                                (PROGN
-                                                                (LETT #6#
+                                                                (LETT #5#
                                                                       |$NoValue|
                                                                       . #12#)
                                                                 (GO #14#)))
@@ -781,340 +669,64 @@
                                                                (LETT |n|
                                                                      (+ |n| 1)
                                                                      . #12#)))
-                                                             (LETT |st|
+                                                             (LETT |t| |st|
+                                                                   . #12#)
+                                                             (LETT |p| |sp|
+                                                                   . #12#)
+                                                             (LETT |tj|
+                                                                   (|div_DF|
+                                                                    (|add_DF|
+                                                                     |t0| |t1|)
+                                                                    (FLOAT 2
+                                                                           MOST-POSITIVE-DOUBLE-FLOAT))
+                                                                   . #12#)
+                                                             (|qset_rest| |t|
+                                                                          (CONS
+                                                                           |tj|
+                                                                           (CDR
+                                                                            |t|)))
+                                                             (|qset_rest| |p|
+                                                                          (CONS
+                                                                           (SPADCALL
+                                                                            |tj|
+                                                                            |f|)
+                                                                           (CDR
+                                                                            |p|)))
+                                                             (LETT |t|
                                                                    (CDR |t|)
                                                                    . #12#)
+                                                             (LETT |p|
+                                                                   (CDR |p|)
+                                                                   . #12#)
+                                                             (LETT |t|
+                                                                   (CDR |t|)
+                                                                   . #12#)
+                                                             (LETT |p|
+                                                                   (CDR |p|)
+                                                                   . #12#)
+                                                             (LETT |tj|
+                                                                   (|div_DF|
+                                                                    (|add_DF|
+                                                                     |t1| |t2|)
+                                                                    (FLOAT 2
+                                                                           MOST-POSITIVE-DOUBLE-FLOAT))
+                                                                   . #12#)
+                                                             (|qset_rest| |t|
+                                                                          (CONS
+                                                                           |tj|
+                                                                           (CDR
+                                                                            |t|)))
                                                              (EXIT
-                                                              (COND
-                                                               ((NULL
-                                                                 (CDR
-                                                                  (CDR |st|)))
-                                                                (SEQ
-                                                                 (LETT |tm|
-                                                                       (|div_DF|
-                                                                        (|add_DF|
-                                                                         |t0|
-                                                                         |t1|)
-                                                                        (FLOAT
-                                                                         2
-                                                                         MOST-POSITIVE-DOUBLE-FLOAT))
-                                                                       . #12#)
-                                                                 (LETT |tj|
-                                                                       |tm|
-                                                                       . #12#)
-                                                                 (SPADCALL |t|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            |tj|
-                                                                            (CDR
-                                                                             |t|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            51))
-                                                                 (SPADCALL |p|
-                                                                           '|rest|
+                                                              (|qset_rest| |p|
                                                                            (CONS
                                                                             (SPADCALL
                                                                              |tj|
                                                                              |f|)
                                                                             (CDR
-                                                                             |p|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            53))
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |t|
-                                                                       (CDR
-                                                                        |t|)
-                                                                       . #12#)
-                                                                 (LETT |p|
-                                                                       (CDR
-                                                                        |p|)
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |t|
-                                                                       (CDR
-                                                                        |t|)
-                                                                       . #12#)
-                                                                 (LETT |p|
-                                                                       (CDR
-                                                                        |p|)
-                                                                       . #12#)
-                                                                 (LETT |tm|
-                                                                       (|div_DF|
-                                                                        (|add_DF|
-                                                                         |t1|
-                                                                         |t2|)
-                                                                        (FLOAT
-                                                                         2
-                                                                         MOST-POSITIVE-DOUBLE-FLOAT))
-                                                                       . #12#)
-                                                                 (LETT |tj|
-                                                                       |tm|
-                                                                       . #12#)
-                                                                 (SPADCALL |t|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            |tj|
-                                                                            (CDR
-                                                                             |t|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            51))
-                                                                 (SPADCALL |p|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            (SPADCALL
-                                                                             |tj|
-                                                                             |f|)
-                                                                            (CDR
-                                                                             |p|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            53))
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (CDR
-                                                                        |todo1|)
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (CDR
-                                                                        |todo2|)
-                                                                       . #12#)
-                                                                 (EXIT
-                                                                  (COND
-                                                                   ((NULL
-                                                                     (NULL
-                                                                      |todo1|))
-                                                                    (SEQ
-                                                                     (LETT |t|
-                                                                           (|SPADfirst|
-                                                                            |todo1|)
-                                                                           . #12#)
-                                                                     (EXIT
-                                                                      (LETT |p|
-                                                                            (|SPADfirst|
-                                                                             |todo2|)
-                                                                            . #12#))))))))
-                                                               ('T
-                                                                (SEQ
-                                                                 (LETT |tm|
-                                                                       (|div_DF|
-                                                                        (|add_DF|
-                                                                         |t0|
-                                                                         |t1|)
-                                                                        (FLOAT
-                                                                         2
-                                                                         MOST-POSITIVE-DOUBLE-FLOAT))
-                                                                       . #12#)
-                                                                 (LETT |tj|
-                                                                       |tm|
-                                                                       . #12#)
-                                                                 (SPADCALL |t|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            |tj|
-                                                                            (CDR
-                                                                             |t|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            51))
-                                                                 (SPADCALL |p|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            (SPADCALL
-                                                                             |tj|
-                                                                             |f|)
-                                                                            (CDR
-                                                                             |p|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            53))
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |t|
-                                                                       (CDR
-                                                                        |t|)
-                                                                       . #12#)
-                                                                 (LETT |p|
-                                                                       (CDR
-                                                                        |p|)
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |t|
-                                                                       (CDR
-                                                                        |t|)
-                                                                       . #12#)
-                                                                 (LETT |p|
-                                                                       (CDR
-                                                                        |p|)
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (CDR
-                                                                        |todo1|)
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (CDR
-                                                                        |todo2|)
-                                                                       . #12#)
-                                                                 (LETT |tm|
-                                                                       (|div_DF|
-                                                                        (|add_DF|
-                                                                         |t1|
-                                                                         |t2|)
-                                                                        (FLOAT
-                                                                         2
-                                                                         MOST-POSITIVE-DOUBLE-FLOAT))
-                                                                       . #12#)
-                                                                 (LETT |tj|
-                                                                       |tm|
-                                                                       . #12#)
-                                                                 (SPADCALL |t|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            |tj|
-                                                                            (CDR
-                                                                             |t|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            51))
-                                                                 (SPADCALL |p|
-                                                                           '|rest|
-                                                                           (CONS
-                                                                            (SPADCALL
-                                                                             |tj|
-                                                                             |f|)
-                                                                            (CDR
-                                                                             |p|))
-                                                                           (QREFELT
-                                                                            $
-                                                                            53))
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |t|
-                                                                       (CDR
-                                                                        |t|)
-                                                                       . #12#)
-                                                                 (LETT |p|
-                                                                       (CDR
-                                                                        |p|)
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (SPADCALL
-                                                                        |todo1|
-                                                                        |t|
-                                                                        (QREFELT
-                                                                         $ 60))
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (SPADCALL
-                                                                        |todo2|
-                                                                        |p|
-                                                                        (QREFELT
-                                                                         $ 61))
-                                                                       . #12#)
-                                                                 (LETT |todo1|
-                                                                       (CDR
-                                                                        |todo1|)
-                                                                       . #12#)
-                                                                 (LETT |todo2|
-                                                                       (CDR
-                                                                        |todo2|)
-                                                                       . #12#)
-                                                                 (EXIT
-                                                                  (COND
-                                                                   ((NULL
-                                                                     (NULL
-                                                                      |todo1|))
-                                                                    (SEQ
-                                                                     (LETT |t|
-                                                                           (|SPADfirst|
-                                                                            |todo1|)
-                                                                           . #12#)
-                                                                     (EXIT
-                                                                      (LETT |p|
-                                                                            (|SPADfirst|
-                                                                             |todo2|)
-                                                                            . #12#)))))))))))))))
+                                                                             |p|)))))))))
                                                         NIL (GO G190) G191
                                                         (EXIT NIL)))
-                                                  #14# (EXIT #6#))
+                                                  #14# (EXIT #5#))
                                                  (EXIT
                                                   (COND
                                                    ((SPADCALL |n| 0
@@ -1169,14 +781,14 @@
         (SPROG
          ((|yRange| #1=(|Segment| (|DoubleFloat|))) (|xRange| #1#)
           (|p| (|List| (|Point| (|DoubleFloat|))))
-          (|t| (|List| (|DoubleFloat|))) (|l| (|DoubleFloat|)) (#2=#:G272 NIL)
+          (|t| (|List| (|DoubleFloat|))) (|l| (|DoubleFloat|)) (#2=#:G259 NIL)
           (|i| NIL) (|s| (|DoubleFloat|)) (|h| (|DoubleFloat|)))
          (SEQ (|PLOT;checkRange| |tRange| $)
               (LETT |l| (SPADCALL |tRange| (QREFELT $ 24))
                     . #3=(|PLOT;basicPlot|))
               (LETT |h| (SPADCALL |tRange| (QREFELT $ 25)) . #3#)
-              (LETT |t| (SPADCALL |l| (QREFELT $ 68)) . #3#)
-              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 69)) . #3#)
+              (LETT |t| (SPADCALL |l| (QREFELT $ 65)) . #3#)
+              (LETT |p| (SPADCALL (SPADCALL |l| |f|) (QREFELT $ 66)) . #3#)
               (LETT |s|
                     (|div_DF| (|sub_DF| |h| |l|)
                               (FLOAT (- (SPADCALL (QREFELT $ 32)) 1)
@@ -1241,11 +853,11 @@
                 . #6#)
           (LETT |t|
                 (QSETVELT |curve| 2
-                          (SPADCALL (QVELT |curve| 2) (QREFELT $ 72)))
+                          (SPADCALL (QVELT |curve| 2) (QREFELT $ 69)))
                 . #6#)
           (LETT |p|
                 (QSETVELT |curve| 3
-                          (SPADCALL (QVELT |curve| 3) (QREFELT $ 73)))
+                          (SPADCALL (QVELT |curve| 3) (QREFELT $ 70)))
                 . #6#)
           (LETT |l| (SPADCALL |nRange| (QREFELT $ 24)) . #6#)
           (LETT |h| (SPADCALL |nRange| (QREFELT $ 25)) . #6#)
@@ -1293,7 +905,7 @@
                    |p|))))) 
 
 (SDEFUN |PLOT;refine;2$;30| ((|p| $) ($ $))
-        (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 74))) 
+        (SPADCALL |p| (|PLOT;parametricRange| |p| $) (QREFELT $ 71))) 
 
 (SDEFUN |PLOT;refine;$S$;31|
         ((|p| $) (|nRange| |Segment| (|DoubleFloat|)) ($ $))
@@ -1307,8 +919,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#2=#:G310 NIL) (|c| NIL) (#3=#:G309 NIL)
-          (|tlimit| (|PositiveInteger|)) (#4=#:G308 NIL) (#5=#:G307 NIL)
+          (#2=#:G297 NIL) (|c| NIL) (#3=#:G296 NIL)
+          (|tlimit| (|PositiveInteger|)) (#4=#:G295 NIL) (#5=#:G294 NIL)
           (|tRange| (|Segment| (|DoubleFloat|))))
          (SEQ (SETELT $ 10 0)
               (LETT |tRange| (|PLOT;parametricRange| |p| $)
@@ -1377,8 +989,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#2=#:G321 NIL) (|c| NIL) (#3=#:G320 NIL)
-          (|tlimit| (|PositiveInteger|)) (#4=#:G319 NIL) (#5=#:G318 NIL))
+          (#2=#:G308 NIL) (|c| NIL) (#3=#:G307 NIL)
+          (|tlimit| (|PositiveInteger|)) (#4=#:G306 NIL) (#5=#:G305 NIL))
          (SEQ (SETELT $ 10 0)
               (LETT |curves|
                     (PROGN
@@ -1436,7 +1048,7 @@
         ((|xx| |DoubleFloat|) (|yy| . #1=(|DoubleFloat|))
          ($ |Point| (|DoubleFloat|)))
         (SPROG ((|l| (|List| #1#)))
-               (SPADCALL (LETT |l| (LIST |xx| |yy|) |PLOT;pt|) (QREFELT $ 77)))) 
+               (SPADCALL (LETT |l| (LIST |xx| |yy|) |PLOT;pt|) (QREFELT $ 74)))) 
 
 (SDEFUN |PLOT;myTrap|
         ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) (|f| |DoubleFloat|)
@@ -1499,7 +1111,7 @@
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
                (SEQ
-                (LETT |p| (SPADCALL |f| |xRange| (QREFELT $ 79))
+                (LETT |p| (SPADCALL |f| |xRange| (QREFELT $ 76))
                       |PLOT;plot;M2S$;36|)
                 (QSETVELT |p| 1 (LIST |xRange| (|PLOT;checkRange| |yRange| $)))
                 (EXIT |p|)))) 
@@ -1552,7 +1164,7 @@
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
                (SEQ
-                (LETT |p| (SPADCALL |f| |g| |tRange| (QREFELT $ 81))
+                (LETT |p| (SPADCALL |f| |g| |tRange| (QREFELT $ 78))
                       |PLOT;plot;2M3S$;38|)
                 (QSETVELT |p| 1
                           (LIST (|PLOT;checkRange| |xRange| $)
@@ -1593,7 +1205,7 @@
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
                (SEQ
-                (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 84))
+                (LETT |p| (SPADCALL |f| |tRange| (QREFELT $ 81))
                       |PLOT;pointPlot;M3S$;40|)
                 (QSETVELT |p| 1
                           (LIST (|PLOT;checkRange| |xRange| $)
@@ -1613,8 +1225,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#1=#:G373 NIL) (|f| NIL) (#2=#:G374 NIL) (|p| NIL) (#3=#:G372 NIL)
-          (#4=#:G371 NIL) (#5=#:G370 NIL))
+          (#1=#:G360 NIL) (|f| NIL) (#2=#:G361 NIL) (|p| NIL) (#3=#:G359 NIL)
+          (#4=#:G358 NIL) (#5=#:G357 NIL))
          (SEQ (COND ((NULL |l|) (|error| "empty list of functions")))
               (LETT |t|
                     (PROGN
@@ -1683,7 +1295,7 @@
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
                (SEQ
-                (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 87))
+                (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 84))
                       |PLOT;plot;L2S$;42|)
                 (QSETVELT |p| 1 (LIST |xRange| (|PLOT;checkRange| |yRange| $)))
                 (EXIT |p|)))) 
@@ -1694,7 +1306,7 @@
         (SPROG NIL
                (SPADCALL (CONS #'|PLOT;plotPolar;MS$;43!0| (VECTOR $ |f|))
                          (CONS #'|PLOT;plotPolar;MS$;43!1| (VECTOR $ |f|))
-                         |thetaRange| (QREFELT $ 81)))) 
+                         |thetaRange| (QREFELT $ 78)))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43!1| ((|v1| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -1702,8 +1314,8 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 91))
-                      (QREFELT $ 90)))))) 
+            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 88))
+                      (QREFELT $ 87)))))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43!0| ((|u1| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -1711,33 +1323,33 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 89))
-                      (QREFELT $ 90)))))) 
+            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 86))
+                      (QREFELT $ 87)))))) 
 
 (SDEFUN |PLOT;plotPolar;M$;44|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) ($ $))
         (SPADCALL |f|
                   (SPADCALL 0.0
                             (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
-                                      (QREFELT $ 93))
-                            (QREFELT $ 94))
-                  (QREFELT $ 92))) 
+                                      (QREFELT $ 90))
+                            (QREFELT $ 91))
+                  (QREFELT $ 89))) 
 
 (SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
-          (#2=#:G395 NIL) (|p| NIL) (#3=#:G394 NIL) (|h| (|OutputForm|))
-          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G393 NIL)
+          (#2=#:G382 NIL) (|p| NIL) (#3=#:G381 NIL) (|h| (|OutputForm|))
+          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G380 NIL)
           (|curve| NIL) (|tRange| (|OutputForm|)) (|plotSymbol| (|OutputForm|))
           (|tSymbol| (|OutputForm|)) (|ySymbol| (|OutputForm|))
           (|xSymbol| (|OutputForm|)) (|spaces| (|OutputForm|)))
          (SEQ
-          (LETT |spaces| (SPADCALL "   " (QREFELT $ 97))
+          (LETT |spaces| (SPADCALL "   " (QREFELT $ 94))
                 . #5=(|PLOT;coerce;$Of;45|))
           (LETT |xSymbol| "x = " . #5#) (LETT |ySymbol| "y = " . #5#)
           (LETT |tSymbol| "t = " . #5#) (LETT |plotSymbol| "PLOT" . #5#)
           (LETT |tRange|
-                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 98)) . #5#)
+                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 95)) . #5#)
           (LETT |f| NIL . #5#)
           (SEQ (LETT |curve| NIL . #5#) (LETT #4# (QVELT |r| 4) . #5#) G190
                (COND
@@ -1746,11 +1358,11 @@
                (SEQ
                 (LETT |xRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 29))
-                                (QREFELT $ 98))
+                                (QREFELT $ 95))
                       . #5#)
                 (LETT |yRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 30))
-                                (QREFELT $ 98))
+                                (QREFELT $ 95))
                       . #5#)
                 (LETT |l| (LIST |xSymbol| |xRange| |spaces| |ySymbol| |yRange|)
                       . #5#)
@@ -1758,9 +1370,9 @@
                  ((SPADCALL |r| (QREFELT $ 41))
                   (LETT |l|
                         (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
-                                  (QREFELT $ 100))
+                                  (QREFELT $ 97))
                         . #5#)))
-                (LETT |h| (SPADCALL |l| (QREFELT $ 102)) . #5#)
+                (LETT |h| (SPADCALL |l| (QREFELT $ 99)) . #5#)
                 (LETT |l|
                       (PROGN
                        (LETT #3# NIL . #5#)
@@ -1773,22 +1385,22 @@
                             (SEQ
                              (EXIT
                               (LETT #3#
-                                    (CONS (SPADCALL |p| (QREFELT $ 103)) #3#)
+                                    (CONS (SPADCALL |p| (QREFELT $ 100)) #3#)
                                     . #5#)))
                             (LETT #2# (CDR #2#) . #5#) (GO G190) G191
                             (EXIT (NREVERSE #3#))))
                       . #5#)
                 (EXIT
-                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 104)) |f|)
+                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 101)) |f|)
                        . #5#)))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 105)))))) 
+          (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 102)))))) 
 
 (DECLAIM (NOTINLINE |Plot;|)) 
 
 (DEFUN |Plot| ()
   (SPROG NIL
-         (PROG (#1=#:G397)
+         (PROG (#1=#:G384)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Plot|) . #2=(|Plot|))
@@ -1806,7 +1418,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Plot|) . #1=(|Plot|))
-          (LETT $ (GETREFV 107) . #1#)
+          (LETT $ (GETREFV 104) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|Plot| NIL (CONS 1 $))
@@ -1859,34 +1471,33 @@
               |PLOT;yRange;$S;21| |PLOT;tRange;$S;22| (55 . <=) (|List| 12)
               (61 . |second|) '"rest" (66 . |setelt!|) (|List| 19)
               (73 . |setelt!|) (|PointPackage| 12) (80 . |xCoord|) (85 . |min|)
-              (91 . |max|) (97 . |yCoord|) (|List| 48) (102 . |concat!|)
-              (108 . |concat!|) (114 . |third|) (119 . |second|)
-              (124 . |third|) (|PositiveInteger|) (129 . ^) (135 . |sqrt|)
-              (140 . |list|) (145 . |list|) |PLOT;zoom;$S$;27|
-              |PLOT;zoom;$2S$;28| (150 . |copy|) (155 . |copy|)
+              (91 . |max|) (97 . |yCoord|) (102 . |third|) (107 . |second|)
+              (112 . |third|) (|PositiveInteger|) (117 . ^) (123 . |sqrt|)
+              (128 . |list|) (133 . |list|) |PLOT;zoom;$S$;27|
+              |PLOT;zoom;$2S$;28| (138 . |copy|) (143 . |copy|)
               |PLOT;refine;$S$;31| |PLOT;refine;2$;30| |PLOT;plot;$S$;32|
-              (160 . |point|) (|Mapping| 12 12) |PLOT;plot;MS$;35|
+              (148 . |point|) (|Mapping| 12 12) |PLOT;plot;MS$;35|
               |PLOT;plot;M2S$;36| |PLOT;plot;2MS$;37| |PLOT;plot;2M3S$;38|
               (|Mapping| 19 12) |PLOT;pointPlot;MS$;39|
-              |PLOT;pointPlot;M3S$;40| (|List| 78) |PLOT;plot;LS$;41|
-              |PLOT;plot;L2S$;42| (165 . |cos|) (170 . *) (176 . |sin|)
-              |PLOT;plotPolar;MS$;43| (181 . *) (187 . |segment|)
-              |PLOT;plotPolar;M$;44| (|OutputForm|) (193 . |coerce|)
-              (198 . |coerce|) (|List| 96) (203 . |concat!|) (|List| $)
-              (209 . |hconcat|) (214 . |coerce|) (219 . |vconcat|)
-              (224 . |prefix|) |PLOT;coerce;$Of;45|)
-           '#(|zoom| 230 |yRange| 243 |xRange| 248 |tRange| 253
-              |setScreenResolution| 258 |setMinPoints| 263 |setMaxPoints| 268
-              |setAdaptive| 273 |screenResolution| 278 |refine| 282 |pointPlot|
-              293 |plotPolar| 307 |plot| 318 |parametric?| 366 |numFunEvals|
-              371 |minPoints| 375 |maxPoints| 379 |listBranches| 383 |debug|
-              388 |coerce| 393 |adaptive?| 398)
+              |PLOT;pointPlot;M3S$;40| (|List| 75) |PLOT;plot;LS$;41|
+              |PLOT;plot;L2S$;42| (153 . |cos|) (158 . *) (164 . |sin|)
+              |PLOT;plotPolar;MS$;43| (169 . *) (175 . |segment|)
+              |PLOT;plotPolar;M$;44| (|OutputForm|) (181 . |coerce|)
+              (186 . |coerce|) (|List| 93) (191 . |concat!|) (|List| $)
+              (197 . |hconcat|) (202 . |coerce|) (207 . |vconcat|)
+              (212 . |prefix|) |PLOT;coerce;$Of;45|)
+           '#(|zoom| 218 |yRange| 231 |xRange| 236 |tRange| 241
+              |setScreenResolution| 246 |setMinPoints| 251 |setMaxPoints| 256
+              |setAdaptive| 261 |screenResolution| 266 |refine| 270 |pointPlot|
+              281 |plotPolar| 295 |plot| 306 |parametric?| 354 |numFunEvals|
+              359 |minPoints| 363 |maxPoints| 367 |listBranches| 371 |debug|
+              376 |coerce| 381 |adaptive?| 386)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL NIL)
                        (CONS
-                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 96))
-                        (|makeByteWordVec2| 106
+                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 93))
+                        (|makeByteWordVec2| 103
                                             '(1 12 0 0 13 2 12 16 0 0 17 2 19
                                               16 18 0 20 1 23 12 0 24 1 23 12 0
                                               25 2 12 16 0 0 26 2 23 0 12 12 27
@@ -1894,30 +1505,29 @@
                                               0 0 35 2 12 16 0 0 47 1 48 12 0
                                               49 3 48 0 0 50 0 51 3 52 0 0 50 0
                                               53 1 54 12 19 55 2 12 0 0 0 56 2
-                                              12 0 0 0 57 1 54 12 19 58 2 59 0
-                                              0 48 60 2 21 0 0 52 61 1 48 12 0
-                                              62 1 52 19 0 63 1 52 19 0 64 2 12
-                                              0 0 65 66 1 12 0 0 67 1 48 0 12
-                                              68 1 52 0 19 69 1 48 0 0 72 1 52
-                                              0 0 73 1 19 0 48 77 1 12 0 0 89 2
-                                              12 0 0 0 90 1 12 0 0 91 2 12 0 65
-                                              0 93 2 23 0 12 12 94 1 96 96 0 97
-                                              1 23 96 0 98 2 99 0 0 0 100 1 96
-                                              0 101 102 1 19 96 0 103 1 96 0
-                                              101 104 2 96 0 0 101 105 2 0 0 0
-                                              23 70 3 0 0 0 23 23 71 1 0 23 0
-                                              45 1 0 23 0 44 1 0 23 0 46 1 0 31
-                                              31 38 1 0 31 31 33 1 0 31 31 36 1
-                                              0 16 16 40 0 0 31 37 2 0 0 0 23
-                                              74 1 0 0 0 75 2 0 0 83 23 84 4 0
-                                              0 83 23 23 23 85 2 0 0 78 23 92 1
-                                              0 0 78 95 2 0 0 0 23 76 3 0 0 78
-                                              78 23 81 5 0 0 78 78 23 23 23 82
-                                              2 0 0 86 23 87 3 0 0 86 23 23 88
-                                              2 0 0 78 23 79 3 0 0 78 23 23 80
-                                              1 0 16 0 41 0 0 31 42 0 0 31 32 0
-                                              0 31 34 1 0 21 0 22 1 0 16 16 43
-                                              1 0 96 0 106 0 0 16 39)))))
+                                              12 0 0 0 57 1 54 12 19 58 1 48 12
+                                              0 59 1 52 19 0 60 1 52 19 0 61 2
+                                              12 0 0 62 63 1 12 0 0 64 1 48 0
+                                              12 65 1 52 0 19 66 1 48 0 0 69 1
+                                              52 0 0 70 1 19 0 48 74 1 12 0 0
+                                              86 2 12 0 0 0 87 1 12 0 0 88 2 12
+                                              0 62 0 90 2 23 0 12 12 91 1 93 93
+                                              0 94 1 23 93 0 95 2 96 0 0 0 97 1
+                                              93 0 98 99 1 19 93 0 100 1 93 0
+                                              98 101 2 93 0 0 98 102 2 0 0 0 23
+                                              67 3 0 0 0 23 23 68 1 0 23 0 45 1
+                                              0 23 0 44 1 0 23 0 46 1 0 31 31
+                                              38 1 0 31 31 33 1 0 31 31 36 1 0
+                                              16 16 40 0 0 31 37 2 0 0 0 23 71
+                                              1 0 0 0 72 2 0 0 80 23 81 4 0 0
+                                              80 23 23 23 82 2 0 0 75 23 89 1 0
+                                              0 75 92 2 0 0 0 23 73 3 0 0 75 75
+                                              23 78 5 0 0 75 75 23 23 23 79 2 0
+                                              0 83 23 84 3 0 0 83 23 23 85 2 0
+                                              0 75 23 76 3 0 0 75 23 23 77 1 0
+                                              16 0 41 0 0 31 42 0 0 31 32 0 0
+                                              31 34 1 0 21 0 22 1 0 16 16 43 1
+                                              0 93 0 103 0 0 16 39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Plot| 'NILADIC T) 
