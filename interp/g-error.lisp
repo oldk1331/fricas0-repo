@@ -405,9 +405,9 @@
 ;     got_str1 => str1
 ;     str1 := MAKE_-REASONABLE(STRINGIMAGE val)
 ;     STRCONC(str1,
-;             '" of mode ", STRINGIMAGE(devaliate(umode)),
+;             '" of mode ", STRINGIMAGE(devaluate(umode)),
 ;               '" cannot be coerced to mode ",
-;                 STRINGIMAGE(devaliate(branch)))
+;                 STRINGIMAGE(devaluate(branch)))
  
 (DEFUN |check_union_failure_msg| (|val| |branch| |umode|)
   (PROG (|got_str1| |str1|)
@@ -423,9 +423,9 @@
             ('T
              (PROGN
               (SETQ |str1| (MAKE-REASONABLE (STRINGIMAGE |val|)))
-              (STRCONC |str1| " of mode " (STRINGIMAGE (|devaliate| |umode|))
+              (STRCONC |str1| " of mode " (STRINGIMAGE (|devaluate| |umode|))
                " cannot be coerced to mode "
-               (STRINGIMAGE (|devaliate| |branch|))))))))))
+               (STRINGIMAGE (|devaluate| |branch|))))))))))
  
 ; coerce_failure_msg(val, submode, mode) ==
 ;     check_union_failure_msg(val, submode, mode)
