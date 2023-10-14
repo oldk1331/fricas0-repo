@@ -54,7 +54,7 @@
 
 (SDEFUN |MMLFORM;exprex;OfS;6| ((|expr| |OutputForm|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G186 NIL) (|a| NIL)
+         ((|s| (|String|)) (|s1| #1=(|String|)) (#2=#:G185 NIL) (|a| NIL)
           (|nargs| (|Integer|)) (|args| (|List| (|OutputForm|))) (|sop| #1#)
           (|op| (|OutputForm|)))
          (SEQ
@@ -293,7 +293,7 @@
         (SPROG
          ((|tmp| (|String|)) (|base| (|String|)) (|tmp3| #1=(|String|))
           (|tmp2| #1#) (|tmp1| #1#) (|n| (|NonNegativeInteger|))
-          (#2=#:G259 NIL) (|u| NIL) (#3=#:G258 NIL) (|prescript| (|Boolean|)))
+          (#2=#:G258 NIL) (|u| NIL) (#3=#:G257 NIL) (|prescript| (|Boolean|)))
          (SEQ (LETT |prescript| 'NIL . #4=(|MMLFORM;formatSpecial|))
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "<mtext>theMap(...)</mtext>")
@@ -613,7 +613,7 @@
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
          ((|arg2| (|OutputForm|)) (|s| (|String|)) (|commaTest| (|String|))
-          (#1=#:G267 NIL) (|i| NIL) (|commaS| (|String|)))
+          (#1=#:G266 NIL) (|i| NIL) (|commaS| (|String|)))
          (SEQ
           (LETT |arg2| (SPADCALL |args| (QREFELT $ 50))
                 . #2=(|MMLFORM;formatPrime|))
@@ -699,8 +699,6 @@
                                  (#3#
                                   (|error|
                                    "wrong number of arguments for plex"))))
-                          ((EQUAL |op| 'INDEFINTEGRAL)
-                           (|error| "INDEFINTEGRAL not handled"))
                           (#3#
                            (|error|
                             (SPADCALL "Unexpected plex op:"
@@ -881,7 +879,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G305 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G303 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -1142,7 +1140,7 @@
 
 (DEFUN |MathMLFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G336)
+         (PROG (#1=#:G334)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|MathMLFormat|)
@@ -1178,8 +1176,8 @@
           (QSETREFV $ 13 '(- + * |,| |;| ROW STRSEP TENSOR))
           (QSETREFV $ 14 (LIST 700 700 800 110 110 0 0 850))
           (QSETREFV $ 15 '(ROW))
-          (QSETREFV $ 16 '(SIGMA SIGMA2 PI PI2 INTSIGN INDEFINTEGRAL))
-          (QSETREFV $ 17 '(750 750 750 750 700 700))
+          (QSETREFV $ 16 '(SIGMA SIGMA2 PI PI2 INTSIGN))
+          (QSETREFV $ 17 '(750 750 750 750 700))
           (QSETREFV $ 18
                     '(MATRIX BRACKET BRACE CONCATB VCONCAT AGGLST CONCAT
                       OVERBAR ROOT SUB TAG SUPERSUB ZAG AGGSET SC PAREN SEGMENT

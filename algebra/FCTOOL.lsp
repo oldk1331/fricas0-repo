@@ -2170,7 +2170,7 @@
           (QSETREFV $ 65
                     '(BRACKET BRACE SUB AGGLST SUPERSUB MATRIX SEGMENT
                       ALTSUPERSUB PAREN CONCAT CONCATB QUOTE STRING SIGMA STEP
-                      IN SIGMA2 INTSIGN PI PI2 INDEFINTEGRAL))
+                      IN SIGMA2 INTSIGN PI PI2))
           (QSETREFV $ 66 (SPADCALL '** (QREFELT $ 45)))
           (QSETREFV $ 81 6)
           $))) 

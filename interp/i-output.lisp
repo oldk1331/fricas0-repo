@@ -3556,60 +3556,6 @@
       (|apphor| |x| (- (+ |x| (WIDTH (ELT |u| 1))) 1)
        (+ (+ |y| (|superspan| (ELT |u| 1))) 1) |d| UNDERBAR)))))
  
-; indefIntegralSub u ==
-;    -- form is INDEFINTEGRAL(expr,dx)
-;    MAX(1,subspan u.1,subspan u.2)
- 
-(DEFUN |indefIntegralSub| (|u|)
-  (PROG () (RETURN (MAX 1 (|subspan| (ELT |u| 1)) (|subspan| (ELT |u| 2))))))
- 
-; indefIntegralSup u ==
-;    -- form is INDEFINTEGRAL(expr,dx)
-;    MAX(1,superspan u.1,superspan u.2)
- 
-(DEFUN |indefIntegralSup| (|u|)
-  (PROG ()
-    (RETURN (MAX 1 (|superspan| (ELT |u| 1)) (|superspan| (ELT |u| 2))))))
- 
-; indefIntegralApp(u,x,y,d) ==
-;    -- form is INDEFINTEGRAL(expr,dx)
-;   [.,expr,dx]:=u
-;   d := APP(expr,x+4,y,d)
-;   d := APP(dx,x+5+WIDTH expr,y,d)
-;   xLate( [['(0 . -1),:specialChar('llc) ],_
-;           ['(1 . -1),:specialChar('lrc) ],_
-;           ['(1 .  0),:specialChar('vbar)],_
-;           ['(1 .  1),:specialChar('ulc) ],_
-;           ['(2 .  1),:specialChar('urc) ]], x,y,d)
- 
-(DEFUN |indefIntegralApp| (|u| |x| |y| |d|)
-  (PROG (|expr| |dx|)
-    (RETURN
-     (PROGN
-      (SETQ |expr| (CADR . #1=(|u|)))
-      (SETQ |dx| (CADDR . #1#))
-      (SETQ |d| (APP |expr| (+ |x| 4) |y| |d|))
-      (SETQ |d| (APP |dx| (+ (+ |x| 5) (WIDTH |expr|)) |y| |d|))
-      (|xLate|
-       (LIST (CONS '(0 . -1) (|specialChar| '|llc|))
-             (CONS '(1 . -1) (|specialChar| '|lrc|))
-             (CONS '(1 . 0) (|specialChar| '|vbar|))
-             (CONS '(1 . 1) (|specialChar| '|ulc|))
-             (CONS '(2 . 1) (|specialChar| '|urc|)))
-       |x| |y| |d|)))))
- 
-; indefIntegralWidth u ==
-;   -- form is INDEFINTEGRAL(expr,dx)
-;   # u ~= 3 => THROW('outputFailure,'outputFailure)
-;   5 + WIDTH u.1 + WIDTH u.2
- 
-(DEFUN |indefIntegralWidth| (|u|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((NOT (EQL (LENGTH |u|) 3)) (THROW '|outputFailure| '|outputFailure|))
-      ('T (+ (+ 5 (WIDTH (ELT |u| 1))) (WIDTH (ELT |u| 2))))))))
- 
 ; intSub u ==
 ;    MAX(1 + height u.1, subspan u.3)
  

@@ -369,8 +369,6 @@
                                  (#3#
                                   (|error|
                                    "wrong number of arguments for plex"))))
-                          ((EQUAL |op| 'INDEFINTEGRAL)
-                           (|error| "INDEFINTEGRAL not handled"))
                           (#3#
                            (|error|
                             (SPADCALL "Unexpected plex op:"
@@ -419,7 +417,7 @@
 (SDEFUN |TMFORM;formatIntBody|
         ((|body| |OutputForm|) (|opPrec| |Integer|) ($ |String|))
         (SPROG
-         ((#1=#:G240 NIL) (|bvarS| (|String|))
+         ((#1=#:G238 NIL) (|bvarS| (|String|))
           (|bvarL| #2=(|List| (|OutputForm|))) (|bvar| (|OutputForm|))
           (|bodyL| #2#))
          (SEQ
@@ -461,7 +459,7 @@
                                               " \"*<mathd>" |bvarS| "\")")
                                         (QREFELT $ 36))
                                        . #3#)
-                                 (GO #4=#:G239))))))))))))))))))
+                                 (GO #4=#:G237))))))))))))))))))
             (EXIT (|TMFORM;formatExpr| |body| |opPrec| $))))
           #4# (EXIT #1#)))) 
 
@@ -613,7 +611,7 @@
         ((|op| |Symbol|) (|sep| |String|) (|opprec| |Integer|)
          (|args| |List| (|OutputForm|)) (|prec| |Integer|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G270 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G268 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|ops| (|String|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -940,7 +938,7 @@
 
 (DEFUN |TexmacsFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G304)
+         (PROG (#1=#:G302)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|TexmacsFormat|)
@@ -976,8 +974,8 @@
           (QSETREFV $ 13 '(- + * |,| |;| ROW STRSEP TENSOR))
           (QSETREFV $ 14 (LIST 700 700 800 110 110 0 0 850))
           (QSETREFV $ 15 '(ROW))
-          (QSETREFV $ 16 '(SIGMA SIGMA2 PI PI2 INTSIGN INDEFINTEGRAL))
-          (QSETREFV $ 17 '(750 750 750 750 700 700))
+          (QSETREFV $ 16 '(SIGMA SIGMA2 PI PI2 INTSIGN))
+          (QSETREFV $ 17 '(750 750 750 750 700))
           (QSETREFV $ 18
                     '(MATRIX BRACKET BRACE CONCATB VCONCAT AGGLST CONCAT
                       OVERBAR ROOT SUB TAG SUPERSUB ZAG AGGSET SC PAREN SEGMENT
