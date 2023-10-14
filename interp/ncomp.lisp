@@ -77,7 +77,7 @@
 ;             null(margs) =>
 ;                 [expandMacros(repval), :[expandMacros(x) for x in args]]
 ;             args :=
-;                 args is [",", :args1] => postFlatten(args, ",")
+;                 args is [[",", :args1]] => postFlatten(first(args), ",")
 ;                 args
 ;             #args = #margs =>
 ;                 expandMacros(SUBLISLIS(args, margs, repval))
@@ -86,7 +86,7 @@
 ;     [expandMacros(x) for x in tree]
  
 (DEFUN |expandMacros| (|tree|)
-  (PROG (|mdef| |repval| |op| |args| |margs| |args1|)
+  (PROG (|mdef| |repval| |op| |args| |margs| |ISTMP#1| |args1|)
     (RETURN
      (COND
       ((ATOM |tree|)
@@ -131,9 +131,15 @@
                      (PROGN
                       (SETQ |args|
                               (COND
-                               ((AND (CONSP |args|) (EQ (CAR |args|) '|,|)
-                                     (PROGN (SETQ |args1| (CDR |args|)) #1#))
-                                (|postFlatten| |args| '|,|))
+                               ((AND (CONSP |args|) (EQ (CDR |args|) NIL)
+                                     (PROGN
+                                      (SETQ |ISTMP#1| (CAR |args|))
+                                      (AND (CONSP |ISTMP#1|)
+                                           (EQ (CAR |ISTMP#1|) '|,|)
+                                           (PROGN
+                                            (SETQ |args1| (CDR |ISTMP#1|))
+                                            #1#))))
+                                (|postFlatten| (CAR |args|) '|,|))
                                (#1# |args|)))
                       (COND
                        ((EQL (LENGTH |args|) (LENGTH |margs|))
@@ -269,7 +275,7 @@
 ;         def := [def]
 ;     else if name is [op, :args] and SYMBOLP(op) then
 ;         args :=
-;             args is [",", args1] => rest(postFlatten(args, ","))
+;             args is [[",", :args1]] => postFlatten(first(args), ",")
 ;             args
 ;         name := op
 ;         def := [def, :args]
@@ -293,12 +299,12 @@
                   (SYMBOLP |op|))
              (SETQ |args|
                      (COND
-                      ((AND (CONSP |args|) (EQ (CAR |args|) '|,|)
+                      ((AND (CONSP |args|) (EQ (CDR |args|) NIL)
                             (PROGN
-                             (SETQ |ISTMP#1| (CDR |args|))
-                             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                                  (PROGN (SETQ |args1| (CAR |ISTMP#1|)) #1#))))
-                       (CDR (|postFlatten| |args| '|,|)))
+                             (SETQ |ISTMP#1| (CAR |args|))
+                             (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) '|,|)
+                                  (PROGN (SETQ |args1| (CDR |ISTMP#1|)) #1#))))
+                       (|postFlatten| (CAR |args|) '|,|))
                       (#1# |args|)))
              (SETQ |name| |op|) (SETQ |def| (CONS |def| |args|)))
             (#1# (SAY (LIST |name| |def|))
