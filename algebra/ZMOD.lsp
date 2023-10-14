@@ -95,8 +95,9 @@
          (CONS 0 (SPADCALL |c1| (QREFELT $ 21) (QREFELT $ 38))))
         ('T (CONS 1 "failed")))))))) 
 
-(DEFUN |ZMOD;hashUpdate!;Hs$Hs;22| (|hs| |s| $)
-  (SPADCALL |hs| |s| (QREFELT $ 48))) 
+(PUT '|ZMOD;hashUpdate!;Hs$Hs;22| '|SPADreplace| 'FNV-1A) 
+
+(DEFUN |ZMOD;hashUpdate!;Hs$Hs;22| (|hs| |s| $) (FNV-1A |hs| |s|)) 
 
 (PUT '|ZMOD;convert;$I;23| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
@@ -134,17 +135,17 @@
 (DEFUN |ZMOD;=;2$B;30| (|x| |y| $) (EQL |x| |y|)) 
 
 (DEFUN |ZMOD;*;3$;31| (|x| |y| $)
-  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 50))) 
+  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 49))) 
 
 (DEFUN |ZMOD;*;I2$;32| (|n| |x| $)
   (SPADCALL (SPADCALL |n| (QREFELT $ 6) (QREFELT $ 38)) |x| (QREFELT $ 6)
-            (QREFELT $ 50))) 
+            (QREFELT $ 49))) 
 
 (DEFUN |ZMOD;+;3$;33| (|x| |y| $)
-  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 51))) 
+  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 50))) 
 
 (DEFUN |ZMOD;-;3$;34| (|x| |y| $)
-  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 52))) 
+  (SPADCALL |x| |y| (QREFELT $ 6) (QREFELT $ 51))) 
 
 (DEFUN |ZMOD;random;$;35| ($) (RANDOM (QREFELT $ 6))) 
 
@@ -174,8 +175,7 @@
          (CONS 0 (SPADCALL |c1| (QREFELT $ 6) (QREFELT $ 38))))
         ('T (CONS 1 "failed")))))))) 
 
-(DEFUN |ZMOD;hashUpdate!;Hs$Hs;40| (|hs| |s| $)
-  (SPADCALL |hs| (SXHASH |s|) (QREFELT $ 48))) 
+(DEFUN |ZMOD;hashUpdate!;Hs$Hs;40| (|hs| |s| $) (FNV-1A |hs| (SXHASH |s|))) 
 
 (DEFUN |IntegerMod| (#1=#:G194)
   (PROG ()
@@ -200,7 +200,7 @@
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #1=(|IntegerMod|))
       (LETT |dv$| (LIST '|IntegerMod| DV$1) . #1#)
-      (LETT $ (GETREFV 56) . #1#)
+      (LETT $ (GETREFV 55) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|IntegerMod| (LIST DV$1) (CONS 1 $))
@@ -237,7 +237,7 @@
          (QSETREFV $ 40 (CONS (|dispatchFunction| |ZMOD;-;2$;19|) $))
          (QSETREFV $ 43 (CONS (|dispatchFunction| |ZMOD;^;$Nni$;20|) $))
          (QSETREFV $ 46 (CONS (|dispatchFunction| |ZMOD;recip;$U;21|) $))
-         (QSETREFV $ 49
+         (QSETREFV $ 48
                    (CONS (|dispatchFunction| |ZMOD;hashUpdate!;Hs$Hs;22|) $))))
        ('T
         (PROGN
@@ -265,7 +265,7 @@
          (QSETREFV $ 40 (CONS (|dispatchFunction| |ZMOD;-;2$;37|) $))
          (QSETREFV $ 43 (CONS (|dispatchFunction| |ZMOD;^;$Nni$;38|) $))
          (QSETREFV $ 46 (CONS (|dispatchFunction| |ZMOD;recip;$U;39|) $))
-         (QSETREFV $ 49
+         (QSETREFV $ 48
                    (CONS (|dispatchFunction| |ZMOD;hashUpdate!;Hs$Hs;40|)
                          $)))))
       $)))) 
@@ -285,14 +285,13 @@
               (123 . ^)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (129 . |extendedEuclidean|) (135 . |recip|) (|HashState|)
-              (140 . |update!|) (146 . |hashUpdate!|) (152 . |mulmod|)
-              (159 . |addmod|) (166 . |submod|) (|InputForm|) (|List| $)
-              (|String|))
-           '#(~= 173 |zero?| 179 |subtractIfCan| 184 |size| 190 |sample| 194
-              |recip| 198 |random| 203 |one?| 207 |nextItem| 212 |lookup| 217
-              |latex| 222 |init| 227 |index| 231 |hashUpdate!| 236 |hash| 242
-              |enumerate| 247 |convert| 251 |coerce| 261 |characteristic| 271 ^
-              275 |Zero| 287 |One| 291 = 295 - 301 + 312 * 318)
+              (140 . |hashUpdate!|) (146 . |mulmod|) (153 . |addmod|)
+              (160 . |submod|) (|InputForm|) (|List| $) (|String|))
+           '#(~= 167 |zero?| 173 |subtractIfCan| 178 |size| 184 |sample| 188
+              |recip| 192 |random| 197 |one?| 201 |nextItem| 206 |lookup| 211
+              |latex| 216 |init| 221 |index| 225 |hashUpdate!| 230 |hash| 236
+              |enumerate| 241 |convert| 245 |coerce| 255 |characteristic| 265 ^
+              269 |Zero| 281 |One| 285 = 289 - 295 + 306 * 312)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -309,9 +308,9 @@
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|StepThrough|) (|Finite|)
                  (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
-                 (|ConvertibleTo| 12) (|ConvertibleTo| 53) (|CommutativeStar|)
+                 (|ConvertibleTo| 12) (|ConvertibleTo| 52) (|CommutativeStar|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 23))
-              (|makeByteWordVec2| 55
+              (|makeByteWordVec2| 54
                                   '(1 0 10 0 11 1 0 12 0 13 2 12 10 0 0 16 1 19
                                     0 12 20 2 12 0 0 0 22 1 18 23 0 24 1 0 23 0
                                     25 1 0 0 12 26 0 0 0 27 0 0 0 28 0 0 0 29 2
@@ -319,16 +318,15 @@
                                     0 0 34 2 0 0 12 0 35 2 0 0 0 0 36 0 0 0 37
                                     2 18 0 0 0 38 1 0 0 14 39 1 0 0 0 40 3 18 0
                                     0 0 0 41 3 12 0 0 0 0 42 2 0 0 0 7 43 2 18
-                                    44 0 0 45 1 0 32 0 46 2 47 0 0 19 48 2 0 47
-                                    47 0 49 3 18 0 0 0 0 50 3 18 0 0 0 0 51 3
-                                    18 0 0 0 0 52 2 0 10 0 0 1 1 0 10 0 11 2 0
-                                    32 0 0 1 0 0 7 8 0 0 0 1 1 0 32 0 46 0 0 0
-                                    37 1 0 10 0 1 1 0 32 0 33 1 0 14 0 15 1 0
-                                    55 0 1 0 0 0 29 1 0 0 14 39 2 0 47 47 0 49
-                                    1 0 19 0 1 0 0 54 1 1 0 53 0 1 1 0 12 0 13
-                                    1 0 0 12 26 1 0 23 0 25 0 0 7 9 2 0 0 0 7
-                                    43 2 0 0 0 14 1 0 0 0 27 0 0 0 28 2 0 10 0
-                                    0 31 1 0 0 0 40 2 0 0 0 0 36 2 0 0 0 0 30 2
-                                    0 0 12 0 35 2 0 0 0 0 34 2 0 0 7 0 1 2 0 0
-                                    14 0 1)))))
+                                    44 0 0 45 1 0 32 0 46 2 0 47 47 0 48 3 18 0
+                                    0 0 0 49 3 18 0 0 0 0 50 3 18 0 0 0 0 51 2
+                                    0 10 0 0 1 1 0 10 0 11 2 0 32 0 0 1 0 0 7 8
+                                    0 0 0 1 1 0 32 0 46 0 0 0 37 1 0 10 0 1 1 0
+                                    32 0 33 1 0 14 0 15 1 0 54 0 1 0 0 0 29 1 0
+                                    0 14 39 2 0 47 47 0 48 1 0 19 0 1 0 0 53 1
+                                    1 0 52 0 1 1 0 12 0 13 1 0 0 12 26 1 0 23 0
+                                    25 0 0 7 9 2 0 0 0 7 43 2 0 0 0 14 1 0 0 0
+                                    27 0 0 0 28 2 0 10 0 0 31 1 0 0 0 40 2 0 0
+                                    0 0 36 2 0 0 0 0 30 2 0 0 12 0 35 2 0 0 0 0
+                                    34 2 0 0 7 0 1 2 0 0 14 0 1)))))
            '|lookupComplete|)) 

@@ -36,6 +36,16 @@
       (SETQ |slot| (|replaceGoGetSlot| |env|))
       (APPLY (CAR |slot|) (APPEND |arglist| (CONS (CDR |slot|) NIL)))))))
  
+; forceLazySlot(f) ==
+;     not(EQ(first f, function newGoGet)) => f
+;     replaceGoGetSlot(rest f)
+ 
+(DEFUN |forceLazySlot| (|f|)
+  (PROG ()
+    (RETURN
+     (COND ((NULL (EQ (CAR |f|) #'|newGoGet|)) |f|)
+           ('T (|replaceGoGetSlot| (CDR |f|)))))))
+ 
 ; newLookupInTable(op,sig,dollar,[domain,opvec],flag) ==
 ;   dollar = nil => systemError()
 ;   $lookupDefaults = true =>
