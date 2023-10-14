@@ -3,13 +3,6 @@
  
 (IN-PACKAGE "BOOT")
  
-; recordSignatureDocumentation(opSig,lineno) ==
-;   recordDocumentation(rest postTransform opSig,lineno)
- 
-(DEFUN |recordSignatureDocumentation| (|opSig| |lineno|)
-  (PROG ()
-    (RETURN (|recordDocumentation| (CDR (|postTransform| |opSig|)) |lineno|))))
- 
 ; getSignatureDocumentation(lineno) ==
 ;     $docList : local := nil
 ;     recordDocumentation("Signature", lineno)

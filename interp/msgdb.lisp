@@ -743,7 +743,6 @@
       (|sayMSG| |msg'|)))))
  
 ; throwKeyedErrorMsg(kind,key,args) ==
-;   BUMPERRORCOUNT kind
 ;   sayMSG '" "
 ;   if $testingSystem then sayMSG $testingErrorPrefix
 ;   sayKeyedMsg(key,args)
@@ -753,7 +752,6 @@
   (PROG ()
     (RETURN
      (PROGN
-      (BUMPERRORCOUNT |kind|)
       (|sayMSG| " ")
       (COND (|$testingSystem| (|sayMSG| |$testingErrorPrefix|)))
       (|sayKeyedMsg| |key| |args|)

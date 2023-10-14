@@ -1447,7 +1447,6 @@
       "--------------------------------------------------------------------------"))))
  
 ; stackSemanticError(msg,expr) ==
-;   BUMPERRORCOUNT "semantic"
 ;   if $insideCapsuleFunctionIfTrue then msg:= [$op,": ",:msg]
 ;   if atom msg then msg:= LIST msg
 ;   entry:= [msg,expr]
@@ -1461,7 +1460,6 @@
   (PROG (|entry|)
     (RETURN
      (PROGN
-      (BUMPERRORCOUNT '|semantic|)
       (COND
        (|$insideCapsuleFunctionIfTrue|
         (SETQ |msg| (CONS |$op| (CONS '|: | |msg|)))))
