@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4704 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4709 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -123,7 +123,8 @@
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
  |FunctionSpaceToExponentialExpansion| |FunctionSpaceToUnivariatePowerSeries|
- |FiniteSetAggregate&| |FiniteSetAggregate| |FiniteSetAggregateFunctions2|
+ |FunctionSpaceToUnivariatePowerSeries2| |FiniteSetAggregate&|
+ |FiniteSetAggregate| |FiniteSetAggregateFunctions2|
  |FunctionSpaceComplexIntegration| |FourierSeries| |FloatSpecialFunctions|
  |FunctionSpaceIntegration| |FunctionalSpecialFunction|
  |FunctionSpacePrimitiveElement| |FunctionSpaceReduce| |FortranScalarType|
@@ -571,17 +572,17 @@
  |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
  |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |isMult|
  |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |exprToPS| |localAbs|
- |universe| |complement| |cardinality| |internalIntegrate0| |makeCos| |makeSin|
- |logGamma| |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
- |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma|
- |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime|
- |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
- |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
- |character?| |doubleComplex?| |complex?| |double?| |ffactor| |qfactor|
- |UP2ifCan| |anfactor| |fortranCharacter| |fortranDoubleComplex|
- |fortranComplex| |fortranLogical| |fortranInteger| |fortranDouble|
- |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
- |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |atan1| |integ| |integ_df| |powToUPS| |universe| |complement| |cardinality|
+ |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
+ |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
+ |iiabs| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI|
+ |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi|
+ |iAiryAiPrime| |iAiryBi| |iAiryBiPrime| |iiHypergeometricF| |iiPolylog|
+ |iLambertW| |bringDown| |newReduc| |logical?| |character?| |doubleComplex?|
+ |complex?| |double?| |ffactor| |qfactor| |UP2ifCan| |anfactor|
+ |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
+ |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
+ |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
