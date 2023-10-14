@@ -3644,9 +3644,6 @@
 ;   item is ["where",b,:l] => doItWhere(item, $predl, $e)
 ;   item is ["MDEF",:.] => [.,.,$e]:= compOrCroak(item,$EmptyMode,$e)
 ;   item is ['DEF,[op,:.],:.] =>
-;     body := isMacro(item, $e) =>
-;         SAY(["converted function", op, "to macro"])
-;         $e:= put(op, 'macro, [body], $e)
 ;     [.,.,$e]:= t:= compOrCroak(item,$EmptyMode,$e)
 ;     RPLACA(item,"CodeDefine")
 ;         --Note that DescendCode, in CodeDefine, is looking for this
@@ -3662,9 +3659,9 @@
  
 (DEFUN |doIt| (|item| |$predl|)
   (DECLARE (SPECIAL |$predl|))
-  (PROG ($GENNO |functionPart| |body| |op| |b| |doms| |LETTMP#1| |t| |a|
-         |rhsCode| |rhs'| |lhs'| |code| |rhs| |lhs| |u| |l| |x| |ISTMP#5|
-         |ISTMP#4| |ISTMP#3| |ISTMP#2| |ISTMP#1|)
+  (PROG ($GENNO |functionPart| |op| |b| |doms| |LETTMP#1| |t| |a| |rhsCode|
+         |rhs'| |lhs'| |code| |rhs| |lhs| |u| |l| |x| |ISTMP#5| |ISTMP#4|
+         |ISTMP#3| |ISTMP#2| |ISTMP#1|)
     (DECLARE (SPECIAL $GENNO))
     (RETURN
      (PROGN
@@ -3839,20 +3836,14 @@
                     (SETQ |ISTMP#2| (CAR |ISTMP#1|))
                     (AND (CONSP |ISTMP#2|)
                          (PROGN (SETQ |op| (CAR |ISTMP#2|)) #1#))))))
-        (COND
-         ((SETQ |body| (|isMacro| |item| |$e|))
-          (PROGN
-           (SAY (LIST '|converted function| |op| '|to macro|))
-           (SETQ |$e| (|put| |op| '|macro| (LIST |body|) |$e|))))
-         (#1#
-          (PROGN
-           (SETQ |t| (|compOrCroak| |item| |$EmptyMode| |$e|))
-           (SETQ |$e| (CADDR |t|))
-           (RPLACA |item| '|CodeDefine|)
-           (RPLACD (CADR |item|) (LIST |$signatureOfForm|))
-           (SETQ |functionPart| (LIST '|dispatchFunction| (CAR |t|)))
-           (RPLACA (CDDR |item|) |functionPart|)
-           (RPLACD (CDDR |item|) NIL)))))
+        (PROGN
+         (SETQ |t| (|compOrCroak| |item| |$EmptyMode| |$e|))
+         (SETQ |$e| (CADDR |t|))
+         (RPLACA |item| '|CodeDefine|)
+         (RPLACD (CADR |item|) (LIST |$signatureOfForm|))
+         (SETQ |functionPart| (LIST '|dispatchFunction| (CAR |t|)))
+         (RPLACA (CDDR |item|) |functionPart|)
+         (RPLACD (CDDR |item|) NIL)))
        ((SETQ |u| (|compOrCroak| |item| |$EmptyMode| |$e|))
         (PROGN
          (SETQ |code| (CAR |u|))

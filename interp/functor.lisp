@@ -748,7 +748,6 @@
 ;   -- otherwise set to conditions in which
 ;   code=nil => nil
 ;   code='noBranch => nil
-;   isMacro(code,$e) => nil --RDJ: added 3/16/83
 ;   code is ['add,base,:codelist] =>
 ;     codelist:=
 ;       [v for u in codelist | (v:= DescendCode(u,flag,viewAssoc,EnvToPass))~=nil]
@@ -821,7 +820,6 @@
          |ISTMP#3| |cat| |c| |c1| |name| |body| |u| |sig| |implem|)
     (RETURN
      (COND ((NULL |code|) NIL) ((EQ |code| '|noBranch|) NIL)
-           ((|isMacro| |code| |$e|) NIL)
            ((AND (CONSP |code|) (EQ (CAR |code|) '|add|)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |code|))
