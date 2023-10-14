@@ -799,7 +799,8 @@
                (LETT |s1| (|TEX;formatExpr| (|SPADfirst| |args|) |opPrec| $)
                      . #1#)
                (LETT |s2|
-                     (|TEX;formatExpr| (|SPADfirst| (CDR |args|)) |opPrec| $)
+                     (|TEX;formatExpr| (|SPADfirst| (CDR |args|))
+                      (COND ((EQUAL |op| '^) (QREFELT $ 9)) (#2# |opPrec|)) $)
                      . #1#)
                (LETT |ops|
                      (COND ((EQUAL |op| '|\||) " \\mid ")
@@ -816,7 +817,13 @@
                                          (#2#
                                           (SPADCALL |op| (QREFELT $ 59))))))))
                      . #1#)
-               (LETT |s| (SPADCALL (LIST |s1| |ops| |s2|) (QREFELT $ 54))
+               (LETT |s|
+                     (COND
+                      ((EQUAL |op| '^)
+                       (SPADCALL
+                        (LIST (|TEX;group| |s1| $) |ops| (|TEX;group| |s2| $))
+                        (QREFELT $ 54)))
+                      (#2# (SPADCALL (LIST |s1| |ops| |s2|) (QREFELT $ 54))))
                      . #1#)
                (EXIT
                 (|TEX;group|
