@@ -490,31 +490,31 @@
  |freeCumulants| |classicalCumulants| |moments| |booleanCumulant|
  |freeCumulant| |classicalCumulant| |moment| |gaussianDistribution|
  |poissonDistribution| |wignerDistribution| |freePoissonDistribution|
- |bernoulliDistribution01| |arcsineDistribution| |booleanCumulantFromJacobi|
- |distributionByJacobiParameters| |distributionByMonotoneCumulants|
- |distributionByBooleanCumulants| |distributionByFreeCumulants|
- |distributionByClassicalCumulants| |distributionByEvenMoments|
- |distributionByMoments| |mapall| |R1_to_R2_coercion| |setnext!| |setprevious!|
- |next| |previous| |datalist| |shanksDiscLogAlgorithm| |separant| |leader|
- |isobaric?| |weights| |differentialVariables| |extractBottom!| |extractTop!|
- |insertBottom!| |insertTop!| |bottom!| |top!| |dequeue| |makeObject| |recolor|
- |drawComplex| |drawComplexVectorField| |setRealSteps| |setImagSteps|
- |setClipValue| |draw| |option?| |range| |colorFunction| |curveColor|
- |pointColor| |clip| |clipBoolean| |style| |toScale| |pointColorPalette|
- |curveColorPalette| |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius|
- |JContinuedFraction| |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3|
- |iiexp| |iilog| |iisin| |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin|
- |iiacos| |iiatan| |iiacot| |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh|
- |iicoth| |iisech| |iicsch| |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech|
- |iiacsch| |specialTrigs| |localReal?| |do_quo| |rischNormalize|
- |realLiouvillian| |realElementary| |validExponential| |rootNormalize| |rmap|
- |tanQ| |irootDep| |select!| |delete!| |sncndn| |lin_sol| |ellipticRC|
- |ellipticRD| |ellipticRF| |ellipticRJ| |qsetelt!| |unit?| |associates?|
- |unitCanonical| |unitNormal| |eigenvalues| |eigenvector|
- |generalizedEigenvector| |generalizedEigenvectors| |eigenvectors|
- |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
- |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
- |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
+ |bernoulliDistribution01| |arcsineDistribution|
+ |distributionByMonotoneCumulants| |booleanCumulantFromJacobi|
+ |distributionByJacobiParameters| |distributionByBooleanCumulants|
+ |distributionByFreeCumulants| |distributionByClassicalCumulants|
+ |distributionByEvenMoments| |distributionByMoments| |mapall|
+ |R1_to_R2_coercion| |setnext!| |setprevious!| |next| |previous| |datalist|
+ |shanksDiscLogAlgorithm| |separant| |leader| |isobaric?| |weights|
+ |differentialVariables| |extractBottom!| |extractTop!| |insertBottom!|
+ |insertTop!| |bottom!| |top!| |dequeue| |makeObject| |recolor| |drawComplex|
+ |drawComplexVectorField| |setRealSteps| |setImagSteps| |setClipValue| |draw|
+ |option?| |range| |colorFunction| |curveColor| |pointColor| |clip|
+ |clipBoolean| |style| |toScale| |pointColorPalette| |curveColorPalette|
+ |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius| |JContinuedFraction|
+ |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin|
+ |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
+ |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
+ |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
+ |localReal?| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
+ |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
+ |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
+ |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
+ |eigenvalues| |eigenvector| |generalizedEigenvector| |generalizedEigenvectors|
+ |eigenvectors| |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero|
+ |swap| |error| |minPoly| |operators| |tower| |kernels| |mainKernel|
+ |distribute| |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |simplifyPower| |number?|
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|

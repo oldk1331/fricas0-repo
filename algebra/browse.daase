@@ -4331,6 +4331,11 @@ NIL
               (|:| |laurent| (|Fraction| (|Integer|)))
               (|:| |coef| (|Sequence| |#1|))))
    "\\spad{distributionBySTransform(series)} initiates a distribution with given \\spad{S}-transform \\spad{series}."))
+ (|distributionByMonotoneCumulants|
+  (($ (|Stream| |#1|))
+   "\\spad{distributionByMonotoneCumulants(hh)} initiates a distribution with given monotone cumulants \\spad{hh}.")
+  (($ (|Sequence| |#1|))
+   "\\spad{distributionByMonotoneCumulants(hh)} initiates a distribution with given monotone cumulants \\spad{hh}."))
  (|construct|
   (($ (|Sequence| |#1|) (|Sequence| |#1|) (|Sequence| |#1|) (|Sequence| |#1|))
    "\\spad{construct(mom,{} ccum,{} fcum,{} bcum)} constructs a distribution with moments \\spad{mom},{} classical cumulants \\spad{ccum},{} free cumulants \\spad{fcum} and boolean cumulants \\spad{bcum}. The user must make sure that these are consistent,{} otherwise the results are unpredictable!"))
@@ -4342,11 +4347,6 @@ NIL
    "\\spad{distributionByJacobiParameters(aa,{} bb)} initiates a distribution with given Jacobi parameters \\spad{[aa,{} bb]}.")
   (($ (|Sequence| |#1|) (|Sequence| |#1|))
    "\\spad{distributionByJacobiParameters(aa,{} bb)} initiates a distribution with given Jacobi parameters \\spad{[aa,{} bb]}."))
- (|distributionByMonotoneCumulants|
-  (($ (|Stream| |#1|))
-   "\\spad{distributionByMonotoneCumulants(hh)} initiates a distribution with given monotone cumulants \\spad{hh}.")
-  (($ (|Sequence| |#1|))
-   "\\spad{distributionByMonotoneCumulants(hh)} initiates a distribution with given monotone cumulants \\spad{hh}."))
  (|distributionByBooleanCumulants|
   (($ (|Stream| |#1|))
    "\\spad{distributionByBooleanCumulants(bb)} initiates a distribution with given Boolean cumulants \\spad{bb}.")

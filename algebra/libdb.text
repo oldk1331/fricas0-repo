@@ -3444,8 +3444,8 @@ odistributionByJacobiParameters`2`x`(Sequence(R),Sequence(R))->_$`dDistribution(
 odistributionByJacobiParameters`2`x`(Stream(R),Stream(R))->_$`dDistribution(R)``434556
 odistributionByMoments`1`x`(Sequence(R))->_$`dDistribution(R)``434684
 odistributionByMoments`1`x`(Stream(R))->_$`dDistribution(R)``434779
-odistributionByMonotoneCumulants`1`x`(Sequence(R))->_$`dDistribution(R)``434874
-odistributionByMonotoneCumulants`1`x`(Stream(R))->_$`dDistribution(R)``434990
+odistributionByMonotoneCumulants`1`x`(Sequence(R))->_$`dDistribution(R)`has(R,Algebra(Fraction(Integer)))`434874
+odistributionByMonotoneCumulants`1`x`(Stream(R))->_$`dDistribution(R)`has(R,Algebra(Fraction(Integer)))`434990
 odistributionBySTransform`1`x`(Record(puiseux:Fraction(Integer),laurent:Fraction(Integer),coef:Sequence(R)))->_$`dDistribution(R)`has(R,Algebra(Fraction(Integer)))`435106
 odistributionBySTransform`1`x`(UPSR)->Distribution(R)`pSTransformPackage(R,UTSR,ULSR,UPSR)``435223
 odistributionBySTransform`3`x`(Fraction(Integer),Fraction(Integer),Sequence(R))->_$`dDistribution(R)`has(R,Algebra(Fraction(Integer)))`435374
