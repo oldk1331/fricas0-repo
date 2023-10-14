@@ -1278,7 +1278,11 @@
               (#1# (THROW '|mapCompiler| '|tryInterpOnly|)))))))))
  
 ; throwKeyedMsgCannotCoerceWithValue(val,t1,t2) ==
-;   null (val' := coerceInteractive(mkObj(val,t1),$OutputForm)) =>
+;   val' :=
+;      not($genValue) => nil
+;      coerceInteractive(mkObj(val,t1),$OutputForm)
+;   if not(isWrapped(val')) then val' := nil
+;   null (val') =>
 ;     throwKeyedMsg("S2IC0002",[t1,t2])
 ;   val' := objValUnwrap(val')
 ;   throwKeyedMsg("S2IC0003",[t1,t2,val'])
@@ -1286,14 +1290,18 @@
 (DEFUN |throwKeyedMsgCannotCoerceWithValue| (|val| |t1| |t2|)
   (PROG (|val'|)
     (RETURN
-     (COND
-      ((NULL
-        (SETQ |val'| (|coerceInteractive| (|mkObj| |val| |t1|) |$OutputForm|)))
-       (|throwKeyedMsg| 'S2IC0002 (LIST |t1| |t2|)))
-      ('T
-       (PROGN
-        (SETQ |val'| (|objValUnwrap| |val'|))
-        (|throwKeyedMsg| 'S2IC0003 (LIST |t1| |t2| |val'|))))))))
+     (PROGN
+      (SETQ |val'|
+              (COND ((NULL |$genValue|) NIL)
+                    (#1='T
+                     (|coerceInteractive| (|mkObj| |val| |t1|)
+                      |$OutputForm|))))
+      (COND ((NULL (|isWrapped| |val'|)) (SETQ |val'| NIL)))
+      (COND ((NULL |val'|) (|throwKeyedMsg| 'S2IC0002 (LIST |t1| |t2|)))
+            (#1#
+             (PROGN
+              (SETQ |val'| (|objValUnwrap| |val'|))
+              (|throwKeyedMsg| 'S2IC0003 (LIST |t1| |t2| |val'|)))))))))
  
 ; bright x == ['"%b", :(PAIRP(x) and NULL rest LASTNODE x => x; [x]), '"%d"]
  
