@@ -57,33 +57,33 @@
 (SDEFUN |UTSCAT-;coerce;SOf;5| ((|p| S) ($ |OutputForm|))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| |Coef|)) (|n| NIL)
-          (|count| (|NonNegativeInteger|)) (|vv| (|OutputForm|))
-          (|cen| (|Coef|)) (|var| (|Symbol|)))
+          (#1=#:G160 NIL) (|count| (|NonNegativeInteger|))
+          (|vv| (|OutputForm|)) (|cen| (|Coef|)) (|var| (|Symbol|)))
          (SEQ
           (COND
            ((SPADCALL
              (LETT |uu| (SPADCALL |p| (QREFELT $ 9))
-                   . #1=(|UTSCAT-;coerce;SOf;5|))
+                   . #2=(|UTSCAT-;coerce;SOf;5|))
              (QREFELT $ 11))
             (SPADCALL (|spadConstant| $ 17) (QREFELT $ 19)))
-           (#2='T
-            (SEQ (LETT |var| (SPADCALL |p| (QREFELT $ 30)) . #1#)
-                 (LETT |cen| (SPADCALL |p| (QREFELT $ 31)) . #1#)
+           (#3='T
+            (SEQ (LETT |var| (SPADCALL |p| (QREFELT $ 30)) . #2#)
+                 (LETT |cen| (SPADCALL |p| (QREFELT $ 31)) . #2#)
                  (LETT |vv|
                        (COND
                         ((SPADCALL |cen| (QREFELT $ 13))
                          (SPADCALL |var| (QREFELT $ 32)))
-                        (#2#
+                        (#3#
                          (SPADCALL
                           (SPADCALL (SPADCALL |var| (QREFELT $ 32))
                                     (SPADCALL |cen| (QREFELT $ 19))
                                     (QREFELT $ 33))
                           (QREFELT $ 34))))
-                       . #1#)
-                 (LETT |count| |$streamCount| . #1#) (LETT |l| NIL . #1#)
-                 (SEQ (LETT |n| 0 . #1#) G190
+                       . #2#)
+                 (LETT |count| |$streamCount| . #2#) (LETT |l| NIL . #2#)
+                 (SEQ (LETT |n| 0 . #2#) (LETT #1# |count| . #2#) G190
                       (COND
-                       ((OR (|greater_SI| |n| |count|)
+                       ((OR (|greater_SI| |n| #1#)
                             (NULL
                              (COND ((SPADCALL |uu| (QREFELT $ 11)) 'NIL)
                                    ('T 'T))))
@@ -97,13 +97,13 @@
                                 (|UTSCAT-;termOutput| |n|
                                  (SPADCALL |uu| (QREFELT $ 12)) |vv| $)
                                 |l|)
-                               . #1#)))
-                       (EXIT (LETT |uu| (SPADCALL |uu| (QREFELT $ 14)) . #1#)))
-                      (LETT |n| (|inc_SI| |n|) . #1#) (GO G190) G191
+                               . #2#)))
+                       (EXIT (LETT |uu| (SPADCALL |uu| (QREFELT $ 14)) . #2#)))
+                      (LETT |n| (|inc_SI| |n|) . #2#) (GO G190) G191
                       (EXIT NIL))
                  (COND
                   ((|UTSCAT-;showAll?| $)
-                   (SEQ (LETT |n| (+ |count| 1) . #1#) G190
+                   (SEQ (LETT |n| (+ |count| 1) . #2#) G190
                         (COND
                          ((NULL
                            (COND
@@ -124,13 +124,13 @@
                                   (|UTSCAT-;termOutput| |n|
                                    (SPADCALL |uu| (QREFELT $ 12)) |vv| $)
                                   |l|)
-                                 . #1#)))
+                                 . #2#)))
                          (EXIT
-                          (LETT |uu| (SPADCALL |uu| (QREFELT $ 14)) . #1#)))
-                        (LETT |n| (+ |n| 1) . #1#) (GO G190) G191 (EXIT NIL))))
+                          (LETT |uu| (SPADCALL |uu| (QREFELT $ 14)) . #2#)))
+                        (LETT |n| (+ |n| 1) . #2#) (GO G190) G191 (EXIT NIL))))
                  (LETT |l|
                        (COND ((SPADCALL |uu| (QREFELT $ 38)) |l|)
-                             (#2#
+                             (#3#
                               (SEQ
                                (COND
                                 ((SPADCALL |uu| (SPADCALL |uu| (QREFELT $ 14))
@@ -150,11 +150,11 @@
                                                       (QREFELT $ 24)))
                                            (QREFELT $ 42))
                                  |l|)))))
-                       . #1#)
+                       . #2#)
                  (EXIT
                   (COND
                    ((NULL |l|) (SPADCALL (|spadConstant| $ 17) (QREFELT $ 19)))
-                   (#2#
+                   (#3#
                     (SPADCALL (ELT $ 43) (NREVERSE |l|) (QREFELT $ 46))))))))))) 
 
 (SDEFUN |UTSCAT-;^;SCoefS;6| ((|x| S) (|r| |Coef|) ($ S))

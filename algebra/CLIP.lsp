@@ -21,7 +21,7 @@
                      (|:| |yValues| (|Segment| (|DoubleFloat|)))))
           (|denn| #5=(|Integer|)) (|numm| #6=(|Integer|))
           (|single_eps| (|DoubleFloat|)) (|yDiff| #7=(|DoubleFloat|))
-          (|xDiff| #7#) (|k| NIL) (#8=#:G172 NIL) (|pt| NIL)
+          (|xDiff| #7#) (#8=#:G172 NIL) (|k| NIL) (#9=#:G173 NIL) (|pt| NIL)
           (|firstPt| (|Point| (|DoubleFloat|))) (|lastN| (|Integer|))
           (|clipNum| (|Integer|)) (|den| #5#) (|num| #6#)
           (|n| (|NonNegativeInteger|))
@@ -36,7 +36,7 @@
              ((NULL |pointLists|)
               (VECTOR NIL (SPADCALL 0.0 0.0 (QREFELT $ 18))
                       (SPADCALL 0.0 0.0 (QREFELT $ 18))))
-             (#9='T
+             (#10='T
               (SEQ
                (LETT |sortedList|
                      (SPADCALL (CONS #'|CLIP;iClipParametric!0| $)
@@ -44,58 +44,58 @@
                                          (SPADCALL |pointLists| (QREFELT $ 24))
                                          (QREFELT $ 26))
                                (QREFELT $ 28))
-                     . #10=(|CLIP;iClipParametric|))
+                     . #11=(|CLIP;iClipParametric|))
                (EXIT
                 (COND
                  ((NULL |sortedList|)
                   (VECTOR NIL (SPADCALL 0.0 0.0 (QREFELT $ 18))
                           (SPADCALL 0.0 0.0 (QREFELT $ 18))))
-                 (#9#
-                  (SEQ (LETT |n| (LENGTH |sortedList|) . #10#)
-                       (LETT |num| (SPADCALL |fraction| (QREFELT $ 30)) . #10#)
-                       (LETT |den| (SPADCALL |fraction| (QREFELT $ 31)) . #10#)
+                 (#10#
+                  (SEQ (LETT |n| (LENGTH |sortedList|) . #11#)
+                       (LETT |num| (SPADCALL |fraction| (QREFELT $ 30)) . #11#)
+                       (LETT |den| (SPADCALL |fraction| (QREFELT $ 31)) . #11#)
                        (LETT |clipNum|
                              (QUOTIENT2 (SPADCALL |n| |num| (QREFELT $ 33))
                                         |den|)
-                             . #10#)
-                       (LETT |lastN| (- (- |n| 1) |clipNum|) . #10#)
-                       (LETT |firstPt| (|SPADfirst| |sortedList|) . #10#)
-                       (LETT |xMin| (SPADCALL |firstPt| (QREFELT $ 35)) . #10#)
-                       (LETT |xMax| (SPADCALL |firstPt| (QREFELT $ 35)) . #10#)
-                       (LETT |yMin| (SPADCALL |firstPt| (QREFELT $ 36)) . #10#)
-                       (LETT |yMax| (SPADCALL |firstPt| (QREFELT $ 36)) . #10#)
-                       (SEQ (LETT |pt| NIL . #10#)
-                            (LETT #8# (CDR |sortedList|) . #10#)
-                            (LETT |k| 0 . #10#) G190
+                             . #11#)
+                       (LETT |lastN| (- (- |n| 1) |clipNum|) . #11#)
+                       (LETT |firstPt| (|SPADfirst| |sortedList|) . #11#)
+                       (LETT |xMin| (SPADCALL |firstPt| (QREFELT $ 35)) . #11#)
+                       (LETT |xMax| (SPADCALL |firstPt| (QREFELT $ 35)) . #11#)
+                       (LETT |yMin| (SPADCALL |firstPt| (QREFELT $ 36)) . #11#)
+                       (LETT |yMax| (SPADCALL |firstPt| (QREFELT $ 36)) . #11#)
+                       (SEQ (LETT |pt| NIL . #11#)
+                            (LETT #9# (CDR |sortedList|) . #11#)
+                            (LETT |k| 0 . #11#) (LETT #8# |lastN| . #11#) G190
                             (COND
-                             ((OR (|greater_SI| |k| |lastN|) (ATOM #8#)
-                                  (PROGN (LETT |pt| (CAR #8#) . #10#) NIL))
+                             ((OR (|greater_SI| |k| #8#) (ATOM #9#)
+                                  (PROGN (LETT |pt| (CAR #9#) . #11#) NIL))
                               (GO G191)))
                             (SEQ
                              (LETT |xMin|
                                    (|min_DF| |xMin|
                                              (SPADCALL |pt| (QREFELT $ 35)))
-                                   . #10#)
+                                   . #11#)
                              (LETT |xMax|
                                    (|max_DF| |xMax|
                                              (SPADCALL |pt| (QREFELT $ 35)))
-                                   . #10#)
+                                   . #11#)
                              (LETT |yMin|
                                    (|min_DF| |yMin|
                                              (SPADCALL |pt| (QREFELT $ 36)))
-                                   . #10#)
+                                   . #11#)
                              (EXIT
                               (LETT |yMax|
                                     (|max_DF| |yMax|
                                               (SPADCALL |pt| (QREFELT $ 36)))
-                                    . #10#)))
+                                    . #11#)))
                             (LETT |k|
                                   (PROG1 (|inc_SI| |k|)
-                                    (LETT #8# (CDR #8#) . #10#))
-                                  . #10#)
+                                    (LETT #9# (CDR #9#) . #11#))
+                                  . #11#)
                             (GO G190) G191 (EXIT NIL))
-                       (LETT |xDiff| (|sub_DF| |xMax| |xMin|) . #10#)
-                       (LETT |yDiff| (|sub_DF| |yMax| |yMin|) . #10#)
+                       (LETT |xDiff| (|sub_DF| |xMax| |xMin|) . #11#)
+                       (LETT |yDiff| (|sub_DF| |yMax| |yMin|) . #11#)
                        (EXIT
                         (COND
                          ((|eql_DF| |xDiff| 0.0)
@@ -108,20 +108,20 @@
                                     (SPADCALL (|sub_DF| |yMin| 1.0)
                                               (|add_DF| |yMax| 1.0)
                                               (QREFELT $ 18))))
-                           (#9#
+                           (#10#
                             (VECTOR |pointLists|
                                     (SPADCALL (|sub_DF| |xMin| 1.0)
                                               (|add_DF| |xMax| 1.0)
                                               (QREFELT $ 18))
                                     (SPADCALL |yMin| |yMax| (QREFELT $ 18))))))
-                         (#9#
+                         (#10#
                           (SEQ
                            (LETT |single_eps|
                                  (|expt_DF_I|
                                   (SPADCALL (SPADCALL 2 0 10 (QREFELT $ 39))
                                             (QREFELT $ 40))
                                   -19)
-                                 . #10#)
+                                 . #11#)
                            (COND
                             ((|less_DF| |yDiff| |single_eps|)
                              (SEQ
@@ -132,10 +132,10 @@
                                      ((|less_DF| |yMin| 0.0)
                                       (|mul_DF| |yMin|
                                                 (|add_DF| 1.0 |single_eps|)))
-                                     (#9#
+                                     (#10#
                                       (|mul_DF| |yMin|
                                                 (|sub_DF| 1.0 |single_eps|))))
-                                    . #10#)
+                                    . #11#)
                               (EXIT
                                (LETT |yMax|
                                      (COND
@@ -144,14 +144,14 @@
                                       ((|less_DF| |yMax| 0.0)
                                        (|mul_DF| |yMax|
                                                  (|sub_DF| 1.0 |single_eps|)))
-                                      (#9#
+                                      (#10#
                                        (|mul_DF| |yMax|
                                                  (|add_DF| 1.0 |single_eps|))))
-                                     . #10#)))))
+                                     . #11#)))))
                            (LETT |numm| (SPADCALL |scale| (QREFELT $ 30))
-                                 . #10#)
+                                 . #11#)
                            (LETT |denn| (SPADCALL |scale| (QREFELT $ 31))
-                                 . #10#)
+                                 . #11#)
                            (LETT |xMin|
                                  (|sub_DF| |xMin|
                                            (|div_DF|
@@ -161,7 +161,7 @@
                                              |xDiff|)
                                             (FLOAT |denn|
                                                    MOST-POSITIVE-DOUBLE-FLOAT)))
-                                 . #10#)
+                                 . #11#)
                            (LETT |xMax|
                                  (|add_DF| |xMax|
                                            (|div_DF|
@@ -171,7 +171,7 @@
                                              |xDiff|)
                                             (FLOAT |denn|
                                                    MOST-POSITIVE-DOUBLE-FLOAT)))
-                                 . #10#)
+                                 . #11#)
                            (LETT |yMin|
                                  (|sub_DF| |yMin|
                                            (|div_DF|
@@ -181,7 +181,7 @@
                                              |yDiff|)
                                             (FLOAT |denn|
                                                    MOST-POSITIVE-DOUBLE-FLOAT)))
-                                 . #10#)
+                                 . #11#)
                            (LETT |yMax|
                                  (|add_DF| |yMax|
                                            (|div_DF|
@@ -191,44 +191,44 @@
                                              |yDiff|)
                                             (FLOAT |denn|
                                                    MOST-POSITIVE-DOUBLE-FLOAT)))
-                                 . #10#)
+                                 . #11#)
                            (LETT |newclip|
                                  (SPADCALL |pointLists| |xMin| |xMax| |yMin|
                                            |yMax| (QREFELT $ 43))
-                                 . #10#)
+                                 . #11#)
                            (EXIT
                             (COND
                              ((SPADCALL (LENGTH (QVELT |newclip| 0))
                                         (LENGTH |pointLists|) (QREFELT $ 44))
                               |newclip|)
-                             (#9#
+                             (#10#
                               (SEQ
                                (LETT |xs|
                                      (SPADCALL (ELT $ 35) |sortedList|
                                                (QREFELT $ 48))
-                                     . #10#)
+                                     . #11#)
                                (LETT |ys|
                                      (SPADCALL (ELT $ 36) |sortedList|
                                                (QREFELT $ 48))
-                                     . #10#)
+                                     . #11#)
                                (LETT |xMin|
                                      (SPADCALL (ELT $ 50) |xs| (QREFELT $ 52))
-                                     . #10#)
+                                     . #11#)
                                (LETT |yMin|
                                      (SPADCALL (ELT $ 50) |ys| (QREFELT $ 52))
-                                     . #10#)
+                                     . #11#)
                                (LETT |xMax|
                                      (SPADCALL (ELT $ 54) |xs| (QREFELT $ 52))
-                                     . #10#)
+                                     . #11#)
                                (LETT |yMax|
                                      (SPADCALL (ELT $ 54) |ys| (QREFELT $ 52))
-                                     . #10#)
+                                     . #11#)
                                (LETT |xseg|
                                      (SPADCALL |xMin| |xMax| (QREFELT $ 55))
-                                     . #10#)
+                                     . #11#)
                                (LETT |yseg|
                                      (SPADCALL |yMin| |yMax| (QREFELT $ 55))
-                                     . #10#)
+                                     . #11#)
                                (EXIT
                                 (VECTOR |pointLists| |xseg|
                                         |yseg|)))))))))))))))))))))) 
@@ -374,8 +374,8 @@
           (|:| |xValues| (|Segment| (|DoubleFloat|)))
           (|:| |yValues| (|Segment| (|DoubleFloat|)))))
         (SPROG
-         ((|yMax| #1=(|DoubleFloat|)) (|yMin| #1#) (#2=#:G211 NIL) (|pt| NIL)
-          (#3=#:G210 NIL) (|list| NIL)
+         ((|yMax| #1=(|DoubleFloat|)) (|yMin| #1#) (#2=#:G212 NIL) (|pt| NIL)
+          (#3=#:G211 NIL) (|list| NIL)
           (|lists| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|xMax| (|DoubleFloat|)) (|xMin| (|DoubleFloat|))
           (|denn| #4=(|Integer|)) (|numm| #5=(|Integer|))
@@ -577,8 +577,8 @@
         ((|lists| |List| (|List| (|Point| (|DoubleFloat|))))
          ($ |Union| (|Point| (|DoubleFloat|)) "failed"))
         (SPROG
-         ((#1=#:G229 NIL) (#2=#:G228 NIL) (#3=#:G230 NIL) (#4=#:G232 NIL)
-          (|p| NIL) (#5=#:G231 NIL) (|list| NIL))
+         ((#1=#:G230 NIL) (#2=#:G229 NIL) (#3=#:G231 NIL) (#4=#:G233 NIL)
+          (|p| NIL) (#5=#:G232 NIL) (|list| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -613,14 +613,14 @@
                                           (LETT #2#
                                                 (PROGN
                                                  (LETT #3# (CONS 0 |p|) . #6#)
-                                                 (GO #7=#:G227))
+                                                 (GO #7=#:G228))
                                                 . #6#)
-                                          (GO #8=#:G223))))))
+                                          (GO #8=#:G224))))))
                                      (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                                      (EXIT NIL)))
                                #8# (EXIT #2#))
                               . #6#)
-                        (GO #9=#:G225))))))
+                        (GO #9=#:G226))))))
                    (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL)))
              #9# (EXIT #1#))
             (EXIT (CONS 1 "failed"))))
@@ -634,9 +634,9 @@
           (|:| |xValues| (|Segment| (|DoubleFloat|)))
           (|:| |yValues| (|Segment| (|DoubleFloat|)))))
         (SPROG
-         ((#1=#:G267 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
-          (#2=#:G266 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
-          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G265 NIL)
+         ((#1=#:G268 NIL) (|pt| (|Union| (|Point| (|DoubleFloat|)) "failed"))
+          (#2=#:G267 NIL) (|list| NIL) (|firstPt| (|Point| (|DoubleFloat|)))
+          (|lists| (|List| (|List| (|Point| (|DoubleFloat|))))) (#3=#:G266 NIL)
           (|pointList| NIL))
          (SEQ (LETT |lists| NIL . #4=(|CLIP;clipWithRanges;L4DfR;13|))
               (SEQ (LETT |pointList| NIL . #4#) (LETT #3# |pointLists| . #4#)
@@ -782,7 +782,7 @@
 
 (DEFUN |TwoDimensionalPlotClipping| ()
   (SPROG NIL
-         (PROG (#1=#:G277)
+         (PROG (#1=#:G278)
            (RETURN
             (COND
              ((LETT #1#

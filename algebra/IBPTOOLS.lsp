@@ -98,39 +98,39 @@
          (|mat| |Matrix| (|SparseUnivariatePolynomial| L))
          ($ |Union| (|Matrix| R) "failed"))
         (SPROG
-         ((#1=#:G158 NIL) (|poly| (|Union| R "failed")) (|j| NIL) (|i| NIL)
-          (|matOut| (|Matrix| R)) (|n| (|NonNegativeInteger|))
-          (|m| (|NonNegativeInteger|)))
+         ((#1=#:G158 NIL) (|poly| (|Union| R "failed")) (#2=#:G160 NIL)
+          (|j| NIL) (#3=#:G159 NIL) (|i| NIL) (|matOut| (|Matrix| R))
+          (|n| (|NonNegativeInteger|)) (|m| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
-            (LETT |m| (ANROWS |mat|) . #2=(|IBPTOOLS;mapMatrixIfCan;MMU;4|))
-            (LETT |n| (ANCOLS |mat|) . #2#)
-            (LETT |matOut| (MAKE_MATRIX1 |m| |n| (|spadConstant| $ 10)) . #2#)
-            (SEQ (LETT |i| 1 . #2#) G190
-                 (COND ((|greater_SI| |i| |m|) (GO G191)))
+            (LETT |m| (ANROWS |mat|) . #4=(|IBPTOOLS;mapMatrixIfCan;MMU;4|))
+            (LETT |n| (ANCOLS |mat|) . #4#)
+            (LETT |matOut| (MAKE_MATRIX1 |m| |n| (|spadConstant| $ 10)) . #4#)
+            (SEQ (LETT |i| 1 . #4#) (LETT #3# |m| . #4#) G190
+                 (COND ((|greater_SI| |i| #3#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SEQ (LETT |j| 1 . #2#) G190
-                        (COND ((|greater_SI| |j| |n|) (GO G191)))
+                   (SEQ (LETT |j| 1 . #4#) (LETT #2# |n| . #4#) G190
+                        (COND ((|greater_SI| |j| #2#) (GO G191)))
                         (SEQ
                          (LETT |poly|
                                (SPADCALL |f| (QAREF2O |mat| |i| |j| 1 1)
                                          (QREFELT $ 34))
-                               . #2#)
+                               . #4#)
                          (EXIT
                           (COND
                            ((QEQCAR |poly| 1)
                             (PROGN
-                             (LETT #1# (CONS 1 "failed") . #2#)
-                             (GO #3=#:G157)))
+                             (LETT #1# (CONS 1 "failed") . #4#)
+                             (GO #5=#:G157)))
                            ('T
                             (QSETAREF2O |matOut| |i| |j| (QCDR |poly|) 1 1)))))
-                        (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
+                        (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                         (EXIT NIL))))
-                 (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |matOut|))))
-          #3# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |IBPTOOLS;mapBivariate;MUPSup;5|
         ((|f| |Mapping| L K) (|poly| UP)
@@ -161,9 +161,9 @@
 
 (DECLAIM (NOTINLINE |IntegralBasisPolynomialTools;|)) 
 
-(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G165)
+(DEFUN |IntegralBasisPolynomialTools| (&REST #1=#:G167)
   (SPROG NIL
-         (PROG (#2=#:G166)
+         (PROG (#2=#:G168)
            (RETURN
             (COND
              ((LETT #2#

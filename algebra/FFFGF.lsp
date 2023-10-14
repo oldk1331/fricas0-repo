@@ -2,28 +2,28 @@
 (SDEFUN |FFFGF;multiplyRows!|
         ((|v| |Vector| D) (M |Matrix| (|SparseUnivariatePolynomial| D))
          ($ |Matrix| (|SparseUnivariatePolynomial| D)))
-        (SPROG ((|j| NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
-               (SEQ (LETT |n| (QVSIZE |v|) . #1=(|FFFGF;multiplyRows!|))
-                    (SEQ (LETT |i| 1 . #1#) G190
-                         (COND ((|greater_SI| |i| |n|) (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (SEQ (LETT |j| 1 . #1#) G190
-                                (COND ((|greater_SI| |j| |n|) (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (SPADCALL M |i| |j|
-                                            (SPADCALL
-                                             (SPADCALL |v| |i| (QREFELT $ 11))
-                                             (SPADCALL M |i| |j|
-                                                       (QREFELT $ 14))
-                                             (QREFELT $ 15))
-                                            (QREFELT $ 16))))
-                                (LETT |j| (|inc_SI| |j|) . #1#) (GO G190) G191
-                                (EXIT NIL))))
-                         (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
-                         (EXIT NIL))
-                    (EXIT M)))) 
+        (SPROG
+         ((#1=#:G109 NIL) (|j| NIL) (#2=#:G108 NIL) (|i| NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |n| (QVSIZE |v|) . #3=(|FFFGF;multiplyRows!|))
+              (SEQ (LETT |i| 1 . #3#) (LETT #2# |n| . #3#) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
+                   (SEQ
+                    (EXIT
+                     (SEQ (LETT |j| 1 . #3#) (LETT #1# |n| . #3#) G190
+                          (COND ((|greater_SI| |j| #1#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (SPADCALL M |i| |j|
+                                      (SPADCALL
+                                       (SPADCALL |v| |i| (QREFELT $ 11))
+                                       (SPADCALL M |i| |j| (QREFELT $ 14))
+                                       (QREFELT $ 15))
+                                      (QREFELT $ 16))))
+                          (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                          (EXIT NIL))))
+                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+              (EXIT M)))) 
 
 (SDEFUN |FFFGF;generalInterpolation;LMVLM;2|
         ((C |List| D)
@@ -33,19 +33,19 @@
          ($ |Matrix| (|SparseUnivariatePolynomial| D)))
         (SPROG
          ((M (|Matrix| (|SparseUnivariatePolynomial| D)))
-          (|c| (|List| (|Fraction| D))) (|i| NIL) (|den| (|Vector| D))
-          (|g| (|Vector| V)) (|n| (|NonNegativeInteger|)))
+          (|c| (|List| (|Fraction| D))) (#1=#:G118 NIL) (|i| NIL)
+          (|den| (|Vector| D)) (|g| (|Vector| V)) (|n| (|NonNegativeInteger|)))
          (SEQ
-          (LETT |n| (QVSIZE |f|) . #1=(|FFFGF;generalInterpolation;LMVLM;2|))
-          (LETT |g| (MAKEARR1 |n| (|spadConstant| $ 18)) . #1#)
-          (LETT |den| (MAKEARR1 |n| (|spadConstant| $ 17)) . #1#)
-          (SEQ (LETT |i| 1 . #1#) G190
-               (COND ((|greater_SI| |i| |n|) (GO G191)))
+          (LETT |n| (QVSIZE |f|) . #2=(|FFFGF;generalInterpolation;LMVLM;2|))
+          (LETT |g| (MAKEARR1 |n| (|spadConstant| $ 18)) . #2#)
+          (LETT |den| (MAKEARR1 |n| (|spadConstant| $ 17)) . #2#)
+          (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+               (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ
                 (LETT |c|
                       (SPADCALL (SPADCALL |f| |i| (QREFELT $ 20))
                                 (QREFELT $ 22))
-                      . #1#)
+                      . #2#)
                 (SPADCALL |den| |i| (SPADCALL |c| (QREFELT $ 24))
                           (QREFELT $ 25))
                 (EXIT
@@ -55,8 +55,8 @@
                                   (VECTOR $ |i| |den|))
                             (SPADCALL |f| |i| (QREFELT $ 20)) (QREFELT $ 31))
                            (QREFELT $ 33))))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-          (LETT M (SPADCALL C |coeffAction| |g| |eta| (QREFELT $ 38)) . #1#)
+               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+          (LETT M (SPADCALL C |coeffAction| |g| |eta| (QREFELT $ 38)) . #2#)
           (EXIT (|FFFGF;multiplyRows!| |den| M $))))) 
 
 (SDEFUN |FFFGF;generalInterpolation;LMVLM;2!0| ((|x| NIL) ($$ NIL))
@@ -73,9 +73,9 @@
 
 (DECLAIM (NOTINLINE |FractionFreeFastGaussianFractions;|)) 
 
-(DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G116)
+(DEFUN |FractionFreeFastGaussianFractions| (&REST #1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#

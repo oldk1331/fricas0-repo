@@ -192,21 +192,21 @@
 (SDEFUN |FFNBP;coerce;$Of;22| ((|x| $) ($ |OutputForm|))
         (SPROG
          ((|r| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
-          (|mon| (|OutputForm|)) (|i| NIL) (#1=#:G189 NIL) (|b| NIL)
-          (|n| (|PositiveInteger|)))
-         (SEQ (LETT |l| NIL . #2=(|FFNBP;coerce;$Of;22|))
-              (LETT |n| (QREFELT $ 17) . #2#)
+          (|mon| (|OutputForm|)) (#1=#:G189 NIL) (|i| NIL) (#2=#:G190 NIL)
+          (|b| NIL) (|n| (|PositiveInteger|)))
+         (SEQ (LETT |l| NIL . #3=(|FFNBP;coerce;$Of;22|))
+              (LETT |n| (QREFELT $ 17) . #3#)
               (EXIT
                (COND
                 ((EQL |n| 1)
                  (SPADCALL (SPADCALL |x| 1 (QREFELT $ 104)) (QREFELT $ 108)))
-                (#3='T
+                (#4='T
                  (SEQ
-                  (SEQ (LETT |b| NIL . #2#) (LETT #1# (QREFELT $ 41) . #2#)
-                       (LETT |i| 1 . #2#) G190
+                  (SEQ (LETT |b| NIL . #3#) (LETT #2# (QREFELT $ 41) . #3#)
+                       (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
                        (COND
-                        ((OR (|greater_SI| |i| |n|) (ATOM #1#)
-                             (PROGN (LETT |b| (CAR #1#) . #2#) NIL))
+                        ((OR (|greater_SI| |i| #1#) (ATOM #2#)
+                             (PROGN (LETT |b| (CAR #2#) . #3#) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -227,20 +227,20 @@
                                       (SPADCALL |x| |i| (QREFELT $ 104))
                                       (QREFELT $ 108))
                                      |b| (QREFELT $ 111))))
-                                  . #2#)
-                            (EXIT (LETT |l| (CONS |mon| |l|) . #2#)))))))
+                                  . #3#)
+                            (EXIT (LETT |l| (CONS |mon| |l|) . #3#)))))))
                        (LETT |i|
-                             (PROG1 (|inc_SI| |i|) (LETT #1# (CDR #1#) . #2#))
-                             . #2#)
+                             (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #3#))
+                             . #3#)
                        (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (COND
                     ((NULL |l|)
                      (SPADCALL (|spadConstant| $ 19) (QREFELT $ 114)))
-                    (#3#
+                    (#4#
                      (SEQ
                       (LETT |r| (SPADCALL (ELT $ 115) |l| (QREFELT $ 118))
-                            . #2#)
+                            . #3#)
                       (EXIT |r|)))))))))))) 
 
 (SDEFUN |FFNBP;initializeElt| (($ |Void|))
@@ -264,10 +264,10 @@
 
 (SDEFUN |FFNBP;initializeLog| (($ |Void|))
         (SPROG
-         ((#1=#:G202 NIL) (|a| ($)) (#2=#:G208 NIL) (#3=#:G196 NIL) (|i| NIL)
+         ((#1=#:G203 NIL) (|a| ($)) (#2=#:G209 NIL) (#3=#:G197 NIL) (|i| NIL)
           (|tbl| (|Table| (|PositiveInteger|) (|NonNegativeInteger|)))
           (|n| (|Integer|)) (|d| (|Integer|)) (|l| (|Integer|)) (|base| ($))
-          (|fac| (|Integer|)) (#4=#:G207 NIL) (|f| NIL) (|limit| (|Integer|)))
+          (|fac| (|Integer|)) (#4=#:G208 NIL) (|f| NIL) (|limit| (|Integer|)))
          (SEQ (COND ((QREFELT $ 15) (|FFNBP;initializeElt| $)))
               (LETT |limit| 30 . #5=(|FFNBP;initializeLog|))
               (SEQ (LETT |f| NIL . #5#) (LETT #4# (QREFELT $ 42) . #5#) G190
@@ -337,7 +337,7 @@
          ((|tbl|
            (|Union| (|Table| (|PositiveInteger|) (|NonNegativeInteger|))
                     "failed"))
-          (#1=#:G210 NIL))
+          (#1=#:G211 NIL))
          (SEQ (COND ((QREFELT $ 14) (|FFNBP;initializeLog| $)))
               (LETT |tbl|
                     (SPADCALL
@@ -371,7 +371,7 @@
         (QREFELT $ 20)) 
 
 (SDEFUN |FFNBP;trace;$Pi$;31| ((|a| $) (|d| |PositiveInteger|) ($ $))
-        (SPROG ((|erg| ($)) (#1=#:G226 NIL) (|i| NIL) (|v| ($)))
+        (SPROG ((|erg| ($)) (#1=#:G227 NIL) (|i| NIL) (|v| ($)))
                (SEQ
                 (LETT |v| (SPADCALL |a| |d| (QREFELT $ 149))
                       . #2=(|FFNBP;trace;$Pi$;31|))
@@ -412,7 +412,7 @@
 
 (SDEFUN |FFNBP;basis;V;40| (($ |Vector| $))
         (SPROG
-         ((#1=#:G240 NIL) (|e| NIL) (#2=#:G239 NIL)
+         ((#1=#:G241 NIL) (|e| NIL) (#2=#:G240 NIL)
           (|a| (|Vector| (|Vector| GF))))
          (SEQ
           (LETT |a| (SPADCALL (QREFELT $ 17) (QREFELT $ 162))
@@ -466,7 +466,7 @@
              (EXIT (SPADCALL |a| (QREFELT $ 36))))) 
 
 (SDEFUN |FFNBP;inGroundField?;$B;50| ((|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G266 NIL) (|erg| (|Boolean|)) (#2=#:G267 NIL) (|i| NIL))
+        (SPROG ((#1=#:G267 NIL) (|erg| (|Boolean|)) (#2=#:G268 NIL) (|i| NIL))
                (SEQ (LETT |erg| 'T . #3=(|FFNBP;inGroundField?;$B;50|))
                     (SEQ
                      (EXIT
@@ -481,7 +481,7 @@
                                           (QREFELT $ 110)))
                                (PROGN
                                 (LETT #1# (LETT |erg| 'NIL . #3#) . #3#)
-                                (GO #4=#:G263))))))
+                                (GO #4=#:G264))))))
                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                            (EXIT NIL)))
                      #4# (EXIT #1#))
@@ -507,9 +507,9 @@
 
 (DECLAIM (NOTINLINE |FiniteFieldNormalBasisExtensionByPolynomial;|)) 
 
-(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G295)
+(DEFUN |FiniteFieldNormalBasisExtensionByPolynomial| (&REST #1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G296)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#
@@ -534,8 +534,8 @@
 
 (DEFUN |FiniteFieldNormalBasisExtensionByPolynomial;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G121 NIL) (#2=#:G294 NIL) (|i| NIL) (#3=#:G293 NIL) (|qs| NIL)
-    (|pv$| NIL) (#4=#:G292 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G121 NIL) (#2=#:G295 NIL) (|i| NIL) (#3=#:G294 NIL) (|qs| NIL)
+    (|pv$| NIL) (#4=#:G293 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (SEQ
     (PROGN
      (LETT DV$1 (|devaluate| |#1|)

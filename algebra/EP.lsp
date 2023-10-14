@@ -108,31 +108,32 @@
         ((A |Matrix| (|Fraction| (|Polynomial| R))) (|x| |Symbol|)
          ($ |Fraction| (|Polynomial| R)))
         (SPROG
-         ((|j| NIL) (|i| NIL) (B (|Matrix| (|Fraction| (|Polynomial| R))))
-          (|dimA| (|PositiveInteger|)) (#1=#:G133 NIL))
+         ((#1=#:G141 NIL) (|j| NIL) (#2=#:G140 NIL) (|i| NIL)
+          (B (|Matrix| (|Fraction| (|Polynomial| R))))
+          (|dimA| (|PositiveInteger|)) (#3=#:G133 NIL))
          (SEQ
           (LETT |dimA|
-                (PROG1 (LETT #1# (ANROWS A) . #2=(|EP;charpol|))
-                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                    '(|NonNegativeInteger|) #1#))
-                . #2#)
+                (PROG1 (LETT #3# (ANROWS A) . #4=(|EP;charpol|))
+                  (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #3#))
+                . #4#)
           (EXIT
            (COND
             ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 38))
              (|error| " The matrix is not square"))
             ('T
-             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 39)) . #2#)
-                  (SEQ (LETT |i| 1 . #2#) G190
-                       (COND ((|greater_SI| |i| |dimA|) (GO G191)))
+             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 39)) . #4#)
+                  (SEQ (LETT |i| 1 . #4#) (LETT #2# |dimA| . #4#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
-                        (SEQ (LETT |j| 1 . #2#) G190
-                             (COND ((|greater_SI| |j| |dimA|) (GO G191)))
+                        (SEQ (LETT |j| 1 . #4#) (LETT #1# |dimA| . #4#) G190
+                             (COND ((|greater_SI| |j| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (SPADCALL B |i| |j|
                                          (SPADCALL A |i| |j| (QREFELT $ 41))
                                          (QREFELT $ 42))))
-                             (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
+                             (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT
                          (SPADCALL B |i| |i|
@@ -144,7 +145,7 @@
                                      (QREFELT $ 27))
                                     (QREFELT $ 43))
                                    (QREFELT $ 42))))
-                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT (SPADCALL B (QREFELT $ 44)))))))))) 
 
@@ -167,11 +168,11 @@
           (|Union| (|Fraction| (|Polynomial| R))
                    (|SuchThat| (|Symbol|) (|Polynomial| R)))))
         (SPROG
-         ((#1=#:G159 NIL) (|ls| NIL) (#2=#:G158 NIL) (#3=#:G157 NIL) (|lr| NIL)
-          (#4=#:G156 NIL)
+         ((#1=#:G161 NIL) (|ls| NIL) (#2=#:G160 NIL) (#3=#:G159 NIL) (|lr| NIL)
+          (#4=#:G158 NIL)
           (|lsym| (|List| (|SuchThat| (|Symbol|) (|Polynomial| R))))
           (|lrat| (|List| (|Fraction| (|Polynomial| R))))
-          (|alg| (|Polynomial| R)) (#5=#:G155 NIL) (|eq| NIL)
+          (|alg| (|Polynomial| R)) (#5=#:G157 NIL) (|eq| NIL)
           (|pol| (|Fraction| (|Polynomial| R))) (|x| (|Symbol|)))
          (SEQ
           (LETT |x| (SPADCALL (QREFELT $ 45)) . #6=(|EP;eigenvalues;ML;10|))
@@ -230,46 +231,47 @@
          (A |Matrix| (|Fraction| (|Polynomial| R))) (|m| |NonNegativeInteger|)
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((#1=#:G171 NIL) (|v| NIL) (#2=#:G170 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G175 NIL) (|v| NIL) (#2=#:G174 NIL) (#3=#:G173 NIL) (|j| NIL)
+          (#4=#:G172 NIL) (|i| NIL)
           (B (|Matrix| (|Fraction| (|Polynomial| R))))
           (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (ANROWS A) . #3=(|EP;intRatEig|))
-              (LETT B (SPADCALL |n| |n| (QREFELT $ 39)) . #3#)
-              (SEQ (LETT |i| 1 . #3#) G190
-                   (COND ((|greater_SI| |i| |n|) (GO G191)))
+         (SEQ (LETT |n| (ANROWS A) . #5=(|EP;intRatEig|))
+              (LETT B (SPADCALL |n| |n| (QREFELT $ 39)) . #5#)
+              (SEQ (LETT |i| 1 . #5#) (LETT #4# |n| . #5#) G190
+                   (COND ((|greater_SI| |i| #4#) (GO G191)))
                    (SEQ
-                    (SEQ (LETT |j| 1 . #3#) G190
-                         (COND ((|greater_SI| |j| |n|) (GO G191)))
+                    (SEQ (LETT |j| 1 . #5#) (LETT #3# |n| . #5#) G190
+                         (COND ((|greater_SI| |j| #3#) (GO G191)))
                          (SEQ
                           (EXIT
                            (SPADCALL B |i| |j|
                                      (SPADCALL A |i| |j| (QREFELT $ 41))
                                      (QREFELT $ 42))))
-                         (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                         (LETT |j| (|inc_SI| |j|) . #5#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT
                      (SPADCALL B |i| |i|
                                (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 41))
                                          |alpha| (QREFELT $ 43))
                                (QREFELT $ 42))))
-                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                   (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
               (EXIT
                (PROGN
-                (LETT #2# NIL . #3#)
-                (SEQ (LETT |v| NIL . #3#)
+                (LETT #2# NIL . #5#)
+                (SEQ (LETT |v| NIL . #5#)
                      (LETT #1#
                            (SPADCALL (SPADCALL B |m| (QREFELT $ 61))
                                      (QREFELT $ 63))
-                           . #3#)
+                           . #5#)
                      G190
                      (COND
-                      ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #3#) NIL))
+                      ((OR (ATOM #1#) (PROGN (LETT |v| (CAR #1#) . #5#) NIL))
                        (GO G191)))
                      (SEQ
                       (EXIT
                        (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 65)) #2#)
-                             . #3#)))
-                     (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                             . #5#)))
+                     (LETT #1# (CDR #1#) . #5#) (GO G190) G191
                      (EXIT (NREVERSE #2#)))))))) 
 
 (SDEFUN |EP;intAlgEig|
@@ -277,9 +279,11 @@
          (A |Matrix| (|Fraction| (|Polynomial| R))) (|m| |NonNegativeInteger|)
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
         (SPROG
-         ((|sol| (|List| (|Matrix| (|Fraction| (|Polynomial| R))))) (|i| NIL)
-          (|w| (|Matrix| (|Fraction| (|Polynomial| R)))) (#1=#:G195 NIL)
-          (|vec| NIL) (|j| NIL) (B (AM)) (|alg| (MM))
+         ((|sol| (|List| (|Matrix| (|Fraction| (|Polynomial| R)))))
+          (#1=#:G202 NIL) (|i| NIL)
+          (|w| (|Matrix| (|Fraction| (|Polynomial| R)))) (#2=#:G201 NIL)
+          (|vec| NIL) (#3=#:G200 NIL) (|j| NIL) (#4=#:G199 NIL) (B (AM))
+          (|alg| (MM))
           (|pol| (|SparseUnivariatePolynomial| (|Fraction| (|Polynomial| R))))
           (|x| (|Symbol|))
           (AM
@@ -296,17 +300,17 @@
            (|Join| (|Field|)
                    (CATEGORY |domain|
                     (SIGNATURE |modulus|
-                     (#2=(|SparseUnivariatePolynomial|
+                     (#5=(|SparseUnivariatePolynomial|
                           (|Fraction| (|Polynomial| R)))
                       $))
                     (SIGNATURE |coerce|
-                     (#3=(|SparseUnivariatePolynomial|
+                     (#6=(|SparseUnivariatePolynomial|
                           (|Fraction| (|Polynomial| R)))
                       $))
-                    (SIGNATURE |reduce| ($ #3# #2#))
+                    (SIGNATURE |reduce| ($ #6# #5#))
                     (SIGNATURE |exQuo| ((|Union| $ "failed") $ $)))))
           (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (ANROWS A) . #4=(|EP;intAlgEig|))
+         (SEQ (LETT |n| (ANROWS A) . #7=(|EP;intAlgEig|))
               (LETT MM
                     (|ModularField|
                      (|SparseUnivariatePolynomial|
@@ -316,9 +320,9 @@
                      (CONS (|function| |EP;reduction|) $)
                      (CONS (|function| |EP;merge|) $)
                      (CONS (|function| |EP;exactquo|) $))
-                    . #4#)
-              (LETT AM (|Matrix| MM) . #4#)
-              (LETT |x| (SPADCALL |alpha| (QREFELT $ 66)) . #4#)
+                    . #7#)
+              (LETT AM (|Matrix| MM) . #7#)
+              (LETT |x| (SPADCALL |alpha| (QREFELT $ 66)) . #7#)
               (LETT |pol|
                     (SPADCALL
                      (SPADCALL (ELT $ 27)
@@ -326,7 +330,7 @@
                                          (QREFELT $ 69))
                                (QREFELT $ 72))
                      (QREFELT $ 73))
-                    . #4#)
+                    . #7#)
               (LETT |alg|
                     (SPADCALL (SPADCALL (|spadConstant| $ 74) 1 (QREFELT $ 75))
                               |pol|
@@ -349,7 +353,7 @@
                                                                     (ELT $
                                                                          6))))))
                                                      MM))
-                    . #4#)
+                    . #7#)
               (LETT B
                     (SPADCALL |n| |n|
                               (|compiledLookupCheck| '|zero|
@@ -359,12 +363,12 @@
                                                            (LIST
                                                             '|NonNegativeInteger|))
                                                      AM))
-                    . #4#)
-              (SEQ (LETT |i| 1 . #4#) G190
-                   (COND ((|greater_SI| |i| |n|) (GO G191)))
+                    . #7#)
+              (SEQ (LETT |i| 1 . #7#) (LETT #4# |n| . #7#) G190
+                   (COND ((|greater_SI| |i| #4#) (GO G191)))
                    (SEQ
-                    (SEQ (LETT |j| 1 . #4#) G190
-                         (COND ((|greater_SI| |j| |n|) (GO G191)))
+                    (SEQ (LETT |j| 1 . #7#) (LETT #3# |n| . #7#) G190
+                         (COND ((|greater_SI| |j| #3#) (GO G191)))
                          (SEQ
                           (EXIT
                            (SPADCALL B |i| |j|
@@ -402,7 +406,7 @@
                                                              (LIST '|Integer|)
                                                              (|devaluate| MM))
                                                             AM))))
-                         (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                         (LETT |j| (|inc_SI| |j|) . #7#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT
                      (SPADCALL B |i| |i|
@@ -426,10 +430,10 @@
                                                             (LIST '|Integer|)
                                                             (|devaluate| MM))
                                                       AM))))
-                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-              (LETT |sol| NIL . #4#)
-              (SEQ (LETT |vec| NIL . #4#)
-                   (LETT #1#
+                   (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
+              (LETT |sol| NIL . #7#)
+              (SEQ (LETT |vec| NIL . #7#)
+                   (LETT #2#
                          (SPADCALL
                           (SPADCALL B |m|
                                     (|compiledLookupCheck| '^
@@ -445,14 +449,14 @@
                                                                MM)))
                                                   '$)
                                                  AM))
-                         . #4#)
+                         . #7#)
                    G190
                    (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |vec| (CAR #1#) . #4#) NIL))
+                    ((OR (ATOM #2#) (PROGN (LETT |vec| (CAR #2#) . #7#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |w| (SPADCALL |n| 1 (QREFELT $ 39)) . #4#)
-                        (SEQ (LETT |i| 1 . #4#) G190
-                             (COND ((|greater_SI| |i| |n|) (GO G191)))
+                   (SEQ (LETT |w| (SPADCALL |n| 1 (QREFELT $ 39)) . #7#)
+                        (SEQ (LETT |i| 1 . #7#) (LETT #1# |n| . #7#) G190
+                             (COND ((|greater_SI| |i| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (SPADCALL |w| |i| 1
@@ -479,10 +483,10 @@
                                                                   MM))
                                           |x| $)
                                          (QREFELT $ 42))))
-                             (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                             (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                              (EXIT NIL))
-                        (EXIT (LETT |sol| (CONS |w| |sol|) . #4#)))
-                   (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
+                        (EXIT (LETT |sol| (CONS |w| |sol|) . #7#)))
+                   (LETT #2# (CDR #2#) . #7#) (GO G190) G191 (EXIT NIL))
               (EXIT |sol|)))) 
 
 (SDEFUN |EP;generalizedEigenvector;UM2NniL;14|
@@ -491,7 +495,7 @@
          (A |Matrix| (|Fraction| (|Polynomial| R))) (|k| |NonNegativeInteger|)
          (|g| |NonNegativeInteger|)
          ($ |List| (|Matrix| (|Fraction| (|Polynomial| R)))))
-        (SPROG ((#1=#:G200 NIL) (#2=#:G199 NIL))
+        (SPROG ((#1=#:G207 NIL) (#2=#:G206 NIL))
                (COND
                 ((QEQCAR |alpha| 0)
                  (|EP;intRatEig| (QCDR |alpha|) A
@@ -530,7 +534,7 @@
            (|:| |geneigvec|
                 (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
         (SPROG
-         ((#1=#:G215 NIL) (|leg| NIL) (#2=#:G214 NIL)
+         ((#1=#:G222 NIL) (|leg| NIL) (#2=#:G221 NIL)
           (|leig|
            (|List|
             (|Record|
@@ -576,9 +580,9 @@
                 (|:| |eigmult| (|NonNegativeInteger|))
                 (|:| |eigvec|
                      (|List| (|Matrix| (|Fraction| (|Polynomial| R))))))))
-          (#2=#:G223 NIL) (|alpha| (|SuchThat| (|Symbol|) (|Polynomial| R)))
-          (|ratSol| #1#) (#3=#:G221 NIL) (|vec| (|Fraction| (|Polynomial| R)))
-          (|pol| #4=(|Polynomial| R)) (#5=#:G229 NIL) (|fact| NIL)
+          (#2=#:G230 NIL) (|alpha| (|SuchThat| (|Symbol|) (|Polynomial| R)))
+          (|ratSol| #1#) (#3=#:G228 NIL) (|vec| (|Fraction| (|Polynomial| R)))
+          (|pol| #4=(|Polynomial| R)) (#5=#:G236 NIL) (|fact| NIL)
           (|lff|
            (|List| (|Record| (|:| |factor| #4#) (|:| |exponent| (|Integer|)))))
           (|p| (|Polynomial| R)) (|x| (|Symbol|)) (|n| (|NonNegativeInteger|)))
@@ -644,9 +648,9 @@
 
 (DECLAIM (NOTINLINE |EigenPackage;|)) 
 
-(DEFUN |EigenPackage| (#1=#:G230)
+(DEFUN |EigenPackage| (#1=#:G237)
   (SPROG NIL
-         (PROG (#2=#:G231)
+         (PROG (#2=#:G238)
            (RETURN
             (COND
              ((LETT #2#

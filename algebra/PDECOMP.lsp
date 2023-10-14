@@ -87,50 +87,50 @@
         ((|f| UP) (|dh| |NonNegativeInteger|) ($ UP))
         (SPROG
          ((|h| (UP)) (#1=#:G155 NIL) (|c| (F)) (#2=#:G154 NIL) (#3=#:G153 NIL)
-          (|hdg| (UP)) (|k| NIL) (|dg| (|NonNegativeInteger|))
+          (|hdg| (UP)) (#4=#:G160 NIL) (|k| NIL) (|dg| (|NonNegativeInteger|))
           (|df| (|NonNegativeInteger|)))
          (SEQ
           (LETT |f| (SPADCALL |f| (SPADCALL |f| (QREFELT $ 31)) (QREFELT $ 32))
-                . #4=(|PDECOMP;rightFactorCandidate;UPNniUP;4|))
-          (LETT |df| (SPADCALL |f| (QREFELT $ 15)) . #4#)
-          (LETT |dg| (QUOTIENT2 |df| |dh|) . #4#)
-          (LETT |h| (SPADCALL (|spadConstant| $ 18) |dh| (QREFELT $ 19)) . #4#)
-          (SEQ (LETT |k| 1 . #4#) G190
-               (COND ((|greater_SI| |k| |dh|) (GO G191)))
-               (SEQ (LETT |hdg| (SPADCALL |h| |dg| (QREFELT $ 33)) . #4#)
+                . #5=(|PDECOMP;rightFactorCandidate;UPNniUP;4|))
+          (LETT |df| (SPADCALL |f| (QREFELT $ 15)) . #5#)
+          (LETT |dg| (QUOTIENT2 |df| |dh|) . #5#)
+          (LETT |h| (SPADCALL (|spadConstant| $ 18) |dh| (QREFELT $ 19)) . #5#)
+          (SEQ (LETT |k| 1 . #5#) (LETT #4# |dh| . #5#) G190
+               (COND ((|greater_SI| |k| #4#) (GO G191)))
+               (SEQ (LETT |hdg| (SPADCALL |h| |dg| (QREFELT $ 33)) . #5#)
                     (LETT |c|
                           (SPADCALL
                            (SPADCALL
                             (SPADCALL |f|
-                                      (PROG1 (LETT #3# (- |df| |k|) . #4#)
+                                      (PROG1 (LETT #3# (- |df| |k|) . #5#)
                                         (|check_subtype2| (>= #3# 0)
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #3#))
                                       (QREFELT $ 34))
                             (SPADCALL |hdg|
-                                      (PROG1 (LETT #2# (- |df| |k|) . #4#)
+                                      (PROG1 (LETT #2# (- |df| |k|) . #5#)
                                         (|check_subtype2| (>= #2# 0)
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #2#))
                                       (QREFELT $ 34))
                             (QREFELT $ 35))
                            (SPADCALL |dg| (QREFELT $ 37)) (QREFELT $ 38))
-                          . #4#)
+                          . #5#)
                     (EXIT
                      (LETT |h|
                            (SPADCALL |h|
                                      (SPADCALL |c|
                                                (PROG1
                                                    (LETT #1# (- |dh| |k|)
-                                                         . #4#)
+                                                         . #5#)
                                                  (|check_subtype2| (>= #1# 0)
                                                                    '(|NonNegativeInteger|)
                                                                    '(|Integer|)
                                                                    #1#))
                                                (QREFELT $ 19))
                                      (QREFELT $ 21))
-                           . #4#)))
-               (LETT |k| (|inc_SI| |k|) . #4#) (GO G190) G191 (EXIT NIL))
+                           . #5#)))
+               (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (SPADCALL |h|
                      (SPADCALL (SPADCALL |h| 0 (QREFELT $ 34)) 0
@@ -139,9 +139,9 @@
 
 (DECLAIM (NOTINLINE |PolynomialDecomposition;|)) 
 
-(DEFUN |PolynomialDecomposition| (&REST #1=#:G160)
+(DEFUN |PolynomialDecomposition| (&REST #1=#:G161)
   (SPROG NIL
-         (PROG (#2=#:G161)
+         (PROG (#2=#:G162)
            (RETURN
             (COND
              ((LETT #2#

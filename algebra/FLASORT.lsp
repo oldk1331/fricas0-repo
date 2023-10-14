@@ -150,24 +150,24 @@
 (SDEFUN |FLASORT;shellSort;M2V;6|
         ((|l| |Mapping| (|Boolean|) S S) (|r| V) ($ V))
         (SPROG
-         ((|g| (|Integer|)) (|j| (|Integer|)) (|i| NIL) (|n| (|Integer|))
-          (|m| (|Integer|)))
+         ((|g| (|Integer|)) (|j| (|Integer|)) (#1=#:G163 NIL) (|i| NIL)
+          (|n| (|Integer|)) (|m| (|Integer|)))
          (SEQ
           (LETT |m| (SPADCALL |r| (QREFELT $ 9))
-                . #1=(|FLASORT;shellSort;M2V;6|))
-          (LETT |n| (SPADCALL |r| (QREFELT $ 10)) . #1#) (LETT |g| 1 . #1#)
+                . #2=(|FLASORT;shellSort;M2V;6|))
+          (LETT |n| (SPADCALL |r| (QREFELT $ 10)) . #2#) (LETT |g| 1 . #2#)
           (SEQ G190
                (COND
                 ((NULL (SPADCALL |g| (- |n| |m|) (QREFELT $ 23))) (GO G191)))
                (SEQ
-                (EXIT (LETT |g| (+ (SPADCALL 3 |g| (QREFELT $ 15)) 1) . #1#)))
+                (EXIT (LETT |g| (+ (SPADCALL 3 |g| (QREFELT $ 15)) 1) . #2#)))
                NIL (GO G190) G191 (EXIT NIL))
-          (LETT |g| (QUOTIENT2 |g| 3) . #1#)
+          (LETT |g| (QUOTIENT2 |g| 3) . #2#)
           (SEQ G190 (COND ((NULL (SPADCALL |g| 0 (QREFELT $ 24))) (GO G191)))
                (SEQ
-                (SEQ (LETT |i| (+ |m| |g|) . #1#) G190
-                     (COND ((> |i| |n|) (GO G191)))
-                     (SEQ (LETT |j| (- |i| |g|) . #1#)
+                (SEQ (LETT |i| (+ |m| |g|) . #2#) (LETT #1# |n| . #2#) G190
+                     (COND ((> |i| #1#) (GO G191)))
+                     (SEQ (LETT |j| (- |i| |g|) . #2#)
                           (EXIT
                            (SEQ G190
                                 (COND
@@ -181,10 +181,10 @@
                                   (GO G191)))
                                 (SEQ
                                  (SPADCALL |r| |j| (+ |j| |g|) (QREFELT $ 20))
-                                 (EXIT (LETT |j| (- |j| |g|) . #1#)))
+                                 (EXIT (LETT |j| (- |j| |g|) . #2#)))
                                 NIL (GO G190) G191 (EXIT NIL))))
-                     (LETT |i| (+ |i| 1) . #1#) (GO G190) G191 (EXIT NIL))
-                (EXIT (LETT |g| (QUOTIENT2 |g| 3) . #1#)))
+                     (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
+                (EXIT (LETT |g| (QUOTIENT2 |g| 3) . #2#)))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT |r|)))) 
 

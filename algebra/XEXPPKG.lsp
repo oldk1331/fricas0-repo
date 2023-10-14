@@ -3,20 +3,21 @@
         ((|p| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
-          (|k1| (|Fraction| (|Integer|))) (|i| NIL) (|p1| (XPOLY)))
+          (|k1| (|Fraction| (|Integer|))) (#1=#:G111 NIL) (|i| NIL)
+          (|p1| (XPOLY)))
          (SEQ
           (LETT |p1| (SPADCALL |p| (|spadConstant| $ 10) (QREFELT $ 11))
-                . #1=(|XEXPPKG;log;XPOLYNniXPOLY;1|))
+                . #2=(|XEXPPKG;log;XPOLYNniXPOLY;1|))
           (COND
            ((NULL (SPADCALL |p1| (QREFELT $ 13)))
             (EXIT (|error| "constant term <> 1, impossible log"))))
-          (LETT |s| (|spadConstant| $ 14) . #1#) (LETT |k| |n| . #1#)
-          (SEQ (LETT |i| 1 . #1#) G190
-               (COND ((|greater_SI| |i| |n|) (GO G191)))
-               (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #1#)
+          (LETT |s| (|spadConstant| $ 14) . #2#) (LETT |k| |n| . #2#)
+          (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+               (COND ((|greater_SI| |i| #1#) (GO G191)))
+               (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #2#)
                     (LETT |k2|
                           (SPADCALL |k1| (|spadConstant| $ 9) (QREFELT $ 18))
-                          . #1#)
+                          . #2#)
                     (LETT |s|
                           (SPADCALL
                            (SPADCALL (SPADCALL |p1| |i| (QREFELT $ 20))
@@ -24,16 +25,16 @@
                                                |s| (QREFELT $ 11))
                                      (QREFELT $ 22))
                            |i| (QREFELT $ 20))
-                          . #1#)
-                    (EXIT (LETT |k| (- |k| 1) . #1#)))
-               (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                          . #2#)
+                    (EXIT (LETT |k| (- |k| 1) . #2#)))
+               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |s|)))) 
 
 (SDEFUN |XEXPPKG;exp;XPOLYNniXPOLY;2|
         ((|p| XPOLY) (|n| |NonNegativeInteger|) ($ XPOLY))
         (SPROG
          ((|k| (|Integer|)) (|s| (XPOLY)) (|k2| (R))
-          (|k1| (|Fraction| (|Integer|))) (|i| NIL))
+          (|k1| (|Fraction| (|Integer|))) (#1=#:G118 NIL) (|i| NIL))
          (SEQ
           (COND
            ((NULL (SPADCALL |p| (QREFELT $ 13)))
@@ -45,15 +46,15 @@
              ('T
               (SEQ
                (LETT |s| (|spadConstant| $ 10)
-                     . #1=(|XEXPPKG;exp;XPOLYNniXPOLY;2|))
-               (LETT |k| |n| . #1#)
-               (SEQ (LETT |i| 1 . #1#) G190
-                    (COND ((|greater_SI| |i| |n|) (GO G191)))
-                    (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #1#)
+                     . #2=(|XEXPPKG;exp;XPOLYNniXPOLY;2|))
+               (LETT |k| |n| . #2#)
+               (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                    (COND ((|greater_SI| |i| #1#) (GO G191)))
+                    (SEQ (LETT |k1| (SPADCALL 1 |k| (QREFELT $ 17)) . #2#)
                          (LETT |k2|
                                (SPADCALL |k1| (|spadConstant| $ 9)
                                          (QREFELT $ 18))
-                               . #1#)
+                               . #2#)
                          (LETT |s|
                                (SPADCALL
                                 (SPADCALL (|spadConstant| $ 10)
@@ -65,9 +66,9 @@
                                            |s| (QREFELT $ 22))
                                           (QREFELT $ 27))
                                 |i| (QREFELT $ 20))
-                               . #1#)
-                         (EXIT (LETT |k| (- |k| 1) . #1#)))
-                    (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                               . #2#)
+                         (EXIT (LETT |k| (- |k| 1) . #2#)))
+                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                (EXIT |s|))))))))) 
 
 (SDEFUN |XEXPPKG;Hausdorff;2XPOLYNniXPOLY;3|
@@ -83,9 +84,9 @@
 
 (DECLAIM (NOTINLINE |XExponentialPackage;|)) 
 
-(DEFUN |XExponentialPackage| (&REST #1=#:G119)
+(DEFUN |XExponentialPackage| (&REST #1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#

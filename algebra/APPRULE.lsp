@@ -98,39 +98,37 @@
         ((|lk| |List| (|Kernel| F)) (|lv| |List| F)
          (|lrule| |List| (|RewriteRule| |Base| R F)) (|subject| F)
          (|n| |PositiveInteger|) ($ F))
-        (SPROG ((#1=#:G141 NIL) (|k| NIL) (#2=#:G142 NIL) (|v| NIL) (|i| NIL))
+        (SPROG
+         ((#1=#:G142 NIL) (|k| NIL) (#2=#:G143 NIL) (|v| NIL) (#3=#:G141 NIL)
+          (|i| NIL))
+         (SEQ
+          (SEQ (LETT |i| 1 . #4=(|APPRULE;localApply|)) (LETT #3# |n| . #4#)
+               G190 (COND ((|greater_SI| |i| #3#) (GO G191)))
                (SEQ
-                (SEQ (LETT |i| 1 . #3=(|APPRULE;localApply|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                (SEQ (LETT |v| NIL . #4#) (LETT #2# |lv| . #4#)
+                     (LETT |k| NIL . #4#) (LETT #1# |lk| . #4#) G190
+                     (COND
+                      ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#) . #4#) NIL)
+                           (ATOM #2#) (PROGN (LETT |v| (CAR #2#) . #4#) NIL))
+                       (GO G191)))
                      (SEQ
-                      (SEQ (LETT |v| NIL . #3#) (LETT #2# |lv| . #3#)
-                           (LETT |k| NIL . #3#) (LETT #1# |lk| . #3#) G190
-                           (COND
-                            ((OR (ATOM #1#)
-                                 (PROGN (LETT |k| (CAR #1#) . #3#) NIL)
-                                 (ATOM #2#)
-                                 (PROGN (LETT |v| (CAR #2#) . #3#) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT |subject|
-                                   (SPADCALL |subject| |k| |v| (QREFELT $ 25))
-                                   . #3#)))
-                           (LETT #1#
-                                 (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #3#))
-                                 . #3#)
-                           (GO G190) G191 (EXIT NIL))
                       (EXIT
-                       (LETT |subject| (|APPRULE;app| |lrule| |subject| $)
-                             . #3#)))
-                     (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-                (EXIT |subject|)))) 
+                       (LETT |subject|
+                             (SPADCALL |subject| |k| |v| (QREFELT $ 25))
+                             . #4#)))
+                     (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#))
+                           . #4#)
+                     (GO G190) G191 (EXIT NIL))
+                (EXIT
+                 (LETT |subject| (|APPRULE;app| |lrule| |subject| $) . #4#)))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+          (EXIT |subject|)))) 
 
 (SDEFUN |APPRULE;rewrite|
         ((|f| F) (|res| |PatternMatchResult| |Base| F) (|l| |List| (|Symbol|))
          ($ F))
         (SPROG
-         ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F))) (#1=#:G148 NIL)
+         ((|lv| (|List| F)) (|lk| (|List| (|Kernel| F))) (#1=#:G149 NIL)
           (|rec| NIL))
          (SEQ (LETT |lk| NIL . #2=(|APPRULE;rewrite|)) (LETT |lv| NIL . #2#)
               (SEQ (LETT |rec| NIL . #2#)
@@ -162,7 +160,7 @@
          (|bad| |List| (|PatternMatchResult| |Base| F))
          ($ |PatternMatchResult| |Base| F))
         (SPROG
-         ((#1=#:G156 NIL) (#2=#:G164 NIL) (|v| NIL) (#3=#:G153 NIL)
+         ((#1=#:G157 NIL) (#2=#:G165 NIL) (|v| NIL) (#3=#:G154 NIL)
           (|u| (|PatternMatchResult| |Base| F)))
          (SEQ
           (COND
@@ -205,7 +203,7 @@
 (SDEFUN |APPRULE;isit|
         ((|subject| F) (|pat| |Pattern| |Base|)
          ($ |PatternMatchResult| |Base| F))
-        (SPROG ((#1=#:G169 NIL) (|l| (|List| (|Pattern| |Base|))) (|v| NIL))
+        (SPROG ((#1=#:G170 NIL) (|l| (|List| (|Pattern| |Base|))) (|v| NIL))
                (SEQ
                 (COND
                  ((SPADCALL |pat| (QREFELT $ 51))
@@ -229,17 +227,17 @@
 (SDEFUN |APPRULE;app|
         ((|lrule| |List| (|RewriteRule| |Base| R F)) (|subject| F) ($ F))
         (SPROG
-         ((#1=#:G194 NIL) (#2=#:G191 NIL) (#3=#:G189 NIL) (|f| (F))
+         ((#1=#:G195 NIL) (#2=#:G192 NIL) (#3=#:G190 NIL) (|f| (F))
           (|ee| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|))))
           (|e|
            (|Union| (|Record| (|:| |val| F) (|:| |exponent| (|Integer|)))
                     #4="failed"))
-          (#5=#:G182 NIL) (#6=#:G181 (F)) (#7=#:G183 (F)) (#8=#:G205 NIL)
-          (#9=#:G105 NIL) (|l| (|Union| (|List| F) #4#)) (#10=#:G179 NIL)
-          (#11=#:G178 (F)) (#12=#:G180 (F)) (#13=#:G204 NIL) (#14=#:G104 NIL)
-          (|k| (|Union| (|Kernel| F) "failed")) (#15=#:G201 NIL)
-          (#16=#:G202 NIL) (|u| (|PatternMatchResult| |Base| F))
-          (#17=#:G203 NIL) (|r| NIL))
+          (#5=#:G183 NIL) (#6=#:G182 (F)) (#7=#:G184 (F)) (#8=#:G206 NIL)
+          (#9=#:G105 NIL) (|l| (|Union| (|List| F) #4#)) (#10=#:G180 NIL)
+          (#11=#:G179 (F)) (#12=#:G181 (F)) (#13=#:G205 NIL) (#14=#:G104 NIL)
+          (|k| (|Union| (|Kernel| F) "failed")) (#15=#:G202 NIL)
+          (#16=#:G203 NIL) (|u| (|PatternMatchResult| |Base| F))
+          (#17=#:G204 NIL) (|r| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -268,9 +266,9 @@
                                       (SPADCALL |r| (QREFELT $ 55)) |u|
                                       (SPADCALL |r| (QREFELT $ 56)) $)
                                      . #18#)
-                               (GO #19=#:G200))
+                               (GO #19=#:G201))
                               . #18#)
-                        (GO #20=#:G171))))))
+                        (GO #20=#:G172))))))
                    (LETT #17# (CDR #17#) . #18#) (GO G190) G191 (EXIT NIL)))
              #20# (EXIT #15#))
             (LETT |k| (SPADCALL |subject| (QREFELT $ 58)) . #18#)
@@ -393,9 +391,9 @@
 
 (DECLAIM (NOTINLINE |ApplyRules;|)) 
 
-(DEFUN |ApplyRules| (&REST #1=#:G206)
+(DEFUN |ApplyRules| (&REST #1=#:G207)
   (SPROG NIL
-         (PROG (#2=#:G207)
+         (PROG (#2=#:G208)
            (RETURN
             (COND
              ((LETT #2#

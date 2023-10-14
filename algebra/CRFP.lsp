@@ -411,37 +411,38 @@
          ((|aBack| #1=(|List| (|Complex| R))) (|gp| (UP)) (#2=#:G181 NIL)
           (|const| (|Integer|)) (|aBackCopy| #1#)
           (|aForthCopy| (|List| (|Complex| R))) (|sum| (|Complex| R))
-          (#3=#:G186 NIL) (|aminus| NIL) (#4=#:G187 NIL) (|aplus| NIL)
-          (|aForth| (|List| (|Complex| R))) (|ak| (|Complex| R)) (|k| NIL)
+          (#3=#:G188 NIL) (|aminus| NIL) (#4=#:G189 NIL) (|aplus| NIL)
+          (|aForth| (|List| (|Complex| R))) (|ak| (|Complex| R))
+          (#5=#:G187 NIL) (|k| NIL) (#6=#:G186 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
-          (LETT |n| (SPADCALL |p| (QREFELT $ 29)) . #5=(|CRFP;graeffe;2UP;8|))
-          (LETT |aForth| NIL . #5#)
-          (SEQ (LETT |k| 0 . #5#) G190
-               (COND ((|greater_SI| |k| |n|) (GO G191)))
+          (LETT |n| (SPADCALL |p| (QREFELT $ 29)) . #7=(|CRFP;graeffe;2UP;8|))
+          (LETT |aForth| NIL . #7#)
+          (SEQ (LETT |k| 0 . #7#) (LETT #6# |n| . #7#) G190
+               (COND ((|greater_SI| |k| #6#) (GO G191)))
                (SEQ
                 (EXIT
                  (LETT |aForth|
                        (CONS (SPADCALL |p| |k| (QREFELT $ 37)) |aForth|)
-                       . #5#)))
-               (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191 (EXIT NIL))
-          (LETT |aBack| NIL . #5#) (LETT |gp| (|spadConstant| $ 43) . #5#)
-          (SEQ (LETT |k| 0 . #5#) G190
-               (COND ((|greater_SI| |k| |n|) (GO G191)))
-               (SEQ (LETT |ak| (|SPADfirst| |aForth|) . #5#)
-                    (LETT |aForth| (CDR |aForth|) . #5#)
-                    (LETT |aForthCopy| |aForth| . #5#)
-                    (LETT |aBackCopy| |aBack| . #5#)
-                    (LETT |sum| (|spadConstant| $ 99) . #5#)
-                    (LETT |const| -1 . #5#)
-                    (SEQ (LETT |aplus| NIL . #5#) (LETT #4# |aForth| . #5#)
-                         (LETT |aminus| NIL . #5#) (LETT #3# |aBack| . #5#)
+                       . #7#)))
+               (LETT |k| (|inc_SI| |k|) . #7#) (GO G190) G191 (EXIT NIL))
+          (LETT |aBack| NIL . #7#) (LETT |gp| (|spadConstant| $ 43) . #7#)
+          (SEQ (LETT |k| 0 . #7#) (LETT #5# |n| . #7#) G190
+               (COND ((|greater_SI| |k| #5#) (GO G191)))
+               (SEQ (LETT |ak| (|SPADfirst| |aForth|) . #7#)
+                    (LETT |aForth| (CDR |aForth|) . #7#)
+                    (LETT |aForthCopy| |aForth| . #7#)
+                    (LETT |aBackCopy| |aBack| . #7#)
+                    (LETT |sum| (|spadConstant| $ 99) . #7#)
+                    (LETT |const| -1 . #7#)
+                    (SEQ (LETT |aplus| NIL . #7#) (LETT #4# |aForth| . #7#)
+                         (LETT |aminus| NIL . #7#) (LETT #3# |aBack| . #7#)
                          G190
                          (COND
                           ((OR (ATOM #3#)
-                               (PROGN (LETT |aminus| (CAR #3#) . #5#) NIL)
+                               (PROGN (LETT |aminus| (CAR #3#) . #7#) NIL)
                                (ATOM #4#)
-                               (PROGN (LETT |aplus| (CAR #4#) . #5#) NIL))
+                               (PROGN (LETT |aplus| (CAR #4#) . #7#) NIL))
                            (GO G191)))
                          (SEQ
                           (LETT |sum|
@@ -451,12 +452,12 @@
                                                      (QREFELT $ 100))
                                            |aplus| (QREFELT $ 101))
                                           (QREFELT $ 102))
-                                . #5#)
-                          (LETT |aForthCopy| (CDR |aForthCopy|) . #5#)
-                          (LETT |aBackCopy| (CDR |aBackCopy|) . #5#)
-                          (EXIT (LETT |const| (- |const|) . #5#)))
-                         (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #5#))
-                               . #5#)
+                                . #7#)
+                          (LETT |aForthCopy| (CDR |aForthCopy|) . #7#)
+                          (LETT |aBackCopy| (CDR |aBackCopy|) . #7#)
+                          (EXIT (LETT |const| (- |const|) . #7#)))
+                         (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #7#))
+                               . #7#)
                          (GO G190) G191 (EXIT NIL))
                     (LETT |gp|
                           (SPADCALL |gp|
@@ -465,15 +466,15 @@
                                       (SPADCALL |ak| |ak| (QREFELT $ 101))
                                       (SPADCALL 2 |sum| (QREFELT $ 103))
                                       (QREFELT $ 102))
-                                     (PROG1 (LETT #2# (- |n| |k|) . #5#)
+                                     (PROG1 (LETT #2# (- |n| |k|) . #7#)
                                        (|check_subtype2| (>= #2# 0)
                                                          '(|NonNegativeInteger|)
                                                          '(|Integer|) #2#))
                                      (QREFELT $ 57))
                                     (QREFELT $ 104))
-                          . #5#)
-                    (EXIT (LETT |aBack| (CONS |ak| |aBack|) . #5#)))
-               (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191 (EXIT NIL))
+                          . #7#)
+                    (EXIT (LETT |aBack| (CONS |ak| |aBack|) . #7#)))
+               (LETT |k| (|inc_SI| |k|) . #7#) (GO G190) G191 (EXIT NIL))
           (EXIT |gp|)))) 
 
 (SDEFUN |CRFP;rootRadius;UP2R;9| ((|p| UP) (|errorQuotient| R) ($ R))
@@ -572,40 +573,40 @@
 
 (SDEFUN |CRFP;reciprocalPolynomial;2UP;12| ((|p| UP) ($ UP))
         (SPROG
-         ((|sol| (UP)) (|lm| (|List| UP)) (#1=#:G201 NIL) (|i| NIL)
-          (#2=#:G208 NIL) (|md| (|NonNegativeInteger|))
+         ((|sol| (UP)) (|lm| (|List| UP)) (#1=#:G203 NIL) (#2=#:G211 NIL)
+          (|i| NIL) (#3=#:G210 NIL) (|md| (|NonNegativeInteger|))
           (|d| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 111)) (|spadConstant| $ 43))
                 ('T
                  (SEQ
                   (LETT |d| (SPADCALL |p| (QREFELT $ 29))
-                        . #3=(|CRFP;reciprocalPolynomial;2UP;12|))
-                  (LETT |md| (+ |d| (SPADCALL |p| (QREFELT $ 55))) . #3#)
+                        . #4=(|CRFP;reciprocalPolynomial;2UP;12|))
+                  (LETT |md| (+ |d| (SPADCALL |p| (QREFELT $ 55))) . #4#)
                   (LETT |lm|
                         (PROGN
-                         (LETT #2# NIL . #3#)
-                         (SEQ (LETT |i| 0 . #3#) G190
-                              (COND ((|greater_SI| |i| |d|) (GO G191)))
+                         (LETT #3# NIL . #4#)
+                         (SEQ (LETT |i| 0 . #4#) (LETT #2# |d| . #4#) G190
+                              (COND ((|greater_SI| |i| #2#) (GO G191)))
                               (SEQ
                                (EXIT
-                                (LETT #2#
+                                (LETT #3#
                                       (CONS
                                        (SPADCALL
                                         (SPADCALL |p| |i| (QREFELT $ 37))
-                                        (PROG1 (LETT #1# (- |md| |i|) . #3#)
+                                        (PROG1 (LETT #1# (- |md| |i|) . #4#)
                                           (|check_subtype2| (>= #1# 0)
                                                             '(|NonNegativeInteger|)
                                                             '(|Integer|) #1#))
                                         (QREFELT $ 57))
-                                       #2#)
-                                      . #3#)))
-                              (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
-                              (EXIT (NREVERSE #2#))))
-                        . #3#)
+                                       #3#)
+                                      . #4#)))
+                              (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                              (EXIT (NREVERSE #3#))))
+                        . #4#)
                   (EXIT
                    (LETT |sol| (SPADCALL (ELT $ 104) |lm| (QREFELT $ 116))
-                         . #3#)))))))) 
+                         . #4#)))))))) 
 
 (SDEFUN |CRFP;divisorCascade;2UPBL;13|
         ((|p| UP) (|tp| UP) (|info| |Boolean|)
@@ -617,7 +618,7 @@
           (|listOfFactors| (|List| UP)) (|nm| (R)) (|factor2| (UP))
           (|factor1| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (#1=#:G216 NIL) (|i| NIL))
+          (#1=#:G219 NIL) (|i| NIL))
          (SEQ (LETT |lfae| NIL . #2=(|CRFP;divisorCascade;2UPBL;13|))
               (SEQ (LETT |i| 1 . #2#)
                    (LETT #1# (SPADCALL |tp| (QREFELT $ 29)) . #2#) G190
@@ -691,7 +692,7 @@
          ((|listOfFactors|
            (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (|result| (|Factored| UP)) (|expOfFactor| (|Integer|))
-          (|newFactor| (UP)) (#1=#:G232 NIL) (|rec| NIL)
+          (|newFactor| (UP)) (#1=#:G235 NIL) (|rec| NIL)
           (|lof| (|List| (|OutputForm|))) (|split| (|Factored| UP))
           (|exponentOfp| (|Integer|)) (|p| (UP)) (|eps0| (R))
           (|d| (|NonNegativeInteger|)))
@@ -833,7 +834,7 @@
 (SDEFUN |CRFP;calculateScale| ((|p| UP) ($ R))
         (SPROG
          ((|rho| (R)) (|maxi| (R)) (|locmax| (R)) (|ic| (R)) (|rc| (R))
-          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G247 NIL)
+          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G250 NIL)
           (|mon| NIL) (|d| (|NonNegativeInteger|)))
          (SEQ
           (LETT |d| (SPADCALL |p| (QREFELT $ 29)) . #2=(|CRFP;calculateScale|))
@@ -964,9 +965,9 @@
 
 (DECLAIM (NOTINLINE |ComplexRootFindingPackage;|)) 
 
-(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G255)
+(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G258)
   (SPROG NIL
-         (PROG (#2=#:G256)
+         (PROG (#2=#:G259)
            (RETURN
             (COND
              ((LETT #2#

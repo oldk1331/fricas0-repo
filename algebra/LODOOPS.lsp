@@ -74,35 +74,35 @@
          (|diff| |Mapping| A A) ($ L))
         (SPROG
          ((|lu| (|List| #1#)) (#2=#:G126 NIL) (|l| (|List| (|Vector| A)))
-          (|mat| (|Matrix| A)) (|q| NIL))
+          (|mat| (|Matrix| A)) (#3=#:G127 NIL) (|q| NIL))
          (SEQ
           (EXIT
-           (SEQ (LETT |lu| (LIST |u|) . #3=(|LODOOPS;killer|))
-                (SEQ (LETT |q| 0 . #3#) G190
-                     (COND ((|greater_SI| |q| |m|) (GO G191)))
+           (SEQ (LETT |lu| (LIST |u|) . #4=(|LODOOPS;killer|))
+                (SEQ (LETT |q| 0 . #4#) (LETT #3# |m| . #4#) G190
+                     (COND ((|greater_SI| |q| #3#) (GO G191)))
                      (SEQ
                       (LETT |mat|
                             (SPADCALL (SPADCALL (LIST |lu|) (QREFELT $ 38))
                                       (QREFELT $ 41))
-                            . #3#)
-                      (LETT |l| (SPADCALL |mat| (QREFELT $ 43)) . #3#)
+                            . #4#)
+                      (LETT |l| (SPADCALL |mat| (QREFELT $ 43)) . #4#)
                       (COND
                        ((NULL (NULL |l|))
                         (EXIT
                          (PROGN
                           (LETT #2# (|LODOOPS;vec2LODO| (|SPADfirst| |l|) $)
-                                . #3#)
-                          (GO #4=#:G125)))))
+                                . #4#)
+                          (GO #5=#:G125)))))
                       (LETT |u|
                             (SPADCALL (SPADCALL |u| |diff| (QREFELT $ 44))
                                       |lvar| |lval| (QREFELT $ 47))
-                            . #3#)
+                            . #4#)
                       (EXIT
                        (LETT |lu| (SPADCALL |lu| (LIST |u|) (QREFELT $ 49))
-                             . #3#)))
-                     (LETT |q| (|inc_SI| |q|) . #3#) (GO G190) G191 (EXIT NIL))
+                             . #4#)))
+                     (LETT |q| (|inc_SI| |q|) . #4#) (GO G190) G191 (EXIT NIL))
                 (EXIT (|error| "killer: no linear dependence found"))))
-          #4# (EXIT #2#)))) 
+          #5# (EXIT #2#)))) 
 
 (SDEFUN |LODOOPS;symmetricProduct;2LML;4|
         ((|l1| L) (|l2| L) (|diff| |Mapping| A A) ($ L))
@@ -222,9 +222,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorsOps;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G137)
+(DEFUN |LinearOrdinaryDifferentialOperatorsOps| (&REST #1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G138)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#

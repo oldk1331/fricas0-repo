@@ -916,19 +916,19 @@
         (COND ((SPADCALL |x| (QREFELT $ 90)) 'NIL) ('T 'T))) 
 
 (SDEFUN |LZSTAGG-;extend;AIA;47| ((|x| A) (|n| |Integer|) ($ A))
-        (SPROG ((|y| (A)) (|i| NIL))
-               (SEQ (LETT |y| |x| . #1=(|LZSTAGG-;extend;AIA;47|))
-                    (SEQ (LETT |i| 1 . #1#) G190
+        (SPROG ((|y| (A)) (#1=#:G441 NIL) (|i| NIL))
+               (SEQ (LETT |y| |x| . #2=(|LZSTAGG-;extend;AIA;47|))
+                    (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
                          (COND
-                          ((OR (|greater_SI| |i| |n|)
+                          ((OR (|greater_SI| |i| #1#)
                                (NULL
                                 (COND ((SPADCALL |y| (QREFELT $ 19)) 'NIL)
                                       ('T 'T))))
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #1#)))
-                         (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                           (LETT |y| (SPADCALL |y| (QREFELT $ 17)) . #2#)))
+                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT |x|)))) 
 

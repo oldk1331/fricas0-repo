@@ -8,27 +8,27 @@
 
 (SDEFUN |BBTREE;setleaves!;$L$;2| ((|t| $) (|u| |List| S) ($ $))
         (SPROG
-         ((|acc| (|List| S)) (|i| NIL) (|m| (|NonNegativeInteger|))
-          (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (LENGTH |u|) . #1=(|BBTREE;setleaves!;$L$;2|))
+         ((|acc| (|List| S)) (#1=#:G126 NIL) (|i| NIL)
+          (|m| (|NonNegativeInteger|)) (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |n| (LENGTH |u|) . #2=(|BBTREE;setleaves!;$L$;2|))
               (EXIT
                (COND
                 ((EQL |n| 0)
                  (COND ((SPADCALL |t| (QREFELT $ 9)) |t|)
-                       (#2='T
+                       (#3='T
                         (|error|
                          "the tree and list must have the same number of elements"))))
                 ((EQL |n| 1)
                  (SEQ (SPADCALL |t| (|SPADfirst| |u|) (QREFELT $ 13))
                       (EXIT |t|)))
-                (#2#
-                 (SEQ (LETT |m| (QUOTIENT2 |n| 2) . #1#) (LETT |acc| NIL . #1#)
-                      (SEQ (LETT |i| 1 . #1#) G190
-                           (COND ((|greater_SI| |i| |m|) (GO G191)))
+                (#3#
+                 (SEQ (LETT |m| (QUOTIENT2 |n| 2) . #2#) (LETT |acc| NIL . #2#)
+                      (SEQ (LETT |i| 1 . #2#) (LETT #1# |m| . #2#) G190
+                           (COND ((|greater_SI| |i| #1#) (GO G191)))
                            (SEQ
-                            (LETT |acc| (CONS (|SPADfirst| |u|) |acc|) . #1#)
-                            (EXIT (LETT |u| (CDR |u|) . #1#)))
-                           (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                            (LETT |acc| (CONS (|SPADfirst| |u|) |acc|) . #2#)
+                            (EXIT (LETT |u| (CDR |u|) . #2#)))
+                           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                            (EXIT NIL))
                       (SPADCALL (SPADCALL |t| (QREFELT $ 10)) (NREVERSE |acc|)
                                 (QREFELT $ 15))
@@ -153,9 +153,9 @@
 
 (DECLAIM (NOTINLINE |BalancedBinaryTree;|)) 
 
-(DEFUN |BalancedBinaryTree| (#1=#:G175)
+(DEFUN |BalancedBinaryTree| (#1=#:G176)
   (SPROG NIL
-         (PROG (#2=#:G176)
+         (PROG (#2=#:G177)
            (RETURN
             (COND
              ((LETT #2#
@@ -174,7 +174,7 @@
 
 (DEFUN |BalancedBinaryTree;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G172 NIL) (#2=#:G173 NIL) (#3=#:G174 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G173 NIL) (#2=#:G174 NIL) (#3=#:G175 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|BalancedBinaryTree|))

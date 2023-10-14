@@ -154,24 +154,25 @@
         ((A M) (|lr| |List| (|PositiveInteger|))
          (|lc| |List| (|PositiveInteger|)) ($ M))
         (SPROG
-         ((|j| NIL) (#1=#:G146 NIL) (|jj| NIL) (|i| NIL) (#2=#:G145 NIL)
-          (|ii| NIL) (|res| (M)) (|m| #3=(|NonNegativeInteger|)) (|n| #3#))
-         (SEQ (LETT |n| (LENGTH |lr|) . #4=(|MAMA;subMatrix;M2LM;14|))
-              (LETT |m| (LENGTH |lc|) . #4#)
-              (LETT |res| (SPADCALL |n| |m| (QREFELT $ 30)) . #4#)
-              (SEQ (LETT |ii| NIL . #4#) (LETT #2# |lr| . #4#)
-                   (LETT |i| 1 . #4#) G190
+         ((#1=#:G147 NIL) (|j| NIL) (#2=#:G148 NIL) (|jj| NIL) (#3=#:G145 NIL)
+          (|i| NIL) (#4=#:G146 NIL) (|ii| NIL) (|res| (M))
+          (|m| #5=(|NonNegativeInteger|)) (|n| #5#))
+         (SEQ (LETT |n| (LENGTH |lr|) . #6=(|MAMA;subMatrix;M2LM;14|))
+              (LETT |m| (LENGTH |lc|) . #6#)
+              (LETT |res| (SPADCALL |n| |m| (QREFELT $ 30)) . #6#)
+              (SEQ (LETT |ii| NIL . #6#) (LETT #4# |lr| . #6#)
+                   (LETT |i| 1 . #6#) (LETT #3# |n| . #6#) G190
                    (COND
-                    ((OR (|greater_SI| |i| |n|) (ATOM #2#)
-                         (PROGN (LETT |ii| (CAR #2#) . #4#) NIL))
+                    ((OR (|greater_SI| |i| #3#) (ATOM #4#)
+                         (PROGN (LETT |ii| (CAR #4#) . #6#) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |jj| NIL . #4#) (LETT #1# |lc| . #4#)
-                          (LETT |j| 1 . #4#) G190
+                     (SEQ (LETT |jj| NIL . #6#) (LETT #2# |lc| . #6#)
+                          (LETT |j| 1 . #6#) (LETT #1# |m| . #6#) G190
                           (COND
-                           ((OR (|greater_SI| |j| |m|) (ATOM #1#)
-                                (PROGN (LETT |jj| (CAR #1#) . #4#) NIL))
+                           ((OR (|greater_SI| |j| #1#) (ATOM #2#)
+                                (PROGN (LETT |jj| (CAR #2#) . #6#) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
@@ -180,11 +181,11 @@
                                       (QREFELT $ 42))))
                           (LETT |j|
                                 (PROG1 (|inc_SI| |j|)
-                                  (LETT #1# (CDR #1#) . #4#))
-                                . #4#)
+                                  (LETT #2# (CDR #2#) . #6#))
+                                . #6#)
                           (GO G190) G191 (EXIT NIL))))
-                   (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #4#))
-                         . #4#)
+                   (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #4# (CDR #4#) . #6#))
+                         . #6#)
                    (GO G190) G191 (EXIT NIL))
               (EXIT |res|)))) 
 
@@ -198,7 +199,7 @@
 (SDEFUN |MAMA;blockSplit;MLPiL;16|
         ((A M) (|lr| |List| (|PositiveInteger|)) (|nc| |PositiveInteger|)
          ($ |List| (|List| M)))
-        (SPROG ((#1=#:G151 NIL) (X NIL) (#2=#:G150 NIL))
+        (SPROG ((#1=#:G153 NIL) (X NIL) (#2=#:G152 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MAMA;blockSplit;MLPiL;16|))
@@ -217,7 +218,7 @@
 (SDEFUN |MAMA;blockSplit;MPiLL;17|
         ((A M) (|nr| |PositiveInteger|) (|lc| |List| (|PositiveInteger|))
          ($ |List| (|List| M)))
-        (SPROG ((#1=#:G155 NIL) (X NIL) (#2=#:G154 NIL))
+        (SPROG ((#1=#:G157 NIL) (X NIL) (#2=#:G156 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MAMA;blockSplit;MPiLL;17|))
@@ -235,9 +236,9 @@
 
 (DECLAIM (NOTINLINE |MatrixManipulation;|)) 
 
-(DEFUN |MatrixManipulation| (&REST #1=#:G156)
+(DEFUN |MatrixManipulation| (&REST #1=#:G158)
   (SPROG NIL
-         (PROG (#2=#:G157)
+         (PROG (#2=#:G159)
            (RETURN
             (COND
              ((LETT #2#

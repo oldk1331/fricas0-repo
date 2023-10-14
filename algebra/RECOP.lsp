@@ -1353,15 +1353,15 @@
 (SDEFUN |RECOP;ddADE| ((|l| |List| F) ($ |OutputForm|))
         (SPROG
          ((|TaylorPoly| (|OutputForm|)) (|TaylorO| (|OutputForm|))
-          (|TaylorList| (|List| (|OutputForm|))) (|i| NIL) (#1=#:G370 NIL)
-          (|v| (|NonNegativeInteger|)) (#2=#:G360 NIL)
+          (|TaylorList| (|List| (|OutputForm|))) (#1=#:G371 NIL) (|i| NIL)
+          (#2=#:G370 NIL) (|v| (|NonNegativeInteger|)) (#3=#:G360 NIL)
           (|DiffEq| (|OutputForm|)) (|TaylorCoeff| (|OutputForm|)) (|e| (F))
           (|f| (|BasicOperator|)) (|n| (F)) (|x| (F))
           (|info|
            (|Record| (|:| |eqn| F) (|:| |idx| (|Symbol|))
                      (|:| |fnc| (|BasicOperator|)) (|:| |var| (|Symbol|))
                      (|:| |par| (|List| F)) (|:| |val| (|Stream| F))
-                     (|:| |ord| (|Union| (|NonNegativeInteger|) #3="failed"))
+                     (|:| |ord| (|Union| (|NonNegativeInteger|) #4="failed"))
                      (|:| |gen| (|Union| (|Mapping| (|Stream| F)) "failed"))
                      (|:| |ex?| (|Boolean|)))))
          (SEQ
@@ -1371,16 +1371,16 @@
                   (SPADCALL (SPADCALL |l| (QREFELT $ 78)) (QREFELT $ 31))
                   (QREFELT $ 79))
                  $)
-                . #4=(|RECOP;ddADE|))
-          (LETT |x| (SPADCALL (QVELT |info| 3) (QREFELT $ 22)) . #4#)
-          (LETT |n| (|SPADfirst| |l|) . #4#) (LETT |f| (QVELT |info| 2) . #4#)
-          (LETT |e| (QVELT |info| 0) . #4#)
+                . #5=(|RECOP;ddADE|))
+          (LETT |x| (SPADCALL (QVELT |info| 3) (QREFELT $ 22)) . #5#)
+          (LETT |n| (|SPADfirst| |l|) . #5#) (LETT |f| (QVELT |info| 2) . #5#)
+          (LETT |e| (QVELT |info| 0) . #5#)
           (LETT |TaylorCoeff|
                 (SPADCALL
                  (SPADCALL (SPADCALL |x| (QREFELT $ 95))
                            (SPADCALL |n| (QREFELT $ 95)) (QREFELT $ 124))
                  (QREFELT $ 100))
-                . #4#)
+                . #5#)
           (EXIT
            (COND
             ((QVELT |info| 8)
@@ -1388,7 +1388,7 @@
               (SPADCALL |TaylorCoeff| (SPADCALL |e| (QREFELT $ 95))
                         (QREFELT $ 96))
               (QREFELT $ 100)))
-            (#5='T
+            (#6='T
              (SEQ
               (LETT |DiffEq|
                     (SPADCALL
@@ -1401,25 +1401,25 @@
                                                (QREFELT $ 97))
                                      (QREFELT $ 98)))
                      (QREFELT $ 125))
-                    . #4#)
-              (LETT |v| (SPADCALL (QREFELT $ 55)) . #4#)
+                    . #5#)
+              (LETT |v| (SPADCALL (QREFELT $ 55)) . #5#)
               (COND
                ((QEQCAR (QVELT |info| 6) 0)
                 (LETT |v|
                       (MIN |v|
-                           (PROG2 (LETT #2# (QVELT |info| 6) . #4#)
-                               (QCDR #2#)
-                             (|check_union2| (QEQCAR #2# 0)
+                           (PROG2 (LETT #3# (QVELT |info| 6) . #5#)
+                               (QCDR #3#)
+                             (|check_union2| (QEQCAR #3# 0)
                                              (|NonNegativeInteger|)
                                              (|Union| (|NonNegativeInteger|)
-                                                      #3#)
-                                             #2#)))
-                      . #4#)))
+                                                      #4#)
+                                             #3#)))
+                      . #5#)))
               (LETT |TaylorList|
                     (PROGN
-                     (LETT #1# NIL . #4#)
-                     (SEQ (LETT |i| 1 . #4#) G190
-                          (COND ((|greater_SI| |i| |v|) (GO G191)))
+                     (LETT #2# NIL . #5#)
+                     (SEQ (LETT |i| 1 . #5#) (LETT #1# |v| . #5#) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
                           (SEQ
                            (EXIT
                             (COND
@@ -1428,8 +1428,8 @@
                                  (SPADCALL (QVELT |info| 5) |i| (QREFELT $ 82))
                                  (QREFELT $ 67))
                                 'NIL)
-                               (#5# 'T))
-                              (LETT #1#
+                               (#6# 'T))
+                              (LETT #2#
                                     (CONS
                                      (SPADCALL
                                       (SPADCALL
@@ -1438,18 +1438,18 @@
                                        (SPADCALL |x| (- |i| 1) (QREFELT $ 126))
                                        (QREFELT $ 127))
                                       (QREFELT $ 95))
-                                     #1#)
-                                    . #4#)))))
-                          (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                          (EXIT (NREVERSE #1#))))
-                    . #4#)
+                                     #2#)
+                                    . #5#)))))
+                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    . #5#)
               (LETT |TaylorO|
                     (SPADCALL "O"
                               (LIST
                                (SPADCALL (SPADCALL |x| |v| (QREFELT $ 128))
                                          (QREFELT $ 95)))
                               (QREFELT $ 129))
-                    . #4#)
+                    . #5#)
               (LETT |TaylorPoly|
                     (SPADCALL
                      (SPADCALL (SPADCALL |f| |x| (QREFELT $ 69))
@@ -1459,7 +1459,7 @@
                                          (QREFELT $ 132))
                                (QREFELT $ 134))
                      (QREFELT $ 98))
-                    . #4#)
+                    . #5#)
               (EXIT
                (SPADCALL (SPADCALL (LIST |DiffEq| |TaylorPoly|) (QREFELT $ 99))
                          (QREFELT $ 100)))))))))) 
@@ -1482,9 +1482,9 @@
 
 (DECLAIM (NOTINLINE |RecurrenceOperator;|)) 
 
-(DEFUN |RecurrenceOperator| (&REST #1=#:G379)
+(DEFUN |RecurrenceOperator| (&REST #1=#:G380)
   (SPROG NIL
-         (PROG (#2=#:G380)
+         (PROG (#2=#:G381)
            (RETURN
             (COND
              ((LETT #2#

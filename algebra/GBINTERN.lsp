@@ -669,11 +669,12 @@
                     (EXIT |n|)))) 
 
 (SDEFUN |GBINTERN;prinb;IV;22| ((|n| |Integer|) ($ |Void|))
-        (SPROG ((|x| NIL))
-               (SEQ (LETT |x| 1 . #1=(|GBINTERN;prinb;IV;22|)) G190
-                    (COND ((|greater_SI| |x| |n|) (GO G191)))
+        (SPROG ((#1=#:G240 NIL) (|x| NIL))
+               (SEQ (LETT |x| 1 . #2=(|GBINTERN;prinb;IV;22|))
+                    (LETT #1# |n| . #2#) G190
+                    (COND ((|greater_SI| |x| #1#) (GO G191)))
                     (SEQ (EXIT (SPADCALL "    " (QREFELT $ 54))))
-                    (LETT |x| (|inc_SI| |x|) . #1#) (GO G190) G191 (EXIT NIL)))) 
+                    (LETT |x| (|inc_SI| |x|) . #2#) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |GBINTERN;prinshINFO;DpolV;23| ((|h| |Dpol|) ($ |Void|))
         (SEQ (SPADCALL 2 (QREFELT $ 79))
@@ -923,9 +924,9 @@
 
 (DECLAIM (NOTINLINE |GroebnerInternalPackage;|)) 
 
-(DEFUN |GroebnerInternalPackage| (&REST #1=#:G266)
+(DEFUN |GroebnerInternalPackage| (&REST #1=#:G267)
   (SPROG NIL
-         (PROG (#2=#:G267)
+         (PROG (#2=#:G268)
            (RETURN
             (COND
              ((LETT #2#

@@ -615,41 +615,41 @@
 (SDEFUN |GRIMAGE;makeGraphImage;L$;18|
         ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
         (SPROG
-         ((|i| NIL) (#1=#:G219 NIL) (#2=#:G218 NIL) (#3=#:G217 NIL)
-          (|l| (|Integer|)) (#4=#:G216 NIL))
+         ((#1=#:G221 NIL) (|i| NIL) (#2=#:G220 NIL) (#3=#:G219 NIL)
+          (#4=#:G218 NIL) (#5=#:G217 NIL) (|l| (|Integer|)) (#6=#:G216 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
-                     (LETT #4# NIL . #5=(|GRIMAGE;makeGraphImage;L$;18|))
-                     (SEQ (LETT |i| 1 . #5#)
-                          (LETT #3# (LETT |l| (LENGTH |llp|) . #5#) . #5#) G190
+                     (LETT #6# NIL . #7=(|GRIMAGE;makeGraphImage;L$;18|))
+                     (SEQ (LETT |i| 1 . #7#)
+                          (LETT #5# (LETT |l| (LENGTH |llp|) . #7#) . #7#) G190
+                          (COND ((|greater_SI| |i| #5#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #6# (CONS (SPADCALL (QREFELT $ 60)) #6#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                          (EXIT (NREVERSE #6#))))
+                    (PROGN
+                     (LETT #4# NIL . #7#)
+                     (SEQ (LETT |i| 1 . #7#) (LETT #3# |l| . #7#) G190
                           (COND ((|greater_SI| |i| #3#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #4# (CONS (SPADCALL (QREFELT $ 60)) #4#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                            (LETT #4# (CONS (SPADCALL (QREFELT $ 64)) #4#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                           (EXIT (NREVERSE #4#))))
                     (PROGN
-                     (LETT #2# NIL . #5#)
-                     (SEQ (LETT |i| 1 . #5#) G190
-                          (COND ((|greater_SI| |i| |l|) (GO G191)))
+                     (LETT #2# NIL . #7#)
+                     (SEQ (LETT |i| 1 . #7#) (LETT #1# |l| . #7#) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #2# (CONS (SPADCALL (QREFELT $ 64)) #2#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                            (LETT #2# (CONS (SPADCALL (QREFELT $ 65)) #2#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                           (EXIT (NREVERSE #2#))))
-                    (PROGN
-                     (LETT #1# NIL . #5#)
-                     (SEQ (LETT |i| 1 . #5#) G190
-                          (COND ((|greater_SI| |i| |l|) (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #1# (CONS (SPADCALL (QREFELT $ 65)) #1#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                          (EXIT (NREVERSE #1#))))
                     (QREFELT $ 97))))) 
 
 (SDEFUN |GRIMAGE;makeGraphImage;L2LL$;19|
@@ -664,8 +664,8 @@
          (|lps| |List| (|PositiveInteger|)) (|opts| |List| (|DrawOption|))
          ($ $))
         (SPROG
-         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G228 NIL) (|p| NIL)
-          (#3=#:G227 NIL) (|aList| NIL)
+         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G230 NIL) (|p| NIL)
+          (#3=#:G229 NIL) (|aList| NIL)
           (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|)))) (|graf| ($)))
          (SEQ
           (LETT |graf| (|GRIMAGE;graph| (SPADCALL |opts| NIL (QREFELT $ 17)) $)
@@ -739,41 +739,41 @@
 (SDEFUN |GRIMAGE;coerce;L$;26|
         ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
         (SPROG
-         ((|i| NIL) (#1=#:G244 NIL) (#2=#:G243 NIL) (#3=#:G242 NIL)
-          (|l| (|Integer|)) (#4=#:G241 NIL))
+         ((#1=#:G248 NIL) (|i| NIL) (#2=#:G247 NIL) (#3=#:G246 NIL)
+          (#4=#:G245 NIL) (#5=#:G244 NIL) (|l| (|Integer|)) (#6=#:G243 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
-                     (LETT #4# NIL . #5=(|GRIMAGE;coerce;L$;26|))
-                     (SEQ (LETT |i| 1 . #5#)
-                          (LETT #3# (LETT |l| (LENGTH |llp|) . #5#) . #5#) G190
+                     (LETT #6# NIL . #7=(|GRIMAGE;coerce;L$;26|))
+                     (SEQ (LETT |i| 1 . #7#)
+                          (LETT #5# (LETT |l| (LENGTH |llp|) . #7#) . #7#) G190
+                          (COND ((|greater_SI| |i| #5#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #6# (CONS (SPADCALL (QREFELT $ 60)) #6#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                          (EXIT (NREVERSE #6#))))
+                    (PROGN
+                     (LETT #4# NIL . #7#)
+                     (SEQ (LETT |i| 1 . #7#) (LETT #3# |l| . #7#) G190
                           (COND ((|greater_SI| |i| #3#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #4# (CONS (SPADCALL (QREFELT $ 60)) #4#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                            (LETT #4# (CONS (SPADCALL (QREFELT $ 64)) #4#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                           (EXIT (NREVERSE #4#))))
                     (PROGN
-                     (LETT #2# NIL . #5#)
-                     (SEQ (LETT |i| 1 . #5#) G190
-                          (COND ((|greater_SI| |i| |l|) (GO G191)))
+                     (LETT #2# NIL . #7#)
+                     (SEQ (LETT |i| 1 . #7#) (LETT #1# |l| . #7#) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #2# (CONS (SPADCALL (QREFELT $ 64)) #2#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
+                            (LETT #2# (CONS (SPADCALL (QREFELT $ 65)) #2#)
+                                  . #7#)))
+                          (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                           (EXIT (NREVERSE #2#))))
-                    (PROGN
-                     (LETT #1# NIL . #5#)
-                     (SEQ (LETT |i| 1 . #5#) G190
-                          (COND ((|greater_SI| |i| |l|) (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #1# (CONS (SPADCALL (QREFELT $ 65)) #1#)
-                                  . #5#)))
-                          (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
-                          (EXIT (NREVERSE #1#))))
                     (QREFELT $ 97))))) 
 
 (SDEFUN |GRIMAGE;coerce;$Of;27| ((|graf| $) ($ |OutputForm|))
@@ -791,7 +791,7 @@
 
 (DEFUN |GraphImage| ()
   (SPROG NIL
-         (PROG (#1=#:G247)
+         (PROG (#1=#:G251)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|)

@@ -19,40 +19,41 @@
          (|ptSize| |PositiveInteger|) (|optionsList| |List| (|DrawOption|))
          ($ |GraphImage|))
         (SPROG
-         ((|listOfPointSizes| (|List| (|PositiveInteger|))) (|i| NIL)
-          (#1=#:G113 NIL) (|listOfLineColors| (|List| (|Palette|)))
-          (#2=#:G112 NIL) (|listOfPointColors| (|List| (|Palette|)))
-          (#3=#:G111 NIL) (|len| (|NonNegativeInteger|)))
+         ((|listOfPointSizes| (|List| (|PositiveInteger|))) (#1=#:G116 NIL)
+          (|i| NIL) (#2=#:G115 NIL) (|listOfLineColors| (|List| (|Palette|)))
+          (#3=#:G114 NIL) (#4=#:G113 NIL)
+          (|listOfPointColors| (|List| (|Palette|))) (#5=#:G112 NIL)
+          (#6=#:G111 NIL) (|len| (|NonNegativeInteger|)))
          (SEQ
           (LETT |len| (LENGTH |listOfListsOfPoints|)
-                . #4=(|VIEW;graphCurves;L2PPiLGi;3|))
+                . #7=(|VIEW;graphCurves;L2PPiLGi;3|))
           (LETT |listOfPointColors|
                 (PROGN
-                 (LETT #3# NIL . #4#)
-                 (SEQ (LETT |i| 1 . #4#) G190
-                      (COND ((|greater_SI| |i| |len|) (GO G191)))
-                      (SEQ (EXIT (LETT #3# (CONS |ptColor| #3#) . #4#)))
-                      (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #3#))))
-                . #4#)
+                 (LETT #6# NIL . #7#)
+                 (SEQ (LETT |i| 1 . #7#) (LETT #5# |len| . #7#) G190
+                      (COND ((|greater_SI| |i| #5#) (GO G191)))
+                      (SEQ (EXIT (LETT #6# (CONS |ptColor| #6#) . #7#)))
+                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                      (EXIT (NREVERSE #6#))))
+                . #7#)
           (LETT |listOfLineColors|
                 (PROGN
-                 (LETT #2# NIL . #4#)
-                 (SEQ (LETT |i| 1 . #4#) G190
-                      (COND ((|greater_SI| |i| |len|) (GO G191)))
-                      (SEQ (EXIT (LETT #2# (CONS |lineColor| #2#) . #4#)))
-                      (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #2#))))
-                . #4#)
+                 (LETT #4# NIL . #7#)
+                 (SEQ (LETT |i| 1 . #7#) (LETT #3# |len| . #7#) G190
+                      (COND ((|greater_SI| |i| #3#) (GO G191)))
+                      (SEQ (EXIT (LETT #4# (CONS |lineColor| #4#) . #7#)))
+                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #7#)
           (LETT |listOfPointSizes|
                 (PROGN
-                 (LETT #1# NIL . #4#)
-                 (SEQ (LETT |i| 1 . #4#) G190
-                      (COND ((|greater_SI| |i| |len|) (GO G191)))
-                      (SEQ (EXIT (LETT #1# (CONS |ptSize| #1#) . #4#)))
-                      (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #1#))))
-                . #4#)
+                 (LETT #2# NIL . #7#)
+                 (SEQ (LETT |i| 1 . #7#) (LETT #1# |len| . #7#) G190
+                      (COND ((|greater_SI| |i| #1#) (GO G191)))
+                      (SEQ (EXIT (LETT #2# (CONS |ptSize| #2#) . #7#)))
+                      (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #7#)
           (EXIT
            (SPADCALL |listOfListsOfPoints| |listOfPointColors|
                      |listOfLineColors| |listOfPointSizes| |optionsList|
@@ -90,7 +91,7 @@
 
 (DEFUN |ViewportPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G119)
+         (PROG (#1=#:G122)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|)

@@ -243,25 +243,27 @@
         ((|bCol| |PrimitiveArray| R)
          (|bb| |PrimitiveArray| (|PrimitiveArray| R)) (|j| |Integer|)
          (|n1| |Integer|) ($ |PrimitiveArray| R))
-        (SPROG ((|i| NIL))
-               (SEQ (LETT |i| 0 . #1=(|MATSTOR;copyCol!|)) G190
-                    (COND ((|greater_SI| |i| |n1|) (GO G191)))
+        (SPROG ((#1=#:G192 NIL) (|i| NIL))
+               (SEQ (LETT |i| 0 . #2=(|MATSTOR;copyCol!|))
+                    (LETT #1# |n1| . #2#) G190
+                    (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ
                      (EXIT
                       (QSETAREF1 |bCol| |i| (QAREF1 (QAREF1 |bb| |i|) |j|))))
-                    (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL)))) 
+                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |MATSTOR;times!;4M;9|
         ((|c| |Matrix| R) (|a| |Matrix| R) (|b| |Matrix| R) ($ |Matrix| R))
         (SPROG
-         ((|sum| (R)) (|k| NIL) (|cRow| #1=(|PrimitiveArray| R)) (|aRow| #1#)
-          (|i| NIL) (#2=#:G202 NIL) (|j| NIL) (|n1| #3=(|Integer|)) (|m1| #3#)
+         ((|sum| (R)) (#1=#:G205 NIL) (|k| NIL)
+          (|cRow| #2=(|PrimitiveArray| R)) (|aRow| #2#) (#3=#:G204 NIL)
+          (|i| NIL) (#4=#:G203 NIL) (|j| NIL) (|n1| #5=(|Integer|)) (|m1| #5#)
           (|bCol| (|PrimitiveArray| R))
-          (|cc| #4=(|PrimitiveArray| (|PrimitiveArray| R))) (|bb| #4#)
-          (|aa| #4#) (|p| #5=(|NonNegativeInteger|)) (|n| #5#)
+          (|cc| #6=(|PrimitiveArray| (|PrimitiveArray| R))) (|bb| #6#)
+          (|aa| #6#) (|p| #7=(|NonNegativeInteger|)) (|n| #7#)
           (|m| (|NonNegativeInteger|)))
-         (SEQ (LETT |m| (ANROWS |a|) . #6=(|MATSTOR;times!;4M;9|))
-              (LETT |n| (ANCOLS |a|) . #6#) (LETT |p| (ANCOLS |b|) . #6#)
+         (SEQ (LETT |m| (ANROWS |a|) . #8=(|MATSTOR;times!;4M;9|))
+              (LETT |n| (ANCOLS |a|) . #8#) (LETT |p| (ANCOLS |b|) . #8#)
               (COND
                ((EQL (ANROWS |b|) |n|)
                 (COND
@@ -270,26 +272,27 @@
                    ((NULL (EQL (ANCOLS |c|) |p|))
                     (EXIT
                      (|error|
-                      #7="times!: matrices of incompatible dimensions")))))
-                 (#8='T (EXIT (|error| #7#)))))
-               (#8# (EXIT (|error| #7#))))
-              (LETT |aa| (|MATSTOR;rep| |a| $) . #6#)
-              (LETT |bb| (|MATSTOR;rep| |b| $) . #6#)
-              (LETT |cc| (|MATSTOR;rep| |c| $) . #6#)
-              (LETT |bCol| (MAKEARR1 |n| (|spadConstant| $ 19)) . #6#)
-              (LETT |m1| (- |m| 1) . #6#) (LETT |n1| (- |n| 1) . #6#)
-              (SEQ (LETT |j| 0 . #6#) (LETT #2# (- |p| 1) . #6#) G190
-                   (COND ((|greater_SI| |j| #2#) (GO G191)))
+                      #9="times!: matrices of incompatible dimensions")))))
+                 (#10='T (EXIT (|error| #9#)))))
+               (#10# (EXIT (|error| #9#))))
+              (LETT |aa| (|MATSTOR;rep| |a| $) . #8#)
+              (LETT |bb| (|MATSTOR;rep| |b| $) . #8#)
+              (LETT |cc| (|MATSTOR;rep| |c| $) . #8#)
+              (LETT |bCol| (MAKEARR1 |n| (|spadConstant| $ 19)) . #8#)
+              (LETT |m1| (- |m| 1) . #8#) (LETT |n1| (- |n| 1) . #8#)
+              (SEQ (LETT |j| 0 . #8#) (LETT #4# (- |p| 1) . #8#) G190
+                   (COND ((|greater_SI| |j| #4#) (GO G191)))
                    (SEQ (|MATSTOR;copyCol!| |bCol| |bb| |j| |n1| $)
                         (EXIT
-                         (SEQ (LETT |i| 0 . #6#) G190
-                              (COND ((|greater_SI| |i| |m1|) (GO G191)))
-                              (SEQ (LETT |aRow| (QAREF1 |aa| |i|) . #6#)
-                                   (LETT |cRow| (QAREF1 |cc| |i|) . #6#)
-                                   (LETT |sum| (|spadConstant| $ 19) . #6#)
-                                   (SEQ (LETT |k| 0 . #6#) G190
+                         (SEQ (LETT |i| 0 . #8#) (LETT #3# |m1| . #8#) G190
+                              (COND ((|greater_SI| |i| #3#) (GO G191)))
+                              (SEQ (LETT |aRow| (QAREF1 |aa| |i|) . #8#)
+                                   (LETT |cRow| (QAREF1 |cc| |i|) . #8#)
+                                   (LETT |sum| (|spadConstant| $ 19) . #8#)
+                                   (SEQ (LETT |k| 0 . #8#)
+                                        (LETT #1# |n1| . #8#) G190
                                         (COND
-                                         ((|greater_SI| |k| |n1|) (GO G191)))
+                                         ((|greater_SI| |k| #1#) (GO G191)))
                                         (SEQ
                                          (EXIT
                                           (LETT |sum|
@@ -299,20 +302,20 @@
                                                            (QAREF1 |bCol| |k|)
                                                            (QREFELT $ 16))
                                                           (QREFELT $ 10))
-                                                . #6#)))
-                                        (LETT |k| (|inc_SI| |k|) . #6#)
+                                                . #8#)))
+                                        (LETT |k| (|inc_SI| |k|) . #8#)
                                         (GO G190) G191 (EXIT NIL))
                                    (EXIT (QSETAREF1 |cRow| |j| |sum|)))
-                              (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191
+                              (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191
                               (EXIT NIL))))
-                   (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191 (EXIT NIL))
+                   (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191 (EXIT NIL))
               (EXIT |c|)))) 
 
 (SDEFUN |MATSTOR;power!;4MNniM;10|
         ((|a| |Matrix| R) (|b| |Matrix| R) (|c| |Matrix| R) (|m| |Matrix| R)
          (|p| |NonNegativeInteger|) ($ |Matrix| R))
         (SPROG
-         ((#1=#:G218 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
+         ((#1=#:G221 NIL) (|flag| (|Boolean|)) (|nn| (|NonNegativeInteger|))
           (|mm| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -363,7 +366,7 @@
                            (EXIT
                             (COND
                              ((EQL |p| 1)
-                              (PROGN (LETT #1# |a| . #2#) (GO #7=#:G217)))
+                              (PROGN (LETT #1# |a| . #2#) (GO #7=#:G220)))
                              ('T
                               (SEQ (LETT |p| (QUOTIENT2 |p| 2) . #2#)
                                    (SPADCALL |c| |b| |b| (QREFELT $ 20))
@@ -389,9 +392,9 @@
 
 (DECLAIM (NOTINLINE |StorageEfficientMatrixOperations;|)) 
 
-(DEFUN |StorageEfficientMatrixOperations| (#1=#:G222)
+(DEFUN |StorageEfficientMatrixOperations| (#1=#:G225)
   (SPROG NIL
-         (PROG (#2=#:G223)
+         (PROG (#2=#:G226)
            (RETURN
             (COND
              ((LETT #2#

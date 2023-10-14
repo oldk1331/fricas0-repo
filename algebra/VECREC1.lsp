@@ -451,45 +451,46 @@
           (|:| |expdata| (|SortedExponentVector|))
           (|:| |coeffdata| (|U32Vector|))))
         (SPROG
-         ((|i| NIL) (|oei| #1=(|SingleInteger|)) (|nei| #1#) (|oei0| #1#)
-          (|i1| NIL) (|nm| #1#) (|cij| (|Integer|)) (#2=#:G233 NIL) (|j| NIL)
+         ((#1=#:G235 NIL) (|i| NIL) (|oei| #2=(|SingleInteger|)) (|nei| #2#)
+          (|oei0| #2#) (#3=#:G234 NIL) (|i1| NIL) (|nm| #2#)
+          (|cij| (|Integer|)) (#4=#:G233 NIL) (|j| NIL)
           (|k| (|NonNegativeInteger|)) (|ci| (|U32Vector|)) (|opi| (|Integer|))
-          (|pi| (|Integer|)) (#3=#:G232 NIL) (|npo| (|Vector| (|Integer|)))
+          (|pi| (|Integer|)) (#5=#:G232 NIL) (|npo| (|Vector| (|Integer|)))
           (|pi_cnt| (|NonNegativeInteger|)) (|ncoeffs| (|U32Vector|))
           (|nexps| (|SortedExponentVector|)) (|nnvars| (|Integer|))
-          (|m| (|Integer|)) (#4=#:G231 NIL) (#5=#:G230 NIL)
+          (|m| (|Integer|)) (#6=#:G231 NIL) (#7=#:G230 NIL)
           (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |m| 0 . #6=(|VECREC1;repack_polys;IVSevPaR;7|))
-              (LETT |n| (QVSIZE |coeffs|) . #6#)
-              (SEQ (LETT |i| 0 . #6#) (LETT #5# (- |n| 1) . #6#) G190
-                   (COND ((|greater_SI| |i| #5#) (GO G191)))
-                   (SEQ (LETT |ci| (QAREF1 |coeffs| |i|) . #6#)
-                        (LETT |k| (QV_LEN_U32 |ci|) . #6#)
+         (SEQ (LETT |m| 0 . #8=(|VECREC1;repack_polys;IVSevPaR;7|))
+              (LETT |n| (QVSIZE |coeffs|) . #8#)
+              (SEQ (LETT |i| 0 . #8#) (LETT #7# (- |n| 1) . #8#) G190
+                   (COND ((|greater_SI| |i| #7#) (GO G191)))
+                   (SEQ (LETT |ci| (QAREF1 |coeffs| |i|) . #8#)
+                        (LETT |k| (QV_LEN_U32 |ci|) . #8#)
                         (EXIT
-                         (SEQ (LETT |j| 0 . #6#) (LETT #4# (- |k| 1) . #6#)
-                              G190 (COND ((|greater_SI| |j| #4#) (GO G191)))
+                         (SEQ (LETT |j| 0 . #8#) (LETT #6# (- |k| 1) . #8#)
+                              G190 (COND ((|greater_SI| |j| #6#) (GO G191)))
                               (SEQ
                                (EXIT
                                 (COND
                                  ((SPADCALL (ELT_U32 |ci| |j|) 0
                                             (QREFELT $ 32))
-                                  (LETT |m| (+ |m| 1) . #6#)))))
-                              (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
+                                  (LETT |m| (+ |m| 1) . #8#)))))
+                              (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191
                               (EXIT NIL))))
-                   (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-              (LETT |nnvars| (+ |var_cnt| 1) . #6#)
-              (LETT |nexps| (GETREFV_U32 (* |m| |nnvars|) 0) . #6#)
-              (LETT |ncoeffs| (GETREFV_U32 |m| 0) . #6#)
-              (LETT |pi_cnt| (QVSIZE |poly_offsets|) . #6#)
-              (LETT |npo| (MAKEARR1 |pi_cnt| 0) . #6#) (LETT |pi| 1 . #6#)
-              (LETT |opi| (SPADCALL |poly_offsets| |pi| (QREFELT $ 44)) . #6#)
-              (LETT |nm| 0 . #6#) (LETT |oei| 0 . #6#) (LETT |nei| 0 . #6#)
-              (SEQ (LETT |i| 0 . #6#) (LETT #3# (- |n| 1) . #6#) G190
-                   (COND ((|greater_SI| |i| #3#) (GO G191)))
+                   (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
+              (LETT |nnvars| (+ |var_cnt| 1) . #8#)
+              (LETT |nexps| (GETREFV_U32 (* |m| |nnvars|) 0) . #8#)
+              (LETT |ncoeffs| (GETREFV_U32 |m| 0) . #8#)
+              (LETT |pi_cnt| (QVSIZE |poly_offsets|) . #8#)
+              (LETT |npo| (MAKEARR1 |pi_cnt| 0) . #8#) (LETT |pi| 1 . #8#)
+              (LETT |opi| (SPADCALL |poly_offsets| |pi| (QREFELT $ 44)) . #8#)
+              (LETT |nm| 0 . #8#) (LETT |oei| 0 . #8#) (LETT |nei| 0 . #8#)
+              (SEQ (LETT |i| 0 . #8#) (LETT #5# (- |n| 1) . #8#) G190
+                   (COND ((|greater_SI| |i| #5#) (GO G191)))
                    (SEQ
                     (SEQ G190 (COND ((NULL (EQL |opi| |i|)) (GO G191)))
                          (SEQ (SPADCALL |npo| |pi| |nm| (QREFELT $ 45))
-                              (LETT |pi| (+ |pi| 1) . #6#)
+                              (LETT |pi| (+ |pi| 1) . #8#)
                               (EXIT
                                (LETT |opi|
                                      (COND
@@ -497,48 +498,49 @@
                                        (LETT |opi|
                                              (SPADCALL |poly_offsets| |pi|
                                                        (QREFELT $ 44))
-                                             . #6#))
+                                             . #8#))
                                       ('T -1))
-                                     . #6#)))
+                                     . #8#)))
                          NIL (GO G190) G191 (EXIT NIL))
-                    (LETT |ci| (QAREF1 |coeffs| |i|) . #6#)
-                    (LETT |k| (QV_LEN_U32 |ci|) . #6#)
-                    (SEQ (LETT |j| 0 . #6#) (LETT #2# (- |k| 1) . #6#) G190
-                         (COND ((|greater_SI| |j| #2#) (GO G191)))
-                         (SEQ (LETT |cij| (ELT_U32 |ci| |j|) . #6#)
+                    (LETT |ci| (QAREF1 |coeffs| |i|) . #8#)
+                    (LETT |k| (QV_LEN_U32 |ci|) . #8#)
+                    (SEQ (LETT |j| 0 . #8#) (LETT #4# (- |k| 1) . #8#) G190
+                         (COND ((|greater_SI| |j| #4#) (GO G191)))
+                         (SEQ (LETT |cij| (ELT_U32 |ci| |j|) . #8#)
                               (EXIT
                                (COND
                                 ((SPADCALL |cij| 0 (QREFELT $ 32))
                                  (SEQ (SETELT_U32 |ncoeffs| |nm| |cij|)
-                                      (LETT |nm| (|add_SI| |nm| 1) . #6#)
-                                      (LETT |oei0| |oei| . #6#)
-                                      (SEQ (LETT |i1| 1 . #6#) G190
+                                      (LETT |nm| (|add_SI| |nm| 1) . #8#)
+                                      (LETT |oei0| |oei| . #8#)
+                                      (SEQ (LETT |i1| 1 . #8#)
+                                           (LETT #3# |var_cnt| . #8#) G190
                                            (COND
-                                            ((|greater_SI| |i1| |var_cnt|)
+                                            ((|greater_SI| |i1| #3#)
                                              (GO G191)))
                                            (SEQ
                                             (SETELT_U32 |nexps| |nei|
                                                         (ELT_U32 |exps|
                                                                  |oei0|))
                                             (LETT |nei| (|add_SI| |nei| 1)
-                                                  . #6#)
+                                                  . #8#)
                                             (EXIT
                                              (LETT |oei0| (|add_SI| |oei0| 1)
-                                                   . #6#)))
-                                           (LETT |i1| (|inc_SI| |i1|) . #6#)
+                                                   . #8#)))
+                                           (LETT |i1| (|inc_SI| |i1|) . #8#)
                                            (GO G190) G191 (EXIT NIL))
                                       (SETELT_U32 |nexps| |nei| |j|)
                                       (EXIT
                                        (LETT |nei| (|add_SI| |nei| 1)
-                                             . #6#)))))))
-                         (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
+                                             . #8#)))))))
+                         (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191
                          (EXIT NIL))
-                    (EXIT (LETT |oei| (|add_SI| |oei| |var_cnt|) . #6#)))
-                   (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-              (SEQ (LETT |i| |pi| . #6#) G190
-                   (COND ((> |i| |pi_cnt|) (GO G191)))
+                    (EXIT (LETT |oei| (|add_SI| |oei| |var_cnt|) . #8#)))
+                   (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
+              (SEQ (LETT |i| |pi| . #8#) (LETT #1# |pi_cnt| . #8#) G190
+                   (COND ((> |i| #1#) (GO G191)))
                    (SEQ (EXIT (SPADCALL |npo| |i| |nm| (QREFELT $ 45))))
-                   (LETT |i| (+ |i| 1) . #6#) (GO G190) G191 (EXIT NIL))
+                   (LETT |i| (+ |i| 1) . #8#) (GO G190) G191 (EXIT NIL))
               (EXIT (VECTOR |nnvars| |npo| |nexps| |ncoeffs|))))) 
 
 (SDEFUN |VECREC1;remove_denoms;V2PaIPa;8|
@@ -547,45 +549,47 @@
          (|dens| |PrimitiveArray| (|U32Vector|)) (|p| |Integer|)
          ($ |PrimitiveArray| (|U32Vector|)))
         (SPROG
-         ((|dt| #1=(|Integer|)) (|j| NIL) (|tmpp2| #2=(|U32Vector|))
-          (|tmpp1| #2#) (|dtmp| #1#) (|dresi| #1#) (|resi| (|U32Vector|))
-          (|i| NIL) (|dcf| #1#) (|cfactor| (|U32Vector|)) (|dcden| #1#)
-          (|cden| (|U32Vector|)) (|hi| #3=(|Integer|)) (|li| #3#) (|ib| NIL)
-          (|res| (|PrimitiveArray| (|U32Vector|)))
+         ((|dt| #1=(|Integer|)) (#2=#:G254 NIL) (|j| NIL)
+          (|tmpp2| #3=(|U32Vector|)) (|tmpp1| #3#) (|dtmp| #1#) (|dresi| #1#)
+          (|resi| (|U32Vector|)) (#4=#:G253 NIL) (|i| NIL) (|dcf| #1#)
+          (|cfactor| (|U32Vector|)) (#5=#:G252 NIL) (#6=#:G251 NIL)
+          (|dcden| #1#) (|cden| (|U32Vector|)) (|hi| #7=(|Integer|)) (|li| #7#)
+          (#8=#:G250 NIL) (|ib| NIL) (|res| (|PrimitiveArray| (|U32Vector|)))
           (|np| (|NonNegativeInteger|)) (|nb| (|NonNegativeInteger|)))
          (SEQ
           (LETT |nb| (QVSIZE |block_offsets|)
-                . #4=(|VECREC1;remove_denoms;V2PaIPa;8|))
-          (LETT |np| (QVSIZE |nums|) . #4#)
-          (LETT |res| (MAKEARR1 |np| (GETREFV_U32 0 0)) . #4#)
-          (SEQ (LETT |ib| 1 . #4#) G190
-               (COND ((|greater_SI| |ib| |nb|) (GO G191)))
+                . #9=(|VECREC1;remove_denoms;V2PaIPa;8|))
+          (LETT |np| (QVSIZE |nums|) . #9#)
+          (LETT |res| (MAKEARR1 |np| (GETREFV_U32 0 0)) . #9#)
+          (SEQ (LETT |ib| 1 . #9#) (LETT #8# |nb| . #9#) G190
+               (COND ((|greater_SI| |ib| #8#) (GO G191)))
                (SEQ
                 (LETT |li| (SPADCALL |block_offsets| |ib| (QREFELT $ 44))
-                      . #4#)
+                      . #9#)
                 (LETT |hi|
                       (COND ((EQL |ib| |nb|) |np|)
                             ('T
                              (SPADCALL |block_offsets| (+ |ib| 1)
                                        (QREFELT $ 44))))
-                      . #4#)
-                (LETT |hi| (- |hi| 1) . #4#)
+                      . #9#)
+                (LETT |hi| (- |hi| 1) . #9#)
                 (LETT |cden| (SPADCALL |dens| |li| |hi| |p| (QREFELT $ 49))
-                      . #4#)
-                (LETT |dcden| (SPADCALL |cden| (QREFELT $ 29)) . #4#)
-                (LETT |tmpp1| (GETREFV_U32 (+ |dcden| 1) 0) . #4#)
-                (LETT |tmpp2| (GETREFV_U32 (+ |dcden| 1) 0) . #4#)
-                (SEQ (LETT |i| |li| . #4#) G190 (COND ((> |i| |hi|) (GO G191)))
+                      . #9#)
+                (LETT |dcden| (SPADCALL |cden| (QREFELT $ 29)) . #9#)
+                (LETT |tmpp1| (GETREFV_U32 (+ |dcden| 1) 0) . #9#)
+                (LETT |tmpp2| (GETREFV_U32 (+ |dcden| 1) 0) . #9#)
+                (SEQ (LETT |i| |li| . #9#) (LETT #6# |hi| . #9#) G190
+                     (COND ((> |i| #6#) (GO G191)))
                      (SEQ
                       (SPADCALL |tmpp1| |cden| (+ |dcden| 1) (QREFELT $ 19))
-                      (SEQ (LETT |j| 0 . #4#) G190
-                           (COND ((|greater_SI| |j| |dcden|) (GO G191)))
+                      (SEQ (LETT |j| 0 . #9#) (LETT #5# |dcden| . #9#) G190
+                           (COND ((|greater_SI| |j| #5#) (GO G191)))
                            (SEQ (EXIT (SETELT_U32 |tmpp2| |j| 0)))
-                           (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
+                           (LETT |j| (|inc_SI| |j|) . #9#) (GO G190) G191
                            (EXIT NIL))
                       (SPADCALL |tmpp1| (QAREF1 |dens| |i|) |tmpp2| |p|
                                 (QREFELT $ 50))
-                      (LETT |dt| (SPADCALL |tmpp2| (QREFELT $ 29)) . #4#)
+                      (LETT |dt| (SPADCALL |tmpp2| (QREFELT $ 29)) . #9#)
                       (EXIT
                        (QSETAREF1 |res| |i|
                                   (COND
@@ -603,47 +607,47 @@
                                           (|error|
                                            "remove_denoms expect quotient to be 1"))))))
                                      (EXIT (QAREF1 |nums| |i|))))))))
-                     (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
+                     (LETT |i| (+ |i| 1) . #9#) (GO G190) G191 (EXIT NIL))
                 (LETT |cfactor| (SPADCALL |res| |li| |hi| |p| (QREFELT $ 51))
-                      . #4#)
-                (LETT |dcf| (SPADCALL |cfactor| (QREFELT $ 29)) . #4#)
-                (LETT |dtmp| |dcden| . #4#)
+                      . #9#)
+                (LETT |dcf| (SPADCALL |cfactor| (QREFELT $ 29)) . #9#)
+                (LETT |dtmp| |dcden| . #9#)
                 (EXIT
                  (COND
                   ((>= |dcf| 1)
-                   (SEQ (LETT |i| |li| . #4#) G190
-                        (COND ((> |i| |hi|) (GO G191)))
-                        (SEQ (LETT |resi| (QAREF1 |res| |i|) . #4#)
+                   (SEQ (LETT |i| |li| . #9#) (LETT #4# |hi| . #9#) G190
+                        (COND ((> |i| #4#) (GO G191)))
+                        (SEQ (LETT |resi| (QAREF1 |res| |i|) . #9#)
                              (LETT |dresi| (SPADCALL |resi| (QREFELT $ 29))
-                                   . #4#)
+                                   . #9#)
                              (COND
                               ((SPADCALL |dresi| |dtmp| (QREFELT $ 22))
-                               (SEQ (LETT |dtmp| |dresi| . #4#)
+                               (SEQ (LETT |dtmp| |dresi| . #9#)
                                     (LETT |tmpp1| (GETREFV_U32 (+ |dtmp| 1) 0)
-                                          . #4#)
+                                          . #9#)
                                     (EXIT
                                      (LETT |tmpp2| (GETREFV_U32 (+ |dtmp| 1) 0)
-                                           . #4#))))
+                                           . #9#))))
                               ('T
-                               (SEQ (LETT |j| 0 . #4#) G190
-                                    (COND
-                                     ((|greater_SI| |j| |dtmp|) (GO G191)))
+                               (SEQ (LETT |j| 0 . #9#) (LETT #2# |dtmp| . #9#)
+                                    G190
+                                    (COND ((|greater_SI| |j| #2#) (GO G191)))
                                     (SEQ (EXIT (SETELT_U32 |tmpp2| |j| 0)))
-                                    (LETT |j| (|inc_SI| |j|) . #4#) (GO G190)
+                                    (LETT |j| (|inc_SI| |j|) . #9#) (GO G190)
                                     G191 (EXIT NIL))))
                              (SPADCALL |tmpp1| |resi| (+ |dresi| 1)
                                        (QREFELT $ 19))
                              (SPADCALL |tmpp1| |cfactor| |tmpp2| |p|
                                        (QREFELT $ 50))
                              (LETT |dt| (SPADCALL |tmpp2| (QREFELT $ 29))
-                                   . #4#)
+                                   . #9#)
                              (QSETAREF1 |res| |i| (GETREFV_U32 (+ |dt| 1) 0))
                              (EXIT
                               (SPADCALL (QAREF1 |res| |i|) |tmpp2| (+ |dt| 1)
                                         (QREFELT $ 19))))
-                        (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
+                        (LETT |i| (+ |i| 1) . #9#) (GO G190) G191
                         (EXIT NIL))))))
-               (LETT |ib| (|inc_SI| |ib|) . #4#) (GO G190) G191 (EXIT NIL))
+               (LETT |ib| (|inc_SI| |ib|) . #9#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|)))) 
 
 (SDEFUN |VECREC1;reconstruct;I2VSev2PaIR;9|
@@ -679,7 +683,7 @@
          ((|ppr|
            (|Record| (|:| |numers| (|PrimitiveArray| (|U32Vector|)))
                      (|:| |denoms| (|PrimitiveArray| (|U32Vector|)))))
-          (|state| (|Rep|)) (#1=#:G265 NIL)
+          (|state| (|Rep|)) (#1=#:G272 NIL)
           (|pp|
            (|Union|
             (|Record| (|:| |numers| (|PrimitiveArray| (|U32Vector|)))
@@ -693,7 +697,7 @@
             (EXIT
              (COND
               ((QEQCAR |pp| 1)
-               (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #3=#:G264)))
+               (PROGN (LETT #1# (CONS 1 "failed") . #2#) (GO #3=#:G271)))
               ('T
                (SEQ (LETT |state| |statearg| . #2#)
                     (LETT |ppr| (QCDR |pp|) . #2#)
@@ -708,7 +712,7 @@
 
 (DEFUN |VectorModularReconstructor| ()
   (SPROG NIL
-         (PROG (#1=#:G267)
+         (PROG (#1=#:G274)
            (RETURN
             (COND
              ((LETT #1#

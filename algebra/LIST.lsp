@@ -67,7 +67,7 @@
                 (EXIT |lu|)))) 
 
 (SDEFUN |LIST;convert;$If;10| ((|x| $) ($ |InputForm|))
-        (SPROG ((#1=#:G1540 NIL) (|a| NIL) (#2=#:G1539 NIL))
+        (SPROG ((#1=#:G1550 NIL) (|a| NIL) (#2=#:G1549 NIL))
                (SEQ
                 (SPADCALL
                  (CONS (SPADCALL '|construct| (QREFELT $ 32))
@@ -89,9 +89,9 @@
 
 (DECLAIM (NOTINLINE |List;|)) 
 
-(DEFUN |List| (#1=#:G1553)
+(DEFUN |List| (#1=#:G1563)
   (SPROG NIL
-         (PROG (#2=#:G1554)
+         (PROG (#2=#:G1564)
            (RETURN
             (COND
              ((LETT #2#
@@ -107,8 +107,8 @@
 
 (DEFUN |List;| (|#1|)
   (SPROG
-   ((#1=#:G1551 NIL) (#2=#:G1552 NIL) (|pv$| NIL) (#3=#:G1548 NIL)
-    (#4=#:G1549 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G1561 NIL) (#2=#:G1562 NIL) (|pv$| NIL) (#3=#:G1558 NIL)
+    (#4=#:G1559 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|List|))
     (LETT |dv$| (LIST '|List| DV$1) . #5#)

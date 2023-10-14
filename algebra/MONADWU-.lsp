@@ -8,38 +8,38 @@
 
 (SDEFUN |MONADWU-;rightPower;SNniS;3|
         ((|a| S) (|n| |NonNegativeInteger|) ($ S))
-        (SPROG ((|res| (S)) (|i| NIL))
+        (SPROG ((|res| (S)) (#1=#:G123 NIL) (|i| NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
                       ('T
                        (SEQ
                         (LETT |res| (|spadConstant| $ 7)
-                              . #1=(|MONADWU-;rightPower;SNniS;3|))
-                        (SEQ (LETT |i| 1 . #1#) G190
-                             (COND ((|greater_SI| |i| |n|) (GO G191)))
+                              . #2=(|MONADWU-;rightPower;SNniS;3|))
+                        (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                             (COND ((|greater_SI| |i| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT |res| (SPADCALL |res| |a| (QREFELT $ 16))
-                                     . #1#)))
-                             (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                                     . #2#)))
+                             (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT |res|))))))) 
 
 (SDEFUN |MONADWU-;leftPower;SNniS;4| ((|a| S) (|n| |NonNegativeInteger|) ($ S))
-        (SPROG ((|res| (S)) (|i| NIL))
+        (SPROG ((|res| (S)) (#1=#:G128 NIL) (|i| NIL))
                (SEQ
                 (COND ((ZEROP |n|) (|spadConstant| $ 7))
                       ('T
                        (SEQ
                         (LETT |res| (|spadConstant| $ 7)
-                              . #1=(|MONADWU-;leftPower;SNniS;4|))
-                        (SEQ (LETT |i| 1 . #1#) G190
-                             (COND ((|greater_SI| |i| |n|) (GO G191)))
+                              . #2=(|MONADWU-;leftPower;SNniS;4|))
+                        (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                             (COND ((|greater_SI| |i| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT |res| (SPADCALL |a| |res| (QREFELT $ 16))
-                                     . #1#)))
-                             (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                                     . #2#)))
+                             (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT |res|))))))) 
 

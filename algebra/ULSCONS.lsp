@@ -1215,18 +1215,18 @@
         ((|m| |Integer|) (|uu| |Stream| |Coef|) (|xxx| |OutputForm|)
          ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|n| NIL)
+         ((|l| (|List| (|OutputForm|))) (|n| NIL) (#1=#:G502 NIL)
           (|count| (|NonNegativeInteger|)))
-         (SEQ (LETT |l| NIL . #1=(|ULSCONS;termsToOutputForm|))
+         (SEQ (LETT |l| NIL . #2=(|ULSCONS;termsToOutputForm|))
               (EXIT
                (COND
                 ((SPADCALL |uu| (QREFELT $ 34))
                  (SPADCALL (|spadConstant| $ 14) (QREFELT $ 226)))
-                (#2='T
-                 (SEQ (LETT |count| |$streamCount| . #1#)
-                      (SEQ (LETT |n| 0 . #1#) G190
+                (#3='T
+                 (SEQ (LETT |count| |$streamCount| . #2#)
+                      (SEQ (LETT |n| 0 . #2#) (LETT #1# |count| . #2#) G190
                            (COND
-                            ((OR (|greater_SI| |n| |count|)
+                            ((OR (|greater_SI| |n| #1#)
                                  (NULL
                                   (COND ((SPADCALL |uu| (QREFELT $ 34)) 'NIL)
                                         ('T 'T))))
@@ -1240,14 +1240,14 @@
                                      (|ULSCONS;termOutput| (+ |n| |m|)
                                       (SPADCALL |uu| (QREFELT $ 38)) |xxx| $)
                                      |l|)
-                                    . #1#)))
+                                    . #2#)))
                             (EXIT
-                             (LETT |uu| (SPADCALL |uu| (QREFELT $ 40)) . #1#)))
-                           (LETT |n| (|inc_SI| |n|) . #1#) (GO G190) G191
+                             (LETT |uu| (SPADCALL |uu| (QREFELT $ 40)) . #2#)))
+                           (LETT |n| (|inc_SI| |n|) . #2#) (GO G190) G191
                            (EXIT NIL))
                       (COND
                        ((|ULSCONS;showAll?| $)
-                        (SEQ (LETT |n| (+ |count| 1) . #1#) G190
+                        (SEQ (LETT |n| (+ |count| 1) . #2#) G190
                              (COND
                               ((NULL
                                 (COND
@@ -1270,15 +1270,15 @@
                                        (|ULSCONS;termOutput| (+ |n| |m|)
                                         (SPADCALL |uu| (QREFELT $ 38)) |xxx| $)
                                        |l|)
-                                      . #1#)))
+                                      . #2#)))
                               (EXIT
                                (LETT |uu| (SPADCALL |uu| (QREFELT $ 40))
-                                     . #1#)))
-                             (LETT |n| (+ |n| 1) . #1#) (GO G190) G191
+                                     . #2#)))
+                             (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
                              (EXIT NIL))))
                       (LETT |l|
                             (COND ((SPADCALL |uu| (QREFELT $ 235)) |l|)
-                                  (#2#
+                                  (#3#
                                    (SEQ
                                     (COND
                                      ((SPADCALL |uu|
@@ -1300,12 +1300,12 @@
                                                            (QREFELT $ 228)))
                                                 (QREFELT $ 237))
                                       |l|)))))
-                            . #1#)
+                            . #2#)
                       (EXIT
                        (COND
                         ((NULL |l|)
                          (SPADCALL (|spadConstant| $ 14) (QREFELT $ 226)))
-                        (#2#
+                        (#3#
                          (SPADCALL (ELT $ 238) (NREVERSE |l|)
                                    (QREFELT $ 241)))))))))))) 
 
@@ -1335,9 +1335,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructor;|)) 
 
-(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G549)
+(DEFUN |UnivariateLaurentSeriesConstructor| (&REST #1=#:G550)
   (SPROG NIL
-         (PROG (#2=#:G550)
+         (PROG (#2=#:G551)
            (RETURN
             (COND
              ((LETT #2#
@@ -1360,9 +1360,9 @@
 
 (DEFUN |UnivariateLaurentSeriesConstructor;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G548 NIL) (|pv$| NIL) (#2=#:G535 NIL) (#3=#:G536 NIL) (#4=#:G537 NIL)
-    (#5=#:G538 NIL) (#6=#:G540 NIL) (#7=#:G541 NIL) (#8=#:G542 NIL)
-    (#9=#:G543 NIL) (#10=#:G544 NIL) (#11=#:G546 NIL) (#12=#:G547 NIL) ($ NIL)
+   ((#1=#:G549 NIL) (|pv$| NIL) (#2=#:G536 NIL) (#3=#:G537 NIL) (#4=#:G538 NIL)
+    (#5=#:G539 NIL) (#6=#:G541 NIL) (#7=#:G542 NIL) (#8=#:G543 NIL)
+    (#9=#:G544 NIL) (#10=#:G545 NIL) (#11=#:G547 NIL) (#12=#:G548 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #13=(|UnivariateLaurentSeriesConstructor|))

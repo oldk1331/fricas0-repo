@@ -746,48 +746,49 @@
          ($ |Union| (|List| (|NonNegativeInteger|)) "failed"))
         (SPROG
          ((|entry| (|NonNegativeInteger|)) (#1=#:G288 NIL)
-          (|x| (|NonNegativeInteger|)) (#2=#:G293 NIL) (|ri| NIL)
-          (#3=#:G292 NIL) (|mi| NIL)
-          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G291 NIL)
-          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G290 NIL)
-          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G289 NIL)
+          (|x| (|NonNegativeInteger|)) (#2=#:G295 NIL) (|ri| NIL)
+          (#3=#:G294 NIL) (|mi| NIL)
+          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G293 NIL)
+          (#5=#:G292 NIL) (|ret| (|List| (|NonNegativeInteger|)))
+          (#6=#:G291 NIL) (#7=#:G290 NIL)
+          (|codomainSize| (|NonNegativeInteger|)) (#8=#:G289 NIL)
           (|domainSize| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
             (LETT |domainSize| (LENGTH (QCAR |s|))
-                  . #7=(|FNGRPH;coAdjoint;$LU;23|))
-            (LETT |codomainSize| 0 . #7#)
-            (SEQ (LETT |mi| NIL . #7#) (LETT #6# |m| . #7#) G190
+                  . #9=(|FNGRPH;coAdjoint;$LU;23|))
+            (LETT |codomainSize| 0 . #9#)
+            (SEQ (LETT |mi| NIL . #9#) (LETT #8# |m| . #9#) G190
                  (COND
-                  ((OR (ATOM #6#) (PROGN (LETT |mi| (CAR #6#) . #7#) NIL))
+                  ((OR (ATOM #8#) (PROGN (LETT |mi| (CAR #8#) . #9#) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL |mi| |codomainSize| (QREFELT $ 73))
-                     (LETT |codomainSize| |mi| . #7#)))))
-                 (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
+                     (LETT |codomainSize| |mi| . #9#)))))
+                 (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
             (LETT |ret|
                   (PROGN
-                   (LETT #5# NIL . #7#)
-                   (SEQ (LETT |x| 1 . #7#) G190
-                        (COND ((|greater_SI| |x| |codomainSize|) (GO G191)))
-                        (SEQ (EXIT (LETT #5# (CONS 0 #5#) . #7#)))
-                        (LETT |x| (|inc_SI| |x|) . #7#) (GO G190) G191
-                        (EXIT (NREVERSE #5#))))
-                  . #7#)
+                   (LETT #7# NIL . #9#)
+                   (SEQ (LETT |x| 1 . #9#) (LETT #6# |codomainSize| . #9#) G190
+                        (COND ((|greater_SI| |x| #6#) (GO G191)))
+                        (SEQ (EXIT (LETT #7# (CONS 0 #7#) . #9#)))
+                        (LETT |x| (|inc_SI| |x|) . #9#) (GO G190) G191
+                        (EXIT (NREVERSE #7#))))
+                  . #9#)
             (LETT |retOpt|
                   (PROGN
-                   (LETT #4# NIL . #7#)
-                   (SEQ (LETT |x| 1 . #7#) G190
-                        (COND ((|greater_SI| |x| |codomainSize|) (GO G191)))
-                        (SEQ (EXIT (LETT #4# (CONS NIL #4#) . #7#)))
-                        (LETT |x| (|inc_SI| |x|) . #7#) (GO G190) G191
-                        (EXIT (NREVERSE #4#))))
-                  . #7#)
-            (SEQ (LETT |mi| 1 . #7#)
-                 (LETT #3# (SPADCALL |m| (QREFELT $ 71)) . #7#) G190
+                   (LETT #5# NIL . #9#)
+                   (SEQ (LETT |x| 1 . #9#) (LETT #4# |codomainSize| . #9#) G190
+                        (COND ((|greater_SI| |x| #4#) (GO G191)))
+                        (SEQ (EXIT (LETT #5# (CONS NIL #5#) . #9#)))
+                        (LETT |x| (|inc_SI| |x|) . #9#) (GO G190) G191
+                        (EXIT (NREVERSE #5#))))
+                  . #9#)
+            (SEQ (LETT |mi| 1 . #9#)
+                 (LETT #3# (SPADCALL |m| (QREFELT $ 71)) . #9#) G190
                  (COND ((|greater_SI| |mi| #3#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -798,71 +799,72 @@
                                         (QREFELT $ 75))
                               |mi| (QREFELT $ 76))
                              (QREFELT $ 77))))
-                 (LETT |mi| (|inc_SI| |mi|) . #7#) (GO G190) G191 (EXIT NIL))
-            (LETT |entry| 1 . #7#)
-            (SEQ (LETT |ri| NIL . #7#) (LETT #2# |retOpt| . #7#) G190
+                 (LETT |mi| (|inc_SI| |mi|) . #9#) (GO G190) G191 (EXIT NIL))
+            (LETT |entry| 1 . #9#)
+            (SEQ (LETT |ri| NIL . #9#) (LETT #2# |retOpt| . #9#) G190
                  (COND
-                  ((OR (ATOM #2#) (PROGN (LETT |ri| (CAR #2#) . #7#) NIL))
+                  ((OR (ATOM #2#) (PROGN (LETT |ri| (CAR #2#) . #9#) NIL))
                    (GO G191)))
-                 (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 78)) . #7#)
+                 (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 78)) . #9#)
                       (COND
                        ((EQL |x| 0)
                         (PROGN
-                         (LETT #1# (CONS 1 "failed") . #7#)
-                         (GO #8=#:G287))))
+                         (LETT #1# (CONS 1 "failed") . #9#)
+                         (GO #10=#:G287))))
                       (SPADCALL |ret| |entry| |x| (QREFELT $ 16))
-                      (EXIT (LETT |entry| (+ |entry| 1) . #7#)))
-                 (LETT #2# (CDR #2#) . #7#) (GO G190) G191 (EXIT NIL))
+                      (EXIT (LETT |entry| (+ |entry| 1) . #9#)))
+                 (LETT #2# (CDR #2#) . #9#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ret|))))
-          #8# (EXIT #1#)))) 
+          #10# (EXIT #1#)))) 
 
 (SDEFUN |FNGRPH;contraAdjoint;$LU;24|
         ((|s| $) (|m| |List| (|NonNegativeInteger|))
          ($ |Union| (|List| (|NonNegativeInteger|)) "failed"))
         (SPROG
-         ((|entry| (|NonNegativeInteger|)) (#1=#:G307 NIL)
-          (|x| (|NonNegativeInteger|)) (#2=#:G312 NIL) (|ri| NIL)
-          (#3=#:G311 NIL) (|mi| NIL)
-          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G310 NIL)
-          (|ret| (|List| (|NonNegativeInteger|))) (#5=#:G309 NIL)
-          (|codomainSize| (|NonNegativeInteger|)) (#6=#:G308 NIL)
+         ((|entry| (|NonNegativeInteger|)) (#1=#:G309 NIL)
+          (|x| (|NonNegativeInteger|)) (#2=#:G316 NIL) (|ri| NIL)
+          (#3=#:G315 NIL) (|mi| NIL)
+          (|retOpt| (|List| (|List| (|NonNegativeInteger|)))) (#4=#:G314 NIL)
+          (#5=#:G313 NIL) (|ret| (|List| (|NonNegativeInteger|)))
+          (#6=#:G312 NIL) (#7=#:G311 NIL)
+          (|codomainSize| (|NonNegativeInteger|)) (#8=#:G310 NIL)
           (|domainSize| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ
             (LETT |domainSize| (LENGTH (QCAR |s|))
-                  . #7=(|FNGRPH;contraAdjoint;$LU;24|))
-            (LETT |codomainSize| 0 . #7#)
-            (SEQ (LETT |mi| NIL . #7#) (LETT #6# |m| . #7#) G190
+                  . #9=(|FNGRPH;contraAdjoint;$LU;24|))
+            (LETT |codomainSize| 0 . #9#)
+            (SEQ (LETT |mi| NIL . #9#) (LETT #8# |m| . #9#) G190
                  (COND
-                  ((OR (ATOM #6#) (PROGN (LETT |mi| (CAR #6#) . #7#) NIL))
+                  ((OR (ATOM #8#) (PROGN (LETT |mi| (CAR #8#) . #9#) NIL))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL |mi| |codomainSize| (QREFELT $ 73))
-                     (LETT |codomainSize| |mi| . #7#)))))
-                 (LETT #6# (CDR #6#) . #7#) (GO G190) G191 (EXIT NIL))
+                     (LETT |codomainSize| |mi| . #9#)))))
+                 (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL))
             (LETT |ret|
                   (PROGN
-                   (LETT #5# NIL . #7#)
-                   (SEQ (LETT |x| 1 . #7#) G190
-                        (COND ((|greater_SI| |x| |codomainSize|) (GO G191)))
-                        (SEQ (EXIT (LETT #5# (CONS 0 #5#) . #7#)))
-                        (LETT |x| (|inc_SI| |x|) . #7#) (GO G190) G191
-                        (EXIT (NREVERSE #5#))))
-                  . #7#)
+                   (LETT #7# NIL . #9#)
+                   (SEQ (LETT |x| 1 . #9#) (LETT #6# |codomainSize| . #9#) G190
+                        (COND ((|greater_SI| |x| #6#) (GO G191)))
+                        (SEQ (EXIT (LETT #7# (CONS 0 #7#) . #9#)))
+                        (LETT |x| (|inc_SI| |x|) . #9#) (GO G190) G191
+                        (EXIT (NREVERSE #7#))))
+                  . #9#)
             (LETT |retOpt|
                   (PROGN
-                   (LETT #4# NIL . #7#)
-                   (SEQ (LETT |x| 1 . #7#) G190
-                        (COND ((|greater_SI| |x| |codomainSize|) (GO G191)))
-                        (SEQ (EXIT (LETT #4# (CONS NIL #4#) . #7#)))
-                        (LETT |x| (|inc_SI| |x|) . #7#) (GO G190) G191
-                        (EXIT (NREVERSE #4#))))
-                  . #7#)
-            (SEQ (LETT |mi| 1 . #7#)
-                 (LETT #3# (SPADCALL |m| (QREFELT $ 71)) . #7#) G190
+                   (LETT #5# NIL . #9#)
+                   (SEQ (LETT |x| 1 . #9#) (LETT #4# |codomainSize| . #9#) G190
+                        (COND ((|greater_SI| |x| #4#) (GO G191)))
+                        (SEQ (EXIT (LETT #5# (CONS NIL #5#) . #9#)))
+                        (LETT |x| (|inc_SI| |x|) . #9#) (GO G190) G191
+                        (EXIT (NREVERSE #5#))))
+                  . #9#)
+            (SEQ (LETT |mi| 1 . #9#)
+                 (LETT #3# (SPADCALL |m| (QREFELT $ 71)) . #9#) G190
                  (COND ((|greater_SI| |mi| #3#) (GO G191)))
                  (SEQ
                   (EXIT
@@ -873,23 +875,23 @@
                                         (QREFELT $ 75))
                               |mi| (QREFELT $ 76))
                              (QREFELT $ 77))))
-                 (LETT |mi| (|inc_SI| |mi|) . #7#) (GO G190) G191 (EXIT NIL))
-            (LETT |entry| 1 . #7#)
-            (SEQ (LETT |ri| NIL . #7#) (LETT #2# |retOpt| . #7#) G190
+                 (LETT |mi| (|inc_SI| |mi|) . #9#) (GO G190) G191 (EXIT NIL))
+            (LETT |entry| 1 . #9#)
+            (SEQ (LETT |ri| NIL . #9#) (LETT #2# |retOpt| . #9#) G190
                  (COND
-                  ((OR (ATOM #2#) (PROGN (LETT |ri| (CAR #2#) . #7#) NIL))
+                  ((OR (ATOM #2#) (PROGN (LETT |ri| (CAR #2#) . #9#) NIL))
                    (GO G191)))
-                 (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 81)) . #7#)
+                 (SEQ (LETT |x| (SPADCALL |s| |ri| (QREFELT $ 81)) . #9#)
                       (COND
                        ((EQL |x| 0)
                         (PROGN
-                         (LETT #1# (CONS 1 "failed") . #7#)
-                         (GO #8=#:G306))))
+                         (LETT #1# (CONS 1 "failed") . #9#)
+                         (GO #10=#:G308))))
                       (SPADCALL |ret| |entry| |x| (QREFELT $ 16))
-                      (EXIT (LETT |entry| (+ |entry| 1) . #7#)))
-                 (LETT #2# (CDR #2#) . #7#) (GO G190) G191 (EXIT NIL))
+                      (EXIT (LETT |entry| (+ |entry| 1) . #9#)))
+                 (LETT #2# (CDR #2#) . #9#) (GO G190) G191 (EXIT NIL))
             (EXIT (CONS 0 |ret|))))
-          #8# (EXIT #1#)))) 
+          #10# (EXIT #1#)))) 
 
 (SDEFUN |FNGRPH;apply;$2Nni;25|
         ((|s| $) (|a| |NonNegativeInteger|) ($ |NonNegativeInteger|))
@@ -897,8 +899,8 @@
 
 (SDEFUN |FNGRPH;limit;$NniL;26| ((|s| $) (|a| |NonNegativeInteger|) ($ |Loop|))
         (SPROG
-         ((|ptr| (|NonNegativeInteger|)) (#1=#:G322 NIL)
-          (|lp| (|List| (|Loop|))) (#2=#:G323 NIL) (|s1| NIL))
+         ((|ptr| (|NonNegativeInteger|)) (#1=#:G326 NIL)
+          (|lp| (|List| (|Loop|))) (#2=#:G327 NIL) (|s1| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ptr| |a| . #3=(|FNGRPH;limit;$NniL;26|))
@@ -914,7 +916,7 @@
                            ((EQL (LENGTH |lp|) 1)
                             (PROGN
                              (LETT #1# (|SPADfirst| |lp|) . #3#)
-                             (GO #4=#:G321))))
+                             (GO #4=#:G325))))
                           (EXIT
                            (LETT |ptr| (SPADCALL |s| |ptr| (QREFELT $ 83))
                                  . #3#)))
@@ -924,9 +926,9 @@
 
 (DECLAIM (NOTINLINE |FunctionGraph;|)) 
 
-(DEFUN |FunctionGraph| (#1=#:G324)
+(DEFUN |FunctionGraph| (#1=#:G328)
   (SPROG NIL
-         (PROG (#2=#:G325)
+         (PROG (#2=#:G329)
            (RETURN
             (COND
              ((LETT #2#

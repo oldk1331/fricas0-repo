@@ -134,15 +134,15 @@
           #3# (EXIT #1#)))) 
 
 (SDEFUN |SKSMP;^;$Pi$;8| ((|x| $) (|n| |PositiveInteger|) ($ $))
-        (SPROG ((|res| ($)) (|i| NIL))
-               (SEQ (LETT |res| |x| . #1=(|SKSMP;^;$Pi$;8|))
-                    (SEQ (LETT |i| 2 . #1#) G190
-                         (COND ((|greater_SI| |i| |n|) (GO G191)))
+        (SPROG ((|res| ($)) (#1=#:G161 NIL) (|i| NIL))
+               (SEQ (LETT |res| |x| . #2=(|SKSMP;^;$Pi$;8|))
+                    (SEQ (LETT |i| 2 . #2#) (LETT #1# |n| . #2#) G190
+                         (COND ((|greater_SI| |i| #1#) (GO G191)))
                          (SEQ
                           (EXIT
                            (LETT |res| (SPADCALL |res| |x| (QREFELT $ 44))
-                                 . #1#)))
-                         (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                                 . #2#)))
+                         (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT |res|)))) 
 
@@ -151,7 +151,7 @@
               ('T (SPADCALL |x| |n| (QREFELT $ 58))))) 
 
 (SDEFUN |SKSMP;coerce;$Of;10| ((|x| $) ($ |OutputForm|))
-        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G163 NIL))
+        (SPROG ((|xu| (|Upol|)) (|v| (|Var|)) (#1=#:G164 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 34))
@@ -177,9 +177,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateSkewPolynomial;|)) 
 
-(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G182)
+(DEFUN |SparseMultivariateSkewPolynomial| (&REST #1=#:G183)
   (SPROG NIL
-         (PROG (#2=#:G183)
+         (PROG (#2=#:G184)
            (RETURN
             (COND
              ((LETT #2#
@@ -202,7 +202,7 @@
 
 (DEFUN |SparseMultivariateSkewPolynomial;| (|#1| |#2| |#3| |#4|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G181 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
+   ((|pv$| NIL) (#1=#:G182 NIL) ($ NIL) (|dv$| NIL) (DV$4 NIL) (DV$3 NIL)
     (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateSkewPolynomial|))

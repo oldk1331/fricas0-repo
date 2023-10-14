@@ -1,15 +1,16 @@
 
 (SDEFUN |DIFEXT-;differentiate;SMNniS;1|
         ((|x| S) (|derivation| |Mapping| R R) (|n| |NonNegativeInteger|) ($ S))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G115 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|DIFEXT-;differentiate;SMNniS;1|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                (SEQ (LETT |i| 1 . #2=(|DIFEXT-;differentiate;SMNniS;1|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
                        (LETT |x| (SPADCALL |x| |derivation| (QREFELT $ 9))
-                             . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                             . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |DIFEXT-;D;SMS;2| ((|x| S) (|derivation| |Mapping| R R) ($ S))

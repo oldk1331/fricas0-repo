@@ -928,11 +928,11 @@
                     (EXIT |n|)))) 
 
 (SDEFUN |GBEUCLID;prinb| ((|n| |Integer|) ($ |Void|))
-        (SPROG ((|i| NIL))
-               (SEQ (LETT |i| 1 . #1=(|GBEUCLID;prinb|)) G190
-                    (COND ((|greater_SI| |i| |n|) (GO G191)))
+        (SPROG ((#1=#:G282 NIL) (|i| NIL))
+               (SEQ (LETT |i| 1 . #2=(|GBEUCLID;prinb|)) (LETT #1# |n| . #2#)
+                    G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                     (SEQ (EXIT (SPADCALL "    " (QREFELT $ 62))))
-                    (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL)))) 
+                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL)))) 
 
 (SDEFUN |GBEUCLID;prinshINFO| ((|h| |Dpol|) ($ |Void|))
         (SEQ (|GBEUCLID;prinb| 2 $)
@@ -1073,9 +1073,9 @@
 
 (DECLAIM (NOTINLINE |EuclideanGroebnerBasisPackage;|)) 
 
-(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G297)
+(DEFUN |EuclideanGroebnerBasisPackage| (&REST #1=#:G298)
   (SPROG NIL
-         (PROG (#2=#:G298)
+         (PROG (#2=#:G299)
            (RETURN
             (COND
              ((LETT #2#

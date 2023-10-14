@@ -652,18 +652,18 @@
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)
-          (|count| (|NonNegativeInteger|)) (|wh| (R)))
-         (SEQ (LETT |wh| (QCAR (QCAR |c|)) . #1=(|CONTFRAC;coerce;$Of;45|))
-              (LETT |fr| (QCDR (QCAR |c|)) . #1#)
+          (#1=#:G300 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
+         (SEQ (LETT |wh| (QCAR (QCAR |c|)) . #2=(|CONTFRAC;coerce;$Of;45|))
+              (LETT |fr| (QCDR (QCAR |c|)) . #2#)
               (EXIT
                (COND
                 ((SPADCALL |fr| (QREFELT $ 31))
                  (SPADCALL |wh| (QREFELT $ 118)))
-                (#2='T
-                 (SEQ (LETT |count| |$streamCount| . #1#) (LETT |l| NIL . #1#)
-                      (SEQ (LETT |n| 1 . #1#) G190
+                (#3='T
+                 (SEQ (LETT |count| |$streamCount| . #2#) (LETT |l| NIL . #2#)
+                      (SEQ (LETT |n| 1 . #2#) (LETT #1# |count| . #2#) G190
                            (COND
-                            ((OR (|greater_SI| |n| |count|)
+                            ((OR (|greater_SI| |n| #1#)
                                  (NULL
                                   (COND ((SPADCALL |fr| (QREFELT $ 31)) 'NIL)
                                         ('T 'T))))
@@ -674,14 +674,14 @@
                                    (|CONTFRAC;zagRec|
                                     (SPADCALL |fr| (QREFELT $ 32)) $)
                                    |l|)
-                                  . #1#)
+                                  . #2#)
                             (EXIT
-                             (LETT |fr| (SPADCALL |fr| (QREFELT $ 33)) . #1#)))
-                           (LETT |n| (|inc_SI| |n|) . #1#) (GO G190) G191
+                             (LETT |fr| (SPADCALL |fr| (QREFELT $ 33)) . #2#)))
+                           (LETT |n| (|inc_SI| |n|) . #2#) (GO G190) G191
                            (EXIT NIL))
                       (COND
                        ((|CONTFRAC;showAll?| $)
-                        (SEQ (LETT |n| (+ |count| 1) . #1#) G190
+                        (SEQ (LETT |n| (+ |count| 1) . #2#) G190
                              (COND
                               ((NULL (SPADCALL |fr| (QREFELT $ 120)))
                                (GO G191)))
@@ -691,30 +691,30 @@
                                      (|CONTFRAC;zagRec|
                                       (SPADCALL |fr| (QREFELT $ 32)) $)
                                      |l|)
-                                    . #1#)
+                                    . #2#)
                               (EXIT
                                (LETT |fr| (SPADCALL |fr| (QREFELT $ 33))
-                                     . #1#)))
-                             (LETT |n| (+ |n| 1) . #1#) (GO G190) G191
+                                     . #2#)))
+                             (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
                              (EXIT NIL))))
                       (COND
                        ((NULL (SPADCALL |fr| (QREFELT $ 121)))
                         (LETT |l| (CONS (SPADCALL '|...| (QREFELT $ 123)) |l|)
-                              . #1#)))
-                      (LETT |l| (NREVERSE |l|) . #1#)
+                              . #2#)))
+                      (LETT |l| (NREVERSE |l|) . #2#)
                       (LETT |e| (SPADCALL (ELT $ 124) |l| (QREFELT $ 127))
-                            . #1#)
+                            . #2#)
                       (EXIT
                        (COND ((SPADCALL |wh| (QREFELT $ 55)) |e|)
-                             (#2#
+                             (#3#
                               (SPADCALL (SPADCALL |wh| (QREFELT $ 118)) |e|
                                         (QREFELT $ 124)))))))))))) 
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G311)
+(DEFUN |ContinuedFraction| (#1=#:G312)
   (SPROG NIL
-         (PROG (#2=#:G312)
+         (PROG (#2=#:G313)
            (RETURN
             (COND
              ((LETT #2#

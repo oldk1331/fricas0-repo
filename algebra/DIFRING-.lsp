@@ -3,12 +3,13 @@
 
 (SDEFUN |DIFRING-;differentiate;SNniS;2|
         ((|r| S) (|n| |NonNegativeInteger|) ($ S))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G115 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|DIFRING-;differentiate;SNniS;2|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
-                     (SEQ (EXIT (LETT |r| (SPADCALL |r| (QREFELT $ 7)) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (SEQ (LETT |i| 1 . #2=(|DIFRING-;differentiate;SNniS;2|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (LETT |r| (SPADCALL |r| (QREFELT $ 7)) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
 (SDEFUN |DIFRING-;D;SNniS;3| ((|r| S) (|n| |NonNegativeInteger|) ($ S))

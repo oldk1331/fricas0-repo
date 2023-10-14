@@ -2,69 +2,70 @@
 (SDEFUN |PFUTIL;decompose;UP2L;1| ((|nn| UP) (|dens| |List| UP) ($ |List| UP))
         (SPROG
          ((|res| (|List| UP)) (|cden| (|Factored| UP)) (|cnum| (UP))
-          (|ct| (|PartialFraction| UP)) (|i| NIL) (#1=#:G118 NIL) (|fden| NIL)
-          (|nfacs| (|Integer|)) (|pfr| (|PartialFraction| UP))
-          (|nd| (|Factored| UP)) (|fdens| (|List| (|Factored| UP)))
-          (#2=#:G117 NIL) (|nden| NIL) (#3=#:G116 NIL))
+          (|ct| (|PartialFraction| UP)) (#1=#:G119 NIL) (|i| NIL)
+          (#2=#:G118 NIL) (|fden| NIL) (|nfacs| (|Integer|))
+          (|pfr| (|PartialFraction| UP)) (|nd| (|Factored| UP))
+          (|fdens| (|List| (|Factored| UP))) (#3=#:G117 NIL) (|nden| NIL)
+          (#4=#:G116 NIL))
          (SEQ
           (LETT |fdens|
                 (PROGN
-                 (LETT #3# NIL . #4=(|PFUTIL;decompose;UP2L;1|))
-                 (SEQ (LETT |nden| NIL . #4#) (LETT #2# |dens| . #4#) G190
+                 (LETT #4# NIL . #5=(|PFUTIL;decompose;UP2L;1|))
+                 (SEQ (LETT |nden| NIL . #5#) (LETT #3# |dens| . #5#) G190
                       (COND
-                       ((OR (ATOM #2#)
-                            (PROGN (LETT |nden| (CAR #2#) . #4#) NIL))
+                       ((OR (ATOM #3#)
+                            (PROGN (LETT |nden| (CAR #3#) . #5#) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #3# (CONS (SPADCALL |nden| 1 (QREFELT $ 12)) #3#)
-                              . #4#)))
-                      (LETT #2# (CDR #2#) . #4#) (GO G190) G191
-                      (EXIT (NREVERSE #3#))))
-                . #4#)
+                        (LETT #4# (CONS (SPADCALL |nden| 1 (QREFELT $ 12)) #4#)
+                              . #5#)))
+                      (LETT #3# (CDR #3#) . #5#) (GO G190) G191
+                      (EXIT (NREVERSE #4#))))
+                . #5#)
           (LETT |nd|
                 (SPADCALL (ELT $ 14) |fdens| (|spadConstant| $ 15)
                           (QREFELT $ 18))
-                . #4#)
-          (LETT |pfr| (SPADCALL |nn| |nd| (QREFELT $ 20)) . #4#)
+                . #5#)
+          (LETT |pfr| (SPADCALL |nn| |nd| (QREFELT $ 20)) . #5#)
           (EXIT
            (COND
             ((SPADCALL (SPADCALL |pfr| (QREFELT $ 21)) (|spadConstant| $ 22)
                        (QREFELT $ 24))
              (|error| "decompose: wholePart(pfr) ~= 0"))
             ('T
-             (SEQ (LETT |nfacs| (SPADCALL |pfr| (QREFELT $ 25)) . #4#)
-                  (LETT |res| NIL . #4#)
-                  (SEQ (LETT |fden| NIL . #4#) (LETT #1# |fdens| . #4#) G190
+             (SEQ (LETT |nfacs| (SPADCALL |pfr| (QREFELT $ 25)) . #5#)
+                  (LETT |res| NIL . #5#)
+                  (SEQ (LETT |fden| NIL . #5#) (LETT #2# |fdens| . #5#) G190
                        (COND
-                        ((OR (ATOM #1#)
-                             (PROGN (LETT |fden| (CAR #1#) . #4#) NIL))
+                        ((OR (ATOM #2#)
+                             (PROGN (LETT |fden| (CAR #2#) . #5#) NIL))
                          (GO G191)))
                        (SEQ
                         (EXIT
-                         (SEQ (LETT |i| 1 . #4#) G190
-                              (COND ((|greater_SI| |i| |nfacs|) (GO G191)))
+                         (SEQ (LETT |i| 1 . #5#) (LETT #1# |nfacs| . #5#) G190
+                              (COND ((|greater_SI| |i| #1#) (GO G191)))
                               (SEQ
                                (LETT |ct| (SPADCALL |pfr| |i| (QREFELT $ 26))
-                                     . #4#)
+                                     . #5#)
                                (LETT |cnum| (SPADCALL |ct| (QREFELT $ 27))
-                                     . #4#)
+                                     . #5#)
                                (LETT |cden| (SPADCALL |ct| (QREFELT $ 28))
-                                     . #4#)
+                                     . #5#)
                                (EXIT
                                 (COND
                                  ((SPADCALL |cden| |fden| (QREFELT $ 29))
-                                  (LETT |res| (CONS |cnum| |res|) . #4#)))))
-                              (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
+                                  (LETT |res| (CONS |cnum| |res|) . #5#)))))
+                              (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                               (EXIT NIL))))
-                       (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
+                       (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
                   (EXIT (NREVERSE |res|))))))))) 
 
 (DECLAIM (NOTINLINE |PartialFractionUtilities;|)) 
 
-(DEFUN |PartialFractionUtilities| (&REST #1=#:G119)
+(DEFUN |PartialFractionUtilities| (&REST #1=#:G120)
   (SPROG NIL
-         (PROG (#2=#:G120)
+         (PROG (#2=#:G121)
            (RETURN
             (COND
              ((LETT #2#

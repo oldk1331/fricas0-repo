@@ -35,84 +35,82 @@
 
 (SDEFUN |UTSODETL;UTS2UP;UTSNniUP;2|
         ((|s| UTS) (|n| |NonNegativeInteger|) ($ UP))
-        (SPROG ((|xmcn| (UP)) (|ans| (UP)) (|i| NIL) (|xmc| (UP)))
+        (SPROG
+         ((|xmcn| (UP)) (|ans| (UP)) (#1=#:G114 NIL) (|i| NIL) (|xmc| (UP)))
+         (SEQ
+          (LETT |xmc|
+                (SPADCALL (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
+                          (SPADCALL
+                           (SPADCALL (|spadConstant| $ 16) (QREFELT $ 17))
+                           (QREFELT $ 18))
+                          (QREFELT $ 26))
+                . #2=(|UTSODETL;UTS2UP;UTSNniUP;2|))
+          (LETT |xmcn| (|spadConstant| $ 11) . #2#)
+          (LETT |ans| (|spadConstant| $ 15) . #2#)
+          (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#) G190
+               (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ
-                (LETT |xmc|
-                      (SPADCALL
-                       (SPADCALL (|spadConstant| $ 10) 1 (QREFELT $ 13))
-                       (SPADCALL
-                        (SPADCALL (|spadConstant| $ 16) (QREFELT $ 17))
-                        (QREFELT $ 18))
-                       (QREFELT $ 26))
-                      . #1=(|UTSODETL;UTS2UP;UTSNniUP;2|))
-                (LETT |xmcn| (|spadConstant| $ 11) . #1#)
-                (LETT |ans| (|spadConstant| $ 15) . #1#)
-                (SEQ (LETT |i| 0 . #1#) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
-                     (SEQ
-                      (LETT |ans|
-                            (SPADCALL |ans|
-                                      (SPADCALL
-                                       (SPADCALL |s| |i| (QREFELT $ 27)) |xmcn|
-                                       (QREFELT $ 28))
-                                      (QREFELT $ 19))
-                            . #1#)
-                      (EXIT
-                       (LETT |xmcn| (SPADCALL |xmc| |xmcn| (QREFELT $ 29))
-                             . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
-                (EXIT |ans|)))) 
+                (LETT |ans|
+                      (SPADCALL |ans|
+                                (SPADCALL (SPADCALL |s| |i| (QREFELT $ 27))
+                                          |xmcn| (QREFELT $ 28))
+                                (QREFELT $ 19))
+                      . #2#)
+                (EXIT
+                 (LETT |xmcn| (SPADCALL |xmc| |xmcn| (QREFELT $ 29)) . #2#)))
+               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+          (EXIT |ans|)))) 
 
 (SDEFUN |UTSODETL;LODO2FUN;LM;3| ((|op| L) ($ |Mapping| UTS (|List| UTS)))
         (SPROG
-         ((|v| (|Vector| UTS)) (#1=#:G124 NIL) (|i| NIL) (#2=#:G125 NIL)
-          (|n| (|NonNegativeInteger|)) (#3=#:G118 NIL) (|a| (UTS))
-          (#4=#:G116 NIL))
+         ((|v| (|Vector| UTS)) (#1=#:G125 NIL) (#2=#:G127 NIL) (|i| NIL)
+          (#3=#:G126 NIL) (|n| (|NonNegativeInteger|)) (#4=#:G119 NIL)
+          (|a| (UTS)) (#5=#:G117 NIL))
          (SEQ
           (LETT |a|
                 (PROG2
-                    (LETT #4#
+                    (LETT #5#
                           (SPADCALL
                            (SPADCALL
                             (SPADCALL (SPADCALL |op| (QREFELT $ 31))
                                       (QREFELT $ 32))
                             (QREFELT $ 25))
                            (QREFELT $ 34))
-                          . #5=(|UTSODETL;LODO2FUN;LM;3|))
-                    (QCDR #4#)
-                  (|check_union2| (QEQCAR #4# 0) (QREFELT $ 9)
-                                  (|Union| (QREFELT $ 9) "failed") #4#))
-                . #5#)
+                          . #6=(|UTSODETL;LODO2FUN;LM;3|))
+                    (QCDR #5#)
+                  (|check_union2| (QEQCAR #5# 0) (QREFELT $ 9)
+                                  (|Union| (QREFELT $ 9) "failed") #5#))
+                . #6#)
           (LETT |n|
                 (PROG1
-                    (LETT #3#
+                    (LETT #4#
                           (SPADCALL (SPADCALL |op| (QREFELT $ 35))
                                     (|spadConstant| $ 36) (QREFELT $ 38))
-                          . #5#)
-                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #3#))
-                . #5#)
+                          . #6#)
+                  (|check_subtype2| (>= #4# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #4#))
+                . #6#)
           (LETT |v|
                 (PROGN
-                 (LETT #2#
-                       (GETREFV (|inc_SI| (- |n| #6=(|spadConstant| $ 41))))
-                       . #5#)
-                 (SEQ (LETT |i| #6# . #5#) (LETT #1# 0 . #5#) G190
-                      (COND ((> |i| |n|) (GO G191)))
+                 (LETT #3#
+                       (GETREFV (|inc_SI| (- |n| #7=(|spadConstant| $ 41))))
+                       . #6#)
+                 (SEQ (LETT |i| #7# . #6#) (LETT #2# |n| . #6#)
+                      (LETT #1# 0 . #6#) G190 (COND ((> |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (SETELT #2# #1#
+                        (SETELT #3# #1#
                                 (SPADCALL |a|
                                           (SPADCALL
                                            (SPADCALL |op| |i| (QREFELT $ 42))
                                            (QREFELT $ 25))
                                           (QREFELT $ 43)))))
                       (LETT #1#
-                            (PROG1 (|inc_SI| #1#) (LETT |i| (+ |i| 1) . #5#))
-                            . #5#)
+                            (PROG1 (|inc_SI| #1#) (LETT |i| (+ |i| 1) . #6#))
+                            . #6#)
                       (GO G190) G191 (EXIT NIL))
-                 #2#)
-                . #5#)
+                 #3#)
+                . #6#)
           (EXIT (CONS #'|UTSODETL;LODO2FUN;LM;3!0| (VECTOR $ |v|)))))) 
 
 (SDEFUN |UTSODETL;LODO2FUN;LM;3!0| ((|l1| NIL) ($$ NIL))
@@ -122,7 +120,7 @@
           (RETURN (PROGN (|UTSODETL;fun| |v| |l1| $))))) 
 
 (SDEFUN |UTSODETL;fun| ((|v| |Vector| UTS) (|l| |List| UTS) ($ UTS))
-        (SPROG ((|ans| (UTS)) (#1=#:G129 NIL) (|b| NIL) (|i| NIL))
+        (SPROG ((|ans| (UTS)) (#1=#:G131 NIL) (|b| NIL) (|i| NIL))
                (SEQ (LETT |ans| (|spadConstant| $ 16) . #2=(|UTSODETL;fun|))
                     (SEQ (LETT |i| 1 . #2#) (LETT |b| NIL . #2#)
                          (LETT #1# |l| . #2#) G190
@@ -147,7 +145,7 @@
                     (EXIT |ans|)))) 
 
 (SDEFUN |UTSODETL;RF2UTS;FUTS;5| ((|f| |Fraction| UP) ($ UTS))
-        (SPROG ((#1=#:G131 NIL))
+        (SPROG ((#1=#:G133 NIL))
                (SPADCALL
                 (SPADCALL (SPADCALL |f| (QREFELT $ 49)) (QREFELT $ 25))
                 (PROG2
@@ -164,9 +162,9 @@
 
 (DECLAIM (NOTINLINE |UTSodetools;|)) 
 
-(DEFUN |UTSodetools| (&REST #1=#:G134)
+(DEFUN |UTSodetools| (&REST #1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G135)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

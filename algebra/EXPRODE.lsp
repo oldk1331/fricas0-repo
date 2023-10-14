@@ -165,7 +165,7 @@
          (|sy| F) (|n| |NonNegativeInteger|) ($ F))
         (SPROG
          ((|lv| (|List| F)) (|m| (F)) (|l| (|List| (|Kernel| F))) (|f| (F))
-          (|i| NIL))
+          (#1=#:G149 NIL) (|i| NIL))
          (SEQ
           (COND ((ZEROP |n|) (|error| "No initial value(s) given"))
                 ('T
@@ -177,29 +177,29 @@
                                 (LIST
                                  (SPADCALL
                                   (LETT |f| (SPADCALL |yx| (QREFELT $ 58))
-                                        . #1=(|EXPRODE;checkOrderN|))
+                                        . #2=(|EXPRODE;checkOrderN|))
                                   (QREFELT $ 17)))
-                                . #1#)
+                                . #2#)
                           (QREFELT $ 66))
                          (QREFELT $ 67))
-                        . #1#)
+                        . #2#)
                   (LETT |lv|
                         (LIST
                          (SPADCALL (QREFELT $ 11) |sy|
                                    (|EXPRODE;localInteger| |m| $)
                                    (QREFELT $ 39)))
-                        . #1#)
-                  (SEQ (LETT |i| 2 . #1#) G190
-                       (COND ((|greater_SI| |i| |n|) (GO G191)))
+                        . #2#)
+                  (SEQ (LETT |i| 2 . #2#) (LETT #1# |n| . #2#) G190
+                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                        (SEQ
                         (LETT |l|
                               (CONS
                                (SPADCALL
                                 (LETT |f| (SPADCALL |f| |x| (QREFELT $ 59))
-                                      . #1#)
+                                      . #2#)
                                 (QREFELT $ 17))
                                |l|)
-                              . #1#)
+                              . #2#)
                         (EXIT
                          (LETT |lv|
                                (CONS
@@ -210,12 +210,12 @@
                                                            (|spadConstant| $
                                                                            35)
                                                            (QREFELT $ 68))
-                                                 . #1#)
+                                                 . #2#)
                                            $)
                                           (QREFELT $ 39))
                                 |lv|)
-                               . #1#)))
-                       (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                               . #2#)))
+                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT
                    (|EXPRODE;div2exquo|
@@ -227,7 +227,7 @@
 
 (SDEFUN |EXPRODE;checkSystem|
         ((|diffeq| F) (|yx| |List| (|Kernel| F)) (|lv| |List| F) ($ F))
-        (SPROG ((#1=#:G153 NIL) (#2=#:G154 NIL) (#3=#:G155 NIL) (|k| NIL))
+        (SPROG ((#1=#:G154 NIL) (#2=#:G155 NIL) (#3=#:G156 NIL) (|k| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -255,9 +255,9 @@
                                              |yx| |lv| (QREFELT $ 64))
                                             $)
                                            . #4#)
-                                     (GO #5=#:G152))
+                                     (GO #5=#:G153))
                                     . #4#)
-                              (GO #6=#:G150))))))
+                              (GO #6=#:G151))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT (|spadConstant| $ 70))))
@@ -266,7 +266,7 @@
 (SDEFUN |EXPRODE;seriesSolve;LLELA;13|
         ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
          (|eqx| |Equation| F) (|eqy| |List| (|Equation| F)) ($ |Any|))
-        (SPROG ((#1=#:G159 NIL) (|deq| NIL) (#2=#:G158 NIL))
+        (SPROG ((#1=#:G160 NIL) (|deq| NIL) (#2=#:G159 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -292,7 +292,7 @@
 (SDEFUN |EXPRODE;seriesSolve;LLELA;14|
         ((|l| |List| (|Equation| F)) (|y| |List| (|BasicOperator|))
          (|eqx| |Equation| F) (|y0| |List| F) ($ |Any|))
-        (SPROG ((#1=#:G164 NIL) (|deq| NIL) (#2=#:G163 NIL))
+        (SPROG ((#1=#:G165 NIL) (|deq| NIL) (#2=#:G164 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -318,7 +318,7 @@
 (SDEFUN |EXPRODE;seriesSolve;LLELA;15|
         ((|l| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
          (|eqy| |List| (|Equation| F)) ($ |Any|))
-        (SPROG ((#1=#:G168 NIL) (|y| NIL) (#2=#:G167 NIL))
+        (SPROG ((#1=#:G169 NIL) (|y| NIL) (#2=#:G168 NIL))
                (SEQ
                 (SPADCALL |l| |ly| |eqx|
                           (PROGN
@@ -379,7 +379,7 @@
          ($ |Any|))
         (SPROG
          ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
-          (|x| (|Symbol|)) (#1=#:G174 NIL))
+          (|x| (|Symbol|)) (#1=#:G175 NIL))
          (SEQ
           (LETT |x|
                 (PROG2
@@ -459,7 +459,7 @@
          (|y0| |List| F) ($ |Any|))
         (SPROG
          ((|center| (F)) (|f| (F)) (|yx| (|Kernel| F)) (|sy| (|Symbol|))
-          (|x| (|Symbol|)) (#1=#:G180 NIL))
+          (|x| (|Symbol|)) (#1=#:G181 NIL))
          (SEQ
           (LETT |x|
                 (PROG2
@@ -543,13 +543,13 @@
         ((|sys| |List| F) (|ly| |List| (|BasicOperator|)) (|eqx| |Equation| F)
          (|l0| |List| F) ($ |Any|))
         (SPROG
-         ((#1=#:G206 NIL) (|f| NIL) (#2=#:G205 NIL) (|center| (F))
-          (|l| (|List| F)) (#3=#:G204 NIL) (|eq| NIL) (#4=#:G203 NIL)
-          (#5=#:G202 NIL) (|k| NIL) (#6=#:G201 NIL) (|lelt| (|List| F))
-          (|m| (F)) (#7=#:G200 NIL) (#8=#:G199 NIL)
-          (|yx| (|List| (|Kernel| F))) (#9=#:G198 NIL) (|y| NIL)
-          (#10=#:G197 NIL) (|fsy| (F)) (|sy| (|Symbol|)) (|x| (|Symbol|))
-          (#11=#:G186 NIL) (|kx| (|Kernel| F)))
+         ((#1=#:G207 NIL) (|f| NIL) (#2=#:G206 NIL) (|center| (F))
+          (|l| (|List| F)) (#3=#:G205 NIL) (|eq| NIL) (#4=#:G204 NIL)
+          (#5=#:G203 NIL) (|k| NIL) (#6=#:G202 NIL) (|lelt| (|List| F))
+          (|m| (F)) (#7=#:G201 NIL) (#8=#:G200 NIL)
+          (|yx| (|List| (|Kernel| F))) (#9=#:G199 NIL) (|y| NIL)
+          (#10=#:G198 NIL) (|fsy| (F)) (|sy| (|Symbol|)) (|x| (|Symbol|))
+          (#11=#:G187 NIL) (|kx| (|Kernel| F)))
          (SEQ
           (LETT |x|
                 (PROG2
@@ -734,9 +734,9 @@
 
 (DECLAIM (NOTINLINE |ExpressionSpaceODESolver;|)) 
 
-(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G207)
+(DEFUN |ExpressionSpaceODESolver| (&REST #1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#

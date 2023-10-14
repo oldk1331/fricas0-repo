@@ -84,60 +84,62 @@
         (SPROG
          ((|res| (|Integer|)) (|j| (|SingleInteger|))
           (|s1| #1=(|SingleInteger|)) (|dig_val| #2=(|SingleInteger|))
-          (#3=#:G135 NIL) (|i| NIL) (|k| NIL) (|ll| #4=(|SingleInteger|))
-          (|tpl| (|List| #5=(|Integer|))) (|l2l| (|List| #1#)) (|tp| #5#)
-          (|ten7| #5#) (|l2| #2#) (|l20| #2#) (|ten| #4#)
-          (|l1| (|SingleInteger|)) (|l| #4#) (|b| #4#))
-         (SEQ (LETT |b| 48 . #6=(|SCANUTIL;parse_integer;SI;2|))
-              (LETT |l| (QCSIZE |str|) . #6#)
-              (LETT |l1| (|rem_SI| |l| 7) . #6#) (LETT |s1| 0 . #6#)
-              (LETT |ten| 10 . #6#)
-              (SEQ (LETT |i| 1 . #6#) G190
-                   (COND ((|greater_SI| |i| |l1|) (GO G191)))
+          (#3=#:G137 NIL) (|i| NIL) (#4=#:G136 NIL) (|k| NIL)
+          (|ll| #5=(|SingleInteger|)) (|tpl| (|List| #6=(|Integer|)))
+          (|l2l| (|List| #1#)) (|tp| #6#) (|ten7| #6#) (|l2| #2#) (|l20| #2#)
+          (#7=#:G135 NIL) (|ten| #5#) (|l1| (|SingleInteger|)) (|l| #5#)
+          (|b| #5#))
+         (SEQ (LETT |b| 48 . #8=(|SCANUTIL;parse_integer;SI;2|))
+              (LETT |l| (QCSIZE |str|) . #8#)
+              (LETT |l1| (|rem_SI| |l| 7) . #8#) (LETT |s1| 0 . #8#)
+              (LETT |ten| 10 . #8#)
+              (SEQ (LETT |i| 1 . #8#) (LETT #7# |l1| . #8#) G190
+                   (COND ((|greater_SI| |i| #7#) (GO G191)))
                    (SEQ
-                    (LETT |dig_val| (|sub_SI| (STR_ELT1 |str| |i|) |b|) . #6#)
+                    (LETT |dig_val| (|sub_SI| (STR_ELT1 |str| |i|) |b|) . #8#)
                     (EXIT
                      (LETT |s1| (|add_SI| (|mul_SI| |ten| |s1|) |dig_val|)
-                           . #6#)))
-                   (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-              (LETT |l20| (LETT |l2| (|sub_SI| |l| |l1|) . #6#) . #6#)
-              (LETT |res| |s1| . #6#)
+                           . #8#)))
+                   (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
+              (LETT |l20| (LETT |l2| (|sub_SI| |l| |l1|) . #8#) . #8#)
+              (LETT |res| |s1| . #8#)
               (EXIT
                (COND ((|eql_SI| |l2| 0) |res|)
-                     (#7='T
-                      (SEQ (LETT |l2| (|quo_SI| |l2| 7) . #6#)
-                           (LETT |j| (|add_SI| |l1| 1) . #6#)
-                           (LETT |ten7| 10000000 . #6#)
+                     (#9='T
+                      (SEQ (LETT |l2| (|quo_SI| |l2| 7) . #8#)
+                           (LETT |j| (|add_SI| |l1| 1) . #8#)
+                           (LETT |ten7| 10000000 . #8#)
                            (EXIT
                             (COND
                              ((|less_SI| 3 |l2|)
-                              (SEQ (LETT |l2l| (LIST 1 0) . #6#)
-                                   (LETT |tpl| (LIST |ten7| 1) . #6#)
-                                   (LETT |tp| |ten7| . #6#) (LETT |ll| 2 . #6#)
+                              (SEQ (LETT |l2l| (LIST 1 0) . #8#)
+                                   (LETT |tpl| (LIST |ten7| 1) . #8#)
+                                   (LETT |tp| |ten7| . #8#) (LETT |ll| 2 . #8#)
                                    (SEQ G190
                                         (COND
                                          ((NULL (|less_SI| |ll| |l2|))
                                           (GO G191)))
-                                        (SEQ (LETT |tp| (* |tp| |tp|) . #6#)
+                                        (SEQ (LETT |tp| (* |tp| |tp|) . #8#)
                                              (LETT |l2l| (CONS |ll| |l2l|)
-                                                   . #6#)
+                                                   . #8#)
                                              (LETT |tpl| (CONS |tp| |tpl|)
-                                                   . #6#)
+                                                   . #8#)
                                              (EXIT
                                               (LETT |ll| (|add_SI| |ll| |ll|)
-                                                    . #6#)))
+                                                    . #8#)))
                                         NIL (GO G190) G191 (EXIT NIL))
                                    (EXIT
                                     (+ (* |res| (EXPT 10 |l20|))
                                        (|SCANUTIL;parse_integer2| |str| |j|
                                         |l2| |l2l| |tpl| $)))))
-                             (#7#
+                             (#9#
                               (SEQ
-                               (SEQ (LETT |k| 1 . #6#) G190
-                                    (COND ((|greater_SI| |k| |l2|) (GO G191)))
-                                    (SEQ (LETT |s1| 0 . #6#)
-                                         (SEQ (LETT |i| |j| . #6#)
-                                              (LETT #3# (|add_SI| |j| 6) . #6#)
+                               (SEQ (LETT |k| 1 . #8#) (LETT #4# |l2| . #8#)
+                                    G190
+                                    (COND ((|greater_SI| |k| #4#) (GO G191)))
+                                    (SEQ (LETT |s1| 0 . #8#)
+                                         (SEQ (LETT |i| |j| . #8#)
+                                              (LETT #3# (|add_SI| |j| 6) . #8#)
                                               G190
                                               (COND
                                                ((|greater_SI| |i| #3#)
@@ -146,20 +148,20 @@
                                                (LETT |dig_val|
                                                      (|sub_SI|
                                                       (STR_ELT1 |str| |i|) |b|)
-                                                     . #6#)
+                                                     . #8#)
                                                (EXIT
                                                 (LETT |s1|
                                                       (|add_SI|
                                                        (|mul_SI| |ten| |s1|)
                                                        |dig_val|)
-                                                      . #6#)))
-                                              (LETT |i| (|inc_SI| |i|) . #6#)
+                                                      . #8#)))
+                                              (LETT |i| (|inc_SI| |i|) . #8#)
                                               (GO G190) G191 (EXIT NIL))
-                                         (LETT |j| (|add_SI| |j| 7) . #6#)
+                                         (LETT |j| (|add_SI| |j| 7) . #8#)
                                          (EXIT
                                           (LETT |res| (+ (* |ten7| |res|) |s1|)
-                                                . #6#)))
-                                    (LETT |k| (|inc_SI| |k|) . #6#) (GO G190)
+                                                . #8#)))
+                                    (LETT |k| (|inc_SI| |k|) . #8#) (GO G190)
                                     G191 (EXIT NIL))
                                (EXIT |res|)))))))))))) 
 
@@ -167,7 +169,7 @@
 
 (DEFUN |ScanningUtilities| ()
   (SPROG NIL
-         (PROG (#1=#:G137)
+         (PROG (#1=#:G139)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ScanningUtilities|)

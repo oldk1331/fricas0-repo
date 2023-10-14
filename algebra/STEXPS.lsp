@@ -21,8 +21,8 @@
            (PROGN
             (SPROG
              ((|x| NIL) (|c| NIL) (|y| NIL) (|ll| NIL) (|n| NIL) (|i| NIL)
-              (#2=#:G162 NIL) (#3=#:G161 NIL) (|res| NIL) (|llp| NIL)
-              (|xp| NIL))
+              (#2=#:G163 NIL) (#3=#:G162 NIL) (#4=#:G161 NIL) (|res| NIL)
+              (|llp| NIL) (|xp| NIL))
              (SEQ
               (EXIT
                (SEQ (LETT |x| |x0| NIL) (LETT |y| |y0| NIL) (LETT |n| |n0| NIL)
@@ -33,8 +33,8 @@
                        ((OR (SPADCALL |n| (|spadConstant| $ 23) (QREFELT $ 14))
                             (SPADCALL |x| (QREFELT $ 10)))
                         (PROGN
-                         (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                         (GO #4=#:G160)))
+                         (LETT #3# (SPADCALL (QREFELT $ 8)) NIL)
+                         (GO #5=#:G160)))
                        ('T (LETT |x| (SPADCALL |x| (QREFELT $ 15)) NIL))))
                      ('T
                       (SEQ (LETT |c| (SPADCALL |y| (QREFELT $ 16)) NIL)
@@ -49,8 +49,9 @@
                     (LETT |llp| |ll| NIL)
                     (SEQ
                      (EXIT
-                      (SEQ (LETT |i| (|spadConstant| $ 23) NIL) G190
-                           (COND ((> |i| |n|) (GO G191)))
+                      (SEQ (LETT |i| (|spadConstant| $ 23) NIL)
+                           (LETT #2# |n| NIL) G190
+                           (COND ((> |i| #2#) (GO G191)))
                            (SEQ
                             (EXIT
                              (COND
@@ -59,12 +60,12 @@
                                 ((SPADCALL |i| (|spadConstant| $ 25)
                                            (QREFELT $ 26))
                                  (PROGN
-                                  (LETT #2# (SPADCALL (QREFELT $ 8)) NIL)
-                                  (GO #4#)))
+                                  (LETT #3# (SPADCALL (QREFELT $ 8)) NIL)
+                                  (GO #5#)))
                                 ('T
                                  (PROGN
-                                  (LETT #3# |$NoValue| NIL)
-                                  (GO #5=#:G156)))))
+                                  (LETT #4# |$NoValue| NIL)
+                                  (GO #6=#:G156)))))
                               ('T
                                (SEQ
                                 (LETT |res|
@@ -87,7 +88,7 @@
                                  (LETT |xp| (SPADCALL |xp| (QREFELT $ 15))
                                        NIL)))))))
                            (LETT |i| (+ |i| 1) NIL) (GO G190) G191 (EXIT NIL)))
-                     #5# (EXIT #3#))
+                     #6# (EXIT #4#))
                     (COND
                      ((SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 33))
                       (COND
@@ -98,7 +99,7 @@
                     (EXIT
                      (SPADCALL |res| (|STEXPS;stmult| |n| |x| |y| |ll| $)
                                (QREFELT $ 34)))))
-              #4# (EXIT #2#))))))) 
+              #5# (EXIT #3#))))))) 
 
 (SDEFUN |STEXPS;*;3S;3|
         ((|x| |Stream| |Coef|) (|y| |Stream| |Coef|) ($ |Stream| |Coef|))
@@ -195,9 +196,9 @@
 
 (DECLAIM (NOTINLINE |StreamExponentialSeriesOperations;|)) 
 
-(DEFUN |StreamExponentialSeriesOperations| (#1=#:G190)
+(DEFUN |StreamExponentialSeriesOperations| (#1=#:G191)
   (SPROG NIL
-         (PROG (#2=#:G191)
+         (PROG (#2=#:G192)
            (RETURN
             (COND
              ((LETT #2#

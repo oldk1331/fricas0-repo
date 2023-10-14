@@ -242,84 +242,84 @@
 
 (SDEFUN |IFARRAY;delete!;$Us$;24|
         ((|r| $) (|i| |UniversalSegment| (|Integer|)) ($ $))
-        (SPROG ((|j| NIL) (|k| NIL) (|h| #1=(|Integer|)) (|m| #1#) (|l| #1#))
-               (SEQ
-                (LETT |l| (- (SPADCALL |i| (QREFELT $ 45)) (QREFELT $ 7))
-                      . #2=(|IFARRAY;delete!;$Us$;24|))
-                (LETT |m| (- (SPADCALL |r| (QREFELT $ 19)) (QREFELT $ 7))
-                      . #2#)
-                (LETT |h|
-                      (COND
-                       ((SPADCALL |i| (QREFELT $ 46))
-                        (- (SPADCALL |i| (QREFELT $ 47)) (QREFELT $ 7)))
-                       ('T |m|))
-                      . #2#)
+        (SPROG
+         ((|j| NIL) (#1=#:G216 NIL) (|k| NIL) (|h| #2=(|Integer|)) (|m| #2#)
+          (|l| #2#))
+         (SEQ
+          (LETT |l| (- (SPADCALL |i| (QREFELT $ 45)) (QREFELT $ 7))
+                . #3=(|IFARRAY;delete!;$Us$;24|))
+          (LETT |m| (- (SPADCALL |r| (QREFELT $ 19)) (QREFELT $ 7)) . #3#)
+          (LETT |h|
                 (COND
-                 ((OR (< |l| 0) (SPADCALL |h| |m| (QREFELT $ 28)))
-                  (EXIT (|error| "index out of range"))))
-                (SEQ (LETT |k| (+ |h| 1) . #2#) (LETT |j| |l| . #2#) G190
-                     (COND ((> |k| |m|) (GO G191)))
-                     (SEQ
-                      (EXIT
-                       (QSETAREF1 (QVELT |r| 2) |j|
-                                  (QAREF1 (QVELT |r| 2) |k|))))
-                     (LETT |j| (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1) . #2#))
-                           . #2#)
-                     (GO G190) G191 (EXIT NIL))
-                (EXIT (|IFARRAY;shrink| |r| (MAX 0 (+ (- |h| |l|) 1)) $))))) 
+                 ((SPADCALL |i| (QREFELT $ 46))
+                  (- (SPADCALL |i| (QREFELT $ 47)) (QREFELT $ 7)))
+                 ('T |m|))
+                . #3#)
+          (COND
+           ((OR (< |l| 0) (SPADCALL |h| |m| (QREFELT $ 28)))
+            (EXIT (|error| "index out of range"))))
+          (SEQ (LETT |k| (+ |h| 1) . #3#) (LETT #1# |m| . #3#)
+               (LETT |j| |l| . #3#) G190 (COND ((> |k| #1#) (GO G191)))
+               (SEQ
+                (EXIT
+                 (QSETAREF1 (QVELT |r| 2) |j| (QAREF1 (QVELT |r| 2) |k|))))
+               (LETT |j| (PROG1 (+ |j| 1) (LETT |k| (+ |k| 1) . #3#)) . #3#)
+               (GO G190) G191 (EXIT NIL))
+          (EXIT (|IFARRAY;shrink| |r| (MAX 0 (+ (- |h| |l|) 1)) $))))) 
 
 (SDEFUN |IFARRAY;insert!;S$I$;25| ((|x| S) (|r| $) (|i1| |Integer|) ($ $))
-        (SPROG ((|k| NIL) (|n| (|Integer|)) (|i| (|Integer|)))
+        (SPROG ((#1=#:G221 NIL) (|k| NIL) (|n| (|Integer|)) (|i| (|Integer|)))
                (SEQ
                 (LETT |i| (- |i1| (QREFELT $ 7))
-                      . #1=(|IFARRAY;insert!;S$I$;25|))
-                (LETT |n| (QVELT |r| 1) . #1#)
+                      . #2=(|IFARRAY;insert!;S$I$;25|))
+                (LETT |n| (QVELT |r| 1) . #2#)
                 (COND
                  ((OR (< |i| 0) (SPADCALL |i| |n| (QREFELT $ 28)))
                   (EXIT (|error| "index out of range"))))
                 (|IFARRAY;growAndFill| |r| 1 |x| $)
-                (SEQ (LETT |k| (- |n| 1) . #1#) G190
-                     (COND ((< |k| |i|) (GO G191)))
+                (SEQ (LETT |k| (- |n| 1) . #2#) (LETT #1# |i| . #2#) G190
+                     (COND ((< |k| #1#) (GO G191)))
                      (SEQ
                       (EXIT
                        (QSETAREF1 (QVELT |r| 2) (+ |k| 1)
                                   (QAREF1 (QVELT |r| 2) |k|))))
-                     (LETT |k| (+ |k| -1) . #1#) (GO G190) G191 (EXIT NIL))
+                     (LETT |k| (+ |k| -1) . #2#) (GO G190) G191 (EXIT NIL))
                 (QSETAREF1 (QVELT |r| 2) |i| |x|) (EXIT |r|)))) 
 
 (SDEFUN |IFARRAY;insert!;2$I$;26| ((|a| $) (|b| $) (|i1| |Integer|) ($ $))
         (SPROG
-         ((|k| NIL) (|n| #1=(|NonNegativeInteger|)) (|m| #1#)
+         ((|k| NIL) (#1=#:G228 NIL) (|n| #2=(|NonNegativeInteger|)) (|m| #2#)
           (|i| (|Integer|)))
          (SEQ
-          (LETT |i| (- |i1| (QREFELT $ 7)) . #2=(|IFARRAY;insert!;2$I$;26|))
+          (LETT |i| (- |i1| (QREFELT $ 7)) . #3=(|IFARRAY;insert!;2$I$;26|))
           (COND
            ((SPADCALL |a| |b| (QREFELT $ 38))
-            (LETT |b| (SPADCALL |b| (QREFELT $ 32)) . #2#)))
-          (LETT |m| (SPADCALL |a| (QREFELT $ 15)) . #2#)
-          (LETT |n| (SPADCALL |b| (QREFELT $ 15)) . #2#)
+            (LETT |b| (SPADCALL |b| (QREFELT $ 32)) . #3#)))
+          (LETT |m| (SPADCALL |a| (QREFELT $ 15)) . #3#)
+          (LETT |n| (SPADCALL |b| (QREFELT $ 15)) . #3#)
           (COND
            ((OR (< |i| 0) (SPADCALL |i| |n| (QREFELT $ 28)))
             (EXIT (|error| "index out of range"))))
           (|IFARRAY;growAdding| |b| |m| |a| $)
-          (SEQ (LETT |k| (- |n| 1) . #2#) G190 (COND ((< |k| |i|) (GO G191)))
+          (SEQ (LETT |k| (- |n| 1) . #3#) (LETT #1# |i| . #3#) G190
+               (COND ((< |k| #1#) (GO G191)))
                (SEQ
                 (EXIT
                  (QSETAREF1 (QVELT |b| 2) (+ |m| |k|)
                             (QAREF1 (QVELT |b| 2) |k|))))
-               (LETT |k| (+ |k| -1) . #2#) (GO G190) G191 (EXIT NIL))
-          (SEQ (LETT |k| (- |m| 1) . #2#) G190 (COND ((< |k| 0) (GO G191)))
+               (LETT |k| (+ |k| -1) . #3#) (GO G190) G191 (EXIT NIL))
+          (SEQ (LETT |k| (- |m| 1) . #3#) G190 (COND ((< |k| 0) (GO G191)))
                (SEQ
                 (EXIT
                  (QSETAREF1 (QVELT |b| 2) (+ |i| |k|)
                             (QAREF1 (QVELT |a| 2) |k|))))
-               (LETT |k| (+ |k| -1) . #2#) (GO G190) G191 (EXIT NIL))
+               (LETT |k| (+ |k| -1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |b|)))) 
 
 (SDEFUN |IFARRAY;merge!;M3$;27|
         ((|g| |Mapping| (|Boolean|) S S) (|a| $) (|b| $) ($ $))
         (SPROG
-         ((|k| NIL) (#1=#:G236 NIL) (|j| #2=(|Integer|)) (|i| #2#)
+         ((|k| NIL) (#1=#:G239 NIL) (|j| #2=(|Integer|)) (|i| #2#)
           (|n| #3=(|NonNegativeInteger|)) (|m| #3#))
          (SEQ
           (LETT |m| (SPADCALL |a| (QREFELT $ 15))
@@ -361,7 +361,7 @@
           (EXIT |a|)))) 
 
 (SDEFUN |IFARRAY;select!;M2$;28| ((|g| |Mapping| (|Boolean|) S) (|a| $) ($ $))
-        (SPROG ((|k| (|Integer|)) (#1=#:G243 NIL) (|i| NIL))
+        (SPROG ((|k| (|Integer|)) (#1=#:G246 NIL) (|i| NIL))
                (SEQ (LETT |k| 0 . #2=(|IFARRAY;select!;M2$;28|))
                     (SEQ (LETT |i| 0 . #2#)
                          (LETT #1#
@@ -384,7 +384,7 @@
 
 (SDEFUN |IFARRAY;removeDuplicates!;2$;29| ((|a| $) ($ $))
         (SPROG
-         ((|i| (|Integer|)) (|nlim| #1=(|Integer|)) (|j| #1#) (#2=#:G252 NIL)
+         ((|i| (|Integer|)) (|nlim| #1=(|Integer|)) (|j| #1#) (#2=#:G255 NIL)
           (|k| NIL) (|nlim0| #1#) (|ct| (|NonNegativeInteger|)))
          (SEQ
           (LETT |ct| (SPADCALL |a| (QREFELT $ 15))
@@ -460,9 +460,9 @@
 
 (DECLAIM (NOTINLINE |IndexedFlexibleArray;|)) 
 
-(DEFUN |IndexedFlexibleArray| (&REST #1=#:G270)
+(DEFUN |IndexedFlexibleArray| (&REST #1=#:G273)
   (SPROG NIL
-         (PROG (#2=#:G271)
+         (PROG (#2=#:G274)
            (RETURN
             (COND
              ((LETT #2#
@@ -482,7 +482,7 @@
 
 (DEFUN |IndexedFlexibleArray;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G269 NIL) (|pv$| NIL) (#2=#:G265 NIL) (#3=#:G266 NIL) (#4=#:G267 NIL)
+   ((#1=#:G272 NIL) (|pv$| NIL) (#2=#:G268 NIL) (#3=#:G269 NIL) (#4=#:G270 NIL)
     ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedFlexibleArray|))

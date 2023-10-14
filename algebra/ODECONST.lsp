@@ -73,30 +73,30 @@
         ((|p| |SparseUnivariatePolynomial| F) (|n| |Integer|) (|x| F)
          ($ |List| F))
         (SPROG
-         ((|xn| (F)) (|l| (|List| F)) (#1=#:G130 NIL) (|f| NIL) (#2=#:G129 NIL)
-          (|i| NIL) (|ll| (|List| F)))
+         ((|xn| (F)) (|l| (|List| F)) (#1=#:G131 NIL) (|f| NIL) (#2=#:G130 NIL)
+          (#3=#:G129 NIL) (|i| NIL) (|ll| (|List| F)))
          (SEQ
           (LETT |l| (|ODECONST;basisSqfr| |p| |x| $)
-                . #3=(|ODECONST;basisSol|))
+                . #4=(|ODECONST;basisSol|))
           (EXIT
            (COND ((ZEROP |n|) |l|)
                  ('T
-                  (SEQ (LETT |ll| (SPADCALL |l| (QREFELT $ 40)) . #3#)
-                       (LETT |xn| |x| . #3#)
-                       (SEQ (LETT |i| 1 . #3#) G190
-                            (COND ((|greater_SI| |i| |n|) (GO G191)))
+                  (SEQ (LETT |ll| (SPADCALL |l| (QREFELT $ 40)) . #4#)
+                       (LETT |xn| |x| . #4#)
+                       (SEQ (LETT |i| 1 . #4#) (LETT #3# |n| . #4#) G190
+                            (COND ((|greater_SI| |i| #3#) (GO G191)))
                             (SEQ
                              (LETT |l|
                                    (SPADCALL |l|
                                              (PROGN
-                                              (LETT #2# NIL . #3#)
-                                              (SEQ (LETT |f| NIL . #3#)
-                                                   (LETT #1# |ll| . #3#) G190
+                                              (LETT #2# NIL . #4#)
+                                              (SEQ (LETT |f| NIL . #4#)
+                                                   (LETT #1# |ll| . #4#) G190
                                                    (COND
                                                     ((OR (ATOM #1#)
                                                          (PROGN
                                                           (LETT |f| (CAR #1#)
-                                                                . #3#)
+                                                                . #4#)
                                                           NIL))
                                                      (GO G191)))
                                                    (SEQ
@@ -107,23 +107,23 @@
                                                                       (QREFELT
                                                                        $ 41))
                                                             #2#)
-                                                           . #3#)))
-                                                   (LETT #1# (CDR #1#) . #3#)
+                                                           . #4#)))
+                                                   (LETT #1# (CDR #1#) . #4#)
                                                    (GO G190) G191
                                                    (EXIT (NREVERSE #2#))))
                                              (QREFELT $ 39))
-                                   . #3#)
+                                   . #4#)
                              (EXIT
                               (LETT |xn| (SPADCALL |x| |xn| (QREFELT $ 41))
-                                    . #3#)))
-                            (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                                    . #4#)))
+                            (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                             (EXIT NIL))
                        (EXIT |l|)))))))) 
 
 (SDEFUN |ODECONST;basisSqfr|
         ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
         (SPROG
-         ((#1=#:G135 NIL) (|a| NIL) (#2=#:G134 NIL)
+         ((#1=#:G136 NIL) (|a| NIL) (#2=#:G135 NIL)
           (|d| (|NonNegativeInteger|)))
          (SEQ
           (LETT |d| (SPADCALL |p| (QREFELT $ 42)) . #3=(|ODECONST;basisSqfr|))
@@ -161,7 +161,7 @@
 (SDEFUN |ODECONST;quadSol|
         ((|p| |SparseUnivariatePolynomial| F) (|x| F) ($ |List| F))
         (SPROG
-         ((#1=#:G147 NIL) (|a| (F)) (#2=#:G146 NIL) (#3=#:G145 NIL) (|i| (F))
+         ((#1=#:G148 NIL) (|a| (F)) (#2=#:G147 NIL) (#3=#:G146 NIL) (|i| (F))
           (|r| (F)) (|y| (F)) (|u| (|Union| (|Integer|) "failed"))
           (|delta| (F)) (|c| (F)) (|b| (F)))
          (SEQ
@@ -220,7 +220,7 @@
                                       (SPADCALL |i| (QREFELT $ 64))
                                       (QREFELT $ 41)))))
                          . #4#)
-                   (GO #5=#:G143))))))))
+                   (GO #5=#:G144))))))))
             (EXIT
              (PROGN
               (LETT #2# NIL . #4#)
@@ -243,9 +243,9 @@
 
 (DECLAIM (NOTINLINE |ConstantLODE;|)) 
 
-(DEFUN |ConstantLODE| (&REST #1=#:G148)
+(DEFUN |ConstantLODE| (&REST #1=#:G149)
   (SPROG NIL
-         (PROG (#2=#:G149)
+         (PROG (#2=#:G150)
            (RETURN
             (COND
              ((LETT #2#

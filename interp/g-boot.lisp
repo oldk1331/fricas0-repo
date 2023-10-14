@@ -852,13 +852,13 @@
 ;             vl := [[var, init_form], :vl]
 ;         op = "STEP" =>
 ;             [var, start, inc, :op_limit] := U
-;             -- If not atom compute only once
-;             if not(ATOM(inc)) then
+;             -- If not constant compute only once
+;             if not(INTEGERP(inc)) then
 ;                 vl := [[(tmp := GENSYM()), inc], :vl]
 ;                 inc := tmp
 ;             if op_limit then
-;                 -- If not atom compute only once
-;                 if not(ATOM(final := first(op_limit))) then
+;                 -- If not constant compute only once
+;                 if not(INTEGERP(final := first(op_limit))) then
 ;                     vl := [[(tmp := GENSYM()), final], :vl]
 ;                     final := tmp
 ;                 tests :=
@@ -871,13 +871,13 @@
 ;             vl := [[var, start, ["+", var, inc]], :vl]
 ;         op = "ISTEP" =>
 ;             [var, start, inc, :op_limit] := U
-;             -- If not atom compute only once
-;             if not(ATOM(inc)) then
+;             -- If not constant compute only once
+;             if not(INTEGERP(inc)) then
 ;                 vl := [[(tmp := GENSYM()), inc], :vl]
 ;                 inc := tmp
 ;             if op_limit then
-;                 if not(ATOM(final := first(op_limit))) then
-;                     -- If not atom compute only once
+;                 if not(INTEGERP(final := first(op_limit))) then
+;                     -- If not constant compute only once
 ;                     vl := [[(tmp := GENSYM()), final], :vl]
 ;                     final := tmp
 ;                 tests :=
@@ -983,7 +983,7 @@
                        (SETQ |inc| (CADDR . #3#))
                        (SETQ |op_limit| (CDDDR . #3#))
                        (COND
-                        ((NULL (ATOM |inc|))
+                        ((NULL (INTEGERP |inc|))
                          (SETQ |vl|
                                  (CONS (LIST (SETQ |tmp| (GENSYM)) |inc|)
                                        |vl|))
@@ -991,7 +991,7 @@
                        (COND
                         (|op_limit|
                          (COND
-                          ((NULL (ATOM (SETQ |final| (CAR |op_limit|))))
+                          ((NULL (INTEGERP (SETQ |final| (CAR |op_limit|))))
                            (SETQ |vl|
                                    (CONS (LIST (SETQ |tmp| (GENSYM)) |final|)
                                          |vl|))
@@ -1017,7 +1017,7 @@
                        (SETQ |inc| (CADDR . #4#))
                        (SETQ |op_limit| (CDDDR . #4#))
                        (COND
-                        ((NULL (ATOM |inc|))
+                        ((NULL (INTEGERP |inc|))
                          (SETQ |vl|
                                  (CONS (LIST (SETQ |tmp| (GENSYM)) |inc|)
                                        |vl|))
@@ -1025,7 +1025,7 @@
                        (COND
                         (|op_limit|
                          (COND
-                          ((NULL (ATOM (SETQ |final| (CAR |op_limit|))))
+                          ((NULL (INTEGERP (SETQ |final| (CAR |op_limit|))))
                            (SETQ |vl|
                                    (CONS (LIST (SETQ |tmp| (GENSYM)) |final|)
                                          |vl|))

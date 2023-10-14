@@ -88,13 +88,14 @@
 (SDEFUN |ILIST;minIndex;$I;20| ((|x| $) ($ |Integer|)) (QREFELT $ 7)) 
 
 (SDEFUN |ILIST;rest;$Nni$;21| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G1009 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|ILIST;rest;$Nni$;21|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                (SEQ (LETT |i| 1 . #2=(|ILIST;rest;$Nni$;21|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ (COND ((NULL |x|) (|error| "index out of range")))
-                          (EXIT (LETT |x| (QCDR |x|) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                          (EXIT (LETT |x| (QCDR |x|) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |ILIST;copy;2$;22| ((|x| $) ($ $))
@@ -168,7 +169,7 @@
                     (QREFELT $ 41)))))))))) 
 
 (SDEFUN |ILIST;=;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G1034 NIL))
+        (SPROG ((#1=#:G1035 NIL))
                (SEQ
                 (EXIT
                  (COND ((EQ |x| |y|) 'T)
@@ -187,7 +188,7 @@
                                             (QREFELT $ 48))
                                   (PROGN
                                    (LETT #1# 'NIL . #3=(|ILIST;=;2$B;24|))
-                                   (GO #4=#:G1033)))
+                                   (GO #4=#:G1034)))
                                  ('T
                                   (SEQ (LETT |x| (QCDR |x|) . #3#)
                                        (EXIT (LETT |y| (QCDR |y|) . #3#)))))))
@@ -196,7 +197,7 @@
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ILIST;member?;S$B;25| ((|s| S) (|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G1040 NIL))
+        (SPROG ((#1=#:G1041 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -209,7 +210,7 @@
                           ((SPADCALL |s| (QCAR |x|) (QREFELT $ 50))
                            (PROGN
                             (LETT #1# 'T . #2=(|ILIST;member?;S$B;25|))
-                            (GO #3=#:G1039)))
+                            (GO #3=#:G1040)))
                           ('T (LETT |x| (QCDR |x|) . #2#)))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT 'NIL)))
@@ -335,7 +336,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |ILIST;split!;$I$;32| ((|p| $) (|n| |Integer|) ($ $))
-        (SPROG ((|q| ($)) (#1=#:G1086 NIL))
+        (SPROG ((|q| ($)) (#1=#:G1087 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
                       ('T
@@ -355,7 +356,7 @@
 
 (SDEFUN |ILIST;mergeSort|
         ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|n| |Integer|) ($ $))
-        (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1090 NIL))
+        (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1091 NIL))
                (SEQ
                 (COND
                  ((EQL |n| 2)
@@ -383,9 +384,9 @@
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
-(DEFUN |IndexedList| (&REST #1=#:G1111)
+(DEFUN |IndexedList| (&REST #1=#:G1112)
   (SPROG NIL
-         (PROG (#2=#:G1112)
+         (PROG (#2=#:G1113)
            (RETURN
             (COND
              ((LETT #2#
@@ -404,8 +405,8 @@
 
 (DEFUN |IndexedList;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G1109 NIL) (#2=#:G1110 NIL) (|pv$| NIL) (#3=#:G1106 NIL)
-    (#4=#:G1107 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+   ((#1=#:G1110 NIL) (#2=#:G1111 NIL) (|pv$| NIL) (#3=#:G1107 NIL)
+    (#4=#:G1108 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedList|))
     (LETT DV$2 (|devaluate| |#2|) . #5#)

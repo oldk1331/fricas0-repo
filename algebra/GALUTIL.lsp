@@ -55,16 +55,16 @@
 (SDEFUN |GALUTIL;pascalTriangle;NniIR;5|
         ((|n| |NonNegativeInteger|) (|r| |Integer|) ($ R))
         (SPROG
-         ((#1=#:G118 NIL) (#2=#:G117 NIL) (#3=#:G127 NIL) (|j| NIL) (|i| NIL)
-          (|mq| #4=(|Integer|))
-          (|m| (|Record| (|:| |quotient| #4#) (|:| |remainder| (|Integer|))))
+         ((#1=#:G118 NIL) (#2=#:G117 NIL) (#3=#:G128 NIL) (|j| NIL)
+          (#4=#:G127 NIL) (|i| NIL) (|mq| #5=(|Integer|))
+          (|m| (|Record| (|:| |quotient| #5#) (|:| |remainder| (|Integer|))))
           (|d| (|Integer|)))
          (SEQ
           (COND ((MINUSP |r|) (|spadConstant| $ 12))
-                (#5='T
+                (#6='T
                  (SEQ
                   (LETT |d| (- |n| |r|)
-                        . #6=(|GALUTIL;pascalTriangle;NniIR;5|))
+                        . #7=(|GALUTIL;pascalTriangle;NniIR;5|))
                   (EXIT
                    (COND ((< |d| |r|) (SPADCALL |n| |d| (QREFELT $ 29)))
                          ((ZEROP |r|) (|spadConstant| $ 13))
@@ -73,8 +73,8 @@
                           (SPADCALL (SPADCALL |n| |r| (QREFELT $ 34))
                                     (QREFELT $ 30)))
                          ((SPADCALL |n| (QREFELT $ 27) (QREFELT $ 35))
-                          (SEQ (LETT |m| (DIVIDE2 (- |n| 4) 2) . #6#)
-                               (LETT |mq| (QCAR |m|) . #6#)
+                          (SEQ (LETT |m| (DIVIDE2 (- |n| 4) 2) . #7#)
+                               (LETT |mq| (QCAR |m|) . #7#)
                                (EXIT
                                 (SPADCALL (QREFELT $ 26)
                                           (-
@@ -83,13 +83,14 @@
                                             |r|)
                                            1)
                                           (QREFELT $ 36)))))
-                         (#5#
+                         (#6#
                           (SEQ
-                           (SEQ (LETT |i| (+ (QREFELT $ 27) 1) . #6#) G190
-                                (COND ((> |i| |n|) (GO G191)))
+                           (SEQ (LETT |i| (+ (QREFELT $ 27) 1) . #7#)
+                                (LETT #4# |n| . #7#) G190
+                                (COND ((> |i| #4#) (GO G191)))
                                 (SEQ
-                                 (SEQ (LETT |j| 2 . #6#)
-                                      (LETT #3# (QUOTIENT2 |i| 2) . #6#) G190
+                                 (SEQ (LETT |j| 2 . #7#)
+                                      (LETT #3# (QUOTIENT2 |i| 2) . #7#) G190
                                       (COND ((|greater_SI| |j| #3#) (GO G191)))
                                       (SEQ
                                        (EXIT
@@ -100,7 +101,7 @@
                                                             (PROG1
                                                                 (LETT #2#
                                                                       (- |i| 1)
-                                                                      . #6#)
+                                                                      . #7#)
                                                               (|check_subtype2|
                                                                (>= #2# 0)
                                                                '(|NonNegativeInteger|)
@@ -112,7 +113,7 @@
                                                             (PROG1
                                                                 (LETT #1#
                                                                       (- |i| 1)
-                                                                      . #6#)
+                                                                      . #7#)
                                                               (|check_subtype2|
                                                                (>= #1# 0)
                                                                '(|NonNegativeInteger|)
@@ -121,10 +122,10 @@
                                                             |j| (QREFELT $ 29))
                                                            (QREFELT $ 15))
                                                           (QREFELT $ 37)))))
-                                      (LETT |j| (|inc_SI| |j|) . #6#) (GO G190)
+                                      (LETT |j| (|inc_SI| |j|) . #7#) (GO G190)
                                       G191 (EXIT NIL))
                                  (EXIT (SETELT $ 27 |i|)))
-                                (LETT |i| (+ |i| 1) . #6#) (GO G190) G191
+                                (LETT |i| (+ |i| 1) . #7#) (GO G190) G191
                                 (EXIT NIL))
                            (EXIT (SPADCALL |n| |r| (QREFELT $ 29))))))))))))) 
 
@@ -179,9 +180,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupUtilities;|)) 
 
-(DEFUN |GaloisGroupUtilities| (#1=#:G136)
+(DEFUN |GaloisGroupUtilities| (#1=#:G137)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G138)
            (RETURN
             (COND
              ((LETT #2#

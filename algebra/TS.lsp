@@ -1,13 +1,13 @@
 
 (SDEFUN |TS;polynomial;$NniP;1|
         ((|s| $) (|n| |NonNegativeInteger|) ($ |Polynomial| |Coef|))
-        (SPROG ((|sum| (|Polynomial| |Coef|)) (|i| NIL))
+        (SPROG ((|sum| (|Polynomial| |Coef|)) (#1=#:G110 NIL) (|i| NIL))
                (SEQ
                 (LETT |sum| (|spadConstant| $ 9)
-                      . #1=(|TS;polynomial;$NniP;1|))
-                (SEQ (LETT |i| 0 . #1#) G190
+                      . #2=(|TS;polynomial;$NniP;1|))
+                (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#) G190
                      (COND
-                      ((OR (|greater_SI| |i| |n|)
+                      ((OR (|greater_SI| |i| #1#)
                            (NULL
                             (COND ((SPADCALL |s| (QREFELT $ 11)) 'NIL)
                                   ('T 'T))))
@@ -16,16 +16,16 @@
                       (LETT |sum|
                             (SPADCALL |sum| (SPADCALL |s| (QREFELT $ 12))
                                       (QREFELT $ 13))
-                            . #1#)
-                      (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                            . #2#)
+                      (EXIT (LETT |s| (SPADCALL |s| (QREFELT $ 14)) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |sum|)))) 
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
-(DEFUN |TaylorSeries| (#1=#:G117)
+(DEFUN |TaylorSeries| (#1=#:G118)
   (SPROG NIL
-         (PROG (#2=#:G118)
+         (PROG (#2=#:G119)
            (RETURN
             (COND
              ((LETT #2#
@@ -41,7 +41,7 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|)))))))))) 
 
 (DEFUN |TaylorSeries;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G116 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G117 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|TaylorSeries|))
           (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #2#)

@@ -458,10 +458,10 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((|k| NIL) (|res| NIL))
+            (SPROG ((|k| NIL) (#2=#:G220 NIL) (|res| NIL))
                    (SEQ (LETT |res| |s| NIL)
-                        (SEQ (LETT |k| 2 NIL) G190
-                             (COND ((|greater_SI| |k| |n|) (GO G191)))
+                        (SEQ (LETT |k| 2 NIL) (LETT #2# |n| NIL) G190
+                             (COND ((|greater_SI| |k| #2#) (GO G191)))
                              (SEQ
                               (EXIT
                                (LETT |res| (SPADCALL |res| (QREFELT $ 22))
@@ -487,9 +487,9 @@
 
 (DECLAIM (NOTINLINE |Distribution;|)) 
 
-(DEFUN |Distribution| (#1=#:G223)
+(DEFUN |Distribution| (#1=#:G224)
   (SPROG NIL
-         (PROG (#2=#:G224)
+         (PROG (#2=#:G225)
            (RETURN
             (COND
              ((LETT #2#

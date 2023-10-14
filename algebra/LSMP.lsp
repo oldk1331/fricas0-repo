@@ -17,19 +17,19 @@
 
 (SDEFUN |LSMP;aSolution| ((|m| M) ($ |Union| |Col| "failed"))
         (SPROG
-         ((#1=#:G138 NIL) (|j| NIL) (|i| NIL)
+         ((#1=#:G139 NIL) (|j| NIL) (#2=#:G138 NIL) (|i| NIL)
           (|v| (|PrimitiveArray| (|Integer|))) (|sol| (|Col|))
           (|ck| (|Integer|)) (|rk| (|Integer|)) (|nvar| (|NonNegativeInteger|))
-          (#2=#:G123 NIL))
+          (#3=#:G123 NIL))
          (SEQ
           (LETT |nvar|
                 (PROG1
-                    (LETT #2# (- (SPADCALL |m| (QREFELT $ 21)) 1)
-                          . #3=(|LSMP;aSolution|))
-                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #2#))
-                . #3#)
-          (LETT |rk| (SPADCALL |m| (QREFELT $ 24)) . #3#)
+                    (LETT #3# (- (SPADCALL |m| (QREFELT $ 21)) 1)
+                          . #4=(|LSMP;aSolution|))
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
+                . #4#)
+          (LETT |rk| (SPADCALL |m| (QREFELT $ 24)) . #4#)
           (SEQ G190
                (COND
                 ((NULL
@@ -39,14 +39,14 @@
                               (QREFELT $ 29)))
                    ('T 'NIL)))
                  (GO G191)))
-               (SEQ (EXIT (LETT |rk| (- |rk| 1) . #3#))) NIL (GO G190) G191
+               (SEQ (EXIT (LETT |rk| (- |rk| 1) . #4#))) NIL (GO G190) G191
                (EXIT NIL))
           (EXIT
            (COND
             ((< |rk| (SPADCALL |m| (QREFELT $ 25)))
              (CONS 0 (SPADCALL |nvar| (|spadConstant| $ 30) (QREFELT $ 31))))
-            (#4='T
-             (SEQ (LETT |ck| (SPADCALL |m| (QREFELT $ 32)) . #3#)
+            (#5='T
+             (SEQ (LETT |ck| (SPADCALL |m| (QREFELT $ 32)) . #4#)
                   (SEQ G190
                        (COND
                         ((NULL
@@ -56,26 +56,27 @@
                                       (QREFELT $ 26)))
                            ('T 'NIL)))
                          (GO G191)))
-                       (SEQ (EXIT (LETT |ck| (+ |ck| 1) . #3#))) NIL (GO G190)
+                       (SEQ (EXIT (LETT |ck| (+ |ck| 1) . #4#))) NIL (GO G190)
                        G191 (EXIT NIL))
                   (EXIT
                    (COND
                     ((EQL |ck| (SPADCALL |m| (QREFELT $ 33)))
                      (CONS 1 "failed"))
-                    (#4#
+                    (#5#
                      (SEQ
                       (LETT |sol|
                             (SPADCALL |nvar| (|spadConstant| $ 30)
                                       (QREFELT $ 31))
-                            . #3#)
+                            . #4#)
                       (LETT |v|
                             (MAKEARR1 |nvar|
                                       (- (SPADCALL |m| (QREFELT $ 25)) 1))
-                            . #3#)
-                      (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 25)) . #3#) G190
-                           (COND ((> |i| |rk|) (GO G191)))
+                            . #4#)
+                      (SEQ (LETT |i| (SPADCALL |m| (QREFELT $ 25)) . #4#)
+                           (LETT #2# |rk| . #4#) G190
+                           (COND ((> |i| #2#) (GO G191)))
                            (SEQ
-                            (SEQ (LETT |j| 0 . #3#) G190
+                            (SEQ (LETT |j| 0 . #4#) G190
                                  (COND
                                   ((NULL
                                     (SPADCALL
@@ -87,12 +88,12 @@
                                      (QREFELT $ 26)))
                                    (GO G191)))
                                  (SEQ (EXIT (|spadConstant| $ 30)))
-                                 (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                                 (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT (QSETAREF1 |v| |j| |i|)))
-                           (LETT |i| (+ |i| 1) . #3#) (GO G190) G191
+                           (LETT |i| (+ |i| 1) . #4#) (GO G190) G191
                            (EXIT NIL))
-                      (SEQ (LETT |j| 0 . #3#) (LETT #1# (- |nvar| 1) . #3#)
+                      (SEQ (LETT |j| 0 . #4#) (LETT #1# (- |nvar| 1) . #4#)
                            G190 (COND ((|greater_SI| |j| #1#) (GO G191)))
                            (SEQ
                             (EXIT
@@ -109,7 +110,7 @@
                                                     (QREFELT $ 34))
                                           (QREFELT $ 36))
                                          (QREFELT $ 37))))))
-                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
+                           (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT (CONS 0 |sol|))))))))))))) 
 
@@ -148,7 +149,7 @@
           (|Record| (|:| |particular| (|Union| |Col| #1="failed"))
                     (|:| |basis| #2=(|List| |Col|)))))
         (SPROG
-         ((#3=#:G158 NIL) (|b| NIL) (#4=#:G157 NIL) (|nl| #2#)
+         ((#3=#:G159 NIL) (|b| NIL) (#4=#:G158 NIL) (|nl| #2#)
           (|sol0|
            (|Record| (|:| |particular| (|Union| |Col| #1#))
                      (|:| |basis| (|List| |Col|)))))
@@ -194,9 +195,9 @@
 
 (DECLAIM (NOTINLINE |LinearSystemMatrixPackage;|)) 
 
-(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G159)
+(DEFUN |LinearSystemMatrixPackage| (&REST #1=#:G160)
   (SPROG NIL
-         (PROG (#2=#:G160)
+         (PROG (#2=#:G161)
            (RETURN
             (COND
              ((LETT #2#

@@ -203,29 +203,30 @@
 
 (SDEFUN |RADFF;iBasis| ((|p| UP) (|d| |NonNegativeInteger|) ($ |Vector| UP))
         (SPROG
-         ((#1=#:G199 NIL) (#2=#:G198 (UP)) (#3=#:G200 (UP)) (|j| NIL) (|i| NIL)
-          (#4=#:G204 NIL) (|d1| (|NonNegativeInteger|)) (#5=#:G197 NIL)
+         ((#1=#:G199 NIL) (#2=#:G198 (UP)) (#3=#:G200 (UP)) (#4=#:G206 NIL)
+          (|j| NIL) (#5=#:G205 NIL) (|i| NIL) (#6=#:G204 NIL)
+          (|d1| (|NonNegativeInteger|)) (#7=#:G197 NIL)
           (|pl| (|PrimitiveArray| UP)))
          (SEQ
           (LETT |pl| (|RADFF;fullVector| (SPADCALL |p| (QREFELT $ 85)) |d| $)
-                . #6=(|RADFF;iBasis|))
+                . #8=(|RADFF;iBasis|))
           (LETT |d1|
-                (PROG1 (LETT #5# (- |d| 1) . #6#)
-                  (|check_subtype2| (>= #5# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #5#))
-                . #6#)
+                (PROG1 (LETT #7# (- |d| 1) . #8#)
+                  (|check_subtype2| (>= #7# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #7#))
+                . #8#)
           (EXIT
            (PROGN
-            (LETT #4# (GETREFV (|inc_SI| |d1|)) . #6#)
-            (SEQ (LETT |i| 0 . #6#) G190
-                 (COND ((|greater_SI| |i| |d1|) (GO G191)))
+            (LETT #6# (GETREFV (|inc_SI| |d1|)) . #8#)
+            (SEQ (LETT |i| 0 . #8#) (LETT #5# |d1| . #8#) G190
+                 (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
                   (EXIT
-                   (SETELT #4# |i|
+                   (SETELT #6# |i|
                            (PROGN
-                            (LETT #1# NIL . #6#)
-                            (SEQ (LETT |j| 0 . #6#) G190
-                                 (COND ((|greater_SI| |j| |d1|) (GO G191)))
+                            (LETT #1# NIL . #8#)
+                            (SEQ (LETT |j| 0 . #8#) (LETT #4# |d1| . #8#) G190
+                                 (COND ((|greater_SI| |j| #4#) (GO G191)))
                                  (SEQ
                                   (EXIT
                                    (PROGN
@@ -233,21 +234,21 @@
                                           (SPADCALL (QAREF1 |pl| |j|)
                                                     (QUOTIENT2 (* |i| |j|) |d|)
                                                     (QREFELT $ 86))
-                                          . #6#)
+                                          . #8#)
                                     (COND
                                      (#1#
                                       (LETT #2#
                                             (SPADCALL #2# #3# (QREFELT $ 87))
-                                            . #6#))
+                                            . #8#))
                                      ('T
                                       (PROGN
-                                       (LETT #2# #3# . #6#)
-                                       (LETT #1# 'T . #6#)))))))
-                                 (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
+                                       (LETT #2# #3# . #8#)
+                                       (LETT #1# 'T . #8#)))))))
+                                 (LETT |j| (|inc_SI| |j|) . #8#) (GO G190) G191
                                  (EXIT NIL))
                             (COND (#1# #2#) ('T (|spadConstant| $ 88)))))))
-                 (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-            #4#))))) 
+                 (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
+            #6#))))) 
 
 (SDEFUN |RADFF;fullVector|
         ((|p| |Factored| UP) (|m| |NonNegativeInteger|)
@@ -256,7 +257,7 @@
          ((|u|
            (|Union| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))
                     "failed"))
-          (#1=#:G214 NIL) (|i| NIL)
+          (#1=#:G216 NIL) (|i| NIL)
           (|l|
            (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (|ans| (|PrimitiveArray| UP)))
@@ -294,7 +295,7 @@
         ((|p| |Fraction| UP) (|m| |NonNegativeInteger|)
          ($ |Vector| (|Fraction| UP)))
         (SPROG
-         ((|b| (|Fraction| UP)) (#1=#:G221 NIL) (|i| NIL)
+         ((|b| (|Fraction| UP)) (#1=#:G223 NIL) (|i| NIL)
           (|w| (|Vector| (|Fraction| UP))) (|v| (|Vector| UP))
           (|a| (|Fraction| UP))
           (|rt|
@@ -347,8 +348,8 @@
         ((|p| UPUP) (|c| |Fraction| UP) (|v| |Vector| (|Fraction| UP))
          (|w| |Vector| (|Fraction| UP)) ($ |Void|))
         (SPROG
-         ((|a| (|Fraction| UP)) (#1=#:G229 NIL) (|i| NIL) (#2=#:G230 NIL)
-          (|j| NIL) (#3=#:G231 NIL) (|k| NIL)
+         ((|a| (|Fraction| UP)) (#1=#:G231 NIL) (|i| NIL) (#2=#:G232 NIL)
+          (|j| NIL) (#3=#:G233 NIL) (|k| NIL)
           (|ib|
            (|Record| (|:| |basis| (|Matrix| UP)) (|:| |basisDen| UP)
                      (|:| |basisInv| (|Matrix| UP))))
@@ -455,8 +456,8 @@
 
 (SDEFUN |RADFF;startUp| ((|b| |Boolean|) ($ |Void|))
         (SPROG
-         ((|dsc| (|Fraction| UP)) (#1=#:G246 NIL)
-          (#2=#:G245 #3=(|Fraction| UP)) (#4=#:G247 #3#) (#5=#:G250 NIL)
+         ((|dsc| (|Fraction| UP)) (#1=#:G248 NIL)
+          (#2=#:G247 #3=(|Fraction| UP)) (#4=#:G249 #3#) (#5=#:G252 NIL)
           (|i| NIL) (|p| (|NonNegativeInteger|)))
          (SEQ (SPADCALL (QREFELT $ 20) |b| (QREFELT $ 129))
               (COND
@@ -510,7 +511,7 @@
 
 (SDEFUN |RADFF;char0StartUp| (($ |Void|))
         (SPROG
-         ((|a| (|Fraction| UP)) (|invden| (|Fraction| UP)) (#1=#:G257 NIL)
+         ((|a| (|Fraction| UP)) (|invden| (|Fraction| UP)) (#1=#:G259 NIL)
           (|i| NIL) (|infb| (|Vector| (|Fraction| UP))) (|ib| (|Vector| UP))
           (|rp|
            (|Record| (|:| |exponent| (|NonNegativeInteger|))
@@ -603,7 +604,7 @@
                            (#2# 'NIL)))))))))) 
 
 (SDEFUN |RADFF;singular?;FB;29| ((|point| F) ($ |Boolean|))
-        (SPROG ((#1=#:G284 NIL))
+        (SPROG ((#1=#:G286 NIL))
                (COND
                 ((SPADCALL
                   (SPADCALL (|RADFF;radcand| $) |point| (QREFELT $ 53))
@@ -628,7 +629,7 @@
                 ('T 'NIL)))) 
 
 (SDEFUN |RADFF;branchPoint?;FB;30| ((|point| F) ($ |Boolean|))
-        (SPROG ((#1=#:G289 NIL))
+        (SPROG ((#1=#:G291 NIL))
                (COND
                 ((SPADCALL
                   (SPADCALL (|RADFF;radcand| $) |point| (QREFELT $ 53))
@@ -657,9 +658,9 @@
 
 (DECLAIM (NOTINLINE |RadicalFunctionField;|)) 
 
-(DEFUN |RadicalFunctionField| (&REST #1=#:G334)
+(DEFUN |RadicalFunctionField| (&REST #1=#:G336)
   (SPROG NIL
-         (PROG (#2=#:G335)
+         (PROG (#2=#:G337)
            (RETURN
             (COND
              ((LETT #2#
@@ -679,7 +680,7 @@
 
 (DEFUN |RadicalFunctionField;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
-   ((#1=#:G122 NIL) (|pv$| NIL) (#2=#:G332 NIL) (#3=#:G333 NIL) ($ NIL)
+   ((#1=#:G122 NIL) (|pv$| NIL) (#2=#:G334 NIL) (#3=#:G335 NIL) ($ NIL)
     (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|RadicalFunctionField|))

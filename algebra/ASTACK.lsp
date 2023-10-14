@@ -8,32 +8,33 @@
 (SDEFUN |ASTACK;copy;2$;3| ((|s| $) ($ $)) (SPADCALL |s| (QREFELT $ 14))) 
 
 (SDEFUN |ASTACK;coerce;$Of;4| ((|d| $) ($ |OutputForm|))
-        (SPROG ((|i| NIL) (#1=#:G114 NIL) (|n| (|NonNegativeInteger|)))
-               (SEQ
-                (COND
-                 ((SPADCALL |d| (QREFELT $ 16)) (SPADCALL NIL (QREFELT $ 19)))
-                 ('T
-                  (SEQ
-                   (LETT |n| (SPADCALL |d| (QREFELT $ 10))
-                         . #2=(|ASTACK;coerce;$Of;4|))
-                   (EXIT
-                    (SPADCALL
-                     (PROGN
-                      (LETT #1# NIL . #2#)
-                      (SEQ (LETT |i| 1 . #2#) G190
-                           (COND ((|greater_SI| |i| |n|) (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT #1#
-                                   (CONS
-                                    (SPADCALL
-                                     (SPADCALL |d| (- |n| |i|) (QREFELT $ 21))
-                                     (QREFELT $ 22))
-                                    #1#)
-                                   . #2#)))
-                           (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                           (EXIT (NREVERSE #1#))))
-                     (QREFELT $ 24))))))))) 
+        (SPROG
+         ((#1=#:G115 NIL) (|i| NIL) (#2=#:G114 NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ
+          (COND ((SPADCALL |d| (QREFELT $ 16)) (SPADCALL NIL (QREFELT $ 19)))
+                ('T
+                 (SEQ
+                  (LETT |n| (SPADCALL |d| (QREFELT $ 10))
+                        . #3=(|ASTACK;coerce;$Of;4|))
+                  (EXIT
+                   (SPADCALL
+                    (PROGN
+                     (LETT #2# NIL . #3#)
+                     (SEQ (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                          (COND ((|greater_SI| |i| #1#) (GO G191)))
+                          (SEQ
+                           (EXIT
+                            (LETT #2#
+                                  (CONS
+                                   (SPADCALL
+                                    (SPADCALL |d| (- |n| |i|) (QREFELT $ 21))
+                                    (QREFELT $ 22))
+                                   #2#)
+                                  . #3#)))
+                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    (QREFELT $ 24))))))))) 
 
 (SDEFUN |ASTACK;depth;$Nni;5| ((|s| $) ($ |NonNegativeInteger|))
         (SPADCALL |s| (QREFELT $ 10))) 
@@ -87,9 +88,9 @@
 
 (DECLAIM (NOTINLINE |ArrayStack;|)) 
 
-(DEFUN |ArrayStack| (#1=#:G146)
+(DEFUN |ArrayStack| (#1=#:G147)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G148)
            (RETURN
             (COND
              ((LETT #2#
@@ -106,7 +107,7 @@
 
 (DEFUN |ArrayStack;| (|#1|)
   (SPROG
-   ((#1=#:G145 NIL) (|pv$| NIL) (#2=#:G142 NIL) (#3=#:G143 NIL) (#4=#:G144 NIL)
+   ((#1=#:G146 NIL) (|pv$| NIL) (#2=#:G143 NIL) (#3=#:G144 NIL) (#4=#:G145 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|ArrayStack|))

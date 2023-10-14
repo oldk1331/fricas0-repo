@@ -654,7 +654,7 @@
 (SDEFUN |XPBWPOLY;exp;$Nni$;27| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG
          ((|r| ($)) (|s| ($)) (|k2| (R)) (|k1| (|Fraction| (|Integer|)))
-          (|i| NIL))
+          (#1=#:G233 NIL) (|i| NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| $ 21) (QREFELT $ 66))
@@ -663,29 +663,29 @@
             (|error| "a proper polynomial is required"))
            ('T
             (SEQ
-             (LETT |s| (|spadConstant| $ 26) . #1=(|XPBWPOLY;exp;$Nni$;27|))
-             (LETT |r| (|spadConstant| $ 26) . #1#)
-             (SEQ (LETT |i| 1 . #1#) G190
-                  (COND ((|greater_SI| |i| |n|) (GO G191)))
-                  (SEQ (LETT |k1| (SPADCALL 1 |i| (QREFELT $ 93)) . #1#)
+             (LETT |s| (|spadConstant| $ 26) . #2=(|XPBWPOLY;exp;$Nni$;27|))
+             (LETT |r| (|spadConstant| $ 26) . #2#)
+             (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                  (COND ((|greater_SI| |i| #1#) (GO G191)))
+                  (SEQ (LETT |k1| (SPADCALL 1 |i| (QREFELT $ 93)) . #2#)
                        (LETT |k2|
                              (SPADCALL |k1| (|spadConstant| $ 9)
                                        (QREFELT $ 94))
-                             . #1#)
+                             . #2#)
                        (LETT |s|
                              (SPADCALL |k2|
                                        (SPADCALL |p| |s| |n| (QREFELT $ 91))
                                        (QREFELT $ 19))
-                             . #1#)
+                             . #2#)
                        (EXIT
-                        (LETT |r| (SPADCALL |r| |s| (QREFELT $ 20)) . #1#)))
-                  (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                        (LETT |r| (SPADCALL |r| |s| (QREFELT $ 20)) . #2#)))
+                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
              (EXIT |r|))))))) 
 
 (SDEFUN |XPBWPOLY;log;$Nni$;28| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG
          ((|r| ($)) (|s| ($)) (|k2| (R)) (|k1| (|Fraction| (|Integer|)))
-          (|i| NIL) (|p1| ($)))
+          (#1=#:G239 NIL) (|i| NIL) (|p1| ($)))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| $ 26) (QREFELT $ 66))
@@ -693,26 +693,26 @@
            ('T
             (SEQ
              (LETT |p1| (SPADCALL (|spadConstant| $ 26) |p| (QREFELT $ 96))
-                   . #1=(|XPBWPOLY;log;$Nni$;28|))
+                   . #2=(|XPBWPOLY;log;$Nni$;28|))
              (COND
               ((NULL (SPADCALL |p1| (QREFELT $ 78)))
                (EXIT (|error| "constant term <> 1, impossible log "))))
-             (LETT |s| (SPADCALL (|spadConstant| $ 26) (QREFELT $ 97)) . #1#)
-             (LETT |r| (|spadConstant| $ 21) . #1#)
-             (SEQ (LETT |i| 1 . #1#) G190
-                  (COND ((|greater_SI| |i| |n|) (GO G191)))
-                  (SEQ (LETT |k1| (SPADCALL 1 |i| (QREFELT $ 93)) . #1#)
+             (LETT |s| (SPADCALL (|spadConstant| $ 26) (QREFELT $ 97)) . #2#)
+             (LETT |r| (|spadConstant| $ 21) . #2#)
+             (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                  (COND ((|greater_SI| |i| #1#) (GO G191)))
+                  (SEQ (LETT |k1| (SPADCALL 1 |i| (QREFELT $ 93)) . #2#)
                        (LETT |k2|
                              (SPADCALL |k1| (|spadConstant| $ 9)
                                        (QREFELT $ 94))
-                             . #1#)
-                       (LETT |s| (SPADCALL |p1| |s| |n| (QREFELT $ 91)) . #1#)
+                             . #2#)
+                       (LETT |s| (SPADCALL |p1| |s| |n| (QREFELT $ 91)) . #2#)
                        (EXIT
                         (LETT |r|
                               (SPADCALL (SPADCALL |k2| |s| (QREFELT $ 19)) |r|
                                         (QREFELT $ 20))
-                              . #1#)))
-                  (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                              . #2#)))
+                  (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
              (EXIT |r|))))))) 
 
 (SDEFUN |XPBWPOLY;LiePolyIfCan;$U;29|
@@ -720,8 +720,8 @@
         (SPROG
          ((|lt|
            (|List| (|Record| (|:| |k| (|LyndonWord| |VarSet|)) (|:| |c| R))))
-          (#1=#:G254 NIL) (|t| NIL) (#2=#:G253 NIL) (#3=#:G242 NIL)
-          (#4=#:G241 #5=(|Boolean|)) (#6=#:G243 #5#) (#7=#:G252 NIL))
+          (#1=#:G256 NIL) (|t| NIL) (#2=#:G255 NIL) (#3=#:G244 NIL)
+          (#4=#:G243 #5=(|Boolean|)) (#6=#:G245 #5#) (#7=#:G254 NIL))
          (SEQ
           (COND
            ((SPADCALL |p| (|spadConstant| $ 21) (QREFELT $ 66))
@@ -768,7 +768,7 @@
 
 (SDEFUN |XPBWPOLY;mirror;2$;30| ((|p| $) ($ $))
         (SPROG
-         ((#1=#:G256 NIL) (#2=#:G255 ($)) (#3=#:G257 ($)) (#4=#:G259 NIL)
+         ((#1=#:G258 NIL) (#2=#:G257 ($)) (#3=#:G259 ($)) (#4=#:G261 NIL)
           (|t| NIL))
          (SEQ
           (PROGN
@@ -792,9 +792,9 @@
 
 (DECLAIM (NOTINLINE |XPBWPolynomial;|)) 
 
-(DEFUN |XPBWPolynomial| (&REST #1=#:G273)
+(DEFUN |XPBWPolynomial| (&REST #1=#:G275)
   (SPROG NIL
-         (PROG (#2=#:G274)
+         (PROG (#2=#:G276)
            (RETURN
             (COND
              ((LETT #2#

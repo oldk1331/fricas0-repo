@@ -173,36 +173,37 @@
         (SPROG
          ((|st| ($)) (|term| (|UnivariatePolynomial| |var| |Coef|))
           (|ress| (|UnivariatePolynomial| |var| |Coef|)) (#1=#:G173 NIL)
-          (|k| NIL) (|t1| (|UnivariatePolynomial| |var| |Coef|)))
+          (#2=#:G175 NIL) (|k| NIL)
+          (|t1| (|UnivariatePolynomial| |var| |Coef|)) (#3=#:G174 NIL))
          (SEQ
           (EXIT
            (SEQ
             (LETT |ress| (|spadConstant| $ 68)
-                  . #2=(|UTS;univariatePolynomial;$NniUp;16|))
-            (LETT |st| (|UTS;stream| |x| $) . #2#)
+                  . #4=(|UTS;univariatePolynomial;$NniUp;16|))
+            (LETT |st| (|UTS;stream| |x| $) . #4#)
             (EXIT
              (COND
               ((SPADCALL (QREFELT $ 8) (|spadConstant| $ 16) (QREFELT $ 69))
                (SEQ
-                (SEQ (LETT |k| 0 . #2#) G190
-                     (COND ((|greater_SI| |k| |n|) (GO G191)))
+                (SEQ (LETT |k| 0 . #4#) (LETT #3# |n| . #4#) G190
+                     (COND ((|greater_SI| |k| #3#) (GO G191)))
                      (SEQ
                       (EXIT
                        (COND
                         ((SPADCALL |st| (QREFELT $ 29))
-                         (PROGN (LETT #1# |ress| . #2#) (GO #3=#:G172)))
+                         (PROGN (LETT #1# |ress| . #4#) (GO #5=#:G172)))
                         ('T
                          (SEQ
                           (LETT |term|
                                 (SPADCALL (SPADCALL |st| (QREFELT $ 31)) |k|
                                           (QREFELT $ 70))
-                                . #2#)
+                                . #4#)
                           (LETT |ress| (SPADCALL |term| |ress| (QREFELT $ 71))
-                                . #2#)
+                                . #4#)
                           (EXIT
                            (LETT |st| (SPADCALL |st| (QREFELT $ 35))
-                                 . #2#)))))))
-                     (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191 (EXIT NIL))
+                                 . #4#)))))))
+                     (LETT |k| (|inc_SI| |k|) . #4#) (GO G190) G191 (EXIT NIL))
                 (EXIT |ress|)))
               ('T
                (SEQ |ress|
@@ -211,15 +212,15 @@
                            (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 70))
                            (SPADCALL (QREFELT $ 8) 0 (QREFELT $ 70))
                            (QREFELT $ 72))
-                          . #2#)
-                    (LETT |term| (|spadConstant| $ 73) . #2#)
-                    (SEQ (LETT |k| 1 . #2#) G190
-                         (COND ((|greater_SI| |k| |n|) (GO G191)))
+                          . #4#)
+                    (LETT |term| (|spadConstant| $ 73) . #4#)
+                    (SEQ (LETT |k| 1 . #4#) (LETT #2# |n| . #4#) G190
+                         (COND ((|greater_SI| |k| #2#) (GO G191)))
                          (SEQ
                           (EXIT
                            (COND
                             ((SPADCALL |st| (QREFELT $ 29))
-                             (PROGN (LETT #1# |ress| . #2#) (GO #3#)))
+                             (PROGN (LETT #1# |ress| . #4#) (GO #5#)))
                             ('T
                              (SEQ
                               (LETT |ress|
@@ -227,22 +228,23 @@
                                      (SPADCALL (SPADCALL |st| (QREFELT $ 31))
                                                |term| (QREFELT $ 74))
                                      |ress| (QREFELT $ 71))
-                                    . #2#)
+                                    . #4#)
                               (LETT |term|
                                     (SPADCALL |term| |t1| (QREFELT $ 75))
-                                    . #2#)
+                                    . #4#)
                               (EXIT
                                (LETT |st| (SPADCALL |st| (QREFELT $ 35))
-                                     . #2#)))))))
-                         (LETT |k| (|inc_SI| |k|) . #2#) (GO G190) G191
+                                     . #4#)))))))
+                         (LETT |k| (|inc_SI| |k|) . #4#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT |ress|)))))))
-          #3# (EXIT #1#)))) 
+          #5# (EXIT #1#)))) 
 
 (SDEFUN |UTS;coerce;Up$;17| ((|p| |UnivariatePolynomial| |var| |Coef|) ($ $))
         (SPROG
-         ((|st| (|Stream| |Coef|)) (|i| NIL) (|oldDeg| (|NonNegativeInteger|))
-          (|delta| (|NonNegativeInteger|)) (#1=#:G176 NIL)
+         ((|st| (|Stream| |Coef|)) (#1=#:G187 NIL) (|i| NIL)
+          (|oldDeg| (|NonNegativeInteger|)) (#2=#:G186 NIL)
+          (|delta| (|NonNegativeInteger|)) (#3=#:G178 NIL)
           (|deg| (|NonNegativeInteger|)))
          (SEQ
           (COND ((SPADCALL |p| (QREFELT $ 77)) (|spadConstant| $ 17))
@@ -258,49 +260,49 @@
                                      (SPADCALL (QREFELT $ 8) 0 (QREFELT $ 70))
                                      (QREFELT $ 71))
                                     (QREFELT $ 78))
-                          . #2=(|UTS;coerce;Up$;17|))))
-                  (LETT |st| (SPADCALL (QREFELT $ 48)) . #2#)
-                  (LETT |oldDeg| (+ (SPADCALL |p| (QREFELT $ 79)) 1) . #2#)
+                          . #4=(|UTS;coerce;Up$;17|))))
+                  (LETT |st| (SPADCALL (QREFELT $ 48)) . #4#)
+                  (LETT |oldDeg| (+ (SPADCALL |p| (QREFELT $ 79)) 1) . #4#)
                   (SEQ G190
                        (COND
                         ((NULL
                           (COND ((SPADCALL |p| (QREFELT $ 77)) 'NIL) ('T 'T)))
                          (GO G191)))
-                       (SEQ (LETT |deg| (SPADCALL |p| (QREFELT $ 79)) . #2#)
+                       (SEQ (LETT |deg| (SPADCALL |p| (QREFELT $ 79)) . #4#)
                             (LETT |delta|
                                   (PROG1
-                                      (LETT #1# (- (- |oldDeg| |deg|) 1) . #2#)
-                                    (|check_subtype2| (>= #1# 0)
+                                      (LETT #3# (- (- |oldDeg| |deg|) 1) . #4#)
+                                    (|check_subtype2| (>= #3# 0)
                                                       '(|NonNegativeInteger|)
-                                                      '(|Integer|) #1#))
-                                  . #2#)
-                            (SEQ (LETT |i| 1 . #2#) G190
-                                 (COND ((|greater_SI| |i| |delta|) (GO G191)))
+                                                      '(|Integer|) #3#))
+                                  . #4#)
+                            (SEQ (LETT |i| 1 . #4#) (LETT #2# |delta| . #4#)
+                                 G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                                  (SEQ
                                   (EXIT
                                    (LETT |st|
                                          (SPADCALL (|spadConstant| $ 16) |st|
                                                    (QREFELT $ 49))
-                                         . #2#)))
-                                 (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                                         . #4#)))
+                                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                                  (EXIT NIL))
                             (LETT |st|
                                   (SPADCALL (SPADCALL |p| (QREFELT $ 80)) |st|
                                             (QREFELT $ 49))
-                                  . #2#)
-                            (LETT |oldDeg| |deg| . #2#)
+                                  . #4#)
+                            (LETT |oldDeg| |deg| . #4#)
                             (EXIT
-                             (LETT |p| (SPADCALL |p| (QREFELT $ 81)) . #2#)))
+                             (LETT |p| (SPADCALL |p| (QREFELT $ 81)) . #4#)))
                        NIL (GO G190) G191 (EXIT NIL))
-                  (SEQ (LETT |i| 1 . #2#) G190
-                       (COND ((|greater_SI| |i| |oldDeg|) (GO G191)))
+                  (SEQ (LETT |i| 1 . #4#) (LETT #1# |oldDeg| . #4#) G190
+                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                        (SEQ
                         (EXIT
                          (LETT |st|
                                (SPADCALL (|spadConstant| $ 16) |st|
                                          (QREFELT $ 49))
-                               . #2#)))
-                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                               . #4#)))
+                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT |st|))))))) 
 
@@ -332,7 +334,7 @@
 
 (SDEFUN |UTS;coefficient;$NniCoef;22|
         ((|x| $) (|n| |NonNegativeInteger|) ($ |Coef|))
-        (SPROG ((#1=#:G191 NIL) (|u| ($)))
+        (SPROG ((#1=#:G195 NIL) (|u| ($)))
                (SEQ
                 (LETT |u| (|UTS;stream| |x| $)
                       . #2=(|UTS;coefficient;$NniCoef;22|))
@@ -425,33 +427,33 @@
 (SDEFUN |UTS;truncate;$2Nni$;38|
         ((|x| $) (|n1| . #1=(|NonNegativeInteger|)) (|n2| . #1#) ($ $))
         (SPROG
-         ((|st| ($)) (|i| NIL) (|m| (|NonNegativeInteger|)) (#2=#:G217 NIL)
-          (|#G84| #1#) (|#G83| #1#))
+         ((|st| ($)) (#2=#:G225 NIL) (|i| NIL) (|m| (|NonNegativeInteger|))
+          (#3=#:G221 NIL) (|#G84| #1#) (|#G83| #1#))
          (SEQ
           (COND
            ((< |n2| |n1|)
             (PROGN
-             (LETT |#G83| |n2| . #3=(|UTS;truncate;$2Nni$;38|))
-             (LETT |#G84| |n1| . #3#)
-             (LETT |n1| |#G83| . #3#)
-             (LETT |n2| |#G84| . #3#))))
+             (LETT |#G83| |n2| . #4=(|UTS;truncate;$2Nni$;38|))
+             (LETT |#G84| |n1| . #4#)
+             (LETT |n1| |#G83| . #4#)
+             (LETT |n2| |#G84| . #4#))))
           (LETT |m|
-                (PROG1 (LETT #2# (- |n2| |n1|) . #3#)
-                  (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
-                                    '(|Integer|) #2#))
-                . #3#)
+                (PROG1 (LETT #3# (- |n2| |n1|) . #4#)
+                  (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
+                                    '(|Integer|) #3#))
+                . #4#)
           (LETT |st|
                 (SPADCALL (SPADCALL (|UTS;stream| |x| $) |n1| (QREFELT $ 125))
                           (+ |m| 1) (QREFELT $ 123))
-                . #3#)
-          (SEQ (LETT |i| 1 . #3#) G190
-               (COND ((|greater_SI| |i| |n1|) (GO G191)))
+                . #4#)
+          (SEQ (LETT |i| 1 . #4#) (LETT #2# |n1| . #4#) G190
+               (COND ((|greater_SI| |i| #2#) (GO G191)))
                (SEQ
                 (EXIT
                  (LETT |st|
                        (SPADCALL (|spadConstant| $ 16) |st| (QREFELT $ 47))
-                       . #3#)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
+                       . #4#)))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT |st|)))) 
 
 (SDEFUN |UTS;elt;3$;39| ((|x| $) (|y| $) ($ $))
@@ -547,9 +549,9 @@
 
 (DECLAIM (NOTINLINE |UnivariateTaylorSeries;|)) 
 
-(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G261)
+(DEFUN |UnivariateTaylorSeries| (&REST #1=#:G266)
   (SPROG NIL
-         (PROG (#2=#:G262)
+         (PROG (#2=#:G267)
            (RETURN
             (COND
              ((LETT #2#
@@ -569,8 +571,8 @@
 
 (DEFUN |UnivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G253 NIL) (#2=#:G254 NIL) (#3=#:G255 NIL) (#4=#:G256 NIL)
-    (#5=#:G257 NIL) (#6=#:G260 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G258 NIL) (#2=#:G259 NIL) (#3=#:G260 NIL) (#4=#:G261 NIL)
+    (#5=#:G262 NIL) (#6=#:G265 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #7=(|UnivariateTaylorSeries|))

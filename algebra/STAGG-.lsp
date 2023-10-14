@@ -6,24 +6,24 @@
         (SPADCALL |x| (QREFELT $ 9))) 
 
 (SDEFUN |STAGG-;first;ANniA;3| ((|x| A) (|n| |NonNegativeInteger|) ($ A))
-        (SPROG ((|i| NIL) (#1=#:G127 NIL))
+        (SPROG ((#1=#:G128 NIL) (|i| NIL) (#2=#:G127 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
-                  (LETT #1# NIL . #2=(|STAGG-;first;ANniA;3|))
-                  (SEQ (LETT |i| 1 . #2#) G190
-                       (COND ((|greater_SI| |i| |n|) (GO G191)))
+                  (LETT #2# NIL . #3=(|STAGG-;first;ANniA;3|))
+                  (SEQ (LETT |i| 1 . #3#) (LETT #1# |n| . #3#) G190
+                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                        (SEQ
                         (EXIT
-                         (LETT #1#
+                         (LETT #2#
                                (CONS
                                 (|STAGG-;c2| |x|
-                                 (LETT |x| (SPADCALL |x| (QREFELT $ 12)) . #2#)
+                                 (LETT |x| (SPADCALL |x| (QREFELT $ 12)) . #3#)
                                  $)
-                                #1#)
-                               . #2#)))
-                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
-                       (EXIT (NREVERSE #1#))))
+                                #2#)
+                               . #3#)))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
                  (QREFELT $ 14))))) 
 
 (SDEFUN |STAGG-;c2| ((|x| A) (|r| A) ($ S))
@@ -31,7 +31,7 @@
               ('T (SPADCALL |x| (QREFELT $ 18))))) 
 
 (SDEFUN |STAGG-;elt;AIS;5| ((|x| A) (|i| |Integer|) ($ S))
-        (SPROG ((#1=#:G131 NIL))
+        (SPROG ((#1=#:G132 NIL))
                (SEQ
                 (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
                       . #2=(|STAGG-;elt;AIS;5|))
@@ -53,7 +53,7 @@
 (SDEFUN |STAGG-;elt;AUsA;6|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) ($ A))
         (SPROG
-         ((#1=#:G140 NIL) (#2=#:G139 NIL) (|h| #3=(|Integer|)) (#4=#:G136 NIL)
+         ((#1=#:G141 NIL) (#2=#:G140 NIL) (|h| #3=(|Integer|)) (#4=#:G137 NIL)
           (|l| #3#))
          (SEQ
           (LETT |l|
@@ -96,7 +96,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 26)) |y| (QREFELT $ 31))) 
 
 (SDEFUN |STAGG-;concat;LA;8| ((|l| |List| A) ($ A))
-        (SPROG ((|res| (A)) (#1=#:G149 NIL) (|x| NIL) (|l1| (|List| A)))
+        (SPROG ((|res| (A)) (#1=#:G150 NIL) (|x| NIL) (|l1| (|List| A)))
                (SEQ
                 (COND ((NULL |l|) (SPADCALL (QREFELT $ 28)))
                       ('T
@@ -153,7 +153,7 @@
                     (EXIT |x|)))) 
 
 (SDEFUN |STAGG-;setelt!;AI2S;11| ((|x| A) (|i| |Integer|) (|s| S) ($ S))
-        (SPROG ((#1=#:G162 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SEQ
                 (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
                       . #2=(|STAGG-;setelt!;AI2S;11|))
@@ -175,7 +175,7 @@
 (SDEFUN |STAGG-;setelt!;AUs2S;12|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
-         ((|y| (A)) (|z| (A)) (#1=#:G169 NIL) (#2=#:G168 NIL) (|h| (|Integer|))
+         ((|y| (A)) (|z| (A)) (#1=#:G170 NIL) (#2=#:G169 NIL) (|h| (|Integer|))
           (|l| (|Integer|)))
          (SEQ
           (LETT |l|

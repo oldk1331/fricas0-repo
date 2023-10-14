@@ -1,30 +1,32 @@
 
 (SDEFUN |MAPHACK1;iter;MNni2A;1|
         ((|g| |Mapping| A A) (|n| |NonNegativeInteger|) (|x| A) ($ A))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G108 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|MAPHACK1;iter;MNni2A;1|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
-                     (SEQ (EXIT (LETT |x| (SPADCALL |x| |g|) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (SEQ (LETT |i| 1 . #2=(|MAPHACK1;iter;MNni2A;1|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (LETT |x| (SPADCALL |x| |g|) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (SDEFUN |MAPHACK1;recur;MNni2A;2|
         ((|g| |Mapping| A (|NonNegativeInteger|) A) (|n| |NonNegativeInteger|)
          (|x| A) ($ A))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G113 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|MAPHACK1;recur;MNni2A;2|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
-                     (SEQ (EXIT (LETT |x| (SPADCALL |i| |x| |g|) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (SEQ (LETT |i| 1 . #2=(|MAPHACK1;recur;MNni2A;2|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (LETT |x| (SPADCALL |i| |x| |g|) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
 (DECLAIM (NOTINLINE |MappingPackageInternalHacks1;|)) 
 
-(DEFUN |MappingPackageInternalHacks1| (#1=#:G112)
+(DEFUN |MappingPackageInternalHacks1| (#1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

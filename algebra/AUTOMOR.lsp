@@ -85,12 +85,12 @@
 
 (SDEFUN |AUTOMOR;iter|
         ((|f| |Mapping| R R) (|n| |NonNegativeInteger|) (|r| R) ($ R))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G145 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|AUTOMOR;iter|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
-                     (SEQ (EXIT (LETT |r| (SPADCALL |r| |f|) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                (SEQ (LETT |i| 1 . #2=(|AUTOMOR;iter|)) (LETT #1# |n| . #2#)
+                     G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
+                     (SEQ (EXIT (LETT |r| (SPADCALL |r| |f|) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
 (SDEFUN |AUTOMOR;*;3$;15| ((|f| $) (|g| $) ($ $))
@@ -136,9 +136,9 @@
 
 (DECLAIM (NOTINLINE |Automorphism;|)) 
 
-(DEFUN |Automorphism| (#1=#:G155)
+(DEFUN |Automorphism| (#1=#:G156)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G157)
            (RETURN
             (COND
              ((LETT #2#

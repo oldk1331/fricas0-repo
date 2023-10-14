@@ -14,18 +14,19 @@
 
 (SDEFUN |PDRING-;differentiate;ASNniA;2|
         ((|r| A) (|s| S) (|n| |NonNegativeInteger|) ($ A))
-        (SPROG ((|i| NIL))
+        (SPROG ((#1=#:G118 NIL) (|i| NIL))
                (SEQ
-                (SEQ (LETT |i| 1 . #1=(|PDRING-;differentiate;ASNniA;2|)) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                (SEQ (LETT |i| 1 . #2=(|PDRING-;differentiate;ASNniA;2|))
+                     (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
-                      (EXIT (LETT |r| (SPADCALL |r| |s| (QREFELT $ 8)) . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                      (EXIT (LETT |r| (SPADCALL |r| |s| (QREFELT $ 8)) . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |r|)))) 
 
 (SDEFUN |PDRING-;differentiate;ALLA;3|
         ((|r| A) (|ls| |List| S) (|ln| |List| (|NonNegativeInteger|)) ($ A))
-        (SPROG ((#1=#:G121 NIL) (|s| NIL) (#2=#:G122 NIL) (|n| NIL))
+        (SPROG ((#1=#:G122 NIL) (|s| NIL) (#2=#:G123 NIL) (|n| NIL))
                (SEQ
                 (SEQ (LETT |n| NIL . #3=(|PDRING-;differentiate;ALLA;3|))
                      (LETT #2# |ln| . #3#) (LETT |s| NIL . #3#)

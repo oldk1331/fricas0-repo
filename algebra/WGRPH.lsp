@@ -1868,33 +1868,34 @@
 (SDEFUN |WGRPH;weightedDistanceMatrix;$Tda;37|
         ((|s| $) ($ |TwoDimensionalArray| (|Union| W #1="disjoint")))
         (SPROG
-         ((|v| NIL) (|u| NIL) (|m| (|TwoDimensionalArray| (|Union| W #1#)))
+         ((#2=#:G527 NIL) (|v| NIL) (#3=#:G526 NIL) (|u| NIL)
+          (|m| (|TwoDimensionalArray| (|Union| W #1#)))
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (LETT |n| (LENGTH (SPADCALL |s| (QREFELT $ 45)))
-                . #2=(|WGRPH;weightedDistanceMatrix;$Tda;37|))
-          (LETT |m| (MAKE_MATRIX1 |n| |n| (CONS 0 (|spadConstant| $ 9))) . #2#)
-          (SEQ (LETT |u| 1 . #2#) G190
-               (COND ((|greater_SI| |u| |n|) (GO G191)))
+                . #4=(|WGRPH;weightedDistanceMatrix;$Tda;37|))
+          (LETT |m| (MAKE_MATRIX1 |n| |n| (CONS 0 (|spadConstant| $ 9))) . #4#)
+          (SEQ (LETT |u| 1 . #4#) (LETT #3# |n| . #4#) G190
+               (COND ((|greater_SI| |u| #3#) (GO G191)))
                (SEQ
                 (EXIT
-                 (SEQ (LETT |v| 1 . #2#) G190
-                      (COND ((|greater_SI| |v| |n|) (GO G191)))
+                 (SEQ (LETT |v| 1 . #4#) (LETT #2# |n| . #4#) G190
+                      (COND ((|greater_SI| |v| #2#) (GO G191)))
                       (SEQ
                        (EXIT
                         (QSETAREF2O |m| |u| |v|
                                     (SPADCALL |s| |u| |v| (QREFELT $ 94)) 1
                                     1)))
-                      (LETT |v| (|inc_SI| |v|) . #2#) (GO G190) G191
+                      (LETT |v| (|inc_SI| |v|) . #4#) (GO G190) G191
                       (EXIT NIL))))
-               (LETT |u| (|inc_SI| |u|) . #2#) (GO G190) G191 (EXIT NIL))
+               (LETT |u| (|inc_SI| |u|) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT |m|)))) 
 
 (DECLAIM (NOTINLINE |WeightedGraph;|)) 
 
-(DEFUN |WeightedGraph| (&REST #1=#:G526)
+(DEFUN |WeightedGraph| (&REST #1=#:G528)
   (SPROG NIL
-         (PROG (#2=#:G527)
+         (PROG (#2=#:G529)
            (RETURN
             (COND
              ((LETT #2#

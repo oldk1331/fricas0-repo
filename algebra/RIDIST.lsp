@@ -57,24 +57,24 @@
 (SDEFUN |RIDIST;ridHack1;5I;2|
         ((|mq| |Integer|) (|n| |Integer|) (|w| |Integer|) (|l| |Integer|)
          ($ |Integer|))
-        (SPROG ((|r| (|Integer|)) (|i| NIL))
+        (SPROG ((|r| (|Integer|)) (#1=#:G134 NIL) (|i| NIL))
                (SEQ
                 (LETT |r| (SPADCALL |mq| (QREFELT $ 33))
-                      . #1=(|RIDIST;ridHack1;5I;2|))
-                (SEQ (LETT |i| 1 . #1#) G190
-                     (COND ((|greater_SI| |i| |n|) (GO G191)))
+                      . #2=(|RIDIST;ridHack1;5I;2|))
+                (SEQ (LETT |i| 1 . #2#) (LETT #1# |n| . #2#) G190
+                     (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
                        (LETT |r| (+ (* |r| |w|) (SPADCALL |w| (QREFELT $ 33)))
-                             . #1#)))
-                     (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191 (EXIT NIL))
+                             . #2#)))
+                     (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT (+ |r| |l|))))) 
 
 (DECLAIM (NOTINLINE |RandomIntegerDistributions;|)) 
 
 (DEFUN |RandomIntegerDistributions| ()
   (SPROG NIL
-         (PROG (#1=#:G135)
+         (PROG (#1=#:G136)
            (RETURN
             (COND
              ((LETT #1#

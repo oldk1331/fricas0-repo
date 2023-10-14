@@ -534,28 +534,29 @@
 
 (SDEFUN |REAL0;transAdd1| ((F |Pol|) ($ |Pol|))
         (SPROG
-         ((|ans| (|Pol|)) (|i| NIL) (|j| NIL) (#1=#:G197 NIL)
-          (|v| (|Vector| (|Integer|))) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (SPADCALL F (QREFELT $ 38)) . #2=(|REAL0;transAdd1|))
-              (LETT |v| (SPADCALL F (+ |n| 1) (QREFELT $ 56)) . #2#)
-              (SEQ (LETT |i| 0 . #2#) (LETT #1# (- |n| 1) . #2#) G190
-                   (COND ((|greater_SI| |i| #1#) (GO G191)))
+         ((|ans| (|Pol|)) (#1=#:G199 NIL) (|i| NIL) (#2=#:G198 NIL) (|j| NIL)
+          (#3=#:G197 NIL) (|v| (|Vector| (|Integer|)))
+          (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |n| (SPADCALL F (QREFELT $ 38)) . #4=(|REAL0;transAdd1|))
+              (LETT |v| (SPADCALL F (+ |n| 1) (QREFELT $ 56)) . #4#)
+              (SEQ (LETT |i| 0 . #4#) (LETT #3# (- |n| 1) . #4#) G190
+                   (COND ((|greater_SI| |i| #3#) (GO G191)))
                    (SEQ
                     (EXIT
-                     (SEQ (LETT |j| (- |n| |i|) . #2#) G190
-                          (COND ((> |j| |n|) (GO G191)))
+                     (SEQ (LETT |j| (- |n| |i|) . #4#) (LETT #2# |n| . #4#)
+                          G190 (COND ((> |j| #2#) (GO G191)))
                           (SEQ
                            (EXIT
                             (QSETAREF1O |v| |j|
                                         (+ (QAREF1O |v| |j| 1)
                                            (QAREF1O |v| (+ |j| 1) 1))
                                         1)))
-                          (LETT |j| (+ |j| 1) . #2#) (GO G190) G191
+                          (LETT |j| (+ |j| 1) . #4#) (GO G190) G191
                           (EXIT NIL))))
-                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-              (LETT |ans| (|spadConstant| $ 34) . #2#)
-              (SEQ (LETT |i| 0 . #2#) G190
-                   (COND ((|greater_SI| |i| |n|) (GO G191)))
+                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+              (LETT |ans| (|spadConstant| $ 34) . #4#)
+              (SEQ (LETT |i| 0 . #4#) (LETT #1# |n| . #4#) G190
+                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |ans|
@@ -563,8 +564,8 @@
                                      (SPADCALL (QAREF1O |v| (+ |i| 1) 1) |i|
                                                (QREFELT $ 42))
                                      (QREFELT $ 47))
-                           . #2#)))
-                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                           . #4#)))
+                   (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
 (SDEFUN |REAL0;minus| ((F |Pol|) ($ |Pol|))
@@ -608,7 +609,7 @@
                     (EXIT G)))) 
 
 (SDEFUN |REAL0;invert| ((F |Pol|) ($ |Pol|))
-        (SPROG ((G (|Pol|)) (#1=#:G204 NIL) (|n| (|NonNegativeInteger|)))
+        (SPROG ((G (|Pol|)) (#1=#:G206 NIL) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT G (|spadConstant| $ 34) . #2=(|REAL0;invert|))
                     (LETT |n| (SPADCALL F (QREFELT $ 38)) . #2#)
                     (SEQ G190
@@ -730,7 +731,7 @@
          ((|xfl| (|Boolean|)) (|ad| #1=(|Integer|)) (|an| #2=(|Integer|))
           (|b| (|Fraction| (|Integer|))) (|a| (|Fraction| (|Integer|)))
           (|bd| #1#) (|bn| #2#) (|v| #3=(|Integer|)) (|midd| #1#) (|midn| #2#)
-          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G223 NIL))
+          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G225 NIL))
          (SEQ (LETT |a| (QCAR |int|) . #5=(|REAL0;refine;PolRFR;20|))
               (LETT |b| (QCDR |int|) . #5#)
               (EXIT
@@ -885,9 +886,9 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackage;|)) 
 
-(DEFUN |RealZeroPackage| (#1=#:G238)
+(DEFUN |RealZeroPackage| (#1=#:G240)
   (SPROG NIL
-         (PROG (#2=#:G239)
+         (PROG (#2=#:G241)
            (RETURN
             (COND
              ((LETT #2#

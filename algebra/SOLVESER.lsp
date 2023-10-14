@@ -128,15 +128,16 @@
             (|:| |basis| (|List| (|Vector| (|Expression| R))))))
           (|coeffma| (|Matrix| (|Expression| R)))
           (|vec| (|Vector| (|Expression| R)))
-          (|coeffmat| (|Matrix| (|Expression| R))) (#4=#:G168 NIL) (|i| NIL))
+          (|coeffmat| (|Matrix| (|Expression| R))) (#4=#:G168 NIL)
+          (#5=#:G178 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
             (LETT |coeffmat|
                   (MAKE_MATRIX1 (+ |DegF| 1) 1 (|spadConstant| $ 40))
-                  . #5=(|SOLVESER;subsSolve|))
-            (SEQ (LETT |i| 0 . #5#) G190
-                 (COND ((|greater_SI| |i| M) (GO G191)))
+                  . #6=(|SOLVESER;subsSolve|))
+            (SEQ (LETT |i| 0 . #6#) (LETT #5# M . #6#) G190
+                 (COND ((|greater_SI| |i| #5#) (GO G191)))
                  (SEQ
                   (EXIT
                    (LETT |coeffmat|
@@ -146,7 +147,7 @@
                                      (SPADCALL
                                       (SPADCALL G1
                                                 (PROG1
-                                                    (LETT #4# (- M |i|) . #5#)
+                                                    (LETT #4# (- M |i|) . #6#)
                                                   (|check_subtype2| (>= #4# 0)
                                                                     '(|NonNegativeInteger|)
                                                                     '(|Integer|)
@@ -157,21 +158,21 @@
                                      (+ |DegF| 1) (QREFELT $ 43))
                                     (QREFELT $ 45))
                                    (QREFELT $ 46))
-                         . #5#)))
-                 (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
-            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 43)) . #5#)
+                         . #6#)))
+                 (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
+            (LETT |vec| (SPADCALL F (+ |DegF| 1) (QREFELT $ 43)) . #6#)
             (LETT |coeffma|
                   (SPADCALL |coeffmat| 1 (+ |DegF| 1) 2 (+ M 2) (QREFELT $ 47))
-                  . #5#)
-            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 51)) . #5#)
+                  . #6#)
+            (LETT |solvar| (SPADCALL |coeffma| |vec| (QREFELT $ 51)) . #6#)
             (EXIT
              (COND
               ((QEQCAR (QCAR |solvar|) 1)
-               (PROGN (LETT #2# (CONS 1 "failed") . #5#) (GO #6=#:G176)))
+               (PROGN (LETT #2# (CONS 1 "failed") . #6#) (GO #7=#:G176)))
               ('T
                (SEQ
                 (LETT |solvevarlist|
-                      (PROG2 (LETT #1# (QCAR |solvar|) . #5#)
+                      (PROG2 (LETT #1# (QCAR |solvar|) . #6#)
                           (QCDR #1#)
                         (|check_union2| (QEQCAR #1# 0)
                                         (|Vector| (|Expression| (QREFELT $ 6)))
@@ -180,19 +181,19 @@
                                           (|Expression| (QREFELT $ 6)))
                                          #3#)
                                         #1#))
-                      . #5#)
+                      . #6#)
                 (LETT |resul|
                       (SPADCALL (SPADCALL |solvevarlist| HH M (QREFELT $ 27))
                                 (QREFELT $ 29))
-                      . #5#)
+                      . #6#)
                 (EXIT (CONS 0 |resul|))))))))
-          #6# (EXIT #2#)))) 
+          #7# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |TransSolvePackageService;|)) 
 
-(DEFUN |TransSolvePackageService| (#1=#:G178)
+(DEFUN |TransSolvePackageService| (#1=#:G179)
   (SPROG NIL
-         (PROG (#2=#:G179)
+         (PROG (#2=#:G180)
            (RETURN
             (COND
              ((LETT #2#

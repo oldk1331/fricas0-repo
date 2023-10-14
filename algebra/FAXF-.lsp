@@ -151,48 +151,48 @@
         ((|b| S) (|x| S) ($ |Union| (|SparseUnivariatePolynomial| F) "failed"))
         (SPROG
          ((|p| #1=(|SparseUnivariatePolynomial| F)) (#2=#:G158 NIL)
-          (#3=#:G157 #1#) (#4=#:G159 #1#) (#5=#:G166 NIL) (|i| NIL)
-          (|rown| (|Integer|)) (|v| (|Vector| F)) (|m1| (|Matrix| F))
-          (|l| (|List| (|List| F))) (|a| (S))
-          (|extdeg| (|NonNegativeInteger|)))
+          (#3=#:G157 #1#) (#4=#:G159 #1#) (#5=#:G168 NIL) (|i| NIL)
+          (|rown| (|Integer|)) (#6=#:G167 NIL) (|v| (|Vector| F))
+          (|m1| (|Matrix| F)) (|l| (|List| (|List| F))) (|a| (S))
+          (#7=#:G166 NIL) (|extdeg| (|NonNegativeInteger|)))
          (SEQ
           (COND
            ((SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 51))
             (CONS 0 (|spadConstant| $ 52)))
-           (#6='T
+           (#8='T
             (SEQ
              (LETT |l|
                    (LIST
                     (SPADCALL (SPADCALL |b| (QREFELT $ 33)) (QREFELT $ 54)))
-                   . #7=(|FAXF-;linearAssociatedLog;2SU;13|))
-             (LETT |a| |b| . #7#)
-             (LETT |extdeg| (SPADCALL (QREFELT $ 12)) . #7#)
-             (SEQ (LETT |i| 2 . #7#) G190
-                  (COND ((|greater_SI| |i| |extdeg|) (GO G191)))
-                  (SEQ (LETT |a| (SPADCALL |a| (QREFELT $ 49)) . #7#)
+                   . #9=(|FAXF-;linearAssociatedLog;2SU;13|))
+             (LETT |a| |b| . #9#)
+             (LETT |extdeg| (SPADCALL (QREFELT $ 12)) . #9#)
+             (SEQ (LETT |i| 2 . #9#) (LETT #7# |extdeg| . #9#) G190
+                  (COND ((|greater_SI| |i| #7#) (GO G191)))
+                  (SEQ (LETT |a| (SPADCALL |a| (QREFELT $ 49)) . #9#)
                        (EXIT
                         (LETT |l|
                               (SPADCALL |l|
                                         (SPADCALL (SPADCALL |a| (QREFELT $ 33))
                                                   (QREFELT $ 54))
                                         (QREFELT $ 56))
-                              . #7#)))
-                  (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
+                              . #9#)))
+                  (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191 (EXIT NIL))
              (LETT |l|
                    (SPADCALL |l|
                              (SPADCALL (SPADCALL |x| (QREFELT $ 33))
                                        (QREFELT $ 54))
                              (QREFELT $ 56))
-                   . #7#)
+                   . #9#)
              (LETT |m1|
                    (SPADCALL
                     (SPADCALL (SPADCALL |l| (QREFELT $ 57)) (QREFELT $ 58))
                     (QREFELT $ 59))
-                   . #7#)
-             (LETT |v| (SPADCALL |extdeg| (QREFELT $ 60)) . #7#)
-             (LETT |rown| 1 . #7#)
-             (SEQ (LETT |i| 1 . #7#) G190
-                  (COND ((|greater_SI| |i| |extdeg|) (GO G191)))
+                   . #9#)
+             (LETT |v| (SPADCALL |extdeg| (QREFELT $ 60)) . #9#)
+             (LETT |rown| 1 . #9#)
+             (SEQ (LETT |i| 1 . #9#) (LETT #6# |extdeg| . #9#) G190
+                  (COND ((|greater_SI| |i| #6#) (GO G191)))
                   (SEQ
                    (EXIT
                     (COND
@@ -202,12 +202,12 @@
                        (SPADCALL |v| |i|
                                  (QAREF2O |m1| |rown| (+ |extdeg| 1) 1 1)
                                  (QREFELT $ 64))
-                       (EXIT (LETT |rown| (+ |rown| 1) . #7#)))))))
-                  (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191 (EXIT NIL))
+                       (EXIT (LETT |rown| (+ |rown| 1) . #9#)))))))
+                  (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191 (EXIT NIL))
              (LETT |p|
                    (PROGN
-                    (LETT #2# NIL . #7#)
-                    (SEQ (LETT |i| 0 . #7#) (LETT #5# (- (QVSIZE |v|) 1) . #7#)
+                    (LETT #2# NIL . #9#)
+                    (SEQ (LETT |i| 0 . #9#) (LETT #5# (- (QVSIZE |v|) 1) . #9#)
                          G190 (COND ((|greater_SI| |i| #5#) (GO G191)))
                          (SEQ
                           (EXIT
@@ -216,19 +216,19 @@
                                   (SPADCALL
                                    (SPADCALL |v| (+ |i| 1) (QREFELT $ 15)) |i|
                                    (QREFELT $ 65))
-                                  . #7#)
+                                  . #9#)
                             (COND
                              (#2#
                               (LETT #3# (SPADCALL #3# #4# (QREFELT $ 66))
-                                    . #7#))
+                                    . #9#))
                              ('T
                               (PROGN
-                               (LETT #3# #4# . #7#)
-                               (LETT #2# 'T . #7#)))))))
-                         (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
+                               (LETT #3# #4# . #9#)
+                               (LETT #2# 'T . #9#)))))))
+                         (LETT |i| (|inc_SI| |i|) . #9#) (GO G190) G191
                          (EXIT NIL))
-                    (COND (#2# #3#) (#6# (|spadConstant| $ 52))))
-                   . #7#)
+                    (COND (#2# #3#) (#8# (|spadConstant| $ 52))))
+                   . #9#)
              (EXIT
               (COND
                ((SPADCALL |p| (|spadConstant| $ 52) (QREFELT $ 67))
@@ -237,11 +237,11 @@
                   "linearAssociatedLog: second argument not in                       group generated by first argument"
                   (QREFELT $ 71))
                  (EXIT (CONS 1 "failed"))))
-               (#6# (CONS 0 |p|)))))))))) 
+               (#8# (CONS 0 |p|)))))))))) 
 
 (SDEFUN |FAXF-;linearAssociatedLog;SSup;14|
         ((|x| S) ($ |SparseUnivariatePolynomial| F))
-        (SPROG ((#1=#:G168 NIL))
+        (SPROG ((#1=#:G170 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL (SPADCALL (QREFELT $ 74)) |x|
@@ -258,9 +258,9 @@
 (SDEFUN |FAXF-;linearAssociatedOrder;SSup;15|
         ((|x| S) ($ |SparseUnivariatePolynomial| F))
         (SPROG
-         ((#1=#:G174 NIL) (#2=#:G173 #3=(|SparseUnivariatePolynomial| F))
-          (#4=#:G175 #3#) (#5=#:G179 NIL) (|i| NIL) (|v| (|Vector| F))
-          (|l| (|List| (|List| F))) (|a| (S)) (#6=#:G178 NIL))
+         ((#1=#:G176 NIL) (#2=#:G175 #3=(|SparseUnivariatePolynomial| F))
+          (#4=#:G177 #3#) (#5=#:G181 NIL) (|i| NIL) (|v| (|Vector| F))
+          (|l| (|List| (|List| F))) (|a| (S)) (#6=#:G180 NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (|spadConstant| $ 8) (QREFELT $ 51))
@@ -352,7 +352,7 @@
 
 (SDEFUN |FAXF-;norm;SPiS;18| ((|e| S) (|s| |PositiveInteger|) ($ S))
         (SPROG
-         ((#1=#:G194 NIL) (|pow| (|Integer|))
+         ((#1=#:G196 NIL) (|pow| (|Integer|))
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
@@ -382,7 +382,7 @@
 
 (SDEFUN |FAXF-;trace;SPiS;19| ((|e| S) (|s| |PositiveInteger|) ($ S))
         (SPROG
-         ((|a| (S)) (#1=#:G203 NIL) (|i| NIL) (|q| (|NonNegativeInteger|))
+         ((|a| (S)) (#1=#:G205 NIL) (|i| NIL) (|q| (|NonNegativeInteger|))
           (|qr|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|)))))
@@ -421,7 +421,7 @@
 
 (SDEFUN |FAXF-;createNormalElement;S;21| (($ S))
         (SPROG
-         ((#1=#:G212 NIL) (#2=#:G213 NIL) (|res| (S)) (#3=#:G206 NIL)
+         ((#1=#:G214 NIL) (#2=#:G215 NIL) (|res| (S)) (#3=#:G208 NIL)
           (|i| NIL))
          (SEQ
           (EXIT
@@ -453,9 +453,9 @@
                                    (LETT #1#
                                          (PROGN
                                           (LETT #2# |res| . #4#)
-                                          (GO #5=#:G211))
+                                          (GO #5=#:G213))
                                          . #4#)
-                                   (GO #6=#:G208))))
+                                   (GO #6=#:G210))))
                                 . #4#)
                           (GO #6#)))))))
                     #6# (EXIT #1#))
@@ -465,8 +465,8 @@
 
 (SDEFUN |FAXF-;normal?;SB;22| ((|x| S) ($ |Boolean|))
         (SPROG
-         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G215 NIL)
-          (#3=#:G214 #1#) (#4=#:G216 #1#) (#5=#:G219 NIL) (|i| NIL)
+         ((|f| #1=(|SparseUnivariatePolynomial| S)) (#2=#:G217 NIL)
+          (#3=#:G216 #1#) (#4=#:G218 #1#) (#5=#:G221 NIL) (|i| NIL)
           (|p| (|SparseUnivariatePolynomial| S)))
          (SEQ
           (LETT |p|

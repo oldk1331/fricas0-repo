@@ -104,56 +104,56 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (|j| NIL) (#1=#:G169 NIL)
-          (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|)) (|i| NIL)
-          (#2=#:G156 NIL))
-         (SEQ (LETT |n| |pn| . #3=(|NUMFMT;FormatRoman;PiS;9|))
-              (LETT |d| (+ (REM |n| 10) (QREFELT $ 39)) . #3#)
-              (LETT |n| (QUOTIENT2 |n| 10) . #3#)
-              (LETT |s| (QAREF1 (QREFELT $ 36) |d|) . #3#)
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G170 NIL) (|j| NIL)
+          (#2=#:G169 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
+          (|i| NIL) (#3=#:G156 NIL))
+         (SEQ (LETT |n| |pn| . #4=(|NUMFMT;FormatRoman;PiS;9|))
+              (LETT |d| (+ (REM |n| 10) (QREFELT $ 39)) . #4#)
+              (LETT |n| (QUOTIENT2 |n| 10) . #4#)
+              (LETT |s| (QAREF1 (QREFELT $ 36) |d|) . #4#)
               (EXIT
                (COND ((ZEROP |n|) |s|)
-                     (#4='T
-                      (SEQ (LETT |d| (+ (REM |n| 10) (QREFELT $ 40)) . #3#)
-                           (LETT |n| (QUOTIENT2 |n| 10) . #3#)
+                     (#5='T
+                      (SEQ (LETT |d| (+ (REM |n| 10) (QREFELT $ 40)) . #4#)
+                           (LETT |n| (QUOTIENT2 |n| 10) . #4#)
                            (LETT |s| (STRCONC (QAREF1 (QREFELT $ 37) |d|) |s|)
-                                 . #3#)
+                                 . #4#)
                            (EXIT
                             (COND ((ZEROP |n|) |s|)
-                                  (#4#
+                                  (#5#
                                    (SEQ
                                     (LETT |d| (+ (REM |n| 10) (QREFELT $ 41))
-                                          . #3#)
-                                    (LETT |n| (QUOTIENT2 |n| 10) . #3#)
+                                          . #4#)
+                                    (LETT |n| (QUOTIENT2 |n| 10) . #4#)
                                     (LETT |s|
                                           (STRCONC (QAREF1 (QREFELT $ 38) |d|)
                                                    |s|)
-                                          . #3#)
+                                          . #4#)
                                     (EXIT
                                      (COND ((ZEROP |n|) |s|)
-                                           (#4#
-                                            (SEQ (LETT |d| (REM |n| 10) . #3#)
+                                           (#5#
+                                            (SEQ (LETT |d| (REM |n| 10) . #4#)
                                                  (LETT |n| (QUOTIENT2 |n| 10)
-                                                       . #3#)
+                                                       . #4#)
                                                  (LETT |s|
                                                        (STRCONC
                                                         (|make_full_CVEC|
                                                          (PROG1
-                                                             (LETT #2# |d|
-                                                                   . #3#)
+                                                             (LETT #3# |d|
+                                                                   . #4#)
                                                            (|check_subtype2|
-                                                            (>= #2# 0)
+                                                            (>= #3# 0)
                                                             '(|NonNegativeInteger|)
-                                                            '(|Integer|) #2#))
+                                                            '(|Integer|) #3#))
                                                          (QREFELT $ 43))
                                                         |s|)
-                                                       . #3#)
+                                                       . #4#)
                                                  (EXIT
                                                   (COND ((ZEROP |n|) |s|)
-                                                        (#4#
+                                                        (#5#
                                                          (SEQ
                                                           (SEQ
-                                                           (LETT |i| 2 . #3#)
+                                                           (LETT |i| 2 . #4#)
                                                            G190
                                                            (COND
                                                             ((NULL
@@ -165,11 +165,11 @@
                                                            (SEQ
                                                             (LETT |d|
                                                                   (REM |n| 10)
-                                                                  . #3#)
+                                                                  . #4#)
                                                             (LETT |n|
                                                                   (QUOTIENT2
                                                                    |n| 10)
-                                                                  . #3#)
+                                                                  . #4#)
                                                             (EXIT
                                                              (COND
                                                               ((ZEROP |d|)
@@ -189,47 +189,51 @@
                                                                          (QREFELT
                                                                           $
                                                                           45))))
-                                                                      . #3#)
+                                                                      . #4#)
                                                                 (LETT |mm|
                                                                       (SPADCALL
                                                                        (PROGN
                                                                         (LETT
-                                                                         #1#
+                                                                         #2#
                                                                          NIL
-                                                                         . #3#)
+                                                                         . #4#)
                                                                         (SEQ
                                                                          (LETT
                                                                           |j| 1
-                                                                          . #3#)
+                                                                          . #4#)
+                                                                         (LETT
+                                                                          #1#
+                                                                          |d|
+                                                                          . #4#)
                                                                          G190
                                                                          (COND
                                                                           ((|greater_SI|
                                                                             |j|
-                                                                            |d|)
+                                                                            #1#)
                                                                            (GO
                                                                             G191)))
                                                                          (SEQ
                                                                           (EXIT
                                                                            (LETT
-                                                                            #1#
+                                                                            #2#
                                                                             (CONS
                                                                              |m0|
-                                                                             #1#)
-                                                                            . #3#)))
+                                                                             #2#)
+                                                                            . #4#)))
                                                                          (LETT
                                                                           |j|
                                                                           (|inc_SI|
                                                                            |j|)
-                                                                          . #3#)
+                                                                          . #4#)
                                                                          (GO
                                                                           G190)
                                                                          G191
                                                                          (EXIT
                                                                           (NREVERSE
-                                                                           #1#))))
+                                                                           #2#))))
                                                                        (QREFELT
                                                                         $ 12))
-                                                                      . #3#)
+                                                                      . #4#)
                                                                 (COND
                                                                  ((SPADCALL
                                                                    (QCSIZE |s|)
@@ -240,16 +244,16 @@
                                                                         (STRCONC
                                                                          " "
                                                                          |s|)
-                                                                        . #3#)))
+                                                                        . #4#)))
                                                                 (EXIT
                                                                  (LETT |s|
                                                                        (STRCONC
                                                                         |mm|
                                                                         |s|)
-                                                                       . #3#)))))))
+                                                                       . #4#)))))))
                                                            (LETT |i|
                                                                  (|inc_SI| |i|)
-                                                                 . #3#)
+                                                                 . #4#)
                                                            (GO G190) G191
                                                            (EXIT NIL))
                                                           (EXIT
@@ -257,19 +261,20 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G180 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G183 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (|k| NIL) (|nprens| (|PositiveInteger|)))
+         ((#1=#:G181 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G184 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G185 NIL) (|k| NIL)
+          (|nprens| (|PositiveInteger|)))
          (SEQ
           (LETT |s| (SPADCALL |s| (QREFELT $ 55))
-                . #3=(|NUMFMT;ScanRoman;SPi;10|))
-          (LETT |tot| 0 . #3#) (LETT |Max| 0 . #3#)
-          (LETT |i| (SPADCALL |s| (QREFELT $ 56)) . #3#)
+                . #4=(|NUMFMT;ScanRoman;SPi;10|))
+          (LETT |tot| 0 . #4#) (LETT |Max| 0 . #4#)
+          (LETT |i| (SPADCALL |s| (QREFELT $ 56)) . #4#)
           (SEQ G190
                (COND ((NULL (>= |i| (SPADCALL |s| (QREFELT $ 57)))) (GO G191)))
-               (SEQ (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58)) . #3#)
-                    (LETT |i| (- |i| 1) . #3#)
-                    (LETT |n| (QAREF1 (QREFELT $ 42) |c|) . #3#)
+               (SEQ (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58)) . #4#)
+                    (LETT |i| (- |i| 1) . #4#)
+                    (LETT |n| (QAREF1 (QREFELT $ 42) |c|) . #4#)
                     (COND
                      ((< |n| 0)
                       (COND
@@ -278,7 +283,7 @@
                          (STRCONC "Improper character in Roman numeral: "
                                   (|make_full_CVEC| 1 |c|))))
                        ('T
-                        (SEQ (LETT |nprens| 1 . #3#)
+                        (SEQ (LETT |nprens| 1 . #4#)
                              (SEQ G190
                                   (COND
                                    ((NULL
@@ -289,12 +294,12 @@
                                     (GO G191)))
                                   (SEQ
                                    (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58))
-                                         . #3#)
-                                   (LETT |i| (- |i| 1) . #3#)
+                                         . #4#)
+                                   (LETT |i| (- |i| 1) . #4#)
                                    (EXIT
                                     (COND
                                      ((|eql_SI| |c| (QREFELT $ 45))
-                                      (LETT |nprens| (+ |nprens| 1) . #3#)))))
+                                      (LETT |nprens| (+ |nprens| 1) . #4#)))))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT
                               (COND
@@ -302,9 +307,10 @@
                                 (|error| "Improper Roman numeral: (x)"))
                                ('T
                                 (SEQ
-                                 (SEQ (LETT |k| 1 . #3#) G190
+                                 (SEQ (LETT |k| 1 . #4#)
+                                      (LETT #3# |nprens| . #4#) G190
                                       (COND
-                                       ((OR (|greater_SI| |k| |nprens|)
+                                       ((OR (|greater_SI| |k| #3#)
                                             (NULL
                                              (>= |i|
                                                  (SPADCALL |s|
@@ -316,8 +322,8 @@
                                          (LETT |c|
                                                (SPADCALL |s| |i|
                                                          (QREFELT $ 58))
-                                               . #3#)
-                                         (LETT |i| (- |i| 1) . #3#)
+                                               . #4#)
+                                         (LETT |i| (- |i| 1) . #4#)
                                          (EXIT
                                           (COND
                                            ((SPADCALL |c| (QREFELT $ 44)
@@ -326,21 +332,21 @@
                                              (LETT #2#
                                                    (|error|
                                                     "Improper Roman numeral: unbalanced ')'")
-                                                   . #3#)
-                                             (GO #4=#:G172)))))))
-                                       #4# (EXIT #2#))
-                                      (LETT |k| (|inc_SI| |k|) . #3#) (GO G190)
+                                                   . #4#)
+                                             (GO #5=#:G173)))))))
+                                       #5# (EXIT #2#))
+                                      (LETT |k| (|inc_SI| |k|) . #4#) (GO G190)
                                       G191 (EXIT NIL))
                                  (EXIT
                                   (LETT |n|
                                         (SPADCALL 10 (+ |nprens| 2)
                                                   (QREFELT $ 60))
-                                        . #3#)))))))))))
+                                        . #4#)))))))))))
                     (EXIT
-                     (COND ((< |n| |Max|) (LETT |tot| (- |tot| |n|) . #3#))
+                     (COND ((< |n| |Max|) (LETT |tot| (- |tot| |n|) . #4#))
                            ('T
-                            (SEQ (LETT |tot| (+ |tot| |n|) . #3#)
-                                 (EXIT (LETT |Max| |n| . #3#)))))))
+                            (SEQ (LETT |tot| (+ |tot| |n|) . #4#)
+                                 (EXIT (LETT |Max| |n| . #4#)))))))
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND
@@ -348,7 +354,7 @@
              (|error|
               (STRCONC "Improper Roman numeral: " (STRINGIMAGE |tot|))))
             ('T
-             (PROG1 (LETT #1# |tot| . #3#)
+             (PROG1 (LETT #1# |tot| . #4#)
                (|check_subtype2| (> #1# 0) '(|PositiveInteger|) '(|Integer|)
                                  #1#)))))))) 
 
@@ -356,7 +362,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G185)
+         (PROG (#1=#:G187)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)

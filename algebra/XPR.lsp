@@ -255,18 +255,18 @@
         (|XPR;repeatMultExpt| |p| |nn| $)) 
 
 (SDEFUN |XPR;repeatMultExpt| ((|x| $) (|nn| |NonNegativeInteger|) ($ $))
-        (SPROG ((|y| ($)) (|i| NIL))
+        (SPROG ((|y| ($)) (#1=#:G185 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |nn| 0) (|spadConstant| $ 11))
                       ('T
-                       (SEQ (LETT |y| |x| . #1=(|XPR;repeatMultExpt|))
-                            (SEQ (LETT |i| 2 . #1#) G190
-                                 (COND ((|greater_SI| |i| |nn|) (GO G191)))
+                       (SEQ (LETT |y| |x| . #2=(|XPR;repeatMultExpt|))
+                            (SEQ (LETT |i| 2 . #2#) (LETT #1# |nn| . #2#) G190
+                                 (COND ((|greater_SI| |i| #1#) (GO G191)))
                                  (SEQ
                                   (EXIT
                                    (LETT |y| (SPADCALL |x| |y| (QREFELT $ 45))
-                                         . #1#)))
-                                 (LETT |i| (|inc_SI| |i|) . #1#) (GO G190) G191
+                                         . #2#)))
+                                 (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                                  (EXIT NIL))
                             (EXIT |y|))))))) 
 
@@ -281,7 +281,7 @@
                     (QREFELT $ 50))))) 
 
 (SDEFUN |XPR;coerce;$Of;19| ((|a| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G193 NIL) (|t| NIL) (#2=#:G192 NIL))
+        (SPROG ((#1=#:G194 NIL) (|t| NIL) (#2=#:G193 NIL))
                (SEQ
                 (COND
                  ((NULL |a|) (SPADCALL (|spadConstant| $ 23) (QREFELT $ 49)))
@@ -315,9 +315,9 @@
 
 (DECLAIM (NOTINLINE |XPolynomialRing;|)) 
 
-(DEFUN |XPolynomialRing| (&REST #1=#:G202)
+(DEFUN |XPolynomialRing| (&REST #1=#:G203)
   (SPROG NIL
-         (PROG (#2=#:G203)
+         (PROG (#2=#:G204)
            (RETURN
             (COND
              ((LETT #2#

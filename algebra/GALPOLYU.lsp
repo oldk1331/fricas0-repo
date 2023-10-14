@@ -74,11 +74,12 @@
 
 (SDEFUN |GALPOLYU;reverse;2UP;5| ((|p| UP) ($ UP))
         (SPROG
-         ((|r| (UP)) (#1=#:G124 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |r| (|spadConstant| $ 17) . #2=(|GALPOLYU;reverse;2UP;5|))
-              (LETT |n| (SPADCALL |p| (QREFELT $ 13)) . #2#)
-              (SEQ (LETT |i| 0 . #2#) G190
-                   (COND ((|greater_SI| |i| |n|) (GO G191)))
+         ((|r| (UP)) (#1=#:G124 NIL) (#2=#:G128 NIL) (|i| NIL)
+          (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |r| (|spadConstant| $ 17) . #3=(|GALPOLYU;reverse;2UP;5|))
+              (LETT |n| (SPADCALL |p| (QREFELT $ 13)) . #3#)
+              (SEQ (LETT |i| 0 . #3#) (LETT #2# |n| . #3#) G190
+                   (COND ((|greater_SI| |i| #2#) (GO G191)))
                    (SEQ
                     (EXIT
                      (LETT |r|
@@ -87,7 +88,7 @@
                                       (SPADCALL |p|
                                                 (PROG1
                                                     (LETT #1# (- |n| |i|)
-                                                          . #2#)
+                                                          . #3#)
                                                   (|check_subtype2| (>= #1# 0)
                                                                     '(|NonNegativeInteger|)
                                                                     '(|Integer|)
@@ -95,8 +96,8 @@
                                                 (QREFELT $ 31))
                                       |i| (QREFELT $ 32))
                                      (QREFELT $ 33))
-                           . #2#)))
-                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+                           . #3#)))
+                   (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT |r|)))) 
 
 (SDEFUN |GALPOLYU;scaleRoots;UPRUP;6| ((|p| UP) (|c| R) ($ UP))
@@ -148,9 +149,9 @@
 
 (DECLAIM (NOTINLINE |GaloisGroupPolynomialUtilities;|)) 
 
-(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G143)
+(DEFUN |GaloisGroupPolynomialUtilities| (&REST #1=#:G144)
   (SPROG NIL
-         (PROG (#2=#:G144)
+         (PROG (#2=#:G145)
            (RETURN
             (COND
              ((LETT #2#

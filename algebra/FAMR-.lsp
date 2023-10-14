@@ -20,14 +20,15 @@
         ((|x| S) (|y| S) (|nn| |NonNegativeInteger|) ($ S))
         (SPROG
          ((|yn| (S)) (|i| (|NonNegativeInteger|)) (|bincoef| (|Integer|))
-          (|ans| (S)) (#1=#:G127 NIL) (|xn| NIL) (|powl| (|List| S)))
+          (|ans| (S)) (#1=#:G128 NIL) (|xn| NIL) (|powl| (|List| S))
+          (#2=#:G127 NIL))
          (SEQ
           (COND ((EQL |nn| 0) (|spadConstant| $ 17))
                 ('T
                  (SEQ
-                  (LETT |powl| (LIST |x|) . #2=(|FAMR-;binomThmExpt;2SNniS;2|))
-                  (SEQ (LETT |i| 2 . #2#) G190
-                       (COND ((|greater_SI| |i| |nn|) (GO G191)))
+                  (LETT |powl| (LIST |x|) . #3=(|FAMR-;binomThmExpt;2SNniS;2|))
+                  (SEQ (LETT |i| 2 . #3#) (LETT #2# |nn| . #3#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
                         (EXIT
                          (LETT |powl|
@@ -35,15 +36,15 @@
                                 (SPADCALL |x| (|SPADfirst| |powl|)
                                           (QREFELT $ 18))
                                 |powl|)
-                               . #2#)))
-                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                               . #3#)))
+                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
-                  (LETT |yn| |y| . #2#) (LETT |ans| (|SPADfirst| |powl|) . #2#)
-                  (LETT |i| 1 . #2#) (LETT |bincoef| |nn| . #2#)
-                  (SEQ (LETT |xn| NIL . #2#) (LETT #1# (CDR |powl|) . #2#) G190
+                  (LETT |yn| |y| . #3#) (LETT |ans| (|SPADfirst| |powl|) . #3#)
+                  (LETT |i| 1 . #3#) (LETT |bincoef| |nn| . #3#)
+                  (SEQ (LETT |xn| NIL . #3#) (LETT #1# (CDR |powl|) . #3#) G190
                        (COND
                         ((OR (ATOM #1#)
-                             (PROGN (LETT |xn| (CAR #1#) . #2#) NIL))
+                             (PROGN (LETT |xn| (CAR #1#) . #3#) NIL))
                          (GO G191)))
                        (SEQ
                         (LETT |ans|
@@ -52,14 +53,14 @@
                                 (SPADCALL |bincoef| |xn| (QREFELT $ 20)) |yn|
                                 (QREFELT $ 18))
                                |ans| (QREFELT $ 13))
-                              . #2#)
+                              . #3#)
                         (LETT |bincoef|
                               (QUOTIENT2 (* (- |nn| |i|) |bincoef|) (+ |i| 1))
-                              . #2#)
-                        (LETT |i| (+ |i| 1) . #2#)
+                              . #3#)
+                        (LETT |i| (+ |i| 1) . #3#)
                         (EXIT
-                         (LETT |yn| (SPADCALL |y| |yn| (QREFELT $ 18)) . #2#)))
-                       (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                         (LETT |yn| (SPADCALL |y| |yn| (QREFELT $ 18)) . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT (SPADCALL |ans| |yn| (QREFELT $ 13))))))))) 
 
 (SDEFUN |FAMR-;ground?;SB;3| ((|x| S) ($ |Boolean|))
@@ -95,7 +96,7 @@
           (RETURN (PROGN (SPADCALL |x1| |r| (QREFELT $ 38)))))) 
 
 (SDEFUN |FAMR-;exquo;SRU;8| ((|x| S) (|r| R) ($ |Union| S "failed"))
-        (SPROG ((|ans| (S)) (#1=#:G155 NIL) (|t| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G156 NIL) (|t| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (COND
@@ -122,7 +123,7 @@
                             ((QEQCAR |t| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #2#)
-                              (GO #3=#:G154)))
+                              (GO #3=#:G155)))
                             ('T
                              (SEQ
                               (LETT |ans|
@@ -171,7 +172,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |FAMR-;primitivePart;2S;10| ((|x| S) ($ S))
-        (SPROG ((#1=#:G163 NIL) (|c| (R)))
+        (SPROG ((#1=#:G164 NIL) (|c| (R)))
                (SEQ
                 (COND ((SPADCALL |x| (QREFELT $ 29)) |x|)
                       ('T

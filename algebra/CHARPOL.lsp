@@ -1,33 +1,33 @@
 
 (SDEFUN |CHARPOL;characteristicPolynomial;M2R;1| ((A |Matrix| R) (|v| R) ($ R))
         (SPROG
-         ((|j| NIL) (|i| NIL) (B (|Matrix| R)) (|dimA| (|PositiveInteger|))
-          (#1=#:G105 NIL))
+         ((#1=#:G113 NIL) (|j| NIL) (#2=#:G112 NIL) (|i| NIL) (B (|Matrix| R))
+          (|dimA| (|PositiveInteger|)) (#3=#:G105 NIL))
          (SEQ
           (LETT |dimA|
                 (PROG1
-                    (LETT #1# (ANROWS A)
-                          . #2=(|CHARPOL;characteristicPolynomial;M2R;1|))
-                  (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
-                                    '(|NonNegativeInteger|) #1#))
-                . #2#)
+                    (LETT #3# (ANROWS A)
+                          . #4=(|CHARPOL;characteristicPolynomial;M2R;1|))
+                  (|check_subtype2| (> #3# 0) '(|PositiveInteger|)
+                                    '(|NonNegativeInteger|) #3#))
+                . #4#)
           (EXIT
            (COND
             ((SPADCALL |dimA| (ANCOLS A) (QREFELT $ 9))
              (|error| " The matrix is not square"))
             ('T
-             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 11)) . #2#)
-                  (SEQ (LETT |i| 1 . #2#) G190
-                       (COND ((|greater_SI| |i| |dimA|) (GO G191)))
+             (SEQ (LETT B (SPADCALL |dimA| |dimA| (QREFELT $ 11)) . #4#)
+                  (SEQ (LETT |i| 1 . #4#) (LETT #2# |dimA| . #4#) G190
+                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                        (SEQ
-                        (SEQ (LETT |j| 1 . #2#) G190
-                             (COND ((|greater_SI| |j| |dimA|) (GO G191)))
+                        (SEQ (LETT |j| 1 . #4#) (LETT #1# |dimA| . #4#) G190
+                             (COND ((|greater_SI| |j| #1#) (GO G191)))
                              (SEQ
                               (EXIT
                                (SPADCALL B |i| |j|
                                          (SPADCALL A |i| |j| (QREFELT $ 13))
                                          (QREFELT $ 14))))
-                             (LETT |j| (|inc_SI| |j|) . #2#) (GO G190) G191
+                             (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT
                          (SPADCALL B |i| |i|
@@ -35,15 +35,15 @@
                                     (SPADCALL B |i| |i| (QREFELT $ 13)) |v|
                                     (QREFELT $ 15))
                                    (QREFELT $ 14))))
-                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
+                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT (SPADCALL B (QREFELT $ 16)))))))))) 
 
 (DECLAIM (NOTINLINE |CharacteristicPolynomialPackage;|)) 
 
-(DEFUN |CharacteristicPolynomialPackage| (#1=#:G112)
+(DEFUN |CharacteristicPolynomialPackage| (#1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

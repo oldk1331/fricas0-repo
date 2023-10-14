@@ -4,31 +4,31 @@
          (|full| |Mapping| (|Matrix| (|Integer|)) (|Matrix| (|Integer|)))
          ($ |Matrix| (|Integer|)))
         (SPROG
-         ((|i| NIL) (|nn2| #1=(|Integer|)) (|res| (|Matrix| (|Integer|)))
-          (|count| #1#) (|nn| (|NonNegativeInteger|))
-          (|k| (|NonNegativeInteger|)) (|j| (|NonNegativeInteger|))
-          (|m3| (|Matrix| (|Integer|))) (|m2| (|Matrix| (|Integer|)))
-          (|m1| (|Matrix| (|Integer|))))
+         ((#1=#:G110 NIL) (|i| NIL) (|nn2| #2=(|Integer|)) (#3=#:G109 NIL)
+          (|res| (|Matrix| (|Integer|))) (|count| #2#)
+          (|nn| (|NonNegativeInteger|)) (|k| (|NonNegativeInteger|))
+          (|j| (|NonNegativeInteger|)) (|m3| (|Matrix| (|Integer|)))
+          (|m2| (|Matrix| (|Integer|))) (|m1| (|Matrix| (|Integer|))))
          (SEQ
-          (LETT |m1| (SPADCALL |m| (QREFELT $ 7)) . #2=(|ISMITH;smith;MMM;1|))
-          (LETT |m2| (SPADCALL |m1| (QREFELT $ 9)) . #2#)
-          (LETT |m3| (SPADCALL |m2| |full|) . #2#)
-          (LETT |j| (ANROWS |m|) . #2#) (LETT |k| (ANCOLS |m|) . #2#)
-          (LETT |nn| (MIN |j| |k|) . #2#)
-          (LETT |count| (- |j| (ANROWS |m2|)) . #2#)
-          (LETT |res| (SPADCALL |j| |k| (QREFELT $ 11)) . #2#)
-          (SEQ (LETT |i| 1 . #2#) G190
-               (COND ((|greater_SI| |i| |count|) (GO G191)))
+          (LETT |m1| (SPADCALL |m| (QREFELT $ 7)) . #4=(|ISMITH;smith;MMM;1|))
+          (LETT |m2| (SPADCALL |m1| (QREFELT $ 9)) . #4#)
+          (LETT |m3| (SPADCALL |m2| |full|) . #4#)
+          (LETT |j| (ANROWS |m|) . #4#) (LETT |k| (ANCOLS |m|) . #4#)
+          (LETT |nn| (MIN |j| |k|) . #4#)
+          (LETT |count| (- |j| (ANROWS |m2|)) . #4#)
+          (LETT |res| (SPADCALL |j| |k| (QREFELT $ 11)) . #4#)
+          (SEQ (LETT |i| 1 . #4#) (LETT #3# |count| . #4#) G190
+               (COND ((|greater_SI| |i| #3#) (GO G191)))
                (SEQ (EXIT (QSETAREF2O |res| |i| |i| 1 1 1)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
-          (LETT |nn2| (- |nn| |count|) . #2#)
-          (SEQ (LETT |i| 1 . #2#) G190
-               (COND ((|greater_SI| |i| |nn2|) (GO G191)))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
+          (LETT |nn2| (- |nn| |count|) . #4#)
+          (SEQ (LETT |i| 1 . #4#) (LETT #1# |nn2| . #4#) G190
+               (COND ((|greater_SI| |i| #1#) (GO G191)))
                (SEQ
                 (EXIT
                  (QSETAREF2O |res| (+ |i| |count|) (+ |i| |count|)
                              (QAREF2O |m3| |i| |i| 1 1) 1 1)))
-               (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
+               (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|)))) 
 
 (SDEFUN |ISMITH;smith;2M;2|
@@ -39,7 +39,7 @@
 
 (DEFUN |IntegerSmithNormalForm| ()
   (SPROG NIL
-         (PROG (#1=#:G112)
+         (PROG (#1=#:G114)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IntegerSmithNormalForm|)
