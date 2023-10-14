@@ -1589,13 +1589,12 @@
         ((|k| |Kernel| $) (|lk| |List| (|Kernel| $)) (|lv| |List| $) ($ $))
         (SPROG NIL
                (SPADCALL |lk| |lv| |k|
-                         (CONS #'|EXPR;kereval!1| (VECTOR |lk| |lv| $ $$))
+                         (CONS #'|EXPR;kereval!1| (VECTOR |lk| |lv| $))
                          (QREFELT $ 532)))) 
 
 (SDEFUN |EXPR;kereval!1| ((|x2| NIL) ($$ NIL))
-        (PROG ($$ $ |lv| |lk|)
-          (LETT $$ (QREFELT $$ 3) . #1=(|EXPR;kereval|))
-          (LETT $ (QREFELT $$ 2) . #1#)
+        (PROG ($ |lv| |lk|)
+          (LETT $ (QREFELT $$ 2) . #1=(|EXPR;kereval|))
           (LETT |lv| (QREFELT $$ 1) . #1#)
           (LETT |lk| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -1795,14 +1794,12 @@
         ((|x| $) (|lk| |List| (|Kernel| $)) (|lv| |List| $) ($ $))
         (SPROG NIL
                (SPADCALL |lk| |lv| |x|
-                         (CONS #'|EXPR;eval;$LL$;217!1|
-                               (VECTOR |lk| |lv| $ $$))
+                         (CONS #'|EXPR;eval;$LL$;217!1| (VECTOR |lk| |lv| $))
                          (QREFELT $ 532)))) 
 
 (SDEFUN |EXPR;eval;$LL$;217!1| ((|x1| NIL) ($$ NIL))
-        (PROG ($$ $ |lv| |lk|)
-          (LETT $$ (QREFELT $$ 3) . #1=(|EXPR;eval;$LL$;217|))
-          (LETT $ (QREFELT $$ 2) . #1#)
+        (PROG ($ |lv| |lk|)
+          (LETT $ (QREFELT $$ 2) . #1=(|EXPR;eval;$LL$;217|))
           (LETT |lv| (QREFELT $$ 1) . #1#)
           (LETT |lk| (QREFELT $$ 0) . #1#)
           (RETURN
