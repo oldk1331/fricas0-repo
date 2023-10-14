@@ -70,9 +70,9 @@
                                     (SPADCALL |rat| (QREFELT $ 33))
                                     (QREFELT $ 37)))))))))))) 
 
-(SDEFUN |DRAWCURV;draw;E2SLTdv;4|
+(SDEFUN |DRAWCURV;makeObject;E2SLGi;4|
         ((|eq| |Equation| |Ex|) (|x| |Symbol|) (|y| |Symbol|)
-         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+         (|l| |List| (|DrawOption|)) ($ |GraphImage|))
         (SPROG
          ((|crCol| (|Palette|)) (|ptCol| (|Palette|))
           (|scaledRanges| (|List| (|Segment| (|Float|))))
@@ -85,7 +85,7 @@
           (|floatRange| #4#) (|p| (|Polynomial| (|Integer|))))
          (SEQ
           (LETT |p| (|DRAWCURV;polyEquation| |eq| $)
-                . #6=(|DRAWCURV;draw;E2SLTdv;4|))
+                . #6=(|DRAWCURV;makeObject;E2SLGi;4|))
           (LETT |floatRange| (SPADCALL |l| '|rangeFloat| (QREFELT $ 42)) . #6#)
           (LETT |ratRange| (SPADCALL |l| '|rangeRat| (QREFELT $ 42)) . #6#)
           (COND
@@ -169,11 +169,20 @@
            (SPADCALL (SPADCALL |acplot| (QREFELT $ 85)) |ptCol| |crCol|
                      (SPADCALL (QREFELT $ 87)) |l| (QREFELT $ 90)))))) 
 
+(SDEFUN |DRAWCURV;draw;E2SLTdv;5|
+        ((|eq| |Equation| |Ex|) (|x| |Symbol|) (|y| |Symbol|)
+         (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
+        (SPROG ((|g| (|GraphImage|)))
+               (SEQ
+                (LETT |g| (SPADCALL |eq| |x| |y| |l| (QREFELT $ 91))
+                      |DRAWCURV;draw;E2SLTdv;5|)
+                (EXIT (SPADCALL |g| |l| (QREFELT $ 93)))))) 
+
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForAlgebraicCurves;|)) 
 
-(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G136)
+(DEFUN |TopLevelDrawFunctionsForAlgebraicCurves| (&REST #1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G137)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#
@@ -204,7 +213,7 @@
           (LETT |dv$|
                 (LIST '|TopLevelDrawFunctionsForAlgebraicCurves| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 92) . #1#)
+          (LETT $ (GETREFV 95) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -244,14 +253,15 @@
               (212 . |curveColorPalette|)
               (|List| (|List| (|Point| (|DoubleFloat|))))
               (218 . |listBranches|) (|PositiveInteger|)
-              (223 . |pointSizeDefault|) (|TwoDimensionalViewport|)
-              (|ViewportPackage|) (227 . |drawCurves|)
-              |DRAWCURV;draw;E2SLTdv;4|)
-           '#(|draw| 236) 'NIL
+              (223 . |pointSizeDefault|) (|GraphImage|) (|ViewportPackage|)
+              (227 . |graphCurves|) |DRAWCURV;makeObject;E2SLGi;4|
+              (|TwoDimensionalViewport|) (236 . |makeViewport2D|)
+              |DRAWCURV;draw;E2SLTdv;5|)
+           '#(|makeObject| 242 |draw| 250) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 91
+                             (|makeByteWordVec2| 94
                                                  '(1 9 8 0 10 1 9 8 0 11 2 8 0
                                                    0 0 12 1 8 0 0 13 2 8 0 0 14
                                                    15 2 8 16 0 0 17 2 8 0 0 0
@@ -273,6 +283,7 @@
                                                    80 2 75 78 74 78 81 0 79 78
                                                    82 2 75 78 74 78 83 1 70 84
                                                    0 85 0 79 86 87 5 89 88 84
-                                                   78 78 86 74 90 4 0 88 22 40
-                                                   40 74 91)))))
+                                                   78 78 86 74 90 2 92 0 88 74
+                                                   93 4 0 88 22 40 40 74 91 4 0
+                                                   92 22 40 40 74 94)))))
            '|lookupComplete|)) 

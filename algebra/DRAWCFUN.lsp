@@ -39,9 +39,8 @@
                              (SPADCALL |yHi| |pad| (QREFELT $ 21))
                              (QREFELT $ 23))))))))) 
 
-(SDEFUN |DRAWCFUN;drawPlot|
-        ((|plot| |Plot|) (|l| |List| (|DrawOption|))
-         ($ |TwoDimensionalViewport|))
+(SDEFUN |DRAWCFUN;make_plot|
+        ((|plot| |Plot|) (|l| |List| (|DrawOption|)) ($ |GraphImage|))
         (SPROG
          ((|crCol| (|Palette|)) (|ptCol| (|Palette|))
           (|ll| (|List| #1=(|Segment| (|Float|)))) (|yRangeFloat| #1#)
@@ -59,7 +58,7 @@
           (|cl| (|Union| (|Any|) "failed")))
          (SEQ
           (LETT |branches| (SPADCALL |plot| (QREFELT $ 29))
-                . #4=(|DRAWCFUN;drawPlot|))
+                . #4=(|DRAWCFUN;make_plot|))
           (LETT |xRange| (SPADCALL |plot| (QREFELT $ 30)) . #4#)
           (LETT |yRange| (SPADCALL |plot| (QREFELT $ 31)) . #4#)
           (SEQ (LETT |cl| (SPADCALL |l| '|clipSegment| (QREFELT $ 36)) . #4#)
@@ -219,10 +218,10 @@
                (SPADCALL (LETT |l| (LIST |x| |y|) |DRAWCFUN;makePt2|)
                          (QREFELT $ 77)))) 
 
-(SDEFUN |DRAWCFUN;draw;MSLTdv;6|
+(SDEFUN |DRAWCFUN;makeObject;MSLGi;6|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
-         ($ |TwoDimensionalViewport|))
+         ($ |GraphImage|))
         (SPROG
          ((|pl| (|Plot|))
           (|ff| (|List| (|Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))))
@@ -232,9 +231,10 @@
           (|c| (|Union| (|Any|) "failed")) (|oldAdaptive| (|Boolean|)))
          (SEQ
           (LETT |oldAdaptive| (SPADCALL (QREFELT $ 78))
-                . #1=(|DRAWCFUN;draw;MSLTdv;6|))
+                . #1=(|DRAWCFUN;makeObject;MSLGi;6|))
           (SPADCALL (SPADCALL |l| |oldAdaptive| (QREFELT $ 79)) (QREFELT $ 80))
-          (LETT |ff| (LIST (CONS #'|DRAWCFUN;draw;MSLTdv;6!0| (VECTOR $ |f|)))
+          (LETT |ff|
+                (LIST (CONS #'|DRAWCFUN;makeObject;MSLGi;6!0| (VECTOR $ |f|)))
                 . #1#)
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #1#)
                (EXIT
@@ -242,7 +242,8 @@
                  ((QEQCAR |c| 1)
                   (LETT |ff|
                         (LIST
-                         (CONS #'|DRAWCFUN;draw;MSLTdv;6!1| (VECTOR $ |f|)))
+                         (CONS #'|DRAWCFUN;makeObject;MSLGi;6!1|
+                               (VECTOR $ |f|)))
                         . #1#))
                  ('T
                   (SEQ
@@ -251,7 +252,7 @@
                    (EXIT
                     (LETT |ff|
                           (LIST
-                           (CONS #'|DRAWCFUN;draw;MSLTdv;6!2|
+                           (CONS #'|DRAWCFUN;makeObject;MSLGi;6!2|
                                  (VECTOR |cc| $ |ff|)))
                           . #1#)))))))
           (LETT |pl|
@@ -259,11 +260,11 @@
                           (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 89))
                 . #1#)
           (SPADCALL |oldAdaptive| (QREFELT $ 80))
-          (EXIT (|DRAWCFUN;drawPlot| |pl| |l| $))))) 
+          (EXIT (|DRAWCFUN;make_plot| |pl| |l| $))))) 
 
-(SDEFUN |DRAWCFUN;draw;MSLTdv;6!2| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;MSLGi;6!2| ((|x| NIL) ($$ NIL))
         (PROG (|ff| $ |cc|)
-          (LETT |ff| (QREFELT $$ 2) . #1=(|DRAWCFUN;draw;MSLTdv;6|))
+          (LETT |ff| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;MSLGi;6|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -271,30 +272,40 @@
             (SPADCALL (SPADCALL |x| (SPADCALL |ff| (QREFELT $ 88)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;draw;MSLTdv;6!1| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;MSLGi;6!1| ((|x| NIL) ($$ NIL))
         (PROG (|f| $)
-          (LETT |f| (QREFELT $$ 1) . #1=(|DRAWCFUN;draw;MSLTdv;6|))
+          (LETT |f| (QREFELT $$ 1) . #1=(|DRAWCFUN;makeObject;MSLGi;6|))
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN (|DRAWCFUN;makePt2| |x| (|DRAWCFUN;myTrap1| |f| |x| $) $))))) 
 
-(SDEFUN |DRAWCFUN;draw;MSLTdv;6!0| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;MSLGi;6!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $)
-          (LETT |f| (QREFELT $$ 1) . #1=(|DRAWCFUN;draw;MSLTdv;6|))
+          (LETT |f| (QREFELT $$ 1) . #1=(|DRAWCFUN;makeObject;MSLGi;6|))
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN (|DRAWCFUN;makePt2| (|DRAWCFUN;myTrap1| |f| |x| $) |x| $))))) 
 
-(SDEFUN |DRAWCFUN;draw;MSTdv;7|
+(SDEFUN |DRAWCFUN;draw;MSLTdv;7|
+        ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
+         (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |TwoDimensionalViewport|))
+        (SPROG ((|g| (|GraphImage|)))
+               (SEQ
+                (LETT |g| (SPADCALL |f| |seg| |l| (QREFELT $ 91))
+                      |DRAWCFUN;draw;MSLTdv;7|)
+                (EXIT (SPADCALL |g| |l| (QREFELT $ 93)))))) 
+
+(SDEFUN |DRAWCFUN;draw;MSTdv;8|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) ($ |TwoDimensionalViewport|))
-        (SPADCALL |f| |seg| NIL (QREFELT $ 91))) 
+        (SPADCALL |f| |seg| NIL (QREFELT $ 94))) 
 
-(SDEFUN |DRAWCFUN;draw;PpcSLTdv;8|
+(SDEFUN |DRAWCFUN;makeObject;PpcSLGi;9|
         ((|ppc| |ParametricPlaneCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
-         ($ |TwoDimensionalViewport|))
+         ($ |GraphImage|))
         (SPROG
          ((|pl| (|Plot|))
           (|fcn|
@@ -307,12 +318,13 @@
           (|oldAdaptive| (|Boolean|)))
          (SEQ
           (LETT |oldAdaptive| (SPADCALL (QREFELT $ 78))
-                . #2=(|DRAWCFUN;draw;PpcSLTdv;8|))
+                . #2=(|DRAWCFUN;makeObject;PpcSLGi;9|))
           (SPADCALL (SPADCALL |l| |oldAdaptive| (QREFELT $ 79)) (QREFELT $ 80))
-          (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 94)) . #2#)
-          (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 94)) . #2#)
+          (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 97)) . #2#)
+          (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 97)) . #2#)
           (LETT |fcn|
-                (LIST (CONS #'|DRAWCFUN;draw;PpcSLTdv;8!0| (VECTOR |g| $ |f|)))
+                (LIST
+                 (CONS #'|DRAWCFUN;makeObject;PpcSLGi;9!0| (VECTOR |g| $ |f|)))
                 . #2#)
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #2#)
                (EXIT
@@ -324,7 +336,7 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;draw;PpcSLTdv;8!1|
+                           (CONS #'|DRAWCFUN;makeObject;PpcSLGi;9!1|
                                  (VECTOR |cc| $ |fcn|)))
                           . #2#)))))))
           (LETT |pl|
@@ -332,11 +344,11 @@
                           (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 89))
                 . #2#)
           (SPADCALL |oldAdaptive| (QREFELT $ 80))
-          (EXIT (|DRAWCFUN;drawPlot| |pl| |l| $))))) 
+          (EXIT (|DRAWCFUN;make_plot| |pl| |l| $))))) 
 
-(SDEFUN |DRAWCFUN;draw;PpcSLTdv;8!1| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;PpcSLGi;9!1| ((|x| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;draw;PpcSLTdv;8|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;PpcSLGi;9|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -344,9 +356,9 @@
             (SPADCALL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 88)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;draw;PpcSLTdv;8!0| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;PpcSLGi;9!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $ |g|)
-          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;draw;PpcSLTdv;8|))
+          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;PpcSLGi;9|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |g| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -354,11 +366,22 @@
             (|DRAWCFUN;makePt2| (|DRAWCFUN;myTrap1| |f| |x| $)
              (|DRAWCFUN;myTrap1| |g| |x| $) $))))) 
 
-(SDEFUN |DRAWCFUN;draw;PpcSTdv;9|
+(SDEFUN |DRAWCFUN;draw;PpcSLTdv;10|
+        ((|ppc| |ParametricPlaneCurve|
+          (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
+         (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
+         ($ |TwoDimensionalViewport|))
+        (SPROG ((|g| (|GraphImage|)))
+               (SEQ
+                (LETT |g| (SPADCALL |ppc| |seg| |l| (QREFELT $ 98))
+                      |DRAWCFUN;draw;PpcSLTdv;10|)
+                (EXIT (SPADCALL |g| |l| (QREFELT $ 93)))))) 
+
+(SDEFUN |DRAWCFUN;draw;PpcSTdv;11|
         ((|ppc| |ParametricPlaneCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) ($ |TwoDimensionalViewport|))
-        (SPADCALL |ppc| |seg| NIL (QREFELT $ 95))) 
+        (SPADCALL |ppc| |seg| NIL (QREFELT $ 99))) 
 
 (SDEFUN |DRAWCFUN;makePt4|
         ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
@@ -383,7 +406,7 @@
          (|func| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
           (|DoubleFloat|))
          ($ |List| (|List| (|Point| (|DoubleFloat|)))))
-        (SPROG ((#1=#:G185 NIL) (|p| NIL) (#2=#:G184 NIL) (|lp| NIL))
+        (SPROG ((#1=#:G190 NIL) (|p| NIL) (#2=#:G189 NIL) (|lp| NIL))
                (SEQ
                 (SEQ (LETT |lp| NIL . #3=(|DRAWCFUN;colorPoints|))
                      (LETT #2# |llp| . #3#) G190
@@ -401,23 +424,23 @@
                              (EXIT
                               (SPADCALL |p| 4
                                         (SPADCALL
-                                         (SPADCALL |p| 1 (QREFELT $ 97))
-                                         (SPADCALL |p| 2 (QREFELT $ 97))
-                                         (SPADCALL |p| 3 (QREFELT $ 97))
+                                         (SPADCALL |p| 1 (QREFELT $ 101))
+                                         (SPADCALL |p| 2 (QREFELT $ 101))
+                                         (SPADCALL |p| 3 (QREFELT $ 101))
                                          |func|)
-                                        (QREFELT $ 98))))
+                                        (QREFELT $ 102))))
                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                             (EXIT NIL))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT |llp|)))) 
 
-(SDEFUN |DRAWCFUN;makeObject;PscSLTs;14|
+(SDEFUN |DRAWCFUN;makeObject;PscSLTs;16|
         ((|psc| |ParametricSpaceCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((#1=#:G220 NIL) (|b| NIL)
+         ((#1=#:G225 NIL) (|b| NIL)
           (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|c3| #2=(|Union| (|Any|) "failed"))
           (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
@@ -433,14 +456,14 @@
           (|h| #4=(|Mapping| (|DoubleFloat|) (|DoubleFloat|))) (|g| #4#)
           (|f| #4#) (|sp| #3#))
          (SEQ
-          (LETT |sp| (SPADCALL |l| (QREFELT $ 100))
-                . #5=(|DRAWCFUN;makeObject;PscSLTs;14|))
-          (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 102)) . #5#)
-          (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 102)) . #5#)
-          (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 102)) . #5#)
+          (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
+                . #5=(|DRAWCFUN;makeObject;PscSLTs;16|))
+          (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 106)) . #5#)
+          (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 106)) . #5#)
+          (LETT |h| (SPADCALL |psc| 3 (QREFELT $ 106)) . #5#)
           (LETT |fcn|
                 (LIST
-                 (CONS #'|DRAWCFUN;makeObject;PscSLTs;14!0|
+                 (CONS #'|DRAWCFUN;makeObject;PscSLTs;16!0|
                        (VECTOR |h| |g| $ |f|)))
                 . #5#)
           (LETT |pointsColored?| 'NIL . #5#)
@@ -453,7 +476,7 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;PscSLTs;14!1|
+                           (CONS #'|DRAWCFUN;makeObject;PscSLTs;16!1|
                                  (VECTOR |c1| |h| |g| $ |f|)))
                           . #5#)))))))
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #5#)
@@ -466,27 +489,27 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;PscSLTs;14!2|
+                           (CONS #'|DRAWCFUN;makeObject;PscSLTs;16!2|
                                  (VECTOR |cc| $ |fcn|)))
                           . #5#)))))))
           (LETT |pl|
                 (SPADCALL (SPADCALL |fcn| (QREFELT $ 88))
-                          (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 106))
+                          (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 110))
                 . #5#)
           (LETT |s| |sp| . #5#)
           (EXIT
            (COND
-            ((SPADCALL |l| '|tubeRadius| (QREFELT $ 107))
-             (SEQ (LETT |pts| (SPADCALL |l| 8 (QREFELT $ 108)) . #5#)
+            ((SPADCALL |l| '|tubeRadius| (QREFELT $ 111))
+             (SEQ (LETT |pts| (SPADCALL |l| 8 (QREFELT $ 112)) . #5#)
                   (LETT |rad|
                         (SPADCALL
-                         (SPADCALL |l| (SPADCALL 25 -2 10 (QREFELT $ 109))
-                                   (QREFELT $ 110))
+                         (SPADCALL |l| (SPADCALL 25 -2 10 (QREFELT $ 113))
+                                   (QREFELT $ 114))
                          (QREFELT $ 54))
                         . #5#)
-                  (LETT |tub| (SPADCALL |pl| |rad| |pts| (QREFELT $ 113))
+                  (LETT |tub| (SPADCALL |pl| |rad| |pts| (QREFELT $ 117))
                         . #5#)
-                  (LETT |loops| (SPADCALL |tub| (QREFELT $ 114)) . #5#)
+                  (LETT |loops| (SPADCALL |tub| (QREFELT $ 118)) . #5#)
                   (COND
                    ((NULL |pointsColored?|)
                     (SEQ
@@ -499,21 +522,21 @@
                          (CONS (|function| |DRAWCFUN;zCoord|) $) $))
                        (#6='T
                         (|DRAWCFUN;colorPoints| |loops|
-                         (SPADCALL (QCDR |c3|) (QREFELT $ 117)) $)))))))
-                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 118)) (EXIT |s|)))
+                         (SPADCALL (QCDR |c3|) (QREFELT $ 121)) $)))))))
+                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 122)) (EXIT |s|)))
             (#6#
-             (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 119)) . #5#)
+             (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 123)) . #5#)
                   (SEQ (LETT |b| NIL . #5#) (LETT #1# |br| . #5#) G190
                        (COND
                         ((OR (ATOM #1#) (PROGN (LETT |b| (CAR #1#) . #5#) NIL))
                          (GO G191)))
-                       (SEQ (EXIT (SPADCALL |s| |b| (QREFELT $ 121))))
+                       (SEQ (EXIT (SPADCALL |s| |b| (QREFELT $ 125))))
                        (LETT #1# (CDR #1#) . #5#) (GO G190) G191 (EXIT NIL))
                   (EXIT |s|)))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;PscSLTs;14!2| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;PscSLTs;16!2| ((|x| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;PscSLTs;14|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;PscSLTs;16|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -521,9 +544,9 @@
             (SPADCALL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 88)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;PscSLTs;14!1| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;PscSLTs;16!1| ((|x| NIL) ($$ NIL))
         (PROG (|f| $ |g| |h| |c1|)
-          (LETT |f| (QREFELT $$ 4) . #1=(|DRAWCFUN;makeObject;PscSLTs;14|))
+          (LETT |f| (QREFELT $$ 4) . #1=(|DRAWCFUN;makeObject;PscSLTs;16|))
           (LETT $ (QREFELT $$ 3) . #1#)
           (LETT |g| (QREFELT $$ 2) . #1#)
           (LETT |h| (QREFELT $$ 1) . #1#)
@@ -532,11 +555,11 @@
            (PROGN
             (|DRAWCFUN;makePt4| (|DRAWCFUN;myTrap1| |f| |x| $)
              (|DRAWCFUN;myTrap1| |g| |x| $) (|DRAWCFUN;myTrap1| |h| |x| $)
-             (SPADCALL |x| (SPADCALL (QCDR |c1|) (QREFELT $ 104))) $))))) 
+             (SPADCALL |x| (SPADCALL (QCDR |c1|) (QREFELT $ 108))) $))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;PscSLTs;14!0| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;PscSLTs;16!0| ((|x| NIL) ($$ NIL))
         (PROG (|f| $ |g| |h|)
-          (LETT |f| (QREFELT $$ 3) . #1=(|DRAWCFUN;makeObject;PscSLTs;14|))
+          (LETT |f| (QREFELT $$ 3) . #1=(|DRAWCFUN;makeObject;PscSLTs;16|))
           (LETT $ (QREFELT $$ 2) . #1#)
           (LETT |g| (QREFELT $$ 1) . #1#)
           (LETT |h| (QREFELT $$ 0) . #1#)
@@ -547,12 +570,12 @@
              (|DRAWCFUN;myTrap1| (CONS (|function| |DRAWCFUN;id|) $) |x| $)
              $))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;MSLTs;15|
+(SDEFUN |DRAWCFUN;makeObject;MSLTs;17|
         ((|psc| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((#1=#:G238 NIL) (|b| NIL)
+         ((#1=#:G243 NIL) (|b| NIL)
           (|br| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|loops| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|tub| (|TubePlot| (|Plot3D|))) (|rad| (|DoubleFloat|))
@@ -566,8 +589,8 @@
           (|c| #3=(|Union| (|Any|) "failed")) (|pointsColored?| (|Boolean|))
           (|c1| #3#) (|sp| #2#))
          (SEQ
-          (LETT |sp| (SPADCALL |l| (QREFELT $ 100))
-                . #4=(|DRAWCFUN;makeObject;MSLTs;15|))
+          (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
+                . #4=(|DRAWCFUN;makeObject;MSLTs;17|))
           (LETT |fcn| (LIST |psc|) . #4#) (LETT |pointsColored?| 'NIL . #4#)
           (SEQ
            (LETT |c1| (SPADCALL |l| '|colorFunction1| (QREFELT $ 36)) . #4#)
@@ -578,7 +601,7 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;MSLTs;15!0|
+                           (CONS #'|DRAWCFUN;makeObject;MSLTs;17!0|
                                  (VECTOR $ |c1| |psc|)))
                           . #4#)))))))
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #4#)
@@ -591,41 +614,41 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;MSLTs;15!1|
+                           (CONS #'|DRAWCFUN;makeObject;MSLTs;17!1|
                                  (VECTOR |cc| $ |fcn|)))
                           . #4#)))))))
           (LETT |pl|
                 (SPADCALL (SPADCALL |fcn| (QREFELT $ 88))
-                          (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 106))
+                          (|DRAWCFUN;normalize| |seg| $) (QREFELT $ 110))
                 . #4#)
           (LETT |s| |sp| . #4#)
           (EXIT
            (COND
-            ((SPADCALL |l| '|tubeRadius| (QREFELT $ 107))
-             (SEQ (LETT |pts| (SPADCALL |l| 8 (QREFELT $ 108)) . #4#)
+            ((SPADCALL |l| '|tubeRadius| (QREFELT $ 111))
+             (SEQ (LETT |pts| (SPADCALL |l| 8 (QREFELT $ 112)) . #4#)
                   (LETT |rad|
                         (SPADCALL
-                         (SPADCALL |l| (SPADCALL 25 -2 10 (QREFELT $ 109))
-                                   (QREFELT $ 110))
+                         (SPADCALL |l| (SPADCALL 25 -2 10 (QREFELT $ 113))
+                                   (QREFELT $ 114))
                          (QREFELT $ 54))
                         . #4#)
-                  (LETT |tub| (SPADCALL |pl| |rad| |pts| (QREFELT $ 113))
+                  (LETT |tub| (SPADCALL |pl| |rad| |pts| (QREFELT $ 117))
                         . #4#)
-                  (LETT |loops| (SPADCALL |tub| (QREFELT $ 114)) . #4#)
-                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 118)) (EXIT |s|)))
+                  (LETT |loops| (SPADCALL |tub| (QREFELT $ 118)) . #4#)
+                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 122)) (EXIT |s|)))
             ('T
-             (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 119)) . #4#)
+             (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 123)) . #4#)
                   (SEQ (LETT |b| NIL . #4#) (LETT #1# |br| . #4#) G190
                        (COND
                         ((OR (ATOM #1#) (PROGN (LETT |b| (CAR #1#) . #4#) NIL))
                          (GO G191)))
-                       (SEQ (EXIT (SPADCALL |s| |b| (QREFELT $ 121))))
+                       (SEQ (EXIT (SPADCALL |s| |b| (QREFELT $ 125))))
                        (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
                   (EXIT |s|)))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;MSLTs;15!1| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;MSLTs;17!1| ((|x| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;MSLTs;15|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;MSLTs;17|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -633,59 +656,59 @@
             (SPADCALL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 88)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;MSLTs;15!0| ((|x| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;MSLTs;17!0| ((|x| NIL) ($$ NIL))
         (PROG (|psc| |c1| $)
-          (LETT |psc| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;MSLTs;15|))
+          (LETT |psc| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;MSLTs;17|))
           (LETT |c1| (QREFELT $$ 1) . #1#)
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |x| |psc|)
-                      (SPADCALL |x| (SPADCALL (QCDR |c1|) (QREFELT $ 104)))
-                      (QREFELT $ 123)))))) 
+                      (SPADCALL |x| (SPADCALL (QCDR |c1|) (QREFELT $ 108)))
+                      (QREFELT $ 127)))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;PscSTs;16|
+(SDEFUN |DRAWCFUN;makeObject;PscSTs;18|
         ((|psc| |ParametricSpaceCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL |psc| |seg| NIL (QREFELT $ 122))) 
+        (SPADCALL |psc| |seg| NIL (QREFELT $ 126))) 
 
-(SDEFUN |DRAWCFUN;makeObject;MSTs;17|
+(SDEFUN |DRAWCFUN;makeObject;MSTs;19|
         ((|psc| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL |psc| |seg| NIL (QREFELT $ 124))) 
+        (SPADCALL |psc| |seg| NIL (QREFELT $ 128))) 
 
-(SDEFUN |DRAWCFUN;draw;PscSLTdv;18|
+(SDEFUN |DRAWCFUN;draw;PscSLTdv;20|
         ((|psc| |ParametricSpaceCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeDimensionalViewport|))
         (SPROG ((|sp| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |sp| (SPADCALL |psc| |seg| |l| (QREFELT $ 122))
-                      |DRAWCFUN;draw;PscSLTdv;18|)
-                (EXIT (SPADCALL |sp| |l| (QREFELT $ 128)))))) 
+                (LETT |sp| (SPADCALL |psc| |seg| |l| (QREFELT $ 126))
+                      |DRAWCFUN;draw;PscSLTdv;20|)
+                (EXIT (SPADCALL |sp| |l| (QREFELT $ 132)))))) 
 
-(SDEFUN |DRAWCFUN;draw;PscSTdv;19|
+(SDEFUN |DRAWCFUN;draw;PscSTdv;21|
         ((|psc| |ParametricSpaceCurve|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|)))
          (|seg| |Segment| (|Float|)) ($ |ThreeDimensionalViewport|))
-        (SPADCALL |psc| |seg| NIL (QREFELT $ 129))) 
+        (SPADCALL |psc| |seg| NIL (QREFELT $ 133))) 
 
-(SDEFUN |DRAWCFUN;draw;MSLTdv;20|
+(SDEFUN |DRAWCFUN;draw;MSLTdv;22|
         ((|psc| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeDimensionalViewport|))
         (SPROG ((|sp| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |sp| (SPADCALL |psc| |seg| |l| (QREFELT $ 124))
-                      |DRAWCFUN;draw;MSLTdv;20|)
-                (EXIT (SPADCALL |sp| |l| (QREFELT $ 128)))))) 
+                (LETT |sp| (SPADCALL |psc| |seg| |l| (QREFELT $ 128))
+                      |DRAWCFUN;draw;MSLTdv;22|)
+                (EXIT (SPADCALL |sp| |l| (QREFELT $ 132)))))) 
 
-(SDEFUN |DRAWCFUN;draw;MSTdv;21|
+(SDEFUN |DRAWCFUN;draw;MSTdv;23|
         ((|psc| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|))
          (|seg| |Segment| (|Float|)) ($ |ThreeDimensionalViewport|))
-        (SPADCALL |psc| |seg| NIL (QREFELT $ 131))) 
+        (SPADCALL |psc| |seg| NIL (QREFELT $ 135))) 
 
 (SDEFUN |DRAWCFUN;myTrap2|
         ((|ff| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
@@ -707,7 +730,7 @@
                                 MOST-NEGATIVE-DOUBLE-FLOAT)
                                (#2# |r|)))))))))) 
 
-(SDEFUN |DRAWCFUN;recolor;MMM;23|
+(SDEFUN |DRAWCFUN;recolor;MMM;25|
         ((|ptFunc| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|colFunc| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
@@ -716,12 +739,12 @@
           (|DoubleFloat|)))
         (SPROG NIL
                (SEQ
-                (CONS #'|DRAWCFUN;recolor;MMM;23!0|
+                (CONS #'|DRAWCFUN;recolor;MMM;25!0|
                       (VECTOR |colFunc| $ |ptFunc|))))) 
 
-(SDEFUN |DRAWCFUN;recolor;MMM;23!0| ((|f1| NIL) (|f2| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;recolor;MMM;25!0| ((|f1| NIL) (|f2| NIL) ($$ NIL))
         (PROG (|ptFunc| $ |colFunc|)
-          (LETT |ptFunc| (QREFELT $$ 2) . #1=(|DRAWCFUN;recolor;MMM;23|))
+          (LETT |ptFunc| (QREFELT $$ 2) . #1=(|DRAWCFUN;recolor;MMM;25|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |colFunc| (QREFELT $$ 0) . #1#)
           (RETURN
@@ -730,11 +753,11 @@
                    (SEQ (LETT |pt| (SPADCALL |f1| |f2| |ptFunc|) NIL)
                         (SPADCALL |pt| 4
                                   (SPADCALL
-                                   (SPADCALL |pt| (|spadConstant| $ 134)
-                                             (QREFELT $ 97))
-                                   (SPADCALL |pt| 2 (QREFELT $ 97))
-                                   (SPADCALL |pt| 3 (QREFELT $ 97)) |colFunc|)
-                                  (QREFELT $ 98))
+                                   (SPADCALL |pt| (|spadConstant| $ 138)
+                                             (QREFELT $ 101))
+                                   (SPADCALL |pt| 2 (QREFELT $ 101))
+                                   (SPADCALL |pt| 3 (QREFELT $ 101)) |colFunc|)
+                                  (QREFELT $ 102))
                         (EXIT |pt|))))))) 
 
 (PUT '|DRAWCFUN;xCoord| '|SPADreplace| '(XLAM (|x| |y|) |x|)) 
@@ -742,7 +765,7 @@
 (SDEFUN |DRAWCFUN;xCoord|
         ((|x| |DoubleFloat|) (|y| |DoubleFloat|) ($ |DoubleFloat|)) |x|) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;25|
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;27|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|xSeg| |Segment| (|Float|)) (|ySeg| |Segment| (|Float|))
          (|l| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
@@ -762,8 +785,8 @@
           (|pointsColored?| (|Boolean|)) (|c2| #1#)
           (|sp| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ
-          (LETT |sp| (SPADCALL |l| (QREFELT $ 100))
-                . #2=(|DRAWCFUN;makeObject;M2SLTs;25|))
+          (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
+                . #2=(|DRAWCFUN;makeObject;M2SLTs;27|))
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
           (LETT |pointsColored?| 'NIL . #2#)
           (SEQ
@@ -773,11 +796,11 @@
              ((NULL (QEQCAR |c2| 1))
               (SEQ (LETT |pointsColored?| 'T . #2#)
                    (EXIT
-                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 139)))
+                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 143)))
                           . #2#)))))))
           (LETT |fcn|
                 (LIST
-                 (CONS #'|DRAWCFUN;makeObject;M2SLTs;25!0|
+                 (CONS #'|DRAWCFUN;makeObject;M2SLTs;27!0|
                        (VECTOR |col2| $ |f|)))
                 . #2#)
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #2#)
@@ -786,7 +809,7 @@
                  ((QEQCAR |c| 1)
                   (LETT |fcn|
                         (LIST
-                         (CONS #'|DRAWCFUN;makeObject;M2SLTs;25!1|
+                         (CONS #'|DRAWCFUN;makeObject;M2SLTs;27!1|
                                (VECTOR |col2| $ |f|)))
                         . #2#))
                  (#3='T
@@ -796,7 +819,7 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;M2SLTs;25!2|
+                           (CONS #'|DRAWCFUN;makeObject;M2SLTs;27!2|
                                  (VECTOR |cc| $ |fcn|)))
                           . #2#)))))))
           (COND
@@ -808,75 +831,75 @@
                     (COND
                      ((QEQCAR |c| 1)
                       (LIST
-                       (SPADCALL (SPADCALL |fcn| (QREFELT $ 143))
+                       (SPADCALL (SPADCALL |fcn| (QREFELT $ 147))
                                  (CONS (|function| |DRAWCFUN;zCoord|) $)
-                                 (QREFELT $ 136))))
+                                 (QREFELT $ 140))))
                      (#3#
                       (LIST
-                       (SPADCALL (SPADCALL |fcn| (QREFELT $ 143))
-                                 (SPADCALL (QCDR |c|) (QREFELT $ 117))
-                                 (QREFELT $ 136)))))
+                       (SPADCALL (SPADCALL |fcn| (QREFELT $ 147))
+                                 (SPADCALL (QCDR |c|) (QREFELT $ 121))
+                                 (QREFELT $ 140)))))
                     . #2#)))))
           (LETT |mesh|
-                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 143))
+                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 147))
                           (|DRAWCFUN;normalize| |xSeg| $)
-                          (|DRAWCFUN;normalize| |ySeg| $) |l| (QREFELT $ 145))
+                          (|DRAWCFUN;normalize| |ySeg| $) |l| (QREFELT $ 149))
                 . #2#)
           (EXIT |mesh|)))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;25!2| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;27!2| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;25|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;27|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 143)))
+            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 147)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;25!1| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;27!1| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|f| $ |col2|)
-          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;25|))
+          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;27|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |col2| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
             (|DRAWCFUN;makePt4| |x| |y| (|DRAWCFUN;myTrap2| |f| |x| |y| $)
-             (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 141))) $))))) 
+             (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 145))) $))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;25!0| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;27!0| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|f| $ |col2|)
-          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;25|))
+          (LETT |f| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;27|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |col2| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
             (|DRAWCFUN;makePt4| (|DRAWCFUN;myTrap2| |f| |x| |y| $) |x| |y|
-             (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 141))) $))))) 
+             (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 145))) $))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2STs;26|
+(SDEFUN |DRAWCFUN;makeObject;M2STs;28|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|xSeg| |Segment| (|Float|)) (|ySeg| |Segment| (|Float|))
          ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL |f| |xSeg| |ySeg| NIL (QREFELT $ 146))) 
+        (SPADCALL |f| |xSeg| |ySeg| NIL (QREFELT $ 150))) 
 
-(SDEFUN |DRAWCFUN;draw;M2SLTdv;27|
+(SDEFUN |DRAWCFUN;draw;M2SLTdv;29|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|xSeg| |Segment| (|Float|)) (|ySeg| |Segment| (|Float|))
          (|l| |List| (|DrawOption|)) ($ |ThreeDimensionalViewport|))
         (SPROG ((|sp| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |sp| (SPADCALL |f| |xSeg| |ySeg| |l| (QREFELT $ 146))
-                      |DRAWCFUN;draw;M2SLTdv;27|)
-                (EXIT (SPADCALL |sp| |l| (QREFELT $ 128)))))) 
+                (LETT |sp| (SPADCALL |f| |xSeg| |ySeg| |l| (QREFELT $ 150))
+                      |DRAWCFUN;draw;M2SLTdv;29|)
+                (EXIT (SPADCALL |sp| |l| (QREFELT $ 132)))))) 
 
-(SDEFUN |DRAWCFUN;draw;M2STdv;28|
+(SDEFUN |DRAWCFUN;draw;M2STdv;30|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|xSeg| |Segment| (|Float|)) (|ySeg| |Segment| (|Float|))
          ($ |ThreeDimensionalViewport|))
-        (SPADCALL |f| |xSeg| |ySeg| NIL (QREFELT $ 148))) 
+        (SPADCALL |f| |xSeg| |ySeg| NIL (QREFELT $ 152))) 
 
-(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;29|
+(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;31|
         ((|s| |ParametricSurface|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
@@ -910,13 +933,13 @@
             (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))))
           (|sp| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ
-          (LETT |sp| (SPADCALL |l| (QREFELT $ 100))
-                . #2=(|DRAWCFUN;makeObject;Ps2SLTs;29|))
+          (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
+                . #2=(|DRAWCFUN;makeObject;Ps2SLTs;31|))
           (LETT |f|
-                (LIST (SPADCALL |s| (|spadConstant| $ 150) (QREFELT $ 152)))
+                (LIST (SPADCALL |s| (|spadConstant| $ 154) (QREFELT $ 156)))
                 . #2#)
-          (LETT |g| (LIST (SPADCALL |s| 2 (QREFELT $ 152))) . #2#)
-          (LETT |h| (LIST (SPADCALL |s| 3 (QREFELT $ 152))) . #2#)
+          (LETT |g| (LIST (SPADCALL |s| 2 (QREFELT $ 156))) . #2#)
+          (LETT |h| (LIST (SPADCALL |s| 3 (QREFELT $ 156))) . #2#)
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
           (LETT |pointsColored?| 'NIL . #2#)
           (SEQ
@@ -926,11 +949,11 @@
              ((NULL (QEQCAR |c2| 1))
               (SEQ (LETT |pointsColored?| 'T . #2#)
                    (EXIT
-                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 139)))
+                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 143)))
                           . #2#)))))))
           (LETT |fcn|
                 (LIST
-                 (CONS #'|DRAWCFUN;makeObject;Ps2SLTs;29!0|
+                 (CONS #'|DRAWCFUN;makeObject;Ps2SLTs;31!0|
                        (VECTOR |col2| |h| |g| $ |f|)))
                 . #2#)
           (SEQ (LETT |c| (SPADCALL |l| '|coordinates| (QREFELT $ 36)) . #2#)
@@ -943,7 +966,7 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;Ps2SLTs;29!1|
+                           (CONS #'|DRAWCFUN;makeObject;Ps2SLTs;31!1|
                                  (VECTOR |cc| $ |fcn|)))
                           . #2#)))))))
           (COND
@@ -955,35 +978,35 @@
               (EXIT
                (COND
                 ((NULL (QEQCAR |c| 1))
-                 (LETT |col3| (LIST (SPADCALL (QCDR |c|) (QREFELT $ 117)))
+                 (LETT |col3| (LIST (SPADCALL (QCDR |c|) (QREFELT $ 121)))
                        . #2#)))))
              (EXIT
               (LETT |fcn|
                     (LIST
-                     (SPADCALL (SPADCALL |fcn| (QREFELT $ 143))
-                               (SPADCALL |col3| (QREFELT $ 154))
-                               (QREFELT $ 136)))
+                     (SPADCALL (SPADCALL |fcn| (QREFELT $ 147))
+                               (SPADCALL |col3| (QREFELT $ 158))
+                               (QREFELT $ 140)))
                     . #2#)))))
           (LETT |mesh|
-                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 143))
+                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 147))
                           (|DRAWCFUN;normalize| |uSeg| $)
-                          (|DRAWCFUN;normalize| |vSeg| $) |l| (QREFELT $ 145))
+                          (|DRAWCFUN;normalize| |vSeg| $) |l| (QREFELT $ 149))
                 . #2#)
           (EXIT |mesh|)))) 
 
-(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;29!1| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;31!1| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;Ps2SLTs;29|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;Ps2SLTs;31|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 143)))
+            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 147)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;29!0| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;Ps2SLTs;31!0| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|f| $ |g| |h| |col2|)
-          (LETT |f| (QREFELT $$ 4) . #1=(|DRAWCFUN;makeObject;Ps2SLTs;29|))
+          (LETT |f| (QREFELT $$ 4) . #1=(|DRAWCFUN;makeObject;Ps2SLTs;31|))
           (LETT $ (QREFELT $$ 3) . #1#)
           (LETT |g| (QREFELT $$ 2) . #1#)
           (LETT |h| (QREFELT $$ 1) . #1#)
@@ -991,13 +1014,13 @@
           (RETURN
            (PROGN
             (|DRAWCFUN;makePt4|
-             (|DRAWCFUN;myTrap2| (SPADCALL |f| (QREFELT $ 141)) |x| |y| $)
-             (|DRAWCFUN;myTrap2| (SPADCALL |g| (QREFELT $ 141)) |x| |y| $)
-             (|DRAWCFUN;myTrap2| (SPADCALL |h| (QREFELT $ 141)) |x| |y| $)
-             (|DRAWCFUN;myTrap2| (SPADCALL |col2| (QREFELT $ 141)) |x| |y| $)
+             (|DRAWCFUN;myTrap2| (SPADCALL |f| (QREFELT $ 145)) |x| |y| $)
+             (|DRAWCFUN;myTrap2| (SPADCALL |g| (QREFELT $ 145)) |x| |y| $)
+             (|DRAWCFUN;myTrap2| (SPADCALL |h| (QREFELT $ 145)) |x| |y| $)
+             (|DRAWCFUN;myTrap2| (SPADCALL |col2| (QREFELT $ 145)) |x| |y| $)
              $))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;30|
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;32|
         ((|s| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
@@ -1018,8 +1041,8 @@
           (|pointsColored?| (|Boolean|)) (|c2| #1#)
           (|sp| (|ThreeSpace| (|DoubleFloat|))))
          (SEQ
-          (LETT |sp| (SPADCALL |l| (QREFELT $ 100))
-                . #2=(|DRAWCFUN;makeObject;M2SLTs;30|))
+          (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
+                . #2=(|DRAWCFUN;makeObject;M2SLTs;32|))
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
           (LETT |pointsColored?| 'NIL . #2#)
           (SEQ
@@ -1029,13 +1052,13 @@
              ((NULL (QEQCAR |c2| 1))
               (SEQ (LETT |pointsColored?| 'T . #2#)
                    (EXIT
-                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 139)))
+                    (LETT |col2| (LIST (SPADCALL (QCDR |c2|) (QREFELT $ 143)))
                           . #2#)))))))
           (LETT |fcn|
                 (COND
                  (|pointsColored?|
                   (LIST
-                   (CONS #'|DRAWCFUN;makeObject;M2SLTs;30!0|
+                   (CONS #'|DRAWCFUN;makeObject;M2SLTs;32!0|
                          (VECTOR $ |col2| |s|))))
                  ('T (LIST |s|)))
                 . #2#)
@@ -1049,92 +1072,92 @@
                    (EXIT
                     (LETT |fcn|
                           (LIST
-                           (CONS #'|DRAWCFUN;makeObject;M2SLTs;30!1|
+                           (CONS #'|DRAWCFUN;makeObject;M2SLTs;32!1|
                                  (VECTOR |cc| $ |fcn|)))
                           . #2#)))))))
           (LETT |mesh|
-                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 143))
+                (SPADCALL |sp| (SPADCALL |fcn| (QREFELT $ 147))
                           (|DRAWCFUN;normalize| |uSeg| $)
-                          (|DRAWCFUN;normalize| |vSeg| $) |l| (QREFELT $ 145))
+                          (|DRAWCFUN;normalize| |vSeg| $) |l| (QREFELT $ 149))
                 . #2#)
           (EXIT |mesh|)))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;30!1| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;32!1| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|fcn| $ |cc|)
-          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;30|))
+          (LETT |fcn| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;32|))
           (LETT $ (QREFELT $$ 1) . #1#)
           (LETT |cc| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 143)))
+            (SPADCALL (SPADCALL |x| |y| (SPADCALL |fcn| (QREFELT $ 147)))
                       (SPADCALL |cc| (QREFELT $ 85))))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2SLTs;30!0| ((|x| NIL) (|y| NIL) ($$ NIL))
+(SDEFUN |DRAWCFUN;makeObject;M2SLTs;32!0| ((|x| NIL) (|y| NIL) ($$ NIL))
         (PROG (|s| |col2| $)
-          (LETT |s| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;30|))
+          (LETT |s| (QREFELT $$ 2) . #1=(|DRAWCFUN;makeObject;M2SLTs;32|))
           (LETT |col2| (QREFELT $$ 1) . #1#)
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |x| |y| |s|)
-                      (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 141)))
-                      (QREFELT $ 123)))))) 
+                      (SPADCALL |x| |y| (SPADCALL |col2| (QREFELT $ 145)))
+                      (QREFELT $ 127)))))) 
 
-(SDEFUN |DRAWCFUN;makeObject;Ps2STs;31|
+(SDEFUN |DRAWCFUN;makeObject;Ps2STs;33|
         ((|s| |ParametricSurface|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 155))) 
+        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 159))) 
 
-(SDEFUN |DRAWCFUN;draw;Ps2SLTdv;32|
+(SDEFUN |DRAWCFUN;draw;Ps2SLTdv;34|
         ((|s| |ParametricSurface|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          (|l| |List| (|DrawOption|)) ($ |ThreeDimensionalViewport|))
         (SPROG ((|mesh| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |mesh| (SPADCALL |s| |uSeg| |vSeg| |l| (QREFELT $ 155))
-                      |DRAWCFUN;draw;Ps2SLTdv;32|)
-                (EXIT (SPADCALL |mesh| |l| (QREFELT $ 128)))))) 
+                (LETT |mesh| (SPADCALL |s| |uSeg| |vSeg| |l| (QREFELT $ 159))
+                      |DRAWCFUN;draw;Ps2SLTdv;34|)
+                (EXIT (SPADCALL |mesh| |l| (QREFELT $ 132)))))) 
 
-(SDEFUN |DRAWCFUN;draw;Ps2STdv;33|
+(SDEFUN |DRAWCFUN;draw;Ps2STdv;35|
         ((|s| |ParametricSurface|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          ($ |ThreeDimensionalViewport|))
-        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 158))) 
+        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 162))) 
 
-(SDEFUN |DRAWCFUN;makeObject;M2STs;34|
+(SDEFUN |DRAWCFUN;makeObject;M2STs;36|
         ((|s| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 156))) 
+        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 160))) 
 
-(SDEFUN |DRAWCFUN;draw;M2SLTdv;35|
+(SDEFUN |DRAWCFUN;draw;M2SLTdv;37|
         ((|s| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          (|l| |List| (|DrawOption|)) ($ |ThreeDimensionalViewport|))
         (SPROG ((|mesh| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |mesh| (SPADCALL |s| |uSeg| |vSeg| |l| (QREFELT $ 156))
-                      |DRAWCFUN;draw;M2SLTdv;35|)
-                (EXIT (SPADCALL |mesh| |l| (QREFELT $ 128)))))) 
+                (LETT |mesh| (SPADCALL |s| |uSeg| |vSeg| |l| (QREFELT $ 160))
+                      |DRAWCFUN;draw;M2SLTdv;37|)
+                (EXIT (SPADCALL |mesh| |l| (QREFELT $ 132)))))) 
 
-(SDEFUN |DRAWCFUN;draw;M2STdv;36|
+(SDEFUN |DRAWCFUN;draw;M2STdv;38|
         ((|s| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|Float|)) (|vSeg| |Segment| (|Float|))
          ($ |ThreeDimensionalViewport|))
-        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 161))) 
+        (SPADCALL |s| |uSeg| |vSeg| NIL (QREFELT $ 165))) 
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctionsForCompiledFunctions;|)) 
 
 (DEFUN |TopLevelDrawFunctionsForCompiledFunctions| ()
   (SPROG NIL
-         (PROG (#1=#:G396)
+         (PROG (#1=#:G401)
            (RETURN
             (COND
              ((LETT #1#
@@ -1163,7 +1186,7 @@
          (PROGN
           (LETT |dv$| '(|TopLevelDrawFunctionsForCompiledFunctions|)
                 . #1=(|TopLevelDrawFunctionsForCompiledFunctions|))
-          (LETT $ (GETREFV 163) . #1#)
+          (LETT $ (GETREFV 167) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -1185,7 +1208,7 @@
               (5 . |convert|) (10 . |lo|) (15 . -) (21 . |abs|) (|Integer|)
               (26 . /) (|Boolean|) (32 . >) (38 . +) (|Segment| 12)
               (44 . |segment|) (|Mapping| 12 9) (|SegmentFunctions2| 9 12)
-              (50 . |map|) (|List| 120) (|Plot|) (56 . |listBranches|)
+              (50 . |map|) (|List| 124) (|Plot|) (56 . |listBranches|)
               (61 . |xRange|) (66 . |yRange|) (|Union| 48 '"failed") (|List| $)
               (|Symbol|) (|DrawOption|) (71 . |option|) (|GraphicsDefaults|)
               (77 . |clipPointsDefault|) (|List| 35) (|DrawOptionFunctions0|)
@@ -1200,47 +1223,48 @@
               (|ViewDefaultsPackage|) (162 . |pointColorDefault|)
               (166 . |pointColorPalette|) (172 . |lineColorDefault|)
               (176 . |curveColorPalette|) (|PositiveInteger|)
-              (182 . |pointSizeDefault|) (|TwoDimensionalViewport|)
-              (|ViewportPackage|) (186 . |drawCurves|) (195 . |segment|)
-              (201 . >) (|List| 9) (|Point| 9) (207 . |point|)
-              (212 . |adaptive?|) (216 . |adaptive|) (222 . |setAdaptive|)
-              (|Mapping| 76 76) (|AnyFunctions1| 81) (227 . |retract|)
-              (|List| 81) (232 . |first|) (|Mapping| 76 9) (|List| 86)
-              (237 . |first|) (242 . |pointPlot|) (|Mapping| 9 9)
-              |DRAWCFUN;draw;MSLTdv;6| |DRAWCFUN;draw;MSTdv;7|
-              (|ParametricPlaneCurve| 90) (248 . |coordinate|)
-              |DRAWCFUN;draw;PpcSLTdv;8| |DRAWCFUN;draw;PpcSTdv;9|
-              (254 . |elt|) (260 . |setelt!|) (|ThreeSpace| 9) (267 . |space|)
-              (|ParametricSpaceCurve| 90) (272 . |coordinate|)
-              (|AnyFunctions1| 90) (278 . |retract|) (|Plot3D|)
-              (283 . |pointPlot|) (289 . |option?|) (295 . |tubePoints|)
-              (301 . |float|) (308 . |tubeRadius|) (|TubePlot| 105)
-              (|NumericTubePlot| 105) (314 . |tube|) (321 . |listLoops|)
-              (|Mapping| 9 9 9 9) (|AnyFunctions1| 115) (326 . |retract|)
-              (331 . |mesh|) (339 . |listBranches|) (|List| 76) (344 . |curve|)
-              |DRAWCFUN;makeObject;PscSLTs;14| (350 . |concat|)
-              |DRAWCFUN;makeObject;MSLTs;15| |DRAWCFUN;makeObject;PscSTs;16|
-              |DRAWCFUN;makeObject;MSTs;17| (|ThreeDimensionalViewport|)
-              (356 . |makeViewport3D|) |DRAWCFUN;draw;PscSLTdv;18|
-              |DRAWCFUN;draw;PscSTdv;19| |DRAWCFUN;draw;MSLTdv;20|
-              |DRAWCFUN;draw;MSTdv;21| (362 . |One|) (366 . |One|)
-              (|Mapping| 76 9 9) |DRAWCFUN;recolor;MMM;23| (|Mapping| 9 9 9)
-              (|AnyFunctions1| 137) (370 . |retract|) (|List| 137)
-              (375 . |first|) (|List| 135) (380 . |first|)
-              (|MeshCreationRoutinesForThreeDimensions|) (385 . |meshPar2Var|)
-              |DRAWCFUN;makeObject;M2SLTs;25| |DRAWCFUN;makeObject;M2STs;26|
-              |DRAWCFUN;draw;M2SLTdv;27| |DRAWCFUN;draw;M2STdv;28|
-              (394 . |One|) (|ParametricSurface| 137) (398 . |coordinate|)
-              (|List| 115) (404 . |first|) |DRAWCFUN;makeObject;Ps2SLTs;29|
-              |DRAWCFUN;makeObject;M2SLTs;30| |DRAWCFUN;makeObject;Ps2STs;31|
-              |DRAWCFUN;draw;Ps2SLTdv;32| |DRAWCFUN;draw;Ps2STdv;33|
-              |DRAWCFUN;makeObject;M2STs;34| |DRAWCFUN;draw;M2SLTdv;35|
-              |DRAWCFUN;draw;M2STdv;36|)
-           '#(|recolor| 409 |makeObject| 415 |draw| 486) 'NIL
+              (182 . |pointSizeDefault|) (|GraphImage|) (|ViewportPackage|)
+              (186 . |graphCurves|) (195 . |segment|) (201 . >) (|List| 9)
+              (|Point| 9) (207 . |point|) (212 . |adaptive?|)
+              (216 . |adaptive|) (222 . |setAdaptive|) (|Mapping| 76 76)
+              (|AnyFunctions1| 81) (227 . |retract|) (|List| 81)
+              (232 . |first|) (|Mapping| 76 9) (|List| 86) (237 . |first|)
+              (242 . |pointPlot|) (|Mapping| 9 9) |DRAWCFUN;makeObject;MSLGi;6|
+              (|TwoDimensionalViewport|) (248 . |makeViewport2D|)
+              |DRAWCFUN;draw;MSLTdv;7| |DRAWCFUN;draw;MSTdv;8|
+              (|ParametricPlaneCurve| 90) (254 . |coordinate|)
+              |DRAWCFUN;makeObject;PpcSLGi;9| |DRAWCFUN;draw;PpcSLTdv;10|
+              |DRAWCFUN;draw;PpcSTdv;11| (260 . |elt|) (266 . |setelt!|)
+              (|ThreeSpace| 9) (273 . |space|) (|ParametricSpaceCurve| 90)
+              (278 . |coordinate|) (|AnyFunctions1| 90) (284 . |retract|)
+              (|Plot3D|) (289 . |pointPlot|) (295 . |option?|)
+              (301 . |tubePoints|) (307 . |float|) (314 . |tubeRadius|)
+              (|TubePlot| 109) (|NumericTubePlot| 109) (320 . |tube|)
+              (327 . |listLoops|) (|Mapping| 9 9 9 9) (|AnyFunctions1| 119)
+              (332 . |retract|) (337 . |mesh|) (345 . |listBranches|)
+              (|List| 76) (350 . |curve|) |DRAWCFUN;makeObject;PscSLTs;16|
+              (356 . |concat|) |DRAWCFUN;makeObject;MSLTs;17|
+              |DRAWCFUN;makeObject;PscSTs;18| |DRAWCFUN;makeObject;MSTs;19|
+              (|ThreeDimensionalViewport|) (362 . |makeViewport3D|)
+              |DRAWCFUN;draw;PscSLTdv;20| |DRAWCFUN;draw;PscSTdv;21|
+              |DRAWCFUN;draw;MSLTdv;22| |DRAWCFUN;draw;MSTdv;23| (368 . |One|)
+              (372 . |One|) (|Mapping| 76 9 9) |DRAWCFUN;recolor;MMM;25|
+              (|Mapping| 9 9 9) (|AnyFunctions1| 141) (376 . |retract|)
+              (|List| 141) (381 . |first|) (|List| 139) (386 . |first|)
+              (|MeshCreationRoutinesForThreeDimensions|) (391 . |meshPar2Var|)
+              |DRAWCFUN;makeObject;M2SLTs;27| |DRAWCFUN;makeObject;M2STs;28|
+              |DRAWCFUN;draw;M2SLTdv;29| |DRAWCFUN;draw;M2STdv;30|
+              (400 . |One|) (|ParametricSurface| 141) (404 . |coordinate|)
+              (|List| 119) (410 . |first|) |DRAWCFUN;makeObject;Ps2SLTs;31|
+              |DRAWCFUN;makeObject;M2SLTs;32| |DRAWCFUN;makeObject;Ps2STs;33|
+              |DRAWCFUN;draw;Ps2SLTdv;34| |DRAWCFUN;draw;Ps2STdv;35|
+              |DRAWCFUN;makeObject;M2STs;36| |DRAWCFUN;draw;M2SLTdv;37|
+              |DRAWCFUN;draw;M2STdv;38|)
+           '#(|recolor| 415 |makeObject| 421 |draw| 506) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 162
+                             (|makeByteWordVec2| 166
                                                  '(1 10 9 0 11 1 12 0 9 13 1 10
                                                    9 0 14 2 12 0 0 0 15 1 12 0
                                                    0 16 2 12 0 0 17 18 2 12 19
@@ -1264,43 +1288,46 @@
                                                    19 78 2 40 19 39 19 79 1 28
                                                    19 19 80 1 82 81 48 83 1 84
                                                    81 0 85 1 87 86 0 88 2 28 0
-                                                   86 10 89 2 93 90 0 51 94 2
-                                                   76 9 0 17 97 3 76 9 0 17 9
-                                                   98 1 40 99 39 100 2 101 90 0
-                                                   51 102 1 103 90 48 104 2 105
-                                                   0 86 10 106 2 35 19 33 34
-                                                   107 2 40 68 39 68 108 3 12 0
-                                                   17 17 68 109 2 40 12 39 12
-                                                   110 3 112 111 105 9 17 113 1
-                                                   111 27 0 114 1 116 115 48
-                                                   117 4 99 0 0 27 19 19 118 1
-                                                   105 27 0 119 2 99 0 0 120
-                                                   121 2 76 0 0 9 123 2 127 0
-                                                   99 39 128 0 9 0 133 0 68 0
-                                                   134 1 138 137 48 139 1 140
-                                                   137 0 141 1 142 135 0 143 5
-                                                   144 99 99 135 10 10 39 145 0
-                                                   51 0 150 2 151 137 0 51 152
-                                                   1 153 115 0 154 2 0 135 135
-                                                   115 136 3 0 99 101 22 39 122
-                                                   2 0 99 101 22 125 2 0 99 86
-                                                   22 126 3 0 99 86 22 39 124 4
-                                                   0 99 137 22 22 39 146 3 0 99
-                                                   137 22 22 147 4 0 99 135 22
-                                                   22 39 156 3 0 99 135 22 22
-                                                   160 4 0 99 151 22 22 39 155
-                                                   3 0 99 151 22 22 157 3 0 70
-                                                   90 22 39 91 3 0 70 93 22 39
-                                                   95 2 0 70 90 22 92 2 0 70 93
-                                                   22 96 2 0 127 101 22 130 3 0
-                                                   127 101 22 39 129 3 0 127 86
-                                                   22 39 131 2 0 127 86 22 132
-                                                   4 0 127 137 22 22 39 148 3 0
-                                                   127 137 22 22 149 3 0 127
-                                                   135 22 22 162 4 0 127 135 22
-                                                   22 39 161 4 0 127 151 22 22
-                                                   39 158 3 0 127 151 22 22
-                                                   159)))))
+                                                   86 10 89 2 92 0 70 39 93 2
+                                                   96 90 0 51 97 2 76 9 0 17
+                                                   101 3 76 9 0 17 9 102 1 40
+                                                   103 39 104 2 105 90 0 51 106
+                                                   1 107 90 48 108 2 109 0 86
+                                                   10 110 2 35 19 33 34 111 2
+                                                   40 68 39 68 112 3 12 0 17 17
+                                                   68 113 2 40 12 39 12 114 3
+                                                   116 115 109 9 17 117 1 115
+                                                   27 0 118 1 120 119 48 121 4
+                                                   103 0 0 27 19 19 122 1 109
+                                                   27 0 123 2 103 0 0 124 125 2
+                                                   76 0 0 9 127 2 131 0 103 39
+                                                   132 0 9 0 137 0 68 0 138 1
+                                                   142 141 48 143 1 144 141 0
+                                                   145 1 146 139 0 147 5 148
+                                                   103 103 139 10 10 39 149 0
+                                                   51 0 154 2 155 141 0 51 156
+                                                   1 157 119 0 158 2 0 139 139
+                                                   119 140 3 0 70 90 22 39 91 3
+                                                   0 70 96 22 39 98 3 0 103 105
+                                                   22 39 126 3 0 103 86 22 39
+                                                   128 2 0 103 105 22 129 2 0
+                                                   103 86 22 130 3 0 103 141 22
+                                                   22 151 4 0 103 141 22 22 39
+                                                   150 4 0 103 139 22 22 39 160
+                                                   3 0 103 139 22 22 164 4 0
+                                                   103 155 22 22 39 159 3 0 103
+                                                   155 22 22 161 3 0 92 90 22
+                                                   39 94 2 0 92 90 22 95 3 0 92
+                                                   96 22 39 99 2 0 92 96 22 100
+                                                   3 0 131 105 22 39 133 3 0
+                                                   131 86 22 39 135 2 0 131 105
+                                                   22 134 2 0 131 86 22 136 3 0
+                                                   131 141 22 22 153 4 0 131
+                                                   141 22 22 39 152 3 0 131 139
+                                                   22 22 166 4 0 131 139 22 22
+                                                   39 165 4 0 131 155 22 22 39
+                                                   162 3 0 131 155 22 22
+                                                   163)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TopLevelDrawFunctionsForCompiledFunctions| 'NILADIC T) 

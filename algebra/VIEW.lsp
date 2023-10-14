@@ -20,9 +20,9 @@
          ($ |GraphImage|))
         (SPROG
          ((|listOfPointSizes| (|List| (|PositiveInteger|))) (|i| NIL)
-          (#1=#:G114 NIL) (|listOfLineColors| (|List| (|Palette|)))
-          (#2=#:G113 NIL) (|listOfPointColors| (|List| (|Palette|)))
-          (#3=#:G112 NIL) (|len| (|NonNegativeInteger|)))
+          (#1=#:G113 NIL) (|listOfLineColors| (|List| (|Palette|)))
+          (#2=#:G112 NIL) (|listOfPointColors| (|List| (|Palette|)))
+          (#3=#:G111 NIL) (|len| (|NonNegativeInteger|)))
          (SEQ
           (LETT |len| (LENGTH |listOfListsOfPoints|)
                 . #4=(|VIEW;graphCurves;L2PPiLGi;3|))
@@ -84,21 +84,13 @@
 
 (SDEFUN |VIEW;coerce;GiTdv;6|
         ((|graf| |GraphImage|) ($ |TwoDimensionalViewport|))
-        (SPROG ((|v| (|TwoDimensionalViewport|)))
-               (SEQ
-                (COND
-                 ((EQL (SPADCALL |graf| (QREFELT $ 30)) 0)
-                  (SPADCALL |graf| (QREFELT $ 31))))
-                (LETT |v| (SPADCALL (QREFELT $ 24)) |VIEW;coerce;GiTdv;6|)
-                (SPADCALL |v| "VIEW2D" (QREFELT $ 33))
-                (SPADCALL |v| |graf| 1 (QREFELT $ 27))
-                (EXIT (SPADCALL |v| (QREFELT $ 28)))))) 
+        (SPADCALL |graf| NIL (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |ViewportPackage;|)) 
 
 (DEFUN |ViewportPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G122)
+         (PROG (#1=#:G119)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ViewportPackage|)
@@ -119,7 +111,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ViewportPackage|) . #1=(|ViewportPackage|))
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ViewportPackage| NIL (CONS 1 $))
@@ -138,24 +130,22 @@
               (|List| 10) (12 . |makeGraphImage|) (|TwoDimensionalViewport|)
               |VIEW;drawCurves;L2PPiLTdv;5| |VIEW;drawCurves;LLTdv;4|
               (21 . |viewport2D|) (25 . |options|) (|Void|) (31 . |putGraph|)
-              (38 . |makeViewport2D|) (|Integer|) (43 . |key|)
-              (48 . |makeGraphImage|) (|String|) (53 . |title|)
+              (38 . |makeViewport2D|) (43 . |makeViewport2D|)
               |VIEW;coerce;GiTdv;6|)
-           '#(|graphCurves| 59 |drawCurves| 79 |coerce| 94) 'NIL
+           '#(|graphCurves| 49 |drawCurves| 69 |coerce| 84) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 34
+                             (|makeByteWordVec2| 30
                                                  '(0 7 6 8 0 7 6 9 0 7 10 11 5
                                                    12 0 13 18 18 19 14 20 0 21
                                                    0 24 2 21 0 0 14 25 3 21 26
-                                                   0 12 10 27 1 21 0 0 28 1 12
-                                                   29 0 30 1 12 0 0 31 2 21 26
-                                                   0 32 33 5 0 12 13 6 6 10 14
-                                                   15 2 0 12 13 14 17 1 0 12 13
-                                                   16 5 0 21 13 6 6 10 14 22 2
-                                                   0 21 13 14 23 1 0 21 12
-                                                   34)))))
+                                                   0 12 10 27 1 21 0 0 28 2 21
+                                                   0 12 14 29 5 0 12 13 6 6 10
+                                                   14 15 2 0 12 13 14 17 1 0 12
+                                                   13 16 5 0 21 13 6 6 10 14 22
+                                                   2 0 21 13 14 23 1 0 21 12
+                                                   30)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ViewportPackage| 'NILADIC T) 
