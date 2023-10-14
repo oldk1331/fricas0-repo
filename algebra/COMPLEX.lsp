@@ -107,10 +107,10 @@
     (SPADCALL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 46)) (QREFELT $ 40))
               (SPADCALL |y| (QREFELT $ 47)) (QREFELT $ 45))))) 
 
-(DEFUN |Complex| (#1=#:G2485)
+(DEFUN |Complex| (#1=#:G2486)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2486)
+     (PROG (#2=#:G2487)
        (RETURN
         (COND
          ((LETT #2#
@@ -125,7 +125,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Complex|))))))))))) 
 
 (DEFUN |Complex;| (|#1|)
-  (PROG (|pv$| #1=#:G2481 #2=#:G2482 #3=#:G2483 #4=#:G2484 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2482 #2=#:G2483 #3=#:G2484 #4=#:G2485 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|Complex|))

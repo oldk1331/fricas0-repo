@@ -34,7 +34,7 @@
 (DEFUN |PRIMARR;setelt;$I2S;8| (|x| |i| |s| $) (QSETAREF1 |x| |i| |s|)) 
 
 (DEFUN |PRIMARR;fill!;$S$;9| (|x| |s| $)
-  (PROG (#1=#:G1730 |i|)
+  (PROG (#1=#:G1731 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|PRIMARR;fill!;$S$;9|))
@@ -44,10 +44,10 @@
            (GO G190) G191 (EXIT NIL))
       (EXIT |x|))))) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1742)
+(DEFUN |PrimitiveArray| (#1=#:G1743)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1743)
+     (PROG (#2=#:G1744)
        (RETURN
         (COND
          ((LETT #2#
@@ -63,7 +63,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|PrimitiveArray|))))))))))) 
 
 (DEFUN |PrimitiveArray;| (|#1|)
-  (PROG (#1=#:G1741 |pv$| #2=#:G1738 #3=#:G1739 $ |dv$| DV$1)
+  (PROG (#1=#:G1742 |pv$| #2=#:G1739 #3=#:G1740 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|PrimitiveArray|))

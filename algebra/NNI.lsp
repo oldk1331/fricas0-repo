@@ -16,16 +16,20 @@
 
 (DEFUN |NNI;shift;$I$;2| (|x| |n| $) (ASH |x| |n|)) 
 
-(DEFUN |NNI;subtractIfCan;2$U;3| (|x| |y| $)
+(PUT '|NNI;qcoerce;I$;3| '|SPADreplace| '(XLAM (|n|) |n|)) 
+
+(DEFUN |NNI;qcoerce;I$;3| (|n| $) |n|) 
+
+(DEFUN |NNI;subtractIfCan;2$U;4| (|x| |y| $)
   (PROG (|c|)
     (RETURN
-     (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;3|)
+     (SEQ (LETT |c| (- |x| |y|) |NNI;subtractIfCan;2$U;4|)
           (EXIT (COND ((< |c| 0) (CONS 1 "failed")) ('T (CONS 0 |c|)))))))) 
 
 (DEFUN |NonNegativeInteger| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1566)
+     (PROG (#1=#:G1567)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|NonNegativeInteger|)
@@ -47,7 +51,7 @@
     (RETURN
      (PROGN
       (LETT |dv$| '(|NonNegativeInteger|) . #1=(|NonNegativeInteger|))
-      (LETT $ (GETREFV 17) . #1#)
+      (LETT $ (GETREFV 18) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|haddProp| |$ConstructorCache| '|NonNegativeInteger| NIL (CONS 1 $))
@@ -58,15 +62,16 @@
 (MAKEPROP '|NonNegativeInteger| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|Integer|) |NNI;sup;3$;1| |NNI;shift;$I$;2|
-              (|Union| $ '"failed") |NNI;subtractIfCan;2$U;3|
+              |NNI;qcoerce;I$;3| (|Union| $ '"failed")
+              |NNI;subtractIfCan;2$U;4|
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|PositiveInteger|) (|Boolean|) (|NonNegativeInteger|)
+              (|PositiveInteger|) (|NonNegativeInteger|) (|Boolean|)
               (|SingleInteger|) (|String|) (|OutputForm|))
            '#(~= 0 |zero?| 6 |sup| 11 |subtractIfCan| 17 |smaller?| 23 |shift|
-              29 |sample| 35 |rem| 39 |recip| 45 |random| 50 |quo| 55 |one?| 61
-              |min| 66 |max| 72 |latex| 78 |hash| 83 |gcd| 88 |exquo| 94
-              |divide| 100 |coerce| 106 ^ 111 |Zero| 123 |One| 127 >= 131 > 137
-              = 143 <= 149 < 155 + 161 * 167)
+              29 |sample| 35 |rem| 39 |recip| 45 |random| 50 |quo| 55 |qcoerce|
+              61 |one?| 66 |min| 71 |max| 77 |latex| 83 |hash| 88 |gcd| 93
+              |exquo| 99 |divide| 105 |coerce| 111 ^ 116 |Zero| 128 |One| 132
+              >= 136 > 142 = 148 <= 154 < 160 + 166 * 172)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -81,19 +86,19 @@
                       (|Monoid|) (|SemiRng|) (|AbelianMonoid|) (|Comparable|)
                       (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
                       (|CommutativeStar|) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 16))
-                   (|makeByteWordVec2| 16
-                                       '(2 0 12 0 0 1 1 0 12 0 1 2 0 0 0 0 6 2
-                                         0 8 0 0 9 2 0 12 0 0 1 2 0 0 0 5 7 0 0
-                                         0 1 2 0 0 0 0 1 1 0 8 0 1 1 0 0 0 1 2
-                                         0 0 0 0 1 1 0 12 0 1 2 0 0 0 0 1 2 0 0
-                                         0 0 1 1 0 15 0 1 1 0 14 0 1 2 0 0 0 0
-                                         1 2 0 8 0 0 1 2 0 10 0 0 1 1 0 16 0 1
-                                         2 0 0 0 11 1 2 0 0 0 13 1 0 0 0 1 0 0
-                                         0 1 2 0 12 0 0 1 2 0 12 0 0 1 2 0 12 0
-                                         0 1 2 0 12 0 0 1 2 0 12 0 0 1 2 0 0 0
-                                         0 1 2 0 0 0 0 1 2 0 0 13 0 1 2 0 0 11
-                                         0 1)))))
+                      (|CoercibleTo| 17))
+                   (|makeByteWordVec2| 17
+                                       '(2 0 14 0 0 1 1 0 14 0 1 2 0 0 0 0 6 2
+                                         0 9 0 0 10 2 0 14 0 0 1 2 0 0 0 5 7 0
+                                         0 0 1 2 0 0 0 0 1 1 0 9 0 1 1 0 0 0 1
+                                         2 0 0 0 0 1 1 0 0 5 8 1 0 14 0 1 2 0 0
+                                         0 0 1 2 0 0 0 0 1 1 0 16 0 1 1 0 15 0
+                                         1 2 0 0 0 0 1 2 0 9 0 0 1 2 0 11 0 0 1
+                                         1 0 17 0 1 2 0 0 0 12 1 2 0 0 0 13 1 0
+                                         0 0 1 0 0 0 1 2 0 14 0 0 1 2 0 14 0 0
+                                         1 2 0 14 0 0 1 2 0 14 0 0 1 2 0 14 0 0
+                                         1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 13 0 1
+                                         2 0 0 12 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NonNegativeInteger| 'NILADIC T) 
