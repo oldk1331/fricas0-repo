@@ -58,13 +58,6 @@
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
-          (COND
-           ((|HasCategory| |#1| '(|shallowlyMutable|))
-            (QSETREFV $ 22 (CONS (|dispatchFunction| |BTCAT-;map!;M2A;2|) $))))
-          (COND
-           ((|HasCategory| |#1| '(|finiteAggregate|))
-            (PROGN
-             (QSETREFV $ 24 (CONS (|dispatchFunction| |BTCAT-;#;ANni;3|) $)))))
           $))) 
 
 (MAKEPROP '|BinaryTreeCategory&| '|infovec|
@@ -73,9 +66,9 @@
               (0 . |empty?|) (5 . |empty|) (9 . |left|) (14 . |copy|)
               (19 . |value|) (24 . |right|) (29 . |node|) |BTCAT-;copy;2A;1|
               '"value" (36 . |elt|) (42 . |setelt!|) (|Mapping| 7 7)
-              (49 . |map!|) (55 . |map!|) (|NonNegativeInteger|) (61 . |#|)
-              (66 . |cyclic?|))
-           '#(|map!| 71 |copy| 77 |#| 82) 'NIL
+              (49 . |map!|) |BTCAT-;map!;M2A;2| (|NonNegativeInteger|)
+              |BTCAT-;#;ANni;3| (55 . |cyclic?|))
+           '#(|map!| 60 |copy| 66 |#| 71) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
@@ -84,8 +77,7 @@
                                                    11 1 6 0 0 12 1 6 7 0 13 1 6
                                                    0 0 14 3 6 0 0 7 0 15 2 6 7
                                                    0 17 18 3 6 7 0 17 7 19 2 6
-                                                   0 20 0 21 2 0 0 20 0 22 1 0
-                                                   23 0 24 1 6 8 0 25 2 0 0 20
-                                                   0 22 1 0 0 0 16 1 0 23 0
+                                                   0 20 0 21 1 6 8 0 25 2 0 0
+                                                   20 0 22 1 0 0 0 16 1 0 23 0
                                                    24)))))
            '|lookupComplete|)) 
