@@ -565,6 +565,7 @@
  
 ; parse_Import() ==
 ;     not(match_symbol "import") => nil
+;     match_symbol "from" or true
 ;     MUST parse_Expr 1000
 ;     tail_val :=
 ;         repetition(",", FUNCTION parse_Expr1000) => pop_stack_1()
@@ -577,6 +578,7 @@
      (COND ((NULL (|match_symbol| '|import|)) NIL)
            (#1='T
             (PROGN
+             (OR (|match_symbol| '|from|) T)
              (MUST (|parse_Expr| 1000))
              (SETQ |tail_val|
                      (COND

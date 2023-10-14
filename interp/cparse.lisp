@@ -1432,7 +1432,7 @@
 ; npReturn()==
 ;          npEqKey "return" and
 ;           (npExpress() or npPush pfNothing()) and
-;            (npEqKey "FROM" and (npName() or npTrap()) and
+;            (npEqKey "from" and (npName() or npTrap()) and
 ;               npPush pfReturn (npPop2(),npPop1()) or
 ;                 npPush pfReturnNoName npPop1())
  
@@ -1441,7 +1441,7 @@
     (RETURN
      (AND (|npEqKey| '|return|) (OR (|npExpress|) (|npPush| (|pfNothing|)))
           (OR
-           (AND (|npEqKey| 'FROM) (OR (|npName|) (|npTrap|))
+           (AND (|npEqKey| '|from|) (OR (|npName|) (|npTrap|))
                 (|npPush| (|pfReturn| (|npPop2|) (|npPop1|))))
            (|npPush| (|pfReturnNoName| (|npPop1|))))))))
  

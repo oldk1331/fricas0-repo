@@ -71,7 +71,7 @@
 ;            ['"finally", "finally"], _
 ;            ['"for",      "for"], _
 ;            ['"free",    "FREE" ],_
-;            ['"from",    "FROM" ],_
+;            ['"from",    "from"], _
 ;            ['"goto",    "goto"], _
 ;            ['"has",      "has"],_
 ;            ['"if",       "if"], _
@@ -167,7 +167,7 @@
                 (LIST "default" 'DEFAULT) (LIST "define" 'DEFN) (LIST "do" 'DO)
                 (LIST "else" '|else|) (LIST "exquo" '|exquo|)
                 (LIST "export" 'EXPORT) (LIST "finally" '|finally|)
-                (LIST "for" '|for|) (LIST "free" 'FREE) (LIST "from" 'FROM)
+                (LIST "for" '|for|) (LIST "free" 'FREE) (LIST "from" '|from|)
                 (LIST "goto" '|goto|) (LIST "has" '|has|) (LIST "if" '|if|)
                 (LIST "import" '|import|) (LIST "in" '|in|)
                 (LIST "inline" 'INLINE) (LIST "is" '|is|) (LIST "isnt" '|isnt|)
