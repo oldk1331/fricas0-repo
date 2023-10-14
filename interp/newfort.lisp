@@ -172,7 +172,7 @@
 ;   unaryOps    := ['"-",'"~"]
 ;   unaryPrecs  := [700,50]
 ;   binaryOps   := ['"|",'"**",'"/",'".LT.",'".GT.",'".EQ.",'".LE.",'".GE.", _
-;                   '"OVER",'".AND.",'".OR."]
+;                   '".AND.", '".OR."]
 ;   binaryPrecs := [0, 900, 800, 400, 400, 400, 400, 400, 800, 70, 90]
 ;   naryOps     := ['"-",'"+",'"*",'",",'" ",'"ROW",'""]
 ;   naryPrecs   := [700,  700, 800,  110,   0,     0,  0]
@@ -248,7 +248,7 @@
              (SETQ |unaryPrecs| (LIST 700 50))
              (SETQ |binaryOps|
                      (LIST "|" "**" "/" ".LT." ".GT." ".EQ." ".LE." ".GE."
-                           "OVER" ".AND." ".OR."))
+                           ".AND." ".OR."))
              (SETQ |binaryPrecs|
                      (LIST 0 900 800 400 400 400 400 400 800 70 90))
              (SETQ |naryOps| (LIST "-" "+" "*" "," " " "ROW" ""))
@@ -1019,7 +1019,7 @@
 ;     STRCONC('"[",first arg,tailPart,'"]")
 ;   op = "PAREN" =>
 ;     args := first args
-;     not(first(args)="CONCATB") => fortError1 [op,:args]
+;     not(first(args)="CONCATB") => fortPre1(args)
 ;     -- Have a matrix element
 ;     mkMat(args)
 ;   op = "SUB" =>
@@ -1093,9 +1093,8 @@
       ((EQ |op| 'PAREN)
        (PROGN
         (SETQ |args| (CAR |args|))
-        (COND
-         ((NULL (EQ (CAR |args|) 'CONCATB)) (|fortError1| (CONS |op| |args|)))
-         (#1# (|mkMat| |args|)))))
+        (COND ((NULL (EQ (CAR |args|) 'CONCATB)) (|fortPre1| |args|))
+              (#1# (|mkMat| |args|)))))
       ((EQ |op| 'SUB)
        (PROGN
         (SETQ |$fortInts2Floats| NIL)
@@ -2049,7 +2048,7 @@
 ;   op = "ROOT" =>
 ;     #args = 1 => fortPreRoot ["sqrt", first args]
 ;     [ "**" , fortPreRoot first args , [ "/" , fortPreRoot(1), fortPreRoot first rest args] ]
-;   if op in ['"OVER", "OVER"] then op := '"/"
+;   if op in ['"OVER", "OVER", '"SLASH", "SLASH"] then op := '"/"
 ;   specialOps  := '(BRACKET BRACE SUB AGGLST SUPERSUB MATRIX SEGMENT ALTSUPERSUB
 ;                    PAREN CONCAT CONCATB QUOTE STRING SIGMA  STEP IN SIGMA2
 ;                    INTSIGN  PI PI2 INDEFINTEGRAL)
@@ -2125,7 +2124,9 @@
                                 (|fortPreRoot| (CAR (CDR |args|))))))))
                  (#1#
                   (PROGN
-                   (COND ((|member| |op| (LIST "OVER" 'OVER)) (SETQ |op| "/")))
+                   (COND
+                    ((|member| |op| (LIST "OVER" 'OVER "SLASH" 'SLASH))
+                     (SETQ |op| "/")))
                    (SETQ |specialOps|
                            '(BRACKET BRACE SUB AGGLST SUPERSUB MATRIX SEGMENT
                              ALTSUPERSUB PAREN CONCAT CONCATB QUOTE STRING
