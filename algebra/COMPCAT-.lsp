@@ -1076,6 +1076,8 @@
                                           (|HasCategory| |#2|
                                                          '(|TranscendentalFunctionCategory|))
                                           (|HasCategory| |#2|
+                                                         '(|arbitraryPrecision|))
+                                          (|HasCategory| |#2|
                                                          '(|RealNumberSystem|))
                                           (|HasCategory| |#2|
                                                          '(|RealConstant|))
@@ -1105,7 +1107,7 @@
       (COND
        ((|testBitVector| |pv$| 1)
         (COND
-         ((|testBitVector| |pv$| 13)
+         ((|testBitVector| |pv$| 14)
           (PROGN
            (COND
             ((|testBitVector| |pv$| 2)
@@ -1134,17 +1136,17 @@
          (QSETREFV $ 103
                    (CONS (|dispatchFunction| |COMPCAT-;prime?;SB;9|) $)))))
       (COND
-       ((|testBitVector| |pv$| 5)
+       ((|testBitVector| |pv$| 6)
         (QSETREFV $ 168 (CONS (|dispatchFunction| |COMPCAT-;abs;2S;36|) $))))
       (COND
-       ((|testBitVector| |pv$| 6)
+       ((|testBitVector| |pv$| 7)
         (PROGN
          (QSETREFV $ 173
                    (CONS (|dispatchFunction| |COMPCAT-;convert;SC;37|) $))
          (QSETREFV $ 178
                    (CONS (|dispatchFunction| |COMPCAT-;convert;SC;38|) $)))))
       (COND
-       ((|testBitVector| |pv$| 9)
+       ((|testBitVector| |pv$| 10)
         (QSETREFV $ 184
                   (CONS (|dispatchFunction| |COMPCAT-;convert;SIf;39|) $))))
       (COND
@@ -1166,7 +1168,7 @@
                   (CONS (|dispatchFunction| |COMPCAT-;patternMatch;SP2Pmr;43|)
                         $))))
       (COND
-       ((|testBitVector| |pv$| 15)
+       ((|testBitVector| |pv$| 16)
         (QSETREFV $ 204
                   (CONS (|dispatchFunction| |COMPCAT-;smaller?;2SB;44|) $))))
       (COND
@@ -1180,10 +1182,10 @@
                    (CONS (|dispatchFunction| |COMPCAT-;rationalIfCan;SU;47|)
                          $)))))
       (COND
-       ((|testBitVector| |pv$| 10)
+       ((|testBitVector| |pv$| 11)
         (QSETREFV $ 213 (CONS (|dispatchFunction| |COMPCAT-;inv;2S;48|) $))))
       (COND
-       ((|testBitVector| |pv$| 14)
+       ((|testBitVector| |pv$| 15)
         (PROGN
          (QSETREFV $ 215 (CONS (|dispatchFunction| |COMPCAT-;exquo;SRU;49|) $))
          (QSETREFV $ 218 (CONS (|dispatchFunction| |COMPCAT-;exquo;2SU;50|) $))
@@ -1198,10 +1200,10 @@
                      (CONS (|dispatchFunction| |COMPCAT-;unitNormal;SR;53|)
                            $)))))))
       (COND
-       ((|testBitVector| |pv$| 13)
+       ((|testBitVector| |pv$| 14)
         (PROGN
          (COND
-          ((|testBitVector| |pv$| 11)
+          ((|testBitVector| |pv$| 12)
            (QSETREFV $ 231
                      (CONS
                       (|dispatchFunction| |COMPCAT-;euclideanSize;SNni;54|)
@@ -1236,7 +1238,7 @@
                        (QCDR #1#)
                      (|check_union| (QEQCAR #1# 0) |#2| #1#)))
          (COND
-          ((|testBitVector| |pv$| 5)
+          ((|testBitVector| |pv$| 6)
            (PROGN
             (QSETREFV $ 246
                       (CONS (|dispatchFunction| |COMPCAT-;argument;SR;62|)
@@ -1293,7 +1295,7 @@
                         (CONS (|dispatchFunction| |COMPCAT-;acos;2S;87|)
                               $)))))))
          (COND
-          ((|testBitVector| |pv$| 5)
+          ((|testBitVector| |pv$| 6)
            (PROGN
             (QSETREFV $ 278
                       (CONS

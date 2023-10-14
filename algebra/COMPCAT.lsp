@@ -105,6 +105,9 @@
                                             ((|ConvertibleTo|
                                               (|Complex| (|Float|)))
                                              (|has| |t#1| (|RealConstant|)))
+                                            ((|arbitraryPrecision|)
+                                             (|has| |t#1|
+                                                    (|arbitraryPrecision|)))
                                             ((|TranscendentalFunctionCategory|)
                                              (|has| |t#1|
                                                     (|TranscendentalFunctionCategory|)))
