@@ -106,9 +106,9 @@
               (21 . |setelt|) (28 . |empty|) (|List| $) (32 . |blankSeparate|)
               (37 . |pile|) |TABLEAU;coerce;$Of;5|)
            '#(|tableau| 42 |listOfLists| 47 |coerce| 52) 'NIL
-           (CONS (|makeByteWordVec2| 1 'NIL)
-                 (CONS '#()
-                       (CONS '#()
+           (CONS (|makeByteWordVec2| 1 '(0))
+                 (CONS '#(NIL)
+                       (CONS '#((|CoercibleTo| 12))
                              (|makeByteWordVec2| 25
                                                  '(1 12 0 11 13 2 15 0 14 12 16
                                                    1 6 12 0 17 1 12 0 0 18 3 15

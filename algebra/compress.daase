@@ -992,7 +992,7 @@
  |printTypes| |newTypeLists| |typeLists| |externalList| |typeList|
  |parametersOf| |fortranTypeOf| |declare!| |solve| |triangularSystems|
  |bumprow| |bumptab| |bumptab1| |untab| |bat1| |bat| |tab1| |tab| |lex| |slex|
- |inverse| |maxrow| |mr| |tableau| |listOfLists| |tanSum| |tanAn| |tanNa|
+ |inverse| |maxrow| |mr| |listOfLists| |tableau| |tanSum| |tanAn| |tanNa|
  |table| |initTable!| |printInfo!| |startStats!| |printStats!| |clearTable!|
  |usingTable?| |printingInfo?| |makingStats?| |extractIfCan| |insert!|
  |interpretString| |stripCommentsAndBlanks| |linearExtend| |tensor|
