@@ -284,6 +284,26 @@
           (LIST (LIST '|break| '|break|) (LIST 'DEFAULT '|default|)
                 (LIST 'RULE '|rule|))))
  
+; $expression_nostarters := [ "ARROW", "BACKSET", "BECOMES", "COLON", _
+;     "COMMA", "DEF", "ELSE", "EXIT", "GIVES", "MDEF", "SEMICOLON",
+;     "has", "is", "pretend", "where", ")"]
+ 
+(EVAL-WHEN (EVAL LOAD)
+  (SETQ |$expression_nostarters|
+          (LIST 'ARROW 'BACKSET 'BECOMES 'COLON 'COMMA 'DEF 'ELSE 'EXIT 'GIVES
+                'MDEF 'SEMICOLON '|has| '|is| '|pretend| '|where| '|)|)))
+ 
+; starts_expression?(sym, type) ==
+;     type ~= "key" => true
+;     MEMBER(sym, $expression_nostarters) => false
+;     true
+ 
+(DEFUN |starts_expression?| (|sym| |type|)
+  (PROG ()
+    (RETURN
+     (COND ((NOT (EQ |type| '|key|)) T)
+           ((MEMBER |sym| |$expression_nostarters|) NIL) ('T T)))))
+ 
 ; DEFVAR($paren_level)
  
 (DEFVAR |$paren_level|)
@@ -300,6 +320,10 @@
  
 (DEFVAR |$ignored_tab|)
  
+; DEFVAR($maybe_insert_semi)
+ 
+(DEFVAR |$maybe_insert_semi|)
+ 
 ; ntokreader(token) ==
 ;     nonblank_flag := nil
 ;     if $toklst then
@@ -311,6 +335,11 @@
 ;         line_info := first(rest(pos))
 ;         line_no := first(rest(rest(line_info)))
 ;         char_no := rest(rest(pos))
+;         $maybe_insert_semi and starts_expression?(sym, type) =>
+;             $toklst := cons(tok1, $toklst)
+;             $maybe_insert_semi := false
+;             token_install(";", "KEYWORD", false, line_no, char_no, token)
+;         $maybe_insert_semi := false
 ;         if not($curent_line_number = line_no) then
 ;             $prev_line := $curent_line
 ;             $prev_line_number := $curent_line_number
@@ -373,6 +402,7 @@
 ;             sym = ")" =>
 ;                 $paren_level := dec_SI($paren_level)
 ;             sym = "#1" => type := "ARGUMENT-DESIGNATOR"
+;             $maybe_insert_semi := sym = "}"
 ;             sym1 := ASSQ(sym, $trans_key)
 ;             sym2 := ASSQ(sym, $trans_key_id)
 ;             if sym2 then
@@ -400,86 +430,101 @@
         (SETQ |line_no| (CAR (CDR (CDR |line_info|))))
         (SETQ |char_no| (CDR (CDR |pos|)))
         (COND
-         ((NULL (EQUAL |$curent_line_number| |line_no|))
-          (SETQ |$prev_line| |$curent_line|)
-          (SETQ |$prev_line_number| |$curent_line_number|)
-          (SETQ |$curent_line| (ELT |line_info| 1))
-          (SETQ |$curent_line_number| |line_no|)))
-        (COND
-         ((AND (EQ |type1| '|integer|) (STRINGP |sym|))
-          (SETQ |sym| (READ-FROM-STRING |sym|))))
-        (COND
-         ((EQ |type1| '|float|) (SETQ |mant_i| (READ-FROM-STRING (CAR |sym|)))
-          (SETQ |exp| (READ-FROM-STRING (ELT |sym| 2)))
-          (SETQ |mant_fl| (LENGTH (ELT |sym| 1)))
-          (SETQ |mant_f| (READ-FROM-STRING (ELT |sym| 1)))
-          (SETQ |sym| (|make_float| |mant_i| |mant_f| |mant_fl| |exp|))))
-        (COND
-         ((AND (EQ |sym| '|(|) (EQ |type1| '|key|)
-               (EQ (ELT |tok1| 3) '|nonblank|))
-          (SETQ |nonblank_flag| T)))
-        (SETQ |type| (ASSQ |type1| |$trans_table|))
-        (COND
-         ((AND (|greater_SI| |$paren_level| 0) (EQ |type1| '|key|)
-               (|member| |sym| (LIST 'BACKSET 'BACKTAB 'SETTAB)))
+         ((AND |$maybe_insert_semi| (|starts_expression?| |sym| |type|))
           (PROGN
-           (COND
-            ((EQ |sym| 'SETTAB)
-             (SETQ |$settab_level| (|inc_SI| |$settab_level|))))
-           (COND
-            ((EQ |sym| 'BACKTAB)
-             (SETQ |$settab_level| (|dec_SI| |$settab_level|))))
-           (|ntokreader| |token|)))
-         ((AND (|greater_SI| |$settab_level| 0) (EQ |type1| '|key|)
-               (EQ |sym| 'BACKTAB))
-          (PROGN
-           (SETQ |$settab_level| (|dec_SI| |$settab_level|))
-           (|ntokreader| |token|)))
+           (SETQ |$toklst| (CONS |tok1| |$toklst|))
+           (SETQ |$maybe_insert_semi| NIL)
+           (|token_install| '|;| 'KEYWORD NIL |line_no| |char_no| |token|)))
          (#1='T
           (PROGN
+           (SETQ |$maybe_insert_semi| NIL)
            (COND
-            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$toklst|)
-             (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
-             (SETQ |nsym| (ELT |ntok1| 1))
-             (COND
-              ((AND (EQ |ntype1| '|key|)
-                    (|member| |nsym| (LIST '|then| '|else|)))
-               (RETURN (|ntokreader| |token|))))))
+            ((NULL (EQUAL |$curent_line_number| |line_no|))
+             (SETQ |$prev_line| |$curent_line|)
+             (SETQ |$prev_line_number| |$curent_line_number|)
+             (SETQ |$curent_line| (ELT |line_info| 1))
+             (SETQ |$curent_line_number| |line_no|)))
            (COND
-            ((AND (EQ |type1| '|key|) (EQ |sym| 'SETTAB) |$toklst|)
-             (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
-             (SETQ |nsym| (ELT |ntok1| 1))
-             (COND
-              ((AND (EQ |ntype1| '|key|)
-                    (|member| |nsym| (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
-               (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
-               (RETURN (|ntokreader| |token|)))
-              (#1# (PUSH |$ignored_tab| |$tab_states|)
-               (SETQ |$ignored_tab| NIL)))))
+            ((AND (EQ |type1| '|integer|) (STRINGP |sym|))
+             (SETQ |sym| (READ-FROM-STRING |sym|))))
            (COND
-            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignored_tab|)
-             (RETURN (|ntokreader| |token|))))
+            ((EQ |type1| '|float|)
+             (SETQ |mant_i| (READ-FROM-STRING (CAR |sym|)))
+             (SETQ |exp| (READ-FROM-STRING (ELT |sym| 2)))
+             (SETQ |mant_fl| (LENGTH (ELT |sym| 1)))
+             (SETQ |mant_f| (READ-FROM-STRING (ELT |sym| 1)))
+             (SETQ |sym| (|make_float| |mant_i| |mant_f| |mant_fl| |exp|))))
            (COND
-            ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKTAB))
-             (SETQ |$ignored_tab0| |$ignored_tab|)
-             (SETQ |$ignored_tab| (POP |$tab_states|))
-             (COND (|$ignored_tab0| (RETURN (|ntokreader| |token|))))))
-           (COND (|type| (SETQ |type| (ELT |type| 1)))
-                 (#1# (SAY (LIST |sym| |type1|))))
+            ((AND (EQ |sym| '|(|) (EQ |type1| '|key|)
+                  (EQ (ELT |tok1| 3) '|nonblank|))
+             (SETQ |nonblank_flag| T)))
+           (SETQ |type| (ASSQ |type1| |$trans_table|))
            (COND
-            ((EQ |type1| '|key|)
-             (COND
-              ((EQ |sym| '|(|) (SETQ |$paren_level| (|inc_SI| |$paren_level|)))
-              ((EQ |sym| '|)|) (SETQ |$paren_level| (|dec_SI| |$paren_level|)))
-              ((EQ |sym| '|#1|) (SETQ |type| 'ARGUMENT-DESIGNATOR))
-              (#1#
-               (PROGN
-                (SETQ |sym1| (ASSQ |sym| |$trans_key|))
-                (SETQ |sym2| (ASSQ |sym| |$trans_key_id|))
-                (COND (|sym2| (SETQ |type| 'IDENTIFIER) (SETQ |sym1| |sym2|)))
-                (SETQ |sym| (COND (|sym1| (ELT |sym1| 1)) (#1# |sym|))))))))
-           (|token_install| |sym| |type| |nonblank_flag| |line_no| |char_no|
-            |token|)))))
+            ((AND (|greater_SI| |$paren_level| 0) (EQ |type1| '|key|)
+                  (|member| |sym| (LIST 'BACKSET 'BACKTAB 'SETTAB)))
+             (PROGN
+              (COND
+               ((EQ |sym| 'SETTAB)
+                (SETQ |$settab_level| (|inc_SI| |$settab_level|))))
+              (COND
+               ((EQ |sym| 'BACKTAB)
+                (SETQ |$settab_level| (|dec_SI| |$settab_level|))))
+              (|ntokreader| |token|)))
+            ((AND (|greater_SI| |$settab_level| 0) (EQ |type1| '|key|)
+                  (EQ |sym| 'BACKTAB))
+             (PROGN
+              (SETQ |$settab_level| (|dec_SI| |$settab_level|))
+              (|ntokreader| |token|)))
+            (#1#
+             (PROGN
+              (COND
+               ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$toklst|)
+                (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
+                (SETQ |nsym| (ELT |ntok1| 1))
+                (COND
+                 ((AND (EQ |ntype1| '|key|)
+                       (|member| |nsym| (LIST '|then| '|else|)))
+                  (RETURN (|ntokreader| |token|))))))
+              (COND
+               ((AND (EQ |type1| '|key|) (EQ |sym| 'SETTAB) |$toklst|)
+                (SETQ |ntok1| (CAR |$toklst|)) (SETQ |ntype1| (CAR |ntok1|))
+                (SETQ |nsym| (ELT |ntok1| 1))
+                (COND
+                 ((AND (EQ |ntype1| '|key|)
+                       (|member| |nsym|
+                        (LIST '|then| '|else| 'COMMA 'SEMICOLON)))
+                  (PUSH |$ignored_tab| |$tab_states|) (SETQ |$ignored_tab| T)
+                  (RETURN (|ntokreader| |token|)))
+                 (#1# (PUSH |$ignored_tab| |$tab_states|)
+                  (SETQ |$ignored_tab| NIL)))))
+              (COND
+               ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKSET) |$ignored_tab|)
+                (RETURN (|ntokreader| |token|))))
+              (COND
+               ((AND (EQ |type1| '|key|) (EQ |sym| 'BACKTAB))
+                (SETQ |$ignored_tab0| |$ignored_tab|)
+                (SETQ |$ignored_tab| (POP |$tab_states|))
+                (COND (|$ignored_tab0| (RETURN (|ntokreader| |token|))))))
+              (COND (|type| (SETQ |type| (ELT |type| 1)))
+                    (#1# (SAY (LIST |sym| |type1|))))
+              (COND
+               ((EQ |type1| '|key|)
+                (COND
+                 ((EQ |sym| '|(|)
+                  (SETQ |$paren_level| (|inc_SI| |$paren_level|)))
+                 ((EQ |sym| '|)|)
+                  (SETQ |$paren_level| (|dec_SI| |$paren_level|)))
+                 ((EQ |sym| '|#1|) (SETQ |type| 'ARGUMENT-DESIGNATOR))
+                 (#1#
+                  (PROGN
+                   (SETQ |$maybe_insert_semi| (EQ |sym| '}))
+                   (SETQ |sym1| (ASSQ |sym| |$trans_key|))
+                   (SETQ |sym2| (ASSQ |sym| |$trans_key_id|))
+                   (COND
+                    (|sym2| (SETQ |type| 'IDENTIFIER) (SETQ |sym1| |sym2|)))
+                   (SETQ |sym| (COND (|sym1| (ELT |sym1| 1)) (#1# |sym|))))))))
+              (|token_install| |sym| |type| |nonblank_flag| |line_no| |char_no|
+               |token|))))))))
        (#1# (|token_install| NIL '*EOF NIL NIL 0 |token|)))))))
  
 ; fakeloopInclude0(st, name, n) ==
@@ -506,6 +551,7 @@
 ;     $tab_states := nil
 ;     $ignored_tab := false
 ;     $ignorable_backset := false
+;     $maybe_insert_semi := false
 ;     finish_comment()
 ;     TOKEN_-STACK_-CLEAR()
 ;     parse_new_expr()
@@ -523,6 +569,7 @@
       (SETQ |$tab_states| NIL)
       (SETQ |$ignored_tab| NIL)
       (SETQ |$ignorable_backset| NIL)
+      (SETQ |$maybe_insert_semi| NIL)
       (|finish_comment|)
       (TOKEN-STACK-CLEAR)
       (|parse_new_expr|)
