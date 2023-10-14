@@ -42,7 +42,9 @@
                        ((|jacobiSn| ($ $ $)) T) ((|jacobiCn| ($ $ $)) T)
                        ((|jacobiDn| ($ $ $)) T) ((|jacobiZeta| ($ $ $)) T)
                        ((|jacobiTheta| ($ $ $)) T) ((|lerchPhi| ($ $ $ $)) T)
-                       ((|riemannZeta| ($ $)) T)
+                       ((|riemannZeta| ($ $)) T) ((|charlierC| ($ $ $ $)) T)
+                       ((|hermiteH| ($ $ $)) T) ((|jacobiP| ($ $ $ $ $)) T)
+                       ((|laguerreL| ($ $ $ $)) T) ((|meixnerM| ($ $ $ $ $)) T)
                        ((|hypergeometricF| ($ (|List| $) (|List| $) $))
                         (|has| $ (|RetractableTo| (|Integer|))))
                        ((|meijerG|

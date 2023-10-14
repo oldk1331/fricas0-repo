@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4770 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4773 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -771,13 +771,13 @@
  |reverseLex| |leftLcm| |rightExtendedGcd| |rightGcd| |rightExactQuotient|
  |rightRemainder| |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd|
  |leftExactQuotient| |leftRemainder| |leftQuotient| |times| |monicLeftDivide|
- |monicRightDivide| |leftDivide| |rightDivide| |hermiteH| |laguerreL| |output|
- |outputList| |or| |and| |quo| |rem| ~= |blankSeparate| |semicolonSeparate|
- |commaSeparate| |pile| |paren| |bracket| |prod| |overlabel| |overbar| |prime|
- |quote| |supersub| |presuper| |presub| |super| |sub| |rarrow| |assign| |slash|
- |over| |zag| |box| |label| |infix?| |postfix| |infix| |prefix| |vconcat|
- |hconcat| |rspace| |vspace| |hspace| |messagePrint| |message| |padecf| |pade|
- |root| |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
+ |monicRightDivide| |leftDivide| |rightDivide| |output| |outputList| |or| |and|
+ |quo| |rem| ~= |blankSeparate| |semicolonSeparate| |commaSeparate| |pile|
+ |paren| |bracket| |prod| |overlabel| |overbar| |prime| |quote| |supersub|
+ |presuper| |presub| |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box|
+ |label| |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace|
+ |vspace| |hspace| |messagePrint| |message| |padecf| |pade| |root|
+ |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
  |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
  |surface| |coordinate| |partitions| |conjugates| |shuffle| |shufflein|
  |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
@@ -972,50 +972,50 @@
  |lommelS1| |lommelS2| |kummerM| |kummerU| |legendreP| |legendreQ| |kelvinBei|
  |kelvinBer| |kelvinKei| |kelvinKer| |ellipticK| |ellipticE| |ellipticF|
  |ellipticPi| |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta| |jacobiTheta|
- |lerchPhi| |riemannZeta| |hypergeometricF| |meijerG| |lambertW0|
- |weierstrassP0| |weierstrassPPrime0| |weierstrassZeta0| |weierstrassSigma0|
- |subNode?| |infLex?| |setEmpty!| |setStatus!| |setCondition!| |setValue!|
- |copy| |status| |condition| |value| |splitNodeOf!| |remove!| |remove|
- |subNodeOf?| |nodeOf?| |result| |conditions| |updateStatus!|
- |extractSplittingLeaf| |extendedCoords| |screenCoords| |screenCoordZ|
- |screenCoordY| |screenCoordX| |inBounds?| |isVector?| |isPoint?| |toVector|
- |toPoint| |perpendicular| |colinearity| |parallel| |distance|
- |distanceSquared| |Pnan?| |max| |min| |sivec| |svec| |sipnt| |spnt|
- |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim| |split| |position|
- |replace| |match?| |match| |substring?| |suffix?| |prefix?| |upperCase!|
- |upperCase| |lowerCase!| |lowerCase| |KrullNumber| |numberOfVariables|
- |algebraicDecompose| |transcendentalDecompose| |internalDecompose| |decompose|
- |upDateBranches| |printInfo| |pre_process| |internalZeroSetSplit|
- |internalAugment| |monomial| |leadingMonomial| |leadingCoefficient| |stack|
- |possiblyInfinite?| |explicitlyFinite?| |nextItem| |init| |exp0| |log1|
- |infiniteProduct| |evenInfiniteProduct| |oddInfiniteProduct|
- |generalInfiniteProduct| |tensorMap| |stransform| |stranslate| |identity|
- |xform| |compound| |STransform1| |STransform2| |STransform|
- |distributionBySTransform| |freeMultiplicativeConvolution| |filterUntil|
- |filterWhile| |stream| |showAll?| |showAllElements| |showElements| |cons|
- |delay| |findCycle| |repeating?| |repeating| |ucodeToString| |exquo| |recip|
- |integers| |oddintegers| |int| |mapmult| |deriv| |gderiv| |compose| |addiag|
- |lazyIntegrate| |nlde| |powern| |mapdiv| |lazyGintegrate| |power| |sincos|
- |sinhcosh| |asin| |acos| |atan| |acot| |asec| |acsc| |sinh| |cosh| |tanh|
- |coth| |sech| |csch| |asinh| |acosh| |atanh| |acoth| |asech| |acsch|
- |subresultantVector| |primitivePart| |pointData| |parent| |level|
- |extractProperty| |extractClosed| |extractIndex| |extractPoint| |traverse|
- |defineProperty| |closeComponent| |modifyPoint| |addPointLast| |addPoint2|
- |addPoint| |merge| |deepCopy| |shallowCopy| |numberOfChildren| |children|
- |child| |birth| |internal?| |root?| |leaf?| |rhs| |lhs| |construct| |sum|
- |outputForm| NOT AND EQ OR GE LE GT LT |ansatz| |transform| |linearize|
- |detSys| |ncDetSys| |detSysNS| |sample| |list| |string| |argscript|
- |superscript| |subscript| |script| |scripts| |scripted?| |name| |resetNew|
- |symFunc| |symbolTableOf| |argumentListOf| |returnTypeOf| |printHeader|
- |returnType!| |argumentList!| |endSubProgram| |currentSubProgram|
- |newSubProgram| |clearTheSymbolTable| |showTheSymbolTable| |symbolTable|
- |printTypes| |newTypeLists| |typeLists| |externalList| |typeList|
- |parametersOf| |fortranTypeOf| |declare!| |solve| |triangularSystems|
- |bumprow| |bumptab| |bumptab1| |untab| |bat1| |bat| |tab1| |tab| |lex| |slex|
- |inverse| |maxrow| |mr| |listOfLists| |tableau| |tanSum| |tanAn| |tanNa|
- |initTable!| |printInfo!| |startStats!| |printStats!| |clearTable!|
- |usingTable?| |printingInfo?| |makingStats?| |extractIfCan| |insert!|
- |interpretString| |stripCommentsAndBlanks| |linearExtend| |tensor|
+ |lerchPhi| |riemannZeta| |charlierC| |hermiteH| |jacobiP| |laguerreL|
+ |meixnerM| |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0|
+ |weierstrassPPrime0| |weierstrassZeta0| |weierstrassSigma0| |subNode?|
+ |infLex?| |setEmpty!| |setStatus!| |setCondition!| |setValue!| |copy| |status|
+ |condition| |value| |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?|
+ |result| |conditions| |updateStatus!| |extractSplittingLeaf| |extendedCoords|
+ |screenCoords| |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?|
+ |isVector?| |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity|
+ |parallel| |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec|
+ |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim|
+ |split| |position| |replace| |match?| |match| |substring?| |suffix?| |prefix?|
+ |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
+ |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
+ |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|
+ |internalZeroSetSplit| |internalAugment| |monomial| |leadingMonomial|
+ |leadingCoefficient| |stack| |possiblyInfinite?| |explicitlyFinite?|
+ |nextItem| |init| |exp0| |log1| |infiniteProduct| |evenInfiniteProduct|
+ |oddInfiniteProduct| |generalInfiniteProduct| |tensorMap| |stransform|
+ |stranslate| |identity| |xform| |compound| |STransform1| |STransform2|
+ |STransform| |distributionBySTransform| |freeMultiplicativeConvolution|
+ |filterUntil| |filterWhile| |stream| |showAll?| |showAllElements|
+ |showElements| |cons| |delay| |findCycle| |repeating?| |repeating|
+ |ucodeToString| |exquo| |recip| |integers| |oddintegers| |int| |mapmult|
+ |deriv| |gderiv| |compose| |addiag| |lazyIntegrate| |nlde| |powern| |mapdiv|
+ |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos| |atan| |acot|
+ |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh| |acosh|
+ |atanh| |acoth| |asech| |acsch| |subresultantVector| |primitivePart|
+ |pointData| |parent| |level| |extractProperty| |extractClosed| |extractIndex|
+ |extractPoint| |traverse| |defineProperty| |closeComponent| |modifyPoint|
+ |addPointLast| |addPoint2| |addPoint| |merge| |deepCopy| |shallowCopy|
+ |numberOfChildren| |children| |child| |birth| |internal?| |root?| |leaf?|
+ |rhs| |lhs| |construct| |sum| |outputForm| NOT AND EQ OR GE LE GT LT |ansatz|
+ |transform| |linearize| |detSys| |ncDetSys| |detSysNS| |sample| |list|
+ |string| |argscript| |superscript| |subscript| |script| |scripts| |scripted?|
+ |name| |resetNew| |symFunc| |symbolTableOf| |argumentListOf| |returnTypeOf|
+ |printHeader| |returnType!| |argumentList!| |endSubProgram|
+ |currentSubProgram| |newSubProgram| |clearTheSymbolTable| |showTheSymbolTable|
+ |symbolTable| |printTypes| |newTypeLists| |typeLists| |externalList|
+ |typeList| |parametersOf| |fortranTypeOf| |declare!| |solve|
+ |triangularSystems| |bumprow| |bumptab| |bumptab1| |untab| |bat1| |bat| |tab1|
+ |tab| |lex| |slex| |inverse| |maxrow| |mr| |listOfLists| |tableau| |tanSum|
+ |tanAn| |tanNa| |initTable!| |printInfo!| |startStats!| |printStats!|
+ |clearTable!| |usingTable?| |printingInfo?| |makingStats?| |extractIfCan|
+ |insert!| |interpretString| |stripCommentsAndBlanks| |linearExtend| |tensor|
  |testEqualsAux| |xftestEqualsAux| |testNotEqualsAux| |xftestNotEqualsAux|
  |testTrueAux| |xftestTrueAux| |testLibraryErrorAux| |xftestLibraryErrorAux|
  |testEqualsAuxCmp| |testRealEqualsAux| |xftestRealEqualsAux|
