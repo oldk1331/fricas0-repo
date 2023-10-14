@@ -283,7 +283,8 @@
  |PartialDifferentialOperator| |PartialDifferentialOperatorHelper|
  |PartialDifferentialRing&| |PartialDifferentialRing| |PendantTree|
  |Permutation| |Permanent| |PermutationCategory| |PermutationGroup|
- |PrimeField| |PolynomialFactorizationByRecursion|
+ |PolynomialEvaluationUtilities| |PrimeField|
+ |PolynomialFactorizationByRecursion|
  |PolynomialFactorizationByRecursionUnivariate|
  |PolynomialFactorizationExplicit&| |PolynomialFactorizationExplicit|
  |PointsOfFiniteOrder| |PointsOfFiniteOrderRational| |PointsOfFiniteOrderTools|
@@ -642,12 +643,11 @@
  |physicalLength| |flexibleArray| |toStringUnwrapped| |parseILTerm| |parseIL2|
  |parseIL| |opType| |deductions| |implies| |proposition| |logicF| |logicT|
  |generalizedInverse| |row_operation_base| |row_operation_modular|
- |do_modular_solve| |do_poly_modular| |do_poly_integer| |merge_exponents|
- |merge2| |eval_and_solve| |modpeval| |modpreduction| |setFieldInfo| |pol| |xn|
- |dAndcExp| |repSq| |expPot| |qPot| |lookup| |normal?| |normalElement|
- |minimalPolynomial| |increment| |incrementBy| |charpol| |solve1|
- |innerEigenvectors| |compile| |declare| |parse| |unparse| |flatten| |binary|
- |packageCall| |coerceToType| |atType| |pretendOfType| |interpret|
+ |do_modular_solve| |do_poly_integer| |merge_exponents| |merge2| |setFieldInfo|
+ |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup| |normal?|
+ |normalElement| |minimalPolynomial| |increment| |incrementBy| |charpol|
+ |solve1| |innerEigenvectors| |compile| |declare| |parse| |unparse| |flatten|
+ |binary| |packageCall| |coerceToType| |atType| |pretendOfType| |interpret|
  |innerSolve1| |innerSolve| |makeEq| |modularGcdPrimitive| |modularGcd|
  |reduction| |signAround| |invmod| |powmod| |mulmod| |submod| |addmod| |mask|
  |dec| |inc| |symmetricRemainder| |positiveRemainder| |bit?| |algint|
@@ -683,24 +683,23 @@
  |numDepVar| |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
  |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol|
  |prolongSymbol| |prolongMV| |project| |contract| |differentials| |dP| |dU|
- |dX| |d| |eqRep?| |ground?| |eval1| |prolong| |lie| |directions| |diffP|
- |diffU| |diffX| |search| |keys| |key?| |symbolIfCan| |kernel| |height|
- |argument| |constantKernel| |constantIfCan| |kovacic| |toStringConven|
- |unbind| |bind| |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?|
- |isLambda?| |isCompound?| |parseLambda| |lambda| |laplace|
- |trailingCoefficient| |normalizeIfCan| |polCase| |distFact| |identification|
- |LyndonCoordinates| |LyndonBasis| |zeroDimensional?| |fglmIfCan|
- |lexTriangular| |squareFreeLexTriangular| |belong?| |fresnelC| |fresnelS|
- |erfi| |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen|
- |totolex| |minPol| |computeBasis| |coord| |anticoord| |intcompBasis|
- |choosemon| |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
- |linearDependence| |solveLinear| |reducedSystem| |setDifference|
- |setIntersection| |setUnion| |append| |null| |nil| |match| |substitute|
- |duplicates?| |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult|
- |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert|
- |delete| |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower|
- |directSum| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
+ |dX| |d| |eqRep?| |ground?| |prolong| |lie| |directions| |diffP| |diffU|
+ |diffX| |search| |keys| |key?| |symbolIfCan| |kernel| |height| |argument|
+ |constantKernel| |constantIfCan| |kovacic| |toStringConven| |unbind| |bind|
+ |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?| |isLambda?|
+ |isCompound?| |parseLambda| |lambda| |laplace| |trailingCoefficient|
+ |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
+ |LyndonBasis| |zeroDimensional?| |fglmIfCan| |lexTriangular|
+ |squareFreeLexTriangular| |belong?| |fresnelC| |fresnelS| |erfi| |erf| |dilog|
+ |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex| |minPol|
+ |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon| |close!| |pack!|
+ |library| |complexLimit| |linearlyDependent?| |linearDependence| |solveLinear|
+ |reducedSystem| |setDifference| |setIntersection| |setUnion| |append| |null|
+ |nil| |match| |substitute| |duplicates?| |mapGen| |mapExpon|
+ |commutativeEquality| |leftMult| |rightMult| |makeUnit| |reverse!| |reverse|
+ |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete| |symmetricSquare|
+ |factor1| |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
+ |lcmCoef| |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
  |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
  |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
@@ -798,23 +797,23 @@
  |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
  |perm_to_vec| |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
  |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
- |wordsForStrongGenerators| |strongGenerators| |base| |generators|
- |bivariateSLPEBR| |solveLinearPolynomialEquationByRecursion|
- |factorByRecursion| |factorSquareFreeByRecursion| |randomR| |factorSFBRlcUnit|
- |charthRoot| |conditionP| |solveLinearPolynomialEquation|
- |factorSquareFreePolynomial| |factorPolynomial| |squareFreePolynomial|
- |gcdPolynomial| |cmult| |possibleOrder| |simplifyCoeffs| |torsion?|
- |torsionIfCan| |getGoodPrime| |badNum| |mix| |doubleDisc| |polyred|
- |padicFraction| |padicallyExpand| |numberOfFractionalTerms|
- |nthFractionalTerm| |firstNumer| |firstDenom| |compactFraction|
- |partialFraction| |gcdPrimitive| |symmetricGroup| |alternatingGroup|
- |abelianGroup| |cyclicGroup| |dihedralGroup| |mathieu11| |mathieu12|
- |mathieu22| |mathieu23| |mathieu24| |janko2| |rubiksGroup| |youngGroup|
- |lexGroebner| |totalGroebner| |qcoerce| |expressIdealMember| |principalIdeal|
- |LagrangeInterpolation| |psolve| |wrregime| |rdregime| |bsolve| |dmp2rfi|
- |se2rfi| |pr2dmp| |hasoln| |ParCondList| |redpps| |B1solve| |factorset|
- |maxrank| |minrank| |minset| |nextSublist| |overset?| |ParCond| |redmat|
- |regime| |sqfree| |inconsistent?| |debug| |numFunEvals| |setAdaptive|
+ |wordsForStrongGenerators| |strongGenerators| |base| |generators| |eval1a|
+ |eval1| |modpreduction| |modpeval| |bivariateSLPEBR|
+ |solveLinearPolynomialEquationByRecursion| |factorByRecursion|
+ |factorSquareFreeByRecursion| |randomR| |factorSFBRlcUnit| |charthRoot|
+ |conditionP| |solveLinearPolynomialEquation| |factorSquareFreePolynomial|
+ |factorPolynomial| |squareFreePolynomial| |gcdPolynomial| |cmult|
+ |possibleOrder| |simplifyCoeffs| |torsion?| |torsionIfCan| |getGoodPrime|
+ |badNum| |mix| |doubleDisc| |polyred| |padicFraction| |padicallyExpand|
+ |numberOfFractionalTerms| |nthFractionalTerm| |firstNumer| |firstDenom|
+ |compactFraction| |partialFraction| |gcdPrimitive| |symmetricGroup|
+ |alternatingGroup| |abelianGroup| |cyclicGroup| |dihedralGroup| |mathieu11|
+ |mathieu12| |mathieu22| |mathieu23| |mathieu24| |janko2| |rubiksGroup|
+ |youngGroup| |lexGroebner| |totalGroebner| |qcoerce| |expressIdealMember|
+ |principalIdeal| |LagrangeInterpolation| |psolve| |wrregime| |rdregime|
+ |bsolve| |dmp2rfi| |se2rfi| |pr2dmp| |hasoln| |ParCondList| |redpps| |B1solve|
+ |factorset| |maxrank| |minrank| |minset| |nextSublist| |overset?| |ParCond|
+ |redmat| |regime| |sqfree| |inconsistent?| |debug| |numFunEvals| |setAdaptive|
  |adaptive?| |setScreenResolution| |screenResolution| |setMaxPoints|
  |maxPoints| |setMinPoints| |minPoints| |parametric?| |plotPolar| |debug3D|
  |numFunEvals3D| |setAdaptive3D| |adaptive3D?| |setScreenResolution3D|
