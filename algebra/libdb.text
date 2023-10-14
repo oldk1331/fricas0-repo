@@ -4610,12 +4610,12 @@ ogetZechTable`0`n`()->PrimitiveArray(SingleInteger)`dFiniteFieldCyclicGroupExten
 ogetZechTable`0`n`()->PrimitiveArray(SingleInteger)`dFiniteFieldCyclicGroupExtension(GF,extdeg)``557962
 ogetZechTable`0`x`()->PrimitiveArray(SingleInteger)`dFiniteFieldCyclicGroup(p,extdeg)``558100
 oGF2FG`1`n`(Complex(F))->FG`pInnerTrigonometricManipulations(R,F,FG)``558238
-ognuDraw`3`n`(Expression(Float),SegmentBinding(Float),String)->Void`pGnuDraw``558370
-ognuDraw`3`n`(List(DoubleFloat),List(DoubleFloat),String)->Void`pGnuDraw``558432
-ognuDraw`4`n`(Expression(Float),SegmentBinding(Float),SegmentBinding(Float),String)->Void`pGnuDraw``558514
-ognuDraw`4`n`(Expression(Float),SegmentBinding(Float),String,List(DrawOption))->Void`pGnuDraw``558584
-ognuDraw`4`n`(List(DoubleFloat),List(DoubleFloat),String,List(DrawOption))->Void`pGnuDraw``558640
-ognuDraw`5`n`(Expression(Float),SegmentBinding(Float),SegmentBinding(Float),String,List(DrawOption))->Void`pGnuDraw``558716
+ognuDraw`3`x`(Expression(Float),SegmentBinding(Float),String)->Void`pGnuDraw``558370
+ognuDraw`3`x`(List(DoubleFloat),List(DoubleFloat),String)->Void`pGnuDraw``558432
+ognuDraw`4`x`(Expression(Float),SegmentBinding(Float),SegmentBinding(Float),String)->Void`pGnuDraw``558514
+ognuDraw`4`x`(Expression(Float),SegmentBinding(Float),String,List(DrawOption))->Void`pGnuDraw``558584
+ognuDraw`4`x`(List(DoubleFloat),List(DoubleFloat),String,List(DrawOption))->Void`pGnuDraw``558640
+ognuDraw`5`x`(Expression(Float),SegmentBinding(Float),SegmentBinding(Float),String,List(DrawOption))->Void`pGnuDraw``558716
 ogoodPoint`2`n`(UPUP,UPUP)->F`pChangeOfVariable(F,UP,UPUP)``558780
 oGospersMethod`3`n`(Q,V,()->V)->Union(Q,"failed")`pGosperSummationMethod(E,V,R,P,Q)``558927
 ogotoJump`1`n`(SingleInteger)->_$`dFortranCode``559495
@@ -10494,7 +10494,7 @@ pGenerateUnivariatePowerSeries`2`x`(R:Join(IntegralDomain,etc),FE:Join(Algebraic
 pGenExEuclid`2`n`(R:EuclideanDomain,BP:UnivariatePolynomialCategory(R))->etc`(R,BP)`GENEEZ`1282656
 pGenUFactorize`1`n`(EuclideanDomain)->etc`(R)`GENUFACT`1283236
 pGenusZeroIntegration`3`n`(R:Join(GcdDomain,etc),F:Join(FunctionSpace(R),etc),L:SetCategory)->etc`(R,F,L)`INTG0`1283455
-pGnuDraw`0`n`()->etc``GDRAW`1283829
+pGnuDraw`0`x`()->etc``GDRAW`1283829
 pGosperSummationMethod`5`n`(E:OrderedAbelianMonoidSup,V:OrderedSet,R:IntegralDomain,P:PolynomialCategory(R,E,V),Q:Join(RetractableTo(Fraction(Integer)),etc))->etc`(E,V,R,P,Q)`GOSPER`1284094
 pGraphicsDefaults`0`x`()->etc``GRDEF`1284138
 pGrayCode`0`n`()->etc``GRAY`1284232
