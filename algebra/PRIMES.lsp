@@ -2,15 +2,13 @@
 (/VERSIONCHECK 2) 
 
 (DEFUN |PRIMES;primes;2IL;1| (|m| |n| $)
-  (PROG (|ll| #1=#:G162 |k| #2=#:G161 |l|)
+  (PROG (|ll| #1=#:G162 |k| #2=#:G161 |m0|)
     (RETURN
      (SEQ
-      (LETT |l|
-            (COND
-             ((SPADCALL |m| (QREFELT $ 17) (QREFELT $ 35))
-              (LIST (QREFELT $ 17)))
-             ('T NIL))
-            . #3=(|PRIMES;primes;2IL;1|))
+      (COND
+       ((SPADCALL |m| (|spadConstant| $ 34) (QREFELT $ 36))
+        (LETT |m| (|spadConstant| $ 11) . #3=(|PRIMES;primes;2IL;1|))))
+      (LETT |m0| |m| . #3#)
       (COND
        ((OR (SPADCALL |n| (QREFELT $ 17) (QREFELT $ 36))
             (SPADCALL |n| |m| (QREFELT $ 36)))
@@ -33,7 +31,11 @@
                   (LETT |k| (+ |k| 2) . #3#) (GO G190) G191
                   (EXIT (NREVERSE #2#))))
             . #3#)
-      (EXIT (NREVERSE (SPADCALL |ll| |l| (QREFELT $ 42)))))))) 
+      (EXIT
+       (COND
+        ((SPADCALL |m0| (QREFELT $ 17) (QREFELT $ 41))
+         (CONS (QREFELT $ 17) |ll|))
+        ('T |ll|))))))) 
 
 (DEFUN |PRIMES;rabinProvesCompositeSmall| (|p| |n| |nm1| |q| |k| $)
   (PROG (#1=#:G167 #2=#:G164 |t| |oldt| #3=#:G168 |j|)
@@ -227,7 +229,7 @@
                        (EXIT
                         (SEQ (SETELT $ 29 (SPADCALL (QREFELT $ 28)))
                              (SETELT $ 33 (SPADCALL |k| 0 (QREFELT $ 32)))
-                             (LETT |mn| (SPADCALL (QREFELT $ 9) (QREFELT $ 59))
+                             (LETT |mn| (SPADCALL (QREFELT $ 9) (QREFELT $ 58))
                                    . #6#)
                              (SEQ
                               (EXIT
@@ -239,7 +241,7 @@
                                       (COND
                                        ((|PRIMES;rabinProvesComposite|
                                          (SPADCALL (QREFELT $ 9) |i|
-                                                   (QREFELT $ 60))
+                                                   (QREFELT $ 59))
                                          |n| |nm1| |q| |k| $)
                                         (PROGN
                                          (LETT #4#
@@ -253,18 +255,18 @@
                               #4# (EXIT #4#))
                              (COND
                               ((SPADCALL |q| (|spadConstant| $ 11)
-                                         (QREFELT $ 61))
+                                         (QREFELT $ 60))
                                (COND
                                 ((SPADCALL
-                                  (SPADCALL (SPADCALL 3 |n| (QREFELT $ 62))
+                                  (SPADCALL (SPADCALL 3 |n| (QREFELT $ 61))
                                             (|spadConstant| $ 11)
                                             (QREFELT $ 38))
-                                  (QREFELT $ 64))
+                                  (QREFELT $ 63))
                                  (EXIT 'NIL)))))
                              (SEQ
                               (LETT |n9|
                                     (SPADCALL |n| (SPADCALL 9 (QREFELT $ 8))
-                                              (QREFELT $ 65))
+                                              (QREFELT $ 64))
                                     . #6#)
                               (EXIT
                                (COND
@@ -277,14 +279,14 @@
                                             (QREFELT $ 45)))
                                  (COND
                                   ((SPADCALL
-                                    (SPADCALL (SPADCALL 8 |n| (QREFELT $ 62))
+                                    (SPADCALL (SPADCALL 8 |n| (QREFELT $ 61))
                                               (|spadConstant| $ 11)
                                               (QREFELT $ 38))
-                                    (QREFELT $ 64))
+                                    (QREFELT $ 63))
                                    (PROGN (LETT #3# 'NIL . #6#) (GO #3#))))))))
                              (LETT |currPrime|
                                    (SPADCALL (QREFELT $ 9) (+ |mn| 10)
-                                             (QREFELT $ 60))
+                                             (QREFELT $ 59))
                                    . #6#)
                              (LETT |probablySafe| (QREFELT $ 18) . #6#)
                              (SEQ G190
@@ -298,14 +300,14 @@
                                        'T)
                                       ('T
                                        (SPADCALL |n| |probablySafe|
-                                                 (QREFELT $ 61)))))
+                                                 (QREFELT $ 60)))))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (SEQ
                                      (LETT |currPrime|
                                            (SPADCALL |currPrime|
-                                                     (QREFELT $ 66))
+                                                     (QREFELT $ 65))
                                            . #6#)
                                      (LETT |probablySafe|
                                            (SPADCALL |probablySafe|
@@ -404,7 +406,7 @@
       (PROGN
        (LETT DV$1 (|devaluate| |#1|) . #6=(|IntegerPrimesPackage|))
        (LETT |dv$| (LIST '|IntegerPrimesPackage| DV$1) . #6#)
-       (LETT $ (GETREFV 68) . #6#)
+       (LETT $ (GETREFV 67) . #6#)
        (QSETREFV $ 0 |dv$|)
        (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #6#))
        (|haddProp| |$ConstructorCache| '|IntegerPrimesPackage| (LIST DV$1)
@@ -530,37 +532,36 @@
               '|PomeranceList| '|PomeranceLimit| '|PinchList| (21 . ^)
               '|PinchLimit| '|PinchList2| '|PinchLimit2| '|JaeschkeLimit|
               (|Set| 6) (27 . |empty|) '|rootsMinus1| (|NonNegativeInteger|)
-              (|Vector| 30) (31 . |new|) '|count2Order| (|Boolean|) (37 . <=)
-              (43 . <) (49 . |even?|) (54 . +) (60 . |convert|)
-              |PRIMES;prime?;IB;4| (|List| 6) (65 . |concat!|)
-              |PRIMES;primes;2IL;1| (71 . |powmod|) (78 . =) (84 . |mulmod|)
-              (91 . |elt|) (97 . |setelt|) (104 . |union|) (110 . |#|)
-              (115 . >) (121 . -) (126 . |member?|) (132 . |gcd|) (138 . -)
-              (144 . |quo|) (150 . |odd?|) (155 . |Zero|) (159 . |minIndex|)
-              (164 . |elt|) (170 . >) (176 . *) (|IntegerRoots| 6)
-              (182 . |perfectSquare?|) (187 . |rem|) |PRIMES;nextPrime;2I;5|
-              |PRIMES;prevPrime;2I;6|)
-           '#(|primes| 193 |prime?| 199 |prevPrime| 204 |nextPrime| 209) 'NIL
+              (|Vector| 30) (31 . |new|) '|count2Order| (37 . |Zero|)
+              (|Boolean|) (41 . <) (47 . |even?|) (52 . +) (58 . |convert|)
+              |PRIMES;prime?;IB;4| (63 . <=) (|List| 6) |PRIMES;primes;2IL;1|
+              (69 . |powmod|) (76 . =) (82 . |mulmod|) (89 . |elt|)
+              (95 . |setelt|) (102 . |union|) (108 . |#|) (113 . >) (119 . -)
+              (124 . |member?|) (130 . |gcd|) (136 . -) (142 . |quo|)
+              (148 . |odd?|) (153 . |minIndex|) (158 . |elt|) (164 . >)
+              (170 . *) (|IntegerRoots| 6) (176 . |perfectSquare?|)
+              (181 . |rem|) |PRIMES;nextPrime;2I;5| |PRIMES;prevPrime;2I;6|)
+           '#(|primes| 187 |prime?| 193 |prevPrime| 198 |nextPrime| 203) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 67
+                             (|makeByteWordVec2| 66
                                                  '(1 6 0 7 8 2 6 0 0 0 10 0 6 0
                                                    11 2 6 0 0 14 15 2 14 0 0 14
                                                    22 0 27 0 28 2 31 0 30 30 32
-                                                   2 6 34 0 0 35 2 6 34 0 0 36
-                                                   1 6 34 0 37 2 6 0 0 0 38 1 6
-                                                   7 0 39 2 41 0 0 0 42 3 6 0 0
-                                                   0 0 44 2 6 34 0 0 45 3 6 0 0
-                                                   0 0 46 2 31 30 0 7 47 3 31
-                                                   30 0 7 30 48 2 27 0 0 6 49 1
-                                                   27 30 0 50 2 30 34 0 0 51 1
-                                                   6 0 0 52 2 41 34 6 0 53 2 6
-                                                   0 0 0 54 2 6 0 0 0 55 2 6 0
-                                                   0 0 56 1 6 34 0 57 0 6 0 58
-                                                   1 41 7 0 59 2 41 6 0 7 60 2
-                                                   6 34 0 0 61 2 6 0 14 0 62 1
-                                                   63 34 6 64 2 6 0 0 0 65 2 0
-                                                   41 6 6 43 1 0 34 6 40 1 0 6
-                                                   6 67 1 0 6 6 66)))))
+                                                   0 6 0 34 2 6 35 0 0 36 1 6
+                                                   35 0 37 2 6 0 0 0 38 1 6 7 0
+                                                   39 2 6 35 0 0 41 3 6 0 0 0 0
+                                                   44 2 6 35 0 0 45 3 6 0 0 0 0
+                                                   46 2 31 30 0 7 47 3 31 30 0
+                                                   7 30 48 2 27 0 0 6 49 1 27
+                                                   30 0 50 2 30 35 0 0 51 1 6 0
+                                                   0 52 2 42 35 6 0 53 2 6 0 0
+                                                   0 54 2 6 0 0 0 55 2 6 0 0 0
+                                                   56 1 6 35 0 57 1 42 7 0 58 2
+                                                   42 6 0 7 59 2 6 35 0 0 60 2
+                                                   6 0 14 0 61 1 62 35 6 63 2 6
+                                                   0 0 0 64 2 0 42 6 6 43 1 0
+                                                   35 6 40 1 0 6 6 66 1 0 6 6
+                                                   65)))))
            '|lookupComplete|)) 
