@@ -446,11 +446,10 @@
 ;         erMsgList :=
 ;              queueUpErrors(globalNumOfLine,erMsgList)
 ;     $outputList := append(erMsgList,$outputList)  --the nopos's
-;     st := '"---------SOURCE-TEXT-&-ERRORS------------------------"
 ;     listOutputter reverse $outputList
  
 (DEFUN |processMsgList| (|erMsgList| |lineList|)
-  (PROG (|$noRepList| |$outputList| |st| |globalNumOfLine| |msgLine|)
+  (PROG (|$noRepList| |$outputList| |globalNumOfLine| |msgLine|)
     (DECLARE (SPECIAL |$noRepList| |$outputList|))
     (RETURN
      (PROGN
@@ -473,7 +472,6 @@
           (SETQ |bfVar#6| (CDR |bfVar#6|))))
        |lineList| NIL)
       (SETQ |$outputList| (APPEND |erMsgList| |$outputList|))
-      (SETQ |st| "---------SOURCE-TEXT-&-ERRORS------------------------")
       (|listOutputter| (REVERSE |$outputList|))))))
  
 ; erMsgSort erMsgList ==

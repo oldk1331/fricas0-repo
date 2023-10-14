@@ -4569,16 +4569,12 @@
 ;   --1. if x is a conditional expression, recurse; otherwise, form the predicate
 ;   x is ["COND",[p,e]] =>
 ;     predl':= [p,:predl]
-;     e is ["PROGN",:l] => for y in l repeat compCategoryItem(y,predl')
 ;     compCategoryItem(e,predl')
 ;   x is ["IF",a,b,c] =>
 ;     predl':= [a,:predl]
-;     if b~="noBranch" then
-;       b is ["PROGN",:l] => for y in l repeat compCategoryItem(y,predl')
-;       compCategoryItem(b,predl')
+;     if b ~= "noBranch" then compCategoryItem(b, predl')
 ;     c="noBranch" => nil
 ;     predl':= [["not",a],:predl]
-;     c is ["PROGN",:l] => for y in l repeat compCategoryItem(y,predl')
 ;     compCategoryItem(c,predl')
 ;   pred:= (predl => MKPF(predl,"AND"); true)
 ; 
@@ -4599,12 +4595,12 @@
 ;   null atom op =>
 ;     for y in op repeat compCategoryItem(["SIGNATURE",y,:sig],predl)
 ; 
-;   --4. branch on a single type or a signature %with source and target
+;   --4. branch on a single type or a signature with source and target
 ;   PUSH(MKQ [rest x,pred],$sigList)
  
 (DEFUN |compCategoryItem| (|x| |predl|)
-  (PROG (|ISTMP#1| |ISTMP#2| |p| |ISTMP#3| |e| |predl'| |l| |a| |b| |c| |pred|
-         |y| |op| |sig|)
+  (PROG (|ISTMP#1| |ISTMP#2| |p| |ISTMP#3| |e| |predl'| |a| |b| |c| |pred| |y|
+         |l| |op| |sig|)
     (RETURN
      (COND ((NULL |x|) NIL)
            ((AND (CONSP |x|) (EQ (CAR |x|) 'COND)
@@ -4623,19 +4619,7 @@
                                     #1='T))))))))
             (PROGN
              (SETQ |predl'| (CONS |p| |predl|))
-             (COND
-              ((AND (CONSP |e|) (EQ (CAR |e|) 'PROGN)
-                    (PROGN (SETQ |l| (CDR |e|)) #1#))
-               ((LAMBDA (|bfVar#167| |y|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#167|)
-                         (PROGN (SETQ |y| (CAR |bfVar#167|)) NIL))
-                     (RETURN NIL))
-                    (#1# (|compCategoryItem| |y| |predl'|)))
-                   (SETQ |bfVar#167| (CDR |bfVar#167|))))
-                |l| NIL))
-              (#1# (|compCategoryItem| |e| |predl'|)))))
+             (|compCategoryItem| |e| |predl'|)))
            ((AND (CONSP |x|) (EQ (CAR |x|) 'IF)
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |x|))
@@ -4654,37 +4638,12 @@
             (PROGN
              (SETQ |predl'| (CONS |a| |predl|))
              (COND
-              ((NOT (EQ |b| '|noBranch|))
-               (COND
-                ((AND (CONSP |b|) (EQ (CAR |b|) 'PROGN)
-                      (PROGN (SETQ |l| (CDR |b|)) #1#))
-                 ((LAMBDA (|bfVar#168| |y|)
-                    (LOOP
-                     (COND
-                      ((OR (ATOM |bfVar#168|)
-                           (PROGN (SETQ |y| (CAR |bfVar#168|)) NIL))
-                       (RETURN NIL))
-                      (#1# (|compCategoryItem| |y| |predl'|)))
-                     (SETQ |bfVar#168| (CDR |bfVar#168|))))
-                  |l| NIL))
-                (#1# (|compCategoryItem| |b| |predl'|)))))
+              ((NOT (EQ |b| '|noBranch|)) (|compCategoryItem| |b| |predl'|)))
              (COND ((EQ |c| '|noBranch|) NIL)
                    (#1#
                     (PROGN
                      (SETQ |predl'| (CONS (LIST '|not| |a|) |predl|))
-                     (COND
-                      ((AND (CONSP |c|) (EQ (CAR |c|) 'PROGN)
-                            (PROGN (SETQ |l| (CDR |c|)) #1#))
-                       ((LAMBDA (|bfVar#169| |y|)
-                          (LOOP
-                           (COND
-                            ((OR (ATOM |bfVar#169|)
-                                 (PROGN (SETQ |y| (CAR |bfVar#169|)) NIL))
-                             (RETURN NIL))
-                            (#1# (|compCategoryItem| |y| |predl'|)))
-                           (SETQ |bfVar#169| (CDR |bfVar#169|))))
-                        |l| NIL))
-                      (#1# (|compCategoryItem| |c| |predl'|))))))))
+                     (|compCategoryItem| |c| |predl'|))))))
            (#1#
             (PROGN
              (SETQ |pred| (COND (|predl| (MKPF |predl| 'AND)) (#1# T)))
@@ -4703,14 +4662,14 @@
                (PUSH (MKQ (LIST |y| |pred|)) |$atList|))
               ((AND (CONSP |x|) (EQ (CAR |x|) 'PROGN)
                     (PROGN (SETQ |l| (CDR |x|)) #1#))
-               ((LAMBDA (|bfVar#170| |u|)
+               ((LAMBDA (|bfVar#167| |u|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#170|)
-                         (PROGN (SETQ |u| (CAR |bfVar#170|)) NIL))
+                    ((OR (ATOM |bfVar#167|)
+                         (PROGN (SETQ |u| (CAR |bfVar#167|)) NIL))
                      (RETURN NIL))
                     (#1# (|compCategoryItem| |u| |predl|)))
-                   (SETQ |bfVar#170| (CDR |bfVar#170|))))
+                   (SETQ |bfVar#167| (CDR |bfVar#167|))))
                 |l| NIL))
               (#1#
                (PROGN
@@ -4718,15 +4677,15 @@
                 (SETQ |sig| (CDDR . #2#))
                 (COND
                  ((NULL (ATOM |op|))
-                  ((LAMBDA (|bfVar#171| |y|)
+                  ((LAMBDA (|bfVar#168| |y|)
                      (LOOP
                       (COND
-                       ((OR (ATOM |bfVar#171|)
-                            (PROGN (SETQ |y| (CAR |bfVar#171|)) NIL))
+                       ((OR (ATOM |bfVar#168|)
+                            (PROGN (SETQ |y| (CAR |bfVar#168|)) NIL))
                         (RETURN NIL))
                        (#1#
                         (|compCategoryItem| (CONS 'SIGNATURE (CONS |y| |sig|))
                          |predl|)))
-                      (SETQ |bfVar#171| (CDR |bfVar#171|))))
+                      (SETQ |bfVar#168| (CDR |bfVar#168|))))
                    |op| NIL))
                  (#1# (PUSH (MKQ (LIST (CDR |x|) |pred|)) |$sigList|))))))))))))
