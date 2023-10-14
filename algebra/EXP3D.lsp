@@ -168,7 +168,8 @@
                (SEQ (LETT |curves| (SPADCALL |component| (QREFELT $ 8)) . #3#)
                     (COND
                      ((< (LENGTH |curves|) 2)
-                      (|sayTeX| "Can't write point or curve to OBJ file")))
+                      (|sayBrightly|
+                       "Can't write point or curve to OBJ file")))
                     (EXIT
                      (COND
                       ((SPADCALL (LENGTH |curves|) 1 (QREFELT $ 34))

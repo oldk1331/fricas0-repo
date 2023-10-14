@@ -99,11 +99,12 @@
               (COND
                ((< |enE| |length|)
                 (SEQ (LETT |u| (SPADCALL 1 |enE| (QREFELT $ 41)) . #1#)
-                     (EXIT (|sayTeX| (SPADCALL |mathML| |u| (QREFELT $ 42))))))
+                     (EXIT
+                      (|sayBrightly| (SPADCALL |mathML| |u| (QREFELT $ 42))))))
                ('T
                 (SEQ (LETT |enT| (|MMLFORM;tagEnd| |name| 1 |mathML| $) . #1#)
                      (LETT |u| (SPADCALL 1 |enT| (QREFELT $ 41)) . #1#)
-                     (|sayTeX| (SPADCALL |mathML| |u| (QREFELT $ 42)))
+                     (|sayBrightly| (SPADCALL |mathML| |u| (QREFELT $ 42)))
                      (LETT |u|
                            (SPADCALL (+ |enT| 1)
                                      (- (- |enE| (QCSIZE |name|)) 3)
@@ -116,7 +117,8 @@
                                      (QREFELT $ 41))
                            . #1#)
                      (EXIT
-                      (|sayTeX| (SPADCALL |mathML| |u| (QREFELT $ 42)))))))
+                      (|sayBrightly|
+                       (SPADCALL |mathML| |u| (QREFELT $ 42)))))))
               (COND
                ((SPADCALL |end| |enE| (QREFELT $ 39))
                 (SEQ

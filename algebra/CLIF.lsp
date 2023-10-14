@@ -964,7 +964,7 @@
                            (LETT |s4| (STRCONC "=" (|CLIF;toString| |resul| $))
                                  . #4#)
                            (EXIT
-                            (|sayTeX|
+                            (|sayBrightly|
                              (SPADCALL
                               (LIST "rcProdTerm: " |s1| |s2| |s3| |s4|)
                               (QREFELT $ 64)))))))
@@ -1007,7 +1007,7 @@
                         (LETT |s4| (STRCONC "=" (|CLIF;toString| |resul| $))
                               . #4#)
                         (EXIT
-                         (|sayTeX|
+                         (|sayBrightly|
                           (SPADCALL (LIST "rcProdTerm: " |s1| |s2| |s3| |s4|)
                                     (QREFELT $ 64)))))))
                      (EXIT |resul|)))))))
@@ -1266,7 +1266,7 @@
                                (QREFELT $ 64))
                      . #4#)
                (EXIT
-                (|sayTeX|
+                (|sayBrightly|
                  (SPADCALL (LIST "cliffordProdTerm: " |s1| |s2| |s3| |s4|)
                            (QREFELT $ 64)))))))
             (LETT |resul|
