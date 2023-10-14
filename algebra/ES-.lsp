@@ -321,7 +321,7 @@
                           |lf| (QREFELT $ 78))))) 
 
 (SDEFUN |ES-;map;MKS;34| ((|fn| |Mapping| S S) (|k| |Kernel| S) ($ S))
-        (SPROG ((|l| (|List| S)) (#1=#:G267 NIL) (|x| NIL) (#2=#:G266 NIL))
+        (SPROG ((|l| (|List| S)) (#1=#:G269 NIL) (|x| NIL) (#2=#:G268 NIL))
                (SEQ
                 (COND
                  ((SPADCALL
@@ -361,7 +361,7 @@
 
 (SDEFUN |ES-;mainKernel;SU;36| ((|x| S) ($ |Union| (|Kernel| S) "failed"))
         (SPROG
-         ((|k| (|Kernel| S)) (|n| (|NonNegativeInteger|)) (#1=#:G283 NIL)
+         ((|k| (|Kernel| S)) (|n| (|NonNegativeInteger|)) (#1=#:G285 NIL)
           (|kk| NIL) (|l| (|List| (|Kernel| S))))
          (SEQ
           (COND
@@ -393,7 +393,7 @@
          ((|s| (|Set| (|Kernel| S))) (|t| (|Set| (|Kernel| S)))
           (|arg| (|List| S)) (|n| (|NonNegativeInteger|))
           (|s0| (|Set| (|Kernel| S))) (|u| (|Union| (|None|) "failed"))
-          (#1=#:G296 NIL) (|k| NIL) (|l| (|List| (|Kernel| S))))
+          (#1=#:G298 NIL) (|k| NIL) (|l| (|List| (|Kernel| S))))
          (SEQ
           (LETT |s|
                 (SPADCALL
@@ -449,7 +449,7 @@
          ('T (|ES-;okkernel| |op| |args| $)))) 
 
 (SDEFUN |ES-;okkernel| ((|op| |BasicOperator|) (|l| |List| S) ($ S))
-        (SPROG ((#1=#:G311 NIL) (|f| NIL) (#2=#:G310 NIL))
+        (SPROG ((#1=#:G313 NIL) (|f| NIL) (#2=#:G312 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL |op| |l|
@@ -483,7 +483,7 @@
 
 (SDEFUN |ES-;elt;BoLS;40| ((|op| |BasicOperator|) (|args| |List| S) ($ S))
         (SPROG
-         ((|v| (|Union| S "failed")) (#1=#:G324 NIL)
+         ((|v| (|Union| S "failed")) (#1=#:G326 NIL)
           (|u| (|Union| (|NonNegativeInteger|) "failed")))
          (SEQ
           (EXIT
@@ -507,7 +507,7 @@
                    ((SPADCALL (LENGTH |args|) (QCDR |u|) (QREFELT $ 119))
                     (PROGN
                      (LETT #1# (|error| "Wrong number of arguments") . #2#)
-                     (GO #3=#:G322))))))))
+                     (GO #3=#:G324))))))))
               (LETT |v| (SPADCALL |op| |args| (QREFELT $ 122)) . #2#)
               (EXIT
                (COND ((QEQCAR |v| 0) (QCDR |v|))
@@ -554,7 +554,7 @@
                            ('T (SPADCALL (QCDR |k|) |op| (QREFELT $ 56)))))))) 
 
 (SDEFUN |ES-;unwrap| ((|l| |List| (|Kernel| S)) (|x| S) ($ S))
-        (SPROG ((#1=#:G351 NIL) (|k| NIL))
+        (SPROG ((#1=#:G353 NIL) (|k| NIL))
                (SEQ
                 (SEQ (LETT |k| NIL . #2=(|ES-;unwrap|))
                      (LETT #1# (NREVERSE |l|) . #2#) G190
@@ -573,7 +573,7 @@
                 (EXIT |x|)))) 
 
 (SDEFUN |ES-;distribute;3S;46| ((|x| S) (|y| S) ($ S))
-        (SPROG ((#1=#:G359 NIL) (|k| NIL) (#2=#:G358 NIL) (|ky| (|Kernel| S)))
+        (SPROG ((#1=#:G361 NIL) (|k| NIL) (#2=#:G360 NIL) (|ky| (|Kernel| S)))
                (SEQ
                 (LETT |ky| (SPADCALL |y| (QREFELT $ 62))
                       . #3=(|ES-;distribute;3S;46|))
@@ -624,7 +624,7 @@
           (|:| |lstv| (|List| S))))
         (SPROG
          ((|lv| (|List| S)) (|lk| (|List| (|Kernel| S)))
-          (|k| (|Union| (|Kernel| S) "failed")) (#1=#:G378 NIL) (|eq| NIL))
+          (|k| (|Union| (|Kernel| S) "failed")) (#1=#:G380 NIL) (|eq| NIL))
          (SEQ (LETT |lk| NIL . #2=(|ES-;mkKerLists|)) (LETT |lv| NIL . #2#)
               (SEQ (LETT |eq| NIL . #2#) (LETT #1# |leq| . #2#) G190
                    (COND

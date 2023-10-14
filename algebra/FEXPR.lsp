@@ -11,9 +11,9 @@
 (SDEFUN |FEXPR;fixUpSymbols|
         ((|u| |Expression| R) ($ |Union| (|Expression| R) "failed"))
         (SPROG
-         ((#1=#:G158 NIL) (|i| NIL) (#2=#:G157 NIL) (|sym| (|Symbol|))
-          (|syms| (|List| (|Symbol|))) (#3=#:G156 NIL) (|s| NIL)
-          (#4=#:G155 NIL) (#5=#:G152 NIL) (#6=#:G153 NIL) (#7=#:G154 NIL))
+         ((#1=#:G157 NIL) (|i| NIL) (#2=#:G156 NIL) (|sym| (|Symbol|))
+          (|syms| (|List| (|Symbol|))) (#3=#:G155 NIL) (|s| NIL)
+          (#4=#:G154 NIL) (#5=#:G151 NIL) (#6=#:G152 NIL) (#7=#:G153 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -56,7 +56,7 @@
                               (LETT #5#
                                     (PROGN
                                      (LETT #6# (CONS 1 "failed") . #8#)
-                                     (GO #9=#:G151))
+                                     (GO #9=#:G150))
                                     . #8#)
                               (GO #10=#:G133))))))
                          (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL)))
@@ -122,7 +122,7 @@
 (SDEFUN |FEXPR;extraSymbols?| ((|u| |Expression| R) ($ |Boolean|))
         (SPROG
          ((|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
-          (#1=#:G163 NIL) (|v| NIL) (#2=#:G162 NIL))
+          (#1=#:G162 NIL) (|v| NIL) (#2=#:G161 NIL))
          (SEQ
           (LETT |syms|
                 (PROGN
@@ -148,10 +148,10 @@
 
 (SDEFUN |FEXPR;checkSymbols| ((|u| |Expression| R) ($ |Expression| R))
         (SPROG
-         ((#1=#:G173 NIL) (|v| NIL) (#2=#:G172 NIL)
+         ((#1=#:G172 NIL) (|v| NIL) (#2=#:G171 NIL)
           (|m| (|Union| (|Expression| R) "failed"))
           (|extras| (|List| (|Symbol|))) (|syms| (|List| (|Symbol|)))
-          (#3=#:G171 NIL) (#4=#:G170 NIL))
+          (#3=#:G170 NIL) (#4=#:G169 NIL))
          (SEQ
           (LETT |syms|
                 (PROGN
@@ -221,7 +221,7 @@
         (SPROG
          ((|extras| (|List| (|Symbol|)))
           (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
-          (#1=#:G183 NIL) (|v| NIL) (#2=#:G182 NIL))
+          (#1=#:G182 NIL) (|v| NIL) (#2=#:G181 NIL))
          (SEQ
           (LETT |ops|
                 (PROGN
@@ -251,10 +251,10 @@
 
 (SDEFUN |FEXPR;checkOperators| ((|u| |Expression| R) ($ |Void|))
         (SPROG
-         ((#1=#:G192 NIL) (|v| NIL) (#2=#:G191 NIL)
+         ((#1=#:G191 NIL) (|v| NIL) (#2=#:G190 NIL)
           (|extras| (|List| (|Symbol|)))
           (|fortranFunctions| (|List| (|Symbol|))) (|ops| (|List| (|Symbol|)))
-          (#3=#:G190 NIL) (#4=#:G189 NIL))
+          (#3=#:G189 NIL) (#4=#:G188 NIL))
          (SEQ
           (LETT |ops|
                 (PROGN
@@ -396,7 +396,7 @@
 
 (SDEFUN |FEXPR;retractIfCan;EU;28|
         ((|u| |Expression| R) ($ |Union| $ "failed"))
-        (SPROG ((#1=#:G244 NIL) (|m| (|Union| (|Expression| R) "failed")))
+        (SPROG ((#1=#:G243 NIL) (|m| (|Union| (|Expression| R) "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -410,7 +410,7 @@
                        ((QEQCAR |m| 1)
                         (PROGN
                          (LETT #1# (CONS 1 "failed") . #2#)
-                         (GO #3=#:G243)))
+                         (GO #3=#:G242)))
                        (#4='T (LETT |u| (QCDR |m|) . #2#)))))))
                   (EXIT
                    (COND ((|FEXPR;extraOperators?| |u| $) (CONS 1 "failed"))
@@ -450,9 +450,9 @@
 
 (DECLAIM (NOTINLINE |FortranExpression;|)) 
 
-(DEFUN |FortranExpression| (&REST #1=#:G270)
+(DEFUN |FortranExpression| (&REST #1=#:G269)
   (SPROG NIL
-         (PROG (#2=#:G271)
+         (PROG (#2=#:G270)
            (RETURN
             (COND
              ((LETT #2#

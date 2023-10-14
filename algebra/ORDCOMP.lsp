@@ -22,30 +22,22 @@
         (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
 
 (SDEFUN |ORDCOMP;coerce;$Of;8| ((|x| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G116 NIL) (|e| (|OutputForm|)))
+        (SPROG ((|e| (|OutputForm|)))
                (SEQ
                 (COND ((QEQCAR |x| 0) (SPADCALL (CDR |x|) (QREFELT $ 18)))
-                      (#2='T
+                      (#1='T
                        (SEQ
                         (LETT |e| (SPADCALL '|infinity| (QREFELT $ 20))
-                              . #3=(|ORDCOMP;coerce;$Of;8|))
+                              |ORDCOMP;coerce;$Of;8|)
                         (EXIT
                          (COND
-                          ((PROG2 (LETT #1# |x| . #3#)
-                               (QCDR #1#)
-                             (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
+                          ((CDR |x|)
                            (SPADCALL (SPADCALL (QREFELT $ 21)) |e|
                                      (QREFELT $ 22)))
-                          (#2# (SPADCALL |e| (QREFELT $ 23))))))))))) 
+                          (#1# (SPADCALL |e| (QREFELT $ 23))))))))))) 
 
 (SDEFUN |ORDCOMP;whatInfinity;$Si;9| ((|x| $) ($ |SingleInteger|))
-        (SPROG ((#1=#:G116 NIL))
-               (COND ((QEQCAR |x| 0) 0)
-                     ((PROG2 (LETT #1# |x| |ORDCOMP;whatInfinity;$Si;9|)
-                          (QCDR #1#)
-                        (|check_union| (QEQCAR #1# 1) (|Boolean|) #1#))
-                      1)
-                     ('T -1)))) 
+        (COND ((QEQCAR |x| 0) 0) ((CDR |x|) 1) ('T -1))) 
 
 (SDEFUN |ORDCOMP;=;2$B;10| ((|x| $) (|y| $) ($ |Boolean|))
         (COND

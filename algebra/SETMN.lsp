@@ -214,7 +214,7 @@
 (SDEFUN |SETMN;incrementKthElement;$PiU;12|
         ((|s| $) (|k| |PositiveInteger|) ($ |Union| $ "failed"))
         (SPROG
-         ((#1=#:G186 NIL) (|newb| (|Bits|)) (|i| (|NonNegativeInteger|))
+         ((#1=#:G185 NIL) (|newb| (|Bits|)) (|i| (|NonNegativeInteger|))
           (|found| (|NonNegativeInteger|)) (|b| (|Bits|)))
          (SEQ (LETT |b| (QCAR |s|) . #2=(|SETMN;incrementKthElement;$PiU;12|))
               (LETT |found| 0 . #2#) (LETT |i| 1 . #2#)
@@ -290,9 +290,9 @@
 
 (DECLAIM (NOTINLINE |SetOfMIntegersInOneToN;|)) 
 
-(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G210)
+(DEFUN |SetOfMIntegersInOneToN| (&REST #1=#:G208)
   (SPROG NIL
-         (PROG (#2=#:G211)
+         (PROG (#2=#:G209)
            (RETURN
             (COND
              ((LETT #2#

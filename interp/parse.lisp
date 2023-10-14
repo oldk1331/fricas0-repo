@@ -803,14 +803,17 @@
 ; makeSimplePredicateOrNil p ==
 ;   isSimple p => nil
 ;   u:= isAlmostSimple p => u
-;   true => wrapSEQExit [['LET,g:= GENSYM(),p],g]
+;   true => wrapSEQExit [['LET, [":", g := GENSYM(), ["Boolean"]], p], g]
  
 (DEFUN |makeSimplePredicateOrNil| (|p|)
   (PROG (|u| |g|)
     (RETURN
      (COND ((|isSimple| |p|) NIL) ((SETQ |u| (|isAlmostSimple| |p|)) |u|)
            (T
-            (|wrapSEQExit| (LIST (LIST 'LET (SETQ |g| (GENSYM)) |p|) |g|)))))))
+            (|wrapSEQExit|
+             (LIST
+              (LIST 'LET (LIST '|:| (SETQ |g| (GENSYM)) (LIST '|Boolean|)) |p|)
+              |g|)))))))
  
 ; parseWhere l == ["where", :parseTranList(l)]
  

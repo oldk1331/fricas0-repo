@@ -2278,7 +2278,7 @@
 ;            (T:=comp(val,maxm'',E)) => T
 ;         (T:= comp(val,$EmptyMode,E)) and getmode(T.mode,E) =>
 ;           assignError(val,T.mode,id,m'')
-;   m'' = $EmptyMode and T.mode = $EmptyMode and not(GENSYMP(id)) =>
+;   m'' = $EmptyMode and T.mode = $EmptyMode =>
 ;       stackMessage ["No mode in assignment to: ", id]
 ;   finish_setq_single(T, m, id, val, currentProplist)
  
@@ -2307,8 +2307,7 @@
                       (|assignError| |val| (CADR T$) |id| |m''|)))
                (RETURN NIL)))
       (COND
-       ((AND (EQUAL |m''| |$EmptyMode|) (EQUAL (CADR T$) |$EmptyMode|)
-             (NULL (GENSYMP |id|)))
+       ((AND (EQUAL |m''| |$EmptyMode|) (EQUAL (CADR T$) |$EmptyMode|))
         (|stackMessage| (LIST '|No mode in assignment to: | |id|)))
        (#1# (|finish_setq_single| T$ |m| |id| |val| |currentProplist|)))))))
  
