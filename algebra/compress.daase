@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4839 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4840 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -115,17 +115,17 @@
  |FloatLiouvilianFunctions| |Float| |FloatingComplexPackage|
  |FloatingRealPackage| |FreeModule| |FreeModuleFunctions2|
  |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
- |FortranMatrixFunctionCategory| |FreeMonoid| |FortranMachineTypeCategory|
- |FileName| |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
- |FortranOutputStackPackage| |FindOrderFinite| |OutputFormatterCategory|
- |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranPackage|
- |FortranProgramCategory| |FortranFunctionCategory| |FortranFormat|
- |FortranProgram| |FullPartialFractionExpansion| |FullyPatternMatchable|
- |FieldOfPrimeCharacteristic&| |FieldOfPrimeCharacteristic|
- |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
- |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
- |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
- |FractionalIdealFunctions2| |FramedModule|
+ |FreeModuleCoefficientFunctions2| |FortranMatrixFunctionCategory| |FreeMonoid|
+ |FortranMachineTypeCategory| |FileName| |FileNameCategory| |FunctionGraph|
+ |FreeNilpotentLie| |FortranOutputStackPackage| |FindOrderFinite|
+ |OutputFormatterCategory| |ScriptFormulaFormat| |ScriptFormulaFormat1|
+ |FortranPackage| |FortranProgramCategory| |FortranFunctionCategory|
+ |FortranFormat| |FortranProgram| |FullPartialFractionExpansion|
+ |FullyPatternMatchable| |FieldOfPrimeCharacteristic&|
+ |FieldOfPrimeCharacteristic| |FloatingPointSystem&| |FloatingPointSystem|
+ |Factored| |FactoredFunctions2| |Fraction| |FractionFunctions2|
+ |FramedAlgebra&| |FramedAlgebra| |FullyRetractableTo&| |FullyRetractableTo|
+ |FractionalIdeal| |FractionalIdealFunctions2| |FramedModule|
  |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
