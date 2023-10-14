@@ -1209,7 +1209,7 @@
 ;   isFluid s => [s,getmode(s,e) or return nil,e]
 ;   s="true" => ['(QUOTE T),$Boolean,e]
 ;   s="false" => [false,$Boolean,e]
-;   s=m or get(s,"isLiteral",e) => [["QUOTE",s],s,e]
+;   s = m => [["QUOTE", s], s, e]
 ;   v:= get(s,"value",e) =>
 ; --+
 ;     MEMQ(s,$functorLocalParameters) =>
@@ -1231,8 +1231,7 @@
             (LIST |s| (OR (|getmode| |s| |e|) (RETURN NIL)) |e|))
            ((EQ |s| '|true|) (LIST ''T |$Boolean| |e|))
            ((EQ |s| '|false|) (LIST NIL |$Boolean| |e|))
-           ((OR (EQUAL |s| |m|) (|get| |s| '|isLiteral| |e|))
-            (LIST (LIST 'QUOTE |s|) |s| |e|))
+           ((EQUAL |s| |m|) (LIST (LIST 'QUOTE |s|) |s| |e|))
            ((SETQ |v| (|get| |s| '|value| |e|))
             (COND
              ((MEMQ |s| |$functorLocalParameters|)

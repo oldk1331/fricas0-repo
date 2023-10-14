@@ -57,7 +57,7 @@
          ($ |Union|
           (|Record| (|:| |val| $) (|:| |exponent| (|NonNegativeInteger|)))
           "failed"))
-        (SPROG ((#1=#:G228 NIL))
+        (SPROG ((#1=#:G161 NIL))
                (COND
                 ((QEQCAR (QVELT |p| 1) 2)
                  (CONS 0
@@ -72,7 +72,7 @@
 
 (SDEFUN |PATTERN;isQuotient;$U;14|
         ((|p| $) ($ |Union| (|Record| (|:| |num| $) (|:| |den| $)) "failed"))
-        (SPROG ((#1=#:G247 NIL))
+        (SPROG ((#1=#:G162 NIL))
                (COND
                 ((QEQCAR (QVELT |p| 1) 3)
                  (CONS 0
@@ -88,7 +88,7 @@
         (COND ((NULL (SPADCALL |p| (QREFELT $ 43))) 'NIL) ('T 'T))) 
 
 (SDEFUN |PATTERN;quoted?;$B;16| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G265 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (ZEROP
@@ -105,7 +105,7 @@
                 ('T 'NIL)))) 
 
 (SDEFUN |PATTERN;generic?;$B;17| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G276 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (|PATTERN;bitSet?|
@@ -123,7 +123,7 @@
                 ('T 'NIL)))) 
 
 (SDEFUN |PATTERN;multiple?;$B;18| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G287 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (|PATTERN;bitSet?|
@@ -141,7 +141,7 @@
                 ('T 'NIL)))) 
 
 (SDEFUN |PATTERN;optional?;$B;19| ((|p| $) ($ |Boolean|))
-        (SPROG ((#1=#:G298 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (|PATTERN;bitSet?|
@@ -171,7 +171,7 @@
 (SDEFUN |PATTERN;LPAT2O|
         ((|f| |Mapping| (|OutputForm|) (|OutputForm|) (|OutputForm|))
          (|l| |List| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G319 NIL) (|x| NIL) (#2=#:G318 NIL))
+        (SPROG ((#1=#:G229 NIL) (|x| NIL) (#2=#:G228 NIL))
                (SEQ
                 (SPADCALL |f|
                           (PROGN
@@ -192,7 +192,7 @@
                           (QREFELT $ 55))))) 
 
 (SDEFUN |PATTERN;retract;$R;24| ((|p| $) ($ R))
-        (SPROG ((#1=#:G324 NIL))
+        (SPROG ((#1=#:G159 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 28))
                  (PROG2 (LETT #1# (QVELT |p| 1) |PATTERN;retract;$R;24|)
@@ -204,7 +204,7 @@
         (|PATTERN;taggedElt| (SPADCALL 3 (QREFELT $ 33)) |l| $)) 
 
 (SDEFUN |PATTERN;retractIfCan;$U;26| ((|p| $) ($ |Union| R "failed"))
-        (SPROG ((#1=#:G339 NIL))
+        (SPROG ((#1=#:G159 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 28))
                  (CONS 0
@@ -250,7 +250,7 @@
                  (#2# (CONS 1 "failed")))))) 
 
 (SDEFUN |PATTERN;incmax| ((|l| |List| $) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G373 NIL) (|p| NIL) (#2=#:G372 NIL))
+        (SPROG ((#1=#:G256 NIL) (|p| NIL) (#2=#:G255 NIL))
                (SEQ
                 (+ 1
                    (SPADCALL (ELT $ 73)
@@ -324,7 +324,7 @@
          ($ |Union|
           (|Record| (|:| |op| (|BasicOperator|)) (|:| |arg| (|List| $)))
           "failed"))
-        (SPROG ((#1=#:G437 NIL))
+        (SPROG ((#1=#:G160 NIL))
                (SEQ
                 (COND
                  ((QEQCAR (QVELT |p| 1) 1)
@@ -367,7 +367,7 @@
 
 (SDEFUN |PATTERN;isTaggedOp|
         ((|p| $) (|t| |SingleInteger|) ($ |Union| (|List| $) "failed"))
-        (SPROG ((#1=#:G457 NIL))
+        (SPROG ((#1=#:G160 NIL))
                (SEQ
                 (COND
                  ((QEQCAR (QVELT |p| 1) 1)
@@ -522,7 +522,7 @@
 
 (SDEFUN |PATTERN;isOp;$BoU;46|
         ((|p| $) (|o| |BasicOperator|) ($ |Union| (|List| $) "failed"))
-        (SPROG ((#1=#:G518 NIL))
+        (SPROG ((#1=#:G160 NIL))
                (SEQ
                 (COND
                  ((QEQCAR (QVELT |p| 1) 1)
@@ -567,7 +567,7 @@
                 (EXIT (CONS 1 "failed"))))) 
 
 (SDEFUN |PATTERN;predicates;$L;47| ((|p| $) ($ |List| (|Any|)))
-        (SPROG ((#1=#:G536 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (QVELT
@@ -583,7 +583,7 @@
                 ('T NIL)))) 
 
 (SDEFUN |PATTERN;setPredicates;$L$;48| ((|p| $) (|l| |List| (|Any|)) ($ $))
-        (SPROG ((#1=#:G547 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT $ 46))
@@ -604,7 +604,7 @@
                   (|error| "Can only attach predicates to generic symbol")))))) 
 
 (SDEFUN |PATTERN;resetBadValues;2$;49| ((|p| $) ($ $))
-        (SPROG ((#1=#:G559 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT $ 46))
@@ -625,7 +625,7 @@
                   (|error| "Can only attach bad values to generic symbol")))))) 
 
 (SDEFUN |PATTERN;addBadValue;$A$;50| ((|p| $) (|a| |Any|) ($ $))
-        (SPROG ((#1=#:G571 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |p| (QREFELT $ 46))
@@ -677,7 +677,7 @@
                   (|error| "Can only attach bad values to generic symbol")))))) 
 
 (SDEFUN |PATTERN;getBadValues;$L;51| ((|p| $) ($ |List| (|Any|)))
-        (SPROG ((#1=#:G584 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 46))
                  (QVELT
@@ -697,7 +697,7 @@
           (|:| |pred| (|List| (|Any|))) (|:| |bad| (|List| (|Any|))))
          ($ |OutputForm|))
         (SPROG
-         ((#1=#:G597 NIL) (|i| NIL) (#2=#:G596 NIL) (|sy| (|OutputForm|)))
+         ((#1=#:G362 NIL) (|i| NIL) (#2=#:G361 NIL) (|sy| (|OutputForm|)))
          (SEQ
           (LETT |sy| (SPADCALL (QVELT |p| 1) (QREFELT $ 110))
                 . #3=(|PATTERN;SYM2O|))
@@ -738,8 +738,8 @@
 
 (SDEFUN |PATTERN;variables;$L;53| ((|p| $) ($ |List| $))
         (SPROG
-         ((#1=#:G614 NIL) (#2=#:G603 NIL) (|r| NIL) (#3=#:G613 NIL)
-          (#4=#:G605 NIL) (#5=#:G604 NIL)
+         ((#1=#:G370 NIL) (#2=#:G160 NIL) (|r| NIL) (#3=#:G369 NIL)
+          (#4=#:G162 NIL) (#5=#:G161 NIL)
           (|q|
            (|Union| (|:| |ret| R)
                     (|:| |ker|
@@ -848,12 +848,12 @@
                          (|:| |bad| (|List| (|Any|))))))
          ($ |OutputForm|))
         (SPROG
-         ((#1=#:G620 NIL)
+         ((#1=#:G160 NIL)
           (|u|
            (|Union| (|Mapping| (|OutputForm|) (|List| (|OutputForm|)))
                     "failed"))
-          (|l| (|List| (|OutputForm|))) (#2=#:G642 NIL) (|x| NIL)
-          (#3=#:G641 NIL) (#4=#:G622 NIL) (#5=#:G621 NIL) (#6=#:G623 NIL))
+          (|l| (|List| (|OutputForm|))) (#2=#:G389 NIL) (|x| NIL)
+          (#3=#:G388 NIL) (#4=#:G162 NIL) (#5=#:G161 NIL) (#6=#:G163 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (SPADCALL (CDR |p|) (QREFELT $ 119)))
                 ((QEQCAR |p| 4)
@@ -1097,8 +1097,8 @@
                          (|:| |pred| (|List| (|Any|)))
                          (|:| |bad| (|List| (|Any|)))))))
         (SPROG
-         ((#1=#:G649 NIL) (#2=#:G650 NIL) (#3=#:G658 NIL) (#4=#:G648 NIL)
-          (|x| NIL) (#5=#:G657 NIL) (#6=#:G651 NIL))
+         ((#1=#:G161 NIL) (#2=#:G162 NIL) (#3=#:G396 NIL) (#4=#:G160 NIL)
+          (|x| NIL) (#5=#:G395 NIL) (#6=#:G163 NIL))
          (SEQ
           (COND ((QEQCAR |p| 0) (CONS 0 (CDR |p|)))
                 ((QEQCAR |p| 4)
@@ -1274,7 +1274,7 @@
                          (|:| |bad| (|List| (|Any|))))))
          ($ |Boolean|))
         (SPROG
-         ((#1=#:G665 NIL) (#2=#:G664 NIL) (#3=#:G667 NIL) (#4=#:G666 NIL))
+         ((#1=#:G161 NIL) (#2=#:G160 NIL) (#3=#:G163 NIL) (#4=#:G162 NIL))
          (COND
           ((QEQCAR |p1| 0)
            (COND
@@ -1417,7 +1417,7 @@
           (#5# 'NIL)))) 
 
 (SDEFUN |PATTERN;retractIfCan;$U;57| ((|p| $) ($ |Union| (|Symbol|) "failed"))
-        (SPROG ((#1=#:G687 NIL))
+        (SPROG ((#1=#:G163 NIL))
                (COND
                 ((SPADCALL |p| (QREFELT $ 29))
                  (CONS 0
@@ -1467,9 +1467,9 @@
 
 (DECLAIM (NOTINLINE |Pattern;|)) 
 
-(DEFUN |Pattern| (#1=#:G707)
+(DEFUN |Pattern| (#1=#:G417)
   (SPROG NIL
-         (PROG (#2=#:G708)
+         (PROG (#2=#:G418)
            (RETURN
             (COND
              ((LETT #2#

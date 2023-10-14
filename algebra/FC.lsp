@@ -1178,7 +1178,7 @@
 
 (DEFUN |FortranCode| ()
   (SPROG NIL
-         (PROG (#1=#:G2299)
+         (PROG (#1=#:G2296)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|FortranCode|)

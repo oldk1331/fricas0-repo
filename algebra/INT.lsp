@@ -149,11 +149,13 @@
 (SDEFUN |INT;reducedSystem;2M;29| ((|m| |Matrix| $) ($ |Matrix| (|Integer|)))
         |m|) 
 
+(PUT '|INT;reducedSystem;MVR;30| '|SPADreplace| 'CONS) 
+
 (SDEFUN |INT;reducedSystem;MVR;30|
-        ((|m| |Matrix| . #1=($)) (|v| |Vector| . #1#)
+        ((|m| |Matrix| . #1=($)) (|vec| |Vector| . #1#)
          ($ |Record| (|:| |mat| (|Matrix| (|Integer|)))
           (|:| |vec| (|Vector| (|Integer|)))))
-        (CONS |m| '|vec|)) 
+        (CONS |m| |vec|)) 
 
 (PUT '|INT;abs;2$;31| '|SPADreplace| 'ABS) 
 
