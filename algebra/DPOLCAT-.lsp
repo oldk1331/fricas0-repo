@@ -107,8 +107,8 @@
               (COND (#1# #2#) (#5# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;order;ASNni;4| (|p| |s| $)
-  (PROG (#1=#:G180 #2=#:G179 #3=#:G181 #4=#:G187 #5=#:G127 |vv| #6=#:G186 |v|
-         #7=#:G185)
+  (PROG (#1=#:G178 #2=#:G177 #3=#:G179 #4=#:G185 #5=#:G127 |vv| #6=#:G184 |v|
+         #7=#:G183)
     (RETURN
      (SEQ
       (COND
@@ -152,8 +152,8 @@
          (COND (#1# #2#) ('T (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;degree;ASNni;5| (|p| |s| $)
-  (PROG (|d| #1=#:G190 #2=#:G189 #3=#:G191 #4=#:G199 #5=#:G128 |lv| #6=#:G198
-         |v| #7=#:G197 #8=#:G196 |lp|)
+  (PROG (|d| #1=#:G188 #2=#:G187 #3=#:G189 #4=#:G197 #5=#:G128 |lv| #6=#:G196
+         |v| #7=#:G195 #8=#:G194 |lp|)
     (RETURN
      (SEQ (LETT |d| 0 . #9=(|DPOLCAT-;degree;ASNni;5|))
           (SEQ (LETT |lp| NIL . #9#)
@@ -216,8 +216,8 @@
           (EXIT |d|))))) 
 
 (DEFUN |DPOLCAT-;weights;AL;6| (|p| $)
-  (PROG (|ws| |w| #1=#:G202 #2=#:G201 #3=#:G203 #4=#:G211 #5=#:G213 |v|
-         #6=#:G214 |d| #7=#:G212 #8=#:G129 |dv| |lv| #9=#:G210 |lp| |mp|)
+  (PROG (|ws| |w| #1=#:G200 #2=#:G199 #3=#:G201 #4=#:G209 #5=#:G211 |v|
+         #6=#:G212 |d| #7=#:G210 #8=#:G129 |dv| |lv| #9=#:G208 |lp| |mp|)
     (RETURN
      (SEQ (LETT |ws| NIL . #10=(|DPOLCAT-;weights;AL;6|))
           (EXIT
@@ -315,7 +315,7 @@
                    (EXIT |ws|))))))))) 
 
 (DEFUN |DPOLCAT-;weight;ANni;7| (|p| $)
-  (PROG (#1=#:G216 #2=#:G215 #3=#:G217 #4=#:G220 #5=#:G130 |ws|)
+  (PROG (#1=#:G214 #2=#:G213 #3=#:G215 #4=#:G218 #5=#:G130 |ws|)
     (RETURN
      (SEQ
       (COND
@@ -341,9 +341,9 @@
          (COND (#1# #2#) (#7# (|IdentityError| '|max|)))))))))) 
 
 (DEFUN |DPOLCAT-;weights;ASL;8| (|p| |s| $)
-  (PROG (|ws| |w| #1=#:G224 #2=#:G223 #3=#:G225 #4=#:G235 #5=#:G237 |v|
-         #6=#:G238 |d| #7=#:G236 #8=#:G131 |dv| |lv| #9=#:G234 #10=#:G233
-         #11=#:G232 |lp| |mp|)
+  (PROG (|ws| |w| #1=#:G222 #2=#:G221 #3=#:G223 #4=#:G233 #5=#:G235 |v|
+         #6=#:G236 |d| #7=#:G234 #8=#:G131 |dv| |lv| #9=#:G232 #10=#:G231
+         #11=#:G230 |lp| |mp|)
     (RETURN
      (SEQ (LETT |ws| NIL . #12=(|DPOLCAT-;weights;ASL;8|))
           (EXIT
@@ -460,7 +460,7 @@
                    (EXIT |ws|))))))))) 
 
 (DEFUN |DPOLCAT-;weight;ASNni;9| (|p| |s| $)
-  (PROG (#1=#:G240 #2=#:G239 #3=#:G241 #4=#:G244 #5=#:G132 |ws|)
+  (PROG (#1=#:G238 #2=#:G237 #3=#:G239 #4=#:G242 #5=#:G132 |ws|)
     (RETURN
      (SEQ
       (COND
@@ -492,7 +492,7 @@
    1)) 
 
 (DEFUN |DPOLCAT-;leader;AV;11| (|p| $)
-  (PROG (#1=#:G247 #2=#:G246 #3=#:G248 #4=#:G251 #5=#:G133 |vl|)
+  (PROG (#1=#:G245 #2=#:G244 #3=#:G246 #4=#:G249 #5=#:G133 |vl|)
     (RETURN
      (SEQ
       (LETT |vl| (SPADCALL |p| (QREFELT $ 18)) . #6=(|DPOLCAT-;leader;AV;11|))
@@ -511,33 +511,33 @@
                        (LETT #3# #5# . #6#)
                        (COND
                         (#1#
-                         (LETT #2# (SPADCALL #2# #3# (QREFELT $ 57)) . #6#))
+                         (LETT #2# (SPADCALL #2# #3# (QREFELT $ 56)) . #6#))
                         ('T
                          (PROGN (LETT #2# #3# . #6#) (LETT #1# 'T . #6#)))))))
                     (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
                (COND (#1# #2#) (#7# (|IdentityError| '|max|))))))))))) 
 
 (DEFUN |DPOLCAT-;initial;2A;12| (|p| $)
-  (SPADCALL (SPADCALL |p| (SPADCALL |p| (QREFELT $ 59)) (QREFELT $ 61))
-            (QREFELT $ 63))) 
+  (SPADCALL (SPADCALL |p| (SPADCALL |p| (QREFELT $ 58)) (QREFELT $ 60))
+            (QREFELT $ 62))) 
 
 (DEFUN |DPOLCAT-;separant;2A;13| (|p| $)
-  (SPADCALL |p| (SPADCALL |p| (QREFELT $ 59)) (QREFELT $ 28))) 
+  (SPADCALL |p| (SPADCALL |p| (QREFELT $ 58)) (QREFELT $ 28))) 
 
 (DEFUN |DPOLCAT-;coerce;SA;14| (|s| $)
-  (SPADCALL (SPADCALL |s| (QREFELT $ 66)) (QREFELT $ 13))) 
+  (SPADCALL (SPADCALL |s| (QREFELT $ 65)) (QREFELT $ 13))) 
 
 (DEFUN |DPOLCAT-;retractIfCan;AU;15| (|p| $)
   (PROG (|v|)
     (RETURN
      (SEQ
-      (LETT |v| (SPADCALL |p| (QREFELT $ 69)) |DPOLCAT-;retractIfCan;AU;15|)
+      (LETT |v| (SPADCALL |p| (QREFELT $ 68)) |DPOLCAT-;retractIfCan;AU;15|)
       (EXIT
        (COND ((QEQCAR |v| 1) (CONS 1 "failed"))
-             ('T (SPADCALL (QCDR |v|) (QREFELT $ 71))))))))) 
+             ('T (SPADCALL (QCDR |v|) (QREFELT $ 70))))))))) 
 
 (DEFUN |DPOLCAT-;differentialVariables;AL;16| (|p| $)
-  (PROG (#1=#:G266 |v| #2=#:G265)
+  (PROG (#1=#:G264 |v| #2=#:G263)
     (RETURN
      (SEQ
       (SPADCALL
@@ -551,7 +551,7 @@
              (SEQ
               (EXIT (LETT #2# (CONS (SPADCALL |v| (QREFELT $ 37)) #2#) . #3#)))
              (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT (NREVERSE #2#))))
-       (QREFELT $ 74)))))) 
+       (QREFELT $ 73)))))) 
 
 (DEFUN |DPOLCAT-;makeVariable;AM;17| (|p| $)
   (PROG () (RETURN (CONS #'|DPOLCAT-;makeVariable;AM;17!0| (VECTOR $ |p|))))) 
@@ -560,14 +560,14 @@
   (PROG (|p| $)
     (LETT |p| (QREFELT $$ 1) . #1=(|DPOLCAT-;makeVariable;AM;17|))
     (LETT $ (QREFELT $$ 0) . #1#)
-    (RETURN (PROGN (SPADCALL |p| |n| (QREFELT $ 76)))))) 
+    (RETURN (PROGN (SPADCALL |p| |n| (QREFELT $ 75)))))) 
 
 (DEFUN |DPOLCAT-;eval;ALLA;18| (|p| |sl| |rl| $)
-  (PROG (|rrl| |t| |i| #1=#:G284 #2=#:G283 |r| |vl| |j| #3=#:G282 #4=#:G281 |s|
-         #5=#:G280 |ordp|)
+  (PROG (|rrl| |t| |i| #1=#:G282 #2=#:G281 |r| |vl| |j| #3=#:G280 #4=#:G279 |s|
+         #5=#:G278 |ordp|)
     (RETURN
      (SEQ
-      (LETT |ordp| (SPADCALL |p| (QREFELT $ 78))
+      (LETT |ordp| (SPADCALL |p| (QREFELT $ 77))
             . #6=(|DPOLCAT-;eval;ALLA;18|))
       (LETT |vl|
             (SPADCALL
@@ -598,7 +598,7 @@
                            . #6#)))
                    (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                    (EXIT (NREVERSE #5#))))
-             (QREFELT $ 79))
+             (QREFELT $ 78))
             . #6#)
       (LETT |rrl| NIL . #6#)
       (SEQ (LETT |r| NIL . #6#) (LETT #2# |rl| . #6#) G190
@@ -622,24 +622,24 @@
                                                       (LETT |t|
                                                             (SPADCALL |t|
                                                                       (QREFELT
-                                                                       $ 80))
+                                                                       $ 79))
                                                             . #6#)
                                                       #1#)
                                                      . #6#)))
                                              (LETT |i| (|inc_SI| |i|) . #6#)
                                              (GO G190) G191
                                              (EXIT (NREVERSE #1#)))))
-                                 (QREFELT $ 82))
+                                 (QREFELT $ 81))
                        . #6#)))
            (LETT #2# (CDR #2#) . #6#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 83))))))) 
+      (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 82))))))) 
 
 (DEFUN |DPOLCAT-;eval;ALLA;19| (|p| |sl| |rl| $)
-  (PROG (|rrl| |t| |i| #1=#:G300 #2=#:G299 |r| |vl| |j| #3=#:G298 #4=#:G297 |s|
-         #5=#:G296 |ordp|)
+  (PROG (|rrl| |t| |i| #1=#:G298 #2=#:G297 |r| |vl| |j| #3=#:G296 #4=#:G295 |s|
+         #5=#:G294 |ordp|)
     (RETURN
      (SEQ
-      (LETT |ordp| (SPADCALL |p| (QREFELT $ 78))
+      (LETT |ordp| (SPADCALL |p| (QREFELT $ 77))
             . #6=(|DPOLCAT-;eval;ALLA;19|))
       (LETT |vl|
             (SPADCALL
@@ -670,7 +670,7 @@
                            . #6#)))
                    (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                    (EXIT (NREVERSE #5#))))
-             (QREFELT $ 79))
+             (QREFELT $ 78))
             . #6#)
       (LETT |rrl| NIL . #6#)
       (SEQ (LETT |r| NIL . #6#) (LETT #2# |rl| . #6#) G190
@@ -694,20 +694,20 @@
                                                       (LETT |t|
                                                             (SPADCALL |t|
                                                                       (QREFELT
-                                                                       $ 85))
+                                                                       $ 84))
                                                             . #6#)
                                                       #1#)
                                                      . #6#)))
                                              (LETT |i| (|inc_SI| |i|) . #6#)
                                              (GO G190) G191
                                              (EXIT (NREVERSE #1#)))))
-                                 (QREFELT $ 87))
+                                 (QREFELT $ 86))
                        . #6#)))
            (LETT #2# (CDR #2#) . #6#) (GO G190) G191 (EXIT NIL))
-      (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 88))))))) 
+      (EXIT (SPADCALL |p| |vl| |rrl| (QREFELT $ 87))))))) 
 
 (DEFUN |DPOLCAT-;eval;ALA;20| (|p| |l| $)
-  (PROG (#1=#:G307 |e| #2=#:G306 #3=#:G305 #4=#:G304)
+  (PROG (#1=#:G305 |e| #2=#:G304 #3=#:G303 #4=#:G302)
     (RETURN
      (SEQ
       (SPADCALL |p|
@@ -721,8 +721,8 @@
                        (EXIT
                         (LETT #4#
                               (CONS
-                               (SPADCALL (SPADCALL |e| (QREFELT $ 91))
-                                         (QREFELT $ 92))
+                               (SPADCALL (SPADCALL |e| (QREFELT $ 90))
+                                         (QREFELT $ 91))
                                #4#)
                               . #5#)))
                       (LETT #3# (CDR #3#) . #5#) (GO G190) G191
@@ -735,11 +735,11 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |e| (QREFELT $ 93)) #2#)
+                        (LETT #2# (CONS (SPADCALL |e| (QREFELT $ 92)) #2#)
                               . #5#)))
                       (LETT #1# (CDR #1#) . #5#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
-                (QREFELT $ 94)))))) 
+                (QREFELT $ 93)))))) 
 
 (DECLAIM (NOTINLINE |DifferentialPolynomialCategory&;|)) 
 
@@ -755,7 +755,7 @@
       (LETT |dv$|
             (LIST '|DifferentialPolynomialCategory&| DV$1 DV$2 DV$3 DV$4 DV$5)
             . #1#)
-      (LETT $ (GETREFV 105) . #1#)
+      (LETT $ (GETREFV 104) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -779,11 +779,11 @@
       (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
-         (QSETREFV $ 77
+         (QSETREFV $ 76
                    (CONS (|dispatchFunction| |DPOLCAT-;makeVariable;AM;17|) $))
-         (QSETREFV $ 84 (CONS (|dispatchFunction| |DPOLCAT-;eval;ALLA;18|) $))
-         (QSETREFV $ 89 (CONS (|dispatchFunction| |DPOLCAT-;eval;ALLA;19|) $))
-         (QSETREFV $ 96
+         (QSETREFV $ 83 (CONS (|dispatchFunction| |DPOLCAT-;eval;ALLA;18|) $))
+         (QSETREFV $ 88 (CONS (|dispatchFunction| |DPOLCAT-;eval;ALLA;19|) $))
+         (QSETREFV $ 95
                    (CONS (|dispatchFunction| |DPOLCAT-;eval;ALA;20|) $)))))
       $)))) 
 
@@ -806,33 +806,33 @@
               (123 . |weights|) |DPOLCAT-;weight;ANni;7|
               |DPOLCAT-;weights;ASL;8| (128 . |weights|)
               |DPOLCAT-;weight;ASNni;9| (134 . |removeDuplicates|) (139 . |#|)
-              (144 . |One|) |DPOLCAT-;isobaric?;AB;10| (148 . |max|)
-              |DPOLCAT-;leader;AV;11| (154 . |leader|)
-              (|SparseUnivariatePolynomial| $) (159 . |univariate|)
-              (|SparseUnivariatePolynomial| 6) (165 . |leadingCoefficient|)
-              |DPOLCAT-;initial;2A;12| |DPOLCAT-;separant;2A;13|
-              (170 . |coerce|) |DPOLCAT-;coerce;SA;14| (|Union| 9 '#1#)
-              (175 . |retractIfCan|) (|Union| 8 '#1#) (180 . |retractIfCan|)
+              |DPOLCAT-;isobaric?;AB;10| (144 . |max|) |DPOLCAT-;leader;AV;11|
+              (150 . |leader|) (|SparseUnivariatePolynomial| $)
+              (155 . |univariate|) (|SparseUnivariatePolynomial| 6)
+              (161 . |leadingCoefficient|) |DPOLCAT-;initial;2A;12|
+              |DPOLCAT-;separant;2A;13| (166 . |coerce|)
+              |DPOLCAT-;coerce;SA;14| (|Union| 9 '#1#) (171 . |retractIfCan|)
+              (|Union| 8 '#1#) (176 . |retractIfCan|)
               |DPOLCAT-;retractIfCan;AU;15| (|List| 8)
-              (185 . |removeDuplicates|) |DPOLCAT-;differentialVariables;AL;16|
-              (190 . |differentiate|) (196 . |makeVariable|) (201 . |order|)
-              (206 . |concat|) (211 . |differentiate|) (|List| 7)
-              (216 . |concat|) (222 . |eval|) (229 . |eval|)
-              (236 . |differentiate|) (|List| 6) (241 . |concat|)
-              (247 . |eval|) (254 . |eval|) (|Equation| 6) (261 . |lhs|)
-              (266 . |retract|) (271 . |rhs|) (276 . |eval|) (|List| 99)
-              (283 . |eval|) (|Symbol|) (|List| 97) (|Equation| $)
-              (|Union| 102 '#1#) (|Union| 104 '#1#) (|Fraction| 104)
+              (181 . |removeDuplicates|) |DPOLCAT-;differentialVariables;AL;16|
+              (186 . |differentiate|) (192 . |makeVariable|) (197 . |order|)
+              (202 . |concat|) (207 . |differentiate|) (|List| 7)
+              (212 . |concat|) (218 . |eval|) (225 . |eval|)
+              (232 . |differentiate|) (|List| 6) (237 . |concat|)
+              (243 . |eval|) (250 . |eval|) (|Equation| 6) (257 . |lhs|)
+              (262 . |retract|) (267 . |rhs|) (272 . |eval|) (|List| 98)
+              (279 . |eval|) (|Symbol|) (|List| 96) (|Equation| $)
+              (|Union| 101 '#1#) (|Union| 103 '#1#) (|Fraction| 103)
               (|OutputForm|) (|Integer|))
-           '#(|weights| 289 |weight| 300 |separant| 311 |retractIfCan| 316
-              |order| 321 |makeVariable| 332 |leader| 342 |isobaric?| 347
-              |initial| 352 |eval| 357 |differentiate| 377
-              |differentialVariables| 383 |degree| 388 |coerce| 394)
+           '#(|weights| 285 |weight| 296 |separant| 307 |retractIfCan| 312
+              |order| 317 |makeVariable| 328 |leader| 338 |isobaric?| 343
+              |initial| 348 |eval| 353 |differentiate| 373
+              |differentialVariables| 379 |degree| 384 |coerce| 390)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 96
+                             (|makeByteWordVec2| 95
                                                  '(2 9 0 8 11 12 1 6 0 9 13 0 6
                                                    0 16 1 6 17 0 18 1 6 19 0 20
                                                    1 6 0 0 21 1 6 7 0 22 1 6 0
@@ -844,26 +844,26 @@
                                                    1 6 40 0 41 2 6 42 0 17 43 1
                                                    9 11 0 45 2 42 0 0 11 46 1 6
                                                    42 0 48 2 6 42 0 8 51 1 42 0
-                                                   0 53 1 42 11 0 54 0 6 0 55 2
-                                                   9 0 0 0 57 1 6 9 0 59 2 6 60
-                                                   0 9 61 1 62 6 0 63 1 9 0 8
-                                                   66 1 6 68 0 69 1 9 70 0 71 1
-                                                   73 0 0 74 2 6 0 0 11 76 1 0
-                                                   14 0 77 1 6 11 0 78 1 17 0
-                                                   40 79 1 7 0 0 80 2 81 0 0 0
-                                                   82 3 6 0 0 17 81 83 3 0 0 0
-                                                   73 81 84 1 6 0 0 85 2 86 0 0
-                                                   0 87 3 6 0 0 17 40 88 3 0 0
-                                                   0 73 40 89 1 90 6 0 91 1 6 8
-                                                   0 92 1 90 6 0 93 3 6 0 0 73
-                                                   40 94 2 0 0 0 95 96 2 0 42 0
-                                                   8 50 1 0 42 0 47 2 0 11 0 8
-                                                   52 1 0 11 0 49 1 0 0 0 65 1
-                                                   0 70 0 72 2 0 11 0 8 39 1 0
-                                                   11 0 36 1 0 14 0 77 1 0 14 8
-                                                   15 1 0 9 0 58 1 0 33 0 56 1
-                                                   0 0 0 64 3 0 0 0 73 81 84 3
-                                                   0 0 0 73 40 89 2 0 0 0 95 96
-                                                   2 0 0 0 31 32 1 0 73 0 75 2
-                                                   0 11 0 8 44 1 0 0 8 67)))))
+                                                   0 53 1 42 11 0 54 2 9 0 0 0
+                                                   56 1 6 9 0 58 2 6 59 0 9 60
+                                                   1 61 6 0 62 1 9 0 8 65 1 6
+                                                   67 0 68 1 9 69 0 70 1 72 0 0
+                                                   73 2 6 0 0 11 75 1 0 14 0 76
+                                                   1 6 11 0 77 1 17 0 40 78 1 7
+                                                   0 0 79 2 80 0 0 0 81 3 6 0 0
+                                                   17 80 82 3 0 0 0 72 80 83 1
+                                                   6 0 0 84 2 85 0 0 0 86 3 6 0
+                                                   0 17 40 87 3 0 0 0 72 40 88
+                                                   1 89 6 0 90 1 6 8 0 91 1 89
+                                                   6 0 92 3 6 0 0 72 40 93 2 0
+                                                   0 0 94 95 2 0 42 0 8 50 1 0
+                                                   42 0 47 2 0 11 0 8 52 1 0 11
+                                                   0 49 1 0 0 0 64 1 0 69 0 71
+                                                   2 0 11 0 8 39 1 0 11 0 36 1
+                                                   0 14 0 76 1 0 14 8 15 1 0 9
+                                                   0 57 1 0 33 0 55 1 0 0 0 63
+                                                   3 0 0 0 72 80 83 3 0 0 0 72
+                                                   40 88 2 0 0 0 94 95 2 0 0 0
+                                                   31 32 1 0 72 0 74 2 0 11 0 8
+                                                   44 1 0 0 8 66)))))
            '|lookupComplete|)) 

@@ -53,7 +53,7 @@
     (RETURN (PROGN (SPADCALL |x| |t| (QREFELT $ 27)))))) 
 
 (DEFUN |FSAGG-;coerce;AOf;10| (|s| $)
-  (PROG (#1=#:G164 |x| #2=#:G163)
+  (PROG (#1=#:G162 |x| #2=#:G161)
     (RETURN
      (SEQ
       (SPADCALL
@@ -70,7 +70,7 @@
        (QREFELT $ 36)))))) 
 
 (DEFUN |FSAGG-;intersect;3A;11| (|s| |t| $)
-  (PROG (#1=#:G168 |x| |i|)
+  (PROG (#1=#:G166 |x| |i|)
     (RETURN
      (SEQ (LETT |i| (SPADCALL (QREFELT $ 24)) . #2=(|FSAGG-;intersect;3A;11|))
           (SEQ (LETT |x| NIL . #2#)
@@ -87,7 +87,7 @@
           (EXIT |i|))))) 
 
 (DEFUN |FSAGG-;difference;3A;12| (|s| |t| $)
-  (PROG (#1=#:G172 |x| |m|)
+  (PROG (#1=#:G170 |x| |m|)
     (RETURN
      (SEQ
       (LETT |m| (SPADCALL |s| (QREFELT $ 39)) . #2=(|FSAGG-;difference;3A;12|))
@@ -100,7 +100,7 @@
       (EXIT |m|))))) 
 
 (DEFUN |FSAGG-;symmetricDifference;3A;13| (|s| |t| $)
-  (PROG (#1=#:G177 |x| |d|)
+  (PROG (#1=#:G175 |x| |d|)
     (RETURN
      (SEQ
       (LETT |d| (SPADCALL |s| (QREFELT $ 39))
@@ -119,7 +119,7 @@
       (EXIT |d|))))) 
 
 (DEFUN |FSAGG-;union;3A;14| (|s| |t| $)
-  (PROG (#1=#:G181 |x| |u|)
+  (PROG (#1=#:G179 |x| |u|)
     (RETURN
      (SEQ (LETT |u| (SPADCALL |s| (QREFELT $ 39)) . #2=(|FSAGG-;union;3A;14|))
           (SEQ (LETT |x| NIL . #2#)
@@ -132,7 +132,7 @@
           (EXIT |u|))))) 
 
 (DEFUN |FSAGG-;universe;A;15| ($)
-  (PROG (#1=#:G183 #2=#:G187 |i| #3=#:G186)
+  (PROG (#1=#:G181 #2=#:G185 |i| #3=#:G184)
     (RETURN
      (SEQ
       (SPADCALL
@@ -160,7 +160,7 @@
 (DEFUN |FSAGG-;size;Nni;17| ($) (EXPT 2 (SPADCALL (QREFELT $ 44)))) 
 
 (DEFUN |FSAGG-;index;PiA;18| (|i| $)
-  (PROG (#1=#:G191 #2=#:G195 |j| #3=#:G194)
+  (PROG (#1=#:G189 #2=#:G193 |j| #3=#:G192)
     (RETURN
      (SEQ
       (SPADCALL
@@ -186,7 +186,7 @@
        (QREFELT $ 47)))))) 
 
 (DEFUN |FSAGG-;lookup;APi;19| (|s| $)
-  (PROG (|n| #1=#:G197 #2=#:G201 |x|)
+  (PROG (|n| #1=#:G195 #2=#:G199 |x|)
     (RETURN
      (SEQ (LETT |n| 1 . #3=(|FSAGG-;lookup;APi;19|))
           (SEQ (LETT |x| NIL . #3#)

@@ -135,10 +135,11 @@
                    $))))
       (COND
        ((|HasCategory| |#2| '(|Field|))
-        (QSETREFV $ 58
-                  (CONS
-                   (|dispatchFunction| |FRAMALG-;minimalPolynomial;SUP;11|)
-                   $))))
+        (PROGN
+         (QSETREFV $ 58
+                   (CONS
+                    (|dispatchFunction| |FRAMALG-;minimalPolynomial;SUP;11|)
+                    $)))))
       $)))) 
 
 (MAKEPROP '|FramedAlgebra&| '|infovec|

@@ -12,7 +12,7 @@
 (DEFUN |ALIST;parts;$L;5| (|t| $) (SPADCALL |t| (QREFELT $ 14))) 
 
 (DEFUN |ALIST;keys;$L;6| (|t| $)
-  (PROG (#1=#:G154 |k| #2=#:G153)
+  (PROG (#1=#:G150 |k| #2=#:G149)
     (RETURN
      (SEQ
       (PROGN
@@ -52,7 +52,7 @@
   (SPADCALL (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 33))) 
 
 (DEFUN |ALIST;search;Key$U;15| (|k| |t| $)
-  (PROG (#1=#:G179 #2=#:G184 #3=#:G185 |r|)
+  (PROG (#1=#:G166 #2=#:G171 #3=#:G172 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -102,7 +102,7 @@
           (EXIT (STRCONC |s| " \\right]")))))) 
 
 (DEFUN |ALIST;assoc;Key$U;17| (|k| |t| $)
-  (PROG (#1=#:G198 #2=#:G203 #3=#:G204 |r|)
+  (PROG (#1=#:G183 #2=#:G188 #3=#:G189 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -174,10 +174,10 @@
 
 (DECLAIM (NOTINLINE |AssociationList;|)) 
 
-(DEFUN |AssociationList| (&REST #1=#:G287)
+(DEFUN |AssociationList| (&REST #1=#:G266)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G288)
+     (PROG (#2=#:G267)
        (RETURN
         (COND
          ((LETT #2#
@@ -195,7 +195,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|AssociationList|))))))))))) 
 
 (DEFUN |AssociationList;| (|#1| |#2|)
-  (PROG (#1=#:G284 #2=#:G286 #3=#:G285 |pv$| #4=#:G282 #5=#:G283 $ |dv$| DV$2
+  (PROG (#1=#:G263 #2=#:G265 #3=#:G264 |pv$| #4=#:G261 #5=#:G262 $ |dv$| DV$2
          DV$1)
     (RETURN
      (PROGN

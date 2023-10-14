@@ -252,7 +252,7 @@
 (DEFUN |INT;squareFreePolynomial| (|p| $) (SPADCALL |p| (QREFELT $ 100))) 
 
 (DEFUN |INT;factorPolynomial| (|p| $)
-  (PROG (#1=#:G1504 |pp|)
+  (PROG (#1=#:G1483 |pp|)
     (RETURN
      (SEQ
       (LETT |pp| (SPADCALL |p| (QREFELT $ 101)) . #2=(|INT;factorPolynomial|))
@@ -289,7 +289,7 @@
 (DEFUN |Integer| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1529)
+     (PROG (#1=#:G1508)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))

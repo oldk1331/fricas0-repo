@@ -16,7 +16,7 @@
 (DEFUN |CHAR;index;Pi$;4| (|n| $) (SPADCALL (- |n| 1) (QREFELT $ 13))) 
 
 (DEFUN |CHAR;lookup;$Pi;5| (|c| $)
-  (PROG (#1=#:G395)
+  (PROG (#1=#:G374)
     (RETURN
      (PROG1 (LETT #1# (+ 1 (SPADCALL |c| (QREFELT $ 16))) |CHAR;lookup;$Pi;5|)
        (|check_subtype| (> #1# 0) '(|PositiveInteger|) #1#))))) 
@@ -86,7 +86,7 @@
 (DEFUN |Character| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G418)
+     (PROG (#1=#:G397)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|Character|) . #2=(|Character|))

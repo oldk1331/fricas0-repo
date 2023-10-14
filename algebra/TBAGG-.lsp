@@ -131,7 +131,7 @@
       (EXIT
        (COND ((SPADCALL |s| |t| (QREFELT $ 44)) 'T)
              ((SPADCALL (SPADCALL |s| (QREFELT $ 46))
-                        (SPADCALL |t| (QREFELT $ 46)) (QREFELT $ 47))
+                        (SPADCALL |t| (QREFELT $ 46)) (QREFELT $ 48))
               'NIL)
              ('T
               (SEQ
@@ -148,7 +148,7 @@
                              ((OR (QEQCAR |e| 1)
                                   (SPADCALL (QCDR |e|)
                                             (SPADCALL |s| |k| (QREFELT $ 22))
-                                            (QREFELT $ 48)))
+                                            (QREFELT $ 49)))
                               (PROGN
                                (LETT #1# (PROGN (LETT #2# 'NIL . #4#) (GO #2#))
                                      . #4#)
@@ -192,7 +192,7 @@
                         (SPADCALL
                          (CONS |k|
                                (PROG2
-                                   (LETT #2# (SPADCALL |k| |t| (QREFELT $ 52))
+                                   (LETT #2# (SPADCALL |k| |t| (QREFELT $ 53))
                                          . #4#)
                                    (QCDR #2#)
                                  (|check_union| (QEQCAR #2# 0) (QREFELT $ 8)
@@ -228,7 +228,7 @@
       (EXIT
        (SEQ
         (SEQ (LETT |ke| NIL . #3=(|TBAGG-;find;MSU;17|))
-             (LETT #2# (SPADCALL |t| (QREFELT $ 55)) . #3#) G190
+             (LETT #2# (SPADCALL |t| (QREFELT $ 56)) . #3#) G190
              (COND
               ((OR (ATOM #2#) (PROGN (LETT |ke| (CAR #2#) . #3#) NIL))
                (GO G191)))
@@ -247,15 +247,15 @@
 (DEFUN |TBAGG-;remove!;R2S;19| (|x| |t| $)
   (SEQ
    (COND
-    ((SPADCALL |x| |t| (QREFELT $ 60))
-     (SPADCALL (QCAR |x|) |t| (QREFELT $ 52))))
+    ((SPADCALL |x| |t| (QREFELT $ 61))
+     (SPADCALL (QCAR |x|) |t| (QREFELT $ 53))))
    (EXIT |t|))) 
 
 (DEFUN |TBAGG-;extract!;SR;20| (|t| $)
   (PROG (|k|)
     (RETURN
-     (SEQ (LETT |k| (SPADCALL |t| (QREFELT $ 62)) |TBAGG-;extract!;SR;20|)
-          (SPADCALL (QCAR |k|) |t| (QREFELT $ 52)) (EXIT |k|))))) 
+     (SEQ (LETT |k| (SPADCALL |t| (QREFELT $ 63)) |TBAGG-;extract!;SR;20|)
+          (SPADCALL (QCAR |k|) |t| (QREFELT $ 53)) (EXIT |k|))))) 
 
 (DEFUN |TBAGG-;any?;MSB;21| (|f| |t| $)
   (PROG (#1=#:G243 #2=#:G244 |k|)
@@ -325,7 +325,7 @@
       (LETT DV$2 (|devaluate| |#2|) . #1#)
       (LETT DV$3 (|devaluate| |#3|) . #1#)
       (LETT |dv$| (LIST '|TableAggregate&| DV$1 DV$2 DV$3) . #1#)
-      (LETT $ (GETREFV 68) . #1#)
+      (LETT $ (GETREFV 69) . #1#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
       (|stuffDomainSlots| $)
@@ -344,22 +344,22 @@
          (QSETREFV $ 43 (CONS (|dispatchFunction| |TBAGG-;entries;SL;12|) $))
          (COND
           ((|HasCategory| |#3| '(|BasicType|))
-           (QSETREFV $ 49 (CONS (|dispatchFunction| |TBAGG-;=;2SB;13|) $))))
-         (QSETREFV $ 51 (CONS (|dispatchFunction| |TBAGG-;map;M2S;14|) $))
+           (QSETREFV $ 50 (CONS (|dispatchFunction| |TBAGG-;=;2SB;13|) $))))
+         (QSETREFV $ 52 (CONS (|dispatchFunction| |TBAGG-;map;M2S;14|) $))
          (COND
           ((|HasCategory| |#3| '(|BasicType|))
-           (QSETREFV $ 53 (CONS (|dispatchFunction| |TBAGG-;map!;M2S;15|) $))))
-         (QSETREFV $ 54 (CONS (|dispatchFunction| |TBAGG-;inspect;SR;16|) $))
-         (QSETREFV $ 58 (CONS (|dispatchFunction| |TBAGG-;find;MSU;17|) $))
-         (QSETREFV $ 59 (CONS (|dispatchFunction| |TBAGG-;index?;KeySB;18|) $))
+           (QSETREFV $ 54 (CONS (|dispatchFunction| |TBAGG-;map!;M2S;15|) $))))
+         (QSETREFV $ 55 (CONS (|dispatchFunction| |TBAGG-;inspect;SR;16|) $))
+         (QSETREFV $ 59 (CONS (|dispatchFunction| |TBAGG-;find;MSU;17|) $))
+         (QSETREFV $ 60 (CONS (|dispatchFunction| |TBAGG-;index?;KeySB;18|) $))
          (COND
           ((|HasCategory| |#3| '(|BasicType|))
-           (QSETREFV $ 61
+           (QSETREFV $ 62
                      (CONS (|dispatchFunction| |TBAGG-;remove!;R2S;19|) $))))
-         (QSETREFV $ 63 (CONS (|dispatchFunction| |TBAGG-;extract!;SR;20|) $))
-         (QSETREFV $ 65 (CONS (|dispatchFunction| |TBAGG-;any?;MSB;21|) $))
-         (QSETREFV $ 66 (CONS (|dispatchFunction| |TBAGG-;every?;MSB;22|) $))
-         (QSETREFV $ 67
+         (QSETREFV $ 64 (CONS (|dispatchFunction| |TBAGG-;extract!;SR;20|) $))
+         (QSETREFV $ 66 (CONS (|dispatchFunction| |TBAGG-;any?;MSB;21|) $))
+         (QSETREFV $ 67 (CONS (|dispatchFunction| |TBAGG-;every?;MSB;22|) $))
+         (QSETREFV $ 68
                    (CONS (|dispatchFunction| |TBAGG-;count;MSNni;23|) $)))))
       $)))) 
 
@@ -377,8 +377,8 @@
               (|Mapping| 8 8) |TBAGG-;map!;M2S;8| (60 . |table|) (|Boolean|)
               (64 . |key?|) (|Mapping| 8 8 8) |TBAGG-;map;M3S;9| (70 . |parts|)
               (|List| 8) (75 . |parts|) (80 . |parts|) (85 . |entries|)
-              (90 . |eq?|) (|NonNegativeInteger|) (96 . |#|) (101 . ~=)
-              (107 . ~=) (113 . =) (|Mapping| 11 11) (119 . |map|)
+              (90 . |eq?|) (|NonNegativeInteger|) (96 . |#|) (|Integer|)
+              (101 . ~=) (107 . ~=) (113 . =) (|Mapping| 11 11) (119 . |map|)
               (125 . |remove!|) (131 . |map!|) (137 . |inspect|)
               (142 . |parts|) (|Union| 11 '"failed") (|Mapping| 35 11)
               (147 . |find|) (153 . |index?|) (159 . |member?|)
@@ -392,7 +392,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 67
+                             (|makeByteWordVec2| 68
                                                  '(0 6 0 9 1 6 0 12 13 3 6 8 0
                                                    7 8 15 1 6 17 0 18 1 7 20 0
                                                    21 2 6 8 0 7 22 1 8 20 0 23
@@ -401,24 +401,24 @@
                                                    6 0 34 2 6 35 7 0 36 1 0 12
                                                    0 39 1 0 40 0 41 1 6 40 0 42
                                                    1 0 40 0 43 2 6 35 0 0 44 1
-                                                   6 45 0 46 2 45 35 0 0 47 2 8
-                                                   35 0 0 48 2 0 35 0 0 49 2 0
-                                                   0 50 0 51 2 6 28 7 0 52 2 0
-                                                   0 50 0 53 1 0 11 0 54 1 6 12
-                                                   0 55 2 0 56 57 0 58 2 0 35 7
-                                                   0 59 2 6 35 11 0 60 2 0 0 11
-                                                   0 61 1 6 11 0 62 1 0 11 0 63
-                                                   2 0 35 64 0 65 2 0 35 64 0
-                                                   66 2 0 45 64 0 67 0 0 0 10 1
-                                                   0 0 12 14 2 0 0 11 0 61 1 0
+                                                   6 45 0 46 2 47 35 0 0 48 2 8
+                                                   35 0 0 49 2 0 35 0 0 50 2 0
+                                                   0 51 0 52 2 6 28 7 0 53 2 0
+                                                   0 51 0 54 1 0 11 0 55 1 6 12
+                                                   0 56 2 0 57 58 0 59 2 0 35 7
+                                                   0 60 2 6 35 11 0 61 2 0 0 11
+                                                   0 62 1 6 11 0 63 1 0 11 0 64
+                                                   2 0 35 65 0 66 2 0 35 65 0
+                                                   67 2 0 45 65 0 68 0 0 0 10 1
+                                                   0 0 12 14 2 0 0 11 0 62 1 0
                                                    40 0 41 1 0 12 0 39 2 0 0 32
-                                                   0 33 2 0 0 50 0 53 3 0 0 37
-                                                   0 0 38 2 0 0 50 0 51 1 0 11
-                                                   0 54 2 0 0 11 0 16 1 0 17 0
-                                                   19 2 0 35 7 0 59 2 0 56 57 0
-                                                   58 1 0 11 0 63 2 0 35 64 0
-                                                   66 1 0 40 0 43 3 0 8 0 7 8
-                                                   31 2 0 8 0 7 30 2 0 45 64 0
-                                                   67 1 0 20 0 27 2 0 35 64 0
-                                                   65 2 0 35 0 0 49)))))
+                                                   0 33 2 0 0 51 0 54 3 0 0 37
+                                                   0 0 38 2 0 0 51 0 52 1 0 11
+                                                   0 55 2 0 0 11 0 16 1 0 17 0
+                                                   19 2 0 35 7 0 60 2 0 57 58 0
+                                                   59 1 0 11 0 64 2 0 35 65 0
+                                                   67 1 0 40 0 43 3 0 8 0 7 8
+                                                   31 2 0 8 0 7 30 2 0 45 65 0
+                                                   68 1 0 20 0 27 2 0 35 65 0
+                                                   66 2 0 35 0 0 50)))))
            '|lookupComplete|)) 

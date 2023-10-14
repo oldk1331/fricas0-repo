@@ -162,16 +162,15 @@
               (|Kernel| 6) (29 . |kernel|) (|Fraction| 34) (|Kernel| $)
               (34 . |univariate|) (|SparseUnivariatePolynomial| 6)
               (|Fraction| 25) (40 . |numer|) (45 . |denom|)
-              (|NonNegativeInteger|) (50 . |degree|) (55 . |Zero|) (|Boolean|)
-              (59 . >) (|SparseUnivariatePolynomial| $) (65 . |zeroOf|)
-              |ACFS-;zeroOf;SSS;5| (71 . |rootOf|) |ACFS-;rootOf;SSS;6|
-              (77 . |zerosOf|) |ACFS-;zerosOf;SSL;7| (83 . |rootsOf|)
-              |ACFS-;rootsOf;SSL;8| (|Union| 6 '"failed") (89 . |retractIfCan|)
-              (|AlgebraicallyClosedField&| 6) (94 . |rootsOf|)
-              |ACFS-;rootsOf;SupSL;9| (100 . |zerosOf|)
-              |ACFS-;zerosOf;SupSL;10| (106 . |zeroOf|) |ACFS-;zeroOf;SupSS;11|
-              (|Polynomial| $))
-           '#(|zerosOf| 112 |zeroOf| 129 |rootsOf| 146 |rootOf| 163) 'NIL
+              (|NonNegativeInteger|) (50 . |degree|) (|Boolean|) (|Integer|)
+              (55 . >) (|SparseUnivariatePolynomial| $) (61 . |zeroOf|)
+              |ACFS-;zeroOf;SSS;5| (67 . |rootOf|) |ACFS-;rootOf;SSS;6|
+              (73 . |zerosOf|) |ACFS-;zerosOf;SSL;7| (79 . |rootsOf|)
+              |ACFS-;rootsOf;SSL;8| (|Union| 6 '"failed") (85 . |retractIfCan|)
+              (|AlgebraicallyClosedField&| 6) (90 . |rootsOf|)
+              |ACFS-;rootsOf;SupSL;9| (96 . |zerosOf|) |ACFS-;zerosOf;SupSL;10|
+              (102 . |zeroOf|) |ACFS-;zeroOf;SupSS;11| (|Polynomial| $))
+           '#(|zerosOf| 108 |zeroOf| 125 |rootsOf| 142 |rootOf| 159) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
@@ -180,16 +179,16 @@
                                                    13 0 10 14 2 6 0 0 10 16 2 6
                                                    13 0 10 18 1 20 0 10 21 2 6
                                                    22 0 23 24 1 26 25 0 27 1 26
-                                                   25 0 28 1 25 29 0 30 0 6 0
-                                                   31 2 29 32 0 0 33 2 6 0 34
-                                                   10 35 2 6 0 34 10 37 2 6 13
-                                                   34 10 39 2 6 13 34 10 41 1
-                                                   25 43 0 44 2 45 13 34 10 46
-                                                   2 45 13 34 10 48 2 45 0 34
-                                                   10 50 2 0 13 0 10 40 1 0 13
-                                                   0 19 2 0 13 34 10 49 2 0 0 0
-                                                   10 36 1 0 0 0 17 2 0 0 34 10
-                                                   51 2 0 13 0 10 42 1 0 13 0
-                                                   15 2 0 13 34 10 47 2 0 0 0
-                                                   10 38 1 0 0 0 12)))))
+                                                   25 0 28 1 25 29 0 30 2 32 31
+                                                   0 0 33 2 6 0 34 10 35 2 6 0
+                                                   34 10 37 2 6 13 34 10 39 2 6
+                                                   13 34 10 41 1 25 43 0 44 2
+                                                   45 13 34 10 46 2 45 13 34 10
+                                                   48 2 45 0 34 10 50 2 0 13 0
+                                                   10 40 1 0 13 0 19 2 0 13 34
+                                                   10 49 2 0 0 0 10 36 1 0 0 0
+                                                   17 2 0 0 34 10 51 2 0 13 0
+                                                   10 42 1 0 13 0 15 2 0 13 34
+                                                   10 47 2 0 0 0 10 38 1 0 0 0
+                                                   12)))))
            '|lookupComplete|)) 

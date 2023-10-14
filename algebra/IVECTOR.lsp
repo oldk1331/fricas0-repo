@@ -3,10 +3,10 @@
 
 (DECLAIM (NOTINLINE |IndexedVector;|)) 
 
-(DEFUN |IndexedVector| (&REST #1=#:G1398)
+(DEFUN |IndexedVector| (&REST #1=#:G1377)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1399)
+     (PROG (#2=#:G1378)
        (RETURN
         (COND
          ((LETT #2#
@@ -24,7 +24,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedVector|))))))))))) 
 
 (DEFUN |IndexedVector;| (|#1| |#2|)
-  (PROG (#1=#:G1397 |pv$| #2=#:G1393 #3=#:G1394 #4=#:G1395 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1376 |pv$| #2=#:G1372 #3=#:G1373 #4=#:G1374 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedVector|))
