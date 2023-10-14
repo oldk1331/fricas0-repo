@@ -180,8 +180,8 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-                                  4 7 15 16 17 0 0 0 0 7 0 0 0 0 0 0 0 7 0 7 0
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
+                                  3 4 15 16 17 0 0 0 0 7 0 0 0 0 0 0 0 7 0 7 0
                                   0 7 0 0 0 0 9 0 0 0 25 11 20 21 0 0 6 13 0 0
                                   0 0 0 0 0 0 0 2 5 6 6 8 10 10 12 13 14 18
                                   19))
@@ -190,8 +190,8 @@
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
                 NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
-                |Algebra&| |Algebra&| NIL |Algebra&| NIL |Module&| |Module&|
-                NIL |EntireRing&| |Module&| NIL NIL |OrderedRing&|
+                |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
+                |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&|
                 NIL NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL
@@ -210,13 +210,13 @@
                  (|FullyLinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
                  (|DifferentialExtension| (|BalancedPAdicInteger| 6))
                  (|Algebra| (|BalancedPAdicInteger| 6)) (|Algebra| 36)
-                 (|LeftOreRing|) (|Algebra| $$)
+                 (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
                  (|LinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
                  (|Module| (|BalancedPAdicInteger| 6)) (|Module| 36)
                  (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|OrderedRing|) (|PartialDifferentialRing| 19)
-                 (|DifferentialRing|) (|LinearlyExplicitRingOver| 24)
+                 (|PartialDifferentialRing| 19) (|DifferentialRing|)
+                 (|LinearlyExplicitRingOver| 24)
                  (|BiModule| (|BalancedPAdicInteger| 6)
                              (|BalancedPAdicInteger| 6))
                  (|BiModule| 36 36) (|BiModule| $$ $$) (|Ring|)

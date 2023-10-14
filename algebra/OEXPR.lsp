@@ -79,16 +79,17 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0))
+                                  0 0 0 0 0 0 0))
             (CONS
-             '#(|Algebra&| |OrderedRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL
-                |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
+             '#(|OrderedRing&| |Algebra&| |Module&| NIL NIL NIL |Ring&| NIL NIL
+                NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
                 |AbelianMonoid&| |Monoid&| NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| |RetractableFrom&| NIL
                 |BasicType&| |PartialOrder&| NIL)
              (CONS
-              '#((|Algebra| 22) (|OrderedRing|) (|Module| 22)
-                 (|OrderedAbelianGroup|) (|BiModule| 22 22) (|Ring|)
+              '#((|OrderedRing|) (|Algebra| 22) (|Module| 22)
+                 (|CharacteristicZero|) (|OrderedAbelianGroup|)
+                 (|BiModule| 22 22) (|Ring|)
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 22)
                  (|LeftModule| 22) (|Rng|) (|LeftModule| $$)
                  (|OrderedAbelianMonoid|) (|AbelianGroup|)

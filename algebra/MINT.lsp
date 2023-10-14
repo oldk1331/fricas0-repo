@@ -122,8 +122,8 @@
                                   0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&| NIL
-                |UniqueFactorizationDomain&| NIL NIL |GcdDomain&| NIL NIL
-                |Algebra&| NIL NIL |DifferentialRing&| |OrderedRing&|
+                |UniqueFactorizationDomain&| NIL NIL |GcdDomain&| NIL
+                |OrderedRing&| NIL |Algebra&| NIL |DifferentialRing&| NIL
                 |EntireRing&| NIL |Module&| NIL NIL |Ring&| NIL NIL |Rng&| NIL
                 NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
                 |Monoid&| NIL NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| NIL
@@ -133,14 +133,13 @@
               '#((|IntegerNumberSystem|) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|FortranMachineTypeCategory|) (|OrderedIntegralDomain|)
-                 (|GcdDomain|) (|IntegralDomain|) (|LeftOreRing|)
-                 (|Algebra| $$) (|CharacteristicZero|)
-                 (|LinearlyExplicitRingOver| 5) (|DifferentialRing|)
-                 (|OrderedRing|) (|EntireRing|) (|CommutativeRing|)
-                 (|Module| $$) (|OrderedAbelianGroup|) (|BiModule| $$ $$)
-                 (|Ring|) (|OrderedCancellationAbelianMonoid|)
-                 (|LeftModule| $$) (|Rng|) (|RightModule| $$)
-                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|GcdDomain|) (|IntegralDomain|) (|OrderedRing|)
+                 (|LeftOreRing|) (|Algebra| $$) (|LinearlyExplicitRingOver| 5)
+                 (|DifferentialRing|) (|CharacteristicZero|) (|EntireRing|)
+                 (|CommutativeRing|) (|Module| $$) (|OrderedAbelianGroup|)
+                 (|BiModule| $$ $$) (|Ring|)
+                 (|OrderedCancellationAbelianMonoid|) (|LeftModule| $$) (|Rng|)
+                 (|RightModule| $$) (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|SemiRing|) (|OrderedSet|) (|AbelianMonoid|) (|Monoid|)
                  (|SemiRng|) (|StepThrough|) (|PatternMatchable| 5)

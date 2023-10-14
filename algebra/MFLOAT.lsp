@@ -543,8 +543,8 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| |DivisionRing&| NIL |Algebra&| NIL |Algebra&| NIL
-                |OrderedRing&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |OrderedRing&| |Algebra&| NIL
+                |Algebra&| NIL |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL
                 NIL NIL |OrderedSet&| |AbelianMonoid&| |Monoid&| NIL NIL NIL
                 |SemiGroup&| |AbelianSemiGroup&| NIL |SetCategory&|
@@ -556,13 +556,13 @@
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|FortranMachineTypeCategory|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|Algebra| 20) (|LeftOreRing|) (|Algebra| $$)
-                 (|CharacteristicZero|) (|OrderedRing|) (|Module| 20)
-                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
-                 (|OrderedAbelianGroup|) (|BiModule| 20 20) (|BiModule| $$ $$)
-                 (|Ring|) (|OrderedCancellationAbelianMonoid|)
-                 (|RightModule| 20) (|LeftModule| 20) (|LeftModule| $$) (|Rng|)
-                 (|RightModule| $$) (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|OrderedRing|) (|Algebra| 20) (|LeftOreRing|) (|Algebra| $$)
+                 (|CharacteristicZero|) (|Module| 20) (|CommutativeRing|)
+                 (|EntireRing|) (|Module| $$) (|OrderedAbelianGroup|)
+                 (|BiModule| 20 20) (|BiModule| $$ $$) (|Ring|)
+                 (|OrderedCancellationAbelianMonoid|) (|RightModule| 20)
+                 (|LeftModule| 20) (|LeftModule| $$) (|Rng|) (|RightModule| $$)
+                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
                  (|SemiRing|) (|OrderedSet|) (|AbelianMonoid|) (|Monoid|)
                  (|SemiRng|) (|PatternMatchable| 18) (|Comparable|)

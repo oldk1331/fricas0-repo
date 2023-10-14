@@ -80,17 +80,19 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(0 0 1 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 1 0 0 1
-                                  0 0 0 0 1))
+                                '(0 1 0 1 0 0 1 0 0 0 0 1 0 1 0 0 1 0 0 0 1 0 0
+                                  1 0 0 0 0 1))
             (CONS
-             '#(|Algebra&| |Module&| |OrderedRing&| |Ring&| NIL NIL |Rng&| NIL
-                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL |AbelianMonoid&|
-                |Monoid&| NIL |OrderedSet&| |SemiGroup&| |AbelianSemiGroup&|
-                NIL |SetCategory&| NIL |BasicType&| NIL |PartialOrder&|)
+             '#(|Algebra&| |OrderedRing&| |Module&| NIL |Ring&| NIL NIL |Rng&|
+                NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                |AbelianMonoid&| |Monoid&| NIL |OrderedSet&| |SemiGroup&|
+                |AbelianSemiGroup&| NIL |SetCategory&| NIL |BasicType&| NIL
+                |PartialOrder&|)
              (CONS
-              '#((|Algebra| 7) (|Module| 7) (|OrderedRing|) (|Ring|)
-                 (|BiModule| 7 7) (|OrderedAbelianGroup|) (|Rng|)
-                 (|RightModule| 7) (|LeftModule| 7) (|LeftModule| $$)
+              '#((|Algebra| 7) (|OrderedRing|) (|Module| 7)
+                 (|CharacteristicZero|) (|Ring|) (|BiModule| 7 7)
+                 (|OrderedAbelianGroup|) (|Rng|) (|RightModule| 7)
+                 (|LeftModule| 7) (|LeftModule| $$)
                  (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
                  (|SemiRing|) (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)

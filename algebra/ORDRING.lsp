@@ -14,7 +14,8 @@
     (RETURN
      (PROG1
          (LETT #1#
-               (|Join| (|OrderedAbelianGroup|) (|Ring|) (|Monoid|)
+               (|Join| (|OrderedAbelianGroup|) (|Ring|) (|CharacteristicZero|)
+                       (|Monoid|)
                        (|mkCategory|
                         '(((|positive?| ((|Boolean|) $)) T)
                           ((|negative?| ((|Boolean|) $)) T)

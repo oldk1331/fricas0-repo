@@ -326,10 +326,10 @@
 
 (DECLAIM (NOTINLINE |SparseUnivariateLaurentSeries;|)) 
 
-(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G275)
+(DEFUN |SparseUnivariateLaurentSeries| (&REST #1=#:G276)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G276)
+     (PROG (#2=#:G277)
        (RETURN
         (COND
          ((LETT #2#
@@ -349,15 +349,16 @@
                     '|SparseUnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |SparseUnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G274 |pv$| #2=#:G265 #3=#:G266 #4=#:G268 #5=#:G269 #6=#:G270
-         #7=#:G271 #8=#:G273 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G275 |pv$| #2=#:G265 #3=#:G266 #4=#:G268 #5=#:G269 #6=#:G270
+         #7=#:G271 #8=#:G273 #9=#:G274 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #9=(|SparseUnivariateLaurentSeries|))
-      (LETT DV$2 (|devaluate| |#2|) . #9#)
-      (LETT DV$3 (|devaluate| |#3|) . #9#)
-      (LETT |dv$| (LIST '|SparseUnivariateLaurentSeries| DV$1 DV$2 DV$3) . #9#)
-      (LETT $ (GETREFV 196) . #9#)
+      (LETT DV$1 (|devaluate| |#1|) . #10=(|SparseUnivariateLaurentSeries|))
+      (LETT DV$2 (|devaluate| |#2|) . #10#)
+      (LETT DV$3 (|devaluate| |#3|) . #10#)
+      (LETT |dv$| (LIST '|SparseUnivariateLaurentSeries| DV$1 DV$2 DV$3)
+            . #10#)
+      (LETT $ (GETREFV 196) . #10#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -371,14 +372,6 @@
                                                 (|SparseUnivariateTaylorSeries|
                                                  |#1| |#2| |#3|)
                                                 '(|RetractableTo| (|Symbol|))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|SparseUnivariateTaylorSeries|
-                                                  |#1| |#2| |#3|)
-                                                 '(|CharacteristicZero|))))
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                (|HasCategory|
                                                 (|SparseUnivariateTaylorSeries|
@@ -390,11 +383,24 @@
                                                 (|SparseUnivariateTaylorSeries|
                                                  |#1| |#2| |#3|)
                                                 '(|RealConstant|)))
-                                          (AND (|HasCategory| |#1| '(|Field|))
-                                               (|HasCategory|
-                                                (|SparseUnivariateTaylorSeries|
-                                                 |#1| |#2| |#3|)
-                                                '(|OrderedIntegralDomain|)))
+                                          (LETT #9#
+                                                (AND
+                                                 (|HasCategory| |#1|
+                                                                '(|Field|))
+                                                 (|HasCategory|
+                                                  (|SparseUnivariateTaylorSeries|
+                                                   |#1| |#2| |#3|)
+                                                  '(|OrderedIntegralDomain|)))
+                                                . #10#)
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|CharacteristicZero|))
+                                           (AND (|HasCategory| |#1| '(|Field|))
+                                                (|HasCategory|
+                                                 (|SparseUnivariateTaylorSeries|
+                                                  |#1| |#2| |#3|)
+                                                 '(|CharacteristicZero|)))
+                                           #9#)
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                (|HasCategory|
                                                 (|SparseUnivariateTaylorSeries|
@@ -475,7 +481,7 @@
                                           (LETT #8#
                                                 (|HasCategory| |#1|
                                                                '(|CommutativeRing|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #8#
                                               (|HasCategory| |#1| '(|Field|)))
                                           (|HasSignature| |#1|
@@ -504,7 +510,7 @@
                                           (LETT #7#
                                                 (|HasCategory| |#1|
                                                                '(|IntegralDomain|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #8#
                                               (|HasCategory| |#1| '(|Field|))
                                               #7#)
@@ -523,26 +529,15 @@
                                                   (|SparseUnivariateTaylorSeries|
                                                    |#1| |#2| |#3|)
                                                   '(|OrderedSet|)))
-                                                . #9#)
-                                          (OR
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|SparseUnivariateTaylorSeries|
-                                                  |#1| |#2| |#3|)
-                                                 '(|OrderedIntegralDomain|)))
-                                           #6#)
+                                                . #10#)
+                                          (OR #9# #6#)
                                           (OR
                                            (AND (|HasCategory| |#1| '(|Field|))
                                                 (|HasCategory|
                                                  (|SparseUnivariateTaylorSeries|
                                                   |#1| |#2| |#3|)
                                                  '(|Comparable|)))
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|SparseUnivariateTaylorSeries|
-                                                  |#1| |#2| |#3|)
-                                                 '(|OrderedIntegralDomain|)))
-                                           #6#)
+                                           #9# #6#)
                                           (|HasCategory| |#1|
                                                          '(|CharacteristicNonZero|))
                                           (LETT #5#
@@ -550,7 +545,7 @@
                                                  (|SparseUnivariateTaylorSeries|
                                                   |#1| |#2| |#3|)
                                                  '(|PolynomialFactorizationExplicit|))
-                                                . #9#)
+                                                . #10#)
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                #5#)
                                           (LETT #4#
@@ -558,7 +553,7 @@
                                                  (|SparseUnivariateTaylorSeries|
                                                   |#1| |#2| |#3|)
                                                  '(|CharacteristicNonZero|))
-                                                . #9#)
+                                                . #10#)
                                           (OR
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicNonZero|))
@@ -628,7 +623,7 @@
                                                                    |#1|)))))
                                           (LETT #3#
                                                 (|HasCategory| |#1| '(|Ring|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #3#
                                               (|HasSignature| |#1|
                                                               (LIST '*
@@ -649,7 +644,7 @@
                                                                '(|Algebra|
                                                                  (|Fraction|
                                                                   (|Integer|))))
-                                                . #9#)
+                                                . #10#)
                                           (OR #2# #8#
                                               (|HasCategory| |#1| '(|Field|))
                                               #7# #3#
@@ -762,13 +757,7 @@
                                                 (|SparseUnivariateTaylorSeries|
                                                  |#1| |#2| |#3|)
                                                 '(|Comparable|)))
-                                              (AND
-                                               (|HasCategory| |#1| '(|Field|))
-                                               (|HasCategory|
-                                                (|SparseUnivariateTaylorSeries|
-                                                 |#1| |#2| |#3|)
-                                                '(|OrderedIntegralDomain|)))
-                                              #6#
+                                              #9# #6#
                                               (AND
                                                (|HasCategory| |#1| '(|Field|))
                                                #5#)
@@ -887,7 +876,7 @@
                                                                     (|Symbol|))
                                                                   (|devaluate|
                                                                    |#1|))))))))
-                      . #9#))
+                      . #10#))
       (|haddProp| |$ConstructorCache| '|SparseUnivariateLaurentSeries|
                   (LIST DV$1 DV$2 DV$3) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -903,7 +892,7 @@
                   (|HasCategory|
                    (|SparseUnivariateTaylorSeries| |#1| |#2| |#3|)
                    '(|PolynomialFactorizationExplicit|)))
-             . #9#)
+             . #10#)
        (|augmentPredVector| $ 18014398509481984))
       (AND
        (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#
@@ -1122,12 +1111,12 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 52
-                                '(0 0 2 2 0 2 31 0 2 2 0 2 7 2 24 19 24 2 48 2
-                                  2 2 19 24 24 48 33 4 23 7 2 39 40 2 13 0 23
-                                  48 7 2 52 0 0 23 47 48 48 7 2 2 52 7 51 38 7
-                                  50 0 38 27 49 2 0 0 28 9 2 16 17 0 48 6 11 2
-                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 5
-                                  6 6 27 8 8 10 11 12 14 15 2))
+                                '(0 0 2 2 0 2 31 0 2 2 0 2 6 2 24 19 24 2 48 6
+                                  2 2 2 19 24 24 48 33 7 23 2 39 40 2 13 0 23
+                                  48 6 2 52 0 0 23 47 48 48 6 2 2 52 6 51 38 6
+                                  50 0 38 27 49 2 0 0 28 9 2 16 17 0 48 5 11 2
+                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 4
+                                  5 5 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&| NIL
                 |QuotientFieldCategory&| |Field&|
@@ -1135,9 +1124,9 @@
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
-                |Algebra&| |DifferentialExtension&|
+                |OrderedRing&| |Algebra&| |DifferentialExtension&|
                 |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
-                |EntireRing&| |Module&| NIL NIL NIL |OrderedRing&| |Module&|
+                |EntireRing&| |Module&| NIL NIL NIL |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |Rng&|
                 NIL |AbelianGroup&| NIL NIL NIL NIL |Monoid&| |OrderedSet&|
@@ -1164,7 +1153,7 @@
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 17)
                  (|GcdDomain|) (|OrderedIntegralDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|Algebra| 6) (|Algebra| $$)
-                 (|LeftOreRing|) (|Algebra| 126)
+                 (|LeftOreRing|) (|Algebra| 126) (|OrderedRing|)
                  (|Algebra| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|DifferentialExtension|
                   (|SparseUnivariateTaylorSeries| 6 7 8))
@@ -1172,7 +1161,7 @@
                   (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|Module| 6) (|Module| $$) (|EntireRing|) (|Module| 126)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|CommutativeRing|) (|OrderedRing|)
+                 (|CommutativeRing|)
                  (|Module| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 10) (|DifferentialRing|)
                  (|LinearlyExplicitRingOver|
@@ -1255,7 +1244,7 @@
                                     0 30 1 46 0 0 107 1 46 0 0 83 2 61 46 0 0 1
                                     1 31 167 166 1 1 2 0 0 1 1 2 185 0 1 1 46 0
                                     0 1 2 31 164 165 166 1 2 25 13 0 0 1 2 2 13
-                                    0 0 1 1 46 0 0 103 1 46 0 0 79 1 7 17 0 1 1
+                                    0 0 1 1 46 0 0 103 1 46 0 0 79 1 6 17 0 1 1
                                     0 0 135 1 1 46 0 0 111 1 46 0 0 87 0 62 0 1
                                     1 8 170 0 1 1 8 143 0 1 1 3 171 0 1 1 0 28
                                     0 31 1 8 126 0 1 1 8 17 0 1 1 3 10 0 1 1 0
@@ -1264,11 +1253,11 @@
                                     1 1 2 175 151 1 2 2 176 151 161 1 1 58 46 0
                                     48 2 22 55 0 17 65 3 22 55 0 17 17 67 0 34
                                     0 1 2 2 0 0 0 1 1 2 179 178 1 1 2 13 0 1 1
-                                    7 13 0 1 1 0 13 0 25 0 46 0 1 3 16 162 0
+                                    6 13 0 1 1 0 13 0 25 0 46 0 1 3 16 162 0
                                     153 162 1 3 17 163 0 154 163 1 2 0 17 0 17
                                     24 1 0 17 0 1 2 62 13 0 0 1 1 58 13 0 1 1 2
                                     0 0 1 1 2 26 0 38 2 46 0 0 17 1 1 9 46 0 1
-                                    1 7 13 0 1 2 0 0 0 188 1 2 0 0 187 0 1 2 2
+                                    1 6 13 0 1 2 0 0 0 188 1 2 0 0 187 0 1 2 2
                                     180 178 0 1 1 0 13 0 1 3 0 0 0 189 190 1 3
                                     0 0 0 191 17 1 2 0 0 6 17 18 2 26 0 0 0 1 2
                                     26 0 0 0 1 2 2 0 174 0 1 2 0 0 192 0 1 1 46
@@ -1290,8 +1279,8 @@
                                     2 0 0 174 39 1 2 2 0 0 174 1 2 0 0 0 22 51
                                     1 2 0 0 1 1 2 26 0 41 1 0 17 0 37 1 46 0 0
                                     113 1 46 0 0 89 1 46 0 0 109 1 46 0 0 85 1
-                                    46 0 0 105 1 46 0 0 81 1 5 152 0 1 1 14 153
-                                    0 1 1 15 154 0 1 1 6 168 0 1 1 6 169 0 1 1
+                                    46 0 0 105 1 46 0 0 81 1 4 152 0 1 1 14 153
+                                    0 1 1 15 154 0 1 1 5 168 0 1 1 5 169 0 1 1
                                     55 150 151 1 1 0 0 0 1 1 54 0 6 1 1 3 0 10
                                     1 1 59 0 17 1 1 57 0 0 1 1 46 0 126 1 1 0 0
                                     22 23 1 0 0 26 27 1 0 147 0 149 2 0 6 0 17
@@ -1300,7 +1289,7 @@
                                     1 46 0 0 115 1 46 0 0 91 1 46 0 0 123 1 46
                                     0 0 99 2 21 6 0 17 1 2 59 13 0 0 1 1 46 0 0
                                     125 1 46 0 0 101 1 46 0 0 121 1 46 0 0 97 1
-                                    46 0 0 117 1 46 0 0 93 1 7 0 0 1 2 58 0 0
+                                    46 0 0 117 1 46 0 0 93 1 6 0 0 1 2 58 0 0
                                     39 53 2 46 0 0 126 128 2 46 0 0 0 74 2 2 0
                                     0 17 1 2 0 0 0 188 1 0 62 0 20 0 58 0 16 1
                                     40 0 0 1 2 40 0 0 39 1 2 39 0 0 158 1 2 39

@@ -19,10 +19,10 @@
 
 (DECLAIM (NOTINLINE |UnivariateLaurentSeries;|)) 
 
-(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G160)
+(DEFUN |UnivariateLaurentSeries| (&REST #1=#:G161)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G161)
+     (PROG (#2=#:G162)
        (RETURN
         (COND
          ((LETT #2#
@@ -41,15 +41,15 @@
               (HREM |$ConstructorCache| '|UnivariateLaurentSeries|))))))))))) 
 
 (DEFUN |UnivariateLaurentSeries;| (|#1| |#2| |#3|)
-  (PROG (#1=#:G159 |pv$| #2=#:G150 #3=#:G151 #4=#:G153 #5=#:G154 #6=#:G155
-         #7=#:G156 #8=#:G158 $ |dv$| DV$3 DV$2 DV$1)
+  (PROG (#1=#:G160 |pv$| #2=#:G150 #3=#:G151 #4=#:G153 #5=#:G154 #6=#:G155
+         #7=#:G156 #8=#:G158 #9=#:G159 $ |dv$| DV$3 DV$2 DV$1)
     (RETURN
      (PROGN
-      (LETT DV$1 (|devaluate| |#1|) . #9=(|UnivariateLaurentSeries|))
-      (LETT DV$2 (|devaluate| |#2|) . #9#)
-      (LETT DV$3 (|devaluate| |#3|) . #9#)
-      (LETT |dv$| (LIST '|UnivariateLaurentSeries| DV$1 DV$2 DV$3) . #9#)
-      (LETT $ (GETREFV 83) . #9#)
+      (LETT DV$1 (|devaluate| |#1|) . #10=(|UnivariateLaurentSeries|))
+      (LETT DV$2 (|devaluate| |#2|) . #10#)
+      (LETT DV$3 (|devaluate| |#3|) . #10#)
+      (LETT |dv$| (LIST '|UnivariateLaurentSeries| DV$1 DV$2 DV$3) . #10#)
+      (LETT $ (GETREFV 83) . #10#)
       (QSETREFV $ 0 |dv$|)
       (QSETREFV $ 3
                 (LETT |pv$|
@@ -64,15 +64,6 @@
                                                                           |#2|
                                                                           |#3|)
                                                 '(|RetractableTo| (|Symbol|))))
-                                          (OR
-                                           (|HasCategory| |#1|
-                                                          '(|CharacteristicZero|))
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|UnivariateTaylorSeries| |#1|
-                                                                           |#2|
-                                                                           |#3|)
-                                                 '(|CharacteristicZero|))))
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                (|HasCategory|
                                                 (|UnivariateTaylorSeries| |#1|
@@ -86,12 +77,25 @@
                                                                           |#2|
                                                                           |#3|)
                                                 '(|RealConstant|)))
-                                          (AND (|HasCategory| |#1| '(|Field|))
-                                               (|HasCategory|
-                                                (|UnivariateTaylorSeries| |#1|
-                                                                          |#2|
-                                                                          |#3|)
-                                                '(|OrderedIntegralDomain|)))
+                                          (LETT #9#
+                                                (AND
+                                                 (|HasCategory| |#1|
+                                                                '(|Field|))
+                                                 (|HasCategory|
+                                                  (|UnivariateTaylorSeries|
+                                                   |#1| |#2| |#3|)
+                                                  '(|OrderedIntegralDomain|)))
+                                                . #10#)
+                                          (OR
+                                           (|HasCategory| |#1|
+                                                          '(|CharacteristicZero|))
+                                           (AND (|HasCategory| |#1| '(|Field|))
+                                                (|HasCategory|
+                                                 (|UnivariateTaylorSeries| |#1|
+                                                                           |#2|
+                                                                           |#3|)
+                                                 '(|CharacteristicZero|)))
+                                           #9#)
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                (|HasCategory|
                                                 (|UnivariateTaylorSeries| |#1|
@@ -182,7 +186,7 @@
                                           (LETT #8#
                                                 (|HasCategory| |#1|
                                                                '(|CommutativeRing|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #8#
                                               (|HasCategory| |#1| '(|Field|)))
                                           (|HasSignature| |#1|
@@ -211,7 +215,7 @@
                                           (LETT #7#
                                                 (|HasCategory| |#1|
                                                                '(|IntegralDomain|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #8#
                                               (|HasCategory| |#1| '(|Field|))
                                               #7#)
@@ -231,15 +235,8 @@
                                                   (|UnivariateTaylorSeries|
                                                    |#1| |#2| |#3|)
                                                   '(|OrderedSet|)))
-                                                . #9#)
-                                          (OR
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|UnivariateTaylorSeries| |#1|
-                                                                           |#2|
-                                                                           |#3|)
-                                                 '(|OrderedIntegralDomain|)))
-                                           #6#)
+                                                . #10#)
+                                          (OR #9# #6#)
                                           (OR
                                            (AND (|HasCategory| |#1| '(|Field|))
                                                 (|HasCategory|
@@ -247,13 +244,7 @@
                                                                            |#2|
                                                                            |#3|)
                                                  '(|Comparable|)))
-                                           (AND (|HasCategory| |#1| '(|Field|))
-                                                (|HasCategory|
-                                                 (|UnivariateTaylorSeries| |#1|
-                                                                           |#2|
-                                                                           |#3|)
-                                                 '(|OrderedIntegralDomain|)))
-                                           #6#)
+                                           #9# #6#)
                                           (|HasCategory| |#1|
                                                          '(|CharacteristicNonZero|))
                                           (LETT #5#
@@ -262,7 +253,7 @@
                                                                            |#2|
                                                                            |#3|)
                                                  '(|PolynomialFactorizationExplicit|))
-                                                . #9#)
+                                                . #10#)
                                           (AND (|HasCategory| |#1| '(|Field|))
                                                #5#)
                                           (LETT #4#
@@ -271,7 +262,7 @@
                                                                            |#2|
                                                                            |#3|)
                                                  '(|CharacteristicNonZero|))
-                                                . #9#)
+                                                . #10#)
                                           (OR
                                            (|HasCategory| |#1|
                                                           '(|CharacteristicNonZero|))
@@ -345,7 +336,7 @@
                                                                    |#1|)))))
                                           (LETT #3#
                                                 (|HasCategory| |#1| '(|Ring|))
-                                                . #9#)
+                                                . #10#)
                                           (OR #3#
                                               (|HasSignature| |#1|
                                                               (LIST '*
@@ -366,7 +357,7 @@
                                                                '(|Algebra|
                                                                  (|Fraction|
                                                                   (|Integer|))))
-                                                . #9#)
+                                                . #10#)
                                           (OR #2# #8#
                                               (|HasCategory| |#1| '(|Field|))
                                               #7# #3#
@@ -491,14 +482,7 @@
                                                                           |#2|
                                                                           |#3|)
                                                 '(|Comparable|)))
-                                              (AND
-                                               (|HasCategory| |#1| '(|Field|))
-                                               (|HasCategory|
-                                                (|UnivariateTaylorSeries| |#1|
-                                                                          |#2|
-                                                                          |#3|)
-                                                '(|OrderedIntegralDomain|)))
-                                              #6#
+                                              #9# #6#
                                               (AND
                                                (|HasCategory| |#1| '(|Field|))
                                                #5#)
@@ -619,7 +603,7 @@
                                                                     (|Symbol|))
                                                                   (|devaluate|
                                                                    |#1|))))))))
-                      . #9#))
+                      . #10#))
       (|haddProp| |$ConstructorCache| '|UnivariateLaurentSeries|
                   (LIST DV$1 DV$2 DV$3) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -634,7 +618,7 @@
                   (|HasCategory| $ '(|CharacteristicNonZero|))
                   (|HasCategory| (|UnivariateTaylorSeries| |#1| |#2| |#3|)
                                  '(|PolynomialFactorizationExplicit|)))
-             . #9#)
+             . #10#)
        (|augmentPredVector| $ 18014398509481984))
       (AND
        (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#
@@ -732,12 +716,12 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 52
-                                '(0 0 2 2 0 2 31 0 2 2 0 2 7 2 24 19 24 2 48 2
-                                  2 2 19 24 24 48 33 4 23 7 2 39 40 2 13 0 23
-                                  48 7 2 52 0 0 23 47 48 48 7 2 2 52 7 51 38 7
-                                  50 0 38 27 49 2 0 0 28 9 2 16 17 0 48 6 11 2
-                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 5
-                                  6 6 27 8 8 10 11 12 14 15 2))
+                                '(0 0 2 2 0 2 31 0 2 2 0 2 6 2 24 19 24 2 48 6
+                                  2 2 2 19 24 24 48 33 7 23 2 39 40 2 13 0 23
+                                  48 6 2 52 0 0 23 47 48 48 6 2 2 52 6 51 38 6
+                                  50 0 38 27 49 2 0 0 28 9 2 16 17 0 48 5 11 2
+                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 4
+                                  5 5 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&| NIL
                 |QuotientFieldCategory&| |Field&|
@@ -745,9 +729,9 @@
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
-                |Algebra&| |DifferentialExtension&|
+                |OrderedRing&| |Algebra&| |DifferentialExtension&|
                 |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
-                |EntireRing&| |Module&| NIL NIL NIL |OrderedRing&| |Module&|
+                |EntireRing&| |Module&| NIL NIL NIL |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |Rng&|
                 NIL |AbelianGroup&| NIL NIL NIL NIL |Monoid&| |OrderedSet&|
@@ -773,14 +757,14 @@
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 16)
                  (|GcdDomain|) (|OrderedIntegralDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|Algebra| 6) (|Algebra| $$)
-                 (|LeftOreRing|) (|Algebra| 50)
+                 (|LeftOreRing|) (|Algebra| 50) (|OrderedRing|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
                  (|FullyLinearlyExplicitRingOver|
                   (|UnivariateTaylorSeries| 6 7 8))
                  (|Module| 6) (|Module| $$) (|EntireRing|) (|Module| 50)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|CommutativeRing|) (|OrderedRing|)
+                 (|CommutativeRing|)
                  (|Module| (|UnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 9) (|DifferentialRing|)
                  (|LinearlyExplicitRingOver| (|UnivariateTaylorSeries| 6 7 8))

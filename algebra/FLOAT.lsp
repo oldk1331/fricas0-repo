@@ -2611,13 +2611,13 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |Algebra&| NIL |Algebra&|
-                |DifferentialRing&| NIL |OrderedRing&| |Module&| NIL
-                |EntireRing&| |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
-                |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
-                |AbelianMonoid&| |Monoid&| NIL NIL NIL |SemiGroup&|
-                |AbelianSemiGroup&| |TranscendentalFunctionCategory&| NIL
-                |SetCategory&| NIL NIL NIL |ElementaryFunctionCategory&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |OrderedRing&| |Algebra&| NIL
+                |Algebra&| |DifferentialRing&| NIL |Module&| NIL |EntireRing&|
+                |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL
+                |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
+                |Monoid&| NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&|
+                |TranscendentalFunctionCategory&| NIL |SetCategory&| NIL NIL
+                NIL |ElementaryFunctionCategory&| NIL
                 |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL NIL NIL NIL
@@ -2627,9 +2627,9 @@
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|Algebra| 129) (|LeftOreRing|)
-                 (|Algebra| $$) (|DifferentialRing|) (|CharacteristicZero|)
-                 (|OrderedRing|) (|Module| 129) (|CommutativeRing|)
+                 (|IntegralDomain|) (|OrderedRing|) (|Algebra| 129)
+                 (|LeftOreRing|) (|Algebra| $$) (|DifferentialRing|)
+                 (|CharacteristicZero|) (|Module| 129) (|CommutativeRing|)
                  (|EntireRing|) (|Module| $$) (|OrderedAbelianGroup|)
                  (|BiModule| 129 129) (|BiModule| $$ $$) (|Ring|)
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 129)

@@ -1214,8 +1214,8 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 32
-                                '(0 0 0 1 0 0 0 6 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3
-                                  4 6 13 14 24 0 0 0 0 6 0 0 0 0 0 0 0 6 0 6 0
+                                '(0 0 0 1 0 0 0 6 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0
+                                  3 4 13 14 24 0 0 0 0 6 0 0 0 0 0 0 0 6 0 6 0
                                   0 6 0 0 0 0 8 0 0 0 30 9 16 26 0 0 5 11 0 0 0
                                   0 0 0 0 0 0 2 28 5 5 7 32 32 10 11 12 15 25
                                   17 23))
@@ -1224,8 +1224,8 @@
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
                 NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
-                |Algebra&| |Algebra&| NIL |Algebra&| NIL |Module&| |Module&|
-                NIL |EntireRing&| |Module&| NIL NIL |OrderedRing&|
+                |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
+                |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&|
                 NIL NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL
@@ -1242,22 +1242,22 @@
                  (|OrderedIntegralDomain|) (|DivisionRing|) (|IntegralDomain|)
                  (|FullyLinearlyExplicitRingOver| 6)
                  (|DifferentialExtension| 6) (|Algebra| 6) (|Algebra| 65)
-                 (|LeftOreRing|) (|Algebra| $$) (|LinearlyExplicitRingOver| 6)
-                 (|Module| 6) (|Module| 65) (|CommutativeRing|) (|EntireRing|)
-                 (|Module| $$) (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|OrderedRing|) (|PartialDifferentialRing| 140)
-                 (|DifferentialRing|) (|LinearlyExplicitRingOver| 58)
-                 (|BiModule| 6 6) (|BiModule| 65 65) (|BiModule| $$ $$)
-                 (|Ring|) (|OrderedAbelianGroup|) (|RightModule| 6)
-                 (|LeftModule| 6) (|RightModule| 65) (|LeftModule| 65)
-                 (|LeftModule| $$) (|Rng|) (|RightModule| $$)
-                 (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
-                 (|SemiRing|) (|OrderedAbelianSemiGroup|)
-                 (|FullyPatternMatchable| 6) (|AbelianMonoid|) (|Monoid|)
-                 (|SemiRng|) (|OrderedSet|) (|FullyEvalableOver| 6)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|Comparable|)
-                 (|StepThrough|) (|PatternMatchable| 150)
+                 (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
+                 (|LinearlyExplicitRingOver| 6) (|Module| 6) (|Module| 65)
+                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|PartialDifferentialRing| 140) (|DifferentialRing|)
+                 (|LinearlyExplicitRingOver| 58) (|BiModule| 6 6)
+                 (|BiModule| 65 65) (|BiModule| $$ $$) (|Ring|)
+                 (|OrderedAbelianGroup|) (|RightModule| 6) (|LeftModule| 6)
+                 (|RightModule| 65) (|LeftModule| 65) (|LeftModule| $$) (|Rng|)
+                 (|RightModule| $$) (|OrderedCancellationAbelianMonoid|)
+                 (|AbelianGroup|) (|OrderedAbelianMonoid|)
+                 (|CancellationAbelianMonoid|) (|SemiRing|)
+                 (|OrderedAbelianSemiGroup|) (|FullyPatternMatchable| 6)
+                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|OrderedSet|)
+                 (|FullyEvalableOver| 6) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|Comparable|) (|StepThrough|) (|PatternMatchable| 150)
                  (|PatternMatchable| 58) (|Patternable| 6) (|SetCategory|)
                  (|RealConstant|) (|Evalable| 6) (|Type|) (|RetractableTo| 6)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)

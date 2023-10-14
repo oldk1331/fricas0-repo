@@ -833,14 +833,13 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |Algebra&| NIL |Algebra&|
-                |DifferentialRing&| NIL |OrderedRing&| |Module&| NIL
-                |EntireRing&| |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
-                |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
-                |AbelianMonoid&| |Monoid&| NIL NIL NIL |SemiGroup&|
-                |AbelianSemiGroup&| |TranscendentalFunctionCategory&| NIL
-                |SetCategory&| NIL NIL |ElementaryFunctionCategory&| NIL
-                |HyperbolicFunctionCategory&|
+                |GcdDomain&| |DivisionRing&| NIL |OrderedRing&| |Algebra&| NIL
+                |Algebra&| |DifferentialRing&| NIL |Module&| NIL |EntireRing&|
+                |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL
+                |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
+                |Monoid&| NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&|
+                |TranscendentalFunctionCategory&| NIL |SetCategory&| NIL NIL
+                |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |TrigonometricFunctionCategory&| NIL NIL NIL |RadicalCategory&|
                 |RetractableTo&| |RetractableTo&| NIL NIL |PartialOrder&| NIL
@@ -849,9 +848,9 @@
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|Algebra| 158) (|LeftOreRing|)
-                 (|Algebra| $$) (|DifferentialRing|) (|CharacteristicZero|)
-                 (|OrderedRing|) (|Module| 158) (|CommutativeRing|)
+                 (|IntegralDomain|) (|OrderedRing|) (|Algebra| 158)
+                 (|LeftOreRing|) (|Algebra| $$) (|DifferentialRing|)
+                 (|CharacteristicZero|) (|Module| 158) (|CommutativeRing|)
                  (|EntireRing|) (|Module| $$) (|OrderedAbelianGroup|)
                  (|BiModule| 158 158) (|BiModule| $$ $$) (|Ring|)
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 158)

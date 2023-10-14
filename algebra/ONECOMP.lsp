@@ -221,19 +221,20 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 5
-                                '(3 3 3 3 3 3 3 5 3 3 5 3 3 3 5 3 3 5 0 0 0 0 0
-                                  1 2 3 3))
+                                '(3 3 3 3 3 3 3 3 5 3 3 5 3 3 3 5 3 3 5 0 0 0 0
+                                  0 1 2 3 3))
             (CONS
-             '#(|OrderedRing&| NIL |Ring&| NIL |Rng&| NIL NIL |AbelianGroup&|
-                NIL NIL NIL |OrderedSet&| NIL |Monoid&| |AbelianMonoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&|
-                |FullyRetractableTo&| |BasicType&| |RetractableTo&| NIL
-                |RetractableTo&| |RetractableTo&| |PartialOrder&| NIL)
+             '#(|OrderedRing&| NIL NIL |Ring&| NIL NIL |Rng&| NIL
+                |AbelianGroup&| NIL NIL NIL |OrderedSet&| NIL |Monoid&|
+                |AbelianMonoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
+                |SetCategory&| |FullyRetractableTo&| |BasicType&|
+                |RetractableTo&| NIL |RetractableTo&| |RetractableTo&|
+                |PartialOrder&| NIL)
              (CONS
-              '#((|OrderedRing|) (|OrderedAbelianGroup|) (|Ring|)
-                 (|OrderedCancellationAbelianMonoid|) (|Rng|) (|LeftModule| $$)
-                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianSemiGroup|) (|SemiRing|)
+              '#((|OrderedRing|) (|CharacteristicZero|) (|OrderedAbelianGroup|)
+                 (|Ring|) (|OrderedCancellationAbelianMonoid|)
+                 (|LeftModule| $$) (|Rng|) (|OrderedAbelianMonoid|)
+                 (|AbelianGroup|) (|OrderedAbelianSemiGroup|) (|SemiRing|)
                  (|CancellationAbelianMonoid|) (|OrderedSet|) (|SemiRng|)
                  (|Monoid|) (|AbelianMonoid|) (|Comparable|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|FullyRetractableTo| 6)

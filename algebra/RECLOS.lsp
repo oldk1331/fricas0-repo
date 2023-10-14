@@ -608,9 +608,9 @@
             (CONS
              '#(|RealClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
-                NIL |Algebra&| |Algebra&| |Algebra&| NIL |Algebra&| NIL
-                |Module&| |Module&| |Module&| |EntireRing&| |Module&| NIL
-                |OrderedRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
+                NIL |Algebra&| |Algebra&| |Algebra&| NIL |Algebra&|
+                |OrderedRing&| NIL |Module&| |Module&| |Module&| |EntireRing&|
+                |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
                 NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
                 |AbelianMonoid&| |OrderedSet&| |Monoid&| NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |FullyRetractableTo&| |FullyRetractableTo&|
@@ -622,9 +622,9 @@
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
                  (|Algebra| 6) (|Algebra| 64) (|Algebra| 13) (|LeftOreRing|)
-                 (|Algebra| $$) (|CharacteristicZero|) (|Module| 6)
-                 (|Module| 64) (|Module| 13) (|EntireRing|) (|Module| $$)
-                 (|CommutativeRing|) (|OrderedRing|) (|BiModule| 6 6)
+                 (|Algebra| $$) (|OrderedRing|) (|CharacteristicZero|)
+                 (|Module| 6) (|Module| 64) (|Module| 13) (|EntireRing|)
+                 (|Module| $$) (|CommutativeRing|) (|BiModule| 6 6)
                  (|BiModule| 64 64) (|BiModule| 13 13) (|BiModule| $$ $$)
                  (|Ring|) (|OrderedAbelianGroup|) (|RightModule| 6)
                  (|LeftModule| 6) (|RightModule| 64) (|LeftModule| 64)

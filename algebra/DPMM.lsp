@@ -147,7 +147,7 @@
                                                 (|HasCategory| |#4|
                                                                '(|PartialDifferentialRing|
                                                                  (|Symbol|)))
-                                                #4# #3#
+                                                #4# #3# #5#
                                                 (|HasCategory| |#4| '(|Ring|)))
                                                (|HasCategory| |#4|
                                                               '(|SetCategory|))
@@ -164,7 +164,7 @@
                                                                  (|Symbol|)))
                                                 (|HasCategory| |#4|
                                                                '(|CancellationAbelianMonoid|))
-                                                #4# #3#
+                                                #4# #3# #5#
                                                 (|HasCategory| |#4| '(|Ring|)))
                                                (OR
                                                 (|HasCategory| |#2|
@@ -177,7 +177,7 @@
                                                 (|HasCategory| |#4|
                                                                '(|PartialDifferentialRing|
                                                                  (|Symbol|)))
-                                                #4# #3#
+                                                #4# #3# #5#
                                                 (|HasCategory| |#4| '(|Ring|)))
                                                (OR
                                                 (|HasCategory| |#2|
@@ -196,7 +196,7 @@
                                                                  (|Symbol|)))
                                                 (|HasCategory| |#4|
                                                                '(|CancellationAbelianMonoid|))
-                                                #4# #3#
+                                                #4# #3# #5#
                                                 (|HasCategory| |#4| '(|Ring|)))
                                                (|HasCategory| |#4|
                                                               '(|BasicType|))
@@ -570,35 +570,37 @@
            '#(|elt| 29 * 35) 'NIL
            (CONS
             (|makeByteWordVec2| 32
-                                '(0 1 8 2 2 10 4 8 2 13 14 15 9 3 4 8 16 0 0 9
-                                  2 5 11 8 16 5 19 5 2 18 0 5 2 6 20 0 0 5 6 12
-                                  0 0 0 23 17 0 0 0 0 0 0 23 5 7 8 12 17 32
+                                '(0 1 4 8 2 2 10 4 8 2 13 14 15 9 3 4 8 16 0 0
+                                  9 2 5 11 8 16 5 19 5 2 18 0 5 2 6 20 0 0 5 6
+                                  12 0 0 0 23 17 0 0 0 0 0 0 23 5 7 8 12 17 32
                                   29))
             (CONS
-             '#(|DirectProductCategory&| |VectorSpace&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
-                |Module&| |OrderedRing&| NIL NIL NIL |PartialDifferentialRing&|
-                |DifferentialRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL
-                |IndexedAggregate&| |OrderedSet&| NIL |Monoid&|
+             '#(|DirectProductCategory&| |VectorSpace&| |OrderedRing&|
+                |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |DifferentialExtension&| |Module&| NIL NIL NIL NIL
+                |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
+                |Ring&| NIL NIL NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&|
+                NIL NIL NIL |IndexedAggregate&| |OrderedSet&| NIL |Monoid&|
                 |AbelianMonoid&| |HomogeneousAggregate&| |AbelianSemiGroup&|
                 NIL |SemiGroup&| |Finite&| |Aggregate&| |SetCategory&|
                 |EltableAggregate&| |Evalable&| |FullyRetractableTo&| NIL NIL
                 |BasicType&| NIL NIL NIL |InnerEvalable&| |PartialOrder&| NIL
                 NIL NIL |RetractableTo&| |RetractableTo&| |RetractableTo&|)
              (CONS
-              '#((|DirectProductCategory| 6 9) (|VectorSpace| 9) (|Algebra| 9)
+              '#((|DirectProductCategory| 6 9) (|VectorSpace| 9)
+                 (|OrderedRing|) (|Algebra| 9)
                  (|FullyLinearlyExplicitRingOver| 9)
-                 (|DifferentialExtension| 9) (|Module| 9) (|OrderedRing|)
-                 (|CommutativeRing|) (|LinearlyExplicitRingOver| 9)
-                 (|LinearlyExplicitRingOver| 11) (|PartialDifferentialRing| 28)
-                 (|DifferentialRing|) (|BiModule| 9 9)
-                 (|OrderedAbelianMonoidSup|) (|OrderedAbelianGroup|)
-                 (|BiModule| $$ $$) (|Ring|) (|LeftModule| 8) (|LeftModule| 7)
-                 (|LeftModule| 9) (|RightModule| 9)
-                 (|OrderedCancellationAbelianMonoid|) (|LeftModule| $$)
-                 (|RightModule| $$) (|Rng|) (|OrderedAbelianMonoid|)
-                 (|AbelianGroup|) (|OrderedAbelianSemiGroup|) (|SemiRing|)
+                 (|DifferentialExtension| 9) (|Module| 9)
+                 (|CharacteristicZero|) (|CommutativeRing|)
+                 (|LinearlyExplicitRingOver| 9) (|LinearlyExplicitRingOver| 11)
+                 (|PartialDifferentialRing| 28) (|DifferentialRing|)
+                 (|BiModule| 9 9) (|OrderedAbelianMonoidSup|)
+                 (|OrderedAbelianGroup|) (|BiModule| $$ $$) (|Ring|)
+                 (|LeftModule| 8) (|LeftModule| 7) (|LeftModule| 9)
+                 (|RightModule| 9) (|OrderedCancellationAbelianMonoid|)
+                 (|LeftModule| $$) (|RightModule| $$) (|Rng|)
+                 (|OrderedAbelianMonoid|) (|AbelianGroup|)
+                 (|OrderedAbelianSemiGroup|) (|SemiRing|)
                  (|CancellationAbelianMonoid|) (|IndexedAggregate| 11 9)
                  (|OrderedSet|) (|SemiRng|) (|Monoid|) (|AbelianMonoid|)
                  (|HomogeneousAggregate| 9) (|AbelianSemiGroup|) (|Comparable|)
