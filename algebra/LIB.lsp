@@ -12,7 +12,7 @@
 
 (DEFUN |Library| ()
   (SPROG NIL
-         (PROG (#1=#:G156)
+         (PROG (#1=#:G158)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Library|) . #2=(|Library|))
@@ -28,8 +28,8 @@
 
 (DEFUN |Library;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G152 NIL) (#2=#:G151 NIL) (|pv$| NIL)
-    (#3=#:G153 NIL) (#4=#:G154 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G154 NIL) (#2=#:G153 NIL) (|pv$| NIL)
+    (#3=#:G155 NIL) (#4=#:G156 NIL))
    (PROGN
     (LETT |dv$| '(|Library|) . #5=(|Library|))
     (LETT $ (GETREFV 41) . #5#)
@@ -151,8 +151,8 @@
               295 |first| 300 |find| 305 |fill!| 311 |extract!| 317 |every?|
               322 |eval| 334 |eq?| 386 |entry?| 392 |entries| 398 |empty?| 403
               |empty| 408 |elt| 412 |dictionary| 431 |count| 440 |copy| 464
-              |convert| 469 |construct| 474 |coerce| 479 |close!| 484 |bag| 489
-              |any?| 494 = 506 |#| 512)
+              |convert| 469 |construct| 474 |coerce| 479 |close!| 484 |any?|
+              489 = 501 |#| 507)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -160,17 +160,17 @@
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
-                |Collection&| |HomogeneousAggregate&| |HomogeneousAggregate&|
-                |EltableAggregate&| |Aggregate&| |Evalable&| |Evalable&|
-                |SetCategory&| NIL NIL NIL |InnerEvalable&| NIL
-                |InnerEvalable&| |BasicType&| NIL)
+                |DictionaryOperations&| |BagAggregate&| |Collection&|
+                |IndexedAggregate&| |HomogeneousAggregate&|
+                |HomogeneousAggregate&| |EltableAggregate&| |Aggregate&|
+                |Evalable&| |Evalable&| |SetCategory&| NIL NIL NIL
+                |InnerEvalable&| NIL |InnerEvalable&| |BasicType&| NIL)
              (CONS
               '#((|TableAggregate| 10 13) (|KeyedDictionary| 10 13)
                  (|Dictionary| 21) (|DictionaryOperations| 21)
-                 (|BagAggregate| 21) (|IndexedAggregate| 10 13)
-                 (|Collection| 21) (|HomogeneousAggregate| 13)
-                 (|HomogeneousAggregate| 21) (|EltableAggregate| 10 13)
+                 (|BagAggregate| 21) (|Collection| 21)
+                 (|IndexedAggregate| 10 13) (|HomogeneousAggregate| 21)
+                 (|HomogeneousAggregate| 13) (|EltableAggregate| 10 13)
                  (|Aggregate|) (|Evalable| 21) (|Evalable| 13) (|SetCategory|)
                  (|Eltable| 10 13) (|Type|) (|shallowlyMutable|)
                  (|InnerEvalable| 21 21) (|ConvertibleTo| 31)
@@ -183,7 +183,7 @@
                                     2 13 0 33 0 1 2 0 39 10 0 1 0 0 0 1 1 14 0
                                     0 1 2 14 0 21 0 1 2 13 0 33 0 1 2 0 39 10 0
                                     1 2 14 0 21 0 1 2 13 0 33 0 1 4 14 21 27 0
-                                    21 21 1 2 13 21 27 0 1 3 13 21 27 0 21 1 3
+                                    21 21 1 3 13 21 27 0 21 1 2 13 21 27 0 1 3
                                     18 13 0 10 13 1 2 0 13 0 10 1 1 13 20 0 1 1
                                     13 22 0 1 1 0 0 0 1 2 0 25 0 26 1 1 3 10 0
                                     1 1 13 20 0 1 1 13 22 0 1 2 16 25 13 0 1 2
@@ -198,13 +198,12 @@
                                     0 0 19 1 3 5 0 0 20 20 1 3 9 0 0 21 21 1 3
                                     9 0 0 22 22 1 2 9 0 0 23 1 2 9 0 0 24 1 2 0
                                     25 0 0 1 2 15 25 13 0 1 1 0 20 0 1 1 0 25 0
-                                    1 0 0 0 1 2 0 13 0 11 15 2 0 13 0 10 14 3 0
-                                    13 0 10 13 1 0 0 0 1 1 0 0 22 1 2 16 26 13
+                                    1 0 0 0 1 2 0 13 0 11 15 3 0 13 0 10 13 1 2
+                                    0 13 0 10 14 1 0 0 22 1 0 0 0 1 2 16 26 13
                                     0 1 2 14 26 21 0 1 2 13 26 32 0 1 2 13 26
                                     33 0 1 1 0 0 0 1 1 1 31 0 1 1 0 0 22 1 1 6
-                                    28 0 1 1 0 0 0 1 1 0 0 22 1 2 13 25 32 0 1
-                                    2 13 25 33 0 1 2 17 25 0 0 1 1 13 26 0
-                                    1)))))
+                                    28 0 1 1 0 0 0 1 2 13 25 32 0 1 2 13 25 33
+                                    0 1 2 17 25 0 0 1 1 13 26 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Library| 'NILADIC T) 

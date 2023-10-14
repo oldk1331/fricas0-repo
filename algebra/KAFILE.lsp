@@ -281,7 +281,7 @@
               |every?| 381 |eval| 393 |eq?| 445 |entry?| 451 |entries| 457
               |empty?| 462 |empty| 467 |elt| 471 |dictionary| 484 |count| 493
               |copy| 517 |convert| 522 |construct| 527 |coerce| 532 |close!|
-              537 |bag| 542 |any?| 547 = 559 |#| 565)
+              537 |any?| 542 = 554 |#| 560)
            'NIL
            (CONS
             (|makeByteWordVec2| 5
@@ -289,8 +289,8 @@
                                   5))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |DictionaryOperations&| |IndexedAggregate&| |Collection&|
-                |BagAggregate&| NIL |HomogeneousAggregate&|
+                |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
+                |Collection&| NIL |HomogeneousAggregate&|
                 |HomogeneousAggregate&| |SetCategory&| |EltableAggregate&|
                 |Aggregate&| |Evalable&| |Evalable&| |BasicType&| NIL NIL NIL
                 NIL NIL |InnerEvalable&| NIL |InnerEvalable&|)
@@ -299,9 +299,9 @@
                  (|Dictionary| (|Record| (|:| |key| 9) (|:| |entry| 6)))
                  (|DictionaryOperations|
                   (|Record| (|:| |key| 9) (|:| |entry| 6)))
+                 (|BagAggregate| (|Record| (|:| |key| 9) (|:| |entry| 6)))
                  (|IndexedAggregate| 9 6)
                  (|Collection| (|Record| (|:| |key| 9) (|:| |entry| 6)))
-                 (|BagAggregate| (|Record| (|:| |key| 9) (|:| |entry| 6)))
                  (|FileCategory| 10 (|Record| (|:| |key| 9) (|:| |entry| 6)))
                  (|HomogeneousAggregate| 6)
                  (|HomogeneousAggregate|
@@ -339,10 +339,10 @@
                                     29 29 1 2 1 0 0 48 1 3 1 0 0 49 49 1 3 5 0
                                     0 51 51 1 2 5 0 0 52 1 3 5 0 0 6 6 1 2 5 0
                                     0 53 1 2 0 14 0 0 1 2 11 14 6 0 1 1 0 51 0
-                                    1 1 0 14 0 1 0 0 0 35 2 0 6 0 9 40 3 0 6 0
-                                    9 6 1 1 0 0 49 1 0 0 0 1 2 12 38 29 0 1 2
-                                    10 38 6 0 1 2 9 38 55 0 1 2 9 38 56 0 1 1 0
-                                    0 0 1 1 2 54 0 1 1 0 0 49 1 1 0 12 0 18 1 0
-                                    0 0 23 1 0 0 49 1 2 9 14 55 0 1 2 9 14 56 0
-                                    1 2 0 14 0 0 16 1 9 38 0 39)))))
+                                    1 1 0 14 0 1 0 0 0 35 3 0 6 0 9 6 1 2 0 6 0
+                                    9 40 0 0 0 1 1 0 0 49 1 2 12 38 29 0 1 2 10
+                                    38 6 0 1 2 9 38 55 0 1 2 9 38 56 0 1 1 0 0
+                                    0 1 1 2 54 0 1 1 0 0 49 1 1 0 12 0 18 1 0 0
+                                    0 23 2 9 14 55 0 1 2 9 14 56 0 1 2 0 14 0 0
+                                    16 1 9 38 0 39)))))
            '|lookupComplete|)) 

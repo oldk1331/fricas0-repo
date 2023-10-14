@@ -1,8 +1,9 @@
 
-(SDEFUN |BGAGG-;bag;LA;1| ((|l| |List| S) ($ A))
+(SDEFUN |BGAGG-;construct;LA;1| ((|l| |List| S) ($ A))
         (SPROG ((|x| (A)) (#1=#:G113 NIL) (|s| NIL))
                (SEQ
-                (LETT |x| (SPADCALL (QREFELT $ 8)) . #2=(|BGAGG-;bag;LA;1|))
+                (LETT |x| (SPADCALL (QREFELT $ 8))
+                      . #2=(|BGAGG-;construct;LA;1|))
                 (SEQ (LETT |s| NIL . #2#) (LETT #1# |l| . #2#) G190
                      (COND
                       ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
@@ -32,8 +33,8 @@
 (MAKEPROP '|BagAggregate&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (0 . |empty|) (4 . |insert!|) (|List| 7) |BGAGG-;bag;LA;1|)
-           '#(|bag| 10) 'NIL
+              (0 . |empty|) (4 . |insert!|) (|List| 7) |BGAGG-;construct;LA;1|)
+           '#(|construct| 10) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()

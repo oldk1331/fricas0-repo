@@ -463,9 +463,9 @@
 
 (DECLAIM (NOTINLINE |XHashTable;|)) 
 
-(DEFUN |XHashTable| (&REST #1=#:G334)
+(DEFUN |XHashTable| (&REST #1=#:G336)
   (SPROG NIL
-         (PROG (#2=#:G335)
+         (PROG (#2=#:G337)
            (RETURN
             (COND
              ((LETT #2#
@@ -484,7 +484,7 @@
 
 (DEFUN |XHashTable;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G333 NIL) (#2=#:G332 NIL) (|pv$| NIL) (#3=#:G330 NIL) (#4=#:G331 NIL)
+   ((#1=#:G335 NIL) (#2=#:G334 NIL) (|pv$| NIL) (#3=#:G332 NIL) (#4=#:G333 NIL)
     ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|XHashTable|))
@@ -637,7 +637,7 @@
               |fill!| 333 |extract!| 339 |every?| 344 |eval| 356 |eq?| 408
               |entry?| 414 |entries| 420 |empty?| 425 |empty| 430 |elt| 434
               |dictionary| 447 |count| 456 |copy| 480 |convert| 485 |construct|
-              490 |coerce| 495 |bag| 500 |any?| 505 = 517 |#| 523)
+              490 |coerce| 495 |any?| 500 = 512 |#| 518)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -645,23 +645,23 @@
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
-                |Collection&| |HomogeneousAggregate&| |HomogeneousAggregate&|
-                |EltableAggregate&| |Aggregate&| |Evalable&| |Evalable&|
-                |SetCategory&| NIL NIL NIL NIL |InnerEvalable&| NIL
-                |InnerEvalable&| |BasicType&| NIL)
+                |DictionaryOperations&| |BagAggregate&| |Collection&|
+                |IndexedAggregate&| |HomogeneousAggregate&|
+                |HomogeneousAggregate&| |EltableAggregate&| |Aggregate&|
+                |Evalable&| |Evalable&| |SetCategory&| NIL NIL NIL NIL
+                |InnerEvalable&| NIL |InnerEvalable&| |BasicType&| NIL)
              (CONS
               '#((|TableAggregate| 6 7) (|KeyedDictionary| 6 7)
                  (|Dictionary| (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|DictionaryOperations|
                   (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|BagAggregate| (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|IndexedAggregate| 6 7)
                  (|Collection| (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|HomogeneousAggregate| 7)
+                 (|IndexedAggregate| 6 7)
                  (|HomogeneousAggregate|
                   (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|EltableAggregate| 6 7) (|Aggregate|)
+                 (|HomogeneousAggregate| 7) (|EltableAggregate| 6 7)
+                 (|Aggregate|)
                  (|Evalable| (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|Evalable| 7) (|SetCategory|) (|finiteAggregate|)
                  (|Eltable| 6 7) (|Type|) (|shallowlyMutable|)
@@ -693,10 +693,10 @@
                                     9 0 0 26 26 1 2 9 0 0 53 1 2 5 0 0 55 1 3 5
                                     0 0 7 7 1 2 5 0 0 56 1 3 5 0 0 44 44 1 2 0
                                     12 0 0 1 2 15 12 7 0 1 1 0 44 0 1 1 0 12 0
-                                    1 0 0 0 25 3 0 7 0 6 7 32 2 0 7 0 6 31 0 0
-                                    0 1 1 0 0 46 1 2 14 15 26 0 1 2 16 15 7 0 1
+                                    1 0 0 0 25 3 0 7 0 6 7 32 2 0 7 0 6 31 1 0
+                                    0 46 1 0 0 0 1 2 14 15 26 0 1 2 16 15 7 0 1
                                     2 13 15 61 0 1 2 13 15 62 0 1 1 0 0 0 38 1
-                                    1 60 0 1 1 0 0 46 1 1 6 57 0 1 1 0 0 46 1 2
-                                    13 12 61 0 1 2 13 12 62 0 1 2 17 12 0 0 51
-                                    1 13 15 0 28)))))
+                                    1 60 0 1 1 0 0 46 1 1 6 57 0 1 2 13 12 61 0
+                                    1 2 13 12 62 0 1 2 17 12 0 0 51 1 13 15 0
+                                    28)))))
            '|lookupComplete|)) 

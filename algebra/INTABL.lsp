@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |InnerTable;|)) 
 
-(DEFUN |InnerTable| (&REST #1=#:G156)
+(DEFUN |InnerTable| (&REST #1=#:G158)
   (SPROG NIL
-         (PROG (#2=#:G157)
+         (PROG (#2=#:G159)
            (RETURN
             (COND
              ((LETT #2#
@@ -22,7 +22,7 @@
 
 (DEFUN |InnerTable;| (|#1| |#2| |#3|)
   (SPROG
-   ((#1=#:G155 NIL) (#2=#:G154 NIL) (|pv$| NIL) (#3=#:G152 NIL) (#4=#:G153 NIL)
+   ((#1=#:G157 NIL) (#2=#:G156 NIL) (|pv$| NIL) (#3=#:G154 NIL) (#4=#:G155 NIL)
     ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|InnerTable|))
@@ -136,10 +136,10 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|local| |#3|) (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Record| (|:| |key| 6) (|:| |entry| 7))
-              (|List| 9) (|Equation| 9) (|List| 11) (|Mapping| 9 9 9)
-              (|NonNegativeInteger|) (|Boolean|) (|Equation| 7) (|List| 16)
+              (|List| 9) (|List| 12) (|Equation| 9) (|Mapping| 9 9 9)
+              (|Boolean|) (|NonNegativeInteger|) (|Equation| 7) (|List| 16)
               (|List| 7) (|OutputForm|) (|String|) (|SingleInteger|)
-              (|HashState|) (|InputForm|) (|Mapping| 15 7) (|Mapping| 15 9)
+              (|HashState|) (|InputForm|) (|Mapping| 14 7) (|Mapping| 14 9)
               (|Mapping| 7 7) (|Void|) (|Mapping| 9 9) (|Mapping| 7 7 7)
               (|List| 6) (|Union| 7 '"failed") (|Union| 9 '"failed"))
            '#(~= 0 |table| 6 |swap!| 15 |size?| 22 |setelt| 28 |select!| 35
@@ -152,7 +152,7 @@
               |fill!| 271 |extract!| 277 |every?| 282 |eval| 294 |eq?| 346
               |entry?| 352 |entries| 358 |empty?| 363 |empty| 368 |elt| 372
               |dictionary| 385 |count| 394 |copy| 418 |convert| 423 |construct|
-              428 |coerce| 433 |bag| 438 |any?| 443 = 455 |#| 461)
+              428 |coerce| 433 |any?| 438 = 450 |#| 456)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -160,23 +160,23 @@
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
-                |Collection&| |HomogeneousAggregate&| |HomogeneousAggregate&|
-                |EltableAggregate&| |Aggregate&| |Evalable&| |Evalable&|
-                |SetCategory&| NIL NIL NIL NIL |InnerEvalable&| NIL
-                |InnerEvalable&| |BasicType&| NIL)
+                |DictionaryOperations&| |BagAggregate&| |Collection&|
+                |IndexedAggregate&| |HomogeneousAggregate&|
+                |HomogeneousAggregate&| |EltableAggregate&| |Aggregate&|
+                |Evalable&| |Evalable&| |SetCategory&| NIL NIL NIL NIL
+                |InnerEvalable&| NIL |InnerEvalable&| |BasicType&| NIL)
              (CONS
               '#((|TableAggregate| 6 7) (|KeyedDictionary| 6 7)
                  (|Dictionary| (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|DictionaryOperations|
                   (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|BagAggregate| (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|IndexedAggregate| 6 7)
                  (|Collection| (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|HomogeneousAggregate| 7)
+                 (|IndexedAggregate| 6 7)
                  (|HomogeneousAggregate|
                   (|Record| (|:| |key| 6) (|:| |entry| 7)))
-                 (|EltableAggregate| 6 7) (|Aggregate|)
+                 (|HomogeneousAggregate| 7) (|EltableAggregate| 6 7)
+                 (|Aggregate|)
                  (|Evalable| (|Record| (|:| |key| 6) (|:| |entry| 7)))
                  (|Evalable| 7) (|SetCategory|) (|finiteAggregate|)
                  (|Eltable| 6 7) (|Type|) (|shallowlyMutable|)
@@ -185,29 +185,28 @@
                  (|ConvertibleTo| 23) (|InnerEvalable| 7 7) (|BasicType|)
                  (|CoercibleTo| 19))
               (|makeByteWordVec2| 32
-                                  '(2 17 15 0 0 1 1 0 0 10 1 0 0 0 1 3 18 27 0
-                                    6 6 1 2 0 15 0 14 1 3 0 7 0 6 7 1 2 13 0 25
+                                  '(2 17 14 0 0 1 1 0 0 10 1 0 0 0 1 3 18 27 0
+                                    6 6 1 2 0 14 0 15 1 3 0 7 0 6 7 1 2 13 0 25
                                     0 1 2 13 0 25 0 1 2 0 31 6 0 1 0 0 0 1 1 14
                                     0 0 1 2 14 0 9 0 1 2 13 0 25 0 1 2 0 31 6 0
                                     1 2 14 0 9 0 1 2 13 0 25 0 1 4 14 9 13 0 9
-                                    9 1 2 13 9 13 0 1 3 13 9 13 0 9 1 3 18 7 0
+                                    9 1 3 13 9 13 0 9 1 2 13 9 13 0 1 3 18 7 0
                                     6 7 1 2 0 7 0 6 1 1 13 18 0 1 1 13 10 0 1 2
-                                    0 15 0 14 1 1 3 6 0 1 1 13 18 0 1 1 13 10 0
-                                    1 2 14 15 9 0 1 2 16 15 7 0 1 1 3 6 0 1 2
+                                    0 14 0 15 1 1 3 6 0 1 1 13 18 0 1 1 13 10 0
+                                    1 2 14 14 9 0 1 2 16 14 7 0 1 1 3 6 0 1 2
                                     18 0 26 0 1 2 18 0 28 0 1 3 0 0 29 0 0 1 2
-                                    0 0 26 0 1 2 0 0 28 0 1 2 0 15 0 14 1 1 11
-                                    20 0 1 1 0 30 0 1 2 0 15 6 0 1 1 0 9 0 1 2
-                                    0 0 9 0 1 1 0 30 0 1 2 0 15 6 0 1 2 11 22
+                                    0 0 26 0 1 2 0 0 28 0 1 2 0 14 0 15 1 1 11
+                                    20 0 1 1 0 30 0 1 2 0 14 6 0 1 1 0 9 0 1 2
+                                    0 0 9 0 1 1 0 30 0 1 2 0 14 6 0 1 2 11 22
                                     22 0 1 1 11 21 0 1 1 3 7 0 1 2 0 32 25 0 1
-                                    2 18 0 0 7 1 1 0 9 0 1 2 13 15 24 0 1 2 13
-                                    15 25 0 1 3 9 0 0 10 10 1 2 9 0 0 11 1 3 9
-                                    0 0 9 9 1 2 9 0 0 12 1 2 5 0 0 16 1 2 5 0 0
-                                    17 1 3 5 0 0 18 18 1 3 5 0 0 7 7 1 2 0 15 0
-                                    0 1 2 15 15 7 0 1 1 0 18 0 1 1 0 15 0 1 0 0
+                                    2 18 0 0 7 1 1 0 9 0 1 2 13 14 24 0 1 2 13
+                                    14 25 0 1 3 9 0 0 9 9 1 3 9 0 0 10 10 1 2 9
+                                    0 0 11 1 2 9 0 0 12 1 2 5 0 0 16 1 2 5 0 0
+                                    17 1 3 5 0 0 18 18 1 3 5 0 0 7 7 1 2 0 14 0
+                                    0 1 2 15 14 7 0 1 1 0 18 0 1 1 0 14 0 1 0 0
                                     0 1 2 0 7 0 6 1 3 0 7 0 6 7 1 0 0 0 1 1 0 0
-                                    10 1 2 14 14 9 0 1 2 16 14 7 0 1 2 13 14 24
-                                    0 1 2 13 14 25 0 1 1 0 0 0 1 1 1 23 0 1 1 0
-                                    0 10 1 1 6 19 0 1 1 0 0 10 1 2 13 15 24 0 1
-                                    2 13 15 25 0 1 2 17 15 0 0 1 1 13 14 0
-                                    1)))))
+                                    10 1 2 14 15 9 0 1 2 16 15 7 0 1 2 13 15 24
+                                    0 1 2 13 15 25 0 1 1 0 0 0 1 1 1 23 0 1 1 0
+                                    0 10 1 1 6 19 0 1 2 13 14 24 0 1 2 13 14 25
+                                    0 1 2 17 14 0 0 1 1 13 15 0 1)))))
            '|lookupComplete|)) 

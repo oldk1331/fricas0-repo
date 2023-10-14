@@ -23,15 +23,16 @@
                               (COND (|BagAggregate;CAT|)
                                     ('T
                                      (LETT |BagAggregate;CAT|
-                                           (|Join|
-                                            (|HomogeneousAggregate| '|t#1|)
-                                            (|shallowlyMutable|)
-                                            (|mkCategory|
-                                             '(((|bag| ($ (|List| |t#1|))) T)
-                                               ((|extract!| (|t#1| $)) T)
-                                               ((|insert!| ($ |t#1| $)) T)
-                                               ((|inspect| (|t#1| $)) T))
-                                             NIL '((|List| |t#1|)) NIL))
+                                           (|Join| (|Collection| '|t#1|)
+                                                   (|shallowlyMutable|)
+                                                   (|mkCategory|
+                                                    '(((|extract!| (|t#1| $))
+                                                       T)
+                                                      ((|insert!| ($ |t#1| $))
+                                                       T)
+                                                      ((|inspect| (|t#1| $))
+                                                       T))
+                                                    NIL 'NIL NIL))
                                            . #2=(|BagAggregate|)))))
                    . #2#)
            (SETELT #1# 0 (LIST '|BagAggregate| (|devaluate| |t#1|)))))) 

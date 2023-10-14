@@ -350,22 +350,22 @@
               |eq?| 363 |enumerate| 369 |empty?| 373 |empty| 378 |digit| 382
               |difference| 386 |dictionary| 398 |count| 407 |copy| 419
               |convert| 424 |construct| 439 |complement| 444 |coerce| 449
-              |charClass| 454 |cardinality| 464 |brace| 469 |bag| 478 |any?|
-              483 |alphanumeric| 489 |alphabetic| 493 >= 497 > 503 = 509 <= 515
-              < 521 |#| 527)
+              |charClass| 454 |cardinality| 464 |brace| 469 |any?| 478
+              |alphanumeric| 484 |alphabetic| 488 >= 492 > 498 = 504 <= 510 <
+              516 |#| 522)
            'NIL
            (CONS
             (|makeByteWordVec2| 5 '(0 0 0 0 0 0 0 2 0 0 5 0 0 0 0 0 0 0 0 5 1))
             (CONS
-             '#(|FiniteSetAggregate&| |Dictionary&| |SetAggregate&|
-                |DictionaryOperations&| |Collection&| |BagAggregate&|
+             '#(|FiniteSetAggregate&| |Dictionary&| |DictionaryOperations&|
+                |SetAggregate&| |BagAggregate&| |Collection&|
                 |HomogeneousAggregate&| |Finite&| |SetCategory&| |Aggregate&|
                 |Evalable&| NIL NIL |PartialOrder&| |BasicType&| NIL NIL NIL
                 NIL |InnerEvalable&| NIL)
              (CONS
               '#((|FiniteSetAggregate| 22) (|Dictionary| 22)
-                 (|SetAggregate| 22) (|DictionaryOperations| 22)
-                 (|Collection| 22) (|BagAggregate| 22)
+                 (|DictionaryOperations| 22) (|SetAggregate| 22)
+                 (|BagAggregate| 22) (|Collection| 22)
                  (|HomogeneousAggregate| 22) (|Finite|) (|SetCategory|)
                  (|Aggregate|) (|Evalable| 22) (|ConvertibleTo| 30)
                  (|finiteAggregate|) (|PartialOrder|) (|BasicType|)
@@ -378,8 +378,8 @@
                                     34 2 6 0 35 17 36 1 8 20 0 37 1 8 20 0 38 2
                                     8 22 0 20 39 3 6 17 0 20 17 40 1 8 42 0 43
                                     2 6 0 0 17 55 3 6 0 0 0 20 56 2 0 17 0 0 1
-                                    0 0 0 12 0 2 0 1 2 0 0 0 22 1 2 0 0 22 0 1
-                                    2 0 0 0 0 14 2 0 0 0 0 1 2 0 17 0 0 1 2 0
+                                    0 0 0 12 0 2 0 1 2 0 0 22 0 1 2 0 0 0 0 14
+                                    2 0 0 0 22 1 2 0 0 0 0 1 2 0 17 0 0 1 2 0
                                     17 0 35 1 0 2 35 1 0 0 0 1 1 0 0 30 1 2 8 0
                                     65 0 1 2 8 0 65 0 1 0 0 0 1 1 9 0 0 1 2 9 0
                                     22 0 49 2 8 0 65 0 1 2 9 0 22 0 1 2 8 0 65
@@ -393,14 +393,14 @@
                                     1 1 0 22 0 51 2 8 17 65 0 1 2 4 0 0 59 1 3
                                     4 0 0 22 22 1 2 4 0 0 60 1 3 4 0 0 30 30 1
                                     2 0 17 0 0 1 0 2 63 1 1 0 17 0 1 0 0 0 46 0
-                                    0 0 10 2 0 0 0 0 28 2 0 0 0 22 1 1 0 0 30 1
-                                    0 0 0 1 2 9 35 22 0 1 2 8 35 65 0 1 1 0 0 0
-                                    1 1 1 62 0 1 1 0 30 0 31 1 0 8 0 33 1 0 0
+                                    0 0 10 2 0 0 0 22 1 2 0 0 0 0 28 0 0 0 1 1
+                                    0 0 30 1 2 9 35 22 0 1 2 8 35 65 0 1 1 0 0
+                                    0 1 1 1 62 0 1 1 0 30 0 31 1 0 8 0 33 1 0 0
                                     30 1 1 2 0 0 29 1 0 42 0 44 1 0 0 30 41 1 0
-                                    0 8 9 1 0 35 0 1 1 0 0 30 1 0 0 0 47 1 0 0
-                                    30 1 2 8 17 65 0 1 0 0 0 16 0 0 0 15 2 0 17
-                                    0 0 1 2 0 17 0 0 1 2 0 17 0 0 19 2 0 17 0 0
-                                    1 2 0 17 0 0 1 1 8 35 0 45)))))
+                                    0 8 9 1 0 35 0 1 1 0 0 30 1 0 0 0 47 2 8 17
+                                    65 0 1 0 0 0 16 0 0 0 15 2 0 17 0 0 1 2 0
+                                    17 0 0 1 2 0 17 0 0 19 2 0 17 0 0 1 2 0 17
+                                    0 0 1 1 8 35 0 45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CharacterClass| 'NILADIC T) 

@@ -3,7 +3,7 @@
 
 (DEFUN |SortedExponentVector| ()
   (SPROG NIL
-         (PROG (#1=#:G2609)
+         (PROG (#1=#:G2611)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|)
@@ -23,8 +23,8 @@
 
 (DEFUN |SortedExponentVector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2605 NIL) (#2=#:G2606 NIL) (#3=#:G2604 NIL)
-    (#4=#:G2603 NIL) (|pv$| NIL) (#5=#:G2607 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G2607 NIL) (#2=#:G2608 NIL) (#3=#:G2606 NIL)
+    (#4=#:G2605 NIL) (|pv$| NIL) (#5=#:G2609 NIL))
    (PROGN
     (LETT |dv$| '(|SortedExponentVector|) . #6=(|SortedExponentVector|))
     (LETT $ (GETREFV 25) . #6#)

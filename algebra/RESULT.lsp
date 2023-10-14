@@ -93,7 +93,7 @@
 
 (DEFUN |Result| ()
   (SPROG NIL
-         (PROG (#1=#:G178)
+         (PROG (#1=#:G180)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Result|) . #2=(|Result|))
@@ -109,8 +109,8 @@
 
 (DEFUN |Result;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G174 NIL) (#2=#:G173 NIL) (|pv$| NIL)
-    (#3=#:G175 NIL) (#4=#:G176 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G176 NIL) (#2=#:G175 NIL) (|pv$| NIL)
+    (#3=#:G177 NIL) (#4=#:G178 NIL))
    (PROGN
     (LETT |dv$| '(|Result|) . #5=(|Result|))
     (LETT $ (GETREFV 59) . #5#)
@@ -239,17 +239,17 @@
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
-                |Collection&| |HomogeneousAggregate&| |HomogeneousAggregate&|
-                |EltableAggregate&| |Aggregate&| |Evalable&| |Evalable&|
-                |SetCategory&| NIL NIL NIL NIL |InnerEvalable&| NIL
-                |InnerEvalable&| |BasicType&| NIL)
+                |DictionaryOperations&| |BagAggregate&| |Collection&|
+                |IndexedAggregate&| |HomogeneousAggregate&|
+                |HomogeneousAggregate&| |EltableAggregate&| |Aggregate&|
+                |Evalable&| |Evalable&| |SetCategory&| NIL NIL NIL NIL
+                |InnerEvalable&| NIL |InnerEvalable&| |BasicType&| NIL)
              (CONS
               '#((|TableAggregate| 7 25) (|KeyedDictionary| 7 25)
                  (|Dictionary| 41) (|DictionaryOperations| 41)
-                 (|BagAggregate| 41) (|IndexedAggregate| 7 25)
-                 (|Collection| 41) (|HomogeneousAggregate| 25)
-                 (|HomogeneousAggregate| 41) (|EltableAggregate| 7 25)
+                 (|BagAggregate| 41) (|Collection| 41)
+                 (|IndexedAggregate| 7 25) (|HomogeneousAggregate| 41)
+                 (|HomogeneousAggregate| 25) (|EltableAggregate| 7 25)
                  (|Aggregate|) (|Evalable| 41) (|Evalable| 25) (|SetCategory|)
                  (|finiteAggregate|) (|Eltable| 7 25) (|Type|)
                  (|shallowlyMutable|) (|InnerEvalable| 41 41)
