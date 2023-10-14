@@ -102,16 +102,15 @@
  
 ; set l ==
 ;   ioHook("startSysCmd", "set")
-;   set1(l, $setOptions)
-;   ioHook("endSysCmd", "set")
+;   UNWIND_-PROTECT(set1(l, $setOptions), ioHook("endSysCmd", "set"))
  
 (DEFUN |set| (|l|)
   (PROG ()
     (RETURN
      (PROGN
       (|ioHook| '|startSysCmd| '|set|)
-      (|set1| |l| |$setOptions|)
-      (|ioHook| '|endSysCmd| '|set|)))))
+      (UNWIND-PROTECT (|set1| |l| |$setOptions|)
+        (|ioHook| '|endSysCmd| '|set|))))))
  
 ; set1(l,setTree) ==
 ;   null l => displaySetVariableSettings(setTree,"")
