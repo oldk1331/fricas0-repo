@@ -894,12 +894,12 @@
               (|IntegerCombinatoricFunctions| 6) (0 . |binomial|) (|Boolean|)
               (6 . >) |SGCF;numberOfImproperPartitions;3I;2| (|List| 6)
               (12 . |list|) |SGCF;unrankImproperPartitions0;3IL;3| (17 . ~=)
-              |SGCF;subSet;3IL;5| (23 . |elt|) (|Vector| 6) (29 . |setelt|)
+              |SGCF;subSet;3IL;5| (23 . |elt|) (|Vector| 6) (29 . |setelt!|)
               (36 . |entries|) |SGCF;unrankImproperPartitions1;3IL;4|
               (|PartitionsAndPermutations|) (41 . |conjugate|) (46 . |elt|)
-              (|NonNegativeInteger|) (52 . >) (58 . |setelt|)
+              (|NonNegativeInteger|) (52 . >) (58 . |setelt!|)
               |SGCF;nextLatticePermutation;2LBL;6| (65 . |maxIndex|)
-              (|Matrix| 6) (70 . |setelt|) |SGCF;makeYoungTableau;2LM;7|
+              (|Matrix| 6) (70 . |setelt!|) |SGCF;makeYoungTableau;2LM;7|
               (|List| 30) |SGCF;listYoungTableaus;LL;8| (78 . |vector|)
               (83 . |copy|) (88 . ~=) (94 . |row|) (100 . +)
               |SGCF;nextPartition;2VIV;10| (106 . =) (112 . |setRow!|)

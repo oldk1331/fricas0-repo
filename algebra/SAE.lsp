@@ -588,8 +588,8 @@
               |SAE;reducedSystem;MM;25| (|Vector| 7) (|VectorFunctions2| $$ 7)
               (220 . |map|) (|Record| (|:| |mat| 22) (|:| |vec| 42))
               (226 . |reducedSystem|) |SAE;reducedSystem;MVR;26| (232 . |elt|)
-              (237 . |elt|) |SAE;discriminant;R;27| (242 . |setelt|)
-              (248 . |discriminant|) (253 . |setelt|) (|Void|) (259 . |void|)
+              (237 . |elt|) |SAE;discriminant;R;27| (242 . |setelt!|)
+              (248 . |discriminant|) (253 . |setelt!|) (|Void|) (259 . |void|)
               |SAE;traceMatrix;M;29| (263 . |monomial|) |SAE;trace;$R;31|
               (269 . |generator|) (273 . +) (279 . >) (285 . ~=)
               (291 . |index|) (296 . |index|) (301 . |zero?|)

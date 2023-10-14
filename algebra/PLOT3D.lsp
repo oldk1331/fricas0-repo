@@ -1777,8 +1777,8 @@
               |PLOT3D;debug3D;2B;17| |PLOT3D;xRange;$S;18|
               |PLOT3D;yRange;$S;19| |PLOT3D;zRange;$S;20| |PLOT3D;tRange;$S;21|
               (|List| 16) |PLOT3D;tValues;$L;22| (48 . <=) (54 . ~=)
-              (60 . |second|) '"rest" (65 . |setelt|) (|List| 17)
-              (72 . |setelt|) (|PointPackage| 12) (79 . |xCoord|) (84 . |min|)
+              (60 . |second|) '"rest" (65 . |setelt!|) (|List| 17)
+              (72 . |setelt!|) (|PointPackage| 12) (79 . |xCoord|) (84 . |min|)
               (90 . |max|) (96 . |yCoord|) (101 . |zCoord|) (106 . |concat!|)
               (|List| 51) (112 . |concat!|) (118 . |third|) (123 . |second|)
               (128 . |third|) (|PositiveInteger|) (133 . ^) (139 . |sqrt|)

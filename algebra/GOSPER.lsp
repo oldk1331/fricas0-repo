@@ -765,7 +765,7 @@
               (185 . |zero|) (191 . |Zero|) (195 . |Zero|) (199 . ~=)
               (205 . |leadingCoefficient|) (210 . |reductum|) (215 . |coerce|)
               (|Integer|) (|Vector| 22) (220 . |minIndex|) (225 . -)
-              (230 . |setelt|) (|Union| 75 '"failed")
+              (230 . |setelt!|) (|Union| 75 '"failed")
               (|LinearSystemMatrixPackage| 22 75 75 66)
               (237 . |particularSolution|) (243 . |elt|) (249 . *) (255 . +)
               (261 . |resultant|) (|Factored| 12)

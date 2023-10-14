@@ -288,7 +288,7 @@
               (|Record| (|:| |particular| 23) (|:| |basis| (|List| 14)))
               (|LinearSystemMatrixPackage| 6 14 14 8) (48 . |solve|)
               |SCPKG;coordinates;MLV;2| (54 . *) (|Vector| 8) (60 . |elt|)
-              (66 . |elt|) (72 . |setelt|) |SCPKG;structuralConstants;LV;3|
+              (66 . |elt|) (72 . |setelt!|) |SCPKG;structuralConstants;LV;3|
               (|Boolean|) (|NonNegativeInteger|) (80 . ~=) (|List| 43)
               (86 . |copy|) (|Polynomial| 6) (91 . |Zero|) (95 . |totalDegree|)
               (101 . >) (|Symbol|) (107 . |coefficient|) (114 . ~=) (|List| 49)

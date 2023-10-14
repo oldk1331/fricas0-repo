@@ -1963,8 +1963,8 @@
               (259 . |map|) (265 . -) (270 . *) (276 . *) |MATCAT-;*;R2S;30|
               |MATCAT-;*;SRS;31| |MATCAT-;*;3S;32| (282 . |positivePower|)
               (288 . *) |MATCAT-;positivePower;SIS;33| (294 . |scalarMatrix|)
-              (300 . ^) (306 . |new|) (312 . |elt|) (318 . |setelt|) (325 . *)
-              (331 . |new|) (337 . |elt|) (343 . |setelt|) (350 . *)
+              (300 . ^) (306 . |new|) (312 . |elt|) (318 . |setelt!|) (325 . *)
+              (331 . |new|) (337 . |elt|) (343 . |setelt!|) (350 . *)
               (356 . |rowEchelon|) (361 . <=) (367 . |elt|) (374 . |column|)
               (|List| 9) (380 . |columnSpace|) (385 . |matrix|)
               (|SparseUnivariatePolynomial| 7) (390 . |monomial|)

@@ -1125,7 +1125,7 @@
               (|Record| (|:| (|Integer|) 17) (|:| K 17) (|:| Q 17))
               (|Table| 54 17) (122 . |dictionary|) '|remember|
               (|Union| 17 '"failed") (126 . |search|) (132 . |reduce|)
-              (138 . *) |CKP;stirling;4Nni;11| (144 . |setelt|) (|Integer|)
+              (138 . *) |CKP;stirling;4Nni;11| (144 . |setelt!|) (|Integer|)
               (151 . |binomial|) (157 . *) |CKP;alpha;Nni2L;12|
               (|SparseUnivariatePolynomial| 70) (163 . |Zero|) (|Fraction| 64)
               (167 . |Zero|) (171 . *) (177 . |qelt|) (183 . /) (189 . +)

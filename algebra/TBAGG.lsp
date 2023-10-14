@@ -29,7 +29,7 @@
                                  (|Join| (|KeyedDictionary| '|t#1| '|t#2|)
                                          (|IndexedAggregate| '|t#1| '|t#2|)
                                          (|mkCategory|
-                                          '(((|setelt| (|t#2| $ |t#1| |t#2|))
+                                          '(((|setelt!| (|t#2| $ |t#1| |t#2|))
                                              T)
                                             ((|table| ($)) T)
                                             ((|table|

@@ -38,9 +38,9 @@
          ($ . #2#))
         (DSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|DFMAT;setelt;$2I2Df;10| '|SPADreplace| 'DSETAREF2) 
+(PUT '|DFMAT;setelt!;$2I2Df;10| '|SPADreplace| 'DSETAREF2) 
 
-(SDEFUN |DFMAT;setelt;$2I2Df;10|
+(SDEFUN |DFMAT;setelt!;$2I2Df;10|
         ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|DoubleFloat|))
          ($ . #2#))
         (DSETAREF2 |m| |i| |j| |r|)) 
@@ -150,7 +150,7 @@
               |DFMAT;nrows;$Nni;3| |DFMAT;ncols;$Nni;4|
               |DFMAT;maxRowIndex;$I;5| |DFMAT;maxColIndex;$I;6| (|DoubleFloat|)
               |DFMAT;qelt;$2IDf;7| |DFMAT;elt;$2IDf;8|
-              |DFMAT;qsetelt!;$2I2Df;9| |DFMAT;setelt;$2I2Df;10|
+              |DFMAT;qsetelt!;$2I2Df;9| |DFMAT;setelt!;$2I2Df;10|
               |DFMAT;empty;$;11| |DFMAT;qnew;2I$;12| |DFMAT;new;2NniDf$;13|
               (|List| 14) (|Equation| 14) (|List| 23) (|Boolean|)
               (|OutputForm|) (|List| 37) (|Union| $ '"failed")
@@ -163,7 +163,7 @@
            '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
               |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
               |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88
-              |setsubMatrix!| 94 |setelt| 102 |setRow!| 134 |setColumn!| 141
+              |setsubMatrix!| 94 |setelt!| 102 |setRow!| 134 |setColumn!| 141
               |scalarMatrix| 148 |sample| 154 |rowEchelon| 158 |row| 163 |rank|
               169 |qsetelt!| 174 |qnew| 182 |qelt| 194 |positivePower| 201
               |parts| 207 |nullity| 212 |nullSpace| 217 |nrows| 222 |new| 227

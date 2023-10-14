@@ -488,7 +488,7 @@
                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
           (EXIT |y|)))) 
 
-(SDEFUN |ARR2CAT-;setelt;S2L2S;17|
+(SDEFUN |ARR2CAT-;setelt!;S2L2S;17|
         ((|x| S) (|rowList| |List| (|Integer|)) (|colList| |List| (|Integer|))
          (|y| S) ($ S))
         (SPROG
@@ -498,7 +498,7 @@
          (SEQ
           (SEQ
            (EXIT
-            (SEQ (LETT |ei| NIL . #9=(|ARR2CAT-;setelt;S2L2S;17|))
+            (SEQ (LETT |ei| NIL . #9=(|ARR2CAT-;setelt!;S2L2S;17|))
                  (LETT #8# |rowList| . #9#) G190
                  (COND
                   ((OR (ATOM #8#) (PROGN (LETT |ei| (CAR #8#) . #9#) NIL))
@@ -510,7 +510,7 @@
                          (SPADCALL |ei| (SPADCALL |x| (QREFELT $ 12))
                                    (QREFELT $ 28)))
                      (PROGN
-                      (LETT #7# (|error| "setelt: index out of range") . #9#)
+                      (LETT #7# (|error| "setelt!: index out of range") . #9#)
                       (GO #10=#:G286))))))
                  (LETT #8# (CDR #8#) . #9#) (GO G190) G191 (EXIT NIL)))
            #10# (EXIT #7#))
@@ -527,7 +527,7 @@
                          (SPADCALL |ej| (SPADCALL |x| (QREFELT $ 14))
                                    (QREFELT $ 28)))
                      (PROGN
-                      (LETT #5# (|error| "setelt: index out of range") . #9#)
+                      (LETT #5# (|error| "setelt!: index out of range") . #9#)
                       (GO #11=#:G289))))))
                  (LETT #6# (CDR #6#) . #9#) (GO G190) G191 (EXIT NIL)))
            #11# (EXIT #5#))
@@ -537,7 +537,7 @@
                        (QREFELT $ 48))
              (SPADCALL (LENGTH |colList|) (SPADCALL |y| (QREFELT $ 22))
                        (QREFELT $ 48)))
-            (EXIT (|error| "setelt: matrix has bad dimensions"))))
+            (EXIT (|error| "setelt!: matrix has bad dimensions"))))
           (SEQ (LETT |i| (SPADCALL |y| (QREFELT $ 11)) . #9#)
                (LETT #4# (SPADCALL |y| (QREFELT $ 12)) . #9#)
                (LETT |ei| NIL . #9#) (LETT #3# |rowList| . #9#) G190
@@ -566,7 +566,7 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT |y|)))) 
 
-(SDEFUN |ARR2CAT-;setelt;S2S2S;18|
+(SDEFUN |ARR2CAT-;setelt!;S2S2S;18|
         ((|x| S) (|sr| |Segment| (|Integer|)) (|sc| |Segment| (|Integer|))
          (|y| S) ($ S))
         (SPROG
@@ -576,7 +576,7 @@
           (|lc| #6=(|Integer|)) (|ur| #5#) (|lr| #6#))
          (SEQ
           (LETT |lr| (SPADCALL |sr| (QREFELT $ 42))
-                . #7=(|ARR2CAT-;setelt;S2S2S;18|))
+                . #7=(|ARR2CAT-;setelt!;S2S2S;18|))
           (LETT |ur| (SPADCALL |sr| (QREFELT $ 43)) . #7#)
           (LETT |lc| (SPADCALL |sc| (QREFELT $ 42)) . #7#)
           (LETT |uc| (SPADCALL |sc| (QREFELT $ 43)) . #7#)
@@ -593,7 +593,7 @@
           (COND
            ((OR (SPADCALL (SPADCALL |y| (QREFELT $ 21)) |nr| (QREFELT $ 50))
                 (SPADCALL (SPADCALL |y| (QREFELT $ 22)) |nc| (QREFELT $ 50)))
-            (EXIT (|error| "setelt: matrix has bad dimensions"))))
+            (EXIT (|error| "setelt!: matrix has bad dimensions"))))
           (COND ((OR (EQL |nr| 0) (EQL |nc| 0)) (EXIT |y|)))
           (SEQ (LETT |k| |lr| . #7#)
                (LETT |i| (SPADCALL |y| (QREFELT $ 11)) . #7#)
@@ -627,7 +627,7 @@
                (GO G190) G191 (EXIT NIL))
           (EXIT |y|)))) 
 
-(SDEFUN |ARR2CAT-;setelt;S2L2S;19|
+(SDEFUN |ARR2CAT-;setelt!;S2L2S;19|
         ((|x| S) (|lsr| |List| (|Segment| (|Integer|)))
          (|lsc| |List| (|Segment| (|Integer|))) (|y| S) ($ S))
         (SPROG
@@ -639,7 +639,7 @@
           (LETT |nr|
                 (|ARR2CAT-;check_segs| |lsr| (SPADCALL |x| (QREFELT $ 11))
                  (SPADCALL |x| (QREFELT $ 12)) $)
-                . #6=(|ARR2CAT-;setelt;S2L2S;19|))
+                . #6=(|ARR2CAT-;setelt!;S2L2S;19|))
           (LETT |nc|
                 (|ARR2CAT-;check_segs| |lsc| (SPADCALL |x| (QREFELT $ 13))
                  (SPADCALL |x| (QREFELT $ 14)) $)
@@ -647,7 +647,7 @@
           (COND
            ((OR (SPADCALL (SPADCALL |y| (QREFELT $ 21)) |nr| (QREFELT $ 50))
                 (SPADCALL (SPADCALL |y| (QREFELT $ 22)) |nc| (QREFELT $ 50)))
-            (EXIT (|error| "setelt: matrix has bad dimensions"))))
+            (EXIT (|error| "setelt!: matrix has bad dimensions"))))
           (COND ((OR (EQL |nr| 0) (EQL |nc| 0)) (EXIT |y|)))
           (LETT |i| (SPADCALL |y| (QREFELT $ 11)) . #6#)
           (SEQ (LETT |sr| NIL . #6#) (LETT #4# |lsr| . #6#) G190
@@ -1673,8 +1673,8 @@
               (|List| 10) |ARR2CAT-;elt;S2LS;12| (|Segment| 10) (63 . |incr|)
               (68 . |low|) (73 . |high|) (78 . |subMatrix|)
               |ARR2CAT-;elt;S2SS;14| (|List| 40) |ARR2CAT-;elt;S2LS;16|
-              (87 . ~=) |ARR2CAT-;setelt;S2L2S;17| (93 . ~=)
-              |ARR2CAT-;setelt;S2S2S;18| |ARR2CAT-;setelt;S2L2S;19|
+              (87 . ~=) |ARR2CAT-;setelt!;S2L2S;17| (93 . ~=)
+              |ARR2CAT-;setelt!;S2S2S;18| |ARR2CAT-;setelt!;S2L2S;19|
               |ARR2CAT-;setsubMatrix!;S2I2S;20| |ARR2CAT-;swapRows!;S2IS;21|
               |ARR2CAT-;swapColumns!;S2IS;22| |ARR2CAT-;transpose;2S;23|
               |ARR2CAT-;squareTop;2S;24| (|List| $) (99 . |horizConcat|)
@@ -1702,7 +1702,7 @@
               (295 . |coerce|))
            '#(|vertSplit| 300 |vertConcat| 312 |transpose| 323 |swapRows!| 328
               |swapColumns!| 335 |subMatrix| 342 |squareTop| 351 |size?| 356
-              |setsubMatrix!| 362 |setelt| 370 |setRow!| 394 |setColumn!| 401
+              |setsubMatrix!| 362 |setelt!| 370 |setRow!| 394 |setColumn!| 401
               |row| 408 |parts| 414 |more?| 419 |member?| 425 |map!| 431 |map|
               437 |listOfLists| 458 |less?| 463 |horizSplit| 469 |horizConcat|
               481 |fill!| 492 |every?| 498 |elt| 504 |count| 533 |copy| 545

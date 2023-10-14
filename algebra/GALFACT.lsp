@@ -2232,7 +2232,7 @@
               (280 . |HenselLift|) (288 . |exquo|) (294 . |max|)
               (|GaloisGroupPolynomialUtilities| 25 6) (299 . |reverse|)
               (304 . -) (309 . |noLinearFactor?|) (314 . |remove|)
-              (320 . |ground?|) (325 . |subtractIfCan|) (331 . |setelt|)
+              (320 . |ground?|) (325 . |subtractIfCan|) (331 . |setelt!|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flg| 114) (|:| |fctr| 25) (|:| |xpnt| 25))
               (|List| 115) (338 . |factorList|) (343 . |unit|)

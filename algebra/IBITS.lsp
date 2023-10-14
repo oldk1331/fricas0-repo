@@ -75,7 +75,7 @@
           (|xor_BVEC| |v| |u|))
          ('T (SPADCALL (ELT $ 32) |v| |u| (QREFELT $ 28))))) 
 
-(SDEFUN |IBITS;setelt;$I2B;13|
+(SDEFUN |IBITS;setelt!;$I2B;13|
         ((|v| $) (|i| |Integer|) (|f| . #1=(|Boolean|)) ($ . #1#))
         (SETELT_BVEC |v| (|IBITS;range| |v| (- |i| (QREFELT $ 6)) $)
                      (|bool_to_bit| |f|))) 
@@ -171,21 +171,21 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|)
               |IBITS;minIndex;$I;1| (|NonNegativeInteger|) |IBITS;#;$Nni;7|
               (|String|) (0 . |minIndex|) (5 . |maxIndex|) (|Boolean|)
-              |IBITS;elt;$IB;14| (|Character|) (10 . |setelt|) (|OutputForm|)
+              |IBITS;elt;$IB;14| (|Character|) (10 . |setelt!|) (|OutputForm|)
               (17 . |coerce|) |IBITS;coerce;$Of;3| |IBITS;new;NniB$;4|
               |IBITS;empty;$;5| |IBITS;copy;2$;6| |IBITS;=;2$B;8|
               |IBITS;<;2$B;9| (22 . |and|) (|Mapping| 14 14 14) (28 . |map|)
               |IBITS;and;3$;10| (35 . |or|) |IBITS;or;3$;11| (41 . |xor|)
-              |IBITS;xor;3$;12| |IBITS;setelt;$I2B;13| |IBITS;Not;2$;15|
+              |IBITS;xor;3$;12| |IBITS;setelt!;$I2B;13| |IBITS;Not;2$;15|
               |IBITS;And;3$;16| |IBITS;Or;3$;17| (|List| 39) (|Equation| 14)
               (|List| 14) (|InputForm|) (|Mapping| 14 14) (|Void|)
               (|UniversalSegment| 7) (|List| 7) (|Union| 14 '"failed")
               (|List| $) (|HashState|) (|SingleInteger|))
            '#(~= 47 ~ 53 |xor| 58 |swap!| 64 |sorted?| 71 |sort!| 82 |sort| 93
-              |smaller?| 104 |size?| 110 |setelt| 116 |select| 130 |sample| 136
-              |reverse!| 140 |reverse| 145 |removeDuplicates| 150 |remove| 155
-              |reduce| 167 |qsetelt!| 188 |qelt| 195 |position| 201 |parts| 220
-              |or| 225 |not| 231 |nor| 236 |new| 242 |nand| 248 |more?| 254
+              |smaller?| 104 |size?| 110 |setelt!| 116 |select| 130 |sample|
+              136 |reverse!| 140 |reverse| 145 |removeDuplicates| 150 |remove|
+              155 |reduce| 167 |qsetelt!| 188 |qelt| 195 |position| 201 |parts|
+              220 |or| 225 |not| 231 |nor| 236 |new| 242 |nand| 248 |more?| 254
               |minIndex| 260 |min| 265 |merge| 271 |members| 284 |member?| 289
               |maxIndex| 295 |max| 300 |map!| 306 |map| 312 |less?| 325 |latex|
               331 |insert| 336 |indices| 350 |index?| 355 |hashUpdate!| 361

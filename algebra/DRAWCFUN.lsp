@@ -1212,7 +1212,7 @@
               (247 . |pointPlot|) (|Mapping| 9 9) |DRAWCFUN;draw;MSLTdv;6|
               |DRAWCFUN;draw;MSTdv;7| (|ParametricPlaneCurve| 93)
               (253 . |coordinate|) |DRAWCFUN;draw;PpcSLTdv;8|
-              |DRAWCFUN;draw;PpcSTdv;9| (259 . |elt|) (265 . |setelt|)
+              |DRAWCFUN;draw;PpcSTdv;9| (259 . |elt|) (265 . |setelt!|)
               (|ThreeSpace| 9) (272 . |space|) (|ParametricSpaceCurve| 93)
               (277 . |coordinate|) (|AnyFunctions1| 93) (283 . |retract|)
               (|Plot3D|) (288 . |pointPlot|) (294 . |option?|)

@@ -142,7 +142,7 @@
               (|HashState|) (|InputForm|) (|Mapping| 14 7) (|Mapping| 14 9)
               (|Mapping| 7 7) (|Void|) (|Mapping| 9 9) (|Mapping| 7 7 7)
               (|List| 6) (|Union| 7 '"failed") (|Union| 9 '"failed"))
-           '#(~= 0 |table| 6 |swap!| 15 |size?| 22 |setelt| 28 |select!| 35
+           '#(~= 0 |table| 6 |swap!| 15 |size?| 22 |setelt!| 28 |select!| 35
               |select| 41 |search| 47 |sample| 53 |removeDuplicates| 57
               |remove!| 62 |remove| 80 |reduce| 92 |qsetelt!| 113 |qelt| 120
               |parts| 126 |more?| 136 |minIndex| 142 |members| 147 |member?|

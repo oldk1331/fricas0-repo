@@ -1492,7 +1492,7 @@
               (|Record| (|:| |tan_syms| 86) (|:| |atan_syms| 86)
                         (|:| |tan_kers| 47) (|:| |atan_kers| 47))
               |MRVLIM;mrv_limit;ESRU;14| (95 . |coerce|) (100 . |kernels|)
-              (|List| 30) (105 . |elt|) (111 . |setelt|) (|SingleInteger|)
+              (|List| 30) (105 . |elt|) (111 . |setelt!|) (|SingleInteger|)
               (|OrderedCompletion| 6) (118 . |whatInfinity|) (123 . |pi|)
               (127 . |coerce|) (132 . /) (138 . |atan|) (143 . -) (149 . -)
               (154 . |kernel|) (160 . |exp|) (165 . *) (171 . |log|)

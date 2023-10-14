@@ -132,7 +132,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|Stack| 6) (|local| |#1|) '|Rep| (|List| 6)
               (0 . |deref|) (5 . |list|) (10 . |setref|) '"rest"
-              (16 . |setelt|) |QUEUE;enqueue!;S$S;1| |QUEUE;insert!;S2$;2|
+              (16 . |setelt!|) |QUEUE;enqueue!;S$S;1| |QUEUE;insert!;S2$;2|
               (|Boolean|) (23 . |empty?|) |QUEUE;dequeue!;$S;3|
               |QUEUE;extract!;$S;4| |QUEUE;rotate!;2$;5| (|NonNegativeInteger|)
               |QUEUE;length;$Nni;6| |QUEUE;front;$S;7| |QUEUE;inspect;$S;8|

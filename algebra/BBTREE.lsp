@@ -235,7 +235,7 @@
               |BBTREE;setleaves!;$L$;2| (21 . |empty|) (25 . |node|)
               (|NonNegativeInteger|) |BBTREE;balancedBinaryTree;NniS$;3|
               '|value| (32 . |elt|) '|left| (38 . |elt|) (|Mapping| 6 6 6)
-              |BBTREE;mapUp!;$MS;4| '|right| (44 . |elt|) (50 . |setelt|)
+              |BBTREE;mapUp!;$MS;4| '|right| (44 . |elt|) (50 . |setelt!|)
               (|Mapping| 6 6 6 6 6) |BBTREE;mapUp!;2$M$;5|
               |BBTREE;mapDown!;$SM$;6| (|Integer|) (57 . |elt|)
               (|Mapping| 14 6 6 6) |BBTREE;mapDown!;$SM$;7| (|List| 37)
@@ -243,7 +243,7 @@
               (|List| $) (|Mapping| 6 6) (|OutputForm|) (|HashState|)
               (|SingleInteger|) (|String|))
            '#(~= 63 |value| 69 |size?| 74 |setvalue!| 80 |setright!| 86
-              |setleft!| 92 |setleaves!| 98 |setelt| 104 |setchildren!| 125
+              |setleft!| 92 |setleaves!| 98 |setelt!| 104 |setchildren!| 125
               |sample| 131 |right| 135 |parts| 140 |nodes| 145 |node?| 150
               |node| 156 |more?| 163 |members| 169 |member?| 174 |mapUp!| 180
               |mapDown!| 193 |map!| 207 |map| 213 |less?| 219 |left| 225

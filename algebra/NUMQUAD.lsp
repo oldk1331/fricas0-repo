@@ -1189,13 +1189,13 @@
               (|Record| (|:| |value| 6) (|:| |error| 6) (|:| |totalpts| 8)
                         (|:| |success| 37))
               (|Mapping| 6 6) |NUMQUAD;romberg;M4F2IR;4| (34 . |One|)
-              (|List| 14) (38 . |setelt|) (|List| $) (45 . |blankSeparate|)
+              (|List| 14) (38 . |setelt!|) (|List| $) (45 . |blankSeparate|)
               (|Void|) (50 . |print|) (55 . |abs|) |NUMQUAD;aromberg;M4F3IR;1|
               |NUMQUAD;simpson;M4F2IR;5| |NUMQUAD;asimpson;M4F3IR;2|
               |NUMQUAD;trapezoidal;M4F2IR;6| |NUMQUAD;atrapezoidal;M4F3IR;3|
               (60 . *) (66 . |coerce|) (|String|) (|OutputPackage|)
               (71 . |output|) (|Boolean|) (77 . =) (83 . <) (89 . /)
-              (|Vector| 6) (95 . |setelt|) (|SingleInteger|) (102 . *)
+              (|Vector| 6) (95 . |setelt!|) (|SingleInteger|) (102 . *)
               (108 . |elt|) (114 . >) (120 . *) (126 . |output|)
               (131 . |coerce|) |NUMQUAD;rombergo;M4F2IR;7|
               |NUMQUAD;simpsono;M4F2IR;8| |NUMQUAD;trapezoidalo;M4F2IR;9|)

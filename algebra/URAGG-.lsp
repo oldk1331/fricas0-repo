@@ -393,13 +393,13 @@
                   (EXIT (SPADCALL |u| |v| (QREFELT $ 51)))))
                 #3# (EXIT #1#)))) 
 
-(SDEFUN |URAGG-;setelt;Afirst2S;25| ((|x| A) (T6 "first") (|a| S) ($ S))
+(SDEFUN |URAGG-;setelt!;Afirst2S;25| ((|x| A) (T6 "first") (|a| S) ($ S))
         (SPADCALL |x| |a| (QREFELT $ 53))) 
 
-(SDEFUN |URAGG-;setelt;Alast2S;26| ((|x| A) (T7 "last") (|a| S) ($ S))
+(SDEFUN |URAGG-;setelt!;Alast2S;26| ((|x| A) (T7 "last") (|a| S) ($ S))
         (SPADCALL |x| |a| (QREFELT $ 55))) 
 
-(SDEFUN |URAGG-;setelt;Arest2A;27| ((|x| A) (T8 "rest") (|a| A) ($ A))
+(SDEFUN |URAGG-;setelt!;Arest2A;27| ((|x| A) (T8 "rest") (|a| A) ($ A))
         (SPADCALL |x| |a| (QREFELT $ 57))) 
 
 (SDEFUN |URAGG-;concat;3A;28| ((|x| A) (|y| A) ($ A))
@@ -504,13 +504,13 @@
            ((|testBitVector| |pv$| 1)
             (PROGN
              (QSETREFV $ 54
-                       (CONS (|dispatchFunction| |URAGG-;setelt;Afirst2S;25|)
+                       (CONS (|dispatchFunction| |URAGG-;setelt!;Afirst2S;25|)
                              $))
              (QSETREFV $ 56
-                       (CONS (|dispatchFunction| |URAGG-;setelt;Alast2S;26|)
+                       (CONS (|dispatchFunction| |URAGG-;setelt!;Alast2S;26|)
                              $))
              (QSETREFV $ 58
-                       (CONS (|dispatchFunction| |URAGG-;setelt;Arest2A;27|)
+                       (CONS (|dispatchFunction| |URAGG-;setelt!;Arest2A;27|)
                              $))
              (QSETREFV $ 60
                        (CONS (|dispatchFunction| |URAGG-;concat;3A;28|) $))
@@ -545,13 +545,13 @@
               |URAGG-;cycleLength;ANni;20| |URAGG-;rest;ANniA;21| (47 . |#|)
               (52 . >) (58 . |rest|) (64 . |copy|) (69 . |last|) (75 . ~=)
               (81 . =) (87 . =) (93 . |node?|) (99 . |setfirst!|)
-              (105 . |setelt|) (112 . |setlast!|) (118 . |setelt|)
-              (125 . |setrest!|) (131 . |setelt|) (138 . |concat!|)
+              (105 . |setelt!|) (112 . |setlast!|) (118 . |setelt!|)
+              (125 . |setrest!|) (131 . |setelt!|) (138 . |concat!|)
               (144 . |concat|) (150 . |setlast!|) (156 . |setchildren!|)
               (162 . |setvalue!|) (168 . |empty|) (172 . |split!|)
               (178 . |cycleSplit!|) '"value")
            '#(|value| 183 |third| 188 |tail| 193 |split!| 198 |size?| 204
-              |setvalue!| 210 |setlast!| 216 |setelt| 222 |setchildren!| 243
+              |setvalue!| 210 |setlast!| 216 |setelt!| 222 |setchildren!| 243
               |second| 249 |rest| 254 |nodes| 260 |node?| 265 |more?| 271
               |less?| 277 |leaf?| 283 |last| 288 |elt| 299 |cyclic?| 317
               |cycleTail| 322 |cycleSplit!| 327 |cycleLength| 332 |cycleEntry|

@@ -578,11 +578,11 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Integer|) (|List| 7)
               (0 . |maxIndex|) (5 . |elt|) (|Vector| 7) (|Matrix| 7)
               (11 . |row|) (17 . |entries|) (|IntegerCombinatoricFunctions| 7)
-              (22 . |multinomial|) (28 . |Zero|) (32 . |One|) (36 . |setelt|)
+              (22 . |multinomial|) (28 . |Zero|) (32 . |One|) (36 . |setelt!|)
               (|Boolean|) (|NonNegativeInteger|) (43 . >) (49 . |binomial|)
               (|SymmetricGroupCombinatoricFunctions|) (55 . |subSet|)
               (|Matrix| 6) (62 . |zero|) (|List| 8) (68 . |elt|) (74 . |elt|)
-              (81 . |setelt|) (89 . |determinant|) (|PositiveInteger|)
+              (81 . |setelt!|) (89 . |determinant|) (|PositiveInteger|)
               (94 . |antisymmetricTensors|) (|List| 26)
               (100 . |antisymmetricTensors|) (106 . ~=)
               (112 . |unrankImproperPartitions1|) (119 . |nextColeman|)
@@ -592,14 +592,14 @@
               |REP1;tensorProduct;3M;7| (168 . |maxIndex|) (173 . |elt|)
               |REP1;tensorProduct;3L;8| |REP1;tensorProduct;2M;9|
               |REP1;tensorProduct;2L;10| (179 . |zero|) (|Permutation| 7)
-              (185 . |eval|) (191 . |setelt|)
+              (185 . |eval|) (191 . |setelt!|)
               |REP1;permutationRepresentation;PIM;11|
               |REP1;permutationRepresentation;LM;12| (|List| 12) (|List| 56)
               |REP1;permutationRepresentation;LIL;13|
               |REP1;permutationRepresentation;LL;14| (|Polynomial| 6)
               (199 . |Zero|) (|OutputForm|) (203 . |coerce|) (|List| 67)
               (208 . |list|) (|Symbol|) (213 . |subscript|) (219 . |coerce|)
-              (|Matrix| 65) (224 . |setelt|)
+              (|Matrix| 65) (224 . |setelt!|)
               |REP1;createGenericMatrix;NniM;15|)
            '#(|tensorProduct| 232 |symmetricTensors| 254
               |permutationRepresentation| 266 |createGenericMatrix| 288

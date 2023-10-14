@@ -942,7 +942,7 @@
               (|List| (|DrawOption|)) (|DrawOptionFunctions0|) (20 . |title|)
               |VIEW2D;options;$L;3| |VIEW2D;options;$L$;4| (|Boolean|) (26 . >)
               (32 . |One|) (|Union| 31 '"undefined") (|Vector| 27)
-              (36 . |setelt|) (|Void|) (|GraphImage|)
+              (36 . |setelt!|) (|Void|) (|GraphImage|)
               |VIEW2D;putGraph;$GiPiV;5| (43 . |elt|) |VIEW2D;getGraph;$PiGi;6|
               (|Record| (|:| |scaleX| 11) (|:| |scaleY| 11) (|:| |deltaX| 11)
                         (|:| |deltaY| 11) (|:| |points| 7) (|:| |connect| 7)
@@ -959,7 +959,7 @@
               (|List| 8) (84 . |viewSizeDefault|) (88 . |elt|)
               |VIEW2D;viewport2D;$;16| |VIEW2D;makeViewport2D;GiL$;17|
               |VIEW2D;makeViewport2D;2$;18| (|Color|) (94 . |hue|) (99 . |hue|)
-              (104 . |shade|) (109 . |numberOfHues|) (113 . |setelt|)
+              (104 . |shade|) (109 . |numberOfHues|) (113 . |setelt!|)
               |VIEW2D;graphState;$Pi4Df4IPIPIV;20| |VIEW2D;title;$SV;21|
               |VIEW2D;reset;$V;22| |VIEW2D;axes;$PiSV;23|
               |VIEW2D;axes;$PiPV;24| |VIEW2D;units;$PiSV;25|

@@ -6,7 +6,7 @@
                       |GSTBL;elt;$KeyEntry;1|)
                 (EXIT (COND ((QEQCAR |u| 1) (QREFELT $ 9)) ('T (QCDR |u|))))))) 
 
-(SDEFUN |GSTBL;setelt;$Key2Entry;2|
+(SDEFUN |GSTBL;setelt!;$Key2Entry;2|
         ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
         (SEQ
          (COND
@@ -165,7 +165,7 @@
            '#(NIL NIL NIL NIL NIL (|local| |#3|) (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (|Union| 7 '"failed")
               (0 . |search|) |GSTBL;elt;$KeyEntry;1| (|Boolean|) (6 . =)
-              (12 . |remove!|) (18 . |setelt|) |GSTBL;setelt;$Key2Entry;2|
+              (12 . |remove!|) (18 . |setelt!|) |GSTBL;setelt!;$Key2Entry;2|
               |GSTBL;search;Key$U;3| (|Record| (|:| |key| 6) (|:| |entry| 7))
               (|List| 20) (|List| 23) (|Equation| 20) (|Mapping| 20 20 20)
               (|NonNegativeInteger|) (|Equation| 7) (|List| 26) (|List| 7)
@@ -173,7 +173,7 @@
               (|InputForm|) (|Mapping| 14 7) (|Mapping| 14 20) (|Mapping| 7 7)
               (|Void|) (|Mapping| 20 20) (|Mapping| 7 7 7) (|List| 6)
               (|Union| 20 '"failed"))
-           '#(~= 25 |table| 31 |swap!| 40 |size?| 47 |setelt| 53 |select!| 60
+           '#(~= 25 |table| 31 |swap!| 40 |size?| 47 |setelt!| 53 |select!| 60
               |select| 66 |search| 72 |sample| 78 |removeDuplicates| 82
               |remove!| 87 |remove| 105 |reduce| 117 |qsetelt!| 138 |qelt| 145
               |parts| 151 |more?| 161 |minIndex| 167 |members| 172 |member?|

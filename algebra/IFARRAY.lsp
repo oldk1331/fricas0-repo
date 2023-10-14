@@ -171,7 +171,7 @@
           (|error| "index out of range"))
          ('T (QAREF1 (QVELT |r| 2) (- |i| (QREFELT $ 7)))))) 
 
-(SDEFUN |IFARRAY;setelt;$I2S;18| ((|r| $) (|i| |Integer|) (|x| S) ($ S))
+(SDEFUN |IFARRAY;setelt!;$I2S;18| ((|r| $) (|i| |Integer|) (|x| S) ($ S))
         (COND
          ((OR (< |i| (QREFELT $ 7)) (>= |i| (+ (QVELT |r| 1) (QREFELT $ 7))))
           (|error| "index out of range"))
@@ -584,7 +584,7 @@
               |IFARRAY;fill!;$S$;5| |IFARRAY;maxIndex;$I;6|
               |IFARRAY;minIndex;$I;7| |IFARRAY;new;NniS$;8| (|Boolean|)
               |IFARRAY;shrinkable;2B;9| (|List| 6) (6 . |elt|)
-              |IFARRAY;setelt;$I2S;18| |IFARRAY;flexibleArray;L$;10| (12 . >)
+              |IFARRAY;setelt!;$I2S;18| |IFARRAY;flexibleArray;L$;10| (12 . >)
               (18 . <=) (|PositiveInteger|) (24 . *) |IFARRAY;copy;2$;16|
               |IFARRAY;elt;$IS;17| (|Mapping| 22 6 6) |IFARRAY;merge!;M3$;27|
               |IFARRAY;merge;M3$;19| |IFARRAY;concat!;$S$;20| (30 . |eq?|)
@@ -599,7 +599,7 @@
               (|SingleInteger|) (|String|) (|HashState|) (|List| $)
               (|Union| 6 '"failed") (|List| 12))
            '#(~= 85 |swap!| 91 |sorted?| 98 |sort!| 109 |sort| 120 |smaller?|
-              131 |size?| 137 |shrinkable| 143 |setelt| 148 |select!| 162
+              131 |size?| 137 |shrinkable| 143 |setelt!| 148 |select!| 162
               |select| 168 |sample| 174 |reverse!| 178 |reverse| 183
               |removeRepeats!| 188 |removeDuplicates!| 193 |removeDuplicates|
               198 |remove!| 203 |remove| 215 |reduce| 227 |qsetelt!| 248 |qelt|

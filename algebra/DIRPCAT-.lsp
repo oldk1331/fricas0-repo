@@ -236,7 +236,7 @@
               (109 . |reducedSystem|) (115 . |inv|) (120 . *) (126 . /)
               (|CardinalNumber|) (132 . |coerce|) (137 . |dimension|)
               (141 . |size|) (145 . |size|) (|PositiveInteger|) (149 . |index|)
-              (154 . |setelt|) (161 . |directProduct|) (166 . |index|)
+              (154 . |setelt!|) (161 . |directProduct|) (166 . |index|)
               (171 . |elt|) (177 . |lookup|) (182 . |lookup|) (|Fraction| 9)
               (|OutputForm|) (|Symbol|) (|List| 62) (|List| 13) (|Matrix| 9)
               (|Record| (|:| |mat| 65) (|:| |vec| (|Vector| 9))))

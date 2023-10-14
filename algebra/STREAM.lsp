@@ -296,15 +296,15 @@
                (|STREAM;seteltt| (SPADCALL |x| (QREFELT $ 15)) (- |n| 1) |s|
                 $)))) 
 
-(SDEFUN |STREAM;setelt;$I2S;20| ((|x| $) (|n| |Integer|) (|s| S) ($ S))
+(SDEFUN |STREAM;setelt!;$I2S;20| ((|x| $) (|n| |Integer|) (|s| S) ($ S))
         (SEQ
          (COND
           ((OR (< |n| 1) (SPADCALL |x| (QREFELT $ 18)))
-           (|error| "setelt: no such element"))
+           (|error| "setelt!: no such element"))
           ('T
            (SEQ
             (LETT |x| (|STREAM;expand!| |x| (+ (- |n| 1) 1) $)
-                  |STREAM;setelt;$I2S;20|)
+                  |STREAM;setelt!;$I2S;20|)
             (EXIT (|STREAM;seteltt| |x| |n| |s| $))))))) 
 
 (SDEFUN |STREAM;removee| ((|p| |Mapping| (|Boolean|) S) (|x| $) ($ $))
@@ -494,14 +494,14 @@
                                          (QREFELT $ 77))
                                (QREFELT $ 44))))))))) 
 
-(SDEFUN |STREAM;setelt;$Us2S;33|
+(SDEFUN |STREAM;setelt!;$Us2S;33|
         ((|x| $) (|seg| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
          ((#1=#:G468 NIL) (|y| ($)) (#2=#:G472 NIL) (|i| NIL) (#3=#:G462 NIL)
           (|high| (|Integer|)) (|low| (|Integer|)))
          (SEQ
           (LETT |low| (SPADCALL |seg| (QREFELT $ 84))
-                . #4=(|STREAM;setelt;$Us2S;33|))
+                . #4=(|STREAM;setelt!;$Us2S;33|))
           (EXIT
            (COND
             ((SPADCALL |seg| (QREFELT $ 85))
@@ -515,7 +515,7 @@
                              (COND
                               ((NULL (SPADCALL |high| |x| (QREFELT $ 73)))
                                (EXIT
-                                (|error| #6="setelt: index out of range")))))
+                                (|error| #6="setelt!: index out of range")))))
                             (#5# (EXIT (|error| #6#))))
                            (LETT |x|
                                  (|STREAM;expand!| |x| (+ (- |high| 1) 1) $)
@@ -539,7 +539,7 @@
                                 (EXIT NIL))
                            (EXIT |s|)))))))
             ((NULL (SPADCALL |low| |x| (QREFELT $ 73)))
-             (|error| "setelt: index out of range"))
+             (|error| "setelt!: index out of range"))
             ('T
              (SEQ
               (LETT |x|
@@ -799,7 +799,7 @@
 (SDEFUN |STREAM;setfirst!;$2S;46| ((|x| $) (|s| S) ($ S))
         (SPADCALL |x| 0 |s| (QREFELT $ 54))) 
 
-(SDEFUN |STREAM;setelt;$first2S;47| ((|x| $) (T5 "first") (|s| S) ($ S))
+(SDEFUN |STREAM;setelt!;$first2S;47| ((|x| $) (T5 "first") (|s| S) ($ S))
         (SPADCALL |x| |s| (QREFELT $ 101))) 
 
 (SDEFUN |STREAM;setrest!;3$;48| ((|x| $) (|y| $) ($ $))
@@ -807,7 +807,7 @@
          ((SPADCALL |x| (QREFELT $ 18)) (|error| "setrest!: empty stream"))
          ('T (|STREAM;setrst!| |x| |y| $)))) 
 
-(SDEFUN |STREAM;setelt;$rest2$;49| ((|x| $) (T6 "rest") (|y| $) ($ $))
+(SDEFUN |STREAM;setelt!;$rest2$;49| ((|x| $) (T6 "rest") (|y| $) ($ $))
         (SPADCALL |x| |y| (QREFELT $ 97))) 
 
 (SDEFUN |STREAM;setlast!;$2S;50| ((|x| $) (|s| S) ($ S))
@@ -815,7 +815,7 @@
          ((SPADCALL |x| (QREFELT $ 18)) (|error| "setlast!: empty stream"))
          ('T (|STREAM;setfrst!| (SPADCALL |x| (QREFELT $ 50)) |s| $)))) 
 
-(SDEFUN |STREAM;setelt;$last2S;51| ((|x| $) (T7 "last") (|s| S) ($ S))
+(SDEFUN |STREAM;setelt!;$last2S;51| ((|x| $) (T7 "last") (|s| S) ($ S))
         (SPADCALL |x| |s| (QREFELT $ 106))) 
 
 (SDEFUN |STREAM;split!;$I$;52| ((|x| $) (|n| |Integer|) ($ $))
@@ -1269,7 +1269,7 @@
               (|Mapping| $) |STREAM;delay;M$;57| (78 . |distance|)
               |STREAM;first;$Nni$;38| (84 . |complete|) (89 . |tail|)
               (|List| 6) |STREAM;construct;L$;17| |STREAM;elt;$IS;18|
-              |STREAM;setelt;$I2S;20| (|Mapping| 12 6) |STREAM;remove;M2$;22|
+              |STREAM;setelt!;$I2S;20| (|Mapping| 12 6) |STREAM;remove;M2$;22|
               |STREAM;select;M2$;24| (|Stream| 6) (|Mapping| 6 6)
               (|StreamFunctions2| 6 6) (94 . |map|) |STREAM;map;M2$;25|
               (|Mapping| 6 6 6) (|StreamFunctions3| 6 6 6) (100 . |map|)
@@ -1280,14 +1280,14 @@
               |STREAM;concat;3$;66| (|List| $$) (134 . |empty?|)
               (139 . |first|) (144 . |rest|) |STREAM;concat;L$;32|
               (|UniversalSegment| 16) (149 . |lo|) (154 . |hasHi|) (159 . |hi|)
-              (164 . |rest|) |STREAM;setelt;$Us2S;33|
+              (164 . |rest|) |STREAM;setelt!;$Us2S;33|
               |STREAM;lazyEvaluate;2$;36| (170 . |Zero|) (174 . |Zero|)
               (178 . =) (184 . |One|) (188 . |One|) (192 . -)
               |STREAM;cons;S2$;40| |STREAM;setrest!;3$;48|
               |STREAM;cycleSplit!;2$;41| |STREAM;concat!;3$;44|
               |STREAM;concat!;$S$;45| |STREAM;setfirst!;$2S;46| '"first"
-              |STREAM;setelt;$first2S;47| '"rest" |STREAM;setelt;$rest2$;49|
-              |STREAM;setlast!;$2S;50| '"last" |STREAM;setelt;$last2S;51|
+              |STREAM;setelt!;$first2S;47| '"rest" |STREAM;setelt!;$rest2$;49|
+              |STREAM;setlast!;$2S;50| '"last" |STREAM;setelt!;$last2S;51|
               |STREAM;split!;$I$;52| |STREAM;coerce;L$;53|
               |STREAM;repeating;L$;54| (198 . =) (204 . =) (210 . ~=)
               (216 . |repeating?|) |STREAM;explicitEntries?;$B;58|
@@ -1301,7 +1301,7 @@
            '#(~= 232 |value| 238 |third| 243 |tail| 248 |swap!| 253 |stream|
               260 |split!| 271 |size?| 277 |showAllElements| 283 |showAll?| 288
               |setvalue!| 292 |setrest!| 298 |setlast!| 311 |setfirst!| 317
-              |setelt| 323 |setchildren!| 365 |select| 371 |second| 377
+              |setelt!| 323 |setchildren!| 365 |select| 371 |second| 377
               |sample| 382 |rst| 386 |rest| 391 |repeating?| 402 |repeating|
               408 |removeDuplicates| 413 |remove| 418 |reduce| 430 |qsetrest!|
               451 |qsetfirst!| 457 |qsetelt!| 463 |qelt| 470

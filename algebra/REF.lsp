@@ -11,7 +11,7 @@
 
 (SDEFUN |REF;elt;$S;3| ((|p| $) ($ S)) (QCAR |p|)) 
 
-(SDEFUN |REF;setelt;$2S;4| ((|p| $) (|v| S) ($ S))
+(SDEFUN |REF;setelt!;$2S;4| ((|p| $) (|v| S) ($ S))
         (PROGN (RPLACA |p| |v|) (QCAR |p|))) 
 
 (PUT '|REF;deref;$S;5| '|SPADreplace| 'QCAR) 
@@ -71,11 +71,11 @@
 (MAKEPROP '|Reference| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (|Boolean|)
-              |REF;=;2$B;1| |REF;ref;S$;2| |REF;elt;$S;3| |REF;setelt;$2S;4|
+              |REF;=;2$B;1| |REF;ref;S$;2| |REF;elt;$S;3| |REF;setelt!;$2S;4|
               |REF;deref;$S;5| |REF;setref;$2S;6| (|String|) (|OutputForm|)
               (0 . |message|) (5 . |coerce|) (|List| $) (10 . |prefix|)
               (16 . |coerce|) (|HashState|) (|SingleInteger|))
-           '#(~= 21 |setref| 27 |setelt| 33 |ref| 39 |latex| 44 |hashUpdate!|
+           '#(~= 21 |setref| 27 |setelt!| 33 |ref| 39 |latex| 44 |hashUpdate!|
               49 |hash| 55 |elt| 60 |deref| 65 |coerce| 70 = 75)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(1 0 1 1))

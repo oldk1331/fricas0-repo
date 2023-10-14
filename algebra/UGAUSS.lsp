@@ -207,7 +207,7 @@
 (MAKEPROP '|UnitGaussianElimination| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Vector| 6) (0 . |elt|)
-              (|Boolean|) (6 . ~=) (12 . |setelt|) (|NonNegativeInteger|)
+              (|Boolean|) (6 . ~=) (12 . |setelt!|) (|NonNegativeInteger|)
               (19 . |zero|) (|Matrix| 6) |UGAUSS;pre_gauss;2M;2| (24 . |zero|)
               |UGAUSS;pre_smith;2M;3|)
            '#(|pre_smith| 30 |pre_gauss| 35) 'NIL

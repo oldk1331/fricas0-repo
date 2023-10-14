@@ -91,7 +91,7 @@
                                                (|List|
                                                 (|Segment| (|Integer|)))))
                                              T)
-                                            ((|setelt|
+                                            ((|setelt!|
                                               (|t#1| $ (|Integer|) (|Integer|)
                                                |t#1|))
                                              T)
@@ -105,15 +105,15 @@
                                             ((|setColumn!|
                                               ($ $ (|Integer|) |t#3|))
                                              T)
-                                            ((|setelt|
+                                            ((|setelt!|
                                               ($ $ (|List| (|Integer|))
                                                (|List| (|Integer|)) $))
                                              T)
-                                            ((|setelt|
+                                            ((|setelt!|
                                               ($ $ (|Segment| (|Integer|))
                                                (|Segment| (|Integer|)) $))
                                              T)
-                                            ((|setelt|
+                                            ((|setelt!|
                                               ($ $
                                                (|List| (|Segment| (|Integer|)))
                                                (|List| (|Segment| (|Integer|)))

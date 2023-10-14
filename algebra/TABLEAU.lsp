@@ -107,7 +107,7 @@
               |TABLEAU;tableau;L$;1| |TABLEAU;listOfLists;$L;2| (|String|)
               (|OutputForm|) (0 . |message|) (|NonNegativeInteger|) (|List| 12)
               (5 . |new|) (11 . |coerce|) (16 . |box|) (|Integer|)
-              (21 . |setelt|) (28 . |empty|) (|List| $) (32 . |blankSeparate|)
+              (21 . |setelt!|) (28 . |empty|) (|List| $) (32 . |blankSeparate|)
               (37 . |pile|) |TABLEAU;coerce;$Of;5|)
            '#(|tableau| 42 |listOfLists| 47 |coerce| 52) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))

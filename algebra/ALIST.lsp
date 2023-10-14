@@ -147,7 +147,7 @@
                   (EXIT (CONS 1 "failed"))))
                 #5# (EXIT #2#)))) 
 
-(SDEFUN |ALIST;setelt;$Key2Entry;18|
+(SDEFUN |ALIST;setelt!;$Key2Entry;18|
         ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
         (SPROG
          ((|r|
@@ -155,7 +155,7 @@
                     "failed")))
          (SEQ
           (LETT |r| (SPADCALL |k| |t| (QREFELT $ 43))
-                |ALIST;setelt;$Key2Entry;18|)
+                |ALIST;setelt!;$Key2Entry;18|)
           (EXIT
            (COND ((QEQCAR |r| 0) (PROGN (RPLACD #1=(QCDR |r|) |e|) (QCDR #1#)))
                  ('T
@@ -399,7 +399,7 @@
               (32 . =) (|Union| 7 '"failed") |ALIST;search;Key$U;15| (|String|)
               (38 . |latex|) (43 . |latex|) (48 . |latex|)
               (|Union| 9 '"failed") |ALIST;assoc;Key$U;17| (53 . |setref|)
-              |ALIST;setelt;$Key2Entry;18| (59 . ~=) |ALIST;remove!;Key$U;19|
+              |ALIST;setelt!;$Key2Entry;18| (59 . ~=) |ALIST;remove!;Key$U;19|
               (|Equation| 9) (|List| 48) (|Mapping| 9 9 9) (|List| 52)
               (|Equation| 7) (|List| 7) (|OutputForm|) (|HashState|)
               (|SingleInteger|) (|InputForm|) (|Mapping| 15 9) (|Mapping| 15 7)
@@ -409,7 +409,7 @@
            '#(~= 65 |value| 71 |third| 76 |tail| 81 |table| 86 |swap!| 95
               |split!| 109 |sorted?| 115 |sort!| 126 |sort| 137 |smaller?| 148
               |size?| 154 |setvalue!| 160 |setrest!| 166 |setlast!| 172
-              |setfirst!| 178 |setelt| 184 |setchildren!| 233 |select!| 239
+              |setfirst!| 178 |setelt!| 184 |setchildren!| 233 |select!| 239
               |select| 251 |second| 263 |search| 268 |sample| 274 |reverse!|
               278 |reverse| 283 |rest| 288 |removeDuplicates!| 299
               |removeDuplicates| 304 |remove!| 309 |remove| 339 |reduce| 363

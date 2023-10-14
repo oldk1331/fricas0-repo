@@ -104,7 +104,7 @@
         ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
         (STR_SETELT |s| (- |i| (QREFELT $ 6)) |c|)) 
 
-(SDEFUN |ISTRING;setelt;$I2C;17|
+(SDEFUN |ISTRING;setelt!;$I2C;17|
         ((|s| $) (|i| |Integer|) (|c| . #1=(|Character|)) ($ . #1#))
         (COND
          ((OR (< |i| (QREFELT $ 6))
@@ -723,7 +723,7 @@
               |ISTRING;lowerCase!;2$;13| |ISTRING;latex;$S;14| (40 . |lo|)
               (45 . |hasHi|) (50 . |hi|) (55 . |maxIndex|)
               |ISTRING;replace;$Us2$;15| |ISTRING;qsetelt!;$I2C;16| (60 . >)
-              |ISTRING;setelt;$I2C;17| |ISTRING;substring?;2$IB;18|
+              |ISTRING;setelt!;$I2C;17| |ISTRING;substring?;2$IB;18|
               |ISTRING;position;2$2I;19| |ISTRING;position;C$2I;20|
               (66 . |member?|) |ISTRING;position;Cc$2I;21|
               |ISTRING;suffix?;2$B;22| |ISTRING;elt;$IC;32| (|List| $$)
@@ -740,7 +740,7 @@
               (|Union| 8 '"failed") (|List| 18))
            '#(~= 110 |upperCase!| 116 |upperCase| 121 |trim| 126 |swap!| 138
               |suffix?| 145 |substring?| 151 |split| 158 |sorted?| 170 |sort!|
-              181 |sort| 192 |smaller?| 203 |size?| 209 |setelt| 215 |select|
+              181 |sort| 192 |smaller?| 203 |size?| 209 |setelt!| 215 |select|
               229 |sample| 235 |rightTrim| 239 |reverse!| 251 |reverse| 256
               |replace| 261 |removeDuplicates| 268 |remove| 273 |reduce| 285
               |qsetelt!| 306 |qelt| 313 |prefix?| 319 |position| 325 |parts|

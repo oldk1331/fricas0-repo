@@ -162,7 +162,7 @@
               (|List| $) '"value" (|Mapping| 6 6) (|OutputForm|)
               (|SingleInteger|) (|HashState|) (|String|) (|Integer|))
            '#(~= 60 |value| 66 |split| 71 |size?| 77 |setvalue!| 83 |setright!|
-              89 |setleft!| 95 |setelt| 101 |setchildren!| 122 |sample| 128
+              89 |setleft!| 95 |setelt!| 101 |setchildren!| 122 |sample| 128
               |right| 132 |parts| 137 |nodes| 142 |node?| 147 |node| 153
               |more?| 160 |members| 166 |member?| 171 |map!| 177 |map| 183
               |less?| 189 |left| 195 |leaves| 200 |leaf?| 205 |latex| 210

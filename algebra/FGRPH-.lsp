@@ -2078,7 +2078,7 @@
                         (|:| |toOb| 13) (|:| |xOffset| 26) (|:| |yOffset| 26)
                         (|:| |map| 40))
               (|List| 20) (25 . |getArrows|) (|Matrix| 26) (30 . |zero|)
-              (36 . |isDirected?|) (|Integer|) (40 . |setelt|)
+              (36 . |isDirected?|) (|Integer|) (40 . |setelt!|)
               |FGRPH-;incidenceMatrix;AM;4| (48 . |isDirectSuccessor?|)
               (|List| 40) (|Matrix| 13) (55 . |matrix|)
               |FGRPH-;adjacencyMatrix;AM;5| (60 . |inDegree|)
@@ -2110,7 +2110,7 @@
               |FGRPH-;isGreaterThan?;A2NniB;39| (232 . |isGreaterThan?|)
               |FGRPH-;max;ANni;40| |FGRPH-;max;ALNni;41| |FGRPH-;min;ANni;42|
               |FGRPH-;min;ALNni;43| |FGRPH-;distance;A2NniI;44| (239 . |elt|)
-              (245 . |setelt|) |FGRPH-;isFunctional?;AB;45|
+              (245 . |setelt!|) |FGRPH-;isFunctional?;AB;45|
               |FGRPH-;createWidth;2Nni;46| (252 . |createWidth|)
               (|Union| $ '"failed") (257 . |subtractIfCan|)
               |FGRPH-;createX;3Nni;47| |FGRPH-;createY;3Nni;48| (|DoubleFloat|)

@@ -206,7 +206,7 @@
                (COND ((< |p| 0) |e|)
                      ('T (QAREF1 |a| (+ (ASH (QVSIZE |a|) -1) |p|)))))))) 
 
-(SDEFUN |XHASHTBL;setelt;$Key2Entry;13|
+(SDEFUN |XHASHTBL;setelt!;$Key2Entry;13|
         ((|x| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|))
         (SPROG
          ((|p| (|Integer|))
@@ -222,7 +222,7 @@
           (|a| (|PrimitiveArray| (|None|))))
          (SEQ
           (COND ((>= (QVELT |x| 0) (QVELT |x| 1)) (|XHASHTBL;grow!| |x| $)))
-          (LETT |a| (QVELT |x| 5) . #1=(|XHASHTBL;setelt;$Key2Entry;13|))
+          (LETT |a| (QVELT |x| 5) . #1=(|XHASHTBL;setelt!;$Key2Entry;13|))
           (LETT |h| (QVELT |x| 6) . #1#)
           (LETT |p| (|XHASHTBL;localSearch| |a| |k| |h| $) . #1#)
           (LETT |n| (ASH (QVSIZE |a|) -1) . #1#)
@@ -616,7 +616,7 @@
               |XHASHTBL;#;$Nni;9| (|Union| 7 '"failed")
               |XHASHTBL;search;Key$U;10| |XHASHTBL;elt;$KeyEntry;11|
               |XHASHTBL;elt;$Key2Entry;12| (28 . >)
-              |XHASHTBL;setelt;$Key2Entry;13| |XHASHTBL;remove!;Key$U;14|
+              |XHASHTBL;setelt!;$Key2Entry;13| |XHASHTBL;remove!;Key$U;14|
               (|PrimitiveArray| (|None|)) (34 . |copy|) |XHASHTBL;copy;2$;15|
               |XHASHTBL;fill!;$Entry$;16| (|Mapping| 7 7)
               |XHASHTBL;map!;M2$;17| (|List| 6) |XHASHTBL;keys;$L;18|
@@ -627,7 +627,7 @@
               (|HashState|) (|String|) (|InputForm|) (|Mapping| 12 7)
               (|Mapping| 12 26) (|Void|) (|Mapping| 26 26) (|Mapping| 7 7 7)
               (|Union| 26 '"failed"))
-           '#(~= 57 |table| 63 |swap!| 77 |size?| 84 |setelt| 90 |select!| 97
+           '#(~= 57 |table| 63 |swap!| 77 |size?| 84 |setelt!| 90 |select!| 97
               |select| 103 |search| 109 |sample| 115 |removeDuplicates| 119
               |remove!| 124 |remove| 142 |reduce| 154 |qsetelt!| 175 |qelt| 182
               |parts| 188 |more?| 198 |minIndex| 204 |members| 209 |member?|

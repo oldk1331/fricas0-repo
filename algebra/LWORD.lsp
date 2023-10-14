@@ -397,7 +397,7 @@
               (91 . |coerce|) (|OutputForm|) (96 . |coerce|) (101 . |bracket|)
               |LWORD;coerce;$Of;8| |LWORD;coerce;$M;9|
               (|OneDimensionalArray| 19) (106 . |new|) (|List| 6)
-              (112 . |sort|) (|Integer|) (117 . |setelt|) (124 . |elt|)
+              (112 . |sort|) (|Integer|) (117 . |setelt!|) (124 . |elt|)
               (130 . |right|) (135 . =) (|Mapping| 10 $$ $$) (141 . |sort!|)
               (|OneDimensionalArray| 16) |LWORD;LyndonWordsList1;LPiOda;10|
               (147 . |append|) (153 . |nil|) |LWORD;LyndonWordsList;LPiL;11|

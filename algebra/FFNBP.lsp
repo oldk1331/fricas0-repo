@@ -634,7 +634,7 @@
               '|multTable|
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |FFNBP;Zero;$;36|) $))
-              (17 . |Zero|) '|vv| (21 . |One|) (|Integer|) (25 . |setelt|)
+              (17 . |Zero|) '|vv| (21 . |One|) (|Integer|) (25 . |setelt!|)
               (|Void|) (|Record| (|:| |value| 6) (|:| |index| 208))
               (|Vector| (|List| 31)) (|InnerNormalBasisFieldFunctions| 6)
               (32 . |setFieldInfo|) (|Vector| 6) (38 . |minimalPolynomial|)

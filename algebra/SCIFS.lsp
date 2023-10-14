@@ -724,7 +724,7 @@
               (|List| 14) (12 . |concat|) (|List| 10) |SCIFS;smesh;LB$;4|
               |SCIFS;singleFace;L$;5| (|Integer|) (18 . |elt|) (24 . |sipnt|)
               (31 . +) (37 . |#|) (|DoubleFloat|) (42 . *) (48 . |elt|)
-              (54 . |setelt|) |SCIFS;subdivide;2$;6| (|PositiveInteger|)
+              (54 . |setelt!|) |SCIFS;subdivide;2$;6| (|PositiveInteger|)
               (|Float|) (61 . |float|) (68 . |coerce|)
               |SCIFS;sierpinskiDivide;$Nni$;7| (73 . |convert|) 'LINMAX 'XHAT
               'YHAT 'PREV0 'PREV (78 . |colinearity|) (84 . >)

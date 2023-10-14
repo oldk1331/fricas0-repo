@@ -768,7 +768,7 @@
               (105 . <=) (111 . |mul|) (118 . |remainder!|)
               (|Record| (|:| |numers| 10) (|:| |denoms| 10))
               (|Union| 40 '"failed") |VECREC1;rational_reconstruction;$U;6|
-              (|Vector| 7) (125 . |elt|) (131 . |setelt|)
+              (|Vector| 7) (125 . |elt|) (131 . |setelt!|)
               (|Record| (|:| |nvars| 7) (|:| |offsetdata| 43)
                         (|:| |expdata| 47) (|:| |coeffdata| 17))
               (|SortedExponentVector|) |VECREC1;repack_polys;IVSevPaR;7|

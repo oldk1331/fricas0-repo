@@ -685,7 +685,7 @@
               (|Union| 17 '"failed") (|Table| 6 17) (0 . |search|)
               (6 . |table|) |MSET;empty;$;2| |MSET;multiset;$;3|
               |MSET;dictionary;$;4| |MSET;set;$;5| |MSET;brace;$;6| (|Integer|)
-              (10 . |setelt|) (|List| 6) |MSET;construct;L$;7|
+              (10 . |setelt!|) (|List| 6) |MSET;construct;L$;7|
               |MSET;multiset;L$;8| |MSET;dictionary;L$;9| |MSET;set;L$;10|
               |MSET;brace;L$;11| |MSET;multiset;S$;12| (|Symbol|) (|InputForm|)
               (17 . |convert|) |MSET;parts;$L;35| (22 . |convert|) (|List| $)

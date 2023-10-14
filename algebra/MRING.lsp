@@ -1057,7 +1057,7 @@
               (250 . |concat!|) (256 . |coefficient|) (262 . *) (268 . *)
               (274 . <=) (|Mapping| 14 9 9) (280 . |sort|) (|Set| 9)
               (286 . |brace|) (291 . =) (|AssociationList| 7 6)
-              (297 . |search|) (303 . |setelt|) (310 . |remove!|)
+              (297 . |search|) (303 . |setelt!|) (310 . |remove!|)
               (316 . |table|) (|List| 7) (320 . |keys|) (325 . |elt|)
               (|InputForm|) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 331 |zero?| 337 |terms| 342 |subtractIfCan| 347 |size| 353

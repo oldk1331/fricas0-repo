@@ -328,7 +328,7 @@
                                                                            '$)
                                                                      (|PrimeField|
                                                                       |p|)))
-                                             (|compiledLookupCheck| '|setelt|
+                                             (|compiledLookupCheck| '|setelt!|
                                                                     (LIST
                                                                      (LIST
                                                                       '|PrimeField|
@@ -361,7 +361,7 @@
                                                                    '|Integer|))
                                                             (|PrimeField|
                                                              |p|)))
-                                    (|compiledLookupCheck| '|setelt|
+                                    (|compiledLookupCheck| '|setelt!|
                                                            (LIST
                                                             (LIST '|PrimeField|
                                                                   |p|)
@@ -406,7 +406,7 @@
                                                                 (LIST '$ '$ '$)
                                                                 (|PrimeField|
                                                                  |p|)))
-                                        (|compiledLookupCheck| '|setelt|
+                                        (|compiledLookupCheck| '|setelt!|
                                                                (LIST
                                                                 (LIST
                                                                  '|PrimeField|
@@ -925,8 +925,8 @@
               (|NonNegativeInteger|) (5 . |size|) (9 . |characteristic|)
               (13 . |One|) (17 . |Zero|) (|Boolean|) (|Integer|)
               (21 . |prime?|) (26 . |positiveRemainder|) (|Vector| 22)
-              (32 . |zero|) (37 . |setelt|) (|Matrix| 22) (44 . |zero|)
-              (50 . ~=) (56 . |elt|) (62 . |setelt|) (70 . |elt|)
+              (32 . |zero|) (37 . |setelt!|) (|Matrix| 22) (44 . |zero|)
+              (50 . ~=) (56 . |elt|) (62 . |setelt!|) (70 . |elt|)
               (77 . |coerce|) (|List| 7) (82 . |copy|) (|Vector| 35)
               (87 . |elt|) |FFF;sizeMultiplication;VNni;3| (93 . |degree|)
               (98 . |One|) (102 . |Zero|) (106 . |coefficient|) (112 . -)

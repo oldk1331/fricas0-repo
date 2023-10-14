@@ -522,7 +522,7 @@
               (11 . |concat|) |M3D;coerce;Pa$;3| (|PrimitiveArray| 19)
               (17 . |concat|) (23 . |copy|) (|PrimitiveArray| 6)
               (28 . |concat|) (|Symbol|) |M3D;matrixConcat3D;S3$;1|
-              (34 . |new|) (40 . |setelt|) (|Boolean|) (47 . >)
+              (34 . |new|) (40 . |setelt!|) (|Boolean|) (47 . >)
               |M3D;elt;$3NniR;5| (53 . |copy|) |M3D;setelt!;$3Nni2R;6|
               (58 . |Zero|) (62 . |zeroMatrix|) (69 . |One|)
               (73 . |identityMatrix|) (78 . +) (84 . |plus|) (|List| 39)

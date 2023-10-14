@@ -170,7 +170,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|Vector| 6) (|local| |#1|)
               (|NonNegativeInteger|) (0 . |new|) (|Integer|) (6 . |minIndex|)
-              (11 . |setelt|) (|List| 6) |POINT;point;L$;1| (18 . |#|)
+              (11 . |setelt!|) (|List| 6) |POINT;point;L$;1| (18 . |#|)
               (|PositiveInteger|) |POINT;dimension;$Pi;2| |POINT;convert;L$;3|
               (|Boolean|) (23 . ~=) (29 . |elt|) (35 . *) (41 . -) (47 . |One|)
               |POINT;cross;3$;4| (51 . |concat|) |POINT;extend;$L$;5|
@@ -180,7 +180,7 @@
               (|SingleInteger|) (|String|) (|HashState|) (|List| $)
               (|Union| 6 '"failed") (|List| 9))
            '#(~= 57 |zero?| 63 |zero| 68 |swap!| 73 |sorted?| 80 |sort!| 91
-              |sort| 102 |smaller?| 113 |size?| 119 |setelt| 125 |select| 139
+              |sort| 102 |smaller?| 113 |size?| 119 |setelt!| 125 |select| 139
               |sample| 145 |reverse!| 149 |reverse| 154 |removeDuplicates| 159
               |remove| 164 |reduce| 176 |qsetelt!| 197 |qelt| 204 |position|
               210 |point| 229 |parts| 234 |outerProduct| 239 |new| 245 |more?|

@@ -2720,7 +2720,7 @@
               |FLOAT;log2;2$;30| |FLOAT;log10;2$;31| |FLOAT;exp1;$;37|
               (|List| (|List| 16)) (|Matrix| 16) (140 . |matrix|) (145 . <=)
               (151 . |elt|) (158 . *) 'E (164 . >) (170 . |elt|)
-              (175 . |setelt|) |FLOAT;precision;2Pi;42| (181 . |max|)
+              (175 . |setelt!|) |FLOAT;precision;2Pi;42| (181 . |max|)
               |FLOAT;digits;Pi;46| |FLOAT;digits;2Pi;47|
               |FLOAT;relerror;2$I;49| |FLOAT;base;Pi;52| |FLOAT;one?;$B;55|
               (185 . |positive?|) |FLOAT;positive?;$B;58| |FLOAT;float;2I$;60|
@@ -2732,11 +2732,11 @@
               |FLOAT;^;$F$;92| (|Reference| 78) (226 . |ref|) 'SPACING
               (|Reference| 14) (231 . |ref|) 'OUTMODE (|Reference| 16)
               (236 . |ref|) 'OUTPREC (241 . |elt|) (246 . |minIndex|)
-              (|Character|) (251 . |elt|) (257 . |setelt|) (264 . |maxIndex|)
+              (|Character|) (251 . |elt|) (257 . |setelt!|) (264 . |maxIndex|)
               (269 . |elt|) (|UniversalSegment| 16) (274 . SEGMENT)
               (280 . |elt|) (286 . |rightTrim|) (|List| $) (292 . |concat|)
-              (297 . |setelt|) |FLOAT;outputSpacing;NniV;108| (303 . |setelt|)
-              (309 . |setelt|) |FLOAT;outputFixed;V;109|
+              (297 . |setelt!|) |FLOAT;outputSpacing;NniV;108|
+              (303 . |setelt!|) (309 . |setelt!|) |FLOAT;outputFixed;V;109|
               |FLOAT;outputFixed;NniV;110| |FLOAT;outputGeneral;V;111|
               |FLOAT;outputGeneral;NniV;112| |FLOAT;outputFloating;V;113|
               |FLOAT;outputFloating;NniV;114| (315 . |elt|)

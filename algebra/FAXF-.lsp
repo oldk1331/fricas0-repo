@@ -601,7 +601,7 @@
               (105 . |linearAssociatedExp|) (111 . =) (117 . |Zero|) (|List| 7)
               (121 . |entries|) (|List| 53) (126 . |concat|) (132 . |matrix|)
               (137 . |transpose|) (142 . |rowEchelon|) (147 . |zero|)
-              (152 . |One|) (156 . =) (162 . |One|) (166 . |setelt|)
+              (152 . |One|) (156 . =) (162 . |One|) (166 . |setelt!|)
               (173 . |monomial|) (179 . +) (185 . =) (|Void|) (|String|)
               (|OutputForm|) (191 . |messagePrint|) (|Union| 46 '"failed")
               (196 . |linearAssociatedLog|) (202 . |normalElement|)

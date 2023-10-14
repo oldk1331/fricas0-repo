@@ -1857,8 +1857,8 @@
               |PLOT;setAdaptive;2B;16| |PLOT;parametric?;$B;17|
               |PLOT;numFunEvals;I;18| |PLOT;debug;2B;19| |PLOT;xRange;$S;20|
               |PLOT;yRange;$S;21| |PLOT;tRange;$S;22| (55 . <=) (|List| 12)
-              (61 . |second|) '"rest" (66 . |setelt|) (|List| 19)
-              (73 . |setelt|) (|PointPackage| 12) (80 . |xCoord|) (85 . |min|)
+              (61 . |second|) '"rest" (66 . |setelt!|) (|List| 19)
+              (73 . |setelt!|) (|PointPackage| 12) (80 . |xCoord|) (85 . |min|)
               (91 . |max|) (97 . |yCoord|) (|List| 48) (102 . |concat!|)
               (108 . |concat!|) (114 . |third|) (119 . |second|)
               (124 . |third|) (|PositiveInteger|) (129 . ^) (135 . |sqrt|)

@@ -522,7 +522,7 @@
               (33 . |copy|) |COMMONOP;operator;SBo;1| (|OutputForm|)
               (38 . |coerce|) (43 . |paren|) (48 . |postfix|) (54 . |quote|)
               (|List| $) (59 . |prefix|) (|None|) (65 . |setProperty|)
-              (72 . |coerce|) (77 . =) (83 . ^) (89 . |setelt|)
+              (72 . |coerce|) (77 . =) (83 . ^) (89 . |setelt!|)
               (|Mapping| 158 158) (95 . |display|) (101 . |commaSeparate|)
               (|Mapping| 158 177) (106 . |display|) (112 . |supersub|)
               (|List| 158) (118 . |first|) (123 . |second|) (128 . |binomial|)

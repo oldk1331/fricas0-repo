@@ -201,7 +201,7 @@
            '#(~= 93 |zero?| 99 |value| 104 |third| 109 |tail| 114 |swap!| 119
               |subtractIfCan| 126 |stream| 132 |split!| 137 |size?| 143
               |setvalue!| 149 |setrest!| 155 |setlast!| 161 |setfirst!| 167
-              |setelt| 173 |setchildren!| 215 |sequence| 221 |select| 232
+              |setelt!| 173 |setchildren!| 215 |sequence| 221 |select| 232
               |second| 238 |sample| 243 |rst| 247 |rest| 252 |removeDuplicates|
               263 |remove| 268 |reduce| 280 |qsetrest!| 301 |qsetfirst!| 307
               |qsetelt!| 313 |qelt| 320 |possiblyInfinite?| 326 |parts| 331

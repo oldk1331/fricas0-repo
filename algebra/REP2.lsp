@@ -1562,7 +1562,7 @@
               (23 . |matrix|) (28 . |One|) (32 . +) (38 . *) (44 . -)
               (|Vector| 6) (|Vector| 19) (50 . |elt|) (|NonNegativeInteger|)
               (56 . |zero|) (62 . |setRow!|) (|Boolean|) (69 . <=) (75 . |elt|)
-              (81 . =) (87 . |setelt|) |REP2;completeEchelonBasis;VM;3|
+              (81 . =) (87 . |setelt!|) |REP2;completeEchelonBasis;VM;3|
               (|List| 8) (95 . |elt|) |REP2;createRandomElement;L2M;4|
               (|List| 6) (101 . |entries|) (106 . |list|) (111 . |rowEchelon|)
               (116 . |maxIndex|) (121 . *) (127 . |vertConcat|) (133 . |rank|)
@@ -1571,7 +1571,7 @@
               (171 . |standardBasisOfCyclicSubmodule|) (177 . ~=) (|Void|)
               (|String|) (|OutputForm|) (183 . |messagePrint|)
               (|Union| $ '"failed") (188 . |inverse|) (193 . |nullSpace|)
-              (|List| 31) (198 . |maxIndex|) (203 . |elt|) (209 . |setelt|)
+              (|List| 31) (198 . |maxIndex|) (203 . |elt|) (209 . |setelt!|)
               (216 . |areEquivalent?|) (224 . |areEquivalent?|)
               (230 . |areEquivalent?|) (237 . |elt|) (243 . ~=)
               (249 . |isAbsolutelyIrreducible?|)
@@ -1588,7 +1588,7 @@
               (|SparseUnivariatePolynomial| 6) (410 . |One|)
               (|PositiveInteger|) (414 . >) (420 . |even?|) (425 . >)
               (431 . |scanOneDimSubspaces|) (437 . |meatAxe|) (445 . |meatAxe|)
-              (450 . |meatAxe|) (456 . |meatAxe|) (462 . |setelt|) (|List| 7)
+              (450 . |meatAxe|) (456 . |meatAxe|) (462 . |setelt!|) (|List| 7)
               (469 . |maxIndex|) (474 . |elt|) (480 . |index|) (485 . *))
            '#(|standardBasisOfCyclicSubmodule| 491 |split| 497
               |scanOneDimSubspaces| 509 |meatAxe| 515

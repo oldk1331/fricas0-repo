@@ -251,10 +251,10 @@
                   (EXIT 'NIL)))
                 #5# (EXIT #2#)))) 
 
-(SDEFUN |BRAGG-;setelt;Aleft2A;16| ((|x| A) (T5 "left") (|b| A) ($ A))
+(SDEFUN |BRAGG-;setelt!;Aleft2A;16| ((|x| A) (T5 "left") (|b| A) ($ A))
         (SPADCALL |x| |b| (QREFELT $ 47))) 
 
-(SDEFUN |BRAGG-;setelt;Aright2A;17| ((|x| A) (T6 "right") (|b| A) ($ A))
+(SDEFUN |BRAGG-;setelt!;Aright2A;17| ((|x| A) (T6 "right") (|b| A) ($ A))
         (SPADCALL |x| |b| (QREFELT $ 49))) 
 
 (DECLAIM (NOTINLINE |BinaryRecursiveAggregate&;|)) 
@@ -304,10 +304,10 @@
            ((|testBitVector| |pv$| 1)
             (PROGN
              (QSETREFV $ 48
-                       (CONS (|dispatchFunction| |BRAGG-;setelt;Aleft2A;16|)
+                       (CONS (|dispatchFunction| |BRAGG-;setelt!;Aleft2A;16|)
                              $))
              (QSETREFV $ 50
-                       (CONS (|dispatchFunction| |BRAGG-;setelt;Aright2A;17|)
+                       (CONS (|dispatchFunction| |BRAGG-;setelt!;Aright2A;17|)
                              $)))))
           $))) 
 
@@ -324,9 +324,9 @@
               (88 . |member?|) (|OutputForm|) (94 . |coerce|) (99 . |coerce|)
               (104 . |bracket|) (109 . |coerce|) (|NonNegativeInteger|)
               (114 . |#|) (119 . |cyclic?|) |BRAGG-;cyclic?;AB;13|
-              (124 . |eq?|) (130 . |setleft!|) (136 . |setelt|)
-              (143 . |setright!|) (149 . |setelt|) '"value")
-           '#(|setelt| 156 |nodes| 170 |node?| 175 |member?| 181 |leaves| 187
+              (124 . |eq?|) (130 . |setleft!|) (136 . |setelt!|)
+              (143 . |setright!|) (149 . |setelt!|) '"value")
+           '#(|setelt!| 156 |nodes| 170 |node?| 175 |member?| 181 |leaves| 187
               |leaf?| 192 |elt| 197 |cyclic?| 209 |coerce| 214 |children| 219 =
               224 |#| 230)
            'NIL

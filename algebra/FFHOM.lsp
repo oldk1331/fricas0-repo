@@ -457,7 +457,7 @@
               (|Integer|) (102 . |setColumn!|) (109 . =) (115 . |copy|)
               (|Union| $ '"failed") (120 . |inverse|) (|Void|) (125 . |void|)
               (129 . |row|) (135 . |transpose|) (140 . |vertConcat|)
-              (146 . |rank|) (151 . >) (|Vector| 49) (157 . |setelt|)
+              (146 . |rank|) (151 . >) (|Vector| 49) (157 . |setelt!|)
               (164 . |elt|) (170 . |column|) (176 . *) (182 . |inGroundField?|)
               (187 . |retract|) (192 . |coerce|) |FFHOM;coerce;F1F2;3|
               (197 . =) (203 . |Zero|) (207 . |primitiveElement|) (211 . ^)

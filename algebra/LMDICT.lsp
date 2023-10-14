@@ -461,7 +461,7 @@
               (100 . |count|) (106 . >)
               (|Record| (|:| |entry| 6) (|:| |count| 15)) (|List| 56)
               |LMDICT;duplicates;$L;21| (112 . =) (118 . =) (124 . >) '"rest"
-              (130 . |setelt|) (137 . <) (143 . |remove!|) (149 . ~=)
+              (130 . |setelt!|) (137 . <) (143 . |remove!|) (149 . ~=)
               (|Mapping| 6 6 6) (|Equation| 6) (|List| 68) (|HashState|)
               (|SingleInteger|) (|String|) (|Union| 6 '"failed"))
            '#(~= 155 |substitute| 161 |size?| 168 |select!| 174 |select| 180

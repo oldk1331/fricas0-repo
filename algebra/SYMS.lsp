@@ -182,7 +182,7 @@
            '#(NIL NIL NIL NIL NIL NIL '|Entry| '|Rep| (0 . |empty|)
               '|theSymbolTable| '|currentSubProgramName| (|SymbolTable|)
               (4 . |empty|) (|Boolean|) (|Symbol|) (8 . |key?|) (|Void|)
-              (14 . |void|) (18 . |setelt|) (25 . |elt|)
+              (14 . |void|) (18 . |setelt!|) (25 . |elt|)
               (|Union| (|:| |fst| (|FortranScalarType|)) (|:| |void| '"void"))
               |SYMS;returnTypeOf;S$U;3| (|List| 14) |SYMS;argumentListOf;S$L;4|
               |SYMS;symbolTableOf;S$St;5| (|OutputForm|) (31 . |coerce|)

@@ -621,7 +621,7 @@
               (|Integer|) (161 . |nthFactor|) (167 . |nthExponent|)
               (173 . |monicDivide|) (|Boolean|) (179 . |zero?|)
               (184 . |degree|) (189 . |leadingCoefficient|) (|Matrix| 7)
-              (194 . |setelt|) (202 . |reductum|) (207 . |lcm|)
+              (194 . |setelt!|) (202 . |reductum|) (207 . |lcm|)
               (|Mapping| 7 7 7) (|List| 7) (213 . |reduce|) (219 . =)
               (225 . |scalarMatrix|) (|List| $) (|List| 8) (231 . |concat|)
               (|ModularHermitianRowReduction| 7) (236 . |rowEchelon|)

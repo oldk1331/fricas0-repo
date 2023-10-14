@@ -29,9 +29,9 @@
 (SDEFUN |PRIMARR;qsetelt!;$I2S;7| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (QSETAREF1 |x| |i| |s|)) 
 
-(PUT '|PRIMARR;setelt;$I2S;8| '|SPADreplace| 'QSETAREF1) 
+(PUT '|PRIMARR;setelt!;$I2S;8| '|SPADreplace| 'QSETAREF1) 
 
-(SDEFUN |PRIMARR;setelt;$I2S;8| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |PRIMARR;setelt!;$I2S;8| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (QSETAREF1 |x| |i| |s|)) 
 
 (SDEFUN |PRIMARR;fill!;$S$;9| ((|x| $) (|s| S) ($ $))
@@ -169,7 +169,7 @@
               |PRIMARR;#;$Nni;1| (|Integer|) |PRIMARR;minIndex;$I;2|
               |PRIMARR;empty;$;3| |PRIMARR;new;NniS$;4| |PRIMARR;qelt;$IS;5|
               |PRIMARR;elt;$IS;6| |PRIMARR;qsetelt!;$I2S;7|
-              |PRIMARR;setelt;$I2S;8| |PRIMARR;fill!;$S$;9| (|HashState|)
+              |PRIMARR;setelt!;$I2S;8| |PRIMARR;fill!;$S$;9| (|HashState|)
               (0 . |hashUpdate!|) (6 . |hashUpdate!|) (|Mapping| 6 6 6)
               (|Boolean|) (|List| 6) (|Equation| 6) (|List| 24)
               (|Mapping| 22 6) (|Mapping| 22 6 6) (|UniversalSegment| 9)
@@ -177,7 +177,7 @@
               (|SingleInteger|) (|String|) (|List| $) (|Union| 6 '"failed")
               (|List| 9))
            '#(~= 12 |swap!| 18 |sorted?| 25 |sort!| 36 |sort| 47 |smaller?| 58
-              |size?| 64 |setelt| 70 |select| 84 |sample| 90 |reverse!| 94
+              |size?| 64 |setelt!| 70 |select| 84 |sample| 90 |reverse!| 94
               |reverse| 99 |removeDuplicates| 104 |remove| 109 |reduce| 121
               |qsetelt!| 142 |qelt| 149 |position| 155 |parts| 174 |new| 179
               |more?| 185 |minIndex| 191 |min| 196 |merge| 202 |members| 215

@@ -68,7 +68,7 @@
 (MAKEPROP '|GrayCode| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Vector| 7) (|Integer|) (|Vector| 6)
-              (0 . |setelt|) (7 . |elt|) (13 . |setelt|) (|PositiveInteger|)
+              (0 . |setelt!|) (7 . |elt|) (13 . |setelt!|) (|PositiveInteger|)
               |GRAY;firstSubsetGray;PiV;1| (20 . |elt|)
               |GRAY;nextSubsetGray;VPiV;2|)
            '#(|nextSubsetGray| 26 |firstSubsetGray| 32) 'NIL

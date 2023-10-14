@@ -60,7 +60,7 @@
                                                  T)
                                                 ((|insert| ($ $ $ (|Integer|)))
                                                  T)
-                                                ((|setelt|
+                                                ((|setelt!|
                                                   (|t#1| $
                                                    (|UniversalSegment|
                                                     (|Integer|))

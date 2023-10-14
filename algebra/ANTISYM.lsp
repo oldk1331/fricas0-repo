@@ -509,7 +509,7 @@
               |ANTISYM;retractIfCan;$U;4| |ANTISYM;retract;$R;5| (|List| 28)
               (30 . |exponents|) (35 . |reductum|) (|Integer|) (40 . ~=)
               |ANTISYM;homogeneous?;$B;6| |ANTISYM;degree;$Nni;7| (46 . |Zero|)
-              (50 . |elt|) (56 . *) (62 . |setelt|) (69 . *) (75 . *) (81 . *)
+              (50 . |elt|) (56 . *) (62 . |setelt!|) (69 . *) (75 . *) (81 . *)
               (87 . ~=) (93 . |coerce|) (98 . +) |ANTISYM;*;3$;11| (104 . =)
               |ANTISYM;coerce;R$;12| (110 . |coerce|) |ANTISYM;coerce;I$;13|
               (115 . |characteristic|) |ANTISYM;characteristic;Nni;14|

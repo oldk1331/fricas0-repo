@@ -444,7 +444,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Point| 6)
               |COORDSYS;cartesian;2P;1| (0 . |copy|) (5 . |One|) (|Integer|)
-              (9 . |elt|) (15 . |cos|) (20 . *) (26 . |setelt|) (33 . |sin|)
+              (9 . |elt|) (15 . |cos|) (20 . *) (26 . |setelt!|) (33 . |sin|)
               |COORDSYS;polar;2P;2| |COORDSYS;cylindrical;2P;3|
               |COORDSYS;spherical;2P;4| (38 . -) (44 . |coerce|) (49 . /)
               |COORDSYS;parabolic;2P;5| |COORDSYS;parabolicCylindrical;2P;6|

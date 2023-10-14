@@ -572,12 +572,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL '|oldlambda| '|flambda| '|younglist|
               '|lprime| '|n| '|rows| '|columns| '|aId| (|Integer|)
-              (|Matrix| 14) (0 . |setelt|) (8 . |elt|) (|Boolean|) (|List| 14)
+              (|Matrix| 14) (0 . |setelt!|) (8 . |elt|) (|Boolean|) (|List| 14)
               (15 . =) (|PartitionsAndPermutations|) (21 . |conjugate|)
               (|List| 15) (|SymmetricGroupCombinatoricFunctions|)
               (26 . |listYoungTableaus|) (|Permutation| 14) (31 . |eval|)
               (37 . |elt|) (43 . |copy|) (|NonNegativeInteger|) (48 . <=)
-              (54 . |elt|) (60 . <=) (66 . >) (|Vector| 18) (72 . |setelt|)
+              (54 . |elt|) (60 . <=) (66 . >) (|Vector| 18) (72 . |setelt!|)
               (79 . |member?|) (|IntegerCombinatoricFunctions| 14)
               (85 . |factorial|)
               |IRSN;dimensionOfIrreducibleRepresentation;LNni;7| (90 . *)

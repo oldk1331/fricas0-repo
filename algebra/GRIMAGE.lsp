@@ -842,7 +842,7 @@
               (|List| 22) |GRIMAGE;units;$L;16| (55 . |units|) (61 . |elt|)
               (|Color|) (|Palette|) (67 . |hue|) (72 . |hue|) (77 . |shade|)
               (|PositiveInteger|) (82 . |dimension|) (|List| 11)
-              (87 . |extend|) (93 . |setelt|) (|List| 100) (|List| 33)
+              (87 . |extend|) (93 . |setelt!|) (|List| 100) (|List| 33)
               |GRIMAGE;putColorInfo;LLL;3| (100 . |hi|) (105 . |lo|)
               (110 . |float|) (117 . |coerce|) (122 . |ceiling|)
               (127 . |retract|) (|List| 26) (132 . |second|) (137 . |Zero|)
@@ -863,7 +863,7 @@
               |GRIMAGE;makeGraphImage;L$;19| |GRIMAGE;makeGraphImage;L2LLL$;21|
               (|Void|) (|List| 8) |GRIMAGE;component;$L2PPiV;22|
               |GRIMAGE;component;$P2PPiV;24| |GRIMAGE;component;$PV;23|
-              (291 . |elt|) (297 . |setelt|) |GRIMAGE;appendPoint;$PV;25|
+              (291 . |elt|) (297 . |setelt!|) |GRIMAGE;appendPoint;$PV;25|
               |GRIMAGE;point;$PPV;26| |GRIMAGE;coerce;L$;27| (|OutputForm|)
               (304 . |coerce|) (|List| $) (309 . |hconcat|)
               |GRIMAGE;coerce;$Of;28| (|String|) (|HashState|))

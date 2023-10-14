@@ -801,10 +801,10 @@
               (|List| 21) (29 . |vector|) (|SparseUnivariatePolynomial| 11)
               (34 . |elt|) (40 . |elt|) (46 . |zero?|) (51 . |degree|)
               (56 . |leadingCoefficient|) (61 . |reductum|) (66 . |elt|)
-              (72 . |setelt|) (|List| 11) (79 . |vector|)
+              (72 . |setelt!|) (|List| 11) (79 . |vector|)
               |NBLM;naiveBeckermannLabahn0;2VVNniIM2MV;9| (|Any|)
               (|AnyFunctions1| 16) (84 . |coerce|) (|AnyFunctions1| 10)
-              (89 . |coerce|) (94 . |setelt|) (101 . ~=) (107 . |invmod|)
+              (89 . |coerce|) (94 . |setelt!|) (101 . ~=) (107 . |invmod|)
               (113 . |vector_add_mul|)
               (|Record| (|:| |basis| 53) (|:| |defects| 10) (|:| |cinds| 10))
               (|TwoDimensionalArray| 21) |NBLM;reduceBasis0;Tda2VIR;19|

@@ -180,7 +180,7 @@
               |CARD;retract;$Nni;15| (|Union| 13 '"failed")
               |CARD;retractIfCan;$U;16|
               |CARD;generalizedContinuumHypothesisAssumed?;B;17|
-              (57 . |setelt|)
+              (57 . |setelt!|)
               |CARD;generalizedContinuumHypothesisAssumed;2B;18|
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 63 |zero?| 69 |smaller?| 74 |sample| 80 |retractIfCan| 84

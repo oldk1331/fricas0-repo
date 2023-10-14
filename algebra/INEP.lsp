@@ -292,7 +292,7 @@
                                                                  (ELT $ 6))))
                                                          MM))
                                                        (|compiledLookupCheck|
-                                                        '|setelt|
+                                                        '|setelt!|
                                                         (LIST (|devaluate| MM)
                                                               '$
                                                               (LIST '|Integer|)
@@ -321,7 +321,7 @@
                                                                           '$)
                                                                          MM))
                                                  (|compiledLookupCheck|
-                                                  '|setelt|
+                                                  '|setelt!|
                                                   (LIST (|devaluate| MM) '$
                                                         (LIST '|Integer|)
                                                         (LIST '|Integer|)
@@ -686,14 +686,14 @@
               (|Matrix| 18) (92 . |elt|) (|SparseUnivariatePolynomial| 7)
               (|Mapping| 7 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 18 7 40) (99 . |map|)
-              (105 . |elt|) (111 . |setelt|)
+              (105 . |elt|) (111 . |setelt!|)
               (|Record| (|:| |factor| 18) (|:| |exponent| 37)) (|List| 46)
               (|Factored| 18) (119 . |factors|) (124 . |degree|)
               (129 . |coefficient|) (135 . /) (141 . -) (|Matrix| 6)
-              (146 . |zero|) (152 . |elt|) (159 . |setelt|) (167 . -)
+              (146 . |zero|) (152 . |elt|) (159 . |setelt!|) (167 . -)
               (|List| 61) (173 . |nullSpace|) (|Vector| 6) (178 . |elt|)
               (184 . |monomial|) (190 . |coerce|) (195 . |zero|)
-              (201 . |setelt|) (|List| 6) (209 . |coefficients|)
+              (201 . |setelt!|) (|List| 6) (209 . |coefficients|)
               (214 . |denom|) (219 . |lcm|) (225 . *) (231 . |numer|)
               (|SparseUnivariatePolynomial| 37) (|Mapping| 37 10)
               (|SparseUnivariatePolynomial| 10)

@@ -928,7 +928,7 @@
               (|SparseUnivariatePolynomial| 7) (80 . |Zero|) (|Boolean|)
               (84 . ~=) (90 . |leadingCoefficient|) (|NonNegativeInteger|)
               (95 . |degree|) (100 . |reductum|) (105 . ~=)
-              (111 . |differentiate|) (117 . |setRow!|) (124 . |setelt|)
+              (111 . |differentiate|) (117 . |setRow!|) (124 . |setelt!|)
               (131 . |kernels|) (|List| 40) (|IntegrationTools| 6 7)
               (136 . |varselect|) (142 . |is?|) (148 . |first|)
               (153 . |position|) (159 . |coerce|) (164 . *) (170 . /) (176 . -)

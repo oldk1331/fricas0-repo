@@ -81,7 +81,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|)
               (|NonNegativeInteger|) (0 . ~=) (|Matrix| 6) (6 . |zero|)
-              (|Integer|) (12 . |elt|) (19 . |setelt|) (27 . -)
+              (|Integer|) (12 . |elt|) (19 . |setelt!|) (27 . -)
               (33 . |determinant|) |CHARPOL;characteristicPolynomial;M2R;1|)
            '#(|characteristicPolynomial| 38) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

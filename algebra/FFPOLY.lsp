@@ -2537,7 +2537,7 @@
               (|List| 6) (116 . |entries|) (|List| 38) (|Matrix| 6)
               (121 . |matrix|) (126 . |transpose|) (|ModMonic| 6 11)
               (131 . |One|) (|Fraction| 7) (135 . |One|) (|Fraction| 11)
-              (139 . |One|) (|Integer|) (143 . |setelt|) (151 . |horizConcat|)
+              (139 . |One|) (|Integer|) (143 . |setelt!|) (151 . |horizConcat|)
               (|List| 36) (157 . |nullSpace|) (162 . |elt|) (168 . |elt|)
               (174 . =) |FFPOLY;leastAffineMultiple;2Sup;4|
               (|IntegerNumberTheoryFunctions|) (180 . |moebiusMu|) (|List| 50)

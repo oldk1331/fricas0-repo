@@ -557,7 +557,7 @@
               (74 . |convert|) (79 . |convert|) (|List| $) (84 . |convert|)
               (89 . |convert|) (94 . =) (100 . =) (106 . |max|)
               (111 . |minIndex|) (116 . |min|) (121 . |map!|) (127 . |sort!|)
-              (132 . |removeRepeats!|) (137 . |new|) (143 . |setelt|)
+              (132 . |removeRepeats!|) (137 . |new|) (143 . |setelt!|)
               (150 . |construct|) (155 . >) (161 . =) (167 . |insert!|)
               (174 . |insert!|) (180 . |member?|) (186 . |remove!|) (192 . <=)
               (198 . |concat!|) (204 . <) (210 . |intersect|)

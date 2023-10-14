@@ -828,10 +828,10 @@
               (270 . |map|) (276 . |basis|) (280 . |diagonal?|)
               (285 . |maxRowIndex|) (290 . |maxColIndex|) (295 . *) (|Void|)
               (301 . |void|) (|Record| (|:| |coef| 11) (|:| |poly| 8))
-              (305 . |mkIntegral|) (310 . |setelt|) (316 . |characteristic|)
+              (305 . |mkIntegral|) (310 . |setelt!|) (316 . |characteristic|)
               (320 . >) (326 . ^) (332 . ^) (338 . |numer|)
-              (343 . |primitivePart|) (348 . |denom|) (353 . |setelt|)
-              (359 . |setelt|) (|Union| 6 '#1="failed") (365 . |retractIfCan|)
+              (343 . |primitivePart|) (348 . |denom|) (353 . |setelt!|)
+              (359 . |setelt!|) (|Union| 6 '#1="failed") (365 . |retractIfCan|)
               |RADFF;singular?;FB;29| (370 . |exquo|) |RADFF;ramified?;UPB;26|
               (|PositiveInteger|) (376 . ^) |RADFF;singular?;UPB;27|
               |RADFF;branchPoint?;FB;30| |RADFF;branchPoint?;UPB;28|

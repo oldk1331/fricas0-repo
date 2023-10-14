@@ -4299,7 +4299,7 @@
               (|Union| $ '"failed") (241 . |exquo|) (247 . ~=)
               (253 . |reductum|) (258 . =) (|List| 27) (|Vector| 27)
               (264 . |vector|) (|List| $) (269 . |gcd|) (274 . |elt|)
-              (280 . |exquo|) (286 . |setelt|) (293 . |invmod|)
+              (280 . |exquo|) (286 . |setelt!|) (293 . |invmod|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (299 . |extendedEuclidean|) (305 . *) (311 . +) (|Fraction| 16)
               (317 . |coerce|)

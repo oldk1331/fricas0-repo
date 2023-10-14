@@ -956,7 +956,7 @@
               (0 . |numIndVar|) '|nn| (4 . |numDepVar|) '|mm| (8 . |One|)
               (|List| 7) (|List| 16) |JBC-;m2r;LL;1| (|NonNegativeInteger|)
               (12 . |new|) (|Boolean|) (18 . >) (|Integer|) (24 . |elt|)
-              (30 . |setelt|) |JBC-;r2m;LL;2| (37 . |copy|) (|List| 13)
+              (30 . |setelt!|) |JBC-;r2m;LL;2| (37 . |copy|) (|List| 13)
               (42 . |allRepeated|) (47 . |cons|) (|Mapping| 13 13) (53 . |map|)
               (59 . |concat!|) |JBC-;allRepeated;LL;3| (65 . |multiIndex|)
               (70 . |m2r|) |JBC-;repeatedIndex;SL;4| |JBC-;class;LNni;5|

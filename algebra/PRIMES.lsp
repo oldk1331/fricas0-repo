@@ -551,7 +551,7 @@
               (|Boolean|) (41 . <) (47 . |even?|) (52 . +) (58 . |convert|)
               |PRIMES;prime?;IB;4| (63 . <=) (|List| 6) |PRIMES;primes;2IL;1|
               (69 . |powmod|) (76 . =) (82 . |mulmod|) (89 . |elt|)
-              (95 . |setelt|) (102 . |union|) (108 . |#|) (113 . >) (119 . -)
+              (95 . |setelt!|) (102 . |union|) (108 . |#|) (113 . >) (119 . -)
               (124 . |member?|) (130 . |gcd|) (136 . -) (142 . |quo|)
               (148 . |odd?|) (153 . |minIndex|) (158 . |elt|) (164 . >)
               (170 . *) (|IntegerRoots| 6) (176 . |perfectSquare?|)

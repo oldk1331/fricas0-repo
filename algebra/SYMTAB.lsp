@@ -504,7 +504,7 @@
               (5 . |table|) |SYMTAB;symbolTable;L$;3| (10 . |empty|)
               |SYMTAB;empty;$;4| (|List| 22) (14 . |keys|)
               |SYMTAB;parametersOf;$L;5| (|FortranType|) (|Symbol|)
-              (19 . |setelt|) |SYMTAB;declare!;SFt$Ft;6|
+              (19 . |setelt!|) |SYMTAB;declare!;SFt$Ft;6|
               |SYMTAB;declare!;LFt$Ft;7| (26 . |elt|)
               |SYMTAB;fortranTypeOf;S$Ft;8| (|Boolean|) (32 . |external?|)
               |SYMTAB;externalList;$L;9|

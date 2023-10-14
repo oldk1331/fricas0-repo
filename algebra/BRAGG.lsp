@@ -31,11 +31,11 @@
                                                ((|elt| ($ $ "left")) T)
                                                ((|right| ($ $)) T)
                                                ((|elt| ($ $ "right")) T)
-                                               ((|setelt| ($ $ "left" $))
+                                               ((|setelt!| ($ $ "left" $))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|setleft!| ($ $ $))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt| ($ $ "right" $))
+                                               ((|setelt!| ($ $ "right" $))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|setright!| ($ $ $))
                                                 (|has| $

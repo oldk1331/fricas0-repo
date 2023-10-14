@@ -226,12 +226,12 @@
               (|DoubleFloat|) (54 . |convert|) (|Reference| 41) (59 . |ref|)
               '|defaultTubeRadius| (|Boolean|) (|Reference| 46) (64 . |ref|)
               '|defaultClosed| (69 . |elt|) (|List| 24)
-              |VIEWDEF;viewPosDefault;L;1| (74 . |#|) (79 . |setelt|)
+              |VIEWDEF;viewPosDefault;L;1| (74 . |#|) (79 . |setelt!|)
               (85 . |last|) |VIEWDEF;viewPosDefault;2L;2| (90 . |elt|)
-              (|List| 20) |VIEWDEF;viewSizeDefault;L;3| (95 . |setelt|)
+              (|List| 20) |VIEWDEF;viewSizeDefault;L;3| (95 . |setelt!|)
               (101 . |last|) |VIEWDEF;viewSizeDefault;2L;4| (|Void|)
               |VIEWDEF;viewDefaults;V;5| (106 . |elt|)
-              |VIEWDEF;pointColorDefault;P;6| (111 . |setelt|)
+              |VIEWDEF;pointColorDefault;P;6| (111 . |setelt!|)
               |VIEWDEF;pointColorDefault;2P;7| |VIEWDEF;lineColorDefault;P;8|
               |VIEWDEF;lineColorDefault;2P;9| |VIEWDEF;axesColorDefault;P;10|
               |VIEWDEF;axesColorDefault;2P;11| |VIEWDEF;unitsColorDefault;P;12|
@@ -244,11 +244,11 @@
               |VIEWDEF;var2StepsDefault;2Pi;19|
               |VIEWDEF;tubePointsDefault;Pi;20|
               |VIEWDEF;tubePointsDefault;2Pi;21| (117 . |elt|)
-              |VIEWDEF;tubeRadiusDefault;Df;22| (122 . |setelt|)
+              |VIEWDEF;tubeRadiusDefault;Df;22| (122 . |setelt!|)
               |VIEWDEF;tubeRadiusDefault;FDf;23|
               |VIEWDEF;viewWriteAvailable;L;24| (128 . |elt|)
               |VIEWDEF;viewWriteDefault;L;25| (|String|) (133 . |upperCase|)
-              (138 . |position|) (144 . |setelt|)
+              (138 . |position|) (144 . |setelt!|)
               |VIEWDEF;viewWriteDefault;2L;26|)
            '#(|viewWriteDefault| 150 |viewWriteAvailable| 159 |viewSizeDefault|
               163 |viewPosDefault| 172 |viewDefaults| 181 |var2StepsDefault|

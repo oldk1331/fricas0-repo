@@ -2127,7 +2127,7 @@
               |DGRPH;directedGraph;LL$;4|
               (|Record| (|:| |preimage| 14) (|:| |image| 14)) (|Permutation| 6)
               (41 . |listRepresentation|) (46 . |One|) (50 . |position|)
-              (56 . |concat|) (62 . |elt|) (68 . |setelt|) (|List| 29)
+              (56 . |concat|) (62 . |elt|) (68 . |setelt!|) (|List| 29)
               |DGRPH;directedGraph;L$;5| (|Boolean|) (75 . =)
               |DGRPH;addObject!;$S$;6| |DGRPH;addObject!;$R$;7| (81 . =)
               (|String|) |DGRPH;addArrow!;$S2Nni$;8|
@@ -2149,7 +2149,7 @@
               (|DirectedGraph| 75) (186 . |directedGraph|) |DGRPH;*;2$Dg;23|
               |DGRPH;cartesian;2$Dg;24| (|Mapping| 6 6 6)
               |DGRPH;closedTensor;2$M$;26| |DGRPH;closedCartesian;2$M$;27|
-              |DGRPH;~;2$;28| (192 . |elt|) (198 . |setelt|)
+              |DGRPH;~;2$;28| (192 . |elt|) (198 . |setelt!|)
               |DGRPH;map;$LL2I$;29| |DGRPH;mapContra;$LL2I$;30|
               (|PermutationGroup| 6) (205 . |coerce|) |DGRPH;coerce;Pg$;31|
               |DGRPH;coerce;L$;32| (|Void|) (|Scene| (|SCartesian| '2))

@@ -1399,7 +1399,7 @@
               (180 . |qsetelt!|) (188 . |nrows|) (193 . |ncols|)
               (198 . |transpose|) |IMATLIN;rank;MNni;13|
               |IMATLIN;nullity;MNni;14| |IMATLIN;generalizedInverse;2M;15|
-              (203 . |zero|) (209 . |elt|) (216 . |zero?|) (221 . |setelt|)
+              (203 . |zero|) (209 . |elt|) (216 . |zero?|) (221 . |setelt!|)
               (229 . |subMatrix|) (|Union| 9 '"failed")
               |IMATLIN;inverse;MU;16|)
            '#(|row_operation_modular| 238 |row_operation_base| 249 |rowEchelon|

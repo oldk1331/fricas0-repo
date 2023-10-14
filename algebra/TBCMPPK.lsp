@@ -171,7 +171,7 @@
               |TBCMPPK;clearTable!;V;5| |TBCMPPK;printingInfo?;B;7|
               |TBCMPPK;makingStats?;B;8| (|Union| 7 '"failed") (34 . |search|)
               (|InternalPrintPackage|) (40 . |iprint|)
-              |TBCMPPK;extractIfCan;KeyU;9| (45 . |setelt|)
+              |TBCMPPK;extractIfCan;KeyU;9| (45 . |setelt!|)
               |TBCMPPK;insert!;KeyEntryV;10|)
            '#(|usingTable?| 52 |startStats!| 56 |printingInfo?| 61
               |printStats!| 65 |printInfo!| 69 |makingStats?| 75 |insert!| 79

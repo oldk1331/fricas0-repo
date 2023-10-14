@@ -718,7 +718,7 @@
               (94 . |concat|) (100 . |Zero|) (|List| 7) (104 . |concat|)
               (110 . ~=) (116 . |zero|)
               (|Record| (|:| |value| 6) (|:| |index| 14)) (|List| 51)
-              (|Vector| 52) (121 . |elt|) (127 . +) (133 . |setelt|)
+              (|Vector| 52) (121 . |elt|) (127 . +) (133 . |setelt!|)
               (140 . |lookup|) |INBFF;lookup;VPi;6|
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (145 . |divide|) |INBFF;norm;VPiV;7| (151 . |bit?|)

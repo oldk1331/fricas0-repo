@@ -52,15 +52,15 @@
         ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
         (QSETAREF2O |m| |i| |j| |r| (QREFELT $ 7) (QREFELT $ 8))) 
 
-(SDEFUN |IIARRAY2;setelt;$2I2R;13|
+(SDEFUN |IIARRAY2;setelt!;$2I2R;13|
         ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| R) ($ R))
         (COND
          ((OR (< |i| (SPADCALL |m| (QREFELT $ 16)))
               (SPADCALL |i| (SPADCALL |m| (QREFELT $ 19)) (QREFELT $ 24)))
-          (|error| "setelt: index out of range"))
+          (|error| "setelt!: index out of range"))
          ((OR (< |j| (SPADCALL |m| (QREFELT $ 17)))
               (SPADCALL |j| (SPADCALL |m| (QREFELT $ 21)) (QREFELT $ 24)))
-          (|error| "setelt: index out of range"))
+          (|error| "setelt!: index out of range"))
          ('T (SPADCALL |m| |i| |j| |r| (QREFELT $ 26))))) 
 
 (SDEFUN |IIARRAY2;latex;$S;14| ((|m| $) ($ |String|))
@@ -202,7 +202,7 @@
               |IIARRAY2;maxRowIndex;$I;6| |IIARRAY2;ncols;$Nni;9|
               |IIARRAY2;maxColIndex;$I;7| |IIARRAY2;qelt;$2IR;10| (|Boolean|)
               (0 . >) |IIARRAY2;elt;$2IR;11| |IIARRAY2;qsetelt!;$2I2R;12|
-              |IIARRAY2;setelt;$2I2R;13| (|String|) (6 . |latex|)
+              |IIARRAY2;setelt!;$2I2R;13| (|String|) (6 . |latex|)
               (11 . |latex|) (|List| 6) (|List| 33) (|Equation| 6)
               (|Mapping| 23 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
               (|Mapping| 6 6 6) (|List| 42) (|List| 43) (|Mapping| 6 6)
@@ -210,7 +210,7 @@
               (|Segment| 15) (|List| 31))
            '#(~= 16 |vertSplit| 22 |vertConcat| 34 |transpose| 45 |swapRows!|
               50 |swapColumns!| 57 |subMatrix| 64 |squareTop| 73 |size?| 78
-              |setsubMatrix!| 84 |setelt| 92 |setRow!| 124 |setColumn!| 131
+              |setsubMatrix!| 84 |setelt!| 92 |setRow!| 124 |setColumn!| 131
               |sample| 138 |row| 142 |qsetelt!| 148 |qnew| 156 |qelt| 162
               |parts| 169 |nrows| 174 |new| 179 |ncols| 186 |more?| 191
               |minRowIndex| 197 |minColIndex| 202 |members| 207 |member?| 212

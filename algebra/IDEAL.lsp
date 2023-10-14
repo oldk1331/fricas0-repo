@@ -1741,7 +1741,7 @@
               (319 . |coerce|) (|Symbol|) (324 . |convert|) (329 . |monomial|)
               (|List| 111) (|List| 132) (|SuchThat| 116 117)
               (336 . |construct|) (342 . |new|) (|List| 113) (346 . |concat|)
-              (|Vector| 21) (352 . |new|) (358 . |setelt|) (365 . |Zero|)
+              (|Vector| 21) (352 . |new|) (358 . |setelt!|) (365 . |Zero|)
               (369 . ~=) (|List| 21) (375 . |degree|) (381 . +) (387 . |Zero|)
               (|Equation| 111) (391 . |Zero|) (|Product| 21 7) (395 . |Zero|)
               (|IndexedExponents| 113) (399 . |Zero|) (403 . |coerce|)

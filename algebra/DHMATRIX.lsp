@@ -228,7 +228,7 @@
            '#(~= 72 |zero?| 78 |zero| 83 |vertSplit| 89 |vertConcat| 101
               |transpose| 112 |translate| 122 |symmetric?| 129 |swapRows!| 134
               |swapColumns!| 141 |subMatrix| 148 |squareTop| 157 |square?| 162
-              |size?| 167 |setsubMatrix!| 173 |setelt| 181 |setRow!| 213
+              |size?| 167 |setsubMatrix!| 173 |setelt!| 181 |setRow!| 213
               |setColumn!| 220 |scale| 227 |scalarMatrix| 234 |sample| 240
               |rowEchelon| 244 |row| 249 |rotatez| 255 |rotatey| 260 |rotatex|
               265 |rank| 270 |qsetelt!| 275 |qnew| 283 |qelt| 289

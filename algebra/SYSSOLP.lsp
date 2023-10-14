@@ -1132,7 +1132,7 @@
               (|List| 7)
               (|LinearSystemPolynomialPackage| 6 (|IndexedExponents| 17) 17 7)
               (194 . |linSolve|) (|Vector| 9) (200 . |zero|) (205 . ~=)
-              (|Integer|) (211 . |elt|) (217 . *) (223 . +) (229 . |setelt|)
+              (|Integer|) (211 . |elt|) (217 . *) (223 . +) (229 . |setelt!|)
               (236 . |elt|) (242 . =) (248 . |setUnion|) (|List| 57)
               |SYSSOLP;solve;LLL;18| |SYSSOLP;solve;LL;14|
               |SYSSOLP;solve;LL;15| |SYSSOLP;solve;LLL;16|

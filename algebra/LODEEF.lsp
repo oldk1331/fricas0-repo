@@ -952,7 +952,7 @@
               (|Record| (|:| |particular| 140) (|:| |basis| 92))
               (|RationalLODE| 7 36) (428 . |ratDsolve|) (434 . |Zero|)
               (438 . |kernel|) (|Vector| 7) (443 . |minIndex|) (448 . -)
-              (454 . |setelt|) (461 . |elt|) (|Matrix| 7)
+              (454 . |setelt!|) (461 . |elt|) (|Matrix| 7)
               (467 . |wronskianMatrix|) (473 . |map!|) (|Union| 146 '"failed")
               (|LinearSystemMatrixPackage| 7 146 146 151)
               (479 . |particularSolution|) (485 . |elt|)

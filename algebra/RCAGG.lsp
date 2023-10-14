@@ -44,7 +44,7 @@
                                                ((|setchildren!|
                                                  ($ $ (|List| $)))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt|
+                                               ((|setelt!|
                                                  (|t#1| $ "value" |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|setvalue!| (|t#1| $ |t#1|))

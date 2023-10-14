@@ -139,7 +139,7 @@
            '#(~= 20 |value| 26 |third| 31 |tail| 36 |swap!| 41 |split!| 48
               |sorted?| 54 |sort!| 65 |sort| 76 |smaller?| 87 |size?| 93
               |setvalue!| 99 |setrest!| 105 |setlast!| 111 |setfirst!| 117
-              |setelt| 123 |setchildren!| 165 |select!| 171 |select| 177
+              |setelt!| 123 |setchildren!| 165 |select!| 171 |select| 177
               |second| 183 |sample| 188 |reverse!| 192 |reverse| 197 |rest| 202
               |removeDuplicates!| 213 |removeDuplicates| 218 |remove!| 223
               |remove| 235 |reduce| 247 |qsetrest!| 268 |qsetfirst!| 274

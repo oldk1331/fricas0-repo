@@ -131,14 +131,14 @@
               (|Mapping| 18 6) '"right" '"left" '"value" (|Mapping| 6 6)
               (|HashState|) (|SingleInteger|) (|String|) (|Integer|))
            '#(~= 52 |value| 58 |size?| 63 |setvalue!| 69 |setright!| 75
-              |setleft!| 81 |setelt| 87 |setchildren!| 108 |sample| 114 |right|
-              118 |ptree| 123 |parts| 134 |nodes| 139 |node?| 144 |more?| 150
-              |members| 156 |member?| 161 |map!| 167 |map| 173 |less?| 179
-              |left| 185 |leaves| 190 |leaf?| 195 |latex| 200 |hashUpdate!| 205
-              |hash| 211 |every?| 216 |eval| 222 |eq?| 248 |empty?| 254 |empty|
-              259 |elt| 263 |distance| 281 |cyclic?| 287 |count| 292 |copy| 304
-              |coerce| 309 |children| 319 |child?| 324 |any?| 330 = 336 |#|
-              342)
+              |setleft!| 81 |setelt!| 87 |setchildren!| 108 |sample| 114
+              |right| 118 |ptree| 123 |parts| 134 |nodes| 139 |node?| 144
+              |more?| 150 |members| 156 |member?| 161 |map!| 167 |map| 173
+              |less?| 179 |left| 185 |leaves| 190 |leaf?| 195 |latex| 200
+              |hashUpdate!| 205 |hash| 211 |every?| 216 |eval| 222 |eq?| 248
+              |empty?| 254 |empty| 259 |elt| 263 |distance| 281 |cyclic?| 287
+              |count| 292 |copy| 304 |coerce| 309 |children| 319 |child?| 324
+              |any?| 330 = 336 |#| 342)
            'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 0 2 1 0 2 4 6))
                  (CONS

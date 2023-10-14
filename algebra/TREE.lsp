@@ -1211,7 +1211,7 @@
               (150 . |rest|) (155 . |first|) (|List| 87) (|Equation| 6)
               '"value" (|SingleInteger|) (|HashState|))
            '#(~= 160 |value| 166 |tree| 171 |size?| 187 |setvalue!| 193
-              |setelt| 199 |setchildren!| 206 |sample| 212 |parts| 216 |nodes|
+              |setelt!| 199 |setchildren!| 206 |sample| 212 |parts| 216 |nodes|
               221 |node?| 226 |more?| 232 |members| 238 |member?| 243 |map!|
               249 |map| 255 |less?| 261 |leaves| 267 |leaf?| 272 |latex| 277
               |hashUpdate!| 282 |hash| 288 |every?| 293 |eval| 299 |eq?| 325

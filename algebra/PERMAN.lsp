@@ -422,7 +422,7 @@
               (8 . |firstSubsetGray|) (|Boolean|) (|Integer|) (13 . ~=)
               (19 . -) (|SquareMatrix| 6 7) (24 . |One|) (|Vector| 15)
               (28 . |elt|) (34 . |elt|) (|Vector| 7) (40 . |elt|) (46 . |elt|)
-              (53 . *) (59 . +) (65 . |setelt|) (72 . |nextSubsetGray|)
+              (53 . *) (59 . +) (65 . |setelt!|) (72 . |nextSubsetGray|)
               (78 . |coerce|) (|Union| $ '"failed") (83 . |recip|)
               (|DirectProduct| 6 7) (88 . |row|) (94 . |coerce|) (99 . -)
               (105 . |One|) (109 . *) |PERMAN;permanent;SmR;2| (115 . =)

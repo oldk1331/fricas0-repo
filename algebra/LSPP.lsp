@@ -145,7 +145,7 @@
               (|SparseUnivariatePolynomial| $) (22 . |univariate|)
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 9)
               (28 . |degree|) (33 . |leadingCoefficient|) (38 . |coerce|)
-              (|Integer|) (|Vector| 10) (43 . |setelt|) (50 . |One|)
+              (|Integer|) (|Vector| 10) (43 . |setelt!|) (50 . |One|)
               (54 . |One|) (58 . |monomial|) (65 . -) (|Matrix| 10)
               (71 . |zero|) (|List| 8) (77 . |totalDegree|) (83 . >)
               (89 . |setRow!|) (96 . -)

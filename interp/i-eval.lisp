@@ -1028,7 +1028,7 @@
  
 ; sideEffectedArg?(t,sig,opName) ==
 ;   opString := SYMBOL_-NAME opName
-;   (opName ~= 'setelt) and (ELT(opString, #opString-1) ~= char '_!) => nil
+;   (opName ~= "setelt!") and (ELT(opString, #opString-1) ~= char '_!) => nil
 ;   dc := first sig
 ;   t = dc
  
@@ -1038,7 +1038,7 @@
      (PROGN
       (SETQ |opString| (SYMBOL-NAME |opName|))
       (COND
-       ((AND (NOT (EQ |opName| '|setelt|))
+       ((AND (NOT (EQ |opName| '|setelt!|))
              (NOT
               (EQUAL (ELT |opString| (- (LENGTH |opString|) 1)) (|char| '!))))
         NIL)

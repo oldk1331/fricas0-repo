@@ -724,7 +724,7 @@
               (80 . |One|) (84 . -) (|Matrix| 27) (|Mapping| 6 8 28) (|List| 8)
               |FFFG;fffg;LMLM;18| |FFFG;generalInterpolation;LMVLM;8|
               (90 . |#|) (95 . <) (|Mapping| 33 8) (101 . |position|)
-              (107 . |elt|) (113 . |Zero|) (117 . >) (123 . |setelt|)
+              (107 . |elt|) (113 . |Zero|) (117 . >) (123 . |setelt!|)
               (130 . |copy|) (|Stream| 42) (135 . |empty|) (139 . |cons|)
               (|Mapping| $) (145 . |delay|) |FFFG;genVectorStream;3NniS;13|
               |FFFG;genVectorStream2;3NniS;14|
@@ -739,10 +739,10 @@
               (246 . *) (252 . *) (|Union| $ '"failed") (258 . |exquo|)
               (264 . |One|) (268 . |scalarMatrix|) (274 . +) (|Mapping| 8 8 8)
               (280 . |reduce|) (|Vector| 8) (286 . |zero|) (|Vector| 6)
-              (291 . |zero|) (296 . |column|) (302 . |setelt|) (309 . |elt|)
+              (291 . |zero|) (296 . |column|) (302 . |setelt!|) (309 . |elt|)
               (315 . ~=) (321 . |elt|) (327 . |max|) (333 . |max|)
               (|Mapping| 14 14 14) (|List| 14) (339 . |reduce|) (345 . =)
-              (351 . >) (357 . |setelt|))
+              (351 . >) (357 . |setelt!|))
            '#(|qShiftC| 364 |qShiftAction| 370 |interpolate| 378
               |generalInterpolation| 392 |generalCoefficient| 400
               |genVectorStream2| 408 |genVectorStream| 415 |fffg| 422 |ShiftC|

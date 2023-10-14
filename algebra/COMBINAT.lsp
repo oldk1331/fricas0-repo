@@ -535,7 +535,7 @@
               (|Integer|) (22 . |minIndex|) (|Boolean|) (27 . ~=) (33 . |#|)
               (38 . <) (44 . |coerce|) (49 . |convert|) (54 . |elt|) (60 . +)
               (66 . |concat!|) (|PositiveInteger|) (72 . *) (78 . >) (84 . *)
-              (90 . -) (95 . |setelt|) |COMBINAT;partition;2I;1| (102 . <=)
+              (90 . -) (95 . |setelt!|) |COMBINAT;partition;2I;1| (102 . <=)
               (108 . =) |COMBINAT;factorial;2I;2| (114 . >) (120 . *) (126 . -)
               |COMBINAT;binomial;3I;3| (132 . |quo|) (138 . >=) (|List| 6)
               |COMBINAT;multinomial;ILI;4| |COMBINAT;permutation;3I;5|

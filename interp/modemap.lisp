@@ -194,7 +194,7 @@
 ;     --don't put CD modemaps into environment
 ;   --fn is ['Subsumed,:.] => e  -- don't skip subsumed modemaps
 ;                                -- breaks -:($,$)->U($,failed) in DP
-;   op='elt or op='setelt => addEltModemap(op,mc,sig,pred,fn,e)
+;   op = 'elt or op = "setelt!" => addEltModemap(op, mc, sig, pred, fn, e)
 ;   addModemap1(op,mc,sig,pred,fn,e)
  
 (DEFUN |addModemap0| (|op| |mc| |sig| |pred| |fn| |e|)
@@ -204,7 +204,7 @@
       ((AND (CONSP |$functorForm|)
             (EQ (CAR |$functorForm|) '|CategoryDefaults|) (EQ |mc| '$))
        |e|)
-      ((OR (EQ |op| '|elt|) (EQ |op| '|setelt|))
+      ((OR (EQ |op| '|elt|) (EQ |op| '|setelt!|))
        (|addEltModemap| |op| |mc| |sig| |pred| |fn| |e|))
       ('T (|addModemap1| |op| |mc| |sig| |pred| |fn| |e|))))))
  
@@ -220,7 +220,7 @@
 ;       addModemap1(op,mc,[:lt,id],pred,fn,e)
 ;     -- atom sel => systemErrorHere '"addEltModemap"
 ;     addModemap1(op,mc,sig,pred,fn,e)
-;   op='setelt and sig is [:lt,sel,v] =>
+;   op = "setelt!" and sig is [:lt, sel, v] =>
 ;     STRINGP sel =>
 ;       id:= INTERN sel
 ;       if $insideCapsuleFunctionIfTrue=true
@@ -253,7 +253,7 @@
           (|addModemap1| |op| |mc| (APPEND |lt| (CONS |id| NIL)) |pred| |fn|
            |e|)))
         (#1# (|addModemap1| |op| |mc| |sig| |pred| |fn| |e|))))
-      ((AND (EQ |op| '|setelt|) (CONSP |sig|)
+      ((AND (EQ |op| '|setelt!|) (CONSP |sig|)
             (PROGN (SETQ |ISTMP#1| (REVERSE |sig|)) #1#) (CONSP |ISTMP#1|)
             (PROGN
              (SETQ |v| (CAR |ISTMP#1|))

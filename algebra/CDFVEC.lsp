@@ -50,9 +50,9 @@
          ($ . #1#))
         (CDSETELT |x| |i| |s|)) 
 
-(PUT '|CDFVEC;setelt;$I2C;11| '|SPADreplace| 'CDSETELT) 
+(PUT '|CDFVEC;setelt!;$I2C;11| '|SPADreplace| 'CDSETELT) 
 
-(SDEFUN |CDFVEC;setelt;$I2C;11|
+(SDEFUN |CDFVEC;setelt!;$I2C;11|
         ((|x| $) (|i| |Integer|) (|s| . #1=(|Complex| (|DoubleFloat|)))
          ($ . #1#))
         (CDSETELT |x| |i| |s|)) 
@@ -201,14 +201,14 @@
               |CDFVEC;qelt;$IC;8| |CDFVEC;qsetelt!;$I2C;10|
               (|NonNegativeInteger|) |CDFVEC;#;$Nni;3| |CDFVEC;minIndex;$I;4|
               |CDFVEC;empty;$;5| |CDFVEC;qnew;I$;6| |CDFVEC;fill!;$C$;12|
-              |CDFVEC;new;NniC$;7| |CDFVEC;elt;$IC;9| |CDFVEC;setelt;$I2C;11|
+              |CDFVEC;new;NniC$;7| |CDFVEC;elt;$IC;9| |CDFVEC;setelt!;$I2C;11|
               (|List| 6) (|Equation| 6) (|List| 20) (|Mapping| 6 6 6)
               (|Boolean|) (|OutputForm|) (|InputForm|) (|Matrix| 6)
               (|SingleInteger|) (|String|) (|HashState|) (|Mapping| 23 6)
               (|Mapping| 23 6 6) (|UniversalSegment| 7) (|Void|)
               (|Mapping| 6 6) (|List| $) (|Union| 6 '"failed") (|List| 7))
            '#(~= 0 |zero?| 6 |zero| 11 |vector| 16 |swap!| 21 |sorted?| 28
-              |sort!| 39 |sort| 50 |smaller?| 61 |size?| 67 |setelt| 73
+              |sort!| 39 |sort| 50 |smaller?| 61 |size?| 67 |setelt!| 73
               |select| 87 |sample| 93 |reverse!| 97 |reverse| 102
               |removeDuplicates| 107 |remove| 112 |reduce| 124 |qsetelt!| 145
               |qnew| 152 |qelt| 157 |position| 163 |parts| 182 |outerProduct|

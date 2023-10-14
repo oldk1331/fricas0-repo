@@ -40,9 +40,9 @@
          (|r| . #2=(|Complex| (|DoubleFloat|))) ($ . #2#))
         (CDSETAREF2 |m| |i| |j| |r|)) 
 
-(PUT '|CDFMAT;setelt;$2I2C;10| '|SPADreplace| 'CDSETAREF2) 
+(PUT '|CDFMAT;setelt!;$2I2C;10| '|SPADreplace| 'CDSETAREF2) 
 
-(SDEFUN |CDFMAT;setelt;$2I2C;10|
+(SDEFUN |CDFMAT;setelt!;$2I2C;10|
         ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#)
          (|r| . #2=(|Complex| (|DoubleFloat|))) ($ . #2#))
         (CDSETAREF2 |m| |i| |j| |r|)) 
@@ -179,19 +179,19 @@
               |CDFMAT;maxRowIndex;$I;5| |CDFMAT;maxColIndex;$I;6|
               (|Complex| (|DoubleFloat|)) |CDFMAT;qelt;$2IC;7|
               |CDFMAT;elt;$2IC;8| |CDFMAT;qsetelt!;$2I2C;9|
-              |CDFMAT;setelt;$2I2C;10| |CDFMAT;empty;$;11| |CDFMAT;qnew;2I$;12|
-              |CDFMAT;new;2NniC$;13| (|List| 14) (|Equation| 14) (|List| 23)
-              (|Boolean|) (|OutputForm|) (|List| 37) (|Union| $ '"failed")
-              (|SingleInteger|) (|HashState|) (|String|) (|Mapping| 25 14)
-              (|Void|) (|List| (|List| 9)) (|List| $) (|Union| 14 '"one")
-              (|ComplexDoubleFloatVector|) (|Mapping| 14 6 6) (|List| 22)
-              (|Mapping| 14 14 14) (|Mapping| 14 14) (|List| 35)
-              (|PositiveInteger|) (|List| 43) (|List| 47) (|List| 6)
-              (|Segment| 6))
+              |CDFMAT;setelt!;$2I2C;10| |CDFMAT;empty;$;11|
+              |CDFMAT;qnew;2I$;12| |CDFMAT;new;2NniC$;13| (|List| 14)
+              (|Equation| 14) (|List| 23) (|Boolean|) (|OutputForm|)
+              (|List| 37) (|Union| $ '"failed") (|SingleInteger|) (|HashState|)
+              (|String|) (|Mapping| 25 14) (|Void|) (|List| (|List| 9))
+              (|List| $) (|Union| 14 '"one") (|ComplexDoubleFloatVector|)
+              (|Mapping| 14 6 6) (|List| 22) (|Mapping| 14 14 14)
+              (|Mapping| 14 14) (|List| 35) (|PositiveInteger|) (|List| 43)
+              (|List| 47) (|List| 6) (|Segment| 6))
            '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
               |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
               |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88
-              |setsubMatrix!| 94 |setelt| 102 |setRow!| 134 |setColumn!| 141
+              |setsubMatrix!| 94 |setelt!| 102 |setRow!| 134 |setColumn!| 141
               |scalarMatrix| 148 |sample| 154 |rowEchelon| 158 |row| 163 |rank|
               169 |qsetelt!| 174 |qnew| 182 |qelt| 194 |positivePower| 201
               |parts| 207 |nullity| 212 |nullSpace| 217 |nrows| 222 |new| 227

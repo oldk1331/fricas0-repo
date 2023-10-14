@@ -1323,7 +1323,7 @@
               (143 . |operator|) (|List| $) (148 . |kernel|)
               (|Union| (|Fraction| (|Polynomial| 6)) '"failed")
               (154 . |retractIfCan|) (159 . |One|) (163 . |elt|) (|Kernel| $)
-              (169 . |retract|) (174 . ^) (180 . |setelt|)
+              (169 . |retract|) (174 . ^) (180 . |setelt!|)
               (|AlgebraicManipulations| 6 7) (187 . |rootProduct|)
               (192 . |simplify|) |TRMANIP;expandPower;2F;9| (197 . |second|)
               (|SparseMultivariatePolynomial| 6 64) (202 . |numer|)

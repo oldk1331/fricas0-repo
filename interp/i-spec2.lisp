@@ -1897,7 +1897,7 @@
  
 ; altSeteltable args ==
 ;     for x in args repeat bottomUp x
-;     newOps := [mkAtreeNode "setelt", mkAtreeNode "set!"]
+;     newOps := [mkAtreeNode "setelt!", mkAtreeNode "set!"]
 ;     form := NIL
 ; 
 ;     -- first look for exact matches for any of the possibilities
@@ -1923,7 +1923,7 @@
            (#1='T (|bottomUp| |x|)))
           (SETQ |bfVar#28| (CDR |bfVar#28|))))
        |args| NIL)
-      (SETQ |newOps| (LIST (|mkAtreeNode| '|setelt|) (|mkAtreeNode| '|set!|)))
+      (SETQ |newOps| (LIST (|mkAtreeNode| '|setelt!|) (|mkAtreeNode| '|set!|)))
       (SETQ |form| NIL)
       ((LAMBDA (|bfVar#29| |newOp|)
          (LOOP
@@ -2010,7 +2010,7 @@
 ;   -- function to give it an initial value.
 ;   bottomUp [mkAtreeNode 'LET,htOp,[mkAtreeNode 'table]]
 ;   tableCode := objVal getValue htOp
-;   r := upSetelt(op, lhs, [mkAtreeNode 'setelt,:lhs,rhs])
+;   r := upSetelt(op, lhs, [mkAtreeNode "setelt!", :lhs, rhs])
 ;   $genValue => r
 ;   -- construct code
 ;   t := getValue op
@@ -2055,7 +2055,7 @@
          (SETQ |tableCode| (|objVal| (|getValue| |htOp|)))
          (SETQ |r|
                  (|upSetelt| |op| |lhs|
-                  (CONS (|mkAtreeNode| '|setelt|)
+                  (CONS (|mkAtreeNode| '|setelt!|)
                         (APPEND |lhs| (CONS |rhs| NIL)))))
          (COND (|$genValue| |r|)
                (#1#

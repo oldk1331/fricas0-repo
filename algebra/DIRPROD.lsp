@@ -1001,7 +1001,7 @@
               (|Mapping| 7 7) (129 . |map|) (135 . *) (141 . *) (147 . *)
               (153 . |Zero|) (|Union| $ '"failed") (157 . |subtractIfCan|)
               (163 . |subtractIfCan|) (169 . |maxIndex|) (174 . |qelt|)
-              (180 . |recip|) (185 . |recip|) (190 . |setelt|)
+              (180 . |recip|) (185 . |recip|) (190 . |setelt!|)
               (197 . |unitVector|) (202 . <) (208 . <) (214 . >) (220 . |sup|)
               (226 . |sup|) (|Equation| 7) (|List| 66) (|Matrix| 18)
               (|Matrix| $) (|Record| (|:| |mat| 68) (|:| |vec| (|Vector| 18)))
@@ -1012,7 +1012,7 @@
               (|HashState|) (|SingleInteger|) (|String|) (|List| 18))
            '#(~= 232 |zero?| 238 |unitVector| 243 |swap!| 248 |sup| 255
               |subtractIfCan| 261 |smaller?| 267 |size?| 273 |size| 279 |sign|
-              283 |setelt| 288 |sample| 295 |retractIfCan| 299 |retract| 314
+              283 |setelt!| 288 |sample| 295 |retractIfCan| 299 |retract| 314
               |reducedSystem| 329 |recip| 351 |random| 356 |qsetelt!| 360
               |qelt| 367 |positive?| 373 |parts| 378 |opposite?| 383 |one?| 389
               |negative?| 394 |more?| 399 |minIndex| 405 |min| 410 |members|

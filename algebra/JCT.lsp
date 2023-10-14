@@ -278,7 +278,7 @@
               (81 . |type|) (86 . |One|) (90 . |index|) (95 . |minIndex|)
               (100 . |class|) (105 . |integrate|) |JCT;transform;JB1Jbe;4|
               (111 . +) (117 . |formalDiff|) (123 . *) (|Mapping| 29 29 29)
-              (129 . |reduce|) (136 . |setelt|) (|List| 6)
+              (129 . |reduce|) (136 . |setelt!|) (|List| 6)
               (|JetBundleExpression| 6) (143 . |jetVariables|) (148 . |coerce|)
               (153 . |coerce|) (|Equation| 29) (158 . =) (|Equation| $)
               (164 . |eval|) |JCT;transform;JbeJbe;5|)

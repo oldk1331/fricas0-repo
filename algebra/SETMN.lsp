@@ -341,10 +341,10 @@
               |SETMN;elements;$L;11| (|OutputForm|) (|PositiveInteger|)
               (20 . |coerce|) (|List| $) (25 . |brace|) |SETMN;coerce;$Of;2|
               (|Integer|) (30 . |elt|) |SETMN;member?;Pi$B;4| (36 . |elt|)
-              (41 . |empty?|) (46 . |setelt|) (|Vector| $)
-              |SETMN;enumerate;V;5| (52 . |new|) (58 . |setelt|) (|List| 19)
+              (41 . |empty?|) (46 . |setelt!|) (|Vector| $)
+              |SETMN;enumerate;V;5| (52 . |new|) (58 . |setelt!|) (|List| 19)
               (65 . |concat!|) (71 . |elt|) (|IntegerCombinatoricFunctions| 30)
-              (76 . |binomial|) (82 . |setelt|) |SETMN;size;Nni;7|
+              (76 . |binomial|) (82 . |setelt!|) |SETMN;size;Nni;7|
               (88 . |position|) |SETMN;lookup;$Pi;8| (94 . >) (100 . |elt|)
               |SETMN;index;Pi$;9| (106 . >) |SETMN;setOfMinN;L$;10|
               (112 . |copy|) (|Union| $ '"failed")

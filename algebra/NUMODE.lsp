@@ -631,10 +631,10 @@
            '#(NIL NIL NIL NIL NIL NIL (|Float|) (0 . |Zero|) (|Integer|)
               (|PositiveInteger|) (4 . |float|) (11 . |One|) (15 . |digits|)
               (19 . ^) (|OutputForm|) (25 . |coerce|) (30 . /) (|Vector| 6)
-              (36 . |elt|) (42 . |setelt|) (49 . +) (55 . -) (|Boolean|)
+              (36 . |elt|) (42 . |setelt!|) (49 . +) (55 . -) (|Boolean|)
               (61 . >) (67 . |abs|) (72 . *) (78 . >=) (|Void|) (|String|)
               (|OutputPackage|) (84 . |output|) (89 . |coerce|) (|List| 14)
-              (94 . |setelt|) (|List| $) (101 . |blankSeparate|)
+              (94 . |setelt!|) (|List| $) (101 . |blankSeparate|)
               (106 . |output|) (111 . |coerce|) (116 . |output|)
               (|Mapping| 27 17 17 6) |NUMODE;rk4a;VI4FIMV;1|
               (|Record| (|:| |to_try| 6) (|:| |did| 6) (|:| |next| 6))

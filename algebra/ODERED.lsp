@@ -125,7 +125,7 @@
               (19 . |basis|) (23 . |elt|) (|Mapping| 6 6)
               (29 . |derivationCoordinates|) (35 . |transpose|) (|Integer|)
               (40 . |maxRowIndex|) (45 . |maxColIndex|) (50 . |elt|) (57 . +)
-              (63 . |setelt|) (71 . |copy|) (76 . |Zero|) (80 . |Zero|)
+              (63 . |setelt!|) (71 . |copy|) (76 . |Zero|) (80 . |Zero|)
               (|NonNegativeInteger|) (84 . |coefficient|)
               (90 . |regularRepresentation|) (95 . |degree|) (100 . *)
               (106 . +) (|Vector| 6) (112 . |coordinates|)

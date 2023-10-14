@@ -1776,7 +1776,7 @@
               |CLIF;conj;2$;29| |CLIF;setMode;S2B;30| (160 . |elt|) (167 . ~=)
               |CLIF;*;3$;45| |CLIF;\\/;3$;38| |CLIF;lc;3$;41| |CLIF;rc;3$;42|
               (173 . |elt|) (179 . ^) |CLIF;~;2$;46| (185 . >) (191 . |elt|)
-              (197 . |setelt|) |CLIF;monomial;KL$;48| (204 . /)
+              (197 . |setelt!|) |CLIF;monomial;KL$;48| (204 . /)
               |CLIF;coefficient;$LK;49| (|OutputForm|) (210 . |coerce|)
               (215 . |coerce|) (220 . |sub|) (226 . *) (|Mapping| 105 105 105)
               (|List| 105) (232 . |reduce|) (238 . +) |CLIF;coerce;$Of;51|

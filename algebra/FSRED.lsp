@@ -149,7 +149,7 @@
               (57 . *) (63 . |rem|) |FSRED;bringDown;FKSup;2| (|List| 21)
               (69 . |kernels|) (|List| $) (74 . |eval|) (81 . |retract|)
               (|BasicOperator|) (86 . |operator|) (|Boolean|) (|Symbol|)
-              (91 . |has?|) (97 . |search|) (|Integer|) (103 . |setelt|)
+              (91 . |has?|) (97 . |search|) (|Integer|) (103 . |setelt!|)
               (110 . |coerce|))
            '#(|newReduc| 115 |bringDown| 119) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

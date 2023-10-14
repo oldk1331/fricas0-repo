@@ -150,7 +150,7 @@
               (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Integer|))
            '#(~= 40 |value| 46 |size?| 51 |setvalue!| 57 |setright!| 63
-              |setleft!| 69 |setelt| 75 |setchildren!| 96 |sample| 102 |right|
+              |setleft!| 69 |setelt!| 75 |setchildren!| 96 |sample| 102 |right|
               106 |parts| 111 |nodes| 116 |node?| 121 |node| 127 |more?| 134
               |members| 140 |member?| 145 |map!| 151 |map| 157 |less?| 163
               |left| 169 |leaves| 174 |leaf?| 179 |latex| 184 |hashUpdate!| 189

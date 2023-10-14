@@ -295,7 +295,7 @@
               (|PositiveInteger|) (47 . |rank|) (51 . |zero|) (|Vector| $)
               (57 . |basis|) (|Vector| 8) (61 . |minIndex|)
               (66 . |regularRepresentation|) (71 . |transpose|) (76 . *)
-              (82 . |setelt|) |IBATOOL;idealiserMatrix;3M;5|
+              (82 . |setelt!|) |IBATOOL;idealiserMatrix;3M;5|
               (|ModularHermitianRowReduction| 6) (90 . |rowEch|)
               (95 . |squareTop|) |IBATOOL;idealiser;3M;6| (100 . |exquo|)
               (106 . |rowEchelon|) |IBATOOL;idealiser;2MRM;7| (112 . |square?|)

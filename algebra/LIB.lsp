@@ -5,7 +5,7 @@
 (SDEFUN |LIB;elt;$SA;2| ((|f| $) (|v| |Symbol|) ($ |Any|))
         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) (QREFELT $ 14))) 
 
-(SDEFUN |LIB;setelt;$S2A;3| ((|f| $) (|v| |Symbol|) (|val| |Any|) ($ |Any|))
+(SDEFUN |LIB;setelt!;$S2A;3| ((|f| $) (|v| |Symbol|) (|val| |Any|) ($ |Any|))
         (SPADCALL |f| (SPADCALL |v| (QREFELT $ 12)) |val| (QREFELT $ 16))) 
 
 (DECLAIM (NOTINLINE |Library;|)) 
@@ -133,7 +133,7 @@
            '#(NIL NIL NIL NIL NIL (|KeyedAccessFile| 13) '|Rep| (|FileName|)
               (0 . |open|) |LIB;library;Fn$;1| (|String|) (|Symbol|)
               (5 . |string|) (|Any|) (10 . |elt|) |LIB;elt;$SA;2|
-              (16 . |setelt|) |LIB;setelt;$S2A;3| (|List| 19) (|Equation| 13)
+              (16 . |setelt!|) |LIB;setelt!;$S2A;3| (|List| 19) (|Equation| 13)
               (|List| 13) (|Record| (|:| |key| 10) (|:| |entry| 13))
               (|List| 21) (|Equation| 21) (|List| 23) (|Boolean|)
               (|NonNegativeInteger|) (|Mapping| 21 21 21) (|OutputForm|)
@@ -141,7 +141,7 @@
               (|Mapping| 25 21) (|Mapping| 13 13) (|Void|) (|Mapping| 21 21)
               (|Mapping| 13 13 13) (|List| 10) (|Union| 13 '"failed")
               (|Union| 21 '"failed"))
-           '#(~= 23 |table| 29 |swap!| 38 |size?| 45 |setelt| 51 |select!| 65
+           '#(~= 23 |table| 29 |swap!| 38 |size?| 45 |setelt!| 51 |select!| 65
               |select| 71 |search| 77 |sample| 83 |removeDuplicates| 87
               |remove!| 92 |remove| 110 |reduce| 122 |qsetelt!| 143 |qelt| 150
               |parts| 156 |pack!| 166 |more?| 171 |minIndex| 177 |members| 182

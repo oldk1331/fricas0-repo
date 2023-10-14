@@ -110,7 +110,7 @@
           (|error| "index out of range"))
          ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
 
-(SDEFUN |IARRAY1;setelt;$I2S;13| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |IARRAY1;setelt!;$I2S;13| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (COND
          ((OR (MINUSP |i|)
               (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
@@ -133,7 +133,7 @@
           (|error| "index out of range"))
          ('T (ELT |x| (- |i| 1))))) 
 
-(SDEFUN |IARRAY1;setelt;$I2S;18| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |IARRAY1;setelt!;$I2S;18| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (COND
          ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
           (|error| "index out of range"))
@@ -152,7 +152,7 @@
           (|error| "index out of range"))
          ('T (SPADCALL |x| |i| (QREFELT $ 24))))) 
 
-(SDEFUN |IARRAY1;setelt;$I2S;22| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |IARRAY1;setelt!;$I2S;22| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (COND
          ((OR (< |i| (QREFELT $ 7))
               (SPADCALL |i| (SPADCALL |x| (QREFELT $ 26)) (QREFELT $ 28)))
@@ -274,21 +274,23 @@
        (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;10|) $))
        (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;11|) $))
        (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;12|) $))
-       (QSETREFV $ 30 (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;13|) $))))
+       (QSETREFV $ 30
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;13|) $))))
      ((EQL |#2| 1)
       (PROGN
        (QSETREFV $ 26 (CONS (|dispatchFunction| |IARRAY1;maxIndex;$I;14|) $))
        (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;15|) $))
        (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;16|) $))
        (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;17|) $))
-       (QSETREFV $ 30 (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;18|) $))))
+       (QSETREFV $ 30
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;18|) $))))
      ('T
       (PROGN
        (QSETREFV $ 24 (CONS (|dispatchFunction| |IARRAY1;qelt;$IS;19|) $))
        (QSETREFV $ 25 (CONS (|dispatchFunction| |IARRAY1;qsetelt!;$I2S;20|) $))
        (QSETREFV $ 29 (CONS (|dispatchFunction| |IARRAY1;elt;$IS;21|) $))
        (QSETREFV $ 30
-                 (CONS (|dispatchFunction| |IARRAY1;setelt;$I2S;22|) $)))))
+                 (CONS (|dispatchFunction| |IARRAY1;setelt!;$I2S;22|) $)))))
     $))) 
 
 (MAKEPROP '|IndexedOneDimensionalArray| '|infovec|
@@ -300,17 +302,17 @@
               |IARRAY1;map;M2$;7| (|Mapping| 6 6 6) |IARRAY1;map;M3$;8|
               (|HashState|) (0 . |hashUpdate!|) (6 . |hashUpdate!|) '#:G1131
               (12 . |qelt|) (18 . |qsetelt!|) (25 . |maxIndex|) (|Boolean|)
-              (30 . >) (36 . |elt|) (42 . |setelt|) (|List| 6) (|Equation| 6)
+              (30 . >) (36 . |elt|) (42 . |setelt!|) (|List| 6) (|Equation| 6)
               (|List| 32) (|Mapping| 27 6) (|Mapping| 27 6 6)
               (|UniversalSegment| 11) (|Void|) (|OutputForm|) (|InputForm|)
               (|SingleInteger|) (|String|) (|List| $) (|Union| 6 '"failed")
               (|List| 11))
            '#(~= 49 |swap!| 55 |sorted?| 62 |sort!| 73 |sort| 84 |smaller?| 95
-              |size?| 101 |setelt| 107 |select| 121 |sample| 127 |reverse!| 131
-              |reverse| 136 |removeDuplicates| 141 |remove| 146 |reduce| 158
-              |qsetelt!| 179 |qelt| 186 |position| 192 |parts| 211 |new| 216
-              |more?| 222 |minIndex| 228 |min| 233 |merge| 239 |members| 252
-              |member?| 257 |maxIndex| 263 |max| 268 |map!| 274 |map| 280
+              |size?| 101 |setelt!| 107 |select| 121 |sample| 127 |reverse!|
+              131 |reverse| 136 |removeDuplicates| 141 |remove| 146 |reduce|
+              158 |qsetelt!| 179 |qelt| 186 |position| 192 |parts| 211 |new|
+              216 |more?| 222 |minIndex| 228 |min| 233 |merge| 239 |members|
+              252 |member?| 257 |maxIndex| 263 |max| 268 |map!| 274 |map| 280
               |less?| 293 |latex| 299 |insert| 304 |indices| 318 |index?| 323
               |hashUpdate!| 329 |hash| 335 |first| 340 |find| 345 |fill!| 351
               |every?| 357 |eval| 363 |eq?| 389 |entry?| 395 |entries| 401

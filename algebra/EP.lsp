@@ -393,7 +393,7 @@
                                                                        (ELT $
                                                                             6))))))
                                                              MM))
-                                     (|compiledLookupCheck| '|setelt|
+                                     (|compiledLookupCheck| '|setelt!|
                                                             (LIST
                                                              (|devaluate| MM)
                                                              '$
@@ -419,7 +419,7 @@
                                                                  AM))
                                 |alg|
                                 (|compiledLookupCheck| '- (LIST '$ '$ '$) MM))
-                               (|compiledLookupCheck| '|setelt|
+                               (|compiledLookupCheck| '|setelt!|
                                                       (LIST (|devaluate| MM) '$
                                                             (LIST '|Integer|)
                                                             (LIST '|Integer|)
@@ -696,7 +696,7 @@
               (56 . |leadingCoefficient|) (61 . *) (67 . |Zero|) (71 . ~=)
               (77 . +) (83 . |reductum|) (|List| 36) (|Union| 26 56)
               (|Matrix| 26) |EP;generalizedEigenvector;UM2NniL;14| (88 . ~=)
-              (94 . |zero|) (|Integer|) (100 . |elt|) (107 . |setelt|)
+              (94 . |zero|) (|Integer|) (100 . |elt|) (107 . |setelt!|)
               (115 . -) (121 . |determinant|) (126 . |new|) (130 . |numer|)
               |EP;characteristicPolynomial;MP;8|
               |EP;characteristicPolynomial;MSP;9| (|List| 52)

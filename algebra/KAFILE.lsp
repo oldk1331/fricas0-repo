@@ -125,7 +125,7 @@
         (SEQ (SPADCALL |f| "input" (QREFELT $ 22))
              (EXIT (SPADRREAD |k| (QVELT |f| 1))))) 
 
-(SDEFUN |KAFILE;setelt;$S2Entry;16|
+(SDEFUN |KAFILE;setelt!;$S2Entry;16|
         ((|f| $) (|k| |String|) (|e| |Entry|) ($ |Entry|))
         (SEQ (SPADCALL |f| "output" (QREFELT $ 22))
              (UNWIND-PROTECT (SPADCALL |f| (CONS |k| |e|) (QREFELT $ 31))
@@ -261,7 +261,7 @@
               |KAFILE;write!;$2R;9| |KAFILE;name;$Fn;10| |KAFILE;iomode;$S;11|
               (38 . |new|) |KAFILE;empty;$;12| (|List| 9) |KAFILE;keys;$L;13|
               (|NonNegativeInteger|) |KAFILE;#;$Nni;14| |KAFILE;elt;$SEntry;15|
-              |KAFILE;setelt;$S2Entry;16| (45 . |member?|)
+              |KAFILE;setelt!;$S2Entry;16| (45 . |member?|)
               (|Union| 6 '"failed") |KAFILE;search;S$U;17|
               |KAFILE;remove!;S$U;18| |KAFILE;pack!;2$;19| (|List| 48)
               (|Equation| 29) (|List| 29) (|Mapping| 29 29 29) (|List| 6)
@@ -269,7 +269,7 @@
               (|Mapping| 14 6) (|Mapping| 29 29) (|Void|) (|Mapping| 6 6)
               (|Union| 29 '"failed") (|Mapping| 6 6 6) (|SingleInteger|)
               (|HashState|))
-           '#(~= 51 |write!| 57 |table| 63 |swap!| 72 |size?| 79 |setelt| 85
+           '#(~= 51 |write!| 57 |table| 63 |swap!| 72 |size?| 79 |setelt!| 85
               |select!| 92 |select| 98 |search| 104 |sample| 110 |reopen!| 114
               |removeDuplicates| 120 |remove!| 125 |remove| 143 |reduce| 155
               |read!| 176 |qsetelt!| 181 |qelt| 188 |parts| 194 |pack!| 204

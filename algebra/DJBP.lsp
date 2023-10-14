@@ -968,7 +968,7 @@
               |DJBP;monomial?;$B;6| |DJBP;numberOfMonomials;$Nni;7|
               (45 . |degree|) (|Integer|) (50 . |elt|) (56 . |Zero|)
               (60 . |Zero|) (64 . |new|) (70 . |reductum|) (75 . |elt|)
-              (81 . |setelt|) (88 . ~=) (|List| 7) |DJBP;variables;$L;9|
+              (81 . |setelt!|) (88 . ~=) (|List| 7) |DJBP;variables;$L;9|
               (94 . |coerce|) (99 . |empty|) (103 . |empty|) (|List| 10)
               (107 . |elt|) (113 . |coerce|) (118 . ^) (124 . ~=) (130 . *)
               (|Mapping| 10 10 10) (136 . |reduce|) (142 . +)

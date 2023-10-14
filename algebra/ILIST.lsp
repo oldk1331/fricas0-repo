@@ -47,7 +47,7 @@
 (SDEFUN |ILIST;qsetfirst!;$2S;11| ((|x| $) (|s| S) ($ S))
         (|qset_first| |x| |s|)) 
 
-(SDEFUN |ILIST;setelt;$first2S;12| ((|x| $) (T11 "first") (|s| S) ($ S))
+(SDEFUN |ILIST;setelt!;$first2S;12| ((|x| $) (T11 "first") (|s| S) ($ S))
         (COND
          ((SPADCALL |x| (QREFELT $ 17))
           (|error| "Cannot update an empty list"))
@@ -63,7 +63,7 @@
 
 (SDEFUN |ILIST;qsetrest!;3$;14| ((|x| $) (|y| $) ($ $)) (|qset_rest| |x| |y|)) 
 
-(SDEFUN |ILIST;setelt;$rest2$;15| ((|x| $) (T12 "rest") (|y| $) ($ $))
+(SDEFUN |ILIST;setelt!;$rest2$;15| ((|x| $) (T12 "rest") (|y| $) ($ $))
         (COND
          ((SPADCALL |x| (QREFELT $ 17))
           (|error| "Cannot update an empty list"))
@@ -513,8 +513,8 @@
               |ILIST;elt;$firstS;5| |ILIST;empty;$;6| |ILIST;empty?;$B;7|
               |ILIST;rest;2$;8| '"rest" |ILIST;elt;$rest$;9|
               |ILIST;setfirst!;$2S;10| |ILIST;qsetfirst!;$2S;11|
-              |ILIST;setelt;$first2S;12| |ILIST;setrest!;3$;13|
-              |ILIST;qsetrest!;3$;14| |ILIST;setelt;$rest2$;15| (|List| 6)
+              |ILIST;setelt!;$first2S;12| |ILIST;setrest!;3$;13|
+              |ILIST;qsetrest!;3$;14| |ILIST;setelt!;$rest2$;15| (|List| 6)
               |ILIST;construct;L$;16| |ILIST;parts;$L;17|
               |ILIST;reverse!;2$;18| |ILIST;reverse;2$;19| (|Integer|)
               |ILIST;minIndex;$I;20| |ILIST;rest;$Nni$;21| (0 . |cyclic?|)
@@ -533,7 +533,7 @@
            '#(~= 97 |value| 103 |third| 108 |tail| 113 |swap!| 118 |split!| 125
               |sorted?| 131 |sort!| 142 |sort| 153 |smaller?| 164 |size?| 170
               |setvalue!| 176 |setrest!| 182 |setlast!| 188 |setfirst!| 194
-              |setelt| 200 |setchildren!| 242 |select!| 248 |select| 254
+              |setelt!| 200 |setchildren!| 242 |select!| 248 |select| 254
               |second| 260 |sample| 265 |reverse!| 269 |reverse| 274 |rest| 279
               |removeDuplicates!| 290 |removeDuplicates| 295 |remove!| 300
               |remove| 312 |reduce| 324 |qsetrest!| 345 |qsetfirst!| 351

@@ -170,8 +170,8 @@
               (11 . |swap!|) (|Mapping| 16 6 6) |SORTPAK;bubbleSort!;AMA;1|
               (|Boolean|) (18 . >) |SORTPAK;insertionSort!;AMA;2| (24 . <)
               (30 . |bubbleSort!|) (35 . |insertionSort!|) (40 . |empty?|)
-              '"rest" (45 . |elt|) '"first" (51 . |elt|) (57 . |setelt|)
-              (64 . |setelt|))
+              '"rest" (45 . |elt|) '"first" (51 . |elt|) (57 . |setelt!|)
+              (64 . |setelt!|))
            '#(|insertionSort!| 71 |bubbleSort!| 82) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

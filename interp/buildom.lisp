@@ -748,7 +748,7 @@
 ;        ['coerce, [$OutputForm, nam], ['ELT, dc, 7]],:
 ;         [['elt,[A,nam,PNAME a],['XLAM,["$1","$2"],['RECORDELT,"$1",i,len]]]
 ;             for i in 0.. for [.,a,A] in Alist],:
-;           [['setelt,[A,nam,PNAME a,A],['XLAM,["$1","$2","$3"],
+;           [["setelt!", [A, nam, PNAME a, A], ['XLAM, ["$1", "$2", "$3"],
 ;             ['SETRECORDELT,"$1",i, len,"$3"]]]
 ;               for i in 0.. for [.,a,A] in Alist],:
 ;                 [['copy,[nam,nam],['XLAM,["$1"],['RECORDCOPY,
@@ -852,7 +852,7 @@
                                             #1#)))))
                                (SETQ |bfVar#30|
                                        (CONS
-                                        (LIST '|setelt|
+                                        (LIST '|setelt!|
                                               (LIST A |nam| (PNAME |a|) A)
                                               (LIST 'XLAM (LIST '$1 '$2 '$3)
                                                     (LIST 'SETRECORDELT '$1 |i|

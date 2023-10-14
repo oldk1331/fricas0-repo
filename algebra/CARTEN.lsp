@@ -1300,11 +1300,11 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) '|Rep| (|PositiveInteger|) (|NonNegativeInteger|)
               (0 . ^) '|dim2| '|dim3| '|dim4| |CARTEN;kroneckerDelta;$;10|
-              |CARTEN;sample;$;1| (|Integer|) (|Vector| 18) (6 . |setelt|)
+              |CARTEN;sample;$;1| (|Integer|) (|Vector| 18) (6 . |setelt!|)
               (|Boolean|) (13 . ~=) (19 . |elt|) (25 . >) (31 . *) (37 . ~=)
-              (|Vector| 21) (43 . |setelt|) (50 . |elt|) (|Union| $ '"failed")
+              (|Vector| 21) (43 . |setelt!|) (50 . |elt|) (|Union| $ '"failed")
               (56 . |exquo|) (62 . |#|) (67 . |elt|) (|List| 8)
-              |CARTEN;ravel;$L;8| (73 . |Zero|) (77 . |new|) (83 . |setelt|)
+              |CARTEN;ravel;$L;8| (73 . |Zero|) (77 . |new|) (83 . |setelt!|)
               |CARTEN;unravel;L$;9| (90 . |One|) (94 . |coerce|)
               |CARTEN;leviCivitaSymbol;$;11| |CARTEN;rank;$Nni;13|
               |CARTEN;degree;$Nni;12| |CARTEN;elt;$R;14| |CARTEN;elt;$IR;15|

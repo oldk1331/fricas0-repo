@@ -151,7 +151,7 @@
               |FTEM;processTemplate;3Fn;5| (9 . |readLine!|)
               (|TemplateUtilities|) (14 . |stripCommentsAndBlanks|) (|Boolean|)
               (19 . |empty?|) (|Integer|) (24 . |maxIndex|) (|Character|)
-              (29 . |elt|) (35 . |setelt|) (42 . |open|) (48 . |endOfFile?|)
+              (29 . |elt|) (35 . |setelt!|) (42 . |open|) (48 . |endOfFile?|)
               (|Any|) (53 . |interpretString|) (58 . |close!|) (63 . |coerce|)
               (|List| $) (68 . |concat|) (|OutputForm|) (73 . |coerce|)
               (78 . |coerce|) (|SingleInteger|) (|HashState|))

@@ -1787,7 +1787,7 @@
 ;   ms := NIL
 ;   for x in argl for m in amsl for i in 1.. repeat
 ;     -- do not retract first arg of a setelt
-;     (i = 1) and (opName = "setelt") =>
+;     (i = 1) and (opName = "setelt!") =>
 ;         a := [x,:a]
 ;         ms := [m,:ms]
 ;     (i = 1) and (opName = "set!") =>
@@ -1843,7 +1843,7 @@
                (RETURN NIL))
               (#1#
                (COND
-                ((AND (EQL |i| 1) (EQ |opName| '|setelt|))
+                ((AND (EQL |i| 1) (EQ |opName| '|setelt!|))
                  (PROGN (SETQ |a| (CONS |x| |a|)) (SETQ |ms| (CONS |m| |ms|))))
                 ((AND (EQL |i| 1) (EQ |opName| '|set!|))
                  (PROGN (SETQ |a| (CONS |x| |a|)) (SETQ |ms| (CONS |m| |ms|))))

@@ -363,7 +363,7 @@
               (|Segment| 10) (27 . |hi|) (32 . |lo|) (37 . |Zero|)
               (|Complex| 10) (41 . |complex|) (47 . |norm|) (52 . |sqrt|)
               (57 . |argument|) (|Record| (|:| |rr| 10) (|:| |th| 10))
-              (|TwoDimensionalArray| 31) (62 . |setelt|) (70 . |elt|)
+              (|TwoDimensionalArray| 31) (62 . |setelt!|) (70 . |elt|)
               (|List| 38) (|ThreeSpace| 10) (77 . |mesh|) (|List| 18)
               (82 . |curve|) (|String|) (|ThreeDimensionalViewport|)
               (88 . |makeViewport3D|) (|Mapping| 26 26) (|Boolean|)

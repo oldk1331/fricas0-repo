@@ -1659,7 +1659,7 @@
               (|UndirectedGraph| 56) (136 . |undirectedGraph|)
               |UDGRPH;*;2$Ug;22| |UDGRPH;cartesian;2$Ug;23| (|Mapping| 6 6 6)
               |UDGRPH;closedTensor;2$M$;25| |UDGRPH;closedCartesian;2$M$;26|
-              (142 . |elt|) (148 . |setelt|) |UDGRPH;map;$LL2I$;27|
+              (142 . |elt|) (148 . |setelt!|) |UDGRPH;map;$LL2I$;27|
               |UDGRPH;mapContra;$LL2I$;28| (|Void|) (|Scene| (|SCartesian| '2))
               (|Matrix| 18) (|Matrix| 20) (|List| (|Loop|)) (|Tree| 18)
               (|List| 81) (|DirectedGraph| $) (|SingleInteger|) (|OutputForm|)

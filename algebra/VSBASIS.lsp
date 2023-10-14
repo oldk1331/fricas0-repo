@@ -496,7 +496,7 @@
               |VSBASIS;nullSpace;M$;7| (48 . |concat|) |VSBASIS;sumBasis;2L$;8|
               |VSBASIS;sumBasis;3$;9| (|List| $) (54 . |concat|) (|List| 5)
               |VSBASIS;sumBasis;L$;10| (59 . |concat|) |VSBASIS;sumBasis;L$;11|
-              |VSBASIS;+;3$;12| (64 . |elt|) (70 . *) (76 . +) (82 . |setelt|)
+              |VSBASIS;+;3$;12| (64 . |elt|) (70 . *) (76 . +) (82 . |setelt!|)
               |VSBASIS;intBasis;3$;16| |VSBASIS;intBasis;2L$;15| (89 . |elt|)
               |VSBASIS;intBasis;L$;17| (|List| $$) (95 . |#|) (100 . |elt|)
               (106 . |rest|) |VSBASIS;intBasis;L$;18| |VSBASIS;*;3$;19|

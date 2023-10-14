@@ -160,7 +160,7 @@
               (0 . |empty?|) (|List| 6) (5 . |deref|) (10 . |last|)
               |DEQUEUE;bottom;$S;1| (15 . |construct|) |DEQUEUE;dequeue;L$;2|
               (|Integer|) (20 . |maxIndex|) (25 . |setref|)
-              (|NonNegativeInteger|) (31 . |rest|) '"rest" (37 . |setelt|)
+              (|NonNegativeInteger|) (31 . |rest|) '"rest" (37 . |setelt!|)
               |DEQUEUE;extractBottom!;$S;3| |DEQUEUE;top;$S;9|
               |DEQUEUE;extractTop!;$S;4| |DEQUEUE;height;$Nni;5|
               |DEQUEUE;depth;$Nni;6| |DEQUEUE;insertTop!;S$S;7| (44 . |list|)

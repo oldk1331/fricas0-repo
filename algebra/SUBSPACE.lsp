@@ -667,7 +667,7 @@
               |SUBSPACE;addPointLast;2$PNni$;17| (88 . |elt|)
               |SUBSPACE;addPoint;$LNni$;18| |SUBSPACE;addPoint;$PNni;19|
               |SUBSPACE;modifyPoint;$LP$;20| |SUBSPACE;modifyPoint;$LNni$;21|
-              (94 . |setelt|) |SUBSPACE;modifyPoint;$NniP$;22| (101 . |close|)
+              (94 . |setelt!|) |SUBSPACE;modifyPoint;$NniP$;22| (101 . |close|)
               |SUBSPACE;closeComponent;$LB$;23|
               |SUBSPACE;defineProperty;$LSscp$;24| |SUBSPACE;traverse;$L$;25|
               |SUBSPACE;parent;2$;30| |SUBSPACE;extractPoint;$P;26|

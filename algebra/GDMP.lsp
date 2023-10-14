@@ -1029,7 +1029,7 @@
               |GDMP;numberOfMonomials;$Nni;15| |GDMP;monomial?;$B;16|
               (84 . |Zero|) (88 . >) (94 . -) (99 . |inv|) (104 . *) (110 . /)
               (116 . |new|) (122 . |degree|) (127 . |reductum|) (132 . |elt|)
-              (138 . |setelt|) (145 . ~=) (151 . |index|)
+              (138 . |setelt!|) (145 . ~=) (151 . |index|)
               |GDMP;variables;$L;19| (156 . >) (|Mapping| 12 9 9)
               (162 . |sort|) (|List| 44) |GDMP;reorder;$L$;20| (168 . |Zero|)
               (172 . |monomial|) (178 . +) (184 . |elt|) |GDMP;eval;$Ovl2$;22|

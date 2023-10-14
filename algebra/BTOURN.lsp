@@ -122,14 +122,14 @@
               (|Mapping| 6 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
               (|String|) (|Integer|))
            '#(~= 53 |value| 59 |size?| 64 |setvalue!| 70 |setright!| 76
-              |setleft!| 82 |setelt| 88 |setchildren!| 109 |sample| 115 |right|
-              119 |parts| 124 |nodes| 129 |node?| 134 |node| 140 |more?| 147
-              |members| 153 |member?| 158 |map!| 164 |map| 170 |less?| 176
-              |left| 182 |leaves| 187 |leaf?| 192 |latex| 197 |insert!| 202
-              |hashUpdate!| 208 |hash| 214 |every?| 219 |eval| 225 |eq?| 251
-              |empty?| 257 |empty| 262 |elt| 266 |distance| 284 |cyclic?| 290
-              |count| 295 |copy| 307 |coerce| 312 |children| 317 |child?| 322
-              |binaryTournament| 328 |any?| 333 = 339 |#| 345)
+              |setleft!| 82 |setelt!| 88 |setchildren!| 109 |sample| 115
+              |right| 119 |parts| 124 |nodes| 129 |node?| 134 |node| 140
+              |more?| 147 |members| 153 |member?| 158 |map!| 164 |map| 170
+              |less?| 176 |left| 182 |leaves| 187 |leaf?| 192 |latex| 197
+              |insert!| 202 |hashUpdate!| 208 |hash| 214 |every?| 219 |eval|
+              225 |eq?| 251 |empty?| 257 |empty| 262 |elt| 266 |distance| 284
+              |cyclic?| 290 |count| 295 |copy| 307 |coerce| 312 |children| 317
+              |child?| 322 |binaryTournament| 328 |any?| 333 = 339 |#| 345)
            'NIL
            (CONS (|makeByteWordVec2| 6 '(0 0 0 0 0 2 1 0 0 0 2 4 6))
                  (CONS

@@ -48,9 +48,9 @@
         ((|x| $) (|i| |Integer|) (|s| . #1=(|DoubleFloat|)) ($ . #1#))
         (DSETELT |x| |i| |s|)) 
 
-(PUT '|DFVEC;setelt;$I2Df;11| '|SPADreplace| 'DSETELT) 
+(PUT '|DFVEC;setelt!;$I2Df;11| '|SPADreplace| 'DSETELT) 
 
-(SDEFUN |DFVEC;setelt;$I2Df;11|
+(SDEFUN |DFVEC;setelt!;$I2Df;11|
         ((|x| $) (|i| |Integer|) (|s| . #1=(|DoubleFloat|)) ($ . #1#))
         (DSETELT |x| |i| |s|)) 
 
@@ -180,14 +180,14 @@
               |DFVEC;qelt;$IDf;8| |DFVEC;qsetelt!;$I2Df;10|
               (|NonNegativeInteger|) |DFVEC;#;$Nni;3| |DFVEC;minIndex;$I;4|
               |DFVEC;empty;$;5| |DFVEC;qnew;I$;6| |DFVEC;new;NniDf$;7|
-              |DFVEC;elt;$IDf;9| |DFVEC;setelt;$I2Df;11| |DFVEC;fill!;$Df$;12|
+              |DFVEC;elt;$IDf;9| |DFVEC;setelt!;$I2Df;11| |DFVEC;fill!;$Df$;12|
               (|List| 6) (|Equation| 6) (|List| 20) (|Mapping| 6 6 6)
               (|Boolean|) (|OutputForm|) (|InputForm|) (|Matrix| 6)
               (|SingleInteger|) (|HashState|) (|String|) (|Mapping| 23 6)
               (|Mapping| 23 6 6) (|UniversalSegment| 7) (|Void|)
               (|Mapping| 6 6) (|List| $) (|Union| 6 '"failed") (|List| 7))
            '#(~= 0 |zero?| 6 |zero| 11 |swap!| 16 |sorted?| 23 |sort!| 34
-              |sort| 45 |smaller?| 56 |size?| 62 |setelt| 68 |select| 82
+              |sort| 45 |smaller?| 56 |size?| 62 |setelt!| 68 |select| 82
               |sample| 88 |reverse!| 92 |reverse| 97 |removeDuplicates| 102
               |remove| 107 |reduce| 119 |qsetelt!| 140 |qnew| 147 |qelt| 152
               |position| 158 |parts| 177 |outerProduct| 182 |new| 188 |more?|

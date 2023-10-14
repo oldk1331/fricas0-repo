@@ -1910,8 +1910,8 @@
               (18 . SEGMENT) (|List| 20) (24 . |expand|) (29 . |setDifference|)
               (35 . |Zero|) (39 . |Zero|) (|Fraction| 14) (43 . |Zero|)
               (|NonNegativeInteger|) (47 . ~=) (|Matrix| 28) (53 . |zero|)
-              (59 . |elt|) (66 . |setelt|) (74 . -) (|List| 28) (79 . |elt|)
-              (85 . |rowEchelon|) (|Vector| 28) (90 . |setelt|) (97 . |One|)
+              (59 . |elt|) (66 . |setelt!|) (74 . -) (|List| 28) (79 . |elt|)
+              (85 . |rowEchelon|) (|Vector| 28) (90 . |setelt!|) (97 . |One|)
               (|Record| (|:| |partsol| 40) (|:| |basis| 103))
               (|Record| (|:| |mat| 32) (|:| |vec| 37) (|:| |rank| 30)
                         (|:| |rows| 23) (|:| |cols| 23))
@@ -1940,9 +1940,9 @@
               (|Record| (|:| |factor| 9) (|:| |exponent| 20)) (|List| 91)
               (206 . |factors|) (|List| 69) |PLEQN;ParCond;MNniL;34|
               (211 . |elt|) (217 . |euclideanNormalForm|) (223 . |Zero|)
-              (227 . =) (233 . |zero|) (239 . |setelt|) (247 . |denom|)
+              (227 . =) (233 . |zero|) (239 . |setelt!|) (247 . |denom|)
               (|List| 40) (252 . |elt|) (258 . |elt|) |PLEQN;dmp2rfi;GRF;28|
-              (265 . /) (271 . |setelt|) |PLEQN;dmp2rfi;LL;10| (|List| 68)
+              (265 . /) (271 . |setelt!|) |PLEQN;dmp2rfi;LL;10| (|List| 68)
               |PLEQN;psolve;MLL;11| (|List| 131) |PLEQN;se2rfi;LL;25|
               |PLEQN;psolve;MLL;12| |PLEQN;psolve;ML;13| (|PositiveInteger|)
               |PLEQN;psolve;MLPiL;14| |PLEQN;psolve;MLPiL;15|

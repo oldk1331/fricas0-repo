@@ -7,9 +7,9 @@
 
 (SDEFUN |HASHTBL;#;$Nni;2| ((|t| $) ($ |NonNegativeInteger|)) (HCOUNT |t|)) 
 
-(PUT '|HASHTBL;setelt;$Key2Entry;3| '|SPADreplace| 'HPUT) 
+(PUT '|HASHTBL;setelt!;$Key2Entry;3| '|SPADreplace| 'HPUT) 
 
-(SDEFUN |HASHTBL;setelt;$Key2Entry;3|
+(SDEFUN |HASHTBL;setelt!;$Key2Entry;3|
         ((|t| $) (|k| |Key|) (|e| |Entry|) ($ |Entry|)) (HPUT |t| |k| |e|)) 
 
 (SDEFUN |HASHTBL;remove!;Key$U;4|
@@ -172,7 +172,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) '|failMsg| (|List| 6) |HASHTBL;keys;$L;1|
               (|NonNegativeInteger|) |HASHTBL;#;$Nni;2|
-              |HASHTBL;setelt;$Key2Entry;3| (|Union| 7 '"failed")
+              |HASHTBL;setelt!;$Key2Entry;3| (|Union| 7 '"failed")
               |HASHTBL;remove!;Key$U;4| |HASHTBL;empty;$;5|
               |HASHTBL;search;Key$U;6| (|Record| (|:| |key| 6) (|:| |entry| 7))
               (|List| 19) (|List| 22) (|Equation| 19) (|Mapping| 19 19 19)
@@ -180,7 +180,7 @@
               (|String|) (|SingleInteger|) (|HashState|) (|InputForm|)
               (|Mapping| 24 7) (|Mapping| 24 19) (|Mapping| 7 7) (|Void|)
               (|Mapping| 19 19) (|Mapping| 7 7 7) (|Union| 19 '"failed"))
-           '#(~= 0 |table| 6 |swap!| 15 |size?| 22 |setelt| 28 |select!| 35
+           '#(~= 0 |table| 6 |swap!| 15 |size?| 22 |setelt!| 28 |select!| 35
               |select| 41 |search| 47 |sample| 53 |removeDuplicates| 57
               |remove!| 62 |remove| 80 |reduce| 92 |qsetelt!| 113 |qelt| 120
               |parts| 126 |more?| 136 |minIndex| 142 |members| 147 |member?|

@@ -426,7 +426,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . |empty|) |TBAGG-;table;S;1|
               (|Record| (|:| |key| 7) (|:| |entry| 8)) (|List| 11)
-              (4 . |dictionary|) |TBAGG-;table;LS;2| (9 . |setelt|)
+              (4 . |dictionary|) |TBAGG-;table;LS;2| (9 . |setelt!|)
               |TBAGG-;insert!;R2S;3| (|List| 7) (16 . |keys|)
               |TBAGG-;indices;SL;4| (|OutputForm|) (21 . |coerce|) (26 . |elt|)
               (32 . |coerce|) (37 . =) (|List| $) (43 . |prefix|)

@@ -150,11 +150,11 @@
                          NIL (GO G190) G191 (EXIT NIL))
                     (EXIT |x|)))) 
 
-(SDEFUN |STAGG-;setelt;AI2S;11| ((|x| A) (|i| |Integer|) (|s| S) ($ S))
+(SDEFUN |STAGG-;setelt!;AI2S;11| ((|x| A) (|i| |Integer|) (|s| S) ($ S))
         (SPROG ((#1=#:G162 NIL))
                (SEQ
                 (LETT |i| (- |i| (SPADCALL |x| (QREFELT $ 20)))
-                      . #2=(|STAGG-;setelt;AI2S;11|))
+                      . #2=(|STAGG-;setelt!;AI2S;11|))
                 (COND
                  ((OR (< |i| 0)
                       (SPADCALL
@@ -170,7 +170,7 @@
                   (EXIT (|error| "index out of range"))))
                 (EXIT (SPADCALL |x| |s| (QREFELT $ 35)))))) 
 
-(SDEFUN |STAGG-;setelt;AUs2S;12|
+(SDEFUN |STAGG-;setelt!;AUs2S;12|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
          ((|y| (A)) (|z| (A)) (#1=#:G169 NIL) (#2=#:G168 NIL) (|h| (|Integer|))
@@ -178,7 +178,7 @@
          (SEQ
           (LETT |l|
                 (- (SPADCALL |i| (QREFELT $ 24)) (SPADCALL |x| (QREFELT $ 20)))
-                . #3=(|STAGG-;setelt;AUs2S;12|))
+                . #3=(|STAGG-;setelt!;AUs2S;12|))
           (EXIT
            (COND ((< |l| 0) (|error| "index out of range"))
                  (#4='T
@@ -258,9 +258,9 @@
              (QSETREFV $ 38
                        (CONS (|dispatchFunction| |STAGG-;fill!;ASA;10|) $))
              (QSETREFV $ 39
-                       (CONS (|dispatchFunction| |STAGG-;setelt;AI2S;11|) $))
+                       (CONS (|dispatchFunction| |STAGG-;setelt!;AI2S;11|) $))
              (QSETREFV $ 42
-                       (CONS (|dispatchFunction| |STAGG-;setelt;AUs2S;12|) $))
+                       (CONS (|dispatchFunction| |STAGG-;setelt!;AUs2S;12|) $))
              (QSETREFV $ 45
                        (CONS (|dispatchFunction| |STAGG-;concat!;3A;13|) $)))))
           $))) 
@@ -277,10 +277,10 @@
               (56 . |empty|) (60 . |first|) |STAGG-;elt;AUsA;6|
               (66 . |concat!|) (72 . |concat|) (|List| $) (78 . |concat|)
               (83 . |setfirst!|) (|Mapping| 7 7) (89 . |map!|) (95 . |fill!|)
-              (101 . |setelt|) (108 . |maxIndex|) (113 . |eq?|)
-              (119 . |setelt|) (126 . |tail|) (131 . |setrest!|)
+              (101 . |setelt!|) (108 . |maxIndex|) (113 . |eq?|)
+              (119 . |setelt!|) (126 . |tail|) (131 . |setrest!|)
               (137 . |concat!|) '"rest" '"last" '"first" '"value")
-           '#(|setelt| 143 |possiblyInfinite?| 157 |map!| 162 |first| 168
+           '#(|setelt!| 143 |possiblyInfinite?| 157 |map!| 162 |first| 168
               |fill!| 174 |explicitlyFinite?| 180 |elt| 185 |concat!| 197
               |concat| 203)
            'NIL

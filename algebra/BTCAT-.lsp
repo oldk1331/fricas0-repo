@@ -72,7 +72,7 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Boolean|)
               (0 . |empty?|) (5 . |empty|) (9 . |left|) (14 . |copy|)
               (19 . |value|) (24 . |right|) (29 . |node|) |BTCAT-;copy;2A;1|
-              '"value" (36 . |elt|) (42 . |setelt|) (|Mapping| 7 7)
+              '"value" (36 . |elt|) (42 . |setelt!|) (|Mapping| 7 7)
               (49 . |map!|) (55 . |map!|) (|NonNegativeInteger|) (61 . |#|)
               (66 . |cyclic?|))
            '#(|map!| 71 |copy| 77 |#| 82) 'NIL

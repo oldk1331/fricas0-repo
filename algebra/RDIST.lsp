@@ -138,11 +138,11 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Table| 6 11)
               (0 . |table|) (|Union| 11 '"failed") (4 . |search|) (|Integer|)
-              (10 . |Zero|) (14 . +) (20 . |setelt|) (|List| 6) (27 . |keys|)
+              (10 . |Zero|) (14 . +) (20 . |setelt!|) (|List| 6) (27 . |keys|)
               (|NonNegativeInteger|) (32 . |#|) (37 . |Zero|) (|Boolean|)
               (41 . =) (47 . |elt|) (|Vector| 6) (53 . |new|) (|Vector| 11)
               (59 . |new|) (|SingleInteger|) (65 . |One|) (69 . |One|)
-              (73 . |setelt|) (80 . |elt|) (86 . |setelt|) (|Mapping| 6)
+              (73 . |setelt!|) (80 . |elt|) (86 . |setelt!|) (|Mapping| 6)
               |RDIST;rdHack1;VVIM;2|
               (|Record| (|:| |value| 6) (|:| |weight| 11)) (|List| 35)
               |RDIST;weighted;LM;1| (|RandomNumberSource|) (93 . |randnum|)

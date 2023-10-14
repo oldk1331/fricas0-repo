@@ -995,7 +995,7 @@
               |ODERAT;indicialEquationAtInfinity;LodoUP;6|
               (|InnerCommonDenominator| 7 11 (|List| 7) 23)
               (210 . |commonDenominator|) (215 . *) (221 . |coefficient|)
-              (227 . ~=) (233 . |coerce|) (238 . |elt|) (244 . |setelt|)
+              (227 . ~=) (233 . |coerce|) (238 . |elt|) (244 . |setelt!|)
               (|List| 6) (251 . |parts|) (256 . /) (262 . ~=)
               (268 . |minIndex|) (273 . |zero?|) (278 . |monomial|)
               (284 . |coerce|) (289 . +) (295 . |reductum|) (300 . |Zero|)

@@ -30,7 +30,7 @@
                                          (|mkCategory|
                                           '(((|elt| (|t#2| $ |t#1| |t#2|)) T)
                                             ((|qelt| (|t#2| $ |t#1|)) T)
-                                            ((|setelt| (|t#2| $ |t#1| |t#2|))
+                                            ((|setelt!| (|t#2| $ |t#1| |t#2|))
                                              (|has| $ (|shallowlyMutable|)))
                                             ((|qsetelt!| (|t#2| $ |t#1| |t#2|))
                                              (|has| $ (|shallowlyMutable|))))

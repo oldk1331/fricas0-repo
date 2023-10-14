@@ -1335,7 +1335,7 @@
               (292 . |Zero|) (296 . |Zero|) (|Mapping| $) (300 . |delay|)
               (305 . |getRef|) |SUTS;coefficients;$S;20| (310 . |terms|)
               (|Record| (|:| |k| 12) (|:| |c| 6)) (|Stream| 100)
-              |SUTS;terms;$S;21| (315 . |empty?|) (320 . |setelt|)
+              |SUTS;terms;$S;21| (315 . |empty?|) (320 . |setelt!|)
               (326 . |frst|) (331 . |rst|) (336 . |delay|) (341 . |One|)
               (345 . -) |SUTS;series;S$;23| (350 . |empty?|) (355 . |frst|)
               (360 . |rst|) (365 . |series|) |SUTS;series;S$;25|

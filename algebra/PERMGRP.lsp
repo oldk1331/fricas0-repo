@@ -2204,20 +2204,20 @@
               (|Record| (|:| |preimage| 10) (|:| |image| 6))
               (|Mapping| 18 59 59) (|List| 59) (194 . |sort|) (200 . |first|)
               (205 . <=) (|Mapping| 18 13 13) (211 . |sort|) (217 . |second|)
-              (222 . |setelt|) (229 . |perm_to_vec|) (236 . |position|)
-              (|Vector| 15) (242 . |setelt|) (249 . |elt|) (255 . |member?|)
+              (222 . |setelt!|) (229 . |perm_to_vec|) (236 . |position|)
+              (|Vector| 15) (242 . |setelt!|) (249 . |elt|) (255 . |member?|)
               (|List| 33) (|Reference| 75) (261 . |setref|) (|List| 35)
               (|Reference| 78) (267 . |setref|) (273 . |deref|) (278 . |deref|)
               (283 . |elt|) (|Mapping| 26 26) (289 . |map|)
               (|Record| (|:| |orb| 13) (|:| |svc| 71)) (|Vector| 86)
-              (295 . |setelt|) (302 . |setelt|) (309 . >) (315 . |position|)
-              (321 . |delete|) (327 . |elt|) (333 . |delete|) (339 . |setelt|)
+              (295 . |setelt!|) (302 . |setelt!|) (309 . >) (315 . |position|)
+              (321 . |delete|) (327 . |elt|) (333 . |delete|) (339 . |setelt!|)
               (346 . |ref|) (351 . |ref|) (356 . |list|) (361 . |elt|)
               (367 . |copy|) (372 . |list|) (377 . |list|) (|Set| 11)
               (382 . |brace|) (386 . |degree|) (391 . |insert!|) (|Void|)
               (397 . |void|) (401 . |difference|) (407 . |empty?|)
               (412 . |parts|) |PERMGRP;member?;P$B;41| (417 . |member?|)
-              (423 . |member?|) (429 . |setelt|) |PERMGRP;generators;$L;26|
+              (423 . |member?|) (429 . |setelt!|) |PERMGRP;generators;$L;26|
               (436 . |coerceListOfPairs|) |PERMGRP;strongGenerators;$L;27|
               (441 . |elt|) |PERMGRP;elt;$NniP;28| (447 . |brace|)
               |PERMGRP;movedPoints;$S;29| (452 . *) |PERMGRP;random;$IP;30|

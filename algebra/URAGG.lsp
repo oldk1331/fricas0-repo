@@ -62,18 +62,18 @@
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|qsetfirst!| (|t#1| $ |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt|
+                                               ((|setelt!|
                                                  (|t#1| $ "first" |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|setrest!| ($ $ $))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|qsetrest!| ($ $ $))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt| ($ $ "rest" $))
+                                               ((|setelt!| ($ $ "rest" $))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|setlast!| (|t#1| $ |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|setelt|
+                                               ((|setelt!|
                                                  (|t#1| $ "last" |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
                                                ((|split!| ($ $ (|Integer|)))

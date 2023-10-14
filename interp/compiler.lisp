@@ -1929,7 +1929,7 @@
 ;   if op="elt"
 ;      then modemapList:= eltModemapFilter(last argl,modemapList,e) or return nil
 ;      else
-;       if op="setelt" then modemapList:=
+;       if op="setelt!" then modemapList :=
 ;         seteltModemapFilter(CADR argl,modemapList,e) or return nil
 ;   nargs:= #argl
 ;   finalModemapList:= [mm for (mm:= [[.,.,:sig],:.]) in modemapList | #sig=nargs]
@@ -1995,7 +1995,7 @@
            (SETQ |modemapList|
                    (OR (|eltModemapFilter| (|last| |argl|) |modemapList| |e|)
                        (RETURN NIL))))
-          ((EQ |op| '|setelt|)
+          ((EQ |op| '|setelt!|)
            (SETQ |modemapList|
                    (OR (|seteltModemapFilter| (CADR |argl|) |modemapList| |e|)
                        (RETURN NIL)))))
@@ -2351,7 +2351,7 @@
      (PROGN (SETQ |$insideExpressionIfTrue| NIL) (|compColon| |x| |m| |e|)))))
  
 ; setqSetelt([v,:s],val,m,E) ==
-;   comp(["setelt",v,:s,val],m,E)
+;     comp(["setelt!", v, :s, val], m, E)
  
 (DEFUN |setqSetelt| (|bfVar#77| |val| |m| E)
   (PROG (|v| |s|)
@@ -2359,7 +2359,7 @@
      (PROGN
       (SETQ |v| (CAR |bfVar#77|))
       (SETQ |s| (CDR |bfVar#77|))
-      (|comp| (CONS '|setelt| (CONS |v| (APPEND |s| (CONS |val| NIL)))) |m|
+      (|comp| (CONS '|setelt!| (CONS |v| (APPEND |s| (CONS |val| NIL)))) |m|
        E)))))
  
 ; setqSingle(id,val,m,E) ==

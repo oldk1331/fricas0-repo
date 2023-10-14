@@ -1072,7 +1072,7 @@
               (125 . |map|) (132 . |setColumn!|) |MATLIN;elColumn2!;MR2IM;7|
               (139 . =) (145 . >) (151 . |swapRows!|) (158 . -)
               (|Union| $ '"failed") (163 . |exquo|) (169 . |qsetelt!|)
-              (177 . |elt|) (184 . |setelt|) (192 . |fractionFreeGauss!|)
+              (177 . |elt|) (184 . |setelt!|) (192 . |fractionFreeGauss!|)
               (197 . |subMatrix|) (|Record| (|:| |adjMat| 9) (|:| |detMat| 6))
               (206 . |adjoint|) (211 . |recip|) (216 . *) (|Union| 9 '"failed")
               (222 . |invertIfCan|) (227 . |copy|) (232 . |scalarMatrix|)

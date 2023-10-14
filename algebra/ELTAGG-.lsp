@@ -38,8 +38,8 @@
 (MAKEPROP '|EltableAggregate&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (0 . |elt|) |ELTAGG-;qelt;SDomIm;1| (6 . |setelt|)
-              (13 . |qsetelt!|))
+              (|local| |#3|) (0 . |elt|) |ELTAGG-;qelt;SDomIm;1|
+              (6 . |setelt!|) (13 . |qsetelt!|))
            '#(|qsetelt!| 20 |qelt| 27) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

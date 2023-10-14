@@ -698,9 +698,9 @@
               (56 . |factor|) (|Record| (|:| |factor| 7) (|:| |exponent| 7))
               (|List| 30) (|Factored| 7) (61 . |factors|) (|List| $)
               (66 . |lcm|) |INTHEORY;carmichaelLambda;2I;3| (71 . |#|)
-              (76 . |elt|) (82 . |concat!|) (88 . |setelt|) (95 . *)
+              (76 . |elt|) (82 . |concat!|) (88 . |setelt!|) (95 . *)
               |INTHEORY;euler;2I;4| (101 . -) (106 . |#|) (111 . |elt|)
-              (117 . |concat!|) (123 . |setelt|) (130 . |coerce|) (135 . *)
+              (117 . |concat!|) (123 . |setelt!|) (130 . |coerce|) (135 . *)
               (141 . /) |INTHEORY;bernoulli;IF;5| (147 . ~=)
               (153 . |positiveRemainder|) |INTHEORY;chineseRemainder;5I;7|
               (159 . |even?|) (164 . >) |INTHEORY;jacobi;3I;8|

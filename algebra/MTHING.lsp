@@ -100,7 +100,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Boolean|) (0 . =)
               (|List| 6) |MTHING;mergeDifference;3L;1| (6 . <) '"rest"
-              (12 . |setelt|))
+              (12 . |setelt!|))
            '#(|mergeDifference| 19) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

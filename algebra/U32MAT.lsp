@@ -42,9 +42,9 @@
          ($ . #2#))
         (SETAREF2_U32 |m| |i| |j| |r|)) 
 
-(PUT '|U32MAT;setelt;$4I;10| '|SPADreplace| 'SETAREF2_U32) 
+(PUT '|U32MAT;setelt!;$4I;10| '|SPADreplace| 'SETAREF2_U32) 
 
-(SDEFUN |U32MAT;setelt;$4I;10|
+(SDEFUN |U32MAT;setelt!;$4I;10|
         ((|m| $) (|i| . #1=(|Integer|)) (|j| . #1#) (|r| . #2=(|Integer|))
          ($ . #2#))
         (SETAREF2_U32 |m| |i| |j| |r|)) 
@@ -151,7 +151,7 @@
               |U32MAT;nrows;$Nni;3| |U32MAT;ncols;$Nni;4|
               |U32MAT;maxRowIndex;$I;5| |U32MAT;maxColIndex;$I;6|
               |U32MAT;qelt;$3I;7| |U32MAT;elt;$3I;8| |U32MAT;qsetelt!;$4I;9|
-              |U32MAT;setelt;$4I;10| |U32MAT;empty;$;11| |U32MAT;qnew;2I$;12|
+              |U32MAT;setelt!;$4I;10| |U32MAT;empty;$;11| |U32MAT;qnew;2I$;12|
               |U32MAT;new;2NniI$;13| (|List| 6) (|Equation| 6) (|List| 22)
               (|Boolean|) (|OutputForm|) (|List| 36) (|Union| $ '"failed")
               (|SingleInteger|) (|HashState|) (|String|) (|Mapping| 24 6)
@@ -162,7 +162,7 @@
            '#(~= 0 |zero?| 6 |zero| 11 |vertSplit| 17 |vertConcat| 29
               |transpose| 40 |symmetric?| 50 |swapRows!| 55 |swapColumns!| 62
               |subMatrix| 69 |squareTop| 78 |square?| 83 |size?| 88
-              |setsubMatrix!| 94 |setelt| 102 |setRow!| 134 |setColumn!| 141
+              |setsubMatrix!| 94 |setelt!| 102 |setRow!| 134 |setColumn!| 141
               |scalarMatrix| 148 |sample| 154 |rowEchelon| 158 |row| 163 |rank|
               169 |qsetelt!| 174 |qnew| 182 |qelt| 194 |positivePower| 201
               |parts| 207 |nullity| 212 |nullSpace| 217 |nrows| 222 |new| 227

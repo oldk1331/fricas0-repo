@@ -1600,7 +1600,7 @@
               (|PositiveInteger|) (0 . |rank|) '|n| '|n2| '|n3| (|Vector| 21)
               (4 . |structuralConstants|) '|gamma| (8 . |Zero|) (12 . |One|)
               (|Integer|) (|Vector| 6) (16 . |elt|) (|Matrix| 6)
-              (22 . |setelt|) (30 . |leftTraceMatrix|) (34 . |represents|)
+              (22 . |setelt!|) (30 . |leftTraceMatrix|) (34 . |represents|)
               (|List| 19) (39 . |nullSpace|) (|List| 7) (|Mapping| 7 19)
               (|ListFunctions2| 19 7) (44 . |map|)
               |ALGPKG;radicalOfLeftTraceForm;L;2| (50 . |coordinates|)

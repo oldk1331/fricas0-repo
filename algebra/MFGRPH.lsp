@@ -1737,7 +1737,7 @@
               (|Record| (|:| |value| 6) (|:| |posX| 13) (|:| |posY| 13)
                         (|:| |next| 15) (|:| |map| 28))
               (|List| 10) |MFGRPH;multifunctionGraph;L$;2|
-              (|NonNegativeInteger|) (|Integer|) (|List| 13) (0 . |setelt|)
+              (|NonNegativeInteger|) (|Integer|) (|List| 13) (0 . |setelt!|)
               (7 . |elt|) (13 . |concat|)
               (|Record| (|:| |value| 6) (|:| |posX| 13) (|:| |posY| 13))
               (|List| 19)
@@ -1767,9 +1767,9 @@
               (143 . |multifunctionGraph|) |MFGRPH;*;2$Mg;22|
               |MFGRPH;cartesian;2$Mg;23| (|Mapping| 6 6 6)
               |MFGRPH;closedTensor;2$M$;24| |MFGRPH;closedCartesian;2$M$;25|
-              (148 . |position|) |MFGRPH;~;2$;26| (154 . |setelt|)
+              (148 . |position|) |MFGRPH;~;2$;26| (154 . |setelt!|)
               |MFGRPH;map;$LL2I$;27| (161 . |nodeToNode|) (167 . |concat|)
-              |MFGRPH;mapContra;$LL2I$;28| (173 . >) (179 . |setelt|)
+              |MFGRPH;mapContra;$LL2I$;28| (173 . >) (179 . |setelt!|)
               (186 . |max|) (|Union| 15 '"failed") |MFGRPH;coAdjoint;$LU;29|
               (192 . |min|) |MFGRPH;contraAdjoint;$LU;30|
               |MFGRPH;apply;$3Nni;31| (|List| 96) (198 . |loopsAtNode|)

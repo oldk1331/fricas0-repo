@@ -1274,7 +1274,7 @@
               |TEX;setTex!;$2L;12| |TEX;setEpilogue!;$2L;13| (4 . |coerce|)
               |TEX;coerce;$Of;14| (|Character|) (|String|) (9 . |elt|)
               (|UniversalSegment| 25) (15 . |segment|) (21 . |elt|)
-              (27 . |setelt|) (|Boolean|) (|NonNegativeInteger|) (34 . >)
+              (27 . |setelt!|) (|Boolean|) (|NonNegativeInteger|) (34 . >)
               (|List| $) (40 . |split|) (46 . >) (52 . |empty?|)
               (57 . |concat|) (|List| 23) (62 . |second|) (67 . ~=) (|Symbol|)
               (73 . |string|) (|List| 58) (78 . |position|) (|List| 25)

@@ -144,7 +144,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedOneDimensionalArray| 6 (NRTEVAL 1))
               (|local| |#1|) (|Integer|) |ARRAY1;qelt;$IS;1|
-              |ARRAY1;qsetelt!;$I2S;2| (0 . |setelt|) (|List| 6)
+              |ARRAY1;qsetelt!;$I2S;2| (0 . |setelt!|) (|List| 6)
               |ARRAY1;oneDimensionalArray;L$;3| (|NonNegativeInteger|)
               |ARRAY1;oneDimensionalArray;NniS$;4| (|Mapping| 6 6 6)
               (|Boolean|) (|Equation| 6) (|List| 17) (|Mapping| 16 6)
@@ -152,7 +152,8 @@
               (|Mapping| 6 6) (|OutputForm|) (|InputForm|) (|HashState|)
               (|SingleInteger|) (|String|) (|List| $) (|Union| 6 '"failed")
               (|List| 7))
-           '#(|setelt| 7 |qsetelt!| 14 |qelt| 21 |oneDimensionalArray| 27) 'NIL
+           '#(|setelt!| 7 |qsetelt!| 14 |qelt| 21 |oneDimensionalArray| 27)
+           'NIL
            (CONS
             (|makeByteWordVec2| 11
                                 '(0 0 0 0 0 2 0 2 0 0 6 4 0 0 0 0 6 1 9 11 2))

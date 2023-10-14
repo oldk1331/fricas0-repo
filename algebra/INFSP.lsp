@@ -1374,7 +1374,7 @@
               (327 . |coefficient|) (333 . -) (338 . *) (344 . |coerce|)
               (349 . |One|) (353 . |One|) (357 . *) (363 . *) (369 . |bits|)
               (373 . |bits|) (378 . |width|) (|Boolean|) (383 . >) (389 . ^)
-              (395 . *) '"first" (401 . |setelt|) (|List| 34) (408 . |elt|)
+              (395 . *) '"first" (401 . |setelt!|) (|List| 34) (408 . |elt|)
               (414 . |univariate|) (|PrimitiveArray| 127)
               (|SparseUnivariatePolynomial| 34) (|SubResultantPackage| 34 127)
               (420 . |subresultantVector|) (426 . |multivariate|)

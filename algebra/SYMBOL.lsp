@@ -683,15 +683,15 @@
               (|NonNegativeInteger|) (94 . >) (|Character|) (100 . |elt|)
               (106 . ~=) |SYMBOL;scripts;$R;33| (112 . |latex|)
               |SYMBOL;latex;$S;26| (117 . |minIndex|) (122 . |concat|)
-              (128 . |elt|) (133 . |setelt|) |SYMBOL;new;$;28|
-              (|Union| 6 '"failed") (139 . |search|) (145 . |setelt|)
+              (128 . |elt|) (133 . |setelt!|) |SYMBOL;new;$;28|
+              (|Union| 6 '"failed") (139 . |search|) (145 . |setelt!|)
               (152 . |maxIndex|) (157 . |position|) |SYMBOL;new;2$;29|
               (163 . |keys|) (168 . |remove!|) (174 . |void|)
               |SYMBOL;resetNew;V;30| |SYMBOL;list;$L;35| (178 . |first|)
               (183 . |digit?|) (|UniversalSegment| 6) (188 . SEGMENT)
-              (194 . |elt|) (|List| 84) (200 . |minIndex|) (205 . |setelt|)
+              (194 . |elt|) (|List| 84) (200 . |minIndex|) (205 . |setelt!|)
               (212 . |concat|) (218 . |rest|) (223 . |minIndex|) (228 . |#|)
-              (233 . |first|) (239 . |setelt|) (246 . |rest|) (252 . |elt|)
+              (233 . |first|) (239 . |setelt!|) (246 . |rest|) (252 . |elt|)
               (258 . >)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |SYMBOL;sample;$;36|) $))

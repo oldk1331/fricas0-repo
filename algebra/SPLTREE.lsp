@@ -859,7 +859,7 @@
               (|List| 92) (|Equation| 8) (|HashState|) (|SingleInteger|)
               (|Mapping| 18 8) '"value" (|Integer|))
            '#(~= 185 |value| 191 |updateStatus!| 196 |subNodeOf?| 201
-              |splitNodeOf!| 208 |size?| 223 |setvalue!| 229 |setelt| 235
+              |splitNodeOf!| 208 |size?| 223 |setvalue!| 229 |setelt!| 235
               |setchildren!| 242 |sample| 248 |result| 252 |remove!| 257
               |remove| 263 |parts| 269 |nodes| 274 |nodeOf?| 279 |node?| 285
               |more?| 291 |members| 297 |member?| 302 |map!| 308 |map| 314

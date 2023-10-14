@@ -575,7 +575,7 @@
               |MODMON;degree;$Nni;14| |MODMON;+;3$;19| |MODMON;reductum;2$;12|
               (|PrimitiveArray| $) |MODMON;computePowers;Pa;24| (48 . >)
               (|Union| $ '"failed") (54 . |exquo|) (|Integer|) (60 . |elt|)
-              |MODMON;lift;$Rep;15| |MODMON;reduce;Rep$;16| (66 . |setelt|)
+              |MODMON;lift;$Rep;15| |MODMON;reduce;Rep$;16| (66 . |setelt!|)
               |MODMON;setPoly;2Rep;1| |MODMON;modulus;Rep;2| (73 . |size|)
               (77 . |size|) (81 . |random|) (|Vector| 6)
               |MODMON;UnVectorise;V$;23| (85 . |random|) (89 . |Zero|)

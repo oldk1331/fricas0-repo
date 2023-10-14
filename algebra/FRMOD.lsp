@@ -277,7 +277,7 @@
               (|Matrix| 7) (31 . *) (37 . |represents|) (|Vector| $)
               (42 . |coordinates|) (47 . *) (|Union| $ '"failed")
               (53 . |inverse|) (58 . |maxRowIndex|) (63 . |maxColIndex|)
-              (68 . |setelt|) (76 . |elt|) (81 . |setelt|) (87 . |Zero|)
+              (68 . |setelt!|) (76 . |elt|) (81 . |setelt!|) (87 . |Zero|)
               (91 . |minIndex|) (96 . |minIndex|) (101 . *) (107 . |One|)
               (|NonNegativeInteger|) (111 . ~=) (117 . |determinant|)
               |FRMOD;norm;$F;13| (|Record| (|:| |num| 58) (|:| |den| 6))

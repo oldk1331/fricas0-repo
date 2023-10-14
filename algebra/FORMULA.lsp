@@ -799,7 +799,7 @@
               |FORMULA;epilogue;$L;8| |FORMULA;setPrologue!;$2L;9|
               |FORMULA;setFormula!;$2L;10| |FORMULA;setEpilogue!;$2L;11|
               (10 . |coerce|) |FORMULA;coerce;$Of;12| (|Character|) (|String|)
-              (15 . |elt|) (21 . |setelt|) (|List| $) (28 . |split|)
+              (15 . |elt|) (21 . |setelt!|) (|List| $) (28 . |split|)
               (|Boolean|) (34 . >) (40 . |concat|) (|List| 24) (45 . |second|)
               (50 . ~=) (56 . |position|) (|List| 28) (62 . |elt|) (68 . ~=)
               (74 . |elt|) (80 . |member?|) (|SingleInteger|) (|HashState|))

@@ -327,7 +327,7 @@
               |CCLASS;complement;2$;12| (|List| 22) |CCLASS;convert;$L;14|
               (29 . |construct|) |CCLASS;convert;$S;13| (34 . |char|)
               (|NonNegativeInteger|) (39 . |new|) (45 . |minIndex|)
-              (50 . |maxIndex|) (55 . |elt|) (61 . |setelt|)
+              (50 . |maxIndex|) (55 . |elt|) (61 . |setelt!|)
               |CCLASS;charClass;L$;16| (|OutputForm|) (68 . |coerce|)
               |CCLASS;coerce;$Of;17| |CCLASS;#;$Nni;18| |CCLASS;empty;$;19|
               |CCLASS;brace;$;20| |CCLASS;insert!;C2$;21|

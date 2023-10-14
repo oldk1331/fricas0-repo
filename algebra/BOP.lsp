@@ -336,7 +336,7 @@
               (|Mapping| 14 $ $) |BOP;equality;$M$;15| |BOP;comparison;$M$;16|
               (|OutputForm|) (|List| 41) (21 . |first|) (|Mapping| 41 42)
               |BOP;display;$M$;22| (|Mapping| 41 41) |BOP;display;$M$;17|
-              (26 . |remove!|) |BOP;deleteProperty!;$S$;18| (32 . |setelt|)
+              (26 . |remove!|) |BOP;deleteProperty!;$S$;18| (32 . |setelt!|)
               (39 . |coerce|) |BOP;coerce;$Of;20|
               (|Mapping| (|InputForm|) (|List| (|InputForm|)))
               |BOP;input;$M$;21| (|Union| 44 '"failed") |BOP;display;$U;23|

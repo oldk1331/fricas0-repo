@@ -4100,7 +4100,7 @@
               (34 . |coerce|) |ISUPS;coerce;Coef$;10| |ISUPS;coerce;I$;9|
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |ISUPS;Zero;$;14|) $))
-              (39 . |Zero|) (43 . |setelt|) (49 . |frst|) (54 . |coerce|)
+              (39 . |Zero|) (43 . |setelt!|) (49 . |frst|) (54 . |coerce|)
               |ISUPS;series;S$;12| (|NonNegativeInteger|)
               (59 . |characteristic|) |ISUPS;characteristic;Nni;13|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |ISUPS;One;$;15|) $))

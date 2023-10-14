@@ -838,7 +838,7 @@
               |PGE;mathieu23;LPg;12| |PGE;mathieu23;Pg;13|
               |PGE;mathieu24;LPg;14| |PGE;mathieu24;Pg;15| |PGE;janko2;LPg;16|
               |PGE;janko2;Pg;17| (|PositiveInteger|) (53 . >) (|List| 42)
-              |PGE;abelianGroup;LPg;18| (59 . |elt|) (65 . |setelt|)
+              |PGE;abelianGroup;LPg;18| (59 . |elt|) (65 . |setelt!|)
               |PGE;alternatingGroup;LPg;19| |PGE;alternatingGroup;PiPg;20|
               |PGE;symmetricGroup;LPg;21| |PGE;symmetricGroup;PiPg;22|
               |PGE;cyclicGroup;LPg;23| |PGE;cyclicGroup;PiPg;24|

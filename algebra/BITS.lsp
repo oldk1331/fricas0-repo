@@ -75,7 +75,7 @@
               (|Union| 7 '"failed") (|List| $) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 6 ~ 12 |xor| 17 |swap!| 23 |sorted?| 30 |sort!| 41 |sort| 52
-              |smaller?| 63 |size?| 69 |setelt| 75 |select| 89 |sample| 95
+              |smaller?| 63 |size?| 69 |setelt!| 75 |select| 89 |sample| 95
               |reverse!| 99 |reverse| 104 |removeDuplicates| 109 |remove| 114
               |reduce| 126 |qsetelt!| 147 |qelt| 154 |position| 160 |parts| 179
               |or| 184 |not| 190 |nor| 195 |new| 201 |nand| 207 |more?| 213

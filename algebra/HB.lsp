@@ -189,8 +189,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|Integer|) |HB;lfunc;3I;1|
               (|NonNegativeInteger|) (0 . *) (|Boolean|) (6 . <=)
-              |HB;inHallBasis?;4IB;2| (|List| 6) (|Vector| 13) (12 . |setelt|)
-              (|Vector| 6) (19 . |setelt|) (26 . >) (32 . |elt|) (38 . |elt|)
+              |HB;inHallBasis?;4IB;2| (|List| 6) (|Vector| 13) (12 . |setelt!|)
+              (|Vector| 6) (19 . |setelt!|) (26 . >) (32 . |elt|) (38 . |elt|)
               (44 . |elt|) |HB;basis;2NniV;3|)
            '#(|lfunc| 50 |inHallBasis?| 56 |basis| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

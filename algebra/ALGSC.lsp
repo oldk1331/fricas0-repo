@@ -2908,7 +2908,7 @@
               (85 . |One|) (89 . =) (|Symbol|) (|List| 55) (95 . |elt|)
               (101 . |coerce|) (106 . *) (112 . +) (|Mapping| 50 50 50)
               (|List| 50) (118 . |reduce|) |ALGSC;coerce;$Of;11| (124 . *)
-              (130 . |elt|) (136 . |elt|) (143 . +) (149 . |setelt|)
+              (130 . |elt|) (136 . |elt|) (143 . +) (149 . |setelt!|)
               |ALGSC;*;3$;12| (156 . -) (|Void|) (|String|)
               (162 . |messagePrint|) |ALGSC;alternative?;B;13|
               |ALGSC;associative?;B;14| |ALGSC;antiAssociative?;B;15|

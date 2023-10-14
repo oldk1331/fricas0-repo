@@ -160,12 +160,12 @@
                  (LETT |i| (+ |i| 1) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |a|)))) 
 
-(SDEFUN |A1AGG-;setelt;AUs2S;9|
+(SDEFUN |A1AGG-;setelt!;AUs2S;9|
         ((|a| A) (|s| |UniversalSegment| (|Integer|)) (|x| S) ($ S))
         (SPROG ((|k| NIL) (|h| (|Integer|)) (|l| (|Integer|)))
                (SEQ
                 (LETT |l| (SPADCALL |s| (QREFELT $ 31))
-                      . #1=(|A1AGG-;setelt;AUs2S;9|))
+                      . #1=(|A1AGG-;setelt!;AUs2S;9|))
                 (LETT |h|
                       (COND
                        ((SPADCALL |s| (QREFELT $ 32))
@@ -909,7 +909,7 @@
               (|Union| 7 '"failed") |A1AGG-;find;MAU;6| (|NonNegativeInteger|)
               |A1AGG-;count;MANni;7| (22 . |qsetelt!|) (|Mapping| 7 7)
               |A1AGG-;map!;M2A;8| (|UniversalSegment| 8) (29 . |lo|)
-              (34 . |hasHi|) (39 . |hi|) (44 . >) |A1AGG-;setelt;AUs2S;9|
+              (34 . |hasHi|) (39 . |hi|) (44 . >) |A1AGG-;setelt!;AUs2S;9|
               (50 . |empty?|) (|Mapping| 7 7 7) |A1AGG-;reduce;MAS;10|
               |A1AGG-;reduce;MA2S;11| (55 . ~=) (61 . |reduce|) (69 . |empty|)
               (73 . |new|) (79 . |first|) |A1AGG-;map;M3A;15| (84 . |#|)
@@ -923,7 +923,7 @@
               (120 . |coerce|) (125 . |commaSeparate|) (130 . |bracket|)
               (135 . |coerce|) (140 . ~=) (146 . =) (152 . =)
               (158 . |position|) (165 . <) (171 . <))
-           '#(|sorted?| 177 |sort!| 183 |setelt| 189 |reverse!| 196 |reduce|
+           '#(|sorted?| 177 |sort!| 183 |setelt!| 189 |reverse!| 196 |reduce|
               201 |position| 222 |parts| 235 |merge| 240 |map!| 247 |map| 253
               |insert| 260 |find| 267 |every?| 273 |elt| 279 |delete| 285
               |count| 297 |copyInto!| 303 |copy| 310 |construct| 315 |concat|

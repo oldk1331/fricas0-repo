@@ -386,7 +386,7 @@
               |MCALCFN;divergence;FLAFFLASF;4| |MCALCFN;laplacian;FFLASF;5|
               (49 . D) (|List| 11) (|Matrix| 7) (55 . |matrix|)
               |MCALCFN;hessian;FFLASM;6| |MCALCFN;jacobian;FLAFFLASM;9|
-              (60 . |One|) (|NonNegativeInteger|) (64 . D) (71 . |setelt|)
+              (60 . |One|) (|NonNegativeInteger|) (64 . D) (71 . |setelt!|)
               |MCALCFN;bandedHessian;FFLASNniM;8|
               |MCALCFN;bandedJacobian;FLAFFLAS2NniM;10|)
            '#(|laplacian| 79 |jacobian| 85 |hessian| 91 |gradient| 97

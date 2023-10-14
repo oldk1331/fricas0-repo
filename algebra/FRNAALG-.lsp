@@ -538,7 +538,7 @@
               (97 . |monomial|) (|Matrix| 7) (104 . |elt|) (110 . |elt|)
               (117 . *) (123 . +) (129 . |leftRankPolynomial|)
               (133 . |rightRankPolynomial|) (137 . ^) (|Vector| 7)
-              (143 . |setelt|) (150 . |setelt|) (|Union| 52 '"failed")
+              (143 . |setelt!|) (150 . |setelt!|) (|Union| 52 '"failed")
               (|Record| (|:| |particular| 55) (|:| |basis| 67))
               (|LinearSystemMatrixPackage| 7 52 52 44) (158 . |solve|) (|Void|)
               (|OutputForm|) (164 . |messagePrint|) (169 . |represents|)

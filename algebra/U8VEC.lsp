@@ -32,9 +32,9 @@
         ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
         (SETELT_U8 |x| |i| |s|)) 
 
-(PUT '|U8VEC;setelt;$3I;8| '|SPADreplace| 'SETELT_U8) 
+(PUT '|U8VEC;setelt!;$3I;8| '|SPADreplace| 'SETELT_U8) 
 
-(SDEFUN |U8VEC;setelt;$3I;8|
+(SDEFUN |U8VEC;setelt!;$3I;8|
         ((|x| $) (|i| |Integer|) (|s| . #1=(|Integer|)) ($ . #1#))
         (SETELT_U8 |x| |i| |s|)) 
 
@@ -142,14 +142,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|NonNegativeInteger|) |U8VEC;#;$Nni;1|
               (|Integer|) |U8VEC;minIndex;$I;2| |U8VEC;empty;$;3|
               |U8VEC;new;NniI$;4| |U8VEC;qelt;$2I;5| |U8VEC;elt;$2I;6|
-              |U8VEC;qsetelt!;$3I;7| |U8VEC;setelt;$3I;8| |U8VEC;fill!;$I$;9|
+              |U8VEC;qsetelt!;$3I;7| |U8VEC;setelt!;$3I;8| |U8VEC;fill!;$I$;9|
               (|List| 8) (|Equation| 8) (|List| 18) (|Mapping| 8 8 8)
               (|Boolean|) (|OutputForm|) (|InputForm|) (|HashState|)
               (|SingleInteger|) (|String|) (|Mapping| 21 8) (|Mapping| 21 8 8)
               (|UniversalSegment| 8) (|Void|) (|Mapping| 8 8) (|List| $)
               (|Union| 8 '"failed"))
            '#(~= 0 |swap!| 6 |sorted?| 13 |sort!| 24 |sort| 35 |smaller?| 46
-              |size?| 52 |setelt| 58 |select| 72 |sample| 78 |reverse!| 82
+              |size?| 52 |setelt!| 58 |select| 72 |sample| 78 |reverse!| 82
               |reverse| 87 |removeDuplicates| 92 |remove| 97 |reduce| 109
               |qsetelt!| 130 |qelt| 137 |position| 143 |parts| 162 |new| 167
               |more?| 173 |minIndex| 179 |min| 184 |merge| 190 |members| 203

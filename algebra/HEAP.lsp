@@ -203,15 +203,15 @@
            '#(NIL NIL NIL NIL NIL (|IndexedFlexibleArray| 6 (NRTEVAL 0))
               (|local| |#1|) '|Rep| (0 . |empty|) |HEAP;empty;$;1| (|List| 6)
               |HEAP;construct;L$;9| |HEAP;heap;L$;2| (|Integer|) (4 . |elt|)
-              (|PositiveInteger|) (10 . *) (|Boolean|) (16 . <) (22 . |setelt|)
-              (|NonNegativeInteger|) (29 . |#|) (34 . |delete!|)
-              |HEAP;extract!;$S;4| (40 . |concat|) (46 . |concat!|) (52 . >)
-              (58 . >=) |HEAP;insert!;S2$;5| |HEAP;max;$S;6|
-              |HEAP;inspect;$S;7| (64 . |construct|) (69 . |concat|)
-              |HEAP;merge;3$;10| |HEAP;merge!;3$;11| (|Mapping| 6 6 6)
-              (|List| 37) (|Equation| 6) (|Mapping| 17 6) (|Mapping| 6 6)
-              (|OutputForm|) (|InputForm|) (|HashState|) (|SingleInteger|)
-              (|String|) (|Union| 6 '"failed"))
+              (|PositiveInteger|) (10 . *) (|Boolean|) (16 . <)
+              (22 . |setelt!|) (|NonNegativeInteger|) (29 . |#|)
+              (34 . |delete!|) |HEAP;extract!;$S;4| (40 . |concat|)
+              (46 . |concat!|) (52 . >) (58 . >=) |HEAP;insert!;S2$;5|
+              |HEAP;max;$S;6| |HEAP;inspect;$S;7| (64 . |construct|)
+              (69 . |concat|) |HEAP;merge;3$;10| |HEAP;merge!;3$;11|
+              (|Mapping| 6 6 6) (|List| 37) (|Equation| 6) (|Mapping| 17 6)
+              (|Mapping| 6 6) (|OutputForm|) (|InputForm|) (|HashState|)
+              (|SingleInteger|) (|String|) (|Union| 6 '"failed"))
            '#(~= 75 |size?| 81 |select| 87 |sample| 93 |removeDuplicates| 97
               |remove| 102 |reduce| 114 |parts| 135 |more?| 140 |merge!| 146
               |merge| 152 |members| 158 |member?| 163 |max| 169 |map!| 174

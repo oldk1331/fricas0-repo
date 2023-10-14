@@ -662,7 +662,7 @@
 ;          EQL(op, $hashOp1) => op := 'One
 ;          EQL(op, $hashOp0) => op := 'Zero
 ;          EQL(op, $hashOpApply) => op := 'elt
-;          EQL(op, $hashOpSet) => op := 'setelt
+;          EQL(op, $hashOpSet) => op := "setelt!"
 ;          EQL(op, $hashSeg) => op := 'SEGMENT
 ;      constant := nil
 ;      if hashCode? sig and self and EQL(sig, getDomainHash self) then
@@ -688,7 +688,7 @@
         (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
               ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
               ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
-              ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt|))
+              ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
               ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
       (SETQ |constant| NIL)
       (COND
@@ -820,7 +820,7 @@
 ;           op = 'Zero => op := $hashOp0
 ;           op = 'One => op := $hashOp1
 ;           op = 'elt => op := $hashOpApply
-;           op = 'setelt => op := $hashOpSet
+;           op = "setelt!" => op := $hashOpSet
 ;           op := hashString SYMBOL_-NAME op
 ;        val := first SPADCALL(rest domain, dollar, op, hashSig, box, false,
 ;                                lookupFun) => val
@@ -837,7 +837,7 @@
 ;      EQL(op, $hashOp1) => op := 'One
 ;      EQL(op, $hashOp0) => op := 'Zero
 ;      EQL(op, $hashOpApply) => op := 'elt
-;      EQL(op, $hashOpSet) => op := 'setelt
+;      EQL(op, $hashOpSet) => op := "setelt!"
 ;      EQL(op, $hashSeg) => op := 'SEGMENT
 ;   hashCode? sig and EQL(sig, hashPercent) =>
 ;       SPADCALL first SPADCALL(rest dollar, dollar, op, '($), box,
@@ -880,7 +880,7 @@
                 (COND ((EQ |op| '|Zero|) (SETQ |op| |$hashOp0|))
                       ((EQ |op| '|One|) (SETQ |op| |$hashOp1|))
                       ((EQ |op| '|elt|) (SETQ |op| |$hashOpApply|))
-                      ((EQ |op| '|setelt|) (SETQ |op| |$hashOpSet|))
+                      ((EQ |op| '|setelt!|) (SETQ |op| |$hashOpSet|))
                       (#1# (SETQ |op| (|hashString| (SYMBOL-NAME |op|)))))))
               (COND
                ((SETQ |val|
@@ -904,7 +904,7 @@
                 (COND ((EQL |op| |$hashOp1|) (SETQ |op| '|One|))
                       ((EQL |op| |$hashOp0|) (SETQ |op| '|Zero|))
                       ((EQL |op| |$hashOpApply|) (SETQ |op| '|elt|))
-                      ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt|))
+                      ((EQL |op| |$hashOpSet|) (SETQ |op| '|setelt!|))
                       ((EQL |op| |$hashSeg|) (SETQ |op| 'SEGMENT)))))
               (COND
                ((AND (|hashCode?| |sig|) (EQL |sig| |hashPercent|))

@@ -1624,7 +1624,7 @@
               (196 . |xCoord|) (201 . |yCoord|) (206 . |zCoord|)
               (211 . |color|) (|SubSpaceComponentProperty|) (216 . |closed?|)
               (221 . |solid?|) (226 . |#|) (231 . |elt|)
-              |VIEW3D;viewThetaDefault;F;14| (236 . |setelt|)
+              |VIEW3D;viewThetaDefault;F;14| (236 . |setelt!|)
               |VIEW3D;viewThetaDefault;2F;15| |VIEW3D;viewPhiDefault;F;16|
               |VIEW3D;viewPhiDefault;2F;17| |VIEW3D;viewZoomDefault;F;18|
               |VIEW3D;viewZoomDefault;2F;19| |VIEW3D;viewDeltaXDefault;F;20|

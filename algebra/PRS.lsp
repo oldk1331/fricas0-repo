@@ -3723,7 +3723,7 @@
               (112 . *) |PRS;Lazard;2RNniR;8| |PRS;Lazard2;polR2RNnipolR;9|
               (118 . -) (123 . |coefficient|)
               |PRS;next_sousResultant2;3polRRpolR;11| (|Integer|) (129 . |elt|)
-              (135 . -) (141 . +) (147 . |setelt|) (154 . -)
+              (135 . -) (141 . +) (147 . |setelt!|) (154 . -)
               (159 . |pseudoRemainder|) |PRS;resultant;2polRR;14| (165 . *)
               |PRS;resultantEuclidean;2polRR;16|
               |PRS;semiResultantEuclidean2;2polRR;18|
