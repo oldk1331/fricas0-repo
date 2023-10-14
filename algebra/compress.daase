@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4758 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4759 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -656,24 +656,24 @@
  |integerIfCan| |internalIntegrate| |infieldIntegrate| |limitedIntegrate|
  |extendedIntegrate| |varselect| |kmax| |ksec| |vark| |removeConstantTerm|
  |mkPrim| |intPatternMatch| |primintegrate| |expintegrate| |tanintegrate|
- |primextendedint| |expextendedint| |primlogint| |explogint| |primextintfrac|
- |primlogintfrac| |primintfldpoly| |expintfldpoly| |monomialIntegrate|
- |monomialIntPoly| |inverseLaplace| |iprint| |elem?| |notelem| |logpart|
- |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot| |approxNthRoot|
- |perfectSquare?| |perfectSqrt| |approxSqrt| |generateIrredPoly|
- |complexExpand| |complexIntegrate| |dimensionOfIrreducibleRepresentation|
- |irreducibleRepresentation| |checkRur| |cAcsch| |cAsech| |cAcoth| |cAtanh|
- |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth| |cTanh| |cCosh| |cSinh| |cAcsc|
- |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc| |cSec| |cCot| |cTan| |cCos|
- |cSin| |cLog| |cExp| |cRationalPower| |cPower| |seriesToOutputForm| |iCompose|
- |taylorQuoByVar| |iExquo| |getStream| |getRef| |makeSeries| GF2FG FG2F F2FG
- |explogs2trigs| |trigs2explogs| |do_liou| |swap!| |fill!| |minIndex|
- |maxIndex| |entry?| |indices| |index?| |dimS| |dimJ| |Pr| |Pm|
- |integrateIfCan| |derivativeOf?| |weight| |type| |allRepeated| |m2r| |r2m|
- |repeatedIndex| |multiIndex| |numerJP| |autoReduce| |reduceMod| |simpMod|
- |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer| |freeOf?| |orderDim|
- |formalDiff2| |formalDiff| |class| |const?| |jetVariables| |numDepVar|
- |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
+ |lambintegrate| |primextendedint| |expextendedint| |primlogint| |explogint|
+ |primextintfrac| |primlogintfrac| |primintfldpoly| |expintfldpoly|
+ |monomialIntegrate| |monomialIntPoly| |inverseLaplace| |iprint| |elem?|
+ |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot|
+ |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|
+ |generateIrredPoly| |complexExpand| |complexIntegrate|
+ |dimensionOfIrreducibleRepresentation| |irreducibleRepresentation| |checkRur|
+ |cAcsch| |cAsech| |cAcoth| |cAtanh| |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth|
+ |cTanh| |cCosh| |cSinh| |cAcsc| |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc|
+ |cSec| |cCot| |cTan| |cCos| |cSin| |cLog| |cExp| |cRationalPower| |cPower|
+ |seriesToOutputForm| |iCompose| |taylorQuoByVar| |iExquo| |getStream| |getRef|
+ |makeSeries| GF2FG FG2F F2FG |explogs2trigs| |trigs2explogs| |do_liou| |swap!|
+ |fill!| |minIndex| |maxIndex| |entry?| |indices| |index?| |dimS| |dimJ| |Pr|
+ |Pm| |integrateIfCan| |derivativeOf?| |weight| |type| |allRepeated| |m2r|
+ |r2m| |repeatedIndex| |multiIndex| |numerJP| |autoReduce| |reduceMod|
+ |simpMod| |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer| |freeOf?|
+ |orderDim| |formalDiff2| |formalDiff| |class| |const?| |jetVariables|
+ |numDepVar| |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
  |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol|
  |prolongSymbol| |prolongMV| |project| |contract| |differentials| |dP| |dU|
  |dX| |d| |eqRep?| |ground?| |eval1| |prolong| |lie| |directions| |diffP|
