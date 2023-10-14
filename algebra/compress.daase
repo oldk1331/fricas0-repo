@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4801 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4822 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -29,10 +29,12 @@
  |BalancedPAdicInteger| |BalancedPAdicRational| |BinaryRecursiveAggregate&|
  |BinaryRecursiveAggregate| |BrillhartTests| |BinarySearchTree| |BitAggregate&|
  |BitAggregate| |BinaryTreeCategory&| |BinaryTreeCategory| |BinaryTournament|
- |BinaryTree| |CancellationAbelianMonoid| |CachableSet| |CardinalNumber|
+ |BinaryTree| |CancellationAbelianMonoid| |CachableSet|
+ |CylindricalAlgebraicDecompositionPackage|
+ |CylindricalAlgebraicDecompositionUtilities| |CardinalNumber|
  |CartesianTensor| |CartesianTensorFunctions2| |CharacterClass|
  |CommonDenominator| |ComplexDoubleFloatMatrix| |ComplexDoubleFloatVector|
- |CombinatorialFunctionCategory| |Character| |CharacteristicNonZero|
+ |Cell| |CombinatorialFunctionCategory| |Character| |CharacteristicNonZero|
  |CharacteristicPolynomialPackage| |CharacteristicZero| |ChangeOfVariable|
  |ComplexIntegerSolveLinearPolynomialEquation| |CartanKuranishi| |Collection&|
  |Collection| |CliffordAlgebra| |ConstantLinearDependence|
@@ -344,8 +346,8 @@
  |RuleCalled| |Ruleset| |RationalUnivariateRepresentationPackage|
  |SimpleAlgebraicExtension| |SimpleAlgebraicExtensionAlgFactor|
  |SAERationalFunctionAlgFactor| |SingletonAsOrderedSet| |SArgand| |SBoundary|
- |SortedCache| |ScanningUtilities| |Scene| |SceneIFS| |SceneNamedPoints|
- |SConformal| |StructuralConstantsPackage| |SCartesian|
+ |SortedCache| |ScanningUtilities| |SimpleCell| |Scene| |SceneIFS|
+ |SceneNamedPoints| |SConformal| |StructuralConstantsPackage| |SCartesian|
  |SequentialDifferentialPolynomial| |SequentialDifferentialVariable| |Segment|
  |SegmentFunctions2| |SegmentBinding| |SegmentBindingFunctions2|
  |SegmentCategory| |SegmentExpansionCategory| |SparseEchelonMatrix| |Sequence|
@@ -454,10 +456,13 @@
  |constantOpIfCan| |integerBound| |setright!| |setleft!|
  |brillhartIrreducible?| |brillhartTrials| |noLinearFactor?| |insertRoot!|
  |binarySearchTree| |nor| |nand| |node| |binaryTournament| |binaryTree|
- |subtractIfCan| |setPosition| |generalizedContinuumHypothesisAssumed|
+ |subtractIfCan| |setPosition| |cylindricalDecomposition| |projectionSet|
+ |coefficientSet| |discriminantSet| |resultantSet| |principalSubResultantSet|
+ |specialise| |squareFreeBasis| |generalizedContinuumHypothesisAssumed|
  |generalizedContinuumHypothesisAssumed?| |countable?| |Aleph| |unravel|
  |ravel| |leviCivitaSymbol| |kroneckerDelta| |reindex| |alphanumeric|
- |alphabetic| |hexDigit| |digit| |charClass| |alphanumeric?| |lowerCase?|
+ |alphabetic| |hexDigit| |digit| |charClass| |simpleCells| |projection|
+ |variablesOf| |mainVariableOf| |makeCell| |alphanumeric?| |lowerCase?|
  |upperCase?| |alphabetic?| |hexDigit?| |digit?| |newline| |escape| |char|
  |ord| |mkIntegral| |radPoly| |rootPoly| |goodPoint| |chvar| |setOutMode|
  |setRedMode| |stirling| |alpha| |hilbert| |alphaHilbert| |arbFunctions|
@@ -915,7 +920,8 @@
  |ruleset| |rur| |create| |nullBoundary| |boxBoundary| |ellipseBoundary|
  |intersection| |sunion| |extendToPoint| |containsPoint?| |lineIntersect|
  |isNull?| |isEllipse?| |isBox?| |getMin| |getMax| |getCentre| |link|
- |clearCache| |linearSearch| |enterInCache| |parse_integer| |createSceneRoot|
+ |clearCache| |linearSearch| |enterInCache| |parse_integer| |variableOf|
+ |samplePoint| |hasDimension?| |allSimpleCells| |createSceneRoot|
  |createSceneGroup| |addSceneGroup| |createSceneLine| |addSceneLine|
  |createSceneLines| |addSceneLines| |createSceneShape| |addSceneShape|
  |createSceneDef| |addSceneDef| |createSceneUse| |addSceneUse|
