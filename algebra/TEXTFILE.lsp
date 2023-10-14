@@ -6,7 +6,7 @@
         (SPADCALL |f| (QREFELT $ 11))) 
 
 (SDEFUN |TEXTFILE;readLine!;$S;3| ((|f| $) ($ |String|))
-        (SPROG ((|s| (|String|)))
+        (SPROG ((|s| (|None|)))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))
@@ -21,7 +21,7 @@
 
 (SDEFUN |TEXTFILE;readLineIfCan!;$U;4|
         ((|f| $) ($ |Union| (|String|) "failed"))
-        (SPROG ((|s| (|String|)))
+        (SPROG ((|s| (|None|)))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 14))

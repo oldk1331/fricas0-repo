@@ -53,7 +53,7 @@
 (SDEFUN |FILE;iomode;$S;9| ((|f| $) ($ |String|)) (QVELT |f| 2)) 
 
 (SDEFUN |FILE;read!;$S;10| ((|f| $) ($ S))
-        (SPROG ((|x| NIL))
+        (SPROG ((|x| (|None|)))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 26))
@@ -65,7 +65,7 @@
                               (#1# |x|))))))))) 
 
 (SDEFUN |FILE;readIfCan!;$U;11| ((|f| $) ($ |Union| S "failed"))
-        (SPROG ((|x| (S)))
+        (SPROG ((|x| (|None|)))
                (SEQ
                 (COND
                  ((SPADCALL (QVELT |f| 2) "input" (QREFELT $ 26))
