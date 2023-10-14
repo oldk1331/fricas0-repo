@@ -7626,7 +7626,7 @@
 827499`\axiom{tableau(symb,{} chi)} computes the tableau parametrized by a given one-form.
 827629`\axiom{tableau(symb,{} lchi)} computes the extended tableau parametrized by a given list of one-forms.
 827765`\spad{tableForDiscreteLogarithm(a,{} n)} returns a table of the discrete logarithms of \spad{a^0} up to \spad{a^(n-1)} which,{} called with key \spad{lookup(a^i)} returns \spad{i} for \spad{i} in \spad{0..n-1}. Error: if not called for prime divisors of order of \indented{7}{multiplicative group.}
-827879`\spad{tablePow(maxdeg,{} prime,{} lpol)} constructs the table with the coefficients of the Extended Euclidean Algorithm for lpol. Here the right side is \spad{x^k},{} for \spad{k} less or equal to \spad{maxdeg}. The operation returns "failed" when the elements are not coprime modulo \spad{prime}.
+827879`\spad{tablePow(maxdeg,{} prime,{} lpol)} constructs the table with the coefficients of the Extended Euclidean Algorithm for lpol. Here the right side is \spad{x^k},{} for \spad{k} less to \spad{maxdeg}. The operation returns "failed" when the elements are not coprime modulo \spad{prime}.
 828144`\spad{tail(l)} returns the doubly-linked aggregate \spad{l} starting at its second element. Error: if \spad{l} is empty.
 828198`\axiom{tail(\spad{p})} returns its reductum,{} where \axiom{\spad{p}} is viewed as a univariate polynomial in its main variable.
 828262`\spad{tail(u)} returns the last node of \spad{u}. Note: if \spad{u} is \axiom{shallowlyMutable},{} \axiom{setrest(tail(\spad{u}),{} \spad{v}) = concat(\spad{u},{} \spad{v})}.
