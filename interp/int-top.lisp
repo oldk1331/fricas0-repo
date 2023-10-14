@@ -170,7 +170,7 @@
 ;     interactive? =>
 ;         if printFirstPrompt?() then
 ;             princPrompt()
-;         intloopReadConsole('"", step_num)
+;         intloopReadConsole([], step_num)
 ;         []
 ;     intloopInclude (source,0)
 ;     []
@@ -194,7 +194,7 @@
        (|interactive?|
         (PROGN
          (COND ((|printFirstPrompt?|) (|princPrompt|)))
-         (|intloopReadConsole| "" |step_num|)
+         (|intloopReadConsole| NIL |step_num|)
          NIL))
        ('T (PROGN (|intloopInclude| |source| 0) NIL)))))))
  
@@ -248,25 +248,25 @@
 ;     a:= serverReadLine(_*STANDARD_-INPUT_*)
 ;     ioHook("endOfReadLine")
 ;     not STRINGP a => leaveScratchpad()
-;     b = '"" and #a=0 =>
+;     b = [] and #a=0 =>
 ;              princPrompt()
-;              intloopReadConsole('"", n)
+;              intloopReadConsole([], n)
 ;     $DALYMODE and intloopPrefix?('"(",a) =>
 ;             intnplisp(a)
 ;             princPrompt()
-;             intloopReadConsole('"",n)
+;             intloopReadConsole([], n)
 ;     pfx := stripSpaces intloopPrefix?('")fi",a)
 ;     pfx and ((pfx = '")fi") or (pfx = '")fin")) => []
-;     b = '"" and (d := intloopPrefix?('")", a)) =>
+;     b = [] and (d := intloopPrefix?('")", a)) =>
 ;              setCurrentLine d
 ;              c := ncloopCommand(d,n)
 ;              princPrompt()
-;              intloopReadConsole('"", c)
-;     a:=CONCAT(b,a)
-;     ncloopEscaped a => intloopReadConsole(SUBSEQ(a, 0, (LENGTH a) - 1),n)
-;     c := intloopProcessString(a, n)
+;              intloopReadConsole([], c)
+;     b := CONS(a, b)
+;     ncloopEscaped a => intloopReadConsole(b, n)
+;     c := intloopProcessStrings(nreverse b, n)
 ;     princPrompt()
-;     intloopReadConsole('"", c)
+;     intloopReadConsole([], c)
  
 (DEFUN |intloopReadConsole| (|b| |n|)
   (PROG (|a| |pfx| |d| |c|)
@@ -276,36 +276,34 @@
       (SETQ |a| (|serverReadLine| *STANDARD-INPUT*))
       (|ioHook| '|endOfReadLine|)
       (COND ((NULL (STRINGP |a|)) (|leaveScratchpad|))
-            ((AND (EQUAL |b| "") (EQL (LENGTH |a|) 0))
-             (PROGN (|princPrompt|) (|intloopReadConsole| "" |n|)))
+            ((AND (NULL |b|) (EQL (LENGTH |a|) 0))
+             (PROGN (|princPrompt|) (|intloopReadConsole| NIL |n|)))
             ((AND $DALYMODE (|intloopPrefix?| "(" |a|))
              (PROGN
               (|intnplisp| |a|)
               (|princPrompt|)
-              (|intloopReadConsole| "" |n|)))
+              (|intloopReadConsole| NIL |n|)))
             (#1='T
              (PROGN
               (SETQ |pfx| (|stripSpaces| (|intloopPrefix?| ")fi" |a|)))
               (COND
                ((AND |pfx| (OR (EQUAL |pfx| ")fi") (EQUAL |pfx| ")fin"))) NIL)
-               ((AND (EQUAL |b| "") (SETQ |d| (|intloopPrefix?| ")" |a|)))
+               ((AND (NULL |b|) (SETQ |d| (|intloopPrefix?| ")" |a|)))
                 (PROGN
                  (|setCurrentLine| |d|)
                  (SETQ |c| (|ncloopCommand| |d| |n|))
                  (|princPrompt|)
-                 (|intloopReadConsole| "" |c|)))
+                 (|intloopReadConsole| NIL |c|)))
                (#1#
                 (PROGN
-                 (SETQ |a| (CONCAT |b| |a|))
-                 (COND
-                  ((|ncloopEscaped| |a|)
-                   (|intloopReadConsole| (SUBSEQ |a| 0 (- (LENGTH |a|) 1))
-                    |n|))
-                  (#1#
-                   (PROGN
-                    (SETQ |c| (|intloopProcessString| |a| |n|))
-                    (|princPrompt|)
-                    (|intloopReadConsole| "" |c|))))))))))))))
+                 (SETQ |b| (CONS |a| |b|))
+                 (COND ((|ncloopEscaped| |a|) (|intloopReadConsole| |b| |n|))
+                       (#1#
+                        (PROGN
+                         (SETQ |c|
+                                 (|intloopProcessStrings| (NREVERSE |b|) |n|))
+                         (|princPrompt|)
+                         (|intloopReadConsole| NIL |c|))))))))))))))
  
 ; intloopPrefix?(prefix,whole) ==
 ;      #prefix > #whole => false
@@ -453,19 +451,50 @@
       (SETQ |a| (|ncloopIncFileName| |name|))
       (COND (|a| (|intloopInclude| |a| |n|)) ('T |n|))))))
  
-; intloopProcessString(s,n) ==
-;      setCurrentLine s
-;      intloopProcess(n,true,
-;          next(function ncloopParse,
-;            next(function lineoftoks,incString s)))
+; fakepile(s) ==
+;     if npNull s then [false, 0, [], s]
+;     else
+;         [h, t] := [car s, cdr s]
+;         ss := cdr(h)
+;         ress := car h
+;         while not npNull t repeat
+;             h := car (car t)
+;             t := cdr t
+;             ress := dqAppend(ress, h)
+;         cons([[ress, :ss]], t)
  
-(DEFUN |intloopProcessString| (|s| |n|)
+(DEFUN |fakepile| (|s|)
+  (PROG (|LETTMP#1| |h| |t| |ss| |ress|)
+    (RETURN
+     (COND ((|npNull| |s|) (LIST NIL 0 NIL |s|))
+           (#1='T (SETQ |LETTMP#1| (LIST (CAR |s|) (CDR |s|)))
+            (SETQ |h| (CAR |LETTMP#1|)) (SETQ |t| (CADR |LETTMP#1|))
+            (SETQ |ss| (CDR |h|)) (SETQ |ress| (CAR |h|))
+            ((LAMBDA ()
+               (LOOP
+                (COND ((|npNull| |t|) (RETURN NIL))
+                      (#1#
+                       (PROGN
+                        (SETQ |h| (CAR (CAR |t|)))
+                        (SETQ |t| (CDR |t|))
+                        (SETQ |ress| (|dqAppend| |ress| |h|))))))))
+            (CONS (LIST (CONS |ress| |ss|)) |t|))))))
+ 
+; intloopProcessStrings(s, n) ==
+;      setCurrentLine s
+;      intloopProcess(n, true,
+;          next(function ncloopParse,
+;              next(function fakepile,
+;                  next(function lineoftoks, incStrings s))))
+ 
+(DEFUN |intloopProcessStrings| (|s| |n|)
   (PROG ()
     (RETURN
      (PROGN
       (|setCurrentLine| |s|)
       (|intloopProcess| |n| T
-       (|next| #'|ncloopParse| (|next| #'|lineoftoks| (|incString| |s|))))))))
+       (|next| #'|ncloopParse|
+        (|next| #'|fakepile| (|next| #'|lineoftoks| (|incStrings| |s|)))))))))
  
 ; $pfMacros := []
  
@@ -841,6 +870,12 @@
   (PROG ()
     (RETURN
      (|incRenumber| (|incLude| 0 (LIST |s|) 0 (LIST "strings") (LIST |Top|))))))
+ 
+; incStrings(s) == incRenumber incLude(0, s, 0, ['"strings"], [Top])
+ 
+(DEFUN |incStrings| (|s|)
+  (PROG ()
+    (RETURN (|incRenumber| (|incLude| 0 |s| 0 (LIST "strings") (LIST |Top|))))))
  
 ; ncError() ==
 ;     THROW("SpadCompileItem",'ncError)

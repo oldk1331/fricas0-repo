@@ -787,6 +787,13 @@
        (COND ((|nextline| |$r|) (SETQ |$n| 0) NIL) (#1='T NIL)))
       (#1# T)))))
  
+; checkEsc()==
+;     if STR_ELT($ln, $sz - 1) = ESCAPE then scanEsc()
+ 
+(DEFUN |checkEsc| ()
+  (PROG ()
+    (RETURN (COND ((EQUAL (STR_ELT |$ln| (- |$sz| 1)) ESCAPE) (|scanEsc|))))))
+ 
 ; startsComment?()==
 ;     if $n<$sz
 ;     then
@@ -836,15 +843,19 @@
 ; scanNegComment()==
 ;       n:=$n
 ;       $n:=$sz
-;       lfnegcomment SUBSTRING($ln,n,nil)
+;       res := lfnegcomment SUBSTRING($ln,n,nil)
+;       checkEsc()
+;       res
  
 (DEFUN |scanNegComment| ()
-  (PROG (|n|)
+  (PROG (|res| |n|)
     (RETURN
      (PROGN
       (SETQ |n| |$n|)
       (SETQ |$n| |$sz|)
-      (|lfnegcomment| (SUBSTRING |$ln| |n| NIL))))))
+      (SETQ |res| (|lfnegcomment| (SUBSTRING |$ln| |n| NIL)))
+      (|checkEsc|)
+      |res|))))
  
 ; scanComment()==
 ;       n:=$n
@@ -855,10 +866,12 @@
 ;               finish_comment()
 ;           $comment_indent := n
 ;           PUSH(CONCAT(make_full_CVEC(n, '" "), c_str), $current_comment_block)
-;       lfcomment(n, $linepos, c_str)
+;       res := lfcomment(n, $linepos, c_str)
+;       checkEsc()
+;       res
  
 (DEFUN |scanComment| ()
-  (PROG (|c_str| |n|)
+  (PROG (|res| |c_str| |n|)
     (RETURN
      (PROGN
       (SETQ |n| |$n|)
@@ -870,7 +883,9 @@
         (SETQ |$comment_indent| |n|)
         (PUSH (CONCAT (|make_full_CVEC| |n| " ") |c_str|)
               |$current_comment_block|)))
-      (|lfcomment| |n| |$linepos| |c_str|)))))
+      (SETQ |res| (|lfcomment| |n| |$linepos| |c_str|))
+      (|checkEsc|)
+      |res|))))
  
 ; scanPunct()==
 ;             sss:=subMatch($ln,$n)
