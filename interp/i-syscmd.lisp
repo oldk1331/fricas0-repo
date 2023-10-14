@@ -3696,7 +3696,7 @@
 ;         if not done then n := 0
 ;       lineList := [vec,:lineList]
 ;   file := histInputFileName(fn)
-;   histFileErase file
+;   DELETE_-FILE(file)
 ;   inp:= MAKE_-OUTSTREAM(file)
 ;   for x in removeUndoLines NREVERSE lineList repeat WRITE_-LINE(x,inp)
 ;   -- see file "undo" for definition of removeUndoLines
@@ -3781,7 +3781,7 @@
                  (SETQ |i| (+ |i| 1))))
               (- |$IOindex| 1) |initial|)
              (SETQ |file| (|histInputFileName| |fn|))
-             (|histFileErase| |file|)
+             (DELETE-FILE |file|)
              (SETQ |inp| (MAKE-OUTSTREAM |file|))
              ((LAMBDA (|bfVar#80| |x|)
                 (LOOP

@@ -356,28 +356,11 @@
 (EVAL-WHEN (EVAL LOAD) (SETQ |isValidType;AL| (MAKE-HASHTABLE 'UEQUAL)))
  
 ; selectMms1(op,tar,args1,args2,$Coerce) ==
-;     -- for new compiler/old world compatibility, sometimes have to look
-;     -- for operations given two names.
-; 
-;     -- NEW COMPILER COMPATIBILITY ON
-; 
-;     op = "**" =>
-;         APPEND(selectMms2("**",tar,args1,args2,$Coerce),
-;                selectMms2("^",tar,args1,args2,$Coerce))
-; 
-;     -- NEW COMPILER COMPATIBILITY OFF
-; 
 ;     selectMms2(op,tar,args1,args2,$Coerce)
  
 (DEFUN |selectMms1;| (|op| |tar| |args1| |args2| |$Coerce|)
   (DECLARE (SPECIAL |$Coerce|))
-  (PROG ()
-    (RETURN
-     (COND
-      ((EQ |op| '**)
-       (APPEND (|selectMms2| '** |tar| |args1| |args2| |$Coerce|)
-               (|selectMms2| '^ |tar| |args1| |args2| |$Coerce|)))
-      ('T (|selectMms2| |op| |tar| |args1| |args2| |$Coerce|))))))
+  (PROG () (RETURN (|selectMms2| |op| |tar| |args1| |args2| |$Coerce|))))
 (DEFUN |selectMms1| (&REST |bfVar#22|)
   (PROG (|bfVar#23|)
     (RETURN

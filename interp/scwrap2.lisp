@@ -95,27 +95,6 @@
     (RETURN
      (|handle_input_file| |name| #'|fakeloopInclude0| (LIST |name| |n|)))))
  
-; fakeNc(name) ==
-;     $InteractiveMode : local := false
-;     TOKEN_-STACK_-CLEAR()
-;     $curent_line_number := 0
-;     a := ncloopIncFileName name
-;     res := fakeloopInclude(name, nil)
-;     -- PRETTYPRINT(res)
-;     nil
- 
-(DEFUN |fakeNc| (|name|)
-  (PROG (|$InteractiveMode| |res| |a|)
-    (DECLARE (SPECIAL |$InteractiveMode|))
-    (RETURN
-     (PROGN
-      (SETQ |$InteractiveMode| NIL)
-      (TOKEN-STACK-CLEAR)
-      (SETQ |$curent_line_number| 0)
-      (SETQ |a| (|ncloopIncFileName| |name|))
-      (SETQ |res| (|fakeloopInclude| |name| NIL))
-      NIL))))
- 
 ; DEFPARAMETER($COMBLOCKLIST, nil)
  
 (DEFPARAMETER $COMBLOCKLIST NIL)
