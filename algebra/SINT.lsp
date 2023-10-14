@@ -236,7 +236,7 @@
    (EXIT (|error| "integer too large to represent in a machine word")))) 
 
 (DEFUN |SINT;random;$;53| ($)
-  (SEQ (SETELT $ 6 (REMAINDER (TIMES 314159269 (QREFELT $ 6)) 2147483647))
+  (SEQ (SETELT $ 6 (REMAINDER (* 314159269 (QREFELT $ 6)) 2147483647))
        (EXIT (REMAINDER (QREFELT $ 6) 67108864)))) 
 
 (PUT '|SINT;random;2$;54| '|SPADreplace| 'RANDOM) 
