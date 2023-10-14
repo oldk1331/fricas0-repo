@@ -1152,7 +1152,9 @@
                               . #3#)
                         (COND
                          ((OR (EQUAL |nm| '|Ei|)
-                              (OR (EQUAL |nm| '|Ci|) (EQUAL |nm| '|Chi|)))
+                              (OR (EQUAL |nm| '|Ci|)
+                                  (OR (EQUAL |nm| '|Chi|)
+                                      (EQUAL |nm| '|dilog|))))
                           (EXIT
                            (COND
                             ((SPADCALL |coef| (|spadConstant| $ 22)
@@ -1162,9 +1164,9 @@
                               $))
                             (#4#
                              (|FS2UPS;do_prim| |ker| |coef| |opt_rec| $))))))
-                        (COND
-                         ((OR (EQUAL |nm| '|dilog|) (EQUAL |nm| '|li|))
-                          (EXIT
+                        (EXIT
+                         (COND
+                          ((EQUAL |nm| '|li|)
                            (COND
                             ((SPADCALL |coef| (|spadConstant| $ 22)
                                        (QREFELT $ 24))
@@ -1176,20 +1178,18 @@
                              (|FS2UPS;stateProblem|
                               (SPADCALL |nm| (QREFELT $ 131)) "expansion at 1"
                               $))
-                            (#4#
-                             (|FS2UPS;do_prim| |ker| |coef| |opt_rec| $))))))
-                        (COND
-                         ((OR (EQUAL |nm| '|Si|)
-                              (OR (EQUAL |nm| '|Shi|)
-                                  (OR (EQUAL |nm| '|erf|)
-                                      (OR (EQUAL |nm| '|fresnelS|)
-                                          (EQUAL |nm| '|fresnelC|)))))
-                          (EXIT (|FS2UPS;do_prim| |ker| |coef| |opt_rec| $))))
-                        (EXIT
-                         (|FS2UPS;stateProblem|
-                          (SPADCALL (SPADCALL |ker| (QREFELT $ 129))
-                                    (QREFELT $ 131))
-                          "unimplemented" $))))))))))))))))
+                            (#4# (|FS2UPS;do_prim| |ker| |coef| |opt_rec| $))))
+                          ((OR (EQUAL |nm| '|Si|)
+                               (OR (EQUAL |nm| '|Shi|)
+                                   (OR (EQUAL |nm| '|erf|)
+                                       (OR (EQUAL |nm| '|fresnelS|)
+                                           (EQUAL |nm| '|fresnelC|)))))
+                           (|FS2UPS;do_prim| |ker| |coef| |opt_rec| $))
+                          ('T
+                           (|FS2UPS;stateProblem|
+                            (SPADCALL (SPADCALL |ker| (QREFELT $ 129))
+                                      (QREFELT $ 131))
+                            "unimplemented" $))))))))))))))))))
       #1# (EXIT #1#))))) 
 
 (DEFUN |FS2UPS;kernelToUPS| (|ker| |opt_rec| $)
