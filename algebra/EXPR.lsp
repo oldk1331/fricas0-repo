@@ -168,7 +168,9 @@
 
 (DEFUN |EXPR;smaller?;2$B;22| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 94))) 
 
-(DEFUN |EXPR;=;2$B;23| (|x| |y| $) (SPADCALL |x| |y| (QREFELT $ 51))) 
+(DEFUN |EXPR;=;2$B;23| (|x| |y| $)
+  (SPADCALL (SPADCALL |x| |y| (QREFELT $ 67)) (|spadConstant| $ 46)
+            (QREFELT $ 51))) 
 
 (DEFUN |EXPR;numer;$Smp;24| (|x| $) (SPADCALL |x| (QREFELT $ 97))) 
 
