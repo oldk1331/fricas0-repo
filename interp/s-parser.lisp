@@ -691,19 +691,17 @@
  
 ; parse_SemiColon() ==
 ;     not(match_symbol ";") => nil
-;     OR(parse_Expr 82,
-;        push_reduction("parse_SemiColon", "/throwAway"))
-;     push_form2(";", pop_stack_2(), pop_stack_1())
+;     parse_Expr 82 =>
+;         push_form2(";", pop_stack_2(), pop_stack_1())
+;     true
  
 (DEFUN |parse_SemiColon| ()
   (PROG ()
     (RETURN
      (COND ((NULL (|match_symbol| '|;|)) NIL)
-           ('T
-            (PROGN
-             (OR (|parse_Expr| 82)
-                 (|push_reduction| '|parse_SemiColon| '|/throwAway|))
-             (|push_form2| '|;| (|pop_stack_2|) (|pop_stack_1|))))))))
+           ((|parse_Expr| 82)
+            (|push_form2| '|;| (|pop_stack_2|) (|pop_stack_1|)))
+           ('T T)))))
  
 ; parse_Return() ==
 ;     not(match_symbol "return") => nil
