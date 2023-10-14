@@ -907,10 +907,6 @@
       (|sockGetInt| |$SessionManager|)))))
  
 ; close args ==
-;   $saturn =>
-;     sayErrorly('"Obsolete system command", _
-;       ['" The )close  system command is obsolete in this version of AXIOM.",
-;        '" Please use Close from the File menu instead."])
 ;   quiet:local:= false
 ;   null $SpadServer =>
 ;     throwKeyedMsg('"S2IZ0071", [])
@@ -936,55 +932,48 @@
   (PROG (|quiet| |x| |fullopt| |opt| |numClients|)
     (DECLARE (SPECIAL |quiet|))
     (RETURN
-     (COND
-      (|$saturn|
-       (|sayErrorly| "Obsolete system command"
-        (LIST
-         " The )close  system command is obsolete in this version of AXIOM."
-         " Please use Close from the File menu instead.")))
-      (#1='T
-       (PROGN
-        (SETQ |quiet| NIL)
-        (COND ((NULL |$SpadServer|) (|throwKeyedMsg| "S2IZ0071" NIL))
-              (#1#
-               (PROGN
-                (SETQ |numClients| (|queryClients|))
-                (COND
-                 ((< 1 |numClients|)
-                  (PROGN
-                   (|sockSendInt| |$SessionManager| |$CloseClient|)
-                   (|sockSendInt| |$SessionManager| |$currentFrameNum|)
-                   (|closeInterpreterFrame| NIL)))
-                 (#1#
-                  (PROGN
-                   ((LAMBDA (|bfVar#24| |bfVar#23|)
-                      (LOOP
-                       (COND
-                        ((OR (ATOM |bfVar#24|)
-                             (PROGN (SETQ |bfVar#23| (CAR |bfVar#24|)) NIL))
-                         (RETURN NIL))
-                        (#1#
-                         (AND (CONSP |bfVar#23|)
-                              (PROGN (SETQ |opt| (CAR |bfVar#23|)) #1#)
-                              (PROGN
-                               (SETQ |fullopt|
-                                       (|selectOptionLC| |opt| '(|quiet|)
-                                        '|optionError|))
-                               (COND
-                                ((EQ |fullopt| '|quiet|) (SETQ |quiet| T)))))))
-                       (SETQ |bfVar#24| (CDR |bfVar#24|))))
-                    |$options| NIL)
-                   (COND
-                    (|quiet|
-                     (PROGN
-                      (|sockSendInt| |$SessionManager| |$CloseClient|)
-                      (|sockSendInt| |$SessionManager| |$currentFrameNum|)
-                      (|closeInterpreterFrame| NIL)))
-                    (#1#
-                     (PROGN
-                      (SETQ |x| (UPCASE (|queryUserKeyedMsg| "S2IZ0072" NIL)))
-                      (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
-                            (#1# NIL)))))))))))))))))
+     (PROGN
+      (SETQ |quiet| NIL)
+      (COND ((NULL |$SpadServer|) (|throwKeyedMsg| "S2IZ0071" NIL))
+            (#1='T
+             (PROGN
+              (SETQ |numClients| (|queryClients|))
+              (COND
+               ((< 1 |numClients|)
+                (PROGN
+                 (|sockSendInt| |$SessionManager| |$CloseClient|)
+                 (|sockSendInt| |$SessionManager| |$currentFrameNum|)
+                 (|closeInterpreterFrame| NIL)))
+               (#1#
+                (PROGN
+                 ((LAMBDA (|bfVar#24| |bfVar#23|)
+                    (LOOP
+                     (COND
+                      ((OR (ATOM |bfVar#24|)
+                           (PROGN (SETQ |bfVar#23| (CAR |bfVar#24|)) NIL))
+                       (RETURN NIL))
+                      (#1#
+                       (AND (CONSP |bfVar#23|)
+                            (PROGN (SETQ |opt| (CAR |bfVar#23|)) #1#)
+                            (PROGN
+                             (SETQ |fullopt|
+                                     (|selectOptionLC| |opt| '(|quiet|)
+                                      '|optionError|))
+                             (COND
+                              ((EQ |fullopt| '|quiet|) (SETQ |quiet| T)))))))
+                     (SETQ |bfVar#24| (CDR |bfVar#24|))))
+                  |$options| NIL)
+                 (COND
+                  (|quiet|
+                   (PROGN
+                    (|sockSendInt| |$SessionManager| |$CloseClient|)
+                    (|sockSendInt| |$SessionManager| |$currentFrameNum|)
+                    (|closeInterpreterFrame| NIL)))
+                  (#1#
+                   (PROGN
+                    (SETQ |x| (UPCASE (|queryUserKeyedMsg| "S2IZ0072" NIL)))
+                    (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
+                          (#1# NIL)))))))))))))))
  
 ; constructor args ==
 ;   sayMessage '"   Not implemented yet."
@@ -5380,34 +5369,19 @@
 (DEFUN |pquit| () (PROG () (RETURN (|pquitSpad2Cmd|))))
  
 ; pquitSpad2Cmd() ==
-;   $saturn =>
-;     sayErrorly('"Obsolete system command", _
-;       ['" The )pquit system command is obsolete in this version of AXIOM.",
-;        '" Please select Exit from the File Menu instead."])
 ;   $quitCommandType :local := 'protected
 ;   quitSpad2Cmd()
  
 (DEFUN |pquitSpad2Cmd| ()
   (PROG (|$quitCommandType|)
     (DECLARE (SPECIAL |$quitCommandType|))
-    (RETURN
-     (COND
-      (|$saturn|
-       (|sayErrorly| "Obsolete system command"
-        (LIST
-         " The )pquit system command is obsolete in this version of AXIOM."
-         " Please select Exit from the File Menu instead.")))
-      ('T (PROGN (SETQ |$quitCommandType| '|protected|) (|quitSpad2Cmd|)))))))
+    (RETURN (PROGN (SETQ |$quitCommandType| '|protected|) (|quitSpad2Cmd|)))))
  
 ; quit() == quitSpad2Cmd()
  
 (DEFUN |quit| () (PROG () (RETURN (|quitSpad2Cmd|))))
  
 ; quitSpad2Cmd() ==
-;   $saturn =>
-;     sayErrorly('"Obsolete system command", _
-;       ['" The )quit system command is obsolete in this version of AXIOM.",
-;        '" Please select Exit from the File Menu instead."])
 ;   $quitCommandType ~= 'protected => leaveScratchpad()
 ;   x := UPCASE queryUserKeyedMsg("S2IZ0031",NIL)
 ;   MEMQ(STRING2ID_-N(x,1),'(Y YES)) => leaveScratchpad()
@@ -5417,20 +5391,15 @@
 (DEFUN |quitSpad2Cmd| ()
   (PROG (|x|)
     (RETURN
-     (COND
-      (|$saturn|
-       (|sayErrorly| "Obsolete system command"
-        (LIST " The )quit system command is obsolete in this version of AXIOM."
-              " Please select Exit from the File Menu instead.")))
-      ((NOT (EQ |$quitCommandType| '|protected|)) (|leaveScratchpad|))
-      (#1='T
-       (PROGN
-        (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0031 NIL)))
-        (COND ((MEMQ (STRING2ID-N |x| 1) '(Y YES)) (|leaveScratchpad|))
-              (#1#
-               (PROGN
-                (|sayKeyedMsg| 'S2IZ0032 NIL)
-                (|terminateSystemCommand|))))))))))
+     (COND ((NOT (EQ |$quitCommandType| '|protected|)) (|leaveScratchpad|))
+           (#1='T
+            (PROGN
+             (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0031 NIL)))
+             (COND ((MEMQ (STRING2ID-N |x| 1) '(Y YES)) (|leaveScratchpad|))
+                   (#1#
+                    (PROGN
+                     (|sayKeyedMsg| 'S2IZ0032 NIL)
+                     (|terminateSystemCommand|))))))))))
  
 ; leaveScratchpad () == QUIT()
  
@@ -5441,10 +5410,6 @@
 (DEFUN |read| (|l|) (PROG () (RETURN (|readSpad2Cmd| |l|))))
  
 ; readSpad2Cmd l ==
-;   ---$saturn =>
-;   ---  sayErrorly('"Obsolete system command", _
-;   ---    ['" The )read  system command is obsolete in this version of AXIOM.",
-;   ---     '" Please use Open from the File menu instead."])
 ;   $InteractiveMode : local := true
 ;   quiet := nil
 ;   ifthere := nil
