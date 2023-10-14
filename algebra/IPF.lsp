@@ -302,9 +302,9 @@
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |VectorSpace&|
-                |Algebra&| |Algebra&| |Module&| |DifferentialRing&| NIL
-                |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
+                |Algebra&| |Module&| |DifferentialRing&| NIL |Module&|
+                |EntireRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
                 |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)

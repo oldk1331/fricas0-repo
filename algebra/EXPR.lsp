@@ -2329,12 +2329,12 @@
              '#(|AlgebraicallyClosedFunctionSpace&| |FunctionSpace&|
                 |AlgebraicallyClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
-                |IntegralDomain&| |Algebra&| |Algebra&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Module&| NIL |Module&|
-                |Module&| NIL NIL NIL NIL NIL |PartialDifferentialRing&| NIL
-                NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&|
-                |Group&| NIL NIL |ExpressionSpace&| NIL NIL |Monoid&|
-                |AbelianMonoid&| NIL NIL NIL NIL |SemiGroup&|
+                NIL |Algebra&| |Algebra&| |Algebra&|
+                |FullyLinearlyExplicitRingOver&| |Module&| |EntireRing&|
+                |Module&| |Module&| NIL NIL NIL NIL NIL
+                |PartialDifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
+                NIL NIL NIL |AbelianGroup&| |Group&| NIL NIL |ExpressionSpace&|
+                NIL NIL |Monoid&| |AbelianMonoid&| NIL NIL NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| |FullyRetractableTo&| NIL
                 |Evalable&| |TranscendentalFunctionCategory&| NIL |BasicType&|
                 |RetractableTo&| NIL |RetractableTo&| |InnerEvalable&|

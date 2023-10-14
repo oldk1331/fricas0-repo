@@ -30,6 +30,7 @@
                       ('T
                        (LETT |PowerSeriesCategory;CAT|
                              (|Join| (|AbelianMonoidRing| '|t#1| '|t#2|)
+                                     (|VariablesCommuteWithCoefficients|)
                                      (|mkCategory|
                                       '(((|monomial| ($ $ |t#3| |t#2|)) T)
                                         ((|monomial|

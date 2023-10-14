@@ -117,14 +117,13 @@
                                   0 0 0 0 0 0 0 0))
             (CONS
              '#(|IntegerNumberSystem&| |EuclideanDomain&| NIL
-                |UniqueFactorizationDomain&| NIL NIL |GcdDomain&|
-                |IntegralDomain&| |Algebra&| NIL NIL |DifferentialRing&|
-                |OrderedRing&| NIL NIL |Module&| NIL NIL |Ring&| NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL NIL |OrderedSet&|
-                |AbelianMonoid&| |Monoid&| NIL NIL NIL NIL |SemiGroup&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL NIL NIL NIL NIL
-                NIL NIL |RetractableTo&| |PartialOrder&| NIL NIL NIL
-                |BasicType&| NIL)
+                |UniqueFactorizationDomain&| NIL NIL |GcdDomain&| NIL
+                |Algebra&| NIL NIL |DifferentialRing&| |OrderedRing&| NIL
+                |EntireRing&| |Module&| NIL NIL |Ring&| NIL NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
+                |Monoid&| NIL NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| NIL
+                |SetCategory&| NIL NIL NIL NIL NIL NIL NIL NIL |RetractableTo&|
+                |PartialOrder&| NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|IntegerNumberSystem|) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)

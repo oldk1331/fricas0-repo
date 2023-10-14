@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |PolynomialCategory;AL| 'NIL) 
 
-(DEFUN |PolynomialCategory| (&REST #1=#:G149)
-  (LET (#2=#:G150)
+(DEFUN |PolynomialCategory| (&REST #1=#:G146)
+  (LET (#2=#:G147)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |PolynomialCategory;AL|))
       (CDR #2#))
@@ -18,7 +18,7 @@
       #2#)))) 
 
 (DEFUN |PolynomialCategory;| (|t#1| |t#2| |t#3|)
-  (PROG (#1=#:G148)
+  (PROG (#1=#:G145)
     (RETURN
      (PROG1
          (LETT #1#
@@ -30,38 +30,22 @@
                       ('T
                        (LETT |PolynomialCategory;CAT|
                              (|Join| (|PartialDifferentialRing| '|t#3|)
-                                     (|FiniteAbelianMonoidRing| '|t#1| '|t#2|)
+                                     (|MaybeSkewPolynomialCategory| '|t#1|
+                                                                    '|t#2|
+                                                                    '|t#3|)
                                      (|Evalable| '$)
                                      (|InnerEvalable| '|t#3| '|t#1|)
                                      (|InnerEvalable| '|t#3| '$)
                                      (|RetractableTo| '|t#3|)
-                                     (|FullyLinearlyExplicitRingOver| '|t#1|)
+                                     (|VariablesCommuteWithCoefficients|)
                                      (|mkCategory|
-                                      '(((|degree|
-                                          ((|NonNegativeInteger|) $ |t#3|))
-                                         T)
-                                        ((|degree|
-                                          ((|List| (|NonNegativeInteger|)) $
-                                           (|List| |t#3|)))
-                                         T)
-                                        ((|coefficient|
-                                          ($ $ |t#3| (|NonNegativeInteger|)))
-                                         T)
-                                        ((|coefficient|
-                                          ($ $ (|List| |t#3|)
-                                           (|List| (|NonNegativeInteger|))))
-                                         T)
-                                        ((|monomials| ((|List| $) $)) T)
-                                        ((|univariate|
+                                      '(((|univariate|
                                           ((|SparseUnivariatePolynomial| $) $
                                            |t#3|))
                                          T)
                                         ((|univariate|
                                           ((|SparseUnivariatePolynomial| |t#1|)
                                            $))
-                                         T)
-                                        ((|mainVariable|
-                                          ((|Union| |t#3| "failed") $))
                                          T)
                                         ((|minimumDegree|
                                           ((|NonNegativeInteger|) $ |t#3|))
@@ -74,13 +58,6 @@
                                           ((|Record| (|:| |quotient| $)
                                                      (|:| |remainder| $))
                                            $ $ |t#3|))
-                                         T)
-                                        ((|monomial|
-                                          ($ $ |t#3| (|NonNegativeInteger|)))
-                                         T)
-                                        ((|monomial|
-                                          ($ $ (|List| |t#3|)
-                                           (|List| (|NonNegativeInteger|))))
                                          T)
                                         ((|multivariate|
                                           ($
@@ -105,20 +82,6 @@
                                             "failed")
                                            $))
                                          T)
-                                        ((|totalDegree|
-                                          ((|NonNegativeInteger|) $))
-                                         T)
-                                        ((|totalDegree|
-                                          ((|NonNegativeInteger|) $
-                                           (|List| |t#3|)))
-                                         T)
-                                        ((|totalDegreeSorted|
-                                          ((|NonNegativeInteger|) $
-                                           (|List| |t#3|)))
-                                         T)
-                                        ((|variables| ((|List| |t#3|) $)) T)
-                                        ((|primitiveMonomials| ((|List| $) $))
-                                         T)
                                         ((|resultant| ($ $ $ |t#3|))
                                          (|has| |t#1| (|CommutativeRing|)))
                                         ((|discriminant| ($ $ |t#3|))
@@ -133,9 +96,7 @@
                                          (|has| |t#1| (|GcdDomain|)))
                                         ((|squareFreePart| ($ $))
                                          (|has| |t#1| (|GcdDomain|))))
-                                      '(((|Comparable|)
-                                         (|has| |t#1| (|Comparable|)))
-                                        ((|ConvertibleTo| (|InputForm|))
+                                      '(((|ConvertibleTo| (|InputForm|))
                                          (AND
                                           (|has| |t#3|
                                                  (|ConvertibleTo|
@@ -179,16 +140,14 @@
                                                   (|Float|)))))
                                         ((|GcdDomain|)
                                          (|has| |t#1| (|GcdDomain|)))
-                                        ((|canonicalUnitNormal|)
-                                         (|has| |t#1| (|canonicalUnitNormal|)))
                                         ((|PolynomialFactorizationExplicit|)
                                          (|has| |t#1|
                                                 (|PolynomialFactorizationExplicit|))))
-                                      '((|Factored| $) (|List| $)
-                                        (|List| |t#3|) (|NonNegativeInteger|)
+                                      '((|Factored| $)
                                         (|SparseUnivariatePolynomial| $)
                                         (|SparseUnivariatePolynomial| |t#1|)
-                                        (|List| (|NonNegativeInteger|)))
+                                        (|List| (|NonNegativeInteger|))
+                                        (|List| |t#3|) (|NonNegativeInteger|))
                                       NIL))
                              . #2=(|PolynomialCategory|)))))
                . #2#)

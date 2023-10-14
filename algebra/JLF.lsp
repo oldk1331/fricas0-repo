@@ -1791,8 +1791,8 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0))
             (CONS
-             '#(|JetBundleFunctionCategory&| |GcdDomain&| |IntegralDomain&|
-                |Algebra&| |PartialDifferentialRing&| NIL |Module&| NIL NIL
+             '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL |Algebra&|
+                |PartialDifferentialRing&| |EntireRing&| |Module&| NIL NIL
                 |Ring&| NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&|
                 NIL |RetractableTo&| NIL NIL NIL |BasicType&| NIL)

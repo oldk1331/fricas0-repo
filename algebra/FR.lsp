@@ -1230,10 +1230,10 @@
                                   0 0 0 0 0 0 0 0 0 4 9 13 0 0 0 0 0 0 3 4 5 6
                                   7 8 9 10 11 13 13))
             (CONS
-             '#(|UniqueFactorizationDomain&| |GcdDomain&| |IntegralDomain&|
-                |Algebra&| |DifferentialExtension&| |Algebra&| NIL |Module&|
-                NIL |Module&| |PartialDifferentialRing&| |DifferentialRing&|
-                NIL NIL |Ring&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+             '#(|UniqueFactorizationDomain&| |GcdDomain&| NIL |Algebra&|
+                |DifferentialExtension&| |Algebra&| NIL |Module&| |EntireRing&|
+                |Module&| |PartialDifferentialRing&| |DifferentialRing&| NIL
+                NIL |Ring&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |FullyEvalableOver&|
                 |SemiGroup&| |AbelianSemiGroup&| |FullyRetractableTo&|
                 |SetCategory&| |Evalable&| |Evalable&| NIL |RetractableTo&| NIL

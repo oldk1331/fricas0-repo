@@ -625,6 +625,16 @@
       (|haddProp| |$ConstructorCache| '|CycleIndicators| NIL (CONS 1 $))
       (|stuffDomainSlots| $)
       (SETF |pv$| (QREFELT $ 3))
+      (COND
+       ((|HasCategory| (|SymmetricPolynomial| (|Fraction| (|Integer|)))
+                       '(|CommutativeRing|))
+        (PROGN
+         (QSETREFV $ 71
+                   (CONS (|dispatchFunction| |CYCLES;SFunction;LSp;22|) $))
+         NIL
+         (QSETREFV $ 75
+                   (CONS (|dispatchFunction| |CYCLES;skewSFunction;2LSp;24|)
+                         $)))))
       $)))) 
 
 (MAKEPROP '|CycleIndicators| '|infovec|
@@ -650,11 +660,11 @@
               |CYCLES;eval;SpF;16| (175 . +) |CYCLES;cap;2SpF;17|
               (181 . |coerce|) |CYCLES;wreath;3Sp;20| (|List| (|List| 12))
               (|Matrix| 12) (186 . |matrix|) (191 . |determinant|)
-              |CYCLES;SFunction;LSp;22| (196 . >) (202 . |concat|)
-              (208 . |elt|) |CYCLES;skewSFunction;2LSp;24|)
-           '#(|wreath| 214 |skewSFunction| 220 |powerSum| 226 |graphs| 231
-              |eval| 236 |elementary| 241 |dihedral| 246 |cyclic| 251 |cup| 256
-              |complete| 262 |cap| 267 |alternating| 273 |SFunction| 278)
+              (196 . |SFunction|) (201 . >) (207 . |concat|) (213 . |elt|)
+              (219 . |skewSFunction|))
+           '#(|wreath| 225 |skewSFunction| 231 |powerSum| 237 |graphs| 242
+              |eval| 247 |elementary| 252 |dihedral| 257 |cyclic| 262 |cup| 267
+              |complete| 273 |cap| 278 |alternating| 284 |SFunction| 289)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -676,9 +686,10 @@
                                                    1 12 9 0 57 2 12 0 6 0 58 1
                                                    12 0 0 59 0 9 0 61 2 9 0 0 0
                                                    63 1 7 22 0 65 1 68 0 67 69
-                                                   1 68 12 0 70 2 6 26 0 0 72 2
-                                                   22 0 0 6 73 2 22 6 0 6 74 2
-                                                   0 12 12 12 66 2 0 12 22 22
+                                                   1 68 12 0 70 1 0 12 22 71 2
+                                                   6 26 0 0 72 2 22 0 0 6 73 2
+                                                   22 6 0 6 74 2 0 12 22 22 75
+                                                   2 0 12 12 12 66 2 0 12 22 22
                                                    75 1 0 12 6 40 1 0 12 6 52 1
                                                    0 9 12 62 1 0 12 6 32 1 0 12
                                                    6 48 1 0 12 6 46 2 0 12 12

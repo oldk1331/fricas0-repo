@@ -1200,8 +1200,8 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 1))
             (CONS
-             '#(|JetBundleFunctionCategory&| |GcdDomain&| |IntegralDomain&|
-                |Algebra&| |PartialDifferentialRing&| |Module&| NIL |Module&|
+             '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL |Algebra&|
+                |PartialDifferentialRing&| |Module&| |EntireRing&| |Module&|
                 NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
                 |SetCategory&| |RetractableTo&| |RetractableTo&| NIL NIL NIL

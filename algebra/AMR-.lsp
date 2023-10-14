@@ -60,6 +60,8 @@
                                                          '(|CharacteristicZero|))
                                           (|HasCategory| |#2|
                                                          '(|CommutativeRing|))
+                                          (|HasCategory| |#1|
+                                                         '(|VariablesCommuteWithCoefficients|))
                                           (|HasCategory| |#2| '(|Field|))
                                           (|HasCategory| |#2| '(|Ring|))
                                           (|HasCategory| |#2| '(|SemiRing|))

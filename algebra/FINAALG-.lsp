@@ -1680,6 +1680,20 @@
       (QSETREFV $ 7 |#2|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
+       ((|HasCategory| (|SparseUnivariatePolynomial| |#2|)
+                       '(|CommutativeRing|))
+        (PROGN
+         (QSETREFV $ 26
+                   (CONS
+                    (|dispatchFunction|
+                     |FINAALG-;leftCharacteristicPolynomial;SSup;1|)
+                    $))
+         (QSETREFV $ 28
+                   (CONS
+                    (|dispatchFunction|
+                     |FINAALG-;rightCharacteristicPolynomial;SSup;2|)
+                    $)))))
+      (COND
        ((|testBitVector| |pv$| 1)
         (PROGN
          (QSETREFV $ 73
@@ -1711,60 +1725,59 @@
               (|NonNegativeInteger|) (|Matrix| 19) (14 . |zero|) (|Integer|)
               (20 . |elt|) (|SparseUnivariatePolynomial| 7) (27 . |monomial|)
               (33 . |One|) (37 . |One|) (41 . -) (47 . |setelt|)
-              (55 . |determinant|)
-              |FINAALG-;leftCharacteristicPolynomial;SSup;1|
-              (60 . |rightRegularRepresentation|)
-              |FINAALG-;rightCharacteristicPolynomial;SSup;2| (66 . |Zero|)
-              (70 . +) |FINAALG-;leftTrace;SR;3| |FINAALG-;rightTrace;SR;4|
-              (76 . |determinant|) |FINAALG-;leftNorm;SR;5|
-              |FINAALG-;rightNorm;SR;6| (|Vector| 6) (81 . |elt|) (87 . *)
-              (93 . +) (|Boolean|) (99 . |zero?|) (|Void|) (|String|)
-              (|OutputForm|) (104 . |messagePrint|)
-              |FINAALG-;antiAssociative?;B;7| (109 . *) (|Union| $ '"failed")
-              (115 . |recip|) (120 . |antiCommutator|)
-              |FINAALG-;jordanAdmissible?;B;8| (126 . |commutator|)
-              |FINAALG-;lieAdmissible?;B;9| (132 . |new|) (|Vector| 7)
-              (139 . |coordinates|) (|Vector| 12) (145 . |elt|) (151 . |elt|)
-              (157 . |setelt|) |FINAALG-;structuralConstants;VV;10|
-              (165 . |leftUnit|) (169 . |coerce|) (174 . |rank|)
-              (179 . |horizConcat|) (|List| 55) (185 . |nullSpace|) (190 . -)
-              (195 . *) (201 . *) (|Mapping| 6 6 6) (207 . |reduce|)
-              (213 . |leftRecip|) (218 . |rightUnit|) (222 . |rightRecip|)
-              (227 . |leftRecip|) (232 . |rightRecip|) (237 . ~=)
-              (243 . |recip|) (248 . |Zero|) (252 . +)
-              (258 . |leftMinimalPolynomial|) (263 . |rightMinimalPolynomial|)
-              (268 . ^) (274 . |associator|) (281 . |associatorDependence|)
-              |FINAALG-;jacobiIdentity?;B;17| (285 . |antiCommutative?|)
-              (289 . |jacobiIdentity?|) |FINAALG-;lieAlgebra?;B;18|
-              (293 . |commutative?|) |FINAALG-;jordanAlgebra?;B;19|
-              (297 . |flexible?|) (301 . |jordanAdmissible?|)
+              (55 . |determinant|) (60 . |leftCharacteristicPolynomial|)
+              (65 . |rightRegularRepresentation|)
+              (71 . |rightCharacteristicPolynomial|) (76 . |Zero|) (80 . +)
+              |FINAALG-;leftTrace;SR;3| |FINAALG-;rightTrace;SR;4|
+              (86 . |determinant|) |FINAALG-;leftNorm;SR;5|
+              |FINAALG-;rightNorm;SR;6| (|Vector| 6) (91 . |elt|) (97 . *)
+              (103 . +) (|Boolean|) (109 . |zero?|) (|Void|) (|String|)
+              (|OutputForm|) (114 . |messagePrint|)
+              |FINAALG-;antiAssociative?;B;7| (119 . *) (|Union| $ '"failed")
+              (125 . |recip|) (130 . |antiCommutator|)
+              |FINAALG-;jordanAdmissible?;B;8| (136 . |commutator|)
+              |FINAALG-;lieAdmissible?;B;9| (142 . |new|) (|Vector| 7)
+              (149 . |coordinates|) (|Vector| 12) (155 . |elt|) (161 . |elt|)
+              (167 . |setelt|) |FINAALG-;structuralConstants;VV;10|
+              (175 . |leftUnit|) (179 . |coerce|) (184 . |rank|)
+              (189 . |horizConcat|) (|List| 55) (195 . |nullSpace|) (200 . -)
+              (205 . *) (211 . *) (|Mapping| 6 6 6) (217 . |reduce|)
+              (223 . |leftRecip|) (228 . |rightUnit|) (232 . |rightRecip|)
+              (237 . |leftRecip|) (242 . |rightRecip|) (247 . ~=)
+              (253 . |recip|) (258 . |Zero|) (262 . +)
+              (268 . |leftMinimalPolynomial|) (273 . |rightMinimalPolynomial|)
+              (278 . ^) (284 . |associator|) (291 . |associatorDependence|)
+              |FINAALG-;jacobiIdentity?;B;17| (295 . |antiCommutative?|)
+              (299 . |jacobiIdentity?|) |FINAALG-;lieAlgebra?;B;18|
+              (303 . |commutative?|) |FINAALG-;jordanAlgebra?;B;19|
+              (307 . |flexible?|) (311 . |jordanAdmissible?|)
               |FINAALG-;noncommutativeJordanAlgebra?;B;20|
               |FINAALG-;antiCommutative?;B;21| |FINAALG-;commutative?;B;22|
               |FINAALG-;associative?;B;23| |FINAALG-;leftAlternative?;B;24|
               |FINAALG-;rightAlternative?;B;25| |FINAALG-;flexible?;B;26|
-              |FINAALG-;alternative?;B;27| (305 . |leftTraceMatrix|)
-              |FINAALG-;leftDiscriminant;VR;28| (310 . |rightTraceMatrix|)
-              |FINAALG-;rightDiscriminant;VR;29| (315 . |minIndex|)
-              (320 . |setRow!|) |FINAALG-;coordinates;2VM;30|
-              (327 . |minIndex|) |FINAALG-;represents;VVS;31|
-              (332 . |leftTrace|) (|List| 118) (337 . |matrix|)
-              |FINAALG-;leftTraceMatrix;VM;32| (342 . |rightTrace|)
-              |FINAALG-;rightTraceMatrix;VM;33| (|List| 7) (347 . |parts|)
-              (352 . |transpose|) |FINAALG-;leftRegularRepresentation;SVM;34|
+              |FINAALG-;alternative?;B;27| (315 . |leftTraceMatrix|)
+              |FINAALG-;leftDiscriminant;VR;28| (320 . |rightTraceMatrix|)
+              |FINAALG-;rightDiscriminant;VR;29| (325 . |minIndex|)
+              (330 . |setRow!|) |FINAALG-;coordinates;2VM;30|
+              (337 . |minIndex|) |FINAALG-;represents;VVS;31|
+              (342 . |leftTrace|) (|List| 118) (347 . |matrix|)
+              |FINAALG-;leftTraceMatrix;VM;32| (352 . |rightTrace|)
+              |FINAALG-;rightTraceMatrix;VM;33| (|List| 7) (357 . |parts|)
+              (362 . |transpose|) |FINAALG-;leftRegularRepresentation;SVM;34|
               |FINAALG-;rightRegularRepresentation;SVM;35|)
-           '#(|structuralConstants| 357 |rightTraceMatrix| 362 |rightTrace| 367
-              |rightRegularRepresentation| 372 |rightRecip| 378 |rightNorm| 383
-              |rightMinimalPolynomial| 388 |rightDiscriminant| 393
-              |rightCharacteristicPolynomial| 398 |rightAlternative?| 403
-              |represents| 407 |recip| 413 |noncommutativeJordanAlgebra?| 418
-              |lieAlgebra?| 422 |lieAdmissible?| 426 |leftTraceMatrix| 430
-              |leftTrace| 435 |leftRegularRepresentation| 440 |leftRecip| 446
-              |leftNorm| 451 |leftMinimalPolynomial| 456 |leftDiscriminant| 461
-              |leftCharacteristicPolynomial| 466 |leftAlternative?| 471
-              |jordanAlgebra?| 475 |jordanAdmissible?| 479 |jacobiIdentity?|
-              483 |flexible?| 487 |coordinates| 491 |commutative?| 497
-              |associatorDependence| 501 |associative?| 505 |antiCommutative?|
-              509 |antiAssociative?| 513 |alternative?| 517)
+           '#(|structuralConstants| 367 |rightTraceMatrix| 372 |rightTrace| 377
+              |rightRegularRepresentation| 382 |rightRecip| 388 |rightNorm| 393
+              |rightMinimalPolynomial| 398 |rightDiscriminant| 403
+              |rightCharacteristicPolynomial| 408 |rightAlternative?| 413
+              |represents| 417 |recip| 423 |noncommutativeJordanAlgebra?| 428
+              |lieAlgebra?| 432 |lieAdmissible?| 436 |leftTraceMatrix| 440
+              |leftTrace| 445 |leftRegularRepresentation| 450 |leftRecip| 456
+              |leftNorm| 461 |leftMinimalPolynomial| 466 |leftDiscriminant| 471
+              |leftCharacteristicPolynomial| 476 |leftAlternative?| 481
+              |jordanAlgebra?| 485 |jordanAdmissible?| 489 |jacobiIdentity?|
+              493 |flexible?| 497 |coordinates| 501 |commutative?| 507
+              |associatorDependence| 511 |associative?| 515 |antiCommutative?|
+              519 |antiAssociative?| 523 |alternative?| 527)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -1775,13 +1788,14 @@
                                                    0 17 17 18 2 19 0 7 14 20 0
                                                    7 0 21 0 19 0 22 2 19 0 0 0
                                                    23 4 15 19 0 17 17 19 24 1
-                                                   15 19 0 25 2 6 12 0 10 27 0
-                                                   7 0 29 2 7 0 0 0 30 1 12 7 0
-                                                   33 2 36 6 0 17 37 2 6 0 0 0
-                                                   38 2 6 0 0 0 39 1 6 40 0 41
-                                                   1 44 42 43 45 2 7 0 8 0 47 1
-                                                   7 48 0 49 2 6 0 0 0 50 2 6 0
-                                                   0 0 52 3 12 0 14 14 7 54 2 6
+                                                   15 19 0 25 1 0 19 0 26 2 6
+                                                   12 0 10 27 1 0 19 0 28 0 7 0
+                                                   29 2 7 0 0 0 30 1 12 7 0 33
+                                                   2 36 6 0 17 37 2 6 0 0 0 38
+                                                   2 6 0 0 0 39 1 6 40 0 41 1
+                                                   44 42 43 45 2 7 0 8 0 47 1 7
+                                                   48 0 49 2 6 0 0 0 50 2 6 0 0
+                                                   0 52 3 12 0 14 14 7 54 2 6
                                                    55 0 10 56 2 57 12 0 17 58 2
                                                    55 7 0 17 59 4 12 7 0 17 17
                                                    7 60 0 6 48 62 1 12 0 55 63

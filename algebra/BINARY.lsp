@@ -177,9 +177,9 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                |IntegralDomain&| |FullyLinearlyExplicitRingOver&|
-                |DifferentialExtension&| |Algebra&| |Algebra&| |Algebra&| NIL
-                |Module&| |Module&| NIL NIL |Module&| NIL NIL |OrderedRing&|
+                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                |Algebra&| |Algebra&| |Algebra&| NIL |Module&| |Module&|
+                |EntireRing&| NIL |Module&| NIL NIL |OrderedRing&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|

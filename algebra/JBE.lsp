@@ -1442,13 +1442,13 @@
              '#(|AlgebraicallyClosedFunctionSpace&| |AlgebraicallyClosedField&|
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
                 |JetBundleFunctionCategory&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |Algebra&| |FullyLinearlyExplicitRingOver&|
-                |PartialDifferentialRing&| |Module&| NIL NIL |Module&|
-                |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |Group&| NIL |ExpressionSpace&|
-                |AbelianMonoid&| |Monoid&| NIL NIL NIL |SemiGroup&|
-                |AbelianSemiGroup&| NIL NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |PartialDifferentialRing&| |Module&| |EntireRing&| NIL
+                |Module&| |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL
+                NIL NIL NIL NIL |AbelianGroup&| NIL NIL |Group&| NIL
+                |ExpressionSpace&| |AbelianMonoid&| |Monoid&| NIL NIL NIL
+                |SemiGroup&| |AbelianSemiGroup&| NIL NIL NIL
                 |TranscendentalFunctionCategory&| |FullyRetractableTo&| NIL
                 |Evalable&| |SetCategory&| NIL NIL NIL
                 |ElementaryFunctionCategory&| NIL |HyperbolicFunctionCategory&|

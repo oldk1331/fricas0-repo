@@ -1107,8 +1107,8 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(NIL |GcdDomain&| |IntegralDomain&| |Algebra&| NIL NIL |Module&|
-                NIL |Ring&| NIL NIL NIL |AbelianGroup&| NIL NIL |OrderedSet&|
+             '#(NIL |GcdDomain&| NIL |Algebra&| NIL |EntireRing&| |Module&| NIL
+                |Ring&| NIL NIL NIL |AbelianGroup&| NIL NIL |OrderedSet&|
                 |AbelianMonoid&| |Monoid&| NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |TranscendentalFunctionCategory&|
                 |SetCategory&| NIL |RetractableTo&| |RadicalCategory&|

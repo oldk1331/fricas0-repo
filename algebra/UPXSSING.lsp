@@ -605,6 +605,7 @@
       (QSETREFV $ 7 |#2|)
       (QSETREFV $ 8 |#3|)
       (QSETREFV $ 9 |#4|)
+      (AND (|HasCategory| $ '(|CommutativeRing|)) (|augmentPredVector| $ 1024))
       (SETF |pv$| (QREFELT $ 3))
       $)))) 
 
@@ -656,14 +657,13 @@
                                 '(0 0 0 0 1 4 0 0 0 1 2 3 4 0 0 0 1 0 0 0 0 0 1
                                   1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 6))
             (CONS
-             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&|
-                |IntegralDomain&| |Algebra&| |Algebra&| |Algebra&| NIL
-                |Module&| NIL |Module&| NIL NIL |Module&| NIL |Ring&| NIL NIL
-                NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL |Monoid&|
-                NIL |AbelianMonoid&| |SemiGroup&| |AbelianSemiGroup&|
-                |FullyRetractableTo&| |SetCategory&| NIL NIL NIL
-                |RetractableTo&| |BasicType&| NIL |RetractableTo&|
-                |RetractableTo&|)
+             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL |Algebra&|
+                |Algebra&| |Algebra&| |EntireRing&| |Module&| NIL |Module&| NIL
+                NIL |Module&| NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL |Monoid&| NIL |AbelianMonoid&|
+                |SemiGroup&| |AbelianSemiGroup&| |FullyRetractableTo&|
+                |SetCategory&| NIL NIL NIL |RetractableTo&| |BasicType&| NIL
+                |RetractableTo&| |RetractableTo&|)
              (CONS
               '#((|FiniteAbelianMonoidRing| (|UnivariatePuiseuxSeries| 7 8 9)
                                             (|ExponentialOfUnivariatePuiseuxSeries|
@@ -717,10 +717,10 @@
                                     1 1 0 55 0 56 1 0 13 0 14 1 10 17 0 1 1 8 0
                                     34 1 1 0 0 73 1 1 0 0 0 1 1 0 0 17 1 1 0 80
                                     0 1 1 0 76 0 1 2 0 17 0 13 1 1 2 24 0 1 0 0
-                                    10 1 3 4 0 0 0 10 1 2 0 15 0 0 1 2 0 0 0 10
-                                    1 2 0 0 0 78 1 0 0 0 1 0 0 0 1 2 0 15 0 0 1
-                                    2 7 0 0 17 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0
-                                    0 1 2 1 0 34 0 1 2 1 0 0 34 1 2 0 0 10 0 1
-                                    2 0 0 73 0 1 2 0 0 17 0 1 2 0 0 0 0 1 2 0 0
-                                    0 17 1 2 0 0 78 0 1)))))
+                                    10 1 3 11 0 0 0 10 1 2 0 15 0 0 1 2 0 0 0
+                                    10 1 2 0 0 0 78 1 0 0 0 1 0 0 0 1 2 0 15 0
+                                    0 1 2 7 0 0 17 1 1 0 0 0 1 2 0 0 0 0 1 2 0
+                                    0 0 0 1 2 1 0 34 0 1 2 1 0 0 34 1 2 0 0 10
+                                    0 1 2 0 0 73 0 1 2 0 0 17 0 1 2 0 0 0 0 1 2
+                                    0 0 0 17 1 2 0 0 78 0 1)))))
            '|lookupComplete|)) 

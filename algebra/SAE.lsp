@@ -591,10 +591,10 @@
              '#(|MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&| |EuclideanDomain&| NIL
                 |UniqueFactorizationDomain&| |FramedAlgebra&| |GcdDomain&|
-                |FiniteRankAlgebra&| |IntegralDomain&| |DivisionRing&|
-                |Algebra&| |FullyLinearlyExplicitRingOver&| |Algebra&|
-                |Algebra&| |DifferentialExtension&| NIL NIL |Module&| NIL
-                |Module&| NIL |Module&| NIL |DifferentialRing&|
+                |FiniteRankAlgebra&| NIL |DivisionRing&| |Algebra&|
+                |FullyLinearlyExplicitRingOver&| |Algebra&| |Algebra&|
+                |DifferentialExtension&| NIL NIL |Module&| NIL |Module&|
+                |EntireRing&| |Module&| NIL |DifferentialRing&|
                 |PartialDifferentialRing&| NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 NIL NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL

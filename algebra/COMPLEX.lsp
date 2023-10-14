@@ -416,15 +416,14 @@
                 |FieldOfPrimeCharacteristic&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |FramedAlgebra&| |GcdDomain&|
-                |FiniteRankAlgebra&| |DivisionRing&| |IntegralDomain&|
-                |Algebra&| |DifferentialExtension&|
-                |FullyLinearlyExplicitRingOver&| |Algebra&| |Algebra&| NIL NIL
-                |Module&| NIL |Module&| NIL NIL |Module&| NIL
-                |PartialDifferentialRing&| |DifferentialRing&| NIL |Ring&| NIL
-                NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                |AbelianMonoid&| |Monoid&| NIL |FullyEvalableOver&|
-                |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL NIL NIL NIL NIL
-                |FullyRetractableTo&| |SetCategory&|
+                |FiniteRankAlgebra&| |DivisionRing&| NIL |Algebra&|
+                |DifferentialExtension&| |FullyLinearlyExplicitRingOver&|
+                |Algebra&| |Algebra&| NIL NIL |Module&| NIL |Module&| NIL NIL
+                |Module&| |EntireRing&| |PartialDifferentialRing&|
+                |DifferentialRing&| NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL
+                NIL |AbelianGroup&| NIL NIL NIL |AbelianMonoid&| |Monoid&| NIL
+                |FullyEvalableOver&| |SemiGroup&| |AbelianSemiGroup&| |Finite&|
+                NIL NIL NIL NIL NIL |FullyRetractableTo&| |SetCategory&|
                 |TranscendentalFunctionCategory&| |Evalable&| NIL
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL
                 |RetractableTo&| |RetractableTo&| NIL |RadicalCategory&|

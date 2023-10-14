@@ -89,10 +89,9 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|NonNegativeInteger|)
               (|Record| (|:| |coef| 25) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $)
+              (|SparseUnivariatePolynomial| $) (|Union| $ '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
-              (|OutputForm|) (|SingleInteger|))
+              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
            '#(~= 40 |zero?| 46 |unitNormal| 51 |unitCanonical| 56 |unit?| 61
               |subtractIfCan| 66 |squareFreePart| 72 |squareFree| 77
               |sizeLess?| 82 |sample| 88 |rem| 92 |recip| 98 |quo| 103
@@ -110,8 +109,8 @@
                                   0 0 0 0 0 0 0 0 0 0 0 1 1 1 1))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |IntegralDomain&| |DivisionRing&| |Algebra&|
-                |Algebra&| |DifferentialRing&| |Module&| NIL NIL |Module&| NIL
+                |GcdDomain&| NIL |DivisionRing&| |Algebra&| |Algebra&|
+                |DifferentialRing&| |Module&| NIL |EntireRing&| |Module&| NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 |Monoid&| NIL |AbelianMonoid&| |SemiGroup&| |AbelianSemiGroup&|
                 |SetCategory&| NIL |BasicType&| NIL NIL NIL NIL NIL)
@@ -132,14 +131,14 @@
               (|makeByteWordVec2| 38
                                   '(2 9 0 0 6 12 2 5 0 0 0 14 2 0 0 0 0 15 2 5
                                     0 0 16 17 2 0 0 0 16 18 1 5 0 0 19 1 0 0 0
-                                    20 2 0 22 0 0 1 1 0 22 0 1 1 1 33 0 1 1 1 0
-                                    0 1 1 1 22 0 1 2 0 34 0 0 1 1 1 0 0 1 1 1
+                                    20 2 0 22 0 0 1 1 0 22 0 1 1 1 34 0 1 1 1 0
+                                    0 1 1 1 22 0 1 2 0 33 0 0 1 1 1 0 0 1 1 1
                                     23 0 1 2 1 22 0 0 1 0 0 0 1 2 1 0 0 0 1 1 0
-                                    34 0 1 2 1 0 0 0 1 1 1 31 25 1 1 1 22 0 1 1
+                                    33 0 1 2 1 0 0 0 1 1 1 31 25 1 1 1 22 0 1 1
                                     0 22 0 1 2 1 24 25 0 1 1 1 0 25 1 2 1 0 0 0
                                     1 1 0 36 0 1 1 1 0 0 20 1 0 38 0 1 2 1 32
                                     32 32 1 1 1 0 25 1 2 1 0 0 0 1 1 1 23 0 1 2
-                                    1 26 0 0 1 3 1 28 0 0 0 1 2 1 34 0 0 1 2 1
+                                    1 26 0 0 1 3 1 28 0 0 0 1 2 1 33 0 0 1 2 1
                                     24 25 0 1 1 1 30 0 1 2 1 29 0 0 1 1 0 0 0
                                     13 2 0 0 0 30 1 1 1 0 21 1 1 1 0 0 1 1 0 5
                                     0 11 1 0 0 5 10 1 0 0 16 1 1 0 37 0 1 0 0

@@ -77,6 +77,13 @@
       (QSETREFV $ 23
                 (SPADCALL (SPADCALL (|spadConstant| $ 20) 1 (QREFELT $ 13)) 0
                           (QREFELT $ 22)))
+      (COND
+       ((|HasCategory| |#2| '(|CommutativeRing|))
+        (QSETREFV $ 27
+                  (CONS
+                   (|dispatchFunction|
+                    |CPIMA;characteristicPolynomial;EPolR;2|)
+                   $))))
       $)))) 
 
 (MAKEPROP '|CharacteristicPolynomialInMonogenicalAlgebra| '|infovec|
@@ -88,8 +95,8 @@
               (|UnivariatePolynomialCategoryFunctions2| 6 7 7 14) (18 . |map|)
               (24 . |definingPolynomial|) 'P (28 . |One|) (32 . |One|)
               (36 . |monomial|) 'X (42 . |lift|) (47 . -) (53 . |resultant|)
-              |CPIMA;characteristicPolynomial;EPolR;2|)
-           '#(|characteristicPolynomial| 59) 'NIL
+              (59 . |characteristicPolynomial|))
+           '#(|characteristicPolynomial| 64) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
@@ -99,5 +106,5 @@
                                                    0 8 7 18 0 6 0 20 0 7 0 21 2
                                                    14 0 7 11 22 1 8 7 0 24 2 14
                                                    0 0 0 25 2 14 7 0 0 26 1 0 7
-                                                   8 27)))))
+                                                   8 27 1 0 7 8 27)))))
            '|lookupComplete|)) 

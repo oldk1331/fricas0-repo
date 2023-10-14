@@ -284,7 +284,7 @@
               (|Union| (|List| $) '#1#) (113 . |isTimes|) (118 . |inv|)
               (|List| 10) (123 . |concat!|) (|Union| 53 '"failed")
               |POLYCATQ;isTimes;FU;8| (129 . |isPlus|) |POLYCATQ;isPlus;FU;9|
-              (|Union| 7 '#1#) (134 . |mainVariable|) (139 . |max|)
+              (|Union| 7 '"failed") (134 . |mainVariable|) (139 . |max|)
               |POLYCATQ;mainVariable;FU;10| (|SparseUnivariatePolynomial| $)
               (145 . |univariate|) (|Mapping| 10 9)
               (|SparseUnivariatePolynomial| 9)

@@ -329,14 +329,14 @@
             (CONS
              '#(|AlgebraicallyClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
-                |IntegralDomain&| |Algebra&| |Algebra&| |DifferentialRing&| NIL
-                NIL NIL |Module&| NIL |Module&| NIL NIL NIL |Ring&| NIL NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |ExpressionSpace&| |Monoid&|
-                NIL |AbelianMonoid&| NIL |SemiGroup&| |AbelianSemiGroup&| NIL
-                |SetCategory&| |Evalable&| NIL NIL NIL NIL |RetractableTo&|
-                |RetractableTo&| |RadicalCategory&| NIL NIL NIL NIL NIL
-                |BasicType&| |InnerEvalable&| |InnerEvalable&| |RetractableTo&|
-                NIL)
+                NIL |Algebra&| |Algebra&| |DifferentialRing&| NIL NIL NIL
+                |Module&| |EntireRing&| |Module&| NIL NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL |AbelianGroup&| NIL NIL |ExpressionSpace&|
+                |Monoid&| NIL |AbelianMonoid&| NIL |SemiGroup&|
+                |AbelianSemiGroup&| NIL |SetCategory&| |Evalable&| NIL NIL NIL
+                NIL |RetractableTo&| |RetractableTo&| |RadicalCategory&| NIL
+                NIL NIL NIL NIL |BasicType&| |InnerEvalable&| |InnerEvalable&|
+                |RetractableTo&| NIL)
              (CONS
               '#((|AlgebraicallyClosedField|) (|Field|) (|EuclideanDomain|)
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)

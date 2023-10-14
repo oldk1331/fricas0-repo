@@ -680,8 +680,8 @@
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |Algebra&| |Module&| |Module&| NIL NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |Algebra&| |Module&| |Module&| |EntireRing&| NIL |Module&| NIL
                 NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
                 |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL NIL NIL

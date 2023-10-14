@@ -47,16 +47,22 @@
                                          (|has| |t#1| (|SemiRing|)))
                                         ((|Ring|) (|has| |t#1| (|Ring|)))
                                         ((|CommutativeRing|)
-                                         (|has| |t#1| (|CommutativeRing|)))
+                                         (AND (|has| |t#1| (|CommutativeRing|))
+                                              (|has| $
+                                                     (|VariablesCommuteWithCoefficients|))))
                                         ((|Algebra| |t#1|)
-                                         (|has| |t#1| (|CommutativeRing|)))
+                                         (AND (|has| |t#1| (|CommutativeRing|))
+                                              (|has| $
+                                                     (|VariablesCommuteWithCoefficients|))))
                                         ((|CharacteristicZero|)
                                          (|has| |t#1| (|CharacteristicZero|)))
                                         ((|CharacteristicNonZero|)
                                          (|has| |t#1|
                                                 (|CharacteristicNonZero|)))
                                         ((|IntegralDomain|)
-                                         (|has| |t#1| (|IntegralDomain|)))
+                                         (AND (|has| |t#1| (|IntegralDomain|))
+                                              (|has| $
+                                                     (|VariablesCommuteWithCoefficients|))))
                                         ((|Algebra| (|Fraction| (|Integer|)))
                                          (|has| |t#1|
                                                 (|Algebra|

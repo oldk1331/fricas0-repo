@@ -95,8 +95,8 @@
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |VectorSpace&|
-                |Algebra&| |Algebra&| |Module&| |Module&| NIL NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&|
+                |Algebra&| |Module&| |Module&| |EntireRing&| NIL |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL |SetCategory&|

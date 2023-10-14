@@ -1,4 +1,4 @@
-110579              (|AbelianGroup&| |FourierSeries| |FreeAbelianGroup|
+110909              (|AbelianGroup&| |FourierSeries| |FreeAbelianGroup|
                                      |QuadraticForm|)
 (|AbelianMonoid&| |AbelianMonoidRing| |AbelianMonoidRing&| |CardinalNumber|
                   |EuclideanModularRing| |FiniteAbelianMonoidRing|
@@ -258,6 +258,7 @@
 (|Automorphism| |DirichletRing| |LinearOrdinaryDifferentialOperator2|
                 |ModuleOperator| |Operator| |RewriteRule| |Ruleset|)
 (|EltableAggregate&|)
+(|EntireRing&|)
 (|RewriteRule|)
 (|CRApackage| |ComplexFactorization| |ConstantLODE| |ContinuedFraction|
               |ElementaryFunctionDefiniteIntegration|
@@ -703,7 +704,7 @@
                   |Guess| |InfiniteProductCharacteristicZero|
                   |InnerCommonDenominator| |InnerMatrixQuotientFieldFunctions|
                   |InnerPolySum| |InnerTrigonometricManipulations|
-                  |IntegralDomain&| |LaurentPolynomial| |LinearDependence|
+                  |LaurentPolynomial| |LinearDependence|
                   |LinearSystemPolynomialPackage| |LiouvillianFunction|
                   |MPolyCatRationalFunctionFactorizer|
                   |MatrixCommonDenominator| |MultipleMap| |NewtonInterpolation|
@@ -829,6 +830,7 @@
                 |Matrix| |MatrixCategory&| |MatrixCategoryFunctions2|
                 |MatrixLinearAlgebraFunctions| |SmithNormalForm|
                 |TriangularMatrixOperations| |U16Matrix| |U32Matrix| |U8Matrix|)
+(|MaybeSkewPolynomialCategory&|)
 (|ModularAlgebraicGcd| |ModularAlgebraicGcdTools2| |ModularAlgebraicGcdTools3|)
 (|Bialgebra| |Coalgebra| |DistributionPolynomialPackage| |FreeAbelianGroup|
              |FreeModuleFunctions2| |GeneralModulePolynomial| |HopfAlgebra|
@@ -919,11 +921,12 @@
                      |LinearSystemPolynomialPackage| |MPolyCatFunctions2|
                      |MPolyCatFunctions3| |MPolyCatPolyFactorizer|
                      |MPolyCatRationalFunctionFactorizer| |MRationalFactorize|
-                     |MultFiniteFactorize| |MultivariateFactorize|
-                     |MultivariateLifting| |MultivariateSquareFree| |NPCoef|
-                     |NonNegativeInteger| |NormalizationPackage|
-                     |NormalizedTriangularSetCategory| |OrderedDirectProduct|
-                     |ParametricLinearEquations|
+                     |MaybeSkewPolynomialCategory|
+                     |MaybeSkewPolynomialCategory&| |MultFiniteFactorize|
+                     |MultivariateFactorize| |MultivariateLifting|
+                     |MultivariateSquareFree| |NPCoef| |NonNegativeInteger|
+                     |NormalizationPackage| |NormalizedTriangularSetCategory|
+                     |OrderedDirectProduct| |ParametricLinearEquations|
                      |PatternMatchPolynomialCategory| |PolynomialCategory|
                      |PolynomialCategory&| |PolynomialCategoryLifting|
                      |PolynomialCategoryQuotientFunctions|
@@ -992,9 +995,11 @@
                      |MPolyCatFunctions2| |MPolyCatFunctions3|
                      |MPolyCatPolyFactorizer|
                      |MPolyCatRationalFunctionFactorizer| |MRationalFactorize|
-                     |Magma| |MergeThing| |ModuleMonomial|
-                     |MultFiniteFactorize| |MultivariateFactorize|
-                     |MultivariateLifting| |MultivariateSquareFree|
+                     |Magma| |MaybeSkewPolynomialCategory|
+                     |MaybeSkewPolynomialCategory&| |MergeThing|
+                     |ModuleMonomial| |MultFiniteFactorize|
+                     |MultivariateFactorize| |MultivariateLifting|
+                     |MultivariateSquareFree|
                      |MultivariateTaylorSeriesCategory|
                      |MultivariateTaylorSeriesCategory&| |NPCoef|
                      |NewSparseMultivariatePolynomial| |NormalizationPackage|
@@ -1272,10 +1277,11 @@
             |LinearOrdinaryDifferentialOperatorCategory|
             |LinearOrdinaryDifferentialOperatorCategory&|
             |LinearlyExplicitRingOver| |MPolyCatFunctions2|
-            |MPolyCatFunctions3| |ModMonic| |ModularRing| |ModuleOperator|
-            |MonogenicLinearOperator| |MonoidRing| |MonoidRingCategory|
-            |MonoidRingFunctions2| |MultivariatePolynomial|
-            |MultivariateTaylorSeriesCategory|
+            |MPolyCatFunctions3| |MaybeSkewPolynomialCategory|
+            |MaybeSkewPolynomialCategory&| |ModMonic| |ModularRing|
+            |ModuleOperator| |MonogenicLinearOperator| |MonoidRing|
+            |MonoidRingCategory| |MonoidRingFunctions2|
+            |MultivariatePolynomial| |MultivariateTaylorSeriesCategory|
             |MultivariateTaylorSeriesCategory&|
             |NewSparseMultivariatePolynomial| |NewSparseUnivariatePolynomial|
             |NewSparseUnivariatePolynomialFunctions2| |Operator|
@@ -1715,6 +1721,7 @@
  |UnivariateTaylorSeriesCategory&| |UnivariateTaylorSeriesFunctions2|
  |UnivariateTaylorSeriesODESolver|)
 (|Lambda| |SKICombinators| |Typed| |Untyped| |compUtil|)
+(|PolynomialRing| |SymmetricPolynomial|)
 (|AlgebraGivenByStructuralConstants| |DenavitHartenbergMatrix|
                                      |FiniteFieldNormalBasisExtensionByPolynomial|
                                      |FramedModule|
@@ -1737,120 +1744,123 @@
 (|FiniteLinearAggregateSort| |GeneralPolynomialSet| |LinearSystemMatrixPackage|
                              |Multiset| |SortPackage| |SplittingTree| |Stream|
                              |Tree|)
-(("shallowlyMutable" 0 110383) ("finiteAggregate" 0 110182)
- ("canonicalsClosed" 0 110139) ("canonicalUnitNormal" 0 110126)
- ("arbitraryPrecision" 0 110116) ("arbitraryExponent" 0 110106)
- ("XPolynomialsCat" 0 109977) ("XAlgebra" 0 109957) ("VectorSpace" 0 109940)
- ("VectorCategory" 0 109820) ("Vector" 0 109403) ("VarCat" 0 109346)
- ("UnivariateTaylorSeriesCategory" 0 108494)
- ("UnivariateTaylorSeries" 0 108440)
- ("UnivariateSkewPolynomialCategory" 0 108173)
- ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 108148)
- ("UnivariatePuiseuxSeriesConstructorCategory" 0 107679)
- ("UnivariatePuiseuxSeriesCategory" 0 107607)
- ("UnivariatePuiseuxSeries" 0 107530)
- ("UnivariatePowerSeriesCategory" 0 107294)
- ("UnivariatePolynomialCategory" 0 103681)
- ("UnivariateLaurentSeriesConstructorCategory" 0 103135)
- ("UnivariateLaurentSeriesCategory" 0 102957)
- ("UnivariateLaurentSeries" 0 102929) ("UniqueFactorizationDomain" 0 102733)
- ("UnaryRecursiveAggregate" 0 102704) ("U8Vector" 0 102691)
- ("U32Vector" 0 102649) ("U16Vector" 0 102635) ("Type" 0 98599)
- ("TwoDimensionalArrayCategory" 0 98421)
- ("TrigonometricFunctionCategory" 0 98386) ("TriangularSetCategory" 0 98311)
- ("TranscendentalFunctionCategory" 0 95657) ("ThreeSpaceCategory" 0 95642)
- ("TensorProductCategory" 0 95600) ("TensorPowerCategory" 0 95561)
- ("TaylorSeriesExpansion" 0 95208) ("TableAggregate" 0 95037)
- ("SymbolTable" 0 95018) ("Symbol" 0 91366) ("StringCategory" 0 91355)
- ("StringAggregate" 0 91318) ("String" 0 91136) ("StreamAggregate" 0 91088)
- ("StepThrough" 0 91073) ("StackAggregate" 0 91050)
- ("SquareMatrixCategory" 0 90934) ("SquareMatrix" 0 90810)
- ("SquareFreeRegularTriangularSetCategory" 0 90554) ("SplittingNode" 0 90536)
- ("SpecialFunctionCategory" 0 90434) ("SparseUnivariateTaylorSeries" 0 90368)
- ("SparseUnivariatePolynomial" 0 90171)
- ("SparseUnivariateLaurentSeries" 0 90137)
- ("SparseMultivariatePolynomialExpressions" 0 90103)
- ("SparseMultivariatePolynomial" 0 89869) ("SingletonAsOrderedSet" 0 89581)
- ("SingleInteger" 0 89520) ("SetCategory" 0 85252) ("SetAggregate" 0 85234)
- ("SequentialDifferentialVariable" 0 85197) ("SequenceCategory" 0 85184)
- ("SemiRng" 0 84524) ("SemiRing" 0 84451) ("SemiGroup" 0 84436)
- ("SegmentCategory" 0 84405) ("SPointCategory" 0 84275)
- ("SExpressionCategory" 0 84231) ("SExpression" 0 84217) ("Ring" 0 79096)
- ("RetractableTo" 0 75633) ("RetractableFrom" 0 75612)
- ("RegularTriangularSetCategory" 0 75162)
- ("RecursivePolynomialCategory" 0 73867) ("RecursiveAggregate" 0 73820)
- ("RectangularMatrixCategory" 0 73710)
- ("RealRootCharacterizationCategory" 0 73632) ("RealNumberSystem" 0 73610)
- ("RealConstant" 0 73499) ("RealClosedField" 0 73464)
- ("RadicalCategory" 0 73325) ("QuotientFieldCategory" 0 72567)
- ("QueueAggregate" 0 72557) ("QuaternionCategory" 0 72448)
- ("Quaternion" 0 72435) ("Product" 0 72417) ("PriorityQueueAggregate" 0 72408)
- ("PrimitiveFunctionCategory" 0 72106) ("PrimitiveArray" 0 72068)
- ("PrimeField" 0 72002) ("PowerSeriesCategory" 0 71809)
- ("PositiveInteger" 0 70739) ("PolynomialSetCategory" 0 70689)
- ("PolynomialFactorizationExplicit" 0 70407) ("PolynomialCategory" 0 68555)
- ("Polynomial" 0 68232) ("PointCategory" 0 68222)
- ("PoincareBirkhoffWittLyndonBasis" 0 68203)
- ("PlottableSpaceCurveCategory" 0 68163)
- ("PlottablePlaneCurveCategory" 0 68128) ("PermutationCategory" 0 68112)
- ("Patternable" 0 68101) ("PatternMatchable" 0 67791) ("Pattern" 0 67495)
- ("Partition" 0 67471) ("PartialTranscendentalFunctions" 0 67283)
- ("PartialOrder" 0 67265) ("PartialDifferentialRing" 0 67085)
- ("PAdicIntegerCategory" 0 66974) ("PAdicInteger" 0 66956)
- ("OutputForm" 0 66678) ("OrderlyDifferentialVariable" 0 66644)
- ("OrderedVariableList" 0 66339) ("OrderedSet" 0 61655) ("OrderedRing" 0 60888)
- ("OrderedMonoid" 0 60848) ("OrderedIntegralDomain" 0 60824)
- ("OrderedFreeMonoid" 0 60797) ("OrderedFinite" 0 60761)
- ("OrderedCancellationAbelianMonoid" 0 60747)
- ("OrderedAbelianSemiGroup" 0 60727) ("OrderedAbelianMonoidSup" 0 57906)
- ("OrderedAbelianMonoid" 0 57093) ("OpenMath" 0 56996)
- ("OneDimensionalArrayAggregate" 0 56746) ("OneDimensionalArray" 0 56722)
- ("OctonionCategory" 0 56660) ("NonNegativeInteger" 0 55242)
- ("NonAssociativeRng" 0 55219) ("NonAssociativeRing" 0 55195)
- ("NonAssociativeAlgebra" 0 55073) ("NewSparseMultivariatePolynomial" 0 55056)
- ("MultivariateTaylorSeriesCategory" 0 54933) ("MultisetAggregate" 0 54920)
- ("MultiDictionary" 0 54896) ("MonoidRingCategory" 0 54881) ("Monoid" 0 54667)
- ("MonogenicLinearOperator" 0 54598) ("MonogenicAlgebra" 0 53929)
- ("MonadWithUnit" 0 53910) ("Monad" 0 53899) ("Module" 0 53422)
- ("ModularAlgebraicGcdOperations" 0 53342) ("MatrixCategory" 0 52873)
- ("Matrix" 0 52677) ("MachineFloat" 0 52658) ("LyndonWord" 0 52606)
- ("Logic" 0 52560) ("ListAggregate" 0 52444) ("List" 0 50733)
- ("LiouvillianFunctionCategory" 0 50686) ("LinearlyExplicitRingOver" 0 49255)
- ("LinearOrdinaryDifferentialOperatorCategory" 0 48656)
- ("LinearAggregate" 0 48635) ("LieAlgebra" 0 48619) ("LeftModule" 0 48228)
- ("LeftAlgebra" 0 48184) ("LazyStreamAggregate" 0 48130)
- ("KeyedDictionary" 0 48109) ("Kernel" 0 48058)
- ("JetBundleFunctionCategory" 0 47747) ("JetBundleExpression" 0 47715)
- ("JetBundleCategory" 0 47083) ("JetBundleBaseFunctionCategory" 0 46965)
- ("IntervalCategory" 0 46952) ("IntegralDomain" 0 44013)
- ("IntegerNumberSystem" 0 43422) ("Integer" 0 38249) ("InputForm" 0 37836)
- ("InnerPrimeField" 0 37815) ("InnerEvalable" 0 37796)
- ("IndexedVector" 0 37778) ("IndexedOneDimensionalArray" 0 37747)
- ("IndexedExponents" 0 37054) ("IndexedDirectProductCategory" 0 37004)
- ("IndexedAggregate" 0 36968) ("HyperbolicFunctionCategory" 0 36936)
- ("HomogeneousDirectProduct" 0 36887) ("HomogeneousAggregate" 0 36836)
- ("Group" 0 36727) ("GradedModule" 0 36691) ("GradedAlgebra" 0 36654)
- ("GcdDomain" 0 34218) ("FunctionSpace" 0 32361)
- ("FunctionFieldCategory" 0 31741) ("FullyRetractableTo" 0 31608)
- ("FullyLinearlyExplicitRingOver" 0 31573) ("FullyEvalableOver" 0 31539)
- ("FreeModuleCategory" 0 31321) ("FreeLieAlgebra" 0 31303)
- ("FreeAbelianMonoidCategory" 0 31237) ("FramedNonAssociativeAlgebra" 0 30914)
- ("FramedAlgebra" 0 30686) ("Fraction" 0 27903) ("FortranScalarType" 0 27884)
- ("FortranProgramCategory" 0 27842) ("FortranMachineTypeCategory" 0 27771)
- ("FloatingPointSystem" 0 27586) ("Float" 0 27445)
- ("FiniteSetAggregate" 0 27367) ("FiniteRankNonAssociativeAlgebra" 0 27330)
- ("FiniteRankAlgebra" 0 27307) ("FiniteLinearAggregate" 0 26662)
- ("FiniteGraph" 0 26541) ("FiniteFieldCategory" 0 24958)
- ("FiniteDivisorCategory" 0 24886) ("FiniteAlgebraicExtensionField" 0 24131)
- ("FiniteAbelianMonoidRing" 0 23855) ("Finite" 0 23654)
- ("FileNameCategory" 0 23641) ("FileName" 0 23572) ("FileCategory" 0 23503)
- ("FieldOfPrimeCharacteristic" 0 23439) ("Field" 0 18139)
- ("ExtensionField" 0 18119) ("ExtensibleLinearAggregate" 0 18049)
- ("ExpressionSpace" 0 17808) ("Expression" 0 17790)
- ("ExponentialOfUnivariatePuiseuxSeries" 0 17736) ("Evalable" 0 17722)
- ("EuclideanDomain" 0 16270) ("Equation" 0 16254) ("EltableAggregate" 0 16232)
- ("Eltable" 0 16093) ("ElementaryFunctionCategory" 0 16025)
- ("DoubleFloatVector" 0 16003) ("DoubleFloat" 0 15812) ("DivisionRing" 0 15794)
+(("shallowlyMutable" 0 110713) ("finiteAggregate" 0 110512)
+ ("canonicalsClosed" 0 110469) ("canonicalUnitNormal" 0 110456)
+ ("arbitraryPrecision" 0 110446) ("arbitraryExponent" 0 110436)
+ ("XPolynomialsCat" 0 110307) ("XAlgebra" 0 110287) ("VectorSpace" 0 110270)
+ ("VectorCategory" 0 110150) ("Vector" 0 109733)
+ ("VariablesCommuteWithCoefficients" 0 109692) ("VarCat" 0 109635)
+ ("UnivariateTaylorSeriesCategory" 0 108783)
+ ("UnivariateTaylorSeries" 0 108729)
+ ("UnivariateSkewPolynomialCategory" 0 108462)
+ ("UnivariatePuiseuxSeriesWithExponentialSingularity" 0 108437)
+ ("UnivariatePuiseuxSeriesConstructorCategory" 0 107968)
+ ("UnivariatePuiseuxSeriesCategory" 0 107896)
+ ("UnivariatePuiseuxSeries" 0 107819)
+ ("UnivariatePowerSeriesCategory" 0 107583)
+ ("UnivariatePolynomialCategory" 0 103970)
+ ("UnivariateLaurentSeriesConstructorCategory" 0 103424)
+ ("UnivariateLaurentSeriesCategory" 0 103246)
+ ("UnivariateLaurentSeries" 0 103218) ("UniqueFactorizationDomain" 0 103022)
+ ("UnaryRecursiveAggregate" 0 102993) ("U8Vector" 0 102980)
+ ("U32Vector" 0 102938) ("U16Vector" 0 102924) ("Type" 0 98888)
+ ("TwoDimensionalArrayCategory" 0 98710)
+ ("TrigonometricFunctionCategory" 0 98675) ("TriangularSetCategory" 0 98600)
+ ("TranscendentalFunctionCategory" 0 95946) ("ThreeSpaceCategory" 0 95931)
+ ("TensorProductCategory" 0 95889) ("TensorPowerCategory" 0 95850)
+ ("TaylorSeriesExpansion" 0 95497) ("TableAggregate" 0 95326)
+ ("SymbolTable" 0 95307) ("Symbol" 0 91655) ("StringCategory" 0 91644)
+ ("StringAggregate" 0 91607) ("String" 0 91425) ("StreamAggregate" 0 91377)
+ ("StepThrough" 0 91362) ("StackAggregate" 0 91339)
+ ("SquareMatrixCategory" 0 91223) ("SquareMatrix" 0 91099)
+ ("SquareFreeRegularTriangularSetCategory" 0 90843) ("SplittingNode" 0 90825)
+ ("SpecialFunctionCategory" 0 90723) ("SparseUnivariateTaylorSeries" 0 90657)
+ ("SparseUnivariatePolynomial" 0 90460)
+ ("SparseUnivariateLaurentSeries" 0 90426)
+ ("SparseMultivariatePolynomialExpressions" 0 90392)
+ ("SparseMultivariatePolynomial" 0 90158) ("SingletonAsOrderedSet" 0 89870)
+ ("SingleInteger" 0 89809) ("SetCategory" 0 85541) ("SetAggregate" 0 85523)
+ ("SequentialDifferentialVariable" 0 85486) ("SequenceCategory" 0 85473)
+ ("SemiRng" 0 84813) ("SemiRing" 0 84740) ("SemiGroup" 0 84725)
+ ("SegmentCategory" 0 84694) ("SPointCategory" 0 84564)
+ ("SExpressionCategory" 0 84520) ("SExpression" 0 84506) ("Ring" 0 79312)
+ ("RetractableTo" 0 75849) ("RetractableFrom" 0 75828)
+ ("RegularTriangularSetCategory" 0 75378)
+ ("RecursivePolynomialCategory" 0 74083) ("RecursiveAggregate" 0 74036)
+ ("RectangularMatrixCategory" 0 73926)
+ ("RealRootCharacterizationCategory" 0 73848) ("RealNumberSystem" 0 73826)
+ ("RealConstant" 0 73715) ("RealClosedField" 0 73680)
+ ("RadicalCategory" 0 73541) ("QuotientFieldCategory" 0 72783)
+ ("QueueAggregate" 0 72773) ("QuaternionCategory" 0 72664)
+ ("Quaternion" 0 72651) ("Product" 0 72633) ("PriorityQueueAggregate" 0 72624)
+ ("PrimitiveFunctionCategory" 0 72322) ("PrimitiveArray" 0 72284)
+ ("PrimeField" 0 72218) ("PowerSeriesCategory" 0 72025)
+ ("PositiveInteger" 0 70955) ("PolynomialSetCategory" 0 70905)
+ ("PolynomialFactorizationExplicit" 0 70623) ("PolynomialCategory" 0 68771)
+ ("Polynomial" 0 68448) ("PointCategory" 0 68438)
+ ("PoincareBirkhoffWittLyndonBasis" 0 68419)
+ ("PlottableSpaceCurveCategory" 0 68379)
+ ("PlottablePlaneCurveCategory" 0 68344) ("PermutationCategory" 0 68328)
+ ("Patternable" 0 68317) ("PatternMatchable" 0 68007) ("Pattern" 0 67711)
+ ("Partition" 0 67687) ("PartialTranscendentalFunctions" 0 67499)
+ ("PartialOrder" 0 67481) ("PartialDifferentialRing" 0 67301)
+ ("PAdicIntegerCategory" 0 67190) ("PAdicInteger" 0 67172)
+ ("OutputForm" 0 66894) ("OrderlyDifferentialVariable" 0 66860)
+ ("OrderedVariableList" 0 66555) ("OrderedSet" 0 61768) ("OrderedRing" 0 61001)
+ ("OrderedMonoid" 0 60961) ("OrderedIntegralDomain" 0 60937)
+ ("OrderedFreeMonoid" 0 60910) ("OrderedFinite" 0 60874)
+ ("OrderedCancellationAbelianMonoid" 0 60860)
+ ("OrderedAbelianSemiGroup" 0 60840) ("OrderedAbelianMonoidSup" 0 57937)
+ ("OrderedAbelianMonoid" 0 57124) ("OpenMath" 0 57027)
+ ("OneDimensionalArrayAggregate" 0 56777) ("OneDimensionalArray" 0 56753)
+ ("OctonionCategory" 0 56691) ("NonNegativeInteger" 0 55273)
+ ("NonAssociativeRng" 0 55250) ("NonAssociativeRing" 0 55226)
+ ("NonAssociativeAlgebra" 0 55104) ("NewSparseMultivariatePolynomial" 0 55087)
+ ("MultivariateTaylorSeriesCategory" 0 54964) ("MultisetAggregate" 0 54951)
+ ("MultiDictionary" 0 54927) ("MonoidRingCategory" 0 54912) ("Monoid" 0 54698)
+ ("MonogenicLinearOperator" 0 54629) ("MonogenicAlgebra" 0 53960)
+ ("MonadWithUnit" 0 53941) ("Monad" 0 53930) ("Module" 0 53453)
+ ("ModularAlgebraicGcdOperations" 0 53373)
+ ("MaybeSkewPolynomialCategory" 0 53340) ("MatrixCategory" 0 52871)
+ ("Matrix" 0 52675) ("MachineFloat" 0 52656) ("LyndonWord" 0 52604)
+ ("Logic" 0 52558) ("ListAggregate" 0 52442) ("List" 0 50731)
+ ("LiouvillianFunctionCategory" 0 50684) ("LinearlyExplicitRingOver" 0 49253)
+ ("LinearOrdinaryDifferentialOperatorCategory" 0 48654)
+ ("LinearAggregate" 0 48633) ("LieAlgebra" 0 48617) ("LeftModule" 0 48226)
+ ("LeftAlgebra" 0 48182) ("LazyStreamAggregate" 0 48128)
+ ("KeyedDictionary" 0 48107) ("Kernel" 0 48056)
+ ("JetBundleFunctionCategory" 0 47745) ("JetBundleExpression" 0 47713)
+ ("JetBundleCategory" 0 47081) ("JetBundleBaseFunctionCategory" 0 46963)
+ ("IntervalCategory" 0 46950) ("IntegralDomain" 0 44029)
+ ("IntegerNumberSystem" 0 43438) ("Integer" 0 38265) ("InputForm" 0 37852)
+ ("InnerPrimeField" 0 37831) ("InnerEvalable" 0 37812)
+ ("IndexedVector" 0 37794) ("IndexedOneDimensionalArray" 0 37763)
+ ("IndexedExponents" 0 37070) ("IndexedDirectProductCategory" 0 37020)
+ ("IndexedAggregate" 0 36984) ("HyperbolicFunctionCategory" 0 36952)
+ ("HomogeneousDirectProduct" 0 36903) ("HomogeneousAggregate" 0 36852)
+ ("Group" 0 36743) ("GradedModule" 0 36707) ("GradedAlgebra" 0 36670)
+ ("GcdDomain" 0 34234) ("FunctionSpace" 0 32377)
+ ("FunctionFieldCategory" 0 31757) ("FullyRetractableTo" 0 31624)
+ ("FullyLinearlyExplicitRingOver" 0 31589) ("FullyEvalableOver" 0 31555)
+ ("FreeModuleCategory" 0 31337) ("FreeLieAlgebra" 0 31319)
+ ("FreeAbelianMonoidCategory" 0 31253) ("FramedNonAssociativeAlgebra" 0 30930)
+ ("FramedAlgebra" 0 30702) ("Fraction" 0 27919) ("FortranScalarType" 0 27900)
+ ("FortranProgramCategory" 0 27858) ("FortranMachineTypeCategory" 0 27787)
+ ("FloatingPointSystem" 0 27602) ("Float" 0 27461)
+ ("FiniteSetAggregate" 0 27383) ("FiniteRankNonAssociativeAlgebra" 0 27346)
+ ("FiniteRankAlgebra" 0 27323) ("FiniteLinearAggregate" 0 26678)
+ ("FiniteGraph" 0 26557) ("FiniteFieldCategory" 0 24974)
+ ("FiniteDivisorCategory" 0 24902) ("FiniteAlgebraicExtensionField" 0 24147)
+ ("FiniteAbelianMonoidRing" 0 23871) ("Finite" 0 23670)
+ ("FileNameCategory" 0 23657) ("FileName" 0 23588) ("FileCategory" 0 23519)
+ ("FieldOfPrimeCharacteristic" 0 23455) ("Field" 0 18155)
+ ("ExtensionField" 0 18135) ("ExtensibleLinearAggregate" 0 18065)
+ ("ExpressionSpace" 0 17824) ("Expression" 0 17806)
+ ("ExponentialOfUnivariatePuiseuxSeries" 0 17752) ("Evalable" 0 17738)
+ ("EuclideanDomain" 0 16286) ("Equation" 0 16270) ("EntireRing" 0 16254)
+ ("EltableAggregate" 0 16232) ("Eltable" 0 16093)
+ ("ElementaryFunctionCategory" 0 16025) ("DoubleFloatVector" 0 16003)
+ ("DoubleFloat" 0 15812) ("DivisionRing" 0 15794)
  ("DistributionCategory" 0 15777) ("DirectProductCategory" 0 15208)
  ("DirectProduct" 0 15031) ("DifferentialVariableCategory" 0 14688)
  ("DifferentialRing" 0 14443) ("DifferentialPolynomialCategory" 0 14227)

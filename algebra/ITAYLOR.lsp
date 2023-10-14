@@ -205,8 +205,8 @@
                                 '(1 1 1 1 1 0 1 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1
                                   1))
             (CONS
-             '#(|IntegralDomain&| |Algebra&| NIL |Module&| NIL |Ring&| NIL NIL
-                NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
+             '#(NIL |Algebra&| NIL |Module&| |EntireRing&| |Ring&| NIL NIL NIL
+                NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
                 |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |BasicType&| NIL NIL NIL)
              (CONS

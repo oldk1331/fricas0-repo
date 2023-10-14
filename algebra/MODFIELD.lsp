@@ -66,8 +66,8 @@
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |Module&| NIL NIL |Module&| NIL NIL |Ring&| NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |Module&| |EntireRing&| NIL |Module&| NIL NIL |Ring&| NIL NIL
                 NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
                 NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
                 NIL NIL |BasicType&| NIL)

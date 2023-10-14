@@ -538,10 +538,10 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| NIL |OrderedRing&| |Module&| NIL NIL |Module&| NIL
-                NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL
-                NIL NIL |OrderedSet&| |AbelianMonoid&| |Monoid&| NIL NIL NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&| NIL
+                |OrderedRing&| |Module&| |EntireRing&| NIL |Module&| NIL NIL
+                NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL |OrderedSet&| |AbelianMonoid&| |Monoid&| NIL NIL NIL
                 |SemiGroup&| |AbelianSemiGroup&| NIL |SetCategory&|
                 |RetractableTo&| NIL NIL |RadicalCategory&| |RetractableTo&|
                 |RetractableTo&| NIL NIL |PartialOrder&| NIL NIL NIL NIL NIL

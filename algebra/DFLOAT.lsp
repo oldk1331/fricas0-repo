@@ -829,8 +829,8 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |DifferentialRing&| NIL |OrderedRing&| |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |DifferentialRing&| NIL |OrderedRing&| |Module&| |EntireRing&|
                 NIL |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL
                 |AbelianGroup&| NIL NIL NIL |OrderedSet&| |AbelianMonoid&|
                 |Monoid&| NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&|

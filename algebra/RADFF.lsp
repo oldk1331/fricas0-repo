@@ -805,17 +805,16 @@
              '#(|FunctionFieldCategory&| |MonogenicAlgebra&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |FramedAlgebra&| |GcdDomain&| |FiniteRankAlgebra&|
-                |IntegralDomain&| |DivisionRing&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Algebra&| |Algebra&|
-                |DifferentialExtension&| NIL NIL |Module&| NIL |Module&| NIL
-                |Module&| NIL |DifferentialRing&| |PartialDifferentialRing&|
-                NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
-                |FullyRetractableTo&| |SetCategory&| |RetractableTo&| NIL NIL
-                NIL |BasicType&| NIL NIL NIL NIL NIL |RetractableTo&|
-                |RetractableTo&|)
+                |FramedAlgebra&| |GcdDomain&| |FiniteRankAlgebra&| NIL
+                |DivisionRing&| |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |Algebra&| |Algebra&| |DifferentialExtension&| NIL NIL
+                |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
+                |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
+                NIL NIL NIL NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
+                |Finite&| NIL |FullyRetractableTo&| |SetCategory&|
+                |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL NIL NIL
+                |RetractableTo&| |RetractableTo&|)
              (CONS
               '#((|FunctionFieldCategory| 6 7 8)
                  (|MonogenicAlgebra| (|Fraction| 7) 8) (|FiniteFieldCategory|)

@@ -604,11 +604,11 @@
             (CONS
              '#(|RealClosedField&| |Field&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
-                |IntegralDomain&| |Algebra&| |Algebra&| |Algebra&| |Algebra&|
-                NIL |Module&| |Module&| |Module&| NIL |Module&| NIL
-                |OrderedRing&| NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
-                NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL
-                |AbelianMonoid&| |OrderedSet&| |Monoid&| NIL NIL |SemiGroup&|
+                NIL |Algebra&| |Algebra&| |Algebra&| |Algebra&| NIL |Module&|
+                |Module&| |Module&| |EntireRing&| |Module&| NIL |OrderedRing&|
+                NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL
+                NIL |AbelianGroup&| NIL NIL NIL NIL |AbelianMonoid&|
+                |OrderedSet&| |Monoid&| NIL NIL |SemiGroup&|
                 |AbelianSemiGroup&| |FullyRetractableTo&| |FullyRetractableTo&|
                 |SetCategory&| |RetractableTo&| |RadicalCategory&|
                 |RetractableTo&| NIL NIL NIL NIL |PartialOrder&| NIL

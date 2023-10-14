@@ -774,8 +774,8 @@
                                   0))
             (CONS
              '#(|Field&| |EuclideanDomain&| |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |Algebra&| |Algebra&| |Module&| NIL |Module&| NIL
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |Algebra&| |Algebra&| |Module&| |EntireRing&| |Module&| NIL
                 |Module&| |Module&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
                 NIL NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&|

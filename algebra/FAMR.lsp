@@ -45,7 +45,7 @@
                                         ((|pomopo!| ($ $ |t#1| |t#2| $)) T)
                                         ((|binomThmExpt|
                                           ($ $ $ (|NonNegativeInteger|)))
-                                         (|has| |t#1| (|CommutativeRing|)))
+                                         (|has| $ (|CommutativeRing|)))
                                         ((|exquo|
                                           ((|Union| $ "failed") $ |t#1|))
                                          (|has| |t#1| (|IntegralDomain|)))
@@ -53,7 +53,8 @@
                                          (|has| |t#1| (|GcdDomain|)))
                                         ((|primitivePart| ($ $))
                                          (|has| |t#1| (|GcdDomain|))))
-                                      NIL
+                                      '(((|EntireRing|)
+                                         (|has| |t#1| (|IntegralDomain|))))
                                       '((|NonNegativeInteger|) (|List| |t#1|)
                                         (|Boolean|))
                                       NIL))

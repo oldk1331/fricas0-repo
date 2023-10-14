@@ -312,7 +312,7 @@
       (EXIT (SPADCALL |ne| |de| (QREFELT $ 15))))))) 
 
 (DEFUN |TRMANIP;termexp| (|p| $)
-  (PROG (|coef| #1=#:G233 |u| #2=#:G232 |exponent| |d| #3=#:G231 |k| |lpow|
+  (PROG (|coef| #1=#:G232 |u| #2=#:G231 |exponent| |d| #3=#:G230 |k| |lpow|
          |lk|)
     (RETURN
      (SEQ (LETT |exponent| (|spadConstant| $ 31) . #4=(|TRMANIP;termexp|))
@@ -392,7 +392,7 @@
 (DEFUN |TRMANIP;termexp!0| (|z1| $) (SPADCALL |z1| '|%power| (QREFELT $ 44))) 
 
 (DEFUN |TRMANIP;expandPower;2F;9| (|f| $)
-  (PROG (#1=#:G239 |k| #2=#:G238 |l|)
+  (PROG (#1=#:G238 |k| #2=#:G237 |l|)
     (RETURN
      (SEQ
       (LETT |l|
@@ -419,7 +419,7 @@
   (SPADCALL |z1| '|%power| (QREFELT $ 44))) 
 
 (DEFUN |TRMANIP;powersimp| (|p| |l| $)
-  (PROG (|exponent| #1=#:G254 |k0| |lk| |a| |arg| |k|)
+  (PROG (|exponent| #1=#:G253 |k0| |lk| |a| |arg| |k|)
     (RETURN
      (SEQ
       (COND ((NULL |l|) (|spadConstant| $ 32))
@@ -646,7 +646,7 @@
   (SPADCALL (SPADCALL |k1| (QREFELT $ 142)) (QREFELT $ 143))) 
 
 (DEFUN |TRMANIP;htrigs;2F;49| (|f| $)
-  (PROG (|g1| |b| |g2| |a| |den| |num| |arg| #1=#:G328 |x| #2=#:G327 |op| |k|
+  (PROG (|g1| |b| |g2| |a| |den| |num| |arg| #1=#:G327 |x| #2=#:G326 |op| |k|
          |m|)
     (RETURN
      (SEQ
@@ -757,7 +757,7 @@
    |f| (QREFELT $ 161))) 
 
 (DEFUN |TRMANIP;exlog| (|p| $)
-  (PROG (#1=#:G339 #2=#:G338 #3=#:G340 #4=#:G342 |r|)
+  (PROG (#1=#:G338 #2=#:G337 #3=#:G339 #4=#:G341 |r|)
     (RETURN
      (SEQ
       (PROGN
@@ -784,7 +784,7 @@
        (COND (#1# #2#) ('T (|spadConstant| $ 31)))))))) 
 
 (DEFUN |TRMANIP;logexpand| (|k| $)
-  (PROG (#1=#:G348 |x| #2=#:G347 |op|)
+  (PROG (#1=#:G347 |x| #2=#:G346 |op|)
     (RETURN
      (SEQ
       (COND
@@ -822,7 +822,7 @@
                   (QREFELT $ 151)))))))) 
 
 (DEFUN |TRMANIP;kerexpand| (|k| $)
-  (PROG (#1=#:G368 |x| #2=#:G367 #3=#:G366 #4=#:G365 |ctb| |cta| |tb| |ta| |a|
+  (PROG (#1=#:G367 |x| #2=#:G366 #3=#:G365 #4=#:G364 |ctb| |cta| |tb| |ta| |a|
          |b| |den| |num| |arg| |op|)
     (RETURN
      (SEQ
@@ -1032,10 +1032,10 @@
     (QREFELT $ 180))
    (QREFELT $ 90))) 
 
-(DEFUN |TranscendentalManipulations| (&REST #1=#:G407)
+(DEFUN |TranscendentalManipulations| (&REST #1=#:G406)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G408)
+     (PROG (#2=#:G407)
        (RETURN
         (COND
          ((LETT #2#

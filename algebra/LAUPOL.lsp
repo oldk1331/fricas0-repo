@@ -525,8 +525,8 @@
                                 '(5 5 5 0 0 0 0 0 0 1 2 6 7 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 3 4))
             (CONS
-             '#(|EuclideanDomain&| NIL |GcdDomain&| |IntegralDomain&|
-                |DifferentialExtension&| |Algebra&| NIL |Module&| NIL
+             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL
+                |DifferentialExtension&| |Algebra&| |EntireRing&| |Module&| NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL
                 |Ring&| NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
                 |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|

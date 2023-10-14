@@ -289,11 +289,11 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0))
             (CONS
-             '#(|EuclideanDomain&| NIL |GcdDomain&| |IntegralDomain&|
-                |Algebra&| NIL NIL |Module&| NIL |Ring&| NIL NIL NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
-                |BasicType&| NIL)
+             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL |Algebra&| NIL
+                |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL |AbelianGroup&|
+                NIL NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
+                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
+                NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
                  (|IntegralDomain|) (|Algebra| $$) (|CommutativeRing|)

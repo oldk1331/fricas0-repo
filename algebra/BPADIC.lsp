@@ -47,20 +47,21 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 14 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Boolean|)
               (|Record| (|:| |coef| 11) (|:| |generator| $))
-              (|SparseUnivariatePolynomial| $) (|Union| $ '"failed")
+              (|SparseUnivariatePolynomial| $)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|PositiveInteger|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|OutputForm|) (|SingleInteger|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0))
             (CONS
-             '#(NIL |EuclideanDomain&| NIL |GcdDomain&| |IntegralDomain&|
-                |Algebra&| NIL NIL NIL |Module&| NIL |Ring&| NIL NIL NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
-                |BasicType&| NIL)
+             '#(NIL |EuclideanDomain&| NIL |GcdDomain&| NIL |Algebra&| NIL NIL
+                |EntireRing&| |Module&| NIL |Ring&| NIL NIL NIL |AbelianGroup&|
+                NIL NIL |AbelianMonoid&| |Monoid&| NIL |SemiGroup&|
+                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
+                NIL)
              (CONS
               '#((|PAdicIntegerCategory| 6) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|GcdDomain|) (|IntegralDomain|)

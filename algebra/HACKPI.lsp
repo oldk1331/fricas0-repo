@@ -158,12 +158,12 @@
                                   0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| NIL |Module&| NIL NIL |Module&| NIL NIL |Ring&| NIL
-                NIL NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&|
-                |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&| NIL
-                |SetCategory&| NIL NIL NIL NIL NIL NIL |RetractableTo&|
-                |RetractableTo&| NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&| NIL
+                |Module&| |EntireRing&| NIL |Module&| NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
+                NIL |SemiGroup&| |AbelianSemiGroup&| NIL |SetCategory&| NIL NIL
+                NIL NIL NIL NIL |RetractableTo&| |RetractableTo&| NIL NIL NIL
+                NIL NIL |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)

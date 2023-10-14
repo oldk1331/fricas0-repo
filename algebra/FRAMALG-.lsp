@@ -125,6 +125,13 @@
       (QSETREFV $ 8 |#3|)
       (SETF |pv$| (QREFELT $ 3))
       (COND
+       ((|HasCategory| |#3| '(|CommutativeRing|))
+        (QSETREFV $ 50
+                  (CONS
+                   (|dispatchFunction|
+                    |FRAMALG-;characteristicPolynomial;SUP;10|)
+                   $))))
+      (COND
        ((|HasCategory| |#2| '(|Field|))
         (QSETREFV $ 58
                   (CONS
@@ -152,12 +159,12 @@
                                           40)
               (90 . |map|) (96 . |One|) (100 . |One|) (104 . |monomial|)
               (110 . |scalarMatrix|) (116 . -) (122 . |determinant|)
-              |FRAMALG-;characteristicPolynomial;SUP;10| (127 . |zero|)
-              (133 . |setColumn!|) (|List| 9) (140 . |nullSpace|) (145 . |elt|)
-              (151 . +) (157 . |Zero|) (161 . |minimalPolynomial|))
-           '#(|traceMatrix| 166 |represents| 170 |regularRepresentation| 175
-              |minimalPolynomial| 180 |discriminant| 185 |coordinates| 189
-              |convert| 194 |characteristicPolynomial| 204)
+              (127 . |characteristicPolynomial|) (132 . |zero|)
+              (138 . |setColumn!|) (|List| 9) (145 . |nullSpace|) (150 . |elt|)
+              (156 . +) (162 . |Zero|) (166 . |minimalPolynomial|))
+           '#(|traceMatrix| 171 |represents| 175 |regularRepresentation| 180
+              |minimalPolynomial| 185 |discriminant| 190 |coordinates| 194
+              |convert| 199 |characteristicPolynomial| 209)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -173,12 +180,13 @@
                                                    16 0 38 1 8 0 7 39 2 42 40
                                                    41 16 43 0 6 0 44 0 7 0 45 2
                                                    8 0 7 30 46 2 40 0 30 8 47 2
-                                                   40 0 0 0 48 1 40 8 0 49 2 16
-                                                   0 30 30 51 3 16 0 0 32 9 52
-                                                   1 16 53 0 54 2 9 7 0 32 55 2
-                                                   8 0 0 0 56 0 8 0 57 1 0 8 0
-                                                   58 0 0 16 18 1 0 0 9 26 1 0
-                                                   16 0 22 1 0 8 0 58 0 0 7 20
-                                                   1 0 16 14 24 1 0 0 9 13 1 0
-                                                   9 0 11 1 0 8 0 50)))))
+                                                   40 0 0 0 48 1 40 8 0 49 1 0
+                                                   8 0 50 2 16 0 30 30 51 3 16
+                                                   0 0 32 9 52 1 16 53 0 54 2 9
+                                                   7 0 32 55 2 8 0 0 0 56 0 8 0
+                                                   57 1 0 8 0 58 0 0 16 18 1 0
+                                                   0 9 26 1 0 16 0 22 1 0 8 0
+                                                   58 0 0 7 20 1 0 16 14 24 1 0
+                                                   0 9 13 1 0 9 0 11 1 0 8 0
+                                                   50)))))
            '|lookupComplete|)) 

@@ -296,9 +296,9 @@
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
                 |JetBundleBaseFunctionCategory&| NIL
                 |UniqueFactorizationDomain&| |JetBundleFunctionCategory&|
-                |GcdDomain&| |DivisionRing&| |IntegralDomain&| |Algebra&|
-                |Algebra&| |Algebra&| |FullyLinearlyExplicitRingOver&|
-                |Module&| NIL NIL |PartialDifferentialRing&| |Module&|
+                |GcdDomain&| |DivisionRing&| NIL |Algebra&| |Algebra&|
+                |Algebra&| |FullyLinearlyExplicitRingOver&| |Module&|
+                |EntireRing&| NIL |PartialDifferentialRing&| |Module&|
                 |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL |Group&| NIL |ExpressionSpace&|
                 |AbelianMonoid&| |Monoid&| NIL NIL NIL |SemiGroup&|
