@@ -154,7 +154,7 @@
 ;   not update? =>
 ;      loadLibNoUpdate(cname, cname, fullLibName)
 ;   kind := GETDATABASE(cname,'CONSTRUCTORKIND)
-;   if $printLoadMsgs = "on" then
+;   if $printLoadMsgs then
 ;     sayKeyedMsg("S2IL0002",[namestring fullLibName,kind,cname])
 ;   load_quietly(fullLibName)
 ;   clearConstructorCache cname
@@ -193,7 +193,7 @@
         (PROGN
          (SETQ |kind| (GETDATABASE |cname| 'CONSTRUCTORKIND))
          (COND
-          ((EQ |$printLoadMsgs| '|on|)
+          (|$printLoadMsgs|
            (|sayKeyedMsg| 'S2IL0002
             (LIST (|namestring| |fullLibName|) |kind| |cname|))))
          (|load_quietly| |fullLibName|)
@@ -232,7 +232,7 @@
  
 ; loadLibNoUpdate(cname, libName, fullLibName) ==
 ;   kind := GETDATABASE(cname,'CONSTRUCTORKIND)
-;   if $printLoadMsgs = "on" then
+;   if $printLoadMsgs then
 ;     sayKeyedMsg("S2IL0002",[namestring fullLibName,kind,cname])
 ;   if CATCH('VERSIONCHECK, load_quietly(fullLibName)) = -1
 ;     then
@@ -254,7 +254,7 @@
      (PROGN
       (SETQ |kind| (GETDATABASE |cname| 'CONSTRUCTORKIND))
       (COND
-       ((EQ |$printLoadMsgs| '|on|)
+       (|$printLoadMsgs|
         (|sayKeyedMsg| 'S2IL0002
          (LIST (|namestring| |fullLibName|) |kind| |cname|))))
       (COND
@@ -730,6 +730,7 @@
      ($REPLACE (LIST |libName| |$spadLibFT|) (LIST |libName| 'ERRORLIB)))))
  
 ; lisplibError(cname,fname,type,cn,fn,typ,error) ==
+;   $bootStrapMode and error = "wrongType" => nil
 ;   sayMSG bright ['"  Illegal ",$spadLibFT]
 ;   error in '(duplicateAbb  wrongType) =>
 ;     sayKeyedMsg("S2IL0007",
@@ -740,16 +741,19 @@
 (DEFUN |lisplibError| (|cname| |fname| |type| |cn| |fn| |typ| |error|)
   (PROG ()
     (RETURN
-     (PROGN
-      (|sayMSG| (|bright| (LIST "  Illegal " |$spadLibFT|)))
-      (COND
-       ((|member| |error| '(|duplicateAbb| |wrongType|))
-        (|sayKeyedMsg| 'S2IL0007
-         (LIST (|namestring| (LIST |fname| |$spadLibFT|)) |type| |cname| |typ|
-               |cn|)))
-       ((EQ |error| '|abbIsName|)
-        (|throwKeyedMsg| 'S2IL0008
-         (LIST |fname| |typ| (|namestring| (LIST |fn| |$spadLibFT|))))))))))
+     (COND ((AND |$bootStrapMode| (EQ |error| '|wrongType|)) NIL)
+           ('T
+            (PROGN
+             (|sayMSG| (|bright| (LIST "  Illegal " |$spadLibFT|)))
+             (COND
+              ((|member| |error| '(|duplicateAbb| |wrongType|))
+               (|sayKeyedMsg| 'S2IL0007
+                (LIST (|namestring| (LIST |fname| |$spadLibFT|)) |type| |cname|
+                      |typ| |cn|)))
+              ((EQ |error| '|abbIsName|)
+               (|throwKeyedMsg| 'S2IL0008
+                (LIST |fname| |typ|
+                      (|namestring| (LIST |fn| |$spadLibFT|))))))))))))
  
 ; getPartialConstructorModemapSig(c) ==
 ;   (s := getConstructorSignature c) => rest s

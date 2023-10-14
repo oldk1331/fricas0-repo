@@ -266,7 +266,7 @@
 ;       LITERALS
 ;       $printLoadMsgs
 ;       (on off)
-;       on)
+;       off)
 ;      (bottomup
 ;       "display bottom up modemap selection"
 ;       development
@@ -735,7 +735,7 @@
      ((|any| "print the internal type of objects of domain Any" |interpreter|
        LITERALS |$printAnyIfTrue| (|on| |off|) |on|)
       (|autoload| "print file auto-load messages" |interpreter| LITERALS
-       |$printLoadMsgs| (|on| |off|) |on|)
+       |$printLoadMsgs| (|on| |off|) |off|)
       (|bottomup| "display bottom up modemap selection" |development| LITERALS
        |$reportBottomUpFlag| (|on| |off|) |off|)
       (|dropmap| "display old map defn when replaced" |interpreter| LITERALS

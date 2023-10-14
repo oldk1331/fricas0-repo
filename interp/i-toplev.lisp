@@ -93,7 +93,6 @@
 ; interpsys_restart() ==
 ;   $IOindex := 1
 ;   $InteractiveFrame := makeInitialModemapFrame()
-;   $printLoadMsgs := 'off
 ;   loadExposureGroupData()
 ;   statisticsInitialization()
 ;   initHist()
@@ -115,7 +114,6 @@
      (PROGN
       (SETQ |$IOindex| 1)
       (SETQ |$InteractiveFrame| (|makeInitialModemapFrame|))
-      (SETQ |$printLoadMsgs| '|off|)
       (|loadExposureGroupData|)
       (|statisticsInitialization|)
       (|initHist|)
