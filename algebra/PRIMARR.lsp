@@ -34,7 +34,7 @@
 (DEFUN |PRIMARR;setelt;$I2S;8| (|x| |i| |s| $) (QSETAREF1 |x| |i| |s|)) 
 
 (DEFUN |PRIMARR;fill!;$S$;9| (|x| |s| $)
-  (PROG (#1=#:G1767 |i|)
+  (PROG (#1=#:G1768 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|PRIMARR;fill!;$S$;9|))
@@ -45,7 +45,7 @@
       (EXIT |x|))))) 
 
 (DEFUN |PRIMARR;hashUpdate!;Hs$Hs;10| (|s| |x| $)
-  (PROG (#1=#:G1771 |i|)
+  (PROG (#1=#:G1772 |i|)
     (RETURN
      (SEQ
       (SEQ (LETT |i| 0 . #2=(|PRIMARR;hashUpdate!;Hs$Hs;10|))
@@ -57,10 +57,10 @@
            (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
       (EXIT |s|))))) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1784)
+(DEFUN |PrimitiveArray| (#1=#:G1785)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1785)
+     (PROG (#2=#:G1786)
        (RETURN
         (COND
          ((LETT #2#
@@ -76,7 +76,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|PrimitiveArray|))))))))))) 
 
 (DEFUN |PrimitiveArray;| (|#1|)
-  (PROG (#1=#:G1783 |pv$| #2=#:G1779 #3=#:G1780 #4=#:G1781 $ |dv$| DV$1)
+  (PROG (#1=#:G1784 |pv$| #2=#:G1780 #3=#:G1781 #4=#:G1782 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|PrimitiveArray|))
@@ -216,7 +216,7 @@
                                     0 0 1 1 0 0 0 1 1 14 0 0 1 2 14 0 6 0 1 2
                                     12 0 26 0 1 4 14 6 21 0 6 6 1 2 12 6 21 0 1
                                     3 12 6 21 0 6 1 3 15 6 0 9 6 15 2 0 6 0 9
-                                    13 3 3 9 6 0 9 1 2 3 9 6 0 1 2 0 9 26 0 1 1
+                                    13 3 8 9 6 0 9 1 2 8 9 6 0 1 2 0 9 26 0 1 1
                                     12 23 0 1 2 0 0 7 6 12 2 0 22 0 7 1 1 7 9 0
                                     10 2 2 0 0 0 1 2 2 0 0 0 1 3 0 0 27 0 0 1 1
                                     12 23 0 1 2 14 22 6 0 1 1 7 9 0 1 2 2 0 0 0

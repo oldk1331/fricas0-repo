@@ -60,8 +60,7 @@
                                           (|HasCategory| |#1|
                                                          '(|shallowlyMutable|))
                                           (|HasCategory| |#2| '(|OrderedSet|))
-                                          (|HasCategory| |#2|
-                                                         '(|SetCategory|))))
+                                          (|HasCategory| |#2| '(|BasicType|))))
                       . #1#))
       (|stuffDomainSlots| $)
       (QSETREFV $ 6 |#1|)
@@ -69,11 +68,11 @@
       (SETF |pv$| (QREFELT $ 3))
       (COND
        ((|testBitVector| |pv$| 3)
-        (PROGN
-         (QSETREFV $ 11 (CONS (|dispatchFunction| |FLAGG-;position;SAI;1|) $))
-         (QSETREFV $ 16
-                   (CONS (|dispatchFunction| |FLAGG-;hashUpdate!;HsAHs;2|)
-                         $)))))
+        (QSETREFV $ 11 (CONS (|dispatchFunction| |FLAGG-;position;SAI;1|) $))))
+      (COND
+       ((|HasCategory| |#2| '(|SetCategory|))
+        (QSETREFV $ 16
+                  (CONS (|dispatchFunction| |FLAGG-;hashUpdate!;HsAHs;2|) $))))
       (COND
        ((|testBitVector| |pv$| 2)
         (PROGN

@@ -4,7 +4,7 @@
 (DEFUN |SExpression| ()
   (PROG ()
     (RETURN
-     (PROG (#1=#:G1798)
+     (PROG (#1=#:G1799)
        (RETURN
         (COND
          ((LETT #1# (HGET |$ConstructorCache| '|SExpression|)

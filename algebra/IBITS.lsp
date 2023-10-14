@@ -129,6 +129,10 @@
                                                            (|InputForm|)))
                                           (|HasCategory| (|Boolean|)
                                                          '(|OrderedSet|))
+                                          (|HasCategory| (|Boolean|)
+                                                         '(|BasicType|))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
                                           (LETT #3#
                                                 (|HasCategory| (|Boolean|)
                                                                '(|SetCategory|))
@@ -137,11 +141,7 @@
                                            (|HasCategory| (|Boolean|)
                                                           '(|Evalable|
                                                             (|Boolean|)))
-                                           #3#)
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|BasicType|))))
+                                           #3#)))
                       . #4#))
       (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1) (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -189,8 +189,8 @@
               = 587 <= 593 < 599 |/\\| 605 |#| 611)
            'NIL
            (CONS
-            (|makeByteWordVec2| 4
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 4
+            (|makeByteWordVec2| 6
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 6
                                   1))
             (CONS
              '#(|BitAggregate&| |OneDimensionalArrayAggregate&|
@@ -223,15 +223,15 @@
                                     14 0 7 14 1 2 0 14 0 7 1 2 3 7 14 0 1 3 3 7
                                     14 0 7 1 2 0 7 42 0 1 1 9 40 0 1 2 0 0 0 0
                                     31 1 0 0 0 1 2 0 0 0 0 1 2 0 0 9 14 21 2 0
-                                    0 0 0 1 2 0 14 0 9 1 1 5 7 0 8 2 0 0 0 0 1
+                                    0 0 0 1 2 0 14 0 9 1 1 4 7 0 8 2 0 0 0 0 1
                                     2 2 0 0 0 1 3 0 0 27 0 0 1 1 9 40 0 1 2 11
-                                    14 14 0 1 1 5 7 0 1 2 0 0 0 0 1 2 7 0 42 0
+                                    14 14 0 1 1 4 7 0 1 2 0 0 0 0 1 2 7 0 42 0
                                     1 2 0 0 42 0 1 3 0 0 27 0 0 28 2 0 14 0 9 1
                                     1 0 11 0 1 3 0 0 0 0 7 1 3 0 0 14 0 7 1 1 0
                                     45 0 1 2 0 14 7 0 1 2 0 48 48 0 1 1 0 49 0
-                                    1 1 5 14 0 1 2 0 46 42 0 1 2 7 0 0 14 1 2 9
-                                    14 42 0 1 2 4 0 0 38 1 3 4 0 0 14 14 1 2 4
-                                    0 0 39 1 3 4 0 0 40 40 1 2 0 14 0 0 1 2 10
+                                    1 1 4 14 0 1 2 0 46 42 0 1 2 7 0 0 14 1 2 9
+                                    14 42 0 1 2 6 0 0 38 1 3 6 0 0 14 14 1 2 6
+                                    0 0 39 1 3 6 0 0 40 40 1 2 0 14 0 0 1 2 10
                                     14 14 0 1 1 0 40 0 1 1 0 14 0 1 0 0 0 22 2
                                     0 14 0 7 15 3 0 14 0 7 14 1 2 0 0 0 44 1 2
                                     0 0 0 7 1 2 0 0 0 44 1 2 11 9 14 0 1 2 9 9

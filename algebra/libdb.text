@@ -7325,14 +7325,14 @@ oposition`2`n`((S)->Boolean,A)->Integer`xFiniteLinearAggregate&(A,S)``0
 oposition`2`n`((S)->Boolean,A)->Integer`xListAggregate&(A,S)``0
 oposition`2`n`((S)->Boolean,A)->Integer`xOneDimensionalArrayAggregate&(A,S)``0
 oposition!`2`x`(_$,SingleInteger)->SingleInteger`dBinaryFile``899558
-oposition`2`x`(S,_$)->Integer`cFiniteLinearAggregate(S)`has(S,SetCategory)`899634
+oposition`2`x`(S,_$)->Integer`cFiniteLinearAggregate(S)`has(S,BasicType)`899634
 oposition`2`x`((S)->Boolean,_$)->Integer`cFiniteLinearAggregate(S)``899793
 oposition`3`n`(S,A,Integer)->Integer`xFiniteLinearAggregate&(A,S)``0
 oposition`3`n`(S,A,Integer)->Integer`xListAggregate&(A,S)``0
 oposition`3`n`(S,A,Integer)->Integer`xOneDimensionalArrayAggregate&(A,S)``0
 oposition`3`x`(_$,_$,Integer)->Integer`cStringAggregate``899998
 oposition`3`x`(CharacterClass,_$,Integer)->Integer`cStringAggregate``900165
-oposition`3`x`(S,_$,Integer)->Integer`cFiniteLinearAggregate(S)`has(S,SetCategory)`900316
+oposition`3`x`(S,_$,Integer)->Integer`cFiniteLinearAggregate(S)`has(S,BasicType)`900316
 opositive?`1`n`(S)->Boolean`xIntegerNumberSystem&(S)``0
 opositive?`1`n`(S)->Boolean`xOrderedRing&(S)``0
 opositive?`1`x`(_$)->Boolean`cIntervalCategory(R)``900529

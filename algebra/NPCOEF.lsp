@@ -456,10 +456,10 @@
           (EXIT |table|))))) 
 
 (DEFUN |NPCOEF;modify| (|tablecoef| |cfter| $)
-  (PROG (|lterase| |ctdet| #1=#:G289 |i| #2=#:G271 #3=#:G270 #4=#:G272
-         #5=#:G288 |cc| |k| #6=#:G269 #7=#:G265 #8=#:G264 #9=#:G266 #10=#:G287
-         #11=#:G286 |celt| #12=#:G262 #13=#:G261 #14=#:G263 #15=#:G285 |term|
-         #16=#:G284 |cterm| |cfpos| |cfcoef| |cfexp|)
+  (PROG (|lterase| |ctdet| #1=#:G291 |i| #2=#:G273 #3=#:G272 #4=#:G274
+         #5=#:G290 |cc| |k| #6=#:G271 #7=#:G265 #8=#:G264 #9=#:G266 #10=#:G289
+         #11=#:G288 |celt| #12=#:G262 #13=#:G261 #14=#:G263 #15=#:G287 |term|
+         #16=#:G286 |cterm| |cfpos| |cfcoef| |cfexp|)
     (RETURN
      (SEQ (LETT |cfexp| (QVELT |cfter| 0) . #17=(|NPCOEF;modify|))
           (LETT |cfcoef| (QVELT |cfter| 1) . #17#)
@@ -649,7 +649,7 @@
                (SPADCALL (SPADCALL |up| (QREFELT $ 68)) (QREFELT $ 12)))))) 
 
 (DEFUN |NPCOEF;constructp| (|lterm| $)
-  (PROG (#1=#:G293 #2=#:G292 #3=#:G294 #4=#:G296 |term|)
+  (PROG (#1=#:G295 #2=#:G294 #3=#:G296 #4=#:G298 |term|)
     (RETURN
      (SEQ
       (PROGN
@@ -668,10 +668,10 @@
             (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
        (COND (#1# #2#) ('T (|spadConstant| $ 71)))))))) 
 
-(DEFUN |NPCoef| (&REST #1=#:G297)
+(DEFUN |NPCoef| (&REST #1=#:G299)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G298)
+     (PROG (#2=#:G300)
        (RETURN
         (COND
          ((LETT #2#

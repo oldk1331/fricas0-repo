@@ -55,13 +55,11 @@
                                                    T)
                                                   ((|position|
                                                     ((|Integer|) |t#1| $))
-                                                   (|has| |t#1|
-                                                          (|SetCategory|)))
+                                                   (|has| |t#1| (|BasicType|)))
                                                   ((|position|
                                                     ((|Integer|) |t#1| $
                                                      (|Integer|)))
-                                                   (|has| |t#1|
-                                                          (|SetCategory|)))
+                                                   (|has| |t#1| (|BasicType|)))
                                                   ((|merge| ($ $ $))
                                                    (|has| |t#1|
                                                           (|OrderedSet|)))

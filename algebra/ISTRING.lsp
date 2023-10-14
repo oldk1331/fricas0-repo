@@ -52,7 +52,7 @@
 (DEFUN |ISTRING;latex;$S;14| (|s| $) (STRCONC "\\mbox{``" (STRCONC |s| "''}"))) 
 
 (DEFUN |ISTRING;replace;$Us2$;15| (|s| |sg| |t| $)
-  (PROG (|k| #1=#:G1275 |i| #2=#:G1274 #3=#:G1273 |r| #4=#:G1267 |h| |n| |m|
+  (PROG (|k| #1=#:G1276 |i| #2=#:G1275 #3=#:G1274 |r| #4=#:G1268 |h| |n| |m|
          |l|)
     (RETURN
      (SEQ
@@ -104,7 +104,7 @@
    ('T (QESET |s| (- |i| (QREFELT $ 6)) |c|)))) 
 
 (DEFUN |ISTRING;substring?;2$IB;18| (|part| |whole| |startpos| $)
-  (PROG (#1=#:G1281 #2=#:G1285 #3=#:G1286 |ip| |iw| |nw| |np|)
+  (PROG (#1=#:G1282 #2=#:G1286 #3=#:G1287 |ip| |iw| |nw| |np|)
     (RETURN
      (SEQ
       (EXIT
@@ -157,7 +157,7 @@
                           (#2# (+ |r| (QREFELT $ 6))))))))))))) 
 
 (DEFUN |ISTRING;position;C$2I;20| (|c| |t| |startpos| $)
-  (PROG (#1=#:G1296 #2=#:G1297 |r|)
+  (PROG (#1=#:G1297 #2=#:G1298 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -184,7 +184,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ISTRING;position;Cc$2I;21| (|cc| |t| |startpos| $)
-  (PROG (#1=#:G1303 #2=#:G1304 |r|)
+  (PROG (#1=#:G1304 #2=#:G1305 |r|)
     (RETURN
      (SEQ
       (EXIT
@@ -349,7 +349,7 @@
       (EXIT (SPADCALL |s| (SPADCALL |i| |n| (QREFELT $ 20)) (QREFELT $ 21))))))) 
 
 (DEFUN |ISTRING;rightTrim;$C$;27| (|s| |c| $)
-  (PROG (#1=#:G1329 |j|)
+  (PROG (#1=#:G1330 |j|)
     (RETURN
      (SEQ
       (SEQ
@@ -367,7 +367,7 @@
                  (QREFELT $ 21))))))) 
 
 (DEFUN |ISTRING;rightTrim;$Cc$;28| (|s| |cc| $)
-  (PROG (#1=#:G1333 |j|)
+  (PROG (#1=#:G1334 |j|)
     (RETURN
      (SEQ
       (SEQ
@@ -387,7 +387,7 @@
                  (QREFELT $ 21))))))) 
 
 (DEFUN |ISTRING;concat;L$;29| (|l| $)
-  (PROG (|i| #1=#:G1342 |s| |t| #2=#:G1335 #3=#:G1334 #4=#:G1336 #5=#:G1341)
+  (PROG (|i| #1=#:G1343 |s| |t| #2=#:G1336 #3=#:G1335 #4=#:G1337 #5=#:G1342)
     (RETURN
      (SEQ
       (LETT |t|
@@ -467,7 +467,7 @@
   (HASHSTATE-UPDATE |hs| (SXHASH |s|))) 
 
 (DEFUN |ISTRING;match?;2$CB;36| (|pattern| |target| |dontcare| $)
-  (PROG (|q| #1=#:G1361 |p| |i| #2=#:G1369 #3=#:G1360 |s| #4=#:G1359 #5=#:G1356
+  (PROG (|q| #1=#:G1362 |p| |i| #2=#:G1370 #3=#:G1361 |s| #4=#:G1360 #5=#:G1357
          |m| |n|)
     (RETURN
      (SEQ
@@ -556,10 +556,10 @@
             (EXIT 'T)))))))
       #2# (EXIT #2#))))) 
 
-(DEFUN |IndexedString| (#1=#:G1381)
+(DEFUN |IndexedString| (#1=#:G1382)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1382)
+     (PROG (#2=#:G1383)
        (RETURN
         (COND
          ((LETT #2#
@@ -575,7 +575,7 @@
              ((NOT #2#) (HREM |$ConstructorCache| '|IndexedString|))))))))))) 
 
 (DEFUN |IndexedString;| (|#1|)
-  (PROG (#1=#:G1380 |pv$| #2=#:G1376 #3=#:G1377 #4=#:G1379 #5=#:G1378 $ |dv$|
+  (PROG (#1=#:G1381 |pv$| #2=#:G1377 #3=#:G1378 #4=#:G1380 #5=#:G1379 $ |dv$|
          DV$1)
     (RETURN
      (PROGN
@@ -735,7 +735,7 @@
                                     0 0 1 3 0 0 0 19 0 43 1 14 0 0 1 2 14 0 8 0
                                     1 2 12 0 82 0 1 4 14 8 79 0 8 8 1 2 12 8 79
                                     0 1 3 12 8 79 0 8 1 3 15 8 0 18 8 44 2 0 8
-                                    0 18 68 2 0 11 0 0 74 2 3 18 8 0 1 3 3 18 8
+                                    0 18 68 2 0 11 0 0 74 2 8 18 8 0 1 3 8 18 8
                                     0 18 49 3 0 18 29 0 18 51 3 0 18 0 0 18 48
                                     2 0 18 82 0 1 1 12 76 0 1 2 0 0 7 8 9 2 0
                                     11 0 7 1 1 7 18 0 28 2 2 0 0 0 1 2 2 0 0 0

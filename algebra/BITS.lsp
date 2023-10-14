@@ -36,6 +36,10 @@
                                                            (|InputForm|)))
                                           (|HasCategory| (|Boolean|)
                                                          '(|OrderedSet|))
+                                          (|HasCategory| (|Boolean|)
+                                                         '(|BasicType|))
+                                          (|HasCategory| (|Integer|)
+                                                         '(|OrderedSet|))
                                           (LETT #1#
                                                 (|HasCategory| (|Boolean|)
                                                                '(|SetCategory|))
@@ -44,11 +48,7 @@
                                            (|HasCategory| (|Boolean|)
                                                           '(|Evalable|
                                                             (|Boolean|)))
-                                           #1#)
-                                          (|HasCategory| (|Integer|)
-                                                         '(|OrderedSet|))
-                                          (|HasCategory| (|Boolean|)
-                                                         '(|BasicType|))))
+                                           #1#)))
                       . #4#))
       (|haddProp| |$ConstructorCache| '|Bits| NIL (CONS 1 $))
       (|stuffDomainSlots| $)
@@ -69,8 +69,8 @@
            '#(NIL NIL NIL NIL NIL (|IndexedBits| (NRTEVAL 1))
               (|NonNegativeInteger|) (|Boolean|) (0 . |new|)
               |BITS;bits;NniB$;1| (|List| 11) (|Equation| 7) (|List| 7)
-              (|Mapping| 7 7 7) (|InputForm|) (|Integer|) (|Mapping| 7 7)
-              (|Void|) (|UniversalSegment| 15) (|List| 15)
+              (|Mapping| 7 7 7) (|Integer|) (|InputForm|) (|Mapping| 7 7)
+              (|Void|) (|UniversalSegment| 14) (|List| 14)
               (|Union| 7 '"failed") (|List| $) (|String|) (|SingleInteger|)
               (|HashState|) (|OutputForm|))
            '#(~= 6 ~ 12 |xor| 17 |swap!| 23 |sorted?| 30 |sort!| 41 |sort| 52
@@ -89,8 +89,8 @@
               547 |/\\| 553 |#| 559)
            'NIL
            (CONS
-            (|makeByteWordVec2| 4
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 4 0 0 0 0 0 0 0 4
+            (|makeByteWordVec2| 6
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 0 0 6
                                   1))
             (CONS
              '#(|BitAggregate&| |OneDimensionalArrayAggregate&|
@@ -102,36 +102,36 @@
              (CONS
               '#((|BitAggregate|) (|OneDimensionalArrayAggregate| 7)
                  (|FiniteLinearAggregate| 7) (|LinearAggregate| 7)
-                 (|OrderedSet|) (|Collection| 7) (|IndexedAggregate| 15 7)
+                 (|OrderedSet|) (|Collection| 7) (|IndexedAggregate| 14 7)
                  (|Comparable|) (|HomogeneousAggregate| 7) (|SetCategory|)
-                 (|EltableAggregate| 15 7) (|Aggregate|) (|Logic|)
+                 (|EltableAggregate| 14 7) (|Aggregate|) (|Logic|)
                  (|Evalable| 7) (|shallowlyMutable|) (|finiteAggregate|)
-                 (|Eltable| 15 7) (|Type|) (|BasicType|) (|PartialOrder|)
-                 (|CoercibleTo| 25) (|InnerEvalable| 7 7) (|ConvertibleTo| 14))
+                 (|Eltable| 14 7) (|Type|) (|BasicType|) (|PartialOrder|)
+                 (|CoercibleTo| 25) (|InnerEvalable| 7 7) (|ConvertibleTo| 15))
               (|makeByteWordVec2| 25
                                   '(2 0 0 6 7 8 2 0 7 0 0 1 1 0 0 0 1 2 0 0 0 0
-                                    1 3 7 17 0 15 15 1 1 2 7 0 1 2 0 7 13 0 1 1
+                                    1 3 7 17 0 14 14 1 1 2 7 0 1 2 0 7 13 0 1 1
                                     8 0 0 1 2 7 0 13 0 1 1 2 0 0 1 2 0 0 13 0 1
-                                    2 0 7 0 0 1 2 0 7 0 6 1 3 7 7 0 15 7 1 3 7
+                                    2 0 7 0 0 1 2 0 7 0 6 1 3 7 7 0 14 7 1 3 7
                                     7 0 18 7 1 2 9 0 16 0 1 0 0 0 1 1 7 0 0 1 1
                                     0 0 0 1 1 11 0 0 1 2 11 0 7 0 1 2 9 0 16 0
                                     1 4 11 7 13 0 7 7 1 3 9 7 13 0 7 1 2 9 7 13
-                                    0 1 3 7 7 0 15 7 1 2 0 7 0 15 1 2 3 15 7 0
-                                    1 3 3 15 7 0 15 1 2 0 15 16 0 1 1 9 12 0 1
+                                    0 1 3 7 7 0 14 7 1 2 0 7 0 14 1 2 3 14 7 0
+                                    1 3 3 14 7 0 14 1 2 0 14 16 0 1 1 9 12 0 1
                                     2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 6 7
-                                    8 2 0 0 0 0 1 2 0 7 0 6 1 1 5 15 0 1 2 0 0
+                                    8 2 0 0 0 0 1 2 0 7 0 6 1 1 4 14 0 1 2 0 0
                                     0 0 1 2 2 0 0 0 1 3 0 0 13 0 0 1 1 9 12 0 1
-                                    2 11 7 7 0 1 1 5 15 0 1 2 0 0 0 0 1 2 7 0
+                                    2 11 7 7 0 1 1 4 14 0 1 2 0 0 0 0 1 2 7 0
                                     16 0 1 2 0 0 16 0 1 3 0 0 13 0 0 1 2 0 7 0
-                                    6 1 1 0 22 0 1 3 0 0 7 0 15 1 3 0 0 0 0 15
-                                    1 1 0 19 0 1 2 0 7 15 0 1 2 0 24 24 0 1 1 0
-                                    23 0 1 1 5 7 0 1 2 0 20 16 0 1 2 7 0 0 7 1
-                                    2 9 7 16 0 1 2 4 0 0 10 1 2 4 0 0 11 1 3 4
-                                    0 0 12 12 1 3 4 0 0 7 7 1 2 0 7 0 0 1 2 10
+                                    6 1 1 0 22 0 1 3 0 0 7 0 14 1 3 0 0 0 0 14
+                                    1 1 0 19 0 1 2 0 7 14 0 1 2 0 24 24 0 1 1 0
+                                    23 0 1 1 4 7 0 1 2 0 20 16 0 1 2 7 0 0 7 1
+                                    2 9 7 16 0 1 2 6 0 0 10 1 2 6 0 0 11 1 3 6
+                                    0 0 12 12 1 3 6 0 0 7 7 1 2 0 7 0 0 1 2 10
                                     7 7 0 1 1 0 12 0 1 1 0 7 0 1 0 0 0 1 3 0 7
-                                    0 15 7 1 2 0 7 0 15 1 2 0 0 0 18 1 2 0 0 0
-                                    18 1 2 0 0 0 15 1 2 11 6 7 0 1 2 9 6 16 0 1
-                                    3 7 0 0 0 15 1 1 0 0 0 1 1 1 14 0 1 1 0 0
+                                    0 14 7 1 2 0 7 0 14 1 2 0 0 0 18 1 2 0 0 0
+                                    18 1 2 0 0 0 14 1 2 11 6 7 0 1 2 9 6 16 0 1
+                                    3 7 0 0 0 14 1 1 0 0 0 1 1 1 15 0 1 1 0 0
                                     12 1 2 0 0 7 0 1 2 0 0 0 7 1 2 0 0 0 0 1 1
                                     0 0 21 1 1 0 25 0 1 2 0 0 6 7 9 2 9 7 16 0
                                     1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 7 0 0 1 2 0 7

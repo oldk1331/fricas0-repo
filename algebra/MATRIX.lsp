@@ -56,7 +56,7 @@
 (DEFUN |MATRIX;inverse;$U;12| (|x| $) (SPADCALL |x| (QREFELT $ 32))) 
 
 (DEFUN |MATRIX;diagonalMatrix;V$;13| (|v| $)
-  (PROG (#1=#:G2139 |i| #2=#:G2140 |j| #3=#:G2141 |k| |ans| |n|)
+  (PROG (#1=#:G2140 |i| #2=#:G2141 |j| #3=#:G2142 |k| |ans| |n|)
     (RETURN
      (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;13|))
           (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 35)) . #4#)
@@ -84,10 +84,10 @@
          (SPADCALL (SPADCALL |x| (QREFELT $ 44)) (QREFELT $ 45)))
    (QREFELT $ 47))) 
 
-(DEFUN |Matrix| (#1=#:G2152)
+(DEFUN |Matrix| (#1=#:G2153)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G2153)
+     (PROG (#2=#:G2154)
        (RETURN
         (COND
          ((LETT #2#
@@ -101,7 +101,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|Matrix|))))))))))) 
 
 (DEFUN |Matrix;| (|#1|)
-  (PROG (|pv$| #1=#:G2149 #2=#:G2150 #3=#:G2151 $ |dv$| DV$1)
+  (PROG (|pv$| #1=#:G2150 #2=#:G2151 #3=#:G2152 $ |dv$| DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))

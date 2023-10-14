@@ -150,7 +150,7 @@
                      (QREFELT $ 39))))))))))) 
 
 (DEFUN |ILIST;=;2$B;22| (|x| |y| $)
-  (PROG (#1=#:G1071)
+  (PROG (#1=#:G1072)
     (RETURN
      (SEQ
       (EXIT
@@ -176,7 +176,7 @@
       #1# (EXIT #1#))))) 
 
 (DEFUN |ILIST;member?;S$B;23| (|s| |x| $)
-  (PROG (#1=#:G1076)
+  (PROG (#1=#:G1077)
     (RETURN
      (SEQ
       (EXIT
@@ -296,7 +296,7 @@
               (QRPLACD |t| (COND ((NULL |p|) |q|) (#1# |p|))) (EXIT |r|)))))))) 
 
 (DEFUN |ILIST;split!;$I$;30| (|p| |n| $)
-  (PROG (|q| #1=#:G1122)
+  (PROG (|q| #1=#:G1123)
     (RETURN
      (SEQ
       (COND ((< |n| 1) (|error| "index out of range"))
@@ -314,7 +314,7 @@
               (LETT |q| (QCDR |p|) . #2#) (QRPLACD |p| NIL) (EXIT |q|)))))))) 
 
 (DEFUN |ILIST;mergeSort| (|f| |p| |n| $)
-  (PROG (|q| |l| #1=#:G1126)
+  (PROG (|q| |l| #1=#:G1127)
     (RETURN
      (SEQ
       (COND
@@ -337,10 +337,10 @@
                (LETT |q| (|ILIST;mergeSort| |f| |q| (- |n| |l|) $) . #2#)
                (EXIT (SPADCALL |f| |p| |q| (QREFELT $ 60))))))))))) 
 
-(DEFUN |IndexedList| (&REST #1=#:G1147)
+(DEFUN |IndexedList| (&REST #1=#:G1148)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1148)
+     (PROG (#2=#:G1149)
        (RETURN
         (COND
          ((LETT #2#
@@ -357,7 +357,7 @@
             (COND ((NOT #2#) (HREM |$ConstructorCache| '|IndexedList|))))))))))) 
 
 (DEFUN |IndexedList;| (|#1| |#2|)
-  (PROG (#1=#:G1145 #2=#:G1146 |pv$| #3=#:G1142 #4=#:G1143 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G1146 #2=#:G1147 |pv$| #3=#:G1143 #4=#:G1144 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|IndexedList|))
@@ -552,7 +552,7 @@
                                     4 0 6 0 1 2 0 0 65 0 1 2 13 0 6 0 1 2 12 0
                                     65 0 1 4 13 6 62 0 6 6 1 3 12 6 62 0 6 1 2
                                     12 6 62 0 1 3 16 6 0 30 6 1 2 0 6 0 30 1 1
-                                    0 11 0 1 3 4 30 6 0 30 1 2 4 30 6 0 1 2 0
+                                    0 11 0 1 3 3 30 6 0 30 1 2 3 30 6 0 1 2 0
                                     30 65 0 1 1 12 25 0 27 1 0 38 0 1 2 4 11 0
                                     0 1 2 0 0 8 6 1 2 0 11 0 8 1 1 11 30 0 31 2
                                     2 0 0 0 1 2 2 0 0 0 1 3 0 0 58 0 0 60 2 2 0

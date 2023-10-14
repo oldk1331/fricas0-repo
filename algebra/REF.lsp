@@ -25,10 +25,10 @@
   (SPADCALL (SPADCALL "ref" (QREFELT $ 17))
             (LIST (SPADCALL (QCAR |p|) (QREFELT $ 18))) (QREFELT $ 20))) 
 
-(DEFUN |Reference| (#1=#:G1795)
+(DEFUN |Reference| (#1=#:G1796)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G1796)
+     (PROG (#2=#:G1797)
        (RETURN
         (COND
          ((LETT #2#
