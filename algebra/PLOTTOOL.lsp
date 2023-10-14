@@ -18,8 +18,7 @@
                 (|sub_DF| (LETT |yHi| (SPADCALL |yVals| (QREFELT $ 8)) . #4#)
                           (LETT |yLo| (SPADCALL |yVals| (QREFELT $ 9)) . #4#))
                 . #4#)
-          (LETT |pad|
-                (|div_DF_I| (FLOAT-SIGN 1.0 (|sub_DF| |yDiff| |xDiff|)) 2)
+          (LETT |pad| (|div_DF_I| (|abs_DF| (|sub_DF| |yDiff| |xDiff|)) 2)
                 . #4#)
           (EXIT
            (COND

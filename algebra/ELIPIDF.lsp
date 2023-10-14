@@ -14,16 +14,14 @@
             (LETT |mu|
                   (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |y|))
                   . #4=(|ELIPIDF;ellipticRC;3Df;2|))
-            (LETT Q
-                  (|mul_DF| (QREFELT $ 16)
-                            (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)))
+            (LETT Q (|mul_DF| (QREFELT $ 16) (|abs_DF| (|sub_DF| |mu| |x|)))
                   . #4#)
             (EXIT
              (SEQ G190 NIL
                   (SEQ
                    (EXIT
                     (COND
-                     ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                     ((|less_DF| Q (|abs_DF| |mu|))
                       (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #4#)
                            (LETT |sn| (|mul_DF| |mu_inv| (|sub_DF| |y| |mu|))
                                  . #4#)
@@ -96,9 +94,9 @@
             (LETT |mu|
                   (|mul_DF| (QREFELT $ 7) (|add_DF| (|add_DF| |x| |y|) |z|))
                   . #6=(|ELIPIDF;ellipticRF;4Df;3|))
-            (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #6#)
-            (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #6#)
-            (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #6#)
+            (LETT |xadev| (|abs_DF| (|sub_DF| |mu| |x|)) . #6#)
+            (LETT |yadev| (|abs_DF| (|sub_DF| |mu| |y|)) . #6#)
+            (LETT |zadev| (|abs_DF| (|sub_DF| |mu| |z|)) . #6#)
             (LETT Q
                   (|mul_DF| (QREFELT $ 21)
                             (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
@@ -108,7 +106,7 @@
                   (SEQ
                    (EXIT
                     (COND
-                     ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                     ((|less_DF| Q (|abs_DF| |mu|))
                       (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #6#)
                            (LETT |xndev|
                                  (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|) . #6#)
@@ -193,9 +191,9 @@
                                            (FLOAT 3 MOST-POSITIVE-DOUBLE-FLOAT)
                                            |z|)))
                       . #7#)
-                (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #7#)
-                (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #7#)
-                (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #7#)
+                (LETT |xadev| (|abs_DF| (|sub_DF| |mu| |x|)) . #7#)
+                (LETT |yadev| (|abs_DF| (|sub_DF| |mu| |y|)) . #7#)
+                (LETT |zadev| (|abs_DF| (|sub_DF| |mu| |z|)) . #7#)
                 (LETT Q
                       (|mul_DF| (QREFELT $ 27)
                                 (|max_DF| |xadev| (|max_DF| |yadev| |zadev|)))
@@ -205,7 +203,7 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                         ((|less_DF| Q (|abs_DF| |mu|))
                           (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #7#)
                                (LETT |xndev|
                                      (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|)
@@ -341,10 +339,10 @@
                                            |p|)
                                  |p|))
                       . #7#)
-                (LETT |xadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |x|)) . #7#)
-                (LETT |yadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |y|)) . #7#)
-                (LETT |zadev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |z|)) . #7#)
-                (LETT |padev| (FLOAT-SIGN 1.0 (|sub_DF| |mu| |p|)) . #7#)
+                (LETT |xadev| (|abs_DF| (|sub_DF| |mu| |x|)) . #7#)
+                (LETT |yadev| (|abs_DF| (|sub_DF| |mu| |y|)) . #7#)
+                (LETT |zadev| (|abs_DF| (|sub_DF| |mu| |z|)) . #7#)
+                (LETT |padev| (|abs_DF| (|sub_DF| |mu| |p|)) . #7#)
                 (LETT Q
                       (|mul_DF| (QREFELT $ 27)
                                 (|max_DF| (|max_DF| |xadev| |yadev|)
@@ -355,7 +353,7 @@
                       (SEQ
                        (EXIT
                         (COND
-                         ((|less_DF| Q (FLOAT-SIGN 1.0 |mu|))
+                         ((|less_DF| Q (|abs_DF| |mu|))
                           (SEQ (LETT |mu_inv| (|div_DF| 1.0 |mu|) . #7#)
                                (LETT |xndev|
                                      (|mul_DF| (|sub_DF| |mu| |x|) |mu_inv|)

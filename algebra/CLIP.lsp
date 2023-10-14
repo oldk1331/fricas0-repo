@@ -127,7 +127,7 @@
                              (SEQ
                               (LETT |yMin|
                                     (COND
-                                     ((|less_DF| (FLOAT-SIGN 1.0 |yMin|) 1.0)
+                                     ((|less_DF| (|abs_DF| |yMin|) 1.0)
                                       (|sub_DF| |yMin| |single_eps|))
                                      ((|less_DF| |yMin| 0.0)
                                       (|mul_DF| |yMin|
@@ -139,7 +139,7 @@
                               (EXIT
                                (LETT |yMax|
                                      (COND
-                                      ((|less_DF| (FLOAT-SIGN 1.0 |yMax|) 1.0)
+                                      ((|less_DF| (|abs_DF| |yMax|) 1.0)
                                        (|add_DF| |yMax| |single_eps|))
                                       ((|less_DF| |yMax| 0.0)
                                        (|mul_DF| |yMax|

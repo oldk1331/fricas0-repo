@@ -28,8 +28,8 @@
           (LETT |y1| (SPADCALL |p1| (QREFELT $ 27)) . #3#)
           (EXIT
            (COND
-            ((|less_DF| (FLOAT-SIGN 1.0 (|sub_DF| |x1| |x0|)) (QREFELT $ 15))
-             (|less_DF| (FLOAT-SIGN 1.0 (|sub_DF| |y1| |y0|)) (QREFELT $ 15)))
+            ((|less_DF| (|abs_DF| (|sub_DF| |x1| |x0|)) (QREFELT $ 15))
+             (|less_DF| (|abs_DF| (|sub_DF| |y1| |y0|)) (QREFELT $ 15)))
             ('T 'NIL)))))) 
 
 (SDEFUN |ACPLOT;findPtOnList|
@@ -1110,8 +1110,7 @@
                        (|spadConstant| $ 108) (QREFELT $ 109))
                       (LETT |leftVal|
                             (|sub_DF| |depVarMinSF|
-                                      (|add_DF| (FLOAT-SIGN 1.0 |depVarMinSF|)
-                                                1.0))
+                                      (|add_DF| (|abs_DF| |depVarMinSF|) 1.0))
                             . #24#))
                      (#25#
                       (LETT |leftVal| (SPADCALL |indVarMinSF| |f|) . #24#)))
@@ -1121,8 +1120,7 @@
                        (|spadConstant| $ 108) (QREFELT $ 109))
                       (LETT |rightVal|
                             (|sub_DF| |depVarMinSF|
-                                      (|add_DF| (FLOAT-SIGN 1.0 |depVarMinSF|)
-                                                1.0))
+                                      (|add_DF| (|abs_DF| |depVarMinSF|) 1.0))
                             . #24#))
                      (#25#
                       (LETT |rightVal| (SPADCALL |indVarMaxSF| |f|) . #24#)))
@@ -2106,8 +2104,7 @@
                    (QREFELT $ 131))
                   . #14#)
             (COND
-             ((SPADCALL (FLOAT-SIGN 1.0 |py|) (FLOAT-SIGN 1.0 |px|)
-                        (QREFELT $ 112))
+             ((SPADCALL (|abs_DF| |py|) (|abs_DF| |px|) (QREFELT $ 112))
               (SEQ (LETT |incVar0| (LETT |incVar| |x| . #14#) . #14#)
                    (LETT |deltaX|
                          (COND ((SPADCALL |x1| |x0| (QREFELT $ 112)) |delta|)
@@ -2204,8 +2201,8 @@
                          ((NULL (|eql_DF| |xx| |x1|))
                           (COND
                            ((|less_DF|
-                             (|min_DF| (FLOAT-SIGN 1.0 (|sub_DF| |yy| |yLo|))
-                                       (FLOAT-SIGN 1.0 (|sub_DF| |yy| |yHi|)))
+                             (|min_DF| (|abs_DF| (|sub_DF| |yy| |yLo|))
+                                       (|abs_DF| (|sub_DF| |yy| |yHi|)))
                              |delta|)
                             (LETT |xPointList| (CONS |pt| |xPointList|)
                                   . #14#)))))))
@@ -2215,8 +2212,8 @@
                          ((|less_DF| |xx| |xHi|)
                           (COND
                            ((|less_DF|
-                             (|min_DF| (FLOAT-SIGN 1.0 (|sub_DF| |yy| |yLo|))
-                                       (FLOAT-SIGN 1.0 (|sub_DF| |yy| |yHi|)))
+                             (|min_DF| (|abs_DF| (|sub_DF| |yy| |yLo|))
+                                       (|abs_DF| (|sub_DF| |yy| |yHi|)))
                              |delta|)
                             (SEQ (LETT |xPointList| (CONS |pt| NIL) . #14#)
                                  (LETT |x2Approx| |xx| . #14#)
@@ -2238,8 +2235,8 @@
                           ((|less_DF| |yy| |yHi|)
                            (COND
                             ((|less_DF|
-                              (|min_DF| (FLOAT-SIGN 1.0 (|sub_DF| |xx| |xLo|))
-                                        (FLOAT-SIGN 1.0 (|sub_DF| |xx| |xHi|)))
+                              (|min_DF| (|abs_DF| (|sub_DF| |xx| |xLo|))
+                                        (|abs_DF| (|sub_DF| |xx| |xHi|)))
                               |delta|)
                              (SEQ (LETT |yPointList| (CONS |pt| NIL) . #14#)
                                   (LETT |y2Approx| |yy| . #14#)
@@ -2322,9 +2319,8 @@
                            (LETT #5#
                                  (|ACPLOT;computeNextPt| |pSF| |dpdxSF|
                                   |dpdySF| |x| |y| |p0| |p1| |corners|
-                                  (FLOAT-SIGN 1.0
-                                              (|div_DF_I|
-                                               (|sub_DF| |x2Approx| |x1|) 2))
+                                  (|abs_DF|
+                                   (|div_DF_I| (|sub_DF| |x2Approx| |x1|) 2))
                                   |err| |bound| |crits| |bdry| $)
                                  . #14#)
                            (GO #5#)))
@@ -2349,8 +2345,8 @@
                                (EXIT
                                 (COND
                                  ((SPADCALL
-                                   (FLOAT-SIGN 1.0 (|sub_DF| |x2Approx| |x1|))
-                                   (FLOAT-SIGN 1.0 (|sub_DF| |x2Temp| |x1|))
+                                   (|abs_DF| (|sub_DF| |x2Approx| |x1|))
+                                   (|abs_DF| (|sub_DF| |x2Temp| |x1|))
                                    (QREFELT $ 112))
                                   (PROGN
                                    (LETT #5# (CONS |pt1| (QREFELT $ 16))
@@ -2383,10 +2379,9 @@
                                (GO #5#)))
                              (#15#
                               (COND
-                               ((SPADCALL
-                                 (FLOAT-SIGN 1.0 (|sub_DF| |x2Approx| |x1|))
-                                 (FLOAT-SIGN 1.0 (|sub_DF| |x2Temp| |x1|))
-                                 (QREFELT $ 112))
+                               ((SPADCALL (|abs_DF| (|sub_DF| |x2Approx| |x1|))
+                                          (|abs_DF| (|sub_DF| |x2Temp| |x1|))
+                                          (QREFELT $ 112))
                                 (PROGN
                                  (LETT #5#
                                        (CONS (QCDR |critPt2|) (QREFELT $ 18))
@@ -2448,9 +2443,8 @@
                            (LETT #5#
                                  (|ACPLOT;computeNextPt| |pSF| |dpdxSF|
                                   |dpdySF| |x| |y| |p0| |p1| |corners|
-                                  (FLOAT-SIGN 1.0
-                                              (|div_DF_I|
-                                               (|sub_DF| |y2Approx| |y1|) 2))
+                                  (|abs_DF|
+                                   (|div_DF_I| (|sub_DF| |y2Approx| |y1|) 2))
                                   |err| |bound| |crits| |bdry| $)
                                  . #14#)
                            (GO #5#)))
@@ -2475,8 +2469,8 @@
                                (EXIT
                                 (COND
                                  ((SPADCALL
-                                   (FLOAT-SIGN 1.0 (|sub_DF| |y2Approx| |y1|))
-                                   (FLOAT-SIGN 1.0 (|sub_DF| |y2Temp| |y1|))
+                                   (|abs_DF| (|sub_DF| |y2Approx| |y1|))
+                                   (|abs_DF| (|sub_DF| |y2Temp| |y1|))
                                    (QREFELT $ 112))
                                   (PROGN
                                    (LETT #5# (CONS |pt2| (QREFELT $ 16))
@@ -2509,10 +2503,9 @@
                                (GO #5#)))
                              (#15#
                               (COND
-                               ((SPADCALL
-                                 (FLOAT-SIGN 1.0 (|sub_DF| |y2Approx| |y1|))
-                                 (FLOAT-SIGN 1.0 (|sub_DF| |y2Temp| |y1|))
-                                 (QREFELT $ 112))
+                               ((SPADCALL (|abs_DF| (|sub_DF| |y2Approx| |y1|))
+                                          (|abs_DF| (|sub_DF| |y2Temp| |y1|))
+                                          (QREFELT $ 112))
                                 (PROGN
                                  (LETT #5#
                                        (CONS (QCDR |critPt1|) (QREFELT $ 18))
@@ -2637,8 +2630,7 @@
                        (LETT #5#
                              (|ACPLOT;computeNextPt| |pSF| |dpdxSF| |dpdySF|
                               |x| |y| |p0| |p1| |corners|
-                              (FLOAT-SIGN 1.0
-                                          (|div_DF_I| (|sub_DF| |x2| |x1|) 2))
+                              (|abs_DF| (|div_DF_I| (|sub_DF| |x2| |x1|) 2))
                               |err| |bound| |crits| |bdry| $)
                              . #14#)
                        (GO #5#)))
@@ -2659,8 +2651,7 @@
                        (LETT #5#
                              (|ACPLOT;computeNextPt| |pSF| |dpdxSF| |dpdySF|
                               |x| |y| |p0| |p1| |corners|
-                              (FLOAT-SIGN 1.0
-                                          (|div_DF_I| (|sub_DF| |y2| |y1|) 2))
+                              (|abs_DF| (|div_DF_I| (|sub_DF| |y2| |y1|) 2))
                               |err| |bound| |crits| |bdry| $)
                              . #14#)
                        (GO #5#)))
@@ -2708,9 +2699,8 @@
             (SEQ G190
                  (COND
                   ((NULL
-                    (SPADCALL
-                     (FLOAT-SIGN 1.0 (|sub_DF| |newApprox| |oldApprox|)) |err|
-                     (QREFELT $ 112)))
+                    (SPADCALL (|abs_DF| (|sub_DF| |newApprox| |oldApprox|))
+                              |err| (QREFELT $ 112)))
                    (GO G191)))
                  (SEQ
                   (EXIT

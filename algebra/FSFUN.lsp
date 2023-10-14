@@ -491,10 +491,10 @@
 (SDEFUN |FSFUN;rabs;CF;13| ((|r| |Complex| (|Float|)) ($ |Float|))
         (SPADCALL (SPADCALL |r| (QREFELT $ 49)) (QREFELT $ 38))) 
 
-(PUT '|FSFUN;rabs;2Df;14| '|SPADreplace| '(XLAM (|r|) (FLOAT-SIGN 1.0 |r|))) 
+(PUT '|FSFUN;rabs;2Df;14| '|SPADreplace| '|abs_DF|) 
 
 (SDEFUN |FSFUN;rabs;2Df;14| ((|r| |DoubleFloat|) ($ |DoubleFloat|))
-        (FLOAT-SIGN 1.0 |r|)) 
+        (|abs_DF| |r|)) 
 
 (SDEFUN |FSFUN;rabs;CDf;15| ((|r| |Complex| (|DoubleFloat|)) ($ |DoubleFloat|))
         (SPADCALL (SPADCALL |r| (QREFELT $ 76)) (QREFELT $ 77))) 
@@ -1498,9 +1498,8 @@
                              (#2#
                               (SEQ
                                (COND
-                                ((|less_DF|
-                                  (LETT |ax| (FLOAT-SIGN 1.0 |x|) . #3#)
-                                  (|div_DF_I| 1.0 2))
+                                ((|less_DF| (LETT |ax| (|abs_DF| |x|) . #3#)
+                                            (|div_DF_I| 1.0 2))
                                  (LETT |eps| (|mul_DF| |ax| |eps|) . #3#)))
                                (EXIT
                                 (SPADCALL |x| |w| |eps|
@@ -1521,9 +1520,7 @@
                   (LETT |rx| (SPADCALL |x| (QREFELT $ 77))
                         . #3=(|FSFUN;lambertW;2C;38|))
                   (LETT |ix| (SPADCALL |x| (QREFELT $ 124)) . #3#)
-                  (LETT |ax|
-                        (|add_DF| (FLOAT-SIGN 1.0 |rx|) (FLOAT-SIGN 1.0 |ix|))
-                        . #3#)
+                  (LETT |ax| (|add_DF| (|abs_DF| |rx|) (|abs_DF| |ix|)) . #3#)
                   (LETT |eps| (SPADCALL 1 -35 (QREFELT $ 114)) . #3#)
                   (LETT |ox| (SPADCALL |ax| (QREFELT $ 115)) . #3#)
                   (EXIT
@@ -1545,7 +1542,7 @@
                          (#2#
                           (SEQ
                            (COND
-                            ((|less_DF| (FLOAT-SIGN 1.0 |ix|)
+                            ((|less_DF| (|abs_DF| |ix|)
                                         (SPADCALL
                                          (SPADCALL 1 4194304 (QREFELT $ 12))
                                          (QREFELT $ 101)))

@@ -480,9 +480,7 @@
                    (#1='T 0.0)))
                  (#1#
                   (SEQ
-                   (LETT |theta|
-                         (|atan_DF|
-                          (SPADCALL (|div_DF| |y| |x|) (QREFELT $ 162)))
+                   (LETT |theta| (|atan_DF| (|abs_DF| (|div_DF| |y| |x|)))
                          . #2=(|DFLOAT;atan;3$;97|))
                    (COND
                     ((|less_DF| |x| 0.0)
@@ -536,11 +534,11 @@
                       ('T (CONS 1 "failed"))))))) 
 
 (SDEFUN |DFLOAT;sign;$I;102| ((|x| $) ($ |Integer|))
-        (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT $ 167))) 
+        (SPADCALL (FLOAT-SIGN |x| 1.0) (QREFELT $ 166))) 
 
-(PUT '|DFLOAT;abs;2$;103| '|SPADreplace| '(XLAM (|x|) (FLOAT-SIGN 1.0 |x|))) 
+(PUT '|DFLOAT;abs;2$;103| '|SPADreplace| '|abs_DF|) 
 
-(SDEFUN |DFLOAT;abs;2$;103| ((|x| $) ($ $)) (FLOAT-SIGN 1.0 |x|)) 
+(SDEFUN |DFLOAT;abs;2$;103| ((|x| $) ($ $)) (|abs_DF| |x|)) 
 
 (SDEFUN |DFLOAT;manexp|
         ((|x| $)
@@ -554,9 +552,9 @@
            (COND ((|zero?_DF| |x|) (CONS 0 0))
                  ('T
                   (SEQ
-                   (LETT |s| (SPADCALL |x| (QREFELT $ 169))
+                   (LETT |s| (SPADCALL |x| (QREFELT $ 168))
                          . #2=(|DFLOAT;manexp|))
-                   (LETT |x| (SPADCALL |x| (QREFELT $ 162)) . #2#)
+                   (LETT |x| (|abs_DF| |x|) . #2#)
                    (COND
                     ((SPADCALL |x| MOST-POSITIVE-DOUBLE-FLOAT (QREFELT $ 161))
                      (PROGN
@@ -837,14 +835,15 @@
               |DFLOAT;convert;$F;95| (|Fraction| 26)
               |DFLOAT;rationalApproximation;$2NniF;105|
               |DFLOAT;rationalApproximation;$NniF;96| (204 . >)
-              |DFLOAT;abs;2$;103| |DFLOAT;atan;3$;97| |DFLOAT;retract;$F;98|
+              |DFLOAT;atan;3$;97| |DFLOAT;retract;$F;98|
               (|Union| 158 '"failed") |DFLOAT;retractIfCan;$U;99|
               |DFLOAT;retract;$I;100| |DFLOAT;retractIfCan;$U;101|
-              |DFLOAT;sign;$I;102| (210 . ^) (216 . |coerce|) (221 . /)
-              (227 . *) (233 . |zero?|) (238 . |negative?|) (243 . |One|)
-              (247 . =) (253 . |numer|) (258 . |denom|) |DFLOAT;^;$F$;106|
-              (|List| $) (|PatternMatchResult| 138 $) (|Pattern| 138)
-              (|Factored| $) (|Union| 181 '#1="failed")
+              |DFLOAT;sign;$I;102| |DFLOAT;abs;2$;103| (210 . ^)
+              (216 . |coerce|) (221 . /) (227 . *) (233 . |zero?|)
+              (238 . |negative?|) (243 . |One|) (247 . =) (253 . |numer|)
+              (258 . |denom|) |DFLOAT;^;$F$;106| (|List| $)
+              (|PatternMatchResult| 138 $) (|Pattern| 138) (|Factored| $)
+              (|Union| 181 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 187 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
@@ -967,9 +966,9 @@
                                     0 0 82 1 0 0 0 69 2 0 97 0 0 1 2 0 0 0 0 1
                                     2 0 0 0 0 1 1 0 0 0 1 1 0 184 0 1 1 0 0 0
                                     58 2 0 20 0 0 1 2 0 20 0 0 1 1 0 0 0 80 1 0
-                                    0 0 67 1 0 26 0 169 1 0 0 0 85 1 0 0 0 71 0
-                                    0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 165 0 166 1 0
-                                    119 0 168 1 0 158 0 164 1 0 26 0 167 2 0 0
+                                    0 0 67 1 0 26 0 168 1 0 0 0 85 1 0 0 0 71 0
+                                    0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 164 0 165 1 0
+                                    119 0 167 1 0 158 0 163 1 0 26 0 166 2 0 0
                                     0 0 1 1 0 97 0 98 3 0 158 0 121 121 159 2 0
                                     158 0 121 160 2 0 0 0 0 1 1 0 0 0 59 1 0 0
                                     0 66 1 0 190 181 1 1 0 20 0 1 1 1 24 24 1 0
@@ -1003,12 +1002,12 @@
                                     1 1 0 0 26 63 1 0 41 0 44 0 0 121 1 1 0 0 0
                                     1 1 1 24 24 1 0 0 24 32 2 0 0 0 0 112 2 0 0
                                     0 0 110 2 0 0 0 0 108 2 0 0 0 0 106 0 0 24
-                                    25 1 0 0 0 88 2 0 0 0 0 163 1 0 0 0 75 2 0
+                                    25 1 0 0 0 88 2 0 0 0 0 162 1 0 0 0 75 2 0
                                     20 0 0 1 1 0 0 0 86 1 0 0 0 73 1 0 0 0 91 1
                                     0 0 0 79 2 0 20 0 0 1 2 0 0 0 0 1 1 0 0 0 1
                                     1 0 0 0 104 1 0 0 0 1 1 0 0 0 102 1 0 0 0
                                     89 1 0 0 0 76 1 0 0 0 90 1 0 0 0 78 1 0 0 0
-                                    87 1 0 0 0 74 1 0 0 0 162 2 0 0 0 0 62 2 0
+                                    87 1 0 0 0 74 1 0 0 0 169 2 0 0 0 0 62 2 0
                                     0 0 158 180 2 0 0 0 26 61 2 0 0 0 121 1 2 0
                                     0 0 24 1 0 0 0 36 0 0 0 37 2 0 13 11 0 22 3
                                     0 13 11 0 20 23 2 0 7 0 20 21 1 0 7 0 19 2

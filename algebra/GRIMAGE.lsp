@@ -242,7 +242,7 @@
           (LETT |low| (SPADCALL |range| (QREFELT $ 46)) . #1#)
           (LETT |low|
                 (COND
-                 ((|less_DF| (FLOAT-SIGN 1.0 |low|) 1.0)
+                 ((|less_DF| (|abs_DF| |low|) 1.0)
                   (|sub_DF| |low| |single_eps|))
                  ((|less_DF| |low| 0.0)
                   (|mul_DF|
@@ -260,7 +260,7 @@
           (LETT |high| (SPADCALL |range| (QREFELT $ 45)) . #1#)
           (LETT |high|
                 (COND
-                 ((|less_DF| (FLOAT-SIGN 1.0 |high|) 1.0)
+                 ((|less_DF| (|abs_DF| |high|) 1.0)
                   (|add_DF| |high| |single_eps|))
                  ((|less_DF| |high| 0.0)
                   (|mul_DF|
