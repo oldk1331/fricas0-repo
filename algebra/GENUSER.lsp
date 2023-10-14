@@ -654,7 +654,7 @@
                   (|GENUSER;apply_taylor1| |stc| |xs| (|spadConstant| $ 29) $)
                   (QREFELT $ 90)))
                 (#4#
-                 (|error| "apply_taylor: x does not has positive order"))))))) 
+                 (|error| "apply_taylor: x does not have positive order"))))))) 
 
 (SDEFUN |GENUSER;=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG

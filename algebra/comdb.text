@@ -3565,7 +3565,7 @@
 374288`\spad{gcd(f1,{} f2,{} p)} computes the \spad{gcd} of the univariate polynomials \spad{f1} and \spad{f2} modulo the integer prime \spad{p}.
 374358`\spad{gcd(a,{} lo,{} \spad{hi},{} p)} computes \spad{gcd} of elements a(\spad{lo}),{} a(\spad{lo+1}),{} ...,{} a(\spad{hi}).
 374469`\spad{gcdBasis(lp)} computes \spad{gcd} basis of \spad{lp}
-374559`\spad{gcdBasis(v)} returns basis part \spad{o}
+374559`\spad{gcdBasis(v)} returns basis part of \spad{gcdDecomposition(v)}.
 374617`\spad{gcdcofact([f1,{} ..fk])} = \spad{gcd} and cofactors of \spad{k} univariate polynomials.
 374673`\spad{gcdcofactprim([f1,{} ..fk])} = \spad{gcd} and cofactors of \spad{k} primitive polynomials.
 374733`\spad{gcdDecomposition(v)} returns \spad{[b,{} t]} such that elements of \spad{b} are relatively prime and that \spad{v(i) = product(b(j)^(t(j,{} i)),{} j=1..n)}
