@@ -28,9 +28,9 @@
            (COND
             ((SPADCALL (SPADCALL |y| |i| (QREFELT $ 22)) (|spadConstant| $ 17)
                        (QREFELT $ 23))
-             (PROGN (LETT #1# 'T . #3#) (GO #1#))))))
+             (PROGN (LETT #1# 'NIL . #3#) (GO #1#))))))
          (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
-        (EXIT 'NIL)))
+        (EXIT 'T)))
       #1# (EXIT #1#))))) 
 
 (DEFUN |VECTCAT-;-;2S;4| (|u| $) (SPADCALL (ELT $ 25) |u| (QREFELT $ 27))) 
