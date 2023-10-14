@@ -448,14 +448,12 @@
     (COND
      ((QEQCAR |p1| 0)
       (CONS 1
-            (CONS
-             (QCDR (SPADCALL |p1| (CONS 0 (QCAR (QCDR |p2|))) (QREFELT $ 55)))
-             (QCDR (QCDR |p2|)))))
+            (CONS (SPADCALL (QCDR |p1|) (QCAR (QCDR |p2|)) (QREFELT $ 61))
+                  (QCDR (QCDR |p2|)))))
      ((QEQCAR |p2| 0)
       (CONS 1
-            (CONS
-             (QCDR (SPADCALL |p2| (CONS 0 (QCAR (QCDR |p1|))) (QREFELT $ 55)))
-             (QCDR (QCDR |p1|)))))
+            (CONS (SPADCALL (QCDR |p2|) (QCAR (QCDR |p1|)) (QREFELT $ 61))
+                  (QCDR (QCDR |p1|)))))
      ('T
       (|XRPOLY;simplifie|
        (CONS
@@ -476,9 +474,8 @@
     (COND
      ((QEQCAR |p1| 0)
       (CONS 1
-            (CONS
-             (QCDR (SPADCALL |p1| (CONS 0 (QCAR (QCDR |p2|))) (QREFELT $ 92)))
-             (SPADCALL (QCDR (QCDR |p2|)) (QREFELT $ 90)))))
+            (CONS (SPADCALL (QCDR |p1|) (QCAR (QCDR |p2|)) (QREFELT $ 91))
+                  (SPADCALL (QCDR (QCDR |p2|)) (QREFELT $ 90)))))
      ((QEQCAR |p2| 0)
       (CONS 1
             (CONS
@@ -733,7 +730,7 @@
                                       (SPADCALL |fn| (QCDR |t|)
                                                 (QREFELT $ 120))
                                       . #3#)
-                                (CONS 0 (|spadConstant| $ 15)) (QREFELT $ 26))
+                                (|spadConstant| $ 14) (QREFELT $ 26))
                                (LETT #2# (CONS (CONS (QCAR |t|) |a|) #2#)
                                      . #3#)))))
                            (LETT #1# (CDR #1#) . #3#) (GO G190) G191

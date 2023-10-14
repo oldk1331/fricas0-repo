@@ -191,13 +191,20 @@
                    (QREFELT $ 70))))) 
 
 (DEFUN |SMP;monomial;RIe$;18| (|c| |e| $)
-  (COND ((SPADCALL |e| (QREFELT $ 72)) (CONS 0 |c|))
-        ('T
-         (SPADCALL
-          (SPADCALL (|spadConstant| $ 14) (SPADCALL |e| (QREFELT $ 73))
-                    (SPADCALL |e| (QREFELT $ 74)) (QREFELT $ 56))
-          (SPADCALL |c| (SPADCALL |e| (QREFELT $ 75)) (QREFELT $ 76))
-          (QREFELT $ 70))))) 
+  (PROG (|m1| |p1|)
+    (RETURN
+     (SEQ
+      (COND ((SPADCALL |e| (QREFELT $ 72)) (CONS 0 |c|))
+            ('T
+             (SEQ
+              (LETT |p1|
+                    (SPADCALL |c| (SPADCALL |e| (QREFELT $ 73)) (QREFELT $ 74))
+                    . #1=(|SMP;monomial;RIe$;18|))
+              (LETT |m1|
+                    (SPADCALL |p1| (SPADCALL |e| (QREFELT $ 75))
+                              (QREFELT $ 27))
+                    . #1#)
+              (EXIT (CONS 1 (CONS (SPADCALL |e| (QREFELT $ 76)) |m1|)))))))))) 
 
 (DEFUN |SMP;coefficient;$IeR;19| (|p| |e| $)
   (PROG (|vp| |ve|)
@@ -212,7 +219,7 @@
        ((QEQCAR |p| 0) (QCDR (|spadConstant| $ 12)))
        (#1#
         (SEQ
-         (LETT |ve| (SPADCALL |e| (QREFELT $ 73))
+         (LETT |ve| (SPADCALL |e| (QREFELT $ 76))
                . #2=(|SMP;coefficient;$IeR;19|))
          (LETT |vp| (QCAR (QCDR |p|)) . #2#)
          (EXIT
@@ -223,9 +230,9 @@
            ((SPADCALL |ve| |vp| (QREFELT $ 68)) (QCDR (|spadConstant| $ 12)))
            (#1#
             (SPADCALL
-             (SPADCALL (QCDR (QCDR |p|)) (SPADCALL |e| (QREFELT $ 74))
+             (SPADCALL (QCDR (QCDR |p|)) (SPADCALL |e| (QREFELT $ 75))
                        (QREFELT $ 77))
-             (SPADCALL |e| (QREFELT $ 75)) (QREFELT $ 78)))))))))))) 
+             (SPADCALL |e| (QREFELT $ 73)) (QREFELT $ 78)))))))))))) 
 
 (DEFUN |SMP;coerce;I$;20| (|n| $) (CONS 0 (SPADCALL |n| (QREFELT $ 80)))) 
 
@@ -760,7 +767,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;45| (|a| |b| $)
-  (PROG (|mong| #1=#:G402 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G403 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -879,7 +886,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;52| (|a| |b| $)
-  (PROG (|mong| #1=#:G434 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G435 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -984,7 +991,7 @@
                  (#1# (CONS 1 (CONS |mvar| |up|)))))))))))))) 
 
 (DEFUN |SMP;gcdPolynomial;3Sup;55| (|a| |b| $)
-  (PROG (|mong| #1=#:G462 |monb| |contb| |mona| |conta|)
+  (PROG (|mong| #1=#:G463 |monb| |contb| |mona| |conta|)
     (RETURN
      (SEQ
       (COND
@@ -1054,7 +1061,7 @@
                    (QREFELT $ 158))))) 
 
 (DEFUN |SMP;coefficients;$L;57| (|p| $)
-  (PROG (#1=#:G479 #2=#:G478 #3=#:G480 #4=#:G482 |p1|)
+  (PROG (#1=#:G480 #2=#:G479 #3=#:G481 #4=#:G483 |p1|)
     (RETURN
      (SEQ
       (COND ((QEQCAR |p| 0) (SPADCALL (QCDR |p|) (QREFELT $ 161)))
@@ -1189,7 +1196,7 @@
     (RETURN (PROGN (|SMP;evalSortedVarlist| |x1| |Lvar| |Lpval| $))))) 
 
 (DEFUN |SMP;eval;$LL$;66| (|p| |Lvar| |Lpval| $)
-  (PROG (|nlpval| #1=#:G539 |mvar| #2=#:G538 |nlvar|)
+  (PROG (|nlpval| #1=#:G540 |mvar| #2=#:G539 |nlvar|)
     (RETURN
      (SEQ
       (COND
@@ -1230,7 +1237,7 @@
          (EXIT (|SMP;evalSortedVarlist| |p| |nlvar| |nlpval| $))))))))) 
 
 (DEFUN |SMP;eval;$LL$;67| (|p| |Lvar| |Lval| $)
-  (PROG (#1=#:G543 |val| #2=#:G542)
+  (PROG (#1=#:G544 |val| #2=#:G543)
     (RETURN
      (SEQ
       (SPADCALL |p| |Lvar|
@@ -1258,7 +1265,7 @@
           (SPADCALL (|SMP;red| |p| $) |mvar| (QREFELT $ 188)))))) 
 
 (DEFUN |SMP;degree;$LL;69| (|p| |Lvar| $)
-  (PROG (#1=#:G553 |mvar| #2=#:G552)
+  (PROG (#1=#:G554 |mvar| #2=#:G553)
     (RETURN
      (SEQ
       (PROGN
@@ -1313,14 +1320,15 @@
                     (SPADCALL (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 22))
                               |mvar| (QREFELT $ 197))
                     . #2=(|SMP;minimumDegree;$VarSetNni;72|))
+              (LETT |p1| (|SMP;red| |p| $) . #2#)
               (EXIT
-               (COND
-                ((SPADCALL (LETT |p1| (|SMP;red| |p| $) . #2#) (QREFELT $ 17))
-                 |md|)
-                (#1# (MIN |md| (SPADCALL |p1| |mvar| (QREFELT $ 197))))))))))))) 
+               (COND ((SPADCALL |p1| (QREFELT $ 17)) |md|)
+                     (#1#
+                      (MIN |md|
+                           (SPADCALL |p1| |mvar| (QREFELT $ 197))))))))))))) 
 
 (DEFUN |SMP;minimumDegree;$LL;73| (|p| |Lvar| $)
-  (PROG (#1=#:G572 |mvar| #2=#:G571)
+  (PROG (#1=#:G573 |mvar| #2=#:G572)
     (RETURN
      (SEQ
       (PROGN
@@ -1388,8 +1396,8 @@
         ('T (SPADCALL |p| (SPADCALL |p| (QREFELT $ 201)) (QREFELT $ 100))))) 
 
 (DEFUN |SMP;monomials1| (|p| |vars| |degs| |res| $)
-  (PROG (|degs1| |vars1| |mon| |mon1| #1=#:G600 |var| #2=#:G601 |deg| |k1| |p1|
-         #3=#:G599 |t| |v1| |tl|)
+  (PROG (|degs1| |vars1| |mon| |mon1| #1=#:G601 |var| #2=#:G602 |deg| |k1| |p1|
+         #3=#:G600 |t| |v1| |tl|)
     (RETURN
      (SEQ (LETT |tl| (QCDR |p|) . #4=(|SMP;monomials1|))
           (LETT |v1| (QCAR |p|) . #4#)
@@ -1460,10 +1468,10 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariatePolynomial;|)) 
 
-(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G631)
+(DEFUN |SparseMultivariatePolynomial| (&REST #1=#:G632)
   (PROG ()
     (RETURN
-     (PROG (#2=#:G632)
+     (PROG (#2=#:G633)
        (RETURN
         (COND
          ((LETT #2#
@@ -1483,7 +1491,7 @@
                     '|SparseMultivariatePolynomial|))))))))))) 
 
 (DEFUN |SparseMultivariatePolynomial;| (|#1| |#2|)
-  (PROG (#1=#:G630 |pv$| #2=#:G627 #3=#:G628 #4=#:G629 $ |dv$| DV$2 DV$1)
+  (PROG (#1=#:G631 |pv$| #2=#:G628 #3=#:G629 #4=#:G630 $ |dv$| DV$2 DV$1)
     (RETURN
      (PROGN
       (LETT DV$1 (|devaluate| |#1|) . #5=(|SparseMultivariatePolynomial|))
@@ -1735,18 +1743,19 @@
               (157 . |leadingCoefficient|) (162 . |reductum|) (167 . |ground?|)
               (172 . |zero?|) (177 . >) |SMP;multivariate;SupVarSet$;15|
               |SMP;*;3$;30| (|IndexedExponents| 7) (183 . |zero?|)
-              (188 . |leadingSupport|) (193 . |leadingCoefficient|)
-              (198 . |reductum|) |SMP;monomial;RIe$;18| (203 . |coefficient|)
-              |SMP;coefficient;$IeR;19| (|Integer|) (209 . |coerce|)
-              |SMP;coerce;I$;20| |SMP;coerce;R$;21| (214 . |characteristic|)
-              |SMP;characteristic;Nni;22| (|Union| $ '"failed") (218 . |recip|)
-              |SMP;recip;$U;23| (223 . -) (228 . -) |SMP;-;2$;24| (233 . *)
-              (239 . *) |SMP;*;I2$;25| (245 . *) |SMP;*;R2$;26| (251 . +)
-              (257 . |coerce|) (262 . -) (268 . -) |SMP;-;3$;28| (274 . =)
-              |SMP;=;2$B;29| (280 . *) (286 . *) |SMP;^;$Nni$;32|
-              (|PositiveInteger|) |SMP;^;$Pi$;31| (292 . ^) (298 . ^) (304 . ^)
-              (|HashState|) (310 . |hashUpdate!|) (316 . |hashUpdate!|)
-              (322 . |hashUpdate!|) |SMP;hashUpdate!;Hs$Hs;33|
+              (188 . |reductum|) |SMP;monomial;RIe$;18|
+              (193 . |leadingCoefficient|) (198 . |leadingSupport|)
+              (203 . |coefficient|) |SMP;coefficient;$IeR;19| (|Integer|)
+              (209 . |coerce|) |SMP;coerce;I$;20| |SMP;coerce;R$;21|
+              (214 . |characteristic|) |SMP;characteristic;Nni;22|
+              (|Union| $ '"failed") (218 . |recip|) |SMP;recip;$U;23| (223 . -)
+              (228 . -) |SMP;-;2$;24| (233 . *) (239 . *) |SMP;*;I2$;25|
+              (245 . *) |SMP;*;R2$;26| (251 . +) (257 . |coerce|) (262 . -)
+              (268 . -) |SMP;-;3$;28| (274 . =) |SMP;=;2$B;29| (280 . *)
+              (286 . *) |SMP;^;$Nni$;32| (|PositiveInteger|) |SMP;^;$Pi$;31|
+              (292 . ^) (298 . ^) (304 . ^) (|HashState|) (310 . |hashUpdate!|)
+              (316 . |hashUpdate!|) (322 . |hashUpdate!|)
+              |SMP;hashUpdate!;Hs$Hs;33|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (328 . |unitNormal|) (333 . |unitNormal|) (338 . |unitCanonical|)
               (343 . |unitCanonical|) (348 . |unit?|) (353 . |unit?|)
@@ -1872,8 +1881,8 @@
                                     0 54 2 7 15 0 0 55 2 8 0 2 0 59 2 8 0 0 0
                                     60 1 61 25 0 62 2 61 2 0 25 63 1 61 2 0 64
                                     1 61 0 0 65 1 61 15 0 66 1 61 15 0 67 2 7
-                                    15 0 0 68 1 71 15 0 72 1 71 7 0 73 1 71 25
-                                    0 74 1 71 0 0 75 2 8 2 0 25 77 1 6 0 79 80
+                                    15 0 0 68 1 71 15 0 72 1 71 0 0 73 1 71 25
+                                    0 75 1 71 7 0 76 2 8 2 0 25 77 1 6 0 79 80
                                     0 6 25 83 1 6 85 0 86 1 6 0 0 88 1 8 0 0 89
                                     2 6 0 79 0 91 2 8 0 79 0 92 2 6 0 0 0 94 2
                                     6 0 0 0 96 1 8 0 2 97 2 6 0 0 0 98 2 8 0 0
@@ -1914,7 +1923,7 @@
                                     0 0 0 6 71 0 1 3 5 212 0 210 212 1 3 6 213
                                     0 211 213 1 2 0 15 0 0 1 1 0 15 0 19 1 0 25
                                     0 26 2 0 0 39 7 52 2 0 0 57 7 69 1 0 152 0
-                                    206 1 0 15 0 32 2 0 0 6 71 76 3 0 0 0 7 25
+                                    206 1 0 15 0 32 2 0 0 6 71 74 3 0 0 0 7 25
                                     56 3 0 0 0 167 189 1 3 0 228 0 0 7 1 2 0
                                     189 0 167 198 2 0 25 0 7 197 1 0 71 0 196 2
                                     0 0 231 0 1 2 0 0 129 0 130 1 0 170 0 171 1
