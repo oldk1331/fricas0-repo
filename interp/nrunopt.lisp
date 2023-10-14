@@ -1504,6 +1504,7 @@
 ;     formatSlotDomain val
 ;   atom x => x
 ;   x is ['NRTEVAL,y] => (atom y => [y]; y)
+;   x is ['QUOTE, .] => x
 ;   [first x,:[formatSlotDomain y for y in rest x]]
  
 (DEFUN |formatSlotDomain| (|x|)
@@ -1522,6 +1523,11 @@
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1#))))
             (COND ((ATOM |y|) (LIST |y|)) (#1# |y|)))
+           ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |x|))
+                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))
+            |x|)
            (#1#
             (CONS (CAR |x|)
                   ((LAMBDA (|bfVar#84| |bfVar#83| |y|)
