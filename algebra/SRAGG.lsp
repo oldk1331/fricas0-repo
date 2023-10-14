@@ -24,10 +24,6 @@
                                          ((|substring?|
                                            ((|Boolean|) $ $ (|Integer|)))
                                           T)
-                                         ((|match|
-                                           ((|NonNegativeInteger|) $ $
-                                            (|Character|)))
-                                          T)
                                          ((|match?|
                                            ((|Boolean|) $ $ (|Character|)))
                                           T)
@@ -64,7 +60,7 @@
                                        '((|CharacterClass|) (|Character|)
                                          (|List| $) (|Integer|)
                                          (|UniversalSegment| (|Integer|))
-                                         (|Boolean|) (|NonNegativeInteger|))
+                                         (|Boolean|))
                                        NIL)))
                    |StringAggregate|)
            (SETELT #1# 0 '(|StringAggregate|))))) 

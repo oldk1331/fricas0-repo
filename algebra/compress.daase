@@ -695,39 +695,39 @@
  |totolex| |minPol| |computeBasis| |coord| |anticoord| |intcompBasis|
  |choosemon| |close!| |pack!| |library| |complexLimit| |linearlyDependent?|
  |linearDependence| |solveLinear| |reducedSystem| |setDifference|
- |setIntersection| |setUnion| |append| |null| |nil| |substitute| |duplicates?|
- |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
- |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete|
- |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
- |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions|
- |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
- |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?|
- |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
- |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
- |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
- |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
- |m_inverse| |element| |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix|
- |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur|
- |const| |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft|
- |twist| |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct|
- |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!|
- |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!|
- |gradient| |divergence| |laplacian| |hessian| |bandedHessian| |jacobian|
- |bandedJacobian| |duplicates| |removeDuplicates!| |linears| |ddFact|
- |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc|
- |toPermutation| |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint|
- |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
- |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
- |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
- |unaryFunction| |compiledFunction| |corrPoly| |lifting| |lifting1| |exprex|
- |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M|
- |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA|
- |get_variables| |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA|
- |VSUPS_to_VPA| |frobenius| |computePowers| |An| |UnVectorise| |Vectorise|
- |setPoly| |index| |exponent| |exQuo| |moebius| |cumulant2moment|
- |moment2cumulant| |moment2nthJacobi| |moment2jacobi| |moment2jacobi2|
- |freeCumulant2moment| |moment2freeCumulant| |booleanCumulant2moment|
- |moment2booleanCumulant| |monotoneCumulant2moment|
+ |setIntersection| |setUnion| |append| |null| |nil| |match| |substitute|
+ |duplicates?| |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult|
+ |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm| |listOfMonoms| |insert|
+ |delete| |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower|
+ |directSum| |entries| |loop| |lcmCoef|
+ |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
+ |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
+ |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
+ |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
+ |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
+ |pack_exps| |repack1| |pack_exps0| |m_inverse| |element| |rowMatrix| |rows|
+ |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1|
+ |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag| |curryRight|
+ |curryLeft| |constantRight| |constantLeft| |twist| |kronecker_prod1|
+ |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!| |elRow2!|
+ |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!| |minus!|
+ |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
+ |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
+ |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |toPermutation|
+ |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
+ |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
+ |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
+ |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
+ |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
+ |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
+ |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
+ |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
+ |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
+ |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
  |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
  |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant| |rightRecip|
  |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
@@ -989,7 +989,7 @@
  |isVector?| |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity|
  |parallel| |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec|
  |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim|
- |split| |position| |replace| |match?| |match| |substring?| |suffix?| |prefix?|
+ |split| |position| |replace| |match?| |substring?| |suffix?| |prefix?|
  |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
  |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
  |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|

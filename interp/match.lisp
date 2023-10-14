@@ -386,29 +386,6 @@
 (DEFUN |match?| (|pattern| |subject|)
   (PROG () (RETURN (|basicMatch?| |pattern| (DOWNCASE |subject|)))))
  
-; stringMatch(pattern,subject,wildcard) ==
-;   not CHARP wildcard =>
-;     systemError '"Wildcard must be a character"
-;   $wildCard : local := wildcard
-;   subject := DOWNCASE subject
-;   k := basicMatch?(pattern,DOWNCASE subject) => k + 1
-;   0
- 
-(DEFUN |stringMatch| (|pattern| |subject| |wildcard|)
-  (PROG (|$wildCard| |k|)
-    (DECLARE (SPECIAL |$wildCard|))
-    (RETURN
-     (COND
-      ((NULL (CHARP |wildcard|))
-       (|systemError| "Wildcard must be a character"))
-      (#1='T
-       (PROGN
-        (SETQ |$wildCard| |wildcard|)
-        (SETQ |subject| (DOWNCASE |subject|))
-        (COND
-         ((SETQ |k| (|basicMatch?| |pattern| (DOWNCASE |subject|))) (+ |k| 1))
-         (#1# 0))))))))
- 
 ; basicMatch?(pattern,target) ==
 ;   n := #pattern
 ;   p := charPosition($wildCard,pattern,0)
