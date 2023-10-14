@@ -54,12 +54,15 @@
                                       (|spadConstant| $ 10) (QREFELT $ 28))))
                        (GO G191)))
                      (SEQ
-                      (SPADCALL |x|
-                                (SPADCALL |ord|
-                                          (SPADCALL 10 (|spadConstant| $ 29)
-                                                    (QREFELT $ 31))
-                                          (QREFELT $ 32))
-                                (QREFELT $ 12))
+                      (LETT |x|
+                            (SPADCALL |x|
+                                      (SPADCALL |ord|
+                                                (SPADCALL 10
+                                                          (|spadConstant| $ 29)
+                                                          (QREFELT $ 31))
+                                                (QREFELT $ 32))
+                                      (QREFELT $ 12))
+                            . #2#)
                       (EXIT (LETT |ord| (SPADCALL |x| (QREFELT $ 13)) . #2#)))
                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                      (EXIT NIL))))
