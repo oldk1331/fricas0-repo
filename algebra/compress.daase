@@ -113,7 +113,7 @@
  |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
  |FortranMatrixFunctionCategory| |FreeMonoid| |FortranMachineTypeCategory|
  |FileName| |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
- |FortranOutputStackPackage| |FindOrderFinite| |OutputFormaterCategory|
+ |FortranOutputStackPackage| |FindOrderFinite| |OutputFormatterCategory|
  |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranPackage|
  |FortranProgramCategory| |FortranFunctionCategory| |FortranFormat|
  |FortranProgram| |FullPartialFractionExpansion| |FullyPatternMatchable|

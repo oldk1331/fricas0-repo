@@ -158,7 +158,7 @@ cOrderedMultisetAggregate`1`x`(OrderedSet)->Category`(S)`OMSAGG`36450
 cOrderedRing`0`x`()->Category``ORDRING`36486
 cOrderedSemiGroup`0`n`()->Category``OSGROUP`36618
 cOrderedSet`0`x`()->Category``ORDSET`36661
-cOutputFormaterCategory`0`n`()->Category``FORMCAT`0
+cOutputFormatterCategory`0`n`()->Category``FORMCAT`0
 cPAdicIntegerCategory`1`x`(Integer)->Category`(p)`PADICCT`36980
 cPartialDifferentialRing`1`x`(SetCategory)->Category`(S)`PDRING`37084
 cPartialOrder`0`x`()->Category``PORDER`37189
@@ -324,7 +324,7 @@ dFlexibleArray`1`x`(Type)->Join(OneDimensionalArrayAggregate(S),etc)`(S)`FARRAY`
 dFloat`0`x`()->Join(FloatingPointSystem,etc)``FLOAT`81131
 dFortranCode`0`n`()->Join(SetCategory,etc)``FC`84913
 dFortranExpression`3`n`(List(Symbol),List(Symbol),R:FortranMachineTypeCategory)->Join(ExpressionSpace,etc)`(basicSymbols,subscriptedSymbols,R)`FEXPR`85019
-dFortranFormat`0`n`()->OutputFormaterCategory``FORTFORM`0
+dFortranFormat`0`n`()->OutputFormatterCategory``FORTFORM`0
 dFortranProgram`4`n`(Symbol,Union(fst:FortranScalarType,void:"void"),List(Symbol),SymbolTable)->Join(FortranProgramCategory,etc)`(name,returnType,arguments,symbols)`FORTRAN`85178
 dFortranScalarType`0`n`()->Join(CoercibleTo(OutputForm),etc)``FST`85348
 dFortranTemplate`0`n`()->Join(FileCategory(FileName,String),etc)``FTEM`85488
@@ -2665,7 +2665,7 @@ oconvert`1`x`(Symbol)->_$`dRomanNumeral``348826
 oconvert`1`x`(UP)->_$`cMonogenicAlgebra(R,UP)``348896
 oconvert`1`x`(Vector(R))->_$`cFramedAlgebra(R,UP)``349050
 oconvert`1`x`(Vector(R))->_$`cFramedNonAssociativeAlgebra(R)``349201
-oconvert`2`n`(OutputForm,Integer)->_$`cOutputFormaterCategory``349369
+oconvert`2`n`(OutputForm,Integer)->_$`cOutputFormatterCategory``349369
 oconvert`2`x`(OutputForm,Integer)->_$`dScriptFormulaFormat``349498
 oconvert`2`x`(OutputForm,Integer)->_$`dTexFormat``349775
 oconvert`3`x`(OutputForm,Integer,OutputForm)->_$`dTexFormat``350041
@@ -3413,7 +3413,7 @@ odiscriminant`1`x`(Vector(_$))->R`cFiniteRankAlgebra(R,UP)``421284
 odiscriminant`2`n`(S,VarSet)->S`xPolynomialCategory&(S,R,E,VarSet)``0
 odiscriminant`2`x`(_$,VarSet)->_$`cPolynomialCategory(R,E,VarSet)`has(R,CommutativeRing)`421388
 odiscriminantEuclidean`1`n`(polR)->Record(coef1:polR,coef2:polR,discriminant:R)`pPseudoRemainderSequence(R,polR)``421513
-odisplay`1`n`(_$)->Void`cOutputFormaterCategory``421628
+odisplay`1`n`(_$)->Void`cOutputFormatterCategory``421628
 odisplay`1`n`(_$)->Void`dJetDifferentialEquation(JB,D)``421680
 odisplay`1`n`(String)->Void`dHTMLFormat``422028
 odisplay`1`x`(_$)->Union((List(OutputForm))->OutputForm,"failed")`dBasicOperator``422091

@@ -1870,7 +1870,7 @@
  ("Partition" 0 70570) ("PartialTranscendentalFunctions" 0 70342)
  ("PartialOrder" 0 70324) ("PartialDifferentialRing" 0 70043)
  ("PAdicIntegerCategory" 0 69932) ("PAdicInteger" 0 69914)
- ("OutputFormaterCategory" 0 69896) ("OutputForm" 0 69634)
+ ("OutputFormatterCategory" 0 69896) ("OutputForm" 0 69634)
  ("OrderlyDifferentialVariable" 0 69600) ("OrderedVariableList" 0 69295)
  ("OrderedSet" 0 64409) ("OrderedRing" 0 63524) ("OrderedMonoid" 0 63484)
  ("OrderedIntegralDomain" 0 63460) ("OrderedFreeMonoid" 0 63433)

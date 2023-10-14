@@ -1,14 +1,15 @@
 
-(DECLAIM (NOTINLINE |OutputFormaterCategory;|)) 
+(DECLAIM (NOTINLINE |OutputFormatterCategory;|)) 
 
-(DEFPARAMETER |OutputFormaterCategory;AL| 'NIL) 
+(DEFPARAMETER |OutputFormatterCategory;AL| 'NIL) 
 
-(DEFUN |OutputFormaterCategory| ()
+(DEFUN |OutputFormatterCategory| ()
   (LET (#:G106)
-    (COND (|OutputFormaterCategory;AL|)
-          (T (SETQ |OutputFormaterCategory;AL| (|OutputFormaterCategory;|)))))) 
+    (COND (|OutputFormatterCategory;AL|)
+          (T
+           (SETQ |OutputFormatterCategory;AL| (|OutputFormatterCategory;|)))))) 
 
-(DEFUN |OutputFormaterCategory;| ()
+(DEFUN |OutputFormatterCategory;| ()
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
@@ -17,7 +18,7 @@
                      '(((|convert| ($ (|OutputForm|) (|Integer|))) T)
                        ((|display| ((|Void|) $)) T))
                      NIL '((|Void|) (|OutputForm|) (|Integer|)) NIL))
-                   |OutputFormaterCategory|)
-           (SETELT #1# 0 '(|OutputFormaterCategory|))))) 
+                   |OutputFormatterCategory|)
+           (SETELT #1# 0 '(|OutputFormatterCategory|))))) 
 
-(MAKEPROP '|OutputFormaterCategory| 'NILADIC T) 
+(MAKEPROP '|OutputFormatterCategory| 'NILADIC T) 

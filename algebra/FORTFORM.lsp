@@ -86,7 +86,7 @@
            '#(|display| 56 |convert| 61) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
-                       (CONS '#((|OutputFormaterCategory|))
+                       (CONS '#((|OutputFormatterCategory|))
                              (|makeByteWordVec2| 29
                                                  '(1 9 7 8 10 1 9 8 8 11 1 9 7
                                                    8 12 1 9 13 8 14 1 13 0 15

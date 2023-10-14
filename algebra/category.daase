@@ -13121,7 +13121,7 @@
  ((|FullPartialFractionExpansion| . |ConvertibleTo|) 76183)
  ((|FortranProgram| . |FortranProgramCategory|) T)
  ((|FortranProgram| . |Type|) T) ((|FortranProgram| . |CoercibleTo|) 76157)
- ((|FortranFormat| . |OutputFormaterCategory|) T)
+ ((|FortranFormat| . |OutputFormatterCategory|) T)
  ((|ScriptFormulaFormat| . |SetCategory|) T)
  ((|ScriptFormulaFormat| . |CoercibleTo|) 76131)
  ((|ScriptFormulaFormat| . |BasicType|) T)
