@@ -99,10 +99,8 @@
 (SDEFUN |NUMFMT;FormatArabic;PiS;7| ((|n| |PositiveInteger|) ($ |String|))
         (STRINGIMAGE |n|)) 
 
-(PUT '|NUMFMT;ScanArabic;SPi;8| '|SPADreplace| 'PARSE-INTEGER) 
-
 (SDEFUN |NUMFMT;ScanArabic;SPi;8| ((|s| |String|) ($ |PositiveInteger|))
-        (PARSE-INTEGER |s|)) 
+        (SPADCALL |s| (QREFELT $ 50))) 
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
         (SPROG
@@ -237,7 +235,7 @@
                                                                    (QCSIZE |s|)
                                                                    0
                                                                    (QREFELT $
-                                                                            51))
+                                                                            53))
                                                                   (LETT |s|
                                                                         (STRCONC
                                                                          " "
@@ -263,19 +261,19 @@
           (|n| (|Integer|)) (#2=#:G183 NIL) (|i| (|Integer|))
           (|c| (|Character|)) (|k| NIL) (|nprens| (|PositiveInteger|)))
          (SEQ
-          (LETT |s| (SPADCALL |s| (QREFELT $ 53))
+          (LETT |s| (SPADCALL |s| (QREFELT $ 55))
                 . #3=(|NUMFMT;ScanRoman;SPi;10|))
           (LETT |tot| 0 . #3#) (LETT |Max| 0 . #3#)
-          (LETT |i| (SPADCALL |s| (QREFELT $ 54)) . #3#)
+          (LETT |i| (SPADCALL |s| (QREFELT $ 56)) . #3#)
           (SEQ G190
-               (COND ((NULL (>= |i| (SPADCALL |s| (QREFELT $ 55)))) (GO G191)))
-               (SEQ (LETT |c| (SPADCALL |s| |i| (QREFELT $ 56)) . #3#)
+               (COND ((NULL (>= |i| (SPADCALL |s| (QREFELT $ 57)))) (GO G191)))
+               (SEQ (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58)) . #3#)
                     (LETT |i| (- |i| 1) . #3#)
                     (LETT |n| (QAREF1 (QREFELT $ 42) |c|) . #3#)
                     (COND
                      ((< |n| 0)
                       (COND
-                       ((SPADCALL |c| (QREFELT $ 45) (QREFELT $ 57))
+                       ((SPADCALL |c| (QREFELT $ 45) (QREFELT $ 59))
                         (|error|
                          (STRCONC "Improper character in Roman numeral: "
                                   (|make_full_CVEC| 1 |c|))))
@@ -286,11 +284,11 @@
                                    ((NULL
                                      (COND
                                       ((|eql_SI| |c| (QREFELT $ 45))
-                                       (>= |i| (SPADCALL |s| (QREFELT $ 55))))
+                                       (>= |i| (SPADCALL |s| (QREFELT $ 57))))
                                       ('T 'NIL)))
                                     (GO G191)))
                                   (SEQ
-                                   (LETT |c| (SPADCALL |s| |i| (QREFELT $ 56))
+                                   (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58))
                                          . #3#)
                                    (LETT |i| (- |i| 1) . #3#)
                                    (EXIT
@@ -300,7 +298,7 @@
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT
                               (COND
-                               ((SPADCALL |c| (QREFELT $ 46) (QREFELT $ 57))
+                               ((SPADCALL |c| (QREFELT $ 46) (QREFELT $ 59))
                                 (|error| "Improper Roman numeral: (x)"))
                                ('T
                                 (SEQ
@@ -310,20 +308,20 @@
                                             (NULL
                                              (>= |i|
                                                  (SPADCALL |s|
-                                                           (QREFELT $ 55)))))
+                                                           (QREFELT $ 57)))))
                                         (GO G191)))
                                       (SEQ
                                        (EXIT
                                         (SEQ
                                          (LETT |c|
                                                (SPADCALL |s| |i|
-                                                         (QREFELT $ 56))
+                                                         (QREFELT $ 58))
                                                . #3#)
                                          (LETT |i| (- |i| 1) . #3#)
                                          (EXIT
                                           (COND
                                            ((SPADCALL |c| (QREFELT $ 44)
-                                                      (QREFELT $ 57))
+                                                      (QREFELT $ 59))
                                             (PROGN
                                              (LETT #2#
                                                    (|error|
@@ -336,7 +334,7 @@
                                  (EXIT
                                   (LETT |n|
                                         (SPADCALL 10 (+ |nprens| 2)
-                                                  (QREFELT $ 58))
+                                                  (QREFELT $ 60))
                                         . #3#)))))))))))
                     (EXIT
                      (COND ((< |n| |Max|) (LETT |tot| (- |tot| |n|) . #3#))
@@ -346,7 +344,7 @@
                NIL (GO G190) G191 (EXIT NIL))
           (EXIT
            (COND
-            ((SPADCALL |tot| 0 (QREFELT $ 59))
+            ((SPADCALL |tot| 0 (QREFELT $ 61))
              (|error|
               (STRCONC "Improper Roman numeral: " (STRINGIMAGE |tot|))))
             ('T
@@ -378,7 +376,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|NumberFormats|) . #1=(|NumberFormats|))
-          (LETT $ (GETREFV 61) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|NumberFormats| NIL (CONS 1 $))
@@ -433,32 +431,33 @@
               (|PrimitiveArray| 7) (70 . |construct|) '|units| '|tens| '|hunds|
               '|umin| '|tmin| '|hmin| '|romval| '|thou| '|plen| '|pren|
               '|ichar| (|PositiveInteger|) |NUMFMT;FormatArabic;PiS;7|
-              |NUMFMT;ScanArabic;SPi;8| (|NonNegativeInteger|) (75 . >)
-              |NUMFMT;FormatRoman;PiS;9| (81 . |upperCase|) (86 . |maxIndex|)
-              (91 . |minIndex|) (96 . |elt|) (102 . ~=) (108 . ^) (114 . <=)
+              (|ScanningUtilities|) (75 . |parse_integer|)
+              |NUMFMT;ScanArabic;SPi;8| (|NonNegativeInteger|) (80 . >)
+              |NUMFMT;FormatRoman;PiS;9| (86 . |upperCase|) (91 . |maxIndex|)
+              (96 . |minIndex|) (101 . |elt|) (107 . ~=) (113 . ^) (119 . <=)
               |NUMFMT;ScanRoman;SPi;10|)
-           '#(|ScanRoman| 120 |ScanFloatIgnoreSpacesIfCan| 125
-              |ScanFloatIgnoreSpaces| 130 |ScanArabic| 135 |FormatRoman| 140
-              |FormatArabic| 145)
+           '#(|ScanRoman| 125 |ScanFloatIgnoreSpacesIfCan| 130
+              |ScanFloatIgnoreSpaces| 135 |ScanArabic| 140 |FormatRoman| 145
+              |FormatArabic| 150)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 60
+                             (|makeByteWordVec2| 62
                                                  '(2 7 0 6 0 8 2 7 9 0 10 11 1
                                                    7 0 9 12 1 10 0 7 13 2 10 14
                                                    0 0 15 2 7 14 16 0 17 1 18 0
                                                    7 19 1 20 0 18 21 1 20 0 0
                                                    23 2 20 14 0 0 24 1 20 0 0
                                                    25 1 20 14 0 26 1 28 0 27 29
-                                                   1 34 0 33 35 2 50 14 0 0 51
-                                                   1 7 0 0 53 1 7 27 0 54 1 7
-                                                   27 0 55 2 7 10 0 27 56 2 10
-                                                   14 0 0 57 2 47 0 0 47 58 2
-                                                   27 14 0 0 59 1 0 47 7 60 1 0
-                                                   31 7 32 1 0 28 7 30 1 0 47 7
-                                                   49 1 0 7 47 52 1 0 7 47
-                                                   48)))))
+                                                   1 34 0 33 35 1 49 27 7 50 2
+                                                   52 14 0 0 53 1 7 0 0 55 1 7
+                                                   27 0 56 1 7 27 0 57 2 7 10 0
+                                                   27 58 2 10 14 0 0 59 2 47 0
+                                                   0 47 60 2 27 14 0 0 61 1 0
+                                                   47 7 62 1 0 31 7 32 1 0 28 7
+                                                   30 1 0 47 7 51 1 0 7 47 54 1
+                                                   0 7 47 48)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|NumberFormats| 'NILADIC T) 
