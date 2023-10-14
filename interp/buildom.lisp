@@ -478,7 +478,8 @@
 ;     dom.3 :=
 ;       '(SetCategory)
 ;     dom.4 :=
-;           [[ '(SetCategory) ],[ '(SetCategory) ]]
+;           [[ '(SetCategory) ],[ '(BasicType),
+;              '(CoercibleTo (OutputForm)), '(SetCategory) ]]
 ;     dom.5 := args
 ;     dom.6 := [function MappingEqual, :dom]
 ;     dom.7 := [function MappingPrint, :dom]
@@ -511,7 +512,9 @@
       (SETF (ELT |dom| 2) NIL)
       (SETF (ELT |dom| 3) '(|SetCategory|))
       (SETF (ELT |dom| 4)
-              (LIST (LIST '(|SetCategory|)) (LIST '(|SetCategory|))))
+              (LIST (LIST '(|SetCategory|))
+                    (LIST '(|BasicType|) '(|CoercibleTo| (|OutputForm|))
+                          '(|SetCategory|))))
       (SETF (ELT |dom| 5) |args|)
       (SETF (ELT |dom| 6) (CONS #'|MappingEqual| |dom|))
       (SETF (ELT |dom| 7) (CONS #'|MappingPrint| |dom|))
@@ -560,7 +563,8 @@
 ;     dom.2 := NIL
 ;     dom.3 := ['EnumerationCategory,:QCDR dom.0]
 ;     dom.4 :=
-;           [[ '(SetCategory) ],[ '(SetCategory) ]]
+;           [[ '(SetCategory) ], [ '(BasicType),
+;              '(CoercibleTo (OutputForm)), '(SetCategory) ]]
 ;     dom.5 := args
 ;     dom.6 := [function EnumEqual, :dom]
 ;     dom.7 := [function EnumPrint, :dom]
@@ -582,7 +586,9 @@
       (SETF (ELT |dom| 2) NIL)
       (SETF (ELT |dom| 3) (CONS '|EnumerationCategory| (QCDR (ELT |dom| 0))))
       (SETF (ELT |dom| 4)
-              (LIST (LIST '(|SetCategory|)) (LIST '(|SetCategory|))))
+              (LIST (LIST '(|SetCategory|))
+                    (LIST '(|BasicType|) '(|CoercibleTo| (|OutputForm|))
+                          '(|SetCategory|))))
       (SETF (ELT |dom| 5) |args|)
       (SETF (ELT |dom| 6) (CONS #'|EnumEqual| |dom|))
       (SETF (ELT |dom| 7) (CONS #'|EnumPrint| |dom|))
