@@ -106,8 +106,10 @@
                               (SPADCALL 1 1 (QREFELT $ 14)) (QREFELT $ 15))
                     . #2#)
               (LETT |exposedPart|
-                    (COND ((EQUAL |exposed?| "n") " (unexposed)")
-                          (#3# (SPADCALL (QREFELT $ 26))))
+                    (COND
+                     ((EQUAL |exposed?| "n")
+                      (SPADCALL " (unexposed)" (QREFELT $ 20)))
+                     (#3# (SPADCALL (QREFELT $ 26))))
                     . #2#)
               (LETT |firstPart|
                     (SPADCALL |name|

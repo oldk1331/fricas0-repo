@@ -942,13 +942,15 @@
                         . #1=(|SPACE3;coerce;$Of;50|))))
                 (EXIT
                  (SPADCALL
-                  (LIST "3-Space with "
+                  (LIST (SPADCALL "3-Space with " (QREFELT $ 112))
                         (SPADCALL
                          (LETT |sizo| (LENGTH (QVELT (QVELT |s| 2) 1)) . #1#)
-                         (QREFELT $ 111))
-                        (COND ((EQL |sizo| 1) " component")
-                              ('T " components")))
-                  (QREFELT $ 112)))))) 
+                         (QREFELT $ 113))
+                        (SPADCALL
+                         (COND ((EQL |sizo| 1) " component")
+                               ('T " components"))
+                         (QREFELT $ 112)))
+                  (QREFELT $ 114)))))) 
 
 (DECLAIM (NOTINLINE |ThreeSpace;|)) 
 
@@ -974,7 +976,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ThreeSpace|))
           (LETT |dv$| (LIST '|ThreeSpace| DV$1) . #1#)
-          (LETT $ (GETREFV 118) . #1#)
+          (LETT $ (GETREFV 119) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ThreeSpace| (LIST DV$1) (CONS 1 $))
@@ -1049,25 +1051,26 @@
               (|Record| (|:| |points| 13) (|:| |curves| 13) (|:| |polygons| 13)
                         (|:| |constructs| 13))
               |SPACE3;objects;$R;47| |SPACE3;check;2$;48|
-              |SPACE3;subspace;$Ss;49| (|OutputForm|) (188 . |coerce|)
-              (193 . |hconcat|) |SPACE3;coerce;$Of;50| (|List| 84)
-              (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 198 |subspace| 204 |polygon?| 209 |polygon| 214 |point?| 236
-              |point| 241 |objects| 269 |numberOfComposites| 274
-              |numberOfComponents| 279 |modifyPointData| 284 |mesh?| 291 |mesh|
-              296 |merge| 345 |lprop| 356 |lp| 361 |llprop| 366 |lllp| 371
-              |lllip| 376 |latex| 381 |hashUpdate!| 386 |hash| 392
-              |enterPointData| 397 |curve?| 403 |curve| 408 |create3Space| 430
-              |copy| 439 |composites| 444 |composite| 449 |components| 454
-              |coerce| 459 |closedCurve?| 464 |closedCurve| 469 |check| 491 =
-              496)
+              |SPACE3;subspace;$Ss;49| (|String|) (|OutputForm|)
+              (188 . |message|) (193 . |coerce|) (198 . |hconcat|)
+              |SPACE3;coerce;$Of;50| (|List| 84) (|HashState|)
+              (|SingleInteger|))
+           '#(~= 203 |subspace| 209 |polygon?| 214 |polygon| 219 |point?| 241
+              |point| 246 |objects| 274 |numberOfComposites| 279
+              |numberOfComponents| 284 |modifyPointData| 289 |mesh?| 296 |mesh|
+              301 |merge| 350 |lprop| 361 |lp| 366 |llprop| 371 |lllp| 376
+              |lllip| 381 |latex| 386 |hashUpdate!| 391 |hash| 397
+              |enterPointData| 402 |curve?| 408 |curve| 413 |create3Space| 435
+              |copy| 444 |composites| 449 |composite| 454 |components| 459
+              |coerce| 464 |closedCurve?| 469 |closedCurve| 474 |check| 496 =
+              501)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|ThreeSpaceCategory| 6) (|SetCategory|)
-                           (|BasicType|) (|CoercibleTo| 110))
-                        (|makeByteWordVec2| 117
+                           (|BasicType|) (|CoercibleTo| 111))
+                        (|makeByteWordVec2| 118
                                             '(1 9 8 0 10 1 9 11 0 12 1 9 13 0
                                               14 1 9 15 0 16 2 9 0 0 17 18 4 9
                                               0 0 0 17 13 19 0 9 0 21 0 6 0 22
@@ -1081,28 +1084,29 @@
                                               79 2 78 0 13 0 80 1 78 13 0 81 1
                                               78 45 0 82 3 9 0 0 45 11 93 2 45
                                               0 0 0 94 0 11 0 96 2 11 42 0 42
-                                              97 0 6 0 104 2 13 42 0 0 105 1 13
-                                              110 0 111 1 110 0 8 112 2 0 42 0
-                                              0 1 1 0 9 0 109 1 0 42 0 74 1 0
-                                              15 0 75 2 0 0 0 62 77 1 0 0 15 76
-                                              2 0 0 0 15 20 1 0 42 0 44 1 0 0
-                                              17 50 1 0 17 0 48 2 0 0 0 13 56 2
-                                              0 0 0 17 49 2 0 0 0 52 54 1 0 106
-                                              0 107 1 0 13 0 26 1 0 13 0 25 3 0
-                                              0 0 13 17 41 1 0 42 0 83 3 0 0 84
-                                              42 42 88 1 0 84 0 85 4 0 0 0 91
-                                              42 42 95 1 0 0 84 87 4 0 0 0 84
-                                              42 42 86 4 0 0 0 84 89 11 90 4 0
-                                              0 0 91 89 11 92 2 0 0 0 0 31 1 0
-                                              0 8 30 1 0 89 0 103 1 0 15 0 98 1
-                                              0 101 0 102 1 0 114 0 1 1 0 99 0
-                                              100 1 0 116 0 1 2 0 115 115 0 1 1
-                                              0 117 0 1 2 0 13 0 15 39 1 0 42 0
-                                              57 1 0 15 0 58 2 0 0 0 62 65 1 0
-                                              0 15 60 2 0 0 0 15 59 1 0 0 9 24
-                                              0 0 0 23 1 0 0 0 37 1 0 8 0 36 1
-                                              0 0 8 33 1 0 8 0 35 1 0 110 0 113
-                                              1 0 42 0 67 1 0 15 0 68 2 0 0 0
-                                              62 72 1 0 0 15 70 2 0 0 0 15 69 1
-                                              0 0 0 108 2 0 42 0 0 1)))))
+                                              97 0 6 0 104 2 13 42 0 0 105 1
+                                              111 0 110 112 1 13 111 0 113 1
+                                              111 0 8 114 2 0 42 0 0 1 1 0 9 0
+                                              109 1 0 42 0 74 1 0 15 0 75 2 0 0
+                                              0 62 77 1 0 0 15 76 2 0 0 0 15 20
+                                              1 0 42 0 44 1 0 0 17 50 1 0 17 0
+                                              48 2 0 0 0 13 56 2 0 0 0 17 49 2
+                                              0 0 0 52 54 1 0 106 0 107 1 0 13
+                                              0 26 1 0 13 0 25 3 0 0 0 13 17 41
+                                              1 0 42 0 83 3 0 0 84 42 42 88 1 0
+                                              84 0 85 4 0 0 0 91 42 42 95 1 0 0
+                                              84 87 4 0 0 0 84 42 42 86 4 0 0 0
+                                              84 89 11 90 4 0 0 0 91 89 11 92 2
+                                              0 0 0 0 31 1 0 0 8 30 1 0 89 0
+                                              103 1 0 15 0 98 1 0 101 0 102 1 0
+                                              116 0 1 1 0 99 0 100 1 0 110 0 1
+                                              2 0 117 117 0 1 1 0 118 0 1 2 0
+                                              13 0 15 39 1 0 42 0 57 1 0 15 0
+                                              58 2 0 0 0 62 65 1 0 0 15 60 2 0
+                                              0 0 15 59 1 0 0 9 24 0 0 0 23 1 0
+                                              0 0 37 1 0 8 0 36 1 0 0 8 33 1 0
+                                              8 0 35 1 0 111 0 115 1 0 42 0 67
+                                              1 0 15 0 68 2 0 0 0 62 72 1 0 0
+                                              15 70 2 0 0 0 15 69 1 0 0 0 108 2
+                                              0 42 0 0 1)))))
            '|lookupComplete|)) 

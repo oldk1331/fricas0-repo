@@ -235,7 +235,7 @@
               (|List| 7) (10 . |elt|) (16 . *) (|Fraction| 35) (22 . |One|)
               (|List| 13) (26 . |elt|) (32 . -) (37 . |append|) (|Matrix| 7)
               (43 . |matrix|) (48 . |transpose|) (|List| 31) (53 . |nullSpace|)
-              (|Void|) (|OutputForm|) (|OutputPackage|) (58 . |output|)
+              (|Void|) (|String|) (|OutputPackage|) (58 . |output|)
               (|Vector| 7) (63 . |elt|) (69 . |elt|) (|Symbol|)
               (|Polynomial| 7) (75 . |coerce|) (80 . ^) (86 . *) (92 . +)
               (|List| 35) (|List| 40) (98 . |elt|) (|Mapping| 35 35 35)

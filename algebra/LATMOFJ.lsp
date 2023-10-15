@@ -564,7 +564,7 @@
                             (QREFELT $ 45))
                            . #3#)
                      (GO #4#))))
-                  (EXIT "error")))
+                  (EXIT (|error| "outputVarOrLit"))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |LATMOFJ;coerce;$Of;29| ((|n| $) ($ |OutputForm|))
@@ -574,7 +574,7 @@
           (|outer| NIL) (#4=#:G317 NIL) (|outern| NIL)
           (|outerList| (|List| (|OutputForm|))))
          (SEQ (LETT |outerList| NIL . #5=(|LATMOFJ;coerce;$Of;29|))
-              (LETT |r| "(" . #5#)
+              (LETT |r| (SPADCALL "(" (QREFELT $ 46)) . #5#)
               (SEQ (LETT |outern| 1 . #5#) (LETT #4# (LENGTH |n|) . #5#)
                    (LETT |outer| NIL . #5#) (LETT #3# |n| . #5#) G190
                    (COND
@@ -596,13 +596,17 @@
                                     (SPADCALL |r|
                                               (|LATMOFJ;outputVarOrLit| |inner|
                                                $)
-                                              (QREFELT $ 46))
+                                              (QREFELT $ 47))
                                     . #5#)
                               (EXIT
                                (COND
                                 ((SPADCALL |innern| (LENGTH |outer|)
                                            (QREFELT $ 32))
-                                 (LETT |r| (SPADCALL |r| "\\/" (QREFELT $ 46))
+                                 (LETT |r|
+                                       (SPADCALL |r|
+                                                 (SPADCALL "\\/"
+                                                           (QREFELT $ 46))
+                                                 (QREFELT $ 47))
                                        . #5#)))))
                              (LETT #1#
                                    (PROG1 (CDR #1#)
@@ -612,14 +616,18 @@
                         (EXIT
                          (COND
                           ((SPADCALL |outern| (LENGTH |n|) (QREFELT $ 32))
-                           (LETT |r| (SPADCALL |r| ")/\\(" (QREFELT $ 46))
+                           (LETT |r|
+                                 (SPADCALL |r|
+                                           (SPADCALL ")/\\(" (QREFELT $ 46))
+                                           (QREFELT $ 47))
                                  . #5#)))))
                    (LETT #3#
                          (PROG1 (CDR #3#)
                            (LETT |outern| (|inc_SI| |outern|) . #5#))
                          . #5#)
                    (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |r| ")" (QREFELT $ 46)))))) 
+              (EXIT
+               (SPADCALL |r| (SPADCALL ")" (QREFELT $ 46)) (QREFELT $ 47)))))) 
 
 (DECLAIM (NOTINLINE |LatticeMeetOfJoins;|)) 
 
@@ -647,7 +655,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|LatticeMeetOfJoins|) . #1=(|LatticeMeetOfJoins|))
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT $ (GETREFV 51) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|LatticeMeetOfJoins| NIL (CONS 1 $))
@@ -678,14 +686,14 @@
               |LATMOFJ;value;$S;22| |LATMOFJ;getChildren;$L;23|
               |LATMOFJ;=;2$B;24| |LATMOFJ;toStringUnwrapped;$S;27|
               |LATMOFJ;toString;$S;25| (|OutputForm|) (36 . |coerce|)
-              (41 . |coerce|) (46 . |hconcat|) |LATMOFJ;coerce;$Of;29|
-              (|HashState|) (|SingleInteger|))
-           '#(~= 52 |variable| 58 |value| 63 |toStringUnwrapped| 68 |toString|
-              73 |redux| 78 |opType| 83 |meet| 88 |logicT| 93 |logicF| 97
-              |latticeMeetOfJoins| 101 |latex| 106 |join| 111 |hashUpdate!| 116
-              |hash| 122 |getChildren| 127 |factor| 132 |emptyLattice| 137
-              |empty?| 141 |deductions| 146 |coerce| 151 |atom?| 156 |_\|_| 161
-              |\\/| 165 T$ 171 = 175 |/\\| 181)
+              (41 . |coerce|) (46 . |message|) (51 . |hconcat|)
+              |LATMOFJ;coerce;$Of;29| (|HashState|) (|SingleInteger|))
+           '#(~= 57 |variable| 63 |value| 68 |toStringUnwrapped| 73 |toString|
+              78 |redux| 83 |opType| 88 |meet| 93 |logicT| 98 |logicF| 102
+              |latticeMeetOfJoins| 106 |latex| 111 |join| 116 |hashUpdate!| 121
+              |hash| 127 |getChildren| 132 |factor| 137 |emptyLattice| 142
+              |empty?| 146 |deductions| 151 |coerce| 156 |atom?| 161 |_\|_| 166
+              |\\/| 170 T$ 176 = 180 |/\\| 186)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -697,19 +705,19 @@
                       (|Lattice|) (|BoundedJoinSemilattice|)
                       (|MeetSemilattice|) (|JoinSemilattice|) (|SetCategory|)
                       (|BasicType|) (|CoercibleTo| 43))
-                   (|makeByteWordVec2| 49
+                   (|makeByteWordVec2| 50
                                        '(2 18 0 0 0 19 2 22 0 0 0 23 2 18 0 0
                                          22 24 2 13 16 0 0 29 2 22 0 0 13 30 2
                                          31 16 0 0 32 1 9 43 0 44 1 35 43 0 45
-                                         2 43 0 0 0 46 2 0 16 0 0 1 1 0 0 9 10
-                                         1 0 35 0 38 1 0 9 0 41 1 0 9 0 42 1 0
-                                         0 0 20 1 0 35 0 36 1 0 0 26 27 0 0 0 7
-                                         0 0 0 8 1 0 0 13 14 1 0 9 0 1 1 0 0 26
-                                         28 2 0 48 48 0 1 1 0 49 0 1 1 0 26 0
-                                         39 1 0 26 0 33 0 0 0 15 1 0 16 0 17 1
-                                         0 26 26 34 1 0 43 0 47 1 0 16 0 37 0 0
-                                         0 1 2 0 0 0 0 25 0 0 0 1 2 0 16 0 0 40
-                                         2 0 0 0 0 21)))))
+                                         1 43 0 9 46 2 43 0 0 0 47 2 0 16 0 0 1
+                                         1 0 0 9 10 1 0 35 0 38 1 0 9 0 41 1 0
+                                         9 0 42 1 0 0 0 20 1 0 35 0 36 1 0 0 26
+                                         27 0 0 0 7 0 0 0 8 1 0 0 13 14 1 0 9 0
+                                         1 1 0 0 26 28 2 0 49 49 0 1 1 0 50 0 1
+                                         1 0 26 0 39 1 0 26 0 33 0 0 0 15 1 0
+                                         16 0 17 1 0 26 26 34 1 0 43 0 48 1 0
+                                         16 0 37 0 0 0 1 2 0 0 0 0 25 0 0 0 1 2
+                                         0 16 0 0 40 2 0 0 0 0 21)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|LatticeMeetOfJoins| 'NILADIC T) 

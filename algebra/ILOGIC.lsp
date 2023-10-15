@@ -1187,7 +1187,7 @@
                             (QREFELT $ 47))
                            . #3#)
                      (GO #4#))))
-                  (EXIT "error")))
+                  (EXIT (|error| "toString: unexpected representation"))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ILOGIC;toStringUnwrapped;$S;27| ((|n| $) ($ |String|))
@@ -1356,194 +1356,185 @@
                             (QREFELT $ 47))
                            . #3#)
                      (GO #4#))))
-                  (EXIT "error")))
+                  (EXIT
+                   (|error| "toStringUnwrapped: unexpected representation"))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ILOGIC;coerce;$Of;28| ((|n| $) ($ |OutputForm|))
-        (SPROG ((#1=#:G472 NIL) (#2=#:G178 NIL) (|s1| (|OutputForm|)))
-               (SEQ
-                (EXIT
-                 (SEQ
-                  (COND
-                   ((QEQCAR |n| 0)
-                    (SEQ
-                     (COND
-                      ((EQUAL (QCAR (CDR |n|)) 'F)
-                       (PROGN
-                        (LETT #1# "_|_" . #3=(|ILOGIC;coerce;$Of;28|))
-                        (GO #4=#:G471))))
-                     (COND
-                      ((EQUAL (QCAR (CDR |n|)) 'T)
-                       (PROGN (LETT #1# "T" . #3#) (GO #4#))))
-                     (EXIT (PROGN (LETT #1# "?" . #3#) (GO #4#))))))
-                  (COND
-                   ((QEQCAR |n| 1)
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                     (QREFELT $ 51))
-                           . #3#)
-                     (GO #4#))))
-                  (COND
-                   ((QEQCAR |n| 2)
-                    (SEQ (LETT |s1| "->" . #3#)
-                         (COND
-                          ((EQUAL
-                            (QVELT
-                             (PROG2 (LETT #2# |n| . #3#)
-                                 (QCDR #2#)
-                               (|check_union2| (QEQCAR #2# 2)
-                                               (|Record| (|:| |typ| (|Symbol|))
-                                                         (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               (|Union|
-                                                (|:| |const|
-                                                     (|Record|
-                                                      (|:| |val| (|Symbol|))))
-                                                (|:| |var|
-                                                     (|Record|
-                                                      (|:| |str| (|String|))))
-                                                (|:| |binaryOp|
-                                                     (|Record|
-                                                      (|:| |typ| (|Symbol|))
-                                                      (|:| |c1| $)
-                                                      (|:| |c2| $)))
-                                                (|:| |unaryOp|
-                                                     (|Record|
-                                                      (|:| |typ| (|Symbol|))
-                                                      (|:| |c1| $))))
-                                               #2#))
-                             0)
-                            'AND)
-                           (LETT |s1| "/\\" . #3#)))
-                         (COND
-                          ((EQUAL
-                            (QVELT
-                             (PROG2 (LETT #2# |n| . #3#)
-                                 (QCDR #2#)
-                               (|check_union2| (QEQCAR #2# 2)
-                                               (|Record| (|:| |typ| (|Symbol|))
-                                                         (|:| |c1| $)
-                                                         (|:| |c2| $))
-                                               (|Union|
-                                                (|:| |const|
-                                                     (|Record|
-                                                      (|:| |val| (|Symbol|))))
-                                                (|:| |var|
-                                                     (|Record|
-                                                      (|:| |str| (|String|))))
-                                                (|:| |binaryOp|
-                                                     (|Record|
-                                                      (|:| |typ| (|Symbol|))
-                                                      (|:| |c1| $)
-                                                      (|:| |c2| $)))
-                                                (|:| |unaryOp|
-                                                     (|Record|
-                                                      (|:| |typ| (|Symbol|))
-                                                      (|:| |c1| $))))
-                                               #2#))
-                             0)
-                            'OR)
-                           (LETT |s1| "\\/" . #3#)))
-                         (EXIT
-                          (PROGN
-                           (LETT #1#
-                                 (SPADCALL
-                                  (LIST "("
-                                        (SPADCALL
-                                         (QVELT
-                                          (PROG2 (LETT #2# |n| . #3#)
-                                              (QCDR #2#)
-                                            (|check_union2| (QEQCAR #2# 2)
-                                                            (|Record|
-                                                             (|:| |typ|
-                                                                  (|Symbol|))
-                                                             (|:| |c1| $)
-                                                             (|:| |c2| $))
-                                                            (|Union|
-                                                             (|:| |const|
-                                                                  (|Record|
-                                                                   (|:| |val|
-                                                                        (|Symbol|))))
-                                                             (|:| |var|
-                                                                  (|Record|
-                                                                   (|:| |str|
-                                                                        (|String|))))
-                                                             (|:| |binaryOp|
-                                                                  (|Record|
-                                                                   (|:| |typ|
-                                                                        (|Symbol|))
-                                                                   (|:| |c1| $)
-                                                                   (|:| |c2|
-                                                                        $)))
-                                                             (|:| |unaryOp|
-                                                                  (|Record|
-                                                                   (|:| |typ|
-                                                                        (|Symbol|))
-                                                                   (|:| |c1|
-                                                                        $))))
-                                                            #2#))
-                                          1)
-                                         (QREFELT $ 52))
-                                        |s1|
-                                        (SPADCALL
-                                         (QVELT
-                                          (PROG2 (LETT #2# |n| . #3#)
-                                              (QCDR #2#)
-                                            (|check_union2| (QEQCAR #2# 2)
-                                                            (|Record|
-                                                             (|:| |typ|
-                                                                  (|Symbol|))
-                                                             (|:| |c1| $)
-                                                             (|:| |c2| $))
-                                                            (|Union|
-                                                             (|:| |const|
-                                                                  (|Record|
-                                                                   (|:| |val|
-                                                                        (|Symbol|))))
-                                                             (|:| |var|
-                                                                  (|Record|
-                                                                   (|:| |str|
-                                                                        (|String|))))
-                                                             (|:| |binaryOp|
-                                                                  (|Record|
-                                                                   (|:| |typ|
-                                                                        (|Symbol|))
-                                                                   (|:| |c1| $)
-                                                                   (|:| |c2|
-                                                                        $)))
-                                                             (|:| |unaryOp|
-                                                                  (|Record|
-                                                                   (|:| |typ|
-                                                                        (|Symbol|))
-                                                                   (|:| |c1|
-                                                                        $))))
-                                                            #2#))
-                                          2)
-                                         (QREFELT $ 52))
-                                        ")")
-                                  (QREFELT $ 53))
-                                 . #3#)
-                           (GO #4#))))))
-                  (COND
-                   ((QEQCAR |n| 3)
-                    (PROGN
-                     (LETT #1#
-                           (SPADCALL
-                            (LIST "~("
-                                  (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 52))
-                                  ")")
-                            (QREFELT $ 53))
-                           . #3#)
-                     (GO #4#))))
-                  (EXIT "error")))
-                #4# (EXIT #1#)))) 
+        (SPROG
+         ((#1=#:G179 NIL) (#2=#:G178 NIL) (|s1| (|OutputForm|))
+          (#3=#:G177 NIL))
+         (SEQ
+          (COND
+           ((QEQCAR |n| 0)
+            (COND ((EQUAL (QCAR (CDR |n|)) 'F) (SPADCALL "_|_" (QREFELT $ 50)))
+                  ((EQUAL (QCAR (CDR |n|)) 'T) (SPADCALL "T" (QREFELT $ 50)))
+                  (#4='T (SPADCALL "?" (QREFELT $ 50)))))
+           ((QEQCAR |n| 1)
+            (SPADCALL
+             (QCAR
+              (PROG2 (LETT #3# |n| . #5=(|ILOGIC;coerce;$Of;28|))
+                  (QCDR #3#)
+                (|check_union2| (QEQCAR #3# 1)
+                                (|Record| (|:| |str| (|String|)))
+                                (|Union|
+                                 (|:| |const|
+                                      (|Record| (|:| |val| (|Symbol|))))
+                                 (|:| |var| (|Record| (|:| |str| (|String|))))
+                                 (|:| |binaryOp|
+                                      (|Record| (|:| |typ| (|Symbol|))
+                                                (|:| |c1| $) (|:| |c2| $)))
+                                 (|:| |unaryOp|
+                                      (|Record| (|:| |typ| (|Symbol|))
+                                                (|:| |c1| $))))
+                                #3#)))
+             (QREFELT $ 50)))
+           ((QEQCAR |n| 2)
+            (SEQ (LETT |s1| (SPADCALL "->" (QREFELT $ 50)) . #5#)
+                 (COND
+                  ((EQUAL
+                    (QVELT
+                     (PROG2 (LETT #2# |n| . #5#)
+                         (QCDR #2#)
+                       (|check_union2| (QEQCAR #2# 2)
+                                       (|Record| (|:| |typ| (|Symbol|))
+                                                 (|:| |c1| $) (|:| |c2| $))
+                                       (|Union|
+                                        (|:| |const|
+                                             (|Record| (|:| |val| (|Symbol|))))
+                                        (|:| |var|
+                                             (|Record| (|:| |str| (|String|))))
+                                        (|:| |binaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $)
+                                                       (|:| |c2| $)))
+                                        (|:| |unaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $))))
+                                       #2#))
+                     0)
+                    'AND)
+                   (LETT |s1| (SPADCALL "/\\" (QREFELT $ 50)) . #5#)))
+                 (COND
+                  ((EQUAL
+                    (QVELT
+                     (PROG2 (LETT #2# |n| . #5#)
+                         (QCDR #2#)
+                       (|check_union2| (QEQCAR #2# 2)
+                                       (|Record| (|:| |typ| (|Symbol|))
+                                                 (|:| |c1| $) (|:| |c2| $))
+                                       (|Union|
+                                        (|:| |const|
+                                             (|Record| (|:| |val| (|Symbol|))))
+                                        (|:| |var|
+                                             (|Record| (|:| |str| (|String|))))
+                                        (|:| |binaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $)
+                                                       (|:| |c2| $)))
+                                        (|:| |unaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $))))
+                                       #2#))
+                     0)
+                    'OR)
+                   (LETT |s1| (SPADCALL "\\/" (QREFELT $ 50)) . #5#)))
+                 (EXIT
+                  (SPADCALL
+                   (SPADCALL |s1|
+                             (SPADCALL
+                              (QVELT
+                               (PROG2 (LETT #2# |n| . #5#)
+                                   (QCDR #2#)
+                                 (|check_union2| (QEQCAR #2# 2)
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $) (|:| |c2| $))
+                                                 (|Union|
+                                                  (|:| |const|
+                                                       (|Record|
+                                                        (|:| |val|
+                                                             (|Symbol|))))
+                                                  (|:| |var|
+                                                       (|Record|
+                                                        (|:| |str|
+                                                             (|String|))))
+                                                  (|:| |binaryOp|
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $)
+                                                        (|:| |c2| $)))
+                                                  (|:| |unaryOp|
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $))))
+                                                 #2#))
+                               1)
+                              (QREFELT $ 51))
+                             (SPADCALL
+                              (QVELT
+                               (PROG2 (LETT #2# |n| . #5#)
+                                   (QCDR #2#)
+                                 (|check_union2| (QEQCAR #2# 2)
+                                                 (|Record|
+                                                  (|:| |typ| (|Symbol|))
+                                                  (|:| |c1| $) (|:| |c2| $))
+                                                 (|Union|
+                                                  (|:| |const|
+                                                       (|Record|
+                                                        (|:| |val|
+                                                             (|Symbol|))))
+                                                  (|:| |var|
+                                                       (|Record|
+                                                        (|:| |str|
+                                                             (|String|))))
+                                                  (|:| |binaryOp|
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $)
+                                                        (|:| |c2| $)))
+                                                  (|:| |unaryOp|
+                                                       (|Record|
+                                                        (|:| |typ| (|Symbol|))
+                                                        (|:| |c1| $))))
+                                                 #2#))
+                               2)
+                              (QREFELT $ 51))
+                             (QREFELT $ 52))
+                   (QREFELT $ 53)))))
+           ((QEQCAR |n| 3)
+            (SPADCALL
+             (LIST (SPADCALL "~(" (QREFELT $ 50))
+                   (SPADCALL
+                    (QCDR
+                     (PROG2 (LETT #1# |n| . #5#)
+                         (QCDR #1#)
+                       (|check_union2| (QEQCAR #1# 3)
+                                       (|Record| (|:| |typ| (|Symbol|))
+                                                 (|:| |c1| $))
+                                       (|Union|
+                                        (|:| |const|
+                                             (|Record| (|:| |val| (|Symbol|))))
+                                        (|:| |var|
+                                             (|Record| (|:| |str| (|String|))))
+                                        (|:| |binaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $)
+                                                       (|:| |c2| $)))
+                                        (|:| |unaryOp|
+                                             (|Record| (|:| |typ| (|Symbol|))
+                                                       (|:| |c1| $))))
+                                       #1#)))
+                    (QREFELT $ 51))
+                   (SPADCALL ")" (QREFELT $ 50)))
+             (QREFELT $ 54)))
+           (#4# (|error| "coerce: unexpected representation")))))) 
 
 (DECLAIM (NOTINLINE |ILogic;|)) 
 
 (DEFUN |ILogic| ()
   (SPROG NIL
-         (PROG (#1=#:G474)
+         (PROG (#1=#:G471)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ILogic|) . #2=(|ILogic|))
@@ -1561,7 +1552,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ILogic|) . #1=(|ILogic|))
-          (LETT $ (GETREFV 56) . #1#)
+          (LETT $ (GETREFV 57) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ILogic| NIL (CONS 1 $))
@@ -1595,15 +1586,15 @@
               (44 . |alphanumeric?|) (49 . |concat|) (55 . |alphabetic?|)
               |ILOGIC;parseIL2;SNniR;24| (60 . |minIndex|)
               |ILOGIC;parseIL;S$;25| |ILOGIC;toString;$S;26| (65 . |concat|)
-              |ILOGIC;toStringUnwrapped;$S;27| (70 . |coerce|) (|OutputForm|)
-              (75 . |coerce|) |ILOGIC;coerce;$Of;28| (80 . |hconcat|)
-              (|HashState|) (|SingleInteger|))
-           '#(~= 85 ~ 91 |value| 96 |toStringUnwrapped| 101 |toString| 106
-              |redux| 111 |proposition| 116 |parseILTerm| 121 |parseIL2| 127
-              |parseIL| 133 |opType| 138 |logicT| 143 |logicF| 147 |latex| 151
-              |implies| 156 |hashUpdate!| 162 |hash| 168 |getChildren| 173
-              |factor| 178 |deductions| 183 |coerce| 188 |atom?| 193 |_\|_| 198
-              |\\/| 202 T$ 208 = 212 |/\\| 218)
+              |ILOGIC;toStringUnwrapped;$S;27| (|OutputForm|) (70 . |message|)
+              |ILOGIC;coerce;$Of;28| (75 . |infix|) (82 . |paren|)
+              (87 . |hconcat|) (|HashState|) (|SingleInteger|))
+           '#(~= 92 ~ 98 |value| 103 |toStringUnwrapped| 108 |toString| 113
+              |redux| 118 |proposition| 123 |parseILTerm| 128 |parseIL2| 134
+              |parseIL| 140 |opType| 145 |logicT| 150 |logicF| 154 |latex| 158
+              |implies| 163 |hashUpdate!| 169 |hash| 175 |getChildren| 180
+              |factor| 185 |deductions| 190 |coerce| 195 |atom?| 200 |_\|_| 205
+              |\\/| 209 T$ 215 = 219 |/\\| 225)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0))
                  (CONS '#(NIL NIL NIL NIL NIL |SetCategory&| |BasicType&| NIL)
@@ -1611,24 +1602,25 @@
                         '#((|BoundedLattice|) (|BoundedMeetSemilattice|)
                            (|BoundedJoinSemilattice|) (|MeetSemilattice|)
                            (|JoinSemilattice|) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 50))
-                        (|makeByteWordVec2| 55
+                           (|CoercibleTo| 49))
+                        (|makeByteWordVec2| 56
                                             '(2 16 12 0 0 17 1 22 2 0 23 1 22 2
                                               0 25 2 22 0 0 0 26 2 22 0 0 2 27
                                               1 22 12 0 28 1 7 33 0 34 2 33 12
                                               0 0 35 1 39 12 0 40 2 7 0 0 39 41
                                               1 39 12 0 42 1 7 33 0 44 1 7 0 20
-                                              47 1 16 0 7 49 1 16 50 0 51 1 50
-                                              0 20 53 2 0 12 0 0 1 1 0 0 0 11 1
-                                              0 16 0 32 1 0 7 0 48 1 0 7 0 46 1
-                                              0 0 0 19 1 0 0 7 8 2 0 36 7 37 38
-                                              2 0 36 7 37 43 1 0 0 7 45 1 0 16
-                                              0 30 0 0 0 9 0 0 0 10 1 0 7 0 1 2
-                                              0 0 0 0 18 2 0 54 54 0 1 1 0 55 0
-                                              1 1 0 20 0 21 1 0 20 0 24 1 0 20
-                                              20 29 1 0 50 0 52 1 0 12 0 31 0 0
-                                              0 1 2 0 0 0 0 15 0 0 0 1 2 0 12 0
-                                              0 13 2 0 0 0 0 14)))))
+                                              47 1 49 0 7 50 3 49 0 0 0 0 52 1
+                                              49 0 0 53 1 49 0 20 54 2 0 12 0 0
+                                              1 1 0 0 0 11 1 0 16 0 32 1 0 7 0
+                                              48 1 0 7 0 46 1 0 0 0 19 1 0 0 7
+                                              8 2 0 36 7 37 38 2 0 36 7 37 43 1
+                                              0 0 7 45 1 0 16 0 30 0 0 0 9 0 0
+                                              0 10 1 0 7 0 1 2 0 0 0 0 18 2 0
+                                              55 55 0 1 1 0 56 0 1 1 0 20 0 21
+                                              1 0 20 0 24 1 0 20 20 29 1 0 49 0
+                                              51 1 0 12 0 31 0 0 0 1 2 0 0 0 0
+                                              15 0 0 0 1 2 0 12 0 0 13 2 0 0 0
+                                              0 14)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ILogic| 'NILADIC T) 

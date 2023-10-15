@@ -1165,7 +1165,6 @@
 ;   t:=
 ;     isSymbol x =>
 ;       compSymbol(x,m,e) or return nil
-;     m = $OutputForm and primitiveType x => [x,m,e]
 ;     STRINGP x => [x,x,e]
 ;     [x,primitiveType x or return nil,e]
 ;   convert(t,m)
@@ -1177,8 +1176,6 @@
       (SETQ |t|
               (COND
                ((|isSymbol| |x|) (OR (|compSymbol| |x| |m| |e|) (RETURN NIL)))
-               ((AND (EQUAL |m| |$OutputForm|) (|primitiveType| |x|))
-                (LIST |x| |m| |e|))
                ((STRINGP |x|) (LIST |x| |x| |e|))
                ('T (LIST |x| (OR (|primitiveType| |x|) (RETURN NIL)) |e|))))
       (|convert| |t| |m|)))))

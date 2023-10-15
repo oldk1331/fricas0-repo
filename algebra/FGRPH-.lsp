@@ -2010,7 +2010,9 @@
                          (LETT |s| |st| . #4#))
                         ('T
                          (LETT |s|
-                               (SPADCALL (LIST |s| "," |st|) (QREFELT $ 187))
+                               (SPADCALL
+                                (LIST |s| (SPADCALL "," (QREFELT $ 187)) |st|)
+                                (QREFELT $ 188))
                                . #4#)))))
                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
             (LETT |arrs| (SPADCALL |n| (QREFELT $ 22)) . #4#)
@@ -2020,8 +2022,12 @@
             (COND
              ((SPADCALL |arrs| NIL (QREFELT $ 139))
               (PROGN (LETT #2# |s| . #4#) (GO #5#))))
-            (LETT |s| (SPADCALL (LIST |s| "|") (QREFELT $ 187)) . #4#)
-            (LETT |fst| 'T . #4#) (LETT |arrStr| "->" . #4#)
+            (LETT |s|
+                  (SPADCALL (LIST |s| (SPADCALL "|" (QREFELT $ 187)))
+                            (QREFELT $ 188))
+                  . #4#)
+            (LETT |fst| 'T . #4#)
+            (LETT |arrStr| (SPADCALL "->" (QREFELT $ 187)) . #4#)
             (SEQ (LETT |arrow| NIL . #4#) (LETT #1# |arrs| . #4#) G190
                  (COND
                   ((OR (ATOM #1#) (PROGN (LETT |arrow| (CAR #1#) . #4#) NIL))
@@ -2033,12 +2039,16 @@
                         . #4#)
                   (COND
                    ((NULL |fst|)
-                    (LETT |s| (SPADCALL |s| "," (QREFELT $ 188)) . #4#)))
+                    (LETT |s|
+                          (SPADCALL |s| (SPADCALL "," (QREFELT $ 187))
+                                    (QREFELT $ 189))
+                          . #4#)))
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL (QVELT |arrow| 0) (QREFELT $ 189))
-                               ":" |stFrom| |arrStr| |stTo|)
-                         (QREFELT $ 187))
+                         (LIST |s| (SPADCALL (QVELT |arrow| 0) (QREFELT $ 190))
+                               (SPADCALL ":" (QREFELT $ 187)) |stFrom| |arrStr|
+                               |stTo|)
+                         (QREFELT $ 188))
                         . #4#)
                   (EXIT (LETT |fst| 'NIL . #4#)))
                  (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
@@ -2079,13 +2089,16 @@
                   ((OR (ATOM #3#) (PROGN (LETT |i| (CAR #3#) . #4#) NIL))
                    (GO G191)))
                  (SEQ
-                  (LETT |st| (SPADCALL (QVELT |i| 0) (QREFELT $ 190)) . #4#)
+                  (LETT |st| (SPADCALL (QVELT |i| 0) (QREFELT $ 191)) . #4#)
                   (EXIT
                    (COND
                     ((SPADCALL |s| (SPADCALL (QREFELT $ 184)) (QREFELT $ 186))
                      (LETT |s| |st| . #4#))
                     ('T
-                     (LETT |s| (SPADCALL (LIST |s| "," |st|) (QREFELT $ 187))
+                     (LETT |s|
+                           (SPADCALL
+                            (LIST |s| (SPADCALL "," (QREFELT $ 187)) |st|)
+                            (QREFELT $ 188))
                            . #4#)))))
                  (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
             (LETT |arrs| (SPADCALL |n| (QREFELT $ 22)) . #4#)
@@ -2095,8 +2108,12 @@
             (COND
              ((SPADCALL |arrs| NIL (QREFELT $ 139))
               (PROGN (LETT #2# |s| . #4#) (GO #5#))))
-            (LETT |s| (SPADCALL (LIST |s| "|") (QREFELT $ 187)) . #4#)
-            (LETT |fst| 'T . #4#) (LETT |arrStr| "->" . #4#)
+            (LETT |s|
+                  (SPADCALL (LIST |s| (SPADCALL "|" (QREFELT $ 187)))
+                            (QREFELT $ 188))
+                  . #4#)
+            (LETT |fst| 'T . #4#)
+            (LETT |arrStr| (SPADCALL "->" (QREFELT $ 187)) . #4#)
             (SEQ (LETT |arrow| NIL . #4#) (LETT #1# |arrs| . #4#) G190
                  (COND
                   ((OR (ATOM #1#) (PROGN (LETT |arrow| (CAR #1#) . #4#) NIL))
@@ -2106,22 +2123,26 @@
                         (SPADCALL
                          (QVELT
                           (SPADCALL |ls| (QVELT |arrow| 2) (QREFELT $ 176)) 0)
-                         (QREFELT $ 190))
+                         (QREFELT $ 191))
                         . #4#)
                   (LETT |stTo|
                         (SPADCALL
                          (QVELT
                           (SPADCALL |ls| (QVELT |arrow| 3) (QREFELT $ 176)) 0)
-                         (QREFELT $ 190))
+                         (QREFELT $ 191))
                         . #4#)
                   (COND
                    ((NULL |fst|)
-                    (LETT |s| (SPADCALL |s| "," (QREFELT $ 188)) . #4#)))
+                    (LETT |s|
+                          (SPADCALL |s| (SPADCALL "," (QREFELT $ 187))
+                                    (QREFELT $ 189))
+                          . #4#)))
                   (LETT |s|
                         (SPADCALL
-                         (LIST |s| (SPADCALL (QVELT |arrow| 0) (QREFELT $ 189))
-                               ":" |stFrom| |arrStr| |stTo|)
-                         (QREFELT $ 187))
+                         (LIST |s| (SPADCALL (QVELT |arrow| 0) (QREFELT $ 190))
+                               (SPADCALL ":" (QREFELT $ 187)) |stFrom| |arrStr|
+                               |stTo|)
+                         (QREFELT $ 188))
                         . #4#)
                   (EXIT (LETT |fst| 'NIL . #4#)))
                  (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))
@@ -2136,7 +2157,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteGraph&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|FiniteGraph&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 192) . #1#)
+          (LETT $ (GETREFV 193) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -2220,28 +2241,28 @@
               (468 . |concat|) (473 . |elt|) |FGRPH-;latex;AS;57| (479 . ~=)
               (485 . ~=) |FGRPH-;=;2AB;58| (491 . =) |FGRPH-;~=;2AB;59|
               (|OutputForm|) (497 . |empty|) (501 . |coerce|) (506 . =)
-              (512 . |hconcat|) (517 . |hconcat|) (523 . |coerce|)
-              (528 . |coerce|) |FGRPH-;coerce;AOf;61|)
-           '#(~= 533 |subdiagramSvg| 539 |spanningTreeNode| 547
-              |spanningTreeArrow| 553 |spanningForestNode| 559
-              |spanningForestArrow| 564 |routeNodes| 569 |routeArrows| 576
-              |outDegree| 583 |nodeToNode| 589 |nodeToArrow| 595 |nodeFromNode|
-              601 |nodeFromArrow| 607 |min| 613 |max| 624 |looseEquals| 635
-              |loopsNodes| 641 |loopsAtNode| 646 |loopsArrows| 652 |latex| 657
-              |laplacianMatrix| 662 |isGreaterThan?| 667 |isFunctional?| 674
-              |isFixPoint?| 679 |isDirected?| 685 |isDirectSuccessor?| 689
-              |isAcyclic?| 696 |incidenceMatrix| 701 |inDegree| 706 |hash| 712
-              |getVertexIndex| 717 |getArrowIndex| 723 |distanceMatrix| 730
-              |distance| 735 |diagramsSvg| 742 |diagramWidth| 749 |diagramSvg|
-              754 |diagramHeight| 761 |deepDiagramSvg| 766 |createY| 773
-              |createX| 779 |createWidth| 785 |coerce| 790 |arrowsToNode| 800
-              |arrowsToArrow| 806 |arrowsFromNode| 812 |arrowsFromArrow| 818
-              |arrowName| 824 |adjacencyMatrix| 831 |addArrow!| 836 = 844)
+              (512 . |message|) (517 . |hconcat|) (522 . |hconcat|)
+              (528 . |coerce|) (533 . |coerce|) |FGRPH-;coerce;AOf;61|)
+           '#(~= 538 |subdiagramSvg| 544 |spanningTreeNode| 552
+              |spanningTreeArrow| 558 |spanningForestNode| 564
+              |spanningForestArrow| 569 |routeNodes| 574 |routeArrows| 581
+              |outDegree| 588 |nodeToNode| 594 |nodeToArrow| 600 |nodeFromNode|
+              606 |nodeFromArrow| 612 |min| 618 |max| 629 |looseEquals| 640
+              |loopsNodes| 646 |loopsAtNode| 651 |loopsArrows| 657 |latex| 662
+              |laplacianMatrix| 667 |isGreaterThan?| 672 |isFunctional?| 679
+              |isFixPoint?| 684 |isDirected?| 690 |isDirectSuccessor?| 694
+              |isAcyclic?| 701 |incidenceMatrix| 706 |inDegree| 711 |hash| 717
+              |getVertexIndex| 722 |getArrowIndex| 728 |distanceMatrix| 735
+              |distance| 740 |diagramsSvg| 747 |diagramWidth| 754 |diagramSvg|
+              759 |diagramHeight| 766 |deepDiagramSvg| 771 |createY| 778
+              |createX| 784 |createWidth| 790 |coerce| 795 |arrowsToNode| 805
+              |arrowsToArrow| 811 |arrowsFromNode| 817 |arrowsFromArrow| 823
+              |arrowName| 829 |adjacencyMatrix| 836 |addArrow!| 841 = 849)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 191
+                             (|makeByteWordVec2| 192
                                                  '(1 6 9 0 10 2 7 11 0 0 12 2 6
                                                    13 0 7 15 4 6 0 0 16 13 13
                                                    17 1 6 21 0 22 2 23 0 13 13
@@ -2292,36 +2313,36 @@
                                                    0 0 178 2 21 11 0 0 179 2 6
                                                    11 0 0 181 0 183 0 184 1 13
                                                    183 0 185 2 183 11 0 0 186 1
-                                                   183 0 51 187 2 183 0 0 0 188
-                                                   1 16 183 0 189 1 7 183 0 190
-                                                   2 0 11 0 0 182 4 0 140 120 0
-                                                   11 11 159 2 0 45 0 13 60 2 0
-                                                   45 0 13 54 1 0 47 0 62 1 0
-                                                   47 0 56 3 0 40 0 13 13 99 3
-                                                   0 40 0 13 13 102 2 0 13 0 13
-                                                   87 2 0 40 0 13 89 2 0 40 0
-                                                   13 93 2 0 40 0 13 88 2 0 40
-                                                   0 13 92 1 0 13 0 107 2 0 13
-                                                   0 40 108 2 0 13 0 40 106 1 0
-                                                   13 0 105 2 0 11 0 0 171 1 0
-                                                   70 0 74 2 0 70 0 13 75 1 0
-                                                   70 0 77 1 0 16 0 177 1 0 23
-                                                   0 37 3 0 11 0 13 13 103 1 0
-                                                   11 0 112 2 0 11 0 13 82 0 0
-                                                   11 19 3 0 11 0 13 13 81 1 0
-                                                   11 0 80 1 0 23 0 28 2 0 13 0
-                                                   13 86 1 0 172 0 173 2 0 13 0
-                                                   7 14 3 0 13 0 13 13 84 1 0
-                                                   23 0 39 3 0 26 0 13 13 109 3
-                                                   0 140 16 51 11 167 1 0 13 0
-                                                   169 3 0 140 16 0 11 166 1 0
-                                                   13 0 170 3 0 140 16 0 11 168
-                                                   2 0 13 13 13 118 2 0 13 13
-                                                   13 117 1 0 13 13 113 1 0 183
-                                                   0 191 1 0 183 0 191 2 0 40 0
-                                                   13 91 2 0 40 0 13 95 2 0 40
-                                                   0 13 90 2 0 40 0 13 94 3 0
-                                                   16 0 13 13 85 1 0 31 0 33 4
-                                                   0 0 0 16 7 7 18 2 0 11 0 0
-                                                   180)))))
+                                                   183 0 16 187 1 183 0 51 188
+                                                   2 183 0 0 0 189 1 16 183 0
+                                                   190 1 7 183 0 191 2 0 11 0 0
+                                                   182 4 0 140 120 0 11 11 159
+                                                   2 0 45 0 13 60 2 0 45 0 13
+                                                   54 1 0 47 0 62 1 0 47 0 56 3
+                                                   0 40 0 13 13 99 3 0 40 0 13
+                                                   13 102 2 0 13 0 13 87 2 0 40
+                                                   0 13 89 2 0 40 0 13 93 2 0
+                                                   40 0 13 88 2 0 40 0 13 92 1
+                                                   0 13 0 107 2 0 13 0 40 108 2
+                                                   0 13 0 40 106 1 0 13 0 105 2
+                                                   0 11 0 0 171 1 0 70 0 74 2 0
+                                                   70 0 13 75 1 0 70 0 77 1 0
+                                                   16 0 177 1 0 23 0 37 3 0 11
+                                                   0 13 13 103 1 0 11 0 112 2 0
+                                                   11 0 13 82 0 0 11 19 3 0 11
+                                                   0 13 13 81 1 0 11 0 80 1 0
+                                                   23 0 28 2 0 13 0 13 86 1 0
+                                                   172 0 173 2 0 13 0 7 14 3 0
+                                                   13 0 13 13 84 1 0 23 0 39 3
+                                                   0 26 0 13 13 109 3 0 140 16
+                                                   51 11 167 1 0 13 0 169 3 0
+                                                   140 16 0 11 166 1 0 13 0 170
+                                                   3 0 140 16 0 11 168 2 0 13
+                                                   13 13 118 2 0 13 13 13 117 1
+                                                   0 13 13 113 1 0 183 0 192 1
+                                                   0 183 0 192 2 0 40 0 13 91 2
+                                                   0 40 0 13 95 2 0 40 0 13 90
+                                                   2 0 40 0 13 94 3 0 16 0 13
+                                                   13 85 1 0 31 0 33 4 0 0 0 16
+                                                   7 7 18 2 0 11 0 0 180)))))
            '|lookupComplete|)) 

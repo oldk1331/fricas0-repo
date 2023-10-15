@@ -327,15 +327,15 @@
              (|trace|
               (SPADCALL
                (SPADCALL
-                (LIST "simplify: generator '"
+                (LIST (SPADCALL "simplify: generator '" (QREFELT $ 51))
                       (|GROUPP;genName| |toBeRemoved| $)
-                      "' is identity so remove it")
+                      (SPADCALL "' is identity so remove it" (QREFELT $ 51)))
                 (QREFELT $ 45))
-               (QREFELT $ 52))))
+               (QREFELT $ 53))))
             (LETT |gens1| (|GROUPP;removeGen| |gens1| |toBeRemoved| $) . #3#)
             (LETT |rels1| (|GROUPP;removeGen2| |rels1| |toBeRemoved| $) . #3#)
             (COND
-             (|trace| (SPADCALL (|GROUPP;genName2| |rels1| $) (QREFELT $ 52))))
+             (|trace| (SPADCALL (|GROUPP;genName2| |rels1| $) (QREFELT $ 53))))
             (EXIT (CONS |gens1| |rels1|))))
           #4# (EXIT #1#)))) 
 
@@ -362,7 +362,7 @@
                          (COND
                           ((EQL |replaceFrom| 0)
                            (SEQ
-                            (LETT |replaceTo| (SPADCALL |rule| (QREFELT $ 53))
+                            (LETT |replaceTo| (SPADCALL |rule| (QREFELT $ 54))
                                   . #3#)
                             (LETT |replaceFrom| (ABS (|SPADfirst| |rule|))
                                   . #3#)
@@ -381,12 +381,13 @@
                  (|trace|
                   (SPADCALL
                    (SPADCALL
-                    (LIST "simplify: generator '"
+                    (LIST (SPADCALL "simplify: generator '" (QREFELT $ 51))
                           (|GROUPP;genName| |replaceFrom| $)
-                          "' is replaced by '" (|GROUPP;genName| |replaceTo| $)
-                          "'")
+                          (SPADCALL "' is replaced by '" (QREFELT $ 51))
+                          (|GROUPP;genName| |replaceTo| $)
+                          (SPADCALL "'" (QREFELT $ 51)))
                     (QREFELT $ 45))
-                   (QREFELT $ 52))))
+                   (QREFELT $ 53))))
                 (LETT |gens1| (|GROUPP;removeGen| |gens1| |replaceFrom| $)
                       . #3#)
                 (LETT |rels1|
@@ -394,7 +395,7 @@
                       . #3#)
                 (COND
                  (|trace|
-                  (SPADCALL (|GROUPP;genName2| |rels1| $) (QREFELT $ 52))))
+                  (SPADCALL (|GROUPP;genName2| |rels1| $) (QREFELT $ 53))))
                 (EXIT (CONS |gens1| |rels1|))))
           #4# (EXIT #1#)))) 
 
@@ -454,26 +455,30 @@
                                (COND
                                 ((EQL (ABS |ele|) (ABS |lastele|))
                                  (COND
-                                  ((SPADCALL (SPADCALL |ele| (QREFELT $ 54))
+                                  ((SPADCALL (SPADCALL |ele| (QREFELT $ 55))
                                              (SPADCALL |lastele|
-                                                       (QREFELT $ 54))
-                                             (QREFELT $ 55))
+                                                       (QREFELT $ 55))
+                                             (QREFELT $ 56))
                                    (SEQ
                                     (COND
                                      (|trace|
                                       (SPADCALL
                                        (SPADCALL
-                                        (LIST "simplify: generator '"
-                                              (|GROUPP;genName| |ele| $)
-                                              "' is adjacent to its inverse")
+                                        (LIST
+                                         (SPADCALL "simplify: generator '"
+                                                   (QREFELT $ 51))
+                                         (|GROUPP;genName| |ele| $)
+                                         (SPADCALL
+                                          "' is adjacent to its inverse"
+                                          (QREFELT $ 51)))
                                         (QREFELT $ 45))
-                                       (QREFELT $ 52))))
+                                       (QREFELT $ 53))))
                                     (LETT |changed| 'T . #3#)
                                     (EXIT (LETT |lastele| 0 . #3#))))
                                   ('T
                                    (SEQ
                                     (COND
-                                     ((SPADCALL |lastele| 0 (QREFELT $ 55))
+                                     ((SPADCALL |lastele| 0 (QREFELT $ 56))
                                       (LETT |rule2|
                                             (SPADCALL |rule2| |lastele|
                                                       (QREFELT $ 26))
@@ -482,7 +487,7 @@
                                 ('T
                                  (SEQ
                                   (COND
-                                   ((SPADCALL |lastele| 0 (QREFELT $ 55))
+                                   ((SPADCALL |lastele| 0 (QREFELT $ 56))
                                     (LETT |rule2|
                                           (SPADCALL |rule2| |lastele|
                                                     (QREFELT $ 26))
@@ -491,7 +496,7 @@
                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                              (EXIT NIL))
                         (COND
-                         ((SPADCALL |lastele| 0 (QREFELT $ 55))
+                         ((SPADCALL |lastele| 0 (QREFELT $ 56))
                           (LETT |rule2|
                                 (SPADCALL |rule2| |lastele| (QREFELT $ 26))
                                 . #3#)))
@@ -506,7 +511,7 @@
                (|trace|
                 (COND
                  (|changed|
-                  (SPADCALL (|GROUPP;genName2| |rels2| $) (QREFELT $ 52))))))
+                  (SPADCALL (|GROUPP;genName2| |rels2| $) (QREFELT $ 53))))))
               (EXIT (CONS |gens1| |rels2|))))) 
 
 (SDEFUN |GROUPP;TTMinimiseInverses| ((|s| $) (|trace| |Boolean|) ($ $))
@@ -544,7 +549,7 @@
                         (EXIT
                          (COND
                           ((SPADCALL |numInverts| |numNonInverts|
-                                     (QREFELT $ 56))
+                                     (QREFELT $ 57))
                            (SEQ (LETT |rule2| NIL . #5#)
                                 (SEQ (LETT |ele| NIL . #5#)
                                      (LETT #1# |rule| . #5#) G190
@@ -620,7 +625,7 @@
           #8# (EXIT #1#)))) 
 
 (SDEFUN |GROUPP;simplify;2$;19| ((|s| $) ($ $))
-        (SPADCALL |s| NIL (QREFELT $ 57))) 
+        (SPADCALL |s| NIL (QREFELT $ 58))) 
 
 (SDEFUN |GROUPP;simplify;$B$;20| ((|s| $) (|trace| |Boolean|) ($ $))
         (SPROG
@@ -630,9 +635,9 @@
           (COND
            (|trace|
             (SPADCALL
-             (SPADCALL "before simplification :=" (SPADCALL |s| (QREFELT $ 59))
-                       (QREFELT $ 43))
-             (QREFELT $ 52))))
+             (SPADCALL (SPADCALL "before simplification :=" (QREFELT $ 51))
+                       (SPADCALL |s| (QREFELT $ 60)) (QREFELT $ 43))
+             (QREFELT $ 53))))
           (LETT |res| |s| . #2=(|GROUPP;simplify;$B$;20|))
           (LETT |lastpass| |s| . #2#) (LETT |rep| 'T . #2#)
           (SEQ G190 (COND ((NULL |rep|) (GO G191)))
@@ -681,7 +686,7 @@
           (#4=#:G267 NIL) (|rs| (|List| (|List| (|Integer|)))) (|gens1| #2#)
           (#5=#:G266 NIL) (|p| NIL) (|ps| (|List| (|NonNegativeInteger|))))
          (SEQ
-          (LETT |ps| (SPADCALL (QCAR |s|) (QREFELT $ 60))
+          (LETT |ps| (SPADCALL (QCAR |s|) (QREFELT $ 61))
                 . #6=(|GROUPP;coerce;$Of;21|))
           (LETT |gens1| NIL . #6#)
           (SEQ (LETT |p| NIL . #6#) (LETT #5# |ps| . #6#) G190
@@ -723,12 +728,12 @@
                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
           (LETT |g| (SPADCALL " " (QREFELT $ 44)) . #6#)
           (COND
-           ((SPADCALL (LENGTH |gens1|) 0 (QREFELT $ 56))
+           ((SPADCALL (LENGTH |gens1|) 0 (QREFELT $ 57))
             (LETT |g| (SPADCALL |gens1| (QREFELT $ 48)) . #6#)))
           (LETT |r| (SPADCALL " " (QREFELT $ 44)) . #6#)
           (COND
-           ((SPADCALL (LENGTH |rels1|) 0 (QREFELT $ 56))
-            (LETT |r| (SPADCALL |rels1| (QREFELT $ 61)) . #6#)))
+           ((SPADCALL (LENGTH |rels1|) 0 (QREFELT $ 57))
+            (LETT |r| (SPADCALL |rels1| (QREFELT $ 62)) . #6#)))
           (EXIT
            (SPADCALL
             (LIST (SPADCALL "<" (QREFELT $ 44)) |g|
@@ -762,7 +767,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GroupPresentation|) . #1=(|GroupPresentation|))
-          (LETT $ (GETREFV 64) . #1#)
+          (LETT $ (GETREFV 65) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|GroupPresentation| NIL (CONS 1 $))
@@ -789,18 +794,18 @@
               (71 . |coerce|) (76 . >) (82 . |outputForm|) (87 . |hconcat|)
               (93 . |outputForm|) (98 . |hconcat|) (|List| 39) (103 . |concat|)
               (109 . |blankSeparate|) (114 . |remove|) (120 . |remove|)
-              (|Void|) (126 . |print|) (131 . |second|) (136 . |sign|)
-              (141 . ~=) (147 . >) |GROUPP;simplify;$B$;20|
-              |GROUPP;simplify;2$;19| |GROUPP;coerce;$Of;21| (153 . |parts|)
-              (158 . |commaSeparate|) (|SingleInteger|) (|HashState|))
-           '#(~= 163 |simplify| 169 |refactor| 180 |latex| 185 |hashUpdate!|
-              190 |hash| 196 |groupPresentation| 201 |coerce| 216 = 221)
+              (126 . |message|) (|Void|) (131 . |print|) (136 . |second|)
+              (141 . |sign|) (146 . ~=) (152 . >) |GROUPP;simplify;$B$;20|
+              |GROUPP;simplify;2$;19| |GROUPP;coerce;$Of;21| (158 . |parts|)
+              (163 . |commaSeparate|) (|SingleInteger|) (|HashState|))
+           '#(~= 168 |simplify| 174 |refactor| 185 |latex| 190 |hashUpdate!|
+              195 |hash| 201 |groupPresentation| 206 |coerce| 221 = 226)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 39))
-                        (|makeByteWordVec2| 63
+                        (|makeByteWordVec2| 64
                                             '(1 8 0 7 9 2 11 0 0 10 12 1 17 0
                                               16 18 1 8 7 0 19 1 8 20 0 21 2 23
                                               0 0 22 24 2 10 0 0 25 26 1 28 0 7
@@ -810,14 +815,15 @@
                                               41 1 39 0 25 42 2 39 0 0 0 43 1
                                               39 0 17 44 1 39 0 16 45 2 46 0 0
                                               39 47 1 39 0 16 48 2 8 0 20 0 49
-                                              2 10 0 25 0 50 1 39 51 0 52 1 10
-                                              25 0 53 1 25 25 0 54 2 25 30 0 0
-                                              55 2 20 30 0 0 56 1 8 7 0 60 1 39
-                                              0 16 61 2 0 30 0 0 1 1 0 0 0 58 2
-                                              0 0 0 30 57 1 0 0 0 27 1 0 17 0 1
-                                              2 0 63 63 0 1 1 0 62 0 1 0 0 0 15
-                                              2 0 0 7 11 13 1 0 0 7 14 1 0 39 0
-                                              59 2 0 30 0 0 36)))))
+                                              2 10 0 25 0 50 1 39 0 17 51 1 39
+                                              52 0 53 1 10 25 0 54 1 25 25 0 55
+                                              2 25 30 0 0 56 2 20 30 0 0 57 1 8
+                                              7 0 61 1 39 0 16 62 2 0 30 0 0 1
+                                              1 0 0 0 59 2 0 0 0 30 58 1 0 0 0
+                                              27 1 0 17 0 1 2 0 64 64 0 1 1 0
+                                              63 0 1 0 0 0 15 2 0 0 7 11 13 1 0
+                                              0 7 14 1 0 39 0 60 2 0 30 0 0
+                                              36)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|GroupPresentation| 'NILADIC T) 

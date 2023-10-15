@@ -75,31 +75,34 @@
 (SDEFUN |BITST;coerce;$Of;9| ((|s| $) ($ |OutputForm|))
         (SPROG
          ((|cs| (|List| (|OutputForm|))) (|c| (|OutputForm|))
-          (|r| (|List| (|OutputForm|))) (|ro| (|OutputForm|)) (#1=#:G137 NIL)
-          (|x| NIL) (#2=#:G136 NIL) (|row| NIL))
-         (SEQ (LETT |cs| NIL . #3=(|BITST;coerce;$Of;9|))
-              (SEQ (LETT |row| NIL . #3#) (LETT #2# |s| . #3#) G190
+          (|r| (|List| #1=(|OutputForm|))) (|ro| #1#) (#2=#:G137 NIL) (|x| NIL)
+          (#3=#:G136 NIL) (|row| NIL))
+         (SEQ (LETT |cs| NIL . #4=(|BITST;coerce;$Of;9|))
+              (SEQ (LETT |row| NIL . #4#) (LETT #3# |s| . #4#) G190
                    (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |row| (CAR #2#) . #3#) NIL))
+                    ((OR (ATOM #3#) (PROGN (LETT |row| (CAR #3#) . #4#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |r| (LIST "starts:") . #3#)
-                        (SEQ (LETT |x| NIL . #3#) (LETT #1# |row| . #3#) G190
-                             (COND
-                              ((OR (ATOM #1#)
-                                   (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                               (GO G191)))
-                             (SEQ (LETT |ro| "0" . #3#)
-                                  (COND (|x| (LETT |ro| "1" . #3#)))
-                                  (EXIT
-                                   (LETT |r| (SPADCALL |r| |ro| (QREFELT $ 31))
-                                         . #3#)))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                             (EXIT NIL))
-                        (LETT |c| (SPADCALL |r| (QREFELT $ 33)) . #3#)
-                        (EXIT
-                         (LETT |cs| (SPADCALL |cs| |c| (QREFELT $ 31)) . #3#)))
-                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |cs| (QREFELT $ 34)))))) 
+                   (SEQ
+                    (LETT |r| (LIST (SPADCALL "starts:" (QREFELT $ 30))) . #4#)
+                    (SEQ (LETT |x| NIL . #4#) (LETT #2# |row| . #4#) G190
+                         (COND
+                          ((OR (ATOM #2#)
+                               (PROGN (LETT |x| (CAR #2#) . #4#) NIL))
+                           (GO G191)))
+                         (SEQ (LETT |ro| (SPADCALL "0" (QREFELT $ 30)) . #4#)
+                              (COND
+                               (|x|
+                                (LETT |ro| (SPADCALL "1" (QREFELT $ 30))
+                                      . #4#)))
+                              (EXIT
+                               (LETT |r| (SPADCALL |r| |ro| (QREFELT $ 32))
+                                     . #4#)))
+                         (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
+                    (LETT |c| (SPADCALL |r| (QREFELT $ 34)) . #4#)
+                    (EXIT
+                     (LETT |cs| (SPADCALL |cs| |c| (QREFELT $ 32)) . #4#)))
+                   (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
+              (EXIT (SPADCALL |cs| (QREFELT $ 35)))))) 
 
 (DECLAIM (NOTINLINE |BitStreamFrame;|)) 
 
@@ -126,7 +129,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|BitStreamFrame|) . #1=(|BitStreamFrame|))
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT $ (GETREFV 38) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|BitStreamFrame| NIL (CONS 1 $))
@@ -143,26 +146,27 @@
               |BITST;/\\;3$;3| |BITST;\\/;3$;4| (|SingleInteger|)
               |BITST;hash;$Si;5| |BITST;latex;$S;6| (|NonNegativeInteger|)
               (17 . ~=) (|Integer|) (23 . |elt|) (29 . ~=) |BITST;=;2$B;7|
-              |BITST;~=;2$B;8| (|OutputForm|) (|List| 29) (35 . |concat|)
-              (|List| $) (41 . |hconcat|) (46 . |vconcat|) |BITST;coerce;$Of;9|
-              (|HashState|))
-           '#(~= 51 |starts| 57 |latex| 67 |hashUpdate!| 72 |hash| 78 |coerce|
-              83 |\\/| 88 = 94 |/\\| 100)
+              |BITST;~=;2$B;8| (|OutputForm|) (35 . |message|) (|List| 29)
+              (40 . |concat|) (|List| $) (46 . |hconcat|) (51 . |vconcat|)
+              |BITST;coerce;$Of;9| (|HashState|))
+           '#(~= 56 |starts| 62 |latex| 72 |hashUpdate!| 77 |hash| 83 |coerce|
+              88 |\\/| 93 = 99 |/\\| 105)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS '#(NIL NIL NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|Lattice|) (|MeetSemilattice|) (|JoinSemilattice|)
                            (|SetCategory|) (|BasicType|) (|CoercibleTo| 29))
-                        (|makeByteWordVec2| 36
+                        (|makeByteWordVec2| 37
                                             '(1 10 9 0 11 2 7 0 0 12 13 2 15 0
                                               0 0 16 2 22 12 0 0 23 2 6 7 0 24
-                                              25 2 7 12 0 0 26 2 30 0 0 29 31 1
-                                              29 0 32 33 1 29 0 32 34 2 0 12 0
-                                              0 28 1 0 0 7 8 1 0 0 10 14 1 0 10
-                                              0 21 2 0 36 36 0 1 1 0 19 0 20 1
-                                              0 29 0 35 2 0 0 0 0 18 2 0 12 0 0
-                                              27 2 0 0 0 0 17)))))
+                                              25 2 7 12 0 0 26 1 29 0 10 30 2
+                                              31 0 0 29 32 1 29 0 33 34 1 29 0
+                                              33 35 2 0 12 0 0 28 1 0 0 7 8 1 0
+                                              0 10 14 1 0 10 0 21 2 0 37 37 0 1
+                                              1 0 19 0 20 1 0 29 0 36 2 0 0 0 0
+                                              18 2 0 12 0 0 27 2 0 0 0 0
+                                              17)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|BitStreamFrame| 'NILADIC T) 

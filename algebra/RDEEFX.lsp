@@ -6642,8 +6642,10 @@
                                    (QREFELT $ 346))
                          (SEQ
                           (SPADCALL
-                           "Failed to differentiate nres in ei_int_diff"
-                           (QREFELT $ 351))
+                           (SPADCALL
+                            "Failed to differentiate nres in ei_int_diff"
+                            (QREFELT $ 351))
+                           (QREFELT $ 353))
                           (EXIT
                            (VECTOR (|spadConstant| $ 45) (|spadConstant| $ 45)
                                    (|spadConstant| $ 45) NIL))))
@@ -6758,7 +6760,7 @@
                     |x| (QREFELT $ 15))
                    (LIST (SPADCALL |x| (QREFELT $ 60))) (QREFELT $ 16))
                   . #21=(|RDEEFX;ei_int;I2FSR;53|))
-            (LETT |f| (SPADCALL |n| |f| (QREFELT $ 352)) . #21#)
+            (LETT |f| (SPADCALL |n| |f| (QREFELT $ 354)) . #21#)
             (LETT |fp| (SPADCALL |f| |x| (QREFELT $ 64)) . #21#)
             (EXIT
              (COND
@@ -6829,7 +6831,7 @@
                                 (LETT |her|
                                       (SPADCALL
                                        (SPADCALL |denfp| |gu| (QREFELT $ 247))
-                                       |derivation| |nfp| (QREFELT $ 356))
+                                       |derivation| |nfp| (QREFELT $ 358))
                                       . #21#)
                                 (LETT |lp| (QVELT |her| 1) . #21#)
                                 (LETT |a1|
@@ -7177,7 +7179,7 @@
                                               . #21#)
                                         (LETT |denf_split|
                                               (SPADCALL |denf| |derivation2|
-                                                        (QREFELT $ 359))
+                                                        (QREFELT $ 361))
                                               . #21#)
                                         (LETT |ndenf| (QCAR |denf_split|)
                                               . #21#)
@@ -7694,7 +7696,7 @@
             (SPROG NIL
                    (SPADCALL |z1|
                              (CONS #'|RDEEFX;ei_int;I2FSR;53!2| (VECTOR $ |x|))
-                             |dk| (QREFELT $ 353))))))) 
+                             |dk| (QREFELT $ 355))))))) 
 
 (SDEFUN |RDEEFX;ei_int;I2FSR;53!2| ((|z2| NIL) ($$ NIL))
         (PROG (|x| $)
@@ -7715,7 +7717,7 @@
                              (SPADCALL |z1|
                                        (CONS #'|RDEEFX;ei_int;I2FSR;53!0|
                                              (VECTOR $ |x|))
-                                       |dk| (QREFELT $ 353))
+                                       |dk| (QREFELT $ 355))
                              (QREFELT $ 99))))))) 
 
 (SDEFUN |RDEEFX;ei_int;I2FSR;53!0| ((|z2| NIL) ($$ NIL))
@@ -7752,7 +7754,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryRischDEX|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ElementaryRischDEX| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 360) . #1#)
+          (LETT $ (GETREFV 362) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ElementaryRischDEX|
@@ -7903,19 +7905,19 @@
               (1175 . |coerce|) (1180 . |smaller?|) (1186 . |fresnelC|)
               (1191 . |fresnelS|) (1196 . |mk_erf|) (1202 . *) (1208 . ^)
               (1214 . |Gamma|) (1220 . ~=) (1226 . |coerce|) (1231 . |eval|)
-              (|Void|) (|OutputForm|) (1238 . |print|) (1243 . *)
-              (1249 . |differentiate|)
+              (|String|) (|OutputForm|) (1238 . |message|) (|Void|)
+              (1243 . |print|) (1248 . *) (1254 . |differentiate|)
               (|Record| (|:| |answer| 38) (|:| |logpart| 38)
                         (|:| |specpart| 38) (|:| |polypart| 37))
               (|TranscendentalHermiteIntegration| 7 37)
-              (1256 . |HermiteIntegrate|)
+              (1261 . |HermiteIntegrate|)
               (|Record| (|:| |normal| 37) (|:| |special| 37))
-              (|MonomialExtensionTools| 7 37) (1263 . |split|))
-           '#(|mk_erf| 1269 |ei_int| 1275) 'NIL
+              (|MonomialExtensionTools| 7 37) (1268 . |split|))
+           '#(|mk_erf| 1274 |ei_int| 1280) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 359
+                             (|makeByteWordVec2| 361
                                                  '(1 7 10 0 11 2 14 12 12 13 15
                                                    2 14 12 12 12 16 1 18 17 0
                                                    19 2 12 20 18 0 21 2 17 20 0
@@ -8038,10 +8040,10 @@
                                                    7 342 2 17 0 213 0 343 2 7 0
                                                    0 0 344 2 7 0 0 0 345 2 38
                                                    20 0 0 346 1 7 0 13 347 3 7
-                                                   0 0 0 0 348 1 350 349 0 351
-                                                   2 7 0 29 0 352 3 37 0 0 220
-                                                   0 353 3 355 354 38 243 37
-                                                   356 2 358 357 37 243 359 2 0
-                                                   7 7 7 342 4 0 56 29 7 7 13
-                                                   68)))))
+                                                   0 0 0 0 348 1 350 0 349 351
+                                                   1 350 352 0 353 2 7 0 29 0
+                                                   354 3 37 0 0 220 0 355 3 357
+                                                   356 38 243 37 358 2 360 359
+                                                   37 243 361 2 0 7 7 7 342 4 0
+                                                   56 29 7 7 13 68)))))
            '|lookupComplete|)) 

@@ -1427,7 +1427,7 @@
               (PROGN
                (LETT #4#
                      (SPADCALL
-                      (LIST |s| ":"
+                      (LIST |s| (SPADCALL ":" (QREFELT $ 59))
                             (SPADCALL
                              (QVELT
                               (PROG2 (LETT #5# |n| . #6#)
@@ -1458,7 +1458,7 @@
                                                                      $)))))
                                                 #5#))
                               1)
-                             (QREFELT $ 58))
+                             (QREFELT $ 60))
                             (SPADCALL '-> (QREFELT $ 55))
                             (SPADCALL
                              (QVELT
@@ -1490,8 +1490,8 @@
                                                                      $)))))
                                                 #5#))
                               2)
-                             (QREFELT $ 58)))
-                      (QREFELT $ 59))
+                             (QREFELT $ 60)))
+                      (QREFELT $ 61))
                      . #6#)
                (GO #7#))))
             (LETT |sub|
@@ -1536,15 +1536,15 @@
                            (GO G191)))
                          (SEQ
                           (EXIT
-                           (LETT #3# (CONS (SPADCALL |x| (QREFELT $ 60)) #3#)
+                           (LETT #3# (CONS (SPADCALL |x| (QREFELT $ 62)) #3#)
                                  . #6#)))
                          (LETT #1# (CDR #1#) . #6#) (GO G190) G191
                          (EXIT (NREVERSE #3#))))
-                   (QREFELT $ 61))
+                   (QREFELT $ 63))
                   . #6#)
             (EXIT
              (SPADCALL (LIST |s| (SPADCALL '|:| (QREFELT $ 55)) |sub|)
-                       (QREFELT $ 59)))))
+                       (QREFELT $ 61)))))
           #7# (EXIT #4#)))) 
 
 (DECLAIM (NOTINLINE |SBoundary;|)) 
@@ -1571,7 +1571,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SBoundary|))
           (LETT |dv$| (LIST '|SBoundary| DV$1) . #1#)
-          (LETT $ (GETREFV 62) . #1#)
+          (LETT $ (GETREFV 64) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SBoundary| (LIST DV$1) (CONS 1 $))
@@ -1607,18 +1607,18 @@
               |SBOUND;isBox?;$B;12| (102 . |toPoint|) |SBOUND;getCentre;$PT;15|
               (|List| 6) |SBOUND;link;2$L;16| (|Symbol|) (|OutputForm|)
               (107 . |outputForm|) (112 . |coerce|) (117 . |hconcat|)
-              (123 . |coerce|) (128 . |hconcat|) |SBOUND;coerce;$Of;17|
-              (133 . |bracket|))
-           '#(|union| 138 |sunion| 143 |nullBoundary| 149 |link| 153
-              |lineIntersect| 159 |isNull?| 165 |isEllipse?| 170 |isBox?| 175
-              |intersection| 180 |getMin| 185 |getMax| 190 |getCentre| 195
-              |extendToPoint| 200 |ellipseBoundary| 206 |containsPoint?| 212
-              |coerce| 218 |boxBoundary| 223)
+              (|String|) (123 . |message|) (128 . |coerce|) (133 . |hconcat|)
+              |SBOUND;coerce;$Of;17| (138 . |bracket|))
+           '#(|union| 143 |sunion| 148 |nullBoundary| 154 |link| 158
+              |lineIntersect| 164 |isNull?| 170 |isEllipse?| 175 |isBox?| 180
+              |intersection| 185 |getMin| 190 |getMax| 195 |getCentre| 200
+              |extendToPoint| 205 |ellipseBoundary| 211 |containsPoint?| 217
+              |coerce| 223 |boxBoundary| 228)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 61
+                             (|makeByteWordVec2| 63
                                                  '(2 6 0 0 0 9 2 6 0 0 0 10 1
                                                    17 16 0 18 1 17 2 0 19 2 17
                                                    2 0 21 22 2 6 0 0 0 23 2 6 0
@@ -1629,14 +1629,14 @@
                                                    31 0 41 2 6 0 31 0 42 0 43 0
                                                    44 2 31 28 0 0 45 1 6 0 0 49
                                                    1 54 0 53 55 1 53 54 0 56 2
-                                                   54 0 0 0 57 1 6 54 0 58 1 54
-                                                   0 13 59 1 54 0 13 61 1 0 0
-                                                   13 14 2 0 0 0 0 20 0 0 0 8 2
-                                                   0 51 0 0 52 2 0 6 0 6 46 1 0
-                                                   28 0 47 1 0 28 0 30 1 0 28 0
-                                                   48 1 0 0 13 15 1 0 6 0 26 1
-                                                   0 6 0 27 1 0 6 0 50 2 0 0 0
-                                                   6 25 2 0 0 6 6 12 2 0 28 0 6
-                                                   29 1 0 54 0 60 2 0 0 6 6
-                                                   11)))))
+                                                   54 0 0 0 57 1 54 0 58 59 1 6
+                                                   54 0 60 1 54 0 13 61 1 54 0
+                                                   13 63 1 0 0 13 14 2 0 0 0 0
+                                                   20 0 0 0 8 2 0 51 0 0 52 2 0
+                                                   6 0 6 46 1 0 28 0 47 1 0 28
+                                                   0 30 1 0 28 0 48 1 0 0 13 15
+                                                   1 0 6 0 26 1 0 6 0 27 1 0 6
+                                                   0 50 2 0 0 0 6 25 2 0 0 6 6
+                                                   12 2 0 28 0 6 29 1 0 54 0 62
+                                                   2 0 0 6 6 11)))))
            '|lookupComplete|)) 

@@ -734,8 +734,9 @@
                             (QCDR |pv1|) (QREFELT $ 97)))))))))))) 
 
 (SDEFUN |DJBP;groebner;2L;36| ((|lp| |List| $) ($ |List| $))
-        (SEQ (SPADCALL "groebner$DJBP" (QREFELT $ 151))
-             (EXIT (SPADCALL |lp| (QREFELT $ 153))))) 
+        (SEQ
+         (SPADCALL (SPADCALL "groebner$DJBP" (QREFELT $ 151)) (QREFELT $ 153))
+         (EXIT (SPADCALL |lp| (QREFELT $ 155))))) 
 
 (DECLAIM (NOTINLINE |DistributedJetBundlePolynomial;|)) 
 
@@ -776,7 +777,7 @@
      (LETT DV$4 (|devaluate| |#4|) . #12#)
      (LETT |dv$| (LIST '|DistributedJetBundlePolynomial| DV$1 DV$2 DV$3 DV$4)
            . #12#)
-     (LETT $ (GETREFV 189) . #12#)
+     (LETT $ (GETREFV 190) . #12#)
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3
                (LETT |pv$|
@@ -1293,7 +1294,7 @@
            ('T
             (QSETREFV $ 146 (CONS (|dispatchFunction| |DJBP;gcd;3$;34|) $)))))
          ('T (QSETREFV $ 146 (CONS (|dispatchFunction| |DJBP;gcd;3$;35|) $))))
-        (QSETREFV $ 154 (CONS (|dispatchFunction| |DJBP;groebner;2L;36|) $)))))
+        (QSETREFV $ 156 (CONS (|dispatchFunction| |DJBP;groebner;2L;36|) $)))))
      $)))) 
 
 (MAKEPROP '|DistributedJetBundlePolynomial| '|infovec|
@@ -1343,34 +1344,35 @@
               |DJBP;differentiate;$JB$;30| (397 . |inv|) (402 . /)
               (408 . |gcd|) (414 . |content|) (419 . |zero?|) (424 . <)
               (430 . |content|) (435 . |gcd|) (441 . |gcd|)
-              (|PolynomialGcdPackage| 9 7 6 $$) (447 . |gcd|) (|Void|)
-              (453 . |print|) (|GroebnerPackage| 6 9 7 $$) (458 . |groebner|)
-              (463 . |groebner|) (|Union| 164 '#1="failed") (|Matrix| $)
+              (|PolynomialGcdPackage| 9 7 6 $$) (447 . |gcd|) (|String|)
+              (453 . |message|) (|Void|) (458 . |print|)
+              (|GroebnerPackage| 6 9 7 $$) (463 . |groebner|)
+              (468 . |groebner|) (|Union| 166 '#1="failed") (|Matrix| $)
               (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 36)
               (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 36 $)
               (|Matrix| 36)
-              (|Record| (|:| |mat| 162) (|:| |vec| (|Vector| 36))) (|Vector| $)
+              (|Record| (|:| |mat| 164) (|:| |vec| (|Vector| 36))) (|Vector| $)
               (|Union| $ '#1#)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Fraction| 36)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|Factored| $) (|Factored| 63) (|Union| 172 '#1#) (|List| 63)
-              (|Union| 167 '#2="failed") (|Union| 36 '#2#)
+              (|Factored| $) (|Factored| 63) (|Union| 174 '#1#) (|List| 63)
+              (|Union| 169 '#2="failed") (|Union| 36 '#2#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Record| (|:| |mat| 177) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
-              (|List| 179) (|Equation| $)
+              (|Record| (|:| |mat| 179) (|:| |vec| (|Vector| 6))) (|Matrix| 6)
+              (|List| 181) (|Equation| $)
               (|Record| (|:| |var| 7) (|:| |exponent| 18))
-              (|Union| 180 '#3="failed") (|Union| 135 '#3#) (|Mapping| 9 9)
-              (|Mapping| 6 6) (|PositiveInteger|) (|String|) (|SingleInteger|)
+              (|Union| 182 '#3="failed") (|Union| 135 '#3#) (|Mapping| 9 9)
+              (|Mapping| 6 6) (|PositiveInteger|) (|SingleInteger|)
               (|HashState|))
-           '#(|zero?| 468 |variables| 473 |univariate| 478 |totalDegree| 489
-              |retractIfCan| 494 |retract| 499 |reductum| 504
-              |numberOfMonomials| 509 |multivariate| 514 |monomial?| 526
-              |monomial| 531 |minimumDegree| 544 |mainVariable| 556
-              |leadingCoefficient| 561 |ground?| 566 |groebner| 571 |gcd| 576
-              |eval| 582 |differentiate| 610 |degree| 616 |convert| 633
-              |content| 643 |const| 648 |coerce| 653 ^ 668 |Zero| 674 |One| 678
-              / 682 + 688 * 694)
+           '#(|zero?| 473 |variables| 478 |univariate| 483 |totalDegree| 494
+              |retractIfCan| 499 |retract| 504 |reductum| 509
+              |numberOfMonomials| 514 |multivariate| 519 |monomial?| 531
+              |monomial| 536 |minimumDegree| 549 |mainVariable| 561
+              |leadingCoefficient| 566 |ground?| 571 |groebner| 576 |gcd| 581
+              |eval| 587 |differentiate| 615 |degree| 621 |convert| 638
+              |content| 648 |const| 653 |coerce| 658 ^ 673 |Zero| 679 |One| 683
+              / 687 + 693 * 699)
            'NIL
            (CONS
             (|makeByteWordVec2| 40
@@ -1400,16 +1402,16 @@
                  (|FiniteAbelianMonoidRing| 6 9) (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 6 9) (|GcdDomain|)
                  (|FullyLinearlyExplicitOver| 6) (|IntegralDomain|)
-                 (|LeftOreRing|) (|Algebra| 167) (|CharacteristicNonZero|)
+                 (|LeftOreRing|) (|Algebra| 169) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6)
                  (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 36)
                  (|CommutativeRing|) (|Algebra| $$) (|EntireRing|)
                  (|PartialDifferentialRing| 7) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|SemiRng|) (|Module| 167) (|Module| 6) (|Module| $$)
-                 (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 167 167)
+                 (|SemiRng|) (|Module| 169) (|Module| 6) (|Module| $$)
+                 (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 169 169)
                  (|NonAssociativeRing|) (|LeftModule| 6) (|RightModule| 6)
-                 (|RightModule| $$) (|LeftModule| $$) (|LeftModule| 167)
-                 (|RightModule| 167) (|NonAssociativeRng|) (|AbelianGroup|)
+                 (|RightModule| $$) (|LeftModule| $$) (|LeftModule| 169)
+                 (|RightModule| 169) (|NonAssociativeRng|) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|NonAssociativeSemiRng|) (|SemiGroup|)
                  (|AbelianMonoid|) (|MagmaWithUnit|) (|Magma|)
@@ -1418,12 +1420,12 @@
                  (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| $$)
                  (|VariablesCommuteWithCoefficients|) (|InnerEvalable| 7 $$)
                  (|InnerEvalable| 7 6) (|RetractableTo| 6) (|BasicType|)
-                 (|CoercibleTo| 10) (|unitsKnown|) (|RetractableTo| 167)
+                 (|CoercibleTo| 10) (|unitsKnown|) (|RetractableTo| 169)
                  (|RetractableTo| 36) (|canonicalUnitNormal|)
-                 (|CommutativeStar|) (|noZeroDivisors|) (|ConvertibleTo| 158)
-                 (|ConvertibleTo| 159) (|ConvertibleTo| 157)
+                 (|CommutativeStar|) (|noZeroDivisors|) (|ConvertibleTo| 160)
+                 (|ConvertibleTo| 161) (|ConvertibleTo| 159)
                  (|InnerEvalable| $$ $$) (|RetractableTo| 7))
-              (|makeByteWordVec2| 154
+              (|makeByteWordVec2| 156
                                   '(1 7 10 0 11 2 7 16 0 0 17 1 19 0 18 20 0 7
                                     0 21 0 0 0 22 0 6 0 23 1 9 0 19 24 2 0 0 6
                                     9 25 2 0 0 0 0 26 1 0 9 0 35 2 9 18 0 36 37
@@ -1450,19 +1452,20 @@
                                     6 0 0 139 2 0 0 0 6 140 2 6 0 0 0 141 1 0 6
                                     0 142 1 6 16 0 143 2 7 16 0 0 144 1 76 2 0
                                     145 2 0 0 0 0 146 2 76 0 0 0 147 2 148 2 2
-                                    2 149 1 10 150 0 151 1 152 120 120 153 1 0
-                                    135 135 154 1 49 16 0 29 1 0 45 0 46 1 0 91
-                                    0 95 2 0 63 0 7 74 1 0 18 0 108 1 0 86 0 87
-                                    1 0 6 0 72 1 0 0 0 41 1 0 18 0 34 2 0 0 91
-                                    7 103 2 0 0 63 7 97 1 0 16 0 33 3 0 0 0 7
-                                    18 27 2 0 0 6 9 25 2 0 110 0 45 114 2 0 18
-                                    0 7 113 1 0 30 0 31 1 0 6 0 84 1 0 16 0 32
-                                    1 14 135 135 154 2 14 0 0 0 146 3 0 0 0 7 0
-                                    116 3 0 0 0 45 135 136 3 0 0 0 7 6 117 3 0
-                                    0 0 45 118 119 2 4 0 0 7 138 2 0 18 0 7 109
-                                    2 0 110 0 45 111 1 0 9 0 35 1 0 0 58 68 1 0
-                                    58 0 79 1 14 6 0 142 1 0 6 0 85 1 12 0 7 28
-                                    1 0 0 6 61 1 0 10 0 57 2 47 0 0 18 96 0 49
-                                    0 38 0 47 0 22 2 18 0 0 6 140 2 0 0 0 0 70
-                                    2 0 0 6 0 101 2 0 0 0 0 26)))))
+                                    2 149 1 10 0 150 151 1 10 152 0 153 1 154
+                                    120 120 155 1 0 135 135 156 1 49 16 0 29 1
+                                    0 45 0 46 1 0 91 0 95 2 0 63 0 7 74 1 0 18
+                                    0 108 1 0 86 0 87 1 0 6 0 72 1 0 0 0 41 1 0
+                                    18 0 34 2 0 0 91 7 103 2 0 0 63 7 97 1 0 16
+                                    0 33 3 0 0 0 7 18 27 2 0 0 6 9 25 2 0 110 0
+                                    45 114 2 0 18 0 7 113 1 0 30 0 31 1 0 6 0
+                                    84 1 0 16 0 32 1 14 135 135 156 2 14 0 0 0
+                                    146 3 0 0 0 7 0 116 3 0 0 0 45 135 136 3 0
+                                    0 0 7 6 117 3 0 0 0 45 118 119 2 4 0 0 7
+                                    138 2 0 18 0 7 109 2 0 110 0 45 111 1 0 9 0
+                                    35 1 0 0 58 68 1 0 58 0 79 1 14 6 0 142 1 0
+                                    6 0 85 1 12 0 7 28 1 0 0 6 61 1 0 10 0 57 2
+                                    47 0 0 18 96 0 49 0 38 0 47 0 22 2 18 0 0 6
+                                    140 2 0 0 0 0 70 2 0 0 6 0 101 2 0 0 0 0
+                                    26)))))
            '|lookupIncomplete|)) 

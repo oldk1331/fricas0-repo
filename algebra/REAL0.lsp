@@ -834,17 +834,19 @@
                                                                (|Fraction|
                                                                 (|Integer|))))
                                                          0))
-                                          "is not a valid isolation interval for"
-                                          (SPADCALL F (QREFELT $ 68)))))))
+                                          (SPADCALL
+                                           "is not a valid isolation interval for"
+                                           (QREFELT $ 69))
+                                          (SPADCALL F (QREFELT $ 70)))))))
                            (COND
                             ((SPADCALL |eps| (|spadConstant| $ 41)
-                                       (QREFELT $ 69))
+                                       (QREFELT $ 71))
                              (|error| "precision must be positive")))
                            (SEQ G190
                                 (COND
                                  ((NULL
                                    (SPADCALL (SPADCALL |b| |a| (QREFELT $ 60))
-                                             |eps| (QREFELT $ 70)))
+                                             |eps| (QREFELT $ 72)))
                                   (GO G191)))
                                 (SEQ
                                  (LETT |mid|
@@ -907,7 +909,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RealZeroPackage|))
           (LETT |dv$| (LIST '|RealZeroPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 71) . #1#)
+          (LETT $ (GETREFV 73) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RealZeroPackage| (LIST DV$1)
@@ -937,12 +939,13 @@
               (128 . <=) (|PositiveInteger|) (134 . *) (140 . ~=) (|Vector| 11)
               (146 . |vectorise|) (152 . |min|) (158 . |max|) (164 . -)
               (170 . <) (176 . =) (182 . |denom|) (187 . |numer|) (192 . |elt|)
-              (198 . -) (|OutputForm|) (204 . |coerce|) (209 . <=) (215 . >=))
-           '#(|refine| 221 |realZeros| 235 |midpoints| 259 |midpoint| 264) 'NIL
+              (198 . -) (|OutputForm|) (|String|) (204 . |coerce|)
+              (209 . |coerce|) (214 . <=) (220 . >=))
+           '#(|refine| 226 |realZeros| 240 |midpoints| 264 |midpoint| 269) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 70
+                             (|makeByteWordVec2| 72
                                                  '(1 7 0 0 8 0 6 0 9 0 7 0 10 2
                                                    7 0 11 11 12 2 7 0 0 0 13 2
                                                    7 0 0 7 14 1 6 20 0 21 1 24
@@ -959,11 +962,11 @@
                                                    2 7 0 0 0 59 2 7 0 0 0 60 2
                                                    7 35 0 0 61 2 7 35 0 0 62 1
                                                    7 11 0 63 1 7 11 0 64 2 6 11
-                                                   0 11 65 2 6 0 0 0 66 1 6 67
-                                                   0 68 2 7 35 0 0 69 2 7 35 0
-                                                   0 70 3 0 30 6 15 15 31 3 0
-                                                   15 6 15 7 28 2 0 18 6 15 32
-                                                   1 0 18 6 27 3 0 18 6 15 7 33
-                                                   2 0 18 6 7 29 1 0 17 18 19 1
-                                                   0 7 15 16)))))
+                                                   0 11 65 2 6 0 0 0 66 1 68 67
+                                                   0 69 1 6 67 0 70 2 7 35 0 0
+                                                   71 2 7 35 0 0 72 3 0 30 6 15
+                                                   15 31 3 0 15 6 15 7 28 2 0
+                                                   18 6 15 32 1 0 18 6 27 3 0
+                                                   18 6 15 7 33 2 0 18 6 7 29 1
+                                                   0 17 18 19 1 0 7 15 16)))))
            '|lookupComplete|)) 

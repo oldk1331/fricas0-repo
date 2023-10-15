@@ -576,16 +576,18 @@
         (SPROG ((|s| (|NonNegativeInteger|)))
                (SPADCALL
                 (LIST (SPADCALL (QREFELT $ 6) (QREFELT $ 79))
-                      "-Space with depth of "
+                      (SPADCALL "-Space with depth of " (QREFELT $ 81))
                       (SPADCALL (- (QREFELT $ 6) (QVELT |space| 5))
-                                (QREFELT $ 80))
-                      " and "
+                                (QREFELT $ 82))
+                      (SPADCALL " and " (QREFELT $ 81))
                       (SPADCALL
                        (LETT |s| (SPADCALL (QVELT |space| 3) (QREFELT $ 74))
                              |SUBSPACE;coerce;$Of;34|)
-                       (QREFELT $ 81))
-                      (COND ((EQL |s| 1) " component") ('T " components")))
-                (QREFELT $ 82)))) 
+                       (QREFELT $ 83))
+                      (SPADCALL
+                       (COND ((EQL |s| 1) " component") ('T " components"))
+                       (QREFELT $ 81)))
+                (QREFELT $ 84)))) 
 
 (DECLAIM (NOTINLINE |SubSpace;|)) 
 
@@ -613,7 +615,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SubSpace|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|SubSpace| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 87) . #1#)
+          (LETT $ (GETREFV 88) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SubSpace| (LIST DV$1 DV$2)
@@ -667,23 +669,23 @@
               |SUBSPACE;extractProperty;$Sscp;29| |SUBSPACE;pointData;$L;31|
               |SUBSPACE;level;$Nni;32| (107 . =) (113 . =) (119 . |#|)
               (124 . ~=) |SUBSPACE;=;2$B;33| (|OutputForm|) (|PositiveInteger|)
-              (130 . |coerce|) (135 . |coerce|) (140 . |coerce|)
-              (145 . |hconcat|) |SUBSPACE;coerce;$Of;34| (|String|)
+              (130 . |coerce|) (|String|) (135 . |message|) (140 . |coerce|)
+              (145 . |coerce|) (150 . |hconcat|) |SUBSPACE;coerce;$Of;34|
               (|SingleInteger|) (|HashState|))
-           '#(~= 150 |traverse| 156 |subspace| 162 |shallowCopy| 166 |separate|
-              171 |root?| 176 |pointData| 181 |parent| 186 |numberOfChildren|
-              191 |new| 196 |modifyPoint| 200 |merge| 221 |level| 232 |leaf?|
-              237 |latex| 242 |internal?| 247 |hashUpdate!| 252 |hash| 258
-              |extractProperty| 263 |extractPoint| 268 |extractIndex| 273
-              |extractClosed| 278 |defineProperty| 283 |deepCopy| 290 |coerce|
-              295 |closeComponent| 300 |children| 307 |child| 312 |birth| 318
-              |addPointLast| 323 |addPoint2| 331 |addPoint| 337 = 357)
+           '#(~= 155 |traverse| 161 |subspace| 167 |shallowCopy| 171 |separate|
+              176 |root?| 181 |pointData| 186 |parent| 191 |numberOfChildren|
+              196 |new| 201 |modifyPoint| 205 |merge| 226 |level| 237 |leaf?|
+              242 |latex| 247 |internal?| 252 |hashUpdate!| 257 |hash| 263
+              |extractProperty| 268 |extractPoint| 273 |extractIndex| 278
+              |extractClosed| 283 |defineProperty| 288 |deepCopy| 295 |coerce|
+              300 |closeComponent| 305 |children| 312 |child| 317 |birth| 323
+              |addPointLast| 328 |addPoint2| 336 |addPoint| 342 = 362)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 77))
-                        (|makeByteWordVec2| 86
+                        (|makeByteWordVec2| 87
                                             '(1 13 12 0 14 1 19 0 18 20 0 21 0
                                               22 0 13 0 23 1 13 0 0 26 2 13 0 0
                                               0 27 2 13 2 0 29 30 1 21 0 0 34 1
@@ -694,21 +696,21 @@
                                               58 2 21 12 0 12 60 1 21 12 0 67 2
                                               19 12 0 0 72 2 21 12 0 0 73 1 13
                                               31 0 74 2 31 12 0 0 75 1 78 77 0
-                                              79 1 29 77 0 80 1 31 77 0 81 1 77
-                                              0 10 82 2 0 12 0 0 1 2 0 0 0 49
-                                              63 0 0 0 25 1 0 0 0 38 1 0 10 0
-                                              47 1 0 12 0 16 1 0 35 0 70 1 0 0
-                                              0 64 1 0 31 0 33 0 0 0 24 3 0 0 0
-                                              31 19 59 3 0 0 0 49 31 57 3 0 0 0
-                                              49 19 56 2 0 0 0 0 44 1 0 0 10 46
-                                              1 0 31 0 71 1 0 12 0 15 1 0 84 0
-                                              1 1 0 12 0 17 2 0 86 86 0 1 1 0
-                                              85 0 1 1 0 21 0 69 1 0 19 0 65 1
-                                              0 31 0 66 1 0 12 0 68 3 0 0 0 49
-                                              21 62 1 0 0 0 39 1 0 77 0 83 3 0
-                                              0 0 49 12 61 1 0 10 0 11 2 0 0 0
-                                              31 32 1 0 0 0 28 4 0 0 0 0 19 31
-                                              52 2 0 0 0 19 51 2 0 31 0 19 55 3
-                                              0 0 0 49 31 54 3 0 0 0 49 19 50 2
-                                              0 12 0 0 76)))))
+                                              79 1 77 0 80 81 1 29 77 0 82 1 31
+                                              77 0 83 1 77 0 10 84 2 0 12 0 0 1
+                                              2 0 0 0 49 63 0 0 0 25 1 0 0 0 38
+                                              1 0 10 0 47 1 0 12 0 16 1 0 35 0
+                                              70 1 0 0 0 64 1 0 31 0 33 0 0 0
+                                              24 3 0 0 0 31 19 59 3 0 0 0 49 31
+                                              57 3 0 0 0 49 19 56 2 0 0 0 0 44
+                                              1 0 0 10 46 1 0 31 0 71 1 0 12 0
+                                              15 1 0 80 0 1 1 0 12 0 17 2 0 87
+                                              87 0 1 1 0 86 0 1 1 0 21 0 69 1 0
+                                              19 0 65 1 0 31 0 66 1 0 12 0 68 3
+                                              0 0 0 49 21 62 1 0 0 0 39 1 0 77
+                                              0 85 3 0 0 0 49 12 61 1 0 10 0 11
+                                              2 0 0 0 31 32 1 0 0 0 28 4 0 0 0
+                                              0 19 31 52 2 0 0 0 19 51 2 0 31 0
+                                              19 55 3 0 0 0 49 31 54 3 0 0 0 49
+                                              19 50 2 0 12 0 0 76)))))
            '|lookupComplete|)) 

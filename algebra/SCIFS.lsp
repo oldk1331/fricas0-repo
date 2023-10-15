@@ -640,7 +640,11 @@
                           (SPADCALL |r| (SPADCALL |p| (QREFELT $ 65))
                                     (QREFELT $ 66))
                           . #4#)
-                    (EXIT (LETT |r| (SPADCALL |r| " " (QREFELT $ 66)) . #4#)))
+                    (EXIT
+                     (LETT |r|
+                           (SPADCALL |r| (SPADCALL " " (QREFELT $ 68))
+                                     (QREFELT $ 66))
+                           . #4#)))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (LETT |res| (LIST |r|) . #4#)
               (SEQ (LETT |faceIx| NIL . #4#) (LETT #2# (QCAR |me|) . #4#) G190
@@ -658,19 +662,22 @@
                              (SEQ
                               (LETT |r|
                                     (SPADCALL |r|
-                                              (SPADCALL |pIx| (QREFELT $ 67))
+                                              (SPADCALL |pIx| (QREFELT $ 69))
                                               (QREFELT $ 66))
                                     . #4#)
                               (EXIT
-                               (LETT |r| (SPADCALL |r| " " (QREFELT $ 66))
+                               (LETT |r|
+                                     (SPADCALL |r|
+                                               (SPADCALL " " (QREFELT $ 68))
+                                               (QREFELT $ 66))
                                      . #4#)))
                              (LETT #1# (CDR #1#) . #4#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT
-                         (LETT |res| (SPADCALL |res| |r| (QREFELT $ 69))
+                         (LETT |res| (SPADCALL |res| |r| (QREFELT $ 71))
                                . #4#)))
                    (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT $ 71)))))) 
+              (EXIT (SPADCALL |res| (QREFELT $ 73)))))) 
 
 (DECLAIM (NOTINLINE |SceneIFS;|)) 
 
@@ -695,7 +702,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SceneIFS|))
           (LETT |dv$| (LIST '|SceneIFS| DV$1) . #1#)
-          (LETT $ (GETREFV 73) . #1#)
+          (LETT $ (GETREFV 75) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SceneIFS| (LIST DV$1) (CONS 1 $))
@@ -737,17 +744,17 @@
                         (|:| |ranges| (|List| (|Segment| 26))) (|:| |knots| 55)
                         (|:| |points| 10))
               (|List| 60) |SCIFS;stube;LDfI$;15| (|OutputForm|) (152 . |empty|)
-              (156 . |coerce|) (161 . |hconcat|) (167 . |coerce|) (|List| 63)
-              (172 . |concat|) (|List| $) (178 . |vconcat|)
-              |SCIFS;coerce;$Of;16|)
-           '#(|subdivide| 183 |stube| 188 |smesh| 195 |singleFace| 201
-              |sierpinskiDivide| 206 |pointList| 212 |indexes| 217 |curveLoops|
-              222 |coerce| 229)
+              (156 . |coerce|) (161 . |hconcat|) (|String|) (167 . |message|)
+              (172 . |coerce|) (|List| 63) (177 . |concat|) (|List| $)
+              (183 . |vconcat|) |SCIFS;coerce;$Of;16|)
+           '#(|subdivide| 188 |stube| 193 |smesh| 200 |singleFace| 206
+              |sierpinskiDivide| 211 |pointList| 217 |indexes| 222 |curveLoops|
+              227 |coerce| 234)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 72
+                             (|makeByteWordVec2| 74
                                                  '(2 10 0 0 6 12 2 14 13 0 0 15
                                                    2 8 0 0 16 17 2 10 6 0 21 22
                                                    3 6 0 21 21 21 23 2 6 0 0 0
@@ -762,11 +769,11 @@
                                                    52 2 26 0 31 0 53 2 26 0 14
                                                    0 54 1 55 26 0 56 2 18 0 0 0
                                                    58 0 63 0 64 1 6 63 0 65 2
-                                                   63 0 0 0 66 1 14 63 0 67 2
-                                                   68 0 0 63 69 1 63 0 70 71 1
-                                                   0 0 0 30 3 0 0 61 26 21 62 2
-                                                   0 0 18 13 19 1 0 0 10 20 2 0
-                                                   0 0 14 35 1 0 10 0 11 1 0 8
-                                                   0 9 3 0 18 10 26 21 57 1 0
-                                                   63 0 72)))))
+                                                   63 0 0 0 66 1 63 0 67 68 1
+                                                   14 63 0 69 2 70 0 0 63 71 1
+                                                   63 0 72 73 1 0 0 0 30 3 0 0
+                                                   61 26 21 62 2 0 0 18 13 19 1
+                                                   0 0 10 20 2 0 0 0 14 35 1 0
+                                                   10 0 11 1 0 8 0 9 3 0 18 10
+                                                   26 21 57 1 0 63 0 74)))))
            '|lookupComplete|)) 

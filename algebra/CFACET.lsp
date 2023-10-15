@@ -469,32 +469,34 @@
          ((|body| (|OutputForm|)) (|elements| (|List| (|OutputForm|)))
           (#1=#:G244 NIL) (|x| NIL) (#2=#:G243 NIL) (|prefix| (|OutputForm|))
           (|m| (|Integer|)))
-         (SEQ (LETT |prefix| "" . #3=(|CFACET;coerce;$Of;21|))
-              (LETT |m| (QCAR |s|) . #3#)
-              (COND
-               ((SPADCALL (ABS |m|) 1 (QREFELT $ 17))
-                (LETT |prefix|
-                      (SPADCALL (SPADCALL |m| (QREFELT $ 57)) "*"
-                                (QREFELT $ 58))
-                      . #3#)))
-              (COND ((EQL |m| -1) (LETT |prefix| "-" . #3#)))
-              (LETT |elements|
-                    (PROGN
-                     (LETT #2# NIL . #3#)
-                     (SEQ (LETT |x| NIL . #3#) (LETT #1# (QCDR |s|) . #3#) G190
-                          (COND
-                           ((OR (ATOM #1#)
-                                (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
-                            (GO G191)))
-                          (SEQ
-                           (EXIT
-                            (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 59)) #2#)
-                                  . #3#)))
-                          (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                          (EXIT (NREVERSE #2#))))
-                    . #3#)
-              (LETT |body| (SPADCALL |elements| (QREFELT $ 60)) . #3#)
-              (EXIT (SPADCALL |prefix| |body| (QREFELT $ 58)))))) 
+         (SEQ
+          (LETT |prefix| (SPADCALL "" (QREFELT $ 58))
+                . #3=(|CFACET;coerce;$Of;21|))
+          (LETT |m| (QCAR |s|) . #3#)
+          (COND
+           ((SPADCALL (ABS |m|) 1 (QREFELT $ 17))
+            (LETT |prefix|
+                  (SPADCALL (SPADCALL |m| (QREFELT $ 59))
+                            (SPADCALL "*" (QREFELT $ 58)) (QREFELT $ 60))
+                  . #3#)))
+          (COND
+           ((EQL |m| -1) (LETT |prefix| (SPADCALL "-" (QREFELT $ 58)) . #3#)))
+          (LETT |elements|
+                (PROGN
+                 (LETT #2# NIL . #3#)
+                 (SEQ (LETT |x| NIL . #3#) (LETT #1# (QCDR |s|) . #3#) G190
+                      (COND
+                       ((OR (ATOM #1#) (PROGN (LETT |x| (CAR #1#) . #3#) NIL))
+                        (GO G191)))
+                      (SEQ
+                       (EXIT
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 61)) #2#)
+                              . #3#)))
+                      (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                      (EXIT (NREVERSE #2#))))
+                . #3#)
+          (LETT |body| (SPADCALL |elements| (QREFELT $ 62)) . #3#)
+          (EXIT (SPADCALL |prefix| |body| (QREFELT $ 60)))))) 
 
 (DECLAIM (NOTINLINE |CubicalFacet;|)) 
 
@@ -520,7 +522,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|CubicalFacet|) . #1=(|CubicalFacet|))
-          (LETT $ (GETREFV 65) . #1#)
+          (LETT $ (GETREFV 66) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|CubicalFacet| NIL (CONS 1 $))
@@ -549,15 +551,15 @@
               (101 . |copy|) (106 . |setelt!|) (113 . >)
               |CFACET;allSubsets;$NniL;14| |CFACET;allSubsets;$2NniL;15|
               (119 . ~=) |CFACET;sameFace?;2$B;16| |CFACET;<;2$B;18|
-              |CFACET;<=;2$B;19| |CFACET;=;2$B;20| (|OutputForm|)
-              (125 . |coerce|) (130 . |hconcat|) (136 . |coerce|)
-              (141 . |paren|) |CFACET;coerce;$Of;21| (|HashState|) (|String|)
-              (|SingleInteger|))
-           '#(~= 146 |smaller?| 152 |setMult| 158 |sameFace?| 164 |product| 170
-              |position| 176 |order| 182 |min| 187 |max| 193 |latex| 199
-              |hashUpdate!| 204 |hash| 210 |getMult| 215 |getIntervals| 220
-              |empty?| 225 |delta| 230 |cubicalFacet| 235 |coerce| 253
-              |allSubsets| 258 >= 271 > 277 = 283 <= 289 < 295)
+              |CFACET;<=;2$B;19| |CFACET;=;2$B;20| (|String|) (|OutputForm|)
+              (125 . |message|) (130 . |coerce|) (135 . |hconcat|)
+              (141 . |coerce|) (146 . |paren|) |CFACET;coerce;$Of;21|
+              (|HashState|) (|SingleInteger|))
+           '#(~= 151 |smaller?| 157 |setMult| 163 |sameFace?| 169 |product| 175
+              |position| 181 |order| 187 |min| 192 |max| 198 |latex| 204
+              |hashUpdate!| 209 |hash| 215 |getMult| 220 |getIntervals| 225
+              |empty?| 230 |delta| 235 |cubicalFacet| 240 |coerce| 258
+              |allSubsets| 263 >= 276 > 282 = 288 <= 294 < 300)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -566,8 +568,8 @@
                   (CONS
                    '#((|FacetCategory|) (|OrderedSet|) (|Comparable|)
                       (|SetCategory|) (|PartialOrder|) (|BasicType|)
-                      (|CoercibleTo| 56))
-                   (|makeByteWordVec2| 64
+                      (|CoercibleTo| 57))
+                   (|makeByteWordVec2| 65
                                        '(1 8 7 0 9 1 8 7 0 10 2 7 11 0 0 12 2 8
                                          0 7 7 13 2 14 0 0 8 15 2 7 11 0 0 17 1
                                          18 7 0 19 1 22 14 0 23 2 14 11 0 0 30
@@ -575,18 +577,18 @@
                                          26 38 2 35 0 0 0 39 1 0 11 0 41 2 35
                                          11 2 0 42 1 35 11 0 43 1 35 0 0 44 2
                                          26 11 0 0 45 1 14 0 0 46 3 14 8 0 7 8
-                                         47 2 26 11 0 0 48 2 14 11 0 0 51 1 7
-                                         56 0 57 2 56 0 0 0 58 1 8 56 0 59 1 56
-                                         0 31 60 2 0 11 0 0 1 2 0 11 0 0 1 2 0
-                                         0 0 7 29 2 0 11 0 0 52 2 0 0 0 0 34 2
-                                         0 7 0 31 32 1 0 26 0 27 2 0 0 0 0 1 2
-                                         0 0 0 0 1 1 0 63 0 1 2 0 62 62 0 1 1 0
-                                         64 0 1 1 0 7 0 28 1 0 14 0 25 1 0 11 0
-                                         41 1 0 31 0 40 2 0 0 7 22 24 2 0 0 7
-                                         14 16 2 0 0 7 20 21 1 0 56 0 61 3 0 31
-                                         0 26 26 50 2 0 31 0 26 49 2 0 11 0 0 1
-                                         2 0 11 0 0 1 2 0 11 0 0 55 2 0 11 0 0
-                                         54 2 0 11 0 0 53)))))
+                                         47 2 26 11 0 0 48 2 14 11 0 0 51 1 57
+                                         0 56 58 1 7 57 0 59 2 57 0 0 0 60 1 8
+                                         57 0 61 1 57 0 31 62 2 0 11 0 0 1 2 0
+                                         11 0 0 1 2 0 0 0 7 29 2 0 11 0 0 52 2
+                                         0 0 0 0 34 2 0 7 0 31 32 1 0 26 0 27 2
+                                         0 0 0 0 1 2 0 0 0 0 1 1 0 56 0 1 2 0
+                                         64 64 0 1 1 0 65 0 1 1 0 7 0 28 1 0 14
+                                         0 25 1 0 11 0 41 1 0 31 0 40 2 0 0 7
+                                         22 24 2 0 0 7 14 16 2 0 0 7 20 21 1 0
+                                         57 0 63 3 0 31 0 26 26 50 2 0 31 0 26
+                                         49 2 0 11 0 0 1 2 0 11 0 0 1 2 0 11 0
+                                         0 55 2 0 11 0 0 54 2 0 11 0 0 53)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CubicalFacet| 'NILADIC T) 

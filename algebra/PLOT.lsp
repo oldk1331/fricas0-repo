@@ -1336,69 +1336,71 @@
 (SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
-          (#2=#:G384 NIL) (|p| NIL) (#3=#:G383 NIL) (|h| (|OutputForm|))
-          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G382 NIL)
-          (|curve| NIL) (|tRange| (|OutputForm|)) (|plotSymbol| (|OutputForm|))
-          (|tSymbol| (|OutputForm|)) (|ySymbol| (|OutputForm|))
-          (|xSymbol| (|OutputForm|)) (|spaces| (|OutputForm|)))
+          (#2=#:G383 NIL) (|p| NIL) (#3=#:G382 NIL) (|h| (|OutputForm|))
+          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G381 NIL)
+          (|curve| NIL) (|tRange| (|OutputForm|))
+          (|plotSymbol| #5=(|OutputForm|)) (|tSymbol| #5#) (|ySymbol| #5#)
+          (|xSymbol| #5#) (|spaces| #5#))
          (SEQ
-          (LETT |spaces| (SPADCALL "   " (QREFELT $ 96))
-                . #5=(|PLOT;coerce;$Of;45|))
-          (LETT |xSymbol| "x = " . #5#) (LETT |ySymbol| "y = " . #5#)
-          (LETT |tSymbol| "t = " . #5#) (LETT |plotSymbol| "PLOT" . #5#)
+          (LETT |spaces| (SPADCALL "   " (QREFELT $ 97))
+                . #6=(|PLOT;coerce;$Of;45|))
+          (LETT |xSymbol| (SPADCALL "x = " (QREFELT $ 97)) . #6#)
+          (LETT |ySymbol| (SPADCALL "y = " (QREFELT $ 97)) . #6#)
+          (LETT |tSymbol| (SPADCALL "t = " (QREFELT $ 97)) . #6#)
+          (LETT |plotSymbol| (SPADCALL "PLOT" (QREFELT $ 97)) . #6#)
           (LETT |tRange|
-                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 97)) . #5#)
-          (LETT |f| NIL . #5#)
-          (SEQ (LETT |curve| NIL . #5#) (LETT #4# (QVELT |r| 4) . #5#) G190
+                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 98)) . #6#)
+          (LETT |f| NIL . #6#)
+          (SEQ (LETT |curve| NIL . #6#) (LETT #4# (QVELT |r| 4) . #6#) G190
                (COND
-                ((OR (ATOM #4#) (PROGN (LETT |curve| (CAR #4#) . #5#) NIL))
+                ((OR (ATOM #4#) (PROGN (LETT |curve| (CAR #4#) . #6#) NIL))
                  (GO G191)))
                (SEQ
                 (LETT |xRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 29))
-                                (QREFELT $ 97))
-                      . #5#)
+                                (QREFELT $ 98))
+                      . #6#)
                 (LETT |yRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 30))
-                                (QREFELT $ 97))
-                      . #5#)
+                                (QREFELT $ 98))
+                      . #6#)
                 (LETT |l| (LIST |xSymbol| |xRange| |spaces| |ySymbol| |yRange|)
-                      . #5#)
+                      . #6#)
                 (COND
                  ((SPADCALL |r| (QREFELT $ 41))
                   (LETT |l|
                         (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
-                                  (QREFELT $ 99))
-                        . #5#)))
-                (LETT |h| (SPADCALL |l| (QREFELT $ 101)) . #5#)
+                                  (QREFELT $ 100))
+                        . #6#)))
+                (LETT |h| (SPADCALL |l| (QREFELT $ 102)) . #6#)
                 (LETT |l|
                       (PROGN
-                       (LETT #3# NIL . #5#)
-                       (SEQ (LETT |p| NIL . #5#)
-                            (LETT #2# (QVELT |curve| 3) . #5#) G190
+                       (LETT #3# NIL . #6#)
+                       (SEQ (LETT |p| NIL . #6#)
+                            (LETT #2# (QVELT |curve| 3) . #6#) G190
                             (COND
                              ((OR (ATOM #2#)
-                                  (PROGN (LETT |p| (CAR #2#) . #5#) NIL))
+                                  (PROGN (LETT |p| (CAR #2#) . #6#) NIL))
                               (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT #3#
-                                    (CONS (SPADCALL |p| (QREFELT $ 102)) #3#)
-                                    . #5#)))
-                            (LETT #2# (CDR #2#) . #5#) (GO G190) G191
+                                    (CONS (SPADCALL |p| (QREFELT $ 103)) #3#)
+                                    . #6#)))
+                            (LETT #2# (CDR #2#) . #6#) (GO G190) G191
                             (EXIT (NREVERSE #3#))))
-                      . #5#)
+                      . #6#)
                 (EXIT
-                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 103)) |f|)
-                       . #5#)))
-               (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 104)))))) 
+                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 104)) |f|)
+                       . #6#)))
+               (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL |plotSymbol| (NREVERSE |f|) (QREFELT $ 105)))))) 
 
 (DECLAIM (NOTINLINE |Plot;|)) 
 
 (DEFUN |Plot| ()
   (SPROG NIL
-         (PROG (#1=#:G386)
+         (PROG (#1=#:G385)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Plot|) . #2=(|Plot|))
@@ -1416,7 +1418,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Plot|) . #1=(|Plot|))
-          (LETT $ (GETREFV 106) . #1#)
+          (LETT $ (GETREFV 107) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|Plot| NIL (CONS 1 $))
@@ -1480,10 +1482,10 @@
               |PLOT;pointPlot;M3S$;40| (|NonNegativeInteger|) (153 . *)
               (|List| 75) |PLOT;plot;LS$;41| |PLOT;plot;L2S$;42| (159 . |cos|)
               (164 . *) (170 . |sin|) |PLOT;plotPolar;MS$;43| (175 . *)
-              (181 . |segment|) |PLOT;plotPolar;M$;44| (|OutputForm|)
-              (187 . |coerce|) (192 . |coerce|) (|List| 95) (197 . |concat!|)
-              (|List| $) (203 . |hconcat|) (208 . |coerce|) (213 . |vconcat|)
-              (218 . |prefix|) |PLOT;coerce;$Of;45|)
+              (181 . |segment|) |PLOT;plotPolar;M$;44| (|String|)
+              (|OutputForm|) (187 . |message|) (192 . |coerce|) (|List| 96)
+              (197 . |concat!|) (|List| $) (203 . |hconcat|) (208 . |coerce|)
+              (213 . |vconcat|) (218 . |prefix|) |PLOT;coerce;$Of;45|)
            '#(|zoom| 224 |yRange| 237 |xRange| 242 |tRange| 247
               |setScreenResolution| 252 |setMinPoints| 257 |setMaxPoints| 262
               |setAdaptive| 267 |screenResolution| 272 |refine| 276 |pointPlot|
@@ -1494,8 +1496,8 @@
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL NIL)
                        (CONS
-                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 95))
-                        (|makeByteWordVec2| 105
+                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 96))
+                        (|makeByteWordVec2| 106
                                             '(1 12 0 0 13 2 12 16 0 0 17 2 19
                                               16 18 0 20 1 23 12 0 24 1 23 12 0
                                               25 2 12 16 0 0 26 2 23 0 12 12 27
@@ -1510,10 +1512,10 @@
                                               52 0 0 70 1 19 0 48 74 2 31 0 83
                                               0 84 1 12 0 0 88 2 12 0 0 0 89 1
                                               12 0 0 90 2 12 0 62 0 92 2 23 0
-                                              12 12 93 1 95 95 0 96 1 23 95 0
-                                              97 2 98 0 0 0 99 1 95 0 100 101 1
-                                              19 95 0 102 1 95 0 100 103 2 95 0
-                                              0 100 104 2 0 0 0 23 67 3 0 0 0
+                                              12 12 93 1 96 0 95 97 1 23 96 0
+                                              98 2 99 0 0 0 100 1 96 0 101 102
+                                              1 19 96 0 103 1 96 0 101 104 2 96
+                                              0 0 101 105 2 0 0 0 23 67 3 0 0 0
                                               23 23 68 1 0 23 0 45 1 0 23 0 44
                                               1 0 23 0 46 1 0 31 31 38 1 0 31
                                               31 33 1 0 31 31 36 1 0 16 16 40 0
@@ -1525,7 +1527,7 @@
                                               3 0 0 85 23 23 87 2 0 0 75 23 76
                                               3 0 0 75 23 23 77 1 0 16 0 41 0 0
                                               31 42 0 0 31 32 0 0 31 34 1 0 21
-                                              0 22 1 0 16 16 43 1 0 95 0 105 0
+                                              0 22 1 0 16 16 43 1 0 96 0 106 0
                                               0 16 39)))))
            '|lookupComplete|)) 
 

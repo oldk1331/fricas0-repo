@@ -68,7 +68,9 @@
                    (EXIT
                     (|error|
                      (LIST '|mathprint|
-                           (LIST 'CONCAT "Incompatible variable lists:"
+                           (LIST 'CONCAT
+                                 (SPADCALL "Incompatible variable lists:"
+                                           (QREFELT $ 50))
                                  (SPADCALL |s1| (QREFELT $ 50))
                                  (SPADCALL |s2| (QREFELT $ 50))))))))
                  ('T (SPADCALL (QREFELT $ 51))))))) 

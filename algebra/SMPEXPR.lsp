@@ -7,10 +7,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "log p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "log p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: log only defined for elements of the coefficient ring"))))))) 
@@ -23,10 +21,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "exp p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "exp p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: exp only defined for elements of the coefficient ring"))))))) 
@@ -39,10 +35,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "sin p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "sin p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: sin only defined for elements of the coefficient ring"))))))) 
@@ -55,10 +49,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "asin p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "asin p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: asin only defined for elements of the coefficient ring"))))))) 
@@ -71,10 +63,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "cos p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "cos p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: cos only defined for elements of the coefficient ring"))))))) 
@@ -87,10 +77,8 @@
                      (QREFELT $ 11)))
           ('T
            (SEQ
-            (SPADCALL
-             (SPADCALL "acos p for p= " (SPADCALL |p| (QREFELT $ 13))
-                       (QREFELT $ 14))
-             (QREFELT $ 17))
+            (SPADCALL "acos p for p=" (SPADCALL |p| (QREFELT $ 13))
+                      (QREFELT $ 17))
             (EXIT
              (|error|
               "SUPTRAFUN: acos only defined for elements of the coefficient ring"))))))) 
@@ -127,7 +115,7 @@
     (LETT DV$1 (|devaluate| |#1|)
           . #10=(|SparseMultivariatePolynomialExpressions|))
     (LETT |dv$| (LIST '|SparseMultivariatePolynomialExpressions| DV$1) . #10#)
-    (LETT $ (GETREFV 73) . #10#)
+    (LETT $ (GETREFV 72) . #10#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -625,10 +613,10 @@
            '#(NIL NIL NIL NIL NIL (|SparseMultivariatePolynomial| 6 41)
               (|local| |#1|) (|Boolean|) (0 . |ground?|) (5 . |ground|)
               (10 . |log|) (15 . |coerce|) (|OutputForm|) (20 . |coerce|)
-              (25 . |hconcat|) (|Void|) (|OutputPackage|) (31 . |output|)
-              (36 . |log|) (41 . |exp|) (46 . |exp|) (51 . |sin|) (56 . |sin|)
-              (61 . |asin|) (66 . |asin|) (71 . |cos|) (76 . |cos|)
-              (81 . |acos|) (86 . |acos|) (|Union| 35 '#1="failed")
+              (|Void|) (|String|) (|OutputPackage|) (25 . |output|)
+              (31 . |log|) (36 . |exp|) (41 . |exp|) (46 . |sin|) (51 . |sin|)
+              (56 . |asin|) (61 . |asin|) (66 . |cos|) (71 . |cos|)
+              (76 . |acos|) (81 . |acos|) (|Union| 35 '#1="failed")
               (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 40)
               (|Record| (|:| |mat| 36) (|:| |vec| (|Vector| 40))) (|Vector| $)
               (|Matrix| 40) (|PatternMatchResult| (|Float|) $)
@@ -646,10 +634,10 @@
               (|List| 59) (|Record| (|:| |var| 41) (|:| |exponent| 41))
               (|Union| 61 '#3="failed") (|Union| 45 '#3#)
               (|SparseUnivariatePolynomial| 6) (|List| 6) (|Mapping| 57 57)
-              (|Union| 6 '#2#) (|Mapping| 6 6) (|PositiveInteger|) (|String|)
+              (|Union| 6 '#2#) (|Mapping| 6 6) (|PositiveInteger|)
               (|SingleInteger|) (|HashState|))
-           '#(|sin| 91 |log| 96 |ground?| 101 |ground| 106 |exp| 111 |cos| 116
-              |coerce| 121 |asin| 131 |acos| 136)
+           '#(|sin| 86 |log| 91 |ground?| 96 |ground| 101 |exp| 106 |cos| 111
+              |coerce| 116 |asin| 126 |acos| 131)
            'NIL
            (CONS
             (|makeByteWordVec2| 41
@@ -716,11 +704,11 @@
                  (|ElementaryFunctionCategory|))
               (|makeByteWordVec2| 28
                                   '(1 0 7 0 8 1 0 6 0 9 1 6 0 0 10 1 0 0 6 11 1
-                                    0 12 0 13 2 12 0 0 0 14 1 16 15 12 17 1 0 0
-                                    0 18 1 6 0 0 19 1 0 0 0 20 1 6 0 0 21 1 0 0
-                                    0 22 1 6 0 0 23 1 0 0 0 24 1 6 0 0 25 1 0 0
-                                    0 26 1 6 0 0 27 1 0 0 0 28 1 18 0 0 22 1 18
-                                    0 0 18 1 0 7 0 8 1 0 6 0 9 1 18 0 0 20 1 18
-                                    0 0 26 1 0 0 6 11 1 0 12 0 13 1 18 0 0 24 1
-                                    18 0 0 28)))))
+                                    0 12 0 13 2 16 14 15 12 17 1 0 0 0 18 1 6 0
+                                    0 19 1 0 0 0 20 1 6 0 0 21 1 0 0 0 22 1 6 0
+                                    0 23 1 0 0 0 24 1 6 0 0 25 1 0 0 0 26 1 6 0
+                                    0 27 1 0 0 0 28 1 18 0 0 22 1 18 0 0 18 1 0
+                                    7 0 8 1 0 6 0 9 1 18 0 0 20 1 18 0 0 26 1 0
+                                    0 6 11 1 0 12 0 13 1 18 0 0 24 1 18 0 0
+                                    28)))))
            '|lookupIncomplete|)) 

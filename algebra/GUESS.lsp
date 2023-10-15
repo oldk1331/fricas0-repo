@@ -5049,15 +5049,17 @@
                      (COND
                       ((SPADCALL |d| |dmax| (QREFELT $ 222))
                        (SEQ
-                        (SPADCALL "bailing out from checkInterpolant"
-                                  (QREFELT $ 456))
+                        (SPADCALL
+                         (SPADCALL "bailing out from checkInterpolant"
+                                   (QREFELT $ 456))
+                         (QREFELT $ 457))
                         (SPADCALL
                          (SPADCALL
                           (SPADCALL "please report the input to "
                                     "fricas-devel@googlegroups.com"
                                     (QREFELT $ 42))
-                          (QREFELT $ 457))
-                         (QREFELT $ 456))
+                          (QREFELT $ 456))
+                         (QREFELT $ 457))
                         (LETT |order| |d| . #11#)
                         (EXIT
                          (PROGN (LETT #3# |$NoValue| . #11#) (GO #15#))))))))
@@ -5068,13 +5070,13 @@
               ((< |order| |sigma|)
                (SEQ
                 (SPADCALL
-                 (SPADCALL "Order too low: " (SPADCALL |order| (QREFELT $ 458))
-                           (QREFELT $ 459))
-                 (QREFELT $ 456))
+                 (SPADCALL (SPADCALL "Order too low: " (QREFELT $ 456))
+                           (SPADCALL |order| (QREFELT $ 458)) (QREFELT $ 459))
+                 (QREFELT $ 457))
                 (SPADCALL
-                 (SPADCALL "sigma: " (SPADCALL |sigma| (QREFELT $ 458))
-                           (QREFELT $ 459))
-                 (QREFELT $ 456))
+                 (SPADCALL (SPADCALL "sigma: " (QREFELT $ 456))
+                           (SPADCALL |sigma| (QREFELT $ 458)) (QREFELT $ 459))
+                 (QREFELT $ 457))
                 (EXIT
                  (PROGN (LETT #2# (CONS 2 "no_solution") . #11#) (GO #14#)))))
               ((SPADCALL |c| (QREFELT $ 460))
@@ -5083,15 +5085,17 @@
                  ((SPADCALL |options| (QREFELT $ 363))
                   (SEQ
                    (SPADCALL
-                    (SPADCALL "Proposed solution does not fit coefficient "
-                              (SPADCALL |order| (QREFELT $ 458))
-                              (QREFELT $ 459))
-                    (QREFELT $ 456))
+                    (SPADCALL
+                     (SPADCALL "Proposed solution does not fit coefficient "
+                               (QREFELT $ 456))
+                     (SPADCALL |order| (QREFELT $ 458)) (QREFELT $ 459))
+                    (QREFELT $ 457))
                    (EXIT
                     (SPADCALL
-                     (SPADCALL "sigma: " (SPADCALL |sigma| (QREFELT $ 458))
+                     (SPADCALL (SPADCALL "sigma: " (QREFELT $ 456))
+                               (SPADCALL |sigma| (QREFELT $ 458))
                                (QREFELT $ 459))
-                     (QREFELT $ 456))))))
+                     (QREFELT $ 457))))))
                 (EXIT (PROGN (LETT #2# (CONS 1 "reject") . #11#) (GO #14#)))))
               (#13# (CONS 0 "good"))))))
           #14# (EXIT #2#)))) 
@@ -5353,10 +5357,12 @@
                              ((SPADCALL |options| (QREFELT $ 363))
                               (SPADCALL
                                (SPADCALL
-                                (LIST "Guess: trying order "
-                                      (SPADCALL |o| (QREFELT $ 477))
-                                      ", guessDegree is "
-                                      (SPADCALL |guessDegree| (QREFELT $ 458)))
+                                (LIST
+                                 (SPADCALL "Guess: trying order "
+                                           (QREFELT $ 456))
+                                 (SPADCALL |o| (QREFELT $ 477))
+                                 (SPADCALL ", guessDegree is " (QREFELT $ 456))
+                                 (SPADCALL |guessDegree| (QREFELT $ 458)))
                                 (QREFELT $ 478))
                                (QREFELT $ 479))))
                             (LETT |maxD| (SPADCALL |options| (QREFELT $ 355))
@@ -6251,7 +6257,7 @@
               (COND
                ((QEQCAR |newMaxLevel| 0)
                 (SPADCALL
-                 (SPADCALL "Guess: guessing level "
+                 (SPADCALL (SPADCALL "Guess: guessing level " (QREFELT $ 456))
                            (SPADCALL |newMaxLevel| (QREFELT $ 532))
                            (QREFELT $ 459))
                  (QREFELT $ 479))))))
@@ -6760,8 +6766,8 @@
               (1571 . |zero?|) (1576 . |zero?|) (1581 . |zero?|)
               (|Mapping| 89 6) (1586 . |every?|) (1592 . *) (|List| 342)
               (|Vector| 342) (1598 . |vector|) (1603 . |generalCoefficient|)
-              (1611 . |zero?|) (|OutputForm|) (1616 . |print|)
-              (1621 . |coerce|) (1626 . |coerce|) (1631 . |hconcat|)
+              (1611 . |zero?|) (|OutputForm|) (1616 . |message|)
+              (1621 . |print|) (1626 . |coerce|) (1631 . |hconcat|)
               (1637 . |ground?|) (1642 . |variableName|) (1647 . |numerator|)
               (1652 . |indexName|) (|Mapping| 8 6) (|StreamFunctions2| 6 8)
               (1657 . |map|) (|BasicOperator|) (|RecurrenceOperator| 66 8)
@@ -6977,8 +6983,8 @@
                                                    0 446 2 12 89 447 0 448 2 75
                                                    0 73 0 449 1 451 0 450 452 4
                                                    196 129 215 151 75 451 453 1
-                                                   129 89 0 454 1 455 116 0 456
-                                                   1 41 455 0 457 1 66 455 0
+                                                   129 89 0 454 1 455 0 41 456
+                                                   1 455 116 0 457 1 66 455 0
                                                    458 2 455 0 0 0 459 1 129 89
                                                    0 460 1 56 22 13 461 1 8 0 0
                                                    462 1 56 22 13 463 2 465 180

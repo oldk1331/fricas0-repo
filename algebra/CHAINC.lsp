@@ -79,21 +79,24 @@
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL "validate failed nRows="
-                                          (SPADCALL
-                                           (SPADCALL |m| (QREFELT $ 26))
-                                           (QREFELT $ 30))
+                                (SPADCALL
+                                 (SPADCALL "validate failed nRows="
+                                           (QREFELT $ 31))
+                                 (SPADCALL (SPADCALL |m| (QREFELT $ 26))
+                                           (QREFELT $ 32))
+                                 (QREFELT $ 33))
+                                (SPADCALL " not equal to nCols "
                                           (QREFELT $ 31))
-                                " not equal to nCols " (QREFELT $ 31))
+                                (QREFELT $ 33))
                                (SPADCALL (SPADCALL |last| (QREFELT $ 27))
-                                         (QREFELT $ 30))
-                               (QREFELT $ 31))
-                              (QREFELT $ 33))
+                                         (QREFELT $ 32))
+                               (QREFELT $ 33))
+                              (QREFELT $ 35))
                              (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
-                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 34))
+                          (LETT |prod| (SPADCALL |last| |m| (QREFELT $ 36))
                                 . #4#)
                           (COND
-                           ((NULL (SPADCALL |prod| (QREFELT $ 35)))
+                           ((NULL (SPADCALL |prod| (QREFELT $ 37)))
                             (SEQ
                              (SPADCALL
                               (SPADCALL
@@ -101,14 +104,17 @@
                                 (SPADCALL
                                  (SPADCALL
                                   (SPADCALL
-                                   "validate failed: product of adjacent maps should be zero"
-                                   (SPADCALL |last| (QREFELT $ 36))
-                                   (QREFELT $ 31))
-                                  " * " (QREFELT $ 31))
-                                 (SPADCALL |m| (QREFELT $ 36)) (QREFELT $ 31))
-                                " = " (QREFELT $ 31))
-                               (SPADCALL |prod| (QREFELT $ 36)) (QREFELT $ 31))
-                              (QREFELT $ 33))
+                                   (SPADCALL
+                                    "validate failed: product of adjacent maps should be zero"
+                                    (QREFELT $ 31))
+                                   (SPADCALL |last| (QREFELT $ 38))
+                                   (QREFELT $ 33))
+                                  (SPADCALL " * " (QREFELT $ 31))
+                                  (QREFELT $ 33))
+                                 (SPADCALL |m| (QREFELT $ 38)) (QREFELT $ 33))
+                                (SPADCALL " = " (QREFELT $ 31)) (QREFELT $ 33))
+                               (SPADCALL |prod| (QREFELT $ 38)) (QREFELT $ 33))
+                              (QREFELT $ 35))
                              (EXIT (PROGN (LETT #2# NIL . #4#) (GO #5#))))))
                           (EXIT (LETT |last| |m| . #4#)))
                      (LETT |x| (|inc_SI| |x|) . #4#) (GO G190) G191 (EXIT NIL))
@@ -130,9 +136,9 @@
                     (COND
                      (|notFirst|
                       (SEQ
-                       (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 39)) . #2#)
+                       (LETT |m2| (SPADCALL |m1| |prev| (QREFELT $ 41)) . #2#)
                        (EXIT
-                        (LETT |res| (SPADCALL |res| |m2| (QREFELT $ 41))
+                        (LETT |res| (SPADCALL |res| |m2| (QREFELT $ 43))
                               . #2#)))))
                     (LETT |notFirst| 'T . #2#) (EXIT (LETT |prev| |m1| . #2#)))
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
@@ -152,12 +158,12 @@
                         (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 36)) #2#)
+                        (LETT #2# (CONS (SPADCALL |x| (QREFELT $ 38)) #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
                 . #3#)
-          (EXIT (SPADCALL |lst| (QREFELT $ 44)))))) 
+          (EXIT (SPADCALL |lst| (QREFELT $ 46)))))) 
 
 (DECLAIM (NOTINLINE |ChainComplex;|)) 
 
@@ -183,7 +189,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|ChainComplex|) . #1=(|ChainComplex|))
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT $ (GETREFV 51) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ChainComplex| NIL (CONS 1 $))
@@ -201,37 +207,38 @@
               (|Union| $ '"failed") (29 . |invertIfCan|) (|Union| 15 '"failed")
               (|List| 21) (34 . |concat|) |CHAINC;cochainComplex;$L;3|
               (40 . |elt|) (46 . |maxRowIndex|) (51 . |maxColIndex|) (56 . ~=)
-              (|OutputForm|) (62 . |coerce|) (67 . |hconcat|) (|Void|)
-              (73 . |print|) (78 . *) (84 . |zero?|) (89 . |coerce|)
-              |CHAINC;validate;$B;4| (|Homology|) (94 . |homologyGroup|)
-              (|List| 38) (100 . |concat|) |CHAINC;homology;$L;5| (|List| $)
-              (106 . |commaSeparate|) |CHAINC;coerce;$Of;6|
-              (|NonNegativeInteger|) (|HashState|) (|String|)
+              (|String|) (|OutputForm|) (62 . |message|) (67 . |coerce|)
+              (72 . |hconcat|) (|Void|) (78 . |print|) (83 . *) (89 . |zero?|)
+              (94 . |coerce|) |CHAINC;validate;$B;4| (|Homology|)
+              (99 . |homologyGroup|) (|List| 40) (105 . |concat|)
+              |CHAINC;homology;$L;5| (|List| $) (111 . |commaSeparate|)
+              |CHAINC;coerce;$Of;6| (|NonNegativeInteger|) (|HashState|)
               (|SingleInteger|))
-           '#(~= 111 |validate| 117 |setMaxFaces| 122 |prod| 128 |maxFaces| 134
-              |latex| 139 |join| 144 |homology| 150 |hashUpdate!| 155 |hash|
-              161 |coerce| 166 |cochainComplex| 171 |chainComplex| 176 = 181)
+           '#(~= 116 |validate| 122 |setMaxFaces| 127 |prod| 133 |maxFaces| 139
+              |latex| 144 |join| 149 |homology| 155 |hashUpdate!| 160 |hash|
+              166 |coerce| 171 |cochainComplex| 176 |chainComplex| 181 = 186)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(NIL |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|VertexSet|) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 29))
-                        (|makeByteWordVec2| 49
+                           (|CoercibleTo| 30))
+                        (|makeByteWordVec2| 50
                                             '(0 9 0 10 3 12 11 0 11 11 13 1 9 0
                                               11 14 4 15 9 0 11 11 9 16 1 12 17
                                               0 18 1 15 19 0 20 2 22 0 0 21 23
                                               2 6 12 0 11 25 1 12 11 0 26 1 12
-                                              11 0 27 2 11 17 0 0 28 1 11 29 0
-                                              30 2 29 0 0 0 31 1 29 32 0 33 2
-                                              12 0 0 0 34 1 12 17 0 35 1 12 29
-                                              0 36 2 38 0 12 12 39 2 40 0 0 38
-                                              41 1 29 0 43 44 2 0 17 0 0 1 1 0
-                                              17 0 37 2 0 32 0 46 1 2 0 0 0 0 1
-                                              1 0 46 0 1 1 0 48 0 1 2 0 0 0 0 1
-                                              1 0 40 0 42 2 0 47 47 0 1 1 0 49
-                                              0 1 1 0 29 0 45 1 0 22 0 24 1 0 0
-                                              7 8 2 0 17 0 0 1)))))
+                                              11 0 27 2 11 17 0 0 28 1 30 0 29
+                                              31 1 11 30 0 32 2 30 0 0 0 33 1
+                                              30 34 0 35 2 12 0 0 0 36 1 12 17
+                                              0 37 1 12 30 0 38 2 40 0 12 12 41
+                                              2 42 0 0 40 43 1 30 0 45 46 2 0
+                                              17 0 0 1 1 0 17 0 39 2 0 34 0 48
+                                              1 2 0 0 0 0 1 1 0 48 0 1 1 0 29 0
+                                              1 2 0 0 0 0 1 1 0 42 0 44 2 0 49
+                                              49 0 1 1 0 50 0 1 1 0 30 0 47 1 0
+                                              22 0 24 1 0 0 7 8 2 0 17 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ChainComplex| 'NILADIC T) 

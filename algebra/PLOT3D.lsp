@@ -1233,69 +1233,69 @@
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
           (#2=#:G350 NIL) (|p| NIL) (#3=#:G349 NIL) (|h| (|OutputForm|))
           (|zRange| #1#) (|yRange| #1#) (|xRange| #1#) (#4=#:G348 NIL)
-          (|curve| NIL) (|tRange| (|OutputForm|)) (|tSymbol| (|OutputForm|))
-          (|zSymbol| (|OutputForm|)) (|ySymbol| (|OutputForm|))
-          (|xSymbol| (|OutputForm|)) (|spaces| (|OutputForm|)))
-         (SEQ (LETT |spaces| "   " . #5=(|PLOT3D;coerce;$Of;37|))
-              (LETT |xSymbol| "x = " . #5#) (LETT |ySymbol| "y = " . #5#)
-              (LETT |zSymbol| "z = " . #5#) (LETT |tSymbol| "t = " . #5#)
-              (LETT |tRange|
-                    (SPADCALL (|PLOT3D;parametricRange| |r| $) (QREFELT $ 81))
-                    . #5#)
-              (LETT |f| NIL . #5#)
-              (SEQ (LETT |curve| NIL . #5#) (LETT #4# (QVELT |r| 4) . #5#) G190
-                   (COND
-                    ((OR (ATOM #4#) (PROGN (LETT |curve| (CAR #4#) . #5#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (LETT |xRange|
-                          (SPADCALL
-                           (SPADCALL (QVELT |curve| 1) 1 (QREFELT $ 82))
-                           (QREFELT $ 81))
-                          . #5#)
-                    (LETT |yRange|
-                          (SPADCALL
-                           (SPADCALL (QVELT |curve| 1) 2 (QREFELT $ 82))
-                           (QREFELT $ 81))
-                          . #5#)
-                    (LETT |zRange|
-                          (SPADCALL
-                           (SPADCALL (QVELT |curve| 1) 3 (QREFELT $ 82))
-                           (QREFELT $ 81))
-                          . #5#)
-                    (LETT |l|
-                          (LIST |xSymbol| |xRange| |spaces| |ySymbol| |yRange|
-                                |spaces| |zSymbol| |zRange|)
-                          . #5#)
-                    (LETT |l|
-                          (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
-                                    (QREFELT $ 84))
-                          . #5#)
-                    (LETT |h| (SPADCALL |l| (QREFELT $ 86)) . #5#)
-                    (LETT |l|
-                          (PROGN
-                           (LETT #3# NIL . #5#)
-                           (SEQ (LETT |p| NIL . #5#)
-                                (LETT #2# (QVELT |curve| 3) . #5#) G190
-                                (COND
-                                 ((OR (ATOM #2#)
-                                      (PROGN (LETT |p| (CAR #2#) . #5#) NIL))
-                                  (GO G191)))
-                                (SEQ
-                                 (EXIT
-                                  (LETT #3#
-                                        (CONS (SPADCALL |p| (QREFELT $ 87))
-                                              #3#)
-                                        . #5#)))
-                                (LETT #2# (CDR #2#) . #5#) (GO G190) G191
-                                (EXIT (NREVERSE #3#))))
-                          . #5#)
-                    (EXIT
-                     (LETT |f|
-                           (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 88)) |f|)
-                           . #5#)))
-                   (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 89)))))) 
+          (|curve| NIL) (|tRange| (|OutputForm|)) (|tSymbol| #5=(|OutputForm|))
+          (|zSymbol| #5#) (|ySymbol| #5#) (|xSymbol| #5#) (|spaces| #5#))
+         (SEQ
+          (LETT |spaces| (SPADCALL "   " (QREFELT $ 82))
+                . #6=(|PLOT3D;coerce;$Of;37|))
+          (LETT |xSymbol| (SPADCALL "x = " (QREFELT $ 82)) . #6#)
+          (LETT |ySymbol| (SPADCALL "y = " (QREFELT $ 82)) . #6#)
+          (LETT |zSymbol| (SPADCALL "z = " (QREFELT $ 82)) . #6#)
+          (LETT |tSymbol| (SPADCALL "t = " (QREFELT $ 82)) . #6#)
+          (LETT |tRange|
+                (SPADCALL (|PLOT3D;parametricRange| |r| $) (QREFELT $ 83))
+                . #6#)
+          (LETT |f| NIL . #6#)
+          (SEQ (LETT |curve| NIL . #6#) (LETT #4# (QVELT |r| 4) . #6#) G190
+               (COND
+                ((OR (ATOM #4#) (PROGN (LETT |curve| (CAR #4#) . #6#) NIL))
+                 (GO G191)))
+               (SEQ
+                (LETT |xRange|
+                      (SPADCALL (SPADCALL (QVELT |curve| 1) 1 (QREFELT $ 84))
+                                (QREFELT $ 83))
+                      . #6#)
+                (LETT |yRange|
+                      (SPADCALL (SPADCALL (QVELT |curve| 1) 2 (QREFELT $ 84))
+                                (QREFELT $ 83))
+                      . #6#)
+                (LETT |zRange|
+                      (SPADCALL (SPADCALL (QVELT |curve| 1) 3 (QREFELT $ 84))
+                                (QREFELT $ 83))
+                      . #6#)
+                (LETT |l|
+                      (LIST |xSymbol| |xRange| |spaces| |ySymbol| |yRange|
+                            |spaces| |zSymbol| |zRange|)
+                      . #6#)
+                (LETT |l|
+                      (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
+                                (QREFELT $ 86))
+                      . #6#)
+                (LETT |h| (SPADCALL |l| (QREFELT $ 88)) . #6#)
+                (LETT |l|
+                      (PROGN
+                       (LETT #3# NIL . #6#)
+                       (SEQ (LETT |p| NIL . #6#)
+                            (LETT #2# (QVELT |curve| 3) . #6#) G190
+                            (COND
+                             ((OR (ATOM #2#)
+                                  (PROGN (LETT |p| (CAR #2#) . #6#) NIL))
+                              (GO G191)))
+                            (SEQ
+                             (EXIT
+                              (LETT #3#
+                                    (CONS (SPADCALL |p| (QREFELT $ 89)) #3#)
+                                    . #6#)))
+                            (LETT #2# (CDR #2#) . #6#) (GO G190) G191
+                            (EXIT (NREVERSE #3#))))
+                      . #6#)
+                (EXIT
+                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 90)) |f|)
+                       . #6#)))
+               (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+          (EXIT
+           (SPADCALL (SPADCALL "PLOT" (QREFELT $ 82)) (NREVERSE |f|)
+                     (QREFELT $ 91)))))) 
 
 (SDEFUN |PLOT3D;listBranches;$L;38|
         ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
@@ -1337,7 +1337,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Plot3D|) . #1=(|Plot3D|))
-          (LETT $ (GETREFV 93) . #1#)
+          (LETT $ (GETREFV 95) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|Plot3D| NIL (CONS 1 $))
@@ -1395,23 +1395,23 @@
               |PLOT3D;refine;$S$;30| |PLOT3D;refine;2$;29| (152 . *)
               |PLOT3D;plot;$S$;31| (|Mapping| 17 12) |PLOT3D;pointPlot;MS$;32|
               |PLOT3D;pointPlot;M4S$;33| (|Mapping| 12 12)
-              |PLOT3D;plot;4MS$;35| |PLOT3D;plot;4M4S$;36| (|OutputForm|)
-              (158 . |coerce|) (163 . |elt|) (|List| 80) (169 . |concat!|)
-              (|List| $) (175 . |hconcat|) (180 . |coerce|) (185 . |vconcat|)
-              (190 . |prefix|) |PLOT3D;coerce;$Of;37| (|List| 51)
-              |PLOT3D;listBranches;$L;38|)
-           '#(|zoom| 196 |zRange| 204 |yRange| 209 |xRange| 214 |tValues| 219
-              |tRange| 224 |setScreenResolution3D| 229 |setMinPoints3D| 234
-              |setMaxPoints3D| 239 |setAdaptive3D| 244 |screenResolution3D| 249
-              |refine| 253 |pointPlot| 264 |plot| 279 |numFunEvals3D| 306
-              |minPoints3D| 310 |maxPoints3D| 314 |listBranches| 318 |debug3D|
-              323 |coerce| 328 |adaptive3D?| 333)
+              |PLOT3D;plot;4MS$;35| |PLOT3D;plot;4M4S$;36| (|String|)
+              (|OutputForm|) (158 . |message|) (163 . |coerce|) (168 . |elt|)
+              (|List| 81) (174 . |concat!|) (|List| $) (180 . |hconcat|)
+              (185 . |coerce|) (190 . |vconcat|) (195 . |prefix|)
+              |PLOT3D;coerce;$Of;37| (|List| 51) |PLOT3D;listBranches;$L;38|)
+           '#(|zoom| 201 |zRange| 209 |yRange| 214 |xRange| 219 |tValues| 224
+              |tRange| 229 |setScreenResolution3D| 234 |setMinPoints3D| 239
+              |setMaxPoints3D| 244 |setAdaptive3D| 249 |screenResolution3D| 254
+              |refine| 258 |pointPlot| 269 |plot| 284 |numFunEvals3D| 311
+              |minPoints3D| 315 |maxPoints3D| 319 |listBranches| 323 |debug3D|
+              328 |coerce| 333 |adaptive3D?| 338)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL NIL)
                        (CONS
-                        '#((|PlottableSpaceCurveCategory|) (|CoercibleTo| 80))
-                        (|makeByteWordVec2| 92
+                        '#((|PlottableSpaceCurveCategory|) (|CoercibleTo| 81))
+                        (|makeByteWordVec2| 94
                                             '(1 12 0 0 13 1 17 0 16 18 1 19 12
                                               0 20 1 19 12 0 21 2 12 22 0 0 23
                                               2 19 0 12 12 24 1 25 19 0 26 1 25
@@ -1424,20 +1424,21 @@
                                               17 0 61 2 12 0 0 62 63 1 12 0 0
                                               64 1 16 0 12 65 1 51 0 17 66 1 16
                                               0 0 68 1 51 0 0 69 2 28 0 62 0 72
-                                              1 19 80 0 81 2 25 19 0 28 82 2 83
-                                              0 0 0 84 1 80 0 85 86 1 17 80 0
-                                              87 1 80 0 85 88 2 80 0 0 85 89 4
-                                              0 0 0 19 19 19 67 1 0 19 0 42 1 0
-                                              19 0 41 1 0 19 0 40 1 0 44 0 45 1
-                                              0 19 0 43 1 0 28 28 35 1 0 28 28
-                                              30 1 0 28 28 33 1 0 22 22 37 0 0
-                                              28 34 1 0 0 0 71 2 0 0 0 19 70 5
-                                              0 0 74 19 19 19 19 76 2 0 0 74 19
-                                              75 2 0 0 0 19 73 5 0 0 77 77 77
-                                              77 19 78 8 0 0 77 77 77 77 19 19
-                                              19 19 79 0 0 28 38 0 0 28 29 0 0
-                                              28 31 1 0 91 0 92 1 0 22 22 39 1
-                                              0 80 0 90 0 0 22 36)))))
+                                              1 81 0 80 82 1 19 81 0 83 2 25 19
+                                              0 28 84 2 85 0 0 0 86 1 81 0 87
+                                              88 1 17 81 0 89 1 81 0 87 90 2 81
+                                              0 0 87 91 4 0 0 0 19 19 19 67 1 0
+                                              19 0 42 1 0 19 0 41 1 0 19 0 40 1
+                                              0 44 0 45 1 0 19 0 43 1 0 28 28
+                                              35 1 0 28 28 30 1 0 28 28 33 1 0
+                                              22 22 37 0 0 28 34 1 0 0 0 71 2 0
+                                              0 0 19 70 5 0 0 74 19 19 19 19 76
+                                              2 0 0 74 19 75 2 0 0 0 19 73 5 0
+                                              0 77 77 77 77 19 78 8 0 0 77 77
+                                              77 77 19 19 19 19 79 0 0 28 38 0
+                                              0 28 29 0 0 28 31 1 0 93 0 94 1 0
+                                              22 22 39 1 0 81 0 92 0 0 22
+                                              36)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Plot3D| 'NILADIC T) 

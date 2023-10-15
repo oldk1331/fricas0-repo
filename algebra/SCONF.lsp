@@ -255,7 +255,7 @@
                  (SPADCALL
                   (SPADCALL "can't apply normalisePoint to a vector"
                             (QREFELT $ 46))
-                  (QREFELT $ 47))
+                  (QREFELT $ 48))
                  (EXIT (PROGN (LETT #2# |pt| . #3#) (GO #4=#:G166))))))))
             (COND
              ((|less_DF| |scaleFactor|
@@ -428,13 +428,14 @@
               |SCONF;screenCoordX;$Df;18| |SCONF;screenCoordY;$Df;19|
               |SCONF;screenCoordZ;$Df;20| (|List| 14)
               |SCONF;screenCoords;$L;21| (41 . |entries|)
-              |SCONF;extendedCoords;$L;22| (|Void|) (|OutputForm|)
-              (46 . |print|) (51 . |coerce|) |SCONF;normalisePoint;2$;23|
-              |SCONF;toPoint;2$;24| |SCONF;toVector;2$;25|
-              |SCONF;isPoint?;$B;26| |SCONF;isVector?;$B;27| (|SingleInteger|)
-              |SCONF;hash;$Si;28| (|String|) |SCONF;latex;$S;29|
-              |SCONF;=;2$B;30| |SCONF;~=;2$B;31| (56 . |coerce|) (|List| $)
-              (61 . |paren|) |SCONF;coerce;$Of;32| (|HashState|))
+              |SCONF;extendedCoords;$L;22| (|String|) (|OutputForm|)
+              (46 . |message|) (|Void|) (51 . |print|)
+              |SCONF;normalisePoint;2$;23| |SCONF;toPoint;2$;24|
+              |SCONF;toVector;2$;25| |SCONF;isPoint?;$B;26|
+              |SCONF;isVector?;$B;27| (|SingleInteger|) |SCONF;hash;$Si;28|
+              |SCONF;latex;$S;29| |SCONF;=;2$B;30| |SCONF;~=;2$B;31|
+              (56 . |coerce|) (|List| $) (61 . |paren|) |SCONF;coerce;$Of;32|
+              (|HashState|))
            '#(~= 66 |unitVector| 72 |toVector| 77 |toPoint| 82 |svec| 87 |spnt|
               100 |sivec| 113 |sipnt| 126 |screenCoords| 139 |screenCoordZ| 144
               |screenCoordY| 149 |screenCoordX| 154 |perpendicular| 159
@@ -453,19 +454,19 @@
                                             '(2 7 0 0 7 8 3 12 0 11 11 7 13 1
                                               12 14 0 15 2 7 17 0 0 18 2 14 17
                                               0 0 25 1 14 0 0 27 2 14 17 0 0 35
-                                              1 10 40 0 42 1 45 44 0 46 1 44 45
-                                              0 47 1 14 45 0 59 1 45 0 60 61 2
-                                              0 17 0 0 58 1 0 0 0 28 1 0 0 0 50
-                                              1 0 0 0 49 3 0 0 14 14 14 21 2 0
+                                              1 10 40 0 42 1 45 0 44 46 1 45 47
+                                              0 48 1 14 45 0 59 1 45 0 60 61 2
+                                              0 17 0 0 58 1 0 0 0 28 1 0 0 0 51
+                                              1 0 0 0 50 3 0 0 14 14 14 21 2 0
                                               0 14 14 20 3 0 0 14 14 14 19 2 0
                                               0 14 14 16 3 0 0 11 11 11 1 2 0 0
                                               11 11 1 3 0 0 11 11 11 1 2 0 0 11
                                               11 1 1 0 40 0 41 1 0 14 0 39 1 0
                                               14 0 38 1 0 14 0 37 2 0 0 0 0 31
-                                              2 0 14 0 0 30 1 0 0 0 48 2 0 0 0
-                                              0 22 2 0 0 0 0 23 1 0 55 0 56 1 0
-                                              17 0 52 1 0 17 0 51 3 0 17 0 0 0
-                                              36 2 0 63 63 0 1 1 0 53 0 54 1 0
+                                              2 0 14 0 0 30 1 0 0 0 49 2 0 0 0
+                                              0 22 2 0 0 0 0 23 1 0 44 0 56 1 0
+                                              17 0 53 1 0 17 0 52 3 0 17 0 0 0
+                                              36 2 0 63 63 0 1 1 0 54 0 55 1 0
                                               40 0 43 2 0 14 0 0 29 2 0 14 0 0
                                               1 1 0 7 0 24 2 0 14 0 0 1 1 0 45
                                               0 62 1 0 17 0 26 2 0 17 0 0 57 2

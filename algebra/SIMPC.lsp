@@ -1019,7 +1019,10 @@
             (COND
              ((NULL (QCDR |s|))
               (PROGN
-               (LETT #2# (SPADCALL "empty" (QREFELT $ 110)) . #3#)
+               (LETT #2#
+                     (SPADCALL (SPADCALL "empty" (QREFELT $ 111))
+                               (QREFELT $ 112))
+                     . #3#)
                (GO #4=#:G324))))
             (SEQ (LETT |a| NIL . #3#) (LETT #1# (QCDR |s|) . #3#) G190
                  (COND
@@ -1028,8 +1031,8 @@
                  (SEQ
                   (EXIT
                    (LETT |res|
-                         (SPADCALL |res| (SPADCALL |a| (QREFELT $ 111))
-                                   (QREFELT $ 112))
+                         (SPADCALL |res| (SPADCALL |a| (QREFELT $ 113))
+                                   (QREFELT $ 114))
                          . #3#)))
                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT |res|)))
@@ -1064,7 +1067,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteSimplicialComplex|))
           (LETT |dv$| (LIST '|FiniteSimplicialComplex| DV$1) . #1#)
-          (LETT $ (GETREFV 118) . #1#)
+          (LETT $ (GETREFV 119) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FiniteSimplicialComplex|
@@ -1099,7 +1102,7 @@
               (163 . |join|) |SIMPC;simplicialJoin;3$;15|
               (|Record| (|:| |value| 24) (|:| |posX| 24) (|:| |posY| 24))
               (|List| 62) (169 . |member?|) (175 . |concat|)
-              (|Record| (|:| |name| 116) (|:| |arrType| 24) (|:| |fromOb| 24)
+              (|Record| (|:| |name| 110) (|:| |arrType| 24) (|:| |fromOb| 24)
                         (|:| |toOb| 24) (|:| |xOffset| 8) (|:| |yOffset| 8)
                         (|:| |map| 9))
               (|List| 66) (181 . |member?|) (187 . |concat|) (193 . |elt|)
@@ -1116,21 +1119,22 @@
               (261 . |getIndexs|) (266 . |getMult|) (271 . |concat|)
               |SIMPC;product;3$;23| (277 . |#|) (282 . ~=) (288 . |position|)
               (294 . ~=) (|List| 23) (300 . |elt|) (306 . |setelt!|)
-              |SIMPC;=;2$B;25| (|OutputForm|) (313 . |empty|) (317 . |bracket|)
-              (322 . |coerce|) (327 . |vconcat|) |SIMPC;coerce;$Of;26|
-              |SIMPC;coerce;$Dc;27| (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 333 |star| 339 |sort| 345 |simplicialJoin| 350
-              |simplicialComplex| 356 |product| 372 |oneSkeleton| 378 |link|
-              383 |latex| 389 |homology| 394 |hashUpdate!| 399 |hash| 405
-              |grade| 410 |fundamentalGroup| 415 |delta| 427 |cone| 432
-              |coerce| 438 |chain| 448 |addSimplex| 453 |addImpliedFaces| 459 =
-              464)
+              |SIMPC;=;2$B;25| (|OutputForm|) (313 . |empty|) (|String|)
+              (317 . |message|) (322 . |bracket|) (327 . |coerce|)
+              (332 . |vconcat|) |SIMPC;coerce;$Of;26| |SIMPC;coerce;$Dc;27|
+              (|HashState|) (|SingleInteger|))
+           '#(~= 338 |star| 344 |sort| 350 |simplicialJoin| 355
+              |simplicialComplex| 361 |product| 377 |oneSkeleton| 383 |link|
+              388 |latex| 394 |homology| 399 |hashUpdate!| 404 |hash| 410
+              |grade| 415 |fundamentalGroup| 420 |delta| 432 |cone| 437
+              |coerce| 443 |chain| 453 |addSimplex| 458 |addImpliedFaces| 464 =
+              469)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 108))
-                        (|makeByteWordVec2| 117
+                        (|makeByteWordVec2| 118
                                             '(2 10 0 8 9 11 2 12 0 0 10 13 2 17
                                               0 0 12 18 1 10 0 19 20 2 17 12 0
                                               8 21 3 17 12 0 8 12 22 2 24 23 0
@@ -1155,16 +1159,16 @@
                                               100 2 24 23 0 0 101 2 9 8 24 0
                                               102 2 10 23 0 0 103 2 104 23 0 8
                                               105 3 104 23 0 8 23 106 0 108 0
-                                              109 1 108 0 0 110 1 10 108 0 111
-                                              2 108 0 0 0 112 2 0 23 0 0 1 2 0
-                                              0 0 10 55 1 0 0 0 43 2 0 0 0 0 61
-                                              1 0 0 6 16 1 0 0 31 32 2 0 0 6 14
-                                              15 2 0 0 0 0 99 1 0 71 0 72 2 0 0
-                                              0 10 57 1 0 116 0 1 1 0 82 0 84 2
-                                              0 115 115 0 1 1 0 117 0 1 1 0 17
-                                              0 41 3 0 73 0 23 23 74 1 0 73 0
-                                              75 1 0 0 0 53 2 0 0 0 24 59 1 0
-                                              31 0 114 1 0 108 0 113 1 0 79 0
-                                              81 2 0 0 0 10 38 1 0 17 0 51 2 0
-                                              23 0 0 107)))))
+                                              109 1 108 0 110 111 1 108 0 0 112
+                                              1 10 108 0 113 2 108 0 0 0 114 2
+                                              0 23 0 0 1 2 0 0 0 10 55 1 0 0 0
+                                              43 2 0 0 0 0 61 1 0 0 6 16 1 0 0
+                                              31 32 2 0 0 6 14 15 2 0 0 0 0 99
+                                              1 0 71 0 72 2 0 0 0 10 57 1 0 110
+                                              0 1 1 0 82 0 84 2 0 117 117 0 1 1
+                                              0 118 0 1 1 0 17 0 41 3 0 73 0 23
+                                              23 74 1 0 73 0 75 1 0 0 0 53 2 0
+                                              0 0 24 59 1 0 31 0 116 1 0 108 0
+                                              115 1 0 79 0 81 2 0 0 0 10 38 1 0
+                                              17 0 51 2 0 23 0 0 107)))))
            '|lookupComplete|)) 

@@ -127,9 +127,9 @@
         (QCAR (|FMOEBF;rep| |mf| $))) 
 
 (SDEFUN |FMOEBF;coerce;$Of;9| ((|mf| $) ($ |OutputForm|))
-        (SPADCALL "Moebius Function"
-                  (SPADCALL (SPADCALL |mf| (QREFELT $ 9)) (QREFELT $ 29))
-                  (QREFELT $ 30))) 
+        (SPADCALL (SPADCALL "Moebius Function" (QREFELT $ 30))
+                  (SPADCALL (SPADCALL |mf| (QREFELT $ 9)) (QREFELT $ 31))
+                  (QREFELT $ 32))) 
 
 (DECLAIM (NOTINLINE |FiniteMoebiusFunction;|)) 
 
@@ -157,7 +157,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteMoebiusFunction|))
           (LETT |dv$| (LIST '|FiniteMoebiusFunction| DV$1) . #1#)
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FiniteMoebiusFunction| (LIST DV$1)
@@ -180,25 +180,25 @@
               (|TriangularMatrixOperations| 19 (|Vector| 19) (|Vector| 19) 17)
               (22 . |UpTriBddDenomInv|) |FMOEBF;moebiusFunction;L$;4|
               (28 . |position|) (34 . |elt|) |FMOEBF;moebiusMu;$2PI;6|
-              |FMOEBF;apply;$2PI;7| |FMOEBF;moebiusMatrix;$M;8| (|OutputForm|)
-              (41 . |coerce|) (46 . |hconcat|) |FMOEBF;coerce;$Of;9| (|String|)
-              (|SingleInteger|) (|HashState|))
-           '#(~= 52 |moebiusMu| 58 |moebiusMatrix| 65 |moebiusFunction| 70
-              |members| 75 |latex| 80 |hashUpdate!| 85 |hash| 91 |coerce| 96
-              |apply| 101 = 108)
+              |FMOEBF;apply;$2PI;7| |FMOEBF;moebiusMatrix;$M;8| (|String|)
+              (|OutputForm|) (41 . |message|) (46 . |coerce|) (51 . |hconcat|)
+              |FMOEBF;coerce;$Of;9| (|SingleInteger|) (|HashState|))
+           '#(~= 57 |moebiusMu| 63 |moebiusMatrix| 70 |moebiusFunction| 75
+              |members| 80 |latex| 85 |hashUpdate!| 90 |hash| 96 |coerce| 101
+              |apply| 106 = 113)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 28))
-                        (|makeByteWordVec2| 34
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 29))
+                        (|makeByteWordVec2| 35
                                             '(2 6 10 0 0 11 2 13 8 12 8 14 1 8
                                               0 0 15 1 17 0 16 18 2 20 17 17 19
                                               21 2 8 19 6 0 23 3 17 19 0 19 19
-                                              24 1 8 28 0 29 2 28 0 0 0 30 2 0
-                                              10 0 0 1 3 0 19 0 6 6 25 1 0 17 0
-                                              27 1 0 0 8 22 1 0 8 0 9 1 0 32 0
-                                              1 2 0 34 34 0 1 1 0 33 0 1 1 0 28
-                                              0 31 3 0 19 0 6 6 26 2 0 10 0 0
-                                              1)))))
+                                              24 1 29 0 28 30 1 8 29 0 31 2 29
+                                              0 0 0 32 2 0 10 0 0 1 3 0 19 0 6
+                                              6 25 1 0 17 0 27 1 0 0 8 22 1 0 8
+                                              0 9 1 0 28 0 1 2 0 35 35 0 1 1 0
+                                              34 0 1 1 0 29 0 33 3 0 19 0 6 6
+                                              26 2 0 10 0 0 1)))))
            '|lookupComplete|)) 

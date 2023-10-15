@@ -366,18 +366,20 @@
                              ((SPADCALL (SPADCALL |s| (QREFELT $ 17)) |s1|
                                         (QREFELT $ 39))
                               (SEQ
-                               (SPADCALL "no progress in reduction"
-                                         (QREFELT $ 48))
-                               (SPADCALL (SPADCALL |s1| (QREFELT $ 49))
-                                         (QREFELT $ 48))
-                               (SPADCALL (SPADCALL |d1| (QREFELT $ 49))
-                                         (QREFELT $ 48))
-                               (SPADCALL (SPADCALL |e| (QREFELT $ 51))
-                                         (QREFELT $ 48))
+                               (SPADCALL
+                                (SPADCALL "no progress in reduction"
+                                          (QREFELT $ 48))
+                                (QREFELT $ 50))
+                               (SPADCALL (SPADCALL |s1| (QREFELT $ 51))
+                                         (QREFELT $ 50))
+                               (SPADCALL (SPADCALL |d1| (QREFELT $ 51))
+                                         (QREFELT $ 50))
+                               (SPADCALL (SPADCALL |e| (QREFELT $ 53))
+                                         (QREFELT $ 50))
                                (SPADCALL
                                 (SPADCALL (SPADCALL |f2| (QREFELT $ 17))
-                                          (QREFELT $ 49))
-                                (QREFELT $ 48))
+                                          (QREFELT $ 51))
+                                (QREFELT $ 50))
                                (SPADCALL
                                 (|coerceRe2E| |cc|
                                               (ELT
@@ -385,11 +387,11 @@
                                                 (|:| |co1| (QREFELT $ 6))
                                                 (|:| |co2| (QREFELT $ 6)))
                                                0))
-                                (QREFELT $ 48))
-                               (SPADCALL (SPADCALL |s| (QREFELT $ 52))
-                                         (QREFELT $ 48))
+                                (QREFELT $ 50))
+                               (SPADCALL (SPADCALL |s| (QREFELT $ 54))
+                                         (QREFELT $ 50))
                                (EXIT (|error| "no progress in reduction")))))
-                            (LETT |m| (SPADCALL |m| (QCAR |cc|) (QREFELT $ 53))
+                            (LETT |m| (SPADCALL |m| (QCAR |cc|) (QREFELT $ 55))
                                   . #2#)
                             (EXIT (LETT F |Fh| . #2#))))
                           ('T (LETT F (CDR F) . #2#)))))
@@ -401,7 +403,7 @@
         (|NGROEB;credPol| (QCAR (|NGROEB;redPo| |s| F $)) F $)) 
 
 (SDEFUN |NGROEB;hMonic;2Dpol;12| ((|p| |Dpol|) ($ |Dpol|))
-        (SPADCALL |p| (QREFELT $ 54))) 
+        (SPADCALL |p| (QREFELT $ 56))) 
 
 (PUT '|NGROEB;hMonic;2Dpol;13| '|SPADreplace| '(XLAM (|p|) |p|)) 
 
@@ -423,8 +425,8 @@
                        (COND
                         ((NULL
                           (SPADCALL
-                           (LETT |h| (SPADCALL |h| (QREFELT $ 55)) . #1#)
-                           (|spadConstant| $ 37) (QREFELT $ 56)))
+                           (LETT |h| (SPADCALL |h| (QREFELT $ 57)) . #1#)
+                           (|spadConstant| $ 37) (QREFELT $ 58)))
                          (GO G191)))
                        (SEQ (LETT |hred| (|NGROEB;redPo| |h| F $) . #1#)
                             (LETT |h| (QCAR |hred|) . #1#)
@@ -436,7 +438,7 @@
                                     (SPADCALL (SPADCALL |h| (QREFELT $ 43))
                                               (SPADCALL |h| (QREFELT $ 17))
                                               (QREFELT $ 23))
-                                    (QREFELT $ 57))
+                                    (QREFELT $ 59))
                                    . #1#)))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT |h0|))))))) 
@@ -533,7 +535,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|NGroebnerPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 58) . #1#)
+    (LETT $ (GETREFV 60) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|NGroebnerPackage|
@@ -580,17 +582,17 @@
               |NGROEB;sPol;RDpol;9| |NGROEB;redPol;DpolLDpol;11| (76 . |Zero|)
               (80 . |Zero|) (84 . |Zero|) (88 . =) (94 . =) (100 . |concat|)
               |NGROEB;groebner;2L;8| (106 . *) (112 . |leadingCoefficient|)
-              (117 . *) (123 . -) (|Void|) (|OutputForm|) (129 . |print|)
-              (134 . |coerce|) (|Union| 7 '"failed") (139 . |coerce|)
-              (144 . |coerce|) (149 . *) (155 . |primitivePart|)
-              (160 . |reductum|) (165 . ~=) (171 . +))
-           '#(|virtualDegree| 177 |sPol| 182 |redPol| 187 |hMonic| 193
-              |groebner| 198)
+              (117 . *) (123 . -) (|String|) (|OutputForm|) (129 . |message|)
+              (|Void|) (134 . |print|) (139 . |coerce|) (|Union| 7 '"failed")
+              (144 . |coerce|) (149 . |coerce|) (154 . *)
+              (160 . |primitivePart|) (165 . |reductum|) (170 . ~=) (176 . +))
+           '#(|virtualDegree| 182 |sPol| 187 |redPol| 192 |hMonic| 198
+              |groebner| 203)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 57
+                             (|makeByteWordVec2| 59
                                                  '(2 6 10 0 0 11 1 9 12 0 13 1
                                                    0 12 9 14 2 7 15 0 0 16 1 9
                                                    7 0 17 2 7 0 0 0 18 2 7 19 0
@@ -601,11 +603,12 @@
                                                    37 2 9 15 0 0 38 2 7 15 0 0
                                                    39 2 26 0 0 9 40 2 9 0 0 0
                                                    42 1 9 6 0 43 2 9 0 6 0 44 2
-                                                   9 0 0 0 45 1 47 46 0 48 1 7
-                                                   47 0 49 1 50 47 0 51 1 9 47
-                                                   0 52 2 6 0 0 0 53 1 9 0 0 54
-                                                   1 9 0 0 55 2 9 15 0 0 56 2 9
-                                                   0 0 0 57 1 0 12 9 14 1 0 9
-                                                   29 33 2 0 9 9 26 34 1 0 9 9
-                                                   28 1 0 26 26 41)))))
+                                                   9 0 0 0 45 1 47 0 46 48 1 47
+                                                   49 0 50 1 7 47 0 51 1 52 47
+                                                   0 53 1 9 47 0 54 2 6 0 0 0
+                                                   55 1 9 0 0 56 1 9 0 0 57 2 9
+                                                   15 0 0 58 2 9 0 0 0 59 1 0
+                                                   12 9 14 1 0 9 29 33 2 0 9 9
+                                                   26 34 1 0 9 9 28 1 0 26 26
+                                                   41)))))
            '|lookupComplete|)) 
