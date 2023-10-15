@@ -499,7 +499,7 @@
  |doubleResultant| |distdfact| |separateDegrees| |trace2PowMod| |tracePowMod|
  |irreducible?| |decimal| |innerint| |dequeue| |exteriorDifferential|
  |totalDifferential| |homogeneous?| |leadingBasisTerm| |ignore?| |computeInt|
- |checkForZero| |doubleFloatFormat| |qsqrt| |qlog| |hypergeometric0F1|
+ |checkForZero| |doubleFloatFormat| |qsqrt| |qlog| |hypergeometric0F1| |qnew|
  |directedGraph| |rotatez| |rotatey| |rotatex| |exponentb| |exponenta| |expb|
  |expa| |dictionary| |dioSolve| |directProduct| |additive?| |multiplicative?|
  |zeta| |newLine| |copies| |say| |sayLength| |monotoneConvolution|
@@ -1078,7 +1078,7 @@
  |quasiComponent| |initials| |basicSet| |infRittWu?| |getCurve| |listLoops|
  |closed?| |open?| |setClosed| |tube| |point| |unitVector| |cosSinInfo|
  |loopPoints| |select| |generalTwoFactor| |tryTwoFactor| |generalSqFr|
- |twoFactor| |doFactor| |qnew| |undirectedGraph| |setOrder| |getOrder| |less?|
+ |twoFactor| |doFactor| |undirectedGraph| |setOrder| |getOrder| |less?|
  |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
  |resetVariableOrder| |factor| |prime?| |hadamard| |pre_gauss| |pre_smith|
  |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |hasHi|
