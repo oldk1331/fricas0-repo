@@ -809,26 +809,27 @@
               |FMONOID;first;$S;23| |FMONOID;rest;2$;24| |FMONOID;mirror;2$;25|
               (177 . >) (183 . <) (189 . |lexico|) (195 . <) (201 . >)
               (207 . |smaller?|) (213 . |smaller?|) (|Union| 6 '"failed")
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
+              (|PositiveInteger|) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 219 |varList| 225 |smaller?| 230 |size| 236 |sample| 241
-              |rquo| 245 |retractIfCan| 257 |retract| 262 |rest| 267 |recip|
-              272 |overlap| 277 |one?| 283 |nthFactor| 288 |nthExpon| 294
-              |mirror| 300 |min| 305 |max| 311 |mapGen| 317 |mapExpon| 323
-              |lquo| 329 |lexico| 341 |length| 347 |latex| 352 |hcrf| 357
-              |hclf| 363 |hashUpdate!| 369 |hash| 375 |first| 380 |factors| 385
-              |divide| 390 |coerce| 396 ^ 406 |One| 424 >= 428 > 434 = 440 <=
-              446 < 452 * 458)
+              |rquo| 245 |rightRecip| 257 |rightPower| 262 |retractIfCan| 274
+              |retract| 279 |rest| 284 |recip| 289 |overlap| 294 |one?| 300
+              |nthFactor| 305 |nthExpon| 311 |mirror| 317 |min| 322 |max| 328
+              |mapGen| 334 |mapExpon| 340 |lquo| 346 |lexico| 358 |length| 364
+              |leftRecip| 369 |leftPower| 374 |latex| 386 |hcrf| 391 |hclf| 397
+              |hashUpdate!| 403 |hash| 409 |first| 414 |factors| 419 |divide|
+              424 |coerce| 430 ^ 440 |One| 458 >= 462 > 468 = 474 <= 480 < 486
+              * 492)
            'NIL
-           (CONS (|makeByteWordVec2| 3 '(1 1 0 1 0 3 0 0 0 0 1))
+           (CONS (|makeByteWordVec2| 3 '(1 0 1 0 0 1 0 3 0 0 0 0 1))
                  (CONS
-                  '#(NIL NIL |Monoid&| |OrderedSet&| |SemiGroup&| NIL
-                     |SetCategory&| |BasicType&| |RetractableTo&| NIL
+                  '#(NIL NIL NIL NIL |MagmaWithUnit&| |OrderedSet&| |Magma&|
+                     NIL |SetCategory&| |RetractableTo&| |BasicType&| NIL
                      |PartialOrder&|)
                   (CONS
-                   '#((|OrderedMonoid|) (|OrderedSemiGroup|) (|Monoid|)
-                      (|OrderedSet|) (|SemiGroup|) (|Comparable|)
-                      (|SetCategory|) (|BasicType|) (|RetractableTo| 6)
-                      (|CoercibleTo| 15) (|PartialOrder|))
+                   '#((|OrderedMonoid|) (|Monoid|) (|OrderedSemiGroup|)
+                      (|SemiGroup|) (|MagmaWithUnit|) (|OrderedSet|) (|Magma|)
+                      (|Comparable|) (|SetCategory|) (|RetractableTo| 6)
+                      (|BasicType|) (|CoercibleTo| 15) (|PartialOrder|))
                    (|makeByteWordVec2| 88
                                        '(0 8 0 9 1 8 11 0 12 2 15 0 0 0 16 2 15
                                          0 0 0 17 4 8 15 0 18 18 19 20 1 8 0 0
@@ -846,17 +847,19 @@
                                          2 6 13 0 0 82 2 0 13 0 0 83 2 0 13 0 0
                                          1 1 4 70 0 73 2 2 13 0 0 83 1 0 38 0
                                          60 0 0 0 1 2 0 48 0 6 64 2 0 48 0 0 62
-                                         1 0 84 0 1 1 0 6 0 1 1 0 0 0 75 1 0 48
-                                         0 1 2 0 52 0 0 53 1 0 13 0 14 2 0 6 0
-                                         19 1 2 0 38 0 19 1 1 0 0 0 76 2 1 0 0
-                                         0 1 2 1 0 0 0 1 2 0 0 35 0 37 2 0 0 32
-                                         0 34 2 0 48 0 6 63 2 0 48 0 0 49 2 1
-                                         13 0 0 79 1 0 38 0 69 1 0 86 0 1 2 0 0
-                                         0 0 25 2 0 0 0 0 23 2 0 88 88 0 1 1 0
-                                         87 0 1 1 0 6 0 74 1 0 11 0 31 2 0 56 0
-                                         0 57 1 0 0 6 1 1 0 15 0 21 2 0 0 6 38
-                                         40 2 0 0 0 38 1 2 0 0 0 85 1 0 0 0 7 2
-                                         1 13 0 0 1 2 1 13 0 0 1 2 0 13 0 0 41
-                                         2 1 13 0 0 1 2 1 13 0 0 80 2 0 0 6 0
-                                         29 2 0 0 0 6 27 2 0 0 0 0 47)))))
+                                         1 0 48 0 1 2 0 0 0 38 1 2 0 0 0 85 1 1
+                                         0 84 0 1 1 0 6 0 1 1 0 0 0 75 1 0 48 0
+                                         1 2 0 52 0 0 53 1 0 13 0 14 2 0 6 0 19
+                                         1 2 0 38 0 19 1 1 0 0 0 76 2 1 0 0 0 1
+                                         2 1 0 0 0 1 2 0 0 35 0 37 2 0 0 32 0
+                                         34 2 0 48 0 6 63 2 0 48 0 0 49 2 1 13
+                                         0 0 79 1 0 38 0 69 1 0 48 0 1 2 0 0 0
+                                         38 1 2 0 0 0 85 1 1 0 87 0 1 2 0 0 0 0
+                                         25 2 0 0 0 0 23 2 0 86 86 0 1 1 0 88 0
+                                         1 1 0 6 0 74 1 0 11 0 31 2 0 56 0 0 57
+                                         1 0 0 6 1 1 0 15 0 21 2 0 0 6 38 40 2
+                                         0 0 0 38 1 2 0 0 0 85 1 0 0 0 7 2 1 13
+                                         0 0 1 2 1 13 0 0 1 2 0 13 0 0 41 2 1
+                                         13 0 0 1 2 1 13 0 0 80 2 0 0 0 6 27 2
+                                         0 0 6 0 29 2 0 0 0 0 47)))))
            '|lookupComplete|)) 

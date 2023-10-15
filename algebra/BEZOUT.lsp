@@ -149,11 +149,11 @@
 
 (SDEFUN |BEZOUT;bezoutMatrix;2UPM;4| ((|p| UP) (|q| UP) ($ M))
         (SPROG
-         ((#1=#:G217 NIL) (|k| NIL) (#2=#:G216 NIL) (|i| NIL) (|p0| (UP))
-          (|c| (R)) (#3=#:G215 NIL) (|coef| (R))
-          (|deg| #4=(|NonNegativeInteger|)) (|q0| (UP)) (#5=#:G214 NIL)
-          (|bound| #6=(|Integer|)) (#7=#:G213 NIL) (|bezmat| (M))
-          (#8=#:G212 NIL) (#9=#:G211 NIL) (|maxC| (|Integer|))
+         ((#1=#:G223 NIL) (|k| NIL) (#2=#:G222 NIL) (|i| NIL) (|p0| (UP))
+          (|c| (R)) (#3=#:G221 NIL) (|coef| (R))
+          (|deg| #4=(|NonNegativeInteger|)) (|q0| (UP)) (#5=#:G220 NIL)
+          (|bound| #6=(|Integer|)) (#7=#:G219 NIL) (|bezmat| (M))
+          (#8=#:G218 NIL) (#9=#:G217 NIL) (|maxC| (|Integer|))
           (|maxR| (|Integer|)) (|minC| (|Integer|)) (|minR| (|Integer|))
           (|sylmat| (M)) (|m| #6#) (|m2| #6#) (|m1| #6#)
           (|n| (|NonNegativeInteger|)) (|n2| #4#) (|n1| #4#))
@@ -382,7 +382,7 @@
 (SDEFUN |BEZOUT;subResultant;2UPNniUP;5|
         ((|p| UP) (|q| UP) (|j| |NonNegativeInteger|) ($ UP))
         (SPROG
-         ((#1=#:G219 NIL) (#2=#:G218 (UP)) (#3=#:G220 (UP)) (#4=#:G224 NIL)
+         ((#1=#:G225 NIL) (#2=#:G224 (UP)) (#3=#:G226 (UP)) (#4=#:G230 NIL)
           (|k| NIL) (|x| (UP)) (|sylmat| (M)))
          (SEQ
           (LETT |sylmat| (SPADCALL |p| |q| (QREFELT $ 26))
@@ -421,7 +421,7 @@
 
 (SDEFUN |BEZOUT;subResultantList;2UPL;6| ((|p| UP) (|q| UP) ($ |List| UP))
         (SPROG
-         ((|i| NIL) (#1=#:G230 NIL) (|j| (|PositiveInteger|)) (#2=#:G225 NIL)
+         ((|i| NIL) (#1=#:G236 NIL) (|j| (|PositiveInteger|)) (#2=#:G231 NIL)
           (|mindeg| (|NonNegativeInteger|)))
          (SEQ
           (LETT |mindeg|
@@ -455,7 +455,7 @@
         (SPADCALL (SPADCALL |f| |g| (QREFELT $ 48)) (QREFELT $ 54))) 
 
 (SDEFUN |BEZOUT;bezoutDiscriminant;UPR;8| ((|f| UP) ($ R))
-        (SPROG ((#1=#:G233 NIL) (|degMod4| (|Integer|)))
+        (SPROG ((#1=#:G239 NIL) (|degMod4| (|Integer|)))
                (SEQ
                 (LETT |degMod4| (REM (SPADCALL |f| (QREFELT $ 12)) 4)
                       . #2=(|BEZOUT;bezoutDiscriminant;UPR;8|))
@@ -512,9 +512,9 @@
 
 (DECLAIM (NOTINLINE |BezoutMatrix;|)) 
 
-(DEFUN |BezoutMatrix| (&REST #1=#:G240)
+(DEFUN |BezoutMatrix| (&REST #1=#:G246)
   (SPROG NIL
-         (PROG (#2=#:G241)
+         (PROG (#2=#:G247)
            (RETURN
             (COND
              ((LETT #2#

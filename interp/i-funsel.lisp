@@ -4610,7 +4610,7 @@
 ;   partialResult :=
 ;     EQCAR(dom, 'Variable) or EQCAR(dom, 'Symbol) =>
 ;       first(cat) in
-;        '(SemiGroup AbelianSemiGroup Monoid AbelianGroup AbelianMonoid
+;        '(Magma AbelianSemiGroup Monoid AbelianGroup AbelianMonoid
 ;          PartialDifferentialRing Ring InputForm) =>
 ;                 d := ['Polynomial, $Integer]
 ;                 augmentSub(v, d, SL)
@@ -4668,7 +4668,7 @@
                ((OR (EQCAR |dom| '|Variable|) (EQCAR |dom| '|Symbol|))
                 (COND
                  ((|member| (CAR |cat|)
-                   '(|SemiGroup| |AbelianSemiGroup| |Monoid| |AbelianGroup|
+                   '(|Magma| |AbelianSemiGroup| |Monoid| |AbelianGroup|
                      |AbelianMonoid| |PartialDifferentialRing| |Ring|
                      |InputForm|))
                   (PROGN

@@ -288,16 +288,18 @@
               (132 . |maxRowIndex|) (137 . |row|) (143 . ~=) |FRMOD;*;3$;14|
               (|FractionalIdeal| 6 7 8 9) (149 . |basis|) (154 . |module|)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 159 |sample| 165 |recip| 169 |one?| 174 |norm| 179 |module|
-              184 |latex| 194 |hashUpdate!| 199 |hash| 205 |coerce| 210 |basis|
-              215 ^ 220 |One| 232 = 236 * 242)
+           '#(~= 159 |sample| 165 |rightRecip| 169 |rightPower| 174 |recip| 186
+              |one?| 191 |norm| 196 |module| 201 |leftRecip| 211 |leftPower|
+              216 |latex| 228 |hashUpdate!| 233 |hash| 239 |coerce| 244 |basis|
+              249 ^ 254 |One| 266 = 270 * 276)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
-                  '#(|Monoid&| |SemiGroup&| |SetCategory&| |BasicType&| NIL)
+                  '#(NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
+                     |BasicType&| NIL)
                   (CONS
-                   '#((|Monoid|) (|SemiGroup|) (|SetCategory|) (|BasicType|)
-                      (|CoercibleTo| 29))
+                   '#((|Monoid|) (|SemiGroup|) (|MagmaWithUnit|) (|Magma|)
+                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 29))
                    (|makeByteWordVec2| 71
                                        '(1 13 0 12 14 0 7 0 17 1 25 24 0 26 2
                                          25 6 0 24 27 2 7 0 6 6 28 1 21 29 0 30
@@ -310,8 +312,10 @@
                                          56 55 33 57 1 59 58 58 60 1 58 24 0 61
                                          2 58 25 0 24 62 2 9 12 0 0 63 1 65 21
                                          0 66 1 0 0 65 67 2 0 12 0 0 1 0 0 0 1
-                                         1 0 39 0 1 1 0 12 0 1 1 0 7 0 54 1 1 0
-                                         65 67 1 0 0 21 22 1 0 69 0 1 2 0 71 71
+                                         1 0 39 0 1 2 0 0 0 51 1 2 0 0 0 68 1 1
+                                         0 39 0 1 1 0 12 0 1 1 0 7 0 54 1 1 0
+                                         65 67 1 0 0 21 22 1 0 39 0 1 2 0 0 0
+                                         51 1 2 0 0 0 68 1 1 0 69 0 1 2 0 71 71
                                          0 1 1 0 70 0 1 1 0 29 0 31 1 0 21 0 23
                                          2 0 0 0 51 1 2 0 0 0 68 1 0 0 0 20 2 0
                                          12 0 0 1 2 0 0 0 0 64)))))

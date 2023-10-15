@@ -1087,7 +1087,7 @@
                      (QREFELT $ 61))))))))) 
 
 (SDEFUN |GENPGCD;better| ((|p1| P) (|p2| P) ($ |Boolean|))
-        (SPROG ((#1=#:G342 NIL))
+        (SPROG ((#1=#:G340 NIL))
                (COND ((SPADCALL |p1| (QREFELT $ 97)) 'T)
                      ((SPADCALL |p2| (QREFELT $ 97)) NIL)
                      ('T
@@ -1114,9 +1114,9 @@
 
 (DECLAIM (NOTINLINE |GeneralPolynomialGcdPackage;|)) 
 
-(DEFUN |GeneralPolynomialGcdPackage| (&REST #1=#:G347)
+(DEFUN |GeneralPolynomialGcdPackage| (&REST #1=#:G345)
   (SPROG NIL
-         (PROG (#2=#:G348)
+         (PROG (#2=#:G346)
            (RETURN
             (COND
              ((LETT #2#

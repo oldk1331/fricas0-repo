@@ -60,9 +60,9 @@
                                                              (QREFELT $ 11))))
               (|local| |#1|) (|local| |#2|) (|SparseUnivariatePolynomial| 28)
               (|PositiveInteger|) (|FiniteFieldPolynomialPackage| 28)
-              (0 . |createIrreduciblePoly|) (|Union| $ '"failed")
-              (|Union| 15 '"failed") (|OnePointCompletion| 9)
-              (|NonNegativeInteger|) (|List| $) (|Boolean|) (|InputForm|)
+              (0 . |createIrreduciblePoly|) (|OnePointCompletion| 9)
+              (|Union| $ '"failed") (|Union| 15 '"failed")
+              (|NonNegativeInteger|) (|List| $) (|InputForm|) (|Boolean|)
               (|Union| 30 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
               (|Record| (|:| |factor| 22) (|:| |exponent| 22)) (|List| 23)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
@@ -76,47 +76,49 @@
               (|Record| (|:| |coef| 16) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
-                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 2 0
-                                  0 0 0 0 0 0 0 0 2))
+                                '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  2 0 0 2 2 0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
-                |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
-                NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
-                |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
-                NIL |Finite&| |SemiGroup&| |AbelianSemiGroup&| NIL NIL
-                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
-                |BasicType&| NIL NIL)
+                |GcdDomain&| |DivisionRing&| NIL NIL |Algebra&| NIL
+                |EntireRing&| |Algebra&| NIL NIL |DifferentialRing&| NIL
+                |VectorSpace&| |Rng&| NIL |Module&| |Module&| |Module&| NIL NIL
+                NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL |SetCategory&|
+                |RetractableTo&| NIL NIL NIL NIL NIL |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|PrimeField| 6))
                  (|ExtensionField| (|PrimeField| 6)) (|FiniteFieldCategory|)
                  (|FieldOfPrimeCharacteristic|) (|Field|) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|VectorSpace| (|PrimeField| 6)) (|Algebra| 34)
-                 (|LeftOreRing|) (|Algebra| $$) (|Module| (|PrimeField| 6))
-                 (|Module| 34) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|DifferentialRing|)
-                 (|BiModule| (|PrimeField| 6) (|PrimeField| 6))
-                 (|BiModule| 34 34) (|BiModule| $$ $$) (|Ring|)
+                 (|LeftOreRing|) (|Algebra| 34) (|CommutativeRing|)
+                 (|EntireRing|) (|Algebra| $$) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|DifferentialRing|) (|Ring|)
+                 (|VectorSpace| (|PrimeField| 6)) (|Rng|) (|SemiRing|)
+                 (|Module| (|PrimeField| 6)) (|Module| 34) (|Module| $$)
+                 (|SemiRng|) (|BiModule| (|PrimeField| 6) (|PrimeField| 6))
+                 (|BiModule| 34 34) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| (|PrimeField| 6))
                  (|LeftModule| (|PrimeField| 6)) (|RightModule| 34)
-                 (|LeftModule| 34) (|LeftModule| $$) (|Rng|) (|RightModule| $$)
-                 (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|Finite|)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|Comparable|)
-                 (|StepThrough|) (|SetCategory|)
+                 (|LeftModule| 34) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|Finite|) (|Magma|) (|AbelianSemiGroup|)
+                 (|Comparable|) (|StepThrough|) (|SetCategory|)
                  (|RetractableTo| (|PrimeField| 6)) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 46)
-                 (|ConvertibleTo| 18))
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 47)
+                 (|ConvertibleTo| 17))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 

@@ -544,7 +544,7 @@
         ((|u| EMR) (|t| EMR) (|d| |Integer|) ($ |Union| (|List| EMR) "failed"))
         (SPROG
          ((|g| (EMR)) (|f2| (EMR)) (|n| (EMR)) (|r| (|NonNegativeInteger|))
-          (#1=#:G276 NIL) (#2=#:G275 NIL) (|f1| (EMR)) (|p| (|Integer|)))
+          (#1=#:G300 NIL) (#2=#:G299 NIL) (|f1| (EMR)) (|p| (|Integer|)))
          (SEQ
           (LETT |p| (SPADCALL |u| (QREFELT $ 26)) . #3=(|MDDFACT;probSplit|))
           (EXIT
@@ -630,9 +630,9 @@
 
 (DECLAIM (NOTINLINE |ModularDistinctDegreeFactorizer;|)) 
 
-(DEFUN |ModularDistinctDegreeFactorizer| (#1=#:G290)
+(DEFUN |ModularDistinctDegreeFactorizer| (#1=#:G314)
   (SPROG NIL
-         (PROG (#2=#:G291)
+         (PROG (#2=#:G315)
            (RETURN
             (COND
              ((LETT #2#

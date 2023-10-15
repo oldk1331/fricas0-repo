@@ -149,8 +149,10 @@
                                             . #7#)))
                                     (LETT |count|
                                           (+
-                                           (* (COND (|polyx2| 2) (#6# 1))
-                                              (- (QREFELT $ 21) 2))
+                                           (SPADCALL
+                                            (COND (|polyx2| 2) (#6# 1))
+                                            (- (QREFELT $ 21) 2)
+                                            (QREFELT $ 33))
                                            |largeEnough|)
                                           . #7#)
                                     (SEQ (LETT |i| (+ |largeEnough| 1) . #7#)
@@ -194,7 +196,7 @@
 
 (SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| UP) ($ |Boolean|))
         (COND
-         ((ODDP (SPADCALL |p| (QREFELT $ 33)))
+         ((ODDP (SPADCALL |p| (QREFELT $ 34)))
           (COND
            ((ODDP (SPADCALL |p| 0 (QREFELT $ 29)))
             (ODDP (SPADCALL |p| 1 (QREFELT $ 32))))
@@ -227,7 +229,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|BrillhartTests|))
           (LETT |dv$| (LIST '|BrillhartTests| DV$1) . #1#)
-          (LETT $ (GETREFV 34) . #1#)
+          (LETT $ (GETREFV 35) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|BrillhartTests| (LIST DV$1)
@@ -250,21 +252,22 @@
               |BRILL;brillhartIrreducible?;UPB;5|
               (|GaloisGroupFactorizationUtilities| 11 6 12) (46 . |rootBound|)
               (51 . |coefficient|) (57 . |even?|) (62 . |One|) (66 . |elt|)
-              (72 . |leadingCoefficient|))
-           '#(|noLinearFactor?| 77 |brillhartTrials| 82 |brillhartIrreducible?|
-              91)
+              (72 . *) (78 . |leadingCoefficient|))
+           '#(|noLinearFactor?| 83 |brillhartTrials| 88 |brillhartIrreducible?|
+              97)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 33
+                             (|makeByteWordVec2| 34
                                                  '(1 6 7 0 8 0 6 0 9 1 6 0 0 10
                                                    1 12 0 11 13 2 11 14 0 0 15
                                                    2 12 0 0 0 16 0 12 0 17 2 12
                                                    18 0 0 19 1 11 18 0 20 1 27
                                                    11 6 28 2 6 11 0 7 29 1 11
                                                    18 0 30 0 6 0 31 2 6 11 0 11
-                                                   32 1 6 11 0 33 1 0 18 6 24 0
-                                                   0 7 22 1 0 7 7 23 2 0 18 6
-                                                   18 25 1 0 18 6 26)))))
+                                                   32 2 11 0 7 0 33 1 6 11 0 34
+                                                   1 0 18 6 24 0 0 7 22 1 0 7 7
+                                                   23 2 0 18 6 18 25 1 0 18 6
+                                                   26)))))
            '|lookupComplete|)) 

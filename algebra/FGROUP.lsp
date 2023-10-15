@@ -183,22 +183,24 @@
               (74 . =) (80 . |makeMulti|) (85 . |setlast!|) (91 . |concat!|)
               |FGROUP;*;3$;11| (97 . |smaller?|) (103 . |smaller?|)
               (|NonNegativeInteger|) (|Union| 6 '"failed")
-              (|Union| $ '"failed") (|PositiveInteger|) (|HashState|)
-              (|String|) (|SingleInteger|))
-           '#(~= 109 |smaller?| 115 |size| 121 |sample| 126 |retractIfCan| 130
-              |retract| 135 |recip| 140 |one?| 145 |nthFactor| 150 |nthExpon|
-              156 |mapGen| 162 |mapExpon| 168 |latex| 174 |inv| 179
-              |hashUpdate!| 184 |hash| 190 |factors| 195 |conjugate| 200
-              |commutator| 206 |coerce| 212 ^ 222 |One| 246 = 250 / 256 * 262)
+              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|))
+           '#(~= 109 |smaller?| 115 |size| 121 |sample| 126 |rightRecip| 130
+              |rightPower| 135 |retractIfCan| 147 |retract| 152 |recip| 157
+              |one?| 162 |nthFactor| 167 |nthExpon| 173 |mapGen| 179 |mapExpon|
+              185 |leftRecip| 191 |leftPower| 196 |latex| 208 |inv| 213
+              |hashUpdate!| 218 |hash| 224 |factors| 229 |conjugate| 234
+              |commutator| 240 |coerce| 246 ^ 256 |One| 280 = 284 / 290 * 296)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 1 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0))
                  (CONS
-                  '#(|Group&| |Monoid&| |SemiGroup&| NIL |SetCategory&|
-                     |BasicType&| |RetractableTo&| NIL NIL)
+                  '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| NIL
+                     |SetCategory&| |RetractableTo&| NIL |BasicType&| NIL)
                   (CONS
-                   '#((|Group|) (|Monoid|) (|SemiGroup|) (|Comparable|)
-                      (|SetCategory|) (|BasicType|) (|RetractableTo| 6)
-                      (|unitsKnown|) (|CoercibleTo| 33))
+                   '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
+                      (|Magma|) (|Comparable|) (|SetCategory|)
+                      (|RetractableTo| 6) (|unitsKnown|) (|BasicType|)
+                      (|CoercibleTo| 33))
                    (|makeByteWordVec2| 52
                                        '(0 8 0 9 1 8 11 0 12 2 8 0 6 15 16 2 8
                                          0 0 6 18 2 8 0 6 0 20 1 15 0 0 22 1 8
@@ -208,10 +210,12 @@
                                          11 40 2 11 10 0 10 41 2 11 0 0 0 42 2
                                          6 13 0 0 44 2 0 13 0 0 45 2 0 13 0 0 1
                                          2 1 13 0 0 45 1 0 46 0 1 0 0 0 1 1 0
+                                         48 0 1 2 0 0 0 46 1 2 0 0 0 49 1 1 0
                                          47 0 1 1 0 6 0 1 1 0 48 0 1 1 0 13 0
                                          14 2 0 6 0 15 1 2 0 15 0 15 1 2 0 0 30
-                                         0 32 2 0 0 23 0 24 1 0 51 0 1 1 0 0 0
-                                         26 2 0 50 50 0 1 1 0 52 0 1 1 0 11 0
+                                         0 32 2 0 0 23 0 24 1 0 48 0 1 2 0 0 0
+                                         46 1 2 0 0 0 49 1 1 0 50 0 1 1 0 0 0
+                                         26 2 0 52 52 0 1 1 0 51 0 1 1 0 11 0
                                          28 2 0 0 0 0 1 2 0 0 0 0 1 1 0 0 6 1 1
                                          0 33 0 38 2 0 0 6 15 17 2 0 0 0 15 1 2
                                          0 0 0 46 1 2 0 0 0 49 1 0 0 0 7 2 0 13

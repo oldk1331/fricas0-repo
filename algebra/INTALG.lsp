@@ -1578,8 +1578,11 @@
              (CONS 0
                    (|INTALG;mkLog| |q|
                     (SPADCALL
-                     (SPADCALL (- (* (QCAR (QCDR |rc|)) (QCDR |cd|)))
-                               (QREFELT $ 101))
+                     (SPADCALL
+                      (-
+                       (SPADCALL (QCAR (QCDR |rc|)) (QCDR |cd|)
+                                 (QREFELT $ 215)))
+                      (QREFELT $ 101))
                      (QREFELT $ 103))
                     (QCDR (QCDR |rc|)) |alpha| $)))))))) 
 
@@ -1595,14 +1598,14 @@
            (VECTOR |scalr|
                    (SPADCALL
                     (SPADCALL (|spadConstant| $ 178) 1 (QREFELT $ 179))
-                    (|INTALG;F2UPR| |alpha| $) (QREFELT $ 215))
+                    (|INTALG;F2UPR| |alpha| $) (QREFELT $ 216))
                    (SPADCALL |lgd| (QREFELT $ 20)))))
          ('T
           (LIST
            (VECTOR |scalr|
                    (SPADCALL (CONS (|function| |INTALG;F2R|) $) |q|
-                             (QREFELT $ 217))
-                   (|INTALG;R2UP| |lgd| (SPADCALL |alpha| (QREFELT $ 218))
+                             (QREFELT $ 218))
+                   (|INTALG;R2UP| |lgd| (SPADCALL |alpha| (QREFELT $ 219))
                     $)))))) 
 
 (SDEFUN |INTALG;palgintegrate;RMIr;26|
@@ -1630,7 +1633,7 @@
               (EXIT
                (SEQ
                 (COND
-                 ((SPADCALL (QCDR |h|) (QREFELT $ 219))
+                 ((SPADCALL (QCDR |h|) (QREFELT $ 220))
                   (SEQ
                    (LETT |u| (|INTALG;palglogint| (QCDR |h|) |derivation| $)
                          . #6#)
@@ -1688,7 +1691,7 @@
                                           G191 (EXIT NIL))
                                      (COND (#1# #2#)
                                            (#7# (|spadConstant| $ 11))))
-                                    (QREFELT $ 221))
+                                    (QREFELT $ 222))
                           . #6#)
                     (QREFELT $ 52))
                    (SPADCALL (QCAR |h|) (QCDR |u|) NIL (QREFELT $ 60)))
@@ -1703,7 +1706,7 @@
           (LETT |derivation| (QREFELT $$ 1)
                 . #1=(|INTALG;palgintegrate;RMIr;26|))
           (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |x1| |derivation| (QREFELT $ 220)))))) 
+          (RETURN (PROGN (SPADCALL |x1| |derivation| (QREFELT $ 221)))))) 
 
 (SDEFUN |INTALG;algintegrate;RMIr;27|
         ((|f| R) (|derivation| |Mapping| UP UP) ($ |IntegrationResult| R))
@@ -1724,12 +1727,12 @@
              (SEQ
               (EXIT
                (SEQ
-                (SEQ (LETT |xx| (SPADCALL |x'| |x| (QREFELT $ 224)) . #2#)
+                (SEQ (LETT |xx| (SPADCALL |x'| |x| (QREFELT $ 225)) . #2#)
                      (EXIT
                       (COND
                        ((QEQCAR |xx| 0)
                         (COND
-                         ((QEQCAR (SPADCALL (QCDR |xx|) (QREFELT $ 226)) 0)
+                         ((QEQCAR (SPADCALL (QCDR |xx|) (QREFELT $ 227)) 0)
                           (PROGN
                            (LETT #1# (|INTALG;algintexp| |f| |derivation| $)
                                  . #2#)
@@ -1767,7 +1770,7 @@
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL (SPADCALL |x1| (QREFELT $ 21)) |derivation|)
-                      (QREFELT $ 228)))))) 
+                      (QREFELT $ 229)))))) 
 
 (DECLAIM (NOTINLINE |AlgebraicIntegrate;|)) 
 
@@ -1802,7 +1805,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT DV$5 (|devaluate| |#5|) . #1#)
     (LETT |dv$| (LIST '|AlgebraicIntegrate| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
-    (LETT $ (GETREFV 229) . #1#)
+    (LETT $ (GETREFV 230) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|AlgebraicIntegrate|
@@ -1905,17 +1908,18 @@
               (|Record| (|:| |num| (|List| 32)) (|:| |den| 32)) (|List| 61)
               (|InnerCommonDenominator| 32 61 (|List| 32) 209)
               (672 . |splitDenominator|) (677 . *) (683 . |Zero|) (687 . <=)
-              (693 . -) (|UnivariatePolynomialCategoryFunctions2| 7 8 10 19)
-              (699 . |map|) (705 . |retract|) (710 . |integralAtInfinity?|)
-              (715 . |differentiate|) (721 . -) |INTALG;palgintegrate;RMIr;26|
-              (|Union| $ '"failed") (727 . |exquo|) (|Union| 7 '#1#)
-              (733 . |retractIfCan|) |INTALG;algintegrate;RMIr;27|
-              (738 . |retract|))
-           '#(|palgintegrate| 743 |algintegrate| 749) 'NIL
+              (693 . *) (699 . -)
+              (|UnivariatePolynomialCategoryFunctions2| 7 8 10 19)
+              (705 . |map|) (711 . |retract|) (716 . |integralAtInfinity?|)
+              (721 . |differentiate|) (727 . -) |INTALG;palgintegrate;RMIr;26|
+              (|Union| $ '"failed") (733 . |exquo|) (|Union| 7 '#1#)
+              (739 . |retractIfCan|) |INTALG;algintegrate;RMIr;27|
+              (744 . |retract|))
+           '#(|palgintegrate| 749 |algintegrate| 755) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 228
+                             (|makeByteWordVec2| 229
                                                  '(0 10 0 11 0 13 0 14 1 15 0
                                                    13 16 1 19 0 10 20 1 8 0 7
                                                    21 1 22 0 8 23 1 10 0 22 24
@@ -1982,11 +1986,12 @@
                                                    203 133 205 1 10 0 9 206 1 7
                                                    61 0 207 1 210 208 209 211 2
                                                    92 0 32 0 212 0 92 0 213 2
-                                                   32 51 0 0 214 2 19 0 0 0 215
-                                                   2 216 19 194 8 217 1 7 183 0
-                                                   218 1 10 51 0 219 2 10 0 0
-                                                   43 220 2 10 0 0 0 221 2 8
-                                                   223 0 0 224 1 8 225 0 226 1
-                                                   8 7 0 228 2 0 53 10 43 222 2
-                                                   0 53 10 43 227)))))
+                                                   32 51 0 0 214 2 32 0 63 0
+                                                   215 2 19 0 0 0 216 2 217 19
+                                                   194 8 218 1 7 183 0 219 1 10
+                                                   51 0 220 2 10 0 0 43 221 2
+                                                   10 0 0 0 222 2 8 224 0 0 225
+                                                   1 8 226 0 227 1 8 7 0 229 2
+                                                   0 53 10 43 223 2 0 53 10 43
+                                                   228)))))
            '|lookupComplete|)) 

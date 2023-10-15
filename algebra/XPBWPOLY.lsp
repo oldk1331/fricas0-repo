@@ -937,7 +937,7 @@
               (|List| 13) (|List| 7) (|List| $) (|FreeMonoid| 6)
               (|Mapping| 7 7) (|Record| (|:| |k| 112) (|:| |c| 7))
               (|Union| 112 '#1#) (|Union| $ '"failed") (|PositiveInteger|)
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(|varList| 320 |trunc| 325 |reductum| 331 |quasiRegular?| 336
               |quasiRegular| 341 |product| 346 |monomial| 353 |mirror| 359
               |log| 364 |leadingSupport| 370 |exp| 375 |degree| 381 |constant?|
@@ -946,29 +946,34 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 6
-                                '(0 0 0 0 2 0 2 0 0 4 0 0 0 0 0 4 0 6 0 0 6 0 0
-                                  0 6 0 0 5 0 0 0 0 0 1 3 6))
+                                '(0 0 0 2 0 0 0 0 0 0 2 0 0 0 4 0 0 0 0 0 0 4 0
+                                  6 0 0 0 6 0 0 0 0 6 0 0 5 0 0 0 0 0 1 3 6))
             (CONS
-             '#(NIL NIL NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL
-                |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL
-                NIL NIL |AbelianMonoid&| |Monoid&| NIL |OrderedSet&|
-                |SemiGroup&| |AbelianSemiGroup&| NIL |SetCategory&|
-                |RetractableTo&| NIL |BasicType&| NIL NIL |RetractableTo&|
-                |PartialOrder&|)
+             '#(NIL NIL NIL |Algebra&| NIL |FreeModuleCategory&| |Rng&| NIL NIL
+                NIL |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
+                NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |OrderedSet&| |Magma&| |AbelianSemiGroup&| NIL
+                |SetCategory&| |RetractableTo&| NIL |BasicType&| NIL NIL
+                |RetractableTo&| |PartialOrder&|)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
+                 (|Algebra| 7) (|Ring|)
                  (|FreeModuleCategory| 7 (|PoincareBirkhoffWittLyndonBasis| 6))
-                 (|Algebra| 7)
+                 (|Rng|) (|SemiRing|)
                  (|IndexedDirectProductCategory| 7
                                                  (|PoincareBirkhoffWittLyndonBasis|
                                                   6))
-                 (|Module| 7) (|BiModule| 7 7) (|Ring|)
+                 (|SemiRng|) (|Module| 7) (|BiModule| 7 7)
+                 (|NonAssociativeRing|) (|BiModule| $$ $$)
                  (|OrderedAbelianMonoidSup|) (|AbelianProductCategory| 7)
-                 (|LeftModule| 7) (|RightModule| 7) (|Rng|) (|LeftModule| $$)
+                 (|LeftModule| 7) (|RightModule| 7) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| $$)
                  (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
-                 (|SemiRing|) (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|OrderedSet|) (|SemiGroup|)
+                 (|OrderedAbelianMonoid|) (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|CancellationAbelianMonoid|) (|OrderedAbelianSemiGroup|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|OrderedSet|) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
                  (|RetractableTo| (|FreeMonoid| 6)) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 12) (|noZeroDivisors|)
@@ -997,9 +1002,9 @@
                                     0 10 0 79 1 0 0 0 82 3 0 0 0 0 22 92 2 0 0
                                     7 13 27 1 0 0 0 105 2 7 0 0 22 99 1 0 13 0
                                     72 2 7 0 0 22 96 1 0 22 0 88 1 0 10 0 73 1
-                                    0 7 0 77 1 0 38 0 71 1 0 32 0 66 1 0 0 34
+                                    0 7 0 77 1 0 32 0 66 1 0 38 0 71 1 0 0 34
                                     44 1 0 0 6 61 1 0 0 7 53 1 0 12 0 59 0 0 0
-                                    21 0 0 0 26 1 0 103 0 104 2 0 10 0 0 67 2 0
-                                    0 0 0 97 1 0 0 0 98 2 0 0 0 0 20 2 0 0 7 0
+                                    21 0 0 0 26 1 0 103 0 104 2 0 10 0 0 67 1 0
+                                    0 0 98 2 0 0 0 0 97 2 0 0 0 0 20 2 0 0 7 0
                                     19 2 0 0 0 0 45)))))
            '|lookupIncomplete|)) 

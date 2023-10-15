@@ -1139,10 +1139,11 @@
                                               (SPADCALL
                                                (SPADCALL (QREFELT $ 14)
                                                          (QREFELT $ 21))
-                                               (* (QVELT |rec| 0)
-                                                  (- (QVELT |rec| 0) 1))
-                                               (QREFELT $ 155))
-                                              (QREFELT $ 156))
+                                               (SPADCALL (QVELT |rec| 0)
+                                                         (- (QVELT |rec| 0) 1)
+                                                         (QREFELT $ 155))
+                                               (QREFELT $ 156))
+                                              (QREFELT $ 157))
                                     (|INTPAF;chv0| (QCDR |ug|) (QVELT |rec| 0)
                                      (|spadConstant| $ 48)
                                      (|spadConstant| $ 72) $)
@@ -1150,7 +1151,7 @@
                                    (PROG2
                                        (LETT #6#
                                              (SPADCALL (QREFELT $ 14)
-                                                       (QREFELT $ 158))
+                                                       (QREFELT $ 159))
                                              . #11#)
                                        (QCDR #6#)
                                      (|check_union2| (QEQCAR #6# 0) (|Symbol|)
@@ -1177,12 +1178,12 @@
                                                                            21))
                                                                 (QREFELT $
                                                                          110))
-                                                      (QREFELT $ 159)))))))))
+                                                      (QREFELT $ 160)))))))))
                            . #11#)
                      (GO #13=#:G372))))))))))
             (EXIT
              (COND
-              ((SPADCALL (QVELT |rec| 1) (|spadConstant| $ 59) (QREFELT $ 160))
+              ((SPADCALL (QVELT |rec| 1) (|spadConstant| $ 59) (QREFELT $ 161))
                (SEQ
                 (LETT |curve|
                       (|RadicalFunctionField| (QREFELT $ 7)
@@ -1303,8 +1304,8 @@
          (SEQ
           (LETT |fu| (|INTPAF;RF2UPUP| |f| |m| $) . #1=(|INTPAF;change_back|))
           (LETT |fu2|
-                (SPADCALL |fu| (QREFELT $ 163) (SPADCALL |cc| 1 (QREFELT $ 68))
-                          (QREFELT $ 164))
+                (SPADCALL |fu| (QREFELT $ 164) (SPADCALL |cc| 1 (QREFELT $ 68))
+                          (QREFELT $ 165))
                 . #1#)
           (EXIT (|INTPAF;UPUP2F0| |fu2| |x| |k| $))))) 
 
@@ -1316,7 +1317,7 @@
                 (|INTPAF;palgLODE1| (LIST |nfp| (|spadConstant| $ 48)) |g| |x|
                  |y|
                  (PROG2
-                     (LETT #1# (SPADCALL |x| (QREFELT $ 158))
+                     (LETT #1# (SPADCALL |x| (QREFELT $ 159))
                            |INTPAF;palgRDE1|)
                      (QCDR #1#)
                    (|check_union2| (QEQCAR #1# 0) (|Symbol|)
@@ -1331,7 +1332,7 @@
                 (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))
           (|:| |basis| (|List| F))))
         (SPADCALL (LIST |fp| (|spadConstant| $ 48)) |lg| |x| |y|
-                  (QREFELT $ 168))) 
+                  (QREFELT $ 169))) 
 
 (SDEFUN |INTPAF;param_LODE;2L2KR;19|
         ((|eq| |List| F) (|lg| |List| F) (|kx| |Kernel| F) (|y| |Kernel| F)
@@ -1664,10 +1665,10 @@
             ((NULL
               (SPADCALL |y|
                         (SPADCALL |kx|
-                                  (SPADCALL (SPADCALL |g| (QREFELT $ 170)) |x|
-                                            (QREFELT $ 173))
-                                  (QREFELT $ 174))
-                        (QREFELT $ 174)))
+                                  (SPADCALL (SPADCALL |g| (QREFELT $ 171)) |x|
+                                            (QREFELT $ 174))
+                                  (QREFELT $ 175))
+                        (QREFELT $ 175)))
              (SEQ
               (LETT |rec|
                     (SPADCALL |neq|
@@ -1996,19 +1997,19 @@
                    (COND
                     ((QEQCAR |u| 1)
                      (COND
-                      ((SPADCALL |y| '|nthRoot| (QREFELT $ 175))
+                      ((SPADCALL |y| '|nthRoot| (QREFELT $ 176))
                        (|INTPAF;prootintegrate| |f| |x| |y| $))
-                      ((SPADCALL |y| '|rootOf| (QREFELT $ 175))
+                      ((SPADCALL |y| '|rootOf| (QREFELT $ 176))
                        (|INTPAF;palgintegrate| |f| |x| |y| $))
                       (#2='T
                        (|error| "failed - cannot handle that integrand"))))
                     (#2#
                      (SPADCALL |f| |x| |y| (QCAR (QCDR |u|)) (QCDR (QCDR |u|))
-                               (QREFELT $ 176)))))))
+                               (QREFELT $ 177)))))))
             (#2#
              (SPADCALL |f| |x| |y| (QREFELT $ 15) (QVELT (QCDR |v|) 0)
                        (QVELT (QCDR |v|) 1) (QVELT (QCDR |v|) 2)
-                       (QREFELT $ 177)))))))) 
+                       (QREFELT $ 178)))))))) 
 
 (SDEFUN |INTPAF;palgRDE;3F2KMU;23|
         ((|nfp| F) (|f| F) (|g| F) (|x| |Kernel| F) (|y| |Kernel| F)
@@ -2038,16 +2039,16 @@
                    (COND
                     ((QEQCAR |u| 1)
                      (COND
-                      ((SPADCALL |y| '|nthRoot| (QREFELT $ 175))
+                      ((SPADCALL |y| '|nthRoot| (QREFELT $ 176))
                        (|INTPAF;prootRDE| |nfp| |f| |g| |x| |y| |rde| $))
                       (#3='T (|INTPAF;palgRDE1| |nfp| |g| |x| |y| $))))
                     (#3#
                      (SPADCALL |f| |g| |x| |y| |rde| (QCAR (QCDR |u|))
-                               (QCDR (QCDR |u|)) (QREFELT $ 180)))))))
+                               (QCDR (QCDR |u|)) (QREFELT $ 181)))))))
             (#3#
              (SPADCALL |f| |g| |x| |y| |rde| (QREFELT $ 15)
                        (QVELT (QCDR |v|) 0) (QVELT (QCDR |v|) 1)
-                       (QVELT (QCDR |v|) 2) (QREFELT $ 181)))))))) 
+                       (QVELT (QCDR |v|) 2) (QREFELT $ 182)))))))) 
 
 (SDEFUN |INTPAF;quadIfCan|
         ((|x| |Kernel| F) (|y| |Kernel| F)
@@ -2069,7 +2070,7 @@
               (QREFELT $ 60))
              2)
             (COND
-             ((SPADCALL (SPADCALL |p| 1 (QREFELT $ 77)) (QREFELT $ 183))
+             ((SPADCALL (SPADCALL |p| 1 (QREFELT $ 77)) (QREFELT $ 184))
               (EXIT
                (SEQ
                 (LETT |d|
@@ -2080,7 +2081,7 @@
                                (SPADCALL (SPADCALL |p| 0 (QREFELT $ 77))
                                          (SPADCALL |p| 2 (QREFELT $ 77))
                                          (QREFELT $ 137))
-                               (QREFELT $ 184))
+                               (QREFELT $ 185))
                               |x| (QREFELT $ 25))
                              . #1#)
                        (QREFELT $ 29))
@@ -2135,12 +2136,12 @@
                       (PROGN
                        (LETT #2# NIL . #3#)
                        (SEQ (LETT |i| 0 . #3#)
-                            (LETT #1# (SPADCALL |eq| (QREFELT $ 185)) . #3#)
+                            (LETT #1# (SPADCALL |eq| (QREFELT $ 186)) . #3#)
                             G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                             (SEQ
                              (EXIT
                               (LETT #2#
-                                    (CONS (SPADCALL |eq| |i| (QREFELT $ 186))
+                                    (CONS (SPADCALL |eq| |i| (QREFELT $ 187))
                                           #2#)
                                     . #3#)))
                             (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
@@ -2148,11 +2149,11 @@
                       |g| |kx| |y| |x| $))
                     (#4='T
                      (SPADCALL |eq| |g| |kx| |y| (QCAR (QCDR |u|))
-                               (QCDR (QCDR |u|)) (QREFELT $ 188)))))))
+                               (QCDR (QCDR |u|)) (QREFELT $ 189)))))))
             (#4#
              (SPADCALL |eq| |g| |kx| |y| (QREFELT $ 15) (QVELT (QCDR |v|) 0)
                        (QVELT (QCDR |v|) 1) (QVELT (QCDR |v|) 2)
-                       (QREFELT $ 189)))))))) 
+                       (QREFELT $ 190)))))))) 
 
 (DECLAIM (NOTINLINE |PureAlgebraicIntegration;|)) 
 
@@ -2184,7 +2185,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|PureAlgebraicIntegration| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 191) . #1#)
+          (LETT $ (GETREFV 192) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -2206,10 +2207,10 @@
           (QSETREFV $ 11 (SPADCALL (QREFELT $ 10)))
           (QSETREFV $ 14 (SPADCALL (QREFELT $ 11) (QREFELT $ 13)))
           (QSETREFV $ 15 (SPADCALL (SPADCALL (QREFELT $ 10)) (QREFELT $ 13)))
-          (QSETREFV $ 163 (SPADCALL (QREFELT $ 162)))
+          (QSETREFV $ 164 (SPADCALL (QREFELT $ 163)))
           (COND
            ((|testBitVector| |pv$| 1)
-            (QSETREFV $ 190
+            (QSETREFV $ 191
                       (CONS (|dispatchFunction| |INTPAF;palgLODE;LF2KSR;25|)
                             $))))
           $))) 
@@ -2274,28 +2275,28 @@
                         (|:| |logand| 26))
               (|List| 148) (504 . |logpart|)
               (|Record| (|:| |integrand| 7) (|:| |intvar| 7)) (|List| 151)
-              (509 . |notelem|) (514 . |mkAnswer|) (521 . ^) (527 . *)
-              (|Union| 9 '"failed") (533 . |symbolIfCan|) (538 . |eval|)
-              (545 . =) (|SingletonAsOrderedSet|) (551 . |create|) '|sdummy|
-              (555 . |eval|)
+              (509 . |notelem|) (514 . |mkAnswer|) (521 . *) (527 . ^)
+              (533 . *) (|Union| 9 '"failed") (539 . |symbolIfCan|)
+              (544 . |eval|) (551 . =) (|SingletonAsOrderedSet|)
+              (557 . |create|) '|sdummy| (561 . |eval|)
               (|Record| (|:| |ratpart| 7) (|:| |coeffs| (|Vector| 7)))
-              (|Record| (|:| |particular| (|List| 165)) (|:| |basis| 167))
+              (|Record| (|:| |particular| (|List| 166)) (|:| |basis| 168))
               (|List| 7) |INTPAF;param_LODE;2L2KR;19|
-              |INTPAF;param_RDE;FL2KR;18| (562 . |kernels|) (|List| 12)
-              (|IntegrationTools| 6 7) (567 . |varselect|) (573 . |remove!|)
-              (579 . |is?|) (585 . |palgint0|) (594 . |palgint0|)
-              (|Union| 7 '"failed") (|Mapping| 178 7 7 9) (605 . |palgRDE0|)
-              (616 . |palgRDE0|) |INTPAF;palgRDE;3F2KMU;23| (629 . |zero?|)
-              (634 . -) (639 . |degree|) (644 . |coefficient|)
-              (|Record| (|:| |particular| 178) (|:| |basis| 167))
-              (650 . |palgLODE0|) (660 . |palgLODE0|) (672 . |palgLODE|))
-           '#(|param_RDE| 681 |param_LODE| 689 |palgint| 697 |palgRDE| 704
-              |palgLODE| 714)
+              |INTPAF;param_RDE;FL2KR;18| (568 . |kernels|) (|List| 12)
+              (|IntegrationTools| 6 7) (573 . |varselect|) (579 . |remove!|)
+              (585 . |is?|) (591 . |palgint0|) (600 . |palgint0|)
+              (|Union| 7 '"failed") (|Mapping| 179 7 7 9) (611 . |palgRDE0|)
+              (622 . |palgRDE0|) |INTPAF;palgRDE;3F2KMU;23| (635 . |zero?|)
+              (640 . -) (645 . |degree|) (650 . |coefficient|)
+              (|Record| (|:| |particular| 179) (|:| |basis| 168))
+              (656 . |palgLODE0|) (666 . |palgLODE0|) (678 . |palgLODE|))
+           '#(|param_RDE| 687 |param_LODE| 695 |palgint| 703 |palgRDE| 710
+              |palgLODE| 720)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 190
+                             (|makeByteWordVec2| 191
                                                  '(0 9 0 10 1 12 0 9 13 3 18 16
                                                    16 17 17 19 1 7 0 20 21 3 22
                                                    7 16 12 7 23 2 7 24 0 20 25
@@ -2344,26 +2345,26 @@
                                                    143 2 26 144 83 0 145 1 94
                                                    61 0 146 1 94 7 0 147 1 94
                                                    149 0 150 1 94 152 0 153 3
-                                                   94 0 7 149 152 154 2 7 0 0
-                                                   104 155 2 7 0 50 0 156 1 12
-                                                   157 0 158 3 7 0 0 20 0 159 2
-                                                   17 61 0 0 160 0 161 0 162 3
-                                                   16 0 0 161 0 164 1 7 113 0
-                                                   170 2 172 171 171 9 173 2
-                                                   171 0 12 0 174 2 12 61 0 9
-                                                   175 5 22 94 7 12 12 7 26 176
-                                                   7 22 94 7 12 12 12 7 17 7
-                                                   177 7 22 178 7 7 12 12 179 7
-                                                   26 180 9 22 178 7 7 12 12
-                                                   179 12 7 17 7 181 1 7 61 0
-                                                   183 1 7 0 0 184 1 8 50 0 185
-                                                   2 8 7 0 50 186 6 22 187 8 7
-                                                   12 12 7 26 188 8 22 187 8 7
-                                                   12 12 12 7 17 7 189 5 0 187
-                                                   8 7 12 12 9 190 4 0 166 7
-                                                   167 12 12 169 4 0 166 167
-                                                   167 12 12 168 3 0 94 7 12 12
-                                                   116 6 0 178 7 7 7 12 12 179
-                                                   182 5 1 187 8 7 12 12 9
-                                                   190)))))
+                                                   94 0 7 149 152 154 2 104 0
+                                                   50 0 155 2 7 0 0 104 156 2 7
+                                                   0 104 0 157 1 12 158 0 159 3
+                                                   7 0 0 20 0 160 2 17 61 0 0
+                                                   161 0 162 0 163 3 16 0 0 162
+                                                   0 165 1 7 113 0 171 2 173
+                                                   172 172 9 174 2 172 0 12 0
+                                                   175 2 12 61 0 9 176 5 22 94
+                                                   7 12 12 7 26 177 7 22 94 7
+                                                   12 12 12 7 17 7 178 7 22 179
+                                                   7 7 12 12 180 7 26 181 9 22
+                                                   179 7 7 12 12 180 12 7 17 7
+                                                   182 1 7 61 0 184 1 7 0 0 185
+                                                   1 8 50 0 186 2 8 7 0 50 187
+                                                   6 22 188 8 7 12 12 7 26 189
+                                                   8 22 188 8 7 12 12 12 7 17 7
+                                                   190 5 0 188 8 7 12 12 9 191
+                                                   4 0 167 7 168 12 12 170 4 0
+                                                   167 168 168 12 12 169 3 0 94
+                                                   7 12 12 116 6 0 179 7 7 7 12
+                                                   12 180 183 5 1 188 8 7 12 12
+                                                   9 191)))))
            '|lookupComplete|)) 

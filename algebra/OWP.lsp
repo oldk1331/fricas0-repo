@@ -65,17 +65,23 @@
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 1 '(1 1 0 1 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0))
+            (|makeByteWordVec2| 1
+                                '(1 0 0 0 0 1 0 0 1 0 0 0 1 1 0 0 0 0 0 0 0 0 0
+                                  0 0 0 0 0))
             (CONS
-             '#(|Algebra&| |Module&| |Ring&| NIL |Rng&| NIL NIL NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
-                |BasicType&| NIL)
+             '#(|Algebra&| NIL |Rng&| NIL NIL |Module&| |NonAssociativeRing&|
+                NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&|
+                NIL NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |Magma&| |AbelianSemiGroup&| |SetCategory&|
+                NIL |BasicType&| NIL)
              (CONS
-              '#((|Algebra| 6) (|Module| 6) (|Ring|) (|BiModule| 6 6) (|Rng|)
+              '#((|Algebra| 6) (|Ring|) (|Rng|) (|SemiRing|) (|SemiRng|)
+                 (|Module| 6) (|NonAssociativeRing|) (|BiModule| $$ $$)
+                 (|BiModule| 6 6) (|NonAssociativeRng|) (|RightModule| $$)
                  (|LeftModule| $$) (|LeftModule| 6) (|RightModule| 6)
-                 (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
+                 (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
+                 (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Magma|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 20))
               (|makeByteWordVec2| -999999 'NIL))))

@@ -3,7 +3,7 @@
         (SPADCALL |x| |n| (QREFELT $ 9))) 
 
 (SDEFUN |MAGMA-;rightPower;SPiS;2| ((|a| S) (|n| |PositiveInteger|) ($ S))
-        (SPROG ((|res| (S)) (#1=#:G117 NIL) (|i| NIL))
+        (SPROG ((|res| (S)) (#1=#:G134 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)
                       ('T
@@ -20,7 +20,7 @@
                             (EXIT |res|))))))) 
 
 (SDEFUN |MAGMA-;leftPower;SPiS;3| ((|a| S) (|n| |PositiveInteger|) ($ S))
-        (SPROG ((|res| (S)) (#1=#:G121 NIL) (|i| NIL))
+        (SPROG ((|res| (S)) (#1=#:G138 NIL) (|i| NIL))
                (SEQ
                 (COND ((EQL |n| 1) |a|)
                       ('T

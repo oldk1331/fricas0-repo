@@ -299,14 +299,14 @@
               (|Union| 82 '"failed") (|CardinalNumber|)
               (|OnePointCompletion| 45) (|Matrix| $) (|Union| 71 '"failed")
               (|InputForm|) (|List| $) (|Union| 22 '"failed") (|Fraction| 20)
-              (|Union| 92 '#1="failed")
+              (|Record| (|:| |coef1| $) (|:| |coef2| $))
+              (|Union| 95 '#1="failed") (|Union| 92 '#1#)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 97 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 92) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|HashState|) (|String|) (|OutputForm|))
+              (|String|) (|HashState|) (|OutputForm|))
            '#(|zero?| 147 |tableForDiscreteLogarithm| 152 |retractIfCan| 157
               |retract| 162 |represents| 167 |representationType| 172 |recip|
               176 |primitiveElement| 181 |normalElement| 185
@@ -322,32 +322,35 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
-                |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
-                |EntireRing&| NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
-                |AbelianGroup&| NIL NIL |Finite&| |AbelianMonoid&| |Monoid&|
-                NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
-                |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |GcdDomain&| |DivisionRing&| NIL NIL |DifferentialRing&| NIL
+                |Algebra&| NIL |EntireRing&| |Algebra&| NIL |VectorSpace&|
+                |Rng&| NIL |Module&| |Module&| NIL NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
+                |AbelianGroup&| NIL NIL NIL |Finite&| NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
+                |AbelianSemiGroup&| |SetCategory&| NIL |RetractableTo&| NIL NIL
+                NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
                  (|ExtensionField| $$) (|FieldOfPrimeCharacteristic|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|VectorSpace| $$) (|Algebra| 94)
-                 (|LeftOreRing|) (|Algebra| $$) (|Module| $$)
-                 (|DifferentialRing|) (|CharacteristicNonZero|) (|Module| 94)
-                 (|CommutativeRing|) (|EntireRing|) (|BiModule| $$ $$)
-                 (|BiModule| 94 94) (|Ring|) (|LeftModule| $$)
-                 (|RightModule| 94) (|LeftModule| 94) (|Rng|)
-                 (|RightModule| $$) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|SemiRing|) (|Finite|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|StepThrough|)
-                 (|Comparable|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|IntegralDomain|) (|LeftOreRing|) (|DifferentialRing|)
+                 (|CharacteristicNonZero|) (|Algebra| 94) (|CommutativeRing|)
+                 (|EntireRing|) (|Algebra| $$) (|Ring|) (|VectorSpace| $$)
+                 (|Rng|) (|SemiRing|) (|Module| $$) (|Module| 94) (|SemiRng|)
+                 (|BiModule| $$ $$) (|BiModule| 94 94) (|NonAssociativeRing|)
+                 (|LeftModule| $$) (|RightModule| 94) (|LeftModule| 94)
+                 (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)
+                 (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|CancellationAbelianMonoid|) (|Finite|) (|SemiGroup|)
+                 (|MagmaWithUnit|) (|NonAssociativeSemiRng|) (|AbelianMonoid|)
+                 (|StepThrough|) (|Comparable|) (|Magma|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|ConvertibleTo| 20) (|RetractableTo| $$)
                  (|ConvertibleTo| 91) (|canonicalsClosed|)
                  (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
@@ -367,7 +370,7 @@
                                     45 0 56 1 0 0 45 49 1 0 17 0 68 0 1 0 16 0
                                     0 40 41 0 0 45 67 1 0 45 0 66 0 0 82 83 0 0
                                     0 55 0 1 0 37 1 0 71 0 72 1 0 20 0 30 1 0 0
-                                    20 32 1 0 0 0 85 0 0 22 38 0 0 71 77 1 0 71
-                                    45 78 2 0 0 0 20 24 0 0 0 19 0 0 0 15 2 0 0
+                                    20 32 1 0 0 0 85 0 0 22 38 1 0 71 45 78 0 0
+                                    71 77 2 0 0 0 20 24 0 0 0 19 0 0 0 15 2 0 0
                                     0 0 62)))))
            '|lookupIncomplete|)) 

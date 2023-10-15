@@ -138,8 +138,8 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#2=#:G196 NIL) (#3=#:G195 NIL) (#4=#:G200 NIL) (|d| NIL)
-              (#5=#:G199 NIL))
+             ((#2=#:G182 NIL) (#3=#:G181 NIL) (#4=#:G186 NIL) (|d| NIL)
+              (#5=#:G185 NIL))
              (SEQ
               (SPADCALL (ELT $ 35)
                         (PROGN
@@ -188,8 +188,8 @@
 (SDEFUN |DIRRING;qrecip|
         ((|f| $) (|f1inv| |Coef|) (|n| |PositiveInteger|) ($ |Coef|))
         (SPROG
-         ((#1=#:G234 NIL) (#2=#:G233 NIL) (#3=#:G239 NIL) (|d| NIL)
-          (#4=#:G238 NIL))
+         ((#1=#:G206 NIL) (#2=#:G205 NIL) (#3=#:G211 NIL) (|d| NIL)
+          (#4=#:G210 NIL))
          (SEQ
           (COND ((EQL |n| 1) |f1inv|)
                 ('T
@@ -277,14 +277,14 @@
 (SDEFUN |DIRRING;multiplicative?;$PiB;20|
         ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G283 NIL) (#2=#:G277 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G253 NIL) (#4=#:G252 NIL) (#5=#:G286 NIL) (|f| NIL)
-          (#6=#:G285 NIL)
+         ((#1=#:G255 NIL) (#2=#:G249 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G225 NIL) (#4=#:G224 NIL) (#5=#:G258 NIL) (|f| NIL)
+          (#6=#:G257 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
                       (|:| |exponent| (|Integer|)))))
-          (#7=#:G284 NIL) (|i| NIL))
+          (#7=#:G256 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -344,7 +344,7 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G282))))))))
+                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G254))))))))
                  (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #9# (EXIT #1#)))) 
@@ -352,14 +352,14 @@
 (SDEFUN |DIRRING;additive?;$PiB;21|
         ((|a| $) (|n| |PositiveInteger|) ($ |Boolean|))
         (SPROG
-         ((#1=#:G319 NIL) (#2=#:G313 NIL) (|rl| (|List| |Coef|))
-          (#3=#:G289 NIL) (#4=#:G288 NIL) (#5=#:G322 NIL) (|f| NIL)
-          (#6=#:G321 NIL)
+         ((#1=#:G291 NIL) (#2=#:G285 NIL) (|rl| (|List| |Coef|))
+          (#3=#:G261 NIL) (#4=#:G260 NIL) (#5=#:G294 NIL) (|f| NIL)
+          (#6=#:G293 NIL)
           (|fl|
            (|List|
             (|Record| (|:| |factor| (|Integer|))
                       (|:| |exponent| (|Integer|)))))
-          (#7=#:G320 NIL) (|i| NIL))
+          (#7=#:G292 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -419,16 +419,16 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G318))))))))
+                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G290))))))))
                  (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #9# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |DirichletRing;|)) 
 
-(DEFUN |DirichletRing| (#1=#:G324)
+(DEFUN |DirichletRing| (#1=#:G296)
   (SPROG NIL
-         (PROG (#2=#:G325)
+         (PROG (#2=#:G297)
            (RETURN
             (COND
              ((LETT #2#
@@ -498,34 +498,40 @@
               (|OutputPackage|) (114 . |output|) (119 . |coerce|)
               |DIRRING;multiplicative?;$PiB;20| |DIRRING;additive?;$PiB;21|
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 124 |zeta| 130 |zero?| 134 |unitNormal| 139 |unitCanonical|
-              144 |unit?| 149 |subtractIfCan| 154 |sample| 160 |recip| 164
-              |opposite?| 169 |one?| 175 |multiplicative?| 180 |latex| 186
-              |hashUpdate!| 191 |hash| 197 |exquo| 202 |elt| 208 |coerce| 214
-              |characteristic| 254 |associates?| 258 |annihilate?| 264
-              |additive?| 270 ^ 276 |Zero| 288 |One| 292 = 296 - 302 + 313 *
-              319)
+              144 |unit?| 149 |subtractIfCan| 154 |sample| 160 |rightRecip| 164
+              |rightPower| 169 |recip| 181 |opposite?| 186 |one?| 192
+              |multiplicative?| 197 |leftRecip| 203 |leftPower| 208 |latex| 220
+              |hashUpdate!| 225 |hash| 231 |exquo| 236 |elt| 242 |commutator|
+              248 |coerce| 254 |characteristic| 294 |associator| 298
+              |associates?| 305 |antiCommutator| 311 |annihilate?| 317
+              |additive?| 323 ^ 329 |Zero| 341 |One| 345 = 349 - 355 + 366 *
+              372)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(1 1 1 1 1 1 1 0 1 1 0 0 1 1 1 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 1 1))
+                                '(1 1 1 1 1 0 0 0 0 1 1 0 0 1 0 0 0 1 1 0 0 0 0
+                                  0 0 0 0 0 0 0 0 0 0 0 1 1))
             (CONS
-             '#(NIL |Algebra&| |Algebra&| |Module&| NIL |Module&| |EntireRing&|
-                |Ring&| NIL NIL |Rng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
-                |AbelianMonoid&| |Monoid&| NIL |SemiGroup&| |AbelianSemiGroup&|
-                |SetCategory&| NIL NIL |BasicType&| NIL NIL NIL)
+             '#(NIL |Algebra&| NIL |Algebra&| |EntireRing&| NIL |Rng&| NIL NIL
+                |Module&| |Module&| |NonAssociativeRing&| NIL NIL
+                |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
+                NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |Magma&| |AbelianSemiGroup&| |SetCategory&|
+                NIL NIL |BasicType&| NIL NIL NIL)
              (CONS
-              '#((|IntegralDomain|) (|Algebra| 6) (|Algebra| $$) (|Module| 6)
-                 (|CommutativeRing|) (|Module| $$) (|EntireRing|) (|Ring|)
-                 (|BiModule| 6 6) (|BiModule| $$ $$) (|Rng|) (|LeftModule| $$)
-                 (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
-                 (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
-                 (|AbelianSemiGroup|) (|SetCategory|) (|Eltable| 8 6)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 27)
-                 (|CommutativeStar|) (|noZeroDivisors|))
+              '#((|IntegralDomain|) (|Algebra| 6) (|CommutativeRing|)
+                 (|Algebra| $$) (|EntireRing|) (|Ring|) (|Rng|) (|SemiRing|)
+                 (|SemiRng|) (|Module| 6) (|Module| $$) (|NonAssociativeRing|)
+                 (|BiModule| $$ $$) (|BiModule| 6 6) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| $$) (|LeftModule| 6)
+                 (|RightModule| 6) (|AbelianGroup|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|Eltable| 8 6) (|unitsKnown|) (|BasicType|)
+                 (|CoercibleTo| 27) (|CommutativeStar|) (|noZeroDivisors|))
               (|makeByteWordVec2| 76
                                   '(0 6 0 14 1 17 15 16 18 2 22 20 21 15 23 2
                                     20 6 0 16 25 1 20 27 0 28 1 8 30 0 31 0 6 0
@@ -536,14 +542,17 @@
                                     0 0 64 1 65 27 0 66 1 68 67 27 69 1 48 27 0
                                     70 2 0 30 0 0 1 0 0 0 34 1 0 30 0 1 1 1 73
                                     0 1 1 1 0 0 1 1 1 30 0 54 2 0 52 0 0 1 0 0
-                                    0 1 1 0 52 0 55 2 0 30 0 0 1 1 0 30 0 1 2 0
-                                    30 0 8 71 1 0 74 0 1 2 0 76 76 0 1 1 0 75 0
-                                    1 2 1 52 0 0 1 2 0 6 0 8 9 1 1 0 6 1 1 1 0
-                                    0 1 1 0 0 20 26 1 0 20 0 24 1 0 0 10 12 1 0
-                                    10 0 11 1 0 0 16 1 1 0 27 0 29 0 0 65 1 2 1
-                                    30 0 0 1 2 0 30 0 0 1 2 0 30 0 8 72 2 0 0 0
-                                    65 1 2 0 0 0 8 1 0 0 0 33 0 0 0 13 2 0 30 0
-                                    0 1 1 0 0 0 38 2 0 0 0 0 1 2 0 0 0 0 36 2 1
-                                    0 0 6 1 2 1 0 6 0 42 2 0 0 0 0 51 2 0 0 16
-                                    0 40 2 0 0 65 0 1 2 0 0 8 0 1)))))
+                                    0 1 1 0 52 0 1 2 0 0 0 65 1 2 0 0 0 8 1 1 0
+                                    52 0 55 2 0 30 0 0 1 1 0 30 0 1 2 0 30 0 8
+                                    71 1 0 52 0 1 2 0 0 0 65 1 2 0 0 0 8 1 1 0
+                                    75 0 1 2 0 74 74 0 1 1 0 76 0 1 2 1 52 0 0
+                                    1 2 0 6 0 8 9 2 0 0 0 0 1 1 1 0 6 1 1 1 0 0
+                                    1 1 0 20 0 24 1 0 10 0 11 1 0 0 20 26 1 0 0
+                                    10 12 1 0 0 16 1 1 0 27 0 29 0 0 65 1 3 0 0
+                                    0 0 0 1 2 1 30 0 0 1 2 0 0 0 0 1 2 0 30 0 0
+                                    1 2 0 30 0 8 72 2 0 0 0 65 1 2 0 0 0 8 1 0
+                                    0 0 33 0 0 0 13 2 0 30 0 0 1 1 0 0 0 38 2 0
+                                    0 0 0 1 2 0 0 0 0 36 2 1 0 6 0 42 2 1 0 0 6
+                                    1 2 0 0 65 0 1 2 0 0 16 0 40 2 0 0 0 0 51 2
+                                    0 0 8 0 1)))))
            '|lookupComplete|)) 

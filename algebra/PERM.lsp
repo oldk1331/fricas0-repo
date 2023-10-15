@@ -829,26 +829,28 @@
               (229 . |elt|) |PERM;inv;2$;30| |PERM;elt;$2S;32| (235 . |coerce|)
               (240 . |coerceImages|) (245 . |index|) (250 . |complement|)
               (255 . |fixedPoints|) (260 . |conjugate|) (265 . +)
-              (|Union| $ '"failed") (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 271 |sort| 277 |smaller?| 282 |sign| 288 |sample| 293 |recip|
-              297 |order| 302 |orbit| 307 |one?| 313 |odd?| 318
-              |numberOfCycles| 323 |movedPoints| 328 |min| 333 |max| 339
-              |listRepresentation| 345 |latex| 350 |inv| 355 |hashUpdate!| 360
-              |hash| 366 |fixedPoints| 371 |even?| 376 |eval| 381 |elt| 387
-              |degree| 393 |cycles| 398 |cyclePartition| 403 |cycle| 408
-              |conjugate| 413 |commutator| 419 |coercePreimagesImages| 425
-              |coerceListOfPairs| 430 |coerceImages| 435 |coerce| 440 ^ 455
-              |One| 473 >= 477 > 483 = 489 <= 495 < 501 / 507 * 513)
+              (|Union| $ '"failed") (|HashState|) (|String|) (|SingleInteger|))
+           '#(~= 271 |sort| 277 |smaller?| 282 |sign| 288 |sample| 293
+              |rightRecip| 297 |rightPower| 302 |recip| 314 |order| 319 |orbit|
+              324 |one?| 330 |odd?| 335 |numberOfCycles| 340 |movedPoints| 345
+              |min| 350 |max| 356 |listRepresentation| 362 |leftRecip| 367
+              |leftPower| 372 |latex| 384 |inv| 389 |hashUpdate!| 394 |hash|
+              400 |fixedPoints| 405 |even?| 410 |eval| 415 |elt| 421 |degree|
+              427 |cycles| 432 |cyclePartition| 437 |cycle| 442 |conjugate| 447
+              |commutator| 453 |coercePreimagesImages| 459 |coerceListOfPairs|
+              464 |coerceImages| 469 |coerce| 474 ^ 489 |One| 507 >= 511 > 517
+              = 523 <= 529 < 535 / 541 * 547)
            'NIL
-           (CONS (|makeByteWordVec2| 2 '(0 0 0 2 0 2 0 0 0 0 2))
+           (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 2 0 2 0 0 0 0 2))
                  (CONS
-                  '#(NIL |Group&| |Monoid&| |OrderedSet&| |SemiGroup&| NIL
-                     |SetCategory&| |BasicType&| NIL NIL |PartialOrder&|)
+                  '#(NIL |Group&| NIL NIL |MagmaWithUnit&| |OrderedSet&|
+                     |Magma&| NIL |SetCategory&| NIL |BasicType&| NIL
+                     |PartialOrder&|)
                   (CONS
                    '#((|PermutationCategory| 6) (|Group|) (|Monoid|)
-                      (|OrderedSet|) (|SemiGroup|) (|Comparable|)
-                      (|SetCategory|) (|BasicType|) (|unitsKnown|)
-                      (|CoercibleTo| 77) (|PartialOrder|))
+                      (|SemiGroup|) (|MagmaWithUnit|) (|OrderedSet|) (|Magma|)
+                      (|Comparable|) (|SetCategory|) (|unitsKnown|)
+                      (|BasicType|) (|CoercibleTo| 77) (|PartialOrder|))
                    (|makeByteWordVec2| 104
                                        '(2 6 8 0 0 9 1 6 10 0 11 1 13 12 0 14 2
                                          13 6 0 12 15 2 13 0 0 17 18 2 13 0 0
@@ -869,15 +871,17 @@
                                          1 39 0 0 97 1 0 39 0 98 1 50 0 0 99 2
                                          50 0 0 0 100 2 0 8 0 0 1 1 0 55 55 76
                                          2 2 8 0 0 1 1 0 12 0 59 0 0 0 1 1 0
+                                         101 0 1 2 0 0 0 17 1 2 0 0 0 10 1 1 0
                                          101 0 1 1 0 17 0 57 2 0 39 0 6 48 1 0
                                          8 0 1 1 0 8 0 62 1 0 17 0 60 1 0 39 0
                                          41 2 2 0 0 0 1 2 2 0 0 0 1 1 0 35 0 36
-                                         1 0 102 0 1 1 0 0 0 92 2 0 104 104 0 1
-                                         1 0 103 0 1 1 1 39 0 98 1 0 8 0 58 2 0
+                                         1 0 101 0 1 2 0 0 0 17 1 2 0 0 0 10 1
+                                         1 0 103 0 1 1 0 0 0 92 2 0 102 102 0 1
+                                         1 0 104 0 1 1 1 39 0 98 1 0 8 0 58 2 0
                                          6 0 6 46 2 0 6 0 6 93 1 0 17 0 43 1 0
                                          0 31 84 1 0 50 0 52 1 0 0 13 21 2 0 0
                                          0 0 1 2 0 0 0 0 1 1 0 0 31 38 1 0 0 31
-                                         88 1 3 0 13 95 1 0 0 31 65 1 0 0 13 66
+                                         88 1 3 0 13 95 1 0 0 13 66 1 0 0 31 65
                                          1 0 77 0 83 2 0 0 0 12 1 2 0 0 0 17 1
                                          2 0 0 0 10 1 0 0 0 16 2 2 8 0 0 1 2 2
                                          8 0 0 1 2 0 8 0 0 44 2 2 8 0 0 1 2 0 8

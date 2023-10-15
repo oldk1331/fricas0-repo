@@ -1221,8 +1221,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#1=#:G360 NIL) (|f| NIL) (#2=#:G361 NIL) (|p| NIL) (#3=#:G359 NIL)
-          (#4=#:G358 NIL) (#5=#:G357 NIL))
+          (#1=#:G362 NIL) (|f| NIL) (#2=#:G363 NIL) (|p| NIL) (#3=#:G361 NIL)
+          (#4=#:G360 NIL) (#5=#:G359 NIL))
          (SEQ (COND ((NULL |l|) (|error| "empty list of functions")))
               (LETT |t|
                     (PROGN
@@ -1246,7 +1246,9 @@
                           (EXIT (NREVERSE #5#))))
                     . #6#)
               (LETT |yRange| (|PLOT;join| |t| 2 $) . #6#)
-              (SETELT $ 10 (* (LENGTH |l|) (SPADCALL (QREFELT $ 32))))
+              (SETELT $ 10
+                      (SPADCALL (LENGTH |l|) (SPADCALL (QREFELT $ 32))
+                                (QREFELT $ 84)))
               (COND
                ((SPADCALL (QREFELT $ 39))
                 (SEQ
@@ -1291,7 +1293,7 @@
          (|yRange| |Segment| (|DoubleFloat|)) ($ $))
         (SPROG ((|p| ($)))
                (SEQ
-                (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 84))
+                (LETT |p| (SPADCALL |l| |xRange| (QREFELT $ 86))
                       |PLOT;plot;L2S$;42|)
                 (QSETVELT |p| 1 (LIST |xRange| (|PLOT;checkRange| |yRange| $)))
                 (EXIT |p|)))) 
@@ -1310,8 +1312,8 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 88))
-                      (QREFELT $ 87)))))) 
+            (SPADCALL (SPADCALL |v1| |f|) (SPADCALL |v1| (QREFELT $ 90))
+                      (QREFELT $ 89)))))) 
 
 (SDEFUN |PLOT;plotPolar;MS$;43!0| ((|u1| NIL) ($$ NIL))
         (PROG (|f| $)
@@ -1319,33 +1321,33 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 86))
-                      (QREFELT $ 87)))))) 
+            (SPADCALL (SPADCALL |u1| |f|) (SPADCALL |u1| (QREFELT $ 88))
+                      (QREFELT $ 89)))))) 
 
 (SDEFUN |PLOT;plotPolar;M$;44|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|)) ($ $))
         (SPADCALL |f|
                   (SPADCALL 0.0
                             (SPADCALL 2 (FLOAT PI MOST-POSITIVE-DOUBLE-FLOAT)
-                                      (QREFELT $ 90))
-                            (QREFELT $ 91))
-                  (QREFELT $ 89))) 
+                                      (QREFELT $ 92))
+                            (QREFELT $ 93))
+                  (QREFELT $ 91))) 
 
 (SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
-          (#2=#:G382 NIL) (|p| NIL) (#3=#:G381 NIL) (|h| (|OutputForm|))
-          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G380 NIL)
+          (#2=#:G384 NIL) (|p| NIL) (#3=#:G383 NIL) (|h| (|OutputForm|))
+          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G382 NIL)
           (|curve| NIL) (|tRange| (|OutputForm|)) (|plotSymbol| (|OutputForm|))
           (|tSymbol| (|OutputForm|)) (|ySymbol| (|OutputForm|))
           (|xSymbol| (|OutputForm|)) (|spaces| (|OutputForm|)))
          (SEQ
-          (LETT |spaces| (SPADCALL "   " (QREFELT $ 94))
+          (LETT |spaces| (SPADCALL "   " (QREFELT $ 96))
                 . #5=(|PLOT;coerce;$Of;45|))
           (LETT |xSymbol| "x = " . #5#) (LETT |ySymbol| "y = " . #5#)
           (LETT |tSymbol| "t = " . #5#) (LETT |plotSymbol| "PLOT" . #5#)
           (LETT |tRange|
-                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 95)) . #5#)
+                (SPADCALL (|PLOT;parametricRange| |r| $) (QREFELT $ 97)) . #5#)
           (LETT |f| NIL . #5#)
           (SEQ (LETT |curve| NIL . #5#) (LETT #4# (QVELT |r| 4) . #5#) G190
                (COND
@@ -1354,11 +1356,11 @@
                (SEQ
                 (LETT |xRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 29))
-                                (QREFELT $ 95))
+                                (QREFELT $ 97))
                       . #5#)
                 (LETT |yRange|
                       (SPADCALL (SPADCALL (QVELT |curve| 1) (QREFELT $ 30))
-                                (QREFELT $ 95))
+                                (QREFELT $ 97))
                       . #5#)
                 (LETT |l| (LIST |xSymbol| |xRange| |spaces| |ySymbol| |yRange|)
                       . #5#)
@@ -1366,9 +1368,9 @@
                  ((SPADCALL |r| (QREFELT $ 41))
                   (LETT |l|
                         (SPADCALL (LIST |tSymbol| |tRange| |spaces|) |l|
-                                  (QREFELT $ 97))
+                                  (QREFELT $ 99))
                         . #5#)))
-                (LETT |h| (SPADCALL |l| (QREFELT $ 99)) . #5#)
+                (LETT |h| (SPADCALL |l| (QREFELT $ 101)) . #5#)
                 (LETT |l|
                       (PROGN
                        (LETT #3# NIL . #5#)
@@ -1381,22 +1383,22 @@
                             (SEQ
                              (EXIT
                               (LETT #3#
-                                    (CONS (SPADCALL |p| (QREFELT $ 100)) #3#)
+                                    (CONS (SPADCALL |p| (QREFELT $ 102)) #3#)
                                     . #5#)))
                             (LETT #2# (CDR #2#) . #5#) (GO G190) G191
                             (EXIT (NREVERSE #3#))))
                       . #5#)
                 (EXIT
-                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 101)) |f|)
+                 (LETT |f| (CONS (SPADCALL (CONS |h| |l|) (QREFELT $ 103)) |f|)
                        . #5#)))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 102)))))) 
+          (EXIT (SPADCALL "PLOT" (NREVERSE |f|) (QREFELT $ 104)))))) 
 
 (DECLAIM (NOTINLINE |Plot;|)) 
 
 (DEFUN |Plot| ()
   (SPROG NIL
-         (PROG (#1=#:G384)
+         (PROG (#1=#:G386)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Plot|) . #2=(|Plot|))
@@ -1414,7 +1416,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Plot|) . #1=(|Plot|))
-          (LETT $ (GETREFV 104) . #1#)
+          (LETT $ (GETREFV 106) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|Plot| NIL (CONS 1 $))
@@ -1475,25 +1477,25 @@
               (148 . |point|) (|Mapping| 12 12) |PLOT;plot;MS$;35|
               |PLOT;plot;M2S$;36| |PLOT;plot;2MS$;37| |PLOT;plot;2M3S$;38|
               (|Mapping| 19 12) |PLOT;pointPlot;MS$;39|
-              |PLOT;pointPlot;M3S$;40| (|List| 75) |PLOT;plot;LS$;41|
-              |PLOT;plot;L2S$;42| (153 . |cos|) (158 . *) (164 . |sin|)
-              |PLOT;plotPolar;MS$;43| (169 . *) (175 . |segment|)
-              |PLOT;plotPolar;M$;44| (|OutputForm|) (181 . |coerce|)
-              (186 . |coerce|) (|List| 93) (191 . |concat!|) (|List| $)
-              (197 . |hconcat|) (202 . |coerce|) (207 . |vconcat|)
-              (212 . |prefix|) |PLOT;coerce;$Of;45|)
-           '#(|zoom| 218 |yRange| 231 |xRange| 236 |tRange| 241
-              |setScreenResolution| 246 |setMinPoints| 251 |setMaxPoints| 256
-              |setAdaptive| 261 |screenResolution| 266 |refine| 270 |pointPlot|
-              281 |plotPolar| 295 |plot| 306 |parametric?| 354 |numFunEvals|
-              359 |minPoints| 363 |maxPoints| 367 |listBranches| 371 |debug|
-              376 |coerce| 381 |adaptive?| 386)
+              |PLOT;pointPlot;M3S$;40| (|NonNegativeInteger|) (153 . *)
+              (|List| 75) |PLOT;plot;LS$;41| |PLOT;plot;L2S$;42| (159 . |cos|)
+              (164 . *) (170 . |sin|) |PLOT;plotPolar;MS$;43| (175 . *)
+              (181 . |segment|) |PLOT;plotPolar;M$;44| (|OutputForm|)
+              (187 . |coerce|) (192 . |coerce|) (|List| 95) (197 . |concat!|)
+              (|List| $) (203 . |hconcat|) (208 . |coerce|) (213 . |vconcat|)
+              (218 . |prefix|) |PLOT;coerce;$Of;45|)
+           '#(|zoom| 224 |yRange| 237 |xRange| 242 |tRange| 247
+              |setScreenResolution| 252 |setMinPoints| 257 |setMaxPoints| 262
+              |setAdaptive| 267 |screenResolution| 272 |refine| 276 |pointPlot|
+              287 |plotPolar| 301 |plot| 312 |parametric?| 360 |numFunEvals|
+              365 |minPoints| 369 |maxPoints| 373 |listBranches| 377 |debug|
+              382 |coerce| 387 |adaptive?| 392)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0))
                  (CONS '#(NIL NIL)
                        (CONS
-                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 93))
-                        (|makeByteWordVec2| 103
+                        '#((|PlottablePlaneCurveCategory|) (|CoercibleTo| 95))
+                        (|makeByteWordVec2| 105
                                             '(1 12 0 0 13 2 12 16 0 0 17 2 19
                                               16 18 0 20 1 23 12 0 24 1 23 12 0
                                               25 2 12 16 0 0 26 2 23 0 12 12 27
@@ -1505,25 +1507,26 @@
                                               0 59 1 52 19 0 60 1 52 19 0 61 2
                                               12 0 0 62 63 1 12 0 0 64 1 48 0
                                               12 65 1 52 0 19 66 1 48 0 0 69 1
-                                              52 0 0 70 1 19 0 48 74 1 12 0 0
-                                              86 2 12 0 0 0 87 1 12 0 0 88 2 12
-                                              0 62 0 90 2 23 0 12 12 91 1 93 93
-                                              0 94 1 23 93 0 95 2 96 0 0 0 97 1
-                                              93 0 98 99 1 19 93 0 100 1 93 0
-                                              98 101 2 93 0 0 98 102 2 0 0 0 23
-                                              67 3 0 0 0 23 23 68 1 0 23 0 45 1
-                                              0 23 0 44 1 0 23 0 46 1 0 31 31
-                                              38 1 0 31 31 33 1 0 31 31 36 1 0
-                                              16 16 40 0 0 31 37 2 0 0 0 23 71
-                                              1 0 0 0 72 2 0 0 80 23 81 4 0 0
-                                              80 23 23 23 82 2 0 0 75 23 89 1 0
-                                              0 75 92 2 0 0 0 23 73 3 0 0 75 75
-                                              23 78 5 0 0 75 75 23 23 23 79 2 0
-                                              0 83 23 84 3 0 0 83 23 23 85 2 0
-                                              0 75 23 76 3 0 0 75 23 23 77 1 0
-                                              16 0 41 0 0 31 42 0 0 31 32 0 0
-                                              31 34 1 0 21 0 22 1 0 16 16 43 1
-                                              0 93 0 103 0 0 16 39)))))
+                                              52 0 0 70 1 19 0 48 74 2 31 0 83
+                                              0 84 1 12 0 0 88 2 12 0 0 0 89 1
+                                              12 0 0 90 2 12 0 62 0 92 2 23 0
+                                              12 12 93 1 95 95 0 96 1 23 95 0
+                                              97 2 98 0 0 0 99 1 95 0 100 101 1
+                                              19 95 0 102 1 95 0 100 103 2 95 0
+                                              0 100 104 2 0 0 0 23 67 3 0 0 0
+                                              23 23 68 1 0 23 0 45 1 0 23 0 44
+                                              1 0 23 0 46 1 0 31 31 38 1 0 31
+                                              31 33 1 0 31 31 36 1 0 16 16 40 0
+                                              0 31 37 2 0 0 0 23 71 1 0 0 0 72
+                                              2 0 0 80 23 81 4 0 0 80 23 23 23
+                                              82 2 0 0 75 23 91 1 0 0 75 94 2 0
+                                              0 0 23 73 3 0 0 75 75 23 78 5 0 0
+                                              75 75 23 23 23 79 2 0 0 85 23 86
+                                              3 0 0 85 23 23 87 2 0 0 75 23 76
+                                              3 0 0 75 23 23 77 1 0 16 0 41 0 0
+                                              31 42 0 0 31 32 0 0 31 34 1 0 21
+                                              0 22 1 0 16 16 43 1 0 95 0 105 0
+                                              0 16 39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Plot| 'NILADIC T) 

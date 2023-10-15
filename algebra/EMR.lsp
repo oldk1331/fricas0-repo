@@ -300,8 +300,8 @@
               (|Union| $ '"failed") (|Union| 47 '#1="failed") (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 49 '#1#)
-              (|Record| (|:| |coef| 47) (|:| |generator| $))
               (|SparseUnivariatePolynomial| $)
+              (|Record| (|:| |coef| 47) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Integer|) (|PositiveInteger|) (|HashState|) (|String|)
               (|OutputForm|) (|SingleInteger|))
@@ -312,21 +312,25 @@
            (CONS
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0))
+                                  0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL |Algebra&| NIL
-                |EntireRing&| |Module&| NIL |Ring&| NIL |Rng&| NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL
-                |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL
-                |BasicType&| NIL)
+             '#(|EuclideanDomain&| NIL |GcdDomain&| NIL NIL NIL |EntireRing&|
+                |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
+                |NonAssociativeRing&| NIL |NonAssociativeRng&| NIL
+                |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
+                |AbelianSemiGroup&| |SetCategory&| NIL NIL NIL |BasicType&|
+                NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|Algebra| $$)
-                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
-                 (|BiModule| $$ $$) (|Ring|) (|LeftModule| $$) (|Rng|)
-                 (|RightModule| $$) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
+                 (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|)
+                 (|Module| $$) (|SemiRng|) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
+                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|Magma|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 58))
               (|makeByteWordVec2| 44

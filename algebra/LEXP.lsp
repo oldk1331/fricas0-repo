@@ -345,20 +345,22 @@
               (|List| 43) |LEXP;LyndonBasis;LL;10| |LEXP;coerce;$Xpbwp;11|
               (137 . |mirror|) (142 . |length|) (147 . -) |LEXP;inv;2$;12|
               (|XDistributedPolynomial| 6 7) (|Integer|) (|Union| $ '"failed")
-              (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 152 |varList| 158 |sample| 163 |recip| 167 |one?| 172 |mirror|
-              177 |log| 182 |listOfTerms| 187 |latex| 192 |inv| 197
-              |identification| 202 |hashUpdate!| 208 |hash| 214 |exp| 219
-              |conjugate| 224 |commutator| 230 |coerce| 236 ^ 251 |One| 269
-              |LyndonCoordinates| 273 |LyndonBasis| 278 = 283 / 289 * 295)
+              (|String|) (|SingleInteger|) (|HashState|))
+           '#(~= 152 |varList| 158 |sample| 163 |rightRecip| 167 |rightPower|
+              172 |recip| 184 |one?| 189 |mirror| 194 |log| 199 |listOfTerms|
+              204 |leftRecip| 209 |leftPower| 214 |latex| 226 |inv| 231
+              |identification| 236 |hashUpdate!| 242 |hash| 248 |exp| 253
+              |conjugate| 258 |commutator| 264 |coerce| 270 ^ 285 |One| 303
+              |LyndonCoordinates| 307 |LyndonBasis| 312 = 317 / 323 * 329)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|Group&| |Monoid&| |SemiGroup&| |SetCategory&|
-                     |BasicType&| NIL NIL)
+                  '#(|Group&| NIL NIL |MagmaWithUnit&| |Magma&| |SetCategory&|
+                     NIL |BasicType&| NIL)
                   (CONS
-                   '#((|Group|) (|Monoid|) (|SemiGroup|) (|SetCategory|)
-                      (|BasicType|) (|unitsKnown|) (|CoercibleTo| 20))
+                   '#((|Group|) (|Monoid|) (|SemiGroup|) (|MagmaWithUnit|)
+                      (|Magma|) (|SetCategory|) (|unitsKnown|) (|BasicType|)
+                      (|CoercibleTo| 20))
                    (|makeByteWordVec2| 74
                                        '(0 7 0 10 2 11 0 7 7 12 2 14 13 0 0 15
                                          2 7 0 0 0 16 2 7 13 0 0 17 2 14 13 0 0
@@ -370,11 +372,13 @@
                                          0 51 2 0 13 0 0 52 2 54 20 53 0 55 2
                                          14 57 58 59 60 1 43 0 14 61 1 0 0 0 65
                                          1 36 40 0 66 1 7 0 0 67 2 0 13 0 0 1 1
-                                         0 58 0 1 0 0 0 1 1 0 71 0 1 1 0 13 0 1
-                                         1 0 0 0 65 1 0 43 0 50 1 0 33 0 34 1 0
-                                         73 0 1 1 0 0 0 68 2 0 30 0 0 31 2 0 72
-                                         72 0 1 1 0 74 0 1 1 0 0 43 46 2 0 0 0
-                                         0 1 2 0 0 0 0 1 1 0 69 0 1 1 0 5 0 64
+                                         0 58 0 1 0 0 0 1 1 0 71 0 1 2 0 0 0 40
+                                         1 2 0 0 0 59 1 1 0 71 0 1 1 0 13 0 1 1
+                                         0 0 0 65 1 0 43 0 50 1 0 33 0 34 1 0
+                                         71 0 1 2 0 0 0 40 1 2 0 0 0 59 1 1 0
+                                         72 0 1 1 0 0 0 68 2 0 30 0 0 31 2 0 74
+                                         74 0 1 1 0 73 0 1 1 0 0 43 46 2 0 0 0
+                                         0 1 2 0 0 0 0 1 1 0 5 0 64 1 0 69 0 1
                                          1 0 20 0 56 2 0 0 0 70 1 2 0 0 0 40 1
                                          2 0 0 0 59 1 0 0 0 51 1 0 28 0 29 1 0
                                          62 58 63 2 0 13 0 0 52 2 0 0 0 0 1 2 0

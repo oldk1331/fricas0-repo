@@ -183,7 +183,7 @@
          ((|ans| (|List| S)) (#1=#:G226 NIL)
           (|q| (|SparseUnivariatePolynomial| S)) (|alpha| (S)) (|x| (|Symbol|))
           (#2=#:G231 NIL) (#3=#:G230 #4=(|List| S)) (#5=#:G232 #4#)
-          (#6=#:G274 NIL) (|r| NIL) (|groots| #4#)
+          (#6=#:G278 NIL) (|r| NIL) (|groots| #4#)
           (|g| (|SparseUnivariatePolynomial| S))
           (|h| (|SparseUnivariatePolynomial| S))
           (|decompList| (|List| (|SparseUnivariatePolynomial| S)))

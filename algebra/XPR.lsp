@@ -416,8 +416,8 @@
               (101 . |coerce|) (106 . |coerce|) (111 . *) (117 . +)
               (|Mapping| 47 47 47) (|List| 47) (123 . |reduce|)
               |XPR;coerce;$Of;19| (129 . |inv|) (134 . /) (|Mapping| 6 7)
-              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 6)
-              (|List| $) (|List| 7) (|PositiveInteger|) (|String|)
+              (|Union| 7 '"failed") (|List| 17) (|Mapping| 6 6) (|List| 7)
+              (|List| 6) (|List| $) (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(|recip| 140 |quasiRegular?| 145 |quasiRegular| 150 |mindeg| 155
               |maxdeg| 160 |constant?| 165 |constant| 170 |coerce| 175 |coef|
@@ -426,24 +426,29 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 7
-                                '(0 0 1 0 1 0 0 3 0 0 0 0 0 3 0 5 0 0 5 0 0 0 5
-                                  0 0 4 0 0 0 0 2 5 6 7))
+                                '(0 1 0 0 0 0 0 0 1 0 0 0 3 0 0 0 0 0 0 3 0 5 0
+                                  0 0 5 0 0 0 0 5 0 0 4 0 0 0 0 2 5 6 7))
             (CONS
-             '#(NIL |FreeModuleCategory&| |Algebra&| NIL |Module&| NIL |Ring&|
-                NIL NIL NIL NIL |Rng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
-                |AbelianMonoid&| |Monoid&| NIL |OrderedSet&| |SemiGroup&|
-                |AbelianSemiGroup&| NIL |SetCategory&| NIL |BasicType&| NIL
-                |RetractableTo&| |PartialOrder&| NIL NIL)
+             '#(NIL |Algebra&| NIL |FreeModuleCategory&| |Rng&| NIL NIL NIL
+                |Module&| NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
+                NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| |OrderedSet&| |Magma&| |AbelianSemiGroup&| NIL
+                |SetCategory&| NIL |BasicType&| NIL |RetractableTo&|
+                |PartialOrder&| NIL NIL)
              (CONS
-              '#((|XAlgebra| 6) (|FreeModuleCategory| 6 7) (|Algebra| 6)
-                 (|IndexedDirectProductCategory| 6 7) (|Module| 6)
-                 (|BiModule| 6 6) (|Ring|) (|OrderedAbelianMonoidSup|)
-                 (|AbelianProductCategory| 6) (|LeftModule| 6)
-                 (|RightModule| 6) (|Rng|) (|LeftModule| $$)
+              '#((|XAlgebra| 6) (|Algebra| 6) (|Ring|)
+                 (|FreeModuleCategory| 6 7) (|Rng|) (|SemiRing|)
+                 (|IndexedDirectProductCategory| 6 7) (|SemiRng|) (|Module| 6)
+                 (|BiModule| 6 6) (|NonAssociativeRing|) (|BiModule| $$ $$)
+                 (|OrderedAbelianMonoidSup|) (|AbelianProductCategory| 6)
+                 (|LeftModule| 6) (|RightModule| 6) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| $$)
                  (|OrderedCancellationAbelianMonoid|) (|AbelianGroup|)
-                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
-                 (|SemiRing|) (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|OrderedSet|) (|SemiGroup|)
+                 (|OrderedAbelianMonoid|) (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|CancellationAbelianMonoid|) (|OrderedAbelianSemiGroup|)
+                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|OrderedSet|) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
                  (|unitsKnown|) (|BasicType|) (|CoercibleTo| 47)
                  (|RetractableTo| 7) (|PartialOrder|) (|canonicalUnitNormal|)

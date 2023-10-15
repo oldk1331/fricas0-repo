@@ -293,6 +293,7 @@
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SmallOrdinal| NIL (CONS 1 $))
           (|stuffDomainSlots| $)
+          (AND (|HasCategory| $ '(|AbelianGroup|)) (|augmentPredVector| $ 1))
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 6 (|PolynomialRing| (|NonNegativeInteger|) $))
           $))) 
@@ -324,49 +325,56 @@
               (|Mapping| 58 58 58) (|List| 58) (159 . |reduce|)
               (|PositiveInteger|) (|String|))
            '#(~= 165 |zero?| 171 |subtractIfCan| 176 |smaller?| 182 |sample|
-              188 |retractIfCan| 192 |retract| 197 |recip| 202 |ordinalPower|
-              207 |ordinalMul| 213 |ordinalAdd| 219 |opposite?| 225 |one?| 231
-              |omegapower| 236 |omega| 241 |min| 245 |max| 251 |limitPart| 257
-              |latex| 262 |integerPart| 267 |hashUpdate!| 272 |hash| 278
-              |coerce| 283 ^ 293 |Zero| 311 |One| 315 >= 319 > 325 = 331 <= 337
-              < 343 + 349 * 355)
+              188 |rightRecip| 192 |rightPower| 197 |retractIfCan| 209
+              |retract| 214 |recip| 219 |ordinalPower| 224 |ordinalMul| 230
+              |ordinalAdd| 236 |opposite?| 242 |one?| 248 |omegapower| 253
+              |omega| 258 |min| 262 |max| 268 |limitPart| 274 |leftRecip| 279
+              |leftPower| 284 |latex| 296 |integerPart| 301 |hashUpdate!| 306
+              |hash| 312 |coerce| 317 |antiCommutator| 327 ^ 333 |Zero| 351
+              |One| 355 >= 359 > 365 = 371 <= 377 < 383 - 389 + 400 * 406)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
-                 (CONS
-                  '#(NIL NIL NIL NIL |OrderedSet&| |AbelianMonoid&| |Monoid&|
-                     NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&|
-                     |RetractableTo&| |BasicType&| |PartialOrder&| NIL)
-                  (CONS
-                   '#((|OrderedAbelianMonoid|) (|OrderedAbelianSemiGroup|)
-                      (|CancellationAbelianMonoid|) (|SemiRing|) (|OrderedSet|)
-                      (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|Comparable|)
-                      (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
-                      (|RetractableTo| 11) (|BasicType|) (|PartialOrder|)
-                      (|CoercibleTo| 58))
-                   (|makeByteWordVec2| 70
-                                       '(0 6 0 7 0 6 0 9 2 6 0 11 2 12 1 6 15 0
-                                         16 2 6 15 0 0 18 1 22 0 21 23 2 6 24
-                                         24 0 25 1 6 28 0 29 1 6 15 0 31 1 6 11
-                                         0 32 2 6 15 0 0 33 2 6 0 0 0 35 2 6 0
-                                         0 0 37 2 6 39 0 0 40 1 6 2 0 42 2 0 15
-                                         0 0 43 1 6 0 0 44 1 6 0 0 45 2 0 15 0
-                                         0 49 2 6 0 50 0 51 2 6 0 0 11 52 1 0
-                                         11 0 54 2 0 0 0 11 56 1 11 58 0 59 2 0
-                                         15 0 0 60 1 6 11 0 61 2 58 0 0 0 63 2
-                                         58 0 0 0 64 2 58 0 0 0 65 2 67 58 66 0
-                                         68 2 0 15 0 0 60 1 0 15 0 17 2 0 39 0
-                                         0 41 2 0 15 0 0 1 0 0 0 1 1 0 28 0 30
-                                         1 0 11 0 54 1 0 39 0 1 2 0 0 0 0 55 2
-                                         0 0 0 0 53 2 0 0 0 0 46 2 0 15 0 0 1 1
-                                         0 15 0 19 1 0 0 0 14 0 0 0 13 2 0 0 0
-                                         0 1 2 0 0 0 0 1 1 0 0 0 48 1 0 70 0 1
-                                         1 0 11 0 47 2 0 24 24 0 26 1 0 22 0 1
-                                         1 0 0 11 27 1 0 58 0 62 2 0 0 0 0 57 2
-                                         0 0 0 69 1 2 0 0 0 11 56 0 0 0 8 0 0 0
-                                         10 2 0 15 0 0 43 2 0 15 0 0 49 2 0 15
-                                         0 0 20 2 0 15 0 0 1 2 0 15 0 0 34 2 0
-                                         0 0 0 36 2 0 0 0 0 38 2 0 0 11 0 1 2 0
-                                         0 69 0 1)))))
+           (CONS
+            (|makeByteWordVec2| 1
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+                                  0))
+            (CONS
+             '#(NIL NIL NIL NIL NIL NIL NIL NIL NIL NIL |OrderedSet&|
+                |AbelianMonoid&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                NIL |Magma&| |AbelianSemiGroup&| |SetCategory&|
+                |RetractableTo&| |BasicType&| |PartialOrder&| NIL)
+             (CONS
+              '#((|SemiRing|) (|SemiRng|) (|BiModule| $$ $$) (|RightModule| $$)
+                 (|LeftModule| $$) (|OrderedAbelianMonoid|)
+                 (|OrderedAbelianSemiGroup|) (|CancellationAbelianMonoid|)
+                 (|Monoid|) (|NonAssociativeSemiRing|) (|OrderedSet|)
+                 (|AbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
+                 (|NonAssociativeSemiRng|) (|Comparable|) (|Magma|)
+                 (|AbelianSemiGroup|) (|SetCategory|) (|RetractableTo| 11)
+                 (|BasicType|) (|PartialOrder|) (|CoercibleTo| 58))
+              (|makeByteWordVec2| 70
+                                  '(0 6 0 7 0 6 0 9 2 6 0 11 2 12 1 6 15 0 16 2
+                                    6 15 0 0 18 1 22 0 21 23 2 6 24 24 0 25 1 6
+                                    28 0 29 1 6 15 0 31 1 6 11 0 32 2 6 15 0 0
+                                    33 2 6 0 0 0 35 2 6 0 0 0 37 2 6 39 0 0 40
+                                    1 6 2 0 42 2 0 15 0 0 43 1 6 0 0 44 1 6 0 0
+                                    45 2 0 15 0 0 49 2 6 0 50 0 51 2 6 0 0 11
+                                    52 1 0 11 0 54 2 0 0 0 11 56 1 11 58 0 59 2
+                                    0 15 0 0 60 1 6 11 0 61 2 58 0 0 0 63 2 58
+                                    0 0 0 64 2 58 0 0 0 65 2 67 58 66 0 68 2 0
+                                    15 0 0 60 1 0 15 0 17 2 0 39 0 0 41 2 0 15
+                                    0 0 1 0 0 0 1 1 0 39 0 1 2 0 0 0 69 1 2 0 0
+                                    0 11 1 1 0 28 0 30 1 0 11 0 54 1 0 39 0 1 2
+                                    0 0 0 0 55 2 0 0 0 0 53 2 0 0 0 0 46 2 0 15
+                                    0 0 1 1 0 15 0 19 1 0 0 0 14 0 0 0 13 2 0 0
+                                    0 0 1 2 0 0 0 0 1 1 0 0 0 48 1 0 39 0 1 2 0
+                                    0 0 69 1 2 0 0 0 11 1 1 0 70 0 1 1 0 11 0
+                                    47 2 0 24 24 0 26 1 0 22 0 1 1 0 0 11 27 1
+                                    0 58 0 62 2 0 0 0 0 1 2 0 0 0 0 57 2 0 0 0
+                                    69 1 2 0 0 0 11 56 0 0 0 8 0 0 0 10 2 0 15
+                                    0 0 43 2 0 15 0 0 49 2 0 15 0 0 20 2 0 15 0
+                                    0 1 2 0 15 0 0 34 2 1 0 0 0 1 1 1 0 0 1 2 0
+                                    0 0 0 36 2 1 0 21 0 1 2 0 0 0 0 38 2 0 0 11
+                                    0 1 2 0 0 69 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SmallOrdinal| 'NILADIC T) 

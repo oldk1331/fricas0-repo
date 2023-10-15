@@ -501,7 +501,7 @@
 (SDEFUN |REAL0;transMultInv| ((|c| |Integer|) (F |Pol|) ($ |Pol|))
         (SPROG
          ((|d| #1=(|NonNegativeInteger|)) (G (|Pol|)) (|cc| (|Integer|))
-          (#2=#:G188 NIL) (|n| #1#))
+          (#2=#:G189 NIL) (|n| #1#))
          (SEQ
           (LETT |d| (SPADCALL F (QREFELT $ 38)) . #3=(|REAL0;transMultInv|))
           (LETT |cc| 1 . #3#)
@@ -535,8 +535,8 @@
 
 (SDEFUN |REAL0;transAdd1| ((F |Pol|) ($ |Pol|))
         (SPROG
-         ((|ans| (|Pol|)) (#1=#:G200 NIL) (|i| NIL) (#2=#:G199 NIL) (|j| NIL)
-          (#3=#:G198 NIL) (|v| (|Vector| (|Integer|)))
+         ((|ans| (|Pol|)) (#1=#:G201 NIL) (|i| NIL) (#2=#:G200 NIL) (|j| NIL)
+          (#3=#:G199 NIL) (|v| (|Vector| (|Integer|)))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (SPADCALL F (QREFELT $ 38)) . #4=(|REAL0;transAdd1|))
               (LETT |v| (SPADCALL F (+ |n| 1) (QREFELT $ 57)) . #4#)
@@ -609,7 +609,7 @@
                     (EXIT G)))) 
 
 (SDEFUN |REAL0;invert| ((F |Pol|) ($ |Pol|))
-        (SPROG ((G (|Pol|)) (#1=#:G207 NIL) (|n| (|NonNegativeInteger|)))
+        (SPROG ((G (|Pol|)) (#1=#:G208 NIL) (|n| (|NonNegativeInteger|)))
                (SEQ (LETT G (|spadConstant| $ 34) . #2=(|REAL0;invert|))
                     (LETT |n| (SPADCALL F (QREFELT $ 38)) . #2#)
                     (SEQ G190
@@ -728,7 +728,7 @@
          ((|xfl| (|Boolean|)) (|ad| #1=(|Integer|)) (|an| #2=(|Integer|))
           (|b| (|Fraction| (|Integer|))) (|a| (|Fraction| (|Integer|)))
           (|bd| #1#) (|bn| #2#) (|v| #3=(|Integer|)) (|midd| #1#) (|midn| #2#)
-          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G226 NIL))
+          (|mid| (|Fraction| (|Integer|))) (|u| #3#) (#4=#:G227 NIL))
          (SEQ (LETT |a| (QCAR |int|) . #5=(|REAL0;refine;PolRFR;20|))
               (LETT |b| (QCDR |int|) . #5#)
               (EXIT
@@ -883,9 +883,9 @@
 
 (DECLAIM (NOTINLINE |RealZeroPackage;|)) 
 
-(DEFUN |RealZeroPackage| (#1=#:G241)
+(DEFUN |RealZeroPackage| (#1=#:G242)
   (SPROG NIL
-         (PROG (#2=#:G242)
+         (PROG (#2=#:G243)
            (RETURN
             (COND
              ((LETT #2#
@@ -945,7 +945,7 @@
                              (|makeByteWordVec2| 70
                                                  '(1 7 0 0 8 0 6 0 9 0 7 0 10 2
                                                    7 0 11 11 12 2 7 0 0 0 13 2
-                                                   7 0 0 0 14 1 6 20 0 21 1 24
+                                                   7 0 0 7 14 1 6 20 0 21 1 24
                                                    23 0 25 2 6 0 0 0 26 0 6 0
                                                    34 2 6 35 0 0 36 1 6 37 0 38
                                                    1 6 37 0 39 2 37 35 0 0 40 0

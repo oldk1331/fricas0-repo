@@ -11,7 +11,7 @@
   (SPROG ((#1=#:G111 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|Ring|) (|BiModule| '$ '$) (|noZeroDivisors|)
+                   (|Join| (|Ring|) (|noZeroDivisors|)
                            (|mkCategory|
                             '(((|exquo| ((|Union| $ "failed") $ $)) T)
                               ((|unitNormal|

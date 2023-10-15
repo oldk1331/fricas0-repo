@@ -358,9 +358,9 @@
 
 (DECLAIM (NOTINLINE |DirectProduct;|)) 
 
-(DEFUN |DirectProduct| (&REST #1=#:G243)
+(DEFUN |DirectProduct| (&REST #1=#:G245)
   (SPROG NIL
-         (PROG (#2=#:G244)
+         (PROG (#2=#:G246)
            (RETURN
             (COND
              ((LETT #2#
@@ -380,13 +380,13 @@
 (DEFUN |DirectProduct;| (|#1| |#2|)
   (SPROG
    ((|pv$| NIL) (#1=#:G235 NIL) (#2=#:G236 NIL) (#3=#:G237 NIL) (#4=#:G238 NIL)
-    (#5=#:G239 NIL) (#6=#:G240 NIL) (#7=#:G241 NIL) (#8=#:G242 NIL) ($ NIL)
-    (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
+    (#5=#:G239 NIL) (#6=#:G240 NIL) (#7=#:G241 NIL) (#8=#:G242 NIL)
+    (#9=#:G243 NIL) (#10=#:G244 NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #9=(|DirectProduct|))
-    (LETT DV$2 (|devaluate| |#2|) . #9#)
-    (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2) . #9#)
-    (LETT $ (GETREFV 84) . #9#)
+    (LETT DV$1 (|devaluate| |#1|) . #11=(|DirectProduct|))
+    (LETT DV$2 (|devaluate| |#2|) . #11#)
+    (LETT |dv$| (LIST '|DirectProduct| DV$1 DV$2) . #11#)
+    (LETT $ (GETREFV 84) . #11#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -395,54 +395,48 @@
                                              (|HasCategory| |#2| '(|SemiRng|))
                                              (|HasCategory| |#2|
                                                             '(|OrderedAbelianMonoidSup|))
-                                             (LETT #8#
+                                             (LETT #10#
                                                    (|HasCategory| |#2|
                                                                   '(|OrderedRing|))
-                                                   . #9#)
+                                                   . #11#)
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|OrderedAbelianMonoidSup|))
-                                              #8#)
+                                              #10#)
                                              (|HasCategory| |#2| '(|Ring|))
                                              (|HasCategory| |#2| '(|Monoid|))
                                              (|HasCategory| |#2|
                                                             '(|unitsKnown|))
-                                             (LETT #7#
+                                             (LETT #9#
                                                    (|HasCategory| |#2|
                                                                   '(|CommutativeRing|))
-                                                   . #9#)
-                                             (OR #7#
+                                                   . #11#)
+                                             (OR #9#
                                                  (|HasCategory| |#2|
                                                                 '(|Field|))
                                                  (|HasCategory| |#2|
                                                                 '(|SemiRng|)))
-                                             (OR #7#
+                                             (OR #9#
                                                  (|HasCategory| |#2|
                                                                 '(|Field|)))
-                                             (OR #7#
-                                                 (|HasCategory| |#2|
-                                                                '(|Ring|)))
-                                             (LETT #6#
+                                             (LETT #8#
                                                    (|HasCategory| |#2|
                                                                   '(|Finite|))
-                                                   . #9#)
-                                             (OR #6#
+                                                   . #11#)
+                                             (OR #8#
                                                  (|HasCategory| |#2|
                                                                 '(|OrderedAbelianMonoidSup|))
-                                                 #8#)
-                                             (OR (|HasCategory| |#2| '(|Ring|))
-                                                 (|HasCategory| |#2|
-                                                                '(|SemiRng|)))
+                                                 #10#)
                                              (|HasCategory| |#2|
                                                             '(|LinearlyExplicitOver|
                                                               (|Integer|)))
                                              (|HasCategory| |#2|
                                                             '(|PartialDifferentialRing|
                                                               (|Symbol|)))
-                                             (LETT #5#
+                                             (LETT #7#
                                                    (|HasCategory| |#2|
                                                                   '(|DifferentialRing|))
-                                                   . #9#)
+                                                   . #11#)
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
@@ -450,15 +444,10 @@
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
+                                              #9# #7# #10#
+                                              (|HasCategory| |#2| '(|Ring|))
                                               (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              #7# #5# #8#
-                                              (|HasCategory| |#2| '(|Ring|)))
+                                                             '(|SemiRng|)))
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
@@ -466,21 +455,7 @@
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
-                                              #7# #5# #8#
-                                              (|HasCategory| |#2| '(|Ring|)))
-                                             (OR
-                                              (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitOver|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#2|
-                                                             '(|PartialDifferentialRing|
-                                                               (|Symbol|)))
-                                              #7# #5# #8#
+                                              #9# #7# #10#
                                               (|HasCategory| |#2| '(|Ring|)))
                                              (|HasCategory| |#2|
                                                             '(|SetCategory|))
@@ -500,7 +475,7 @@
                                                              '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2| '(|Ring|)))
-                                             (AND #5#
+                                             (AND #7#
                                                   (|HasCategory| |#2|
                                                                  '(|Ring|)))
                                              (AND
@@ -508,10 +483,58 @@
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
                                               (|HasCategory| |#2| '(|Ring|)))
+                                             (LETT #6#
+                                                   (|HasCategory| |#2|
+                                                                  '(|AbelianMonoid|))
+                                                   . #11#)
+                                             (AND #6#
+                                                  (|HasCategory| |#2|
+                                                                 '(|Monoid|)))
+                                             (AND #6#
+                                                  (|HasCategory| |#2|
+                                                                 '(|SemiRng|)))
+                                             (LETT #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|AbelianGroup|))
+                                                   . #11#)
+                                             (OR
+                                              (AND #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|SemiRng|)))
+                                              (|HasCategory| |#2| '(|Ring|)))
                                              (LETT #4#
                                                    (|HasCategory| |#2|
+                                                                  '(|CancellationAbelianMonoid|))
+                                                   . #11#)
+                                             (OR
+                                              (AND #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|SemiRng|)))
+                                              #6# #4#
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (OR
+                                              (AND #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|SemiRng|)))
+                                              #4#
+                                              (|HasCategory| |#2| '(|Ring|)))
+                                             (OR
+                                              (|HasCategory| |#2|
+                                                             '(|LinearlyExplicitOver|
+                                                               (|Integer|)))
+                                              (|HasCategory| |#2|
+                                                             '(|PartialDifferentialRing|
+                                                               (|Symbol|)))
+                                              #6# #4# #9# #7#
+                                              (|HasCategory| |#2| '(|Field|))
+                                              #10#
+                                              (|HasCategory| |#2| '(|Ring|))
+                                              (|HasCategory| |#2|
+                                                             '(|SemiRng|)))
+                                             (LETT #3#
+                                                   (|HasCategory| |#2|
                                                                   '(|SemiGroup|))
-                                                   . #9#)
+                                                   . #11#)
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
@@ -534,8 +557,13 @@
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#2|)))
+                                               #4#)
+                                              (AND
                                                (|HasCategory| |#2|
-                                                              '(|CancellationAbelianMonoid|)))
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#2|)))
+                                               #9#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               (LIST '|Evalable|
@@ -547,19 +575,13 @@
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#2|)))
-                                               #5#)
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              (LIST '|Evalable|
-                                                                    (|devaluate|
-                                                                     |#2|)))
                                                (|HasCategory| |#2| '(|Field|)))
                                               (AND
                                                (|HasCategory| |#2|
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#2|)))
-                                               #6#)
+                                               #8#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               (LIST '|Evalable|
@@ -579,7 +601,7 @@
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#2|)))
-                                               #8#)
+                                               #10#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               (LIST '|Evalable|
@@ -591,7 +613,7 @@
                                                               (LIST '|Evalable|
                                                                     (|devaluate|
                                                                      |#2|)))
-                                               #4#)
+                                               #3#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               (LIST '|Evalable|
@@ -608,34 +630,7 @@
                                                               '(|SetCategory|))))
                                              (OR
                                               (|HasCategory| |#2| '(|Monoid|))
-                                              #4#)
-                                             (OR
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2| '(|Field|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
-                                              (|HasCategory| |#2| '(|Ring|)))
-                                             (OR
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2| '(|Field|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|)))
-                                             (LETT #3#
-                                                   (|HasCategory| |#2|
-                                                                  '(|AbelianMonoid|))
-                                                   . #9#)
+                                              #3#)
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|LinearlyExplicitOver|
@@ -643,20 +638,18 @@
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
-                                              #3#
+                                              #6#
                                               (|HasCategory| |#2|
                                                              '(|BasicType|))
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              #7# #5#
+                                              #4# #9# #7#
                                               (|HasCategory| |#2| '(|Field|))
-                                              #6#
+                                              #8#
                                               (|HasCategory| |#2| '(|Monoid|))
                                               (|HasCategory| |#2|
                                                              '(|OrderedAbelianMonoidSup|))
-                                              #8#
+                                              #10#
                                               (|HasCategory| |#2| '(|Ring|))
-                                              #4#
+                                              #3#
                                               (|HasCategory| |#2| '(|SemiRng|))
                                               (|HasCategory| |#2|
                                                              '(|SetCategory|)))
@@ -667,61 +660,19 @@
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
                                                                (|Symbol|)))
-                                              #3#
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              #7# #5#
+                                              #6# #4# #9# #7#
                                               (|HasCategory| |#2| '(|Field|))
-                                              #6#
+                                              #8#
                                               (|HasCategory| |#2| '(|Monoid|))
                                               (|HasCategory| |#2|
                                                              '(|OrderedAbelianMonoidSup|))
-                                              #8#
+                                              #10#
                                               (|HasCategory| |#2| '(|Ring|))
-                                              #4#
+                                              #3#
                                               (|HasCategory| |#2| '(|SemiRng|))
                                               (|HasCategory| |#2|
                                                              '(|SetCategory|)))
-                                             (OR
-                                              (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitOver|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#2|
-                                                             '(|PartialDifferentialRing|
-                                                               (|Symbol|)))
-                                              #3#
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              #7# #5#
-                                              (|HasCategory| |#2| '(|Field|))
-                                              #8#
-                                              (|HasCategory| |#2| '(|Ring|))
-                                              (|HasCategory| |#2|
-                                                             '(|SemiRng|)))
-                                             (OR
-                                              (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitOver|
-                                                               (|Integer|)))
-                                              (|HasCategory| |#2|
-                                                             '(|PartialDifferentialRing|
-                                                               (|Symbol|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
-                                              #3#
-                                              (|HasCategory| |#2|
-                                                             '(|CancellationAbelianMonoid|))
-                                              #7# #5# #8#
-                                              (|HasCategory| |#2| '(|Ring|)))
-                                             (AND #3#
-                                                  (|HasCategory| |#2|
-                                                                 '(|Monoid|)))
-                                             (AND #3#
-                                                  (|HasCategory| |#2|
-                                                                 '(|SemiRng|)))
-                                             (OR #3#
+                                             (OR #6#
                                                  (|HasCategory| |#2|
                                                                 '(|SemiRng|)))
                                              (|HasCategory| |#2|
@@ -734,7 +685,7 @@
                                                                      (|Integer|)))
                                                     (|HasCategory| |#2|
                                                                    '(|SetCategory|)))
-                                                   . #9#)
+                                                   . #11#)
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
@@ -754,8 +705,12 @@
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Integer|)))
+                                               #4#)
+                                              (AND
                                                (|HasCategory| |#2|
-                                                              '(|CancellationAbelianMonoid|)))
+                                                              '(|RetractableTo|
+                                                                (|Integer|)))
+                                               #9#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -765,17 +720,12 @@
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Integer|)))
-                                               #5#)
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|RetractableTo|
-                                                                (|Integer|)))
                                                (|HasCategory| |#2| '(|Field|)))
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Integer|)))
-                                               #6#)
+                                               #8#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -792,7 +742,7 @@
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Integer|)))
-                                               #8#)
+                                               #10#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -802,7 +752,7 @@
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Integer|)))
-                                               #4#)
+                                               #3#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -821,7 +771,7 @@
                                                                       (|Integer|))))
                                                     (|HasCategory| |#2|
                                                                    '(|SetCategory|)))
-                                                   . #9#)
+                                                   . #11#)
                                              (OR
                                               (|HasCategory| |#2|
                                                              '(|CoercibleTo|
@@ -834,20 +784,18 @@
                                                (|HasCategory| |#2|
                                                               '(|SetCategory|)))
                                               #1# #2#
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               #7#
-                                               (|HasCategory| |#2| '(|Field|)))
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|AbelianGroup|))
-                                               (|HasCategory| |#2|
-                                                              '(|SemiRng|)))
-                                              (AND #3#
+                                              (AND #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|Field|))
+                                                   (|HasCategory| |#2|
+                                                                  '(|Ring|)))
+                                              (AND #5#
+                                                   (|HasCategory| |#2|
+                                                                  '(|SemiRng|)))
+                                              (AND #6#
                                                    (|HasCategory| |#2|
                                                                   '(|Field|)))
-                                              (AND #3#
+                                              (AND #6#
                                                    (|HasCategory| |#2|
                                                                   '(|SemiRng|))))
                                              (OR
@@ -872,8 +820,13 @@
                                                               '(|RetractableTo|
                                                                 (|Fraction|
                                                                  (|Integer|))))
+                                               #4#)
+                                              (AND
                                                (|HasCategory| |#2|
-                                                              '(|CancellationAbelianMonoid|)))
+                                                              '(|RetractableTo|
+                                                                (|Fraction|
+                                                                 (|Integer|))))
+                                               #9#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -885,19 +838,13 @@
                                                               '(|RetractableTo|
                                                                 (|Fraction|
                                                                  (|Integer|))))
-                                               #5#)
-                                              (AND
-                                               (|HasCategory| |#2|
-                                                              '(|RetractableTo|
-                                                                (|Fraction|
-                                                                 (|Integer|))))
                                                (|HasCategory| |#2| '(|Field|)))
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
                                                                 (|Fraction|
                                                                  (|Integer|))))
-                                               #6#)
+                                               #8#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -917,7 +864,7 @@
                                                               '(|RetractableTo|
                                                                 (|Fraction|
                                                                  (|Integer|))))
-                                               #8#)
+                                               #10#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -929,7 +876,7 @@
                                                               '(|RetractableTo|
                                                                 (|Fraction|
                                                                  (|Integer|))))
-                                               #4#)
+                                               #3#)
                                               (AND
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -938,29 +885,47 @@
                                                (|HasCategory| |#2|
                                                               '(|SemiRng|)))
                                               #1#)))
-                    . #9#))
+                    . #11#))
     (|haddProp| |$ConstructorCache| '|DirectProduct| (LIST DV$1 DV$2)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 281474976710656))
+         (|augmentPredVector| $ 140737488355328))
     (AND (|HasCategory| |#2| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 562949953421312))
+         (|augmentPredVector| $ 281474976710656))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1125899906842624))
+         (|augmentPredVector| $ 562949953421312))
+    (AND
+     (OR #6#
+         (AND (|HasCategory| |#2| '(|SemiRng|))
+              (|HasCategory| $ '(|AbelianMonoid|))))
+     (|augmentPredVector| $ 1125899906842624))
+    (AND
+     (OR (AND #5# (|HasCategory| |#2| '(|Field|)))
+         (AND #5# (|HasCategory| |#2| '(|SemiRng|))) #4#
+         (AND (|HasCategory| |#2| '(|SemiRng|))
+              (|HasCategory| $ '(|AbelianGroup|))))
+     (|augmentPredVector| $ 2251799813685248))
+    (AND
+     (OR (AND #5# (|HasCategory| |#2| '(|Field|)))
+         (AND #5# (|HasCategory| |#2| '(|SemiRng|)))
+         (|HasCategory| |#2| '(|Ring|))
+         (AND (|HasCategory| |#2| '(|SemiRng|))
+              (|HasCategory| $ '(|AbelianGroup|))))
+     (|augmentPredVector| $ 4503599627370496))
     (AND
      (OR
       (AND (|HasCategory| |#2| '(|BasicType|))
            (|HasCategory| $ '(|finiteAggregate|)))
       (|HasCategory| |#2| '(|SetCategory|)))
-     (|augmentPredVector| $ 2251799813685248))
+     (|augmentPredVector| $ 9007199254740992))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 8 (|Vector| |#2|))
     (COND
-     ((|testBitVector| |pv$| 22)
+     ((|testBitVector| |pv$| 19)
       (PROGN
        (COND
         ((|domainEqual| |#2| (|NonNegativeInteger|))
@@ -972,21 +937,21 @@
        (QSETREFV $ 27
                  (CONS (|dispatchFunction| |DIRPROD;retractIfCan;$U;10|) $)))))
     (COND
-     ((|testBitVector| |pv$| 13)
+     ((|testBitVector| |pv$| 12)
       (PROGN
        (QSETREFV $ 32 (CONS (|dispatchFunction| |DIRPROD;index;Pi$;11|) $))
        (QSETREFV $ 34 (CONS (|dispatchFunction| |DIRPROD;random;$;12|) $))
        (QSETREFV $ 36 (CONS (|dispatchFunction| |DIRPROD;lookup;$Pi;13|) $)))))
     (COND
-     ((|testBitVector| |pv$| 34)
+     ((|testBitVector| |pv$| 26)
       (QSETREFV $ 38
                 (CONS #'|makeSpadConstant|
                       (LIST (|dispatchFunction| |DIRPROD;Zero;$;14|) $ 38)))))
     (COND
-     ((|testBitVector| |pv$| 29)
+     ((|testBitVector| |pv$| 35)
       (QSETREFV $ 42 (CONS (|dispatchFunction| |DIRPROD;*;3$;15|) $))))
     (COND
-     ((|HasCategory| |#2| '(|CancellationAbelianMonoid|))
+     ((|testBitVector| |pv$| 31)
       (QSETREFV $ 46
                 (CONS (|dispatchFunction| |DIRPROD;subtractIfCan;2$U;16|) $))))
     (COND
@@ -997,7 +962,7 @@
                        (LIST (|dispatchFunction| |DIRPROD;One;$;17|) $ 48)))
        (QSETREFV $ 52 (CONS (|dispatchFunction| |DIRPROD;recip;$U;18|) $)))))
     (COND
-     ((|testBitVector| |pv$| 34)
+     ((|testBitVector| |pv$| 26)
       (COND
        ((|testBitVector| |pv$| 7)
         (QSETREFV $ 54
@@ -1032,67 +997,71 @@
               (119 . |subtractIfCan|) (125 . |subtractIfCan|) (131 . |One|)
               (135 . |One|) (139 . |maxIndex|) (144 . |qelt|) (150 . |recip|)
               (155 . |recip|) (160 . |setelt!|) (167 . |unitVector|) (172 . <)
-              (178 . <) (184 . >) (190 . |sup|) (196 . |sup|) (|Equation| 7)
-              (|List| 60) (|Matrix| 18) (|Matrix| $)
+              (178 . <) (184 . >) (190 . |sup|) (196 . |sup|) (|List| 61)
+              (|Equation| 7) (|Matrix| 18) (|Matrix| $)
               (|Record| (|:| |mat| 62) (|:| |vec| (|Vector| 18))) (|Vector| $)
-              (|List| 68) (|List| 15) (|Symbol|) (|Union| 70 '#1="failed")
+              (|Symbol|) (|List| 66) (|List| 15) (|Union| 70 '#1="failed")
               (|Fraction| 18) (|Union| 18 '#1#) (|Void|) (|Mapping| 7 7)
               (|OutputForm|) (|CardinalNumber|) (|InputForm|) (|List| $)
               (|Record| (|:| |mat| 79) (|:| |vec| 5)) (|Matrix| 7)
-              (|HashState|) (|SingleInteger|) (|String|) (|List| 18))
+              (|SingleInteger|) (|String|) (|HashState|) (|List| 18))
            '#(~= 202 |zero?| 208 |unitVector| 213 |swap!| 218 |sup| 225
               |subtractIfCan| 231 |smaller?| 237 |size?| 243 |size| 249 |sign|
-              253 |setelt!| 258 |sample| 265 |retractIfCan| 269 |retract| 284
-              |reducedSystem| 299 |recip| 321 |random| 326 |qsetelt!| 330
-              |qelt| 337 |positive?| 343 |parts| 348 |opposite?| 353 |one?| 359
-              |negative?| 364 |more?| 369 |minIndex| 375 |min| 380 |members|
-              386 |member?| 391 |maxIndex| 397 |max| 402 |map!| 408 |map| 414
-              |lookup| 420 |less?| 425 |latex| 431 |indices| 436 |index?| 441
-              |index| 447 |hashUpdate!| 452 |hash| 458 |first| 463 |fill!| 468
-              |every?| 474 |eval| 480 |eq?| 506 |enumerate| 512 |entry?| 516
-              |entries| 522 |empty?| 527 |empty| 532 |elt| 536 |dot| 549
-              |directProduct| 555 |dimension| 560 |differentiate| 564 |count|
-              614 |copy| 626 |convert| 631 |coerce| 636 |characteristic| 661
-              |any?| 665 |annihilate?| 671 |abs| 677 ^ 682 |Zero| 694 |One| 698
-              D 702 >= 752 > 758 = 764 <= 770 < 776 / 782 - 788 + 799 * 805 |#|
-              841)
+              253 |setelt!| 258 |sample| 265 |rightRecip| 269 |rightPower| 274
+              |retractIfCan| 286 |retract| 301 |reducedSystem| 316 |recip| 338
+              |random| 343 |qsetelt!| 347 |qelt| 354 |positive?| 360 |parts|
+              365 |opposite?| 370 |one?| 376 |negative?| 381 |more?| 386
+              |minIndex| 392 |min| 397 |members| 403 |member?| 408 |maxIndex|
+              414 |max| 419 |map!| 425 |map| 431 |lookup| 437 |less?| 442
+              |leftRecip| 448 |leftPower| 453 |latex| 465 |indices| 470
+              |index?| 475 |index| 481 |hashUpdate!| 486 |hash| 492 |first| 497
+              |fill!| 502 |every?| 508 |eval| 514 |eq?| 540 |enumerate| 546
+              |entry?| 550 |entries| 556 |empty?| 561 |empty| 566 |elt| 570
+              |dot| 583 |directProduct| 589 |dimension| 594 |differentiate| 598
+              |count| 648 |copy| 660 |convert| 665 |commutator| 670 |coerce|
+              676 |characteristic| 701 |associator| 705 |any?| 712
+              |antiCommutator| 718 |annihilate?| 724 |abs| 730 ^ 735 |Zero| 747
+              |One| 751 D 755 >= 805 > 811 = 817 <= 823 < 829 / 835 - 841 + 852
+              * 858 |#| 894)
            'NIL
            (CONS
-            (|makeByteWordVec2| 48
-                                '(0 1 4 9 6 6 11 4 9 6 16 17 18 10 3 4 9 21 10
-                                  2 5 12 9 21 5 20 5 6 19 0 5 7 13 15 38 0 14
-                                  31 37 0 0 30 36 22 0 0 0 0 30 47 5 8 9 13 35
-                                  22 48 44))
+            (|makeByteWordVec2| 47
+                                '(0 4 6 6 4 9 9 6 14 15 16 18 1 6 18 11 2 10 3
+                                  4 2 6 10 2 5 2 2 18 30 5 33 5 6 7 0 32 5 7 12
+                                  37 17 0 13 37 34 0 0 36 39 19 0 0 0 0 36 46 5
+                                  8 9 12 38 19 47 43))
             (CONS
-             '#(|DirectProductCategory&| |VectorSpace&| |OrderedRing&|
-                |Algebra&| |FullyLinearlyExplicitOver&|
-                |DifferentialExtension&| |Module&| NIL NIL NIL NIL
-                |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
-                |Ring&| NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
-                NIL |IndexedAggregate&| |OrderedSet&| |Monoid&| |Finite&| NIL
-                |AbelianMonoid&| |HomogeneousAggregate&| NIL |SemiGroup&|
-                |AbelianSemiGroup&| |Aggregate&| |EltableAggregate&|
-                |Evalable&| |SetCategory&| |FullyRetractableTo&| NIL NIL NIL
-                NIL |InnerEvalable&| NIL |PartialOrder&| NIL NIL NIL
-                |BasicType&| |RetractableTo&| |RetractableTo&|
-                |RetractableTo&|)
+             '#(|DirectProductCategory&| |OrderedRing&|
+                |FullyLinearlyExplicitOver&| |DifferentialExtension&| NIL NIL
+                |Algebra&| NIL NIL |PartialDifferentialRing&|
+                |DifferentialRing&| NIL |VectorSpace&| NIL |Rng&| |Module&| NIL
+                NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL
+                |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL NIL NIL
+                |IndexedAggregate&| |AbelianMonoid&| |OrderedSet&|
+                |MagmaWithUnit&| |Finite&| NIL |NonAssociativeSemiRng&|
+                |HomogeneousAggregate&| NIL |Magma&| |AbelianSemiGroup&|
+                |Aggregate&| |EltableAggregate&| |Evalable&| |SetCategory&|
+                |FullyRetractableTo&| NIL NIL NIL NIL |InnerEvalable&| NIL
+                |PartialOrder&| NIL NIL NIL |BasicType&| |RetractableTo&|
+                |RetractableTo&| |RetractableTo&|)
              (CONS
-              '#((|DirectProductCategory| 6 7) (|VectorSpace| 7)
-                 (|OrderedRing|) (|Algebra| 7) (|FullyLinearlyExplicitOver| 7)
-                 (|DifferentialExtension| 7) (|Module| 7)
-                 (|CharacteristicZero|) (|CommutativeRing|)
+              '#((|DirectProductCategory| 6 7) (|OrderedRing|)
+                 (|FullyLinearlyExplicitOver| 7) (|DifferentialExtension| 7)
+                 (|CharacteristicZero|) (|CommutativeRing|) (|Algebra| 7)
                  (|LinearlyExplicitOver| 7) (|LinearlyExplicitOver| 18)
-                 (|PartialDifferentialRing| 68) (|DifferentialRing|)
-                 (|BiModule| 7 7) (|OrderedAbelianMonoidSup|)
-                 (|OrderedAbelianGroup|) (|BiModule| $$ $$) (|Ring|)
-                 (|LeftModule| 7) (|RightModule| 7)
+                 (|PartialDifferentialRing| 66) (|DifferentialRing|) (|Ring|)
+                 (|VectorSpace| 7) (|SemiRing|) (|Rng|) (|Module| 7)
+                 (|SemiRng|) (|BiModule| 7 7) (|OrderedAbelianMonoidSup|)
+                 (|OrderedAbelianGroup|) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|LeftModule| 7) (|RightModule| 7)
                  (|OrderedCancellationAbelianMonoid|) (|LeftModule| $$)
-                 (|RightModule| $$) (|Rng|) (|OrderedAbelianMonoid|)
-                 (|AbelianGroup|) (|OrderedAbelianSemiGroup|) (|SemiRing|)
-                 (|CancellationAbelianMonoid|) (|IndexedAggregate| 18 7)
-                 (|OrderedSet|) (|Monoid|) (|Finite|) (|SemiRng|)
-                 (|AbelianMonoid|) (|HomogeneousAggregate| 7) (|Comparable|)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|Aggregate|)
+                 (|RightModule| $$) (|NonAssociativeRng|) (|AbelianGroup|)
+                 (|OrderedAbelianMonoid|) (|CancellationAbelianMonoid|)
+                 (|OrderedAbelianSemiGroup|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|IndexedAggregate| 18 7) (|AbelianMonoid|)
+                 (|OrderedSet|) (|MagmaWithUnit|) (|Finite|) (|SemiGroup|)
+                 (|NonAssociativeSemiRng|) (|HomogeneousAggregate| 7)
+                 (|Comparable|) (|Magma|) (|AbelianSemiGroup|) (|Aggregate|)
                  (|EltableAggregate| 18 7) (|Evalable| 7) (|SetCategory|)
                  (|FullyRetractableTo| 7) (|Type|) (|finiteAggregate|)
                  (|CoercibleTo| (|Vector| 7)) (|Eltable| 18 7)
@@ -1111,40 +1080,43 @@
                                     0 7 0 47 0 0 0 48 1 0 18 0 49 2 0 7 0 18 50
                                     1 7 44 0 51 1 0 44 0 52 3 8 7 0 18 7 53 1 0
                                     0 29 54 2 0 14 0 0 55 2 7 14 0 0 56 2 7 14
-                                    0 0 57 2 7 0 0 0 58 2 0 0 0 0 59 2 52 14 0
-                                    0 1 1 34 14 0 1 1 39 0 29 54 3 51 72 0 18
-                                    18 1 2 3 0 0 0 59 2 33 44 0 0 46 2 14 14 0
-                                    0 1 2 0 14 0 15 16 0 13 15 1 1 4 18 0 1 3
-                                    51 7 0 18 7 1 0 0 0 1 1 46 69 0 1 1 43 71 0
-                                    1 1 22 26 0 27 1 46 70 0 1 1 43 18 0 1 1 22
-                                    7 0 25 1 26 62 63 1 2 26 64 63 65 1 2 6 78
-                                    63 65 1 1 6 79 63 1 1 7 44 0 52 0 13 0 34 3
-                                    51 7 0 18 7 1 2 0 7 0 18 50 1 4 14 0 1 1 49
-                                    12 0 13 2 34 14 0 0 1 1 7 14 0 1 1 4 14 0 1
-                                    2 0 14 0 15 1 1 25 18 0 19 2 5 0 0 0 1 1 49
-                                    12 0 1 2 50 14 7 0 1 1 25 18 0 49 2 5 0 0 0
-                                    1 2 51 0 73 0 1 2 0 0 73 0 1 1 13 29 0 36 2
-                                    0 14 0 15 1 1 22 82 0 1 1 0 83 0 1 2 0 14
-                                    18 0 1 1 13 0 29 32 2 22 80 80 0 1 1 22 81
-                                    0 1 1 25 7 0 1 2 51 0 0 7 1 2 49 14 22 0 23
-                                    3 23 0 0 12 12 1 2 23 0 0 60 1 3 23 0 0 7 7
-                                    1 2 23 0 0 61 1 2 0 14 0 0 1 0 13 77 1 2 50
-                                    14 7 0 1 1 0 12 0 1 1 0 14 0 1 0 0 0 1 2 0
-                                    7 0 18 20 3 0 7 0 18 7 1 2 40 7 0 0 1 1 0 0
-                                    5 17 0 1 75 1 2 27 0 0 15 1 1 27 0 0 1 3 28
-                                    0 0 66 67 1 2 28 0 0 66 1 3 28 0 0 68 15 1
-                                    2 28 0 0 68 1 3 6 0 0 73 15 1 2 6 0 0 73 1
-                                    2 50 15 7 0 1 2 49 15 22 0 1 1 0 0 0 1 1 13
-                                    76 0 1 1 46 0 70 1 1 45 0 18 1 1 42 74 0 1
-                                    1 22 0 7 11 1 0 5 0 10 0 6 15 1 2 49 14 22
-                                    0 1 2 6 14 0 0 1 1 4 0 0 1 2 7 0 0 15 1 2
-                                    29 0 0 29 1 0 34 0 38 0 7 0 48 2 27 0 0 15
-                                    1 1 27 0 0 1 3 28 0 0 66 67 1 2 28 0 0 66 1
-                                    3 28 0 0 68 15 1 2 28 0 0 68 1 3 6 0 0 73
-                                    15 1 2 6 0 0 73 1 2 5 14 0 0 1 2 5 14 0 0 1
-                                    2 52 14 0 0 24 2 5 14 0 0 1 2 5 14 0 0 55 2
-                                    1 0 0 7 1 2 32 0 0 0 1 1 32 0 0 1 2 41 0 0
-                                    0 1 2 32 0 18 0 1 2 41 0 29 0 1 2 34 0 15 0
-                                    1 2 29 0 0 0 42 2 29 0 0 7 1 2 29 0 7 0 1 1
-                                    49 15 0 1)))))
+                                    0 0 57 2 7 0 0 0 58 2 0 0 0 0 59 2 54 14 0
+                                    0 1 1 51 14 0 1 1 27 0 29 54 3 50 72 0 18
+                                    18 1 2 3 0 0 0 59 2 52 44 0 0 46 2 13 14 0
+                                    0 1 2 0 14 0 15 16 0 12 15 1 1 4 18 0 1 3
+                                    50 7 0 18 7 1 0 0 0 1 1 7 44 0 1 2 7 0 0 15
+                                    1 2 35 0 0 29 1 1 45 69 0 1 1 42 71 0 1 1
+                                    19 26 0 27 1 45 70 0 1 1 42 18 0 1 1 19 7 0
+                                    25 1 23 62 63 1 2 23 64 63 65 1 2 6 78 63
+                                    65 1 1 6 79 63 1 1 7 44 0 52 0 12 0 34 3 50
+                                    7 0 18 7 1 2 0 7 0 18 50 1 4 14 0 1 1 48 12
+                                    0 13 2 51 14 0 0 1 1 7 14 0 1 1 4 14 0 1 2
+                                    0 14 0 15 1 1 22 18 0 19 2 5 0 0 0 1 1 48
+                                    12 0 1 2 49 14 7 0 1 1 22 18 0 49 2 5 0 0 0
+                                    1 2 50 0 73 0 1 2 0 0 73 0 1 1 12 29 0 36 2
+                                    0 14 0 15 1 1 7 44 0 1 2 7 0 0 15 1 2 35 0
+                                    0 29 1 1 19 81 0 1 1 0 83 0 1 2 0 14 18 0 1
+                                    1 12 0 29 32 2 19 82 82 0 1 1 19 80 0 1 1
+                                    22 7 0 1 2 50 0 0 7 1 2 48 14 22 0 23 3 20
+                                    0 0 7 7 1 3 20 0 0 12 12 1 2 20 0 0 60 1 2
+                                    20 0 0 61 1 2 0 14 0 0 1 0 12 77 1 2 49 14
+                                    7 0 1 1 0 12 0 1 1 0 14 0 1 0 0 0 1 2 0 7 0
+                                    18 20 3 0 7 0 18 7 1 2 28 7 0 0 1 1 0 0 5
+                                    17 0 1 75 1 2 24 0 0 15 1 1 24 0 0 1 3 25 0
+                                    0 66 15 1 3 25 0 0 67 68 1 2 25 0 0 66 1 2
+                                    25 0 0 67 1 3 6 0 0 73 15 1 2 6 0 0 73 1 2
+                                    49 15 7 0 1 2 48 15 22 0 1 1 0 0 0 1 1 12
+                                    76 0 1 2 6 0 0 0 1 1 45 0 70 1 1 44 0 18 1
+                                    1 41 74 0 1 1 19 0 7 11 1 0 5 0 10 0 6 15 1
+                                    3 6 0 0 0 0 1 2 48 14 22 0 1 2 2 0 0 0 1 2
+                                    6 14 0 0 1 1 4 0 0 1 2 7 0 0 15 1 2 35 0 0
+                                    29 1 0 51 0 38 0 7 0 48 2 24 0 0 15 1 1 24
+                                    0 0 1 3 25 0 0 66 15 1 3 25 0 0 67 68 1 2
+                                    25 0 0 66 1 2 25 0 0 67 1 3 6 0 0 73 15 1 2
+                                    6 0 0 73 1 2 5 14 0 0 1 2 5 14 0 0 1 2 54
+                                    14 0 0 24 2 5 14 0 0 1 2 5 14 0 0 55 2 1 0
+                                    0 7 1 1 53 0 0 1 2 53 0 0 0 1 2 40 0 0 0 1
+                                    2 53 0 18 0 1 2 51 0 15 0 1 2 40 0 29 0 1 2
+                                    35 0 0 0 42 2 35 0 7 0 1 2 35 0 0 7 1 1 48
+                                    15 0 1)))))
            '|lookupComplete|)) 
