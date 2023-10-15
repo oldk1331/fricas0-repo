@@ -7,9 +7,8 @@
 
 (SDEFUN |ANY;dom;$Se;2| ((|x| $) ($ |SExpression|)) (QCAR |x|)) 
 
-(PUT '|ANY;domainOf;$Of;3| '|SPADreplace| 'QCAR) 
-
-(SDEFUN |ANY;domainOf;$Of;3| ((|x| $) ($ |OutputForm|)) (QCAR |x|)) 
+(SDEFUN |ANY;domainOf;$Of;3| ((|x| $) ($ |OutputForm|))
+        (|typeToOutputForm| (QCAR |x|))) 
 
 (SDEFUN |ANY;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG ((|Dx| (|Type|)) (|dy| #1=(|SExpression|)) (|dx| #1#))
