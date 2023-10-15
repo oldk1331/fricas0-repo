@@ -4624,7 +4624,7 @@
 506183`\spad{length(x)} returns the number of entries in \spad{x}.
 506289`\spad{length(p)} returns the sum of the absolute values of the coefficients of the polynomial \spad{p}.
 506360`\spad{length(a)} length of \spad{a} in digits.
-506410`\spad{length(v)} computes the sqrt(dot(\spad{v},{} \spad{v})),{} \spadignore{i.e.} the eucliedean length
+506410`\spad{length(v)} computes the sqrt(dot(\spad{v},{} \spad{v})),{} \spadignore{i.e.} the euclidean length
 506496`\spad{lepol }\undocumented
 506579`\spad{lerchPhi(z,{} s,{} a)} is the Lerch Phi function
 506644`\spad{lerchPhi(z,{} s,{} a)} is the Lerch Phi function.
