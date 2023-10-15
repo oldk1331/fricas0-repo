@@ -527,7 +527,7 @@
 38830`\indented{2}{This type is the basic representation of sparse recursive multivariate} polynomials whose variables are from a user specified list of symbols. The ordering is specified by the position of the variable in the list. The coefficient ring may be non commutative,{} but the variables are assumed to commute.
 38989`A post-facto extension for \spadtype{SMP} in order to speed up operations related to pseudo-division and \spad{gcd}. This domain is based on the \spadtype{NSUP} constructor which is itself a post-facto extension of the \spadtype{SUP} constructor.
 39148`A post-facto extension for \spadtype{SUP} in order to speed up operations related to pseudo-division and \spad{gcd} for both \spadtype{SUP} and,{} consequently,{} \spadtype{NSMP}.
-39249`\spadtype{None} implements a type with no objects. It is mainly used in technical situations where such a thing is needed (\spadignore{e.g.} the interpreter and some of the internal \spadtype{Expression} code).
+39249`\spadtype{None} implements an universal type,{} that is type which can represent values of any normal type. It is mainly used in technical situations where such a thing is needed (\spadignore{e.g.} the interpreter and some of the internal \spadtype{Expression} code).
 39288`\spadtype{NonNegativeInteger} provides functions for non \indented{2}{negative integers.}
 39362`Octonion implements octonions (Cayley-Dixon algebra) over a commutative ring,{} an eight-dimensional non-associative algebra,{} doubling the quaternions in the same way as doubling the complex numbers to get the quaternions the main constructor function is {\em octon} which takes 8 arguments: the real part,{} the \spad{i} imaginary part,{} the \spad{j} imaginary part,{} the \spad{k} imaginary part,{} (as with quaternions) and
 39362`-- in addition the imaginary parts \spad{E},{} \spad{I},{} \spad{J},{} \spad{K}.
@@ -4163,7 +4163,7 @@
 453757`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
 453878`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
 453999`\spad{integrate(f(x),{} x)} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
-454230`\spad{integrate(r,{} a)} returns the integral of the power series \spad{a} with respect to the power series variableintegration where \spad{r} denotes the constant of integration. Thus \spad{integrate(a,{} [a0,{} a1,{} a2,{} ...]) = [a,{} a0,{} a1/2,{} a2/3,{} ...]}.
+454230`\spad{integrate(r,{} a)} returns the integral of the power series \spad{a} with respect to the power series variable where \spad{r} denotes the constant of integration. Thus \spad{integrate(a,{} [a0,{} a1,{} a2,{} ...]) = [a,{} a0,{} a1/2,{} a2/3,{} ...]}.
 454344`\spad{integrate(c,{} f)} integrates with constant term \spad{c},{} this is simply the right shift
 454506`\spad{integrate(f(x),{} y)} returns an anti-derivative of the power series \spad{f(x)} with respect to the variable \spad{y}.
 454754`\spad{integrate(f(x),{} y)} returns an anti-derivative of the power series \spad{f(x)} with respect to the variable \spad{y}.
@@ -4499,7 +4499,7 @@
 489764`\spad{lazy?(s)} returns \spad{true} if the first node of the stream \spad{s} is a lazy evaluation mechanism which could produce an additional entry to \spad{s}.
 489821`\spad{lazyEvaluate(s)} causes one lazy evaluation of stream \spad{s}. Caution: the first node must be a lazy evaluation mechanism (satisfies \spad{lazy?(s) = true}) as there is no error check. Note: a call to this function may or may not produce an explicit first entry
 489880`\spad{lazyGintegrate(f,{} r,{} g)} is used for fixed point computations.
-489995`\spad{lazyIntegrate(r,{} f)} is a local function used for fixed point computations.
+489995`\spad{lazyIntegrate(r,{} f)} is a version of integrate used for fixed point computations.
 490117`\spad{lazyIntegrate(c,{} f)} integrates with constant term \spad{c},{} this is simply the right shift
 490223`\spad{lazyIrreducibleFactors(lp)} returns \spad{lf} such that if \spad{lp = [p1,{} ...,{} pn]} and \spad{lf = [f1,{} ...,{} fm]} then \spad{p1*p2*...*pn=0} means \spad{f1*f2*...*fm=0},{} and the \spad{\spad{fi}} are irreducible over \spad{R} and are pairwise distinct. The algorithm tries to avoid factorization into irreducible factors as far as possible and
 490223`-- makes previously use of \spad{gcd} techniques over \spad{R}.
