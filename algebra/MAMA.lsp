@@ -17,8 +17,11 @@
                   ('T
                    (SEQ
                     (LETT |ls|
-                          (SPADCALL (SPADCALL 1 |nc| (QREFELT $ 20))
-                                    (QREFELT $ 22))
+                          (SPADCALL
+                           (SPADCALL (SPADCALL A (QREFELT $ 13))
+                                     (SPADCALL A (QREFELT $ 14))
+                                     (QREFELT $ 20))
+                           (QREFELT $ 22))
                           . #1#)
                     (EXIT (SPADCALL A |lst| |ls| (QREFELT $ 23)))))))))) 
 
@@ -40,8 +43,11 @@
                   ('T
                    (SEQ
                     (LETT |ls|
-                          (SPADCALL (SPADCALL 1 |nr| (QREFELT $ 20))
-                                    (QREFELT $ 22))
+                          (SPADCALL
+                           (SPADCALL (SPADCALL A (QREFELT $ 26))
+                                     (SPADCALL A (QREFELT $ 27))
+                                     (QREFELT $ 20))
+                           (QREFELT $ 22))
                           . #1#)
                     (EXIT (SPADCALL A |ls| |lst| (QREFELT $ 23)))))))))) 
 
@@ -125,10 +131,12 @@
         ((A M) (|lr| |List| (|Integer|)) (|lc| |List| (|Integer|)) ($ M))
         (SPROG
          ((#1=#:G139 NIL) (|j| NIL) (#2=#:G140 NIL) (|jj| NIL) (#3=#:G137 NIL)
-          (|i| NIL) (#4=#:G138 NIL) (|ii| NIL) (|res| (M))
-          (|m| #5=(|NonNegativeInteger|)) (|n| #5#))
+          (|i| NIL) (#4=#:G138 NIL) (|ii| NIL) (|res| (M)) (|minC| (|Integer|))
+          (|minR| (|Integer|)) (|m| #5=(|NonNegativeInteger|)) (|n| #5#))
          (SEQ (LETT |n| (LENGTH |lr|) . #6=(|MAMA;subMatrix;M2LM;13|))
               (LETT |m| (LENGTH |lc|) . #6#)
+              (LETT |minR| (SPADCALL A (QREFELT $ 26)) . #6#)
+              (LETT |minC| (SPADCALL A (QREFELT $ 13)) . #6#)
               (LETT |res| (SPADCALL |n| |m| (QREFELT $ 18)) . #6#)
               (SEQ (LETT |ii| NIL . #6#) (LETT #4# |lr| . #6#)
                    (LETT |i| 1 . #6#) (LETT #3# |n| . #6#) G190
@@ -146,7 +154,8 @@
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (SPADCALL |res| |i| |j|
+                            (SPADCALL |res| (+ (- |minR| 1) |i|)
+                                      (+ (- |minC| 1) |j|)
                                       (SPADCALL A |ii| |jj| (QREFELT $ 42))
                                       (QREFELT $ 35))))
                           (LETT |j|
