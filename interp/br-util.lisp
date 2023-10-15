@@ -259,13 +259,8 @@
 ;         bcConform(first l,$emList)
 ;         htSay('" has ")
 ;         [a,b] := l
-;         b is ['ATTRIBUTE,c] and not constructor? c => fnAttr c
 ;         bcConform(b, $emList)
 ;       bcConform(x,$emList)
-;     fnAttr c ==
-;       s := form2HtString c
-;       member(s,$emList) => htSay('"{\em ",s,'"}")
-;       satDownLink(s, ['"(|aPage| '|",s,'"|)"])
  
 (DEFUN |htPred2English| (|x| &REST |options|)
   (PROG (|$precList| |$emList|)
@@ -316,7 +311,7 @@
        (|htSay| (|escapeSpecialIds| (PNAME |x|))))
       (#1# (|htSay| (|form2HtString| |x| |$emList|)))))))
 (DEFUN |htPred2English,gn| (|x| |op| |l| |prec|)
-  (PROG (|a| |b| |ISTMP#1| |c|)
+  (PROG (|a| |b|)
     (RETURN
      (COND
       ((MEMQ |op| '(NOT |not|))
@@ -333,23 +328,8 @@
         (|htSay| " has ")
         (SETQ |a| (CAR |l|))
         (SETQ |b| (CADR |l|))
-        (COND
-         ((AND (CONSP |b|) (EQ (CAR |b|) 'ATTRIBUTE)
-               (PROGN
-                (SETQ |ISTMP#1| (CDR |b|))
-                (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                     (PROGN (SETQ |c| (CAR |ISTMP#1|)) #1='T)))
-               (NULL (|constructor?| |c|)))
-          (|htPred2English,fnAttr| |c|))
-         (#1# (|bcConform| |b| |$emList|)))))
-      (#1# (|bcConform| |x| |$emList|))))))
-(DEFUN |htPred2English,fnAttr| (|c|)
-  (PROG (|s|)
-    (RETURN
-     (PROGN
-      (SETQ |s| (|form2HtString| |c|))
-      (COND ((|member| |s| |$emList|) (|htSay| "{\\em " |s| "}"))
-            ('T (|satDownLink| |s| (LIST "(|aPage| '|" |s| "|)"))))))))
+        (|bcConform| |b| |$emList|)))
+      ('T (|bcConform| |x| |$emList|))))))
  
 ; unMkEvalable u ==
 ;  u is ['QUOTE,a] => a

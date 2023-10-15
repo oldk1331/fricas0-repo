@@ -8704,7 +8704,7 @@
 943663`This package exports tools for merging lists
 943716`\indented{1}{<description of package>} Author: Jim Wen Date Created: \spad{??} Date Last Updated: October 1991 by Jon Steinbach Keywords: Examples: References:
 943782`This package computes \spad{gcd} over field of algebraic \indented{1}{functions over \spad{Q} using modular method based on \spad{M}. Monagan and} \indented{1}{van Hoej paper.} \indented{1}{Core modular operations are passed as parameter (MO) to this} \indented{1}{package.\space{2}Similarly,{} evaluation functions are passed as} \
-943782`--indented{1}{paramteter ME.}
+943782`--indented{1}{parameter ME.}
 943958`ModularAlgebraicGcd(\spad{MPT},{} \spad{MD},{} MO) is a compatibility \indented{1}{wrapper around \spad{ModularAlgebraicGcd2}.}
 944091`This package supports factorization and gcds of univariate polynomials over the integers modulo different primes. The inputs are given as polynomials over the integers with the prime passed explicitly as an extra argument.
 944193`This package provides modular Hermite-Pade solvers \indented{1}{for a few rings.\space{2}Solver over integers is implemented in this} \indented{1}{package.\space{2}Also it contains interfaces to solver over \$\spad{Z_p}\$ and} \indented{1}{solver over ring of integer polynomials.}

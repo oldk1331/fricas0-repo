@@ -541,17 +541,15 @@
 ;   sayMSG ['"   initializing ",$spadLibFT,:bright libName,
 ;     '"for",:bright op]
 ;   -- following guarantee's compiler output files get closed.
-;   ok := false;
 ;   UNWIND_-PROTECT(
 ;       PROGN(initializeLisplib libName,
 ;             sayMSG ['"   compiling into ", $spadLibFT, :bright libName],
 ;             res := FUNCALL(fn, df, m, e, prefix, fal),
 ;             sayMSG ['"   finalizing ",$spadLibFT,:bright libName],
-;             finalizeLisplib libName,
-;             ok := true),
+;             finalizeLisplib libName),
 ;       PROGN(if $compiler_output_stream then CLOSE($compiler_output_stream),
 ;             RSHUT $libFile))
-;   if ok then lisplibDoRename(libName)
+;   lisplibDoRename(libName)
 ;   filearg := make_full_namestring([libName, $spadLibFT])
 ;   RPACKFILE filearg
 ;   FRESH_-LINE $algebraOutputStream
@@ -569,8 +567,7 @@
          |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
          |$lisplibModemap| |$lisplibAncestors| |$lisplibParents|
          |$lisplibAbbreviation| |$lisplibKind| |$lisplibForm|
-         |$lisplibPredicates| |$op| $LISPLIB |filearg| |res| |ok| |libName|
-         |op|)
+         |$lisplibPredicates| |$op| $LISPLIB |filearg| |res| |libName| |op|)
     (DECLARE
      (SPECIAL |$compiler_output_stream| |$lisplibCategory| |$libFile|
       |$lisplibSuperDomain| |$lisplibOperationAlist| |$lisplibModemapAlist|
@@ -602,7 +599,6 @@
              (CONS |$spadLibFT|
                    (APPEND (|bright| |libName|)
                            (CONS "for" (|bright| |op|))))))
-      (SETQ |ok| NIL)
       (UNWIND-PROTECT
           (PROGN
            (|initializeLisplib| |libName|)
@@ -612,12 +608,11 @@
            (SETQ |res| (FUNCALL |fn| |df| |m| |e| |prefix| |fal|))
            (|sayMSG|
             (CONS "   finalizing " (CONS |$spadLibFT| (|bright| |libName|))))
-           (|finalizeLisplib| |libName|)
-           (SETQ |ok| T))
+           (|finalizeLisplib| |libName|))
         (PROGN
          (COND (|$compiler_output_stream| (CLOSE |$compiler_output_stream|)))
          (RSHUT |$libFile|)))
-      (COND (|ok| (|lisplibDoRename| |libName|)))
+      (|lisplibDoRename| |libName|)
       (SETQ |filearg| (|make_full_namestring| (LIST |libName| |$spadLibFT|)))
       (RPACKFILE |filearg|)
       (FRESH-LINE |$algebraOutputStream|)
@@ -633,7 +628,6 @@
  
 ; initializeLisplib libName ==
 ;   erase_lib([libName, 'ERRORLIB])
-;   SETQ(ERRORS,0) -- ERRORS is a fluid variable for the compiler
 ;   $libFile:= writeLib(libName,'ERRORLIB)
 ;   $compiler_output_stream := make_compiler_output_stream($libFile, libName)
  
@@ -642,7 +636,6 @@
     (RETURN
      (PROGN
       (|erase_lib| (LIST |libName| 'ERRORLIB))
-      (SETQ ERRORS 0)
       (SETQ |$libFile| (|writeLib| |libName| 'ERRORLIB))
       (SETQ |$compiler_output_stream|
               (|make_compiler_output_stream| |$libFile| |libName|))))))
@@ -668,9 +661,6 @@
 ;   if $profileCompiler then profileWrite()
 ;   if $lisplibForm and null rest $lisplibForm then
 ;     MAKEPROP(first $lisplibForm, 'NILADIC, 'T)
-;   ERRORS ~=0 =>    -- ERRORS is a fluid variable for the compiler
-;     sayMSG ['"   Errors in processing ",kind,'" ",:bright libName,'":"]
-;     sayMSG ['"     not replacing ",$spadLibFT,'" for",:bright libName]
  
 (DEFUN |finalizeLisplib| (|libName|)
   (PROG (|kind| |opsAndAtts|)
@@ -703,18 +693,7 @@
       (COND (|$profileCompiler| (|profileWrite|)))
       (COND
        ((AND |$lisplibForm| (NULL (CDR |$lisplibForm|)))
-        (MAKEPROP (CAR |$lisplibForm|) 'NILADIC 'T)))
-      (COND
-       ((NOT (EQL ERRORS 0))
-        (PROGN
-         (|sayMSG|
-          (CONS "   Errors in processing "
-                (CONS |kind|
-                      (CONS " "
-                            (APPEND (|bright| |libName|) (CONS ":" NIL))))))
-         (|sayMSG|
-          (CONS "     not replacing "
-                (CONS |$spadLibFT| (CONS " for" (|bright| |libName|))))))))))))
+        (MAKEPROP (CAR |$lisplibForm|) 'NILADIC 'T)))))))
  
 ; lisplibDoRename(libName) ==
 ;     replace_lib([libName, 'ERRORLIB], [libName, $spadLibFT])

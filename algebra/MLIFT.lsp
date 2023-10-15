@@ -785,7 +785,6 @@
         (SPROG
          ((#1=#:G263 NIL)
           (|ffl| (|Union| (|List| (|SparseUnivariatePolynomial| P)) "failed"))
-          (|table| (|Vector| (|List| (|SparseUnivariatePolynomial| R))))
           (|tab|
            (|Union| (|Vector| (|List| (|SparseUnivariatePolynomial| R)))
                     "failed"))
@@ -924,16 +923,15 @@
              (COND
               ((QEQCAR |tab| 1) (|error| "Table construction failed in MLIFT"))
               (#14#
-               (SEQ (LETT |table| (QCDR |tab|) . #12#)
-                    (LETT |ffl|
-                          (SPADCALL |um| |lvar| |nplist| |vlist| |tlist|
-                                    |coeflist| |listdeg| (QCDR |tab|) |pmod|
-                                    (QREFELT $ 59))
-                          . #12#)
-                    (COND
-                     ((QEQCAR |ffl| 1)
-                      (PROGN (LETT #1# (CONS 1 "failed") . #12#) (GO #13#))))
-                    (EXIT (CONS 0 (APPEND |listdet| (QCDR |ffl|))))))))))
+               (SEQ
+                (LETT |ffl|
+                      (SPADCALL |um| |lvar| |nplist| |vlist| |tlist| |coeflist|
+                                |listdeg| (QCDR |tab|) |pmod| (QREFELT $ 59))
+                      . #12#)
+                (COND
+                 ((QEQCAR |ffl| 1)
+                  (PROGN (LETT #1# (CONS 1 "failed") . #12#) (GO #13#))))
+                (EXIT (CONS 0 (APPEND |listdet| (QCDR |ffl|))))))))))
           #13# (EXIT #1#)))) 
 
 (SDEFUN |MLIFT;normalDerivM| ((|g| P) (|m| |Integer|) (|x| OV) ($ P))
