@@ -5173,11 +5173,9 @@
 ;    subl := rest CADR w
 ;    superl := rest CADR rest w
 ;    repeat
-;       null rows => return(matrixBorder(x + WIDTH u - 2,
-;                                        y - q,
-;                                        y + p,
-;                                        d,
-;                                        'right))
+;       null rows =>
+;           wu := MAX(0, WIDTH u - 2)
+;           return(matrixBorder(x + wu, y - q, y + p, d, 'right))
 ;       xc := x
 ;       yc := yc - 1 - first superl
 ;       w := wl
@@ -5202,7 +5200,7 @@
 ;             w := rest w
  
 (DEFUN |appmat| (|u| |x| |y| |d|)
-  (PROG (|rows| |p| |q| |yc| |w| |wl| |subl| |superl| |xc| |row| |flag|)
+  (PROG (|rows| |p| |q| |yc| |w| |wl| |subl| |superl| |wu| |xc| |row| |flag|)
     (RETURN
      (PROGN
       (SETQ |rows| (CDDR |u|))
@@ -5221,9 +5219,11 @@
                 (#1='T
                  (COND
                   ((NULL |rows|)
-                   (RETURN
-                    (|matrixBorder| (- (+ |x| (WIDTH |u|)) 2) (- |y| |q|)
-                     (+ |y| |p|) |d| '|right|)))
+                   (PROGN
+                    (SETQ |wu| (MAX 0 (- (WIDTH |u|) 2)))
+                    (RETURN
+                     (|matrixBorder| (+ |x| |wu|) (- |y| |q|) (+ |y| |p|) |d|
+                      '|right|))))
                   (#1#
                    (PROGN
                     (SETQ |xc| |x|)
@@ -5331,10 +5331,14 @@
   (PROG () (RETURN (CONS (+ (|sumoverlist| |x|) (LENGTH |x|)) |x|))))
  
 ; matLSum2(x) ==
+;   null x => [2]
 ;   CONS(sumoverlist x + 2*(LENGTH x), x)
  
 (DEFUN |matLSum2| (|x|)
-  (PROG () (RETURN (CONS (+ (|sumoverlist| |x|) (* 2 (LENGTH |x|))) |x|))))
+  (PROG ()
+    (RETURN
+     (COND ((NULL |x|) (LIST 2))
+           ('T (CONS (+ (|sumoverlist| |x|) (* 2 (LENGTH |x|))) |x|))))))
  
 ; matWList(x, y) ==
 ;   null x => y
