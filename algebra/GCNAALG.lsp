@@ -480,7 +480,7 @@
      (LETT DV$4 (|devaluate| |#4|) . #9#)
      (LETT |dv$| (LIST '|GenericNonAssociativeAlgebra| DV$1 DV$2 DV$3 DV$4)
            . #9#)
-     (LETT $ (GETREFV 116) . #9#)
+     (LETT $ (GETREFV 118) . #9#)
      (QSETREFV $ 0 |dv$|)
      (QSETREFV $ 3
                (LETT |pv$|
@@ -489,6 +489,9 @@
                                          (|HasCategory|
                                           (|Fraction| (|Polynomial| |#1|))
                                           '(|IntegralDomain|))
+                                         (|HasCategory|
+                                          (|Fraction| (|Polynomial| |#1|))
+                                          '(|Finite|))
                                          (|HasCategory|
                                           (|Fraction| (|Polynomial| |#1|))
                                           '(|Field|))
@@ -556,7 +559,7 @@
                  (SPADCALL (SPADCALL (ELT $ 28) |v| (QREFELT $ 33))
                            (QREFELT $ 34)))))
      (COND
-      ((|testBitVector| |pv$| 3)
+      ((|testBitVector| |pv$| 4)
        (PROGN
         (QSETREFV $ 54
                   (CONS
@@ -652,12 +655,12 @@
               (239 . |maxIndex|) (|Boolean|) (244 . >) (250 . |represents|)
               |GCNAALG;generic;VV$;19| |GCNAALG;generic;SV$;20|
               |GCNAALG;generic;V$;22| |GCNAALG;generic;S$;23|
-              (|SparseUnivariatePolynomial| (|Polynomial| 27))
-              (|Union| $ '"failed") (|List| 29)
-              (|Record| (|:| |particular| $) (|:| |basis| (|List| $)))
-              (|Union| 108 '"failed") (|SquareMatrix| 7 27)
-              (|List| (|Polynomial| 27)) (|PositiveInteger|) (|HashState|)
-              (|OutputForm|) (|SingleInteger|))
+              (|SparseUnivariatePolynomial| (|Polynomial| 27)) (|List| $)
+              (|PositiveInteger|) (|InputForm|) (|Union| $ '"failed")
+              (|List| 29) (|Record| (|:| |particular| $) (|:| |basis| 106))
+              (|Union| 111 '"failed") (|SquareMatrix| 7 27)
+              (|List| (|Polynomial| 27)) (|HashState|) (|OutputForm|)
+              (|SingleInteger|))
            '#(|rightRankPolynomial| 256 |rightMinimalPolynomial| 260
               |represents| 265 |leftRankPolynomial| 271 |leftMinimalPolynomial|
               275 |genericRightTraceForm| 280 |genericRightTrace| 286
@@ -669,20 +672,23 @@
               |conditionsForIdempotents| 377 |basis| 386 - 390 * 396)
            'NIL
            (CONS
-            (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1))
+            (|makeByteWordVec2| 2
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 0 0 0 1
+                                  2))
             (CONS
              '#(|FramedNonAssociativeAlgebra&|
                 |FiniteRankNonAssociativeAlgebra&| |NonAssociativeAlgebra&|
-                |Module&| NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&|
-                NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |AbelianSemiGroup&| |Magma&| |SetCategory&| |BasicType&| NIL
-                NIL)
+                |Module&| |FramedModule&| NIL |NonAssociativeRng&| NIL NIL NIL
+                |AbelianGroup&| NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Finite&| |AbelianSemiGroup&| |Magma&| NIL |SetCategory&|
+                |BasicType&| NIL NIL NIL)
              (CONS
               '#((|FramedNonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
                  (|FiniteRankNonAssociativeAlgebra|
                   (|Fraction| (|Polynomial| 6)))
                  (|NonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
                  (|Module| (|Fraction| (|Polynomial| 6)))
+                 (|FramedModule| (|Fraction| (|Polynomial| 6)))
                  (|BiModule| (|Fraction| (|Polynomial| 6))
                              (|Fraction| (|Polynomial| 6)))
                  (|NonAssociativeRng|)
@@ -691,9 +697,9 @@
                  (|RightModule| (|Fraction| (|Polynomial| 6)))
                  (|LeftModule| (|Fraction| (|Polynomial| 6))) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
-                 (|SetCategory|) (|BasicType|) (|CoercibleTo| 114)
-                 (|unitsKnown|))
+                 (|AbelianMonoid|) (|Finite|) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|SetCategory|) (|BasicType|)
+                 (|CoercibleTo| 116) (|unitsKnown|) (|ConvertibleTo| 108))
               (|makeByteWordVec2| 104
                                   '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2 22
                                     16 0 21 23 3 19 0 0 24 25 26 1 27 0 19 28 2
@@ -709,14 +715,14 @@
                                     82 1 0 68 0 83 1 68 84 0 85 2 84 0 0 0 86 2
                                     68 27 0 84 87 1 27 0 0 88 1 0 27 0 89 1 0
                                     27 0 90 2 0 0 0 0 92 2 0 29 0 55 93 1 58 21
-                                    0 97 2 21 98 0 0 99 2 0 0 29 55 100 0 3 68
-                                    79 1 1 68 0 77 2 0 0 29 55 100 0 3 68 78 1
-                                    1 68 0 72 2 3 27 0 0 66 1 3 27 0 65 1 3 27
-                                    0 90 1 3 68 0 83 0 3 27 67 2 3 27 0 0 54 1
-                                    3 27 0 53 1 3 27 0 89 1 3 68 0 82 0 3 27 64
+                                    0 97 2 21 98 0 0 99 2 0 0 29 55 100 0 4 68
+                                    79 1 1 68 0 77 2 0 0 29 55 100 0 4 68 78 1
+                                    1 68 0 72 2 4 27 0 0 66 1 4 27 0 65 1 4 27
+                                    0 90 1 4 68 0 83 0 4 27 67 2 4 27 0 0 54 1
+                                    4 27 0 53 1 4 27 0 89 1 4 68 0 82 0 4 27 64
                                     2 0 0 22 55 101 1 0 0 55 91 2 0 0 16 55 102
                                     1 0 0 16 104 1 0 0 22 103 0 0 0 96 1 0 29 0
-                                    37 2 0 29 0 55 93 1 0 0 29 34 0 3 40 95 1 3
+                                    37 2 0 29 0 55 93 1 0 0 29 34 0 4 40 95 1 4
                                     40 55 94 0 0 55 56 2 0 0 0 0 92 2 0 0 0 0
                                     52)))))
            '|lookupIncomplete|)) 

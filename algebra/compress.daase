@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5039 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -133,13 +133,13 @@
  |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
  |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
  |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
- |FractionalIdealFunctions2| |FractionalIdealAsModule|
- |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
- |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
- |FunctionSpace| |FunctionSpaceFunctions2|
- |FunctionSpaceToExponentialExpansion| |FunctionSpaceToUnivariatePowerSeries|
- |FunctionSpaceToUnivariatePowerSeries2| |FiniteSetAggregate&|
- |FiniteSetAggregate| |FiniteSetAggregateFunctions2|
+ |FractionalIdealFunctions2| |FractionalIdealAsModule| |FramedModule&|
+ |FramedModule| |FramedNonAssociativeAlgebraFunctions2|
+ |FramedNonAssociativeAlgebra&| |FramedNonAssociativeAlgebra|
+ |FactoredFunctionUtilities| |FunctionSpace&| |FunctionSpace|
+ |FunctionSpaceFunctions2| |FunctionSpaceToExponentialExpansion|
+ |FunctionSpaceToUnivariatePowerSeries| |FunctionSpaceToUnivariatePowerSeries2|
+ |FiniteSetAggregate&| |FiniteSetAggregate| |FiniteSetAggregateFunctions2|
  |FunctionSpaceComplexIntegration| |FourierSeries| |FloatSpecialFunctions|
  |FunctionSpaceIntegration| |FunctionalSpecialFunction|
  |FunctionSpacePrimitiveElement| |FunctionSpaceReduce|
@@ -615,12 +615,12 @@
  |decreasePrecision| |increasePrecision| |bits| |unitNormalize| |unit|
  |flagFactor| |sqfrFactor| |primeFactor| |nthFlag| |nthExponent|
  |irreducibleFactor| |factors| |nilFactor| |regularRepresentation|
- |traceMatrix| |randomLC| |minimize| |module| |rightRegularRepresentation|
- |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
- |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |algtower|
- |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |exprToPS|
- |localAbs| |atan1| |integ| |integ_df| |powToUPS| |universe| |cardinality|
- |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
+ |traceMatrix| |randomLC| |minimize| |module| |represents|
+ |rightRegularRepresentation| |leftRegularRepresentation| |rightTraceMatrix|
+ |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant| |mergeFactors|
+ |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
+ |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS| |universe|
+ |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
  |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
  |iiabs| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI|
  |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi|

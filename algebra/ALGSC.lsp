@@ -2870,7 +2870,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|AlgebraGivenByStructuralConstants| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 99) . #1#)
+    (LETT $ (GETREFV 101) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -2878,6 +2878,7 @@
                                        (LIST
                                         (|HasCategory| |#1|
                                                        '(|IntegralDomain|))
+                                        (|HasCategory| |#1| '(|Finite|))
                                         (|HasCategory| |#1| '(|Field|))))
                     . #1#))
     (|haddProp| |$ConstructorCache| '|AlgebraGivenByStructuralConstants|
@@ -2904,7 +2905,7 @@
               |ALGSC;coordinates;$V;5| (|Integer|) (|Vector| $$)
               (31 . |maxIndex|) (36 . |Zero|) (40 . |elt|) (46 . |setColumn!|)
               (|Union| 20 '"failed")
-              (|Record| (|:| |particular| 35) (|:| |basis| 95))
+              (|Record| (|:| |particular| 35) (|:| |basis| 97))
               (|LinearSystemMatrixPackage| 6 20 20 15) (53 . |solve|)
               (|Vector| $) |ALGSC;basis;V;7| |ALGSC;coordinates;$VV;6|
               (|PositiveInteger|) (59 . |unitVector|) |ALGSC;someBasis;V;8|
@@ -2923,55 +2924,60 @@
               |ALGSC;lieAdmissible?;B;21| (173 . *) (179 . |recip|)
               |ALGSC;jordanAdmissible?;B;22| |ALGSC;jordanAlgebra?;B;23|
               |ALGSC;jacobiIdentity?;B;24|
-              (|SparseUnivariatePolynomial| (|Polynomial| 6))
-              (|Record| (|:| |particular| $) (|:| |basis| (|List| $)))
-              (|Union| 92 '"failed") (|SparseUnivariatePolynomial| 6)
-              (|List| 20) (|List| (|Polynomial| 6)) (|SingleInteger|)
-              (|HashState|))
+              (|SparseUnivariatePolynomial| (|Polynomial| 6)) (|List| $)
+              (|InputForm|) (|Record| (|:| |particular| $) (|:| |basis| 92))
+              (|Union| 94 '"failed") (|SparseUnivariatePolynomial| 6)
+              (|List| 20) (|List| (|Polynomial| 6)) (|HashState|)
+              (|SingleInteger|))
            '#(~= 184 |zero?| 190 |unit| 195 |subtractIfCan| 199
-              |structuralConstants| 205 |someBasis| 214 |sample| 218
-              |rightUnits| 222 |rightUnit| 226 |rightTraceMatrix| 230
-              |rightTrace| 239 |rightRegularRepresentation| 244 |rightRecip|
-              255 |rightRankPolynomial| 260 |rightPower| 264 |rightNorm| 270
-              |rightMinimalPolynomial| 275 |rightDiscriminant| 280
-              |rightCharacteristicPolynomial| 289 |rightAlternative?| 294
-              |represents| 298 |recip| 309 |rank| 314 |powerAssociative?| 318
-              |plenaryPower| 322 |opposite?| 328 |noncommutativeJordanAlgebra?|
-              334 |lieAlgebra?| 338 |lieAdmissible?| 342 |leftUnits| 346
-              |leftUnit| 350 |leftTraceMatrix| 354 |leftTrace| 363
-              |leftRegularRepresentation| 368 |leftRecip| 379
-              |leftRankPolynomial| 384 |leftPower| 388 |leftNorm| 394
-              |leftMinimalPolynomial| 399 |leftDiscriminant| 404
-              |leftCharacteristicPolynomial| 413 |leftAlternative?| 418 |latex|
-              422 |jordanAlgebra?| 427 |jordanAdmissible?| 431
-              |jacobiIdentity?| 435 |hashUpdate!| 439 |hash| 445 |flexible?|
-              450 |elt| 454 |coordinates| 460 |convert| 482
-              |conditionsForIdempotents| 492 |commutator| 501 |commutative?|
-              507 |coerce| 511 |basis| 521 |associatorDependence| 525
-              |associator| 529 |associative?| 536 |apply| 540 |antiCommutator|
-              546 |antiCommutative?| 552 |antiAssociative?| 556 |alternative?|
-              560 ^ 564 |Zero| 570 = 574 - 580 + 591 * 597)
+              |structuralConstants| 205 |someBasis| 214 |smaller?| 218 |size|
+              224 |sample| 228 |rightUnits| 232 |rightUnit| 236
+              |rightTraceMatrix| 240 |rightTrace| 249
+              |rightRegularRepresentation| 254 |rightRecip| 265
+              |rightRankPolynomial| 270 |rightPower| 274 |rightNorm| 280
+              |rightMinimalPolynomial| 285 |rightDiscriminant| 290
+              |rightCharacteristicPolynomial| 299 |rightAlternative?| 304
+              |represents| 308 |recip| 319 |rank| 324 |random| 328
+              |powerAssociative?| 332 |plenaryPower| 336 |opposite?| 342
+              |noncommutativeJordanAlgebra?| 348 |lookup| 352 |lieAlgebra?| 357
+              |lieAdmissible?| 361 |leftUnits| 365 |leftUnit| 369
+              |leftTraceMatrix| 373 |leftTrace| 382 |leftRegularRepresentation|
+              387 |leftRecip| 398 |leftRankPolynomial| 403 |leftPower| 407
+              |leftNorm| 413 |leftMinimalPolynomial| 418 |leftDiscriminant| 423
+              |leftCharacteristicPolynomial| 432 |leftAlternative?| 437 |latex|
+              441 |jordanAlgebra?| 446 |jordanAdmissible?| 450
+              |jacobiIdentity?| 454 |index| 458 |hashUpdate!| 463 |hash| 469
+              |flexible?| 474 |enumerate| 478 |elt| 482 |coordinates| 488
+              |convert| 510 |conditionsForIdempotents| 525 |commutator| 534
+              |commutative?| 540 |coerce| 544 |basis| 554
+              |associatorDependence| 558 |associator| 562 |associative?| 569
+              |apply| 573 |antiCommutator| 579 |antiCommutative?| 585
+              |antiAssociative?| 589 |alternative?| 593 ^ 597 |Zero| 603 = 607
+              - 613 + 624 * 630)
            'NIL
            (CONS
-            (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1))
+            (|makeByteWordVec2| 2
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 0 0 0 1
+                                  2))
             (CONS
              '#(|FramedNonAssociativeAlgebra&|
                 |FiniteRankNonAssociativeAlgebra&| |NonAssociativeAlgebra&|
-                |Module&| NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&|
-                NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
-                |AbelianSemiGroup&| |Magma&| |SetCategory&| |BasicType&| NIL
-                NIL)
+                |Module&| |FramedModule&| NIL |NonAssociativeRng&| NIL NIL NIL
+                |AbelianGroup&| NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Finite&| |AbelianSemiGroup&| |Magma&| NIL |SetCategory&|
+                |BasicType&| NIL NIL NIL)
              (CONS
               '#((|FramedNonAssociativeAlgebra| 6)
                  (|FiniteRankNonAssociativeAlgebra| 6)
-                 (|NonAssociativeAlgebra| 6) (|Module| 6) (|BiModule| 6 6)
-                 (|NonAssociativeRng|) (|LeftModule| (|SquareMatrix| 7 6))
-                 (|RightModule| 6) (|LeftModule| 6) (|AbelianGroup|)
+                 (|NonAssociativeAlgebra| 6) (|Module| 6) (|FramedModule| 6)
+                 (|BiModule| 6 6) (|NonAssociativeRng|)
+                 (|LeftModule| (|SquareMatrix| 7 6)) (|RightModule| 6)
+                 (|LeftModule| 6) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
-                 (|SetCategory|) (|BasicType|) (|CoercibleTo| 50)
-                 (|unitsKnown|))
-              (|makeByteWordVec2| 98
+                 (|AbelianMonoid|) (|Finite|) (|AbelianSemiGroup|) (|Magma|)
+                 (|Comparable|) (|SetCategory|) (|BasicType|)
+                 (|CoercibleTo| 50) (|unitsKnown|) (|ConvertibleTo| 93))
+              (|makeByteWordVec2| 100
                                   '(1 12 11 0 13 1 16 15 0 17 2 0 0 15 0 18 1
                                     10 0 20 21 1 10 25 0 26 1 20 0 25 27 1 30
                                     29 0 31 0 6 0 32 2 30 2 0 29 33 3 15 0 0 29
@@ -2984,27 +2990,29 @@
                                     69 2 71 0 0 0 72 2 6 0 0 0 73 1 50 74 75 76
                                     2 6 0 42 0 86 1 6 11 0 87 2 0 48 0 0 1 1 0
                                     48 0 1 0 1 11 1 2 0 11 0 0 1 0 0 23 24 1 0
-                                    23 39 1 0 0 39 44 0 0 0 1 0 1 93 1 0 1 11 1
-                                    0 0 15 1 1 0 15 39 1 1 0 6 0 1 1 0 15 0 1 2
-                                    0 15 0 39 1 1 1 11 0 1 0 2 91 1 2 0 0 0 42
-                                    1 1 0 6 0 1 1 1 94 0 1 0 0 6 1 1 0 6 39 1 1
-                                    0 94 0 1 0 0 48 83 1 0 0 20 1 2 0 0 20 39 1
-                                    1 1 11 0 14 0 0 42 45 0 0 48 1 2 0 0 0 42 1
-                                    2 0 48 0 0 1 0 0 48 1 0 0 48 1 0 0 48 85 0
-                                    1 93 1 0 1 11 1 0 0 15 1 1 0 15 39 1 1 0 6
-                                    0 1 1 0 15 0 1 2 0 15 0 39 1 1 1 11 0 1 0 2
-                                    91 1 2 0 0 0 42 1 1 0 6 0 1 1 1 94 0 1 0 0
-                                    6 1 1 0 6 39 1 1 0 94 0 1 0 0 48 82 1 0 75
-                                    0 1 0 0 48 89 0 0 48 88 0 0 48 90 2 0 98 98
-                                    0 1 1 0 97 0 1 0 0 48 84 2 0 6 0 29 47 1 0
-                                    15 39 1 1 0 20 0 28 2 0 15 39 39 1 2 0 20 0
-                                    39 41 1 0 0 20 1 1 0 20 0 1 0 0 96 1 1 0 96
-                                    39 1 2 0 0 0 0 1 0 0 48 80 1 0 0 20 22 1 0
-                                    50 0 64 0 0 39 40 0 1 95 1 3 0 0 0 0 0 1 0
-                                    0 48 78 2 0 0 15 0 18 2 0 0 0 0 1 0 0 48 81
-                                    0 0 48 79 0 0 48 77 2 0 0 0 42 1 0 0 0 1 2
-                                    0 48 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0
-                                    1 2 0 0 16 0 19 2 0 0 6 0 1 2 0 0 0 6 1 2 0
-                                    0 71 0 1 2 0 0 29 0 1 2 0 0 0 0 70 2 0 0 42
-                                    0 1)))))
+                                    23 39 1 0 0 39 44 2 2 48 0 0 1 0 2 71 1 0 0
+                                    0 1 0 1 95 1 0 1 11 1 0 0 15 1 1 0 15 39 1
+                                    1 0 6 0 1 1 0 15 0 1 2 0 15 0 39 1 1 1 11 0
+                                    1 0 3 91 1 2 0 0 0 42 1 1 0 6 0 1 1 1 96 0
+                                    1 0 0 6 1 1 0 6 39 1 1 0 96 0 1 0 0 48 83 1
+                                    0 0 20 1 2 0 0 20 39 1 1 1 11 0 14 0 0 42
+                                    45 0 2 0 1 0 0 48 1 2 0 0 0 42 1 2 0 48 0 0
+                                    1 0 0 48 1 1 2 42 0 1 0 0 48 1 0 0 48 85 0
+                                    1 95 1 0 1 11 1 0 0 15 1 1 0 15 39 1 1 0 6
+                                    0 1 1 0 15 0 1 2 0 15 0 39 1 1 1 11 0 1 0 3
+                                    91 1 2 0 0 0 42 1 1 0 6 0 1 1 1 96 0 1 0 0
+                                    6 1 1 0 6 39 1 1 0 96 0 1 0 0 48 82 1 0 75
+                                    0 1 0 0 48 89 0 0 48 88 0 0 48 90 1 2 0 42
+                                    1 2 0 99 99 0 1 1 0 100 0 1 0 0 48 84 0 2
+                                    92 1 2 0 6 0 29 47 1 0 20 0 28 1 0 15 39 1
+                                    2 0 15 39 39 1 2 0 20 0 39 41 1 2 93 0 1 1
+                                    0 20 0 1 1 0 0 20 1 0 0 98 1 1 0 98 39 1 2
+                                    0 0 0 0 1 0 0 48 80 1 0 0 20 22 1 0 50 0 64
+                                    0 0 39 40 0 1 97 1 3 0 0 0 0 0 1 0 0 48 78
+                                    2 0 0 15 0 18 2 0 0 0 0 1 0 0 48 81 0 0 48
+                                    79 0 0 48 77 2 0 0 0 42 1 0 0 0 1 2 0 48 0
+                                    0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0
+                                    16 0 19 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0 71 0
+                                    1 2 0 0 29 0 1 2 0 0 0 0 70 2 0 0 42 0
+                                    1)))))
            '|lookupComplete|)) 

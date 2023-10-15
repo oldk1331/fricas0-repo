@@ -233,7 +233,7 @@
               (|Mapping| 9 9) (|Fraction| 60) (|PositiveInteger|)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Table| 65 48) (|Record| (|:| |factor| 14) (|:| |exponent| 14))
-              (|List| 68) (|Union| 48 '"failed") (|OnePointCompletion| 65)
+              (|List| 68) (|OnePointCompletion| 65) (|Union| 48 '"failed")
               (|Symbol|) (|List| 72) (|Union| 38 '"failed") (|Matrix| 14)
               (|Record| (|:| |mat| 75) (|:| |vec| (|Vector| 14))) (|List| 48)
               (|PatternMatchResult| 6 $) (|PatternMatchResult| 14 $)
@@ -281,11 +281,11 @@
            (CONS
             (|makeByteWordVec2| 33
                                 '(0 0 2 2 4 30 15 32 15 0 0 33 0 0 0 0 3 9 0 0
-                                  0 0 0 1 3 5 8 18 19 0 0 0 0 0 0 3 0 0 0 3 0 0
-                                  0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 2 23
-                                  24 0 0 0 10 21 0 0 0 0 0 0 0 0 0 0 3 3 7 11
-                                  10 10 10 10 10 12 13 13 14 16 17 20 21 22 25
-                                  26))
+                                  0 0 0 1 3 5 8 18 19 0 0 0 0 0 0 3 0 0 0 0 3 0
+                                  0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 2
+                                  23 24 0 0 0 10 21 0 0 0 0 0 0 0 0 0 0 3 3 7
+                                  11 10 10 10 10 10 12 13 13 14 16 17 20 21 22
+                                  25 26))
             (CONS
              '#(|ComplexCategory&| |MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&|
@@ -296,14 +296,15 @@
                 |DivisionRing&| NIL NIL NIL |Algebra&| |EntireRing&| |Algebra&|
                 NIL |Algebra&| NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL |Rng&| NIL |Module&| |Module&| NIL
-                |Module&| NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
-                |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                NIL |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| |Finite&| |FullyEvalableOver&| NIL |Magma&|
-                |AbelianSemiGroup&| NIL NIL NIL NIL |FullyRetractableTo&|
-                |SetCategory&| |TranscendentalFunctionCategory&| |Evalable&|
-                NIL |RetractableTo&| NIL |RetractableTo&| |PartialOrder&| NIL
-                NIL NIL |BasicType&| NIL NIL NIL |RetractableTo&|
+                |Module&| |FramedModule&| NIL NIL |NonAssociativeRing&| NIL NIL
+                NIL NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL
+                NIL NIL NIL |OrderedSet&| NIL |MagmaWithUnit&|
+                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
+                |FullyEvalableOver&| NIL |Magma&| |AbelianSemiGroup&| NIL NIL
+                NIL NIL |FullyRetractableTo&| |SetCategory&|
+                |TranscendentalFunctionCategory&| |Evalable&| NIL
+                |RetractableTo&| NIL |RetractableTo&| |PartialOrder&| NIL NIL
+                NIL |BasicType&| NIL NIL NIL |RetractableTo&|
                 |RadicalCategory&| |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
@@ -324,11 +325,11 @@
                  (|LinearlyExplicitOver| 14) (|PartialDifferentialRing| 72)
                  (|DifferentialRing|) (|Ring|) (|Rng|) (|SemiRing|)
                  (|Module| 9) (|Module| $$) (|SemiRng|) (|Module| 38)
-                 (|BiModule| 9 9) (|BiModule| $$ $$) (|NonAssociativeRing|)
-                 (|BiModule| 38 38) (|RightModule| 9) (|LeftModule| 9)
-                 (|LeftModule| $$) (|NonAssociativeRng|) (|RightModule| $$)
-                 (|LeftModule| 38) (|RightModule| 38) (|AbelianGroup|)
-                 (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|FramedModule| 9) (|BiModule| 9 9) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|BiModule| 38 38) (|RightModule| 9)
+                 (|LeftModule| 9) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| 38) (|RightModule| 38)
+                 (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|FullyPatternMatchable| 9)
                  (|OrderedSet|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|) (|Finite|)
@@ -373,7 +374,7 @@
                                     0 0 65 1 0 6 0 1 2 9 0 0 0 1 1 9 55 52 1 0
                                     2 0 1 1 2 40 0 1 2 2 0 0 48 1 1 2 0 0 1 1
                                     34 40 0 1 1 36 39 0 1 0 10 0 1 3 23 78 0 46
-                                    78 1 3 24 79 0 47 79 1 1 2 65 0 1 1 2 71 0
+                                    78 1 3 24 79 0 47 79 1 1 2 65 0 1 1 2 70 0
                                     1 2 0 40 0 0 1 1 0 40 0 1 2 11 0 0 14 1 1 0
                                     9 0 1 1 2 42 0 1 2 9 51 52 0 1 1 3 60 0 1 2
                                     0 0 0 0 1 2 0 0 0 0 1 2 0 0 63 0 1 1 6 65 0
@@ -389,13 +390,13 @@
                                     0 9 9 1 2 21 0 0 59 1 3 20 0 0 72 9 1 3 20
                                     0 0 73 57 1 1 9 48 0 1 0 6 52 1 2 22 0 0 9
                                     1 2 9 54 0 0 1 1 0 9 62 1 0 0 9 1 1 2 48 0
-                                    1 2 2 70 0 0 1 1 19 0 0 1 2 19 0 0 48 1 2
+                                    1 2 2 71 0 0 1 1 19 0 0 1 2 19 0 0 48 1 2
                                     18 0 0 73 1 2 18 0 0 72 1 3 18 0 0 72 48 1
                                     3 18 0 0 73 77 1 2 0 0 0 63 1 3 0 0 0 63 48
                                     1 2 3 61 62 63 1 0 0 60 1 1 10 0 0 1 1 10 0
                                     0 1 0 2 0 1 1 10 0 0 1 1 10 0 0 1 1 10 0 0
                                     1 1 10 0 0 1 2 0 81 0 62 1 2 0 61 62 62 1 1
-                                    0 81 0 1 1 0 61 62 1 1 14 45 0 1 1 25 46 0
+                                    0 61 62 1 1 0 81 0 1 1 14 45 0 1 1 25 46 0
                                     1 1 26 47 0 1 1 13 80 0 1 1 13 7 0 1 1 0 0
                                     81 1 1 0 81 0 1 1 0 60 0 1 1 0 0 60 1 1 0 0
                                     0 1 1 39 43 44 1 2 0 0 9 9 12 2 0 0 0 0 1 1

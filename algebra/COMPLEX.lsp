@@ -340,8 +340,8 @@
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|List| 66) (|Equation| 6) (|List| 6) (|Matrix| 6) (|Vector| $)
               (|Mapping| 6 6) (|Fraction| 72) (|SparseUnivariatePolynomial| 6)
-              (|PositiveInteger|) (|OnePointCompletion| 73)
-              (|Union| 56 '"failed")
+              (|PositiveInteger|) (|Union| 56 '"failed")
+              (|OnePointCompletion| 73)
               (|Record| (|:| |factor| 46) (|:| |exponent| 46)) (|List| 76)
               (|Table| 73 56)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic") (|Symbol|)
@@ -391,11 +391,11 @@
            (CONS
             (|makeByteWordVec2| 40
                                 '(0 0 2 2 4 39 17 40 17 0 36 0 0 0 3 11 35 0 0
-                                  0 1 3 5 9 10 20 22 23 0 0 0 0 0 3 10 0 0 0 3
-                                  0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 6 0 0 0 2 21
-                                  27 28 0 0 0 12 25 0 0 0 0 0 0 0 3 3 7 8 10 13
-                                  12 12 12 12 12 14 15 15 16 18 19 24 25 26 29
-                                  30 31))
+                                  0 1 3 5 9 10 20 22 23 0 0 0 0 0 3 10 0 0 0 0
+                                  3 0 0 0 0 0 3 3 0 0 0 0 0 0 0 0 0 6 0 0 0 2
+                                  21 27 28 0 0 0 12 25 0 0 0 0 0 0 0 3 3 7 8 10
+                                  13 12 12 12 12 12 14 15 15 16 18 19 24 25 26
+                                  29 30 31))
             (CONS
              '#(|ComplexCategory&| |MonogenicAlgebra&| |FiniteFieldCategory&|
                 |FieldOfPrimeCharacteristic&| |Field&|
@@ -405,12 +405,12 @@
                 |FullyLinearlyExplicitOver&| |DivisionRing&| NIL NIL |Algebra&|
                 NIL NIL NIL |Algebra&| NIL NIL |Algebra&| |EntireRing&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&| NIL
-                |Module&| NIL |Module&| |Module&| NIL |NonAssociativeRing&| NIL
-                NIL NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL NIL NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| |Finite&|
-                |FullyEvalableOver&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
-                NIL NIL |FullyRetractableTo&| |SetCategory&|
+                |Module&| NIL |Module&| |Module&| |FramedModule&| NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
+                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Finite&| |FullyEvalableOver&| |Magma&| |AbelianSemiGroup&| NIL
+                NIL NIL NIL NIL |FullyRetractableTo&| |SetCategory&|
                 |TranscendentalFunctionCategory&| |Evalable&| NIL
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL
                 |RetractableTo&| |RetractableTo&| NIL |RadicalCategory&|
@@ -437,11 +437,11 @@
                  (|Algebra| $$) (|EntireRing|) (|PartialDifferentialRing| 80)
                  (|DifferentialRing|) (|Ring|) (|Rng|) (|SemiRing|)
                  (|Module| 6) (|SemiRng|) (|Module| 47) (|Module| $$)
-                 (|BiModule| 6 6) (|NonAssociativeRing|) (|BiModule| $$ $$)
-                 (|BiModule| 47 47) (|RightModule| 6) (|LeftModule| 6)
-                 (|NonAssociativeRng|) (|RightModule| $$) (|LeftModule| $$)
-                 (|LeftModule| 47) (|RightModule| 47) (|AbelianGroup|)
-                 (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|FramedModule| 6) (|BiModule| 6 6) (|NonAssociativeRing|)
+                 (|BiModule| $$ $$) (|BiModule| 47 47) (|RightModule| 6)
+                 (|LeftModule| 6) (|NonAssociativeRng|) (|RightModule| $$)
+                 (|LeftModule| $$) (|LeftModule| 47) (|RightModule| 47)
+                 (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|FullyPatternMatchable| 6)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
                  (|AbelianMonoid|) (|Finite|) (|FullyEvalableOver| 6) (|Magma|)
@@ -488,7 +488,7 @@
                                     73 1 0 6 0 1 2 11 0 0 0 1 1 11 60 58 1 0 2
                                     0 1 1 2 19 0 1 1 2 0 0 1 2 2 0 0 56 1 1 42
                                     19 0 1 1 33 48 0 1 0 12 0 1 3 27 86 0 54 86
-                                    1 3 28 87 0 55 87 1 1 2 74 0 1 1 2 73 0 1 2
+                                    1 3 28 87 0 55 87 1 1 2 75 0 1 1 2 73 0 1 2
                                     0 19 0 0 1 1 0 19 0 28 2 13 0 0 46 1 1 0 6
                                     0 40 1 2 37 0 1 2 11 59 58 0 1 1 3 72 0 1 2
                                     0 0 70 0 1 1 6 73 0 1 1 12 0 0 1 1 0 72 0 1
@@ -503,16 +503,16 @@
                                     2 25 0 0 65 1 2 25 0 0 66 1 3 25 0 0 67 67
                                     1 3 25 0 0 6 6 1 3 24 0 0 80 6 1 3 24 0 0
                                     81 67 1 1 11 56 0 1 0 6 58 1 2 26 0 0 6 1 2
-                                    11 61 0 0 1 0 0 6 1 1 0 6 69 1 2 2 75 0 0 1
+                                    11 61 0 0 1 0 0 6 1 1 0 6 69 1 2 2 74 0 0 1
                                     1 2 56 0 1 2 23 0 0 56 1 1 23 0 0 1 3 22 0
                                     0 80 56 1 3 22 0 0 81 85 1 2 22 0 0 81 1 2
                                     22 0 0 80 1 2 0 0 0 70 1 3 0 0 0 70 56 1 2
                                     3 68 69 70 1 0 0 72 1 1 12 0 0 1 1 12 0 0 1
                                     0 2 0 1 1 12 0 0 1 1 12 0 0 1 1 12 0 0 1 1
-                                    12 0 0 1 1 0 68 69 1 1 0 93 0 1 2 0 68 69
+                                    12 0 0 1 1 0 93 0 1 1 0 68 69 1 2 0 68 69
                                     69 1 2 0 93 0 69 1 1 16 53 0 1 1 29 54 0 1
                                     1 30 55 0 1 1 15 88 0 1 1 15 89 0 1 1 0 0
-                                    72 1 1 0 72 0 1 1 0 0 93 1 1 0 93 0 1 1 0 0
+                                    72 1 1 0 72 0 1 1 0 93 0 1 1 0 0 93 1 1 0 0
                                     0 39 1 44 49 50 1 2 0 0 6 6 30 2 0 0 0 0 1
                                     1 43 0 0 1 1 41 0 47 1 1 0 0 6 29 1 0 0 46
                                     1 1 0 95 0 1 1 45 37 0 1 1 2 0 0 1 1 0 72 0

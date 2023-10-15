@@ -379,23 +379,23 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 14
-                                '(0 3 3 0 1 3 4 5 6 0 7 0 0 2 7 0 0 0 0 3 0 0 0
-                                  0 0 0 0 2 2 0 0 0 2 8 0 0 0 8 0 0 0 14 0 0 0
-                                  0 0 0 8 14 9 10 3))
+                                '(0 3 3 0 1 3 4 5 6 0 7 0 0 2 7 0 0 0 0 0 3 0 0
+                                  0 0 0 0 0 2 2 0 0 0 2 8 0 0 0 8 0 0 0 14 0 0
+                                  0 0 0 0 8 14 9 10 3))
             (CONS
              '#(|SquareMatrixCategory&| |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |FramedNonAssociativeAlgebra&|
                 |Algebra&| NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| |FiniteRankNonAssociativeAlgebra&| NIL
                 |NonAssociativeAlgebra&| |RectangularMatrixCategory&| NIL
-                |Rng&| NIL |Module&| NIL NIL |NonAssociativeRing&|
-                |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
-                NIL |AbelianMonoid&| |NonAssociativeSemiRng&| NIL
-                |MagmaWithUnit&| |Finite&| |HomogeneousAggregate&| |Magma&|
-                |AbelianSemiGroup&| NIL |FullyRetractableTo&| |Aggregate&|
-                |SetCategory&| |Evalable&| NIL |RetractableTo&| NIL NIL
-                |BasicType&| NIL NIL |InnerEvalable&| |RetractableTo&|
-                |RetractableTo&| NIL)
+                |Rng&| NIL |Module&| |FramedModule&| NIL NIL
+                |NonAssociativeRing&| |NonAssociativeRng&| NIL NIL NIL NIL
+                |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
+                |NonAssociativeSemiRng&| NIL |MagmaWithUnit&| |Finite&|
+                |HomogeneousAggregate&| |Magma&| |AbelianSemiGroup&| NIL
+                |FullyRetractableTo&| |Aggregate&| |SetCategory&| |Evalable&|
+                NIL |RetractableTo&| NIL NIL |BasicType&| NIL NIL
+                |InnerEvalable&| |RetractableTo&| |RetractableTo&| NIL)
              (CONS
               '#((|SquareMatrixCategory| 6 7 (|DirectProduct| 6 7)
                                          (|DirectProduct| 6 7))
@@ -407,18 +407,19 @@
                  (|NonAssociativeAlgebra| 7)
                  (|RectangularMatrixCategory| 6 6 7 (|DirectProduct| 6 7)
                                               (|DirectProduct| 6 7))
-                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 7) (|BiModule| 7 7)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|)
-                 (|NonAssociativeRng|) (|RightModule| 7) (|LeftModule| 7)
-                 (|RightModule| $$) (|LeftModule| $$) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
-                 (|Monoid|) (|AbelianMonoid|) (|NonAssociativeSemiRng|)
-                 (|SemiGroup|) (|MagmaWithUnit|) (|Finite|)
-                 (|HomogeneousAggregate| 7) (|Magma|) (|AbelianSemiGroup|)
-                 (|Comparable|) (|FullyRetractableTo| 7) (|Aggregate|)
-                 (|SetCategory|) (|Evalable| 7) (|CoercibleTo| (|Matrix| 7))
-                 (|RetractableTo| 7) (|finiteAggregate|) (|Type|) (|BasicType|)
-                 (|CoercibleTo| 77) (|ConvertibleTo| 59) (|InnerEvalable| 7 7)
+                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 7)
+                 (|FramedModule| 7) (|BiModule| 7 7) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|NonAssociativeRng|) (|RightModule| 7)
+                 (|LeftModule| 7) (|RightModule| $$) (|LeftModule| $$)
+                 (|AbelianGroup|) (|CancellationAbelianMonoid|)
+                 (|NonAssociativeSemiRing|) (|Monoid|) (|AbelianMonoid|)
+                 (|NonAssociativeSemiRng|) (|SemiGroup|) (|MagmaWithUnit|)
+                 (|Finite|) (|HomogeneousAggregate| 7) (|Magma|)
+                 (|AbelianSemiGroup|) (|Comparable|) (|FullyRetractableTo| 7)
+                 (|Aggregate|) (|SetCategory|) (|Evalable| 7)
+                 (|CoercibleTo| (|Matrix| 7)) (|RetractableTo| 7)
+                 (|finiteAggregate|) (|Type|) (|BasicType|) (|CoercibleTo| 77)
+                 (|ConvertibleTo| 59) (|InnerEvalable| 7 7)
                  (|RetractableTo| 64) (|RetractableTo| 12) (|unitsKnown|))
               (|makeByteWordVec2| 77
                                   '(1 8 10 0 11 3 10 7 0 12 12 13 0 7 0 15 2 16
