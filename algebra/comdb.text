@@ -2102,11 +2102,11 @@
 200540`\spad{concat!(u,{} v)} destructively concatenates doubly-linked aggregate \spad{v} to the end of doubly-linked aggregate \spad{u}.
 200623`\spad{concat!(u,{} v)} destructively appends \spad{v} to the end of \spad{u}. \spad{v} is unchanged
 200686`\spad{concat(u,{} v)} returns an aggregate consisting of the elements of \spad{u} followed by the elements of \spad{v}. Note: if \spad{w = concat(u,{} v)} then \spad{w.i = u.i for i in indices u} and \spad{w.(j + maxIndex u) = v.j for j in indices v}.
-200738`\spad{concat!(u,{} v)} destructively concatenates \spad{v} to the end of \spad{u}. Note: \spad{concat!(u,{} v) = setlast!(u,{} v)}.
+200738`\spad{concat!(u,{} v)} destructively concatenates \spad{v} to the end of \spad{u}.
 200823`\spad{concat(u,{} v)} returns an aggregate \spad{w} consisting of the elements of \spad{u} followed by the elements of \spad{v}. Note: \spad{v = rest(w,{} \#a)}.
 200883`\spad{concat!(u,{} x)} destructively adds element \spad{x} to the end of \spad{u}.
 200945`\spad{concat(u,{} x)} returns aggregate \spad{u} with additional element \spad{x} at the end. Note: for lists,{} \spad{concat(u,{} x) == concat(u,{} [x])}
-200996`\spad{concat!(u,{} x)} destructively adds element \spad{x} to the end of \spad{u}. Note: \spad{concat!(a,{} x) = setlast!(a,{} [x])}.
+200996`\spad{concat!(u,{} x)} destructively adds element \spad{x} to the end of \spad{u}. Note: \spad{concat!(a,{} x) = concat!(a,{} [x])}.
 201080`\spad{concat(x,{} u)} returns aggregate \spad{u} with additional element at the front. Note: for lists: \spad{concat(x,{} u) == concat([x],{} u)}.
 201131`\spad{concat(x,{} u)} returns aggregate consisting of \spad{x} followed by the elements of \spad{u}. Note: if \spad{v = concat(x,{} u)} then \spad{x = first v} and \spad{u = rest v}.
 201190`\spad{cond(s,{} e)} creates a representation of the FORTRAN expression IF (\spad{s}) THEN \spad{e}.
@@ -7237,7 +7237,7 @@
 781599`\spad{setImagSteps(i)} sets to \spad{i} the number of steps to use in the imaginary direction when drawing complex functions. Returns \spad{i}.
 781658`\spad{setIntersection(u1,{} u2)} returns a list of the elements that lists \spad{u1} and \spad{u2} have in common. The order of elements in the resulting list is unspecified.
 781725`\spad{setLabelValue(i)} resets the counter which produces labels to \spad{i}
-781854`\spad{setlast!(u,{} x)} destructively changes the last element of \spad{u} to \spad{x}.
+781854`\spad{setlast!(u,{} x)} destructively changes the last element of \spad{u} to \spad{x}. Error if \spad{u} is empty.
 781939`\spad{setleaves!(t,{} ls)} sets the leaves of \spad{t} in left-to-right order to the elements of \spad{ls}.
 782004`\spad{setleft!(a,{} b)} sets the left child of \spad{a} to be \spad{b}.
 782092`\spad{setLegalFortranSourceExtensions(l)} \undocumented{}

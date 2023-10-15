@@ -58,7 +58,7 @@
         (CDSETELT |x| |i| |s|)) 
 
 (SDEFUN |CDFVEC;fill!;$C$;12| ((|x| $) (|s| |Complex| (|DoubleFloat|)) ($ $))
-        (SPROG ((#1=#:G2540 NIL) (|i| NIL))
+        (SPROG ((#1=#:G2537 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|CDFVEC;fill!;$C$;12|))
                      (LETT #1# (|sub_SI| (CDLEN |x|) 1) . #2#) G190
@@ -71,7 +71,7 @@
 
 (DEFUN |ComplexDoubleFloatVector| ()
   (SPROG NIL
-         (PROG (#1=#:G2553)
+         (PROG (#1=#:G2550)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ComplexDoubleFloatVector|)
@@ -93,8 +93,8 @@
 
 (DEFUN |ComplexDoubleFloatVector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2550 NIL) (#2=#:G2549 NIL) (#3=#:G2548 NIL)
-    (|pv$| NIL) (#4=#:G2551 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G2547 NIL) (#2=#:G2546 NIL) (#3=#:G2545 NIL)
+    (|pv$| NIL) (#4=#:G2548 NIL))
    (PROGN
     (LETT |dv$| '(|ComplexDoubleFloatVector|)
           . #5=(|ComplexDoubleFloatVector|))
