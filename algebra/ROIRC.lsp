@@ -656,7 +656,7 @@
 (SDEFUN |ROIRC;hasVars| ((|p| |ThePolDom|) ($ |Boolean|))
         (COND
          ((SPADCALL |p| (QREFELT $ 65))
-          (|error| "ROIRC: hasVars: null polynonial"))
+          (|error| "ROIRC: hasVars: null polynomial"))
          ((SPADCALL (SPADCALL |p| 0 (QREFELT $ 16)) (QREFELT $ 66)) 'T)
          ('T (|ROIRC;hasVarsl| (SPADCALL |p| (QREFELT $ 45)) $)))) 
 

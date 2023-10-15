@@ -208,10 +208,10 @@
 11649`A queue is a bag where the first item inserted is the first item extracted.
 11702`QuotientField(\spad{S}) is the category of fractions of an Integral Domain \spad{S}.
 11772`The \spad{RadicalCategory} is a model for the rational numbers.
-11820`\spadtype{RealClosedField} provides common acces functions for all real closed fields.
+11820`\spadtype{RealClosedField} provides common access functions for all real closed fields.
 11869`The category of real numeric domains,{} \spadignore{i.e.} convertible to floats.
 11912`The real number system category is intended as a model for the real numbers. The real numbers form an ordered normed field. Note that we have purposely not included \spadtype{DifferentialRing} or the elementary functions (see \spadtype{TranscendentalFunctionCategory}) in the definition.
-11958`\spadtype{RealRootCharacterizationCategory} provides common acces functions for all real root codings.
+11958`\spadtype{RealRootCharacterizationCategory} provides common access functions for all real root codings.
 12108`\spadtype{RectangularMatrixCategory} is a category of matrices of fixed dimensions. The dimensions of the matrix will be parameters of the domain. Domains in this category will be \spad{R}-modules and will be non-mutable.
 12297`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are recursive aggregates. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may go into an infinite loop.
 12354`A category for general multi-variate polynomials with coefficients in a ring,{} variables in an ordered set,{} and exponents from an ordered abelian monoid,{} with a \spadfun{sup} operation. When not constant,{} such a polynomial is viewed as a univariate polynomial in its main variable \spad{w}. \spad{r}. \spad{t}. to the total ordering on the elements in the ordered set,{} so that some operatio
@@ -649,7 +649,7 @@
 49409`A sparse table has a default entry,{} which is returned if no other value has been explicitly stored for a key.
 49510`Sparse Laurent series in one variable \indented{2}{\spadtype{SparseUnivariateLaurentSeries} is a domain representing Laurent} \indented{2}{series in one variable with coefficients in an arbitrary ring.\space{2}The} \indented{2}{parameters of the type specify the coefficient ring,{} the power series} \indented
 49510`--{2}{variable,{} and the center of the power series expansion.\space{2}For example,{}} \indented{2}{\spad{SparseUnivariateLaurentSeries(Integer,{} x,{} 3)} represents Laurent} \indented{2}{series in \spad{(x - 3)} with integer coefficients.}
-49707`This domain represents univariate polynomials over arbitrary (not necessarily commutative) coefficient rings. The variable is unspecified so that the variable displays as \spad{?} on output. If it is necessary to specify the variable name,{} use type \spadtype{UnivariatePolynomial}. The representation is sparse in the sense that only non-zero terms are represented.
+49707`This domain represents univariate polynomials over arbitrary (not necessarily commutative) coefficient rings. The variable is unspecified so that the variable displays as \spad{?} in output. If it is necessary to specify the variable name,{} use type \spadtype{UnivariatePolynomial}. The representation is sparse in the sense that only non-zero terms are represented.
 49817`Sparse Puiseux series in one variable \indented{2}{\spadtype{SparseUnivariatePuiseuxSeries} is a domain representing Puiseux} \indented{2}{series in one variable with coefficients in an arbitrary ring.\space{2}The} \indented{2}{parameters of the type specify the coefficient ring,{} the power series} \indent
 49817`--ed{2}{variable,{} and the center of the power series expansion.\space{2}For example,{}} \indented{2}{\spad{SparseUnivariatePuiseuxSeries(Integer,{} x,{} 3)} represents Puiseux} \indented{2}{series in \spad{(x - 3)} with \spadtype{Integer} coefficients.}
 50016`This is the domain of sparse univariate skew polynomials over an Ore coefficient field. The multiplication is given by \spad{x a = \sigma(a) x + \delta a}.
@@ -751,7 +751,7 @@
 60058`\spad{-x} returns the negative of the matrix \spad{x}.
 60128`\spad{-x} negates all components of the vector \spad{x}.
 60190`reverse,{} complement,{} canonical dual basis
-60241`\spad{~ n} returns the bit-by-bit logical {\em not } of the single integer \spad{n}.
+60241`\spad{~ n} returns the bit-by-bit logical {\em not} of the single integer \spad{n}.
 60280`\spad{\#((a1,{} ...,{} an))} returns \spad{n}.
 60347`\spad{\# u} returns the number of items in \spad{u}.
 60421`sum : disjoint union of nodes with arrows from appropriate input
@@ -2508,7 +2508,7 @@
 241827`\spad{cyclotomicFactorization(n)} returns prime factors of \spad{x^n - 1} over integers.
 241950`\spad{cylindrical(pt)} transforms \spad{pt} from polar coordinates to Cartesian coordinates: the function produced will map the point \spad{(r,{} theta,{} z)} to \spad{x = r * cos(theta)},{} \spad{y = r * sin(theta)},{} \spad{z}.
 242018`\spad{cylindricalDecomposition(lp)} is cylindricalDecomposition(\spad{lp},{} \spad{lv}) where \spad{lv} is list of variables in \spad{lp}.
-242159`\spad{cylindricalDecomposition(lp,{} lv)} computes cylindrical decompositon of \spad{lp} in using variable order given by \spad{lv}
+242159`\spad{cylindricalDecomposition(lp,{} lv)} computes cylindrical decomposition of \spad{lp} in using variable order given by \spad{lv}
 242379`\spad{D()} provides the operator corresponding to a derivation in the ring \spad{A}.
 242448`\spad{d(f)} computes the differential of \spad{f}.
 242494`\spad{d(jb)} returns the differential of \spad{jb}.
@@ -6616,7 +6616,7 @@
 707002`\spad{reindex(t,{} [i1,{} ...,{} idim])} permutes the indices of \spad{t}. For example,{} if \spad{r = reindex(t,{} [4,{} 1,{} 2,{} 3])} for a rank 4 tensor \spad{t},{} then \spad{r} is the rank for tensor given by \indented{4}{\spad{r(i,{} j,{} k,{} l) = t(l,{} i,{} j,{} k)}.}
 707076`\spad{relationsIdeal(polyList)} returns the ideal of relations among the polynomials in \spad{polyList}.
 707251`\spad{relativeApprox(n,{} p)} gives a relative approximation of \spad{n} that has precision \spad{p}
-707329`\spad{relativeApprox(exp,{} c,{} p) = a} is relatively close to exp as a polynomial in \spad{c} ip to precision \spad{p}
+707329`\spad{relativeApprox(exp,{} c,{} p) = a} is relatively close to exp as a polynomial in \spad{c} up to precision \spad{p}
 707450`\spad{approximate(term,{} root,{} prec)} gives an approximation of \spad{term} over \spad{root} with precision \spad{prec}
 707562`\spad{relerror(x,{} y)} computes the absolute value of \spad{x - y} divided by \spad{y},{} when \spad{y \~= 0}.
 707608`\spad{f rem g} creates the equivalent infix form.
@@ -9125,9 +9125,9 @@
 994665`\spadtype{QuaternionCategory} describes the category of quaternions and implements functions that are not representation specific.
 994760`QuotientField(\spad{S}) is the category of fractions of an Integral Domain \spad{S}.
 994858`The \spad{RadicalCategory} is a model for the rational numbers.
-994923`\spadtype{RealClosedField} provides common acces functions for all real closed fields.
+994923`\spadtype{RealClosedField} provides common access functions for all real closed fields.
 994989`The real number system category is intended as a model for the real numbers. The real numbers form an ordered normed field. Note that we have purposely not included \spadtype{DifferentialRing} or the elementary functions (see \spadtype{TranscendentalFunctionCategory}) in the definition.
-995053`\spadtype{RealRootCharacterizationCategory} provides common acces functions for all real root codings.
+995053`\spadtype{RealRootCharacterizationCategory} provides common access functions for all real root codings.
 995263`\spadtype{RectangularMatrixCategory} is a category of matrices of fixed dimensions. The dimensions of the matrix will be parameters of the domain. Domains in this category will be \spad{R}-modules and will be non-mutable.
 995502`A recursive aggregate over a type \spad{S} is a model for a a directed graph containing values of type \spad{S}. Recursively,{} a recursive aggregate is a {\em node} consisting of a \spadfun{value} from \spad{S} and 0 or more \spadfun{children} which are recursive aggregates. A node with no children is called a \spadfun{leaf} node. A recursive aggregate may be cyclic for which some operations as noted may go into an infini
 995502`--te loop.
