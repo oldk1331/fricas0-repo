@@ -176,7 +176,7 @@
 
 (SDEFUN |GALFACT;nextRecNum|
         ((|levels| |NonNegativeInteger|) (|level| |Integer|) (|n| |Integer|)
-         ($ |Union| "End of level" (|Integer|)))
+         ($ |Union| (|Integer|) "End of level"))
         (SPROG
          ((|b| (|Integer|)) (|lr| #1=(|Integer|)) (#2=#:G218 NIL) (|l| #1#))
          (SEQ
@@ -187,12 +187,12 @@
                   (COND
                    ((< |l| |levels|)
                     (PROGN
-                     (LETT #2# (CONS 1 (+ |n| (ASH 1 (- |l| 1)))) . #3#)
+                     (LETT #2# (CONS 0 (+ |n| (ASH 1 (- |l| 1)))) . #3#)
                      (GO #4=#:G217))))))
             (EXIT
              (COND
               ((EQL |n| (ASH (|GALFACT;seed| |level| $) (- |levels| |level|)))
-               (CONS 0 "End of level"))
+               (CONS 1 "End of level"))
               ('T
                (SEQ (LETT |b| 1 . #3#)
                     (SEQ G190
@@ -208,7 +208,7 @@
                          (SEQ (EXIT (LETT |b| (+ |b| 1) . #3#))) NIL (GO G190)
                          G191 (EXIT NIL))
                     (EXIT
-                     (CONS 1
+                     (CONS 0
                            (+ (|GALFACT;reductum| |n| $)
                               (ASH (|GALFACT;seed| (+ |b| 1) $) |lr|))))))))))
           #4# (EXIT #2#)))) 
@@ -684,7 +684,7 @@
           (|nb| (|Integer|)) (#13=#:G350 NIL) (|j| NIL)
           (|f1| (|Union| UP "failed")) (|g| (UP)) (#14=#:G349 NIL)
           (|g0| (|Integer|)) (|degg| #5#) (#15=#:G348 NIL) (|i| (|Integer|))
-          (#16=#:G212 NIL))
+          (#16=#:G211 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -698,20 +698,20 @@
             (LETT |dg| (SPADCALL (QREFELT $ 73)) . #17#)
             (LETT |llg| (CONS NIL 0) . #17#)
             (LETT |levels| (LENGTH |lf|) . #17#) (LETT |level| 1 . #17#)
-            (LETT |ic| (CONS 1 0) . #17#) (LETT |i| 0 . #17#)
+            (LETT |ic| (CONS 0 0) . #17#) (LETT |i| 0 . #17#)
             (SEQ G190 (COND ((NULL (< |level| |levels|)) (GO G191)))
-                 (SEQ (LETT |ic| (CONS 1 (|GALFACT;seed| |level| $)) . #17#)
+                 (SEQ (LETT |ic| (CONS 0 (|GALFACT;seed| |level| $)) . #17#)
                       (SEQ G190
                            (COND
-                            ((NULL (COND (|found?| NIL) ('T (QEQCAR |ic| 1))))
+                            ((NULL (COND (|found?| NIL) ('T (QEQCAR |ic| 0))))
                              (GO G191)))
                            (SEQ
                             (LETT |i|
                                   (PROG2 (LETT #16# |ic| . #17#)
                                       (QCDR #16#)
-                                    (|check_union2| (QEQCAR #16# 1) (|Integer|)
-                                                    (|Union| "End of level"
-                                                             (|Integer|))
+                                    (|check_union2| (QEQCAR #16# 0) (|Integer|)
+                                                    (|Union| (|Integer|)
+                                                             "End of level")
                                                     #16#))
                                   . #17#)
                             (LETT |degg| 0 . #17#) (LETT |g0| 1 . #17#)
@@ -1065,7 +1065,7 @@
                              (EXIT (LETT |found?| NIL . #17#)))))
                       (EXIT
                        (COND
-                        ((NULL (QEQCAR |ic| 1))
+                        ((NULL (QEQCAR |ic| 0))
                          (LETT |level| (+ |level| 1) . #17#)))))
                  NIL (GO G190) G191 (EXIT NIL))
             (EXIT (CONS |f| |ltrue|))))
