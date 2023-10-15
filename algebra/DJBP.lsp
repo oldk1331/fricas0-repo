@@ -862,15 +862,11 @@
                                              (|HasCategory| |#1|
                                                             '(|PolynomialFactorizationExplicit|)))
                                          (OR #12# #13# #11#) (OR #13# #11#)
-                                         (OR
-                                          (|HasCategory| |#1|
-                                                         '(|Algebra|
-                                                           (|Fraction|
-                                                            (|Integer|))))
-                                          #12#
-                                          (|HasCategory| |#1| '(|EntireRing|))
-                                          #13# #11#
-                                          (|HasCategory| |#1| '(|Ring|)))
+                                         (OR #12#
+                                             (|HasCategory| |#1|
+                                                            '(|EntireRing|))
+                                             #13# #11#
+                                             (|HasCategory| |#1| '(|Ring|)))
                                          (OR #12#
                                              (|HasCategory| |#1|
                                                             '(|EntireRing|))

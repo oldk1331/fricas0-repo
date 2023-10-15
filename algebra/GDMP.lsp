@@ -927,15 +927,11 @@
                                             (|HasCategory| |#2|
                                                            '(|PolynomialFactorizationExplicit|)))
                                         (OR #10# #11# #9#) (OR #11# #9#)
-                                        (OR
-                                         (|HasCategory| |#2|
-                                                        '(|Algebra|
-                                                          (|Fraction|
-                                                           (|Integer|))))
-                                         #10#
-                                         (|HasCategory| |#2| '(|EntireRing|))
-                                         #11# #9#
-                                         (|HasCategory| |#2| '(|Ring|)))
+                                        (OR #10#
+                                            (|HasCategory| |#2|
+                                                           '(|EntireRing|))
+                                            #11# #9#
+                                            (|HasCategory| |#2| '(|Ring|)))
                                         (OR #10#
                                             (|HasCategory| |#2|
                                                            '(|EntireRing|))

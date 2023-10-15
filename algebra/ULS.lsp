@@ -333,6 +333,16 @@
                                         (LETT #3#
                                               (|HasCategory| |#1| '(|Ring|))
                                               . #10#)
+                                        (OR #8# (|HasCategory| |#1| '(|Field|))
+                                            #7# #3#
+                                            (|HasSignature| |#1|
+                                                            (LIST '*
+                                                                  (LIST
+                                                                   (|devaluate|
+                                                                    |#1|)
+                                                                   '(|Integer|)
+                                                                   (|devaluate|
+                                                                    |#1|)))))
                                         (OR #3#
                                             (|HasSignature| |#1|
                                                             (LIST '*
@@ -352,17 +362,6 @@
                                                                (|Fraction|
                                                                 (|Integer|))))
                                               . #10#)
-                                        (OR #2# #8#
-                                            (|HasCategory| |#1| '(|Field|)) #7#
-                                            #3#
-                                            (|HasSignature| |#1|
-                                                            (LIST '*
-                                                                  (LIST
-                                                                   (|devaluate|
-                                                                    |#1|)
-                                                                   '(|Integer|)
-                                                                   (|devaluate|
-                                                                    |#1|)))))
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
@@ -662,7 +661,7 @@
      (|augmentPredVector| $ 2305843009213693952))
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 46)
+     ((|testBitVector| |pv$| 47)
       (QSETREFV $ 26 (CONS (|dispatchFunction| |ULS;integrate;$V$;5|) $))))
     $))) 
 
@@ -706,9 +705,9 @@
             (|makeByteWordVec2| 52
                                 '(0 0 2 2 0 2 31 0 2 2 0 2 6 2 24 19 24 2 48 6
                                   2 2 2 19 24 24 48 33 7 23 2 39 40 2 13 0 23
-                                  48 6 2 52 0 0 23 47 48 48 6 2 2 52 6 51 38 6
+                                  48 6 2 52 0 0 23 42 48 48 6 2 2 52 6 51 38 6
                                   50 0 38 27 49 2 0 0 28 9 2 16 17 0 48 5 11 2
-                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 4
+                                  0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 43 3 4
                                   5 5 27 8 8 10 11 12 14 15 2))
             (CONS
              '#(|UnivariateLaurentSeriesConstructorCategory&|
@@ -797,7 +796,7 @@
                                   '(1 6 12 0 13 0 6 0 14 0 0 0 15 2 0 0 6 16 17
                                     0 6 0 18 0 0 0 19 2 0 0 0 0 20 1 0 0 0 23 1
                                     0 0 0 25 2 0 0 0 21 26 1 0 9 0 10 2 0 0 6
-                                    16 17 2 46 0 0 21 26 1 46 0 0 25 1 40 0 0
+                                    16 17 2 47 0 0 21 26 1 47 0 0 25 1 40 0 0
                                     23 2 0 0 0 21 24 1 0 0 21 22 1 0 6 0 11 0
                                     62 0 19 0 58 0 15 2 0 0 0 0 20)))))
            '|lookupIncomplete|)) 

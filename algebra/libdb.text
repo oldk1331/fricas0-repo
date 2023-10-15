@@ -127,7 +127,7 @@ cListAggregate`1`x`(Type)->Category`(S)`LSAGG`28991
 cLogic`0`x`()->Category``LOGIC`29177
 cMagma`0`x`()->Category``MAGMA`29271
 cMagmaWithUnit`0`x`()->Category``MAGMAWU`29375
-cMatrixCategory`3`x`(R:Join(SemiRng,etc),FiniteLinearAggregate(R),FiniteLinearAggregate(R))->Category`(R,Row,Col)`MATCAT`29833
+cMatrixCategory`3`x`(R:AbelianMonoid,FiniteLinearAggregate(R),FiniteLinearAggregate(R))->Category`(R,Row,Col)`MATCAT`29833
 cMaybeSkewPolynomialCategory`3`n`(Join(SemiRng,etc),OrderedAbelianMonoidSup,OrderedSet)->Category`(R,E,VarSet)`GPOLCAT`30445
 cModularAlgebraicGcdOperations`3`n`(Type,Type,Type)->Category`(MP,MPT,MD)`MAGCDOC`30627
 cModularEvaluationCategory`2`n`(Type,Type)->Category`(PT,MP)`MEVCAT`31511
@@ -380,7 +380,7 @@ dIndexedExponents`1`n`(OrderedSet)->Join(OrderedAbelianMonoidSup,etc)`(Varset)`I
 dIndexedFlexibleArray`2`n`(Type,Integer)->Join(OneDimensionalArrayAggregate(S),etc)`(S,mn)`IFARRAY`94078
 dIndexedJetBundle`5`n`(Symbol,Symbol,Symbol,PositiveInteger,PositiveInteger)->JetBundleCategory`(x,u,p,n,m)`IJB`95171
 dIndexedList`2`n`(Type,Integer)->ListAggregate(S)`(S,mn)`ILIST`95312
-dIndexedMatrix`3`n`(Join(SemiRng,etc),mnRow:Integer,mnCol:Integer)->MatrixCategory(R,IndexedVector(R,mnCol),IndexedVector(R,mnRow))`(R,mnRow,mnCol)`IMATRIX`95808
+dIndexedMatrix`3`n`(AbelianMonoid,mnRow:Integer,mnCol:Integer)->MatrixCategory(R,IndexedVector(R,mnCol),IndexedVector(R,mnRow))`(R,mnRow,mnCol)`IMATRIX`95808
 dIndexedOneDimensionalArray`2`n`(Type,Integer)->OneDimensionalArrayAggregate(S)`(S,mn)`IARRAY1`96279
 dIndexedString`1`n`(Integer)->StringAggregate`(mn)`ISTRING`96387
 dIndexedTwoDimensionalArray`3`n`(Type,mnRow:Integer,mnCol:Integer)->TwoDimensionalArrayCategory(R,IndexedOneDimensionalArray(R,mnCol),IndexedOneDimensionalArray(R,mnRow))`(R,mnRow,mnCol)`IARRAY2`96434
@@ -436,7 +436,7 @@ dMachineInteger`0`n`()->Join(FortranMachineTypeCategory,etc)``MINT`107964
 dMakeCachableSet`1`n`(SetCategory)->Join(CachableSet,etc)`(S)`MKCHSET`108059
 dMapping`1`x`special`(T,S)`MAPPING`108151
 dMathMLFormat`0`x`()->Join(SetCategory,etc)``MMLFORM`108391
-dMatrix`1`x`(Join(SemiRng,etc))->Join(MatrixCategory(R,Vector(R),Vector(R)),etc)`(R)`MATRIX`108486
+dMatrix`1`x`(AbelianMonoid)->Join(MatrixCategory(R,Vector(R),Vector(R)),etc)`(R)`MATRIX`108486
 dModMonic`2`n`(R:Ring,Rep:UnivariatePolynomialCategory(R))->Join(UnivariatePolynomialCategory(R),etc)`(R,Rep)`MODMON`108587
 dModularAlgebraicGcdTools2`0`n`()->ModularAlgebraicGcdOperations(Polynomial(Integer),PrimitiveArray(U32Vector),Record(svz:Symbol,sm:U32Vector,sp:Integer))``MAGCDT2`0
 dModularAlgebraicGcdTools3`0`n`()->Join(ModularAlgebraicGcdOperations(Polynomial(Integer),SparseUnivariatePolynomial(Polynomial(Integer)),Record(svz:List(Symbol),sm:List(Polynomial(Integer)),msizes:List(Integer),sp:Integer)),etc)``MAGCDT3`0
@@ -949,7 +949,7 @@ o\/`2`x`(_$,_$)->_$`cLogic``167178
 o/\`2`x`(_$,_$)->_$`cLogic``167256
 o*`2`x`(_$,_$)->_$`cMagma``167335
 o-`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)`has(R,AbelianGroup)`167426
-o*`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)``167545
+o*`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`167545
 o+`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)``167661
 o*`2`x`(_$,_$)->_$`cSemiGroup``167773
 o-`2`x`(_$,_$)->_$`cVectorCategory(R)`has(R,AbelianGroup)`167836
@@ -977,7 +977,7 @@ o<`2`x`(_$,_$)->Boolean`dPermutationGroup(S)``170181
 o<=`2`x`(_$,_$)->Boolean`dPermutationGroup(S)``170284
 o-`2`x`(_$,_$)->Union(_$,"failed")`dCardinalNumber``170494
 o^`2`x`(_$,Coef)->_$`cUnivariateTaylorSeriesCategory(Coef)`has(Coef,Field)`170603
-o*`2`x`(_$,Col)->Col`cMatrixCategory(R,Row,Col)``170823
+o*`2`x`(_$,Col)->Col`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`170823
 o*`2`x`(_$,Col)->Col`cSquareMatrixCategory(ndim,R,Row,Col)``170955
 o^`2`x`(_$,Fraction(Integer))->_$`cRadicalCategory``171087
 o^`2`x`(_$,Integer)->_$`cDivisionRing``171172
@@ -988,7 +988,7 @@ o/`2`x`(_$,Integer)->_$`dDoubleFloat``171570
 o/`2`x`(_$,Integer)->_$`dFloat``171649
 o^`2`x`(_$,Integer)->_$`dModuleOperator(R,M)``171728
 o^`2`x`(_$,NonNegativeInteger)->_$`cMagmaWithUnit``171760
-o^`2`x`(_$,NonNegativeInteger)->_$`cMatrixCategory(R,Row,Col)`has(R,Monoid)`171859
+o^`2`x`(_$,NonNegativeInteger)->_$`cMatrixCategory(R,Row,Col)`AND(has(R,Monoid),has(R,SemiRng))`171859
 o^`2`x`(_$,NonNegativeInteger)->_$`cMonoid``171977
 o^`2`x`(_$,NonNegativeInteger)->_$`dPolynomialIdeal(F,Expon,VarSet,DPoly)``172087
 o*`2`x`(_$,Point(R))->Point(R)`dDenavitHartenbergMatrix(R)``172157
@@ -999,7 +999,7 @@ o*`2`x`(_$,R)->_$`cDirectProductCategory(dim,R)`has(R,SemiGroup)`172494
 o*`2`x`(_$,R)->_$`cGradedModule(R,E)``172587
 o/`2`x`(_$,R)->_$`cLieAlgebra(R)`has(R,Field)`172636
 o/`2`x`(_$,R)->_$`cMatrixCategory(R,Row,Col)`has(R,Field)`172699
-o*`2`x`(_$,R)->_$`cMatrixCategory(R,Row,Col)``172786
+o*`2`x`(_$,R)->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`172786
 o/`2`x`(_$,R)->_$`cRectangularMatrixCategory(m,n,R,Row,Col)`has(R,Field)`172882
 o*`2`x`(_$,R)->_$`cRightModule(R)``172969
 o*`2`x`(_$,R)->_$`cVectorCategory(R)`has(R,SemiGroup)`173080
@@ -1021,9 +1021,9 @@ o*`2`x`(PositiveInteger,_$)->_$`dColor``174416
 o*`2`x`(R,_$)->_$`cDirectProductCategory(dim,R)`has(R,SemiGroup)`174518
 o*`2`x`(R,_$)->_$`cGradedModule(R,E)``174614
 o*`2`x`(R,_$)->_$`cLeftModule(R)``174662
-o*`2`x`(R,_$)->_$`cMatrixCategory(R,Row,Col)``174772
+o*`2`x`(R,_$)->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`174772
 o*`2`x`(R,_$)->_$`cVectorCategory(R)`has(R,SemiGroup)`174865
-o*`2`x`(Row,_$)->Row`cMatrixCategory(R,Row,Col)``174961
+o*`2`x`(Row,_$)->Row`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`174961
 o*`2`x`(Row,_$)->Row`cSquareMatrixCategory(ndim,R,Row,Col)``175090
 o*`2`x`(R,S)->_$`cFreeModuleCategory(R,S)``175219
 o+`2`x`(S,_$)->_$`cFreeAbelianMonoidCategory(S,E)``175281
@@ -5602,9 +5602,9 @@ okroneckerDelta`0`x`()->_$`dCartesianTensor(minix,dim,R)``662316
 okronecker_prod1`7`n`(S,Integer,List(List(NonNegativeInteger)),List(S),NonNegativeInteger,NonNegativeInteger,Union(R,"one"))->Void`xMatrixCategory&(S,R,Row,Col)``0
 okronecker_prod1`7`x`(_$,Integer,List(List(NonNegativeInteger)),List(_$),NonNegativeInteger,NonNegativeInteger,Union(R,"one"))->Void`cMatrixCategory(R,Row,Col)``662511
 okroneckerProduct`1`n`(List(S))->S`xMatrixCategory&(S,R,Row,Col)``0
-okroneckerProduct`1`x`(List(_$))->_$`cMatrixCategory(R,Row,Col)``662551
+okroneckerProduct`1`x`(List(_$))->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`662551
 okroneckerProduct`2`n`(S,S)->S`xMatrixCategory&(S,R,Row,Col)``0
-okroneckerProduct`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)``662756
+okroneckerProduct`2`x`(_$,_$)->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`662756
 okroneckerSum`1`n`(List(S))->S`xMatrixCategory&(S,R,Row,Col)``0
 okroneckerSum`1`x`(List(_$))->_$`cMatrixCategory(R,Row,Col)``662923
 okroneckerSum`2`n`(S,S)->S`xMatrixCategory&(S,R,Row,Col)``0
@@ -7523,7 +7523,7 @@ opositive?`1`x`(_$)->Boolean`cOrderedRing``908643
 opositive?`2`n`(ThePols,S)->Boolean`xRealRootCharacterizationCategory&(S,TheField,ThePols)``0
 opositive?`2`x`(ThePols,_$)->Boolean`cRealRootCharacterizationCategory(TheField,ThePols)``908721
 opositivePower`2`n`(S,Integer)->S`xMatrixCategory&(S,R,Row,Col)``0
-opositivePower`2`x`(_$,Integer)->_$`cMatrixCategory(R,Row,Col)``908821
+opositivePower`2`x`(_$,Integer)->_$`cMatrixCategory(R,Row,Col)`has(R,SemiRng)`908821
 opositiveRemainder`2`x`(_$,_$)->_$`cIntegerNumberSystem``908952
 opositiveSolve`1`x`(List(Polynomial(R)))->List(List(RealClosure(Fraction(R))))`pZeroDimensionalSolvePackage(R,ls,ls2)``909078
 opositiveSolve`1`x`(RegularChain(R,ls))->List(List(RealClosure(Fraction(R))))`pZeroDimensionalSolvePackage(R,ls,ls2)``909174
@@ -10996,7 +10996,7 @@ xListAggregate&`2`n`(ListAggregate(S),S:Type)->etc`(A,S)`LSAGG-`1383039
 xLogic&`1`n`(Logic)->etc`(S)`LOGIC-`1383227
 xMagma&`1`n`(Magma)->etc`(S)`MAGMA-`1383323
 xMagmaWithUnit&`1`n`(MagmaWithUnit)->etc`(S)`MAGMAWU-`1383429
-xMatrixCategory&`4`n`(MatrixCategory(R,Row,Col),R:Join(SemiRng,etc),Row:FiniteLinearAggregate(R),Col:FiniteLinearAggregate(R))->etc`(S,R,Row,Col)`MATCAT-`1383891
+xMatrixCategory&`4`n`(MatrixCategory(R,Row,Col),R:AbelianMonoid,Row:FiniteLinearAggregate(R),Col:FiniteLinearAggregate(R))->etc`(S,R,Row,Col)`MATCAT-`1383891
 xMaybeSkewPolynomialCategory&`4`n`(MaybeSkewPolynomialCategory(R,E,VarSet),R:Join(SemiRng,etc),E:OrderedAbelianMonoidSup,VarSet:OrderedSet)->etc`(S,R,E,VarSet)`GPOLCAT-`1384507
 xModule&`2`n`(Module(R),R:CommutativeRing)->etc`(S,R)`MODULE-`1384691
 xMonogenicAlgebra&`3`n`(MonogenicAlgebra(R,UP),R:CommutativeRing,UP:UnivariatePolynomialCategory(R))->etc`(S,R,UP)`MONOGEN-`1384758

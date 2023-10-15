@@ -1352,15 +1352,11 @@
                                             (|HasCategory| |#1|
                                                            '(|EntireRing|)))
                                         (OR #5# #11# #10#)
-                                        (OR
-                                         (|HasCategory| |#1|
-                                                        '(|Algebra|
-                                                          (|Fraction|
-                                                           (|Integer|))))
-                                         #5#
-                                         (|HasCategory| |#1| '(|EntireRing|))
-                                         #11# #10#
-                                         (|HasCategory| |#1| '(|Ring|)))
+                                        (OR #5#
+                                            (|HasCategory| |#1|
+                                                           '(|EntireRing|))
+                                            #11# #10#
+                                            (|HasCategory| |#1| '(|Ring|)))
                                         (OR #5#
                                             (|HasCategory| |#1|
                                                            '(|EntireRing|))

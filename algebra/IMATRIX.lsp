@@ -131,7 +131,9 @@
                                                                    |#1|)))
                                              #2#))
                                         (|HasCategory| |#1| '(|AbelianGroup|))
-                                        (|HasCategory| |#1| '(|Monoid|))
+                                        (|HasCategory| |#1| '(|SemiRng|))
+                                        (AND (|HasCategory| |#1| '(|Monoid|))
+                                             (|HasCategory| |#1| '(|SemiRng|)))
                                         (|HasCategory| |#1|
                                                        '(|EuclideanDomain|))
                                         (|HasCategory| |#1|
@@ -146,54 +148,54 @@
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 32768))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 65536))
     (AND (|HasCategory| |#1| '(|BasicType|))
-         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 65536))
+         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
     (AND
      (OR
       (AND (|HasCategory| |#1| '(|BasicType|))
            (|HasCategory| $ '(|finiteAggregate|)))
       #2#)
-     (|augmentPredVector| $ 131072))
+     (|augmentPredVector| $ 262144))
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 14)
+     ((|testBitVector| |pv$| 15)
       (PROGN
        (QSETREFV $ 18 (CONS (|dispatchFunction| |IMATRIX;determinant;$R;2|) $))
        (QSETREFV $ 20 (CONS (|dispatchFunction| |IMATRIX;minordet;$R;3|) $)))))
     (COND
-     ((|testBitVector| |pv$| 12)
+     ((|testBitVector| |pv$| 13)
       (QSETREFV $ 22 (CONS (|dispatchFunction| |IMATRIX;rowEchelon;2$;4|) $))))
     (COND
-     ((|testBitVector| |pv$| 13)
+     ((|testBitVector| |pv$| 14)
       (PROGN
        (QSETREFV $ 25 (CONS (|dispatchFunction| |IMATRIX;rank;$Nni;5|) $))
        (QSETREFV $ 27 (CONS (|dispatchFunction| |IMATRIX;nullity;$Nni;6|) $))
        (QSETREFV $ 30
                  (CONS (|dispatchFunction| |IMATRIX;nullSpace;$L;7|) $)))))
     (COND
-     ((|testBitVector| |pv$| 15)
+     ((|testBitVector| |pv$| 16)
       (QSETREFV $ 34 (CONS (|dispatchFunction| |IMATRIX;inverse;$U;8|) $))))
     $))) 
 
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 47 48) (|local| |#1|)
+              (|InnerIndexedTwoDimensionalArray| 6 7 8 40 41) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|Integer|) (0 . |minRowIndex|)
               (5 . |maxRowIndex|) (|Boolean|) (10 . >) (16 . |maxColIndex|)
               |IMATRIX;swapRows!;$2I$;1|
-              (|MatrixLinearAlgebraFunctions| 6 47 48 $$) (21 . |determinant|)
+              (|MatrixLinearAlgebraFunctions| 6 40 41 $$) (21 . |determinant|)
               (26 . |determinant|) (31 . |minordet|) (36 . |minordet|)
               (41 . |rowEchelon|) (46 . |rowEchelon|) (|NonNegativeInteger|)
               (51 . |rank|) (56 . |rank|) (61 . |nullity|) (66 . |nullity|)
-              (|List| 48) (71 . |nullSpace|) (76 . |nullSpace|)
+              (|List| 41) (71 . |nullSpace|) (76 . |nullSpace|)
               (|Union| $$ '"failed") (81 . |inverse|) (|Union| $ '"failed")
               (86 . |inverse|) (|List| 6) (|Equation| 6) (|List| 36)
-              (|Mapping| 12 6) (|OutputForm|) (|SingleInteger|) (|String|)
-              (|HashState|) (|Void|) (|List| 55) (|List| $) (|Union| 6 '"one")
-              (|IndexedVector| 6 8) (|IndexedVector| 6 7) (|List| 35)
-              (|Mapping| 6 9 9) (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 45)
+              (|Mapping| 12 6) (|OutputForm|) (|IndexedVector| 6 8)
+              (|IndexedVector| 6 7) (|List| $) (|SingleInteger|) (|String|)
+              (|HashState|) (|Void|) (|List| 55) (|Union| 6 '"one") (|List| 35)
+              (|Mapping| 6 9 9) (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 42)
               (|PositiveInteger|) (|List| 23) (|List| 57) (|Segment| 9)
               (|List| 9))
            '#(|swapRows!| 91 |rowEchelon| 98 |rank| 103 |nullity| 108
@@ -222,8 +224,8 @@
                                          1 16 23 2 24 1 0 23 0 25 1 16 23 2 26
                                          1 0 23 0 27 1 16 28 2 29 1 0 28 0 30 1
                                          16 31 2 32 1 0 33 0 34 3 0 0 0 9 9 15
-                                         1 12 0 0 22 1 13 23 0 25 1 13 23 0 27
-                                         1 13 28 0 30 1 14 6 0 20 1 0 9 0 10 1
-                                         0 9 0 11 1 0 9 0 14 1 15 33 0 34 1 14
+                                         1 13 0 0 22 1 14 23 0 25 1 14 23 0 27
+                                         1 14 28 0 30 1 15 6 0 20 1 0 9 0 10 1
+                                         0 9 0 11 1 0 9 0 14 1 16 33 0 34 1 15
                                          6 0 18)))))
            '|lookupIncomplete|)) 

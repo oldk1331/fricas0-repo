@@ -124,9 +124,6 @@
                                                         '(|Algebra|
                                                           (|Fraction|
                                                            (|Integer|))))
-                                         (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
-                                                          (|Integer|)))
                                          #10#
                                          (|HasCategory| |#2| '(|EntireRing|))
                                          #11# #9#
