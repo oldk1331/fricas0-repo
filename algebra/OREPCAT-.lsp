@@ -51,7 +51,7 @@
          ('T (CONS 1 "failed")))) 
 
 (SDEFUN |OREPCAT-;exquo;SRU;5| ((|l| S) (|a| R) ($ |Union| S "failed"))
-        (SPROG ((|ans| (S)) (#1=#:G153 NIL) (|u| (|Union| R "failed")))
+        (SPROG ((|ans| (S)) (#1=#:G155 NIL) (|u| (|Union| R "failed")))
                (SEQ
                 (EXIT
                  (SEQ
@@ -72,7 +72,7 @@
                           ((QEQCAR |u| 1)
                            (PROGN
                             (LETT #1# (CONS 1 "failed") . #2#)
-                            (GO #3=#:G152)))
+                            (GO #3=#:G154)))
                           ('T
                            (SEQ
                             (LETT |ans|
@@ -94,7 +94,7 @@
         (SPADCALL (SPADCALL |l| (QREFELT $ 29)) (QREFELT $ 31))) 
 
 (SDEFUN |OREPCAT-;primitivePart;2S;7| ((|l| S) ($ S))
-        (SPROG ((#1=#:G156 NIL))
+        (SPROG ((#1=#:G158 NIL))
                (PROG2
                    (LETT #1#
                          (SPADCALL |l| (SPADCALL |l| (QREFELT $ 33))
@@ -359,8 +359,6 @@
                                              (LIST
                                               (|HasCategory| |#2| '(|Field|))
                                               (|HasCategory| |#2|
-                                                             '(|GcdDomain|))
-                                              (|HasCategory| |#2|
                                                              '(|IntegralDomain|))
                                               (|HasCategory| |#2|
                                                              '(|CommutativeRing|))))
@@ -370,11 +368,11 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 3)
+           ((|testBitVector| |pv$| 2)
             (QSETREFV $ 28
                       (CONS (|dispatchFunction| |OREPCAT-;exquo;SRU;5|) $))))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|HasCategory| |#2| '(|GcdDomain|))
             (PROGN
              (QSETREFV $ 32
                        (CONS (|dispatchFunction| |OREPCAT-;content;SR;6|) $))
@@ -456,8 +454,8 @@
               (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
                         (|:| |coefu| $) (|:| |coefv| $))
               (211 . |right_ext_ext_GCD|) (217 . |right_ext_ext_GCD|)
-              (|Fraction| 64) (|Union| 64 '#1="failed") (|Union| 61 '#1#)
-              (|Integer|) (|OutputForm|) (|PositiveInteger|))
+              (|Integer|) (|Union| 63 '#1="failed") (|Fraction| 61)
+              (|Union| 61 '#1#) (|OutputForm|) (|PositiveInteger|))
            '#(|right_ext_ext_GCD| 223 |rightRemainder| 229 |rightQuotient| 235
               |rightLcm| 241 |rightGcd| 247 |rightExtendedGcd| 253
               |rightExactQuotient| 259 |retractIfCan| 265 |primitivePart| 270

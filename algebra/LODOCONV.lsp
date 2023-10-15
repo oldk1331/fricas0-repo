@@ -71,14 +71,14 @@
                                                     (QREFELT $ 21))
                                                    (|spadConstant| $ 22)
                                                    (QREFELT $ 23))
-                                                  (SPADCALL (QREFELT $ 35))
-                                                  (QREFELT $ 36))
-                                                 (SPADCALL |l3| (QREFELT $ 37))
-                                                 (QREFELT $ 38))
-                                                (QREFELT $ 36))
-                                      (QREFELT $ 39))
+                                                  (SPADCALL (QREFELT $ 39))
+                                                  (QREFELT $ 40))
+                                                 (SPADCALL |l3| (QREFELT $ 41))
+                                                 (QREFELT $ 42))
+                                                (QREFELT $ 40))
+                                      (QREFELT $ 43))
                             . #1#)
-                      (EXIT (LETT |l3| (SPADCALL |l3| (QREFELT $ 40)) . #1#)))
+                      (EXIT (LETT |l3| (SPADCALL |l3| (QREFELT $ 44)) . #1#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT |l1|)))) 
 
@@ -111,7 +111,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|LODOConvertions| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 42) . #1#)
+          (LETT $ (GETREFV 46) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|LODOConvertions|
@@ -134,14 +134,15 @@
               (41 . |One|) (45 . *) (|Union| $ '"failed") (51 . |recip|)
               (56 . D) (60 . *) (66 . |degree|) (71 . ^) (77 . +)
               (83 . |reductum|) |LODOCONV;convert;LodoLodo;1| (88 . ~=)
-              (94 . |leadingCoefficient|) (99 . D) (103 . *) (109 . |degree|)
-              (114 . ^) (120 . +) (126 . |reductum|)
+              (94 . |leadingCoefficient|) (99 . |monomial|)
+              (|Fraction| (|Integer|)) (105 . |One|) (109 . *) (115 . D)
+              (119 . *) (125 . |degree|) (130 . ^) (136 . +) (142 . |reductum|)
               |LODOCONV;convert;LodoLodo;2|)
-           '#(|convert| 131) 'NIL
+           '#(|convert| 147) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 41
+                             (|makeByteWordVec2| 45
                                                  '(0 9 0 10 0 6 0 11 0 7 0 12 0
                                                    13 0 14 2 13 15 0 0 16 1 13
                                                    8 0 17 0 6 0 18 0 7 0 19 2 7
@@ -150,8 +151,10 @@
                                                    0 8 0 27 1 13 20 0 28 2 9 0
                                                    0 20 29 2 9 0 0 0 30 1 13 0
                                                    0 31 2 9 15 0 0 33 1 9 8 0
-                                                   34 0 13 0 35 2 13 0 8 0 36 1
-                                                   9 20 0 37 2 13 0 0 20 38 2
-                                                   13 0 0 0 39 1 9 0 0 40 1 0
-                                                   13 9 41 1 0 9 13 32)))))
+                                                   34 2 13 0 8 20 35 0 36 0 37
+                                                   2 13 0 0 8 38 0 13 0 39 2 13
+                                                   0 8 0 40 1 9 20 0 41 2 13 0
+                                                   0 20 42 2 13 0 0 0 43 1 9 0
+                                                   0 44 1 0 13 9 45 1 0 9 13
+                                                   32)))))
            '|lookupComplete|)) 
