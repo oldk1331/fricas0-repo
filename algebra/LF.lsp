@@ -303,8 +303,8 @@
               ((SPADCALL |op| '|erf| (QREFELT $ 101)) (QREFELT $ 26))
               ((SPADCALL |op| '|erfi| (QREFELT $ 101)) (QREFELT $ 27))
               ((SPADCALL |op| '|dilog| (QREFELT $ 101)) (QREFELT $ 25))
-              ((SPADCALL |op| '|fresnelC| (QREFELT $ 101)) (QREFELT $ 28))
-              ((SPADCALL |op| '|fresnelS| (QREFELT $ 101)) (QREFELT $ 29))
+              ((SPADCALL |op| '|fresnelC| (QREFELT $ 101)) (QREFELT $ 29))
+              ((SPADCALL |op| '|fresnelS| (QREFELT $ 101)) (QREFELT $ 28))
               ('T (|error| "Not a Liouvillian operator")))) 
 
 (SDEFUN |LF;pint| ((|l| |List| (|InputForm|)) ($ |InputForm|))
