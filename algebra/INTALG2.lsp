@@ -254,8 +254,7 @@
            (|Record|
             (|:| |polypart| (|Fraction| (|SparseUnivariatePolynomial| F)))
             (|:| |logpart| (|Fraction| (|SparseUnivariatePolynomial| F)))))
-          (|d1| (|SparseUnivariatePolynomial| F)) (#1=#:G159 NIL) (|p1| NIL)
-          (#2=#:G160 NIL) (|lg1| NIL))
+          (#1=#:G159 NIL) (|p1| NIL) (#2=#:G160 NIL) (|lg1| NIL))
          (SEQ (LETT |pres| NIL . #3=(|INTALG2;split_logparts|))
               (LETT |lres| NIL . #3#)
               (SEQ (LETT |lg1| NIL . #3#) (LETT #2# |llog| . #3#)
@@ -264,16 +263,15 @@
                     ((OR (ATOM #1#) (PROGN (LETT |p1| (CAR #1#) . #3#) NIL)
                          (ATOM #2#) (PROGN (LETT |lg1| (CAR #2#) . #3#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |d1| (SPADCALL |lg1| (QREFELT $ 43)) . #3#)
-                        (PROGN
-                         (LETT |#G27|
-                               (|INTALG2;split_logpart| |p1| |lg1| |dden| $)
-                               . #3#)
-                         (LETT |p2| (QCAR |#G27|) . #3#)
-                         (LETT |lg2| (QCDR |#G27|) . #3#)
-                         |#G27|)
-                        (LETT |lres| (CONS |lg2| |lres|) . #3#)
-                        (EXIT (LETT |pres| (CONS |p2| |pres|) . #3#)))
+                   (SEQ
+                    (PROGN
+                     (LETT |#G27| (|INTALG2;split_logpart| |p1| |lg1| |dden| $)
+                           . #3#)
+                     (LETT |p2| (QCAR |#G27|) . #3#)
+                     (LETT |lg2| (QCDR |#G27|) . #3#)
+                     |#G27|)
+                    (LETT |lres| (CONS |lg2| |lres|) . #3#)
+                    (EXIT (LETT |pres| (CONS |p2| |pres|) . #3#)))
                    (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #3#))
                          . #3#)
                    (GO G190) G191 (EXIT NIL))
