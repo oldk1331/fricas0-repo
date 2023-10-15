@@ -106,8 +106,9 @@
         ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
          ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
         (SPROG
-         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|q| (C))
-          (#1=#:G146 NIL) (|n| (|Union| (|NonNegativeInteger|) "failed"))
+         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|a1| (C))
+          (|q| (C)) (#1=#:G146 NIL)
+          (|n| (|Union| (|NonNegativeInteger|) "failed"))
           (|m| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -141,11 +142,13 @@
                                 (QREFELT $ 25))
                       (QCDR |n|) (QREFELT $ 26))
                      . #3#)
-               (LETT |qr|
-                     (|OREPCTO;localLeftDivide|
-                      (SPADCALL |a| (SPADCALL |b| |q| (QREFELT $ 34))
-                                (QREFELT $ 35))
-                      |b| |sigma| |b1| $)
+               (LETT |a1|
+                     (SPADCALL (SPADCALL |a| (QREFELT $ 23))
+                               (SPADCALL (SPADCALL |b| |q| (QREFELT $ 34))
+                                         (QREFELT $ 23))
+                               (QREFELT $ 35))
+                     . #3#)
+               (LETT |qr| (|OREPCTO;localLeftDivide| |a1| |b| |sigma| |b1| $)
                      . #3#)
                (EXIT
                 (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
@@ -155,8 +158,9 @@
         ((|a| C) (|b| C) (|sigma| |Automorphism| R) (|b1| R)
          ($ |Record| (|:| |quotient| C) (|:| |remainder| C)))
         (SPROG
-         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|q| (C))
-          (#1=#:G156 NIL) (|n| (|Union| (|NonNegativeInteger|) "failed"))
+         ((|qr| (|Record| (|:| |quotient| C) (|:| |remainder| C))) (|a1| (C))
+          (|q| (C)) (#1=#:G156 NIL)
+          (|n| (|Union| (|NonNegativeInteger|) "failed"))
           (|m| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -192,11 +196,13 @@
                                 (QREFELT $ 29))
                       (QCDR |n|) (QREFELT $ 26))
                      . #3#)
-               (LETT |qr|
-                     (|OREPCTO;localRightDivide|
-                      (SPADCALL |a| (SPADCALL |q| |b| (QREFELT $ 34))
-                                (QREFELT $ 35))
-                      |b| |sigma| |b1| $)
+               (LETT |a1|
+                     (SPADCALL (SPADCALL |a| (QREFELT $ 23))
+                               (SPADCALL (SPADCALL |q| |b| (QREFELT $ 34))
+                                         (QREFELT $ 23))
+                               (QREFELT $ 35))
+                     . #3#)
+               (LETT |qr| (|OREPCTO;localRightDivide| |a1| |b| |sigma| |b1| $)
                      . #3#)
                (EXIT
                 (CONS (SPADCALL |q| (QCAR |qr|) (QREFELT $ 27)) (QCDR |qr|)))))
