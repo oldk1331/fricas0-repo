@@ -1475,7 +1475,9 @@
  
 ; appOrParen(x) ==
 ;    SYMBOLP(x) => formWrapId x
-;    INTEGERP(x) => WRITE_-TO_-STRING x
+;    INTEGERP(x) =>
+;        x >=0 => WRITE_-TO_-STRING x
+;        concat('"(",WRITE_-TO_-STRING x,'")")
 ;    -- Kludge to avoid extra parentheses printing a SparseUnivariatePolynomial
 ;    x = '"?" => formWrapId x
 ;    ATOM(x) => concat('"(", form2String1(x), '")")
@@ -1500,10 +1502,12 @@
   (PROG (|op| |argl| |ISTMP#1| |f| |ISTMP#2| |t|)
     (RETURN
      (COND ((SYMBOLP |x|) (|formWrapId| |x|))
-           ((INTEGERP |x|) (WRITE-TO-STRING |x|))
+           ((INTEGERP |x|)
+            (COND ((NOT (MINUSP |x|)) (WRITE-TO-STRING |x|))
+                  (#1='T (|concat| "(" (WRITE-TO-STRING |x|) ")"))))
            ((EQUAL |x| "?") (|formWrapId| |x|))
            ((ATOM |x|) (|concat| "(" (|form2String1| |x|) ")"))
-           (#1='T
+           (#1#
             (PROGN
              (SETQ |op| (CAR |x|))
              (SETQ |argl| (CDR |x|))
