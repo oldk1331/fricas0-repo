@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4878 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4877 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -497,38 +497,38 @@
  |computeCycleLength| |computeCycleEntry| |coerceP| |powerSum| |elementary|
  |alternating| |cyclic| |dihedral| |cap| |cup| |wreath| |SFunction|
  |skewSFunction| |cyclotomicDecomposition| |cyclotomicFactorization|
- |doubleResultant| |distdfact| |separateDegrees| |trace2PowMod| |tracePowMod|
- |irreducible?| |decimal| |innerint| |dequeue| |exteriorDifferential|
- |totalDifferential| |homogeneous?| |leadingBasisTerm| |ignore?| |computeInt|
- |checkForZero| |doubleFloatFormat| |qsqrt| |qlog| |hypergeometric0F1| |qnew|
- |directedGraph| |rotatez| |rotatey| |rotatex| |exponentb| |exponenta| |expb|
- |expa| |dictionary| |dioSolve| |directProduct| |additive?| |multiplicative?|
- |zeta| |newLine| |copies| |say| |sayLength| |monotoneConvolution|
- |booleanConvolution| |freeConvolution| |classicalConvolution|
- |orthogonalPolynomials| |jacobiParameters| |monotoneCumulants|
- |hankelDeterminants| |booleanCumulants| |freeCumulants| |classicalCumulants|
- |moments| |booleanCumulant| |freeCumulant| |classicalCumulant| |moment|
- |gaussianDistribution| |poissonDistribution| |wignerDistribution|
- |freePoissonDistribution| |bernoulliDistribution01| |arcsineDistribution|
- |distributionByMonotoneCumulants| |booleanCumulantFromJacobi|
- |distributionByJacobiParameters| |distributionByBooleanCumulants|
- |distributionByFreeCumulants| |distributionByClassicalCumulants|
- |distributionByEvenMoments| |distributionByMoments| |mapall|
- |R1_to_R2_coercion| |setnext!| |setprevious!| |next| |previous| |datalist|
- |shanksDiscLogAlgorithm| |separant| |leader| |isobaric?| |weights|
- |differentialVariables| |extractBottom!| |extractTop!| |insertBottom!|
- |insertTop!| |recolor| |makeObject| |drawComplex| |drawComplexVectorField|
- |setRealSteps| |setImagSteps| |setClipValue| |draw| |option?| |range|
- |colorFunction| |curveColor| |pointColor| |clip| |clipBoolean| |style|
- |toScale| |pointColorPalette| |curveColorPalette| |var1Steps| |var2Steps|
- |space| |tubePoints| |tubeRadius| |JContinuedFraction| |makeVariable| |Nul|
- |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin| |iicos| |iitan|
- |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot| |iiasec| |iiacsc|
- |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch| |iiasinh| |iiacosh|
- |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs| |localReal?|
- |poly_factor| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
- |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
- |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
+ |doubleResultant| |distdfact| |separateDegrees| |exptMod| |trace2PowMod|
+ |tracePowMod| |irreducible?| |decimal| |innerint| |dequeue|
+ |exteriorDifferential| |totalDifferential| |homogeneous?| |leadingBasisTerm|
+ |ignore?| |computeInt| |checkForZero| |doubleFloatFormat| |qsqrt| |qlog|
+ |hypergeometric0F1| |qnew| |directedGraph| |rotatez| |rotatey| |rotatex|
+ |exponentb| |exponenta| |expb| |expa| |dictionary| |dioSolve| |directProduct|
+ |additive?| |multiplicative?| |zeta| |newLine| |copies| |say| |sayLength|
+ |monotoneConvolution| |booleanConvolution| |freeConvolution|
+ |classicalConvolution| |orthogonalPolynomials| |jacobiParameters|
+ |monotoneCumulants| |hankelDeterminants| |booleanCumulants| |freeCumulants|
+ |classicalCumulants| |moments| |booleanCumulant| |freeCumulant|
+ |classicalCumulant| |moment| |gaussianDistribution| |poissonDistribution|
+ |wignerDistribution| |freePoissonDistribution| |bernoulliDistribution01|
+ |arcsineDistribution| |distributionByMonotoneCumulants|
+ |booleanCumulantFromJacobi| |distributionByJacobiParameters|
+ |distributionByBooleanCumulants| |distributionByFreeCumulants|
+ |distributionByClassicalCumulants| |distributionByEvenMoments|
+ |distributionByMoments| |mapall| |R1_to_R2_coercion| |setnext!| |setprevious!|
+ |next| |previous| |datalist| |shanksDiscLogAlgorithm| |separant| |leader|
+ |isobaric?| |weights| |differentialVariables| |extractBottom!| |extractTop!|
+ |insertBottom!| |insertTop!| |recolor| |makeObject| |drawComplex|
+ |drawComplexVectorField| |setRealSteps| |setImagSteps| |setClipValue| |draw|
+ |option?| |range| |colorFunction| |curveColor| |pointColor| |clip|
+ |clipBoolean| |style| |toScale| |pointColorPalette| |curveColorPalette|
+ |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius| |JContinuedFraction|
+ |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin|
+ |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
+ |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
+ |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
+ |localReal?| |poly_factor| |do_quo| |rischNormalize| |realLiouvillian|
+ |realElementary| |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep|
+ |select!| |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
  |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
  |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
  |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
@@ -736,42 +736,41 @@
  |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!|
  |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
  |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
- |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
- |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
- |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
- |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
- |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
- |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
- |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
- |corrPoly| |lifting| |exprex| |coerceS| |mfactor| |ddfact| |mmul| |mod_exp|
- |power_matrix| |modular_compose| |ini_rdata| |red_pol| |HP_solve_I|
- |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a|
- |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables|
- |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA|
- |frobenius| |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index|
- |exponent| |exQuo| |moebius| |cumulant2moment| |moment2cumulant|
- |moment2nthJacobi| |moment2jacobi| |moment2jacobi2| |freeCumulant2moment|
- |moment2freeCumulant| |booleanCumulant2moment| |moment2booleanCumulant|
- |monotoneCumulant2moment| |monotoneCumulant2momentPoly| |qcumulant2nthmoment|
- |hankelDeterminant| |jacobi2poly| |moment2Stransform|
- |moment2monotoneCumulant| |derivationCoordinates| |generator| |one?|
- |splitSquarefree| |normalDenom| |totalfract| |pushdterm| |pushucoef|
- |pushuconst| |numberOfMonomials| |monomials| |mrv_normalize| |mrv_limit|
- |mrv_limit1| |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite|
- |mrv_rewrite0| |members| |multiset| |systemCommand| |mergeDifference|
- |logDependenceQ| |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree|
- |intChoose| |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |commutator|
- |associator| |antiCommutator| |naiveBeckermannLabahn|
- |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
- |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
- |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
- |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
- |normInvertible?| |normFactors| |npcoef| |characteristicPolynomial|
- |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
- |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
- |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
- |complexNumeric| |numericIfCan| |complexNumericIfCan| |FormatArabic|
- |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |duplicates| |removeDuplicates!| |ddFact| |separateFactors| |meshPar2Var|
+ |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree| |subst_vars| |trial_division|
+ |toPermutation| |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint|
+ |multifunctionGraph| |minimumExponent| |maximumExponent| |precision|
+ |mantissa| |rowEch| |rowEchLocal| |rowEchelonLocal| |normalizedDivide|
+ |maxint| |binaryFunction| |makeFloatFunction| |function| |makeRecord|
+ |unaryFunction| |compiledFunction| |corrPoly| |lifting| |exprex| |coerceS|
+ |mfactor| |ddfact| |mmul| |mod_exp| |power_matrix| |modular_compose|
+ |ini_rdata| |red_pol| |HP_solve_I| |HP_solve_A| |HP_solve_P| |HP_solve_PA|
+ |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA|
+ |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
+ |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
+ |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
+ |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
+ |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
+ |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
+ |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant|
+ |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
+ |totalfract| |pushdterm| |pushucoef| |pushuconst| |numberOfMonomials|
+ |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1| |mrv_sign| |mrv_cmp|
+ |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0| |members| |multiset|
+ |systemCommand| |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd|
+ |univcase| |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree|
+ |normDeriv2| |plenaryPower| |commutator| |associator| |antiCommutator|
+ |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
+ |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
+ |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
+ |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
+ |outputArgs| |normInvertible?| |normFactors| |npcoef|
+ |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
+ |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
+ |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
+ |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
+ |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
  |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
  |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
  |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|
