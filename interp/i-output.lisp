@@ -1055,7 +1055,7 @@
 ;       d:= APP(opString,x,y,d)
 ;       x:= x + #opString
 ;     [d,x]:= appInfixArg(arg,x,y,d,rightPrec,"left",nil) --app in a right arg
-;     wasSimple:= atom arg and not NUMBERP arg or isRationalNumber arg
+;     wasSimple := atom arg and not NUMBERP arg
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     lastOp := op
@@ -1086,9 +1086,7 @@
                      (|appInfixArg| |arg| |x| |y| |d| |rightPrec| '|left| NIL))
              (SETQ |d| (CAR |LETTMP#1|))
              (SETQ |x| (CADR |LETTMP#1|))
-             (SETQ |wasSimple|
-                     (OR (AND (ATOM |arg|) (NULL (NUMBERP |arg|)))
-                         (|isRationalNumber| |arg|)))
+             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
@@ -1108,7 +1106,7 @@
 ;       w:= w + #opString
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
-;     wasSimple:= atom arg and not NUMBERP arg --or isRationalNumber arg
+;     wasSimple := atom arg and not NUMBERP arg
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     firstTime:= nil
@@ -1157,7 +1155,7 @@
 ;       d:= APP(BLANK,x,y,d)
 ;       x:= x+1
 ;     [d,x]:= appInfixArg(arg,x,y,d,rightPrec,"left",nil) --app in a right arg
-;     wasSimple:= atom arg and not NUMBERP arg or isRationalNumber arg
+;     wasSimple := atom arg and not NUMBERP arg
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     lastOp := op
@@ -1191,9 +1189,7 @@
                      (|appInfixArg| |arg| |x| |y| |d| |rightPrec| '|left| NIL))
              (SETQ |d| (CAR |LETTMP#1|))
              (SETQ |x| (CADR |LETTMP#1|))
-             (SETQ |wasSimple|
-                     (OR (AND (ATOM |arg|) (NULL (NUMBERP |arg|)))
-                         (|isRationalNumber| |arg|)))
+             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
@@ -1527,7 +1523,7 @@
 ; needStar(wasSimple,wasQuotient,wasNumber,cur,op) ==
 ;   wasNumber or wasQuotient or isQuotient op => true
 ;   wasSimple =>
-;     atom cur or keyp cur="SUB" or isRationalNumber cur or op="**" or
+;     atom cur or keyp cur="SUB" or op="**" or
 ;       op = "^" or (atom op and not NUMBERP op and not GETL(op,"APP"))
  
 (DEFUN |needStar| (|wasSimple| |wasQuotient| |wasNumber| |cur| |op|)
@@ -1535,8 +1531,8 @@
     (RETURN
      (COND ((OR |wasNumber| |wasQuotient| (|isQuotient| |op|)) T)
            (|wasSimple|
-            (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB)
-                (|isRationalNumber| |cur|) (EQ |op| '**) (EQ |op| '^)
+            (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB) (EQ |op| '**)
+                (EQ |op| '^)
                 (AND (ATOM |op|) (NULL (NUMBERP |op|))
                      (NULL (GETL |op| 'APP)))))))))
  
@@ -1557,7 +1553,7 @@
 ;       w:= w+1
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
-;     wasSimple:= atom arg and not NUMBERP arg --or isRationalNumber arg
+;     wasSimple := atom arg and not NUMBERP arg
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     lastOp := op
@@ -2288,10 +2284,6 @@
             (SETQ |y| (+ |y| 1))))
          |y1|)
         |d|))))))
- 
-; isRationalNumber x == nil
- 
-(DEFUN |isRationalNumber| (|x|) (PROG () (RETURN NIL)))
  
 ; widthSC u == 10000
  

@@ -1667,8 +1667,7 @@
          ($ |Complex| (|Float|)))
         (SPROG
          ((|zz| #2=(|Complex| (|Float|))) (|snf| (|Complex| (|Float|)))
-          (|dnz| #3=(|Complex| (|Float|))) (|cnz| #3#) (|nz| (|Float|))
-          (|z2| #2#) (|z0| #1#))
+          (|dnz| #3=(|Complex| (|Float|))) (|cnz| #3#) (|z2| #2#) (|z0| #1#))
          (SEQ (LETT |z0| |z| . #4=(|FELFUN;half_z|))
               (LETT |z2| (SPADCALL |z| |z| (QREFELT $ 52)) . #4#)
               (LETT |z2|
@@ -1688,7 +1687,6 @@
                                (QREFELT $ 42))
                      (QREFELT $ 43))
                     . #4#)
-              (LETT |nz| (SPADCALL |z2| (QREFELT $ 112)) . #4#)
               (LETT |cnz|
                     (SPADCALL
                      (SPADCALL (|spadConstant| $ 32) |z2| (QREFELT $ 44))
@@ -1715,7 +1713,7 @@
               (COND
                ((SPADCALL
                  (SPADCALL
-                  (SPADCALL (SPADCALL |z0| (QREFELT $ 113)) |zz|
+                  (SPADCALL (SPADCALL |z0| (QREFELT $ 112)) |zz|
                             (QREFELT $ 52))
                   (QREFELT $ 11))
                  (|spadConstant| $ 65) (QREFELT $ 17))
@@ -1735,7 +1733,7 @@
          (SEQ
           (COND
            ((SPADCALL |m| (|spadConstant| $ 32) (QREFELT $ 70))
-            (SPADCALL |z| (QREFELT $ 114)))
+            (SPADCALL |z| (QREFELT $ 113)))
            (#2='T
             (SEQ
              (LETT |obits| (SPADCALL (QREFELT $ 67))
@@ -1753,7 +1751,7 @@
                         (SPADCALL (|spadConstant| $ 32) |m| (QREFELT $ 43)) $)
                        |m2| (QREFELT $ 43)))))
                ((SPADCALL |m| (|spadConstant| $ 78) (QREFELT $ 70))
-                (SPADCALL |z| (QREFELT $ 115)))
+                (SPADCALL |z| (QREFELT $ 114)))
                ((SPADCALL |z| (|spadConstant| $ 32) (QREFELT $ 70))
                 (SPADCALL |m| (QREFELT $ 73)))
                (#2#
@@ -1771,7 +1769,7 @@
                        (LETT |res| (SPADCALL |ll| (QREFELT $ 55)) . #3#)
                        (LETT |ll| (NREVERSE |ll|) . #3#)
                        (LETT |sf| (|spadConstant| $ 20) . #3#)
-                       (LETT |nz| (SPADCALL |z| (QREFELT $ 112)) . #3#)
+                       (LETT |nz| (SPADCALL |z| (QREFELT $ 115)) . #3#)
                        (COND
                         ((SPADCALL (|spadConstant| $ 20) |nz| (QREFELT $ 17))
                          (SEQ (LETT |z| (|FELFUN;half_z| |z| |m| $) . #3#)
@@ -1810,7 +1808,7 @@
                             (EXIT NIL))
                        (EXIT
                         (SPADCALL (SPADCALL |sf| |res| (QREFELT $ 72))
-                                  (SPADCALL |z| (QREFELT $ 115))
+                                  (SPADCALL |z| (QREFELT $ 114))
                                   (QREFELT $ 52))))))))))))))) 
 
 (SDEFUN |FELFUN;ellipticF;3C;40|
@@ -1820,7 +1818,7 @@
                (SEQ
                 (COND
                  ((SPADCALL |m| (|spadConstant| $ 32) (QREFELT $ 70))
-                  (SPADCALL |z| (QREFELT $ 114)))
+                  (SPADCALL |z| (QREFELT $ 113)))
                  ('T
                   (SEQ
                    (LETT |obits| (SPADCALL (QREFELT $ 67))
@@ -2193,7 +2191,7 @@
                      (QREFELT $ 52))
                     (QREFELT $ 44)))))
             ((SPADCALL |m| (|spadConstant| $ 78) (QREFELT $ 70))
-             (SPADCALL |z| (QREFELT $ 115)))
+             (SPADCALL |z| (QREFELT $ 114)))
             ((SPADCALL |z| (|spadConstant| $ 32) (QREFELT $ 70))
              (SPADCALL |m| (QREFELT $ 119)))
             (#9='T
@@ -2210,7 +2208,7 @@
                     (LETT |ll| (SPADCALL |m| |eps| (QREFELT $ 51)) . #8#)
                     (LETT |llr| (REVERSE |ll|) . #8#) (LETT |lz| NIL . #8#)
                     (LETT |sf| (|spadConstant| $ 20) . #8#)
-                    (LETT |nz| (SPADCALL |z| (QREFELT $ 112)) . #8#)
+                    (LETT |nz| (SPADCALL |z| (QREFELT $ 115)) . #8#)
                     (LETT |res0| (|spadConstant| $ 78) . #8#)
                     (COND
                      ((SPADCALL (|spadConstant| $ 20) |nz| (QREFELT $ 17))
@@ -2252,7 +2250,7 @@
                           (EXIT (LETT |lz| (CONS |z| |lz|) . #8#)))
                          (LETT #7# (CDR #7#) . #8#) (GO G190) G191 (EXIT NIL))
                     (LETT |f_val|
-                          (LETT |e_val| (SPADCALL |z| (QREFELT $ 115)) . #8#)
+                          (LETT |e_val| (SPADCALL |z| (QREFELT $ 114)) . #8#)
                           . #8#)
                     (SEQ (LETT |z| NIL . #8#) (LETT #6# |lz| . #8#)
                          (LETT |k| NIL . #8#) (LETT #5# |ll| . #8#) G190
@@ -2605,8 +2603,8 @@
               (357 . |coerce|) (362 . |imaginary|) (366 . |exp|)
               (371 . |coerce|) |FELFUN;modularInvariantJ;2C;35|
               |FELFUN;weierstrassInvariants;2CL;36| (376 . |atanh|)
-              |FELFUN;ellipticF;3F;37| (381 . |asin|) (386 . |norm|)
-              (391 . |conjugate|) (396 . |atanh|) (401 . |asin|) (406 . ^)
+              |FELFUN;ellipticF;3F;37| (381 . |asin|) (386 . |conjugate|)
+              (391 . |atanh|) (396 . |asin|) (401 . |norm|) (406 . ^)
               |FELFUN;ellipticF;3C;40| |FELFUN;ellipticE;2F;41|
               |FELFUN;ellipticE;2C;42| |FELFUN;ellipticE;3F;43|
               |FELFUN;ellipticE;3C;45| (412 . ^)
@@ -2655,9 +2653,9 @@
                                                    96 1 6 0 0 98 2 27 0 0 13
                                                    102 1 6 0 27 103 0 9 0 104 1
                                                    9 0 0 105 1 9 0 13 106 1 6 0
-                                                   0 109 1 6 0 0 111 1 9 6 0
+                                                   0 109 1 6 0 0 111 1 9 0 0
                                                    112 1 9 0 0 113 1 9 0 0 114
-                                                   1 9 0 0 115 2 9 0 0 13 116 2
+                                                   1 9 6 0 115 2 9 0 0 13 116 2
                                                    9 0 0 27 122 3 0 6 6 6 6 127
                                                    3 0 9 9 9 9 125 3 0 6 6 6 6
                                                    126 3 0 9 9 9 9 124 2 0 46 9
