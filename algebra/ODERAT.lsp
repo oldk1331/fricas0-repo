@@ -946,11 +946,21 @@
                    (EXIT (NREVERSE #2#))))
              $)))))) 
 
+(SDEFUN |ODERAT;integrate_sols;LodoR;20|
+        ((|op| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+         ($ |Record|
+          (|:| |ltilde|
+               (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP)))
+          (|:| |r|
+               (|Union| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
+                        "failed"))))
+        (SPADCALL |op| (ELT $ 107) (QREFELT $ 120))) 
+
 (DECLAIM (NOTINLINE |RationalLODE;|)) 
 
-(DEFUN |RationalLODE| (&REST #1=#:G278)
+(DEFUN |RationalLODE| (&REST #1=#:G283)
   (SPROG NIL
-         (PROG (#2=#:G279)
+         (PROG (#2=#:G284)
            (RETURN
             (COND
              ((LETT #2#
@@ -973,7 +983,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RationalLODE|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|RationalLODE| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 116) . #1#)
+          (LETT $ (GETREFV 122) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RationalLODE| (LIST DV$1 DV$2)
@@ -1029,12 +1039,17 @@
               (|Record| (|:| |basis| 23) (|:| |mat| 36))
               |ODERAT;ratDsolve;LodoLR;17| (350 . |content|) (355 . |unit?|)
               (|Union| $ '"failed") (360 . |exquo|)
-              |ODERAT;ratDsolve;LodoFR;18| |ODERAT;ratDsolve;LodoLR;19|)
-           '#(|ratDsolve| 366 |indicialEquationAtInfinity| 390) 'NIL
+              |ODERAT;ratDsolve;LodoFR;18| |ODERAT;ratDsolve;LodoLR;19|
+              (|Union| 75 '"failed") (|Record| (|:| |ltilde| 75) (|:| |r| 116))
+              (|Mapping| 106 75 11) (|IntegrateSolutions| 11 75)
+              (366 . |integrate_sols|) |ODERAT;integrate_sols;LodoR;20|)
+           '#(|ratDsolve| 372 |integrate_sols| 396 |indicialEquationAtInfinity|
+              401)
+           'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 115
+                             (|makeByteWordVec2| 121
                                                  '(0 8 0 9 1 11 7 0 12 1 7 13 0
                                                    14 1 11 7 0 15 1 17 16 0 18
                                                    0 6 0 19 0 7 0 20 1 6 0 0 21
@@ -1067,8 +1082,9 @@
                                                    1 102 17 7 103 2 68 6 0 17
                                                    104 2 11 0 7 0 105 1 22 7 0
                                                    110 1 7 16 0 111 2 22 112 0
-                                                   7 113 2 0 106 75 11 107 2 0
-                                                   106 22 11 114 2 0 108 75 23
-                                                   109 2 0 108 22 23 115 1 0 7
-                                                   22 73 1 0 7 75 77)))))
+                                                   7 113 2 119 117 75 118 120 2
+                                                   0 106 75 11 107 2 0 106 22
+                                                   11 114 2 0 108 75 23 109 2 0
+                                                   108 22 23 115 1 0 117 75 121
+                                                   1 0 7 75 77 1 0 7 22 73)))))
            '|lookupComplete|)) 

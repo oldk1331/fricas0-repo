@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4847 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4849 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -176,8 +176,8 @@
  |InnerModularGcd| |InnerMultFact| |InnerPolySign| |IntegerNumberSystem&|
  |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
  |AlgebraicIntegrate| |AlgebraicIntegrate2| |IntegerBits| |IntervalCategory|
- |DenominatorIntegration| |IntegralDomain| |ElementaryIntegration|
- |IntegerFactorizationPackage| |GenusZeroIntegration|
+ |DenominatorIntegration| |IntegralDomain| |IntegrateSolutions|
+ |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
  |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
  |TranscendentalHermiteIntegration| |PureAlgebraicIntegration|
  |ParametricTranscendentalIntegration| |ParametricIntegration|
@@ -767,47 +767,47 @@
  |constDsolve| |expint| |diff| |algDsolve| |denomLODE| |indicialEquations|
  |indicialEquation| |denomRicDE| |leadingCoefficientRicDE|
  |constantCoefficientRicDE| |changeVar| |ratDsolve|
- |indicialEquationAtInfinity| |reduceLODE| |singRicDE| |polyRicDE| |ricDsolve|
- |triangulate| |solveInField| |wronskianMatrix| |variationOfParameters|
- |factors| |nthFactor| |nthExpon| |overlap| |hcrf| |hclf| |lexico| |operator|
- |arguments| |has_op?| |is_symbol?| |OMmakeConn| |OMcloseConn| |OMconnInDevice|
- |OMconnOutDevice| |OMconnectTCP| |OMbindTCP| |OMopenFile| |OMopenString|
- |OMclose| |OMsetEncoding| |OMputApp| |OMputAtp| |OMputAttr| |OMputBind|
- |OMputBVar| |OMputError| |OMputObject| |OMputEndApp| |OMputEndAtp|
- |OMputEndAttr| |OMputEndBind| |OMputEndBVar| |OMputEndError| |OMputEndObject|
- |OMputInteger| |OMputFloat| |OMputVariable| |OMputString| |OMputSymbol|
- |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind| |OMgetBVar| |OMgetError|
- |OMgetObject| |OMgetEndApp| |OMgetEndAtp| |OMgetEndAttr| |OMgetEndBind|
- |OMgetEndBVar| |OMgetEndError| |OMgetEndObject| |OMgetInteger| |OMgetFloat|
- |OMgetVariable| |OMgetString| |OMgetSymbol| |OMgetType| |OMencodingBinary|
- |OMencodingSGML| |OMencodingXML| |OMencodingUnknown| |omError| |errorInfo|
- |errorKind| |OMReadError?| |OMUnknownSymbol?| |OMUnknownCD?| |OMParseError?|
- |OMwrite| |po| |op| |OMread| |OMreadFile| |OMreadStr| |OMlistCDs|
- |OMlistSymbols| |OMsupportsCD?| |OMsupportsSymbol?| |OMunhandledSymbol|
- |OMreceive| |OMsend| |OMserve| |infinity| |makeop| |opeval| |evaluateInverse|
- |evaluate| |conjug| |getDatabase| |whatInfinity| |infinite?| |finite?|
- |minusInfinity| |plusInfinity| |pureLex| |totalLex| |reverseLex| |leftLcm|
- |right_ext_ext_GCD| |rightExtendedGcd| |rightGcd| |rightExactQuotient|
- |rightRemainder| |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd|
- |leftExactQuotient| |leftRemainder| |leftQuotient| |times| |monicLeftDivide|
- |monicRightDivide| |leftDivide| |rightDivide| |output| |outputList| |or| |and|
- |quo| |rem| ~= |blankSeparate| |semicolonSeparate| |commaSeparate| |pile|
- |paren| |bracket| |prod| |overlabel| |overbar| |prime| |quote| |supersub|
- |presuper| |presub| |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box|
- |label| |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace|
- |vspace| |hspace| |messagePrint| |message| |padecf| |pade| |root|
- |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
- |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
- |surface| |coordinate| |partitions| |conjugates| |shuffle| |shufflein|
- |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
- |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
- |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
- |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
- |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
- |inR?| |isList| |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue|
- |badValues| |retractable?| |listOfTerms| |One| |leftFactor|
- |rightFactorCandidate| |adjoint| |id_map| |diff_map| |ptree| |coerceImages|
- |fixedPoints| |odd?| |even?| |numberOfCycles| |cyclePartition|
+ |indicialEquationAtInfinity| |integrate_sols| |reduceLODE| |singRicDE|
+ |polyRicDE| |ricDsolve| |triangulate| |solveInField| |wronskianMatrix|
+ |variationOfParameters| |factors| |nthFactor| |nthExpon| |overlap| |hcrf|
+ |hclf| |lexico| |operator| |arguments| |has_op?| |is_symbol?| |OMmakeConn|
+ |OMcloseConn| |OMconnInDevice| |OMconnOutDevice| |OMconnectTCP| |OMbindTCP|
+ |OMopenFile| |OMopenString| |OMclose| |OMsetEncoding| |OMputApp| |OMputAtp|
+ |OMputAttr| |OMputBind| |OMputBVar| |OMputError| |OMputObject| |OMputEndApp|
+ |OMputEndAtp| |OMputEndAttr| |OMputEndBind| |OMputEndBVar| |OMputEndError|
+ |OMputEndObject| |OMputInteger| |OMputFloat| |OMputVariable| |OMputString|
+ |OMputSymbol| |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind| |OMgetBVar|
+ |OMgetError| |OMgetObject| |OMgetEndApp| |OMgetEndAtp| |OMgetEndAttr|
+ |OMgetEndBind| |OMgetEndBVar| |OMgetEndError| |OMgetEndObject| |OMgetInteger|
+ |OMgetFloat| |OMgetVariable| |OMgetString| |OMgetSymbol| |OMgetType|
+ |OMencodingBinary| |OMencodingSGML| |OMencodingXML| |OMencodingUnknown|
+ |omError| |errorInfo| |errorKind| |OMReadError?| |OMUnknownSymbol?|
+ |OMUnknownCD?| |OMParseError?| |OMwrite| |po| |op| |OMread| |OMreadFile|
+ |OMreadStr| |OMlistCDs| |OMlistSymbols| |OMsupportsCD?| |OMsupportsSymbol?|
+ |OMunhandledSymbol| |OMreceive| |OMsend| |OMserve| |infinity| |makeop|
+ |opeval| |evaluateInverse| |evaluate| |conjug| |getDatabase| |whatInfinity|
+ |infinite?| |finite?| |minusInfinity| |plusInfinity| |pureLex| |totalLex|
+ |reverseLex| |leftLcm| |right_ext_ext_GCD| |rightExtendedGcd| |rightGcd|
+ |rightExactQuotient| |rightRemainder| |rightQuotient| |rightLcm|
+ |leftExtendedGcd| |leftGcd| |leftExactQuotient| |leftRemainder| |leftQuotient|
+ |times| |monicLeftDivide| |monicRightDivide| |leftDivide| |rightDivide|
+ |output| |outputList| |or| |and| |quo| |rem| ~= |blankSeparate|
+ |semicolonSeparate| |commaSeparate| |pile| |paren| |bracket| |prod|
+ |overlabel| |overbar| |prime| |quote| |supersub| |presuper| |presub| |super|
+ |sub| |rarrow| |assign| |slash| |over| |zag| |box| |label| |infix?| |postfix|
+ |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace| |hspace| |messagePrint|
+ |message| |padecf| |pade| |root| |quotientByP| |moduloP| |modulus| |digits|
+ |continuedFraction| |light| |pastel| |bright| |dim| |dark| |motzkinPathArray|
+ |jacobiPathArray| |bottom| |surface| |coordinate| |partitions| |conjugates|
+ |shuffle| |shufflein| |sequences| |permutations| |lists| |atoms| |makeResult|
+ |is?| |Is| |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed|
+ |failed?| |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?|
+ |topPredicate| |setTopPredicate| |patternVariable| |withPredicates|
+ |setPredicates| |predicates| |hasPredicate?| |optional?| |multiple?|
+ |generic?| |quoted?| |inR?| |isList| |isQuotient| |isOp| |predicate|
+ |satisfy?| |addBadValue| |badValues| |retractable?| |listOfTerms| |One|
+ |leftFactor| |rightFactorCandidate| |adjoint| |id_map| |diff_map| |ptree|
+ |coerceImages| |fixedPoints| |odd?| |even?| |numberOfCycles| |cyclePartition|
  |coerceListOfPairs| |coercePreimagesImages| |listRepresentation| |permanent|
  |cycles| |cycle| |perm_to_vec| |initializeGroupForWordProblem| |movedPoints|
  |wordInGenerators| |wordInStrongGenerators| |orbits| |orbit|
