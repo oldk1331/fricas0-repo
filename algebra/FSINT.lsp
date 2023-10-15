@@ -527,22 +527,23 @@
 (SDEFUN |FSINT;integrate;FSU;15|
         ((|f| F) (|x| |Symbol|) ($ |Union| F (|List| F)))
         (SPROG
-         ((|rl| (|List| F)) (#1=#:G295 NIL) (|h| NIL) (#2=#:G294 NIL)
-          (|ltg| #3=(|List| (|Kernel| F))) (|i| (|IntegrationResult| F))
+         ((|rl| (|List| F)) (#1=#:G296 NIL) (|h| NIL) (#2=#:G295 NIL)
+          (|ltg0| #3=(|List| (|Kernel| F))) (|i| (|IntegrationResult| F))
           (|gg| (|Expression| (|Complex| R)))
           (|rtg1|
            (|Record|
             (|:| |ker| (|List| (|Kernel| (|Expression| (|Complex| R)))))
             (|:| |val| (|List| (|Expression| (|Complex| R))))))
-          (|tgg1| (|List| (|Expression| (|Complex| R)))) (#4=#:G293 NIL)
-          (|k| NIL) (#5=#:G292 NIL)
+          (|tgg1| (|List| (|Expression| (|Complex| R)))) (#4=#:G294 NIL)
+          (|k| NIL) (#5=#:G293 NIL)
           (|tgg0| (|List| (|Kernel| (|Expression| (|Complex| R)))))
           (|gg0| (|Expression| (|Complex| R)))
           (|ralg|
            (|Record| (|:| |ker| (|List| (|Kernel| F))) (|:| |val| (|List| F))))
-          (|el| #6=(|Boolean|)) (|rtg| #6#) (|tg| (|List| (|Kernel| F)))
-          (#7=#:G291 NIL) (#8=#:G290 NIL) (|tg0| #9=(|List| (|Kernel| F)))
-          (|g| (F)) (|nr_lst| (|List| (|Kernel| F))) (|ir_lst| (|List| F))
+          (|el| #6=(|Boolean|)) (|rtg| #6#) (|ltg| #3#)
+          (|tg| (|List| (|Kernel| F))) (#7=#:G292 NIL) (#8=#:G291 NIL)
+          (|tg0| #9=(|List| (|Kernel| F))) (|g| (F))
+          (|nr_lst| (|List| (|Kernel| F))) (|ir_lst| (|List| F))
           (|rv_lst| (|List| F)) (|nk| (F)) (|ec| (F))
           (|r_lst| (|List| (|Kernel| F))) (|rnumu| (|Union| R "failed"))
           (|nak| (F))
@@ -550,15 +551,15 @@
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
           (|ak2| (|NonNegativeInteger|)) (#10=#:G259 NIL) (|ak1| (F))
-          (|akl| (|List| F)) (#11=#:G289 NIL) (|tf2| #9#)
+          (|akl| (|List| F)) (#11=#:G290 NIL) (|tf2| #9#)
           (|rec|
            (|Record| (|:| |func| F) (|:| |kers| (|List| (|Kernel| F)))
                      (|:| |vals| (|List| F))))
           (|tf1| #9#) (|f1| (F)) (|evals| (|List| F))
           (|ekers| (|List| (|Kernel| F))) (|kn| (|Symbol|)) (|s| (F))
           (|vk| (|Kernel| F)) (|vu| (|Union| (|Kernel| F) "failed"))
-          (#12=#:G287 NIL) (#13=#:G288 NIL) (|v| NIL) (|etf| (|List| F))
-          (#14=#:G286 NIL) (#15=#:G285 NIL) (|ht| #6#) (|ltf| #3#) (|tf| #9#))
+          (#12=#:G288 NIL) (#13=#:G289 NIL) (|v| NIL) (|etf| (|List| F))
+          (#14=#:G287 NIL) (#15=#:G286 NIL) (|ht| #6#) (|ltf| #3#) (|tf| #9#))
          (SEQ
           (COND
            ((OR (|HasSignature| (QREFELT $ 6) (LIST '|imaginary| (LIST '$)))
@@ -779,19 +780,23 @@
                          (LETT #7# (CDR #7#) . #16#) (GO G190) G191
                          (EXIT (NREVERSE #8#))))
                    . #16#)
+             (LETT |ltg0|
+                   (SPADCALL (CONS #'|FSINT;integrate;FSU;15!2| $) |tg0|
+                             (QREFELT $ 114))
+                   . #16#)
              (LETT |ltg|
-                   (SPADCALL (CONS #'|FSINT;integrate;FSU;15!2| $) |tg|
+                   (SPADCALL (CONS #'|FSINT;integrate;FSU;15!3| $) |tg|
                              (QREFELT $ 114))
                    . #16#)
              (LETT |rtg|
                    (SPADCALL
-                    (CONS #'|FSINT;integrate;FSU;15!3|
+                    (CONS #'|FSINT;integrate;FSU;15!4|
                           (VECTOR (QREFELT $ 8) $))
                     |tg| (QREFELT $ 115))
                    . #16#)
              (LETT |el|
                    (SPADCALL
-                    (CONS #'|FSINT;integrate;FSU;15!4|
+                    (CONS #'|FSINT;integrate;FSU;15!5|
                           (VECTOR (QREFELT $ 10) $))
                     |tg| (QREFELT $ 115))
                    . #16#)
@@ -826,7 +831,7 @@
                           . #16#)
                     (LETT |i|
                           (SPADCALL
-                           (CONS #'|FSINT;integrate;FSU;15!5|
+                           (CONS #'|FSINT;integrate;FSU;15!6|
                                  (VECTOR $ |ralg| |rtg1|))
                            (SPADCALL |gg| |x| (QREFELT $ 143)) (QREFELT $ 146))
                           . #16#)
@@ -844,11 +849,11 @@
               (#17='T (LETT |i| (SPADCALL |g| |x| (QREFELT $ 150)) . #16#)))
              (LETT |i|
                    (SPADCALL
-                    (CONS #'|FSINT;integrate;FSU;15!6|
+                    (CONS #'|FSINT;integrate;FSU;15!7|
                           (VECTOR $ |ir_lst| |nr_lst|))
                     |i| (QREFELT $ 153))
                    . #16#)
-             (LETT |ltg| (SPADCALL |ltg| |ltf| (QREFELT $ 154)) . #16#)
+             (LETT |ltg0| (SPADCALL |ltg0| |ltf| (QREFELT $ 154)) . #16#)
              (LETT |rl|
                    (PROGN
                     (LETT #2# NIL . #16#)
@@ -867,7 +872,8 @@
                            (LETT #2#
                                  (CONS
                                   (|FSINT;postSubst| |h| |tf1| (QVELT |rec| 2)
-                                   (QVELT |rec| 1) |ltg| |ekers| |evals| |x| $)
+                                   (QVELT |rec| 1) |ltg0| |ekers| |evals| |x|
+                                   $)
                                   #2#)
                                  . #16#)))
                          (LETT #1# (CDR #1#) . #16#) (GO G190) G191
@@ -877,21 +883,21 @@
               (COND ((NULL (CDR |rl|)) (CONS 0 (|SPADfirst| |rl|)))
                     (#17# (CONS 1 |rl|)))))))))) 
 
-(SDEFUN |FSINT;integrate;FSU;15!6| ((|ii| NIL) ($$ NIL))
+(SDEFUN |FSINT;integrate;FSU;15!7| ((|ii| NIL) ($$ NIL))
         (PROG (|nr_lst| |ir_lst| $)
           (LETT |nr_lst| (QREFELT $$ 2) . #1=(|FSINT;integrate;FSU;15|))
           (LETT |ir_lst| (QREFELT $$ 1) . #1#)
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN (PROGN (SPADCALL |ii| |nr_lst| |ir_lst| (QREFELT $ 73)))))) 
 
-(SDEFUN |FSINT;integrate;FSU;15!5| ((|fg| NIL) ($$ NIL))
+(SDEFUN |FSINT;integrate;FSU;15!6| ((|fg| NIL) ($$ NIL))
         (PROG (|rtg1| |ralg| $)
           (LETT |rtg1| (QREFELT $$ 2) . #1=(|FSINT;integrate;FSU;15|))
           (LETT |ralg| (QREFELT $$ 1) . #1#)
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN (PROGN (|FSINT;to_real| |fg| |rtg1| |ralg| $))))) 
 
-(SDEFUN |FSINT;integrate;FSU;15!4| ((|x1| NIL) ($$ NIL))
+(SDEFUN |FSINT;integrate;FSU;15!5| ((|x1| NIL) ($$ NIL))
         (PROG ($ ELEM)
           (LETT $ (QREFELT $$ 1) . #1=(|FSINT;integrate;FSU;15|))
           (LETT ELEM (QREFELT $$ 0) . #1#)
@@ -899,13 +905,16 @@
            (PROGN
             (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) ELEM (QREFELT $ 64)))))) 
 
-(SDEFUN |FSINT;integrate;FSU;15!3| ((|x1| NIL) ($$ NIL))
+(SDEFUN |FSINT;integrate;FSU;15!4| ((|x1| NIL) ($$ NIL))
         (PROG ($ RTRIG)
           (LETT $ (QREFELT $$ 1) . #1=(|FSINT;integrate;FSU;15|))
           (LETT RTRIG (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
             (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) RTRIG (QREFELT $ 64)))))) 
+
+(SDEFUN |FSINT;integrate;FSU;15!3| ((|x1| NIL) ($ NIL))
+        (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) '|tan| (QREFELT $ 29))) 
 
 (SDEFUN |FSINT;integrate;FSU;15!2| ((|x1| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x1| (QREFELT $ 54)) '|tan| (QREFELT $ 29))) 
@@ -923,9 +932,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceIntegration;|)) 
 
-(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G296)
+(DEFUN |FunctionSpaceIntegration| (&REST #1=#:G297)
   (SPROG NIL
-         (PROG (#2=#:G297)
+         (PROG (#2=#:G298)
            (RETURN
             (COND
              ((LETT #2#
