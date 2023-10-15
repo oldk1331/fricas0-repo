@@ -391,7 +391,7 @@
             (|makeByteWordVec2| 40
                                 '(0 0 2 2 4 39 17 40 17 0 36 0 3 35 0 0 0 3 10
                                   11 0 0 0 1 3 5 9 10 20 22 23 0 0 0 3 0 0 0 0
-                                  0 3 3 0 0 0 0 0 0 0 0 0 0 6 2 21 27 28 0 0 0
+                                  0 3 3 0 0 0 0 0 0 0 6 0 0 0 2 21 27 28 0 0 0
                                   12 25 0 0 0 0 0 0 0 3 3 7 8 10 13 12 12 12 12
                                   12 14 15 15 16 18 19 24 25 26 29 30 31))
             (CONS
@@ -405,8 +405,8 @@
                 NIL |Module&| |EntireRing&| |PartialDifferentialRing&|
                 |DifferentialRing&| NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL
                 NIL NIL |AbelianGroup&| NIL NIL NIL |AbelianMonoid&| |Monoid&|
-                NIL |FullyEvalableOver&| |SemiGroup&| |AbelianSemiGroup&|
-                |Finite&| NIL NIL NIL NIL NIL |FullyRetractableTo&|
+                NIL |Finite&| |FullyEvalableOver&| |SemiGroup&|
+                |AbelianSemiGroup&| NIL NIL NIL NIL NIL |FullyRetractableTo&|
                 |SetCategory&| |TranscendentalFunctionCategory&| |Evalable&|
                 NIL |RetractableTo&| NIL NIL NIL |BasicType&| NIL NIL NIL
                 |RetractableTo&| |RetractableTo&| NIL |RadicalCategory&|
@@ -439,8 +439,8 @@
                  (|RightModule| 47) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|FullyPatternMatchable| 6) (|AbelianMonoid|) (|Monoid|)
-                 (|SemiRng|) (|FullyEvalableOver| 6) (|SemiGroup|)
-                 (|AbelianSemiGroup|) (|Finite|) (|StepThrough|) (|Comparable|)
+                 (|SemiRng|) (|Finite|) (|FullyEvalableOver| 6) (|SemiGroup|)
+                 (|AbelianSemiGroup|) (|StepThrough|) (|Comparable|)
                  (|PatternMatchable| (|Float|)) (|PatternMatchable| 46)
                  (|Patternable| 6) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|TranscendentalFunctionCategory|) (|Evalable| 6) (|Type|)

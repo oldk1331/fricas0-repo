@@ -356,17 +356,18 @@
               |SETMN;incrementKthElement;$PiU;12| |SETMN;delta;$2PiNni;13|
               (117 . ~=) |SETMN;replaceKthElement;$2PiU;14| (|String|)
               (|InputForm|) (|SingleInteger|) (|HashState|))
-           '#(~= 123 |size| 129 |setOfMinN| 133 |replaceKthElement| 138
-              |random| 145 |member?| 149 |lookup| 155 |latex| 160 |index| 165
-              |incrementKthElement| 170 |hashUpdate!| 176 |hash| 182
-              |enumerate| 187 |elements| 195 |delta| 200 |convert| 207 |coerce|
-              212 = 217)
+           '#(~= 123 |smaller?| 129 |size| 135 |setOfMinN| 139
+              |replaceKthElement| 144 |random| 151 |member?| 155 |lookup| 161
+              |latex| 166 |index| 171 |incrementKthElement| 176 |hashUpdate!|
+              182 |hash| 188 |enumerate| 193 |elements| 201 |delta| 206
+              |convert| 213 |coerce| 218 = 223)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0))
-                 (CONS '#(|Finite&| |SetCategory&| |BasicType&| NIL NIL)
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
+                 (CONS '#(|Finite&| NIL |SetCategory&| |BasicType&| NIL NIL)
                        (CONS
-                        '#((|Finite|) (|SetCategory|) (|BasicType|)
-                           (|ConvertibleTo| 61) (|CoercibleTo| 24))
+                        '#((|Finite|) (|Comparable|) (|SetCategory|)
+                           (|BasicType|) (|ConvertibleTo| 61)
+                           (|CoercibleTo| 24))
                         (|makeByteWordVec2| 63
                                             '(0 9 0 10 1 11 0 9 12 1 15 0 14 16
                                               2 19 18 0 0 20 1 25 24 0 26 1 24
@@ -377,12 +378,12 @@
                                               30 30 44 2 15 14 0 14 45 2 9 30 2
                                               0 47 2 14 18 0 0 49 2 9 2 0 30 50
                                               2 25 18 0 0 52 1 19 0 0 54 2 25
-                                              18 0 0 58 2 0 18 0 0 1 0 0 14 46
-                                              1 0 0 22 53 3 0 55 0 25 25 59 0 0
-                                              0 1 2 0 18 25 0 32 1 0 25 0 48 1
-                                              0 60 0 1 1 0 0 25 51 2 0 55 0 25
-                                              56 2 0 63 63 0 1 1 0 62 0 1 0 0
-                                              36 37 0 0 27 1 1 0 22 0 23 3 0 14
-                                              0 25 25 57 1 0 61 0 1 1 0 24 0 29
-                                              2 0 18 0 0 21)))))
+                                              18 0 0 58 2 0 18 0 0 1 2 0 18 0 0
+                                              1 0 0 14 46 1 0 0 22 53 3 0 55 0
+                                              25 25 59 0 0 0 1 2 0 18 25 0 32 1
+                                              0 25 0 48 1 0 60 0 1 1 0 0 25 51
+                                              2 0 55 0 25 56 2 0 63 63 0 1 1 0
+                                              62 0 1 0 0 36 37 0 0 27 1 1 0 22
+                                              0 23 3 0 14 0 25 25 57 1 0 61 0 1
+                                              1 0 24 0 29 2 0 18 0 0 21)))))
            '|lookupComplete|)) 

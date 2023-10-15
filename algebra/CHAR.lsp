@@ -144,11 +144,11 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL |OrderedSet&| NIL |Finite&| |SetCategory&| NIL
+                  '#(NIL |OrderedSet&| |Finite&| NIL |SetCategory&| NIL
                      |BasicType&| |PartialOrder&| NIL)
                   (CONS
-                   '#((|OrderedFinite|) (|OrderedSet|) (|Comparable|)
-                      (|Finite|) (|SetCategory|) (|ConvertibleTo| 48)
+                   '#((|OrderedFinite|) (|OrderedSet|) (|Finite|)
+                      (|Comparable|) (|SetCategory|) (|ConvertibleTo| 48)
                       (|BasicType|) (|PartialOrder|) (|CoercibleTo| 24))
                    (|makeByteWordVec2| 50
                                        '(1 6 0 12 18 0 26 0 27 2 26 7 28 0 29 0

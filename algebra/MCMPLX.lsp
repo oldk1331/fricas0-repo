@@ -282,7 +282,7 @@
             (|makeByteWordVec2| 33
                                 '(0 0 2 2 4 30 15 32 15 0 0 33 0 0 3 0 0 0 0 3
                                   9 0 0 0 0 0 1 3 5 8 18 19 0 0 0 3 0 0 0 0 0 3
-                                  3 0 0 0 0 0 0 0 0 0 0 0 0 6 2 23 24 0 0 0 10
+                                  3 0 0 0 0 0 0 0 0 6 0 0 0 0 2 23 24 0 0 0 10
                                   21 0 0 0 0 0 0 0 0 0 0 3 3 7 11 10 10 10 10
                                   10 12 13 13 14 16 17 20 21 22 25 26))
             (CONS
@@ -296,9 +296,9 @@
                 |EntireRing&| |Module&| NIL |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL |Ring&|
                 NIL NIL NIL NIL |Rng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
-                |OrderedSet&| |AbelianMonoid&| |Monoid&| NIL
-                |FullyEvalableOver&| NIL |SemiGroup&| |AbelianSemiGroup&|
-                |Finite&| NIL NIL NIL NIL |FullyRetractableTo&| |SetCategory&|
+                |OrderedSet&| |AbelianMonoid&| |Monoid&| NIL |Finite&|
+                |FullyEvalableOver&| NIL |SemiGroup&| |AbelianSemiGroup&| NIL
+                NIL NIL NIL |FullyRetractableTo&| |SetCategory&|
                 |TranscendentalFunctionCategory&| |Evalable&| NIL
                 |RetractableTo&| NIL |RetractableTo&| |PartialOrder&| NIL NIL
                 NIL |BasicType&| NIL NIL NIL |RetractableTo&|
@@ -328,9 +328,9 @@
                  (|RightModule| 38) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|FullyPatternMatchable| 9) (|OrderedSet|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|FullyEvalableOver| 9) (|Comparable|)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|Finite|) (|StepThrough|)
-                 (|PatternMatchable| 6) (|PatternMatchable| 14)
+                 (|Monoid|) (|SemiRng|) (|Finite|) (|FullyEvalableOver| 9)
+                 (|Comparable|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|StepThrough|) (|PatternMatchable| 6) (|PatternMatchable| 14)
                  (|Patternable| 9) (|FullyRetractableTo| 9) (|SetCategory|)
                  (|TranscendentalFunctionCategory|) (|Evalable| 9) (|Type|)
                  (|RetractableTo| 9) (|ConvertibleTo| 60) (|RetractableTo| 14)

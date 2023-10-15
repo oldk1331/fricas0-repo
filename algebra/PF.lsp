@@ -42,15 +42,14 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|InnerPrimeField| 6) (|local| |#1|)
               (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8) (0 . |prime?|)
-              '#:G104 (|NonNegativeInteger|) (|PositiveInteger|)
-              (|SparseUnivariatePolynomial| $) (|Union| 14 '"failed")
-              (|Union| $ '"failed") (|CardinalNumber|)
-              (|OnePointCompletion| 13) (|Vector| $) (|Matrix| $)
-              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 22)
-              (|Table| 13 12) (|Union| 19 '"failed") (|InputForm|) (|List| $)
-              (|Union| 12 '"failed") (|Fraction| 8) (|Factored| $)
-              (|Union| 27 '#1="failed")
+              '#:G104 (|NonNegativeInteger|) (|SparseUnivariatePolynomial| $)
+              (|PositiveInteger|) (|Union| 13 '"failed") (|Union| $ '"failed")
+              (|CardinalNumber|) (|OnePointCompletion| 14) (|Vector| $)
+              (|Matrix| $) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|Table| 14 12) (|Union| 19 '"failed")
+              (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 24)
+              (|InputForm|) (|List| $) (|Union| 12 '"failed") (|Fraction| 8)
+              (|Factored| $) (|Union| 27 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 33 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
@@ -63,7 +62,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0))
+                                  0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -71,8 +70,8 @@
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
                 |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
-                |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
+                |AbelianGroup&| NIL NIL |Finite&| |AbelianMonoid&| |Monoid&|
+                NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
@@ -86,12 +85,12 @@
                  (|BiModule| $$ $$) (|BiModule| 29 29) (|Ring|)
                  (|LeftModule| $$) (|RightModule| 29) (|LeftModule| 29) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|StepThrough|) (|Finite|)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
-                 (|ConvertibleTo| 8) (|RetractableTo| $$) (|ConvertibleTo| 26)
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 41))
+                 (|CancellationAbelianMonoid|) (|SemiRing|) (|Finite|)
+                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|StepThrough|)
+                 (|Comparable|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|ConvertibleTo| 8) (|RetractableTo| $$)
+                 (|ConvertibleTo| 26) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 41))
               (|makeByteWordVec2| 10 '(1 9 7 8 10)))))
            '|lookupIncomplete|)) 

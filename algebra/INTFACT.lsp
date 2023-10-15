@@ -109,17 +109,16 @@
           (#4=#:G157 NIL) (#5=#:G156 NIL) (#6=#:G155 NIL) (#7=#:G154 NIL)
           (|m| (I)) (|x0| (I)))
          (SEQ
-          (LETT |x0| (SPADCALL (QREFELT $ 37))
+          (LETT |x0| (SPADCALL |n| (QREFELT $ 37))
                 . #8=(|INTFACT;PollardSmallFactor;IU;2|))
-          (LETT |m| (SPADCALL 100 (QREFELT $ 33)) . #8#)
-          (LETT |y| (SPADCALL |x0| |n| (QREFELT $ 38)) . #8#)
+          (LETT |m| (SPADCALL 100 (QREFELT $ 33)) . #8#) (LETT |y| |x0| . #8#)
           (LETT |r| (|spadConstant| $ 13) . #8#)
           (LETT |q| (|spadConstant| $ 13) . #8#)
           (LETT G (|spadConstant| $ 13) . #8#)
           (SEQ (LETT #7# NIL . #8#) G190 (COND (#7# (GO G191)))
                (SEQ (LETT |x| |y| . #8#) (LETT |ys| |y| . #8#)
                     (SEQ (LETT |i| 1 . #8#)
-                         (LETT #6# (SPADCALL |r| (QREFELT $ 39)) . #8#) G190
+                         (LETT #6# (SPADCALL |r| (QREFELT $ 38)) . #8#) G190
                          (COND ((|greater_SI| |i| #6#) (GO G191)))
                          (SEQ
                           (LETT |y|
@@ -127,7 +126,7 @@
                                  (SPADCALL (SPADCALL |y| |y| (QREFELT $ 28))
                                            (SPADCALL 5 (QREFELT $ 33))
                                            (QREFELT $ 32))
-                                 |n| (QREFELT $ 38))
+                                 |n| (QREFELT $ 39))
                                 . #8#)
                           (EXIT
                            (LETT |q|
@@ -137,7 +136,7 @@
                                              (SPADCALL |x| |y| (QREFELT $ 40))
                                              (QREFELT $ 41))
                                             (QREFELT $ 28))
-                                  |n| (QREFELT $ 38))
+                                  |n| (QREFELT $ 39))
                                  . #8#)))
                          (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191
                          (EXIT NIL))
@@ -152,7 +151,7 @@
                                                     (SPADCALL |r| |k|
                                                               (QREFELT $ 40))
                                                     (QREFELT $ 43))
-                                          (QREFELT $ 39))
+                                          (QREFELT $ 38))
                                          . #8#)
                                    G190
                                    (COND ((|greater_SI| |i| #4#) (GO G191)))
@@ -163,7 +162,7 @@
                                             (SPADCALL |y| |y| (QREFELT $ 28))
                                             (SPADCALL 5 (QREFELT $ 33))
                                             (QREFELT $ 32))
-                                           |n| (QREFELT $ 38))
+                                           |n| (QREFELT $ 39))
                                           . #8#)
                                     (EXIT
                                      (LETT |q|
@@ -175,7 +174,7 @@
                                                                           40))
                                                        (QREFELT $ 41))
                                                       (QREFELT $ 28))
-                                            |n| (QREFELT $ 38))
+                                            |n| (QREFELT $ 39))
                                            . #8#)))
                                    (LETT |i| (|inc_SI| |i|) . #8#) (GO G190)
                                    G191 (EXIT NIL))
@@ -206,7 +205,7 @@
                               (SPADCALL (SPADCALL |ys| |ys| (QREFELT $ 28))
                                         (SPADCALL 5 (QREFELT $ 33))
                                         (QREFELT $ 32))
-                              |n| (QREFELT $ 38))
+                              |n| (QREFELT $ 39))
                              . #8#)
                        (LETT G
                              (SPADCALL
@@ -228,7 +227,7 @@
                    ((SPADCALL G |n| (QREFELT $ 35))
                     (SEQ (LETT |y| |x0| . #8#) (LETT |x| |x0| . #8#)
                          (SEQ (LETT |i| 1 . #8#)
-                              (LETT #2# (SPADCALL |l| (QREFELT $ 39)) . #8#)
+                              (LETT #2# (SPADCALL |l| (QREFELT $ 38)) . #8#)
                               G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                               (SEQ
                                (EXIT
@@ -238,7 +237,7 @@
                                         (SPADCALL |y| |y| (QREFELT $ 28))
                                         (SPADCALL 5 (QREFELT $ 33))
                                         (QREFELT $ 32))
-                                       |n| (QREFELT $ 38))
+                                       |n| (QREFELT $ 39))
                                       . #8#)))
                               (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191
                               (EXIT NIL))
@@ -257,7 +256,7 @@
                                         (SPADCALL |y| |y| (QREFELT $ 28))
                                         (SPADCALL 5 (QREFELT $ 33))
                                         (QREFELT $ 32))
-                                       |n| (QREFELT $ 38))
+                                       |n| (QREFELT $ 39))
                                       . #8#)
                                 (LETT |x|
                                       (SPADCALL
@@ -265,7 +264,7 @@
                                         (SPADCALL |x| |x| (QREFELT $ 28))
                                         (SPADCALL 5 (QREFELT $ 33))
                                         (QREFELT $ 32))
-                                       |n| (QREFELT $ 38))
+                                       |n| (QREFELT $ 39))
                                       . #8#)
                                 (EXIT
                                  (LETT G
@@ -359,7 +358,7 @@
                        (SEQ (LETT |m| 0 . #3#) G190
                             (COND
                              ((NULL
-                               (SPADCALL (SPADCALL |n| |d| (QREFELT $ 38))
+                               (SPADCALL (SPADCALL |n| |d| (QREFELT $ 39))
                                          (QREFELT $ 50)))
                               (GO G191)))
                             (SEQ
@@ -512,7 +511,7 @@
                                                   ((NULL
                                                     (SPADCALL
                                                      (SPADCALL |n| (QCDR |d|)
-                                                               (QREFELT $ 38))
+                                                               (QREFELT $ 39))
                                                      (QREFELT $ 50)))
                                                    (GO G191)))
                                                  (SEQ
@@ -631,19 +630,19 @@
               (43 . *) (49 . |unit|) (54 . *) (60 . |makeFR|)
               (|NonNegativeInteger|) (66 . |approxNthRoot|) (72 . +)
               (78 . |coerce|) |INTFACT;factor;IF;6| (83 . =) (89 . |concat!|)
-              (95 . |random|) (99 . |rem|) (105 . |convert|) (110 . -)
-              (116 . |abs|) (121 . |gcd|) (127 . |min|) (133 . >=) (139 . *)
-              |INTFACT;PollardSmallFactor;IU;2| (|List| 6) (145 . |rest|)
-              (151 . |concat!|) (157 . |zero?|) (162 . |quo|) (168 . >)
-              (174 . |approxSqrt|) |INTFACT;BasicMethod;IF;5|
-              (179 . |negative?|) (|ListMultiDictionary| 6)
-              (184 . |dictionary|) (188 . |insert!|) (194 . |empty?|)
-              (199 . |inspect|) (204 . |count|) (210 . |remove!|)
-              (|IntegerPrimesPackage| 6) (216 . |prime?|) (221 . |insert!|)
+              (95 . |random|) (100 . |convert|) (105 . |rem|) (111 . -)
+              (117 . |abs|) (122 . |gcd|) (128 . |min|) (134 . >=) (140 . *)
+              |INTFACT;PollardSmallFactor;IU;2| (|List| 6) (146 . |rest|)
+              (152 . |concat!|) (158 . |zero?|) (163 . |quo|) (169 . >)
+              (175 . |approxSqrt|) |INTFACT;BasicMethod;IF;5|
+              (180 . |negative?|) (|ListMultiDictionary| 6)
+              (185 . |dictionary|) (189 . |insert!|) (195 . |empty?|)
+              (200 . |inspect|) (205 . |count|) (211 . |remove!|)
+              (|IntegerPrimesPackage| 6) (217 . |prime?|) (222 . |insert!|)
               (|Record| (|:| |base| 6) (|:| |exponent| 30))
-              (228 . |perfectNthRoot|) (233 . |base|) (237 . ^))
-           '#(|squareFree| 243 |factor| 248 |PollardSmallFactor| 253
-              |BasicMethod| 258)
+              (229 . |perfectNthRoot|) (234 . |base|) (238 . ^))
+           '#(|squareFree| 244 |factor| 249 |PollardSmallFactor| 254
+              |BasicMethod| 259)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -656,8 +655,8 @@
                                                    26 1 8 6 0 27 2 6 0 0 0 28 2
                                                    8 0 6 22 29 2 17 6 6 30 31 2
                                                    6 0 0 0 32 1 6 0 25 33 2 6
-                                                   10 0 0 35 2 22 0 0 21 36 0 6
-                                                   0 37 2 6 0 0 0 38 1 6 25 0
+                                                   10 0 0 35 2 22 0 0 21 36 1 6
+                                                   0 0 37 1 6 25 0 38 2 6 0 0 0
                                                    39 2 6 0 0 0 40 1 6 0 0 41 2
                                                    6 0 0 0 42 2 6 0 0 0 43 2 6
                                                    10 0 0 44 2 6 0 24 0 45 2 47

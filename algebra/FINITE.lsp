@@ -13,6 +13,7 @@
              (LETT #1#
                    (|sublisV| (PAIR '(#2=#:G104) (LIST '(|InputForm|)))
                               (|Join| (|SetCategory|) (|ConvertibleTo| '#2#)
+                                      (|Comparable|)
                                       (|mkCategory|
                                        '(((|size| ((|NonNegativeInteger|))) T)
                                          ((|index| ($ (|PositiveInteger|))) T)

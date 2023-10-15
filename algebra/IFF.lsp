@@ -60,18 +60,17 @@
            '#(NIL NIL NIL NIL NIL (|FiniteFieldExtension| 26 7) (|local| |#1|)
               (|local| |#2|) (|Union| $ '"failed") (|Union| 11 '"failed")
               (|OnePointCompletion| 13) (|NonNegativeInteger|) (|List| $)
-              (|PositiveInteger|) (|InputForm|)
-              (|Record| (|:| |factor| 20) (|:| |exponent| 20)) (|List| 15)
-              (|Union| 29 '"failed") (|Matrix| $) (|Table| 13 11) (|Integer|)
-              (|Boolean|) (|Union| 24 '"failed")
+              (|PositiveInteger|) (|Boolean|) (|InputForm|)
+              (|Union| 28 '"failed") (|Matrix| $) (|Table| 13 11) (|Integer|)
+              (|Record| (|:| |factor| 19) (|:| |exponent| 19)) (|List| 20)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|SparseUnivariatePolynomial| 26)
+              (|SparseUnivariatePolynomial| 26) (|Union| 23 '"failed")
               (|SparseUnivariatePolynomial| $) (|InnerPrimeField| 6)
-              (|Vector| 26) (|Matrix| 26) (|Vector| $) (|CardinalNumber|)
-              (|Union| 26 '"failed") (|Fraction| 20) (|Factored| $)
-              (|Record| (|:| |coef1| $) (|:| |coef2| $))
-              (|Union| 34 '#1="failed") (|Union| 12 '#1#)
+              (|Matrix| 26) (|Vector| $) (|Vector| 26) (|CardinalNumber|)
+              (|Union| 26 '"failed") (|Fraction| 19) (|Factored| $)
+              (|Union| 12 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 36 '#1#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 12) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
@@ -81,8 +80,8 @@
            (CONS
             (|makeByteWordVec2| 3
                                 '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
-                                  0 0 0 0 0 0 0 2))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 2 0
+                                  0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -91,7 +90,7 @@
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
-                NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
+                NIL |Finite&| |SemiGroup&| |AbelianSemiGroup&| NIL NIL
                 |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL NIL)
              (CONS
@@ -112,11 +111,12 @@
                  (|LeftModule| (|InnerPrimeField| 6)) (|RightModule| 32)
                  (|LeftModule| 32) (|LeftModule| $$) (|Rng|) (|RightModule| $$)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
-                 (|AbelianSemiGroup|) (|Finite|) (|StepThrough|)
-                 (|SetCategory|) (|RetractableTo| (|InnerPrimeField| 6))
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 44) (|ConvertibleTo| 14))
+                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|Finite|)
+                 (|SemiGroup|) (|AbelianSemiGroup|) (|Comparable|)
+                 (|StepThrough|) (|SetCategory|)
+                 (|RetractableTo| (|InnerPrimeField| 6)) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 44)
+                 (|ConvertibleTo| 15))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 

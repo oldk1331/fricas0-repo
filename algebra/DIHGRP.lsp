@@ -268,11 +268,11 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|FiniteGroup&| |Group&| |Monoid&| |SemiGroup&| NIL
-                     |Finite&| |SetCategory&| NIL NIL |BasicType&| NIL NIL)
+                  '#(|FiniteGroup&| |Group&| |Monoid&| |Finite&| |SemiGroup&|
+                     NIL |SetCategory&| NIL NIL |BasicType&| NIL NIL)
                   (CONS
-                   '#((|FiniteGroup|) (|Group|) (|Monoid|) (|SemiGroup|)
-                      (|Comparable|) (|Finite|) (|SetCategory|)
+                   '#((|FiniteGroup|) (|Group|) (|Monoid|) (|Finite|)
+                      (|SemiGroup|) (|Comparable|) (|SetCategory|)
                       (|FinitelyGenerated|) (|ConvertibleTo| 63) (|BasicType|)
                       (|unitsKnown|) (|CoercibleTo| 26))
                    (|makeByteWordVec2| 67

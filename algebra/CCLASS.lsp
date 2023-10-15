@@ -339,34 +339,35 @@
               (|Mapping| 17 22) (|Union| 22 '"failed") (|SingleInteger|)
               (|HashState|))
            '#(~= 86 |upperCase| 92 |universe| 96 |union| 100
-              |symmetricDifference| 118 |subset?| 124 |size?| 130 |size| 136
-              |set| 140 |select!| 149 |select| 155 |sample| 161
-              |removeDuplicates| 165 |remove!| 170 |remove| 182 |reduce| 194
-              |random| 215 |parts| 219 |more?| 224 |min| 230 |members| 235
-              |member?| 240 |max| 246 |map!| 251 |map| 257 |lowerCase| 263
-              |lookup| 267 |less?| 272 |latex| 278 |intersect| 283 |inspect|
-              289 |insert!| 294 |index| 300 |hexDigit| 305 |hashUpdate!| 309
-              |hash| 315 |find| 320 |extract!| 326 |every?| 331 |eval| 337
-              |eq?| 363 |enumerate| 369 |empty?| 373 |empty| 378 |digit| 382
-              |difference| 386 |dictionary| 398 |count| 407 |copy| 419
-              |convert| 424 |construct| 439 |complement| 444 |coerce| 449
-              |charClass| 454 |cardinality| 464 |brace| 469 |any?| 478
-              |alphanumeric| 484 |alphabetic| 488 >= 492 > 498 = 504 <= 510 <
-              516 |#| 522)
+              |symmetricDifference| 118 |subset?| 124 |smaller?| 130 |size?|
+              136 |size| 142 |set| 146 |select!| 155 |select| 161 |sample| 167
+              |removeDuplicates| 171 |remove!| 176 |remove| 188 |reduce| 200
+              |random| 221 |parts| 225 |more?| 230 |min| 236 |members| 241
+              |member?| 246 |max| 252 |map!| 257 |map| 263 |lowerCase| 269
+              |lookup| 273 |less?| 278 |latex| 284 |intersect| 289 |inspect|
+              295 |insert!| 300 |index| 306 |hexDigit| 311 |hashUpdate!| 315
+              |hash| 321 |find| 326 |extract!| 332 |every?| 337 |eval| 343
+              |eq?| 369 |enumerate| 375 |empty?| 379 |empty| 384 |digit| 388
+              |difference| 392 |dictionary| 404 |count| 413 |copy| 425
+              |convert| 430 |construct| 445 |complement| 450 |coerce| 455
+              |charClass| 460 |cardinality| 470 |brace| 475 |any?| 484
+              |alphanumeric| 490 |alphabetic| 494 >= 498 > 504 = 510 <= 516 <
+              522 |#| 528)
            'NIL
            (CONS
-            (|makeByteWordVec2| 5 '(0 0 0 0 0 0 0 2 0 0 5 0 0 0 0 0 0 0 0 5 1))
+            (|makeByteWordVec2| 5
+                                '(0 0 0 0 0 0 2 0 2 0 0 5 0 0 0 0 0 0 0 0 5 1))
             (CONS
              '#(|FiniteSetAggregate&| |Dictionary&| |DictionaryOperations&|
-                |SetAggregate&| |BagAggregate&| |Collection&|
-                |HomogeneousAggregate&| |Finite&| |SetCategory&| |Aggregate&|
+                |SetAggregate&| |BagAggregate&| |Collection&| |Finite&|
+                |HomogeneousAggregate&| NIL |SetCategory&| |Aggregate&|
                 |Evalable&| NIL NIL |PartialOrder&| |BasicType&| NIL NIL NIL
                 NIL |InnerEvalable&| NIL)
              (CONS
               '#((|FiniteSetAggregate| 22) (|Dictionary| 22)
                  (|DictionaryOperations| 22) (|SetAggregate| 22)
-                 (|BagAggregate| 22) (|Collection| 22)
-                 (|HomogeneousAggregate| 22) (|Finite|) (|SetCategory|)
+                 (|BagAggregate| 22) (|Collection| 22) (|Finite|)
+                 (|HomogeneousAggregate| 22) (|Comparable|) (|SetCategory|)
                  (|Aggregate|) (|Evalable| 22) (|ConvertibleTo| 30)
                  (|finiteAggregate|) (|PartialOrder|) (|BasicType|)
                  (|shallowlyMutable|) (|Type|) (|ConvertibleTo| 8)
@@ -379,28 +380,28 @@
                                     8 22 0 20 39 3 6 17 0 20 17 40 1 8 42 0 43
                                     2 6 0 0 17 55 3 6 0 0 0 20 56 2 0 17 0 0 1
                                     0 0 0 12 0 2 0 1 2 0 0 22 0 1 2 0 0 0 0 14
-                                    2 0 0 0 22 1 2 0 0 0 0 1 2 0 17 0 0 1 2 0
-                                    17 0 35 1 0 2 35 1 0 0 0 1 1 0 0 30 1 2 8 0
-                                    65 0 1 2 8 0 65 0 1 0 0 0 1 1 9 0 0 1 2 9 0
-                                    22 0 49 2 8 0 65 0 1 2 9 0 22 0 1 2 8 0 65
-                                    0 1 4 9 22 61 0 22 22 1 3 8 22 61 0 22 1 2
-                                    8 22 61 0 1 0 2 0 1 1 8 30 0 58 2 0 17 0 35
-                                    1 1 3 22 0 1 1 8 30 0 1 2 9 17 22 0 23 1 3
-                                    22 0 1 2 7 0 52 0 57 2 0 0 52 0 53 0 0 0 13
-                                    1 2 64 0 1 2 0 17 0 35 1 1 0 8 0 1 2 0 0 0
-                                    0 26 1 0 22 0 50 2 0 0 22 0 48 1 2 0 64 1 0
-                                    0 0 11 2 0 68 68 0 1 1 0 67 0 1 2 0 66 65 0
-                                    1 1 0 22 0 51 2 8 17 65 0 1 2 4 0 0 59 1 3
-                                    4 0 0 22 22 1 2 4 0 0 60 1 3 4 0 0 30 30 1
-                                    2 0 17 0 0 1 0 2 63 1 1 0 17 0 1 0 0 0 46 0
-                                    0 0 10 2 0 0 0 22 1 2 0 0 0 0 28 0 0 0 1 1
-                                    0 0 30 1 2 9 35 22 0 1 2 8 35 65 0 1 1 0 0
-                                    0 1 1 1 62 0 1 1 0 30 0 31 1 0 8 0 33 1 0 0
-                                    30 1 1 2 0 0 29 1 0 42 0 44 1 0 0 30 41 1 0
-                                    0 8 9 1 0 35 0 1 1 0 0 30 1 0 0 0 47 2 8 17
-                                    65 0 1 0 0 0 16 0 0 0 15 2 0 17 0 0 1 2 0
-                                    17 0 0 1 2 0 17 0 0 19 2 0 17 0 0 1 2 0 17
-                                    0 0 1 1 8 35 0 45)))))
+                                    2 0 0 0 22 1 2 0 0 0 0 1 2 0 17 0 0 1 2 2
+                                    17 0 0 1 2 0 17 0 35 1 0 2 35 1 1 0 0 30 1
+                                    0 0 0 1 2 8 0 65 0 1 2 8 0 65 0 1 0 0 0 1 1
+                                    9 0 0 1 2 9 0 22 0 49 2 8 0 65 0 1 2 9 0 22
+                                    0 1 2 8 0 65 0 1 4 9 22 61 0 22 22 1 3 8 22
+                                    61 0 22 1 2 8 22 61 0 1 0 2 0 1 1 8 30 0 58
+                                    2 0 17 0 35 1 1 3 22 0 1 1 8 30 0 1 2 9 17
+                                    22 0 23 1 3 22 0 1 2 7 0 52 0 57 2 0 0 52 0
+                                    53 0 0 0 13 1 2 64 0 1 2 0 17 0 35 1 1 0 8
+                                    0 1 2 0 0 0 0 26 1 0 22 0 50 2 0 0 22 0 48
+                                    1 2 0 64 1 0 0 0 11 2 0 68 68 0 1 1 0 67 0
+                                    1 2 0 66 65 0 1 1 0 22 0 51 2 8 17 65 0 1 2
+                                    4 0 0 59 1 3 4 0 0 22 22 1 2 4 0 0 60 1 3 4
+                                    0 0 30 30 1 2 0 17 0 0 1 0 2 63 1 1 0 17 0
+                                    1 0 0 0 46 0 0 0 10 2 0 0 0 22 1 2 0 0 0 0
+                                    28 0 0 0 1 1 0 0 30 1 2 9 35 22 0 1 2 8 35
+                                    65 0 1 1 0 0 0 1 1 1 62 0 1 1 0 30 0 31 1 0
+                                    8 0 33 1 0 0 30 1 1 2 0 0 29 1 0 42 0 44 1
+                                    0 0 30 41 1 0 0 8 9 1 0 35 0 1 1 0 0 30 1 0
+                                    0 0 47 2 8 17 65 0 1 0 0 0 16 0 0 0 15 2 0
+                                    17 0 0 1 2 0 17 0 0 1 2 0 17 0 0 19 2 0 17
+                                    0 0 1 2 0 17 0 0 1 1 8 35 0 45)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CharacterClass| 'NILADIC T) 

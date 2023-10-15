@@ -324,7 +324,7 @@
             (|makeByteWordVec2| 1
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0))
+                                  0 0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -332,8 +332,8 @@
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
                 |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
-                |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&| NIL NIL
-                |Finite&| |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
+                |AbelianGroup&| NIL NIL |Finite&| |AbelianMonoid&| |Monoid&|
+                NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
@@ -347,13 +347,13 @@
                  (|BiModule| $$ $$) (|BiModule| 94 94) (|Ring|)
                  (|LeftModule| $$) (|RightModule| 94) (|LeftModule| 94) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|StepThrough|) (|Finite|)
-                 (|SemiGroup|) (|AbelianSemiGroup|) (|SetCategory|)
-                 (|ConvertibleTo| 20) (|RetractableTo| $$) (|ConvertibleTo| 91)
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 105))
+                 (|CancellationAbelianMonoid|) (|SemiRing|) (|Finite|)
+                 (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|StepThrough|)
+                 (|Comparable|) (|SemiGroup|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|ConvertibleTo| 20) (|RetractableTo| $$)
+                 (|ConvertibleTo| 91) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 105))
               (|makeByteWordVec2| 85
                                   '(0 12 0 13 0 0 0 15 1 0 17 0 18 0 0 0 19 2
                                     20 0 0 0 21 2 5 0 0 22 23 2 20 17 0 0 25 1
@@ -369,7 +369,7 @@
                                     45 0 56 1 0 0 45 49 1 0 17 0 68 0 2 0 16 0
                                     0 40 41 0 0 45 67 1 0 45 0 66 0 0 82 83 0 0
                                     0 55 0 2 0 37 1 0 71 0 72 1 0 20 0 30 1 0 0
-                                    20 32 1 0 0 0 85 0 0 22 38 1 0 71 45 78 0 0
-                                    71 77 2 0 0 0 20 24 0 0 0 19 0 0 0 15 2 0 0
+                                    20 32 1 0 0 0 85 0 0 22 38 0 0 71 77 1 0 71
+                                    45 78 2 0 0 0 20 24 0 0 0 19 0 0 0 15 2 0 0
                                     0 0 62)))))
            '|lookupIncomplete|)) 

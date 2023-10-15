@@ -9223,6 +9223,7 @@ osmaller?`2`n`(_$,_$)->Boolean`cComparable``1108721
 osmaller?`2`n`(A,A)->Boolean`xFreeModuleCategory&(A,R,S)``0
 osmaller?`2`n`(A,A)->Boolean`xQuotientFieldCategory&(A,S)``0
 osmaller?`2`n`(S,S)->Boolean`xComplexCategory&(S,R)``0
+osmaller?`2`n`(S,S)->Boolean`xFinite&(S)``0
 osmaller?`2`n`(S,S)->Boolean`xOrderedSet&(S)``0
 osmaller?`2`n`(S,S)->Boolean`xPolynomialCategory&(S,R,E,VarSet)``0
 osmesh`2`n`(List(List(PT)),Boolean)->_$`dSceneIFS(PT)``1108807

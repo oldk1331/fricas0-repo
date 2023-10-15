@@ -134,10 +134,10 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| NIL |Finite&| |Logic&| |SetCategory&| NIL
+                  '#(|OrderedSet&| |Finite&| NIL |Logic&| |SetCategory&| NIL
                      |BasicType&| |PartialOrder&| NIL)
                   (CONS
-                   '#((|OrderedSet|) (|Comparable|) (|Finite|) (|Logic|)
+                   '#((|OrderedSet|) (|Finite|) (|Comparable|) (|Logic|)
                       (|SetCategory|) (|ConvertibleTo| 31) (|BasicType|)
                       (|PartialOrder|) (|CoercibleTo| 35))
                    (|makeByteWordVec2| 40

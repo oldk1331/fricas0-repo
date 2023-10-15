@@ -68,13 +68,13 @@
               (|PositiveInteger|) (|FiniteFieldPolynomialPackage| 6)
               (0 . |createPrimitivePoly|) (|OnePointCompletion| 9)
               (|Union| $ '"failed") (|Union| 15 '"failed")
-              (|NonNegativeInteger|) (|List| $) (|InputForm|)
+              (|NonNegativeInteger|) (|List| $) (|InputForm|) (|Boolean|)
               (|Union| 30 '"failed") (|Matrix| $) (|Table| 9 15) (|Integer|)
-              (|Record| (|:| |factor| 21) (|:| |exponent| 21)) (|List| 22)
-              (|Boolean|) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+              (|Record| (|:| |factor| 22) (|:| |exponent| 22)) (|List| 23)
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Union| 8 '"failed") (|SparseUnivariatePolynomial| $)
               (|PrimitiveArray| 47) (|Matrix| 6) (|Vector| $) (|Vector| 6)
-              (|CardinalNumber|) (|Union| 6 '"failed") (|Fraction| 21)
+              (|CardinalNumber|) (|Union| 6 '"failed") (|Fraction| 22)
               (|Factored| $) (|Union| 16 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 38 '#1#)
@@ -87,8 +87,8 @@
            (CONS
             (|makeByteWordVec2| 3
                                 '(0 0 2 3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 1 2
-                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 2 0 0
-                                  0 0 0 0 0 0 0 2))
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 2 2 0
+                                  0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
@@ -97,7 +97,7 @@
                 |Algebra&| |Module&| |Module&| NIL |EntireRing&| |Module&| NIL
                 NIL |DifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL
                 |Rng&| NIL |AbelianGroup&| NIL NIL |AbelianMonoid&| |Monoid&|
-                NIL |SemiGroup&| |AbelianSemiGroup&| |Finite&| NIL
+                NIL |Finite&| |SemiGroup&| |AbelianSemiGroup&| NIL NIL
                 |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL NIL)
              (CONS
@@ -114,10 +114,11 @@
                  (|RightModule| 34) (|LeftModule| 34) (|LeftModule| $$) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
-                 (|Monoid|) (|SemiRng|) (|SemiGroup|) (|AbelianSemiGroup|)
-                 (|Finite|) (|StepThrough|) (|SetCategory|) (|RetractableTo| 6)
-                 (|canonicalsClosed|) (|canonicalUnitNormal|)
-                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 46) (|ConvertibleTo| 17))
+                 (|Monoid|) (|SemiRng|) (|Finite|) (|SemiGroup|)
+                 (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)
+                 (|SetCategory|) (|RetractableTo| 6) (|canonicalsClosed|)
+                 (|canonicalUnitNormal|) (|noZeroDivisors|) (|CommutativeStar|)
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 46)
+                 (|ConvertibleTo| 17))
               (|makeByteWordVec2| 11 '(1 10 8 9 11)))))
            '|lookupIncomplete|)) 
