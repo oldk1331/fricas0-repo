@@ -512,7 +512,9 @@
                                                (|HasCategory| |#1|
                                                               '(|PolynomialFactorizationExplicit|))
                                                . #8#)
-                                         (AND #7# #5#)))
+                                         (OR (AND #7# #5#)
+                                             (|HasCategory| |#1|
+                                                            '(|FiniteFieldCategory|)))))
                      . #8#))
      (|haddProp| |$ConstructorCache| '|SimpleAlgebraicExtension|
                  (LIST DV$1 DV$2 DV$3) (CONS 1 $))
@@ -522,7 +524,8 @@
      (QSETREFV $ 8 |#3|)
      (AND
       (OR (AND #7# #5# (|HasCategory| $ '(|CharacteristicNonZero|)))
-          (|HasCategory| |#1| '(|FiniteFieldCategory|)))
+          (AND (|HasCategory| |#1| '(|FiniteFieldCategory|))
+               (|HasCategory| $ '(|CharacteristicNonZero|))))
       (|augmentPredVector| $ 32768))
      (AND
       (OR (|HasCategory| |#1| '(|CharacteristicNonZero|))
@@ -643,8 +646,9 @@
               (312 . |factorPolynomial|) (317 . >) (323 . ~=) (329 . |index|)
               (334 . |index|) (339 . |zero?|) (344 . |leadingCoefficient|)
               (349 . |lookup|) (354 . |reductum|) (359 . |lookup|) (|Symbol|)
-              (|List| 147) (|List| 15) (|Union| 151 '#1="failed") (|List| 124)
-              (|Union| 83 '#1#) (|Fraction| 49) (|Factored| $) (|List| $)
+              (|List| 147) (|List| 15) (|Union| 83 '#1="failed")
+              (|Union| 152 '#1#) (|List| 124) (|Fraction| 49) (|Factored| $)
+              (|List| $)
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |coef| 155) (|:| |generator| $))
@@ -689,7 +693,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 15
-                                '(0 2 2 4 4 15 4 3 0 4 0 0 3 3 3 4 0 0 0 1 3 3
+                                '(0 2 2 4 4 15 4 4 0 4 0 0 3 3 3 4 0 0 0 1 3 3
                                   3 5 7 12 10 0 0 0 0 0 3 3 0 0 0 0 3 0 0 0 0 0
                                   3 3 0 0 0 0 0 0 0 0 6 0 0 6 2 0 0 0 0 0 0 0 0
                                   3 3 3 6 8 9))
@@ -763,7 +767,7 @@
                                     2 0 25 0 0 1 1 0 25 0 142 1 3 157 0 1 1 3 0
                                     0 1 1 3 25 0 1 0 0 22 116 1 0 22 83 1 1 0 6
                                     0 118 1 2 170 49 1 2 0 10 0 0 1 1 15 123
-                                    124 1 1 3 0 0 1 1 3 154 0 1 2 15 150 151
+                                    124 1 1 3 0 0 1 1 3 154 0 1 2 15 151 152
                                     124 1 2 6 25 0 0 1 2 3 25 0 0 1 0 6 15 40 0
                                     0 0 1 1 0 10 0 1 2 0 0 0 15 1 2 0 0 0 79 1
                                     1 8 174 0 1 1 9 175 0 1 1 0 176 0 1 1 8 153
@@ -791,7 +795,7 @@
                                     3 0 0 163 1 2 3 22 83 163 1 0 0 7 76 0 2 0
                                     1 1 0 42 0 74 1 0 22 83 88 2 0 22 83 83 1 2
                                     0 42 0 83 92 1 6 165 0 1 1 0 0 7 1 1 0 7 0
-                                    1 1 0 42 0 1 1 0 0 42 1 1 16 152 99 1 2 0 0
+                                    1 1 0 42 0 1 1 0 0 42 1 1 16 150 99 1 2 0 0
                                     0 0 1 1 13 0 153 1 1 3 0 0 1 1 0 0 6 54 1 0
                                     0 49 53 1 0 55 0 57 1 17 10 0 1 1 2 0 0 1 1
                                     0 7 0 85 0 0 15 78 0 0 83 84 3 0 0 0 0 0 1
