@@ -9211,6 +9211,7 @@ oski`2`n`(_$,_$)->_$`dSKICombinators(UT)``1107794
 oslash`2`n`(_$,_$)->_$`dOutputForm``1107847
 oslex`1`n`(List(S))->List(List(S))`pTableauxBumpers(S)``1107945
 osmaller?`2`n`(_$,_$)->Boolean`cComparable``1108139
+osmaller?`2`n`(A,A)->Boolean`xFiniteSetAggregate&(A,S)``0
 osmaller?`2`n`(A,A)->Boolean`xFreeModuleCategory&(A,R,S)``0
 osmaller?`2`n`(A,A)->Boolean`xListAggregate&(A,S)``0
 osmaller?`2`n`(A,A)->Boolean`xQuotientFieldCategory&(A,S)``0
@@ -9218,6 +9219,7 @@ osmaller?`2`n`(S,S)->Boolean`xComplexCategory&(S,R)``0
 osmaller?`2`n`(S,S)->Boolean`xFinite&(S)``0
 osmaller?`2`n`(S,S)->Boolean`xOrderedSet&(S)``0
 osmaller?`2`n`(S,S)->Boolean`xPolynomialCategory&(S,R,E,VarSet)``0
+osmaller?`2`n`(S,S)->Boolean`xTwoDimensionalArrayCategory&(S,R,Row,Col)``0
 osmesh`2`n`(List(List(PT)),Boolean)->_$`dSceneIFS(PT)``1108225
 osmith`1`n`(Matrix(Integer))->Matrix(Integer)`pIntegerSmithNormalForm``1108338
 osmith`1`x`(M)->M`pSmithNormalForm(R,Row,Col,M)``1108400

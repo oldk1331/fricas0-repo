@@ -239,6 +239,19 @@
                  (|error| "Empty set"))
                 ('T (SPADCALL (ELT $ 62) |l| (QREFELT $ 60)))))) 
 
+(SDEFUN |FSAGG-;smaller?;2AB;22| ((|s1| A) (|s2| A) ($ |Boolean|))
+        (SPROG ((|ls2| #1=(|List| S)) (|ls1| #1#))
+               (SEQ
+                (LETT |ls1|
+                      (SPADCALL (ELT $ 64) (SPADCALL |s1| (QREFELT $ 30))
+                                (QREFELT $ 66))
+                      . #2=(|FSAGG-;smaller?;2AB;22|))
+                (LETT |ls2|
+                      (SPADCALL (ELT $ 64) (SPADCALL |s2| (QREFELT $ 30))
+                                (QREFELT $ 66))
+                      . #2#)
+                (EXIT (SPADCALL |ls1| |ls2| (QREFELT $ 67)))))) 
+
 (DECLAIM (NOTINLINE |FiniteSetAggregate&;|)) 
 
 (DEFUN |FiniteSetAggregate&| (|#1| |#2|)
@@ -247,12 +260,14 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteSetAggregate&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|FiniteSetAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 64) . #1#)
+          (LETT $ (GETREFV 69) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
+                                              (|HasCategory| |#2|
+                                                             '(|Comparable|))
                                               (|HasCategory| |#2|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#2|
@@ -263,7 +278,7 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|testBitVector| |pv$| 3)
             (PROGN
              (QSETREFV $ 49
                        (CONS (|dispatchFunction| |FSAGG-;universe;A;15|) $))
@@ -275,11 +290,15 @@
              (QSETREFV $ 57
                        (CONS (|dispatchFunction| |FSAGG-;lookup;APi;19|) $)))))
           (COND
-           ((|testBitVector| |pv$| 1)
+           ((|testBitVector| |pv$| 2)
             (PROGN
              (QSETREFV $ 61 (CONS (|dispatchFunction| |FSAGG-;max;AS;20|) $))
              (QSETREFV $ 63
                        (CONS (|dispatchFunction| |FSAGG-;min;AS;21|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 1)
+            (QSETREFV $ 68
+                      (CONS (|dispatchFunction| |FSAGG-;smaller?;2AB;22|) $))))
           $))) 
 
 (MAKEPROP '|FiniteSetAggregate&| '|infovec|
@@ -300,17 +319,19 @@
               (107 . |universe|) (111 . |universe|) (115 . |complement|)
               (120 . |size|) (|Integer|) (124 . |bit?|) (130 . |index|)
               (135 . |lookup|) (140 . |lookup|) (145 . |max|) (|Mapping| 7 7 7)
-              (151 . |reduce|) (157 . |max|) (162 . |min|) (168 . |min|))
-           '#(|universe| 173 |union| 177 |symmetricDifference| 183 |subset?|
-              189 |size| 195 |set| 199 |min| 204 |max| 209 |lookup| 214
-              |intersect| 219 |index| 225 |difference| 230 |count| 236
-              |construct| 242 |complement| 247 |coerce| 252 |cardinality| 257
-              |brace| 262 = 267 <= 273 < 279)
+              (151 . |reduce|) (157 . |max|) (162 . |min|) (168 . |min|)
+              (173 . |smaller?|) (|Mapping| 9 7 7) (179 . |sort|)
+              (185 . |smaller?|) (191 . |smaller?|))
+           '#(|universe| 197 |union| 201 |symmetricDifference| 207 |subset?|
+              213 |smaller?| 219 |size| 225 |set| 229 |min| 234 |max| 239
+              |lookup| 244 |intersect| 249 |index| 255 |difference| 260 |count|
+              266 |construct| 272 |complement| 277 |coerce| 282 |cardinality|
+              287 |brace| 292 = 297 <= 303 < 309)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 63
+                             (|makeByteWordVec2| 68
                                                  '(2 6 0 0 0 8 2 6 9 0 0 10 1 6
                                                    12 0 13 2 6 9 0 0 14 2 6 0 0
                                                    0 16 1 6 9 0 17 1 6 0 19 20
@@ -325,14 +346,16 @@
                                                    7 46 0 56 1 0 46 0 57 2 7 0
                                                    0 0 58 2 19 7 59 0 60 1 0 7
                                                    0 61 2 7 0 0 0 62 1 0 7 0 63
-                                                   0 0 0 49 2 0 0 0 0 44 2 0 0
-                                                   0 0 43 2 0 9 0 0 33 0 0 12
-                                                   52 1 0 0 19 22 1 0 7 0 63 1
-                                                   0 7 0 61 1 0 46 0 57 2 0 0 0
-                                                   0 39 1 0 0 46 55 2 0 0 0 0
-                                                   42 2 0 12 7 0 28 1 0 0 19 26
-                                                   1 0 0 0 51 1 0 34 0 38 1 0
-                                                   12 0 23 1 0 0 19 21 2 0 9 0
-                                                   0 18 2 0 9 0 0 11 2 0 9 0 0
-                                                   15)))))
+                                                   2 7 9 0 0 64 2 19 0 65 0 66
+                                                   2 19 9 0 0 67 2 0 9 0 0 68 0
+                                                   0 0 49 2 0 0 0 0 44 2 0 0 0
+                                                   0 43 2 0 9 0 0 33 2 0 9 0 0
+                                                   68 0 0 12 52 1 0 0 19 22 1 0
+                                                   7 0 63 1 0 7 0 61 1 0 46 0
+                                                   57 2 0 0 0 0 39 1 0 0 46 55
+                                                   2 0 0 0 0 42 2 0 12 7 0 28 1
+                                                   0 0 19 26 1 0 0 0 51 1 0 34
+                                                   0 38 1 0 12 0 23 1 0 0 19 21
+                                                   2 0 9 0 0 18 2 0 9 0 0 11 2
+                                                   0 9 0 0 15)))))
            '|lookupComplete|)) 

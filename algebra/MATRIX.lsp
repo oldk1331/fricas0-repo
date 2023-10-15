@@ -157,23 +157,28 @@
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
-                                        (|HasCategory| |#1| '(|SetCategory|))
+                                        (|HasCategory| |#1| '(|Comparable|))
                                         (|HasCategory| |#1|
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
+                                        (|HasCategory| |#1| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory| |#1|
-                                                             '(|BasicType|))
+                                                             '(|SetCategory|))
                                               . #4#)
-                                        (OR #3#
+                                        (OR (|HasCategory| |#1| '(|BasicType|))
                                             (|HasCategory| |#1|
-                                                           '(|SetCategory|)))
+                                                           '(|Comparable|))
+                                            #3#)
+                                        (OR
+                                         (|HasCategory| |#1| '(|Comparable|))
+                                         #3#)
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
                                                               (|devaluate|
                                                                |#1|)))
-                                         (|HasCategory| |#1| '(|SetCategory|)))
+                                         #3#)
                                         (LETT #2#
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
@@ -185,8 +190,7 @@
                                                             (LIST '|Evalable|
                                                                   (|devaluate|
                                                                    |#1|)))
-                                             (|HasCategory| |#1|
-                                                            '(|SetCategory|))))
+                                             #3#))
                                         (|HasCategory| |#1| '(|AbelianGroup|))
                                         (|HasCategory| |#1| '(|Monoid|))
                                         (|HasCategory| |#1|
@@ -204,46 +208,53 @@
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
+                                          (|HasCategory| |#1| '(|Comparable|)))
+                                         (AND
+                                          (|HasCategory| |#1|
+                                                         (LIST '|Evalable|
+                                                               (|devaluate|
+                                                                |#1|)))
                                           #1#)
                                          (AND
                                           (|HasCategory| |#1|
                                                          (LIST '|Evalable|
                                                                (|devaluate|
                                                                 |#1|)))
-                                          (|HasCategory| |#1|
-                                                         '(|SetCategory|))))))
+                                          #3#))))
                     . #4#))
     (|haddProp| |$ConstructorCache| '|Matrix| (LIST DV$1) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 16384))
-    (AND #3# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 32768))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 65536))
+    (AND (|HasCategory| |#1| '(|BasicType|))
+         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 131072))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
-         (|HasCategory| |#1| '(|SetCategory|)))
-     (|augmentPredVector| $ 65536))
+     (OR
+      (AND (|HasCategory| |#1| '(|BasicType|))
+           (|HasCategory| $ '(|finiteAggregate|)))
+      #3#)
+     (|augmentPredVector| $ 262144))
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 11)
+     ((|testBitVector| |pv$| 13)
       (PROGN
        (QSETREFV $ 20 (CONS (|dispatchFunction| |MATRIX;determinant;$R;7|) $))
        (QSETREFV $ 22 (CONS (|dispatchFunction| |MATRIX;minordet;$R;8|) $)))))
     (COND
-     ((|testBitVector| |pv$| 10)
+     ((|testBitVector| |pv$| 12)
       (QSETREFV $ 24 (CONS (|dispatchFunction| |MATRIX;rowEchelon;2$;9|) $))))
     (COND
-     ((|testBitVector| |pv$| 13)
+     ((|testBitVector| |pv$| 15)
       (PROGN
        (QSETREFV $ 27 (CONS (|dispatchFunction| |MATRIX;rank;$Nni;10|) $))
        (QSETREFV $ 29 (CONS (|dispatchFunction| |MATRIX;nullity;$Nni;11|) $))
        (QSETREFV $ 32
                  (CONS (|dispatchFunction| |MATRIX;nullSpace;$L;12|) $)))))
     (COND
-     ((|testBitVector| |pv$| 12)
+     ((|testBitVector| |pv$| 14)
       (QSETREFV $ 36 (CONS (|dispatchFunction| |MATRIX;inverse;$U;13|) $))))
     (COND
-     ((|testBitVector| |pv$| 13)
+     ((|testBitVector| |pv$| 15)
       (QSETREFV $ 38
                 (CONS (|dispatchFunction| |MATRIX;invertIfCan;$U;14|) $))))
     (COND
@@ -273,9 +284,9 @@
               (117 . |convert|) (|List| $) (122 . |convert|) (127 . |convert|)
               (|List| 6) (|Equation| 6) (|List| 53) (|Mapping| 13 6)
               (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
-              (|Void|) (|List| 67) (|Union| 6 '"one") (|Mapping| 6 7 7)
-              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 49) (|List| 25)
-              (|PositiveInteger|) (|List| 70) (|Segment| 7) (|List| 7))
+              (|Void|) (|List| 68) (|Union| 6 '"one") (|Mapping| 6 7 7)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 49) (|PositiveInteger|)
+              (|List| 25) (|List| 70) (|Segment| 7) (|List| 7))
            '#(|zero| 132 |swapRows!| 138 |rowEchelon| 145 |rank| 150 |qsetelt!|
               155 |qelt| 163 |nullity| 170 |nullSpace| 175 |minordet| 180
               |minRowIndex| 185 |minColIndex| 190 |maxRowIndex| 195
@@ -283,20 +294,21 @@
               215 |diagonalMatrix| 220 |determinant| 225 |copy| 230 |convert|
               235)
            'NIL
-           (CONS (|makeByteWordVec2| 14 '(0 0 0 0 14 1 0 0 0 14 4 7 2))
+           (CONS (|makeByteWordVec2| 16 '(0 0 0 1 0 16 6 0 0 0 16 5 9 2))
                  (CONS
                   '#(|MatrixCategory&| |TwoDimensionalArrayCategory&|
-                     |HomogeneousAggregate&| |Aggregate&| |Evalable&|
+                     |HomogeneousAggregate&| NIL |Aggregate&| |Evalable&|
                      |SetCategory&| NIL NIL NIL |InnerEvalable&| |BasicType&|
                      NIL NIL)
                   (CONS
                    '#((|MatrixCategory| 6 (|Vector| 6) (|Vector| 6))
                       (|TwoDimensionalArrayCategory| 6 (|Vector| 6)
                                                      (|Vector| 6))
-                      (|HomogeneousAggregate| 6) (|Aggregate|) (|Evalable| 6)
-                      (|SetCategory|) (|Type|) (|finiteAggregate|)
-                      (|shallowlyMutable|) (|InnerEvalable| 6 6) (|BasicType|)
-                      (|CoercibleTo| 56) (|ConvertibleTo| 44))
+                      (|HomogeneousAggregate| 6) (|Comparable|) (|Aggregate|)
+                      (|Evalable| 6) (|SetCategory|) (|Type|)
+                      (|finiteAggregate|) (|shallowlyMutable|)
+                      (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 56)
+                      (|ConvertibleTo| 44))
                    (|makeByteWordVec2| 51
                                        '(1 0 7 0 12 2 7 13 0 0 14 1 0 7 0 15 1
                                          18 6 2 19 1 0 6 0 20 1 18 6 2 21 1 0 6
@@ -307,11 +319,11 @@
                                          38 2 0 0 25 25 39 1 40 7 0 41 1 44 0
                                          43 45 1 0 46 0 47 1 46 44 0 48 1 44 0
                                          49 50 1 0 44 0 51 2 0 0 25 25 39 3 0 0
-                                         0 7 7 16 1 10 0 0 24 1 13 25 0 27 4 0
-                                         6 0 7 7 6 11 3 0 6 0 7 7 10 1 13 25 0
-                                         29 1 13 30 0 32 1 11 6 0 22 1 0 7 0 8
+                                         0 7 7 16 1 12 0 0 24 1 15 25 0 27 4 0
+                                         6 0 7 7 6 11 3 0 6 0 7 7 10 1 15 25 0
+                                         29 1 15 30 0 32 1 13 6 0 22 1 0 7 0 8
                                          1 0 7 0 9 1 0 7 0 12 1 0 7 0 15 1 0 46
-                                         0 47 1 13 35 0 38 1 12 35 0 36 1 0 0
-                                         40 42 1 11 6 0 20 1 0 0 0 17 1 2 44 0
+                                         0 47 1 15 35 0 38 1 14 35 0 36 1 0 0
+                                         40 42 1 13 6 0 20 1 0 0 0 17 1 2 44 0
                                          51)))))
            '|lookupIncomplete|)) 

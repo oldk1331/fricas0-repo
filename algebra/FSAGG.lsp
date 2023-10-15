@@ -46,7 +46,10 @@
                                                               (|OrderedSet|))))
                                                     '(((|Finite|)
                                                        (|has| |t#1|
-                                                              (|Finite|))))
+                                                              (|Finite|)))
+                                                      ((|Comparable|)
+                                                       (|has| |t#1|
+                                                              (|Comparable|))))
                                                     '((|NonNegativeInteger|))
                                                     NIL))
                                            . #2=(|FiniteSetAggregate|)))))
