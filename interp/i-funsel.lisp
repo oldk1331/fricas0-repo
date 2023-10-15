@@ -3240,22 +3240,21 @@
 ;     mmS := NIL
 ;     for [sig, mmC] in mmaps repeat
 ;         -- sig is [dc, result, :args]
+;         [c, t, :a] := sig
 ;         $Subst :=
 ;             tar and not isPartialMode tar =>
 ;                 -- throw in the target if it is not the same as one
 ;                 -- of the arguments
-;                 res := CADR sig
-;                 member(res, CDDR sig) => NIL
-;                 [[res, :tar]]
+;                 member(t, a) => NIL
+;                 [[t, :tar]]
 ;             NIL
-;         [c, t, :a] := sig
 ;         if a then matchTypes(a, args1, args2)
 ;         not EQ($Subst, 'failed) =>
 ;             mmS := nconc(evalMm(op, tar, sig, mmC), mmS)
 ;     mmS
  
 (DEFUN |matchMms| (|mmaps| |op| |tar| |args1| |args2|)
-  (PROG (|mmS| |sig| |ISTMP#1| |mmC| |res| |c| |t| |a|)
+  (PROG (|mmS| |sig| |ISTMP#1| |mmC| |c| |t| |a|)
     (RETURN
      (PROGN
       (SETQ |mmS| NIL)
@@ -3273,17 +3272,15 @@
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |mmC| (CAR |ISTMP#1|)) #1#)))
                  (PROGN
-                  (SETQ |$Subst|
-                          (COND
-                           ((AND |tar| (NULL (|isPartialMode| |tar|)))
-                            (PROGN
-                             (SETQ |res| (CADR |sig|))
-                             (COND ((|member| |res| (CDDR |sig|)) NIL)
-                                   (#1# (LIST (CONS |res| |tar|))))))
-                           (#1# NIL)))
                   (SETQ |c| (CAR |sig|))
                   (SETQ |t| (CADR . #2=(|sig|)))
                   (SETQ |a| (CDDR . #2#))
+                  (SETQ |$Subst|
+                          (COND
+                           ((AND |tar| (NULL (|isPartialMode| |tar|)))
+                            (COND ((|member| |t| |a|) NIL)
+                                  (#1# (LIST (CONS |t| |tar|)))))
+                           (#1# NIL)))
                   (COND (|a| (|matchTypes| |a| |args1| |args2|)))
                   (COND
                    ((NULL (EQ |$Subst| '|failed|))

@@ -3,9 +3,10 @@
  
 (IN-PACKAGE "BOOT")
  
-; simpBool x == dnf2pf reduceDnf be x
+; simpBool x == dnf2pf reduceDnf b2dnf x
  
-(DEFUN |simpBool| (|x|) (PROG () (RETURN (|dnf2pf| (|reduceDnf| (|be| |x|))))))
+(DEFUN |simpBool| (|x|)
+  (PROG () (RETURN (|dnf2pf| (|reduceDnf| (|b2dnf| |x|))))))
  
 ; reduceDnf u ==
 ; -- (OR (AND ..b..) b) ==> (OR  b  )
@@ -138,10 +139,6 @@
                  (SETQ |bfVar#12| (CDR |bfVar#12|))))
               NIL |x| NIL)
              'OR))))))
- 
-; be x == b2dnf x
- 
-(DEFUN |be| (|x|) (PROG () (RETURN (|b2dnf| |x|))))
  
 ; b2dnf x ==
 ;   x = 'T => 'true
@@ -277,7 +274,7 @@
 ;   member(a,l) => l
 ;   y := notCoaf a
 ;   x := ordIntersection(y,l)
-;   null x => orDel(a,l)
+;   null x => ordUnion([a], l)
 ;   x = l => 'true
 ;   x = y => ordSetDiff(l,x)
 ;   ordUnion(notDnf ordSetDiff(y,x),l)
@@ -291,7 +288,8 @@
             (PROGN
              (SETQ |y| (|notCoaf| |a|))
              (SETQ |x| (|ordIntersection| |y| |l|))
-             (COND ((NULL |x|) (|orDel| |a| |l|)) ((EQUAL |x| |l|) '|true|)
+             (COND ((NULL |x|) (|ordUnion| (LIST |a|) |l|))
+                   ((EQUAL |x| |l|) '|true|)
                    ((EQUAL |x| |y|) (|ordSetDiff| |l| |x|))
                    (#1#
                     (|ordUnion| (|notDnf| (|ordSetDiff| |y| |x|)) |l|)))))))))
@@ -300,8 +298,8 @@
 ;   a = 'true => b
 ;   a = 'false => 'false
 ;   [c,:r] := b
-;   null r => coafAndCoaf(a,c)
-;   x := coafAndCoaf(a,c)      --dnf
+;   x := coafAndCoaf(a, c)      --dnf
+;   null r => x
 ;   y := coafAndDnf(a,r)       --dnf
 ;   x = 'false => y
 ;   y = 'false => x
@@ -315,10 +313,10 @@
             (PROGN
              (SETQ |c| (CAR |b|))
              (SETQ |r| (CDR |b|))
-             (COND ((NULL |r|) (|coafAndCoaf| |a| |c|))
+             (SETQ |x| (|coafAndCoaf| |a| |c|))
+             (COND ((NULL |r|) |x|)
                    (#1#
                     (PROGN
-                     (SETQ |x| (|coafAndCoaf| |a| |c|))
                      (SETQ |y| (|coafAndDnf| |a| |r|))
                      (COND ((EQ |x| '|false|) |y|) ((EQ |y| '|false|) |x|)
                            (#1# (|ordUnion| |x| |y|))))))))))))
@@ -365,76 +363,11 @@
            (SETQ |bfVar#18| (CDR |bfVar#18|))))
         NIL |b| NIL))))))
  
-; list1 l ==
-;   l isnt [h,:t] => nil
-;   null h => list1 t
-;   [[h,nil,nil],:list1 t]
- 
-(DEFUN |list1| (|l|)
-  (PROG (|h| |t|)
-    (RETURN
-     (COND
-      ((NOT
-        (AND (CONSP |l|)
-             (PROGN (SETQ |h| (CAR |l|)) (SETQ |t| (CDR |l|)) #1='T)))
-       NIL)
-      ((NULL |h|) (|list1| |t|))
-      (#1# (CONS (LIST |h| NIL NIL) (|list1| |t|)))))))
- 
-; list2 l ==
-;   l isnt [h,:t] => nil
-;   null h => list2 t
-;   [[nil,h,nil],:list2 t]
- 
-(DEFUN |list2| (|l|)
-  (PROG (|h| |t|)
-    (RETURN
-     (COND
-      ((NOT
-        (AND (CONSP |l|)
-             (PROGN (SETQ |h| (CAR |l|)) (SETQ |t| (CDR |l|)) #1='T)))
-       NIL)
-      ((NULL |h|) (|list2| |t|))
-      (#1# (CONS (LIST NIL |h| NIL) (|list2| |t|)))))))
- 
-; list3 l ==
-;   l isnt [h,:t] => nil
-;   null h => list3 t
-;   [[nil,nil,h],:list3 t]
- 
-(DEFUN |list3| (|l|)
-  (PROG (|h| |t|)
-    (RETURN
-     (COND
-      ((NOT
-        (AND (CONSP |l|)
-             (PROGN (SETQ |h| (CAR |l|)) (SETQ |t| (CDR |l|)) #1='T)))
-       NIL)
-      ((NULL |h|) (|list3| |t|))
-      (#1# (CONS (LIST NIL NIL |h|) (|list3| |t|)))))))
- 
-; orDel(a,l) ==
-;   l is [h,:t] =>
-;     a = h => t
-;     ?ORDER(a,h) => [a,:l]
-;     [h,:orDel(a,t)]
-;   [a]
- 
-(DEFUN |orDel| (|a| |l|)
-  (PROG (|h| |t|)
-    (RETURN
-     (COND
-      ((AND (CONSP |l|)
-            (PROGN (SETQ |h| (CAR |l|)) (SETQ |t| (CDR |l|)) #1='T))
-       (COND ((EQUAL |a| |h|) |t|) ((?ORDER |a| |h|) (CONS |a| |l|))
-             (#1# (CONS |h| (|orDel| |a| |t|)))))
-      (#1# (LIST |a|))))))
- 
 ; ordUnion(a,b) ==
 ;   a isnt [c,:r] => b
 ;   b isnt [d,:s] => a
 ;   c=d => [c,:ordUnion(r,s)]
-;   ?ORDER(a,b) => [c,:ordUnion(r,b)]
+;   ?ORDER(c, d) => [c, :ordUnion(r, b)]
 ;   [d,:ordUnion(s,a)]
  
 (DEFUN |ordUnion| (|a| |b|)
@@ -450,7 +383,7 @@
              (PROGN (SETQ |d| (CAR |b|)) (SETQ |s| (CDR |b|)) #1#)))
        |a|)
       ((EQUAL |c| |d|) (CONS |c| (|ordUnion| |r| |s|)))
-      ((?ORDER |a| |b|) (CONS |c| (|ordUnion| |r| |b|)))
+      ((?ORDER |c| |d|) (CONS |c| (|ordUnion| |r| |b|)))
       (#1# (CONS |d| (|ordUnion| |s| |a|)))))))
  
 ; ordIntersection(a,b) ==
