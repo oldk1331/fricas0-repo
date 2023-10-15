@@ -956,7 +956,7 @@
 80618`\spad{y * r} multiplies each component of the vector \spad{y} by the element \spad{r}.
 80679`\spad{x * r} returns the product of \spad{x} by \spad{r}. Usefull if \spad{R} is a non-commutative Ring.
 80725`\spad{(l..h)\spad{-i}} returns segment \spad{l-i .. h-i}.
-80790`\spad{(l..h}\spad{+i}} returns segment \spad{l+i .. h+i}.
+80790`\spad{(l..h)\spad{+i}} returns segment \spad{l+i .. h+i}.
 80859`\spad{x/y} divides the vector \spad{x} by the scalar \spad{y}.
 80901`\spad{eqn-x} produces a new equation by subtracting \spad{x} from both sides of equation eqn.
 80959`\spad{eqn+x} produces a new equation by adding \spad{x} to both sides of equation eqn.
@@ -2430,7 +2430,7 @@
 235858`\spad{countable?(\spad{a})} determines whether \spad{a} is a countable cardinal,{} \spadignore{i.e.} an integer or \spad{Aleph 0}.
 235912`\spad{countRealRoots(p)} says how many real roots \spad{p} has
 235981`\spad{countRealRootsMultiple(p)} says how many real roots \spad{p} has,{} counted with multiplicity
-236074`the covering matrix of a list of elements from a comparison function the list is assumed to be topologically sorted (\spadignore{i.e.} \spad{w}.\spad{r}. to a linear extension of the comparison function \spad{f} This function is based on code by Franz Lehner. Notes by Martin Baker on the webpage here: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/logic/moebius/}
+236074`the covering matrix of a list of elements from a comparison function the list is assumed to be topologically sorted,{} \spadignore{i.e.} \spad{w}.\spad{r}. to a linear extension of the comparison function \spad{f} This function is based on code by Franz Lehner. Notes by Martin Baker on the webpage here: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/logic/moebius/}
 236209`\spad{cPower(f,{} r)} computes \spad{f^r},{} where \spad{f} has constant coefficient 1. For use when the coefficient ring is commutative.
 236319`\spad{cRationalPower(f,{} r)} computes \spad{f^r}. For use when the coefficient ring is commutative.
 236495`\spad{create3Space()} creates a \spadtype{ThreeSpace} object capable of holding point,{} curve,{} mesh components and any combination.
@@ -2912,7 +2912,7 @@
 301848`\spad{distance(p1,{} p2)} returns the distance between the points \spad{p1} is the first point. \spad{p2} is the second point. There are 2 metrics associated with any SPointCategory the underlying space and the space that it is embedded in this is the distance in the underlying space.
 302080`\spad{distance(u,{} v)} returns the path length (an integer) from node \spad{u} to \spad{v}.
 302142`\spad{distance(s,{} a,{} b)} gives the shortest distance between nodes 'a' and \spad{'b'} as a number of hops. 0 if 'a' = \spad{'b'},{} \spad{-1} if it is not possible to go from 'a' to \spad{'b'}
-302400`\spad{distanceMatrix(s)} gives matrix of distances between vertices. Element a_{\spad{i},{} \spad{j}} is the distance from \spad{i} to \spad{j}. Distance matrices are related to adjacency matrices,{} with the differences that: a) the latter only provides the information which vertices are connected \indented{3}{but does not tell about costs or distances between the vertices} \spad{b}) adjacency matrix only tells us about directly connect
+302400`\spad{distanceMatrix(s)} gives matrix of distances between vertices. Element a_{\spad{i},{} \spad{j}} is the distance from \spad{i} to \spad{j}. Distance matrices are related to adjacency matrices,{} with the differences that: a. the latter only provides the information which vertices are connected \indented{3}{but does not tell about costs or distances between the vertices} \spad{b}. adjacency matrix only tells us about directly connect
 302400`--ed \indented{3}{vertices while distance matrix also considers indirect connections.}
 302529`\spad{distanceSquared(p1,{} p2)} returns the distance between the points \spad{p1} and \spad{p2}. There are 2 metrics associated with any SPointCategory the underlying space and the space that it is embedded in this is the distance in the underlying space.
 302595`the shortest distance between 'a' and \spad{'b'} in terms of weight.
@@ -3160,9 +3160,9 @@
 329796`\spad{elt(m,{} i,{} j)} returns the element in the \spad{i}th row and \spad{j}th column of the matrix \spad{m}. Error: if indices are outside the proper ranges.
 329879`\spad{elt(m,{} i,{} j)} returns the element in the \spad{i}th row and \spad{j}th column of the array \spad{m} error check to determine if indices are in proper ranges
 329960`\spad{elt(t,{} i,{} j)} gives a component of a rank 2 tensor.
-330031`\spad{elt(x,{} row,{} colList} returns an 1-by-\spad{n} array consisting of elements of \spad{x},{} where \spad{n = \# colList}. If \spad{colList = [j<1>,{} j<2>,{} ...,{} j<n>]},{} then the \spad{(k,{} l)}th entry of \spad{elt(x,{} row,{} colList)} is \spad{x(row,{} j<l>)}.
+330031`\spad{elt(x,{} row,{} colList)} returns an 1-by-\spad{n} array consisting of elements of \spad{x},{} where \spad{n = \# colList}. If \spad{colList = [j<1>,{} j<2>,{} ...,{} j<n>]},{} then the \spad{(k,{} l)}th entry of \spad{elt(x,{} row,{} colList)} is \spad{x(row,{} j<l>)}.
 330119`\spad{elt(x,{} row,{} ls2)} is equivalent to \spad{elt(x,{} row,{} l2)} where \spad{l2} is obtained appending expansions of elements of \spad{ls2},{} but should be more convenient and more efficient.
-330216`\spad{elt(x,{} rowList,{} col} returns an \spad{m}-by-1 array consisting of elements of \spad{x},{} where \spad{m = \# rowList}. If \spad{rowList = [i<1>,{} i<2>,{} ...,{} i<n>]},{} then the \spad{(k,{} l)}th entry of \spad{elt(x,{} rowList,{} col)} is \spad{x(i<k>,{} col)}.
+330216`\spad{elt(x,{} rowList,{} col)} returns an \spad{m}-by-1 array consisting of elements of \spad{x},{} where \spad{m = \# rowList}. If \spad{rowList = [i<1>,{} i<2>,{} ...,{} i<m>]},{} then the \spad{(k,{} l)}th entry of \spad{elt(x,{} rowList,{} col)} is \spad{x(i<k>,{} col)}.
 330304`\spad{elt(x,{} rowList,{} colList)} returns an \spad{m}-by-\spad{n} array consisting of elements of \spad{x},{} where \spad{m = \# rowList} and \spad{n = \# colList}. If \spad{rowList = [i<1>,{} i<2>,{} ...,{} i<m>]} and \spad{colList = [j<1>,{} j<2>,{} ...,{} j<n>]},{} then the \spad{(k,{} l)}th entry of \spad{elt(x,{} rowList,{} colList)} is \spad{x(i<k>,{} j<l>)}.
 330398`\spad{elt(x,{} rowList,{} s)} is equivalent to \spad{elt(x,{} rowList,{} expand(s))} but should be more convenient and more efficient.
 330495`\spad{elt(x,{} ls1,{} col)} is equivalent to \spad{elt(x,{} l1,{} col)} where \spad{l1} is obtained appending expansions of elements of \spad{ls1},{} but should be more convenient and more efficient.
@@ -4414,7 +4414,7 @@
 482427`\spad{intersection(x)} constructs a compound boundary from the intersection of \spad{x} \spad{x:} List \% is supplied list of boundaries to form intersection.
 482483`\spad{interval(f)} creates a new interval around \spad{f}.
 482550`\spad{interval(f)} creates a new interval around \spad{f}.
-482601`\spad{interval(inf,{} sup)} creates a new interval,{} either \spad{[inf,{} sup]} if \spad{inf <= sup} or \spad{[sup,{} in]} otherwise.
+482601`\spad{interval(inf,{} sup)} creates a new interval,{} either \spad{[inf,{} sup]} if \spad{inf <= sup} or \spad{[sup,{} inf]} otherwise.
 482654`\spad{intoMatrix(lp,{} lvar)} converts linear in symbols lvar system of polynomials \spad{lp} = 0 into matrix form
 482795`\spad{intPatternMatch(f,{} x,{} int,{} pmint)} tries to integrate \spad{f} first by using the integration function \spad{int},{} and then by
 482795`-- using the pattern match intetgration function \spad{pmint} on any remaining unintegrable part.
@@ -4491,7 +4491,7 @@
 490121`\spad{isFixPoint?(s,{} a)} is \spad{true} if 'a' has an arrow to itself
 490331`introspection: returns \spad{true} if this is a unbound leaf node
 490382`\spad{isFunctional?(s)} returns \spad{true} if \spad{s} is a functional graph,{} that is a directed graph in which each vertex has a single outgoing arrow.
-490493`isGreaterThan?((\spad{s},{} a,{} \spad{b}) is \spad{true} if we can get from vertex 'a' to \spad{'b'} through a sequence of arrows but we can\spad{'t} go in the opposite direction from \spad{'b'} to 'a'
+490493`\spad{isGreaterThan?(s,{} a,{} b)} is \spad{true} if we can get from vertex 'a' to \spad{'b'} through a sequence of arrows but we can\spad{'t} go in the opposite direction from \spad{'b'} to 'a'
 490769`returns \spad{true} if this is an \spad{I} combinator node
 490821`returns \spad{true} if this is a \spad{K} combinator node
 490873`introspection: returns \spad{true} if this is a lambda definition
@@ -4590,7 +4590,7 @@
 499407`\spad{kernel(op,{} [f1,{} ...,{} fn])} constructs \spad{op(f1,{} ...,{} fn)} without evaluating it.
 499473`\spad{kernel(op,{} [a1,{} ...,{} an],{} m)} returns the kernel \spad{op(a1,{} ...,{} an)} of nesting level \spad{m}. Error: if \spad{op} is \spad{k}-ary for some \spad{k} not equal to \spad{n}.
 499795`\spad{kernels(f)} returns the list of all the top-level kernels appearing in \spad{f},{} but not the ones appearing in the arguments of the top-level kernels.
-499856`kernels(([\spad{f1},{}...,{}\spad{fn}]) returns the list of all the top-level kernels appearing in \spad{f1},{} ...,{} \spad{fn} but not the ones appearing in the arguments of the top-level kernels.
+499856`\spad{kernels([f1,{}...,{}fn])} returns the list of all the top-level kernels appearing in \spad{f1},{} ...,{} \spad{fn} but not the ones appearing in the arguments of the top-level kernels.
 499923`\spad{key(\spad{gi})} returns the process ID of the given graph,{} \spad{\spad{gi}},{} of the domain \spadtype{GraphImage}.
 499966`\spad{key(v)} returns the process ID number of the given two-dimensional viewport,{} \spad{v},{} which is of domain \spadtype{TwoDimensionalViewport}.
 500021`\spad{key(v)} returns the process ID number of the given three-dimensional viewport,{} \spad{v},{} which is of domain \spadtype{ThreeDimensionalViewport}.
@@ -4686,7 +4686,7 @@
 508718`\spad{laurent(x)} returns \spad{x} viewed as a Laurent series.
 509067`\spad{laurent(f,{} x = a)} expands the expression \spad{f} as a Laurent series in powers of \spad{(x - a)}.
 509152`\spad{laurent(f,{} n)} returns a Laurent expansion of the expression \spad{f}. Note: \spad{f} should have only one variable; the series will be expanded in powers of that variable and terms will be computed up to order at least \spad{n}.
-509232`\spad{laurent(n,{} st)} returns \spad{xn * series st)} where \spad{xn = monomial(1,{} n)} and \spad{series st} stands for the power series with coefficients given by the stream st.
+509232`\spad{laurent(n,{} st)} returns \spad{xn * series st} where \spad{xn = monomial(1,{} n)} and \spad{series st} stands for the power series with coefficients given by the stream st.
 509319`\spad{laurent(n,{} f(x))} returns \spad{x^n * f(x)}.
 509412`\spad{laurent(f,{} x = a,{} n)} expands the expression \spad{f} as a Laurent series in powers of \spad{(x - a)}; terms will be computed up to order at least \spad{n}.
 509505`\spad{laurent(n +-> a(n),{} x = a,{} n0..)} returns \spad{sum(n = n0..,{} a(n) * (x - a)^n)}; \spad{laurent(n +-> a(n),{} x = a,{} n0..n1)} returns \spad{sum(n = n0..n1,{} a(n) * (x - a)^n)}.
@@ -5082,7 +5082,7 @@
 550584`\spad{makeObject(f,{} a..b,{} c..d,{} l)} returns a space of the domain \spadtype{ThreeSpace} which contains the graph of the parametric surface \spad{f(u,{} v)} as \spad{u} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)} and \spad{v} ranges from \spad{min(c,{} d)} to \spad{max(c,{} d)}.
 550754`\spad{makeObject(f,{} a..b,{} l)} creates the graph of \spad{y = f(x)} as \spad{x} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}. The options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
 550894`\spad{makeObject(curve(f,{} g,{} h),{} a..b,{} l)} returns a space of the domain \spadtype{ThreeSpace} which contains the graph of the parametric curve \spad{x = f(t),{} y = g(t),{} z = h(t)} as \spad{t} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}. The options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
-551054`makeObjectf(\spad{x}),{} \spad{x} = a..\spad{b},{} \spad{l}) creates the graph of \spad{y = f(x)} as \spad{x} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}; the options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
+551054`\spad{makeObject(f(x),{} x = a..b,{} l)} creates the graph of \spad{y = f(x)} as \spad{x} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}; the options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
 551161`\spad{makeObject(f(x,{} y),{} x = a..b,{} y = c..d)} returns a space of the domain \spadtype{ThreeSpace} which contains the graph of \spad{z = f(x,{} y)} as \spad{x} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)} and \spad{y} ranges from \spad{min(c,{} d)} to \spad{max(c,{} d)}; \spad{f(x,{} y)} appears as the default title.
 551286`\spad{makeObject(curve(f,{} g),{} a..b,{} l)} creates the graph of the parametric curve \spad{x = f(t),{} y = g(t)} as \spad{t} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}. The options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
 551448`\spad{makeObject(curve(f(t),{} g(t)),{} t = a..b,{} l)} creates the graph of the parametric curve \spad{x = f(t),{} y = g(t)} as \spad{t} ranges from \spad{min(a,{} b)} to \spad{max(a,{} b)}; the options contained in the list \spad{l} of the domain \spad{DrawOption} are applied.
@@ -6832,7 +6832,7 @@
 727249`\spad{reduceLODE(op,{} [g1,{} ...,{} gn])} returns \spad{[m,{} [v1,{} ...,{} vn]]} such that any solution in \spad{A} of \spad{op z = c1*g1 + ... + cn*gn} where \spad{ci} are constants satisfy the differential system \spad{M.z = c1*v1 + ... + cn*vn}
 727356`\spad{reduceMod(sys1,{} sys2)} reduces the system \spad{sys1} modulo the system \spad{sys2}.
 727520`\spad{ReduceOrder(op,{} s)} returns \spad{op1} such that for any solution \spad{z} of \spad{op1 z = 0},{} \spad{y = s \int z} is a solution of \spad{op y = 0}. \spad{s} must satisfy \spad{op s = 0}.
-727578`\spad{ReduceOrder(op,{} [f1,{} ...,{} fk])} returns \spad{[op1,{} [g1,{} ...,{} gk]]} such that for any solution \spad{z} of \spad{op1 z = 0},{} \spad{y = gk \int(g_{k-1} \int(... \int(g1 \int z)...)} is a solution of \spad{op y = 0}. Each \spad{\spad{fi}} must satisfy \spad{op \spad{fi} = 0}.
+727578`\spad{ReduceOrder(op,{} [f1,{} ...,{} fk])} returns \spad{[op1,{} [g1,{} ...,{} gk]]} such that for any solution \spad{z} of \spad{op1 z = 0},{} \spad{y = gk \int(g_{k-1} \int(... \int(g1 \int z)...))} is a solution of \spad{op y = 0}. Each \spad{\spad{fi}} must satisfy \spad{op \spad{fi} = 0}.
 727664`\spad{reduction(p,{} prime)} reduces the polynomial \spad{p} modulo prime of \spad{R}. Note: this function is exported only because it\spad{'s} conditional.
 727718`\spad{reduction(f,{} p)} reduces the coefficients of the polynomial \spad{f} modulo the prime \spad{p}.
 727789`\spad{reduction(u,{} pol)} computes the symmetric reduction of \spad{u} mod pol
@@ -7124,7 +7124,7 @@
 766354`\spad{rightDivide(a,{} b,{} sigma)} returns the pair \spad{[q,{} r]} such that \spad{a = q*b + r} and the degree of \spad{r} is less than the degree of \spad{b}. This process is called ``right division\spad{''}. \spad{\sigma} is the morphism to use.
 766580`\spad{rightExactQuotient(a,{} b)} computes the value \spad{q},{} if it exists such that \spad{a = q*b}.
 766798`\spad{rightExtendedGcd(a,{} b)} returns \spad{[c,{} d,{} g]} such that \spad{g = c * a + d * b = rightGcd(a,{} b)}.
-767051`\spad{right_ext_ext_GCD(a,{} b)} returns \spad{g,{} c,{} d,{} u,{} v} such that \spad{g = c * a + d * b = rightGcd(a,{} b)},{} \spad{u * a = - v * b = leftLcm(a,{} b)} and matrix \spad{matrix([[c,{} d],{} [u,{} v]} is invertible.
+767051`\spad{right_ext_ext_GCD(a,{} b)} returns \spad{g,{} c,{} d,{} u,{} v} such that \spad{g = c * a + d * b = rightGcd(a,{} b)},{} \spad{u * a = - v * b = leftLcm(a,{} b)} and matrix \spad{matrix([[c,{} d],{} [u,{} v]])} is invertible.
 767198`\spad{rightFactorIfCan(f,{} d,{} c)} returns a candidate to be the right factor (\spad{h} in \spad{f} = \spad{g} \spad{o} \spad{h}) of degree \spad{d} with leading coefficient \spad{c} of a functional decomposition of the polynomial \spad{f} or \spad{"failed"} if no such candidate.
 767389`\spad{rightGcd(a,{} b)} computes the value \spad{g} of highest degree such that \indented{3}{\spad{a = aa*g}} \indented{3}{\spad{b = bb*g}} for some values \spad{aa} and \spad{bb}. The value \spad{g} is computed using right-division.
 767539`\spad{rightLcm(a,{} b)} computes the value \spad{m} of lowest degree such that \spad{m = a*aa = b*bb} for some values \spad{aa} and \spad{bb}. The value \spad{m} is computed using left-division.
@@ -7621,7 +7621,7 @@
 826943`construct FiniteSimplicialComplex from DeltaComplex. If there are 'implied' loops,{} such as facets with multiple entries with the same index,{} then this function may fail.
 827048`construct FiniteSimplicialComplex from DeltaComplex with trace. If there are 'implied' loops,{} such as facets with multiple entries with the same index,{} then this function may fail.
 827161`Forms join of two simplicial complexes. The join \spad{S*T} of two simplicial sets \spad{S} and \spad{T} is a new simplicial set that may geometrically be thought of as a cone over \spad{T} with tip of shape \spad{S}. simplicialJoin is commutative and associative. For more information: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/simplex/join/index.\spad{htm}}
-827239`There may not be a simplest form but it is possible to do some simplifications as follows: 1) Remove all zero terms in relations. 2) If a relation consists of a single generator then remove \indented{3}{that generator.} 3) If a relation consists of a pair of generators then make the \indented{3}{second generator the inverse of the first.} 4) if a generator is adjacent to its inverse then cancel them out. 5) Remove duplicate relations. 6) Substitute one 
+827239`There may not be a simplest form but it is possible to do some simplifications as follows: 1. Remove all zero terms in relations. 2. If a relation consists of a single generator then remove \indented{3}{that generator.} 3. If a relation consists of a pair of generators then make the \indented{3}{second generator the inverse of the first.} 4. If a generator is adjacent to its inverse then cancel them out. 5. Remove duplicate relations. 6. Substitute one 
 827239`--relation in another.
 827290`\spad{simplify(s)} returns a different and presumably simpler representation of \spad{s} with the defining polynomials for the equations forming a groebner basis,{} and the defining polynomial for the inequation reduced with respect to the basis,{} using a heuristic algorithm based on factoring.
 827413`\spad{simplify(de)} simplifies the equations of each order separately using the procedure \spad{simplify} from \spad{D}. Found integrability conditions are also returned separately.
@@ -8457,8 +8457,8 @@
 929893`\spad{useSingleFactorBound(b)} chooses the algorithm to be used by the factorizers: \spad{true} for algorithm with single factor bound,{} \spad{false} for algorithm with overall bound. Returns the previous value.
 929974`\spad{usingTable?()} returns \spad{true} iff the hash-table is used
 930052`\spad{UTS2UP(s,{} n)} converts the first \spad{n} terms of \spad{s} to a univariate polynomial.
-930127`\spad{true} if this is a valid chain complex,{} that is: 1) maps compose 2) product of adjacent maps is zero
-930178`\spad{true} if this is a valid chain complex,{} that is: 1) maps compose 2) product of adjacent coboundary maps is zero
+930127`\spad{true} if this is a valid chain complex,{} that is: 1. maps compose 2. product of adjacent maps is zero
+930178`\spad{true} if this is a valid chain complex,{} that is: 1. maps compose 2. product of adjacent coboundary maps is zero
 930235`\spad{validExponential([k1,{} ...,{} kn],{} f,{} x)} returns \spad{g} if \spad{exp(f)=g} and \spad{g} involves only \spad{k1...kn},{} and "failed" otherwise.
 930353`\spad{value(x)} returns a SingleInteger value corresponding to \spad{x}.
 930404`returns: \indented{2}{"T"::Symbol = \spad{T}} \indented{2}{"F"::Symbol = \spad{_|_}} \indented{2}{"E"::Symbol = error} \indented{2}{"P"::Symbol = proposition} \indented{2}{"C"::Symbol = compound} Constructs lambda term and bind any variables with the name provided
