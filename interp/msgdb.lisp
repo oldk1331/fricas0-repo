@@ -1953,7 +1953,7 @@
 ;     1
 ;   member(x,'("%l" %l)) => 0
 ;   STRINGP x and STRINGLENGTH x > 2 and x.0 = char "%" and x.1 = char "x" =>
-;     INTERN x.3
+;       DIGITP(x.2)
 ;   STRINGP x => STRINGLENGTH x
 ;   IDENTP x => STRINGLENGTH PNAME x
 ;   -- following line helps find certain bugs that slip through
@@ -1971,7 +1971,7 @@
       ((|member| |x| '("%l" |%l|)) 0)
       ((AND (STRINGP |x|) (< 2 (STRINGLENGTH |x|))
             (EQUAL (ELT |x| 0) (|char| '%)) (EQUAL (ELT |x| 1) (|char| '|x|)))
-       (INTERN (ELT |x| 3)))
+       (DIGITP (ELT |x| 2)))
       ((STRINGP |x|) (STRINGLENGTH |x|))
       ((IDENTP |x|) (STRINGLENGTH (PNAME |x|)))
       ((VECP |x|) (STRINGLENGTH "UNPRINTABLE"))
