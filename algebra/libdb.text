@@ -10470,7 +10470,7 @@ pEvaluateCycleIndicators`1`n`(Algebra(Fraction(Integer)))->etc`(F)`EVALCYC`12736
 pExport3D`0`n`()->etc``EXP3D`1273798
 pExportXml`0`n`()->etc``XML`1273894
 pExpressionFactorPolynomial`2`n`(R:Join(GcdDomain,etc),F:FunctionSpace(R))->etc`(R,F)`EFACTOR`0
-pExpressionFunctions2`2`x`(Comparable,S:Comparable)->etc`(R,S)`EXPR2`1273952
+pExpressionFunctions2`2`x`(Join(Ring,etc),S:Join(Ring,etc))->etc`(R,S)`EXPR2`1273952
 pExpressionLinearSolve`2`n`(R:Join(IntegralDomain,etc),F:FunctionSpace(R))->etc`(R,F)`ELINSOL`1274048
 pExpressionSolve`4`n`(R:Join(Comparable,etc),F:FunctionSpace(R),UTSF:UnivariateTaylorSeriesCategory(F),UnivariateTaylorSeriesCategory(SparseMultivariatePolynomialExpressions(F)))->etc`(R,F,UTSF,UTSSMPF)`EXPRSOL`0
 pExpressionSpaceFunctions1`2`n`(ExpressionSpace,S:Type)->etc`(F,S)`ES1`1274241
