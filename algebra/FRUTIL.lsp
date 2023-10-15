@@ -4,80 +4,81 @@
         (SPADCALL
          (SPADCALL (SPADCALL |f| (QREFELT $ 8)) (SPADCALL |g| (QREFELT $ 8))
                    (QREFELT $ 9))
-         (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (SPADCALL |g| (QREFELT $ 13))
-                   (QREFELT $ 14))
-         (QREFELT $ 15))) 
+         (SPADCALL (SPADCALL |f| (QREFELT $ 13))
+                   (SPADCALL (SPADCALL |g| (QREFELT $ 13)) (QREFELT $ 14))
+                   (QREFELT $ 15))
+         (QREFELT $ 16))) 
 
 (SDEFUN |FRUTIL;refine;FMF;2|
-        ((|f| |Factored| R) (|func| |Mapping| (|Factored| R) R)
+        ((|f| |Factored| R) (|func| |Mapping| #1=(|Factored| R) R)
          ($ |Factored| R))
         (SPROG
          ((|l|
            (|List|
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
-          (#1=#:G124 NIL) (|v| NIL) (#2=#:G123 NIL) (|u| (R)) (#3=#:G109 NIL)
-          (|fitem| (|Factored| R)) (#4=#:G122 NIL) (|item| NIL))
+          (#2=#:G124 NIL) (|v| NIL) (#3=#:G123 NIL) (|u| (R)) (#4=#:G109 NIL)
+          (|fitem| #1#) (#5=#:G122 NIL) (|item| NIL))
          (SEQ
-          (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #5=(|FRUTIL;refine;FMF;2|))
-          (LETT |l| NIL . #5#)
-          (SEQ (LETT |item| NIL . #5#)
-               (LETT #4# (SPADCALL |f| (QREFELT $ 13)) . #5#) G190
+          (LETT |u| (SPADCALL |f| (QREFELT $ 8)) . #6=(|FRUTIL;refine;FMF;2|))
+          (LETT |l| NIL . #6#)
+          (SEQ (LETT |item| NIL . #6#)
+               (LETT #5# (SPADCALL |f| (QREFELT $ 13)) . #6#) G190
                (COND
-                ((OR (ATOM #4#) (PROGN (LETT |item| (CAR #4#) . #5#) NIL))
+                ((OR (ATOM #5#) (PROGN (LETT |item| (CAR #5#) . #6#) NIL))
                  (GO G191)))
-               (SEQ (LETT |fitem| (SPADCALL (QVELT |item| 1) |func|) . #5#)
+               (SEQ (LETT |fitem| (SPADCALL (QVELT |item| 1) |func|) . #6#)
                     (LETT |u|
                           (SPADCALL |u|
                                     (SPADCALL (SPADCALL |fitem| (QREFELT $ 8))
                                               (PROG1
-                                                  (LETT #3# (QVELT |item| 2)
-                                                        . #5#)
-                                                (|check_subtype2| (>= #3# 0)
+                                                  (LETT #4# (QVELT |item| 2)
+                                                        . #6#)
+                                                (|check_subtype2| (>= #4# 0)
                                                                   '(|NonNegativeInteger|)
                                                                   '(|Integer|)
-                                                                  #3#))
-                                              (QREFELT $ 18))
+                                                                  #4#))
+                                              (QREFELT $ 19))
                                     (QREFELT $ 9))
-                          . #5#)
+                          . #6#)
                     (EXIT
                      (COND
                       ((EQL (QVELT |item| 2) 1)
                        (LETT |l|
                              (SPADCALL (SPADCALL |fitem| (QREFELT $ 13)) |l|
-                                       (QREFELT $ 19))
-                             . #5#))
+                                       (QREFELT $ 20))
+                             . #6#))
                       ('T
                        (LETT |l|
                              (SPADCALL
                               (PROGN
-                               (LETT #2# NIL . #5#)
-                               (SEQ (LETT |v| NIL . #5#)
-                                    (LETT #1# (SPADCALL |fitem| (QREFELT $ 13))
-                                          . #5#)
+                               (LETT #3# NIL . #6#)
+                               (SEQ (LETT |v| NIL . #6#)
+                                    (LETT #2# (SPADCALL |fitem| (QREFELT $ 13))
+                                          . #6#)
                                     G190
                                     (COND
-                                     ((OR (ATOM #1#)
+                                     ((OR (ATOM #2#)
                                           (PROGN
-                                           (LETT |v| (CAR #1#) . #5#)
+                                           (LETT |v| (CAR #2#) . #6#)
                                            NIL))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
-                                      (LETT #2#
+                                      (LETT #3#
                                             (CONS
                                              (VECTOR (QVELT |v| 0)
                                                      (QVELT |v| 1)
                                                      (* (QVELT |v| 2)
                                                         (QVELT |item| 2)))
-                                             #2#)
-                                            . #5#)))
-                                    (LETT #1# (CDR #1#) . #5#) (GO G190) G191
-                                    (EXIT (NREVERSE #2#))))
-                              |l| (QREFELT $ 19))
-                             . #5#)))))
-               (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |u| |l| (QREFELT $ 15)))))) 
+                                             #3#)
+                                            . #6#)))
+                                    (LETT #2# (CDR #2#) . #6#) (GO G190) G191
+                                    (EXIT (NREVERSE #3#))))
+                              |l| (QREFELT $ 20))
+                             . #6#)))))
+               (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL |u| |l| (QREFELT $ 16)))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
 
@@ -106,7 +107,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctionUtilities|))
           (LETT |dv$| (LIST '|FactoredFunctionUtilities| DV$1) . #1#)
-          (LETT $ (GETREFV 22) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FactoredFunctionUtilities|
@@ -121,17 +122,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Factored| 6)
               (0 . |unit|) (5 . *) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flg| 10) (|:| |fctr| 6) (|:| |xpnt| (|Integer|)))
-              (|List| 11) (11 . |factorList|) (16 . |append|) (22 . |makeFR|)
-              |FRUTIL;mergeFactors;3F;1| (|NonNegativeInteger|) (28 . ^)
-              (34 . |concat|) (|Mapping| 7 6) |FRUTIL;refine;FMF;2|)
-           '#(|refine| 40 |mergeFactors| 46) 'NIL
+              (|List| 11) (11 . |factorList|) (16 . |copy|) (21 . |append|)
+              (27 . |makeFR|) |FRUTIL;mergeFactors;3F;1| (|NonNegativeInteger|)
+              (33 . ^) (39 . |concat|) (|Mapping| 7 6) |FRUTIL;refine;FMF;2|)
+           '#(|refine| 45 |mergeFactors| 51) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 21
+                             (|makeByteWordVec2| 22
                                                  '(1 7 6 0 8 2 6 0 0 0 9 1 7 12
-                                                   0 13 2 12 0 0 0 14 2 7 0 6
-                                                   12 15 2 6 0 0 17 18 2 12 0 0
-                                                   0 19 2 0 7 7 20 21 2 0 7 7 7
-                                                   16)))))
+                                                   0 13 1 12 0 0 14 2 12 0 0 0
+                                                   15 2 7 0 6 12 16 2 6 0 0 18
+                                                   19 2 12 0 0 0 20 2 0 7 7 21
+                                                   22 2 0 7 7 7 17)))))
            '|lookupComplete|)) 
