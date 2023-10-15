@@ -1545,7 +1545,7 @@
           (COND ((NULL |finished?|) (LETT |rk| (QVELT A 1) . #19#)))
           (EXIT (VECTOR A |LTr| |Pivs| |rk|))))) 
 
-(SDEFUN |SEM;*;M2$;33| ((|List| |Matrix| D) (AA $) ($ $))
+(SDEFUN |SEM;*;M2$;33| ((LM |Matrix| D) (AA $) ($ $))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -1555,11 +1555,11 @@
           (A ($)))
          (SEQ
           (COND
-           ((SPADCALL (ANCOLS |List|) (QVELT AA 1) (QREFELT $ 59))
+           ((SPADCALL (ANCOLS LM) (QVELT AA 1) (QREFELT $ 59))
             (|error| "improper matrix dimensions"))
            ('T
             (SEQ (LETT A (SPADCALL AA (QREFELT $ 54)) . #6=(|SEM;*;M2$;33|))
-                 (LETT |rlen| (ANROWS |List|) . #6#)
+                 (LETT |rlen| (ANROWS LM) . #6#)
                  (LETT |res| (SPADCALL (QVELT A 2) |rlen| (QREFELT $ 34))
                        . #6#)
                  (SEQ (LETT |c| NIL . #6#) (LETT #5# (QVELT A 2) . #6#) G190
@@ -1590,16 +1590,15 @@
                                               (COND
                                                ((NULL
                                                  (SPADCALL
-                                                  (QAREF2O |List| |k| |i| 1 1)
+                                                  (QAREF2O LM |k| |i| 1 1)
                                                   (QREFELT $ 81)))
                                                 (QSETAREF1O |tmp| |k|
                                                             (SPADCALL
                                                              (QAREF1O |tmp| |k|
                                                                       1)
                                                              (SPADCALL
-                                                              (QAREF2O |List|
-                                                                       |k| |i|
-                                                                       1 1)
+                                                              (QAREF2O LM |k|
+                                                                       |i| 1 1)
                                                               (|SPADfirst|
                                                                (QCDR |r|))
                                                               (QREFELT $ 79))
@@ -1672,7 +1671,7 @@
                  (COND ((QEQCAR |tmp| 1) (|error| "cannot divide in mult"))
                        ('T (QCDR |tmp|))))))) 
 
-(SDEFUN |SEM;*;M2$;35| ((|List| |Matrix| (|Fraction| D)) (AA $) ($ $))
+(SDEFUN |SEM;*;M2$;35| ((LM |Matrix| (|Fraction| D)) (AA $) ($ $))
         (SPROG
          ((|r|
            (|Record| (|:| |Indices| (|List| C)) (|:| |Entries| (|List| D))))
@@ -1682,11 +1681,11 @@
           (|res| ($)) (|rlen| (|NonNegativeInteger|)) (A ($)))
          (SEQ
           (COND
-           ((SPADCALL (ANCOLS |List|) (QVELT AA 1) (QREFELT $ 59))
+           ((SPADCALL (ANCOLS LM) (QVELT AA 1) (QREFELT $ 59))
             (|error| "improper matrix dimensions"))
            ('T
             (SEQ (LETT A (SPADCALL AA (QREFELT $ 54)) . #6=(|SEM;*;M2$;35|))
-                 (LETT |rlen| (ANROWS |List|) . #6#)
+                 (LETT |rlen| (ANROWS LM) . #6#)
                  (LETT |res| (SPADCALL (QVELT A 2) |rlen| (QREFELT $ 34))
                        . #6#)
                  (SEQ (LETT |c| NIL . #6#) (LETT #5# (QVELT A 2) . #6#) G190
@@ -1717,16 +1716,15 @@
                                               (COND
                                                ((NULL
                                                  (SPADCALL
-                                                  (QAREF2O |List| |k| |i| 1 1)
+                                                  (QAREF2O LM |k| |i| 1 1)
                                                   (QREFELT $ 110)))
                                                 (QSETAREF1O |tmp| |k|
                                                             (SPADCALL
                                                              (QAREF1O |tmp| |k|
                                                                       1)
                                                              (SPADCALL
-                                                              (QAREF2O |List|
-                                                                       |k| |i|
-                                                                       1 1)
+                                                              (QAREF2O LM |k|
+                                                                       |i| 1 1)
                                                               (|SPADfirst|
                                                                (QCDR |r|))
                                                               (QREFELT $ 120))

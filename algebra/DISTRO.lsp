@@ -250,7 +250,7 @@
               (COND
                ((SPADCALL (QVELT |Sy| 0) (SPADCALL 1 2 (QREFELT $ 65))
                           (QREFELT $ 60))
-                (EXIT (SPADCALL (QREFELT $ 15)))))))
+                (EXIT (|spadConstant| $ 15))))))
             (LETT |Sxc| (SPADCALL (QVELT |Sx| 2) (QREFELT $ 26)) . #4#)
             (LETT |Syc| (SPADCALL (QVELT |Sy| 2) (QREFELT $ 26)) . #4#)
             (COND
@@ -599,7 +599,9 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep| (0 . |Zero|)
               (|List| 6) (|Stream| 6) (4 . |repeating|) (|Sequence| 6)
               (9 . |sequence|) |DISTRO;distributionByMoments;S$;4|
-              |DISTRO;Zero;$;3| (|MomentPackage| 6) (14 . |moment2cumulant|)
+              (CONS IDENTITY
+                    (FUNCALL (|dispatchFunction| |DISTRO;Zero;$;3|) $))
+              (|MomentPackage| 6) (14 . |moment2cumulant|)
               (19 . |moment2freeCumulant|) (24 . |moment2booleanCumulant|)
               |DISTRO;distributionByMoments;S$;5| (29 . |first|) (34 . |rest|)
               (39 . |cons|) (|Mapping| $) (45 . |delay|) (50 . |stream|)

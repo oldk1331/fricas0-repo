@@ -365,7 +365,7 @@
                     ((EQUAL |jt| '|Indep|)
                      (COND
                       ((EQL (SPADCALL |jv| (QREFELT $ 73)) |i|)
-                       (CONS 0 (SPADCALL (QREFELT $ 12))))
+                       (CONS 0 (|spadConstant| $ 12)))
                       (#1# (CONS 1 "0"))))
                     ((EQUAL (SPADCALL (QREFELT $ 55)) '|Multi|)
                      (SEQ (LETT |mind| (SPADCALL |jv| (QREFELT $ 32)) . #2#)

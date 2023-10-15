@@ -657,7 +657,7 @@
                      (|greater_SI| |j| #6#))
                  (GO G191)))
                (SEQ (LETT |cond| (SPADCALL |e| (QREFELT $ 119)) . #13#)
-                    (LETT |jv| (SPADCALL (QREFELT $ 23)) . #13#)
+                    (LETT |jv| (|spadConstant| $ 23) . #13#)
                     (SEQ (LETT |i| NIL . #13#) (LETT #4# |ind1| . #13#)
                          (LETT |x| NIL . #13#) (LETT #3# |Xi| . #13#) G190
                          (COND

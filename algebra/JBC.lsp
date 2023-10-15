@@ -71,8 +71,9 @@
                                  ($ (|PositiveInteger|)
                                   (|List| (|PositiveInteger|))))
                                 T)
-                               ((|One| ($)) T) ((|one?| ((|Boolean|) $)) T)
-                               ((X ($)) T) ((U ($)) T)
+                               ((|One| ($) |constant|) T)
+                               ((|one?| ((|Boolean|) $)) T) ((X ($)) T)
+                               ((U ($)) T)
                                ((P ($ (|List| (|NonNegativeInteger|)))) T)
                                ((P
                                  ($ (|PositiveInteger|)

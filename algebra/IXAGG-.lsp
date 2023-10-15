@@ -98,8 +98,7 @@
                       |IXAGG-;swap!;S2IndexV;10|)
                 (SPADCALL |a| |i| (SPADCALL |a| |j| (QREFELT $ 25))
                           (QREFELT $ 31))
-                (SPADCALL |a| |j| |t| (QREFELT $ 31))
-                (EXIT (SPADCALL (QREFELT $ 35)))))) 
+                (EXIT (SPADCALL |a| |j| |t| (QREFELT $ 31)))))) 
 
 (DECLAIM (NOTINLINE |IndexedAggregate&;|)) 
 
@@ -110,7 +109,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|IndexedAggregate&| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 37) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -159,7 +158,7 @@
              (QSETREFV $ 32 (CONS (|dispatchFunction| |IXAGG-;map!;M2S;8|) $))
              (QSETREFV $ 33
                        (CONS (|dispatchFunction| |IXAGG-;fill!;SEntryS;9|) $))
-             (QSETREFV $ 36
+             (QSETREFV $ 35
                        (CONS (|dispatchFunction| |IXAGG-;swap!;S2IndexV;10|)
                              $)))))
           $))) 
@@ -174,14 +173,14 @@
               (56 . |minIndex|) (61 . |minIndex|) (66 . |elt|) (72 . |first|)
               (77 . |copy|) (|Mapping| 8 8) (82 . |map!|) (88 . |map|)
               (94 . |qsetelt!|) (101 . |map!|) (107 . |fill!|) (|Void|)
-              (113 . |void|) (117 . |swap!|))
-           '#(|swap!| 124 |minIndex| 131 |maxIndex| 136 |map!| 141 |map| 147
-              |first| 153 |fill!| 158 |entry?| 164 |entries| 170 |elt| 175)
+              (113 . |swap!|))
+           '#(|swap!| 120 |minIndex| 127 |maxIndex| 132 |map!| 137 |map| 143
+              |first| 149 |fill!| 154 |entry?| 160 |entries| 166 |elt| 171)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 36
+                             (|makeByteWordVec2| 35
                                                  '(2 6 9 7 0 10 2 6 8 0 7 11 1
                                                    6 13 0 14 1 0 13 0 15 2 6 9
                                                    8 0 16 2 0 9 8 0 17 1 6 18 0
@@ -190,11 +189,11 @@
                                                    0 24 2 6 8 0 7 25 1 0 8 0 26
                                                    1 6 0 0 27 2 6 0 28 0 29 2 0
                                                    0 28 0 30 3 6 8 0 7 8 31 2 0
-                                                   0 28 0 32 2 0 0 0 8 33 0 34
-                                                   0 35 3 0 34 0 7 7 36 3 0 34
-                                                   0 7 7 36 1 0 7 0 23 1 0 7 0
-                                                   21 2 0 0 28 0 32 2 0 0 28 0
-                                                   30 1 0 8 0 26 2 0 0 0 8 33 2
-                                                   0 9 8 0 17 1 0 13 0 15 3 0 8
-                                                   0 7 8 12)))))
+                                                   0 28 0 32 2 0 0 0 8 33 3 0
+                                                   34 0 7 7 35 3 0 34 0 7 7 35
+                                                   1 0 7 0 23 1 0 7 0 21 2 0 0
+                                                   28 0 32 2 0 0 28 0 30 1 0 8
+                                                   0 26 2 0 0 0 8 33 2 0 9 8 0
+                                                   17 1 0 13 0 15 3 0 8 0 7 8
+                                                   12)))))
            '|lookupComplete|)) 

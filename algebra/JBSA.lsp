@@ -30,7 +30,7 @@
 (SDEFUN |JBSA;D;SL$;10| ((|u| |Symbol|) (|der| |List| (|Symbol|)) ($ $))
         (SPADCALL |u| |der| (QREFELT $ 53))) 
 
-(SDEFUN |JBSA;One;$;11| (($ $)) (SPADCALL (QREFELT $ 55))) 
+(SDEFUN |JBSA;One;$;11| (($ $)) (|spadConstant| $ 55)) 
 
 (SDEFUN |JBSA;numIndVar;Pi;12| (($ |PositiveInteger|))
         (+ (QREFELT $ 11) (QREFELT $ 13))) 
@@ -203,8 +203,10 @@
               (|local| |#3|) (|PositiveInteger|) (0 . |numIndVar|) '|nn|
               (4 . |numDepVar|) '|mm| (8 . X) (13 . U) (|List| 6)
               (18 . |concat!|) '|vars| (|Symbol|) (24 . |name|) '|indVars|
-              '|depVars| |JBSA;One;$;11| (29 . |One|) (|Boolean|) (33 . >)
-              (|OutputForm|) (|NonNegativeInteger|) (39 . |coerce|) (|List| 27)
+              '|depVars|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |JBSA;One;$;11|) $))
+              (29 . |One|) (|Boolean|) (33 . >) (|OutputForm|)
+              (|NonNegativeInteger|) (39 . |coerce|) (|List| 27)
               (44 . |superscript|) '|Rep| (|Void|) (50 . |print|)
               |JBSA;setNotation;2S;1| |JBSA;getNotation;S;2| (|List| 28)
               (55 . |multiIndex|) |JBSA;multiIndex;$L;3| (60 . |index|)

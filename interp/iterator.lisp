@@ -147,32 +147,36 @@
                             |finalCode|))))
                  (LIST |finalCode| |m| |e|)))))))))))
  
+; $identity_list := [ _
+;    ["+", ["Zero"]], _
+;    ["*", ["One"]], _
+;    ['gcd, ["Zero"]], _
+;    ['lcm, ["One"]], _
+;    ['append, ['nil]], _
+;    ['union, ['nil]], _
+;    ['strconc, '""], _
+;    ['and, 'true], _
+;    ['or, 'false]]
+ 
+(EVAL-WHEN (EVAL LOAD)
+  (SETQ |$identity_list|
+          (LIST (LIST '+ (LIST '|Zero|)) (LIST '* (LIST '|One|))
+                (LIST '|gcd| (LIST '|Zero|)) (LIST '|lcm| (LIST '|One|))
+                (LIST '|append| (LIST '|nil|)) (LIST '|union| (LIST '|nil|))
+                (LIST '|strconc| "") (LIST '|and| '|true|)
+                (LIST '|or| '|false|))))
+ 
 ; getIdentity(x,e) ==
-;   GETL(x,"THETA") is [y] =>
-;     y => y
+;     av := ASSQ(x, $identity_list)
+;     av => av.1
 ;     nil
  
 (DEFUN |getIdentity| (|x| |e|)
-  (PROG (|ISTMP#1| |y|)
+  (PROG (|av|)
     (RETURN
-     (COND
-      ((PROGN
-        (SETQ |ISTMP#1| (GETL |x| 'THETA))
-        (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-             (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T)))
-       (IDENTITY (COND (|y| |y|) (#1# NIL))))))))
- 
-; numberize x ==
-;   x=$Zero => 0
-;   x=$One => 1
-;   atom x => x
-;   [numberize first x,:numberize rest x]
- 
-(DEFUN |numberize| (|x|)
-  (PROG ()
-    (RETURN
-     (COND ((EQUAL |x| |$Zero|) 0) ((EQUAL |x| |$One|) 1) ((ATOM |x|) |x|)
-           ('T (CONS (|numberize| (CAR |x|)) (|numberize| (CDR |x|))))))))
+     (PROGN
+      (SETQ |av| (ASSQ |x| |$identity_list|))
+      (COND (|av| (ELT |av| 1)) ('T NIL))))))
  
 ; compRepeatOrCollect(form,m,e) ==
 ;   fn(form,[m,:$exitModeStack],[#$exitModeStack,:$leaveLevelStack],$formalArgList

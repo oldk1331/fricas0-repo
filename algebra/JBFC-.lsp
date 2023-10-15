@@ -63,7 +63,7 @@
                  (COND ((NULL JV) 'T)
                        ((SPADCALL (LENGTH JV) 1 (QREFELT $ 48)) NIL)
                        ('T
-                        (SPADCALL (|SPADfirst| JV) (SPADCALL (QREFELT $ 49))
+                        (SPADCALL (|SPADfirst| JV) (|spadConstant| $ 49)
                                   (QREFELT $ 50)))))))) 
 
 (SDEFUN |JBFC-;order;SNni;16| ((|Phi| S) ($ |NonNegativeInteger|))
@@ -78,7 +78,7 @@
                 (LETT JV (SPADCALL |fun| (QREFELT $ 42))
                       |JBFC-;leadingDer;SJB;18|)
                 (EXIT
-                 (COND ((NULL JV) (SPADCALL (QREFELT $ 49)))
+                 (COND ((NULL JV) (|spadConstant| $ 49))
                        ('T (|SPADfirst| JV))))))) 
 
 (SDEFUN |JBFC-;freeOf?;SJBB;19| ((|fun| S) (|jv| JB) ($ |Boolean|))
@@ -503,8 +503,7 @@
                                          (LETT JV (CONS |jv| JV) . #8#))
                                         ((SPADCALL |djv|
                                                    (CONS 0
-                                                         (SPADCALL
-                                                          (QREFELT $ 49)))
+                                                         (|spadConstant| $ 49))
                                                    (QREFELT $ 114))
                                          (SEQ
                                           (LETT |res|

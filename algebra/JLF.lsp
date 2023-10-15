@@ -787,10 +787,10 @@
 
 (SDEFUN |JLF;One;$;30| (($ $))
         (SPADCALL
-         (VECTOR (SPADCALL (QREFELT $ 24)) 'T 'T NIL NIL
+         (VECTOR (|spadConstant| $ 24) 'T 'T NIL NIL
                  (LIST
                   (SPADCALL
-                   (VECTOR (SPADCALL (QREFELT $ 24)) 'T 'T
+                   (VECTOR (|spadConstant| $ 24) 'T 'T
                            (CONS 0 (|spadConstant| $ 22))
                            (SPADCALL (QREFELT $ 23) (QREFELT $ 27)))
                    (QREFELT $ 29))))
@@ -1946,10 +1946,10 @@
           (QSETREFV $ 23
                     (VECTOR 'T (CONS 1 '|0|) (CONS 0 (|spadConstant| $ 22))))
           (QSETREFV $ 30
-                    (VECTOR (SPADCALL (QREFELT $ 24)) 'T 'T NIL NIL
+                    (VECTOR (|spadConstant| $ 24) 'T 'T NIL NIL
                             (LIST
                              (SPADCALL
-                              (VECTOR (SPADCALL (QREFELT $ 24)) 'T 'T
+                              (VECTOR (|spadConstant| $ 24) 'T 'T
                                       (CONS 0 (|spadConstant| $ 25))
                                       (SPADCALL (QREFELT $ 23) (QREFELT $ 27)))
                               (QREFELT $ 29)))))

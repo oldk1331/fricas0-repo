@@ -45,12 +45,12 @@
                  (COND ((EQUAL |jt| '|Const|) (|spadConstant| $ 26))
                        ((EQUAL |jt| '|Indep|)
                         (CONS (LIST (SPADCALL |jv| (QREFELT $ 27)))
-                              (LIST (SPADCALL (QREFELT $ 28)))))
+                              (LIST (|spadConstant| $ 28))))
                        ('T (CONS (LIST (|spadConstant| $ 29)) (LIST |jv|)))))))) 
 
 (SDEFUN |JBLF;coerce;D$;4| ((|ex| D) ($ $))
         (COND ((SPADCALL |ex| (QREFELT $ 31)) (|spadConstant| $ 32))
-              ('T (CONS (LIST |ex|) (LIST (SPADCALL (QREFELT $ 28))))))) 
+              ('T (CONS (LIST |ex|) (LIST (|spadConstant| $ 28)))))) 
 
 (SDEFUN |JBLF;coerce;SemL;5| ((|jm| |SparseEchelonMatrix| JB D) ($ |List| $))
         (SPROG
@@ -117,11 +117,11 @@
 
 (SDEFUN |JBLF;ground;2$;8| ((|l| $) ($ $))
         (COND
-         ((NULL (SPADCALL (SPADCALL (QREFELT $ 28)) (QCDR |l|) (QREFELT $ 57)))
+         ((NULL (SPADCALL (|spadConstant| $ 28) (QCDR |l|) (QREFELT $ 57)))
           (|spadConstant| $ 32))
          ('T
           (CONS (LIST (SPADCALL (QCAR |l|) (QREFELT $ 58)))
-                (LIST (SPADCALL (QREFELT $ 28))))))) 
+                (LIST (|spadConstant| $ 28)))))) 
 
 (SDEFUN |JBLF;retractIfCan;$U;9| ((|l| $) ($ |Union| D "failed"))
         (COND ((SPADCALL |l| (QREFELT $ 19)) (CONS 0 (|spadConstant| $ 60)))
@@ -148,9 +148,7 @@
             (EXIT
              (COND
               ((QEQCAR |pd| 0)
-               (CONS 0
-                     (CONS (LIST (QCDR |pd|))
-                           (LIST (SPADCALL (QREFELT $ 28))))))
+               (CONS 0 (CONS (LIST (QCDR |pd|)) (LIST (|spadConstant| $ 28)))))
               ('T
                (SEQ (LETT |resJ| (SPADCALL |ex| (QREFELT $ 68)) . #4#)
                     (LETT |resC| NIL . #4#)
@@ -195,7 +193,7 @@
 (SDEFUN |JBLF;Zero;$;16| (($ $)) (CONS NIL NIL)) 
 
 (SDEFUN |JBLF;One;$;17| (($ $))
-        (CONS (LIST (|spadConstant| $ 29)) (LIST (SPADCALL (QREFELT $ 28))))) 
+        (CONS (LIST (|spadConstant| $ 29)) (LIST (|spadConstant| $ 28)))) 
 
 (SDEFUN |JBLF;-;2$;18| ((|l| $) ($ $))
         (SPROG ((#1=#:G229 NIL) (|c| NIL) (#2=#:G228 NIL))
@@ -337,11 +335,9 @@
           (|spadConstant| $ 32))
          ('T
           (COND
-           ((SPADCALL (QCDR |l1|) (LIST (SPADCALL (QREFELT $ 28)))
-                      (QREFELT $ 87))
+           ((SPADCALL (QCDR |l1|) (LIST (|spadConstant| $ 28)) (QREFELT $ 87))
             (SPADCALL (|SPADfirst| (QCAR |l1|)) |l2| (QREFELT $ 86)))
-           ((SPADCALL (QCDR |l2|) (LIST (SPADCALL (QREFELT $ 28)))
-                      (QREFELT $ 87))
+           ((SPADCALL (QCDR |l2|) (LIST (|spadConstant| $ 28)) (QREFELT $ 87))
             (SPADCALL (|SPADfirst| (QCAR |l2|)) |l1| (QREFELT $ 86)))
            ('T (|error| "non-linear function")))))) 
 
@@ -349,7 +345,7 @@
         (SPROG ((|rc| (|Union| D "failed")))
                (SEQ
                 (COND
-                 ((SPADCALL (QCDR |l|) (LIST (SPADCALL (QREFELT $ 28)))
+                 ((SPADCALL (QCDR |l|) (LIST (|spadConstant| $ 28))
                             (QREFELT $ 87))
                   (SEQ
                    (LETT |rc|
@@ -435,12 +431,12 @@
                                  (EXIT NIL))
                             (LETT |res| (SPADCALL |res| (QREFELT $ 49)) . #3#)
                             (COND
-                             ((SPADCALL (SPADCALL (QREFELT $ 28)) (QCDR |l|)
+                             ((SPADCALL (|spadConstant| $ 28) (QCDR |l|)
                                         (QREFELT $ 57))
                               (LETT |res|
                                     (SPADCALL
-                                     (SPADCALL (SPADCALL (QREFELT $ 28))
-                                               (QCDR |l|) (QREFELT $ 97))
+                                     (SPADCALL (|spadConstant| $ 28) (QCDR |l|)
+                                               (QREFELT $ 97))
                                      |res| (QREFELT $ 81))
                                     . #3#))
                              (#2#
@@ -509,7 +505,7 @@
                      (|spadConstant| $ 32))
                     (#4#
                      (CONS (LIST (SPADCALL (QCAR |l|) |pos| (QREFELT $ 104)))
-                           (LIST (SPADCALL (QREFELT $ 28)))))))))))))) 
+                           (LIST (|spadConstant| $ 28))))))))))))) 
 
 (SDEFUN |JBLF;jacobiMatrix;LSem;29|
         ((|sys| |List| $) ($ |SparseEchelonMatrix| JB $))
@@ -849,7 +845,7 @@
         (SPADCALL (SPADCALL |x| (QREFELT $ 25)) '|Indep| (QREFELT $ 113))) 
 
 (SDEFUN |JBLF;leadingDer;$JB;31| ((|l| $) ($ JB))
-        (COND ((SPADCALL |l| (QREFELT $ 19)) (SPADCALL (QREFELT $ 28)))
+        (COND ((SPADCALL |l| (QREFELT $ 19)) (|spadConstant| $ 28))
               ('T (|SPADfirst| (QCDR |l|))))) 
 
 (SDEFUN |JBLF;freeOf?;$JBB;32| ((|l| $) (|jv| JB) ($ |Boolean|))

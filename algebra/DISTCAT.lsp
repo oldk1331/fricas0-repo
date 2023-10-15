@@ -26,7 +26,8 @@
                                      (LETT |DistributionCategory;CAT|
                                            (|Join| (|SetCategory|)
                                                    (|mkCategory|
-                                                    '(((|Zero| ($)) T)
+                                                    '(((|Zero| ($) |constant|)
+                                                       T)
                                                       ((|moment|
                                                         (|t#1| $
                                                          (|NonNegativeInteger|)))

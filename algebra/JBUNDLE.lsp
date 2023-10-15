@@ -321,18 +321,19 @@
               |JBUNDLE;U;Pi$;8| (21 . |#|) (26 . ~=) |JBUNDLE;Pm;PiL$;9|
               (|Integer|) (32 . |position|) (38 . |minIndex|)
               |JBUNDLE;coerce;S$;10| (|List| 25) (43 . |Pr|) |JBUNDLE;D;SL$;11|
-              |JBUNDLE;One;$;12| |JBUNDLE;numIndVar;Pi;13|
-              |JBUNDLE;numDepVar;Pi;14| (49 . |repeatedIndex|) (54 . |coerce|)
-              (|List| 17) (59 . |subscript|) |JBUNDLE;name;$S;15|
-              (|Expression| 36) (65 . |One|) (|BasicOperator|)
-              (69 . |operator|) (|Mapping| 17 48) (74 . |display|) (|None|)
-              (|NoneFunctions1| $$) (80 . |coerce|) (85 . |setProperty|)
-              (92 . |weight|) (|NoneFunctions1| 29) (97 . |coerce|)
-              (|NoneFunctions1| 19) (102 . |coerce|) (107 . |coerce|)
-              (112 . |coerce|) (|List| 51) (117 . |concat!|) (|List| $)
-              (123 . |kernel|) |JBUNDLE;coerce;$E;17| (|Union| $ '"failed")
-              (|Union| $ '"0") (|List| 40) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (CONS IDENTITY
+                    (FUNCALL (|dispatchFunction| |JBUNDLE;One;$;12|) $))
+              |JBUNDLE;numIndVar;Pi;13| |JBUNDLE;numDepVar;Pi;14|
+              (49 . |repeatedIndex|) (54 . |coerce|) (|List| 17)
+              (59 . |subscript|) |JBUNDLE;name;$S;15| (|Expression| 36)
+              (65 . |One|) (|BasicOperator|) (69 . |operator|)
+              (|Mapping| 17 48) (74 . |display|) (|None|) (|NoneFunctions1| $$)
+              (80 . |coerce|) (85 . |setProperty|) (92 . |weight|)
+              (|NoneFunctions1| 29) (97 . |coerce|) (|NoneFunctions1| 19)
+              (102 . |coerce|) (107 . |coerce|) (112 . |coerce|) (|List| 51)
+              (117 . |concat!|) (|List| $) (123 . |kernel|)
+              |JBUNDLE;coerce;$E;17| (|Union| $ '"failed") (|Union| $ '"0")
+              (|List| 40) (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 129 |weight| 135 |variables| 140 |type| 151 |smaller?| 156
               |setNotation| 162 |repeatedIndex| 167 |r2m| 172 |order| 177
               |one?| 182 |numIndVar| 187 |numDepVar| 191 |name| 195

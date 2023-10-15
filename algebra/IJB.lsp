@@ -377,10 +377,11 @@
               (|List| 28) |IJB;multiIndex;$L;3| (|PositiveInteger|)
               |IJB;index;$Pi;4| |IJB;type;$S;5| (11 . >) |IJB;X;Pi$;7|
               |IJB;U;Pi$;8| (|NonNegativeInteger|) (17 . |#|) (22 . ~=)
-              |IJB;Pm;PiL$;9| |IJB;One;$;10| |IJB;numIndVar;Pi;11|
-              |IJB;numDepVar;Pi;12| (|OutputForm|) (28 . |coerce|) (|List| 35)
-              (33 . |superscript|) (39 . |coerce|) (|List| $)
-              (44 . |commaSeparate|) (49 . |bracket|)
+              |IJB;Pm;PiL$;9|
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |IJB;One;$;10|) $))
+              |IJB;numIndVar;Pi;11| |IJB;numDepVar;Pi;12| (|OutputForm|)
+              (28 . |coerce|) (|List| 35) (33 . |superscript|) (39 . |coerce|)
+              (|List| $) (44 . |commaSeparate|) (49 . |bracket|)
               (|Record| (|:| |sub| 37) (|:| |sup| 37) (|:| |presup| 37)
                         (|:| |presub| 37) (|:| |args| 37))
               (54 . |script|) (60 . |subscript|) (|List| 22)
