@@ -27,7 +27,7 @@
 ;                 for arg in mapArgs repeat
 ;                         hash := hashCombine(hashType(arg, percentHash), hash)
 ;                 retCode := hashType(retType, percentHash)
-;                 EQL(retCode, $VoidHash) => hash
+;                 EQL(retCode, $VoidHash) => hashCombine(32236, hash)
 ;                 hashCombine(retCode, hashCombine(32236,hash))
 ;         op = 'Enumeration =>
 ;                 for arg in args repeat
@@ -104,7 +104,7 @@
                (SETQ |bfVar#1| (CDR |bfVar#1|))))
             |mapArgs| NIL)
            (SETQ |retCode| (|hashType| |retType| |percentHash|))
-           (COND ((EQL |retCode| |$VoidHash|) |hash|)
+           (COND ((EQL |retCode| |$VoidHash|) (|hashCombine| 32236 |hash|))
                  (#1#
                   (|hashCombine| |retCode| (|hashCombine| 32236 |hash|))))))
          ((EQ |op| '|Enumeration|)
