@@ -59,7 +59,7 @@
 (SDEFUN |PBWLB;listOfTerms;$L;8| ((|x| $) ($ |List| (|LyndonWord| |VarSet|)))
         |x|) 
 
-(SDEFUN |PBWLB;coerce;$Ofm;9| ((|x| $) ($ |OrderedFreeMonoid| |VarSet|))
+(SDEFUN |PBWLB;coerce;$Fm;9| ((|x| $) ($ |FreeMonoid| |VarSet|))
         (COND ((NULL |x|) (|spadConstant| $ 25))
               ('T
                (SPADCALL (SPADCALL (|SPADfirst| |x|) (QREFELT $ 26))
@@ -204,8 +204,8 @@
               (6 . |varList|) (11 . |setUnion|) |PBWLB;varList;$L;3|
               |PBWLB;first;$Lw;4| |PBWLB;rest;2$;5| (17 . |coerce|)
               |PBWLB;coerce;VarSet$;6| |PBWLB;coerce;Lw$;7| (|List| 13)
-              |PBWLB;listOfTerms;$L;8| (|OrderedFreeMonoid| 6) (22 . |One|)
-              (26 . |coerce|) |PBWLB;coerce;$Ofm;9| (31 . *) (|Integer|)
+              |PBWLB;listOfTerms;$L;8| (|FreeMonoid| 6) (22 . |One|)
+              (26 . |coerce|) |PBWLB;coerce;$Fm;9| (31 . *) (|Integer|)
               (|OutputForm|) (37 . |outputForm|) (42 . *) (48 . |coerce|)
               (|Mapping| 30 30 30) (|List| 30) (53 . |reduce|)
               |PBWLB;coerce;$Of;10| |PBWLB;retractable?;$B;11|

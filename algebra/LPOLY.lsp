@@ -201,9 +201,8 @@
         (SPROG
          ((|p1| #1#) (|r| ($)) (|lp| ($)) (#2=#:G176 NIL)
           (|l| (|Union| (|LyndonWord| |VarSet|) "failed")) (|coef| (R))
-          (|w| (|OrderedFreeMonoid| |VarSet|))
-          (|t|
-           (|Record| (|:| |k| (|OrderedFreeMonoid| |VarSet|)) (|:| |c| R))))
+          (|w| (|FreeMonoid| |VarSet|))
+          (|t| (|Record| (|:| |k| (|FreeMonoid| |VarSet|)) (|:| |c| R))))
          (SEQ
           (EXIT
            (COND ((NULL (SPADCALL |p| (QREFELT $ 50))) (CONS 1 "failed"))
@@ -700,22 +699,21 @@
               |LPOLY;lquo;Xrp$Xrp;8| |LPOLY;rquo;Xrp$Xrp;9|
               (|XDistributedPolynomial| 6 7) (130 . |quasiRegular?|)
               (135 . |Zero|) (139 . ~=) (|Record| (|:| |k| 56) (|:| |c| 7))
-              (145 . |mindegTerm|) (|Union| $ '"failed")
-              (|OrderedFreeMonoid| 6) (150 . |lyndonIfCan|)
-              |LPOLY;coerce;$Xdp;23| (155 . -) |LPOLY;LiePolyIfCan;XdpU;10|
-              (|Magma| 6) (161 . |coerce|) (166 . *) (172 . =) (178 . |lexico|)
-              (184 . -) (189 . |One|) (193 . |monom|) (199 . |coerce|)
-              (204 . *) (210 . |coerce|) (215 . *) (221 . |coerce|)
-              |LPOLY;coerce;VarSet$;18| |LPOLY;construct;Lw2$;20|
-              |LPOLY;construct;$Lw$;21| |LPOLY;construct;2Lw$;22| (226 . *)
-              (232 . +) (238 . |setUnion|) (244 . |sort|) |LPOLY;varList;$L;26|
-              (|PositiveInteger|) (249 . |length|) (254 . -)
-              |LPOLY;mirror;2$;27| (|NonNegativeInteger|)
-              |LPOLY;degree;$Nni;29| (259 . >) (265 . |reductum|)
-              |LPOLY;trunc;$Nni$;28| (270 . =) (|OutputForm|) (276 . |coerce|)
-              (281 . |coerce|) (286 . *) (292 . +) (|Mapping| 93 93 93)
-              (|List| 93) (298 . |reduce|) |LPOLY;coerce;$Of;31|
-              (|Mapping| 7 10) (|Union| 10 '"failed")
+              (145 . |mindegTerm|) (|Union| $ '"failed") (|FreeMonoid| 6)
+              (150 . |lyndonIfCan|) |LPOLY;coerce;$Xdp;23| (155 . -)
+              |LPOLY;LiePolyIfCan;XdpU;10| (|Magma| 6) (161 . |coerce|)
+              (166 . *) (172 . =) (178 . |lexico|) (184 . -) (189 . |One|)
+              (193 . |monom|) (199 . |coerce|) (204 . *) (210 . |coerce|)
+              (215 . *) (221 . |coerce|) |LPOLY;coerce;VarSet$;18|
+              |LPOLY;construct;Lw2$;20| |LPOLY;construct;$Lw$;21|
+              |LPOLY;construct;2Lw$;22| (226 . *) (232 . +) (238 . |setUnion|)
+              (244 . |sort|) |LPOLY;varList;$L;26| (|PositiveInteger|)
+              (249 . |length|) (254 . -) |LPOLY;mirror;2$;27|
+              (|NonNegativeInteger|) |LPOLY;degree;$Nni;29| (259 . >)
+              (265 . |reductum|) |LPOLY;trunc;$Nni$;28| (270 . =)
+              (|OutputForm|) (276 . |coerce|) (281 . |coerce|) (286 . *)
+              (292 . +) (|Mapping| 93 93 93) (|List| 93) (298 . |reduce|)
+              |LPOLY;coerce;$Of;31| (|Mapping| 7 10) (|Union| 10 '"failed")
               (|Record| (|:| |k| 10) (|:| |c| 7)) (|List| 104) (|Mapping| 7 7)
               (|List| 7) (|List| 10) (|String|) (|SingleInteger|)
               (|HashState|))

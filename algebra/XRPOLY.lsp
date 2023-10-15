@@ -19,8 +19,7 @@
             (SPADCALL (QCDR (QCDR |p1|)) (QCDR (QCDR |p2|)) (QREFELT $ 12)))
            (#1# 'NIL))))) 
 
-(SDEFUN |XRPOLY;monom;OfmR$;3|
-        ((|w| |OrderedFreeMonoid| |VarSet|) (|r| R) ($ $))
+(SDEFUN |XRPOLY;monom;FmR$;3| ((|w| |FreeMonoid| |VarSet|) (|r| R) ($ $))
         (COND
          ((SPADCALL |r| (QCDR (|spadConstant| $ 14)) (QREFELT $ 10))
           (|spadConstant| $ 14))
@@ -448,7 +447,7 @@
 (SDEFUN |XRPOLY;coerce;I$;23| ((|n| |Integer|) ($ $))
         (CONS 0 (SPADCALL |n| (QREFELT $ 77)))) 
 
-(SDEFUN |XRPOLY;coerce;Ofm$;24| ((|w| |OrderedFreeMonoid| |VarSet|) ($ $))
+(SDEFUN |XRPOLY;coerce;Fm$;24| ((|w| |FreeMonoid| |VarSet|) ($ $))
         (COND
          ((SPADCALL |w| (|spadConstant| $ 79) (QREFELT $ 80))
           (CONS 0 (|spadConstant| $ 30)))
@@ -626,8 +625,7 @@
         (COND ((QEQCAR |p| 0) (|spadConstant| $ 14))
               ('T (SPADCALL (QCDR (QCDR |p|)) |v| (QREFELT $ 100))))) 
 
-(SDEFUN |XRPOLY;lquo;$Ofm$;35|
-        ((|p| $) (|w| |OrderedFreeMonoid| |VarSet|) ($ $))
+(SDEFUN |XRPOLY;lquo;$Fm$;35| ((|p| $) (|w| |FreeMonoid| |VarSet|) ($ $))
         (COND ((SPADCALL |w| (|spadConstant| $ 79) (QREFELT $ 80)) |p|)
               ('T
                (SPADCALL
@@ -679,16 +677,14 @@
                      |x|)
                     $)))))))) 
 
-(SDEFUN |XRPOLY;rquo;$Ofm$;37|
-        ((|p| $) (|w| |OrderedFreeMonoid| |VarSet|) ($ $))
+(SDEFUN |XRPOLY;rquo;$Fm$;37| ((|p| $) (|w| |FreeMonoid| |VarSet|) ($ $))
         (COND ((SPADCALL |w| (|spadConstant| $ 79) (QREFELT $ 80)) |p|)
               ('T
                (SPADCALL
                 (SPADCALL |p| (SPADCALL |w| (QREFELT $ 82)) (QREFELT $ 104))
                 (SPADCALL |w| (QREFELT $ 81)) (QREFELT $ 103))))) 
 
-(SDEFUN |XRPOLY;coef;$OfmR;38|
-        ((|p| $) (|w| |OrderedFreeMonoid| |VarSet|) ($ R))
+(SDEFUN |XRPOLY;coef;$FmR;38| ((|p| $) (|w| |FreeMonoid| |VarSet|) ($ R))
         (SPADCALL (SPADCALL |p| |w| (QREFELT $ 102)) (QREFELT $ 28))) 
 
 (SDEFUN |XRPOLY;quasiRegular?;$B;39| ((|p| $) ($ |Boolean|))
@@ -710,9 +706,9 @@
         (COND ((QEQCAR |p| 0) (SPADCALL (CONS 0 (QCDR |p|)) (QREFELT $ 111)))
               ('T (CONS 1 "failed")))) 
 
-(SDEFUN |XRPOLY;mindeg;$Ofm;43| ((|p| $) ($ |OrderedFreeMonoid| |VarSet|))
+(SDEFUN |XRPOLY;mindeg;$Fm;43| ((|p| $) ($ |FreeMonoid| |VarSet|))
         (SPROG
-         ((#1=#:G265 NIL) (#2=#:G264 #3=(|OrderedFreeMonoid| |VarSet|))
+         ((#1=#:G265 NIL) (#2=#:G264 #3=(|FreeMonoid| |VarSet|))
           (#4=#:G266 #3#) (#5=#:G269 NIL) (|t| NIL))
          (SEQ
           (COND
@@ -726,7 +722,7 @@
             (|spadConstant| $ 79))
            (#6#
             (PROGN
-             (LETT #1# NIL . #7=(|XRPOLY;mindeg;$Ofm;43|))
+             (LETT #1# NIL . #7=(|XRPOLY;mindeg;$Fm;43|))
              (SEQ (LETT |t| NIL . #7#)
                   (LETT #5# (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 24)) . #7#)
                   G190
@@ -747,9 +743,9 @@
                   (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL))
              (COND (#1# #2#) (#6# (|IdentityError| '|min|))))))))) 
 
-(SDEFUN |XRPOLY;maxdeg;$Ofm;44| ((|p| $) ($ |OrderedFreeMonoid| |VarSet|))
+(SDEFUN |XRPOLY;maxdeg;$Fm;44| ((|p| $) ($ |FreeMonoid| |VarSet|))
         (SPROG
-         ((#1=#:G272 NIL) (#2=#:G271 #3=(|OrderedFreeMonoid| |VarSet|))
+         ((#1=#:G272 NIL) (#2=#:G271 #3=(|FreeMonoid| |VarSet|))
           (#4=#:G273 #3#) (#5=#:G275 NIL) (|t| NIL))
          (SEQ
           (COND
@@ -760,7 +756,7 @@
              (#6='T (|spadConstant| $ 79))))
            (#6#
             (PROGN
-             (LETT #1# NIL . #7=(|XRPOLY;maxdeg;$Ofm;44|))
+             (LETT #1# NIL . #7=(|XRPOLY;maxdeg;$Fm;44|))
              (SEQ (LETT |t| NIL . #7#)
                   (LETT #5# (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 24)) . #7#)
                   G190
@@ -954,8 +950,8 @@
               (|Boolean|) (0 . =) (|FreeModule| $$ 6) (6 . =) |XRPOLY;=;2$B;2|
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |XRPOLY;Zero;$;16|) $))
-              (12 . |Zero|) (|OrderedFreeMonoid| 6) |XRPOLY;coerce;Ofm$;24|
-              |XRPOLY;*;R2$;30| |XRPOLY;monom;OfmR$;3| |XRPOLY;*;$R$;31|
+              (12 . |Zero|) (|FreeMonoid| 6) |XRPOLY;coerce;Fm$;24|
+              |XRPOLY;*;R2$;30| |XRPOLY;monom;FmR$;3| |XRPOLY;*;$R$;31|
               |XRPOLY;*;3$;33| (|Record| (|:| |k| 6) (|:| |c| $$)) (|List| 22)
               (16 . |listOfTerms|) |XRPOLY;rquo;3$;4| (21 . ~=)
               |XRPOLY;coef;2$R;12| |XRPOLY;constant;$R;19|
@@ -980,13 +976,13 @@
               (219 . -) |XRPOLY;-;2$;26| (224 . -) (229 . -) |XRPOLY;-;3$;28|
               (235 . -) (241 . *) |XRPOLY;*;I2$;29| (247 . *) (253 . *)
               (259 . *) (265 . *) (271 . |coefficient|)
-              |XRPOLY;lquo;$VarSet$;34| |XRPOLY;lquo;$Ofm$;35|
-              |XRPOLY;rquo;$VarSet$;36| |XRPOLY;rquo;$Ofm$;37|
-              |XRPOLY;coef;$OfmR;38| |XRPOLY;quasiRegular?;$B;39|
+              |XRPOLY;lquo;$VarSet$;34| |XRPOLY;lquo;$Fm$;35|
+              |XRPOLY;rquo;$VarSet$;36| |XRPOLY;rquo;$Fm$;37|
+              |XRPOLY;coef;$FmR;38| |XRPOLY;quasiRegular?;$B;39|
               |XRPOLY;quasiRegular;2$;40| (277 . |characteristic|)
               |XRPOLY;characteristic;Nni;41| (|Union| $ '"failed")
-              |XRPOLY;recip;$U;42| |XRPOLY;mindeg;$Ofm;43| (281 . *)
-              (287 . |min|) |XRPOLY;maxdeg;$Ofm;44| (293 . |max|)
+              |XRPOLY;recip;$U;42| |XRPOLY;mindeg;$Fm;43| (281 . *)
+              (287 . |min|) |XRPOLY;maxdeg;$Fm;44| (293 . |max|)
               (299 . |length|) |XRPOLY;degree;$Nni;45| (|Mapping| 7 7)
               |XRPOLY;map;M2$;46| |XRPOLY;varList;$L;47| (304 . |setUnion|)
               (310 . |sort!|) (|Record| (|:| |k| 16) (|:| |c| 7))
@@ -1018,7 +1014,7 @@
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|)
-                 (|RetractableTo| (|OrderedFreeMonoid| 6)) (|unitsKnown|)
+                 (|RetractableTo| (|FreeMonoid| 6)) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 62) (|noZeroDivisors|))
               (|makeByteWordVec2| 129
                                   '(2 7 9 0 0 10 2 11 9 0 0 12 0 7 0 15 1 11 23

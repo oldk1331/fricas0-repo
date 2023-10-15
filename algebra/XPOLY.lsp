@@ -46,7 +46,7 @@
            '#(NIL NIL NIL NIL NIL (|XRecursivePolynomial| 15 6) (|local| |#1|)
               (|NonNegativeInteger|) (|Record| (|:| |k| 15) (|:| |c| $))
               (|List| 8) (|XDistributedPolynomial| 15 6) (|List| 15)
-              (|OrderedFreeMonoid| 15) (|Mapping| 6 6) (|Boolean|) (|Symbol|)
+              (|FreeMonoid| 15) (|Mapping| 6 6) (|Boolean|) (|Symbol|)
               (|Record| (|:| |k| 12) (|:| |c| 6)) (|Union| 12 '"failed")
               (|Integer|) (|Union| $ '"failed") (|PositiveInteger|)
               (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))

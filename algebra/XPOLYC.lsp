@@ -29,7 +29,7 @@
                                  (|Join| (|XFreeAlgebra| '|t#1| '|t#2|)
                                          (|mkCategory|
                                           '(((|maxdeg|
-                                              ((|OrderedFreeMonoid| |t#1|) $))
+                                              ((|FreeMonoid| |t#1|) $))
                                              T)
                                             ((|degree|
                                               ((|NonNegativeInteger|) $))
@@ -39,7 +39,7 @@
                                              T))
                                           NIL
                                           '((|NonNegativeInteger|)
-                                            (|OrderedFreeMonoid| |t#1|))
+                                            (|FreeMonoid| |t#1|))
                                           NIL))
                                  . #2=(|XPolynomialsCat|)))))
                    . #2#)

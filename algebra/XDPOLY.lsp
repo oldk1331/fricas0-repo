@@ -1,6 +1,6 @@
 
 (SDEFUN |XDPOLY;mindegTerm;$R;1|
-        ((|p| $) ($ |Record| (|:| |k| (|OrderedFreeMonoid| |vl|)) (|:| |c| R)))
+        ((|p| $) ($ |Record| (|:| |k| (|FreeMonoid| |vl|)) (|:| |c| R)))
         (SPADCALL |p| (QREFELT $ 10))) 
 
 (SDEFUN |XDPOLY;sh;$Nni$;2| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
@@ -132,14 +132,13 @@
                         . #7#)
                   (EXIT (SPADCALL |le| (QREFELT $ 45))))))))) 
 
-(SDEFUN |XDPOLY;rquo;$Ofm$;10| ((|p| $) (|w| |OrderedFreeMonoid| |vl|) ($ $))
+(SDEFUN |XDPOLY;rquo;$Fm$;10| ((|p| $) (|w| |FreeMonoid| |vl|) ($ $))
         (SPROG
-         ((#1=#:G141 NIL)
-          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+         ((#1=#:G141 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G147 NIL) (|t| NIL) (#4=#:G146 NIL))
          (SEQ
           (PROGN
-           (LETT #4# NIL . #5=(|XDPOLY;rquo;$Ofm$;10|))
+           (LETT #4# NIL . #5=(|XDPOLY;rquo;$Fm$;10|))
            (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
                  ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
@@ -156,11 +155,9 @@
                             (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|OrderedFreeMonoid|
-                                               (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT $ 6))
                                               (|Union|
-                                               (|OrderedFreeMonoid|
-                                                (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT $ 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
@@ -169,14 +166,13 @@
                 (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                 (EXIT (NREVERSE #4#))))))) 
 
-(SDEFUN |XDPOLY;lquo;$Ofm$;11| ((|p| $) (|w| |OrderedFreeMonoid| |vl|) ($ $))
+(SDEFUN |XDPOLY;lquo;$Fm$;11| ((|p| $) (|w| |FreeMonoid| |vl|) ($ $))
         (SPROG
-         ((#1=#:G149 NIL)
-          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+         ((#1=#:G149 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G155 NIL) (|t| NIL) (#4=#:G154 NIL))
          (SEQ
           (PROGN
-           (LETT #4# NIL . #5=(|XDPOLY;lquo;$Ofm$;11|))
+           (LETT #4# NIL . #5=(|XDPOLY;lquo;$Fm$;11|))
            (SEQ (LETT |t| NIL . #5#) (LETT #3# |p| . #5#) G190
                 (COND
                  ((OR (ATOM #3#) (PROGN (LETT |t| (CAR #3#) . #5#) NIL))
@@ -193,11 +189,9 @@
                             (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|OrderedFreeMonoid|
-                                               (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT $ 6))
                                               (|Union|
-                                               (|OrderedFreeMonoid|
-                                                (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT $ 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
@@ -208,8 +202,7 @@
 
 (SDEFUN |XDPOLY;rquo;$vl$;12| ((|p| $) (|v| |vl|) ($ $))
         (SPROG
-         ((#1=#:G157 NIL)
-          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+         ((#1=#:G157 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G163 NIL) (|t| NIL) (#4=#:G162 NIL))
          (SEQ
           (PROGN
@@ -230,11 +223,9 @@
                             (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|OrderedFreeMonoid|
-                                               (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT $ 6))
                                               (|Union|
-                                               (|OrderedFreeMonoid|
-                                                (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT $ 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
@@ -245,8 +236,7 @@
 
 (SDEFUN |XDPOLY;lquo;$vl$;13| ((|p| $) (|v| |vl|) ($ $))
         (SPROG
-         ((#1=#:G165 NIL)
-          (|r| (|Union| (|OrderedFreeMonoid| |vl|) #2="failed"))
+         ((#1=#:G165 NIL) (|r| (|Union| (|FreeMonoid| |vl|) #2="failed"))
           (#3=#:G171 NIL) (|t| NIL) (#4=#:G170 NIL))
          (SEQ
           (PROGN
@@ -267,11 +257,9 @@
                             (PROG2 (LETT #1# |r| . #5#)
                                 (QCDR #1#)
                               (|check_union2| (QEQCAR #1# 0)
-                                              (|OrderedFreeMonoid|
-                                               (QREFELT $ 6))
+                                              (|FreeMonoid| (QREFELT $ 6))
                                               (|Union|
-                                               (|OrderedFreeMonoid|
-                                                (QREFELT $ 6))
+                                               (|FreeMonoid| (QREFELT $ 6))
                                                #2#)
                                               #1#))
                             (QCDR |t|))
@@ -280,8 +268,7 @@
                 (LETT #3# (CDR #3#) . #5#) (GO G190) G191
                 (EXIT (NREVERSE #4#))))))) 
 
-(SDEFUN |XDPOLY;shw|
-        ((|w1| |OrderedFreeMonoid| |vl|) (|w2| |OrderedFreeMonoid| |vl|) ($ $))
+(SDEFUN |XDPOLY;shw| ((|w1| |FreeMonoid| |vl|) (|w2| |FreeMonoid| |vl|) ($ $))
         (SPROG ((|y| (|vl|)) (|x| (|vl|)))
                (SEQ
                 (COND
@@ -426,7 +413,7 @@
                                                (|HasCategory| |#2|
                                                               '(|OrderedAbelianMonoidSup|))
                                                (|HasCategory|
-                                                (|OrderedFreeMonoid| |#1|)
+                                                (|FreeMonoid| |#1|)
                                                 '(|OrderedSet|)))
                                               (OR
                                                (|HasCategory| |#2|
@@ -435,26 +422,26 @@
                                                 (|HasCategory| |#2|
                                                                '(|OrderedAbelianMonoid|))
                                                 (|HasCategory|
-                                                 (|OrderedFreeMonoid| |#1|)
+                                                 (|FreeMonoid| |#1|)
                                                  '(|OrderedSet|)))
                                                (AND
                                                 (|HasCategory| |#2|
                                                                '(|OrderedAbelianMonoidSup|))
                                                 (|HasCategory|
-                                                 (|OrderedFreeMonoid| |#1|)
+                                                 (|FreeMonoid| |#1|)
                                                  '(|OrderedSet|))))
                                               (OR
                                                (AND
                                                 (|HasCategory| |#2|
                                                                '(|OrderedAbelianMonoid|))
                                                 (|HasCategory|
-                                                 (|OrderedFreeMonoid| |#1|)
+                                                 (|FreeMonoid| |#1|)
                                                  '(|OrderedSet|)))
                                                (AND
                                                 (|HasCategory| |#2|
                                                                '(|OrderedAbelianMonoidSup|))
                                                 (|HasCategory|
-                                                 (|OrderedFreeMonoid| |#1|)
+                                                 (|FreeMonoid| |#1|)
                                                  '(|OrderedSet|))))
                                               (|HasCategory| |#2|
                                                              '(|noZeroDivisors|))))
@@ -467,8 +454,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 8
                     (|List|
-                     (|Record| (|:| |k| (|OrderedFreeMonoid| |#1|))
-                               (|:| |c| |#2|))))
+                     (|Record| (|:| |k| (|FreeMonoid| |#1|)) (|:| |c| |#2|))))
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
@@ -482,7 +468,7 @@
               (|local| |#2|) '|Rep| (|Record| (|:| |k| 22) (|:| |c| 7))
               (0 . |last|) |XDPOLY;mindegTerm;$R;1| (5 . |Zero|) (9 . |Zero|)
               (13 . |One|) (17 . |One|) (|NonNegativeInteger|) (21 . |sh|)
-              (27 . |sh|) (33 . *) (39 . *) (45 . +) (|OrderedFreeMonoid| 6)
+              (27 . |sh|) (33 . *) (39 . *) (45 . +) (|FreeMonoid| 6)
               (51 . |coerce|) (56 . |coerce|) |XDPOLY;coerce;vl$;4| (61 . *)
               |XDPOLY;*;vl2$;5| (67 . |leadingSupport|) (72 . |mirror|)
               (77 . |leadingCoefficient|) (82 . |monom|) (88 . |reductum|)
@@ -491,7 +477,7 @@
               |XDPOLY;trunc;$Nni$;8| (115 . |constant?|) (|List| 6)
               (120 . |varList|) (125 . |setUnion|) (131 . |sort!|)
               |XDPOLY;varList;$L;9| (|Union| $ '"failed") (136 . |rquo|)
-              |XDPOLY;rquo;$Ofm$;10| (142 . |lquo|) |XDPOLY;lquo;$Ofm$;11|
+              |XDPOLY;rquo;$Fm$;10| (142 . |lquo|) |XDPOLY;lquo;$Fm$;11|
               (148 . |rquo|) |XDPOLY;rquo;$vl$;12| (154 . |lquo|)
               |XDPOLY;lquo;$vl$;13| (160 . |One|) (164 . =) (170 . |first|)
               (175 . |rest|) (180 . ~=) (186 . *) |XDPOLY;lquo;3$;15|
@@ -528,8 +514,8 @@
                 |RetractableTo&| |BasicType&| NIL |PartialOrder&| NIL)
              (CONS
               '#((|XPolynomialsCat| 6 7) (|XFreeAlgebra| 6 7) (|XAlgebra| 7)
-                 (|FreeModuleCategory| 7 (|OrderedFreeMonoid| 6)) (|Algebra| 7)
-                 (|IndexedDirectProductCategory| 7 (|OrderedFreeMonoid| 6))
+                 (|FreeModuleCategory| 7 (|FreeMonoid| 6)) (|Algebra| 7)
+                 (|IndexedDirectProductCategory| 7 (|FreeMonoid| 6))
                  (|Module| 7) (|BiModule| 7 7) (|Ring|)
                  (|OrderedAbelianMonoidSup|) (|LeftModule| 7) (|LeftModule| $$)
                  (|Rng|) (|AbelianProductCategory| 7) (|RightModule| 7)
@@ -539,7 +525,7 @@
                  (|Monoid|) (|SemiRng|) (|AbelianMonoid|) (|OrderedSet|)
                  (|SemiGroup|) (|AbelianSemiGroup|) (|Comparable|)
                  (|SetCategory|) (|unitsKnown|)
-                 (|RetractableTo| (|OrderedFreeMonoid| 6)) (|BasicType|)
+                 (|RetractableTo| (|FreeMonoid| 6)) (|BasicType|)
                  (|CoercibleTo| 80) (|PartialOrder|) (|noZeroDivisors|))
               (|makeByteWordVec2| 80
                                   '(1 8 9 0 10 0 0 0 12 0 7 0 13 0 0 0 14 0 7 0

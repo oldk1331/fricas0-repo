@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4847 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4846 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -265,15 +265,14 @@
  |PrimitiveRatDE| |PrimitiveRatRicDE| |RationalLODE| |ReduceLODE|
  |RationalRicDE| |SystemODESolver| |ODETools| |OrderedDirectProduct|
  |OrderlyDifferentialPolynomial| |OrdinaryDifferentialRing|
- |OrderlyDifferentialVariable| |OrderedExpression| |OrderedFreeMonoid|
- |OutputFormTools| |OrderedIntegralDomain| |OpenMath&| |OpenMath|
- |OpenMathConnection| |OpenMathDevice| |OpenMathEncoding| |OpenMathError|
- |OpenMathErrorKind| |ExpressionToOpenMath| |OpenMathPackage|
- |OrderedMultisetAggregate| |OpenMathServerPackage| |OnePointCompletion|
- |OnePointCompletionFunctions2| |Operator| |OperationsQuery|
- |OrderedCompletion| |OrderedCompletionFunctions2| |OrderedFinite|
- |OrderingFunctions| |OrderedMonoid| |OrderedRing&| |OrderedRing| |OrderedSet&|
- |OrderedSet| |OrePolynomialMatrixOperations|
+ |OrderlyDifferentialVariable| |OrderedExpression| |OutputFormTools|
+ |OrderedIntegralDomain| |OpenMath&| |OpenMath| |OpenMathConnection|
+ |OpenMathDevice| |OpenMathEncoding| |OpenMathError| |OpenMathErrorKind|
+ |ExpressionToOpenMath| |OpenMathPackage| |OrderedMultisetAggregate|
+ |OpenMathServerPackage| |OnePointCompletion| |OnePointCompletionFunctions2|
+ |Operator| |OperationsQuery| |OrderedCompletion| |OrderedCompletionFunctions2|
+ |OrderedFinite| |OrderingFunctions| |OrderedMonoid| |OrderedRing&|
+ |OrderedRing| |OrderedSet&| |OrderedSet| |OrePolynomialMatrixOperations|
  |UnivariateSkewPolynomialCategory&| |UnivariateSkewPolynomialCategory|
  |UnivariateSkewPolynomialCategoryOps| |SparseUnivariateSkewPolynomial|
  |UnivariateSkewPolynomial| |OrthogonalPolynomialFunctions| |OrderedSemiGroup|
@@ -588,14 +587,15 @@
  |LiePoly| |quickSort| |heapSort| |shellSort| |gamma| |outputSpacing|
  |outputGeneral| |outputFixed| |outputFloating| |exp1| |log10| |log2|
  |rationalApproximation| |relerror| |complexSolve| |complexRoots| |realRoots|
- |support| |writable?| |readable?| |exists?| |extension| |directory| |filename|
- |functionGraph| |shallowExpand| |deepExpand| |clearFortranOutputStack|
- |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
- |topFortranOutputStack| |setFormula!| |formula| |linkToFortran|
- |setLegalFortranSourceExtensions| |fracPart| |polyPart| |fullPartialFraction|
- |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
- |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor| |nthFlag|
- |nthExponent| |irreducibleFactor| |nilFactor| |regularRepresentation|
+ |support| |overlap| |hcrf| |hclf| |writable?| |readable?| |exists?|
+ |extension| |directory| |filename| |functionGraph| |shallowExpand|
+ |deepExpand| |clearFortranOutputStack| |showFortranOutputStack|
+ |popFortranOutputStack| |pushFortranOutputStack| |topFortranOutputStack|
+ |setFormula!| |formula| |linkToFortran| |setLegalFortranSourceExtensions|
+ |fracPart| |polyPart| |fullPartialFraction| |primeFrobenius| |discreteLog|
+ |decreasePrecision| |increasePrecision| |bits| |unitNormalize| |unit|
+ |flagFactor| |sqfrFactor| |primeFactor| |nthFlag| |nthExponent|
+ |irreducibleFactor| |factors| |nilFactor| |regularRepresentation|
  |traceMatrix| |randomLC| |minimize| |module| |rightRegularRepresentation|
  |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
  |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |algtower|
@@ -710,29 +710,29 @@
  |linearlyDependent?| |linearDependence| |solveLinear| |reducedSystem|
  |setDifference| |setIntersection| |setUnion| |append| |null| |nil| |match|
  |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
- |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
- |listOfMonoms| |insert| |delete| |delta_deriv| |symmetricSquare| |factor1|
- |symmetricProduct| |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
- |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
- |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
- |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
- |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
- |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
- |pack_exps| |repack1| |pack_exps0| |m_inverse| |element| |rowMatrix| |rows|
- |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1|
- |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag| |curryRight|
- |curryLeft| |constantRight| |constantLeft| |twist| |kronecker_prod1|
- |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!| |elRow2!|
- |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!| |minus!|
- |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
- |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
- |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
- |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
- |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
- |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
- |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
- |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |nthFactor| |nthExpon|
+ |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete| |delta_deriv|
+ |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
+ |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions| |list|
+ |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
+ |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?|
+ |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
+ |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
+ |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
+ |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
+ |m_inverse| |lexico| |element| |rowMatrix| |rows| |columnMatrix| |columns|
+ |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary|
+ |id| |recur| |const| |curry| |diag| |curryRight| |curryLeft| |constantRight|
+ |constantLeft| |twist| |kronecker_prod1| |positivePower| |kroneckerSum|
+ |kroneckerProduct| |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!|
+ |invertIfCan| |copy!| |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!|
+ |times!| |power!| |gradient| |divergence| |laplacian| |hessian|
+ |bandedHessian| |jacobian| |bandedJacobian| |duplicates| |removeDuplicates!|
+ |linears| |ddFact| |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var|
+ |meshPar1Var| |ptFunc| |ldegree| |subst_vars| |trial_division| |toPermutation|
+ |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
+ |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
+ |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
  |corrPoly| |lifting| |exprex| |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P|
  |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
@@ -770,18 +770,17 @@
  |constantCoefficientRicDE| |changeVar| |ratDsolve|
  |indicialEquationAtInfinity| |integrate_sols| |reduceLODE| |singRicDE|
  |polyRicDE| |ricDsolve| |triangulate| |solveInField| |wronskianMatrix|
- |variationOfParameters| |factors| |nthFactor| |nthExpon| |overlap| |hcrf|
- |hclf| |lexico| |operator| |arguments| |has_op?| |is_symbol?| |precondition|
- |OMmakeConn| |OMcloseConn| |OMconnInDevice| |OMconnOutDevice| |OMconnectTCP|
- |OMbindTCP| |OMopenFile| |OMopenString| |OMclose| |OMsetEncoding| |OMputApp|
- |OMputAtp| |OMputAttr| |OMputBind| |OMputBVar| |OMputError| |OMputObject|
- |OMputEndApp| |OMputEndAtp| |OMputEndAttr| |OMputEndBind| |OMputEndBVar|
- |OMputEndError| |OMputEndObject| |OMputInteger| |OMputFloat| |OMputVariable|
- |OMputString| |OMputSymbol| |OMgetApp| |OMgetAtp| |OMgetAttr| |OMgetBind|
- |OMgetBVar| |OMgetError| |OMgetObject| |OMgetEndApp| |OMgetEndAtp|
- |OMgetEndAttr| |OMgetEndBind| |OMgetEndBVar| |OMgetEndError| |OMgetEndObject|
- |OMgetInteger| |OMgetFloat| |OMgetVariable| |OMgetString| |OMgetSymbol|
- |OMgetType| |OMencodingBinary| |OMencodingSGML| |OMencodingXML|
+ |variationOfParameters| |operator| |arguments| |has_op?| |is_symbol?|
+ |precondition| |OMmakeConn| |OMcloseConn| |OMconnInDevice| |OMconnOutDevice|
+ |OMconnectTCP| |OMbindTCP| |OMopenFile| |OMopenString| |OMclose|
+ |OMsetEncoding| |OMputApp| |OMputAtp| |OMputAttr| |OMputBind| |OMputBVar|
+ |OMputError| |OMputObject| |OMputEndApp| |OMputEndAtp| |OMputEndAttr|
+ |OMputEndBind| |OMputEndBVar| |OMputEndError| |OMputEndObject| |OMputInteger|
+ |OMputFloat| |OMputVariable| |OMputString| |OMputSymbol| |OMgetApp| |OMgetAtp|
+ |OMgetAttr| |OMgetBind| |OMgetBVar| |OMgetError| |OMgetObject| |OMgetEndApp|
+ |OMgetEndAtp| |OMgetEndAttr| |OMgetEndBind| |OMgetEndBVar| |OMgetEndError|
+ |OMgetEndObject| |OMgetInteger| |OMgetFloat| |OMgetVariable| |OMgetString|
+ |OMgetSymbol| |OMgetType| |OMencodingBinary| |OMencodingSGML| |OMencodingXML|
  |OMencodingUnknown| |omError| |errorInfo| |errorKind| |OMReadError?|
  |OMUnknownSymbol?| |OMUnknownCD?| |OMParseError?| |OMwrite| |OMread|
  |OMreadFile| |OMreadStr| |OMlistCDs| |OMlistSymbols| |OMsupportsCD?|

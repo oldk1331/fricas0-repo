@@ -52,7 +52,7 @@
                      (CONS (SPADCALL (QCDR (QCDR |x|)) (QREFELT $ 24))
                            (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 24))))))) 
 
-(SDEFUN |MAGMA;coerce;$Ofm;10| ((|x| $) ($ |OrderedFreeMonoid| |VarSet|))
+(SDEFUN |MAGMA;coerce;$Fm;10| ((|x| $) ($ |FreeMonoid| |VarSet|))
         (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 26)))
               ('T
                (SPADCALL (SPADCALL (QCAR (QCDR |x|)) (QREFELT $ 27))
@@ -185,8 +185,8 @@
               |MAGMA;right;2$;4| |MAGMA;retractable?;$B;5|
               |MAGMA;retract;$VarSet;6| (|Union| 6 '"failed")
               |MAGMA;retractIfCan;$U;7| |MAGMA;coerce;VarSet$;8|
-              |MAGMA;mirror;2$;9| (|OrderedFreeMonoid| 6) (23 . |coerce|)
-              |MAGMA;coerce;$Ofm;10| (28 . *) (|OutputForm|) (34 . |coerce|)
+              |MAGMA;mirror;2$;9| (|FreeMonoid| 6) (23 . |coerce|)
+              |MAGMA;coerce;$Fm;10| (28 . *) (|OutputForm|) (34 . |coerce|)
               |MAGMA;coerce;$Of;11| (|List| $) (39 . |bracket|) |MAGMA;*;3$;12|
               |MAGMA;first;$VarSet;13| |MAGMA;rest;2$;14| (|PositiveInteger|)
               |MAGMA;length;$Pi;15| (44 . <) |MAGMA;<;2$B;18| (50 . <=)

@@ -932,7 +932,7 @@
               (304 . |retractable?|) (309 . |retract|) (|Union| 34 '"failed")
               |XPBWPOLY;LiePolyIfCan;$U;29| |XPBWPOLY;mirror;2$;30|
               (|Mapping| 7 13) (|Union| 13 '#1="failed") (|List| 73)
-              (|List| 13) (|List| 7) (|List| $) (|OrderedFreeMonoid| 6)
+              (|List| 13) (|List| 7) (|List| $) (|FreeMonoid| 6)
               (|Mapping| 7 7) (|Record| (|:| |k| 111) (|:| |c| 7))
               (|Union| 111 '#1#) (|Union| $ '"failed") (|PositiveInteger|)
               (|String|) (|SingleInteger|) (|HashState|))
@@ -968,7 +968,7 @@
                  (|SemiRing|) (|OrderedAbelianSemiGroup|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|OrderedSet|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|Comparable|) (|SetCategory|)
-                 (|RetractableTo| (|OrderedFreeMonoid| 6)) (|unitsKnown|)
+                 (|RetractableTo| (|FreeMonoid| 6)) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 12) (|noZeroDivisors|)
                  (|RetractableTo| (|PoincareBirkhoffWittLyndonBasis| 6))
                  (|PartialOrder|))
