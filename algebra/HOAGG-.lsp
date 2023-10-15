@@ -135,26 +135,23 @@
           #5# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;coerce;AOf;10| ((|x| A) ($ |OutputForm|))
-        (SPROG ((#1=#:G151 NIL) (|a| NIL) (#2=#:G150 NIL))
+        (SPROG ((#1=#:G150 NIL) (|a| NIL) (#2=#:G149 NIL))
                (SEQ
                 (SPADCALL
-                 (SPADCALL
-                  (PROGN
-                   (LETT #2# NIL . #3=(|HOAGG-;coerce;AOf;10|))
-                   (SEQ (LETT |a| NIL . #3#)
-                        (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
-                        (COND
-                         ((OR (ATOM #1#)
-                              (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
-                          (GO G191)))
-                        (SEQ
-                         (EXIT
-                          (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#)
-                                . #3#)))
-                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                        (EXIT (NREVERSE #2#))))
-                  (QREFELT $ 35))
-                 (QREFELT $ 36))))) 
+                 (PROGN
+                  (LETT #2# NIL . #3=(|HOAGG-;coerce;AOf;10|))
+                  (SEQ (LETT |a| NIL . #3#)
+                       (LETT #1# (SPADCALL |x| (QREFELT $ 14)) . #3#) G190
+                       (COND
+                        ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (LETT #2# (CONS (SPADCALL |a| (QREFELT $ 33)) #2#)
+                               . #3#)))
+                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                       (EXIT (NREVERSE #2#))))
+                 (QREFELT $ 35))))) 
 
 (DECLAIM (NOTINLINE |HomogeneousAggregate&;|)) 
 
@@ -164,7 +161,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|HomogeneousAggregate&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|HomogeneousAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 39) . #1#)
+          (LETT $ (GETREFV 38) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -215,29 +212,28 @@
                           (CONS (|dispatchFunction| |HOAGG-;=;2AB;9|) $)))))
              (COND
               ((|testBitVector| |pv$| 6)
-               (QSETREFV $ 37
+               (QSETREFV $ 36
                          (CONS (|dispatchFunction| |HOAGG-;coerce;AOf;10|)
                                $)))))))
           $))) 
 
 (MAKEPROP '|HomogeneousAggregate&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|List| 38)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|List| 37)
               (0 . |eval|) (|Mapping| 7 7) (6 . |map|) (12 . |eval|) (|List| 7)
               (18 . |parts|) (|NonNegativeInteger|) (23 . |#|) (|Boolean|)
               (|Mapping| 17 7) (28 . |any?|) (34 . |every?|) (40 . |count|)
               (46 . |members|) (51 . =) (57 . |count|) (63 . |count|)
               (69 . |any?|) (75 . |member?|) (81 . |#|) (86 . |size?|)
               (92 . ~=) (98 . =) (|OutputForm|) (104 . |coerce|) (|List| $)
-              (109 . |commaSeparate|) (114 . |bracket|) (119 . |coerce|)
-              (|Equation| 7))
-           '#(|members| 124 |member?| 129 |every?| 135 |eval| 141 |count| 147
-              |coerce| 159 |any?| 164 = 170 |#| 176)
+              (109 . |bracket|) (114 . |coerce|) (|Equation| 7))
+           '#(|members| 119 |member?| 124 |every?| 130 |eval| 136 |count| 142
+              |coerce| 154 |any?| 159 = 165 |#| 171)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 37
+                             (|makeByteWordVec2| 36
                                                  '(2 7 0 0 8 9 2 6 0 10 0 11 2
                                                    0 0 0 8 12 1 6 13 0 14 1 0
                                                    15 0 16 2 0 17 18 0 19 2 0
@@ -247,11 +243,11 @@
                                                    17 18 0 26 2 0 17 7 0 27 1 6
                                                    15 0 28 2 6 17 0 15 29 2 7
                                                    17 0 0 30 2 0 17 0 0 31 1 7
-                                                   32 0 33 1 32 0 34 35 1 32 0
-                                                   0 36 1 0 32 0 37 1 0 13 0 22
-                                                   2 0 17 7 0 27 2 0 17 18 0 20
-                                                   2 0 0 0 8 12 2 0 15 7 0 25 2
-                                                   0 15 18 0 21 1 0 32 0 37 2 0
-                                                   17 18 0 19 2 0 17 0 0 31 1 0
-                                                   15 0 16)))))
+                                                   32 0 33 1 32 0 34 35 1 0 32
+                                                   0 36 1 0 13 0 22 2 0 17 7 0
+                                                   27 2 0 17 18 0 20 2 0 0 0 8
+                                                   12 2 0 15 7 0 25 2 0 15 18 0
+                                                   21 1 0 32 0 36 2 0 17 18 0
+                                                   19 2 0 17 0 0 31 1 0 15 0
+                                                   16)))))
            '|lookupComplete|)) 

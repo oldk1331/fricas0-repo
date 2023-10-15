@@ -154,7 +154,7 @@
             (LETT |o3| (SPADCALL " closed == true" (QREFELT $ 44)) . #3#))
            ('T (LETT |o3| (SPADCALL " closed == false" (QREFELT $ 44)) . #3#)))
           (LETT |l| (LIST |o1| |o2| |o3|) . #3#)
-          (EXIT (SPADCALL (SPADCALL |l| (QREFELT $ 48)) (QREFELT $ 49)))))) 
+          (EXIT (SPADCALL |l| (QREFELT $ 48)))))) 
 
 (DECLAIM (NOTINLINE |SplittingNode;|)) 
 
@@ -183,7 +183,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SplittingNode|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|SplittingNode| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT $ (GETREFV 52) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SplittingNode| (LIST DV$1 DV$2)
@@ -212,32 +212,31 @@
               |SPLNODE;subNode?;2$MB;19| (24 . ~=) (30 . =) |SPLNODE;=;2$B;20|
               (36 . ~=) |SPLNODE;~=;2$B;21| (|String|) (|OutputForm|)
               (42 . |message|) (47 . |coerce|) (52 . |blankSeparate|)
-              (57 . |coerce|) (62 . |commaSeparate|) (67 . |bracket|)
-              |SPLNODE;coerce;$Of;22| (|SingleInteger|) (|HashState|))
-           '#(~= 72 |value| 78 |subNode?| 83 |status| 90 |setValue!| 95
-              |setStatus!| 101 |setEmpty!| 107 |setCondition!| 112 |latex| 118
-              |infLex?| 123 |hashUpdate!| 131 |hash| 137 |empty?| 142 |empty|
-              147 |copy| 151 |construct| 156 |condition| 185 |coerce| 190 =
-              195)
+              (57 . |coerce|) (62 . |bracket|) |SPLNODE;coerce;$Of;22|
+              (|SingleInteger|) (|HashState|))
+           '#(~= 67 |value| 73 |subNode?| 78 |status| 85 |setValue!| 90
+              |setStatus!| 96 |setEmpty!| 102 |setCondition!| 107 |latex| 113
+              |infLex?| 118 |hashUpdate!| 126 |hash| 132 |empty?| 137 |empty|
+              142 |copy| 146 |construct| 151 |condition| 180 |coerce| 185 =
+              190)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 43))
-                        (|makeByteWordVec2| 52
+                        (|makeByteWordVec2| 51
                                             '(0 6 0 8 0 7 0 9 1 6 11 0 12 1 7
                                               11 0 13 2 6 11 0 0 32 2 6 11 0 0
                                               37 2 7 11 0 0 38 2 7 11 0 0 40 1
                                               43 0 42 44 1 6 43 0 45 1 43 0 22
-                                              46 1 7 43 0 47 1 43 0 22 48 1 43
-                                              0 0 49 2 0 11 0 0 41 1 0 6 0 15 3
-                                              0 11 0 0 34 36 1 0 11 0 17 2 0 0
-                                              0 6 28 2 0 0 0 11 30 1 0 0 0 31 2
-                                              0 0 0 7 29 1 0 42 0 1 4 0 11 0 0
-                                              33 34 35 2 0 52 52 0 1 1 0 51 0 1
-                                              1 0 11 0 14 0 0 0 10 1 0 0 0 27 2
-                                              0 22 6 25 26 1 0 22 23 24 2 0 0 6
-                                              7 19 1 0 0 20 21 3 0 0 6 7 11 18
-                                              1 0 7 0 16 1 0 43 0 50 2 0 11 0 0
-                                              39)))))
+                                              46 1 7 43 0 47 1 43 0 22 48 2 0
+                                              11 0 0 41 1 0 6 0 15 3 0 11 0 0
+                                              34 36 1 0 11 0 17 2 0 0 0 6 28 2
+                                              0 0 0 11 30 1 0 0 0 31 2 0 0 0 7
+                                              29 1 0 42 0 1 4 0 11 0 0 33 34 35
+                                              2 0 51 51 0 1 1 0 50 0 1 1 0 11 0
+                                              14 0 0 0 10 1 0 0 0 27 2 0 22 6
+                                              25 26 1 0 22 23 24 2 0 0 6 7 19 1
+                                              0 0 20 21 3 0 0 6 7 11 18 1 0 7 0
+                                              16 1 0 43 0 49 2 0 11 0 0 39)))))
            '|lookupComplete|)) 

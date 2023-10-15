@@ -150,16 +150,15 @@
                       (EXIT
                        (COND
                         ((SPADCALL |op| '|construct| (QREFELT $ 22))
-                         (SPADCALL (SPADCALL |args| (QREFELT $ 28))
-                                   (QREFELT $ 29)))
+                         (SPADCALL |args| (QREFELT $ 28)))
                         (#7#
                          (SEQ (LETT |n| (LENGTH |args|) . #6#)
                               (COND
                                ((SPADCALL |op| 'SEGMENT (QREFELT $ 22))
                                 (COND
-                                 ((SPADCALL |n| 0 (QREFELT $ 31))
+                                 ((SPADCALL |n| 0 (QREFELT $ 30))
                                   (COND
-                                   ((SPADCALL |n| 2 (QREFELT $ 32))
+                                   ((SPADCALL |n| 2 (QREFELT $ 31))
                                     (EXIT
                                      (SEQ
                                       (LETT |a1| (|SPADfirst| |args|) . #6#)
@@ -168,7 +167,7 @@
                                              ((SPADCALL |a1| (QREFELT $ 8))
                                               |a1|)
                                              (#7#
-                                              (SPADCALL |a1| (QREFELT $ 33))))
+                                              (SPADCALL |a1| (QREFELT $ 32))))
                                             . #6#)
                                       (EXIT
                                        (COND
@@ -176,7 +175,7 @@
                                          (SEQ
                                           (LETT |a2|
                                                 (SPADCALL |args| 2
-                                                          (QREFELT $ 34))
+                                                          (QREFELT $ 33))
                                                 . #6#)
                                           (LETT |a2|
                                                 (COND
@@ -184,14 +183,14 @@
                                                   |a2|)
                                                  (#7#
                                                   (SPADCALL |a2|
-                                                            (QREFELT $ 33))))
+                                                            (QREFELT $ 32))))
                                                 . #6#)
                                           (EXIT
                                            (SPADCALL |a1| |a2|
-                                                     (QREFELT $ 35)))))
+                                                     (QREFELT $ 34)))))
                                         (#7#
                                          (SPADCALL |a1|
-                                                   (QREFELT $ 36)))))))))))))
+                                                   (QREFELT $ 35)))))))))))))
                               (COND
                                ((SPADCALL |op| '- (QREFELT $ 22))
                                 (COND
@@ -200,7 +199,7 @@
                                    (SEQ (LETT |a1| (|SPADfirst| |args|) . #6#)
                                         (LETT |a2|
                                               (SPADCALL |args| 2
-                                                        (QREFELT $ 34))
+                                                        (QREFELT $ 33))
                                               . #6#)
                                         (COND
                                          ((NULL (SPADCALL |a2| (QREFELT $ 8)))
@@ -344,14 +343,14 @@
                                                                    23)))))))))
                                 ((SPADCALL |op| '/ (QREFELT $ 22))
                                  (COND
-                                  ((SPADCALL |n| 2 (QREFELT $ 37))
+                                  ((SPADCALL |n| 2 (QREFELT $ 36))
                                    (|error|
                                     "precodition: division must have two arguments"))
                                   (#7#
                                    (SEQ (LETT |a1| (|SPADfirst| |args|) . #6#)
                                         (LETT |a2|
                                               (SPADCALL |args| 2
-                                                        (QREFELT $ 34))
+                                                        (QREFELT $ 33))
                                               . #6#)
                                         (EXIT
                                          (COND
@@ -365,7 +364,7 @@
                                                     |a1|)
                                                    (#7#
                                                     (SPADCALL |a1|
-                                                              (QREFELT $ 33))))
+                                                              (QREFELT $ 32))))
                                                   . #6#)
                                             (LETT |a2|
                                                   (COND
@@ -374,7 +373,7 @@
                                                     |a2|)
                                                    (#7#
                                                     (SPADCALL |a2|
-                                                              (QREFELT $ 33))))
+                                                              (QREFELT $ 32))))
                                                   . #6#)
                                             (EXIT
                                              (SPADCALL
@@ -456,7 +455,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|OutputFormTools|) . #1=(|OutputFormTools|))
-          (LETT $ (GETREFV 38) . #1#)
+          (LETT $ (GETREFV 37) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|OutputFormTools| NIL (CONS 1 $))
@@ -474,29 +473,28 @@
               |OFTOOL;arguments;OfL;9| |OFTOOL;has_op?;OfSB;10|
               |OFTOOL;is_symbol?;OfSB;11| |OFTOOL;construct;OfLOf;13|
               (0 . |outputForm|) (5 . |outputForm|)
-              |OFTOOL;precondition;2Of;14| (|List| $) (10 . |commaSeparate|)
-              (15 . |bracket|) (|NonNegativeInteger|) (20 . >) (26 . <=)
-              (32 . |paren|) (37 . |elt|) (43 . SEGMENT) (49 . SEGMENT)
-              (54 . ~=))
-           '#(|symbol?| 60 |symbol| 65 |string?| 70 |string| 75 |precondition|
-              80 |operator| 85 |is_symbol?| 90 |integer?| 96 |integer| 101
-              |has_op?| 106 |construct| 112 |atom?| 118 |arguments| 123)
+              |OFTOOL;precondition;2Of;14| (|List| $) (10 . |bracket|)
+              (|NonNegativeInteger|) (15 . >) (21 . <=) (27 . |paren|)
+              (32 . |elt|) (38 . SEGMENT) (44 . SEGMENT) (49 . ~=))
+           '#(|symbol?| 55 |symbol| 60 |string?| 65 |string| 70 |precondition|
+              75 |operator| 80 |is_symbol?| 85 |integer?| 91 |integer| 96
+              |has_op?| 101 |construct| 107 |atom?| 113 |arguments| 118)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 37
+                             (|makeByteWordVec2| 36
                                                  '(1 7 0 13 24 1 7 0 10 25 1 7
-                                                   0 27 28 1 7 0 0 29 2 30 6 0
-                                                   0 31 2 30 6 0 0 32 1 7 0 0
-                                                   33 2 19 7 0 10 34 2 7 0 0 0
-                                                   35 1 7 0 0 36 2 30 6 0 0 37
-                                                   1 0 6 7 12 1 0 13 7 14 1 0 6
-                                                   7 15 1 0 16 7 17 1 0 7 7 26
-                                                   1 0 7 7 18 2 0 6 7 13 22 1 0
-                                                   6 7 9 1 0 10 7 11 2 0 6 7 13
-                                                   21 2 0 7 7 19 23 1 0 6 7 8 1
-                                                   0 19 7 20)))))
+                                                   0 27 28 2 29 6 0 0 30 2 29 6
+                                                   0 0 31 1 7 0 0 32 2 19 7 0
+                                                   10 33 2 7 0 0 0 34 1 7 0 0
+                                                   35 2 29 6 0 0 36 1 0 6 7 12
+                                                   1 0 13 7 14 1 0 6 7 15 1 0
+                                                   16 7 17 1 0 7 7 26 1 0 7 7
+                                                   18 2 0 6 7 13 22 1 0 6 7 9 1
+                                                   0 10 7 11 2 0 6 7 13 21 2 0
+                                                   7 7 19 23 1 0 6 7 8 1 0 19 7
+                                                   20)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|OutputFormTools| 'NILADIC T) 
