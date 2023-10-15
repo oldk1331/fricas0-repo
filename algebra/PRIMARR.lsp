@@ -35,7 +35,7 @@
         (QSETAREF1 |x| |i| |s|)) 
 
 (SDEFUN |PRIMARR;fill!;$S$;9| ((|x| $) (|s| S) ($ $))
-        (SPROG ((#1=#:G1762 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1764 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|PRIMARR;fill!;$S$;9|))
                      (LETT #1# (QVMAXINDEX |x|) . #2#) G190
@@ -46,7 +46,7 @@
 
 (SDEFUN |PRIMARR;hashUpdate!;Hs$Hs;10|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
-        (SPROG ((#1=#:G1766 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1768 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 0 . #2=(|PRIMARR;hashUpdate!;Hs$Hs;10|))
                      (LETT #1# (QVMAXINDEX |x|) . #2#) G190
@@ -60,9 +60,9 @@
 
 (DECLAIM (NOTINLINE |PrimitiveArray;|)) 
 
-(DEFUN |PrimitiveArray| (#1=#:G1778)
+(DEFUN |PrimitiveArray| (#1=#:G1780)
   (SPROG NIL
-         (PROG (#2=#:G1779)
+         (PROG (#2=#:G1781)
            (RETURN
             (COND
              ((LETT #2#
@@ -81,8 +81,8 @@
 
 (DEFUN |PrimitiveArray;| (|#1|)
   (SPROG
-   ((#1=#:G1777 NIL) (|pv$| NIL) (#2=#:G1774 NIL) (#3=#:G1775 NIL)
-    (#4=#:G1776 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G1779 NIL) (|pv$| NIL) (#2=#:G1776 NIL) (#3=#:G1777 NIL)
+    (#4=#:G1778 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|PrimitiveArray|))
     (LETT |dv$| (LIST '|PrimitiveArray| DV$1) . #5#)
