@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4849 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4850 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -521,9 +521,9 @@
  |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
  |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
  |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
- |localReal?| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
- |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
- |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
+ |localReal?| |poly_factor| |do_quo| |rischNormalize| |realLiouvillian|
+ |realElementary| |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep|
+ |select!| |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
  |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
  |eigenvalues| |eigenvector| |generalizedEigenvector| |generalizedEigenvectors|
  |eigenvectors| |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero|
