@@ -96,8 +96,8 @@
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| |DivisionRing&| NIL
-                NIL |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
+                NIL NIL |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |DifferentialRing&| NIL |VectorSpace&| |Rng&| NIL |Module&|
                 |Module&| |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL
                 NIL NIL NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL
@@ -110,9 +110,9 @@
                  (|FiniteFieldCategory|) (|FieldOfPrimeCharacteristic|)
                  (|Field|) (|EuclideanDomain|)
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
-                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|Algebra| 37)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$)
+                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
+                 (|Algebra| 37) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|DifferentialRing|) (|Ring|) (|VectorSpace| 6) (|Rng|)
                  (|SemiRing|) (|Module| 6) (|Module| 37) (|Module| $$)

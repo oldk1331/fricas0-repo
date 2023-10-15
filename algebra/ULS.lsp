@@ -592,13 +592,18 @@
      (|augmentPredVector| $ 36028797018963968))
     (AND
      (OR (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (|HasCategory| |#1| '(|Field|))
+         (AND #8# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 72057594037927936))
+    (AND
+     (OR (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #8# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (|HasCategory| |#1| '(|SemiRing|))
          (|HasSignature| |#1|
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 72057594037927936))
+     (|augmentPredVector| $ 144115188075855872))
     (AND
      (OR (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #8# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #4#
@@ -606,7 +611,7 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 144115188075855872))
+     (|augmentPredVector| $ 288230376151711744))
     (AND
      (OR (|HasCategory| |#1| '(|AbelianMonoid|))
          (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -616,7 +621,7 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 288230376151711744))
+     (|augmentPredVector| $ 576460752303423488))
     (AND
      (OR (|HasCategory| |#1| '(|CancellationAbelianMonoid|))
          (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -626,7 +631,7 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 576460752303423488))
+     (|augmentPredVector| $ 1152921504606846976))
     (AND
      (OR #3# (AND #9# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
          (AND #8# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
@@ -635,7 +640,7 @@
                          (LIST '*
                                (LIST (|devaluate| |#1|) '(|Integer|)
                                      (|devaluate| |#1|)))))
-     (|augmentPredVector| $ 1152921504606846976))
+     (|augmentPredVector| $ 2305843009213693952))
     (SETF |pv$| (QREFELT $ 3))
     (COND
      ((|testBitVector| |pv$| 48)
@@ -682,8 +687,8 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 51
-                                '(0 0 2 2 0 2 31 0 2 2 0 2 6 2 2 24 6 2 2 19 24
-                                  24 49 33 7 23 2 39 40 2 13 51 38 51 0 19 24
+                                '(0 0 2 2 0 2 31 0 2 2 0 2 6 24 2 2 23 6 2 2 19
+                                  23 24 49 33 7 2 39 40 2 13 51 38 51 0 19 23
                                   49 2 0 0 42 49 6 2 0 0 0 0 49 49 6 2 2 51 47
                                   6 46 38 38 6 0 0 50 38 27 2 0 0 28 9 2 16 17
                                   0 49 5 11 2 0 0 0 0 1 23 24 2 2 49 49 49 49
@@ -694,9 +699,9 @@
                 |Field&| |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
-                NIL NIL |DivisionRing&| NIL |OrderedRing&|
+                NIL NIL NIL |DivisionRing&| NIL |OrderedRing&|
                 |DifferentialExtension&| |FullyLinearlyExplicitOver&|
-                |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL NIL
+                |Algebra&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |Algebra&| |PartialDifferentialRing&| |DifferentialRing&| NIL
                 NIL NIL NIL |Rng&| NIL |Module&| |Module&| |Module&| |Module&|
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL
@@ -722,13 +727,13 @@
                  (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
                  (|PowerSeriesCategory| 6 16 76) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|AbelianMonoidRing| 6 16)
-                 (|GcdDomain|) (|OrderedIntegralDomain|) (|LeftOreRing|)
-                 (|DivisionRing|) (|IntegralDomain|) (|OrderedRing|)
+                 (|GcdDomain|) (|OrderedIntegralDomain|) (|IntegralDomain|)
+                 (|LeftOreRing|) (|DivisionRing|) (|CommutativeRing|)
+                 (|OrderedRing|)
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
                  (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|Algebra| 6) (|Algebra| $$) (|EntireRing|) (|Algebra| 48)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|CommutativeRing|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 9) (|DifferentialRing|)
                  (|LinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
@@ -774,11 +779,11 @@
                                   (|UnivariateTaylorSeries| 6 7 8))
                  (|Eltable| (|UnivariateTaylorSeries| 6 7 8) $$)
                  (|ConvertibleTo| 30) (|ConvertibleTo| 31) (|Type|))
-              (|makeByteWordVec2| 59
+              (|makeByteWordVec2| 60
                                   '(1 6 12 0 13 0 6 0 14 0 0 0 15 2 0 0 6 16 17
                                     0 6 0 18 0 0 0 19 2 0 0 0 0 20 1 0 0 0 23 1
                                     0 0 0 25 2 0 0 0 21 26 1 0 9 0 10 2 0 0 6
                                     16 17 2 48 0 0 21 26 1 48 0 0 25 1 40 0 0
                                     23 2 0 0 0 21 24 1 0 0 21 22 1 0 6 0 11 0
-                                    59 0 19 0 57 0 15 2 0 0 0 0 20)))))
+                                    60 0 19 0 58 0 15 2 0 0 0 0 20)))))
            '|lookupIncomplete|)) 

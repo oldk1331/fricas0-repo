@@ -2054,18 +2054,18 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
-             '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL NIL
-                |PartialDifferentialRing&| |EntireRing&| |Algebra&| NIL NIL
-                |Rng&| NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
+             '#(|JetBundleFunctionCategory&| |GcdDomain&| NIL NIL NIL
+                |PartialDifferentialRing&| |EntireRing&| |Algebra&| NIL |Rng&|
+                NIL |Module&| NIL NIL |NonAssociativeRing&| NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
                 |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL |BasicType&| NIL)
              (CONS
-              '#((|JetBundleFunctionCategory| 6) (|GcdDomain|) (|LeftOreRing|)
-                 (|IntegralDomain|) (|PartialDifferentialRing| 82)
-                 (|EntireRing|) (|Algebra| $$) (|CommutativeRing|) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| $$) (|SemiRng|)
+              '#((|JetBundleFunctionCategory| 6) (|GcdDomain|)
+                 (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
+                 (|PartialDifferentialRing| 82) (|EntireRing|) (|Algebra| $$)
+                 (|Ring|) (|Rng|) (|SemiRing|) (|Module| $$) (|SemiRng|)
                  (|BiModule| $$ $$) (|NonAssociativeRing|) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)
                  (|Monoid|) (|NonAssociativeSemiRing|)

@@ -70,7 +70,7 @@
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL NIL |Algebra&| NIL
+                |GcdDomain&| NIL |DivisionRing&| NIL NIL |Algebra&|
                 |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| |Module&| NIL
                 NIL NIL |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&|
                 NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
@@ -79,10 +79,10 @@
                 |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
-                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|Algebra| 12)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| 12) (|Module| $$) (|SemiRng|)
+                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
+                 (|Algebra| 12) (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|)
+                 (|SemiRing|) (|Module| 12) (|Module| $$) (|SemiRng|)
                  (|BiModule| 12 12) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| 12) (|LeftModule| 12) (|LeftModule| $$)
                  (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)

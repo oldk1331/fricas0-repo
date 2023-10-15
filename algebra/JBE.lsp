@@ -1695,7 +1695,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 13
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 0 3 4 5 13
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 6 0 0 0 0 3 4 5 13
                                   0 0 0 0 0 0 3 0 0 0 3 0 0 0 0 0 3 3 0 7 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 11 12 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 2 1 6 8
@@ -1704,10 +1704,10 @@
              '#(|AlgebraicallyClosedFunctionSpace&| |AlgebraicallyClosedField&|
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
                 |JetBundleFunctionCategory&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL NIL
+                |GcdDomain&| NIL |DivisionRing&| NIL NIL
                 |FullyLinearlyExplicitOver&| |PartialDifferentialRing&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL
-                NIL |Rng&| NIL |Module&| |Module&| NIL |Module&| NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL NIL
+                |Rng&| NIL |Module&| |Module&| NIL |Module&| NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL NIL |AbelianGroup&| |Group&| NIL NIL NIL NIL
                 |ExpressionSpace&| NIL |MagmaWithUnit&|
@@ -1727,11 +1727,11 @@
                  (|AlgebraicallyClosedField|) (|FunctionSpace| 24) (|Field|)
                  (|EuclideanDomain|) (|JetBundleFunctionCategory| 6)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
-                 (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|LeftOreRing|) (|FullyLinearlyExplicitOver| 24)
-                 (|PartialDifferentialRing| 145) (|Algebra| 213)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$)
-                 (|Algebra| 24) (|CharacteristicNonZero|)
+                 (|GcdDomain|) (|IntegralDomain|) (|DivisionRing|)
+                 (|CommutativeRing|) (|LeftOreRing|)
+                 (|FullyLinearlyExplicitOver| 24)
+                 (|PartialDifferentialRing| 145) (|Algebra| 213) (|EntireRing|)
+                 (|Algebra| $$) (|Algebra| 24) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|LinearlyExplicitOver| 24) (|Ring|)
                  (|Rng|) (|SemiRing|) (|Module| 213) (|Module| $$) (|SemiRng|)
                  (|Module| 24) (|BiModule| 213 213) (|BiModule| $$ $$)

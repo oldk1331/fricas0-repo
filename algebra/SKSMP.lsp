@@ -258,6 +258,8 @@
                                          (|HasCategory| |#1| '(|Ring|)))
                                         (|HasCategory| |#1| '(|Field|))
                                         (|HasCategory| |#1|
+                                                       '(|CommutativeRing|))
+                                        (|HasCategory| |#1|
                                                        '(|IntegralDomain|))
                                         (OR
                                          (|HasCategory| |#1|
@@ -271,8 +273,6 @@
                                         (|HasCategory| |#1| '(|GcdDomain|))
                                         (AND #2#
                                              (|HasCategory| |#1| '(|Ring|)))
-                                        (|HasCategory| |#1|
-                                                       '(|CommutativeRing|))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (LETT #1#
                                               (|HasCategory| |#1|
@@ -308,9 +308,13 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| |#1| '(|IntegralDomain|))
-         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 16777216))
+    (AND
+     (OR
+      (AND (|HasCategory| |#1| '(|CommutativeRing|))
+           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+      (AND (|HasCategory| |#1| '(|IntegralDomain|))
+           (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 16777216))
     (AND (|HasCategory| $ '(|CommutativeRing|))
          (|augmentPredVector| $ 33554432))
     (AND
@@ -388,7 +392,7 @@
                                                  #'|SparseMultivariateSkewPolynomial!1|
                                                  $)))
     (COND
-     ((|testBitVector| |pv$| 15)
+     ((|testBitVector| |pv$| 16)
       (QSETREFV $ 56 (CONS (|dispatchFunction| |SKSMP;exquo;2$U;7|) $))))
     $))) 
 
@@ -497,8 +501,8 @@
                                     1 2 9 33 0 0 1 0 31 0 1 1 29 15 0 1 2 29 0
                                     0 12 1 2 0 0 0 57 1 1 6 74 0 1 1 7 75 0 1 1
                                     0 84 0 1 1 6 73 0 1 1 7 71 0 1 1 0 6 0 35 1
-                                    0 0 0 1 2 18 67 68 69 1 1 18 70 68 1 2 5 76
-                                    68 69 1 1 5 77 68 1 1 29 15 0 1 1 17 0 0 1
+                                    0 0 0 1 2 19 67 68 69 1 1 19 70 68 1 2 5 76
+                                    68 69 1 1 5 77 68 1 1 29 15 0 1 1 18 0 0 1
                                     1 11 79 0 1 4 0 0 0 6 78 0 1 2 31 33 0 0 1
                                     1 29 33 0 1 1 0 12 0 1 1 0 79 0 1 1 0 33 0
                                     1 3 0 0 0 80 81 1 3 0 0 0 7 12 13 2 0 0 6
@@ -508,8 +512,8 @@
                                     87 87 0 1 1 0 86 0 1 1 0 33 0 34 1 0 6 0 1
                                     4 5 0 0 78 6 0 1 2 27 15 0 0 56 2 4 15 0 6
                                     47 2 0 81 0 80 1 2 0 12 0 7 1 1 0 78 0 1 1
-                                    17 6 0 1 2 30 0 0 0 1 1 25 0 0 1 1 28 0 71
-                                    1 1 16 0 73 1 1 0 0 6 45 1 0 60 0 66 1 0 83
+                                    18 6 0 1 2 30 0 0 0 1 1 28 0 71 1 1 25 0 0
+                                    1 1 17 0 73 1 1 0 0 6 45 1 0 60 0 66 1 0 83
                                     0 1 3 0 0 0 80 81 1 3 0 0 0 7 12 1 2 0 6 0
                                     78 1 1 2 15 0 1 0 30 12 1 3 26 0 0 0 12 1 3
                                     30 0 0 0 0 1 2 27 33 0 0 1 2 0 0 0 0 1 2 30

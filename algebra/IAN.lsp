@@ -383,10 +383,10 @@
             (CONS
              '#(|AlgebraicallyClosedField&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
-                |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
-                NIL NIL |DifferentialRing&| NIL NIL NIL |Algebra&|
-                |EntireRing&| |Algebra&| NIL NIL NIL |Rng&| |Module&| |Module&|
-                NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
+                |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL
+                |DivisionRing&| NIL NIL |DifferentialRing&| NIL NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL |Rng&| |Module&|
+                |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |ExpressionSpace&| NIL |MagmaWithUnit&| |AbelianMonoid&|
                 |NonAssociativeSemiRng&| NIL |Magma&| |AbelianSemiGroup&| NIL
@@ -398,12 +398,12 @@
               '#((|AlgebraicallyClosedField|) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
-                 (|GcdDomain|) (|DivisionRing|) (|LeftOreRing|)
-                 (|IntegralDomain|) (|DifferentialRing|) (|CharacteristicZero|)
-                 (|LinearlyExplicitOver| 12) (|LinearlyExplicitOver| 11)
-                 (|Algebra| 12) (|EntireRing|) (|Algebra| $$)
-                 (|CommutativeRing|) (|Ring|) (|SemiRing|) (|Rng|)
-                 (|Module| 12) (|Module| $$) (|SemiRng|) (|BiModule| 12 12)
+                 (|GcdDomain|) (|IntegralDomain|) (|DivisionRing|)
+                 (|LeftOreRing|) (|CommutativeRing|) (|DifferentialRing|)
+                 (|CharacteristicZero|) (|LinearlyExplicitOver| 12)
+                 (|LinearlyExplicitOver| 11) (|Algebra| 12) (|EntireRing|)
+                 (|Algebra| $$) (|Ring|) (|SemiRing|) (|Rng|) (|Module| 12)
+                 (|Module| $$) (|SemiRng|) (|BiModule| 12 12)
                  (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 12)
                  (|LeftModule| 12) (|LeftModule| $$) (|RightModule| $$)
                  (|NonAssociativeRng|) (|AbelianGroup|) (|Monoid|)

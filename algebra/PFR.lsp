@@ -795,7 +795,7 @@
                                   0 0 0))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |DivisionRing&| NIL NIL |Algebra&| |Algebra&| NIL
+                |GcdDomain&| NIL |DivisionRing&| NIL NIL |Algebra&| |Algebra&|
                 |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| |Module&|
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
@@ -804,11 +804,11 @@
                 |BasicType&| NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
-                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|DivisionRing|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|Algebra| 6)
-                 (|Algebra| 108) (|CommutativeRing|) (|EntireRing|)
-                 (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 6)
-                 (|Module| 108) (|Module| $$) (|SemiRng|) (|BiModule| 6 6)
+                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
+                 (|Algebra| 6) (|Algebra| 108) (|EntireRing|) (|Algebra| $$)
+                 (|Ring|) (|Rng|) (|SemiRing|) (|Module| 6) (|Module| 108)
+                 (|Module| $$) (|SemiRng|) (|BiModule| 6 6)
                  (|BiModule| 108 108) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| 6) (|LeftModule| 6) (|RightModule| 108)
                  (|LeftModule| 108) (|LeftModule| $$) (|NonAssociativeRng|)

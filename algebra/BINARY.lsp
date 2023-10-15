@@ -174,7 +174,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 7 0 0 0 0 0 0 3 4
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0 0 7
                                   0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 19 20 0 0
                                   6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 12 13 14
@@ -182,10 +182,10 @@
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
                 |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |DivisionRing&| NIL NIL |OrderedRing&| NIL |Algebra&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL |Rng&| NIL
                 |Module&| |Module&| |Module&| NIL NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
@@ -200,11 +200,11 @@
               '#((|QuotientFieldCategory| 18) (|Field|) (|EuclideanDomain|)
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
-                 (|OrderedIntegralDomain|) (|FullyLinearlyExplicitOver| 18)
-                 (|DifferentialExtension| 18) (|DivisionRing|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|OrderedRing|)
-                 (|LinearlyExplicitOver| 18) (|Algebra| 18) (|Algebra| 6)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$)
+                 (|OrderedIntegralDomain|) (|IntegralDomain|)
+                 (|FullyLinearlyExplicitOver| 18) (|DifferentialExtension| 18)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
+                 (|OrderedRing|) (|LinearlyExplicitOver| 18) (|Algebra| 18)
+                 (|Algebra| 6) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 22) (|DifferentialRing|) (|Ring|)
                  (|Rng|) (|SemiRing|) (|Module| 18) (|Module| 6) (|Module| $$)

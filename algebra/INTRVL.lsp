@@ -1220,7 +1220,7 @@
                 |BasicType&| NIL)
              (CONS
               '#((|IntervalCategory| 6) (|GcdDomain|) (|IntegralDomain|)
-                 (|LeftOreRing|) (|CommutativeRing|) (|EntireRing|)
+                 (|CommutativeRing|) (|LeftOreRing|) (|EntireRing|)
                  (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|) (|Module| $$)
                  (|SemiRng|) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|LeftModule| $$) (|NonAssociativeRng|) (|RightModule| $$)

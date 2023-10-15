@@ -903,7 +903,7 @@
              (CONS
               '#((|PAdicIntegerCategory| 6) (|EuclideanDomain|)
                  (|PrincipalIdealDomain|) (|GcdDomain|) (|IntegralDomain|)
-                 (|LeftOreRing|) (|CommutativeRing|) (|CharacteristicZero|)
+                 (|CommutativeRing|) (|LeftOreRing|) (|CharacteristicZero|)
                  (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|)
                  (|Module| $$) (|SemiRng|) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|LeftModule| $$) (|NonAssociativeRng|)

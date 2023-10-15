@@ -166,9 +166,11 @@
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
-    (AND (|HasCategory| |#1| '(|IntegralDomain|))
-         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 8388608))
+    (AND
+     (OR (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND (|HasCategory| |#1| '(|IntegralDomain|))
+              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 8388608))
     (AND (|HasCategory| $ '(|CommutativeRing|))
          (|augmentPredVector| $ 16777216))
     (AND
@@ -348,8 +350,8 @@
                                     0 61 0 1 2 0 60 60 0 1 1 0 62 0 1 1 0 41 0
                                     1 1 0 6 0 1 4 9 0 0 14 6 0 1 2 26 42 0 0 1
                                     2 4 42 0 6 1 2 0 55 0 53 1 2 0 14 0 54 1 1
-                                    0 14 0 1 1 17 6 0 1 2 29 0 0 0 1 1 24 0 0 1
-                                    1 27 0 40 1 1 16 0 44 1 1 0 0 6 1 1 0 52 0
+                                    0 14 0 1 1 17 6 0 1 2 29 0 0 0 1 1 27 0 40
+                                    1 1 24 0 0 1 1 16 0 44 1 1 0 0 6 1 1 0 52 0
                                     1 1 0 58 0 1 3 0 0 0 53 55 1 3 0 0 0 54 14
                                     1 2 0 6 0 14 1 1 2 42 0 1 0 29 14 1 3 25 0
                                     0 0 14 1 3 29 0 0 0 0 1 2 26 41 0 0 1 3 0 6

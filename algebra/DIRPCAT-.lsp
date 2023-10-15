@@ -241,8 +241,8 @@
               (141 . |size|) (145 . |size|) (|PositiveInteger|) (149 . |index|)
               (154 . |setelt!|) (161 . |directProduct|) (166 . |index|)
               (171 . |elt|) (177 . |lookup|) (182 . |lookup|) (|Fraction| 9)
-              (|OutputForm|) (|Symbol|) (|List| 62) (|List| 13) (|Matrix| 9)
-              (|Record| (|:| |mat| 65) (|:| |vec| (|Vector| 9))))
+              (|OutputForm|) (|List| 64) (|List| 13) (|Symbol|)
+              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 9))) (|Matrix| 9))
            '#(|size| 187 |reducedSystem| 191 |lookup| 202 |index| 207
               |dimension| 212 |differentiate| 216 |coerce| 222 |characteristic|
               227 / 231)
@@ -267,8 +267,8 @@
                                                    53 3 39 8 0 9 8 54 1 6 0 39
                                                    55 1 0 0 52 56 2 6 8 0 9 57
                                                    1 8 52 0 58 1 0 52 0 59 0 0
-                                                   13 51 1 0 20 34 35 2 0 41 34
-                                                   42 43 1 0 52 0 59 1 0 0 52
+                                                   13 51 2 0 41 34 42 43 1 0 20
+                                                   34 35 1 0 52 0 59 1 0 0 52
                                                    56 0 0 47 49 2 0 0 0 16 18 1
                                                    0 0 9 12 0 0 13 15 2 0 0 0 8
                                                    46)))))

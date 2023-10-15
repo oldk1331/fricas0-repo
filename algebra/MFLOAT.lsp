@@ -564,22 +564,22 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&| NIL
-                |GcdDomain&| |OrderedRing&| |DivisionRing&| NIL NIL NIL
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL |Rng&| NIL
-                |Module&| |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL
-                NIL NIL NIL |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL
-                NIL NIL NIL |OrderedSet&| NIL |MagmaWithUnit&|
-                |NonAssociativeSemiRng&| |AbelianMonoid&| NIL NIL |Magma&|
-                |AbelianSemiGroup&| NIL |SetCategory&| |RetractableTo&| NIL NIL
-                NIL |RadicalCategory&| |RetractableTo&| |RetractableTo&| NIL
-                NIL |PartialOrder&| NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |GcdDomain&| NIL |OrderedRing&| |DivisionRing&| NIL NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&|
+                |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
+                |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL NIL NIL NIL
+                |OrderedSet&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&| NIL
+                |SetCategory&| |RetractableTo&| NIL NIL NIL |RadicalCategory&|
+                |RetractableTo&| |RetractableTo&| NIL NIL |PartialOrder&| NIL
+                NIL NIL NIL NIL |BasicType&| NIL)
              (CONS
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|FortranMachineTypeCategory|)
-                 (|GcdDomain|) (|OrderedRing|) (|DivisionRing|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|CharacteristicZero|)
-                 (|Algebra| 20) (|CommutativeRing|) (|EntireRing|)
+                 (|GcdDomain|) (|IntegralDomain|) (|OrderedRing|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
+                 (|CharacteristicZero|) (|Algebra| 20) (|EntireRing|)
                  (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|) (|Module| 20)
                  (|Module| $$) (|SemiRng|) (|OrderedAbelianGroup|)
                  (|BiModule| 20 20) (|BiModule| $$ $$) (|NonAssociativeRing|)

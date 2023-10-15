@@ -418,7 +418,7 @@
             (CONS
              '#(|IntegerNumberSystem&| |PolynomialFactorizationExplicit&|
                 |EuclideanDomain&| |UniqueFactorizationDomain&| NIL NIL
-                |GcdDomain&| |OrderedRing&| NIL NIL NIL |DifferentialRing&| NIL
+                |GcdDomain&| NIL |OrderedRing&| NIL NIL NIL |DifferentialRing&|
                 NIL |EntireRing&| |Algebra&| NIL |Rng&| NIL |Module&| NIL NIL
                 NIL |NonAssociativeRing&| NIL NIL |NonAssociativeRng&| NIL NIL
                 |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
@@ -430,10 +430,10 @@
               '#((|IntegerNumberSystem|) (|PolynomialFactorizationExplicit|)
                  (|EuclideanDomain|) (|UniqueFactorizationDomain|)
                  (|PrincipalIdealDomain|) (|OrderedIntegralDomain|)
-                 (|GcdDomain|) (|OrderedRing|) (|IntegralDomain|)
-                 (|LeftOreRing|) (|LinearlyExplicitOver| 11)
-                 (|DifferentialRing|) (|CharacteristicZero|)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$) (|Ring|)
+                 (|GcdDomain|) (|IntegralDomain|) (|OrderedRing|)
+                 (|CommutativeRing|) (|LeftOreRing|)
+                 (|LinearlyExplicitOver| 11) (|DifferentialRing|)
+                 (|CharacteristicZero|) (|EntireRing|) (|Algebra| $$) (|Ring|)
                  (|Rng|) (|SemiRing|) (|Module| $$) (|SemiRng|)
                  (|OrderedAbelianGroup|) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|OrderedCancellationAbelianMonoid|)

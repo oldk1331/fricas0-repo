@@ -514,14 +514,14 @@
                                 '(1 1 1 1 1 0 0 0 0 1 1 0 0 1 0 0 0 1 1 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 1 1))
             (CONS
-             '#(NIL |Algebra&| NIL |Algebra&| |EntireRing&| NIL |Rng&| NIL NIL
+             '#(NIL NIL |Algebra&| |Algebra&| |EntireRing&| NIL |Rng&| NIL NIL
                 |Module&| |Module&| |NonAssociativeRing&| NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL NIL |AbelianGroup&| NIL NIL
                 NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
                 |AbelianMonoid&| |Magma&| |AbelianSemiGroup&| |SetCategory&|
                 NIL NIL |BasicType&| NIL NIL NIL)
              (CONS
-              '#((|IntegralDomain|) (|Algebra| 6) (|CommutativeRing|)
+              '#((|IntegralDomain|) (|CommutativeRing|) (|Algebra| 6)
                  (|Algebra| $$) (|EntireRing|) (|Ring|) (|Rng|) (|SemiRing|)
                  (|SemiRng|) (|Module| 6) (|Module| $$) (|NonAssociativeRing|)
                  (|BiModule| $$ $$) (|BiModule| 6 6) (|NonAssociativeRng|)

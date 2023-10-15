@@ -331,21 +331,22 @@
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL NIL |DifferentialRing&| NIL |Algebra&| |EntireRing&|
-                |Algebra&| NIL |VectorSpace&| |Rng&| NIL |Module&| |Module&|
-                NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL
-                |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL |Finite&|
-                NIL |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
-                NIL NIL |Magma&| |AbelianSemiGroup&| |SetCategory&| NIL
-                |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
+                |DivisionRing&| NIL |DifferentialRing&| NIL |Algebra&|
+                |EntireRing&| |Algebra&| NIL |VectorSpace&| |Rng&| NIL
+                |Module&| |Module&| NIL NIL NIL |NonAssociativeRing&| NIL NIL
+                NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL
+                |Finite&| NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
+                |AbelianMonoid&| NIL NIL |Magma&| |AbelianSemiGroup&|
+                |SetCategory&| NIL |RetractableTo&| NIL NIL NIL NIL NIL NIL
+                |BasicType&| NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| $$) (|FiniteFieldCategory|)
                  (|ExtensionField| $$) (|FieldOfPrimeCharacteristic|) (|Field|)
                  (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
-                 (|GcdDomain|) (|IntegralDomain|) (|DivisionRing|)
-                 (|LeftOreRing|) (|CommutativeRing|) (|DifferentialRing|)
+                 (|GcdDomain|) (|IntegralDomain|) (|CommutativeRing|)
+                 (|DivisionRing|) (|LeftOreRing|) (|DifferentialRing|)
                  (|CharacteristicNonZero|) (|Algebra| 97) (|EntireRing|)
                  (|Algebra| $$) (|Ring|) (|VectorSpace| $$) (|Rng|)
                  (|SemiRing|) (|Module| $$) (|Module| 97) (|SemiRng|)

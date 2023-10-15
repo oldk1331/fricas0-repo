@@ -706,7 +706,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 7 0 0 0 0 0 0 3 4
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
                                   0 0 6 13 0 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10
@@ -714,10 +714,10 @@
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
                 |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |DivisionRing&| NIL NIL |OrderedRing&| NIL |Algebra&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL |Rng&|
                 NIL |Module&| |Module&| |Module&| NIL NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
@@ -736,14 +736,14 @@
                  (|Field|) (|EuclideanDomain|)
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
-                 (|OrderedIntegralDomain|)
+                 (|OrderedIntegralDomain|) (|IntegralDomain|)
                  (|FullyLinearlyExplicitOver|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|DifferentialExtension|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
-                 (|DivisionRing|) (|IntegralDomain|) (|LeftOreRing|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
                  (|OrderedRing|)
                  (|LinearlyExplicitOver|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
@@ -751,11 +751,10 @@
                  (|Algebra|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
-                 (|Algebra| 13) (|CommutativeRing|) (|EntireRing|)
-                 (|Algebra| $$) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|PartialDifferentialRing| 48)
-                 (|DifferentialRing|) (|LinearlyExplicitOver| 12) (|Ring|)
-                 (|Rng|) (|SemiRing|)
+                 (|Algebra| 13) (|EntireRing|) (|Algebra| $$)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|PartialDifferentialRing| 48) (|DifferentialRing|)
+                 (|LinearlyExplicitOver| 12) (|Ring|) (|Rng|) (|SemiRing|)
                  (|Module|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))

@@ -143,7 +143,7 @@
                                         (OR #8# #6#
                                             (|HasCategory| |#1|
                                                            '(|PolynomialFactorizationExplicit|)))
-                                        (OR #7# #8# #6#) (OR #8# #6#)
+                                        (OR #7# #8# #6#)
                                         (LETT #5#
                                               (AND
                                                (|HasCategory| |#1|
@@ -536,22 +536,23 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (AND (|HasCategory| $ '(|CommutativeRing|))
-         (|augmentPredVector| $ 68719476736))
+         (|augmentPredVector| $ 34359738368))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
                 (|HasCategory| $ '(|CharacteristicNonZero|)))
            . #9#)
-     (|augmentPredVector| $ 137438953472))
+     (|augmentPredVector| $ 68719476736))
     (AND (OR (|HasCategory| |#1| '(|CharacteristicNonZero|)) #1#)
-         (|augmentPredVector| $ 274877906944))
+         (|augmentPredVector| $ 137438953472))
     (AND
      (OR (|HasCategory| |#1| '(|EntireRing|))
          (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 549755813888))
+     (|augmentPredVector| $ 274877906944))
     (AND
-     (OR #8# (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
-     (|augmentPredVector| $ 1099511627776))
+     (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #8#
+         (AND #6# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 549755813888))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -588,19 +589,19 @@
               (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|retractIfCan| 49 |order| 54 |coerce| 59) 'NIL
            (CONS
-            (|makeByteWordVec2| 36
-                                '(0 0 0 10 0 10 0 13 0 8 26 12 1 2 3 23 8 9 25
-                                  28 14 8 18 17 0 0 0 0 1 23 28 0 0 0 1 0 0 0 0
-                                  0 1 1 0 0 0 0 0 0 0 0 0 0 7 30 32 0 0 16 0 0
-                                  0 0 0 0 0 0 0 4 5 6 27 11 34 36 15 16 16 17
+            (|makeByteWordVec2| 35
+                                '(0 0 0 10 0 10 0 13 26 0 8 25 12 1 2 3 23 8 9
+                                  27 14 8 18 17 0 0 0 0 1 23 27 0 0 0 1 0 0 0 0
+                                  0 1 1 0 0 0 0 0 0 0 0 0 0 7 29 31 0 0 16 0 0
+                                  0 0 0 0 0 0 0 4 5 6 27 11 33 35 15 16 16 17
                                   17))
             (CONS
              '#(|DifferentialPolynomialCategory&| |PolynomialCategory&|
                 |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |FiniteAbelianMonoidRing&|
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
-                |DifferentialExtension&| |FullyLinearlyExplicitOver&| NIL NIL
-                |Algebra&| NIL NIL |Algebra&| NIL NIL NIL |Algebra&|
+                NIL |DifferentialExtension&| |FullyLinearlyExplicitOver&| NIL
+                NIL |Algebra&| NIL NIL |Algebra&| NIL NIL |Algebra&|
                 |EntireRing&| |PartialDifferentialRing&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL |Rng&|
                 NIL |Module&| |Module&| |Module&| |NonAssociativeRing&| NIL NIL
@@ -622,19 +623,19 @@
                  (|FiniteAbelianMonoidRing| 6 (|IndexedExponents| 8))
                  (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 6 (|IndexedExponents| 8)) (|GcdDomain|)
-                 (|DifferentialExtension| 6) (|FullyLinearlyExplicitOver| 6)
-                 (|IntegralDomain|) (|LeftOreRing|) (|Algebra| 42)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|) (|Algebra| 6)
+                 (|IntegralDomain|) (|DifferentialExtension| 6)
+                 (|FullyLinearlyExplicitOver| 6) (|CommutativeRing|)
+                 (|LeftOreRing|) (|Algebra| 42) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|Algebra| 6)
                  (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 58)
-                 (|CommutativeRing|) (|Algebra| $$) (|EntireRing|)
-                 (|PartialDifferentialRing| 8) (|PartialDifferentialRing| 52)
-                 (|DifferentialRing|) (|Ring|) (|SemiRing|) (|Rng|) (|SemiRng|)
-                 (|Module| 42) (|Module| 6) (|Module| $$)
-                 (|NonAssociativeRing|) (|BiModule| 6 6) (|BiModule| $$ $$)
-                 (|BiModule| 42 42) (|NonAssociativeRng|) (|LeftModule| 6)
-                 (|RightModule| 6) (|RightModule| $$) (|LeftModule| $$)
-                 (|LeftModule| 42) (|RightModule| 42) (|AbelianGroup|)
-                 (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|Algebra| $$) (|EntireRing|) (|PartialDifferentialRing| 8)
+                 (|PartialDifferentialRing| 52) (|DifferentialRing|) (|Ring|)
+                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 42) (|Module| 6)
+                 (|Module| $$) (|NonAssociativeRing|) (|BiModule| 6 6)
+                 (|BiModule| $$ $$) (|BiModule| 42 42) (|NonAssociativeRng|)
+                 (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
+                 (|LeftModule| $$) (|LeftModule| 42) (|RightModule| 42)
+                 (|AbelianGroup|) (|Monoid|) (|NonAssociativeSemiRing|)
                  (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
                  (|AbelianMonoid|) (|NonAssociativeSemiRng|) (|Magma|)
                  (|AbelianSemiGroup|) (|Comparable|)

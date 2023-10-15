@@ -2836,9 +2836,9 @@
             (CONS
              '#(|FloatingPointSystem&| |RealNumberSystem&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| |OrderedRing&| |DivisionRing&| NIL NIL
-                |DifferentialRing&| NIL |Algebra&| NIL |EntireRing&| |Algebra&|
-                NIL |Rng&| NIL |Module&| |Module&| NIL NIL NIL NIL
+                |GcdDomain&| NIL |OrderedRing&| |DivisionRing&| NIL NIL
+                |DifferentialRing&| NIL |Algebra&| |EntireRing&| |Algebra&| NIL
+                |Rng&| NIL |Module&| |Module&| NIL NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
                 NIL |AbelianGroup&| NIL NIL NIL NIL |OrderedSet&| NIL
                 |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&| NIL
@@ -2852,11 +2852,11 @@
              (CONS
               '#((|FloatingPointSystem|) (|RealNumberSystem|) (|Field|)
                  (|EuclideanDomain|) (|PrincipalIdealDomain|)
-                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|OrderedRing|)
-                 (|DivisionRing|) (|IntegralDomain|) (|LeftOreRing|)
-                 (|DifferentialRing|) (|CharacteristicZero|) (|Algebra| 125)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$) (|Ring|)
-                 (|Rng|) (|SemiRing|) (|Module| 125) (|Module| $$) (|SemiRng|)
+                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
+                 (|OrderedRing|) (|DivisionRing|) (|CommutativeRing|)
+                 (|LeftOreRing|) (|DifferentialRing|) (|CharacteristicZero|)
+                 (|Algebra| 125) (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|)
+                 (|SemiRing|) (|Module| 125) (|Module| $$) (|SemiRng|)
                  (|OrderedAbelianGroup|) (|BiModule| 125 125)
                  (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|OrderedCancellationAbelianMonoid|) (|RightModule| 125)

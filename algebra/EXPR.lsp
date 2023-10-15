@@ -3117,7 +3117,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 30
-                                '(1 0 1 1 27 1 1 1 1 1 1 5 1 1 1 1 2 3 4 5 7 1
+                                '(1 0 1 1 27 1 1 1 1 1 1 1 5 1 1 1 1 2 3 4 5 7
                                   5 21 5 21 1 1 2 5 1 6 2 5 1 1 6 2 2 5 21 8 17
                                   17 5 19 0 0 29 18 19 21 0 12 13 19 1 30 0 0 0
                                   0 1 1 0 0 0 0 0 0 0 0 16 1 1 1 1 1 5 9 10 11
@@ -3126,9 +3126,9 @@
              '#(|AlgebraicallyClosedFunctionSpace&| |FunctionSpace&|
                 |AlgebraicallyClosedField&| |Field&|
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
-                |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL
+                |UniqueFactorizationDomain&| NIL |GcdDomain&| NIL NIL
                 |DivisionRing&| |FullyLinearlyExplicitOver&| NIL |Algebra&|
-                |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL NIL NIL
+                |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL NIL
                 |PartialDifferentialRing&| NIL NIL |Rng&| |Module&| |Module&|
                 |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
                 NIL NIL |NonAssociativeRng&| |Group&| |AbelianGroup&| NIL NIL
@@ -3149,24 +3149,24 @@
                  (|AlgebraicallyClosedField|) (|Field|)
                  (|PolynomialFactorizationExplicit|) (|EuclideanDomain|)
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
-                 (|GcdDomain|) (|LeftOreRing|) (|DivisionRing|)
-                 (|FullyLinearlyExplicitOver| 6) (|IntegralDomain|)
-                 (|Algebra| $$) (|EntireRing|) (|Algebra| 491) (|Algebra| 6)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 57)
-                 (|CommutativeRing|) (|PartialDifferentialRing| 27) (|Ring|)
-                 (|SemiRing|) (|Rng|) (|Module| $$) (|Module| 491) (|Module| 6)
-                 (|SemiRng|) (|BiModule| 491 491) (|BiModule| $$ $$)
-                 (|BiModule| 6 6) (|NonAssociativeRing|) (|LeftModule| 491)
-                 (|RightModule| 491) (|LeftModule| $$) (|LeftModule| 6)
-                 (|RightModule| 6) (|RightModule| $$) (|NonAssociativeRng|)
-                 (|Group|) (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                 (|NonAssociativeSemiRing|) (|Monoid|) (|ExpressionSpace|)
-                 (|FullyPatternMatchable| 6) (|AbelianMonoid|)
-                 (|MagmaWithUnit|) (|SemiGroup|) (|NonAssociativeSemiRng|)
-                 (|Comparable|) (|PatternMatchable| (|Float|))
-                 (|PatternMatchable| 57) (|Magma|)
-                 (|LiouvillianFunctionCategory|) (|AbelianSemiGroup|)
+                 (|GcdDomain|) (|IntegralDomain|) (|LeftOreRing|)
+                 (|DivisionRing|) (|FullyLinearlyExplicitOver| 6)
+                 (|CommutativeRing|) (|Algebra| $$) (|EntireRing|)
+                 (|Algebra| 491) (|Algebra| 6) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|LinearlyExplicitOver| 6)
+                 (|LinearlyExplicitOver| 57) (|PartialDifferentialRing| 27)
+                 (|Ring|) (|SemiRing|) (|Rng|) (|Module| $$) (|Module| 491)
+                 (|Module| 6) (|SemiRng|) (|BiModule| 491 491)
+                 (|BiModule| $$ $$) (|BiModule| 6 6) (|NonAssociativeRing|)
+                 (|LeftModule| 491) (|RightModule| 491) (|LeftModule| $$)
+                 (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
+                 (|NonAssociativeRng|) (|Group|) (|AbelianGroup|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
+                 (|Monoid|) (|ExpressionSpace|) (|FullyPatternMatchable| 6)
+                 (|AbelianMonoid|) (|MagmaWithUnit|) (|SemiGroup|)
+                 (|NonAssociativeSemiRng|) (|Comparable|)
+                 (|PatternMatchable| (|Float|)) (|PatternMatchable| 57)
+                 (|Magma|) (|LiouvillianFunctionCategory|) (|AbelianSemiGroup|)
                  (|SetCategory|) (|FullyRetractableTo| 6) (|Patternable| 6)
                  (|Evalable| $$) (|TranscendentalFunctionCategory|)
                  (|CombinatorialOpsCategory|) (|BasicType|) (|RetractableTo| 6)

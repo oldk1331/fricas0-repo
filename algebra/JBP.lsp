@@ -578,7 +578,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 27
-                                '(0 0 10 0 0 10 0 0 0 0 8 0 0 0 0 1 2 3 23 8 9
+                                '(0 0 10 0 0 10 0 0 0 0 0 8 0 0 0 1 2 3 23 8 9
                                   8 0 0 0 0 0 1 23 0 0 0 1 0 0 0 0 0 1 1 0 0 0
                                   0 0 0 0 0 0 0 7 24 25 0 0 12 0 0 0 0 0 0 0 0
                                   0 0 4 5 6 26 27 11 12))
@@ -586,10 +586,10 @@
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |JetBundleFunctionCategory&|
                 |FiniteAbelianMonoidRing&| |UniqueFactorizationDomain&|
-                |AbelianMonoidRing&| |GcdDomain&| NIL NIL
+                |AbelianMonoidRing&| |GcdDomain&| NIL NIL NIL
                 |FullyLinearlyExplicitOver&| |PartialDifferentialRing&|
-                |EntireRing&| |Algebra&| NIL |Algebra&| NIL NIL |Algebra&| NIL
-                NIL |PartialDifferentialRing&| NIL |Rng&| NIL NIL |Module&|
+                |EntireRing&| |Algebra&| |Algebra&| NIL NIL |Algebra&| NIL NIL
+                |PartialDifferentialRing&| NIL |Rng&| NIL NIL |Module&|
                 |Module&| |Module&| NIL NIL |NonAssociativeRing&| NIL NIL NIL
                 NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL
                 NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
@@ -606,11 +606,10 @@
                  (|FiniteAbelianMonoidRing| 6 (|IndexedExponents| 7))
                  (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 6 (|IndexedExponents| 7)) (|GcdDomain|)
-                 (|LeftOreRing|) (|IntegralDomain|)
+                 (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
                  (|FullyLinearlyExplicitOver| 6) (|PartialDifferentialRing| 85)
-                 (|EntireRing|) (|Algebra| $$) (|CommutativeRing|)
-                 (|Algebra| 53) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|Algebra| 6)
+                 (|EntireRing|) (|Algebra| $$) (|Algebra| 53)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|) (|Algebra| 6)
                  (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 61)
                  (|PartialDifferentialRing| 7) (|Ring|) (|Rng|) (|SemiRing|)
                  (|SemiRng|) (|Module| $$) (|Module| 53) (|Module| 6)

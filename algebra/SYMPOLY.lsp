@@ -241,9 +241,11 @@
                 (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| |#1| '(|IntegralDomain|))
-         (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-         (|augmentPredVector| $ 4194304))
+    (AND
+     (OR (AND #3# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND (|HasCategory| |#1| '(|IntegralDomain|))
+              (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 4194304))
     (AND (|HasCategory| $ '(|CommutativeRing|))
          (|augmentPredVector| $ 8388608))
     (AND
@@ -314,13 +316,13 @@
            '#(|Zero| 63 |One| 67 = 71 + 77 * 83) 'NIL
            (CONS
             (|makeByteWordVec2| 22
-                                '(0 0 2 1 6 2 3 4 5 7 11 11 9 0 1 2 5 0 0 1 10
+                                '(0 0 2 6 1 6 3 4 5 7 11 11 9 0 1 6 5 0 0 1 10
                                   0 0 0 0 1 1 11 8 22 9 9 0 0 21 9 0 0 14 0 0 0
                                   0 0 0 6 10 7 12 13 15))
             (CONS
-             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL |Algebra&|
-                NIL |Algebra&| NIL NIL |Algebra&| |EntireRing&| NIL |Rng&| NIL
-                NIL |Module&| |Module&| |Module&| NIL NIL NIL
+             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
+                |Algebra&| |Algebra&| NIL NIL |Algebra&| |EntireRing&| NIL
+                |Rng&| NIL NIL |Module&| |Module&| |Module&| NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| |AbelianGroup&| NIL NIL NIL
                 |NonAssociativeSemiRng&| NIL |AbelianMonoid&| |MagmaWithUnit&|
@@ -329,7 +331,7 @@
                 NIL |RetractableTo&| |RetractableTo&| NIL)
              (CONS
               '#((|FiniteAbelianMonoidRing| 6 11) (|AbelianMonoidRing| 6 11)
-                 (|IntegralDomain|) (|Algebra| 27) (|CommutativeRing|)
+                 (|IntegralDomain|) (|CommutativeRing|) (|Algebra| 27)
                  (|Algebra| $$) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6) (|EntireRing|) (|Ring|)
                  (|Rng|) (|SemiRing|) (|SemiRng|) (|Module| 27) (|Module| $$)

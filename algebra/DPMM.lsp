@@ -130,6 +130,9 @@
                                                                 '(|Field|)))
                                              (|HasCategory| |#4| '(|Ring|))
                                              (|HasCategory| |#4| '(|Monoid|))
+                                             (OR #7#
+                                                 (|HasCategory| |#4|
+                                                                '(|SemiRng|)))
                                              (LETT #6#
                                                    (|HasCategory| |#4|
                                                                   '(|Finite|))
@@ -563,18 +566,18 @@
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
     (AND (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 70368744177664))
+         (|augmentPredVector| $ 140737488355328))
     (AND (|HasCategory| |#4| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 140737488355328))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
          (|augmentPredVector| $ 281474976710656))
+    (AND (|HasCategory| $ '(|shallowlyMutable|))
+         (|augmentPredVector| $ 562949953421312))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianMonoid|))
          (|HasCategory| |#3| '(|AbelianMonoid|)) #3#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianMonoid|))))
-     (|augmentPredVector| $ 562949953421312))
+     (|augmentPredVector| $ 1125899906842624))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|))
@@ -582,13 +585,13 @@
          (AND #2# (|HasCategory| |#4| '(|SemiRng|))) #1#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 1125899906842624))
+     (|augmentPredVector| $ 2251799813685248))
     (AND
      (OR (|HasCategory| |#2| '(|AbelianGroup|))
          (|HasCategory| |#3| '(|AbelianGroup|)) #2#
          (AND (|HasCategory| |#4| '(|SemiRng|))
               (|HasCategory| $ '(|AbelianGroup|))))
-     (|augmentPredVector| $ 2251799813685248))
+     (|augmentPredVector| $ 4503599627370496))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 10 (|Vector| |#4|))
     $))) 
@@ -611,17 +614,17 @@
               (|Vector| 9) (|List| 11))
            '#(|elt| 29 * 35) 'NIL
            (CONS
-            (|makeByteWordVec2| 46
-                                '(0 10 10 7 7 10 14 15 16 18 1 10 18 9 2 8 3 2
-                                  10 0 0 0 8 2 3 2 2 18 3 40 3 10 11 45 0 5 11
-                                  12 28 17 46 0 0 13 28 0 0 0 42 19 0 0 0 0 0 0
-                                  42 4 6 7 12 19 43 44))
+            (|makeByteWordVec2| 47
+                                '(0 7 10 10 7 7 10 15 16 17 19 1 10 19 9 2 7 8
+                                  3 10 12 0 0 0 8 2 3 2 12 19 3 41 3 10 11 46 0
+                                  5 11 13 29 18 47 0 0 14 29 0 0 0 43 20 0 0 0
+                                  0 0 0 43 4 6 7 13 20 44 45))
             (CONS
-             '#(|DirectProductCategory&| |FullyLinearlyExplicitOver&|
-                |DifferentialExtension&| NIL |Algebra&| NIL NIL
+             '#(|DirectProductCategory&| NIL |FullyLinearlyExplicitOver&|
+                |DifferentialExtension&| |Algebra&| |Algebra&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL
-                |VectorSpace&| NIL |Rng&| |Module&| NIL NIL NIL NIL
-                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL
+                |VectorSpace&| NIL |Rng&| |Module&| NIL |Module&| NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL NIL NIL NIL
                 |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
                 |IndexedAggregate&| |OrderedSet&| |MagmaWithUnit&| |Finite&|
                 NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
@@ -631,16 +634,17 @@
                 |InnerEvalable&| |PartialOrder&| NIL NIL NIL |RetractableTo&|
                 |RetractableTo&| |RetractableTo&|)
              (CONS
-              '#((|DirectProductCategory| 6 9) (|FullyLinearlyExplicitOver| 9)
-                 (|DifferentialExtension| 9) (|CommutativeRing|) (|Algebra| 9)
-                 (|LinearlyExplicitOver| 9) (|LinearlyExplicitOver| 11)
-                 (|PartialDifferentialRing| 31) (|DifferentialRing|) (|Ring|)
-                 (|VectorSpace| 9) (|SemiRing|) (|Rng|) (|Module| 9)
-                 (|SemiRng|) (|BiModule| 9 9) (|OrderedAbelianMonoidSup|)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|LeftModule| 8)
+              '#((|DirectProductCategory| 6 9) (|CommutativeRing|)
+                 (|FullyLinearlyExplicitOver| 9) (|DifferentialExtension| 9)
+                 (|Algebra| $$) (|Algebra| 9) (|LinearlyExplicitOver| 9)
+                 (|LinearlyExplicitOver| 11) (|PartialDifferentialRing| 31)
+                 (|DifferentialRing|) (|Ring|) (|VectorSpace| 9) (|SemiRing|)
+                 (|Rng|) (|Module| 9) (|SemiRng|) (|Module| $$)
+                 (|BiModule| 9 9) (|OrderedAbelianMonoidSup|)
+                 (|NonAssociativeRing|) (|BiModule| $$ $$) (|LeftModule| 8)
                  (|LeftModule| 7) (|AbelianProductCategory| 9) (|LeftModule| 9)
                  (|RightModule| 9) (|OrderedCancellationAbelianMonoid|)
-                 (|LeftModule| $$) (|RightModule| $$) (|NonAssociativeRng|)
+                 (|RightModule| $$) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|OrderedAbelianMonoid|) (|AbelianGroup|)
                  (|OrderedAbelianSemiGroup|) (|NonAssociativeSemiRing|)
                  (|Monoid|) (|CancellationAbelianMonoid|)

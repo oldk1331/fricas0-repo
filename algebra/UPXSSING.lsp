@@ -1047,9 +1047,9 @@
                                   0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4
                                   5))
             (CONS
-             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL
-                |EntireRing&| |Algebra&| NIL |Algebra&| NIL NIL NIL NIL |Rng&|
-                NIL |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL NIL
+             '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL NIL
+                |EntireRing&| |Algebra&| |Algebra&| NIL NIL NIL NIL |Rng&| NIL
+                |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL NIL NIL |AbelianGroup&| NIL
                 NIL NIL NIL |MagmaWithUnit&| |AbelianMonoid&|
                 |NonAssociativeSemiRng&| |Magma&| |AbelianSemiGroup&|
@@ -1064,8 +1064,8 @@
                                       (|ExponentialOfUnivariatePuiseuxSeries| 7
                                                                               8
                                                                               9))
-                 (|IntegralDomain|) (|EntireRing|) (|Algebra| $$)
-                 (|CommutativeRing|) (|Algebra| 34) (|CharacteristicNonZero|)
+                 (|IntegralDomain|) (|CommutativeRing|) (|EntireRing|)
+                 (|Algebra| $$) (|Algebra| 34) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Ring|) (|SemiRing|) (|Rng|)
                  (|SemiRng|) (|Module| $$) (|Module| 34) (|BiModule| $$ $$)
                  (|NonAssociativeRing|)

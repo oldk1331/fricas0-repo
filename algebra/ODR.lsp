@@ -109,12 +109,12 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(1 1 1 1 1 1 1 1 0 1 1 1 1 0 0 0 0 1 1 0 0 1 0
+                                '(1 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 0 1 1 0 0 1 0
                                   0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1))
             (CONS
              '#(|Field&| |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
-                |GcdDomain&| NIL NIL |DivisionRing&| |DifferentialRing&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL |Rng&| NIL
+                |GcdDomain&| NIL NIL NIL |DivisionRing&| |DifferentialRing&|
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL |Rng&| NIL
                 |Module&| |Module&| NIL |NonAssociativeRing&| NIL NIL
                 |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL NIL NIL
                 NIL |MagmaWithUnit&| |AbelianMonoid&| |NonAssociativeSemiRng&|
@@ -122,9 +122,9 @@
                 NIL NIL NIL NIL NIL)
              (CONS
               '#((|Field|) (|EuclideanDomain|) (|PrincipalIdealDomain|)
-                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|LeftOreRing|)
-                 (|IntegralDomain|) (|DivisionRing|) (|DifferentialRing|)
-                 (|Algebra| $$) (|CommutativeRing|) (|EntireRing|)
+                 (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
+                 (|LeftOreRing|) (|CommutativeRing|) (|DivisionRing|)
+                 (|DifferentialRing|) (|Algebra| $$) (|EntireRing|)
                  (|Algebra| 21) (|Ring|) (|SemiRing|) (|Rng|) (|SemiRng|)
                  (|Module| $$) (|Module| 21) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|BiModule| 21 21) (|LeftModule| $$)

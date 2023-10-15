@@ -1319,9 +1319,14 @@
                                      (|devaluate| |#1|)))))
      (|augmentPredVector| $ 34359738368))
     (AND
-     (OR (AND (|HasCategory| |#1| '(|Field|)) #6#)
+     (OR (AND #7# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+         (AND (|HasCategory| |#1| '(|Field|)) #6#)
          (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
      (|augmentPredVector| $ 68719476736))
+    (AND
+     (OR (AND (|HasCategory| |#1| '(|Field|)) #6#)
+         (AND #5# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))))
+     (|augmentPredVector| $ 137438953472))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 10 (|Stream| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
     (COND
@@ -1466,20 +1471,21 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 30
-                                '(14 0 14 0 14 14 0 14 14 21 14 1 2 9 4 3 19 20
-                                  21 16 30 27 30 0 9 19 16 0 0 29 16 0 0 0 0 30
+                                '(14 0 14 0 14 14 0 14 21 14 20 14 1 2 9 4 3 18
+                                  21 16 30 27 30 0 9 18 16 0 0 29 16 0 0 0 0 30
                                   16 16 15 23 27 27 0 0 25 27 0 0 0 6 0 0 0 5 6
                                   6 6 6 6 29 18 19 14 14))
             (CONS
              '#(|Field&| |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PowerSeriesCategory&| NIL |UniqueFactorizationDomain&|
-                |AbelianMonoidRing&| |GcdDomain&| NIL NIL |DivisionRing&| NIL
-                NIL |Algebra&| |PartialDifferentialRing&| |DifferentialRing&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL |Rng&| NIL
-                |Module&| |Module&| |Module&| NIL NIL |NonAssociativeRing&| NIL
-                NIL NIL NIL NIL |NonAssociativeRng&| NIL NIL |AbelianGroup&|
-                NIL NIL NIL |NonAssociativeSemiRng&| NIL |AbelianMonoid&|
-                |MagmaWithUnit&| |Magma&| |AbelianSemiGroup&| |SetCategory&|
+                |AbelianMonoidRing&| |GcdDomain&| NIL NIL NIL |DivisionRing&|
+                NIL NIL |Algebra&| |PartialDifferentialRing&|
+                |DifferentialRing&| |Algebra&| |EntireRing&| |Algebra&| NIL NIL
+                |Rng&| NIL |Module&| |Module&| |Module&| NIL NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL NIL |NonAssociativeRng&|
+                NIL NIL |AbelianGroup&| NIL NIL NIL |NonAssociativeSemiRng&|
+                NIL |AbelianMonoid&| |MagmaWithUnit&| |Magma&|
+                |AbelianSemiGroup&| |SetCategory&|
                 |TranscendentalFunctionCategory&| NIL |BasicType&| NIL NIL
                 |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
@@ -1489,22 +1495,21 @@
               '#((|Field|) (|UnivariatePowerSeriesCategory| 6 7)
                  (|EuclideanDomain|) (|PowerSeriesCategory| 6 7 185)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
-                 (|AbelianMonoidRing| 6 7) (|GcdDomain|) (|LeftOreRing|)
-                 (|IntegralDomain|) (|DivisionRing|) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|Algebra| 6)
+                 (|AbelianMonoidRing| 6 7) (|GcdDomain|) (|IntegralDomain|)
+                 (|LeftOreRing|) (|CommutativeRing|) (|DivisionRing|)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|) (|Algebra| 6)
                  (|PartialDifferentialRing| 15) (|DifferentialRing|)
-                 (|Algebra| $$) (|CommutativeRing|) (|EntireRing|)
-                 (|Algebra| 182) (|Ring|) (|SemiRing|) (|Rng|) (|SemiRng|)
-                 (|Module| 6) (|Module| $$) (|Module| 182) (|BiModule| 6 6)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|BiModule| 182 182)
-                 (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)
-                 (|LeftModule| $$) (|NonAssociativeRng|) (|LeftModule| 182)
-                 (|RightModule| 182) (|AbelianGroup|)
-                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRing|)
-                 (|Monoid|) (|NonAssociativeSemiRng|) (|SemiGroup|)
-                 (|AbelianMonoid|) (|MagmaWithUnit|) (|Magma|)
-                 (|AbelianSemiGroup|) (|SetCategory|)
-                 (|TranscendentalFunctionCategory|)
+                 (|Algebra| $$) (|EntireRing|) (|Algebra| 182) (|Ring|)
+                 (|SemiRing|) (|Rng|) (|SemiRng|) (|Module| 6) (|Module| $$)
+                 (|Module| 182) (|BiModule| 6 6) (|BiModule| $$ $$)
+                 (|NonAssociativeRing|) (|BiModule| 182 182) (|LeftModule| 6)
+                 (|RightModule| 6) (|RightModule| $$) (|LeftModule| $$)
+                 (|NonAssociativeRng|) (|LeftModule| 182) (|RightModule| 182)
+                 (|AbelianGroup|) (|CancellationAbelianMonoid|)
+                 (|NonAssociativeSemiRing|) (|Monoid|)
+                 (|NonAssociativeSemiRng|) (|SemiGroup|) (|AbelianMonoid|)
+                 (|MagmaWithUnit|) (|Magma|) (|AbelianSemiGroup|)
+                 (|SetCategory|) (|TranscendentalFunctionCategory|)
                  (|VariablesCommuteWithCoefficients|) (|BasicType|)
                  (|CoercibleTo| 37) (|Eltable| $$ $$)
                  (|TrigonometricFunctionCategory|)
@@ -1548,8 +1553,8 @@
                                     0 0 0 160 1 114 113 2 161 1 0 0 0 162 1 114
                                     113 2 163 1 0 0 0 164 1 114 113 2 165 1 0 0
                                     0 166 0 6 0 167 0 0 0 168 2 0 17 0 0 1 1 34
-                                    17 0 1 1 0 183 0 1 1 0 15 0 16 1 37 181 0 1
-                                    1 37 0 0 1 1 37 17 0 1 3 0 0 0 7 7 106 2 0
+                                    17 0 1 1 0 183 0 1 1 0 15 0 16 1 38 181 0 1
+                                    1 38 0 0 1 1 38 17 0 1 3 0 0 0 7 7 106 2 0
                                     0 0 7 105 1 0 12 0 13 1 6 0 0 148 1 6 0 0
                                     124 2 33 80 0 0 1 1 14 0 0 1 1 14 170 0 1 2
                                     14 17 0 0 1 1 6 0 0 144 1 6 0 0 120 1 6 0 0
@@ -1567,7 +1572,7 @@
                                     2 0 187 187 0 1 1 0 186 0 1 2 14 176 176
                                     176 1 2 14 0 0 0 1 1 14 0 55 1 1 14 170 0 1
                                     3 14 172 0 0 0 1 2 14 174 0 0 1 2 0 0 0 7
-                                    104 2 37 80 0 0 84 2 14 173 55 0 1 1 6 0 0
+                                    104 2 38 80 0 0 84 2 14 173 55 0 1 1 6 0 0
                                     116 2 10 93 0 6 1 1 14 32 0 1 2 5 0 0 0 1 2
                                     0 6 0 7 110 2 14 175 0 0 1 2 4 0 0 15 1 3 4
                                     0 0 15 32 1 2 4 0 0 179 1 3 4 0 0 179 180 1
@@ -1577,7 +1582,7 @@
                                     1 1 31 0 6 1 1 36 0 169 1 1 37 0 0 1 1 16 0
                                     182 1 1 0 37 0 61 2 0 6 0 7 109 1 1 80 0 1
                                     0 36 32 34 1 0 6 0 14 1 6 0 0 160 1 6 0 0
-                                    136 3 36 0 0 0 0 1 2 37 17 0 0 1 1 6 0 0
+                                    136 3 36 0 0 0 0 1 2 38 17 0 0 1 1 6 0 0
                                     156 1 6 0 0 132 1 6 0 0 164 1 6 0 0 140 2
                                     11 6 0 7 1 2 0 0 93 0 100 2 0 0 0 0 1 2 36
                                     17 0 0 1 1 6 0 0 166 1 6 0 0 142 1 6 0 0

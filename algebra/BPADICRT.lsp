@@ -188,7 +188,7 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 25
-                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 7 0 0 0 0 0 0 3 4
+                                '(0 0 0 1 0 0 0 7 0 0 0 0 0 0 7 0 0 0 0 0 3 4
                                   15 16 17 0 0 0 0 0 0 0 0 0 0 0 7 0 0 0 0 0 0
                                   0 7 0 7 0 0 0 7 0 0 0 0 0 9 0 0 0 25 11 20 21
                                   0 0 6 13 0 0 0 0 0 0 0 0 0 2 5 6 6 8 10 10 12
@@ -196,10 +196,10 @@
             (CONS
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
-                |UniqueFactorizationDomain&| |GcdDomain&| NIL
+                |UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
                 |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |DivisionRing&| NIL NIL |OrderedRing&| NIL |Algebra&|
-                |Algebra&| NIL |EntireRing&| |Algebra&| NIL NIL
+                |Algebra&| |EntireRing&| |Algebra&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL |Rng&|
                 NIL |Module&| |Module&| |Module&| NIL NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL NIL NIL NIL
@@ -215,19 +215,18 @@
               '#((|QuotientFieldCategory| (|BalancedPAdicInteger| 6)) (|Field|)
                  (|EuclideanDomain|) (|PolynomialFactorizationExplicit|)
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
-                 (|GcdDomain|) (|OrderedIntegralDomain|)
+                 (|GcdDomain|) (|OrderedIntegralDomain|) (|IntegralDomain|)
                  (|FullyLinearlyExplicitOver| (|BalancedPAdicInteger| 6))
                  (|DifferentialExtension| (|BalancedPAdicInteger| 6))
-                 (|DivisionRing|) (|IntegralDomain|) (|LeftOreRing|)
+                 (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
                  (|OrderedRing|)
                  (|LinearlyExplicitOver| (|BalancedPAdicInteger| 6))
                  (|Algebra| (|BalancedPAdicInteger| 6)) (|Algebra| 34)
-                 (|CommutativeRing|) (|EntireRing|) (|Algebra| $$)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|PartialDifferentialRing| 19) (|DifferentialRing|)
-                 (|LinearlyExplicitOver| 24) (|Ring|) (|Rng|) (|SemiRing|)
-                 (|Module| (|BalancedPAdicInteger| 6)) (|Module| 34)
-                 (|Module| $$) (|SemiRng|)
+                 (|EntireRing|) (|Algebra| $$) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|PartialDifferentialRing| 19)
+                 (|DifferentialRing|) (|LinearlyExplicitOver| 24) (|Ring|)
+                 (|Rng|) (|SemiRing|) (|Module| (|BalancedPAdicInteger| 6))
+                 (|Module| 34) (|Module| $$) (|SemiRng|)
                  (|BiModule| (|BalancedPAdicInteger| 6)
                              (|BalancedPAdicInteger| 6))
                  (|BiModule| 34 34) (|BiModule| $$ $$) (|NonAssociativeRing|)

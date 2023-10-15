@@ -1583,9 +1583,9 @@
               (931 . |polarCoordinates|) (936 . |zero?|) (941 . |positive?|)
               (946 . ^) (952 . |denom|) (957 . |coerce|) (962 . ^)
               (968 . |numer|) (973 . |coerce|) (978 . /) (984 . =) (990 . ^)
-              (|List| 145) (|List| 10) (|Fraction| 11)
-              (|Record| (|:| |mat| 293) (|:| |vec| (|Vector| 25)))
-              (|Matrix| 25) (|Union| 25 '"failed"))
+              (|List| 145) (|List| 10) (|Fraction| 11) (|Matrix| 25)
+              (|Record| (|:| |mat| 292) (|:| |vec| (|Vector| 25)))
+              (|Union| 25 '"failed"))
            '#(|unitNormal| 996 |trace| 1001 |tanh| 1006 |tan| 1011 |squareFree|
               1016 |solveLinearPolynomialEquation| 1021 |smaller?| 1027 |sinh|
               1033 |sin| 1038 |retractIfCan| 1043 |retract| 1048 |rem| 1053
@@ -1723,9 +1723,9 @@
                                                    0 115 127 0 0 11 128 1 0 0 0
                                                    259 1 0 0 0 253 1 0 123 0
                                                    124 2 0 123 0 141 142 1 0
-                                                   179 0 184 1 0 171 0 173 1 0
-                                                   176 0 178 1 0 185 0 188 1 0
-                                                   189 0 192 1 0 0 0 112 1 0
+                                                   171 0 173 1 0 179 0 184 1 0
+                                                   176 0 178 1 0 189 0 192 1 0
+                                                   185 0 188 1 0 0 0 112 1 0
                                                    143 0 150 1 0 11 0 23 0 0 10
                                                    114 1 0 0 0 263 1 0 0 0 257
                                                    1 0 0 0 261 1 0 0 0 255 1 0

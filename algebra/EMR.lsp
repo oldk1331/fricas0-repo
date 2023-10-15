@@ -325,7 +325,7 @@
                 NIL)
              (CONS
               '#((|EuclideanDomain|) (|PrincipalIdealDomain|) (|GcdDomain|)
-                 (|IntegralDomain|) (|LeftOreRing|) (|CommutativeRing|)
+                 (|IntegralDomain|) (|CommutativeRing|) (|LeftOreRing|)
                  (|EntireRing|) (|Algebra| $$) (|Ring|) (|Rng|) (|SemiRing|)
                  (|Module| $$) (|SemiRng|) (|BiModule| $$ $$)
                  (|NonAssociativeRing|) (|LeftModule| $$) (|NonAssociativeRng|)

@@ -21,9 +21,9 @@
 
 (DECLAIM (NOTINLINE |TaylorSeries;|)) 
 
-(DEFUN |TaylorSeries| (#1=#:G118)
+(DEFUN |TaylorSeries| (#1=#:G119)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G120)
            (RETURN
             (COND
              ((LETT #2#
@@ -39,47 +39,53 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|TaylorSeries|)))))))))) 
 
 (DEFUN |TaylorSeries;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G117 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
-         (PROGN
-          (LETT DV$1 (|devaluate| |#1|) . #2=(|TaylorSeries|))
-          (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #2#)
-          (LETT $ (GETREFV 36) . #2#)
-          (QSETREFV $ 0 |dv$|)
-          (QSETREFV $ 3
-                    (LETT |pv$|
-                          (|buildPredVector| 0 0
-                                             (LIST
+  (SPROG
+   ((#1=#:G118 NIL) (|pv$| NIL) (#2=#:G117 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   (PROGN
+    (LETT DV$1 (|devaluate| |#1|) . #3=(|TaylorSeries|))
+    (LETT |dv$| (LIST '|TaylorSeries| DV$1) . #3#)
+    (LETT $ (GETREFV 36) . #3#)
+    (QSETREFV $ 0 |dv$|)
+    (QSETREFV $ 3
+              (LETT |pv$|
+                    (|buildPredVector| 0 0
+                                       (LIST
+                                        (|HasCategory| |#1|
+                                                       '(|Algebra|
+                                                         (|Fraction|
+                                                          (|Integer|))))
+                                        (|HasCategory| |#1|
+                                                       '(|IntegralDomain|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicNonZero|))
+                                        (|HasCategory| |#1|
+                                                       '(|CharacteristicZero|))
+                                        (LETT #2#
                                               (|HasCategory| |#1|
-                                                             '(|Algebra|
-                                                               (|Fraction|
-                                                                (|Integer|))))
-                                              (|HasCategory| |#1|
-                                                             '(|IntegralDomain|))
-                                              (|HasCategory| |#1|
-                                                             '(|CharacteristicNonZero|))
-                                              (|HasCategory| |#1|
-                                                             '(|CharacteristicZero|))
-                                              (LETT #1#
-                                                    (|HasCategory| |#1|
-                                                                   '(|CommutativeRing|))
-                                                    . #2#)
-                                              (OR #1#
-                                                  (|HasCategory| |#1|
-                                                                 '(|IntegralDomain|)))
-                                              (|HasCategory| |#1| '(|Field|))))
-                          . #2#))
-          (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1)
-                      (CONS 1 $))
-          (|stuffDomainSlots| $)
-          (QSETREFV $ 6 |#1|)
-          (AND #1# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-               (|augmentPredVector| $ 128))
-          (AND (|HasCategory| |#1| '(|IntegralDomain|))
-               (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
-               (|augmentPredVector| $ 256))
-          (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7 (|Stream| (|Polynomial| |#1|)))
-          $))) 
+                                                             '(|CommutativeRing|))
+                                              . #3#)
+                                        (OR #2#
+                                            (|HasCategory| |#1|
+                                                           '(|IntegralDomain|)))
+                                        (|HasCategory| |#1| '(|Field|))))
+                    . #3#))
+    (|haddProp| |$ConstructorCache| '|TaylorSeries| (LIST DV$1) (CONS 1 $))
+    (|stuffDomainSlots| $)
+    (QSETREFV $ 6 |#1|)
+    (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))
+         (|augmentPredVector| $ 128))
+    (AND
+     (LETT #1#
+           (AND (|HasCategory| |#1| '(|IntegralDomain|))
+                (|HasCategory| $ '(|VariablesCommuteWithCoefficients|)))
+           . #3#)
+     (|augmentPredVector| $ 256))
+    (AND
+     (OR (AND #2# (|HasCategory| $ '(|VariablesCommuteWithCoefficients|))) #1#)
+     (|augmentPredVector| $ 512))
+    (SETF |pv$| (QREFELT $ 3))
+    (QSETREFV $ 7 (|Stream| (|Polynomial| |#1|)))
+    $))) 
 
 (MAKEPROP '|TaylorSeries| '|infovec|
           (LIST
@@ -113,16 +119,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 6
-                                '(0 0 0 2 0 1 6 2 2 3 4 5 0 0 0 0 1 2 5 0 0 0 1
+                                '(0 0 0 2 6 0 1 6 2 3 4 5 0 0 0 0 1 6 5 0 0 0 1
                                   0 0 0 0 0 1 1 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0
                                   0 0 0 1 1 1 1 1 1 6 2))
             (CONS
              '#(|MultivariateTaylorSeriesCategory&| |PowerSeriesCategory&|
-                |AbelianMonoidRing&| NIL |PartialDifferentialRing&| |Algebra&|
-                NIL |Algebra&| |EntireRing&| NIL NIL |Algebra&| NIL |Rng&| NIL
-                NIL |Module&| |Module&| |Module&| NIL |NonAssociativeRing&| NIL
-                NIL NIL NIL |NonAssociativeRng&| NIL NIL NIL NIL
-                |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
+                |AbelianMonoidRing&| NIL NIL |PartialDifferentialRing&|
+                |Algebra&| |Algebra&| |EntireRing&| NIL NIL |Algebra&| NIL
+                |Rng&| NIL NIL |Module&| |Module&| |Module&| NIL
+                |NonAssociativeRing&| NIL NIL NIL NIL |NonAssociativeRng&| NIL
+                NIL NIL NIL |AbelianGroup&| NIL NIL NIL NIL |MagmaWithUnit&|
                 |NonAssociativeSemiRng&| |AbelianMonoid&| |Magma&|
                 |AbelianSemiGroup&| |Evalable&| |SetCategory&|
                 |TranscendentalFunctionCategory&| |InnerEvalable&|
@@ -134,8 +140,8 @@
              (CONS
               '#((|MultivariateTaylorSeriesCategory| 6 20)
                  (|PowerSeriesCategory| 6 28 20) (|AbelianMonoidRing| 6 28)
-                 (|IntegralDomain|) (|PartialDifferentialRing| 20)
-                 (|Algebra| 22) (|CommutativeRing|) (|Algebra| $$)
+                 (|IntegralDomain|) (|CommutativeRing|)
+                 (|PartialDifferentialRing| 20) (|Algebra| 22) (|Algebra| $$)
                  (|EntireRing|) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Algebra| 6) (|Ring|) (|Rng|)
                  (|SemiRing|) (|SemiRng|) (|Module| 22) (|Module| $$)
@@ -178,7 +184,7 @@
                                     3 0 0 0 23 24 1 2 0 0 0 20 1 2 0 0 0 23 1 1
                                     0 28 0 1 1 1 0 0 1 1 1 0 0 1 1 1 0 0 1 1 1
                                     0 0 1 1 1 0 0 1 1 1 0 0 1 1 0 0 0 1 2 0 0 0
-                                    0 1 1 8 0 6 1 1 9 0 0 1 1 1 0 22 1 1 0 0 8
+                                    0 1 1 8 0 6 1 1 10 0 0 1 1 1 0 22 1 1 0 0 8
                                     1 1 0 0 20 1 1 0 0 21 1 1 0 34 0 1 2 0 8 0
                                     15 1 3 0 0 0 23 24 1 3 0 0 0 20 15 1 2 0 6
                                     0 28 1 1 3 18 0 1 0 0 15 1 1 1 0 0 1 1 1 0

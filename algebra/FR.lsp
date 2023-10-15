@@ -1416,12 +1416,12 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 15
-                                '(12 14 0 0 13 0 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0
+                                '(12 14 0 0 0 13 0 0 0 1 2 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 9 15 0 0
                                   0 0 0 0 3 4 5 6 7 8 9 10 11 15 15))
             (CONS
-             '#(|UniqueFactorizationDomain&| |GcdDomain&| NIL
-                |DifferentialExtension&| NIL NIL |Algebra&| |EntireRing&|
+             '#(|UniqueFactorizationDomain&| |GcdDomain&| NIL NIL
+                |DifferentialExtension&| NIL |Algebra&| |EntireRing&|
                 |Algebra&| |PartialDifferentialRing&| |DifferentialRing&| NIL
                 |Rng&| NIL |Module&| |Module&| NIL NIL NIL
                 |NonAssociativeRing&| NIL NIL NIL |NonAssociativeRng&| NIL
@@ -1434,26 +1434,25 @@
                 |InnerEvalable&| NIL NIL NIL NIL)
              (CONS
               '#((|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
-                 (|DifferentialExtension| 6) (|LeftOreRing|)
-                 (|CommutativeRing|) (|Algebra| 6) (|EntireRing|)
-                 (|Algebra| $$) (|PartialDifferentialRing| 22)
-                 (|DifferentialRing|) (|Ring|) (|Rng|) (|SemiRing|)
-                 (|Module| 6) (|Module| $$) (|SemiRng|) (|BiModule| 6 6)
-                 (|BiModule| $$ $$) (|NonAssociativeRing|) (|RightModule| 6)
-                 (|LeftModule| 6) (|LeftModule| $$) (|NonAssociativeRng|)
-                 (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
-                 (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
-                 (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
-                 (|AbelianMonoid|) (|FullyEvalableOver| 6) (|Magma|)
-                 (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
-                 (|Evalable| 6) (|Evalable| $$) (|RealConstant|)
-                 (|RetractableTo| 6) (|noZeroDivisors|) (|CommutativeStar|)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 20)
-                 (|InnerEvalable| 22 6) (|InnerEvalable| 6 6) (|Eltable| 6 $$)
-                 (|RetractableTo| 62) (|RetractableTo| 26)
-                 (|InnerEvalable| 22 $$) (|InnerEvalable| $$ $$)
-                 (|Eltable| $$ $$) (|ConvertibleTo| 13) (|ConvertibleTo| 93)
-                 (|ConvertibleTo| 87))
+                 (|CommutativeRing|) (|DifferentialExtension| 6)
+                 (|LeftOreRing|) (|Algebra| 6) (|EntireRing|) (|Algebra| $$)
+                 (|PartialDifferentialRing| 22) (|DifferentialRing|) (|Ring|)
+                 (|Rng|) (|SemiRing|) (|Module| 6) (|Module| $$) (|SemiRng|)
+                 (|BiModule| 6 6) (|BiModule| $$ $$) (|NonAssociativeRing|)
+                 (|RightModule| 6) (|LeftModule| 6) (|LeftModule| $$)
+                 (|NonAssociativeRng|) (|RightModule| $$) (|AbelianGroup|)
+                 (|Monoid|) (|NonAssociativeSemiRing|)
+                 (|CancellationAbelianMonoid|) (|SemiGroup|) (|MagmaWithUnit|)
+                 (|NonAssociativeSemiRng|) (|AbelianMonoid|)
+                 (|FullyEvalableOver| 6) (|Magma|) (|AbelianSemiGroup|)
+                 (|FullyRetractableTo| 6) (|SetCategory|) (|Evalable| 6)
+                 (|Evalable| $$) (|RealConstant|) (|RetractableTo| 6)
+                 (|noZeroDivisors|) (|CommutativeStar|) (|unitsKnown|)
+                 (|BasicType|) (|CoercibleTo| 20) (|InnerEvalable| 22 6)
+                 (|InnerEvalable| 6 6) (|Eltable| 6 $$) (|RetractableTo| 62)
+                 (|RetractableTo| 26) (|InnerEvalable| 22 $$)
+                 (|InnerEvalable| $$ $$) (|Eltable| $$ $$) (|ConvertibleTo| 13)
+                 (|ConvertibleTo| 93) (|ConvertibleTo| 87))
               (|makeByteWordVec2| 162
                                   '(1 6 13 0 14 0 6 0 15 2 6 16 0 0 17 1 20 18
                                     19 21 1 13 0 22 23 2 13 0 0 24 25 1 13 0 26
