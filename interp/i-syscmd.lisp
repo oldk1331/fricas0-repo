@@ -721,7 +721,7 @@
 ;   if $useInternalHistoryTable
 ;     then $internalHistoryTable := NIL
 ;     else deleteFile histFileName()
-;   $IOindex := 1
+;   if not null $IOindex then $IOindex := 1
 ;   updateCurrentInterpreterFrame()
 ;   $currentLine := '")clear all"    --restored 3/94; needed for undo (RDJ)
 ;   clearMacroTable()
@@ -741,7 +741,7 @@
       (|resetInCoreHist|)
       (COND (|$useInternalHistoryTable| (SETQ |$internalHistoryTable| NIL))
             (#1='T (|deleteFile| (|histFileName|))))
-      (SETQ |$IOindex| 1)
+      (COND ((NULL (NULL |$IOindex|)) (SETQ |$IOindex| 1)))
       (|updateCurrentInterpreterFrame|)
       (SETQ |$currentLine| ")clear all")
       (|clearMacroTable|)
