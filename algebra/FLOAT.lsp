@@ -1156,10 +1156,10 @@
 (SDEFUN |FLOAT;order;$I;45| ((|a| $) ($ |Integer|))
         (- (+ (INTEGER-LENGTH (QCAR |a|)) (QCDR |a|)) 1)) 
 
-(SDEFUN |FLOAT;relerror;2$I;46| ((|a| $) (|b| $) ($ |Integer|))
+(SDEFUN |FLOAT;relerror;3$;46| ((|a| $) (|b| $) ($ $))
         (SPADCALL
          (SPADCALL (SPADCALL |a| |b| (QREFELT $ 46)) |b| (QREFELT $ 41))
-         (QREFELT $ 55))) 
+         (QREFELT $ 48))) 
 
 (PUT '|FLOAT;Zero;$;47| '|SPADreplace| '(XLAM NIL (CONS 0 0))) 
 
@@ -2756,7 +2756,7 @@
               (|List| (|List| 16)) (|Matrix| 16) (135 . |matrix|) (140 . <=)
               (146 . |elt|) (153 . *) 'E (159 . >) (165 . |elt|)
               (170 . |setelt!|) |FLOAT;precision;2Pi;39| |FLOAT;digits;Pi;43|
-              |FLOAT;digits;2Pi;44| |FLOAT;relerror;2$I;46| |FLOAT;base;Pi;49|
+              |FLOAT;digits;2Pi;44| |FLOAT;relerror;3$;46| |FLOAT;base;Pi;49|
               |FLOAT;one?;$B;52| (176 . |positive?|) |FLOAT;positive?;$B;55|
               |FLOAT;float;2I$;57| |FLOAT;float;2IPi$;58| (181 . >)
               |FLOAT;floor;2$;66| |FLOAT;truncate;2$;69| |FLOAT;ceiling;2$;64|
@@ -2914,7 +2914,7 @@
                                     61 2 0 0 0 16 59 1 0 0 0 1 1 0 0 0 1 0 0 0
                                     1 1 0 0 0 119 1 0 120 0 1 2 0 0 0 74 1 2 0
                                     0 0 6 1 1 0 187 0 188 1 0 191 0 192 1 0 125
-                                    0 186 1 0 16 0 190 2 0 0 0 0 1 2 0 16 0 0
+                                    0 186 1 0 16 0 190 2 0 0 0 0 1 2 0 0 0 0
                                     108 1 0 120 0 121 3 0 125 0 74 74 185 2 0
                                     125 0 74 193 2 0 0 0 0 1 1 0 207 37 1 1 0
                                     23 0 1 1 1 6 6 105 0 0 6 71 1 0 23 0 112 0
