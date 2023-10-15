@@ -1864,7 +1864,7 @@
 178796`\spad{coerce(gp)} returns the generators of the group {\em gp}.
 178864`\spad{coerce(x)} returns the list of elements in \spad{x}
 178911`\spad{coerce(s)} returns the \spadtype{ThreeSpace} \spad{s} to Output format.
-178971`\spad{coerce(v)} coerces void object to outputForm.
+178971`\spad{coerce(v)} coerces void object to OutputForm.
 179014`\spad{coerce(d)} converts a decimal expansion to a radix expansion with base 10.
 179077`\spad{coerce(h)} converts a hexadecimal expansion to a radix expansion with base 16.
 179144`\spad{coerce(b)} converts a binary expansion to a radix expansion with base 2.

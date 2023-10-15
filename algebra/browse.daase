@@ -40349,7 +40349,7 @@ NIL
   (NIL
    "This type is used when no value is needed,{} \\spadignore{e.g.} in the \\spad{then} part of a one armed \\spad{if}. All values can be coerced to type Void. Once a value has been coerced to Void,{} it cannot be recovered."))
  (|coerce|
-  (((|OutputForm|) $) "\\spad{coerce(v)} coerces void object to outputForm."))
+  (((|OutputForm|) $) "\\spad{coerce(v)} coerces void object to OutputForm."))
  (|void| (($) "\\spad{void()} produces a void object."))) 
 NIL 
 (|VectorSpaceBasis| R) 
