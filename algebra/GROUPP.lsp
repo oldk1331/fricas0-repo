@@ -705,8 +705,8 @@
                (COND
                 ((OR (ATOM #4#) (PROGN (LETT |r| (CAR #4#) . #6#) NIL))
                  (GO G191)))
-               (SEQ (LETT |eleout| (SPADCALL " " (QREFELT $ 44)) . #6#)
-                    (LETT |seperator| (SPADCALL " " (QREFELT $ 44)) . #6#)
+               (SEQ (LETT |eleout| (SPADCALL " " (QREFELT $ 51)) . #6#)
+                    (LETT |seperator| (SPADCALL " " (QREFELT $ 51)) . #6#)
                     (SEQ (LETT |ele| NIL . #6#) (LETT #3# |r| . #6#) G190
                          (COND
                           ((OR (ATOM #3#)
@@ -719,26 +719,26 @@
                                      (QREFELT $ 45))
                                     . #6#)
                               (EXIT
-                               (LETT |seperator| (SPADCALL "*" (QREFELT $ 44))
+                               (LETT |seperator| (SPADCALL "*" (QREFELT $ 51))
                                      . #6#)))
                          (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL))
                     (EXIT
                      (LETT |rels1| (SPADCALL |rels1| |eleout| (QREFELT $ 47))
                            . #6#)))
                (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
-          (LETT |g| (SPADCALL " " (QREFELT $ 44)) . #6#)
+          (LETT |g| (SPADCALL " " (QREFELT $ 51)) . #6#)
           (COND
            ((SPADCALL (LENGTH |gens1|) 0 (QREFELT $ 57))
             (LETT |g| (SPADCALL |gens1| (QREFELT $ 48)) . #6#)))
-          (LETT |r| (SPADCALL " " (QREFELT $ 44)) . #6#)
+          (LETT |r| (SPADCALL " " (QREFELT $ 51)) . #6#)
           (COND
            ((SPADCALL (LENGTH |rels1|) 0 (QREFELT $ 57))
             (LETT |r| (SPADCALL |rels1| (QREFELT $ 62)) . #6#)))
           (EXIT
            (SPADCALL
-            (LIST (SPADCALL "<" (QREFELT $ 44)) |g|
-                  (SPADCALL " | " (QREFELT $ 44)) |r|
-                  (SPADCALL ">" (QREFELT $ 44)))
+            (LIST (SPADCALL "<" (QREFELT $ 51)) |g|
+                  (SPADCALL " | " (QREFELT $ 51)) |r|
+                  (SPADCALL ">" (QREFELT $ 51)))
             (QREFELT $ 45)))))) 
 
 (DECLAIM (NOTINLINE |GroupPresentation;|)) 
