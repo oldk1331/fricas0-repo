@@ -43,6 +43,11 @@
                                                               (|Symbol|))
                                                              $))
                                                            T)
+                                                          ((|variables|
+                                                            ((|List|
+                                                              (|Symbol|))
+                                                             (|List| $)))
+                                                           T)
                                                           ((|applyQuote|
                                                             ($ (|Symbol|) $))
                                                            T)
