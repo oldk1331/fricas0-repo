@@ -4,7 +4,8 @@
 
 (SDEFUN |DISPLAY;bright;2L;2| ((|l| |List| (|String|)) ($ |List| (|String|)))
         (CONS (QREFELT $ 6)
-              (APPEND |l| (SPADCALL (QREFELT $ 7) (QREFELT $ 12))))) 
+              (SPADCALL |l| (SPADCALL (QREFELT $ 7) (QREFELT $ 12))
+                        (QREFELT $ 13)))) 
 
 (SDEFUN |DISPLAY;newLine;S;3| (($ |String|)) (QREFELT $ 8)) 
 
@@ -15,13 +16,13 @@
                       (#1='T
                        (SEQ
                         (LETT |t|
-                              (SPADCALL (QUOTIENT2 |n| 2) |s| (QREFELT $ 16))
+                              (SPADCALL (QUOTIENT2 |n| 2) |s| (QREFELT $ 17))
                               |DISPLAY;copies;I2S;4|)
                         (EXIT
                          (COND
                           ((ODDP |n|)
-                           (SPADCALL (LIST |s| |t| |t|) (QREFELT $ 18)))
-                          (#1# (SPADCALL (LIST |t| |t|) (QREFELT $ 18))))))))))) 
+                           (SPADCALL (LIST |s| |t| |t|) (QREFELT $ 19)))
+                          (#1# (SPADCALL (LIST |t| |t|) (QREFELT $ 19))))))))))) 
 
 (SDEFUN |DISPLAY;center0|
         ((|len| |Integer|) (|wid| |Integer|) (|fill| |String|)
@@ -37,17 +38,17 @@
                               (SPADCALL
                                (+ 1
                                   (QUOTIENT2 |m|
-                                             (SPADCALL |fill| (QREFELT $ 19))))
-                               |fill| (QREFELT $ 16))
+                                             (SPADCALL |fill| (QREFELT $ 20))))
+                               |fill| (QREFELT $ 17))
                               . #1#)
                         (EXIT
                          (CONS
-                          (SPADCALL |t| (SPADCALL 1 |m| (QREFELT $ 21))
-                                    (QREFELT $ 22))
+                          (SPADCALL |t| (SPADCALL 1 |m| (QREFELT $ 22))
+                                    (QREFELT $ 23))
                           (SPADCALL |t|
                                     (SPADCALL 1 (- (- |wid| |len|) |m|)
-                                              (QREFELT $ 21))
-                                    (QREFELT $ 22)))))))))) 
+                                              (QREFELT $ 22))
+                                    (QREFELT $ 23)))))))))) 
 
 (SDEFUN |DISPLAY;center;SI2S;6|
         ((|s| |String|) (|wid| |Integer|) (|fill| |String|) ($ |String|))
@@ -58,20 +59,20 @@
           (COND ((< |wid| 1) "")
                 (#1='T
                  (SEQ
-                  (LETT |len| (SPADCALL |s| (QREFELT $ 19))
+                  (LETT |len| (SPADCALL |s| (QREFELT $ 20))
                         . #2=(|DISPLAY;center;SI2S;6|))
                   (EXIT
                    (COND ((EQL |len| |wid|) |s|)
-                         ((SPADCALL |len| |wid| (QREFELT $ 24))
-                          (SPADCALL |s| (SPADCALL 1 |wid| (QREFELT $ 21))
-                                    (QREFELT $ 22)))
+                         ((SPADCALL |len| |wid| (QREFELT $ 25))
+                          (SPADCALL |s| (SPADCALL 1 |wid| (QREFELT $ 22))
+                                    (QREFELT $ 23)))
                          (#1#
                           (SEQ
                            (LETT |rec| (|DISPLAY;center0| |len| |wid| |fill| $)
                                  . #2#)
                            (EXIT
                             (SPADCALL (LIST (QCAR |rec|) |s| (QCDR |rec|))
-                                      (QREFELT $ 18))))))))))))) 
+                                      (QREFELT $ 19))))))))))))) 
 
 (SDEFUN |DISPLAY;center;LISL;7|
         ((|l| |List| (|String|)) (|wid| |Integer|) (|fill| |String|)
@@ -83,7 +84,7 @@
           (COND ((< |wid| 1) (LIST ""))
                 (#1='T
                  (SEQ
-                  (LETT |len| (SPADCALL |l| (QREFELT $ 26))
+                  (LETT |len| (SPADCALL |l| (QREFELT $ 27))
                         . #2=(|DISPLAY;center;LISL;7|))
                   (EXIT
                    (COND ((EQL |len| |wid|) |l|)
@@ -93,15 +94,16 @@
                                  . #2#)
                            (EXIT
                             (CONS (QCAR |rec|)
-                                  (APPEND |l|
-                                          (SPADCALL (QCDR |rec|)
-                                                    (QREFELT $ 12))))))))))))))) 
+                                  (SPADCALL |l|
+                                            (SPADCALL (QCDR |rec|)
+                                                      (QREFELT $ 12))
+                                            (QREFELT $ 13)))))))))))))) 
 
 (SDEFUN |DISPLAY;say;SV;8| ((|s| |String|) ($ |Void|))
-        (SEQ (|sayBrightly| |s|) (EXIT (SPADCALL (QREFELT $ 29))))) 
+        (SEQ (|sayBrightly| |s|) (EXIT (SPADCALL (QREFELT $ 30))))) 
 
 (SDEFUN |DISPLAY;say;LV;9| ((|l| |List| (|String|)) ($ |Void|))
-        (SEQ (|sayBrightly| |l|) (EXIT (SPADCALL (QREFELT $ 29))))) 
+        (SEQ (|sayBrightly| |l|) (EXIT (SPADCALL (QREFELT $ 30))))) 
 
 (PUT '|DISPLAY;sayLength;SI;10| '|SPADreplace| 'QCSIZE) 
 
@@ -124,7 +126,7 @@
                             ((EQUAL |s| (QREFELT $ 8)) |sum|)
                             ('T
                              (LETT |sum|
-                                   (+ |sum| (SPADCALL |s| (QREFELT $ 19)))
+                                   (+ |sum| (SPADCALL |s| (QREFELT $ 20)))
                                    . #2#)))))
                          (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                     (EXIT |sum|)))) 
@@ -154,7 +156,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|DisplayPackage|) . #1=(|DisplayPackage|))
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT $ (GETREFV 33) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|DisplayPackage| NIL (CONS 1 $))
@@ -168,28 +170,29 @@
 (MAKEPROP '|DisplayPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL 'HION 'HIOFF 'NEWLINE (|List| 10)
-              (|String|) |DISPLAY;bright;SL;1| (0 . |list|)
+              (|String|) |DISPLAY;bright;SL;1| (0 . |list|) (5 . |append|)
               |DISPLAY;bright;2L;2| |DISPLAY;newLine;S;3| (|Integer|)
-              |DISPLAY;copies;I2S;4| (|List| $) (5 . |concat|)
-              |DISPLAY;sayLength;SI;10| (|UniversalSegment| 15) (10 . SEGMENT)
-              (16 . |elt|) (|Boolean|) (22 . >) |DISPLAY;center;SI2S;6|
+              |DISPLAY;copies;I2S;4| (|List| $) (11 . |concat|)
+              |DISPLAY;sayLength;SI;10| (|UniversalSegment| 16) (16 . SEGMENT)
+              (22 . |elt|) (|Boolean|) (28 . >) |DISPLAY;center;SI2S;6|
               |DISPLAY;sayLength;LI;11| |DISPLAY;center;LISL;7| (|Void|)
-              (28 . |void|) |DISPLAY;say;SV;8| |DISPLAY;say;LV;9|)
-           '#(|sayLength| 32 |say| 42 |newLine| 52 |copies| 56 |center| 62
-              |bright| 76)
+              (34 . |void|) |DISPLAY;say;SV;8| |DISPLAY;say;LV;9|)
+           '#(|sayLength| 38 |say| 48 |newLine| 58 |copies| 62 |center| 68
+              |bright| 82)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 31
-                                                 '(1 9 0 10 12 1 10 0 17 18 2
-                                                   20 0 15 15 21 2 10 0 0 20 22
-                                                   2 15 23 0 0 24 0 28 0 29 1 0
-                                                   15 9 26 1 0 15 10 19 1 0 28
-                                                   10 30 1 0 28 9 31 0 0 10 14
-                                                   2 0 10 15 10 16 3 0 10 10 15
-                                                   10 25 3 0 9 9 15 10 27 1 0 9
-                                                   9 13 1 0 9 10 11)))))
+                             (|makeByteWordVec2| 32
+                                                 '(1 9 0 10 12 2 9 0 0 0 13 1
+                                                   10 0 18 19 2 21 0 16 16 22 2
+                                                   10 0 0 21 23 2 16 24 0 0 25
+                                                   0 29 0 30 1 0 16 9 27 1 0 16
+                                                   10 20 1 0 29 10 31 1 0 29 9
+                                                   32 0 0 10 15 2 0 10 16 10 17
+                                                   3 0 10 10 16 10 26 3 0 9 9
+                                                   16 10 28 1 0 9 9 14 1 0 9 10
+                                                   11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DisplayPackage| 'NILADIC T) 

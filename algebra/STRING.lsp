@@ -37,7 +37,7 @@
 
 (DEFUN |String| ()
   (SPROG NIL
-         (PROG (#1=#:G1901)
+         (PROG (#1=#:G1903)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|String|) . #2=(|String|))
@@ -53,8 +53,8 @@
 
 (DEFUN |String;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G1898 NIL) (#2=#:G1897 NIL) (|pv$| NIL)
-    (#3=#:G1899 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G1900 NIL) (#2=#:G1899 NIL) (|pv$| NIL)
+    (#3=#:G1901 NIL))
    (PROGN
     (LETT |dv$| '(|String|) . #4=(|String|))
     (LETT $ (GETREFV 40) . #4#)

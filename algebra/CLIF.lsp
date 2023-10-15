@@ -1618,11 +1618,11 @@
                         (SEQ
                          (EXIT (LETT |Sn| (CONS (CONS |j| |x|) |Sn|) . #4#)))
                         (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
-                   (EXIT (APPEND |Sn| |Sm|))))))))) 
+                   (EXIT (SPADCALL |Sn| |Sm| (QREFELT $ 111)))))))))) 
 
 (SDEFUN |CLIF;powerSets|
         ((|j| |NonNegativeInteger|) ($ |List| (|List| (|PositiveInteger|))))
-        (SPADCALL (ELT $ 111) (|CLIF;localPowerSets| |j| $) (QREFELT $ 113))) 
+        (SPADCALL (ELT $ 112) (|CLIF;localPowerSets| |j| $) (QREFELT $ 114))) 
 
 (SDEFUN |CLIF;recip;$U;54| ((|x| $) ($ |Union| $ "failed"))
         (SPROG
@@ -1632,7 +1632,7 @@
           (|rhsEqs| (|List| K)) (#3=#:G468 NIL) (|pi| NIL) (|one| ($)))
          (SEQ (LETT |one| (|spadConstant| $ 44) . #4=(|CLIF;recip;$U;54|))
               (LETT |rhsEqs| NIL . #4#) (LETT |lhsEqs| NIL . #4#)
-              (SEQ (LETT |pi| NIL . #4#) (LETT #3# (QREFELT $ 114) . #4#) G190
+              (SEQ (LETT |pi| NIL . #4#) (LETT #3# (QREFELT $ 115) . #4#) G190
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |pi| (CAR #3#) . #4#) NIL))
                      (GO G191)))
@@ -1641,7 +1641,7 @@
                           (CONS (SPADCALL |one| |pi| (QREFELT $ 98)) |rhsEqs|)
                           . #4#)
                     (LETT |lhsEqi| NIL . #4#)
-                    (SEQ (LETT |pj| NIL . #4#) (LETT #2# (QREFELT $ 114) . #4#)
+                    (SEQ (LETT |pj| NIL . #4#) (LETT #2# (QREFELT $ 115) . #4#)
                          G190
                          (COND
                           ((OR (ATOM #2#)
@@ -1664,19 +1664,19 @@
                      (LETT |lhsEqs| (CONS (REVERSE |lhsEqi|) |lhsEqs|) . #4#)))
                    (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
               (LETT |ans|
-                    (SPADCALL (SPADCALL |lhsEqs| (QREFELT $ 117))
-                              (SPADCALL |rhsEqs| (QREFELT $ 118))
-                              (QREFELT $ 121))
+                    (SPADCALL (SPADCALL |lhsEqs| (QREFELT $ 118))
+                              (SPADCALL |rhsEqs| (QREFELT $ 119))
+                              (QREFELT $ 122))
                     . #4#)
               (EXIT
                (COND ((QEQCAR |ans| 1) (CONS 1 "failed"))
                      ('T
                       (SEQ
-                       (LETT |ansP| (SPADCALL (QCDR |ans|) (QREFELT $ 122))
+                       (LETT |ansP| (SPADCALL (QCDR |ans|) (QREFELT $ 123))
                              . #4#)
                        (LETT |ansC| (|spadConstant| $ 42) . #4#)
                        (SEQ (LETT |pj| NIL . #4#)
-                            (LETT #1# (QREFELT $ 114) . #4#) G190
+                            (LETT #1# (QREFELT $ 115) . #4#) G190
                             (COND
                              ((OR (ATOM #1#)
                                   (PROGN (LETT |pj| (CAR #1#) . #4#) NIL))
@@ -1728,7 +1728,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|CliffordAlgebra| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 126) . #1#)
+          (LETT $ (GETREFV 127) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|CliffordAlgebra|
@@ -1744,7 +1744,7 @@
           (QSETREFV $ 18 NIL)
           (QSETREFV $ 21 (SPADCALL 2 |#1| (QREFELT $ 20)))
           (QSETREFV $ 22 (|PrimitiveArray| |#2|))
-          (QSETREFV $ 114 (|CLIF;powerSets| |#1| $))
+          (QSETREFV $ 115 (|CLIF;powerSets| |#1| $))
           $))) 
 
 (MAKEPROP '|CliffordAlgebra| '|infovec|
@@ -1780,20 +1780,20 @@
               |CLIF;coefficient;$LK;49| (|OutputForm|) (186 . |coerce|)
               (191 . |coerce|) (196 . |sub|) (202 . *) (|Mapping| 99 99 99)
               (|List| 99) (208 . |reduce|) (214 . +) |CLIF;coerce;$Of;51|
-              (|List| 64) (220 . |list|) (225 . |reverse|) (|Mapping| 64 64)
-              (230 . |map|) '|Pn| (|List| 66) (|Matrix| 7) (236 . |matrix|)
-              (241 . |vector|) (|Union| 12 '"failed")
-              (|LinearSystemMatrixPackage| 7 12 12 116)
-              (246 . |particularSolution|) (252 . |parts|)
+              (|List| 64) (220 . |list|) (225 . |append|) (231 . |reverse|)
+              (|Mapping| 64 64) (236 . |map|) '|Pn| (|List| 66) (|Matrix| 7)
+              (242 . |matrix|) (247 . |vector|) (|Union| 12 '"failed")
+              (|LinearSystemMatrixPackage| 7 12 12 117)
+              (252 . |particularSolution|) (258 . |parts|)
               (|Union| $ '"failed") |CLIF;recip;$U;54| (|HashState|))
-           '#(~= 257 ~ 263 |zero?| 268 |toTable| 273 |subtractIfCan| 283
-              |setMode| 289 |sample| 295 |reverse| 299 |recip| 304 |rc| 309
-              |opposite?| 315 |one?| 321 |multivector| 326 |monomial| 331 |lc|
-              337 |latex| 343 |hashUpdate!| 348 |hash| 354 |gradeInvolution|
-              359 |grade| 364 |ee| 369 |ePseudoscalar| 374 |eFromBinaryMap| 378
-              |e| 383 |conj| 388 |coerce| 393 |coefficient| 408
-              |characteristic| 414 |annihilate?| 418 ^ 424 |\\/| 436 |Zero| 442
-              |One| 446 = 450 |/\\| 456 - 462 + 473 * 479)
+           '#(~= 263 ~ 269 |zero?| 274 |toTable| 279 |subtractIfCan| 289
+              |setMode| 295 |sample| 301 |reverse| 305 |recip| 310 |rc| 315
+              |opposite?| 321 |one?| 327 |multivector| 332 |monomial| 337 |lc|
+              343 |latex| 349 |hashUpdate!| 354 |hash| 360 |gradeInvolution|
+              365 |grade| 370 |ee| 375 |ePseudoscalar| 380 |eFromBinaryMap| 384
+              |e| 389 |conj| 394 |coerce| 399 |coefficient| 414
+              |characteristic| 420 |annihilate?| 424 ^ 430 |\\/| 442 |Zero| 448
+              |One| 452 = 456 |/\\| 462 - 468 + 479 * 485)
            'NIL
            (CONS
             (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
@@ -1809,7 +1809,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|SetCategory|) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 99))
-              (|makeByteWordVec2| 125
+              (|makeByteWordVec2| 126
                                   '(1 10 9 0 11 1 9 12 0 13 1 10 15 0 16 2 19 0
                                     0 19 20 0 7 23 24 1 26 0 23 27 2 7 15 0 0
                                     28 0 7 0 30 2 7 0 0 0 31 2 7 0 0 0 33 1 7 0
@@ -1823,20 +1823,21 @@
                                     37 19 95 2 7 0 0 0 97 1 7 99 0 100 1 23 99
                                     0 101 2 99 0 0 0 102 2 99 0 0 0 103 2 105
                                     99 104 0 106 2 99 0 0 0 107 1 109 0 64 110
-                                    1 64 0 0 111 2 109 0 112 0 113 1 116 0 115
-                                    117 1 12 0 66 118 2 120 119 116 12 121 1 12
-                                    66 0 122 2 0 15 0 0 1 1 0 0 0 92 1 0 15 0 1
-                                    1 0 74 77 78 1 0 74 75 76 2 0 123 0 0 1 2 0
-                                    15 52 15 83 0 0 0 1 1 0 0 0 81 1 0 123 0
-                                    124 2 0 0 0 0 89 2 0 15 0 0 1 1 0 15 0 1 1
-                                    0 0 66 68 2 0 0 7 64 96 2 0 0 0 0 88 1 0 52
-                                    0 1 2 0 125 125 0 1 1 0 55 0 1 1 0 0 0 80 1
-                                    0 23 0 79 1 0 0 64 65 0 0 0 70 1 0 0 23 69
-                                    1 0 0 19 59 1 0 0 0 82 1 0 0 7 47 1 0 0 37
-                                    46 1 0 99 0 108 2 0 7 0 64 98 0 0 23 25 2 0
-                                    15 0 0 1 2 0 0 0 23 1 2 0 0 0 19 1 2 0 0 0
-                                    0 87 0 0 0 42 0 0 0 44 2 0 15 0 0 29 2 0 0
-                                    0 0 60 2 0 0 0 0 34 1 0 0 0 36 2 0 0 0 0 32
-                                    2 0 0 7 0 41 2 0 0 0 7 1 2 0 0 0 0 86 2 0 0
-                                    37 0 39 2 0 0 23 0 1 2 0 0 19 0 1)))))
+                                    2 109 0 0 0 111 1 64 0 0 112 2 109 0 113 0
+                                    114 1 117 0 116 118 1 12 0 66 119 2 121 120
+                                    117 12 122 1 12 66 0 123 2 0 15 0 0 1 1 0 0
+                                    0 92 1 0 15 0 1 1 0 74 77 78 1 0 74 75 76 2
+                                    0 124 0 0 1 2 0 15 52 15 83 0 0 0 1 1 0 0 0
+                                    81 1 0 124 0 125 2 0 0 0 0 89 2 0 15 0 0 1
+                                    1 0 15 0 1 1 0 0 66 68 2 0 0 7 64 96 2 0 0
+                                    0 0 88 1 0 52 0 1 2 0 126 126 0 1 1 0 55 0
+                                    1 1 0 0 0 80 1 0 23 0 79 1 0 0 64 65 0 0 0
+                                    70 1 0 0 23 69 1 0 0 19 59 1 0 0 0 82 1 0 0
+                                    7 47 1 0 0 37 46 1 0 99 0 108 2 0 7 0 64 98
+                                    0 0 23 25 2 0 15 0 0 1 2 0 0 0 23 1 2 0 0 0
+                                    19 1 2 0 0 0 0 87 0 0 0 42 0 0 0 44 2 0 15
+                                    0 0 29 2 0 0 0 0 60 2 0 0 0 0 34 1 0 0 0 36
+                                    2 0 0 0 0 32 2 0 0 7 0 41 2 0 0 0 7 1 2 0 0
+                                    0 0 86 2 0 0 37 0 39 2 0 0 23 0 1 2 0 0 19
+                                    0 1)))))
            '|lookupComplete|)) 

@@ -156,7 +156,7 @@
                       ('T (LETT |lsym| (CONS |f1| |lsym|) . #6#)))))
                (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
           (EXIT
-           (APPEND
+           (SPADCALL
             (PROGN
              (LETT #4# NIL . #6#)
              (SEQ (LETT |lr| NIL . #6#) (LETT #3# |lrat| . #6#) G190
@@ -174,7 +174,8 @@
                     (GO G191)))
                   (SEQ (EXIT (LETT #2# (CONS (CONS 1 |ls|) #2#) . #6#)))
                   (LETT #1# (CDR #1#) . #6#) (GO G190) G191
-                  (EXIT (NREVERSE #2#))))))))) 
+                  (EXIT (NREVERSE #2#))))
+            (QREFELT $ 59)))))) 
 
 (SDEFUN |IEP;eigenvector;UML;10|
         ((|alpha| |Union| F (|SparseUnivariatePolynomial| F)) (A |Matrix| F)
@@ -192,7 +193,7 @@
           (|v| NIL) (#3=#:G173 NIL) (|j| NIL) (#4=#:G172 NIL) (B (|Matrix| F))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (ANROWS A) . #5=(|IEP;intRatEig|))
-              (LETT B (SPADCALL |n| |n| (QREFELT $ 60)) . #5#)
+              (LETT B (SPADCALL |n| |n| (QREFELT $ 61)) . #5#)
               (SEQ (LETT |i| 1 . #5#) (LETT #4# |n| . #5#) G190
                    (COND ((|greater_SI| |i| #4#) (GO G191)))
                    (SEQ
@@ -202,20 +203,20 @@
                           (EXIT
                            (SPADCALL B |i| |j|
                                      (SPADCALL A |i| |j| (QREFELT $ 41))
-                                     (QREFELT $ 61))))
+                                     (QREFELT $ 62))))
                          (LETT |j| (|inc_SI| |j|) . #5#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT
                      (SPADCALL B |i| |i|
                                (SPADCALL (SPADCALL B |i| |i| (QREFELT $ 41))
-                                         |alpha| (QREFELT $ 62))
-                               (QREFELT $ 61))))
+                                         |alpha| (QREFELT $ 63))
+                               (QREFELT $ 62))))
                    (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
               (LETT |sol| NIL . #5#)
               (SEQ (LETT |v| NIL . #5#)
                    (LETT #2#
-                         (SPADCALL (SPADCALL B |m| (QREFELT $ 63))
-                                   (QREFELT $ 65))
+                         (SPADCALL (SPADCALL B |m| (QREFELT $ 64))
+                                   (QREFELT $ 66))
                          . #5#)
                    G190
                    (COND
@@ -228,9 +229,9 @@
                               (EXIT
                                (SPADCALL |w| |i|
                                          (SPADCALL
-                                          (SPADCALL |v| |i| (QREFELT $ 67))
+                                          (SPADCALL |v| |i| (QREFELT $ 68))
                                           (QREFELT $ 42))
-                                         (QREFELT $ 69))))
+                                         (QREFELT $ 70))))
                              (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT (LETT |sol| (CONS |w| |sol|) . #5#)))
@@ -277,7 +278,7 @@
                      (CONS (|function| |IEP;exactquo|) $))
                     . #7#)
               (LETT AM (|Matrix| MM) . #7#)
-              (LETT |pol| (SPADCALL |alpha| (QREFELT $ 70)) . #7#)
+              (LETT |pol| (SPADCALL |alpha| (QREFELT $ 71)) . #7#)
               (LETT |alg|
                     (SPADCALL (SPADCALL (|spadConstant| $ 45) 1 (QREFELT $ 46))
                               |pol|
@@ -406,7 +407,7 @@
                                                                     (ELT $ 6)))
                                                                   '$)
                                                                  MM))
-                                         (QREFELT $ 69))))
+                                         (QREFELT $ 70))))
                              (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT (LETT |sol| (CONS |w| |sol|) . #7#)))
@@ -553,7 +554,7 @@
                                         |algSol|)
                                        . #6#)))))))
                    (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
-              (EXIT (APPEND |ratSol| |algSol|))))) 
+              (EXIT (SPADCALL |ratSol| |algSol| (QREFELT $ 73)))))) 
 
 (DECLAIM (NOTINLINE |InnerEigenPackage;|)) 
 
@@ -581,7 +582,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|InnerEigenPackage|))
           (LETT |dv$| (LIST '|InnerEigenPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 72) . #1#)
+          (LETT $ (GETREFV 74) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -621,7 +622,7 @@
               (15 . |generalizedEigenvectors|) (|SparseUnivariatePolynomial| 6)
               (20 . |rem|) (|Boolean|) (26 . =) (32 . |Zero|) (36 . |Zero|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 30 '"failed")
-              (40 . |extendedEuclidean|) (|List| 68) (|NonNegativeInteger|)
+              (40 . |extendedEuclidean|) (|List| 69) (|NonNegativeInteger|)
               |IEP;generalizedEigenvector;UM2NniL;13| (47 . ~=) (53 . |One|)
               (|Matrix| 24) (57 . |zero|) (|Integer|) (63 . |elt|)
               (70 . |coerce|) (75 . |setelt!|) (83 . |elt|) (90 . |One|)
@@ -630,19 +631,19 @@
               (|Record| (|:| |factor| 24) (|:| |exponent| 40)) (|List| 50)
               (|Factored| 24) (111 . |factors|) (116 . |degree|)
               (121 . |coefficient|) (127 . |leadingCoefficient|) (132 . /)
-              (138 . -) |IEP;eigenvector;UML;10| (143 . |zero|)
-              (149 . |setelt!|) (157 . -) (163 . ^) (|List| 66)
-              (169 . |nullSpace|) (|Vector| 6) (174 . |elt|) (|Vector| 24)
-              (180 . |setelt!|) (187 . |unitCanonical|)
-              |IEP;generalizedEigenvector;RML;14|)
-           '#(|generalizedEigenvectors| 192 |generalizedEigenvector| 203
-              |eigenvectors| 217 |eigenvector| 228 |eigenvalues| 234
-              |characteristicPolynomial| 245)
+              (138 . -) (143 . |append|) |IEP;eigenvector;UML;10|
+              (149 . |zero|) (155 . |setelt!|) (163 . -) (169 . ^) (|List| 67)
+              (175 . |nullSpace|) (|Vector| 6) (180 . |elt|) (|Vector| 24)
+              (186 . |setelt!|) (193 . |unitCanonical|)
+              |IEP;generalizedEigenvector;RML;14| (198 . |append|))
+           '#(|generalizedEigenvectors| 204 |generalizedEigenvector| 215
+              |eigenvectors| 229 |eigenvector| 240 |eigenvalues| 246
+              |characteristicPolynomial| 257)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 71
+                             (|makeByteWordVec2| 73
                                                  '(1 6 7 8 9 1 0 11 12 15 1 0
                                                    17 12 19 1 0 21 12 23 2 24 0
                                                    0 0 25 2 24 26 0 0 27 0 6 0
@@ -655,15 +656,16 @@
                                                    24 0 0 0 47 1 38 24 0 48 1
                                                    52 51 0 53 1 24 34 0 54 2 24
                                                    6 0 34 55 1 24 6 0 56 2 6 0
-                                                   0 0 57 1 6 0 0 58 2 12 0 34
-                                                   34 60 4 12 6 0 40 40 6 61 2
-                                                   6 0 0 0 62 2 12 0 0 34 63 1
-                                                   12 64 0 65 2 66 6 0 40 67 3
-                                                   68 24 0 40 24 69 1 24 0 0 70
-                                                   1 1 21 12 23 2 0 21 12 13 22
-                                                   2 0 33 16 12 71 4 0 33 10 12
+                                                   0 0 57 1 6 0 0 58 2 11 0 0 0
+                                                   59 2 12 0 34 34 61 4 12 6 0
+                                                   40 40 6 62 2 6 0 0 0 63 2 12
+                                                   0 0 34 64 1 12 65 0 66 2 67
+                                                   6 0 40 68 3 69 24 0 40 24 70
+                                                   1 24 0 0 71 2 17 0 0 0 73 1
+                                                   1 21 12 23 2 0 21 12 13 22 2
+                                                   0 33 16 12 72 4 0 33 10 12
                                                    34 34 35 1 1 17 12 19 2 0 17
-                                                   12 13 18 2 0 33 10 12 59 1 1
+                                                   12 13 18 2 0 33 10 12 60 1 1
                                                    11 12 15 2 0 11 12 13 14 1 0
                                                    24 12 49)))))
            '|lookupComplete|)) 

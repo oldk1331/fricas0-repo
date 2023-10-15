@@ -214,12 +214,13 @@
                         . #2#)
                   (EXIT
                    (SPADCALL (CONS (|SPADfirst| (|SPADfirst| |rv|)) |lp|)
-                             (APPEND (CDR |rv|)
-                                     (COND ((NULL (QVELT |rc| 2)) NIL)
-                                           (#1#
-                                            (CONS (QVELT |rc| 2)
-                                                  (QVELT |rc| 3)))))
-                             (QREFELT $ 39))))))))) 
+                             (SPADCALL (CDR |rv|)
+                                       (COND ((NULL (QVELT |rc| 2)) NIL)
+                                             (#1#
+                                              (CONS (QVELT |rc| 2)
+                                                    (QVELT |rc| 3))))
+                                       (QREFELT $ 39))
+                             (QREFELT $ 40))))))))) 
 
 (SDEFUN |TABLBUMP;untab;LLL;12!0| ((|s1| NIL) (|s2| NIL) ($ NIL))
         (SPADCALL |s2| |s1| (QREFELT $ 17))) 
@@ -242,11 +243,11 @@
                                   (LETT #2# (CONS (REVERSE |lls|) #2#) . #3#)))
                                 (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                                 (EXIT (NREVERSE #2#))))
-                          (QREFELT $ 39))))) 
+                          (QREFELT $ 40))))) 
 
 (SDEFUN |TABLBUMP;bat;TL;14|
         ((|tb| |Tableau| (|List| S)) ($ |List| (|List| S)))
-        (SPADCALL (SPADCALL |tb| (QREFELT $ 41)) (QREFELT $ 40))) 
+        (SPADCALL (SPADCALL |tb| (QREFELT $ 42)) (QREFELT $ 41))) 
 
 (DECLAIM (NOTINLINE |TableauxBumpers;|)) 
 
@@ -274,7 +275,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|TableauxBumpers|))
           (LETT |dv$| (LIST '|TableauxBumpers| DV$1) . #1#)
-          (LETT $ (GETREFV 43) . #1#)
+          (LETT $ (GETREFV 44) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TableauxBumpers| (LIST DV$1)
@@ -297,28 +298,28 @@
               |TABLBUMP;inverse;2L;8| (|Tableau| 8) (42 . |tableau|)
               |TABLBUMP;tab;LT;9| (47 . >)
               (|Record| (|:| |f1| 8) (|:| |f2| 14) (|:| |f3| 12) (|:| |f4| 14))
-              |TABLBUMP;maxrow;LLL3LR;10| |TABLBUMP;mr;LR;11|
+              |TABLBUMP;maxrow;LLL3LR;10| |TABLBUMP;mr;LR;11| (53 . |append|)
               |TABLBUMP;untab;LLL;12| |TABLBUMP;bat1;LL;13|
-              (53 . |listOfLists|) |TABLBUMP;bat;TL;14|)
-           '#(|untab| 58 |tab1| 64 |tab| 69 |slex| 74 |mr| 79 |maxrow| 84 |lex|
-              94 |inverse| 99 |bumptab1| 104 |bumptab| 110 |bumprow| 117 |bat1|
-              124 |bat| 129)
+              (59 . |listOfLists|) |TABLBUMP;bat;TL;14|)
+           '#(|untab| 64 |tab1| 70 |tab| 75 |slex| 80 |mr| 85 |maxrow| 90 |lex|
+              100 |inverse| 105 |bumptab1| 110 |bumptab| 116 |bumprow| 123
+              |bat1| 130 |bat| 135)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 42
+                             (|makeByteWordVec2| 43
                                                  '(2 8 6 0 7 9 2 6 16 0 0 17 1
                                                    19 0 12 20 3 22 14 14 21 19
                                                    23 2 6 16 0 0 25 2 12 0 26 0
                                                    27 2 8 0 11 0 29 1 32 0 14
-                                                   33 2 6 16 0 0 35 1 32 14 0
-                                                   41 2 0 12 12 14 39 1 0 14 12
-                                                   24 1 0 32 8 34 1 0 12 8 30 1
-                                                   0 36 14 38 6 0 36 8 14 12 14
-                                                   14 14 37 1 0 12 12 28 1 0 8
-                                                   8 31 2 0 14 8 14 18 3 0 14
-                                                   11 8 14 15 3 0 10 11 8 12 13
-                                                   1 0 12 14 40 1 0 12 32
-                                                   42)))))
+                                                   33 2 6 16 0 0 35 2 14 0 0 0
+                                                   39 1 32 14 0 42 2 0 12 12 14
+                                                   40 1 0 14 12 24 1 0 32 8 34
+                                                   1 0 12 8 30 1 0 36 14 38 6 0
+                                                   36 8 14 12 14 14 14 37 1 0
+                                                   12 12 28 1 0 8 8 31 2 0 14 8
+                                                   14 18 3 0 14 11 8 14 15 3 0
+                                                   10 11 8 12 13 1 0 12 14 41 1
+                                                   0 12 32 43)))))
            '|lookupComplete|)) 

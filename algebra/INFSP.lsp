@@ -1121,7 +1121,10 @@
                                        $)
                                       . #48#)
                                 (COND
-                                 (#12# (LETT #13# (APPEND #13# #14#) . #48#))
+                                 (#12#
+                                  (LETT #13#
+                                        (SPADCALL #13# #14# (QREFELT $ 142))
+                                        . #48#))
                                  ('T
                                   (PROGN
                                    (LETT #13# #14# . #48#)
@@ -1229,7 +1232,7 @@
                                 (EXIT (NREVERSE #7#))))
                           . #48#)
                     (LETT |lnorm|
-                          (SPADCALL (ELT $ 143) |laval| (QREFELT $ 146))
+                          (SPADCALL (ELT $ 144) |laval| (QREFELT $ 147))
                           . #48#)
                     (LETT |neps|
                           (SPADCALL (SPADCALL 1 (+ 1 |lnorm|) (QREFELT $ 63))
@@ -1270,7 +1273,7 @@
                           . #48#)
                     (EXIT
                      (LETT |result|
-                           (APPEND
+                           (SPADCALL
                             (PROGN
                              (LETT #2# NIL . #48#)
                              (SEQ (LETT |r| NIL . #48#)
@@ -1289,7 +1292,7 @@
                                           . #48#)))
                                   (LETT #1# (CDR #1#) . #48#) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            |result|)
+                            |result| (QREFELT $ 142))
                            . #48#)))
                    (LETT #10# (CDR #10#) . #48#) (GO G190) G191 (EXIT NIL))
               (EXIT |result|)))))))) 
@@ -1326,7 +1329,7 @@
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|InnerNumericFloatSolvePackage| DV$1 DV$2 DV$3)
                 . #1#)
-          (LETT $ (GETREFV 150) . #1#)
+          (LETT $ (GETREFV 151) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|InnerNumericFloatSolvePackage|
@@ -1382,14 +1385,14 @@
               (432 . |primitivePart|) (437 . |primitivePart|) (443 . |zero?|)
               (448 . |Zero|) (|List| 30) |INFSP;innerSolve;2LLParL;18|
               (452 . |leadingCoefficient|) (457 . |gcd|) (463 . |One|)
-              (467 . ~=) (473 . ~=) (479 . +) (485 . +) (|Mapping| 9 9 9)
-              (|List| 9) (491 . |reduce|) (497 . |One|) (501 . |One|)
-              (505 . |One|))
-           '#(|makeEq| 509 |innerSolve1| 515 |innerSolve| 527) 'NIL
+              (467 . ~=) (473 . ~=) (479 . |append|) (485 . +) (491 . +)
+              (|Mapping| 9 9 9) (|List| 9) (497 . |reduce|) (503 . |One|)
+              (507 . |One|) (511 . |One|))
+           '#(|makeEq| 515 |innerSolve1| 521 |innerSolve| 533) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 149
+                             (|makeByteWordVec2| 150
                                                  '(1 10 0 9 11 1 12 0 9 13 1 14
                                                    0 9 15 1 16 0 9 17 1 18 9 0
                                                    19 1 18 9 0 20 2 16 0 12 12
@@ -1434,10 +1437,11 @@
                                                    133 0 34 0 134 1 127 34 0
                                                    137 2 34 0 0 0 138 0 34 0
                                                    139 2 34 117 0 0 140 2 123
-                                                   117 0 0 141 2 42 0 0 0 142 2
-                                                   9 0 0 0 143 2 145 9 144 0
-                                                   146 0 12 0 147 0 72 0 148 0
-                                                   10 0 149 2 0 29 30 31 32 2 0
-                                                   30 34 8 53 2 0 30 50 8 52 4
-                                                   0 135 123 123 31 8 136)))))
+                                                   117 0 0 141 2 135 0 0 0 142
+                                                   2 42 0 0 0 143 2 9 0 0 0 144
+                                                   2 146 9 145 0 147 0 12 0 148
+                                                   0 72 0 149 0 10 0 150 2 0 29
+                                                   30 31 32 2 0 30 34 8 53 2 0
+                                                   30 50 8 52 4 0 135 123 123
+                                                   31 8 136)))))
            '|lookupComplete|)) 

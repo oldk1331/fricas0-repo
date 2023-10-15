@@ -242,7 +242,8 @@
                                           . #9#)
                                     (EXIT
                                      (LETT |pfaclist|
-                                           (APPEND |flistfin1| |pfaclist|)
+                                           (SPADCALL |flistfin1| |pfaclist|
+                                                     (QREFELT $ 49))
                                            . #9#)))))))
                                (LETT #6# (CDR #6#) . #9#) (GO G190) G191
                                (EXIT NIL))
@@ -251,26 +252,26 @@
                           (EXIT
                            (COND
                             ((SPADCALL |cont| (|spadConstant| $ 38)
-                                       (QREFELT $ 50))
+                                       (QREFELT $ 51))
                              (SEQ
                               (LETT |sqp| (SPADCALL |cont| (QREFELT $ 47))
                                     . #9#)
                               (LETT |pfaclist|
-                                    (APPEND (SPADCALL |sqp| (QREFELT $ 32))
-                                            |pfaclist|)
+                                    (SPADCALL (SPADCALL |sqp| (QREFELT $ 32))
+                                              |pfaclist| (QREFELT $ 49))
                                     . #9#)
                               (EXIT
                                (SPADCALL
                                 (SPADCALL (SPADCALL |sqp| (QREFELT $ 27))
                                           (SPADCALL
-                                           (SPADCALL |squf| (QREFELT $ 51)) 0
-                                           (QREFELT $ 52))
+                                           (SPADCALL |squf| (QREFELT $ 52)) 0
+                                           (QREFELT $ 53))
                                           (QREFELT $ 48))
                                 |pfaclist| (QREFELT $ 33)))))
                             (#8#
                              (SPADCALL
-                              (SPADCALL (SPADCALL |squf| (QREFELT $ 51)) 0
-                                        (QREFELT $ 52))
+                              (SPADCALL (SPADCALL |squf| (QREFELT $ 52)) 0
+                                        (QREFELT $ 53))
                               |pfaclist| (QREFELT $ 33))))))))))))))) 
 
 (SDEFUN |PSQFR;squareFree;PF;5| ((|p| P) ($ |Factored| P))
@@ -285,11 +286,11 @@
           (|up| (|SparseUnivariatePolynomial| P)) (#3=#:G170 NIL) (|cont| (P))
           (|mv| (|Union| |VarSet| "failed")))
          (SEQ
-          (LETT |mv| (SPADCALL |p| (QREFELT $ 54))
+          (LETT |mv| (SPADCALL |p| (QREFELT $ 55))
                 . #4=(|PSQFR;squareFree;PF;5|))
           (EXIT
            (COND ((QEQCAR |mv| 1) (SPADCALL |p| NIL (QREFELT $ 33)))
-                 ((SPADCALL (SPADCALL (QREFELT $ 11)) 0 (QREFELT $ 55))
+                 ((SPADCALL (SPADCALL (QREFELT $ 11)) 0 (QREFELT $ 56))
                   (|PSQFR;finSqFr| |p| (SPADCALL |p| (QREFELT $ 14)) $))
                  (#5='T
                   (SEQ
@@ -337,22 +338,22 @@
                          . #4#)
                    (EXIT
                     (COND
-                     ((SPADCALL |cont| (|spadConstant| $ 38) (QREFELT $ 50))
+                     ((SPADCALL |cont| (|spadConstant| $ 38) (QREFELT $ 51))
                       (SEQ (LETT |sqp| (SPADCALL |cont| (QREFELT $ 47)) . #4#)
                            (EXIT
                             (SPADCALL
                              (SPADCALL (SPADCALL |sqp| (QREFELT $ 27))
                                        (SPADCALL
-                                        (SPADCALL |squp| (QREFELT $ 51)) 0
-                                        (QREFELT $ 52))
+                                        (SPADCALL |squp| (QREFELT $ 52)) 0
+                                        (QREFELT $ 53))
                                        (QREFELT $ 48))
-                             (APPEND (SPADCALL |sqp| (QREFELT $ 32))
-                                     |pfaclist|)
+                             (SPADCALL (SPADCALL |sqp| (QREFELT $ 32))
+                                       |pfaclist| (QREFELT $ 49))
                              (QREFELT $ 33)))))
                      (#5#
                       (SPADCALL
-                       (SPADCALL (SPADCALL |squp| (QREFELT $ 51)) 0
-                                 (QREFELT $ 52))
+                       (SPADCALL (SPADCALL |squp| (QREFELT $ 52)) 0
+                                 (QREFELT $ 53))
                        |pfaclist| (QREFELT $ 33)))))))))))) 
 
 (DECLAIM (NOTINLINE |PolynomialSquareFree;|)) 
@@ -387,7 +388,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|PolynomialSquareFree| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 56) . #1#)
+    (LETT $ (GETREFV 57) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|PolynomialSquareFree|
@@ -420,14 +421,14 @@
               (|Record| (|:| |flg| 29) (|:| |fctr| 18)
                         (|:| |xpnt| (|Integer|)))
               (|List| 43) (102 . |factorList|) (107 . =)
-              |PSQFR;squareFree;PF;5| (113 . *) (119 . |One|) (123 . ~=)
-              (129 . |unit|) (134 . |coefficient|) (|Union| 6 '"failed")
-              (140 . |mainVariable|) (145 . ~=))
-           '#(|squareFree| 151) 'NIL
+              |PSQFR;squareFree;PF;5| (113 . *) (119 . |append|) (125 . |One|)
+              (129 . ~=) (135 . |unit|) (140 . |coefficient|)
+              (|Union| 6 '"failed") (146 . |mainVariable|) (151 . ~=))
+           '#(|squareFree| 157) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 55
+                             (|makeByteWordVec2| 56
                                                  '(0 8 10 11 1 9 13 0 14 2 9 15
                                                    0 6 16 2 18 17 0 10 19 2 18
                                                    0 20 0 21 2 9 0 15 6 22 2 18
@@ -438,8 +439,9 @@
                                                    18 9 0 37 0 9 0 38 2 18 17 0
                                                    9 39 1 41 40 18 42 1 40 44 0
                                                    45 2 29 35 0 0 46 2 9 0 0 0
-                                                   48 0 8 0 49 2 9 35 0 0 50 1
-                                                   40 18 0 51 2 18 9 0 10 52 1
-                                                   9 53 0 54 2 10 35 0 0 55 1 0
-                                                   26 9 47)))))
+                                                   48 2 31 0 0 0 49 0 8 0 50 2
+                                                   9 35 0 0 51 1 40 18 0 52 2
+                                                   18 9 0 10 53 1 9 54 0 55 2
+                                                   10 35 0 0 56 1 0 26 9
+                                                   47)))))
            '|lookupComplete|)) 

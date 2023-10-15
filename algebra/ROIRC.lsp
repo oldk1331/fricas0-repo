@@ -412,8 +412,8 @@
          (|vl| |NonNegativeInteger|) (|vr| |NonNegativeInteger|)
          ($ |List| (|Record| (|:| |low| |TheField|) (|:| |high| |TheField|))))
         (SPROG
-         ((|vi| (|NonNegativeInteger|)) (#1=#:G228 NIL) (|t| NIL)
-          (#2=#:G227 NIL) (|int| (|TheField|)) (|n| (|NonNegativeInteger|))
+         ((|vi| (|NonNegativeInteger|)) (#1=#:G229 NIL) (|t| NIL)
+          (#2=#:G228 NIL) (|int| (|TheField|)) (|n| (|NonNegativeInteger|))
           (#3=#:G221 NIL))
          (SEQ
           (COND
@@ -459,10 +459,10 @@
                              (QREFELT $ 52))
                             . #5#)
                       (EXIT
-                       (APPEND
+                       (SPADCALL
                         (|ROIRC;sturmIsolate| |lp| |l| |int| |vl| |vi| $)
-                        (|ROIRC;sturmIsolate| |lp| |int| |r| |vi| |vr|
-                         $))))))))))))) 
+                        (|ROIRC;sturmIsolate| |lp| |int| |r| |vi| |vr| $)
+                        (QREFELT $ 57))))))))))))) 
 
 (SDEFUN |ROIRC;isolate|
         ((|lp| |List| |ThePolDom|)
@@ -470,7 +470,7 @@
         (SPROG
          ((|l2| #1=(|List| |TheField|)) (|l1| #2=(|List| |TheField|))
           (|#G41| #3=(|List| |TheField|)) (|#G40| #3#) (|#G39| #3#)
-          (|#G38| #3#) (#4=#:G234 NIL) (|t| NIL) (|#G36| #1#) (|#G35| #2#)
+          (|#G38| #3#) (#4=#:G235 NIL) (|t| NIL) (|#G36| #1#) (|#G35| #2#)
           (|b| (|TheField|)))
          (SEQ
           (LETT |b| (|ROIRC;rootBound| (|SPADfirst| |lp|) $)
@@ -520,15 +520,15 @@
                     "failed"))
           (|l2| #1=(|List| |TheField|)) (|l1| #2=(|List| |TheField|))
           (|#G54| #3=(|List| |TheField|)) (|#G53| #3#) (|#G52| #3#)
-          (|#G51| #3#) (#4=#:G252 NIL) (|t| NIL) (|#G49| #1#) (|#G48| #2#)
+          (|#G51| #3#) (#4=#:G253 NIL) (|t| NIL) (|#G49| #1#) (|#G48| #2#)
           (|b| (|TheField|)) (|ls| (|List| |ThePolDom|)))
          (SEQ
-          (LETT |ls| (SPADCALL |pol| (QREFELT $ 56))
+          (LETT |ls| (SPADCALL |pol| (QREFELT $ 59))
                 . #5=(|ROIRC;rootOf;ThePolDomPiU;14|))
-          (LETT |pol| (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 57)) . #5#)
+          (LETT |pol| (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 60)) . #5#)
           (EXIT
            (COND ((EQL (SPADCALL |pol| (QREFELT $ 12)) 0) (CONS 1 "failed"))
-                 ((EQL (SPADCALL |pol| (QREFELT $ 58)) 1)
+                 ((EQL (SPADCALL |pol| (QREFELT $ 61)) 1)
                   (CONS 0
                         (VECTOR (|spadConstant| $ 14) (|spadConstant| $ 13)
                                 (SPADCALL (|spadConstant| $ 13) 1
@@ -592,15 +592,15 @@
 
 (SDEFUN |ROIRC;allRootsOf;ThePolDomL;15| ((|pol| |ThePolDom|) ($ |List| $))
         (SPROG
-         ((#1=#:G260 NIL) (|term| NIL) (#2=#:G259 NIL)
+         ((#1=#:G261 NIL) (|term| NIL) (#2=#:G260 NIL)
           (|ls| (|List| |ThePolDom|)))
          (SEQ
-          (LETT |ls| (SPADCALL (SPADCALL |pol| (QREFELT $ 57)) (QREFELT $ 56))
+          (LETT |ls| (SPADCALL (SPADCALL |pol| (QREFELT $ 60)) (QREFELT $ 59))
                 . #3=(|ROIRC;allRootsOf;ThePolDomL;15|))
-          (LETT |pol| (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 57)) . #3#)
+          (LETT |pol| (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 60)) . #3#)
           (EXIT
            (COND ((EQL (SPADCALL |pol| (QREFELT $ 12)) 0) NIL)
-                 ((EQL (SPADCALL |pol| (QREFELT $ 58)) 1)
+                 ((EQL (SPADCALL |pol| (QREFELT $ 61)) 1)
                   (LIST
                    (VECTOR (|spadConstant| $ 14) (|spadConstant| $ 13)
                            (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40)))))
@@ -625,13 +625,13 @@
                         (EXIT (NREVERSE #2#)))))))))) 
 
 (SDEFUN |ROIRC;hasVarsl| ((|l| |List| |TheField|) ($ |Boolean|))
-        (SPROG ((#1=#:G265 NIL) (#2=#:G266 NIL) (|term| NIL) (|f| (|Integer|)))
+        (SPROG ((#1=#:G266 NIL) (#2=#:G267 NIL) (|term| NIL) (|f| (|Integer|)))
                (SEQ
                 (EXIT
                  (COND ((NULL |l|) NIL)
                        ('T
                         (SEQ
-                         (LETT |f| (SPADCALL (|SPADfirst| |l|) (QREFELT $ 63))
+                         (LETT |f| (SPADCALL (|SPADfirst| |l|) (QREFELT $ 66))
                                . #3=(|ROIRC;hasVarsl|))
                          (SEQ (LETT |term| NIL . #3#)
                               (LETT #2# (CDR |l|) . #3#) G190
@@ -643,11 +643,11 @@
                                (EXIT
                                 (COND
                                  ((SPADCALL
-                                   (SPADCALL |f| |term| (QREFELT $ 64))
+                                   (SPADCALL |f| |term| (QREFELT $ 67))
                                    (|spadConstant| $ 14) (QREFELT $ 51))
                                   (PROGN
                                    (LETT #1# 'T . #3#)
-                                   (GO #4=#:G264))))))
+                                   (GO #4=#:G265))))))
                               (LETT #2# (CDR #2#) . #3#) (GO G190) G191
                               (EXIT NIL))
                          (EXIT NIL)))))
@@ -655,9 +655,9 @@
 
 (SDEFUN |ROIRC;hasVars| ((|p| |ThePolDom|) ($ |Boolean|))
         (COND
-         ((SPADCALL |p| (QREFELT $ 65))
+         ((SPADCALL |p| (QREFELT $ 68))
           (|error| "ROIRC: hasVars: null polynomial"))
-         ((SPADCALL (SPADCALL |p| 0 (QREFELT $ 16)) (QREFELT $ 66)) 'T)
+         ((SPADCALL (SPADCALL |p| 0 (QREFELT $ 16)) (QREFELT $ 69)) 'T)
          ('T (|ROIRC;hasVarsl| (SPADCALL |p| (QREFELT $ 45)) $)))) 
 
 (SDEFUN |ROIRC;mightHaveRoots;ThePolDom$B;18|
@@ -675,9 +675,9 @@
                  (COND
                   ((SPADCALL
                     (*
-                     (SPADCALL (SPADCALL |q| 0 (QREFELT $ 16)) (QREFELT $ 63))
-                     (SPADCALL (|ROIRC;evalOne| |q| $) (QREFELT $ 63)))
-                    0 (QREFELT $ 67))
+                     (SPADCALL (SPADCALL |q| 0 (QREFELT $ 16)) (QREFELT $ 66))
+                     (SPADCALL (|ROIRC;evalOne| |q| $) (QREFELT $ 66)))
+                    0 (QREFELT $ 70))
                    'T)
                   ('T
                    (SEQ
@@ -689,23 +689,23 @@
 (SDEFUN |ROIRC;coerce;$Of;19| ((|rootChar| $) ($ |OutputForm|))
         (SPADCALL
          (LIST
-          (SPADCALL "[" (SPADCALL (QVELT |rootChar| 0) (QREFELT $ 69))
-                    (QREFELT $ 70))
-          (SPADCALL (SPADCALL (QVELT |rootChar| 1) (QREFELT $ 69)) "["
-                    (QREFELT $ 70)))
-         (QREFELT $ 71))) 
+          (SPADCALL "[" (SPADCALL (QVELT |rootChar| 0) (QREFELT $ 72))
+                    (QREFELT $ 73))
+          (SPADCALL (SPADCALL (QVELT |rootChar| 1) (QREFELT $ 72)) "["
+                    (QREFELT $ 73)))
+         (QREFELT $ 74))) 
 
 (SDEFUN |ROIRC;=;2$B;20| ((|c1| $) (|c2| $) ($ |Boolean|))
         (SPROG ((|rr| (|ThePolDom|)) (|Mm| (|TheField|)) (|mM| (|TheField|)))
                (SEQ
                 (LETT |mM|
-                      (SPADCALL (QVELT |c1| 0) (QVELT |c2| 0) (QREFELT $ 73))
+                      (SPADCALL (QVELT |c1| 0) (QVELT |c2| 0) (QREFELT $ 76))
                       . #1=(|ROIRC;=;2$B;20|))
                 (LETT |Mm|
-                      (SPADCALL (QVELT |c1| 1) (QVELT |c2| 1) (QREFELT $ 74))
+                      (SPADCALL (QVELT |c1| 1) (QVELT |c2| 1) (QREFELT $ 77))
                       . #1#)
                 (EXIT
-                 (COND ((SPADCALL |mM| |Mm| (QREFELT $ 75)) NIL)
+                 (COND ((SPADCALL |mM| |Mm| (QREFELT $ 78)) NIL)
                        (#2='T
                         (SEQ
                          (LETT |rr|
@@ -719,11 +719,11 @@
                                   (*
                                    (SPADCALL
                                     (SPADCALL |rr| |mM| (QREFELT $ 20))
-                                    (QREFELT $ 63))
+                                    (QREFELT $ 66))
                                    (SPADCALL
                                     (SPADCALL |rr| |Mm| (QREFELT $ 20))
-                                    (QREFELT $ 63)))
-                                  0 (QREFELT $ 67)))))))))))) 
+                                    (QREFELT $ 66)))
+                                  0 (QREFELT $ 70)))))))))))) 
 
 (SDEFUN |ROIRC;makeChar|
         ((|left| |TheField|) (|right| |TheField|) (|pol| |ThePolDom|) ($ $))
@@ -731,8 +731,8 @@
                (SEQ
                 (LETT |res|
                       (VECTOR |left| |right|
-                              (SPADCALL (SPADCALL |pol| (QREFELT $ 77))
-                                        (SPADCALL |pol| (QREFELT $ 78))
+                              (SPADCALL (SPADCALL |pol| (QREFELT $ 80))
+                                        (SPADCALL |pol| (QREFELT $ 81))
                                         (QREFELT $ 41)))
                       |ROIRC;makeChar|)
                 (SEQ G190
@@ -740,7 +740,7 @@
                       ((NULL
                         (SPADCALL
                          (SPADCALL |pol| (QVELT |res| 1) (QREFELT $ 20))
-                         (QREFELT $ 66)))
+                         (QREFELT $ 69)))
                        (GO G191)))
                      (SEQ (EXIT (|ROIRC;refine!| |res| $))) NIL (GO G190) G191
                      (EXIT NIL))
@@ -749,7 +749,7 @@
                       ((NULL
                         (SPADCALL
                          (SPADCALL (QVELT |res| 1) (QVELT |res| 0)
-                                   (QREFELT $ 79))
+                                   (QREFELT $ 82))
                          (|spadConstant| $ 14) (QREFELT $ 51)))
                        (GO G191)))
                      (SEQ (EXIT (|ROIRC;refine!| |res| $))) NIL (GO G190) G191
@@ -757,12 +757,12 @@
                 (EXIT
                  (COND
                   ((SPADCALL (SPADCALL |pol| (QVELT |res| 0) (QREFELT $ 20))
-                             (QREFELT $ 66))
+                             (QREFELT $ 69))
                    (VECTOR (QVELT |res| 0) (QVELT |res| 1)
                            (SPADCALL
                             (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40))
                             (SPADCALL (QVELT |res| 0) (QREFELT $ 43))
-                            (QREFELT $ 80))))
+                            (QREFELT $ 83))))
                   ('T |res|)))))) 
 
 (PUT '|ROIRC;definingPolynomial;$ThePolDom;22| '|SPADreplace|
@@ -775,19 +775,19 @@
         ((|toTest| |ThePolDom|) (|rootChar| $)
          ($ |Union| |ThePolDom| #1="failed"))
         (SPROG
-         ((#2=#:G286 NIL) (|newPol| (|ThePolDom|))
+         ((#2=#:G287 NIL) (|newPol| (|ThePolDom|))
           (|r| (|Union| |TheField| "failed")) (|c| (|TheField|)))
          (SEQ
           (LETT |c|
                 (SPADCALL
                  (SPADCALL
-                  (SPADCALL (SPADCALL |toTest| (QREFELT $ 17)) (QREFELT $ 82))
-                  (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 79))
+                  (SPADCALL (SPADCALL |toTest| (QREFELT $ 17)) (QREFELT $ 85))
+                  (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 82))
                  (QREFELT $ 19))
                 . #3=(|ROIRC;linearRecip|))
           (LETT |r|
                 (SPADCALL (SPADCALL (QVELT |rootChar| 2) |c| (QREFELT $ 20))
-                          (QREFELT $ 83))
+                          (QREFELT $ 86))
                 . #3#)
           (EXIT
            (COND
@@ -796,7 +796,7 @@
               ((SPADCALL
                 (SPADCALL (SPADCALL |c| (QVELT |rootChar| 0) (QREFELT $ 9))
                           (SPADCALL |c| (QVELT |rootChar| 1) (QREFELT $ 9))
-                          (QREFELT $ 79))
+                          (QREFELT $ 82))
                 (|spadConstant| $ 14) (QREFELT $ 54))
                (CONS 1 "failed"))
               (#4='T
@@ -805,7 +805,7 @@
                       (PROG2
                           (LETT #2#
                                 (SPADCALL (QVELT |rootChar| 2) |toTest|
-                                          (QREFELT $ 84))
+                                          (QREFELT $ 87))
                                 . #3#)
                           (QCDR #2#)
                         (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
@@ -821,10 +821,10 @@
                                              (SPADCALL
                                               (SPADCALL |newPol| |c|
                                                         (QREFELT $ 20))
-                                              (QREFELT $ 82))
-                                             |newPol| (QREFELT $ 85))
-                                            (QREFELT $ 80))
-                                  |toTest| (QREFELT $ 84))
+                                              (QREFELT $ 85))
+                                             |newPol| (QREFELT $ 88))
+                                            (QREFELT $ 83))
+                                  |toTest| (QREFELT $ 87))
                                  . #3#)
                            (QCDR #2#)
                          (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
@@ -838,9 +838,9 @@
                               (SPADCALL (|spadConstant| $ 39)
                                         (SPADCALL (QCDR |r|)
                                                   (QVELT |rootChar| 2)
-                                                  (QREFELT $ 85))
-                                        (QREFELT $ 80))
-                              |toTest| (QREFELT $ 84))
+                                                  (QREFELT $ 88))
+                                        (QREFELT $ 83))
+                              |toTest| (QREFELT $ 87))
                              . #3#)
                        (QCDR #2#)
                      (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
@@ -853,12 +853,12 @@
          ((|d|
            (|Record| (|:| |coef1| |ThePolDom|) (|:| |coef2| |ThePolDom|)
                      (|:| |generator| |ThePolDom|)))
-          (#2=#:G296 NIL) (|c| (|TheField|)) (|newPol| (|ThePolDom|)))
+          (#2=#:G297 NIL) (|c| (|TheField|)) (|newPol| (|ThePolDom|)))
          (SEQ
           (COND
            ((OR (EQL (SPADCALL |toTest| (QREFELT $ 12)) 0)
                 (SPADCALL (SPADCALL (QVELT |rootChar| 2) (QREFELT $ 12))
-                          (SPADCALL |toTest| (QREFELT $ 12)) (QREFELT $ 86)))
+                          (SPADCALL |toTest| (QREFELT $ 12)) (QREFELT $ 89)))
             (|error| "IRC: recip: Not reduced"))
            ('T
             (COND
@@ -869,14 +869,14 @@
              (#3='T
               (SEQ
                (LETT |d|
-                     (SPADCALL (QVELT |rootChar| 2) |toTest| (QREFELT $ 88))
+                     (SPADCALL (QVELT |rootChar| 2) |toTest| (QREFELT $ 91))
                      . #4=(|ROIRC;recip;ThePolDom$U;24|))
                (EXIT
                 (COND
                  ((EQL (SPADCALL (QVELT |d| 2) (QREFELT $ 12)) 0)
                   (CONS 0 (QVELT |d| 1)))
                  (#3#
-                  (SEQ (QSETVELT |d| 2 (SPADCALL (QVELT |d| 2) (QREFELT $ 57)))
+                  (SEQ (QSETVELT |d| 2 (SPADCALL (QVELT |d| 2) (QREFELT $ 60)))
                        (EXIT
                         (COND
                          ((SPADCALL
@@ -885,7 +885,7 @@
                                       (QREFELT $ 20))
                             (SPADCALL (QVELT |d| 2) (QVELT |rootChar| 1)
                                       (QREFELT $ 20))
-                            (QREFELT $ 79))
+                            (QREFELT $ 82))
                            (|spadConstant| $ 14) (QREFELT $ 54))
                           (CONS 1 "failed"))
                          (#3#
@@ -895,7 +895,7 @@
                                      (LETT #2#
                                            (SPADCALL (QVELT |rootChar| 2)
                                                      (QVELT |d| 2)
-                                                     (QREFELT $ 84))
+                                                     (QREFELT $ 87))
                                            . #4#)
                                      (QCDR #2#)
                                    (|check_union2| (QEQCAR #2# 0) (QREFELT $ 7)
@@ -911,9 +911,9 @@
                                       (SPADCALL
                                        (SPADCALL
                                         (SPADCALL |newPol| (QREFELT $ 17))
-                                        (QREFELT $ 82))
+                                        (QREFELT $ 85))
                                        (SPADCALL |newPol| 0 (QREFELT $ 16))
-                                       (QREFELT $ 79))
+                                       (QREFELT $ 82))
                                       (QREFELT $ 19))
                                      . #4#)
                                (EXIT
@@ -921,7 +921,7 @@
                                       (SPADCALL
                                        (SPADCALL
                                         (SPADCALL |toTest| |c| (QREFELT $ 20))
-                                        (QREFELT $ 82))
+                                        (QREFELT $ 85))
                                        (QREFELT $ 43))))))
                              ((EQL (SPADCALL |toTest| (QREFELT $ 12)) 1)
                               (SEQ
@@ -944,10 +944,10 @@
                                                    (SPADCALL
                                                     (SPADCALL |newPol| |c|
                                                               (QREFELT $ 20))
-                                                    (QREFELT $ 82))
-                                                   |newPol| (QREFELT $ 85))
-                                                  (QREFELT $ 80))
-                                                 |toTest| (QREFELT $ 84))
+                                                    (QREFELT $ 85))
+                                                   |newPol| (QREFELT $ 88))
+                                                  (QREFELT $ 83))
+                                                 |toTest| (QREFELT $ 87))
                                                 . #4#)
                                           (QCDR #2#)
                                         (|check_union2| (QEQCAR #2# 0)
@@ -959,7 +959,7 @@
                               (SEQ
                                (LETT |d|
                                      (SPADCALL |newPol| |toTest|
-                                               (QREFELT $ 88))
+                                               (QREFELT $ 91))
                                      . #4#)
                                (EXIT (CONS 0 (QVELT |d| 1))))))))))))))))))))))) 
 
@@ -971,14 +971,14 @@
                       (SPADCALL
                        (SPADCALL
                         (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                  (QREFELT $ 82))
-                        (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 79))
+                                  (QREFELT $ 85))
+                        (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 82))
                        (QREFELT $ 19))
                       . #1=(|ROIRC;linearSign|))
                 (LETT |ev|
                       (SPADCALL
                        (SPADCALL (QVELT |rootChar| 2) |c| (QREFELT $ 20))
-                       (QREFELT $ 63))
+                       (QREFELT $ 66))
                       . #1#)
                 (EXIT
                  (COND
@@ -988,39 +988,39 @@
                       (SPADCALL
                        (SPADCALL |c| (QVELT |rootChar| 0) (QREFELT $ 9))
                        (SPADCALL |c| (QVELT |rootChar| 1) (QREFELT $ 9))
-                       (QREFELT $ 79))
+                       (QREFELT $ 82))
                       (|spadConstant| $ 14) (QREFELT $ 54))
                      0)
                     (#2='T
                      (SPADCALL
                       (SPADCALL |toTest| (QVELT |rootChar| 1) (QREFELT $ 20))
-                      (QREFELT $ 63)))))
+                      (QREFELT $ 66)))))
                   ((SPADCALL
                     (* |ev|
                        (SPADCALL
                         (SPADCALL (QVELT |rootChar| 2) (QVELT |rootChar| 1)
                                   (QREFELT $ 20))
-                        (QREFELT $ 63)))
-                    0 (QREFELT $ 67))
+                        (QREFELT $ 66)))
+                    0 (QREFELT $ 70))
                    (SPADCALL
                     (SPADCALL |toTest| (QVELT |rootChar| 1) (QREFELT $ 20))
-                    (QREFELT $ 63)))
+                    (QREFELT $ 66)))
                   (#2#
                    (SPADCALL
                     (SPADCALL |toTest| (QVELT |rootChar| 0) (QREFELT $ 20))
-                    (QREFELT $ 63)))))))) 
+                    (QREFELT $ 66)))))))) 
 
 (SDEFUN |ROIRC;sign;ThePolDom$I;26|
         ((|toTest| |ThePolDom|) (|rootChar| $) ($ |Integer|))
         (SPROG
-         ((|newChar| ($)) (#1=#:G323 NIL) (#2=#:G335 NIL)
+         ((|newChar| ($)) (#1=#:G324 NIL) (#2=#:G336 NIL)
           (|delta| (|ThePolDom|)) (|s| (|Integer|)))
          (SEQ
           (EXIT
            (COND
             ((OR (EQL (SPADCALL |toTest| (QREFELT $ 12)) 0)
                  (SPADCALL (SPADCALL (QVELT |rootChar| 2) (QREFELT $ 12))
-                           (SPADCALL |toTest| (QREFELT $ 12)) (QREFELT $ 67)))
+                           (SPADCALL |toTest| (QREFELT $ 12)) (QREFELT $ 70)))
              (|error| "IRC: sign: Not reduced"))
             ('T
              (COND
@@ -1032,7 +1032,7 @@
                (SEQ
                 (LETT |s|
                       (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                (QREFELT $ 63))
+                                (QREFELT $ 66))
                       . #4=(|ROIRC;sign;ThePolDom$I;26|))
                 (LETT |toTest|
                       (SPADCALL
@@ -1041,8 +1041,8 @@
                                  (QREFELT $ 40))
                        (SPADCALL
                         (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                  (QREFELT $ 82))
-                        (SPADCALL |toTest| (QREFELT $ 78)) (QREFELT $ 85))
+                                  (QREFELT $ 85))
+                        (SPADCALL |toTest| (QREFELT $ 81)) (QREFELT $ 88))
                        (QREFELT $ 41))
                       . #4#)
                 (LETT |delta|
@@ -1053,24 +1053,24 @@
                               (QVELT |rootChar| 2))
                       . #4#)
                 (COND
-                 ((SPADCALL (SPADCALL |delta| (QREFELT $ 12)) 0 (QREFELT $ 91))
+                 ((SPADCALL (SPADCALL |delta| (QREFELT $ 12)) 0 (QREFELT $ 94))
                   (COND
                    ((SPADCALL
                      (SPADCALL
                       (SPADCALL
                        (SPADCALL |delta| (QVELT |rootChar| 0) (QREFELT $ 20))
                        (SPADCALL |delta| (QVELT |rootChar| 1) (QREFELT $ 20))
-                       (QREFELT $ 79))
-                      (QREFELT $ 63))
-                     0 (QREFELT $ 67))
-                    (PROGN (LETT #2# 0 . #4#) (GO #5=#:G334)))
+                       (QREFELT $ 82))
+                      (QREFELT $ 66))
+                     0 (QREFELT $ 70))
+                    (PROGN (LETT #2# 0 . #4#) (GO #5=#:G335)))
                    (#3#
                     (SEQ
                      (QSETVELT |newChar| 2
                                (PROG2
                                    (LETT #1#
                                          (SPADCALL (QVELT |newChar| 2) |delta|
-                                                   (QREFELT $ 84))
+                                                   (QREFELT $ 87))
                                          . #4#)
                                    (QCDR #1#)
                                  (|check_union2| (QEQCAR #1# 0) (QREFELT $ 7)
@@ -1087,7 +1087,7 @@
                   ((EQL (SPADCALL |toTest| (QREFELT $ 12)) 0)
                    (* |s|
                       (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                (QREFELT $ 63))))
+                                (QREFELT $ 66))))
                   ((EQL (SPADCALL |toTest| (QREFELT $ 12)) 1)
                    (* |s| (|ROIRC;linearSign| |toTest| |newChar| $)))
                   (#3#
@@ -1105,17 +1105,17 @@
                      (* |s|
                         (SPADCALL
                          (SPADCALL |toTest| (QVELT |newChar| 0) (QREFELT $ 20))
-                         (QREFELT $ 63))))))))))))))
+                         (QREFELT $ 66))))))))))))))
           #5# (EXIT #2#)))) 
 
 (SDEFUN |ROIRC;linearZero?| ((|c| |TheField|) (|rootChar| $) ($ |Boolean|))
         (COND
          ((SPADCALL (SPADCALL (QVELT |rootChar| 2) |c| (QREFELT $ 20))
-                    (QREFELT $ 66))
+                    (QREFELT $ 69))
           (SPADCALL
            (SPADCALL (SPADCALL |c| (QVELT |rootChar| 0) (QREFELT $ 9))
                      (SPADCALL |c| (QVELT |rootChar| 1) (QREFELT $ 9))
-                     (QREFELT $ 79))
+                     (QREFELT $ 82))
            (|spadConstant| $ 14) (QREFELT $ 54)))
          ('T NIL))) 
 
@@ -1127,7 +1127,7 @@
                  ((OR (EQL (SPADCALL |toTest| (QREFELT $ 12)) 0)
                       (SPADCALL (SPADCALL (QVELT |rootChar| 2) (QREFELT $ 12))
                                 (SPADCALL |toTest| (QREFELT $ 12))
-                                (QREFELT $ 86)))
+                                (QREFELT $ 89)))
                   (|error| "IRC: zero?: Not reduced"))
                  ('T
                   (COND
@@ -1138,8 +1138,8 @@
                      (SPADCALL
                       (SPADCALL
                        (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                 (QREFELT $ 82))
-                       (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 79))
+                                 (QREFELT $ 85))
+                       (SPADCALL |toTest| 0 (QREFELT $ 16)) (QREFELT $ 82))
                       (QREFELT $ 19))
                      |rootChar| $))
                    (#1='T
@@ -1151,8 +1151,8 @@
                                       (QREFELT $ 40))
                             (SPADCALL
                              (SPADCALL (SPADCALL |toTest| (QREFELT $ 17))
-                                       (QREFELT $ 82))
-                             (SPADCALL |toTest| (QREFELT $ 78)) (QREFELT $ 85))
+                                       (QREFELT $ 85))
+                             (SPADCALL |toTest| (QREFELT $ 81)) (QREFELT $ 88))
                             (QREFELT $ 41))
                            . #2=(|ROIRC;zero?;ThePolDom$B;28|))
                      (LETT |delta|
@@ -1169,20 +1169,20 @@
                                           (QREFELT $ 20))
                                 (SPADCALL |delta| (QVELT |rootChar| 1)
                                           (QREFELT $ 20))
-                                (QREFELT $ 79))
-                               (QREFELT $ 63))
-                              0 (QREFELT $ 67))))))))))))) 
+                                (QREFELT $ 82))
+                               (QREFELT $ 66))
+                              0 (QREFELT $ 70))))))))))))) 
 
 (SDEFUN |ROIRC;refine!| ((|rootChar| $) ($ $))
         (SPROG ((|s2| #1=(|Integer|)) (|s1| #1#) (|int| (|TheField|)))
                (SEQ
-                (LETT |int| (SPADCALL |rootChar| (QREFELT $ 93))
+                (LETT |int| (SPADCALL |rootChar| (QREFELT $ 96))
                       . #2=(|ROIRC;refine!|))
                 (LETT |s1|
                       (SPADCALL
                        (SPADCALL (QVELT |rootChar| 2) (QVELT |rootChar| 0)
                                  (QREFELT $ 20))
-                       (QREFELT $ 63))
+                       (QREFELT $ 66))
                       . #2#)
                 (EXIT
                  (COND
@@ -1194,14 +1194,14 @@
                                              (QREFELT $ 40))
                                    (SPADCALL (QVELT |rootChar| 0)
                                              (QREFELT $ 43))
-                                   (QREFELT $ 80)))
+                                   (QREFELT $ 83)))
                         (EXIT |rootChar|)))
                   (#3='T
                    (SEQ
                     (LETT |s2|
                           (SPADCALL
                            (SPADCALL (QVELT |rootChar| 2) |int| (QREFELT $ 20))
-                           (QREFELT $ 63))
+                           (QREFELT $ 66))
                           . #2#)
                     (EXIT
                      (COND
@@ -1212,7 +1212,7 @@
                                        (SPADCALL (|spadConstant| $ 13) 1
                                                  (QREFELT $ 40))
                                        (SPADCALL |int| (QREFELT $ 43))
-                                       (QREFELT $ 80)))
+                                       (QREFELT $ 83)))
                             (EXIT |rootChar|)))
                       (#3#
                        (SEQ
@@ -1224,22 +1224,22 @@
 (SDEFUN |ROIRC;refine;2$;30| ((|rootChar| $) ($ $))
         (SPROG ((|s| (|TheField|)) (|int| (|TheField|)))
                (SEQ
-                (LETT |int| (SPADCALL |rootChar| (QREFELT $ 93))
+                (LETT |int| (SPADCALL |rootChar| (QREFELT $ 96))
                       . #1=(|ROIRC;refine;2$;30|))
                 (LETT |s|
                       (SPADCALL
                        (SPADCALL (QVELT |rootChar| 2) |int| (QREFELT $ 20))
                        (SPADCALL (QVELT |rootChar| 2) (QVELT |rootChar| 1)
                                  (QREFELT $ 20))
-                       (QREFELT $ 79))
+                       (QREFELT $ 82))
                       . #1#)
                 (EXIT
                  (COND
-                  ((SPADCALL |s| (QREFELT $ 66))
+                  ((SPADCALL |s| (QREFELT $ 69))
                    (VECTOR |int| (QVELT |rootChar| 1)
                            (SPADCALL
                             (SPADCALL (|spadConstant| $ 13) 1 (QREFELT $ 40))
-                            (SPADCALL |int| (QREFELT $ 43)) (QREFELT $ 80))))
+                            (SPADCALL |int| (QREFELT $ 43)) (QREFELT $ 83))))
                   ((SPADCALL |s| (|spadConstant| $ 14) (QREFELT $ 51))
                    (VECTOR |int| (QVELT |rootChar| 1) (QVELT |rootChar| 2)))
                   ('T
@@ -1265,9 +1265,9 @@
 
 (DECLAIM (NOTINLINE |RightOpenIntervalRootCharacterization;|)) 
 
-(DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G357)
+(DEFUN |RightOpenIntervalRootCharacterization| (&REST #1=#:G358)
   (SPROG NIL
-         (PROG (#2=#:G358)
+         (PROG (#2=#:G359)
            (RETURN
             (COND
              ((LETT #2#
@@ -1297,7 +1297,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|RightOpenIntervalRootCharacterization| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 97) . #1#)
+          (LETT $ (GETREFV 100) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -1330,27 +1330,28 @@
               (|List| 6) (123 . |coefficients|) (128 . -) (|Mapping| 11 11)
               (134 . |mapExponents|) (|RealPolynomialUtilitiesPackage| 6 7)
               (140 . |boundOfCauchy|) (145 . <) (151 . |sturmVariationsOf|)
-              (156 . >) (162 . <=) (|List| 7) (168 . |sturmSequence|)
-              (173 . |unitCanonical|) (178 . |numberOfMonomials|)
+              (156 . >) (162 . <=) (|Record| (|:| |low| 6) (|:| |high| 6))
+              (|List| 55) (168 . |append|) (|List| 7) (174 . |sturmSequence|)
+              (179 . |unitCanonical|) (184 . |numberOfMonomials|)
               (|Union| $ '#1="failed") |ROIRC;rootOf;ThePolDomPiU;14|
-              (|List| $) |ROIRC;allRootsOf;ThePolDomL;15| (183 . |sign|)
-              (188 . *) (194 . |zero?|) (199 . |zero?|) (204 . <=)
-              (|OutputForm|) (210 . |coerce|) (215 . |hconcat|)
-              (221 . |commaSeparate|) |ROIRC;coerce;$Of;19| (226 . |max|)
-              (232 . |min|) (238 . >=) |ROIRC;=;2$B;20|
-              (244 . |leadingMonomial|) (249 . |reductum|) (254 . *) (260 . -)
-              |ROIRC;definingPolynomial;$ThePolDom;22| (266 . |inv|)
-              (271 . |recip|) (276 . |exquo|) (282 . *) (288 . <=)
+              (|List| $) |ROIRC;allRootsOf;ThePolDomL;15| (189 . |sign|)
+              (194 . *) (200 . |zero?|) (205 . |zero?|) (210 . <=)
+              (|OutputForm|) (216 . |coerce|) (221 . |hconcat|)
+              (227 . |commaSeparate|) |ROIRC;coerce;$Of;19| (232 . |max|)
+              (238 . |min|) (244 . >=) |ROIRC;=;2$B;20|
+              (250 . |leadingMonomial|) (255 . |reductum|) (260 . *) (266 . -)
+              |ROIRC;definingPolynomial;$ThePolDom;22| (272 . |inv|)
+              (277 . |recip|) (282 . |exquo|) (288 . *) (294 . <=)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (294 . |extendedEuclidean|) (|Union| 7 '#1#)
-              |ROIRC;recip;ThePolDom$U;24| (300 . >)
+              (300 . |extendedEuclidean|) (|Union| 7 '#1#)
+              |ROIRC;recip;ThePolDom$U;24| (306 . >)
               |ROIRC;sign;ThePolDom$I;26| |ROIRC;middle;$TheField;33|
               (|String|) (|SingleInteger|) (|HashState|))
-           '#(~= 306 |zero?| 312 |size| 318 |sign| 323 |rootOf| 329 |right| 335
-              |relativeApprox| 340 |refine| 347 |recip| 352 |positive?| 358
-              |negative?| 364 |mightHaveRoots| 370 |middle| 376 |left| 381
-              |latex| 386 |hashUpdate!| 391 |hash| 397 |definingPolynomial| 402
-              |coerce| 407 |approximate| 412 |allRootsOf| 419 = 424)
+           '#(~= 312 |zero?| 318 |size| 324 |sign| 329 |rootOf| 335 |right| 341
+              |relativeApprox| 346 |refine| 353 |recip| 358 |positive?| 364
+              |negative?| 370 |mightHaveRoots| 376 |middle| 382 |left| 387
+              |latex| 392 |hashUpdate!| 397 |hash| 403 |definingPolynomial| 408
+              |coerce| 413 |approximate| 418 |allRootsOf| 425 = 430)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS
@@ -1358,8 +1359,8 @@
                      |BasicType&| NIL)
                   (CONS
                    '#((|RealRootCharacterizationCategory| 6 7) (|SetCategory|)
-                      (|BasicType|) (|CoercibleTo| 68))
-                   (|makeByteWordVec2| 96
+                      (|BasicType|) (|CoercibleTo| 71))
+                   (|makeByteWordVec2| 99
                                        '(2 6 0 0 0 9 1 7 11 0 12 0 6 0 13 0 6 0
                                          14 0 7 0 15 2 7 6 0 11 16 1 7 6 0 17 2
                                          6 0 0 0 18 1 6 0 0 19 2 7 6 0 6 20 2 7
@@ -1370,20 +1371,21 @@
                                          6 43 1 7 44 0 45 2 34 0 0 0 46 2 7 0
                                          47 0 48 1 49 6 7 50 2 6 22 0 0 51 1 49
                                          11 44 52 2 34 22 0 0 53 2 6 22 0 0 54
-                                         1 49 55 7 56 1 7 0 0 57 1 7 11 0 58 1
-                                         6 34 0 63 2 6 0 34 0 64 1 7 22 0 65 1
-                                         6 22 0 66 2 34 22 0 0 67 1 6 68 0 69 2
-                                         68 0 0 0 70 1 68 0 61 71 2 6 0 0 0 73
-                                         2 6 0 0 0 74 2 6 22 0 0 75 1 7 0 0 77
-                                         1 7 0 0 78 2 6 0 0 0 79 2 7 0 0 0 80 1
-                                         6 0 0 82 1 6 59 0 83 2 7 59 0 0 84 2 7
-                                         0 6 0 85 2 11 22 0 0 86 2 7 87 0 0 88
-                                         2 11 22 0 0 91 2 0 22 0 0 1 2 0 22 7 0
-                                         23 1 0 6 0 10 2 0 34 7 0 92 2 0 59 7
-                                         29 60 1 0 6 0 28 3 0 6 7 0 6 37 1 0 0
-                                         0 25 2 0 89 7 0 90 2 0 22 7 0 1 2 0 22
-                                         7 0 1 2 0 22 7 0 24 1 0 6 0 93 1 0 6 0
-                                         27 1 0 94 0 1 2 0 96 96 0 1 1 0 95 0 1
-                                         1 0 7 0 81 1 0 68 0 72 3 0 6 7 0 6 38
-                                         1 0 61 7 62 2 0 22 0 0 76)))))
+                                         2 56 0 0 0 57 1 49 58 7 59 1 7 0 0 60
+                                         1 7 11 0 61 1 6 34 0 66 2 6 0 34 0 67
+                                         1 7 22 0 68 1 6 22 0 69 2 34 22 0 0 70
+                                         1 6 71 0 72 2 71 0 0 0 73 1 71 0 64 74
+                                         2 6 0 0 0 76 2 6 0 0 0 77 2 6 22 0 0
+                                         78 1 7 0 0 80 1 7 0 0 81 2 6 0 0 0 82
+                                         2 7 0 0 0 83 1 6 0 0 85 1 6 62 0 86 2
+                                         7 62 0 0 87 2 7 0 6 0 88 2 11 22 0 0
+                                         89 2 7 90 0 0 91 2 11 22 0 0 94 2 0 22
+                                         0 0 1 2 0 22 7 0 23 1 0 6 0 10 2 0 34
+                                         7 0 95 2 0 62 7 29 63 1 0 6 0 28 3 0 6
+                                         7 0 6 37 1 0 0 0 25 2 0 92 7 0 93 2 0
+                                         22 7 0 1 2 0 22 7 0 1 2 0 22 7 0 24 1
+                                         0 6 0 96 1 0 6 0 27 1 0 97 0 1 2 0 99
+                                         99 0 1 1 0 98 0 1 1 0 7 0 84 1 0 71 0
+                                         75 3 0 6 7 0 6 38 1 0 64 7 65 2 0 22 0
+                                         0 79)))))
            '|lookupComplete|)) 

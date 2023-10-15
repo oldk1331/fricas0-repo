@@ -332,9 +332,9 @@
                                 (QREFELT $ 39))))))
                   (EXIT
                    (SPADCALL
-                    (APPEND (SPADCALL |newBasis| |info| (QREFELT $ 41))
-                            |listOfBases|)
-                    (QREFELT $ 42)))))))))) 
+                    (SPADCALL (SPADCALL |newBasis| |info| (QREFELT $ 41))
+                              |listOfBases| (QREFELT $ 42))
+                    (QREFELT $ 43)))))))))) 
 
 (SDEFUN |GBF;createGroebnerBases!1| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 25)) (SPADCALL |y| (QREFELT $ 25))
@@ -353,8 +353,8 @@
                  (LETT #2# NIL . #3=(|GBF;createAllFactors|))
                  (SEQ (LETT |el| NIL . #3#)
                       (LETT #1#
-                            (SPADCALL (SPADCALL |p| (QREFELT $ 45))
-                                      (QREFELT $ 49))
+                            (SPADCALL (SPADCALL |p| (QREFELT $ 46))
+                                      (QREFELT $ 50))
                             . #3#)
                       G190
                       (COND
@@ -370,7 +370,7 @@
 
 (SDEFUN |GBF;createAllFactors!0| ((|x| NIL) (|y| NIL) ($ NIL))
         (SPADCALL (SPADCALL |x| (QREFELT $ 25)) (SPADCALL |y| (QREFELT $ 25))
-                  (QREFELT $ 50))) 
+                  (QREFELT $ 51))) 
 
 (SDEFUN |GBF;newPairs|
         ((|lp| |List|
@@ -402,15 +402,15 @@
                        (EXIT
                         (LETT #2#
                               (CONS
-                               (SPADCALL |q| |p| |totdegreeOfp| (QREFELT $ 52))
+                               (SPADCALL |q| |p| |totdegreeOfp| (QREFELT $ 53))
                                #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
                 . #3#)
           (EXIT
-           (SPADCALL (SPADCALL (ELT $ 53) |lcP| (QREFELT $ 56))
-                     (QREFELT $ 57)))))) 
+           (SPADCALL (SPADCALL (ELT $ 54) |lcP| (QREFELT $ 57))
+                     (QREFELT $ 58)))))) 
 
 (SDEFUN |GBF;updateCritPairs|
         ((|oldListOfcritPairs| |List|
@@ -427,8 +427,8 @@
                     (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                     (|:| |polj| |Dpol|))))
         (SPADCALL |newListOfcritPairs|
-                  (SPADCALL |p| |oldListOfcritPairs| (QREFELT $ 58))
-                  (QREFELT $ 59))) 
+                  (SPADCALL |p| |oldListOfcritPairs| (QREFELT $ 59))
+                  (QREFELT $ 60))) 
 
 (SDEFUN |GBF;updateBasis|
         ((|lp| |List|
@@ -436,7 +436,7 @@
          (|p| |Dpol|) (|deg| |NonNegativeInteger|)
          ($ |List|
           (|Record| (|:| |totdeg| (|NonNegativeInteger|)) (|:| |pol| |Dpol|))))
-        (SPADCALL |p| |deg| |lp| (QREFELT $ 61))) 
+        (SPADCALL |p| |deg| |lp| (QREFELT $ 62))) 
 
 (SDEFUN |GBF;factorGroebnerBasis;LL;6|
         ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
@@ -463,8 +463,8 @@
                             (LETT #2# NIL . #4#)
                             (SEQ (LETT |el| NIL . #4#)
                                  (LETT #1#
-                                       (SPADCALL (SPADCALL |p| (QREFELT $ 45))
-                                                 (QREFELT $ 49))
+                                       (SPADCALL (SPADCALL |p| (QREFELT $ 46))
+                                                 (QREFELT $ 50))
                                        . #4#)
                                  G190
                                  (COND
@@ -502,22 +502,22 @@
 (SDEFUN |GBF;groebnerFactorize;2LL;8|
         ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
          ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| |nonZeroRestrictions| NIL (QREFELT $ 64))) 
+        (SPADCALL |basis| |nonZeroRestrictions| NIL (QREFELT $ 65))) 
 
 (SDEFUN |GBF;groebnerFactorize;2LBL;9|
         ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
          (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
         (SPROG ((#1=#:G202 NIL) (|p| NIL) (#2=#:G201 NIL))
                (SEQ
-                (COND ((SPADCALL |basis| NIL (QREFELT $ 66)) (LIST |basis|))
+                (COND ((SPADCALL |basis| NIL (QREFELT $ 67)) (LIST |basis|))
                       (#3='T
                        (SEQ
                         (LETT |basis|
-                              (SPADCALL (ELT $ 67) |basis| (QREFELT $ 69))
+                              (SPADCALL (ELT $ 68) |basis| (QREFELT $ 70))
                               . #4=(|GBF;groebnerFactorize;2LBL;9|))
                         (EXIT
                          (COND
-                          ((SPADCALL |basis| NIL (QREFELT $ 66))
+                          ((SPADCALL |basis| NIL (QREFELT $ 67))
                            (LIST (LIST (|spadConstant| $ 21))))
                           (#3#
                            (SEQ
@@ -545,7 +545,7 @@
                             (EXIT
                              (COND
                               ((SPADCALL (|spadConstant| $ 16) |basis|
-                                         (QREFELT $ 70))
+                                         (QREFELT $ 71))
                                (LIST (LIST (|spadConstant| $ 16))))
                               (#3#
                                (SEQ
@@ -566,11 +566,11 @@
 
 (SDEFUN |GBF;groebnerFactorize;LL;10|
         ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| NIL NIL (QREFELT $ 64))) 
+        (SPADCALL |basis| NIL NIL (QREFELT $ 65))) 
 
 (SDEFUN |GBF;groebnerFactorize;LBL;11|
         ((|basis| |List| |Dpol|) (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| NIL |info| (QREFELT $ 64))) 
+        (SPADCALL |basis| NIL |info| (QREFELT $ 65))) 
 
 (DECLAIM (NOTINLINE |GroebnerFactorizationPackage;|)) 
 
@@ -607,7 +607,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|GroebnerFactorizationPackage| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 73) . #1#)
+    (LETT $ (GETREFV 74) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|GroebnerFactorizationPackage|
@@ -634,25 +634,26 @@
               (65 . |concat|) (71 . >) (|Mapping| 17 9 9) (77 . |sort|)
               (|Void|) (|String|) (|OutputForm|) (83 . |messagePrint|)
               (88 . |minGbasis|) (93 . |coerce|) (98 . |print|) (|List| 13)
-              |GBF;factorGroebnerBasis;LBL;7| (103 . |removeDuplicates|)
-              (|Factored| 9) (|MultivariateFactorize| 8 7 6 9) (108 . |factor|)
+              |GBF;factorGroebnerBasis;LBL;7| (103 . |append|)
+              (109 . |removeDuplicates|) (|Factored| 9)
+              (|MultivariateFactorize| 8 7 6 9) (114 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 46) (|:| |fctr| 9) (|:| |xpnt| (|Integer|)))
-              (|List| 47) (113 . |factorList|) (118 . <)
-              (|Record| (|:| |totdeg| 27) (|:| |pol| 9)) (124 . |makeCrit|)
-              (131 . |critpOrder|) (|Mapping| 17 10 10) (|List| 10)
-              (137 . |sort|) (143 . |critMTonD1|) (148 . |critBonD|)
-              (154 . |updatD|) (|List| 51) (160 . |updatF|)
-              |GBF;factorGroebnerBasis;LL;6| (167 . |One|)
+              (|Record| (|:| |flg| 47) (|:| |fctr| 9) (|:| |xpnt| (|Integer|)))
+              (|List| 48) (119 . |factorList|) (124 . <)
+              (|Record| (|:| |totdeg| 27) (|:| |pol| 9)) (130 . |makeCrit|)
+              (137 . |critpOrder|) (|Mapping| 17 10 10) (|List| 10)
+              (143 . |sort|) (149 . |critMTonD1|) (154 . |critBonD|)
+              (160 . |updatD|) (|List| 52) (166 . |updatF|)
+              |GBF;factorGroebnerBasis;LL;6| (173 . |One|)
               |GBF;groebnerFactorize;2LBL;9| |GBF;groebnerFactorize;2LL;8|
-              (171 . =) (177 . |zero?|) (|Mapping| 17 9) (182 . |remove|)
-              (188 . |member?|) |GBF;groebnerFactorize;LL;10|
+              (177 . =) (183 . |zero?|) (|Mapping| 17 9) (188 . |remove|)
+              (194 . |member?|) |GBF;groebnerFactorize;LL;10|
               |GBF;groebnerFactorize;LBL;11|)
-           '#(|groebnerFactorize| 194 |factorGroebnerBasis| 218) 'NIL
+           '#(|groebnerFactorize| 200 |factorGroebnerBasis| 224) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 72
+                             (|makeByteWordVec2| 73
                                                  '(1 11 9 10 12 2 11 9 9 13 14
                                                    1 11 9 9 15 0 9 0 16 2 9 17
                                                    0 0 18 0 6 0 19 0 7 0 20 0 9
@@ -661,17 +662,18 @@
                                                    1 11 27 9 28 2 13 0 0 9 29 2
                                                    7 17 0 0 30 2 13 0 31 0 32 1
                                                    35 33 34 36 1 11 13 13 37 1
-                                                   13 35 0 38 1 35 33 0 39 1 40
-                                                   0 0 42 1 44 43 9 45 1 43 48
-                                                   0 49 2 7 17 0 0 50 3 11 10
-                                                   51 9 27 52 2 11 17 10 10 53
-                                                   2 55 0 54 0 56 1 11 55 55 57
-                                                   2 11 55 9 55 58 2 11 55 55
-                                                   55 59 3 11 60 9 27 60 61 0 6
-                                                   0 63 2 13 17 0 0 66 1 9 17 0
-                                                   67 2 13 0 68 0 69 2 13 17 9
-                                                   0 70 2 0 40 13 13 65 3 0 40
-                                                   13 13 17 64 2 0 40 13 17 72
-                                                   1 0 40 13 71 1 0 40 13 62 2
-                                                   0 40 13 17 41)))))
+                                                   13 35 0 38 1 35 33 0 39 2 40
+                                                   0 0 0 42 1 40 0 0 43 1 45 44
+                                                   9 46 1 44 49 0 50 2 7 17 0 0
+                                                   51 3 11 10 52 9 27 53 2 11
+                                                   17 10 10 54 2 56 0 55 0 57 1
+                                                   11 56 56 58 2 11 56 9 56 59
+                                                   2 11 56 56 56 60 3 11 61 9
+                                                   27 61 62 0 6 0 64 2 13 17 0
+                                                   0 67 1 9 17 0 68 2 13 0 69 0
+                                                   70 2 13 17 9 0 71 2 0 40 13
+                                                   13 66 3 0 40 13 13 17 65 2 0
+                                                   40 13 17 73 1 0 40 13 72 1 0
+                                                   40 13 63 2 0 40 13 17
+                                                   41)))))
            '|lookupComplete|)) 

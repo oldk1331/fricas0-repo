@@ -528,8 +528,9 @@
                (|error| "cycle: the input contains duplicates"))
               ('T
                (VECTOR |ls|
-                       (APPEND (CDR |ls|)
-                               (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 27))))))) 
+                       (SPADCALL (CDR |ls|)
+                                 (SPADCALL (|SPADfirst| |ls|) (QREFELT $ 27))
+                                 (QREFELT $ 85)))))) 
 
 (SDEFUN |PERM;coerceListOfPairs;L$;27| ((|loP| |List| (|List| S)) ($ $))
         (SPROG
@@ -544,14 +545,14 @@
                     (EXIT
                      (COND
                       ((SPADCALL (|SPADfirst| |pair|)
-                                 (SPADCALL |pair| (QREFELT $ 85))
+                                 (SPADCALL |pair| (QREFELT $ 86))
                                  (QREFELT $ 24))
                        (SEQ
                         (LETT |preim| (CONS (|SPADfirst| |pair|) |preim|)
                               . #3#)
                         (EXIT
                          (LETT |im|
-                               (CONS (SPADCALL |pair| (QREFELT $ 85)) |im|)
+                               (CONS (SPADCALL |pair| (QREFELT $ 86)) |im|)
                                . #3#)))))))
                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
               (COND
@@ -559,7 +560,7 @@
                     (OR (|PERM;duplicates?| |im| $)
                         (SPADCALL (SPADCALL |preim| (QREFELT $ 45))
                                   (SPADCALL |im| (QREFELT $ 45))
-                                  (QREFELT $ 86))))
+                                  (QREFELT $ 87))))
                 (EXIT
                  (|error|
                   "coerceListOfPairs: the input cannot be interpreted as a permutation"))))
@@ -572,10 +573,10 @@
           (|i| NIL) (|imOfp| #4=(|Vector| S)) (|preimOfp| #4#))
          (SEQ
           (LETT |preimOfp|
-                (SPADCALL (SPADCALL |p| 1 (QREFELT $ 26)) (QREFELT $ 89))
+                (SPADCALL (SPADCALL |p| 1 (QREFELT $ 26)) (QREFELT $ 90))
                 . #5=(|PERM;*;3$;28|))
           (LETT |imOfp|
-                (SPADCALL (SPADCALL |p| 2 (QREFELT $ 26)) (QREFELT $ 89))
+                (SPADCALL (SPADCALL |p| 2 (QREFELT $ 26)) (QREFELT $ 90))
                 . #5#)
           (LETT |preimOfq| (SPADCALL |q| 1 (QREFELT $ 26)) . #5#)
           (LETT |imOfq| (SPADCALL |q| 2 (QREFELT $ 26)) . #5#)
@@ -584,7 +585,7 @@
                (COND ((|greater_SI| |i| #3#) (GO G191)))
                (SEQ
                 (LETT |j|
-                      (SPADCALL (SPADCALL |imOfp| |i| (QREFELT $ 90))
+                      (SPADCALL (SPADCALL |imOfp| |i| (QREFELT $ 91))
                                 |preimOfq| (QREFELT $ 28))
                       . #5#)
                 (EXIT
@@ -592,23 +593,23 @@
                   ((EQL |j| 0)
                    (SEQ
                     (LETT |preimOfqp|
-                          (CONS (SPADCALL |preimOfp| |i| (QREFELT $ 90))
+                          (CONS (SPADCALL |preimOfp| |i| (QREFELT $ 91))
                                 |preimOfqp|)
                           . #5#)
                     (EXIT
                      (LETT |imOfqp|
-                           (CONS (SPADCALL |imOfp| |i| (QREFELT $ 90))
+                           (CONS (SPADCALL |imOfp| |i| (QREFELT $ 91))
                                  |imOfqp|)
                            . #5#))))
                   ('T
                    (SEQ (LETT |el| (SPADCALL |imOfq| |j| (QREFELT $ 15)) . #5#)
                         (COND
                          ((SPADCALL |el|
-                                    (SPADCALL |preimOfp| |i| (QREFELT $ 90))
+                                    (SPADCALL |preimOfp| |i| (QREFELT $ 91))
                                     (QREFELT $ 24))
                           (SEQ
                            (LETT |preimOfqp|
-                                 (CONS (SPADCALL |preimOfp| |i| (QREFELT $ 90))
+                                 (CONS (SPADCALL |preimOfp| |i| (QREFELT $ 91))
                                        |preimOfqp|)
                                  . #5#)
                            (EXIT (LETT |imOfqp| (CONS |el| |imOfqp|) . #5#)))))
@@ -619,8 +620,8 @@
                                . #5#)))))))
                (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT
-           (VECTOR (APPEND |preimOfqp| |preimOfq|)
-                   (APPEND |imOfqp| |imOfq|)))))) 
+           (VECTOR (SPADCALL |preimOfqp| |preimOfq| (QREFELT $ 85))
+                   (SPADCALL |imOfqp| |imOfq| (QREFELT $ 85))))))) 
 
 (PUT '|PERM;One;$;29| '|SPADreplace| '(XLAM NIL (MAKEARR1 2 NIL))) 
 
@@ -661,7 +662,7 @@
                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                       (SEQ
                        (EXIT
-                        (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 93)) #2#)
+                        (LETT #2# (CONS (SPADCALL |i| (QREFELT $ 94)) #2#)
                               . #3#)))
                       (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
@@ -689,7 +690,7 @@
                                                     '(|PositiveInteger|)
                                                     '(|NonNegativeInteger|)
                                                     #1#))
-                                (QREFELT $ 95))
+                                (QREFELT $ 96))
                                #3#)
                               . #4#)))
                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
@@ -698,7 +699,7 @@
           (EXIT (SPADCALL (LIST |preImage| |image|) (QREFELT $ 38)))))) 
 
 (SDEFUN |PERM;fixedPoints;$S;36| ((|p| $) ($ |Set| S))
-        (SPADCALL (SPADCALL |p| (QREFELT $ 41)) (QREFELT $ 96))) 
+        (SPADCALL (SPADCALL |p| (QREFELT $ 41)) (QREFELT $ 97))) 
 
 (SDEFUN |PERM;cyclePartition;$P;37| ((|p| $) ($ |Partition|))
         (SPROG ((|pt| (|Partition|)) (#1=#:G293 NIL) (|c| NIL) (#2=#:G292 NIL))
@@ -725,11 +726,11 @@
                            (SPADCALL
                             (SPADCALL
                              (LIST
-                              (SPADCALL (SPADCALL |p| (QREFELT $ 97))
+                              (SPADCALL (SPADCALL |p| (QREFELT $ 98))
                                         (QREFELT $ 42)))
                              (QREFELT $ 51))
-                            (QREFELT $ 98))
-                           (QREFELT $ 99)))))) 
+                            (QREFELT $ 99))
+                           (QREFELT $ 100)))))) 
 
 (DECLAIM (NOTINLINE |Permutation;|)) 
 
@@ -755,7 +756,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|Permutation|))
           (LETT |dv$| (LIST '|Permutation| DV$1) . #2#)
-          (LETT $ (GETREFV 104) . #2#)
+          (LETT $ (GETREFV 105) . #2#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -780,15 +781,15 @@
           (QSETREFV $ 7 (|Vector| (|List| |#1|)))
           (COND
            ((|HasCategory| |#1| '(|IntegerNumberSystem|))
-            (QSETREFV $ 94
+            (QSETREFV $ 95
                       (CONS (|dispatchFunction| |PERM;coerceImages;L$;34|)
                             $))))
           (COND
            ((|testBitVector| |pv$| 1)
             (PROGN
-             (QSETREFV $ 94
+             (QSETREFV $ 95
                        (CONS (|dispatchFunction| |PERM;coerceImages;L$;35|) $))
-             (QSETREFV $ 97
+             (QSETREFV $ 98
                        (CONS (|dispatchFunction| |PERM;fixedPoints;$S;36|) $))
              (QSETREFV $ 52
                        (CONS (|dispatchFunction| |PERM;cyclePartition;$P;37|)
@@ -823,21 +824,21 @@
               |PERM;sort;2L;23| (|OutputForm|) (182 . |coerce|)
               (187 . |blankSeparate|) (192 . |paren|) (197 . |outputForm|)
               (202 . |hconcat|) |PERM;coerce;$Of;24| |PERM;cycles;L$;25|
-              (207 . |second|) (212 . ~=) |PERM;coerceListOfPairs;L$;27|
-              (|Vector| 6) (218 . |construct|) (223 . |elt|) |PERM;inv;2$;30|
-              |PERM;elt;$2S;32| (229 . |coerce|) (234 . |coerceImages|)
-              (239 . |index|) (244 . |complement|) (249 . |fixedPoints|)
-              (254 . |conjugate|) (259 . +) (|Union| $ '"failed") (|String|)
-              (|SingleInteger|) (|HashState|))
-           '#(~= 265 |sort| 271 |smaller?| 276 |sign| 282 |sample| 287 |recip|
-              291 |order| 296 |orbit| 301 |one?| 307 |odd?| 312
-              |numberOfCycles| 317 |movedPoints| 322 |min| 327 |max| 333
-              |listRepresentation| 339 |latex| 344 |inv| 349 |hashUpdate!| 354
-              |hash| 360 |fixedPoints| 365 |even?| 370 |eval| 375 |elt| 381
-              |degree| 387 |cycles| 392 |cyclePartition| 397 |cycle| 402
-              |conjugate| 407 |commutator| 413 |coercePreimagesImages| 419
-              |coerceListOfPairs| 424 |coerceImages| 429 |coerce| 434 ^ 449
-              |One| 467 >= 471 > 477 = 483 <= 489 < 495 / 501 * 507)
+              (207 . |append|) (213 . |second|) (218 . ~=)
+              |PERM;coerceListOfPairs;L$;27| (|Vector| 6) (224 . |construct|)
+              (229 . |elt|) |PERM;inv;2$;30| |PERM;elt;$2S;32| (235 . |coerce|)
+              (240 . |coerceImages|) (245 . |index|) (250 . |complement|)
+              (255 . |fixedPoints|) (260 . |conjugate|) (265 . +)
+              (|Union| $ '"failed") (|String|) (|SingleInteger|) (|HashState|))
+           '#(~= 271 |sort| 277 |smaller?| 282 |sign| 288 |sample| 293 |recip|
+              297 |order| 302 |orbit| 307 |one?| 313 |odd?| 318
+              |numberOfCycles| 323 |movedPoints| 328 |min| 333 |max| 339
+              |listRepresentation| 345 |latex| 350 |inv| 355 |hashUpdate!| 360
+              |hash| 366 |fixedPoints| 371 |even?| 376 |eval| 381 |elt| 387
+              |degree| 393 |cycles| 398 |cyclePartition| 403 |cycle| 408
+              |conjugate| 413 |commutator| 419 |coercePreimagesImages| 425
+              |coerceListOfPairs| 430 |coerceImages| 435 |coerce| 440 ^ 455
+              |One| 473 >= 477 > 483 = 489 <= 495 < 501 / 507 * 513)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 2 0 2 0 0 0 0 2))
                  (CONS
@@ -848,7 +849,7 @@
                       (|OrderedSet|) (|SemiGroup|) (|Comparable|)
                       (|SetCategory|) (|BasicType|) (|unitsKnown|)
                       (|CoercibleTo| 77) (|PartialOrder|))
-                   (|makeByteWordVec2| 103
+                   (|makeByteWordVec2| 104
                                        '(2 6 8 0 0 9 1 6 10 0 11 1 13 12 0 14 2
                                          13 6 0 12 15 2 13 0 0 17 18 2 13 0 0
                                          17 19 2 13 0 0 0 20 2 12 8 0 0 23 2 6
@@ -862,23 +863,23 @@
                                          68 0 67 0 69 2 68 0 70 0 71 0 72 0 73
                                          2 72 0 2 0 74 1 72 0 0 75 1 6 77 0 78
                                          1 77 0 55 79 1 77 0 0 80 1 77 0 12 81
-                                         1 77 0 55 82 1 13 6 0 85 2 39 8 0 0 86
-                                         1 88 0 13 89 2 88 6 0 12 90 1 6 0 12
-                                         93 1 0 0 13 94 1 6 0 10 95 1 39 0 0 96
-                                         1 0 39 0 97 1 50 0 0 98 2 50 0 0 0 99
-                                         2 0 8 0 0 1 1 0 55 55 76 2 2 8 0 0 1 1
-                                         0 12 0 59 0 0 0 1 1 0 100 0 1 1 0 17 0
-                                         57 2 0 39 0 6 48 1 0 8 0 1 1 0 8 0 62
-                                         1 0 17 0 60 1 0 39 0 41 2 2 0 0 0 1 2
-                                         2 0 0 0 1 1 0 35 0 36 1 0 101 0 1 1 0
-                                         0 0 91 2 0 103 103 0 1 1 0 102 0 1 1 1
-                                         39 0 97 1 0 8 0 58 2 0 6 0 6 46 2 0 6
-                                         0 6 92 1 0 17 0 43 1 0 0 31 84 1 0 50
-                                         0 52 1 0 0 13 21 2 0 0 0 0 1 2 0 0 0 0
-                                         1 1 0 0 31 38 1 0 0 31 87 1 3 0 13 94
-                                         1 0 0 31 65 1 0 0 13 66 1 0 77 0 83 2
-                                         0 0 0 12 1 2 0 0 0 17 1 2 0 0 0 10 1 0
-                                         0 0 16 2 2 8 0 0 1 2 2 8 0 0 1 2 0 8 0
-                                         0 44 2 2 8 0 0 1 2 0 8 0 0 64 2 0 0 0
-                                         0 1 2 0 0 0 0 22)))))
+                                         1 77 0 55 82 2 13 0 0 0 85 1 13 6 0 86
+                                         2 39 8 0 0 87 1 89 0 13 90 2 89 6 0 12
+                                         91 1 6 0 12 94 1 0 0 13 95 1 6 0 10 96
+                                         1 39 0 0 97 1 0 39 0 98 1 50 0 0 99 2
+                                         50 0 0 0 100 2 0 8 0 0 1 1 0 55 55 76
+                                         2 2 8 0 0 1 1 0 12 0 59 0 0 0 1 1 0
+                                         101 0 1 1 0 17 0 57 2 0 39 0 6 48 1 0
+                                         8 0 1 1 0 8 0 62 1 0 17 0 60 1 0 39 0
+                                         41 2 2 0 0 0 1 2 2 0 0 0 1 1 0 35 0 36
+                                         1 0 102 0 1 1 0 0 0 92 2 0 104 104 0 1
+                                         1 0 103 0 1 1 1 39 0 98 1 0 8 0 58 2 0
+                                         6 0 6 46 2 0 6 0 6 93 1 0 17 0 43 1 0
+                                         0 31 84 1 0 50 0 52 1 0 0 13 21 2 0 0
+                                         0 0 1 2 0 0 0 0 1 1 0 0 31 38 1 0 0 31
+                                         88 1 3 0 13 95 1 0 0 31 65 1 0 0 13 66
+                                         1 0 77 0 83 2 0 0 0 12 1 2 0 0 0 17 1
+                                         2 0 0 0 10 1 0 0 0 16 2 2 8 0 0 1 2 2
+                                         8 0 0 1 2 0 8 0 0 44 2 2 8 0 0 1 2 0 8
+                                         0 0 64 2 0 0 0 0 1 2 0 0 0 0 22)))))
            '|lookupComplete|)) 

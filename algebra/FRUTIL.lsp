@@ -4,8 +4,9 @@
         (SPADCALL
          (SPADCALL (SPADCALL |f| (QREFELT $ 8)) (SPADCALL |g| (QREFELT $ 8))
                    (QREFELT $ 9))
-         (APPEND (SPADCALL |f| (QREFELT $ 13)) (SPADCALL |g| (QREFELT $ 13)))
-         (QREFELT $ 14))) 
+         (SPADCALL (SPADCALL |f| (QREFELT $ 13)) (SPADCALL |g| (QREFELT $ 13))
+                   (QREFELT $ 14))
+         (QREFELT $ 15))) 
 
 (SDEFUN |FRUTIL;refine;FMF;2|
         ((|f| |Factored| R) (|func| |Mapping| (|Factored| R) R)
@@ -36,7 +37,7 @@
                                                                   '(|NonNegativeInteger|)
                                                                   '(|Integer|)
                                                                   #3#))
-                                              (QREFELT $ 17))
+                                              (QREFELT $ 18))
                                     (QREFELT $ 9))
                           . #5#)
                     (EXIT
@@ -44,7 +45,7 @@
                       ((EQL (QVELT |item| 2) 1)
                        (LETT |l|
                              (SPADCALL (SPADCALL |fitem| (QREFELT $ 13)) |l|
-                                       (QREFELT $ 18))
+                                       (QREFELT $ 19))
                              . #5#))
                       ('T
                        (LETT |l|
@@ -73,10 +74,10 @@
                                             . #5#)))
                                     (LETT #1# (CDR #1#) . #5#) (GO G190) G191
                                     (EXIT (NREVERSE #2#))))
-                              |l| (QREFELT $ 18))
+                              |l| (QREFELT $ 19))
                              . #5#)))))
                (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |u| |l| (QREFELT $ 14)))))) 
+          (EXIT (SPADCALL |u| |l| (QREFELT $ 15)))))) 
 
 (DECLAIM (NOTINLINE |FactoredFunctionUtilities;|)) 
 
@@ -105,7 +106,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FactoredFunctionUtilities|))
           (LETT |dv$| (LIST '|FactoredFunctionUtilities| DV$1) . #1#)
-          (LETT $ (GETREFV 21) . #1#)
+          (LETT $ (GETREFV 22) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FactoredFunctionUtilities|
@@ -120,16 +121,17 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Factored| 6)
               (0 . |unit|) (5 . *) (|Union| '"nil" '"sqfr" '"irred" '"prime")
               (|Record| (|:| |flg| 10) (|:| |fctr| 6) (|:| |xpnt| (|Integer|)))
-              (|List| 11) (11 . |factorList|) (16 . |makeFR|)
-              |FRUTIL;mergeFactors;3F;1| (|NonNegativeInteger|) (22 . ^)
-              (28 . |concat|) (|Mapping| 7 6) |FRUTIL;refine;FMF;2|)
-           '#(|refine| 34 |mergeFactors| 40) 'NIL
+              (|List| 11) (11 . |factorList|) (16 . |append|) (22 . |makeFR|)
+              |FRUTIL;mergeFactors;3F;1| (|NonNegativeInteger|) (28 . ^)
+              (34 . |concat|) (|Mapping| 7 6) |FRUTIL;refine;FMF;2|)
+           '#(|refine| 40 |mergeFactors| 46) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 20
+                             (|makeByteWordVec2| 21
                                                  '(1 7 6 0 8 2 6 0 0 0 9 1 7 12
-                                                   0 13 2 7 0 6 12 14 2 6 0 0
-                                                   16 17 2 12 0 0 0 18 2 0 7 7
-                                                   19 20 2 0 7 7 7 15)))))
+                                                   0 13 2 12 0 0 0 14 2 7 0 6
+                                                   12 15 2 6 0 0 17 18 2 12 0 0
+                                                   0 19 2 0 7 7 20 21 2 0 7 7 7
+                                                   16)))))
            '|lookupComplete|)) 

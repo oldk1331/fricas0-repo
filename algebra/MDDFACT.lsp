@@ -312,9 +312,9 @@
                  (EXIT
                   (PROGN
                    (LETT #4# (|MDDFACT;sepFact1| |f| $) . #6#)
-                   (COND (#1# (LETT #2# (APPEND #2# #4#) . #6#))
-                         ('T
-                          (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
+                   (COND
+                    (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 49)) . #6#))
+                    ('T (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                 (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
            (COND (#1# #2#) ('T NIL)))))) 
 
@@ -367,16 +367,16 @@
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|)))))
          (SEQ
-          (COND ((< |s| |p|) (SPADCALL |s| (QREFELT $ 49)))
+          (COND ((< |s| |p|) (SPADCALL |s| (QREFELT $ 51)))
                 ('T
                  (SEQ (LETT |qr| (DIVIDE2 |s| |p|) |MDDFACT;decode|)
                       (EXIT
-                       (SPADCALL (SPADCALL (QCDR |qr|) (QREFELT $ 49))
+                       (SPADCALL (SPADCALL (QCDR |qr|) (QREFELT $ 51))
                                  (SPADCALL |x|
                                            (|MDDFACT;decode| (QCAR |qr|) |p|
                                             |x| $)
-                                           (QREFELT $ 50))
-                                 (QREFELT $ 51))))))))) 
+                                           (QREFELT $ 52))
+                                 (QREFELT $ 53))))))))) 
 
 (SDEFUN |MDDFACT;sepFact1|
         ((|f| |Record| (|:| |factor| EMR) (|:| |degree| #1=(|Integer|)))
@@ -425,10 +425,10 @@
                                                     (SPADCALL |u|
                                                               (SPADCALL |i|
                                                                         (QREFELT
-                                                                         $ 49))
-                                                              (QREFELT $ 52))
+                                                                         $ 51))
+                                                              (QREFELT $ 54))
                                                     (|spadConstant| $ 11)
-                                                    (QREFELT $ 53))
+                                                    (QREFELT $ 55))
                                                    (SEQ
                                                     (LETT |ans|
                                                           (CONS
@@ -437,9 +437,9 @@
                                                                       (SPADCALL
                                                                        |i|
                                                                        (QREFELT
-                                                                        $ 49))
+                                                                        $ 51))
                                                                       (QREFELT
-                                                                       $ 54))
+                                                                       $ 56))
                                                             |p| (QREFELT $ 32))
                                                            |ans|)
                                                           . #6#)
@@ -458,8 +458,8 @@
                                           (LETT |t|
                                                 (SPADCALL
                                                  (SPADCALL
-                                                  (SPADCALL |s| (QREFELT $ 49))
-                                                  |x| (QREFELT $ 51))
+                                                  (SPADCALL |s| (QREFELT $ 51))
+                                                  |x| (QREFELT $ 53))
                                                  |p| (QREFELT $ 32))
                                                 . #6#)
                                           (SEQ
@@ -525,7 +525,7 @@
                                                                     |ss| |p|
                                                                     |y| $)
                                                                    (QREFELT $
-                                                                            50))
+                                                                            52))
                                                          . #6#))))
                                             ('T
                                              (SEQ (LETT |s| (+ |s| 1) . #6#)
@@ -547,7 +547,7 @@
                                                                              $)
                                                                             (QREFELT
                                                                              $
-                                                                             50))
+                                                                             52))
                                                                   . #6#)
                                                             (EXIT
                                                              (COND
@@ -585,7 +585,7 @@
                                                                            1)
                                                                           (QREFELT
                                                                            $
-                                                                           55))
+                                                                           57))
                                                                          . #6#)))
                                                                       . #6#)
                                                                 (GO
@@ -632,15 +632,15 @@
                        (LETT |f2|
                              (SPADCALL |u|
                                        (SPADCALL |n| (|spadConstant| $ 28)
-                                                 (QREFELT $ 56))
+                                                 (QREFELT $ 58))
                                        (QREFELT $ 36))
                              . #3#)
                        (LETT |g| (SPADCALL |f1| |f2| (QREFELT $ 30)) . #3#)
                        (EXIT
                         (COND
                          ((OR
-                           (SPADCALL |g| (|spadConstant| $ 28) (QREFELT $ 57))
-                           (SPADCALL |g| |u| (QREFELT $ 57)))
+                           (SPADCALL |g| (|spadConstant| $ 28) (QREFELT $ 59))
+                           (SPADCALL |g| |u| (QREFELT $ 59)))
                           (CONS 1 "failed"))
                          ('T
                           (CONS 0
@@ -658,7 +658,7 @@
                       |MDDFACT;probSplit2|)
                 (EXIT
                  (COND
-                  ((OR (SPADCALL |f| (|spadConstant| $ 28) (QREFELT $ 57))
+                  ((OR (SPADCALL |f| (|spadConstant| $ 28) (QREFELT $ 59))
                        (EQL (|MDDFACT;degree| |u| $) (|MDDFACT;degree| |f| $)))
                    (CONS 1 "failed"))
                   ('T
@@ -680,7 +680,7 @@
                                        (LETT |t|
                                              (|MDDFACT;exptmod| |t| |p| |u| $)
                                              . #1#)
-                                       (QREFELT $ 56))
+                                       (QREFELT $ 58))
                              |u| (QREFELT $ 31))
                             . #1#)
                       (EXIT (LETT |d| (- |d| 1) . #1#)))
@@ -716,7 +716,7 @@
           (LETT DV$1 (|devaluate| |#1|)
                 . #1=(|ModularDistinctDegreeFactorizer|))
           (LETT |dv$| (LIST '|ModularDistinctDegreeFactorizer| DV$1) . #1#)
-          (LETT $ (GETREFV 58) . #1#)
+          (LETT $ (GETREFV 60) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ModularDistinctDegreeFactorizer|
@@ -752,16 +752,16 @@
               (|List| 6) |MDDFACT;factor;UIL;12| (121 . |monomial|) (127 . -)
               (133 . |quo|) (|Record| (|:| |factor| 6) (|:| |degree| 7))
               (|List| 44) |MDDFACT;ddFact;UIL;14| |MDDFACT;linears;UIU;15|
-              |MDDFACT;separateFactors;LIL;17| (139 . |coerce|) (144 . *)
-              (150 . +) (156 . |elt|) (162 . =) (168 . -) (174 . ^) (180 . +)
-              (186 . =))
-           '#(|separateFactors| 192 |linears| 198 |gcd| 204 |factor| 211
-              |exptMod| 217 |ddFact| 225)
+              (|List| 22) (139 . |append|) |MDDFACT;separateFactors;LIL;17|
+              (145 . |coerce|) (150 . *) (156 . +) (162 . |elt|) (168 . =)
+              (174 . -) (180 . ^) (186 . +) (192 . =))
+           '#(|separateFactors| 198 |linears| 204 |gcd| 210 |factor| 217
+              |exptMod| 223 |ddFact| 231)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 57
+                             (|makeByteWordVec2| 59
                                                  '(2 7 0 0 0 8 2 6 0 9 0 10 0 6
                                                    0 11 0 6 0 12 3 7 14 0 0 0
                                                    15 1 6 7 0 16 2 6 0 7 0 17 2
@@ -773,12 +773,13 @@
                                                    2 7 20 0 0 34 1 22 0 7 35 2
                                                    22 0 0 0 36 1 6 0 0 38 2 6 0
                                                    7 24 41 2 22 0 0 0 42 2 22 0
-                                                   0 0 43 1 6 0 7 49 2 6 0 0 0
-                                                   50 2 6 0 0 0 51 2 22 6 0 6
-                                                   52 2 6 20 0 0 53 2 6 0 0 0
-                                                   54 2 6 0 0 24 55 2 22 0 0 0
-                                                   56 2 22 20 0 0 57 2 0 39 45
-                                                   7 48 2 0 6 6 7 47 3 0 6 6 6
-                                                   7 37 2 0 39 6 7 40 4 0 6 6 7
-                                                   6 7 33 2 0 45 6 7 46)))))
+                                                   0 0 43 2 48 0 0 0 49 1 6 0 7
+                                                   51 2 6 0 0 0 52 2 6 0 0 0 53
+                                                   2 22 6 0 6 54 2 6 20 0 0 55
+                                                   2 6 0 0 0 56 2 6 0 0 24 57 2
+                                                   22 0 0 0 58 2 22 20 0 0 59 2
+                                                   0 39 45 7 50 2 0 6 6 7 47 3
+                                                   0 6 6 6 7 37 2 0 39 6 7 40 4
+                                                   0 6 6 7 6 7 33 2 0 45 6 7
+                                                   46)))))
            '|lookupComplete|)) 

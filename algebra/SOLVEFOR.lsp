@@ -83,7 +83,9 @@
                          (SEQ (LETT |i| 1 . #3#) (LETT #1# (QCDR |f|) . #3#)
                               G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
                               (SEQ
-                               (EXIT (LETT |ls| (APPEND |lsf| |ls|) . #3#)))
+                               (EXIT
+                                (LETT |ls| (SPADCALL |lsf| |ls| (QREFELT $ 38))
+                                      . #3#)))
                               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                               (EXIT NIL))))
                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
@@ -103,22 +105,22 @@
                  (COND
                   ((EQL |n| 1)
                    (SPADCALL (SPADCALL |u| 1 (QREFELT $ 31))
-                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 38)))
+                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 39)))
                   ((EQL |n| 2)
                    (SPADCALL (SPADCALL |u| 2 (QREFELT $ 31))
                              (SPADCALL |u| 1 (QREFELT $ 31))
-                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 39)))
+                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 40)))
                   ((EQL |n| 3)
                    (SPADCALL (SPADCALL |u| 3 (QREFELT $ 31))
                              (SPADCALL |u| 2 (QREFELT $ 31))
                              (SPADCALL |u| 1 (QREFELT $ 31))
-                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 40)))
+                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 41)))
                   ((EQL |n| 4)
                    (SPADCALL (SPADCALL |u| 4 (QREFELT $ 31))
                              (SPADCALL |u| 3 (QREFELT $ 31))
                              (SPADCALL |u| 2 (QREFELT $ 31))
                              (SPADCALL |u| 1 (QREFELT $ 31))
-                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 41)))
+                             (SPADCALL |u| 0 (QREFELT $ 31)) (QREFELT $ 42)))
                   ('T
                    (|error|
                     "All sqfr factors of polynomial must be of degree < 5"))))))) 
@@ -130,11 +132,11 @@
                 (STRCONC "Polynomial must be of degree " (STRINGIMAGE |n|)))))) 
 
 (SDEFUN |SOLVEFOR;needLcoef| ((|cn| F) ($ |Boolean|))
-        (COND ((SPADCALL |cn| (|spadConstant| $ 33) (QREFELT $ 43)) 'T)
+        (COND ((SPADCALL |cn| (|spadConstant| $ 33) (QREFELT $ 44)) 'T)
               ('T (|error| "Leading coefficient must not be 0.")))) 
 
 (SDEFUN |SOLVEFOR;needChar0| (($ |Boolean|))
-        (COND ((EQL (SPADCALL (QREFELT $ 44)) 0) 'T)
+        (COND ((EQL (SPADCALL (QREFELT $ 45)) 0) 'T)
               ('T
                (|error|
                 "Formula defined only for fields of characteristic 0.")))) 
@@ -171,7 +173,7 @@
 
 (SDEFUN |SOLVEFOR;equ| ((|x| F) (|y| F) ($ |Boolean|))
         (COND
-         ((QEQCAR (SPADCALL (SPADCALL |x| |y| (QREFELT $ 49)) (QREFELT $ 51))
+         ((QEQCAR (SPADCALL (SPADCALL |x| |y| (QREFELT $ 50)) (QREFELT $ 52))
                   1)
           'T)
          ('T NIL))) 
@@ -180,7 +182,7 @@
         (SEQ (|SOLVEFOR;needLcoef| |c1| $)
              (EXIT
               (LIST
-               (SPADCALL (SPADCALL |c0| |c1| (QREFELT $ 52)) (QREFELT $ 53)))))) 
+               (SPADCALL (SPADCALL |c0| |c1| (QREFELT $ 53)) (QREFELT $ 54)))))) 
 
 (SDEFUN |SOLVEFOR;aLinear;3F;15| ((|c1| F) (|c0| F) ($ F))
         (|SPADfirst| (SPADCALL |c1| |c0| (QREFELT $ 34)))) 
@@ -196,39 +198,39 @@
                       ((SPADCALL |c1| (|spadConstant| $ 33) (QREFELT $ 18))
                        (LIST
                         (SPADCALL
-                         (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 52))
-                                   (QREFELT $ 53))
-                         (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                         (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 53))
+                                   (QREFELT $ 54))
+                         (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                         (SPADCALL
                          (SPADCALL
-                          (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 52))
-                                    (QREFELT $ 53))
-                          (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
-                         (QREFELT $ 53))))
+                          (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 53))
+                                    (QREFELT $ 54))
+                          (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
+                         (QREFELT $ 54))))
                       ('T
                        (SEQ
                         (LETT D
                               (SPADCALL
                                (|SOLVEFOR;part|
-                                (SPADCALL (SPADCALL |c1| 2 (QREFELT $ 58))
+                                (SPADCALL (SPADCALL |c1| 2 (QREFELT $ 59))
                                           (SPADCALL
-                                           (SPADCALL 4 |c2| (QREFELT $ 59))
-                                           |c0| (QREFELT $ 60))
-                                          (QREFELT $ 49))
+                                           (SPADCALL 4 |c2| (QREFELT $ 60))
+                                           |c0| (QREFELT $ 61))
+                                          (QREFELT $ 50))
                                 $)
-                               (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                               (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                               |SOLVEFOR;quadratic;3FL;16|)
                         (EXIT
                          (LIST
                           (SPADCALL
-                           (SPADCALL (SPADCALL |c1| (QREFELT $ 53)) D
-                                     (QREFELT $ 61))
-                           (SPADCALL 2 |c2| (QREFELT $ 59)) (QREFELT $ 52))
+                           (SPADCALL (SPADCALL |c1| (QREFELT $ 54)) D
+                                     (QREFELT $ 62))
+                           (SPADCALL 2 |c2| (QREFELT $ 60)) (QREFELT $ 53))
                           (SPADCALL
-                           (SPADCALL (SPADCALL |c1| (QREFELT $ 53)) D
-                                     (QREFELT $ 49))
-                           (SPADCALL 2 |c2| (QREFELT $ 59))
-                           (QREFELT $ 52))))))))))) 
+                           (SPADCALL (SPADCALL |c1| (QREFELT $ 54)) D
+                                     (QREFELT $ 50))
+                           (SPADCALL 2 |c2| (QREFELT $ 60))
+                           (QREFELT $ 53))))))))))) 
 
 (SDEFUN |SOLVEFOR;aQuadratic;4F;17| ((|c2| F) (|c1| F) (|c0| F) ($ F))
         (SPROG ((D (F)))
@@ -239,28 +241,28 @@
                        (|spadConstant| $ 33))
                       ((SPADCALL |c1| (|spadConstant| $ 33) (QREFELT $ 18))
                        (SPADCALL
-                        (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 52))
-                                  (QREFELT $ 53))
-                        (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56)))
+                        (SPADCALL (SPADCALL |c0| |c2| (QREFELT $ 53))
+                                  (QREFELT $ 54))
+                        (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57)))
                       ('T
                        (SEQ
                         (LETT D
                               (SPADCALL
                                (|SOLVEFOR;part|
-                                (SPADCALL (SPADCALL |c1| 2 (QREFELT $ 58))
+                                (SPADCALL (SPADCALL |c1| 2 (QREFELT $ 59))
                                           (SPADCALL
-                                           (SPADCALL 4 |c2| (QREFELT $ 59))
-                                           |c0| (QREFELT $ 60))
-                                          (QREFELT $ 49))
+                                           (SPADCALL 4 |c2| (QREFELT $ 60))
+                                           |c0| (QREFELT $ 61))
+                                          (QREFELT $ 50))
                                 $)
-                               (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                               (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                               |SOLVEFOR;aQuadratic;4F;17|)
                         (EXIT
                          (SPADCALL
-                          (SPADCALL (SPADCALL |c1| (QREFELT $ 53)) D
-                                    (QREFELT $ 61))
-                          (SPADCALL 2 |c2| (QREFELT $ 59))
-                          (QREFELT $ 52)))))))))) 
+                          (SPADCALL (SPADCALL |c1| (QREFELT $ 54)) D
+                                    (QREFELT $ 62))
+                          (SPADCALL 2 |c2| (QREFELT $ 60))
+                          (QREFELT $ 53)))))))))) 
 
 (SDEFUN |SOLVEFOR;cubic;4FL;18|
         ((|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ |List| F))
@@ -276,10 +278,10 @@
                        (SPADCALL |c3| |c2| |c1| (QREFELT $ 35))))
                 (#7='T
                  (SEQ
-                  (LETT |a1| (SPADCALL |c2| |c3| (QREFELT $ 52))
+                  (LETT |a1| (SPADCALL |c2| |c3| (QREFELT $ 53))
                         . #8=(|SOLVEFOR;cubic;4FL;18|))
-                  (LETT |a2| (SPADCALL |c1| |c3| (QREFELT $ 52)) . #8#)
-                  (LETT |a3| (SPADCALL |c0| |c3| (QREFELT $ 52)) . #8#)
+                  (LETT |a2| (SPADCALL |c1| |c3| (QREFELT $ 53)) . #8#)
+                  (LETT |a3| (SPADCALL |c0| |c3| (QREFELT $ 53)) . #8#)
                   (COND
                    ((SPADCALL |a1| (|spadConstant| $ 33) (QREFELT $ 18))
                     (COND
@@ -289,9 +291,9 @@
                         (LETT #6# NIL . #8#)
                         (SEQ (LETT |u| NIL . #8#)
                              (LETT #5#
-                                   (LIST (|spadConstant| $ 30) (QREFELT $ 63)
-                                         (SPADCALL (QREFELT $ 63) 2
-                                                   (QREFELT $ 58)))
+                                   (LIST (|spadConstant| $ 30) (QREFELT $ 64)
+                                         (SPADCALL (QREFELT $ 64) 2
+                                                   (QREFELT $ 59)))
                                    . #8#)
                              G190
                              (COND
@@ -304,10 +306,10 @@
                                      (CONS
                                       (SPADCALL |u|
                                                 (SPADCALL
-                                                 (SPADCALL |a3| (QREFELT $ 53))
-                                                 (SPADCALL 1 3 (QREFELT $ 55))
-                                                 (QREFELT $ 56))
-                                                (QREFELT $ 60))
+                                                 (SPADCALL |a3| (QREFELT $ 54))
+                                                 (SPADCALL 1 3 (QREFELT $ 56))
+                                                 (QREFELT $ 57))
+                                                (QREFELT $ 61))
                                       #6#)
                                      . #8#)))
                              (LETT #5# (CDR #5#) . #8#) (GO G190) G191
@@ -315,26 +317,26 @@
                   (LETT P
                         (|SOLVEFOR;part|
                          (SPADCALL
-                          (SPADCALL |a1| (SPADCALL 3 (QREFELT $ 62))
-                                    (QREFELT $ 52))
-                          (QREFELT $ 53))
+                          (SPADCALL |a1| (SPADCALL 3 (QREFELT $ 63))
+                                    (QREFELT $ 53))
+                          (QREFELT $ 54))
                          $)
                         . #8#)
                   (EXIT
                    (COND
-                    ((|SOLVEFOR;equ| (SPADCALL |a1| 2 (QREFELT $ 58))
-                      (SPADCALL 3 |a2| (QREFELT $ 59)) $)
+                    ((|SOLVEFOR;equ| (SPADCALL |a1| 2 (QREFELT $ 59))
+                      (SPADCALL 3 |a2| (QREFELT $ 60)) $)
                      (SEQ
                       (LETT S
                             (|SOLVEFOR;part|
                              (SPADCALL
-                              (SPADCALL (SPADCALL |a3| (QREFELT $ 53))
+                              (SPADCALL (SPADCALL |a3| (QREFELT $ 54))
                                         (SPADCALL
-                                         (SPADCALL |a1| 3 (QREFELT $ 58))
-                                         (SPADCALL 27 (QREFELT $ 62))
-                                         (QREFELT $ 52))
-                                        (QREFELT $ 61))
-                              (SPADCALL 1 3 (QREFELT $ 55)) (QREFELT $ 56))
+                                         (SPADCALL |a1| 3 (QREFELT $ 59))
+                                         (SPADCALL 27 (QREFELT $ 63))
+                                         (QREFELT $ 53))
+                                        (QREFELT $ 62))
+                              (SPADCALL 1 3 (QREFELT $ 56)) (QREFELT $ 57))
                              $)
                             . #8#)
                       (EXIT
@@ -342,9 +344,9 @@
                         (LETT #4# NIL . #8#)
                         (SEQ (LETT |u| NIL . #8#)
                              (LETT #3#
-                                   (LIST (|spadConstant| $ 30) (QREFELT $ 63)
-                                         (SPADCALL (QREFELT $ 63) 2
-                                                   (QREFELT $ 58)))
+                                   (LIST (|spadConstant| $ 30) (QREFELT $ 64)
+                                         (SPADCALL (QREFELT $ 64) 2
+                                                   (QREFELT $ 59)))
                                    . #8#)
                              G190
                              (COND
@@ -356,8 +358,8 @@
                                (LETT #4#
                                      (CONS
                                       (SPADCALL P
-                                                (SPADCALL S |u| (QREFELT $ 60))
-                                                (QREFELT $ 61))
+                                                (SPADCALL S |u| (QREFELT $ 61))
+                                                (QREFELT $ 62))
                                       #4#)
                                      . #8#)))
                              (LETT #3# (CDR #3#) . #8#) (GO G190) G191
@@ -367,10 +369,10 @@
                       (LETT Q
                             (|SOLVEFOR;part|
                              (SPADCALL
-                              (SPADCALL (SPADCALL 3 |a2| (QREFELT $ 59))
-                                        (SPADCALL |a1| 2 (QREFELT $ 58))
-                                        (QREFELT $ 49))
-                              (SPADCALL 9 (QREFELT $ 62)) (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 3 |a2| (QREFELT $ 60))
+                                        (SPADCALL |a1| 2 (QREFELT $ 59))
+                                        (QREFELT $ 50))
+                              (SPADCALL 9 (QREFELT $ 63)) (QREFELT $ 53))
                              $)
                             . #8#)
                       (LETT R
@@ -378,38 +380,38 @@
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL (SPADCALL 9 |a1| (QREFELT $ 59)) |a2|
-                                          (QREFELT $ 60))
-                                (SPADCALL 27 |a3| (QREFELT $ 59))
-                                (QREFELT $ 49))
-                               (SPADCALL 2 (SPADCALL |a1| 3 (QREFELT $ 58))
-                                         (QREFELT $ 59))
-                               (QREFELT $ 49))
-                              (SPADCALL 54 (QREFELT $ 62)) (QREFELT $ 52))
+                                (SPADCALL (SPADCALL 9 |a1| (QREFELT $ 60)) |a2|
+                                          (QREFELT $ 61))
+                                (SPADCALL 27 |a3| (QREFELT $ 60))
+                                (QREFELT $ 50))
+                               (SPADCALL 2 (SPADCALL |a1| 3 (QREFELT $ 59))
+                                         (QREFELT $ 60))
+                               (QREFELT $ 50))
+                              (SPADCALL 54 (QREFELT $ 63)) (QREFELT $ 53))
                              $)
                             . #8#)
                       (LETT D
                             (SPADCALL
                              (|SOLVEFOR;part|
-                              (SPADCALL (SPADCALL Q 3 (QREFELT $ 58))
-                                        (SPADCALL R 2 (QREFELT $ 58))
-                                        (QREFELT $ 61))
+                              (SPADCALL (SPADCALL Q 3 (QREFELT $ 59))
+                                        (SPADCALL R 2 (QREFELT $ 59))
+                                        (QREFELT $ 62))
                               $)
-                             (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                             (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                             . #8#)
                       (LETT S
                             (SPADCALL
-                             (|SOLVEFOR;part| (SPADCALL R D (QREFELT $ 61)) $)
-                             (SPADCALL 1 3 (QREFELT $ 55)) (QREFELT $ 56))
+                             (|SOLVEFOR;part| (SPADCALL R D (QREFELT $ 62)) $)
+                             (SPADCALL 1 3 (QREFELT $ 56)) (QREFELT $ 57))
                             . #8#)
                       (EXIT
                        (PROGN
                         (LETT #2# NIL . #8#)
                         (SEQ (LETT |u| NIL . #8#)
                              (LETT #1#
-                                   (LIST (|spadConstant| $ 30) (QREFELT $ 63)
-                                         (SPADCALL (QREFELT $ 63) 2
-                                                   (QREFELT $ 58)))
+                                   (LIST (|spadConstant| $ 30) (QREFELT $ 64)
+                                         (SPADCALL (QREFELT $ 64) 2
+                                                   (QREFELT $ 59)))
                                    . #8#)
                              G190
                              (COND
@@ -423,13 +425,13 @@
                                       (SPADCALL
                                        (SPADCALL P
                                                  (SPADCALL S |u|
-                                                           (QREFELT $ 60))
-                                                 (QREFELT $ 61))
+                                                           (QREFELT $ 61))
+                                                 (QREFELT $ 62))
                                        (SPADCALL Q
                                                  (SPADCALL S |u|
-                                                           (QREFELT $ 60))
-                                                 (QREFELT $ 52))
-                                       (QREFELT $ 49))
+                                                           (QREFELT $ 61))
+                                                 (QREFELT $ 53))
+                                       (QREFELT $ 50))
                                       #2#)
                                      . #8#)))
                              (LETT #1# (CDR #1#) . #8#) (GO G190) G191
@@ -446,53 +448,53 @@
                  (|spadConstant| $ 33))
                 (#1='T
                  (SEQ
-                  (LETT |a1| (SPADCALL |c2| |c3| (QREFELT $ 52))
+                  (LETT |a1| (SPADCALL |c2| |c3| (QREFELT $ 53))
                         . #2=(|SOLVEFOR;aCubic;5F;19|))
-                  (LETT |a2| (SPADCALL |c1| |c3| (QREFELT $ 52)) . #2#)
-                  (LETT |a3| (SPADCALL |c0| |c3| (QREFELT $ 52)) . #2#)
+                  (LETT |a2| (SPADCALL |c1| |c3| (QREFELT $ 53)) . #2#)
+                  (LETT |a3| (SPADCALL |c0| |c3| (QREFELT $ 53)) . #2#)
                   (COND
                    ((SPADCALL |a1| (|spadConstant| $ 33) (QREFELT $ 18))
                     (COND
                      ((SPADCALL |a2| (|spadConstant| $ 33) (QREFELT $ 18))
                       (EXIT
-                       (SPADCALL (SPADCALL |a3| (QREFELT $ 53))
-                                 (SPADCALL 1 3 (QREFELT $ 55))
-                                 (QREFELT $ 56)))))))
+                       (SPADCALL (SPADCALL |a3| (QREFELT $ 54))
+                                 (SPADCALL 1 3 (QREFELT $ 56))
+                                 (QREFELT $ 57)))))))
                   (LETT P
                         (|SOLVEFOR;part|
                          (SPADCALL
-                          (SPADCALL |a1| (SPADCALL 3 (QREFELT $ 62))
-                                    (QREFELT $ 52))
-                          (QREFELT $ 53))
+                          (SPADCALL |a1| (SPADCALL 3 (QREFELT $ 63))
+                                    (QREFELT $ 53))
+                          (QREFELT $ 54))
                          $)
                         . #2#)
                   (EXIT
                    (COND
-                    ((|SOLVEFOR;equ| (SPADCALL |a1| 2 (QREFELT $ 58))
-                      (SPADCALL 3 |a2| (QREFELT $ 59)) $)
+                    ((|SOLVEFOR;equ| (SPADCALL |a1| 2 (QREFELT $ 59))
+                      (SPADCALL 3 |a2| (QREFELT $ 60)) $)
                      (SEQ
                       (LETT S
                             (|SOLVEFOR;part|
                              (SPADCALL
-                              (SPADCALL (SPADCALL |a3| (QREFELT $ 53))
+                              (SPADCALL (SPADCALL |a3| (QREFELT $ 54))
                                         (SPADCALL
-                                         (SPADCALL |a1| 3 (QREFELT $ 58))
-                                         (SPADCALL 27 (QREFELT $ 62))
-                                         (QREFELT $ 52))
-                                        (QREFELT $ 61))
-                              (SPADCALL 1 3 (QREFELT $ 55)) (QREFELT $ 56))
+                                         (SPADCALL |a1| 3 (QREFELT $ 59))
+                                         (SPADCALL 27 (QREFELT $ 63))
+                                         (QREFELT $ 53))
+                                        (QREFELT $ 62))
+                              (SPADCALL 1 3 (QREFELT $ 56)) (QREFELT $ 57))
                              $)
                             . #2#)
-                      (EXIT (SPADCALL P S (QREFELT $ 61)))))
+                      (EXIT (SPADCALL P S (QREFELT $ 62)))))
                     (#1#
                      (SEQ
                       (LETT Q
                             (|SOLVEFOR;part|
                              (SPADCALL
-                              (SPADCALL (SPADCALL 3 |a2| (QREFELT $ 59))
-                                        (SPADCALL |a1| 2 (QREFELT $ 58))
-                                        (QREFELT $ 49))
-                              (SPADCALL 9 (QREFELT $ 62)) (QREFELT $ 52))
+                              (SPADCALL (SPADCALL 3 |a2| (QREFELT $ 60))
+                                        (SPADCALL |a1| 2 (QREFELT $ 59))
+                                        (QREFELT $ 50))
+                              (SPADCALL 9 (QREFELT $ 63)) (QREFELT $ 53))
                              $)
                             . #2#)
                       (LETT R
@@ -500,34 +502,34 @@
                              (SPADCALL
                               (SPADCALL
                                (SPADCALL
-                                (SPADCALL (SPADCALL 9 |a1| (QREFELT $ 59)) |a2|
-                                          (QREFELT $ 60))
-                                (SPADCALL 27 |a3| (QREFELT $ 59))
-                                (QREFELT $ 49))
-                               (SPADCALL 2 (SPADCALL |a1| 3 (QREFELT $ 58))
-                                         (QREFELT $ 59))
-                               (QREFELT $ 49))
-                              (SPADCALL 54 (QREFELT $ 62)) (QREFELT $ 52))
+                                (SPADCALL (SPADCALL 9 |a1| (QREFELT $ 60)) |a2|
+                                          (QREFELT $ 61))
+                                (SPADCALL 27 |a3| (QREFELT $ 60))
+                                (QREFELT $ 50))
+                               (SPADCALL 2 (SPADCALL |a1| 3 (QREFELT $ 59))
+                                         (QREFELT $ 60))
+                               (QREFELT $ 50))
+                              (SPADCALL 54 (QREFELT $ 63)) (QREFELT $ 53))
                              $)
                             . #2#)
                       (LETT D
                             (SPADCALL
                              (|SOLVEFOR;part|
-                              (SPADCALL (SPADCALL Q 3 (QREFELT $ 58))
-                                        (SPADCALL R 2 (QREFELT $ 58))
-                                        (QREFELT $ 61))
+                              (SPADCALL (SPADCALL Q 3 (QREFELT $ 59))
+                                        (SPADCALL R 2 (QREFELT $ 59))
+                                        (QREFELT $ 62))
                               $)
-                             (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                             (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                             . #2#)
                       (LETT S
                             (SPADCALL
-                             (|SOLVEFOR;part| (SPADCALL R D (QREFELT $ 61)) $)
-                             (SPADCALL 1 3 (QREFELT $ 55)) (QREFELT $ 56))
+                             (|SOLVEFOR;part| (SPADCALL R D (QREFELT $ 62)) $)
+                             (SPADCALL 1 3 (QREFELT $ 56)) (QREFELT $ 57))
                             . #2#)
                       (EXIT
-                       (SPADCALL (SPADCALL P S (QREFELT $ 61))
-                                 (SPADCALL Q S (QREFELT $ 52))
-                                 (QREFELT $ 49)))))))))))))) 
+                       (SPADCALL (SPADCALL P S (QREFELT $ 62))
+                                 (SPADCALL Q S (QREFELT $ 53))
+                                 (QREFELT $ 50)))))))))))))) 
 
 (SDEFUN |SOLVEFOR;quartic;5FL;20|
         ((|c4| F) (|c3| F) (|c2| F) (|c1| F) (|c0| F) ($ |List| F))
@@ -543,11 +545,11 @@
                        (SPADCALL |c4| |c3| |c2| |c1| (QREFELT $ 36))))
                 (#3='T
                  (SEQ
-                  (LETT |a1| (SPADCALL |c3| |c4| (QREFELT $ 52))
+                  (LETT |a1| (SPADCALL |c3| |c4| (QREFELT $ 53))
                         . #4=(|SOLVEFOR;quartic;5FL;20|))
-                  (LETT |a2| (SPADCALL |c2| |c4| (QREFELT $ 52)) . #4#)
-                  (LETT |a3| (SPADCALL |c1| |c4| (QREFELT $ 52)) . #4#)
-                  (LETT |a4| (SPADCALL |c0| |c4| (QREFELT $ 52)) . #4#)
+                  (LETT |a2| (SPADCALL |c2| |c4| (QREFELT $ 53)) . #4#)
+                  (LETT |a3| (SPADCALL |c1| |c4| (QREFELT $ 53)) . #4#)
+                  (LETT |a4| (SPADCALL |c0| |c4| (QREFELT $ 53)) . #4#)
                   (COND
                    ((SPADCALL |a1| (|spadConstant| $ 33) (QREFELT $ 18))
                     (COND
@@ -555,27 +557,28 @@
                       (COND
                        ((SPADCALL |a3| (|spadConstant| $ 33) (QREFELT $ 18))
                         (EXIT
-                         (APPEND
+                         (SPADCALL
                           (SPADCALL (|spadConstant| $ 30) (|spadConstant| $ 33)
-                                    (SPADCALL (SPADCALL |a4| (QREFELT $ 53))
-                                              (SPADCALL 1 2 (QREFELT $ 55))
-                                              (QREFELT $ 56))
+                                    (SPADCALL (SPADCALL |a4| (QREFELT $ 54))
+                                              (SPADCALL 1 2 (QREFELT $ 56))
+                                              (QREFELT $ 57))
                                     (QREFELT $ 35))
                           (SPADCALL (|spadConstant| $ 30) (|spadConstant| $ 33)
                                     (SPADCALL
-                                     (SPADCALL (SPADCALL |a4| (QREFELT $ 53))
-                                               (SPADCALL 1 2 (QREFELT $ 55))
-                                               (QREFELT $ 56))
-                                     (QREFELT $ 53))
-                                    (QREFELT $ 35))))))))))
+                                     (SPADCALL (SPADCALL |a4| (QREFELT $ 54))
+                                               (SPADCALL 1 2 (QREFELT $ 56))
+                                               (QREFELT $ 57))
+                                     (QREFELT $ 54))
+                                    (QREFELT $ 35))
+                          (QREFELT $ 38)))))))))
                   (LETT |p|
                         (|SOLVEFOR;part|
                          (SPADCALL |a2|
                                    (SPADCALL
-                                    (SPADCALL (SPADCALL 3 |a1| (QREFELT $ 59))
-                                              |a1| (QREFELT $ 60))
-                                    (SPADCALL 8 (QREFELT $ 62)) (QREFELT $ 52))
-                                   (QREFELT $ 49))
+                                    (SPADCALL (SPADCALL 3 |a1| (QREFELT $ 60))
+                                              |a1| (QREFELT $ 61))
+                                    (SPADCALL 8 (QREFELT $ 63)) (QREFELT $ 53))
+                                   (QREFELT $ 50))
                          $)
                         . #4#)
                   (LETT |q|
@@ -583,13 +586,13 @@
                          (SPADCALL
                           (SPADCALL |a3|
                                     (SPADCALL
-                                     (SPADCALL |a1| |a2| (QREFELT $ 60))
-                                     (SPADCALL 2 (QREFELT $ 62))
-                                     (QREFELT $ 52))
-                                    (QREFELT $ 49))
-                          (SPADCALL (SPADCALL |a1| 3 (QREFELT $ 58))
-                                    (SPADCALL 8 (QREFELT $ 62)) (QREFELT $ 52))
-                          (QREFELT $ 61))
+                                     (SPADCALL |a1| |a2| (QREFELT $ 61))
+                                     (SPADCALL 2 (QREFELT $ 63))
+                                     (QREFELT $ 53))
+                                    (QREFELT $ 50))
+                          (SPADCALL (SPADCALL |a1| 3 (QREFELT $ 59))
+                                    (SPADCALL 8 (QREFELT $ 63)) (QREFELT $ 53))
+                          (QREFELT $ 62))
                          $)
                         . #4#)
                   (LETT |r|
@@ -598,20 +601,20 @@
                           (SPADCALL
                            (SPADCALL |a4|
                                      (SPADCALL
-                                      (SPADCALL |a1| |a3| (QREFELT $ 60))
-                                      (SPADCALL 4 (QREFELT $ 62))
-                                      (QREFELT $ 52))
-                                     (QREFELT $ 49))
+                                      (SPADCALL |a1| |a3| (QREFELT $ 61))
+                                      (SPADCALL 4 (QREFELT $ 63))
+                                      (QREFELT $ 53))
+                                     (QREFELT $ 50))
                            (SPADCALL
-                            (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 58)) |a2|
-                                      (QREFELT $ 60))
-                            (SPADCALL 16 (QREFELT $ 62)) (QREFELT $ 52))
-                           (QREFELT $ 61))
+                            (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 59)) |a2|
+                                      (QREFELT $ 61))
+                            (SPADCALL 16 (QREFELT $ 63)) (QREFELT $ 53))
+                           (QREFELT $ 62))
                           (SPADCALL
-                           (SPADCALL 3 (SPADCALL |a1| 4 (QREFELT $ 58))
-                                     (QREFELT $ 59))
-                           (SPADCALL 256 (QREFELT $ 62)) (QREFELT $ 52))
-                          (QREFELT $ 49))
+                           (SPADCALL 3 (SPADCALL |a1| 4 (QREFELT $ 59))
+                                     (QREFELT $ 60))
+                           (SPADCALL 256 (QREFELT $ 63)) (QREFELT $ 53))
+                          (QREFELT $ 50))
                          $)
                         . #4#)
                   (COND
@@ -620,48 +623,49 @@
                           (|SOLVEFOR;part|
                            (SPADCALL 2
                                      (SPADCALL |r|
-                                               (SPADCALL 1 2 (QREFELT $ 55))
-                                               (QREFELT $ 56))
-                                     (QREFELT $ 59))
+                                               (SPADCALL 1 2 (QREFELT $ 56))
+                                               (QREFELT $ 57))
+                                     (QREFELT $ 60))
                            $)
                           . #4#))
                    (#3#
                     (LETT |t0|
                           (SPADCALL (|spadConstant| $ 30)
-                                    (SPADCALL |p| (QREFELT $ 53))
-                                    (SPADCALL (SPADCALL 4 |r| (QREFELT $ 59))
-                                              (QREFELT $ 53))
+                                    (SPADCALL |p| (QREFELT $ 54))
+                                    (SPADCALL (SPADCALL 4 |r| (QREFELT $ 60))
+                                              (QREFELT $ 54))
                                     (SPADCALL
-                                     (SPADCALL (SPADCALL 4 |p| (QREFELT $ 59))
-                                               |r| (QREFELT $ 60))
-                                     (SPADCALL |q| 2 (QREFELT $ 58))
-                                     (QREFELT $ 49))
-                                    (QREFELT $ 40))
+                                     (SPADCALL (SPADCALL 4 |p| (QREFELT $ 60))
+                                               |r| (QREFELT $ 61))
+                                     (SPADCALL |q| 2 (QREFELT $ 59))
+                                     (QREFELT $ 50))
+                                    (QREFELT $ 41))
                           . #4#)))
                   (LETT |rt|
                         (SPADCALL
-                         (|SOLVEFOR;part| (SPADCALL |t0| |p| (QREFELT $ 49)) $)
-                         (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                         (|SOLVEFOR;part| (SPADCALL |t0| |p| (QREFELT $ 50)) $)
+                         (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                         . #4#)
                   (LETT |slist|
-                        (APPEND
+                        (SPADCALL
                          (SPADCALL (|spadConstant| $ 30) |rt|
                                    (SPADCALL
                                     (SPADCALL
                                      (SPADCALL
-                                      (SPADCALL |q| |rt| (QREFELT $ 52))
-                                      (QREFELT $ 53))
-                                     |t0| (QREFELT $ 61))
-                                    (SPADCALL 2 (QREFELT $ 62)) (QREFELT $ 52))
+                                      (SPADCALL |q| |rt| (QREFELT $ 53))
+                                      (QREFELT $ 54))
+                                     |t0| (QREFELT $ 62))
+                                    (SPADCALL 2 (QREFELT $ 63)) (QREFELT $ 53))
                                    (QREFELT $ 35))
                          (SPADCALL (|spadConstant| $ 30)
-                                   (SPADCALL |rt| (QREFELT $ 53))
+                                   (SPADCALL |rt| (QREFELT $ 54))
                                    (SPADCALL
                                     (SPADCALL
-                                     (SPADCALL |q| |rt| (QREFELT $ 52)) |t0|
-                                     (QREFELT $ 61))
-                                    (SPADCALL 2 (QREFELT $ 62)) (QREFELT $ 52))
-                                   (QREFELT $ 35)))
+                                     (SPADCALL |q| |rt| (QREFELT $ 53)) |t0|
+                                     (QREFELT $ 62))
+                                    (SPADCALL 2 (QREFELT $ 63)) (QREFELT $ 53))
+                                   (QREFELT $ 35))
+                         (QREFELT $ 38))
                         . #4#)
                   (EXIT
                    (PROGN
@@ -678,9 +682,9 @@
                                   (SPADCALL |s|
                                             (SPADCALL |a1|
                                                       (SPADCALL 4
-                                                                (QREFELT $ 62))
-                                                      (QREFELT $ 52))
-                                            (QREFELT $ 49))
+                                                                (QREFELT $ 63))
+                                                      (QREFELT $ 53))
+                                            (QREFELT $ 50))
                                   #2#)
                                  . #4#)))
                          (LETT #1# (CDR #1#) . #4#) (GO G190) G191
@@ -698,11 +702,11 @@
                  (|spadConstant| $ 33))
                 (#1='T
                  (SEQ
-                  (LETT |a1| (SPADCALL |c3| |c4| (QREFELT $ 52))
+                  (LETT |a1| (SPADCALL |c3| |c4| (QREFELT $ 53))
                         . #2=(|SOLVEFOR;aQuartic;6F;21|))
-                  (LETT |a2| (SPADCALL |c2| |c4| (QREFELT $ 52)) . #2#)
-                  (LETT |a3| (SPADCALL |c1| |c4| (QREFELT $ 52)) . #2#)
-                  (LETT |a4| (SPADCALL |c0| |c4| (QREFELT $ 52)) . #2#)
+                  (LETT |a2| (SPADCALL |c2| |c4| (QREFELT $ 53)) . #2#)
+                  (LETT |a3| (SPADCALL |c1| |c4| (QREFELT $ 53)) . #2#)
+                  (LETT |a4| (SPADCALL |c0| |c4| (QREFELT $ 53)) . #2#)
                   (COND
                    ((SPADCALL |a1| (|spadConstant| $ 33) (QREFELT $ 18))
                     (COND
@@ -710,17 +714,17 @@
                       (COND
                        ((SPADCALL |a3| (|spadConstant| $ 33) (QREFELT $ 18))
                         (EXIT
-                         (SPADCALL (SPADCALL |a4| (QREFELT $ 53))
-                                   (SPADCALL 1 4 (QREFELT $ 55))
-                                   (QREFELT $ 56)))))))))
+                         (SPADCALL (SPADCALL |a4| (QREFELT $ 54))
+                                   (SPADCALL 1 4 (QREFELT $ 56))
+                                   (QREFELT $ 57)))))))))
                   (LETT |p|
                         (|SOLVEFOR;part|
                          (SPADCALL |a2|
                                    (SPADCALL
-                                    (SPADCALL (SPADCALL 3 |a1| (QREFELT $ 59))
-                                              |a1| (QREFELT $ 60))
-                                    (SPADCALL 8 (QREFELT $ 62)) (QREFELT $ 52))
-                                   (QREFELT $ 49))
+                                    (SPADCALL (SPADCALL 3 |a1| (QREFELT $ 60))
+                                              |a1| (QREFELT $ 61))
+                                    (SPADCALL 8 (QREFELT $ 63)) (QREFELT $ 53))
+                                   (QREFELT $ 50))
                          $)
                         . #2#)
                   (LETT |q|
@@ -728,15 +732,15 @@
                          (SPADCALL
                           (SPADCALL |a3|
                                     (SPADCALL
-                                     (SPADCALL |a1| |a2| (QREFELT $ 60))
-                                     (SPADCALL 2 (QREFELT $ 62))
-                                     (QREFELT $ 52))
-                                    (QREFELT $ 49))
+                                     (SPADCALL |a1| |a2| (QREFELT $ 61))
+                                     (SPADCALL 2 (QREFELT $ 63))
+                                     (QREFELT $ 53))
+                                    (QREFELT $ 50))
                           (SPADCALL
-                           (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 58)) |a1|
-                                     (QREFELT $ 60))
-                           (SPADCALL 8 (QREFELT $ 62)) (QREFELT $ 52))
-                          (QREFELT $ 61))
+                           (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 59)) |a1|
+                                     (QREFELT $ 61))
+                           (SPADCALL 8 (QREFELT $ 63)) (QREFELT $ 53))
+                          (QREFELT $ 62))
                          $)
                         . #2#)
                   (LETT |r|
@@ -745,20 +749,20 @@
                           (SPADCALL
                            (SPADCALL |a4|
                                      (SPADCALL
-                                      (SPADCALL |a1| |a3| (QREFELT $ 60))
-                                      (SPADCALL 4 (QREFELT $ 62))
-                                      (QREFELT $ 52))
-                                     (QREFELT $ 49))
+                                      (SPADCALL |a1| |a3| (QREFELT $ 61))
+                                      (SPADCALL 4 (QREFELT $ 63))
+                                      (QREFELT $ 53))
+                                     (QREFELT $ 50))
                            (SPADCALL
-                            (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 58)) |a2|
-                                      (QREFELT $ 60))
-                            (SPADCALL 16 (QREFELT $ 62)) (QREFELT $ 52))
-                           (QREFELT $ 61))
+                            (SPADCALL (SPADCALL |a1| 2 (QREFELT $ 59)) |a2|
+                                      (QREFELT $ 61))
+                            (SPADCALL 16 (QREFELT $ 63)) (QREFELT $ 53))
+                           (QREFELT $ 62))
                           (SPADCALL
-                           (SPADCALL 3 (SPADCALL |a1| 4 (QREFELT $ 58))
-                                     (QREFELT $ 59))
-                           (SPADCALL 256 (QREFELT $ 62)) (QREFELT $ 52))
-                          (QREFELT $ 49))
+                           (SPADCALL 3 (SPADCALL |a1| 4 (QREFELT $ 59))
+                                     (QREFELT $ 60))
+                           (SPADCALL 256 (QREFELT $ 63)) (QREFELT $ 53))
+                          (QREFELT $ 50))
                          $)
                         . #2#)
                   (COND
@@ -767,45 +771,45 @@
                           (|SOLVEFOR;part|
                            (SPADCALL 2
                                      (SPADCALL |r|
-                                               (SPADCALL 1 2 (QREFELT $ 55))
-                                               (QREFELT $ 56))
-                                     (QREFELT $ 59))
+                                               (SPADCALL 1 2 (QREFELT $ 56))
+                                               (QREFELT $ 57))
+                                     (QREFELT $ 60))
                            $)
                           . #2#))
                    (#1#
                     (LETT |t0|
                           (SPADCALL (|spadConstant| $ 30)
-                                    (SPADCALL |p| (QREFELT $ 53))
-                                    (SPADCALL (SPADCALL 4 |r| (QREFELT $ 59))
-                                              (QREFELT $ 53))
+                                    (SPADCALL |p| (QREFELT $ 54))
+                                    (SPADCALL (SPADCALL 4 |r| (QREFELT $ 60))
+                                              (QREFELT $ 54))
                                     (SPADCALL
-                                     (SPADCALL (SPADCALL 4 |p| (QREFELT $ 59))
-                                               |r| (QREFELT $ 60))
-                                     (SPADCALL |q| 2 (QREFELT $ 58))
-                                     (QREFELT $ 49))
-                                    (QREFELT $ 40))
+                                     (SPADCALL (SPADCALL 4 |p| (QREFELT $ 60))
+                                               |r| (QREFELT $ 61))
+                                     (SPADCALL |q| 2 (QREFELT $ 59))
+                                     (QREFELT $ 50))
+                                    (QREFELT $ 41))
                           . #2#)))
                   (LETT |rt|
                         (SPADCALL
-                         (|SOLVEFOR;part| (SPADCALL |t0| |p| (QREFELT $ 49)) $)
-                         (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
+                         (|SOLVEFOR;part| (SPADCALL |t0| |p| (QREFELT $ 50)) $)
+                         (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
                         . #2#)
                   (LETT |s|
                         (SPADCALL (|spadConstant| $ 30) |rt|
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL
-                                     (SPADCALL |q| |rt| (QREFELT $ 52))
-                                     (QREFELT $ 53))
-                                    |t0| (QREFELT $ 61))
-                                   (SPADCALL 2 (QREFELT $ 62)) (QREFELT $ 52))
-                                  (QREFELT $ 39))
+                                     (SPADCALL |q| |rt| (QREFELT $ 53))
+                                     (QREFELT $ 54))
+                                    |t0| (QREFELT $ 62))
+                                   (SPADCALL 2 (QREFELT $ 63)) (QREFELT $ 53))
+                                  (QREFELT $ 40))
                         . #2#)
                   (EXIT
                    (SPADCALL |s|
-                             (SPADCALL |a1| (SPADCALL 4 (QREFELT $ 62))
-                                       (QREFELT $ 52))
-                             (QREFELT $ 49)))))))))) 
+                             (SPADCALL |a1| (SPADCALL 4 (QREFELT $ 63))
+                                       (QREFELT $ 53))
+                             (QREFELT $ 50)))))))))) 
 
 (DECLAIM (NOTINLINE |PolynomialSolveByFormulas;|)) 
 
@@ -836,7 +840,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialSolveByFormulas|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|PolynomialSolveByFormulas| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 64) . #1#)
+          (LETT $ (GETREFV 65) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PolynomialSolveByFormulas|
@@ -848,15 +852,15 @@
           (QSETREFV $ 8 NIL)
           (QSETREFV $ 9 NIL)
           (QSETREFV $ 10 NIL)
-          (QSETREFV $ 63
+          (QSETREFV $ 64
                     (SPADCALL
-                     (SPADCALL (SPADCALL (|spadConstant| $ 30) (QREFELT $ 53))
+                     (SPADCALL (SPADCALL (|spadConstant| $ 30) (QREFELT $ 54))
                                (SPADCALL
-                                (SPADCALL (SPADCALL 3 (QREFELT $ 62))
-                                          (QREFELT $ 53))
-                                (SPADCALL 1 2 (QREFELT $ 55)) (QREFELT $ 56))
-                               (QREFELT $ 61))
-                     (SPADCALL 2 (QREFELT $ 62)) (QREFELT $ 52)))
+                                (SPADCALL (SPADCALL 3 (QREFELT $ 63))
+                                          (QREFELT $ 54))
+                                (SPADCALL 1 2 (QREFELT $ 56)) (QREFELT $ 57))
+                               (QREFELT $ 62))
+                     (SPADCALL 2 (QREFELT $ 63)) (QREFELT $ 53)))
           $))) 
 
 (MAKEPROP '|PolynomialSolveByFormulas| '|infovec|
@@ -872,41 +876,41 @@
               (|NonNegativeInteger|) (22 . |degree|) (27 . |One|) (31 . |One|)
               (35 . |coefficient|) (41 . |Zero|) (45 . |Zero|)
               |SOLVEFOR;linear;2FL;14| |SOLVEFOR;quadratic;3FL;16|
-              |SOLVEFOR;cubic;4FL;18| |SOLVEFOR;quartic;5FL;20|
+              |SOLVEFOR;cubic;4FL;18| |SOLVEFOR;quartic;5FL;20| (49 . |append|)
               |SOLVEFOR;aLinear;3F;15| |SOLVEFOR;aQuadratic;4F;17|
               |SOLVEFOR;aCubic;5F;19| |SOLVEFOR;aQuartic;6F;21|
-              |SOLVEFOR;particularSolution;UPF;5| (49 . ~=)
-              (55 . |characteristic|) |SOLVEFOR;linear;UPL;9|
+              |SOLVEFOR;particularSolution;UPF;5| (55 . ~=)
+              (61 . |characteristic|) |SOLVEFOR;linear;UPL;9|
               |SOLVEFOR;quadratic;UPL;10| |SOLVEFOR;cubic;UPL;11|
-              |SOLVEFOR;quartic;UPL;12| (59 . -) (|Union| $ '"failed")
-              (65 . |recip|) (70 . /) (76 . -) (|Fraction| 25) (81 . /)
-              (87 . ^) (|PositiveInteger|) (93 . ^) (99 . *) (105 . *)
-              (111 . +) (117 . |coerce|) '|w3|)
-           '#(|solve| 122 |quartic| 127 |quadratic| 141 |particularSolution|
-              153 |mapSolve| 158 |linear| 164 |cubic| 175 |aQuartic| 188
-              |aQuadratic| 197 |aLinear| 204 |aCubic| 210)
+              |SOLVEFOR;quartic;UPL;12| (65 . -) (|Union| $ '"failed")
+              (71 . |recip|) (76 . /) (82 . -) (|Fraction| 25) (87 . /)
+              (93 . ^) (|PositiveInteger|) (99 . ^) (105 . *) (111 . *)
+              (117 . +) (123 . |coerce|) '|w3|)
+           '#(|solve| 128 |quartic| 133 |quadratic| 147 |particularSolution|
+              159 |mapSolve| 164 |linear| 170 |cubic| 181 |aQuartic| 194
+              |aQuadratic| 203 |aLinear| 210 |aCubic| 216)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 62
+                             (|makeByteWordVec2| 63
                                                  '(2 7 17 0 0 18 1 6 19 0 20 1
                                                    23 22 0 24 2 22 21 0 25 26 1
                                                    6 27 0 28 0 6 0 29 0 7 0 30
                                                    2 6 7 0 27 31 0 6 0 32 0 7 0
-                                                   33 2 7 17 0 0 43 0 7 27 44 2
-                                                   7 0 0 0 49 1 7 50 0 51 2 7 0
-                                                   0 0 52 1 7 0 0 53 2 54 0 25
-                                                   25 55 2 7 0 0 54 56 2 7 0 0
-                                                   57 58 2 7 0 57 0 59 2 7 0 0
-                                                   0 60 2 7 0 0 0 61 1 7 0 25
-                                                   62 1 0 11 6 12 1 0 11 6 48 5
-                                                   0 11 7 7 7 7 7 37 1 0 11 6
-                                                   46 3 0 11 7 7 7 35 1 0 7 6
-                                                   42 2 0 14 6 15 16 1 0 11 6
-                                                   45 2 0 11 7 7 34 1 0 11 6 47
-                                                   4 0 11 7 7 7 7 36 5 0 7 7 7
-                                                   7 7 7 41 3 0 7 7 7 7 39 2 0
-                                                   7 7 7 38 4 0 7 7 7 7 7
-                                                   40)))))
+                                                   33 2 11 0 0 0 38 2 7 17 0 0
+                                                   44 0 7 27 45 2 7 0 0 0 50 1
+                                                   7 51 0 52 2 7 0 0 0 53 1 7 0
+                                                   0 54 2 55 0 25 25 56 2 7 0 0
+                                                   55 57 2 7 0 0 58 59 2 7 0 58
+                                                   0 60 2 7 0 0 0 61 2 7 0 0 0
+                                                   62 1 7 0 25 63 1 0 11 6 12 1
+                                                   0 11 6 49 5 0 11 7 7 7 7 7
+                                                   37 1 0 11 6 47 3 0 11 7 7 7
+                                                   35 1 0 7 6 43 2 0 14 6 15 16
+                                                   1 0 11 6 46 2 0 11 7 7 34 1
+                                                   0 11 6 48 4 0 11 7 7 7 7 36
+                                                   5 0 7 7 7 7 7 7 42 3 0 7 7 7
+                                                   7 40 2 0 7 7 7 39 4 0 7 7 7
+                                                   7 7 41)))))
            '|lookupComplete|)) 

@@ -251,7 +251,9 @@
                                              (SPADCALL |v| |i| (QREFELT $ 37))
                                              |m| |i| |graph| |flag| $)))
                                           . #4#)
-                                    (LETT |sols| (APPEND |s| |sols|) . #4#)
+                                    (LETT |sols|
+                                          (SPADCALL |s| |sols| (QREFELT $ 46))
+                                          . #4#)
                                     (EXIT
                                      (SPADCALL |sol| |i| |x|
                                                (QREFELT $ 43))))))))))))
@@ -408,7 +410,7 @@
          (PROGN
           (LETT |dv$| '(|DiophantineSolutionPackage|)
                 . #1=(|DiophantineSolutionPackage|))
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT $ (GETREFV 47) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|DiophantineSolutionPackage| NIL
@@ -424,20 +426,19 @@
               (16 . |totalDegree|) (|Boolean|) (21 . >) (|List| $)
               (27 . |monomials|) (32 . |ground?|) (|Integer|) (37 . |ground|)
               (|Vector| 11) (42 . |zero|) (|List| (|Symbol|))
-              (47 . |variables|) (|Union| (|List| 20) '"failed")
-              (|Record| (|:| |varOrder| 22) (|:| |inhom| 24)
-                        (|:| |hom| (|List| 20)))
+              (47 . |variables|) (|Union| 45 '"failed")
+              (|Record| (|:| |varOrder| 22) (|:| |inhom| 24) (|:| |hom| 45))
               |DIOSP;dioSolve;ER;1| (|List| 18) (52 . |coefficients|)
               (|Vector| 18) (57 . |vector|) (62 . |min|) (|Mapping| 18 18 18)
               (68 . |reduce|) (74 . |max|) (80 . |zero|) (85 . >) (91 . |elt|)
               (97 . |setelt!|) (|Record| (|:| |vert| 29) (|:| |is_free| 13))
               (|Vector| 39) (104 . |elt|) (110 . |elt|) (116 . |setelt!|)
-              (123 . |copy|))
-           '#(|dioSolve| 128) 'NIL
+              (123 . |copy|) (|List| 20) (128 . |append|))
+           '#(|dioSolve| 134) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 44
+                             (|makeByteWordVec2| 46
                                                  '(1 7 6 0 8 1 7 6 0 9 2 6 0 0
                                                    0 10 1 6 11 0 12 2 11 13 0 0
                                                    14 1 6 15 0 16 1 6 13 0 17 1
@@ -449,7 +450,8 @@
                                                    0 18 37 3 29 18 0 18 18 38 2
                                                    40 39 0 18 41 2 20 11 0 18
                                                    42 3 20 11 0 18 11 43 1 20 0
-                                                   0 44 1 0 25 7 26)))))
+                                                   0 44 2 45 0 0 0 46 1 0 25 7
+                                                   26)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|DiophantineSolutionPackage| 'NILADIC T) 

@@ -330,8 +330,8 @@
                  ('T
                   (SEQ (LETT |lr| (QCDR |cf|) . #1#)
                        (EXIT
-                        (APPEND (SPADCALL (QCAR |lr|) (QREFELT $ 44))
-                                (LIST (QCDR |lr|))))))))))) 
+                        (SPADCALL (SPADCALL (QCAR |lr|) (QREFELT $ 44))
+                                  (LIST (QCDR |lr|)) (QREFELT $ 45)))))))))) 
 
 (DECLAIM (NOTINLINE |UnivariatePolynomialDecompositionPackage;|)) 
 
@@ -368,7 +368,7 @@
           (LETT |dv$|
                 (LIST '|UnivariatePolynomialDecompositionPackage| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 45) . #1#)
+          (LETT $ (GETREFV 46) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -398,15 +398,15 @@
               |UPDECOMP;leftFactorIfCan;2UPU;3|
               (|Record| (|:| |left| 7) (|:| |right| 7)) (|Union| 40 '"failed")
               |UPDECOMP;monicDecomposeIfCan;UPU;4| (|List| 7)
-              |UPDECOMP;monicCompleteDecompose;UPL;5|)
-           '#(|rightFactorIfCan| 111 |monicRightFactorIfCan| 118
-              |monicDecomposeIfCan| 124 |monicCompleteDecompose| 129
-              |leftFactorIfCan| 134)
+              |UPDECOMP;monicCompleteDecompose;UPL;5| (111 . |append|))
+           '#(|rightFactorIfCan| 117 |monicRightFactorIfCan| 124
+              |monicDecomposeIfCan| 130 |monicCompleteDecompose| 135
+              |leftFactorIfCan| 140)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 44
+                             (|makeByteWordVec2| 45
                                                  '(1 7 8 0 9 1 6 10 0 11 2 8 12
                                                    0 0 13 0 6 0 14 0 7 0 15 2 8
                                                    12 0 0 16 1 7 6 0 17 2 7 0 6
@@ -415,8 +415,8 @@
                                                    0 0 0 24 2 7 6 0 8 25 2 6 12
                                                    0 0 26 2 7 0 0 0 27 0 7 0 31
                                                    1 7 10 0 32 2 35 34 7 7 36 1
-                                                   7 10 0 37 1 7 6 0 38 3 0 28
-                                                   7 8 6 29 2 0 28 7 8 30 1 0
-                                                   41 7 42 1 0 43 7 44 2 0 28 7
-                                                   7 39)))))
+                                                   7 10 0 37 1 7 6 0 38 2 43 0
+                                                   0 0 45 3 0 28 7 8 6 29 2 0
+                                                   28 7 8 30 1 0 41 7 42 1 0 43
+                                                   7 44 2 0 28 7 7 39)))))
            '|lookupComplete|)) 

@@ -349,7 +349,7 @@
                               (LETT #5# (CDR #5#) . #9#) (GO G190) G191
                               (EXIT (NREVERSE #6#))))
                         . #9#)
-                  (LETT |lffe| (APPEND |lsnil| |lffe|) . #9#)
+                  (LETT |lffe| (SPADCALL |lsnil| |lffe| (QREFELT $ 50)) . #9#)
                   (EXIT
                    (SPADCALL
                     (SPADCALL |dunit| (SPADCALL |redSqfr| (QREFELT $ 15))
@@ -388,7 +388,7 @@
                 . #1=(|UnivariatePolynomialSquareFree|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|UnivariatePolynomialSquareFree| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT $ (GETREFV 51) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|UnivariatePolynomialSquareFree|
@@ -448,12 +448,13 @@
               (87 . |unitNormal|) (92 . |One|) (|List| 27) (96 . |makeFR|)
               (102 . |leadingCoefficient|) (|Boolean|) (107 . ~=) (113 . -)
               (119 . >) (125 . ^) (131 . |exquo|) (137 . |coerce|) (142 . *)
-              (148 . ^) (154 . |divideExponents|) (160 . |factorList|))
-           '#(|squareFreePart| 165 |squareFree| 170 |BumInSepFFE| 175) 'NIL
+              (148 . ^) (154 . |divideExponents|) (160 . |factorList|)
+              (165 . |append|))
+           '#(|squareFreePart| 171 |squareFree| 176 |BumInSepFFE| 181) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 49
+                             (|makeByteWordVec2| 50
                                                  '(1 7 0 0 8 2 7 0 0 0 9 2 7 10
                                                    0 0 11 1 0 7 7 12 1 0 13 7
                                                    14 1 13 7 0 15 1 13 17 0 18
@@ -467,6 +468,7 @@
                                                    0 0 42 2 6 0 0 24 43 2 6 10
                                                    0 0 44 1 7 0 6 45 2 7 0 6 0
                                                    46 2 7 0 0 24 47 2 7 10 0 24
-                                                   48 1 13 36 0 49 1 0 7 7 12 1
-                                                   0 13 7 14 1 0 27 27 28)))))
+                                                   48 1 13 36 0 49 2 36 0 0 0
+                                                   50 1 0 7 7 12 1 0 13 7 14 1
+                                                   0 27 27 28)))))
            '|lookupComplete|)) 

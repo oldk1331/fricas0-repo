@@ -245,11 +245,14 @@
                                                 (QREFELT $ 70))
                                       |y| |fn| $)
                                      . #7#)
-                               (COND (#2# (LETT #3# (APPEND #3# #5#) . #7#))
-                                     ('T
-                                      (PROGN
-                                       (LETT #3# #5# . #7#)
-                                       (LETT #2# 'T . #7#)))))))
+                               (COND
+                                (#2#
+                                 (LETT #3# (SPADCALL #3# #5# (QREFELT $ 72))
+                                       . #7#))
+                                ('T
+                                 (PROGN
+                                  (LETT #3# #5# . #7#)
+                                  (LETT #2# 'T . #7#)))))))
                             (LETT #6# (CDR #6#) . #7#) (GO G190) G191
                             (EXIT NIL))
                        (COND (#2# #3#) (#8# NIL))))))
@@ -257,7 +260,7 @@
                     (SEQ (LETT |ans| NIL . #7#)
                          (SEQ G190
                               (COND
-                               ((NULL (NULL (SPADCALL |p| (QREFELT $ 71))))
+                               ((NULL (NULL (SPADCALL |p| (QREFELT $ 73))))
                                 (GO G191)))
                               (SEQ
                                (LETT |alpha|
@@ -276,14 +279,14 @@
                                (EXIT
                                 (COND
                                  ((SPADCALL
-                                   (SPADCALL |p| |alpha| (QREFELT $ 72))
+                                   (SPADCALL |p| |alpha| (QREFELT $ 74))
                                    (QREFELT $ 37))
                                   (SEQ G190
                                        (COND
                                         ((NULL
                                           (SPADCALL
                                            (SPADCALL |p| |alpha|
-                                                     (QREFELT $ 72))
+                                                     (QREFELT $ 74))
                                            (QREFELT $ 37)))
                                          (GO G191)))
                                        (SEQ
@@ -292,7 +295,7 @@
                                                   (LETT #1#
                                                         (SPADCALL |p| |q|
                                                                   (QREFELT $
-                                                                           74))
+                                                                           76))
                                                         . #7#)
                                                   (QCDR #1#)
                                                 (|check_union2| (QEQCAR #1# 0)
@@ -326,7 +329,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|AlgebraicallyClosedField&|))
           (LETT |dv$| (LIST '|AlgebraicallyClosedField&| DV$1) . #1#)
-          (LETT $ (GETREFV 75) . #1#)
+          (LETT $ (GETREFV 77) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -356,13 +359,14 @@
               (148 . ^) (154 . |zero?|) (159 . |quo|) (|List| 24)
               (|PolynomialDecomposition| 24 6) (165 . |decompose|) (170 . >)
               (176 . |last|) (|Union| 24 '"failed") (181 . |leftFactor|)
-              (187 . |coerce|) (192 . -) (198 . |ground?|) (203 . |elt|)
-              (|Union| $ '"failed") (209 . |exquo|))
-           '#(|zerosOf| 215 |zeroOf| 231 |rootsOf| 247 |rootOf| 263) 'NIL
+              (187 . |coerce|) (192 . -) (|List| 6) (198 . |append|)
+              (204 . |ground?|) (209 . |elt|) (|Union| $ '"failed")
+              (215 . |exquo|))
+           '#(|zerosOf| 221 |zeroOf| 237 |rootsOf| 253 |rootOf| 269) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 74
+                             (|makeByteWordVec2| 76
                                                  '(0 7 0 8 2 6 0 9 7 10 2 6 0 9
                                                    7 12 2 6 14 9 7 15 2 6 14 9
                                                    7 17 1 22 21 0 23 1 22 24 0
@@ -379,12 +383,12 @@
                                                    24 36 0 60 2 24 0 0 0 61 1
                                                    63 62 24 64 2 31 36 0 0 65 1
                                                    62 24 0 66 2 63 67 24 24 68
-                                                   1 24 0 6 69 2 24 0 0 0 70 1
-                                                   24 36 0 71 2 24 6 0 6 72 2
-                                                   24 73 0 0 74 2 0 14 9 7 20 1
-                                                   0 14 26 29 1 0 14 9 16 2 0 0
-                                                   9 7 54 1 0 0 26 27 1 0 0 9
-                                                   11 2 0 14 9 7 19 1 0 14 26
-                                                   30 1 0 14 9 18 1 0 0 26 28 1
-                                                   0 0 9 13)))))
+                                                   1 24 0 6 69 2 24 0 0 0 70 2
+                                                   71 0 0 0 72 1 24 36 0 73 2
+                                                   24 6 0 6 74 2 24 75 0 0 76 2
+                                                   0 14 9 7 20 1 0 14 26 29 1 0
+                                                   14 9 16 2 0 0 9 7 54 1 0 0
+                                                   26 27 1 0 0 9 11 2 0 14 9 7
+                                                   19 1 0 14 26 30 1 0 14 9 18
+                                                   1 0 0 26 28 1 0 0 9 13)))))
            '|lookupComplete|)) 

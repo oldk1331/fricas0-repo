@@ -692,23 +692,31 @@
          (|PointColor| |Palette|) (|LineColor| |Palette|)
          (|PointSize| |PositiveInteger|) ($ |Void|))
         (SEQ
-         (QSETVELT |graf| 3 (APPEND (QVELT |graf| 3) (LIST |ListOfPoints|)))
-         (QSETVELT |graf| 4 (APPEND (QVELT |graf| 4) (LIST |PointColor|)))
-         (QSETVELT |graf| 5 (APPEND (QVELT |graf| 5) (LIST |LineColor|)))
+         (QSETVELT |graf| 3
+                   (SPADCALL (QVELT |graf| 3) (LIST |ListOfPoints|)
+                             (QREFELT $ 100)))
+         (QSETVELT |graf| 4
+                   (SPADCALL (QVELT |graf| 4) (LIST |PointColor|)
+                             (QREFELT $ 101)))
+         (QSETVELT |graf| 5
+                   (SPADCALL (QVELT |graf| 5) (LIST |LineColor|)
+                             (QREFELT $ 101)))
          (EXIT
-          (QSETVELT |graf| 6 (APPEND (QVELT |graf| 6) (LIST |PointSize|)))))) 
+          (QSETVELT |graf| 6
+                    (SPADCALL (QVELT |graf| 6) (LIST |PointSize|)
+                              (QREFELT $ 102)))))) 
 
 (SDEFUN |GRIMAGE;component;$PV;22|
         ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
         (SPADCALL |graf| |aPoint| (SPADCALL (QREFELT $ 60))
                   (SPADCALL (QREFELT $ 64)) (SPADCALL (QREFELT $ 65))
-                  (QREFELT $ 102))) 
+                  (QREFELT $ 105))) 
 
 (SDEFUN |GRIMAGE;component;$P2PPiV;23|
         ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) (|PointColor| |Palette|)
          (|LineColor| |Palette|) (|PointSize| |PositiveInteger|) ($ |Void|))
         (SPADCALL |graf| (LIST |aPoint|) |PointColor| |LineColor| |PointSize|
-                  (QREFELT $ 101))) 
+                  (QREFELT $ 104))) 
 
 (SDEFUN |GRIMAGE;appendPoint;$PV;24|
         ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
@@ -720,17 +728,17 @@
                  (COND ((< |num| 0) (|error| "No point lists to append to!"))
                        ('T
                         (SPADCALL (QVELT |graf| 3) |num|
-                                  (APPEND
+                                  (SPADCALL
                                    (SPADCALL (QVELT |graf| 3) |num|
-                                             (QREFELT $ 104))
-                                   (LIST |aPoint|))
-                                  (QREFELT $ 105)))))))) 
+                                             (QREFELT $ 107))
+                                   (LIST |aPoint|) (QREFELT $ 108))
+                                  (QREFELT $ 109)))))))) 
 
 (SDEFUN |GRIMAGE;point;$PPV;25|
         ((|graf| $) (|aPoint| |Point| (|DoubleFloat|)) (|PointColor| |Palette|)
          ($ |Void|))
         (SPADCALL |graf| |aPoint| |PointColor| (SPADCALL (QREFELT $ 64))
-                  (SPADCALL (QREFELT $ 65)) (QREFELT $ 102))) 
+                  (SPADCALL (QREFELT $ 65)) (QREFELT $ 105))) 
 
 (SDEFUN |GRIMAGE;coerce;L$;26|
         ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
@@ -779,9 +787,9 @@
                       (SPADCALL
                        (LETT |p| (LENGTH (SPADCALL |graf| (QREFELT $ 89)))
                              |GRIMAGE;coerce;$Of;27|)
-                       (QREFELT $ 110))
+                       (QREFELT $ 114))
                       (COND ((EQL |p| 1) " point list") ('T " point lists")))
-                (QREFELT $ 112)))) 
+                (QREFELT $ 116)))) 
 
 (DECLAIM (NOTINLINE |GraphImage;|)) 
 
@@ -807,7 +815,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|GraphImage|) . #1=(|GraphImage|))
-          (LETT $ (GETREFV 116) . #1#)
+          (LETT $ (GETREFV 120) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|GraphImage| NIL (CONS 1 $))
@@ -837,7 +845,7 @@
               (|List| 22) |GRIMAGE;units;$L;15| (55 . |units|) (61 . |elt|)
               (|Color|) (|Palette|) (67 . |hue|) (72 . |hue|) (77 . |shade|)
               (|PositiveInteger|) (82 . |dimension|) (|List| 11)
-              (87 . |extend|) (93 . |setelt!|) (|List| 100) (|List| 33)
+              (87 . |extend|) (93 . |setelt!|) (|List| 103) (|List| 33)
               |GRIMAGE;putColorInfo;LLL;3| (100 . |hi|) (105 . |lo|)
               (110 . |float|) (117 . |coerce|) (122 . |ceiling|)
               (127 . |retract|) (|List| 26) (132 . |second|) (137 . |Zero|)
@@ -856,23 +864,24 @@
               |GRIMAGE;ranges;$2L;14| (285 . |elt|) |GRIMAGE;units;$2L;16|
               |GRIMAGE;graphImage;$;17| |GRIMAGE;makeGraphImage;L2LL$;19|
               |GRIMAGE;makeGraphImage;L$;18| |GRIMAGE;makeGraphImage;L2LLL$;20|
-              (|List| 8) |GRIMAGE;component;$L2PPiV;21|
-              |GRIMAGE;component;$P2PPiV;23| |GRIMAGE;component;$PV;22|
-              (291 . |elt|) (297 . |setelt!|) |GRIMAGE;appendPoint;$PV;24|
+              (291 . |append|) (297 . |append|) (303 . |append|) (|List| 8)
+              |GRIMAGE;component;$L2PPiV;21| |GRIMAGE;component;$P2PPiV;23|
+              |GRIMAGE;component;$PV;22| (309 . |elt|) (315 . |append|)
+              (321 . |setelt!|) |GRIMAGE;appendPoint;$PV;24|
               |GRIMAGE;point;$PPV;25| |GRIMAGE;coerce;L$;26| (|OutputForm|)
-              (304 . |coerce|) (|List| $) (309 . |hconcat|)
+              (328 . |coerce|) (|List| $) (333 . |hconcat|)
               |GRIMAGE;coerce;$Of;27| (|String|) (|HashState|))
-           '#(~= 314 |units| 320 |sendGraphImage| 331 |ranges| 336
-              |putColorInfo| 347 |pointLists| 353 |point| 358 |makeGraphImage|
-              365 |latex| 387 |key| 392 |hashUpdate!| 397 |hash| 403
-              |graphImage| 408 |component| 412 |coerce| 436 |appendPoint| 446 =
-              452)
+           '#(~= 338 |units| 344 |sendGraphImage| 355 |ranges| 360
+              |putColorInfo| 371 |pointLists| 377 |point| 382 |makeGraphImage|
+              389 |latex| 411 |key| 416 |hashUpdate!| 421 |hash| 427
+              |graphImage| 432 |component| 436 |coerce| 460 |appendPoint| 470 =
+              476)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 109))
-                        (|makeByteWordVec2| 115
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 113))
+                        (|makeByteWordVec2| 119
                                             '(1 8 7 0 9 1 8 7 0 10 2 8 11 0 7
                                               12 2 16 13 15 13 17 2 7 18 0 0 19
                                               2 13 20 0 7 21 1 20 22 0 23 1 22
@@ -895,19 +904,21 @@
                                               11 8 82 1 79 11 8 83 0 32 37 84 2
                                               85 0 7 0 86 2 51 26 0 7 90 1 11
                                               22 0 91 2 20 0 22 22 92 2 39 11 0
-                                              7 94 2 42 100 0 7 104 3 42 100 0
-                                              7 100 105 1 56 109 0 110 1 109 0
-                                              111 112 2 0 18 0 0 1 1 0 28 0 29
+                                              7 94 2 42 0 0 0 100 2 43 0 0 0
+                                              101 2 66 0 0 0 102 2 42 103 0 7
+                                              107 2 103 0 0 0 108 3 42 103 0 7
+                                              103 109 1 56 113 0 114 1 113 0
+                                              115 116 2 0 18 0 0 1 1 0 28 0 29
                                               2 0 28 0 28 95 1 0 87 0 88 2 0 13
                                               0 13 93 1 0 13 0 14 2 0 42 42 43
-                                              44 1 0 42 0 89 3 0 87 0 8 33 107
+                                              44 1 0 42 0 89 3 0 87 0 8 33 111
                                               4 0 0 42 43 43 66 97 5 0 0 42 43
-                                              43 66 15 99 1 0 0 42 98 1 0 114 0
-                                              1 1 0 7 0 70 2 0 115 115 0 1 1 0
-                                              85 0 1 0 0 0 96 2 0 87 0 8 103 5
-                                              0 87 0 8 33 33 37 102 5 0 87 0
-                                              100 33 33 37 101 1 0 0 42 108 1 0
-                                              109 0 113 2 0 87 0 8 106 2 0 18 0
+                                              43 66 15 99 1 0 0 42 98 1 0 118 0
+                                              1 1 0 7 0 70 2 0 119 119 0 1 1 0
+                                              85 0 1 0 0 0 96 2 0 87 0 8 106 5
+                                              0 87 0 8 33 33 37 105 5 0 87 0
+                                              103 33 33 37 104 1 0 0 42 112 1 0
+                                              113 0 117 2 0 87 0 8 110 2 0 18 0
                                               0 1)))))
            '|lookupComplete|)) 
 

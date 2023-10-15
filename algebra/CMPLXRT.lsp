@@ -45,7 +45,7 @@
                           . #7#)
                     (EXIT
                      (LETT |ris|
-                           (APPEND
+                           (SPADCALL
                             (PROGN
                              (LETT #2# NIL . #7#)
                              (SEQ (LETT |z| NIL . #7#) (LETT #1# |lz| . #7#)
@@ -66,7 +66,7 @@
                                           . #7#)))
                                   (LETT #1# (CDR #1#) . #7#) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
-                            |ris|)
+                            |ris| (QREFELT $ 46))
                            . #7#)))
                (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL))
           (EXIT |ris|)))) 
@@ -99,7 +99,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexRootPackage|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ComplexRootPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 47) . #1#)
+          (LETT $ (GETREFV 48) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ComplexRootPackage|
@@ -124,12 +124,12 @@
               (78 . |imag|) (|List| 41) (|List| 31) (|List| 8)
               (|InnerNumericFloatSolvePackage| 24 7 7) (83 . |innerSolve|)
               (|List| 7) (91 . |second|) (|Complex| 7) (96 . |complex|)
-              (|List| 43) |CMPLXRT;complexZeros;UPParL;1|)
-           '#(|complexZeros| 102) 'NIL
+              (|List| 43) (102 . |append|) |CMPLXRT;complexZeros;UPParL;1|)
+           '#(|complexZeros| 108) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 46
+                             (|makeByteWordVec2| 47
                                                  '(0 8 0 9 1 6 10 0 11 1 10 12
                                                    0 13 1 16 15 0 17 2 18 0 10
                                                    8 19 1 18 0 8 20 0 6 0 21 0
@@ -138,6 +138,6 @@
                                                    28 3 18 0 0 8 0 29 1 25 24 0
                                                    30 2 33 31 32 18 34 1 25 24
                                                    0 35 4 39 36 37 37 38 7 40 1
-                                                   41 7 0 42 2 43 0 7 7 44 2 0
-                                                   45 6 7 46)))))
+                                                   41 7 0 42 2 43 0 7 7 44 2 45
+                                                   0 0 0 46 2 0 45 6 7 47)))))
            '|lookupComplete|)) 

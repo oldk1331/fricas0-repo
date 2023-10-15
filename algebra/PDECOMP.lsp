@@ -74,9 +74,10 @@
                             ((QEQCAR |g| 0)
                              (PROGN
                               (LETT #1#
-                                    (APPEND
+                                    (SPADCALL
                                      (SPADCALL (QCDR |g|) (QREFELT $ 30))
-                                     (SPADCALL |h| (QREFELT $ 30)))
+                                     (SPADCALL |h| (QREFELT $ 30))
+                                     (QREFELT $ 31))
                                     . #3#)
                               (GO #4=#:G138))))))))))
                  (LETT |dh| (|inc_SI| |dh|) . #3#) (GO G190) G191 (EXIT NIL))
@@ -90,14 +91,14 @@
           (|hdg| (UP)) (#4=#:G160 NIL) (|k| NIL) (|dg| (|NonNegativeInteger|))
           (|df| (|NonNegativeInteger|)))
          (SEQ
-          (LETT |f| (SPADCALL |f| (SPADCALL |f| (QREFELT $ 31)) (QREFELT $ 32))
+          (LETT |f| (SPADCALL |f| (SPADCALL |f| (QREFELT $ 32)) (QREFELT $ 33))
                 . #5=(|PDECOMP;rightFactorCandidate;UPNniUP;4|))
           (LETT |df| (SPADCALL |f| (QREFELT $ 15)) . #5#)
           (LETT |dg| (QUOTIENT2 |df| |dh|) . #5#)
           (LETT |h| (SPADCALL (|spadConstant| $ 18) |dh| (QREFELT $ 19)) . #5#)
           (SEQ (LETT |k| 1 . #5#) (LETT #4# |dh| . #5#) G190
                (COND ((|greater_SI| |k| #4#) (GO G191)))
-               (SEQ (LETT |hdg| (SPADCALL |h| |dg| (QREFELT $ 33)) . #5#)
+               (SEQ (LETT |hdg| (SPADCALL |h| |dg| (QREFELT $ 34)) . #5#)
                     (LETT |c|
                           (SPADCALL
                            (SPADCALL
@@ -106,15 +107,15 @@
                                         (|check_subtype2| (>= #3# 0)
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #3#))
-                                      (QREFELT $ 34))
+                                      (QREFELT $ 35))
                             (SPADCALL |hdg|
                                       (PROG1 (LETT #2# (- |df| |k|) . #5#)
                                         (|check_subtype2| (>= #2# 0)
                                                           '(|NonNegativeInteger|)
                                                           '(|Integer|) #2#))
-                                      (QREFELT $ 34))
-                            (QREFELT $ 35))
-                           (SPADCALL |dg| (QREFELT $ 37)) (QREFELT $ 38))
+                                      (QREFELT $ 35))
+                            (QREFELT $ 36))
+                           (SPADCALL |dg| (QREFELT $ 38)) (QREFELT $ 39))
                           . #5#)
                     (EXIT
                      (LETT |h|
@@ -133,9 +134,9 @@
                (LETT |k| (|inc_SI| |k|) . #5#) (GO G190) G191 (EXIT NIL))
           (EXIT
            (SPADCALL |h|
-                     (SPADCALL (SPADCALL |h| 0 (QREFELT $ 34)) 0
+                     (SPADCALL (SPADCALL |h| 0 (QREFELT $ 35)) 0
                                (QREFELT $ 19))
-                     (QREFELT $ 39)))))) 
+                     (QREFELT $ 40)))))) 
 
 (DECLAIM (NOTINLINE |PolynomialDecomposition;|)) 
 
@@ -165,7 +166,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|PolynomialDecomposition|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|PolynomialDecomposition| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 40) . #1#)
+          (LETT $ (GETREFV 41) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PolynomialDecomposition|
@@ -187,23 +188,25 @@
               |PDECOMP;rightFactorCandidate;UPNniUP;4|
               (|Record| (|:| |left| 6) (|:| |right| 6)) (|Union| 26 '"failed")
               |PDECOMP;decompose;UP2NniU;2| (|List| 6)
-              |PDECOMP;decompose;UPL;3| (63 . |leadingCoefficient|) (68 . /)
-              (74 . ^) (80 . |coefficient|) (86 . -) (|Integer|)
-              (92 . |coerce|) (97 . /) (103 . -))
-           '#(|rightFactorCandidate| 109 |leftFactor| 115 |decompose| 121) 'NIL
+              |PDECOMP;decompose;UPL;3| (63 . |append|)
+              (69 . |leadingCoefficient|) (74 . /) (80 . ^)
+              (86 . |coefficient|) (92 . -) (|Integer|) (98 . |coerce|)
+              (103 . /) (109 . -))
+           '#(|rightFactorCandidate| 115 |leftFactor| 121 |decompose| 127) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 39
+                             (|makeByteWordVec2| 40
                                                  '(0 6 0 8 0 7 0 9 2 6 10 0 0
                                                    11 2 6 12 0 0 13 1 6 14 0 15
                                                    2 14 10 0 0 16 0 6 0 17 0 7
                                                    0 18 2 6 0 7 14 19 2 6 0 0 0
                                                    20 2 6 0 0 0 21 2 14 10 0 0
-                                                   24 1 6 7 0 31 2 6 0 0 7 32 2
-                                                   6 0 0 14 33 2 6 7 0 14 34 2
-                                                   7 0 0 0 35 1 7 0 36 37 2 7 0
-                                                   0 0 38 2 6 0 0 0 39 2 0 6 6
-                                                   14 25 2 0 22 6 6 23 3 0 27 6
-                                                   14 14 28 1 0 29 6 30)))))
+                                                   24 2 29 0 0 0 31 1 6 7 0 32
+                                                   2 6 0 0 7 33 2 6 0 0 14 34 2
+                                                   6 7 0 14 35 2 7 0 0 0 36 1 7
+                                                   0 37 38 2 7 0 0 0 39 2 6 0 0
+                                                   0 40 2 0 6 6 14 25 2 0 22 6
+                                                   6 23 3 0 27 6 14 14 28 1 0
+                                                   29 6 30)))))
            '|lookupComplete|)) 
