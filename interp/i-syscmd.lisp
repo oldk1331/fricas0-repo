@@ -714,7 +714,6 @@
 ;   ------undo special variables------
 ;   $frameRecord := nil
 ;   $previousBindings := nil
-;   $variableNumberAlist := nil
 ;   untraceMapSubNames $trace_names
 ;   $InteractiveFrame := LIST LIST NIL
 ;   resetInCoreHist()
@@ -735,7 +734,6 @@
       (|clearCmdSortedCaches|)
       (SETQ |$frameRecord| NIL)
       (SETQ |$previousBindings| NIL)
-      (SETQ |$variableNumberAlist| NIL)
       (|untraceMapSubNames| |$trace_names|)
       (SETQ |$InteractiveFrame| (LIST (LIST NIL)))
       (|resetInCoreHist|)

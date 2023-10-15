@@ -748,6 +748,32 @@
                                  NIL |funList| NIL)))))
       (LIST |form| |catForm| |e|)))))
  
+; addModemap(op, mc, sig, pred, fn, $e) ==
+;     $InteractiveMode => $e
+;     if knownInfo pred then pred := true
+;     $insideCapsuleFunctionIfTrue = true =>
+;         $CapsuleModemapFrame :=
+;           addModemap0(op, mc, sig, pred, fn, $CapsuleModemapFrame)
+;         $e
+;     addModemap0(op, mc, sig, pred, fn, $e)
+ 
+(DEFUN |addModemap| (|op| |mc| |sig| |pred| |fn| |$e|)
+  (DECLARE (SPECIAL |$e|))
+  (PROG ()
+    (RETURN
+     (COND (|$InteractiveMode| |$e|)
+           (#1='T
+            (PROGN
+             (COND ((|knownInfo| |pred|) (SETQ |pred| T)))
+             (COND
+              ((EQUAL |$insideCapsuleFunctionIfTrue| T)
+               (PROGN
+                (SETQ |$CapsuleModemapFrame|
+                        (|addModemap0| |op| |mc| |sig| |pred| |fn|
+                         |$CapsuleModemapFrame|))
+                |$e|))
+              (#1# (|addModemap0| |op| |mc| |sig| |pred| |fn| |$e|)))))))))
+ 
 ; addConstructorModemaps(name,form is [functorName,:.],e) ==
 ;   $InteractiveMode: local:= nil
 ;   e:= putDomainsInScope(name,e) --frame

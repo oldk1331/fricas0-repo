@@ -10,7 +10,6 @@
 ;   t1 = t2 => triple
 ;   val := objVal triple
 ; 
-; 
 ;   val is ['THROW,label,code] =>
 ;     if label is ['QUOTE, l] then label := l
 ;     null($compilingMap) or (label ~= mapCatchName($mapName)) =>
@@ -71,17 +70,6 @@
 ;   -- 2. Set up a failure point otherwise
 ; 
 ;   intCodeGenCoerce1(val,t1,t2)
-; 
-; intCodeGenCoerce1(val,t1,t2) ==
-;   -- Internal function to previous one
-;   -- designed to ensure that we don't use coerceOrCroak on mappings
-; --(t2 is ['Mapping,:.]) => THROW('coerceOrCroaker, 'croaked)
-;   objNew(['coerceOrCroak,mkObjCode(['wrap,val],t1),
-;         MKQ t2, MKQ $mapName],t2)
-; 
-; --% Map components
-; 
-; wrapMapBodyWithCatch body ==
  
 (DEFUN |intCodeGenCOERCE| (|triple| |t2|)
   (PROG (|t1| |val| |ISTMP#1| |label| |ISTMP#2| |code| |l| |lastCode| |conds|
