@@ -2596,7 +2596,7 @@
 251442`\spad{degreePartition(f)} returns the degree partition (\spadignore{i.e.} the multiset of the degrees of the irreducible factors) of the polynomial \spad{f}.
 251554`\spad{degreePartition(ddfactorization)} returns the degree partition of the polynomial \spad{f} modulo \spad{p} where \spad{ddfactorization} is the distinct degree factorization of \spad{f} computed by \spadfunFrom{ddFact}{ModularDistinctDegreeFactorizer} for some prime \spad{p}.
 251681`\spad{degreeSubResultant(P,{} Q,{} d)} computes a subresultant of degree \spad{d}.
-251783`\spad{indiceSubResultant(P,{} Q,{} i)} returns a subresultant \spad{S} of degree \spad{d} and carries out the equality \spad{coef1*P + coef2*Q = S_i}.
+251783`\spad{degreeSubResultantEuclidean(P,{} Q,{} d)} returns a subresultant \spad{S_i} of degree \spad{d} and carries out the equality \spad{coef1*P + coef2*Q = S_i}.
 251937`\spad{dehomogenize(ls)} converts list of solutions (a,{} [\spad{c0},{} \spad{c1},{} ...,{} \spad{cn}]) to homogeneous equation \spad{L}(a) + \spad{c0} \spad{f} + \spad{c1} \spad{g1} + ... + \spad{cn} \spad{gn} = 0 into list of solutions of inhomogeneous equation \spad{L}(a) + \spad{f} 
 251937`--+ \spad{c1} \spad{g1} + ... + \spad{cn} \spad{gn} = 0. This transformation works the same for all equations,{} so we only need list of solutions as argument
 252158`\spad{delay(f)} creates a stream with a lazy evaluation defined by function \spad{f}. Caution: This function can only be called in compiled code.
@@ -4500,8 +4500,8 @@
 491958`\spad{laurent(a(n),{} n,{} x=a,{} n0..)} returns \spad{sum(n = n0..,{} a(n) * (x - a)^n)}; \spad{laurent(a(n),{} n,{} x=a,{} n0..n1)} returns \spad{sum(n = n0..n1,{} a(n) * (x - a)^n)}.
 492072`\spad{laurentIfCan(f(x))} converts the Puiseux series \spad{f(x)} to a Laurent series if possible. If this is not possible,{} "failed" is returned.
 492178`\spad{laurentRep(f(x))} returns \spad{g(x)} where the Puiseux series \spad{f(x) = g(x^r)} is represented by \spad{[r,{} g(x)]}.
-492266`\spad{Lazard2(F,{} x,{} y,{} n)} computes \spad{(x/y)^(n-1) * F}
-492356`\spad{Lazard(x,{} y,{} n)} computes \spad{x^n/y^(n-1)}
+492266`\spad{Lazard2(F,{} x,{} y,{} n)} computes \spad{(x^(n-1) * F) exquo y^(n-1)}
+492356`\spad{Lazard(x,{} y,{} n)} computes \spad{x^n exquo y^(n-1)}
 492437`\spad{LazardQuotient2(p,{} a,{} b,{} n)} returns \spad{(a^(n-1) * p) exquo b^(n-1)} assuming that this quotient does not fail.
 492557`\spad{LazardQuotient(a,{} b,{} n)} returns \spad{a^n exquo b^(n-1)} assuming that this quotient does not fail.
 492673`\spad{lazy?(s)} returns \spad{true} if the first node of the stream \spad{s} is a lazy evaluation mechanism which could produce an additional entry to \spad{s}.
@@ -6724,7 +6724,7 @@
 718924`\spad{resultant(p,{} q,{} v)} returns the resultant of the polynomials \spad{p} and \spad{q} with respect to the variable \spad{v}.
 719021`\spad{resultantEuclidean(P,{} Q)} carries out the equality \spad{coef1*P + coef2*Q = resultant(P,{} Q)}
 719142`\spad{resultantEuclidean_naif(P,{} Q)} returns the extended resultant of \spad{P} and \spad{Q} computed by means of the naive algorithm.
-719268`\spad{resultantEuclidean_naif(P,{} Q)} returns the resultant of \spad{P} and \spad{Q} computed by means of the naive algorithm.
+719268`\spad{resultant_naif(P,{} Q)} returns the resultant of \spad{P} and \spad{Q} computed by means of the naive algorithm.
 719345`\spad{resultantReduit(P,{}Q)} returns the "reduce resultant" of \spad{P} and \spad{Q}.
 719439`\spad{resultantReduitEuclidean(P,{} Q)} returns the "reduce resultant" and carries out the equality \spad{coef1*P + coef2*Q = resultantReduit(P,{} Q)}.
 719746`\spad{retract(de)} returns the system defining the differential equation \spad{de}.
@@ -7138,16 +7138,16 @@
 769394`\spad{selectOrPolynomials(lpred?,{} ps)} returns \spad{gps,{} bps} where \spad{gps} is a list of the polynomial \spad{p} in \spad{ps} such that \spad{pred?(p)} holds for some \spad{pred?} in \spad{lpred?} and \spad{bps} are the other ones.
 769539`\spad{selectPolynomials(pred?,{} ps)} returns \spad{gps,{} bps} where \spad{gps} is a list of the polynomial \spad{p} in \spad{ps} such that \spad{pred?(p)} holds and \spad{bps} are the other ones.
 769676`\spad{semicolonSeparate(l)} creates the form separating the elements of \spad{l} by semicolons.
-769735`\spad{indiceSubResultant(P,{} Q,{} i)} returns a subresultant \spad{S} of degree \spad{d} and carries out the equality \spad{...P + coef2*Q = S_i}. Warning: \spad{degree(P) >= degree(Q)}.
-769883`\spad{discriminantEuclidean(P)} carries out the equality \spad{...P + coef2 * D(P) = discriminant(P)}. Warning: \spad{degree(P) >= degree(Q)}.
-769998`\spad{semiIndiceSubResultantEuclidean(P,{} Q,{} i)} returns the subresultant \spad{S_i(P,{} Q)} and carries out the equality \spad{...P + coef2*Q = S_i(P,{} Q)} Warning: \spad{degree(P) >= degree(Q)}.
-770146`\spad{semiLastSubResultantEuclidean(P,{} Q)} computes the last non zero subresultant \spad{S} and carries out the equality \spad{...P + coef2*Q = S}. Warning: \spad{degree(P) >= degree(Q)}.
-770273`\spad{semiResultantEuclidean1(P,{} Q)} carries out the equality \spad{coef1.P + ? Q = resultant(P,{} Q)}.
-770388`\spad{semiResultantEuclidean2(P,{} Q)} carries out the equality \spad{...P + coef2*Q = resultant(P,{} Q)}. Warning: \spad{degree(P) >= degree(Q)}.
-770503`\spad{resultantEuclidean_naif(P,{} Q)} returns the semi-extended resultant of \spad{P} and \spad{Q} computed by means of the naive algorithm.
-770622`\spad{semiResultantReduitEuclidean(P,{} Q)} returns the "reduce resultant" and carries out the equality \spad{...P + coef2*Q = resultantReduit(P,{} Q)}.
-770764`\spad{semiSubResultantGcdEuclidean1(P,{} Q)} carries out the equality \spad{coef1*P + ? Q = +/- S_i(P,{} Q)} where the degree (not the indice) of the subresultant \spad{S_i(P,{} Q)} is as small as possible.
-770882`\spad{semiSubResultantGcdEuclidean2(P,{} Q)} carries out the equality \spad{...P + coef2*Q = +/- S_i(P,{} Q)} where the degree (not the indice) of the subresultant \spad{S_i(P,{} Q)} is as small as possible. Warning: \spad{degree(P) >= degree(Q)}.
+769735`\spad{semiDegreeSubResultantEuclidean(P,{} Q,{} d)} returns a subresultant \spad{S_i} of degree \spad{d} and carries out the equality \spad{... P + coef2*Q = S_i}. Warning: \spad{degree(P) >= degree(Q)}.
+769883`\spad{discriminantEuclidean(P)} carries out the equality \spad{... P + coef2 * D(P) = discriminant(P)}. Warning: \spad{degree(P) >= degree(Q)}.
+769998`\spad{semiIndiceSubResultantEuclidean(P,{} Q,{} i)} returns the subresultant \spad{S_i(P,{} Q)} and carries out the equality \spad{... P + coef2*Q = S_i(P,{} Q)} Warning: \spad{degree(P) >= degree(Q)}.
+770146`\spad{semiLastSubResultantEuclidean(P,{} Q)} computes the last non zero subresultant \spad{S} and carries out the equality \spad{... P + coef2*Q = S}. Warning: \spad{degree(P) >= degree(Q)}.
+770273`\spad{semiResultantEuclidean1(P,{} Q)} carries out the equality \spad{coef1.P + ... Q = resultant(P,{} Q)}.
+770388`\spad{semiResultantEuclidean2(P,{} Q)} carries out the equality \spad{... P + coef2*Q = resultant(P,{} Q)}. Warning: \spad{degree(P) >= degree(Q)}.
+770503`\spad{semiResultantEuclidean_naif(P,{} Q)} returns the semi-extended resultant of \spad{P} and \spad{Q} computed by means of the naive algorithm.
+770622`\spad{semiResultantReduitEuclidean(P,{} Q)} returns the "reduce resultant" and carries out the equality \spad{... P + coef2*Q = resultantReduit(P,{} Q)}.
+770764`\spad{semiSubResultantGcdEuclidean1(P,{} Q)} carries out the equality \spad{coef1*P + ... Q = +/- S_i(P,{} Q)} where the degree (not the indice) of the subresultant \spad{S_i(P,{} Q)} is as small as possible.
+770882`\spad{semiSubResultantGcdEuclidean2(P,{} Q)} carries out the equality \spad{... P + coef2*Q = +/- S_i(P,{} Q)} where the degree (not the indice) of the subresultant \spad{S_i(P,{} Q)} is as small as possible. Warning: \spad{degree(P) >= degree(Q)}.
 771000`\spad{sendGraphImage(\spad{gi})} takes the given graph,{} \spad{\spad{gi}} of the domain \spadtype{GraphImage},{} and sends it\spad{'s} data to the viewport manager where it waits to be included in a two-dimensional viewport window. \spad{\spad{gi}} cannot be an empty graph.
 771120`\spad{separant(p)} returns the partial derivative of the differential polynomial \spad{p} with respect to its leader.
 771193`\spad{separate(s)} makes each of the components of the \spadtype{SubSpace},{} \spad{s},{} into a list of separate and distinct subspaces and returns the list.
