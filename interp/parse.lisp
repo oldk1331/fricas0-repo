@@ -505,14 +505,14 @@
            (#1# (CONS (CAR |l|) (|parseJoin,fn| (CDR |l|))))))))
  
 ; parseInBy [i,n,inc] ==
-;   (u:= parseIn [i,n]) isnt ['STEP,i,a,j,:r] =>
+;   (u:= parseIn [i,n]) isnt ['STEP,i,a,1,:r] =>
 ;     postError ["   You cannot use",:bright '"by",
 ;       '"except for an explicitly indexed sequence."]
 ;   inc:= parseTran inc
 ;   ['STEP,i,a,parseTran inc,:r]
  
 (DEFUN |parseInBy| (|bfVar#25|)
-  (PROG (|i| |n| |inc| |u| |ISTMP#1| |ISTMP#2| |ISTMP#3| |a| |ISTMP#4| |j| |r|)
+  (PROG (|i| |n| |inc| |u| |ISTMP#1| |ISTMP#2| |ISTMP#3| |a| |ISTMP#4| |r|)
     (RETURN
      (PROGN
       (SETQ |i| (CAR |bfVar#25|))
@@ -533,9 +533,8 @@
                            (PROGN
                             (SETQ |a| (CAR |ISTMP#3|))
                             (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                            (AND (CONSP |ISTMP#4|)
+                            (AND (CONSP |ISTMP#4|) (EQUAL (CAR |ISTMP#4|) 1)
                                  (PROGN
-                                  (SETQ |j| (CAR |ISTMP#4|))
                                   (SETQ |r| (CDR |ISTMP#4|))
                                   #2='T))))))))))
         (|postError|
@@ -573,17 +572,11 @@
 ;   i:= parseTran i
 ;   n:= parseTran n
 ;   n is ['SEGMENT,a] => ['STEP,i,a,1]
-;   n is ['reverse,['SEGMENT,a]] =>
-;     postError ['"  You cannot reverse an infinite sequence."]
 ;   n is ['SEGMENT,a,b] => (b => ['STEP,i,a,1,b]; ['STEP,i,a,1])
-;   n is ['reverse,['SEGMENT,a,b]] =>
-;     b => ['STEP,i,b,-1,a]
-;     postError ['"  You cannot reverse an infinite sequence."]
-;   n is ['tails,s] => ['ON,i,s]
 ;   ['IN,i,n]
  
 (DEFUN |parseIn| (|bfVar#26|)
-  (PROG (|i| |n| |ISTMP#1| |a| |ISTMP#2| |ISTMP#3| |b| |ISTMP#4| |s|)
+  (PROG (|i| |n| |ISTMP#1| |a| |ISTMP#2| |b|)
     (RETURN
      (PROGN
       (SETQ |i| (CAR |bfVar#26|))
@@ -597,18 +590,6 @@
               (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                    (PROGN (SETQ |a| (CAR |ISTMP#1|)) #1='T))))
         (LIST 'STEP |i| |a| 1))
-       ((AND (CONSP |n|) (EQ (CAR |n|) '|reverse|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |n|))
-              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                   (PROGN
-                    (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CAR |ISTMP#2|) 'SEGMENT)
-                         (PROGN
-                          (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                          (AND (CONSP |ISTMP#3|) (EQ (CDR |ISTMP#3|) NIL)
-                               (PROGN (SETQ |a| (CAR |ISTMP#3|)) #1#))))))))
-        (|postError| (LIST "  You cannot reverse an infinite sequence.")))
        ((AND (CONSP |n|) (EQ (CAR |n|) 'SEGMENT)
              (PROGN
               (SETQ |ISTMP#1| (CDR |n|))
@@ -619,33 +600,6 @@
                     (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
                          (PROGN (SETQ |b| (CAR |ISTMP#2|)) #1#))))))
         (COND (|b| (LIST 'STEP |i| |a| 1 |b|)) (#1# (LIST 'STEP |i| |a| 1))))
-       ((AND (CONSP |n|) (EQ (CAR |n|) '|reverse|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |n|))
-              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                   (PROGN
-                    (SETQ |ISTMP#2| (CAR |ISTMP#1|))
-                    (AND (CONSP |ISTMP#2|) (EQ (CAR |ISTMP#2|) 'SEGMENT)
-                         (PROGN
-                          (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                          (AND (CONSP |ISTMP#3|)
-                               (PROGN
-                                (SETQ |a| (CAR |ISTMP#3|))
-                                (SETQ |ISTMP#4| (CDR |ISTMP#3|))
-                                (AND (CONSP |ISTMP#4|) (EQ (CDR |ISTMP#4|) NIL)
-                                     (PROGN
-                                      (SETQ |b| (CAR |ISTMP#4|))
-                                      #1#))))))))))
-        (COND (|b| (LIST 'STEP |i| |b| (- 1) |a|))
-              (#1#
-               (|postError|
-                (LIST "  You cannot reverse an infinite sequence.")))))
-       ((AND (CONSP |n|) (EQ (CAR |n|) '|tails|)
-             (PROGN
-              (SETQ |ISTMP#1| (CDR |n|))
-              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                   (PROGN (SETQ |s| (CAR |ISTMP#1|)) #1#))))
-        (LIST 'ON |i| |s|))
        (#1# (LIST 'IN |i| |n|)))))))
  
 ; parseIf t ==

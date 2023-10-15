@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5042 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -727,17 +727,17 @@
  |intcompBasis| |choosemon| |close!| |pack!| |library| |complexLimit|
  |dehomogenize| |lin_comb!| |lin_comb| |linearlyDependent?| |linearDependence|
  |solveLinear| |reducedSystem| |setDifference| |setIntersection| |setUnion|
- |append| |null| |nil| |match| |splitList| |topologicalSort!| |topologicalSort|
- |cartesianPower| |minShift| |substitute| |duplicates?| |mapGen| |mapExpon|
- |commutativeEquality| |leftMult| |rightMult| |makeUnit| |nthFactor| |nthExpon|
- |makeMulti| |makeTerm| |listOfMonoms| |sort!| |reverse!| |copyInto!| |sorted?|
- |reverse| |insert| |delete| |delta_deriv| |symmetricSquare| |factor1| |testnp|
- |testfn| |testf2| |testll| |testlc| |testln| |testlw| |testcp| |testco|
- |testcx| |testpd| |testfr| |testsb| |testro| |testfo| |testsc| |testfg|
- |testlp| |testis| |testgt| |gen_exp| |ge_minimal| |symmetricProduct|
- |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
- |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |tails| |append| |null| |nil| |match| |splitList| |topologicalSort!|
+ |topologicalSort| |cartesianPower| |minShift| |substitute| |duplicates?|
+ |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
+ |nthFactor| |nthExpon| |makeMulti| |makeTerm| |listOfMonoms| |sort!|
+ |reverse!| |copyInto!| |sorted?| |reverse| |insert| |delete| |delta_deriv|
+ |symmetricSquare| |factor1| |testnp| |testfn| |testf2| |testll| |testlc|
+ |testln| |testlw| |testcp| |testco| |testcx| |testpd| |testfr| |testsb|
+ |testro| |testfo| |testsc| |testfg| |testlp| |testis| |testgt| |gen_exp|
+ |ge_minimal| |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
+ |lcmCoef| |solveLinearPolynomialEquationByFractions| |list| |hasSolution?|
+ |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
  |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
  |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
