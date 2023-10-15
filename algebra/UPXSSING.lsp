@@ -780,7 +780,7 @@
            ((NULL
              (LETT |termList| (|UPXSSING;terms| |f| $)
                    . #3=(|UPXSSING;limitPlus;$U;16|)))
-            (CONS 0 (|spadConstant| $ 58)))
+            (CONS 0 (SPADCALL (|spadConstant| $ 37) (QREFELT $ 58))))
            (#4='T
             (SEQ (LETT |tInfo| (|UPXSSING;iDominantTerm| |termList| $) . #3#)
                  (EXIT
@@ -804,7 +804,9 @@
                                    (COND
                                     ((SPADCALL |ord| (|spadConstant| $ 35)
                                                (QREFELT $ 39))
-                                     (CONS 0 (|spadConstant| $ 58)))
+                                     (CONS 0
+                                           (SPADCALL (|spadConstant| $ 37)
+                                                     (QREFELT $ 58))))
                                     (#4#
                                      (SEQ
                                       (LETT |coef|
@@ -822,7 +824,7 @@
                                                    (QREFELT $ 40))
                                          (CONS 0
                                                (SPADCALL |coef|
-                                                         (QREFELT $ 66))))
+                                                         (QREFELT $ 58))))
                                         (#4#
                                          (SEQ
                                           (LETT |signum|
@@ -835,14 +837,16 @@
                                              (CONS 1 "failed"))
                                             ((EQL (QCDR |signum|) 1)
                                              (CONS 0
-                                                   (SPADCALL (QREFELT $ 67))))
+                                                   (SPADCALL (QREFELT $ 66))))
                                             (#4#
                                              (CONS 0
                                                    (SPADCALL
                                                     (QREFELT $
-                                                             68))))))))))))))))
+                                                             67))))))))))))))))
                                 ((EQUAL |type| "zero")
-                                 (CONS 0 (|spadConstant| $ 58)))
+                                 (CONS 0
+                                       (SPADCALL (|spadConstant| $ 37)
+                                                 (QREFELT $ 58))))
                                 (#4#
                                  (SEQ
                                   (LETT |ord|
@@ -850,7 +854,7 @@
                                          (LETT |pSeries|
                                                (|UPXSSING;coeff| |domTerm| $)
                                                . #3#)
-                                         (QREFELT $ 69))
+                                         (QREFELT $ 68))
                                         . #3#)
                                   (LETT |coef|
                                         (SPADCALL |pSeries| |ord|
@@ -871,12 +875,12 @@
                                        (COND
                                         ((QEQCAR |signum| 1) (CONS 1 "failed"))
                                         ((EQL (QCDR |signum|) 1)
-                                         (CONS 0 (SPADCALL (QREFELT $ 67))))
+                                         (CONS 0 (SPADCALL (QREFELT $ 66))))
                                         (#4#
                                          (CONS 0
                                                (SPADCALL
                                                 (QREFELT $
-                                                         68)))))))))))))))))))))))) 
+                                                         67)))))))))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeriesWithExponentialSingularity;|)) 
 
@@ -920,7 +924,7 @@
           (LIST '|UnivariatePuiseuxSeriesWithExponentialSingularity| DV$1 DV$2
                 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 83) . #1#)
+    (LETT $ (GETREFV 82) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -1003,38 +1007,38 @@
               (34 . |monomial|) (|Union| $ '"failed") |UPXSSING;recip;$U;2|
               (|Record| (|:| |k| 34) (|:| |c| 7)) (|Stream| 26) (40 . |terms|)
               (45 . |complete|) (|List| 26) (50 . |entries|) (55 . |zero?|)
-              (60 . |reductum|) (|Fraction| 73) (65 . |Zero|) (69 . |Zero|)
+              (60 . |reductum|) (|Fraction| 72) (65 . |Zero|) (69 . |Zero|)
               (73 . |Zero|) (77 . |order|) (83 . >) (89 . =)
-              (95 . |coefficient|) (|Union| 73 '"failed")
+              (95 . |coefficient|) (|Union| 72 '"failed")
               (|ElementaryFunctionSign| 6 7) (101 . |sign|)
               (|Record| (|:| |%coef| 17) (|:| |%expon| 13)
                         (|:| |%expTerms| 30))
               (|List| 45) (106 . |list|) (111 . =) (117 . -) (123 . <)
               (129 . |zero?|) (134 . |Zero|) (138 . |order|)
-              (|Record| (|:| |%term| 45) (|:| |%type| 79))
+              (|Record| (|:| |%term| 45) (|:| |%type| 78))
               (|Union| 54 '"failed") |UPXSSING;dominantTerm;$U;15|
-              (|OrderedCompletion| 7) (143 . |Zero|) (147 . |One|)
-              (151 . |order|) (157 . |coefficient|) (|List| 64)
-              (163 . |variables|) (|Symbol|) (168 . |member?|) (174 . |coerce|)
-              (179 . |plusInfinity|) (183 . |minusInfinity|) (187 . |order|)
+              (|OrderedCompletion| 7) (143 . |coerce|) (148 . |One|)
+              (152 . |order|) (158 . |coefficient|) (|List| 64)
+              (164 . |variables|) (|Symbol|) (169 . |member?|)
+              (175 . |plusInfinity|) (179 . |minusInfinity|) (183 . |order|)
               (|Union| 57 '"failed") |UPXSSING;limitPlus;$U;16|
               (|Union| 34 '#1#) (|Integer|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Mapping| 13 13) (|List| 17) (|Mapping| 17 17)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
               (|OutputForm|))
-           '#(~= 192 |zero?| 198 |unitNormal| 203 |unitCanonical| 208 |unit?|
-              213 |subtractIfCan| 218 |sample| 224 |retractIfCan| 228 |retract|
-              243 |reductum| 258 |recip| 263 |primitivePart| 268 |pomopo!| 273
-              |opposite?| 281 |one?| 287 |numberOfMonomials| 292 |monomial?|
-              297 |monomial| 302 |minimumDegree| 308 |mapExponents| 313 |map|
-              319 |limitPlus| 325 |leadingMonomial| 330 |leadingCoefficient|
-              335 |latex| 340 |hashUpdate!| 345 |hash| 351 |ground?| 356
-              |ground| 361 |fmecg| 366 |exquo| 374 |dominantTerm| 386 |degree|
-              391 |content| 396 |coerce| 401 |coefficients| 426 |coefficient|
-              431 |charthRoot| 437 |characteristic| 442 |binomThmExpt| 446
-              |associates?| 453 |annihilate?| 459 ^ 465 |Zero| 477 |One| 481 =
-              485 / 491 - 497 + 508 * 514)
+           '#(~= 188 |zero?| 194 |unitNormal| 199 |unitCanonical| 204 |unit?|
+              209 |subtractIfCan| 214 |sample| 220 |retractIfCan| 224 |retract|
+              239 |reductum| 254 |recip| 259 |primitivePart| 264 |pomopo!| 269
+              |opposite?| 277 |one?| 283 |numberOfMonomials| 288 |monomial?|
+              293 |monomial| 298 |minimumDegree| 304 |mapExponents| 309 |map|
+              315 |limitPlus| 321 |leadingMonomial| 326 |leadingCoefficient|
+              331 |latex| 336 |hashUpdate!| 341 |hash| 347 |ground?| 352
+              |ground| 357 |fmecg| 362 |exquo| 370 |dominantTerm| 382 |degree|
+              387 |content| 392 |coerce| 397 |coefficients| 422 |coefficient|
+              427 |charthRoot| 433 |characteristic| 438 |binomThmExpt| 442
+              |associates?| 449 |annihilate?| 455 ^ 461 |Zero| 473 |One| 477 =
+              481 / 487 - 493 + 504 * 510)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -1075,9 +1079,9 @@
                  (|SetCategory|) (|noZeroDivisors|) (|CommutativeStar|)
                  (|unitsKnown|)
                  (|RetractableTo| (|UnivariatePuiseuxSeries| 7 8 9))
-                 (|BasicType|) (|CoercibleTo| 82) (|RetractableTo| 34)
-                 (|RetractableTo| 73))
-              (|makeByteWordVec2| 82
+                 (|BasicType|) (|CoercibleTo| 81) (|RetractableTo| 34)
+                 (|RetractableTo| 72))
+              (|makeByteWordVec2| 81
                                   '(1 0 10 0 11 0 7 0 12 1 0 13 0 14 1 13 15 0
                                     16 1 0 17 0 18 1 17 0 0 21 1 13 0 0 22 2 0
                                     0 17 13 23 1 13 27 0 28 1 27 0 0 29 1 27 30
@@ -1086,27 +1090,26 @@
                                     39 2 34 15 0 0 40 2 13 7 0 34 41 1 43 42 7
                                     44 1 46 0 45 47 2 7 15 0 0 48 2 7 0 0 0 49
                                     2 34 15 0 0 50 1 17 15 0 51 0 13 0 52 1 13
-                                    34 0 53 0 57 0 58 0 34 0 59 2 17 34 0 34 60
-                                    2 17 7 0 34 61 1 7 62 0 63 2 62 15 64 0 65
-                                    1 57 0 7 66 0 57 0 67 0 57 0 68 1 17 34 0
-                                    69 2 0 15 0 0 1 1 0 15 0 32 1 0 74 0 1 1 0
-                                    0 0 1 1 0 15 0 1 2 0 24 0 0 1 0 0 0 1 1 5
-                                    72 0 1 1 6 42 0 1 1 0 19 0 20 1 5 34 0 1 1
-                                    6 73 0 1 1 0 17 0 1 1 0 0 0 33 1 0 24 0 25
-                                    1 11 0 0 1 4 0 0 0 17 13 0 1 2 0 15 0 0 1 1
-                                    0 15 0 1 1 0 10 0 11 1 0 15 0 1 2 0 0 17 13
-                                    23 1 0 13 0 1 2 0 0 75 0 1 2 0 0 77 0 1 1 0
-                                    70 0 71 1 0 0 0 1 1 0 17 0 18 1 0 79 0 1 2
-                                    0 81 81 0 1 1 0 80 0 1 1 0 15 0 1 1 0 17 0
-                                    1 4 9 0 0 13 17 0 1 2 10 24 0 17 1 2 0 24 0
-                                    0 1 1 0 55 0 56 1 0 13 0 14 1 11 17 0 1 1 8
-                                    0 34 1 1 0 0 0 1 1 0 0 73 1 1 0 0 17 1 1 0
-                                    82 0 1 1 0 76 0 1 2 0 17 0 13 1 1 2 24 0 1
-                                    0 0 10 1 3 12 0 0 0 10 1 2 0 15 0 0 1 2 0
-                                    15 0 0 1 2 0 0 0 10 1 2 0 0 0 78 1 0 0 0 1
-                                    0 0 0 1 2 0 15 0 0 1 2 7 0 0 17 1 2 0 0 0 0
-                                    1 1 0 0 0 1 2 0 0 0 0 1 2 1 0 0 34 1 2 1 0
-                                    34 0 1 2 0 0 10 0 1 2 0 0 73 0 1 2 0 0 17 0
-                                    1 2 0 0 0 0 1 2 0 0 0 17 1 2 0 0 78 0
-                                    1)))))
+                                    34 0 53 1 57 0 7 58 0 34 0 59 2 17 34 0 34
+                                    60 2 17 7 0 34 61 1 7 62 0 63 2 62 15 64 0
+                                    65 0 57 0 66 0 57 0 67 1 17 34 0 68 2 0 15
+                                    0 0 1 1 0 15 0 32 1 0 73 0 1 1 0 0 0 1 1 0
+                                    15 0 1 2 0 24 0 0 1 0 0 0 1 1 5 71 0 1 1 6
+                                    42 0 1 1 0 19 0 20 1 5 34 0 1 1 6 72 0 1 1
+                                    0 17 0 1 1 0 0 0 33 1 0 24 0 25 1 11 0 0 1
+                                    4 0 0 0 17 13 0 1 2 0 15 0 0 1 1 0 15 0 1 1
+                                    0 10 0 11 1 0 15 0 1 2 0 0 17 13 23 1 0 13
+                                    0 1 2 0 0 74 0 1 2 0 0 76 0 1 1 0 69 0 70 1
+                                    0 0 0 1 1 0 17 0 18 1 0 78 0 1 2 0 80 80 0
+                                    1 1 0 79 0 1 1 0 15 0 1 1 0 17 0 1 4 9 0 0
+                                    13 17 0 1 2 10 24 0 17 1 2 0 24 0 0 1 1 0
+                                    55 0 56 1 0 13 0 14 1 11 17 0 1 1 8 0 34 1
+                                    1 0 0 0 1 1 0 0 72 1 1 0 0 17 1 1 0 81 0 1
+                                    1 0 75 0 1 2 0 17 0 13 1 1 2 24 0 1 0 0 10
+                                    1 3 12 0 0 0 10 1 2 0 15 0 0 1 2 0 15 0 0 1
+                                    2 0 0 0 10 1 2 0 0 0 77 1 0 0 0 1 0 0 0 1 2
+                                    0 15 0 0 1 2 7 0 0 17 1 2 0 0 0 0 1 1 0 0 0
+                                    1 2 0 0 0 0 1 2 1 0 0 34 1 2 1 0 34 0 1 2 0
+                                    0 10 0 1 2 0 0 72 0 1 2 0 0 17 0 1 2 0 0 0
+                                    0 1 2 0 0 0 17 1 2 0 0 77 0 1)))))
            '|lookupComplete|)) 
