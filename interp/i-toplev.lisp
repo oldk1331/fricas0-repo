@@ -130,31 +130,44 @@
  
 ; readSpadProfileIfThere() ==
 ;   -- reads SPADPROF INPUT if it exists
-;   file := ['_.fricas, 'input]
-;   make_input_filename(file) =>
-;     $edit_file := file
-;     read_or_compile(true, false)
-;   file := ['_.axiom,'input]
-;   make_input_filename(file) =>
-;     $edit_file := file
+;   file := getEnv('"FRICAS_INITFILE")
+;   file = '"" => nil
+;   efile :=
+;     make_input_filename(file) => file
+;     file := ['_.fricas, 'input]
+;     make_input_filename(file) => file
+;     file := ['_.axiom, 'input]
+;     make_input_filename(file) => file
+;     NIL
+;   efile =>
+;     $edit_file := efile
 ;     read_or_compile(true, false)
 ;   NIL
  
 (DEFUN |readSpadProfileIfThere| ()
-  (PROG (|file|)
+  (PROG (|efile| |file|)
     (RETURN
      (PROGN
-      (SETQ |file| (LIST '|.fricas| '|input|))
-      (COND
-       ((|make_input_filename| |file|)
-        (PROGN (SETQ |$edit_file| |file|) (|read_or_compile| T NIL)))
-       (#1='T
-        (PROGN
-         (SETQ |file| (LIST '|.axiom| '|input|))
-         (COND
-          ((|make_input_filename| |file|)
-           (PROGN (SETQ |$edit_file| |file|) (|read_or_compile| T NIL)))
-          (#1# NIL)))))))))
+      (SETQ |file| (|getEnv| "FRICAS_INITFILE"))
+      (COND ((EQUAL |file| "") NIL)
+            (#1='T
+             (PROGN
+              (SETQ |efile|
+                      (COND ((|make_input_filename| |file|) |file|)
+                            (#1#
+                             (PROGN
+                              (SETQ |file| (LIST '|.fricas| '|input|))
+                              (COND ((|make_input_filename| |file|) |file|)
+                                    (#1#
+                                     (PROGN
+                                      (SETQ |file| (LIST '|.axiom| '|input|))
+                                      (COND
+                                       ((|make_input_filename| |file|) |file|)
+                                       (#1# NIL)))))))))
+              (COND
+               (|efile|
+                (PROGN (SETQ |$edit_file| |efile|) (|read_or_compile| T NIL)))
+               (#1# NIL)))))))))
  
 ; DEFPARAMETER($inRetract, nil)
  
