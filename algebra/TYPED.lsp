@@ -87,7 +87,11 @@
          ('T NIL))) 
 
 (SDEFUN |TYPED;coerce;$Of;9| ((|n| $) ($ |OutputForm|))
-        (SPADCALL (SPADCALL |n| (QREFELT $ 17)) (QREFELT $ 33))) 
+        (SPADCALL
+         (LIST (SPADCALL (QCAR |n|) (QREFELT $ 33))
+               (SPADCALL ":" (QREFELT $ 33))
+               (SPADCALL (QCDR |n|) (QREFELT $ 34)))
+         (QREFELT $ 35))) 
 
 (DECLAIM (NOTINLINE |Typed;|)) 
 
@@ -111,7 +115,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|Typed|) . #1=(|Typed|))
-          (LETT $ (GETREFV 35) . #1#)
+          (LETT $ (GETREFV 37) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|Typed| NIL (CONS 1 $))
@@ -132,23 +136,25 @@
               (|Record| (|:| |rft| $) (|:| |pout| 26)) (|NonNegativeInteger|)
               (36 . |parseIL2|) |TYPED;parseVarTerm;SNniR;6|
               |TYPED;parseVar;S$;7| (42 . =) |TYPED;=;2$B;8| (|OutputForm|)
-              (48 . |coerce|) |TYPED;coerce;$Of;9|)
-           '#(|var| 53 |toString| 64 |parseVarTerm| 69 |parseVar| 75 |getType|
-              80 |getName| 85 |coerce| 90 = 95)
+              (48 . |message|) (53 . |coerce|) (58 . |hconcat|)
+              |TYPED;coerce;$Of;9|)
+           '#(|var| 63 |toString| 74 |parseVarTerm| 79 |parseVar| 85 |getType|
+              90 |getName| 95 |coerce| 100 = 110)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(NIL NIL NIL)
                        (CONS '#((|VarCat|) (|Type|) (|CoercibleTo| 32))
-                             (|makeByteWordVec2| 34
+                             (|makeByteWordVec2| 36
                                                  '(0 7 0 8 1 7 9 0 14 1 9 0 15
                                                    16 1 19 18 0 20 2 9 0 0 19
                                                    21 1 9 22 0 23 2 22 18 0 0
                                                    24 2 7 25 9 26 27 2 7 18 0 0
-                                                   30 1 9 32 0 33 1 0 0 9 10 2
-                                                   0 0 9 7 11 1 0 9 0 17 2 0 25
-                                                   9 26 28 1 0 0 9 29 1 0 7 0
-                                                   13 1 0 9 0 12 1 0 32 0 34 2
-                                                   0 18 0 0 31)))))
+                                                   30 1 32 0 9 33 1 7 32 0 34 1
+                                                   32 0 15 35 2 0 0 9 7 11 1 0
+                                                   0 9 10 1 0 9 0 17 2 0 25 9
+                                                   26 28 1 0 0 9 29 1 0 7 0 13
+                                                   1 0 9 0 12 1 0 32 0 36 1 0
+                                                   32 0 36 2 0 18 0 0 31)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Typed| 'NILADIC T) 

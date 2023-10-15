@@ -15,7 +15,7 @@
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
          ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
         (SPROG
-         ((|p1| #1#) (#2=#:G160 NIL) (|ch| (|Character|)) (|trm| ($))
+         ((|p1| #1#) (#2=#:G162 NIL) (|ch| (|Character|)) (|trm| ($))
           (|r2| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|)))))
          (SEQ
           (EXIT
@@ -27,7 +27,7 @@
                        (EXIT
                         (PROGN
                          (LETT #2# (CONS (CONS 0 'I) |p1|) . #3#)
-                         (GO #4=#:G159))))))
+                         (GO #4=#:G161))))))
                 (LETT |p1| (+ |p1| 1) . #3#)
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15)) (QREFELT $ 17))
@@ -52,7 +52,7 @@
 (SDEFUN |SKICOMB;parseCombinatorTerm|
         ((|t1| |String|) (|pin| . #1=(|NonNegativeInteger|))
          ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-        (SPROG ((#2=#:G166 NIL) (|ch| (|Character|)) (|p1| #1#))
+        (SPROG ((#2=#:G168 NIL) (|ch| (|Character|)) (|p1| #1#))
                (SEQ
                 (EXIT
                  (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseCombinatorTerm|))
@@ -61,7 +61,7 @@
                        ((|eql_SI| |ch| (|STR_to_CHAR| "I"))
                         (PROGN
                          (LETT #2# (CONS (CONS 0 'I) (+ |p1| 1)) . #3#)
-                         (GO #4=#:G165))))
+                         (GO #4=#:G167))))
                       (COND
                        ((|eql_SI| |ch| (|STR_to_CHAR| "K"))
                         (PROGN
@@ -83,7 +83,7 @@
          ((|p1| #1#) (|res| ($))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
           (|r2| (|Record| (|:| |rft| UT) (|:| |pout| (|NonNegativeInteger|))))
-          (|ch| (|Character|)) (#2=#:G180 NIL))
+          (|ch| (|Character|)) (#2=#:G182 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseOneTerm|))
@@ -98,7 +98,7 @@
                                       (QREFELT $ 17))
                             (PROGN
                              (LETT #2# (CONS |res| |p1|) . #3#)
-                             (GO #4=#:G179))))
+                             (GO #4=#:G181))))
                           (EXIT (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
@@ -131,10 +131,10 @@
         ((|t1| |String|) (|pin| |NonNegativeInteger|)
          ($ |Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
         (SPROG
-         ((|res| ($)) (#1=#:G190 NIL) (|i| NIL) (|ch| (|Character|))
+         ((|res| ($)) (#1=#:G192 NIL) (|i| NIL) (|ch| (|Character|))
           (|stck| (|List| $)) (|p1| (|NonNegativeInteger|))
           (|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-          (#2=#:G189 NIL))
+          (#2=#:G191 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |p1| |pin| . #3=(|SKICOMB;parseTerm;SNniR;9|))
@@ -142,7 +142,7 @@
                 (LETT |res| (QCAR |r|) . #3#) (LETT |p1| (QCDR |r|) . #3#)
                 (COND
                  ((SPADCALL |p1| (SPADCALL |t1| (QREFELT $ 15)) (QREFELT $ 17))
-                  (PROGN (LETT #2# (CONS |res| |p1|) . #3#) (GO #4=#:G188))))
+                  (PROGN (LETT #2# (CONS |res| |p1|) . #3#) (GO #4=#:G190))))
                 (LETT |ch| (STR_ELT1 |t1| |p1|) . #3#) (LETT |stck| NIL . #3#)
                 (SEQ G190
                      (COND
@@ -182,7 +182,7 @@
 (SDEFUN |SKICOMB;parseSki;S$;10| ((|t1| |String|) ($ $))
         (SPROG
          ((|r| (|Record| (|:| |rft| $) (|:| |pout| (|NonNegativeInteger|))))
-          (#1=#:G191 NIL))
+          (#1=#:G193 NIL))
          (SEQ
           (LETT |r|
                 (SPADCALL |t1|
@@ -197,7 +197,7 @@
           (EXIT (QCAR |r|))))) 
 
 (SDEFUN |SKICOMB;getChildren;$L;11| ((|n| $) ($ |List| $))
-        (SPROG ((#1=#:G143 NIL) (#2=#:G198 NIL))
+        (SPROG ((#1=#:G145 NIL) (#2=#:G200 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -205,7 +205,7 @@
                    ((SPADCALL |n| (QREFELT $ 32))
                     (PROGN
                      (LETT #2# NIL . #3=(|SKICOMB;getChildren;$L;11|))
-                     (GO #4=#:G197))))
+                     (GO #4=#:G199))))
                   (EXIT
                    (LIST
                     (QCAR
@@ -240,7 +240,7 @@
 (SDEFUN |SKICOMB;variable?;$B;13| ((|n| $) ($ |Boolean|)) (QEQCAR |n| 2)) 
 
 (SDEFUN |SKICOMB;isI?;$B;14| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G208 NIL))
+        (SPROG ((#1=#:G210 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -248,14 +248,14 @@
                    ((NULL (QEQCAR |n| 0))
                     (PROGN
                      (LETT #1# NIL . #2=(|SKICOMB;isI?;$B;14|))
-                     (GO #3=#:G207))))
+                     (GO #3=#:G209))))
                   (COND
                    ((EQUAL (CDR |n|) 'I) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;isK?;$B;15| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G216 NIL))
+        (SPROG ((#1=#:G218 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -263,14 +263,14 @@
                    ((NULL (QEQCAR |n| 0))
                     (PROGN
                      (LETT #1# NIL . #2=(|SKICOMB;isK?;$B;15|))
-                     (GO #3=#:G215))))
+                     (GO #3=#:G217))))
                   (COND
                    ((EQUAL (CDR |n|) 'K) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;isS?;$B;16| ((|n| $) ($ |Boolean|))
-        (SPROG ((#1=#:G224 NIL))
+        (SPROG ((#1=#:G226 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -278,14 +278,14 @@
                    ((NULL (QEQCAR |n| 0))
                     (PROGN
                      (LETT #1# NIL . #2=(|SKICOMB;isS?;$B;16|))
-                     (GO #3=#:G223))))
+                     (GO #3=#:G225))))
                   (COND
                    ((EQUAL (CDR |n|) 'S) (PROGN (LETT #1# 'T . #2#) (GO #3#))))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;getVariable;$UT;17| ((|n| $) ($ UT))
-        (SPROG ((#1=#:G227 NIL))
+        (SPROG ((#1=#:G229 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -293,12 +293,12 @@
                    ((QEQCAR |n| 2)
                     (PROGN
                      (LETT #1# (CDR |n|) |SKICOMB;getVariable;$UT;17|)
-                     (GO #2=#:G226))))
+                     (GO #2=#:G228))))
                   (EXIT (SPADCALL " " (QREFELT $ 39)))))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;freeVariable?;$UTB;18| ((|n| $) (|s| UT) ($ |Boolean|))
-        (SPROG ((#1=#:G237 NIL))
+        (SPROG ((#1=#:G239 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -308,7 +308,7 @@
                      ((SPADCALL (CDR |n|) |s| (QREFELT $ 41))
                       (PROGN
                        (LETT #1# NIL . #2=(|SKICOMB;freeVariable?;$UTB;18|))
-                       (GO #3=#:G236))))))
+                       (GO #3=#:G238))))))
                   (COND
                    ((QEQCAR |n| 1)
                     (COND
@@ -373,7 +373,7 @@
 
 (SDEFUN |SKICOMB;redux1| ((|n| $) ($ $))
         (SPROG
-         ((#1=#:G256 NIL) (|leftleftright| ($)) (|leftleftleft| ($))
+         ((#1=#:G258 NIL) (|leftleftright| ($)) (|leftleftleft| ($))
           (|leftright| ($)) (|leftleft| ($)) (|right| ($)) (|left| ($)))
          (SEQ
           (EXIT
@@ -386,7 +386,7 @@
                (LETT |right| (|SKICOMB;redux1| (QCDR (CDR |n|)) $) . #2#)
                (COND
                 ((SPADCALL |left| (QREFELT $ 36))
-                 (PROGN (LETT #1# |right| . #2#) (GO #3=#:G255))))
+                 (PROGN (LETT #1# |right| . #2#) (GO #3=#:G257))))
                (COND
                 ((NULL (QEQCAR |left| 1))
                  (PROGN
@@ -423,7 +423,7 @@
 
 (SDEFUN |SKICOMB;redux;2$;21| ((|n| $) ($ $))
         (SPROG
-         ((|triesLeft| (|NonNegativeInteger|)) (#1=#:G258 NIL)
+         ((|triesLeft| (|NonNegativeInteger|)) (#1=#:G260 NIL)
           (|thisResult| ($)) (|lastResult| ($)))
          (SEQ (LETT |lastResult| (CONS 0 'I) . #2=(|SKICOMB;redux;2$;21|))
               (LETT |thisResult| (|SKICOMB;redux1| |n| $) . #2#)
@@ -446,13 +446,13 @@
                                                   '(|Integer|) #1#))
                               . #2#)
                         (EXIT
-                         (|sayBrightly|
-                          (SPADCALL |lastResult| (QREFELT $ 43)))))
+                         (SPADCALL (SPADCALL |lastResult| (QREFELT $ 49))
+                                   (QREFELT $ 51))))
                    NIL (GO G190) G191 (EXIT NIL))
               (EXIT |thisResult|)))) 
 
 (SDEFUN |SKICOMB;=;2$B;22| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G276 NIL))
+        (SPROG ((#1=#:G278 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -465,7 +465,7 @@
                         ((EQUAL (CDR |x|) (CDR |y|))
                          (PROGN
                           (LETT #1# 'T . #2=(|SKICOMB;=;2$B;22|))
-                          (GO #3=#:G275))))
+                          (GO #3=#:G277))))
                        (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |x| 2)
@@ -483,23 +483,65 @@
                       (SEQ
                        (COND
                         ((SPADCALL (QCAR (CDR |x|)) (QCAR (CDR |y|))
-                                   (QREFELT $ 49))
+                                   (QREFELT $ 53))
                          (COND
                           ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
-                                     (QREFELT $ 49))
+                                     (QREFELT $ 53))
                            (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
                        (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SKICOMB;coerce;$Of;23| ((|n| $) ($ |OutputForm|))
-        (SPADCALL (SPADCALL |n| (QREFELT $ 43)) (QREFELT $ 51))) 
+        (SPROG ((|s| (|OutputForm|)))
+               (SEQ
+                (LETT |s| (SPADCALL (QREFELT $ 54))
+                      . #1=(|SKICOMB;coerce;$Of;23|))
+                (COND
+                 ((QEQCAR |n| 0)
+                  (SPADCALL (SPADCALL (CDR |n|) (QREFELT $ 56))
+                            (QREFELT $ 57))))
+                (COND
+                 ((QEQCAR |n| 1)
+                  (COND
+                   ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 32))
+                    (COND
+                     ((SPADCALL (QCDR (CDR |n|)) (QREFELT $ 35))
+                      (LETT |s|
+                            (SPADCALL
+                             (LIST |s|
+                                   (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
+                                   (SPADCALL " " (QREFELT $ 58))
+                                   (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
+                             (QREFELT $ 59))
+                            . #1#))
+                     (#2='T
+                      (LETT |s|
+                            (SPADCALL
+                             (LIST |s|
+                                   (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
+                                   (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
+                             (QREFELT $ 59))
+                            . #1#))))
+                   (#2#
+                    (LETT |s|
+                          (SPADCALL
+                           (LIST |s| (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
+                                 (SPADCALL "(" (QREFELT $ 58))
+                                 (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
+                                 (SPADCALL ")" (QREFELT $ 58)))
+                           (QREFELT $ 59))
+                          . #1#)))))
+                (COND
+                 ((QEQCAR |n| 2)
+                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 60)) . #1#)))
+                (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |SKICombinators;|)) 
 
-(DEFUN |SKICombinators| (#1=#:G278)
+(DEFUN |SKICombinators| (#1=#:G284)
   (SPROG NIL
-         (PROG (#2=#:G279)
+         (PROG (#2=#:G285)
            (RETURN
             (COND
              ((LETT #2#
@@ -521,7 +563,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SKICombinators|))
           (LETT |dv$| (LIST '|SKICombinators| DV$1) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SKICombinators| (LIST DV$1)
@@ -551,32 +593,38 @@
               |SKICOMB;getVariable;$UT;17| (59 . =)
               |SKICOMB;freeVariable?;$UTB;18| |SKICOMB;toString;$S;19|
               (65 . |concat|) (70 . |toString|) (75 . ~=) (81 . >)
-              |SKICOMB;redux;2$;21| |SKICOMB;=;2$B;22| (|OutputForm|)
-              (87 . |coerce|) |SKICOMB;coerce;$Of;23|)
-           '#(|variable?| 92 |toString| 97 |ski| 102 |redux| 113 |parseTerm|
-              118 |parseSki| 124 |isS?| 129 |isK?| 134 |isI?| 139 |getVariable|
-              144 |getChildren| 149 |freeVariable?| 154 |coerce| 160 |atom?|
-              165 S 170 K 174 I 178 = 182)
+              (|OutputForm|) |SKICOMB;coerce;$Of;23| (|Void|) (87 . |print|)
+              |SKICOMB;redux;2$;21| |SKICOMB;=;2$B;22| (92 . |empty|)
+              (|Symbol|) (96 . |string|) (101 . |coerce|) (106 . |message|)
+              (111 . |hconcat|) (116 . |coerce|) (|SingleInteger|)
+              (|HashState|))
+           '#(~= 121 |variable?| 127 |toString| 132 |ski| 137 |redux| 148
+              |parseTerm| 153 |parseSki| 159 |latex| 164 |isS?| 169 |isK?| 174
+              |isI?| 179 |hashUpdate!| 184 |hash| 190 |getVariable| 195
+              |getChildren| 200 |freeVariable?| 205 |coerce| 211 |atom?| 216 S
+              221 K 225 I 229 = 233)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0))
-                 (CONS '#(NIL)
-                       (CONS '#((|CoercibleTo| 50))
-                             (|makeByteWordVec2| 52
-                                                 '(1 14 13 0 15 2 13 16 0 0 17
-                                                   1 21 16 0 22 1 21 16 0 23 1
-                                                   21 16 0 24 2 6 18 14 19 25 2
-                                                   26 0 0 2 27 1 26 19 0 28 2
-                                                   26 2 0 13 29 1 14 13 0 30 1
-                                                   6 0 14 39 2 6 16 0 0 41 1 14
-                                                   0 33 44 1 6 14 0 45 2 7 16 2
-                                                   2 46 2 19 16 0 0 47 1 14 50
-                                                   0 51 1 0 16 0 35 1 0 14 0 43
-                                                   1 0 0 6 9 2 0 0 0 0 8 1 0 0
-                                                   0 48 2 0 18 14 19 20 1 0 0
-                                                   14 31 1 0 16 0 38 1 0 16 0
-                                                   37 1 0 16 0 36 1 0 6 0 40 1
-                                                   0 33 0 34 2 0 16 0 6 42 1 0
-                                                   50 0 52 1 0 16 0 32 0 0 0 12
-                                                   0 0 0 11 0 0 0 10 2 0 16 0 0
-                                                   49)))))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0))
+                 (CONS '#(|SetCategory&| |BasicType&| NIL)
+                       (CONS
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 48))
+                        (|makeByteWordVec2| 62
+                                            '(1 14 13 0 15 2 13 16 0 0 17 1 21
+                                              16 0 22 1 21 16 0 23 1 21 16 0 24
+                                              2 6 18 14 19 25 2 26 0 0 2 27 1
+                                              26 19 0 28 2 26 2 0 13 29 1 14 13
+                                              0 30 1 6 0 14 39 2 6 16 0 0 41 1
+                                              14 0 33 44 1 6 14 0 45 2 0 16 0 0
+                                              46 2 19 16 0 0 47 1 48 50 0 51 0
+                                              48 0 54 1 55 14 0 56 1 14 48 0 57
+                                              1 48 0 14 58 1 48 0 33 59 1 6 48
+                                              0 60 2 0 16 0 0 46 1 0 16 0 35 1
+                                              0 14 0 43 2 0 0 0 0 8 1 0 0 6 9 1
+                                              0 0 0 52 2 0 18 14 19 20 1 0 0 14
+                                              31 1 0 14 0 1 1 0 16 0 38 1 0 16
+                                              0 37 1 0 16 0 36 2 0 62 62 0 1 1
+                                              0 61 0 1 1 0 6 0 40 1 0 33 0 34 2
+                                              0 16 0 6 42 1 0 48 0 49 1 0 16 0
+                                              32 0 0 0 12 0 0 0 11 0 0 0 10 2 0
+                                              16 0 0 53)))))
            '|lookupComplete|)) 

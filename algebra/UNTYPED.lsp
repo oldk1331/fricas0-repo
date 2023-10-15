@@ -63,7 +63,7 @@
         (EQUAL (QCAR |x|) (QCAR |y|))) 
 
 (SDEFUN |UNTYPED;coerce;$Of;9| ((|n| $) ($ |OutputForm|))
-        (SPADCALL (SPADCALL |n| (QREFELT $ 14)) (QREFELT $ 29))) 
+        (SPADCALL (QCAR |n|) (QREFELT $ 29))) 
 
 (DECLAIM (NOTINLINE |Untyped;|)) 
 
@@ -106,9 +106,9 @@
               (|Record| (|:| |rft| $) (|:| |pout| 23)) (|NonNegativeInteger|)
               (26 . |parseIL2|) |UNTYPED;parseVarTerm;SNniR;6|
               |UNTYPED;parseVar;S$;7| |UNTYPED;=;2$B;8| (|OutputForm|)
-              (32 . |coerce|) |UNTYPED;coerce;$Of;9|)
+              (32 . |message|) |UNTYPED;coerce;$Of;9|)
            '#(|var| 37 |toString| 48 |parseVarTerm| 53 |parseVar| 59 |getType|
-              64 |getName| 69 |coerce| 74 = 79)
+              64 |getName| 69 |coerce| 74 = 84)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(NIL NIL NIL)
@@ -116,12 +116,12 @@
                              (|makeByteWordVec2| 30
                                                  '(0 9 0 12 1 16 15 0 17 2 7 0
                                                    0 16 18 1 7 19 0 20 2 19 15
-                                                   0 0 21 2 9 22 7 23 24 1 7 28
-                                                   0 29 1 0 0 7 8 2 0 0 7 9 10
+                                                   0 0 21 2 9 22 7 23 24 1 28 0
+                                                   7 29 2 0 0 7 9 10 1 0 0 7 8
                                                    1 0 7 0 14 2 0 22 7 23 25 1
                                                    0 0 7 26 1 0 9 0 13 1 0 7 0
-                                                   11 1 0 28 0 30 2 0 15 0 0
-                                                   27)))))
+                                                   11 1 0 28 0 30 1 0 28 0 30 2
+                                                   0 15 0 0 27)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Untyped| 'NILADIC T) 
