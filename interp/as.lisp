@@ -1184,7 +1184,7 @@
 ;     name = "%%" => 'skip       --skip over top-level properties
 ;     $docHashLocal: local := MAKE_-HASH_-TABLE()
 ;     asytranDeclaration(d,'(top),nil,false)
-;     if null name then hohohoho()
+;     if null name then BREAK()
 ;     HPUT($docHash,name,$docHashLocal)
 ;   CLOSE inStream
 ;   'done
@@ -1219,7 +1219,7 @@
                     (PROGN
                      (SETQ |$docHashLocal| (MAKE-HASH-TABLE))
                      (|asytranDeclaration| |d| '(|top|) NIL NIL)
-                     (COND ((NULL |name|) (|hohohoho|)))
+                     (COND ((NULL |name|) (BREAK)))
                      (HPUT |$docHash| |name| |$docHashLocal|)))))))
           (SETQ |bfVar#53| (CDR |bfVar#53|))))
        |u| NIL)

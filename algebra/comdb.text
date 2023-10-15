@@ -2671,7 +2671,7 @@
 257504`\spad{deepCopy(x)} \undocumented
 257751`\spad{deepestInitial(p)} returns an error if \spad{p} belongs to \spad{R},{} otherwise returns the last term of \spad{iteratedInitials(p)}.
 257890`\spad{deepestTail(p)} returns \spad{0} if \spad{p} belongs to \spad{R},{} otherwise returns tail(\spad{p}),{} if \spad{tail(p)} belongs to \spad{R} or \spad{mvar(tail(p)) < mvar(p)},{} otherwise returns \spad{deepestTail(tail(p))}.
-257960`\spad{deepExpand(x)} \undocumented{}
+257960`\spad{deepExpand(x)} rewrites all terms of \spad{x} as commutators of generators.
 258030`\spad{defineProperty(s,{} \spad{li},{} p)} defines the component property in the 3 dimensional subspace,{} \spad{s},{} to be that of \spad{p},{} where \spad{p} is of the domain \spadtype{SubSpaceComponentProperty}. The list of non negative integers,{} \spad{li},{} dictates the path to follow,{} or,{} to look at it another way,{} points to the component whose property is being defined. The subspace,{} 
 258030`--\spad{s},{} is returned with the component property definition.
 258133`\spad{definingEquations(s)} returns a list of defining polynomials for equations,{} that is,{} for the Zariski closed part of \spad{s}.
@@ -7557,7 +7557,7 @@
 809011`\spad{shade(pt)} returns the fourth element of the two dimensional point,{} \spad{pt},{} although no assumptions are made with regards as to how the components of higher dimensional points are interpreted. This function is defined for the convenience of the user using specifically,{} shade to express a fourth dimension.
 809062`\spad{shade(p)} returns the shade index of the indicated palette \spad{p}.
 809105`\spad{shallowCopy(x)} \undocumented
-809155`\spad{shallowExpand(x)} \undocumented{}
+809155`\spad{shallowExpand(x)} replaces elements of basis by commutators of other basis elements if possible.
 809229`\spad{shanksDiscLogAlgorithm(b,{} a,{} p)} computes \spad{s} with \spad{b^s = a} for assuming that \spad{a} and \spad{b} are elements in a 'small' cyclic group of order \spad{p} by Shank\spad{'s} algorithm. Note: this is a subroutine of the function \spadfun{discreteLog}.
 809356`\spad{shellSort(f,{} agg)} sorts the aggregate agg with the ordering function \spad{f} using the shellSort algorithm.
 809434`\spad{Shi(f)} denotes the hyperbolic sine integral
@@ -8204,8 +8204,8 @@
 903020`--e points. This will be set to ref([]) at the start \indented{6}{and will be built up as this function is called recursively} \spad{indexLst} is list of faces,{} where faces are list of points indexed \indented{9}{by \spad{ptLst} This will be set to ref(nil()) at the start} \indented{6}{and will be built up as this function is called recursively} \spad{tran} is the default transform which may be overridden by subnodes \spad{bb} is the default boundary which may be overridden by subnodes
 903183`\spad{top(s)} returns the top element \spad{x} from \spad{s}; \spad{s} remains unchanged. Note: Use \spad{pop!(s)} to obtain \spad{x} and remove it from \spad{s}.
 903228`generates a permutation group from this graph assumes this graph represents a valid group
-903322`convert to permutation group return "failed" for infinite groups.
-903422`convert to permutation group return "failed" for infinite groups.
+903322`convert to permutation group return "failed" for infinite groups. For more information about the algorithm see: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/finiteGroup/pres2perm/}
+903422`convert to permutation group return "failed" for infinite groups. For more information about the algorithm see: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/discrete/finiteGroup/pres2perm/}
 903530`\spad{topFortranOutputStack()} returns the top element of the Fortran output stack
 903604`\spad{toPoint(p)} returns a Point with the same coordinates as \spad{p} If \spad{p} was originally a vector then that will be treated as the distance from the origin.
 903651`\spad{topologicalSort(xx)} returns a rearrangement of the elements which is compatible with the partial order. (Martin Baker) \spad{I} added this version because predicate function can be difficult to work with so use table instead.
