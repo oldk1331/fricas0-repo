@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5038 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -593,41 +593,40 @@
  |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree| |inDegree|
  |getArrowIndex| |arrowName| |isFixPoint?| |isGreaterThan?|
  |isDirectSuccessor?| |kgraph| |cycleClosed| |cycleOpen| |terminal| |initial|
- |getArrows| |getVertexIndex| |getVertices| |addArrow!| |addObject!| |flush|
- |write!| |read!| |iomode| |reopen!| |open| |rightUnit| |leftUnit|
- |rightMinimalPolynomial| |leftMinimalPolynomial| |associatorDependence|
- |lieAlgebra?| |jordanAlgebra?| |noncommutativeJordanAlgebra?|
- |jordanAdmissible?| |lieAdmissible?| |jacobiIdentity?| |powerAssociative?|
- |alternative?| |flexible?| |rightAlternative?| |leftAlternative?|
- |antiAssociative?| |associative?| |antiCommutative?| |commutative?|
- |rightCharacteristicPolynomial| |leftCharacteristicPolynomial| |rightNorm|
- |leftNorm| |rightTrace| |leftTrace| |someBasis| |finiteLattice| |LiePoly|
- |quickSort| |heapSort| |shellSort| |gamma| |outputSpacing| |outputGeneral|
- |outputFixed| |outputFloating| |exp1| |log10| |log2| |rationalApproximation|
- |relerror| |complexSolve| |complexRoots| |realRoots| |support|
- |moebiusFunction| |overlap| |hcrf| |hclf| |writable?| |readable?| |exists?|
- |extension| |directory| |filename| |functionGraph| |shallowExpand|
- |deepExpand| |clearFortranOutputStack| |showFortranOutputStack|
- |popFortranOutputStack| |pushFortranOutputStack| |topFortranOutputStack|
- |setFormula!| |formula| |linkToFortran| |setLegalFortranSourceExtensions|
- |fracPart| |polyPart| |fullPartialFraction| |primeFrobenius| |discreteLog|
- |decreasePrecision| |increasePrecision| |bits| |unitNormalize| |unit|
- |flagFactor| |sqfrFactor| |primeFactor| |nthFlag| |nthExponent|
- |irreducibleFactor| |factors| |nilFactor| |regularRepresentation|
- |traceMatrix| |randomLC| |minimize| |module| |represents|
- |rightRegularRepresentation| |leftRegularRepresentation| |rightTraceMatrix|
- |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant| |mergeFactors|
- |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
- |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS| |universe|
- |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
- |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
- |iiabs| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI|
- |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi|
- |iAiryAiPrime| |iAiryBi| |iAiryBiPrime| |iiHypergeometricF| |iiPolylog|
- |iLambertW| |bringDown| |newReduc| |logical?| |character?| |doubleComplex?|
- |complex?| |double?| |fortranCharacter| |fortranDoubleComplex|
- |fortranComplex| |fortranLogical| |fortranInteger| |fortranDouble|
- |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
+ |getArrows| |getVertexIndex| |getVertices| |flush| |write!| |read!| |iomode|
+ |reopen!| |open| |rightUnit| |leftUnit| |rightMinimalPolynomial|
+ |leftMinimalPolynomial| |associatorDependence| |lieAlgebra?| |jordanAlgebra?|
+ |noncommutativeJordanAlgebra?| |jordanAdmissible?| |lieAdmissible?|
+ |jacobiIdentity?| |powerAssociative?| |alternative?| |flexible?|
+ |rightAlternative?| |leftAlternative?| |antiAssociative?| |associative?|
+ |antiCommutative?| |commutative?| |rightCharacteristicPolynomial|
+ |leftCharacteristicPolynomial| |rightNorm| |leftNorm| |rightTrace| |leftTrace|
+ |someBasis| |finiteLattice| |LiePoly| |quickSort| |heapSort| |shellSort|
+ |gamma| |outputSpacing| |outputGeneral| |outputFixed| |outputFloating| |exp1|
+ |log10| |log2| |rationalApproximation| |relerror| |complexSolve|
+ |complexRoots| |realRoots| |support| |moebiusFunction| |overlap| |hcrf| |hclf|
+ |writable?| |readable?| |exists?| |extension| |directory| |filename|
+ |functionGraph| |shallowExpand| |deepExpand| |clearFortranOutputStack|
+ |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
+ |topFortranOutputStack| |setFormula!| |formula| |linkToFortran|
+ |setLegalFortranSourceExtensions| |fracPart| |polyPart| |fullPartialFraction|
+ |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
+ |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor| |nthFlag|
+ |nthExponent| |irreducibleFactor| |factors| |nilFactor|
+ |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
+ |represents| |rightRegularRepresentation| |leftRegularRepresentation|
+ |rightTraceMatrix| |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant|
+ |mergeFactors| |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS|
+ |exprToGenUPS| |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS|
+ |universe| |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma|
+ |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
+ |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma|
+ |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime|
+ |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
+ |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
+ |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
+ |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
+ |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
  |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
@@ -875,7 +874,7 @@
  |moebius| |isAntiChain?| |isChain?| |isAntisymmetric?| |completeTransitivity|
  |completeReflexivity| |objectToIndex| |indexToObject| |lowerSet| |upperSet|
  |lub| |glb| |joinIfCan| |meetIfCan| |implies| |powerSetStructure| |opposite|
- |addArrow| |addObject| |setArr| |setVert| |getArr| |getVert| |finitePoset|
+ |addArrow!| |setArr| |setVert| |getArr| |getVert| |finitePoset| |addObject!|
  |powerset| |completelyOrderedSet| |posetN5| |posetM5| |posetO6| |posetP6|
  |posetL7| |firstUncouplingMatrix| |le| |lcx0| |lcz| |coeffs0| |coeffs1|
  |alg_reduce0| |alg_reduce| |alg_trial_division| |integral| |primitiveElement|

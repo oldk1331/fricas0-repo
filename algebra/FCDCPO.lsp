@@ -136,7 +136,7 @@
               |completeReflexivity| 512 |coerce| 517 |arrowsToNode| 527
               |arrowsToArrow| 533 |arrowsFromNode| 539 |arrowsFromArrow| 545
               |arrowName| 551 |adjacencyMatrix| 558 |addObject!| 563
-              |addObject| 575 |addArrow!| 581 |addArrow| 612 = 619 + 625)
+              |addArrow!| 575 = 613 + 619)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -180,8 +180,8 @@
                                          0 1 1 0 40 0 1 2 0 24 0 18 1 2 0 24 0
                                          18 1 2 0 24 0 18 1 2 0 24 0 18 1 3 0
                                          27 0 18 18 1 1 0 31 0 1 2 0 0 0 6 1 2
-                                         0 0 0 38 1 2 0 0 0 6 1 4 0 0 0 27 6 6
-                                         1 4 0 0 0 27 18 18 1 5 0 0 0 27 18 18
-                                         24 1 2 0 0 0 35 1 3 0 0 0 18 18 1 2 0
-                                         20 0 0 1 2 0 0 0 0 1)))))
+                                         0 0 0 38 1 3 0 0 0 18 18 1 4 0 0 0 27
+                                         6 6 1 4 0 0 0 27 18 18 1 5 0 0 0 27 18
+                                         18 24 1 2 0 0 0 35 1 2 0 20 0 0 1 2 0
+                                         0 0 0 1)))))
            '|lookupComplete|)) 
