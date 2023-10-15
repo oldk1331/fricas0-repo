@@ -98,30 +98,23 @@
                (COND
                 ((SPADCALL (LETT |g| (SPADCALL |h| (QREFELT $ 57)) . #5#)
                            (QREFELT $ 59))
-                 (SPADCALL
-                  (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0)
-                            (QREFELT $ 63))
-                  |x| (QREFELT $ 36)))
+                 (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0) |x|
+                           (QREFELT $ 36)))
                 ((SPADCALL
                   (LETT |g|
                         (SPADCALL
-                         (LETT |h|
-                               (SPADCALL
-                                (QVELT (SPADCALL |h| |x| (QREFELT $ 66)) 0)
-                                (QREFELT $ 68))
+                         (LETT |h| (QVELT (SPADCALL |h| |x| (QREFELT $ 64)) 0)
                                . #5#)
                          (QREFELT $ 57))
                         . #5#)
                   (QREFELT $ 59))
                  (SPADCALL |g| |x| (QREFELT $ 36)))
                 (#6#
-                 (SPADCALL (ELT $ 57) (SPADCALL |h| |x| (QREFELT $ 71))
-                           (QREFELT $ 74)))))))
+                 (SPADCALL (ELT $ 57) (SPADCALL |h| |x| (QREFELT $ 67))
+                           (QREFELT $ 70)))))))
             (#6#
-             (SPADCALL
-              (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0)
-                        (QREFELT $ 63))
-              |x| (QREFELT $ 36)))))))) 
+             (SPADCALL (QVELT (SPADCALL |g| |x| (QREFELT $ 61)) 0) |x|
+                       (QREFELT $ 36)))))))) 
 
 (SDEFUN |FSCINT;internalIntegrate;FSIr;7!0| ((|x1| NIL) ($$ NIL))
         (PROG ($ RTRIG)
@@ -164,7 +157,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|FunctionSpaceComplexIntegration| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 75) . #1#)
+          (LETT $ (GETREFV 71) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FunctionSpaceComplexIntegration|
@@ -238,24 +231,21 @@
               (|List| (|Kernel| 12)) (118 . |trigs2explogs|) (124 . FG2F)
               (|TrigonometricManipulations| 6 7) (129 . |real?|)
               (|Record| (|:| |func| 7) (|:| |kers| 52) (|:| |vals| 9))
-              (134 . |rischNormalize|) (|AlgebraicManipulations| 6 7)
-              (140 . |rootSimp|)
+              (134 . |rischNormalize|)
               (|Record| (|:| |func| 12) (|:| |kers| 55)
                         (|:| |vals| (|List| 12)))
               (|ElementaryFunctionStructurePackage| (|Complex| 6) 12)
-              (145 . |rischNormalize|)
-              (|AlgebraicManipulations| (|Complex| 6) 12) (151 . |rootSimp|)
-              (|IntegrationResult| 12)
-              (|ElementaryIntegration| (|Complex| 6) 12) (156 . |lfintegrate|)
+              (140 . |rischNormalize|) (|IntegrationResult| 12)
+              (|ElementaryIntegration| (|Complex| 6) 12) (146 . |lfintegrate|)
               (|Mapping| 7 12) (|IntegrationResultFunctions2| 12 7)
-              (162 . |map|))
-           '#(|internalIntegrate0| 168 |internalIntegrate| 174
-              |complexIntegrate| 180)
+              (152 . |map|))
+           '#(|internalIntegrate0| 158 |internalIntegrate| 164
+              |complexIntegrate| 170)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 74
+                             (|makeByteWordVec2| 70
                                                  '(1 10 9 0 11 1 13 12 7 14 1
                                                    12 0 0 15 1 12 16 0 17 1 21
                                                    7 18 22 2 23 7 7 19 24 2 27
@@ -268,10 +258,9 @@
                                                    48 41 19 0 50 2 52 41 51 0
                                                    53 2 10 41 0 19 54 2 13 12
                                                    12 55 56 1 13 7 12 57 1 58
-                                                   41 7 59 2 43 60 7 19 61 1 62
-                                                   7 7 63 2 65 64 12 19 66 1 67
-                                                   12 12 68 2 70 69 12 19 71 2
-                                                   73 18 72 69 74 2 0 18 7 19
+                                                   41 7 59 2 43 60 7 19 61 2 63
+                                                   62 12 19 64 2 66 65 12 19 67
+                                                   2 69 18 68 65 70 2 0 18 7 19
                                                    36 2 0 18 7 19 20 2 0 7 7 19
                                                    25)))))
            '|lookupComplete|)) 
