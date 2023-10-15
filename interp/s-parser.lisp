@@ -333,7 +333,7 @@
     (RETURN (|push_reduction| '|dummy| (LIST |tag| |arg1| |arg2| |arg3|)))))
  
 ; dollarTran(dom, expr) ==
-;     expr is [fun, :args] and not(NULL(args)) =>
+;     expr is [fun, :args] =>
 ;         [["Sel", dom, fun], :args]
 ;     ["Sel", dom, expr]
  
@@ -342,8 +342,7 @@
     (RETURN
      (COND
       ((AND (CONSP |expr|)
-            (PROGN (SETQ |fun| (CAR |expr|)) (SETQ |args| (CDR |expr|)) #1='T)
-            (NULL (NULL |args|)))
+            (PROGN (SETQ |fun| (CAR |expr|)) (SETQ |args| (CDR |expr|)) #1='T))
        (CONS (LIST '|Sel| |dom| |fun|) |args|))
       (#1# (LIST '|Sel| |dom| |expr|))))))
  
