@@ -1262,7 +1262,7 @@
 117289`\spad{approximate(x,{} n)} returns an integer \spad{y} such that \spad{y = x (mod p^n)} when \spad{n} is positive,{} and 0 otherwise.
 117361`\spad{approximate(term,{} root,{} prec)} gives an approximation of \spad{term} over \spad{root} with precision \spad{prec}
 117470`\spad{approxRoot(n,{} r)} returns an approximation \spad{x} to \spad{n^(1/r)} such that \spad{-1 < x - n^(1/r) < 1}
-117540`\spad{approxSqrt(n)} returns an approximation \spad{x} to \spad{sqrt(n)} such that \spad{-1 < x - sqrt(n) < 1}. Compute an approximation \spad{s} to \spad{sqrt(n)} such that \indented{10}{\spad{-1 < s - sqrt(n) < 1}} A variable precision Newton iteration is used. The running time is \spad{O( log(n)^2 )}.
+117540`\spad{approxSqrt(n)} returns an approximation \spad{x} to \spad{sqrt(n)} such that \spad{-1 < x - sqrt(n) < 1}. A variable precision Newton iteration is used. The running time is \spad{O( log(n)^2 )}.
 117588`\spad{aQuadratic(f,{} g,{} h)} \undocumented
 117656`\spad{aQuartic(f,{} g,{} h,{} i,{} k)} \undocumented
 117726`\spad{arbFunctions(q,{} j,{} cc)} uses the Cartan characters \spad{cc} to compute the number of arbitrary functions of differentiation order \spad{j} in the general solution of a differential equation of order \spad{q}.
@@ -5505,7 +5505,7 @@
 592783`\spad{monicDivide(a,{} b,{} v)} divides the polynomial a by the polynomial \spad{b},{} with each viewed as a univariate polynomial in \spad{v} returning both the quotient and remainder. Error: if \spad{b} is not monic with respect to \spad{v}.
 592900`\spad{monicLeftDivide(a,{} b)} returns the pair \spad{[q,{} r]} such that \spad{a = b*q + r} and the degree of \spad{r} is less than the degree of \spad{b}. \spad{b} must be monic. This process is called ``left division\spad{''}.
 593029`\spad{monicLeftDivide(a,{} b,{} sigma)} returns the pair \spad{[q,{} r]} such that \spad{a = b*q + r} and the degree of \spad{r} is less than the degree of \spad{b}. \spad{b} must be monic. This process is called ``left division\spad{''}. \spad{\sigma} is the morphism to use.
-593175`\spad{monicModulo(a,{} b)} returns \spad{r} such that \spad{r} is reduced \spad{w}.\spad{r}.\spad{t}. \spad{b} and \spad{b} divides \spad{a -r} where \spad{b} is monic.
+593175`\spad{monicModulo(a,{} b)} returns \spad{r} such that \spad{r} is reduced \spad{w}.\spad{r}.\spad{t}. \spad{b} and \spad{b} divides \spad{a - r} where \spad{b} is monic.
 593314`\spad{monicModulo(a,{} b)} computes \spad{a mod b},{} if \spad{b} is monic as univariate polynomial in its main variable.
 593387`\spad{monicRightDivide(a,{} b)} returns the pair \spad{[q,{} r]} such that \spad{a = q*b + r} and the degree of \spad{r} is less than the degree of \spad{b}. \spad{b} must be monic. This process is called ``right division\spad{''}.
 593517`\spad{monicRightDivide(a,{} b,{} sigma)} returns the pair \spad{[q,{} r]} such that \spad{a = q*b + r} and the degree of \spad{r} is less than the degree of \spad{b}. \spad{b} must be monic. This process is called ``right division\spad{''}. \spad{\sigma} is the morphism to use.
@@ -7463,7 +7463,7 @@
 800792`\spad{setelt!(u,{} "last",{} x)} (also written: \spad{u.last := x}) is equivalent to \spad{setlast!(u,{} x)}.
 800883`\spad{setelt!(a,{} "left",{} b)} (also written \spad{a.left := b}) is equivalent to \spad{setleft!(a,{} b)}.
 800977`\spad{setelt!(u,{} "rest",{} v)} (also written: \spad{u.rest := v}) is equivalent to \spad{setrest!(u,{} v)}.
-801070`\spad{setelt!(a,{} "right",{} b)} (also written \spad{b.right := b}) is equivalent to \spad{setright!(a,{} b)}.
+801070`\spad{setelt!(a,{} "right",{} b)} (also written \spad{a.right := b}) is equivalent to \spad{setright!(a,{} b)}.
 801165`\spad{lib.k := v} saves the value \spad{v} in the library \spad{lib}. It can later be extracted using the key \spad{k}.
 801217`\spad{setelt!(u,{} i..j,{} x)} (also written: \spad{u(i..j) := x}) destructively replaces each element in the segment \spad{u(i..j)} by \spad{x}. The value \spad{x} is returned. Note: \spad{u} is destructively change so that \spad{u.k := x for k in i..j}; its length remains unchanged.
 801319`\spad{setelt!(a,{} "value" ,{}x)} (also written \spad{a.value := x}) is equivalent to \spad{setvalue!(a,{} x)}
@@ -7534,7 +7534,7 @@
 807029`\spad{setref(n,{} m)} same as \spad{setelt!(n,{} m)}.
 807074`\spad{setrest!(u,{} v)} destructively changes the rest of \spad{u} to \spad{v}. Error if \spad{u} is empty.
 807161`\spad{setrest!(x,{} n,{} y)} sets rest(\spad{x},{} \spad{n}) to \spad{y}. The function will expand cycles if necessary.
-807215`\spad{setright!(a,{} x)} sets the right child of \spad{t} to be \spad{x}.
+807215`\spad{setright!(a,{} b)} sets the right child of \spad{a} to be \spad{b}.
 807304`\spad{setRow!(A,{} i,{} ind,{} ent)} sets the \spad{i}\spad{-}th row of the matrix \spad{A} to the value \spad{r}.
 807489`\spad{setRow!(m,{} i,{} v)} sets to \spad{i}th row of \spad{m} to \spad{v}
 807572`\spad{setRow!(A,{} i,{} ind,{} ent)} sets the \spad{i}\spad{-}th row of the matrix \spad{A}. Its indices are \spad{ind}; the entries \spad{ent}.
