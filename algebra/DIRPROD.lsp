@@ -354,11 +354,11 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ (LETT |i| 1 . #3=(|DIRPROD;<;2$B;24|))
-                       (LETT #2# (QREFELT $ 6) . #3#) G190
+                  (SEQ (LETT |i| 0 . #3=(|DIRPROD;<;2$B;24|))
+                       (LETT #2# (- (QREFELT $ 6) 1) . #3#) G190
                        (COND ((|greater_SI| |i| #2#) (GO G191)))
-                       (SEQ (LETT |a| (SPADCALL |x| |i| (QREFELT $ 50)) . #3#)
-                            (LETT |b| (SPADCALL |y| |i| (QREFELT $ 50)) . #3#)
+                       (SEQ (LETT |a| (QREFELT |x| |i|) . #3#)
+                            (LETT |b| (QREFELT |y| |i|) . #3#)
                             (EXIT
                              (COND
                               ((SPADCALL |a| |b| (QREFELT $ 56))
