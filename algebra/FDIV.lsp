@@ -491,12 +491,12 @@
               (389 . |splitDenominator|) (394 . |retract|) (399 . *)
               (405 . |reduce|) (410 . |norm|) (415 . |denom|) (420 . /)
               (426 . |coerce|) (|Mapping| 67 67) (431 . |map|) (437 . |empty?|)
-              (|FramedModule| 7 67 8 9 51) (442 . |module|) (447 . |basis|)
-              (452 . |normalizeAtInfinity|) (457 . |finiteBasis|)
-              (462 . |integralAtInfinity?|) (467 . |primitivePart|)
-              (472 . |reduceBasisAtInfinity|) (|Mapping| 9 9) (477 . |map!|)
-              (483 . |lSpaceBasis|) (488 . ^) (|HashState|) (|String|)
-              (|SingleInteger|))
+              (|FractionalIdealAsModule| 7 67 8 9 51) (442 . |module|)
+              (447 . |basis|) (452 . |normalizeAtInfinity|)
+              (457 . |finiteBasis|) (462 . |integralAtInfinity?|)
+              (467 . |primitivePart|) (472 . |reduceBasisAtInfinity|)
+              (|Mapping| 9 9) (477 . |map!|) (483 . |lSpaceBasis|) (488 . ^)
+              (|HashState|) (|String|) (|SingleInteger|))
            '#(~= 494 |zero?| 500 |subtractIfCan| 505 |sample| 511 |reduce| 515
               |principal?| 520 |opposite?| 525 |latex| 531 |lSpaceBasis| 536
               |ideal| 541 |hashUpdate!| 546 |hash| 552 |generator| 557

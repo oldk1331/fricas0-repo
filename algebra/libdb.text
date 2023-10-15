@@ -368,7 +368,7 @@ dFourierComponent`1`n`(OrderedSet)->Join(OrderedSet,etc)`(E)`FCOMP`94085
 dFourierSeries`2`x`(Join(CommutativeRing,etc),E:Join(OrderedSet,etc))->Join(Algebra(R),etc)`(R,E)`FSERIES`94262
 dFraction`1`x`(IntegralDomain)->Join(QuotientFieldCategory(S),etc)`(S)`FRAC`94439
 dFractionalIdeal`4`n`(R:EuclideanDomain,F:QuotientFieldCategory(R),UP:UnivariatePolynomialCategory(F),A:Join(FramedAlgebra(F,UP),etc))->Join(Group,etc)`(R,F,UP,A)`FRIDEAL`94511
-dFramedModule`5`n`(R:EuclideanDomain,F:QuotientFieldCategory(R),UP:UnivariatePolynomialCategory(F),A:FramedAlgebra(F,UP),Vector(A))->Join(Monoid,etc)`(R,F,UP,A,ibasis)`FRMOD`94556
+dFractionalIdealAsModule`5`n`(R:EuclideanDomain,F:QuotientFieldCategory(R),UP:UnivariatePolynomialCategory(F),A:FramedAlgebra(F,UP),Vector(A))->Join(Monoid,etc)`(R,F,UP,A,ibasis)`FRIMOD`94556
 dFreeAbelianGroup`1`n`(SetCategory)->Join(AbelianGroup,etc)`(S)`FAGROUP`94606
 dFreeAbelianMonoid`1`n`(SetCategory)->FreeAbelianMonoidCategory(S,NonNegativeInteger)`(S)`FAMONOID`94857
 dFreeGroup`1`n`(SetCategory)->Join(Group,etc)`(S)`FGROUP`95122
@@ -1627,8 +1627,8 @@ obasis`0`n`()->Vector(S)`xMonogenicAlgebra&(S,R,UP)``0
 obasis`0`x`()->Vector(_$)`cFiniteAlgebraicExtensionField(F)``248163
 obasis`0`x`()->Vector(_$)`cFramedAlgebra(R,UP)``248239
 obasis`0`x`()->Vector(_$)`cFramedNonAssociativeAlgebra(R)``248302
-obasis`1`n`(_$)->Vector(A)`dFractionalIdeal(R,F,UP,A)``248365
-obasis`1`n`(_$)->Vector(A)`dFramedModule(R,F,UP,A,ibasis)``248449
+obasis`1`n`(_$)->Vector(A)`dFractionalIdealAsModule(R,F,UP,A,ibasis)``248365
+obasis`1`n`(_$)->Vector(A)`dFractionalIdeal(R,F,UP,A)``248443
 obasis`1`n`(List(Vector(R)))->_$`dVectorSpaceBasis(R)``248527
 obasis`1`n`(PositiveInteger)->Vector(Vector(GF))`pInnerNormalBasisFieldFunctions(GF)``248625
 obasis`1`x`(PositiveInteger)->Vector(_$)`cFiniteAlgebraicExtensionField(F)``248719
@@ -6825,8 +6825,8 @@ omodularFactor`1`n`(UP)->Record(prime:Integer,factors:List(UP))`pGaloisGroupFact
 omodularGcd`1`n`(List(BP))->BP`pInnerModularGcd(R,BP,pMod,nextMod)``818265
 omodularGcdPrimitive`1`n`(List(BP))->BP`pInnerModularGcd(R,BP,pMod,nextMod)``818381
 omodularInvariantJ`1`x`(Complex(Float))->Complex(Float)`pFloatEllipticFunctions``818516
-omodule`1`n`(FractionalIdeal(R,F,UP,A))->_$`dFramedModule(R,F,UP,A,ibasis)`has(A,RetractableTo(F))`818761
-omodule`1`n`(Vector(A))->_$`dFramedModule(R,F,UP,A,ibasis)``818837
+omodule`1`n`(FractionalIdeal(R,F,UP,A))->_$`dFractionalIdealAsModule(R,F,UP,A,ibasis)`has(A,RetractableTo(F))`818761
+omodule`1`n`(Vector(A))->_$`dFractionalIdealAsModule(R,F,UP,A,ibasis)``818837
 omoduleSum`2`n`(Record(basis:Matrix(R),basisDen:R,basisInv:Matrix(R)),Record(basis:Matrix(R),basisDen:R,basisInv:Matrix(R)))->Record(basis:Matrix(R),basisDen:R,basisInv:Matrix(R))`pIntegralBasisTools(R,UP,F)``818943
 omoduloP`1`x`(_$)->Integer`cPAdicIntegerCategory(p)``819862
 omodulus`0`n`()->Rep`dModMonic(R,Rep)``819925
@@ -7099,8 +7099,8 @@ ononSingularModel`1`x`(Symbol)->List(Polynomial(F))`cFunctionFieldCategory(F,UP,
 onor`2`n`(S,S)->S`xBitAggregate&(S)``0
 onor`2`x`(_$,_$)->_$`cBitAggregate``853885
 onor`2`x`(_$,_$)->_$`dBoolean``853982
-onorm`1`n`(_$)->F`dFractionalIdeal(R,F,UP,A)``854062
-onorm`1`n`(_$)->F`dFramedModule(R,F,UP,A,ibasis)``854124
+onorm`1`n`(_$)->F`dFractionalIdealAsModule(R,F,UP,A,ibasis)``854062
+onorm`1`n`(_$)->F`dFractionalIdeal(R,F,UP,A)``854125
 onorm`1`n`(S)->F`xFiniteAlgebraicExtensionField&(S,F)``0
 onorm`1`n`(S)->R`xComplexCategory&(S,R)``0
 onorm`1`n`(S)->R`xMonogenicAlgebra&(S,R,UP)``0

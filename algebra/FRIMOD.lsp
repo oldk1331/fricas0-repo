@@ -1,15 +1,15 @@
 
-(SDEFUN |FRMOD;One;$;1| (($ $)) (QREFELT $ 10)) 
+(SDEFUN |FRIMOD;One;$;1| (($ $)) (QREFELT $ 10)) 
 
-(PUT '|FRMOD;module;V$;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
+(PUT '|FRIMOD;module;V$;2| '|SPADreplace| '(XLAM (|v|) |v|)) 
 
-(SDEFUN |FRMOD;module;V$;2| ((|v| |Vector| A) ($ $)) |v|) 
+(SDEFUN |FRIMOD;module;V$;2| ((|v| |Vector| A) ($ $)) |v|) 
 
-(PUT '|FRMOD;basis;$V;3| '|SPADreplace| '(XLAM (|m|) |m|)) 
+(PUT '|FRIMOD;basis;$V;3| '|SPADreplace| '(XLAM (|m|) |m|)) 
 
-(SDEFUN |FRMOD;basis;$V;3| ((|m| $) ($ |Vector| A)) |m|) 
+(SDEFUN |FRIMOD;basis;$V;3| ((|m| $) ($ |Vector| A)) |m|) 
 
-(SDEFUN |FRMOD;rowdiv| ((|r| |Vector| R) (|f| R) ($ |Vector| F))
+(SDEFUN |FRIMOD;rowdiv| ((|r| |Vector| R) (|f| R) ($ |Vector| F))
         (SPROG ((#1=#:G110 NIL) (#2=#:G112 NIL) (|i| NIL) (#3=#:G111 NIL))
                (SEQ
                 (PROGN
@@ -17,7 +17,7 @@
                        (GETREFV
                         (|inc_SI|
                          (- #4=(QVSIZE |r|) #5=(SPADCALL |r| (QREFELT $ 26)))))
-                       . #6=(|FRMOD;rowdiv|))
+                       . #6=(|FRIMOD;rowdiv|))
                  (SEQ (LETT |i| #5# . #6#) (LETT #2# #4# . #6#)
                       (LETT #1# 0 . #6#) G190 (COND ((> |i| #2#) (GO G191)))
                       (SEQ
@@ -31,26 +31,26 @@
                       (GO G190) G191 (EXIT NIL))
                  #3#)))) 
 
-(SDEFUN |FRMOD;coerce;$Of;5| ((|m| $) ($ |OutputForm|))
+(SDEFUN |FRIMOD;coerce;$Of;5| ((|m| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL |m| (QREFELT $ 23)) (QREFELT $ 30))) 
 
-(SDEFUN |FRMOD;W2A| ((|v| |Vector| F) ($ A))
-        (SPADCALL (SPADCALL |v| (|FRMOD;intmat| $) (QREFELT $ 34))
+(SDEFUN |FRIMOD;W2A| ((|v| |Vector| F) ($ A))
+        (SPADCALL (SPADCALL |v| (|FRIMOD;intmat| $) (QREFELT $ 34))
                   (QREFELT $ 35))) 
 
-(SDEFUN |FRMOD;wmatrix| ((|v| |Vector| A) ($ |Matrix| F))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 37)) (|FRMOD;invintmat| $)
+(SDEFUN |FRIMOD;wmatrix| ((|v| |Vector| A) ($ |Matrix| F))
+        (SPADCALL (SPADCALL |v| (QREFELT $ 37)) (|FRIMOD;invintmat| $)
                   (QREFELT $ 38))) 
 
-(SDEFUN |FRMOD;getinvintmat| (($ |Boolean|))
+(SDEFUN |FRIMOD;getinvintmat| (($ |Boolean|))
         (SPROG
          ((#1=#:G124 NIL) (|j| NIL) (#2=#:G123 NIL) (|i| NIL)
           (|m| (|Matrix| F)) (#3=#:G117 NIL))
          (SEQ
           (LETT |m|
                 (PROG2
-                    (LETT #3# (SPADCALL (|FRMOD;intmat| $) (QREFELT $ 40))
-                          . #4=(|FRMOD;getinvintmat|))
+                    (LETT #3# (SPADCALL (|FRIMOD;intmat| $) (QREFELT $ 40))
+                          . #4=(|FRIMOD;getinvintmat|))
                     (QCDR #3#)
                   (|check_union2| (QEQCAR #3# 0) (|Matrix| (QREFELT $ 7))
                                   (|Union| (|Matrix| (QREFELT $ 7)) "failed")
@@ -73,13 +73,13 @@
                (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
           (EXIT NIL)))) 
 
-(SDEFUN |FRMOD;getintmat| (($ |Boolean|))
+(SDEFUN |FRIMOD;getintmat| (($ |Boolean|))
         (SPROG
          ((#1=#:G130 NIL) (|j| NIL) (#2=#:G129 NIL) (|i| NIL)
           (|m| (|Matrix| F)))
          (SEQ
           (LETT |m| (SPADCALL (QREFELT $ 10) (QREFELT $ 37))
-                . #3=(|FRMOD;getintmat|))
+                . #3=(|FRIMOD;getintmat|))
           (SEQ (LETT |i| 1 . #3#)
                (LETT #2# (SPADCALL |m| (QREFELT $ 41)) . #3#) G190
                (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -97,21 +97,21 @@
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT NIL)))) 
 
-(SDEFUN |FRMOD;invintmat| (($ |Matrix| F))
+(SDEFUN |FRIMOD;invintmat| (($ |Matrix| F))
         (SEQ
          (COND
           ((SPADCALL (QREFELT $ 15) (QREFELT $ 44))
-           (SPADCALL (QREFELT $ 15) (|FRMOD;getinvintmat| $) (QREFELT $ 45))))
+           (SPADCALL (QREFELT $ 15) (|FRIMOD;getinvintmat| $) (QREFELT $ 45))))
          (EXIT (QREFELT $ 18)))) 
 
-(SDEFUN |FRMOD;intmat| (($ |Matrix| F))
+(SDEFUN |FRIMOD;intmat| (($ |Matrix| F))
         (SEQ
          (COND
           ((SPADCALL (QREFELT $ 16) (QREFELT $ 44))
-           (SPADCALL (QREFELT $ 16) (|FRMOD;getintmat| $) (QREFELT $ 45))))
+           (SPADCALL (QREFELT $ 16) (|FRIMOD;getintmat| $) (QREFELT $ 45))))
          (EXIT (QREFELT $ 19)))) 
 
-(SDEFUN |FRMOD;vectProd| ((|v1| |Vector| A) (|v2| |Vector| A) ($ |Vector| A))
+(SDEFUN |FRIMOD;vectProd| ((|v1| |Vector| A) (|v2| |Vector| A) ($ |Vector| A))
         (SPROG
          ((|k| (|Integer|)) (#1=#:G141 NIL) (|j| NIL) (#2=#:G140 NIL) (|i| NIL)
           (|v| (|Vector| A)))
@@ -121,7 +121,7 @@
                  (LETT |v|
                        (MAKEARR1 (* (QVSIZE |v1|) (QVSIZE |v2|))
                                  (|spadConstant| $ 46))
-                       . #3=(|FRMOD;vectProd|))
+                       . #3=(|FRIMOD;vectProd|))
                  (QREFELT $ 47))
                 . #3#)
           (SEQ (LETT |i| (SPADCALL |v1| (QREFELT $ 48)) . #3#)
@@ -143,7 +143,7 @@
                (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
           (EXIT |v|)))) 
 
-(SDEFUN |FRMOD;norm;$F;13| ((|m| $) ($ F))
+(SDEFUN |FRIMOD;norm;$F;13| ((|m| $) ($ F))
         (COND
          ((SPADCALL (QVSIZE (SPADCALL |m| (QREFELT $ 23)))
                     (QVSIZE (QREFELT $ 10)) (QREFELT $ 52))
@@ -151,10 +151,10 @@
          ('T
           (SPADCALL
            (SPADCALL (SPADCALL (SPADCALL |m| (QREFELT $ 23)) (QREFELT $ 37))
-                     (|FRMOD;invintmat| $) (QREFELT $ 38))
+                     (|FRIMOD;invintmat| $) (QREFELT $ 38))
            (QREFELT $ 53))))) 
 
-(SDEFUN |FRMOD;*;3$;14| ((|m1| $) (|m2| $) ($ $))
+(SDEFUN |FRIMOD;*;3$;14| ((|m1| $) (|m2| $) ($ $))
         (SPROG
          ((|u| (A)) (#1=#:G149 NIL) (|i| NIL) (#2=#:G148 NIL)
           (|m| (|Matrix| R))
@@ -165,12 +165,12 @@
                  (QCAR
                   (LETT |cd|
                         (SPADCALL
-                         (|FRMOD;wmatrix|
-                          (|FRMOD;vectProd| (SPADCALL |m1| (QREFELT $ 23))
+                         (|FRIMOD;wmatrix|
+                          (|FRIMOD;vectProd| (SPADCALL |m1| (QREFELT $ 23))
                            (SPADCALL |m2| (QREFELT $ 23)) $)
                           $)
                          (QREFELT $ 57))
-                        . #3=(|FRMOD;*;3$;14|)))
+                        . #3=(|FRIMOD;*;3$;14|)))
                  (QREFELT $ 60))
                 . #3#)
           (EXIT
@@ -186,8 +186,8 @@
                      (COND
                       ((SPADCALL
                         (LETT |u|
-                              (|FRMOD;W2A|
-                               (|FRMOD;rowdiv|
+                              (|FRIMOD;W2A|
+                               (|FRIMOD;rowdiv|
                                 (SPADCALL |m| |i| (QREFELT $ 62)) (QCDR |cd|)
                                 $)
                                $)
@@ -198,13 +198,13 @@
                    (EXIT (NREVERSE #2#)))))
             (QREFELT $ 22)))))) 
 
-(SDEFUN |FRMOD;module;Fi$;15| ((|i| |FractionalIdeal| R F UP A) ($ $))
+(SDEFUN |FRIMOD;module;Fi$;15| ((|i| |FractionalIdeal| R F UP A) ($ $))
         (SPADCALL (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 22))
                   (SPADCALL (QREFELT $ 10) (QREFELT $ 22)) (QREFELT $ 64))) 
 
-(DECLAIM (NOTINLINE |FramedModule;|)) 
+(DECLAIM (NOTINLINE |FractionalIdealAsModule;|)) 
 
-(DEFUN |FramedModule| (&REST #1=#:G151)
+(DEFUN |FractionalIdealAsModule| (&REST #1=#:G151)
   (SPROG NIL
          (PROG (#2=#:G152)
            (RETURN
@@ -212,28 +212,30 @@
              ((LETT #2#
                     (|lassocShiftWithFunction| (|devaluateList| #1#)
                                                (HGET |$ConstructorCache|
-                                                     '|FramedModule|)
+                                                     '|FractionalIdealAsModule|)
                                                '|domainEqualList|)
-                    . #3=(|FramedModule|))
+                    . #3=(|FractionalIdealAsModule|))
               (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1 (APPLY (|function| |FramedModule;|) #1#)
+                  (PROG1 (APPLY (|function| |FractionalIdealAsModule;|) #1#)
                     (LETT #2# T . #3#))
                 (COND
-                 ((NOT #2#) (HREM |$ConstructorCache| '|FramedModule|)))))))))) 
+                 ((NOT #2#)
+                  (HREM |$ConstructorCache| '|FractionalIdealAsModule|)))))))))) 
 
-(DEFUN |FramedModule;| (|#1| |#2| |#3| |#4| |#5|)
+(DEFUN |FractionalIdealAsModule;| (|#1| |#2| |#3| |#4| |#5|)
   (SPROG
    ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$5 NIL) (DV$4 NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #1=(|FramedModule|))
+    (LETT DV$1 (|devaluate| |#1|) . #1=(|FractionalIdealAsModule|))
     (LETT DV$2 (|devaluate| |#2|) . #1#)
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT DV$5 (|devaluate| |#5|) . #1#)
-    (LETT |dv$| (LIST '|FramedModule| DV$1 DV$2 DV$3 DV$4 DV$5) . #1#)
+    (LETT |dv$| (LIST '|FractionalIdealAsModule| DV$1 DV$2 DV$3 DV$4 DV$5)
+          . #1#)
     (LETT $ (GETREFV 72) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
@@ -245,7 +247,7 @@
                                                              (|devaluate|
                                                               |#2|)))))
                     . #1#))
-    (|haddProp| |$ConstructorCache| '|FramedModule|
+    (|haddProp| |$ConstructorCache| '|FractionalIdealAsModule|
                 (LIST DV$1 DV$2 DV$3 DV$4 DV$5) (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -263,29 +265,29 @@
               (MAKE_MATRIX1 (QVSIZE |#5|) (QVSIZE |#5|) (|spadConstant| $ 17)))
     (COND
      ((|testBitVector| |pv$| 1)
-      (QSETREFV $ 67 (CONS (|dispatchFunction| |FRMOD;module;Fi$;15|) $))))
+      (QSETREFV $ 67 (CONS (|dispatchFunction| |FRIMOD;module;Fi$;15|) $))))
     $))) 
 
-(MAKEPROP '|FramedModule| '|infovec|
+(MAKEPROP '|FractionalIdealAsModule| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) '|Rep| (|Boolean|)
               (|Reference| 12) (0 . |ref|) '|iflag?| '|wflag?| (5 . |Zero|)
               '|imat| '|wmat|
-              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FRMOD;One;$;1|) $))
-              (|Vector| 9) |FRMOD;module;V$;2| |FRMOD;basis;$V;3| (|Integer|)
+              (CONS IDENTITY (FUNCALL (|dispatchFunction| |FRIMOD;One;$;1|) $))
+              (|Vector| 9) |FRIMOD;module;V$;2| |FRIMOD;basis;$V;3| (|Integer|)
               (|Vector| 6) (9 . |minIndex|) (14 . |elt|) (20 . /)
-              (|OutputForm|) (26 . |coerce|) |FRMOD;coerce;$Of;5| (|Vector| 7)
+              (|OutputForm|) (26 . |coerce|) |FRIMOD;coerce;$Of;5| (|Vector| 7)
               (|Matrix| 7) (31 . *) (37 . |represents|) (|Vector| $)
               (42 . |coordinates|) (47 . *) (|Union| $ '"failed")
               (53 . |inverse|) (58 . |maxRowIndex|) (63 . |maxColIndex|)
               (68 . |setelt!|) (76 . |elt|) (81 . |setelt!|) (87 . |Zero|)
               (91 . |minIndex|) (96 . |minIndex|) (101 . *) (107 . |One|)
               (|NonNegativeInteger|) (111 . ~=) (117 . |determinant|)
-              |FRMOD;norm;$F;13| (|Record| (|:| |num| 58) (|:| |den| 6))
+              |FRIMOD;norm;$F;13| (|Record| (|:| |num| 58) (|:| |den| 6))
               (|MatrixCommonDenominator| 6 7) (122 . |splitDenominator|)
               (|Matrix| 6) (|ModularHermitianRowReduction| 6) (127 . |rowEch|)
-              (132 . |maxRowIndex|) (137 . |row|) (143 . ~=) |FRMOD;*;3$;14|
+              (132 . |maxRowIndex|) (137 . |row|) (143 . ~=) |FRIMOD;*;3$;14|
               (|FractionalIdeal| 6 7 8 9) (149 . |basis|) (154 . |module|)
               (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 159 |sample| 165 |rightRecip| 169 |rightPower| 174 |recip| 186

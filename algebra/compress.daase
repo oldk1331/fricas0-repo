@@ -133,7 +133,7 @@
  |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
  |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
  |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
- |FractionalIdealFunctions2| |FramedModule|
+ |FractionalIdealFunctions2| |FractionalIdealAsModule|
  |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
