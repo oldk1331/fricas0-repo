@@ -91,13 +91,16 @@
 (SDEFUN |MATRIX;inverse;$U;13| ((|x| $) ($ |Union| $ "failed"))
         (SPADCALL |x| (QREFELT $ 34))) 
 
-(SDEFUN |MATRIX;diagonalMatrix;V$;14| ((|v| |Vector| R) ($ $))
+(SDEFUN |MATRIX;invertIfCan;$U;14| ((|x| $) ($ |Union| $ "failed"))
+        (SPADCALL |x| (QREFELT $ 37))) 
+
+(SDEFUN |MATRIX;diagonalMatrix;V$;15| ((|v| |Vector| R) ($ $))
         (SPROG
-         ((#1=#:G2108 NIL) (|i| NIL) (#2=#:G2109 NIL) (|j| NIL)
-          (#3=#:G2110 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
-         (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;14|))
-              (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 37)) . #4#)
-              (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 39)) . #4#)
+         ((#1=#:G2112 NIL) (|i| NIL) (#2=#:G2113 NIL) (|j| NIL)
+          (#3=#:G2114 NIL) (|k| NIL) (|ans| ($)) (|n| (|NonNegativeInteger|)))
+         (SEQ (LETT |n| (QVSIZE |v|) . #4=(|MATRIX;diagonalMatrix;V$;15|))
+              (LETT |ans| (SPADCALL |n| |n| (QREFELT $ 39)) . #4#)
+              (SEQ (LETT |k| (SPADCALL |v| (QREFELT $ 41)) . #4#)
                    (LETT #3# (QVSIZE |v|) . #4#)
                    (LETT |j| (SPADCALL |ans| (QREFELT $ 9)) . #4#)
                    (LETT #2# (SPADCALL |ans| (QREFELT $ 15)) . #4#)
@@ -117,17 +120,17 @@
                    (GO G190) G191 (EXIT NIL))
               (EXIT |ans|)))) 
 
-(SDEFUN |MATRIX;convert;$If;15| ((|x| $) ($ |InputForm|))
+(SDEFUN |MATRIX;convert;$If;16| ((|x| $) ($ |InputForm|))
         (SPADCALL
-         (LIST (SPADCALL '|matrix| (QREFELT $ 43))
-               (SPADCALL (SPADCALL |x| (QREFELT $ 45)) (QREFELT $ 46)))
-         (QREFELT $ 48))) 
+         (LIST (SPADCALL '|matrix| (QREFELT $ 45))
+               (SPADCALL (SPADCALL |x| (QREFELT $ 47)) (QREFELT $ 48)))
+         (QREFELT $ 50))) 
 
 (DECLAIM (NOTINLINE |Matrix;|)) 
 
-(DEFUN |Matrix| (#1=#:G2122)
+(DEFUN |Matrix| (#1=#:G2126)
   (SPROG NIL
-         (PROG (#2=#:G2123)
+         (PROG (#2=#:G2127)
            (RETURN
             (COND
              ((LETT #2#
@@ -143,12 +146,12 @@
 
 (DEFUN |Matrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2119 NIL) (#2=#:G2120 NIL) (#3=#:G2121 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2123 NIL) (#2=#:G2124 NIL) (#3=#:G2125 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|Matrix|))
     (LETT |dv$| (LIST '|Matrix| DV$1) . #4#)
-    (LETT $ (GETREFV 70) . #4#)
+    (LETT $ (GETREFV 72) . #4#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -189,11 +192,11 @@
                                         (|HasCategory| |#1|
                                                        '(|EuclideanDomain|))
                                         (|HasCategory| |#1|
-                                                       '(|IntegralDomain|))
-                                        (|HasCategory| |#1|
                                                        '(|CommutativeRing|))
+                                        (|HasCategory| |#1| '(|Field|))
                                         (LETT #1#
-                                              (|HasCategory| |#1| '(|Field|))
+                                              (|HasCategory| |#1|
+                                                             '(|IntegralDomain|))
                                               . #4#)
                                         (OR
                                          (AND
@@ -222,7 +225,7 @@
      (|augmentPredVector| $ 65536))
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 12)
+     ((|testBitVector| |pv$| 11)
       (PROGN
        (QSETREFV $ 20 (CONS (|dispatchFunction| |MATRIX;determinant;$R;7|) $))
        (QSETREFV $ 22 (CONS (|dispatchFunction| |MATRIX;minordet;$R;8|) $)))))
@@ -230,49 +233,55 @@
      ((|testBitVector| |pv$| 10)
       (QSETREFV $ 24 (CONS (|dispatchFunction| |MATRIX;rowEchelon;2$;9|) $))))
     (COND
-     ((|testBitVector| |pv$| 11)
+     ((|testBitVector| |pv$| 13)
       (PROGN
        (QSETREFV $ 27 (CONS (|dispatchFunction| |MATRIX;rank;$Nni;10|) $))
        (QSETREFV $ 29 (CONS (|dispatchFunction| |MATRIX;nullity;$Nni;11|) $))
        (QSETREFV $ 32
                  (CONS (|dispatchFunction| |MATRIX;nullSpace;$L;12|) $)))))
     (COND
-     ((|testBitVector| |pv$| 13)
+     ((|testBitVector| |pv$| 12)
       (QSETREFV $ 36 (CONS (|dispatchFunction| |MATRIX;inverse;$U;13|) $))))
     (COND
+     ((|testBitVector| |pv$| 13)
+      (QSETREFV $ 38
+                (CONS (|dispatchFunction| |MATRIX;invertIfCan;$U;14|) $))))
+    (COND
      ((|testBitVector| |pv$| 2)
-      (QSETREFV $ 49 (CONS (|dispatchFunction| |MATRIX;convert;$If;15|) $))))
+      (QSETREFV $ 51 (CONS (|dispatchFunction| |MATRIX;convert;$If;16|) $))))
     $))) 
 
 (MAKEPROP '|Matrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 38
-                                                 38)
+              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL 1) (NRTEVAL 1) 40
+                                                 40)
               (|local| |#1|) (|Integer|) |MATRIX;minRowIndex;$I;1|
               |MATRIX;minColIndex;$I;2| |MATRIX;qelt;$2IR;3|
               |MATRIX;qsetelt!;$2I2R;4| (0 . |maxRowIndex|) (|Boolean|) (5 . >)
               (11 . |maxColIndex|) |MATRIX;swapRows!;$2I$;5| |MATRIX;copy;2$;6|
-              (|MatrixLinearAlgebraFunctions| 6 38 38 $$) (16 . |determinant|)
+              (|MatrixLinearAlgebraFunctions| 6 40 40 $$) (16 . |determinant|)
               (21 . |determinant|) (26 . |minordet|) (31 . |minordet|)
               (36 . |rowEchelon|) (41 . |rowEchelon|) (|NonNegativeInteger|)
               (46 . |rank|) (51 . |rank|) (56 . |nullity|) (61 . |nullity|)
-              (|List| 38) (66 . |nullSpace|) (71 . |nullSpace|)
+              (|List| 40) (66 . |nullSpace|) (71 . |nullSpace|)
               (|Union| $$ '"failed") (76 . |inverse|) (|Union| $ '"failed")
-              (81 . |inverse|) (86 . |zero|) (|Vector| 6) (92 . |minIndex|)
-              |MATRIX;diagonalMatrix;V$;14| (|Symbol|) (|InputForm|)
-              (97 . |convert|) (|List| 50) (102 . |listOfLists|)
-              (107 . |convert|) (|List| $) (112 . |convert|) (117 . |convert|)
-              (|List| 6) (|Equation| 6) (|List| 51) (|Mapping| 13 6)
+              (81 . |inverse|) (86 . |invertIfCan|) (91 . |invertIfCan|)
+              (96 . |zero|) (|Vector| 6) (102 . |minIndex|)
+              |MATRIX;diagonalMatrix;V$;15| (|Symbol|) (|InputForm|)
+              (107 . |convert|) (|List| 52) (112 . |listOfLists|)
+              (117 . |convert|) (|List| $) (122 . |convert|) (127 . |convert|)
+              (|List| 6) (|Equation| 6) (|List| 53) (|Mapping| 13 6)
               (|OutputForm|) (|SingleInteger|) (|String|) (|HashState|)
-              (|Void|) (|List| 64) (|Union| 6 '"one") (|Mapping| 6 7 7)
-              (|Mapping| 6 6 6) (|List| 47) (|List| 25) (|Mapping| 6 6)
-              (|PositiveInteger|) (|List| 68) (|Segment| 7) (|List| 7))
-           '#(|zero| 122 |swapRows!| 128 |rowEchelon| 135 |rank| 140 |qsetelt!|
-              145 |qelt| 153 |nullity| 160 |nullSpace| 165 |minordet| 170
-              |minRowIndex| 175 |minColIndex| 180 |maxRowIndex| 185
-              |maxColIndex| 190 |listOfLists| 195 |inverse| 200
-              |diagonalMatrix| 205 |determinant| 210 |copy| 215 |convert| 220)
+              (|Void|) (|List| 67) (|Union| 6 '"one") (|Mapping| 6 7 7)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 49) (|List| 25)
+              (|PositiveInteger|) (|List| 70) (|Segment| 7) (|List| 7))
+           '#(|zero| 132 |swapRows!| 138 |rowEchelon| 145 |rank| 150 |qsetelt!|
+              155 |qelt| 163 |nullity| 170 |nullSpace| 175 |minordet| 180
+              |minRowIndex| 185 |minColIndex| 190 |maxRowIndex| 195
+              |maxColIndex| 200 |listOfLists| 205 |invertIfCan| 210 |inverse|
+              215 |diagonalMatrix| 220 |determinant| 225 |copy| 230 |convert|
+              235)
            'NIL
            (CONS (|makeByteWordVec2| 14 '(0 0 0 0 14 1 0 0 0 14 4 7 2))
                  (CONS
@@ -287,21 +296,22 @@
                       (|HomogeneousAggregate| 6) (|Aggregate|) (|Evalable| 6)
                       (|SetCategory|) (|Type|) (|finiteAggregate|)
                       (|shallowlyMutable|) (|InnerEvalable| 6 6) (|BasicType|)
-                      (|CoercibleTo| 54) (|ConvertibleTo| 42))
-                   (|makeByteWordVec2| 49
+                      (|CoercibleTo| 56) (|ConvertibleTo| 44))
+                   (|makeByteWordVec2| 51
                                        '(1 0 7 0 12 2 7 13 0 0 14 1 0 7 0 15 1
                                          18 6 2 19 1 0 6 0 20 1 18 6 2 21 1 0 6
                                          0 22 1 18 2 2 23 1 0 0 0 24 1 18 25 2
                                          26 1 0 25 0 27 1 18 25 2 28 1 0 25 0
                                          29 1 18 30 2 31 1 0 30 0 32 1 18 33 2
-                                         34 1 0 35 0 36 2 0 0 25 25 37 1 38 7 0
-                                         39 1 42 0 41 43 1 0 44 0 45 1 44 42 0
-                                         46 1 42 0 47 48 1 0 42 0 49 2 0 0 25
-                                         25 37 3 0 0 0 7 7 16 1 10 0 0 24 1 11
-                                         25 0 27 4 0 6 0 7 7 6 11 3 0 6 0 7 7
-                                         10 1 11 25 0 29 1 11 30 0 32 1 12 6 0
-                                         22 1 0 7 0 8 1 0 7 0 9 1 0 7 0 12 1 0
-                                         7 0 15 1 0 44 0 45 1 13 35 0 36 1 0 0
-                                         38 40 1 12 6 0 20 1 0 0 0 17 1 2 42 0
-                                         49)))))
+                                         34 1 0 35 0 36 1 18 33 2 37 1 0 35 0
+                                         38 2 0 0 25 25 39 1 40 7 0 41 1 44 0
+                                         43 45 1 0 46 0 47 1 46 44 0 48 1 44 0
+                                         49 50 1 0 44 0 51 2 0 0 25 25 39 3 0 0
+                                         0 7 7 16 1 10 0 0 24 1 13 25 0 27 4 0
+                                         6 0 7 7 6 11 3 0 6 0 7 7 10 1 13 25 0
+                                         29 1 13 30 0 32 1 11 6 0 22 1 0 7 0 8
+                                         1 0 7 0 9 1 0 7 0 12 1 0 7 0 15 1 0 46
+                                         0 47 1 13 35 0 38 1 12 35 0 36 1 0 0
+                                         40 42 1 11 6 0 20 1 0 0 0 17 1 2 44 0
+                                         51)))))
            '|lookupIncomplete|)) 

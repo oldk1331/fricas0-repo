@@ -129,8 +129,8 @@
                     (IF (|has| MM (|ConvertibleTo| (|InputForm|)))
                         (ATTRIBUTE (|ConvertibleTo| (|InputForm|)))
                         |noBranch|)
-                    (IF (|has| MM (|Field|))
-                        (SIGNATURE |inverse| ((|Union| $ "failed") $))
+                    (IF (|has| MM (|IntegralDomain|))
+                        (SIGNATURE |invertIfCan| ((|Union| $ "failed") $))
                         |noBranch|))))
           (MM
            (|Join| (|Field|)
