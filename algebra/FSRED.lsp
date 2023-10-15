@@ -136,7 +136,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 8 '|%alg|)
           (QSETREFV $ 11 (SPADCALL (QREFELT $ 10)))
-          (QSETREFV $ 12 1)
+          (QSETREFV $ 12 (EXPT 10 6))
           $))) 
 
 (MAKEPROP '|FunctionSpaceReduce| '|infovec|

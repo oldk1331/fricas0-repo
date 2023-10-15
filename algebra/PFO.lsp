@@ -1201,7 +1201,7 @@
              (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
           (|n| (|Integer|)) (|f| (UPUP)))
          (SEQ (LETT |f| (SPADCALL (QREFELT $ 176)) . #1=(|PFO;selIntegers|))
-              (LETT |n| (EXPT 10 6) . #1#)
+              (LETT |n| (EXPT 10 6) . #1#) (SPADCALL |n| (QREFELT $ 181))
               (SEQ G190
                    (COND
                     ((NULL
@@ -1210,12 +1210,12 @@
                              (SPADCALL
                               (LETT |r|
                                     (SPADCALL (|PFO;pmod| |f| $)
-                                              (QREFELT $ 180))
+                                              (QREFELT $ 182))
                                     . #1#)
-                              (QREFELT $ 181))
+                              (QREFELT $ 183))
                              . #1#)))
                      (GO G191)))
-                   (SEQ (EXIT (SPADCALL |n| (QREFELT $ 183)))) NIL (GO G190)
+                   (SEQ (EXIT (SPADCALL |n| (QREFELT $ 181)))) NIL (GO G190)
                    G191 (EXIT NIL))
               (EXIT (CONS |r| |d|))))) 
 
@@ -1245,7 +1245,7 @@
                  $)
                 . #1#)
           (LETT |p| (SPADCALL |k| (QREFELT $ 138)) . #1#)
-          (LETT |n| (EXPT 10 6) . #1#)
+          (LETT |n| (EXPT 10 6) . #1#) (SPADCALL |n| (QREFELT $ 181))
           (SEQ G190
                (COND
                 ((NULL
@@ -1258,7 +1258,7 @@
                     'T)
                    ('T (|PFO;notIrr?| (|PFO;fmod| |p| $) $))))
                  (GO G191)))
-               (SEQ (EXIT (SPADCALL |n| (QREFELT $ 183)))) NIL (GO G190) G191
+               (SEQ (EXIT (SPADCALL |n| (QREFELT $ 181)))) NIL (GO G190) G191
                (EXIT NIL))
           (EXIT
            (VECTOR |r| |d|
@@ -1781,8 +1781,8 @@
                         (|:| |prim| 29))
               (|FunctionSpacePrimitiveElement| 6 7) (488 . |primitiveElement|)
               (493 . |definingPolynomial|) (497 . |coerce|)
-              (502 . |simplifyCoeffs|) (508 . |genus|) (512 . |polyred|)
-              (517 . |doubleDisc|) (|Void|) (522 . |newReduc|)
+              (502 . |simplifyCoeffs|) (508 . |genus|) (|Void|)
+              (512 . |newReduc|) (517 . |polyred|) (522 . |doubleDisc|)
               (|Record| (|:| |num| 25) (|:| |den| 18))
               (|UnivariatePolynomialCommonDenominator| 18 19 25)
               (527 . |splitDenominator|) (532 . |retract|) (|Mapping| 53 81)
@@ -1845,8 +1845,8 @@
                                                    170 0 171 1 10 0 9 172 1 174
                                                    173 38 175 0 10 9 176 1 10 0
                                                    81 177 2 0 50 14 115 178 0
-                                                   10 50 179 1 57 32 32 180 1
-                                                   57 18 32 181 1 12 182 18 183
+                                                   10 50 179 1 12 180 18 181 1
+                                                   57 32 32 182 1 57 18 32 183
                                                    1 185 184 25 186 1 25 19 0
                                                    187 2 189 62 188 9 190 1 14
                                                    16 0 191 1 192 18 18 193 1
