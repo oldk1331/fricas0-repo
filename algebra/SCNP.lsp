@@ -1070,11 +1070,11 @@
                          ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
                                     (QREFELT $ 46))
                           (PROGN (LETT #1# 'T . #2#) (GO #3#))))))))))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SCNP;~=;2$B;16| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 47)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 47)))) 
 
 (SDEFUN |SCNP;coerce;$Of;17| ((|n| $) ($ |OutputForm|))
         (SPROG

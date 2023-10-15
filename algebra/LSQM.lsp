@@ -70,7 +70,7 @@
                            (|canonical|
                             (SPADCALL (SPADCALL |bv| |i| (QREFELT $ 25))
                                       (|spadConstant| $ 26) (QREFELT $ 28)))
-                           ('T 'NIL))
+                           ('T NIL))
                           . #3#)
                     (EXIT
                      (SEQ (LETT |j| 1 . #3#) (LETT #1# (QREFELT $ 9) . #3#)
@@ -89,7 +89,7 @@
                                             (SPADCALL |bv| |j| (QREFELT $ 25))
                                             (|spadConstant| $ 15)
                                             (QREFELT $ 28)))
-                                          ('T 'NIL))
+                                          ('T NIL))
                                          . #3#)))))
                           (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                           (EXIT NIL))))

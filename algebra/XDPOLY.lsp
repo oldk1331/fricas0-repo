@@ -148,7 +148,7 @@
                   (COND
                    ((SEQ
                      (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 48)) . #5#)
-                     (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
+                     (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
                            (CONS
@@ -182,7 +182,7 @@
                   (COND
                    ((SEQ
                      (LETT |r| (SPADCALL (QCAR |t|) |w| (QREFELT $ 50)) . #5#)
-                     (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
+                     (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
                            (CONS
@@ -216,7 +216,7 @@
                   (COND
                    ((SEQ
                      (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 52)) . #5#)
-                     (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
+                     (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
                            (CONS
@@ -250,7 +250,7 @@
                   (COND
                    ((SEQ
                      (LETT |r| (SPADCALL (QCAR |t|) |v| (QREFELT $ 54)) . #5#)
-                     (EXIT (COND ((QEQCAR |r| 1) 'NIL) ('T 'T))))
+                     (EXIT (NULL (QEQCAR |r| 1))))
                     (LETT #4#
                           (CONS
                            (CONS

@@ -28,7 +28,7 @@
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #1#))
              (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #6# (EXIT #2#)))) 
 
 (SDEFUN |ARR2CAT-;every?;MSB;2|
@@ -55,7 +55,7 @@
                        ((NULL
                          (SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 15)) |f|))
                         (PROGN
-                         (LETT #1# (PROGN (LETT #2# 'NIL . #5#) (GO #6=#:G223))
+                         (LETT #1# (PROGN (LETT #2# NIL . #5#) (GO #6=#:G223))
                                . #5#)
                          (GO #7=#:G220))))))
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
@@ -2342,7 +2342,7 @@
                              (SPADCALL |n| (QREFELT $ 21)) (QREFELT $ 59))
                    (SPADCALL (SPADCALL |m| (QREFELT $ 22))
                              (SPADCALL |n| (QREFELT $ 22)) (QREFELT $ 59)))
-                  'NIL)
+                  NIL)
                  ('T
                   (SEQ
                    (SEQ
@@ -2365,7 +2365,7 @@
                                (PROGN
                                 (LETT #1#
                                       (PROGN
-                                       (LETT #2# 'NIL . #5#)
+                                       (LETT #2# NIL . #5#)
                                        (GO #6=#:G766))
                                       . #5#)
                                 (GO #7=#:G762))))))
@@ -2405,7 +2405,7 @@
                     (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL)))
               #7# (EXIT #1#))
              (LETT |i| (+ |i| 1) . #5#) (GO G190) G191 (EXIT NIL))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #6# (EXIT #2#)))) 
 
 (SDEFUN |ARR2CAT-;count;RSNni;64| ((|r| R) (|m| S) ($ |NonNegativeInteger|))

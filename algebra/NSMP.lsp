@@ -256,11 +256,8 @@
                        (SEQ G190
                             (COND
                              ((NULL
-                               (COND
-                                ((OR (SPADCALL |a| (QREFELT $ 34))
-                                     (MINUSP |test|))
-                                 'NIL)
-                                ('T 'T)))
+                               (COND ((SPADCALL |a| (QREFELT $ 34)) NIL)
+                                     ('T (NULL (MINUSP |test|)))))
                               (GO G191)))
                             (SEQ
                              (LETT |term|
@@ -360,11 +357,8 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((OR (SPADCALL |a| (QREFELT $ 34))
-                                  (MINUSP |test|))
-                              'NIL)
-                             ('T 'T)))
+                            (COND ((SPADCALL |a| (QREFELT $ 34)) NIL)
+                                  ('T (NULL (MINUSP |test|)))))
                            (GO G191)))
                          (SEQ
                           (LETT |term|
@@ -429,11 +423,8 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((OR (SPADCALL |a| (QREFELT $ 34))
-                                  (MINUSP |test|))
-                              'NIL)
-                             ('T 'T)))
+                            (COND ((SPADCALL |a| (QREFELT $ 34)) NIL)
+                                  ('T (NULL (MINUSP |test|)))))
                            (GO G191)))
                          (SEQ
                           (LETT |term|
@@ -508,10 +499,8 @@
                (SEQ G190
                     (COND
                      ((NULL
-                       (COND
-                        ((OR (SPADCALL |a| (QREFELT $ 34)) (MINUSP |test|))
-                         'NIL)
-                        ('T 'T)))
+                       (COND ((SPADCALL |a| (QREFELT $ 34)) NIL)
+                             ('T (NULL (MINUSP |test|)))))
                       (GO G191)))
                     (SEQ
                      (LETT |term|
@@ -592,10 +581,8 @@
                  (SEQ G190
                       (COND
                        ((NULL
-                         (COND
-                          ((OR (SPADCALL |a| (QREFELT $ 34)) (MINUSP |test|))
-                           'NIL)
-                          ('T 'T)))
+                         (COND ((SPADCALL |a| (QREFELT $ 34)) NIL)
+                               ('T (NULL (MINUSP |test|)))))
                         (GO G191)))
                       (SEQ
                        (LETT |term|
@@ -999,13 +986,10 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND
-                                 ((OR (SPADCALL |up| (QREFELT $ 117))
-                                      (SPADCALL |r|
-                                                (QCDR (|spadConstant| $ 35))
-                                                (QREFELT $ 109)))
-                                  'NIL)
-                                 ('T 'T)))
+                                (NULL
+                                 (OR (SPADCALL |up| (QREFELT $ 117))
+                                     (SPADCALL |r| (QCDR (|spadConstant| $ 35))
+                                               (QREFELT $ 109)))))
                                (GO G191)))
                              (SEQ
                               (LETT |r|

@@ -8,7 +8,7 @@
                     (SETELT $ 10 (IDENTITY |locmap|)) (SETELT $ 9 'T)
                     (SETELT $ 8 NIL)
                     (LETT |slist| (SPADCALL |p| (QREFELT $ 12)) . #1#)
-                    (SETELT $ 9 'NIL)
+                    (SETELT $ 9 NIL)
                     (LETT |locmap| (LIST #'|SOLVEFOR;mapSolve;UPMR;1!0|) . #1#)
                     (SETELT $ 10 (IDENTITY |locmap|))
                     (EXIT (CONS |slist| (QREFELT $ 8)))))) 
@@ -174,7 +174,7 @@
          ((QEQCAR (SPADCALL (SPADCALL |x| |y| (QREFELT $ 49)) (QREFELT $ 51))
                   1)
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SOLVEFOR;linear;2FL;14| ((|c1| F) (|c0| F) ($ |List| F))
         (SEQ (|SOLVEFOR;needLcoef| |c1| $)
@@ -846,8 +846,8 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 8 NIL)
-          (QSETREFV $ 9 'NIL)
-          (QSETREFV $ 10 'NIL)
+          (QSETREFV $ 9 NIL)
+          (QSETREFV $ 10 NIL)
           (QSETREFV $ 63
                     (SPADCALL
                      (SPADCALL (SPADCALL (|spadConstant| $ 30) (QREFELT $ 53))

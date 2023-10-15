@@ -21,8 +21,7 @@
                    . #2=(|ZDSOLVE;convert;NsmpNsmp;1|))
              (SEQ G190
                   (COND
-                   ((NULL (COND ((SPADCALL |q| (QREFELT $ 22)) 'NIL) ('T 'T)))
-                    (GO G191)))
+                   ((NULL (NULL (SPADCALL |q| (QREFELT $ 22)))) (GO G191)))
                   (SEQ (LETT |v| (SPADCALL |q| (QREFELT $ 27)) . #2#)
                        (LETT |d| (SPADCALL |q| (QREFELT $ 29)) . #2#)
                        (LETT |v2|
@@ -169,7 +168,7 @@
             (|NewSparseMultivariatePolynomial| R
                                                (|OrderedVariableList| |ls2|))))
           (#5=#:G160 NIL) (|p| NIL) (#6=#:G159 NIL) (|irred?| (|Boolean|)))
-         (SEQ (LETT |irred?| 'NIL . #7=(|ZDSOLVE;squareFree;RcL;2|))
+         (SEQ (LETT |irred?| NIL . #7=(|ZDSOLVE;squareFree;RcL;2|))
               (LETT |st| (SPADCALL (LIST (QREFELT $ 19)) (QREFELT $ 39)) . #7#)
               (LETT |lq|
                     (PROGN
@@ -208,9 +207,7 @@
                        (LETT #4# (CDR #4#) . #7#) (GO G190) G191 (EXIT NIL)))))
                ('T (LETT |toSee| (LIST (CONS |lq| |st|)) . #7#)))
               (LETT |toSave| NIL . #7#)
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                    (SEQ (LETT |lqwt| (|SPADfirst| |toSee|) . #7#)
                         (LETT |toSee| (CDR |toSee|) . #7#)
                         (LETT |lq| (QCAR |lqwt|) . #7#)
@@ -315,17 +312,17 @@
                       (EXIT (NREVERSE #2#))))
                 . #3#)
           (EXIT
-           (COND (|lextri?| (SPADCALL |lq| 'NIL (QREFELT $ 64)))
+           (COND (|lextri?| (SPADCALL |lq| NIL (QREFELT $ 64)))
                  ('T (SPADCALL |lq| 'T |info?| (QREFELT $ 66)))))))) 
 
 (SDEFUN |ZDSOLVE;triangSolve;LBL;4|
         ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
          ($ |List| (|RegularChain| R |ls|)))
-        (SPADCALL |lp| |info?| 'NIL (QREFELT $ 68))) 
+        (SPADCALL |lp| |info?| NIL (QREFELT $ 68))) 
 
 (SDEFUN |ZDSOLVE;triangSolve;LL;5|
         ((|lp| |List| (|Polynomial| R)) ($ |List| (|RegularChain| R |ls|)))
-        (SPADCALL |lp| 'NIL (QREFELT $ 69))) 
+        (SPADCALL |lp| NIL (QREFELT $ 69))) 
 
 (SDEFUN |ZDSOLVE;convert;SupSup;6|
         ((|u| |SparseUnivariatePolynomial| R)
@@ -346,8 +343,7 @@
                         . #1=(|ZDSOLVE;convert;SupSup;6|))
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |u| (QREFELT $ 75)) 'NIL) ('T 'T)))
+                        ((NULL (NULL (SPADCALL |u| (QREFELT $ 75))))
                          (GO G191)))
                        (SEQ
                         (LETT |uu|
@@ -475,8 +471,7 @@
                       (EXIT (NREVERSE #7#))))
                 . #8#)
           (LETT |toSave| NIL . #8#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #8#)
                     (LETT |toSee| (CDR |toSee|) . #8#)
                     (LETT |lr| (QVELT |wip| 0) . #8#)
@@ -612,7 +607,7 @@
                       (EXIT (NREVERSE #15#))))
                 . #16#)
           (COND
-           (|lextri?| (LETT |lts| (SPADCALL |lq| 'NIL (QREFELT $ 64)) . #16#))
+           (|lextri?| (LETT |lts| (SPADCALL |lq| NIL (QREFELT $ 64)) . #16#))
            ('T (LETT |lts| (SPADCALL |lq| 'T |info?| (QREFELT $ 66)) . #16#)))
           (LETT |lsts| NIL . #16#)
           (SEQ (LETT |ts| NIL . #16#) (LETT #13# |lts| . #16#) G190
@@ -648,8 +643,7 @@
                       (EXIT (NREVERSE #12#))))
                 . #16#)
           (LETT |toSave| NIL . #16#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #16#)
                     (LETT |toSee| (CDR |toSee|) . #16#)
                     (LETT |lr| (QVELT |wip| 0) . #16#)
@@ -776,17 +770,17 @@
         ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
          (|check?| |Boolean|)
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
-        (SPADCALL |lp| |info?| |check?| 'NIL (QREFELT $ 109))) 
+        (SPADCALL |lp| |info?| |check?| NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;realSolve;LBL;14|
         ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
-        (SPADCALL |lp| |info?| 'NIL 'NIL (QREFELT $ 109))) 
+        (SPADCALL |lp| |info?| NIL NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;realSolve;LL;15|
         ((|lp| |List| (|Polynomial| R))
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
-        (SPADCALL |lp| 'NIL 'NIL 'NIL (QREFELT $ 109))) 
+        (SPADCALL |lp| NIL NIL NIL (QREFELT $ 109))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;RcL;16|
         ((|ts| |RegularChain| R |ls|)
@@ -854,8 +848,7 @@
                       (EXIT (NREVERSE #7#))))
                 . #8#)
           (LETT |toSave| NIL . #8#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #8#)
                     (LETT |toSee| (CDR |toSee|) . #8#)
                     (LETT |lr| (QVELT |wip| 0) . #8#)
@@ -989,7 +982,7 @@
                       (EXIT (NREVERSE #10#))))
                 . #11#)
           (COND
-           (|lextri?| (LETT |lts| (SPADCALL |lq| 'NIL (QREFELT $ 64)) . #11#))
+           (|lextri?| (LETT |lts| (SPADCALL |lq| NIL (QREFELT $ 64)) . #11#))
            ('T (LETT |lts| (SPADCALL |lq| 'T |info?| (QREFELT $ 66)) . #11#)))
           (LETT |lsts| NIL . #11#)
           (SEQ (LETT |ts| NIL . #11#) (LETT #8# |lts| . #11#) G190
@@ -1025,8 +1018,7 @@
                       (EXIT (NREVERSE #7#))))
                 . #11#)
           (LETT |toSave| NIL . #11#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #11#)
                     (LETT |toSee| (CDR |toSee|) . #11#)
                     (LETT |lr| (QVELT |wip| 0) . #11#)
@@ -1100,12 +1092,12 @@
 (SDEFUN |ZDSOLVE;positiveSolve;LBL;18|
         ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
-        (SPADCALL |lp| |info?| 'NIL (QREFELT $ 115))) 
+        (SPADCALL |lp| |info?| NIL (QREFELT $ 115))) 
 
 (SDEFUN |ZDSOLVE;positiveSolve;LL;19|
         ((|lp| |List| (|Polynomial| R))
          ($ |List| (|List| (|RealClosure| (|Fraction| R)))))
-        (SPADCALL |lp| 'NIL 'NIL (QREFELT $ 115))) 
+        (SPADCALL |lp| NIL NIL (QREFELT $ 115))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;RcL;20|
         ((|ts| |RegularChain| R |ls|)
@@ -1282,7 +1274,7 @@
                       (EXIT (NREVERSE #13#))))
                 . #14#)
           (COND
-           (|lextri?| (LETT |lts| (SPADCALL |lq| 'NIL (QREFELT $ 64)) . #14#))
+           (|lextri?| (LETT |lts| (SPADCALL |lq| NIL (QREFELT $ 64)) . #14#))
            ('T (LETT |lts| (SPADCALL |lq| 'T |info?| (QREFELT $ 66)) . #14#)))
           (LETT |toSee| NIL . #14#)
           (SEQ (LETT |ts| NIL . #14#) (LETT #11# |lts| . #14#) G190
@@ -1440,21 +1432,21 @@
          ($ |List|
           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                     (|:| |coordinates| (|List| (|Polynomial| R))))))
-        (SPADCALL |lp| |info?| |check?| 'NIL (QREFELT $ 142))) 
+        (SPADCALL |lp| |info?| |check?| NIL (QREFELT $ 142))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;LBL;23|
         ((|lp| |List| (|Polynomial| R)) (|info?| |Boolean|)
          ($ |List|
           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                     (|:| |coordinates| (|List| (|Polynomial| R))))))
-        (SPADCALL |lp| |info?| 'NIL 'NIL (QREFELT $ 142))) 
+        (SPADCALL |lp| |info?| NIL NIL (QREFELT $ 142))) 
 
 (SDEFUN |ZDSOLVE;univariateSolve;LL;24|
         ((|lp| |List| (|Polynomial| R))
          ($ |List|
           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                     (|:| |coordinates| (|List| (|Polynomial| R))))))
-        (SPADCALL |lp| 'NIL 'NIL 'NIL (QREFELT $ 142))) 
+        (SPADCALL |lp| NIL NIL NIL (QREFELT $ 142))) 
 
 (DECLAIM (NOTINLINE |ZeroDimensionalSolvePackage;|)) 
 

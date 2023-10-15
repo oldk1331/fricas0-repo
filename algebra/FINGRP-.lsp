@@ -5,8 +5,7 @@
                     (LETT |y| |x| . #1#)
                     (SEQ G190
                          (COND
-                          ((NULL
-                            (COND ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ('T 'T)))
+                          ((NULL (NULL (SPADCALL |y| (QREFELT $ 8))))
                            (GO G191)))
                          (SEQ (LETT |k| (+ |k| 1) . #1#)
                               (EXIT

@@ -150,7 +150,7 @@
 ; getIdentity(x,e) ==
 ;   GETL(x,"THETA") is [y] =>
 ;     y => y
-;     "nil"
+;     nil
  
 (DEFUN |getIdentity| (|x| |e|)
   (PROG (|ISTMP#1| |y|)
@@ -160,7 +160,7 @@
         (SETQ |ISTMP#1| (GETL |x| 'THETA))
         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
              (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T)))
-       (IDENTITY (COND (|y| |y|) (#1# '|nil|))))))))
+       (IDENTITY (COND (|y| |y|) (#1# NIL))))))))
  
 ; numberize x ==
 ;   x=$Zero => 0

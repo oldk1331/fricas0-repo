@@ -3,9 +3,9 @@
 
 (SDEFUN |SAOS;create;$;1| (($ $)) "?") 
 
-(PUT '|SAOS;<;2$B;2| '|SPADreplace| '(XLAM (|a| |b|) 'NIL)) 
+(PUT '|SAOS;<;2$B;2| '|SPADreplace| '(XLAM (|a| |b|) NIL)) 
 
-(SDEFUN |SAOS;<;2$B;2| ((|a| $) (|b| $) ($ |Boolean|)) 'NIL) 
+(SDEFUN |SAOS;<;2$B;2| ((|a| $) (|b| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |SAOS;coerce;$Of;3| ((|a| $) ($ |OutputForm|))
         (SPADCALL "?" (QREFELT $ 11))) 

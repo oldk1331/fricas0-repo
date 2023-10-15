@@ -103,10 +103,10 @@
                   (SPADCALL |uts2| (QREFELT $ 27)) (QREFELT $ 44))) 
 
 (SDEFUN |SULS;recip;$U;19| ((|uls| $) ($ |Union| $ "failed"))
-        (SPADCALL (|spadConstant| $ 16) |uls| 'NIL (QREFELT $ 47))) 
+        (SPADCALL (|spadConstant| $ 16) |uls| NIL (QREFELT $ 47))) 
 
 (SDEFUN |SULS;exquo;2$U;20| ((|uls1| $) (|uls2| $) ($ |Union| $ "failed"))
-        (SPADCALL |uls1| |uls2| 'NIL (QREFELT $ 47))) 
+        (SPADCALL |uls1| |uls2| NIL (QREFELT $ 47))) 
 
 (SDEFUN |SULS;/;3$;21| ((|uls1| $) (|uls2| $) ($ $))
         (SPROG ((|q| (|Union| $ "failed")))

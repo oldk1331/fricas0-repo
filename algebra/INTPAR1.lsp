@@ -1532,7 +1532,7 @@
                                      (COND
                                       ((SPADCALL |gi| (|spadConstant| $ 126)
                                                  (QREFELT $ 137))
-                                       (SEQ (LETT |last_iter| 'NIL . #33#)
+                                       (SEQ (LETT |last_iter| NIL . #33#)
                                             (EXIT
                                              (COND
                                               ((EQL

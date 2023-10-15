@@ -3,9 +3,8 @@
         (SPADCALL |x| |y| (QREFELT $ 8))) 
 
 (SDEFUN |EAB;<;2$B;2| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((NULL |x|) (COND ((NULL |y|) 'NIL) (#1='T 'T)))
-              ((NULL |y|) 'NIL)
-              (#1#
+        (COND ((NULL |x|) |y|) ((NULL |y|) NIL)
+              (#1='T
                (COND
                 ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
                  (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 10)))

@@ -64,7 +64,7 @@
                   (EXIT (SPADCALL |ans| |yn| (QREFELT $ 13))))))))) 
 
 (SDEFUN |FAMR-;ground?;SB;3| ((|x| S) ($ |Boolean|))
-        (COND ((QEQCAR (SPADCALL |x| (QREFELT $ 24)) 1) 'NIL) ('T 'T))) 
+        (NULL (QEQCAR (SPADCALL |x| (QREFELT $ 24)) 1))) 
 
 (SDEFUN |FAMR-;ground;SR;4| ((|x| S) ($ R)) (SPADCALL |x| (QREFELT $ 27))) 
 
@@ -109,9 +109,7 @@
                           . #2=(|FAMR-;exquo;SRU;8|))
                     (SEQ G190
                          (COND
-                          ((NULL
-                            (COND ((SPADCALL |x| (QREFELT $ 29)) 'NIL)
-                                  ('T 'T)))
+                          ((NULL (NULL (SPADCALL |x| (QREFELT $ 29))))
                            (GO G191)))
                          (SEQ
                           (LETT |t|
@@ -154,12 +152,10 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND
-                                 ((OR (SPADCALL |x| (QREFELT $ 29))
-                                      (SPADCALL |r| (|spadConstant| $ 46)
-                                                (QREFELT $ 47)))
-                                  'NIL)
-                                 ('T 'T)))
+                                (NULL
+                                 (OR (SPADCALL |x| (QREFELT $ 29))
+                                     (SPADCALL |r| (|spadConstant| $ 46)
+                                               (QREFELT $ 47)))))
                                (GO G191)))
                              (SEQ
                               (LETT |r|

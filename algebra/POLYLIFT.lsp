@@ -24,8 +24,7 @@
                   (LETT |up| (SPADCALL |up| (QREFELT $ 25)) . #1#)
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |up| (QREFELT $ 27)) 'NIL) ('T 'T)))
+                        ((NULL (NULL (SPADCALL |up| (QREFELT $ 27))))
                          (GO G191)))
                        (SEQ
                         (LETT |ans|

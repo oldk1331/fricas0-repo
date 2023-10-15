@@ -23,10 +23,7 @@
                   (SEQ (LETT |minValue| (|SPADfirst| |li|) . #5#)
                        (LETT |lx| NIL . #5#) (LETT |l1| |li| . #5#)
                        (LETT |l2| |lx| . #5#)
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |li|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL (NULL (NULL |li|))) (GO G191)))
                             (SEQ
                              (COND
                               ((< (|SPADfirst| |li|) |minValue|)
@@ -75,7 +72,7 @@
                    ((SPADCALL (SPADCALL |x| (QREFELT $ 17))
                               (SPADCALL |y| (QREFELT $ 17)) (QREFELT $ 23))
                     (PROGN
-                     (LETT #1# 'NIL . #3=(|LOOP;=;2$B;5|))
+                     (LETT #1# NIL . #3=(|LOOP;=;2$B;5|))
                      (GO #4=#:G131))))
                   (SEQ (LETT |i| 1 . #3#)
                        (LETT #2# (SPADCALL |x| (QREFELT $ 17)) . #3#) G190
@@ -85,14 +82,14 @@
                          (COND
                           ((SPADCALL (QAREF1 |x| (- |i| 1))
                                      (QAREF1 |y| (- |i| 1)) (QREFELT $ 23))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |LOOP;~=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 24)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 24)))) 
 
 (SDEFUN |LOOP;coerce;$Of;7| ((|lp| $) ($ |OutputForm|))
         (SPROG

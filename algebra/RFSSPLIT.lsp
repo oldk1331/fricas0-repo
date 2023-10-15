@@ -89,10 +89,7 @@
           (SEQ (LETT |pow1| 0 . #5#) (LETT #2# (- |n| 1) . #5#) G190
                (COND ((|greater_SI| |pow1| #2#) (GO G191)))
                (SEQ (LETT |nlf1| |nlf0| . #5#) (LETT |resi| NIL . #5#)
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |nlf1|) 'NIL) ('T 'T)))
-                           (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |nlf1|))) (GO G191)))
                          (SEQ (LETT |lf1| (|SPADfirst| |nlf1|) . #5#)
                               (LETT |resi| (CONS (|SPADfirst| |lf1|) |resi|)
                                     . #5#)

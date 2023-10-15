@@ -256,7 +256,7 @@
 (SDEFUN |SAE;discriminant;R;27| (($ R))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 35) (QREFELT $ 105)) (|SAE;mkDisc| 'NIL $)))
+          ((SPADCALL (QREFELT $ 35) (QREFELT $ 105)) (|SAE;mkDisc| NIL $)))
          (EXIT (SPADCALL (QREFELT $ 34) (QREFELT $ 106))))) 
 
 (SDEFUN |SAE;mkDisc| ((|b| |Boolean|) ($ |Void|))
@@ -268,7 +268,7 @@
 (SDEFUN |SAE;traceMatrix;M;29| (($ |Matrix| R))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 28) (QREFELT $ 105)) (|SAE;mkDiscMat| 'NIL $)))
+          ((SPADCALL (QREFELT $ 28) (QREFELT $ 105)) (|SAE;mkDiscMat| NIL $)))
          (EXIT (QREFELT $ 24)))) 
 
 (SDEFUN |SAE;mkDiscMat| ((|b| |Boolean|) ($ |Void|))
@@ -391,12 +391,10 @@
                   (SEQ G190
                        (COND
                         ((NULL
-                          (COND
-                           ((SPADCALL
-                             (LETT |z| (SPADCALL |z| (QREFELT $ 142)) . #2#)
-                             (QREFELT $ 139))
-                            'NIL)
-                           ('T 'T)))
+                          (NULL
+                           (SPADCALL
+                            (LETT |z| (SPADCALL |z| (QREFELT $ 142)) . #2#)
+                            (QREFELT $ 139))))
                          (GO G191)))
                        (SEQ
                         (EXIT

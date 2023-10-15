@@ -61,8 +61,8 @@
         (SEQ
          (COND
           ((QREFELT $ 8)
-           (SEQ (SETELT $ 11 (SPADCALL (QREFELT $ 10))) (SETELT $ 8 'NIL)
-                (SETELT $ 12 'NIL) (SETELT $ 13 'NIL)
+           (SEQ (SETELT $ 11 (SPADCALL (QREFELT $ 10))) (SETELT $ 8 NIL)
+                (SETELT $ 12 NIL) (SETELT $ 13 NIL)
                 (SETELT $ 17 (|make_full_CVEC| 0))
                 (EXIT (SPADCALL (QREFELT $ 19)))))
           ('T
@@ -148,10 +148,10 @@
           (QSETREFV $ 6 |#1|)
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 8 'NIL)
+          (QSETREFV $ 8 NIL)
           (QSETREFV $ 11 (SPADCALL (QREFELT $ 10)))
-          (QSETREFV $ 12 'NIL)
-          (QSETREFV $ 13 'NIL)
+          (QSETREFV $ 12 NIL)
+          (QSETREFV $ 13 NIL)
           (QSETREFV $ 14 0)
           (QSETREFV $ 15 "o")
           (QSETREFV $ 16 "+")

@@ -50,7 +50,7 @@
           (QSETREFV $ 7 |#2|)
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 13 (SPADCALL '|%i| 'T 'NIL 'NIL (QREFELT $ 12)))
+          (QSETREFV $ 13 (SPADCALL '|%i| 'T NIL NIL (QREFELT $ 12)))
           $))) 
 
 (MAKEPROP '|ComplexPattern| '|infovec|

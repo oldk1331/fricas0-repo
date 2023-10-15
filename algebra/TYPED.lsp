@@ -84,7 +84,7 @@
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 30)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |TYPED;coerce;$Of;9| ((|n| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL |n| (QREFELT $ 17)) (QREFELT $ 33))) 

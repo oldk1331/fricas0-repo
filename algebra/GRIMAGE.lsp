@@ -305,11 +305,7 @@
                       (COND
                        ((OR (ATOM #5#) (PROGN (LETT |l| (CAR #5#) . #7#) NIL))
                         (GO G191)))
-                      (SEQ
-                       (EXIT
-                        (COND
-                         ((COND ((NULL |l|) 'NIL) (#8='T 'T))
-                          (LETT #6# (CONS |l| #6#) . #7#)))))
+                      (SEQ (EXIT (COND (|l| (LETT #6# (CONS |l| #6#) . #7#)))))
                       (LETT #5# (CDR #5#) . #7#) (GO G190) G191
                       (EXIT (NREVERSE #6#))))
                 . #7#)
@@ -341,7 +337,7 @@
                                        (SPADCALL (QREFELT $ 60))
                                        (QREFELT $ 61))
                                       (QREFELT $ 62))))
-                 (#8#
+                 (#8='T
                   (QSETVELT |graf| 4
                             (SPADCALL |listOfPointColors| |len|
                                       (QREFELT $ 63)))))))

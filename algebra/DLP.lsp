@@ -15,11 +15,10 @@
                (COND
                 ((< |p| |limit|)
                  (SEQ (LETT |a| (|spadConstant| $ 7) . #5#)
-                      (LETT |disclog| 0 . #5#) (LETT |found| 'NIL . #5#)
+                      (LETT |disclog| 0 . #5#) (LETT |found| NIL . #5#)
                       (SEQ (LETT |i| 0 . #5#) (LETT #4# (- |p| 1) . #5#) G190
                            (COND
-                            ((OR (|greater_SI| |i| #4#)
-                                 (NULL (COND (|found| 'NIL) ('T 'T))))
+                            ((OR (|greater_SI| |i| #4#) (NULL (NULL |found|)))
                              (GO G191)))
                            (SEQ
                             (EXIT
@@ -65,15 +64,14 @@
                                    . #5#)))
                            (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191
                            (EXIT NIL))
-                      (LETT |found| 'NIL . #5#)
+                      (LETT |found| NIL . #5#)
                       (LETT |end| (QUOTIENT2 (- |p| 1) |n|) . #5#)
                       (LETT |disclog| 0 . #5#) (LETT |a| |c| . #5#)
                       (LETT |b| (SPADCALL |logbase| (- |n|) (QREFELT $ 22))
                             . #5#)
                       (SEQ (LETT |i| 0 . #5#) (LETT #1# |end| . #5#) G190
                            (COND
-                            ((OR (|greater_SI| |i| #1#)
-                                 (NULL (COND (|found| 'NIL) ('T 'T))))
+                            ((OR (|greater_SI| |i| #1#) (NULL (NULL |found|)))
                              (GO G191)))
                            (SEQ
                             (LETT |rho|

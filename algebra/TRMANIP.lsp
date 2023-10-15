@@ -197,11 +197,11 @@
                       (LETT |terms| |nterms| . #18#)
                       (COND
                        ((NULL (NULL |exprs|))
-                        (SEQ (LETT |foundLog| 'NIL . #18#) (LETT |i| 0 . #18#)
+                        (SEQ (LETT |foundLog| NIL . #18#) (LETT |i| 0 . #18#)
                              (SEQ G190
                                   (COND
                                    ((NULL
-                                     (COND (|foundLog| 'NIL)
+                                     (COND (|foundLog| NIL)
                                            ('T (< |i| (LENGTH |terms|)))))
                                     (GO G191)))
                                   (SEQ (LETT |i| (+ |i| 1) . #18#)

@@ -71,7 +71,7 @@
                  (COND
                   ((EQL |p| |q|)
                    (SEQ
-                    (LETT |b| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 38))
+                    (LETT |b| (SPADCALL (QREFELT $ 7) NIL (QREFELT $ 38))
                           . #5=(|SETMN;enum|))
                     (SEQ (LETT |i| 1 . #5#) (LETT #4# |p| . #5#) G190
                          (COND ((|greater_SI| |i| #4#) (GO G191)))
@@ -98,7 +98,7 @@
                     (COND
                      ((NULL |l|)
                       (LETT |l|
-                            (LIST (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 38)))
+                            (LIST (SPADCALL (QREFELT $ 7) NIL (QREFELT $ 38)))
                             . #5#)))
                     (SEQ (LETT |s| NIL . #5#) (LETT #1# |l| . #5#) G190
                          (COND
@@ -177,7 +177,7 @@
          ((|count| (|NonNegativeInteger|)) (#1=#:G171 NIL) (|i| NIL)
           (|s| (|Bits|)))
          (SEQ
-          (LETT |s| (SPADCALL (QREFELT $ 7) 'NIL (QREFELT $ 38))
+          (LETT |s| (SPADCALL (QREFELT $ 7) NIL (QREFELT $ 38))
                 . #2=(|SETMN;setOfMinN;L$;10|))
           (LETT |count| 0 . #2#)
           (SEQ (LETT |i| NIL . #2#) (LETT #1# |l| . #2#) G190
@@ -240,7 +240,7 @@
                         (PROG1 (LETT #1# (- |i| 1) . #2#)
                           (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                             '(|Integer|) #1#))
-                        'NIL (QREFELT $ 39))
+                        NIL (QREFELT $ 39))
               (EXIT (CONS 0 (CONS |newb| 0)))))) 
 
 (SDEFUN |SETMN;delta;$2PiNni;13|
@@ -288,7 +288,7 @@
                   (EXIT (CONS 1 "failed"))))))
               (LETT |newb| (SPADCALL |b| (QREFELT $ 54)) . #1#)
               (SPADCALL |newb| |p| 'T (QREFELT $ 39))
-              (SPADCALL |newb| |i| 'NIL (QREFELT $ 39))
+              (SPADCALL |newb| |i| NIL (QREFELT $ 39))
               (EXIT
                (CONS 0
                      (CONS |newb| (COND ((EQL |i| |p|) (QCDR |s|)) ('T 0)))))))) 

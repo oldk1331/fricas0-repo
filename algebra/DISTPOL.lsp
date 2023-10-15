@@ -12,8 +12,7 @@
                          . #1=(|DISTPOL;eval;DUPSS;1|))
                    (SEQ G190
                         (COND
-                         ((NULL
-                           (COND ((SPADCALL |p| (QREFELT $ 15)) 'NIL) ('T 'T)))
+                         ((NULL (NULL (SPADCALL |p| (QREFELT $ 15))))
                           (GO G191)))
                         (SEQ
                          (LETT |res|

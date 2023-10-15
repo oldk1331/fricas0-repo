@@ -49,15 +49,13 @@
                                           (QREFELT $ 29))
                                 (QREFELT $ 31))
                                (QREFELT $ 32))
-                              (COND
-                               ((NULL
-                                 (SPADCALL
-                                  (|SPADfirst| (SPADCALL |k| (QREFELT $ 28)))
-                                  (QREFELT $ 34)))
-                                'NIL)
-                               (#4='T 'T)))
-                             (#4# 'NIL)))
-                           (#4# 'NIL))
+                              (NULL
+                               (NULL
+                                (SPADCALL
+                                 (|SPADfirst| (SPADCALL |k| (QREFELT $ 28)))
+                                 (QREFELT $ 34)))))
+                             (#4='T NIL)))
+                           (#4# NIL))
                           (LETT #2#
                                 (CONS
                                  (|SPADfirst| (SPADCALL |k| (QREFELT $ 28)))
@@ -661,7 +659,7 @@
                                      (PROGN
                                       (LETT #1#
                                             (PROGN
-                                             (LETT #2# 'NIL . #5#)
+                                             (LETT #2# NIL . #5#)
                                              (GO #6=#:G234))
                                             . #5#)
                                       (GO #7=#:G230))))))))

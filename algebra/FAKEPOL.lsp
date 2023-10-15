@@ -187,8 +187,7 @@
          (SEQ (LETT |pr1| |p| . #1=(|FAKEPOL;map;M$U;4|))
               (LETT |pr| (QCDR |pr1|) . #1#)
               (LETT |res0| (|spadConstant| $ 29) . #1#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |pr|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |pr|))) (GO G191)))
                    (SEQ (LETT |r1| (|SPADfirst| |pr|) . #1#)
                         (LETT |pr| (CDR |pr|) . #1#)
                         (LETT |c1u| (SPADCALL (QCDR |r1|) |f|) . #1#)
@@ -275,8 +274,7 @@
          (SEQ (LETT |pr1| |p| . #3=(|FAKEPOL;to_UP;$Sup;6|))
               (LETT |pr| (QCDR |pr1|) . #3#)
               (LETT |res0| (|spadConstant| $ 17) . #3#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |pr|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |pr|))) (GO G191)))
                    (SEQ (LETT |r1| (|SPADfirst| |pr|) . #3#)
                         (LETT |pr| (CDR |pr|) . #3#)
                         (LETT |c1| (QCDR |r1|) . #3#)

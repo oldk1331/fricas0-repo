@@ -11,8 +11,7 @@
                           ((OR (ATOM #1#)
                                (PROGN (LETT |arg| (CAR #1#) . #2#) NIL))
                            (GO G191)))
-                         (SEQ
-                          (EXIT (SPADCALL |dev| |arg| 'NIL (QREFELT $ 21))))
+                         (SEQ (EXIT (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
                          (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                     (EXIT (SPADCALL |dev| (QREFELT $ 22)))))) 
 
@@ -22,9 +21,9 @@
         (SEQ (SPADCALL |dev| (QREFELT $ 23))
              (SPADCALL |dev| "fns1" "lambda" (QREFELT $ 18))
              (SPADCALL |dev| (QREFELT $ 24))
-             (SPADCALL |dev| |var| 'NIL (QREFELT $ 21))
+             (SPADCALL |dev| |var| NIL (QREFELT $ 21))
              (SPADCALL |dev| (QREFELT $ 25))
-             (SPADCALL |dev| |ex| 'NIL (QREFELT $ 21))
+             (SPADCALL |dev| |ex| NIL (QREFELT $ 21))
              (EXIT (SPADCALL |dev| (QREFELT $ 26))))) 
 
 (SDEFUN |OMEXPR;outputOMInterval|
@@ -32,8 +31,8 @@
          ($ |Void|))
         (SEQ (SPADCALL |dev| (QREFELT $ 16))
              (SPADCALL |dev| "interval1" "interval" (QREFELT $ 18))
-             (SPADCALL |dev| |lo| 'NIL (QREFELT $ 21))
-             (SPADCALL |dev| |hi| 'NIL (QREFELT $ 21))
+             (SPADCALL |dev| |lo| NIL (QREFELT $ 21))
+             (SPADCALL |dev| |hi| NIL (QREFELT $ 21))
              (EXIT (SPADCALL |dev| (QREFELT $ 22))))) 
 
 (SDEFUN |OMEXPR;outputOMIntInterval|
@@ -41,8 +40,8 @@
          ($ |Void|))
         (SEQ (SPADCALL |dev| (QREFELT $ 16))
              (SPADCALL |dev| "interval1" "integer_interval" (QREFELT $ 18))
-             (SPADCALL |dev| |lo| 'NIL (QREFELT $ 21))
-             (SPADCALL |dev| |hi| 'NIL (QREFELT $ 21))
+             (SPADCALL |dev| |lo| NIL (QREFELT $ 21))
+             (SPADCALL |dev| |hi| NIL (QREFELT $ 21))
              (EXIT (SPADCALL |dev| (QREFELT $ 22))))) 
 
 (SDEFUN |OMEXPR;outputOMBinomial|
@@ -62,7 +61,7 @@
                                   (PROGN (LETT |arg| (CAR #1#) . #2#) NIL))
                               (GO G191)))
                             (SEQ
-                             (EXIT (SPADCALL |dev| |arg| 'NIL (QREFELT $ 21))))
+                             (EXIT (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
                             (LETT #1# (CDR #1#) . #2#) (GO G190) G191
                             (EXIT NIL))
                        (EXIT (SPADCALL |dev| (QREFELT $ 22))))))))) 
@@ -194,7 +193,7 @@
                                  (GO G191)))
                                (SEQ
                                 (EXIT
-                                 (SPADCALL |dev| |arg| 'NIL (QREFELT $ 21))))
+                                 (SPADCALL |dev| |arg| NIL (QREFELT $ 21))))
                                (LETT #1# (CDR #1#) . #2#) (GO G190) G191
                                (EXIT NIL))
                           (EXIT (SPADCALL |dev| (QREFELT $ 22)))))))))
@@ -237,8 +236,7 @@
          (SEQ
           (COND
            ((SPADCALL |ex| (QREFELT $ 39))
-            (SPADCALL |dev| (SPADCALL |ex| (QREFELT $ 40)) 'NIL
-                      (QREFELT $ 41)))
+            (SPADCALL |dev| (SPADCALL |ex| (QREFELT $ 40)) NIL (QREFELT $ 41)))
            ('T
             (SEQ
              (EXIT

@@ -310,7 +310,7 @@
                     (LETT |gb1| (|GROEBSOL;testGenPos| |gbt| |lvar| $) . #15#)
                     (EXIT
                      (COND ((QEQCAR |gb1| 1) "try again")
-                           ('T (LETT |testfail| 'NIL . #15#)))))
+                           ('T (LETT |testfail| NIL . #15#)))))
                    (LETT |count| (|inc_SI| |count|) . #15#) (GO G190) G191
                    (EXIT NIL))
               (EXIT
@@ -645,11 +645,11 @@
           (|g| (|HomogeneousDistributedMultivariatePolynomial| |lv| F))
           (#3=#:G211 NIL) (|f| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
-          (COND ((NULL |lp|) 'NIL)
+          (COND ((NULL |lp|) NIL)
                 (#4='T
                  (SEQ (LETT |n| (LENGTH |lvar|) . #5=(|GROEBSOL;zeroDim?|))
                       (EXIT
-                       (COND ((< (LENGTH |lp|) |n|) 'NIL)
+                       (COND ((< (LENGTH |lp|) |n|) NIL)
                              (#4#
                               (SEQ (LETT |lvint1| |lvar| . #5#)
                                    (SEQ (LETT |f| NIL . #5#)
@@ -659,9 +659,7 @@
                                               (PROGN
                                                (LETT |f| (CAR #3#) . #5#)
                                                NIL)
-                                              (NULL
-                                               (COND ((NULL |lvint1|) 'NIL)
-                                                     ('T 'T))))
+                                              (NULL (NULL (NULL |lvint1|))))
                                           (GO G191)))
                                         (SEQ
                                          (LETT |g|

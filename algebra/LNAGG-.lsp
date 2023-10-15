@@ -15,7 +15,7 @@
         (COND
          ((>= |i| (SPADCALL |a| (QREFELT $ 9)))
           (SPADCALL |i| (SPADCALL |a| (QREFELT $ 10)) (QREFELT $ 14)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LNAGG-;concat;ASA;3| ((|a| A) (|x| S) ($ A))
         (SPADCALL |a| (SPADCALL 1 |x| (QREFELT $ 17)) (QREFELT $ 18))) 

@@ -57,7 +57,7 @@
           (#4=#:G138 NIL) (|psqfr| (|Factored| P)) (|isSq| (|Boolean|))
           (|proot| (P)) (|g| (|Union| P "failed")))
          (SEQ (LETT |proot| (|spadConstant| $ 24) . #5=(|PSQFR;pthPower|))
-              (LETT |isSq| 'NIL . #5#)
+              (LETT |isSq| NIL . #5#)
               (SEQ (LETT |g| (SPADCALL |f| (QREFELT $ 25)) . #5#)
                    (EXIT
                     (COND

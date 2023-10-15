@@ -12,10 +12,10 @@
         (SPADCALL |y| |x| (QREFELT $ 8))) 
 
 (SDEFUN |ORDSET-;>=;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 8)))) 
 
 (SDEFUN |ORDSET-;<=;2SB;6| ((|x| S) (|y| S) ($ |Boolean|))
-        (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |y| |x| (QREFELT $ 8)))) 
 
 (DECLAIM (NOTINLINE |OrderedSet&;|)) 
 

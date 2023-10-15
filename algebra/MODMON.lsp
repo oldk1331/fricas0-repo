@@ -17,9 +17,7 @@
                      (SEQ (LETT |copymon| (|spadConstant| $ 20) . #4#)
                           (SEQ G190
                                (COND
-                                ((NULL
-                                  (COND ((SPADCALL |mon| (QREFELT $ 30)) 'NIL)
-                                        ('T 'T)))
+                                ((NULL (NULL (SPADCALL |mon| (QREFELT $ 30))))
                                  (GO G191)))
                                (SEQ
                                 (LETT |copymon|

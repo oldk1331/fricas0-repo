@@ -72,12 +72,12 @@
          (SEQ
           (COND
            ((SPADCALL |z| (QREFELT $ 24))
-            (LIST (SPADCALL (|spadConstant| $ 25) (QREFELT $ 27))
-                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))
-                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 27))))
+            (LIST (SPADCALL (|spadConstant| $ 25) (QREFELT $ 26))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 26))
+                  (SPADCALL (|spadConstant| $ 17) (QREFELT $ 26))))
            (#3='T
             (SEQ
-             (LETT |z0| (SPADCALL |z| (QREFELT $ 28))
+             (LETT |z0| (SPADCALL |z| (QREFELT $ 27))
                    . #4=(|ELFUTS;sncndn;SCoefL;2|))
              (EXIT
               (COND
@@ -105,7 +105,7 @@
                                  (SPADCALL
                                   (SPADCALL
                                    (SPADCALL (|spadConstant| $ 17)
-                                             (QREFELT $ 27))
+                                             (QREFELT $ 26))
                                    (SPADCALL
                                     (SPADCALL |c1|
                                               (SPADCALL |scd| 1 (QREFELT $ 12))
@@ -225,7 +225,7 @@
           (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
                 . #1=(|ELFUTS;ellipticE;UTSCoefUTS;6|))
           (EXIT
-           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 28))
                  (#2='T
                   (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
                        (LETT |s1|
@@ -278,7 +278,7 @@
           (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
                 . #1=(|ELFUTS;ellipticF;UTSCoefUTS;7|))
           (EXIT
-           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 28))
                  (#2='T
                   (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
                        (LETT |s1|
@@ -334,7 +334,7 @@
           (LETT |cz| (SPADCALL |z| (QREFELT $ 44))
                 . #1=(|ELFUTS;ellipticPi;UTS2CoefUTS;8|))
           (EXIT
-           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 26))
+           (COND ((SPADCALL |cz| (QREFELT $ 24)) (|spadConstant| $ 28))
                  (#2='T
                   (SEQ (LETT |dz| (SPADCALL |z| (QREFELT $ 49)) . #1#)
                        (LETT |s1|
@@ -471,8 +471,8 @@
               (|StreamTaylorSeriesOperations| 6) (6 . *) (|Mapping| 9)
               (12 . |lazyIntegrate|) (18 . |One|) (22 . |One|)
               (|PositiveInteger|) (26 . |One|) (30 . *) (36 . *) (|Boolean|)
-              (42 . |empty?|) (47 . |Zero|) (51 . |Zero|) (55 . |coerce|)
-              (60 . |frst|) (65 . =) (71 . |deriv|) (76 . -) (|Mapping| 11 11)
+              (42 . |empty?|) (47 . |Zero|) (51 . |coerce|) (56 . |frst|)
+              (61 . |Zero|) (65 . =) (71 . |deriv|) (76 . -) (|Mapping| 11 11)
               (|ParadoxicalCombinatorsForStreams| 6) (81 . Y) (87 . |jacobiSn|)
               (93 . |jacobiCn|) (99 . |jacobiDn|) (105 . ^) (111 . -)
               (|Union| 9 '"failed") (117 . |recip|) (122 . +)
@@ -496,8 +496,8 @@
                                                    2 13 9 6 15 16 0 6 0 17 0 7
                                                    0 18 0 19 0 20 2 13 9 6 9 21
                                                    2 6 0 0 0 22 1 9 23 0 24 0 6
-                                                   0 25 0 7 0 26 1 13 9 6 27 1
-                                                   9 6 0 28 2 6 23 0 0 29 1 13
+                                                   0 25 1 13 9 6 26 1 9 6 0 27
+                                                   0 7 0 28 2 6 23 0 0 29 1 13
                                                    9 9 30 1 6 0 0 31 2 33 11 32
                                                    10 34 2 6 0 0 0 35 2 6 0 0 0
                                                    36 2 6 0 0 0 37 2 6 0 0 19

@@ -124,17 +124,14 @@
                             ((EQL (QCDR |rec|) 2)
                              (PROGN
                               (LETT #1#
-                                    (PROGN
-                                     (LETT #2# 'NIL . #4#)
-                                     (GO #5=#:G139))
+                                    (PROGN (LETT #2# NIL . #4#) (GO #5=#:G139))
                                     . #4#)
                               (GO #6=#:G137)))
                             ((ODDP (QCDR |rec|))
                              (COND
                               ((SPADCALL (QCDR |rec|) 2 (QREFELT $ 48))
                                (PROGN
-                                (LETT #1#
-                                      (PROGN (LETT #2# 'NIL . #4#) (GO #5#))
+                                (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5#))
                                       . #4#)
                                 (GO #6#))))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))

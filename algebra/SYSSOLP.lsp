@@ -94,7 +94,7 @@
                          ('T
                           (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                 (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T 'NIL)))))) 
+           (COND (#1# #2#) ('T NIL)))))) 
 
 (SDEFUN |SYSSOLP;triangularSystems;LLL;7|
         ((|lf| |List| (|Fraction| (|Polynomial| R))) (|lv| |List| (|Symbol|))
@@ -504,7 +504,7 @@
                                                 (#5#
                                                  (LETT #6#
                                                        (COND (#6# #8#)
-                                                             ('T 'NIL))
+                                                             ('T NIL))
                                                        . #22#))
                                                 ('T
                                                  (PROGN
@@ -945,8 +945,8 @@
                                  (LETT #7# 'T . #15#)))))))
                            (LETT #11# (CDR #11#) . #15#) (GO G190) G191
                            (EXIT NIL))
-                      (COND (#7# #8#) ('T 'NIL)))
-                     (PROGN (LETT #6# 'NIL . #15#) (GO #16=#:G239))))))
+                      (COND (#7# #8#) ('T NIL)))
+                     (PROGN (LETT #6# NIL . #15#) (GO #16=#:G239))))))
                  (LETT #12# (CDR #12#) . #15#) (GO G190) G191 (EXIT NIL))
             (EXIT
              (PROGN
@@ -964,7 +964,7 @@
                                        (QREFELT $ 90))
                              2)
                             . #15#)
-                      (COND (#1# (LETT #2# (COND (#2# #4#) ('T 'NIL)) . #15#))
+                      (COND (#1# (LETT #2# (COND (#2# #4#) ('T NIL)) . #15#))
                             ('T
                              (PROGN
                               (LETT #2# #4# . #15#)

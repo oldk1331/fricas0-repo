@@ -209,7 +209,7 @@
 
 (DEFUN |RandomFloatDistributions| ()
   (SPROG NIL
-         (PROG (#1=#:G149)
+         (PROG (#1=#:G143)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|RandomFloatDistributions|)

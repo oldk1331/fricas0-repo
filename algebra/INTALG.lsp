@@ -202,7 +202,7 @@
                                                 (EXIT
                                                  (COND
                                                   ((QEQCAR |nnu| 1)
-                                                   (LETT |nfac_ok| 'NIL . #7#))
+                                                   (LETT |nfac_ok| NIL . #7#))
                                                   ('T
                                                    (SEQ
                                                     (LETT |ndu|
@@ -215,7 +215,7 @@
                                                     (EXIT
                                                      (COND
                                                       ((QEQCAR |nnu| 1)
-                                                       (LETT |nfac_ok| 'NIL
+                                                       (LETT |nfac_ok| NIL
                                                              . #7#))
                                                       ('T
                                                        (LETT |nfac|
@@ -674,7 +674,7 @@
                 . #2#)
           (LETT |lf| (SPADCALL |u| (QREFELT $ 144)) . #2#)
           (LETT |lf2| (CDR |lf|) . #2#) (LETT |lm| NIL . #2#)
-          (SEQ G190 (COND ((NULL (COND ((NULL |lf|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |lf|))) (GO G191)))
                (SEQ
                 (LETT |rp|
                       (|INTALG;find_multiples| (|SPADfirst| |lf|) (CDR |lf|) $)
@@ -1230,7 +1230,7 @@
                               (GO #6=#:G397))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |INTALG;pLogDeriv|

@@ -110,7 +110,7 @@
                  (SEQ
                   (LETT |flag|
                         (COND ((EQUAL |string| "closed") 'T)
-                              ((EQUAL |string| "open") 'NIL)
+                              ((EQUAL |string| "open") NIL)
                               (#8#
                                (|error|
                                 "tubePlot: last argument should be open or closed")))
@@ -182,10 +182,7 @@
                         . #9#)
                   (LETT |cosSin| (SPADCALL |n| (QREFELT $ 34)) . #9#)
                   (LETT |loopList| NIL . #9#)
-                  (SEQ G190
-                       (COND
-                        ((NULL (COND ((NULL |tvals|) 'NIL) ('T 'T)))
-                         (GO G191)))
+                  (SEQ G190 (COND ((NULL |tvals|) (GO G191)))
                        (SEQ (LETT |tval| (|SPADfirst| |tvals|) . #9#)
                             (LETT |tvals| (CDR |tvals|) . #9#)
                             (LETT |ctr| (|SPADfirst| |curvePts|) . #9#)

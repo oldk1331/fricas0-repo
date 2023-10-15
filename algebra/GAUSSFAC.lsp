@@ -42,9 +42,7 @@
          (SEQ (LETT |q1| (- |q| 1) . #4=(|GAUSSFAC;findelt|))
               (LETT |r| |q1| . #4#)
               (LETT |r1| (SPADCALL |r| 4 (QREFELT $ 9)) . #4#)
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((QEQCAR |r1| 1) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (QEQCAR |r1| 1))) (GO G191)))
                    (SEQ
                     (LETT |r|
                           (PROG2 (LETT #3# |r1| . #4#)
@@ -372,18 +370,17 @@
           (LETT |n| (SPADCALL |a| (QREFELT $ 62))
                 . #1=(|GAUSSFAC;prime?;CB;9|))
           (EXIT
-           (COND ((OR (EQL |n| 0) (EQL |n| 1)) 'NIL)
+           (COND ((OR (EQL |n| 0) (EQL |n| 1)) NIL)
                  ((SPADCALL |n| (QREFELT $ 64)) 'T)
                  (#2='T
                   (SEQ (LETT |re| (SPADCALL |a| (QREFELT $ 51)) . #1#)
                        (LETT |im| (SPADCALL |a| (QREFELT $ 52)) . #1#)
                        (COND
                         ((SPADCALL |re| 0 (QREFELT $ 56))
-                         (COND
-                          ((SPADCALL |im| 0 (QREFELT $ 56)) (EXIT 'NIL)))))
+                         (COND ((SPADCALL |im| 0 (QREFELT $ 56)) (EXIT NIL)))))
                        (LETT |p| (ABS (+ |re| |im|)) . #1#)
                        (EXIT
-                        (COND ((SPADCALL (REM |p| 4) 3 (QREFELT $ 56)) 'NIL)
+                        (COND ((SPADCALL (REM |p| 4) 3 (QREFELT $ 56)) NIL)
                               (#2# (SPADCALL |p| (QREFELT $ 64)))))))))))) 
 
 (DECLAIM (NOTINLINE |GaussianFactorizationPackage;|)) 

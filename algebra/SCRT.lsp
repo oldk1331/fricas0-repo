@@ -90,7 +90,7 @@
                            (PROGN (LETT #1# 'T . #3#) (GO #4=#:G133))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |SCRT;parallel;2$Df;10| ((|x| $) (|y| $) ($ |DoubleFloat|))
@@ -202,7 +202,7 @@
                            (|add_DF| (QAREF1 |x| (QREFELT $ 6))
                                      (QAREF1 |y| (QREFELT $ 6))))
                 (COND
-                 ((SPADCALL (QAREF1 |pt| (QREFELT $ 6)) 1.0 (QREFELT $ 31))
+                 ((SPADCALL (QAREF1 |pt| (QREFELT $ 6)) 1.0 (QREFELT $ 29))
                   (QSETAREF1 |pt| (QREFELT $ 6) 1.0)))
                 (EXIT |pt|)))) 
 
@@ -223,7 +223,7 @@
                            (|add_DF| (QAREF1 |x| (QREFELT $ 6))
                                      (QAREF1 |y| (QREFELT $ 6))))
                 (COND
-                 ((SPADCALL (QAREF1 |pt| (QREFELT $ 6)) 1.0 (QREFELT $ 31))
+                 ((SPADCALL (QAREF1 |pt| (QREFELT $ 6)) 1.0 (QREFELT $ 29))
                   (QSETAREF1 |pt| (QREFELT $ 6) 0.0)))
                 (EXIT |pt|)))) 
 
@@ -238,12 +238,12 @@
                        (SEQ
                         (COND
                          ((|less_DF| (QAREF1 |pt| |i|) (QAREF1 |mns| |i|))
-                          (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G168))))
+                          (PROGN (LETT #1# NIL . #3#) (GO #4=#:G168))))
                         (EXIT
                          (COND
                           ((SPADCALL (QAREF1 |pt| |i|) (QAREF1 |mxs| |i|)
-                                     (QREFELT $ 31))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                                     (QREFELT $ 29))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))
@@ -271,14 +271,14 @@
                           (EXIT
                            (LETT |res|
                                  (SPADCALL |res| (QAREF1 |pt| |i|)
-                                           (QREFELT $ 39))
+                                           (QREFELT $ 37))
                                  . #2#)))
                          (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT |res|)))) 
 
 (SDEFUN |SCRT;extendedCoords;$L;22| ((|pt| $) ($ |List| (|DoubleFloat|)))
-        (SPADCALL |pt| (QREFELT $ 41))) 
+        (SPADCALL |pt| (QREFELT $ 39))) 
 
 (SDEFUN |SCRT;toPoint;2$;23| ((|p| $) ($ $))
         (SPROG ((#1=#:G182 NIL) (|i| NIL) (|pt| ($)))
@@ -304,12 +304,12 @@
 
 (SDEFUN |SCRT;isPoint?;$B;25| ((|p| $) ($ |Boolean|))
         (SPADCALL (QAREF1 |p| (QREFELT $ 6))
-                  (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 46)) (QREFELT $ 47))
-                  (QREFELT $ 31))) 
+                  (SPADCALL (SPADCALL 9 -1 10 (QREFELT $ 44)) (QREFELT $ 45))
+                  (QREFELT $ 29))) 
 
 (SDEFUN |SCRT;isVector?;$B;26| ((|p| $) ($ |Boolean|))
         (|less_DF| (QAREF1 |p| (QREFELT $ 6))
-                   (SPADCALL (SPADCALL 1 -1 10 (QREFELT $ 46)) (QREFELT $ 47)))) 
+                   (SPADCALL (SPADCALL 1 -1 10 (QREFELT $ 44)) (QREFELT $ 45)))) 
 
 (PUT '|SCRT;hash;$Si;27| '|SPADreplace| '(XLAM (|s|) 0)) 
 
@@ -333,14 +333,14 @@
                          (COND
                           ((SPADCALL (QAREF1 |x| |i|) (QAREF1 |y| |i|)
                                      (QREFELT $ 19))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G194))))))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4=#:G194))))))
                        (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |SCRT;~=;2$B;30| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 54)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 52)))) 
 
 (SDEFUN |SCRT;coerce;$Of;31| ((|pt| $) ($ |OutputForm|))
         (SPROG
@@ -363,15 +363,15 @@
                            (EXIT
                             (LETT #2#
                                   (CONS
-                                   (SPADCALL (QAREF1 |pt| |i|) (QREFELT $ 57))
+                                   (SPADCALL (QAREF1 |pt| |i|) (QREFELT $ 55))
                                    #2#)
                                   . #3#)))
                           (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                           (EXIT (NREVERSE #2#))))
                     . #3#)
               (EXIT
-               (SPADCALL (SPADCALL |s| (QREFELT $ 59))
-                         (SPADCALL |eles| (QREFELT $ 61)) (QREFELT $ 62)))))) 
+               (SPADCALL (SPADCALL |s| (QREFELT $ 57))
+                         (SPADCALL |eles| (QREFELT $ 59)) (QREFELT $ 60)))))) 
 
 (DECLAIM (NOTINLINE |SCartesian;|)) 
 
@@ -397,7 +397,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SCartesian|))
           (LETT |dv$| (LIST '|SCartesian| DV$1) . #1#)
-          (LETT $ (GETREFV 65) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SCartesian| (LIST DV$1) (CONS 1 $))
@@ -415,53 +415,51 @@
               |SCRT;min;3$;5| |SCRT;max;3$;6| |SCRT;dimension;$Pi;7| (6 . ~=)
               |SCRT;Pnan?;$B;9| |SCRT;parallel;2$Df;10| (12 . |sqrt|)
               |SCRT;unitVector;2$;11| |SCRT;distanceSquared;2$Df;12|
-              (|Integer|) (17 . |sipnt|) (|Fraction| 25) (23 . |One|)
-              |SCRT;perpendicular;3$;13| |SCRT;*;Df2$;14| (27 . >)
-              |SCRT;+;3$;15| |SCRT;-;3$;16| |SCRT;inBounds?;3$B;17|
-              |SCRT;screenCoordX;$Df;18| |SCRT;screenCoordY;$Df;19|
-              |SCRT;screenCoordZ;$Df;20| (|List| 8) (33 . |concat|)
-              |SCRT;screenCoords;$L;21| (39 . |entries|)
+              (|Integer|) (17 . |sipnt|) |SCRT;perpendicular;3$;13|
+              |SCRT;*;Df2$;14| (23 . >) |SCRT;+;3$;15| |SCRT;-;3$;16|
+              |SCRT;inBounds?;3$B;17| |SCRT;screenCoordX;$Df;18|
+              |SCRT;screenCoordY;$Df;19| |SCRT;screenCoordZ;$Df;20| (|List| 8)
+              (29 . |concat|) |SCRT;screenCoords;$L;21| (35 . |entries|)
               |SCRT;extendedCoords;$L;22| |SCRT;toPoint;2$;23|
-              |SCRT;toVector;2$;24| (|Float|) (44 . |float|) (51 . |coerce|)
+              |SCRT;toVector;2$;24| (|Float|) (40 . |float|) (47 . |coerce|)
               |SCRT;isPoint?;$B;25| |SCRT;isVector?;$B;26| (|SingleInteger|)
               |SCRT;hash;$Si;27| (|String|) |SCRT;latex;$S;28| |SCRT;=;2$B;29|
-              |SCRT;~=;2$B;30| (|OutputForm|) (56 . |coerce|) (|Symbol|)
-              (61 . |coerce|) (|List| $) (66 . |paren|) (71 . |hconcat|)
+              |SCRT;~=;2$B;30| (|OutputForm|) (52 . |coerce|) (|Symbol|)
+              (57 . |coerce|) (|List| $) (62 . |paren|) (67 . |hconcat|)
               |SCRT;coerce;$Of;31| (|HashState|))
-           '#(~= 77 |unitVector| 83 |toVector| 88 |toPoint| 93 |svec| 98 |spnt|
-              111 |sivec| 124 |sipnt| 137 |screenCoords| 150 |screenCoordZ| 155
-              |screenCoordY| 160 |screenCoordX| 165 |perpendicular| 170
-              |parallel| 176 |min| 182 |max| 188 |latex| 194 |isVector?| 199
-              |isPoint?| 204 |inBounds?| 209 |hashUpdate!| 216 |hash| 222
-              |extendedCoords| 227 |distanceSquared| 232 |distance| 238
-              |dimension| 244 |colinearity| 249 |coerce| 255 |Pnan?| 260 = 265
-              - 271 + 277 * 283)
+           '#(~= 73 |unitVector| 79 |toVector| 84 |toPoint| 89 |svec| 94 |spnt|
+              107 |sivec| 120 |sipnt| 133 |screenCoords| 146 |screenCoordZ| 151
+              |screenCoordY| 156 |screenCoordX| 161 |perpendicular| 166
+              |parallel| 172 |min| 178 |max| 184 |latex| 190 |isVector?| 195
+              |isPoint?| 200 |inBounds?| 205 |hashUpdate!| 212 |hash| 218
+              |extendedCoords| 223 |distanceSquared| 228 |distance| 234
+              |dimension| 240 |colinearity| 245 |coerce| 251 |Pnan?| 256 = 261
+              - 267 + 273 * 279)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|SPointCategory&| |SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SPointCategory|) (|SetCategory|) (|BasicType|)
-                           (|CoercibleTo| 56))
-                        (|makeByteWordVec2| 64
+                           (|CoercibleTo| 54))
+                        (|makeByteWordVec2| 62
                                             '(2 11 10 0 0 12 2 8 10 0 0 19 1 8
-                                              0 0 22 2 0 0 25 25 26 0 27 0 28 2
-                                              8 10 0 0 31 2 38 0 0 8 39 1 7 38
-                                              0 41 3 45 0 25 25 11 46 1 45 8 0
-                                              47 1 8 56 0 57 1 58 56 0 59 1 56
-                                              0 60 61 2 56 0 0 0 62 2 0 10 0 0
-                                              55 1 0 0 0 23 1 0 0 0 44 1 0 0 0
-                                              43 3 0 0 8 8 8 15 2 0 0 8 8 14 3
-                                              0 0 8 8 8 13 2 0 0 8 8 9 3 0 0 25
-                                              25 25 1 2 0 0 25 25 1 3 0 0 25 25
-                                              25 1 2 0 0 25 25 26 1 0 38 0 40 1
-                                              0 8 0 37 1 0 8 0 36 1 0 8 0 35 2
-                                              0 0 0 0 29 2 0 8 0 0 21 2 0 0 0 0
-                                              16 2 0 0 0 0 17 1 0 52 0 53 1 0
-                                              10 0 49 1 0 10 0 48 3 0 10 0 0 0
-                                              34 2 0 64 64 0 1 1 0 50 0 51 1 0
-                                              38 0 42 2 0 8 0 0 24 2 0 8 0 0 1
-                                              1 0 11 0 18 2 0 8 0 0 1 1 0 56 0
-                                              63 1 0 10 0 20 2 0 10 0 0 54 2 0
-                                              0 0 0 33 2 0 0 0 0 32 2 0 0 8 0
-                                              30)))))
+                                              0 0 22 2 0 0 25 25 26 2 8 10 0 0
+                                              29 2 36 0 0 8 37 1 7 36 0 39 3 43
+                                              0 25 25 11 44 1 43 8 0 45 1 8 54
+                                              0 55 1 56 54 0 57 1 54 0 58 59 2
+                                              54 0 0 0 60 2 0 10 0 0 53 1 0 0 0
+                                              23 1 0 0 0 42 1 0 0 0 41 3 0 0 8
+                                              8 8 15 2 0 0 8 8 14 3 0 0 8 8 8
+                                              13 2 0 0 8 8 9 3 0 0 25 25 25 1 2
+                                              0 0 25 25 1 3 0 0 25 25 25 1 2 0
+                                              0 25 25 26 1 0 36 0 38 1 0 8 0 35
+                                              1 0 8 0 34 1 0 8 0 33 2 0 0 0 0
+                                              27 2 0 8 0 0 21 2 0 0 0 0 16 2 0
+                                              0 0 0 17 1 0 50 0 51 1 0 10 0 47
+                                              1 0 10 0 46 3 0 10 0 0 0 32 2 0
+                                              62 62 0 1 1 0 48 0 49 1 0 36 0 40
+                                              2 0 8 0 0 24 2 0 8 0 0 1 1 0 11 0
+                                              18 2 0 8 0 0 1 1 0 54 0 61 1 0 10
+                                              0 20 2 0 10 0 0 52 2 0 0 0 0 31 2
+                                              0 0 0 0 30 2 0 0 8 0 28)))))
            '|lookupComplete|)) 

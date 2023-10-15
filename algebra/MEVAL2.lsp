@@ -204,12 +204,10 @@
                 ((NULL
                   (SEQ (LETT |dp| (SPADCALL |pu| (QREFELT $ 12)) . #9#)
                        (EXIT
-                        (COND
-                         ((OR (< |dp| |dg|)
-                              (SPADCALL |pu| (|spadConstant| $ 64)
-                                        (QREFELT $ 65)))
-                          'NIL)
-                         ('T 'T)))))
+                        (NULL
+                         (OR (< |dp| |dg|)
+                             (SPADCALL |pu| (|spadConstant| $ 64)
+                                       (QREFELT $ 65)))))))
                  (GO G191)))
                (SEQ (LETT |lcp| (SPADCALL |pu| (QREFELT $ 57)) . #9#)
                     (LETT |c1|
@@ -236,9 +234,7 @@
           (SEQ G190
                (COND
                 ((NULL
-                  (COND
-                   ((SPADCALL |pu| (|spadConstant| $ 64) (QREFELT $ 65)) 'NIL)
-                   ('T 'T)))
+                  (NULL (SPADCALL |pu| (|spadConstant| $ 64) (QREFELT $ 65))))
                  (GO G191)))
                (SEQ (LETT |lcp| (SPADCALL |pu| (QREFELT $ 57)) . #9#)
                     (LETT |c1| (|MEVAL2;m_inverse| |lcp| |lmu| |ls| $) . #9#)

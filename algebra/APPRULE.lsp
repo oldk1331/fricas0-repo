@@ -74,7 +74,7 @@
                          . #2#)
                    (EXIT
                     (COND
-                     ((SPADCALL |new| |s| (QREFELT $ 20))
+                     ((SPADCALL |new| |s| (QREFELT $ 18))
                       (PROGN (LETT #1# |s| . #2#) (GO #3=#:G131)))
                      ('T (LETT |s| |new| . #2#)))))
                   NIL (GO G190) G191 (EXIT NIL)))))
@@ -114,7 +114,7 @@
                      (SEQ
                       (EXIT
                        (LETT |subject|
-                             (SPADCALL |subject| |k| |v| (QREFELT $ 25))
+                             (SPADCALL |subject| |k| |v| (QREFELT $ 23))
                              . #4#)))
                      (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#))
                            . #4#)
@@ -132,22 +132,22 @@
           (|rec| NIL))
          (SEQ (LETT |lk| NIL . #2=(|APPRULE;rewrite|)) (LETT |lv| NIL . #2#)
               (SEQ (LETT |rec| NIL . #2#)
-                   (LETT #1# (SPADCALL |res| (QREFELT $ 28)) . #2#) G190
+                   (LETT #1# (SPADCALL |res| (QREFELT $ 27)) . #2#) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |rec| (CAR #1#) . #2#) NIL))
                      (GO G191)))
                    (SEQ
                     (LETT |lk|
-                          (CONS (SPADCALL (QCAR |rec|) (QREFELT $ 31)) |lk|)
+                          (CONS (SPADCALL (QCAR |rec|) (QREFELT $ 30)) |lk|)
                           . #2#)
                     (EXIT (LETT |lv| (CONS (QCDR |rec|) |lv|) . #2#)))
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT
-               (SPADCALL (SPADCALL |f| |lk| |lv| (QREFELT $ 34)) |l|
-                         (QREFELT $ 36)))))) 
+               (SPADCALL (SPADCALL |f| |lk| |lv| (QREFELT $ 33)) |l|
+                         (QREFELT $ 35)))))) 
 
 (SDEFUN |APPRULE;localUnquote;FLF;7| ((|f| F) (|l| |List| (|Symbol|)) ($ F))
-        (COND ((NULL |l|) |f|) ('T (SPADCALL |f| |l| (QREFELT $ 37))))) 
+        (COND ((NULL |l|) |f|) ('T (SPADCALL |f| |l| (QREFELT $ 36))))) 
 
 (PUT '|APPRULE;localUnquote;FLF;8| '|SPADreplace| '(XLAM (|f| |l|) |f|)) 
 
@@ -167,7 +167,7 @@
            ((OR
              (SPADCALL
               (LETT |u|
-                    (SPADCALL |subject| |pat| (SPADCALL (QREFELT $ 18))
+                    (SPADCALL |subject| |pat| (SPADCALL (QREFELT $ 37))
                               (QREFELT $ 40))
                     . #4=(|APPRULE;isitwithpred|))
               (QREFELT $ 41))
@@ -221,7 +221,7 @@
                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
                    (EXIT (|APPRULE;isitwithpred| |subject| |pat| |l| NIL $))))
                  ('T
-                  (SPADCALL |subject| |pat| (SPADCALL (QREFELT $ 18))
+                  (SPADCALL |subject| |pat| (SPADCALL (QREFELT $ 37))
                             (QREFELT $ 40))))))) 
 
 (SDEFUN |APPRULE;app|
@@ -429,11 +429,11 @@
           (SETF |pv$| (QREFELT $ 3))
           (COND
            ((|HasCategory| |#2| '(|ConvertibleTo| (|InputForm|)))
-            (QSETREFV $ 36
+            (QSETREFV $ 35
                       (CONS (|dispatchFunction| |APPRULE;localUnquote;FLF;7|)
                             $)))
            ('T
-            (QSETREFV $ 36
+            (QSETREFV $ 35
                       (CONS (|dispatchFunction| |APPRULE;localUnquote;FLF;8|)
                             $))))
           $))) 
@@ -443,24 +443,23 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Union| 12 '"failed") (|RewriteRule| 6 7 8)
               (0 . |retractIfCan|) (|Equation| 8) (5 . |lhs|) (|Kernel| $)
-              (10 . |retract|) (15 . |rhs|) (|PatternMatchResult| 6 8)
-              (20 . |new|) (|Boolean|) (24 . =) (|List| 10)
+              (10 . |retract|) (15 . |rhs|) (|Boolean|) (20 . =) (|List| 10)
               |APPRULE;applyRules;L2F;3| (|PositiveInteger|)
-              |APPRULE;applyRules;LFPiF;4| (30 . |eval|)
-              (|Record| (|:| |key| 29) (|:| |entry| 8)) (|List| 26)
-              (37 . |destruct|) (|Symbol|) (|Kernel| 8) (42 . |kernel|)
-              (|List| 14) (|List| $) (47 . |eval|) (|List| 29)
-              (54 . |localUnquote|) (60 . |eval|) (|PatternMatchResult| 6 $)
-              (|Pattern| 6) (66 . |patternMatch|) (73 . |failed?|)
-              (|Union| 19 '"failed") (78 . |satisfy?|) (|List| 17)
-              (84 . |member?|) (90 . |failed|) (|Union| 8 '"failed")
-              (94 . |getMatch|) (|PatternFunctions1| 6 8) (100 . |addBadValue|)
-              (106 . |hasTopPredicate?|) (111 . |variables|)
-              (116 . |resetBadValues|) (121 . |pattern|) (126 . |rhs|)
-              (131 . |quotedOperators|) (|Union| 14 '"failed")
+              |APPRULE;applyRules;LFPiF;4| (26 . |eval|)
+              (|Record| (|:| |key| 28) (|:| |entry| 8)) (|List| 24)
+              (|PatternMatchResult| 6 8) (33 . |destruct|) (|Symbol|)
+              (|Kernel| 8) (38 . |kernel|) (|List| 14) (|List| $) (43 . |eval|)
+              (|List| 28) (50 . |localUnquote|) (56 . |eval|) (62 . |new|)
+              (|PatternMatchResult| 6 $) (|Pattern| 6) (66 . |patternMatch|)
+              (73 . |failed?|) (|Union| 17 '"failed") (78 . |satisfy?|)
+              (|List| 26) (84 . |member?|) (90 . |failed|)
+              (|Union| 8 '"failed") (94 . |getMatch|) (|PatternFunctions1| 6 8)
+              (100 . |addBadValue|) (106 . |hasTopPredicate?|)
+              (111 . |variables|) (116 . |resetBadValues|) (121 . |pattern|)
+              (126 . |rhs|) (131 . |quotedOperators|) (|Union| 14 '"failed")
               (136 . |retractIfCan|) (|BasicOperator|) (141 . |operator|)
               (|List| 8) (146 . |argument|) (151 . |elt|)
-              (|Union| 33 '#1="failed") (157 . |isPlus|) (162 . +)
+              (|Union| 32 '#1="failed") (157 . |isPlus|) (162 . +)
               (168 . |Zero|) (172 . |isTimes|) (177 . *) (183 . |One|)
               (|Record| (|:| |val| $) (|:| |exponent| 74)) (|Union| 71 '#1#)
               (187 . |isPower|) (|Integer|) (192 . |positive?|)
@@ -472,23 +471,23 @@
                        (CONS '#()
                              (|makeByteWordVec2| 79
                                                  '(1 10 9 0 11 1 12 8 0 13 1 8
-                                                   14 0 15 1 12 8 0 16 0 17 0
-                                                   18 2 8 19 0 0 20 3 8 0 0 14
-                                                   0 25 1 17 27 0 28 1 30 0 29
-                                                   31 3 8 0 0 32 33 34 2 0 8 8
-                                                   35 36 2 8 0 0 35 37 3 8 38 0
-                                                   39 38 40 1 17 19 0 41 2 17
-                                                   42 0 39 43 2 44 19 17 0 45 0
-                                                   17 0 46 2 17 47 39 0 48 2 49
-                                                   39 39 8 50 1 39 19 0 51 1 39
-                                                   33 0 52 1 39 0 0 53 1 10 39
-                                                   0 54 1 10 8 0 55 1 10 35 0
-                                                   56 1 8 57 0 58 1 30 59 0 60
-                                                   1 30 61 0 62 2 8 0 59 33 63
-                                                   1 8 64 0 65 2 8 0 0 0 66 0 8
-                                                   0 67 1 8 64 0 68 2 8 0 0 0
-                                                   69 0 8 0 70 1 8 72 0 73 1 74
-                                                   19 0 75 2 8 0 0 76 77 1 8 78
-                                                   0 79 2 0 8 8 35 36 2 0 8 21
-                                                   8 22 3 0 8 21 8 23 24)))))
+                                                   14 0 15 1 12 8 0 16 2 8 17 0
+                                                   0 18 3 8 0 0 14 0 23 1 26 25
+                                                   0 27 1 29 0 28 30 3 8 0 0 31
+                                                   32 33 2 0 8 8 34 35 2 8 0 0
+                                                   34 36 0 26 0 37 3 8 38 0 39
+                                                   38 40 1 26 17 0 41 2 26 42 0
+                                                   39 43 2 44 17 26 0 45 0 26 0
+                                                   46 2 26 47 39 0 48 2 49 39
+                                                   39 8 50 1 39 17 0 51 1 39 32
+                                                   0 52 1 39 0 0 53 1 10 39 0
+                                                   54 1 10 8 0 55 1 10 34 0 56
+                                                   1 8 57 0 58 1 29 59 0 60 1
+                                                   29 61 0 62 2 8 0 59 32 63 1
+                                                   8 64 0 65 2 8 0 0 0 66 0 8 0
+                                                   67 1 8 64 0 68 2 8 0 0 0 69
+                                                   0 8 0 70 1 8 72 0 73 1 74 17
+                                                   0 75 2 8 0 0 76 77 1 8 78 0
+                                                   79 2 0 8 8 34 35 2 0 8 19 8
+                                                   20 3 0 8 19 8 21 22)))))
            '|lookupComplete|)) 

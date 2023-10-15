@@ -36,7 +36,7 @@
                    (COND
                     ((OR (ATOM #6#) (PROGN (LETT |i| (CAR #6#) . #10#) NIL))
                      (GO G191)))
-                   (SEQ (EXIT (LETT #7# (CONS 'NIL #7#) . #10#)))
+                   (SEQ (EXIT (LETT #7# (CONS NIL #7#) . #10#)))
                    (LETT #6# (CDR #6#) . #10#) (GO G190) G191
                    (EXIT (NREVERSE #7#))))))
            ('T
@@ -415,8 +415,8 @@
                               (QAREF1O |vder| |i| 1)
                               (SPADCALL
                                (SPADCALL (QAREF1O |vder| |i| 1) (QREFELT $ 17))
-                               'NIL (QREFELT $ 85))
-                              'NIL 'NIL 0)
+                               NIL (QREFELT $ 85))
+                              NIL NIL 0)
                       . #8#)
                 (EXIT (LETT |resSys| (CONS |rec| |resSys|) . #8#)))
                (LETT #1# (PROG1 (CDR #1#) (LETT |i| (+ |i| 1) . #8#)) . #8#)
@@ -480,9 +480,7 @@
           (LETT |resSys| NIL . #4#) (LETT |resOrd| NIL . #4#)
           (SEQ G190
                (COND
-                ((NULL
-                  (COND ((NULL |ord1|) (COND ((NULL |ord2|) 'NIL) ('T 'T)))
-                        ('T 'T)))
+                ((NULL (COND ((NULL |ord1|) (NULL (NULL |ord2|))) ('T 'T)))
                  (GO G191)))
                (SEQ
                 (EXIT
@@ -541,7 +539,7 @@
                                        (SPADCALL (QVELT |rec1| 3)
                                                  (QVELT |rec2| 3)
                                                  (QREFELT $ 95))
-                                       'NIL 'NIL 0)
+                                       NIL NIL 0)
                                       . #4#)
                                 (LETT |resSys| (CONS |rec| |resSys|) . #4#)
                                 (LETT |resOrd| (CONS |o1| |resOrd|) . #4#)
@@ -610,7 +608,7 @@
                                  (EXIT NIL))
                             (LETT |qq| (- |ord| 1) . #5#)
                             (LETT |simp?|
-                                  (COND (|simp?| (QVELT |sys| 4)) ('T 'NIL))
+                                  (COND (|simp?| (QVELT |sys| 4)) ('T NIL))
                                   . #5#)
                             (COND
                              ((QVELT |sys| 5)
@@ -683,9 +681,7 @@
               (COND
                ((SPADCALL (QREFELT $ 13) 0 (QREFELT $ 73))
                 (LETT |AllEqs| (SPADCALL |cDe| (QREFELT $ 43)) . #12#)))
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((NULL |tord|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |tord|))) (GO G191)))
                    (SEQ (LETT |q| (|SPADfirst| |tord|) . #12#)
                         (LETT |sys| (|SPADfirst| |tsys|) . #12#)
                         (COND
@@ -700,14 +696,13 @@
                              (SEQ G190
                                   (COND
                                    ((NULL
-                                     (COND
-                                      ((OR (NULL |AllEqs|)
-                                           (<
-                                            (SPADCALL (|SPADfirst| |AllEqs|)
-                                                      (QREFELT $ 103))
-                                            |q|))
-                                       'NIL)
-                                      ('T 'T)))
+                                     (COND ((NULL |AllEqs|) NIL)
+                                           ('T
+                                            (NULL
+                                             (<
+                                              (SPADCALL (|SPADfirst| |AllEqs|)
+                                                        (QREFELT $ 103))
+                                              |q|)))))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
@@ -821,8 +816,8 @@
                                                        (QREFELT $ 119))
                                              (SPADCALL (QVELT |rec| 3) |pro?|
                                                        (QREFELT $ 120))
-                                             (QSETVELT |rec| 4 'NIL)
-                                             (QSETVELT |rec| 5 'NIL)
+                                             (QSETVELT |rec| 4 NIL)
+                                             (QSETVELT |rec| 5 NIL)
                                              (QSETVELT |rec| 6 0)
                                              (EXIT
                                               (SPADCALL |tsys| |pos| |rec|
@@ -832,8 +827,8 @@
                                              (LETT |rec|
                                                    (VECTOR (LIST |eq|) |djm|
                                                            (LIST 1)
-                                                           (LIST |pro?|) 'NIL
-                                                           'NIL 0)
+                                                           (LIST |pro?|) NIL
+                                                           NIL 0)
                                                    . #12#)
                                              (LETT |hord| NIL . #12#)
                                              (LETT |pos|
@@ -845,7 +840,7 @@
                                              (SEQ G190
                                                   (COND
                                                    ((NULL
-                                                     (COND ((NULL |tord|) 'NIL)
+                                                     (COND ((NULL |tord|) NIL)
                                                            ('T
                                                             (SPADCALL
                                                              (|SPADfirst|
@@ -903,7 +898,7 @@
                                 (GO G190) G191 (EXIT NIL))
                            (LETT |rec|
                                  (VECTOR |newEqs| |newJM| |newDer| |newPro?| 'T
-                                         'NIL 0)
+                                         NIL 0)
                                  . #12#)
                            (LETT |resSys| (CONS |rec| |resSys|) . #12#)
                            (EXIT (LETT |resOrd| (CONS |q| |resOrd|) . #12#)))))
@@ -929,7 +924,7 @@
                              (COND
                               ((NULL |lj|) (|error| "inconsistent system"))
                               ('T
-                               (SEQ (LETT |u?| 'NIL . #12#)
+                               (SEQ (LETT |u?| NIL . #12#)
                                     (SEQ (LETT #3# NIL . #12#)
                                          (LETT |j| 1 . #12#)
                                          (LETT #2# (QREFELT $ 12) . #12#) G190
@@ -993,7 +988,7 @@
                        (SEQ G190
                             (COND
                              ((NULL
-                               (COND ((NULL |resOrd|) 'NIL)
+                               (COND ((NULL |resOrd|) NIL)
                                      ('T
                                       (SPADCALL (|SPADfirst| |resOrd|) |q|
                                                 (QREFELT $ 73)))))
@@ -1002,7 +997,7 @@
                              (LETT |check|
                                    (COND
                                     (|check| (QVELT (|SPADfirst| |resSys|) 4))
-                                    ('T 'NIL))
+                                    ('T NIL))
                                    . #1#)
                              (LETT |resSys| (CDR |resSys|) . #1#)
                              (EXIT (LETT |resOrd| (CDR |resOrd|) . #1#)))
@@ -1094,10 +1089,10 @@
                                          NIL))
                                     (GO G191)))
                                   (SEQ
-                                   (EXIT (LETT #19# (CONS 'NIL #19#) . #24#)))
+                                   (EXIT (LETT #19# (CONS NIL #19#) . #24#)))
                                   (LETT #18# (CDR #18#) . #24#) (GO G190) G191
                                   (EXIT (NREVERSE #19#))))
-                            'NIL 'NIL 0)
+                            NIL NIL 0)
                     . #24#)
               (LETT |pSys| (LIST |pRec|) . #24#)
               (LETT |pOrd| (LIST (+ |q| 1)) . #24#)
@@ -1220,13 +1215,13 @@
                                                        (SEQ
                                                         (EXIT
                                                          (LETT #7#
-                                                               (CONS 'NIL #7#)
+                                                               (CONS NIL #7#)
                                                                . #24#)))
                                                        (LETT #6# (CDR #6#)
                                                              . #24#)
                                                        (GO G190) G191
                                                        (EXIT (NREVERSE #7#))))
-                                                 'NIL 'NIL 0)
+                                                 NIL NIL 0)
                                          . #24#)
                                    (LETT |pSys|
                                          (CONS |pRec| (CONS |lastRec| |pSys|))
@@ -1262,14 +1257,14 @@
                                                         (SEQ
                                                          (EXIT
                                                           (LETT #5#
-                                                                (CONS 'NIL #5#)
+                                                                (CONS NIL #5#)
                                                                 . #24#)))
                                                         (LETT #4# (CDR #4#)
                                                               . #24#)
                                                         (GO G190) G191
                                                         (EXIT
                                                          (NREVERSE #5#)))))
-                                          'NIL 'NIL 0)
+                                          NIL NIL 0)
                                          . #24#)
                                    (LETT |pSys| (CONS |pRec| |pSys|) . #24#)
                                    (EXIT
@@ -1407,10 +1402,10 @@
                                        (GO G191)))
                                      (SEQ
                                       (EXIT
-                                       (LETT #18# (CONS 'NIL #18#) . #23#)))
+                                       (LETT #18# (CONS NIL #18#) . #23#)))
                                      (LETT #17# (CDR #17#) . #23#) (GO G190)
                                      G191 (EXIT (NREVERSE #18#))))
-                               'NIL 'NIL 0)
+                               NIL NIL 0)
                        . #23#)
                  (LETT |pSys| (CONS |pRec| |pSys|) . #23#)
                  (EXIT (LETT |pOrd| (CONS (+ |ord| 1) |pOrd|) . #23#)))))
@@ -1513,12 +1508,12 @@
                                                     (GO G191)))
                                                   (SEQ
                                                    (EXIT
-                                                    (LETT #8# (CONS 'NIL #8#)
+                                                    (LETT #8# (CONS NIL #8#)
                                                           . #23#)))
                                                   (LETT #7# (CDR #7#) . #23#)
                                                   (GO G190) G191
                                                   (EXIT (NREVERSE #8#))))
-                                            'NIL 'NIL 0)
+                                            NIL NIL 0)
                                     . #23#)
                               (LETT |pSys|
                                     (CONS |pRec| (CONS |lastRec| |pSys|))
@@ -1552,15 +1547,14 @@
                                                        (GO G191)))
                                                      (SEQ
                                                       (EXIT
-                                                       (LETT #6#
-                                                             (CONS 'NIL #6#)
+                                                       (LETT #6# (CONS NIL #6#)
                                                              . #23#)))
                                                      (LETT #5# (CDR #5#)
                                                            . #23#)
                                                      (GO G190) G191
                                                      (EXIT (NREVERSE #6#))))
                                                (QREFELT $ 95))
-                                     'NIL 'NIL 0)
+                                     NIL NIL 0)
                                     . #23#)
                               (LETT |pSys| (CONS |pRec| |pSys|) . #23#)
                               (EXIT
@@ -1827,10 +1821,7 @@
         (SPROG ((|k| (|PositiveInteger|)) (|res| (D)))
                (SEQ (LETT |res| (|spadConstant| $ 75) . #1=(|JDE;power|))
                     (LETT |k| 1 . #1#)
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |mask|) 'NIL) ('T 'T)))
-                           (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |mask|))) (GO G191)))
                          (SEQ
                           (SEQ G190
                                (COND

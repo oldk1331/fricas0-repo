@@ -103,7 +103,7 @@
                (SEQ
                 (LETT |y| (SPADCALL (QREFELT $ 16)) . #1=(|ILIST;copy;2$;22|))
                 (SEQ (LETT |i| 0 . #1#) G190
-                     (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                     (COND ((NULL (NULL (NULL |x|))) (GO G191)))
                      (SEQ
                       (COND
                        ((EQ |i| 1000)
@@ -121,8 +121,7 @@
           (|s| ($)))
          (SEQ (LETT |y| NIL . #1=(|ILIST;coerce;$Of;23|))
               (LETT |s| (SPADCALL |x| (QREFELT $ 37)) . #1#)
-              (SEQ G190
-                   (COND ((NULL (COND ((EQ |x| |s|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (EQ |x| |s|))) (GO G191)))
                    (SEQ
                     (LETT |y|
                           (CONS
@@ -146,9 +145,7 @@
                         . #1#)
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((EQ |s| (SPADCALL |x| (QREFELT $ 18))) 'NIL)
-                                ('T 'T)))
+                        ((NULL (NULL (EQ |s| (SPADCALL |x| (QREFELT $ 18)))))
                          (GO G191)))
                        (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 18)) . #1#)
                             (EXIT
@@ -178,8 +175,8 @@
                          (SEQ G190
                               (COND
                                ((NULL
-                                 (COND ((OR (NULL |x|) (NULL |y|)) 'NIL)
-                                       ('T 'T)))
+                                 (COND ((NULL |x|) NIL)
+                                       ('T (NULL (NULL |y|)))))
                                 (GO G191)))
                               (SEQ
                                (EXIT
@@ -187,13 +184,13 @@
                                  ((SPADCALL (QCAR |x|) (QCAR |y|)
                                             (QREFELT $ 48))
                                   (PROGN
-                                   (LETT #1# 'NIL . #3=(|ILIST;=;2$B;24|))
+                                   (LETT #1# NIL . #3=(|ILIST;=;2$B;24|))
                                    (GO #4=#:G1034)))
                                  ('T
                                   (SEQ (LETT |x| (QCDR |x|) . #3#)
                                        (EXIT (LETT |y| (QCDR |y|) . #3#)))))))
                               NIL (GO G190) G191 (EXIT NIL))
-                         (EXIT (COND ((NULL |x|) (NULL |y|)) (#2# 'NIL)))))))
+                         (EXIT (COND ((NULL |x|) (NULL |y|)) (#2# NIL)))))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ILIST;member?;S$B;25| ((|s| S) (|x| $) ($ |Boolean|))
@@ -201,9 +198,7 @@
                (SEQ
                 (EXIT
                  (SEQ
-                  (SEQ G190
-                       (COND
-                        ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                  (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
@@ -213,15 +208,13 @@
                             (GO #3=#:G1040)))
                           ('T (LETT |x| (QCDR |x|) . #2#)))))
                        NIL (GO G190) G191 (EXIT NIL))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |ILIST;latex;$S;26| ((|x| $) ($ |String|))
         (SPROG ((|s| (|String|)))
                (SEQ (LETT |s| "\\left[" . #1=(|ILIST;latex;$S;26|))
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
                          (SEQ
                           (LETT |s|
                                 (STRCONC |s|
@@ -238,7 +231,7 @@
 (SDEFUN |ILIST;hashUpdate!;Hs$Hs;27|
         ((|s| |HashState|) (|x| $) ($ |HashState|))
         (SEQ
-         (SEQ G190 (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+         (SEQ G190 (COND ((NULL (NULL (NULL |x|))) (GO G191)))
               (SEQ
                (LETT |s| (SPADCALL |s| (QCAR |x|) (QREFELT $ 56))
                      . #1=(|ILIST;hashUpdate!;Hs$Hs;27|))
@@ -259,9 +252,7 @@
                  (#1#
                   (SEQ (LETT |z| |x| . #2=(|ILIST;concat!;3$;28|))
                        (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL (QCDR |z|)) 'NIL) ('T 'T)))
-                              (GO G191)))
+                            (COND ((NULL (NULL (NULL (QCDR |z|)))) (GO G191)))
                             (SEQ (EXIT (LETT |z| (QCDR |z|) . #2#))) NIL
                             (GO G190) G191 (EXIT NIL))
                        (QRPLACD |z| |y|) (EXIT |x|))))))) 
@@ -269,19 +260,15 @@
 (SDEFUN |ILIST;removeDuplicates!;2$;29| ((|l| $) ($ $))
         (SPROG ((|pp| ($)) (|pr| ($)) (|p| ($)) (|f| (S)))
                (SEQ (LETT |p| |l| . #1=(|ILIST;removeDuplicates!;2$;29|))
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |p|) 'NIL) ('T 'T))) (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |p|))) (GO G191)))
                          (SEQ (LETT |pp| |p| . #1#) (LETT |f| (QCAR |p|) . #1#)
                               (LETT |p| (QCDR |p|) . #1#)
                               (EXIT
                                (SEQ G190
                                     (COND
                                      ((NULL
-                                       (COND
-                                        ((NULL (LETT |pr| (QCDR |pp|) . #1#))
-                                         'NIL)
-                                        ('T 'T)))
+                                       (NULL
+                                        (NULL (LETT |pr| (QCDR |pp|) . #1#))))
                                       (GO G191)))
                                     (SEQ
                                      (EXIT
@@ -319,8 +306,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((OR (NULL |p|) (NULL |q|)) 'NIL)
-                                      ('T 'T)))
+                                (COND ((NULL |p|) NIL) ('T (NULL (NULL |q|)))))
                                (GO G191)))
                              (SEQ
                               (EXIT

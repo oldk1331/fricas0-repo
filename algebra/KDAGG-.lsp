@@ -14,7 +14,7 @@
                   ((QEQCAR |r| 0)
                    (SPADCALL (CONS 0 (QCDR |r|)) (CONS 0 (QCDR |p|))
                              (QREFELT $ 13)))
-                  ('T 'NIL)))))) 
+                  ('T NIL)))))) 
 
 (SDEFUN |KDAGG-;keys;SL;3| ((|t| S) ($ |List| |Key|))
         (SPROG ((#1=#:G129 NIL) (|x| NIL) (#2=#:G128 NIL))

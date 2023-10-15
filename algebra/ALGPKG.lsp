@@ -1492,10 +1492,8 @@
                    (LETT |lj| NIL . #5#) (LETT |h| 1 . #5#)
                    (LETT |mRI| (SPADCALL |m| (QREFELT $ 79)) . #5#)
                    (LETT |mCI| (SPADCALL |m| (QREFELT $ 80)) . #5#)
-                   (LETT |finished?| 'NIL . #5#) (LETT |j| 1 . #5#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND (|finished?| 'NIL) ('T 'T))) (GO G191)))
+                   (LETT |finished?| NIL . #5#) (LETT |j| 1 . #5#)
+                   (SEQ G190 (COND ((NULL (NULL |finished?|)) (GO G191)))
                         (SEQ
                          (EXIT
                           (COND

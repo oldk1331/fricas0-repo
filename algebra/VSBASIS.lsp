@@ -298,14 +298,13 @@
               (LETT |rk1| (SPADCALL B1 (QREFELT $ 53))
                     . #3=(|VSBASIS;=;2$B;24|))
               (LETT |rk2| (SPADCALL B2 (QREFELT $ 53)) . #3#) (QREFELT $ 21))
-             (PROGN (LETT #2# 'NIL . #3#) (GO #4=#:G181)))
+             (PROGN (LETT #2# NIL . #3#) (GO #4=#:G181)))
             (#5='T
              (SEQ
               (LETT |rks|
                     (SPADCALL (SPADCALL B1 B2 (QREFELT $ 31)) (QREFELT $ 53))
                     . #3#)
-              (EXIT
-               (COND ((EQL |rks| |rk1|) (EQL |rks| |rk2|)) (#5# 'NIL)))))))
+              (EXIT (COND ((EQL |rks| |rk1|) (EQL |rks| |rk2|)) (#5# NIL)))))))
           #4# (EXIT #2#)))) 
 
 (SDEFUN |VSBASIS;canonicalBasis;Nni$;25| ((|n| |NonNegativeInteger|) ($ $))

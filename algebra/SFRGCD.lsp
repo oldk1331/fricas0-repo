@@ -35,7 +35,7 @@
                   (SPADCALL (SPADCALL |p| |ts| (QREFELT $ 36)) (QREFELT $ 37))
                   . #7=(|SFRGCD;stoseInvertible?;PTSB;5|))
             (EXIT
-             (COND ((SPADCALL |q| (QREFELT $ 38)) 'NIL)
+             (COND ((SPADCALL |q| (QREFELT $ 38)) NIL)
                    ((SPADCALL |q| |ts| (QREFELT $ 39)) 'T)
                    ('T
                     (SEQ (LETT |v| (SPADCALL |q| (QREFELT $ 40)) . #7#)
@@ -58,11 +58,11 @@
                                     (SEQ
                                      (EXIT
                                       (COND
-                                       ((|BooleanEquality| (QCAR |bwt|) 'NIL)
+                                       ((|BooleanEquality| (QCAR |bwt|) NIL)
                                         (PROGN
                                          (LETT #5#
                                                (PROGN
-                                                (LETT #2# 'NIL . #7#)
+                                                (LETT #2# NIL . #7#)
                                                 (GO #8=#:G201))
                                                . #7#)
                                          (GO #9=#:G188))))))
@@ -83,7 +83,7 @@
                          (LETT |ts_v-| (SPADCALL |ts| |v| (QREFELT $ 47))
                                . #7#)
                          (LETT |lgwt|
-                               (SPADCALL |ts_v| |q| |ts_v-| 'NIL 'T
+                               (SPADCALL |ts_v| |q| |ts_v-| NIL 'T
                                          (QREFELT $ 49))
                                . #7#)
                          (SEQ (LETT |gwt| NIL . #7#) (LETT #3# |lgwt| . #7#)
@@ -105,7 +105,7 @@
                                           (PROGN
                                            (LETT #1#
                                                  (PROGN
-                                                  (LETT #2# 'NIL . #7#)
+                                                  (LETT #2# NIL . #7#)
                                                   (GO #8#))
                                                  . #7#)
                                            (GO #10=#:G196)))))))))
@@ -132,8 +132,7 @@
                 . #4=(|SFRGCD;stosePrepareSubResAlgo;2PTSL;6|))
           (LETT |toSave| NIL . #4#)
           (LETT |v| (SPADCALL |p1| (QREFELT $ 40)) . #4#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #4#)
                     (LETT |toSee| (CDR |toSee|) . #4#)
                     (LETT |p1| (SPADCALL (QCAR |lpwt|) 1 (QREFELT $ 55)) . #4#)
@@ -338,8 +337,7 @@
            (SEQ
             (LETT |toReturn| NIL
                   . #7=(|SFRGCD;stoseInternalLastSubResultant;LVBL;9|))
-            (SEQ G190
-                 (COND ((NULL (COND ((NULL |llpwt|) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL (NULL (NULL |llpwt|))) (GO G191)))
                  (SEQ (LETT |toSee| |llpwt| . #7#) (LETT |llpwt| NIL . #7#)
                       (SEQ (LETT |lpwt| NIL . #7#) (LETT #6# |toSee| . #7#)
                            G190
@@ -373,7 +371,7 @@
                                   (SEQ
                                    (EXIT
                                     (COND
-                                     ((|BooleanEquality| (QCAR |bwt|) 'NIL)
+                                     ((|BooleanEquality| (QCAR |bwt|) NIL)
                                       (SEQ
                                        (LETT |toReturn|
                                              (CONS (CONS |p1| (QCDR |bwt|))
@@ -560,8 +558,7 @@
                           ((ODDP (SPADCALL |p2| (QREFELT $ 63)))
                            (LETT |p2| (SPADCALL |p2| (QREFELT $ 60))
                                  . #1#)))))))))
-                   (EXIT
-                    (SPADCALL |p1| |p2| |ts| 'NIL 'NIL (QREFELT $ 49))))))))) 
+                   (EXIT (SPADCALL |p1| |p2| |ts| NIL NIL (QREFELT $ 49))))))))) 
 
 (SDEFUN |SFRGCD;stoseSquareFreePart_wip|
         ((|p| P) (|ts| TS)
@@ -581,7 +578,7 @@
                         (SPADCALL (SPADCALL |p| |v| (QREFELT $ 89))
                                   (QREFELT $ 90))
                         . #2#)
-                  (LETT |lgwt| (SPADCALL |p| |q| |ts| 'T 'NIL (QREFELT $ 49))
+                  (LETT |lgwt| (SPADCALL |p| |q| |ts| 'T NIL (QREFELT $ 49))
                         . #2#)
                   (LETT |lpwt| NIL . #2#)
                   (SEQ (LETT |gwt| NIL . #2#) (LETT #1# |lgwt| . #2#) G190
@@ -643,7 +640,7 @@
                   (SPADCALL (SPADCALL |p| |ts| (QREFELT $ 36)) (QREFELT $ 37))
                   . #9=(|SFRGCD;stoseInvertible?_sqfreg;PTSL;14|))
             (EXIT
-             (COND ((SPADCALL |q| (QREFELT $ 38)) (LIST (CONS 'NIL |ts|)))
+             (COND ((SPADCALL |q| (QREFELT $ 38)) (LIST (CONS NIL |ts|)))
                    ((SPADCALL |q| |ts| (QREFELT $ 39)) (LIST (CONS 'T |ts|)))
                    ('T
                     (SEQ (LETT |v| (SPADCALL |q| (QREFELT $ 40)) . #9#)
@@ -709,7 +706,7 @@
                          (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 97))
                                . #9#)
                          (LETT |lgwt|
-                               (SPADCALL |ts_v| |q| |ts_v-| 'NIL 'NIL
+                               (SPADCALL |ts_v| |q| |ts_v-| NIL NIL
                                          (QREFELT $ 49))
                                . #9#)
                          (LETT |lbwt| NIL . #9#)
@@ -776,8 +773,7 @@
                                         (SEQ
                                          (EXIT
                                           (LETT |lbwt|
-                                                (CONS (CONS 'NIL |ts_g|)
-                                                      |lbwt|)
+                                                (CONS (CONS NIL |ts_g|) |lbwt|)
                                                 . #9#)))
                                         (LETT #3# (CDR #3#) . #9#) (GO G190)
                                         G191 (EXIT NIL))
@@ -933,7 +929,7 @@
                               (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 97))
                                     . #6#)
                               (LETT |lgwt|
-                                    (SPADCALL |ts_v| |q| |ts_v-| 'NIL 'NIL
+                                    (SPADCALL |ts_v| |q| |ts_v-| NIL NIL
                                               (QREFELT $ 49))
                                     . #6#)
                               (SEQ (LETT |gwt| NIL . #6#)
@@ -1027,7 +1023,7 @@
                   (SPADCALL (SPADCALL |p| |ts| (QREFELT $ 36)) (QREFELT $ 37))
                   . #12=(|SFRGCD;stoseInvertible?_reg;PTSL;16|))
             (EXIT
-             (COND ((SPADCALL |q| (QREFELT $ 38)) (LIST (CONS 'NIL |ts|)))
+             (COND ((SPADCALL |q| (QREFELT $ 38)) (LIST (CONS NIL |ts|)))
                    ((SPADCALL |q| |ts| (QREFELT $ 39)) (LIST (CONS 'T |ts|)))
                    ('T
                     (SEQ (LETT |v| (SPADCALL |q| (QREFELT $ 40)) . #12#)
@@ -1093,7 +1089,7 @@
                          (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 97))
                                . #12#)
                          (LETT |lgwt|
-                               (SPADCALL |ts_v| |q| |ts_v-| 'NIL 'NIL
+                               (SPADCALL |ts_v| |q| |ts_v-| NIL NIL
                                          (QREFELT $ 49))
                                . #12#)
                          (LETT |lbwt| NIL . #12#)
@@ -1161,8 +1157,7 @@
                                         (SEQ
                                          (EXIT
                                           (LETT |lbwt|
-                                                (CONS (CONS 'NIL |ts_g|)
-                                                      |lbwt|)
+                                                (CONS (CONS NIL |ts_g|) |lbwt|)
                                                 . #12#)))
                                         (LETT #6# (CDR #6#) . #12#) (GO G190)
                                         G191 (EXIT NIL))
@@ -1347,7 +1342,7 @@
                               (LETT |ts_v+| (SPADCALL |ts| |v| (QREFELT $ 97))
                                     . #7#)
                               (LETT |lgwt|
-                                    (SPADCALL |ts_v| |q| |ts_v-| 'NIL 'NIL
+                                    (SPADCALL |ts_v| |q| |ts_v-| NIL NIL
                                               (QREFELT $ 49))
                                     . #7#)
                               (SEQ (LETT |gwt| NIL . #7#)

@@ -288,7 +288,7 @@
                            (SPADCALL (SPADCALL |x| (QREFELT $ 36))
                                      (QREFELT $ 94))
                            . #12#)
-                     (COND (#7# (LETT #8# (COND (#8# #10#) ('T 'NIL)) . #12#))
+                     (COND (#7# (LETT #8# (COND (#8# #10#) ('T NIL)) . #12#))
                            ('T
                             (PROGN
                              (LETT #8# #10# . #12#)
@@ -663,7 +663,7 @@
                     (COND
                      ((|HasCategory| |#1| '(|RetractableTo| (|Integer|)))
                       (|HasCategory| |#2| '(|RadicalCategory|)))
-                     ('T 'NIL)))
+                     ('T NIL)))
           (QSETREFV $ 41
                     (SPADCALL
                      (SPADCALL (|spadConstant| $ 31) (|spadConstant| $ 33)

@@ -660,7 +660,7 @@
                           (GO #6=#:G215))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |ODERAT;UPfact| ((|n| |NonNegativeInteger|) ($ UP))
@@ -796,7 +796,7 @@
           (SEQ G190
                (COND
                 ((NULL
-                  (COND ((NULL |lg|) 'NIL)
+                  (COND ((NULL |lg|) NIL)
                         ('T (SPADCALL (|SPADfirst| |lg|) (QREFELT $ 56)))))
                  (GO G191)))
                (SEQ (EXIT (LETT |lg| (CDR |lg|) . #5#))) NIL (GO G190) G191

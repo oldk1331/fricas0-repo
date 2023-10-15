@@ -48,9 +48,7 @@
                           (LETT |ans| (|spadConstant| $ 27) . #1#)
                           (SEQ G190
                                (COND
-                                ((NULL
-                                  (COND ((SPADCALL |up| (QREFELT $ 35)) 'NIL)
-                                        ('T 'T)))
+                                ((NULL (NULL (SPADCALL |up| (QREFELT $ 35))))
                                  (GO G191)))
                                (SEQ
                                 (LETT |d| (SPADCALL |up| (QREFELT $ 36)) . #1#)
@@ -78,10 +76,8 @@
                                      (SEQ G190
                                           (COND
                                            ((NULL
-                                             (COND
-                                              ((SPADCALL |tmp| (QREFELT $ 44))
-                                               'NIL)
-                                              ('T 'T)))
+                                             (NULL
+                                              (SPADCALL |tmp| (QREFELT $ 44))))
                                             (GO G191)))
                                           (SEQ
                                            (LETT |ans|

@@ -47,7 +47,7 @@
 (SDEFUN |SARGND;Pnan?;$B;9| ((|p| $) ($ |Boolean|))
         (COND
          ((OR (|SARGND;nan?| (QCAR |p|) $) (|SARGND;nan?| (QCDR |p|) $)) 'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SARGND;unitVector;2$;10| ((|p| $) ($ $))
         (SPROG ((|factor| (|DoubleFloat|)))
@@ -90,10 +90,9 @@
         (COND
          ((OR (|less_DF| (QCAR |pt|) (QCAR |mns|))
               (OR (SPADCALL (QCAR |pt|) (QCAR |mxs|) (QREFELT $ 27))
-                  (OR (|less_DF| (QCDR |pt|) (QCDR |mns|))
-                      (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 27)))))
-          'NIL)
-         ('T 'T))) 
+                  (|less_DF| (QCDR |pt|) (QCDR |mns|))))
+          NIL)
+         ('T (NULL (SPADCALL (QCDR |pt|) (QCDR |mxs|) (QREFELT $ 27)))))) 
 
 (PUT '|SARGND;screenCoordX;$Df;18| '|SPADreplace| 'QCAR) 
 
@@ -150,16 +149,16 @@
                   (COND
                    ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 17))
                     (PROGN
-                     (LETT #1# 'NIL . #2=(|SARGND;=;2$B;31|))
+                     (LETT #1# NIL . #2=(|SARGND;=;2$B;31|))
                      (GO #3=#:G159))))
                   (COND
                    ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17))
-                    (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))
+                    (PROGN (LETT #1# NIL . #2#) (GO #3#))))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |SARGND;~=;2$B;32| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 49)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 49)))) 
 
 (SDEFUN |SARGND;coerce;$Of;33| ((|pt| $) ($ |OutputForm|))
         (COND

@@ -311,7 +311,7 @@
                           (|check_subtype2| (>= #9# 0) '(|NonNegativeInteger|)
                                             '(|Integer|) #9#))
                         . #18#)
-                  (LETT |ready| 'NIL . #18#)
+                  (LETT |ready| NIL . #18#)
                   (SEQ (LETT #8# NIL . #18#) G190 (COND (#8# (GO G191)))
                        (SEQ (LETT |rightEntry| |leftEntry| . #18#)
                             (LETT |leftEntry|
@@ -435,10 +435,10 @@
                             (EXIT
                              (COND
                               ((EQL |rightPosition| 1)
-                               (LETT |constructNotFirst| 'NIL . #18#)))))
+                               (LETT |constructNotFirst| NIL . #18#)))))
                        (LETT #8#
                              (COND ((OR |ready| (NULL |constructNotFirst|)) 'T)
-                                   ('T 'NIL))
+                                   ('T NIL))
                              . #18#)
                        (GO G190) G191 (EXIT NIL))
                   (EXIT (COND (|constructNotFirst| |lattP|) (#19# NIL)))))
@@ -505,7 +505,7 @@
           (|younglist| (|List| (|Matrix| (|Integer|))))
           (|ytab| (|Matrix| (|Integer|))) (#1=#:G200 NIL))
          (SEQ (LETT |younglist| NIL . #2=(|SGCF;listYoungTableaus;LL;8|))
-              (LETT |lattice| (SPADCALL |lambda| |lattice| 'NIL (QREFELT $ 28))
+              (LETT |lattice| (SPADCALL |lambda| |lattice| NIL (QREFELT $ 28))
                     . #2#)
               (SEQ (LETT #1# NIL . #2#) G190 (COND (#1# (GO G191)))
                    (SEQ

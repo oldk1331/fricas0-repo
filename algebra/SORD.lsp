@@ -42,7 +42,7 @@
                          (< (SPADCALL |p1| (QREFELT $ 32))
                             (SPADCALL |p2| (QREFELT $ 32))))
                         (#2='T 'T)))
-                      ((SPADCALL |p2| (QREFELT $ 31)) 'NIL)
+                      ((SPADCALL |p2| (QREFELT $ 31)) NIL)
                       (#2# (SPADCALL |p1| |p2| (QREFELT $ 33)))))))) 
 
 (SDEFUN |SORD;+;3$;12| ((|p1| $) (|p2| $) ($ $))

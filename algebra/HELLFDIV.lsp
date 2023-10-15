@@ -5,14 +5,17 @@
 (SDEFUN |HELLFDIV;divisor;R$;2| ((|g| R) ($ $))
         (VECTOR (|spadConstant| $ 32) (|spadConstant| $ 33) |g| 'T)) 
 
+(PUT '|HELLFDIV;makeDivisor| '|SPADreplace|
+     '(XLAM (|a| |b| |g|) (VECTOR |a| |b| |g| NIL))) 
+
 (SDEFUN |HELLFDIV;makeDivisor| ((|a| UP) (|b| UP) (|g| R) ($ $))
-        (VECTOR |a| |b| |g| 'NIL)) 
+        (VECTOR |a| |b| |g| NIL)) 
 
 (SDEFUN |HELLFDIV;princ?| ((|d| $) ($ |Boolean|))
         (COND
          ((SPADCALL (QVELT |d| 0) (|spadConstant| $ 32) (QREFELT $ 35))
           (SPADCALL (QVELT |d| 1) (QREFELT $ 36)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |HELLFDIV;ideal;$Fi;5|
         ((|d| $) ($ |FractionalIdeal| UP (|Fraction| UP) UPUP R))
@@ -343,8 +346,8 @@
             (COND
              ((SPADCALL (QVELT |d1| 1) (QVELT |d2| 1) (QREFELT $ 35))
               (SPADCALL (QVELT |d1| 2) (QVELT |d2| 2) (QREFELT $ 98)))
-             (#2='T 'NIL)))
-           (#2# 'NIL))))) 
+             (#2='T NIL)))
+           (#2# NIL))))) 
 
 (SDEFUN |HELLFDIV;divisor;2F$;18| ((|a| F) (|b| F) ($ $))
         (SPROG ((|d| (UP)) (|x| (UP)))

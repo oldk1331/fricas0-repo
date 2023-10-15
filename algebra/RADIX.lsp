@@ -62,9 +62,9 @@
             (COND
              ((SPADCALL (QVELT |a| 2) (QVELT |b| 2) (QREFELT $ 35))
               (SPADCALL (QVELT |a| 3) (QVELT |b| 3) (QREFELT $ 35)))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+             (#1='T NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |RADIX;numer;$I;14| ((|a| $) ($ |Integer|))
         (SPADCALL (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 36))) 
@@ -411,13 +411,11 @@
                (COND ((|greater_SI| |i| #7#) (GO G191)))
                (SEQ (EXIT (LETT |ritsn| (CDR |ritsn|) . #11#)))
                (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
-          (LETT |rn| (|SPADfirst| |ritsn|) . #11#) (LETT |cfound| 'NIL . #11#)
+          (LETT |rn| (|SPADfirst| |ritsn|) . #11#) (LETT |cfound| NIL . #11#)
           (LETT |c| 0 . #11#)
           (SEQ (LETT |i| 1 . #11#) (LETT #6# |p| . #11#) G190
                (COND
-                ((OR (|greater_SI| |i| #6#)
-                     (NULL (COND (|cfound| 'NIL) ('T 'T))))
-                 (GO G191)))
+                ((OR (|greater_SI| |i| #6#) (NULL (NULL |cfound|))) (GO G191)))
                (SEQ (LETT |ritsn| (CDR |ritsn|) . #11#)
                     (EXIT
                      (COND

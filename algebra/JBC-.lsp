@@ -394,12 +394,10 @@
                              (SEQ (LETT |nind| NIL . #2#)
                                   (SEQ G190
                                        (COND
-                                        ((OR
-                                          (NULL
-                                           (COND ((NULL |rind|) 'NIL) ('T 'T)))
-                                          (NULL
-                                           (SPADCALL (|SPADfirst| |rind|) |i|
-                                                     (QREFELT $ 19))))
+                                        ((OR (NULL (NULL (NULL |rind|)))
+                                             (NULL
+                                              (SPADCALL (|SPADfirst| |rind|)
+                                                        |i| (QREFELT $ 19))))
                                          (GO G191)))
                                        (SEQ
                                         (LETT |nind|
@@ -578,7 +576,7 @@
                         ((EQUAL (SPADCALL |jv2| (QREFELT $ 37)) '|Indep|)
                          (EQL (SPADCALL |jv1| (QREFELT $ 73))
                               (SPADCALL |jv2| (QREFELT $ 73))))
-                        (#1='T 'NIL)))
+                        (#1='T NIL)))
                       (#1#
                        (COND
                         ((EQL (SPADCALL |jv1| (QREFELT $ 73))
@@ -586,7 +584,7 @@
                          (SPADCALL (SPADCALL |jv1| (QREFELT $ 32))
                                    (SPADCALL |jv2| (QREFELT $ 32))
                                    (QREFELT $ 91)))
-                        (#1# 'NIL)))))))) 
+                        (#1# NIL)))))))) 
 
 (SDEFUN |JBC-;<;2SB;27| ((|jv1| S) (|jv2| S) ($ |Boolean|))
         (SPROG
@@ -599,7 +597,7 @@
             (LETT |t1| (SPADCALL |jv1| (QREFELT $ 37)) . #6=(|JBC-;<;2SB;27|))
             (LETT |t2| (SPADCALL |jv2| (QREFELT $ 37)) . #6#)
             (EXIT
-             (COND ((EQUAL |t2| '|Const|) 'NIL) ((EQUAL |t1| '|Const|) 'T)
+             (COND ((EQUAL |t2| '|Const|) NIL) ((EQUAL |t1| '|Const|) 'T)
                    ((EQUAL |t1| '|Indep|)
                     (COND
                      ((EQUAL |t2| '|Indep|)
@@ -607,13 +605,13 @@
                          (SPADCALL |jv2| (QREFELT $ 73))))
                      (#7='T 'T)))
                    ((EQUAL |t1| '|Dep|)
-                    (COND ((EQUAL |t2| '|Indep|) 'NIL)
+                    (COND ((EQUAL |t2| '|Indep|) NIL)
                           ((EQUAL |t2| '|Dep|)
                            (< (SPADCALL |jv1| (QREFELT $ 73))
                               (SPADCALL |jv2| (QREFELT $ 73))))
                           (#7# 'T)))
                    (#7#
-                    (COND ((OR (EQUAL |t2| '|Indep|) (EQUAL |t2| '|Dep|)) 'NIL)
+                    (COND ((OR (EQUAL |t2| '|Indep|) (EQUAL |t2| '|Dep|)) NIL)
                           ('T
                            (SEQ
                             (LETT |o1| (SPADCALL |jv1| (QREFELT $ 93)) . #6#)

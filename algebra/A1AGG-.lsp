@@ -40,7 +40,7 @@
                           (GO #6=#:G150))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |A1AGG-;every?;MAB;4|
@@ -62,8 +62,7 @@
                         ((NULL
                           (SPADCALL (SPADCALL |a| |i| (QREFELT $ 11)) |f|))
                          (PROGN
-                          (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G160))
+                          (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5=#:G160))
                                 . #4#)
                           (GO #6=#:G158))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
@@ -345,7 +344,7 @@
                   (COND
                    ((SPADCALL |i| |m| (QREFELT $ 47))
                     (SPADCALL |j| |n| (QREFELT $ 47)))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ
                 (EXIT
@@ -719,8 +718,7 @@
                                     (SPADCALL |a| (+ |i| 1) (QREFELT $ 11))
                                     |f|))
                          (PROGN
-                          (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G309))
+                          (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5=#:G309))
                                 . #4#)
                           (GO #6=#:G307))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
@@ -773,7 +771,7 @@
                  (COND
                   ((SPADCALL (SPADCALL |x| (QREFELT $ 46))
                              (SPADCALL |y| (QREFELT $ 46)) (QREFELT $ 71))
-                   'NIL)
+                   NIL)
                   ('T
                    (SEQ
                     (SEQ
@@ -792,7 +790,7 @@
                                       (QREFELT $ 72)))
                            (PROGN
                             (LETT #1#
-                                  (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G324))
+                                  (PROGN (LETT #2# NIL . #4#) (GO #5=#:G324))
                                   . #4#)
                             (GO #6=#:G321))))))
                        (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))

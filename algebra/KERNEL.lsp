@@ -76,7 +76,7 @@
                           . #2=(|KERNEL;kerEqual|))
                     (LETT |n2| (LENGTH (SPADCALL |k2| (QREFELT $ 10))) . #2#)
                     (QREFELT $ 43))))
-                 'NIL)
+                 NIL)
                 ('T (SPADCALL |k1| |k2| |f|))))) 
 
 (SDEFUN |KERNEL;kernelEnterInCache| ((|k| $) ($ $))

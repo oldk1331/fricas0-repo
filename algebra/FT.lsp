@@ -116,7 +116,7 @@
          (EXIT (VECTOR |t| |d| |e|)))) 
 
 (SDEFUN |FT;coerce;Fst$;7| ((|u| |FortranScalarType|) ($ $))
-        (SPADCALL (CONS 0 |u|) NIL 'NIL (QREFELT $ 26))) 
+        (SPADCALL (CONS 0 |u|) NIL NIL (QREFELT $ 26))) 
 
 (SDEFUN |FT;fortranReal;$;8| (($ $))
         (SPADCALL (SPADCALL "real" (QREFELT $ 30)) (QREFELT $ 28))) 

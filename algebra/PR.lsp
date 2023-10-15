@@ -176,7 +176,7 @@
         (COND ((NULL |p|) 'T)
               ((NULL (CDR |p|))
                (SPADCALL (SPADCALL |p| (QREFELT $ 17)) (QREFELT $ 27)))
-              ('T 'NIL))) 
+              ('T NIL))) 
 
 (SDEFUN |PR;times!| ((|r| R) (|x| $) ($ $))
         (SPROG
@@ -199,9 +199,7 @@
              (EXIT |x|)))
            ('T
             (SEQ (LETT |xx| |x| . #2#) (LETT |res| NIL . #2#)
-                 (SEQ G190
-                      (COND
-                       ((NULL (COND ((NULL |xx|) 'NIL) ('T 'T))) (GO G191)))
+                 (SEQ G190 (COND ((NULL (NULL (NULL |xx|))) (GO G191)))
                       (SEQ (LETT |tx| (|SPADfirst| |xx|) . #2#)
                            (PROGN
                             (RPLACD |tx|
@@ -241,34 +239,31 @@
                  ((QREFELT $ 43)
                   (SPADCALL (CONS #'|PR;times!0| (VECTOR $ |tex| |tco|)) |rx|
                             (QREFELT $ 47)))
-                 (#3='T
+                 ('T
                   (PROGN
-                   (LETT #2# NIL . #4=(|PR;times|))
-                   (SEQ (LETT |tx| NIL . #4#) (LETT #1# |rx| . #4#) G190
+                   (LETT #2# NIL . #3=(|PR;times|))
+                   (SEQ (LETT |tx| NIL . #3#) (LETT #1# |rx| . #3#) G190
                         (COND
                          ((OR (ATOM #1#)
-                              (PROGN (LETT |tx| (CAR #1#) . #4#) NIL))
+                              (PROGN (LETT |tx| (CAR #1#) . #3#) NIL))
                           (GO G191)))
                         (SEQ
                          (EXIT
                           (COND
-                           ((COND
-                             ((SPADCALL
-                               (LETT |r|
-                                     (SPADCALL |tco| (QCDR |tx|)
-                                               (QREFELT $ 44))
-                                     . #4#)
-                               (QREFELT $ 38))
-                              'NIL)
-                             (#3# 'T))
+                           ((NULL
+                             (SPADCALL
+                              (LETT |r|
+                                    (SPADCALL |tco| (QCDR |tx|) (QREFELT $ 44))
+                                    . #3#)
+                              (QREFELT $ 38)))
                             (LETT #2#
                                   (CONS
                                    (CONS
                                     (SPADCALL |tex| (QCAR |tx|) (QREFELT $ 45))
                                     |r|)
                                    #2#)
-                                  . #4#)))))
-                        (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                  . #3#)))))
+                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                         (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |PR;times!0| ((|x1| NIL) ($$ NIL))
@@ -288,8 +283,7 @@
                (EXIT
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (COND ((OR (NULL |p1|) (NULL |p2|)) 'NIL) ('T 'T)))
+                      ((NULL (COND ((NULL |p1|) NIL) ('T (NULL (NULL |p2|)))))
                        (GO G191)))
                      (SEQ (LETT |tx| (|SPADfirst| |p1|) . #2#)
                           (LETT |ty| (|SPADfirst| |p2|) . #2#)
@@ -371,7 +365,7 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND ((OR (NULL |p1|) (NULL |p2|)) 'NIL) ('T 'T)))
+                            (COND ((NULL |p1|) NIL) ('T (NULL (NULL |p2|)))))
                            (GO G191)))
                          (SEQ (LETT |tx| (|SPADfirst| |p1|) . #3#)
                               (LETT |ty| (|SPADfirst| |p2|) . #3#)
@@ -707,7 +701,7 @@
 
 (SDEFUN |PR;associates?;2$B;30| ((|p1| $) (|p2| $) ($ |Boolean|))
         (SPROG ((#1=#:G332 NIL))
-               (COND ((NULL |p1|) (NULL |p2|)) ((NULL |p2|) 'NIL)
+               (COND ((NULL |p1|) (NULL |p2|)) ((NULL |p2|) NIL)
                      (#2='T
                       (COND
                        ((SPADCALL (QCAR (|SPADfirst| |p1|))
@@ -729,8 +723,8 @@
                                               #1#))
                             (CDR |p1|) (QREFELT $ 50))
                            (CDR |p2|) (QREFELT $ 67)))
-                         (#2# 'NIL)))
-                       (#2# 'NIL)))))) 
+                         (#2# NIL)))
+                       (#2# NIL)))))) 
 
 (SDEFUN |PR;exquo;$RU;31| ((|p| $) (|r| R) ($ |Union| $ "failed"))
         (SPROG
@@ -790,7 +784,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |p1|) 'NIL)
+                                (COND ((NULL |p1|) NIL)
                                       ('T
                                        (SPADCALL (QCAR (|SPADfirst| |p1|)) |e2|
                                                  (QREFELT $ 33)))))
@@ -832,10 +826,7 @@
                   (CONS 0 (|spadConstant| $ 12)))
                  (#3='T
                   (SEQ (LETT |rout| NIL . #4=(|PR;exquo;2$U;33|))
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                             (SEQ
                              (LETT |a|
                                    (SPADCALL (QCDR (|SPADfirst| |p1|))
@@ -890,10 +881,7 @@
                   (CONS 0 |p1|))
                  (#3='T
                   (SEQ (LETT |rout| NIL . #4=(|PR;exquo;2$U;34|))
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                             (SEQ
                              (LETT |a|
                                    (SPADCALL (QCDR (|SPADfirst| |p1|))

@@ -61,7 +61,7 @@
                    (SEQ (LETT |lfact| (QVELT |univPol| 2) . #16#)
                         (LETT |lval| (QVELT |univPol| 1) . #16#)
                         (LETT |ctf| (QVELT |univPol| 3) . #16#)
-                        (LETT |leadpol| 'NIL . #16#) (LETT |sqdec| NIL . #16#)
+                        (LETT |leadpol| NIL . #16#) (LETT |sqdec| NIL . #16#)
                         (LETT |exp0| 0 . #16#)
                         (LETT |unitsq| (|spadConstant| $ 27) . #16#)
                         (LETT |lcf| (SPADCALL |f| (QREFELT $ 29)) . #16#)
@@ -933,7 +933,7 @@
            (|Union| (|List| (|SparseUnivariatePolynomial| P)) "failed"))
           (|leadlist| (|List| P)) (|lcg0| (R)) (|leadpol| (|Boolean|))
           (|lcd| (P)))
-         (SEQ (LETT |leadpol| 'NIL . #2=(|MULTSQFR;lift;Sup2SupPLLLU;7|))
+         (SEQ (LETT |leadpol| NIL . #2=(|MULTSQFR;lift;Sup2SupPLLLU;7|))
               (LETT |lcd| (SPADCALL |ud| (QREFELT $ 29)) . #2#)
               (LETT |leadlist| NIL . #2#)
               (COND

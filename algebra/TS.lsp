@@ -8,9 +8,7 @@
                 (SEQ (LETT |i| 0 . #2#) (LETT #1# |n| . #2#) G190
                      (COND
                       ((OR (|greater_SI| |i| #1#)
-                           (NULL
-                            (COND ((SPADCALL |s| (QREFELT $ 11)) 'NIL)
-                                  ('T 'T))))
+                           (NULL (NULL (SPADCALL |s| (QREFELT $ 11)))))
                        (GO G191)))
                      (SEQ
                       (LETT |sum|

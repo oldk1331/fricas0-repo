@@ -21,7 +21,7 @@
                      (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (COND ((SPADCALL |n1| |n2| (QREFELT $ 14)) 'T)
-                       ((SPADCALL |n2| |n1| (QREFELT $ 14)) 'NIL)
+                       ((SPADCALL |n2| |n1| (QREFELT $ 14)) NIL)
                        ('T
                         (SEQ
                          (SEQ (LETT |i| (QREFELT $ 6) . #3#) G190
@@ -37,10 +37,10 @@
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 11))
                                             (SPADCALL |v2| |i| (QREFELT $ 11))
                                             (QREFELT $ 14))
-                                  (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                                  (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                               (LETT |i| (+ |i| -1) . #3#) (GO G190) G191
                               (EXIT NIL))
-                         (EXIT 'NIL)))))))
+                         (EXIT NIL)))))))
           #4# (EXIT #1#)))) 
 
 (DECLAIM (NOTINLINE |HomogeneousDirectProduct;|)) 

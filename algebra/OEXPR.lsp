@@ -18,7 +18,7 @@
                       . #1=(|OEXPR;<;2$B;4|))
                 (EXIT
                  (COND
-                  ((SPADCALL |di| (|spadConstant| $ 12) (QREFELT $ 15)) 'NIL)
+                  ((SPADCALL |di| (|spadConstant| $ 12) (QREFELT $ 15)) NIL)
                   (#2='T
                    (SEQ (LETT |s| (SPADCALL |di| (QREFELT $ 18)) . #1#)
                         (EXIT

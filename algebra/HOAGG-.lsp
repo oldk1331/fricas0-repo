@@ -30,7 +30,7 @@
                           ((SPADCALL |x| |f|)
                            (PROGN (LETT #1# 'T . #3#) (GO #4=#:G121))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |HOAGG-;every?;MAB;4|
@@ -47,8 +47,8 @@
                        (SEQ
                         (EXIT
                          (COND
-                          ((COND ((SPADCALL |x| |f|) 'NIL) ('T 'T))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G127))))))
+                          ((NULL (SPADCALL |x| |f|))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4=#:G127))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 
@@ -112,7 +112,7 @@
           (EXIT
            (COND
             ((NULL (SPADCALL |x| (SPADCALL |y| (QREFELT $ 28)) (QREFELT $ 29)))
-             'NIL)
+             NIL)
             ('T
              (SEQ
               (SEQ (LETT |b| NIL . #4=(|HOAGG-;=;2AB;9|))
@@ -127,7 +127,7 @@
                     (EXIT
                      (COND
                       ((SPADCALL |a| |b| (QREFELT $ 30))
-                       (PROGN (LETT #1# 'NIL . #4#) (GO #5=#:G143))))))
+                       (PROGN (LETT #1# NIL . #4#) (GO #5=#:G143))))))
                    (LETT #2# (PROG1 (CDR #2#) (LETT #3# (CDR #3#) . #4#))
                          . #4#)
                    (GO G190) G191 (EXIT NIL))

@@ -417,28 +417,28 @@
                           (LETT |u|
                                 (SPADCALL |x|
                                           (LIST
-                                           (CONS (|spadConstant| $ 89) 'NIL)
-                                           (CONS (|spadConstant| $ 89) 'NIL)
-                                           (CONS (|spadConstant| $ 48) 'NIL)
+                                           (CONS (|spadConstant| $ 89) NIL)
+                                           (CONS (|spadConstant| $ 89) NIL)
+                                           (CONS (|spadConstant| $ 48) NIL)
                                            (CONS
                                             (SPADCALL (|spadConstant| $ 48)
                                                       (QREFELT $ 49))
-                                            'NIL)
-                                           (CONS |s3| 'NIL) (CONS |s3| 'NIL)
+                                            NIL)
+                                           (CONS |s3| NIL) (CONS |s3| NIL)
                                            (CONS (SPADCALL |s3| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |s3| (QREFELT $ 49))
-                                                 'NIL)
-                                           (CONS |s2| 'NIL) (CONS |s2| 'NIL)
+                                                 NIL)
+                                           (CONS |s2| NIL) (CONS |s2| NIL)
                                            (CONS (SPADCALL |s2| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |s2| (QREFELT $ 49))
-                                                 'NIL)
-                                           (CONS |h| 'NIL) (CONS |h| 'NIL)
+                                                 NIL)
+                                           (CONS |h| NIL) (CONS |h| NIL)
                                            (CONS (SPADCALL |h| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |h| (QREFELT $ 49))
-                                                 'NIL))
+                                                 NIL))
                                           (QREFELT $ 115))
                                 . #2#)
                           (EXIT
@@ -505,29 +505,29 @@
                           (LETT |u|
                                 (SPADCALL |x|
                                           (LIST
-                                           (CONS (|spadConstant| $ 48) 'NIL)
+                                           (CONS (|spadConstant| $ 48) NIL)
                                            (CONS
                                             (SPADCALL (|spadConstant| $ 48)
                                                       (QREFELT $ 49))
-                                            'NIL)
-                                           (CONS (|spadConstant| $ 89) 'NIL)
-                                           (CONS (|spadConstant| $ 89) 'NIL)
-                                           (CONS |h| 'NIL)
+                                            NIL)
+                                           (CONS (|spadConstant| $ 89) NIL)
+                                           (CONS (|spadConstant| $ 89) NIL)
+                                           (CONS |h| NIL)
                                            (CONS (SPADCALL |h| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |h| (QREFELT $ 49))
-                                                 'NIL)
-                                           (CONS |h| 'NIL) (CONS |s2| 'NIL)
+                                                 NIL)
+                                           (CONS |h| NIL) (CONS |s2| NIL)
                                            (CONS (SPADCALL |s2| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |s2| (QREFELT $ 49))
-                                                 'NIL)
-                                           (CONS |s2| 'NIL) (CONS |s3| 'NIL)
+                                                 NIL)
+                                           (CONS |s2| NIL) (CONS |s3| NIL)
                                            (CONS (SPADCALL |s3| (QREFELT $ 49))
-                                                 'NIL)
+                                                 NIL)
                                            (CONS (SPADCALL |s3| (QREFELT $ 49))
-                                                 'NIL)
-                                           (CONS |s3| 'NIL))
+                                                 NIL)
+                                           (CONS |s3| NIL))
                                           (QREFELT $ 115))
                                 . #2#)
                           (EXIT
@@ -592,47 +592,47 @@
                                       (SPADCALL |x|
                                                 (LIST
                                                  (CONS (|spadConstant| $ 89)
-                                                       'NIL)
+                                                       NIL)
                                                  (CONS (|spadConstant| $ 89)
-                                                       'NIL)
-                                                 (CONS (|spadConstant| $ 89)
-                                                       'T)
+                                                       NIL)
                                                  (CONS (|spadConstant| $ 89)
                                                        'T)
-                                                 (CONS |s3| 'NIL)
+                                                 (CONS (|spadConstant| $ 89)
+                                                       'T)
+                                                 (CONS |s3| NIL)
                                                  (CONS
                                                   (SPADCALL |s3|
                                                             (QREFELT $ 49))
-                                                  'NIL)
-                                                 (CONS |s3| 'NIL)
+                                                  NIL)
+                                                 (CONS |s3| NIL)
                                                  (CONS
                                                   (SPADCALL |s3|
                                                             (QREFELT $ 49))
-                                                  'NIL)
+                                                  NIL)
                                                  (CONS (|spadConstant| $ 48)
-                                                       'NIL)
+                                                       NIL)
                                                  (CONS
                                                   (SPADCALL
                                                    (|spadConstant| $ 48)
                                                    (QREFELT $ 49))
-                                                  'NIL)
+                                                  NIL)
                                                  (CONS (|spadConstant| $ 48)
-                                                       'NIL)
+                                                       NIL)
                                                  (CONS
                                                   (SPADCALL
                                                    (|spadConstant| $ 48)
                                                    (QREFELT $ 49))
-                                                  'NIL)
-                                                 (CONS |s33| 'NIL)
+                                                  NIL)
+                                                 (CONS |s33| NIL)
                                                  (CONS
                                                   (SPADCALL |s33|
                                                             (QREFELT $ 49))
-                                                  'NIL)
-                                                 (CONS |s33| 'NIL)
+                                                  NIL)
+                                                 (CONS |s33| NIL)
                                                  (CONS
                                                   (SPADCALL |s33|
                                                             (QREFELT $ 49))
-                                                  'NIL))
+                                                  NIL))
                                                 (QREFELT $ 115))
                                       . #2#)
                                 (EXIT
@@ -693,34 +693,34 @@
                                            (LIST
                                             (CONS (|spadConstant| $ 89) 'T)
                                             (CONS (|spadConstant| $ 89) 'T)
-                                            (CONS (|spadConstant| $ 89) 'NIL)
-                                            (CONS (|spadConstant| $ 89) 'NIL)
-                                            (CONS |s33| 'NIL)
+                                            (CONS (|spadConstant| $ 89) NIL)
+                                            (CONS (|spadConstant| $ 89) NIL)
+                                            (CONS |s33| NIL)
                                             (CONS
                                              (SPADCALL |s33| (QREFELT $ 49))
-                                             'NIL)
-                                            (CONS |s33| 'NIL)
+                                             NIL)
+                                            (CONS |s33| NIL)
                                             (CONS
                                              (SPADCALL |s33| (QREFELT $ 49))
-                                             'NIL)
-                                            (CONS (|spadConstant| $ 48) 'NIL)
+                                             NIL)
+                                            (CONS (|spadConstant| $ 48) NIL)
                                             (CONS
                                              (SPADCALL (|spadConstant| $ 48)
                                                        (QREFELT $ 49))
-                                             'NIL)
-                                            (CONS (|spadConstant| $ 48) 'NIL)
+                                             NIL)
+                                            (CONS (|spadConstant| $ 48) NIL)
                                             (CONS
                                              (SPADCALL (|spadConstant| $ 48)
                                                        (QREFELT $ 49))
-                                             'NIL)
-                                            (CONS |s3| 'NIL)
+                                             NIL)
+                                            (CONS |s3| NIL)
                                             (CONS
                                              (SPADCALL |s3| (QREFELT $ 49))
-                                             'NIL)
-                                            (CONS |s3| 'NIL)
+                                             NIL)
+                                            (CONS |s3| NIL)
                                             (CONS
                                              (SPADCALL |s3| (QREFELT $ 49))
-                                             'NIL))
+                                             NIL))
                                            (QREFELT $ 115))
                                  . #2#)
                            (EXIT
@@ -784,37 +784,35 @@
                               (LETT |u|
                                     (SPADCALL |x|
                                               (LIST
-                                               (CONS (|spadConstant| $ 48)
-                                                     'NIL)
+                                               (CONS (|spadConstant| $ 48) NIL)
                                                (CONS
                                                 (SPADCALL (|spadConstant| $ 48)
                                                           (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS (|spadConstant| $ 89) 'T)
                                                (CONS (|spadConstant| $ 89) 'T)
-                                               (CONS |h| 'NIL)
+                                               (CONS |h| NIL)
                                                (CONS
                                                 (SPADCALL |h| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |h| (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |h| 'NIL) (CONS |s2| 'NIL)
+                                                NIL)
+                                               (CONS |h| NIL) (CONS |s2| NIL)
                                                (CONS
                                                 (SPADCALL |s2| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s2| (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |s2| 'NIL)
-                                               (CONS |s3| 'NIL)
+                                                NIL)
+                                               (CONS |s2| NIL) (CONS |s3| NIL)
                                                (CONS
                                                 (SPADCALL |s3| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s3| (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |s3| 'NIL))
+                                                NIL)
+                                               (CONS |s3| NIL))
                                               (QREFELT $ 115))
                                     . #2#)
                               (EXIT
@@ -880,35 +878,32 @@
                                               (LIST
                                                (CONS (|spadConstant| $ 89) 'T)
                                                (CONS (|spadConstant| $ 89) 'T)
-                                               (CONS (|spadConstant| $ 48)
-                                                     'NIL)
+                                               (CONS (|spadConstant| $ 48) NIL)
                                                (CONS
                                                 (SPADCALL (|spadConstant| $ 48)
                                                           (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |s3| 'NIL)
-                                               (CONS |s3| 'NIL)
+                                                NIL)
+                                               (CONS |s3| NIL) (CONS |s3| NIL)
                                                (CONS
                                                 (SPADCALL |s3| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s3| (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |s2| 'NIL)
-                                               (CONS |s2| 'NIL)
+                                                NIL)
+                                               (CONS |s2| NIL) (CONS |s2| NIL)
                                                (CONS
                                                 (SPADCALL |s2| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s2| (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |h| 'NIL) (CONS |h| 'NIL)
+                                                NIL)
+                                               (CONS |h| NIL) (CONS |h| NIL)
                                                (CONS
                                                 (SPADCALL |h| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |h| (QREFELT $ 49))
-                                                'NIL))
+                                                NIL))
                                               (QREFELT $ 115))
                                     . #2#)
                               (EXIT
@@ -1408,100 +1403,99 @@
                               (LETT |u|
                                     (SPADCALL |xi|
                                               (LIST
-                                               (CONS (|spadConstant| $ 48)
-                                                     'NIL)
+                                               (CONS (|spadConstant| $ 48) NIL)
                                                (CONS
                                                 (SPADCALL (|spadConstant| $ 48)
                                                           (QREFELT $ 49))
-                                                'NIL)
-                                               (CONS |i| 'NIL)
+                                                NIL)
+                                               (CONS |i| NIL)
                                                (CONS
                                                 (SPADCALL |i| (QREFELT $ 49))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |h|
                                                           (SPADCALL |i| |s3|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |h| (QREFELT $ 49))
                                                  (SPADCALL |i| |s3|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |h| (QREFELT $ 49))
                                                  (SPADCALL |i| |s3|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 119))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |h|
                                                           (SPADCALL |i| |s3|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 119))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s2|
                                                           (SPADCALL |i| |s2|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |s2| (QREFELT $ 49))
                                                  (SPADCALL |i| |s2|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |s2| (QREFELT $ 49))
                                                  (SPADCALL |i| |s2|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 119))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s2|
                                                           (SPADCALL |i| |s2|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 119))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s3|
                                                           (SPADCALL |i| |h|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |s3| (QREFELT $ 49))
                                                  (SPADCALL |i| |h|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 120))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL
                                                  (SPADCALL |s3| (QREFELT $ 49))
                                                  (SPADCALL |i| |h|
                                                            (QREFELT $ 122))
                                                  (QREFELT $ 119))
-                                                'NIL)
+                                                NIL)
                                                (CONS
                                                 (SPADCALL |s3|
                                                           (SPADCALL |i| |h|
                                                                     (QREFELT $
                                                                              122))
                                                           (QREFELT $ 119))
-                                                'NIL))
+                                                NIL))
                                               (QREFELT $ 115))
                                     . #2#)
                               (EXIT
@@ -1520,7 +1514,7 @@
                   ((QEQCAR |u| 0)
                    (SPADCALL (QCDR |u|) (SPADCALL (QCDR |u|) (QREFELT $ 131))
                              (QREFELT $ 132)))
-                  ('T 'NIL)))))) 
+                  ('T NIL)))))) 
 
 (PUT '|EF;localReal?;FB;72| '|SPADreplace| '(XLAM (|x|) 'T)) 
 

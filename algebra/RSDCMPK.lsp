@@ -77,12 +77,10 @@
              (COND
               ((< (SPADCALL |p| (QREFELT $ 35))
                   (SPADCALL |ts_v| (QREFELT $ 35)))
-               (LETT |lgwt|
-                     (SPADCALL |ts_v| |p| |ts_v-| 'T 'NIL (QREFELT $ 39))
+               (LETT |lgwt| (SPADCALL |ts_v| |p| |ts_v-| 'T NIL (QREFELT $ 39))
                      . #6#))
               (#5#
-               (LETT |lgwt|
-                     (SPADCALL |p| |ts_v| |ts_v-| 'T 'NIL (QREFELT $ 39))
+               (LETT |lgwt| (SPADCALL |p| |ts_v| |ts_v-| 'T NIL (QREFELT $ 39))
                      . #6#)))
              (LETT |lts| NIL . #6#) (LETT |llpwt| NIL . #6#)
              (SEQ (LETT |gwt| NIL . #6#) (LETT #3# |lgwt| . #6#) G190
@@ -388,7 +386,7 @@
                          ((SPADCALL (SPADCALL |p| (QREFELT $ 30)) (QCDR |bwt|)
                                     (QREFELT $ 71))
                           (LETT |rsl|
-                                (SPADCALL |p| (QCDR |bwt|) 'NIL (QREFELT $ 54))
+                                (SPADCALL |p| (QCDR |bwt|) NIL (QREFELT $ 54))
                                 . #3#))
                          ('T
                           (LETT |rsl|
@@ -453,7 +451,7 @@
 (SDEFUN |RSDCMPK;decompose;LL2BL;9|
         ((|lp| |List| P) (|lts| |List| TS) (|clos?| |Boolean|)
          (|info?| |Boolean|) ($ |List| TS))
-        (SPADCALL |lp| |lts| 'NIL 'NIL |clos?| 'T |info?| (QREFELT $ 78))) 
+        (SPADCALL |lp| |lts| NIL NIL |clos?| 'T |info?| (QREFELT $ 78))) 
 
 (SDEFUN |RSDCMPK;convert;RS;10|
         ((|lpwt| |Record| (|:| |val| (|List| P)) (|:| |tower| TS))
@@ -567,9 +565,7 @@
                              (LETT |bound| (SPADCALL |lp| |lts| (QREFELT $ 27))
                                    . #4#)))
                            (SEQ G190
-                                (COND
-                                 ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                                  (GO G191)))
+                                (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                                 (SEQ
                                  (COND
                                   (|info?|

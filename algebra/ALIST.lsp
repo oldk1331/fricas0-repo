@@ -97,7 +97,7 @@
          (SEQ
           (LETT |l| (SPADCALL |a| (QREFELT $ 17)) . #1=(|ALIST;latex;$S;16|))
           (LETT |s| "\\left[" . #1#)
-          (SEQ G190 (COND ((NULL (COND ((NULL |l|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
                (SEQ (LETT |r| (|SPADfirst| |l|) . #1#)
                     (LETT |l| (CDR |l|) . #1#)
                     (LETT |s|
@@ -187,7 +187,7 @@
                  (SEQ G190
                       (COND
                        ((NULL
-                         (COND ((NULL |curr|) 'NIL)
+                         (COND ((NULL |curr|) NIL)
                                ('T
                                 (SPADCALL (QCAR (|SPADfirst| |curr|)) |k|
                                           (QREFELT $ 46)))))

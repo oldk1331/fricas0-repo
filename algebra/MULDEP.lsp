@@ -39,12 +39,10 @@
                               (SEQ
                                (EXIT
                                 (COND
-                                 ((COND
-                                   ((SPADCALL
-                                     (SPADCALL |bas| |i| (QREFELT $ 19))
-                                     (QREFELT $ 21))
-                                    'NIL)
-                                   (#12# 'T))
+                                 ((NULL
+                                   (SPADCALL
+                                    (SPADCALL |bas| |i| (QREFELT $ 19))
+                                    (QREFELT $ 21)))
                                   (LETT #10# (CONS |i| #10#) . #13#)))))
                               (LETT |i| (|inc_SI| |i|) . #13#) (GO G190) G191
                               (EXIT (NREVERSE #10#))))

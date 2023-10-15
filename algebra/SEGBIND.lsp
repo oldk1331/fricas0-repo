@@ -17,7 +17,7 @@
          ((EQUAL (SPADCALL |b1| (QREFELT $ 11)) (SPADCALL |b2| (QREFELT $ 11)))
           (SPADCALL (SPADCALL |b1| (QREFELT $ 12))
                     (SPADCALL |b2| (QREFELT $ 12)) (QREFELT $ 14)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SEGBIND;coerce;$Of;5| ((|b| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL (SPADCALL |b| (QREFELT $ 11)) (QREFELT $ 17))

@@ -87,7 +87,7 @@
         (COND
          ((SPADCALL (QCAR |eq1|) (QCAR |eq2|) (QREFELT $ 39))
           (SPADCALL (QCDR |eq1|) (QCDR |eq2|) (QREFELT $ 39)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |EQ;coerce;$Of;13| ((|eqn| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL (QCAR |eqn|) (QREFELT $ 42))

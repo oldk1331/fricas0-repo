@@ -56,8 +56,8 @@
             (COND
              ((SPADCALL (QCAR (QCDR |s1|)) (QCAR (QCDR |s2|)) (QREFELT $ 26))
               (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
+             (#1='T NIL)))
+           (#1# NIL)))
          ((QEQCAR |s1| 1)
           (COND
            ((QEQCAR |s2| 1)
@@ -67,10 +67,10 @@
                ((SPADCALL (QVELT (QCDR |s1|) 1) (QVELT (QCDR |s2|) 1)
                           (QREFELT $ 26))
                 (EQL (QCDR (QCDR |s1|)) (QCDR (QCDR |s2|))))
-               (#1# 'NIL)))
-             (#1# 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+               (#1# NIL)))
+             (#1# NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |UNISEG;coerce;$Of;15| ((|s| $) ($ |OutputForm|))
         (SPROG
@@ -150,7 +150,7 @@
                        (SEQ G190
                             (COND
                              ((NULL
-                               (COND ((SPADCALL |ls| (QREFELT $ 53)) 'NIL)
+                               (COND ((SPADCALL |ls| (QREFELT $ 53)) NIL)
                                      ('T
                                       (SPADCALL (SPADCALL |ls| (QREFELT $ 54))
                                                 (QREFELT $ 16)))))

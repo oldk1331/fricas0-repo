@@ -18,7 +18,7 @@
         (COND
          ((EQL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 15)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |TUPLE;coerce;$Of;6| ((|x| $) ($ |OutputForm|))
         (SPROG ((#1=#:G120 NIL) (|i| NIL) (#2=#:G119 NIL))

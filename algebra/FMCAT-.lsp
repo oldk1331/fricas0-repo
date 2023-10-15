@@ -9,7 +9,7 @@
                         (COND
                          ((SPADCALL |q| (QREFELT $ 10))
                           (PROGN
-                           (LETT #1# 'NIL . #2=(|FMCAT-;smaller?;2AB;1|))
+                           (LETT #1# NIL . #2=(|FMCAT-;smaller?;2AB;1|))
                            (GO #3=#:G121)))
                          ((SPADCALL |p| (QREFELT $ 10))
                           (PROGN (LETT #1# 'T . #2#) (GO #3#)))

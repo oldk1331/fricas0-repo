@@ -69,8 +69,7 @@
               (SEQ (LETT |i| 1 . #5#) (LETT #4# |count| . #5#) G190
                    (COND
                     ((OR (|greater_SI| |i| #4#)
-                         (NULL
-                          (COND ((SPADCALL |y| (QREFELT $ 18)) 'NIL) ('T 'T))))
+                         (NULL (NULL (SPADCALL |y| (QREFELT $ 18)))))
                      (GO G191)))
                    (SEQ (EXIT (LETT |y| (SPADCALL |y| (QREFELT $ 15)) . #5#)))
                    (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
@@ -170,9 +169,7 @@
                   (LETT |le| NIL . #2#)
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |x| |cycEnt| (QREFELT $ 23)) 'NIL)
-                                ('T 'T)))
+                        ((NULL (NULL (SPADCALL |x| |cycEnt| (QREFELT $ 23))))
                          (GO G191)))
                        (SEQ
                         (LETT |le|
@@ -245,7 +242,7 @@
 
 (SDEFUN |STREAM;copy;2$;17| ((|x| $) ($ $))
         (SPROG
-         ((|head| ($)) (#1=#:G253 NIL) (|cycle| ($)) (|d| (|Integer|))
+         ((|head| ($)) (#1=#:G248 NIL) (|cycle| ($)) (|d| (|Integer|))
           (|e| ($)) (|len| (|NonNegativeInteger|)) (|ce| ($))
           (|cycElt| (|Union| $ "failed")))
          (SEQ
@@ -387,7 +384,7 @@
         (SEQ (|STREAM;setfrst!| |x| |s| $) (EXIT (|STREAM;setrst!| |x| |x| $)))) 
 
 (SDEFUN |STREAM;map!;M2$;29| ((|f| |Mapping| S S) (|x| $) ($ $))
-        (SPROG ((|y| ($)) (#1=#:G403 NIL) (|tail| ($)))
+        (SPROG ((|y| ($)) (#1=#:G353 NIL) (|tail| ($)))
                (SEQ
                 (COND
                  ((SPADCALL |x| (QREFELT $ 69))
@@ -407,9 +404,7 @@
                   (SEQ (LETT |y| |x| . #2#)
                        (SEQ G190
                             (COND
-                             ((NULL
-                               (COND ((SPADCALL |y| (QREFELT $ 18)) 'NIL)
-                                     ('T 'T)))
+                             ((NULL (NULL (SPADCALL |y| (QREFELT $ 18))))
                               (GO G191)))
                             (SEQ
                              (|STREAM;setfrst!| |y|
@@ -506,7 +501,7 @@
 (SDEFUN |STREAM;setelt!;$Us2S;34|
         ((|x| $) (|seg| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
-         ((#1=#:G469 NIL) (|y| ($)) (#2=#:G473 NIL) (|i| NIL) (#3=#:G463 NIL)
+         ((#1=#:G399 NIL) (|y| ($)) (#2=#:G403 NIL) (|i| NIL) (#3=#:G393 NIL)
           (|high| (|Integer|)) (|low| (|Integer|)))
          (SEQ
           (LETT |low| (SPADCALL |seg| (QREFELT $ 85))
@@ -613,7 +608,7 @@
           (LETT |x| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G516 NIL))
+            (SPROG ((#2=#:G431 NIL))
                    (COND
                     ((OR (SPADCALL |n| (|spadConstant| $ 91) (QREFELT $ 93))
                          (SPADCALL |x| (QREFELT $ 18)))
@@ -643,7 +638,7 @@
 
 (SDEFUN |STREAM;cycleSplit!;2$;42| ((|x| $) ($ $))
         (SPROG
-         ((|z| ($)) (#1=#:G534 NIL) (|y| ($)) (|cycElt| (|Union| $ "failed")))
+         ((|z| ($)) (#1=#:G449 NIL) (|y| ($)) (|cycElt| (|Union| $ "failed")))
          (SEQ
           (EXIT
            (SEQ
@@ -659,7 +654,7 @@
                  (COND
                   ((SPADCALL |x| |y| (QREFELT $ 23))
                    (SEQ (|STREAM;setToNil!| |x| $)
-                        (EXIT (PROGN (LETT #1# |y| . #2#) (GO #4=#:G533)))))
+                        (EXIT (PROGN (LETT #1# |y| . #2#) (GO #4=#:G448)))))
                   (#3#
                    (SEQ (LETT |z| (SPADCALL |x| (QREFELT $ 15)) . #2#)
                         (EXIT
@@ -683,9 +678,9 @@
 
 (SDEFUN |STREAM;expand!| ((|x| $) (|n| |Integer|) ($ $))
         (SPROG
-         ((#1=#:G545 NIL) (|e| ($)) (|y| ($)) (|nLessD| (|NonNegativeInteger|))
-          (#2=#:G544 NIL) (|t| ($)) (|d| (|Integer|))
-          (|cycElt| (|Union| $ "failed")) (#3=#:G550 NIL) (|i| NIL))
+         ((#1=#:G460 NIL) (|e| ($)) (|y| ($)) (|nLessD| (|NonNegativeInteger|))
+          (#2=#:G459 NIL) (|t| ($)) (|d| (|Integer|))
+          (|cycElt| (|Union| $ "failed")) (#3=#:G465 NIL) (|i| NIL))
          (SEQ
           (COND ((< |n| 1) |x|)
                 (#4='T
@@ -693,9 +688,7 @@
                       (SEQ (LETT |i| 1 . #5#) (LETT #3# |n| . #5#) G190
                            (COND
                             ((OR (|greater_SI| |i| #3#)
-                                 (NULL
-                                  (COND ((SPADCALL |y| (QREFELT $ 18)) 'NIL)
-                                        ('T 'T))))
+                                 (NULL (NULL (SPADCALL |y| (QREFELT $ 18)))))
                              (GO G191)))
                            (SEQ
                             (EXIT
@@ -831,7 +824,7 @@
         (SPADCALL |x| |s| (QREFELT $ 107))) 
 
 (SDEFUN |STREAM;split!;$I$;53| ((|x| $) (|n| |Integer|) ($ $))
-        (SPROG ((|y| ($)) (#1=#:G565 NIL))
+        (SPROG ((|y| ($)) (#1=#:G480 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "split!: index out of range"))
                       ((EQL |n| 1)
@@ -876,11 +869,9 @@
                    (SEQ G190
                         (COND
                          ((NULL
-                           (COND
-                            ((SPADCALL (SPADCALL |x| (QREFELT $ 15))
-                                       (QREFELT $ 18))
-                             'NIL)
-                            ('T 'T)))
+                           (NULL
+                            (SPADCALL (SPADCALL |x| (QREFELT $ 15))
+                                      (QREFELT $ 18))))
                           (GO G191)))
                         (SEQ
                          (EXIT (LETT |x| (SPADCALL |x| (QREFELT $ 15)) . #1#)))
@@ -888,7 +879,7 @@
                    (EXIT (|STREAM;setrst!| |x| |x0| $)))))))) 
 
 (SDEFUN |STREAM;repeating?;L$B;56| ((|l| |List| S) (|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G585 NIL) (#2=#:G586 NIL) (|s| NIL) (|x0| ($)))
+        (SPROG ((#1=#:G500 NIL) (#2=#:G501 NIL) (|s| NIL) (|x0| ($)))
                (SEQ
                 (EXIT
                  (COND
@@ -901,7 +892,7 @@
                          (NULL
                           (SPADCALL (SPADCALL |x| (QREFELT $ 11))
                                     (|SPADfirst| |l|) (QREFELT $ 113))))
-                     'NIL)
+                     NIL)
                     ('T
                      (SPADCALL |x| (SPADCALL |x| (QREFELT $ 15))
                                (QREFELT $ 114)))))
@@ -919,7 +910,7 @@
                                      (SPADCALL |s|
                                                (SPADCALL |x| (QREFELT $ 11))
                                                (QREFELT $ 115)))
-                                 (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G584)))
+                                 (PROGN (LETT #1# NIL . #3#) (GO #4=#:G499)))
                                 ('T
                                  (LETT |x| (SPADCALL |x| (QREFELT $ 15))
                                        . #3#)))))
@@ -939,22 +930,20 @@
          (SEQ (LETT |hd| |x| . #2=(|STREAM;findCycle;Nni$R;57|))
               (LETT |tl| (SPADCALL |x| |n| (QREFELT $ 88)) . #2#)
               (EXIT
-               (COND ((SPADCALL |tl| (QREFELT $ 13)) (VECTOR 'NIL 0 0))
+               (COND ((SPADCALL |tl| (QREFELT $ 13)) (VECTOR NIL 0 0))
                      (#3='T
                       (SEQ (LETT |i| 0 . #2#)
                            (SEQ G190
                                 (COND
                                  ((NULL
-                                   (COND
-                                    ((SPADCALL |x| |tl| (QREFELT $ 23)) 'NIL)
-                                    ('T 'T)))
+                                   (NULL (SPADCALL |x| |tl| (QREFELT $ 23))))
                                   (GO G191)))
                                 (SEQ
                                  (LETT |x| (SPADCALL |x| (QREFELT $ 15)) . #2#)
                                  (EXIT (LETT |i| (+ |i| 1) . #2#)))
                                 NIL (GO G190) G191 (EXIT NIL))
                            (EXIT
-                            (COND ((EQL |i| |n|) (VECTOR 'NIL 0 0))
+                            (COND ((EQL |i| |n|) (VECTOR NIL 0 0))
                                   (#3#
                                    (SEQ
                                     (LETT |x| (SPADCALL |x| (QREFELT $ 15))
@@ -963,11 +952,9 @@
                                     (SEQ G190
                                          (COND
                                           ((NULL
-                                            (COND
-                                             ((SPADCALL |x| |tl|
-                                                        (QREFELT $ 23))
-                                              'NIL)
-                                             ('T 'T)))
+                                            (NULL
+                                             (SPADCALL |x| |tl|
+                                                       (QREFELT $ 23))))
                                            (GO G191)))
                                          (SEQ
                                           (LETT |x|
@@ -984,11 +971,9 @@
                                     (SEQ G190
                                          (COND
                                           ((NULL
-                                            (COND
-                                             ((SPADCALL |x| |xp|
-                                                        (QREFELT $ 23))
-                                              'NIL)
-                                             ('T 'T)))
+                                            (NULL
+                                             (SPADCALL |x| |xp|
+                                                       (QREFELT $ 23))))
                                            (GO G191)))
                                          (SEQ
                                           (LETT |x|
@@ -1006,10 +991,8 @@
         (CONS (QREFELT $ 8) |fs|)) 
 
 (SDEFUN |STREAM;explicitEntries?;$B;59| ((|x| $) ($ |Boolean|))
-        (COND
-         ((OR (SPADCALL |x| (QREFELT $ 13)) (SPADCALL |x| (QREFELT $ 14)))
-          'NIL)
-         ('T 'T))) 
+        (COND ((SPADCALL |x| (QREFELT $ 13)) NIL)
+              ('T (NULL (SPADCALL |x| (QREFELT $ 14)))))) 
 
 (SDEFUN |STREAM;numberOfComputedEntries;$Nni;60|
         ((|x| $) ($ |NonNegativeInteger|))
@@ -1155,9 +1138,9 @@
 
 (DECLAIM (NOTINLINE |Stream;|)) 
 
-(DEFUN |Stream| (#1=#:G757)
+(DEFUN |Stream| (#1=#:G622)
   (SPROG NIL
-         (PROG (#2=#:G758)
+         (PROG (#2=#:G623)
            (RETURN
             (COND
              ((LETT #2#
@@ -1173,7 +1156,7 @@
 
 (DEFUN |Stream;| (|#1|)
   (SPROG
-   ((#1=#:G756 NIL) (|pv$| NIL) (#2=#:G753 NIL) (#3=#:G754 NIL) (#4=#:G755 NIL)
+   ((#1=#:G621 NIL) (|pv$| NIL) (#2=#:G618 NIL) (#3=#:G619 NIL) (#4=#:G620 NIL)
     ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Stream|))

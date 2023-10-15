@@ -262,22 +262,20 @@
                           (EXIT NIL))
                      (COND (#2# #3#) (#11# NIL)))
                     . #10#)
-              (LETT |l| (SPADCALL |l| (QREFELT $ 50)) . #10#)
+              (LETT |l| (SPADCALL |l| (QREFELT $ 48)) . #10#)
               (LETT |l1|
-                    (|SCELL;separate| |l| (SPADCALL |b| (QREFELT $ 51)) |b| $)
+                    (|SCELL;separate| |l| (SPADCALL |b| (QREFELT $ 49)) |b| $)
                     . #10#)
               (LETT |res|
                     (LIST (|SCELL;pointToCell| (|SPADfirst| |l1|) 'T |var| $))
                     . #10#)
               (LETT |l1| (CDR |l1|) . #10#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL |l1|) (GO G191)))
                    (SEQ
                     (LETT |res|
                           (SPADCALL
-                           (|SCELL;pointToCell| (|SPADfirst| |l1|) 'NIL |var|
-                            $)
-                           |res| (QREFELT $ 52))
+                           (|SCELL;pointToCell| (|SPADfirst| |l1|) NIL |var| $)
+                           |res| (QREFELT $ 51))
                           . #10#)
                     (LETT |l1| (CDR |l1|) . #10#)
                     (EXIT
@@ -290,11 +288,11 @@
                               (SPADCALL
                                (|SCELL;pointToCell| (|SPADfirst| |l1|) 'T |var|
                                 $)
-                               |res| (QREFELT $ 52))
+                               |res| (QREFELT $ 51))
                               . #10#)
                         (EXIT (LETT |l1| (CDR |l1|) . #10#)))))))
                    NIL (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |res| (QREFELT $ 53)))))))))) 
+              (EXIT (SPADCALL |res| (QREFELT $ 52)))))))))) 
 
 (DECLAIM (NOTINLINE |SimpleCell;|)) 
 
@@ -323,7 +321,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SimpleCell|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|SimpleCell| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 54) . #1#)
+          (LETT $ (GETREFV 53) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SimpleCell| (LIST DV$1 DV$2)
@@ -353,16 +351,16 @@
               (86 . |gcdBasis|) (|RealPolynomialUtilitiesPackage| 6 7)
               (91 . |boundOfCauchy|) (96 . |max|) (102 . |unitCanonical|)
               (|SparseUnivariatePolynomial| 6) (107 . |makeSUP|)
-              (|SparseUnivariatePolynomial| $) (112 . |allRootsOf|) (|List| $$)
-              (117 . |nil|) (121 . |sort|) (126 . -) (131 . |cons|)
-              (137 . |reverse!|))
-           '#(|variableOf| 142 |samplePoint| 147 |hasDimension?| 152 |coerce|
-              157 |allSimpleCells| 162)
+              (|SparseUnivariatePolynomial| $) (112 . |allRootsOf|)
+              (117 . |sort|) (122 . -) (|List| $$) (127 . |cons|)
+              (133 . |reverse!|))
+           '#(|variableOf| 138 |samplePoint| 143 |hasDimension?| 148 |coerce|
+              153 |allSimpleCells| 158)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
                        (CONS '#((|CoercibleTo| 14))
-                             (|makeByteWordVec2| 53
+                             (|makeByteWordVec2| 52
                                                  '(1 12 14 0 15 1 6 14 0 16 2
                                                    14 0 0 0 17 1 10 14 0 18 1
                                                    14 0 19 20 2 6 0 0 0 22 1 6
@@ -372,10 +370,10 @@
                                                    0 0 32 2 6 10 0 0 33 2 6 10
                                                    0 0 34 1 38 35 35 39 1 40 6
                                                    7 41 2 6 0 0 0 42 1 7 0 0 43
-                                                   1 7 44 0 45 1 6 19 46 47 0
-                                                   48 0 49 1 26 0 0 50 1 6 0 0
-                                                   51 2 48 0 2 0 52 1 48 0 0 53
-                                                   1 0 12 0 13 1 0 6 0 9 1 0 10
-                                                   0 11 1 0 14 0 21 2 0 19 35
-                                                   12 36 2 0 19 7 12 37)))))
+                                                   1 7 44 0 45 1 6 19 46 47 1
+                                                   26 0 0 48 1 6 0 0 49 2 50 0
+                                                   2 0 51 1 50 0 0 52 1 0 12 0
+                                                   13 1 0 6 0 9 1 0 10 0 11 1 0
+                                                   14 0 21 2 0 19 35 12 36 2 0
+                                                   19 7 12 37)))))
            '|lookupComplete|)) 

@@ -11,13 +11,13 @@
          ((QEQCAR |p1| 0)
           (COND
            ((QEQCAR |p2| 0) (SPADCALL (QCDR |p1|) (QCDR |p2|) (QREFELT $ 10)))
-           (#1='T 'NIL)))
-         ((QEQCAR |p2| 0) 'NIL)
+           (#1='T NIL)))
+         ((QEQCAR |p2| 0) NIL)
          (#1#
           (COND
            ((SPADCALL (QCAR (QCDR |p1|)) (QCAR (QCDR |p2|)) (QREFELT $ 10))
             (SPADCALL (QCDR (QCDR |p1|)) (QCDR (QCDR |p2|)) (QREFELT $ 12)))
-           (#1# 'NIL))))) 
+           (#1# NIL))))) 
 
 (SDEFUN |XRPOLY;monom;FmR$;3| ((|w| |FreeMonoid| |VarSet|) (|r| R) ($ $))
         (COND

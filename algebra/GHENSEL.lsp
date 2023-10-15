@@ -184,10 +184,8 @@
                                (SEQ
                                 (EXIT
                                  (COND
-                                  ((COND
-                                    ((SPADCALL |poly| |term| (QREFELT $ 39))
-                                     'NIL)
-                                    ('T 'T))
+                                  ((NULL
+                                    (SPADCALL |poly| |term| (QREFELT $ 39)))
                                    (LETT #8# (CONS |term| #8#) . #16#)))))
                                (LETT #7# (CDR #7#) . #16#) (GO G190) G191
                                (EXIT (NREVERSE #8#))))
@@ -498,7 +496,7 @@
                      (LETT |factlist| (|GHENSEL;genFact| |fln| |factlist| $)
                            . #17#)
                      NIL (QREFELT $ 37)))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ (LETT |auxfl| NIL . #17#)
                     (SEQ G190
@@ -671,13 +669,11 @@
                                                         (SEQ
                                                          (EXIT
                                                           (COND
-                                                           ((COND
-                                                             ((SPADCALL |poly|
-                                                                        |term|
-                                                                        (QREFELT
-                                                                         $ 39))
-                                                              'NIL)
-                                                             ('T 'T))
+                                                           ((NULL
+                                                             (SPADCALL |poly|
+                                                                       |term|
+                                                                       (QREFELT
+                                                                        $ 39)))
                                                             (LETT #6#
                                                                   (CONS |term|
                                                                         #6#)
@@ -708,14 +704,12 @@
                                                          (SEQ
                                                           (EXIT
                                                            (COND
-                                                            ((COND
-                                                              ((SPADCALL |poly|
-                                                                         |term|
-                                                                         (QREFELT
-                                                                          $
-                                                                          39))
-                                                               'NIL)
-                                                              ('T 'T))
+                                                            ((NULL
+                                                              (SPADCALL |poly|
+                                                                        |term|
+                                                                        (QREFELT
+                                                                         $
+                                                                         39)))
                                                              (LETT #4#
                                                                    (CONS |term|
                                                                          #4#)

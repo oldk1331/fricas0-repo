@@ -535,9 +535,7 @@
          ((|pt| (PT)) (|ans| (|List| PT)) (|sin| (|DoubleFloat|))
           (|cos| (|DoubleFloat|)) (|cossin| (|List| (|DoubleFloat|))))
          (SEQ (LETT |ans| NIL . #1=(|SCIFS;loopPoints|))
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((NULL |cosSin|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL |cosSin|) (GO G191)))
                    (SEQ (LETT |cossin| (|SPADfirst| |cosSin|) . #1#)
                         (LETT |cos| (|SPADfirst| |cossin|) . #1#)
                         (LETT |sin| (SPADCALL |cossin| (QREFELT $ 56)) . #1#)

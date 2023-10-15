@@ -1,7 +1,7 @@
 
-(PUT '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL 'NIL)) 
+(PUT '|UDGRPH;isDirected?;B;1| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |UDGRPH;isDirected?;B;1| (($ |Boolean|)) 'NIL) 
+(SDEFUN |UDGRPH;isDirected?;B;1| (($ |Boolean|)) NIL) 
 
 (SDEFUN |UDGRPH;undirectedGraph;L$;2| ((|ob| |List| S) ($ $))
         (SPROG

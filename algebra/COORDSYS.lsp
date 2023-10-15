@@ -116,14 +116,14 @@
                         (LETT |v| (SPADCALL |x| 2 (QREFELT $ 12)) NIL)
                         (SPADCALL |pt| (|spadConstant| $ 28)
                                   (SPADCALL
-                                   (SPADCALL |a| (SPADCALL |u| (QREFELT $ 31))
+                                   (SPADCALL |a| (SPADCALL |u| (QREFELT $ 29))
                                              (QREFELT $ 14))
                                    (SPADCALL |v| (QREFELT $ 13))
                                    (QREFELT $ 14))
                                   (QREFELT $ 15))
                         (SPADCALL |pt| 2
                                   (SPADCALL
-                                   (SPADCALL |a| (SPADCALL |u| (QREFELT $ 32))
+                                   (SPADCALL |a| (SPADCALL |u| (QREFELT $ 30))
                                              (QREFELT $ 14))
                                    (SPADCALL |v| (QREFELT $ 16))
                                    (QREFELT $ 14))
@@ -132,7 +132,7 @@
 
 (SDEFUN |COORDSYS;ellipticCylindrical;RM;9|
         ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
-        (SPADCALL |a| (QREFELT $ 34))) 
+        (SPADCALL |a| (QREFELT $ 32))) 
 
 (SDEFUN |COORDSYS;prolateSpheroidal;RM;10|
         ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
@@ -158,7 +158,7 @@
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL |a|
-                                              (SPADCALL |xi| (QREFELT $ 32))
+                                              (SPADCALL |xi| (QREFELT $ 30))
                                               (QREFELT $ 14))
                                     (SPADCALL |eta| (QREFELT $ 16))
                                     (QREFELT $ 14))
@@ -169,7 +169,7 @@
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL |a|
-                                              (SPADCALL |xi| (QREFELT $ 32))
+                                              (SPADCALL |xi| (QREFELT $ 30))
                                               (QREFELT $ 14))
                                     (SPADCALL |eta| (QREFELT $ 16))
                                     (QREFELT $ 14))
@@ -178,7 +178,7 @@
                                   (QREFELT $ 15))
                         (SPADCALL |pt| 3
                                   (SPADCALL
-                                   (SPADCALL |a| (SPADCALL |xi| (QREFELT $ 31))
+                                   (SPADCALL |a| (SPADCALL |xi| (QREFELT $ 29))
                                              (QREFELT $ 14))
                                    (SPADCALL |eta| (QREFELT $ 13))
                                    (QREFELT $ 14))
@@ -209,7 +209,7 @@
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL |a|
-                                              (SPADCALL |xi| (QREFELT $ 32))
+                                              (SPADCALL |xi| (QREFELT $ 30))
                                               (QREFELT $ 14))
                                     (SPADCALL |eta| (QREFELT $ 16))
                                     (QREFELT $ 14))
@@ -220,7 +220,7 @@
                                   (SPADCALL
                                    (SPADCALL
                                     (SPADCALL |a|
-                                              (SPADCALL |xi| (QREFELT $ 31))
+                                              (SPADCALL |xi| (QREFELT $ 29))
                                               (QREFELT $ 14))
                                     (SPADCALL |eta| (QREFELT $ 13))
                                     (QREFELT $ 14))
@@ -229,7 +229,7 @@
                                   (QREFELT $ 15))
                         (SPADCALL |pt| 3
                                   (SPADCALL
-                                   (SPADCALL |a| (SPADCALL |xi| (QREFELT $ 32))
+                                   (SPADCALL |a| (SPADCALL |xi| (QREFELT $ 30))
                                              (QREFELT $ 14))
                                    (SPADCALL |eta| (QREFELT $ 16))
                                    (QREFELT $ 14))
@@ -255,9 +255,9 @@
                         (LETT |v| (SPADCALL |x| 2 (QREFELT $ 12)) NIL)
                         (SPADCALL |pt| (|spadConstant| $ 28)
                                   (SPADCALL
-                                   (SPADCALL |a| (SPADCALL |v| (QREFELT $ 32))
+                                   (SPADCALL |a| (SPADCALL |v| (QREFELT $ 30))
                                              (QREFELT $ 14))
-                                   (SPADCALL (SPADCALL |v| (QREFELT $ 31))
+                                   (SPADCALL (SPADCALL |v| (QREFELT $ 29))
                                              (SPADCALL |u| (QREFELT $ 13))
                                              (QREFELT $ 20))
                                    (QREFELT $ 22))
@@ -266,7 +266,7 @@
                                   (SPADCALL
                                    (SPADCALL |a| (SPADCALL |u| (QREFELT $ 16))
                                              (QREFELT $ 14))
-                                   (SPADCALL (SPADCALL |v| (QREFELT $ 31))
+                                   (SPADCALL (SPADCALL |v| (QREFELT $ 29))
                                              (SPADCALL |u| (QREFELT $ 13))
                                              (QREFELT $ 20))
                                    (QREFELT $ 22))
@@ -275,7 +275,7 @@
 
 (SDEFUN |COORDSYS;bipolarCylindrical;RM;13|
         ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
-        (SPADCALL |a| (QREFELT $ 38))) 
+        (SPADCALL |a| (QREFELT $ 36))) 
 
 (SDEFUN |COORDSYS;toroidal;RM;14|
         ((|a| R) ($ |Mapping| (|Point| R) (|Point| R)))
@@ -298,11 +298,11 @@
                         (SPADCALL |pt| (|spadConstant| $ 28)
                                   (SPADCALL
                                    (SPADCALL
-                                    (SPADCALL |a| (SPADCALL |v| (QREFELT $ 32))
+                                    (SPADCALL |a| (SPADCALL |v| (QREFELT $ 30))
                                               (QREFELT $ 14))
                                     (SPADCALL |phi| (QREFELT $ 13))
                                     (QREFELT $ 14))
-                                   (SPADCALL (SPADCALL |v| (QREFELT $ 31))
+                                   (SPADCALL (SPADCALL |v| (QREFELT $ 29))
                                              (SPADCALL |u| (QREFELT $ 13))
                                              (QREFELT $ 20))
                                    (QREFELT $ 22))
@@ -310,11 +310,11 @@
                         (SPADCALL |pt| 2
                                   (SPADCALL
                                    (SPADCALL
-                                    (SPADCALL |a| (SPADCALL |v| (QREFELT $ 32))
+                                    (SPADCALL |a| (SPADCALL |v| (QREFELT $ 30))
                                               (QREFELT $ 14))
                                     (SPADCALL |phi| (QREFELT $ 16))
                                     (QREFELT $ 14))
-                                   (SPADCALL (SPADCALL |v| (QREFELT $ 31))
+                                   (SPADCALL (SPADCALL |v| (QREFELT $ 29))
                                              (SPADCALL |u| (QREFELT $ 13))
                                              (QREFELT $ 20))
                                    (QREFELT $ 22))
@@ -323,7 +323,7 @@
                                   (SPADCALL
                                    (SPADCALL |a| (SPADCALL |u| (QREFELT $ 16))
                                              (QREFELT $ 14))
-                                   (SPADCALL (SPADCALL |v| (QREFELT $ 31))
+                                   (SPADCALL (SPADCALL |v| (QREFELT $ 29))
                                              (SPADCALL |u| (QREFELT $ 13))
                                              (QREFELT $ 20))
                                    (QREFELT $ 22))
@@ -365,19 +365,19 @@
                                     (SPADCALL
                                      (SPADCALL
                                       (SPADCALL
-                                       (SPADCALL |mu| 2 (QREFELT $ 41))
-                                       (SPADCALL |a| 2 (QREFELT $ 41))
+                                       (SPADCALL |mu| 2 (QREFELT $ 39))
+                                       (SPADCALL |a| 2 (QREFELT $ 39))
                                        (QREFELT $ 20))
                                       (SPADCALL
-                                       (SPADCALL |nu| 2 (QREFELT $ 41))
-                                       (SPADCALL |a| 2 (QREFELT $ 41))
+                                       (SPADCALL |nu| 2 (QREFELT $ 39))
+                                       (SPADCALL |a| 2 (QREFELT $ 39))
                                        (QREFELT $ 20))
                                       (QREFELT $ 14))
-                                     (SPADCALL (SPADCALL |a| 2 (QREFELT $ 41))
-                                               (SPADCALL |b| 2 (QREFELT $ 41))
+                                     (SPADCALL (SPADCALL |a| 2 (QREFELT $ 39))
+                                               (SPADCALL |b| 2 (QREFELT $ 39))
                                                (QREFELT $ 20))
                                      (QREFELT $ 22))
-                                    (QREFELT $ 42))
+                                    (QREFELT $ 40))
                                    (QREFELT $ 14))
                                   (QREFELT $ 15))
                         (SPADCALL |pt| 3
@@ -387,19 +387,19 @@
                                     (SPADCALL
                                      (SPADCALL
                                       (SPADCALL
-                                       (SPADCALL |mu| 2 (QREFELT $ 41))
-                                       (SPADCALL |b| 2 (QREFELT $ 41))
+                                       (SPADCALL |mu| 2 (QREFELT $ 39))
+                                       (SPADCALL |b| 2 (QREFELT $ 39))
                                        (QREFELT $ 20))
                                       (SPADCALL
-                                       (SPADCALL |nu| 2 (QREFELT $ 41))
-                                       (SPADCALL |b| 2 (QREFELT $ 41))
+                                       (SPADCALL |nu| 2 (QREFELT $ 39))
+                                       (SPADCALL |b| 2 (QREFELT $ 39))
                                        (QREFELT $ 20))
                                       (QREFELT $ 14))
-                                     (SPADCALL (SPADCALL |b| 2 (QREFELT $ 41))
-                                               (SPADCALL |a| 2 (QREFELT $ 41))
+                                     (SPADCALL (SPADCALL |b| 2 (QREFELT $ 39))
+                                               (SPADCALL |a| 2 (QREFELT $ 39))
                                                (QREFELT $ 20))
                                      (QREFELT $ 22))
-                                    (QREFELT $ 42))
+                                    (QREFELT $ 40))
                                    (QREFELT $ 14))
                                   (QREFELT $ 15))
                         (EXIT |pt|))))))) 
@@ -430,7 +430,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|CoordinateSystems|))
           (LETT |dv$| (LIST '|CoordinateSystems| DV$1) . #1#)
-          (LETT $ (GETREFV 44) . #1#)
+          (LETT $ (GETREFV 42) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|CoordinateSystems| (LIST DV$1)
@@ -449,35 +449,34 @@
               |COORDSYS;spherical;2P;4| (38 . -) (44 . |coerce|) (49 . /)
               |COORDSYS;parabolic;2P;5| |COORDSYS;parabolicCylindrical;2P;6|
               |COORDSYS;paraboloidal;2P;7| (55 . |One|) (|PositiveInteger|)
-              (59 . |One|) (|NonNegativeInteger|) (63 . |One|) (67 . |cosh|)
-              (72 . |sinh|) (|Mapping| 7 7) |COORDSYS;elliptic;RM;8|
-              |COORDSYS;ellipticCylindrical;RM;9|
+              (59 . |One|) (63 . |cosh|) (68 . |sinh|) (|Mapping| 7 7)
+              |COORDSYS;elliptic;RM;8| |COORDSYS;ellipticCylindrical;RM;9|
               |COORDSYS;prolateSpheroidal;RM;10|
               |COORDSYS;oblateSpheroidal;RM;11| |COORDSYS;bipolar;RM;12|
               |COORDSYS;bipolarCylindrical;RM;13| |COORDSYS;toroidal;RM;14|
-              (77 . ^) (83 . |sqrt|) |COORDSYS;conical;2RM;15|)
-           '#(|toroidal| 88 |spherical| 93 |prolateSpheroidal| 98 |polar| 103
-              |paraboloidal| 108 |parabolicCylindrical| 113 |parabolic| 118
-              |oblateSpheroidal| 123 |ellipticCylindrical| 128 |elliptic| 133
-              |cylindrical| 138 |conical| 143 |cartesian| 149
-              |bipolarCylindrical| 154 |bipolar| 159)
+              (73 . ^) (79 . |sqrt|) |COORDSYS;conical;2RM;15|)
+           '#(|toroidal| 84 |spherical| 89 |prolateSpheroidal| 94 |polar| 99
+              |paraboloidal| 104 |parabolicCylindrical| 109 |parabolic| 114
+              |oblateSpheroidal| 119 |ellipticCylindrical| 124 |elliptic| 129
+              |cylindrical| 134 |conical| 139 |cartesian| 145
+              |bipolarCylindrical| 150 |bipolar| 155)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 43
+                             (|makeByteWordVec2| 41
                                                  '(1 7 0 0 9 0 6 0 10 2 7 6 0
                                                    11 12 1 6 0 0 13 2 6 0 0 0
                                                    14 3 7 6 0 11 6 15 1 6 0 0
                                                    16 2 6 0 0 0 20 1 6 0 11 21
                                                    2 6 0 0 0 22 0 11 0 26 0 27
-                                                   0 28 0 29 0 30 1 6 0 0 31 1
-                                                   6 0 0 32 2 6 0 0 27 41 1 6 0
-                                                   0 42 1 0 33 6 40 1 0 7 7 19
-                                                   1 0 33 6 36 1 0 7 7 17 1 0 7
-                                                   7 25 1 0 7 7 24 1 0 7 7 23 1
-                                                   0 33 6 37 1 0 33 6 35 1 0 33
-                                                   6 34 1 0 7 7 18 2 0 33 6 6
-                                                   43 1 0 7 7 8 1 0 33 6 39 1 0
-                                                   33 6 38)))))
+                                                   0 28 1 6 0 0 29 1 6 0 0 30 2
+                                                   6 0 0 27 39 1 6 0 0 40 1 0
+                                                   31 6 38 1 0 7 7 19 1 0 31 6
+                                                   34 1 0 7 7 17 1 0 7 7 25 1 0
+                                                   7 7 24 1 0 7 7 23 1 0 31 6
+                                                   35 1 0 31 6 33 1 0 31 6 32 1
+                                                   0 7 7 18 2 0 31 6 6 41 1 0 7
+                                                   7 8 1 0 31 6 37 1 0 31 6
+                                                   36)))))
            '|lookupComplete|)) 

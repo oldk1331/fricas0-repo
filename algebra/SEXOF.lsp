@@ -10,9 +10,7 @@
                  (SEQ (LETT |r| |b| . #3=(|SEXOF;coerce;$Of;1|))
                       (SEQ G190
                            (COND
-                            ((NULL
-                              (COND ((SPADCALL |r| (QREFELT $ 16)) 'NIL)
-                                    ('T 'T)))
+                            ((NULL (NULL (SPADCALL |r| (QREFELT $ 16))))
                              (GO G191)))
                            (SEQ
                             (EXIT

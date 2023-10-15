@@ -308,7 +308,7 @@
                         . #4=(|QALGSET;idealSimplify;2$;13|))
                   (LETT |n0| (QVELT |x| 2) . #4#)
                   (EXIT
-                   (COND ((NULL |z0|) (VECTOR (CONS 0 'NIL) |z0| |n0|))
+                   (COND ((NULL |z0|) (VECTOR (CONS 0 NIL) |z0| |n0|))
                          ((SPADCALL (|spadConstant| $ 32) |z0| (QREFELT $ 33))
                           (SPADCALL (QREFELT $ 29)))
                          (#3#
@@ -357,8 +357,7 @@
                               (SEQ (LETT |gb| NIL . #4#)
                                    (SEQ G190
                                         (COND
-                                         ((NULL
-                                           (COND ((NULL |ngb|) 'NIL) ('T 'T)))
+                                         ((NULL (NULL (NULL |ngb|)))
                                           (GO G191)))
                                         (SEQ
                                          (SEQ
@@ -374,7 +373,7 @@
                                          (EXIT (LETT |ngb| (CDR |ngb|) . #4#)))
                                         NIL (GO G190) G191 (EXIT NIL))
                                    (EXIT
-                                    (VECTOR (CONS 0 'NIL) |gb|
+                                    (VECTOR (CONS 0 NIL) |gb|
                                             (SPADCALL
                                              (SPADCALL |n0| |gb|
                                                        (QREFELT $ 23))
@@ -385,21 +384,20 @@
         (SPROG ((#1=#:G221 NIL) (|s| NIL) (#2=#:G220 NIL))
                (SEQ
                 (COND ((NULL |lset|) |lset|)
-                      (#3='T
+                      ('T
                        (PROGN
-                        (LETT #2# NIL . #4=(|QALGSET;minset|))
-                        (SEQ (LETT |s| NIL . #4#) (LETT #1# |lset| . #4#) G190
+                        (LETT #2# NIL . #3=(|QALGSET;minset|))
+                        (SEQ (LETT |s| NIL . #3#) (LETT #1# |lset| . #3#) G190
                              (COND
                               ((OR (ATOM #1#)
-                                   (PROGN (LETT |s| (CAR #1#) . #4#) NIL))
+                                   (PROGN (LETT |s| (CAR #1#) . #3#) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
-                                ((COND ((|QALGSET;overset?| |s| |lset| $) 'NIL)
-                                       (#3# 'T))
-                                 (LETT #2# (CONS |s| #2#) . #4#)))))
-                             (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                ((NULL (|QALGSET;overset?| |s| |lset| $))
+                                 (LETT #2# (CONS |s| #2#) . #3#)))))
+                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |QALGSET;overset?|
@@ -408,7 +406,7 @@
          ((#1=#:G223 NIL) (#2=#:G222 #3=(|Boolean|)) (#4=#:G224 #3#)
           (#5=#:G227 NIL) (|q| NIL))
          (SEQ
-          (COND ((NULL |qlist|) 'NIL)
+          (COND ((NULL |qlist|) NIL)
                 (#6='T
                  (PROGN
                   (LETT #1# NIL . #7=(|QALGSET;overset?|))
@@ -430,7 +428,7 @@
                                   (LETT #2# #4# . #7#)
                                   (LETT #1# 'T . #7#)))))))
                        (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL))
-                  (COND (#1# #2#) (#6# 'NIL)))))))) 
+                  (COND (#1# #2#) (#6# NIL)))))))) 
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet;|)) 
 

@@ -23,7 +23,7 @@
                          (QREFELT $ 23))))) 
 
 (SDEFUN |CARD;=;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 25)) 'NIL)
+        (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 25)) NIL)
               ((SPADCALL |x| (QREFELT $ 26)) (EQL (QCDR |x|) (QCDR |y|)))
               ('T 'T))) 
 
@@ -31,7 +31,7 @@
         (COND ((< (QCAR |x|) (QCAR |y|)) 'T)
               ((OR (SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 28))
                    (NULL (SPADCALL |x| (QREFELT $ 26))))
-               'NIL)
+               NIL)
               ('T (< (QCDR |x|) (QCDR |y|))))) 
 
 (SDEFUN |CARD;+;3$;8| ((|x| $) (|y| $) ($ $))
@@ -158,7 +158,7 @@
           (QSETREFV $ 6
                     (|Record| (|:| |order| (|Integer|))
                               (|:| |ival| (|Integer|))))
-          (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
+          (QSETREFV $ 10 (SPADCALL NIL (QREFELT $ 9)))
           (QSETREFV $ 19 (SPADCALL '|Aleph| (QREFELT $ 18)))
           $))) 
 

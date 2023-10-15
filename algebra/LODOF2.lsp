@@ -148,7 +148,7 @@
                                 (COND
                                  ((SPADCALL (LENGTH |npg|) 1 (QREFELT $ 48))
                                   |ccw|)
-                                 ('T 'NIL)))
+                                 ('T NIL)))
                                (GO G191)))
                              (SEQ
                               (LETT |p1| (SPADCALL |npg| 2 (QREFELT $ 46))
@@ -1456,8 +1456,8 @@
                     (LETT |pr_extra|
                           (SPADCALL
                            (SPADCALL (SPADCALL |c2| |pi| (QREFELT $ 88))
-                                     |r_low| (QREFELT $ 153))
-                           (QREFELT $ 154))
+                                     |r_low| (QREFELT $ 151))
+                           (QREFELT $ 152))
                           . #7#)
                     (LETT |r_extra| (|LODOF2;plug_delta| |pr_extra| $) . #7#)
                     (LETT |pl_extra|
@@ -1577,7 +1577,7 @@
                          . #7#)
                    (LETT |pr_extra|
                          (SPADCALL (SPADCALL |c2| |pi| (QREFELT $ 88)) |r_low|
-                                   (QREFELT $ 153))
+                                   (QREFELT $ 151))
                          . #7#)
                    (LETT |pl_extra|
                          (SPADCALL |pi|
@@ -1587,7 +1587,7 @@
                    (LETT |pl_extra|
                          (SPADCALL
                           (SPADCALL |pl_extra| |r_low| (QREFELT $ 107))
-                          (QREFELT $ 154))
+                          (QREFELT $ 152))
                          . #7#)
                    (LETT |l_extra|
                          (|LODOF2;coefs_operator| |pl_extra| |slop|
@@ -1596,7 +1596,7 @@
                    (EXIT
                     (LETT |r_extra|
                           (|LODOF2;coefs_operator|
-                           (SPADCALL |pr_extra| (QREFELT $ 154)) |slop|
+                           (SPADCALL |pr_extra| (QREFELT $ 152)) |slop|
                            (+ |i| |re|) $)
                           . #7#)))))
                 (LETT |li| (SPADCALL |li| |l_extra| (QREFELT $ 34)) . #7#)
@@ -7767,7 +7767,7 @@
              ((SPADCALL (SPADCALL |f| (QREFELT $ 40))
                         (SPADCALL |g| (QREFELT $ 40)) (QREFELT $ 42))
               (PROGN
-               (LETT #1# 'NIL . #11=(|LODOF2;same_charclass?|))
+               (LETT #1# NIL . #11=(|LODOF2;same_charclass?|))
                (GO #12=#:G959))))
             (COND
              ((SPADCALL (SPADCALL |f| (QREFELT $ 36)) (|spadConstant| $ 115)
@@ -7803,7 +7803,7 @@
                         ((EQL (SPADCALL |il| 0 (QREFELT $ 41)) 0)
                          (SPADCALL (SPADCALL |il| 0 (QREFELT $ 57))
                                    (QREFELT $ 79)))
-                        ('T 'NIL))
+                        ('T NIL))
                        . #11#)
                  (GO #12#))))))
             (LETT |r|
@@ -7832,7 +7832,7 @@
                          . #11#)
                    (COND
                     ((NULL (SPADCALL |cx| (QREFELT $ 79)))
-                     (PROGN (LETT #1# 'NIL . #11#) (GO #12#))))
+                     (PROGN (LETT #1# NIL . #11#) (GO #12#))))
                    (EXIT
                     (LETT |r|
                           (LIST
@@ -7872,7 +7872,7 @@
             (COND
              ((SPADCALL (SPADCALL |r| 1 (QREFELT $ 278))
                         (SPADCALL |r| 2 (QREFELT $ 278)) (QREFELT $ 279))
-              (PROGN (LETT #1# 'NIL . #11#) (GO #12#))))
+              (PROGN (LETT #1# NIL . #11#) (GO #12#))))
             (LETT |gg|
                   (PROG2
                       (LETT #5#
@@ -8091,7 +8091,7 @@
             (COND
              ((SPADCALL (QVELT (SPADCALL |ffnp| 1 (QREFELT $ 191)) 1)
                         (|spadConstant| $ 68) (QREFELT $ 69))
-              (PROGN (LETT #1# 'NIL . #11#) (GO #12#))))
+              (PROGN (LETT #1# NIL . #11#) (GO #12#))))
             (LETT |fff|
                   (SPADCALL
                    (|LODOF2;factorUP|
@@ -8119,7 +8119,7 @@
                         (QREFELT $ 79))
                        (PROGN (LETT #1# 'T . #11#) (GO #12#))))))))
                  (LETT #2# (CDR #2#) . #11#) (GO G190) G191 (EXIT NIL))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #12# (EXIT #1#)))) 
 
 (SDEFUN |LODOF2;testsc;2LodoMB;42|
@@ -9032,7 +9032,7 @@
                          (|spadConstant| $ 52) (QREFELT $ 83))
                (|spadConstant| $ 52) (QREFELT $ 85))
               (PROGN (LETT #2# 'T . #7#) (GO #8=#:G1071))))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #8# (EXIT #2#)))) 
 
 (SDEFUN |LODOF2;testis;LodoB;49|
@@ -9463,8 +9463,7 @@
             (LETT |eba| (|LODOF2;compute_bound| |gema| (|spadConstant| $ 18) $)
                   . #35#)
             (LETT |all_one| 'T . #35#) (LETT |done_s| NIL . #35#)
-            (SEQ G190
-                 (COND ((NULL (COND ((NULL |gem|) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL (NULL (NULL |gem|))) (GO G191)))
                  (SEQ
                   (LETT |dl|
                         (PROGN
@@ -9850,8 +9849,8 @@
                                                             #4#))
                                           (QREFELT $ 40))
                                          1))
-                                       ('T 'NIL)))
-                                     ('T 'NIL))
+                                       ('T NIL)))
+                                     ('T NIL))
                                     . #35#)))))))
                         (LETT #20# (CDR #20#) . #35#) (GO G190) G191
                         (EXIT NIL))))
@@ -9866,8 +9865,7 @@
                    (GO G191)))
                  (SEQ
                   (LETT |all_one|
-                        (COND (|all_one| (EQL (LENGTH (QCDR |s|)) 1))
-                              ('T 'NIL))
+                        (COND (|all_one| (EQL (LENGTH (QCDR |s|)) 1)) ('T NIL))
                         . #35#)
                   (SEQ (LETT |sop| NIL . #35#) (LETT #15# (QCDR |s|) . #35#)
                        G190
@@ -12504,8 +12502,8 @@
               (460 . |map|) (|List| 116) (467 . |coerce|) (472 . |One|)
               (476 . |monomial|) (482 . *)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (488 . |extendedEuclidean|) (494 . ~=) (500 . |pi|) (504 . |pi|)
-              (508 . |rem|) (514 . -) (519 . *) (525 . -) (530 . *)
+              (488 . |extendedEuclidean|) (494 . ~=) (500 . |rem|) (506 . -)
+              (511 . |pi|) (515 . |pi|) (519 . *) (525 . -) (530 . *)
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
               (|Union| 158 '"failed") (536 . |extendedEuclidean|)
               (|PositiveInteger|) (543 . *) (549 . -) (|OutputForm|)
@@ -12658,12 +12656,12 @@
                                                    117 140 121 133 142 1 117 0
                                                    143 144 0 50 0 145 2 26 0 11
                                                    37 146 2 16 0 0 26 147 2 8
-                                                   148 0 0 149 2 8 21 0 0 150 0
-                                                   11 0 151 0 26 0 152 2 8 0 0
-                                                   0 153 1 8 0 0 154 2 16 0 26
-                                                   0 155 1 16 0 0 156 2 16 0 0
-                                                   0 157 3 8 159 0 0 0 160 2 37
-                                                   0 161 0 162 2 16 0 0 0 163 1
+                                                   148 0 0 149 2 8 21 0 0 150 2
+                                                   8 0 0 0 151 1 8 0 0 152 0 11
+                                                   0 153 0 26 0 154 2 16 0 26 0
+                                                   155 1 16 0 0 156 2 16 0 0 0
+                                                   157 3 8 159 0 0 0 160 2 37 0
+                                                   161 0 162 2 16 0 0 0 163 1
                                                    16 164 0 165 1 164 166 0 167
                                                    0 161 0 170 2 161 0 0 0 171
                                                    2 174 0 173 172 175 2 177

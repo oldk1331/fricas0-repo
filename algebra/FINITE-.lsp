@@ -3,11 +3,11 @@
         (SPROG ((#1=#:G112 NIL))
                (SPADCALL
                 (PROG1
-                    (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 10))))
+                    (LETT #1# (+ 1 (RANDOM (SPADCALL (QREFELT $ 9))))
                           |FINITE-;random;S;1|)
                   (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
                                     '(|NonNegativeInteger|) #1#))
-                (QREFELT $ 12)))) 
+                (QREFELT $ 11)))) 
 
 (SDEFUN |FINITE-;enumerate;L;2| (($ |List| S))
         (SPROG ((#1=#:G115 NIL) (#2=#:G119 NIL) (|i| NIL) (#3=#:G118 NIL))
@@ -15,7 +15,7 @@
                 (PROGN
                  (LETT #3# NIL . #4=(|FINITE-;enumerate;L;2|))
                  (SEQ (LETT |i| 1 . #4#)
-                      (LETT #2# (SPADCALL (QREFELT $ 10)) . #4#) G190
+                      (LETT #2# (SPADCALL (QREFELT $ 9)) . #4#) G190
                       (COND ((|greater_SI| |i| #2#) (GO G191)))
                       (SEQ
                        (EXIT
@@ -27,7 +27,7 @@
                                                     '(|PositiveInteger|)
                                                     '(|NonNegativeInteger|)
                                                     #1#))
-                                (QREFELT $ 12))
+                                (QREFELT $ 11))
                                #3#)
                               . #4#)))
                       (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
@@ -36,11 +36,11 @@
 (SDEFUN |FINITE-;convert;SIf;3| ((|x| S) ($ |InputForm|))
         (SPADCALL '|index|
                   (LIST
-                   (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (QREFELT $ 19)))
-                  (QREFELT $ 23))) 
+                   (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 18)))
+                  (QREFELT $ 22))) 
 
 (SDEFUN |FINITE-;smaller?;2SB;4| ((|x| S) (|y| S) ($ |Boolean|))
-        (< (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |y| (QREFELT $ 16)))) 
+        (< (SPADCALL |x| (QREFELT $ 15)) (SPADCALL |y| (QREFELT $ 15)))) 
 
 (DECLAIM (NOTINLINE |Finite&;|)) 
 
@@ -49,7 +49,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|Finite&|))
           (LETT |dv$| (LIST '|Finite&| DV$1) . #1#)
-          (LETT $ (GETREFV 27) . #1#)
+          (LETT $ (GETREFV 26) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -57,7 +57,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (COND ((|HasCategory| |#1| '(|OrderedSet|)))
                 ('T
-                 (QSETREFV $ 26
+                 (QSETREFV $ 25
                            (CONS (|dispatchFunction| |FINITE-;smaller?;2SB;4|)
                                  $))))
           $))) 
@@ -65,21 +65,20 @@
 (MAKEPROP '|Finite&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |random|)
-              (4 . |random|) (|NonNegativeInteger|) (8 . |size|)
-              (|PositiveInteger|) (12 . |index|) |FINITE-;random;S;1|
-              (|List| $) |FINITE-;enumerate;L;2| (17 . |lookup|) (|Integer|)
-              (|InputForm|) (22 . |convert|) (|Symbol|) (|List| 18)
-              (|InputFormFunctions1| 6) (27 . |packageCall|)
-              |FINITE-;convert;SIf;3| (|Boolean|) (33 . |smaller?|))
-           '#(|smaller?| 39 |random| 45 |enumerate| 49 |convert| 53) 'NIL
+              (|NonNegativeInteger|) (4 . |size|) (|PositiveInteger|)
+              (8 . |index|) |FINITE-;random;S;1| (|List| $)
+              |FINITE-;enumerate;L;2| (13 . |lookup|) (|Integer|) (|InputForm|)
+              (18 . |convert|) (|Symbol|) (|List| 17) (|InputFormFunctions1| 6)
+              (23 . |packageCall|) |FINITE-;convert;SIf;3| (|Boolean|)
+              (29 . |smaller?|))
+           '#(|smaller?| 35 |random| 41 |enumerate| 45 |convert| 49) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 7 0 0 6 8 0 6 9 10 1 6
-                                                   0 11 12 1 6 11 0 16 1 18 0
-                                                   17 19 2 22 18 20 21 23 2 0
-                                                   25 0 0 26 2 0 25 0 0 26 0 0
-                                                   0 13 0 0 14 15 1 0 18 0
-                                                   24)))))
+                             (|makeByteWordVec2| 25
+                                                 '(0 6 0 7 0 6 8 9 1 6 0 10 11
+                                                   1 6 10 0 15 1 17 0 16 18 2
+                                                   21 17 19 20 22 2 0 24 0 0 25
+                                                   2 0 24 0 0 25 0 0 0 12 0 0
+                                                   13 14 1 0 17 0 23)))))
            '|lookupComplete|)) 

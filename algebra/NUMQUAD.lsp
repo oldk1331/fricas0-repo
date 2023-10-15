@@ -57,7 +57,7 @@
                                   (QREFELT $ 13))
                         . #5#)
                   (LETT |pts| (- (+ |pts| (QVELT |ans| 2)) 1) . #5#)
-                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T 'NIL)) . #5#)
+                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T NIL)) . #5#)
                   (LETT |x1| |x2| . #5#)
                   (EXIT (LETT |x2| (SPADCALL |x2| |hh| (QREFELT $ 13)) . #5#)))
                  (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
@@ -125,7 +125,7 @@
                                   (QREFELT $ 13))
                         . #5#)
                   (LETT |pts| (- (+ |pts| (QVELT |ans| 2)) 1) . #5#)
-                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T 'NIL)) . #5#)
+                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T NIL)) . #5#)
                   (LETT |x1| |x2| . #5#)
                   (EXIT (LETT |x2| (SPADCALL |x2| |hh| (QREFELT $ 13)) . #5#)))
                  (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
@@ -193,7 +193,7 @@
                                   (QREFELT $ 13))
                         . #5#)
                   (LETT |pts| (- (+ |pts| (QVELT |ans| 2)) 1) . #5#)
-                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T 'NIL)) . #5#)
+                  (LETT |done| (COND (|done| (QVELT |ans| 3)) ('T NIL)) . #5#)
                   (LETT |x1| |x2| . #5#)
                   (EXIT (LETT |x2| (SPADCALL |x2| |hh| (QREFELT $ 13)) . #5#)))
                  (LETT |i| (|inc_SI| |i|) . #5#) (GO G190) G191 (EXIT NIL))
@@ -252,7 +252,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #8#)
                  (GO #9=#:G166))))))
             (COND
@@ -266,7 +266,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #8#)
                  (GO #9#))))))
             (COND
@@ -291,7 +291,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #8#)
                  (GO #9#))))))
             (COND
@@ -304,7 +304,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #8#)
                  (GO #9#))))))
             (SEQ (LETT |n| 1 . #8#) (LETT #6# |nmax| . #8#) G190
@@ -398,7 +398,7 @@
                     (VECTOR (SPADCALL |table| 1 (QREFELT $ 45))
                             (SPADCALL (SPADCALL 125 -2 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            (+ |pts| 1) 'NIL)
+                            (+ |pts| 1) NIL)
                     . #8#)
               (GO #9#)))))
           #9# (EXIT #1#)))) 
@@ -442,7 +442,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6=#:G184))))))
             (COND
@@ -456,7 +456,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (COND
@@ -481,7 +481,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (COND
@@ -494,7 +494,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (SEQ (LETT |n| 1 . #5#) (LETT #4# |nmax| . #5#) G190
@@ -567,7 +567,7 @@
                     (VECTOR |newest|
                             (SPADCALL (SPADCALL 125 -2 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            (+ |pts| 1) 'NIL)
+                            (+ |pts| 1) NIL)
                     . #5#)
               (GO #6#)))))
           #6# (EXIT #1#)))) 
@@ -607,7 +607,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6=#:G201))))))
             (COND
@@ -621,7 +621,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (COND
@@ -646,7 +646,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (COND
@@ -659,7 +659,7 @@
                 (PROGN
                  (LETT #1#
                        (VECTOR (SPADCALL 0 0 10 (QREFELT $ 10))
-                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 'NIL)
+                               (SPADCALL 0 0 10 (QREFELT $ 10)) 0 NIL)
                        . #5#)
                  (GO #6#))))))
             (SEQ (LETT |n| 1 . #5#) (LETT #4# |nmax| . #5#) G190
@@ -722,7 +722,7 @@
                     (VECTOR |newsum|
                             (SPADCALL (SPADCALL 125 -2 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            (+ |pts| 1) 'NIL)
+                            (+ |pts| 1) NIL)
                     . #5#)
               (GO #6#)))))
           #6# (EXIT #1#)))) 
@@ -866,7 +866,7 @@
                     (VECTOR (SPADCALL |table| 1 (QREFELT $ 45))
                             (SPADCALL (SPADCALL 15 -1 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            |pts| 'NIL)
+                            |pts| NIL)
                     . #7#)
               (GO #8#)))))
           #8# (EXIT #1#)))) 
@@ -974,7 +974,7 @@
                     (VECTOR |newest|
                             (SPADCALL (SPADCALL 15 -1 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            |pts| 'NIL)
+                            |pts| NIL)
                     . #4#)
               (GO #5#)))))
           #5# (EXIT #1#)))) 
@@ -1068,7 +1068,7 @@
                     (VECTOR |newsum|
                             (SPADCALL (SPADCALL 15 -1 10 (QREFELT $ 10))
                                       |change| (QREFELT $ 32))
-                            |pts| 'NIL)
+                            |pts| NIL)
                     . #4#)
               (GO #5#)))))
           #5# (EXIT #1#)))) 

@@ -690,7 +690,7 @@
 (SDEFUN |PGCD;better| ((|p1| P) (|p2| P) ($ |Boolean|))
         (SPROG ((#1=#:G251 NIL))
                (COND ((SPADCALL |p1| (QREFELT $ 76)) 'T)
-                     ((SPADCALL |p2| (QREFELT $ 76)) 'NIL)
+                     ((SPADCALL |p2| (QREFELT $ 76)) NIL)
                      ('T
                       (<
                        (SPADCALL |p1|
@@ -933,7 +933,7 @@
           (|lgcd1| (R)) (|lcd| (R)) (#3=#:G311 NIL) (|n0| NIL) (#4=#:G312 NIL)
           (|n1| NIL) (#5=#:G310 NIL) (|leadpol| (|Boolean|))
           (|df| (|NonNegativeInteger|)) (|lcf| (P)))
-         (SEQ (LETT |leadpol| 'NIL . #6=(|PGCD;lift|))
+         (SEQ (LETT |leadpol| NIL . #6=(|PGCD;lift|))
               (LETT |lcf| (SPADCALL |f| (QREFELT $ 50)) . #6#)
               (LETT |df| (SPADCALL |f| (QREFELT $ 21)) . #6#)
               (LETT |leadlist| NIL . #6#)

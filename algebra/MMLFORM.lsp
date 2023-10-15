@@ -289,7 +289,7 @@
          ((|tmp| (|String|)) (|base| (|String|)) (|tmp3| #1=(|String|))
           (|tmp2| #1#) (|tmp1| #1#) (|n| (|NonNegativeInteger|))
           (#2=#:G257 NIL) (|u| NIL) (#3=#:G256 NIL) (|prescript| (|Boolean|)))
-         (SEQ (LETT |prescript| 'NIL . #4=(|MMLFORM;formatSpecial|))
+         (SEQ (LETT |prescript| NIL . #4=(|MMLFORM;formatSpecial|))
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "<mtext>theMap(...)</mtext>")
                      ((EQUAL |op| 'AGGLST)

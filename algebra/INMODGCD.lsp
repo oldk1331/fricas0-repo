@@ -31,15 +31,15 @@
         (SPROG ((|g| (BP)) (#1=#:G158 NIL) (|f| NIL))
                (SEQ
                 (COND ((NULL |listf|) (|spadConstant| $ 11))
-                      (#2='T
+                      ('T
                        (SEQ
                         (LETT |g| (|SPADfirst| |listf|)
-                              . #3=(|INMODGCD;modularGcdPrimitive;LBP;3|))
-                        (SEQ (LETT |f| NIL . #3#)
-                             (LETT #1# (CDR |listf|) . #3#) G190
+                              . #2=(|INMODGCD;modularGcdPrimitive;LBP;3|))
+                        (SEQ (LETT |f| NIL . #2#)
+                             (LETT #1# (CDR |listf|) . #2#) G190
                              (COND
                               ((OR (ATOM #1#)
-                                   (PROGN (LETT |f| (CAR #1#) . #3#) NIL)
+                                   (PROGN (LETT |f| (CAR #1#) . #2#) NIL)
                                    (NULL
                                     (SPADCALL (SPADCALL |g| (QREFELT $ 23)) 0
                                               (QREFELT $ 24))))
@@ -47,12 +47,11 @@
                              (SEQ
                               (EXIT
                                (COND
-                                ((COND ((SPADCALL |f| (QREFELT $ 21)) 'NIL)
-                                       (#2# 'T))
+                                ((NULL (SPADCALL |f| (QREFELT $ 21)))
                                  (LETT |g|
                                        (|INMODGCD;modGcdPrimitive| |g| |f| $)
-                                       . #3#)))))
-                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                       . #2#)))))
+                             (LETT #1# (CDR #1#) . #2#) (GO G190) G191
                              (EXIT NIL))
                         (EXIT |g|))))))) 
 
@@ -284,10 +283,10 @@
                           (SPADCALL (SPADCALL |g| 0 (QREFELT $ 47)) |d0|
                                     (QREFELT $ 48))
                           1)
-                         (OR (QEQCAR (SPADCALL |f| |d| (QREFELT $ 33)) 1)
-                             (QEQCAR (SPADCALL |g| |d| (QREFELT $ 33)) 1))))
-                       'NIL)
-                      ('T 'T)))))) 
+                         (QEQCAR (SPADCALL |f| |d| (QREFELT $ 33)) 1)))
+                       NIL)
+                      ('T
+                       (NULL (QEQCAR (SPADCALL |g| |d| (QREFELT $ 33)) 1)))))))) 
 
 (SDEFUN |INMODGCD;modGcdPrimitive| ((|f| BP) (|g| BP) ($ BP))
         (SPROG

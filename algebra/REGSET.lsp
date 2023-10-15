@@ -30,9 +30,9 @@
 (SDEFUN |REGSET;member?;P$B;10| ((|p| P) (|ts| $) ($ |Boolean|))
         (SPADCALL |p| (|REGSET;rep| |ts| $) (QREFELT $ 24))) 
 
-(PUT '|REGSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) 'NIL)) 
+(PUT '|REGSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
-(SDEFUN |REGSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) 'NIL) 
+(SDEFUN |REGSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |REGSET;coerce;$Of;12| ((|ts| $) ($ |OutputForm|))
         (SPROG ((#1=#:G164 NIL) (|p| NIL) (#2=#:G163 NIL) (|lp| (|List| P)))
@@ -87,7 +87,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |lp|) 'NIL)
+                                (COND ((NULL |lp|) NIL)
                                       ('T
                                        (SPADCALL
                                         (SPADCALL (|SPADfirst| |lp|)
@@ -112,7 +112,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |lp|) 'NIL)
+                                (COND ((NULL |lp|) NIL)
                                       ('T
                                        (SPADCALL
                                         (SPADCALL (|SPADfirst| |lp|)
@@ -134,10 +134,7 @@
                         (SEQ
                          (LETT |lp| (SPADCALL (ELT $ 45) |lp| (QREFELT $ 47))
                                . #1#)
-                         (SEQ G190
-                              (COND
-                               ((NULL (COND ((NULL |lp|) 'NIL) ('T 'T)))
-                                (GO G191)))
+                         (SEQ G190 (COND ((NULL (NULL (NULL |lp|))) (GO G191)))
                               (SEQ
                                (LETT |eif|
                                      (SPADCALL |ts| (|SPADfirst| |lp|)
@@ -245,7 +242,7 @@
          ((SPADCALL |p| (QREFELT $ 49))
           (|error| "in internalAugment$REGSET: ground? #1"))
          ('T
-          (SPADCALL (SPADCALL |p| |ts| 'NIL 'NIL 'NIL 'NIL 'NIL (QREFELT $ 68))
+          (SPADCALL (SPADCALL |p| |ts| NIL NIL NIL NIL NIL (QREFELT $ 68))
                     (QREFELT $ 70))))) 
 
 (SDEFUN |REGSET;internalAugment;L2$;24| ((|lp| |List| P) (|ts| $) ($ $))
@@ -388,18 +385,18 @@
         (SPADCALL |p| |ts| (QREFELT $ 99))) 
 
 (SDEFUN |REGSET;intersect;P$L;33| ((|p| P) (|ts| $) ($ |List| $))
-        (SPADCALL (LIST |p|) (LIST |ts|) 'NIL 'NIL (QREFELT $ 102))) 
+        (SPADCALL (LIST |p|) (LIST |ts|) NIL NIL (QREFELT $ 102))) 
 
 (SDEFUN |REGSET;intersect;L2L;34|
         ((|lp| |List| P) (|lts| |List| $) ($ |List| $))
-        (SPADCALL |lp| |lts| 'NIL 'NIL (QREFELT $ 102))) 
+        (SPADCALL |lp| |lts| NIL NIL (QREFELT $ 102))) 
 
 (SDEFUN |REGSET;zeroSetSplit;LL;35| ((|lp| |List| P) ($ |List| $))
-        (SPADCALL |lp| 'T 'NIL (QREFELT $ 105))) 
+        (SPADCALL |lp| 'T NIL (QREFELT $ 105))) 
 
 (SDEFUN |REGSET;zeroSetSplit;LBL;36|
         ((|lp| |List| P) (|clos?| |Boolean|) ($ |List| $))
-        (SPADCALL |lp| |clos?| 'NIL (QREFELT $ 105))) 
+        (SPADCALL |lp| |clos?| NIL (QREFELT $ 105))) 
 
 (SDEFUN |REGSET;zeroSetSplit;L2BL;37|
         ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|) ($ |List| $))
@@ -515,7 +512,7 @@
         (SPROG ((|lts| (|List| $)))
                (SEQ
                 (COND ((SPADCALL (LENGTH |lp|) 16 (QREFELT $ 125)) 'T)
-                      ((< (LENGTH |lp|) 13) 'NIL)
+                      ((< (LENGTH |lp|) 13) NIL)
                       ('T
                        (SEQ (LETT |lts| NIL |REGSET;largeSystem?|)
                             (EXIT
@@ -538,7 +535,7 @@
         (COND
          ((SPADCALL (SPADCALL |p| (QREFELT $ 52)) (QREFELT $ 49))
           (EQL (SPADCALL |p| (QREFELT $ 128)) 1))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |REGSET;pre_process;L2BR;44|
         ((|lp| |List| P) (|clos?| |Boolean|) (|info?| |Boolean|)
@@ -645,10 +642,8 @@
                                                   (SEQ
                                                    (EXIT
                                                     (COND
-                                                     ((COND
-                                                       ((|REGSET;lin?| |p| $)
-                                                        'NIL)
-                                                       (#16# 'T))
+                                                     ((NULL
+                                                       (|REGSET;lin?| |p| $))
                                                       (LETT #11#
                                                             (CONS |p| #11#)
                                                             . #15#)))))
@@ -780,8 +775,7 @@
                                          (SEQ
                                           (EXIT
                                            (COND
-                                            ((COND ((|REGSET;lin?| |p| $) 'NIL)
-                                                   (#16# 'T))
+                                            ((NULL (|REGSET;lin?| |p| $))
                                              (LETT #5# (CONS |p| #5#)
                                                    . #15#)))))
                                          (LETT #4# (CDR #4#) . #15#) (GO G190)

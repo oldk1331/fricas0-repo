@@ -5,7 +5,7 @@
 (SDEFUN |PFR;LessThan|
         ((|s| |Record| (|:| |num| R) (|:| |den| (|Factored| R)))
          (|t| |Record| (|:| |num| R) (|:| |den| (|Factored| R))) ($ |Boolean|))
-        (COND ((GGREATERP (QCDR |s|) (QCDR |t|)) 'NIL) ('T 'T))) 
+        (NULL (GGREATERP (QCDR |s|) (QCDR |t|)))) 
 
 (SDEFUN |PFR;multiplyFracTerms|
         ((|s| |Record| (|:| |num| R) (|:| |den| (|Factored| R)))
@@ -90,7 +90,7 @@
                            ((SPADCALL (QCDR |q|) (|spadConstant| $ 24)
                                       (QREFELT $ 16))
                             (< |expon| |nexpon|))
-                           ('T 'NIL)))
+                           ('T NIL)))
                          (GO G191)))
                        (SEQ (LETT |expon| (+ |expon| 1) . #2#)
                             (PROGN (RPLACD |qr| (QCAR |q|)) (QCDR |qr|))
@@ -461,13 +461,13 @@
                              (QREFELT $ 86)))))))) 
 
 (SDEFUN |PFR;=;2$B;24| ((|a| $) (|b| $) ($ |Boolean|))
-        (COND ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 25)) 'NIL)
+        (COND ((SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 25)) NIL)
               ((NULL (QCDR |a|))
                (COND
                 ((NULL (QCDR |b|))
                  (SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 16)))
-                (#1='T 'NIL)))
-              ((NULL (QCDR |b|)) 'NIL)
+                (#1='T NIL)))
+              ((NULL (QCDR |b|)) NIL)
               (#1#
                (SPADCALL (SPADCALL |a| (QREFELT $ 60))
                          (SPADCALL |b| (QREFELT $ 60)) (QREFELT $ 87))))) 

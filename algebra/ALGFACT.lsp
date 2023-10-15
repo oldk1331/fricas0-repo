@@ -140,7 +140,7 @@
                     (|check_union2| (QEQCAR #1# 0) (QREFELT $ 6)
                                     (|Union| (QREFELT $ 6) "failed") #1#))
                   $))
-                ('T 'NIL)))) 
+                ('T NIL)))) 
 
 (SDEFUN |ALGFACT;irred?| ((|p| UP) ($ |Boolean|))
         (SPROG ((|fp| (|Factored| UP)))
@@ -149,7 +149,7 @@
                      (COND
                       ((EQL (SPADCALL |fp| (QREFELT $ 55)) 1)
                        (EQL (SPADCALL |fp| 1 (QREFELT $ 56)) 1))
-                      ('T 'NIL)))))) 
+                      ('T NIL)))))) 
 
 (SDEFUN |ALGFACT;fact|
         ((|p| UP) (|l| |List| #1=(|Kernel| (|AlgebraicNumber|)))

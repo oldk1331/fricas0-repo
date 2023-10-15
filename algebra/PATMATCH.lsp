@@ -6,14 +6,11 @@
 
 (SDEFUN |PATMATCH;is?;SubjectPatB;2|
         ((|s| |Subject|) (|p| |Pat|) ($ |Boolean|))
-        (COND ((SPADCALL (|PATMATCH;ist| |s| |p| $) (QREFELT $ 16)) 'NIL)
-              ('T 'T))) 
+        (NULL (SPADCALL (|PATMATCH;ist| |s| |p| $) (QREFELT $ 16)))) 
 
 (SDEFUN |PATMATCH;is?;LPatB;3|
         ((|s| |List| |Subject|) (|p| |Pat|) ($ |Boolean|))
-        (COND
-         ((SPADCALL (SPADCALL |s| |p| (QREFELT $ 20)) (QREFELT $ 21)) 'NIL)
-         ('T 'T))) 
+        (NULL (SPADCALL (SPADCALL |s| |p| (QREFELT $ 20)) (QREFELT $ 21)))) 
 
 (SDEFUN |PATMATCH;Is;LPatPmlr;4|
         ((|s| |List| |Subject|) (|p| |Pat|)

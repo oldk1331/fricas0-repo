@@ -110,14 +110,14 @@
         (COND
          ((OR (OR (NULL |p|) (NULL (NULL (CDR |p|))))
               (NULL (ZEROP (QCAR (|SPADfirst| |p|)))))
-          'NIL)
+          NIL)
          ('T
           (SPADCALL (QCDR (|SPADfirst| |p|)) (|spadConstant| $ 28)
                     (QREFELT $ 29))))) 
 
 (SDEFUN |SUP;ground?;$B;7| ((|p| $) ($ |Boolean|))
         (COND ((NULL |p|) 'T)
-              ((NULL (CDR |p|)) (ZEROP (QCAR (|SPADfirst| |p|)))) ('T 'NIL))) 
+              ((NULL (CDR |p|)) (ZEROP (QCAR (|SPADfirst| |p|)))) ('T NIL))) 
 
 (SDEFUN |SUP;multiplyExponents;$Nni$;8|
         ((|p| $) (|n| |NonNegativeInteger|) ($ $))
@@ -288,7 +288,7 @@
                             (SEQ G190
                                  (COND
                                   ((NULL
-                                    (COND ((NULL |p1|) 'NIL)
+                                    (COND ((NULL |p1|) NIL)
                                           ('T
                                            (SPADCALL (QCAR (|SPADfirst| |p1|))
                                                      |e2| (QREFELT $ 24)))))
@@ -398,10 +398,7 @@
                   (CONS 0 (|spadConstant| $ 16)))
                  (#3='T
                   (SEQ (LETT |rout| NIL . #4=(|SUP;exquo;2$U;23|))
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                             (SEQ
                              (LETT |a|
                                    (SPADCALL (QCDR (|SPADfirst| |p1|))
@@ -457,10 +454,7 @@
                   (CONS 0 |p1|))
                  (#3='T
                   (SEQ (LETT |rout| NIL . #4=(|SUP;exquo;2$U;24|))
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                             (SEQ
                              (LETT |a|
                                    (SPADCALL (QCDR (|SPADfirst| |p1|))
@@ -527,7 +521,7 @@
                             (SEQ G190
                                  (COND
                                   ((NULL
-                                    (COND ((NULL |p1|) 'NIL)
+                                    (COND ((NULL |p1|) NIL)
                                           ('T
                                            (SPADCALL (QCAR (|SPADfirst| |p1|))
                                                      |e2| (QREFELT $ 24)))))
@@ -581,9 +575,7 @@
                         . #5#)
                   (SEQ
                    (EXIT
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T))) (GO G191)))
+                    (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                          (SEQ
                           (SEQ
                            (LETT |u|
@@ -831,10 +823,7 @@
                    (SEQ (LETT |rout| NIL . #4#) (LETT |p2| (CDR |p2|) . #4#)
                         (SEQ
                          (EXIT
-                          (SEQ G190
-                               (COND
-                                ((NULL (COND ((NULL |p1|) 'NIL) ('T 'T)))
-                                 (GO G191)))
+                          (SEQ G190 (COND ((NULL |p1|) (GO G191)))
                                (SEQ
                                 (LETT |u|
                                       (SPADCALL (QCAR (|SPADfirst| |p1|)) |n|
@@ -1746,7 +1735,7 @@
                  (CONS (|dispatchFunction| |SUP;pseudoRemainder;3$;26|) $)))))
     (QSETREFV $ 97 (|spadConstant| $ 37))
     (QSETREFV $ 98 (|spadConstant| $ 37))
-    (QSETREFV $ 99 'NIL)
+    (QSETREFV $ 99 NIL)
     (COND
      ((|testBitVector| |pv$| 4)
       (QSETREFV $ 118 (CONS (|dispatchFunction| |SUP;monicDivide;2$R;33|) $))))

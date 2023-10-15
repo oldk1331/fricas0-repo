@@ -6,13 +6,13 @@
         (COND
          ((< (SPADCALL |s| (QREFELT $ 13)) (SPADCALL |t| (QREFELT $ 13)))
           (SPADCALL |s| |t| (QREFELT $ 14)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |FSAGG-;=;2AB;3| ((|s| A) (|t| A) ($ |Boolean|))
         (COND
          ((EQL (SPADCALL |s| (QREFELT $ 13)) (SPADCALL |t| (QREFELT $ 13)))
           (SPADCALL (SPADCALL |s| |t| (QREFELT $ 16)) (QREFELT $ 17)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |FSAGG-;brace;LA;4| ((|l| |List| S) ($ A))
         (SPADCALL |l| (QREFELT $ 20))) 
@@ -45,7 +45,7 @@
                            (SPADCALL |t| (QREFELT $ 13)) (QREFELT $ 29))
                  (SPADCALL (CONS #'|FSAGG-;subset?;2AB;9!0| (VECTOR $ |t|))
                            (SPADCALL |s| (QREFELT $ 30)) (QREFELT $ 32)))
-                ('T 'NIL)))) 
+                ('T NIL)))) 
 
 (SDEFUN |FSAGG-;subset?;2AB;9!0| ((|x| NIL) ($$ NIL))
         (PROG (|t| $)

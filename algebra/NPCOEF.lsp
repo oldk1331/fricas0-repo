@@ -135,14 +135,14 @@
                      (COND
                       ((NULL
                         (COND (|changed| (SPADCALL |ndet| 1 (QREFELT $ 21)))
-                              ('T 'NIL)))
+                              ('T NIL)))
                        (GO G191)))
-                     (SEQ (LETT |changed| 'NIL . #24#)
+                     (SEQ (LETT |changed| NIL . #24#)
                           (LETT |dt| (LENGTH |tablecoef|) . #24#)
                           (SEQ (LETT |i| 1 . #24#) (LETT #14# |dt| . #24#) G190
                                (COND
                                 ((OR (|greater_SI| |i| #14#)
-                                     (NULL (COND (|changed| 'NIL) ('T 'T))))
+                                     (NULL (NULL |changed|)))
                                  (GO G191)))
                                (SEQ
                                 (LETT |cf|
@@ -642,8 +642,7 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((COND ((NULL (LETT |ctdet| (QCDR |cterm|) . #19#)) 'NIL)
-                             ('T 'T))
+                      ((NULL (NULL (LETT |ctdet| (QCDR |cterm|) . #19#)))
                        (COND
                         ((<
                           (PROGN
@@ -722,7 +721,7 @@
                                                  (#7#
                                                   (LETT #8#
                                                         (COND (#8# #10#)
-                                                              ('T 'NIL))
+                                                              ('T NIL))
                                                         . #19#))
                                                  ('T
                                                   (PROGN

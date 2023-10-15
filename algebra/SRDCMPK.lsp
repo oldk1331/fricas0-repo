@@ -78,12 +78,10 @@
              (COND
               ((< (SPADCALL |p| (QREFELT $ 35))
                   (SPADCALL |ts_v| (QREFELT $ 35)))
-               (LETT |lgwt|
-                     (SPADCALL |ts_v| |p| |ts_v-| 'T 'NIL (QREFELT $ 39))
+               (LETT |lgwt| (SPADCALL |ts_v| |p| |ts_v-| 'T NIL (QREFELT $ 39))
                      . #7#))
               (#6#
-               (LETT |lgwt|
-                     (SPADCALL |p| |ts_v| |ts_v-| 'T 'NIL (QREFELT $ 39))
+               (LETT |lgwt| (SPADCALL |p| |ts_v| |ts_v-| 'T NIL (QREFELT $ 39))
                      . #7#)))
              (LETT |lts| NIL . #7#) (LETT |llpwt| NIL . #7#)
              (SEQ (LETT |gwt| NIL . #7#) (LETT #4# |lgwt| . #7#) G190
@@ -451,7 +449,7 @@
 (SDEFUN |SRDCMPK;decompose;LL2BL;9|
         ((|lp| |List| P) (|lts| |List| TS) (|clos?| |Boolean|)
          (|info?| |Boolean|) ($ |List| TS))
-        (SPADCALL |lp| |lts| 'NIL 'NIL |clos?| 'T |info?| (QREFELT $ 76))) 
+        (SPADCALL |lp| |lts| NIL NIL |clos?| 'T |info?| (QREFELT $ 76))) 
 
 (SDEFUN |SRDCMPK;convert;RS;10|
         ((|lpwt| |Record| (|:| |val| (|List| P)) (|:| |tower| TS))
@@ -565,9 +563,7 @@
                              (LETT |bound| (SPADCALL |lp| |lts| (QREFELT $ 27))
                                    . #4#)))
                            (SEQ G190
-                                (COND
-                                 ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                                  (GO G191)))
+                                (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                                 (SEQ
                                  (COND
                                   (|info?|

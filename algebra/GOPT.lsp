@@ -85,7 +85,7 @@
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 57)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |GOPT;option;LSU;23|
         ((|l| |List| $) (|s| |Symbol|) ($ |Union| (|Any|) "failed"))

@@ -140,12 +140,12 @@
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |aProp| (CAR #3#) . #8#) NIL))
                      (GO G191)))
-                   (SEQ (SPADCALL |aProp| 'NIL (QREFELT $ 32))
-                        (EXIT (SPADCALL |aProp| 'NIL (QREFELT $ 33))))
+                   (SEQ (SPADCALL |aProp| NIL (QREFELT $ 32))
+                        (EXIT (SPADCALL |aProp| NIL (QREFELT $ 33))))
                    (LETT #3# (CDR #3#) . #8#) (GO G190) G191 (EXIT NIL))
               (LETT |aProp| (SPADCALL (QREFELT $ 30)) . #8#)
-              (SPADCALL |aProp| 'NIL (QREFELT $ 32))
-              (SPADCALL |aProp| 'NIL (QREFELT $ 33)) (LETT |space| |sp| . #8#)
+              (SPADCALL |aProp| NIL (QREFELT $ 32))
+              (SPADCALL |aProp| NIL (QREFELT $ 33)) (LETT |space| |sp| . #8#)
               (SPADCALL |space| |llp| |lProp| |aProp| (QREFELT $ 37))
               (EXIT |space|)))) 
 

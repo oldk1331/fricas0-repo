@@ -2,9 +2,8 @@
 (SDEFUN |UDPO;userOrdered?;B;1| (($ |Boolean|))
         (COND
          ((NULL (SPADCALL (QREFELT $ 10) (QREFELT $ 12)))
-          (COND ((NULL (SPADCALL (QREFELT $ 11) (QREFELT $ 12))) 'NIL)
-                (#1='T 'T)))
-         (#1# 'T))) 
+          (NULL (NULL (SPADCALL (QREFELT $ 11) (QREFELT $ 12)))))
+         ('T 'T))) 
 
 (SDEFUN |UDPO;getOrder;R;2|
         (($ |Record| (|:| |low| (|List| S)) (|:| |high| (|List| S))))
@@ -67,7 +66,7 @@
                             . #5#)
                       (GO #6=#:G140)))
                     ((SPADCALL |x| |b| (QREFELT $ 28))
-                     (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #6#))))))
+                     (PROGN (LETT #2# (CONS 0 NIL) . #5#) (GO #6#))))))
                  (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
             (LETT |aa| (LETT |bb| 'NIL . #5#) . #5#)
             (SEQ (LETT |x| NIL . #5#)
@@ -78,9 +77,8 @@
                  (SEQ
                   (COND
                    ((SPADCALL |x| |a| (QREFELT $ 28))
-                    (COND
-                     (|bb| (PROGN (LETT #2# (CONS 0 'NIL) . #5#) (GO #6#)))
-                     ('T (LETT |aa| 'T . #5#)))))
+                    (COND (|bb| (PROGN (LETT #2# (CONS 0 NIL) . #5#) (GO #6#)))
+                          ('T (LETT |aa| 'T . #5#)))))
                   (EXIT
                    (COND
                     ((SPADCALL |x| |b| (QREFELT $ 28))
@@ -93,12 +91,12 @@
                       ('T (LETT |bb| 'T . #5#)))))))
                  (LETT #3# (CDR #3#) . #5#) (GO G190) G191 (EXIT NIL))
             (EXIT
-             (COND (|aa| (CONS 0 'NIL)) (|bb| (CONS 0 'T))
+             (COND (|aa| (CONS 0 NIL)) (|bb| (CONS 0 'T))
                    ('T (CONS 1 "failed"))))))
           #6# (EXIT #2#)))) 
 
 (SDEFUN |UDPO;more?;2SB;8| ((|a| S) (|b| S) ($ |Boolean|))
-        (COND ((SPADCALL |a| |b| (ELT $ 30) (QREFELT $ 26)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |a| |b| (ELT $ 30) (QREFELT $ 26)))) 
 
 (SDEFUN |UDPO;largest;LS;9| ((|x| |List| S) ($ S))
         (SPADCALL |x| (ELT $ 30) (QREFELT $ 27))) 

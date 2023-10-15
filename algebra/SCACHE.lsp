@@ -96,9 +96,7 @@
                                   (SEQ G190
                                        (COND
                                         ((NULL
-                                          (COND
-                                           ((EQ |y| (QAREF1 |vscan| |k|)) 'NIL)
-                                           ('T 'T)))
+                                          (NULL (EQ |y| (QAREF1 |vscan| |k|))))
                                          (GO G191)))
                                        (SEQ (EXIT (LETT |k| (+ |k| 1) . #2#)))
                                        NIL (GO G190) G191 (EXIT NIL))
@@ -145,7 +143,7 @@
                               (COND
                                ((NULL (< |l| 0))
                                 (LETT |vl| (QAREF1 |vscan| |l|) . #6#)))
-                              (LETT |has_vm| 'NIL . #6#)
+                              (LETT |has_vm| NIL . #6#)
                               (COND
                                ((< |m| |m0|)
                                 (SEQ (LETT |vm| (QAREF1 |vscan| |m|) . #6#)
@@ -175,12 +173,10 @@
                                                (SEQ G190
                                                     (COND
                                                      ((NULL
-                                                       (COND
-                                                        ((EQ |vl|
-                                                             (QAREF1 |vscan|
-                                                                     |l|))
-                                                         'NIL)
-                                                        ('T 'T)))
+                                                       (NULL
+                                                        (EQ |vl|
+                                                            (QAREF1 |vscan|
+                                                                    |l|))))
                                                       (GO G191)))
                                                     (SEQ
                                                      (EXIT
@@ -199,12 +195,10 @@
                                              (SEQ G190
                                                   (COND
                                                    ((NULL
-                                                     (COND
-                                                      ((EQ |y|
-                                                           (QAREF1 |vscan|
-                                                                   |i|))
-                                                       'NIL)
-                                                      ('T 'T)))
+                                                     (NULL
+                                                      (EQ |y|
+                                                          (QAREF1 |vscan|
+                                                                  |i|))))
                                                     (GO G191)))
                                                   (SEQ
                                                    (EXIT
@@ -222,11 +216,9 @@
                                           (SEQ G190
                                                (COND
                                                 ((NULL
-                                                  (COND
-                                                   ((EQ |vm|
-                                                        (QAREF1 |vscan| |m|))
-                                                    'NIL)
-                                                   ('T 'T)))
+                                                  (NULL
+                                                   (EQ |vm|
+                                                       (QAREF1 |vscan| |m|))))
                                                  (GO G191)))
                                                (SEQ
                                                 (EXIT

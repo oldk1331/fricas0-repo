@@ -30,7 +30,7 @@
           (|lr| (|AssociationList| (|Symbol|) S)))
          (SEQ
           (EXIT
-           (COND ((SPADCALL |r| (QREFELT $ 14)) (CONS 0 'NIL))
+           (COND ((SPADCALL |r| (QREFELT $ 14)) (CONS 0 NIL))
                  ('T
                   (SEQ (LETT |lr| (QCDR |r|) . #4=(|PATRES;satisfy?;$PU;7|))
                        (LETT |lv|
@@ -83,7 +83,7 @@
 
 (SDEFUN |PATRES;=;2$B;9| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 14)) (SPADCALL |y| (QREFELT $ 14)))
-              ((SPADCALL |y| (QREFELT $ 14)) 'NIL)
+              ((SPADCALL |y| (QREFELT $ 14)) NIL)
               ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 38))))) 
 
 (SDEFUN |PATRES;coerce;$Of;10| ((|x| $) ($ |OutputForm|))

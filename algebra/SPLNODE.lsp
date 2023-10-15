@@ -15,13 +15,13 @@
 
 (SDEFUN |SPLNODE;empty;$;3| (($ $))
         (|SPLNODE;per|
-         (VECTOR (SPADCALL (QREFELT $ 8)) (SPADCALL (QREFELT $ 9)) 'NIL) $)) 
+         (VECTOR (SPADCALL (QREFELT $ 8)) (SPADCALL (QREFELT $ 9)) NIL) $)) 
 
 (SDEFUN |SPLNODE;empty?;$B;4| ((|n| $) ($ |Boolean|))
         (COND
          ((SPADCALL (QVELT (|SPLNODE;rep| |n| $) 0) (QREFELT $ 12))
           (SPADCALL (QVELT (|SPLNODE;rep| |n| $) 1) (QREFELT $ 13)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SPLNODE;value;$V;5| ((|n| $) ($ V)) (QVELT (|SPLNODE;rep| |n| $) 0)) 
 
@@ -35,7 +35,7 @@
         (|SPLNODE;per| (VECTOR |v| |t| |b|) $)) 
 
 (SDEFUN |SPLNODE;construct;VC$;9| ((|v| V) (|t| C) ($ $))
-        (SPADCALL |v| |t| 'NIL (QREFELT $ 18))) 
+        (SPADCALL |v| |t| NIL (QREFELT $ 18))) 
 
 (SDEFUN |SPLNODE;construct;R$;10|
         ((|vt| |Record| (|:| |val| V) (|:| |tower| C)) ($ $))
@@ -102,7 +102,7 @@
                     (QVELT (|SPLNODE;rep| |n2| $) 0) (QREFELT $ 32))
           (SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 1)
                     (QVELT (|SPLNODE;rep| |n2| $) 1) |o2|))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SPLNODE;subNode?;2$MB;19|
         ((|n1| $) (|n2| $) (|o2| |Mapping| (|Boolean|) C C) ($ |Boolean|))
@@ -111,13 +111,13 @@
                     (QVELT (|SPLNODE;rep| |n2| $) 0) (QREFELT $ 32))
           (SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 1)
                     (QVELT (|SPLNODE;rep| |n2| $) 1) |o2|))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |SPLNODE;=;2$B;20| ((|n1| $) (|n2| $) ($ |Boolean|))
         (COND
          ((SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 0)
                     (QVELT (|SPLNODE;rep| |n2| $) 0) (QREFELT $ 37))
-          'NIL)
+          NIL)
          ('T
           (SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 1)
                     (QVELT (|SPLNODE;rep| |n2| $) 1) (QREFELT $ 38))))) 
@@ -126,7 +126,7 @@
         (COND
          ((SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 0)
                     (QVELT (|SPLNODE;rep| |n2| $) 0) (QREFELT $ 32))
-          'NIL)
+          NIL)
          ('T
           (SPADCALL (QVELT (|SPLNODE;rep| |n1| $) 1)
                     (QVELT (|SPLNODE;rep| |n2| $) 1) (QREFELT $ 40))))) 

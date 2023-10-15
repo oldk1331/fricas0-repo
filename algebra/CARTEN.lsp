@@ -93,7 +93,7 @@
             (|error| "The list is not a permutation."))
            ('T
             (SEQ (LETT |p| (MAKEARR1 |n| 0) . #5=(|CARTEN;mkPerm|))
-                 (LETT |seen| (MAKEARR1 |n| 'NIL) . #5#)
+                 (LETT |seen| (MAKEARR1 |n| NIL) . #5#)
                  (SEQ (LETT |e| NIL . #5#) (LETT #4# |l| . #5#)
                       (LETT |i| 1 . #5#) (LETT #3# |n| . #5#) G190
                       (COND
@@ -654,7 +654,7 @@
                  (COND
                   ((SPADCALL (SPADCALL |x| (QREFELT $ 32))
                              (SPADCALL |y| (QREFELT $ 32)) (QREFELT $ 26))
-                   'NIL)
+                   NIL)
                   ('T
                    (SEQ
                     (SEQ (LETT |i| 0 . #3=(|CARTEN;=;2$B;30|))
@@ -666,7 +666,7 @@
                             ((SPADCALL (SPADCALL |x| |i| (QREFELT $ 33))
                                        (SPADCALL |y| |i| (QREFELT $ 33))
                                        (QREFELT $ 78))
-                             (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G280))))))
+                             (PROGN (LETT #1# NIL . #3#) (GO #4=#:G280))))))
                          (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                          (EXIT NIL))
                     (EXIT 'T)))))

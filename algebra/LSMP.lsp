@@ -37,7 +37,7 @@
                    ((>= |rk| (SPADCALL |m| (QREFELT $ 25)))
                     (SPADCALL (ELT $ 26) (SPADCALL |m| |rk| (QREFELT $ 27))
                               (QREFELT $ 29)))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ (EXIT (LETT |rk| (- |rk| 1) . #4#))) NIL (GO G190) G191
                (EXIT NIL))
@@ -54,7 +54,7 @@
                            ((< |ck| (SPADCALL |m| (QREFELT $ 33)))
                             (SPADCALL (SPADCALL |m| |rk| |ck| (QREFELT $ 34))
                                       (QREFELT $ 26)))
-                           ('T 'NIL)))
+                           ('T NIL)))
                          (GO G191)))
                        (SEQ (EXIT (LETT |ck| (+ |ck| 1) . #4#))) NIL (GO G190)
                        G191 (EXIT NIL))

@@ -26,7 +26,7 @@
                      (COND
                       ((SPADCALL (SPADCALL |y| |i| (QREFELT $ 22))
                                  (|spadConstant| $ 17) (QREFELT $ 23))
-                       (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G124))))))
+                       (PROGN (LETT #1# NIL . #3#) (GO #4=#:G124))))))
                    (LETT |i| (+ |i| 1) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 

@@ -103,7 +103,7 @@
                  (SPADCALL (SPADCALL (QREFELT $ 8) (QREFELT $ 52))
                            (QREFELT $ 54)))
          (SETELT $ 7 (SPADCALL (SPADCALL (QREFELT $ 55)) (QREFELT $ 56)))
-         (SETELT $ 11 'NIL) (EXIT (SPADCALL (QREFELT $ 58))))) 
+         (SETELT $ 11 NIL) (EXIT (SPADCALL (QREFELT $ 58))))) 
 
 (SDEFUN |IPF;initializeLog| (($ |Void|))
         (SPROG
@@ -165,7 +165,7 @@
                            (SPADCALL |tbl| (QREFELT $ 63)))
                           (QREFELT $ 14) (QREFELT $ 65))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-              (SETELT $ 10 'NIL) (EXIT (SPADCALL (QREFELT $ 58)))))) 
+              (SETELT $ 10 NIL) (EXIT (SPADCALL (QREFELT $ 58)))))) 
 
 (PUT '|IPF;degree;$Pi;15| '|SPADreplace| '(XLAM (|x|) 1)) 
 

@@ -131,7 +131,7 @@
                                     (LIST (SPADCALL |a2| 2 (QREFELT $ 75)))
                                     (QREFELT $ 77))
                           (SPADCALL |a2| 1 (QREFELT $ 75)) (QREFELT $ 50)))
-                        ('T 'NIL))
+                        ('T NIL))
                        . #3#))))
           #4# (EXIT #1#)))) 
 

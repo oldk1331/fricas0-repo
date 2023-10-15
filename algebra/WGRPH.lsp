@@ -1805,7 +1805,7 @@
                          (COND
                           ((EQL (QVELT |arr| 3) |i2|)
                            (SEQ (LETT |res| (QVELT |arr| 1) . #2#)
-                                (EXIT (LETT |isDisjoint| 'NIL . #2#))))))))
+                                (EXIT (LETT |isDisjoint| NIL . #2#))))))))
                       ((EQL (QVELT |arr| 2) |i1|)
                        (COND
                         ((EQL (QVELT |arr| 3) |i2|)
@@ -1836,7 +1836,7 @@
                          . #2#)
                    (EXIT
                     (LETT |res| (SPADCALL |res| |w| (QREFELT $ 95)) . #2#)))))
-                (LETT |fst| 'NIL . #2#) (EXIT (LETT |lasti| |i| . #2#)))
+                (LETT |fst| NIL . #2#) (EXIT (LETT |lasti| |i| . #2#)))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|)))) 
 

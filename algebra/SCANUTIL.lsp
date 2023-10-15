@@ -67,9 +67,7 @@
                             . #6#)
                       (SEQ G190
                            (COND
-                            ((NULL
-                              (COND ((|less_SI| (|SPADfirst| |l2l|) |l2|) 'NIL)
-                                    ('T 'T)))
+                            ((NULL (NULL (|less_SI| (|SPADfirst| |l2l|) |l2|)))
                              (GO G191)))
                            (SEQ (LETT |l2l| (CDR |l2l|) . #6#)
                                 (EXIT (LETT |tpl| (CDR |tpl|) . #6#)))

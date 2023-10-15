@@ -296,7 +296,7 @@
                                                (SPADCALL |ss| |u|
                                                          (QREFELT $ 47))))
                                        (EXIT 'T)))))
-                                   (EXIT 'NIL))
+                                   (EXIT NIL))
                                   . #2#)
                             (COND
                              ((OR |ownLine|
@@ -355,7 +355,7 @@
          ((|tmp| (|String|)) (|prescript| (|Boolean|))
           (|form| (|List| (|String|))) (#1=#:G325 NIL) (|u| NIL)
           (#2=#:G324 NIL))
-         (SEQ (LETT |prescript| 'NIL . #3=(|TEX;formatSpecial|))
+         (SEQ (LETT |prescript| NIL . #3=(|TEX;formatSpecial|))
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "\\mbox{theMap(...)}")
                      ((EQUAL |op| 'AGGLST)

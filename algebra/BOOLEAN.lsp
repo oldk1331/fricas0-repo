@@ -55,7 +55,7 @@
         (COND (|a| |b|) ('T 'T))) 
 
 (SDEFUN |BOOLEAN;<;3$;16| ((|a| $) (|b| $) ($ |Boolean|))
-        (COND (|b| (COND (|a| 'NIL) (#1='T 'T))) (#1# 'NIL))) 
+        (COND (|b| (NULL |a|)) ('T NIL))) 
 
 (PUT '|BOOLEAN;size;Nni;17| '|SPADreplace| '(XLAM NIL 2)) 
 

@@ -125,8 +125,7 @@
                 (LETT |startpos| (- |startpos| (QREFELT $ 6)) . #4#)
                 (EXIT
                  (COND ((< |startpos| 0) (|error| "index out of bounds"))
-                       ((SPADCALL |np| (- |nw| |startpos|) (QREFELT $ 45))
-                        'NIL)
+                       ((SPADCALL |np| (- |nw| |startpos|) (QREFELT $ 45)) NIL)
                        ('T
                         (SEQ
                          (SEQ
@@ -143,7 +142,7 @@
                                     (PROGN
                                      (LETT #1#
                                            (PROGN
-                                            (LETT #2# 'NIL . #4#)
+                                            (LETT #2# NIL . #4#)
                                             (GO #5=#:G1253))
                                            . #4#)
                                      (GO #6=#:G1249))))))
@@ -236,7 +235,7 @@
                       . #2=(|ISTRING;suffix?;2$B;22|))
                 (LETT |n| (SPADCALL |t| (QREFELT $ 42)) . #2#)
                 (EXIT
-                 (COND ((SPADCALL |m| |n| (QREFELT $ 45)) 'NIL)
+                 (COND ((SPADCALL |m| |n| (QREFELT $ 45)) NIL)
                        ('T
                         (SPADCALL |s| |t| (- (+ (QREFELT $ 6) |n|) |m|)
                                   (QREFELT $ 47)))))))) 
@@ -263,7 +262,7 @@
                    ((SPADCALL |i| |n| (QREFELT $ 56))
                     (>= (LETT |j| (SPADCALL |c| |s| |i| (QREFELT $ 49)) . #3#)
                         (QREFELT $ 6)))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ
                 (LETT |l|
@@ -316,7 +315,7 @@
                    ((SPADCALL |i| |n| (QREFELT $ 56))
                     (>= (LETT |j| (SPADCALL |cc| |s| |i| (QREFELT $ 51)) . #3#)
                         (QREFELT $ 6)))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ
                 (LETT |l|
@@ -541,7 +540,7 @@
                                 (SPADCALL |m| (- |p| 1) (QREFELT $ 20))
                                 (QREFELT $ 21))
                       |target| (QREFELT $ 72)))
-                    (EXIT 'NIL)))))
+                    (EXIT NIL)))))
                 (LETT |i| |p| . #7#)
                 (LETT |q|
                       (PROG1
@@ -576,7 +575,7 @@
                       (EXIT
                        (COND
                         ((EQL |i| (- |m| 1))
-                         (PROGN (LETT #3# 'NIL . #7#) (GO #8=#:G1346)))
+                         (PROGN (LETT #3# NIL . #7#) (GO #8=#:G1346)))
                         ('T
                          (SEQ
                           (LETT |i| (+ |i| (SPADCALL |s| (QREFELT $ 13)))
@@ -603,7 +602,7 @@
                                 (SPADCALL (+ |p| 1) |n| (QREFELT $ 20))
                                 (QREFELT $ 21))
                       |target| (QREFELT $ 52)))
-                    (EXIT 'NIL)))))
+                    (EXIT NIL)))))
                 (EXIT 'T)))))))
           #8# (EXIT #3#)))) 
 

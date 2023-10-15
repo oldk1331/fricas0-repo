@@ -38,9 +38,7 @@
                     (GO G191)))
                   (SEQ (LETT |toSave| NIL . #3#)
                        (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                            (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                             (SEQ (LETT |us| (|SPADfirst| |toSee|) . #3#)
                                  (LETT |toSee| (CDR |toSee|) . #3#)
                                  (LETT |lpwt|
@@ -88,9 +86,7 @@
                    (LETT |lp| (CDR |lp|) . #4#)
                    (LETT |newts| (SPADCALL (QREFELT $ 21)) . #4#)
                    (LETT |newts| (SPADCALL |p| |newts| (QREFELT $ 27)) . #4#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |lp|) 'NIL) ('T 'T))) (GO G191)))
+                   (SEQ G190 (COND ((NULL (NULL (NULL |lp|))) (GO G191)))
                         (SEQ (LETT |p| (|SPADfirst| |lp|) . #4#)
                              (LETT |lv| (SPADCALL |p| (QREFELT $ 32)) . #4#)
                              (SEQ (LETT |v| NIL . #4#) (LETT #3# |lv| . #4#)

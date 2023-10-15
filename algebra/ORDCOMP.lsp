@@ -16,7 +16,9 @@
 
 (SDEFUN |ORDCOMP;plusInfinity;$;5| (($ $)) (CONS 1 'T)) 
 
-(SDEFUN |ORDCOMP;minusInfinity;$;6| (($ $)) (CONS 1 'NIL)) 
+(PUT '|ORDCOMP;minusInfinity;$;6| '|SPADreplace| '(XLAM NIL (CONS 1 NIL))) 
+
+(SDEFUN |ORDCOMP;minusInfinity;$;6| (($ $)) (CONS 1 NIL)) 
 
 (SDEFUN |ORDCOMP;retractIfCan;$U;7| ((|x| $) ($ |Union| R "failed"))
         (COND ((QEQCAR |x| 0) (CONS 0 (CDR |x|))) ('T (CONS 1 "failed")))) 
@@ -44,10 +46,9 @@
          ((QEQCAR |x| 1)
           (COND
            ((QEQCAR |y| 1)
-            (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) 'NIL)
-                  (#1='T 'T)))
-           (#1# 'NIL)))
-         ((QEQCAR |y| 1) 'NIL)
+            (NULL (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27))))
+           (#1='T NIL)))
+         ((QEQCAR |y| 1) NIL)
          (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 28))))) 
 
 (SDEFUN |ORDCOMP;Zero;$;11| (($ $)) (CONS 0 (|spadConstant| $ 30))) 
@@ -56,13 +57,13 @@
         (COND
          ((QEQCAR |x| 1)
           (COND ((SPADCALL |n| 0 (QREFELT $ 33)) |x|)
-                ((< |n| 0) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
-                (#1# (|error| "Undefined product"))))
+                ((< |n| 0) (CONS 1 (NULL (CDR |x|))))
+                (#1='T (|error| "Undefined product"))))
          (#1# (CONS 0 (SPADCALL |n| (CDR |x|) (QREFELT $ 34)))))) 
 
 (SDEFUN |ORDCOMP;-;2$;13| ((|x| $) ($ $))
-        (COND ((QEQCAR |x| 1) (CONS 1 (COND ((CDR |x|) 'NIL) (#1='T 'T))))
-              (#1# (CONS 0 (SPADCALL (CDR |x|) (QREFELT $ 36)))))) 
+        (COND ((QEQCAR |x| 1) (CONS 1 (NULL (CDR |x|))))
+              ('T (CONS 0 (SPADCALL (CDR |x|) (QREFELT $ 36)))))) 
 
 (SDEFUN |ORDCOMP;+;3$;14| ((|x| $) (|y| $) ($ $))
         (COND
@@ -84,8 +85,8 @@
         (COND
          ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 45)) (CONS 1 |b|))
          ((SPADCALL |r| (|spadConstant| $ 30) (QREFELT $ 46))
-          (CONS 1 (COND (|b| 'NIL) (#1='T 'T))))
-         (#1# (|error| "Undefined product")))) 
+          (CONS 1 (NULL |b|)))
+         ('T (|error| "Undefined product")))) 
 
 (SDEFUN |ORDCOMP;*;3$;18| ((|x| $) (|y| $) ($ $))
         (COND
@@ -118,8 +119,8 @@
           (COND
            ((QEQCAR |y| 1)
             (COND ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 27)) (CDR |y|))
-                  (#1='T 'NIL)))
-           ((CDR |x|) 'NIL) (#1# 'T)))
+                  (#1='T NIL)))
+           (#1# (NULL (CDR |x|)))))
          ((QEQCAR |y| 1) (CDR |y|))
          (#1# (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 46))))) 
 

@@ -10,7 +10,7 @@
                      (|:| |td| (|List| (|List| S)))))
           (|y| (|List| S)))
          (SEQ
-          (COND ((NULL |lls|) (VECTOR 'NIL |x| (LIST |x|)))
+          (COND ((NULL |lls|) (VECTOR NIL |x| (LIST |x|)))
                 (#1='T
                  (SEQ
                   (LETT |y| (|SPADfirst| |lls|)

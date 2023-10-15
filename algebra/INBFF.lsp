@@ -98,12 +98,10 @@
                                 ((SPADCALL |logqe|
                                            (SPADCALL |expT| |k| (QREFELT $ 36))
                                            (QREFELT $ 39))
-                                 (COND
-                                  ((|zero?_SI|
-                                    (SPADCALL |expT| |k| (QREFELT $ 36)))
-                                   'NIL)
-                                  ('T 'T)))
-                                ('T 'NIL)))
+                                 (NULL
+                                  (|zero?_SI|
+                                   (SPADCALL |expT| |k| (QREFELT $ 36)))))
+                                ('T NIL)))
                               (GO G191)))
                             (SEQ (EXIT (LETT |k| (|add_SI| |k| 1) . #3#))) NIL
                             (GO G190) G191 (EXIT NIL))
@@ -172,8 +170,7 @@
                  (LETT |plist| (SPADCALL |plist| |b| (QREFELT $ 45)) . #4#)))
                (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191 (EXIT NIL))
           (LETT |l| NIL . #4#) (LETT |ex| |e| . #4#)
-          (SEQ G190
-               (COND ((NULL (COND ((EQL |ex| 0) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (EQL |ex| 0))) (GO G191)))
                (SEQ
                 (LETT |l|
                       (SPADCALL |l| (SPADCALL |ex| |qk| (QREFELT $ 29))
@@ -518,7 +515,7 @@
                      (SPADCALL |x| (QREFELT $ 76)) (QREFELT $ 77))
            (|spadConstant| $ 73) (QREFELT $ 78))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |INBFF;/;3V;14| ((|x| |Vector| GF) (|y| |Vector| GF) ($ |Vector| GF))
         (SPADCALL |x| (SPADCALL |y| (QREFELT $ 26)) (QREFELT $ 21))) 

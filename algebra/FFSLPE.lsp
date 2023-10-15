@@ -65,11 +65,9 @@
                                  ((SPADCALL
                                    (SPADCALL (QREFELT $ 14) (QREFELT $ 26)) 1
                                    (QREFELT $ 27))
-                                  (COND
-                                   ((SPADCALL (QREFELT $ 14) (QREFELT $ 29))
-                                    'NIL)
-                                   ('T 'T)))
-                                 ('T 'NIL)))
+                                  (NULL
+                                   (SPADCALL (QREFELT $ 14) (QREFELT $ 29))))
+                                 ('T NIL)))
                                (GO G191)))
                              (SEQ
                               (EXIT

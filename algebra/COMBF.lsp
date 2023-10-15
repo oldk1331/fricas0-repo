@@ -323,8 +323,8 @@
                                           (QREFELT $ 61))
                                 (SPADCALL |l2| (QREFELT $ 40)) (QREFELT $ 62))
                       (|SPADfirst| |l2|) (QREFELT $ 83)))
-                    (#3='T 'NIL)))
-                  (#3# 'NIL)))))) 
+                    (#3='T NIL)))
+                  (#3# NIL)))))) 
 
 (SDEFUN |COMBF;product;FSbF;25| ((|x| F) (|s| |SegmentBinding| F) ($ F))
         (SPROG ((|dm| (F)) (|k| (|Kernel| F)))

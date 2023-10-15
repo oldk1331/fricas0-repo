@@ -31,7 +31,7 @@
                                                (SPADCALL |p2| (QREFELT $ 18))
                                                (QREFELT $ 20))
                                      . #5#)
-                               (EXIT (COND ((QEQCAR |e| 1) 'NIL) ('T 'T)))))
+                               (EXIT (NULL (QEQCAR |e| 1)))))
                              (GO G191)))
                            (SEQ
                             (LETT |c|

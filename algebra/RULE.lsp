@@ -49,8 +49,8 @@
                       (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 31))
             (SPADCALL (SPADCALL |x| (QREFELT $ 15))
                       (SPADCALL |y| (QREFELT $ 15)) (QREFELT $ 32)))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |RULE;elt;$FPiF;11| ((|r| $) (|s| F) (|n| |PositiveInteger|) ($ F))
         (SPADCALL (LIST |r|) |s| |n| (QREFELT $ 35))) 
@@ -178,7 +178,7 @@
                                 (GO #6=#:G160))))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |RULE;bad?|
@@ -206,7 +206,7 @@
                                  (PROGN
                                   (LETT #1#
                                         (PROGN
-                                         (LETT #2# 'NIL . #4#)
+                                         (LETT #2# NIL . #4#)
                                          (GO #5=#:G173))
                                         . #4#)
                                   (GO #6=#:G171))))))))
@@ -214,7 +214,7 @@
                            (EXIT NIL)))
                      #6# (EXIT #1#))
                     (EXIT 'T)))
-                  ('T 'NIL)))
+                  ('T NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |RULE;transformLhs|

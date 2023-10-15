@@ -1383,10 +1383,10 @@
                                  . #3#)
                            (LETT |foundNew|
                                  (COND
-                                  ((OR (SPADCALL |p| |gens2| (QREFELT $ 103))
-                                       (SPADCALL |p| |resu| (QREFELT $ 103)))
-                                   'NIL)
-                                  ('T 'T))
+                                  ((SPADCALL |p| |gens2| (QREFELT $ 103)) NIL)
+                                  ('T
+                                   (NULL
+                                    (SPADCALL |p| |resu| (QREFELT $ 103)))))
                                  . #3#)
                            (EXIT
                             (COND
@@ -1500,8 +1500,7 @@
                       (|MFGRPH;generateNewPerms| |elements| |strngs|
                        |permutationNames| $)
                       . #8#)
-                (LETT |contin| (COND ((NULL (QCAR |resu|)) 'NIL) ('T 'T))
-                      . #8#)
+                (LETT |contin| (NULL (NULL (QCAR |resu|))) . #8#)
                 (EXIT
                  (COND
                   (|contin|
@@ -1587,7 +1586,7 @@
                (SEQ
                 (LETT |perms| (SPADCALL |pg| (QREFELT $ 122))
                       |MFGRPH;toCayleyGraph;PgMg;40|)
-                (EXIT (SPADCALL |perms| 'NIL (QREFELT $ 121)))))) 
+                (EXIT (SPADCALL |perms| NIL (QREFELT $ 121)))))) 
 
 (SDEFUN |MFGRPH;toPermutation;$Pg;41|
         ((|s| $) ($ |PermutationGroup| (|NonNegativeInteger|)))

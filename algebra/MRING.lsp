@@ -457,11 +457,9 @@
                           (QREFELT $ 92))
                 . #2=(|MRING;construct;L$;40|))
           (LETT |res| NIL . #2#)
-          (SEQ G190 (COND ((NULL (COND ((NULL |xs|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |xs|))) (GO G191)))
                (SEQ (LETT |t1| (|SPADfirst| |xs|) . #2#)
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |xs|) 'NIL) ('T 'T))) (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |xs|))) (GO G191)))
                          (SEQ (LETT |t2| (|SPADfirst| |xs|) . #2#)
                               (EXIT
                                (COND
@@ -519,7 +517,7 @@
            (COND
             ((SPADCALL (LENGTH (|MRING;rep| |a| $))
                        (LENGTH (|MRING;rep| |b| $)) (QREFELT $ 65))
-             'NIL)
+             NIL)
             ('T
              (SEQ
               (SEQ
@@ -537,8 +535,7 @@
                         ((OR (SPADCALL (QCDR |ta|) (QCDR |tb|) (QREFELT $ 54))
                              (SPADCALL (QCAR |ta|) (QCAR |tb|) (QREFELT $ 70)))
                          (PROGN
-                          (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #5#) (GO #6=#:G337))
+                          (LETT #1# (PROGN (LETT #2# NIL . #5#) (GO #6=#:G337))
                                 . #5#)
                           (GO #7=#:G334))))))
                      (LETT #3# (PROG1 (CDR #3#) (LETT #4# (CDR #4#) . #5#))
@@ -558,7 +555,7 @@
               (SEQ G190
                    (COND
                     ((NULL
-                      (COND ((OR (NULL |repa|) (NULL |repb|)) 'NIL) ('T 'T)))
+                      (COND ((NULL |repa|) NIL) ('T (NULL (NULL |repb|)))))
                      (GO G191)))
                    (SEQ (LETT |ta| (|SPADfirst| |repa|) . #2#)
                         (LETT |tb| (|SPADfirst| |repb|) . #2#)
@@ -693,15 +690,13 @@
                                (SEQ
                                 (EXIT
                                  (COND
-                                  ((COND
-                                    ((SPADCALL
-                                      (LETT |r|
-                                            (SPADCALL (QCDR |ta|) (QCDR |tb|)
-                                                      (QREFELT $ 52))
-                                            . #7#)
-                                      (QREFELT $ 94))
-                                     'NIL)
-                                    ('T 'T))
+                                  ((NULL
+                                    (SPADCALL
+                                     (LETT |r|
+                                           (SPADCALL (QCDR |ta|) (QCDR |tb|)
+                                                     (QREFELT $ 52))
+                                           . #7#)
+                                     (QREFELT $ 94)))
                                    (LETT #5#
                                          (CONS
                                           (CONS
@@ -722,7 +717,7 @@
 (SDEFUN |MRING;ge|
         ((|s| |Record| (|:| |k| M) (|:| |c| R))
          (|t| |Record| (|:| |k| M) (|:| |c| R)) ($ |Boolean|))
-        (COND ((SPADCALL (QCAR |s|) (QCAR |t|) (QREFELT $ 90)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL (QCAR |s|) (QCAR |t|) (QREFELT $ 90)))) 
 
 (SDEFUN |MRING;sortAndAdd|
         ((|liTe| |List| (|Record| (|:| |k| M) (|:| |c| R)))
@@ -853,16 +848,14 @@
                                        (SEQ
                                         (EXIT
                                          (COND
-                                          ((COND
-                                            ((SPADCALL
-                                              (LETT |r|
-                                                    (SPADCALL (QCDR |ta|)
-                                                              (QCDR |tb|)
-                                                              (QREFELT $ 52))
-                                                    . #8#)
-                                              (QREFELT $ 94))
-                                             'NIL)
-                                            ('T 'T))
+                                          ((NULL
+                                            (SPADCALL
+                                             (LETT |r|
+                                                   (SPADCALL (QCDR |ta|)
+                                                             (QCDR |tb|)
+                                                             (QREFELT $ 52))
+                                                   . #8#)
+                                             (QREFELT $ 94)))
                                            (LETT #5#
                                                  (CONS
                                                   (CONS
@@ -887,7 +880,7 @@
                   (COND (#1# #2#) (#7# (|spadConstant| $ 15))))))))) 
 
 (SDEFUN |MRING;=;2$B;51| ((|a| $) (|b| $) ($ |Boolean|))
-        (COND ((SPADCALL (LENGTH |a|) (LENGTH |b|) (QREFELT $ 65)) 'NIL)
+        (COND ((SPADCALL (LENGTH |a|) (LENGTH |b|) (QREFELT $ 65)) NIL)
               ('T
                (SPADCALL (SPADCALL |a| (QREFELT $ 106))
                          (SPADCALL |b| (QREFELT $ 106)) (QREFELT $ 107))))) 

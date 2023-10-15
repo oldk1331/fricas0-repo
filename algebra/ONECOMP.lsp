@@ -26,7 +26,7 @@
               ('T (SPADCALL (QCDR |x|) (QREFELT $ 19))))) 
 
 (SDEFUN |ONECOMP;=;2$B;8| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((QEQCAR |x| 1) (QEQCAR |y| 1)) ((QEQCAR |y| 1) 'NIL)
+        (COND ((QEQCAR |x| 1) (QEQCAR |y| 1)) ((QEQCAR |y| 1) NIL)
               ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 21))))) 
 
 (SDEFUN |ONECOMP;Zero;$;9| (($ $)) (CONS 0 (|spadConstant| $ 23))) 
@@ -77,7 +77,7 @@
                                (#2# (CONS 0 (CONS 0 (QCDR |u|)))))))))))) 
 
 (SDEFUN |ONECOMP;<;2$B;18| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((QEQCAR |x| 1) 'NIL) ((QEQCAR |y| 1) 'T)
+        (COND ((QEQCAR |x| 1) NIL) ((QEQCAR |y| 1) 'T)
               ('T (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 43))))) 
 
 (SDEFUN |ONECOMP;rational?;$B;19| ((|x| $) ($ |Boolean|))

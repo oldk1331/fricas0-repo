@@ -113,14 +113,14 @@
                                 (SPADCALL
                                  (LIST (|spadConstant| $ 28)
                                        (SPADCALL (|spadConstant| $ 28)
-                                                 (QREFELT $ 48)))
-                                 (QREFELT $ 50))
+                                                 (QREFELT $ 45)))
+                                 (QREFELT $ 47))
                                 (QREFELT $ 20))
                       (QREFELT $ 26))
                      . #3#)
                (LETT |chi|
-                     (SPADCALL (SPADCALL S1 |z1z| (QREFELT $ 51))
-                               (QREFELT $ 52))
+                     (SPADCALL (SPADCALL S1 |z1z| (QREFELT $ 48))
+                               (QREFELT $ 49))
                      . #3#)
                (LETT |psi| (SPADCALL |chi| (QREFELT $ 22)) . #3#)
                (EXIT
@@ -129,21 +129,21 @@
                        (SPADCALL
                         (SPADCALL (SPADCALL |psi| (QREFELT $ 24))
                                   (QREFELT $ 23))
-                        (QREFELT $ 53))
+                        (QREFELT $ 50))
                        . #3#)
                  (GO #4=#:G128)))))
              ((NULL
                (SPADCALL (SPADCALL S (QREFELT $ 40))
                          (SPADCALL (SPADCALL 1 2 (QREFELT $ 32))
-                                   (QREFELT $ 54))
+                                   (QREFELT $ 51))
                          (QREFELT $ 42)))
               (|error| "Not an S-transform")))
             (COND
              ((NULL
-               (SPADCALL (SPADCALL S (QREFELT $ 55))
+               (SPADCALL (SPADCALL S (QREFELT $ 52))
                          (SPADCALL 1 2 (QREFELT $ 32)) (QREFELT $ 42)))
               (|error| "Not an S-transform")))
-            (LETT S2 (SPADCALL S (QREFELT $ 56)) . #3#)
+            (LETT S2 (SPADCALL S (QREFELT $ 53)) . #3#)
             (LETT |z1z|
                   (SPADCALL
                    (SPADCALL (|spadConstant| $ 18)
@@ -151,27 +151,27 @@
                               (LIST (|spadConstant| $ 18) (|spadConstant| $ 28)
                                     (|spadConstant| $ 18)
                                     (SPADCALL (|spadConstant| $ 28)
-                                              (QREFELT $ 48)))
-                              (QREFELT $ 50))
+                                              (QREFELT $ 45)))
+                              (QREFELT $ 47))
                              (QREFELT $ 20))
                    (QREFELT $ 26))
                   . #3#)
             (LETT |chi2|
                   (SPADCALL
                    (SPADCALL S2 (SPADCALL 0 |z1z| (QREFELT $ 34))
-                             (QREFELT $ 58))
+                             (QREFELT $ 54))
                    (QREFELT $ 44))
                   . #3#)
             (LETT |psi2|
-                  (SPADCALL (SPADCALL |chi2| (QREFELT $ 52)) (QREFELT $ 22))
+                  (SPADCALL (SPADCALL |chi2| (QREFELT $ 49)) (QREFELT $ 22))
                   . #3#)
             (LETT |psi|
-                  (SPADCALL (SPADCALL 2 (QREFELT $ 59)) |psi2| (QREFELT $ 33))
+                  (SPADCALL (SPADCALL 2 (QREFELT $ 55)) |psi2| (QREFELT $ 33))
                   . #3#)
             (EXIT
              (SPADCALL
               (SPADCALL (SPADCALL |psi| (QREFELT $ 24)) (QREFELT $ 23))
-              (QREFELT $ 53)))))
+              (QREFELT $ 50)))))
           #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |STransformPackage;|)) 
@@ -206,7 +206,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|STransformPackage| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 61) . #1#)
+    (LETT $ (GETREFV 57) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|STransformPackage|
@@ -232,19 +232,18 @@
               (80 . |laurent|) (86 . +) (92 . |puiseux|)
               |STRANS;STransform2;DUPSR;2| (98 . |One|)
               |STRANS;STransform;DUPSR;3| (102 . |order|) (107 . |Zero|)
-              (111 . =) (117 . |retract|) (122 . |retract|) (127 . |Zero|)
-              (131 . |Zero|) (135 . |Zero|) (139 . -) (|List| 6)
-              (144 . |repeating|) (149 . *) (155 . |coefficients|)
-              (160 . |distributionByMoments|) (165 . -) (170 . |rationalPower|)
-              (175 . |laurentRep|) (180 . |Zero|) (184 . *) (190 . |coerce|)
+              (111 . =) (117 . |retract|) (122 . |retract|) (127 . -)
+              (|List| 6) (132 . |repeating|) (137 . *) (143 . |coefficients|)
+              (148 . |distributionByMoments|) (153 . -) (158 . |rationalPower|)
+              (163 . |laurentRep|) (168 . *) (174 . |coerce|)
               |STRANS;distributionBySTransform;UPSRD;4|)
-           '#(|freeMultiplicativeConvolution| 195 |distributionBySTransform|
-              201 |STransform2| 206 |STransform1| 211 |STransform| 216)
+           '#(|freeMultiplicativeConvolution| 179 |distributionBySTransform|
+              185 |STransform2| 190 |STransform1| 195 |STransform| 200)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 60
+                             (|makeByteWordVec2| 56
                                                  '(1 11 10 0 12 1 10 13 0 14 1
                                                    13 6 0 15 1 6 16 0 17 0 6 0
                                                    18 0 7 0 19 2 13 0 6 0 20 1
@@ -256,13 +255,11 @@
                                                    35 2 9 0 31 8 36 0 31 0 38 1
                                                    9 31 0 40 0 31 0 41 2 31 16
                                                    0 0 42 1 9 8 0 43 1 8 7 0 44
-                                                   0 8 0 45 0 9 0 46 0 11 0 47
-                                                   1 6 0 0 48 1 13 0 49 50 2 7
-                                                   0 0 0 51 1 7 13 0 52 1 11 0
-                                                   10 53 1 31 0 0 54 1 9 31 0
-                                                   55 1 9 8 0 56 0 10 0 57 2 8
-                                                   0 0 0 58 1 31 0 30 59 2 0 11
-                                                   11 11 1 1 0 11 9 60 1 0 9 11
-                                                   37 1 0 7 11 27 1 0 9 11
-                                                   39)))))
+                                                   1 6 0 0 45 1 13 0 46 47 2 7
+                                                   0 0 0 48 1 7 13 0 49 1 11 0
+                                                   10 50 1 31 0 0 51 1 9 31 0
+                                                   52 1 9 8 0 53 2 8 0 0 0 54 1
+                                                   31 0 30 55 2 0 11 11 11 1 1
+                                                   0 11 9 56 1 0 9 11 37 1 0 7
+                                                   11 27 1 0 9 11 39)))))
            '|lookupComplete|)) 

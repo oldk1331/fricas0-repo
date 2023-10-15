@@ -124,7 +124,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |lj2|) 'NIL)
+                                (COND ((NULL |lj2|) NIL)
                                       ('T
                                        (SPADCALL (|SPADfirst| |lj2|) |j1|
                                                  (QREFELT $ 55)))))

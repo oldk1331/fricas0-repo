@@ -79,15 +79,13 @@
                                       (QREFELT $ 19))
                             (|spadConstant| $ 8) (QREFELT $ 21))
                            "iterate")
-                          ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G279))))))
+                          ('T (PROGN (LETT #1# NIL . #3#) (GO #4=#:G279))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |LIMITPS;noX?| ((|fcn| FE) (|x| |Symbol|) ($ |Boolean|))
-        (COND
-         ((SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 23)) (QREFELT $ 24)) 'NIL)
-         ('T 'T))) 
+        (NULL (SPADCALL |x| (SPADCALL |fcn| (QREFELT $ 23)) (QREFELT $ 24)))) 
 
 (SDEFUN |LIMITPS;constant?| ((|fcn| FE) ($ |Boolean|))
         (NULL (SPADCALL |fcn| (QREFELT $ 23)))) 
@@ -102,8 +100,7 @@
            (SEQ
             (LETT |list| (SPADCALL |fcn| (QREFELT $ 25))
                   . #2=(|LIMITPS;firstNonLogPtr|))
-            (SEQ G190
-                 (COND ((NULL (COND ((NULL |list|) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL (NULL (NULL |list|))) (GO G191)))
                  (SEQ (LETT |ker| (|SPADfirst| |list|) . #2#)
                       (COND
                        ((NULL (SPADCALL |ker| '|log| (QREFELT $ 26)))
@@ -155,7 +152,7 @@
                                                        (QREFELT $
                                                                 26))))))))))))))))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LIMITPS;finiteValueAtPlusInfinity?|
         ((|ker| |Kernel| FE) ($ |Boolean|))
@@ -164,7 +161,7 @@
               (OR (SPADCALL |ker| '|Ci| (QREFELT $ 26))
                   (SPADCALL |ker| '|airyAiPrime| (QREFELT $ 26))))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LIMITPS;finiteValueAtMinusInfinity?|
         ((|ker| |Kernel| FE) ($ |Boolean|))
@@ -172,7 +169,7 @@
          ((OR (|LIMITPS;finiteValueAtInfinity?| |ker| $)
               (SPADCALL |ker| '|airyBi| (QREFELT $ 26)))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LIMITPS;knownValueAtInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
         (COND
@@ -181,7 +178,7 @@
                   (OR (SPADCALL |ker| '|cosh| (QREFELT $ 26))
                       (SPADCALL |ker| '|Shi| (QREFELT $ 26)))))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LIMITPS;knownValueAtPlusInfinity?| ((|ker| |Kernel| FE) ($ |Boolean|))
         (COND
@@ -190,11 +187,11 @@
                   (OR (SPADCALL |ker| '|airyBiPrime| (QREFELT $ 26))
                       (SPADCALL |ker| '|Chi| (QREFELT $ 26)))))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |LIMITPS;knownValueAtMinusInfinity?|
         ((|ker| |Kernel| FE) ($ |Boolean|))
-        (COND ((|LIMITPS;knownValueAtInfinity?| |ker| $) 'T) ('T 'NIL))) 
+        (COND ((|LIMITPS;knownValueAtInfinity?| |ker| $) 'T) ('T NIL))) 
 
 (SDEFUN |LIMITPS;leftOrRight|
         ((|fcn| FE) (|x| |Symbol|) (|limVal| FE) ($ |SingleInteger|))
@@ -1105,7 +1102,7 @@
                                 (GO #6=#:G515)))))
                             #6# (EXIT #1#))))))
                        (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |LIMITPS;complLimit|
@@ -1278,7 +1275,7 @@
                               |x|)
                              . #22#)
                        (LETT |pseries|
-                             (SPADCALL |fcn| 'NIL (CONS 0 "complex")
+                             (SPADCALL |fcn| NIL (CONS 0 "complex")
                                        (|compiledLookupCheck| '|exprToUPS|
                                                               (LIST
                                                                (LIST '|Union|
@@ -1381,7 +1378,7 @@
                               |x|)
                              . #22#)
                        (LETT |lseries|
-                             (SPADCALL |fcn| 'NIL (CONS 0 "complex")
+                             (SPADCALL |fcn| NIL (CONS 0 "complex")
                                        (|compiledLookupCheck| '|exprToUPS|
                                                               (LIST
                                                                (LIST '|Union|

@@ -8,7 +8,7 @@
          ((SPADCALL |op| '|any| (QREFELT $ 20))
           (COND ((SPADCALL |op| '|%paren| (QREFELT $ 21)) 'T)
                 (#1='T (SPADCALL |op| '|%box| (QREFELT $ 21)))))
-         (#1# 'NIL))) 
+         (#1# NIL))) 
 
 (SDEFUN |ES-;listk| ((|f| S) ($ |List| (|Kernel| S)))
         (SPADCALL (|ES-;allKernels| |f| $) (QREFELT $ 25))) 
@@ -102,27 +102,25 @@
 (SDEFUN |ES-;freeOf?;SSB;11| ((|x| S) (|s| |Symbol|) ($ |Boolean|))
         (SPROG ((#1=#:G178 NIL) (|k| NIL) (#2=#:G177 NIL))
                (SEQ
-                (COND
-                 ((SPADCALL |s|
-                            (PROGN
-                             (LETT #2# NIL . #3=(|ES-;freeOf?;SSB;11|))
-                             (SEQ (LETT |k| NIL . #3#)
-                                  (LETT #1# (|ES-;listk| |x| $) . #3#) G190
-                                  (COND
-                                   ((OR (ATOM #1#)
-                                        (PROGN (LETT |k| (CAR #1#) . #3#) NIL))
-                                    (GO G191)))
-                                  (SEQ
-                                   (EXIT
-                                    (LETT #2#
-                                          (CONS (SPADCALL |k| (QREFELT $ 52))
-                                                #2#)
-                                          . #3#)))
-                                  (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                                  (EXIT (NREVERSE #2#))))
-                            (QREFELT $ 54))
-                  'NIL)
-                 ('T 'T))))) 
+                (NULL
+                 (SPADCALL |s|
+                           (PROGN
+                            (LETT #2# NIL . #3=(|ES-;freeOf?;SSB;11|))
+                            (SEQ (LETT |k| NIL . #3#)
+                                 (LETT #1# (|ES-;listk| |x| $) . #3#) G190
+                                 (COND
+                                  ((OR (ATOM #1#)
+                                       (PROGN (LETT |k| (CAR #1#) . #3#) NIL))
+                                   (GO G191)))
+                                 (SEQ
+                                  (EXIT
+                                   (LETT #2#
+                                         (CONS (SPADCALL |k| (QREFELT $ 52))
+                                               #2#)
+                                         . #3#)))
+                                 (LETT #1# (CDR #1#) . #3#) (GO G190) G191
+                                 (EXIT (NREVERSE #2#))))
+                           (QREFELT $ 54)))))) 
 
 (SDEFUN |ES-;distribute;2S;12| ((|x| S) ($ S))
         (SPROG ((#1=#:G183 NIL) (|k| NIL) (#2=#:G182 NIL))
@@ -153,11 +151,9 @@
         (SPADCALL (QREFELT $ 12) |l| (QREFELT $ 58))) 
 
 (SDEFUN |ES-;freeOf?;2SB;15| ((|x| S) (|k| S) ($ |Boolean|))
-        (COND
-         ((SPADCALL (SPADCALL |k| (QREFELT $ 62)) (|ES-;listk| |x| $)
-                    (QREFELT $ 63))
-          'NIL)
-         ('T 'T))) 
+        (NULL
+         (SPADCALL (SPADCALL |k| (QREFELT $ 62)) (|ES-;listk| |x| $)
+                   (QREFELT $ 63)))) 
 
 (SDEFUN |ES-;kernel;Bo2S;16| ((|op| |BasicOperator|) (|arg| S) ($ S))
         (SPADCALL |op| (LIST |arg|) (QREFELT $ 65))) 
@@ -540,14 +536,14 @@
         (SPROG ((|k| (|Union| (|Kernel| S) "failed")))
                (SEQ (LETT |k| (SPADCALL |f| (QREFELT $ 126)) |ES-;is?;SSB;43|)
                     (EXIT
-                     (COND ((QEQCAR |k| 1) 'NIL)
+                     (COND ((QEQCAR |k| 1) NIL)
                            ('T (SPADCALL (QCDR |k|) |s| (QREFELT $ 127)))))))) 
 
 (SDEFUN |ES-;is?;SBoB;44| ((|f| S) (|op| |BasicOperator|) ($ |Boolean|))
         (SPROG ((|k| (|Union| (|Kernel| S) "failed")))
                (SEQ (LETT |k| (SPADCALL |f| (QREFELT $ 126)) |ES-;is?;SBoB;44|)
                     (EXIT
-                     (COND ((QEQCAR |k| 1) 'NIL)
+                     (COND ((QEQCAR |k| 1) NIL)
                            ('T (SPADCALL (QCDR |k|) |op| (QREFELT $ 56)))))))) 
 
 (SDEFUN |ES-;unwrap| ((|l| |List| (|Kernel| S)) (|x| S) ($ S))
@@ -594,7 +590,7 @@
                                         (|ES-;listk|
                                          (SPADCALL |k| (QREFELT $ 98)) $)
                                         (QREFELT $ 63)))
-                             ('T 'NIL))
+                             ('T NIL))
                             (LETT #2# (CONS |k| #2#) . #3#)))))
                         (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                         (EXIT (NREVERSE #2#))))
@@ -658,7 +654,7 @@
                (SEQ (LETT |u| (SPADCALL |x| (QREFELT $ 145)) |ES-;intpred?|)
                     (EXIT
                      (COND ((QEQCAR |u| 0) (SPADCALL (QCDR |u|) |pred?|))
-                           ('T 'NIL)))))) 
+                           ('T NIL)))))) 
 
 (DECLAIM (NOTINLINE |ExpressionSpace&;|)) 
 

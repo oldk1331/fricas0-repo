@@ -445,9 +445,7 @@
                           (SPADCALL |n| |a| (QREFELT $ 58))
                           (SEQ G190
                                (COND
-                                ((NULL
-                                  (COND ((SPADCALL |a| (QREFELT $ 59)) 'NIL)
-                                        ('T 'T)))
+                                ((NULL (NULL (SPADCALL |a| (QREFELT $ 59))))
                                  (GO G191)))
                                (SEQ
                                 (LETT |n| (SPADCALL |a| (QREFELT $ 60)) . #3#)
@@ -542,9 +540,7 @@
                                NIL (GO G190) G191 (EXIT NIL))
                           (SEQ G190
                                (COND
-                                ((NULL
-                                  (COND ((SPADCALL |b| (QREFELT $ 59)) 'NIL)
-                                        ('T 'T)))
+                                ((NULL (NULL (SPADCALL |b| (QREFELT $ 59))))
                                  (GO G191)))
                                (SEQ
                                 (LETT |n| (SPADCALL |b| (QREFELT $ 60)) . #3#)
@@ -561,9 +557,7 @@
                                NIL (GO G190) G191 (EXIT NIL))
                           (SEQ G190
                                (COND
-                                ((NULL
-                                  (COND ((SPADCALL |f| (QREFELT $ 59)) 'NIL)
-                                        ('T 'T)))
+                                ((NULL (NULL (SPADCALL |f| (QREFELT $ 59))))
                                  (GO G191)))
                                (SEQ
                                 (LETT |n| (SPADCALL |f| (QREFELT $ 60)) . #3#)

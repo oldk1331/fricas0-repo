@@ -385,7 +385,7 @@
                                          (EXIT
                                           (COND
                                            ((QEQCAR |pp| 1)
-                                            (SEQ (LETT |ok| 'NIL . #6#)
+                                            (SEQ (LETT |ok| NIL . #6#)
                                                  (EXIT
                                                   (PROGN
                                                    (LETT #2# |$NoValue| . #6#)
@@ -407,7 +407,7 @@
                                                       (QREFELT $ 116))
                                                      |feps| (QREFELT $ 118)))
                                                    (EXIT
-                                                    (SEQ (LETT |ok| 'NIL . #6#)
+                                                    (SEQ (LETT |ok| NIL . #6#)
                                                          (EXIT
                                                           (PROGN
                                                            (LETT #2# |$NoValue|
@@ -928,7 +928,7 @@
                                            (COND
                                             (#33#
                                              (LETT #34#
-                                                   (COND (#34# #36#) ('T 'NIL))
+                                                   (COND (#34# #36#) ('T NIL))
                                                    . #48#))
                                             ('T
                                              (PROGN
@@ -1026,7 +1026,7 @@
                                             . #48#)
                                       (COND
                                        (#21#
-                                        (LETT #22# (COND (#22# #24#) ('T 'NIL))
+                                        (LETT #22# (COND (#22# #24#) ('T NIL))
                                               . #48#))
                                        ('T
                                         (PROGN

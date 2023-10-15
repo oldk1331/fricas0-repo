@@ -6,8 +6,8 @@
 (SDEFUN |HEUGCD;constNotZero| ((|f| BP) ($ |Boolean|))
         (COND
          ((EQL (SPADCALL |f| (QREFELT $ 12)) 0)
-          (COND ((SPADCALL |f| (QREFELT $ 14)) 'NIL) (#1='T 'T)))
-         (#1# 'NIL))) 
+          (NULL (SPADCALL |f| (QREFELT $ 14))))
+         ('T NIL))) 
 
 (SDEFUN |HEUGCD;negShiftz|
         ((|n| |Integer|) (|Modulus| |PositiveInteger|) ($ |Integer|))
@@ -199,7 +199,7 @@
                               (LETT #6# #8# . #10#)
                               (LETT #5# 'T . #10#)))))))
                    (LETT #9# (CDR #9#) . #10#) (GO G190) G191 (EXIT NIL))
-              (COND (#5# #6#) (#11# 'NIL)))
+              (COND (#5# #6#) (#11# NIL)))
              (CONS (|spadConstant| $ 23) |listf|))
             (#11#
              (SEQ
@@ -332,8 +332,7 @@
                         (SEQ
                          (EXIT
                           (COND
-                           ((COND ((SPADCALL |f| (QREFELT $ 14)) 'NIL)
-                                  (#19='T 'T))
+                           ((NULL (SPADCALL |f| (QREFELT $ 14)))
                             (PROGN
                              (LETT #16# (|HEUGCD;height| |f| $) . #18#)
                              (COND (#14# (LETT #15# (MIN #15# #16#) . #18#))
@@ -343,7 +342,7 @@
                                      (LETT #14# 'T . #18#)))))))))
                         (LETT #17# (CDR #17#) . #18#) (GO G190) G191
                         (EXIT NIL))
-                   (COND (#14# #15#) (#19# (|IdentityError| '|min|))))
+                   (COND (#14# #15#) (#19='T (|IdentityError| '|min|))))
                   . #18#)
             (LETT |answr| (+ 2 (* 2 |hgt|)) . #18#)
             (LETT |minf|
@@ -357,8 +356,7 @@
                         (SEQ
                          (EXIT
                           (COND
-                           ((COND ((SPADCALL |f| (QREFELT $ 14)) 'NIL)
-                                  (#19# 'T))
+                           ((NULL (SPADCALL |f| (QREFELT $ 14)))
                             (PROGN
                              (LETT #11# |f| . #18#)
                              (COND
@@ -434,7 +432,7 @@
                                        . #18#)
                                  (EXIT
                                   (COND
-                                   ((QEQCAR |f1| 1) (LETT |flag| 'NIL . #18#))
+                                   ((QEQCAR |f1| 1) (LETT |flag| NIL . #18#))
                                    ('T
                                     (LETT |result| (CONS (QCDR |f1|) |result|)
                                           . #18#)))))
@@ -812,7 +810,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|HeuGcd|))
           (LETT |dv$| (LIST '|HeuGcd| DV$1) . #1#)
-          (LETT $ (GETREFV 65) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|HeuGcd| (LIST DV$1) (CONS 1 $))
@@ -843,17 +841,16 @@
               (147 . |minimumDegree|) (152 . *) (158 . *)
               (164 . |positiveRemainder|) (|SparseUnivariatePolynomial| 8)
               (170 . |makeSUP|) (|U32Vector|) (|U32VectorPolynomialOperations|)
-              (175 . |to_mod_pa|) (181 . |gcd|) (188 . |degree|) (193 . |Zero|)
-              (197 . |One|) |HEUGCD;gcdprim;LBP;16|
-              |HEUGCD;gcdcofactprim;2L;17| |HEUGCD;gcd;LBP;18|
-              |HEUGCD;gcdcofact;2L;19|)
-           '#(|lintgcd| 201 |gcdprim| 206 |gcdcofactprim| 211 |gcdcofact| 216
-              |gcd| 221 |content| 226)
+              (175 . |to_mod_pa|) (181 . |gcd|) (188 . |degree|)
+              |HEUGCD;gcdprim;LBP;16| |HEUGCD;gcdcofactprim;2L;17|
+              |HEUGCD;gcd;LBP;18| |HEUGCD;gcdcofact;2L;19|)
+           '#(|lintgcd| 193 |gcdprim| 198 |gcdcofactprim| 203 |gcdcofact| 208
+              |gcd| 213 |content| 218)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 64
+                             (|makeByteWordVec2| 62
                                                  '(1 9 8 8 10 1 6 11 0 12 1 6
                                                    13 0 14 0 6 0 15 2 8 13 0 0
                                                    16 2 6 13 0 0 17 1 6 8 0 18
@@ -870,8 +867,8 @@
                                                    0 0 49 2 6 0 8 0 50 2 8 0 0
                                                    0 51 1 6 52 0 53 2 55 54 52
                                                    8 56 3 55 54 54 54 8 57 1 55
-                                                   8 54 58 0 52 0 59 0 52 0 60
-                                                   1 0 8 24 26 1 0 6 28 61 1 0
-                                                   28 28 62 1 0 28 28 64 1 0 6
-                                                   28 63 1 0 24 28 29)))))
+                                                   8 54 58 1 0 8 24 26 1 0 6 28
+                                                   59 1 0 28 28 60 1 0 28 28 62
+                                                   1 0 6 28 61 1 0 24 28
+                                                   29)))))
            '|lookupComplete|)) 

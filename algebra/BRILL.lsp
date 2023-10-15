@@ -5,7 +5,7 @@
                 (LETT |d| (SPADCALL |p| (QREFELT $ 8))
                       |BRILL;squaredPolynomial|)
                 (EXIT
-                 (COND ((EQL |d| 0) 'T) ((ODDP |d|) 'NIL)
+                 (COND ((EQL |d| 0) 'T) ((ODDP |d|) NIL)
                        ('T
                         (|BRILL;squaredPolynomial|
                          (SPADCALL |p| (QREFELT $ 10)) $))))))) 
@@ -51,7 +51,7 @@
                               (PROGN
                                (LETT #1#
                                      (PROGN
-                                      (LETT #2# 'NIL . #6#)
+                                      (LETT #2# NIL . #6#)
                                       (GO #7=#:G126))
                                      . #6#)
                                (GO #8=#:G122)))))))
@@ -86,7 +86,7 @@
           (|origBound| #4#))
          (SEQ
           (EXIT
-           (COND ((ZEROP (QREFELT $ 21)) 'NIL)
+           (COND ((ZEROP (QREFELT $ 21)) NIL)
                  (#6='T
                   (SEQ
                    (LETT |origBound|
@@ -118,7 +118,7 @@
                             (QREFELT $ 20))
                            (EXIT 'T)))))
                        (EXIT
-                        (COND ((EQL (QREFELT $ 21) 1) 'NIL)
+                        (COND ((EQL (QREFELT $ 21) 1) NIL)
                               (#6#
                                (SEQ
                                 (LETT |largeEnough| (+ |largeEnough| 1) . #7#)
@@ -189,7 +189,7 @@
                                               #9# (EXIT #1#))))))
                                          (LETT |i| (+ |i| 1) . #7#) (GO G190)
                                          G191 (EXIT NIL))
-                                    (EXIT 'NIL)))))))))))))))))
+                                    (EXIT NIL)))))))))))))))))
           #8# (EXIT #2#)))) 
 
 (SDEFUN |BRILL;noLinearFactor?;UPB;7| ((|p| UP) ($ |Boolean|))
@@ -198,8 +198,8 @@
           (COND
            ((ODDP (SPADCALL |p| 0 (QREFELT $ 29)))
             (ODDP (SPADCALL |p| 1 (QREFELT $ 32))))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (DECLAIM (NOTINLINE |BrillhartTests;|)) 
 

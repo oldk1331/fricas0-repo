@@ -414,7 +414,7 @@
                                           #'|PMTOOLS;patternMatch;LLMPmrMPmr;8!2|
                                           $)
                                          |lp| (QREFELT $ 46))
-                                        (QREFELT $ 57))
+                                        (QREFELT $ 55))
                                        . #3#)
                                  (LETT |l4|
                                        (SPADCALL
@@ -512,30 +512,24 @@
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!3| ((|p1| NIL) ($ NIL))
         (COND
          ((SPADCALL |p1| (QREFELT $ 34))
-          (COND
-           ((OR (SPADCALL |p1| (QREFELT $ 43)) (SPADCALL |p1| (QREFELT $ 52)))
-            (|spadConstant| $ 53))
-           ('T (|spadConstant| $ 54))))
-         ('T (|spadConstant| $ 53)))) 
+          (COND ((SPADCALL |p1| (QREFELT $ 43)) NIL)
+                ('T (NULL (SPADCALL |p1| (QREFELT $ 52))))))
+         ('T NIL))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!2| ((|p1| NIL) ($ NIL))
         (COND
-         ((OR (SPADCALL |p1| (QREFELT $ 43))
-              (OR (SPADCALL |p1| (QREFELT $ 34))
-                  (SPADCALL |p1| (QREFELT $ 52))))
-          (|spadConstant| $ 53))
-         ('T (|spadConstant| $ 54)))) 
+         ((OR (SPADCALL |p1| (QREFELT $ 43)) (SPADCALL |p1| (QREFELT $ 34)))
+          NIL)
+         ('T (NULL (SPADCALL |p1| (QREFELT $ 52)))))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!1| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPADCALL (SPADCALL |z1| (QREFELT $ 55)) (SPADCALL |z2| (QREFELT $ 55))
+        (SPADCALL (SPADCALL |z1| (QREFELT $ 53)) (SPADCALL |z2| (QREFELT $ 53))
                   (QREFELT $ 49))) 
 
 (SDEFUN |PMTOOLS;patternMatch;LLMPmrMPmr;8!0| ((|p1| NIL) ($ NIL))
         (COND
-         ((SPADCALL |p1| (QREFELT $ 43))
-          (COND ((SPADCALL |p1| (QREFELT $ 52)) (|spadConstant| $ 53))
-                ('T (|spadConstant| $ 54))))
-         ('T (|spadConstant| $ 53)))) 
+         ((SPADCALL |p1| (QREFELT $ 43)) (NULL (SPADCALL |p1| (QREFELT $ 52))))
+         ('T NIL))) 
 
 (DECLAIM (NOTINLINE |PatternMatchTools;|)) 
 
@@ -566,7 +560,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT DV$3 (|devaluate| |#3|) . #1#)
           (LETT |dv$| (LIST '|PatternMatchTools| DV$1 DV$2 DV$3) . #1#)
-          (LETT $ (GETREFV 58) . #1#)
+          (LETT $ (GETREFV 56) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|PatternMatchTools|
@@ -598,14 +592,13 @@
               (102 . |getMatch|) (108 . |member?|) (114 . |hasPredicate?|)
               (119 . |optional?|) (|Mapping| 18 11) (124 . |select|)
               (130 . |One|) (|NonNegativeInteger|) (134 . >) (140 . |addMatch|)
-              (147 . |multiple?|) (152 . |constant?|) (157 . |false|)
-              (161 . |true|) (165 . |depth|) (|Mapping| 18 11 11)
-              (170 . |sort!|))
-           '#(|patternMatchTimes| 176 |patternMatch| 184) 'NIL
+              (147 . |multiple?|) (152 . |constant?|) (157 . |depth|)
+              (|Mapping| 18 11 11) (162 . |sort!|))
+           '#(|patternMatchTimes| 168 |patternMatch| 176) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 57
+                             (|makeByteWordVec2| 55
                                                  '(0 8 0 9 1 8 0 0 10 1 8 11 0
                                                    12 1 8 14 0 15 0 7 0 16 0 8
                                                    0 17 2 7 18 0 0 19 1 20 18 0
@@ -619,9 +612,8 @@
                                                    0 43 1 11 18 0 44 2 22 0 45
                                                    0 46 0 7 0 47 2 48 18 0 0 49
                                                    3 20 0 11 8 0 50 1 11 18 0
-                                                   51 1 11 18 0 52 0 18 0 53 0
-                                                   18 0 54 1 11 48 0 55 2 22 0
-                                                   56 0 57 4 0 20 26 22 20 31
-                                                   33 5 0 20 26 22 30 20 31
-                                                   32)))))
+                                                   51 1 11 18 0 52 1 11 48 0 53
+                                                   2 22 0 54 0 55 4 0 20 26 22
+                                                   20 31 33 5 0 20 26 22 30 20
+                                                   31 32)))))
            '|lookupComplete|)) 

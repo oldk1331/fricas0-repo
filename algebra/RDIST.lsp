@@ -101,9 +101,9 @@
 
 (DECLAIM (NOTINLINE |RandomDistributions;|)) 
 
-(DEFUN |RandomDistributions| (#1=#:G146)
+(DEFUN |RandomDistributions| (#1=#:G136)
   (SPROG NIL
-         (PROG (#2=#:G147)
+         (PROG (#2=#:G137)
            (RETURN
             (COND
              ((LETT #2#

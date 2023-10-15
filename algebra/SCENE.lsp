@@ -108,7 +108,7 @@
                 . #1=(|SCENE;createSceneShape;Sb$;15|))
           (LETT |mn| (SPADCALL |shape| (QREFELT $ 38)) . #1#)
           (LETT |sh|
-                (VECTOR '|rect| |mn| (SPADCALL |mx| |mn| (QREFELT $ 39)) 'NIL)
+                (VECTOR '|rect| |mn| (SPADCALL |mx| |mn| (QREFELT $ 39)) NIL)
                 . #1#)
           (EXIT (VECTOR 'SHAPE NIL (CONS 8 |sh|)))))) 
 
@@ -1126,7 +1126,7 @@
                                  (QREFELT $ 125))
                        (QREFELT $ 127))
                       |SCENE;createSceneGraph;Dg2NniB$;65|)
-                (SPADCALL |tr| |g| |dispArrowName| 'NIL (QREFELT $ 129))
+                (SPADCALL |tr| |g| |dispArrowName| NIL (QREFELT $ 129))
                 (EXIT |tr|)))) 
 
 (SDEFUN |SCENE;addSceneGraph;$Dg2NniB$;66|
@@ -5821,7 +5821,7 @@
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      1.0 'NIL 'NIL (SPADCALL NIL NIL (QREFELT $ 180))
+                      1.0 NIL NIL (SPADCALL NIL NIL (QREFELT $ 180))
                       (QREFELT $ 175))
             |filename| (QREFELT $ 182)))))) 
 
@@ -5844,7 +5844,7 @@
           (EXIT
            (SPADCALL
             (SPADCALL |n| |defaultMaterial| |defaultTransform| |defaultBounds|
-                      1.0 'NIL 'T (SPADCALL NIL NIL (QREFELT $ 180))
+                      1.0 NIL 'T (SPADCALL NIL NIL (QREFELT $ 180))
                       (QREFELT $ 175))
             |filename| (QREFELT $ 182)))))) 
 
@@ -6861,7 +6861,7 @@
                 (LETT |defaultTransform| (SPADCALL (QREFELT $ 179))
                       |SCENE;boundary;$DfSb;87|)
                 (EXIT
-                 (|SCENE;boundary1| |n| |defaultTransform| 1.0 'NIL
+                 (|SCENE;boundary1| |n| |defaultTransform| 1.0 NIL
                   (SPADCALL NIL NIL (QREFELT $ 180))
                   (|div_DF| |fontScale|
                             (FLOAT 1000 MOST-POSITIVE-DOUBLE-FLOAT))
@@ -7503,7 +7503,7 @@
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
                      . #12#)
-               (LETT |ifsR| (SPADCALL |meshR| 'NIL (QREFELT $ 192)) . #12#)
+               (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)) . #12#)
                (LETT |nodeAtts|
                      (LIST
                       (SPADCALL "coordIndex"
@@ -7624,7 +7624,7 @@
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
                      . #12#)
-               (LETT |ifsR| (SPADCALL |meshR| 'NIL (QREFELT $ 192)) . #12#)
+               (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)) . #12#)
                (LETT |nodeAtts|
                      (LIST
                       (SPADCALL "coordIndex"
@@ -8090,7 +8090,7 @@
                      (SPADCALL (SPADCALL |bb2| (QREFELT $ 38)) (QREFELT $ 82))
                      . #21#)
                (LETT |offsetx| 0.0 . #21#) (LETT |offsety| 0.0 . #21#)
-               (LETT |offsetRequired| 'NIL . #21#)
+               (LETT |offsetRequired| NIL . #21#)
                (COND
                 ((|less_DF| |minx| 0.0)
                  (SEQ (LETT |offsetRequired| 'T . #21#)
@@ -8373,7 +8373,7 @@
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
                      . #21#)
-               (LETT |ifsR| (SPADCALL |meshR| 'NIL (QREFELT $ 192)) . #21#)
+               (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)) . #21#)
                (LETT |i1| (SPADCALL |ifsR| (QREFELT $ 61)) . #21#)
                (LETT |p1| (SPADCALL |ifsR| (QREFELT $ 62)) . #21#)
                (LETT |i2|
@@ -8513,7 +8513,7 @@
                                 (QREFELT $ 91))
                       8 (QREFELT $ 191))
                      . #21#)
-               (LETT |ifsR| (SPADCALL |meshR| 'NIL (QREFELT $ 192)) . #21#)
+               (LETT |ifsR| (SPADCALL |meshR| NIL (QREFELT $ 192)) . #21#)
                (LETT |i1| (SPADCALL |ifsR| (QREFELT $ 61)) . #21#)
                (LETT |p1| (SPADCALL |ifsR| (QREFELT $ 62)) . #21#)
                (LETT |i2|
@@ -9241,7 +9241,7 @@
                     (EXIT (LETT |someV| (|add_DF| |someV| |vstep|) . #3#)))
                    (LETT |iv| (+ |iv| -1) . #3#) (GO G190) G191 (EXIT NIL))
               (EXIT
-               (SPADCALL (SPADCALL |llp| 'NIL (QREFELT $ 192))
+               (SPADCALL (SPADCALL |llp| NIL (QREFELT $ 192))
                          (QREFELT $ 63)))))) 
 
 (SDEFUN |SCENE;createPlot2Din3D;M2SNni$;114|

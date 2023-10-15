@@ -116,7 +116,7 @@
                   ((EQL (SPADCALL (SPADCALL |l| (QREFELT $ 70)) (QREFELT $ 57))
                         (QREFELT $ 12))
                    'T)
-                  ('T 'NIL)))))) 
+                  ('T NIL)))))) 
 
 (SDEFUN |FFP;*;GF2$;7| ((|a| GF) (|x| $) ($ $))
         (SPADCALL |a| |x| (QREFELT $ 74))) 
@@ -231,8 +231,7 @@
                 (LETT |nElt| (SPADCALL (QREFELT $ 35)) . #1#)
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (COND ((SPADCALL |nElt| (QREFELT $ 73)) 'NIL) ('T 'T)))
+                      ((NULL (NULL (SPADCALL |nElt| (QREFELT $ 73))))
                        (GO G191)))
                      (SEQ
                       (EXIT
@@ -240,7 +239,7 @@
                              . #1#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (SETELT $ 23 (SPADCALL |nElt| (QREFELT $ 96)))
-                (SETELT $ 26 'NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
+                (SETELT $ 26 NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
 
 (SDEFUN |FFP;initializeLog| (($ |Void|))
         (SPROG
@@ -302,7 +301,7 @@
                            (SPADCALL |tbl| (QREFELT $ 133)))
                           (QREFELT $ 29) (QREFELT $ 135))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
-              (SETELT $ 25 'NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
+              (SETELT $ 25 NIL) (EXIT (SPADCALL (QREFELT $ 128)))))) 
 
 (SDEFUN |FFP;coerce;$Of;35| ((|e| $) ($ |OutputForm|))
         (SPADCALL (SPADCALL |e| (QREFELT $ 36)) (QREFELT $ 17) (QREFELT $ 136))) 
@@ -312,11 +311,9 @@
 (SDEFUN |FFP;size;Nni;37| (($ |NonNegativeInteger|)) (+ (QREFELT $ 21) 1)) 
 
 (SDEFUN |FFP;inGroundField?;$B;38| ((|x| $) ($ |Boolean|))
-        (COND
-         ((SPADCALL (SPADCALL |x| (QREFELT $ 92)) (CONS 1 "failed")
-                    (QREFELT $ 140))
-          'NIL)
-         ('T 'T))) 
+        (NULL
+         (SPADCALL (SPADCALL |x| (QREFELT $ 92)) (CONS 1 "failed")
+                   (QREFELT $ 140)))) 
 
 (SDEFUN |FFP;characteristic;Nni;39| (($ |NonNegativeInteger|))
         (SPADCALL (QREFELT $ 142))) 

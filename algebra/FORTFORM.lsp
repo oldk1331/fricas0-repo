@@ -16,7 +16,7 @@
                              ((OR (EQUAL |sop| '=)
                                   (OR (EQUAL |sop| 'MATRIX)
                                       (EQUAL |sop| '|construct|)))
-                              (EXIT 'NIL)))
+                              (EXIT NIL)))
                             (EXIT 'T)))
                           (#1# 'T))))))))) 
 

@@ -119,14 +119,14 @@
                           (SPADCALL (QVELT |space| 0) |pt| |p| 2
                                     (QREFELT $ 19))))
                         (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-                   (QSETVELT |space| 4 'NIL) (EXIT |space|))))))) 
+                   (QSETVELT |space| 4 NIL) (EXIT |space|))))))) 
 
 (SDEFUN |SPACE3;create3Space;$;3| (($ $))
         (VECTOR (SPADCALL (QREFELT $ 21)) NIL (VECTOR NIL NIL NIL NIL)
-                (VECTOR 0 0 0 0) 'NIL)) 
+                (VECTOR 0 0 0 0) NIL)) 
 
 (SDEFUN |SPACE3;create3Space;Ss$;4| ((|s| |SubSpace| 3 R) ($ $))
-        (VECTOR |s| NIL (VECTOR NIL NIL NIL NIL) (VECTOR 0 0 0 0) 'NIL)) 
+        (VECTOR |s| NIL (VECTOR NIL NIL NIL NIL) (VECTOR 0 0 0 0) NIL)) 
 
 (SDEFUN |SPACE3;numberOfComponents;$Nni;5|
         ((|space| $) ($ |NonNegativeInteger|))
@@ -294,7 +294,7 @@
                   1)
                  (EQL (LENGTH (SPADCALL (|SPADfirst| |kid|) (QREFELT $ 10)))
                       1))
-                ('T 'NIL)))) 
+                ('T NIL)))) 
 
 (SDEFUN |SPACE3;point;$P;16| ((|space| $) ($ |Point| R))
         (COND
@@ -310,7 +310,7 @@
 
 (SDEFUN |SPACE3;point;$P$;18| ((|space| $) (|aPoint| |Point| R) ($ $))
         (SEQ (SPADCALL (QVELT |space| 0) NIL |aPoint| (QREFELT $ 49))
-             (QSETVELT |space| 4 'NIL) (EXIT |space|))) 
+             (QSETVELT |space| 4 NIL) (EXIT |space|))) 
 
 (SDEFUN |SPACE3;point;$L$;19| ((|space| $) (|l| |List| R) ($ $))
         (SPROG ((|pt| (|Point| R)))
@@ -320,7 +320,7 @@
 
 (SDEFUN |SPACE3;point;$Nni$;20| ((|space| $) (|i| |NonNegativeInteger|) ($ $))
         (SEQ (SPADCALL (QVELT |space| 0) NIL |i| (QREFELT $ 53))
-             (QSETVELT |space| 4 'NIL) (EXIT |space|))) 
+             (QSETVELT |space| 4 NIL) (EXIT |space|))) 
 
 (SDEFUN |SPACE3;curve?;$B;21| ((|space| $) ($ |Boolean|))
         (SPROG ((|c| (|List| (|SubSpace| 3 R))))
@@ -385,7 +385,7 @@
                (SEQ
                 (EXIT (SPADCALL (QVELT |space| 0) |path| |p| (QREFELT $ 49))))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (QSETVELT |space| 4 'NIL) (EXIT |space|)))) 
+          (QSETVELT |space| 4 NIL) (EXIT |space|)))) 
 
 (SDEFUN |SPACE3;curve;$L$;25| ((|space| $) (|points| |List| (|List| R)) ($ $))
         (SPROG ((|pts| (|List| (|Point| R))))
@@ -409,7 +409,7 @@
                          . #2#))
                   1)
                  (SPADCALL (|SPADfirst| |kid|) (QREFELT $ 64)))
-                ('T 'NIL)))) 
+                ('T NIL)))) 
 
 (SDEFUN |SPACE3;closedCurve;$L;27| ((|space| $) ($ |List| (|Point| R)))
         (SPROG
@@ -463,7 +463,7 @@
                (SEQ
                 (EXIT (SPADCALL (QVELT |space| 0) |path| |p| (QREFELT $ 49))))
                (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
-          (QSETVELT |space| 4 'NIL) (EXIT |space|)))) 
+          (QSETVELT |space| 4 NIL) (EXIT |space|)))) 
 
 (SDEFUN |SPACE3;closedCurve;$L$;30|
         ((|space| $) (|points| |List| (|List| R)) ($ $))
@@ -494,8 +494,8 @@
                     (LENGTH
                      (SPADCALL (SPADCALL |kid| (QREFELT $ 72)) (QREFELT $ 10)))
                     2 (QREFELT $ 41)))
-                  (#3='T 'NIL)))
-                (#3# 'NIL)))) 
+                  (#3='T NIL)))
+                (#3# NIL)))) 
 
 (SDEFUN |SPACE3;polygon;$L;32| ((|space| $) ($ |List| (|Point| R)))
         (SPROG
@@ -592,7 +592,7 @@
                     (|error|
                      "Mesh defined with single point curves (use curve())"))
                    (#4='T 'T)))))
-           (#4# 'NIL))))) 
+           (#4# NIL))))) 
 
 (SDEFUN |SPACE3;mesh;$L;36| ((|space| $) ($ |List| (|List| (|Point| R))))
         (SPROG
@@ -649,7 +649,7 @@
              "This ThreeSpace holds something other than a mesh - try the objects() command")))))) 
 
 (SDEFUN |SPACE3;mesh;L$;37| ((|points| |List| (|List| (|Point| R))) ($ $))
-        (SPADCALL (SPADCALL (QREFELT $ 23)) |points| 'NIL 'NIL (QREFELT $ 85))) 
+        (SPADCALL (SPADCALL (QREFELT $ 23)) |points| NIL NIL (QREFELT $ 85))) 
 
 (SDEFUN |SPACE3;mesh;L2B$;38|
         ((|points| |List| (|List| (|Point| R))) (|prop1| . #1=(|Boolean|))
@@ -746,7 +746,7 @@
                              . #6#))
                      . #6#)
                (GO G190) G191 (EXIT NIL))
-          (QSETVELT |space| 4 'NIL) (EXIT |space|)))) 
+          (QSETVELT |space| 4 NIL) (EXIT |space|)))) 
 
 (SDEFUN |SPACE3;mesh;$L2B$;41|
         ((|space| $) (|llpoints| |List| (|List| (|List| R)))
@@ -833,7 +833,7 @@
                      (PROG1 (CDR #3#) (LETT |count| (|inc_SI| |count|) . #6#))
                      . #6#)
                (GO G190) G191 (EXIT NIL))
-          (QSETVELT |space| 4 'NIL) (EXIT |space|)))) 
+          (QSETVELT |space| 4 NIL) (EXIT |space|)))) 
 
 (SDEFUN |SPACE3;lp;$L;43| ((|space| $) ($ |List| (|Point| R)))
         (SEQ

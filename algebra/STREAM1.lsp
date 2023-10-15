@@ -27,9 +27,9 @@
 
 (DECLAIM (NOTINLINE |StreamFunctions1;|)) 
 
-(DEFUN |StreamFunctions1| (#1=#:G118)
+(DEFUN |StreamFunctions1| (#1=#:G114)
   (SPROG NIL
-         (PROG (#2=#:G119)
+         (PROG (#2=#:G115)
            (RETURN
             (COND
              ((LETT #2#

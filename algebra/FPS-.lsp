@@ -3,7 +3,7 @@
         (SPADCALL |ma| |ex| (SPADCALL (QREFELT $ 8)) (QREFELT $ 10))) 
 
 (SDEFUN |FPS-;digits;Pi;2| (($ |PositiveInteger|))
-        (SPROG ((#1=#:G112 NIL))
+        (SPROG ((#1=#:G120 NIL))
                (PROG1
                    (LETT #1#
                          (MAX 1

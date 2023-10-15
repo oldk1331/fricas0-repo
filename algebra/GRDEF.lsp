@@ -61,7 +61,7 @@
           (|stuffDomainSlots| $)
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 6 'T)
-          (QSETREFV $ 7 'NIL)
+          (QSETREFV $ 7 NIL)
           $))) 
 
 (MAKEPROP '|GraphicsDefaults| '|infovec|

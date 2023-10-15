@@ -336,7 +336,7 @@
           (LETT |i| |n| . #4#) (LETT |j| 0 . #4#)
           (SEQ (LETT |k| 0 . #4#) G190
                (COND
-                ((NULL (COND ((< |i| (+ |n| |m|)) (< |j| |n|)) ('T 'NIL)))
+                ((NULL (COND ((< |i| (+ |n| |m|)) (< |j| |n|)) ('T NIL)))
                  (GO G191)))
                (SEQ
                 (EXIT

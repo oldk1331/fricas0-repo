@@ -287,10 +287,10 @@
                         (COND ((IDENTP |a|) |a|) ((STRINGP |a|) (INTERN |a|))
                               (#2='T
                                (PROGN
-                                (LETT #1# 'NIL . #3=(|OUTFORM;infix?;$B;66|))
+                                (LETT #1# NIL . #3=(|OUTFORM;infix?;$B;66|))
                                 (GO #4=#:G1673))))
                         . #3#)
-                  (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# 'NIL)))))
+                  (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# NIL)))))
                 #4# (EXIT #1#)))) 
 
 (PUT '|OUTFORM;elt;$L$;67| '|SPADreplace| 'CONS) 

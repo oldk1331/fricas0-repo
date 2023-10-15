@@ -3,7 +3,7 @@
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 9))
               (NULL (SPADCALL (SPADCALL |x| (QREFELT $ 10)) (QREFELT $ 9))))
-          'NIL)
+          NIL)
          ('T (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 9))))) 
 
 (SDEFUN |BBTREE;setleaves!;$L$;2| ((|t| $) (|u| |List| S) ($ $))

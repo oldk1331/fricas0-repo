@@ -17,8 +17,7 @@
                         ((SPADCALL (SPADCALL |x| |i| |j| (QREFELT $ 13))
                                    (|spadConstant| $ 14) (QREFELT $ 16))
                          (PROGN
-                          (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G127))
+                          (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5=#:G127))
                                 . #4#)
                           (GO #6=#:G125))))))
                      (LETT |j| (+ |j| 1) . #4#) (GO G190) G191 (EXIT NIL)))
@@ -44,8 +43,7 @@
                         ((SPADCALL (SPADCALL |x| |i| |j| (QREFELT $ 13))
                                    (|spadConstant| $ 14) (QREFELT $ 16))
                          (PROGN
-                          (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G134))
+                          (LETT #1# (PROGN (LETT #2# NIL . #4#) (GO #5=#:G134))
                                 . #4#)
                           (GO #6=#:G132))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
@@ -123,12 +121,11 @@
                                               (LETT #2# |ans| . #4#)
                                               (GO #5=#:G178)))))
                                       ('T
-                                       (SEQ
-                                        (LETT |pos| (COND (|pos| 'NIL) ('T 'T))
-                                              . #4#)
-                                        (LETT |rl| (CONS |j| |rl|) . #4#)
-                                        (LETT |j| (|SPADfirst| |l|) . #4#)
-                                        (EXIT (LETT |l| (CDR |l|) . #4#)))))))
+                                       (SEQ (LETT |pos| (NULL |pos|) . #4#)
+                                            (LETT |rl| (CONS |j| |rl|) . #4#)
+                                            (LETT |j| (|SPADfirst| |l|) . #4#)
+                                            (EXIT
+                                             (LETT |l| (CDR |l|) . #4#)))))))
                                    NIL (GO G190) G191 (EXIT NIL)))))))))
           #5# (EXIT #2#)))) 
 
@@ -663,7 +660,7 @@
                   (COND
                    ((SPADCALL |rk| 0 (QREFELT $ 90))
                     (|MATLIN;rowAllZeroes?| |y| |i| $))
-                   ('T 'NIL)))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ (LETT |i| (- |i| 1) . #2#)
                     (EXIT

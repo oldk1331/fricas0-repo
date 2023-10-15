@@ -18,9 +18,8 @@
 (SDEFUN |LIST;writeOMList| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
         (SEQ (SPADCALL |dev| (QREFELT $ 14))
              (SPADCALL |dev| "list1" "list" (QREFELT $ 16))
-             (SEQ G190
-                  (COND ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
-                  (SEQ (SPADCALL |dev| (|SPADfirst| |x|) 'NIL (QREFELT $ 17))
+             (SEQ G190 (COND ((NULL |x|) (GO G191)))
+                  (SEQ (SPADCALL |dev| (|SPADfirst| |x|) NIL (QREFELT $ 17))
                        (EXIT (LETT |x| (CDR |x|) |LIST;writeOMList|)))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT (SPADCALL |dev| (QREFELT $ 18))))) 
@@ -38,9 +37,7 @@
         (SPROG ((|u| ($)))
                (SEQ (LETT |u| NIL . #1=(|LIST;setIntersection;3$;8|))
                     (LETT |l1| (SPADCALL |l1| (QREFELT $ 23)) . #1#)
-                    (SEQ G190
-                         (COND
-                          ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |l1|))) (GO G191)))
                          (SEQ
                           (COND
                            ((SPADCALL (|SPADfirst| |l1|) |l2| (QREFELT $ 25))
@@ -55,9 +52,7 @@
                 (LETT |l1| (SPADCALL |l1| (QREFELT $ 23))
                       . #1=(|LIST;setDifference;3$;9|))
                 (LETT |lu| NIL . #1#)
-                (SEQ G190
-                     (COND
-                      ((NULL (COND ((NULL |l1|) 'NIL) ('T 'T))) (GO G191)))
+                (SEQ G190 (COND ((NULL (NULL (NULL |l1|))) (GO G191)))
                      (SEQ (LETT |l11| (SPADCALL |l1| 1 (QREFELT $ 28)) . #1#)
                           (COND
                            ((NULL (SPADCALL |l11| |l2| (QREFELT $ 25)))

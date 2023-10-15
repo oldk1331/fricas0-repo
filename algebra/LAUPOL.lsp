@@ -7,7 +7,7 @@
         (COND
          ((EQL (QCDR |p|) (QCDR |q|))
           (SPADCALL (QCAR |p|) (QCAR |q|) (QREFELT $ 16)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (PUT '|LAUPOL;poly| '|SPADreplace| 'QCAR) 
 

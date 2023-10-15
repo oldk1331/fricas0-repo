@@ -19,9 +19,7 @@
           (LETT |maxC| (SPADCALL |sylmat| (QREFELT $ 20)) . #4#)
           (LETT |p0| |p| . #4#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |p0| (QREFELT $ 22)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |p0| (QREFELT $ 22)))) (GO G191)))
                (SEQ (LETT |coef| (SPADCALL |p0| (QREFELT $ 23)) . #4#)
                     (LETT |deg| (SPADCALL |p0| (QREFELT $ 12)) . #4#)
                     (LETT |p0| (SPADCALL |p0| (QREFELT $ 24)) . #4#)
@@ -38,9 +36,7 @@
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |q0| |q| . #4#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |q0| (QREFELT $ 22)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |q0| (QREFELT $ 22)))) (GO G191)))
                (SEQ (LETT |coef| (SPADCALL |q0| (QREFELT $ 23)) . #4#)
                     (LETT |deg| (SPADCALL |q0| (QREFELT $ 12)) . #4#)
                     (LETT |q0| (SPADCALL |q0| (QREFELT $ 24)) . #4#)
@@ -89,9 +85,7 @@
                        (LETT |p0| |p| . #10#)
                        (SEQ G190
                             (COND
-                             ((NULL
-                               (COND ((SPADCALL |p0| (QREFELT $ 30)) 'NIL)
-                                     ('T 'T)))
+                             ((NULL (NULL (SPADCALL |p0| (QREFELT $ 30))))
                               (GO G191)))
                             (SEQ
                              (LETT |coef| (SPADCALL |p0| (QREFELT $ 23))
@@ -115,9 +109,7 @@
                        (LETT |q0| |q| . #10#)
                        (SEQ G190
                             (COND
-                             ((NULL
-                               (COND ((SPADCALL |q0| (QREFELT $ 22)) 'NIL)
-                                     ('T 'T)))
+                             ((NULL (NULL (SPADCALL |q0| (QREFELT $ 22))))
                               (GO G191)))
                             (SEQ
                              (LETT |coef| (SPADCALL |q0| (QREFELT $ 23))
@@ -150,9 +142,7 @@
                                  (SEQ G190
                                       (COND
                                        ((NULL
-                                         (COND
-                                          ((SPADCALL |q0| (QREFELT $ 22)) 'NIL)
-                                          ('T 'T)))
+                                         (NULL (SPADCALL |q0| (QREFELT $ 22))))
                                         (GO G191)))
                                       (SEQ
                                        (LETT |deg|
@@ -213,10 +203,8 @@
                                   (SEQ G190
                                        (COND
                                         ((NULL
-                                          (COND
-                                           ((SPADCALL |p0| (QREFELT $ 22))
-                                            'NIL)
-                                           ('T 'T)))
+                                          (NULL
+                                           (SPADCALL |p0| (QREFELT $ 22))))
                                          (GO G191)))
                                        (SEQ
                                         (LETT |deg|

@@ -24,7 +24,7 @@
         (COND ((SPADCALL |t| (QREFELT $ 18)) 'T)
               ((SPADCALL (SPADCALL |t| (QREFELT $ 19)) (QREFELT $ 18))
                (SPADCALL (SPADCALL |t| (QREFELT $ 20)) (QREFELT $ 18)))
-              ('T 'NIL))) 
+              ('T NIL))) 
 
 (SDEFUN |BTREE;right;2$;8| ((|t| $) ($ $))
         (COND ((SPADCALL |t| (QREFELT $ 18)) (|error| "binaryTree:no right"))

@@ -224,9 +224,7 @@
                     (SEQ
                      (SEQ (LETT |i| 0 . #2#) G190
                           (COND
-                           ((NULL
-                             (COND ((SPADCALL |f| (QREFELT $ 32)) 'NIL)
-                                   ('T 'T)))
+                           ((NULL (NULL (SPADCALL |f| (QREFELT $ 32))))
                             (GO G191)))
                           (SEQ
                            (LETT |qrf| (SPADCALL |f| |h| (QREFELT $ 36)) . #2#)

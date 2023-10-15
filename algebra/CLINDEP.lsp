@@ -43,7 +43,7 @@
                      (COND
                       ((SPADCALL (SPADCALL |kf| |d|) (|spadConstant| $ 14)
                                  (QREFELT $ 15))
-                       (SEQ (LETT |is_const| 'NIL . #10#)
+                       (SEQ (LETT |is_const| NIL . #10#)
                             (EXIT
                              (PROGN
                               (LETT #5# |$NoValue| . #10#)
@@ -348,7 +348,7 @@
                                   (SPADCALL |m1| |i| |k1| (QREFELT $ 93))
                                   (|spadConstant| $ 14) (QREFELT $ 94))
                                  (SPADCALL |k1| |nc| (QREFELT $ 95)))
-                                ('T 'NIL)))
+                                ('T NIL)))
                               (GO G191)))
                             (SEQ (EXIT (LETT |k1| (+ |k1| 1) . #17#))) NIL
                             (GO G190) G191 (EXIT NIL))

@@ -13,7 +13,7 @@
         (SPROG ((|sol| (|List| (|Fraction| UP))))
                (COND
                 ((NULL
-                  (LETT |sol| (|LODOF;expsols| |l| |zeros| |ezfactor| 'NIL $)
+                  (LETT |sol| (|LODOF;expsols| |l| |zeros| |ezfactor| NIL $)
                         |LODOF;expsol|))
                  (CONS 1 "failed"))
                 ('T (CONS 0 (|SPADfirst| |sol|)))))) 
@@ -191,7 +191,7 @@
                                                      (SPADCALL
                                                       (|LODOF;rfactor| |l|
                                                        (QCDR |u|) |zeros|
-                                                       |ezfactor| 'NIL $)
+                                                       |ezfactor| NIL $)
                                                       (QCDR |u|)
                                                       (QREFELT $ 55))
                                                      . #4#)
@@ -303,7 +303,7 @@
         ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;12!0| $)
-         (ELT $ 71) 'NIL $)) 
+         (ELT $ 71) NIL $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;12!0| ((|p1| NIL) ($ NIL))
         (|LODOF;zro| |p1| (ELT $ 71) $)) 
@@ -321,7 +321,7 @@
         ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;14!0| $)
-         (ELT $ 12) 'NIL $)) 
+         (ELT $ 12) NIL $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;14!0| ((|p1| NIL) ($ NIL))
         (|LODOF;zro| |p1| (ELT $ 12) $)) 

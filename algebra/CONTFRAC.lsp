@@ -11,7 +11,7 @@
                 ((COND
                   ((|HasCategory| (QREFELT $ 6) '(|OrderedRing|))
                    (|HasCategory| (QREFELT $ 6) '(|multiplicativeValuation|)))
-                  (#1='T 'NIL))
+                  (#1='T NIL))
                  'T)
                 (#1# (|HasCategory| (QREFELT $ 6) '(|additiveValuation|))))
                (|CONTFRAC;genFromSequence| (SPADCALL |c| (QREFELT $ 18)) $))
@@ -30,7 +30,7 @@
                  ((COND
                    ((|HasCategory| (QREFELT $ 6) '(|OrderedRing|))
                     (|HasCategory| (QREFELT $ 6) '(|multiplicativeValuation|)))
-                   (#1='T 'NIL))
+                   (#1='T NIL))
                   (SEQ
                    (LETT |n| (SPADCALL |a| (QREFELT $ 20))
                          . #2=(|CONTFRAC;eucWhole0|))
@@ -60,18 +60,15 @@
             (EXIT
              (COND
               ((SPADCALL (QCAR (QCAR |x|)) (QCAR (QCAR |y|)) (QREFELT $ 30))
-               'NIL)
+               NIL)
               (#4='T
                (SEQ (LETT |xl| (QCDR (QCAR |x|)) . #3#)
                     (LETT |yl| (QCDR (QCAR |y|)) . #3#)
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((OR (SPADCALL |xl| (QREFELT $ 31))
-                                  (SPADCALL |yl| (QREFELT $ 31)))
-                              'NIL)
-                             ('T 'T)))
+                            (COND ((SPADCALL |xl| (QREFELT $ 31)) NIL)
+                                  ('T (NULL (SPADCALL |yl| (QREFELT $ 31))))))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -79,7 +76,7 @@
                             ((SPADCALL (QCDR (SPADCALL |xl| (QREFELT $ 32)))
                                        (QCDR (SPADCALL |yl| (QREFELT $ 32)))
                                        (QREFELT $ 30))
-                             (PROGN (LETT #2# 'NIL . #3#) (GO #5=#:G149)))
+                             (PROGN (LETT #2# NIL . #3#) (GO #5=#:G149)))
                             ('T
                              (SEQ
                               (LETT |xl| (SPADCALL |xl| (QREFELT $ 33)) . #3#)
@@ -91,7 +88,7 @@
                      (COND
                       ((SPADCALL |xl| (QREFELT $ 31))
                        (SPADCALL |yl| (QREFELT $ 31)))
-                      (#4# 'NIL)))))))))
+                      (#4# NIL)))))))))
           #5# (EXIT #2#)))) 
 
 (SDEFUN |CONTFRAC;continuedFraction;F$;5| ((|q| |Fraction| R) ($ $))
@@ -99,7 +96,7 @@
 
 (SDEFUN |CONTFRAC;continuedFraction;R2S$;6|
         ((|wh| R) (|nums| |Stream| R) (|dens| |Stream| R) ($ $))
-        (CONS (CONS |wh| (|CONTFRAC;genFractionA| |nums| |dens| $)) 'NIL)) 
+        (CONS (CONS |wh| (|CONTFRAC;genFractionA| |nums| |dens| $)) NIL)) 
 
 (SDEFUN |CONTFRAC;genFractionA|
         ((|nums| |Stream| R) (|dens| |Stream| R)
@@ -141,7 +138,7 @@
 
 (SDEFUN |CONTFRAC;continuedFraction;R2S$;8|
         ((|wh| R) (|nums| |Stream| R) (|dens| |Stream| R) ($ $))
-        (CONS (CONS |wh| (|CONTFRAC;genFractionB| |nums| |dens| $)) 'NIL)) 
+        (CONS (CONS |wh| (|CONTFRAC;genFractionB| |nums| |dens| $)) NIL)) 
 
 (SDEFUN |CONTFRAC;genFractionB|
         ((|nums| |Stream| R) (|dens| |Stream| R)
@@ -209,8 +206,7 @@
                   (LETT |d| (SPADCALL |fr| (QREFELT $ 21)) . #1#)
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |d| (QREFELT $ 55)) 'NIL) ('T 'T)))
+                        ((NULL (NULL (SPADCALL |d| (QREFELT $ 55))))
                          (GO G191)))
                        (SEQ (LETT |qr| (SPADCALL |n| |d| (QREFELT $ 57)) . #1#)
                             (LETT |l|
@@ -223,20 +219,20 @@
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT
                    (CONS
-                    (CONS |wh| (SPADCALL (CDR (NREVERSE |l|)) (QREFELT $ 60)))
+                    (CONS |wh| (SPADCALL (CDR (NREVERSE |l|)) (QREFELT $ 59)))
                     'T))))))))) 
 
 (SDEFUN |CONTFRAC;characteristic;Nni;14| (($ |NonNegativeInteger|))
-        (SPADCALL (QREFELT $ 62))) 
+        (SPADCALL (QREFELT $ 61))) 
 
 (SDEFUN |CONTFRAC;genFromSequence| ((|apps| |Stream| (|Fraction| R)) ($ $))
         (SPROG ((|wh| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
                (SEQ
-                (LETT |lo| (SPADCALL |apps| (QREFELT $ 64))
+                (LETT |lo| (SPADCALL |apps| (QREFELT $ 63))
                       . #2=(|CONTFRAC;genFromSequence|))
-                (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
-                (LETT |hi| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
-                (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
+                (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
+                (LETT |hi| (SPADCALL |apps| (QREFELT $ 63)) . #2#)
+                (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
                 (SEQ G190
                      (COND
                       ((NULL
@@ -244,11 +240,11 @@
                                   (|CONTFRAC;eucWhole0| |hi| $)
                                   (QREFELT $ 30)))
                        (GO G191)))
-                     (SEQ (LETT |lo| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
-                          (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
-                          (LETT |hi| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
+                     (SEQ (LETT |lo| (SPADCALL |apps| (QREFELT $ 63)) . #2#)
+                          (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
+                          (LETT |hi| (SPADCALL |apps| (QREFELT $ 63)) . #2#)
                           (EXIT
-                           (LETT |apps| (SPADCALL |apps| (QREFELT $ 65))
+                           (LETT |apps| (SPADCALL |apps| (QREFELT $ 64))
                                  . #2#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (LETT |wh| (|CONTFRAC;eucWhole0| |lo| $) . #2#)
@@ -257,8 +253,8 @@
                   (CONS |wh|
                         (|CONTFRAC;genReducedForm|
                          (SPADCALL |wh| (QREFELT $ 52)) |apps|
-                         (SPADCALL (|spadConstant| $ 58) (|spadConstant| $ 66)
-                                   (|spadConstant| $ 66) (|spadConstant| $ 58)
+                         (SPADCALL (|spadConstant| $ 65) (|spadConstant| $ 66)
+                                   (|spadConstant| $ 66) (|spadConstant| $ 65)
                                    (QREFELT $ 68))
                          $))
                   (COND
@@ -266,7 +262,7 @@
                      ((|HasCategory| (QREFELT $ 6) '(|OrderedRing|))
                       (|HasCategory| (QREFELT $ 6)
                                      '(|multiplicativeValuation|)))
-                     (#3='T 'NIL))
+                     (#3='T NIL))
                     'T)
                    (#3#
                     (|HasCategory| (QREFELT $ 6) '(|additiveValuation|))))))))) 
@@ -278,15 +274,15 @@
         (SPROG ((|whi| (R)) (|wlo| (R)) (|hi| #1=(|Fraction| R)) (|lo| #1#))
                (SEQ
                 (LETT |lo|
-                      (SPADCALL (SPADCALL |apps| (QREFELT $ 64)) |wh0|
+                      (SPADCALL (SPADCALL |apps| (QREFELT $ 63)) |wh0|
                                 (QREFELT $ 53))
                       . #2=(|CONTFRAC;genReducedForm|))
-                (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
+                (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
                 (LETT |hi|
-                      (SPADCALL (SPADCALL |apps| (QREFELT $ 64)) |wh0|
+                      (SPADCALL (SPADCALL |apps| (QREFELT $ 63)) |wh0|
                                 (QREFELT $ 53))
                       . #2#)
-                (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
+                (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
                 (COND
                  ((SPADCALL |lo| |hi| (QREFELT $ 69))
                   (COND
@@ -310,23 +306,23 @@
                             (|CONTFRAC;eucWhole|
                              (SPADCALL |mt|
                                        (SPADCALL
-                                        (SPADCALL |apps| (QREFELT $ 64)) |wh0|
+                                        (SPADCALL |apps| (QREFELT $ 63)) |wh0|
                                         (QREFELT $ 53))
                                        (QREFELT $ 70))
                              $)
                             . #2#)
-                      (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)
+                      (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)
                       (LETT |whi|
                             (|CONTFRAC;eucWhole|
                              (SPADCALL |mt|
                                        (SPADCALL
-                                        (SPADCALL |apps| (QREFELT $ 64)) |wh0|
+                                        (SPADCALL |apps| (QREFELT $ 63)) |wh0|
                                         (QREFELT $ 53))
                                        (QREFELT $ 70))
                              $)
                             . #2#)
                       (EXIT
-                       (LETT |apps| (SPADCALL |apps| (QREFELT $ 65)) . #2#)))
+                       (LETT |apps| (SPADCALL |apps| (QREFELT $ 64)) . #2#)))
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (SPADCALL (CONS (|spadConstant| $ 29) |wlo|)
@@ -638,7 +634,7 @@
                  $))))) 
 
 (SDEFUN |CONTFRAC;recip;$U;42!0| ((|x| NIL) ($ NIL))
-        (SPADCALL (|spadConstant| $ 58) |x| (QREFELT $ 113))) 
+        (SPADCALL (|spadConstant| $ 65) |x| (QREFELT $ 113))) 
 
 (PUT '|CONTFRAC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
@@ -653,7 +649,7 @@
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)
-          (#1=#:G298 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
+          (#1=#:G294 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
          (SEQ (LETT |wh| (QCAR (QCAR |c|)) . #2=(|CONTFRAC;coerce;$Of;45|))
               (LETT |fr| (QCDR (QCAR |c|)) . #2#)
               (EXIT
@@ -665,9 +661,7 @@
                       (SEQ (LETT |n| 1 . #2#) (LETT #1# |count| . #2#) G190
                            (COND
                             ((OR (|greater_SI| |n| #1#)
-                                 (NULL
-                                  (COND ((SPADCALL |fr| (QREFELT $ 31)) 'NIL)
-                                        ('T 'T))))
+                                 (NULL (NULL (SPADCALL |fr| (QREFELT $ 31)))))
                              (GO G191)))
                            (SEQ
                             (LETT |l|
@@ -713,9 +707,9 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G310)
+(DEFUN |ContinuedFraction| (#1=#:G306)
   (SPROG NIL
-         (PROG (#2=#:G311)
+         (PROG (#2=#:G307)
            (RETURN
             (COND
              ((LETT #2#
@@ -758,7 +752,7 @@
            ((COND
              ((|HasCategory| |#1| '(|OrderedRing|))
               (|HasCategory| |#1| '(|multiplicativeValuation|)))
-             ('T 'NIL))
+             ('T NIL))
             (PROGN
              (QSETREFV $ 37
                        (CONS
@@ -797,13 +791,13 @@
               (120 . |coerce|) |CONTFRAC;coerce;I$;11| |CONTFRAC;coerce;R$;12|
               (125 . |coerce|) (130 . -) (136 . |zero?|) (141 . |zero?|)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (146 . |divide|) (152 . |One|) (|List| 9) (156 . |construct|)
-              (|NonNegativeInteger|) (161 . |characteristic|)
-              |CONTFRAC;characteristic;Nni;14| (165 . |first|) (170 . |rst|)
-              (175 . |Zero|) (|MoebiusTransform| 15) (179 . |moebius|)
-              (187 . =) (193 . |eval|) (199 . |recip|) (204 . -)
-              (209 . |shift|) |CONTFRAC;wholePart;$R;17| (|Mapping| 6 9)
-              (|StreamFunctions2| 9 6) (215 . |map|)
+              (146 . |divide|) (|List| 9) (152 . |construct|)
+              (|NonNegativeInteger|) (157 . |characteristic|)
+              |CONTFRAC;characteristic;Nni;14| (161 . |first|) (166 . |rst|)
+              (171 . |One|) (175 . |Zero|) (|MoebiusTransform| 15)
+              (179 . |moebius|) (187 . =) (193 . |eval|) (199 . |recip|)
+              (204 . -) (209 . |shift|) |CONTFRAC;wholePart;$R;17|
+              (|Mapping| 6 9) (|StreamFunctions2| 9 6) (215 . |map|)
               |CONTFRAC;partialNumerators;$S;18|
               |CONTFRAC;partialDenominators;$S;19| (221 . |concat|)
               |CONTFRAC;partialQuotients;$S;20| (|List| 15) (227 . |repeating|)
@@ -886,8 +880,8 @@
                                     1 36 6 0 40 1 36 0 0 41 1 10 0 42 43 2 10 0
                                     9 0 44 1 36 0 45 46 1 6 0 48 49 1 15 0 6 52
                                     2 15 0 0 0 53 1 15 8 0 54 1 6 8 0 55 2 6 56
-                                    0 0 57 0 15 0 58 1 10 0 59 60 0 15 61 62 1
-                                    12 15 0 64 1 12 0 0 65 0 15 0 66 4 67 0 15
+                                    0 0 57 1 10 0 58 59 0 15 60 61 1 12 15 0 63
+                                    1 12 0 0 64 0 15 0 65 0 15 0 66 4 67 0 15
                                     15 15 15 68 2 15 8 0 0 69 2 67 15 0 15 70 1
                                     67 0 0 71 1 15 0 0 72 2 67 0 0 15 73 2 76
                                     36 75 10 77 2 36 0 6 0 80 1 12 0 82 83 0 12
@@ -910,16 +904,16 @@
                                     2 0 143 143 0 1 1 0 142 0 1 2 0 132 132 132
                                     1 2 0 0 0 0 1 1 0 0 131 1 1 0 138 0 1 2 0
                                     135 0 0 1 3 0 137 0 0 0 1 2 0 0 0 48 90 2 0
-                                    115 0 0 1 2 0 134 131 0 1 1 0 61 0 1 2 0 56
+                                    115 0 0 1 2 0 134 131 0 1 1 0 60 0 1 2 0 56
                                     0 0 1 1 0 36 0 88 1 0 12 0 13 1 0 0 15 17 3
                                     0 0 6 36 36 37 1 0 0 0 92 1 0 0 0 1 1 0 0
                                     139 1 1 0 0 6 51 1 0 0 15 35 1 0 0 48 50 1
-                                    0 117 0 128 0 0 61 63 2 0 8 0 0 1 1 0 12 0
-                                    18 2 0 8 0 0 1 2 0 0 0 48 1 2 0 0 0 61 1 2
+                                    0 117 0 128 0 0 60 62 2 0 8 0 0 1 1 0 12 0
+                                    18 2 0 8 0 0 1 2 0 0 0 48 1 2 0 0 0 60 1 2
                                     0 0 0 140 1 0 0 0 25 0 0 0 28 2 0 8 0 0 34
                                     2 0 0 0 0 114 2 0 0 0 0 102 1 0 0 0 105 2 0
                                     0 0 0 100 2 0 0 0 139 1 2 0 0 139 0 1 2 0 0
                                     15 0 110 2 0 0 0 15 1 2 0 0 6 0 109 2 0 0 0
-                                    6 1 2 0 0 0 0 107 2 0 0 48 0 112 2 0 0 61 0
+                                    6 1 2 0 0 0 0 107 2 0 0 48 0 112 2 0 0 60 0
                                     1 2 0 0 140 0 1)))))
            '|lookupComplete|)) 

@@ -143,21 +143,21 @@
                     (COND
                      ((SPADCALL (CDR |n|) |s| (QREFELT $ 26))
                       (PROGN
-                       (LETT #1# 'NIL . #2=(|LAMBDA;freeVariable?|))
+                       (LETT #1# NIL . #2=(|LAMBDA;freeVariable?|))
                        (GO #3=#:G199))))))
                   (COND
                    ((QEQCAR |n| 3)
                     (COND
                      ((NULL (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |s| $))
-                      (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))
+                      (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
                   (COND
                    ((QEQCAR |n| 2)
                     (COND
                      ((|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |s| $)
                       (COND
                        ((NULL (|LAMBDA;freeVariable?| (QCDR (CDR |n|)) |s| $))
-                        (PROGN (LETT #1# 'NIL . #2#) (GO #3#)))))
-                     ('T (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))
+                        (PROGN (LETT #1# NIL . #2#) (GO #3#)))))
+                     ('T (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
@@ -172,22 +172,22 @@
                     (COND
                      ((EQL (QCAR (CDR |n|)) |i|)
                       (PROGN
-                       (LETT #1# 'NIL . #2=(|LAMBDA;freeVariable?|))
+                       (LETT #1# NIL . #2=(|LAMBDA;freeVariable?|))
                        (GO #3=#:G213))))))
                   (COND
                    ((QEQCAR |n| 3)
                     (COND
                      ((NULL
                        (|LAMBDA;freeVariable?| (QCAR (CDR |n|)) (+ |i| 1) $))
-                      (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))
+                      (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
                   (COND
                    ((QEQCAR |n| 2)
                     (COND
                      ((|LAMBDA;freeVariable?| (QCAR (CDR |n|)) |i| $)
                       (COND
                        ((NULL (|LAMBDA;freeVariable?| (QCDR (CDR |n|)) |i| $))
-                        (PROGN (LETT #1# 'NIL . #2#) (GO #3#)))))
-                     ('T (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))
+                        (PROGN (LETT #1# NIL . #2#) (GO #3#)))))
+                     ('T (PROGN (LETT #1# NIL . #2#) (GO #3#))))))
                   (EXIT 'T)))
                 #3# (EXIT #1#)))) 
 
@@ -205,7 +205,7 @@
                   (|sayBrightly|
                    (STRCONC "warning free called on non-lambda term"
                             (SPADCALL |n| (QREFELT $ 27))))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #2# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;parseLambdaTerm|
@@ -1001,7 +1001,7 @@
                          (PROGN
                           (LETT #1# 'T . #2=(|LAMBDA;=;2$B;29|))
                           (GO #3=#:G377))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |x| 1)
                     (COND
@@ -1010,7 +1010,7 @@
                        (COND
                         ((SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 26))
                          (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |x| 2)
                     (COND
@@ -1023,7 +1023,7 @@
                           ((SPADCALL (QCDR (CDR |x|)) (QCDR (CDR |y|))
                                      (QREFELT $ 50))
                            (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |x| 3)
                     (COND
@@ -1033,8 +1033,8 @@
                         ((SPADCALL (QCAR (CDR |x|)) (QCAR (CDR |y|))
                                    (QREFELT $ 50))
                          (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
-                  (EXIT 'NIL)))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                  (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |LAMBDA;coerce;$Of;30| ((|n| $) ($ |OutputForm|))

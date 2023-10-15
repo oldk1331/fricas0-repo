@@ -349,7 +349,7 @@
                          (|error|
                           #6="power!: matrices of incompatible dimensions")))))
                      (#4# (EXIT (|error| #6#))))
-                    (LETT |flag| 'NIL . #2#) (SPADCALL |b| |m| (QREFELT $ 9))
+                    (LETT |flag| NIL . #2#) (SPADCALL |b| |m| (QREFELT $ 9))
                     (EXIT
                      (SEQ G190 NIL
                           (SEQ

@@ -141,8 +141,7 @@
               "structuralConstants: size of second argument does not agree with number of generators"))))
           (LETT |gamma| NIL . #3#)
           (LETT |lscopy| (SPADCALL |ls| (QREFELT $ 38)) . #3#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |lscopy|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL |lscopy|) (GO G191)))
                (SEQ
                 (LETT |mat| (MAKE_MATRIX1 |nn| |nn| (|spadConstant| $ 40))
                       . #3#)
@@ -196,8 +195,7 @@
               "structuralConstants: size of second argument does not agree with number of generators"))))
           (LETT |gamma| NIL . #3#)
           (LETT |lscopy| (SPADCALL |ls| (QREFELT $ 38)) . #3#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |lscopy|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL |lscopy|) (GO G191)))
                (SEQ
                 (LETT |mat| (MAKE_MATRIX1 |nn| |nn| (|spadConstant| $ 52))
                       . #3#)

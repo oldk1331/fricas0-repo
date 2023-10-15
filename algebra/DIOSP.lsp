@@ -51,7 +51,7 @@
                 (COND ((EQL |c| 0) (LIST |sol|))
                       (#6='T
                        (|DIOSP;findSolutions| |sol| (+ (QVELT |graph| 2) |c|) 1
-                        1 |graph| 'NIL $)))
+                        1 |graph| NIL $)))
                 . #5#)
           (LETT |vars|
                 (PROGN
@@ -202,7 +202,7 @@
               (EXIT
                (COND
                 ((QCDR |node|)
-                 (SEQ (PROGN (RPLACD |node| 'NIL) (QCDR |node|))
+                 (SEQ (PROGN (RPLACD |node| NIL) (QCDR |node|))
                       (LETT |v| (QCAR |node|) . #4#)
                       (LETT |k|
                             (COND ((< |ind| (QVELT |graph| 2)) |m|)
@@ -347,7 +347,7 @@
                                          ((EQL
                                            (SPADCALL |v| |i| (QREFELT $ 37))
                                            (QVELT |graph| 2))
-                                          (SEQ (LETT |flag| 'NIL . #6#)
+                                          (SEQ (LETT |flag| NIL . #6#)
                                                (EXIT
                                                 (SPADCALL |sol| |i| |x|
                                                           (QREFELT $ 43)))))

@@ -11,12 +11,11 @@
                 . #1#)
           (EXIT
            (SPADCALL
-            (SPADCALL (CONS #'|FMCF2;map;MM1M2;1!1| $) |ry| (QREFELT $ 24))
-            (QREFELT $ 25)))))) 
+            (SPADCALL (CONS #'|FMCF2;map;MM1M2;1!1| $) |ry| (QREFELT $ 22))
+            (QREFELT $ 23)))))) 
 
 (SDEFUN |FMCF2;map;MM1M2;1!1| ((|t| NIL) ($ NIL))
-        (COND ((SPADCALL (QCDR |t|) (QREFELT $ 20)) (|spadConstant| $ 21))
-              ('T (|spadConstant| $ 22)))) 
+        (NULL (SPADCALL (QCDR |t|) (QREFELT $ 20)))) 
 
 (SDEFUN |FMCF2;map;MM1M2;1!0| ((|t| NIL) (|f| NIL))
         (CONS (QCAR |t|) (SPADCALL (QCDR |t|) |f|))) 
@@ -59,7 +58,7 @@
     (LETT |dv$|
           (LIST '|FreeModuleCoefficientFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5)
           . #1#)
-    (LETT $ (GETREFV 28) . #1#)
+    (LETT $ (GETREFV 26) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|FreeModuleCoefficientFunctions2|
@@ -80,16 +79,16 @@
               (|Record| (|:| |k| 8) (|:| |c| 6)) (|List| 11)
               (0 . |listOfTerms|) (|Record| (|:| |k| 8) (|:| |c| 7))
               (|List| 14) (|Mapping| 14 11) (|ListFunctions2| 11 14)
-              (5 . |map|) (|Boolean|) (11 . |zero?|) (16 . |false|)
-              (20 . |true|) (|Mapping| 19 14) (24 . |select|)
-              (30 . |constructOrdered|) (|Mapping| 7 6) |FMCF2;map;MM1M2;1|)
-           '#(|map| 35) 'NIL
+              (5 . |map|) (|Boolean|) (11 . |zero?|) (|Mapping| 19 14)
+              (16 . |select|) (22 . |constructOrdered|) (|Mapping| 7 6)
+              |FMCF2;map;MM1M2;1|)
+           '#(|map| 27) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 27
+                             (|makeByteWordVec2| 25
                                                  '(1 9 12 0 13 2 17 15 16 12 18
-                                                   1 7 19 0 20 0 19 0 21 0 19 0
-                                                   22 2 15 0 23 0 24 1 10 0 15
-                                                   25 2 0 10 26 9 27)))))
+                                                   1 7 19 0 20 2 15 0 21 0 22 1
+                                                   10 0 15 23 2 0 10 24 9
+                                                   25)))))
            '|lookupComplete|)) 

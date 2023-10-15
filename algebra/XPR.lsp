@@ -69,24 +69,22 @@
         (SPROG ((#1=#:G144 NIL) (|t| NIL) (#2=#:G143 NIL))
                (SEQ
                 (COND ((SPADCALL |p| (QREFELT $ 30)) |p|)
-                      (#3='T
+                      ('T
                        (PROGN
-                        (LETT #2# NIL . #4=(|XPR;quasiRegular;2$;10|))
-                        (SEQ (LETT |t| NIL . #4#) (LETT #1# |p| . #4#) G190
+                        (LETT #2# NIL . #3=(|XPR;quasiRegular;2$;10|))
+                        (SEQ (LETT |t| NIL . #3#) (LETT #1# |p| . #3#) G190
                              (COND
                               ((OR (ATOM #1#)
-                                   (PROGN (LETT |t| (CAR #1#) . #4#) NIL))
+                                   (PROGN (LETT |t| (CAR #1#) . #3#) NIL))
                                (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
-                                ((COND
-                                  ((SPADCALL (QCAR |t|) (|spadConstant| $ 9)
-                                             (QREFELT $ 21))
-                                   'NIL)
-                                  (#3# 'T))
-                                 (LETT #2# (CONS |t| #2#) . #4#)))))
-                             (LETT #1# (CDR #1#) . #4#) (GO G190) G191
+                                ((NULL
+                                  (SPADCALL (QCAR |t|) (|spadConstant| $ 9)
+                                            (QREFELT $ 21)))
+                                 (LETT #2# (CONS |t| #2#) . #3#)))))
+                             (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                              (EXIT (NREVERSE #2#))))))))) 
 
 (SDEFUN |XPR;recip;$U;11| ((|p| $) ($ |Union| $ #1="failed"))
@@ -222,12 +220,10 @@
                                                              (QREFELT $ 43))
                                                    . #8#)
                                              (EXIT
-                                              (COND
-                                               ((SPADCALL |r|
-                                                          (|spadConstant| $ 23)
-                                                          (QREFELT $ 37))
-                                                'NIL)
-                                               ('T 'T))))
+                                              (NULL
+                                               (SPADCALL |r|
+                                                         (|spadConstant| $ 23)
+                                                         (QREFELT $ 37)))))
                                             (LETT #5#
                                                   (CONS
                                                    (CONS

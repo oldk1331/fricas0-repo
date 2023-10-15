@@ -628,7 +628,7 @@
         (SPROG ((#1=#:G265 NIL) (#2=#:G266 NIL) (|term| NIL) (|f| (|Integer|)))
                (SEQ
                 (EXIT
-                 (COND ((NULL |l|) 'NIL)
+                 (COND ((NULL |l|) NIL)
                        ('T
                         (SEQ
                          (LETT |f| (SPADCALL (|SPADfirst| |l|) (QREFELT $ 63))
@@ -650,7 +650,7 @@
                                    (GO #4=#:G264))))))
                               (LETT #2# (CDR #2#) . #3#) (GO G190) G191
                               (EXIT NIL))
-                         (EXIT 'NIL)))))
+                         (EXIT NIL)))))
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ROIRC;hasVars| ((|p| |ThePolDom|) ($ |Boolean|))
@@ -667,7 +667,7 @@
                 (LETT |a| (QVELT |rootChar| 0)
                       . #1=(|ROIRC;mightHaveRoots;ThePolDom$B;18|))
                 (LETT |q| (|ROIRC;translate| |p| |a| $) . #1#)
-                (COND ((NULL (|ROIRC;hasVars| |q| $)) (EXIT 'NIL)))
+                (COND ((NULL (|ROIRC;hasVars| |q| $)) (EXIT NIL)))
                 (LETT |a| (SPADCALL (QVELT |rootChar| 1) |a| (QREFELT $ 9))
                       . #1#)
                 (LETT |q| (|ROIRC;dilate| |q| |a| $) . #1#)
@@ -682,7 +682,7 @@
                   ('T
                    (SEQ
                     (LETT |q| (|ROIRC;minus| (|ROIRC;addOne| |q| $) $) . #1#)
-                    (COND ((NULL (|ROIRC;hasVars| |q| $)) (EXIT 'NIL)))
+                    (COND ((NULL (|ROIRC;hasVars| |q| $)) (EXIT NIL)))
                     (LETT |q| (|ROIRC;invert| |q| $) . #1#)
                     (EXIT (|ROIRC;hasVars| (|ROIRC;addOne| |q| $) $))))))))) 
 
@@ -705,7 +705,7 @@
                       (SPADCALL (QVELT |c1| 1) (QVELT |c2| 1) (QREFELT $ 74))
                       . #1#)
                 (EXIT
-                 (COND ((SPADCALL |mM| |Mm| (QREFELT $ 75)) 'NIL)
+                 (COND ((SPADCALL |mM| |Mm| (QREFELT $ 75)) NIL)
                        (#2='T
                         (SEQ
                          (LETT |rr|
@@ -713,7 +713,7 @@
                                          (QREFELT $ 36))
                                . #1#)
                          (EXIT
-                          (COND ((EQL (SPADCALL |rr| (QREFELT $ 12)) 0) 'NIL)
+                          (COND ((EQL (SPADCALL |rr| (QREFELT $ 12)) 0) NIL)
                                 (#2#
                                  (SPADCALL
                                   (*
@@ -1117,7 +1117,7 @@
                      (SPADCALL |c| (QVELT |rootChar| 1) (QREFELT $ 9))
                      (QREFELT $ 79))
            (|spadConstant| $ 14) (QREFELT $ 54)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |ROIRC;zero?;ThePolDom$B;28|
         ((|toTest| |ThePolDom|) (|rootChar| $) ($ |Boolean|))
@@ -1160,7 +1160,7 @@
                                      (QREFELT $ 36))
                            . #2#)
                      (EXIT
-                      (COND ((EQL (SPADCALL |delta| (QREFELT $ 12)) 0) 'NIL)
+                      (COND ((EQL (SPADCALL |delta| (QREFELT $ 12)) 0) NIL)
                             (#1#
                              (SPADCALL
                               (SPADCALL

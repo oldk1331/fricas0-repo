@@ -400,10 +400,10 @@
          ($ |Record| (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))
           (|:| |cum| (|List| R)) (|:| |mom| (|Stream| R))))
         (SPROG
-         ((#1=#:G184 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
+         ((#1=#:G180 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|rrnew| (|List| R)) (|mnt| (|SparseUnivariatePolynomial| R))
-          (|rn| (R)) (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G185 NIL)
-          (|k| NIL) (#3=#:G186 NIL) (|r| NIL) (#4=#:G187 NIL) (|m| NIL)
+          (|rn| (R)) (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G181 NIL)
+          (|k| NIL) (#3=#:G182 NIL) (|r| NIL) (#4=#:G183 NIL) (|m| NIL)
           (|n| (|Integer|)) (|mm| (|Stream| R)) (|rr| (|List| R))
           (|mt| (|List| (|SparseUnivariatePolynomial| R))))
          (SEQ
@@ -454,7 +454,7 @@
              (PROGN
               (LETT #1# (VECTOR |mtnew| |rrnew| (SPADCALL |mm| (QREFELT $ 12)))
                     . #5#)
-              (GO #6=#:G183)))))
+              (GO #6=#:G179)))))
           #6# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;moment2monotoneCumulant;2S;15|
@@ -500,10 +500,10 @@
          ($ |Record| (|:| |cum| (|Stream| R))
           (|:| |momt| (|List| (|SparseUnivariatePolynomial| R)))))
         (SPROG
-         ((#1=#:G199 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
+         ((#1=#:G195 NIL) (|mtnew| (|List| (|SparseUnivariatePolynomial| R)))
           (|mnt| (|SparseUnivariatePolynomial| R)) (|rr| (|Stream| R))
-          (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G200 NIL) (|k| NIL)
-          (#3=#:G201 NIL) (|m| NIL) (|n| (|Integer|))
+          (|tmp| (|SparseUnivariatePolynomial| R)) (#2=#:G196 NIL) (|k| NIL)
+          (#3=#:G197 NIL) (|m| NIL) (|n| (|Integer|))
           (|mt| (|List| (|SparseUnivariatePolynomial| R))))
          (SEQ
           (EXIT
@@ -542,7 +542,7 @@
             (EXIT
              (PROGN
               (LETT #1# (CONS (QCAR |srm|) |mtnew|) . #4#)
-              (GO #5=#:G198)))))
+              (GO #5=#:G194)))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |MOMPKG;monotoneCumulant2moment;2S;17|
@@ -613,9 +613,9 @@
 
 (DECLAIM (NOTINLINE |MomentPackage;|)) 
 
-(DEFUN |MomentPackage| (#1=#:G213)
+(DEFUN |MomentPackage| (#1=#:G209)
   (SPROG NIL
-         (PROG (#2=#:G214)
+         (PROG (#2=#:G210)
            (RETURN
             (COND
              ((LETT #2#

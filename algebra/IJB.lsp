@@ -43,7 +43,7 @@
                         (EXIT
                          (COND
                           ((NULL (ZEROP |i|))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G124))))))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4=#:G124))))))
                        (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 

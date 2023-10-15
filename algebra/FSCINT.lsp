@@ -184,7 +184,7 @@
                           ((|HasCategory| |#2|
                                           '(|LiouvillianFunctionCategory|))
                            (|HasCategory| |#2| '(|RetractableTo| (|Symbol|))))
-                          ('T 'NIL)))
+                          ('T NIL)))
                (COND
                 ((QREFELT $ 26)
                  (PROGN

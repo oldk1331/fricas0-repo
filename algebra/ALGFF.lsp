@@ -2,43 +2,43 @@
 (SDEFUN |ALGFF;branchPointAtInfinity?;B;1| (($ |Boolean|))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (SPADCALL (QREFELT $ 14) (QREFELT $ 36))))) 
 
 (SDEFUN |ALGFF;discriminant;F;2| (($ |Fraction| UP))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (SPADCALL (QREFELT $ 21) (QREFELT $ 38))))) 
 
 (SDEFUN |ALGFF;integralBasis;V;3| (($ |Vector| $))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (|ALGFF;vect| (QREFELT $ 30) $)))) 
 
 (SDEFUN |ALGFF;integralBasisAtInfinity;V;4| (($ |Vector| $))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (|ALGFF;vect| (QREFELT $ 33) $)))) 
 
 (SDEFUN |ALGFF;integralMatrix;M;5| (($ |Matrix| (|Fraction| UP)))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (QREFELT $ 30)))) 
 
 (SDEFUN |ALGFF;inverseIntegralMatrix;M;6| (($ |Matrix| (|Fraction| UP)))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (QREFELT $ 32)))) 
 
 (SDEFUN |ALGFF;integralMatrixAtInfinity;M;7| (($ |Matrix| (|Fraction| UP)))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (QREFELT $ 33)))) 
 
 (SDEFUN |ALGFF;branchPoint?;FB;8| ((|a| F) ($ |Boolean|))
@@ -53,7 +53,7 @@
         (($ |Matrix| (|Fraction| UP)))
         (SEQ
          (COND
-          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| 'NIL $)))
+          ((SPADCALL (QREFELT $ 13) (QREFELT $ 35)) (|ALGFF;startUp| NIL $)))
          (EXIT (QREFELT $ 34)))) 
 
 (SDEFUN |ALGFF;vect| ((|m| |Matrix| (|Fraction| UP)) ($ |Vector| $))
@@ -516,18 +516,18 @@
                (SEQ
                 (COND
                  ((SPADCALL (QREFELT $ 13) (QREFELT $ 35))
-                  (|ALGFF;startUp| 'NIL $)))
+                  (|ALGFF;startUp| NIL $)))
                 (LETT |r| (SPADCALL |p| (QREFELT $ 124))
                       |ALGFF;branchPoint?;UPB;18|)
                 (EXIT
                  (COND ((QEQCAR |r| 0) (SPADCALL (QCDR |r|) (QREFELT $ 49)))
-                       ((SPADCALL
+                       ('T
+                        (NULL
                          (SPADCALL
-                          (SPADCALL (SPADCALL (QREFELT $ 39)) (QREFELT $ 46))
-                          |p| (QREFELT $ 125))
-                         (QREFELT $ 126))
-                        'NIL)
-                       ('T 'T)))))) 
+                          (SPADCALL
+                           (SPADCALL (SPADCALL (QREFELT $ 39)) (QREFELT $ 46))
+                           |p| (QREFELT $ 125))
+                          (QREFELT $ 126))))))))) 
 
 (DECLAIM (NOTINLINE |AlgebraicFunctionField;|)) 
 

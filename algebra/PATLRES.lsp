@@ -24,7 +24,7 @@
                     (QREFELT $ 23))
           (SPADCALL (SPADCALL |x| (QREFELT $ 16)) (SPADCALL |y| (QREFELT $ 16))
                     (QREFELT $ 24)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |PATLRES;makeResult;PmrPmr$;7|
         ((|r1| |PatternMatchResult| R S) (|r2| |PatternMatchResult| R L) ($ $))

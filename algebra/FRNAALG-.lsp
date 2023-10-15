@@ -131,7 +131,7 @@
 
 (SDEFUN |FRNAALG-;rightRankPolynomial;Sup;4|
         (($ |SparseUnivariatePolynomial| (|Polynomial| R)))
-        (|FRNAALG-;rank_polynomial| 'NIL $)) 
+        (|FRNAALG-;rank_polynomial| NIL $)) 
 
 (SDEFUN |FRNAALG-;leftUnitsInternal|
         (($ |Record| (|:| |particular| (|Union| (|Vector| R) "failed"))

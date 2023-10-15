@@ -182,10 +182,8 @@
                         (|spadConstant| $ 32) (QREFELT $ 50)))))))) 
 
 (SDEFUN |DIRRING;unit?;$B;17| ((|a| $) ($ |Boolean|))
-        (COND
-         ((QEQCAR (SPADCALL (SPADCALL |a| 1 (QREFELT $ 9)) (QREFELT $ 53)) 1)
-          'NIL)
-         ('T 'T))) 
+        (NULL
+         (QEQCAR (SPADCALL (SPADCALL |a| 1 (QREFELT $ 9)) (QREFELT $ 53)) 1))) 
 
 (SDEFUN |DIRRING;qrecip|
         ((|f| $) (|f1inv| |Coef|) (|n| |PositiveInteger|) ($ |Coef|))
@@ -346,7 +344,7 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# 'NIL . #8#) (GO #9=#:G282))))))))
+                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G282))))))))
                  (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #9# (EXIT #1#)))) 
@@ -421,7 +419,7 @@
                      (SEQ
                       (SPADCALL (SPADCALL |i| (QREFELT $ 66)) (QREFELT $ 69))
                       (SPADCALL (SPADCALL |rl| (QREFELT $ 70)) (QREFELT $ 69))
-                      (EXIT (PROGN (LETT #1# 'NIL . #8#) (GO #9=#:G318))))))))
+                      (EXIT (PROGN (LETT #1# NIL . #8#) (GO #9=#:G318))))))))
                  (LETT |i| (|inc_SI| |i|) . #8#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #9# (EXIT #1#)))) 

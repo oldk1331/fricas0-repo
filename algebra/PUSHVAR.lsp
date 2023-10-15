@@ -87,9 +87,7 @@
                      (SEQ
                       (SEQ G190
                            (COND
-                            ((NULL
-                              (COND ((SPADCALL |uc| (QREFELT $ 46)) 'NIL)
-                                    ('T 'T)))
+                            ((NULL (NULL (SPADCALL |uc| (QREFELT $ 46))))
                              (GO G191)))
                            (SEQ
                             (LETT |ppr|
@@ -115,9 +113,7 @@
                      (SEQ
                       (SEQ G190
                            (COND
-                            ((NULL
-                              (COND ((SPADCALL |uc| (QREFELT $ 46)) 'NIL)
-                                    ('T 'T)))
+                            ((NULL (NULL (SPADCALL |uc| (QREFELT $ 46))))
                              (GO G191)))
                            (SEQ
                             (LETT |ppr|

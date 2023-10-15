@@ -87,9 +87,7 @@
                              ((NULL
                                (SPADCALL (SPADCALL |m| |i| |j| (QREFELT $ 11))
                                          (QREFELT $ 13)))
-                              (PROGN
-                               (LETT #1# 'NIL . #4#)
-                               (GO #5=#:G140))))))))
+                              (PROGN (LETT #1# NIL . #4#) (GO #5=#:G140))))))))
                         (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                         (EXIT NIL))))
                  (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
@@ -284,7 +282,7 @@
                                         (QREFELT $ 13))
                               . #19#)
                         (COND
-                         (#15# (LETT #16# (COND (#16# #17#) ('T 'NIL)) . #19#))
+                         (#15# (LETT #16# (COND (#16# #17#) ('T NIL)) . #19#))
                          ('T
                           (PROGN
                            (LETT #16# #17# . #19#)
@@ -307,7 +305,7 @@
                                  . #19#)
                            (COND
                             (#10#
-                             (LETT #11# (COND (#11# #13#) ('T 'NIL)) . #19#))
+                             (LETT #11# (COND (#11# #13#) ('T NIL)) . #19#))
                             ('T
                              (PROGN
                               (LETT #11# #13# . #19#)

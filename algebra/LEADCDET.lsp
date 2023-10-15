@@ -52,7 +52,7 @@
                              (COND
                               ((SPADCALL |q| (|spadConstant| $ 15)
                                          (QREFELT $ 21))
-                               (PROGN (LETT #1# 'NIL . #6#) (GO #7=#:G121))))))
+                               (PROGN (LETT #1# NIL . #6#) (GO #7=#:G121))))))
                            (LETT |j| (|inc_SI| |j|) . #6#) (GO G190) G191
                            (EXIT NIL))
                       (EXIT

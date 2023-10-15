@@ -279,7 +279,7 @@
                                                        (GO G190) G191
                                                        (EXIT (NREVERSE #18#))))
                                                  . #20#)
-                                           (LETT |lcbad| 'NIL . #20#)
+                                           (LETT |lcbad| NIL . #20#)
                                            (SEQ (LETT |z| NIL . #20#)
                                                 (LETT #16# (QVELT |pss| 8)
                                                       . #20#)
@@ -769,7 +769,7 @@
                                                 (GO G190) G191
                                                 (EXIT (NREVERSE #16#))))
                                           . #17#)
-                                    (LETT |lcbad| 'NIL . #17#)
+                                    (LETT |lcbad| NIL . #17#)
                                     (SEQ (LETT |z| NIL . #17#)
                                          (LETT #14# |lvz| . #17#)
                                          (LETT |deg| NIL . #17#)

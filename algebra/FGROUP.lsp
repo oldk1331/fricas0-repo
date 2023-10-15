@@ -54,7 +54,7 @@
                                  (SPADCALL (QCAR (|SPADfirst| |r|))
                                            (QCAR (|SPADfirst| |q|))
                                            (QREFELT $ 39))))
-                            'NIL)
+                            NIL)
                            ('T
                             (EQL (QCDR (|SPADfirst| |r|))
                                  (- (QCDR (|SPADfirst| |q|)))))))
@@ -94,13 +94,10 @@
             (LETT |na| (LENGTH |la|) . #3#) (LETT |nb| (LENGTH |lb|) . #3#)
             (EXIT
              (COND ((< |na| |nb|) (PROGN (LETT #2# 'T . #3#) (GO #4=#:G166)))
-                   ((< |nb| |na|) (PROGN (LETT #2# 'NIL . #3#) (GO #4#)))
+                   ((< |nb| |na|) (PROGN (LETT #2# NIL . #3#) (GO #4#)))
                    ('T
                     (SEQ
-                     (SEQ G190
-                          (COND
-                           ((NULL (COND ((NULL |la|) 'NIL) ('T 'T)))
-                            (GO G191)))
+                     (SEQ G190 (COND ((NULL (NULL (NULL |la|))) (GO G191)))
                           (SEQ
                            (EXIT
                             (COND
@@ -111,18 +108,18 @@
                              ((SPADCALL (QCAR (|SPADfirst| |lb|))
                                         (QCAR (|SPADfirst| |la|))
                                         (QREFELT $ 44))
-                              (PROGN (LETT #2# 'NIL . #3#) (GO #4#)))
+                              (PROGN (LETT #2# NIL . #3#) (GO #4#)))
                              ((< (QCDR (|SPADfirst| |la|))
                                  (QCDR (|SPADfirst| |lb|)))
                               (PROGN (LETT #2# 'T . #3#) (GO #4#)))
                              ((< (QCDR (|SPADfirst| |lb|))
                                  (QCDR (|SPADfirst| |la|)))
-                              (PROGN (LETT #2# 'NIL . #3#) (GO #4#)))
+                              (PROGN (LETT #2# NIL . #3#) (GO #4#)))
                              ('T
                               (SEQ (LETT |la| (CDR |la|) . #3#)
                                    (EXIT (LETT |lb| (CDR |lb|) . #3#)))))))
                           NIL (GO G190) G191 (EXIT NIL))
-                     (EXIT 'NIL)))))))
+                     (EXIT NIL)))))))
           #4# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 

@@ -208,7 +208,7 @@
                      (SPADCALL (SPADCALL 5 -1 10 (QREFELT $ 40))
                                (QREFELT $ 42))
                      (QREFELT $ 44)))
-          (QSETREFV $ 49 (SPADCALL 'NIL (QREFELT $ 48)))
+          (QSETREFV $ 49 (SPADCALL NIL (QREFELT $ 48)))
           $))) 
 
 (MAKEPROP '|ViewDefaultsPackage| '|infovec|

@@ -14,13 +14,11 @@
                 (LETT |h2| (+ 1 (SPADCALL |h1| (- |n| 2) (QREFELT $ 15)))
                       . #3#)
                 (LETT |mk| (QAREF1 |a| |p|) . #3#)
-                (LETT |deletedPosition?| 'NIL . #3#)
+                (LETT |deletedPosition?| NIL . #3#)
                 (SEQ
                  (EXIT
                   (SEQ G190
-                       (COND
-                        ((NULL (COND ((EQ |mk| (QREFELT $ 8)) 'NIL) ('T 'T)))
-                         (GO G191)))
+                       (COND ((NULL (NULL (EQ |mk| (QREFELT $ 8)))) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
@@ -41,9 +39,7 @@
                  #4# (EXIT #2#))
                 (LETT |q| |p| . #3#)
                 (SEQ G190
-                     (COND
-                      ((NULL (COND ((EQ |mk| (QREFELT $ 8)) 'NIL) ('T 'T)))
-                       (GO G191)))
+                     (COND ((NULL (NULL (EQ |mk| (QREFELT $ 8)))) (GO G191)))
                      (SEQ
                       (COND
                        ((NULL (EQ |mk| (QREFELT $ 9)))
@@ -98,10 +94,10 @@
                 (EXIT
                  (COND
                   ((COND
-                    ((OR (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8))
-                         (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 9)))
-                     'NIL)
-                    ('T 'T))
+                    ((EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8)) NIL)
+                    ('T
+                     (NULL
+                      (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 9)))))
                    (SEQ (LETT |k| |mk| . #2#)
                         (LETT |p|
                               (+ |m| (|XHASHTBL;localSearch| |c| |k| |h| $))
@@ -152,13 +148,13 @@
                       (EXIT
                        (COND
                         ((COND
-                          ((OR
+                          ((EQ (LETT |mk| (QAREF1 |a| |i|) . #3#)
+                               (QREFELT $ 8))
+                           NIL)
+                          ('T
+                           (NULL
                             (EQ (LETT |mk| (QAREF1 |a| |i|) . #3#)
-                                (QREFELT $ 8))
-                            (EQ (LETT |mk| (QAREF1 |a| |i|) . #3#)
-                                (QREFELT $ 9)))
-                           'NIL)
-                          ('T 'T))
+                                (QREFELT $ 9)))))
                          (PROGN
                           (LETT #1# (CONS |mk| (QAREF1 |a| (+ |n| |i|))) . #3#)
                           (GO #4=#:G185))))))
@@ -302,11 +298,8 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((COND
-                        ((OR (EQ (QAREF1 |a| |i|) (QREFELT $ 8))
-                             (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))
-                         'NIL)
-                        ('T 'T))
+                      ((COND ((EQ (QAREF1 |a| |i|) (QREFELT $ 8)) NIL)
+                             ('T (NULL (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))))
                        (QSETAREF1 |a| (+ |n| |i|) |e|)))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |x|)))) 
@@ -322,11 +315,8 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((COND
-                        ((OR (EQ (QAREF1 |a| |i|) (QREFELT $ 8))
-                             (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))
-                         'NIL)
-                        ('T 'T))
+                      ((COND ((EQ (QAREF1 |a| |i|) (QREFELT $ 8)) NIL)
+                             ('T (NULL (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))))
                        (QSETAREF1 |a| (+ |n| |i|)
                                   (SPADCALL (QAREF1 |a| (+ |n| |i|)) |f|))))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
@@ -345,12 +335,12 @@
                     (EXIT
                      (COND
                       ((COND
-                        ((OR
-                          (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8))
+                        ((EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8))
+                         NIL)
+                        ('T
+                         (NULL
                           (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#)
-                              (QREFELT $ 9)))
-                         'NIL)
-                        ('T 'T))
+                              (QREFELT $ 9)))))
                        (LETT |l| (CONS |mk| |l|) . #2#)))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
@@ -366,11 +356,8 @@
                    (SEQ
                     (EXIT
                      (COND
-                      ((COND
-                        ((OR (EQ (QAREF1 |a| |i|) (QREFELT $ 8))
-                             (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))
-                         'NIL)
-                        ('T 'T))
+                      ((COND ((EQ (QAREF1 |a| |i|) (QREFELT $ 8)) NIL)
+                             ('T (NULL (EQ (QAREF1 |a| |i|) (QREFELT $ 9)))))
                        (LETT |l| (CONS (QAREF1 |a| (+ |n| |i|)) |l|) . #2#)))))
                    (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT |l|)))) 
@@ -389,12 +376,12 @@
                     (EXIT
                      (COND
                       ((COND
-                        ((OR
-                          (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8))
+                        ((EQ (LETT |mk| (QAREF1 |a| |i|) . #2#) (QREFELT $ 8))
+                         NIL)
+                        ('T
+                         (NULL
                           (EQ (LETT |mk| (QAREF1 |a| |i|) . #2#)
-                              (QREFELT $ 9)))
-                         'NIL)
-                        ('T 'T))
+                              (QREFELT $ 9)))))
                        (LETT |l|
                              (CONS (CONS |mk| (QAREF1 |a| (+ |n| |i|))) |l|)
                              . #2#)))))
@@ -416,33 +403,33 @@
            (COND
             ((SPADCALL (SPADCALL |x| (QREFELT $ 28))
                        (SPADCALL |y| (QREFELT $ 28)) (QREFELT $ 49))
-             'NIL)
-            ('T
-             (SEQ (LETT |xa| (QVELT |x| 5) . #6=(|XHASHTBL;=;2$B;22|))
-                  (LETT |xn| (ASH (QVSIZE |xa|) -1) . #6#)
-                  (LETT |ya| (QVELT |y| 5) . #6#)
-                  (LETT |yn| (ASH (QVSIZE |ya|) -1) . #6#)
-                  (LETT |h| (QVELT |y| 6) . #6#)
-                  (SEQ (LETT |i| 0 . #6#) (LETT #3# (- |xn| 1) . #6#) G190
+             NIL)
+            (#6='T
+             (SEQ (LETT |xa| (QVELT |x| 5) . #7=(|XHASHTBL;=;2$B;22|))
+                  (LETT |xn| (ASH (QVSIZE |xa|) -1) . #7#)
+                  (LETT |ya| (QVELT |y| 5) . #7#)
+                  (LETT |yn| (ASH (QVSIZE |ya|) -1) . #7#)
+                  (LETT |h| (QVELT |y| 6) . #7#)
+                  (SEQ (LETT |i| 0 . #7#) (LETT #3# (- |xn| 1) . #7#) G190
                        (COND ((|greater_SI| |i| #3#) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
                           ((COND
-                            ((OR
-                              (EQ (LETT |mk| (QAREF1 |xa| |i|) . #6#)
-                                  (QREFELT $ 8))
-                              (EQ (LETT |mk| (QAREF1 |xa| |i|) . #6#)
-                                  (QREFELT $ 9)))
-                             'NIL)
-                            ('T 'T))
+                            ((EQ (LETT |mk| (QAREF1 |xa| |i|) . #7#)
+                                 (QREFELT $ 8))
+                             NIL)
+                            (#6#
+                             (NULL
+                              (EQ (LETT |mk| (QAREF1 |xa| |i|) . #7#)
+                                  (QREFELT $ 9)))))
                            (SEQ
                             (LETT |p| (|XHASHTBL;localSearch| |ya| |mk| |h| $)
-                                  . #6#)
+                                  . #7#)
                             (EXIT
                              (COND
                               ((< |p| 0)
-                               (PROGN (LETT #2# 'NIL . #6#) (GO #7=#:G287)))
+                               (PROGN (LETT #2# NIL . #7#) (GO #8=#:G287)))
                               ('T
                                (SEQ
                                 (EXIT
@@ -452,16 +439,14 @@
                                              (QREFELT $ 50))
                                    (PROGN
                                     (LETT #1#
-                                          (PROGN
-                                           (LETT #2# 'NIL . #6#)
-                                           (GO #7#))
-                                          . #6#)
-                                    (GO #8=#:G282)))))
-                                #8# (EXIT #1#))))))))))
-                       (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191
+                                          (PROGN (LETT #2# NIL . #7#) (GO #8#))
+                                          . #7#)
+                                    (GO #9=#:G282)))))
+                                #9# (EXIT #1#))))))))))
+                       (LETT |i| (|inc_SI| |i|) . #7#) (GO G190) G191
                        (EXIT NIL))
                   (EXIT 'T)))))
-          #7# (EXIT #2#)))) 
+          #8# (EXIT #2#)))) 
 
 (DECLAIM (NOTINLINE |XHashTable;|)) 
 

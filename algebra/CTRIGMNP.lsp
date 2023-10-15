@@ -28,8 +28,8 @@
                       (QREFELT $ 36))
             (SPADCALL (CONS (|function| |CTRIGMNP;kreal?|) $)
                       (SPADCALL |f| (QREFELT $ 39)) (QREFELT $ 42)))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |CTRIGMNP;localexplogs| ((|f| F) (|g| F) ($ F))
         (SPROG ((#1=#:G128 NIL) (|k| NIL) (#2=#:G127 NIL))

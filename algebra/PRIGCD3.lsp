@@ -42,9 +42,7 @@
                                (SEQ (LETT |vx| (QCAR (QCDR |xr|)) . #3#)
                                     (SEQ G190
                                          (COND
-                                          ((NULL
-                                            (COND ((NULL |xvars|) 'NIL)
-                                                  ('T 'T)))
+                                          ((NULL (NULL (NULL |xvars|)))
                                            (GO G191)))
                                          (SEQ
                                           (EXIT
@@ -210,8 +208,7 @@
                         (SEQ (LETT |vx| (QCAR (QCDR |xr|)) . #3#)
                              (SEQ G190
                                   (COND
-                                   ((NULL (COND ((NULL |xvars|) 'NIL) ('T 'T)))
-                                    (GO G191)))
+                                   ((NULL (NULL (NULL |xvars|))) (GO G191)))
                                   (SEQ
                                    (EXIT
                                     (COND
@@ -411,7 +408,7 @@
                        (EXIT
                         (COND
                          ((QEQCAR |mquo| 1)
-                          (PROGN (LETT #3# 'NIL . #7#) (GO #8#)))
+                          (PROGN (LETT #3# NIL . #7#) (GO #8#)))
                          ('T
                           (SEQ
                            (LETT |g|

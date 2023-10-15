@@ -56,7 +56,7 @@
              (SPADCALL (SPADCALL |lside| |sol| (QREFELT $ 30)) (QREFELT $ 32))
              (QREFELT $ 9))
             'T)
-           ('T 'NIL))))) 
+           ('T NIL))))) 
 
 (SDEFUN |SOLVETRA;solve;ESL;5|
         ((|lside| |Expression| R) (|x| |Symbol|)
@@ -403,8 +403,8 @@
                                 (SPADCALL |y| (QREFELT $ 34)) (QREFELT $ 36))
                       (EQL (LENGTH |listvar1|) 0))
                      'T)
-                    ('T 'NIL)))
-                  ((EQL (LENGTH |listvar1|) 0) 'T) ('T 'NIL)))))) 
+                    ('T NIL)))
+                  ((EQL (LENGTH |listvar1|) 0) 'T) ('T NIL)))))) 
 
 (SDEFUN |SOLVETRA;solveRetract|
         ((|lexpr| |List| (|Expression| R)) (|lvar| |List| (|Symbol|))
@@ -786,7 +786,7 @@
                       . #3#)
                 (COND
                  ((EQL (LENGTH |kernelofexpr|) 0)
-                  (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G330))))
+                  (PROGN (LETT #1# NIL . #3#) (GO #4=#:G330))))
                 (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofexpr| . #3#) G190
                      (COND
                       ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -806,8 +806,8 @@
                                (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                (QREFELT $ 74)))
                              Z $))
-                           (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
-                        ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                           (PROGN (LETT #1# NIL . #3#) (GO #4#)))))
+                        ('T (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT 'T)))
           #4# (EXIT #1#)))) 
@@ -999,7 +999,7 @@
                       (|SOLVETRA;tableXkernels| |varlistk| |y| $) . #3#)
                 (COND
                  ((EQL (LENGTH |kernelofeqnvar|) 0)
-                  (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G370))))
+                  (PROGN (LETT #1# NIL . #3#) (GO #4=#:G370))))
                 (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#)
                      G190
                      (COND
@@ -1014,7 +1014,7 @@
                           |testList| (QREFELT $ 120))
                          (PROGN (LETT #1# 'T . #3#) (GO #4#))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-                (EXIT 'NIL)))
+                (EXIT NIL)))
           #4# (EXIT #1#)))) 
 
 (SDEFUN |SOLVETRA;tableXkernels|
@@ -1057,7 +1057,7 @@
                   . #3#)
             (COND
              ((EQL (LENGTH |kernelofeqnvar|) 0)
-              (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G383))))
+              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G383))))
             (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -1076,8 +1076,8 @@
                           (SPADCALL (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                     (QREFELT $ 74)))
                          Z $))
-                       (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
-                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                       (PROGN (LETT #1# NIL . #3#) (GO #4#)))))
+                    ('T (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                  (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #4# (EXIT #1#)))) 
@@ -1098,7 +1098,7 @@
                   . #3#)
             (COND
              ((EQL (LENGTH |kernelofeqnvar|) 0)
-              (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G391))))
+              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G391))))
             (SEQ (LETT |i| NIL . #3#) (LETT #2# |kernelofeqnvar| . #3#) G190
                  (COND
                   ((OR (ATOM #2#) (PROGN (LETT |i| (CAR #2#) . #3#) NIL))
@@ -1117,8 +1117,8 @@
                           (SPADCALL (|SPADfirst| (SPADCALL |i| (QREFELT $ 38)))
                                     (QREFELT $ 74)))
                          Z $))
-                       (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))))
-                    ('T (PROGN (LETT #1# 'NIL . #3#) (GO #4#))))))
+                       (PROGN (LETT #1# NIL . #3#) (GO #4#)))))
+                    ('T (PROGN (LETT #1# NIL . #3#) (GO #4#))))))
                  (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT 'T)))
           #4# (EXIT #1#)))) 
@@ -1543,7 +1543,7 @@
                             (LETT #24# #26# . #30#)
                             (LETT #23# 'T . #30#)))))))
                       (LETT #27# (CDR #27#) . #30#) (GO G190) G191 (EXIT NIL))
-                 (COND (#23# #24#) (#31='T 'NIL)))
+                 (COND (#23# #24#) (#31='T NIL)))
                 (PROGN
                  (LETT #18# NIL . #30#)
                  (SEQ (LETT |expr| NIL . #30#) (LETT #22# |lexpr| . #30#) G190
@@ -1555,15 +1555,13 @@
                        (EXIT
                         (PROGN
                          (LETT #21#
-                               (COND
-                                ((NULL
-                                  (SPADCALL |lvk|
-                                            (SPADCALL
-                                             (SPADCALL |expr| (QREFELT $ 192))
-                                             (QREFELT $ 209))
-                                            (QREFELT $ 210)))
-                                 'NIL)
-                                ('T 'T))
+                               (NULL
+                                (NULL
+                                 (SPADCALL |lvk|
+                                           (SPADCALL
+                                            (SPADCALL |expr| (QREFELT $ 192))
+                                            (QREFELT $ 209))
+                                           (QREFELT $ 210))))
                                . #30#)
                          (COND
                           (#18# (LETT #19# (COND (#19# 'T) ('T #21#)) . #30#))
@@ -1572,7 +1570,7 @@
                             (LETT #19# #21# . #30#)
                             (LETT #18# 'T . #30#)))))))
                       (LETT #22# (CDR #22#) . #30#) (GO G190) G191 (EXIT NIL))
-                 (COND (#18# #19#) (#31# 'NIL))))
+                 (COND (#18# #19#) (#31# NIL))))
                (CONS 1 "failed"))
               ('T
                (SEQ

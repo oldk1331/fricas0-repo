@@ -98,10 +98,8 @@
         (SPADCALL |r| |i| (CONS 3 "prime") (QREFELT $ 32))) 
 
 (SDEFUN |FR;unit?;$B;6| ((|u| $) ($ |Boolean|))
-        (COND
-         ((NULL (QCDR |u|))
-          (COND ((SPADCALL (QCAR |u|) (QREFELT $ 37)) 'NIL) (#1='T 'T)))
-         (#1# 'NIL))) 
+        (COND ((NULL (QCDR |u|)) (NULL (SPADCALL (QCAR |u|) (QREFELT $ 37))))
+              ('T NIL))) 
 
 (PUT '|FR;factorList;$L;7| '|SPADreplace| 'QCDR) 
 
@@ -131,9 +129,9 @@
             (COND
              ((SPADCALL (QVELT (|SPADfirst| (QCDR |u|)) 1) (QREFELT $ 37))
               (SPADCALL (QCAR |u|) (|spadConstant| $ 15) (QREFELT $ 17)))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+             (#1='T NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |FR;One;$;12| (($ $)) (CONS (|spadConstant| $ 15) NIL)) 
 
@@ -141,7 +139,7 @@
         (COND
          ((NULL (QCDR |u|))
           (SPADCALL (QCAR |u|) (|spadConstant| $ 15) (QREFELT $ 17)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (PUT '|FR;mkFF| '|SPADreplace| 'CONS) 
 
@@ -207,7 +205,7 @@
                          ('T
                           (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                 (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
-           (COND (#1# #2#) ('T 'NIL)))))) 
+           (COND (#1# #2#) ('T NIL)))))) 
 
 (SDEFUN |FR;makeFR;RL$;22|
         ((|u| R)
@@ -623,8 +621,7 @@
           (SPADCALL (QVELT |y| 1) (QVELT |y1| 1) (QREFELT $ 116)))
          ((QREFELT $ 31)
           (SPADCALL (QVELT |y| 1) (QVELT |y1| 1) (QREFELT $ 117)))
-         (#5='T
-          (COND ((GGREATERP (QVELT |y| 1) (QVELT |y1| 1)) 'NIL) (#5# 'T))))) 
+         ('T (NULL (GGREATERP (QVELT |y| 1) (QVELT |y1| 1)))))) 
 
 (SDEFUN |FR;stricterFlag|
         ((|fl1| |Union| #1="nil" #2="sqfr" #3="irred" #4="prime")
@@ -662,8 +659,8 @@
             (SPADCALL (SPADCALL (SPADCALL |u| (QREFELT $ 56)) (QREFELT $ 125))
                       (SPADCALL (SPADCALL |v| (QREFELT $ 56)) (QREFELT $ 125))
                       (QREFELT $ 126)))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |FR;-;2$;45| ((|u| $) ($ $))
         (COND ((SPADCALL |u| (QREFELT $ 44)) |u|)
@@ -926,15 +923,13 @@
              (LETT |goodQuotient| 'T . #1#)
              (SEQ G190
                   (COND
-                   ((NULL
-                     (COND (|goodQuotient| (COND ((NULL |x1|) 'NIL) ('T 'T)))
-                           ('T 'NIL)))
+                   ((NULL (COND (|goodQuotient| (NULL (NULL |x1|))) ('T NIL)))
                     (GO G191)))
                   (SEQ
                    (EXIT
                     (COND
                      ((< (QVELT (|SPADfirst| |x1|) 2) 0)
-                      (LETT |goodQuotient| 'NIL . #1#))
+                      (LETT |goodQuotient| NIL . #1#))
                      ('T (LETT |x1| (CDR |x1|) . #1#)))))
                   NIL (GO G190) G191 (EXIT NIL))
              (EXIT
@@ -1137,10 +1132,7 @@
                              (LETT |i| (+ |i| 1) . #8#) (GO G190) G191
                              (EXIT NIL))
                         (LETT |x1| NIL . #8#)
-                        (SEQ G190
-                             (COND
-                              ((NULL (COND ((NULL |f3|) 'NIL) ('T 'T)))
-                               (GO G191)))
+                        (SEQ G190 (COND ((NULL (NULL (NULL |f3|))) (GO G191)))
                              (SEQ (LETT |f1| (|SPADfirst| |f3|) . #8#)
                                   (COND
                                    ((SPADCALL (LENGTH |f1|) 1 (QREFELT $ 153))
@@ -1154,9 +1146,7 @@
                                          (LETT |f1| (CDR |f1|) . #8#)
                                          (SEQ G190
                                               (COND
-                                               ((NULL
-                                                 (COND ((NULL |f1|) 'NIL)
-                                                       ('T 'T)))
+                                               ((NULL (NULL (NULL |f1|)))
                                                 (GO G191)))
                                               (SEQ
                                                (LETT |i| (|SPADfirst| |f1|)
@@ -1210,7 +1200,7 @@
              (NULL (LETT |l| (SPADCALL |u| (QREFELT $ 11)) |FR;prime?;$B;61|))
              (NULL (NULL (CDR |l|))))
             (NULL (EQL (QVELT (|SPADfirst| |l|) 2) 1)))
-           'NIL)
+           NIL)
           ('T (QEQCAR (QVELT (|SPADfirst| |l|) 0) 3))))) 
 
 (DECLAIM (NOTINLINE |Factored;|)) 

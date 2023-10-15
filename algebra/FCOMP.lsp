@@ -1,7 +1,9 @@
 
 (SDEFUN |FCOMP;sin;E$;1| ((|e| E) ($ $)) (CONS 'T |e|)) 
 
-(SDEFUN |FCOMP;cos;E$;2| ((|e| E) ($ $)) (CONS 'NIL |e|)) 
+(PUT '|FCOMP;cos;E$;2| '|SPADreplace| '(XLAM (|e|) (CONS NIL |e|))) 
+
+(SDEFUN |FCOMP;cos;E$;2| ((|e| E) ($ $)) (CONS NIL |e|)) 
 
 (PUT '|FCOMP;sin?;$B;3| '|SPADreplace| 'QCAR) 
 
@@ -20,7 +22,7 @@
 (SDEFUN |FCOMP;<;2$B;6| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 18)) 'T)
               ((OR (SPADCALL (QCDR |y|) (QCDR |x|) (QREFELT $ 18)) (QCAR |x|))
-               'NIL)
+               NIL)
               ('T (QCAR |y|)))) 
 
 (DECLAIM (NOTINLINE |FourierComponent;|)) 

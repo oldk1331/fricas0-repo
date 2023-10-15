@@ -6,7 +6,7 @@
 (SDEFUN |INS-;differentiate;2S;2| ((|x| S) ($ S)) (|spadConstant| $ 9)) 
 
 (SDEFUN |INS-;even?;SB;3| ((|x| S) ($ |Boolean|))
-        (COND ((SPADCALL |x| (QREFELT $ 12)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| (QREFELT $ 12)))) 
 
 (SDEFUN |INS-;positive?;SB;4| ((|x| S) ($ |Boolean|))
         (SPADCALL |x| (|spadConstant| $ 9) (QREFELT $ 14))) 
@@ -139,9 +139,7 @@
           (LETT |c| |a| . #1#) (LETT |c1| (|spadConstant| $ 20) . #1#)
           (LETT |d| |b| . #1#) (LETT |d1| (|spadConstant| $ 9) . #1#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |d| (QREFELT $ 61)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |d| (QREFELT $ 61)))) (GO G191)))
                (SEQ (LETT |q| (SPADCALL |c| |d| (QREFELT $ 83)) . #1#)
                     (LETT |r|
                           (SPADCALL |c| (SPADCALL |q| |d| (QREFELT $ 84))

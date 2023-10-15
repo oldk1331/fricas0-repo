@@ -142,7 +142,7 @@
                           ((SPADCALL (ELT_U32 |v| |i|) 0 (QREFELT $ 8))
                            (PROGN
                             (LETT #1#
-                                  (PROGN (LETT #2# 'NIL . #3#) (GO #4=#:G156))
+                                  (PROGN (LETT #2# NIL . #3#) (GO #4=#:G156))
                                   . #3#)
                             (GO #5=#:G154))))))
                        (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL)))

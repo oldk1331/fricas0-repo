@@ -7,7 +7,7 @@
           (|:| |fail| "failed") (|:| |pole| "potentialPole")))
         (|DEFINTRF;int| |f| (SPADCALL |s| (QREFELT $ 9))
          (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 13))
-         (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14)) 'NIL $)) 
+         (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14)) NIL $)) 
 
 (SDEFUN |DEFINTRF;nopole|
         ((|f| |Fraction| (|Polynomial| R)) (|x| |Symbol|)
@@ -77,7 +77,7 @@
          (SPADCALL (ELT $ 32)
                    (SPADCALL (SPADCALL |s| (QREFELT $ 34)) (QREFELT $ 40))
                    (QREFELT $ 39))
-         'NIL $)) 
+         NIL $)) 
 
 (SDEFUN |DEFINTRF;integrate;FSbSU;4|
         ((|f| |Fraction| (|Polynomial| R))

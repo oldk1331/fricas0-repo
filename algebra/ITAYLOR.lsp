@@ -32,7 +32,7 @@
                      (PROGN (LETT #1# 'T . #3#) (GO #4=#:G118)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 19))
                                (|spadConstant| $ 11) (QREFELT $ 20))
-                     (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))
+                     (PROGN (LETT #1# NIL . #3#) (GO #4#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT $ 21)) . #3#)))))
                  (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
             (EXIT (SPADCALL |st| (QREFELT $ 18)))))
@@ -105,9 +105,9 @@
 (SDEFUN |ITAYLOR;characteristic;Nni;18| (($ |NonNegativeInteger|))
         (SPADCALL (QREFELT $ 50))) 
 
-(PUT '|ITAYLOR;pole?;$B;19| '|SPADreplace| '(XLAM (|x|) 'NIL)) 
+(PUT '|ITAYLOR;pole?;$B;19| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
-(SDEFUN |ITAYLOR;pole?;$B;19| ((|x| $) ($ |Boolean|)) 'NIL) 
+(SDEFUN |ITAYLOR;pole?;$B;19| ((|x| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |ITAYLOR;iOrder|
         ((|st| |Stream| |Coef|) (|n| |NonNegativeInteger|)

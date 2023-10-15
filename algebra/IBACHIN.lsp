@@ -409,8 +409,7 @@
           (LETT |p| (|SPADfirst| |polyList|) . #5#)
           (LETT |polyList| (CDR |polyList|) . #5#)
           (SEQ (LETT |j| (+ |i| 1) . #5#) G190
-               (COND
-                ((NULL (COND ((NULL |polyList|) 'NIL) ('T 'T))) (GO G191)))
+               (COND ((NULL (NULL (NULL |polyList|))) (GO G191)))
                (SEQ
                 (LETT |q|
                       (SPADCALL |q| (|SPADfirst| |polyList|) (QREFELT $ 49))
@@ -469,9 +468,7 @@
                 (EXIT
                  (SEQ G190
                       (COND
-                       ((NULL
-                         (COND ((SPADCALL |poly| (QREFELT $ 58)) 'NIL)
-                               ('T 'T)))
+                       ((NULL (NULL (SPADCALL |poly| (QREFELT $ 58))))
                         (GO G191)))
                       (SEQ
                        (SPADCALL |mat| |i|

@@ -17,11 +17,10 @@
         (SPADCALL |i2| |i1| (QREFELT $ 14))) 
 
 (SDEFUN |PRTITION;<;2$B;5| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((NULL |x|) (COND ((NULL |y|) 'NIL) (#1='T 'T)))
-              ((NULL |y|) 'NIL)
+        (COND ((NULL |x|) (NULL (NULL |y|))) ((NULL |y|) NIL)
               ((EQL (|SPADfirst| |x|) (|SPADfirst| |y|))
                (SPADCALL (CDR |x|) (CDR |y|) (QREFELT $ 18)))
-              (#1# (< (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
+              ('T (< (|SPADfirst| |x|) (|SPADfirst| |y|))))) 
 
 (PUT '|PRTITION;=;2$B;6| '|SPADreplace| 'EQUAL) 
 

@@ -1627,10 +1627,9 @@
             ((OR (ZEROP (REM (QCAR |bd|) |p|))
                  (OR (ZEROP (REM (QCDR |bd|) |p|))
                      (OR (ZEROP (REM (|PFO;kbadBadNum| |b| |m| $) |p|))
-                         (OR (ZEROP (REM (|PFO;kbadBadNum| |d| |m| $) |p|))
-                             (ZEROP (REM (|PFO;kbad3Num| |h| |m| $) |p|))))))
-             'NIL)
-            ('T 'T)))))) 
+                         (ZEROP (REM (|PFO;kbadBadNum| |d| |m| $) |p|)))))
+             NIL)
+            ('T (NULL (ZEROP (REM (|PFO;kbad3Num| |h| |m| $) |p|))))))))) 
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrder;|)) 
 

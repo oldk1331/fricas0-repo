@@ -27,7 +27,7 @@
                                    (QREFELT $ 9))
                          (COND
                           (|allZero|
-                           (SEQ (LETT |allZero| 'NIL . #4#)
+                           (SEQ (LETT |allZero| NIL . #4#)
                                 (EXIT
                                  (LETT |ans|
                                        (VECTOR (QAREF1O |v| |i| 1) |i| |rown|)
@@ -57,7 +57,7 @@
                          (SEQ
                           (EXIT
                            (COND
-                            ((COND ((SPADCALL |i| |l| (QREFELT $ 18)) 'NIL)
+                            ((COND ((SPADCALL |i| |l| (QREFELT $ 18)) NIL)
                                    (#4='T
                                     (|MHROWRED;nonzero?|
                                      (SPADCALL |x| |i| (QREFELT $ 19)) $)))

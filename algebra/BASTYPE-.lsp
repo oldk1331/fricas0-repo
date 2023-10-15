@@ -1,6 +1,6 @@
 
 (SDEFUN |BASTYPE-;~=;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| |y| (QREFELT $ 8)))) 
 
 (DECLAIM (NOTINLINE |BasicType&;|)) 
 

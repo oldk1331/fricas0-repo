@@ -262,7 +262,7 @@
                                   (LETT #4# (CDR #4#) . #6#) (GO G190) G191
                                   (EXIT (NREVERSE #5#))))
                             . #6#)
-                      (LETT |centerIsRoot| 'NIL . #6#)
+                      (LETT |centerIsRoot| NIL . #6#)
                       (SEQ (LETT |i| 1 . #6#)
                            (LETT #3# (SPADCALL |lp| (QREFELT $ 90)) . #6#) G190
                            (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -404,7 +404,7 @@
                     (EXIT |nm|)))) 
 
 (SDEFUN |CRFP;pleskenSplit;UPRF;7| ((|poly| UP) (|eps| R) ($ |Factored| UP))
-        (SPADCALL |poly| |eps| 'NIL (QREFELT $ 79))) 
+        (SPADCALL |poly| |eps| NIL (QREFELT $ 79))) 
 
 (SDEFUN |CRFP;graeffe;2UP;8| ((|p| UP) ($ UP))
         (SPROG
@@ -678,10 +678,10 @@
 (SDEFUN |CRFP;divisorCascade;2UPL;14|
         ((|p| UP) (|tp| UP)
          ($ |List| (|Record| (|:| |factors| (|List| UP)) (|:| |error| R))))
-        (SPADCALL |p| |tp| 'NIL (QREFELT $ 75))) 
+        (SPADCALL |p| |tp| NIL (QREFELT $ 75))) 
 
 (SDEFUN |CRFP;factor;UPRF;15| ((|poly| UP) (|eps| R) ($ |Factored| UP))
-        (SPADCALL |poly| |eps| 'NIL (QREFELT $ 120))) 
+        (SPADCALL |poly| |eps| NIL (QREFELT $ 120))) 
 
 (SDEFUN |CRFP;factor;UPF;16| ((|p| UP) ($ |Factored| UP))
         (SPADCALL |p| (QREFELT $ 15) (QREFELT $ 32))) 
@@ -732,10 +732,7 @@
                       (EXIT
                        (SPADCALL (SPADCALL |lof| (QREFELT $ 127))
                                  (QREFELT $ 51))))))
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |listOfFactors|) 'NIL) ('T 'T)))
-                          (GO G191)))
+                   (SEQ G190 (COND ((NULL |listOfFactors|) (GO G191)))
                         (SEQ
                          (LETT |p| (QCAR (|SPADfirst| |listOfFactors|)) . #2#)
                          (LETT |exponentOfp|

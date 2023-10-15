@@ -153,9 +153,7 @@
                        (EXIT
                         (SEQ G190
                              (COND
-                              ((NULL
-                                (COND ((SPADCALL |p| (QREFELT $ 34)) 'NIL)
-                                      ('T 'T)))
+                              ((NULL (NULL (SPADCALL |p| (QREFELT $ 34))))
                                (GO G191)))
                              (SEQ
                               (LETT |l| (SPADCALL |p| (QREFELT $ 35)) . #4#)

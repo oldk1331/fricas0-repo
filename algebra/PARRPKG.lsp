@@ -10,8 +10,7 @@
               (LETT |aa| (SPADCALL (|spadConstant| $ 7) |aa| (QREFELT $ 9))
                     . #2#)
               (LETT |vvb| |vv| . #2#) (LETT |vvc| (CDR |vv|) . #2#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |vvc|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |vvc|))) (GO G191)))
                    (SEQ
                     (LETT |vi|
                           (SPADCALL
@@ -64,8 +63,7 @@
          (SEQ (LETT |vvnew| NIL . #2=(|PARRPKG;nextJacobiRow|))
               (LETT |vva| (CONS (|spadConstant| $ 7) |vv|) . #2#)
               (LETT |vvb| |vv| . #2#) (LETT |vvc| (CDR |vv|) . #2#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |vvc|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |vvc|))) (GO G191)))
                    (SEQ
                     (LETT |vi|
                           (SPADCALL

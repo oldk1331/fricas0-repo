@@ -61,7 +61,7 @@
                 (LETT JV (SPADCALL |Phi| (QREFELT $ 42)) |JBFC-;const?;SB;15|)
                 (EXIT
                  (COND ((NULL JV) 'T)
-                       ((SPADCALL (LENGTH JV) 1 (QREFELT $ 48)) 'NIL)
+                       ((SPADCALL (LENGTH JV) 1 (QREFELT $ 48)) NIL)
                        ('T
                         (SPADCALL (|SPADfirst| JV) (SPADCALL (QREFELT $ 49))
                                   (QREFELT $ 50)))))))) 
@@ -82,9 +82,7 @@
                        ('T (|SPADfirst| JV))))))) 
 
 (SDEFUN |JBFC-;freeOf?;SJBB;19| ((|fun| S) (|jv| JB) ($ |Boolean|))
-        (COND
-         ((SPADCALL |jv| (SPADCALL |fun| (QREFELT $ 42)) (QREFELT $ 58)) 'NIL)
-         ('T 'T))) 
+        (NULL (SPADCALL |jv| (SPADCALL |fun| (QREFELT $ 42)) (QREFELT $ 58)))) 
 
 (PUT '|JBFC-;characteristic;Nni;20| '|SPADreplace| '(XLAM NIL 0)) 
 
@@ -293,13 +291,13 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((OR (NULL |jl|)
-                                  (<
-                                   (SPADCALL (|SPADfirst| |jl|) (QREFELT $ 53))
-                                   |ord|))
-                              'NIL)
-                             ('T 'T)))
+                            (COND ((NULL |jl|) NIL)
+                                  ('T
+                                   (NULL
+                                    (<
+                                     (SPADCALL (|SPADfirst| |jl|)
+                                               (QREFELT $ 53))
+                                     |ord|)))))
                            (GO G191)))
                          (SEQ
                           (LETT |ojl| (CONS (|SPADfirst| |jl|) |ojl|) . #10#)
@@ -364,7 +362,7 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND ((NULL |inds|) 'NIL)
+                        (COND ((NULL |inds|) NIL)
                               ('T
                                (EQL
                                 (SPADCALL (|SPADfirst| |inds|) (QREFELT $ 53))
@@ -591,7 +589,7 @@
                        (EXIT
                         (LETT #4#
                               (CONS
-                               (VECTOR (SPADCALL |f| (QREFELT $ 52)) 'NIL
+                               (VECTOR (SPADCALL |f| (QREFELT $ 52)) NIL
                                        (LIST 1) |f|)
                                #4#)
                               . #5#)))
@@ -658,7 +656,7 @@
                               (SEQ G190
                                    (COND
                                     ((NULL
-                                      (COND ((NULL |l|) 'NIL)
+                                      (COND ((NULL |l|) NIL)
                                             ('T
                                              (SPADCALL (QVELT |cur| 0)
                                                        (QVELT
@@ -678,7 +676,7 @@
                                         (LETT |eqLD| (CONS |fl| |eqLD|) . #15#)
                                         (EXIT (LETT |l| (CDR |l|) . #15#)))))))
                                    NIL (GO G190) G191 (EXIT NIL))
-                              (LETT |solvable?| 'NIL . #15#)
+                              (LETT |solvable?| NIL . #15#)
                               (SEQ (LETT #12# NIL . #15#)
                                    (LETT |eq| NIL . #15#)
                                    (LETT #11# |eqLD| . #15#) G190
@@ -755,7 +753,7 @@
                                                        $)
                                                       |newL|
                                                       (LIST
-                                                       (VECTOR |newld| 'NIL
+                                                       (VECTOR |newld| NIL
                                                                (APPEND
                                                                 (QVELT |eq| 2)
                                                                 (QVELT |seq|
@@ -975,7 +973,7 @@
                                     (|SPADfirst|
                                      (QCAR
                                       (SPADCALL |jm| |i| (QREFELT $ 110))))
-                                    'NIL (LIST |i|) |f|)
+                                    NIL (LIST |i|) |f|)
                                    #9#)
                                   . #11#)))
                           (LETT #8#
@@ -1136,7 +1134,7 @@
                                                         (COND
                                                          ((NULL
                                                            (COND
-                                                            ((NULL LD1) 'NIL)
+                                                            ((NULL LD1) NIL)
                                                             ('T
                                                              (SPADCALL
                                                               (|SPADfirst| LD1)
@@ -1280,7 +1278,7 @@
                                  (SEQ G190
                                       (COND
                                        ((NULL
-                                         (COND ((NULL LD1) 'NIL)
+                                         (COND ((NULL LD1) NIL)
                                                ('T
                                                 (SPADCALL (|SPADfirst| LD1)
                                                           |ld|
@@ -1451,7 +1449,7 @@
                                                                 ((NULL
                                                                   (COND
                                                                    ((NULL LD1)
-                                                                    'NIL)
+                                                                    NIL)
                                                                    ('T
                                                                     (SPADCALL
                                                                      (|SPADfirst|
@@ -1556,9 +1554,7 @@
                         . #18=(|JBFC-;autoReduce;2L;41|))
                   (LETT |nsl| NIL . #18#) (LETT |sl| NIL . #18#)
                   (LETT |osl| |sl| . #18#)
-                  (SEQ G190
-                       (COND
-                        ((NULL (COND ((NULL |nl|) 'NIL) ('T 'T))) (GO G191)))
+                  (SEQ G190 (COND ((NULL (NULL (NULL |nl|))) (GO G191)))
                        (SEQ
                         (SEQ (LETT |eq| NIL . #18#) (LETT #17# |nl| . #18#)
                              G190
@@ -1586,10 +1582,7 @@
                              (EXIT NIL))
                         (LETT |nl| NIL . #18#) (LETT |osl| NIL . #18#)
                         (LETT |sl| (NREVERSE |sl|) . #18#)
-                        (SEQ G190
-                             (COND
-                              ((NULL (COND ((NULL |sl|) 'NIL) ('T 'T)))
-                               (GO G191)))
+                        (SEQ G190 (COND ((NULL (NULL (NULL |sl|))) (GO G191)))
                              (SEQ (LETT |sub| (|SPADfirst| |sl|) . #18#)
                                   (LETT |osl| (CONS |sub| |osl|) . #18#)
                                   (LETT |sl| (CDR |sl|) . #18#)
@@ -1597,8 +1590,7 @@
                                    (EXIT
                                     (SEQ G190
                                          (COND
-                                          ((NULL
-                                            (COND ((NULL |sl|) 'NIL) ('T 'T)))
+                                          ((NULL (NULL (NULL |sl|)))
                                            (GO G191)))
                                          (SEQ
                                           (LETT |rec| (|SPADfirst| |sl|)

@@ -208,8 +208,8 @@
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9 (SPADCALL '|: | (QREFELT $ 8)))
     (QSETREFV $ 10 (SPADCALL '|...| (QREFELT $ 8)))
-    (QSETREFV $ 11 'NIL)
-    (QSETREFV $ 12 'NIL)
+    (QSETREFV $ 11 NIL)
+    (QSETREFV $ 12 NIL)
     $))) 
 
 (MAKEPROP '|Result| '|infovec|

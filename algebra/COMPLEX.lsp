@@ -22,13 +22,13 @@
         (COND
          ((SPADCALL (QCAR |x|) (QREFELT $ 25))
           (SPADCALL (QCDR |x|) (QREFELT $ 25)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |COMPLEX;one?;$B;6| ((|x| $) ($ |Boolean|))
         (COND
          ((SPADCALL (QCAR |x|) (|spadConstant| $ 24) (QREFELT $ 27))
           (SPADCALL (QCDR |x|) (QREFELT $ 25)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |COMPLEX;coerce;R$;7| ((|r| R) ($ $)) (CONS |r| (|spadConstant| $ 22))) 
 

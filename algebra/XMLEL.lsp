@@ -106,7 +106,7 @@
               ('T (|XMLEL;outputUnstructured| |rp| $)))) 
 
 (SDEFUN |XMLEL;empty?;$B;6| ((|el| $) ($ |Boolean|))
-        (COND ((EQUAL (QVELT |el| 0) "") 'T) ('T 'NIL))) 
+        (COND ((EQUAL (QVELT |el| 0) "") 'T) ('T NIL))) 
 
 (SDEFUN |XMLEL;outputVRML;$TfV;7| ((|rp| $) (|f1| |TextFile|) ($ |Void|))
         (SPROG

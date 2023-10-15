@@ -26,7 +26,7 @@
           (|:| |polj| |Dpol|))
          ($ |Boolean|))
         (COND ((< (QVELT |cp1| 1) (QVELT |cp2| 1)) 'T)
-              ((< (QVELT |cp2| 1) (QVELT |cp1| 1)) 'NIL)
+              ((< (QVELT |cp2| 1) (QVELT |cp1| 1)) NIL)
               ('T (SPADCALL (QVELT |cp1| 0) (QVELT |cp2| 0) (QREFELT $ 16))))) 
 
 (SDEFUN |NGROEB;makeCrit|
@@ -111,8 +111,7 @@
                  (SPADCALL (|SPADfirst| |Pol1|) (QREFELT $ 14)) NIL $)
                 . #10#)
           (LETT |Pol1| (CDR |Pol1|) . #10#) (LETT D NIL . #10#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |Pol1|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL |Pol1|) (GO G191)))
                (SEQ
                 (LETT |h| (SPADCALL (|SPADfirst| |Pol1|) (QREFELT $ 28))
                       . #10#)
@@ -163,7 +162,7 @@
                 . #10#)
           (SEQ
            (EXIT
-            (SEQ G190 (COND ((NULL (COND ((NULL D) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL D) (GO G191)))
                  (SEQ (LETT D0 (|SPADfirst| D) . #10#)
                       (LETT |s|
                             (SPADCALL (SPADCALL D0 (QREFELT $ 33))
@@ -335,11 +334,9 @@
               (SEQ G190
                    (COND
                     ((NULL
-                      (COND
-                       ((OR (SPADCALL |s| (|spadConstant| $ 37) (QREFELT $ 38))
-                            (NULL F))
-                        'NIL)
-                       ('T 'T)))
+                      (NULL
+                       (OR (SPADCALL |s| (|spadConstant| $ 37) (QREFELT $ 38))
+                           (NULL F))))
                      (GO G191)))
                    (SEQ (LETT |f1| (|SPADfirst| F) . #2#)
                         (LETT |s1| (SPADCALL |s| (QREFELT $ 17)) . #2#)

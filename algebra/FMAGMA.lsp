@@ -4,9 +4,9 @@
          ((QEQCAR |x| 0)
           (COND
            ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 10)))
-           (#1='T 'NIL)))
+           (#1='T NIL)))
          ((QEQCAR |y| 1) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 11)))
-         (#1# 'NIL))) 
+         (#1# NIL))) 
 
 (SDEFUN |FMAGMA;varList;$L;2| ((|x| $) ($ |List| |VarSet|))
         (SPROG ((|lv| (|List| |VarSet|)))
@@ -99,7 +99,7 @@
           (COND
            ((QEQCAR |y| 0) (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 39)))
            (#1='T 'T)))
-         ((QEQCAR |y| 0) 'NIL)
+         ((QEQCAR |y| 0) NIL)
          (#1#
           (COND
            ((SPADCALL (QCAR (QCDR |x|)) (QCAR (QCDR |y|)) (QREFELT $ 12))

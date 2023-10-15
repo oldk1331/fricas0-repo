@@ -273,7 +273,7 @@
         ((|m| FP)
          ($ |List|
           (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |prod| FP))))
-        (|DDFACT;ddffact1| |m| 'NIL $)) 
+        (|DDFACT;ddffact1| |m| NIL $)) 
 
 (SDEFUN |DDFACT;separateFactors;LL;10|
         ((|distf| |List|
@@ -310,9 +310,7 @@
                                 (EXIT
                                  (SEQ G190
                                       (COND
-                                       ((NULL
-                                         (COND ((NULL |aux|) 'NIL) ('T 'T)))
-                                        (GO G191)))
+                                       ((NULL (NULL (NULL |aux|))) (GO G191)))
                                       (SEQ
                                        (LETT |t|
                                              (|DDFACT;ranpol|
@@ -439,7 +437,7 @@
          ((|ddfact|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |prod| FP)))))
-         (SEQ (LETT |ddfact| (|DDFACT;ddffact1| |m| 'NIL $) |DDFACT;ddffact|)
+         (SEQ (LETT |ddfact| (|DDFACT;ddffact1| |m| NIL $) |DDFACT;ddffact|)
               (EXIT
                (COND ((NULL |ddfact|) (LIST |m|))
                      ('T (SPADCALL |ddfact| (QREFELT $ 56)))))))) 
@@ -536,7 +534,7 @@
             (|spadConstant| $ 65))
            ('T
             (SEQ
-             (LETT |flist| (SPADCALL |m| 'NIL (QREFELT $ 63))
+             (LETT |flist| (SPADCALL |m| NIL (QREFELT $ 63))
                    . #3=(|DDFACT;factor;FPF;13|))
              (EXIT
               (SPADCALL (SPADCALL (QCAR |flist|) (QREFELT $ 66))

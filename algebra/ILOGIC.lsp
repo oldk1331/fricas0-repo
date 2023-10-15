@@ -570,7 +570,7 @@
               (LETT |loopbreaker| 1 . #1#)
               (SEQ G190
                    (COND
-                    ((NULL (COND (|emptyres| 'NIL) ('T (< |loopbreaker| 20))))
+                    ((NULL (COND (|emptyres| NIL) ('T (< |loopbreaker| 20))))
                      (GO G191)))
                    (SEQ
                     (LETT |allres| (SPADCALL |ln| |res| (QREFELT $ 26)) . #1#)
@@ -698,7 +698,7 @@
                          (COND
                           ((EQUAL (QCAR (CDR |b|)) 'T)
                            (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |a| 1)
                     (COND
@@ -707,7 +707,7 @@
                        (COND
                         ((EQUAL (QCAR (CDR |a|)) (QCAR (CDR |b|)))
                          (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |a| 2)
                     (COND
@@ -716,7 +716,7 @@
                        (COND
                         ((SPADCALL (QVELT (CDR |a|) 0) (QVELT (CDR |b|) 0)
                                    (QREFELT $ 17))
-                         (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))
+                         (PROGN (LETT #1# NIL . #2#) (GO #3#))))
                        (COND
                         ((SPADCALL (QVELT (CDR |a|) 1) (QVELT (CDR |b|) 1)
                                    (QREFELT $ 13))
@@ -724,7 +724,7 @@
                           ((SPADCALL (QVELT (CDR |a|) 2) (QVELT (CDR |b|) 2)
                                      (QREFELT $ 13))
                            (PROGN (LETT #1# 'T . #2#) (GO #3#))))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
                   (COND
                    ((QEQCAR |a| 3)
                     (COND
@@ -733,13 +733,13 @@
                        (COND
                         ((SPADCALL (QCAR (CDR |a|)) (QCAR (CDR |b|))
                                    (QREFELT $ 17))
-                         (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))
+                         (PROGN (LETT #1# NIL . #2#) (GO #3#))))
                        (COND
                         ((SPADCALL (QCDR (CDR |a|)) (QCDR (CDR |b|))
                                    (QREFELT $ 13))
                          (PROGN (LETT #1# 'T . #2#) (GO #3#))))
-                       (EXIT (PROGN (LETT #1# 'NIL . #2#) (GO #3#))))))))
-                  (EXIT 'NIL)))
+                       (EXIT (PROGN (LETT #1# NIL . #2#) (GO #3#))))))))
+                  (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |ILOGIC;parseBracketTerm|

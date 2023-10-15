@@ -77,7 +77,7 @@
                   (COND
                    ((NULL (SPADCALL |t| |nm1| (QREFELT $ 45)))
                     (PROGN (LETT #1# 'T . #4#) (GO #5#))))))))))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |PRIMES;rabinProvesComposite|
@@ -140,7 +140,7 @@
               ((SPADCALL (SPADCALL (QREFELT $ 29) (QREFELT $ 50)) 2
                          (QREFELT $ 51))
                'T)
-              ('T 'NIL)))))
+              ('T NIL)))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |PRIMES;prime?;IB;4| ((|n| I) ($ |Boolean|))
@@ -158,7 +158,7 @@
               (LETT |n| (SPADCALL |n| (QREFELT $ 52))
                     . #6=(|PRIMES;prime?;IB;4|))))
             (EXIT
-             (COND ((SPADCALL |n| (QREFELT $ 17) (QREFELT $ 36)) 'NIL)
+             (COND ((SPADCALL |n| (QREFELT $ 17) (QREFELT $ 36)) NIL)
                    ((SPADCALL |n| (QREFELT $ 13) (QREFELT $ 36))
                     (SPADCALL |n| (QREFELT $ 9) (QREFELT $ 53)))
                    (#7='T
@@ -166,7 +166,7 @@
                      ((NULL
                        (SPADCALL (SPADCALL |n| (QREFELT $ 12) (QREFELT $ 54))
                                  (|spadConstant| $ 11) (QREFELT $ 45)))
-                      'NIL)
+                      NIL)
                      ((SPADCALL |n| (QREFELT $ 16) (QREFELT $ 36)) 'T)
                      (#7#
                       (SEQ
@@ -178,9 +178,7 @@
                              . #6#)
                        (SEQ (LETT |k| 1 . #6#) G190
                             (COND
-                             ((NULL
-                               (COND ((SPADCALL |q| (QREFELT $ 57)) 'NIL)
-                                     ('T 'T)))
+                             ((NULL (NULL (SPADCALL |q| (QREFELT $ 57))))
                               (GO G191)))
                             (SEQ
                              (EXIT
@@ -199,20 +197,20 @@
                               (SPADCALL 2 (QREFELT $ 8)) |n| |nm1| |q| |k| $)
                              (|PRIMES;rabinProvesCompositeSmall|
                               (SPADCALL 3 (QREFELT $ 8)) |n| |nm1| |q| |k| $))
-                            (PROGN (LETT #2# 'NIL . #6#) (GO #8=#:G189)))
+                            (PROGN (LETT #2# NIL . #6#) (GO #8=#:G189)))
                            ((SPADCALL |n| (QREFELT $ 20) (QREFELT $ 36))
                             (COND
                              ((OR
                                (|PRIMES;rabinProvesCompositeSmall|
                                 (SPADCALL 5 (QREFELT $ 8)) |n| |nm1| |q| |k| $)
                                (SPADCALL |n| (QREFELT $ 19) (QREFELT $ 53)))
-                              (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                              (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                              ('T 'T)))
                            (#7#
                             (COND
                              ((|PRIMES;rabinProvesCompositeSmall|
                                (SPADCALL 7 (QREFELT $ 8)) |n| |nm1| |q| |k| $)
-                              (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                              (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                              ((SPADCALL |n| (QREFELT $ 23) (QREFELT $ 36))
                               (COND
                                ((OR
@@ -220,7 +218,7 @@
                                   (SPADCALL 10 (QREFELT $ 8)) |n| |nm1| |q| |k|
                                   $)
                                  (SPADCALL |n| (QREFELT $ 21) (QREFELT $ 53)))
-                                (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                                (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                                ('T 'T)))
                              (#7#
                               (COND
@@ -231,11 +229,11 @@
                                  (|PRIMES;rabinProvesCompositeSmall|
                                   (SPADCALL 11 (QREFELT $ 8)) |n| |nm1| |q| |k|
                                   $))
-                                (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                                (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                                ((SPADCALL |n| (QREFELT $ 25) (QREFELT $ 36))
                                 (COND
                                  ((SPADCALL |n| (QREFELT $ 24) (QREFELT $ 53))
-                                  (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                                  (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                                  (#7# 'T)))
                                (#7#
                                 (COND
@@ -246,7 +244,7 @@
                                    (|PRIMES;rabinProvesCompositeSmall|
                                     (SPADCALL 17 (QREFELT $ 8)) |n| |nm1| |q|
                                     |k| $))
-                                  (PROGN (LETT #2# 'NIL . #6#) (GO #8#)))
+                                  (PROGN (LETT #2# NIL . #6#) (GO #8#)))
                                  ('T 'T)))))))))
                          (#7#
                           (SEQ
@@ -271,7 +269,7 @@
                                             (PROGN
                                              (LETT #4#
                                                    (PROGN
-                                                    (LETT #2# 'NIL . #6#)
+                                                    (LETT #2# NIL . #6#)
                                                     (GO #8#))
                                                    . #6#)
                                              (GO #9=#:G176))))))
@@ -287,7 +285,7 @@
                                                 (|spadConstant| $ 11)
                                                 (QREFELT $ 38))
                                       (QREFELT $ 63))
-                                     (EXIT 'NIL)))))
+                                     (EXIT NIL)))))
                                  (SEQ
                                   (LETT |n9|
                                         (SPADCALL |n|
@@ -310,7 +308,7 @@
                                          (|spadConstant| $ 11) (QREFELT $ 38))
                                         (QREFELT $ 63))
                                        (PROGN
-                                        (LETT #3# 'NIL . #6#)
+                                        (LETT #3# NIL . #6#)
                                         (GO #10=#:G185))))))))
                                  (LETT |currPrime|
                                        (SPADCALL (QREFELT $ 9) (+ |mn| 10)
@@ -351,7 +349,7 @@
                                             (PROGN
                                              (LETT #1#
                                                    (PROGN
-                                                    (LETT #2# 'NIL . #6#)
+                                                    (LETT #2# NIL . #6#)
                                                     (GO #8#))
                                                    . #6#)
                                              (GO #11=#:G183)))))))
@@ -376,9 +374,7 @@
                          . #2#)))
                  (SEQ G190
                       (COND
-                       ((NULL
-                         (COND ((SPADCALL |n| (QREFELT $ 40)) 'NIL) ('T 'T)))
-                        (GO G191)))
+                       ((NULL (NULL (SPADCALL |n| (QREFELT $ 40)))) (GO G191)))
                       (SEQ
                        (EXIT
                         (LETT |n| (SPADCALL |n| (QREFELT $ 17) (QREFELT $ 38))
@@ -403,9 +399,7 @@
               (LETT |n| (SPADCALL |n| (|spadConstant| $ 11) (QREFELT $ 55))
                     . #2#)))
             (SEQ G190
-                 (COND
-                  ((NULL (COND ((SPADCALL |n| (QREFELT $ 40)) 'NIL) ('T 'T)))
-                   (GO G191)))
+                 (COND ((NULL (NULL (SPADCALL |n| (QREFELT $ 40)))) (GO G191)))
                  (SEQ
                   (EXIT
                    (LETT |n| (SPADCALL |n| (QREFELT $ 17) (QREFELT $ 55))

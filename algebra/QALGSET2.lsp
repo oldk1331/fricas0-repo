@@ -170,10 +170,7 @@
                 (SPADCALL (QREFELT $ 57)))
                (#3#
                 (SEQ (LETT |gb| NIL . #4#)
-                     (SEQ G190
-                          (COND
-                           ((NULL (COND ((NULL |ngb|) 'NIL) ('T 'T)))
-                            (GO G191)))
+                     (SEQ G190 (COND ((NULL (NULL (NULL |ngb|))) (GO G191)))
                           (SEQ
                            (SEQ
                             (LETT |k|
@@ -192,8 +189,7 @@
                                       (QREFELT $ 60))
                                      (QREFELT $ 61))
                            . #4#)
-                     (EXIT
-                      (SPADCALL |y| (CONS 0 'NIL) (QREFELT $ 62))))))))))))) 
+                     (EXIT (SPADCALL |y| (CONS 0 NIL) (QREFELT $ 62))))))))))))) 
 
 (DECLAIM (NOTINLINE |QuasiAlgebraicSet2;|)) 
 

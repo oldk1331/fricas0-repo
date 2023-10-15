@@ -163,12 +163,12 @@
           (EXIT (SPADCALL |m| (QREFELT $ 63)))))) 
 
 (SDEFUN |GCNAALG;initializeLeft| (($ |Void|))
-        (SEQ (SETELT $ 71 'NIL)
+        (SEQ (SETELT $ 71 NIL)
              (SETELT $ 70 (SPADCALL (QREFELT $ 35) (QREFELT $ 72)))
              (EXIT (SPADCALL (QREFELT $ 74))))) 
 
 (SDEFUN |GCNAALG;initializeRight| (($ |Void|))
-        (SEQ (SETELT $ 76 'NIL)
+        (SEQ (SETELT $ 76 NIL)
              (SETELT $ 75 (SPADCALL (QREFELT $ 35) (QREFELT $ 77)))
              (EXIT (SPADCALL (QREFELT $ 74))))) 
 

@@ -232,7 +232,7 @@
         ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
          ($ |Factored|
           (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
-        (|TWOFACT;doTwoFactor| |m| 'NIL $)) 
+        (|TWOFACT;doTwoFactor| |m| NIL $)) 
 
 (SDEFUN |TWOFACT;generalTwoFactor;SupF;6|
         ((|m| |SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))
@@ -780,7 +780,7 @@
                 (EXIT (LETT |m1| (SPADCALL |m1| (QREFELT $ 16)) . #25#)))
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |res1|
-                (SPADCALL |mm| |dx| 'NIL
+                (SPADCALL |mm| |dx| NIL
                           (|compiledLookupCheck| '|doFactor|
                                                  (LIST
                                                   (LIST '|Factored|
@@ -889,9 +889,7 @@
                           (EXIT (NREVERSE #19#))))
                     . #25#)
               (LETT |lfactk| NIL . #25#)
-              (SEQ G190
-                   (COND
-                    ((NULL (COND ((NULL |lfacth|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |lfacth|))) (GO G191)))
                    (SEQ
                     (EXIT
                      (SEQ (LETT |ff| (|SPADfirst| |lfacth|) . #25#)
@@ -994,24 +992,22 @@
                                       (SEQ
                                        (EXIT
                                         (COND
-                                         ((COND
-                                           ((SPADCALL |g| |normfacs|
-                                                      (|compiledLookupCheck|
-                                                       '|member?|
-                                                       (LIST (LIST '|Boolean|)
+                                         ((NULL
+                                           (SPADCALL |g| |normfacs|
+                                                     (|compiledLookupCheck|
+                                                      '|member?|
+                                                      (LIST (LIST '|Boolean|)
+                                                            (LIST
+                                                             '|SparseUnivariatePolynomial|
                                                              (LIST
                                                               '|SparseUnivariatePolynomial|
-                                                              (LIST
-                                                               '|SparseUnivariatePolynomial|
-                                                               (|devaluate|
-                                                                |extField|)))
-                                                             '$)
-                                                       (|List|
+                                                              (|devaluate|
+                                                               |extField|)))
+                                                            '$)
+                                                      (|List|
+                                                       (|SparseUnivariatePolynomial|
                                                         (|SparseUnivariatePolynomial|
-                                                         (|SparseUnivariatePolynomial|
-                                                          |extField|)))))
-                                            'NIL)
-                                           ('T 'T))
+                                                         |extField|))))))
                                           (LETT #15# (CONS |g| #15#)
                                                 . #25#)))))
                                       (LETT #14# (CDR #14#) . #25#) (GO G190)
@@ -1213,7 +1209,7 @@
                       . #10#)
                 (SEQ G190
                      (COND
-                      ((NULL (COND (|look| (< |i| |try_max|)) ('T 'NIL)))
+                      ((NULL (COND (|look| (< |i| |try_max|)) ('T NIL)))
                        (GO G191)))
                      (SEQ (LETT |i| (+ |i| 1) . #10#)
                           (COND
@@ -1244,7 +1240,7 @@
                                    (QREFELT $ 22))
                                   0 (QREFELT $ 100))
                                  "next val")
-                                ('T (LETT |look| 'NIL . #10#)))))))))
+                                ('T (LETT |look| NIL . #10#)))))))))
                      NIL (GO G190) G191 (EXIT NIL))
                 (COND
                  (|look|
@@ -1317,9 +1313,7 @@
                              (LETT |lfactk| NIL . #10#)
                              (SEQ G190
                                   (COND
-                                   ((NULL
-                                     (COND ((NULL |lfacth|) 'NIL) ('T 'T)))
-                                    (GO G191)))
+                                   ((NULL (NULL (NULL |lfacth|))) (GO G191)))
                                   (SEQ
                                    (LETT |ff| (|SPADfirst| |lfacth|) . #10#)
                                    (LETT |lfacth| (CDR |lfacth|) . #10#)

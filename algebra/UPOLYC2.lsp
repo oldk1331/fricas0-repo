@@ -5,11 +5,9 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((SPADCALL |p| (|spadConstant| $ 14)
-                                        (QREFELT $ 16))
-                              'NIL)
-                             ('T 'T)))
+                            (NULL
+                             (SPADCALL |p| (|spadConstant| $ 14)
+                                       (QREFELT $ 16))))
                            (GO G191)))
                          (SEQ
                           (LETT |nc|
@@ -34,11 +32,9 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND
-                             ((SPADCALL |p| (|spadConstant| $ 14)
-                                        (QREFELT $ 16))
-                              'NIL)
-                             ('T 'T)))
+                            (NULL
+                             (SPADCALL |p| (|spadConstant| $ 14)
+                                       (QREFELT $ 16))))
                            (GO G191)))
                          (SEQ
                           (LETT |nc|
@@ -64,10 +60,8 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND
-                         ((SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 16))
-                          'NIL)
-                         ('T 'T)))
+                        (NULL
+                         (SPADCALL |p| (|spadConstant| $ 14) (QREFELT $ 16))))
                        (GO G191)))
                      (SEQ
                       (LETT |ans|

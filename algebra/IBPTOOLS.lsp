@@ -7,8 +7,7 @@
                       . #1=(|IBPTOOLS;mapUnivariate;MSupR;1|))
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (COND ((SPADCALL |poly| (QREFELT $ 13)) 'NIL) ('T 'T)))
+                      ((NULL (NULL (SPADCALL |poly| (QREFELT $ 13))))
                        (GO G191)))
                      (SEQ
                       (LETT |ans|
@@ -33,8 +32,7 @@
                       . #1=(|IBPTOOLS;mapUnivariate;MRSup;2|))
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (COND ((SPADCALL |poly| (QREFELT $ 23)) 'NIL) ('T 'T)))
+                      ((NULL (NULL (SPADCALL |poly| (QREFELT $ 23))))
                        (GO G191)))
                      (SEQ
                       (LETT |ans|
@@ -62,9 +60,7 @@
                         . #3=(|IBPTOOLS;mapUnivariateIfCan;MSupU;3|))
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |poly| (QREFELT $ 13)) 'NIL)
-                                ('T 'T)))
+                        ((NULL (NULL (SPADCALL |poly| (QREFELT $ 13))))
                          (GO G191)))
                        (SEQ
                         (LETT |lc|
@@ -143,8 +139,7 @@
                 . #1=(|IBPTOOLS;mapBivariate;MUPSup;5|))
           (SEQ G190
                (COND
-                ((NULL (COND ((SPADCALL |poly| (QREFELT $ 41)) 'NIL) ('T 'T)))
-                 (GO G191)))
+                ((NULL (NULL (SPADCALL |poly| (QREFELT $ 41)))) (GO G191)))
                (SEQ
                 (LETT |ans|
                       (SPADCALL |ans|

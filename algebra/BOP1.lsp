@@ -91,9 +91,8 @@
                 (EXIT
                  (COND
                   ((QEQCAR |va| 1)
-                   (COND ((SPADCALL |b| (QREFELT $ 8) (QREFELT $ 34)) 'NIL)
-                         (#3='T 'T)))
-                  (#3#
+                   (NULL (SPADCALL |b| (QREFELT $ 8) (QREFELT $ 34))))
+                  (#3='T
                    (SEQ
                     (LETT |vb| (SPADCALL |b| (QREFELT $ 8) (QREFELT $ 19))
                           . #2#)
@@ -101,7 +100,7 @@
                      (COND
                       ((QEQCAR |vb| 0)
                        (SPADCALL (QCDR |va|) (QCDR |vb|) (QREFELT $ 35)))
-                      (#3# 'NIL)))))))))) 
+                      (#3# NIL)))))))))) 
 
 (SDEFUN |BOP1;ltconst?|
         ((|a| |BasicOperator|) (|b| |BasicOperator|) ($ |Boolean|))
@@ -120,7 +119,7 @@
                      (COND
                       ((QEQCAR |vb| 0)
                        (SPADCALL (QCDR |va|) (QCDR |vb|) (QREFELT $ 36)))
-                      (#3# 'NIL)))))))))) 
+                      (#3# NIL)))))))))) 
 
 (SDEFUN |BOP1;constOp| ((|a| A) ($ |BasicOperator|))
         (SPROG NIL

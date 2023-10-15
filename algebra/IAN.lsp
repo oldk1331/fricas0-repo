@@ -38,11 +38,9 @@
                       (SEQ G190
                            (COND
                             ((NULL
-                              (COND
-                               ((SPADCALL |zz| (|spadConstant| $ 33)
-                                          (QREFELT $ 35))
-                                'NIL)
-                               ('T 'T)))
+                              (NULL
+                               (SPADCALL |zz| (|spadConstant| $ 33)
+                                         (QREFELT $ 35))))
                              (GO G191)))
                            (SEQ
                             (LETT |dd|
@@ -91,7 +89,7 @@
                     (QREFELT $ 59))
           (SPADCALL (SPADCALL |a| (QREFELT $ 38)) (|spadConstant| $ 58)
                     (QREFELT $ 59)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |IAN;/;3$;9| ((|x| $) (|y| $) ($ $))
         (|IAN;mainRatDenom| (SPADCALL |x| |y| (QREFELT $ 61)) $)) 
@@ -145,13 +143,13 @@
                   (SEQ (LETT |g| (SPADCALL |sa| |sb| (QREFELT $ 79)) . #5#)
                        (LETT |dg| (SPADCALL |g| (QREFELT $ 80)) . #5#)
                        (EXIT
-                        (COND
-                         ((OR (EQL |dg| 0)
-                              (NULL
-                               (OR (EQL |dg| (SPADCALL |sa| (QREFELT $ 80)))
-                                   (EQL |dg| (SPADCALL |sb| (QREFELT $ 80))))))
-                          'NIL)
-                         ('T 'T)))))))))) 
+                        (NULL
+                         (OR (EQL |dg| 0)
+                             (NULL
+                              (OR (EQL |dg| (SPADCALL |sa| (QREFELT $ 80)))
+                                  (EQL |dg|
+                                       (SPADCALL |sb|
+                                                 (QREFELT $ 80))))))))))))))) 
 
 (SDEFUN |IAN;norm;$K$;12| ((|z| $) (|k| |Kernel| $) ($ $))
         (SPROG

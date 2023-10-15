@@ -26,7 +26,7 @@
         (COND
          ((SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 23))
           (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 24)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |DIHGRP;coerce;$Of;9| ((|y| $) ($ |OutputForm|))
         (SPROG ((|aout| (|OutputForm|)))
@@ -104,23 +104,22 @@
                     (QREFELT $ 47))
           (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (SPADCALL |y| (QREFELT $ 13))
                     (QREFELT $ 48)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |DIHGRP;smaller?;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
         (COND
-         ((OR
-           (< (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))
-              (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 17)))
-           (NULL
-            (OR
-             (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))
-                       (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 17))
-                       (QREFELT $ 50))
-             (NULL
-              (< (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
-                 (SPADCALL (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 15)))))))
+         ((< (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))
+             (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 17)))
           'T)
-         ('T 'NIL))) 
+         ('T
+          (NULL
+           (OR
+            (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 17))
+                      (SPADCALL (SPADCALL |y| (QREFELT $ 13)) (QREFELT $ 17))
+                      (QREFELT $ 50))
+            (NULL
+             (< (SPADCALL (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 15))
+                (SPADCALL (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 15))))))))) 
 
 (SDEFUN |DIHGRP;size;Nni;16| (($ |NonNegativeInteger|)) (* 2 (QREFELT $ 6))) 
 

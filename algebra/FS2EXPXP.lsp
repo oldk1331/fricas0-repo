@@ -180,7 +180,7 @@
                    (SPADCALL
                     (PROG2
                         (LETT #3#
-                              (SPADCALL |fcn| 'NIL (CONS 1 "real: two sides")
+                              (SPADCALL |fcn| NIL (CONS 1 "real: two sides")
                                         (QREFELT $ 59))
                               . #4#)
                         (QCDR #3#)
@@ -256,8 +256,7 @@
          (SEQ
           (EXIT
            (SEQ
-            (SEQ G190
-                 (COND ((NULL (COND ((NULL |list|) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL |list|) (GO G191)))
                  (SEQ
                   (LETT |term|
                         (|FS2EXPXP;iExprToXXP| (|SPADfirst| |list|) |posCheck?|
@@ -331,7 +330,7 @@
                        (EXIT 'T)))))
                    (EXIT
                     (COND ((|FS2EXPXP;productOfNonZeroes?| |coef| $) 'T)
-                          (#2# 'NIL)))))))))) 
+                          (#2# NIL)))))))))) 
 
 (SDEFUN |FS2EXPXP;powerToXXP|
         ((|fcn| FE) (|n| |Integer|) (|posCheck?| |Boolean|)
@@ -971,8 +970,8 @@
                              ((SPADCALL (QCDR |rat|) (|spadConstant| $ 117)
                                         (QREFELT $ 122))
                               'T)
-                             (#6='T 'NIL)))
-                           (#6# 'NIL))))
+                             (#6='T NIL)))
+                           (#6# NIL))))
                     . #3#)
               (LETT |logTerm|
                     (SEQ
@@ -1427,7 +1426,7 @@
                                         (SPADCALL |k| (QREFELT $ 29)))
                                        (QREFELT $ 148))
                                       (QREFELT $ 149)))
-                           ('T 'NIL))
+                           ('T NIL))
                           (LETT #3# (CONS |op| #3#) . #4#)))))
                       (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                       (EXIT (NREVERSE #3#))))
@@ -1459,7 +1458,7 @@
                               (GO #6=#:G430))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |FS2EXPXP;exponential?| ((|fcn| FE) ($ |Boolean|))
@@ -1471,7 +1470,7 @@
                  (COND
                   ((QEQCAR |ker| 0)
                    (SPADCALL (QCDR |ker|) '|exp| (QREFELT $ 38)))
-                  ('T 'NIL)))))) 
+                  ('T NIL)))))) 
 
 (SDEFUN |FS2EXPXP;productOfNonZeroes?| ((|fcn| FE) ($ |Boolean|))
         (SPROG
@@ -1485,7 +1484,7 @@
                    (LETT |prod| (SPADCALL |fcn| (QREFELT $ 67))
                          . #5=(|FS2EXPXP;productOfNonZeroes?|))
                    (EXIT
-                    (COND ((QEQCAR |prod| 1) 'NIL)
+                    (COND ((QEQCAR |prod| 1) NIL)
                           (#4#
                            (SEQ
                             (SEQ
@@ -1511,7 +1510,7 @@
                                          (PROGN
                                           (LETT #1#
                                                 (PROGN
-                                                 (LETT #2# 'NIL . #5#)
+                                                 (LETT #2# NIL . #5#)
                                                  (GO #6=#:G450))
                                                 . #5#)
                                           (GO #7=#:G446))))))))
@@ -1745,7 +1744,7 @@
                                                 (SPADCALL 2 (QREFELT $ 40))
                                                 (QREFELT $ 20)))
                                      (#7# (|spadConstant| $ 77))))))))))
-                             (#7# (SPADCALL |coef| (QREFELT $ 169))))
+                             (#7# (SPADCALL |coef| (QREFELT $ 168))))
                             . #6#)
                       (EXIT
                        (CONS 0
@@ -1802,7 +1801,7 @@
     (LETT |dv$|
           (LIST '|FunctionSpaceToExponentialExpansion| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 170) . #1#)
+    (LETT $ (GETREFV 169) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|FunctionSpaceToExponentialExpansion|
@@ -1906,12 +1905,12 @@
               (527 . |acosIfCan|) (532 . |asecIfCan|) (537 . |acscIfCan|)
               (542 . |asinhIfCan|) (547 . |abs|) (552 . |localAbs|) (557 . =)
               (563 . -) (568 . |differentiate|) (573 . |One|) (577 . -)
-              (582 . |integrate|) (587 . |pi|) (591 . |pi|) (595 . |atan|))
-           '#(|localAbs| 600 |exprToXXP| 605) 'NIL
+              (582 . |integrate|) (587 . |pi|) (591 . |atan|))
+           '#(|localAbs| 596 |exprToXXP| 601) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 169
+                             (|makeByteWordVec2| 168
                                                  '(0 7 0 10 2 12 0 11 11 13 1 7
                                                    15 0 16 1 7 17 0 18 1 7 17 0
                                                    19 2 7 0 0 0 20 1 7 0 6 21 3
@@ -1967,7 +1966,6 @@
                                                    2 12 36 0 0 161 1 7 0 0 162
                                                    1 60 0 0 163 0 60 0 164 1 12
                                                    0 0 165 1 60 0 0 166 0 7 0
-                                                   167 0 60 0 168 1 7 0 0 169 1
-                                                   0 7 7 160 2 0 52 7 36
-                                                   53)))))
+                                                   167 1 7 0 0 168 1 0 7 7 160
+                                                   2 0 52 7 36 53)))))
            '|lookupComplete|)) 

@@ -623,7 +623,7 @@
         ((|pq| |Fraction| (|Polynomial| R)) (|v| |Symbol|)
          ($ |List| (|Expression| R)))
         (SPADCALL
-         (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| 'NIL $)
+         (|SOLVERAD;solveInner| (SPADCALL |pq| (QREFELT $ 61)) |v| NIL $)
          (QREFELT $ 97))) 
 
 (SDEFUN |SOLVERAD;isGeneric?|
@@ -645,7 +645,7 @@
                  (EXIT
                   (PROGN
                    (LETT #4# (EQL (SPADCALL |f| |x| (QREFELT $ 98)) 1) . #7#)
-                   (COND (#1# (LETT #2# (COND (#2# #4#) ('T 'NIL)) . #7#))
+                   (COND (#1# (LETT #2# (COND (#2# #4#) ('T NIL)) . #7#))
                          ('T
                           (PROGN (LETT #2# #4# . #7#) (LETT #1# 'T . #7#)))))))
                 (LETT #5# (PROG1 (CDR #5#) (LETT #6# (CDR #6#) . #7#)) . #7#)
@@ -839,7 +839,7 @@
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 7 NIL)
-          (QSETREFV $ 8 'NIL)
+          (QSETREFV $ 8 NIL)
           $))) 
 
 (MAKEPROP '|RadicalSolvePackage| '|infovec|

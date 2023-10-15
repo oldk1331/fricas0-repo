@@ -146,10 +146,7 @@
                 ('T
                  (SEQ (LETT |res| 0 . #1=(|GDMP;degree;$OvlNni;10|))
                       (LETT |locv| (SPADCALL |v| (QREFELT $ 24)) . #1#)
-                      (SEQ G190
-                           (COND
-                            ((NULL (COND ((NULL |p|) 'NIL) ('T 'T)))
-                             (GO G191)))
+                      (SEQ G190 (COND ((NULL (NULL (NULL |p|))) (GO G191)))
                            (SEQ (LETT |t| (|SPADfirst| |p|) . #1#)
                                 (LETT |j|
                                       (SPADCALL (QCAR |t|) |locv|
@@ -251,9 +248,7 @@
           (LETT |maxdeg| (SPADCALL (QREFELT $ 11) 0 (QREFELT $ 66))
                 . #5=(|GDMP;variables;$L;19|))
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |p| (QREFELT $ 13)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |p| (QREFELT $ 13)))) (GO G191)))
                (SEQ (LETT |tdeg| (SPADCALL |p| (QREFELT $ 67)) . #5#)
                     (LETT |p| (SPADCALL |p| (QREFELT $ 68)) . #5#)
                     (EXIT

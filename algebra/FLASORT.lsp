@@ -177,7 +177,7 @@
                                      (SPADCALL
                                       (SPADCALL |r| (+ |j| |g|) (QREFELT $ 13))
                                       (SPADCALL |r| |j| (QREFELT $ 13)) |l|))
-                                    ('T 'NIL)))
+                                    ('T NIL)))
                                   (GO G191)))
                                 (SEQ
                                  (SPADCALL |r| |j| (+ |j| |g|) (QREFELT $ 20))

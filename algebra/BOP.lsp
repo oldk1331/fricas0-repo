@@ -174,7 +174,7 @@
                                      (QREFELT $ 69))
                            (QREFELT $ 71))
                           (QREFELT $ 72))))
-                       'NIL)
+                       NIL)
                       ('T
                        (SEQ
                         (LETT |func|
@@ -275,9 +275,8 @@
                           (EXIT
                            (COND
                             ((QEQCAR |func| 0)
-                             (COND ((SPADCALL |op1| |op2| (QCDR |func|)) 'NIL)
-                                   (#6# 'T)))
-                            (#6# 'NIL))))))))))))))))) 
+                             (NULL (SPADCALL |op1| |op2| (QCDR |func|))))
+                            (#6# NIL))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |BasicOperator;|)) 
 

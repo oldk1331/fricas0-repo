@@ -12,7 +12,7 @@
                 . #5=(|FGLMICPK;zeroDim?|))
           (EXIT
            (COND
-            ((OR (NULL |lq2|) (< (LENGTH |lq2|) (LENGTH (QREFELT $ 7)))) 'NIL)
+            ((OR (NULL |lq2|) (< (LENGTH |lq2|) (LENGTH (QREFELT $ 7)))) NIL)
             ('T
              (SEQ
               (LETT |lv|
@@ -48,7 +48,7 @@
               (SEQ (LETT |q2| NIL . #5#) (LETT #2# |lq2| . #5#) G190
                    (COND
                     ((OR (ATOM #2#) (PROGN (LETT |q2| (CAR #2#) . #5#) NIL)
-                         (NULL (COND ((NULL |lv|) 'NIL) ('T 'T))))
+                         (NULL (NULL (NULL |lv|))))
                      (GO G191)))
                    (SEQ (LETT |m| (SPADCALL |q2| (QREFELT $ 16)) . #5#)
                         (LETT |x|

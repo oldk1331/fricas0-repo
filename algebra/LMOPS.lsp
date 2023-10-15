@@ -175,7 +175,7 @@
                (SEQ
                 (EXIT
                  (COND
-                  ((SPADCALL (LENGTH |s1|) (LENGTH |s2|) (QREFELT $ 58)) 'NIL)
+                  ((SPADCALL (LENGTH |s1|) (LENGTH |s2|) (QREFELT $ 58)) NIL)
                   ('T
                    (SEQ
                     (SEQ
@@ -188,7 +188,7 @@
                       (EXIT
                        (COND
                         ((NULL (SPADCALL |t1| |s2| (QREFELT $ 59)))
-                         (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G196))))))
+                         (PROGN (LETT #1# NIL . #3#) (GO #4=#:G196))))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                     (EXIT 'T)))))
                 #4# (EXIT #1#)))) 
@@ -202,8 +202,7 @@
             (LETT |h| (LETT |g| (CONS (CONS |s| |n|) |f|) . #2=(|LMOPS;plus!|))
                   . #2#)
             (LETT |h1| (CDR |h|) . #2#)
-            (SEQ G190
-                 (COND ((NULL (COND ((NULL |h1|) 'NIL) ('T 'T))) (GO G191)))
+            (SEQ G190 (COND ((NULL (NULL (NULL |h1|))) (GO G191)))
                  (SEQ
                   (EXIT
                    (COND

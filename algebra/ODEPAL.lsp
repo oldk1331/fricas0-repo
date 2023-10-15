@@ -86,7 +86,7 @@
                                                     (QREFELT $ 33))
                                           (|spadConstant| $ 34)
                                           (QREFELT $ 35)))
-                                        ('T 'NIL)))
+                                        ('T NIL)))
                                       (GO G191)))
                                     (SEQ (EXIT (LETT |j| (+ |j| 1) . #14#)))
                                     NIL (GO G190) G191 (EXIT NIL))

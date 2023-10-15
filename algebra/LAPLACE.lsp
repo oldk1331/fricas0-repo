@@ -53,7 +53,7 @@
                           (GO #8=#:G145))))))))
                    (LETT #3# (CDR #3#) . #6#) (GO G190) G191 (EXIT NIL)))
              #8# (EXIT #1#))
-            (EXIT 'NIL)))
+            (EXIT NIL)))
           #7# (EXIT #2#)))) 
 
 (SDEFUN |LAPLACE;dvlap| ((|l| |List| F) (|x| |Symbol|) ($ F))

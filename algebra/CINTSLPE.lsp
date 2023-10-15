@@ -60,10 +60,8 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND
-                                 ((SPADCALL (QREFELT $ 11) (QREFELT $ 27))
-                                  'NIL)
-                                 ('T 'T)))
+                                (NULL
+                                 (SPADCALL (QREFELT $ 11) (QREFELT $ 27))))
                                (GO G191)))
                              (SEQ
                               (EXIT

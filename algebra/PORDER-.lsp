@@ -8,8 +8,8 @@
 (SDEFUN |PORDER-;<;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
         (COND
          ((SPADCALL |x| |y| (QREFELT $ 8))
-          (COND ((SPADCALL |y| |x| (QREFELT $ 8)) 'NIL) (#1='T 'T)))
-         (#1# 'NIL))) 
+          (NULL (SPADCALL |y| |x| (QREFELT $ 8))))
+         ('T NIL))) 
 
 (DECLAIM (NOTINLINE |PartialOrder&;|)) 
 

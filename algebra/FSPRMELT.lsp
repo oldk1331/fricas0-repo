@@ -176,8 +176,7 @@
          (SEQ (LETT |ans| (|spadConstant| $ 59) . #1=(|FSPRMELT;F2UP|))
               (SEQ G190
                    (COND
-                    ((NULL (COND ((SPADCALL |p| (QREFELT $ 60)) 'NIL) ('T 'T)))
-                     (GO G191)))
+                    ((NULL (NULL (SPADCALL |p| (QREFELT $ 60)))) (GO G191)))
                    (SEQ
                     (LETT |f|
                           (SPADCALL (SPADCALL |p| (QREFELT $ 61)) |k|

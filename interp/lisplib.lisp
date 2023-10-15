@@ -957,7 +957,9 @@
  
 ; mkEvalableCategoryForm c ==       --from DEFINE
 ;   c is [op,:argl] =>
-;     op="Join" => ["Join",:[mkEvalableCategoryForm x for x in argl]]
+;     op="Join" =>
+;         nargs := [mkEvalableCategoryForm x or return nil for x in argl]
+;         nargs => ["Join", :nargs]
 ;     op is "DomainSubstitutionMacro" =>
 ;         --$extraParms :local
 ;         --catobj := EVAL c -- DomainSubstitutionFunction makes $extraParms
@@ -976,26 +978,30 @@
 ;   MKQ c
  
 (DEFUN |mkEvalableCategoryForm| (|c|)
-  (PROG (|op| |argl| |LETTMP#1| |x| |m|)
+  (PROG (|op| |argl| |nargs| |LETTMP#1| |x| |m|)
     (RETURN
      (COND
       ((AND (CONSP |c|)
             (PROGN (SETQ |op| (CAR |c|)) (SETQ |argl| (CDR |c|)) #1='T))
        (COND
         ((EQ |op| '|Join|)
-         (CONS '|Join|
-               ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
-                  (LOOP
-                   (COND
-                    ((OR (ATOM |bfVar#19|)
-                         (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
-                     (RETURN (NREVERSE |bfVar#20|)))
-                    (#1#
-                     (SETQ |bfVar#20|
-                             (CONS (|mkEvalableCategoryForm| |x|)
-                                   |bfVar#20|))))
-                   (SETQ |bfVar#19| (CDR |bfVar#19|))))
-                NIL |argl| NIL)))
+         (PROGN
+          (SETQ |nargs|
+                  ((LAMBDA (|bfVar#20| |bfVar#19| |x|)
+                     (LOOP
+                      (COND
+                       ((OR (ATOM |bfVar#19|)
+                            (PROGN (SETQ |x| (CAR |bfVar#19|)) NIL))
+                        (RETURN (NREVERSE |bfVar#20|)))
+                       (#1#
+                        (SETQ |bfVar#20|
+                                (CONS
+                                 (OR (|mkEvalableCategoryForm| |x|)
+                                     (RETURN NIL))
+                                 |bfVar#20|))))
+                      (SETQ |bfVar#19| (CDR |bfVar#19|))))
+                   NIL |argl| NIL))
+          (COND (|nargs| (CONS '|Join| |nargs|)))))
         ((EQ |op| '|DomainSubstitutionMacro|)
          (|mkEvalableCategoryForm| (CADR |argl|)))
         ((EQ |op| '|mkCategory|) |c|)

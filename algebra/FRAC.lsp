@@ -65,8 +65,8 @@
 (SDEFUN |FRAC;writeOMFrac| ((|dev| |OpenMathDevice|) (|x| $) ($ |Void|))
         (SEQ (SPADCALL |dev| (QREFELT $ 32))
              (SPADCALL |dev| "nums1" "rational" (QREFELT $ 34))
-             (SPADCALL |dev| (QCAR |x|) 'NIL (QREFELT $ 35))
-             (SPADCALL |dev| (QCDR |x|) 'NIL (QREFELT $ 35))
+             (SPADCALL |dev| (QCAR |x|) NIL (QREFELT $ 35))
+             (SPADCALL |dev| (QCDR |x|) NIL (QREFELT $ 35))
              (EXIT (SPADCALL |dev| (QREFELT $ 36))))) 
 
 (SDEFUN |FRAC;OMwrite;Omd$BV;13|
@@ -278,13 +278,13 @@
         (COND
          ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 14))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 14)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |FRAC;one?;$B;25| ((|x| $) ($ |Boolean|))
         (COND
          ((SPADCALL (QCAR |x|) (|spadConstant| $ 9) (QREFELT $ 14))
           (SPADCALL (QCDR |x|) (|spadConstant| $ 9) (QREFELT $ 14)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |FRAC;/;2S$;26| ((|nn| S) (|dd| S) ($ $))
         (COND ((SPADCALL |dd| (QREFELT $ 12)) (|error| "division by zero"))

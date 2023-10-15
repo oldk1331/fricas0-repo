@@ -466,7 +466,7 @@
                  (CONS #'|DRAWCFUN;makeObject;PscSLTs;16!0|
                        (VECTOR |h| |g| $ |f|)))
                 . #5#)
-          (LETT |pointsColored?| 'NIL . #5#)
+          (LETT |pointsColored?| NIL . #5#)
           (SEQ
            (LETT |c1| (SPADCALL |l| '|colorFunction1| (QREFELT $ 36)) . #5#)
            (EXIT
@@ -523,7 +523,7 @@
                        (#6='T
                         (|DRAWCFUN;colorPoints| |loops|
                          (SPADCALL (QCDR |c3|) (QREFELT $ 121)) $)))))))
-                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 122)) (EXIT |s|)))
+                  (SPADCALL |s| |loops| NIL NIL (QREFELT $ 122)) (EXIT |s|)))
             (#6#
              (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 123)) . #5#)
                   (SEQ (LETT |b| NIL . #5#) (LETT #1# |br| . #5#) G190
@@ -591,7 +591,7 @@
          (SEQ
           (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
                 . #4=(|DRAWCFUN;makeObject;MSLTs;17|))
-          (LETT |fcn| (LIST |psc|) . #4#) (LETT |pointsColored?| 'NIL . #4#)
+          (LETT |fcn| (LIST |psc|) . #4#) (LETT |pointsColored?| NIL . #4#)
           (SEQ
            (LETT |c1| (SPADCALL |l| '|colorFunction1| (QREFELT $ 36)) . #4#)
            (EXIT
@@ -635,7 +635,7 @@
                   (LETT |tub| (SPADCALL |pl| |rad| |pts| (QREFELT $ 117))
                         . #4#)
                   (LETT |loops| (SPADCALL |tub| (QREFELT $ 118)) . #4#)
-                  (SPADCALL |s| |loops| 'NIL 'NIL (QREFELT $ 122)) (EXIT |s|)))
+                  (SPADCALL |s| |loops| NIL NIL (QREFELT $ 122)) (EXIT |s|)))
             ('T
              (SEQ (LETT |br| (SPADCALL |pl| (QREFELT $ 123)) . #4#)
                   (SEQ (LETT |b| NIL . #4#) (LETT #1# |br| . #4#) G190
@@ -788,7 +788,7 @@
           (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
                 . #2=(|DRAWCFUN;makeObject;M2SLTs;27|))
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
-          (LETT |pointsColored?| 'NIL . #2#)
+          (LETT |pointsColored?| NIL . #2#)
           (SEQ
            (LETT |c2| (SPADCALL |l| '|colorFunction2| (QREFELT $ 36)) . #2#)
            (EXIT
@@ -941,7 +941,7 @@
           (LETT |g| (LIST (SPADCALL |s| 2 (QREFELT $ 156))) . #2#)
           (LETT |h| (LIST (SPADCALL |s| 3 (QREFELT $ 156))) . #2#)
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
-          (LETT |pointsColored?| 'NIL . #2#)
+          (LETT |pointsColored?| NIL . #2#)
           (SEQ
            (LETT |c2| (SPADCALL |l| '|colorFunction2| (QREFELT $ 36)) . #2#)
            (EXIT
@@ -1044,7 +1044,7 @@
           (LETT |sp| (SPADCALL |l| (QREFELT $ 104))
                 . #2=(|DRAWCFUN;makeObject;M2SLTs;32|))
           (LETT |col2| (LIST (CONS (|function| |DRAWCFUN;xCoord|) $)) . #2#)
-          (LETT |pointsColored?| 'NIL . #2#)
+          (LETT |pointsColored?| NIL . #2#)
           (SEQ
            (LETT |c2| (SPADCALL |l| '|colorFunction2| (QREFELT $ 36)) . #2#)
            (EXIT

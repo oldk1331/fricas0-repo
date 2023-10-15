@@ -207,7 +207,7 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND ((NULL |t|) 'NIL)
+                        (COND ((NULL |t|) NIL)
                               ('T (|less_DF| (|SPADfirst| |t|) |l|))))
                        (GO G191)))
                      (SEQ (LETT |t| (CDR |t|) . #8#)
@@ -217,7 +217,7 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND ((NULL |t|) 'NIL)
+                        (COND ((NULL |t|) NIL)
                               ('T
                                (SPADCALL (|SPADfirst| |t|) |h|
                                          (QREFELT $ 46)))))
@@ -252,10 +252,7 @@
                        (LETT |p| (LETT |q| (CONS (SPADCALL |l| |f|) |p|) . #8#)
                              . #8#)
                        (EXIT (SETELT $ 10 (+ (QREFELT $ 10) 1))))))
-                (SEQ G190
-                     (COND
-                      ((NULL (COND ((NULL (CDR |t|)) 'NIL) ('T 'T)))
-                       (GO G191)))
+                (SEQ G190 (COND ((NULL (NULL (NULL (CDR |t|)))) (GO G191)))
                      (SEQ
                       (LETT |n|
                             (TRUNCATE
@@ -386,7 +383,7 @@
                                     (SEQ G190
                                          (COND
                                           ((NULL
-                                            (COND ((NULL |t|) 'NIL)
+                                            (COND ((NULL |t|) NIL)
                                                   ('T
                                                    (|less_DF| (|SPADfirst| |t|)
                                                               |l|))))
@@ -408,11 +405,10 @@
                                                    (SEQ G190
                                                         (COND
                                                          ((NULL
-                                                           (COND
-                                                            ((NULL
-                                                              (CDR (CDR |st|)))
-                                                             'NIL)
-                                                            ('T 'T)))
+                                                           (NULL
+                                                            (NULL
+                                                             (CDR
+                                                              (CDR |st|)))))
                                                           (GO G191)))
                                                         (SEQ
                                                          (LETT |t0|
@@ -920,7 +916,7 @@
           (SEQ G190
                (COND
                 ((NULL
-                  (COND ((NULL (CDR |t|)) 'NIL)
+                  (COND ((NULL (CDR |t|)) NIL)
                         ('T (|less_DF| (|SPADfirst| |t|) |h|))))
                  (GO G191)))
                (SEQ
@@ -1372,7 +1368,7 @@
                     (|cos_DF|
                      (SPADCALL (FLOAT 4 MOST-POSITIVE-DOUBLE-FLOAT)
                                (QREFELT $ 13))))
-          (QSETREFV $ 15 'NIL)
+          (QSETREFV $ 15 NIL)
           $))) 
 
 (MAKEPROP '|Plot3D| '|infovec|

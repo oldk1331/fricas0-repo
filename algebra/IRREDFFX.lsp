@@ -41,12 +41,10 @@
          (SEQ
           (LETT |mon| (SPADCALL (|spadConstant| $ 12) |n| (QREFELT $ 14))
                 . #1=(|IRREDFFX;getIrredPoly|))
-          (LETT |pol| (|spadConstant| $ 20) . #1#) (LETT |found| 'NIL . #1#)
+          (LETT |pol| (|spadConstant| $ 20) . #1#) (LETT |found| NIL . #1#)
           (LETT |end| (- (SPADCALL (QREFELT $ 11) |n| (QREFELT $ 21)) 1) . #1#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((OR (< |end| |start|) |found|) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (OR (< |end| |start|) |found|))) (GO G191)))
                (SEQ
                 (COND
                  ((EQL (GCD |start| (QREFELT $ 9)) 1)

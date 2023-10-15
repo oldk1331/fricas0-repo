@@ -237,7 +237,7 @@
                                   (LETT #11# 'T . #18#)))))))
                             (LETT #15# (CDR #15#) . #18#) (GO G190) G191
                             (EXIT NIL))
-                       (COND (#11# #12#) ('T 'NIL))))
+                       (COND (#11# #12#) ('T NIL))))
                      "next")
                     ('T
                      (SEQ
@@ -269,10 +269,7 @@
                       (LETT |uu| |lpolysR| . #18#)
                       (SEQ
                        (EXIT
-                        (SEQ G190
-                             (COND
-                              ((NULL (COND ((NULL |uu|) 'NIL) ('T 'T)))
-                               (GO G191)))
+                        (SEQ G190 (COND ((NULL (NULL (NULL |uu|))) (GO G191)))
                              (SEQ
                               (EXIT
                                (COND
@@ -307,7 +304,7 @@
                                              (LETT #4# 'T . #18#)))))))
                                        (LETT #8# (CDR #8#) . #18#) (GO G190)
                                        G191 (EXIT NIL))
-                                  (COND (#4# #5#) ('T 'NIL)))
+                                  (COND (#4# #5#) ('T NIL)))
                                  (PROGN
                                   (LETT #3# |$NoValue| . #18#)
                                   (GO #19=#:G177)))

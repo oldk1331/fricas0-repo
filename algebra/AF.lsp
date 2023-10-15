@@ -603,8 +603,8 @@
                                                    (QREFELT $ 118)))
                                                (QREFELT $ 124))
                                      (QREFELT $ 125)))))))
-                               (EXIT (|AF;inroot0| |x| |n| 'NIL 'NIL $))))
-                         (#3# (|AF;inroot0| |x| |n| 'NIL 'NIL $))))))))))
+                               (EXIT (|AF;inroot0| |x| |n| NIL NIL $))))
+                         (#3# (|AF;inroot0| |x| |n| NIL NIL $))))))))))
              #4# (EXIT #1#))))))) 
 
 (SDEFUN |AF;inroot0|

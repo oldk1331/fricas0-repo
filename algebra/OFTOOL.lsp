@@ -40,7 +40,7 @@
         ((|expr| |OutputForm|) (|op| |Symbol|) ($ |Boolean|))
         (SPROG ((|e1| (|OutputForm|)))
                (SEQ
-                (COND ((SPADCALL |expr| (QREFELT $ 8)) 'NIL)
+                (COND ((SPADCALL |expr| (QREFELT $ 8)) NIL)
                       ('T
                        (SEQ
                         (LETT |e1| (|SPADfirst| |expr|)
@@ -49,7 +49,7 @@
 
 (SDEFUN |OFTOOL;is_symbol?;OfSB;11|
         ((|expr| |OutputForm|) (|op| |Symbol|) ($ |Boolean|))
-        (COND ((NULL (SPADCALL |expr| (QREFELT $ 12))) 'NIL)
+        (COND ((NULL (SPADCALL |expr| (QREFELT $ 12))) NIL)
               ('T (EQUAL (SPADCALL |expr| (QREFELT $ 14)) |op|)))) 
 
 (SDEFUN |OFTOOL;flaten_op|
@@ -60,15 +60,11 @@
           (|t1| (|OutputForm|)) (|t| (|OutputForm|)))
          (SEQ (LETT |ll| (LIST |l|) . #2=(|OFTOOL;flaten_op|))
               (LETT |res| NIL . #2#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |ll|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |ll|))) (GO G191)))
                    (SEQ (LETT |l| (|SPADfirst| |ll|) . #2#)
                         (LETT |ll| (CDR |ll|) . #2#)
                         (EXIT
-                         (SEQ G190
-                              (COND
-                               ((NULL (COND ((NULL |l|) 'NIL) ('T 'T)))
-                                (GO G191)))
+                         (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
                               (SEQ (LETT |t| (|SPADfirst| |l|) . #2#)
                                    (LETT |l| (CDR |l|) . #2#)
                                    (EXIT

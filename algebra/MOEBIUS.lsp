@@ -147,7 +147,7 @@
 (SDEFUN |MOEBIUS;proportional?|
         ((|list1| |List| F) (|list2| |List| F) ($ |Boolean|))
         (SPROG ((|x2| (F)) (|x1| (F)))
-               (COND ((NULL |list1|) (NULL |list2|)) ((NULL |list2|) 'NIL)
+               (COND ((NULL |list1|) (NULL |list2|)) ((NULL |list2|) NIL)
                      ((SPADCALL
                        (LETT |x1| (|SPADfirst| |list1|)
                              . #1=(|MOEBIUS;proportional?|))
@@ -156,10 +156,10 @@
                        ((SPADCALL (|SPADfirst| |list2|) (QREFELT $ 30))
                         (|MOEBIUS;proportional?| (CDR |list1|) (CDR |list2|)
                          $))
-                       (#2='T 'NIL)))
+                       (#2='T NIL)))
                      ((SPADCALL (LETT |x2| (|SPADfirst| |list2|) . #1#)
                                 (QREFELT $ 30))
-                      'NIL)
+                      NIL)
                      (#2#
                       (SPADCALL
                        (SPADCALL

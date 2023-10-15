@@ -495,7 +495,7 @@
                     (COND
                      ((|HasCategory| |#1| '(|TranscendentalFunctionCategory|))
                       (|HasCategory| |#1| '(|CommutativeRing|)))
-                     ('T 'NIL)))
+                     ('T NIL)))
           (COND
            ((|HasCategory| |#2| '(|Algebra| (|Fraction| (|Integer|))))
             (QSETREFV $ 45

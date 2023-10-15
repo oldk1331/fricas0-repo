@@ -18,8 +18,8 @@
                            (COND
                             ((SPADCALL (QCDR |xx|) (QCDR |yy|) (QREFELT $ 11))
                              (SPADCALL (QCAR |xx|) (QCAR |yy|) (QREFELT $ 11)))
-                            ('T 'NIL)))))))))
-                (EXIT 'NIL)))) 
+                            ('T NIL)))))))))
+                (EXIT NIL)))) 
 
 (SDEFUN |COMM;mkcomm;I$;2| ((|i| |Integer|) ($ $))
         (CONS 0 (SPADCALL |i| (QREFELT $ 13)))) 

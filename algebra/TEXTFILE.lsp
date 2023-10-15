@@ -58,9 +58,7 @@
                 (EXIT |x|)))))) 
 
 (SDEFUN |TEXTFILE;endOfFile?;$B;8| ((|f| $) ($ |Boolean|))
-        (COND
-         ((OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))) 'NIL)
-         ('T 'T))) 
+        (NULL (OR (EQUAL (QVELT |f| 2) "output") (NULL (EOFP (QVELT |f| 1)))))) 
 
 (DECLAIM (NOTINLINE |TextFile;|)) 
 

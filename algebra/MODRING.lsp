@@ -45,7 +45,7 @@
 
 (SDEFUN |MODRING;=;2$B;13| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 34)) 'T)
-              ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 36)) 'NIL)
+              ((SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 36)) NIL)
               ('T
                (SPADCALL (QCAR (SPADCALL |x| |y| (QREFELT $ 37)))
                          (|spadConstant| $ 17) (QREFELT $ 34))))) 

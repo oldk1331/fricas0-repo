@@ -38,7 +38,7 @@
                    . #5#)
              (LETT |pol| (SPADCALL |pden| |p| (QREFELT $ 19)) . #5#)
              (LETT |ipol| (SPADCALL (ELT $ 20) |pol| (QREFELT $ 24)) . #5#)
-             (LETT |ffact| (SPADCALL |ipol| 'NIL (QREFELT $ 28)) . #5#)
+             (LETT |ffact| (SPADCALL |ipol| NIL (QREFELT $ 28)) . #5#)
              (EXIT
               (SPADCALL
                (SPADCALL (SPADCALL (QCAR |ffact|) |pden| (QREFELT $ 29))

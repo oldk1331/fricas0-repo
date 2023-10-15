@@ -23,9 +23,8 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND
-                         ((OR (NULL |r|) (EQUAL (|SPADfirst| |r|) "%l")) 'NIL)
-                         ('T 'T)))
+                        (COND ((NULL |r|) NIL)
+                              ('T (NULL (EQUAL (|SPADfirst| |r|) "%l")))))
                        (GO G191)))
                      (SEQ (LETT |l| (CONS (|SPADfirst| |r|) |l|) . #1#)
                           (EXIT (LETT |r| (CDR |r|) . #1#)))
@@ -210,7 +209,7 @@
         ((|var1| |Symbol|) (|lo| |OutputForm|) (|hi| |OutputForm|)
          (|inc| |OutputForm|) (|lab| |SingleInteger|) ($ |List| (|String|)))
         (SPROG NIL
-               (SPADCALL 'NIL
+               (SPADCALL NIL
                          (CONS #'|FC;fortFormatDo!0|
                                (VECTOR $ |lab| |inc| |hi| |lo| |var1|))
                          (QREFELT $ 31)))) 
@@ -297,7 +296,7 @@
           (LETT |returnToken| (SPADCALL 'RETURN (QREFELT $ 8))
                 . #1=(|FC;getReturn|))
           (EXIT
-           (COND ((QCAR |rec|) (SPADCALL |returnToken| 'NIL (QREFELT $ 14)))
+           (COND ((QCAR |rec|) (SPADCALL |returnToken| NIL (QREFELT $ 14)))
                  ('T
                   (SEQ (LETT |rt| (QCDR |rec|) . #1#)
                        (LETT |rv| (QCDR |rt|) . #1#)
@@ -675,7 +674,7 @@
                    (SEQ
                     (LETT |expr|
                           (APPEND |expr|
-                                  (SPADCALL (SPADCALL 'ELSE (QREFELT $ 8)) 'NIL
+                                  (SPADCALL (SPADCALL 'ELSE (QREFELT $ 8)) NIL
                                             (QREFELT $ 14)))
                           . #3#)
                     (EXIT
@@ -795,13 +794,13 @@
                     (LETT |expr|
                           (APPEND |expr|
                                   (APPEND
-                                   (SPADCALL (SPADCALL 'ELSE (QREFELT $ 8))
-                                             'NIL (QREFELT $ 14))
+                                   (SPADCALL (SPADCALL 'ELSE (QREFELT $ 8)) NIL
+                                             (QREFELT $ 14))
                                    (|FC;getBody| |elseBranch| $)))
                           . #1#)))))
                 (EXIT
                  (APPEND |expr|
-                         (SPADCALL (SPADCALL 'ENDIF (QREFELT $ 8)) 'NIL
+                         (SPADCALL (SPADCALL 'ENDIF (QREFELT $ 8)) NIL
                                    (QREFELT $ 14))))))) 
 
 (SDEFUN |FC;getComment| ((|rec| |List| (|String|)) ($ |List| (|String|)))
@@ -1984,33 +1983,33 @@
            (|Record| (|:| |ints2Floats?| (|Boolean|))
                      (|:| |expr| (|OutputForm|)))))
          (SEQ
-          (LETT |v| (CONS 'NIL (SPADCALL (|spadConstant| $ 98) (QREFELT $ 64)))
+          (LETT |v| (CONS NIL (SPADCALL (|spadConstant| $ 98) (QREFELT $ 64)))
                 |FC;returns;$;52|)
           (EXIT (CONS (CONS 3 "return") (CONS 4 (CONS 'T |v|))))))) 
 
 (SDEFUN |FC;returns;E$;53| ((|v| |Expression| (|MachineInteger|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 101))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 101))))))) 
 
 (SDEFUN |FC;returns;E$;54| ((|v| |Expression| (|MachineFloat|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 104))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 104))))))) 
 
 (SDEFUN |FC;returns;E$;55| ((|v| |Expression| (|MachineComplex|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 107))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 107))))))) 
 
 (SDEFUN |FC;returns;E$;56| ((|v| |Expression| (|Integer|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 110))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 110))))))) 
 
 (SDEFUN |FC;returns;E$;57| ((|v| |Expression| (|Float|)) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 113))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 113))))))) 
 
 (SDEFUN |FC;returns;E$;58| ((|v| |Expression| (|Complex| (|Float|))) ($ $))
         (CONS (CONS 3 "return")
-              (CONS 4 (CONS 'NIL (CONS 'NIL (SPADCALL |v| (QREFELT $ 116))))))) 
+              (CONS 4 (CONS NIL (CONS NIL (SPADCALL |v| (QREFELT $ 116))))))) 
 
 (SDEFUN |FC;block;L$;59| ((|l| |List| $) ($ $))
         (CONS (CONS 4 "block") (CONS 5 |l|))) 
@@ -2031,12 +2030,12 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'NIL (SPADCALL |rhs| (QREFELT $ 123))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 123))))))) 
 
 (SDEFUN |FC;assign;SM$;64|
         ((|v| |Symbol|) (|rhs| |Matrix| (|MachineInteger|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 126)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 126)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;65|
         ((|v| |Symbol|) (|rhs| |Matrix| (|MachineFloat|)) ($ $))
@@ -2051,7 +2050,7 @@
 (SDEFUN |FC;assign;SV$;67|
         ((|v| |Symbol|) (|rhs| |Vector| (|MachineInteger|)) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 135)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 135)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;68|
         ((|v| |Symbol|) (|rhs| |Vector| (|MachineFloat|)) ($ $))
@@ -2067,7 +2066,7 @@
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineInteger|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 144)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 144)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;71|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|MachineFloat|))) ($ $))
@@ -2084,7 +2083,7 @@
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineInteger|)))
          ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 153)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 153)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;74|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|MachineFloat|))) ($ $))
@@ -2103,7 +2102,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
 
 (SDEFUN |FC;assign;SLE$;77|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2126,7 +2125,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 101))))))) 
 
 (SDEFUN |FC;assign;SE$;80|
         ((|v| |Symbol|) (|rhs| |Expression| (|MachineFloat|)) ($ $))
@@ -2145,7 +2144,7 @@
 (SDEFUN |FC;assign;SM$;82|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Integer|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 168)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 168)) NIL)))) 
 
 (SDEFUN |FC;assign;SM$;83|
         ((|v| |Symbol|) (|rhs| |Matrix| (|Expression| (|Float|))) ($ $))
@@ -2161,7 +2160,7 @@
 (SDEFUN |FC;assign;SV$;85|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Integer|))) ($ $))
         (CONS (CONS 12 "arrayAssignment")
-              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 177)) 'NIL)))) 
+              (CONS 2 (VECTOR |v| (SPADCALL |rhs| (QREFELT $ 177)) NIL)))) 
 
 (SDEFUN |FC;assign;SV$;86|
         ((|v| |Symbol|) (|rhs| |Vector| (|Expression| (|Float|))) ($ $))
@@ -2180,7 +2179,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| |index|
-                            (CONS 'NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
 
 (SDEFUN |FC;assign;SLE$;89|
         ((|v| |Symbol|) (|index| |List| (|Polynomial| (|Integer|)))
@@ -2203,7 +2202,7 @@
         (CONS (CONS 1 "assignment")
               (CONS 1
                     (VECTOR |v| NIL
-                            (CONS 'NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
+                            (CONS NIL (SPADCALL |rhs| (QREFELT $ 110))))))) 
 
 (SDEFUN |FC;assign;SE$;92|
         ((|v| |Symbol|) (|rhs| |Expression| (|Float|)) ($ $))

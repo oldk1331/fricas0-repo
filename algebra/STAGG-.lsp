@@ -1,6 +1,6 @@
 
 (SDEFUN |STAGG-;explicitlyFinite?;AB;1| ((|x| A) ($ |Boolean|))
-        (COND ((SPADCALL |x| (QREFELT $ 9)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL |x| (QREFELT $ 9)))) 
 
 (SDEFUN |STAGG-;possiblyInfinite?;AB;2| ((|x| A) ($ |Boolean|))
         (SPADCALL |x| (QREFELT $ 9))) 
@@ -123,9 +123,7 @@
                (SEQ (LETT |y| |l| . #1=(|STAGG-;map!;M2A;9|))
                     (SEQ G190
                          (COND
-                          ((NULL
-                            (COND ((SPADCALL |l| (QREFELT $ 17)) 'NIL)
-                                  ('T 'T)))
+                          ((NULL (NULL (SPADCALL |l| (QREFELT $ 17))))
                            (GO G191)))
                          (SEQ
                           (SPADCALL |l|
@@ -142,9 +140,7 @@
                (SEQ (LETT |y| |x| . #1=(|STAGG-;fill!;ASA;10|))
                     (SEQ G190
                          (COND
-                          ((NULL
-                            (COND ((SPADCALL |y| (QREFELT $ 17)) 'NIL)
-                                  ('T 'T)))
+                          ((NULL (NULL (SPADCALL |y| (QREFELT $ 17))))
                            (GO G191)))
                          (SEQ (SPADCALL |y| |s| (QREFELT $ 35))
                               (EXIT
@@ -219,9 +215,7 @@
                             (SEQ G190
                                  (COND
                                   ((NULL
-                                    (COND
-                                     ((SPADCALL |y| |z| (QREFELT $ 41)) 'NIL)
-                                     ('T 'T)))
+                                    (NULL (SPADCALL |y| |z| (QREFELT $ 41))))
                                    (GO G191)))
                                  (SEQ (SPADCALL |y| |s| (QREFELT $ 35))
                                       (EXIT

@@ -700,9 +700,7 @@
                 . #3=(|ODERTRIC;solveModulo|))
           (LETT |unk| (|spadConstant| $ 60) . #3#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |h| (QREFELT $ 122)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |h| (QREFELT $ 122)))) (GO G191)))
                (SEQ
                 (LETT |unk|
                       (SPADCALL |unk|

@@ -93,7 +93,7 @@
                                  (QREFELT $ 36))))))) 
 
 (SDEFUN |PBWLB;retractable?;$B;11| ((|x| $) ($ |Boolean|))
-        (COND ((NULL |x|) 'NIL) ('T (NULL (CDR |x|))))) 
+        (COND ((NULL |x|) NIL) ('T (NULL (CDR |x|))))) 
 
 (SDEFUN |PBWLB;retract;$Lw;12| ((|x| $) ($ |LyndonWord| |VarSet|))
         (COND
@@ -136,7 +136,7 @@
                                #1#)))))) 
 
 (SDEFUN |PBWLB;recursif| ((|x| $) (|y| $) ($ |Boolean|))
-        (COND ((NULL |y|) 'NIL) ((NULL |x|) 'T)
+        (COND ((NULL |y|) NIL) ((NULL |x|) 'T)
               (#1='T
                (COND
                 ((SPADCALL (|SPADfirst| |x|) (|SPADfirst| |y|) (QREFELT $ 47))

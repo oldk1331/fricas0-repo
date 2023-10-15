@@ -190,8 +190,8 @@
         (SPROG
          ((|k| #1=(|NonNegativeInteger|)) (|l| #1#) (|end| #2=(|Boolean|))
           (|sign| (|Integer|)) (|z| #1#) (|swap| (|Integer|)) (|endk| #2#)
-          (|ctrl| (|Boolean|)) (|s| #1#)
-          (|columntab| #3=(|Matrix| (|Integer|))) (|rowtab| #3#))
+          (|ctrl| #2#) (|s| #1#) (|columntab| #3=(|Matrix| (|Integer|)))
+          (|rowtab| #3#))
          (SEQ
           (LETT |rowtab|
                 (SPADCALL
@@ -204,14 +204,13 @@
                            (QREFELT $ 28))
                  (QREFELT $ 29))
                 . #4#)
-          (LETT |sign| 1 . #4#) (LETT |end| 'NIL . #4#) (LETT |k| 1 . #4#)
+          (LETT |sign| 1 . #4#) (LETT |end| NIL . #4#) (LETT |k| 1 . #4#)
           (SEQ G190
                (COND
                 ((NULL
                   (COND
-                   ((SPADCALL |k| (QREFELT $ 11) (QREFELT $ 31))
-                    (COND (|end| 'NIL) ('T 'T)))
-                   ('T 'NIL)))
+                   ((SPADCALL |k| (QREFELT $ 11) (QREFELT $ 31)) (NULL |end|))
+                   ('T NIL)))
                  (GO G191)))
                (SEQ (LETT |l| 1 . #4#)
                     (SEQ G190
@@ -222,10 +221,10 @@
                                         (SPADCALL (QREFELT $ 6) |k|
                                                   (QREFELT $ 32))
                                         (QREFELT $ 33))
-                              (COND (|end| 'NIL) ('T 'T)))
-                             ('T 'NIL)))
+                              (NULL |end|))
+                             ('T NIL)))
                            (GO G191)))
-                         (SEQ (LETT |z| |l| . #4#) (LETT |endk| 'NIL . #4#)
+                         (SEQ (LETT |z| |l| . #4#) (LETT |endk| NIL . #4#)
                               (SEQ G190
                                    (COND
                                     ((NULL
@@ -234,8 +233,8 @@
                                                   (SPADCALL (QREFELT $ 6) |k|
                                                             (QREFELT $ 32))
                                                   (QREFELT $ 33))
-                                        (COND (|endk| 'NIL) ('T 'T)))
-                                       ('T 'NIL)))
+                                        (NULL |endk|))
+                                       ('T NIL)))
                                      (GO G191)))
                                    (SEQ (LETT |s| |k| . #4#)
                                         (LETT |ctrl| 'T . #4#)
@@ -264,12 +263,11 @@
                                                                   (QREFELT $
                                                                            17)))
                                                               (QREFELT $ 32)))
-                                                   (LETT |ctrl| 'NIL . #4#))
+                                                   (LETT |ctrl| NIL . #4#))
                                                   ('T
                                                    (LETT |s| (+ |s| 1)
                                                          . #4#))))
-                                                ('T
-                                                 (LETT |ctrl| 'NIL . #4#)))))
+                                                ('T (LETT |ctrl| NIL . #4#)))))
                                              NIL (GO G190) G191 (EXIT NIL))
                                         (LETT |endk|
                                               (SPADCALL |s|
@@ -349,7 +347,7 @@
                     ((OR (ATOM #2#) (PROGN (LETT |x| (CAR #2#) . #3#) NIL))
                      (GO G191)))
                    (SEQ (LETT |sum| (+ |sum| |x|) . #3#)
-                        (LETT |ok| (COND (|ok| (>= |prev| |x|)) ('T 'NIL))
+                        (LETT |ok| (COND (|ok| (>= |prev| |x|)) ('T NIL))
                               . #3#)
                         (EXIT (LETT |prev| |x| . #3#)))
                    (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
@@ -374,7 +372,7 @@
                     (COND
                      ((SPADCALL |i| (QREFELT $ 10) (QREFELT $ 34))
                       (SETELT $ 10 |i|)))
-                    (EXIT (COND ((< |i| 1) (LETT |ok| 'NIL . #5#)))))
+                    (EXIT (COND ((< |i| 1) (LETT |ok| NIL . #5#)))))
                    (LETT #4# (CDR #4#) . #5#) (GO G190) G191 (EXIT NIL))
               (COND
                ((EQL (QREFELT $ 10) (LENGTH |pi|))
@@ -385,7 +383,7 @@
                      (PROG1 (LETT #3# (QREFELT $ 10) . #5#)
                        (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
                                          '(|Integer|) #3#))
-                     'NIL)
+                     NIL)
                     . #5#)
               (SEQ (LETT |i| NIL . #5#) (LETT #2# |pi| . #5#) G190
                    (COND
@@ -394,7 +392,7 @@
                    (SEQ (EXIT (SPADCALL |test| |i| 'T (QREFELT $ 36))))
                    (LETT #2# (CDR #2#) . #5#) (GO G190) G191 (EXIT NIL))
               (COND
-               ((SPADCALL 'NIL |test| (QREFELT $ 37))
+               ((SPADCALL NIL |test| (QREFELT $ 37))
                 (|error| "No permutation")))
               (EXIT
                (PROG1 (LETT #1# (QREFELT $ 10) . #5#)

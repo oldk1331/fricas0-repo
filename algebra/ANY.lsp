@@ -17,7 +17,7 @@
                 (LETT |dx| (SPADCALL |x| (QREFELT $ 14)) . #2=(|ANY;=;2$B;4|))
                 (LETT |dy| (SPADCALL |y| (QREFELT $ 14)) . #2#)
                 (EXIT
-                 (COND ((SPADCALL |dx| |dy| (QREFELT $ 17)) 'NIL)
+                 (COND ((SPADCALL |dx| |dy| (QREFELT $ 17)) NIL)
                        (#3='T
                         (SEQ (LETT |Dx| (|evalType| |dx|) . #2#)
                              (EXIT
@@ -108,7 +108,7 @@
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 6
                     (|Record| (|:| |dm| (|SExpression|)) (|:| |ob| (|None|))))
-          (QSETREFV $ 10 (SPADCALL 'NIL (QREFELT $ 9)))
+          (QSETREFV $ 10 (SPADCALL NIL (QREFELT $ 9)))
           $))) 
 
 (MAKEPROP '|Any| '|infovec|

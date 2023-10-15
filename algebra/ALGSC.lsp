@@ -311,7 +311,7 @@
                                                     (QREFELT $ 74))
                                                    (EXIT
                                                     (PROGN
-                                                     (LETT #2# 'NIL . #20#)
+                                                     (LETT #2# NIL . #20#)
                                                      (GO #21=#:G197))))
                                                   . #20#)
                                             (GO #22=#:G173)))))))
@@ -432,7 +432,7 @@
                                                     (QREFELT $ 74))
                                                    (EXIT
                                                     (PROGN
-                                                     (LETT #2# 'NIL . #20#)
+                                                     (LETT #2# NIL . #20#)
                                                      (GO #21#))))
                                                   . #20#)
                                             (GO #23=#:G179)))))))
@@ -548,7 +548,7 @@
                                                     (QREFELT $ 74))
                                                    (EXIT
                                                     (PROGN
-                                                     (LETT #2# 'NIL . #20#)
+                                                     (LETT #2# NIL . #20#)
                                                      (GO #21#))))
                                                   . #20#)
                                             (GO #24=#:G184)))))))
@@ -659,7 +659,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #20#)
+                                                      (LETT #2# NIL . #20#)
                                                       (GO #21#))))
                                                    . #20#)
                                              (GO #25=#:G188)))))))
@@ -773,7 +773,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G225))))
                                                    . #8#)
                                              (GO #10=#:G219)))))))
@@ -884,7 +884,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G241))))
                                                    . #8#)
                                              (GO #10=#:G235)))))))
@@ -941,7 +941,7 @@
                                             (QREFELT $ 74))
                                            (EXIT
                                             (PROGN
-                                             (LETT #2# 'NIL . #6#)
+                                             (LETT #2# NIL . #6#)
                                              (GO #7=#:G255))))
                                           . #6#)
                                     (GO #8=#:G251))))))
@@ -1003,7 +1003,7 @@
                                             (QREFELT $ 74))
                                            (EXIT
                                             (PROGN
-                                             (LETT #2# 'NIL . #6#)
+                                             (LETT #2# NIL . #6#)
                                              (GO #7=#:G267))))
                                           . #6#)
                                     (GO #8=#:G263))))))
@@ -1140,7 +1140,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G281))))
                                                    . #8#)
                                              (GO #10=#:G275)))))))
@@ -1279,7 +1279,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G297))))
                                                    . #8#)
                                              (GO #10=#:G291)))))))
@@ -1423,7 +1423,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G313))))
                                                    . #8#)
                                              (GO #10=#:G307)))))))
@@ -1608,7 +1608,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G329))))
                                                    . #8#)
                                              (GO #10=#:G323)))))))
@@ -1640,7 +1640,7 @@
               (SPADCALL
                "this algebra is not Jordan admissible, as 2 is not invertible in the ground ring"
                (QREFELT $ 74))
-              (EXIT 'NIL)))
+              (EXIT NIL)))
             ('T
              (SEQ
               (SEQ (LETT |i| 1 . #10=(|ALGSC;jordanAdmissible?;B;22|))
@@ -2289,7 +2289,7 @@
                                                               (QREFELT $ 74))
                                                              (EXIT
                                                               (PROGN
-                                                               (LETT #2# 'NIL
+                                                               (LETT #2# NIL
                                                                      . #10#)
                                                                (GO
                                                                 #11=#:G352))))
@@ -2326,7 +2326,7 @@
               (SPADCALL
                "this is not a Jordan algebra, as 2 is not invertible in the ground ring"
                (QREFELT $ 74))
-              (EXIT 'NIL)))
+              (EXIT NIL)))
             ((SPADCALL (QREFELT $ 78))
              (SEQ
               (SEQ (LETT |i| 1 . #10=(|ALGSC;jordanAlgebra?;B;23|))
@@ -2672,7 +2672,7 @@
                                                                         (PROGN
                                                                          (LETT
                                                                           #2#
-                                                                          'NIL
+                                                                          NIL
                                                                           . #10#)
                                                                          (GO
                                                                           #11=#:G379))))
@@ -2701,7 +2701,7 @@
               (SPADCALL "this is a Jordan algebra" (QREFELT $ 74)) (EXIT 'T)))
             ('T
              (SEQ (SPADCALL "this is not a Jordan algebra" (QREFELT $ 74))
-                  (EXIT 'NIL)))))
+                  (EXIT NIL)))))
           #11# (EXIT #2#)))) 
 
 (SDEFUN |ALGSC;jacobiIdentity?;B;24| (($ |Boolean|))
@@ -2816,7 +2816,7 @@
                                                      (QREFELT $ 74))
                                                     (EXIT
                                                      (PROGN
-                                                      (LETT #2# 'NIL . #8#)
+                                                      (LETT #2# NIL . #8#)
                                                       (GO #9=#:G397))))
                                                    . #8#)
                                              (GO #10=#:G391)))))))

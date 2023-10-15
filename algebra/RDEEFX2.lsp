@@ -37,7 +37,7 @@
            (COND
             ((QEQCAR |part| 1)
              (VECTOR (|spadConstant| $ 27) (|spadConstant| $ 27)
-                     (|spadConstant| $ 27) 'NIL))
+                     (|spadConstant| $ 27) NIL))
             ('T
              (SEQ (LETT |p1| (QCDR |part|) . #2#)
                   (EXIT

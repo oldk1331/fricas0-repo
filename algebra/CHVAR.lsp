@@ -20,7 +20,7 @@
                  (COND
                   ((SPADCALL (SPADCALL |p| |a| (QREFELT $ 20))
                              (|spadConstant| $ 21) (QREFELT $ 23))
-                   'NIL)
+                   NIL)
                   ('T
                    (SEQ
                     (SEQ (LETT |q| NIL . #3=(|CHVAR;good?|))
@@ -34,7 +34,7 @@
                            (COND
                             ((SPADCALL (SPADCALL |q| |a| (QREFELT $ 20))
                                        (|spadConstant| $ 21) (QREFELT $ 23))
-                             (PROGN (LETT #1# 'NIL . #3#) (GO #4=#:G121))))))
+                             (PROGN (LETT #1# NIL . #3#) (GO #4=#:G121))))))
                          (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                     (EXIT 'T)))))
                 #4# (EXIT #1#)))) 
@@ -73,15 +73,13 @@
                    (SEQ G190
                         (COND
                          ((NULL
-                           (COND
-                            ((SPADCALL
-                              (LETT |a|
-                                    (SPADCALL (SPADCALL |q| (QREFELT $ 26))
-                                              (QREFELT $ 27))
-                                    . #1#)
-                              (QREFELT $ 28))
-                             'NIL)
-                            ('T 'T)))
+                           (NULL
+                            (SPADCALL
+                             (LETT |a|
+                                   (SPADCALL (SPADCALL |q| (QREFELT $ 26))
+                                             (QREFELT $ 27))
+                                   . #1#)
+                             (QREFELT $ 28))))
                           (GO G191)))
                         (SEQ
                          (LETT |c|
@@ -281,7 +279,7 @@
           (LETT |r| (SPADCALL |modulus| (QREFELT $ 58))
                 . #1=(|CHVAR;infIntegral?|))
           (EXIT
-           (COND ((QEQCAR |r| 1) 'NIL)
+           (COND ((QEQCAR |r| 1) NIL)
                  ('T
                   (SEQ
                    (LETT |ninv|

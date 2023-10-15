@@ -28,7 +28,7 @@
          (SEQ
           (COND
            ((SPADCALL |a| (QREFELT $ 14))
-            (COND ((SPADCALL |b| (QREFELT $ 14)) 'NIL)
+            (COND ((SPADCALL |b| (QREFELT $ 14)) NIL)
                   (#2='T
                    (< 0
                       (QCDR
@@ -51,7 +51,7 @@
                         ((SPADCALL (QCAR |tb|) (QCAR |ta|) (QREFELT $ 13))
                          (< (QCDR |ta|) 0))
                         ((< (QCDR |ta|) (QCDR |tb|)) 'T)
-                        ((< (QCDR |tb|) (QCDR |ta|)) 'NIL)
+                        ((< (QCDR |tb|) (QCDR |ta|)) NIL)
                         (#2#
                          (SEQ
                           (LETT |lc|

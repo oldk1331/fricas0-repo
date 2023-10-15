@@ -131,7 +131,7 @@
          ($ |String|))
         (SPROG
          ((|tmp| (|String|)) (|base| (|String|)) (|prescript| (|Boolean|)))
-         (SEQ (LETT |prescript| 'NIL . #1=(|TMFORM;formatSpecial|))
+         (SEQ (LETT |prescript| NIL . #1=(|TMFORM;formatSpecial|))
               (EXIT
                (COND ((EQUAL |op| '|theMap|) "(concat \"theMap(...)\")")
                      ((EQUAL |op| 'AGGLST)

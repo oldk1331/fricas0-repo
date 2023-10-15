@@ -29,9 +29,9 @@
            ((SPADCALL (CONS #'|NUMFMT;check!0| $) |s| (QREFELT $ 17))
             (COND
              ((SPADCALL (CONS #'|NUMFMT;check!1| $) |s| (QREFELT $ 17)) 'T)
-             (#1='T 'NIL)))
+             (#1='T NIL)))
            (#1# 'T)))
-         (#1# 'NIL))) 
+         (#1# NIL))) 
 
 (SDEFUN |NUMFMT;check!1| ((|c1| NIL) ($ NIL))
         (SPADCALL |c1| (SPADCALL "." (QREFELT $ 13)) (QREFELT $ 15))) 
@@ -140,10 +140,8 @@
                                                            G190
                                                            (COND
                                                             ((NULL
-                                                              (COND
-                                                               ((ZEROP |n|)
-                                                                'NIL)
-                                                               ('T 'T)))
+                                                              (NULL
+                                                               (ZEROP |n|)))
                                                              (GO G191)))
                                                            (SEQ
                                                             (LETT |d|
@@ -273,7 +271,7 @@
                                      (COND
                                       ((|eql_SI| |c| (QREFELT $ 45))
                                        (>= |i| (SPADCALL |s| (QREFELT $ 57))))
-                                      ('T 'NIL)))
+                                      ('T NIL)))
                                     (GO G191)))
                                   (SEQ
                                    (LETT |c| (SPADCALL |s| |i| (QREFELT $ 58))

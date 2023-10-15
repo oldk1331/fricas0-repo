@@ -13,7 +13,9 @@
 (SDEFUN |COMPPROP;solid;$2B;4| ((|p| $) (|b| |Boolean|) ($ |Boolean|))
         (PROGN (RPLACD |p| |b|) (QCDR |p|))) 
 
-(SDEFUN |COMPPROP;new;$;5| (($ $)) (CONS 'NIL 'NIL)) 
+(PUT '|COMPPROP;new;$;5| '|SPADreplace| '(XLAM NIL (CONS NIL NIL))) 
+
+(SDEFUN |COMPPROP;new;$;5| (($ $)) (CONS NIL NIL)) 
 
 (SDEFUN |COMPPROP;copy;2$;6| ((|p| $) ($ $))
         (SPROG ((|annuderOne| ($)))

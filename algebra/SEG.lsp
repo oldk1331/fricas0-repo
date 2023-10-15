@@ -36,8 +36,8 @@
           (COND
            ((SPADCALL (QVELT |s1| 1) (QVELT |s2| 1) (QREFELT $ 18))
             (EQL (QVELT |s1| 2) (QVELT |s2| 2)))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |SEG;coerce;$Of;10| ((|s| $) ($ |OutputForm|))
         (SPROG ((|seg| (|OutputForm|)))

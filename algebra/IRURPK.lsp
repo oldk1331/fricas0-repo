@@ -57,7 +57,7 @@
                                (SPADCALL (SPADCALL |us| (QREFELT $ 25))
                                          (QREFELT $ 28))
                                (EXIT
-                                (PROGN (LETT #2# 'NIL . #7#) (GO #8=#:G140))))
+                                (PROGN (LETT #2# NIL . #7#) (GO #8=#:G140))))
                               . #7#)
                         (GO #9=#:G137)))))))
                   #9# (EXIT #1#))
@@ -226,8 +226,7 @@
           (LETT |ts| (SPADCALL |ts| |z| (QREFELT $ 14)) . #4#)
           (LETT |toSee| (LIST (VECTOR |f0| |lambda| |ts|)) . #4#)
           (LETT |toSave| NIL . #4#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #4#)
                     (LETT |toSee| (CDR |toSee|) . #4#)
                     (PROGN
@@ -348,8 +347,7 @@
           (LETT |toSee| (|IRURPK;prepareRur| |ts| $)
                 . #2=(|IRURPK;rur;TSBL;7|))
           (LETT |toSave| NIL . #2#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                (SEQ (LETT |wip| (|SPADfirst| |toSee|) . #2#)
                     (LETT |toSee| (CDR |toSee|) . #2#)
                     (LETT |ts| (QCDR |wip|) . #2#)
@@ -392,7 +390,7 @@
                                          . #2#))))))))
                             (LETT |lts|
                                   (|IRURPK;makeLinearAndMonic| |p| |xi| |ts|
-                                   |univ?| 'NIL 'NIL $)
+                                   |univ?| NIL NIL $)
                                   . #2#)
                             (EXIT
                              (SEQ (LETT |ts| NIL . #2#) (LETT #1# |lts| . #2#)

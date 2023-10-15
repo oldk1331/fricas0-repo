@@ -32,7 +32,7 @@
                 (SEQ G190
                      (COND
                       ((NULL
-                        (COND ((SPADCALL |line| (QREFELT $ 22)) 'NIL)
+                        (COND ((SPADCALL |line| (QREFELT $ 22)) NIL)
                               ('T
                                (|eql_SI|
                                 (SPADCALL |line|
@@ -54,45 +54,45 @@
 
 (SDEFUN |FTEM;processTemplate;2Fn;7| ((|tp| |FileName|) ($ |FileName|))
         (SPROG
-         ((|active| (|Boolean|)) (|line| (|String|)) (#1=#:G126 NIL)
-          (|endInput| (|Boolean|)) (|fp| (|TextFile|)))
+         ((|active| #1=(|Boolean|)) (|line| (|String|)) (#2=#:G126 NIL)
+          (|endInput| #1#) (|fp| (|TextFile|)))
          (SEQ
           (LETT |fp| (SPADCALL |tp| "input" (QREFELT $ 28))
-                . #2=(|FTEM;processTemplate;2Fn;7|))
-          (LETT |active| 'T . #2#) (LETT |endInput| 'NIL . #2#)
+                . #3=(|FTEM;processTemplate;2Fn;7|))
+          (LETT |active| 'T . #3#) (LETT |endInput| NIL . #3#)
           (SEQ G190
                (COND
                 ((NULL
-                  (COND ((OR |endInput| (SPADCALL |fp| (QREFELT $ 29))) 'NIL)
-                        ('T 'T)))
+                  (COND (|endInput| NIL)
+                        ('T (NULL (SPADCALL |fp| (QREFELT $ 29))))))
                  (GO G191)))
                (SEQ
                 (EXIT
                  (COND
                   (|active|
-                   (SEQ (LETT |line| (|FTEM;getLine| |fp| $) . #2#)
+                   (SEQ (LETT |line| (|FTEM;getLine| |fp| $) . #3#)
                         (EXIT
                          (COND
                           ((EQUAL |line| "endInput")
-                           (LETT |endInput| 'T . #2#))
+                           (LETT |endInput| 'T . #3#))
                           ((EQUAL |line| "beginVerbatim")
-                           (LETT |active| 'NIL . #2#))
+                           (LETT |active| NIL . #3#))
                           ('T
                            (SEQ
                             (EXIT
                              (COND
                               ((NULL (SPADCALL |line| (QREFELT $ 22)))
                                (PROGN
-                                (LETT #1# (SPADCALL |line| (QREFELT $ 31))
-                                      . #2#)
-                                (GO #3=#:G120)))))
-                            #3# (EXIT #1#)))))))
+                                (LETT #2# (SPADCALL |line| (QREFELT $ 31))
+                                      . #3#)
+                                (GO #4=#:G120)))))
+                            #4# (EXIT #2#)))))))
                   ('T
-                   (SEQ (LETT |line| (SPADCALL |fp| (QREFELT $ 18)) . #2#)
+                   (SEQ (LETT |line| (SPADCALL |fp| (QREFELT $ 18)) . #3#)
                         (EXIT
                          (COND
                           ((EQUAL |line| "endVerbatim")
-                           (LETT |active| 'T . #2#))
+                           (LETT |active| 'T . #3#))
                           ('T (|FTEM;writePassiveLine!| |line| $)))))))))
                NIL (GO G190) G191 (EXIT NIL))
           (SPADCALL |fp| (QREFELT $ 32))

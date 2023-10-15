@@ -20,7 +20,7 @@
          ((SPADCALL (SPADCALL |v| (QREFELT $ 13)) (SPADCALL |u| (QREFELT $ 13))
                     (QREFELT $ 19))
           (EQL (SPADCALL |v| (QREFELT $ 14)) (SPADCALL |u| (QREFELT $ 14))))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |DVARCAT-;coerce;AOf;6| ((|v| A) ($ |OutputForm|))
         (SPROG ((|nn| (|Integer|)) (|a| (|OutputForm|)))

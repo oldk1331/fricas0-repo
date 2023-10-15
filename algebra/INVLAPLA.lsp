@@ -20,7 +20,7 @@
                  (EXIT
                   (PROGN
                    (LETT #4# (SPADCALL |c| |v| (QREFELT $ 15)) . #6#)
-                   (COND (#1# (LETT #2# (COND (#2# #4#) ('T 'NIL)) . #6#))
+                   (COND (#1# (LETT #2# (COND (#2# #4#) ('T NIL)) . #6#))
                          ('T
                           (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                 (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))

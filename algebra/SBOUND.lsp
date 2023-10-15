@@ -577,7 +577,7 @@
             (COND
              ((QEQCAR |n| 0)
               (PROGN
-               (LETT #2# 'NIL . #6=(|SBOUND;containsPoint?;$PTB;8|))
+               (LETT #2# NIL . #6=(|SBOUND;containsPoint?;$PTB;8|))
                (GO #7=#:G181))))
             (COND
              ((QEQCAR |n| 2)
@@ -614,7 +614,7 @@
                        ((SPADCALL |sub| |p| (QREFELT $ 29))
                         (PROGN (LETT #2# 'T . #6#) (GO #7#))))))
                     (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
-               (EXIT (PROGN (LETT #2# 'NIL . #6#) (GO #7#))))))
+               (EXIT (PROGN (LETT #2# NIL . #6#) (GO #7#))))))
             (COND
              ((SPADCALL |n| (QREFELT $ 30))
               (SEQ
@@ -1075,7 +1075,7 @@
                   (COND
                    ((NULL (QEQCAR |n| 1))
                     (PROGN
-                     (LETT #1# 'NIL |SBOUND;isEllipse?;$B;11|)
+                     (LETT #1# NIL |SBOUND;isEllipse?;$B;11|)
                      (GO #2=#:G204))))
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|ellipoid|))))
                 #2# (EXIT #1#)))) 
@@ -1088,7 +1088,7 @@
                   (COND
                    ((NULL (QEQCAR |n| 1))
                     (PROGN
-                     (LETT #1# 'NIL |SBOUND;isBox?;$B;12|)
+                     (LETT #1# NIL |SBOUND;isBox?;$B;12|)
                      (GO #2=#:G212))))
                   (EXIT (EQUAL (QVELT (CDR |n|) 0) '|box|))))
                 #2# (EXIT #1#)))) 

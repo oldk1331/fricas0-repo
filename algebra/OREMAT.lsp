@@ -105,15 +105,13 @@
                                 (SEQ
                                  (EXIT
                                   (COND
-                                   ((COND
-                                     ((SPADCALL
-                                       (LETT |mkj|
-                                             (SPADCALL |mm| |k| |j|
-                                                       (QREFELT $ 25))
-                                             . #14#)
-                                       (QREFELT $ 26))
-                                      'NIL)
-                                     ('T 'T))
+                                   ((NULL
+                                     (SPADCALL
+                                      (LETT |mkj|
+                                            (SPADCALL |mm| |k| |j|
+                                                      (QREFELT $ 25))
+                                            . #14#)
+                                      (QREFELT $ 26)))
                                     (SEQ
                                      (PROGN
                                       (LETT |#G14|

@@ -12,7 +12,7 @@
               ('T (SPADCALL (|spadConstant| $ 7) |x| (QREFELT $ 15))))) 
 
 (SDEFUN |ENTIRER-;unit?;SB;4| ((|x| S) ($ |Boolean|))
-        (COND ((QEQCAR (SPADCALL |x| (QREFELT $ 17)) 1) 'NIL) ('T 'T))) 
+        (NULL (QEQCAR (SPADCALL |x| (QREFELT $ 17)) 1))) 
 
 (SDEFUN |ENTIRER-;associates?;2SB;5| ((|x| S) (|y| S) ($ |Boolean|))
         (SPADCALL (QVELT (SPADCALL |x| (QREFELT $ 10)) 1)
@@ -21,10 +21,9 @@
 (SDEFUN |ENTIRER-;associates?;2SB;6| ((|x| S) (|y| S) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 13)) (SPADCALL |y| (QREFELT $ 13)))
               ((OR (SPADCALL |y| (QREFELT $ 13))
-                   (OR (QEQCAR (SPADCALL |x| |y| (QREFELT $ 15)) 1)
-                       (QEQCAR (SPADCALL |y| |x| (QREFELT $ 15)) 1)))
-               'NIL)
-              ('T 'T))) 
+                   (QEQCAR (SPADCALL |x| |y| (QREFELT $ 15)) 1))
+               NIL)
+              ('T (NULL (QEQCAR (SPADCALL |y| |x| (QREFELT $ 15)) 1))))) 
 
 (SDEFUN |ENTIRER-;annihilate?;2SB;7| ((|x| S) (|y| S) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 13)) 'T)

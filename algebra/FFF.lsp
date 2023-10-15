@@ -914,7 +914,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FiniteFieldFunctions|))
           (LETT |dv$| (LIST '|FiniteFieldFunctions| DV$1) . #1#)
-          (LETT $ (GETREFV 83) . #1#)
+          (LETT $ (GETREFV 78) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FiniteFieldFunctions| (LIST DV$1)
@@ -949,19 +949,17 @@
               (|Union| $ '#1="failed") (204 . |inverse|) (|Union| 53 '#1#)
               (209 . =) (215 . *) (|SingleInteger|) (221 . |coerce|)
               (226 . |elt|) (232 . ~=) |FFF;createMultiplicationTable;SupV;4|
-              (238 . ^) (244 . |characteristic|) (248 . |characteristic|)
-              (252 . |characteristic|) (|Fraction| 11) (256 . |characteristic|)
-              (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
+              (238 . ^) (|PrimitiveArray| 69) |FFF;createZechTable;SupPa;5|
               |FFF;createMultiplicationMatrix;VM;6|)
-           '#(|sizeMultiplication| 260 |createZechTable| 265
-              |createMultiplicationTable| 270 |createMultiplicationMatrix| 275
-              |createLowComplexityTable| 280 |createLowComplexityNormalBasis|
-              285)
+           '#(|sizeMultiplication| 244 |createZechTable| 249
+              |createMultiplicationTable| 254 |createMultiplicationMatrix| 259
+              |createLowComplexityTable| 264 |createLowComplexityNormalBasis|
+              269)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 82
+                             (|makeByteWordVec2| 77
                                                  '(1 12 11 9 13 0 6 16 17 0 6
                                                    16 18 0 6 0 19 0 6 0 20 1 22
                                                    21 0 23 2 22 0 0 0 24 1 25 0
@@ -983,10 +981,8 @@
                                                    0 0 63 1 53 64 0 65 2 66 21
                                                    0 0 67 2 53 55 0 55 68 1 69
                                                    0 22 70 2 55 6 0 22 71 2 6
-                                                   21 0 0 72 2 16 0 0 9 74 0 11
-                                                   16 75 0 69 16 76 0 22 16 77
-                                                   0 78 16 79 1 0 16 37 39 1 0
-                                                   80 11 81 1 0 37 11 73 1 0 53
-                                                   37 82 1 0 8 9 10 1 0 14 9
-                                                   15)))))
+                                                   21 0 0 72 2 16 0 0 9 74 1 0
+                                                   16 37 39 1 0 75 11 76 1 0 37
+                                                   11 73 1 0 53 37 77 1 0 8 9
+                                                   10 1 0 14 9 15)))))
            '|lookupComplete|)) 

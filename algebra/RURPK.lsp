@@ -155,10 +155,7 @@
                    (LETT |lq| (SPADCALL (ELT $ 33) |lq| (QREFELT $ 35)) . #15#)
                    (LETT |toSee| (LIST (CONS |lq| |ts|)) . #15#)
                    (LETT |toSave| NIL . #15#)
-                   (SEQ G190
-                        (COND
-                         ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                          (GO G191)))
+                   (SEQ G190 (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                         (SEQ (LETT |lqwt| (|SPADfirst| |toSee|) . #15#)
                              (LETT |toSee| (CDR |toSee|) . #15#)
                              (LETT |lq| (QCAR |lqwt|) . #15#)
@@ -465,7 +462,7 @@
          ($ |List|
           (|Record| (|:| |complexRoots| (|SparseUnivariatePolynomial| R))
                     (|:| |coordinates| (|List| (|Polynomial| R))))))
-        (SPADCALL |lp| |univ?| 'NIL (QREFELT $ 73))) 
+        (SPADCALL |lp| |univ?| NIL (QREFELT $ 73))) 
 
 (SDEFUN |RURPK;rur;LL;3|
         ((|lp| |List| (|Polynomial| R))

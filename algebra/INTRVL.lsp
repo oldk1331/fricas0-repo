@@ -119,7 +119,7 @@
         (COND
          ((SPADCALL |f| (SPADCALL |u| (QREFELT $ 27)) (QREFELT $ 19))
           (SPADCALL |f| (SPADCALL |u| (QREFELT $ 28)) (QREFELT $ 31)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |INTRVL;positive?;$B;14| ((|u| $) ($ |Boolean|))
         (SPADCALL (SPADCALL |u| (QREFELT $ 27)) (|spadConstant| $ 33)
@@ -136,7 +136,7 @@
           'T)
          ((SPADCALL (SPADCALL |a| (QREFELT $ 27)) (SPADCALL |b| (QREFELT $ 27))
                     (QREFELT $ 19))
-          'NIL)
+          NIL)
          ('T
           (SPADCALL (SPADCALL |a| (QREFELT $ 28)) (SPADCALL |b| (QREFELT $ 28))
                     (QREFELT $ 31))))) 
@@ -283,7 +283,7 @@
                     (QREFELT $ 58))
           (SPADCALL (SPADCALL |a| (QREFELT $ 28)) (SPADCALL |b| (QREFELT $ 28))
                     (QREFELT $ 58)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |INTRVL;~=;2$B;25| ((|a| $) (|b| $) ($ |Boolean|))
         (COND

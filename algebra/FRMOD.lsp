@@ -71,7 +71,7 @@
                       (LETT |j| (|inc_SI| |j|) . #4#) (GO G190) G191
                       (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191 (EXIT NIL))
-          (EXIT 'NIL)))) 
+          (EXIT NIL)))) 
 
 (SDEFUN |FRMOD;getintmat| (($ |Boolean|))
         (SPROG
@@ -95,7 +95,7 @@
                       (LETT |j| (|inc_SI| |j|) . #3#) (GO G190) G191
                       (EXIT NIL))))
                (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT 'NIL)))) 
+          (EXIT NIL)))) 
 
 (SDEFUN |FRMOD;invintmat| (($ |Matrix| F))
         (SEQ

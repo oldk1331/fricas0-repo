@@ -5,7 +5,7 @@
           (SPADCALL |a| |b| (QREFELT $ 9)))
          ((|HasCategory| (QREFELT $ 6) '(|Finite|))
           (< (SPADCALL |a| (QREFELT $ 11)) (SPADCALL |b| (QREFELT $ 11))))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |PERM;rotateCycle| ((|cyc| |List| S) ($ |List| S))
         (SPROG
@@ -102,7 +102,7 @@
                            . #5#)
                      (GO G190) G191 (EXIT NIL)))
                #7# (EXIT #1#))
-              (EXIT 'NIL)))))
+              (EXIT NIL)))))
           #6# (EXIT #2#)))) 
 
 (SDEFUN |PERM;shorterCycle?|
@@ -158,8 +158,7 @@
                 . #2=(|PERM;coerceToCycle|))
           (LETT |im| (SPADCALL |p| 2 (QREFELT $ 26)) . #2#)
           (LETT |cycles| NIL . #2#)
-          (SEQ G190
-               (COND ((NULL (COND ((NULL |preim|) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL |preim|) (GO G191)))
                (SEQ (LETT |firstEltInCycle| (|SPADfirst| |preim|) . #2#)
                     (LETT |nextCycle|
                           (SPADCALL |firstEltInCycle| (QREFELT $ 27)) . #2#)
@@ -223,9 +222,7 @@
                  (SEQ
                   (LETT |x| (SPADCALL |ls| (QREFELT $ 33))
                         . #2=(|PERM;duplicates?|))
-                  (SEQ G190
-                       (COND
-                        ((NULL (COND ((NULL |x|) 'NIL) ('T 'T))) (GO G191)))
+                  (SEQ G190 (COND ((NULL |x|) (GO G191)))
                        (SEQ
                         (EXIT
                          (COND
@@ -234,7 +231,7 @@
                            (PROGN (LETT #1# 'T . #2#) (GO #3=#:G177)))
                           ('T (LETT |x| (CDR |x|) . #2#)))))
                        NIL (GO G190) G191 (EXIT NIL))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |PERM;listRepresentation;$R;9|
@@ -297,7 +294,7 @@
                      . #5=(|PERM;=;2$B;13|)))
               (LENGTH (LETT |preimq| (SPADCALL |q| 1 (QREFELT $ 26)) . #5#))
               (QREFELT $ 23))
-             'NIL)
+             NIL)
             ('T
              (SEQ
               (SEQ (LETT |i| 1 . #5#)
@@ -311,7 +308,7 @@
                     (EXIT
                      (COND
                       ((EQL |pos| 0)
-                       (PROGN (LETT #2# 'NIL . #5#) (GO #6=#:G198)))
+                       (PROGN (LETT #2# NIL . #5#) (GO #6=#:G198)))
                       ('T
                        (SEQ
                         (EXIT
@@ -323,7 +320,7 @@
                                       (QREFELT $ 15))
                             (QREFELT $ 24))
                            (PROGN
-                            (LETT #1# (PROGN (LETT #2# 'NIL . #5#) (GO #6#))
+                            (LETT #1# (PROGN (LETT #2# NIL . #5#) (GO #6#))
                                   . #5#)
                             (GO #7=#:G193)))))
                         #7# (EXIT #1#))))))
@@ -355,7 +352,7 @@
                  (PROGN
                   (LETT #2# NIL . #3=(|PERM;cyclePartition;$P;15|))
                   (SEQ (LETT |c| NIL . #3#)
-                       (LETT #1# (|PERM;coerceToCycle| |p| 'NIL $) . #3#) G190
+                       (LETT #1# (|PERM;coerceToCycle| |p| NIL $) . #3#) G190
                        (COND
                         ((OR (ATOM #1#) (PROGN (LETT |c| (CAR #1#) . #3#) NIL))
                          (GO G191)))
@@ -650,7 +647,7 @@
         (SPADCALL |p| |el| (QREFELT $ 46))) 
 
 (SDEFUN |PERM;numberOfCycles;$Nni;33| ((|p| $) ($ |NonNegativeInteger|))
-        (LENGTH (|PERM;coerceToCycle| |p| 'NIL $))) 
+        (LENGTH (|PERM;coerceToCycle| |p| NIL $))) 
 
 (SDEFUN |PERM;coerceImages;L$;34| ((|image| |List| S) ($ $))
         (SPROG
@@ -711,7 +708,7 @@
                        (PROGN
                         (LETT #2# NIL . #3=(|PERM;cyclePartition;$P;37|))
                         (SEQ (LETT |c| NIL . #3#)
-                             (LETT #1# (|PERM;coerceToCycle| |p| 'NIL $) . #3#)
+                             (LETT #1# (|PERM;coerceToCycle| |p| NIL $) . #3#)
                              G190
                              (COND
                               ((OR (ATOM #1#)

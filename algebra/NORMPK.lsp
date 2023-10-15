@@ -156,8 +156,7 @@
              (LETT |tp| (|spadConstant| $ 63) . #2#)
              (SEQ G190
                   (COND
-                   ((NULL (COND ((SPADCALL |ip| (QREFELT $ 59)) 'NIL) ('T 'T)))
-                    (GO G191)))
+                   ((NULL (NULL (SPADCALL |ip| (QREFELT $ 59)))) (GO G191)))
                   (SEQ (LETT |v| (SPADCALL |ip| (QREFELT $ 34)) . #2#)
                        (EXIT
                         (COND

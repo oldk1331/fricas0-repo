@@ -31,17 +31,16 @@
           (|ordf| #1#))
          (SEQ
           (COND
-           ((SPADCALL |f| (QREFELT $ 24))
-            (COND ((SPADCALL |g| (QREFELT $ 24)) 'NIL) (#2='T 'T)))
-           ((SPADCALL |g| (QREFELT $ 24)) 'NIL)
-           (#2#
+           ((SPADCALL |f| (QREFELT $ 24)) (NULL (SPADCALL |g| (QREFELT $ 24))))
+           ((SPADCALL |g| (QREFELT $ 24)) NIL)
+           (#2='T
             (SEQ
              (LETT |ordf| (SPADCALL |f| (QREFELT $ 16))
                    . #3=(|EXPUPXS;<;2$B;6|))
              (LETT |ordg| (SPADCALL |g| (QREFELT $ 16)) . #3#)
              (EXIT
               (COND ((SPADCALL |ordf| |ordg| (QREFELT $ 27)) 'T)
-                    ((SPADCALL |ordf| |ordg| (QREFELT $ 28)) 'NIL)
+                    ((SPADCALL |ordf| |ordg| (QREFELT $ 28)) NIL)
                     (#2#
                      (SEQ
                       (LETT |fCoef| (SPADCALL |f| |ordf| (QREFELT $ 29)) . #3#)

@@ -32,9 +32,7 @@
                (SEQ (LETT |i| |deg| . #1=(|POLYVEC;eval_at;Uv4I;3|))
                     (LETT |res| 0 . #1#)
                     (SEQ G190
-                         (COND
-                          ((NULL (COND ((|less_SI| |i| 0) 'NIL) ('T 'T)))
-                           (GO G191)))
+                         (COND ((NULL (NULL (|less_SI| |i| 0))) (GO G191)))
                          (SEQ
                           (LETT |res|
                                 (QSMULADDMOD64-32 |pt| |res| (ELT_U32 |v| |i|)
@@ -59,8 +57,7 @@
                   (LETT |ncoeffs| (GETREFV_U32 (|add_SI| |n0| 1) 0) . #1#)
                   (SEQ G190
                        (COND
-                        ((NULL
-                          (COND ((SPADCALL |s| (QREFELT $ 14)) 'NIL) ('T 'T)))
+                        ((NULL (NULL (SPADCALL |s| (QREFELT $ 14))))
                          (GO G191)))
                        (SEQ (LETT |n| (SPADCALL |s| (QREFELT $ 17)) . #1#)
                             (SETELT_U32 |ncoeffs| |n|
@@ -247,10 +244,7 @@
           (EXIT
            (SEQ
             (EXIT
-             (SEQ G190
-                  (COND
-                   ((NULL (COND ((|less_SI| |dr0| |dr1|) 'NIL) ('T 'T)))
-                    (GO G191)))
+             (SEQ G190 (COND ((NULL (NULL (|less_SI| |dr0| |dr1|))) (GO G191)))
                   (SEQ (LETT |delta| (|sub_SI| |dr0| |dr1|) . #4#)
                        (LETT |c1| (QSMULMOD32 |c0| (ELT_U32 |r0| |dr0|) |p|)
                              . #4#)
@@ -296,10 +290,7 @@
           (EXIT
            (SEQ
             (EXIT
-             (SEQ G190
-                  (COND
-                   ((NULL (COND ((|less_SI| |dr0| |dr1|) 'NIL) ('T 'T)))
-                    (GO G191)))
+             (SEQ G190 (COND ((NULL (NULL (|less_SI| |dr0| |dr1|))) (GO G191)))
                   (SEQ (LETT |delta| (|sub_SI| |dr0| |dr1|) . #4#)
                        (LETT |c1| (QSMULMOD32 |c0| (ELT_U32 |r0| |dr0|) |p|)
                              . #4#)
@@ -369,9 +360,7 @@
                              (SEQ
                               (SEQ G190
                                    (COND
-                                    ((NULL
-                                      (COND ((|less_SI| |dr0| |dr1|) 'NIL)
-                                            ('T 'T)))
+                                    ((NULL (NULL (|less_SI| |dr0| |dr1|)))
                                      (GO G191)))
                                    (SEQ
                                     (LETT |delta| (|sub_SI| |dr0| |dr1|) . #7#)
@@ -715,7 +704,7 @@
            (SEQ
             (LETT |dr0| (SPADCALL |x| (QREFELT $ 30))
                   . #8=(|POLYVEC;extended_gcd;2UvIL;25|))
-            (LETT |swapped| 'NIL . #8#)
+            (LETT |swapped| NIL . #8#)
             (COND
              ((|less_SI| |dr0| 0)
               (SEQ

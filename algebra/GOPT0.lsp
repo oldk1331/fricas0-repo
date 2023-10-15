@@ -69,7 +69,7 @@
                 (LETT |opt| (SPADCALL |l| '|allDegrees| (QREFELT $ 10))
                       |GOPT0;allDegrees;LB;7|)
                 (EXIT
-                 (COND ((QEQCAR |opt| 1) 'NIL)
+                 (COND ((QEQCAR |opt| 1) NIL)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;maxPower;LU;8|
@@ -129,7 +129,7 @@
                 (LETT |opt| (SPADCALL |l| '|debug| (QREFELT $ 10))
                       |GOPT0;debug;LB;13|)
                 (EXIT
-                 (COND ((QEQCAR |opt| 1) 'NIL)
+                 (COND ((QEQCAR |opt| 1) NIL)
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 28)))))))) 
 
 (SDEFUN |GOPT0;homogeneous;LU;14|
@@ -140,7 +140,7 @@
                 (LETT |opt| (SPADCALL |l| '|homogeneous| (QREFELT $ 10))
                       |GOPT0;homogeneous;LU;14|)
                 (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 'NIL))
+                 (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
 (SDEFUN |GOPT0;Somos;LU;15|
@@ -151,7 +151,7 @@
                 (LETT |opt| (SPADCALL |l| '|Somos| (QREFELT $ 10))
                       |GOPT0;Somos;LU;15|)
                 (EXIT
-                 (COND ((QEQCAR |opt| 1) (CONS 1 'NIL))
+                 (COND ((QEQCAR |opt| 1) (CONS 1 NIL))
                        ('T (SPADCALL (QCDR |opt|) (QREFELT $ 43)))))))) 
 
 (SDEFUN |GOPT0;variableName;LS;16| ((|l| |List| (|GuessOption|)) ($ |Symbol|))

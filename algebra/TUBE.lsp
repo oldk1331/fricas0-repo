@@ -13,8 +13,7 @@
 
 (SDEFUN |TUBE;closed?;$B;3| ((|plot| $) ($ |Boolean|)) (QVELT |plot| 2)) 
 
-(SDEFUN |TUBE;open?;$B;4| ((|plot| $) ($ |Boolean|))
-        (COND ((QVELT |plot| 2) 'NIL) ('T 'T))) 
+(SDEFUN |TUBE;open?;$B;4| ((|plot| $) ($ |Boolean|)) (NULL (QVELT |plot| 2))) 
 
 (PUT '|TUBE;setClosed;$2B;5| '|SPADreplace|
      '(XLAM (|plot| |flag|) (QSETVELT |plot| 2 |flag|))) 

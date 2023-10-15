@@ -199,10 +199,7 @@
               (LETT |pSeries| (|spadConstant| $ 36) . #4#)
               (SEQ
                (EXIT
-                (SEQ G190
-                     (COND
-                      ((NULL (COND ((NULL |termList|) 'NIL) ('T 'T)))
-                       (GO G191)))
+                (SEQ G190 (COND ((NULL (NULL (NULL |termList|))) (GO G191)))
                      (SEQ
                       (LETT |expon|
                             (|UPXSSING;exponent|

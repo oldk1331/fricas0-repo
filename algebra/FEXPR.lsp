@@ -144,7 +144,7 @@
                           (SPADCALL (QREFELT $ 6) (QREFELT $ 7) (QREFELT $ 30))
                           (QREFELT $ 31))
                 . #3#)
-          (EXIT (COND ((NULL |extras|) 'NIL) ('T 'T)))))) 
+          (EXIT (NULL (NULL |extras|)))))) 
 
 (SDEFUN |FEXPR;checkSymbols| ((|u| |Expression| R) ($ |Expression| R))
         (SPROG
@@ -213,12 +213,12 @@
         (SPROG ((|s| (|Symbol|)))
                (SEQ (LETT |s| (SPADCALL |v| (QREFELT $ 38)) |FEXPR;notSymbol?|)
                     (COND
-                     ((SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39)) (EXIT 'NIL))
+                     ((SPADCALL |s| (QREFELT $ 6) (QREFELT $ 39)) (EXIT NIL))
                      ((SPADCALL |s| (QREFELT $ 25))
                       (COND
                        ((SPADCALL (SPADCALL |s| (QREFELT $ 26)) (QREFELT $ 7)
                                   (QREFELT $ 39))
-                        (EXIT 'NIL)))))
+                        (EXIT NIL)))))
                     (EXIT 'T)))) 
 
 (SDEFUN |FEXPR;extraOperators?| ((|u| |Expression| R) ($ |Boolean|))
@@ -248,10 +248,10 @@
            ((QREFELT $ 11)
             (LETT |fortranFunctions| (APPEND (QREFELT $ 9) (QREFELT $ 10))
                   . #3#))
-           (#4='T (LETT |fortranFunctions| (QREFELT $ 9) . #3#)))
+           ('T (LETT |fortranFunctions| (QREFELT $ 9) . #3#)))
           (LETT |extras| (SPADCALL |ops| |fortranFunctions| (QREFELT $ 31))
                 . #3#)
-          (EXIT (COND ((NULL |extras|) 'NIL) (#4# 'T)))))) 
+          (EXIT (NULL (NULL |extras|)))))) 
 
 (SDEFUN |FEXPR;checkOperators| ((|u| |Expression| R) ($ |Void|))
         (SPROG

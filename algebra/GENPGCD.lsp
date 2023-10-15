@@ -298,7 +298,7 @@
                                (SPADCALL |gcdLC| |lv| |lr| (QREFELT $ 54))
                                (QREFELT $ 55))
                               (< |count| 10))
-                             ('T 'NIL)))
+                             ('T NIL)))
                            (GO G191)))
                          (SEQ
                           (LETT |lr|
@@ -379,7 +379,7 @@
                                                  (QREFELT $ 54))
                                        (QREFELT $ 55))
                                       (< |count| 10))
-                                     ('T 'NIL)))
+                                     ('T NIL)))
                                    (GO G191)))
                                  (SEQ
                                   (LETT |lrr|
@@ -1048,10 +1048,8 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND
-                                 ((OR (SPADCALL |p2| (QREFELT $ 12)) |un?|)
-                                  'NIL)
-                                 ('T 'T)))
+                                (NULL
+                                 (OR (SPADCALL |p2| (QREFELT $ 12)) |un?|)))
                                (GO G191)))
                              (SEQ
                               (LETT |cp1|
@@ -1091,7 +1089,7 @@
 (SDEFUN |GENPGCD;better| ((|p1| P) (|p2| P) ($ |Boolean|))
         (SPROG ((#1=#:G342 NIL))
                (COND ((SPADCALL |p1| (QREFELT $ 97)) 'T)
-                     ((SPADCALL |p2| (QREFELT $ 97)) 'NIL)
+                     ((SPADCALL |p2| (QREFELT $ 97)) NIL)
                      ('T
                       (<
                        (SPADCALL |p1|

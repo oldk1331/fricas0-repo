@@ -30,9 +30,9 @@
 (SDEFUN |GTSET;member?;P$B;10| ((|p| P) (|ts| $) ($ |Boolean|))
         (SPADCALL |p| (|GTSET;rep| |ts| $) (QREFELT $ 24))) 
 
-(PUT '|GTSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) 'NIL)) 
+(PUT '|GTSET;roughUnitIdeal?;$B;11| '|SPADreplace| '(XLAM (|ts|) NIL)) 
 
-(SDEFUN |GTSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) 'NIL) 
+(SDEFUN |GTSET;roughUnitIdeal?;$B;11| ((|ts| $) ($ |Boolean|)) NIL) 
 
 (SDEFUN |GTSET;coerce;$Of;12| ((|ts| $) ($ |OutputForm|))
         (SPROG ((#1=#:G132 NIL) (|p| NIL) (#2=#:G131 NIL) (|lp| (|List| P)))
@@ -88,7 +88,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |lp|) 'NIL)
+                                (COND ((NULL |lp|) NIL)
                                       ('T
                                        (SPADCALL
                                         (SPADCALL (|SPADfirst| |lp|)
@@ -113,7 +113,7 @@
                         (SEQ G190
                              (COND
                               ((NULL
-                                (COND ((NULL |lp|) 'NIL)
+                                (COND ((NULL |lp|) NIL)
                                       ('T
                                        (SPADCALL
                                         (SPADCALL (|SPADfirst| |lp|)

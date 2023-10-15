@@ -17,11 +17,11 @@
                       ((SPADCALL (SPADCALL |coefs| (QREFELT $ 14))
                                  (QREFELT $ 11))
                        (EXIT 'T)))))
-                   (EXIT 'NIL))))))) 
+                   (EXIT NIL))))))) 
 
-(PUT '|UTSCAT-;factorials?| '|SPADreplace| '(XLAM NIL 'NIL)) 
+(PUT '|UTSCAT-;factorials?| '|SPADreplace| '(XLAM NIL NIL)) 
 
-(SDEFUN |UTSCAT-;factorials?| (($ |Boolean|)) 'NIL) 
+(SDEFUN |UTSCAT-;factorials?| (($ |Boolean|)) NIL) 
 
 (SDEFUN |UTSCAT-;termOutput|
         ((|k| |Integer|) (|c| |Coef|) (|vv| |OutputForm|) ($ |OutputForm|))
@@ -85,9 +85,7 @@
                  (SEQ (LETT |n| 0 . #2#) (LETT #1# |count| . #2#) G190
                       (COND
                        ((OR (|greater_SI| |n| #1#)
-                            (NULL
-                             (COND ((SPADCALL |uu| (QREFELT $ 11)) 'NIL)
-                                   ('T 'T))))
+                            (NULL (NULL (SPADCALL |uu| (QREFELT $ 11)))))
                         (GO G191)))
                       (SEQ
                        (COND
@@ -111,13 +109,11 @@
                                ((NULL
                                  (COND
                                   ((SPADCALL |uu| (QREFELT $ 36))
-                                   (COND
-                                    ((SPADCALL |uu1|
-                                               (SPADCALL |uu| (QREFELT $ 14))
-                                               (QREFELT $ 37))
-                                     'NIL)
-                                    ('T 'T)))
-                                  ('T 'NIL)))
+                                   (NULL
+                                    (SPADCALL |uu1|
+                                              (SPADCALL |uu| (QREFELT $ 14))
+                                              (QREFELT $ 37))))
+                                  ('T NIL)))
                                 (GO G191)))
                               (SEQ
                                (COND
@@ -313,121 +309,121 @@
               (LETT |coefs|
                     (SPADCALL (|spadConstant| $ 17)
                               (SPADCALL |coefs| (QREFELT $ 14))
-                              (QREFELT $ 115))
+                              (QREFELT $ 114))
                     . #1#)
               (LETT |onePlusX|
                     (SPADCALL
-                     (SPADCALL (|spadConstant| $ 21) 0 (QREFELT $ 116))
-                     (SPADCALL (|spadConstant| $ 21) 1 (QREFELT $ 116))
-                     (QREFELT $ 117))
+                     (SPADCALL (|spadConstant| $ 21) 0 (QREFELT $ 115))
+                     (SPADCALL (|spadConstant| $ 21) 1 (QREFELT $ 115))
+                     (QREFELT $ 116))
                     . #1#)
               (LETT |ratPow| (SPADCALL |r| |onePlusX| (QREFELT $ 56)) . #1#)
               (EXIT
-               (SPADCALL (SPADCALL |ratPow| |coefs| (QREFELT $ 118))
+               (SPADCALL (SPADCALL |ratPow| |coefs| (QREFELT $ 117))
                          (QREFELT $ 50)))))))))) 
 
 (SDEFUN |UTSCAT-;exp;2S;37| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 119))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 118))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;log;2S;38| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 120))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 119))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;sin;2S;39| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 121))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 120))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;cos;2S;40| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 122))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 121))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;tan;2S;41| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 123))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 122))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;cot;2S;42| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 124))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 123))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;sec;2S;43| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 125))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 124))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;csc;2S;44| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 126))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 125))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;asin;2S;45| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 127))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 126))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acos;2S;46| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 128))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 127))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;atan;2S;47| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 129))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 128))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acot;2S;48| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 130))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 129))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;asec;2S;49| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 131))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 130))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acsc;2S;50| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 132))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 131))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;sinh;2S;51| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 133))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 132))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;cosh;2S;52| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 134))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 133))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;tanh;2S;53| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 135))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 134))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;coth;2S;54| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 136))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 135))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;sech;2S;55| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 137))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 136))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;csch;2S;56| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 138))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 137))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;asinh;2S;57| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 139))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 138))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acosh;2S;58| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 140))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 139))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;atanh;2S;59| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 141))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 140))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acoth;2S;60| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 142))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 141))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;asech;2S;61| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 143))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 142))
                   (QREFELT $ 50))) 
 
 (SDEFUN |UTSCAT-;acsch;2S;62| ((|x| S) ($ S))
-        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 144))
+        (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 9)) (QREFELT $ 143))
                   (QREFELT $ 50))) 
 
 (DECLAIM (NOTINLINE |UnivariateTaylorSeriesCategory&;|)) 
@@ -440,7 +436,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|UnivariateTaylorSeriesCategory&| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 146) . #1#)
+          (LETT $ (GETREFV 145) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -632,25 +628,25 @@
               (416 . |atanh|) (421 . |acoth|) (426 . |acoth|) (431 . |asech|)
               (436 . |asech|) (441 . |acsch|) (446 . |acsch|)
               (|StreamTranscendentalFunctionsNonCommutative| 7) (451 . ^)
-              (457 . |positive?|) (462 . |zero?|) (467 . |Zero|)
-              (471 . |concat|) (477 . |monom|) (483 . +) (489 . |compose|)
-              (495 . |exp|) (500 . |log|) (505 . |sin|) (510 . |cos|)
-              (515 . |tan|) (520 . |cot|) (525 . |sec|) (530 . |csc|)
-              (535 . |asin|) (540 . |acos|) (545 . |atan|) (550 . |acot|)
-              (555 . |asec|) (560 . |acsc|) (565 . |sinh|) (570 . |cosh|)
-              (575 . |tanh|) (580 . |coth|) (585 . |sech|) (590 . |csch|)
-              (595 . |asinh|) (600 . |acosh|) (605 . |atanh|) (610 . |acoth|)
-              (615 . |asech|) (620 . |acsch|) (|PositiveInteger|))
-           '#(|zero?| 625 |tanh| 630 |tan| 635 |sinh| 640 |sin| 645 |sech| 650
-              |sec| 655 |log| 660 |exp| 665 |csch| 670 |csc| 675 |coth| 680
-              |cot| 685 |cosh| 690 |cos| 695 |coerce| 700 |atanh| 705 |atan|
-              710 |asinh| 715 |asin| 720 |asech| 725 |asec| 730 |acsch| 735
-              |acsc| 740 |acoth| 745 |acot| 750 |acosh| 755 |acos| 760 ^ 765)
+              (457 . |positive?|) (462 . |zero?|) (467 . |concat|)
+              (473 . |monom|) (479 . +) (485 . |compose|) (491 . |exp|)
+              (496 . |log|) (501 . |sin|) (506 . |cos|) (511 . |tan|)
+              (516 . |cot|) (521 . |sec|) (526 . |csc|) (531 . |asin|)
+              (536 . |acos|) (541 . |atan|) (546 . |acot|) (551 . |asec|)
+              (556 . |acsc|) (561 . |sinh|) (566 . |cosh|) (571 . |tanh|)
+              (576 . |coth|) (581 . |sech|) (586 . |csch|) (591 . |asinh|)
+              (596 . |acosh|) (601 . |atanh|) (606 . |acoth|) (611 . |asech|)
+              (616 . |acsch|) (|PositiveInteger|))
+           '#(|zero?| 621 |tanh| 626 |tan| 631 |sinh| 636 |sin| 641 |sech| 646
+              |sec| 651 |log| 656 |exp| 661 |csch| 666 |csc| 671 |coth| 676
+              |cot| 681 |cosh| 686 |cos| 691 |coerce| 696 |atanh| 701 |atan|
+              706 |asinh| 711 |asin| 716 |asech| 721 |asec| 726 |acsch| 731
+              |acsc| 736 |acoth| 741 |acot| 746 |acosh| 751 |acos| 756 ^ 761)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 144
+                             (|makeByteWordVec2| 143
                                                  '(1 6 8 0 9 1 8 10 0 11 1 8 7
                                                    0 12 1 7 10 0 13 1 8 0 0 14
                                                    0 6 0 16 0 7 0 17 1 7 18 0
@@ -690,33 +686,32 @@
                                                    8 8 106 1 0 0 0 107 1 52 8 8
                                                    108 1 0 0 0 109 2 110 8 8 8
                                                    111 1 55 10 0 112 1 55 10 0
-                                                   113 0 55 0 114 2 8 0 7 0 115
-                                                   2 48 8 7 22 116 2 48 8 8 8
-                                                   117 2 48 8 8 8 118 1 110 8 8
-                                                   119 1 110 8 8 120 1 110 8 8
-                                                   121 1 110 8 8 122 1 110 8 8
-                                                   123 1 110 8 8 124 1 110 8 8
-                                                   125 1 110 8 8 126 1 110 8 8
-                                                   127 1 110 8 8 128 1 110 8 8
-                                                   129 1 110 8 8 130 1 110 8 8
-                                                   131 1 110 8 8 132 1 110 8 8
-                                                   133 1 110 8 8 134 1 110 8 8
-                                                   135 1 110 8 8 136 1 110 8 8
-                                                   137 1 110 8 8 138 1 110 8 8
-                                                   139 1 110 8 8 140 1 110 8 8
-                                                   141 1 110 8 8 142 1 110 8 8
-                                                   143 1 110 8 8 144 1 0 10 0
-                                                   15 1 0 0 0 91 1 0 0 0 67 1 0
-                                                   0 0 87 1 0 0 0 63 1 0 0 0 95
-                                                   1 0 0 0 71 1 0 0 0 61 1 0 0
-                                                   0 59 1 0 0 0 97 1 0 0 0 73 1
-                                                   0 0 0 93 1 0 0 0 69 1 0 0 0
-                                                   89 1 0 0 0 65 1 0 18 0 47 1
-                                                   0 0 0 103 1 0 0 0 79 1 0 0 0
-                                                   99 1 0 0 0 75 1 0 0 0 107 1
-                                                   0 0 0 83 1 0 0 0 109 1 0 0 0
-                                                   85 1 0 0 0 105 1 0 0 0 81 1
-                                                   0 0 0 101 1 0 0 0 77 2 0 0 0
-                                                   55 57 2 0 0 0 7 51 2 0 0 0 0
-                                                   54)))))
+                                                   113 2 8 0 7 0 114 2 48 8 7
+                                                   22 115 2 48 8 8 8 116 2 48 8
+                                                   8 8 117 1 110 8 8 118 1 110
+                                                   8 8 119 1 110 8 8 120 1 110
+                                                   8 8 121 1 110 8 8 122 1 110
+                                                   8 8 123 1 110 8 8 124 1 110
+                                                   8 8 125 1 110 8 8 126 1 110
+                                                   8 8 127 1 110 8 8 128 1 110
+                                                   8 8 129 1 110 8 8 130 1 110
+                                                   8 8 131 1 110 8 8 132 1 110
+                                                   8 8 133 1 110 8 8 134 1 110
+                                                   8 8 135 1 110 8 8 136 1 110
+                                                   8 8 137 1 110 8 8 138 1 110
+                                                   8 8 139 1 110 8 8 140 1 110
+                                                   8 8 141 1 110 8 8 142 1 110
+                                                   8 8 143 1 0 10 0 15 1 0 0 0
+                                                   91 1 0 0 0 67 1 0 0 0 87 1 0
+                                                   0 0 63 1 0 0 0 95 1 0 0 0 71
+                                                   1 0 0 0 61 1 0 0 0 59 1 0 0
+                                                   0 97 1 0 0 0 73 1 0 0 0 93 1
+                                                   0 0 0 69 1 0 0 0 89 1 0 0 0
+                                                   65 1 0 18 0 47 1 0 0 0 103 1
+                                                   0 0 0 79 1 0 0 0 99 1 0 0 0
+                                                   75 1 0 0 0 107 1 0 0 0 83 1
+                                                   0 0 0 109 1 0 0 0 85 1 0 0 0
+                                                   105 1 0 0 0 81 1 0 0 0 101 1
+                                                   0 0 0 77 2 0 0 0 55 57 2 0 0
+                                                   0 7 51 2 0 0 0 0 54)))))
            '|lookupComplete|)) 

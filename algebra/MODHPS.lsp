@@ -1891,7 +1891,7 @@
                             (SEQ
                              (SETELT $ 56
                                      (SPADCALL (+ (RANDOM 2000000) 2000000)
-                                               (QREFELT $ 67)))
+                                               (QREFELT $ 66)))
                              (LETT |lpt| NIL . #9#) (LETT |qval| 0 . #9#)
                              (SEQ (LETT |var| NIL . #9#)
                                   (LETT #7# |vars| . #9#) G190
@@ -1925,7 +1925,7 @@
                                           (EXIT
                                            (COND
                                             ((SPADCALL (LENGTH |gvl|) 1
-                                                       (QREFELT $ 68))
+                                                       (QREFELT $ 67))
                                              "check_sol_mod_diff: #gvl ~= 1")
                                             ('T
                                              (SEQ
@@ -1942,7 +1942,7 @@
                                                               |gen| |sigma0|
                                                               |qval|
                                                               (QREFELT $ 56)
-                                                              (QREFELT $ 71))
+                                                              (QREFELT $ 70))
                                                     . #9#)
                                               (LETT |ord| |sigma0| . #9#)
                                               (SEQ
@@ -2012,7 +2012,7 @@
                                                                  |qval|
                                                                  (QREFELT $ 56)
                                                                  (QREFELT $
-                                                                          71))
+                                                                          70))
                                                                 . #9#)
                                                           (EXIT
                                                            (COND
@@ -2103,7 +2103,7 @@
     (LETT DV$1 (|devaluate| |#1|) . #33=(|ModularHermitePadeSolver|))
     (LETT DV$2 (|devaluate| |#2|) . #33#)
     (LETT |dv$| (LIST '|ModularHermitePadeSolver| DV$1 DV$2) . #33#)
-    (LETT $ (GETREFV 74) . #33#)
+    (LETT $ (GETREFV 73) . #33#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #33#))
     (|haddProp| |$ConstructorCache| '|ModularHermitePadeSolver|
@@ -3196,14 +3196,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 23)) 32)
               (|List| (|List| (|Fraction| 23))) (|List| 23) (|Symbol|)
-              (|NonNegativeInteger|) (|Mapping| 27 70 23 23)
+              (|NonNegativeInteger|) (|Mapping| 27 69 23 23)
               (|Union| '"good" '"reject" '"no_solution")
               (|Mapping| 14 (|List| (|SparseUnivariatePolynomial| 23)))
               (|ModularHermitePade|) (0 . |HP_solve_I|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 7)) 32)
               (|List| (|List| 6)) (|Mapping| 14 34) (10 . |HP_solve|)
-              (|Union| 70 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
-              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 69)
+              (|Union| 69 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
+              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 68)
               (|Vector| (|SparseUnivariatePolynomial| 23))
               (37 . |VSUPI_to_VPA|) (|Vector| (|SparseUnivariatePolynomial| 7))
               (43 . |VSUPS_to_VPA|) (|Boolean|) (51 . ~=)
@@ -3240,16 +3240,16 @@
               (128 . |HP_solve_PA|) (139 . |characteristic|) '|p|
               (143 . |Zero|) (147 . |Zero|) (151 . >) (|List| 10)
               (157 . |HP_solve_M|) (168 . ~=) (|SingleInteger|)
-              (174 . |random|) (178 . |random|) (|IntegerPrimesPackage| 23)
-              (182 . |nextPrime|) (187 . ~=) (|U32Vector|) (|List| 69)
-              (193 . |check_sol1a|) (203 . |One|) (207 . |One|))
-           '#(|gen_Monte_Carlo_check| 211 |VSUPS_to_VPA| 221 |LLF_to_LPA| 229
-              |HP_solve| 238)
+              (174 . |random|) (|IntegerPrimesPackage| 23) (178 . |nextPrime|)
+              (183 . ~=) (|U32Vector|) (|List| 68) (189 . |check_sol1a|)
+              (199 . |One|) (203 . |One|))
+           '#(|gen_Monte_Carlo_check| 207 |VSUPS_to_VPA| 217 |LLF_to_LPA| 225
+              |HP_solve| 234)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 73
+                             (|makeByteWordVec2| 72
                                                  '(6 16 8 9 10 11 12 13 15 17 7
                                                    0 18 19 10 11 11 12 13 20 21
                                                    3 16 22 9 23 23 24 5 0 22 19
@@ -3267,12 +3267,11 @@
                                                    0 6 0 57 0 7 0 58 2 12 32 0
                                                    0 59 7 16 8 60 10 11 23 12
                                                    13 15 61 2 23 32 0 0 62 0 63
-                                                   0 64 0 32 0 65 1 66 23 23 67
-                                                   2 12 32 0 0 68 6 16 69 27 70
-                                                   13 23 23 23 71 0 6 0 72 0 7
-                                                   0 73 6 0 20 20 19 11 11 12
-                                                   13 36 4 0 27 30 25 10 23 31
-                                                   5 0 22 19 23 25 10 23 26 7 0
-                                                   18 19 10 11 11 12 13 20
-                                                   21)))))
+                                                   0 64 1 65 23 23 66 2 12 32 0
+                                                   0 67 6 16 68 27 69 13 23 23
+                                                   23 70 0 6 0 71 0 7 0 72 6 0
+                                                   20 20 19 11 11 12 13 36 4 0
+                                                   27 30 25 10 23 31 5 0 22 19
+                                                   23 25 10 23 26 7 0 18 19 10
+                                                   11 11 12 13 20 21)))))
            '|lookupComplete|)) 

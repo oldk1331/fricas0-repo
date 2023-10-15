@@ -257,9 +257,7 @@
                     (SEQ (LETT |ans| NIL . #7#)
                          (SEQ G190
                               (COND
-                               ((NULL
-                                 (COND ((SPADCALL |p| (QREFELT $ 71)) 'NIL)
-                                       ('T 'T)))
+                               ((NULL (NULL (SPADCALL |p| (QREFELT $ 71))))
                                 (GO G191)))
                               (SEQ
                                (LETT |alpha|

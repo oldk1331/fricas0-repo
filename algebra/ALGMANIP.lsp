@@ -138,11 +138,9 @@
                   (SEQ G190
                        (COND
                         ((NULL
-                          (COND
-                           ((SPADCALL (LETT |k| (|SPADfirst| |l|) . #7#) |ll|
-                                      (QREFELT $ 57))
-                            'NIL)
-                           ('T 'T)))
+                          (NULL
+                           (SPADCALL (LETT |k| (|SPADfirst| |l|) . #7#) |ll|
+                                     (QREFELT $ 57))))
                          (GO G191)))
                        (SEQ
                         (EXIT

@@ -31,9 +31,9 @@
                         (SPADCALL |y| (QREFELT $ 14)) (QREFELT $ 25))
               (SPADCALL (SPADCALL |x| (QREFELT $ 15))
                         (SPADCALL |y| (QREFELT $ 15)) (QREFELT $ 25)))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+             (#1='T NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |QUATCAT-;+;3S;6| ((|x| S) (|y| S) ($ S))
         (SPADCALL
@@ -103,9 +103,9 @@
             (COND
              ((SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 43))
               (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 43)))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+             (#1='T NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |QUATCAT-;zero?;SB;15| ((|x| S) ($ |Boolean|))
         (COND
@@ -115,9 +115,9 @@
             (COND
              ((SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 43))
               (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 43)))
-             (#1='T 'NIL)))
-           (#1# 'NIL)))
-         (#1# 'NIL))) 
+             (#1='T NIL)))
+           (#1# NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |QUATCAT-;retract;SR;16| ((|x| S) ($ R))
         (SEQ
@@ -294,8 +294,8 @@
           (COND
            ((SPADCALL (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 43))
             (SPADCALL (SPADCALL |x| (QREFELT $ 15)) (QREFELT $ 43)))
-           (#1='T 'NIL)))
-         (#1# 'NIL))) 
+           (#1='T NIL)))
+         (#1# NIL))) 
 
 (SDEFUN |QUATCAT-;rational;SF;24| ((|x| S) ($ |Fraction| (|Integer|)))
         (COND

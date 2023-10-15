@@ -398,7 +398,7 @@
          ('T (|spadConstant| $ 28)))) 
 
 (SDEFUN |RECLOS;zero?;$B;27| ((|x| $) ($ |Boolean|))
-        (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 93))) ('T 'NIL))) 
+        (COND ((QEQCAR |x| 0) (SPADCALL (QCDR |x|) (QREFELT $ 93))) ('T NIL))) 
 
 (SDEFUN |RECLOS;+;3$;28| ((|x| $) (|y| $) ($ $))
         (SEQ

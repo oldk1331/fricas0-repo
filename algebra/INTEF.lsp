@@ -377,12 +377,12 @@
           (|k| (|Union| (|Kernel| F) "failed")))
          (SEQ (LETT |k| (SPADCALL |f| (QREFELT $ 113)) . #1=(|INTEF;isx?|))
               (EXIT
-               (COND ((QEQCAR |k| 1) 'NIL)
+               (COND ((QEQCAR |k| 1) NIL)
                      (#2='T
                       (SEQ
                        (LETT |r| (SPADCALL (QCDR |k|) (QREFELT $ 115)) . #1#)
                        (EXIT
-                        (COND ((QEQCAR |r| 1) 'NIL)
+                        (COND ((QEQCAR |r| 1) NIL)
                               (#2# (EQUAL (QCDR |r|) |x|))))))))))) 
 
 (SDEFUN |INTEF;alglfint|
@@ -1069,7 +1069,7 @@
                            ((|HasCategory| |#2|
                                            '(|LiouvillianFunctionCategory|))
                             (|HasCategory| |#2| '(|RetractableTo| (|Symbol|))))
-                           ('T 'NIL)))
+                           ('T NIL)))
                 (COND
                  ((QREFELT $ 138)
                   (PROGN

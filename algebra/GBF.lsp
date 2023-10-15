@@ -20,18 +20,16 @@
           (|stopDividing| #6#) (#7=#:G118 NIL)
           (|nPq| (|Union| |Dpol| #8="failed")) (#9=#:G153 NIL) (#10=#:G152 NIL)
           (|q| NIL) (|h| (|Dpol|)))
-         (SEQ (LETT |doSplitting?| 'NIL . #11=(|GBF;createGroebnerBases|))
-              (LETT |terminateWithBasis| 'NIL . #11#)
+         (SEQ (LETT |doSplitting?| NIL . #11=(|GBF;createGroebnerBases|))
+              (LETT |terminateWithBasis| NIL . #11#)
               (LETT |allReducedFactors| NIL . #11#)
               (SEQ G190
                    (COND
-                    ((NULL
-                      (COND ((OR |doSplitting?| |terminateWithBasis|) 'NIL)
-                            ('T 'T)))
+                    ((NULL (NULL (OR |doSplitting?| |terminateWithBasis|)))
                      (GO G191)))
                    (SEQ
                     (LETT |terminateWithBasis|
-                          (COND ((NULL |inputPolys|) (NULL |lcP|)) ('T 'NIL))
+                          (COND ((NULL |inputPolys|) (NULL |lcP|)) ('T NIL))
                           . #11#)
                     (EXIT
                      (COND
@@ -86,7 +84,7 @@
                                                    NIL))
                                               (GO G191)))
                                             (SEQ
-                                             (LETT |stopDividing| 'NIL . #11#)
+                                             (LETT |stopDividing| NIL . #11#)
                                              (EXIT
                                               (SEQ (LETT #9# NIL . #11#) G190
                                                    (COND (#9# (GO G191)))
@@ -176,12 +174,10 @@
                                                       |nP| $)
                                                      . #11#)
                                                (LETT |doSplitting?|
-                                                     (COND
-                                                      ((NULL
-                                                        (CDR
-                                                         |irreducibleFactors|))
-                                                       'NIL)
-                                                      ('T 'T))
+                                                     (NULL
+                                                      (NULL
+                                                       (CDR
+                                                        |irreducibleFactors|)))
                                                      . #11#)
                                                (EXIT
                                                 (COND
@@ -444,7 +440,7 @@
 
 (SDEFUN |GBF;factorGroebnerBasis;LL;6|
         ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| 'NIL (QREFELT $ 41))) 
+        (SPADCALL |basis| NIL (QREFELT $ 41))) 
 
 (SDEFUN |GBF;factorGroebnerBasis;LBL;7|
         ((|basis| |List| |Dpol|) (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
@@ -452,11 +448,11 @@
          ((|foundAReducible| (|Boolean|)) (#1=#:G190 NIL) (|el| NIL)
           (#2=#:G189 NIL) (#3=#:G188 NIL) (|p| NIL))
          (SEQ
-          (LETT |foundAReducible| 'NIL . #4=(|GBF;factorGroebnerBasis;LBL;7|))
+          (LETT |foundAReducible| NIL . #4=(|GBF;factorGroebnerBasis;LBL;7|))
           (SEQ (LETT |p| NIL . #4#) (LETT #3# |basis| . #4#) G190
                (COND
                 ((OR (ATOM #3#) (PROGN (LETT |p| (CAR #3#) . #4#) NIL)
-                     (NULL (COND (|foundAReducible| 'NIL) ('T 'T))))
+                     (NULL (NULL |foundAReducible|)))
                  (GO G191)))
                (SEQ
                 (EXIT
@@ -506,22 +502,22 @@
 (SDEFUN |GBF;groebnerFactorize;2LL;8|
         ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
          ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| |nonZeroRestrictions| 'NIL (QREFELT $ 65))) 
+        (SPADCALL |basis| |nonZeroRestrictions| NIL (QREFELT $ 64))) 
 
 (SDEFUN |GBF;groebnerFactorize;2LBL;9|
         ((|basis| |List| |Dpol|) (|nonZeroRestrictions| |List| |Dpol|)
          (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
         (SPROG ((#1=#:G201 NIL) (|p| NIL) (#2=#:G200 NIL))
                (SEQ
-                (COND ((SPADCALL |basis| NIL (QREFELT $ 67)) (LIST |basis|))
+                (COND ((SPADCALL |basis| NIL (QREFELT $ 66)) (LIST |basis|))
                       (#3='T
                        (SEQ
                         (LETT |basis|
-                              (SPADCALL (ELT $ 68) |basis| (QREFELT $ 70))
+                              (SPADCALL (ELT $ 67) |basis| (QREFELT $ 69))
                               . #4=(|GBF;groebnerFactorize;2LBL;9|))
                         (EXIT
                          (COND
-                          ((SPADCALL |basis| NIL (QREFELT $ 67))
+                          ((SPADCALL |basis| NIL (QREFELT $ 66))
                            (LIST (LIST (|spadConstant| $ 21))))
                           (#3#
                            (SEQ
@@ -549,7 +545,7 @@
                             (EXIT
                              (COND
                               ((SPADCALL (|spadConstant| $ 16) |basis|
-                                         (QREFELT $ 71))
+                                         (QREFELT $ 70))
                                (LIST (LIST (|spadConstant| $ 16))))
                               (#3#
                                (SEQ
@@ -570,11 +566,11 @@
 
 (SDEFUN |GBF;groebnerFactorize;LL;10|
         ((|basis| |List| |Dpol|) ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| NIL 'NIL (QREFELT $ 65))) 
+        (SPADCALL |basis| NIL NIL (QREFELT $ 64))) 
 
 (SDEFUN |GBF;groebnerFactorize;LBL;11|
         ((|basis| |List| |Dpol|) (|info| |Boolean|) ($ |List| (|List| |Dpol|)))
-        (SPADCALL |basis| NIL |info| (QREFELT $ 65))) 
+        (SPADCALL |basis| NIL |info| (QREFELT $ 64))) 
 
 (DECLAIM (NOTINLINE |GroebnerFactorizationPackage;|)) 
 
@@ -611,7 +607,7 @@
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|GroebnerFactorizationPackage| DV$1 DV$2 DV$3 DV$4)
           . #1#)
-    (LETT $ (GETREFV 74) . #1#)
+    (LETT $ (GETREFV 73) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|GroebnerFactorizationPackage|
@@ -647,16 +643,16 @@
               (131 . |critpOrder|) (|Mapping| 17 10 10) (|List| 10)
               (137 . |sort|) (143 . |critMTonD1|) (148 . |critBonD|)
               (154 . |updatD|) (|List| 51) (160 . |updatF|)
-              |GBF;factorGroebnerBasis;LL;6| (167 . |One|) (171 . |One|)
+              |GBF;factorGroebnerBasis;LL;6| (167 . |One|)
               |GBF;groebnerFactorize;2LBL;9| |GBF;groebnerFactorize;2LL;8|
-              (175 . =) (181 . |zero?|) (|Mapping| 17 9) (186 . |remove|)
-              (192 . |member?|) |GBF;groebnerFactorize;LL;10|
+              (171 . =) (177 . |zero?|) (|Mapping| 17 9) (182 . |remove|)
+              (188 . |member?|) |GBF;groebnerFactorize;LL;10|
               |GBF;groebnerFactorize;LBL;11|)
-           '#(|groebnerFactorize| 198 |factorGroebnerBasis| 222) 'NIL
+           '#(|groebnerFactorize| 194 |factorGroebnerBasis| 218) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 73
+                             (|makeByteWordVec2| 72
                                                  '(1 11 9 10 12 2 11 9 9 13 14
                                                    1 11 9 9 15 0 9 0 16 2 9 17
                                                    0 0 18 0 6 0 19 0 7 0 20 0 9
@@ -672,11 +668,10 @@
                                                    2 55 0 54 0 56 1 11 55 55 57
                                                    2 11 55 9 55 58 2 11 55 55
                                                    55 59 3 11 60 9 27 60 61 0 6
-                                                   0 63 0 43 0 64 2 13 17 0 0
-                                                   67 1 9 17 0 68 2 13 0 69 0
-                                                   70 2 13 17 9 0 71 2 0 40 13
-                                                   13 66 3 0 40 13 13 17 65 2 0
-                                                   40 13 17 73 1 0 40 13 72 1 0
-                                                   40 13 62 2 0 40 13 17
-                                                   41)))))
+                                                   0 63 2 13 17 0 0 66 1 9 17 0
+                                                   67 2 13 0 68 0 69 2 13 17 9
+                                                   0 70 2 0 40 13 13 65 3 0 40
+                                                   13 13 17 64 2 0 40 13 17 72
+                                                   1 0 40 13 71 1 0 40 13 62 2
+                                                   0 40 13 17 41)))))
            '|lookupComplete|)) 

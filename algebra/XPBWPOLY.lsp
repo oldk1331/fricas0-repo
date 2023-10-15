@@ -736,7 +736,7 @@
                    (EXIT
                     (PROGN
                      (LETT #6# (SPADCALL (QCAR |t|) (QREFELT $ 100)) . #8#)
-                     (COND (#3# (LETT #4# (COND (#4# #6#) ('T 'NIL)) . #8#))
+                     (COND (#3# (LETT #4# (COND (#4# #6#) ('T NIL)) . #8#))
                            ('T
                             (PROGN
                              (LETT #4# #6# . #8#)

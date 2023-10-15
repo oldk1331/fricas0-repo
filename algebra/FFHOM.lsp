@@ -11,7 +11,7 @@
                       (SPADCALL |g| (QREFELT $ 33)) (QREFELT $ 34))
             'T)
            ((< (SPADCALL |f| (QREFELT $ 33)) (SPADCALL |g| (QREFELT $ 33)))
-            'NIL)
+            NIL)
            (#2='T
             (SEQ (LETT |equal| 0 . #3=(|FFHOM;compare|))
                  (SEQ (LETT |i| (SPADCALL |f| (QREFELT $ 33)) . #3#) G190
@@ -47,7 +47,7 @@
                           (LETT |equal| 1 . #3#))
                          ((< |f1| |g1|) (LETT |equal| -1 . #3#)))))
                       (LETT |i| (+ |i| -1) . #3#) (GO G190) G191 (EXIT NIL))
-                 (EXIT (COND ((EQL |equal| 1) 'T) (#2# 'NIL))))))))) 
+                 (EXIT (COND ((EQL |equal| 1) 'T) (#2# NIL))))))))) 
 
 (SDEFUN |FFHOM;initialize| (($ |Void|))
         (SPROG
@@ -99,7 +99,7 @@
                                                  #14="failed")
                                                 #2#))
                               (QREFELT $ 52)))
-                     (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
+                     (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
                (#15='T
                 (SEQ (SETELT $ 21 (SPADCALL |mat| (QREFELT $ 52)))
                      (SETELT $ 20
@@ -114,7 +114,7 @@
                                                  (|Matrix| (QREFELT $ 7)) #14#)
                                                 #2#))
                               (QREFELT $ 52)))
-                     (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))))))
+                     (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))))))
            (#15#
             (SEQ (LETT |dPbig| (QREFELT $ 32) . #13#)
                  (LETT |rTbig| (QREFELT $ 26) . #13#)
@@ -296,10 +296,10 @@
                   (COND
                    ((SPADCALL |dPbig| (QREFELT $ 32) (QREFELT $ 43))
                     (SEQ (SETELT $ 20 |matsb|) (SETELT $ 21 |matbs|)
-                         (SETELT $ 27 'NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
+                         (SETELT $ 27 NIL) (EXIT (SPADCALL (QREFELT $ 56)))))
                    (#15#
                     (SEQ (SETELT $ 20 |matbs|) (SETELT $ 21 |matsb|)
-                         (SETELT $ 27 'NIL)
+                         (SETELT $ 27 NIL)
                          (EXIT (SPADCALL (QREFELT $ 56))))))))))))) 
 
 (SDEFUN |FFHOM;coerce;F1F2;3| ((|x| F1) ($ F2))

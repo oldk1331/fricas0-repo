@@ -82,13 +82,12 @@
          ((SPADCALL (SPADCALL |y| (QREFELT $ 36)) (QREFELT $ 8) (QREFELT $ 37))
           'T)
          ((SPADCALL |y| '|exp| (QREFELT $ 38))
-          (COND
-           ((OR (SPADCALL |x| '|exp| (QREFELT $ 38))
-                (SPADCALL (SPADCALL |x| (QREFELT $ 36)) (QREFELT $ 8)
-                          (QREFELT $ 37)))
-            'NIL)
-           ('T 'T)))
-         ('T 'NIL))) 
+          (COND ((SPADCALL |x| '|exp| (QREFELT $ 38)) NIL)
+                (#1='T
+                 (NULL
+                  (SPADCALL (SPADCALL |x| (QREFELT $ 36)) (QREFELT $ 8)
+                            (QREFELT $ 37))))))
+         (#1# NIL))) 
 
 (SDEFUN |INTTOOLS;removeConstantTerm;FSF;7| ((|f| F) (|x| |Symbol|) ($ F))
         (SPROG
@@ -212,25 +211,23 @@
                               (SPADCALL (SPADCALL |pol| (QREFELT $ 73))
                                         (QREFELT $ 15))
                               (QREFELT $ 18))
-                    'NIL)
+                    NIL)
                    (#2='T
                     (SEQ (LETT |p0| (SPADCALL |pol| (QREFELT $ 74)) . #1#)
                          (EXIT
                           (COND
-                           ((OR
-                             (SPADCALL |p0| (|spadConstant| $ 76)
-                                       (QREFELT $ 77))
-                             (NULL
-                              (SPADCALL |k|
-                                        (SPADCALL
-                                         (SPADCALL |p0| (QREFELT $ 73))
-                                         (QREFELT $ 78))
-                                        (QREFELT $ 79))))
+                           ((SPADCALL |p0| (|spadConstant| $ 76)
+                                      (QREFELT $ 77))
                             'T)
-                           ('T 'NIL)))))))
-                 (#2# 'NIL)))
-               (#2# 'NIL)))))
-           (#2# 'NIL))))) 
+                           (#2#
+                            (NULL
+                             (SPADCALL |k|
+                                       (SPADCALL (SPADCALL |p0| (QREFELT $ 73))
+                                                 (QREFELT $ 78))
+                                       (QREFELT $ 79))))))))))
+                 (#2# NIL)))
+               (#2# NIL)))))
+           (#2# NIL))))) 
 
 (SDEFUN |INTTOOLS;mkPrim;FSF;11| ((|f| F) (|x| |Symbol|) ($ F))
         (SPROG
@@ -496,7 +493,7 @@
                                                '(|LiouvillianFunctionCategory|))
                                 (|HasCategory| |#2|
                                                '(|RetractableTo| (|Symbol|))))
-                               ('T 'NIL)))
+                               ('T NIL)))
                     (COND
                      ((QREFELT $ 90)
                       (QSETREFV $ 106

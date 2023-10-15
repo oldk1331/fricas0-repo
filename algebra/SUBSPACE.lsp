@@ -8,8 +8,8 @@
 (SDEFUN |SUBSPACE;internal?;$B;3| ((|space| $) ($ |Boolean|))
         (COND
          ((SPADCALL |space| (QREFELT $ 16))
-          (COND ((SPADCALL |space| (QREFELT $ 15)) 'NIL) (#1='T 'T)))
-         (#1# 'T))) 
+          (NULL (SPADCALL |space| (QREFELT $ 15))))
+         ('T 'T))) 
 
 (SDEFUN |SUBSPACE;new;$;4| (($ $))
         (VECTOR (SPADCALL NIL (QREFELT $ 20)) 0 (SPADCALL (QREFELT $ 22))
@@ -477,9 +477,7 @@
                (SEQ (LETT |node| |space| . #1=(|SUBSPACE;extractPoint;$P;26|))
                     (SEQ G190
                          (COND
-                          ((NULL
-                            (COND ((SPADCALL |node| (QREFELT $ 16)) 'NIL)
-                                  ('T 'T)))
+                          ((NULL (NULL (SPADCALL |node| (QREFELT $ 16))))
                            (GO G191)))
                          (SEQ
                           (EXIT
@@ -538,8 +536,8 @@
                  (COND
                   ((SPADCALL (QVELT |s1| 2) (QVELT |s2| 2) (QREFELT $ 73))
                    (EQL (QVELT |s1| 5) (QVELT |s2| 5)))
-                  (#7='T 'NIL)))
-                (#7# 'NIL)))))))
+                  (#7='T NIL)))
+                (#7# NIL)))))))
           (EXIT
            (COND
             ((OR
@@ -561,18 +559,17 @@
                        (EXIT
                         (PROGN
                          (LETT #4# (SPADCALL |c1| |c2| (QREFELT $ 76)) . #8#)
-                         (COND
-                          (#1# (LETT #2# (COND (#2# #4#) ('T 'NIL)) . #8#))
-                          ('T
-                           (PROGN
-                            (LETT #2# #4# . #8#)
-                            (LETT #1# 'T . #8#)))))))
+                         (COND (#1# (LETT #2# (COND (#2# #4#) ('T NIL)) . #8#))
+                               ('T
+                                (PROGN
+                                 (LETT #2# #4# . #8#)
+                                 (LETT #1# 'T . #8#)))))))
                       (LETT #5# (PROG1 (CDR #5#) (LETT #6# (CDR #6#) . #8#))
                             . #8#)
                       (GO G190) G191 (EXIT NIL))
                  (COND (#1# #2#) (#7# 'T)))))
               (NULL (SPADCALL (QVELT |s1| 2) (QVELT |s2| 2) (QREFELT $ 73))))
-             'NIL)
+             NIL)
             ('T (EQL (QVELT |s1| 5) (QVELT |s2| 5)))))))) 
 
 (SDEFUN |SUBSPACE;coerce;$Of;34| ((|space| $) ($ |OutputForm|))

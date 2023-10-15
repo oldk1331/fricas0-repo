@@ -82,9 +82,7 @@
                               (SPADCALL |d| (SPADCALL |f| (QREFELT $ 40))))
                              (PROGN
                               (LETT #1#
-                                    (PROGN
-                                     (LETT #2# 'NIL . #4#)
-                                     (GO #5=#:G128))
+                                    (PROGN (LETT #2# NIL . #4#) (GO #5=#:G128))
                                     . #4#)
                               (GO #6=#:G126))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))

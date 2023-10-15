@@ -109,7 +109,7 @@
                                                         |x|)
                 . #9#)
           (LETT |ans|
-                (SPADCALL |fcn| 'NIL (CONS 4 "just do it")
+                (SPADCALL |fcn| NIL (CONS 4 "just do it")
                           (|compiledLookupCheck| '|exprToUPS|
                                                  (LIST
                                                   (LIST '|Union|
@@ -490,7 +490,7 @@
                                                         |x|)
                 . #8#)
           (LETT |ans|
-                (SPADCALL |fcn| 'NIL (CONS 4 "just do it")
+                (SPADCALL |fcn| NIL (CONS 4 "just do it")
                           (|compiledLookupCheck| '|exprToUPS|
                                                  (LIST
                                                   (LIST '|Union|
@@ -849,7 +849,7 @@
                                                         |x|)
                 . #8#)
           (LETT |ans|
-                (SPADCALL |fcn| 'NIL (CONS 4 "just do it")
+                (SPADCALL |fcn| NIL (CONS 4 "just do it")
                           (|compiledLookupCheck| '|exprToUPS|
                                                  (LIST
                                                   (LIST '|Union|
@@ -1223,7 +1223,7 @@
                                                         |x|)
                 . #15#)
           (LETT |ans|
-                (SPADCALL |fcn| 'NIL (CONS 4 "just do it")
+                (SPADCALL |fcn| NIL (CONS 4 "just do it")
                           (|compiledLookupCheck| '|exprToUPS|
                                                  (LIST
                                                   (LIST '|Union|
@@ -1257,7 +1257,7 @@
             ((QEQCAR |ans| 1)
              (SEQ
               (LETT |ansG|
-                    (SPADCALL |fcn| 'NIL (CONS 4 "just do it")
+                    (SPADCALL |fcn| NIL (CONS 4 "just do it")
                               (|compiledLookupCheck| '|exprToGenUPS|
                                                      (LIST
                                                       (LIST '|Union|

@@ -51,7 +51,7 @@
 
 (SDEFUN |COLOR;=;2$B;3| ((|x| $) (|y| $) ($ |Boolean|))
         (COND ((EQL (QCAR |x|) (QCAR |y|)) (|eql_DF| (QCDR |x|) (QCDR |y|)))
-              ('T 'NIL))) 
+              ('T NIL))) 
 
 (PUT '|COLOR;red;$;4| '|SPADreplace| '(XLAM NIL (CONS 1 1.0))) 
 

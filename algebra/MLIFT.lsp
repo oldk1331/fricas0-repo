@@ -376,7 +376,7 @@
           (EXIT
            (SEQ (LETT |conglist| NIL . #30=(|MLIFT;lifting1|))
                 (LETT |nvar| (LENGTH |lvar|) . #30#)
-                (LETT |testp| (COND ((NULL |tlist|) 'NIL) ('T 'T)) . #30#)
+                (LETT |testp| (NULL (NULL |tlist|)) . #30#)
                 (LETT |lalpha| NIL . #30#) (LETT |tlv| NIL . #30#)
                 (LETT |subsvar| NIL . #30#) (LETT |subsval| NIL . #30#)
                 (LETT |li| |lvar| . #30#) (LETT |ldeg| NIL . #30#)

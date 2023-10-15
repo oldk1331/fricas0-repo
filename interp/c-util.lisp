@@ -1666,6 +1666,7 @@
 ;   --satisfies (Algebra X)
 ;   form=form' => true
 ;   form=$Category => nil
+;   form' = $Category => nil
 ;   form' is ["Join",:l] => and/[extendsCategoryForm(domain,form,x) for x in l]
 ;   form' is ["CATEGORY",.,:l] =>
 ;     and/[extendsCategoryForm(domain,form,x) for x in l]
@@ -1697,6 +1698,7 @@
   (PROG (|l| |ISTMP#1| |formVec| |op| |ISTMP#2| |args| |at| |catvlist| |cat|)
     (RETURN
      (COND ((EQUAL |form| |form'|) T) ((EQUAL |form| |$Category|) NIL)
+           ((EQUAL |form'| |$Category|) NIL)
            ((AND (CONSP |form'|) (EQ (CAR |form'|) '|Join|)
                  (PROGN (SETQ |l| (CDR |form'|)) #1='T))
             ((LAMBDA (|bfVar#53| |bfVar#52| |x|)

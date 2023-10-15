@@ -9,7 +9,7 @@
         (COND
          ((SPADCALL (QCAR |x|) (QCAR |y|) (QREFELT $ 16))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 17)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (PUT '|PRODUCT;construct;AB$;3| '|SPADreplace| 'CONS) 
 
@@ -146,7 +146,7 @@
                                   (COND
                                    ((SPADCALL |xa| |ya| (QREFELT $ 16))
                                     (SPADCALL |xb| |yb| (QREFELT $ 79)))
-                                   (#2# 'NIL)))))))))) 
+                                   (#2# NIL)))))))))) 
 
 (DECLAIM (NOTINLINE |Product;|)) 
 

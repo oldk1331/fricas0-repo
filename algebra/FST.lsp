@@ -7,7 +7,7 @@
              (COND ((QEQCAR |u| 3) (COND ((QEQCAR |v| 3) (EXIT 'T)))))
              (COND ((QEQCAR |u| 5) (COND ((QEQCAR |v| 5) (EXIT 'T)))))
              (COND ((QEQCAR |u| 6) (COND ((QEQCAR |v| 6) (EXIT 'T)))))
-             (EXIT 'NIL))) 
+             (EXIT NIL))) 
 
 (SDEFUN |FST;coerce;$Of;2| ((|t| $) ($ |OutputForm|))
         (COND ((QEQCAR |t| 0) (SPADCALL 'REAL (QREFELT $ 15)))

@@ -24,7 +24,7 @@
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL))
                 (EXIT
                  (COND ((SPADCALL |n1| |n2| (QREFELT $ 15)) 'T)
-                       ((SPADCALL |n2| |n1| (QREFELT $ 15)) 'NIL)
+                       ((SPADCALL |n2| |n1| (QREFELT $ 15)) NIL)
                        ('T
                         (SEQ
                          (SEQ (LETT |i| |high| . #4#) (LETT #2# |low| . #4#)
@@ -40,10 +40,10 @@
                                  ((SPADCALL (SPADCALL |v1| |i| (QREFELT $ 12))
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 15))
-                                  (PROGN (LETT #1# 'NIL . #4#) (GO #5#))))))
+                                  (PROGN (LETT #1# NIL . #4#) (GO #5#))))))
                               (LETT |i| (+ |i| -1) . #4#) (GO G190) G191
                               (EXIT NIL))
-                         (EXIT 'NIL)))))))
+                         (EXIT NIL)))))))
           #5# (EXIT #1#)))) 
 
 (SDEFUN |SHDP;<;2$B;2| ((|v1| $) (|v2| $) ($ |Boolean|))
@@ -63,7 +63,7 @@
                                             (SPADCALL |v2| |i| (QREFELT $ 12))
                                             (QREFELT $ 16))
                                   (PROGN
-                                   (LETT #1# 'NIL . #3#)
+                                   (LETT #1# NIL . #3#)
                                    (GO #4=#:G123))))))
                               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191
                               (EXIT NIL))

@@ -1,7 +1,6 @@
 
 (SDEFUN |XF-;algebraic?;SB;1| ((|a| S) ($ |Boolean|))
-        (COND ((SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11)) 'NIL)
-              ('T 'T))) 
+        (NULL (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11)))) 
 
 (SDEFUN |XF-;transcendent?;SB;2| ((|a| S) ($ |Boolean|))
         (SPADCALL (SPADCALL |a| (QREFELT $ 9)) (QREFELT $ 11))) 

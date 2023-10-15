@@ -179,9 +179,7 @@
                       (SEQ (LETT |n| 0 . #2#) (LETT #1# |count| . #2#) G190
                            (COND
                             ((OR (|greater_SI| |n| #1#)
-                                 (NULL
-                                  (COND ((SPADCALL |uu| (QREFELT $ 47)) 'NIL)
-                                        ('T 'T))))
+                                 (NULL (NULL (SPADCALL |uu| (QREFELT $ 47)))))
                              (GO G191)))
                            (SEQ
                             (COND
@@ -209,14 +207,12 @@
                                     ((NULL
                                       (COND
                                        ((SPADCALL |uu| (QREFELT $ 76))
-                                        (COND
-                                         ((SPADCALL |uu1|
-                                                    (SPADCALL |uu|
-                                                              (QREFELT $ 51))
-                                                    (QREFELT $ 77))
-                                          'NIL)
-                                         ('T 'T)))
-                                       ('T 'NIL)))
+                                        (NULL
+                                         (SPADCALL |uu1|
+                                                   (SPADCALL |uu|
+                                                             (QREFELT $ 51))
+                                                   (QREFELT $ 77))))
+                                       ('T NIL)))
                                      (GO G191)))
                                    (SEQ
                                     (COND

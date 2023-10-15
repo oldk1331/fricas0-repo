@@ -104,8 +104,7 @@
                     . #5#)
               (LETT |lar| (SPADCALL |ar| (QREFELT $ 12)) . #5#)
               (LETT |l| NIL . #5#)
-              (SEQ G190
-                   (COND ((NULL (COND ((NULL |lla|) 'NIL) ('T 'T))) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |lla|))) (GO G191)))
                    (SEQ
                     (COND
                      ((SPADCALL (QCAR (|SPADfirst| |lla|))
@@ -569,14 +568,14 @@
             (LETT |lb| (SPADCALL |b| (QREFELT $ 12)) . #5#)
             (SEQ G190
                  (COND
-                  ((NULL (COND ((OR (NULL |la|) (NULL |lb|)) 'NIL) ('T 'T)))
+                  ((NULL (COND ((NULL |la|) NIL) ('T (NULL (NULL |lb|)))))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 77))
-                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G296)))
+                     (PROGN (LETT #4# NIL . #5#) (GO #6=#:G296)))
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 78))
                      (PROGN (LETT #4# 'T . #5#) (GO #6#)))
@@ -617,9 +616,7 @@
                             . #5#)
                       (EXIT (LETT |la| (CDR |la|) . #5#)))))))
                  NIL (GO G190) G191 (EXIT NIL))
-            (EXIT
-             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#7='T 'T)))
-                   (#7# 'NIL)))))
+            (EXIT (COND ((NULL |la|) (NULL (NULL |lb|))) ('T NIL)))))
           #6# (EXIT #4#)))) 
 
 (SDEFUN |FMONOID;<;2$B;27| ((|a| $) (|b| $) ($ |Boolean|))
@@ -653,14 +650,14 @@
                     (COND
                      ((SPADCALL |na| 0 (QREFELT $ 81))
                       (SPADCALL |nb| 0 (QREFELT $ 81)))
-                     ('T 'NIL)))
+                     ('T NIL)))
                    (GO G191)))
                  (SEQ
                   (EXIT
                    (COND
                     ((SPADCALL (QCAR (|SPADfirst| |lb|))
                                (QCAR (|SPADfirst| |la|)) (QREFELT $ 82))
-                     (PROGN (LETT #4# 'NIL . #5#) (GO #6=#:G317)))
+                     (PROGN (LETT #4# NIL . #5#) (GO #6=#:G317)))
                     ((SPADCALL (QCAR (|SPADfirst| |la|))
                                (QCAR (|SPADfirst| |lb|)) (QREFELT $ 82))
                      (PROGN (LETT #4# 'T . #5#) (GO #6#)))
@@ -705,9 +702,7 @@
                       (LETT |la| (CDR |la|) . #5#)
                       (EXIT (LETT |na| (- |na| 1) . #5#)))))))
                  NIL (GO G190) G191 (EXIT NIL))
-            (EXIT
-             (COND ((NULL |la|) (COND ((NULL |lb|) 'NIL) (#7='T 'T)))
-                   (#7# 'NIL)))))
+            (EXIT (COND ((NULL |la|) (NULL (NULL |lb|))) ('T NIL)))))
           #6# (EXIT #4#)))) 
 
 (DECLAIM (NOTINLINE |FreeMonoid;|)) 

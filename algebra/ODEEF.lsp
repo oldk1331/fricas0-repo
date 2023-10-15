@@ -671,7 +671,7 @@
           (SEQ G190
                (COND
                 ((NULL
-                  (COND ((NULL |l|) 'NIL)
+                  (COND ((NULL |l|) NIL)
                         ('T
                          (SPADCALL
                           (LETT |c|

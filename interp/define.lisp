@@ -1008,7 +1008,7 @@
 ;     [ds,.,$e]:= compMakeCategoryObject(target,$e) or
 ;       sayBrightly '"   cannot produce category object:"
 ;       pp target
-;       return nil
+;       userError '"cannot produce category object"
 ; --+ copy needed since slot1 is reset; compMake.. can return a cached vector
 ;     $domainShell:= COPY_-SEQ ds
 ; --+ 7 lines for $NRT follow
@@ -1189,7 +1189,7 @@
                   (PROGN
                    (|sayBrightly| "   cannot produce category object:")
                    (|pp| |target|)
-                   (RETURN NIL))))
+                   (|userError| "cannot produce category object"))))
       (SETQ |ds| (CAR |LETTMP#1|))
       (SETQ |$e| (CADDR |LETTMP#1|))
       (SETQ |$domainShell| (COPY-SEQ |ds|))

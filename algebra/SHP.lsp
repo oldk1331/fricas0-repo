@@ -222,8 +222,7 @@
                   (SPADCALL (SPADCALL |Lin| '|last| (QREFELT $ 31))
                             (QREFELT $ 10))))
                 . #3#)
-          (SEQ G190
-               (COND ((NULL (COND ((EQL |indf| 0) 'NIL) ('T 'T))) (GO G191)))
+          (SEQ G190 (COND ((NULL (NULL (EQL |indf| 0))) (GO G191)))
                (SEQ (LETT |Lin| (|SHP;subresultantSequenceNext| |Lin| $) . #3#)
                     (EXIT
                      (LETT |indf|

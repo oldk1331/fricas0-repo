@@ -83,7 +83,7 @@
                   (LETT |v| (SPADCALL |sc| (QREFELT $ 21)) . #2#)
                   (EXIT
                    (COND ((EQUAL |v| |var|) (SPADCALL |sc| (QREFELT $ 26)))
-                         ((GGREATERP |var| |v|) 'NIL)
+                         ((GGREATERP |var| |v|) NIL)
                          ((SPADCALL |v| |var| (QREFELT $ 30)) 'T)
                          (#1# (|error| "impossible")))))))))) 
 

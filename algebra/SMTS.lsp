@@ -52,7 +52,7 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (COND ((SPADCALL |u| (QREFELT $ 44)) 'NIL)
+                            (COND ((SPADCALL |u| (QREFELT $ 44)) NIL)
                                   ('T (SPADCALL |n| 0 (QREFELT $ 45)))))
                            (GO G191)))
                          (SEQ (LETT |u| (SPADCALL |u| (QREFELT $ 46)) . #2#)
@@ -99,12 +99,9 @@
           (SEQ G190
                (COND
                 ((NULL
-                  (COND
-                   ((SPADCALL
-                     (LETT |mon| (SPADCALL |mon| (QREFELT $ 60)) . #1#)
-                     (QREFELT $ 61))
-                    'NIL)
-                   ('T 'T)))
+                  (NULL
+                   (SPADCALL (LETT |mon| (SPADCALL |mon| (QREFELT $ 60)) . #1#)
+                             (QREFELT $ 61))))
                  (GO G191)))
                (SEQ
                 (EXIT
@@ -138,9 +135,7 @@
                            (LETT |up| (SPADCALL |p| |v| (QREFELT $ 73)) . #1#)
                            (SEQ G190
                                 (COND
-                                 ((NULL
-                                   (COND ((SPADCALL |up| (QREFELT $ 75)) 'NIL)
-                                         ('T 'T)))
+                                 ((NULL (NULL (SPADCALL |up| (QREFELT $ 75))))
                                   (GO G191)))
                                 (SEQ
                                  (LETT |s|
@@ -202,10 +197,9 @@
                                        (SEQ G190
                                             (COND
                                              ((NULL
-                                               (COND
-                                                ((SPADCALL |up| (QREFELT $ 75))
-                                                 'NIL)
-                                                ('T 'T)))
+                                               (NULL
+                                                (SPADCALL |up|
+                                                          (QREFELT $ 75))))
                                               (GO G191)))
                                             (SEQ
                                              (LETT |c|
@@ -332,9 +326,7 @@
           (LETT |up| (SPADCALL |p| |v| (QREFELT $ 73)) . #1=(|SMTS;substmts|))
           (LETT |ss| (|spadConstant| $ 21) . #1#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |up| (QREFELT $ 75)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |up| (QREFELT $ 75)))) (GO G191)))
                (SEQ (LETT |d| (SPADCALL |up| (QREFELT $ 76)) . #1#)
                     (LETT |c| (SPADCALL |up| (QREFELT $ 78)) . #1#)
                     (LETT |ss|
@@ -542,9 +534,7 @@
           (LETT |up| (SPADCALL |p| |v| (QREFELT $ 73)) . #1=(|SMTS;intsmp|))
           (LETT |ss| (|spadConstant| $ 23) . #1#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |up| (QREFELT $ 75)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |up| (QREFELT $ 75)))) (GO G191)))
                (SEQ (LETT |d| (SPADCALL |up| (QREFELT $ 76)) . #1#)
                     (LETT |c| (SPADCALL |up| (QREFELT $ 78)) . #1#)
                     (LETT |ss|
@@ -619,7 +609,7 @@
 (SDEFUN |SMTS;coerce;$Of;64| ((|s| $) ($ |OutputForm|))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| ($)) (|uu1| ($)) (|n| NIL)
-          (#1=#:G397 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G352 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |uu| |s| . #2=(|SMTS;coerce;$Of;64|))
               (EXIT
                (COND
@@ -630,9 +620,7 @@
                       (SEQ (LETT |n| 0 . #2#) (LETT #1# |count| . #2#) G190
                            (COND
                             ((OR (|greater_SI| |n| #1#)
-                                 (NULL
-                                  (COND ((SPADCALL |uu| (QREFELT $ 44)) 'NIL)
-                                        ('T 'T))))
+                                 (NULL (NULL (SPADCALL |uu| (QREFELT $ 44)))))
                              (GO G191)))
                            (SEQ
                             (COND
@@ -657,14 +645,12 @@
                                     ((NULL
                                       (COND
                                        ((SPADCALL |uu| (QREFELT $ 186))
-                                        (COND
-                                         ((SPADCALL |uu1|
-                                                    (SPADCALL |uu|
-                                                              (QREFELT $ 46))
-                                                    (QREFELT $ 187))
-                                          'NIL)
-                                         ('T 'T)))
-                                       ('T 'NIL)))
+                                        (NULL
+                                         (SPADCALL |uu1|
+                                                   (SPADCALL |uu|
+                                                             (QREFELT $ 46))
+                                                   (QREFELT $ 187))))
+                                       ('T NIL)))
                                      (GO G191)))
                                    (SEQ
                                     (COND
@@ -730,9 +716,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G407)
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G362)
   (SPROG NIL
-         (PROG (#2=#:G408)
+         (PROG (#2=#:G363)
            (RETURN
             (COND
              ((LETT #2#
@@ -755,7 +741,7 @@
 
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G406 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G361 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateTaylorSeries|))

@@ -24,10 +24,10 @@
         (COND
          ((OR (SPADCALL |x| (QREFELT $ 45))
               (SPADCALL |x| (|spadConstant| $ 21) (QREFELT $ 47)))
-          'NIL)
+          NIL)
          ('T
           (COND ((SPADCALL (GCD |x| (QREFELT $ 22)) 1 (QREFELT $ 47)) 'T)
-                ('T 'NIL))))) 
+                ('T NIL))))) 
 
 (SDEFUN |FFCGP;coordinates;$V;5| ((|x| $) ($ |Vector| GF))
         (SPROG
@@ -75,7 +75,7 @@
 
 (SDEFUN |FFCGP;initializeZech| (($ |Void|))
         (SEQ (SETELT $ 24 (SPADCALL (QREFELT $ 7) (QREFELT $ 61)))
-             (SETELT $ 36 'NIL) (EXIT (SPADCALL (QREFELT $ 63))))) 
+             (SETELT $ 36 NIL) (EXIT (SPADCALL (QREFELT $ 63))))) 
 
 (SDEFUN |FFCGP;basis;PiV;8| ((|n| |PositiveInteger|) ($ |Vector| $))
         (SPROG
@@ -132,8 +132,7 @@
           (LETT |u| (SPADCALL |a| (QREFELT $ 79)) . #1#)
           (SEQ G190
                (COND
-                ((NULL (COND ((SPADCALL |u| |a| (QREFELT $ 47)) 'NIL) ('T 'T)))
-                 (GO G191)))
+                ((NULL (NULL (SPADCALL |u| |a| (QREFELT $ 47)))) (GO G191)))
                (SEQ
                 (LETT |f|
                       (SPADCALL |f|
@@ -148,9 +147,7 @@
                NIL (GO G190) G191 (EXIT NIL))
           (LETT |p| (|spadConstant| $ 30) . #1#)
           (SEQ G190
-               (COND
-                ((NULL (COND ((SPADCALL |f| (QREFELT $ 81)) 'NIL) ('T 'T)))
-                 (GO G191)))
+               (COND ((NULL (NULL (SPADCALL |f| (QREFELT $ 81)))) (GO G191)))
                (SEQ
                 (LETT |g|
                       (SPADCALL (SPADCALL |f| (QREFELT $ 82)) (QREFELT $ 83))
@@ -283,7 +280,7 @@
          ((OR (SPADCALL |x| (QREFELT $ 45))
               (|eql_SI| (SPADCALL |x| (QREFELT $ 23) (QREFELT $ 114)) 0))
           'T)
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |FFCGP;discreteLog;2$U;21|
         ((|b| $) (|x| $) ($ |Union| (|NonNegativeInteger|) "failed"))
@@ -352,7 +349,7 @@
          (SETELT $ 35
                  (SPADCALL (SPADCALL (QREFELT $ 22) (QREFELT $ 131))
                            (QREFELT $ 133)))
-         (SETELT $ 38 (SPADCALL (QREFELT $ 134))) (SETELT $ 37 'NIL)
+         (SETELT $ 38 (SPADCALL (QREFELT $ 134))) (SETELT $ 37 NIL)
          (EXIT (SPADCALL (QREFELT $ 63))))) 
 
 (SDEFUN |FFCGP;extensionDegree;Pi;29| (($ |PositiveInteger|)) (QREFELT $ 12)) 

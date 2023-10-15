@@ -126,9 +126,7 @@
                     (SEQ (LETT |j| 1 . #14#) (LETT #12# |i0| . #14#) G190
                          (COND
                           ((OR (|greater_SI| |j| #12#)
-                               (NULL
-                                (COND ((SPADCALL |a| (QREFELT $ 13)) 'NIL)
-                                      ('T 'T))))
+                               (NULL (NULL (SPADCALL |a| (QREFELT $ 13)))))
                            (GO G191)))
                          (SEQ
                           (LETT |b| (SPADCALL |cb| |j| (QREFELT $ 38)) . #14#)
@@ -270,8 +268,7 @@
                                                                   (SEQ
                                                                    (LETT
                                                                     |firstAdded|
-                                                                    'NIL
-                                                                    . #14#)
+                                                                    NIL . #14#)
                                                                    (SPADCALL
                                                                     |cb| |j|
                                                                     (SPADCALL
@@ -467,7 +464,7 @@
                                                                 (SEQ
                                                                  (LETT
                                                                   |firstAdded|
-                                                                  'NIL . #14#)
+                                                                  NIL . #14#)
                                                                  (SPADCALL |cb|
                                                                            |j|
                                                                            (SPADCALL

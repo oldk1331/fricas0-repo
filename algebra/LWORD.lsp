@@ -3,26 +3,27 @@
         (SPROG ((|f| (|FreeMonoid| |VarSet|)) (#1=#:G119 NIL))
                (SEQ
                 (EXIT
-                 (COND
-                  ((SPADCALL |w| (|spadConstant| $ 9) (QREFELT $ 11)) 'NIL)
-                  ('T
-                   (SEQ
-                    (LETT |f| (SPADCALL |w| (QREFELT $ 12))
-                          . #2=(|LWORD;lyndon?;FmB;1|))
-                    (SEQ G190
-                         (COND
-                          ((NULL
-                            (SPADCALL |f| (|spadConstant| $ 9) (QREFELT $ 13)))
-                           (GO G191)))
-                         (SEQ
-                          (EXIT
-                           (COND
-                            ((NULL (SPADCALL |w| |f| (QREFELT $ 14)))
-                             (PROGN (LETT #1# 'NIL . #2#) (GO #3=#:G118)))
-                            ('T
-                             (LETT |f| (SPADCALL |f| (QREFELT $ 12)) . #2#)))))
-                         NIL (GO G190) G191 (EXIT NIL))
-                    (EXIT 'T)))))
+                 (COND ((SPADCALL |w| (|spadConstant| $ 9) (QREFELT $ 11)) NIL)
+                       ('T
+                        (SEQ
+                         (LETT |f| (SPADCALL |w| (QREFELT $ 12))
+                               . #2=(|LWORD;lyndon?;FmB;1|))
+                         (SEQ G190
+                              (COND
+                               ((NULL
+                                 (SPADCALL |f| (|spadConstant| $ 9)
+                                           (QREFELT $ 13)))
+                                (GO G191)))
+                              (SEQ
+                               (EXIT
+                                (COND
+                                 ((NULL (SPADCALL |w| |f| (QREFELT $ 14)))
+                                  (PROGN (LETT #1# NIL . #2#) (GO #3=#:G118)))
+                                 ('T
+                                  (LETT |f| (SPADCALL |f| (QREFELT $ 12))
+                                        . #2#)))))
+                              NIL (GO G190) G191 (EXIT NIL))
+                         (EXIT 'T)))))
                 #3# (EXIT #1#)))) 
 
 (SDEFUN |LWORD;lyndonIfCan;FmU;2|
@@ -63,9 +64,7 @@
                       (LETT |d| |droite| . #4#)
                       (SEQ G190
                            (COND
-                            ((NULL
-                              (COND ((SPADCALL |g| (QREFELT $ 26)) 'NIL)
-                                    ('T 'T)))
+                            ((NULL (NULL (SPADCALL |g| (QREFELT $ 26))))
                              (GO G191)))
                            (SEQ
                             (EXIT

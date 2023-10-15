@@ -20,10 +20,7 @@
                 (EXIT
                  (SEQ (LETT |rx| |x| . #3=(|MTHING;mergeDifference1|))
                       (EXIT
-                       (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |rx|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                       (SEQ G190 (COND ((NULL |rx|) (GO G191)))
                             (SEQ (LETT |rx| (CDR |rx|) . #3#)
                                  (LETT |frx| (|SPADfirst| |rx|) . #3#)
                                  (SEQ G190

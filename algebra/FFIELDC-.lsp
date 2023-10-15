@@ -53,9 +53,9 @@
                   (SPADCALL (QREFELT $ 34)))
                  ('T 1))
                 . #2#)
-          (LETT |found| 'NIL . #2#)
+          (LETT |found| NIL . #2#)
           (SEQ (LETT |i| |start| . #2#) G190
-               (COND ((NULL (COND (|found| 'NIL) ('T 'T))) (GO G191)))
+               (COND ((NULL (NULL |found|)) (GO G191)))
                (SEQ
                 (LETT |e|
                       (SPADCALL
@@ -79,18 +79,18 @@
             (|Record| (|:| |factor| (|Integer|))
                       (|:| |exponent| (|Integer|))))))
          (SEQ
-          (COND ((SPADCALL |a| (QREFELT $ 14)) 'NIL)
-                (#2='T
+          (COND ((SPADCALL |a| (QREFELT $ 14)) NIL)
+                ('T
                  (SEQ
                   (LETT |explist| (SPADCALL (QREFELT $ 44))
-                        . #3=(|FFIELDC-;primitive?;SB;9|))
-                  (LETT |q| (- (SPADCALL (QREFELT $ 33)) 1) . #3#)
-                  (LETT |equalone| 'NIL . #3#)
-                  (SEQ (LETT |exp| NIL . #3#) (LETT #1# |explist| . #3#) G190
+                        . #2=(|FFIELDC-;primitive?;SB;9|))
+                  (LETT |q| (- (SPADCALL (QREFELT $ 33)) 1) . #2#)
+                  (LETT |equalone| NIL . #2#)
+                  (SEQ (LETT |exp| NIL . #2#) (LETT #1# |explist| . #2#) G190
                        (COND
                         ((OR (ATOM #1#)
-                             (PROGN (LETT |exp| (CAR #1#) . #3#) NIL)
-                             (NULL (COND (|equalone| 'NIL) ('T 'T))))
+                             (PROGN (LETT |exp| (CAR #1#) . #2#) NIL)
+                             (NULL (NULL |equalone|)))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -99,9 +99,9 @@
                                 (SPADCALL |a| (QUOTIENT2 |q| (QCAR |exp|))
                                           (QREFELT $ 45))
                                 (|spadConstant| $ 46) (QREFELT $ 47))
-                               . #3#)))
-                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
-                  (EXIT (COND (|equalone| 'NIL) (#2# 'T))))))))) 
+                               . #2#)))
+                       (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+                  (EXIT (NULL |equalone|)))))))) 
 
 (SDEFUN |FFIELDC-;order;SPi;10| ((|e| S) ($ |PositiveInteger|))
         (SPROG
@@ -211,15 +211,13 @@
                                            (LETT |end|
                                                  (QUOTIENT2 (- |fac| 1) |n|)
                                                  . #7#)
-                                           (LETT |found| 'NIL . #7#)
+                                           (LETT |found| NIL . #7#)
                                            (LETT |disc1| 0 . #7#)
                                            (SEQ (LETT |i| 0 . #7#)
                                                 (LETT #1# |end| . #7#) G190
                                                 (COND
                                                  ((OR (|greater_SI| |i| #1#)
-                                                      (NULL
-                                                       (COND (|found| 'NIL)
-                                                             ('T 'T))))
+                                                      (NULL (NULL |found|)))
                                                   (GO G191)))
                                                 (SEQ
                                                  (LETT |rho|

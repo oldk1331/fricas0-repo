@@ -284,9 +284,7 @@
                        (LETT |toSee| (LIST (CONS |base| |ts|)) . #3#)
                        (LETT |toSave| NIL . #3#)
                        (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                            (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                             (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #3#)
                                  (LETT |toSee| (CDR |toSee|) . #3#)
                                  (LETT |lp| (QCAR |lpwt|) . #3#)
@@ -348,9 +346,7 @@
                                               (SEQ G190
                                                    (COND
                                                     ((NULL
-                                                      (COND
-                                                       ((NULL |lbwt|) 'NIL)
-                                                       ('T 'T)))
+                                                      (NULL (NULL |lbwt|)))
                                                      (GO G191)))
                                                    (SEQ
                                                     (LETT |bwt|
@@ -403,7 +399,7 @@
                                                                 (COND
                                                                  ((NULL
                                                                    |newlp|)
-                                                                  'NIL)
+                                                                  NIL)
                                                                  ('T
                                                                   (SPADCALL
                                                                    (SPADCALL
@@ -611,9 +607,7 @@
                        (LETT |toSee| (LIST (CONS |base| |ts|)) . #3#)
                        (LETT |toSave| NIL . #3#)
                        (SEQ G190
-                            (COND
-                             ((NULL (COND ((NULL |toSee|) 'NIL) ('T 'T)))
-                              (GO G191)))
+                            (COND ((NULL (NULL (NULL |toSee|))) (GO G191)))
                             (SEQ (LETT |lpwt| (|SPADfirst| |toSee|) . #3#)
                                  (LETT |toSee| (CDR |toSee|) . #3#)
                                  (LETT |lp| (QCAR |lpwt|) . #3#)
@@ -675,9 +669,7 @@
                                               (SEQ G190
                                                    (COND
                                                     ((NULL
-                                                      (COND
-                                                       ((NULL |lbwt|) 'NIL)
-                                                       ('T 'T)))
+                                                      (NULL (NULL |lbwt|)))
                                                      (GO G191)))
                                                    (SEQ
                                                     (LETT |bwt|
@@ -726,7 +718,7 @@
                                                                 (COND
                                                                  ((NULL
                                                                    |newlp|)
-                                                                  'NIL)
+                                                                  NIL)
                                                                  ('T
                                                                   (SPADCALL
                                                                    (SPADCALL

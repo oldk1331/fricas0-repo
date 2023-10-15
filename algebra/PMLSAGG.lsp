@@ -38,7 +38,7 @@
                                 (QREFELT $ 25)))))
                    (|new?|
                     (|PMLSAGG;match| (SPADCALL |l| (QREFELT $ 26))
-                     (REVERSE |lp|) |r| 'NIL $))
+                     (REVERSE |lp|) |r| NIL $))
                    (#1#
                     (|error| "Only one multiple pattern allowed in list"))))
                  ((OR (SPADCALL |l| (QREFELT $ 16))

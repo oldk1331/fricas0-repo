@@ -172,9 +172,9 @@
           (|size1| (|Integer|)) (|do_rec| (|Boolean|))
           (|rsiz| (|List| (|Integer|))))
          (SEQ (LETT |rsiz| (CDR |sizes|) . #3=(|MAGCDT3;pack_exps0;SevL2IV;3|))
-              (LETT |do_rec| (COND ((NULL |rsiz|) 'NIL) (#4='T 'T)) . #3#)
+              (LETT |do_rec| (NULL (NULL |rsiz|)) . #3#)
               (LETT |size1| (|SPADfirst| |sizes|) . #3#)
-              (LETT |msize| (COND (|do_rec| (|SPADfirst| |rsiz|)) (#4# 1))
+              (LETT |msize| (COND (|do_rec| (|SPADfirst| |rsiz|)) ('T 1))
                     . #3#)
               (LETT |deg| (QUOTIENT2 |size1| |msize|) . #3#)
               (EXIT
@@ -234,10 +234,8 @@
              (SEQ G190
                   (COND
                    ((NULL
-                     (COND
-                      ((SPADCALL |res0| (|spadConstant| $ 45) (QREFELT $ 46))
-                       'NIL)
-                      ('T 'T)))
+                     (NULL
+                      (SPADCALL |res0| (|spadConstant| $ 45) (QREFELT $ 46))))
                     (GO G191)))
                   (SEQ
                    (LETT |j| (SPADCALL |res0| (QREFELT $ 47))
@@ -259,11 +257,9 @@
                   (SEQ G190
                        (COND
                         ((NULL
-                          (COND
-                           ((SPADCALL |res0| (|spadConstant| $ 45)
-                                      (QREFELT $ 46))
-                            'NIL)
-                           ('T 'T)))
+                          (NULL
+                           (SPADCALL |res0| (|spadConstant| $ 45)
+                                     (QREFELT $ 46))))
                          (GO G191)))
                        (SEQ (LETT |j| (SPADCALL |res0| (QREFELT $ 47)) . #1#)
                             (|MAGCDT3;repack0|
@@ -345,7 +341,7 @@
                       (COND
                        ((NULL
                          (SEQ (LETT |dx| (SPADCALL |ux| (QREFELT $ 47)) . #3#)
-                              (EXIT (COND ((< |dx| |dm1|) 'NIL) ('T 'T)))))
+                              (EXIT (NULL (< |dx| |dm1|)))))
                         (GO G191)))
                       (SEQ (LETT |c| (SPADCALL |ux| (QREFELT $ 22)) . #3#)
                            (LETT |c|

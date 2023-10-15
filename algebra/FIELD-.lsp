@@ -13,7 +13,7 @@
 
 (SDEFUN |FIELD-;associates?;2SB;3| ((|x| S) (|y| S) ($ |Boolean|))
         (COND ((SPADCALL |x| (QREFELT $ 8)) (SPADCALL |y| (QREFELT $ 8)))
-              ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ('T 'T))) 
+              ('T (NULL (SPADCALL |y| (QREFELT $ 8)))))) 
 
 (SDEFUN |FIELD-;inv;2S;4| ((|x| S) ($ S))
         (SPROG ((|u| (|Union| S "failed")))
@@ -34,9 +34,9 @@
 
 (SDEFUN |FIELD-;euclideanSize;SNni;7| ((|x| S) ($ |NonNegativeInteger|)) 0) 
 
-(PUT '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) 'NIL)) 
+(PUT '|FIELD-;prime?;SB;8| '|SPADreplace| '(XLAM (|x|) NIL)) 
 
-(SDEFUN |FIELD-;prime?;SB;8| ((|x| S) ($ |Boolean|)) 'NIL) 
+(SDEFUN |FIELD-;prime?;SB;8| ((|x| S) ($ |Boolean|)) NIL) 
 
 (SDEFUN |FIELD-;squareFree;SF;9| ((|x| S) ($ |Factored| S))
         (SPADCALL |x| (QREFELT $ 27))) 

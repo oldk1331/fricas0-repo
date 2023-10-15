@@ -38,11 +38,11 @@
 (SDEFUN |HB;inHallBasis?;4IB;2|
         ((|n| |Integer|) (|i| |Integer|) (|j| |Integer|) (|l| |Integer|)
          ($ |Boolean|))
-        (COND ((>= |i| |j|) 'NIL)
+        (COND ((>= |i| |j|) NIL)
               ((OR (SPADCALL |j| |n| (QREFELT $ 11))
                    (SPADCALL |l| |i| (QREFELT $ 11)))
                'T)
-              ('T 'NIL))) 
+              ('T NIL))) 
 
 (SDEFUN |HB;basis;2NniV;3|
         ((|n| |NonNegativeInteger|) (|c| |NonNegativeInteger|)
@@ -79,8 +79,8 @@
               (LETT |firstindex| (MAKEARR1 |maxweight| 0) . #6#)
               (LETT |wt| 1 . #6#) (SPADCALL |firstindex| 1 1 (QREFELT $ 17))
               (LETT |numComms| |gens| . #6#)
-              (LETT |newNumComms| |numComms| . #6#) (LETT |done| 'NIL . #6#)
-              (SEQ G190 (COND ((NULL (COND (|done| 'NIL) ('T 'T))) (GO G191)))
+              (LETT |newNumComms| |numComms| . #6#) (LETT |done| NIL . #6#)
+              (SEQ G190 (COND ((NULL (NULL |done|)) (GO G191)))
                    (SEQ (LETT |wt| (+ |wt| 1) . #6#)
                         (EXIT
                          (COND
@@ -104,7 +104,7 @@
                                                   (QREFELT $ 19))
                                         2 (QREFELT $ 20))
                                        |cW| (QREFELT $ 11)))
-                                     ('T 'NIL)))
+                                     ('T NIL)))
                                    (GO G191)))
                                  (SEQ
                                   (SEQ

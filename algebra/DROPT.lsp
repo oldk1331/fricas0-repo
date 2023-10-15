@@ -138,7 +138,7 @@
         (COND
          ((EQUAL (QCAR |x|) (QCAR |y|))
           (SPADCALL (QCDR |x|) (QCDR |y|) (QREFELT $ 83)))
-         ('T 'NIL))) 
+         ('T NIL))) 
 
 (SDEFUN |DROPT;option?;LSB;31| ((|l| |List| $) (|s| |Symbol|) ($ |Boolean|))
         (SPROG ((#1=#:G156 NIL) (#2=#:G157 NIL) (#3=#:G158 NIL) (|x| NIL))
@@ -164,7 +164,7 @@
                               (GO #6=#:G153))))))
                          (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
-                  (EXIT 'NIL)))
+                  (EXIT NIL)))
                 #5# (EXIT #2#)))) 
 
 (SDEFUN |DROPT;option;LSU;32|

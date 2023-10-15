@@ -2309,7 +2309,7 @@
                           ((COND ((SPADCALL |kk| '|exp| (QREFELT $ 46)) 'T)
                                  ((SPADCALL |kk| '|log| (QREFELT $ 46))
                                   (SPADCALL |kk| |k| (QREFELT $ 162)))
-                                 (#4='T 'NIL))
+                                 (#4='T NIL))
                            (LETT #2# (CONS |kk| #2#) . #3#)))))
                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#))))
@@ -2362,7 +2362,7 @@
                           ((COND ((SPADCALL |kk| '|exp| (QREFELT $ 46)) 'T)
                                  ((SPADCALL |kk| '|log| (QREFELT $ 46))
                                   (SPADCALL |kk| |k| (QREFELT $ 162)))
-                                 (#4='T 'NIL))
+                                 (#4='T NIL))
                            (LETT #2# (CONS |kk| #2#) . #3#)))))
                        (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#))))

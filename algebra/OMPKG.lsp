@@ -42,12 +42,11 @@
         (OM-LISTSYMBOLS |cd|)) 
 
 (SDEFUN |OMPKG;OMsupportsCD?;SB;7| ((|cd| |String|) ($ |Boolean|))
-        (COND ((SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 29)) 'NIL) ('T 'T))) 
+        (NULL (SPADCALL (OM-SUPPORTSCD |cd|) (QREFELT $ 29)))) 
 
 (SDEFUN |OMPKG;OMsupportsSymbol?;2SB;8|
         ((|cd| |String|) (|name| |String|) ($ |Boolean|))
-        (COND ((SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 29)) 'NIL)
-              ('T 'T))) 
+        (NULL (SPADCALL (OM-SUPPORTSSYMBOL |cd| |name|) (QREFELT $ 29)))) 
 
 (DECLAIM (NOTINLINE |OpenMathPackage;|)) 
 

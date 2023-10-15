@@ -1,6 +1,6 @@
 
 (SDEFUN |EUCDOM-;sizeLess?;2SB;1| ((|x| S) (|y| S) ($ |Boolean|))
-        (COND ((SPADCALL |y| (QREFELT $ 8)) 'NIL)
+        (COND ((SPADCALL |y| (QREFELT $ 8)) NIL)
               ((SPADCALL |x| (QREFELT $ 8)) 'T)
               ('T
                (< (SPADCALL |x| (QREFELT $ 10))
@@ -34,9 +34,7 @@
                 (LETT |y| (SPADCALL |y| (QREFELT $ 18)) . #1#)
                 (SEQ G190
                      (COND
-                      ((NULL
-                        (COND ((SPADCALL |y| (QREFELT $ 8)) 'NIL) ('T 'T)))
-                       (GO G191)))
+                      ((NULL (NULL (SPADCALL |y| (QREFELT $ 8)))) (GO G191)))
                      (SEQ
                       (PROGN
                        (LETT |#G13| |y| . #1#)
@@ -93,9 +91,7 @@
                   (SEQ
                    (SEQ G190
                         (COND
-                         ((NULL
-                           (COND ((SPADCALL (QVELT |s2| 2) (QREFELT $ 8)) 'NIL)
-                                 ('T 'T)))
+                         ((NULL (NULL (SPADCALL (QVELT |s2| 2) (QREFELT $ 8))))
                           (GO G191)))
                         (SEQ
                          (LETT |qr|

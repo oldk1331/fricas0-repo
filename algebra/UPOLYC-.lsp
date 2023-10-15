@@ -673,12 +673,10 @@
                   (SEQ G190
                        (COND
                         ((NULL
-                          (COND
-                           ((SPADCALL
-                             (LETT |p| (SPADCALL |p| (QREFELT $ 55)) . #3#)
-                             (QREFELT $ 9))
-                            'NIL)
-                           ('T 'T)))
+                          (NULL
+                           (SPADCALL
+                            (LETT |p| (SPADCALL |p| (QREFELT $ 55)) . #3#)
+                            (QREFELT $ 9))))
                          (GO G191)))
                        (SEQ
                         (EXIT
@@ -800,7 +798,7 @@
              (SEQ G190
                   (COND
                    ((NULL
-                     (COND ((SPADCALL |x| (QREFELT $ 9)) 'NIL)
+                     (COND ((SPADCALL |x| (QREFELT $ 9)) NIL)
                            ('T
                             (>= (SPADCALL |x| (QREFELT $ 11))
                                 (SPADCALL |y| (QREFELT $ 11))))))
