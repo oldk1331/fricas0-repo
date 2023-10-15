@@ -9,7 +9,7 @@
                 (SEQ (LETT |i| 0 . #2=(|IARRAY1;fill!;$S$;2|))
                      (LETT #1# (QVMAXINDEX |x|) . #2#) G190
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
-                     (SEQ (EXIT (SETELT |x| |i| |s|)))
+                     (SEQ (EXIT (QSETVELT |x| |i| |s|)))
                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |x|)))) 
 
@@ -35,8 +35,9 @@
                                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (SETELT |s1| |i|
-                                            (SPADCALL (ELT |s1| |i|) |f|))))
+                                    (QSETVELT |s1| |i|
+                                              (SPADCALL (QAREF1 |s1| |i|)
+                                                        |f|))))
                                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
                                   G191 (EXIT NIL))
                              (EXIT |s1|)))))))) 
@@ -53,9 +54,9 @@
                                       (COND ((|greater_SI| |i| #1#) (GO G191)))
                                       (SEQ
                                        (EXIT
-                                        (SETELT |ss2| |i|
-                                                (SPADCALL (ELT |s1| |i|)
-                                                          |f|))))
+                                        (QSETVELT |ss2| |i|
+                                                  (SPADCALL (QAREF1 |s1| |i|)
+                                                            |f|))))
                                       (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
                                       G191 (EXIT NIL))
                                  (EXIT |ss2|)))))))) 
@@ -74,9 +75,10 @@
                                   (COND ((|greater_SI| |i| #1#) (GO G191)))
                                   (SEQ
                                    (EXIT
-                                    (SETELT |c| |i|
-                                            (SPADCALL (ELT |a| |i|)
-                                                      (ELT |b| |i|) |f|))))
+                                    (QSETVELT |c| |i|
+                                              (SPADCALL (QAREF1 |a| |i|)
+                                                        (QAREF1 |b| |i|)
+                                                        |f|))))
                                   (LETT |i| (|inc_SI| |i|) . #2#) (GO G190)
                                   G191 (EXIT NIL))
                              (EXIT |c|)))))))) 
@@ -90,19 +92,19 @@
                      (COND ((|greater_SI| |i| #1#) (GO G191)))
                      (SEQ
                       (EXIT
-                       (LETT |s| (SPADCALL |s| (ELT |x| |i|) (QREFELT $ 21))
+                       (LETT |s| (SPADCALL |s| (QAREF1 |x| |i|) (QREFELT $ 21))
                              . #2#)))
                      (LETT |i| (|inc_SI| |i|) . #2#) (GO G190) G191 (EXIT NIL))
                 (EXIT |s|)))) 
 
-(PUT '|IARRAY1;qelt;$IS;10| '|SPADreplace| 'ELT) 
+(PUT '|IARRAY1;qelt;$IS;10| '|SPADreplace| 'QAREF1) 
 
-(SDEFUN |IARRAY1;qelt;$IS;10| ((|x| $) (|i| |Integer|) ($ S)) (ELT |x| |i|)) 
+(SDEFUN |IARRAY1;qelt;$IS;10| ((|x| $) (|i| |Integer|) ($ S)) (QAREF1 |x| |i|)) 
 
-(PUT '|IARRAY1;qsetelt!;$I2S;11| '|SPADreplace| 'SETELT) 
+(PUT '|IARRAY1;qsetelt!;$I2S;11| '|SPADreplace| 'QSETVELT) 
 
 (SDEFUN |IARRAY1;qsetelt!;$I2S;11| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
-        (SETELT |x| |i| |s|)) 
+        (QSETVELT |x| |i| |s|)) 
 
 (SDEFUN |IARRAY1;elt;$IS;12| ((|x| $) (|i| |Integer|) ($ S))
         (COND
@@ -123,28 +125,28 @@
 (SDEFUN |IARRAY1;maxIndex;$I;14| ((|x| $) ($ |Integer|)) (QVSIZE |x|)) 
 
 (SDEFUN |IARRAY1;qelt;$IS;15| ((|x| $) (|i| |Integer|) ($ S))
-        (ELT |x| (- |i| 1))) 
+        (QAREF1 |x| (- |i| 1))) 
 
 (SDEFUN |IARRAY1;qsetelt!;$I2S;16| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
-        (SETELT |x| (- |i| 1) |s|)) 
+        (QSETVELT |x| (- |i| 1) |s|)) 
 
 (SDEFUN |IARRAY1;elt;$IS;17| ((|x| $) (|i| |Integer|) ($ S))
         (COND
          ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
           (|error| "index out of range"))
-         ('T (ELT |x| (- |i| 1))))) 
+         ('T (QAREF1 |x| (- |i| 1))))) 
 
 (SDEFUN |IARRAY1;setelt!;$I2S;18| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
         (COND
          ((OR (|less_SI| |i| 1) (|less_SI| (QVSIZE |x|) |i|))
           (|error| "index out of range"))
-         ('T (SETELT |x| (- |i| 1) |s|)))) 
+         ('T (QSETVELT |x| (- |i| 1) |s|)))) 
 
 (SDEFUN |IARRAY1;qelt;$IS;19| ((|x| $) (|i| |Integer|) ($ S))
-        (ELT |x| (- |i| (QREFELT $ 7)))) 
+        (QAREF1 |x| (- |i| (QREFELT $ 7)))) 
 
 (SDEFUN |IARRAY1;qsetelt!;$I2S;20| ((|x| $) (|i| |Integer|) (|s| S) ($ S))
-        (SETELT |x| (- |i| (QREFELT $ 7)) |s|)) 
+        (QSETVELT |x| (- |i| (QREFELT $ 7)) |s|)) 
 
 (SDEFUN |IARRAY1;elt;$IS;21| ((|x| $) (|i| |Integer|) ($ S))
         (COND
