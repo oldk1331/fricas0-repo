@@ -3040,12 +3040,6 @@
 ;   -- rest of the modemaps in the second element.
 ;   good := NIL
 ;   bad  := NIL
-;   -- hack to speed up factorization choices for mpolys and to overcome
-;   -- some poor naming of packages
-;   mpolys := '("Polynomial" "MultivariatePolynomial"
-;    "DistributedMultivariatePolynomial"
-;       "HomogeneousDistributedMultivariatePolynomial")
-;   mpacks := '("MFactorize" "MRationalFactorize")
 ;   for mm in mms repeat
 ;     isFreeFunctionFromMm(mm) => bad := cons(mm, bad)
 ;     type := getDomainFromMm mm
@@ -3056,25 +3050,17 @@
 ;     found := nil
 ;     for n in names while not found repeat
 ;       STRPOS(n,name,0,NIL) => found := true
-;       -- hack, hack
-;       (op = 'factor) and member(n,mpolys) and member(name,mpacks) =>
-;         found := true
 ;     if found
 ;       then good := cons(mm, good)
 ;       else bad := cons(mm,bad)
 ;   [good,bad]
  
 (DEFUN |filterModemapsFromPackages| (|mms| |names| |op|)
-  (PROG (|good| |bad| |mpolys| |mpacks| |type| |name| |found|)
+  (PROG (|good| |bad| |type| |name| |found|)
     (RETURN
      (PROGN
       (SETQ |good| NIL)
       (SETQ |bad| NIL)
-      (SETQ |mpolys|
-              '("Polynomial" "MultivariatePolynomial"
-                "DistributedMultivariatePolynomial"
-                "HomogeneousDistributedMultivariatePolynomial"))
-      (SETQ |mpacks| '("MFactorize" "MRationalFactorize"))
       ((LAMBDA (|bfVar#74| |mm|)
          (LOOP
           (COND
@@ -3106,11 +3092,8 @@
                                 (RETURN NIL))
                                (#1#
                                 (COND
-                                 ((STRPOS |n| |name| 0 NIL) (SETQ |found| T))
-                                 ((AND (EQ |op| '|factor|)
-                                       (|member| |n| |mpolys|)
-                                       (|member| |name| |mpacks|))
-                                  (SETQ |found| T)))))
+                                 ((STRPOS |n| |name| 0 NIL)
+                                  (IDENTITY (SETQ |found| T))))))
                               (SETQ |bfVar#75| (CDR |bfVar#75|))))
                            |names| NIL)
                           (COND (|found| (SETQ |good| (CONS |mm| |good|)))
