@@ -346,7 +346,7 @@
                      (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 57)) . #6#))
                      ('T (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                  (LETT |i| (|inc_SI| |i|) . #6#) (GO G190) G191 (EXIT NIL))
-            (COND (#1# #2#) ('T (SPADCALL (QREFELT $ 58))))))))) 
+            (COND (#1# #2#) ('T NIL))))))) 
 
 (DECLAIM (NOTINLINE |LyndonWord;|)) 
 
@@ -372,7 +372,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|LyndonWord|))
           (LETT |dv$| (LIST '|LyndonWord| DV$1) . #1#)
-          (LETT $ (GETREFV 64) . #1#)
+          (LETT $ (GETREFV 63) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|LyndonWord| (LIST DV$1) (CONS 1 $))
@@ -399,14 +399,14 @@
               (112 . |sort|) (|Integer|) (117 . |setelt!|) (124 . |elt|)
               (130 . |right|) (135 . =) (|Mapping| 10 $$ $$) (141 . |sort!|)
               (|OneDimensionalArray| 16) |LWORD;LyndonWordsList1;LPiOda;10|
-              (147 . |append|) (153 . |nil|) |LWORD;LyndonWordsList;LPiL;11|
+              (147 . |append|) |LWORD;LyndonWordsList;LPiL;11|
               (|Union| 6 '"failed") (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 157 |varList| 163 |smaller?| 168 |right| 174 |retractable?|
-              179 |retractIfCan| 184 |retract| 189 |min| 194 |max| 200
-              |lyndonIfCan| 206 |lyndon?| 211 |lyndon| 216 |lexico| 221
-              |length| 227 |left| 232 |latex| 237 |hashUpdate!| 242 |hash| 248
-              |factor| 253 |coerce| 258 |LyndonWordsList1| 278
-              |LyndonWordsList| 284 >= 290 > 296 = 302 <= 308 < 314)
+           '#(~= 153 |varList| 159 |smaller?| 164 |right| 170 |retractable?|
+              175 |retractIfCan| 180 |retract| 185 |min| 190 |max| 196
+              |lyndonIfCan| 202 |lyndon?| 207 |lyndon| 212 |lexico| 217
+              |length| 223 |left| 228 |latex| 233 |hashUpdate!| 238 |hash| 244
+              |factor| 249 |coerce| 254 |LyndonWordsList1| 274
+              |LyndonWordsList| 280 >= 286 > 292 = 298 <= 304 < 310)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
                  (CONS
@@ -416,7 +416,7 @@
                    '#((|OrderedSet|) (|Comparable|) (|SetCategory|)
                       (|BasicType|) (|RetractableTo| 6) (|PartialOrder|)
                       (|CoercibleTo| 39))
-                   (|makeByteWordVec2| 63
+                   (|makeByteWordVec2| 62
                                        '(0 8 0 9 2 8 10 0 0 11 1 8 0 0 12 2 8
                                          10 0 0 13 2 8 10 0 0 14 1 19 18 0 20 1
                                          19 2 0 21 1 8 6 0 25 1 19 10 0 26 2 19
@@ -426,15 +426,15 @@
                                          39 0 40 1 39 0 0 41 2 44 0 18 19 45 1
                                          46 0 0 47 3 44 19 0 48 19 49 2 44 19 0
                                          48 50 1 0 0 0 51 2 0 10 0 0 52 2 19 0
-                                         53 0 54 2 19 0 0 0 57 0 19 0 58 2 0 10
-                                         0 0 1 1 0 46 0 1 2 0 10 0 0 1 1 0 0 0
-                                         51 1 0 10 0 1 1 0 60 0 1 1 0 6 0 1 2 0
-                                         0 0 0 1 2 0 0 0 0 1 1 0 22 8 23 1 0 10
-                                         8 15 1 0 0 8 24 2 0 10 0 0 29 1 0 35 0
-                                         36 1 0 0 0 1 1 0 62 0 1 2 0 61 61 0 1
-                                         1 0 63 0 1 1 0 16 8 17 1 0 8 0 38 1 0
-                                         5 0 43 1 0 0 6 33 1 0 39 0 42 2 0 55
-                                         46 35 56 2 0 16 46 35 59 2 0 10 0 0 1
-                                         2 0 10 0 0 1 2 0 10 0 0 52 2 0 10 0 0
-                                         1 2 0 10 0 0 37)))))
+                                         53 0 54 2 19 0 0 0 57 2 0 10 0 0 1 1 0
+                                         46 0 1 2 0 10 0 0 1 1 0 0 0 51 1 0 10
+                                         0 1 1 0 59 0 1 1 0 6 0 1 2 0 0 0 0 1 2
+                                         0 0 0 0 1 1 0 22 8 23 1 0 10 8 15 1 0
+                                         0 8 24 2 0 10 0 0 29 1 0 35 0 36 1 0 0
+                                         0 1 1 0 61 0 1 2 0 60 60 0 1 1 0 62 0
+                                         1 1 0 16 8 17 1 0 8 0 38 1 0 5 0 43 1
+                                         0 0 6 33 1 0 39 0 42 2 0 55 46 35 56 2
+                                         0 16 46 35 58 2 0 10 0 0 1 2 0 10 0 0
+                                         1 2 0 10 0 0 52 2 0 10 0 0 1 2 0 10 0
+                                         0 37)))))
            '|lookupComplete|)) 

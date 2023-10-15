@@ -152,8 +152,8 @@
 ;    ["*", ["One"]], _
 ;    ['gcd, ["Zero"]], _
 ;    ['lcm, ["One"]], _
-;    ['append, ['nil]], _
-;    ['union, ['nil]], _
+;    ['append, ['construct]], _
+;    ['union, ['construct]], _
 ;    ['strconc, '""], _
 ;    ['and, 'true], _
 ;    ['or, 'false]]
@@ -162,9 +162,9 @@
   (SETQ |$identity_list|
           (LIST (LIST '+ (LIST '|Zero|)) (LIST '* (LIST '|One|))
                 (LIST '|gcd| (LIST '|Zero|)) (LIST '|lcm| (LIST '|One|))
-                (LIST '|append| (LIST '|nil|)) (LIST '|union| (LIST '|nil|))
-                (LIST '|strconc| "") (LIST '|and| '|true|)
-                (LIST '|or| '|false|))))
+                (LIST '|append| (LIST '|construct|))
+                (LIST '|union| (LIST '|construct|)) (LIST '|strconc| "")
+                (LIST '|and| '|true|) (LIST '|or| '|false|))))
  
 ; getIdentity(x,e) ==
 ;     av := ASSQ(x, $identity_list)
