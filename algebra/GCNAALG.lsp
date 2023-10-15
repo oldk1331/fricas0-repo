@@ -616,7 +616,8 @@
 (MAKEPROP '|GenericNonAssociativeAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|AlgebraGivenByStructuralConstants| 27 7 8
+              (|AlgebraGivenByStructuralConstants| 27 (NRTEVAL (QREFELT $ 7))
+                                                   (NRTEVAL (QREFELT $ 8))
                                                    (NRTEVAL
                                                     (SPADCALL (QREFELT $ 9)
                                                               (QREFELT $ 13))))
@@ -658,7 +659,8 @@
               (|SparseUnivariatePolynomial| (|Polynomial| 27)) (|List| $)
               (|PositiveInteger|) (|InputForm|) (|Union| $ '"failed")
               (|List| 29) (|Record| (|:| |particular| $) (|:| |basis| 106))
-              (|Union| 111 '"failed") (|SquareMatrix| 7 27)
+              (|Union| 111 '"failed")
+              (|SquareMatrix| (NRTEVAL (QREFELT $ 7)) 27)
               (|List| (|Polynomial| 27)) (|HashState|) (|OutputForm|)
               (|SingleInteger|))
            '#(|rightRankPolynomial| 256 |rightMinimalPolynomial| 260

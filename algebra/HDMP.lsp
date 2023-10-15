@@ -525,7 +525,8 @@
 (MAKEPROP '|HomogeneousDistributedMultivariatePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|GeneralDistributedMultivariatePolynomial| 6 7 39)
+              (|GeneralDistributedMultivariatePolynomial|
+               (NRTEVAL (QREFELT $ 6)) 7 39)
               (|local| |#1|) (|local| |#2|) (|Union| 14 '#1="failed")
               (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 19)
               (|Record| (|:| |mat| 15) (|:| |vec| (|Vector| 19))) (|Vector| $)
@@ -533,7 +534,7 @@
               (|PatternMatchResult| 19 $) (|Union| $ '#1#) (|Integer|)
               (|Boolean|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Fraction| 19) (|OrderedVariableList| 6)
+              (|Fraction| 19) (|OrderedVariableList| (NRTEVAL (QREFELT $ 6)))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
               (|Factored| 27) (|Union| 31 '#1#) (|List| 27)

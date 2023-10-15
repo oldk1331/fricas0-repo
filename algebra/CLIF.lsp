@@ -1750,10 +1750,11 @@
 (MAKEPROP '|CliffordAlgebra| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|DirectProduct| 6 7) (|SquareMatrix| 6 7)
-              (0 . |diagonal|) (|Vector| 7) (5 . |coerce|) '|Qeelist|
-              (|Boolean|) (10 . |diagonal?|) '|orthogonal| '|debug|
-              (|PositiveInteger|) (15 . ^) '|dim| '|Rep| (|NonNegativeInteger|)
+              (|local| |#3|) (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 7)
+              (|SquareMatrix| (NRTEVAL (QREFELT $ 6)) 7) (0 . |diagonal|)
+              (|Vector| 7) (5 . |coerce|) '|Qeelist| (|Boolean|)
+              (10 . |diagonal?|) '|orthogonal| '|debug| (|PositiveInteger|)
+              (15 . ^) '|dim| '|Rep| (|NonNegativeInteger|)
               (21 . |characteristic|) |CLIF;characteristic;Nni;1|
               (|CardinalNumber|) (25 . |coerce|) (30 . ~=) |CLIF;=;2$B;3|
               (36 . |Zero|) (40 . +) |CLIF;+;3$;4| (46 . -) |CLIF;-;3$;5|

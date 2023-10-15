@@ -655,9 +655,9 @@
               (|local| |#1|) (|local| |#2|) '|Rep| (|Symbol|) (|OutputForm|)
               (0 . |outputForm|) (5 . |outputForm|) |UP;coerce;$Of;1|
               (11 . |One|) (15 . |One|) (|NonNegativeInteger|)
-              (19 . |monomial|) (|Variable| 6) |UP;coerce;V$;2|
-              (|Union| 26 '#1="failed") (|Matrix| $) (|InputForm|)
-              (|Pattern| (|Float|)) (|Pattern| 33)
+              (19 . |monomial|) (|Variable| (NRTEVAL (QREFELT $ 6)))
+              |UP;coerce;V$;2| (|Union| 26 '#1="failed") (|Matrix| $)
+              (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 33)
               (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 33))) (|Vector| $)
               (|Matrix| 33) (|List| 9) (|List| 16)
               (|PatternMatchResult| (|Float|) $) (|PatternMatchResult| 33 $)

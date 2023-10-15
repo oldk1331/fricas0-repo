@@ -153,11 +153,13 @@
 
 (MAKEPROP '|PAdicRational| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|PAdicRationalConstructor| 6 15)
+           '#(NIL NIL NIL NIL NIL
+              (|PAdicRationalConstructor| (NRTEVAL (QREFELT $ 6)) 15)
               (|local| |#1|) (|Union| 22 '#1="failed") (|Matrix| $)
               (|Union| $ '"failed") (|Boolean|) (|InputForm|) (|Pattern| 33)
-              (|Pattern| 24) (|NonNegativeInteger|) (|PAdicInteger| 6)
-              (|List| 17) (|Equation| 15) (|List| 15) (|Symbol|) (|List| 19)
+              (|Pattern| 24) (|NonNegativeInteger|)
+              (|PAdicInteger| (NRTEVAL (QREFELT $ 6))) (|List| 17)
+              (|Equation| 15) (|List| 15) (|Symbol|) (|List| 19)
               (|Record| (|:| |mat| 23) (|:| |vec| (|Vector| 24))) (|Vector| $)
               (|Matrix| 24) (|Integer|) (|List| 14) (|PatternMatchResult| 33 $)
               (|PatternMatchResult| 24 $) (|Factored| 29)

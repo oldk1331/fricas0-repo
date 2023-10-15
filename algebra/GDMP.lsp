@@ -1351,38 +1351,38 @@
               |GDMP;zero?;$B;1| (|Vector| 17) (0 . |coerce|) (5 . |Zero|)
               (|NonNegativeInteger|) (9 . +) (|Mapping| 17 17 17)
               (15 . |reduce|) |GDMP;totalDegree;$Nni;2| (|PositiveInteger|)
-              (|OrderedVariableList| 6) (22 . |lookup|) (27 . |One|)
-              (31 . |One|) (35 . |directProduct|) (40 . |monomial|) (46 . *)
-              |GDMP;monomial;$OvlNni$;3| |GDMP;coerce;Ovl$;4|
-              (|Union| $ '"failed") (|Symbol|) (52 . |variable|)
-              |GDMP;degree;$OvlNni;10| (57 . >) (|Union| 23 '"failed")
-              |GDMP;mainVariable;$U;6| |GDMP;ground?;$B;7|
-              (63 . |leadingCoefficient|) |GDMP;retract;$R;8|
-              (|Union| 7 '"failed") |GDMP;retractIfCan;$U;9| (|Integer|)
-              (68 . |elt|) (|SparseUnivariatePolynomial| $)
-              |GDMP;univariate;$OvlSup;21| (|SparseUnivariatePolynomial| $$)
-              (74 . |minimumDegree|) |GDMP;minimumDegree;$OvlNni;11|
-              (79 . |differentiate|) |GDMP;multivariate;SupOvl$;27|
-              |GDMP;differentiate;$Ovl$;12| (|List| 17) (|List| 23)
-              |GDMP;degree;$LL;13| |GDMP;minimumDegree;$LL;14|
-              |GDMP;numberOfMonomials;$Nni;15| |GDMP;monomial?;$B;16|
-              (84 . |Zero|) (88 . >) (94 . -) (99 . |inv|) (104 . *) (110 . /)
-              (116 . |new|) (122 . |degree|) (127 . |reductum|) (132 . |elt|)
-              (138 . |setelt!|) (145 . ~=) (151 . |index|)
-              |GDMP;variables;$L;19| (156 . >) (|Mapping| 12 9 9)
-              (162 . |sort|) (|List| 44) |GDMP;reorder;$L$;20| (168 . |Zero|)
-              (172 . |monomial|) (178 . +) (184 . |elt|) |GDMP;eval;$Ovl2$;22|
-              (190 . |coerce|) |GDMP;eval;$OvlR$;23| (195 . =) (|List| 7)
-              |GDMP;eval;$LL$;24| (|List| $$) (201 . =) (207 . >) '"rest"
-              (213 . |elt|) '"first" (219 . |elt|) (|Mapping| $$ $$)
-              (225 . |map|) (231 . =) (|Mapping| 12 23 23) (237 . |sort|)
-              (243 . |position|) (249 . |elt|) (|List| $) |GDMP;eval;$LL$;26|
-              (255 . |Zero|) (259 . =) (265 . |degree|)
-              (270 . |leadingCoefficient|) (275 . ^) (281 . |reductum|)
-              (286 . +) (|SparseUnivariatePolynomial| 7) (292 . |monomial|)
-              (298 . |Zero|) (302 . ~=) (308 . |ground|) (313 . +)
-              |GDMP;univariate;$Sup;28| (319 . =) (325 . |leadingCoefficient|)
-              (330 . |degree|) (335 . |reductum|)
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 6))) (22 . |lookup|)
+              (27 . |One|) (31 . |One|) (35 . |directProduct|)
+              (40 . |monomial|) (46 . *) |GDMP;monomial;$OvlNni$;3|
+              |GDMP;coerce;Ovl$;4| (|Union| $ '"failed") (|Symbol|)
+              (52 . |variable|) |GDMP;degree;$OvlNni;10| (57 . >)
+              (|Union| 23 '"failed") |GDMP;mainVariable;$U;6|
+              |GDMP;ground?;$B;7| (63 . |leadingCoefficient|)
+              |GDMP;retract;$R;8| (|Union| 7 '"failed")
+              |GDMP;retractIfCan;$U;9| (|Integer|) (68 . |elt|)
+              (|SparseUnivariatePolynomial| $) |GDMP;univariate;$OvlSup;21|
+              (|SparseUnivariatePolynomial| $$) (74 . |minimumDegree|)
+              |GDMP;minimumDegree;$OvlNni;11| (79 . |differentiate|)
+              |GDMP;multivariate;SupOvl$;27| |GDMP;differentiate;$Ovl$;12|
+              (|List| 17) (|List| 23) |GDMP;degree;$LL;13|
+              |GDMP;minimumDegree;$LL;14| |GDMP;numberOfMonomials;$Nni;15|
+              |GDMP;monomial?;$B;16| (84 . |Zero|) (88 . >) (94 . -)
+              (99 . |inv|) (104 . *) (110 . /) (116 . |new|) (122 . |degree|)
+              (127 . |reductum|) (132 . |elt|) (138 . |setelt!|) (145 . ~=)
+              (151 . |index|) |GDMP;variables;$L;19| (156 . >)
+              (|Mapping| 12 9 9) (162 . |sort|) (|List| 44)
+              |GDMP;reorder;$L$;20| (168 . |Zero|) (172 . |monomial|) (178 . +)
+              (184 . |elt|) |GDMP;eval;$Ovl2$;22| (190 . |coerce|)
+              |GDMP;eval;$OvlR$;23| (195 . =) (|List| 7) |GDMP;eval;$LL$;24|
+              (|List| $$) (201 . =) (207 . >) '"rest" (213 . |elt|) '"first"
+              (219 . |elt|) (|Mapping| $$ $$) (225 . |map|) (231 . =)
+              (|Mapping| 12 23 23) (237 . |sort|) (243 . |position|)
+              (249 . |elt|) (|List| $) |GDMP;eval;$LL$;26| (255 . |Zero|)
+              (259 . =) (265 . |degree|) (270 . |leadingCoefficient|) (275 . ^)
+              (281 . |reductum|) (286 . +) (|SparseUnivariatePolynomial| 7)
+              (292 . |monomial|) (298 . |Zero|) (302 . ~=) (308 . |ground|)
+              (313 . +) |GDMP;univariate;$Sup;28| (319 . =)
+              (325 . |leadingCoefficient|) (330 . |degree|) (335 . |reductum|)
               |GDMP;multivariate;SupOvl$;29| (340 . |gcd|) (346 . |content|)
               (351 . =) (357 . <) (363 . |content|) (368 . |gcd|) (374 . |gcd|)
               (|PolynomialGcdPackage| 8 23 7 $$) (380 . |gcd|) (|OutputForm|)

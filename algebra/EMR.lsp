@@ -284,11 +284,13 @@
 
 (MAKEPROP '|EuclideanModularRing| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|ModularRing| 7 8 9 10 11) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
-              (|local| |#6|) '|Rep| (0 . |leadingCoefficient|) (5 . |One|)
-              (|Boolean|) (9 . =) (15 . |One|) (19 . |coerce|) (24 . |reduce|)
-              (30 . |inv|) (35 . *)
+           '#(NIL NIL NIL NIL NIL
+              (|ModularRing| 7 8 (NRTEVAL (QREFELT $ 9))
+                             (NRTEVAL (QREFELT $ 10)) (NRTEVAL (QREFELT $ 11)))
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
+              (|local| |#5|) (|local| |#6|) '|Rep| (0 . |leadingCoefficient|)
+              (5 . |One|) (|Boolean|) (9 . =) (15 . |One|) (19 . |coerce|)
+              (24 . |reduce|) (30 . |inv|) (35 . *)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (41 . |monicDivide|) |EMR;divide;2$R;1| (|NonNegativeInteger|)
               (47 . |degree|) (52 . |leadingMonomial|) (57 . |Zero|)

@@ -412,9 +412,9 @@
               (108 . |elt|) (114 . +) (120 . |Zero|)
               |FFP;minimalPolynomial;$Sup;5| (|List| 6) (124 . |entries|)
               (129 . |Frobenius|) (|List| 65) (134 . |concat|) (140 . |matrix|)
-              (|SimpleAlgebraicExtension| 6 10 7) (145 . |rank|)
-              |FFP;normal?;$B;6| (149 . *) |FFP;*;GF2$;7| (155 . *)
-              |FFP;*;I2$;8| (161 . -) |FFP;-;2$;9| (166 . |random|)
+              (|SimpleAlgebraicExtension| 6 10 (NRTEVAL (QREFELT $ 7)))
+              (145 . |rank|) |FFP;normal?;$B;6| (149 . *) |FFP;*;GF2$;7|
+              (155 . *) |FFP;*;I2$;8| (161 . -) |FFP;-;2$;9| (166 . |random|)
               |FFP;random;$;10| (170 . |coordinates|) (175 . |represents|)
               |FFP;represents;V$;12| (180 . |coerce|) |FFP;coerce;GF$;13|
               |FFP;definingPolynomial;Sup;14| (185 . |retract|)

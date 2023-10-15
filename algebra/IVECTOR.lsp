@@ -143,7 +143,8 @@
 
 (MAKEPROP '|IndexedVector| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|IndexedOneDimensionalArray| 6 7)
+           '#(NIL NIL NIL NIL NIL
+              (|IndexedOneDimensionalArray| 6 (NRTEVAL (QREFELT $ 7)))
               (|local| |#1|) (|local| |#2|) (|Mapping| 11 6 6) (|Integer|)
               (|Mapping| 6 6 6) (|Boolean|) (|NonNegativeInteger|) (|List| 6)
               (|Equation| 6) (|List| 14) (|OutputForm|) (|SingleInteger|)

@@ -649,10 +649,12 @@
               |ULS;variable;$S;1| |ULS;center;$Coef;2| (|Boolean|)
               (0 . |zero?|) (5 . |One|) (9 . |One|) (|Integer|)
               (13 . |monomial|) (19 . |Zero|) (23 . |Zero|) (27 . +)
-              (|Variable| 7) |ULS;coerce;V$;3| (33 . |differentiate|)
-              |ULS;differentiate;$V$;4| (38 . |integrate|) (43 . |integrate|)
-              (|Union| 39 '#1="failed") (|Matrix| $) (|InputForm|)
-              (|Pattern| 46) (|Pattern| 16) (|UnivariateTaylorSeries| 6 7 8)
+              (|Variable| (NRTEVAL (QREFELT $ 7))) |ULS;coerce;V$;3|
+              (33 . |differentiate|) |ULS;differentiate;$V$;4|
+              (38 . |integrate|) (43 . |integrate|) (|Union| 39 '#1="failed")
+              (|Matrix| $) (|InputForm|) (|Pattern| 46) (|Pattern| 16)
+              (|UnivariateTaylorSeries| 6 (NRTEVAL (QREFELT $ 7))
+                                        (NRTEVAL (QREFELT $ 8)))
               (|List| 32) (|Equation| 32) (|List| 34) (|List| 9) (|Matrix| 16)
               (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 16))) (|Vector| $)
               (|PatternMatchResult| 46 $) (|PatternMatchResult| 16 $)

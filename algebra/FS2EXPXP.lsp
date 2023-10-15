@@ -1851,25 +1851,42 @@
                        '"real: right side" '"just do it")
               (|FunctionSpaceToUnivariatePowerSeries| 6 7 12 60 101
                                                       (|UnivariateTaylorSeries|
-                                                       7 8 9)
+                                                       7
+                                                       (NRTEVAL (QREFELT $ 8))
+                                                       (NRTEVAL (QREFELT $ 9)))
                                                       (|TaylorSeriesExpansionPuiseux|
                                                        7
                                                        (|UnivariateTaylorSeries|
-                                                        7 8 9)
+                                                        7
+                                                        (NRTEVAL (QREFELT $ 8))
+                                                        (NRTEVAL
+                                                         (QREFELT $ 9)))
                                                        (|UnivariateLaurentSeries|
-                                                        7 8 9)
+                                                        7
+                                                        (NRTEVAL (QREFELT $ 8))
+                                                        (NRTEVAL
+                                                         (QREFELT $ 9)))
                                                        60)
-                                                      8)
-              (134 . |exprToUPS|) (|UnivariatePuiseuxSeries| 7 8 9)
-              (|ExponentialExpansion| 6 7 8 9) (141 . |coerce|)
-              (|Union| 49 '#2="failed") (146 . |isPlus|) (151 . |Zero|)
-              (155 . +) (161 . |isTimes|) (166 . |One|) (170 . *)
-              (|Union| 30 '#1#) (176 . |retractIfCan|)
+                                                      (NRTEVAL (QREFELT $ 8)))
+              (134 . |exprToUPS|)
+              (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                         (NRTEVAL (QREFELT $ 9)))
+              (|ExponentialExpansion| 6 7 (NRTEVAL (QREFELT $ 8))
+                                      (NRTEVAL (QREFELT $ 9)))
+              (141 . |coerce|) (|Union| 49 '#2="failed") (146 . |isPlus|)
+              (151 . |Zero|) (155 . +) (161 . |isTimes|) (166 . |One|)
+              (170 . *) (|Union| 30 '#1#) (176 . |retractIfCan|)
               (|Record| (|:| |val| $) (|:| |exponent| 11)) (|Union| 72 '#2#)
               (181 . |isPower|) (186 . |degree|) (191 . |coefficient|)
               (197 . |Zero|) (201 . =) (207 . +) (213 . |order|) (219 . |is?|)
               (225 . >) (231 . ^)
-              (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8 9)
+              (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7
+                                                                   (NRTEVAL
+                                                                    (QREFELT $
+                                                                             8))
+                                                                   (NRTEVAL
+                                                                    (QREFELT $
+                                                                             9)))
               (237 . |numer|) (|NonNegativeInteger|)
               (242 . |numberOfMonomials|) (247 . >)
               (253 . |leadingCoefficient|) (|Union| $ '"failed")
@@ -1879,16 +1896,31 @@
               (|Union| 60 '"failed")
               (|ElementaryFunctionsUnivariatePuiseuxSeries| 7
                                                             (|UnivariateLaurentSeries|
-                                                             7 8 9)
+                                                             7
+                                                             (NRTEVAL
+                                                              (QREFELT $ 8))
+                                                             (NRTEVAL
+                                                              (QREFELT $ 9)))
                                                             60
                                                             (|ElementaryFunctionsUnivariateLaurentSeries|
                                                              7
                                                              (|UnivariateTaylorSeries|
-                                                              7 8 9)
+                                                              7
+                                                              (NRTEVAL
+                                                               (QREFELT $ 8))
+                                                              (NRTEVAL
+                                                               (QREFELT $ 9)))
                                                              (|UnivariateLaurentSeries|
-                                                              7 8 9)))
+                                                              7
+                                                              (NRTEVAL
+                                                               (QREFELT $ 8))
+                                                              (NRTEVAL
+                                                               (QREFELT $
+                                                                        9)))))
               (295 . |nthRootIfCan|) (301 . |reductum|) (306 . |zero?|)
-              (311 . |coerce|) (|ExponentialOfUnivariatePuiseuxSeries| 7 8 9)
+              (311 . |coerce|)
+              (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                                      (NRTEVAL (QREFELT $ 9)))
               (316 . |degree|) (321 . *) (327 . |monomial|) (333 . /)
               (339 . |second|) (344 . |retractIfCan|) (|Union| 37 '"failed")
               (349 . |symbolIfCan|) (354 . |One|) (358 . |monomial|)

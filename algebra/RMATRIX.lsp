@@ -291,20 +291,22 @@
               (|OutputForm|) (4 . |coerce|) |RMATRIX;coerce;$Of;2| (|Boolean|)
               (|NonNegativeInteger|) (9 . ~=) (|Integer|) (15 . |maxRowIndex|)
               (20 . |maxColIndex|) (|List| 59) |RMATRIX;matrix;L$;3|
-              (|Vector| 8) (25 . |row|) (|DirectProduct| 7 8)
+              (|Vector| 8) (25 . |row|)
+              (|DirectProduct| (NRTEVAL (QREFELT $ 7)) 8)
               (31 . |directProduct|) |RMATRIX;row;$IDp;4| (36 . |column|)
-              (|DirectProduct| 6 8) (42 . |directProduct|)
-              |RMATRIX;column;$IDp;5| (47 . |copy|) |RMATRIX;coerce;$M;6|
-              |RMATRIX;rectangularMatrix;M$;7| (52 . |rowEchelon|)
-              (57 . |rowEchelon|) (|List| 23) (62 . |columnSpace|) (|List| 29)
-              (67 . |columnSpace|) (72 . |rank|) (77 . |rank|) (82 . |nullity|)
-              (87 . |nullity|) (92 . |nullSpace|) (97 . |nullSpace|)
-              (|CardinalNumber|) (102 . |coerce|) (107 . |dimension|)
-              (|Symbol|) (|InputForm|) (111 . |convert|) (116 . |convert|)
-              (|List| $) (121 . |convert|) (126 . |convert|) (|List| 58)
-              (|Equation| 8) (|List| 8) (|Mapping| 15 8) (|Mapping| 8 8)
-              (|Union| $ '"failed") (|PositiveInteger|) (|Mapping| 8 8 8)
-              (|String|) (|SingleInteger|) (|HashState|))
+              (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 8)
+              (42 . |directProduct|) |RMATRIX;column;$IDp;5| (47 . |copy|)
+              |RMATRIX;coerce;$M;6| |RMATRIX;rectangularMatrix;M$;7|
+              (52 . |rowEchelon|) (57 . |rowEchelon|) (|List| 23)
+              (62 . |columnSpace|) (|List| 29) (67 . |columnSpace|)
+              (72 . |rank|) (77 . |rank|) (82 . |nullity|) (87 . |nullity|)
+              (92 . |nullSpace|) (97 . |nullSpace|) (|CardinalNumber|)
+              (102 . |coerce|) (107 . |dimension|) (|Symbol|) (|InputForm|)
+              (111 . |convert|) (116 . |convert|) (|List| $) (121 . |convert|)
+              (126 . |convert|) (|List| 58) (|Equation| 8) (|List| 8)
+              (|Mapping| 15 8) (|Mapping| 8 8) (|Union| $ '"failed")
+              (|PositiveInteger|) (|Mapping| 8 8 8) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(~= 131 |zero?| 137 |symmetric?| 142 |subtractIfCan| 147 |square?|
               153 |smaller?| 158 |size?| 164 |size| 170 |sample| 174
               |rowEchelon| 178 |row| 183 |rectangularMatrix| 189 |rank| 194

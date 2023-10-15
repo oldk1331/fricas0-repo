@@ -35,7 +35,8 @@
 
 (MAKEPROP '|PAdicInteger| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|InnerPAdicInteger| 6 (NRTEVAL 'T))
+           '#(NIL NIL NIL NIL NIL
+              (|InnerPAdicInteger| (NRTEVAL (QREFELT $ 6)) (NRTEVAL 'T))
               (|local| |#1|) (|Integer|) (|SparseUnivariatePolynomial| 7)
               (|Stream| 7) (|NonNegativeInteger|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $))

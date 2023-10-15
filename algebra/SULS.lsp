@@ -1022,8 +1022,10 @@
               |SULS;variable;$S;1| |SULS;center;$Coef;2| (|Boolean|)
               (0 . |zero?|) (5 . |One|) (9 . |One|) (|Integer|)
               (13 . |monomial|) (19 . |Zero|) (23 . |Zero|) (27 . +)
-              (|Variable| 7) |SULS;coerce;V$;3| (33 . |order|)
-              |SULS;pole?;$B;4| (|SparseUnivariateTaylorSeries| 6 7 8)
+              (|Variable| (NRTEVAL (QREFELT $ 7))) |SULS;coerce;V$;3|
+              (33 . |order|) |SULS;pole?;$B;4|
+              (|SparseUnivariateTaylorSeries| 6 (NRTEVAL (QREFELT $ 7))
+                                              (NRTEVAL (QREFELT $ 8)))
               |SULS;coerce;Suts$;5| (|Union| 26 '"failed")
               |SULS;taylorIfCan;$U;6| |SULS;taylor;$Suts;7|
               |SULS;retractIfCan;$U;8| (39 . *) |SULS;laurent;ISuts$;9|

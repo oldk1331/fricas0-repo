@@ -899,11 +899,11 @@
               (|local| |#2|) (|local| |#3|) '|Rep| (|Boolean|) (0 . |zero?|)
               (5 . |One|) (9 . |One|) (|NonNegativeInteger|)
               |UTS;monomial;CoefNni$;5| (13 . |Zero|) (17 . |Zero|) (21 . +)
-              (|Variable| 7) |UTS;coerce;V$;2| (|Integer|) (27 . |coerce|)
-              |UTS;coerce;Coef$;4| |UTS;coerce;I$;3| (|Stream| 6)
-              (|StreamTaylorSeriesOperations| 6) (32 . |coerce|) (37 . |monom|)
-              (43 . |empty?|) (48 . |empty|) (52 . |frst|) (57 . |rst|)
-              (62 . |One|) (66 . +) (72 . |rst|)
+              (|Variable| (NRTEVAL (QREFELT $ 7))) |UTS;coerce;V$;2|
+              (|Integer|) (27 . |coerce|) |UTS;coerce;Coef$;4|
+              |UTS;coerce;I$;3| (|Stream| 6) (|StreamTaylorSeriesOperations| 6)
+              (32 . |coerce|) (37 . |monom|) (43 . |empty?|) (48 . |empty|)
+              (52 . |frst|) (57 . |rst|) (62 . |One|) (66 . +) (72 . |rst|)
               (|Record| (|:| |k| 14) (|:| |c| 6)) (|Stream| 36) (77 . |empty|)
               (81 . |concat|) (|Mapping| $) (87 . |delay|) |UTS;terms;$S;10|
               (92 . |empty?|) (97 . |frst|) (102 . =) (108 . |rst|)
@@ -912,12 +912,13 @@
               (144 . ^) (150 . *) (156 . +) (|Symbol|) (162 . |coerce|)
               (167 . |coerce|) (172 . -) |UTS;polynomial;$NniP;14|
               (178 . |rest|) |UTS;polynomial;$2NniP;15|
-              (|UnivariatePolynomial| 7 6) (184 . |Zero|) (188 . =)
-              (194 . |monomial|) (200 . +) (206 . -) (212 . |One|) (216 . *)
-              (222 . *) |UTS;univariatePolynomial;$NniUp;16| (228 . |zero?|)
-              (233 . |elt|) (239 . |degree|) (244 . |leadingCoefficient|)
-              (249 . |reductum|) |UTS;coerce;Up$;17| (254 . ^) (260 . *)
-              (266 . +) (272 . |coerce|) (277 . -) (283 . |approximate|)
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT $ 7)) 6) (184 . |Zero|)
+              (188 . =) (194 . |monomial|) (200 . +) (206 . -) (212 . |One|)
+              (216 . *) (222 . *) |UTS;univariatePolynomial;$NniUp;16|
+              (228 . |zero?|) (233 . |elt|) (239 . |degree|)
+              (244 . |leadingCoefficient|) (249 . |reductum|)
+              |UTS;coerce;Up$;17| (254 . ^) (260 . *) (266 . +)
+              (272 . |coerce|) (277 . -) (283 . |approximate|)
               |UTS;variable;$S;20| |UTS;center;$Coef;21| (289 . ~=)
               |UTS;coefficient;$NniCoef;22| |UTS;elt;$NniCoef;23|
               (|Mapping| 6 6) (295 . |map|) |UTS;map;M2$;24| (301 . |eval|)

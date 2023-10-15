@@ -2894,17 +2894,18 @@
 
 (MAKEPROP '|AlgebraGivenByStructuralConstants| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| 7 6) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|local| |#4|) '|Rep|
-              (|Union| $ '"failed") (|FiniteRankNonAssociativeAlgebra&| $$ 6)
-              (0 . |recip|) |ALGSC;recip;$U;1| (|Matrix| 6)
-              (|SquareMatrix| 7 6) (5 . |coerce|) (10 . |apply|)
-              |ALGSC;*;Sm2$;2| (|Vector| 6) (16 . |directProduct|)
-              |ALGSC;coerce;V$;3| (|Vector| 15) |ALGSC;structuralConstants;V;4|
-              (|List| 6) (21 . |entries|) (26 . |vector|)
-              |ALGSC;coordinates;$V;5| (|Integer|) (|Vector| $$)
-              (31 . |maxIndex|) (36 . |Zero|) (40 . |elt|) (46 . |setColumn!|)
-              (|Union| 20 '"failed")
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 7)) 6)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
+              '|Rep| (|Union| $ '"failed")
+              (|FiniteRankNonAssociativeAlgebra&| $$ 6) (0 . |recip|)
+              |ALGSC;recip;$U;1| (|Matrix| 6)
+              (|SquareMatrix| (NRTEVAL (QREFELT $ 7)) 6) (5 . |coerce|)
+              (10 . |apply|) |ALGSC;*;Sm2$;2| (|Vector| 6)
+              (16 . |directProduct|) |ALGSC;coerce;V$;3| (|Vector| 15)
+              |ALGSC;structuralConstants;V;4| (|List| 6) (21 . |entries|)
+              (26 . |vector|) |ALGSC;coordinates;$V;5| (|Integer|)
+              (|Vector| $$) (31 . |maxIndex|) (36 . |Zero|) (40 . |elt|)
+              (46 . |setColumn!|) (|Union| 20 '"failed")
               (|Record| (|:| |particular| 35) (|:| |basis| 97))
               (|LinearSystemMatrixPackage| 6 20 20 15) (53 . |solve|)
               (|Vector| $) |ALGSC;basis;V;7| |ALGSC;coordinates;$VV;6|

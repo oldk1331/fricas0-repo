@@ -240,10 +240,11 @@
 (MAKEPROP '|DihedralGroup| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) '|Rep| (|IntegerMod| 6) |DIHGRP;expa;$Im;3|
-              (|IntegerMod| '2) |DIHGRP;expb;$Im;4| (|Integer|) (0 . |convert|)
-              |DIHGRP;exponenta;$I;5| (5 . |convert|) |DIHGRP;exponentb;$I;6|
-              (10 . |Zero|) (14 . |Zero|)
+              (|local| |#3|) '|Rep| (|IntegerMod| (NRTEVAL (QREFELT $ 6)))
+              |DIHGRP;expa;$Im;3| (|IntegerMod| '2) |DIHGRP;expb;$Im;4|
+              (|Integer|) (0 . |convert|) |DIHGRP;exponenta;$I;5|
+              (5 . |convert|) |DIHGRP;exponentb;$I;6| (10 . |Zero|)
+              (14 . |Zero|)
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |DIHGRP;One;$;7|) $))
               (|Boolean|) (18 . |zero?|) (23 . |zero?|) |DIHGRP;one?;$B;8|
               (|OutputForm|) (28 . |coerce|) (|Symbol|) (33 . |coerce|)

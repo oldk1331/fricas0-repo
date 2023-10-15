@@ -996,8 +996,11 @@
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 17 13) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|NonNegativeInteger|) (0 . |numberOfMonomials|) (5 . |One|)
-              (|ExponentialOfUnivariatePuiseuxSeries| 7 8 9) (9 . |degree|)
-              (|Boolean|) (14 . |zero?|) (|UnivariatePuiseuxSeries| 7 8 9)
+              (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                                      (NRTEVAL (QREFELT $ 9)))
+              (9 . |degree|) (|Boolean|) (14 . |zero?|)
+              (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                         (NRTEVAL (QREFELT $ 9)))
               (19 . |leadingCoefficient|) (|Union| 17 '#1="failed")
               |UPXSSING;retractIfCan;$U;1| (24 . |inv|) (29 . -)
               (34 . |monomial|) (|Union| $ '"failed") |UPXSSING;recip;$U;2|

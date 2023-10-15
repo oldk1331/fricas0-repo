@@ -57,16 +57,19 @@
 
 (MAKEPROP '|InnerFiniteField| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|FiniteFieldExtension| 26 7) (|local| |#1|)
-              (|local| |#2|) (|OnePointCompletion| 13) (|Union| $ '"failed")
-              (|Union| 11 '"failed") (|NonNegativeInteger|) (|List| $)
-              (|PositiveInteger|) (|InputForm|) (|Boolean|)
-              (|Union| 28 '"failed") (|Matrix| $) (|Table| 13 11) (|Integer|)
+           '#(NIL NIL NIL NIL NIL
+              (|FiniteFieldExtension| 26 (NRTEVAL (QREFELT $ 7)))
+              (|local| |#1|) (|local| |#2|) (|OnePointCompletion| 13)
+              (|Union| $ '"failed") (|Union| 11 '"failed")
+              (|NonNegativeInteger|) (|List| $) (|PositiveInteger|)
+              (|InputForm|) (|Boolean|) (|Union| 28 '"failed") (|Matrix| $)
+              (|Table| 13 11) (|Integer|)
               (|Record| (|:| |factor| 19) (|:| |exponent| 19)) (|List| 20)
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|SparseUnivariatePolynomial| 26) (|Union| 23 '"failed")
-              (|SparseUnivariatePolynomial| $) (|InnerPrimeField| 6)
-              (|Matrix| 26) (|Vector| $) (|Vector| 26) (|CardinalNumber|)
+              (|SparseUnivariatePolynomial| $)
+              (|InnerPrimeField| (NRTEVAL (QREFELT $ 6))) (|Matrix| 26)
+              (|Vector| $) (|Vector| 26) (|CardinalNumber|)
               (|Union| 26 '"failed") (|Fraction| 19) (|Factored| $)
               (|Union| 12 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))

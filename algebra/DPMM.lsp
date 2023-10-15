@@ -595,12 +595,12 @@
 
 (MAKEPROP '|DirectProductMatrixModule| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 9) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|local| |#4|) '|Rep| (|Integer|)
-              (0 . |elt|) (6 . *) |DPMM;*;R2$;1| (12 . |elt|) (19 . +)
-              (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|) (|NonNegativeInteger|)
-              (|PositiveInteger|) (|List| 9) (|List| 24) (|Equation| 9)
-              (|Matrix| 11) (|Matrix| $)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 9)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
+              '|Rep| (|Integer|) (0 . |elt|) (6 . *) |DPMM;*;R2$;1|
+              (12 . |elt|) (19 . +) (25 . |Zero|) |DPMM;*;M2$;2| (|Boolean|)
+              (|NonNegativeInteger|) (|PositiveInteger|) (|List| 9) (|List| 24)
+              (|Equation| 9) (|Matrix| 11) (|Matrix| $)
               (|Record| (|:| |mat| 25) (|:| |vec| (|Vector| 11))) (|Vector| $)
               (|List| 31) (|List| 20) (|Symbol|) (|Fraction| 11)
               (|Union| 32 '#1="failed") (|Union| 11 '#1#) (|Union| $ '"failed")

@@ -6621,7 +6621,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) (|local| |#5|) (|List| 8)
-              (|List| 6) (|List| 489) (|GuessExpBin| 6 7 8 9 10)
+              (|List| 6) (|List| 489)
+              (|GuessExpBin| 6 7 8 (NRTEVAL (QREFELT $ 9))
+                             (NRTEVAL (QREFELT $ 10)))
               (0 . |guessExpRat|) |GUESS;guessExpRat;LL;1|
               |GUESS;guessExpRat;LLL;2| (6 . |guessBinRat|)
               |GUESS;guessBinRat;LL;3| |GUESS;guessBinRat;LLL;4|

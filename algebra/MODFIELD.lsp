@@ -47,10 +47,12 @@
 
 (MAKEPROP '|ModularField| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|ModularRing| 6 7 8 9 10) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
-              (|Union| $ '"failed") (|Fraction| 13) (|Integer|) (|Factored| $)
-              (|Boolean|) (|Union| 17 '#1="failed") (|List| $)
+           '#(NIL NIL NIL NIL NIL
+              (|ModularRing| 6 7 (NRTEVAL (QREFELT $ 8))
+                             (NRTEVAL (QREFELT $ 9)) (NRTEVAL (QREFELT $ 10)))
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
+              (|local| |#5|) (|Union| $ '"failed") (|Fraction| 13) (|Integer|)
+              (|Factored| $) (|Boolean|) (|Union| 17 '#1="failed") (|List| $)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 19 '#1#)
               (|NonNegativeInteger|)

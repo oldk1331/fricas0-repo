@@ -647,7 +647,8 @@
 
 (MAKEPROP '|AlgebraicFunctionField| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|SimpleAlgebraicExtension| 17 8 9)
+           '#(NIL NIL NIL NIL NIL
+              (|SimpleAlgebraicExtension| 17 8 (NRTEVAL (QREFELT $ 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               (|Boolean|) (|Reference| 10) (0 . |ref|) '|brandNew?| '|infBr?|
               (5 . |Zero|) (9 . |Zero|) (|Fraction| 7) (13 . |Zero|)

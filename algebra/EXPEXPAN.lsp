@@ -631,18 +631,25 @@
            '#(NIL NIL NIL NIL NIL (|Fraction| 16) (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|local| |#4|) '|Rep| (0 . |One|) (|Integer|)
               (|Fraction| 12) (4 . /) 'ZEROCOUNT
-              (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8 9)
+              (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7
+                                                                   (NRTEVAL
+                                                                    (QREFELT $
+                                                                             8))
+                                                                   (NRTEVAL
+                                                                    (QREFELT $
+                                                                             9)))
               (10 . |denom|) (15 . |One|) (|Boolean|) (19 . =) (25 . |numer|)
               (|Union| 34 '"failed") (30 . |retractIfCan|)
               |EXPEXPAN;retractIfCan;$U;4| (|Union| $ '"failed") (35 . |recip|)
               (40 . /) (46 . |coerce|) (51 . *) |EXPEXPAN;/;2Upswes$;5|
               (57 . /) (63 . *) |EXPEXPAN;/;3$;6|
-              (|UnivariatePuiseuxSeries| 7 8 9) (69 . |coerce|)
-              |EXPEXPAN;coerce;Ups$;7| (74 . /) (80 . |One|) (84 . |order|)
-              (90 . |Zero|) (94 . |Zero|) (98 . >) (|OrderedCompletion| 7)
-              (104 . |coerce|) (109 . |coefficient|) (|List| 48)
-              (115 . |variables|) (|Symbol|) (120 . |member?|) (126 . =)
-              (|Union| 12 '"failed") (|ElementaryFunctionSign| 6 7)
+              (|UnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                         (NRTEVAL (QREFELT $ 9)))
+              (69 . |coerce|) |EXPEXPAN;coerce;Ups$;7| (74 . /) (80 . |One|)
+              (84 . |order|) (90 . |Zero|) (94 . |Zero|) (98 . >)
+              (|OrderedCompletion| 7) (104 . |coerce|) (109 . |coefficient|)
+              (|List| 48) (115 . |variables|) (|Symbol|) (120 . |member?|)
+              (126 . =) (|Union| 12 '"failed") (|ElementaryFunctionSign| 6 7)
               (132 . |sign|) (137 . |plusInfinity|) (141 . |minusInfinity|)
               (145 . /) (151 . |zero?|) (|Union| 43 '"failed")
               (156 . |limitPlus|) (|Record| (|:| |k| 13) (|:| |c| 7))
@@ -650,11 +657,13 @@
                         (|:| |%expTerms| (|List| 60)))
               (|Record| (|:| |%term| 61) (|:| |%type| 110))
               (|Union| 62 '"failed") (161 . |dominantTerm|)
-              (|ExponentialOfUnivariatePuiseuxSeries| 7 8 9) (166 . -)
-              (172 . |Zero|) (176 . =) (182 . |order|) (187 . |coefficient|)
-              |EXPEXPAN;limitPlus;$U;10| (|Union| 82 '#1="failed") (|Matrix| $)
-              (|InputForm|) (|Pattern| 92) (|Pattern| 12)
-              (|NonNegativeInteger|) (|List| 79) (|Equation| 16) (|List| 16)
+              (|ExponentialOfUnivariatePuiseuxSeries| 7 (NRTEVAL (QREFELT $ 8))
+                                                      (NRTEVAL (QREFELT $ 9)))
+              (166 . -) (172 . |Zero|) (176 . =) (182 . |order|)
+              (187 . |coefficient|) |EXPEXPAN;limitPlus;$U;10|
+              (|Union| 82 '#1="failed") (|Matrix| $) (|InputForm|)
+              (|Pattern| 92) (|Pattern| 12) (|NonNegativeInteger|) (|List| 79)
+              (|Equation| 16) (|List| 16)
               (|Record| (|:| |mat| 83) (|:| |vec| (|Vector| 12))) (|Vector| $)
               (|Matrix| 12) (|List| 77) (|PatternMatchResult| 92 $)
               (|PatternMatchResult| 12 $) (|Factored| 88)

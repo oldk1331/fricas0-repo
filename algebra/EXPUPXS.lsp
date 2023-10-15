@@ -340,7 +340,9 @@
 
 (MAKEPROP '|ExponentialOfUnivariatePuiseuxSeries| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|UnivariatePuiseuxSeries| 6 7 8)
+           '#(NIL NIL NIL NIL NIL
+              (|UnivariatePuiseuxSeries| 6 (NRTEVAL (QREFELT $ 7))
+                                         (NRTEVAL (QREFELT $ 8)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep|
               (0 . |complete|) |EXPUPXS;exponential;Ups$;1|
               |EXPUPXS;exponent;$Ups;2| (|Fraction| 44) (5 . |Zero|)

@@ -212,7 +212,7 @@
            '#(NIL NIL NIL NIL NIL
               (|SparseUnivariateSkewPolynomial| 6
                                                 (NRTEVAL (|spadConstant| $ 11))
-                                                7)
+                                                (NRTEVAL (QREFELT $ 7)))
               (|local| |#1|) (|local| |#2|) (0 . |One|) (4 . |One|)
               (|Automorphism| 6) (8 . |One|) '|Rep| (|OutputForm|) (|Symbol|)
               (12 . |coerce|) '|outputD| (17 . |outputForm|)

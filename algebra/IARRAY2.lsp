@@ -103,14 +103,17 @@
 (MAKEPROP '|IndexedTwoDimensionalArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 30 29) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|Boolean|) (|NonNegativeInteger|)
-              (|List| 6) (|Equation| 6) (|List| 12) (|Mapping| 9 6)
-              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 6 6 6) (|List| 23) (|List| 10) (|Mapping| 6 6)
-              (|List| $) (|PositiveInteger|) (|Integer|) (|List| 27)
-              (|Segment| 25) (|List| 25) (|IndexedOneDimensionalArray| 6 7)
-              (|IndexedOneDimensionalArray| 6 8) (|List| 11))
+              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL (QREFELT $ 7))
+                                                 (NRTEVAL (QREFELT $ 8)) 30 29)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|Boolean|)
+              (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 12)
+              (|Mapping| 9 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|String|) (|Mapping| 6 6 6) (|List| 23) (|List| 10)
+              (|Mapping| 6 6) (|List| $) (|PositiveInteger|) (|Integer|)
+              (|List| 27) (|Segment| 25) (|List| 25)
+              (|IndexedOneDimensionalArray| 6 (NRTEVAL (QREFELT $ 7)))
+              (|IndexedOneDimensionalArray| 6 (NRTEVAL (QREFELT $ 8)))
+              (|List| 11))
            '#() 'NIL
            (CONS (|makeByteWordVec2| 9 '(0 0 1 0 7 5 0 0 0 7 4 9))
                  (CONS

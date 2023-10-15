@@ -115,7 +115,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL (|FreeModule| 7 13) (|local| |#1|)
               (|local| |#2|) (|local| |#3|) (|local| |#4|) (|local| |#5|)
-              (|local| |#6|) '|Rep| (|ModuleMonomial| 8 9 10)
+              (|local| |#6|) '|Rep|
+              (|ModuleMonomial| 8 9 (NRTEVAL (QREFELT $ 10)))
               (0 . |leadingSupport|) |GMODPOL;leadingMonomial;$Mm;1|
               (5 . |exponent|) |GMODPOL;leadingExponent;$E;2| (10 . |index|)
               |GMODPOL;leadingIndex;$IS;3| (15 . |One|) (19 . |One|)

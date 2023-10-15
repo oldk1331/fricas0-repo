@@ -12642,10 +12642,13 @@
 (MAKEPROP '|LinearOrdinaryDifferentialOperatorFactorizer2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|UnivariatePolynomial| 6 11) (|UnivariateTaylorSeries| 11 6 7)
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT $ 6)) 11)
+              (|UnivariateTaylorSeries| 11 (NRTEVAL (QREFELT $ 6))
+                                        (NRTEVAL (QREFELT $ 7)))
               (0 . |coerce|) (|Expression| 38) (5 . |One|)
-              (|UnivariateLaurentSeries| 11 6 7) (9 . |One|)
-              (|NonNegativeInteger|) (13 . |univariatePolynomial|)
+              (|UnivariateLaurentSeries| 11 (NRTEVAL (QREFELT $ 6))
+                                         (NRTEVAL (QREFELT $ 7)))
+              (9 . |One|) (|NonNegativeInteger|) (13 . |univariatePolynomial|)
               (|LinearOrdinaryDifferentialOperator3| 11 9 13) (19 . |Zero|)
               (23 . |Zero|) (27 . |Zero|)
               (|LinearOrdinaryDifferentialOperator3| 11 8 25) (31 . |Zero|)

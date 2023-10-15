@@ -647,9 +647,9 @@
 
 (MAKEPROP '|SplitHomogeneousDirectProduct| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 8) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) '|Rep| (0 . |Zero|) (|Integer|)
-              (4 . |qelt|) (10 . +) (|Boolean|) (16 . <) (22 . ~=)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 8)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (0 . |Zero|)
+              (|Integer|) (4 . |qelt|) (10 . +) (|Boolean|) (16 . <) (22 . ~=)
               |SHDP;<;2$B;2| (|NonNegativeInteger|) (|PositiveInteger|)
               (|List| 8) (|Equation| 8) (|List| 21)
               (|Record| (|:| |mat| 26) (|:| |vec| (|Vector| 11))) (|Matrix| $)

@@ -532,7 +532,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
               (0 . |new|) '|news| (|List| 8) (4 . |concat|) '|lv|
-              (|Union| $ '"failed") (|OrderedVariableList| 13)
+              (|Union| $ '"failed")
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 13)))
               (10 . |variable|) '|newv|
               (|NewSparseMultivariatePolynomial| 6 15) (15 . |coerce|) '|newq|
               (|Boolean|) (|Polynomial| 6) (20 . |zero?|) (|Mapping| 21 22)

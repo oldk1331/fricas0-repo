@@ -451,18 +451,19 @@
               (12 . |characteristic|) (16 . |characteristic|) (|Boolean|)
               (20 . ~=) (|Integer|) (26 . |maxRowIndex|) (31 . |maxColIndex|)
               (|List| 36) |SQMATRIX;matrix;L$;4| (|Vector| 7) (36 . |row|)
-              (|DirectProduct| 6 7) (42 . |directProduct|)
-              |SQMATRIX;row;$IDp;5| (47 . |column|) |SQMATRIX;column;$IDp;6|
-              (|OutputForm|) (53 . |coerce|) |SQMATRIX;coerce;$Of;7|
-              (58 . |scalarMatrix|) (|List| 7) (64 . |diagonalMatrix|)
-              |SQMATRIX;diagonalMatrix;L$;9| (69 . |copy|)
-              |SQMATRIX;coerce;$M;10| |SQMATRIX;squareMatrix;M$;11|
-              (74 . |coerce|) (79 . *) |SQMATRIX;*;$2Dp;12| (85 . *)
-              |SQMATRIX;*;Dp$Dp;13| (91 . |determinant|) (96 . |determinant|)
-              (101 . |minordet|) (106 . |minordet|) (111 . |Pfaffian|)
-              (116 . |Pfaffian|) (121 . |rowEchelon|) (126 . |rowEchelon|)
-              (131 . |rank|) (136 . |rank|) (141 . |nullity|) (146 . |nullity|)
-              (|List| 25) (151 . |nullSpace|) (|List| 27) (156 . |nullSpace|)
+              (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 7)
+              (42 . |directProduct|) |SQMATRIX;row;$IDp;5| (47 . |column|)
+              |SQMATRIX;column;$IDp;6| (|OutputForm|) (53 . |coerce|)
+              |SQMATRIX;coerce;$Of;7| (58 . |scalarMatrix|) (|List| 7)
+              (64 . |diagonalMatrix|) |SQMATRIX;diagonalMatrix;L$;9|
+              (69 . |copy|) |SQMATRIX;coerce;$M;10|
+              |SQMATRIX;squareMatrix;M$;11| (74 . |coerce|) (79 . *)
+              |SQMATRIX;*;$2Dp;12| (85 . *) |SQMATRIX;*;Dp$Dp;13|
+              (91 . |determinant|) (96 . |determinant|) (101 . |minordet|)
+              (106 . |minordet|) (111 . |Pfaffian|) (116 . |Pfaffian|)
+              (121 . |rowEchelon|) (126 . |rowEchelon|) (131 . |rank|)
+              (136 . |rank|) (141 . |nullity|) (146 . |nullity|) (|List| 25)
+              (151 . |nullSpace|) (|List| 27) (156 . |nullSpace|)
               (|Union| $ '"failed") (161 . |invertIfCan|) (166 . |recip|)
               (171 . |inverse|) (176 . |inverse|) (181 . ^) (187 . ^)
               (|Symbol|) (|InputForm|) (193 . |convert|) (198 . |convert|)

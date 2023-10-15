@@ -989,17 +989,18 @@
 (MAKEPROP '|SturmHabichtPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|NonNegativeInteger|) (|UnivariatePolynomial| 7 6)
-              (0 . |degree|) (5 . |One|) (9 . |pseudoRemainder|) (15 . |Zero|)
-              (19 . |Zero|) (23 . |leadingCoefficient|) (28 . |One|) (32 . *)
-              (38 . *) (44 . -) (|List| 9) (49 . |new|) (55 . |append|)
-              (61 . ^) (67 . -) (72 . |last|) (77 . |second|)
-              (|PositiveInteger|) (82 . ^) (|Union| $ '"failed") (88 . |exquo|)
-              '"last" (94 . |elt|) (|Boolean|) (100 . ~=) (106 . ~=)
-              (|Integer|) (112 . |elt|) |SHP;subresultantSequence;2UpL;4|
-              (118 . |exquo|) (124 . |sign|) (129 . |coerce|)
-              (134 . |differentiate|) (139 . *) (145 . |monomial|) (151 . =)
-              (157 . =) |SHP;SturmHabichtSequence;2UpL;9| (163 . |coefficient|)
+              (|NonNegativeInteger|)
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT $ 7)) 6) (0 . |degree|)
+              (5 . |One|) (9 . |pseudoRemainder|) (15 . |Zero|) (19 . |Zero|)
+              (23 . |leadingCoefficient|) (28 . |One|) (32 . *) (38 . *)
+              (44 . -) (|List| 9) (49 . |new|) (55 . |append|) (61 . ^)
+              (67 . -) (72 . |last|) (77 . |second|) (|PositiveInteger|)
+              (82 . ^) (|Union| $ '"failed") (88 . |exquo|) '"last"
+              (94 . |elt|) (|Boolean|) (100 . ~=) (106 . ~=) (|Integer|)
+              (112 . |elt|) |SHP;subresultantSequence;2UpL;4| (118 . |exquo|)
+              (124 . |sign|) (129 . |coerce|) (134 . |differentiate|) (139 . *)
+              (145 . |monomial|) (151 . =) (157 . =)
+              |SHP;SturmHabichtSequence;2UpL;9| (163 . |coefficient|)
               (|List| 6) |SHP;SturmHabichtCoefficients;2UpL;10| (169 . |size?|)
               (175 . |elt|) (181 . >) (187 . ~=) (193 . |append|) (199 . >)
               (205 . |last|) |SHP;SturmHabicht;2UpI;19|

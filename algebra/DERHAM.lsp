@@ -199,16 +199,17 @@
 
 (MAKEPROP '|DeRhamComplex| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|AntiSymm| 14 7) (|local| |#1|)
-              (|local| |#2|) '|Rep| '|dim| (|Symbol|) (|Integer|) (|List| 10)
-              (0 . |elt|) (|Expression| 6) (6 . |differentiate|)
-              (|NonNegativeInteger|) (12 . |generator|) (17 . *) (23 . +)
-              (|Mapping| $$ $$ $$) (|List| $$) (29 . |reduce|)
-              |DERHAM;totalDifferential;E$;1| (35 . *) (41 . |Zero|)
-              (45 . |Zero|) (|Boolean|) (49 . =) (55 . |leadingCoefficient|)
-              (60 . |leadingBasisTerm|) (65 . |reductum|)
-              |DERHAM;exteriorDifferential;2$;3| (70 . |name|) (|String|)
-              (75 . |string|) (|List| $) (80 . |concat|) (85 . |coerce|)
+           '#(NIL NIL NIL NIL NIL (|AntiSymm| 14 (NRTEVAL (QREFELT $ 7)))
+              (|local| |#1|) (|local| |#2|) '|Rep| '|dim| (|Symbol|)
+              (|Integer|) (|List| 10) (0 . |elt|) (|Expression| 6)
+              (6 . |differentiate|) (|NonNegativeInteger|) (12 . |generator|)
+              (17 . *) (23 . +) (|Mapping| $$ $$ $$) (|List| $$)
+              (29 . |reduce|) |DERHAM;totalDifferential;E$;1| (35 . *)
+              (41 . |Zero|) (45 . |Zero|) (|Boolean|) (49 . =)
+              (55 . |leadingCoefficient|) (60 . |leadingBasisTerm|)
+              (65 . |reductum|) |DERHAM;exteriorDifferential;2$;3|
+              (70 . |name|) (|String|) (75 . |string|) (|List| $)
+              (80 . |concat|) (85 . |coerce|)
               (|Record| (|:| |sub| 51) (|:| |sup| 51) (|:| |presup| 51)
                         (|:| |presub| 51) (|:| |args| 51))
               (90 . |scripts|) (95 . |script|) '|lv| (|List| 11)

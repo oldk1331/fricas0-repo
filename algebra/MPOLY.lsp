@@ -523,7 +523,7 @@
               (|PatternMatchResult| 19 $) (|Union| $ '#1#) (|Integer|)
               (|Boolean|) (|NonNegativeInteger|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
-              (|Fraction| 19) (|OrderedVariableList| 6)
+              (|Fraction| 19) (|OrderedVariableList| (NRTEVAL (QREFELT $ 6)))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
               (|List| $) (|SparseUnivariatePolynomial| $) (|Factored| $)
               (|Factored| 27) (|Union| 31 '#1#) (|List| 27)

@@ -243,10 +243,13 @@
 (MAKEPROP '|QuasiAlgebraicSet2| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Symbol|) (0 . |new|)
-              '|ts| '|newvl| (|Union| $ '"failed") (|OrderedVariableList| 10)
-              (4 . |variable|) '|tv| (|OrderedVariableList| 6) (9 . |convert|)
-              (|DistributedMultivariatePolynomial| 10 26) (14 . |coerce|)
-              (|Boolean|) (19 . =) (|DistributedMultivariatePolynomial| 6 26)
+              '|ts| '|newvl| (|Union| $ '"failed")
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 10))) (4 . |variable|)
+              '|tv| (|OrderedVariableList| (NRTEVAL (QREFELT $ 6)))
+              (9 . |convert|)
+              (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT $ 10)) 26)
+              (14 . |coerce|) (|Boolean|) (19 . =)
+              (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT $ 6)) 26)
               (25 . |Zero|) (29 . |convert|) (34 . |variable|) (39 . |coerce|)
               (|Fraction| (|Integer|)) (44 . |coerce|) (|Mapping| 17 15)
               (|Mapping| 17 26)
@@ -275,7 +278,8 @@
                                   (NRTEVAL (LENGTH (QREFELT $ 10)))
                                   (|NonNegativeInteger|))
                                  12 17)
-              (115 . |ideal|) (|IdealDecompositionPackage| 10)
+              (115 . |ideal|)
+              (|IdealDecompositionPackage| (NRTEVAL (QREFELT $ 10)))
               (120 . |radical|) (125 . |generators|) (130 . |member?|)
               (136 . |empty|)
               (|GroebnerPackage| 26

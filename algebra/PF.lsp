@@ -38,12 +38,13 @@
 
 (MAKEPROP '|PrimeField| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|InnerPrimeField| 6) (|local| |#1|)
-              (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8) (0 . |prime?|)
-              '#:G104 (|NonNegativeInteger|) (|SparseUnivariatePolynomial| $)
-              (|PositiveInteger|) (|Union| 13 '"failed") (|Union| $ '"failed")
-              (|CardinalNumber|) (|OnePointCompletion| 14) (|Vector| $)
-              (|Matrix| $) (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
+           '#(NIL NIL NIL NIL NIL (|InnerPrimeField| (NRTEVAL (QREFELT $ 6)))
+              (|local| |#1|) (|Boolean|) (|Integer|) (|IntegerPrimesPackage| 8)
+              (0 . |prime?|) '#:G104 (|NonNegativeInteger|)
+              (|SparseUnivariatePolynomial| $) (|PositiveInteger|)
+              (|Union| 13 '"failed") (|Union| $ '"failed") (|CardinalNumber|)
+              (|OnePointCompletion| 14) (|Vector| $) (|Matrix| $)
+              (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               (|Record| (|:| |factor| 8) (|:| |exponent| 8)) (|List| 22)
               (|Table| 14 12) (|Union| 19 '"failed") (|InputForm|) (|List| $)
               (|Union| 12 '"failed") (|Fraction| 8) (|Factored| $)

@@ -181,10 +181,11 @@
 (MAKEPROP '|IndexedMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|InnerIndexedTwoDimensionalArray| 6 7 8 40 41) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) (|Integer|) (0 . |minRowIndex|)
-              (5 . |maxRowIndex|) (|Boolean|) (10 . >) (16 . |maxColIndex|)
-              |IMATRIX;swapRows!;$2I$;1|
+              (|InnerIndexedTwoDimensionalArray| 6 (NRTEVAL (QREFELT $ 7))
+                                                 (NRTEVAL (QREFELT $ 8)) 40 41)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) (|Integer|)
+              (0 . |minRowIndex|) (5 . |maxRowIndex|) (|Boolean|) (10 . >)
+              (16 . |maxColIndex|) |IMATRIX;swapRows!;$2I$;1|
               (|MatrixLinearAlgebraFunctions| 6 40 41 $$) (21 . |determinant|)
               (26 . |determinant|) (31 . |minordet|) (36 . |minordet|)
               (41 . |rowEchelon|) (46 . |rowEchelon|) (|NonNegativeInteger|)
@@ -192,12 +193,13 @@
               (|List| 41) (71 . |nullSpace|) (76 . |nullSpace|)
               (|Union| $$ '"failed") (81 . |inverse|) (|Union| $ '"failed")
               (86 . |inverse|) (|List| 6) (|Equation| 6) (|List| 36)
-              (|Mapping| 12 6) (|OutputForm|) (|IndexedVector| 6 8)
-              (|IndexedVector| 6 7) (|List| $) (|SingleInteger|) (|String|)
-              (|HashState|) (|Void|) (|List| 55) (|Union| 6 '"one") (|List| 35)
-              (|Mapping| 6 9 9) (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 42)
-              (|PositiveInteger|) (|List| 23) (|List| 57) (|Segment| 9)
-              (|List| 9))
+              (|Mapping| 12 6) (|OutputForm|)
+              (|IndexedVector| 6 (NRTEVAL (QREFELT $ 8)))
+              (|IndexedVector| 6 (NRTEVAL (QREFELT $ 7))) (|List| $)
+              (|SingleInteger|) (|String|) (|HashState|) (|Void|) (|List| 55)
+              (|Union| 6 '"one") (|List| 35) (|Mapping| 6 9 9)
+              (|Mapping| 6 6 6) (|Mapping| 6 6) (|List| 42) (|PositiveInteger|)
+              (|List| 23) (|List| 57) (|Segment| 9) (|List| 9))
            '#(|swapRows!| 91 |rowEchelon| 98 |rank| 103 |nullity| 108
               |nullSpace| 113 |minordet| 118 |minRowIndex| 123 |maxRowIndex|
               128 |maxColIndex| 133 |inverse| 138 |determinant| 143)

@@ -91,7 +91,7 @@
               (|Union| 11 20) (|Union| 12 20)
               (|Record| (|:| |val| 12) (|:| |tower| $)) (|List| 25)
               (|Union| $ '#1="failed") (|Union| 11 '#1#)
-              (|OrderedVariableList| 7) (|List| 29)
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 7))) (|List| 29)
               (|Record| (|:| |close| $) (|:| |open| 10)) (|List| 31)
               (|Mapping| 12 11 11) (|Mapping| 12 11 10)
               (|Record| (|:| |close| 10) (|:| |open| 10))

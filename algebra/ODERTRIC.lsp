@@ -910,7 +910,8 @@
               (153 . ~=) (159 . |changeVar|)
               (|Record| (|:| |poly| 7) (|:| |eq| 23)) (|List| 78)
               |ODERTRIC;polyRicDE;LodoML;12|
-              (|UnivariateTaylorSeries| 6 10 (NRTEVAL (|spadConstant| $ 17)))
+              (|UnivariateTaylorSeries| 6 (NRTEVAL (QREFELT $ 10))
+                                        (NRTEVAL (|spadConstant| $ 17)))
               (165 . |Zero|) (169 . |degree|) (174 . |leadingCoefficient|)
               (179 . |monomial|) (185 . +) (191 . |reductum|)
               (196 . |coefficient|) (202 . |monomial|) (208 . +)

@@ -264,17 +264,20 @@
                                   (|NonNegativeInteger|))
                                  13 15)
               (0 . |groebner|) (|Union| $ '"failed") (|Symbol|)
-              (|OrderedVariableList| 7) (5 . |variable|)
-              (|HomogeneousDistributedMultivariatePolynomial| 7 6)
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 7))) (5 . |variable|)
+              (|HomogeneousDistributedMultivariatePolynomial|
+               (NRTEVAL (QREFELT $ 7)) 6)
               (10 . |leadingMonomial|) (|Union| 13 '"failed")
               (15 . |mainVariable|) (|SparseUnivariatePolynomial| $)
               (20 . |univariate|) (|SparseUnivariatePolynomial| 15)
               (26 . |leadingCoefficient|) (|Boolean|) (31 . |ground?|)
-              (|List| 13) (36 . |remove|) (|Polynomial| 6) (|PolToPol| 7 6)
-              (42 . |pToHdmp|) (|List| 27) |FGLMICPK;zeroDimensional?;LB;2|
-              (|List| 35) (|LinGroebnerPackage| 7 6) (47 . |totolex|)
-              (|DistributedMultivariatePolynomial| 7 6) (52 . |dmpToP|)
-              (|Union| 30 '"failed") |FGLMICPK;fglmIfCan;LU;3| (57 . |pToDmp|)
+              (|List| 13) (36 . |remove|) (|Polynomial| 6)
+              (|PolToPol| (NRTEVAL (QREFELT $ 7)) 6) (42 . |pToHdmp|)
+              (|List| 27) |FGLMICPK;zeroDimensional?;LB;2| (|List| 35)
+              (|LinGroebnerPackage| (NRTEVAL (QREFELT $ 7)) 6) (47 . |totolex|)
+              (|DistributedMultivariatePolynomial| (NRTEVAL (QREFELT $ 7)) 6)
+              (52 . |dmpToP|) (|Union| 30 '"failed") |FGLMICPK;fglmIfCan;LU;3|
+              (57 . |pToDmp|)
               (|GroebnerPackage| 6
                                  (|DirectProduct|
                                   (NRTEVAL (LENGTH (QREFELT $ 7)))

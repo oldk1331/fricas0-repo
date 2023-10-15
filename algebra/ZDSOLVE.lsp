@@ -1505,19 +1505,20 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|Symbol|) (|List| 9) (0 . |last|) '|news|
-              (|Union| $ '"failed") (|OrderedVariableList| 8) (5 . |variable|)
+              (|Union| $ '"failed")
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 8))) (5 . |variable|)
               '|newv| (|NewSparseMultivariatePolynomial| 6 14) (10 . |coerce|)
               '|newq| (|Boolean|) (|NewSparseMultivariatePolynomial| 6 26)
               (15 . |ground?|) (20 . |ground|) (25 . |coerce|) (30 . |Zero|)
-              (|OrderedVariableList| 7) (34 . |mvar|) (|NonNegativeInteger|)
-              (39 . |mdeg|) (44 . |convert|) (49 . |init|)
-              |ZDSOLVE;convert;NsmpNsmp;1| (54 . ^) (60 . *) (66 . +)
-              (72 . |tail|) (|List| 17)
+              (|OrderedVariableList| (NRTEVAL (QREFELT $ 7))) (34 . |mvar|)
+              (|NonNegativeInteger|) (39 . |mdeg|) (44 . |convert|)
+              (49 . |init|) |ZDSOLVE;convert;NsmpNsmp;1| (54 . ^) (60 . *)
+              (66 . +) (72 . |tail|) (|List| 17)
               (|SquareFreeRegularTriangularSet| 6 (|IndexedExponents| 14) 14
                                                 17)
-              (77 . |construct|) (|List| 21) (|RegularChain| 6 7)
-              (82 . |parts|) (87 . |infRittWu?|) (|Mapping| 20 17 17)
-              (93 . |sort|)
+              (77 . |construct|) (|List| 21)
+              (|RegularChain| 6 (NRTEVAL (QREFELT $ 7))) (82 . |parts|)
+              (87 . |infRittWu?|) (|Mapping| 20 17 17) (93 . |sort|)
               (|PolynomialSetUtilitiesPackage| 6 (|IndexedExponents| 14) 14 17)
               (99 . |irreducibleFactors|)
               (|Record| (|:| |val| 17) (|:| |tower| $)) (|List| 48)
@@ -1527,8 +1528,9 @@
               (|Record| (|:| |rnum| 6) (|:| |polnum| 17) (|:| |den| 6))
               (132 . |remainder|) (|List| 38) |ZDSOLVE;squareFree;RcL;2|
               (|Polynomial| 6) (138 . |convert|) (|List| 41)
-              (|LexTriangularPackage| 6 7) (143 . |zeroSetSplit|) (|List| $)
-              (149 . |zeroSetSplit|) (|List| 60) |ZDSOLVE;triangSolve;L2BL;3|
+              (|LexTriangularPackage| 6 (NRTEVAL (QREFELT $ 7)))
+              (143 . |zeroSetSplit|) (|List| $) (149 . |zeroSetSplit|)
+              (|List| 60) |ZDSOLVE;triangSolve;L2BL;3|
               |ZDSOLVE;triangSolve;LBL;4| |ZDSOLVE;triangSolve;LL;5|
               (|SparseUnivariatePolynomial| 6) (156 . |zero?|)
               (|SparseUnivariatePolynomial| 79) (161 . |Zero|)

@@ -124,7 +124,8 @@
 
 (MAKEPROP '|SparseTable| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|GeneralSparseTable| 6 7 (|Table| 6 7) 8)
+           '#(NIL NIL NIL NIL NIL
+              (|GeneralSparseTable| 6 7 (|Table| 6 7) (NRTEVAL (QREFELT $ 8)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|)
               (|Record| (|:| |key| 6) (|:| |entry| 7)) (|List| 9) (|List| 12)
               (|Equation| 9) (|Mapping| 9 9 9) (|Boolean|)

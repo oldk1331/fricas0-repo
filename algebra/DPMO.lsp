@@ -533,11 +533,11 @@
 
 (MAKEPROP '|DirectProductModule| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 8) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) '|Rep| (|Integer|) (0 . |elt|)
-              (6 . *) |DPMO;*;R2$;1| (|Boolean|) (|NonNegativeInteger|)
-              (|PositiveInteger|) (|List| 8) (|List| 19) (|Equation| 8)
-              (|Matrix| 10) (|Matrix| $)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 8)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (|Integer|)
+              (0 . |elt|) (6 . *) |DPMO;*;R2$;1| (|Boolean|)
+              (|NonNegativeInteger|) (|PositiveInteger|) (|List| 8) (|List| 19)
+              (|Equation| 8) (|Matrix| 10) (|Matrix| $)
               (|Record| (|:| |mat| 20) (|:| |vec| (|Vector| 10))) (|Vector| $)
               (|Symbol|) (|List| 24) (|List| 15) (|Union| 28 '#1="failed")
               (|Fraction| 10) (|Union| 10 '#1#) (|Union| $ '"failed")

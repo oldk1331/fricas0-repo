@@ -163,8 +163,9 @@
 
 (MAKEPROP '|InnerFreeAbelianMonoid| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|ListMonoidOps| 6 7 8) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) '|Rep| (0 . |makeUnit|)
+           '#(NIL NIL NIL NIL NIL (|ListMonoidOps| 6 7 (NRTEVAL (QREFELT $ 8)))
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep|
+              (0 . |makeUnit|)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |IFAMON;Zero;$;1|) $))
               (|Record| (|:| |gen| 6) (|:| |exp| 7)) (|List| 12)

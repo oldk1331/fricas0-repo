@@ -480,15 +480,18 @@
 
 (MAKEPROP '|GeneralUnivariatePowerSeries| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|UnivariatePuiseuxSeries| 6 7 8)
+           '#(NIL NIL NIL NIL NIL
+              (|UnivariatePuiseuxSeries| 6 (NRTEVAL (QREFELT $ 7))
+                                         (NRTEVAL (QREFELT $ 8)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|)
-              |GSERIES;coerce;Ups$;1| (0 . |differentiate|) (|Variable| 7)
-              (5 . |differentiate|) (|Symbol|) (11 . |variable|)
-              (16 . |center|) (21 . |differentiate|) (27 . |differentiate|)
-              (|Mapping| 6 6) (32 . |map|) (38 . *) (44 . -)
-              (50 . |differentiate|) (56 . |integrate|) (61 . |integrate|)
-              (|List| 13) (67 . |variables|) (|Boolean|) (72 . |entry?|)
-              (78 . |integrate|) (84 . |integrate|) (|Union| 6 (|List| 6))
+              |GSERIES;coerce;Ups$;1| (0 . |differentiate|)
+              (|Variable| (NRTEVAL (QREFELT $ 7))) (5 . |differentiate|)
+              (|Symbol|) (11 . |variable|) (16 . |center|)
+              (21 . |differentiate|) (27 . |differentiate|) (|Mapping| 6 6)
+              (32 . |map|) (38 . *) (44 . -) (50 . |differentiate|)
+              (56 . |integrate|) (61 . |integrate|) (|List| 13)
+              (67 . |variables|) (|Boolean|) (72 . |entry?|) (78 . |integrate|)
+              (84 . |integrate|) (|Union| 6 (|List| 6))
               (|FunctionSpaceIntegration| 37 6) (90 . |integrate|)
               (|NonNegativeInteger|) (|List| 34) (|Fraction| 37) (|Integer|)
               (|Union| $ '"failed")

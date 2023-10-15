@@ -196,16 +196,17 @@
 (MAKEPROP '|LieSquareMatrix| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|AssociatedLieAlgebra| 7 10) (|local| |#1|)
-              (|local| |#2|) '|Rep| '|n2| (|SquareMatrix| 6 7) (0 . |coerce|)
+              (|local| |#2|) '|Rep| '|n2|
+              (|SquareMatrix| (NRTEVAL (QREFELT $ 6)) 7) (0 . |coerce|)
               |LSQM;convert;Sm$;1| (5 . |Zero|) (|Integer|)
-              (|DirectProduct| 9 7) (9 . |elt|) (|Matrix| 7) (15 . |setelt!|)
-              (23 . |squareMatrix|) (28 . |qelt|) (|Vector| 7) (35 . |setelt!|)
-              (|Vector| $$) (42 . |elt|) (48 . |elt|) (54 . |One|) (|Boolean|)
-              (58 . =) (|Vector| $) |LSQM;coordinates;$VV;4|
-              (|PositiveInteger|) (64 . |unitVector|) (|List| $$)
-              (|Mapping| $$ 15) (|List| 15) (|ListFunctions2| 15 $$)
-              (69 . |map|) (75 . |vector|) |LSQM;basis;V;6|
-              |LSQM;someBasis;V;7| |LSQM;rank;Pi;8|
+              (|DirectProduct| (NRTEVAL (QREFELT $ 9)) 7) (9 . |elt|)
+              (|Matrix| 7) (15 . |setelt!|) (23 . |squareMatrix|) (28 . |qelt|)
+              (|Vector| 7) (35 . |setelt!|) (|Vector| $$) (42 . |elt|)
+              (48 . |elt|) (54 . |One|) (|Boolean|) (58 . =) (|Vector| $)
+              |LSQM;coordinates;$VV;4| (|PositiveInteger|) (64 . |unitVector|)
+              (|List| $$) (|Mapping| $$ 15) (|List| 15)
+              (|ListFunctions2| 15 $$) (69 . |map|) (75 . |vector|)
+              |LSQM;basis;V;6| |LSQM;someBasis;V;7| |LSQM;rank;Pi;8|
               (|SparseUnivariatePolynomial| (|Polynomial| 7)) (|InputForm|)
               (|NonNegativeInteger|) (|List| $) (|Union| $ '#1="failed")
               (|SparseUnivariatePolynomial| 7) (|List| 21)

@@ -521,11 +521,11 @@
               (|PrimitiveArray| 165) |FFCGP;getZechTable;Pa;2| (53 . |zero?|)
               |FFCGP;order;$Pi;3| |FFCGP;=;2$B;36| |FFCGP;primitive?;$B;4|
               (58 . |Zero|) (62 . |One|) (66 . |monomial|)
-              (|SimpleAlgebraicExtension| 6 10 7) (72 . |convert|) (77 . ^)
-              (|Vector| 6) (83 . |coordinates|) |FFCGP;coordinates;$V;5|
-              (88 . <=) |FFCGP;+;3$;6| (|FiniteFieldFunctions| 6)
-              (94 . |createZechTable|) (|Void|) (99 . |void|)
-              (|OnePointCompletion| 15) (103 . |extensionDegree|)
+              (|SimpleAlgebraicExtension| 6 10 (NRTEVAL (QREFELT $ 7)))
+              (72 . |convert|) (77 . ^) (|Vector| 6) (83 . |coordinates|)
+              |FFCGP;coordinates;$V;5| (88 . <=) |FFCGP;+;3$;6|
+              (|FiniteFieldFunctions| 6) (94 . |createZechTable|) (|Void|)
+              (99 . |void|) (|OnePointCompletion| 15) (103 . |extensionDegree|)
               |FFCGP;extensionDegree;Pi;29| (107 . ~=) (113 . *)
               |FFCGP;index;Pi$;32| (|Vector| $) |FFCGP;basis;PiV;8|
               (119 . |coerce|) |FFCGP;coerce;GF$;16| |FFCGP;*;3$;37|
@@ -538,7 +538,8 @@
               |FFCGP;factorsOfCyclicGroupSize;L;11|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
               |FFCGP;representationType;U;12| |FFCGP;definingPolynomial;Sup;13|
-              |FFCGP;random;$;14| (|FiniteFieldExtensionByPolynomial| 6 7)
+              |FFCGP;random;$;14|
+              (|FiniteFieldExtensionByPolynomial| 6 (NRTEVAL (QREFELT $ 7)))
               (173 . |represents|) (178 . |Zero|) (182 . =)
               (188 . |discreteLog|) |FFCGP;represents;V$;15| (193 . |zero?|)
               (|Union| 9 '"failed") (198 . |discreteLog|)

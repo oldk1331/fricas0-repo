@@ -190,12 +190,15 @@
 
 (MAKEPROP '|UnivariateSkewPolynomial| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|SparseUnivariateSkewPolynomial| 7 8 9)
+           '#(NIL NIL NIL NIL NIL
+              (|SparseUnivariateSkewPolynomial| 7 (NRTEVAL (QREFELT $ 8))
+                                                (NRTEVAL (QREFELT $ 9)))
               (|local| |#1|) (|local| |#2|) (|local| |#3|) (|local| |#4|)
               '|Rep| (|Automorphism| 7) (0 . |One|) (4 . |One|) (8 . |One|)
-              (|NonNegativeInteger|) (12 . |monomial|) (|Variable| 6)
-              |OREUP;coerce;V$;1| (|Symbol|) (|OutputForm|) (18 . |outputForm|)
-              (23 . |outputForm|) |OREUP;coerce;$Of;2|
+              (|NonNegativeInteger|) (12 . |monomial|)
+              (|Variable| (NRTEVAL (QREFELT $ 6))) |OREUP;coerce;V$;1|
+              (|Symbol|) (|OutputForm|) (18 . |outputForm|) (23 . |outputForm|)
+              |OREUP;coerce;$Of;2|
               (|Record| (|:| |mat| 27) (|:| |vec| (|Vector| 28))) (|Matrix| $)
               (|Vector| $) (|Matrix| 28) (|Integer|) (|Boolean|)
               (|Union| $ '"failed")

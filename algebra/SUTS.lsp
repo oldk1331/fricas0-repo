@@ -1219,9 +1219,10 @@
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |SUTS;One;$;7|) $))
               (|Union| $ '"failed") (|Boolean|) (20 . |iExquo|)
               |SUTS;recip;$U;8| (27 . |exquo|) (33 . |taylorQuoByVar|)
-              |SUTS;quoByVar;2$;10| (38 . |differentiate|) (|Variable| 7)
-              |SUTS;differentiate;$V$;11| (43 . |zero?|) (48 . +)
-              |SUTS;coerce;V$;12| (|UnivariatePolynomial| 7 6) (54 . |zero?|)
+              |SUTS;quoByVar;2$;10| (38 . |differentiate|)
+              (|Variable| (NRTEVAL (QREFELT $ 7))) |SUTS;differentiate;$V$;11|
+              (43 . |zero?|) (48 . +) |SUTS;coerce;V$;12|
+              (|UnivariatePolynomial| (NRTEVAL (QREFELT $ 7)) 6) (54 . |zero?|)
               (59 . |monomial|) (65 . +) (71 . |elt|)
               (|Record| (|:| |k| 10) (|:| |c| 6)) (|Stream| 38) (77 . |empty|)
               (81 . |degree|) (86 . |leadingCoefficient|) (91 . |concat|)

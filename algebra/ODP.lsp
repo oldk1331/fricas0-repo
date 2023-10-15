@@ -575,10 +575,10 @@
 
 (MAKEPROP '|OrderedDirectProduct| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|DirectProduct| 6 7) (|local| |#1|)
-              (|local| |#2|) (|local| |#3|) '|Rep| (|Boolean|) |ODP;<;2$B;1|
-              (|NonNegativeInteger|) (|PositiveInteger|) (|List| 7)
-              (|Equation| 7) (|List| 15)
+           '#(NIL NIL NIL NIL NIL (|DirectProduct| (NRTEVAL (QREFELT $ 6)) 7)
+              (|local| |#1|) (|local| |#2|) (|local| |#3|) '|Rep| (|Boolean|)
+              |ODP;<;2$B;1| (|NonNegativeInteger|) (|PositiveInteger|)
+              (|List| 7) (|Equation| 7) (|List| 15)
               (|Record| (|:| |mat| 20) (|:| |vec| (|Vector| 26))) (|Matrix| $)
               (|Vector| $) (|Matrix| 26) (|List| 23) (|List| 12) (|Symbol|)
               (|Union| 25 '#1="failed") (|Fraction| 26) (|Integer|)

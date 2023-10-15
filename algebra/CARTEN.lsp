@@ -1348,10 +1348,11 @@
                     (FUNCALL (|dispatchFunction| |CARTEN;Zero;$;25|) $))
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |CARTEN;One;$;26|) $))
-              (|DirectProduct| 7 8) (124 . |minIndex|) (129 . |maxIndex|)
-              (134 . |elt|) |CARTEN;coerce;Dp$;28| (|SquareMatrix| 7 8)
-              (140 . |elt|) |CARTEN;coerce;Sm$;29| (147 . ~=) |CARTEN;=;2$B;30|
-              (153 . +) |CARTEN;+;3$;31| (159 . -) |CARTEN;-;3$;32| (165 . -)
+              (|DirectProduct| (NRTEVAL (QREFELT $ 7)) 8) (124 . |minIndex|)
+              (129 . |maxIndex|) (134 . |elt|) |CARTEN;coerce;Dp$;28|
+              (|SquareMatrix| (NRTEVAL (QREFELT $ 7)) 8) (140 . |elt|)
+              |CARTEN;coerce;Sm$;29| (147 . ~=) |CARTEN;=;2$B;30| (153 . +)
+              |CARTEN;+;3$;31| (159 . -) |CARTEN;-;3$;32| (165 . -)
               |CARTEN;-;2$;33| (170 . *) |CARTEN;*;I2$;34| |CARTEN;*;$I$;35|
               (176 . *) |CARTEN;*;R2$;36| |CARTEN;*;$R$;37|
               |CARTEN;product;3$;38| |CARTEN;contract;$I$I$;41|

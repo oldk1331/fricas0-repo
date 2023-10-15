@@ -266,16 +266,17 @@
 
 (MAKEPROP '|InnerPrimeField| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|IntegerMod| 6) (|local| |#1|)
-              '|primitiveElt| '|sizeCG| '|facOfGroupSize| '|initlog?|
-              '|initelt?| (|Table| 45 47) (0 . |table|) '|discLogTable|
-              (4 . |One|) |IPF;generator;$;1| (|Boolean|) (8 . |zero?|)
-              (13 . |Zero|) (|Integer|) (17 . |positiveRemainder|)
-              (|NonNegativeInteger|) (23 . ^) |IPF;^;$I$;2| (29 . <=) '#:G108
-              (|SingleInteger|) (35 . |coerce|) '|q| |IPF;convert;$I;5|
-              (40 . |invmod|) (46 . |coerce|) (|Union| $ '"failed")
-              (51 . |recip|) (56 . |invmod|) |IPF;normalElement;$;6|
-              |IPF;createNormalElement;$;7| |IPF;characteristic;Nni;8|
+           '#(NIL NIL NIL NIL NIL (|IntegerMod| (NRTEVAL (QREFELT $ 6)))
+              (|local| |#1|) '|primitiveElt| '|sizeCG| '|facOfGroupSize|
+              '|initlog?| '|initelt?| (|Table| 45 47) (0 . |table|)
+              '|discLogTable| (4 . |One|) |IPF;generator;$;1| (|Boolean|)
+              (8 . |zero?|) (13 . |Zero|) (|Integer|)
+              (17 . |positiveRemainder|) (|NonNegativeInteger|) (23 . ^)
+              |IPF;^;$I$;2| (29 . <=) '#:G108 (|SingleInteger|) (35 . |coerce|)
+              '|q| |IPF;convert;$I;5| (40 . |invmod|) (46 . |coerce|)
+              (|Union| $ '"failed") (51 . |recip|) (56 . |invmod|)
+              |IPF;normalElement;$;6| |IPF;createNormalElement;$;7|
+              |IPF;characteristic;Nni;8|
               (|Record| (|:| |factor| 20) (|:| |exponent| 20)) (|List| 39)
               |IPF;factorsOfCyclicGroupSize;L;9|
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
