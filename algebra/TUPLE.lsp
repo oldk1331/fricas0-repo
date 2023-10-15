@@ -6,9 +6,9 @@
 
 (SDEFUN |TUPLE;coerce;$Pa;2| ((|x| $) ($ |PrimitiveArray| S)) (QCDR |x|)) 
 
-(PUT '|TUPLE;length;$Nni;3| '|SPADreplace| 'QCAR) 
+(PUT '|TUPLE;#;$Nni;3| '|SPADreplace| 'QCAR) 
 
-(SDEFUN |TUPLE;length;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (QCAR |x|)) 
+(SDEFUN |TUPLE;#;$Nni;3| ((|x| $) ($ |NonNegativeInteger|)) (QCAR |x|)) 
 
 (SDEFUN |TUPLE;select;$NniS;4| ((|x| $) (|n| |NonNegativeInteger|) ($ S))
         (COND ((>= |n| (QCAR |x|)) (|error| "Index out of bounds"))
@@ -96,13 +96,12 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
               (|PrimitiveArray| 6) |TUPLE;coerce;Pa$;1| |TUPLE;coerce;$Pa;2|
-              (|NonNegativeInteger|) |TUPLE;length;$Nni;3|
-              |TUPLE;select;$NniS;4| (|Boolean|) (0 . =) (6 . =) (|Integer|)
-              (12 . |maxIndex|) (|OutputForm|) (17 . |coerce|) (|List| $)
-              (22 . |paren|) (27 . |coerce|) (|HashState|) (|String|)
-              (|SingleInteger|))
-           '#(~= 32 |select| 38 |length| 44 |latex| 49 |hashUpdate!| 54 |hash|
-              60 |coerce| 65 = 80)
+              (|NonNegativeInteger|) |TUPLE;#;$Nni;3| |TUPLE;select;$NniS;4|
+              (|Boolean|) (0 . =) (6 . =) (|Integer|) (12 . |maxIndex|)
+              (|OutputForm|) (17 . |coerce|) (|List| $) (22 . |paren|)
+              (27 . |coerce|) (|HashState|) (|String|) (|SingleInteger|))
+           '#(~= 32 |select| 38 |latex| 44 |hashUpdate!| 49 |hash| 55 |coerce|
+              60 = 75 |#| 81)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(1 0 1 2))
                  (CONS '#(|SetCategory&| NIL |BasicType&| NIL)
@@ -113,8 +112,8 @@
                                             '(2 8 14 0 0 15 2 0 14 0 0 16 1 8
                                               17 0 18 1 6 19 0 20 1 19 0 21 22
                                               1 0 19 0 23 2 1 14 0 0 1 2 0 6 0
-                                              11 13 1 0 11 0 12 1 1 25 0 1 2 1
-                                              24 24 0 1 1 1 26 0 1 1 2 19 0 23
-                                              1 0 0 8 9 1 0 8 0 10 2 1 14 0 0
-                                              16)))))
+                                              11 13 1 1 25 0 1 2 1 24 24 0 1 1
+                                              1 26 0 1 1 2 19 0 23 1 0 0 8 9 1
+                                              0 8 0 10 2 1 14 0 0 16 1 0 11 0
+                                              12)))))
            '|lookupComplete|)) 
