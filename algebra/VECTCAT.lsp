@@ -59,10 +59,6 @@
                                                ((|length| (|t#1| $))
                                                 (AND (|has| |t#1| (|Ring|))
                                                      (|has| |t#1|
-                                                            (|RadicalCategory|))))
-                                               ((|magnitude| (|t#1| $))
-                                                (AND (|has| |t#1| (|Ring|))
-                                                     (|has| |t#1|
                                                             (|RadicalCategory|)))))
                                              NIL
                                              '((|Matrix| |t#1|) (|Integer|)

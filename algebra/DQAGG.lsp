@@ -27,11 +27,7 @@
                                            (|Join| (|StackAggregate| '|t#1|)
                                                    (|QueueAggregate| '|t#1|)
                                                    (|mkCategory|
-                                                    '(((|height|
-                                                        ((|NonNegativeInteger|)
-                                                         $))
-                                                       T)
-                                                      ((|bottom| (|t#1| $)) T)
+                                                    '(((|bottom| (|t#1| $)) T)
                                                       ((|insertTop!|
                                                         (|t#1| |t#1| $))
                                                        T)
@@ -45,9 +41,7 @@
                                                         (|t#1| $))
                                                        T)
                                                       ((|reverse!| ($ $)) T))
-                                                    NIL
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL 'NIL NIL))
                                            . #2=(|DequeueAggregate|)))))
                    . #2#)
            (SETELT #1# 0 (LIST '|DequeueAggregate| (|devaluate| |t#1|)))))) 

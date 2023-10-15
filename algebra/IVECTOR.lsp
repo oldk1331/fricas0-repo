@@ -128,10 +128,10 @@
            '#(NIL NIL NIL NIL NIL (|IndexedOneDimensionalArray| 6 7)
               (|local| |#1|) (|local| |#2|) (|Mapping| 12 6 6) (|Integer|)
               (|Mapping| 6 6 6) (|NonNegativeInteger|) (|Boolean|) (|List| 6)
-              (|Equation| 6) (|List| 14) (|OutputForm|) (|HashState|)
-              (|SingleInteger|) (|String|) (|Mapping| 12 6)
-              (|UniversalSegment| 9) (|Void|) (|Mapping| 6 6) (|InputForm|)
-              (|Matrix| 6) (|List| $) (|Union| 6 '"failed") (|List| 9))
+              (|Equation| 6) (|List| 14) (|OutputForm|) (|SingleInteger|)
+              (|String|) (|HashState|) (|Mapping| 12 6) (|UniversalSegment| 9)
+              (|Void|) (|Mapping| 6 6) (|InputForm|) (|Matrix| 6) (|List| $)
+              (|Union| 6 '"failed") (|List| 9))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 12

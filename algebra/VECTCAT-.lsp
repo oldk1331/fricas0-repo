@@ -168,9 +168,6 @@
 (SDEFUN |VECTCAT-;length;SR;12| ((|p| S) ($ R))
         (SPADCALL (SPADCALL |p| |p| (QREFELT $ 46)) (QREFELT $ 47))) 
 
-(SDEFUN |VECTCAT-;magnitude;SR;13| ((|p| S) ($ R))
-        (SPADCALL (SPADCALL |p| |p| (QREFELT $ 46)) (QREFELT $ 47))) 
-
 (DECLAIM (NOTINLINE |VectorCategory&;|)) 
 
 (DEFUN |VectorCategory&| (|#1| |#2|)
@@ -179,7 +176,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|VectorCategory&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|VectorCategory&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 50) . #1#)
+          (LETT $ (GETREFV 49) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -242,12 +239,9 @@
            ((|testBitVector| |pv$| 1)
             (COND
              ((|testBitVector| |pv$| 2)
-              (PROGN
-               (QSETREFV $ 48
-                         (CONS (|dispatchFunction| |VECTCAT-;length;SR;12|) $))
-               (QSETREFV $ 49
-                         (CONS (|dispatchFunction| |VECTCAT-;magnitude;SR;13|)
-                               $)))))))
+              (QSETREFV $ 48
+                        (CONS (|dispatchFunction| |VECTCAT-;length;SR;12|)
+                              $))))))
           $))) 
 
 (MAKEPROP '|VectorCategory&| '|infovec|
@@ -261,14 +255,14 @@
               (111 . -) (117 . *) (123 . *) (129 . *) (135 . |dot|) (|List| 43)
               (|Matrix| 7) (141 . |matrix|) (146 . |outerProduct|) (152 . -)
               (|List| 7) (158 . |construct|) (163 . |cross|) (169 . |dot|)
-              (175 . |sqrt|) (180 . |length|) (185 . |magnitude|))
-           '#(|zero?| 190 |zero| 195 |outerProduct| 200 |magnitude| 206
-              |length| 211 |dot| 216 |cross| 222 - 228 + 239 * 245)
+              (175 . |sqrt|) (180 . |length|))
+           '#(|zero?| 185 |zero| 190 |outerProduct| 195 |length| 201 |dot| 206
+              |cross| 212 - 218 + 229 * 235)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 49
+                             (|makeByteWordVec2| 48
                                                  '(1 6 8 0 9 2 11 10 0 0 12 2 7
                                                    0 0 0 13 3 6 0 14 0 0 15 2 0
                                                    0 0 0 16 0 7 0 17 2 6 0 8 7
@@ -283,12 +277,11 @@
                                                    0 0 37 1 39 0 38 40 2 0 39 0
                                                    0 41 2 7 0 0 0 42 1 6 0 43
                                                    44 2 0 0 0 0 45 2 6 7 0 0 46
-                                                   1 7 0 0 47 1 0 7 0 48 1 0 7
-                                                   0 49 1 0 10 0 24 1 0 0 8 19
-                                                   2 0 39 0 0 41 1 0 7 0 49 1 0
-                                                   7 0 48 2 0 7 0 0 37 2 0 0 0
-                                                   0 45 2 0 0 0 0 33 1 0 0 0 28
-                                                   2 0 0 0 0 16 2 0 0 0 7 35 2
-                                                   0 0 7 0 36 2 0 0 11 0
+                                                   1 7 0 0 47 1 0 7 0 48 1 0 10
+                                                   0 24 1 0 0 8 19 2 0 39 0 0
+                                                   41 1 0 7 0 48 2 0 7 0 0 37 2
+                                                   0 0 0 0 45 1 0 0 0 28 2 0 0
+                                                   0 0 33 2 0 0 0 0 16 2 0 0 7
+                                                   0 36 2 0 0 0 7 35 2 0 0 11 0
                                                    30)))))
            '|lookupComplete|)) 

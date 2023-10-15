@@ -78,7 +78,7 @@
     (LETT DV$7 (|devaluate| |#7|) . #1#)
     (LETT |dv$| (LIST '|MPolyCatFunctions2| DV$1 DV$2 DV$3 DV$4 DV$5 DV$6 DV$7)
           . #1#)
-    (LETT $ (GETREFV 37) . #1#)
+    (LETT $ (GETREFV 36) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|MPolyCatFunctions2|
@@ -106,18 +106,18 @@
               (38 . |degree|) (43 . |reductum|) (48 . +) (|Union| 6 '"failed")
               (54 . |mainVariable|) (59 . |retract|)
               (|SparseUnivariatePolynomial| $) (64 . |univariate|)
-              (70 . |multivariate|) (|List| 10))
-           '#(|reshape| 76 |map| 82) 'NIL
+              (70 . |multivariate|))
+           '#(|map| 76) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 36
+                             (|makeByteWordVec2| 35
                                                  '(0 7 0 13 0 8 0 14 0 15 0 16
                                                    2 15 17 0 0 18 0 9 0 19 1 12
                                                    0 10 20 2 22 0 12 21 23 1 15
                                                    11 0 24 1 15 21 0 27 1 15 0
                                                    0 28 2 22 0 0 0 29 1 11 30 0
                                                    31 1 11 9 0 32 2 11 33 0 6
-                                                   34 2 12 0 33 6 35 2 0 12 36
-                                                   11 1 2 0 12 25 11 26)))))
+                                                   34 2 12 0 33 6 35 2 0 12 25
+                                                   11 26)))))
            '|lookupComplete|)) 

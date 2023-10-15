@@ -32,15 +32,9 @@
                                                       ((|dequeue!| (|t#1| $))
                                                        T)
                                                       ((|rotate!| ($ $)) T)
-                                                      ((|length|
-                                                        ((|NonNegativeInteger|)
-                                                         $))
-                                                       T)
                                                       ((|front| (|t#1| $)) T)
                                                       ((|back| (|t#1| $)) T))
-                                                    NIL
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                    NIL 'NIL NIL))
                                            . #2=(|QueueAggregate|)))))
                    . #2#)
            (SETELT #1# 0 (LIST '|QueueAggregate| (|devaluate| |t#1|)))))) 

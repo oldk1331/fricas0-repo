@@ -30,14 +30,8 @@
                                                         (|t#1| |t#1| $))
                                                        T)
                                                       ((|pop!| (|t#1| $)) T)
-                                                      ((|top| (|t#1| $)) T)
-                                                      ((|depth|
-                                                        ((|NonNegativeInteger|)
-                                                         $))
-                                                       T))
-                                                    NIL
-                                                    '((|NonNegativeInteger|))
-                                                    NIL))
+                                                      ((|top| (|t#1| $)) T))
+                                                    NIL 'NIL NIL))
                                            . #2=(|StackAggregate|)))))
                    . #2#)
            (SETELT #1# 0 (LIST '|StackAggregate| (|devaluate| |t#1|)))))) 

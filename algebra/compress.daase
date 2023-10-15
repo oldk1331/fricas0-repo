@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4873 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4872 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -468,7 +468,7 @@
  |resultantSet| |principalSubResultantSet| |specialise| |squareFreeBasis|
  |generalizedContinuumHypothesisAssumed|
  |generalizedContinuumHypothesisAssumed?| |countable?| |Aleph| |unravel|
- |ravel| |leviCivitaSymbol| |kroneckerDelta| |reindex| |alphanumeric|
+ |ravel| |leviCivitaSymbol| |kroneckerDelta| |reindex| |reshape| |alphanumeric|
  |alphabetic| |hexDigit| |digit| |charClass| |simpleCells| |projection|
  |variablesOf| |mainVariableOf| |makeCell| |alphanumeric?| |lowerCase?|
  |upperCase?| |alphabetic?| |hexDigit?| |digit?| |newline| |escape| |char|
@@ -753,13 +753,13 @@
  |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
  |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant|
  |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
- |reshape| |totalfract| |pushdterm| |pushucoef| |pushuconst|
- |numberOfMonomials| |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1|
- |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0|
- |members| |multiset| |systemCommand| |mergeDifference| |logDependenceQ|
- |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose|
- |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |commutator| |associator|
- |antiCommutator| |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
+ |totalfract| |pushdterm| |pushucoef| |pushuconst| |numberOfMonomials|
+ |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1| |mrv_sign| |mrv_cmp|
+ |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0| |members| |multiset|
+ |systemCommand| |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd|
+ |univcase| |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree|
+ |normDeriv2| |plenaryPower| |commutator| |associator| |antiCommutator|
+ |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
  |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
  |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
  |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
@@ -811,8 +811,8 @@
  |addMatch| |getMatch| |failed| |failed?| |optpair| |getBadValues|
  |resetBadValues| |hasTopPredicate?| |topPredicate| |setTopPredicate|
  |patternVariable| |withPredicates| |setPredicates| |predicates|
- |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?| |inR?| |isList|
- |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue| |badValues|
+ |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?| |inR?| |depth|
+ |isList| |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue| |badValues|
  |retractable?| |listOfTerms| |One| |leftFactor| |rightFactorCandidate|
  |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
  |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
@@ -981,7 +981,7 @@
  |unrankImproperPartitions1| |subresultantSequence| |SturmHabichtSequence|
  |SturmHabichtCoefficients| |SturmHabicht| |countRealRoots|
  |SturmHabichtMultiple| |countRealRootsMultiple| |Or| |And| |Not| |xor| |not|
- |qconvert| ~ |/\\| |\\/| |depth| |top| |pop!| |push!| |redux| |freeVariable?|
+ |qconvert| ~ |/\\| |\\/| |top| |pop!| |push!| |redux| |freeVariable?|
  |getVariable| |isS?| |isK?| |isI?| |variable?| |atom?| |getChildren|
  |parseTerm| |parseSki| S K I |ski| |Delta| D |Pfaffian| |minordet|
  |determinant| |diagonalProduct| |trace| |diagonal| |diagonalMatrix|
@@ -1099,8 +1099,8 @@
  LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
  |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
  |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |magnitude| |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector|
- |scan| |reduce| |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale|
+ |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan|
+ |reduce| |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale|
  |connect| |region| |points| |units| |getGraph| |putGraph| |graphs|
  |graphStates| |graphState| |makeViewport2D| |viewport2D| |getPickedPoints|
  |key| |close| |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|

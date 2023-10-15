@@ -148,7 +148,7 @@
               (10 . |parts|) (15 . |convert|) (|List| $) (20 . |convert|)
               (25 . |convert|) (|Mapping| 24 6 6) (|Mapping| 6 6 6)
               (|NonNegativeInteger|) (|Boolean|) (|Equation| 6) (|List| 25)
-              (|OutputForm|) (|SingleInteger|) (|HashState|) (|String|)
+              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
               (|Mapping| 24 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
               (|Matrix| 6) (|Union| 6 '"failed") (|List| 7))
            '#(|vector| 30 |qsetelt!| 35 |qelt| 42 |parts| 48 |convert| 53

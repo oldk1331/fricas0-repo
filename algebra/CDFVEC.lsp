@@ -236,7 +236,7 @@
               |CDFVEC;new;NniC$;7| |CDFVEC;elt;$IC;9| |CDFVEC;setelt!;$I2C;11|
               (|List| 6) (|Equation| 6) (|List| 20) (|Mapping| 6 6 6)
               (|Boolean|) (|Mapping| 23 6 6) (|OutputForm|) (|SingleInteger|)
-              (|String|) (|HashState|) (|InputForm|) (|Matrix| 6)
+              (|HashState|) (|String|) (|InputForm|) (|Matrix| 6)
               (|Mapping| 23 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
               (|List| $) (|Union| 6 '"failed") (|List| 7))
            '#(~= 0 |zero?| 6 |zero| 11 |vector| 16 |swap!| 21 |sorted?| 28
@@ -246,14 +246,14 @@
               |qnew| 152 |qelt| 157 |position| 163 |parts| 182 |outerProduct|
               187 |new| 193 |more?| 199 |minIndex| 205 |min| 210 |merge| 216
               |members| 229 |member?| 234 |maxIndex| 240 |max| 245 |map!| 251
-              |map| 257 |magnitude| 270 |less?| 275 |length| 281 |latex| 286
-              |insert| 291 |indices| 305 |index?| 310 |hashUpdate!| 316 |hash|
-              322 |first| 327 |find| 332 |fill!| 338 |every?| 344 |eval| 350
-              |eq?| 376 |entry?| 382 |entries| 388 |empty?| 393 |empty| 398
-              |elt| 402 |dot| 421 |delete| 427 |cross| 439 |count| 445
-              |copyInto!| 457 |copy| 464 |convert| 469 |construct| 474 |concat|
-              479 |coerce| 502 |any?| 507 >= 513 > 519 = 525 <= 531 < 537 - 543
-              + 554 * 560 |#| 578)
+              |map| 257 |less?| 270 |length| 276 |latex| 281 |insert| 286
+              |indices| 300 |index?| 305 |hashUpdate!| 311 |hash| 317 |first|
+              322 |find| 327 |fill!| 333 |every?| 339 |eval| 345 |eq?| 371
+              |entry?| 377 |entries| 383 |empty?| 388 |empty| 393 |elt| 397
+              |dot| 416 |delete| 422 |cross| 434 |count| 440 |copyInto!| 452
+              |copy| 459 |convert| 464 |construct| 469 |concat| 474 |coerce|
+              497 |any?| 502 >= 508 > 514 = 520 <= 526 < 532 - 538 + 549 * 555
+              |#| 573)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -289,23 +289,22 @@
                                     12 2 26 0 0 0 1 2 26 0 0 0 1 3 21 0 24 0 0
                                     1 1 21 19 0 1 2 23 23 6 0 1 1 5 7 0 1 2 26
                                     0 0 0 1 2 20 0 34 0 1 3 0 0 22 0 0 1 2 0 0
-                                    34 0 1 1 19 6 0 1 2 0 23 0 10 1 1 19 6 0 1
-                                    1 28 27 0 1 3 0 0 0 0 7 1 3 0 0 6 0 7 1 1 0
-                                    37 0 1 2 0 23 7 0 1 2 28 28 28 0 1 1 28 26
-                                    0 1 1 5 6 0 1 2 0 36 31 0 1 2 20 0 0 6 15 2
-                                    21 23 31 0 1 3 4 0 0 19 19 1 2 4 0 0 20 1 3
-                                    4 0 0 6 6 1 2 4 0 0 21 1 2 0 23 0 0 1 2 22
-                                    23 6 0 1 1 0 19 0 1 1 0 23 0 1 0 0 0 13 2 0
-                                    0 0 32 1 3 0 6 0 7 6 1 2 0 6 0 7 17 2 17 6
-                                    0 0 1 2 0 0 0 32 1 2 0 0 0 7 1 2 18 0 0 0 1
-                                    2 23 10 6 0 1 2 21 10 31 0 1 3 24 0 0 0 7 1
-                                    1 0 0 0 1 1 2 29 0 1 1 0 0 19 1 1 0 0 35 1
-                                    2 0 0 0 0 1 2 0 0 0 6 1 2 0 0 6 0 1 1 29 25
-                                    0 1 2 21 23 31 0 1 2 26 23 0 0 1 2 26 23 0
-                                    0 1 2 30 23 0 0 1 2 26 23 0 0 1 2 26 23 0 0
-                                    1 1 15 0 0 1 2 15 0 0 0 1 2 13 0 0 0 1 2 15
-                                    0 7 0 1 2 16 0 6 0 1 2 16 0 0 6 1 1 21 10 0
-                                    11)))))
+                                    34 0 1 2 0 23 0 10 1 1 19 6 0 1 1 28 28 0 1
+                                    3 0 0 0 0 7 1 3 0 0 6 0 7 1 1 0 37 0 1 2 0
+                                    23 7 0 1 2 28 27 27 0 1 1 28 26 0 1 1 5 6 0
+                                    1 2 0 36 31 0 1 2 20 0 0 6 15 2 21 23 31 0
+                                    1 3 4 0 0 19 19 1 2 4 0 0 20 1 3 4 0 0 6 6
+                                    1 2 4 0 0 21 1 2 0 23 0 0 1 2 22 23 6 0 1 1
+                                    0 19 0 1 1 0 23 0 1 0 0 0 13 2 0 0 0 32 1 3
+                                    0 6 0 7 6 1 2 0 6 0 7 17 2 17 6 0 0 1 2 0 0
+                                    0 32 1 2 0 0 0 7 1 2 18 0 0 0 1 2 23 10 6 0
+                                    1 2 21 10 31 0 1 3 24 0 0 0 7 1 1 0 0 0 1 1
+                                    2 29 0 1 1 0 0 19 1 1 0 0 35 1 2 0 0 0 0 1
+                                    2 0 0 0 6 1 2 0 0 6 0 1 1 29 25 0 1 2 21 23
+                                    31 0 1 2 26 23 0 0 1 2 26 23 0 0 1 2 30 23
+                                    0 0 1 2 26 23 0 0 1 2 26 23 0 0 1 2 15 0 0
+                                    0 1 1 15 0 0 1 2 13 0 0 0 1 2 15 0 7 0 1 2
+                                    16 0 0 6 1 2 16 0 6 0 1 1 21 10 0 11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ComplexDoubleFloatVector| 'NILADIC T) 
