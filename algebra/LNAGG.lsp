@@ -53,6 +53,9 @@
                                                    (|UniversalSegment|
                                                     (|Integer|))))
                                                  T)
+                                                ((|first|
+                                                  ($ $ (|NonNegativeInteger|)))
+                                                 T)
                                                 ((|insert|
                                                   ($ |t#1| $ (|Integer|)))
                                                  T)
@@ -177,8 +180,8 @@
                                               '((|Integer|) (|Boolean|)
                                                 (|UniversalSegment|
                                                  (|Integer|))
-                                                (|List| $)
-                                                (|NonNegativeInteger|))
+                                                (|NonNegativeInteger|)
+                                                (|List| $))
                                               NIL))
                                             . #4=(|LinearAggregate|))))))
                    . #4#)
