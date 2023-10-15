@@ -122,9 +122,9 @@
               549 |empty?| 555 |empty| 560 |degree| 564 |count| 569 |copy| 581
               |convert| 586 |construct| 591 |collectUpper| 596 |collectUnder|
               602 |collectQuasiMonic| 608 |collect| 613 |coerce| 619 |coHeight|
-              634 |basicSet| 639 |autoReduced?| 652 |augment| 658 |any?| 682
-              |algebraicVariables| 688 |algebraicCoefficients?| 693
-              |algebraic?| 699 = 705 |#| 711)
+              629 |basicSet| 634 |autoReduced?| 647 |augment| 653 |any?| 677
+              |algebraicVariables| 683 |algebraicCoefficients?| 688
+              |algebraic?| 694 = 700 |#| 706)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
@@ -225,11 +225,11 @@
                                          0 12 0 1 0 0 0 1 1 0 13 0 1 2 8 13 11
                                          0 1 2 7 13 16 0 1 1 0 0 0 1 1 2 15 0 1
                                          1 0 0 10 1 2 0 0 0 29 1 2 0 0 0 29 1 1
-                                         0 0 0 1 2 0 0 0 29 1 1 0 10 0 1 1 0 10
-                                         0 1 1 0 41 0 1 1 5 13 0 1 2 0 37 10 33
-                                         1 3 0 37 10 16 33 1 2 0 12 0 34 1 2 0
-                                         20 10 20 1 2 0 20 11 20 1 2 0 20 10 0
-                                         1 2 0 20 11 0 1 2 7 12 16 0 1 1 0 30 0
-                                         1 2 0 12 11 0 1 2 0 12 29 0 1 2 0 12 0
-                                         0 1 1 7 13 0 1)))))
+                                         0 0 0 1 2 0 0 0 29 1 1 0 10 0 1 1 0 41
+                                         0 1 1 5 13 0 1 2 0 37 10 33 1 3 0 37
+                                         10 16 33 1 2 0 12 0 34 1 2 0 20 10 20
+                                         1 2 0 20 11 20 1 2 0 20 10 0 1 2 0 20
+                                         11 0 1 2 7 12 16 0 1 1 0 30 0 1 2 0 12
+                                         11 0 1 2 0 12 29 0 1 2 0 12 0 0 1 1 7
+                                         13 0 1)))))
            '|lookupComplete|)) 

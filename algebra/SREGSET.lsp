@@ -1046,9 +1046,9 @@
               919 |empty?| 925 |empty| 930 |degree| 934 |count| 939 |copy| 951
               |convert| 956 |construct| 961 |collectUpper| 966 |collectUnder|
               972 |collectQuasiMonic| 978 |collect| 983 |coerce| 989 |coHeight|
-              1004 |basicSet| 1009 |autoReduced?| 1022 |augment| 1028 |any?|
-              1052 |algebraicVariables| 1058 |algebraicCoefficients?| 1063
-              |algebraic?| 1069 = 1075 |#| 1081)
+              999 |basicSet| 1004 |autoReduced?| 1017 |augment| 1023 |any?|
+              1047 |algebraicVariables| 1053 |algebraicCoefficients?| 1058
+              |algebraic?| 1064 = 1070 |#| 1076)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
@@ -1131,11 +1131,10 @@
                                          2 8 56 9 0 1 2 7 56 126 0 1 1 0 0 0 12
                                          1 2 139 0 1 1 0 0 10 20 2 0 0 0 8 42 2
                                          0 0 0 8 44 1 0 0 0 1 2 0 0 0 8 1 1 0
-                                         10 0 40 1 0 10 0 40 1 0 27 0 31 1 5 56
-                                         0 1 2 0 149 10 46 1 3 0 149 10 126 46
-                                         1 2 0 14 0 146 1 2 0 29 10 0 1 2 0 29
-                                         10 29 1 2 0 29 9 0 55 2 0 29 9 29 1 2
-                                         7 14 126 0 1 1 0 143 0 1 2 0 14 9 0 1
-                                         2 0 14 8 0 62 2 0 14 0 0 1 1 7 56 0
-                                         1)))))
+                                         10 0 40 1 0 27 0 31 1 5 56 0 1 2 0 149
+                                         10 46 1 3 0 149 10 126 46 1 2 0 14 0
+                                         146 1 2 0 29 10 0 1 2 0 29 10 29 1 2 0
+                                         29 9 0 55 2 0 29 9 29 1 2 7 14 126 0 1
+                                         1 0 143 0 1 2 0 14 9 0 1 2 0 14 8 0 62
+                                         2 0 14 0 0 1 1 7 56 0 1)))))
            '|lookupComplete|)) 

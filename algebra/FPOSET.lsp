@@ -141,10 +141,10 @@
               |diagramHeight| 441 |deepDiagramSvg| 446 |cycleOpen| 453
               |cycleClosed| 459 |createY| 465 |createX| 471 |createWidth| 477
               |coverMatrix| 482 |completeTransitivity| 487
-              |completeReflexivity| 492 |coerce| 497 |arrowsToNode| 507
-              |arrowsToArrow| 513 |arrowsFromNode| 519 |arrowsFromArrow| 525
-              |arrowName| 531 |adjacencyMatrix| 538 |addObject!| 543
-              |addArrow!| 555 = 593 + 599)
+              |completeReflexivity| 492 |coerce| 497 |arrowsToNode| 502
+              |arrowsToArrow| 508 |arrowsFromNode| 514 |arrowsFromArrow| 520
+              |arrowName| 526 |adjacencyMatrix| 533 |addObject!| 538
+              |addArrow!| 550 = 588 + 594)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0))
                  (CONS
@@ -183,11 +183,11 @@
                                          25 0 20 1 1 0 21 0 1 3 0 15 25 0 20 1
                                          2 0 0 8 25 1 2 0 0 8 25 1 2 0 21 21 21
                                          1 2 0 21 21 21 1 1 0 21 21 1 1 0 19 0
-                                         1 1 0 0 0 1 1 0 0 0 1 1 0 38 0 1 1 0
-                                         38 0 1 2 0 23 0 21 1 2 0 23 0 21 1 2 0
-                                         23 0 21 1 2 0 23 0 21 1 3 0 25 0 21 21
-                                         1 1 0 29 0 1 2 0 0 0 6 1 2 0 0 0 36 1
-                                         3 0 0 0 21 21 1 4 0 0 0 25 6 6 1 4 0 0
-                                         0 25 21 21 1 5 0 0 0 25 21 21 23 1 2 0
-                                         0 0 33 1 2 0 20 0 0 1 2 0 0 0 0 1)))))
+                                         1 1 0 0 0 1 1 0 0 0 1 1 0 38 0 1 2 0
+                                         23 0 21 1 2 0 23 0 21 1 2 0 23 0 21 1
+                                         2 0 23 0 21 1 3 0 25 0 21 21 1 1 0 29
+                                         0 1 2 0 0 0 6 1 2 0 0 0 36 1 3 0 0 0
+                                         21 21 1 4 0 0 0 25 6 6 1 4 0 0 0 25 21
+                                         21 1 5 0 0 0 25 21 21 23 1 2 0 0 0 33
+                                         1 2 0 20 0 0 1 2 0 0 0 0 1)))))
            '|lookupComplete|)) 

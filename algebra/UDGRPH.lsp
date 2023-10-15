@@ -2047,11 +2047,11 @@
               |distance| 584 |diagramsSvg| 591 |diagramWidth| 598 |diagramSvg2|
               603 |diagramSvg| 610 |diagramHeight| 617 |deepDiagramSvg| 622
               |cycleOpen| 629 |cycleClosed| 635 |createY| 641 |createX| 647
-              |createWidth| 653 |coerce| 658 |closedTensor| 673
-              |closedCartesian| 680 |cartesian| 687 |arrowsToNode| 693
-              |arrowsToArrow| 699 |arrowsFromNode| 705 |arrowsFromArrow| 711
-              |arrowName| 717 |adjacencyMatrix| 724 |addObject!| 729
-              |addArrow!| 741 = 772 + 778 * 784)
+              |createWidth| 653 |coerce| 658 |closedTensor| 668
+              |closedCartesian| 675 |cartesian| 682 |arrowsToNode| 688
+              |arrowsToArrow| 694 |arrowsFromNode| 700 |arrowsFromArrow| 706
+              |arrowName| 712 |adjacencyMatrix| 719 |addObject!| 724
+              |addArrow!| 736 = 767 + 773 * 779)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|FiniteGraph&| |SetCategory&| NIL |BasicType&|)
@@ -2108,14 +2108,14 @@
                                               18 0 64 3 0 104 44 0 8 1 2 0 0 10
                                               44 52 2 0 0 10 44 53 2 0 18 18 18
                                               20 2 0 18 18 18 19 1 0 18 18 1 1
-                                              0 0 26 85 1 0 86 0 94 1 0 86 0 94
-                                              3 0 0 0 0 78 79 3 0 0 0 0 78 80 2
-                                              0 74 0 0 77 2 0 34 0 18 106 2 0
-                                              34 0 18 1 2 0 34 0 18 1 2 0 34 0
-                                              18 1 3 0 44 0 18 18 71 1 0 118 0
-                                              1 2 0 0 0 12 42 2 0 0 0 6 41 5 0
-                                              0 0 44 18 18 34 46 4 0 0 0 44 6 6
-                                              1 2 0 0 0 15 43 4 0 0 0 44 18 18
-                                              45 2 0 8 0 0 1 2 0 0 0 0 59 2 0
-                                              74 0 0 76)))))
+                                              0 0 26 85 1 0 86 0 94 3 0 0 0 0
+                                              78 79 3 0 0 0 0 78 80 2 0 74 0 0
+                                              77 2 0 34 0 18 106 2 0 34 0 18 1
+                                              2 0 34 0 18 1 2 0 34 0 18 1 3 0
+                                              44 0 18 18 71 1 0 118 0 1 2 0 0 0
+                                              12 42 2 0 0 0 6 41 5 0 0 0 44 18
+                                              18 34 46 4 0 0 0 44 6 6 1 2 0 0 0
+                                              15 43 4 0 0 0 44 18 18 45 2 0 8 0
+                                              0 1 2 0 0 0 0 59 2 0 74 0 0
+                                              76)))))
            '|lookupComplete|)) 

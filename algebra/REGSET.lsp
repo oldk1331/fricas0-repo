@@ -1003,9 +1003,9 @@
               897 |empty?| 903 |empty| 908 |degree| 912 |count| 917 |copy| 929
               |convert| 934 |construct| 939 |collectUpper| 944 |collectUnder|
               950 |collectQuasiMonic| 956 |collect| 961 |coerce| 967 |coHeight|
-              982 |basicSet| 987 |autoReduced?| 1000 |augment| 1006 |any?| 1030
-              |algebraicVariables| 1036 |algebraicCoefficients?| 1041
-              |algebraic?| 1047 = 1053 |#| 1059)
+              977 |basicSet| 982 |autoReduced?| 995 |augment| 1001 |any?| 1025
+              |algebraicVariables| 1031 |algebraicCoefficients?| 1036
+              |algebraic?| 1042 = 1048 |#| 1054)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
@@ -1085,11 +1085,10 @@
                                          60 0 1 2 8 60 9 0 1 2 7 60 121 0 1 1 0
                                          0 0 12 1 2 135 0 1 1 0 0 10 20 2 0 0 0
                                          8 42 2 0 0 0 8 44 1 0 0 0 1 2 0 0 0 8
-                                         1 1 0 10 0 40 1 0 10 0 40 1 0 27 0 31
-                                         1 5 60 0 1 2 0 145 10 46 1 3 0 145 10
-                                         121 46 1 2 0 14 0 142 1 2 0 29 10 0 1
-                                         2 0 29 10 29 1 2 0 29 9 0 80 2 0 29 9
-                                         29 1 2 7 14 121 0 1 1 0 139 0 1 2 0 14
-                                         9 0 1 2 0 14 8 0 54 2 0 14 0 0 1 1 7
-                                         60 0 1)))))
+                                         1 1 0 10 0 40 1 0 27 0 31 1 5 60 0 1 2
+                                         0 145 10 46 1 3 0 145 10 121 46 1 2 0
+                                         14 0 142 1 2 0 29 10 0 1 2 0 29 10 29
+                                         1 2 0 29 9 0 80 2 0 29 9 29 1 2 7 14
+                                         121 0 1 1 0 139 0 1 2 0 14 9 0 1 2 0
+                                         14 8 0 54 2 0 14 0 0 1 1 7 60 0 1)))))
            '|lookupComplete|)) 

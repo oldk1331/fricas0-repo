@@ -2255,9 +2255,9 @@
               |getVertexIndex| 722 |getArrowIndex| 728 |distanceMatrix| 735
               |distance| 740 |diagramsSvg| 747 |diagramWidth| 754 |diagramSvg|
               759 |diagramHeight| 766 |deepDiagramSvg| 771 |createY| 778
-              |createX| 784 |createWidth| 790 |coerce| 795 |arrowsToNode| 805
-              |arrowsToArrow| 811 |arrowsFromNode| 817 |arrowsFromArrow| 823
-              |arrowName| 829 |adjacencyMatrix| 836 |addArrow!| 841 = 849)
+              |createX| 784 |createWidth| 790 |coerce| 795 |arrowsToNode| 800
+              |arrowsToArrow| 806 |arrowsFromNode| 812 |arrowsFromArrow| 818
+              |arrowName| 824 |adjacencyMatrix| 831 |addArrow!| 836 = 844)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -2339,10 +2339,10 @@
                                                    140 16 0 11 166 1 0 13 0 170
                                                    3 0 140 16 0 11 168 2 0 13
                                                    13 13 118 2 0 13 13 13 117 1
-                                                   0 13 13 113 1 0 183 0 192 1
-                                                   0 183 0 192 2 0 40 0 13 91 2
-                                                   0 40 0 13 95 2 0 40 0 13 90
-                                                   2 0 40 0 13 94 3 0 16 0 13
-                                                   13 85 1 0 31 0 33 4 0 0 0 16
-                                                   7 7 18 2 0 11 0 0 180)))))
+                                                   0 13 13 113 1 0 183 0 192 2
+                                                   0 40 0 13 91 2 0 40 0 13 95
+                                                   2 0 40 0 13 90 2 0 40 0 13
+                                                   94 3 0 16 0 13 13 85 1 0 31
+                                                   0 33 4 0 0 0 16 7 7 18 2 0
+                                                   11 0 0 180)))))
            '|lookupComplete|)) 

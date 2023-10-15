@@ -225,7 +225,7 @@
 
 (DEFUN |SingleInteger| ()
   (SPROG NIL
-         (PROG (#1=#:G1878)
+         (PROG (#1=#:G1866)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SingleInteger|)
@@ -308,12 +308,12 @@
               |factorial| 416 |factor| 421 |extendedEuclidean| 426 |exquo| 439
               |expressIdealMember| 445 |even?| 451 |euclideanSize| 456 |divide|
               461 |differentiate| 467 |dec| 478 |copy| 483 |convert| 488
-              |commutator| 518 |coerce| 524 |characteristic| 544 |bit?| 548
-              |binomial| 554 |base| 560 |associator| 564 |associates?| 571
-              |antiCommutator| 577 |annihilate?| 583 |addmod| 589 |abs| 596
-              |_\|_| 601 ^ 605 |\\/| 617 |Zero| 623 T$ 627 |Or| 631 |One| 637
-              |OMwrite| 641 |Not| 665 D 670 |And| 681 >= 687 > 693 = 699 <= 705
-              < 711 |/\\| 717 - 723 + 734 * 740)
+              |commutator| 518 |coerce| 524 |characteristic| 539 |bit?| 543
+              |binomial| 549 |base| 555 |associator| 559 |associates?| 566
+              |antiCommutator| 572 |annihilate?| 578 |addmod| 584 |abs| 591
+              |_\|_| 596 ^ 600 |\\/| 612 |Zero| 618 T$ 622 |Or| 626 |One| 632
+              |OMwrite| 636 |Not| 660 D 665 |And| 676 >= 682 > 688 = 694 <= 700
+              < 706 |/\\| 712 - 718 + 729 * 735)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -390,18 +390,18 @@
                                     0 0 0 46 1 1 0 0 0 41 1 0 0 0 1 1 0 9 0 22
                                     1 0 76 0 1 1 0 78 0 1 1 0 79 0 1 1 0 81 0 1
                                     1 0 11 0 21 2 0 0 0 0 1 1 0 0 11 70 1 0 0 0
-                                    1 1 0 0 11 70 1 0 18 0 20 0 0 46 1 2 0 16 0
-                                    0 1 2 0 0 0 0 1 0 0 0 27 3 0 0 0 0 0 1 2 0
-                                    16 0 0 1 2 0 0 0 0 1 2 0 16 0 0 1 3 0 0 0 0
-                                    0 64 1 0 0 0 53 0 0 0 1 2 0 0 0 46 47 2 0 0
-                                    0 92 1 2 0 0 0 0 34 0 0 0 25 0 0 0 1 2 0 0
-                                    0 0 37 0 0 0 26 2 0 6 7 0 1 3 0 6 7 0 16 17
-                                    1 0 9 0 1 2 0 9 0 16 1 1 0 0 0 35 1 0 0 0 1
-                                    2 0 0 0 46 1 2 0 0 0 0 36 2 0 16 0 0 1 2 0
-                                    16 0 0 1 2 0 16 0 0 30 2 0 16 0 0 1 2 0 16
-                                    0 0 39 2 0 0 0 0 33 1 0 0 0 42 2 0 0 0 0 44
-                                    2 0 0 0 0 43 2 0 0 46 0 1 2 0 0 11 0 24 2 0
-                                    0 0 0 45 2 0 0 92 0 1)))))
+                                    1 1 0 18 0 20 0 0 46 1 2 0 16 0 0 1 2 0 0 0
+                                    0 1 0 0 0 27 3 0 0 0 0 0 1 2 0 16 0 0 1 2 0
+                                    0 0 0 1 2 0 16 0 0 1 3 0 0 0 0 0 64 1 0 0 0
+                                    53 0 0 0 1 2 0 0 0 46 47 2 0 0 0 92 1 2 0 0
+                                    0 0 34 0 0 0 25 0 0 0 1 2 0 0 0 0 37 0 0 0
+                                    26 2 0 6 7 0 1 3 0 6 7 0 16 17 1 0 9 0 1 2
+                                    0 9 0 16 1 1 0 0 0 35 1 0 0 0 1 2 0 0 0 46
+                                    1 2 0 0 0 0 36 2 0 16 0 0 1 2 0 16 0 0 1 2
+                                    0 16 0 0 30 2 0 16 0 0 1 2 0 16 0 0 39 2 0
+                                    0 0 0 33 1 0 0 0 42 2 0 0 0 0 44 2 0 0 0 0
+                                    43 2 0 0 46 0 1 2 0 0 11 0 24 2 0 0 0 0 45
+                                    2 0 0 92 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|SingleInteger| 'NILADIC T) 

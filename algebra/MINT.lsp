@@ -106,10 +106,10 @@
               |extendedEuclidean| 377 |exquo| 390 |expressIdealMember| 396
               |even?| 402 |euclideanSize| 407 |divide| 412 |differentiate| 418
               |dec| 429 |copy| 434 |convert| 439 |commutator| 464 |coerce| 470
-              |characteristic| 495 |bit?| 499 |binomial| 505 |base| 511
-              |associator| 515 |associates?| 522 |antiCommutator| 528
-              |annihilate?| 534 |addmod| 540 |abs| 547 ^ 552 |Zero| 564 |One|
-              568 D 572 >= 583 > 589 = 595 <= 601 < 607 - 613 + 624 * 630)
+              |characteristic| 490 |bit?| 494 |binomial| 500 |base| 506
+              |associator| 510 |associates?| 517 |antiCommutator| 523
+              |annihilate?| 529 |addmod| 535 |abs| 542 ^ 547 |Zero| 559 |One|
+              563 D 567 >= 578 > 584 = 590 <= 596 < 602 - 608 + 619 * 625)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -176,15 +176,15 @@
                                     1 0 0 0 1 1 0 0 0 1 1 0 0 0 1 1 0 38 0 1 1
                                     0 5 0 1 1 0 40 0 1 1 0 41 0 1 1 0 42 0 1 2
                                     0 0 0 0 1 1 0 17 14 18 1 0 0 5 24 1 0 0 0 1
-                                    1 0 0 5 24 1 0 48 0 1 0 0 36 1 2 0 19 0 0 1
-                                    2 0 0 0 0 1 0 0 0 1 3 0 0 0 0 0 1 2 0 19 0
-                                    0 1 2 0 0 0 0 1 2 0 19 0 0 1 3 0 0 0 0 0 1
-                                    1 0 0 0 1 2 0 0 0 36 1 2 0 0 0 6 1 0 0 0 1
-                                    0 0 0 1 2 0 0 0 36 1 1 0 0 0 1 2 0 19 0 0 1
-                                    2 0 19 0 0 1 2 0 19 0 0 1 2 0 19 0 0 1 2 0
-                                    19 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1
-                                    2 0 0 36 0 1 2 0 0 5 0 1 2 0 0 0 0 1 2 0 0
-                                    6 0 1)))))
+                                    1 0 48 0 1 0 0 36 1 2 0 19 0 0 1 2 0 0 0 0
+                                    1 0 0 0 1 3 0 0 0 0 0 1 2 0 19 0 0 1 2 0 0
+                                    0 0 1 2 0 19 0 0 1 3 0 0 0 0 0 1 1 0 0 0 1
+                                    2 0 0 0 36 1 2 0 0 0 6 1 0 0 0 1 0 0 0 1 2
+                                    0 0 0 36 1 1 0 0 0 1 2 0 19 0 0 1 2 0 19 0
+                                    0 1 2 0 19 0 0 1 2 0 19 0 0 1 2 0 19 0 0 1
+                                    1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 36
+                                    0 1 2 0 0 5 0 1 2 0 0 0 0 1 2 0 0 6 0
+                                    1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MachineInteger| 'NILADIC T) 

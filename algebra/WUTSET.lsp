@@ -665,8 +665,8 @@
               |rewriteIdealWithRemainder| 322 |rest| 328 |removeZero| 333
               |mvar| 339 |members| 344 |medialSet| 349 |initials| 361
               |initiallyReduce| 366 |infRittWu?| 372 |first| 378 |empty?| 383
-              |empty| 388 |coerce| 392 |characteristicSet| 402
-              |characteristicSerie| 414 |basicSet| 426)
+              |empty| 388 |coerce| 392 |characteristicSet| 397
+              |characteristicSerie| 409 |basicSet| 421)
            'NIL
            (CONS (|makeByteWordVec2| 2 '(0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 2))
                  (CONS
@@ -708,7 +708,7 @@
                                          28 3 0 30 11 13 14 31 1 0 30 11 34 1 0
                                          11 0 49 2 0 9 9 0 73 2 0 17 0 0 84 1 0
                                          67 0 68 1 0 17 0 66 0 0 0 41 1 0 11 0
-                                         56 1 0 11 0 56 1 0 30 11 40 3 0 30 11
-                                         13 14 39 1 0 63 11 65 3 0 63 11 13 14
-                                         64 2 0 22 11 13 23)))))
+                                         56 1 0 30 11 40 3 0 30 11 13 14 39 1 0
+                                         63 11 65 3 0 63 11 13 14 64 2 0 22 11
+                                         13 23)))))
            '|lookupIncomplete|)) 

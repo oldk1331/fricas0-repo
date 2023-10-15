@@ -244,7 +244,7 @@
 (SDEFUN |INT;factorPolynomial;SupF;53|
         ((|p| |SparseUnivariatePolynomial| $)
          ($ |Factored| (|SparseUnivariatePolynomial| $)))
-        (SPROG ((#1=#:G1478 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
+        (SPROG ((#1=#:G1466 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
                (SEQ
                 (LETT |pp| (SPADCALL |p| (QREFELT $ 100))
                       . #2=(|INT;factorPolynomial;SupF;53|))
@@ -296,7 +296,7 @@
 
 (DEFUN |Integer| ()
   (SPROG NIL
-         (PROG (#1=#:G1509)
+         (PROG (#1=#:G1497)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))
@@ -404,11 +404,11 @@
               494 |extendedEuclidean| 499 |exquo| 512 |expressIdealMember| 518
               |even?| 524 |euclideanSize| 529 |divide| 534 |differentiate| 540
               |dec| 551 |copy| 556 |convert| 561 |conditionP| 591 |commutator|
-              596 |coerce| 602 |charthRoot| 622 |characteristic| 627 |bit?| 631
-              |binomial| 637 |base| 643 |associator| 647 |associates?| 654
-              |antiCommutator| 660 |annihilate?| 666 |addmod| 672 |abs| 679 ^
-              684 |Zero| 696 |One| 700 |OMwrite| 704 D 728 >= 739 > 745 = 751
-              <= 757 < 763 - 769 + 780 * 786)
+              596 |coerce| 602 |charthRoot| 617 |characteristic| 622 |bit?| 626
+              |binomial| 632 |base| 638 |associator| 642 |associates?| 649
+              |antiCommutator| 655 |annihilate?| 661 |addmod| 667 |abs| 674 ^
+              679 |Zero| 691 |One| 695 |OMwrite| 699 D 723 >= 734 > 740 = 746
+              <= 752 < 758 - 764 + 775 * 781)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -487,17 +487,17 @@
                                     2 0 0 0 66 1 1 0 0 0 25 1 0 0 0 23 1 0 9 0
                                     46 1 0 38 0 40 1 0 41 0 42 1 0 43 0 45 1 0
                                     128 0 1 1 0 11 0 33 1 1 124 51 1 2 0 0 0 0
-                                    1 1 0 0 11 32 1 0 0 0 1 1 0 0 11 32 1 0 29
-                                    0 31 1 1 78 0 1 0 0 66 1 2 0 16 0 0 1 2 0 0
-                                    0 0 1 0 0 0 22 3 0 0 0 0 0 1 2 0 16 0 0 1 2
-                                    0 0 0 0 1 2 0 16 0 0 123 3 0 0 0 0 0 35 1 0
-                                    0 0 56 2 0 0 0 66 67 2 0 0 0 137 1 0 0 0 20
-                                    0 0 0 21 3 0 6 7 0 16 17 2 0 9 0 16 1 2 0 6
-                                    7 0 1 1 0 9 0 1 1 0 0 0 1 2 0 0 0 66 1 2 0
-                                    16 0 0 60 2 0 16 0 0 1 2 0 16 0 0 58 2 0 16
-                                    0 0 1 2 0 16 0 0 59 2 0 0 0 0 63 1 0 0 0 61
-                                    2 0 0 0 0 62 2 0 0 66 0 1 2 0 0 11 0 65 2 0
-                                    0 0 0 64 2 0 0 137 0 1)))))
+                                    1 1 0 0 11 32 1 0 0 0 1 1 0 29 0 31 1 1 78
+                                    0 1 0 0 66 1 2 0 16 0 0 1 2 0 0 0 0 1 0 0 0
+                                    22 3 0 0 0 0 0 1 2 0 16 0 0 1 2 0 0 0 0 1 2
+                                    0 16 0 0 123 3 0 0 0 0 0 35 1 0 0 0 56 2 0
+                                    0 0 66 67 2 0 0 0 137 1 0 0 0 20 0 0 0 21 3
+                                    0 6 7 0 16 17 2 0 9 0 16 1 2 0 6 7 0 1 1 0
+                                    9 0 1 1 0 0 0 1 2 0 0 0 66 1 2 0 16 0 0 60
+                                    2 0 16 0 0 1 2 0 16 0 0 58 2 0 16 0 0 1 2 0
+                                    16 0 0 59 2 0 0 0 0 63 1 0 0 0 61 2 0 0 0 0
+                                    62 2 0 0 66 0 1 2 0 0 11 0 65 2 0 0 0 0 64
+                                    2 0 0 137 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Integer| 'NILADIC T) 

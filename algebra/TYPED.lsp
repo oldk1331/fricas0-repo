@@ -139,7 +139,7 @@
               (48 . |message|) (53 . |coerce|) (58 . |hconcat|)
               |TYPED;coerce;$Of;9|)
            '#(|var| 63 |toString| 74 |parseVarTerm| 79 |parseVar| 85 |getType|
-              90 |getName| 95 |coerce| 100 = 110)
+              90 |getName| 95 |coerce| 100 = 105)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(NIL NIL NIL)
@@ -153,8 +153,8 @@
                                                    32 0 15 35 2 0 0 9 7 11 1 0
                                                    0 9 10 1 0 9 0 17 2 0 25 9
                                                    26 28 1 0 0 9 29 1 0 7 0 13
-                                                   1 0 9 0 12 1 0 32 0 36 1 0
-                                                   32 0 36 2 0 18 0 0 31)))))
+                                                   1 0 9 0 12 1 0 32 0 36 2 0
+                                                   18 0 0 31)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Typed| 'NILADIC T) 

@@ -150,10 +150,10 @@
               |diagramHeight| 475 |deepDiagramSvg| 480 |cycleOpen| 487
               |cycleClosed| 493 |createY| 499 |createX| 505 |createWidth| 511
               |coverMatrix| 516 |completeTransitivity| 521
-              |completeReflexivity| 526 |coerce| 531 |arrowsToNode| 541
-              |arrowsToArrow| 547 |arrowsFromNode| 553 |arrowsFromArrow| 559
-              |arrowName| 565 |adjacencyMatrix| 572 |addObject!| 577
-              |addArrow!| 589 = 627 + 633)
+              |completeReflexivity| 526 |coerce| 531 |arrowsToNode| 536
+              |arrowsToArrow| 542 |arrowsFromNode| 548 |arrowsFromArrow| 554
+              |arrowName| 560 |adjacencyMatrix| 567 |addObject!| 572
+              |addArrow!| 584 = 622 + 628)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
                  (CONS
@@ -196,11 +196,10 @@
                                          29 0 20 1 2 0 0 8 29 1 2 0 0 8 29 1 2
                                          0 18 18 18 1 2 0 18 18 18 1 1 0 18 18
                                          1 1 0 25 0 1 1 0 0 0 1 1 0 0 0 1 1 0
-                                         42 0 1 1 0 42 0 1 2 0 26 0 18 1 2 0 26
-                                         0 18 1 2 0 26 0 18 1 2 0 26 0 18 1 3 0
-                                         29 0 18 18 1 1 0 33 0 1 2 0 0 0 6 1 2
-                                         0 0 0 40 1 3 0 0 0 18 18 1 4 0 0 0 29
-                                         6 6 1 4 0 0 0 29 18 18 1 5 0 0 0 29 18
-                                         18 26 1 2 0 0 0 37 1 2 0 20 0 0 1 2 0
-                                         0 0 0 1)))))
+                                         42 0 1 2 0 26 0 18 1 2 0 26 0 18 1 2 0
+                                         26 0 18 1 2 0 26 0 18 1 3 0 29 0 18 18
+                                         1 1 0 33 0 1 2 0 0 0 6 1 2 0 0 0 40 1
+                                         3 0 0 0 18 18 1 4 0 0 0 29 6 6 1 4 0 0
+                                         0 29 18 18 1 5 0 0 0 29 18 18 26 1 2 0
+                                         0 0 37 1 2 0 20 0 0 1 2 0 0 0 0 1)))))
            '|lookupComplete|)) 

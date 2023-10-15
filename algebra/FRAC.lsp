@@ -345,9 +345,9 @@
         (SPROG
          ((|lc| (S)) (|g| (|SparseUnivariatePolynomial| S))
           (|qqD| #2=(|SparseUnivariatePolynomial| S)) (|denqq| (S))
-          (#3=#:G798 NIL) (#4=#:G797 (S)) (#5=#:G799 (S)) (#6=#:G808 NIL)
-          (|u| NIL) (|ppD| #2#) (|denpp| (S)) (#7=#:G794 NIL) (#8=#:G793 (S))
-          (#9=#:G795 (S)) (#10=#:G807 NIL))
+          (#3=#:G786 NIL) (#4=#:G785 (S)) (#5=#:G787 (S)) (#6=#:G796 NIL)
+          (|u| NIL) (|ppD| #2#) (|denpp| (S)) (#7=#:G782 NIL) (#8=#:G781 (S))
+          (#9=#:G783 (S)) (#10=#:G795 NIL))
          (SEQ
           (COND ((SPADCALL |pp| (QREFELT $ 74)) |qq|)
                 ((SPADCALL |qq| (QREFELT $ 74)) |pp|)
@@ -521,8 +521,8 @@
 
 (SDEFUN |FRAC;clear| ((|l| |List| $) ($ |List| S))
         (SPROG
-         ((#1=#:G841 NIL) (#2=#:G848 NIL) (|x| NIL) (#3=#:G847 NIL) (|d| (S))
-          (#4=#:G838 NIL) (#5=#:G837 (S)) (#6=#:G839 (S)) (#7=#:G846 NIL))
+         ((#1=#:G829 NIL) (#2=#:G836 NIL) (|x| NIL) (#3=#:G835 NIL) (|d| (S))
+          (#4=#:G826 NIL) (#5=#:G825 (S)) (#6=#:G827 (S)) (#7=#:G834 NIL))
          (SEQ
           (LETT |d|
                 (PROGN
@@ -577,9 +577,9 @@
 (SDEFUN |FRAC;conditionP;MU;38|
         ((|mat| |Matrix| . #1=($)) ($ |Union| (|Vector| . #1#) #2="failed"))
         (SPROG
-         ((#3=#:G866 NIL) (#4=#:G868 NIL) (|i| NIL) (#5=#:G867 NIL)
+         ((#3=#:G854 NIL) (#4=#:G856 NIL) (|i| NIL) (#5=#:G855 NIL)
           (|ansDD| (|Vector| S)) (|ansD| (|Union| (|Vector| S) #2#))
-          (|matD| (|Matrix| S)) (#6=#:G865 NIL) (|l| NIL) (#7=#:G864 NIL))
+          (|matD| (|Matrix| S)) (#6=#:G853 NIL) (|l| NIL) (#7=#:G852 NIL))
          (SEQ
           (LETT |matD|
                 (SPADCALL
@@ -631,10 +631,10 @@
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| (|SparseUnivariatePolynomial| $))
                       (|:| |xpnt| (|Integer|)))))
-          (|den1| ($)) (|lc| ($)) (#2=#:G891 NIL) (|w| NIL) (#3=#:G890 NIL)
+          (|den1| ($)) (|lc| ($)) (#2=#:G879 NIL) (|w| NIL) (#3=#:G878 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
-          (#4=#:G870 NIL) (#5=#:G869 (S)) (#6=#:G871 (S)) (#7=#:G889 NIL)
+          (#4=#:G858 NIL) (#5=#:G857 (S)) (#6=#:G859 (S)) (#7=#:G877 NIL)
           (|u| NIL))
          (SEQ
           (COND ((SPADCALL |pp| (QREFELT $ 74)) (|spadConstant| $ 112))
@@ -771,10 +771,10 @@
             (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
                       (|:| |fctr| (|SparseUnivariatePolynomial| $))
                       (|:| |xpnt| (|Integer|)))))
-          (|den1| ($)) (|lc| ($)) (#2=#:G916 NIL) (|w| NIL) (#3=#:G915 NIL)
+          (|den1| ($)) (|lc| ($)) (#2=#:G904 NIL) (|w| NIL) (#3=#:G903 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
-          (#4=#:G896 NIL) (#5=#:G895 (S)) (#6=#:G897 (S)) (#7=#:G914 NIL)
+          (#4=#:G884 NIL) (#5=#:G883 (S)) (#6=#:G885 (S)) (#7=#:G902 NIL)
           (|u| NIL) (|lcpp| ($)))
          (SEQ
           (COND ((SPADCALL |pp| (QREFELT $ 74)) (|spadConstant| $ 112))
@@ -916,9 +916,9 @@
 
 (DECLAIM (NOTINLINE |Fraction;|)) 
 
-(DEFUN |Fraction| (#1=#:G941)
+(DEFUN |Fraction| (#1=#:G929)
   (SPROG NIL
-         (PROG (#2=#:G942)
+         (PROG (#2=#:G930)
            (RETURN
             (COND
              ((LETT #2#
@@ -934,8 +934,8 @@
 
 (DEFUN |Fraction;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G936 NIL) (#2=#:G937 NIL) (#3=#:G938 NIL) (#4=#:G940 NIL)
-    (#5=#:G939 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G924 NIL) (#2=#:G925 NIL) (#3=#:G926 NIL) (#4=#:G928 NIL)
+    (#5=#:G927 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #6=(|Fraction|))
     (LETT |dv$| (LIST '|Fraction| DV$1) . #6#)

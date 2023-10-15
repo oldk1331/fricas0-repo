@@ -792,7 +792,7 @@
 ;         condition = 'T => [sig,n]
 ;         [sig,n,condition]
 ;       [sig,n,condition,kind]
-;     itemList := [signatureItem, :QLASSQ(op, newAlist)]
+;     itemList := insert(signatureItem, QLASSQ(op, newAlist))
 ;     newAlist:= insertAlist(op,itemList,newAlist)
 ;   newAlist
  
@@ -872,7 +872,7 @@
                                    (#1# (LIST |sig| |n| |condition|))))
                             (#1# (LIST |sig| |n| |condition| |kind|)))))
                   (SETQ |itemList|
-                          (CONS |signatureItem| (QLASSQ |op| |newAlist|)))
+                          (|insert| |signatureItem| (QLASSQ |op| |newAlist|)))
                   (SETQ |newAlist|
                           (|insertAlist| |op| |itemList| |newAlist|))))))
           (SETQ |bfVar#17| (CDR |bfVar#17|))))

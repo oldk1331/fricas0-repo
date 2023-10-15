@@ -1442,9 +1442,9 @@
               |getArrowIndex| 599 |flatten| 606 |distance| 611 |cycleOpen| 618
               |cycleClosed| 624 |createY| 630 |createX| 636 |createWidth| 642
               |coverMatrix| 647 |completeTransitivity| 652
-              |completeReflexivity| 657 |coerce| 662 |arrowsToNode| 672
-              |arrowsToArrow| 678 |arrowsFromNode| 684 |arrowsFromArrow| 690
-              |arrowName| 696 |addObject!| 703 |addArrow!| 715 = 739)
+              |completeReflexivity| 657 |coerce| 662 |arrowsToNode| 667
+              |arrowsToArrow| 673 |arrowsFromNode| 679 |arrowsFromArrow| 685
+              |arrowName| 691 |addObject!| 698 |addArrow!| 710 = 734)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -1512,12 +1512,11 @@
                                                    14 14 14 87 2 0 14 14 14 86
                                                    1 0 14 14 85 1 0 122 0 140 1
                                                    0 0 0 114 1 0 0 0 113 1 0
-                                                   149 0 162 1 0 149 0 162 2 0
-                                                   41 0 14 75 2 0 41 0 14 79 2
-                                                   0 41 0 14 74 2 0 41 0 14 78
-                                                   3 0 38 0 14 14 68 2 0 0 0 36
-                                                   37 2 0 0 0 7 23 3 0 0 0 14
-                                                   14 28 4 0 0 0 38 14 14 39 5
-                                                   0 0 0 38 14 14 41 42 2 0 16
-                                                   0 0 146)))))
+                                                   149 0 162 2 0 41 0 14 75 2 0
+                                                   41 0 14 79 2 0 41 0 14 74 2
+                                                   0 41 0 14 78 3 0 38 0 14 14
+                                                   68 2 0 0 0 36 37 2 0 0 0 7
+                                                   23 3 0 0 0 14 14 28 4 0 0 0
+                                                   38 14 14 39 5 0 0 0 38 14 14
+                                                   41 42 2 0 16 0 0 146)))))
            '|lookupComplete|)) 

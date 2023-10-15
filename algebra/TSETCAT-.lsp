@@ -825,8 +825,8 @@
               |infRittWu?| 478 |headReduced?| 484 |headReduce| 495 |first| 501
               |extend| 506 |degree| 512 |construct| 517 |collectUpper| 522
               |collectUnder| 528 |collectQuasiMonic| 534 |coerce| 539
-              |coHeight| 549 |basicSet| 554 |autoReduced?| 567
-              |algebraicVariables| 573 |algebraic?| 578 = 584)
+              |coHeight| 544 |basicSet| 549 |autoReduced?| 562
+              |algebraicVariables| 568 |algebraic?| 573 = 579)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -880,9 +880,8 @@
                                                    10 126 1 0 49 0 51 1 0 0 27
                                                    123 2 0 0 0 9 121 2 0 0 0 9
                                                    120 1 0 0 0 119 1 0 27 0 112
-                                                   1 0 27 0 112 1 0 49 0 129 3
-                                                   0 41 27 32 29 44 2 0 41 27
-                                                   29 42 2 0 11 0 98 99 1 0 113
-                                                   0 114 2 0 11 9 0 117 2 0 11
-                                                   0 0 19)))))
+                                                   1 0 49 0 129 3 0 41 27 32 29
+                                                   44 2 0 41 27 29 42 2 0 11 0
+                                                   98 99 1 0 113 0 114 2 0 11 9
+                                                   0 117 2 0 11 0 0 19)))))
            '|lookupComplete|)) 
