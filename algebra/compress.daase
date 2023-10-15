@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4885 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4880 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -865,22 +865,20 @@
  |subResultantGcdEuclidean| |semiSubResultantGcdEuclidean2|
  |semiSubResultantGcdEuclidean1| |discriminantEuclidean|
  |semiDiscriminantEuclidean| |chainSubResultants| |schema| |resultantReduit|
- |resultantReduitEuclidean| |semiResultantReduitEuclidean| |divide| |Lazard|
- |Lazard2| |next_sousResultant2| |resultant_naif| |resultantEuclidean_naif|
- |semiResultantEuclidean_naif| |pdct| |powers| |partition| |complete| |pole?|
- |zRange| |yRange| |xRange| |listBranches| |triangular?|
- |rewriteIdealWithRemainder| |rewriteIdealWithHeadRemainder| |remainder|
- |headRemainder| |roughUnitIdeal?| |roughEqualIdeals?| |roughSubIdeal?|
- |roughBase?| |trivialIdeal?| |sort| |collectUpper| |collect| |collectUnder|
- |mainVariable?| |mainVariables| |removeSquaresIfCan|
- |unprotectedRemoveRedundantFactors| |removeRedundantFactors|
- |certainlySubVariety?| |possiblyNewVariety?| |probablyZeroDim?|
- |selectPolynomials| |selectOrPolynomials| |selectAndPolynomials|
- |quasiMonicPolynomials| |univariate?| |univariatePolynomials| |linear?|
- |linearPolynomials| |bivariate?| |bivariatePolynomials|
- |removeRoughlyRedundantFactorsInPols| |removeRoughlyRedundantFactorsInPol|
- |interReduce| |roughBasicSet| |crushedSet|
- |rewriteSetByReducingWithParticularGenerators|
+ |resultantReduitEuclidean| |semiResultantReduitEuclidean| |divide|
+ |next_sousResultant2| |pdct| |powers| |partition| |complete| |pole?| |zRange|
+ |yRange| |xRange| |listBranches| |triangular?| |rewriteIdealWithRemainder|
+ |rewriteIdealWithHeadRemainder| |remainder| |headRemainder| |roughUnitIdeal?|
+ |roughEqualIdeals?| |roughSubIdeal?| |roughBase?| |trivialIdeal?| |sort|
+ |collectUpper| |collect| |collectUnder| |mainVariable?| |mainVariables|
+ |removeSquaresIfCan| |unprotectedRemoveRedundantFactors|
+ |removeRedundantFactors| |certainlySubVariety?| |possiblyNewVariety?|
+ |probablyZeroDim?| |selectPolynomials| |selectOrPolynomials|
+ |selectAndPolynomials| |quasiMonicPolynomials| |univariate?|
+ |univariatePolynomials| |linear?| |linearPolynomials| |bivariate?|
+ |bivariatePolynomials| |removeRoughlyRedundantFactorsInPols|
+ |removeRoughlyRedundantFactorsInPol| |interReduce| |roughBasicSet|
+ |crushedSet| |rewriteSetByReducingWithParticularGenerators|
  |rewriteIdealWithQuasiMonicGenerators| |squareFreeFactors|
  |univariatePolynomialsGcds| |removeRoughlyRedundantFactorsInContents|
  |removeRedundantFactorsInContents| |removeRedundantFactorsInPols|
