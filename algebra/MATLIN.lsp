@@ -419,9 +419,7 @@
                           (EXIT NIL)))
                     #16# (EXIT #4#))
                    (COND
-                    ((SPADCALL |ans|
-                               (SPADCALL (|spadConstant| $ 21) (QREFELT $ 48))
-                               (QREFELT $ 45))
+                    ((SPADCALL |ans| (|spadConstant| $ 21) (QREFELT $ 16))
                      (SEQ (LETT |lasti| (- |i| 1) . #13#)
                           (EXIT
                            (SEQ (LETT |j| 1 . #13#) (LETT #1# |maxC| . #13#)
