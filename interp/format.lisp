@@ -809,7 +809,7 @@
 ;   null rest sml => prefix2String0 first sml
 ;   argList:= prefix2String0 first sml
 ;   for m in rest sml repeat
-;     argList:= concat(argList,concat(",",prefix2String0 m))
+;     argList:= concat(argList,concat(", ",prefix2String0 m))
 ;   concat("_(",concat(argList,"_)"))
  
 (DEFUN |formatSignatureArgs0| (|sml|)
@@ -829,7 +829,7 @@
                   (#1#
                    (SETQ |argList|
                            (|concat| |argList|
-                            (|concat| '|,| (|prefix2String0| |m|))))))
+                            (|concat| '|, | (|prefix2String0| |m|))))))
                  (SETQ |bfVar#19| (CDR |bfVar#19|))))
               (CDR |sml|) NIL)
              (|concat| '|(| (|concat| |argList| '|)|))))))))
@@ -2537,6 +2537,7 @@
 ;       (_> . " > ") (_>_= . " >= ") (_=  . " = ") (_^_= . " _^_= ")))) =>
 ;         concat(pred2English a,translation,pred2English b)
 ;   x is ['ATTRIBUTE, form] => BREAK()
+;   x is '$ => '"%%"
 ;   form2String x
  
 (DEFUN |pred2English| (|x|)
@@ -2674,7 +2675,7 @@
              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                   (PROGN (SETQ |form| (CAR |ISTMP#1|)) #1#))))
        (BREAK))
-      (#1# (|form2String| |x|))))))
+      ((EQ |x| '$) "%%") (#1# (|form2String| |x|))))))
  
 ; mathObject2String x ==
 ;   CHARACTERP x => COERCE([x],'STRING)
