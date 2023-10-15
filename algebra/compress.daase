@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4840 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4851 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -47,7 +47,7 @@
  |CommutativeRing| |ContinuedFraction| |CoordinateSystems|
  |CharacteristicPolynomialInMonogenicalAlgebra| |ComplexPatternMatch|
  |CRApackage| |ComplexRootFindingPackage| |CyclicStreamTools|
- |ComplexTrigonometricManipulations| |CoerceVectorMatrixPackage|
+ |ComplexTrigonometricManipulations| |CoerceVectorMatrixPackage| |CyclicGroup|
  |CycleIndicators| |CyclotomicPolynomialPackage| |Database|
  |DoubleResultantPackage| |DistinctDegreeFactorize| |DecimalExpansion|
  |ElementaryFunctionDefiniteIntegration| |RationalFunctionDefiniteIntegration|
@@ -55,7 +55,7 @@
  |DoubleFloat| |DoubleFloatMatrix| |DoubleFloatSpecialFunctions|
  |DoubleFloatSpecialFunctions2| |DoubleFloatVector| |DirectedGraph|
  |DenavitHartenbergMatrix| |Dictionary&| |Dictionary| |DifferentialExtension&|
- |DifferentialExtension| |DifferentialRing&| |DifferentialRing|
+ |DifferentialExtension| |DifferentialRing&| |DifferentialRing| |DihedralGroup|
  |DictionaryOperations&| |DictionaryOperations| |DiophantineSolutionPackage|
  |DirectProductCategory&| |DirectProductCategory| |DirectProduct|
  |DirectProductFunctions2| |DirichletRing| |DisplayPackage|
@@ -108,7 +108,8 @@
  |FiniteFieldSolveLinearPolynomialEquation| |FiniteFieldExtension|
  |FGLMIfCanPackage| |FreeGroup| |FiniteGraph&| |FiniteGraph| |Field&| |Field|
  |File| |FileCategory| |FiniteRankNonAssociativeAlgebra&|
- |FiniteRankNonAssociativeAlgebra| |Finite&| |Finite| |FiniteRankAlgebra&|
+ |FiniteRankNonAssociativeAlgebra| |FinitelyGenerated| |FiniteGroupPackage|
+ |FiniteGroup&| |FiniteGroup| |Finite&| |Finite| |FiniteRankAlgebra&|
  |FiniteRankAlgebra| |FiniteLinearAggregate&| |FiniteLinearAggregate|
  |FiniteLinearAggregateFunctions2| |FreeLieAlgebra| |FiniteLinearAggregateSort|
  |FullyLinearlyExplicitRingOver&| |FullyLinearlyExplicitRingOver|
@@ -170,14 +171,14 @@
  |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
  |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
  |InnerNormalBasisFieldFunctions| |IncrementingMaps| |IndexedExponents|
- |InnerNumericEigenPackage| |Infinity| |InputForm| |InputFormFunctions1|
- |InfiniteProductCharacteristicZero| |InnerNumericFloatSolvePackage|
- |InnerModularGcd| |InnerMultFact| |InfiniteProductFiniteField|
- |InfiniteProductPrimeField| |InnerPolySign| |IntegerNumberSystem&|
- |IntegerNumberSystem| |Integer| |InnerTable| |AlgebraicIntegration|
- |AlgebraicIntegrate| |AlgebraicIntegrate2| |IntegerBits| |IntervalCategory|
- |DenominatorIntegration| |IntegralDomain| |ElementaryIntegration|
- |IntegerFactorizationPackage| |GenusZeroIntegration|
+ |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity| |InputForm|
+ |InputFormFunctions1| |InfiniteProductCharacteristicZero|
+ |InnerNumericFloatSolvePackage| |InnerModularGcd| |InnerMultFact|
+ |InfiniteProductFiniteField| |InfiniteProductPrimeField| |InnerPolySign|
+ |IntegerNumberSystem&| |IntegerNumberSystem| |Integer| |InnerTable|
+ |AlgebraicIntegration| |AlgebraicIntegrate| |AlgebraicIntegrate2|
+ |IntegerBits| |IntervalCategory| |DenominatorIntegration| |IntegralDomain|
+ |ElementaryIntegration| |IntegerFactorizationPackage| |GenusZeroIntegration|
  |IntegerNumberTheoryFunctions| |AlgebraicHermiteIntegration|
  |TranscendentalHermiteIntegration| |PureAlgebraicIntegration|
  |ParametricTranscendentalIntegration| |ParametricIntegration|
@@ -497,39 +498,39 @@
  |trace2PowMod| |tracePowMod| |irreducible?| |decimal| |innerint| |dequeue|
  |exteriorDifferential| |totalDifferential| |homogeneous?| |leadingBasisTerm|
  |ignore?| |computeInt| |checkForZero| |doubleFloatFormat| |qsqrt| |qlog|
- |hypergeometric0F1| |directedGraph| |rotatez| |rotatey| |rotatex| |dictionary|
- |dioSolve| |directProduct| |additive?| |multiplicative?| |zeta| |newLine|
- |copies| |say| |sayLength| |monotoneConvolution| |booleanConvolution|
- |freeConvolution| |classicalConvolution| |orthogonalPolynomials|
- |jacobiParameters| |monotoneCumulants| |hankelDeterminants| |booleanCumulants|
- |freeCumulants| |classicalCumulants| |moments| |booleanCumulant|
- |freeCumulant| |classicalCumulant| |moment| |gaussianDistribution|
- |poissonDistribution| |wignerDistribution| |freePoissonDistribution|
- |bernoulliDistribution01| |arcsineDistribution|
- |distributionByMonotoneCumulants| |booleanCumulantFromJacobi|
- |distributionByJacobiParameters| |distributionByBooleanCumulants|
- |distributionByFreeCumulants| |distributionByClassicalCumulants|
- |distributionByEvenMoments| |distributionByMoments| |mapall|
- |R1_to_R2_coercion| |setnext!| |setprevious!| |next| |previous| |datalist|
- |shanksDiscLogAlgorithm| |separant| |leader| |isobaric?| |weights|
- |differentialVariables| |extractBottom!| |extractTop!| |insertBottom!|
- |insertTop!| |recolor| |makeObject| |drawComplex| |drawComplexVectorField|
- |setRealSteps| |setImagSteps| |setClipValue| |draw| |option?| |range|
- |colorFunction| |curveColor| |pointColor| |clip| |clipBoolean| |style|
- |toScale| |pointColorPalette| |curveColorPalette| |var1Steps| |var2Steps|
- |space| |tubePoints| |tubeRadius| |JContinuedFraction| |makeVariable| |Nul|
- |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin| |iicos| |iitan|
- |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot| |iiasec| |iiacsc|
- |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch| |iiasinh| |iiacosh|
- |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs| |localReal?| |do_quo|
- |rischNormalize| |realLiouvillian| |realElementary| |validExponential|
- |rootNormalize| |rmap| |tanQ| |irootDep| |select!| |delete!| |sncndn|
- |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF| |ellipticRJ| |qsetelt!|
- |unit?| |associates?| |unitCanonical| |unitNormal| |eigenvalues| |eigenvector|
- |generalizedEigenvector| |generalizedEigenvectors| |eigenvectors|
- |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
- |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
- |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
+ |hypergeometric0F1| |directedGraph| |rotatez| |rotatey| |rotatex| |exponentb|
+ |exponenta| |expb| |expa| |dictionary| |dioSolve| |directProduct| |additive?|
+ |multiplicative?| |zeta| |newLine| |copies| |say| |sayLength|
+ |monotoneConvolution| |booleanConvolution| |freeConvolution|
+ |classicalConvolution| |orthogonalPolynomials| |jacobiParameters|
+ |monotoneCumulants| |hankelDeterminants| |booleanCumulants| |freeCumulants|
+ |classicalCumulants| |moments| |booleanCumulant| |freeCumulant|
+ |classicalCumulant| |moment| |gaussianDistribution| |poissonDistribution|
+ |wignerDistribution| |freePoissonDistribution| |bernoulliDistribution01|
+ |arcsineDistribution| |distributionByMonotoneCumulants|
+ |booleanCumulantFromJacobi| |distributionByJacobiParameters|
+ |distributionByBooleanCumulants| |distributionByFreeCumulants|
+ |distributionByClassicalCumulants| |distributionByEvenMoments|
+ |distributionByMoments| |mapall| |R1_to_R2_coercion| |setnext!| |setprevious!|
+ |next| |previous| |datalist| |shanksDiscLogAlgorithm| |separant| |leader|
+ |isobaric?| |weights| |differentialVariables| |extractBottom!| |extractTop!|
+ |insertBottom!| |insertTop!| |recolor| |makeObject| |drawComplex|
+ |drawComplexVectorField| |setRealSteps| |setImagSteps| |setClipValue| |draw|
+ |option?| |range| |colorFunction| |curveColor| |pointColor| |clip|
+ |clipBoolean| |style| |toScale| |pointColorPalette| |curveColorPalette|
+ |var1Steps| |var2Steps| |space| |tubePoints| |tubeRadius| |JContinuedFraction|
+ |makeVariable| |Nul| |exponents| |iisqrt2| |iisqrt3| |iiexp| |iilog| |iisin|
+ |iicos| |iitan| |iicot| |iisec| |iicsc| |iiasin| |iiacos| |iiatan| |iiacot|
+ |iiasec| |iiacsc| |iisinh| |iicosh| |iitanh| |iicoth| |iisech| |iicsch|
+ |iiasinh| |iiacosh| |iiatanh| |iiacoth| |iiasech| |iiacsch| |specialTrigs|
+ |localReal?| |do_quo| |rischNormalize| |realLiouvillian| |realElementary|
+ |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep| |select!|
+ |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
+ |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
+ |eigenvalues| |eigenvector| |generalizedEigenvector| |generalizedEigenvectors|
+ |eigenvectors| |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero|
+ |swap| |error| |minPoly| |operators| |tower| |kernels| |mainKernel|
+ |distribute| |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |simplifyPower| |number?|
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
