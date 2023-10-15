@@ -60,7 +60,7 @@
           (|colon| (|OutputForm|)) (|t| (|Table| S (|Integer|))))
          (SEQ (LETT |l| NIL . #3=(|MSET;coerce;$Of;15|))
               (LETT |t| (QCDR |ms|) . #3#)
-              (LETT |colon| (SPADCALL ": " (QREFELT $ 38)) . #3#)
+              (LETT |colon| (SPADCALL " : " (QREFELT $ 38)) . #3#)
               (SEQ (LETT |e| NIL . #3#)
                    (LETT #2# (SPADCALL |t| (QREFELT $ 34)) . #3#) G190
                    (COND

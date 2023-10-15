@@ -1525,27 +1525,20 @@
          (COND ((|exptNeedsPren| |a|) 2) ('T 0)))))))
  
 ; needStar(wasSimple,wasQuotient,wasNumber,cur,op) ==
-;   wasQuotient or isQuotient op => true
+;   wasNumber or wasQuotient or isQuotient op => true
 ;   wasSimple =>
-;     atom cur or keyp cur="SUB" or isRationalNumber cur or op="**" or op = "^" or
-;       (atom op and not NUMBERP op and not GETL(op,"APP"))
-;   wasNumber =>
-;     NUMBERP(cur) or isRationalNumber cur or
-;         ((op="**" or op ="^") and NUMBERP(CADR cur))
+;     atom cur or keyp cur="SUB" or isRationalNumber cur or op="**" or
+;       op = "^" or (atom op and not NUMBERP op and not GETL(op,"APP"))
  
 (DEFUN |needStar| (|wasSimple| |wasQuotient| |wasNumber| |cur| |op|)
   (PROG ()
     (RETURN
-     (COND ((OR |wasQuotient| (|isQuotient| |op|)) T)
+     (COND ((OR |wasNumber| |wasQuotient| (|isQuotient| |op|)) T)
            (|wasSimple|
             (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB)
                 (|isRationalNumber| |cur|) (EQ |op| '**) (EQ |op| '^)
                 (AND (ATOM |op|) (NULL (NUMBERP |op|))
-                     (NULL (GETL |op| 'APP)))))
-           (|wasNumber|
-            (OR (NUMBERP |cur|) (|isRationalNumber| |cur|)
-                (AND (OR (EQ |op| '**) (EQ |op| '^))
-                     (NUMBERP (CADR |cur|)))))))))
+                     (NULL (GETL |op| 'APP)))))))))
  
 ; isQuotient op ==
 ;   op="/" or op="OVER"
@@ -1915,7 +1908,7 @@
       (|appChar| (|specialChar| '|rbrc|) (+ (+ |x| 1) (WIDTH |u|)) |y| |d|)))))
  
 ; aggWidth u ==
-;   rest u is [a,:l] => WIDTH a + +/[1+WIDTH x for x in l]
+;   rest u is [a,:l] => WIDTH a + +/[2+WIDTH x for x in l]
 ;   0
  
 (DEFUN |aggWidth| (|u|)
@@ -1935,7 +1928,7 @@
               (COND
                ((OR (ATOM |bfVar#52|) (PROGN (SETQ |x| (CAR |bfVar#52|)) NIL))
                 (RETURN |bfVar#53|))
-               (#1# (SETQ |bfVar#53| (+ |bfVar#53| (+ 1 (WIDTH |x|))))))
+               (#1# (SETQ |bfVar#53| (+ |bfVar#53| (+ 2 (WIDTH |x|))))))
               (SETQ |bfVar#52| (CDR |bfVar#52|))))
            0 |l| NIL)))
       (#1# 0)))))
@@ -1948,10 +1941,10 @@
  
 (DEFUN |aggSuper| (|u|) (PROG () (RETURN (|superspan| (CDR |u|)))))
  
-; aggApp(u,x,y,d) == aggregateApp(rest u,x,y,d,",")
+; aggApp(u,x,y,d) == aggregateApp(rest u,x,y,d,", ")
  
 (DEFUN |aggApp| (|u| |x| |y| |d|)
-  (PROG () (RETURN (|aggregateApp| (CDR |u|) |x| |y| |d| '|,|))))
+  (PROG () (RETURN (|aggregateApp| (CDR |u|) |x| |y| |d| '|, |))))
  
 ; aggregateApp(u,x,y,d,s) ==
 ;   if u is [a,:l] then
@@ -1959,8 +1952,8 @@
 ;     x:= x+WIDTH a
 ;     for b in l repeat
 ;       d:= APP(s,x,y,d)
-;       d:= APP(b,x+1,y,d)
-;       x:= x+1+WIDTH b
+;       d:= APP(b,x+WIDTH s,y,d)
+;       x:= x+WIDTH s+WIDTH b
 ;   d
  
 (DEFUN |aggregateApp| (|u| |x| |y| |d| |s|)
@@ -1979,8 +1972,8 @@
              (#1#
               (PROGN
                (SETQ |d| (APP |s| |x| |y| |d|))
-               (SETQ |d| (APP |b| (+ |x| 1) |y| |d|))
-               (SETQ |x| (+ (+ |x| 1) (WIDTH |b|))))))
+               (SETQ |d| (APP |b| (+ |x| (WIDTH |s|)) |y| |d|))
+               (SETQ |x| (+ (+ |x| (WIDTH |s|)) (WIDTH |b|))))))
             (SETQ |bfVar#54| (CDR |bfVar#54|))))
          |l| NIL)))
       |d|))))
