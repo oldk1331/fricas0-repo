@@ -675,7 +675,7 @@
 49690`\spadtype{SetOfMIntegersInOneToN} implements the subsets of \spad{M} integers in the interval \spad{[1..n]}
 49789`This domain allows the manipulation of the usual Lisp values.
 49877`This domain allows the manipulation of Lisp values over arbitrary atomic types.
-50027`Domain which represents simple algebraic extensions of arbitrary rings. The first argument to the domain,{} \spad{R},{} is the underlying ring,{} the second argument is a domain of univariate polynomials over \spad{K},{} while the last argument specifies the defining minimal polynomial. The elements of the domain are canonically represented as polynomials of degr
+50027`Domain which represents simple algebraic extensions of arbitrary rings. The first argument to the domain,{} \spad{R},{} is the underlying ring,{} the second argument is a domain of univariate polynomials over \spad{R},{} while the last argument specifies the defining minimal polynomial. The elements of the domain are canonically represented as polynomials of degr
 50027`--ee less than that of the minimal polynomial with coefficients in \spad{R}. The second argument is both the type of the third argument and the underlying representation used by \spadtype{SAE} itself.
 50321`\spadtype{SimpleFortranProgram} provides a simple model of some FORTRAN subprograms,{} making it possible to coerce objects of various domains into a FORTRAN subprogram called \spad{f}. These can then be translated into legal FORTRAN code.
 50436`SingleInteger is intended to support machine integer arithmetic.
