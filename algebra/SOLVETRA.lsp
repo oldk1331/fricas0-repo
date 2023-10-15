@@ -144,7 +144,7 @@
                           (SPADCALL
                            (SPADCALL (SPADCALL |f| (QREFELT $ 44))
                                      (QREFELT $ 47))
-                           (QREFELT $ 51))
+                           (QREFELT $ 50))
                           . #23#)
                     (LETT |lr|
                           (PROGN
@@ -264,7 +264,7 @@
                                 (SPADCALL
                                  (SPADCALL (SPADCALL |f| (QREFELT $ 44))
                                            (QREFELT $ 47))
-                                 (QREFELT $ 51))
+                                 (QREFELT $ 50))
                                 . #23#)
                           (LETT |secondsol|
                                 (PROGN
@@ -1933,13 +1933,13 @@
               (|Equation| $) (46 . |eval|)
               (|ElementaryFunctionStructurePackage| 6 8) (52 . |normalize|)
               (57 . |new|) (61 . |coerce|) (66 . =) (72 . =) (|List| 40)
-              (78 . |kernels|) (|Fraction| 46) (|Kernel| $) (83 . |univariate|)
+              (78 . |kernels|) (|Fraction| 52) (|Kernel| $) (83 . |univariate|)
               (|SparseUnivariatePolynomial| 8) (|Fraction| 42) (89 . |numer|)
-              (|Factored| 46) (|SparseUnivariatePolynomial| $)
+              (|Factored| 42) (|ExpressionFactorPolynomial| 6 8)
               (94 . |factorPolynomial|)
               (|Record| (|:| |factor| 42) (|:| |exponent| 54)) (|List| 48)
-              (|Factored| 42) (99 . |factors|) (|List| $) (104 . |zerosOf|)
-              (|Integer|) (|List| 8) (110 . |elt|)
+              (99 . |factors|) (|List| $) (|SparseUnivariatePolynomial| $)
+              (104 . |zerosOf|) (|Integer|) (|List| 8) (110 . |elt|)
               (|SparseMultivariatePolynomial| 6 40) (116 . |numer|)
               (121 . |coerce|) (|Kernel| 8) (126 . |kernel|)
               (|AlgebraicManipulations| 6 8) (131 . |rootSimp|) (|Factored| 65)
@@ -1961,7 +1961,7 @@
               (|TransSolvePackageService| 6) (237 . |decomposeFunc|) (244 . =)
               (|Fraction| $) (250 . |elt|) (256 . |coerce|) (261 . |second|)
               (266 . |retract|) (271 . |monomial|) (277 . -)
-              (283 . |resultant|) (289 . |is?|) (|Union| 52 '"failed")
+              (283 . |resultant|) (289 . |is?|) (|Union| 51 '"failed")
               (295 . |isPlus|) (300 . |leadingCoefficient|) (305 . |gcd|)
               (310 . |coerce|) (315 . |Zero|) (319 . +) (325 . *)
               (331 . |Zero|) (335 . |name|) (340 . |member?|) (346 . |isTimes|)
@@ -2019,9 +2019,9 @@
                                                    29 30 1 31 8 8 32 0 16 0 33
                                                    1 8 0 16 34 2 19 0 8 8 35 2
                                                    8 7 0 0 36 1 8 37 0 38 2 8
-                                                   39 0 40 41 1 43 42 0 44 1 8
-                                                   45 46 47 1 50 49 0 51 2 8 52
-                                                   46 16 53 2 55 8 0 54 56 1 8
+                                                   39 0 40 41 1 43 42 0 44 1 46
+                                                   45 42 47 1 45 49 0 50 2 8 51
+                                                   52 16 53 2 55 8 0 54 56 1 8
                                                    57 0 58 1 8 0 57 59 1 60 0
                                                    16 61 1 62 8 8 63 1 66 64 65
                                                    67 1 64 69 0 70 2 8 72 0 16
@@ -2038,7 +2038,7 @@
                                                    104 1 8 54 0 105 2 42 0 8 13
                                                    106 2 42 0 0 0 107 2 42 8 0
                                                    0 108 2 8 7 0 16 109 1 8 110
-                                                   0 111 1 65 6 0 112 1 6 0 52
+                                                   0 111 1 65 6 0 112 1 6 0 51
                                                    113 1 8 0 6 114 0 8 0 115 2
                                                    8 0 0 0 116 2 8 0 0 0 117 0
                                                    6 0 118 1 60 16 0 119 2 10 7

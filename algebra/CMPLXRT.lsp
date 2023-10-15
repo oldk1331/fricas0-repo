@@ -6,51 +6,53 @@
           (#2=#:G113 NIL) (|lz| (|List| (|List| |Par|)))
           (|p2| #3=(|Polynomial| (|Integer|))) (|p1| #3#)
           (|q| (|Polynomial| (|Complex| (|Integer|))))
-          (|pp| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
-          (#4=#:G112 NIL) (|pf| NIL)
+          (|pp| #4=(|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
+          (#5=#:G112 NIL) (|pf| NIL)
           (|lpf|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
-          (|vv| #5=(|Symbol|)) (|x2| #5#) (|x1| #5#))
+           (|List| (|Record| (|:| |factor| #4#) (|:| |exponent| (|Integer|)))))
+          (|np| (|SparseUnivariatePolynomial| (|Complex| (|Integer|))))
+          (|vv| #6=(|Symbol|)) (|x2| #6#) (|x1| #6#))
          (SEQ
           (LETT |x1| (SPADCALL (QREFELT $ 9))
-                . #6=(|CMPLXRT;complexZeros;UPParL;1|))
-          (LETT |x2| (SPADCALL (QREFELT $ 9)) . #6#)
-          (LETT |vv| (SPADCALL (QREFELT $ 9)) . #6#)
-          (LETT |lpf| (SPADCALL (SPADCALL |p| (QREFELT $ 12)) (QREFELT $ 15))
-                . #6#)
-          (LETT |ris| NIL . #6#)
-          (SEQ (LETT |pf| NIL . #6#) (LETT #4# |lpf| . #6#) G190
+                . #7=(|CMPLXRT;complexZeros;UPParL;1|))
+          (LETT |x2| (SPADCALL (QREFELT $ 9)) . #7#)
+          (LETT |vv| (SPADCALL (QREFELT $ 9)) . #7#)
+          (LETT |np| (SPADCALL |p| (QREFELT $ 11)) . #7#)
+          (LETT |lpf| (SPADCALL (SPADCALL |np| (QREFELT $ 13)) (QREFELT $ 17))
+                . #7#)
+          (LETT |ris| NIL . #7#)
+          (SEQ (LETT |pf| NIL . #7#) (LETT #5# |lpf| . #7#) G190
                (COND
-                ((OR (ATOM #4#) (PROGN (LETT |pf| (CAR #4#) . #6#) NIL))
+                ((OR (ATOM #5#) (PROGN (LETT |pf| (CAR #5#) . #7#) NIL))
                  (GO G191)))
-               (SEQ (LETT |pp| (QCAR |pf|) . #6#)
-                    (LETT |q| (SPADCALL |pp| |vv| (QREFELT $ 18)) . #6#)
+               (SEQ (LETT |pp| (QCAR |pf|) . #7#)
+                    (LETT |q| (SPADCALL |pp| |vv| (QREFELT $ 19)) . #7#)
                     (LETT |q|
                           (SPADCALL |q| |vv|
-                                    (SPADCALL (SPADCALL |x1| (QREFELT $ 19))
+                                    (SPADCALL (SPADCALL |x1| (QREFELT $ 20))
                                               (SPADCALL
-                                               (SPADCALL 0 1 (QREFELT $ 25))
-                                               (SPADCALL |x2| (QREFELT $ 19))
-                                               (QREFELT $ 26))
-                                              (QREFELT $ 27))
-                                    (QREFELT $ 28))
-                          . #6#)
-                    (LETT |p1| (SPADCALL (ELT $ 29) |q| (QREFELT $ 33)) . #6#)
-                    (LETT |p2| (SPADCALL (ELT $ 34) |q| (QREFELT $ 33)) . #6#)
+                                               (SPADCALL 0 1 (QREFELT $ 26))
+                                               (SPADCALL |x2| (QREFELT $ 20))
+                                               (QREFELT $ 27))
+                                              (QREFELT $ 28))
+                                    (QREFELT $ 29))
+                          . #7#)
+                    (LETT |p1| (SPADCALL (ELT $ 30) |q| (QREFELT $ 34)) . #7#)
+                    (LETT |p2| (SPADCALL (ELT $ 35) |q| (QREFELT $ 34)) . #7#)
                     (LETT |lz|
                           (SPADCALL (LIST |p1| |p2|) NIL (LIST |x1| |x2|) |eps|
-                                    (QREFELT $ 39))
-                          . #6#)
+                                    (QREFELT $ 40))
+                          . #7#)
                     (EXIT
                      (LETT |ris|
                            (APPEND
                             (PROGN
-                             (LETT #2# NIL . #6#)
-                             (SEQ (LETT |z| NIL . #6#) (LETT #1# |lz| . #6#)
+                             (LETT #2# NIL . #7#)
+                             (SEQ (LETT |z| NIL . #7#) (LETT #1# |lz| . #7#)
                                   G190
                                   (COND
                                    ((OR (ATOM #1#)
-                                        (PROGN (LETT |z| (CAR #1#) . #6#) NIL))
+                                        (PROGN (LETT |z| (CAR #1#) . #7#) NIL))
                                     (GO G191)))
                                   (SEQ
                                    (EXIT
@@ -58,15 +60,15 @@
                                           (CONS
                                            (SPADCALL (|SPADfirst| |z|)
                                                      (SPADCALL |z|
-                                                               (QREFELT $ 41))
-                                                     (QREFELT $ 43))
+                                                               (QREFELT $ 42))
+                                                     (QREFELT $ 44))
                                            #2#)
-                                          . #6#)))
-                                  (LETT #1# (CDR #1#) . #6#) (GO G190) G191
+                                          . #7#)))
+                                  (LETT #1# (CDR #1#) . #7#) (GO G190) G191
                                   (EXIT (NREVERSE #2#))))
                             |ris|)
-                           . #6#)))
-               (LETT #4# (CDR #4#) . #6#) (GO G190) G191 (EXIT NIL))
+                           . #7#)))
+               (LETT #5# (CDR #5#) . #7#) (GO G190) G191 (EXIT NIL))
           (EXIT |ris|)))) 
 
 (DECLAIM (NOTINLINE |ComplexRootPackage;|)) 
@@ -97,7 +99,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ComplexRootPackage|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ComplexRootPackage| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 46) . #1#)
+          (LETT $ (GETREFV 47) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ComplexRootPackage|
@@ -111,31 +113,31 @@
 (MAKEPROP '|ComplexRootPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Symbol|)
-              (0 . |new|) (|Factored| 6) (|ComplexFactorization| 23 6)
-              (4 . |factor|) (|Record| (|:| |factor| 6) (|:| |exponent| 23))
-              (|List| 13) (9 . |factors|) (|SparseUnivariatePolynomial| 24)
-              (|Polynomial| 24) (14 . |multivariate|) (20 . |coerce|)
-              (25 . |Zero|) (29 . |Zero|) (33 . |One|) (|Integer|)
-              (|Complex| 23) (37 . |complex|) (43 . *) (49 . +) (55 . |eval|)
-              (62 . |real|) (|Polynomial| 23) (|Mapping| 23 24)
-              (|PolynomialFunctions2| 24 23) (67 . |map|) (73 . |imag|)
-              (|List| 40) (|List| 30) (|List| 8)
-              (|InnerNumericFloatSolvePackage| 23 7 7) (78 . |innerSolve|)
-              (|List| 7) (86 . |second|) (|Complex| 7) (91 . |complex|)
-              (|List| 42) |CMPLXRT;complexZeros;UPParL;1|)
-           '#(|complexZeros| 97) 'NIL
+              (0 . |new|) (|SparseUnivariatePolynomial| 25) (4 . |makeSUP|)
+              (|Factored| $) (9 . |factor|)
+              (|Record| (|:| |factor| 10) (|:| |exponent| 24)) (|List| 14)
+              (|Factored| 10) (14 . |factors|) (|Polynomial| 25)
+              (19 . |multivariate|) (25 . |coerce|) (30 . |Zero|) (34 . |Zero|)
+              (38 . |One|) (|Integer|) (|Complex| 24) (42 . |complex|) (48 . *)
+              (54 . +) (60 . |eval|) (67 . |real|) (|Polynomial| 24)
+              (|Mapping| 24 25) (|PolynomialFunctions2| 25 24) (72 . |map|)
+              (78 . |imag|) (|List| 41) (|List| 31) (|List| 8)
+              (|InnerNumericFloatSolvePackage| 24 7 7) (83 . |innerSolve|)
+              (|List| 7) (91 . |second|) (|Complex| 7) (96 . |complex|)
+              (|List| 43) |CMPLXRT;complexZeros;UPParL;1|)
+           '#(|complexZeros| 102) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(0 8 0 9 1 11 10 6 12 1 10 14
-                                                   0 15 2 17 0 16 8 18 1 17 0 8
-                                                   19 0 6 0 20 0 7 0 21 0 6 0
-                                                   22 2 24 0 23 23 25 2 17 0 24
-                                                   0 26 2 17 0 0 0 27 3 17 0 0
-                                                   8 0 28 1 24 23 0 29 2 32 30
-                                                   31 17 33 1 24 23 0 34 4 38
-                                                   35 36 36 37 7 39 1 40 7 0 41
-                                                   2 42 0 7 7 43 2 0 44 6 7
-                                                   45)))))
+                             (|makeByteWordVec2| 46
+                                                 '(0 8 0 9 1 6 10 0 11 1 10 12
+                                                   0 13 1 16 15 0 17 2 18 0 10
+                                                   8 19 1 18 0 8 20 0 6 0 21 0
+                                                   7 0 22 0 6 0 23 2 25 0 24 24
+                                                   26 2 18 0 25 0 27 2 18 0 0 0
+                                                   28 3 18 0 0 8 0 29 1 25 24 0
+                                                   30 2 33 31 32 18 34 1 25 24
+                                                   0 35 4 39 36 37 37 38 7 40 1
+                                                   41 7 0 42 2 43 0 7 7 44 2 0
+                                                   45 6 7 46)))))
            '|lookupComplete|)) 

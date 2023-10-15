@@ -6,7 +6,7 @@
            (SPADCALL |p| (QREFELT $ 12)))
           ((|domainEqual| (QREFELT $ 8) (|Fraction| (|Complex| (|Integer|))))
            (SPADCALL |p| (QREFELT $ 14)))
-          ('T
+          (#1='T
            (SEQ
             (COND
              ((|domainEqual| (QREFELT $ 8)
@@ -15,12 +15,20 @@
                ((|HasSignature| (QREFELT $ 6)
                                 (LIST '|convert| (LIST '(|Symbol|) '$)))
                 (EXIT (SPADCALL |p| (QREFELT $ 16)))))))
-            (EXIT (SPADCALL |p| (ELT $ 20) (QREFELT $ 23)))))))) 
+            (EXIT
+             (COND
+              ((|HasCategory| (QREFELT $ 8)
+                              '(|PolynomialFactorizationExplicit|))
+               (SPADCALL |p| (ELT $ 19) (QREFELT $ 22)))
+              (#1# (|error| "MULTFACT: factor unimplemented"))))))))) 
 
 (SDEFUN |MULTFACT;factor;SupF;2|
         ((|up| |SparseUnivariatePolynomial| P)
          ($ |Factored| (|SparseUnivariatePolynomial| P)))
-        (SPADCALL |up| (ELT $ 20) (QREFELT $ 27))) 
+        (COND
+         ((|HasCategory| (QREFELT $ 8) '(|PolynomialFactorizationExplicit|))
+          (SPADCALL |up| (ELT $ 19) (QREFELT $ 26)))
+         ('T (|error| "MULTFACT: factor unimplemented")))) 
 
 (DECLAIM (NOTINLINE |MultivariateFactorize;|)) 
 
@@ -54,7 +62,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|MultivariateFactorize| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 29) . #1#)
+    (LETT $ (GETREFV 28) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|MultivariateFactorize|
@@ -75,19 +83,21 @@
               (|MRationalFactorize| 7 6 (|Complex| (|Integer|)) 9)
               (5 . |factor|)
               (|MPolyCatRationalFunctionFactorizer| 7 6 (|Integer|) 9)
-              (10 . |factor|) (|Factored| 18) (|SparseUnivariatePolynomial| 8)
-              (|GenUFactorize| 8) (15 . |factor|) (|Mapping| 17 18)
+              (10 . |factor|) (|Factored| 18) (|SparseUnivariatePolynomial| $)
+              (15 . |factorPolynomial|)
+              (|Mapping| (|Factored| (|SparseUnivariatePolynomial| 8))
+                         (|SparseUnivariatePolynomial| 8))
               (|InnerMultFact| 6 7 8 9) (20 . |factor|) |MULTFACT;factor;PF;1|
-              (|Factored| 26) (|SparseUnivariatePolynomial| 9) (26 . |factor|)
+              (|Factored| 25) (|SparseUnivariatePolynomial| 9) (26 . |factor|)
               |MULTFACT;factor;SupF;2|)
            '#(|factor| 32) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 28
+                             (|makeByteWordVec2| 27
                                                  '(1 11 10 9 12 1 13 10 9 14 1
-                                                   15 10 9 16 1 19 17 18 20 2
-                                                   22 10 9 21 23 2 22 25 26 21
-                                                   27 1 0 25 26 28 1 0 10 9
-                                                   24)))))
+                                                   15 10 9 16 1 8 17 18 19 2 21
+                                                   10 9 20 22 2 21 24 25 20 26
+                                                   1 0 24 25 27 1 0 10 9
+                                                   23)))))
            '|lookupComplete|)) 

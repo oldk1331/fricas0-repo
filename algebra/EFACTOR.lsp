@@ -129,7 +129,14 @@
                    (CATEGORY |domain|
                     (SIGNATURE |outputForm| ((|OutputForm|) $ (|OutputForm|)))
                     (SIGNATURE |fmecg| ($ $ (|NonNegativeInteger|) |sae| $)))))
-          (|sae| (|MonogenicAlgebra| F (|SparseUnivariatePolynomial| F)))
+          (|sae|
+           (|Join| (|MonogenicAlgebra| F (|SparseUnivariatePolynomial| F))
+                   (CATEGORY |package|
+                    (IF (|has| F (|Field|))
+                        (IF (|has| F (|PolynomialFactorizationExplicit|))
+                            (ATTRIBUTE (|PolynomialFactorizationExplicit|))
+                            |noBranch|)
+                        |noBranch|))))
           (|lk2| (|List| #1#)) (#3=#:G153 NIL) (|k| NIL) (#4=#:G152 NIL)
           (|q| (|SparseUnivariatePolynomial| F)) (|k1| (|Kernel| F))
           (|cnp| (|SparseUnivariatePolynomial| F)) (|cn| (F))

@@ -36,8 +36,15 @@
           (#11=#:G124 NIL) (|coor0| (|Matrix| R)) (|bi| (F)) (#12=#:G150 NIL)
           (#13=#:G149 NIL) (|lp| (|NonNegativeInteger|))
           (|q| (|NonNegativeInteger|)) (|p| (|NonNegativeInteger|))
-          (|sae| (|MonogenicAlgebra| K R)) (|p2| (R))
-          (|standardBasis| (|Vector| F)) (|n| (|PositiveInteger|)))
+          (|sae|
+           (|Join| (|MonogenicAlgebra| K R)
+                   (CATEGORY |package|
+                    (IF (|has| K (|Field|))
+                        (IF (|has| K (|PolynomialFactorizationExplicit|))
+                            (ATTRIBUTE (|PolynomialFactorizationExplicit|))
+                            |noBranch|)
+                        |noBranch|))))
+          (|p2| (R)) (|standardBasis| (|Vector| F)) (|n| (|PositiveInteger|)))
          (SEQ
           (EXIT
            (SEQ

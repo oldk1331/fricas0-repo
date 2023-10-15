@@ -181,7 +181,14 @@
                      (|:| |generator| (|SparseUnivariatePolynomial| |sae|))))
           (|gBar| #7=(|SparseUnivariatePolynomial| |sae|)) (|fBar| #7#)
           (|gSUP| #8=(|SparseUnivariatePolynomial| R)) (|fSUP| #8#)
-          (|sae| (|MonogenicAlgebra| K R)))
+          (|sae|
+           (|Join| (|MonogenicAlgebra| K R)
+                   (CATEGORY |package|
+                    (IF (|has| K (|Field|))
+                        (IF (|has| K (|PolynomialFactorizationExplicit|))
+                            (ATTRIBUTE (|PolynomialFactorizationExplicit|))
+                            |noBranch|)
+                        |noBranch|)))))
          (SEQ
           (LETT |sae|
                 (|SimpleAlgebraicExtension| (QREFELT $ 6) (QREFELT $ 7) |p|)

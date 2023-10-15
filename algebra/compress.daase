@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4851 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4848 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -42,14 +42,14 @@
  |CombinatorialFunction| |IntegerCombinatoricFunctions|
  |CombinatorialOpsCategory| |Commutator| |CommonOperators|
  |CommuteUnivariatePolynomialCategory| |Comparable| |ComplexCategory&|
- |ComplexCategory| |compCode| |ComplexFactorization| |Complex|
- |ComplexFunctions2| |ComplexPattern| |SubSpaceComponentProperty| |compUtil|
- |CommutativeRing| |ContinuedFraction| |CoordinateSystems|
- |CharacteristicPolynomialInMonogenicalAlgebra| |ComplexPatternMatch|
- |CRApackage| |ComplexRootFindingPackage| |CyclicStreamTools|
- |ComplexTrigonometricManipulations| |CoerceVectorMatrixPackage| |CyclicGroup|
- |CycleIndicators| |CyclotomicPolynomialPackage| |Database|
- |DoubleResultantPackage| |DistinctDegreeFactorize| |DecimalExpansion|
+ |ComplexCategory| |compCode| |Complex| |ComplexFunctions2| |ComplexPattern|
+ |SubSpaceComponentProperty| |compUtil| |CommutativeRing| |ContinuedFraction|
+ |CoordinateSystems| |CharacteristicPolynomialInMonogenicalAlgebra|
+ |ComplexPatternMatch| |CRApackage| |ComplexRootFindingPackage|
+ |CyclicStreamTools| |ComplexTrigonometricManipulations|
+ |CoerceVectorMatrixPackage| |CyclicGroup| |CycleIndicators|
+ |CyclotomicPolynomialPackage| |Database| |DoubleResultantPackage|
+ |DistinctDegreeFactorize| |DecimalExpansion|
  |ElementaryFunctionDefiniteIntegration| |RationalFunctionDefiniteIntegration|
  |DegreeReductionPackage| |Dequeue| |DeRhamComplex| |DefiniteIntegrationTools|
  |DoubleFloat| |DoubleFloatMatrix| |DoubleFloatSpecialFunctions|
@@ -146,7 +146,7 @@
  |GroebnerInternalPackage| |GcdBasis| |GcdDomain&| |GcdDomain|
  |GenericNonAssociativeAlgebra| |GeneralDistributedMultivariatePolynomial|
  |GnuDraw| |GenExEuclid| |GeneralizedMultivariateFactorize|
- |GeneralPolynomialGcdPackage| |GenUFactorize| |GenerateUnivariatePowerSeries|
+ |GeneralPolynomialGcdPackage| |GenerateUnivariatePowerSeries|
  |GeneralizedUnivariatePowerSeries| |GeneralHenselPackage|
  |GeneralModulePolynomial| |GuessOption| |GuessOptionFunctions0|
  |GosperSummationMethod| |MaybeSkewPolynomialCategory&|
@@ -385,16 +385,16 @@
  |StreamTranscendentalFunctionsNonCommutative| |SubResultantPackage| |SubSpace|
  |SuchThat| |SparseUnivariateLaurentSeries| |FunctionSpaceSum|
  |RationalFunctionSum| |SparseUnivariatePolynomial|
- |SparseUnivariatePolynomialFunctions2| |SupFractionFactorizer|
- |SparseUnivariatePuiseuxSeries| |SparseUnivariateTaylorSeries| |Switch|
- |SymmetryAnalysis| |Symbol| |SymmetricFunctions| |SymmetricPolynomial|
- |TheSymbolTable| |SymbolTable| |SystemSolvePackage| |TableauxBumpers| |Table|
- |Tableau| |TangentExpansions| |TableAggregate&| |TableAggregate|
- |TabulatedComputationPackage| |TemplateUtilities| |TensorProductCategory|
- |TensorProduct| |TensorPowerCategory&| |TensorPowerCategory|
- |TensorPowerFunctions2| |TensorPower| |TensorProductProperty| |UnittestAux|
- |UnittestCount| |Unittest| |TexFormat| |TexFormat1| |TextFile| |TexmacsFormat|
- |ToolsForSign| |TopLevelThreeSpace| |TranscendentalFunctionCategory&|
+ |SparseUnivariatePolynomialFunctions2| |SparseUnivariatePuiseuxSeries|
+ |SparseUnivariateTaylorSeries| |Switch| |SymmetryAnalysis| |Symbol|
+ |SymmetricFunctions| |SymmetricPolynomial| |TheSymbolTable| |SymbolTable|
+ |SystemSolvePackage| |TableauxBumpers| |Table| |Tableau| |TangentExpansions|
+ |TableAggregate&| |TableAggregate| |TabulatedComputationPackage|
+ |TemplateUtilities| |TensorProductCategory| |TensorProduct|
+ |TensorPowerCategory&| |TensorPowerCategory| |TensorPowerFunctions2|
+ |TensorPower| |TensorProductProperty| |UnittestAux| |UnittestCount| |Unittest|
+ |TexFormat| |TexFormat1| |TextFile| |TexmacsFormat| |ToolsForSign|
+ |TopLevelThreeSpace| |TranscendentalFunctionCategory&|
  |TranscendentalFunctionCategory| |Tree| |TrigonometricFunctionCategory&|
  |TrigonometricFunctionCategory| |TrigonometricManipulations|
  |TriangularMatrixOperations| |TranscendentalManipulations| |TaylorSeries|

@@ -873,9 +873,9 @@
               (|Record| (|:| |exponent| 47) (|:| |coef| 7) (|:| |radicand| 7))
               (|PolynomialRoots| (|IndexedExponents| 25) 25 6 74 7)
               (352 . |froot|) (358 . ~=) (364 . |primitivePart|) (|Factored| 8)
-              (|FunctionSpaceUnivariatePolynomialFactor| 6 7 8)
-              (369 . |ffactor|) (|Record| (|:| |factor| 8) (|:| |exponent| 30))
-              (|List| 118) (374 . |factors|) (379 . *))
+              (|ExpressionFactorPolynomial| 6 7) (369 . |factorPolynomial|)
+              (|Record| (|:| |factor| 8) (|:| |exponent| 30)) (|List| 118)
+              (374 . |factors|) (379 . *))
            '#(|split| 385 |expand| 390 |complexExpand| 395) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

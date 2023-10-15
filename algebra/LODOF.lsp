@@ -294,19 +294,19 @@
         ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor;LodoL;11!0| $)
-         (ELT $ 72) 'T $)) 
+         (ELT $ 71) 'T $)) 
 
 (SDEFUN |LODOF;factor;LodoL;11!0| ((|p1| NIL) ($ NIL))
-        (|LODOF;zro| |p1| (ELT $ 72) $)) 
+        (|LODOF;zro| |p1| (ELT $ 71) $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;12|
         ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
          ($ |List| (|LinearOrdinaryDifferentialOperator1| (|Fraction| UP))))
         (|LODOF;innerFactor| |l| (CONS #'|LODOF;factor1;LodoL;12!0| $)
-         (ELT $ 72) 'NIL $)) 
+         (ELT $ 71) 'NIL $)) 
 
 (SDEFUN |LODOF;factor1;LodoL;12!0| ((|p1| NIL) ($ NIL))
-        (|LODOF;zro| |p1| (ELT $ 72) $)) 
+        (|LODOF;zro| |p1| (ELT $ 71) $)) 
 
 (SDEFUN |LODOF;factor;LodoL;13|
         ((|l| |LinearOrdinaryDifferentialOperator1| (|Fraction| UP))
@@ -363,7 +363,7 @@
                 (LIST '|LinearOrdinaryDifferentialOperatorFactorizer| DV$1
                       DV$2)
                 . #1#)
-          (LETT $ (GETREFV 75) . #1#)
+          (LETT $ (GETREFV 74) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -386,18 +386,18 @@
              (COND
               ((|domainEqual| |#1| (|AlgebraicNumber|))
                (PROGN
-                (QSETREFV $ 73
+                (QSETREFV $ 72
                           (CONS (|dispatchFunction| |LODOF;factor;LodoL;11|)
                                 $))
-                (QSETREFV $ 74
+                (QSETREFV $ 73
                           (CONS (|dispatchFunction| |LODOF;factor1;LodoL;12|)
                                 $))))
               ('T
                (PROGN
-                (QSETREFV $ 73
+                (QSETREFV $ 72
                           (CONS (|dispatchFunction| |LODOF;factor;LodoL;13|)
                                 $))
-                (QSETREFV $ 74
+                (QSETREFV $ 73
                           (CONS (|dispatchFunction| |LODOF;factor1;LodoL;14|)
                                 $))))))))
           $))) 
@@ -425,13 +425,13 @@
               (|List| 6) (174 . |concat|) (|SparseUnivariatePolynomial| 6)
               (|Mapping| 6 6)
               (|UnivariatePolynomialCategoryFunctions2| 6 7 6 65) (179 . |map|)
-              (|SparseUnivariatePolynomial| $) (185 . |zeroOf|) (|AlgFactor| 7)
+              (|SparseUnivariatePolynomial| $) (185 . |zeroOf|)
               (190 . |factor|) (195 . |factor|) (200 . |factor1|))
            '#(|factor1| 205 |factor| 210) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 74
+                             (|makeByteWordVec2| 73
                                                  '(0 8 0 9 1 7 11 0 12 0 6 0 16
                                                    0 7 0 17 0 18 0 19 2 22 21 8
                                                    18 23 2 18 24 0 0 25 1 18 0
@@ -448,7 +448,7 @@
                                                    54 2 13 0 0 8 55 2 35 0 56 0
                                                    57 1 60 59 0 61 1 63 0 62 64
                                                    2 67 65 66 7 68 1 6 0 69 70
-                                                   1 71 60 7 72 1 0 13 8 73 1 0
-                                                   13 8 74 1 1 13 8 74 1 1 13 8
-                                                   73 2 0 13 8 14 15)))))
+                                                   1 7 11 0 71 1 0 13 8 72 1 0
+                                                   13 8 73 1 1 13 8 73 1 1 13 8
+                                                   72 2 0 13 8 14 15)))))
            '|lookupComplete|)) 

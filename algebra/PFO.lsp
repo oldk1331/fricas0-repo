@@ -455,7 +455,15 @@
                (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))))
          (|k| |Kernel| F) ($ |NonNegativeInteger|))
         (SPROG
-         ((|sae| (|MonogenicAlgebra| |gf| (|SparseUnivariatePolynomial| |gf|)))
+         ((|sae|
+           (|Join|
+            (|MonogenicAlgebra| |gf| (|SparseUnivariatePolynomial| |gf|))
+            (CATEGORY |package|
+             (IF (|has| |gf| (|Field|))
+                 (IF (|has| |gf| (|PolynomialFactorizationExplicit|))
+                     (ATTRIBUTE (|PolynomialFactorizationExplicit|))
+                     |noBranch|)
+                 |noBranch|))))
           (|alpha| (|gf|)) (|m| (|SparseUnivariatePolynomial| |gf|))
           (|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)

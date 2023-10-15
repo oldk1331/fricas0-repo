@@ -25,7 +25,7 @@
           (|Record| (|:| |outval| (|Complex| |Par|))
                     (|:| |outmult| (|Integer|))
                     (|:| |outvect| (|List| (|Matrix| (|Complex| |Par|)))))))
-        (SPADCALL |m| |eps| (ELT $ 22) (QREFELT $ 26))) 
+        (SPADCALL |m| |eps| (ELT $ 23) (QREFELT $ 27))) 
 
 (DECLAIM (NOTINLINE |NumericComplexEigenPackage;|)) 
 
@@ -55,7 +55,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|NumericComplexEigenPackage|))
           (LETT |dv$| (LIST '|NumericComplexEigenPackage| DV$1) . #1#)
-          (LETT $ (GETREFV 28) . #1#)
+          (LETT $ (GETREFV 29) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|NumericComplexEigenPackage|
@@ -68,34 +68,30 @@
 (MAKEPROP '|NumericComplexEigenPackage| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Symbol|) (0 . |new|)
-              (|SparseUnivariatePolynomial|
-               (|Complex| (|Fraction| (|Integer|))))
-              (|Matrix| (|Complex| (|Fraction| (|Integer|))))
-              (|InnerNumericEigenPackage| (|Complex| (|Fraction| (|Integer|)))
-                                          (|Complex| 6) 6)
-              (4 . |charpol|)
-              (|Polynomial| (|Complex| (|Fraction| (|Integer|))))
-              (9 . |multivariate|) |NCEP;characteristicPolynomial;MP;1|
+              (|SparseUnivariatePolynomial| 22) (|Matrix| 22)
+              (|InnerNumericEigenPackage| 22 (|Complex| 6) 6) (4 . |charpol|)
+              (|Polynomial| 22) (9 . |multivariate|)
+              |NCEP;characteristicPolynomial;MP;1|
               |NCEP;characteristicPolynomial;MSP;2| (|List| (|Complex| 6))
-              (15 . |solve1|) |NCEP;complexEigenvalues;MParL;3| (|Factored| 9)
-              (|ComplexFactorization| (|Fraction| (|Integer|)) 9)
-              (21 . |factor|)
+              (15 . |solve1|) |NCEP;complexEigenvalues;MParL;3| (|Factored| 21)
+              (|SparseUnivariatePolynomial| $)
+              (|Complex| (|Fraction| (|Integer|))) (21 . |factorPolynomial|)
               (|Record| (|:| |outval| (|Complex| 6))
                         (|:| |outmult| (|Integer|))
                         (|:| |outvect| (|List| (|Matrix| (|Complex| 6)))))
-              (|List| 23) (|Mapping| 20 9) (26 . |innerEigenvectors|)
-              |NCEP;complexEigenvectors;MParL;4|)
+              (|List| 24) (|Mapping| (|Factored| 9) 9)
+              (26 . |innerEigenvectors|) |NCEP;complexEigenvectors;MParL;4|)
            '#(|complexEigenvectors| 33 |complexEigenvalues| 39
               |characteristicPolynomial| 45)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 27
+                             (|makeByteWordVec2| 28
                                                  '(0 7 0 8 1 11 9 10 12 2 13 0
-                                                   9 7 14 2 11 17 9 6 18 1 21
-                                                   20 9 22 3 11 24 10 6 25 26 2
-                                                   0 24 10 6 27 2 0 17 10 6 19
-                                                   2 0 13 10 7 16 1 0 13 10
+                                                   9 7 14 2 11 17 9 6 18 1 22
+                                                   20 21 23 3 11 25 10 6 26 27
+                                                   2 0 25 10 6 28 2 0 17 10 6
+                                                   19 2 0 13 10 7 16 1 0 13 10
                                                    15)))))
            '|lookupComplete|)) 
