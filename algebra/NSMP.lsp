@@ -25,7 +25,7 @@
 (SDEFUN |NSMP;mvar;$VarSet;5| ((|p| $) ($ |VarSet|))
         (COND
          ((QEQCAR |p| 0)
-          (|error| " Error in mvar from NSMP : #1 has no variables."))
+          (|error| "Error in mvar from NSMP : #1 has no variables."))
          ('T (QCAR (QCDR |p|))))) 
 
 (SDEFUN |NSMP;mdeg;$Nni;6| ((|p| $) ($ |NonNegativeInteger|))
@@ -35,7 +35,7 @@
 (SDEFUN |NSMP;init;2$;7| ((|p| $) ($ $))
         (COND
          ((QEQCAR |p| 0)
-          (|error| " Error in init from NSMP : #1 has no variables."))
+          (|error| "Error in init from NSMP : #1 has no variables."))
          ('T (SPADCALL (QCDR (QCDR |p|)) (QREFELT $ 14))))) 
 
 (SDEFUN |NSMP;head;2$;8| ((|p| $) ($ $))
@@ -392,7 +392,7 @@
          ((|test| (|Integer|)) (|q| ($)) (|term| ($)) (#1=#:G273 NIL)
           (|lcb| ($)) (|db| (|NonNegativeInteger|)))
          (SEQ
-          (COND ((QEQCAR |b| 0) (|error| " in lazyPquo$NSMP: #2 is constant"))
+          (COND ((QEQCAR |b| 0) (|error| "in lazyPquo$NSMP: #2 is constant"))
                 ((OR (QEQCAR |a| 0)
                      (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|))
                                (QREFELT $ 46)))
@@ -471,7 +471,7 @@
          (SEQ
           (COND
            ((QEQCAR |b| 0)
-            (|error| " in lazyPseudoDivide$NSMP: #2 is constant"))
+            (|error| "in lazyPseudoDivide$NSMP: #2 is constant"))
            ((OR (QEQCAR |a| 0)
                 (SPADCALL (QCAR (QCDR |a|)) (QCAR (QCDR |b|)) (QREFELT $ 46)))
             (VECTOR (|spadConstant| $ 35) 0 (|spadConstant| $ 13) |a|))
@@ -550,7 +550,7 @@
          (SEQ
           (COND
            ((QEQCAR |b| 0)
-            (|error| " in lazyResidueClass$NSMP: #2 is constant"))
+            (|error| "in lazyResidueClass$NSMP: #2 is constant"))
            (#2='T
             (SEQ
              (LETT |lcb| (SPADCALL (QCDR (QCDR |b|)) (QREFELT $ 14))
@@ -626,24 +626,23 @@
         ((|p| $) (|a| $) (|b| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG ((|c| ($)) (#1=#:G321 NIL))
                (SEQ
-                (COND
-                 ((ZEROP |n|) (|error| " in LazardQuotient2$NSMP: bad #4"))
-                 ((EQL |n| 1) |p|)
-                 ('T
-                  (SEQ
-                   (LETT |c|
-                         (SPADCALL |a| |b|
-                                   (PROG1
-                                       (LETT #1# (- |n| 1)
-                                             . #2=(|NSMP;LazardQuotient2;3$Nni$;28|))
-                                     (|check_subtype2| (>= #1# 0)
-                                                       '(|NonNegativeInteger|)
-                                                       '(|Integer|) #1#))
-                                   (QREFELT $ 86))
-                         . #2#)
-                   (EXIT
-                    (|NSMP;exactQuo| (SPADCALL |c| |p| (QREFELT $ 60)) |b|
-                     $)))))))) 
+                (COND ((ZEROP |n|) (|error| "in LazardQuotient2$NSMP: bad #4"))
+                      ((EQL |n| 1) |p|)
+                      ('T
+                       (SEQ
+                        (LETT |c|
+                              (SPADCALL |a| |b|
+                                        (PROG1
+                                            (LETT #1# (- |n| 1)
+                                                  . #2=(|NSMP;LazardQuotient2;3$Nni$;28|))
+                                          (|check_subtype2| (>= #1# 0)
+                                                            '(|NonNegativeInteger|)
+                                                            '(|Integer|) #1#))
+                                        (QREFELT $ 86))
+                              . #2#)
+                        (EXIT
+                         (|NSMP;exactQuo| (SPADCALL |c| |p| (QREFELT $ 60)) |b|
+                          $)))))))) 
 
 (SDEFUN |NSMP;next_subResultant2;5$;29| ((|p| $) (|q| $) (|z| $) (|s| $) ($ $))
         (|NSMP;PSimp|
