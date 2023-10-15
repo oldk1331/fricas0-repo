@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5035 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5037 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -585,13 +585,14 @@
  |nextPrimitivePoly| |nextNormalPoly| |nextNormalPrimitivePoly|
  |nextPrimitiveNormalPoly| |leastAffineMultiple| |reducedQPowers|
  |rootOfIrreduciblePoly| |mapContra| |looseEquals| |diagramHeight|
- |diagramWidth| |deepDiagramSvg| |diagramSvg| |subdiagramSvg| |isFunctional?|
- |distanceMatrix| |laplacianMatrix| |adjacencyMatrix| |incidenceMatrix|
- |isAcyclic?| |loopsArrows| |loopsAtNode| |loopsNodes| |spanningForestNode|
- |spanningTreeNode| |spanningForestArrow| |spanningTreeArrow| |routeArrows|
- |routeNodes| |arrowsToArrow| |arrowsFromArrow| |nodeToArrow| |nodeFromArrow|
- |arrowsToNode| |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree|
- |inDegree| |getArrowIndex| |arrowName| |isFixPoint?| |isGreaterThan?|
+ |diagramWidth| |deepDiagramSvg| |diagramsSvg| |diagramSvg| |subdiagramSvg|
+ |isFunctional?| |distanceMatrix| |laplacianMatrix| |adjacencyMatrix|
+ |incidenceMatrix| |isAcyclic?| |loopsArrows| |loopsAtNode| |loopsNodes|
+ |spanningForestNode| |spanningTreeNode| |spanningForestArrow|
+ |spanningTreeArrow| |routeArrows| |routeNodes| |arrowsToArrow|
+ |arrowsFromArrow| |nodeToArrow| |nodeFromArrow| |arrowsToNode|
+ |arrowsFromNode| |nodeToNode| |nodeFromNode| |outDegree| |inDegree|
+ |getArrowIndex| |arrowName| |isFixPoint?| |isGreaterThan?|
  |isDirectSuccessor?| |kgraph| |cycleClosed| |cycleOpen| |terminal| |initial|
  |getArrows| |getVertexIndex| |getVertices| |addArrow!| |addObject!| |flush|
  |write!| |read!| |iomode| |reopen!| |open| |rightUnit| |leftUnit|
@@ -1105,8 +1106,8 @@
  |quasiComponent| |initials| |basicSet| |infRittWu?| |getCurve| |listLoops|
  |closed?| |open?| |setClosed| |tube| |point| |unitVector| |cosSinInfo|
  |loopPoints| |select| |generalTwoFactor| |tryTwoFactor| |generalSqFr|
- |twoFactor| |doFactor| |undirectedGraph| |setOrder| |getOrder| |less?|
- |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
+ |twoFactor| |doFactor| |diagramSvg2| |undirectedGraph| |setOrder| |getOrder|
+ |less?| |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
  |resetVariableOrder| |factor| |prime?| |hadamard| |pre_gauss| |pre_smith|
  |pre_lr| |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep|
  |hasHi| |segment| SEGMENT |commonDenominator| |clearDenominator|

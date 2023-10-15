@@ -418,6 +418,8 @@
                     (SIGNATURE |closedTensor| ($ $ $ (|Mapping| #4# #4# #4#)))
                     (SIGNATURE |closedCartesian|
                      ($ $ $ (|Mapping| #4# #4# #4#)))
+                    (SIGNATURE |diagramSvg2|
+                     ((|Void|) (|String|) $ (|Boolean|)))
                     (SIGNATURE |coerce| ($ (|FinitePoset| #4#)))))))
          (SEQ
           (LETT GS (|UndirectedGraph| (|NonNegativeInteger|))

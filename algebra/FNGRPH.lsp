@@ -948,7 +948,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|FunctionGraph|))
           (LETT |dv$| (LIST '|FunctionGraph| DV$1) . #1#)
-          (LETT $ (GETREFV 99) . #1#)
+          (LETT $ (GETREFV 100) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FunctionGraph| (LIST DV$1)
@@ -1006,10 +1006,10 @@
               (|Union| 15 '"failed") |FNGRPH;coAdjoint;$LU;23| (170 . |min|)
               |FNGRPH;contraAdjoint;$LU;24| |FNGRPH;apply;$2Nni;25| (|List| 86)
               (176 . |loopsAtNode|) (|Loop|) (182 . |loop|)
-              |FNGRPH;limit;$NniL;26| (|Void|) (|Scene| (|SCartesian| '2))
-              (|Matrix| 14) (|Matrix| 13) (|List| 94) (|Tree| 14)
-              (|DirectedGraph| $) (|SingleInteger|) (|OutputForm|)
-              (|HashState|))
+              |FNGRPH;limit;$NniL;26| (|Void|) (|List| $)
+              (|Scene| (|SCartesian| '2)) (|Matrix| 14) (|Matrix| 13)
+              (|List| 95) (|Tree| 14) (|DirectedGraph| $) (|SingleInteger|)
+              (|OutputForm|) (|HashState|))
            '#(~= 187 |unit| 193 |terminal| 199 |subdiagramSvg| 204
               |spanningTreeNode| 212 |spanningTreeArrow| 218
               |spanningForestNode| 224 |spanningForestArrow| 229 |routeNodes|
@@ -1023,21 +1023,21 @@
               |initial| 402 |incidenceMatrix| 406 |inDegree| 411 |hashUpdate!|
               417 |hash| 423 |getVertices| 428 |getVertexIndex| 433 |getArrows|
               439 |getArrowIndex| 444 |functionGraph| 451 |flatten| 472
-              |distanceMatrix| 477 |distance| 482 |diagramWidth| 489
-              |diagramSvg| 494 |diagramHeight| 501 |deepDiagramSvg| 506
-              |cycleOpen| 513 |cycleClosed| 519 |createY| 525 |createX| 531
-              |createWidth| 537 |contraAdjoint| 542 |coerce| 548 |coAdjoint|
-              558 |closedTensor| 564 |arrowsToNode| 571 |arrowsToArrow| 577
-              |arrowsFromNode| 583 |arrowsFromArrow| 589 |arrowName| 595
-              |apply| 602 |adjacencyMatrix| 608 |addObject!| 613 |addArrow!|
-              625 = 650 + 656 * 662)
+              |distanceMatrix| 477 |distance| 482 |diagramsSvg| 489
+              |diagramWidth| 496 |diagramSvg| 501 |diagramHeight| 508
+              |deepDiagramSvg| 513 |cycleOpen| 520 |cycleClosed| 526 |createY|
+              532 |createX| 538 |createWidth| 544 |contraAdjoint| 549 |coerce|
+              555 |coAdjoint| 565 |closedTensor| 571 |arrowsToNode| 578
+              |arrowsToArrow| 584 |arrowsFromNode| 590 |arrowsFromArrow| 596
+              |arrowName| 602 |apply| 609 |adjacencyMatrix| 615 |addObject!|
+              620 |addArrow!| 632 = 663 + 669 * 675)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0))
                  (CONS '#(|FiniteGraph&| |SetCategory&| NIL |BasicType&|)
                        (CONS
-                        '#((|FiniteGraph| 6) (|SetCategory|) (|CoercibleTo| 97)
+                        '#((|FiniteGraph| 6) (|SetCategory|) (|CoercibleTo| 98)
                            (|BasicType|))
-                        (|makeByteWordVec2| 98
+                        (|makeByteWordVec2| 99
                                             '(3 15 13 0 14 13 16 2 18 17 0 14
                                               19 2 15 13 0 14 20 2 11 0 0 10 21
                                               0 25 0 26 2 13 27 0 0 28 1 25 29
@@ -1053,38 +1053,39 @@
                                               15 0 14 15 77 2 0 13 0 15 78 2 0
                                               13 0 15 81 2 0 84 0 13 85 1 86 0
                                               15 87 2 0 27 0 0 1 2 0 0 8 41 51
-                                              1 0 0 6 48 4 0 89 90 0 27 27 1 2
-                                              0 94 0 13 1 2 0 94 0 13 1 1 0 93
-                                              0 1 1 0 93 0 1 3 0 15 0 13 13 1 3
+                                              1 0 0 6 48 4 0 89 91 0 27 27 1 2
+                                              0 95 0 13 1 2 0 95 0 13 1 1 0 94
+                                              0 1 1 0 94 0 1 3 0 15 0 13 13 1 3
                                               0 15 0 13 13 1 2 0 13 0 13 1 2 0
                                               15 0 13 70 2 0 15 0 13 1 2 0 15 0
                                               13 1 2 0 15 0 13 1 1 0 13 0 1 2 0
-                                              13 0 15 81 2 0 0 0 0 55 1 0 13 0
-                                              1 2 0 13 0 15 78 5 0 0 0 15 8 14
+                                              13 0 15 81 2 0 0 0 0 55 2 0 13 0
+                                              15 78 1 0 13 0 1 5 0 0 0 15 8 14
                                               14 72 5 0 0 0 15 8 14 14 69 2 0
                                               27 0 0 1 1 0 84 0 1 2 0 84 0 13
                                               85 1 0 84 0 1 2 0 86 0 13 88 1 0
-                                              41 0 1 1 0 91 0 1 2 0 0 8 41 52 3
+                                              41 0 1 1 0 92 0 1 2 0 0 8 41 52 3
                                               0 27 0 13 13 1 1 0 27 0 1 2 0 27
                                               0 13 1 0 0 27 1 3 0 27 0 13 13 1
-                                              1 0 27 0 1 0 0 0 47 1 0 91 0 1 2
-                                              0 13 0 13 1 2 0 98 98 0 1 1 0 96
+                                              1 0 27 0 1 0 0 0 47 1 0 92 0 1 2
+                                              0 13 0 13 1 2 0 99 99 0 1 1 0 97
                                               0 1 1 0 18 0 44 2 0 13 0 6 1 1 0
                                               23 0 46 3 0 13 0 13 13 1 1 0 0 35
                                               36 2 0 0 18 23 24 1 0 0 8 9 1 0 0
-                                              11 12 1 0 0 95 1 1 0 91 0 1 3 0
-                                              14 0 13 13 1 1 0 13 0 56 3 0 89
-                                              41 0 27 1 1 0 13 0 57 3 0 89 41 0
-                                              27 1 2 0 0 8 41 49 2 0 0 8 41 50
-                                              2 0 13 13 13 34 2 0 13 13 13 33 1
-                                              0 13 13 1 2 0 79 0 15 82 1 0 97 0
-                                              1 1 0 97 0 1 2 0 79 0 15 80 3 0 0
-                                              0 0 66 67 2 0 15 0 13 1 2 0 15 0
-                                              13 1 2 0 15 0 13 1 2 0 15 0 13 1
-                                              3 0 41 0 13 13 1 2 0 13 0 13 83 1
-                                              0 92 0 1 2 0 0 0 17 39 2 0 0 0 6
-                                              38 4 0 0 0 41 6 6 1 4 0 0 0 41 13
-                                              13 42 5 0 0 0 41 13 13 15 1 2 0
-                                              27 0 0 1 2 0 0 0 0 54 2 0 63 0 0
-                                              65)))))
+                                              11 12 1 0 0 96 1 1 0 92 0 1 3 0
+                                              14 0 13 13 1 3 0 89 41 90 27 1 1
+                                              0 13 0 56 3 0 89 41 0 27 1 1 0 13
+                                              0 57 3 0 89 41 0 27 1 2 0 0 8 41
+                                              49 2 0 0 8 41 50 2 0 13 13 13 34
+                                              2 0 13 13 13 33 1 0 13 13 1 2 0
+                                              79 0 15 82 1 0 98 0 1 1 0 98 0 1
+                                              2 0 79 0 15 80 3 0 0 0 0 66 67 2
+                                              0 15 0 13 1 2 0 15 0 13 1 2 0 15
+                                              0 13 1 2 0 15 0 13 1 3 0 41 0 13
+                                              13 1 2 0 13 0 13 83 1 0 93 0 1 2
+                                              0 0 0 17 39 2 0 0 0 6 38 5 0 0 0
+                                              41 13 13 15 1 4 0 0 0 41 6 6 1 2
+                                              0 0 0 22 1 4 0 0 0 41 13 13 42 2
+                                              0 27 0 0 1 2 0 0 0 0 54 2 0 63 0
+                                              0 65)))))
            '|lookupComplete|)) 
