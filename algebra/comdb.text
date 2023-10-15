@@ -7630,7 +7630,7 @@
 827529`\spad{simplify(sys,{} jm)} simplifies a system with given Jacobi matrix. The Jacobi matrix of the simplified system is returned,{} too. \spad{Depend} contains for each equation of the simplified system the numbers of the equations of the original system out of which it is build,{} if it is possible to obtain 
 827529`--this information. If one can generate equations of lower order by purely algebraic operations,{} then \spad{simplify} should do this.
 827918`\spad{simplifyCoeffs(d,{} la)} should be local but conditional.
-828167`\spad{simplifyExp(f)} converts every product \spad{exp(a)*exp(b)} appearing in \spad{f} into \spad{exp(a+b)}.
+828167`\spad{simplifyExp(f)} performs the following simplifications on \spad{f:} \begin{items} \item 1. rewrites \spad{exp(a)*exp(b)} as \spad{exp(a+b)}. \item 2. rewrites \spad{a^b*a^c} as \spad{a^(b+c)}. \item 3. rewrites \spad{exp(a)/exp(b)} as \spad{exp(a-b)}. \item 4. rewrites \spad{a^b/a^c} as \spad{a^(b-c)}. \end{items}
 828234`\spad{simplifyLog(f)} converts every \spad{log(a) - log(b)} appearing in \spad{f} into \spad{log(a/b)},{} every \spad{log(a) + log(b)} into \spad{log(a*b)} and every \spad{n*log(a)} into \spad{log(a^n)}.
 828301`\spad{simplifyPower(f,{} n)} \undocumented{}
 828382`\spad{simpMod(sys1,{} sys2)} simplifies the system \spad{sys1} modulo the system \spad{sys2}.
