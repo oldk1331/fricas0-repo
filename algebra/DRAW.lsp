@@ -5,8 +5,9 @@
         (SPADCALL (SPADCALL |f| (SPADCALL |bind| (QREFELT $ 9)) (QREFELT $ 12))
                   (SPADCALL |bind| (QREFELT $ 14)) |l| (QREFELT $ 18))) 
 
-(SDEFUN |DRAW;maybe_add_title|
-        ((|f| |Ex|) (|l| |List| (|DrawOption|)) ($ |List| (|DrawOption|)))
+(SDEFUN |DRAW;maybe_add_title0|
+        ((|f| |Ex|) (|l| |List| (|DrawOption|)) (|s0| |String|)
+         ($ |List| (|DrawOption|)))
         (SPROG ((|s| (|String|)))
                (SEQ
                 (COND ((SPADCALL |l| '|title| (QREFELT $ 23)) |l|)
@@ -15,18 +16,22 @@
                         (LETT |s|
                               (SPADCALL (SPADCALL |f| (QREFELT $ 25))
                                         (QREFELT $ 27))
-                              |DRAW;maybe_add_title|)
+                              |DRAW;maybe_add_title0|)
                         (EXIT
                          (COND
                           ((SPADCALL (SPADCALL |s| (QREFELT $ 30)) 50
                                      (QREFELT $ 31))
-                           (CONS (SPADCALL "FriCAS2D" (QREFELT $ 32)) |l|))
+                           (CONS (SPADCALL |s0| (QREFELT $ 32)) |l|))
                           (#1# (CONS (SPADCALL |s| (QREFELT $ 32)) |l|)))))))))) 
+
+(SDEFUN |DRAW;maybe_add_title|
+        ((|f| |Ex|) (|l| |List| (|DrawOption|)) ($ |List| (|DrawOption|)))
+        (|DRAW;maybe_add_title0| |f| |l| "FriCAS2D" $)) 
 
 (SDEFUN |DRAW;maybe_add_title_and_style|
         ((|f| |Ex|) (|l| |List| (|DrawOption|)) ($ |List| (|DrawOption|)))
         (SEQ
-         (LETT |l| (|DRAW;maybe_add_title| |f| |l| $)
+         (LETT |l| (|DRAW;maybe_add_title0| |f| |l| "FriCAS3D" $)
                |DRAW;maybe_add_title_and_style|)
          (EXIT
           (COND ((SPADCALL |l| '|style| (QREFELT $ 23)) |l|)
@@ -37,22 +42,22 @@
                    (QREFELT $ 33))
                   |l|)))))) 
 
-(SDEFUN |DRAW;draw;ExSbLTdv;4|
+(SDEFUN |DRAW;draw;ExSbLTdv;5|
         ((|f| |Ex|) (|bind| |SegmentBinding| (|Float|))
          (|l| |List| (|DrawOption|)) ($ |TwoDimensionalViewport|))
         (SPROG ((|g| (|GraphImage|)))
                (SEQ
                 (LETT |l| (|DRAW;maybe_add_title| |f| |l| $)
-                      . #1=(|DRAW;draw;ExSbLTdv;4|))
+                      . #1=(|DRAW;draw;ExSbLTdv;5|))
                 (LETT |g| (SPADCALL |f| |bind| |l| (QREFELT $ 19)) . #1#)
                 (EXIT (SPADCALL |g| |l| (QREFELT $ 35)))))) 
 
-(SDEFUN |DRAW;draw;ExSbTdv;5|
+(SDEFUN |DRAW;draw;ExSbTdv;6|
         ((|f| |Ex|) (|bind| |SegmentBinding| (|Float|))
          ($ |TwoDimensionalViewport|))
         (SPADCALL |f| |bind| NIL (QREFELT $ 36))) 
 
-(SDEFUN |DRAW;makeObject;PpcSbLGi;6|
+(SDEFUN |DRAW;makeObject;PpcSbLGi;7|
         ((|ppc| |ParametricPlaneCurve| |Ex|)
          (|bind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |GraphImage|))
@@ -63,7 +68,7 @@
           (|g| (|Ex|)) (|f| (|Ex|)))
          (SEQ
           (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 40))
-                . #1=(|DRAW;makeObject;PpcSbLGi;6|))
+                . #1=(|DRAW;makeObject;PpcSbLGi;7|))
           (LETT |g| (SPADCALL |ppc| 2 (QREFELT $ 40)) . #1#)
           (LETT |curve|
                 (SPADCALL
@@ -75,24 +80,24 @@
            (SPADCALL |curve| (SPADCALL |bind| (QREFELT $ 14)) |l|
                      (QREFELT $ 43)))))) 
 
-(SDEFUN |DRAW;draw;PpcSbLTdv;7|
+(SDEFUN |DRAW;draw;PpcSbLTdv;8|
         ((|ppc| |ParametricPlaneCurve| |Ex|)
          (|bind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |TwoDimensionalViewport|))
         (SPROG ((|g| (|GraphImage|)) (|f| (|Ex|)))
                (SEQ
                 (LETT |f| (SPADCALL |ppc| 1 (QREFELT $ 40))
-                      . #1=(|DRAW;draw;PpcSbLTdv;7|))
+                      . #1=(|DRAW;draw;PpcSbLTdv;8|))
                 (LETT |l| (|DRAW;maybe_add_title| |f| |l| $) . #1#)
                 (LETT |g| (SPADCALL |ppc| |bind| |l| (QREFELT $ 44)) . #1#)
                 (EXIT (SPADCALL |g| |l| (QREFELT $ 35)))))) 
 
-(SDEFUN |DRAW;draw;PpcSbTdv;8|
+(SDEFUN |DRAW;draw;PpcSbTdv;9|
         ((|ppc| |ParametricPlaneCurve| |Ex|)
          (|bind| |SegmentBinding| (|Float|)) ($ |TwoDimensionalViewport|))
         (SPADCALL |ppc| |bind| NIL (QREFELT $ 45))) 
 
-(SDEFUN |DRAW;makeObject;PscSbLTs;9|
+(SDEFUN |DRAW;makeObject;PscSbLTs;10|
         ((|psc| |ParametricSpaceCurve| |Ex|)
          (|tBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
@@ -104,7 +109,7 @@
           (|t| (|Symbol|)))
          (SEQ
           (LETT |t| (SPADCALL |tBind| (QREFELT $ 9))
-                . #1=(|DRAW;makeObject;PscSbLTs;9|))
+                . #1=(|DRAW;makeObject;PscSbLTs;10|))
           (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 14)) . #1#)
           (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 48)) . #1#)
           (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 48)) . #1#)
@@ -117,12 +122,12 @@
                 . #1#)
           (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 52)))))) 
 
-(SDEFUN |DRAW;makeObject;PscSbTs;10|
+(SDEFUN |DRAW;makeObject;PscSbTs;11|
         ((|psc| |ParametricSpaceCurve| |Ex|)
          (|tBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPADCALL |psc| |tBind| NIL (QREFELT $ 53))) 
 
-(SDEFUN |DRAW;draw;PscSbLTdv;11|
+(SDEFUN |DRAW;draw;PscSbLTdv;12|
         ((|psc| |ParametricSpaceCurve| |Ex|)
          (|tBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeDimensionalViewport|))
@@ -134,7 +139,7 @@
           (|t| (|Symbol|)))
          (SEQ
           (LETT |t| (SPADCALL |tBind| (QREFELT $ 9))
-                . #1=(|DRAW;draw;PscSbLTdv;11|))
+                . #1=(|DRAW;draw;PscSbLTdv;12|))
           (LETT |tSeg| (SPADCALL |tBind| (QREFELT $ 14)) . #1#)
           (LETT |f| (SPADCALL |psc| 1 (QREFELT $ 48)) . #1#)
           (LETT |g| (SPADCALL |psc| 2 (QREFELT $ 48)) . #1#)
@@ -147,12 +152,12 @@
                 . #1#)
           (EXIT (SPADCALL |curve| |tSeg| |l| (QREFELT $ 56)))))) 
 
-(SDEFUN |DRAW;draw;PscSbTdv;12|
+(SDEFUN |DRAW;draw;PscSbTdv;13|
         ((|psc| |ParametricSpaceCurve| |Ex|)
          (|tBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
         (SPADCALL |psc| |tBind| NIL (QREFELT $ 57))) 
 
-(SDEFUN |DRAW;makeObject;Ex2SbLTs;13|
+(SDEFUN |DRAW;makeObject;Ex2SbLTs;14|
         ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
          (|yBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
@@ -161,7 +166,7 @@
           (|x| #2#))
          (SEQ
           (LETT |l| (|DRAW;maybe_add_title_and_style| |f| |l| $)
-                . #3=(|DRAW;makeObject;Ex2SbLTs;13|))
+                . #3=(|DRAW;makeObject;Ex2SbLTs;14|))
           (LETT |x| (SPADCALL |xBind| (QREFELT $ 9)) . #3#)
           (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 14)) . #3#)
           (LETT |y| (SPADCALL |yBind| (QREFELT $ 9)) . #3#)
@@ -170,12 +175,12 @@
            (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 60)) |xSeg| |ySeg| |l|
                      (QREFELT $ 61)))))) 
 
-(SDEFUN |DRAW;makeObject;Ex2SbTs;14|
+(SDEFUN |DRAW;makeObject;Ex2SbTs;15|
         ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
          (|yBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 62))) 
 
-(SDEFUN |DRAW;draw;Ex2SbLTdv;15|
+(SDEFUN |DRAW;draw;Ex2SbLTdv;16|
         ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
          (|yBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeDimensionalViewport|))
@@ -184,7 +189,7 @@
           (|x| #2#))
          (SEQ
           (LETT |l| (|DRAW;maybe_add_title_and_style| |f| |l| $)
-                . #3=(|DRAW;draw;Ex2SbLTdv;15|))
+                . #3=(|DRAW;draw;Ex2SbLTdv;16|))
           (LETT |x| (SPADCALL |xBind| (QREFELT $ 9)) . #3#)
           (LETT |xSeg| (SPADCALL |xBind| (QREFELT $ 14)) . #3#)
           (LETT |y| (SPADCALL |yBind| (QREFELT $ 9)) . #3#)
@@ -193,12 +198,12 @@
            (SPADCALL (SPADCALL |f| |x| |y| (QREFELT $ 60)) |xSeg| |ySeg| |l|
                      (QREFELT $ 64)))))) 
 
-(SDEFUN |DRAW;draw;Ex2SbTdv;16|
+(SDEFUN |DRAW;draw;Ex2SbTdv;17|
         ((|f| |Ex|) (|xBind| |SegmentBinding| (|Float|))
          (|yBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
         (SPADCALL |f| |xBind| |yBind| NIL (QREFELT $ 65))) 
 
-(SDEFUN |DRAW;makeObject;Ps2SbLTs;17|
+(SDEFUN |DRAW;makeObject;Ps2SbLTs;18|
         ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
          (|vBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeSpace| (|DoubleFloat|)))
@@ -210,7 +215,7 @@
           (|u| #2#) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|)))
          (SEQ
           (LETT |f| (SPADCALL |s| 1 (QREFELT $ 68))
-                . #3=(|DRAW;makeObject;Ps2SbLTs;17|))
+                . #3=(|DRAW;makeObject;Ps2SbLTs;18|))
           (LETT |g| (SPADCALL |s| 2 (QREFELT $ 68)) . #3#)
           (LETT |h| (SPADCALL |s| 3 (QREFELT $ 68)) . #3#)
           (LETT |l| (|DRAW;maybe_add_title_and_style| |f| |l| $) . #3#)
@@ -225,12 +230,12 @@
                 . #3#)
           (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 71)))))) 
 
-(SDEFUN |DRAW;makeObject;Ps2SbTs;18|
+(SDEFUN |DRAW;makeObject;Ps2SbTs;19|
         ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
          (|vBind| |SegmentBinding| (|Float|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 72))) 
 
-(SDEFUN |DRAW;draw;Ps2SbLTdv;19|
+(SDEFUN |DRAW;draw;Ps2SbLTdv;20|
         ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
          (|vBind| |SegmentBinding| (|Float|)) (|l| |List| (|DrawOption|))
          ($ |ThreeDimensionalViewport|))
@@ -242,7 +247,7 @@
           (|u| #2#) (|h| (|Ex|)) (|g| (|Ex|)) (|f| (|Ex|)))
          (SEQ
           (LETT |f| (SPADCALL |s| 1 (QREFELT $ 68))
-                . #3=(|DRAW;draw;Ps2SbLTdv;19|))
+                . #3=(|DRAW;draw;Ps2SbLTdv;20|))
           (LETT |g| (SPADCALL |s| 2 (QREFELT $ 68)) . #3#)
           (LETT |h| (SPADCALL |s| 3 (QREFELT $ 68)) . #3#)
           (LETT |l| (|DRAW;maybe_add_title_and_style| |f| |l| $) . #3#)
@@ -257,16 +262,16 @@
                 . #3#)
           (EXIT (SPADCALL |surf| |uSeg| |vSeg| |l| (QREFELT $ 74)))))) 
 
-(SDEFUN |DRAW;draw;Ps2SbTdv;20|
+(SDEFUN |DRAW;draw;Ps2SbTdv;21|
         ((|s| |ParametricSurface| |Ex|) (|uBind| |SegmentBinding| (|Float|))
          (|vBind| |SegmentBinding| (|Float|)) ($ |ThreeDimensionalViewport|))
         (SPADCALL |s| |uBind| |vBind| NIL (QREFELT $ 75))) 
 
 (DECLAIM (NOTINLINE |TopLevelDrawFunctions;|)) 
 
-(DEFUN |TopLevelDrawFunctions| (#1=#:G167)
+(DEFUN |TopLevelDrawFunctions| (#1=#:G168)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G169)
            (RETURN
             (COND
              ((LETT #2#
@@ -311,25 +316,25 @@
               (34 . |unparse|) (|Integer|) (|DisplayPackage|)
               (39 . |sayLength|) (44 . >) (50 . |title|) (55 . |style|)
               (|TwoDimensionalViewport|) (60 . |makeViewport2D|)
-              |DRAW;draw;ExSbLTdv;4| |DRAW;draw;ExSbTdv;5|
+              |DRAW;draw;ExSbLTdv;5| |DRAW;draw;ExSbTdv;6|
               (|NonNegativeInteger|) (|ParametricPlaneCurve| 6)
               (66 . |coordinate|) (|ParametricPlaneCurve| 10) (72 . |curve|)
-              (78 . |makeObject|) |DRAW;makeObject;PpcSbLGi;6|
-              |DRAW;draw;PpcSbLTdv;7| |DRAW;draw;PpcSbTdv;8|
+              (78 . |makeObject|) |DRAW;makeObject;PpcSbLGi;7|
+              |DRAW;draw;PpcSbLTdv;8| |DRAW;draw;PpcSbTdv;9|
               (|ParametricSpaceCurve| 6) (85 . |coordinate|)
               (|ParametricSpaceCurve| 10) (91 . |curve|)
               (|ThreeSpace| (|DoubleFloat|)) (98 . |makeObject|)
-              |DRAW;makeObject;PscSbLTs;9| |DRAW;makeObject;PscSbTs;10|
+              |DRAW;makeObject;PscSbLTs;10| |DRAW;makeObject;PscSbTs;11|
               (|ThreeDimensionalViewport|) (105 . |draw|)
-              |DRAW;draw;PscSbLTdv;11| |DRAW;draw;PscSbTdv;12|
+              |DRAW;draw;PscSbLTdv;12| |DRAW;draw;PscSbTdv;13|
               (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
               (112 . |makeFloatFunction|) (119 . |makeObject|)
-              |DRAW;makeObject;Ex2SbLTs;13| |DRAW;makeObject;Ex2SbTs;14|
-              (127 . |draw|) |DRAW;draw;Ex2SbLTdv;15| |DRAW;draw;Ex2SbTdv;16|
+              |DRAW;makeObject;Ex2SbLTs;14| |DRAW;makeObject;Ex2SbTs;15|
+              (127 . |draw|) |DRAW;draw;Ex2SbLTdv;16| |DRAW;draw;Ex2SbTdv;17|
               (|ParametricSurface| 6) (135 . |coordinate|)
               (|ParametricSurface| 59) (141 . |surface|) (148 . |makeObject|)
-              |DRAW;makeObject;Ps2SbLTs;17| |DRAW;makeObject;Ps2SbTs;18|
-              (156 . |draw|) |DRAW;draw;Ps2SbLTdv;19| |DRAW;draw;Ps2SbTdv;20|)
+              |DRAW;makeObject;Ps2SbLTs;18| |DRAW;makeObject;Ps2SbTs;19|
+              (156 . |draw|) |DRAW;draw;Ps2SbLTdv;20| |DRAW;draw;Ps2SbTdv;21|)
            '#(|makeObject| 164 |draw| 221) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
