@@ -142,6 +142,7 @@
                    . #5=(|MATLIN;minordet;MR;4|))
              (SPADCALL |x| (QREFELT $ 27)) (QREFELT $ 28))
             (|error| "determinant: matrix must be square"))
+           ((EQL |ndim| 0) (|spadConstant| $ 21))
            ('T
             (SEQ (LETT |n1| (- |ndim| 1) . #5#)
                  (LETT |v|
@@ -530,6 +531,7 @@
                    . #1=(|MATLIN;invertIfCan;MU;10|))
              (SPADCALL |y| (QREFELT $ 27)) (QREFELT $ 28))
             (|error| "invertIfCan: matrix must be square"))
+           ((EQL |nr| 0) (CONS 0 |y|))
            (#2='T
             (SEQ (LETT |adjRec| (SPADCALL |y| (QREFELT $ 57)) . #1#)
                  (LETT |den| (SPADCALL (QCDR |adjRec|) (QREFELT $ 58)) . #1#)
@@ -552,6 +554,7 @@
                    . #1=(|MATLIN;adjoint;MR;11|))
              (SPADCALL |y| (QREFELT $ 27)) (QREFELT $ 28))
             (|error| "adjoint: matrix must be square"))
+           ((EQL |nr| 0) (CONS |y| (|spadConstant| $ 21)))
            ('T
             (SEQ (LETT |maxR| (SPADCALL |y| (QREFELT $ 18)) . #1#)
                  (LETT |maxC| (SPADCALL |y| (QREFELT $ 12)) . #1#)
@@ -618,18 +621,21 @@
         (SPADCALL |m| (QREFELT $ 89))) 
 
 (SDEFUN |MATLIN;determinant;MR;20| ((|y| M) ($ R))
-        (SPROG ((|fm| (M)))
+        (SPROG ((|fm| (M)) (|ndim| (|NonNegativeInteger|)))
                (SEQ
                 (COND
-                 ((SPADCALL (SPADCALL |y| (QREFELT $ 26))
-                            (SPADCALL |y| (QREFELT $ 27)) (QREFELT $ 28))
+                 ((SPADCALL
+                   (LETT |ndim| (SPADCALL |y| (QREFELT $ 26))
+                         . #1=(|MATLIN;determinant;MR;20|))
+                   (SPADCALL |y| (QREFELT $ 27)) (QREFELT $ 28))
                   (|error| "determinant: matrix must be square"))
+                 ((EQL |ndim| 0) (|spadConstant| $ 21))
                  ('T
                   (SEQ
                    (LETT |fm|
                          (SPADCALL (SPADCALL |y| (QREFELT $ 62))
                                    (QREFELT $ 54))
-                         |MATLIN;determinant;MR;20|)
+                         . #1#)
                    (EXIT
                     (SPADCALL |fm| (SPADCALL |fm| (QREFELT $ 18))
                               (SPADCALL |fm| (QREFELT $ 12))

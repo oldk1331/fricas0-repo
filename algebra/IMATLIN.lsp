@@ -418,6 +418,7 @@
               (LETT |ndim| (ANROWS |y|) . #9=(|IMATLIN;determinant;MR;7|))
               (ANCOLS |y|) (QREFELT $ 43))
              (|error| "determinant: matrix must be square"))
+            ((EQL |ndim| 0) (|spadConstant| $ 30))
             ((EQL |ndim| 1) (QAREF2O |y| 1 1 1 1))
             ('T
              (SEQ (LETT |x| (SPADCALL |y| (QREFELT $ 29)) . #9#)
@@ -903,6 +904,7 @@
                     . #9=(|IMATLIN;determinant;MR;12|))
               (SPADCALL |y| (QREFELT $ 48)) (QREFELT $ 43))
              (|error| "determinant: matrix must be square"))
+            ((EQL |ndim| 0) (|spadConstant| $ 30))
             ((EQL |ndim| 1)
              (SPADCALL |y| (SPADCALL |y| (QREFELT $ 17))
                        (SPADCALL |y| (QREFELT $ 11)) (QREFELT $ 13)))
@@ -1241,6 +1243,7 @@
                    . #8=(|IMATLIN;inverse;MU;16|))
              (SPADCALL |x| (QREFELT $ 48)) (QREFELT $ 43))
             (|error| "inverse: matrix must be square"))
+           ((EQL |ndim| 0) (CONS 0 |x|))
            ((EQL |ndim| 2)
             (SEQ (LETT |ans2| (SPADCALL |ndim| |ndim| (QREFELT $ 53)) . #8#)
                  (EXIT
