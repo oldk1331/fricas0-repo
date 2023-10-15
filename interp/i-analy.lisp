@@ -72,7 +72,6 @@
 ;     (u = var) => t
 ;     NIL
 ;   t is ['Polynomial,.] => t
-;   t is ['RationalFunction,D] => ['Polynomial,D]
 ;   t is [up,t',u,.] and MEMQ(up,$univariateDomains) =>
 ;     -- power series have one more arg and different ordering
 ;     u = var => t
@@ -87,7 +86,7 @@
 ;   getMinimalVariableTower(var,t')
  
 (DEFUN |getMinimalVariableTower| (|var| |t|)
-  (PROG (|ISTMP#1| |u| D |up| |t'| |ISTMP#2| |ISTMP#3| |mp|)
+  (PROG (|ISTMP#1| |u| |up| |t'| |ISTMP#2| |ISTMP#3| |mp|)
     (RETURN
      (COND ((OR (STRINGP |t|) (IDENTP |t|)) NIL) ((EQUAL |t| |$Symbol|) |t|)
            ((AND (CONSP |t|) (EQ (CAR |t|) '|Variable|)
@@ -101,12 +100,6 @@
                   (SETQ |ISTMP#1| (CDR |t|))
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))
             |t|)
-           ((AND (CONSP |t|) (EQ (CAR |t|) '|RationalFunction|)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CDR |t|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                       (PROGN (SETQ D (CAR |ISTMP#1|)) #1#))))
-            (LIST '|Polynomial| D))
            ((AND (CONSP |t|)
                  (PROGN
                   (SETQ |up| (CAR |t|))
@@ -195,7 +188,7 @@
 ;         [., ., a, :.] := m
 ;         a := removeQuote a
 ;         [a]
-;     op in '(Polynomial RationalFunction Expression) =>
+;     op in '(Polynomial Expression) =>
 ;       '(all)
 ;     a := removeQuote a
 ;     op in '(UnivariatePolynomial) =>
@@ -227,8 +220,7 @@
           (SETQ |a| (CADDR |m|))
           (SETQ |a| (|removeQuote| |a|))
           (LIST |a|)))
-        ((|member| |op| '(|Polynomial| |RationalFunction| |Expression|))
-         '(|all|))
+        ((|member| |op| '(|Polynomial| |Expression|)) '(|all|))
         (#1#
          (PROGN
           (SETQ |a| (|removeQuote| |a|))

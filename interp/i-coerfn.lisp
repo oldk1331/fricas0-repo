@@ -5383,30 +5383,6 @@
               (CONS (|objValUnwrap| |u'|)
                     (|getConstantFromDomain| '(|One|) S)))))))))
  
-; Var2FS(u,source,target is [fs,S]) ==
-;   u = '_$fromCoerceable_$ => true
-;   (v := coerceInt(objNewWrap(u,source),['Polynomial,S])) or
-;     coercionFailure()
-;   (v := coerceInt(v,target)) or coercionFailure()
-;   objValUnwrap v
- 
-(DEFUN |Var2FS| (|u| |source| |target|)
-  (PROG (|fs| S |v|)
-    (RETURN
-     (PROGN
-      (SETQ |fs| (CAR |target|))
-      (SETQ S (CADR |target|))
-      (COND ((EQ |u| '|$fromCoerceable$|) T)
-            ('T
-             (PROGN
-              (OR
-               (SETQ |v|
-                       (|coerceInt| (|objNewWrap| |u| |source|)
-                        (LIST '|Polynomial| S)))
-               (|coercionFailure|))
-              (OR (SETQ |v| (|coerceInt| |v| |target|)) (|coercionFailure|))
-              (|objValUnwrap| |v|))))))))
- 
 ; Var2Up(u,source,target is [up,x,S]) ==
 ;   sym := CADR source
 ;   u = '_$fromCoerceable_$ => (sym = x) or canCoerce(source,S)
@@ -6305,7 +6281,6 @@
 ;     ))_
 ;   (Fraction . ( _
 ;     (DistributedMultivariatePolynomial    partial    Qf2domain) _
-;     (ElementaryFunction                   indeterm   Qf2EF) _
 ;     (Expression                           indeterm   Qf2EF) _
 ;     (Fraction                             indeterm   Qf2Qf) _
 ;     (HomogeneousDistributedMultivariatePolynomial partial    Qf2domain) _
@@ -6439,15 +6414,11 @@
 ;     (UnivariatePolynomial                         indeterm   Up2Up) _
 ;     ) ) _
 ;   (Variable . ( _
-;     (AlgebraicFunction                            total      Var2FS) _
 ;     (ContinuedFractionPowerSeries                 indeterm   Var2OtherPS) _
 ;     (DistributedMultivariatePolynomial            indeterm   Var2Dmp) _
-;     (ElementaryFunction                           total      Var2FS) _
 ;     (Fraction                                     indeterm   Var2QF) _
-;     (FunctionalExpression                         total      Var2FS) _
 ;     (GeneralDistributedMultivariatePolynomial     indeterm   Var2Gdmp) _
 ;     (HomogeneousDistributedMultivariatePolynomial indeterm   Var2NDmp) _
-;     (LiouvillianFunction                          total      Var2FS) _
 ;     (MultivariatePolynomial                       indeterm   Var2Mp) _
 ;     (OrderedVariableList                          indeterm   Var2OV) _
 ;     (Polynomial                                   total      Var2P) _
@@ -6492,7 +6463,6 @@
      (|Expression| |indeterm| |Ker2Expr|))
     (|Factored| (|Factored| |indeterm| |Factored2Factored|))
     (|Fraction| (|DistributedMultivariatePolynomial| |partial| |Qf2domain|)
-     (|ElementaryFunction| |indeterm| |Qf2EF|)
      (|Expression| |indeterm| |Qf2EF|) (|Fraction| |indeterm| |Qf2Qf|)
      (|HomogeneousDistributedMultivariatePolynomial| |partial| |Qf2domain|)
      (|Integer| |partial| |Qf2domain|)
@@ -6573,14 +6543,11 @@
      (|Polynomial| |indeterm| |Up2P|)
      (|SparseUnivariatePolynomial| |indeterm| |Up2SUP|)
      (|UnivariatePolynomial| |indeterm| |Up2Up|))
-    (|Variable| (|AlgebraicFunction| |total| |Var2FS|)
-     (|ContinuedFractionPowerSeries| |indeterm| |Var2OtherPS|)
+    (|Variable| (|ContinuedFractionPowerSeries| |indeterm| |Var2OtherPS|)
      (|DistributedMultivariatePolynomial| |indeterm| |Var2Dmp|)
-     (|ElementaryFunction| |total| |Var2FS|) (|Fraction| |indeterm| |Var2QF|)
-     (|FunctionalExpression| |total| |Var2FS|)
+     (|Fraction| |indeterm| |Var2QF|)
      (|GeneralDistributedMultivariatePolynomial| |indeterm| |Var2Gdmp|)
      (|HomogeneousDistributedMultivariatePolynomial| |indeterm| |Var2NDmp|)
-     (|LiouvillianFunction| |total| |Var2FS|)
      (|MultivariatePolynomial| |indeterm| |Var2Mp|)
      (|OrderedVariableList| |indeterm| |Var2OV|) (|Polynomial| |total| |Var2P|)
      (|SparseUnivariatePolynomial| |indeterm| |Var2SUP|)

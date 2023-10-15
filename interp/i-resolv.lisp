@@ -211,7 +211,6 @@
 ;     true
 ;   t1 = $DoubleFloat or t1 = $Float =>
 ;     t2 = $String => NIL
-;     t2 = '(RationalNumber) => NIL
 ;     t2 = [$QuotientField, $Integer] => NIL
 ;     true
 ;   true
@@ -223,7 +222,6 @@
       ((EQUAL |t1| |$Integer|) (COND ((EQUAL |t2| |$String|) NIL) (#1='T T)))
       ((OR (EQUAL |t1| |$DoubleFloat|) (EQUAL |t1| |$Float|))
        (COND ((EQUAL |t2| |$String|) NIL)
-             ((EQUAL |t2| '(|RationalNumber|)) NIL)
              ((EQUAL |t2| (LIST |$QuotientField| |$Integer|)) NIL) (#1# T)))
       (#1# T)))))
  
@@ -357,7 +355,7 @@
 ; 
 ;   -- following is just an efficiency hack
 ;   (t1 = '(Symbol) or t1 is ['OrderedVariableList,.]) and PAIRP(t2) and
-;     first(t2) in '(Polynomial RationalFunction) => t2
+;       first(t2) = 'Polynomial => t2
 ; 
 ;   (t1 = '(Symbol)) and ofCategory(t2, '(IntegerNumberSystem)) =>
 ;     resolveTT1(['Polynomial, t2], t2)
@@ -473,7 +471,7 @@
                  (PROGN
                   (SETQ |ISTMP#1| (CDR |t1|))
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)))))
-        (CONSP |t2|) (|member| (CAR |t2|) '(|Polynomial| |RationalFunction|)))
+        (CONSP |t2|) (EQ (CAR |t2|) '|Polynomial|))
        |t2|)
       ((AND (EQUAL |t1| '(|Symbol|))
             (|ofCategory| |t2| '(|IntegerNumberSystem|)))
@@ -1185,7 +1183,7 @@
 ; resolveTCat(t,c) ==
 ;   -- this function attempts to find a type tc of category c such that
 ;   -- t can be coerced to tc. NIL returned for failure.
-;   -- Example:  t = Integer, c = Field ==> tc = RationalNumber
+;   -- Example:  t = Integer, c = Field ==> tc = Fraction(Integer)
 ; 
 ;   -- first check whether t already belongs to c
 ;   ofCategory(t,c) => t
@@ -1200,7 +1198,8 @@
 ;   c in '((Field) (EuclideanDomain)) and ofCategory(t,'(IntegralDomain))=>
 ;       [$QuotientField, t]
 ; 
-;   c = '(Field) and t = $Symbol => ['RationalFunction,$Integer]
+;   c = '(Field) and t = $Symbol =>
+;       [$QuotientField, ['Fraction, $Integer]]
 ; 
 ;   c = '(Ring) and t is ['FactoredForm,t0] => ['FactoredRing,t0]
 ; 
@@ -1225,7 +1224,7 @@
                  (|ofCategory| |t| '(|IntegralDomain|)))
             (LIST |$QuotientField| |t|))
            ((AND (EQUAL |c| '(|Field|)) (EQUAL |t| |$Symbol|))
-            (LIST '|RationalFunction| |$Integer|))
+            (LIST |$QuotientField| (LIST '|Fraction| |$Integer|)))
            ((AND (EQUAL |c| '(|Ring|)) (CONSP |t|)
                  (EQ (CAR |t|) '|FactoredForm|)
                  (PROGN

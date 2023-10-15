@@ -1851,7 +1851,7 @@
 ;   n2   := first t2
 ;   QFI  := [$QuotientField, $Integer]
 ;   int2 := isEqualOrSubDomain(t2,$Integer)
-;   scalars := '(Float DoubleFloat RationalNumber)
+;   scalars := '(Float DoubleFloat)
 ; 
 ;   MEMQ(n1,scalars) and int2 => true
 ;   (t1 = QFI) and int2       => true
@@ -1862,7 +1862,7 @@
 ;   num2 and isVar1 => true
 ;   num2 and MEMQ(n1,$univariateDomains) => true
 ;   num2 and MEMQ(n1,$multivariateDomains) => true
-;   miscpols :=  '(Polynomial ElementaryFunction SimpleAlgebraicExtension)
+;   miscpols :=  '(Polynomial SimpleAlgebraicExtension)
 ;   num2 and MEMQ(n1,miscpols) => true
 ; 
 ;   aggs :=  '(
@@ -1902,7 +1902,7 @@
              (SETQ |n2| (CAR |t2|))
              (SETQ QFI (LIST |$QuotientField| |$Integer|))
              (SETQ |int2| (|isEqualOrSubDomain| |t2| |$Integer|))
-             (SETQ |scalars| '(|Float| |DoubleFloat| |RationalNumber|))
+             (SETQ |scalars| '(|Float| |DoubleFloat|))
              (COND ((AND (MEMQ |n1| |scalars|) |int2|) T)
                    ((AND (EQUAL |t1| QFI) |int2|) T)
                    (#1#
@@ -1917,7 +1917,7 @@
                            (#1#
                             (PROGN
                              (SETQ |miscpols|
-                                     '(|Polynomial| |ElementaryFunction|
+                                     '(|Polynomial|
                                        |SimpleAlgebraicExtension|))
                              (COND ((AND |num2| (MEMQ |n1| |miscpols|)) T)
                                    (#1#
@@ -2300,7 +2300,7 @@
 ;   EQ(first(t1), 'Variable) and PAIRP(t2) and
 ;     (isEqualOrSubDomain(t2,$Integer) or
 ;       (t2 = [$QuotientField, $Integer]) or MEMQ(first(t2),
-;         '(RationalNumber Float DoubleFloat))) => NIL
+;         '(Float DoubleFloat))) => NIL
 ; 
 ;   ans := coerceRetract(triple,t2) or coerceIntTower(triple,t2) or
 ;     [.,:arg]:= deconstructT t2
@@ -2720,8 +2720,7 @@
                                               (LIST |$QuotientField|
                                                     |$Integer|))
                                        (MEMQ (CAR |t2|)
-                                             '(|RationalNumber| |Float|
-                                               |DoubleFloat|))))
+                                             '(|Float| |DoubleFloat|))))
                               NIL)
                              (#1#
                               (PROGN

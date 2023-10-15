@@ -4300,12 +4300,10 @@
 ;   --  variables, and nil otherwise
 ;   m is [op,a,:rargs] =>
 ;     a := removeQuote a
-;     MEMQ(op,'(Polynomial RationalFunction AlgebraicFunction Expression
-;       ElementaryFunction LiouvillianFunction FunctionalExpression
-;         CombinatorialFunction ))=> 'all
+;     MEMQ(op, '(Polynomial Expression))=> 'all
 ;     op = 'UnivariatePolynomial => LIST a
 ;     op = 'Variable       => LIST a
-;     MEMQ(op,'(MultivariatePolynomial DistributedMultivariatePolynomial
+;     MEMQ(op, '(MultivariatePolynomial DistributedMultivariatePolynomial
 ;       HomogeneousDistributedMultivariatePolynomial)) => a
 ;     NIL
 ;   NIL
@@ -4325,26 +4323,22 @@
                    #1='T))))
        (PROGN
         (SETQ |a| (|removeQuote| |a|))
-        (COND
-         ((MEMQ |op|
-                '(|Polynomial| |RationalFunction| |AlgebraicFunction|
-                  |Expression| |ElementaryFunction| |LiouvillianFunction|
-                  |FunctionalExpression| |CombinatorialFunction|))
-          '|all|)
-         ((EQ |op| '|UnivariatePolynomial|) (LIST |a|))
-         ((EQ |op| '|Variable|) (LIST |a|))
-         ((MEMQ |op|
-                '(|MultivariatePolynomial| |DistributedMultivariatePolynomial|
-                  |HomogeneousDistributedMultivariatePolynomial|))
-          |a|)
-         (#1# NIL))))
+        (COND ((MEMQ |op| '(|Polynomial| |Expression|)) '|all|)
+              ((EQ |op| '|UnivariatePolynomial|) (LIST |a|))
+              ((EQ |op| '|Variable|) (LIST |a|))
+              ((MEMQ |op|
+                     '(|MultivariatePolynomial|
+                       |DistributedMultivariatePolynomial|
+                       |HomogeneousDistributedMultivariatePolynomial|))
+               |a|)
+              (#1# NIL))))
       (#1# NIL)))))
  
 ; containsPolynomial m ==
 ;   not PAIRP(m) => NIL
 ;   [d,:.] := m
 ;   d in $univariateDomains or d in $multivariateDomains or
-;     d in '(Polynomial RationalFunction) => true
+;       d = 'Polynomial => true
 ;   (m' := underDomainOf m) and containsPolynomial m'
  
 (DEFUN |containsPolynomial| (|m|)
@@ -4357,7 +4351,7 @@
              (COND
               ((OR (|member| |d| |$univariateDomains|)
                    (|member| |d| |$multivariateDomains|)
-                   (|member| |d| '(|Polynomial| |RationalFunction|)))
+                   (EQ |d| '|Polynomial|))
                T)
               (#1#
                (AND (SETQ |m'| (|underDomainOf| |m|))

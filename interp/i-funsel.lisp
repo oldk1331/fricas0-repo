@@ -839,7 +839,7 @@
 ;             putTarget(opNode, target := '(AlgebraicNumber))
 ;             target
 ;       ((a2 = $RationalNumber) and (isAVariableType(a1)
-;           or a1 is ['Polynomial,.] or a1 is ['RationalFunction,.])) =>
+;           or a1 is ['Polynomial, .])) =>
 ;             putTarget(opNode, target := defaultTargetFE a1)
 ;             target
 ;       isAVariableType(a1) and (a2 = $PositiveInteger or a2 = $NonNegativeInteger) =>
@@ -850,14 +850,7 @@
 ;         target
 ;       a2 is ['Polynomial, D] =>
 ;         (a1 = a2) or isAVariableType(a1)
-;          or ((a1 is ['RationalFunction, D1]) and (D1 = D)) or (a1 = D)
-;           or ((a1 is [=$QuotientField, D1]) and (D1 = a1)) =>
-;             putTarget(opNode, target := defaultTargetFE a2)
-;             target
-;         target
-;       a2 is ['RationalFunction, D] =>
-;         (a1 = a2) or isAVariableType(a1)
-;          or ((a1 is ['RationalFunction, D1]) and (D1 = D)) or (a1 = D)
+;          or (a1 = D)
 ;           or ((a1 is [=$QuotientField, D1]) and (D1 = a1)) =>
 ;             putTarget(opNode, target := defaultTargetFE a2)
 ;             target
@@ -1210,12 +1203,6 @@
                                         (PROGN
                                          (SETQ |ISTMP#1| (CDR |a1|))
                                          (AND (CONSP |ISTMP#1|)
-                                              (EQ (CDR |ISTMP#1|) NIL))))
-                                   (AND (CONSP |a1|)
-                                        (EQ (CAR |a1|) '|RationalFunction|)
-                                        (PROGN
-                                         (SETQ |ISTMP#1| (CDR |a1|))
-                                         (AND (CONSP |ISTMP#1|)
                                               (EQ (CDR |ISTMP#1|) NIL))))))
                           (PROGN
                            (|putTarget| |opNode|
@@ -1240,49 +1227,6 @@
                                      (PROGN (SETQ D (CAR |ISTMP#1|)) #1#))))
                           (COND
                            ((OR (EQUAL |a1| |a2|) (|isAVariableType| |a1|)
-                                (AND (CONSP |a1|)
-                                     (EQ (CAR |a1|) '|RationalFunction|)
-                                     (PROGN
-                                      (SETQ |ISTMP#1| (CDR |a1|))
-                                      (AND (CONSP |ISTMP#1|)
-                                           (EQ (CDR |ISTMP#1|) NIL)
-                                           (PROGN
-                                            (SETQ D1 (CAR |ISTMP#1|))
-                                            #1#)))
-                                     (EQUAL D1 D))
-                                (EQUAL |a1| D)
-                                (AND (CONSP |a1|)
-                                     (EQUAL (CAR |a1|) |$QuotientField|)
-                                     (PROGN
-                                      (SETQ |ISTMP#1| (CDR |a1|))
-                                      (AND (CONSP |ISTMP#1|)
-                                           (EQ (CDR |ISTMP#1|) NIL)
-                                           (PROGN
-                                            (SETQ D1 (CAR |ISTMP#1|))
-                                            #1#)))
-                                     (EQUAL D1 |a1|)))
-                            (PROGN
-                             (|putTarget| |opNode|
-                              (SETQ |target| (|defaultTargetFE| |a2|)))
-                             |target|))
-                           (#1# |target|)))
-                         ((AND (CONSP |a2|) (EQ (CAR |a2|) '|RationalFunction|)
-                               (PROGN
-                                (SETQ |ISTMP#1| (CDR |a2|))
-                                (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                                     (PROGN (SETQ D (CAR |ISTMP#1|)) #1#))))
-                          (COND
-                           ((OR (EQUAL |a1| |a2|) (|isAVariableType| |a1|)
-                                (AND (CONSP |a1|)
-                                     (EQ (CAR |a1|) '|RationalFunction|)
-                                     (PROGN
-                                      (SETQ |ISTMP#1| (CDR |a1|))
-                                      (AND (CONSP |ISTMP#1|)
-                                           (EQ (CDR |ISTMP#1|) NIL)
-                                           (PROGN
-                                            (SETQ D1 (CAR |ISTMP#1|))
-                                            #1#)))
-                                     (EQUAL D1 D))
                                 (EQUAL |a1| D)
                                 (AND (CONSP |a1|)
                                      (EQUAL (CAR |a1|) |$QuotientField|)
@@ -1443,7 +1387,7 @@
 ;           IFCAR options => [$FunctionalExpression, ['Complex, $Integer]]
 ;           [$FunctionalExpression, $Integer]
 ;   a is ['Complex,uD] => defaultTargetFE(uD, true)
-;   a is [D,uD] and MEMQ(D, '(Polynomial RationalFunction Fraction)) =>
+;   a is [D, uD] and MEMQ(D, '(Polynomial Fraction)) =>
 ;      defaultTargetFE(uD, IFCAR options)
 ;   a is [=$FunctionalExpression,.] => a
 ;   IFCAR options => [$FunctionalExpression, ['Complex, a]]
@@ -1478,7 +1422,7 @@
              (SETQ |ISTMP#1| (CDR |a|))
              (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                   (PROGN (SETQ |uD| (CAR |ISTMP#1|)) #1#)))
-            (MEMQ D '(|Polynomial| |RationalFunction| |Fraction|)))
+            (MEMQ D '(|Polynomial| |Fraction|)))
        (|defaultTargetFE| |uD| (IFCAR |options|)))
       ((AND (CONSP |a|) (EQUAL (CAR |a|) |$FunctionalExpression|)
             (PROGN
@@ -2141,7 +2085,6 @@
 ;   EQ(first t, 'List) => 400
 ;   EQ(first t, 'Matrix) => 910
 ;   EQ(first t, 'UniversalSegment) => 501
-;   EQ(first t, 'RationalFunction) => 900
 ;   EQ(first t, 'Union) => 999
 ;   EQ(first t, 'Expression) => 1600
 ;   500
@@ -2153,7 +2096,6 @@
            ((EQ (CAR |t|) '|Polynomial|) 300) ((EQ (CAR |t|) '|List|) 400)
            ((EQ (CAR |t|) '|Matrix|) 910)
            ((EQ (CAR |t|) '|UniversalSegment|) 501)
-           ((EQ (CAR |t|) '|RationalFunction|) 900)
            ((EQ (CAR |t|) '|Union|) 999) ((EQ (CAR |t|) '|Expression|) 1600)
            ('T 500)))))
  
