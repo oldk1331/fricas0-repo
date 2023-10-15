@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4877 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4878 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -23,13 +23,14 @@
  |noZeroDivisors| |ArcTrigonometricFunctionCategory&|
  |ArcTrigonometricFunctionCategory| |shallowlyMutable| |unitsKnown|
  |VariablesCommuteWithCoefficients| |Automorphism| |BalancedFactorisation|
- |BasicType&| |BasicType| |BalancedBinaryTree| |BezoutMatrix| |BagAggregate&|
- |BagAggregate| |Bialgebra| |BinaryExpansion| |BinaryFile| |Bits| |BiModule|
- |Boolean| |BasicOperator| |BasicOperatorFunctions1| |BoundIntegerRoots|
- |BalancedPAdicInteger| |BalancedPAdicRational| |BinaryRecursiveAggregate&|
- |BinaryRecursiveAggregate| |BrillhartTests| |BinarySearchTree| |BitAggregate&|
- |BitAggregate| |BinaryTreeCategory&| |BinaryTreeCategory| |BinaryTournament|
- |BinaryTree| |CancellationAbelianMonoid| |CachableSet|
+ |BasicType&| |BasicType| |BalancedBinaryTree| |BezoutMatrix|
+ |BezoutMatrixWrapper| |BagAggregate&| |BagAggregate| |Bialgebra|
+ |BinaryExpansion| |BinaryFile| |Bits| |BiModule| |Boolean| |BasicOperator|
+ |BasicOperatorFunctions1| |BoundIntegerRoots| |BalancedPAdicInteger|
+ |BalancedPAdicRational| |BinaryRecursiveAggregate&| |BinaryRecursiveAggregate|
+ |BrillhartTests| |BinarySearchTree| |BitAggregate&| |BitAggregate|
+ |BinaryTreeCategory&| |BinaryTreeCategory| |BinaryTournament| |BinaryTree|
+ |CancellationAbelianMonoid| |CachableSet|
  |CylindricalAlgebraicDecompositionPackage|
  |CylindricalAlgebraicDecompositionUtilities| |CardinalNumber|
  |CartesianTensor| |CartesianTensorFunctions2| |CharacterClass|
