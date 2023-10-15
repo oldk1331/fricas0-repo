@@ -79,7 +79,7 @@
 (MAKEPROP '|FreeModuleCategory&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
-              (|local| |#3|) (|Boolean|) (0 . |zero?|) (5 . |leadingMonomial|)
+              (|local| |#3|) (|Boolean|) (0 . |zero?|) (5 . |leadingSupport|)
               (10 . =) (16 . |leadingCoefficient|) (21 . =) (27 . |reductum|)
               (32 . |smaller?|) (38 . |smaller?|) (44 . |smaller?|))
            '#(|smaller?| 50) 'NIL

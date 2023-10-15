@@ -919,7 +919,7 @@
               |XPBWPOLY;coerce;VarSet$;14| (167 . |coerce|) (172 . *) (178 . +)
               (184 . |Zero|) |XPBWPOLY;coerce;$Xdp;16| (188 . =) (194 . |Zero|)
               (198 . *) (204 . +) |XPBWPOLY;coerce;$Xrp;17|
-              (210 . |leadingMonomial|) |XPBWPOLY;constant?;$B;18|
+              (210 . |leadingSupport|) |XPBWPOLY;constant?;$B;18|
               (|Record| (|:| |k| 13) (|:| |c| 7)) '"last" (215 . |elt|)
               |XPBWPOLY;constant;$R;19| (221 . ~=)
               |XPBWPOLY;quasiRegular?;$B;20| (227 . |maxIndex|)
@@ -938,7 +938,7 @@
               (|String|) (|SingleInteger|) (|HashState|))
            '#(|varList| 314 |trunc| 319 |reductum| 325 |quasiRegular?| 330
               |quasiRegular| 335 |product| 340 |monom| 347 |mirror| 353 |log|
-              358 |leadingMonomial| 364 |exp| 369 |degree| 375 |constant?| 380
+              358 |leadingSupport| 364 |exp| 369 |degree| 375 |constant?| 380
               |constant| 385 |coerce| 390 |Zero| 420 |One| 424 |LiePolyIfCan|
               428 = 433 - 439 + 450 * 456)
            'NIL

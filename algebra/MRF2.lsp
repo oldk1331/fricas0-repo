@@ -13,8 +13,8 @@
                       (EXIT
                        (LETT |res|
                              (SPADCALL |res|
-                                       (SPADCALL (SPADCALL (QCAR |te|) |fn|)
-                                                 (QCDR |te|) (QREFELT $ 15))
+                                       (SPADCALL (SPADCALL (QCDR |te|) |fn|)
+                                                 (QCAR |te|) (QREFELT $ 15))
                                        (QREFELT $ 16))
                              . #2#)))
                      (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
@@ -65,9 +65,9 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (|MonoidRing| 7 8) (0 . |Zero|)
-              (|Record| (|:| |coef| 6) (|:| |monom| 8)) (|List| 11)
-              (|MonoidRing| 6 8) (4 . |terms|) (9 . |monomial|) (15 . +)
-              (|Mapping| 7 6) |MRF2;map;MMrMr;1|)
+              (|Record| (|:| |k| 8) (|:| |c| 6)) (|List| 11) (|MonoidRing| 6 8)
+              (4 . |terms|) (9 . |monomial|) (15 . +) (|Mapping| 7 6)
+              |MRF2;map;MMrMr;1|)
            '#(|map| 21) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()

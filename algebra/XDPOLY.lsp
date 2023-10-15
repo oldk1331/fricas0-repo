@@ -484,7 +484,7 @@
               (13 . |One|) (17 . |One|) (|NonNegativeInteger|) (21 . |sh|)
               (27 . |sh|) (33 . *) (39 . *) (45 . +) (|OrderedFreeMonoid| 6)
               (51 . |coerce|) (56 . |coerce|) |XDPOLY;coerce;vl$;4| (61 . *)
-              |XDPOLY;*;vl2$;5| (67 . |leadingMonomial|) (72 . |mirror|)
+              |XDPOLY;*;vl2$;5| (67 . |leadingSupport|) (72 . |mirror|)
               (77 . |leadingCoefficient|) (82 . |monom|) (88 . |reductum|)
               |XDPOLY;mirror;2$;6| (93 . |maxdeg|) (98 . |length|)
               |XDPOLY;degree;$Nni;7| (|Boolean|) (103 . =) (109 . >)
@@ -564,7 +564,7 @@
                                     0 33 1 0 9 0 11 1 0 22 0 1 2 4 0 0 0 1 1 0
                                     22 0 34 2 4 0 0 0 1 2 0 0 75 0 1 2 0 0 0 6
                                     55 2 0 0 0 0 62 2 0 0 0 22 51 1 0 76 0 1 2
-                                    1 7 68 0 1 1 0 9 0 1 1 0 22 0 1 1 0 22 0 28
+                                    1 7 68 0 1 1 0 9 0 1 1 0 22 0 28 1 0 0 0 1
                                     1 0 7 0 30 1 0 77 0 1 2 0 79 79 0 1 1 0 78
                                     0 1 1 0 16 0 36 1 0 0 76 1 1 0 0 76 1 1 0
                                     37 0 41 1 0 7 0 1 1 0 0 69 1 1 0 0 22 24 1

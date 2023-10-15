@@ -35,14 +35,13 @@
                                             ((|coerce|
                                               ($
                                                (|List|
-                                                (|Record| (|:| |coef| |t#1|)
-                                                          (|:| |monom|
-                                                               |t#2|)))))
+                                                (|Record| (|:| |k| |t#2|)
+                                                          (|:| |c| |t#1|)))))
                                              T)
                                             ((|terms|
                                               ((|List|
-                                                (|Record| (|:| |coef| |t#1|)
-                                                          (|:| |monom| |t#2|)))
+                                                (|Record| (|:| |k| |t#2|)
+                                                          (|:| |c| |t#1|)))
                                                $))
                                              T)
                                             ((|map|
@@ -55,13 +54,7 @@
                                             ((|monomials| ((|List| $) $)) T)
                                             ((|numberOfMonomials|
                                               ((|NonNegativeInteger|) $))
-                                             T)
-                                            ((|leadingMonomial| (|t#2| $))
-                                             (|has| |t#2| (|OrderedSet|)))
-                                            ((|leadingCoefficient| (|t#1| $))
-                                             (|has| |t#2| (|OrderedSet|)))
-                                            ((|reductum| ($ $))
-                                             (|has| |t#2| (|OrderedSet|))))
+                                             T))
                                           '(((|CharacteristicZero|)
                                              (|has| |t#1|
                                                     (|CharacteristicZero|)))
@@ -72,12 +65,14 @@
                                              (|has| |t#1| (|CommutativeRing|)))
                                             ((|Finite|)
                                              (AND (|has| |t#2| (|Finite|))
-                                                  (|has| |t#1| (|Finite|)))))
+                                                  (|has| |t#1| (|Finite|))))
+                                            ((|FreeModuleCategory| |t#1| |t#2|)
+                                             (|has| |t#2| (|Comparable|))))
                                           '((|NonNegativeInteger|) (|List| $)
                                             (|List| |t#1|) (|Boolean|)
                                             (|List|
-                                             (|Record| (|:| |coef| |t#1|)
-                                                       (|:| |monom| |t#2|))))
+                                             (|Record| (|:| |k| |t#2|)
+                                                       (|:| |c| |t#1|))))
                                           NIL))
                                  . #2=(|MonoidRingCategory|)))))
                    . #2#)
