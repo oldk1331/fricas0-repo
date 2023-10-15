@@ -7112,7 +7112,7 @@
 761823`\spad{script(s,{} [a,{} b,{} c,{} d,{} e])} returns \spad{s} with subscripts a,{} superscripts \spad{b},{} pre-superscripts \spad{c},{} pre-subscripts \spad{d},{} and argument-scripts \spad{e}.
 761981`\spad{scripted?(s)} is \spad{true} if \spad{s} has been given any scripts.
 762027`\spad{scripts(s)} returns all the scripts of \spad{s}.
-762183`\spad{scripts(f,{} [sub,{} super,{} presuper,{} presub])} \indented{1}{creates a form for \spad{f} with scripts on all 4 corners.}
+762183`\spad{scripts(f,{} l)} where \spad{l} is \spad{[sub,{} super,{} presuper,{} presub]} creates a form for \spad{f} with scripts on all 4 corners. If \spad{l} has less than 4 elements corresponding scripts are absent.
 762235`\spad{se2rfi(l)} converts \spad{l} to target domain
 762345`\spad{search(k,{} t)} searches the table \spad{t} for the key \spad{k},{} returning the entry stored in \spad{t} for key \spad{k}. If \spad{t} has no such key,{} \spad{search(k,{}t)} returns "failed".
 762426`\spad{sec(x)} applies the secant operator to \spad{x}
