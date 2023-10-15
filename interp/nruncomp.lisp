@@ -389,7 +389,6 @@
 ;   [op,[dc,:sig],[.,cform:=[eltOrConst,.,nsig]]] := opMmPair
 ;   if $profileCompiler = true then profileRecord(dc,op,sig)
 ;   eltOrConst = 'XLAM => cform
-;   if eltOrConst = 'Subsumed then eltOrConst := 'ELT
 ;   if atom dc then
 ;     dc = "$" => nsig := sig
 ;     if NUMBERP nsig then nsig := substitute('$,dc,substitute("$$","$",sig))
@@ -438,7 +437,6 @@
       (COND ((EQ |eltOrConst| 'XLAM) |cform|)
             (#3='T
              (PROGN
-              (COND ((EQ |eltOrConst| '|Subsumed|) (SETQ |eltOrConst| 'ELT)))
               (COND
                ((ATOM |dc|)
                 (COND ((EQ |dc| '$) (SETQ |nsig| |sig|))
@@ -2086,11 +2084,7 @@
 ;        if $lastPred ~= pred then
 ;             $newEnv := deepChaseInferences(pred,$e)
 ;             $lastPred := pred
-;        newfnsel :=
-;          fnsel is ['Subsumed,op1,sig1] =>
-;            ['Subsumed, op1, genSlotSig(sig1, $newEnv)]
-;          fnsel
-;        [[op, genSlotSig(sig, $newEnv)], pred, newfnsel]
+;        [[op, genSlotSig(sig, $newEnv)], pred, fnsel]
  
 (DEFUN |changeDirectoryInSlot1| ()
   (PROG (|$newEnv| |$lastPred| |sortedOplist|)
@@ -2117,7 +2111,7 @@
                   (SETQ |bfVar#101| (CDR |bfVar#101|))))
                NIL |sortedOplist| NIL))))))
 (DEFUN |changeDirectoryInSlot1,fn| (|bfVar#103|)
-  (PROG (|op| |sig| |pred| |fnsel| |ISTMP#1| |op1| |ISTMP#2| |sig1| |newfnsel|)
+  (PROG (|op| |sig| |pred| |fnsel|)
     (RETURN
      (PROGN
       (SETQ |op| (CAAR . #1=(|bfVar#103|)))
@@ -2128,22 +2122,7 @@
        ((NOT (EQUAL |$lastPred| |pred|))
         (SETQ |$newEnv| (|deepChaseInferences| |pred| |$e|))
         (SETQ |$lastPred| |pred|)))
-      (SETQ |newfnsel|
-              (COND
-               ((AND (CONSP |fnsel|) (EQ (CAR |fnsel|) '|Subsumed|)
-                     (PROGN
-                      (SETQ |ISTMP#1| (CDR |fnsel|))
-                      (AND (CONSP |ISTMP#1|)
-                           (PROGN
-                            (SETQ |op1| (CAR |ISTMP#1|))
-                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                            (AND (CONSP |ISTMP#2|) (EQ (CDR |ISTMP#2|) NIL)
-                                 (PROGN
-                                  (SETQ |sig1| (CAR |ISTMP#2|))
-                                  #3='T))))))
-                (LIST '|Subsumed| |op1| (|genSlotSig| |sig1| |$newEnv|)))
-               (#3# |fnsel|)))
-      (LIST (LIST |op| (|genSlotSig| |sig| |$newEnv|)) |pred| |newfnsel|)))))
+      (LIST (LIST |op| (|genSlotSig| |sig| |$newEnv|)) |pred| |fnsel|)))))
  
 ; genSlotSig(sig, $e) ==
 ;    [genDeltaSig t for t in sig]

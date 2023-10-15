@@ -169,8 +169,6 @@
 ;   --mc is the "mode of computation"; fn the "implementation"
 ;   $functorForm is ['CategoryDefaults,:.] and mc="$" => e
 ;     --don't put CD modemaps into environment
-;   --fn is ['Subsumed,:.] => e  -- don't skip subsumed modemaps
-;                                -- breaks -:($,$)->U($,failed) in DP
 ;   op = 'elt or op = "setelt!" => addEltModemap(op, mc, sig, pred, fn, e)
 ;   addModemap1(op,mc,sig,pred,fn,e)
  

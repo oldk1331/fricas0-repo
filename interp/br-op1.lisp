@@ -3158,7 +3158,7 @@
 ;   abb := getConstructorAbbreviation conname
 ;   opAlist := getOperationAlistFromLisplib conname
 ;   "append"/[REMDUP [[op1,:fn] for [sig,slot,pred,key,:.] in u
-;               | key ~= 'Subsumed and ((null ops and (op1 := op)) or (op1 := memq(op,ops)))]
+;               | ((null ops and (op1 := op)) or (op1 := memq(op, ops)))]
 ;                  for [op,:u] in opAlist] where
 ;     memq(op,ops) ==   --dirty trick to get 0 and 1 instead of Zero and One
 ;       MEMQ(op,ops) => op
@@ -3249,7 +3249,6 @@
                                                                     (CAR
                                                                      |ISTMP#3|))
                                                             #1#)))))))
-                                             (NOT (EQ |key| '|Subsumed|))
                                              (OR
                                               (AND (NULL |ops|)
                                                    (SETQ |op1| |op|))

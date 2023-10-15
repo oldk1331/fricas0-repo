@@ -2604,38 +2604,29 @@
 ;   mm:= subCopy(omm, SL)
 ;   -- tests whether modemap mm is appropriate for the function
 ;   -- defined by op, target type tar and argument types args
-;   $RTC:local:= NIL
-;   -- $RTC is a list of run-time checks to be performed
 ; 
 ;   [sig,slot,cond,y] := mm
 ;   [osig,:.]  := omm
 ;   osig := subCopy(osig, SUBSTQ(CONS('$,'$), dollarPair, SL))
 ;   if CONTAINED('_#, sig) or CONTAINED('construct, sig) then
 ;     sig := [replaceSharpCalls t for t in sig]
-;   matchMmCond cond and matchMmSig(mm,tar,args1,args2) and
-;     EQ(y,'Subsumed) and
-;       -- hmmmm: do Union check in following because (as in DP)
-;       -- Unions are subsumed by total modemaps which are in the
-;       -- mm list in findFunctionInDomain.
-;       y := 'ELT      -- if subsumed fails try it again
-;       not $SubDom and first sig isnt ['Union, :.] and slot is [tar, :args] and
-;         (f := findFunctionInDomain(op,dc,tar,args,args,NIL,NIL)) => f
-;     EQ(y,'ELT) => [[CONS(dc,sig),osig,nreverse $RTC]]
-;     EQ(y,'CONST) => [[CONS(dc,sig),osig,nreverse $RTC]]
-;     EQ(y,'ASCONST) => [[CONS(dc,sig),osig,nreverse $RTC]]
-;     y is ['XLAM,:.] => [[CONS(dc,sig),y,nreverse $RTC]]
+;   rtcp := [[]]
+;   matchMmCond cond and matchMmSig(mm,tar,args1,args2, rtcp) and
+;     -- RTC is a list of run-time checks to be performed
+;     RTC := nreverse CAR(rtcp)
+;     EQ(y, 'ELT) => [[CONS(dc, sig), osig, RTC]]
+;     EQ(y, 'CONST) => [[CONS(dc,sig),osig, RTC]]
+;     EQ(y, 'ASCONST) => [[CONS(dc, sig), osig, RTC]]
+;     y is ['XLAM, :.] => [[CONS(dc,sig), y, RTC]]
 ;     sayKeyedMsg("S2IF0006",[y])
 ;     NIL
  
 (DEFUN |findFunctionInDomain1| (|omm| |op| |tar| |args1| |args2| SL)
-  (PROG ($RTC |f| |args| |ISTMP#1| |osig| |y| |cond| |slot| |sig| |mm| |dc|
-         |dollarPair|)
-    (DECLARE (SPECIAL $RTC))
+  (PROG (|dollarPair| |dc| |mm| |sig| |slot| |cond| |y| |osig| |rtcp| RTC)
     (RETURN
      (PROGN
       (SETQ |dc| (CDR (SETQ |dollarPair| (ASSQ '$ SL))))
       (SETQ |mm| (|subCopy| |omm| SL))
-      (SETQ $RTC NIL)
       (SETQ |sig| (CAR |mm|))
       (SETQ |slot| (CADR . #1=(|mm|)))
       (SETQ |cond| (CADDR . #1#))
@@ -2656,37 +2647,18 @@
                               (CONS (|replaceSharpCalls| |t|) |bfVar#61|))))
                     (SETQ |bfVar#60| (CDR |bfVar#60|))))
                  NIL |sig| NIL))))
-      (AND (|matchMmCond| |cond|) (|matchMmSig| |mm| |tar| |args1| |args2|)
+      (SETQ |rtcp| (LIST NIL))
+      (AND (|matchMmCond| |cond|)
+           (|matchMmSig| |mm| |tar| |args1| |args2| |rtcp|)
            (PROGN
-            (AND (EQ |y| '|Subsumed|)
-                 (PROGN
-                  (SETQ |y| 'ELT)
-                  (COND
-                   ((AND (NULL |$SubDom|)
-                         (NOT
-                          (PROGN
-                           (SETQ |ISTMP#1| (CAR |sig|))
-                           (AND (CONSP |ISTMP#1|)
-                                (EQ (CAR |ISTMP#1|) '|Union|))))
-                         (CONSP |slot|)
-                         (PROGN
-                          (SETQ |tar| (CAR |slot|))
-                          (SETQ |args| (CDR |slot|))
-                          #2#)
-                         (SETQ |f|
-                                 (|findFunctionInDomain| |op| |dc| |tar| |args|
-                                  |args| NIL NIL)))
-                    |f|))))
-            (COND
-             ((EQ |y| 'ELT)
-              (LIST (LIST (CONS |dc| |sig|) |osig| (NREVERSE $RTC))))
-             ((EQ |y| 'CONST)
-              (LIST (LIST (CONS |dc| |sig|) |osig| (NREVERSE $RTC))))
-             ((EQ |y| 'ASCONST)
-              (LIST (LIST (CONS |dc| |sig|) |osig| (NREVERSE $RTC))))
-             ((AND (CONSP |y|) (EQ (CAR |y|) 'XLAM))
-              (LIST (LIST (CONS |dc| |sig|) |y| (NREVERSE $RTC))))
-             (#2# (PROGN (|sayKeyedMsg| 'S2IF0006 (LIST |y|)) NIL)))))))))
+            (SETQ RTC (NREVERSE (CAR |rtcp|)))
+            (COND ((EQ |y| 'ELT) (LIST (LIST (CONS |dc| |sig|) |osig| RTC)))
+                  ((EQ |y| 'CONST) (LIST (LIST (CONS |dc| |sig|) |osig| RTC)))
+                  ((EQ |y| 'ASCONST)
+                   (LIST (LIST (CONS |dc| |sig|) |osig| RTC)))
+                  ((AND (CONSP |y|) (EQ (CAR |y|) 'XLAM))
+                   (LIST (LIST (CONS |dc| |sig|) |y| RTC)))
+                  (#2# (PROGN (|sayKeyedMsg| 'S2IF0006 (LIST |y|)) NIL)))))))))
  
 ; findFunctionInCategory(op,dc,tar,args1,args2,$Coerce,$SubDom) ==
 ;   -- looks for a modemap for op with signature  args1 -> tar
@@ -2897,7 +2869,7 @@
             (|keyedSystemError| 'S2GE0016
              (LIST "matchMmCond" "unknown form of condition")))))))))
  
-; matchMmSig(mm,tar,args1,args2) ==
+; matchMmSig(mm, tar, args1, args2, rtcp) ==
 ;   -- matches the modemap signature against  args1 -> tar
 ;   -- if necessary, runtime checks are created for subdomains
 ;   -- then the modemap condition is evaluated
@@ -2921,10 +2893,10 @@
 ;         $SubDom and isSubDomain(x,x1) => rtc:= 'T
 ;         $Coerce => x2=x or canCoerceFrom(x1,x)
 ;         x1 is ['Variable,:.] and x = '(Symbol)
-;     $RTC:= CONS(rtc,$RTC)
+;     RPLACA(rtcp, CONS(rtc, CAR(rtcp)))
 ;   null args1 and null a and b and matchMmSigTar(tar, first sig)
  
-(DEFUN |matchMmSig| (|mm| |tar| |args1| |args2|)
+(DEFUN |matchMmSig| (|mm| |tar| |args1| |args2| |rtcp|)
   (PROG (|sig| |a| |arg| |x1| |x2| |x| |rtc| |ISTMP#1| |y| |v| |b|)
     (RETURN
      (PROGN
@@ -2992,7 +2964,7 @@
                                    (AND (CONSP |x1|)
                                         (EQ (CAR |x1|) '|Variable|)
                                         (EQUAL |x| '(|Symbol|)))))))
-                     (SETQ $RTC (CONS |rtc| $RTC)))))
+                     (RPLACA |rtcp| (CONS |rtc| (CAR |rtcp|))))))
                   (SETQ |i| (+ |i| 1))
                   (SETQ |bfVar#71| (NULL |b|))))
                1 NIL)

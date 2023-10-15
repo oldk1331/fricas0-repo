@@ -377,10 +377,8 @@
 ; SigListUnion(extra,original) ==
 ;   --augments original with everything in extra that is not in original
 ;   for (o:=[[ofn,osig,:.],opred,:.]) in original repeat
-;     -- The purpose of this loop is to detect cases when the
-;     -- original list contains, e.g. ** with NonNegativeIntegers, and
-;     -- the extra list would like to add ** with PositiveIntegers.
-;     -- The PI map is therefore given an implementation of "Subsumed"
+;     -- The purpose of this loop is to detect cases when
+;     -- original list already contains given operation
 ;     for x in SigListOpSubsume(o,extra) repeat
 ;       [[xfn,xsig,:.],xpred,:.]:=x
 ;       xfn=ofn and xsig=osig =>
@@ -395,24 +393,10 @@
 ;         --PRETTYPRINT(LIST("SigListOpSubsume",e,x))
 ;       original:= delete(x,original)
 ;       [xsig,xpred,:ximplem]:= x
-; --      if xsig ~= esig then   -- not quite strong enough
-;       if first xsig ~= first esig or CADR xsig ~= CADR esig then
-; -- the new version won't get confused by "constant"markers
-;          if ximplem is [["Subsumed",:.],:.] then
-;             original := [x,:original]
-;           else
-;             original:= [[xsig,xpred,["Subsumed",:esig]],:original]
-;        else epred:=mkOr(epred,xpred)
-; -- this used always to be done, as noted below, but that's not safe
-;       if not(ximplem is [["Subsumed",:.],:.]) then eimplem:= ximplem
+;       eimplem := ximplem
 ;       if eimplem then esig := [first esig, CADR esig]
 ;            -- in case there's a constant marker
-;       e:= [esig,epred,:eimplem]
-; --    e:= [esig,mkOr(xpred,epred),:ximplem]
-; -- Original version -gets it wrong if the new operator is only
-; -- present under certain conditions
-;         -- We must pick up the previous implementation, if any
-; --+
+;       e:= [esig, mkOr(epred, xpred), :eimplem]
 ;     original:= [e,:original]
 ;   original
  
@@ -484,35 +468,14 @@
                     (SETQ |xsig| (CAR |x|))
                     (SETQ |xpred| (CADR . #3=(|x|)))
                     (SETQ |ximplem| (CDDR . #3#))
-                    (COND
-                     ((OR (NOT (EQUAL (CAR |xsig|) (CAR |esig|)))
-                          (NOT (EQUAL (CADR |xsig|) (CADR |esig|))))
-                      (COND
-                       ((AND (CONSP |ximplem|)
-                             (PROGN
-                              (SETQ |ISTMP#1| (CAR |ximplem|))
-                              (AND (CONSP |ISTMP#1|)
-                                   (EQ (CAR |ISTMP#1|) '|Subsumed|))))
-                        (SETQ |original| (CONS |x| |original|)))
-                       (#1#
-                        (SETQ |original|
-                                (CONS
-                                 (LIST |xsig| |xpred|
-                                       (CONS '|Subsumed| |esig|))
-                                 |original|)))))
-                     (#1# (SETQ |epred| (|mkOr| |epred| |xpred|))))
-                    (COND
-                     ((NULL
-                       (AND (CONSP |ximplem|)
-                            (PROGN
-                             (SETQ |ISTMP#1| (CAR |ximplem|))
-                             (AND (CONSP |ISTMP#1|)
-                                  (EQ (CAR |ISTMP#1|) '|Subsumed|)))))
-                      (SETQ |eimplem| |ximplem|)))
+                    (SETQ |eimplem| |ximplem|)
                     (COND
                      (|eimplem|
                       (SETQ |esig| (LIST (CAR |esig|) (CADR |esig|)))))
-                    (SETQ |e| (CONS |esig| (CONS |epred| |eimplem|))))))
+                    (SETQ |e|
+                            (CONS |esig|
+                                  (CONS (|mkOr| |epred| |xpred|)
+                                        |eimplem|))))))
                  (SETQ |bfVar#19| (CDR |bfVar#19|))))
               (|SigListOpSubsume| |e| |original|) NIL)
              (SETQ |original| (CONS |e| |original|)))))

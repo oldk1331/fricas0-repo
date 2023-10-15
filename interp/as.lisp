@@ -903,7 +903,6 @@
 ; asyExportAlist con ==
 ; --format of 'operationAlist property of LISPLIBS (as returned from koOps):
 ; --    <sig slotNumberOrNil optPred optELT>
-; --    <sig sig'            predOrT "Subsumed">
 ; --!!! asyFile NEED: need to know if function is implemented by domain!!!
 ;   docHash := HGET($docHash,con)
 ;   [[op,:[fn(x,op) for x in rec]] for op in HKEYS docHash | rec := HGET(docHash,op)]

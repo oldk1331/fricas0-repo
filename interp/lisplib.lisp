@@ -782,7 +782,7 @@
 ;       implementation is [eltEtc,.,n] and eltEtc in '(CONST ELT) => eltEtc
 ;       implementation is [impOp,:.] =>
 ;         impOp = 'XLAM => implementation
-;         impOp in '(CONST Subsumed) => impOp
+;         impOp = CONST => impOp
 ;         keyedSystemError("S2IL0025",[impOp])
 ;       implementation = 'mkRecord => 'mkRecord
 ;       keyedSystemError("S2IL0025",[implementation])
@@ -851,8 +851,7 @@
                                   (SETQ |impOp| (CAR |implementation|))
                                   #1#))
                             (COND ((EQ |impOp| 'XLAM) |implementation|)
-                                  ((|member| |impOp| '(CONST |Subsumed|))
-                                   |impOp|)
+                                  ((EQUAL |impOp| CONST) |impOp|)
                                   (#1#
                                    (|keyedSystemError| 'S2IL0025
                                     (LIST |impOp|)))))

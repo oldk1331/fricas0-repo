@@ -1770,7 +1770,7 @@
 ;   --  The new form is an op-Alist which has entries (<op> . signature-Alist)
 ;   --    where signature-Alist has entries (<signature> . item)
 ;   --      where item has form (<slotNumber> <condition> <kind>)
-;   --        where <kind> =  ELT | CONST | Subsumed | (XLAM..) ..
+;   --        where <kind> =  ELT | CONST | (XLAM..) ..
 ;   pairlis:= [[fv,:arg] for fv in $FormalMapVariableList for arg in argl]
 ;   opAlist := getOperationAlistFromLisplib op
 ;   [:getOplistWithUniqueSignatures(op,pairlis,signatureAlist)
@@ -1820,7 +1820,7 @@
  
 ; getOplistWithUniqueSignatures(op,pairlis,signatureAlist) ==
 ;   alist:= nil
-;   for [sig,:[slotNumber,pred,kind]] in signatureAlist | kind ~= 'Subsumed repeat
+;   for [sig, :[slotNumber, pred, kind]] in signatureAlist repeat
 ;     alist:= insertAlist(SUBLIS(pairlis,[op,sig]),
 ;                 [pred,[kind,nil,slotNumber]],
 ;                 alist)
@@ -1855,7 +1855,6 @@
                                    (PROGN
                                     (SETQ |kind| (CAR |ISTMP#3|))
                                     #1#)))))))
-                 (NOT (EQ |kind| '|Subsumed|))
                  (SETQ |alist|
                          (|insertAlist| (SUBLIS |pairlis| (LIST |op| |sig|))
                           (LIST |pred| (LIST |kind| NIL |slotNumber|))
