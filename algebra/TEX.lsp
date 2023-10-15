@@ -347,10 +347,10 @@
 (SDEFUN |TEX;parenthesize| ((|str| |String|) ($ |String|))
         (SPADCALL (LIST "\\left( " |str| " \\right)") (QREFELT $ 54))) 
 
-(PUT '|TEX;precondition| '|SPADreplace| '|outputTran|) 
+(PUT '|TEX;precondition| '|SPADreplace| '|outputTran2|) 
 
 (SDEFUN |TEX;precondition| ((|expr| |OutputForm|) ($ |OutputForm|))
-        (|outputTran| |expr|)) 
+        (|outputTran2| |expr|)) 
 
 (SDEFUN |TEX;formatSpecial|
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)

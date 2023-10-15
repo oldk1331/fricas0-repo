@@ -1097,7 +1097,7 @@
  
 ; displayRule(op,rule) ==
 ;   null rule => nil
-;   mathprint ["CONCAT","Definition:   ", rule]
+;   mathprint ["CONCAT", "Definition:   ", outputMapTran(op, rule)]
 ;   nil
  
 (DEFUN |displayRule| (|op| |rule|)
@@ -1106,7 +1106,8 @@
      (COND ((NULL |rule|) NIL)
            ('T
             (PROGN
-             (|mathprint| (LIST 'CONCAT '|Definition:   | |rule|))
+             (|mathprint|
+              (LIST 'CONCAT '|Definition:   | (|outputMapTran| |op| |rule|)))
              NIL))))))
  
 ; outputFormat(x,m) ==
@@ -1143,26 +1144,14 @@
                       (RETURN |x|)))
              (|objValUnwrap| T$)))))))
  
-; displaySingleRule($op,pattern,replacement) ==
-;   mathprint ['SPADMAP, [pattern, :replacement]]
+; displaySingleRule(op, pattern, replacement) ==
+;   mathprint outputMapTran(op, ['SPADMAP, [pattern, :replacement]])
  
-(DEFUN |displaySingleRule| (|$op| |pattern| |replacement|)
-  (DECLARE (SPECIAL |$op|))
-  (PROG ()
-    (RETURN (|mathprint| (LIST 'SPADMAP (CONS |pattern| |replacement|))))))
- 
-; displayMap(headingIfTrue,$op,map) ==
-;   mathprint
-;     headingIfTrue => ['CONCAT,PNAME "value:  ",map]
-;     map
- 
-(DEFUN |displayMap| (|headingIfTrue| |$op| |map|)
-  (DECLARE (SPECIAL |$op|))
+(DEFUN |displaySingleRule| (|op| |pattern| |replacement|)
   (PROG ()
     (RETURN
      (|mathprint|
-      (COND (|headingIfTrue| (LIST 'CONCAT (PNAME '|value:  |) |map|))
-            ('T |map|))))))
+      (|outputMapTran| |op| (LIST 'SPADMAP (CONS |pattern| |replacement|)))))))
  
 ; simplifyMapPattern (x,alias) ==
 ;   for a in alias

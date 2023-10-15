@@ -227,10 +227,10 @@
 (SDEFUN |FORMULA;parenthesize| ((|str| |String|) ($ |String|))
         (SPADCALL (LIST "left lparen " |str| " right rparen") (QREFELT $ 50))) 
 
-(PUT '|FORMULA;precondition| '|SPADreplace| '|outputTran|) 
+(PUT '|FORMULA;precondition| '|SPADreplace| '|outputTran2|) 
 
 (SDEFUN |FORMULA;precondition| ((|expr| |OutputForm|) ($ |OutputForm|))
-        (|outputTran| |expr|)) 
+        (|outputTran2| |expr|)) 
 
 (SDEFUN |FORMULA;formatSpecial|
         ((|op| |String|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)

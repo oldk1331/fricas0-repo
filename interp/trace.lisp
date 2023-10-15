@@ -3796,14 +3796,14 @@
            ('T (PRINMATHOR0 |x| |trace_str|))))))
  
 ; PRINMATHOR0(x, trace_str) ==
-;     $mathTrace => maprinSpecial(outputTran(x), $monitor_depth, 80)
+;     $mathTrace => maprinSpecial(outputTran2(x), $monitor_depth, 80)
 ;     PRIN0(x, trace_str)
  
 (DEFUN PRINMATHOR0 (|x| |trace_str|)
   (PROG ()
     (RETURN
      (COND
-      (|$mathTrace| (|maprinSpecial| (|outputTran| |x|) |$monitor_depth| 80))
+      (|$mathTrace| (|maprinSpecial| (|outputTran2| |x|) |$monitor_depth| 80))
       ('T (PRIN0 |x| |trace_str|))))))
  
 ; _/TRACELET_-PRINT(X, Y) ==

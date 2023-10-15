@@ -282,10 +282,10 @@
 (SDEFUN |MMLFORM;parenthesize| ((|str| |String|) ($ |String|))
         (SPADCALL (LIST "<mo>(</mo>" |str| "<mo>)</mo>") (QREFELT $ 33))) 
 
-(PUT '|MMLFORM;precondition| '|SPADreplace| '|outputTran|) 
+(PUT '|MMLFORM;precondition| '|SPADreplace| '|outputTran2|) 
 
 (SDEFUN |MMLFORM;precondition| ((|expr| |OutputForm|) ($ |OutputForm|))
-        (|outputTran| |expr|)) 
+        (|outputTran2| |expr|)) 
 
 (SDEFUN |MMLFORM;formatSpecial|
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)

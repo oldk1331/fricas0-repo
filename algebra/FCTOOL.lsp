@@ -1676,7 +1676,7 @@
         ((|of| |OutputForm|) ($ |List| (|String|)))
         (SPROG ((|ol| (|List| (|OutputForm|))))
                (SEQ
-                (LETT |ol| (|exp2FortOptimize| (|outputTran| |of|))
+                (LETT |ol| (|exp2FortOptimize| (|outputTran2| |of|))
                       |FCTOOL;do_expression_to_fortran|)
                 (EXIT
                  (|FCTOOL;fortranCleanUp|

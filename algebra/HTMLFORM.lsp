@@ -287,10 +287,10 @@
 (SDEFUN |HTMLFORM;stringify| ((|expr| |OutputForm|) ($ |String|))
         (|mathObject2String| |expr|)) 
 
-(PUT '|HTMLFORM;precondition| '|SPADreplace| '|outputTran|) 
+(PUT '|HTMLFORM;precondition| '|SPADreplace| '|outputTran2|) 
 
 (SDEFUN |HTMLFORM;precondition| ((|expr| |OutputForm|) ($ |OutputForm|))
-        (|outputTran| |expr|)) 
+        (|outputTran2| |expr|)) 
 
 (SDEFUN |HTMLFORM;formatSC|
         ((|args| |List| (|OutputForm|)) (|prec| |Integer|)

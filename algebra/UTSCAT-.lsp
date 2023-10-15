@@ -142,7 +142,7 @@
                                    (EXIT |l|)))))
                                (EXIT
                                 (CONS
-                                 (SPADCALL "O"
+                                 (SPADCALL (SPADCALL 'O (QREFELT $ 32))
                                            (LIST
                                             (SPADCALL |vv|
                                                       (SPADCALL |n|

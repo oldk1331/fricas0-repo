@@ -1444,20 +1444,20 @@
                           (EXIT (NREVERSE #2#))))
                     . #5#)
               (LETT |TaylorO|
-                    (SPADCALL "O"
+                    (SPADCALL (SPADCALL 'O (QREFELT $ 128))
                               (LIST
-                               (SPADCALL (SPADCALL |x| |v| (QREFELT $ 128))
+                               (SPADCALL (SPADCALL |x| |v| (QREFELT $ 129))
                                          (QREFELT $ 95)))
-                              (QREFELT $ 129))
+                              (QREFELT $ 130))
                     . #5#)
               (LETT |TaylorPoly|
                     (SPADCALL
                      (SPADCALL (SPADCALL |f| |x| (QREFELT $ 69))
                                (QREFELT $ 95))
-                     (SPADCALL (ELT $ 130)
+                     (SPADCALL (ELT $ 131)
                                (SPADCALL |TaylorList| |TaylorO|
-                                         (QREFELT $ 132))
-                               (QREFELT $ 134))
+                                         (QREFELT $ 133))
+                               (QREFELT $ 135))
                      (QREFELT $ 98))
                     . #5#)
               (EXIT
@@ -1508,7 +1508,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RecurrenceOperator|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|RecurrenceOperator| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 135) . #1#)
+          (LETT $ (GETREFV 136) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RecurrenceOperator|
@@ -1584,16 +1584,16 @@
               (392 . |seriesSolve|) (400 . |coefficients|)
               |RECOP;makeFEq;Bo2SFLSF;11| (405 . |is?|) |RECOP;getEq;2F;13|
               |RECOP;eltable?;FB;14| '|vals| |RECOP;values;2Nni;16| (411 . ^)
-              (417 . |hconcat|) (422 . ^) (428 . *) (434 . ^) (440 . |prefix|)
-              (446 . +) (|List| 94) (452 . |concat|) (|Mapping| 94 94 94)
-              (458 . |reduce|))
-           '#(|values| 464 |makeRec| 473 |makeFEq| 482 |getEq| 492 |eltable?|
-              497)
+              (417 . |hconcat|) (422 . ^) (428 . *) (434 . |coerce|) (439 . ^)
+              (445 . |prefix|) (451 . +) (|List| 94) (457 . |concat|)
+              (|Mapping| 94 94 94) (463 . |reduce|))
+           '#(|values| 469 |makeRec| 478 |makeFEq| 487 |getEq| 497 |eltable?|
+              502)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 134
+                             (|makeByteWordVec2| 135
                                                  '(1 9 0 8 10 0 6 0 13 0 7 0 14
                                                    3 9 0 0 8 15 16 2 9 17 0 8
                                                    18 1 20 19 0 21 1 7 0 8 22 2
@@ -1632,11 +1632,11 @@
                                                    1 114 76 0 117 2 9 23 0 8
                                                    119 2 94 0 0 0 124 1 94 0 56
                                                    125 2 7 0 0 27 126 2 7 0 0 0
-                                                   127 2 7 0 0 40 128 2 94 0 0
-                                                   56 129 2 94 0 0 0 130 2 131
-                                                   0 0 94 132 2 131 94 133 0
-                                                   134 0 0 40 55 1 0 40 40 123
-                                                   5 0 7 9 8 7 19 76 77 6 0 7 9
-                                                   8 8 7 19 76 118 1 0 7 7 120
-                                                   1 0 23 7 121)))))
+                                                   127 1 8 94 0 128 2 7 0 0 40
+                                                   129 2 94 0 0 56 130 2 94 0 0
+                                                   0 131 2 132 0 0 94 133 2 132
+                                                   94 134 0 135 0 0 40 55 1 0
+                                                   40 40 123 5 0 7 9 8 7 19 76
+                                                   77 6 0 7 9 8 8 7 19 76 118 1
+                                                   0 7 7 120 1 0 23 7 121)))))
            '|lookupComplete|)) 

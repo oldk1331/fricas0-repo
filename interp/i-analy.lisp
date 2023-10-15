@@ -1465,7 +1465,7 @@
 ;   opName1 :=
 ;     opName0 = $immediateDataSymbol =>
 ;         (o := coerceInteractive(getValue op0,$OutputForm)) =>
-;             outputTran objValUnwrap o
+;             outputTran2 objValUnwrap o
 ;         NIL
 ;     opName0
 ; 
@@ -1616,7 +1616,7 @@
                             ((SETQ |o|
                                      (|coerceInteractive| (|getValue| |op0|)
                                       |$OutputForm|))
-                             (|outputTran| (|objValUnwrap| |o|)))
+                             (|outputTran2| (|objValUnwrap| |o|)))
                             (#1# NIL)))
                           (#1# |opName0|)))
                  (COND

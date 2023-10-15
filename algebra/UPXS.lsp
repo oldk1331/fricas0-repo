@@ -248,7 +248,7 @@
                                         (EXIT |l|)))))
                                     (EXIT
                                      (CONS
-                                      (SPADCALL "O"
+                                      (SPADCALL (SPADCALL 'O (QREFELT $ 79))
                                                 (LIST
                                                  (SPADCALL |xxx|
                                                            (SPADCALL
@@ -261,7 +261,7 @@
                                                              (QREFELT $ 75))
                                                             (QREFELT $ 67))
                                                            (QREFELT $ 68)))
-                                                (QREFELT $ 80))
+                                                (QREFELT $ 81))
                                       |l|)))))
                             . #2#)
                       (EXIT
@@ -269,8 +269,8 @@
                         ((NULL |l|)
                          (SPADCALL (|spadConstant| $ 30) (QREFELT $ 66)))
                         (#3#
-                         (SPADCALL (ELT $ 81) (NREVERSE |l|)
-                                   (QREFELT $ 84)))))))))))) 
+                         (SPADCALL (ELT $ 82) (NREVERSE |l|)
+                                   (QREFELT $ 85)))))))))))) 
 
 (SDEFUN |UPXS;coerce;$Of;16| ((|upxs| $) ($ |OutputForm|))
         (SPROG
@@ -282,7 +282,7 @@
           (LETT |rat| (|UPXS;getExpon| |upxs| $) . #1=(|UPXS;coerce;$Of;16|))
           (LETT |uls| (SPADCALL |upxs| (QREFELT $ 61)) . #1#)
           (LETT |count| |$streamCount| . #1#)
-          (LETT |uls| (SPADCALL |$streamCount| |uls| (QREFELT $ 85)) . #1#)
+          (LETT |uls| (SPADCALL |$streamCount| |uls| (QREFELT $ 86)) . #1#)
           (LETT |m|
                 (SPADCALL (SPADCALL |uls| (QREFELT $ 53)) |rat| (QREFELT $ 74))
                 . #1#)
@@ -291,10 +291,10 @@
           (LETT |xxx|
                 (COND
                  ((SPADCALL (QREFELT $ 8) (QREFELT $ 24))
-                  (SPADCALL (QREFELT $ 7) (QREFELT $ 86)))
+                  (SPADCALL (QREFELT $ 7) (QREFELT $ 79)))
                  ('T
                   (SPADCALL
-                   (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 86))
+                   (SPADCALL (SPADCALL (QREFELT $ 7) (QREFELT $ 79))
                              (SPADCALL (QREFELT $ 8) (QREFELT $ 66))
                              (QREFELT $ 87))
                    (QREFELT $ 88))))
@@ -681,15 +681,15 @@
               (|OutputForm|) (202 . |coerce|) (207 . |coerce|) (212 . ^)
               (218 . =) (224 . -) (229 . -) (234 . *) (240 . ~=) (246 . *)
               (252 . +) (258 . |explicitEntries?|) (263 . |eq?|)
-              (269 . |explicitlyEmpty?|) (|List| $) (274 . |prefix|) (280 . +)
-              (|Mapping| 65 65 65) (|List| 65) (286 . |reduce|)
-              (292 . |removeZeroes|) (298 . |coerce|) (303 . -) (309 . |paren|)
+              (269 . |explicitlyEmpty?|) (274 . |coerce|) (|List| $)
+              (279 . |prefix|) (285 . +) (|Mapping| 65 65 65) (|List| 65)
+              (291 . |reduce|) (297 . |removeZeroes|) (303 . -) (309 . |paren|)
               |UPXS;coerce;$Of;16| (|List| 10) (|List| 44)
               (|Union| $ '"failed")
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|SparseUnivariatePolynomial| $) (|Union| 79 '"failed")
-              (|Record| (|:| |coef| 79) (|:| |generator| $))
+              (|SparseUnivariatePolynomial| $) (|Union| 80 '"failed")
+              (|Record| (|:| |coef| 80) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
@@ -770,8 +770,8 @@
                                     68 2 6 23 0 0 69 1 6 0 0 70 1 65 0 0 71 2
                                     65 0 0 0 72 2 6 23 0 0 73 2 27 0 40 0 74 2
                                     27 0 0 0 75 1 46 23 0 76 2 46 23 0 0 77 1
-                                    46 23 0 78 2 65 0 0 79 80 2 65 0 0 0 81 2
-                                    83 65 82 0 84 2 14 0 40 0 85 1 10 65 0 86 2
+                                    46 23 0 78 1 10 65 0 79 2 65 0 0 80 81 2 65
+                                    0 0 0 82 2 84 65 83 0 85 2 14 0 40 0 86 2
                                     65 0 0 0 87 1 65 0 0 88 1 0 10 0 11 1 0 20
                                     0 22 1 0 18 0 19 1 0 27 0 58 2 0 0 6 27 29
                                     1 0 14 0 61 2 7 0 0 34 39 1 7 0 0 38 1 3 0

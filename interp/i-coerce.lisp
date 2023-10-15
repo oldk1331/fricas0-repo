@@ -2291,6 +2291,7 @@
 ;     null intName => NIL
 ;     objNewWrap(intName,t2)
 ;   (t1 is ['FunctionCalled,sym]) =>
+;     t2 = $OutputForm => coerceByFunction(objNewWrap(val, t1), t2)
 ;     (t3 := get(sym,'mode,$e)) and t3 is ['Mapping,:.] =>
 ;       (triple' := coerceInt(triple,t3)) => coerceInt(triple',t2)
 ;       NIL
@@ -2703,6 +2704,9 @@
                                           (SETQ |sym| (CAR |ISTMP#1|))
                                           #1#))))
                               (COND
+                               ((EQUAL |t2| |$OutputForm|)
+                                (|coerceByFunction| (|objNewWrap| |val| |t1|)
+                                 |t2|))
                                ((AND (SETQ |t3| (|get| |sym| '|mode| |$e|))
                                      (CONSP |t3|) (EQ (CAR |t3|) '|Mapping|))
                                 (COND

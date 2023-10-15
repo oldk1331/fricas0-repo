@@ -1972,18 +1972,16 @@
 ;   m := isInterpMacro name
 ;   null m =>
 ;     sayBrightly ['"  ",:bright name,'"is not an interpreter macro."]
-;   -- $op is needed in the output routines.
-;   $op : local := STRCONC('"macro ",object2String name)
+;   op := STRCONC('"macro ", object2String name)
 ;   [args,:body] := m
 ;   args :=
 ;     null args => nil
 ;     null rest args => first args
 ;     ['Tuple,:args]
-;   mathprint ['SPADMAP, [args, :body]]
+;   mathprint outputMapTran(op, ['SPADMAP, [args, :body]])
  
 (DEFUN |displayMacro| (|name|)
-  (PROG (|$op| |body| |args| |m|)
-    (DECLARE (SPECIAL |$op|))
+  (PROG (|m| |op| |args| |body|)
     (RETURN
      (PROGN
       (SETQ |m| (|isInterpMacro| |name|))
@@ -1995,13 +1993,14 @@
                        (CONS "is not an interpreter macro." NIL)))))
        (#1='T
         (PROGN
-         (SETQ |$op| (STRCONC "macro " (|object2String| |name|)))
+         (SETQ |op| (STRCONC "macro " (|object2String| |name|)))
          (SETQ |args| (CAR |m|))
          (SETQ |body| (CDR |m|))
          (SETQ |args|
                  (COND ((NULL |args|) NIL) ((NULL (CDR |args|)) (CAR |args|))
                        (#1# (CONS '|Tuple| |args|))))
-         (|mathprint| (LIST 'SPADMAP (CONS |args| |body|))))))))))
+         (|mathprint|
+          (|outputMapTran| |op| (LIST 'SPADMAP (CONS |args| |body|)))))))))))
  
 ; displayWorkspaceNames() ==
 ;   imacs := getInterpMacroNames()
@@ -2532,23 +2531,23 @@
       ((SETQ |val| (|getI| |v| |prop|)) (|sayMSG| (LIST '|    | |val| '|%l|)))
       ('T (|sayMSG| (LIST '|    none| '|%l|)))))))
  
-; displayType($op,u,omitVariableNameIfTrue) ==
+; displayType(op, u, omitVariableNameIfTrue) ==
 ;   null u =>
 ;     sayMSG ['"   Type of value of ",
-;         fixObjectForPrinting PNAME $op,'":  (none)"]
+;         fixObjectForPrinting PNAME op, '":  (none)"]
 ;   type := prefix2String objMode(u)
 ;   if ATOM type then type := [type]
-;   sayMSG concat ['"   Type of value of ",fixObjectForPrinting PNAME $op,'": ",:type]
+;   sayMSG concat ['"   Type of value of ", fixObjectForPrinting PNAME op,
+;                  '": ", :type]
 ;   NIL
  
-(DEFUN |displayType| (|$op| |u| |omitVariableNameIfTrue|)
-  (DECLARE (SPECIAL |$op|))
+(DEFUN |displayType| (|op| |u| |omitVariableNameIfTrue|)
   (PROG (|type|)
     (RETURN
      (COND
       ((NULL |u|)
        (|sayMSG|
-        (LIST "   Type of value of " (|fixObjectForPrinting| (PNAME |$op|))
+        (LIST "   Type of value of " (|fixObjectForPrinting| (PNAME |op|))
               ":  (none)")))
       ('T
        (PROGN
@@ -2557,21 +2556,23 @@
         (|sayMSG|
          (|concat|
           (CONS "   Type of value of "
-                (CONS (|fixObjectForPrinting| (PNAME |$op|))
+                (CONS (|fixObjectForPrinting| (PNAME |op|))
                       (CONS ": " |type|)))))
         NIL))))))
  
-; displayValue($op,u,omitVariableNameIfTrue) ==
-;   null u => sayMSG ["   Value of ",fixObjectForPrinting PNAME $op,'":  (none)"]
+; displayValue(op, u, omitVariableNameIfTrue) ==
+;   null u => sayMSG ["   Value of ", fixObjectForPrinting PNAME op,
+;                     '":  (none)"]
 ;   expr := objValUnwrap(u)
-;   expr is [op, :.] and (op = 'SPADMAP) or objMode(u) = $EmptyMode =>
-;     displayRule($op,expr)
+;   expr is [op1, :.] and (op1 = 'SPADMAP) =>
+;       displayRule(op, expr)
+;   objMode(u) = $EmptyMode => BREAK()
 ;   label:=
 ;     omitVariableNameIfTrue =>
 ;         rhs := '"):  "
 ;         '"Value (has type "
 ;     rhs := '":  "
-;     STRCONC('"Value of ", PNAME $op,'": ")
+;     STRCONC('"Value of ", PNAME op, '": ")
 ;   labmode := prefix2String objMode(u)
 ;   if ATOM labmode then labmode := [labmode]
 ;   GETDATABASE(expr,'CONSTRUCTORKIND) = 'domain =>
@@ -2580,24 +2581,22 @@
 ;     outputFormat(expr,objMode(u))]
 ;   NIL
  
-(DEFUN |displayValue| (|$op| |u| |omitVariableNameIfTrue|)
-  (DECLARE (SPECIAL |$op|))
-  (PROG (|expr| |op| |rhs| |label| |labmode|)
+(DEFUN |displayValue| (|op| |u| |omitVariableNameIfTrue|)
+  (PROG (|expr| |op1| |rhs| |label| |labmode|)
     (RETURN
      (COND
       ((NULL |u|)
        (|sayMSG|
-        (LIST '|   Value of | (|fixObjectForPrinting| (PNAME |$op|))
+        (LIST '|   Value of | (|fixObjectForPrinting| (PNAME |op|))
               ":  (none)")))
       (#1='T
        (PROGN
         (SETQ |expr| (|objValUnwrap| |u|))
         (COND
-         ((OR
-           (AND (CONSP |expr|) (PROGN (SETQ |op| (CAR |expr|)) #1#)
-                (EQ |op| 'SPADMAP))
-           (EQUAL (|objMode| |u|) |$EmptyMode|))
-          (|displayRule| |$op| |expr|))
+         ((AND (CONSP |expr|) (PROGN (SETQ |op1| (CAR |expr|)) #1#)
+               (EQ |op1| 'SPADMAP))
+          (|displayRule| |op| |expr|))
+         ((EQUAL (|objMode| |u|) |$EmptyMode|) (BREAK))
          (#1#
           (PROGN
            (SETQ |label|
@@ -2607,7 +2606,7 @@
                     (#1#
                      (PROGN
                       (SETQ |rhs| ":  ")
-                      (STRCONC "Value of " (PNAME |$op|) ": ")))))
+                      (STRCONC "Value of " (PNAME |op|) ": ")))))
            (SETQ |labmode| (|prefix2String| (|objMode| |u|)))
            (COND ((ATOM |labmode|) (SETQ |labmode| (LIST |labmode|))))
            (COND

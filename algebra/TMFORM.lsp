@@ -126,10 +126,10 @@
 (SDEFUN |TMFORM;parenthesize| ((|str| |String|) ($ |String|))
         (SPADCALL (LIST " \"(\" " |str| " \")\" ") (QREFELT $ 39))) 
 
-(PUT '|TMFORM;precondition| '|SPADreplace| '|outputTran|) 
+(PUT '|TMFORM;precondition| '|SPADreplace| '|outputTran2|) 
 
 (SDEFUN |TMFORM;precondition| ((|expr| |OutputForm|) ($ |OutputForm|))
-        (|outputTran| |expr|)) 
+        (|outputTran2| |expr|)) 
 
 (SDEFUN |TMFORM;formatSpecial|
         ((|op| |Symbol|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)

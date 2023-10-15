@@ -3584,7 +3584,7 @@
                          (COND
                           ((QEQCAR |deg| 0)
                            (CONS
-                            (SPADCALL "O"
+                            (SPADCALL (SPADCALL 'O (QREFELT $ 203))
                                       (LIST
                                        (SPADCALL |vv|
                                                  (SPADCALL
