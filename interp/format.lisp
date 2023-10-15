@@ -1552,6 +1552,9 @@
 ;     x=$EmptyMode or x=$quadSymbol => specialChar 'quad
 ;     STRINGP(x) or IDENTP(x) => x
 ;     x is [ ='_:,:.] => form2String1 x
+;     x is ["QUOTE", y] =>
+;         m = $Symbol and SYMBOLP(y) => y
+;         form2String1 x
 ;     isValidType(m) and PAIRP(m) and
 ;       (GETDATABASE(first(m),'CONSTRUCTORKIND) = 'domain) =>
 ;         (x' := coerceInteractive(objNewWrap(x,m),$OutputForm)) =>
@@ -1575,19 +1578,26 @@
          (SETQ |bfVar#42| (CDR |bfVar#42|))))
       NIL |argl| NIL |ml| NIL))))
 (DEFUN |formArguments2String,fn| (|x| |m|)
-  (PROG (|x'|)
+  (PROG (|ISTMP#1| |y| |x'|)
     (RETURN
      (COND
       ((OR (EQUAL |x| |$EmptyMode|) (EQUAL |x| |$quadSymbol|))
        (|specialChar| '|quad|))
       ((OR (STRINGP |x|) (IDENTP |x|)) |x|)
       ((AND (CONSP |x|) (EQUAL (CAR |x|) '|:|)) (|form2String1| |x|))
+      ((AND (CONSP |x|) (EQ (CAR |x|) 'QUOTE)
+            (PROGN
+             (SETQ |ISTMP#1| (CDR |x|))
+             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
+                  (PROGN (SETQ |y| (CAR |ISTMP#1|)) #1='T))))
+       (COND ((AND (EQUAL |m| |$Symbol|) (SYMBOLP |y|)) |y|)
+             (#1# (|form2String1| |x|))))
       ((AND (|isValidType| |m|) (CONSP |m|)
             (EQ (GETDATABASE (CAR |m|) 'CONSTRUCTORKIND) '|domain|))
        (COND
         ((SETQ |x'| (|coerceInteractive| (|objNewWrap| |x| |m|) |$OutputForm|))
          (|form2String1| (|objValUnwrap| |x'|)))
-        (#1='T (|form2String1| |x|))))
+        (#1# (|form2String1| |x|))))
       (#1# (|form2String1| |x|))))))
  
 ; formDecl2String(left,right) ==
