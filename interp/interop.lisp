@@ -2020,9 +2020,7 @@
                    (SETQ |bfVar#35| (CDR |bfVar#35|))))
                 NIL |catlist| NIL)))))))))))
  
-; lazyDomainSet(lazyForm,thisDomain,slot) ==
-;   form :=
-;     lazyForm                                        --new style
+; lazyDomainSet(form, thisDomain, slot) ==
 ;   slotDomain := evalSlotDomain(form,thisDomain)
 ;   if $monitorNewWorld then
 ;     sayLooking1(concat(form2String devaluate thisDomain,
@@ -2031,11 +2029,10 @@
 ; --getInfovec name
 ;   SETELT(thisDomain,slot,slotDomain)
  
-(DEFUN |lazyDomainSet| (|lazyForm| |thisDomain| |slot|)
-  (PROG (|form| |slotDomain|)
+(DEFUN |lazyDomainSet| (|form| |thisDomain| |slot|)
+  (PROG (|slotDomain|)
     (RETURN
      (PROGN
-      (SETQ |form| |lazyForm|)
       (SETQ |slotDomain| (|evalSlotDomain| |form| |thisDomain|))
       (COND
        (|$monitorNewWorld|

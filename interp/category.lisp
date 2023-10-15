@@ -1342,7 +1342,6 @@
 ; JoinInner(l,$e) ==
 ;   NewCatVec := nil
 ;   CondList := nil
-;   CondList2 := nil
 ;   for u in l repeat
 ;     for at in u.2 repeat
 ;       at2:= first at
@@ -1388,13 +1387,12 @@
  
 (DEFUN |JoinInner| (|l| |$e|)
   (DECLARE (SPECIAL |$e|))
-  (PROG (|NewCatVec| |CondList| |CondList2| |at2| |pred| |LETTMP#1| |l'| |sigl|
+  (PROG (|NewCatVec| |CondList| |at2| |pred| |LETTMP#1| |l'| |sigl|
          |globalDomains| |FundamentalAncestors| |newpred| |c| |pName|)
     (RETURN
      (PROGN
       (SETQ |NewCatVec| NIL)
       (SETQ |CondList| NIL)
-      (SETQ |CondList2| NIL)
       ((LAMBDA (|bfVar#49| |u|)
          (LOOP
           (COND
