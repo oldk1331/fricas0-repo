@@ -8142,7 +8142,7 @@
 888862`test function.
 889289`test function.
 889592`\spad{testDim(lp,{} lv)} tests if the polynomial system \spad{lp} in variables \spad{lv} is zero dimensional.
-889800`\spad{testEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be equal. To sidestep the possibility that the equality function of the domain \spad{R} performs some simplifications,{} we convert \spad{ex1} and \spad{ex2} to \spad{InputForm},{} if possible
+889800`\spad{testEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be equal. To sidestep the possibility that the equality function of the domain \spad{R} performs some simplifications,{} we convert \spad{ex1} and \spad{ex2} to \spad{InputForm},{} if possible.
 889857`testEquals(inp,{} \spad{ex1},{} \spad{ex2}) states that \spad{ex1} and \spad{ex2} should be equal. To sidestep the possibility that the equality function of the domain \spad{R} performs some simplifications,{} we convert \spad{ex1} and \spad{ex2} to \spad{InputForm},{} if possible.
 889920`\spad{testEqualsAuxCmp should} be local but is conditional
 889982`test function.
@@ -8206,7 +8206,7 @@
 902542`\spad{torsion?(f)} \undocumented
 902659`\spad{torsion?(f)} \undocumented
 902757`\spad{torsionIfCan(f)} \undocumented
-902930`\spad{torsionIfCan(f)}\\ undocumented
+902930`\spad{torsionIfCan(f)} \undocumented
 903084`generate a cubical complex of the surface of an 3-dimensional torus.
 903178`generate a minimal triangulation of the surface of an 3-dimensional torus.
 903278`\spad{toScale(b)} specifies whether or not a plot is to be drawn to scale; if \spad{b} is \spad{true} it is drawn to scale,{} if \spad{b} is \spad{false} it is not. This option is expressed in the form \spad{toScale == b}.
@@ -9275,7 +9275,7 @@
 1009313`A basic package for the factorization of bivariate polynomials over a finite field. The functions here represent the base step for the multivariate factorizer.
 1009378`This is a low-level package which implements operations \indented{1}{on vectors treated as univariate modular polynomials.\space{2}Most} \indented{1}{operations takes modulus as parameter.\space{2}Modulus is machine} \indented{1}{sized prime which should be small enough to avoid overflow} \indented{1}{in intermediate calculations.}
 1009438`\indented{1}{References:} \indented{2}{\spad{J}-\spad{G}. Dumas,{} \spad{F}. Heckenbach,{} \spad{D}. Sauders,{} \spad{V}. Welker:} \indented{2}{Computing simplicial homology based on efficient Smith} \indented{2}{normal form algorithms.} Descrition: Gaussion elimination using only 1 or \spad{-1} as pivots \blankline
-1009491`Unittest is a package that provides functions for regression \indented{13}{testing.\space{2}Note that it calls the interpreter,{} thus,{} all} \indented{13}{functions require that there arguments be passed as strings.}
+1009491`Unittest is a package that provides functions for regression \indented{13}{testing.\space{2}Note that it calls the interpreter,{} thus,{} all} \indented{13}{functions require that their arguments be passed as strings.}
 1009531`UnittestAux is an auxiliary package to Unittest,{} that performs \indented{13}{checking of tests,{} dealing also with fatal errors.}
 1009585`UnittestCount is a package that keeps track of statistics \indented{13}{collected during testing.\space{2}It is separate from} \indented{13}{\spadtype{UnittestAux} because the latter takes an argument,{}} \indented{13}{and we want the state to be common for all arguments.}
 1009698`Mapping package for univariate Laurent series \indented{2}{This package allows one to apply a function to the coefficients of} \indented{2}{a univariate Laurent series.}
