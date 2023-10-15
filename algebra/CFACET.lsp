@@ -137,7 +137,7 @@
                  (SPADCALL 1 (SPADCALL |aint| |bint| (QREFELT $ 33))
                            (QREFELT $ 16)))))) 
 
-(SDEFUN |CFACET;deltaOneDimension|
+(SDEFUN |CFACET;boundaryOneDimension|
         ((|orf| $) (|dim| |NonNegativeInteger|) (|invert| |Boolean|)
          ($ |List| $))
         (SPROG
@@ -146,7 +146,7 @@
           (|subFacet1| (|List| (|Segment| (|Integer|)))) (|hi| (|Integer|))
           (|lo| (|Integer|)) (#1=#:G171 NIL) (|seg| NIL) (#2=#:G172 NIL)
           (|segn| NIL) (|facet| (|List| (|Segment| (|Integer|)))))
-         (SEQ (LETT |facet| (QCDR |orf|) . #3=(|CFACET;deltaOneDimension|))
+         (SEQ (LETT |facet| (QCDR |orf|) . #3=(|CFACET;boundaryOneDimension|))
               (LETT |mult| (QCAR |orf|) . #3#) (LETT |subFacet1| NIL . #3#)
               (LETT |subFacet2| NIL . #3#)
               (SEQ (LETT |segn| 1 . #3#) (LETT #2# (LENGTH |facet|) . #3#)
@@ -196,14 +196,14 @@
               (LETT |res| (SPADCALL |res| |r2| (QREFELT $ 36)) . #3#)
               (EXIT |res|)))) 
 
-(SDEFUN |CFACET;delta;$L;11| ((|orf| $) ($ |List| $))
+(SDEFUN |CFACET;boundary;$L;11| ((|orf| $) ($ |List| $))
         (SPROG
          ((|invert| (|Boolean|)) (|res| (|List| $)) (#1=#:G182 NIL) (|dim| NIL)
           (|dims| (|List| (|NonNegativeInteger|))) (|hi| (|Integer|))
           (|lo| (|Integer|)) (#2=#:G180 NIL) (|seg| NIL) (#3=#:G181 NIL)
           (|segn| NIL) (|mult| (|Integer|))
           (|facet| (|List| (|Segment| (|Integer|)))))
-         (SEQ (LETT |facet| (QCDR |orf|) . #4=(|CFACET;delta;$L;11|))
+         (SEQ (LETT |facet| (QCDR |orf|) . #4=(|CFACET;boundary;$L;11|))
               (LETT |mult| (QCAR |orf|) . #4#) (LETT |dims| NIL . #4#)
               (SEQ (LETT |segn| 1 . #4#) (LETT #3# (LENGTH |facet|) . #4#)
                    (LETT |seg| NIL . #4#) (LETT #2# |facet| . #4#) G190
@@ -231,7 +231,7 @@
                    (SEQ
                     (LETT |res|
                           (SPADCALL |res|
-                                    (|CFACET;deltaOneDimension| |orf| |dim|
+                                    (|CFACET;boundaryOneDimension| |orf| |dim|
                                      |invert| $)
                                     (QREFELT $ 39))
                           . #4#)
@@ -546,7 +546,7 @@
               |CFACET;setMult;$I$;7| (44 . =) (|List| $)
               |CFACET;position;$LI;8| (50 . |concat|) |CFACET;product;3$;9|
               (|List| $$) (56 . |concat|) (|List| 26) (62 . |concat|)
-              (68 . |concat|) |CFACET;delta;$L;11| (74 . |empty?|)
+              (68 . |concat|) |CFACET;boundary;$L;11| (74 . |empty?|)
               (79 . |member?|) (85 . |empty?|) (90 . |copy|) (95 . <=)
               (101 . |copy|) (106 . |setelt!|) (113 . >)
               |CFACET;allSubsets;$NniL;14| |CFACET;allSubsets;$2NniL;15|
@@ -558,7 +558,7 @@
            '#(~= 151 |smaller?| 157 |setMult| 163 |sameFace?| 169 |product| 175
               |position| 181 |order| 187 |min| 192 |max| 198 |latex| 204
               |hashUpdate!| 209 |hash| 215 |getMult| 220 |getIntervals| 225
-              |empty?| 230 |delta| 235 |cubicalFacet| 240 |coerce| 258
+              |empty?| 230 |cubicalFacet| 235 |coerce| 253 |boundary| 258
               |allSubsets| 263 >= 276 > 282 = 288 <= 294 < 300)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0))
@@ -584,11 +584,11 @@
                                          0 0 0 0 34 2 0 7 0 31 32 1 0 26 0 27 2
                                          0 0 0 0 1 2 0 0 0 0 1 1 0 56 0 1 2 0
                                          64 64 0 1 1 0 65 0 1 1 0 7 0 28 1 0 14
-                                         0 25 1 0 11 0 41 1 0 31 0 40 2 0 0 7
-                                         22 24 2 0 0 7 14 16 2 0 0 7 20 21 1 0
-                                         57 0 63 3 0 31 0 26 26 50 2 0 31 0 26
-                                         49 2 0 11 0 0 1 2 0 11 0 0 1 2 0 11 0
-                                         0 55 2 0 11 0 0 54 2 0 11 0 0 53)))))
+                                         0 25 1 0 11 0 41 2 0 0 7 22 24 2 0 0 7
+                                         14 16 2 0 0 7 20 21 1 0 57 0 63 1 0 31
+                                         0 40 3 0 31 0 26 26 50 2 0 31 0 26 49
+                                         2 0 11 0 0 1 2 0 11 0 0 1 2 0 11 0 0
+                                         55 2 0 11 0 0 54 2 0 11 0 0 53)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|CubicalFacet| 'NILADIC T) 

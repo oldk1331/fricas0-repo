@@ -1,12 +1,9 @@
 
 (SDEFUN |SIMPCF;sphereSolid;NniFsc;1|
-        ((|dim| |NonNegativeInteger|)
-         ($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+        ((|dim| |NonNegativeInteger|) ($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))) (#1=#:G108 NIL)
-          (|n| NIL) (#2=#:G107 NIL))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|))))
+          (#1=#:G108 NIL) (|n| NIL) (#2=#:G107 NIL))
          (SEQ
           (LETT |v1|
                 (LIST
@@ -18,101 +15,82 @@
                        (LETT |n| (|inc_SI| |n|) . #3#) (GO G190) G191
                        (EXIT (NREVERSE #2#)))))
                 . #3#)
-          (LETT |vs1| (SPADCALL (+ |dim| 1) (QREFELT $ 8)) . #3#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #3#) (EXIT |r|)))) 
+          (LETT |vs1| NIL . #3#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
 (SDEFUN |SIMPCF;sphereSurface;NniFsc;2|
-        ((|dim| |NonNegativeInteger|)
-         ($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
-        (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|s| (|FiniteSimplicialComplex| (|VertexSetAbstract|))))
-         (SEQ
-          (LETT |s| (SPADCALL |dim| (QREFELT $ 12))
-                . #1=(|SIMPCF;sphereSurface;NniFsc;2|))
-          (LETT |r| (SPADCALL |s| (QREFELT $ 13)) . #1#) (EXIT |r|)))) 
+        ((|dim| |NonNegativeInteger|) ($ |FiniteSimplicialComplex| VS))
+        (SPROG ((|s| (|FiniteSimplicialComplex| VS)))
+               (SEQ
+                (LETT |s| (SPADCALL |dim| (QREFELT $ 12))
+                      |SIMPCF;sphereSurface;NniFsc;2|)
+                (EXIT (SPADCALL |s| (QREFELT $ 13)))))) 
 
-(SDEFUN |SIMPCF;torusSurface;Fsc;3|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;line;Fsc;3| (($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         (SEQ (LETT |v1| (LIST (LIST 1 2)) . #1=(|SIMPCF;line;Fsc;3|))
+              (LETT |vs1| NIL . #1#)
+              (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
+
+(SDEFUN |SIMPCF;torusSurface;Fsc;4| (($ |FiniteSimplicialComplex| VS))
+        (SPROG
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 1 2 3) (LIST 2 3 5) (LIST 2 4 5) (LIST 2 4 7)
                       (LIST 1 2 6) (LIST 2 6 7) (LIST 3 4 6) (LIST 3 5 6)
                       (LIST 3 4 7) (LIST 1 3 7) (LIST 1 4 5) (LIST 1 4 6)
                       (LIST 5 6 7) (LIST 1 5 7))
-                . #1=(|SIMPCF;torusSurface;Fsc;3|))
-          (LETT |vs1| (SPADCALL 7 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;torusSurface;Fsc;4|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;band;Fsc;4|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;band;Fsc;5| (($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 1 2 3) (LIST 1 2 6) (LIST 1 5 6) (LIST 2 3 4)
                       (LIST 3 4 5) (LIST 4 5 6))
-                . #1=(|SIMPCF;band;Fsc;4|))
-          (LETT |vs1| (SPADCALL 6 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;band;Fsc;5|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;moebiusBand;Fsc;5|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;moebiusBand;Fsc;6| (($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 1 2 3) (LIST 2 3 4) (LIST 3 4 5) (LIST 1 4 5)
                       (LIST 1 2 5))
-                . #1=(|SIMPCF;moebiusBand;Fsc;5|))
-          (LETT |vs1| (SPADCALL 5 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;moebiusBand;Fsc;6|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;projectivePlane;Fsc;6|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;projectiveSpace;IFsc;7|
+        ((|n| |Integer|) ($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 1 2 3) (LIST 1 3 4) (LIST 1 2 6) (LIST 1 5 6)
                       (LIST 1 4 5) (LIST 2 3 5) (LIST 2 4 5) (LIST 2 4 6)
                       (LIST 3 4 6) (LIST 3 5 6))
-                . #1=(|SIMPCF;projectivePlane;Fsc;6|))
-          (LETT |vs1| (SPADCALL 6 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;projectiveSpace;IFsc;7|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;kleinBottle;Fsc;7|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;kleinBottle;Fsc;8| (($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 3 4 8) (LIST 2 3 4) (LIST 2 4 6) (LIST 2 6 8)
                       (LIST 2 5 8) (LIST 3 5 7) (LIST 2 3 7) (LIST 2 7 1)
                       (LIST 2 5 1) (LIST 3 5 1) (LIST 4 5 8) (LIST 4 5 7)
                       (LIST 4 6 7) (LIST 6 7 1) (LIST 3 6 1) (LIST 3 6 8))
-                . #1=(|SIMPCF;kleinBottle;Fsc;7|))
-          (LETT |vs1| (SPADCALL 8 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;kleinBottle;Fsc;8|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
-(SDEFUN |SIMPCF;dunceHat;Fsc;8|
-        (($ |FiniteSimplicialComplex| (|VertexSetAbstract|)))
+(SDEFUN |SIMPCF;dunceHat;Fsc;9| (($ |FiniteSimplicialComplex| VS))
         (SPROG
-         ((|r| (|FiniteSimplicialComplex| (|VertexSetAbstract|)))
-          (|vs1| (|VertexSetAbstract|))
-          (|v1| (|List| (|List| (|NonNegativeInteger|)))))
+         ((|vs1| (|List| VS)) (|v1| (|List| (|List| (|NonNegativeInteger|)))))
          (SEQ
           (LETT |v1|
                 (LIST (LIST 1 2 8) (LIST 2 3 8) (LIST 3 7 8) (LIST 1 3 7)
@@ -120,71 +98,68 @@
                       (LIST 2 4 6) (LIST 5 6 7) (LIST 2 5 7) (LIST 4 5 6)
                       (LIST 2 3 4) (LIST 2 3 5) (LIST 1 3 4) (LIST 1 4 5)
                       (LIST 1 3 5))
-                . #1=(|SIMPCF;dunceHat;Fsc;8|))
-          (LETT |vs1| (SPADCALL 8 (QREFELT $ 8)) . #1#)
-          (LETT |r| (SPADCALL |vs1| |v1| (QREFELT $ 11)) . #1#) (EXIT |r|)))) 
+                . #1=(|SIMPCF;dunceHat;Fsc;9|))
+          (LETT |vs1| NIL . #1#) (EXIT (SPADCALL |vs1| |v1| (QREFELT $ 10)))))) 
 
 (DECLAIM (NOTINLINE |SimplicialComplexFactory;|)) 
 
-(DEFUN |SimplicialComplexFactory| ()
+(DEFUN |SimplicialComplexFactory| (#1=#:G125)
   (SPROG NIL
-         (PROG (#1=#:G124)
+         (PROG (#2=#:G126)
            (RETURN
             (COND
-             ((LETT #1# (HGET |$ConstructorCache| '|SimplicialComplexFactory|)
-                    . #2=(|SimplicialComplexFactory|))
-              (|CDRwithIncrement| (CDAR #1#)))
+             ((LETT #2#
+                    (|lassocShiftWithFunction| (LIST (|devaluate| #1#))
+                                               (HGET |$ConstructorCache|
+                                                     '|SimplicialComplexFactory|)
+                                               '|domainEqualList|)
+                    . #3=(|SimplicialComplexFactory|))
+              (|CDRwithIncrement| #2#))
              ('T
               (UNWIND-PROTECT
-                  (PROG1
-                      (CDDAR
-                       (HPUT |$ConstructorCache| '|SimplicialComplexFactory|
-                             (LIST
-                              (CONS NIL
-                                    (CONS 1 (|SimplicialComplexFactory;|))))))
-                    (LETT #1# T . #2#))
+                  (PROG1 (|SimplicialComplexFactory;| #1#) (LETT #2# T . #3#))
                 (COND
-                 ((NOT #1#)
+                 ((NOT #2#)
                   (HREM |$ConstructorCache|
                         '|SimplicialComplexFactory|)))))))))) 
 
-(DEFUN |SimplicialComplexFactory;| ()
-  (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
+(DEFUN |SimplicialComplexFactory;| (|#1|)
+  (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
-          (LETT |dv$| '(|SimplicialComplexFactory|)
-                . #1=(|SimplicialComplexFactory|))
-          (LETT $ (GETREFV 21) . #1#)
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|SimplicialComplexFactory|))
+          (LETT |dv$| (LIST '|SimplicialComplexFactory| DV$1) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
-          (|haddProp| |$ConstructorCache| '|SimplicialComplexFactory| NIL
-                      (CONS 1 $))
+          (|haddProp| |$ConstructorCache| '|SimplicialComplexFactory|
+                      (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
           $))) 
 
 (MAKEPROP '|SimplicialComplexFactory| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|NonNegativeInteger|)
-              (|VertexSetAbstract|) (0 . |vertexSeta|) (|List| (|List| 6))
-              (|FiniteSimplicialComplex| 7) (5 . |simplicialComplex|)
-              |SIMPCF;sphereSolid;NniFsc;1| (11 . |delta|)
-              |SIMPCF;sphereSurface;NniFsc;2| |SIMPCF;torusSurface;Fsc;3|
-              |SIMPCF;band;Fsc;4| |SIMPCF;moebiusBand;Fsc;5|
-              |SIMPCF;projectivePlane;Fsc;6| |SIMPCF;kleinBottle;Fsc;7|
-              |SIMPCF;dunceHat;Fsc;8|)
-           '#(|torusSurface| 16 |sphereSurface| 20 |sphereSolid| 25
-              |projectivePlane| 30 |moebiusBand| 34 |kleinBottle| 38 |dunceHat|
-              42 |band| 46)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|List| 6)
+              (|List| (|List| 11)) (|FiniteSimplicialComplex| 6)
+              (0 . |simplicialComplex|) (|NonNegativeInteger|)
+              |SIMPCF;sphereSolid;NniFsc;1| (6 . |boundary|)
+              |SIMPCF;sphereSurface;NniFsc;2| |SIMPCF;line;Fsc;3|
+              |SIMPCF;torusSurface;Fsc;4| |SIMPCF;band;Fsc;5|
+              |SIMPCF;moebiusBand;Fsc;6| (|Integer|)
+              |SIMPCF;projectiveSpace;IFsc;7| |SIMPCF;kleinBottle;Fsc;8|
+              |SIMPCF;dunceHat;Fsc;9|)
+           '#(|torusSurface| 11 |sphereSurface| 15 |sphereSolid| 20
+              |projectiveSpace| 25 |moebiusBand| 30 |line| 34 |kleinBottle| 38
+              |dunceHat| 42 |band| 46)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 20
-                                                 '(1 7 0 6 8 2 10 0 7 9 11 1 10
-                                                   0 0 13 0 0 10 15 1 0 10 6 14
-                                                   1 0 10 6 12 0 0 10 18 0 0 10
-                                                   17 0 0 10 19 0 0 10 20 0 0
-                                                   10 16)))))
+                             (|makeByteWordVec2| 22
+                                                 '(2 9 0 7 8 10 1 9 0 0 13 0 0
+                                                   9 16 1 0 9 11 14 1 0 9 11 12
+                                                   1 0 9 19 20 0 0 9 18 0 0 9
+                                                   15 0 0 9 21 0 0 9 22 0 0 9
+                                                   17)))))
            '|lookupComplete|)) 
-
-(MAKEPROP '|SimplicialComplexFactory| 'NILADIC T) 
