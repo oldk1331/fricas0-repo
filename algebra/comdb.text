@@ -8685,9 +8685,9 @@
 942310`Some functions for manipulating (dense) matrices. Supported are various kinds of slicing,{} splitting and stacking of matrices. The functions resemble operations often used in numerical linear algebra algorithms.
 942474`This package exports tools for merging lists
 942527`\indented{1}{<description of package>} Author: Jim Wen Date Created: \spad{??} Date Last Updated: October 1991 by Jon Steinbach Keywords: Examples: References:
-942593`This package computes \spad{gcd} over field of algebraic \indented{1}{functions over \spad{Q} using modular method based on \spad{M}. Monagan and} \indented{1}{van Hoej paper.} \indented{1}{Core modular operations are passed as parameter (MO) to this} \indented{1}{package.\space{2}Simpiarly,{} evaluation functions are passed as} \
+942593`This package computes \spad{gcd} over field of algebraic \indented{1}{functions over \spad{Q} using modular method based on \spad{M}. Monagan and} \indented{1}{van Hoej paper.} \indented{1}{Core modular operations are passed as parameter (MO) to this} \indented{1}{package.\space{2}Similarly,{} evaluation functions are passed as} \
 942593`--indented{1}{paramteter ME.}
-942769`Decritption: ModularAlgebraicGcd(\spad{MPT},{} \spad{MD},{} MO) is a compatibility wrapper around \spad{ModularAlgebraicGcd2}.
+942769`ModularAlgebraicGcd(\spad{MPT},{} \spad{MD},{} MO) is a compatibility \indented{1}{wrapper around \spad{ModularAlgebraicGcd2}.}
 942902`This package supports factorization and gcds of univariate polynomials over the integers modulo different primes. The inputs are given as polynomials over the integers with the prime passed explicitly as an extra argument.
 943004`This package provides modular Hermite-Pade solvers \indented{1}{for a few rings.\space{2}Solver over integers is implemented in this} \indented{1}{package.\space{2}Also it contains interfaces to solver over \$\spad{Z_p}\$ and} \indented{1}{solver over ring of integer polynomials.}
 943051`This package provides generic interface to modular \indented{1}{Hermite-Pade solver.}
