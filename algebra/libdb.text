@@ -4522,7 +4522,6 @@ ogcdPolynomial`2`n`(SparseUnivariatePolynomial(P),SparseUnivariatePolynomial(P))
 ogcdPolynomial`2`n`(SparseUnivariatePolynomial(S),SparseUnivariatePolynomial(S))->SparseUnivariatePolynomial(S)`xFiniteFieldCategory&(S)``0
 ogcdPolynomial`2`n`(SparseUnivariatePolynomial(S),SparseUnivariatePolynomial(S))->SparseUnivariatePolynomial(S)`xGcdDomain&(S)``0
 ogcdPolynomial`2`n`(SparseUnivariatePolynomial(S),SparseUnivariatePolynomial(S))->SparseUnivariatePolynomial(S)`xPolynomialCategory&(S,R,E,VarSet)``0
-ogcdPolynomial`2`n`(SparseUnivariatePolynomial(S),SparseUnivariatePolynomial(S))->SparseUnivariatePolynomial(S)`xPolynomialFactorizationExplicit&(S)``0
 ogcdPolynomial`2`n`(SparseUnivariatePolynomial(S),SparseUnivariatePolynomial(S))->SparseUnivariatePolynomial(S)`xUnivariatePolynomialCategory&(S,R)``0
 ogcdPolynomial`2`x`(SparseUnivariatePolynomial(_$),SparseUnivariatePolynomial(_$))->SparseUnivariatePolynomial(_$)`cGcdDomain``545208
 ogcdPolynomial`2`x`(SparseUnivariatePolynomial(_$),SparseUnivariatePolynomial(_$))->SparseUnivariatePolynomial(_$)`cPolynomialFactorizationExplicit``545335
