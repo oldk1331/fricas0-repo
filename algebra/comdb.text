@@ -284,7 +284,7 @@
 16869`AlgebraGivenByStructuralConstants implements finite rank algebras over a commutative ring,{} given by the structural constants \spad{gamma} with respect to a fixed basis \spad{[a1,{} ..,{} an]},{} where \spad{gamma} is an \spad{n}-vector of \spad{n} by \spad{n} matrices \spad{[(gammaijk) for k in 1..rank()]} defined by \spad{\spad{ai} * 
 16869`--aj = gammaij1 * a1 + ... + gammaijn * an}. The symbols for the fixed basis have to be given as a list of symbols.
 17036`Function field defined by \spad{f}(\spad{x},{} \spad{y}) = 0.
-17238`Algebraic closure of the rational numbers,{} with mathematical =
+17238`Algebraic closure of the rational numbers.
 17299`This domain implements anonymous functions
 17350`The domain of antisymmetric polynomials.
 17433`\spadtype{Any} implements a type that packages up objects and their types in objects of \spadtype{Any}. Roughly speaking that means that if \spad{s : S} then when converted to \spadtype{Any},{} the new object will include both the original object and its type. This is a way of converting arbitrary objects into a single type without losing any of the original information. Any object can be converted to one of \spadtype{Any}.
