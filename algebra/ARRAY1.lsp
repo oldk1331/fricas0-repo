@@ -11,7 +11,7 @@
 
 (SDEFUN |ARRAY1;oneDimensionalArray;L$;3| ((|u| |List| S) ($ $))
         (SPROG
-         ((#1=#:G2117 NIL) (|i| NIL) (#2=#:G2118 NIL) (|x| NIL) (|a| ($))
+         ((#1=#:G2123 NIL) (|i| NIL) (#2=#:G2124 NIL) (|x| NIL) (|a| ($))
           (|n| (|NonNegativeInteger|)))
          (SEQ (LETT |n| (LENGTH |u|) . #3=(|ARRAY1;oneDimensionalArray;L$;3|))
               (EXIT
@@ -40,9 +40,9 @@
 
 (DECLAIM (NOTINLINE |OneDimensionalArray;|)) 
 
-(DEFUN |OneDimensionalArray| (#1=#:G2130)
+(DEFUN |OneDimensionalArray| (#1=#:G2136)
   (SPROG NIL
-         (PROG (#2=#:G2131)
+         (PROG (#2=#:G2137)
            (RETURN
             (COND
              ((LETT #2#
@@ -61,7 +61,7 @@
 
 (DEFUN |OneDimensionalArray;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G2127 NIL) (#2=#:G2128 NIL) (#3=#:G2129 NIL) ($ NIL)
+   ((|pv$| NIL) (#1=#:G2133 NIL) (#2=#:G2134 NIL) (#3=#:G2135 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #4=(|OneDimensionalArray|))

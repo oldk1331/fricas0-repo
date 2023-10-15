@@ -63,13 +63,24 @@
                      NIL (GO G190) G191 (EXIT NIL))
                 (EXIT |lu|)))) 
 
-(SDEFUN |LIST;convert;$If;10| ((|x| $) ($ |InputForm|))
-        (SPROG ((#1=#:G1539 NIL) (|a| NIL) (#2=#:G1538 NIL))
+(SDEFUN |LIST;map!;M2$;10| ((|f| |Mapping| S S) (|l| $) ($ $))
+        (SPROG ((|y| ($)))
+               (SEQ (LETT |y| |l| . #1=(|LIST;map!;M2$;10|))
+                    (SEQ G190 (COND ((NULL (NULL (NULL |l|))) (GO G191)))
+                         (SEQ
+                          (SPADCALL |l| (SPADCALL (|SPADfirst| |l|) |f|)
+                                    (QREFELT $ 30))
+                          (EXIT (LETT |l| (CDR |l|) . #1#)))
+                         NIL (GO G190) G191 (EXIT NIL))
+                    (EXIT |y|)))) 
+
+(SDEFUN |LIST;convert;$If;11| ((|x| $) ($ |InputForm|))
+        (SPROG ((#1=#:G1546 NIL) (|a| NIL) (#2=#:G1545 NIL))
                (SEQ
                 (SPADCALL
-                 (CONS (SPADCALL '|construct| (QREFELT $ 32))
+                 (CONS (SPADCALL '|construct| (QREFELT $ 35))
                        (PROGN
-                        (LETT #2# NIL . #3=(|LIST;convert;$If;10|))
+                        (LETT #2# NIL . #3=(|LIST;convert;$If;11|))
                         (SEQ (LETT |a| NIL . #3#) (LETT #1# |x| . #3#) G190
                              (COND
                               ((OR (ATOM #1#)
@@ -78,17 +89,17 @@
                              (SEQ
                               (EXIT
                                (LETT #2#
-                                     (CONS (SPADCALL |a| (QREFELT $ 33)) #2#)
+                                     (CONS (SPADCALL |a| (QREFELT $ 36)) #2#)
                                      . #3#)))
                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                              (EXIT (NREVERSE #2#)))))
-                 (QREFELT $ 35))))) 
+                 (QREFELT $ 38))))) 
 
 (DECLAIM (NOTINLINE |List;|)) 
 
-(DEFUN |List| (#1=#:G1554)
+(DEFUN |List| (#1=#:G1560)
   (SPROG NIL
-         (PROG (#2=#:G1555)
+         (PROG (#2=#:G1561)
            (RETURN
             (COND
              ((LETT #2#
@@ -104,13 +115,13 @@
 
 (DEFUN |List;| (|#1|)
   (SPROG
-   ((#1=#:G1550 NIL) (#2=#:G1551 NIL) (#3=#:G1553 NIL) (#4=#:G1552 NIL)
-    (|pv$| NIL) (#5=#:G1547 NIL) (#6=#:G1548 NIL) (#7=#:G1549 NIL) ($ NIL)
+   ((#1=#:G1556 NIL) (#2=#:G1557 NIL) (#3=#:G1559 NIL) (#4=#:G1558 NIL)
+    (|pv$| NIL) (#5=#:G1553 NIL) (#6=#:G1554 NIL) (#7=#:G1555 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|List|))
     (LETT |dv$| (LIST '|List| DV$1) . #8#)
-    (LETT $ (GETREFV 55) . #8#)
+    (LETT $ (GETREFV 57) . #8#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -201,7 +212,7 @@
                  (CONS (|dispatchFunction| |LIST;setDifference;3$;9|) $)))))
     (COND
      ((|testBitVector| |pv$| 2)
-      (QSETREFV $ 36 (CONS (|dispatchFunction| |LIST;convert;$If;10|) $))))
+      (QSETREFV $ 39 (CONS (|dispatchFunction| |LIST;convert;$If;11|) $))))
     $))) 
 
 (MAKEPROP '|List| '|infovec|
@@ -213,17 +224,18 @@
               (25 . |OMputEndApp|) (30 . |OMputObject|) (35 . |OMputEndObject|)
               (40 . |OMwrite|) (47 . |removeDuplicates|) (52 . |setUnion|)
               (58 . |member?|) (64 . |setIntersection|) (|Integer|)
-              (70 . |elt|) (76 . |setDifference|) (|Symbol|) (|InputForm|)
-              (82 . |convert|) (87 . |convert|) (|List| $) (92 . |convert|)
-              (97 . |convert|) (|Mapping| 8 6 6) (|Mapping| 6 6 6)
-              (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 41)
+              (70 . |elt|) (76 . |setDifference|) (82 . |setfirst!|)
+              (|Mapping| 6 6) |LIST;map!;M2$;10| (|Symbol|) (|InputForm|)
+              (88 . |convert|) (93 . |convert|) (|List| $) (98 . |convert|)
+              (103 . |convert|) (|Mapping| 8 6 6) (|Mapping| 6 6 6)
+              (|NonNegativeInteger|) (|List| 6) (|Equation| 6) (|List| 44)
               (|OutputForm|) (|SingleInteger|) (|HashState|) (|Mapping| 8 6)
               (|UniversalSegment| 27) '"last" '"rest" '"first" '"value"
-              (|Mapping| 6 6) (|List| 27) (|Union| 6 '"failed"))
-           '#(|setUnion| 102 |setIntersection| 108 |setDifference| 114
-              |removeDuplicates| 120 |null| 125 |nil| 130 |member?| 134 |elt|
-              140 |convert| 146 |cons| 151 |concat| 157 |append| 163 |OMwrite|
-              169)
+              (|List| 27) (|Union| 6 '"failed"))
+           '#(|setfirst!| 108 |setUnion| 114 |setIntersection| 120
+              |setDifference| 126 |removeDuplicates| 132 |null| 137 |nil| 142
+              |member?| 146 |map!| 152 |elt| 158 |convert| 164 |cons| 169
+              |concat| 175 |append| 181 |OMwrite| 187)
            'NIL
            (CONS
             (|makeByteWordVec2| 12
@@ -245,19 +257,20 @@
                  (|Collection| 6) (|OrderedSet|) (|HomogeneousAggregate| 6)
                  (|Comparable|) (|Aggregate|) (|EltableAggregate| 27 6)
                  (|Evalable| 6) (|SetCategory|) (|shallowlyMutable|)
-                 (|finiteAggregate|) (|Eltable| 47 $$) (|Type|)
+                 (|finiteAggregate|) (|Eltable| 50 $$) (|Type|)
                  (|Eltable| 27 6) (|InnerEvalable| 6 6) (|BasicType|)
-                 (|CoercibleTo| 43) (|PartialOrder|) (|ConvertibleTo| 31)
+                 (|CoercibleTo| 46) (|PartialOrder|) (|ConvertibleTo| 34)
                  (|OpenMath|))
-              (|makeByteWordVec2| 36
+              (|makeByteWordVec2| 39
                                   '(2 0 0 0 0 11 1 14 13 0 15 3 14 13 0 16 16
                                     17 3 6 13 14 0 8 18 1 14 13 0 19 1 14 13 0
                                     20 1 14 13 0 21 3 0 13 14 0 8 22 1 0 0 0 23
                                     2 0 0 0 0 24 2 0 8 6 0 25 2 0 0 0 0 26 2 0
-                                    6 0 27 28 2 0 0 0 0 29 1 31 0 30 32 1 6 31
-                                    0 33 1 31 0 34 35 1 0 31 0 36 2 4 0 0 0 24
-                                    2 4 0 0 0 26 2 4 0 0 0 29 1 19 0 0 23 1 0 8
-                                    0 9 0 0 0 7 2 19 8 6 0 25 2 0 6 0 27 28 1 2
-                                    31 0 36 2 0 0 6 0 10 2 0 0 0 0 11 2 0 0 0 0
+                                    6 0 27 28 2 0 0 0 0 29 2 0 6 0 6 30 1 34 0
+                                    33 35 1 6 34 0 36 1 34 0 37 38 1 0 34 0 39
+                                    2 21 6 0 6 30 2 4 0 0 0 24 2 4 0 0 0 26 2 4
+                                    0 0 0 29 1 19 0 0 23 1 0 8 0 9 0 0 0 7 2 19
+                                    8 6 0 25 2 21 0 31 0 32 2 0 6 0 27 28 1 2
+                                    34 0 39 2 0 0 6 0 10 2 0 0 0 0 11 2 0 0 0 0
                                     12 3 3 13 14 0 8 22)))))
            '|lookupIncomplete|)) 
