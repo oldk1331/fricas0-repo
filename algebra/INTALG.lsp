@@ -655,8 +655,6 @@
             (|:| |result2|
                  (|List|
                   (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))))
-          (|lf2|
-           (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (|u| (|Factored| UP))
           (|u0| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|cl| (|List| F)))
@@ -673,7 +671,7 @@
                           (QREFELT $ 141))
                 . #2#)
           (LETT |lf| (SPADCALL |u| (QREFELT $ 144)) . #2#)
-          (LETT |lf2| (CDR |lf|) . #2#) (LETT |lm| NIL . #2#)
+          (LETT |lm| NIL . #2#)
           (SEQ G190 (COND ((NULL (NULL (NULL |lf|))) (GO G191)))
                (SEQ
                 (LETT |rp|
@@ -1161,7 +1159,9 @@
                                               (QREFELT $ 70))
                                     . #13#)
                               (QREFELT $ 151))
-                             (|error| "impossible"))
+                             (|error|
+                              (|error|
+                               "integrate: implementation incomplete (trace 0)")))
                             (#14#
                              (SEQ
                               (LETT |la| (|INTALG;get_la| |lins1| |lins2| $)
@@ -1633,14 +1633,20 @@
                      (|:| |coeff| (|SparseUnivariatePolynomial| R))
                      (|:| |logand| (|SparseUnivariatePolynomial| R))))
           "failed"))
-        (SPROG NIL
-               (COND
-                ((|INTALG;varRoot?| (SPADCALL |f| |derivation| (QREFELT $ 149))
-                  (CONS #'|INTALG;alglogint!0| (VECTOR |derivation| $)) $)
-                 (CONS 1 "failed"))
-                ('T
-                 (|error|
-                  "integrate: implementation incomplete (constant residues)"))))) 
+        (SPROG ((|r| (UP)))
+               (SEQ
+                (LETT |r|
+                      (SPADCALL (SPADCALL |f| |derivation| (QREFELT $ 149))
+                                (QREFELT $ 132))
+                      |INTALG;alglogint|)
+                (EXIT
+                 (COND
+                  ((|INTALG;varRoot?| |r|
+                    (CONS #'|INTALG;alglogint!0| (VECTOR |derivation| $)) $)
+                   (CONS 1 "failed"))
+                  ('T
+                   (|error|
+                    "integrate: implementation incomplete (constant residues)"))))))) 
 
 (SDEFUN |INTALG;alglogint!0| ((|x1| NIL) ($$ NIL))
         (PROG ($ |derivation|)
