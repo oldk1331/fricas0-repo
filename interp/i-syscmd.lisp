@@ -932,7 +932,7 @@
 ;     sockSendInt($SessionManager, $CloseClient)
 ;     sockSendInt($SessionManager, $currentFrameNum)
 ;     closeInterpreterFrame(NIL)
-;   x := UPCASE queryUserKeyedMsg('"S2IZ0072", nil)
+;   x := UPCASE queryUserKeyedMsg("S2IZ0072", nil)
 ;   MEMQ(STRING2ID_-N(x,1), '(YES Y)) =>
 ;     QUIT()
 ;   nil
@@ -980,7 +980,7 @@
                     (|closeInterpreterFrame| NIL)))
                   (#1#
                    (PROGN
-                    (SETQ |x| (UPCASE (|queryUserKeyedMsg| "S2IZ0072" NIL)))
+                    (SETQ |x| (UPCASE (|queryUserKeyedMsg| 'S2IZ0072 NIL)))
                     (COND ((MEMQ (STRING2ID-N |x| 1) '(YES Y)) (QUIT))
                           (#1# NIL)))))))))))))))
  
@@ -7732,12 +7732,12 @@
 ; npsystem(unab, str) ==
 ;   spaceIndex := SEARCH('" ", str)
 ;   null spaceIndex =>
-;     sayKeyedMsg('"S2IZ0080", [str])
+;     sayKeyedMsg("S2IZ0080", [str])
 ;   sysPart := SUBSEQ(str, 0, spaceIndex)
 ;   -- The following is a hack required by the fact that unAbbreviateKeyword
 ;   -- returns the word "system" for unknown words
 ;   null SEARCH(sysPart, STRING unab) =>
-;     sayKeyedMsg('"S2IZ0080", [sysPart])
+;     sayKeyedMsg("S2IZ0080", [sysPart])
 ;   command := SUBSEQ(str, spaceIndex+1)
 ;   OBEY command
  
@@ -7746,13 +7746,13 @@
     (RETURN
      (PROGN
       (SETQ |spaceIndex| (SEARCH " " |str|))
-      (COND ((NULL |spaceIndex|) (|sayKeyedMsg| "S2IZ0080" (LIST |str|)))
+      (COND ((NULL |spaceIndex|) (|sayKeyedMsg| 'S2IZ0080 (LIST |str|)))
             (#1='T
              (PROGN
               (SETQ |sysPart| (SUBSEQ |str| 0 |spaceIndex|))
               (COND
                ((NULL (SEARCH |sysPart| (STRING |unab|)))
-                (|sayKeyedMsg| "S2IZ0080" (LIST |sysPart|)))
+                (|sayKeyedMsg| 'S2IZ0080 (LIST |sysPart|)))
                (#1#
                 (PROGN
                  (SETQ |command| (SUBSEQ |str| (+ |spaceIndex| 1)))
