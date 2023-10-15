@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -847,43 +847,43 @@
  |factorSquareFreeByRecursion| |randomR| |bivariateSLPEBR| |charthRoot|
  |conditionP| |solveLinearPolynomialEquation| |factorSquareFreePolynomial|
  |factorPolynomial| |squareFreePolynomial| |gcdPolynomial| |cmult|
- |possibleOrder| |simplifyCoeffs| |torsion?| |torsionIfCan| |getGoodPrime|
- |badNum| |mix| |doubleDisc| |polyred| |padicFraction| |padicallyExpand|
- |fractionalTerms| |numberOfFractionalTerms| |nthFractionalTerm| |firstNumer|
- |firstDenom| |compactFraction| |partialFraction| |gcdPrimitive|
- |symmetricGroup| |alternatingGroup| |abelianGroup| |cyclicGroup|
- |dihedralGroup| |mathieu11| |mathieu12| |mathieu22| |mathieu23| |mathieu24|
- |janko2| |rubiksGroup| |youngGroup| |lexGroebner| |totalGroebner| |qcoerce|
- |expressIdealMember| |principalIdeal| |LagrangeInterpolation| |psolve|
- |wrregime| |rdregime| |bsolve| |dmp2rfi| |se2rfi| |pr2dmp| |hasoln|
- |ParCondList| |redpps| |B1solve| |factorset| |maxrank| |minrank| |minset|
- |nextSublist| |overset?| |ParCond| |redmat| |regime| |sqfree| |inconsistent?|
- |debug| |numFunEvals| |setAdaptive| |adaptive?| |setScreenResolution|
- |screenResolution| |setMaxPoints| |maxPoints| |setMinPoints| |minPoints|
- |parametric?| |plotPolar| |debug3D| |numFunEvals3D| |setAdaptive3D|
- |adaptive3D?| |setScreenResolution3D| |screenResolution3D| |setMaxPoints3D|
- |maxPoints3D| |setMinPoints3D| |minPoints3D| |tValues| |tRange| |plot|
- |pointPlot| |calcRanges| |optional| |multiple| |fixPredicate| |patternMatch|
- |patternMatchTimes| |bernoulli| |chebyshevT| |chebyshevU| |cyclotomic| |euler|
- |fixedDivisor| |laguerre| |legendre| |dmpToHdmp| |hdmpToDmp| |pToHdmp|
- |hdmpToP| |dmpToP| |pToDmp| |sylvesterSequence| |sturmSequence|
- |boundOfCauchy| |sturmVariationsOf| |lazyVariations| |content| |minimumDegree|
- |isPlus| |isTimes| |isExpt| |isPower| |rroot| |qroot| |froot| |nthr|
- |copy_first| |copy_slice| |eval_at| |vector_add_mul| |mul_by_binomial|
- |mul_by_scalar| |mul| |truncated_multiplication| |truncated_mul_add| |pow|
- |divide!| |remainder!| |vector_combination| |to_mod_pa| |pa_to_sup| |lcm|
- |extended_gcd| < > >= <= |createY| |createX| |createWidth| |isDirected?|
- |coverMatrix| |zetaMatrix| |moebius| |isAntiChain?| |isChain?|
- |isAntisymmetric?| |completeTransitivity| |completeReflexivity|
- |objectToIndex| |indexToObject| |lowerSet| |upperSet| |lub| |glb| |joinIfCan|
- |meetIfCan| |implies| |powerSetStructure| |opposite| |addArrow!| |setArr|
- |setVert| |getArr| |getVert| |finitePoset| |addObject!| |powerset|
- |completelyOrderedSet| |posetN5| |posetM5| |posetO6| |posetP6| |posetL7|
- |firstUncouplingMatrix| |le| |lcx0| |lcz| |coeffs0| |coeffs1| |alg_reduce0|
- |alg_reduce| |alg_trial_division| |integral| |primitiveElement| |nextPrime|
- |prevPrime| |primes| |print| |merge!| |get_rational_roots| |integerBound|
- |resultantEuclidean| |semiResultantEuclidean2| |semiResultantEuclidean1|
- |indiceSubResultant| |indiceSubResultantEuclidean|
+ |possibleOrder| |handle_imaginary| |simplifyCoeffs| |torsion?| |torsionIfCan|
+ |getGoodPrime| |badNum| |mix| |doubleDisc| |polyred| |padicFraction|
+ |padicallyExpand| |fractionalTerms| |numberOfFractionalTerms|
+ |nthFractionalTerm| |firstNumer| |firstDenom| |compactFraction|
+ |partialFraction| |gcdPrimitive| |symmetricGroup| |alternatingGroup|
+ |abelianGroup| |cyclicGroup| |dihedralGroup| |mathieu11| |mathieu12|
+ |mathieu22| |mathieu23| |mathieu24| |janko2| |rubiksGroup| |youngGroup|
+ |lexGroebner| |totalGroebner| |qcoerce| |expressIdealMember| |principalIdeal|
+ |LagrangeInterpolation| |psolve| |wrregime| |rdregime| |bsolve| |dmp2rfi|
+ |se2rfi| |pr2dmp| |hasoln| |ParCondList| |redpps| |B1solve| |factorset|
+ |maxrank| |minrank| |minset| |nextSublist| |overset?| |ParCond| |redmat|
+ |regime| |sqfree| |inconsistent?| |debug| |numFunEvals| |setAdaptive|
+ |adaptive?| |setScreenResolution| |screenResolution| |setMaxPoints|
+ |maxPoints| |setMinPoints| |minPoints| |parametric?| |plotPolar| |debug3D|
+ |numFunEvals3D| |setAdaptive3D| |adaptive3D?| |setScreenResolution3D|
+ |screenResolution3D| |setMaxPoints3D| |maxPoints3D| |setMinPoints3D|
+ |minPoints3D| |tValues| |tRange| |plot| |pointPlot| |calcRanges| |optional|
+ |multiple| |fixPredicate| |patternMatch| |patternMatchTimes| |bernoulli|
+ |chebyshevT| |chebyshevU| |cyclotomic| |euler| |fixedDivisor| |laguerre|
+ |legendre| |dmpToHdmp| |hdmpToDmp| |pToHdmp| |hdmpToP| |dmpToP| |pToDmp|
+ |sylvesterSequence| |sturmSequence| |boundOfCauchy| |sturmVariationsOf|
+ |lazyVariations| |content| |minimumDegree| |isPlus| |isTimes| |isExpt|
+ |isPower| |rroot| |qroot| |froot| |nthr| |copy_first| |copy_slice| |eval_at|
+ |vector_add_mul| |mul_by_binomial| |mul_by_scalar| |mul|
+ |truncated_multiplication| |truncated_mul_add| |pow| |divide!| |remainder!|
+ |vector_combination| |to_mod_pa| |pa_to_sup| |lcm| |extended_gcd| < > >= <=
+ |createY| |createX| |createWidth| |isDirected?| |coverMatrix| |zetaMatrix|
+ |moebius| |isAntiChain?| |isChain?| |isAntisymmetric?| |completeTransitivity|
+ |completeReflexivity| |objectToIndex| |indexToObject| |lowerSet| |upperSet|
+ |lub| |glb| |joinIfCan| |meetIfCan| |implies| |powerSetStructure| |opposite|
+ |addArrow!| |setArr| |setVert| |getArr| |getVert| |finitePoset| |addObject!|
+ |powerset| |completelyOrderedSet| |posetN5| |posetM5| |posetO6| |posetP6|
+ |posetL7| |firstUncouplingMatrix| |le| |lcx0| |lcz| |coeffs0| |coeffs1|
+ |alg_reduce0| |alg_reduce| |alg_trial_division| |integral| |primitiveElement|
+ |nextPrime| |prevPrime| |primes| |print| |merge!| |get_rational_roots|
+ |integerBound| |resultantEuclidean| |semiResultantEuclidean2|
+ |semiResultantEuclidean1| |indiceSubResultant| |indiceSubResultantEuclidean|
  |semiIndiceSubResultantEuclidean| |degreeSubResultant|
  |degreeSubResultantEuclidean| |semiDegreeSubResultantEuclidean|
  |lastSubResultantEuclidean| |semiLastSubResultantEuclidean|
