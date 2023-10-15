@@ -26,7 +26,7 @@
 1267`The bit aggregate category models aggregates representing large quantities of Boolean data.
 1310`A cachable set is a set whose elements keep an integer as part of their structure.
 1354`This is an \spadtype{AbelianMonoid} with the cancellation property,{} \spadignore{i.e.} \spad{ a+b = a+c => b=c }. This is formalised by the partial subtraction operator,{} which satisfies the axioms listed below: \blankline
-1411`The class of all domains which have canonical representaion,{} that is if mathematicaly equal elements have the same data structures.
+1411`The class of all domains which have canonical representation,{} that is if mathematically equal elements have the same data structures.
 1453`The class of all integral domains such that \spad{unitCanonical(a)*unitCanonical(b) = unitCanonical(a*b)}.
 1502`The class of all integral domains such that we can choose a canonical representative for each class of associate elements,{} that is \spad{associates?(a,{} b)} returns \spad{true} if and only if \spad{unitCanonical(a) = unitCanonical(b)}.
 1554`Rings of Characteristic Non Zero
@@ -38,7 +38,7 @@
 1881`Category for the usual combinatorial functions.
 1941`CombinatorialOpsCategory is the category obtaining by adjoining summations and products to the usual combinatorial operations.
 1998`The category of commutative rings with unity,{} \spadignore{i.e.} rings where \spadop{*} is commutative,{} and which have a multiplicative identity. element.
-2046`The class of all commutative semigroups in multiplicative notation. In other words domains \spad{D} with \spad{"*": (D,{}D) -> D} which is commutative. Typically applied to rings.
+2046`The class of all commutative semigroups in multiplicative notation. In other words domains \spad{D} with \spad{"*": (D,{} D) -> D} which is commutative. Typically applied to rings.
 2091`The class of sets equipped with possibly unnatural linear order (needed for technical reasons).
 2133`This category represents the extension of a ring by a square root of \spad{-1}.
 2199`A is convertible to \spad{B} means any element of A can be converted into an element of \spad{B},{} but not automatically by the interpreter.
@@ -132,7 +132,7 @@
 7003`--x notation each entry \spad{i} in the index denotes a differentiation with respect to \spad{x^i}. The choice affects,{} however,{} only in- and output. Internally,{} multi-index notation is used throughout.
 7050`\spadtype{JetBundleFunctionCategory} defines the category of functions (local sections) over a jet bundle. The formal derivative is defined already here. It uses the Jacobi matrix of the functions. The columns of the matrices are enumerated by jet variables. Thus they are represented as a \spadtype{Record} of the matrix and a list of the jet variables. Several simplification routines are implemented already here.
 7127`A keyed dictionary is a dictionary of key-entry pairs for which there is a unique entry for each key.
-7194`The class of all domains which have have lazy representation
+7194`The class of all domains which have have lazy representation.
 7243`LazyStreamAggregate is the category of streams with lazy evaluation. It is understood that the function 'empty?' will cause lazy evaluation if necessary to determine if there are entries. Functions which call 'empty?',{} \spadignore{e.g.} 'first' and 'rest',{} will also cause lazy evaluation if necessary.
 7303`The category of all left algebras over an arbitrary ring.
 7352`The category of left modules over an \spad{rng} (ring not necessarily with unit). This is an abelian group which supports left multiplication by elements of the \spad{rng}. \blankline
@@ -275,7 +275,7 @@
 16320`This is the category of univariate skew polynomials over an Ore coefficient ring. The multiplication is given by \spad{x a = \sigma(a) x + \delta a}. This category is an evolution of the types \indented{2}{MonogenicLinearOperator,{} OppositeMonogenicLinearOperator,{} and} \indented{2}{NonCommutativeOperatorDivision} developped by Jean Della Dora and Stephen \spad{M}. Watt.
 16393`\spadtype{UnivariateTaylorSeriesCategory} is the category of Taylor series in one variable.
 16466`VarCat represents a variable in Lambda and Ski domains. Since we are working in terms of functions then a variable will be a function (possibly a constant function) a variable has a name represented by a String. If the Lambda or Ski calculus is typed then the variable will also have a type.
-16505`The class of all polynomials domains such that variables commute with coefficients.
+16505`The class of all polynomial domains such that variables commute with coefficients.
 16570`\spadtype{VectorCategory} represents the type of vector like objects,{} \spadignore{i.e.} finite sequences indexed by some finite segment of the integers. The operations available on vectors depend on the structure of the underlying components. Many operations from the component domain are defined for vectors componentwise. It can by assumed that extraction or updating components can be done in constant time.
 16625`Vector Spaces (not necessarily finite dimensional) over a field.
 16677`This is the category of algebras over non-commutative rings. It is used by constructors of non-commutative algebras such as: \indented{4}{\spadtype{XPolynomialRing}.} \indented{4}{\spadtype{XFreeAlgebra}} Author: Michel Petitot (petitot@lifl.\spad{fr})
@@ -452,8 +452,8 @@
 31060`--pad{a}} Flexible arrays support the other operations inherited from \spadtype{ExtensibleLinearAggregate}. However,{} these are not efficient. Flexible arrays combine the \spad{O(1)} access time property of arrays with growing and shrinking at the end in \spad{O(1)} (average) time. This is done by using an ordinary array which may have zero or more empty slots at the end. When the array becomes full it is copied into a new larger (50\% larger) array. Conversely,{} when the array becomes less th
 31060`--an 1/2 full,{} it is copied into a smaller array. Flexible arrays provide for an efficient implementation of many data structures in particular heaps,{} stacks and sets.
 31165`\spadtype{JetBundle} provides the standard implementation for a jet bundle with a given number of dependent and independent variables.
-31283`\spadtype{IndexedList} is a basic implementation of the functions in \spadtype{ListAggregate},{} often using functions in the underlying LISP system. The second parameter to the constructor (\spad{mn}) is the beginning index of the list. That is,{} if \spad{l} is a list,{} then \spad{elt(l,{} mn)} is the first value. This constructor is probably best viewed as the implementation of singly-linked lists that are addressable by index ra
-31283`--ther than as a mere wrapper for LISP lists.
+31283`\spadtype{IndexedList} is a basic implementation of \spadtype{ListAggregate},{} often using functions in the underlying LISP system. The second parameter to the constructor (\spad{mn}) is the beginning index of the list. That is,{} if \spad{l} is a list,{} then \spad{elt(l,{} mn)} is the first value. This constructor is probably best viewed as the implementation of singly-linked lists that are addressable by index rather than as a me
+31283`--re wrapper for LISP lists.
 31352`An \spad{IndexedMatrix} is a matrix where the minimal row and column indices are parameters of the type. The domains Row and Col are both IndexedVectors. The index of the 'first' row may be obtained by calling the function \spadfun{minRowIndex}. The index of the 'first' column may be obtained by calling the function \spadfun{minColIndex}. The ind
 31352`--ex of the first element of a 'Row' is the same as the index of the first column in a matrix and vice versa.
 31510`\indented{1}{Author Micheal Monagan \spad{Aug/87}} This is the basic one dimensional array data type.
@@ -2742,7 +2742,7 @@
 286684`\spad{dimJ(q)} computes the (fibre) dimension of the \spad{q}\spad{-}th order jet bundle.
 286766`\spad{dimS(q)} computes dimension of \spad{SqT} \spad{x} VE (= number of derivatives of order \spad{q}).
 286844`\spad{dimS(q)} computes dimension of \spad{SqT} \spad{x} VE (= number of derivatives of order \spad{q}).
-286926`\spad{diophantineSystem(A,{} B)} returns a particular integer solution and an integer basis of the equation \spad{AX = B}.
+286926`\spad{diophantineSystem(A,{} B)} returns a particular integer solution and an integer basis of the equation \spad{A X = B}.
 287051`\spad{dioSolve(u)} computes a basis of all minimal solutions for linear homogeneous Diophantine equation \spad{u},{} then all minimal solutions of inhomogeneous equation
 287256`\spad{directedGraph(perms)} constructs graph from a list of permutations: \spad{perms}.
 287328`\spad{directedGraph(ob)} is a constructor for graph with given objects \spad{ob},{} more objects and arrows can be added later if required.
