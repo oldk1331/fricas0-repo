@@ -484,8 +484,8 @@
                           (QREFELT $ 34) (QREFELT $ 35) (QREFELT $ 38)
                           (QREFELT $ 43) (QREFELT $ 40) (QREFELT $ 41)
                           (QREFELT $ 49) (QREFELT $ 51) (QREFELT $ 55)
-                          (QREFELT $ 56) (QREFELT $ 139) (QREFELT $ 135)
-                          (QREFELT $ 136)))
+                          (QREFELT $ 56) (QREFELT $ 58) (QREFELT $ 59)
+                          (QREFELT $ 139) (QREFELT $ 135) (QREFELT $ 136)))
           (QSETREFV $ 157
                     (LIST (QREFELT $ 48) (QREFELT $ 14) (QREFELT $ 121)
                           (QREFELT $ 132) (QREFELT $ 128) (QREFELT $ 130)))

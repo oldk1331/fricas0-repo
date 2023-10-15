@@ -918,7 +918,7 @@
 ; close args ==
 ;   quiet:local:= false
 ;   null $SpadServer =>
-;     throwKeyedMsg('"S2IZ0071", [])
+;     throwKeyedMsg("S2IZ0071", [])
 ;   numClients := queryClients()
 ;   numClients > 1 =>
 ;     sockSendInt($SessionManager, $CloseClient)
@@ -943,7 +943,7 @@
     (RETURN
      (PROGN
       (SETQ |quiet| NIL)
-      (COND ((NULL |$SpadServer|) (|throwKeyedMsg| "S2IZ0071" NIL))
+      (COND ((NULL |$SpadServer|) (|throwKeyedMsg| 'S2IZ0071 NIL))
             (#1='T
              (PROGN
               (SETQ |numClients| (|queryClients|))

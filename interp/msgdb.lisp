@@ -778,7 +778,6 @@
 ; sayKeyedMsgLocal(key, args) ==
 ;   msg := segmentKeyedMsg getKeyedMsg key
 ;   msg := substituteSegmentedMsg(msg,args)
-;   if $displayMsgNumber then msg := ['"%b",key,":",'"%d",:msg]
 ;   msg' := flowSegmentedMsg(msg,$LINELENGTH,$MARGIN)
 ;   if $printMsgsToFile then sayMSG2File msg'
 ;   sayMSG msg'
@@ -789,9 +788,6 @@
      (PROGN
       (SETQ |msg| (|segmentKeyedMsg| (|getKeyedMsg| |key|)))
       (SETQ |msg| (|substituteSegmentedMsg| |msg| |args|))
-      (COND
-       (|$displayMsgNumber|
-        (SETQ |msg| (CONS "%b" (CONS |key| (CONS '|:| (CONS "%d" |msg|)))))))
       (SETQ |msg'| (|flowSegmentedMsg| |msg| $LINELENGTH $MARGIN))
       (COND (|$printMsgsToFile| (|sayMSG2File| |msg'|)))
       (|sayMSG| |msg'|)))))

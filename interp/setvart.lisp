@@ -330,13 +330,6 @@
 ;       $reportInterpOnly
 ;       (on off)
 ;       on)
-;      (number
-;       "display message number with message"
-;       interpreter
-;       LITERALS
-;       $displayMsgNumber
-;       (on off)
-;       off)
 ;      (prompt
 ;       "set type of input prompt to display"
 ;       interpreter
@@ -754,8 +747,6 @@
        |$reportEachInstantiation| (|on| |off|) |off|)
       (|interponly| "say when function code is interpreted" |interpreter|
        LITERALS |$reportInterpOnly| (|on| |off|) |on|)
-      (|number| "display message number with message" |interpreter| LITERALS
-       |$displayMsgNumber| (|on| |off|) |off|)
       (|prompt| "set type of input prompt to display" |interpreter| LITERALS
        |$inputPromptType| (|none| |frame| |plain| |step| |verbose|) |step|)
       (|selection| "display function selection msgs" |interpreter| LITERALS

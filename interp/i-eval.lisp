@@ -274,7 +274,6 @@
 ;   form = "?"        => $EmptyMode
 ;   STRINGP form => form
 ;   form = "$" => form
-;   $expandSegments : local := nil
 ;   form is ['typeOf,.] =>
 ;     form' := mkAtree form
 ;     bottomUp form'
@@ -299,165 +298,150 @@
 ;   throwEvalTypeMsg("S2IE0004", [form])
  
 (DEFUN |evaluateType| (|form|)
-  (PROG (|$expandSegments| |type| |sel| |ISTMP#3| |ISTMP#2| |sigs| |x| |argl|
-         |op| |form'| |ISTMP#1| |domain|)
-    (DECLARE (SPECIAL |$expandSegments|))
+  (PROG (|domain| |ISTMP#1| |form'| |op| |argl| |x| |sigs| |ISTMP#2| |ISTMP#3|
+         |sel| |type|)
     (RETURN
      (COND ((SETQ |domain| (|isDomainValuedVariable| |form|)) |domain|)
            ((EQUAL |form| |$EmptyMode|) |form|) ((EQ |form| '?) |$EmptyMode|)
            ((STRINGP |form|) |form|) ((EQ |form| '$) |form|)
-           (#1='T
+           ((AND (CONSP |form|) (EQ (CAR |form|) '|typeOf|)
+                 (PROGN
+                  (SETQ |ISTMP#1| (CDR |form|))
+                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))
             (PROGN
-             (SETQ |$expandSegments| NIL)
-             (COND
-              ((AND (CONSP |form|) (EQ (CAR |form|) '|typeOf|)
-                    (PROGN
-                     (SETQ |ISTMP#1| (CDR |form|))
-                     (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))
-               (PROGN
-                (SETQ |form'| (|mkAtree| |form|))
-                (|bottomUp| |form'|)
-                (|objVal| (|getValue| |form'|))))
-              ((AND (CONSP |form|)
-                    (PROGN
-                     (SETQ |op| (CAR |form|))
-                     (SETQ |argl| (CDR |form|))
-                     #1#))
-               (COND
-                ((EQ |op| 'CATEGORY)
-                 (COND
-                  ((AND (CONSP |argl|)
-                        (PROGN
-                         (SETQ |x| (CAR |argl|))
-                         (SETQ |sigs| (CDR |argl|))
-                         #1#))
-                   (CONS |op|
-                         (CONS |x|
-                               ((LAMBDA (|bfVar#20| |bfVar#19| |s|)
-                                  (LOOP
-                                   (COND
-                                    ((OR (ATOM |bfVar#19|)
-                                         (PROGN
-                                          (SETQ |s| (CAR |bfVar#19|))
-                                          NIL))
-                                     (RETURN (NREVERSE |bfVar#20|)))
-                                    (#1#
-                                     (SETQ |bfVar#20|
-                                             (CONS (|evaluateSignature| |s|)
-                                                   |bfVar#20|))))
-                                   (SETQ |bfVar#19| (CDR |bfVar#19|))))
-                                NIL |sigs| NIL))))
-                  (#1# |form|)))
-                ((|member| |op| '(|Join| |Mapping|))
-                 (CONS |op|
-                       ((LAMBDA (|bfVar#22| |bfVar#21| |arg|)
-                          (LOOP
-                           (COND
-                            ((OR (ATOM |bfVar#21|)
-                                 (PROGN (SETQ |arg| (CAR |bfVar#21|)) NIL))
-                             (RETURN (NREVERSE |bfVar#22|)))
-                            (#1#
-                             (SETQ |bfVar#22|
-                                     (CONS (|evaluateType| |arg|)
-                                           |bfVar#22|))))
-                           (SETQ |bfVar#21| (CDR |bfVar#21|))))
-                        NIL |argl| NIL)))
-                ((EQ |op| '|Union|)
-                 (COND
-                  ((AND |argl|
-                        (PROGN
-                         (SETQ |ISTMP#1| (CAR |argl|))
-                         (AND (CONSP |ISTMP#1|)
-                              (PROGN
-                               (SETQ |x| (CAR |ISTMP#1|))
-                               (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                               (AND (CONSP |ISTMP#2|)
-                                    (PROGN
-                                     (SETQ |ISTMP#3| (CDR |ISTMP#2|))
-                                     (AND (CONSP |ISTMP#3|)
-                                          (EQ (CDR |ISTMP#3|) NIL)))))))
-                        (|member| |x| '(|:| |Declare|)))
-                   (CONS |op|
-                         ((LAMBDA (|bfVar#25| |bfVar#24| |bfVar#23|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#24|)
-                                   (PROGN
-                                    (SETQ |bfVar#23| (CAR |bfVar#24|))
-                                    NIL))
-                               (RETURN (NREVERSE |bfVar#25|)))
-                              (#1#
-                               (AND (CONSP |bfVar#23|)
-                                    (EQ (CAR |bfVar#23|) '|:|)
-                                    (PROGN
-                                     (SETQ |ISTMP#1| (CDR |bfVar#23|))
-                                     (AND (CONSP |ISTMP#1|)
-                                          (PROGN
-                                           (SETQ |sel| (CAR |ISTMP#1|))
-                                           (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                           (AND (CONSP |ISTMP#2|)
-                                                (EQ (CDR |ISTMP#2|) NIL)
-                                                (PROGN
-                                                 (SETQ |type| (CAR |ISTMP#2|))
-                                                 #1#)))))
-                                    (SETQ |bfVar#25|
-                                            (CONS
-                                             (LIST '|:| |sel|
-                                                   (|evaluateType| |type|))
-                                             |bfVar#25|)))))
-                             (SETQ |bfVar#24| (CDR |bfVar#24|))))
-                          NIL |argl| NIL)))
-                  (#1#
-                   (CONS |op|
-                         ((LAMBDA (|bfVar#27| |bfVar#26| |arg|)
-                            (LOOP
-                             (COND
-                              ((OR (ATOM |bfVar#26|)
-                                   (PROGN (SETQ |arg| (CAR |bfVar#26|)) NIL))
-                               (RETURN (NREVERSE |bfVar#27|)))
-                              (#1#
-                               (SETQ |bfVar#27|
-                                       (CONS (|evaluateType| |arg|)
-                                             |bfVar#27|))))
-                             (SETQ |bfVar#26| (CDR |bfVar#26|))))
-                          NIL |argl| NIL)))))
-                ((EQ |op| '|Record|)
-                 (CONS |op|
-                       ((LAMBDA (|bfVar#30| |bfVar#29| |bfVar#28|)
-                          (LOOP
-                           (COND
-                            ((OR (ATOM |bfVar#29|)
+             (SETQ |form'| (|mkAtree| |form|))
+             (|bottomUp| |form'|)
+             (|objVal| (|getValue| |form'|))))
+           ((AND (CONSP |form|)
+                 (PROGN
+                  (SETQ |op| (CAR |form|))
+                  (SETQ |argl| (CDR |form|))
+                  #1='T))
+            (COND
+             ((EQ |op| 'CATEGORY)
+              (COND
+               ((AND (CONSP |argl|)
+                     (PROGN
+                      (SETQ |x| (CAR |argl|))
+                      (SETQ |sigs| (CDR |argl|))
+                      #1#))
+                (CONS |op|
+                      (CONS |x|
+                            ((LAMBDA (|bfVar#20| |bfVar#19| |s|)
+                               (LOOP
+                                (COND
+                                 ((OR (ATOM |bfVar#19|)
+                                      (PROGN (SETQ |s| (CAR |bfVar#19|)) NIL))
+                                  (RETURN (NREVERSE |bfVar#20|)))
+                                 (#1#
+                                  (SETQ |bfVar#20|
+                                          (CONS (|evaluateSignature| |s|)
+                                                |bfVar#20|))))
+                                (SETQ |bfVar#19| (CDR |bfVar#19|))))
+                             NIL |sigs| NIL))))
+               (#1# |form|)))
+             ((|member| |op| '(|Join| |Mapping|))
+              (CONS |op|
+                    ((LAMBDA (|bfVar#22| |bfVar#21| |arg|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#21|)
+                              (PROGN (SETQ |arg| (CAR |bfVar#21|)) NIL))
+                          (RETURN (NREVERSE |bfVar#22|)))
+                         (#1#
+                          (SETQ |bfVar#22|
+                                  (CONS (|evaluateType| |arg|) |bfVar#22|))))
+                        (SETQ |bfVar#21| (CDR |bfVar#21|))))
+                     NIL |argl| NIL)))
+             ((EQ |op| '|Union|)
+              (COND
+               ((AND |argl|
+                     (PROGN
+                      (SETQ |ISTMP#1| (CAR |argl|))
+                      (AND (CONSP |ISTMP#1|)
+                           (PROGN
+                            (SETQ |x| (CAR |ISTMP#1|))
+                            (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                            (AND (CONSP |ISTMP#2|)
                                  (PROGN
-                                  (SETQ |bfVar#28| (CAR |bfVar#29|))
-                                  NIL))
-                             (RETURN (NREVERSE |bfVar#30|)))
-                            (#1#
-                             (AND (CONSP |bfVar#28|) (EQ (CAR |bfVar#28|) '|:|)
-                                  (PROGN
-                                   (SETQ |ISTMP#1| (CDR |bfVar#28|))
-                                   (AND (CONSP |ISTMP#1|)
-                                        (PROGN
-                                         (SETQ |sel| (CAR |ISTMP#1|))
-                                         (SETQ |ISTMP#2| (CDR |ISTMP#1|))
-                                         (AND (CONSP |ISTMP#2|)
-                                              (EQ (CDR |ISTMP#2|) NIL)
-                                              (PROGN
-                                               (SETQ |type| (CAR |ISTMP#2|))
-                                               #1#)))))
-                                  (SETQ |bfVar#30|
-                                          (CONS
-                                           (LIST '|:| |sel|
-                                                 (|evaluateType| |type|))
-                                           |bfVar#30|)))))
-                           (SETQ |bfVar#29| (CDR |bfVar#29|))))
-                        NIL |argl| NIL)))
-                ((EQ |op| '|Enumeration|) |form|)
-                (#1# (|evaluateFormAsType| |form|))))
-              ((|constructor?| |form|)
-               (COND ((ATOM |form|) (|evaluateType| (LIST |form|)))
-                     (#1#
-                      (|throwEvalTypeMsg| 'S2IE0003 (LIST |form| |form|)))))
-              (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|))))))))))
+                                  (SETQ |ISTMP#3| (CDR |ISTMP#2|))
+                                  (AND (CONSP |ISTMP#3|)
+                                       (EQ (CDR |ISTMP#3|) NIL)))))))
+                     (|member| |x| '(|:| |Declare|)))
+                (CONS |op|
+                      ((LAMBDA (|bfVar#25| |bfVar#24| |bfVar#23|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#24|)
+                                (PROGN (SETQ |bfVar#23| (CAR |bfVar#24|)) NIL))
+                            (RETURN (NREVERSE |bfVar#25|)))
+                           (#1#
+                            (AND (CONSP |bfVar#23|) (EQ (CAR |bfVar#23|) '|:|)
+                                 (PROGN
+                                  (SETQ |ISTMP#1| (CDR |bfVar#23|))
+                                  (AND (CONSP |ISTMP#1|)
+                                       (PROGN
+                                        (SETQ |sel| (CAR |ISTMP#1|))
+                                        (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                        (AND (CONSP |ISTMP#2|)
+                                             (EQ (CDR |ISTMP#2|) NIL)
+                                             (PROGN
+                                              (SETQ |type| (CAR |ISTMP#2|))
+                                              #1#)))))
+                                 (SETQ |bfVar#25|
+                                         (CONS
+                                          (LIST '|:| |sel|
+                                                (|evaluateType| |type|))
+                                          |bfVar#25|)))))
+                          (SETQ |bfVar#24| (CDR |bfVar#24|))))
+                       NIL |argl| NIL)))
+               (#1#
+                (CONS |op|
+                      ((LAMBDA (|bfVar#27| |bfVar#26| |arg|)
+                         (LOOP
+                          (COND
+                           ((OR (ATOM |bfVar#26|)
+                                (PROGN (SETQ |arg| (CAR |bfVar#26|)) NIL))
+                            (RETURN (NREVERSE |bfVar#27|)))
+                           (#1#
+                            (SETQ |bfVar#27|
+                                    (CONS (|evaluateType| |arg|) |bfVar#27|))))
+                          (SETQ |bfVar#26| (CDR |bfVar#26|))))
+                       NIL |argl| NIL)))))
+             ((EQ |op| '|Record|)
+              (CONS |op|
+                    ((LAMBDA (|bfVar#30| |bfVar#29| |bfVar#28|)
+                       (LOOP
+                        (COND
+                         ((OR (ATOM |bfVar#29|)
+                              (PROGN (SETQ |bfVar#28| (CAR |bfVar#29|)) NIL))
+                          (RETURN (NREVERSE |bfVar#30|)))
+                         (#1#
+                          (AND (CONSP |bfVar#28|) (EQ (CAR |bfVar#28|) '|:|)
+                               (PROGN
+                                (SETQ |ISTMP#1| (CDR |bfVar#28|))
+                                (AND (CONSP |ISTMP#1|)
+                                     (PROGN
+                                      (SETQ |sel| (CAR |ISTMP#1|))
+                                      (SETQ |ISTMP#2| (CDR |ISTMP#1|))
+                                      (AND (CONSP |ISTMP#2|)
+                                           (EQ (CDR |ISTMP#2|) NIL)
+                                           (PROGN
+                                            (SETQ |type| (CAR |ISTMP#2|))
+                                            #1#)))))
+                               (SETQ |bfVar#30|
+                                       (CONS
+                                        (LIST '|:| |sel|
+                                              (|evaluateType| |type|))
+                                        |bfVar#30|)))))
+                        (SETQ |bfVar#29| (CDR |bfVar#29|))))
+                     NIL |argl| NIL)))
+             ((EQ |op| '|Enumeration|) |form|)
+             (#1# (|evaluateFormAsType| |form|))))
+           ((|constructor?| |form|)
+            (COND ((ATOM |form|) (|evaluateType| (LIST |form|)))
+                  (#1# (|throwEvalTypeMsg| 'S2IE0003 (LIST |form| |form|)))))
+           (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|)))))))
  
 ; evaluateFormAsType form ==
 ;   form is [op,:args] and constructor? op => evaluateType1 form
