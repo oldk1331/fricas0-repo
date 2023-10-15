@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4849 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4850 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -287,28 +287,28 @@
  |Patternable| |PatternMatchListResult| |PatternMatchable| |PatternMatch|
  |PatternMatchResult| |PatternMatchResultFunctions2| |Pattern|
  |PatternFunctions1| |PatternFunctions2| |PoincareBirkhoffWittLyndonBasis|
- |PolynomialComposition| |PolynomialDecomposition|
- |PartialDifferentialOperator| |PartialDifferentialOperatorHelper|
- |PartialDifferentialRing&| |PartialDifferentialRing| |PendantTree|
- |Permutation| |Permanent| |PermutationCategory| |PermutationGroup|
- |PolynomialEvaluationUtilities| |PrimeField|
- |PolynomialFactorizationByRecursion| |PolynomialFactorizationExplicit&|
- |PolynomialFactorizationExplicit| |PointsOfFiniteOrder|
- |PointsOfFiniteOrderRational| |PointsOfFiniteOrderTools| |PartialFraction|
- |PartialFractionPackage| |PartialFractionUtilities| |PolynomialGcdPackage|
- |PermutationGroupExamples| |PolyGroebner| |PositiveInteger| |PiCoercions|
- |PrincipalIdealDomain| |PolynomialInterpolation|
- |PolynomialInterpolationAlgorithms| |ParallelIntegrationTools|
- |ParametricLinearEquations| |Plot| |PlotFunctions1| |Plot3D| |PlotTools|
- |PatternMatchAssertions| |FunctionSpaceAssertions| |PatternMatchPushDown|
- |PatternMatchFunctionSpace| |PatternMatchIntegerNumberSystem|
- |PatternMatchKernel| |PatternMatchListAggregate|
- |PatternMatchPolynomialCategory| |AttachPredicates|
- |FunctionSpaceAttachPredicates| |PatternMatchQuotientFieldCategory|
- |PatternMatchSymbol| |PatternMatchTools| |PolynomialNumberTheoryFunctions|
- |Point| |PolToPol| |RealPolynomialUtilitiesPackage| |Polynomial|
- |PolynomialFunctions2| |PolynomialToUnivariatePolynomial|
- |PolynomialCategory&| |PolynomialCategory|
+ |PolynomialCommonDenominator| |PolynomialComposition|
+ |PolynomialDecomposition| |PartialDifferentialOperator|
+ |PartialDifferentialOperatorHelper| |PartialDifferentialRing&|
+ |PartialDifferentialRing| |PendantTree| |Permutation| |Permanent|
+ |PermutationCategory| |PermutationGroup| |PolynomialEvaluationUtilities|
+ |PrimeField| |PolynomialFactorizationByRecursion|
+ |PolynomialFactorizationExplicit&| |PolynomialFactorizationExplicit|
+ |PointsOfFiniteOrder| |PointsOfFiniteOrderRational| |PointsOfFiniteOrderTools|
+ |PartialFraction| |PartialFractionPackage| |PartialFractionUtilities|
+ |PolynomialGcdPackage| |PermutationGroupExamples| |PolyGroebner|
+ |PositiveInteger| |PiCoercions| |PrincipalIdealDomain|
+ |PolynomialInterpolation| |PolynomialInterpolationAlgorithms|
+ |ParallelIntegrationTools| |ParametricLinearEquations| |Plot| |PlotFunctions1|
+ |Plot3D| |PlotTools| |PatternMatchAssertions| |FunctionSpaceAssertions|
+ |PatternMatchPushDown| |PatternMatchFunctionSpace|
+ |PatternMatchIntegerNumberSystem| |PatternMatchKernel|
+ |PatternMatchListAggregate| |PatternMatchPolynomialCategory|
+ |AttachPredicates| |FunctionSpaceAttachPredicates|
+ |PatternMatchQuotientFieldCategory| |PatternMatchSymbol| |PatternMatchTools|
+ |PolynomialNumberTheoryFunctions| |Point| |PolToPol|
+ |RealPolynomialUtilitiesPackage| |Polynomial| |PolynomialFunctions2|
+ |PolynomialToUnivariatePolynomial| |PolynomialCategory&| |PolynomialCategory|
  |PolynomialCategoryQuotientFunctions| |PolynomialCategoryLifting|
  |PolynomialRoots| |U32VectorPolynomialOperations| |PartialOrder&|
  |PartialOrder| |PlottablePlaneCurveCategory| |PolynomialRing|
