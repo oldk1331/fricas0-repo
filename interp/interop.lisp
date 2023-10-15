@@ -1249,9 +1249,10 @@
 ;     start := add_SI(start, add_SI(numTableArgs, 4))
 ;   success ~= 'failed and success =>
 ;     if $monitorNewWorld then
-;       sayLooking1('"<----",uu) where uu ==
-;         PAIRP success => [first success,:devaluate rest success]
-;         success
+;         if PAIRP success then
+;             sayLooking1(concat('"<----", form2String(first success)),
+;                         rest success)
+;         else sayLooking1('"<----XXXXX---", success)
 ;     success
 ;   subsumptionSig and (u:= basicLookup(op,subsumptionSig,domain,dollar)) => u
 ;   flag or someMatch => newLookupInAddChain(op,sig,domain,dollar)
@@ -1450,12 +1451,13 @@
                         (PROGN
                          (COND
                           (|$monitorNewWorld|
-                           (|sayLooking1| "<----"
-                            (COND
-                             ((CONSP |success|)
-                              (CONS (CAR |success|)
-                                    (|devaluate| (CDR |success|))))
-                             (#1# |success|)))))
+                           (COND
+                            ((CONSP |success|)
+                             (|sayLooking1|
+                              (|concat| "<----"
+                               (|form2String| (CAR |success|)))
+                              (CDR |success|)))
+                            (#1# (|sayLooking1| "<----XXXXX---" |success|)))))
                          |success|))
                        ((AND |subsumptionSig|
                              (SETQ |u|
@@ -1749,7 +1751,7 @@
 ;     sayLooking1(['"goget stuffing slot",:bright thisSlot,'"of "],thisDomain)
 ;   SETELT(thisDomain,thisSlot,slot)
 ;   if $monitorNewWorld then
-;     sayLooking1('"<------", [first slot, :devaluate rest slot])
+;     sayLooking1(concat('"<------", form2String(first slot)), rest slot)
 ;   slot
  
 (DEFUN |replaceGoGetSlot| (|env|)
@@ -1818,8 +1820,8 @@
          (SETELT |thisDomain| |thisSlot| |slot|)
          (COND
           (|$monitorNewWorld|
-           (|sayLooking1| "<------"
-            (CONS (CAR |slot|) (|devaluate| (CDR |slot|))))))
+           (|sayLooking1| (|concat| "<------" (|form2String| (CAR |slot|)))
+            (CDR |slot|))))
          |slot|)))))))
  
 ; newHasCategory(domain,catform) ==
