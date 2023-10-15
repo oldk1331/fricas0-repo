@@ -89,7 +89,9 @@
                     (COND
                      ((NULL (SPADCALL |kind| '|qmixed| (QREFELT $ 44)))
                       (EXIT |check|)))))))
-                (LETT |vars| (SPADCALL |l| |kind| |qvar| (QREFELT $ 45))
+                (LETT |vars|
+                      (SPADCALL (SPADCALL |l| |kind| |qvar| (QREFELT $ 45))
+                                (QREFELT $ 46))
                       |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;8|)
                 (EXIT
                  (CONS #'|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;8!0|
@@ -117,7 +119,7 @@
          (|check| |Mapping| (|Union| "good" "reject" "no_solution")
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
-        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 49))) 
+        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 50))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;10| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -142,7 +144,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;12| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -178,8 +180,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;13|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -265,8 +267,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;19|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -341,7 +343,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;26| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -377,8 +379,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;27|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -464,8 +466,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;33|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -539,7 +541,7 @@
          (|check| |Mapping| (|Union| "good" "reject" "no_solution")
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
-        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 49))) 
+        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 50))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;40| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -564,7 +566,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;42| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -600,8 +602,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;43|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -687,8 +689,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;49|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -763,7 +765,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;56| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -799,8 +801,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;57|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -886,8 +888,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;63|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -968,13 +970,13 @@
         ((|l| |List| (|List| F)) (|sigma| |Integer|) (|vars| |List| (|Symbol|))
          (|points| |List| (|Integer|)) (|p| |Integer|)
          ($ |Union| (|List| (|U32Vector|)) "failed"))
-        (SPADCALL |l| |sigma| |vars| |points| (QREFELT $ 55) (QREFELT $ 41))) 
+        (SPADCALL |l| |sigma| |vars| |points| (QREFELT $ 56) (QREFELT $ 41))) 
 
 (SDEFUN |MODHPS;VSUPS_to_VPA;VLLIV;71|
         ((|v| |Vector| (|SparseUnivariatePolynomial| S))
          (|vars| |List| (|Symbol|)) (|points| |List| (|Integer|))
          (|p| |Integer|) ($ |Vector| (|U32Vector|)))
-        (SPADCALL |v| |vars| |points| (QREFELT $ 55) (QREFELT $ 43))) 
+        (SPADCALL |v| |vars| |points| (QREFELT $ 56) (QREFELT $ 43))) 
 
 (SDEFUN |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;72|
         ((|check| |Mapping| (|Union| #1="good" #2="reject" #3="no_solution")
@@ -994,7 +996,9 @@
                     (COND
                      ((NULL (SPADCALL |kind| '|qmixed| (QREFELT $ 44)))
                       (EXIT |check|)))))))
-                (LETT |vars| (SPADCALL |l| |kind| |qvar| (QREFELT $ 45))
+                (LETT |vars|
+                      (SPADCALL (SPADCALL |l| |kind| |qvar| (QREFELT $ 45))
+                                (QREFELT $ 46))
                       |MODHPS;gen_Monte_Carlo_check;ML2SNniMM;72|)
                 (EXIT
                  (CONS #'|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;72!0|
@@ -1022,7 +1026,7 @@
          (|check| |Mapping| (|Union| "good" "reject" "no_solution")
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
-        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 49))) 
+        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 50))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;74| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1047,7 +1051,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;76| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1083,8 +1087,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;77|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -1170,8 +1174,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;83|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -1246,7 +1250,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;90| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1282,8 +1286,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;91|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -1369,8 +1373,8 @@
           (EXIT
            (SEQ (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;97|))
                 (LETT |pp|
-                      (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                                |checkPF| (QREFELT $ 60))
+                      (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                                |checkPF| (QREFELT $ 61))
                       . #5#)
                 (EXIT
                  (COND
@@ -1444,7 +1448,7 @@
          (|check| |Mapping| (|Union| "good" "reject" "no_solution")
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
-        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 49))) 
+        (SPADCALL |l| |degs| |kind| |sigma| |gen| |check| (QREFELT $ 50))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;104| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1469,7 +1473,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;106| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1506,8 +1510,8 @@
            (SEQ
             (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;107|))
             (LETT |pp|
-                  (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                            |checkPF| (QREFELT $ 60))
+                  (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                            |checkPF| (QREFELT $ 61))
                   . #5#)
             (EXIT
              (COND
@@ -1591,8 +1595,8 @@
            (SEQ
             (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;113|))
             (LETT |pp|
-                  (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                            |checkPF| (QREFELT $ 60))
+                  (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                            |checkPF| (QREFELT $ 61))
                   . #5#)
             (EXIT
              (COND
@@ -1664,7 +1668,7 @@
           (|List| (|SparseUnivariatePolynomial| S)))
          ($ |Union| (|Matrix| (|SparseUnivariatePolynomial| S)) (|Boolean|)))
         (SPADCALL |l| |degs| |kind| |qvar| |sigma| |gen| |check|
-                  (QREFELT $ 53))) 
+                  (QREFELT $ 54))) 
 
 (PUT '|MODHPS;gen_Monte_Carlo_check;ML2SNniMM;120| '|SPADreplace|
      '(XLAM (|check| |l| |kind| |qvar| |sigma| |gen|) |check|)) 
@@ -1701,8 +1705,8 @@
            (SEQ
             (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;121|))
             (LETT |pp|
-                  (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                            |checkPF| (QREFELT $ 60))
+                  (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                            |checkPF| (QREFELT $ 61))
                   . #5#)
             (EXIT
              (COND
@@ -1786,8 +1790,8 @@
            (SEQ
             (LETT |checkPF| |check| . #5=(|MODHPS;HP_solve;LL2SNniMMU;127|))
             (LETT |pp|
-                  (SPADCALL |l| |degs| |kind| (QREFELT $ 55) |sigma| |gen|
-                            |checkPF| (QREFELT $ 60))
+                  (SPADCALL |l| |degs| |kind| (QREFELT $ 56) |sigma| |gen|
+                            |checkPF| (QREFELT $ 61))
                   . #5#)
             (EXIT
              (COND
@@ -1870,7 +1874,7 @@
          (SEQ
           (EXIT
            (COND
-            ((SPADCALL (LENGTH |list|) 1 (QREFELT $ 61))
+            ((SPADCALL (LENGTH |list|) 1 (QREFELT $ 62))
              (|error| "check_sol_mod_diff: #list ~= 1"))
             (#8='T
              (SEQ
@@ -1885,9 +1889,9 @@
                        (SEQ (LETT |ii| 1 . #9#) G190
                             (COND ((|greater_SI| |ii| 20) (GO G191)))
                             (SEQ
-                             (SETELT $ 55
+                             (SETELT $ 56
                                      (SPADCALL (+ (RANDOM 2000000) 2000000)
-                                               (QREFELT $ 66)))
+                                               (QREFELT $ 67)))
                              (LETT |lpt| NIL . #9#) (LETT |qval| 0 . #9#)
                              (SEQ (LETT |var| NIL . #9#)
                                   (LETT #7# |vars| . #9#) G190
@@ -1899,7 +1903,7 @@
                                     (GO G191)))
                                   (SEQ
                                    (LETT |lpt|
-                                         (CONS (RANDOM (QREFELT $ 55)) |lpt|)
+                                         (CONS (RANDOM (QREFELT $ 56)) |lpt|)
                                          . #9#)
                                    (EXIT
                                     (COND
@@ -1911,7 +1915,7 @@
                              (LETT |lpt| (NREVERSE |lpt|) . #9#)
                              (LETT |gv0p|
                                    (SPADCALL |list| (+ |n0| |delta|) |vars|
-                                             |lpt| (QREFELT $ 55)
+                                             |lpt| (QREFELT $ 56)
                                              (QREFELT $ 26))
                                    . #9#)
                              (EXIT
@@ -1921,7 +1925,7 @@
                                           (EXIT
                                            (COND
                                             ((SPADCALL (LENGTH |gvl|) 1
-                                                       (QREFELT $ 67))
+                                                       (QREFELT $ 68))
                                              "check_sol_mod_diff: #gvl ~= 1")
                                             ('T
                                              (SEQ
@@ -1930,15 +1934,15 @@
                                               (LETT |nres|
                                                     (SPADCALL |resv| |vars|
                                                               |lpt|
-                                                              (QREFELT $ 55)
+                                                              (QREFELT $ 56)
                                                               (QREFELT $ 31))
                                                     . #9#)
                                               (LETT |pa|
                                                     (SPADCALL |nres| |gvl|
                                                               |gen| |sigma0|
                                                               |qval|
-                                                              (QREFELT $ 55)
-                                                              (QREFELT $ 70))
+                                                              (QREFELT $ 56)
+                                                              (QREFELT $ 71))
                                                     . #9#)
                                               (LETT |ord| |sigma0| . #9#)
                                               (SEQ
@@ -1955,7 +1959,7 @@
                                                        (COND
                                                         ((SPADCALL
                                                           (ELT_U32 |pa| |i|) 0
-                                                          (QREFELT $ 61))
+                                                          (QREFELT $ 62))
                                                          (SEQ
                                                           (LETT |ord| |i|
                                                                 . #9#)
@@ -2006,9 +2010,9 @@
                                                                  (LIST |gv0|)
                                                                  |gen| |sigma0|
                                                                  |qval|
-                                                                 (QREFELT $ 55)
+                                                                 (QREFELT $ 56)
                                                                  (QREFELT $
-                                                                          70))
+                                                                          71))
                                                                 . #9#)
                                                           (EXIT
                                                            (COND
@@ -2016,7 +2020,7 @@
                                                               (ELT_U32 |pa|
                                                                        |ord|)
                                                               |c0|
-                                                              (QREFELT $ 61))
+                                                              (QREFELT $ 62))
                                                              (SEQ
                                                               (LETT |sigma0|
                                                                     |ord|
@@ -2099,7 +2103,7 @@
     (LETT DV$1 (|devaluate| |#1|) . #33=(|ModularHermitePadeSolver|))
     (LETT DV$2 (|devaluate| |#2|) . #33#)
     (LETT |dv$| (LIST '|ModularHermitePadeSolver| DV$1 DV$2) . #33#)
-    (LETT $ (GETREFV 73) . #33#)
+    (LETT $ (GETREFV 74) . #33#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #33#))
     (|haddProp| |$ConstructorCache| '|ModularHermitePadeSolver|
@@ -2171,15 +2175,15 @@
                           $))))
              ('T
               (PROGN
-               (QSETREFV $ 55 (SPADCALL (QREFELT $ 54)))
+               (QSETREFV $ 56 (SPADCALL (QREFELT $ 55)))
                (COND
-                ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+                ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
                  (COND
-                  ((< (QREFELT $ 55) 32000000)
+                  ((< (QREFELT $ 56) 32000000)
                    (COND
                     ((|domainEqual| |#1|
                                     (|PrimeField|
-                                     (PROG1 (LETT #32# (QREFELT $ 55) . #33#)
+                                     (PROG1 (LETT #32# (QREFELT $ 56) . #33#)
                                        (|check_subtype2| (> #32# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
@@ -2187,7 +2191,7 @@
                      (COND
                       ((|domainEqual| |#2|
                                       (|PrimeField|
-                                       (PROG1 (LETT #31# (QREFELT $ 55) . #33#)
+                                       (PROG1 (LETT #31# (QREFELT $ 56) . #33#)
                                          (|check_subtype2| (> #31# 0)
                                                            '(|PositiveInteger|)
                                                            '(|NonNegativeInteger|)
@@ -2228,15 +2232,15 @@
                           $))))))
            ('T
             (PROGN
-             (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+             (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
                (COND
-                ((< (QREFELT $ 55) 32000000)
+                ((< (QREFELT $ 56) 32000000)
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #30# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #30# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #30# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2244,7 +2248,7 @@
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #29# (QREFELT $ 55) . #33#)
+                                     (PROG1 (LETT #29# (QREFELT $ 56) . #33#)
                                        (|check_subtype2| (> #29# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
@@ -2297,15 +2301,15 @@
                         $))))
            ('T
             (PROGN
-             (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+             (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
                (COND
-                ((< (QREFELT $ 55) 32000000)
+                ((< (QREFELT $ 56) 32000000)
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #28# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #28# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #28# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2313,7 +2317,7 @@
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #27# (QREFELT $ 55) . #33#)
+                                     (PROG1 (LETT #27# (QREFELT $ 56) . #33#)
                                        (|check_subtype2| (> #27# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
@@ -2353,15 +2357,15 @@
                         $))))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #26# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #26# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #26# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2369,7 +2373,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #25# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #25# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #25# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2433,15 +2437,15 @@
                         $))))
            ('T
             (PROGN
-             (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+             (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
                (COND
-                ((< (QREFELT $ 55) 32000000)
+                ((< (QREFELT $ 56) 32000000)
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #24# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #24# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #24# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2449,7 +2453,7 @@
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #23# (QREFELT $ 55) . #33#)
+                                     (PROG1 (LETT #23# (QREFELT $ 56) . #33#)
                                        (|check_subtype2| (> #23# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
@@ -2489,15 +2493,15 @@
                         $))))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #22# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #22# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #22# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2505,7 +2509,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #21# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #21# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #21# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2556,15 +2560,15 @@
                       $))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #20# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #20# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #20# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2572,7 +2576,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #19# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #19# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #19# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2611,15 +2615,15 @@
                       $))))))
        ('T
         (PROGN
-         (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+         (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
            (COND
-            ((< (QREFELT $ 55) 32000000)
+            ((< (QREFELT $ 56) 32000000)
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #18# (QREFELT $ 55) . #33#)
+                               (PROG1 (LETT #18# (QREFELT $ 56) . #33#)
                                  (|check_subtype2| (> #18# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
@@ -2627,7 +2631,7 @@
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #17# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #17# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #17# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2706,15 +2710,15 @@
                         $))))
            ('T
             (PROGN
-             (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+             (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
              (COND
-              ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+              ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
                (COND
-                ((< (QREFELT $ 55) 32000000)
+                ((< (QREFELT $ 56) 32000000)
                  (COND
                   ((|domainEqual| |#1|
                                   (|PrimeField|
-                                   (PROG1 (LETT #16# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #16# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #16# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2722,7 +2726,7 @@
                    (COND
                     ((|domainEqual| |#2|
                                     (|PrimeField|
-                                     (PROG1 (LETT #15# (QREFELT $ 55) . #33#)
+                                     (PROG1 (LETT #15# (QREFELT $ 56) . #33#)
                                        (|check_subtype2| (> #15# 0)
                                                          '(|PositiveInteger|)
                                                          '(|NonNegativeInteger|)
@@ -2762,15 +2766,15 @@
                         $))))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #14# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #14# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #14# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2778,7 +2782,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #13# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #13# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #13# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2829,15 +2833,15 @@
                       $))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #12# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #12# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #12# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2845,7 +2849,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #11# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #11# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #11# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -2884,15 +2888,15 @@
                       $))))))
        ('T
         (PROGN
-         (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+         (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
            (COND
-            ((< (QREFELT $ 55) 32000000)
+            ((< (QREFELT $ 56) 32000000)
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #10# (QREFELT $ 55) . #33#)
+                               (PROG1 (LETT #10# (QREFELT $ 56) . #33#)
                                  (|check_subtype2| (> #10# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
@@ -2900,7 +2904,7 @@
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #9# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #9# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #9# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2962,15 +2966,15 @@
                       $))))
          ('T
           (PROGN
-           (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+           (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
            (COND
-            ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+            ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
              (COND
-              ((< (QREFELT $ 55) 32000000)
+              ((< (QREFELT $ 56) 32000000)
                (COND
                 ((|domainEqual| |#1|
                                 (|PrimeField|
-                                 (PROG1 (LETT #8# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #8# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #8# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -2978,7 +2982,7 @@
                  (COND
                   ((|domainEqual| |#2|
                                   (|PrimeField|
-                                   (PROG1 (LETT #7# (QREFELT $ 55) . #33#)
+                                   (PROG1 (LETT #7# (QREFELT $ 56) . #33#)
                                      (|check_subtype2| (> #7# 0)
                                                        '(|PositiveInteger|)
                                                        '(|NonNegativeInteger|)
@@ -3017,15 +3021,15 @@
                       $))))))
        ('T
         (PROGN
-         (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+         (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
            (COND
-            ((< (QREFELT $ 55) 32000000)
+            ((< (QREFELT $ 56) 32000000)
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #6# (QREFELT $ 55) . #33#)
+                               (PROG1 (LETT #6# (QREFELT $ 56) . #33#)
                                  (|check_subtype2| (> #6# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
@@ -3033,7 +3037,7 @@
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #5# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #5# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #5# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -3083,15 +3087,15 @@
                     $))))
        ('T
         (PROGN
-         (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+         (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
          (COND
-          ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+          ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
            (COND
-            ((< (QREFELT $ 55) 32000000)
+            ((< (QREFELT $ 56) 32000000)
              (COND
               ((|domainEqual| |#1|
                               (|PrimeField|
-                               (PROG1 (LETT #4# (QREFELT $ 55) . #33#)
+                               (PROG1 (LETT #4# (QREFELT $ 56) . #33#)
                                  (|check_subtype2| (> #4# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
@@ -3099,7 +3103,7 @@
                (COND
                 ((|domainEqual| |#2|
                                 (|PrimeField|
-                                 (PROG1 (LETT #3# (QREFELT $ 55) . #33#)
+                                 (PROG1 (LETT #3# (QREFELT $ 56) . #33#)
                                    (|check_subtype2| (> #3# 0)
                                                      '(|PositiveInteger|)
                                                      '(|NonNegativeInteger|)
@@ -3137,22 +3141,22 @@
                     $))))))
      ('T
       (PROGN
-       (SETELT $ 55 (SPADCALL (QREFELT $ 54)))
+       (SETELT $ 56 (SPADCALL (QREFELT $ 55)))
        (COND
-        ((SPADCALL (QREFELT $ 55) 0 (QREFELT $ 58))
+        ((SPADCALL (QREFELT $ 56) 0 (QREFELT $ 59))
          (COND
-          ((< (QREFELT $ 55) 32000000)
+          ((< (QREFELT $ 56) 32000000)
            (COND
             ((|domainEqual| |#1|
                             (|PrimeField|
-                             (PROG1 (LETT #2# (QREFELT $ 55) . #33#)
+                             (PROG1 (LETT #2# (QREFELT $ 56) . #33#)
                                (|check_subtype2| (> #2# 0) '(|PositiveInteger|)
                                                  '(|NonNegativeInteger|)
                                                  #2#))))
              (COND
               ((|domainEqual| |#2|
                               (|PrimeField|
-                               (PROG1 (LETT #1# (QREFELT $ 55) . #33#)
+                               (PROG1 (LETT #1# (QREFELT $ 56) . #33#)
                                  (|check_subtype2| (> #1# 0)
                                                    '(|PositiveInteger|)
                                                    '(|NonNegativeInteger|)
@@ -3192,14 +3196,14 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 23)) 32)
               (|List| (|List| (|Fraction| 23))) (|List| 23) (|Symbol|)
-              (|NonNegativeInteger|) (|Mapping| 27 69 23 23)
+              (|NonNegativeInteger|) (|Mapping| 27 70 23 23)
               (|Union| '"good" '"reject" '"no_solution")
               (|Mapping| 14 (|List| (|SparseUnivariatePolynomial| 23)))
               (|ModularHermitePade|) (0 . |HP_solve_I|)
               (|Union| (|Matrix| (|SparseUnivariatePolynomial| 7)) 32)
               (|List| (|List| 6)) (|Mapping| 14 34) (10 . |HP_solve|)
-              (|Union| 69 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
-              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 68)
+              (|Union| 70 '"failed") (|Integer|) (21 . |LLFI_to_LPA|)
+              (|List| 11) (28 . |LLF_to_LPA|) (|Vector| 69)
               (|Vector| (|SparseUnivariatePolynomial| 23))
               (37 . |VSUPI_to_VPA|) (|Vector| (|SparseUnivariatePolynomial| 7))
               (43 . |VSUPS_to_VPA|) (|Boolean|) (51 . ~=)
@@ -3214,6 +3218,7 @@
               (72 . |HP_solve_P|) (83 . |LLFPI_to_LPA|)
               (|Vector| (|SparseUnivariatePolynomial| (|Polynomial| 23)))
               (92 . |VSUPPI_to_VPA|) (100 . =) (106 . |get_variables|)
+              (113 . |reverse|)
               (|Union|
                (|Matrix| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
                32)
@@ -3221,7 +3226,7 @@
               (|Mapping| 14
                          (|List|
                           (|SparseUnivariatePolynomial| (|AlgebraicNumber|))))
-              (113 . |HP_solve_A|)
+              (118 . |HP_solve_A|)
               (|Union|
                (|Matrix|
                 (|SparseUnivariatePolynomial|
@@ -3232,19 +3237,19 @@
                          (|List|
                           (|SparseUnivariatePolynomial|
                            (|Polynomial| (|AlgebraicNumber|)))))
-              (123 . |HP_solve_PA|) (134 . |characteristic|) '|p|
-              (138 . |Zero|) (142 . |Zero|) (146 . >) (|List| 10)
-              (152 . |HP_solve_M|) (163 . ~=) (|SingleInteger|)
-              (169 . |random|) (173 . |random|) (|IntegerPrimesPackage| 23)
-              (177 . |nextPrime|) (182 . ~=) (|U32Vector|) (|List| 68)
-              (188 . |check_sol1a|) (198 . |One|) (202 . |One|))
-           '#(|gen_Monte_Carlo_check| 206 |VSUPS_to_VPA| 216 |LLF_to_LPA| 224
-              |HP_solve| 233)
+              (128 . |HP_solve_PA|) (139 . |characteristic|) '|p|
+              (143 . |Zero|) (147 . |Zero|) (151 . >) (|List| 10)
+              (157 . |HP_solve_M|) (168 . ~=) (|SingleInteger|)
+              (174 . |random|) (178 . |random|) (|IntegerPrimesPackage| 23)
+              (182 . |nextPrime|) (187 . ~=) (|U32Vector|) (|List| 69)
+              (193 . |check_sol1a|) (203 . |One|) (207 . |One|))
+           '#(|gen_Monte_Carlo_check| 211 |VSUPS_to_VPA| 221 |LLF_to_LPA| 229
+              |HP_solve| 238)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 72
+                             (|makeByteWordVec2| 73
                                                  '(6 16 8 9 10 11 12 13 15 17 7
                                                    0 18 19 10 11 11 12 13 20 21
                                                    3 16 22 9 23 23 24 5 0 22 19
@@ -3256,17 +3261,18 @@
                                                    40 5 16 22 38 23 25 10 23 41
                                                    4 16 27 42 25 10 23 43 2 11
                                                    32 0 0 44 3 16 25 38 11 11
-                                                   45 6 16 46 47 10 11 12 13 48
-                                                   49 7 16 50 51 10 11 11 12 13
-                                                   52 53 0 6 12 54 0 6 0 56 0 7
-                                                   0 57 2 12 32 0 0 58 7 16 8
-                                                   59 10 11 23 12 13 15 60 2 23
-                                                   32 0 0 61 0 62 0 63 0 32 0
-                                                   64 1 65 23 23 66 2 12 32 0 0
-                                                   67 6 16 68 27 69 13 23 23 23
-                                                   70 0 6 0 71 0 7 0 72 6 0 20
-                                                   20 19 11 11 12 13 36 4 0 27
-                                                   30 25 10 23 31 5 0 22 19 23
-                                                   25 10 23 26 7 0 18 19 10 11
-                                                   11 12 13 20 21)))))
+                                                   45 1 25 0 0 46 6 16 47 48 10
+                                                   11 12 13 49 50 7 16 51 52 10
+                                                   11 11 12 13 53 54 0 6 12 55
+                                                   0 6 0 57 0 7 0 58 2 12 32 0
+                                                   0 59 7 16 8 60 10 11 23 12
+                                                   13 15 61 2 23 32 0 0 62 0 63
+                                                   0 64 0 32 0 65 1 66 23 23 67
+                                                   2 12 32 0 0 68 6 16 69 27 70
+                                                   13 23 23 23 71 0 6 0 72 0 7
+                                                   0 73 6 0 20 20 19 11 11 12
+                                                   13 36 4 0 27 30 25 10 23 31
+                                                   5 0 22 19 23 25 10 23 26 7 0
+                                                   18 19 10 11 11 12 13 20
+                                                   21)))))
            '|lookupComplete|)) 
