@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5039 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -8,14 +8,15 @@
  |AlgebraicallyClosedField&| |AlgebraicallyClosedField|
  |AlgebraicallyClosedFunctionSpace&| |AlgebraicallyClosedFunctionSpace|
  |PlaneAlgebraicCurvePlot| |AlgebraicFunction| |Aggregate&| |Aggregate|
- |ArcHyperbolicFunctionCategory| |AssociationListAggregate| |Algebra&|
- |Algebra| |AlgFactor| |AlgebraicFunctionField| |AlgebraicManipulations|
- |AlgebraicMultFact| |AlgebraPackage| |AlgebraGivenByStructuralConstants|
- |AssociationList| |AbelianMonoidRing&| |AbelianMonoidRing| |AlgebraicNumber|
- |AnonymousFunction| |AntiSymm| |Any| |AnyFunctions1|
- |ApplyUnivariateSkewPolynomial| |ApplyRules| |AbelianProductCategory|
- |TwoDimensionalArrayCategory&| |TwoDimensionalArrayCategory|
- |OneDimensionalArray| |OneDimensionalArrayFunctions2| |TwoDimensionalArray|
+ |ArcHyperbolicFunctionCategory| |AssociationListAggregate&|
+ |AssociationListAggregate| |Algebra&| |Algebra| |AlgFactor|
+ |AlgebraicFunctionField| |AlgebraicManipulations| |AlgebraicMultFact|
+ |AlgebraPackage| |AlgebraGivenByStructuralConstants| |AssociationList|
+ |AbelianMonoidRing&| |AbelianMonoidRing| |AlgebraicNumber| |AnonymousFunction|
+ |AntiSymm| |Any| |AnyFunctions1| |ApplyUnivariateSkewPolynomial| |ApplyRules|
+ |AbelianProductCategory| |TwoDimensionalArrayCategory&|
+ |TwoDimensionalArrayCategory| |OneDimensionalArray|
+ |OneDimensionalArrayFunctions2| |TwoDimensionalArray|
  |TwoDimensionalArrayFunctions| |AssociatedEquations| |ArrayStack|
  |additiveValuation| |Approximate| |arbitraryExponent| |arbitraryPrecision|
  |canonicalsClosed| |Canonical| |CommutativeStar| |canonicalUnitNormal|

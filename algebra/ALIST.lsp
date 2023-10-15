@@ -444,16 +444,17 @@
                                 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 7 0 0 0
                                   11 9 12 0 0 0 0 0 0 11 9 17 15 1 2))
             (CONS
-             '#(NIL |TableAggregate&| |KeyedDictionary&| |Dictionary&|
-                |ListAggregate&| |DictionaryOperations&|
-                |ExtensibleLinearAggregate&| NIL |StreamAggregate&|
-                |BagAggregate&| |LinearAggregate&| |UnaryRecursiveAggregate&|
-                |IndexedAggregate&| |Collection&| |RecursiveAggregate&|
-                |IndexedAggregate&| |OrderedSet&| |HomogeneousAggregate&|
-                |HomogeneousAggregate&| NIL |EltableAggregate&|
-                |EltableAggregate&| |Aggregate&| |Evalable&| |Evalable&|
-                |SetCategory&| NIL NIL NIL NIL NIL NIL |InnerEvalable&|
-                |InnerEvalable&| |BasicType&| NIL |PartialOrder&| NIL)
+             '#(|AssociationListAggregate&| |TableAggregate&|
+                |KeyedDictionary&| |Dictionary&| |ListAggregate&|
+                |DictionaryOperations&| |ExtensibleLinearAggregate&| NIL
+                |StreamAggregate&| |BagAggregate&| |LinearAggregate&|
+                |UnaryRecursiveAggregate&| |IndexedAggregate&| |Collection&|
+                |RecursiveAggregate&| |IndexedAggregate&| |OrderedSet&|
+                |HomogeneousAggregate&| |HomogeneousAggregate&| NIL
+                |EltableAggregate&| |EltableAggregate&| |Aggregate&|
+                |Evalable&| |Evalable&| |SetCategory&| NIL NIL NIL NIL NIL NIL
+                |InnerEvalable&| |InnerEvalable&| |BasicType&| NIL
+                |PartialOrder&| NIL)
              (CONS
               '#((|AssociationListAggregate| 6 7) (|TableAggregate| 6 7)
                  (|KeyedDictionary| 6 7)
