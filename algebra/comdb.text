@@ -6,8 +6,8 @@
 175`This category represents products with coordinatewise additive operations.
 235`the class of all additive (commutative) semigroups,{} \spadignore{i.e.} a set with a commutative and associative operation \spadop{+}. \blankline
 282`The class of all euclidean domains such that \spad{euclideanSize(a*b)=euclideanSize(a)+euclideanSize(b)}.
-332`The notion of aggregate serves to model any data structure aggregate,{} designating any collection of objects,{} with heterogenous or homogeneous members,{} with a finite or infinite number of members,{} explicitly or implicitly represented. An aggregate can in principle represent everything from a string of characters to abstract sets such as "the set of \spad{x} satisfying relation {\em r(x)}" An attribute \spadatt{finiteAggregate} is used to assert that a doma
-332`--in has a finite number of elements.
+332`The notion of aggregate serves to model any data structure aggregate,{} designating any collection of objects,{} with heterogeneous or homogeneous members,{} with a finite or infinite number of members,{} explicitly or implicitly represented. An aggregate can in principle represent everything from a string of characters to abstract sets such as "the set of \spad{x} satisfying relation {\em r(x)}" An attribute \spadatt{finiteAggregate} is used to assert that a dom
+332`--ain has a finite number of elements.
 370`The category of associative algebras (modules which are themselves rings). \blankline
 428`Model for algebraically closed fields.
 481`Model for algebraically closed function spaces.
@@ -34,7 +34,7 @@
 1656`A coalgebra A over a ring is an \spad{R}-module with a coassociative comultiplication from A to the tensor product of A with itself and which possesses a counit.
 1730`A is coercible to \spad{B} means any element of A can automatically be converted into an element of \spad{B} by the interpreter.
 1783`A is coercible to \spad{B} means any element of A can automatically be converted into an element of \spad{B} by the interpreter.
-1833`A collection is a homogeneous aggregate which can built from list of members. The operation used to build the aggregate is generically named \spadfun{construct}. However,{} each collection provides its own special function with the same name as the data type,{} except with an initial lower case letter,{} \spadignore{e.g.} \spadfun{list} for \spadtype{List},{} \spadfun{flexibleArray} for \spadtype{FlexibleArray},{} and so on.
+1833`A collection is a homogeneous aggregate which can be built from a list of members. The operation used to build the aggregate is generically named \spadfun{construct}. However,{} each collection provides its own special function with the same name as the data type,{} except with an initial lower case letter,{} \spadignore{e.g.} \spadfun{list} for \spadtype{List},{} \spadfun{flexibleArray} for \spadtype{FlexibleArray},{} and so on.
 1881`Category for the usual combinatorial functions.
 1941`CombinatorialOpsCategory is the category obtaining by adjoining summations and products to the usual combinatorial operations.
 1998`The category of commutative rings with unity,{} \spadignore{i.e.} rings where \spadop{*} is commutative,{} and which have a multiplicative identity. element.
@@ -262,8 +262,8 @@
 15408`\indented{1}{TwoDimensionalArrayCategory is a general array category which} allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col. The index of the 'first' row may be obtained by calling the function 'minRowIndex'. The index of the 'first' column may 
 15408`--be obtained by calling the function 'minColIndex'. The index of the first element of a 'Row' is the same as the index of the first column in an array and vice versa.
 15542`The fundamental Type.
-15577`A unary-recursive aggregate is a one where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with no child then designates the empty 
-15577`--list. Since these aggregates are recursive aggregates,{} they may be cyclic.
+15577`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with no child then designates the
+15577`-- empty list. Since these aggregates are recursive aggregates,{} they may be cyclic.
 15639`A constructive unique factorization domain,{} \spadignore{i.e.} where we can constructively factor members into a product of a finite number of irreducible elements.
 15694`The class of all monoids (multiplicative semigroups with a 1) such that the operation \spadfun{recip} can only return "failed" if its argument is not a unit.
 15738`\spadtype{UnivariateLaurentSeriesCategory} is the category of Laurent series in one variable.
@@ -1164,7 +1164,7 @@
 108571`--ation of the representation with the sign representation of the symmetric group {\em Sn}. The carrier spaces of the representation are the antisymmetric tensors of the \spad{n}-fold tensor product.
 108705`\spad{antisymmetricTensors(a,{} n)} applies to the square matrix {\em a} the irreducible,{} polynomial representation of the general linear group {\em GLm},{} where \spad{m} is the number of rows of {\em a},{} which corresponds to the partition {\em (1,{} 1,{} ...,{} 1,{} 0,{} 0,{} ...,{} 0)} of \spad{n}. Error: if \spad{n} is greater than \spad{m}. Note: this corresponds to the sym
 108705`--metrization of the representation with the sign representation of the symmetric group {\em Sn}. The carrier spaces of the representation are the antisymmetric tensors of the \spad{n}-fold tensor product.
-109285`\spad{any?(p,{} u)} tests if \spad{p(x)} is \spad{true} for any element \spad{x} of \spad{u}. Note: for collections,{} \spad{any?(p,{} u) = reduce(or,{} map(f,{} u),{} false,{} true)}. However,{} \spad{any?(p,{} u)} returns as soon as it finds an element for which \spad{p} gives \spad{true}.
+109285`\spad{any?(p,{} u)} tests if \spad{p(x)} is \spad{true} for any element \spad{x} of \spad{u}. Note: for collections,{} \spad{any?(p,{} u) = reduce(or,{} map(p,{} u),{} false,{} true)}. However,{} \spad{any?(p,{} u)} returns as soon as it finds an element for which \spad{p} gives \spad{true}.
 109378`\spad{any(type,{} object)} is a technical function for creating an object of \spadtype{Any}. Arugment \spad{type} is a \spadgloss{LISP} form for the \spad{type} of \spad{object}.
 109423`\spad{append(u1,{} u2)} appends the elements of list \spad{u1} onto the front of list \spad{u2}. This new list and \spad{u2} will share some structure.
 109464`\spad{appendPoint(\spad{gi},{} pt)} appends the point \spad{pt} to the end of the list of points component for the graph,{} \spad{\spad{gi}},{} which is of the domain \spadtype{GraphImage}.
@@ -1474,7 +1474,7 @@
 136707`\spad{box(f)} returns \spad{f} with a 'box' around it that prevents \spad{f} from being evaluated when operators are applied to it. For example,{} \spad{log(1)} returns 0,{} but \spad{log(box 1)} returns the formal kernel log(1).
 136750`\spad{box([f1,{} ...,{} fn])} returns \spad{(f1,{} ...,{} fn)} with a 'box' around them that prevents the \spad{fi} from being evaluated when operators are applied to them,{} and makes them applicable to a unary operator. For example,{} \spad{atan(box [x,{} 2])} returns the formal kernel \spad{atan(x,{} 2)}.
 136799`\spad{boxBoundary(c1,{} c2)} constructs a box boundary (\spad{n}-dimensional axis-aligned rectangle) with given parameters \spad{c1:} \spad{PT} holds minimum coordinates \spad{c2:} \spad{PT} holds maximum coordinates
-136897`\spad{brace()}\$\spad{D} (otherwise written {}\$\spad{D}) creates an empty set aggregate of type \spad{D}. This form is considered obsolete. Use \spadfun{set} instead.
+136897`\spad{brace()}\$\spad{D} creates an empty set aggregate of type \spad{D}. This form is considered obsolete. Use \spadfun{set} instead.
 136940`\spad{brace(f)} creates the form enclosing \spad{f} in braces (curly brackets).
 136980`\spad{brace(lf)} creates the form separating the elements of \spad{lf} by commas and encloses the result in curly brackets.
 137079`\spad{brace([x,{} y,{} ...,{} z])} creates a set aggregate containing items \spad{x},{} \spad{y},{} ...,{} \spad{z}. This form is considered obsolete. Use \spadfun{set} instead.
@@ -2325,7 +2325,7 @@
 225592`\spad{cothIfCan(z)} returns coth(\spad{z}) if possible,{} and "failed" otherwise.
 225673`\spad{cotIfCan(z)} returns cot(\spad{z}) if possible,{} and "failed" otherwise.
 225753`\spad{counit(x)} evaluates the counit at an element \spad{x}
-226791`\spad{count(x,{} u)} returns the number of occurrences of \spad{x} in \spad{u}. For collections,{} \spad{count(x,{} u) = reduce(+,{} [x=y for y in u],{} 0)}.
+226791`\spad{count(x,{} u)} returns the number of occurrences of \spad{x} in \spad{u}. For collections,{} \spad{count(x,{} u) = reduce(+,{} [1 for y in u | x = y],{} 0)}.
 226907`\spad{count(p,{} u)} returns the number of elements \spad{x} in \spad{u} such that \spad{p(x)} is \spad{true}. For collections,{} \spad{count(p,{} u) = reduce(+,{} [1 for x in u | p(x)],{} 0)}.
 227012`\spad{countable?(\spad{a})} determines whether \spad{a} is a countable cardinal,{} \spadignore{i.e.} an integer or \spad{Aleph 0}.
 227066`\spad{countRealRoots(p)} says how many real roots \spad{p} has
@@ -2669,7 +2669,7 @@
 259048`\spad{DiffAction(k,{} l,{} g)} gives the coefficient of \spad{x^k} in \spad{z^l} \spad{g}(\spad{x}),{} where \spad{z*}(a+b*x+c*x^2+d*x^3+...) = (a*x+b*x^2+c*x^3+...),{} \spadignore{i.e.} multiplication with \spad{x}.
 259148`\spad{DiffC} gives the coefficients \spad{c_}{\spad{k},{} \spad{k}} in the expansion <x^k> \spad{z} \spad{g}(\spad{x}) = sum_{\spad{i=0}}\spad{^k} \spad{c_}{\spad{k},{} \spad{i}} <x^i> \spad{g}(\spad{x}),{} where \spad{z} acts on \spad{g}(\spad{x}) by shifting. In fact,{} the result is [0,{} 0,{} 0,{} ...]
 259432`\spad{difference(u,{} v)} returns the set aggregate \spad{w} consisting of elements in set aggregate \spad{u} but not in set aggregate \spad{v}. If \spad{u} and \spad{v} have no elements in common,{} \spad{difference(u,{} v)} returns a copy of \spad{u}. Note: equivalent to the notation (not currently supported) \spad{{x for x in u | not member?(x,{} v)}}.
-259485`\spad{difference(u,{} x)} returns the set aggregate \spad{u} with element \spad{x} removed. If \spad{u} does not contain \spad{x},{} a copy of \spad{u} is returned. Note: \spad{difference(s,{} x) = difference(s,{} {x})}.
+259485`\spad{difference(u,{} x)} returns the set aggregate \spad{u} with element \spad{x} removed. If \spad{u} does not contain \spad{x},{} a copy of \spad{u} is returned. Note: \spad{difference(s,{} x) = difference(s,{} set [x])}.
 259537`\spad{directions(om)} yields the differentials where \spad{om} has non-vanishing coefficients.
 259689`\spad{differentialVariables(p)} returns a list of differential indeterminates occurring in a differential polynomial \spad{p}.
 260618`\spad{differentiate(x)} returns the derivative of \spad{x}. This function is a simple differential operator where no variable needs to be specified.
@@ -3178,7 +3178,7 @@
 337026`\spad{evenInfiniteProduct(f(x))} computes \spad{product(n=2,{} 4,{} 6...,{} f(x^n))}. The series \spad{f(x)} should have constant coefficient 1.
 337168`\spad{evenlambert(f(x))} returns \spad{f(x^2) + f(x^4) + f(x^6) + ...}. \indented{1}{\spad{f(x)} should have a zero constant coefficient.} \indented{1}{This function is used for computing infinite products.} \indented{1}{If \spad{f(x)} is a Taylor series with constant term 1,{} then} \indented{1}{\spad{product(n=1..infinity,{} f(x^(2*n))) = exp(evenlambert(log(f(x))))}.}
 337240`\spad{evenlambert(st)} computes \spad{f(x^2) + f(x^4) + f(x^6) + ...} if \spad{st} is a stream representing \spad{f(x)}. This function is used for computing infinite products. If \spad{f(x)} is a power series with constant coefficient 1,{} then \spad{prod(f(x^(2*n)),{} n=1..infinity) = exp(evenlambert(log(f(x))))}.
-337791`\spad{every?(f,{} u)} tests if \spad{p}(\spad{x}) is \spad{true} for all elements \spad{x} of \spad{u}. Note: for collections,{} \spad{every?(p,{} u) = reduce(and,{} map(f,{} u),{} true,{} false)}. However,{} \spad{every?(p,{} u)} returns as soon as it finds an element for which \spad{p} gives \spad{false}.
+337791`\spad{every?(p,{} u)} tests if \spad{p}(\spad{x}) is \spad{true} for all elements \spad{x} of \spad{u}. Note: for collections,{} \spad{every?(p,{} u) = reduce(and,{} map(p,{} u),{} true,{} false)}. However,{} \spad{every?(p,{} u)} returns as soon as it finds an element for which \spad{p} gives \spad{false}.
 338168`\spad{exactQuotient(a,{} b)} computes the exact quotient of \spad{a} by \spad{b},{} which is assumed to be a divisor of \spad{a}. No error is returned if this exact quotient fails!
 338264`\spad{exactQuotient!(a,{} b)} replaces \spad{a} by \spad{exactQuotient(a,{} b)}
 338361`\spad{exactQuotient(p,{} r)} computes the exact quotient of \spad{p} by \spad{r},{} which is assumed to be a divisor of \spad{p}. No error is returned if this exact quotient fails!
@@ -5137,7 +5137,7 @@
 556942`\spad{member?(v,{} B)} tests if the vector \spad{v} is in the subspace spanned by \spad{B}.
 557008`\spad{member?(pp,{} gp)} answers the question,{} whether the permutation {\em pp} is in the group {\em gp} or not.
 557079`\spad{member?(x,{} u)} tests if \spad{x} is a member of \spad{u}. For collections,{} \spad{member?(x,{} u) = reduce(or,{} [x=y for y in u],{} false)}. However,{} \spad{member?(x,{} u)} returns as soon as it finds a member.
-557243`\spad{members(u)} returns a list of the consecutive elements of \spad{u}. For collections,{} \spad{parts([x,{} y,{} ...,{} z]) = (x,{} y,{} ...,{} z)}.
+557243`\spad{members(u)} returns a list of the consecutive elements of \spad{u}. For collections,{} \spad{members([x,{} y,{} ...,{} z]) = (x,{} y,{} ...,{} z)}.
 557326`\spad{members(ms)} returns a list of the elements of \spad{ms} {\em without} their multiplicity. See also \spadfun{parts}.
 557374`\spad{merge(ls)} a list of subspaces,{} \spad{ls},{} into one subspace.
 557423`\spad{merge([s1,{} s2,{} ...,{} sn])} will create a new \spadtype{ThreeSpace} that has the components of all the ones in the list; Groupings of components into composites are maintained.
@@ -6556,10 +6556,10 @@
 697848`\spad{reduce(f,{} m,{} r)} returns a matrix \spad{n} where \spad{n[i,{} j] = f(m[i,{} j],{} r)} for all indices spad{\spad{i}} and \spad{j}.
 697966`\spad{reduce(f,{} a,{} r)} applies function \spad{f} to each successive element of the aggregate \spad{a} and an accumulant initialized to \spad{r}. For example,{} \spad{reduce(_+\$Integer,{} [1,{} 2,{} 3],{} 0)} does \spad{3+(2+(1+0))}. Note: third argument \spad{r} may be regarded as the identity element for the function \spad{f}.
 698046`\spad{reduce(f,{} a,{} r)} applies function \spad{f} to each successive element of the aggregate \spad{a} and an accumulant initialised to \spad{r}. For example,{} \spad{reduce(_+\$Integer,{} [1,{} 2,{} 3],{} 0)} does a \spad{3+(2+(1+0))}. Note: third argument \spad{r} may be regarded as an identity element for the function.
-698123`\spad{reduce(f,{} u,{} x)} reduces the binary operation \spad{f} across \spad{u},{} where \spad{x} is the identity operation of \spad{f}. Same as \spad{reduce(f,{} u)} if \spad{u} has 2 or more elements. Returns \spad{f(x,{} y)} if \spad{u} has one element \spad{y},{} \spad{x} if \spad{u} is empty. For example,{} \spad{reduce(+,{} u,{} 0)} returns the sum of the elements of \spad{u}.
+698123`\spad{reduce(f,{} u,{} x)} reduces the binary operation \spad{f} across \spad{u},{} where \spad{x} is the identity operation of \spad{f}. Same as \spad{reduce(f,{} u)} if \spad{u} has 2 or more elements. Returns \spad{f(y,{} x)} if \spad{u} has one element \spad{y}. Returns \spad{x} if \spad{u} is empty. For example,{} \spad{reduce(+,{} u,{} 0)} returns the sum of the elements of \spad{u}.
 698533`\spad{reduce(p,{} ts,{} redOp,{} redOp?)} returns a polynomial \spad{r} such that \spad{redOp?(r,{} p)} holds for every \spad{p} of \spad{ts} and there exists some product \spad{h} of the initials of the members of \spad{ts} such that \spad{h*p - r} lies in the ideal generated by \spad{ts}. The operation \spad{redOp} must satisfy the following conditions. For every \spad{p} and \spad{q} we have \spad{redOp?(redOp(p,{}
 698533`-- q),{} q)} and there exists an integer \spad{e} and a polynomial \spad{f} such that \spad{init(q)^e*p = f*q + redOp(p,{} q)}.
-698619`\spad{reduce(f,{} u,{} x,{} z)} reduces the binary operation \spad{f} across \spad{u},{} stopping when an "absorbing element" \spad{z} is encountered. As for \spad{reduce(f,{} u,{} x)},{} \spad{x} is the identity operation of \spad{f}. Same as \spad{reduce(f,{} u,{} x)} when \spad{u} contains no element \spad{z}. Thus the third argument \spad{x} is returned when \spad{u} is empty.
+698619`\spad{reduce(f,{} u,{} x,{} z)} reduces the binary operation \spad{f} across \spad{u},{} stopping when an "absorbing element" \spad{z} is encountered. As for \spad{reduce(f,{} u,{} x)},{} \spad{x} is the identity element of \spad{f}. Same as \spad{reduce(f,{} u,{} x)} when \spad{u} contains no element \spad{z}. Thus the third argument \spad{x} is returned when \spad{u} is empty.
 698936`Skips elements of sigma basis which does not satisfy degree bounds and puts sigma-basis into canonical form.
 699233`\spad{reduceBasisAtInfinity(b1,{} ...,{} bn)} returns \spad{(x^i * bj)} for all \spad{i},{} \spad{j} such that \spad{x^i*bj} is locally integral at infinity.
 699398`\spad{reduceByQuasiMonic(p,{} ts)} returns the same as \spad{remainder(p,{} collectQuasiMonic(ts)).polnum}.
@@ -6632,7 +6632,7 @@
 709295`\spad{remove!(s,{} a)} replaces a by remove(\spad{s},{} a)
 709364`\spad{remove(s,{} a)} returns the splitting tree obtained from a by removing every sub-tree \spad{b} such that \spad{value(b)} and \spad{s} have the same value,{} condition and status.
 709432`\spad{remove!(k,{} t)} searches the table \spad{t} for the key \spad{k} removing (and return) the entry if there. If \spad{t} has no such key,{} \spad{remove!(k,{}t)} returns "failed".
-709513`\spad{remove(x,{} u)} returns a copy of \spad{u} with all elements \spad{y = x} removed. Note: \spad{remove(y,{} c) == [x for x in c | x ~= y]}.
+709513`\spad{remove(x,{} u)} returns a copy of \spad{u} with all elements equal to \spad{x} removed. Note: \spad{remove(x,{} c) == [y for y in c | y ~= x]}.
 709604`\spad{remove!(x,{} d)} destructively changes dictionary \spad{d} by removing all entries \spad{y} such that \spad{y = x}.
 709706`\spad{remove!(x,{} u)} destructively removes all values \spad{x} from \spad{u}.
 709786`\spad{remove(p,{} u)} returns a copy of \spad{u} removing all elements \spad{x} such that \spad{p(x)} is \spad{true}. Note: \spad{remove(p,{} u) == [x for x in u | not p(x)]}.
@@ -7698,7 +7698,7 @@
 842476`\spad{subresultantSequence(p1,{} p2)} computes the (standard) subresultant sequence of \spad{p1} and \spad{p2}
 842624`\spad{subresultantVector(p,{} q)} returns \spad{[p0,{} ...,{} pn]} where \spad{pi} is the \spad{i}-th subresultant of \spad{p} and \spad{q}. In particular,{} \spad{p0 = resultant(p,{} q)}.
 842712`\spad{subscript(s,{} [a1,{} ...,{} an])} returns \spad{s} subscripted by \spad{[a1,{} ...,{} an]}.
-842827`\spad{subset?(u,{} v)} tests if \spad{u} is a subset of \spad{v}. Note: equivalent to \spad{reduce(and,{} {member?(x,{} v) for x in u},{} true,{} false)}.
+842827`\spad{subset?(u,{} v)} tests if \spad{u} is a subset of \spad{v}. Note: equivalent to \spad{reduce(and,{} [member?(x,{} v) for x in members(u)],{} true,{} false)}.
 842883`\spad{subSet(n,{} m,{} k)} calculates the {\em k}\spad{-}th {\em m}-subset of the set {\em 0,{} 1,{} ...,{} (n-1)} in the lexicographic order considered as a decreasing map from {\em 0,{} ...,{} (m-1)} into {\em 0,{} ...,{} (n-1)}. See \spad{S}.\spad{G}. Williamson: Theorem 1.60. Error: if not {\em (0 <= m <= n and 0 < = k < (n choose m))}.
 842982`\spad{subspace()} \undocumented
 843027`\spad{subspace(s)} returns the \spadtype{SubSpace} which holds all the point information in the \spadtype{ThreeSpace},{} \spad{s}.
@@ -9010,8 +9010,8 @@
 986013`Abelian monoid ring elements (not necessarily of finite support) of this ring are of the form formal SUM (r_i * e_i) where the r_i are coefficents and the e_i,{} elements of the ordered abelian monoid,{} are thought of as exponents or monomials. The monomials commute with each other,{} but in general do not commute with the coefficients (which themselves may or may not be commutative). S
 986013`--ee \spadtype{FiniteAbelianMonoidRing} for the case of finite support. A useful common model for polynomials and power series. Conceptually at least,{} only the non-zero terms are ever operated on.
 986131`the class of all additive (commutative) semigroups,{} \spadignore{i.e.} a set with a commutative and associative operation \spadop{+}. \blankline
-986198`The notion of aggregate serves to model any data structure aggregate,{} designating any collection of objects,{} with heterogenous or homogeneous members,{} with a finite or infinite number of members,{} explicitly or implicitly represented. An aggregate can in principle represent everything from a string of characters to abstract sets such as "the set of \spad{x} satisfying relation {\em r(x)}" An attribute \spadatt{finiteAggregate} is used to assert th
-986198`--at a domain has a finite number of elements.
+986198`The notion of aggregate serves to model any data structure aggregate,{} designating any collection of objects,{} with heterogeneous or homogeneous members,{} with a finite or infinite number of members,{} explicitly or implicitly represented. An aggregate can in principle represent everything from a string of characters to abstract sets such as "the set of \spad{x} satisfying relation {\em r(x)}" An attribute \spadatt{finiteAggregate} is used to assert t
+986198`--hat a domain has a finite number of elements.
 986248`The category of associative algebras (modules which are themselves rings). \blankline
 986321`Model for algebraically closed fields.
 986401`Model for algebraically closed function spaces.
@@ -9021,7 +9021,7 @@
 986746`A binary-recursive aggregate has 0,{} 1 or 2 children and serves as a model for a binary tree or a doubly-linked aggregate structure
 986840`\spadtype{BinaryTreeCategory(S)} is the category of binary trees: a tree which is either empty or else is a \spadfun{node} consisting of a value and a \spadfun{left} and \spadfun{right},{} both binary trees.
 986929`The bit aggregate category models aggregates representing large quantities of Boolean data.
-986987`A collection is a homogeneous aggregate which can built from list of members. The operation used to build the aggregate is generically named \spadfun{construct}. However,{} each collection provides its own special function with the same name as the data type,{} except with an initial lower case letter,{} \spadignore{e.g.} \spadfun{list} for \spadtype{List},{} \spadfun{flexibleArray} for \spadtype{FlexibleArray},{} and so on.
+986987`A collection is a homogeneous aggregate which can be built from a list of members. The operation used to build the aggregate is generically named \spadfun{construct}. However,{} each collection provides its own special function with the same name as the data type,{} except with an initial lower case letter,{} \spadignore{e.g.} \spadfun{list} for \spadtype{List},{} \spadfun{flexibleArray} for \spadtype{FlexibleArray},{} and so on.
 987053`This category represents the extension of a ring by a square root of \spad{-1}.
 987142`A dictionary is an aggregate in which entries can be inserted,{} searched for and removed. Duplicates are thrown away on insertion. This category models the usual notion of dictionary which involves large amounts of data where copying is impractical. Principal operations are thus destructive (non-copying) ones.
 987208`This category is a collection of operations common to both categories \spadtype{Dictionary} and \spadtype{MultiDictionary}
@@ -9161,8 +9161,8 @@
 997570`Category for the trigonometric functions.
 997664`\indented{1}{TwoDimensionalArrayCategory is a general array category which} allows different representations and indexing schemes. Rows and columns may be extracted with rows returned as objects of type Row and columns returned as objects of type Col. The index of the 'first' row may be obtained by calling the function 'minR
 997664`--owIndex'. The index of the 'first' column may be obtained by calling the function 'minColIndex'. The index of the first element of a 'Row' is the same as the index of the first column in an array and vice versa.
-997846`A unary-recursive aggregate is a one where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with no chil
-997846`--d then designates the empty list. Since these aggregates are recursive aggregates,{} they may be cyclic.
+997846`A unary-recursive aggregate is an aggregate where nodes may have either 0 or 1 children. This aggregate models,{} though not precisely,{} a linked list possibly with a single cycle. A node with one children models a non-empty list,{} with the \spadfun{value} of the list designating the head,{} or \spadfun{first},{} of the list,{} and the child designating the tail,{} or \spadfun{rest},{} of the list. A node with 
+997846`--no child then designates the empty list. Since these aggregates are recursive aggregates,{} they may be cyclic.
 997938`A constructive unique factorization domain,{} \spadignore{i.e.} where we can constructively factor members into a product of a finite number of irreducible elements.
 998020`\spadtype{UnivariateLaurentSeriesCategory} is the category of Laurent series in one variable.
 998138`This is a category of univariate Laurent series constructed from univariate Taylor series. A Laurent series is represented by a pair \spad{[n,{} f(x)]},{} where \spad{n} is an arbitrary integer and \spad{f(x)} is a Taylor series. This pair represents the Laurent series \spad{x^n * f(x)}.
