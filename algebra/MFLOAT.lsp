@@ -524,8 +524,8 @@
               |MFLOAT;divide;2$R;38| |MFLOAT;quo;3$;39| |MFLOAT;rem;3$;40|
               |MFLOAT;*;I2$;41| |MFLOAT;+;3$;43| |MFLOAT;-;2$;44|
               |MFLOAT;-;3$;45| |MFLOAT;<;2$B;46| (|NonNegativeInteger|)
-              |MFLOAT;characteristic;Nni;47| (|Pattern| 18)
-              (|PatternMatchResult| 18 $) (|DoubleFloat|) (|Factored| $)
+              |MFLOAT;characteristic;Nni;47| (|PatternMatchResult| 18 $)
+              (|Pattern| 18) (|DoubleFloat|) (|Factored| $)
               (|Union| 44 '#1="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 110 '#1#)
@@ -554,7 +554,7 @@
               663 |ceiling| 670 |bits| 675 |base| 684 |associator| 693
               |associates?| 700 |antiCommutator| 706 |annihilate?| 712 |abs|
               718 ^ 723 |Zero| 747 |One| 751 >= 755 > 761 = 767 <= 773 < 779 /
-              785 - 791 + 802 * 808)
+              785 - 797 + 808 * 814)
            'NIL
            (CONS
             (|makeByteWordVec2| 1
@@ -592,7 +592,7 @@
                  (|NonAssociativeSemiRng|) (|AbelianMonoid|)
                  (|PatternMatchable| 18) (|Comparable|) (|Magma|)
                  (|AbelianSemiGroup|) (|RealConstant|) (|SetCategory|)
-                 (|RetractableTo| 18) (|Approximate|) (|ConvertibleTo| 104)
+                 (|RetractableTo| 18) (|Approximate|) (|ConvertibleTo| 105)
                  (|RadicalCategory|) (|RetractableTo| 20) (|RetractableTo| 15)
                  (|ConvertibleTo| 18) (|ConvertibleTo| 106) (|PartialOrder|)
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
@@ -618,7 +618,7 @@
                                     72 1 0 18 0 67 1 0 20 0 66 1 0 15 0 74 2 0
                                     0 0 0 96 1 0 86 0 87 2 0 0 0 0 95 1 0 113
                                     44 1 1 0 27 0 1 1 0 12 12 75 0 0 12 76 1 0
-                                    27 0 1 3 0 105 0 104 105 1 1 0 15 0 1 2 0
+                                    27 0 1 3 0 104 0 105 104 1 1 0 15 0 1 2 0
                                     27 0 0 1 1 0 27 0 1 2 0 0 0 15 1 1 0 0 0 1
                                     1 0 27 0 1 2 0 108 44 0 1 1 0 15 15 81 0 0
                                     15 82 0 2 0 1 2 0 0 0 0 1 1 0 15 15 79 0 0
@@ -631,8 +631,8 @@
                                     15 15 1 1 0 107 0 1 2 0 109 0 0 1 3 0 111 0
                                     0 0 1 2 0 86 0 0 92 2 0 108 44 0 1 1 0 15 0
                                     22 1 0 102 0 1 2 0 93 0 0 94 1 1 12 12 1 0
-                                    0 12 1 1 1 12 15 1 1 0 104 0 1 1 0 106 0 1
-                                    1 0 18 0 1 2 0 0 0 0 1 1 0 18 0 47 1 0 0 51
+                                    0 12 1 1 1 12 15 1 1 0 105 0 1 1 0 18 0 1 1
+                                    0 106 0 1 2 0 0 0 0 1 1 0 18 0 47 1 0 0 51
                                     53 1 0 0 18 59 1 0 0 20 65 1 0 0 15 62 1 0
                                     0 20 65 1 0 0 0 1 1 0 0 15 62 1 0 48 0 50 0
                                     0 102 103 3 0 0 15 15 12 43 1 0 0 0 1 1 1
@@ -641,10 +641,11 @@
                                     0 1 1 0 0 0 1 2 0 0 0 20 90 2 0 0 0 15 1 2
                                     0 0 0 102 1 2 0 0 0 12 1 0 0 0 32 0 0 0 17
                                     2 0 27 0 0 1 2 0 27 0 0 1 2 0 27 0 0 83 2 0
-                                    27 0 0 1 2 0 27 0 0 101 2 0 0 0 0 64 2 0 0
-                                    0 0 100 1 0 0 0 99 2 0 0 0 0 98 2 0 0 0 20
-                                    1 2 0 0 20 0 1 2 0 0 102 0 1 2 0 0 15 0 97
-                                    2 0 0 0 0 88 2 0 0 12 0 1)))))
+                                    27 0 0 1 2 0 27 0 0 101 2 0 0 0 15 1 2 0 0
+                                    0 0 64 2 0 0 0 0 100 1 0 0 0 99 2 0 0 0 0
+                                    98 2 0 0 20 0 1 2 0 0 0 20 1 2 0 0 102 0 1
+                                    2 0 0 15 0 97 2 0 0 0 0 88 2 0 0 12 0
+                                    1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MachineFloat| 'NILADIC T) 

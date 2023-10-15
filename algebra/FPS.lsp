@@ -14,7 +14,8 @@
              (LETT #1#
                    (|Join| (|RealNumberSystem|) (|Approximate|)
                            (|mkCategory|
-                            '(((|float| ($ (|Integer|) (|Integer|))) T)
+                            '(((/ ($ $ (|Integer|))) T)
+                              ((|float| ($ (|Integer|) (|Integer|))) T)
                               ((|float|
                                 ($ (|Integer|) (|Integer|)
                                  (|PositiveInteger|)))
