@@ -2684,7 +2684,16 @@
 ;   -- try to use new stuff first
 ;   if newHelpSpad2Cmd(args) then return nil
 ; 
-;   sayKeyedMsg("S2IZ0025",[args])
+;   sayBrightly "Available help topics for system commands are:"
+;   sayBrightly ""
+;   sayBrightly " boot    cd    clear    close    compile    display"
+;   sayBrightly " edit    fin    frame    help    history    library"
+;   sayBrightly " lisp    load    ltrace    pquit    quit    read"
+;   sayBrightly " set    show    spool    synonym    system    trace"
+;   sayBrightly " undo    what"
+;   sayBrightly ""
+;   sayBrightly "Issue _")help help_" for more information about the help command."
+; 
 ;   nil
  
 (DEFUN |helpSpad2Cmd| (|args|)
@@ -2692,7 +2701,16 @@
     (RETURN
      (PROGN
       (COND ((|newHelpSpad2Cmd| |args|) (RETURN NIL)))
-      (|sayKeyedMsg| 'S2IZ0025 (LIST |args|))
+      (|sayBrightly| '|Available help topics for system commands are:|)
+      (|sayBrightly| '||)
+      (|sayBrightly| '| boot    cd    clear    close    compile    display|)
+      (|sayBrightly| '| edit    fin    frame    help    history    library|)
+      (|sayBrightly| '| lisp    load    ltrace    pquit    quit    read|)
+      (|sayBrightly| '| set    show    spool    synonym    system    trace|)
+      (|sayBrightly| '| undo    what|)
+      (|sayBrightly| '||)
+      (|sayBrightly|
+       '|Issue ")help help" for more information about the help command.|)
       NIL))))
  
 ; newHelpSpad2Cmd args ==
@@ -2701,7 +2719,7 @@
 ;     sayKeyedMsg("S2IZ0026",NIL)
 ;     true
 ;   sarg := PNAME first args
-;   if sarg = '"?" then args := ['help]
+;   if sarg = '"?" then args := ['nullargs]
 ;   else if sarg = '"%" then args := ['history]
 ;        else if sarg = '"%%" then args := ['history]
 ;   arg := selectOptionLC(first args,$SYSCOMMANDS,nil)
@@ -2735,7 +2753,7 @@
             (#1='T
              (PROGN
               (SETQ |sarg| (PNAME (CAR |args|)))
-              (COND ((EQUAL |sarg| "?") (SETQ |args| (LIST '|help|)))
+              (COND ((EQUAL |sarg| "?") (SETQ |args| (LIST '|nullargs|)))
                     ((EQUAL |sarg| "%") (SETQ |args| (LIST '|history|)))
                     ((EQUAL |sarg| "%%") (SETQ |args| (LIST '|history|))))
               (SETQ |arg| (|selectOptionLC| (CAR |args|) $SYSCOMMANDS NIL))
