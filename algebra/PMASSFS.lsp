@@ -14,28 +14,19 @@
                   (SPADCALL (SPADCALL |op| (QREFELT $ 18)) |s| (QREFELT $ 19))
                   $))))) 
 
-(SDEFUN |PMASSFS;asst| ((|k| |Kernel| F) (|s| |Symbol|) ($ F))
-        (SPROG ((|op| (|BasicOperator|)))
-               (COND
-                ((SPADCALL
-                  (LETT |op| (SPADCALL |k| (QREFELT $ 12)) |PMASSFS;asst|) |s|
-                  (QREFELT $ 15))
-                 (SPADCALL |k| (QREFELT $ 17)))
-                ('T (|PMASSFS;mkk| (SPADCALL |op| |s| (QREFELT $ 19)) $))))) 
-
-(SDEFUN |PMASSFS;constant;2F;4| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;constant;2F;3| ((|x| F) ($ F))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmconstant| $))
          ('T (|error| "constant must be applied to symbols only")))) 
 
-(SDEFUN |PMASSFS;optional;2F;5| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;optional;2F;4| ((|x| F) ($ F))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmoptional| $))
          ('T (|error| "optional must be applied to symbols only")))) 
 
-(SDEFUN |PMASSFS;multiple;2F;6| ((|x| F) ($ F))
+(SDEFUN |PMASSFS;multiple;2F;5| ((|x| F) ($ F))
         (COND
          ((QEQCAR (SPADCALL |x| (QREFELT $ 21)) 0)
           (|PMASSFS;ass| (SPADCALL |x| (QREFELT $ 22)) '|%pmmultiple| $))
@@ -43,9 +34,9 @@
 
 (DECLAIM (NOTINLINE |FunctionSpaceAssertions;|)) 
 
-(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G129)
+(DEFUN |FunctionSpaceAssertions| (&REST #1=#:G126)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G127)
            (RETURN
             (COND
              ((LETT #2#
@@ -87,8 +78,8 @@
               (6 . |operator|) (|Boolean|) (|Symbol|) (11 . |has?|)
               (|Kernel| $) (17 . |coerce|) (22 . |copy|) (27 . |assert|)
               (|Union| 14 '"failed") (33 . |retractIfCan|) (38 . |retract|)
-              |PMASSFS;constant;2F;4| |PMASSFS;optional;2F;5|
-              |PMASSFS;multiple;2F;6|)
+              |PMASSFS;constant;2F;3| |PMASSFS;optional;2F;4|
+              |PMASSFS;multiple;2F;5|)
            '#(|optional| 43 |multiple| 48 |constant| 53) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
