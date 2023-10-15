@@ -6464,7 +6464,7 @@
 686195`\spad{prod(expr,{} lowerlimit)} creates the form prefixing \spad{expr} by a capital \spad{pi} with a lowerlimit.
 686237`\spad{prod(expr,{} lowerlimit,{} upperlimit)} creates the form prefixing \spad{expr} by a capital \spad{pi} with both a \spad{lowerlimit} and upperlimit.
 686282`\spad{prodiag(x)} performs "diagonal" infinite product of a stream of streams. When \spad{x(i)} is interpreted as stream of coefficients of series \spad{f_i(z),{} i=1,{}...},{} then \spad{prodiag(x) = (1 + z*f_1(z))*(1 + z^2*f_2(x))*...}
-686367`This function returns the product of two cubicalfacets. Unlike the simplex case,{} the product is a sinle facet
+686367`This function returns the product of two cubical facets. Unlike the simplex case,{} the product is a sinle facet
 686414`Forms product of two cubical complexes.
 686473`Forms product of two simplicial complexes. For more detailed explanation of simplex product code see: \url{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/simplex/product/} Also see Hatcher [9]. page 277 - The simplical cross product. page 278 - The cohomology cross product. Returns list,{} each entry is a 'lattice path' from (0,{} 0) to (\spad{x},{} \spad{y}) where \spad{x} is number of entries in sa and \spad{y} is number of 
 686473`--entries in \spad{sb}.
