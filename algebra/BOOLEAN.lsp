@@ -134,9 +134,9 @@
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL NIL NIL NIL |OrderedSet&| NIL NIL NIL |Finite&| NIL
-                     NIL NIL |SetCategory&| NIL |BasicType&| |PartialOrder&|
-                     NIL)
+                  '#(|Logic&| NIL NIL NIL |OrderedSet&| NIL NIL NIL |Finite&|
+                     NIL NIL NIL |SetCategory&| NIL |BasicType&|
+                     |PartialOrder&| NIL)
                   (CONS
                    '#((|Logic|) (|BoundedDistributiveLattice|)
                       (|DistributiveLattice|) (|BoundedLattice|) (|OrderedSet|)
