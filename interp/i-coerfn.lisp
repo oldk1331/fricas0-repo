@@ -6337,20 +6337,8 @@
 ;     (UnivariatePuiseuxSeries              indeterm   P2Upxs) _
 ;     (UnivariateTaylorSeries               indeterm   P2Uts) _
 ;     ))_
-;   (Int . ( _
-;     (Expression                           total      ncI2E) _
-;     (Integer                              total      ncI2I) _
-;   ))_
-;   (Baby . ( _
-;     (Expression                           total      ncI2E) _
-;     (Integer                              total      ncI2I) _
-;   ))_
 ;   (Integer . ( _
-;     (Baby                                 total      I2ncI) _
-;     (EvenInteger                          partial    I2EI) _
-;     (Int                                  total      I2ncI) _
 ;     (NonNegativeInteger                   partial    I2NNI) _
-;     (OddInteger                           partial    I2OI) _
 ;     (PositiveInteger                      partial    I2PI) _
 ;     ))_
 ;   (List . ( _
@@ -6516,11 +6504,8 @@
      (|UnivariatePolynomial| |partial| |Qf2domain|)
      (|UnivariatePuiseuxSeries| |indeterm| |P2Upxs|)
      (|UnivariateTaylorSeries| |indeterm| |P2Uts|))
-    (|Int| (|Expression| |total| |ncI2E|) (|Integer| |total| |ncI2I|))
-    (|Baby| (|Expression| |total| |ncI2E|) (|Integer| |total| |ncI2I|))
-    (|Integer| (|Baby| |total| |I2ncI|) (|EvenInteger| |partial| I2EI)
-     (|Int| |total| |I2ncI|) (|NonNegativeInteger| |partial| I2NNI)
-     (|OddInteger| |partial| I2OI) (|PositiveInteger| |partial| I2PI))
+    (|Integer| (|NonNegativeInteger| |partial| I2NNI)
+     (|PositiveInteger| |partial| I2PI))
     (|List| (|DirectProduct| |indeterm| L2DP) (|Matrix| |partial| L2M)
      (|Record| |partial| |L2Record|) (|RectangularMatrix| |partial| |L2Rm|)
      (|Set| |indeterm| |L2Set|) (|SquareMatrix| |partial| |L2Sm|)
