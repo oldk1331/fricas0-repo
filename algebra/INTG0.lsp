@@ -447,10 +447,10 @@
                     . #1#)
               (EXIT
                (VECTOR
-                (SPADCALL (SPADCALL |y| (QREFELT $ 77))
-                          (SPADCALL (SPADCALL |x| (QREFELT $ 77)) |sa|
-                                    (QREFELT $ 119))
-                          (QREFELT $ 121))
+                (SPADCALL
+                 (SPADCALL |den| (SPADCALL |y| (QREFELT $ 77)) (QREFELT $ 119))
+                 (SPADCALL (SPADCALL |x| (QREFELT $ 77)) |sa| (QREFELT $ 119))
+                 (QREFELT $ 121))
                 (VECTOR
                  (SPADCALL (SPADCALL 2 |ua| (QREFELT $ 120)) |bm2u|
                            (QREFELT $ 91))
@@ -490,7 +490,10 @@
               (EXIT
                (VECTOR
                 (SPADCALL
-                 (SPADCALL (SPADCALL |y| (QREFELT $ 77)) |sc| (QREFELT $ 121))
+                 (SPADCALL
+                  (SPADCALL |den| (SPADCALL |y| (QREFELT $ 77))
+                            (QREFELT $ 119))
+                  |sc| (QREFELT $ 121))
                  (SPADCALL |x| (QREFELT $ 77)) (QREFELT $ 91))
                 (VECTOR
                  (SPADCALL
