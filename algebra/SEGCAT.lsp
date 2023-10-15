@@ -30,8 +30,6 @@
                                                        T)
                                                       ((BY ($ $ (|Integer|)))
                                                        T)
-                                                      ((|lo| (|t#1| $)) T)
-                                                      ((|hi| (|t#1| $)) T)
                                                       ((|low| (|t#1| $)) T)
                                                       ((|high| (|t#1| $)) T)
                                                       ((|incr| ((|Integer|) $))
