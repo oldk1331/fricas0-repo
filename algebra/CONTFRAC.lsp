@@ -51,7 +51,7 @@
 (SDEFUN |CONTFRAC;=;2$B;4| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
          ((|yl| #1=(|Stream| (|Record| (|:| |num| R) (|:| |den| R))))
-          (|xl| #1#) (#2=#:G151 NIL))
+          (|xl| #1#) (#2=#:G150 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -79,7 +79,7 @@
                             ((SPADCALL (QCDR (SPADCALL |xl| (QREFELT $ 32)))
                                        (QCDR (SPADCALL |yl| (QREFELT $ 32)))
                                        (QREFELT $ 30))
-                             (PROGN (LETT #2# 'NIL . #3#) (GO #5=#:G150)))
+                             (PROGN (LETT #2# 'NIL . #3#) (GO #5=#:G149)))
                             ('T
                              (SEQ
                               (LETT |xl| (SPADCALL |xl| (QREFELT $ 33)) . #3#)
@@ -640,8 +640,9 @@
 (SDEFUN |CONTFRAC;recip;$U;42!0| ((|x| NIL) ($ NIL))
         (SPADCALL (|spadConstant| $ 58) |x| (QREFELT $ 113))) 
 
-(SDEFUN |CONTFRAC;showAll?| (($ |Boolean|))
-        (COND ((NULL |$streamsShowAll|) 'NIL) ('T 'T))) 
+(PUT '|CONTFRAC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
+
+(SDEFUN |CONTFRAC;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
 
 (SDEFUN |CONTFRAC;zagRec|
         ((|t| |Record| (|:| |num| R) (|:| |den| R)) ($ |OutputForm|))
@@ -652,7 +653,7 @@
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)
-          (#1=#:G300 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
+          (#1=#:G298 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
          (SEQ (LETT |wh| (QCAR (QCAR |c|)) . #2=(|CONTFRAC;coerce;$Of;45|))
               (LETT |fr| (QCDR (QCAR |c|)) . #2#)
               (EXIT
@@ -712,9 +713,9 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G312)
+(DEFUN |ContinuedFraction| (#1=#:G310)
   (SPROG NIL
-         (PROG (#2=#:G313)
+         (PROG (#2=#:G311)
            (RETURN
             (COND
              ((LETT #2#

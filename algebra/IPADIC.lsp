@@ -67,7 +67,7 @@
 
 (SDEFUN |IPADIC;=;2$B;15| ((|x| $) (|y| $) ($ |Boolean|))
         (SPROG
-         ((|st| (|Stream| (|Integer|))) (#1=#:G180 NIL) (#2=#:G181 NIL)
+         ((|st| (|Stream| (|Integer|))) (#1=#:G181 NIL) (#2=#:G182 NIL)
           (|i| NIL) (|n| (|Integer|)))
          (SEQ
           (EXIT
@@ -81,7 +81,7 @@
                   (EXIT
                    (COND
                     ((SPADCALL |st| (QREFELT $ 30))
-                     (PROGN (LETT #1# 'T . #3#) (GO #4=#:G179)))
+                     (PROGN (LETT #1# 'T . #3#) (GO #4=#:G180)))
                     ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0 (QREFELT $ 27))
                      (PROGN (LETT #1# 'NIL . #3#) (GO #4#)))
                     ('T (LETT |st| (SPADCALL |st| (QREFELT $ 39)) . #3#)))))
@@ -90,7 +90,7 @@
           #4# (EXIT #1#)))) 
 
 (SDEFUN |IPADIC;order;$Nni;16| ((|x| $) ($ |NonNegativeInteger|))
-        (SPROG ((|st| ($)) (#1=#:G187 NIL) (|i| NIL))
+        (SPROG ((|st| ($)) (#1=#:G188 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -102,7 +102,7 @@
                         (EXIT
                          (COND
                           ((SPADCALL |st| (QREFELT $ 30))
-                           (PROGN (LETT #1# 0 . #2#) (GO #3=#:G186)))
+                           (PROGN (LETT #1# 0 . #2#) (GO #3=#:G187)))
                           ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0
                                      (QREFELT $ 27))
                            (PROGN (LETT #1# |i| . #2#) (GO #3#)))
@@ -612,7 +612,7 @@
           (LETT |p| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G374 NIL) (|num| NIL) (|digit| NIL))
+            (SPROG ((#2=#:G375 NIL) (|num| NIL) (|digit| NIL))
                    (SEQ
                     (LETT |num|
                           (SPADCALL
@@ -697,14 +697,14 @@
                                 (SPADCALL (SPADCALL |c| (QREFELT $ 10)) |mon|
                                           (QREFELT $ 77))))))))))) 
 
-(PUT '|IPADIC;showAll?| '|SPADreplace| '(XLAM NIL 'T)) 
+(PUT '|IPADIC;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |IPADIC;showAll?| (($ |Boolean|)) 'T) 
+(SDEFUN |IPADIC;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
 
 (SDEFUN |IPADIC;coerce;$Of;43| ((|x| $) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|st| ($)) (|n| NIL) (#1=#:G409 NIL)
-          (|count| (|NonNegativeInteger|)))
+         ((|l| (|List| (|OutputForm|))) (|st| ($)) (|st1| ($)) (|n| NIL)
+          (#1=#:G412 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ
           (COND
            ((SPADCALL
@@ -735,31 +735,40 @@
                       (EXIT NIL))
                  (COND
                   ((|IPADIC;showAll?| $)
-                   (SEQ (LETT |n| (+ |count| 1) . #2#) G190
-                        (COND
-                         ((NULL
-                           (COND
-                            ((SPADCALL |st| (QREFELT $ 78))
-                             (COND
-                              ((SPADCALL |st| (SPADCALL |st| (QREFELT $ 33))
-                                         (QREFELT $ 79))
-                               'NIL)
-                              ('T 'T)))
-                            ('T 'NIL)))
-                          (GO G191)))
-                        (SEQ
-                         (COND
-                          ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0
-                                     (QREFELT $ 27))
-                           (LETT |l|
-                                 (CONS
-                                  (|IPADIC;termOutput| |n|
-                                   (SPADCALL |st| (QREFELT $ 31)) $)
-                                  |l|)
-                                 . #2#)))
-                         (EXIT
-                          (LETT |st| (SPADCALL |st| (QREFELT $ 33)) . #2#)))
-                        (LETT |n| (+ |n| 1) . #2#) (GO G190) G191 (EXIT NIL))))
+                   (SEQ (LETT |st1| |st| . #2#)
+                        (EXIT
+                         (SEQ (LETT |n| (+ |count| 1) . #2#) G190
+                              (COND
+                               ((NULL
+                                 (COND
+                                  ((SPADCALL |st| (QREFELT $ 78))
+                                   (COND
+                                    ((SPADCALL |st1|
+                                               (SPADCALL |st| (QREFELT $ 33))
+                                               (QREFELT $ 79))
+                                     'NIL)
+                                    ('T 'T)))
+                                  ('T 'NIL)))
+                                (GO G191)))
+                              (SEQ
+                               (COND
+                                ((SPADCALL (SPADCALL |st| (QREFELT $ 31)) 0
+                                           (QREFELT $ 27))
+                                 (LETT |l|
+                                       (CONS
+                                        (|IPADIC;termOutput| |n|
+                                         (SPADCALL |st| (QREFELT $ 31)) $)
+                                        |l|)
+                                       . #2#)))
+                               (COND
+                                ((ODDP |n|)
+                                 (LETT |st1| (SPADCALL |st1| (QREFELT $ 33))
+                                       . #2#)))
+                               (EXIT
+                                (LETT |st| (SPADCALL |st| (QREFELT $ 33))
+                                      . #2#)))
+                              (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
+                              (EXIT NIL))))))
                  (LETT |l|
                        (COND ((SPADCALL |st| (QREFELT $ 80)) |l|)
                              (#3#
@@ -789,9 +798,9 @@
 
 (DECLAIM (NOTINLINE |InnerPAdicInteger;|)) 
 
-(DEFUN |InnerPAdicInteger| (&REST #1=#:G421)
+(DEFUN |InnerPAdicInteger| (&REST #1=#:G424)
   (SPROG NIL
-         (PROG (#2=#:G422)
+         (PROG (#2=#:G425)
            (RETURN
             (COND
              ((LETT #2#

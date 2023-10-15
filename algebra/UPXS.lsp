@@ -80,7 +80,7 @@
         ((|x| |UnivariateLaurentSeries| |Coef| |var| |cen|) (|term| |Coef|)
          (|n| |Integer|) ($ |Coef|))
         (SPROG
-         ((|app| (|Coef|)) (#1=#:G146 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
+         ((|app| (|Coef|)) (#1=#:G147 NIL) (|m| (|Integer|)) (|e| (|Integer|)))
          (SEQ
           (LETT |m|
                 (- |n|
@@ -159,16 +159,16 @@
                       (SPADCALL (SPADCALL |c| (QREFELT $ 66)) |mon|
                                 (QREFELT $ 72))))))))))) 
 
-(PUT '|UPXS;showAll?| '|SPADreplace| '(XLAM NIL 'T)) 
+(PUT '|UPXS;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |UPXS;showAll?| (($ |Boolean|)) 'T) 
+(SDEFUN |UPXS;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
 
 (SDEFUN |UPXS;termsToOutputForm|
         ((|m| |Fraction| (|Integer|)) (|rat| |Fraction| (|Integer|))
          (|uu| |Stream| |Coef|) (|xxx| |OutputForm|) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|n| NIL) (#1=#:G175 NIL)
-          (|count| (|NonNegativeInteger|)))
+         ((|l| (|List| (|OutputForm|))) (|uu1| (|Stream| |Coef|)) (|n| NIL)
+          (#1=#:G178 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |l| NIL . #2=(|UPXS;termsToOutputForm|))
               (EXIT
                (COND
@@ -202,37 +202,48 @@
                            (EXIT NIL))
                       (COND
                        ((|UPXS;showAll?| $)
-                        (SEQ (LETT |n| (+ |count| 1) . #2#) G190
-                             (COND
-                              ((NULL
-                                (COND
-                                 ((SPADCALL |uu| (QREFELT $ 76))
-                                  (COND
-                                   ((SPADCALL |uu|
-                                              (SPADCALL |uu| (QREFELT $ 51))
-                                              (QREFELT $ 77))
-                                    'NIL)
-                                   ('T 'T)))
-                                 ('T 'NIL)))
-                               (GO G191)))
-                             (SEQ
-                              (COND
-                               ((SPADCALL (SPADCALL |uu| (QREFELT $ 48))
-                                          (|spadConstant| $ 30) (QREFELT $ 73))
-                                (LETT |l|
-                                      (CONS
-                                       (|UPXS;termOutput|
-                                        (SPADCALL
-                                         (SPADCALL |n| |rat| (QREFELT $ 74))
-                                         |m| (QREFELT $ 75))
-                                        (SPADCALL |uu| (QREFELT $ 48)) |xxx| $)
-                                       |l|)
-                                      . #2#)))
-                              (EXIT
-                               (LETT |uu| (SPADCALL |uu| (QREFELT $ 51))
-                                     . #2#)))
-                             (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
-                             (EXIT NIL))))
+                        (SEQ (LETT |uu1| |uu| . #2#)
+                             (EXIT
+                              (SEQ (LETT |n| (+ |count| 1) . #2#) G190
+                                   (COND
+                                    ((NULL
+                                      (COND
+                                       ((SPADCALL |uu| (QREFELT $ 76))
+                                        (COND
+                                         ((SPADCALL |uu1|
+                                                    (SPADCALL |uu|
+                                                              (QREFELT $ 51))
+                                                    (QREFELT $ 77))
+                                          'NIL)
+                                         ('T 'T)))
+                                       ('T 'NIL)))
+                                     (GO G191)))
+                                   (SEQ
+                                    (COND
+                                     ((SPADCALL (SPADCALL |uu| (QREFELT $ 48))
+                                                (|spadConstant| $ 30)
+                                                (QREFELT $ 73))
+                                      (LETT |l|
+                                            (CONS
+                                             (|UPXS;termOutput|
+                                              (SPADCALL
+                                               (SPADCALL |n| |rat|
+                                                         (QREFELT $ 74))
+                                               |m| (QREFELT $ 75))
+                                              (SPADCALL |uu| (QREFELT $ 48))
+                                              |xxx| $)
+                                             |l|)
+                                            . #2#)))
+                                    (COND
+                                     ((ODDP |n|)
+                                      (LETT |uu1|
+                                            (SPADCALL |uu1| (QREFELT $ 51))
+                                            . #2#)))
+                                    (EXIT
+                                     (LETT |uu| (SPADCALL |uu| (QREFELT $ 51))
+                                           . #2#)))
+                                   (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
+                                   (EXIT NIL))))))
                       (LETT |l|
                             (COND ((SPADCALL |uu| (QREFELT $ 78)) |l|)
                                   (#3#
@@ -303,9 +314,9 @@
 
 (DECLAIM (NOTINLINE |UnivariatePuiseuxSeries;|)) 
 
-(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G207)
+(DEFUN |UnivariatePuiseuxSeries| (&REST #1=#:G210)
   (SPROG NIL
-         (PROG (#2=#:G208)
+         (PROG (#2=#:G211)
            (RETURN
             (COND
              ((LETT #2#
@@ -325,8 +336,8 @@
 
 (DEFUN |UnivariatePuiseuxSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G198 NIL) (#2=#:G199 NIL) (#3=#:G200 NIL) (#4=#:G201 NIL)
-    (#5=#:G202 NIL) (#6=#:G203 NIL) (#7=#:G205 NIL) ($ NIL) (|dv$| NIL)
+   ((|pv$| NIL) (#1=#:G201 NIL) (#2=#:G202 NIL) (#3=#:G203 NIL) (#4=#:G204 NIL)
+    (#5=#:G205 NIL) (#6=#:G206 NIL) (#7=#:G208 NIL) ($ NIL) (|dv$| NIL)
     (DV$3 NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|UnivariatePuiseuxSeries|))

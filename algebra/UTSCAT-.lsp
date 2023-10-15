@@ -50,15 +50,16 @@
                            (SPADCALL (SPADCALL |c| (QREFELT $ 19)) |mon|
                                      (QREFELT $ 28))))))))))) 
 
-(PUT '|UTSCAT-;showAll?| '|SPADreplace| '(XLAM NIL 'T)) 
+(PUT '|UTSCAT-;showAll?| '|SPADreplace| '(XLAM NIL |$streamsShowAll|)) 
 
-(SDEFUN |UTSCAT-;showAll?| (($ |Boolean|)) 'T) 
+(SDEFUN |UTSCAT-;showAll?| (($ |Boolean|)) |$streamsShowAll|) 
 
 (SDEFUN |UTSCAT-;coerce;SOf;5| ((|p| S) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| |Coef|)) (|n| NIL)
-          (#1=#:G160 NIL) (|count| (|NonNegativeInteger|))
-          (|vv| (|OutputForm|)) (|cen| (|Coef|)) (|var| (|Symbol|)))
+         ((|l| (|List| (|OutputForm|))) (|uu| (|Stream| |Coef|))
+          (|uu1| (|Stream| |Coef|)) (|n| NIL) (#1=#:G163 NIL)
+          (|count| (|NonNegativeInteger|)) (|vv| (|OutputForm|))
+          (|cen| (|Coef|)) (|var| (|Symbol|)))
          (SEQ
           (COND
            ((SPADCALL
@@ -103,31 +104,41 @@
                       (EXIT NIL))
                  (COND
                   ((|UTSCAT-;showAll?| $)
-                   (SEQ (LETT |n| (+ |count| 1) . #2#) G190
-                        (COND
-                         ((NULL
-                           (COND
-                            ((SPADCALL |uu| (QREFELT $ 36))
-                             (COND
-                              ((SPADCALL |uu| (SPADCALL |uu| (QREFELT $ 14))
-                                         (QREFELT $ 37))
-                               'NIL)
-                              ('T 'T)))
-                            ('T 'NIL)))
-                          (GO G191)))
-                        (SEQ
-                         (COND
-                          ((SPADCALL (SPADCALL |uu| (QREFELT $ 12))
-                                     (|spadConstant| $ 17) (QREFELT $ 35))
-                           (LETT |l|
-                                 (CONS
-                                  (|UTSCAT-;termOutput| |n|
-                                   (SPADCALL |uu| (QREFELT $ 12)) |vv| $)
-                                  |l|)
-                                 . #2#)))
-                         (EXIT
-                          (LETT |uu| (SPADCALL |uu| (QREFELT $ 14)) . #2#)))
-                        (LETT |n| (+ |n| 1) . #2#) (GO G190) G191 (EXIT NIL))))
+                   (SEQ (LETT |uu1| |uu| . #2#)
+                        (EXIT
+                         (SEQ (LETT |n| (+ |count| 1) . #2#) G190
+                              (COND
+                               ((NULL
+                                 (COND
+                                  ((SPADCALL |uu| (QREFELT $ 36))
+                                   (COND
+                                    ((SPADCALL |uu1|
+                                               (SPADCALL |uu| (QREFELT $ 14))
+                                               (QREFELT $ 37))
+                                     'NIL)
+                                    ('T 'T)))
+                                  ('T 'NIL)))
+                                (GO G191)))
+                              (SEQ
+                               (COND
+                                ((SPADCALL (SPADCALL |uu| (QREFELT $ 12))
+                                           (|spadConstant| $ 17)
+                                           (QREFELT $ 35))
+                                 (LETT |l|
+                                       (CONS
+                                        (|UTSCAT-;termOutput| |n|
+                                         (SPADCALL |uu| (QREFELT $ 12)) |vv| $)
+                                        |l|)
+                                       . #2#)))
+                               (COND
+                                ((ODDP |n|)
+                                 (LETT |uu1| (SPADCALL |uu1| (QREFELT $ 14))
+                                       . #2#)))
+                               (EXIT
+                                (LETT |uu| (SPADCALL |uu| (QREFELT $ 14))
+                                      . #2#)))
+                              (LETT |n| (+ |n| 1) . #2#) (GO G190) G191
+                              (EXIT NIL))))))
                  (LETT |l|
                        (COND ((SPADCALL |uu| (QREFELT $ 38)) |l|)
                              (#3#
