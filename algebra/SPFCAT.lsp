@@ -27,6 +27,7 @@
                        ((|weierstrassPPrime| ($ $ $ $)) T)
                        ((|weierstrassSigma| ($ $ $ $)) T)
                        ((|weierstrassZeta| ($ $ $ $)) T)
+                       ((|weierstrassPInverse| ($ $ $ $)) T)
                        ((|whittakerM| ($ $ $ $)) T)
                        ((|whittakerW| ($ $ $ $)) T) ((|angerJ| ($ $ $)) T)
                        ((|weberE| ($ $ $)) T) ((|struveH| ($ $ $)) T)
