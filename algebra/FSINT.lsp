@@ -45,7 +45,7 @@
                   (PROGN
                    (LETT #2# NIL . #3=(|FSINT;rinteg|))
                    (SEQ (LETT |f| NIL . #3#)
-                        (LETT #1# (SPADCALL |i| (QREFELT $ 42)) . #3#) G190
+                        (LETT #1# (SPADCALL |i| |x| (QREFELT $ 42)) . #3#) G190
                         (COND
                          ((OR (ATOM #1#)
                               (PROGN (LETT |f| (CAR #1#) . #3#) NIL))
@@ -989,49 +989,49 @@
               (|TranscendentalManipulations| 6 7) (61 . |htrigs|)
               (|IntegrationResult| 7) (66 . |elem?|) (71 . |integral|)
               (|IntegrationResultToFunction| 6 7) (77 . |expand|)
-              (|PositiveInteger|) (82 . *) (88 . |One|) (92 . |One|)
-              (96 . |cos|) (101 . -) (107 . +) (113 . /) (119 . |sin|)
-              (124 . |coerce|) (129 . |operator|) (134 . ~=)
-              (|ElementaryFunctionStructurePackage| 6 7) (140 . |normalize|)
-              (145 . |Zero|) (149 . =) (|TrigonometricManipulations| 6 7)
-              (155 . |real|) (|Union| 24 '"failed") (160 . |retractIfCan|)
-              (165 . |has?|) (|SparseUnivariatePolynomial| $) (171 . |minPoly|)
+              (|PositiveInteger|) (83 . *) (89 . |One|) (93 . |One|)
+              (97 . |cos|) (102 . -) (108 . +) (114 . /) (120 . |sin|)
+              (125 . |coerce|) (130 . |operator|) (135 . ~=)
+              (|ElementaryFunctionStructurePackage| 6 7) (141 . |normalize|)
+              (146 . |Zero|) (150 . =) (|TrigonometricManipulations| 6 7)
+              (156 . |real|) (|Union| 24 '"failed") (161 . |retractIfCan|)
+              (166 . |has?|) (|SparseUnivariatePolynomial| $) (172 . |minPoly|)
               (|SparseUnivariatePolynomial| 7)
               (|PolynomialCategoryQuotientFunctions| (|IndexedExponents| 18) 18
                                                      6 129 7)
-              (176 . |univariate|) (183 . |elt|) (|List| 24) (|List| $)
-              (189 . |eval|) (196 . |is?|) (202 . |kernels|) (|Integer|)
-              (|List| 18) (207 . |elt|) (213 . |member?|) (219 . |tower|)
-              (|Mapping| $ $) (224 . |eval|) (232 . |removeSinSq|)
-              (237 . |removeConstantTerm|) (243 . |Zero|) (|Complex| 6)
-              (247 . |complex|) (|Kernel| 20) (253 . |is?|) (259 . *) (265 . *)
-              (271 . -) (276 . |coerce|) (281 . |One|) (285 . +) (291 . -)
-              (297 . /) (303 . |retractIfCan|) (308 . -) (313 . |sqrt|)
-              (318 . |kernels|) (|List| 87) (323 . |elt|) (329 . =)
-              (335 . FG2F) (340 . |subst|) (347 . |subst|)
+              (177 . |univariate|) (184 . |elt|) (|List| 24) (|List| $)
+              (190 . |eval|) (197 . |is?|) (203 . |kernels|) (|Integer|)
+              (|List| 18) (208 . |elt|) (214 . |member?|) (220 . |tower|)
+              (|Mapping| $ $) (225 . |eval|) (233 . |removeSinSq|)
+              (238 . |removeConstantTerm|) (244 . |Zero|) (|Complex| 6)
+              (248 . |complex|) (|Kernel| 20) (254 . |is?|) (260 . *) (266 . *)
+              (272 . -) (277 . |coerce|) (282 . |One|) (286 . +) (292 . -)
+              (298 . /) (304 . |retractIfCan|) (309 . -) (314 . |sqrt|)
+              (319 . |kernels|) (|List| 87) (324 . |elt|) (330 . =)
+              (336 . FG2F) (341 . |subst|) (348 . |subst|)
               (|FunctionSpaceComplexIntegration| 6 7)
-              (354 . |complexIntegrate|) (360 . |real?|) (365 . |coerce|)
-              (370 . |distribute|) (|Mapping| 28 18) (376 . |select|)
-              (382 . |any?|) (388 . |realLiouvillian|) (394 . ~=)
-              (400 . |name|) (405 . *)
+              (355 . |complexIntegrate|) (361 . |real?|) (366 . |coerce|)
+              (371 . |distribute|) (|Mapping| 28 18) (377 . |select|)
+              (383 . |any?|) (389 . |realLiouvillian|) (395 . ~=)
+              (401 . |name|) (406 . *)
               (|Record| (|:| |func| 7) (|:| |kers| 76) (|:| |vals| 17))
-              (411 . |rischNormalize|) (417 . |elt|) (423 . |retract|)
+              (412 . |rischNormalize|) (418 . |elt|) (424 . |retract|)
               (|Record| (|:| |exponent| 13) (|:| |coef| 7) (|:| |radicand| 7))
               (|PolynomialRoots| (|IndexedExponents| 18) 18 6 129 7)
-              (428 . |froot|) (|SparseMultivariatePolynomial| 6 24)
-              (434 . |numer|) (|Union| 6 '"failed")
-              (|SparseMultivariatePolynomial| 6 18) (439 . |retractIfCan|)
-              (444 . |coerce|) (449 . |kernel|) (455 . |retract|) (|List| 12)
-              (460 . |variables|) (465 . |member?|) (471 . |tower|)
-              (476 . |trigs2explogs|) (482 . |eval|) (|IntegrationResult| 20)
-              (|ElementaryIntegration| 85 20) (489 . |lfintegrate|)
+              (429 . |froot|) (|SparseMultivariatePolynomial| 6 24)
+              (435 . |numer|) (|Union| 6 '"failed")
+              (|SparseMultivariatePolynomial| 6 18) (440 . |retractIfCan|)
+              (445 . |coerce|) (450 . |kernel|) (456 . |retract|) (|List| 12)
+              (461 . |variables|) (466 . |member?|) (472 . |tower|)
+              (477 . |trigs2explogs|) (483 . |eval|) (|IntegrationResult| 20)
+              (|ElementaryIntegration| 85 20) (490 . |lfintegrate|)
               (|Mapping| 7 20) (|IntegrationResultFunctions2| 20 7)
-              (495 . |map|) (|GenusZeroIntegration| 6 7 7)
-              (501 . |rationalize_ir|) (|ElementaryIntegration| 6 7)
-              (507 . |lfintegrate|) (|Mapping| 7 7)
-              (|IntegrationResultFunctions2| 7 7) (513 . |map|)
-              (519 . |setDifference|) (|Union| 7 17) |FSINT;integrate;FSU;15|)
-           '#(|integrate| 525) 'NIL
+              (496 . |map|) (|GenusZeroIntegration| 6 7 7)
+              (502 . |rationalize_ir|) (|ElementaryIntegration| 6 7)
+              (508 . |lfintegrate|) (|Mapping| 7 7)
+              (|IntegrationResultFunctions2| 7 7) (514 . |map|)
+              (520 . |setDifference|) (|Union| 7 17) |FSINT;integrate;FSU;15|)
+           '#(|integrate| 526) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
@@ -1043,15 +1043,15 @@
                                                    29 1 7 30 0 31 2 30 28 32 0
                                                    33 2 34 7 7 12 35 1 36 7 7
                                                    37 1 38 28 0 39 2 7 0 0 12
-                                                   40 1 41 17 38 42 2 7 0 43 0
-                                                   44 0 6 0 45 0 7 0 46 1 7 0 0
-                                                   47 2 7 0 0 0 48 2 7 0 0 0 49
-                                                   2 7 0 0 0 50 1 7 0 0 51 1 7
-                                                   0 24 52 1 18 14 0 53 2 13 28
-                                                   0 0 54 1 55 7 7 56 0 7 0 57
-                                                   2 7 28 0 0 58 1 59 7 7 60 1
-                                                   7 61 0 62 2 14 28 0 12 63 1
-                                                   7 64 24 65 3 67 66 7 18 66
+                                                   40 2 41 17 38 12 42 2 7 0 43
+                                                   0 44 0 6 0 45 0 7 0 46 1 7 0
+                                                   0 47 2 7 0 0 0 48 2 7 0 0 0
+                                                   49 2 7 0 0 0 50 1 7 0 0 51 1
+                                                   7 0 24 52 1 18 14 0 53 2 13
+                                                   28 0 0 54 1 55 7 7 56 0 7 0
+                                                   57 2 7 28 0 0 58 1 59 7 7 60
+                                                   1 7 61 0 62 2 14 28 0 12 63
+                                                   1 7 64 24 65 3 67 66 7 18 66
                                                    68 2 66 7 0 7 69 3 7 0 0 70
                                                    71 72 2 18 28 0 12 73 1 7 70
                                                    0 74 2 76 18 0 75 77 2 76 28
