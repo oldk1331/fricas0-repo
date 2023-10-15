@@ -2276,7 +2276,7 @@
 ;     null argl => '".."
 ;     (null rest argl) or (null first rest argl) =>
 ;       concat(first argl, '"..")
-;     concat(first argl, concat('"..", first rest argl))
+;     concat('"(", first argl, concat('"..", first rest argl), '")")
 ;   concat(app2StringWrap(formWrapId op, linkInfo) ,
 ;                         concat("_(",concat(tuple2String argl,"_)")))
  
@@ -2314,7 +2314,9 @@
        (COND ((NULL |argl|) "..")
              ((OR (NULL (CDR |argl|)) (NULL (CAR (CDR |argl|))))
               (|concat| (CAR |argl|) ".."))
-             (#1# (|concat| (CAR |argl|) (|concat| ".." (CAR (CDR |argl|)))))))
+             (#1#
+              (|concat| "(" (CAR |argl|) (|concat| ".." (CAR (CDR |argl|)))
+               ")"))))
       (#1#
        (|concat| (|app2StringWrap| (|formWrapId| |op|) |linkInfo|)
         (|concat| '|(| (|concat| (|tuple2String| |argl|) '|)|))))))))
