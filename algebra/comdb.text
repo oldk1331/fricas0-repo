@@ -329,11 +329,11 @@
 19634`--an product} \indented{2}{\spad{x^y = \#(X^Y)}\space{2}\tab{30}\spad{X^Y = \{g| g: Y->X\}}} \blankline The non-negative integers have a natural construction as cardinals \indented{2}{\spad{0 = \#\{\}},{} \spad{1 = \{0\}},{} \spad{2 = \{0,{} 1\}},{} ...,{} \spad{n = \{i| 0 <= i < n\}}.} \blankline That \spad{0} acts as a zero for the multiplication of cardinals is equivalent to the axiom of choice. \blankline The generalized continuum hypothesis asserts \center{\spad{2^Aleph i = Aleph(i+1)}} and
 19634`-- is independent of the axioms of set theory [Goedel 1940]. \blankline Three commonly encountered cardinal numbers are \indented{3}{\spad{a = \#Z}\space{7}\tab{30}countable infinity} \indented{3}{\spad{c = \#R}\space{7}\tab{30}the continuum} \indented{3}{\spad{f = \#\{g| g: [0,{} 1]->R\}}} \blankline In this domain,{} these values are obtained using \indented{3}{\spad{a := Aleph 0},{} \spad{c := 2^a},{} \spad{f := 2^c}.} \blankline
 19691`CartesianTensor(minix,{} dim,{} \spad{R}) provides Cartesian tensors with components belonging to a commutative ring \spad{R}. These tensors can have any number of indices. Each index takes values from \spad{minix} to \spad{minix + dim - 1}.
-19918`\indented{2}{Delta Complexes are defined by a sequence of 'face maps',{} These can} \indented{2}{be represented by a list of matrices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/chain/index.\spad{htm}} Date Created: March 2016 Basic Operations: Related packages: Related categories: Related Domains: CoChainComplex Also See: AMS Classifications:
+19918`\indented{2}{Delta Complexes are defined by a sequence of 'face maps',{} These} \indented{2}{can be represented by a list of matrices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/chain/} Date Created: March 2016 Basic Operations: Related packages: Related categories: Related Domains: CoChainComplex Also See: AMS Classifications:
 19976`This domain provides the basic character data type.
 20031`This domain allows classes of characters to be defined and manipulated efficiently.
 20091`CliffordAlgebra(\spad{n},{} \spad{K},{} bLin) defines a module of dimension \spad{2^n} over \spad{K},{} given a bilinear form bLin on \spad{K^n}. \blankline Examples of Clifford Algebras are: gaussians,{} quaternions,{} exterior algebras and spin algebras.
-20196`\indented{2}{Delta Complexes are defined by a sequence of 'face maps',{} These can} \indented{2}{be represented by a list of matrices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/chain/cochain/index.\spad{htm}} Date Created: Jan 2016 Basic Operations: Related packages: Related categories: Related Domains: ChainComplex Also See: AMS Classifications:
+20196`\indented{2}{Delta Complexes are defined by a sequence of 'face maps',{} These can} \indented{2}{be represented by a list of matrices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/chain/cochain/} Date Created: Jan 2016 Basic Operations: Related packages: Related categories: Related Domains: ChainComplex Also See: AMS Classifications:
 20272`Color() specifies a domain of 27 colors provided in the \Language{} system (the colors mix additively).
 20327`A type for basic commutators
 20381`\spadtype {Complex(R)} creates the domain of elements of the form \spad{a + b * i} where \spad{a} and \spad{b} come from the ring \spad{R},{} and \spad{i} is a new element such that \spad{i^2 = -1}.
@@ -346,8 +346,8 @@
 20916`\indented{1}{This domain implements a simple view of a database whose fields are} indexed by symbols
 20992`This domain provides some nice functions on lists
 21063`This domain allows rational numbers to be presented as repeating decimal expansions.
-21145`\indented{2}{Similar to Simplicial Complex but faces (edges,{} triangles,{} etc.) are} \indented{2}{indexed by 'face maps' into the next lower face map until we get} \indented{2}{down to the vertices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/delta/} Date Created: Feb 2016 Basic Operations: Related packages: Related categories: Related Domains: FiniteSim
-21145`--plicialComplex is a simpler and more compact \indented{3}{representation which can be used if edges,{} triangles,{} etc. don\spad{'t} need} \indented{3}{to be indexed.} Also See: AMS Classifications:
+21145`\indented{2}{Similar to Simplicial Complex but faces (edges,{} triangles,{} etc.)} \indented{2}{are indexed by 'face maps' into the next lower face map until} \indented{2}{we get down to the vertices.} \indented{2}{for more documentation see:} \indented{2}{http://www.euclideanspace.com/prog/scratchpad/mycode/topology/delta/} Date Created: Feb 2016 Basic Operations: Related packages: Related categories: Related Domains: FiniteSim
+21145`--plicialComplex is a simpler and more \indented{3}{compact representation which can be used if edges,{} triangles,{}} \indented{3}{etc. don\spad{'t} need to be indexed.} Also See: AMS Classifications:
 21219`\indented{1}{A Denavit-Hartenberg Matrix is a 4x4 Matrix of the form:} \indented{1}{\spad{nx ox ax px}} \indented{1}{\spad{ny oy ay py}} \indented{1}{\spad{nz oz az pz}} \indented{2}{\spad{0\space{2}0\space{2}0\space{2}1}} (\spad{n},{} \spad{o},{} and a are the direction cosines)
 21334`Linked list implementation of a Dequeue
 21410`The deRham complex of Euclidean space,{} that is,{} the class of differential forms of arbitary degree over a coefficient ring. See Flanders,{} Harley,{} Differential Forms,{} With Applications to the Physical Sciences,{} New York,{} Academic Press,{} 1963.
@@ -8221,7 +8221,7 @@
 904607`\spad{torsionIfCan(f)} \undocumented
 904761`generate a minimal 3-dimensional torus surface.
 904834`generate a cubical complex of the surface of an 3-dimensional torus.
-904918`generate a minimal triangulation of the surface of an 3-dimensional torus.
+904918`generate a minimal triangulation of the surface of a 3-dimensional torus.
 905007`\spad{toScale(b)} specifies whether or not a plot is to be drawn to scale; if \spad{b} is \spad{true} it is drawn to scale,{} if \spad{b} is \spad{false} it is not. This option is expressed in the form \spad{toScale == b}.
 905055`\spad{toScale(l,{} b)} takes the list of draw options,{} \spad{l},{} and checks the list to see if it contains the option \spad{toScale}. If the option does not exist the value,{} \spad{b} is returned.
 905135`\spad{toseInvertible?(p1,{} p2,{} ts)} has the same specifications as \spadopFrom{invertible?}{RegularTriangularSetCategory}.
