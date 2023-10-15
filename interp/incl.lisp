@@ -355,6 +355,10 @@
  
 (EVAL-WHEN (EVAL LOAD) (SETQ |ElseKeepPart| 31))
  
+; Continuation   := 41
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |Continuation| 41))
+ 
 ; Top?     (st) == QUOTIENT(st,10) = 0
  
 (DEFUN |Top?| (|st|) (PROG () (RETURN (EQL (QUOTIENT |st| 10) 0))))
@@ -625,11 +629,26 @@
 ;                 StreamNil
 ; 
 ;             str  :=  EXPAND_-TABS first ss
+;             has_cont :=
+;                 (nn := #str) < 1 => false
+;                 str.(nn - 1) = char('"__")
+; 
+;             state = Continuation =>
+;                 rs :=
+;                     has_cont => Rest(s)
+;                     incLude(eb, rest ss, lno, ufos, rest(states))
+;                 Skipping?(states.1) => cons(xlSkip(eb,str,lno,ufos.0), rs)
+;                 cons(xlOK(eb, str, lno, ufos.0), rs)
+; 
 ;             info :=  incClassify str
 ; 
 ;             not info.0 =>
-;                 Skipping? state => cons(xlSkip(eb,str,lno,ufos.0), Rest s)
-;                 cons(xlOK(eb, str, lno, ufos.0),Rest s)
+;                 rs :=
+;                     has_cont => incLude(eb, rest ss, lno, ufos,
+;                                         cons(Continuation, states))
+;                     Rest(s)
+;                 Skipping? state => cons(xlSkip(eb,str,lno,ufos.0), rs)
+;                 cons(xlOK(eb, str, lno, ufos.0), rs)
 ; 
 ;             info.2 = '"other" =>
 ;                 Skipping? state => cons(xlSkip(eb,str,lno,ufos.0), Rest s)
@@ -737,8 +756,8 @@
 ;             cons(xlCmdBug(eb, str, lno,ufos), StreamNil)
  
 (DEFUN |incLude1| (&REST |z|)
-  (PROG (|eb| |ss| |ln| |ufos| |states| |lno| |state| |str| |info| |fn1|
-         |Includee| |Head| |Tail| |n| |s1| |pred|)
+  (PROG (|eb| |ss| |ln| |ufos| |states| |lno| |state| |str| |nn| |has_cont|
+         |rs| |info| |fn1| |Includee| |Head| |Tail| |n| |s1| |pred|)
     (RETURN
      (PROGN
       (SETQ |eb| (CAR |z|))
@@ -758,150 +777,180 @@
        (#2#
         (PROGN
          (SETQ |str| (EXPAND-TABS (CAR |ss|)))
-         (SETQ |info| (|incClassify| |str|))
+         (SETQ |has_cont|
+                 (COND ((< (SETQ |nn| (LENGTH |str|)) 1) NIL)
+                       (#2# (EQUAL (ELT |str| (- |nn| 1)) (|char| "_")))))
          (COND
-          ((NULL (ELT |info| 0))
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-            (#2#
-             (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))))
-          ((EQUAL (ELT |info| 2) "other")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-            (#2#
-             (CONS
-              (|xlOK1| |eb| |str| (CONCAT ")command" |str|) |lno|
-               (ELT |ufos| 0))
-              (|Rest| |s|)))))
-          ((EQUAL (ELT |info| 2) "say")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-            (#2#
-             (PROGN
-              (SETQ |str| (|incCommandTail| |str| |info|))
-              (CONS (|xlSay| |eb| |str| |lno| |ufos| |str|)
-                    (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                          (|Rest| |s|)))))))
-          ((EQUAL (ELT |info| 2) "include")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-            (#2#
-             (PROGN
-              (SETQ |fn1| (|inclFname| |str| |info|))
+          ((EQUAL |state| |Continuation|)
+           (PROGN
+            (SETQ |rs|
+                    (COND (|has_cont| (|Rest| |s|))
+                          (#2#
+                           (|incLude| |eb| (CDR |ss|) |lno| |ufos|
+                            (CDR |states|)))))
+            (COND
+             ((|Skipping?| (ELT |states| 1))
+              (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) |rs|))
+             (#2# (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0)) |rs|)))))
+          (#2#
+           (PROGN
+            (SETQ |info| (|incClassify| |str|))
+            (COND
+             ((NULL (ELT |info| 0))
+              (PROGN
+               (SETQ |rs|
+                       (COND
+                        (|has_cont|
+                         (|incLude| |eb| (CDR |ss|) |lno| |ufos|
+                          (CONS |Continuation| |states|)))
+                        (#2# (|Rest| |s|))))
+               (COND
+                ((|Skipping?| |state|)
+                 (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) |rs|))
+                (#2# (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0)) |rs|)))))
+             ((EQUAL (ELT |info| 2) "other")
               (COND
-               ((NULL |fn1|)
-                (CONS (|xlNoFile| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
-               ((NULL (PROBE-FILE |fn1|))
-                (CONS (|xlCannotRead| |eb| |str| |lno| |ufos| |fn1|)
-                      (|Rest| |s|)))
-               ((|incActive?| |fn1| |ufos|)
-                (CONS (|xlFileCycle| |eb| |str| |lno| |ufos| |fn1|)
-                      (|Rest| |s|)))
+               ((|Skipping?| |state|)
+                (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
+               (#2#
+                (CONS
+                 (|xlOK1| |eb| |str| (CONCAT ")command" |str|) |lno|
+                  (ELT |ufos| 0))
+                 (|Rest| |s|)))))
+             ((EQUAL (ELT |info| 2) "say")
+              (COND
+               ((|Skipping?| |state|)
+                (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
                (#2#
                 (PROGN
-                 (SETQ |Includee|
-                         (|incLude| (+ |eb| (ELT |info| 1))
-                          (|incFileInput| |fn1|) 0 (CONS |fn1| |ufos|)
-                          (CONS |Top| |states|)))
-                 (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                       (|incAppend| |Includee| (|Rest| |s|))))))))))
-          ((EQUAL (ELT |info| 2) "console")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
-            (#2#
-             (PROGN
-              (SETQ |Head|
-                      (|incLude| (+ |eb| (ELT |info| 1)) (|incConsoleInput|) 0
-                       (CONS "console" |ufos|) (CONS |Top| |states|)))
-              (SETQ |Tail| (|Rest| |s|))
-              (SETQ |n| (|incNConsoles| |ufos|))
+                 (SETQ |str| (|incCommandTail| |str| |info|))
+                 (CONS (|xlSay| |eb| |str| |lno| |ufos| |str|)
+                       (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                             (|Rest| |s|)))))))
+             ((EQUAL (ELT |info| 2) "include")
               (COND
-               ((< 0 |n|)
-                (SETQ |Head|
-                        (CONS (|xlConActive| |eb| |str| |lno| |ufos| |n|)
-                              |Head|))
-                (SETQ |Tail|
-                        (CONS (|xlConStill| |eb| |str| |lno| |ufos| |n|)
-                              |Tail|))))
-              (SETQ |Head| (CONS (|xlConsole| |eb| |str| |lno| |ufos|) |Head|))
-              (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                    (|incAppend| |Head| |Tail|))))))
-          ((EQUAL (ELT |info| 2) "fin")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkippingFin| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
-            ((NULL (|Top?| |state|))
-             (CONS (|xlPrematureFin| |eb| |str| |lno| |ufos|) |StreamNil|))
-            (#2# (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0)) |StreamNil|))))
-          ((EQUAL (ELT |info| 2) "assert")
-           (COND
-            ((|Skipping?| |state|)
-             (CONS (|xlSkippingFin| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
-            (#2#
-             (PROGN
-              (|assertCond| |str| |info|)
-              (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                    (|incAppend| |Includee| (|Rest| |s|)))))))
-          ((EQUAL (ELT |info| 2) "if")
-           (PROGN
-            (SETQ |s1|
-                    (COND ((|Skipping?| |state|) |IfSkipToEnd|)
-                          (#2#
-                           (COND ((|ifCond| |str| |info|) |IfKeepPart|)
-                                 (#2# |IfSkipPart|)))))
-            (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                  (|incLude| |eb| (CDR |ss|) |lno| |ufos|
-                   (CONS |s1| |states|)))))
-          ((EQUAL (ELT |info| 2) "elseif")
-           (COND
-            ((AND (NULL (|If?| |state|)) (NULL (|Elseif?| |state|)))
-             (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
-                   |StreamNil|))
-            (#2#
-             (COND
-              ((OR (|SkipEnd?| |state|) (|KeepPart?| |state|)
-                   (|SkipPart?| |state|))
+               ((|Skipping?| |state|)
+                (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
+               (#2#
+                (PROGN
+                 (SETQ |fn1| (|inclFname| |str| |info|))
+                 (COND
+                  ((NULL |fn1|)
+                   (CONS (|xlNoFile| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
+                  ((NULL (PROBE-FILE |fn1|))
+                   (CONS (|xlCannotRead| |eb| |str| |lno| |ufos| |fn1|)
+                         (|Rest| |s|)))
+                  ((|incActive?| |fn1| |ufos|)
+                   (CONS (|xlFileCycle| |eb| |str| |lno| |ufos| |fn1|)
+                         (|Rest| |s|)))
+                  (#2#
+                   (PROGN
+                    (SETQ |Includee|
+                            (|incLude| (+ |eb| (ELT |info| 1))
+                             (|incFileInput| |fn1|) 0 (CONS |fn1| |ufos|)
+                             (CONS |Top| |states|)))
+                    (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                          (|incAppend| |Includee| (|Rest| |s|))))))))))
+             ((EQUAL (ELT |info| 2) "console")
+              (COND
+               ((|Skipping?| |state|)
+                (CONS (|xlSkip| |eb| |str| |lno| (ELT |ufos| 0)) (|Rest| |s|)))
+               (#2#
+                (PROGN
+                 (SETQ |Head|
+                         (|incLude| (+ |eb| (ELT |info| 1)) (|incConsoleInput|)
+                          0 (CONS "console" |ufos|) (CONS |Top| |states|)))
+                 (SETQ |Tail| (|Rest| |s|))
+                 (SETQ |n| (|incNConsoles| |ufos|))
+                 (COND
+                  ((< 0 |n|)
+                   (SETQ |Head|
+                           (CONS (|xlConActive| |eb| |str| |lno| |ufos| |n|)
+                                 |Head|))
+                   (SETQ |Tail|
+                           (CONS (|xlConStill| |eb| |str| |lno| |ufos| |n|)
+                                 |Tail|))))
+                 (SETQ |Head|
+                         (CONS (|xlConsole| |eb| |str| |lno| |ufos|) |Head|))
+                 (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                       (|incAppend| |Head| |Tail|))))))
+             ((EQUAL (ELT |info| 2) "fin")
+              (COND
+               ((|Skipping?| |state|)
+                (CONS (|xlSkippingFin| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
+               ((NULL (|Top?| |state|))
+                (CONS (|xlPrematureFin| |eb| |str| |lno| |ufos|) |StreamNil|))
+               (#2#
+                (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0)) |StreamNil|))))
+             ((EQUAL (ELT |info| 2) "assert")
+              (COND
+               ((|Skipping?| |state|)
+                (CONS (|xlSkippingFin| |eb| |str| |lno| |ufos|) (|Rest| |s|)))
+               (#2#
+                (PROGN
+                 (|assertCond| |str| |info|)
+                 (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                       (|incAppend| |Includee| (|Rest| |s|)))))))
+             ((EQUAL (ELT |info| 2) "if")
+              (PROGN
                (SETQ |s1|
-                       (COND
-                        ((|SkipPart?| |state|)
-                         (SETQ |pred| (|ifCond| |str| |info|))
-                         (COND (|pred| |ElseifKeepPart|)
-                               (#2# |ElseifSkipPart|)))
-                        (#2# |ElseifSkipToEnd|)))
+                       (COND ((|Skipping?| |state|) |IfSkipToEnd|)
+                             (#2#
+                              (COND ((|ifCond| |str| |info|) |IfKeepPart|)
+                                    (#2# |IfSkipPart|)))))
                (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
                      (|incLude| |eb| (CDR |ss|) |lno| |ufos|
-                      (CONS |s1| (CDR |states|)))))
-              (#2# (CONS (|xlIfBug| |eb| |str| |lno| |ufos|) |StreamNil|))))))
-          ((EQUAL (ELT |info| 2) "else")
-           (COND
-            ((AND (NULL (|If?| |state|)) (NULL (|Elseif?| |state|)))
-             (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
-                   |StreamNil|))
-            (#2#
-             (COND
-              ((OR (|SkipEnd?| |state|) (|KeepPart?| |state|)
-                   (|SkipPart?| |state|))
-               (SETQ |s1|
-                       (COND ((|SkipPart?| |state|) |ElseKeepPart|)
-                             (#2# |ElseSkipToEnd|)))
-               (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                     (|incLude| |eb| (CDR |ss|) |lno| |ufos|
-                      (CONS |s1| (CDR |states|)))))
-              (#2# (CONS (|xlIfBug| |eb| |str| |lno| |ufos|) |StreamNil|))))))
-          ((EQUAL (ELT |info| 2) "endif")
-           (COND
-            ((|Top?| |state|)
-             (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
-                   |StreamNil|))
-            (#2#
-             (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
-                   (|incLude| |eb| (CDR |ss|) |lno| |ufos| (CDR |states|))))))
-          (#2# (CONS (|xlCmdBug| |eb| |str| |lno| |ufos|) |StreamNil|))))))))))
+                      (CONS |s1| |states|)))))
+             ((EQUAL (ELT |info| 2) "elseif")
+              (COND
+               ((AND (NULL (|If?| |state|)) (NULL (|Elseif?| |state|)))
+                (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
+                      |StreamNil|))
+               (#2#
+                (COND
+                 ((OR (|SkipEnd?| |state|) (|KeepPart?| |state|)
+                      (|SkipPart?| |state|))
+                  (SETQ |s1|
+                          (COND
+                           ((|SkipPart?| |state|)
+                            (SETQ |pred| (|ifCond| |str| |info|))
+                            (COND (|pred| |ElseifKeepPart|)
+                                  (#2# |ElseifSkipPart|)))
+                           (#2# |ElseifSkipToEnd|)))
+                  (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                        (|incLude| |eb| (CDR |ss|) |lno| |ufos|
+                         (CONS |s1| (CDR |states|)))))
+                 (#2#
+                  (CONS (|xlIfBug| |eb| |str| |lno| |ufos|) |StreamNil|))))))
+             ((EQUAL (ELT |info| 2) "else")
+              (COND
+               ((AND (NULL (|If?| |state|)) (NULL (|Elseif?| |state|)))
+                (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
+                      |StreamNil|))
+               (#2#
+                (COND
+                 ((OR (|SkipEnd?| |state|) (|KeepPart?| |state|)
+                      (|SkipPart?| |state|))
+                  (SETQ |s1|
+                          (COND ((|SkipPart?| |state|) |ElseKeepPart|)
+                                (#2# |ElseSkipToEnd|)))
+                  (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                        (|incLude| |eb| (CDR |ss|) |lno| |ufos|
+                         (CONS |s1| (CDR |states|)))))
+                 (#2#
+                  (CONS (|xlIfBug| |eb| |str| |lno| |ufos|) |StreamNil|))))))
+             ((EQUAL (ELT |info| 2) "endif")
+              (COND
+               ((|Top?| |state|)
+                (CONS (|xlIfSyntax| |eb| |str| |lno| |ufos| |info| |states|)
+                      |StreamNil|))
+               (#2#
+                (CONS (|xlOK| |eb| |str| |lno| (ELT |ufos| 0))
+                      (|incLude| |eb| (CDR |ss|) |lno| |ufos|
+                       (CDR |states|))))))
+             (#2#
+              (CONS (|xlCmdBug| |eb| |str| |lno| |ufos|)
+                    |StreamNil|)))))))))))))
  
 ; inclHandleError(pos, [key, args]) ==
 ;     ncSoftError(pos, key, args)
