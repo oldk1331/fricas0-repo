@@ -296,6 +296,7 @@
 ;   constructor? form =>
 ;     ATOM form => evaluateType [form]
 ;     throwEvalTypeMsg("S2IE0003",[form,form])
+;   throwEvalTypeMsg("S2IE0004", [form])
  
 (DEFUN |evaluateType| (|form|)
   (PROG (|$expandSegments| |type| |sel| |ISTMP#3| |ISTMP#2| |sigs| |x| |argl|
@@ -455,8 +456,8 @@
               ((|constructor?| |form|)
                (COND ((ATOM |form|) (|evaluateType| (LIST |form|)))
                      (#1#
-                      (|throwEvalTypeMsg| 'S2IE0003
-                       (LIST |form| |form|))))))))))))
+                      (|throwEvalTypeMsg| 'S2IE0003 (LIST |form| |form|)))))
+              (#1# (|throwEvalTypeMsg| 'S2IE0004 (LIST |form|))))))))))
  
 ; evaluateFormAsType form ==
 ;   form is [op,:args] and constructor? op => evaluateType1 form
