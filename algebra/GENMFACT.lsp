@@ -17,7 +17,10 @@
                ((|HasCategory| (QREFELT $ 8) '(|CharacteristicZero|))
                 (COND
                  ((|HasCategory| (QREFELT $ 8) '(|EuclideanDomain|))
-                  (EXIT (SPADCALL |p| (QREFELT $ 17)))))))))
+                  (COND
+                   ((|HasCategory| (QREFELT $ 8)
+                                   '(|PolynomialFactorizationExplicit|))
+                    (EXIT (SPADCALL |p| (QREFELT $ 17)))))))))))
             (EXIT
              (COND
               ((|domainEqual| (QREFELT $ 9)
@@ -29,7 +32,10 @@
                  ((|HasCategory| (QREFELT $ 9) '(|CharacteristicZero|))
                   (COND
                    ((|HasCategory| (QREFELT $ 9) '(|EuclideanDomain|))
-                    (EXIT (SPADCALL |p| (QREFELT $ 21)))))))
+                    (COND
+                     ((|HasCategory| (QREFELT $ 9)
+                                     '(|PolynomialFactorizationExplicit|))
+                      (EXIT (SPADCALL |p| (QREFELT $ 21)))))))))
                 (EXIT
                  (COND
                   ((|HasCategory| (QREFELT $ 9) '(|GcdDomain|))

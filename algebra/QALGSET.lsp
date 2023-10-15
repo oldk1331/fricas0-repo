@@ -475,7 +475,7 @@
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
                                          (|HasCategory| |#1|
-                                                        '(|EuclideanDomain|)))))
+                                                        '(|PolynomialFactorizationExplicit|)))))
                     . #1#))
     (|haddProp| |$ConstructorCache| '|QuasiAlgebraicSet|
                 (LIST DV$1 DV$2 DV$3 DV$4) (CONS 1 $))
@@ -489,7 +489,7 @@
               (|Record| (|:| |status| (|Union| (|Boolean|) "failed"))
                         (|:| |zero| (|List| |#4|)) (|:| |nzero| |#4|)))
     (COND
-     ((|HasCategory| |#1| '(|EuclideanDomain|))
+     ((|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
       (COND
        ((|HasCategory| |#1| '(|CharacteristicZero|))
         (PROGN

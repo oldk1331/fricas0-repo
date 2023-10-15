@@ -1664,7 +1664,7 @@
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicZero|))
                                          (|HasCategory| |#1|
-                                                        '(|EuclideanDomain|)))
+                                                        '(|PolynomialFactorizationExplicit|)))
                                         (|HasCategory| |#1| '(|GcdDomain|))))
                     . #1#))
     (|haddProp| |$ConstructorCache| '|PolynomialSetUtilitiesPackage|
@@ -1676,7 +1676,7 @@
     (QSETREFV $ 9 |#4|)
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|HasCategory| |#1| '(|EuclideanDomain|))
+     ((|HasCategory| |#1| '(|PolynomialFactorizationExplicit|))
       (COND
        ((|HasCategory| |#1| '(|CharacteristicZero|))
         (PROGN
