@@ -417,9 +417,9 @@
 
 (DECLAIM (NOTINLINE |ThreeDimensionalMatrix;|)) 
 
-(DEFUN |ThreeDimensionalMatrix| (#1=#:G185)
+(DEFUN |ThreeDimensionalMatrix| (#1=#:G184)
   (SPROG NIL
-         (PROG (#2=#:G186)
+         (PROG (#2=#:G185)
            (RETURN
             (COND
              ((LETT #2#
@@ -438,25 +438,18 @@
 
 (DEFUN |ThreeDimensionalMatrix;| (|#1|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G182 NIL) (#2=#:G183 NIL) (#3=#:G184 NIL) ($ NIL)
-    (|dv$| NIL) (DV$1 NIL))
+   ((|pv$| NIL) (#1=#:G182 NIL) (#2=#:G183 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #4=(|ThreeDimensionalMatrix|))
-    (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1) . #4#)
-    (LETT $ (GETREFV 51) . #4#)
+    (LETT DV$1 (|devaluate| |#1|) . #3=(|ThreeDimensionalMatrix|))
+    (LETT |dv$| (LIST '|ThreeDimensionalMatrix| DV$1) . #3#)
+    (LETT $ (GETREFV 51) . #3#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
                     (|buildPredVector| 0 0
                                        (LIST
                                         (|HasCategory| |#1| '(|SetCategory|))
-                                        (LETT #3#
-                                              (|HasCategory| |#1|
-                                                             '(|BasicType|))
-                                              . #4#)
-                                        (OR #3#
-                                            (|HasCategory| |#1|
-                                                           '(|SetCategory|)))
+                                        (|HasCategory| |#1| '(|BasicType|))
                                         (AND
                                          (|HasCategory| |#1|
                                                         (LIST '|Evalable|
@@ -467,7 +460,7 @@
                                               (|HasCategory| |#1|
                                                              '(|CoercibleTo|
                                                                (|OutputForm|)))
-                                              . #4#)
+                                              . #3#)
                                         (OR #2#
                                             (AND
                                              (|HasCategory| |#1|
@@ -478,7 +471,7 @@
                                                             '(|SetCategory|))))
                                         (LETT #1#
                                               (|HasCategory| |#1| '(|Ring|))
-                                              . #4#)
+                                              . #3#)
                                         (OR
                                          (AND
                                           (|HasCategory| |#1|
@@ -493,22 +486,24 @@
                                                                 |#1|)))
                                           (|HasCategory| |#1|
                                                          '(|SetCategory|))))))
-                    . #4#))
+                    . #3#))
     (|haddProp| |$ConstructorCache| '|ThreeDimensionalMatrix| (LIST DV$1)
                 (CONS 1 $))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 256))
-    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 512))
-    (AND #3# (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1024))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 128))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 256))
+    (AND (|HasCategory| |#1| '(|BasicType|))
+         (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 512))
     (AND
-     (OR (AND #3# (|HasCategory| $ '(|finiteAggregate|)))
-         (|HasCategory| |#1| '(|SetCategory|)))
-     (|augmentPredVector| $ 2048))
+     (OR
+      (AND (|HasCategory| |#1| '(|BasicType|))
+           (|HasCategory| $ '(|finiteAggregate|)))
+      (|HasCategory| |#1| '(|SetCategory|)))
+     (|augmentPredVector| $ 1024))
     (SETF |pv$| (QREFELT $ 3))
     (COND
-     ((|testBitVector| |pv$| 7)
+     ((|testBitVector| |pv$| 6)
       (PROGN
        (QSETREFV $ 31 (CONS (|dispatchFunction| |M3D;zeroMatrix;3Nni$;7|) $))
        (QSETREFV $ 33
@@ -540,7 +535,7 @@
               262 |elt| 266 |count| 274 |copy| 286 |construct| 291 |coerce| 296
               |any?| 311 = 317 |#| 323)
            'NIL
-           (CONS (|makeByteWordVec2| 8 '(0 0 8 1 0 8 3 6))
+           (CONS (|makeByteWordVec2| 7 '(0 0 7 1 0 7 1 5))
                  (CONS
                   '#(|HomogeneousAggregate&| |Aggregate&| |Evalable&|
                      |SetCategory&| NIL |InnerEvalable&| |BasicType&| NIL)
@@ -555,18 +550,18 @@
                                          0 0 26 1 19 0 0 28 0 6 0 30 3 0 0 9 9
                                          9 31 0 6 0 32 1 0 0 9 33 2 6 0 0 0 34
                                          2 0 0 0 0 35 2 37 36 0 10 38 2 36 39 0
-                                         10 40 2 39 6 0 10 41 2 12 25 0 0 1 3 7
+                                         10 40 2 39 6 0 10 41 2 11 25 0 0 1 3 6
                                          0 9 9 9 31 2 0 25 0 9 1 5 0 6 0 9 9 9
-                                         6 29 0 0 0 1 2 7 0 0 0 35 1 10 39 0 1
-                                         2 0 25 0 9 1 1 10 39 0 1 2 11 25 6 0 1
-                                         1 0 7 0 8 3 0 0 21 0 0 22 2 9 0 46 0 1
-                                         2 0 0 46 0 1 2 0 25 0 9 1 1 1 49 0 1 1
-                                         7 0 9 33 2 1 50 50 0 1 1 1 48 0 1 2 10
-                                         25 45 0 1 3 4 0 0 39 39 1 2 4 0 0 43 1
-                                         3 4 0 0 6 6 1 2 4 0 0 44 1 2 0 25 0 0
-                                         1 1 0 25 0 1 0 0 0 1 4 0 6 0 9 9 9 27
-                                         2 11 9 6 0 1 2 10 9 45 0 1 1 0 0 0 1 1
-                                         0 0 37 42 1 5 47 0 1 1 0 0 5 15 1 0 5
-                                         0 12 2 10 25 45 0 1 2 12 25 0 0 1 1 10
-                                         9 0 1)))))
+                                         6 29 0 0 0 1 2 6 0 0 0 35 1 9 39 0 1 2
+                                         0 25 0 9 1 1 9 39 0 1 2 10 25 6 0 1 1
+                                         0 7 0 8 3 0 0 21 0 0 22 2 8 0 46 0 1 2
+                                         0 0 46 0 1 2 0 25 0 9 1 1 1 49 0 1 1 6
+                                         0 9 33 2 1 50 50 0 1 1 1 48 0 1 2 9 25
+                                         45 0 1 3 3 0 0 39 39 1 2 3 0 0 43 1 3
+                                         3 0 0 6 6 1 2 3 0 0 44 1 2 0 25 0 0 1
+                                         1 0 25 0 1 0 0 0 1 4 0 6 0 9 9 9 27 2
+                                         10 9 6 0 1 2 9 9 45 0 1 1 0 0 0 1 1 0
+                                         0 37 42 1 4 47 0 1 1 0 0 5 15 1 0 5 0
+                                         12 2 9 25 45 0 1 2 11 25 0 0 1 1 9 9 0
+                                         1)))))
            '|lookupComplete|)) 

@@ -945,10 +945,6 @@
                                         (|HasCategory|
                                          (|UnivariatePuiseuxSeries| |#2| |#3|
                                                                     |#4|)
-                                         '(|CommutativeRing|))
-                                        (|HasCategory|
-                                         (|UnivariatePuiseuxSeries| |#2| |#3|
-                                                                    |#4|)
                                          '(|RetractableTo|
                                            (|Fraction| (|Integer|))))
                                         (|HasCategory|
@@ -991,7 +987,7 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
-    (AND (|HasCategory| $ '(|CommutativeRing|)) (|augmentPredVector| $ 2048))
+    (AND (|HasCategory| $ '(|CommutativeRing|)) (|augmentPredVector| $ 1024))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -1041,17 +1037,17 @@
               481 / 487 - 493 + 504 * 510)
            'NIL
            (CONS
-            (|makeByteWordVec2| 6
-                                '(0 0 0 0 1 4 0 0 0 1 2 3 4 0 0 0 1 0 0 0 0 0 1
-                                  1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 6))
+            (|makeByteWordVec2| 5
+                                '(0 0 0 0 1 0 0 0 1 2 3 0 0 0 1 0 0 0 0 0 1 1 0
+                                  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 4 5))
             (CONS
              '#(|FiniteAbelianMonoidRing&| |AbelianMonoidRing&| NIL |Algebra&|
-                |Algebra&| |Algebra&| |EntireRing&| |Module&| NIL |Module&| NIL
-                NIL |Module&| NIL |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL NIL
-                NIL |AbelianGroup&| NIL NIL |Monoid&| NIL |AbelianMonoid&|
-                |SemiGroup&| |AbelianSemiGroup&| |FullyRetractableTo&|
-                |SetCategory&| NIL NIL NIL |RetractableTo&| |BasicType&| NIL
-                |RetractableTo&| |RetractableTo&|)
+                |Algebra&| |EntireRing&| |Module&| NIL |Module&| NIL NIL NIL
+                |Ring&| NIL NIL NIL NIL |Rng&| NIL NIL NIL NIL |AbelianGroup&|
+                NIL NIL |Monoid&| NIL |AbelianMonoid&| |SemiGroup&|
+                |AbelianSemiGroup&| |FullyRetractableTo&| |SetCategory&| NIL
+                NIL NIL |RetractableTo&| |BasicType&| NIL |RetractableTo&|
+                |RetractableTo&|)
              (CONS
               '#((|FiniteAbelianMonoidRing| (|UnivariatePuiseuxSeries| 7 8 9)
                                             (|ExponentialOfUnivariatePuiseuxSeries|
@@ -1061,10 +1057,8 @@
                                                                               8
                                                                               9))
                  (|IntegralDomain|) (|Algebra| $$) (|Algebra| 34)
-                 (|Algebra| (|UnivariatePuiseuxSeries| 7 8 9)) (|EntireRing|)
-                 (|Module| $$) (|CommutativeRing|) (|Module| 34)
+                 (|EntireRing|) (|Module| $$) (|CommutativeRing|) (|Module| 34)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|Module| (|UnivariatePuiseuxSeries| 7 8 9))
                  (|BiModule| $$ $$) (|Ring|)
                  (|BiModule| (|UnivariatePuiseuxSeries| 7 8 9)
                              (|UnivariatePuiseuxSeries| 7 8 9))
@@ -1094,22 +1088,22 @@
                                     60 2 17 7 0 34 61 1 7 62 0 63 2 62 15 64 0
                                     65 0 57 0 66 0 57 0 67 1 17 34 0 68 2 0 15
                                     0 0 1 1 0 15 0 32 1 0 73 0 1 1 0 0 0 1 1 0
-                                    15 0 1 2 0 24 0 0 1 0 0 0 1 1 5 71 0 1 1 6
-                                    42 0 1 1 0 19 0 20 1 5 34 0 1 1 6 72 0 1 1
-                                    0 17 0 1 1 0 0 0 33 1 0 24 0 25 1 11 0 0 1
+                                    15 0 1 2 0 24 0 0 1 0 0 0 1 1 4 71 0 1 1 5
+                                    42 0 1 1 0 19 0 20 1 4 34 0 1 1 5 72 0 1 1
+                                    0 17 0 1 1 0 0 0 33 1 0 24 0 25 1 10 0 0 1
                                     4 0 0 0 17 13 0 1 2 0 15 0 0 1 1 0 15 0 1 1
                                     0 10 0 11 1 0 15 0 1 2 0 0 17 13 23 1 0 13
                                     0 1 2 0 0 74 0 1 2 0 0 76 0 1 1 0 69 0 70 1
                                     0 0 0 1 1 0 17 0 18 1 0 78 0 1 2 0 80 80 0
-                                    1 1 0 79 0 1 1 0 15 0 1 1 0 17 0 1 4 9 0 0
-                                    13 17 0 1 2 10 24 0 17 1 2 0 24 0 0 1 1 0
-                                    55 0 56 1 0 13 0 14 1 11 17 0 1 1 8 0 34 1
-                                    1 0 0 0 1 1 0 0 72 1 1 0 0 17 1 1 0 81 0 1
-                                    1 0 75 0 1 2 0 17 0 13 1 1 2 24 0 1 0 0 10
-                                    1 3 12 0 0 0 10 1 2 0 15 0 0 1 2 0 15 0 0 1
-                                    2 0 0 0 10 1 2 0 0 0 77 1 0 0 0 1 0 0 0 1 2
-                                    0 15 0 0 1 2 7 0 0 17 1 2 0 0 0 0 1 1 0 0 0
-                                    1 2 0 0 0 0 1 2 1 0 0 34 1 2 1 0 34 0 1 2 0
-                                    0 10 0 1 2 0 0 72 0 1 2 0 0 17 0 1 2 0 0 0
-                                    0 1 2 0 0 0 17 1 2 0 0 77 0 1)))))
+                                    1 1 0 79 0 1 1 0 15 0 1 1 0 17 0 1 4 8 0 0
+                                    13 17 0 1 2 9 24 0 17 1 2 0 24 0 0 1 1 0 55
+                                    0 56 1 0 13 0 14 1 10 17 0 1 1 7 0 34 1 1 0
+                                    0 0 1 1 0 0 72 1 1 0 0 17 1 1 0 81 0 1 1 0
+                                    75 0 1 2 0 17 0 13 1 1 2 24 0 1 0 0 10 1 3
+                                    11 0 0 0 10 1 2 0 15 0 0 1 2 0 15 0 0 1 2 0
+                                    0 0 10 1 2 0 0 0 77 1 0 0 0 1 0 0 0 1 2 0
+                                    15 0 0 1 2 6 0 0 17 1 2 0 0 0 0 1 1 0 0 0 1
+                                    2 0 0 0 0 1 2 1 0 0 34 1 2 1 0 34 0 1 2 0 0
+                                    10 0 1 2 0 0 72 0 1 2 0 0 17 0 1 2 0 0 0 0
+                                    1 2 0 0 0 17 1 2 0 0 77 0 1)))))
            '|lookupComplete|)) 

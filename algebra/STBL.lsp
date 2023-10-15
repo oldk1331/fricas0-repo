@@ -81,13 +81,6 @@
                                                             (|devaluate|
                                                              |#2|)))))
                                          #3#)
-                                        (OR (|HasCategory| |#2| '(|BasicType|))
-                                            #4#
-                                            (|HasCategory|
-                                             (|Record| (|:| |key| |#1|)
-                                                       (|:| |entry| |#2|))
-                                             '(|BasicType|))
-                                            #3#)
                                         (OR #4# #3#)
                                         (OR
                                          (|HasCategory| |#2|
@@ -107,25 +100,25 @@
     (QSETREFV $ 7 |#2|)
     (QSETREFV $ 8 |#3|)
     (AND (LETT #2# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-         (|augmentPredVector| $ 4096))
+         (|augmentPredVector| $ 2048))
     (AND #2#
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|BasicType|))
-         (|augmentPredVector| $ 8192))
+         (|augmentPredVector| $ 4096))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
                 (|HasCategory| $ '(|finiteAggregate|)))
            . #5#)
-     (|augmentPredVector| $ 16384))
+     (|augmentPredVector| $ 8192))
     (AND
      (OR #1# #4#
          (AND #2#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 32768))
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
+     (|augmentPredVector| $ 16384))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 32768))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -142,9 +135,9 @@
               (|Union| 7 '"failed") (|Union| 9 '"failed"))
            '#() 'NIL
            (CONS
-            (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 0 0 0 0 0 9 7 11 0 0 0 9 1 7 10
-                                  12))
+            (|makeByteWordVec2| 11
+                                '(0 0 0 0 0 0 0 0 0 0 0 9 7 10 0 0 0 9 1 7 10
+                                  11))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
                 |DictionaryOperations&| |BagAggregate&| |Collection&|

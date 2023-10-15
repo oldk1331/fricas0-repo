@@ -944,7 +944,10 @@
 ;     for cond in l repeat
 ;         nc := boolean_subst1(cond, good_preds)
 ;         nc = true => "iterate"
-;         not(nc) => nc
+;         not(nc) =>
+;             res := [nc]
+;             return first(res)
+;         res := cons(nc, res)
 ;         res := cons(nc, res)
 ;     res = [] => true
 ;     #res = 1 => first(res)
@@ -963,8 +966,13 @@
            (#1='T
             (PROGN
              (SETQ |nc| (|boolean_subst1| |cond| |good_preds|))
-             (COND ((EQUAL |nc| T) '|iterate|) ((NULL |nc|) |nc|)
-                   (#1# (SETQ |res| (CONS |nc| |res|)))))))
+             (COND ((EQUAL |nc| T) '|iterate|)
+                   ((NULL |nc|)
+                    (PROGN (SETQ |res| (LIST |nc|)) (RETURN (CAR |res|))))
+                   (#1#
+                    (PROGN
+                     (SETQ |res| (CONS |nc| |res|))
+                     (SETQ |res| (CONS |nc| |res|))))))))
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
        |l| NIL)
       (COND ((NULL |res|) T) ((EQL (LENGTH |res|) 1) (CAR |res|))
@@ -974,7 +982,9 @@
 ;     res := []
 ;     for cond in l repeat
 ;         nc := boolean_subst1(cond, good_preds)
-;         nc = true => nc
+;         nc = true =>
+;             res := [nc]
+;             return first(res)
 ;         not(nc) => "iterate"
 ;         res := cons(nc, res)
 ;     res = [] => false
@@ -994,8 +1004,10 @@
            (#1='T
             (PROGN
              (SETQ |nc| (|boolean_subst1| |cond| |good_preds|))
-             (COND ((EQUAL |nc| T) |nc|) ((NULL |nc|) '|iterate|)
-                   (#1# (SETQ |res| (CONS |nc| |res|)))))))
+             (COND
+              ((EQUAL |nc| T)
+               (PROGN (SETQ |res| (LIST |nc|)) (RETURN (CAR |res|))))
+              ((NULL |nc|) '|iterate|) (#1# (SETQ |res| (CONS |nc| |res|)))))))
           (SETQ |bfVar#40| (CDR |bfVar#40|))))
        |l| NIL)
       (COND ((NULL |res|) NIL) ((EQL (LENGTH |res|) 1) (CAR |res|))
