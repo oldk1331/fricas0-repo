@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5038 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -837,6 +837,7 @@
  |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?| |even?|
  |numberOfCycles| |cyclePartition| |coerceListOfPairs| |coercePreimagesImages|
  |listRepresentation| |permanent| |cycles| |cycle| |perm_to_vec|
+ |relationsInGenerators| |relationsInStrongGenerators|
  |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
  |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
  |wordsForStrongGenerators| |strongGenerators| |base| |random| |generators|
