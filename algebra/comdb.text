@@ -4359,7 +4359,7 @@
 474695`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
 474821`\spad{integrate(f,{} x = a..b)} returns the integral of \spad{f(x)dx} from a to \spad{b}. Error: if \spad{f} has a pole for \spad{x} between a and \spad{b}.
 475080`\spad{integrate(f,{} x = a..b)} returns the integral of \spad{f(x)dx} from a to \spad{b}. Error: if \spad{f} has a pole for \spad{x} between a and \spad{b}.
-475349`\spad{integrate(f,{} x)} returns the integral of \spad{f(x)dx} where \spad{x} is viewed as a real variable..
+475349`\spad{integrate(f,{} x)} returns the integral of \spad{f(x)dx} where \spad{x} is viewed as a real variable.
 475506`\spad{integrate(f,{} x = a..b)} returns the integral of \spad{f(x)dx} from a to \spad{b}. Error: if \spad{f} has a pole for \spad{x} between a and \spad{b}.
 475711`\spad{integrate(f,{} x)} returns the integral of \spad{f(x)dx} where \spad{x} is viewed as a real variable.
 475794`\spad{integrate(p,{} d)} integrates the polynomial \spad{p} against the distribution \spad{d}. Same as \spad{eval(d,{} p)}.

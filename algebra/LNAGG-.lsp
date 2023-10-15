@@ -117,26 +117,22 @@
                 (EXIT |s|)))) 
 
 (SDEFUN |LNAGG-;sorted?;AB;12| ((|l| A) ($ |Boolean|))
-        (SPADCALL (CONS #'|LNAGG-;sorted?;AB;12!0| $) |l| (QREFELT $ 41))) 
-
-(SDEFUN |LNAGG-;sorted?;AB;12!0| ((|x| NIL) (|y| NIL) ($ NIL))
-        (COND ((SPADCALL |x| |y| (QREFELT $ 39)) 'T)
-              ('T (SPADCALL |x| |y| (QREFELT $ 28))))) 
+        (SPADCALL (ELT $ 39) |l| (QREFELT $ 41))) 
 
 (SDEFUN |LNAGG-;merge;3A;13| ((|x| A) (|y| A) ($ A))
-        (SPADCALL (ELT $ 39) |x| |y| (QREFELT $ 43))) 
+        (SPADCALL (ELT $ 43) |x| |y| (QREFELT $ 44))) 
 
 (SDEFUN |LNAGG-;sort;2A;14| ((|l| A) ($ A))
-        (SPADCALL (ELT $ 39) |l| (QREFELT $ 45))) 
+        (SPADCALL (ELT $ 43) |l| (QREFELT $ 46))) 
 
 (SDEFUN |LNAGG-;reverse;2A;15| ((|x| A) ($ A))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 47)) (QREFELT $ 48))) 
+        (SPADCALL (SPADCALL |x| (QREFELT $ 48)) (QREFELT $ 49))) 
 
 (SDEFUN |LNAGG-;sort;M2A;16| ((|f| |Mapping| (|Boolean|) S S) (|l| A) ($ A))
-        (SPADCALL |f| (SPADCALL |l| (QREFELT $ 47)) (QREFELT $ 50))) 
+        (SPADCALL |f| (SPADCALL |l| (QREFELT $ 48)) (QREFELT $ 51))) 
 
 (SDEFUN |LNAGG-;sort!;2A;17| ((|l| A) ($ A))
-        (SPADCALL (ELT $ 39) |l| (QREFELT $ 50))) 
+        (SPADCALL (ELT $ 43) |l| (QREFELT $ 51))) 
 
 (DECLAIM (NOTINLINE |LinearAggregate&;|)) 
 
@@ -146,7 +142,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|LinearAggregate&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|LinearAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 55) . #1#)
+          (LETT $ (GETREFV 56) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -198,20 +194,20 @@
                (PROGN
                 (QSETREFV $ 42
                           (CONS (|dispatchFunction| |LNAGG-;sorted?;AB;12|) $))
-                (QSETREFV $ 44
+                (QSETREFV $ 45
                           (CONS (|dispatchFunction| |LNAGG-;merge;3A;13|) $))
-                (QSETREFV $ 46
+                (QSETREFV $ 47
                           (CONS (|dispatchFunction| |LNAGG-;sort;2A;14|) $)))))
              (COND
               ((|testBitVector| |pv$| 5)
                (PROGN
-                (QSETREFV $ 49
+                (QSETREFV $ 50
                           (CONS (|dispatchFunction| |LNAGG-;reverse;2A;15|) $))
-                (QSETREFV $ 51
+                (QSETREFV $ 52
                           (CONS (|dispatchFunction| |LNAGG-;sort;M2A;16|) $))
                 (COND
                  ((|testBitVector| |pv$| 1)
-                  (QSETREFV $ 52
+                  (QSETREFV $ 53
                             (CONS (|dispatchFunction| |LNAGG-;sort!;2A;17|)
                                   $))))))))))
           $))) 
@@ -228,20 +224,20 @@
               (|UniversalSegment| 8) (70 . SEGMENT) (76 . |elt|)
               (82 . |leftTrim|) (88 . |rightTrim|) (94 . |trim|) (100 . |qelt|)
               (|HashState|) (106 . |hashUpdate!|) (112 . |hashUpdate!|)
-              (118 . <) (|Mapping| 13 7 7) (124 . |sorted?|) (130 . |sorted?|)
-              (135 . |merge|) (142 . |merge|) (148 . |sort|) (154 . |sort|)
-              (159 . |copy|) (164 . |reverse!|) (169 . |reverse|)
-              (174 . |sort!|) (180 . |sort|) (186 . |sort!|) (|Mapping| 13 7)
-              (|List| $))
-           '#(|trim| 191 |sorted?| 197 |sort!| 202 |sort| 207 |rightTrim| 218
-              |reverse| 224 |position| 229 |merge| 235 |maxIndex| 241
-              |leftTrim| 246 |insert| 252 |indices| 259 |index?| 264
-              |hashUpdate!| 270 |concat| 276)
+              (118 . <=) (|Mapping| 13 7 7) (124 . |sorted?|) (130 . |sorted?|)
+              (135 . <) (141 . |merge|) (148 . |merge|) (154 . |sort|)
+              (160 . |sort|) (165 . |copy|) (170 . |reverse!|)
+              (175 . |reverse|) (180 . |sort!|) (186 . |sort|) (192 . |sort!|)
+              (|Mapping| 13 7) (|List| $))
+           '#(|trim| 197 |sorted?| 203 |sort!| 208 |sort| 213 |rightTrim| 224
+              |reverse| 230 |position| 235 |merge| 241 |maxIndex| 247
+              |leftTrim| 252 |insert| 258 |indices| 265 |index?| 270
+              |hashUpdate!| 276 |concat| 282)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 52
+                             (|makeByteWordVec2| 53
                                                  '(1 6 8 0 9 1 6 8 0 10 2 8 13
                                                    0 0 14 2 6 0 16 7 17 2 6 0 0
                                                    0 18 3 6 0 0 0 8 21 1 6 16 0
@@ -252,17 +248,18 @@
                                                    0 0 7 33 2 0 0 0 7 34 2 6 7
                                                    0 8 35 2 7 36 36 0 37 2 0 36
                                                    36 0 38 2 7 13 0 0 39 2 6 13
-                                                   40 0 41 1 0 13 0 42 3 6 0 40
-                                                   0 0 43 2 0 0 0 0 44 2 6 0 40
-                                                   0 45 1 0 0 0 46 1 6 0 0 47 1
-                                                   6 0 0 48 1 0 0 0 49 2 6 0 40
-                                                   0 50 2 0 0 40 0 51 1 0 0 0
-                                                   52 2 0 0 0 7 34 1 0 13 0 42
-                                                   1 0 0 0 52 1 0 0 0 46 2 0 0
-                                                   40 0 51 2 0 0 0 7 33 1 0 0 0
-                                                   49 2 0 8 7 0 26 2 0 0 0 0 44
-                                                   1 0 8 0 24 2 0 0 0 7 32 3 0
-                                                   0 7 0 8 22 1 0 11 0 12 2 0
-                                                   13 8 0 15 2 0 36 36 0 38 2 0
-                                                   0 7 0 20 2 0 0 0 7 19)))))
+                                                   40 0 41 1 0 13 0 42 2 7 13 0
+                                                   0 43 3 6 0 40 0 0 44 2 0 0 0
+                                                   0 45 2 6 0 40 0 46 1 0 0 0
+                                                   47 1 6 0 0 48 1 6 0 0 49 1 0
+                                                   0 0 50 2 6 0 40 0 51 2 0 0
+                                                   40 0 52 1 0 0 0 53 2 0 0 0 7
+                                                   34 1 0 13 0 42 1 0 0 0 53 1
+                                                   0 0 0 47 2 0 0 40 0 52 2 0 0
+                                                   0 7 33 1 0 0 0 50 2 0 8 7 0
+                                                   26 2 0 0 0 0 45 1 0 8 0 24 2
+                                                   0 0 0 7 32 3 0 0 7 0 8 22 1
+                                                   0 11 0 12 2 0 13 8 0 15 2 0
+                                                   36 36 0 38 2 0 0 7 0 20 2 0
+                                                   0 0 7 19)))))
            '|lookupComplete|)) 

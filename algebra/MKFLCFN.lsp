@@ -190,9 +190,9 @@
                                  ((|MKFLCFN;streq?| |op| "^" $)
                                   (CONS 0 (|MKFLCFN;gencode| "EXPT" |ll| $)))
                                  ((|MKFLCFN;streqlist?| |op|
-                                   (LIST "exp" "sin" "cos" "tan" "atan" "log"
-                                         "sinh" "cosh" "tanh" "asinh" "acosh"
-                                         "atanh" "sqrt")
+                                   (LIST "exp" "sin" "cos" "tan" "atan" "asin"
+                                         "acos" "log" "sinh" "cosh" "tanh"
+                                         "asinh" "acosh" "atanh" "sqrt")
                                    $)
                                   (CONS 0
                                         (|MKFLCFN;gencode|
