@@ -380,7 +380,7 @@
                                                         (QREFELT $ 101))
                                               (QREFELT $ 102))
                                     (QREFELT $ 103))
-                                   (QCDR (QCDR |rc|)) |alpha| $)
+                                   (QCDR (QCDR |rc|)) |na| $)
                                   . #5#)
                             (EXIT
                              (LETT |llg|
