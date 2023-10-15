@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4872 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4881 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -237,20 +237,21 @@
  |ModularHermitianRowReduction| |MachineInteger| |MakeBinaryCompiledFunction|
  |MakeCachableSet| |MakeFloatCompiledFunction| |MakeFunction| |MakeRecord|
  |MakeUnaryCompiledFunction| |MultivariateLifting| |MultipleMap| |MathMLFormat|
- |ModularField| |ModularHermitePade| |ModularHermitePadeSolver| |ModMonic|
- |ModuleMonomial| |ModuleOperator| |ModularRing| |Module&| |Module|
- |MoebiusTransform| |MomentPackage| |MonogenicAlgebra&| |MonogenicAlgebra|
- |Monoid&| |Monoid| |MonomialExtensionTools|
- |MultivariateSkewPolynomialCategory| |MPolyCatFunctions2| |MPolyCatFunctions3|
- |MPolyCatPolyFactorizer| |MultivariatePolynomial|
- |MPolyCatRationalFunctionFactorizer| |MRationalFactorize| |MonoidRingCategory|
- |MonoidRingFunctions2| |MonoidRing| |MrvLimitPackage| |Multiset|
- |MultisetAggregate| |MoreSystemCommands| |MergeThing|
- |MultivariateTaylorSeriesCategory&| |MultivariateTaylorSeriesCategory|
- |MultiplicativeDependence| |MultivariateFactorize| |MultivariateSquareFree|
- |NonAssociativeAlgebra&| |NonAssociativeAlgebra| |NonAssociativeRing&|
- |NonAssociativeRing| |NonAssociativeRng&| |NonAssociativeRng|
- |NonAssociativeSemiRing| |NonAssociativeSemiRng&| |NonAssociativeSemiRng|
+ |ModularFactorization| |ModularField| |ModularHermitePade|
+ |ModularHermitePadeSolver| |ModMonic| |ModuleMonomial| |ModuleOperator|
+ |ModularRing| |Module&| |Module| |MoebiusTransform| |MomentPackage|
+ |MonogenicAlgebra&| |MonogenicAlgebra| |Monoid&| |Monoid|
+ |MonomialExtensionTools| |MultivariateSkewPolynomialCategory|
+ |MPolyCatFunctions2| |MPolyCatFunctions3| |MPolyCatPolyFactorizer|
+ |MultivariatePolynomial| |MPolyCatRationalFunctionFactorizer|
+ |MRationalFactorize| |MonoidRingCategory| |MonoidRingFunctions2| |MonoidRing|
+ |MrvLimitPackage| |Multiset| |MultisetAggregate| |MoreSystemCommands|
+ |MergeThing| |MultivariateTaylorSeriesCategory&|
+ |MultivariateTaylorSeriesCategory| |MultiplicativeDependence|
+ |MultivariateFactorize| |MultivariateSquareFree| |NonAssociativeAlgebra&|
+ |NonAssociativeAlgebra| |NonAssociativeRing&| |NonAssociativeRing|
+ |NonAssociativeRng&| |NonAssociativeRng| |NonAssociativeSemiRing|
+ |NonAssociativeSemiRng&| |NonAssociativeSemiRng|
  |NaiveBeckermannLabahnModular| |NumericComplexEigenPackage|
  |NumericContinuedFraction| |NewtonInterpolation| |NumberFieldIntegralBasis|
  |NGroebnerPackage| |NonLinearSolvePackage| |NonNegativeInteger|
@@ -742,33 +743,35 @@
  |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
- |corrPoly| |lifting| |exprex| |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P|
- |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
- |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
- |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
- |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
- |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
- |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
- |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
- |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
- |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant|
- |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
- |totalfract| |pushdterm| |pushucoef| |pushuconst| |numberOfMonomials|
- |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1| |mrv_sign| |mrv_cmp|
- |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0| |members| |multiset|
- |systemCommand| |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd|
- |univcase| |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree|
- |normDeriv2| |plenaryPower| |commutator| |associator| |antiCommutator|
- |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
- |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
- |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
- |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
- |outputArgs| |normInvertible?| |normFactors| |npcoef|
- |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
- |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
- |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
- |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
- |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |corrPoly| |lifting| |exprex| |coerceS| |mfactor| |ddfact| |mmul| |mod_exp|
+ |power_matrix| |modular_compose| |ini_rdata| |red_pol| |HP_solve_I|
+ |HP_solve_A| |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a|
+ |VSUPI_to_VPA| |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables|
+ |unpack_poly| |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA|
+ |frobenius| |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index|
+ |exponent| |exQuo| |moebius| |cumulant2moment| |moment2cumulant|
+ |moment2nthJacobi| |moment2jacobi| |moment2jacobi2| |freeCumulant2moment|
+ |moment2freeCumulant| |booleanCumulant2moment| |moment2booleanCumulant|
+ |monotoneCumulant2moment| |monotoneCumulant2momentPoly| |qcumulant2nthmoment|
+ |hankelDeterminant| |jacobi2poly| |moment2Stransform|
+ |moment2monotoneCumulant| |derivationCoordinates| |generator| |one?|
+ |splitSquarefree| |normalDenom| |totalfract| |pushdterm| |pushucoef|
+ |pushuconst| |numberOfMonomials| |monomials| |mrv_normalize| |mrv_limit|
+ |mrv_limit1| |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite|
+ |mrv_rewrite0| |members| |multiset| |systemCommand| |mergeDifference|
+ |logDependenceQ| |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree|
+ |intChoose| |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |commutator|
+ |associator| |antiCommutator| |naiveBeckermannLabahn|
+ |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
+ |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
+ |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
+ |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
+ |normInvertible?| |normFactors| |npcoef| |characteristicPolynomial|
+ |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
+ |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
+ |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
+ |complexNumeric| |numericIfCan| |complexNumericIfCan| |FormatArabic|
+ |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
  |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
  |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
  |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|
