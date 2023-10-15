@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4846 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4871 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -215,6 +215,7 @@
  |LinearOrdinaryDifferentialOperatorCategory&|
  |LinearOrdinaryDifferentialOperatorCategory| |LODOConvertions|
  |LinearOrdinaryDifferentialOperatorFactorizer|
+ |LinearOrdinaryDifferentialOperatorFactorizer2|
  |LinearOrdinaryDifferentialOperatorsOps| |Logic&| |Logic| |Loop| |LeftOreRing|
  |LinearPolynomialEquationByFractions| |LiePolynomial| |ListAggregate&|
  |ListAggregate| |LinearSystemMatrixPackage| |LinearSystemMatrixPackage1|
@@ -429,28 +430,29 @@
  |UnivariateTaylorSeriesCategory| |UnivariateTaylorSeriesODESolver|
  |UTSodetools| |TaylorSolve| |VarCat| |Variable| |VectorModularReconstructor|
  |VectorIntegerReconstructor| |VectorCategory&| |VectorCategory| |Vector|
- |VectorFunctions2| |ViewportPackage| |TwoDimensionalViewport|
- |ThreeDimensionalViewport| |ViewDefaultsPackage| |Void| |VectorSpaceBasis|
- |VectorSpace&| |VectorSpace| |WeierstrassPreparation|
- |WildFunctionFieldIntegralBasis| |WeightedGraph| |WeightedPolynomials|
- |WuWenTsunTriangularSet| |XAlgebra| |XDistributedPolynomial|
- |XExponentialPackage| |ExtensionField&| |ExtensionField| |XFreeAlgebra|
- |XHashTable| |ExportXml| |XmlAttribute| |XmlElement| |XPBWPolynomial|
- |XPolynomial| |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
- |ParadoxicalCombinatorsForStreams| |ZeroDimensionalSolvePackage|
- |IntegerLinearDependence| |IntegerMod| |Enumeration| |Mapping| |Record|
- |Union| |Category| |opposite?| |zerosOf| |zeroOf| |rootsOf| |makeSketch|
- |rootSum| |inrootof| |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?|
- |knownInfBasis| |rootSplit| |ratDenom| |ratPoly| |rootFactor| |rootPower|
- |rootProduct| |rootSimp| |rootKerSimp| |leftRank| |rightRank| |doubleRank|
- |weakBiRank| |biRank| |basisOfCommutingElements| |basisOfLeftAnnihilator|
- |basisOfRightAnnihilator| |basisOfLeftNucleus| |basisOfRightNucleus|
- |basisOfMiddleNucleus| |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid|
- |basisOfRightNucloid| |basisOfCentroid| |radicalOfLeftTraceForm|
- |showTypeInOutput| |obj| |dom| |objectOf| |domainOf| |any| |applyRules|
- |localUnquote| |vertSplit| |blockConcat| |vertConcat| |horizConcat|
- |squareTop| |swapColumns!| |swapRows!| |setsubMatrix!| |setColumn!| |colSlice|
- |rowSlice| |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
+ |VectorFunctions2| |VectorHermitePadeSolver| |ViewportPackage|
+ |TwoDimensionalViewport| |ThreeDimensionalViewport| |ViewDefaultsPackage|
+ |Void| |VectorSpaceBasis| |VectorSpace&| |VectorSpace|
+ |WeierstrassPreparation| |WildFunctionFieldIntegralBasis| |WeightedGraph|
+ |WeightedPolynomials| |WuWenTsunTriangularSet| |XAlgebra|
+ |XDistributedPolynomial| |XExponentialPackage| |ExtensionField&|
+ |ExtensionField| |XFreeAlgebra| |XHashTable| |ExportXml| |XmlAttribute|
+ |XmlElement| |XPBWPolynomial| |XPolynomial| |XPolynomialsCat|
+ |XPolynomialRing| |XRecursivePolynomial| |ParadoxicalCombinatorsForStreams|
+ |ZeroDimensionalSolvePackage| |IntegerLinearDependence| |IntegerMod|
+ |Enumeration| |Mapping| |Record| |Union| |Category| |opposite?| |zerosOf|
+ |zeroOf| |rootsOf| |makeSketch| |rootSum| |inrootof| |droot| |iroot| |size?|
+ |eq?| |assoc| |doublyTransitive?| |knownInfBasis| |rootSplit| |ratDenom|
+ |ratPoly| |rootFactor| |rootPower| |rootProduct| |rootSimp| |rootKerSimp|
+ |leftRank| |rightRank| |doubleRank| |weakBiRank| |biRank|
+ |basisOfCommutingElements| |basisOfLeftAnnihilator| |basisOfRightAnnihilator|
+ |basisOfLeftNucleus| |basisOfRightNucleus| |basisOfMiddleNucleus|
+ |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid| |basisOfRightNucloid|
+ |basisOfCentroid| |radicalOfLeftTraceForm| |showTypeInOutput| |obj| |dom|
+ |objectOf| |domainOf| |any| |applyRules| |localUnquote| |vertSplit|
+ |blockConcat| |vertConcat| |horizConcat| |squareTop| |swapColumns!|
+ |swapRows!| |setsubMatrix!| |setColumn!| |colSlice| |rowSlice|
+ |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
  |associatedEquations| |arrayStack| |morphism| |balancedFactorisation|
  |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree| |sylvesterMatrix|
  |bezoutMatrix| |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!|
@@ -712,27 +714,30 @@
  |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
  |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |nthFactor| |nthExpon|
  |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete| |delta_deriv|
- |symmetricSquare| |factor1| |symmetricProduct| |symmetricPower| |directSum|
- |entries| |loop| |lcmCoef| |solveLinearPolynomialEquationByFractions| |list|
- |hasSolution?| |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse|
- |LyndonWordsList| |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?|
- |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
- |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
- |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
- |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
- |m_inverse| |lexico| |element| |rowMatrix| |rows| |columnMatrix| |columns|
- |subMatrix| |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary|
- |id| |recur| |const| |curry| |diag| |curryRight| |curryLeft| |constantRight|
- |constantLeft| |twist| |kronecker_prod1| |positivePower| |kroneckerSum|
- |kroneckerProduct| |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!|
- |invertIfCan| |copy!| |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!|
- |times!| |power!| |gradient| |divergence| |laplacian| |hessian|
- |bandedHessian| |jacobian| |bandedJacobian| |duplicates| |removeDuplicates!|
- |linears| |ddFact| |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var|
- |meshPar1Var| |ptFunc| |ldegree| |subst_vars| |trial_division| |toPermutation|
- |toCayleyGraph| |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph|
- |minimumExponent| |maximumExponent| |precision| |mantissa| |rowEch|
- |rowEchLocal| |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
+ |symmetricSquare| |factor1| |testnp| |testfn| |testf2| |testll| |testlc|
+ |testln| |testlw| |testcp| |testco| |testcx| |testpd| |testfr| |testsb|
+ |testro| |testfo| |testsc| |testfg| |testlp| |testis| |testgt| |gen_exp|
+ |ge_minimal| |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
+ |lcmCoef| |solveLinearPolynomialEquationByFractions| |list| |hasSolution?|
+ |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
+ |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
+ |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
+ |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
+ |pack_exps| |repack1| |pack_exps0| |m_inverse| |lexico| |element| |rowMatrix|
+ |rows| |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter|
+ |arg1| |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag|
+ |curryRight| |curryLeft| |constantRight| |constantLeft| |twist|
+ |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!|
+ |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!|
+ |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
+ |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
+ |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
+ |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
+ |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
+ |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
+ |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
  |corrPoly| |lifting| |exprex| |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P|
  |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
@@ -1093,10 +1098,10 @@
  |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
  |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
  |magnitude| |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector|
- |scan| |reduce| |graphCurves| |drawCurves| |update| |show| |scale| |connect|
- |region| |points| |units| |getGraph| |putGraph| |graphs| |graphStates|
- |graphState| |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close|
- |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
+ |scan| |reduce| |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale|
+ |connect| |region| |points| |units| |getGraph| |putGraph| |graphs|
+ |graphStates| |graphState| |makeViewport2D| |viewport2D| |getPickedPoints|
+ |key| |close| |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
  |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
  |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
  |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
