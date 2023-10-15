@@ -26,10 +26,9 @@
                                                            (|NonNegativeInteger|)))
                                             (|String|) (|NonNegativeInteger|)))
                                           T)
-                                         ((= ((|Boolean|) $ $)) T)
-                                         ((|coerce| ((|OutputForm|) $)) T))
+                                         ((= ((|Boolean|) $ $)) T))
                                        NIL
-                                       '((|OutputForm|) (|Boolean|) (|String|)
+                                       '((|Boolean|) (|String|)
                                          (|NonNegativeInteger|) (|ILogic|))
                                        NIL)))
                    |VarCat|)
