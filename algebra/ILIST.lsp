@@ -88,7 +88,7 @@
 (SDEFUN |ILIST;minIndex;$I;20| ((|x| $) ($ |Integer|)) (QREFELT $ 7)) 
 
 (SDEFUN |ILIST;rest;$Nni$;21| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
-        (SPROG ((#1=#:G1033 NIL) (|i| NIL))
+        (SPROG ((#1=#:G1035 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| 1 . #2=(|ILIST;rest;$Nni$;21|))
                      (LETT #1# |n| . #2#) G190
@@ -166,7 +166,7 @@
                     (QREFELT $ 41)))))))))) 
 
 (SDEFUN |ILIST;=;2$B;24| ((|x| $) (|y| $) ($ |Boolean|))
-        (SPROG ((#1=#:G1059 NIL))
+        (SPROG ((#1=#:G1061 NIL))
                (SEQ
                 (EXIT
                  (COND ((EQ |x| |y|) 'T)
@@ -185,7 +185,7 @@
                                             (QREFELT $ 48))
                                   (PROGN
                                    (LETT #1# NIL . #3=(|ILIST;=;2$B;24|))
-                                   (GO #4=#:G1058)))
+                                   (GO #4=#:G1060)))
                                  ('T
                                   (SEQ (LETT |x| (QCDR |x|) . #3#)
                                        (EXIT (LETT |y| (QCDR |y|) . #3#)))))))
@@ -194,7 +194,7 @@
                 #4# (EXIT #1#)))) 
 
 (SDEFUN |ILIST;member?;S$B;25| ((|s| S) (|x| $) ($ |Boolean|))
-        (SPROG ((#1=#:G1065 NIL))
+        (SPROG ((#1=#:G1067 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -205,7 +205,7 @@
                           ((SPADCALL |s| (QCAR |x|) (QREFELT $ 50))
                            (PROGN
                             (LETT #1# 'T . #2=(|ILIST;member?;S$B;25|))
-                            (GO #3=#:G1064)))
+                            (GO #3=#:G1066)))
                           ('T (LETT |x| (QCDR |x|) . #2#)))))
                        NIL (GO G190) G191 (EXIT NIL))
                   (EXIT NIL)))
@@ -317,7 +317,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |ILIST;split!;$I$;32| ((|p| $) (|n| |Integer|) ($ $))
-        (SPROG ((|q| ($)) (#1=#:G1109 NIL))
+        (SPROG ((|q| ($)) (#1=#:G1111 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
                       ('T
@@ -337,7 +337,7 @@
 
 (SDEFUN |ILIST;mergeSort|
         ((|f| |Mapping| (|Boolean|) S S) (|p| $) (|n| |Integer|) ($ $))
-        (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1113 NIL))
+        (SPROG ((|q| ($)) (|l| (|NonNegativeInteger|)) (#1=#:G1115 NIL))
                (SEQ
                 (COND
                  ((EQL |n| 2)
@@ -365,9 +365,9 @@
 
 (DECLAIM (NOTINLINE |IndexedList;|)) 
 
-(DEFUN |IndexedList| (&REST #1=#:G1136)
+(DEFUN |IndexedList| (&REST #1=#:G1138)
   (SPROG NIL
-         (PROG (#2=#:G1137)
+         (PROG (#2=#:G1139)
            (RETURN
             (COND
              ((LETT #2#
@@ -386,8 +386,8 @@
 
 (DEFUN |IndexedList;| (|#1| |#2|)
   (SPROG
-   ((#1=#:G1132 NIL) (#2=#:G1133 NIL) (#3=#:G1135 NIL) (#4=#:G1134 NIL)
-    (|pv$| NIL) (#5=#:G1129 NIL) (#6=#:G1130 NIL) (#7=#:G1131 NIL) ($ NIL)
+   ((#1=#:G1134 NIL) (#2=#:G1135 NIL) (#3=#:G1137 NIL) (#4=#:G1136 NIL)
+    (|pv$| NIL) (#5=#:G1131 NIL) (#6=#:G1132 NIL) (#7=#:G1133 NIL) ($ NIL)
     (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|IndexedList|))
@@ -585,7 +585,7 @@
                                     1 3 13 6 64 0 6 1 2 21 0 0 0 25 2 21 6 0 6
                                     22 3 21 6 0 32 6 1 2 0 6 0 32 1 1 0 11 0 1
                                     3 18 32 6 0 32 1 2 18 32 6 0 1 2 13 32 68 0
-                                    1 1 13 27 0 29 1 0 40 0 1 2 6 11 0 0 1 2 0
+                                    1 1 13 27 0 29 1 0 40 0 1 2 3 11 0 0 1 2 0
                                     0 8 6 1 2 0 11 0 8 1 1 12 32 0 33 2 14 0 0
                                     0 1 2 1 0 0 0 1 3 0 0 60 0 0 62 2 14 0 0 0
                                     1 3 13 0 60 0 0 1 1 13 27 0 1 2 18 11 6 0
@@ -608,7 +608,7 @@
                                     1 3 23 0 0 0 32 1 1 0 0 0 36 1 2 74 0 1 1 0
                                     0 27 28 2 0 0 0 6 1 2 0 0 0 0 58 2 0 0 0 6
                                     1 1 0 0 40 1 2 0 0 0 0 1 2 0 0 6 0 10 1 15
-                                    38 0 47 1 0 40 0 1 2 6 11 0 0 1 2 13 11 68
+                                    38 0 47 1 0 40 0 1 2 3 11 0 0 1 2 13 11 68
                                     0 1 2 14 11 0 0 1 2 14 11 0 0 1 2 19 11 0 0
                                     49 2 14 11 0 0 1 2 14 11 0 0 1 1 13 8 0
                                     9)))))

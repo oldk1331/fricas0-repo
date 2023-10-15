@@ -1817,7 +1817,7 @@ oChi`1`x`(Float)->Float`pFloatLiouvilianFunctions``269255
 ochild`2`n`(_$,NonNegativeInteger)->_$`dSubSpace(n,R)``269315
 ochild?`2`n`(A,A)->Boolean`xLazyStreamAggregate&(A,S)``0
 ochild?`2`n`(A,A)->Boolean`xRecursiveAggregate&(A,S)``0
-ochild?`2`x`(_$,_$)->Boolean`cRecursiveAggregate(S)`has(S,SetCategory)`269357
+ochild?`2`x`(_$,_$)->Boolean`cRecursiveAggregate(S)`has(S,BasicType)`269357
 ochildren`1`n`(_$)->List(_$)`dSubSpace(n,R)``269438
 ochildren`1`n`(A)->List(A)`xBinaryRecursiveAggregate&(A,S)``0
 ochildren`1`n`(A)->List(A)`xLazyStreamAggregate&(A,S)``0
@@ -6807,7 +6807,7 @@ onlde`1`n`(Stream(Stream(A)))->Stream(A)`pStreamTaylorSeriesOperations(A)`has(A,
 onode?`2`n`(A,A)->Boolean`xBinaryRecursiveAggregate&(A,S)``0
 onode?`2`n`(A,A)->Boolean`xLazyStreamAggregate&(A,S)``0
 onode?`2`n`(A,A)->Boolean`xUnaryRecursiveAggregate&(A,S)``0
-onode?`2`x`(_$,_$)->Boolean`cRecursiveAggregate(S)`has(S,SetCategory)`823274
+onode?`2`x`(_$,_$)->Boolean`cRecursiveAggregate(S)`has(S,BasicType)`823274
 onode`3`x`(_$,S,_$)->_$`cBinaryTreeCategory(S)``823406
 onodeFromArrow`2`n`(_$,NonNegativeInteger)->List(NonNegativeInteger)`cFiniteGraph(S)``823536
 onodeFromArrow`2`n`(A,NonNegativeInteger)->List(NonNegativeInteger)`xFiniteGraph&(A,S)``0

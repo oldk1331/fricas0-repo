@@ -38,9 +38,9 @@
                                                ((|distance| ((|Integer|) $ $))
                                                 T)
                                                ((|child?| ((|Boolean|) $ $))
-                                                (|has| |t#1| (|SetCategory|)))
+                                                (|has| |t#1| (|BasicType|)))
                                                ((|node?| ((|Boolean|) $ $))
-                                                (|has| |t#1| (|SetCategory|)))
+                                                (|has| |t#1| (|BasicType|)))
                                                ((|setchildren!|
                                                  ($ $ (|List| $)))
                                                 (|has| $ (|shallowlyMutable|)))

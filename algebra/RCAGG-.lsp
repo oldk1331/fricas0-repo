@@ -42,7 +42,7 @@
                                               (|HasCategory| |#1|
                                                              '(|shallowlyMutable|))
                                               (|HasCategory| |#2|
-                                                             '(|SetCategory|))))
+                                                             '(|BasicType|))))
                           . #1#))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
@@ -54,7 +54,7 @@
                       (CONS (|dispatchFunction| |RCAGG-;setelt!;Avalue2S;2|)
                             $))))
           (COND
-           ((|testBitVector| |pv$| 2)
+           ((|HasCategory| |#2| '(|SetCategory|))
             (QSETREFV $ 18
                       (CONS (|dispatchFunction| |RCAGG-;child?;2AB;3|) $))))
           (COND
