@@ -1997,8 +1997,8 @@
 189399`\spad{coerce(l)} converts a list \spad{l} to a stream.
 189444`\spad{coerce(o)} changes \spad{o} in the standard output format to SCRIPT formula format.
 189502`\spad{coerce(o)} changes \spad{o} in the standard output format to TeX format.
-189550`coerceS(\spad{o}) changes \spad{o} in the standard output format to MathML format.
-189605`coerceS(\spad{o}) changes \spad{o} in the standard output format to Texmacs format.
+189550`\spad{coerce(o)} changes \spad{o} in the standard output format to MathML format.
+189605`\spad{coerce(o)} changes \spad{o} in the standard output format to Texmacs format.
 189661`\spad{coerce(f)} returns \spad{f} as an Expression(\spad{R}).
 189717`\spad{coerce(p)} converts the polynomial \spad{p} with algebraic number coefficients to \spadtype{Expression Integer}.
 189813`\spad{coerce(s)} regroups terms of \spad{s} by total degree \indented{1}{and forms a series.}
@@ -2037,8 +2037,8 @@
 191937`\spad{coerceImages(ls)} coerces the list {\em ls} to a permutation whose image is given by {\em ls} and the preimage is fixed to be {\em [1,{} ...,{} n]}. Note: {coerceImages(\spad{ls})=coercePreimagesImages([1,{} ...,{} \spad{n}],{} \spad{ls})}. We assume that both preimage and image do not contain repetitions.
 192043`\spad{coerceImages(ls)} coerces the list {\em ls} to a permutation whose image is given by {\em ls} and the preimage is fixed to be {\em [1,{} ...,{} n]}. Note: {coerceImages(\spad{ls})=coercePreimagesImages([1,{} ...,{} \spad{n}],{} \spad{ls})}. We assume that both preimage and image do not contain repetitions.
 192125`\spad{coerceL(o)} changes \spad{o} in the standard output format to html format and displays result as one long string.
-192179`coerceS(\spad{o}) changes \spad{o} in the standard output format to MathML format and displays result as one long string.
-192235`coerceS(\spad{o}) changes \spad{o} in the standard output format to Texmacs format and displays result as one long string.
+192179`\spad{coerceL(o)} changes \spad{o} in the standard output format to MathML format and displays result as one long string.
+192235`\spad{coerceL(o)} changes \spad{o} in the standard output format to Texmacs format and displays result as one long string.
 192292`\spad{coerceListOfPairs(lls)} coerces a list of pairs {\em lls} to a permutation. Error: if not consistent,{} \spadignore{i.e.} the set of the first elements coincides with the set of second elements. coerce(\spad{p}) generates output of the permutation \spad{p} with domain OutputForm.
 192359`\spad{coerceP(v)} coerces a vector \spad{v} with entries in \spadtype{Matrix R} as vector over \spadtype{Matrix Polynomial R}
 192461`\spad{coercePreimagesImages(lls)} coerces the representation {\em lls} of a permutation as a list of preimages and images to a permutation. We assume that both preimage and image do not contain repetitions.
@@ -2651,7 +2651,7 @@
 255294`\spad{declare!(u,{} t,{} asp,{} tab)} declares the parameter \spad{u} of subprogram \spad{asp} to have type \spad{t} in symbol table tab.
 255376`\spad{decompose(d)} returns \spad{[id,{} f]} where \spad{d = (id) + div(f)}.
 255508`\spad{decompose(f,{} D)} returns \spad{[p,{} n,{} s]} such that \spad{f = p+n+s},{} all the squarefree factors of \spad{denom(n)} are normal \spad{w}.\spad{r}.\spad{t}. \spad{D},{} \spad{denom(s)} is special \spad{w}.\spad{r}.\spad{t}. \spad{D},{} and \spad{n} and \spad{s} are proper fractions (no pole at infinity). \spad{D} is the derivation to use.
-255643`decompse(\spad{n},{} [\spad{p1},{} ...,{} \spad{pn}]) returns numerators of partial fraction decomposition of \spad{n} divided by product of \spad{pi}-\spad{s} Note: decomposition is assumed to have no whole part.
+255643`\spad{decompose(n,{} [p1,{} ...,{} pn])} returns numerators of partial fraction decomposition of \spad{n} divided by product of \spad{pi}-\spad{s} Note: decomposition is assumed to have no whole part.
 256218`\spad{decomposeFunc(func1,{} func2,{} newvar)} returns a function \spad{func3} where \spad{func1} = \spad{func3}(\spad{func2}) and expresses it in the new variable newvar. If there is no solution then \spad{func1} will be returned.
 256485`\spad{decomposeIfCan(f)} returns a functional decomposition of the polynomial \spad{f} or "failed" if it has not found any.
 256620`\spad{decreasePrecision(n)} decreases the current \spadfunFrom{precision}{FloatingPointSystem} precision by \spad{n} decimal digits.
@@ -2813,7 +2813,7 @@
 280627`\spad{differentiate(p,{} d,{} x')} extends the \spad{R}-derivation \spad{d} to an extension \spad{D} in \spad{R[x]} where \spad{Dx} is given by \spad{x'},{} and returns \spad{Dp}.
 280717`\spad{differentiate(x,{} deriv,{} n)} differentiate \spad{x} \spad{n} times using a derivation which extends \spad{deriv} on \spad{R}.
 280805`\spad{differentiate(x,{} s,{} n)} computes multiple partial derivatives,{} \spadignore{i.e.} \spad{n}-th derivative of \spad{x} with respect to \spad{s}.
-280890`diffext(ext,{} csolve,{} [\spad{g1},{} ...,{} \spad{gn}]) is like primextint and expextint but for differentialy transcendental extensions.
+280890`\spad{diffextint(ext,{} csolve,{} [g1,{} ...,{} gn])} is like primextint and expextint but for differentialy transcendental extensions.
 287492`\spad{diffHP options} returns a specification for Hermite-Pade approximation with the differential operator
 292959`\spad{diffHP options} returns a specificatio
 292959`--n for Hermite-Pade approximation with the \$\spad{q}\$-dilation operator
@@ -3108,7 +3108,7 @@
 322185`\spad{ellipticRF(x,{} y,{} z)} computes integral from 0 to infinity of \spad{(1/2)*(t+x)^(-1/2)*(t+y)^(-1/2)*(t+Z)^(-1/2)dt}.
 322326`\spad{ellipticRF(x,{} y,{} z)} computes integral from 0 to infinity of \spad{(1/2)*(t+x)^(-1/2)*(t+y)^(-1/2)*(t+Z)^(-1/2)dt}.
 322431`ellipticRF(\spad{x},{} \spad{y},{} \spad{z},{} \spad{p}) computes integral from 0 to infinity of \spad{(3/2)*(t+x)^(-1/2)*(t+y)^(-1/2)*(t+Z)^(-1/2)*(t+p)^(-1)dt}.
-322593`ellipticRF(\spad{x},{} \spad{y},{} \spad{z},{} \spad{p}) computes integral from 0 to infinity of \spad{(3/2)*(t+x)^(-1/2)*(t+y)^(-1/2)*(t+Z)^(-1/2)*(t+p)^(-1)dt}.
+322593`\spad{ellipticRJ(x,{} y,{} z,{} p)} computes integral from 0 to infinity of \spad{(3/2)*(t+x)^(-1/2)*(t+y)^(-1/2)*(t+Z)^(-1/2)*(t+p)^(-1)dt}.
 322710`\spad{elRow1!(m,{} i,{} j)} swaps rows \spad{i} and \spad{j} of matrix \spad{m} : elementary operation of first kind
 322797`\spad{elRow2!(m,{} a,{} i,{} j)} adds to row \spad{i} a*row(\spad{m},{} \spad{j}) : elementary operation of second kind. (\spad{i} \spad{~=j})
 323028`\spad{elt(op,{} x,{} y,{} z,{} t,{} s,{} r,{} q,{} p,{} o)} applies the 9-ary operator \spad{op} to \spad{x},{} \spad{y},{} \spad{z},{} \spad{t},{} \spad{s},{} \spad{r},{} \spad{q},{} \spad{p} and \spad{o}
@@ -3222,7 +3222,7 @@
 335385`\spad{erf(x)} returns the error function of \spad{x},{} \spadignore{i.e.} \spad{2 / sqrt(\%\spad{pi})} times the integral of \spad{exp(-x^2) dx}.
 335440`\spad{erf(f)} denotes the error function
 335585`\spad{erf(f)} denotes the error function
-335643`erf(\spad{f}) denotes \spad{-\%i*erf(\%i*z)}
+335643`\spad{erfi(f)} denotes \spad{-\%i*erf(\%i*z)}
 335694`\spad{erfi(x)} denotes \spad{-\%i*erf(\%i*x)}
 335750`\spad{erfi(f)} denotes \spad{-\%i*erf(\%i*f)}
 335897`\spad{erfi(f)} denotes \spad{-\%i*erf(\%i*f)}
@@ -4056,7 +4056,7 @@
 445919`\spad{horizSplit(A,{} c)} splits the matrix \spad{A} into two at the column given by \spad{c}. The first column of the right matrix is enumerated by the first index less or equal to \spad{c}.
 446193`\spad{horizSplit(a,{} [n1,{} n2,{} ...,{} \spad{ni}])} splits a into arrays having \spad{n1},{} ...,{} \spad{ni} columns. Error: if number of columns of a is different than \spad{n1} + ... + \spad{ni}.
 446297`\spad{horizSplit(a,{} n)} splits a into \spad{n} arrays of equal size column wise. Error: if number of columns of a is not divisible by \spad{n}.
-446392`+ hp_solve(\spad{lv},{} eta,{} \spad{K}) solves Hermite-Pade problem with degree + bound eta up to order \spad{K}.
+446392`\spad{hp_solve(lv,{} eta,{} K)} solves Hermite-Pade problem with degree bound \spad{eta} up to order \spad{K}.
 446604`\spad{HP_solve(l,{} degs,{} kind,{} sigma,{} gen check)} finds a \spad{sigma} basis with degree bounds given by \spad{degs}. It returns \spad{false} if there is no interpolating vector that is correct up to (
 446604`--and including) \spad{z^}(\spad{sigma}-1) with \spad{sigma} \spad{>=} |degs+[1,{} 1,{} ...,{} 1]| or if check rejects all solutions. It returns \spad{true} if it can not handle given problem.
 446903`Fake solver over algebraic numbers.
@@ -4177,8 +4177,8 @@
 455771`\spad{incidenceAlgebra(A,{} ss)} constructs an adjacency matrix with with indices \spad{ss} and Matrix A
 455863`\spad{incidenceMatrix(s)} represents graph \spad{s} by a matrix of size \spad{|V|} by |E| where: V=number of vertices E=number of edges entry [vertex,{} arrow] = arrow endpoint data (undirected case case: 1 - incident,{} 0 - not incident,{} directed case: \spad{-1} - start,{} 1 - end,{} 0 - not incident).
 455994`incLibraryError is an internal function that steps the number of failed tests,{} but not the number of tests.
-456070`inconsistant?(\spad{pl}) returns \spad{true} if the system of equations \spad{p} = 0 for \spad{p} in \spad{pl} is inconsistent. It is assumed that \spad{pl} is a groebner basis.
-456160`inconsistant?(\spad{pl}) returns \spad{true} if the system of equations \spad{p} = 0 for \spad{p} in \spad{pl} is inconsistent. It is assumed that \spad{pl} is a groebner basis.
+456070`\spad{inconsistent?(pl)} returns \spad{true} if the system of equations \spad{p} = 0 for \spad{p} in \spad{pl} is inconsistent. It is assumed that \spad{pl} is a groebner basis.
+456160`\spad{inconsistent?(pl)} returns \spad{true} if the system of equations \spad{p} = 0 for \spad{p} in \spad{pl} is inconsistent. It is assumed that \spad{pl} is a groebner basis.
 456261`incPass is an internal function that steps the number of passed tests.
 456306`\spad{incr(s)} returns \spad{n},{} where \spad{s} is a segment in which every \spad{n}\spad{-}th element is used. Note: \spad{incr(l..h by n) = n}.
 456358`\spad{increasePrecision(n)} increases the current \spadfunFrom{precision}{FloatingPointSystem} by \spad{n} decimal digits.
@@ -4876,7 +4876,7 @@
 530450`\spad{lin_comb(v,{} [f1,{} ...,{} fn])} computes linear combination \spad{v}(1) \spad{f1} + ... \spad{v}(\spad{n}) \spad{fn}. Vector \spad{v} and list [\spad{f1},{} ...,{} \spad{fn}] must be of equal positive length.
 530545`\spad{lin_comb(v,{} [f1,{} ...,{} fn])} computes linear combination \spad{v}(1) \spad{f1} + ... \spad{v}(\spad{n}) \spad{fn}. Vector \spad{v} and list [\spad{f1},{} ...,{} \spad{fn}] must be of equal length.
 530640`\spad{lin_comb(v,{} [f1,{} ...,{} fn])} computes linear combination \spad{v}(1) \spad{f1} + ... \spad{v}(\spad{n}) \spad{fn}. Vector \spad{v} and list [\spad{f1},{} ...,{} \spad{fn}] must be of equal length.
-530757`lin_comb(\spad{v},{} \spad{w},{} [\spad{f1},{} ...,{} \spad{fn}]) computes linear combination \spad{w} + \spad{v}(1) \spad{f1} + ... \spad{v}(\spad{n}) \spad{fn} by modifying \spad{w} in place. Vector \spad{v} and list [\spad{f1},{} ...,{} \spad{fn}] must be of equal length.
+530757`\spad{lin_comb!(v,{} w,{} [f1,{} ...,{} fn])} computes linear combination \spad{w} + \spad{v}(1) \spad{f1} + ... \spad{v}(\spad{n}) \spad{fn} by modifying \spad{w} in place. Vector \spad{v} and list [\spad{f1},{} ...,{} \spad{fn}] must be of equal length.
 530863`\spad{linear?(p)} returns \spad{true} iff \spad{p} does not lie in the base ring \spad{R} and has main degree \spad{1}.
 530937`\spad{linear(u)} \undocumented
 531004`\spad{linear(f,{} g)} \undocumented
@@ -5603,12 +5603,12 @@
 605995`\spad{naiveBeckermannLabahn(f,{} degs,{} sigma,{} p)} solves modulo \$\spad{p}\$ Hermite-Pade interpolation problem of order \$\spad{sigma}\$. \$\spad{degs}\$ specifies degree bounds for solution. The first element of result contains \spad{sigma}-basis. The second gives defects of elements of \spad{sigma}-basis. The third one contains residuals \spad{
 605995`--} we stop upd
 605995`--ating solution if this would violate degree bounds,{} so residual is zero for elements of \spad{sigma}-basis which are within bounds,{} but non-zero otherwise.
-606134`naiveBeckermannLabahn(\spad{f},{} degs,{} sigma,{} \spad{p}) solves modulo \$\spad{p}\$ multipoint Hermite-Pade interpolation problem of order \$sigma\$. \$degs\$ specifies degree bounds for solution. The first element of result contains sigma-basis. The second gives defects of elements of sigma-basis. The third one contains residuals \spa
-606134`--d{
-606134`--} we stop updating solution if this would violate degree bounds,{} so residual is zero for elements of sigma-basis which are within bounds,{} but non-zero otherwise.
-606300`naiveBeckermannLabahn(\spad{f},{} degs,{} sigma,{} \spad{p}) solves modulo \$\spad{p}\$ multipoint Hermite-Pade interpolation problem of order \$sigma\$. \$degs\$ specifies degree bounds for solution. The first element of result contains sigma-basis. The second gives defects of elements of sigma-basis. The third one contains residuals \spad{
-606300`--} we stop updating sol
-606300`--ution if this would violate degree bounds,{} so residual is zero for elements of sigma-basis which are within bounds,{} but non-zero otherwise.
+606134`\spad{naiveBeckermannLabahnMultipoint(f,{} degs,{} sigma,{} p)} solves modulo \$\spad{p}\$ multipoint Hermite-Pade interpolation problem of order \$\spad{sigma}\$. \$\spad{degs}\$ specifies degree bounds for solution. The first element of result contains \spad{sigma}-basis. The second gives defects of elements of \spad{sigma}-basis. The th
+606134`--ird one contains residuals \spad{
+606134`--} we stop updating solution if this would violate degree bounds,{} so residual is zero for elements of \spad{sigma}-basis which are within bounds,{} but non-zero otherwise.
+606300`\spad{naiveBeckermannLabahnMultipoint(f,{} degs,{} sigma,{} p)} solves modulo \$\spad{p}\$ multipoint Hermite-Pade interpolation problem of order \$\spad{sigma}\$. \$\spad{degs}\$ specifies degree bounds for solution. The first element of result contains \spad{sigma}-basis. The second gives defects of elements of \spad{sigma}-basis. The third one contains residuals
+606300`-- \spad{
+606300`--} we stop updating solution if this would violate degree bounds,{} so residual is zero for elements of \spad{sigma}-basis which are within bounds,{} but non-zero otherwise.
 606440`\spad{name(jv)} yields the name of the jet variable \spad{jv}.
 606490`\spad{name(x)} returns the symbol
 606540`\spad{name(op(a1,{} ...,{} an))} returns the name of op.
@@ -5734,7 +5734,7 @@
 616877`\spad{normalForm(poly,{} gb)} reduces the polynomial \spad{poly} modulo the precomputed groebner basis \spad{gb} giving a canonical representative of the residue class.
 616979`\spad{normalForm(M,{} sig,{} der)} returns \spad{[R,{} A,{} A^{-1}]} such that the pseudo-linear operator whose matrix in the basis \spad{y} is \spad{M} had matrix \spad{R} in the basis \spad{z = A y}. \spad{der} is a \spad{sig}-derivation.
 617113`\spad{normalise(v)} returns the column vector \spad{v} divided by its euclidean norm; when possible,{} the vector \spad{v} is expressed in terms of radicals.
-617216`normalalised point has scalar value of one,{} if this is not the case then scale values
+617216`normalised point has scalar value of one,{} if this is not the case then scale values
 617268`\spad{normalize(x)} normalizes \spad{x} at current precision.
 617307`\spad{normalize(f)} rewrites \spad{f} using the least possible number of real algebraically independent kernels.
 617378`\spad{normalize(lf)} is normalize(\spad{lf},{} [])
@@ -6396,7 +6396,7 @@
 678484`\spad{primeFrobenius(a)} returns \spad{a ^ p} where \spad{p} is the characteristic.
 678630`\spad{primeFrobenius(a,{} s)} returns \spad{a^(p^s)} where \spad{p} is the characteristic.
 678714`\spad{primes(a,{} b)} returns a list of all primes \spad{p} with \spad{a <= p <= b}
-678774`primext(',{} ext,{} csolve,{} [\spad{g1},{} ...,{} \spad{gn}]) returns a basis of solutions of the homogeneous system \spad{h' + c1*g1 + ... + cn*gn = 0}. Argument ext is an extended integration function on \spad{F}. csolve is solver over constants.
+678774`\spad{primextint(',{} ext,{} csolve,{} [g1,{} ...,{} gn])} returns a basis of solutions of the homogeneous system \spad{h' + c1*g1 + ... + cn*gn = 0}. Argument \spad{ext} is an extended integration function on \spad{F}. \spad{csolve} is solver over constants.
 679005`\spad{primintegrate(f,{} ',{} foo)} returns \spad{[g,{} a]} such that \spad{f = g' + a},{} and \spad{a = 0} or \spad{a} has no integral in UP. Argument foo is an extended integration function on \spad{F}.
 679346`\spad{primitive?(f)} tests whether the polynomial \spad{f} over a finite field is primitive,{} \spadignore{i.e.} all its roots are primitive.
 679446`\spad{primitive?(b)} tests whether the element \spad{b} is a generator of the (cyclic) multiplicative group of the field,{} \spadignore{i.e.} is a primitive element. Implementation Note: see \spad{ch}.IX.1.3,{} th.2 in \spad{D}. Lipson.
@@ -6548,8 +6548,8 @@
 694513`\spad{qroot(f,{} n)} returns \spad{[m,{} c,{} r]} such that \spad{f^(1/n) = c * r^(1/m)}.
 694715`\spad{qsetelt!(u,{} x,{} y)} sets the image of \spad{x} to be \spad{y} under \spad{u},{} without checking that \spad{x} is in the domain of \spad{u}. If such a check is required use the function \spad{setelt}.
 694803`\spad{qsetelt!(m,{} i,{} j,{} r)} sets the element in the \spad{i}th row and \spad{j}th column of \spad{m} to \spad{r} NO error check to determine if indices are in proper ranges
-694891`setfirst!(\spad{u},{} \spad{x}) destructively changes the first element of \spad{u} to \spad{x} without checking for errors.
-694977`setrest!(\spad{u},{} \spad{v}) destructively changes the rest of \spad{u} to \spad{v} without checking for errors.
+694891`\spad{qsetfirst!(u,{} x)} destructively changes the first element of \spad{u} to \spad{x} without checking for errors.
+694977`\spad{qsetrest!(u,{} v)} destructively changes the rest of \spad{u} to \spad{v} without checking for errors.
 695064`\spad{qShiftAction(q,{} k,{} l,{} g)} gives the coefficient of \spad{x^k} in \spad{z^l} \spad{g}(\spad{x}),{} where \spad{z*}(a+b*x+c*x^2+d*x^3+...) = (a+q*b*x+q^2*c*x^2+q^3*d*x^3+...). In terms of sequences,{} z*u(\spad{n})=q^n*u(\spad{n}).
 695168`\spad{qShiftC} gives the coefficients \spad{c_}{\spad{k},{} \spad{k}} in the expansion <x^k> \spad{z} \spad{g}(\spad{x}) = sum_{\spad{i=0}}\spad{^k} \spad{c_}{\spad{k},{} \spad{i}} <x^i> \spad{g}(\spad{x}),{} where \spad{z} acts on \spad{g}(\spad{x}) by shifting. In fact,{} the result is [1,{} \spad{q},{} \spad{q^2},{} ...]
 695252`\spad{qsqrt(x)} computes square root of \spad{x}. It assumes that \spad{x >= 0}.
@@ -8131,7 +8131,7 @@
 887903`\spad{testcaseNoClear s},{} starts a new testcase with \spad{s} as title,{} without calling \spad{clear all}. A testcase is composed of several tests.
 887963`test function.
 888236`\spad{testComplexEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
-888300`testComplexEquals(inp \spad{ex1},{} \spad{ex2}) states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+888300`\spad{testComplexEqualsAux(inp ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as complex numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
 888411`test function.
 888838`test function.
 889141`\spad{testDim(lp,{} lv)} tests if the polynomial system \spad{lp} in variables \spad{lv} is zero dimensional.
@@ -8149,7 +8149,7 @@
 893676`test func
 893676`--tion.
 894175`\spad{testLibraryError ex} states that ex should throw an error. Such a test will never count as a fatal error.
-894231`testLibraryError(inp,{} ex) states that ex should throw an error. Such a test will never count as a fatal error.
+894231`\spad{testLibraryErrorAux(inp,{} ex)} states that ex should throw an error. Such a test will never count as a fatal error.
 894298`test function.
 894813`test function.
 896052`test function.
@@ -8161,7 +8161,7 @@
 897704`test OrientedFacet,{} these tests depend on random values so it makes sense to repeat test multiple times. Tests are: 1) delta should be inverse of constuct from boundary.
 897772`test function.
 898060`\spad{testRealEquals(ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
-898121`testRealEquals(inp,{} \spad{ex1},{} \spad{ex2}) states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
+898121`\spad{testRealEqualsAux(inp,{} ex1,{} ex2)} states that \spad{ex1} and \spad{ex2} should be approximately equal as real numbers,{} taking into acount \spadfun{testAbsolutePrecision} and \spadfun{testRelativePrecision}.
 898211`\spad{testRelativePrecision(eps)} returns the current absolute precision used for floating point comparison,{} and then sets it to \spad{eps}. The default value is 1.0e-15.
 898293`test function.
 898730`t--est function.
@@ -8398,7 +8398,7 @@
 923605`--ult is checked. See \spadopFrom{rur}{RationalUnivariateRepresentationPackage}(\spad{lp},{} \spad{true}). If \spad{lextri?} is \spad{true} then the lexTriangular algorithm is called from the \spadtype{LexTriangularPackage} constructor (see \spadopFrom{zeroSetSplit}{LexTriangularPackage}(\spad{lp},{} \spad{false})). Otherwise,{} the triangular decomposition is computed directly from the input system by using the \spadopFrom{zeroSetSplit}{RegularChain} from \spadtype{RegularChain}.
 923810`\spad{univcase should} be local
 923936`\spad{universe()}\$\spad{D} returns the universal set for finite set aggregate \spad{D}.
-924002`unkext(ext,{} csolve,{} [\spad{g1},{} ...,{} \spad{gn}]) is like primextint and expextint but for makes no assumption about generator of the extension.
+924002`\spad{unkextint(ext,{} csolve,{} [g1,{} ...,{} gn])} is like primextint and expextint but for makes no assumption about generator of the extension.
 924302`\spad{unmakeSUP(sup)} converts \spad{sup} of type \spadtype{SparseUnivariatePolynomial(R)} to be a member of the given type. Note: converse of makeSUP.
 924395`\spad{unpack_poly(vars,{} exps,{} coeffs,{} lo,{} \spad{hi})} converts polynomial from packed to sparse representation. Coefficients of packed polynomial are stored in \spad{coeffs}(\spad{l0}) up to \spad{coeffs}(\spad{hi}) Exponents are stored in corresponding elements of \spad{exps}.
 924566`\spad{unparse(f)} returns a string \spad{s} such that the parser would transform \spad{s} to \spad{f}. Error: if \spad{f} is not the parsed form of a string.
