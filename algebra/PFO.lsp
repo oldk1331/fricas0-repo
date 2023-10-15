@@ -1191,8 +1191,9 @@
            (|SparseUnivariatePolynomial|
             (|Fraction|
              (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
-          (|f| (UPUP)))
+          (|n| (|Integer|)) (|f| (UPUP)))
          (SEQ (LETT |f| (SPADCALL (QREFELT $ 169)) . #1=(|PFO;selIntegers|))
+              (LETT |n| (EXPT 10 6) . #1#)
               (SEQ G190
                    (COND
                     ((NULL
@@ -1206,8 +1207,8 @@
                               (QREFELT $ 174))
                              . #1#)))
                      (GO G191)))
-                   (SEQ (EXIT (SPADCALL (QREFELT $ 176)))) NIL (GO G190) G191
-                   (EXIT NIL))
+                   (SEQ (EXIT (SPADCALL |n| (QREFELT $ 176)))) NIL (GO G190)
+                   G191 (EXIT NIL))
               (EXIT (CONS |r| |d|))))) 
 
 (SDEFUN |PFO;selectIntegers|
@@ -1226,7 +1227,8 @@
            (|SparseUnivariatePolynomial|
             (|SparseUnivariatePolynomial|
              (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
-          (|p| (|SparseUnivariatePolynomial| F)) (|g| (UPUP)) (|f| (UPUP)))
+          (|n| (|Integer|)) (|p| (|SparseUnivariatePolynomial| F)) (|g| (UPUP))
+          (|f| (UPUP)))
          (SEQ
           (LETT |g|
                 (|PFO;polyred|
@@ -1235,6 +1237,7 @@
                  $)
                 . #1#)
           (LETT |p| (SPADCALL |k| (QREFELT $ 177)) . #1#)
+          (LETT |n| (EXPT 10 6) . #1#)
           (SEQ G190
                (COND
                 ((NULL
@@ -1247,7 +1250,7 @@
                     'T)
                    ('T (|PFO;notIrr?| (|PFO;fmod| |p| $) $))))
                  (GO G191)))
-               (SEQ (EXIT (SPADCALL (QREFELT $ 176)))) NIL (GO G190) G191
+               (SEQ (EXIT (SPADCALL |n| (QREFELT $ 176)))) NIL (GO G190) G191
                (EXIT NIL))
           (EXIT
            (VECTOR |r| |d|
@@ -1769,14 +1772,14 @@
               (467 . |definingPolynomial|) (471 . |coerce|)
               (476 . |simplifyCoeffs|) (482 . |genus|) (486 . |polyred|)
               (491 . |doubleDisc|) (|Void|) (496 . |newReduc|)
-              (500 . |minPoly|) (|Record| (|:| |num| 25) (|:| |den| 18))
+              (501 . |minPoly|) (|Record| (|:| |num| 25) (|:| |den| 18))
               (|UnivariatePolynomialCommonDenominator| 18 19 25)
-              (505 . |splitDenominator|) (510 . |retract|) (|Mapping| 54 83)
+              (506 . |splitDenominator|) (511 . |retract|) (|Mapping| 54 83)
               (|UnivariatePolynomialCategoryFunctions2| 83 9 54 63)
-              (515 . |map|) (521 . |principal?|) (|IntegerPrimesPackage| 18)
-              (526 . |nextPrime|) (531 . |coerce|))
-           '#(|torsionIfCan| 536 |torsion?| 541 |simplifyCoeffs| 546
-              |possibleOrder| 552 |order| 557 |cmult| 562)
+              (516 . |map|) (522 . |principal?|) (|IntegerPrimesPackage| 18)
+              (527 . |nextPrime|) (532 . |coerce|))
+           '#(|torsionIfCan| 537 |torsion?| 542 |simplifyCoeffs| 547
+              |possibleOrder| 553 |order| 558 |cmult| 563)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -1830,12 +1833,12 @@
                                                    10 9 169 1 10 0 83 170 2 0
                                                    51 14 42 171 0 10 51 172 1
                                                    58 32 32 173 1 58 18 32 174
-                                                   0 12 175 176 1 7 167 77 177
-                                                   1 179 178 25 180 1 25 19 0
-                                                   181 2 183 63 182 9 184 1 14
-                                                   16 0 185 1 186 18 18 187 1
-                                                   19 0 18 188 1 0 73 14 74 1 0
-                                                   16 14 17 2 1 51 14 42 171 1
-                                                   0 51 14 68 1 0 13 14 15 1 0
-                                                   88 90 91)))))
+                                                   1 12 175 18 176 1 7 167 77
+                                                   177 1 179 178 25 180 1 25 19
+                                                   0 181 2 183 63 182 9 184 1
+                                                   14 16 0 185 1 186 18 18 187
+                                                   1 19 0 18 188 1 0 73 14 74 1
+                                                   0 16 14 17 2 1 51 14 42 171
+                                                   1 0 51 14 68 1 0 13 14 15 1
+                                                   0 88 90 91)))))
            '|lookupComplete|)) 
