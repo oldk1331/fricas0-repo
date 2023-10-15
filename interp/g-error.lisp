@@ -176,6 +176,7 @@
 ;       THROW('SPAD_READER, nil)
 ;   $BreakMode = 'resume =>
 ;     returnToReader()
+;   $BreakMode = 'throw_reader => THROW('SPAD_READER, nil)
 ;   $BreakMode = 'quit =>
 ;     EXIT_-WITH_-STATUS(1)
 ;   returnToTopLevel()
@@ -269,6 +270,7 @@
                               "   Processing will continue where it was interrupted.")
                              (THROW 'SPAD_READER NIL))))))))))))
             ((EQ |$BreakMode| '|resume|) (|returnToReader|))
+            ((EQ |$BreakMode| '|throw_reader|) (THROW 'SPAD_READER NIL))
             ((EQ |$BreakMode| '|quit|) (EXIT-WITH-STATUS 1))
             (#1# (|returnToTopLevel|)))))))
  

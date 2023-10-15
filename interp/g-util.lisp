@@ -544,10 +544,15 @@
       (SETQ |q| (|mergeSort| |f| |g| |q| (|sub_SI| |n| |l|)))
       (|mergeInPlace| |f| |g| |p| |q|)))))
  
+; throw_to_reader() == THROW('SPAD_READER, nil)
+ 
+(DEFUN |throw_to_reader| () (PROG () (RETURN (THROW 'SPAD_READER NIL))))
+ 
 ; spadThrow() ==
 ;   if $interpOnly and $mapName then
 ;     putHist($mapName,'localModemap, nil, $e)
-;   THROW("SPAD_READER", nil)
+;   $BreakMode = 'throw_reader => throw_to_reader()
+;   handleLispBreakLoop($BreakMode)
  
 (DEFUN |spadThrow| ()
   (PROG ()
@@ -556,7 +561,8 @@
       (COND
        ((AND |$interpOnly| |$mapName|)
         (|putHist| |$mapName| '|localModemap| NIL |$e|)))
-      (THROW 'SPAD_READER NIL)))))
+      (COND ((EQ |$BreakMode| '|throw_reader|) (|throw_to_reader|))
+            ('T (|handleLispBreakLoop| |$BreakMode|)))))))
  
 ; spadThrowBrightly x ==
 ;   sayBrightly x

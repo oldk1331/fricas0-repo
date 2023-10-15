@@ -1853,19 +1853,22 @@
 ; kisValidType typeForm ==
 ;   $ProcessInteractiveValue: fluid := true
 ;   $noEvalTypeMsg: fluid := true
+;   $BreakMode : local := 'throw_reader
 ;   CATCH('SPAD_READER, processInteractive(typeForm, nil))
 ;     is [[h,:.],:t] and member(h,'(Type Category)) =>
 ;       kCheckArgumentNumbers t and t
 ;   false
  
 (DEFUN |kisValidType| (|typeForm|)
-  (PROG (|$noEvalTypeMsg| |$ProcessInteractiveValue| |t| |h| |ISTMP#2|
-         |ISTMP#1|)
-    (DECLARE (SPECIAL |$noEvalTypeMsg| |$ProcessInteractiveValue|))
+  (PROG (|$BreakMode| |$noEvalTypeMsg| |$ProcessInteractiveValue| |t| |h|
+         |ISTMP#2| |ISTMP#1|)
+    (DECLARE
+     (SPECIAL |$BreakMode| |$noEvalTypeMsg| |$ProcessInteractiveValue|))
     (RETURN
      (PROGN
       (SETQ |$ProcessInteractiveValue| T)
       (SETQ |$noEvalTypeMsg| T)
+      (SETQ |$BreakMode| '|throw_reader|)
       (COND
        ((AND
          (PROGN

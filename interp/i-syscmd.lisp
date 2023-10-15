@@ -299,10 +299,11 @@
 ; terminateSystemCommand() ==
 ;     FRESH_-LINE()
 ;     TOK := 'END_UNIT
-;     spadThrow()
+;     throw_to_reader()
  
 (DEFUN |terminateSystemCommand| ()
-  (PROG (TOK) (RETURN (PROGN (FRESH-LINE) (SETQ TOK 'END_UNIT) (|spadThrow|)))))
+  (PROG (TOK)
+    (RETURN (PROGN (FRESH-LINE) (SETQ TOK 'END_UNIT) (|throw_to_reader|)))))
  
 ; commandUserLevelError(x,u) == userLevelErrorMessage("command",x,u)
  
@@ -8160,10 +8161,14 @@
             ('T (|pf2Sex| (|macroExpanded| (CAR (CDR (CAR |s|)))))))))))
  
 ; ncParseFromString(s) ==
+;    $BreakMode : local := 'throw_reader
 ;    zeroOneTran(packageTran(CATCH('SPAD_READER, parseFromString(s))))
  
 (DEFUN |ncParseFromString| (|s|)
-  (PROG ()
+  (PROG (|$BreakMode|)
+    (DECLARE (SPECIAL |$BreakMode|))
     (RETURN
-     (|zeroOneTran|
-      (|packageTran| (CATCH 'SPAD_READER (|parseFromString| |s|)))))))
+     (PROGN
+      (SETQ |$BreakMode| '|throw_reader|)
+      (|zeroOneTran|
+       (|packageTran| (CATCH 'SPAD_READER (|parseFromString| |s|))))))))
