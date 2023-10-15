@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5042 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -515,8 +515,8 @@
  |exteriorDifferential| |totalDifferential| |homogeneous?| |leadingBasisTerm|
  |ignore?| |computeInt| |checkForZero| |doubleFloatFormat| |qsqrt| |qlog|
  |hypergeometric0F1| |qnew| |directedGraph| |rotatez| |rotatey| |rotatex|
- |exponentb| |exponenta| |expb| |expa| |dictionary| |dioSolve| |directProduct|
- |additive?| |multiplicative?| |zeta| |newLine| |copies| |say| |sayLength|
+ |exponentb| |exponenta| |expb| |expa| |dictionary| |dioSolve| |additive?|
+ |multiplicative?| |zeta| |newLine| |copies| |say| |sayLength|
  |monotoneConvolution| |booleanConvolution| |freeConvolution|
  |classicalConvolution| |orthogonalPolynomials| |jacobiParameters|
  |monotoneCumulants| |hankelDeterminants| |booleanCumulants| |freeCumulants|
@@ -658,16 +658,16 @@
  |totalDegree| |nextSubsetGray| |firstSubsetGray| |clipPointsDefault|
  |drawToScale| |adaptive| |putColorInfo| |appendPoint| |component| |ranges|
  |pointLists| |makeGraphImage| |sendGraphImage| |graphImage| |groebSolve|
- |testDim| |genericPosition| |refactor| |groupPresentation| F2EXPRR EXPRR2F
- |iim2| |iiretractVar| |guess| |guessExpRat| |guessBinRat| |guessAlgDep|
- |guessFE| |guessAlg| |guessPade| |algDepHP| |substHP| |shiftHP| |diffHP|
- |guessRec| |guessPRec| |guessRat| |guessADE| |guessHolo| |HankelMatrix|
- |update!| |lfunc| |inHallBasis?| |reorder| |heap| |gcdprim| |gcdcofact|
- |gcdcofactprim| |lintgcd| |hex| |parts| |count| |every?| |any?| |map!|
- |dispGenerators| |homologyzc2| |homologyc2| |homologyzz| |homologyz|
- |homology0| |homologyGroup| |antipode| |trueEqual| |factorList|
- |listConjugateBases| |matrixGcd| |divideIfCan!| |leastPower| |idealiser|
- |idealiserMatrix| |moduleSum| |mapUnivariate| |mapUnivariateIfCan|
+ |testDim| |genericPosition| |directProduct| |subgroup| |refactor|
+ |groupPresentation| F2EXPRR EXPRR2F |iim2| |iiretractVar| |guess|
+ |guessExpRat| |guessBinRat| |guessAlgDep| |guessFE| |guessAlg| |guessPade|
+ |algDepHP| |substHP| |shiftHP| |diffHP| |guessRec| |guessPRec| |guessRat|
+ |guessADE| |guessHolo| |HankelMatrix| |update!| |lfunc| |inHallBasis?|
+ |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim| |lintgcd| |hex| |parts|
+ |count| |every?| |any?| |map!| |dispGenerators| |homologyzc2| |homologyc2|
+ |homologyzz| |homologyz| |homology0| |homologyGroup| |antipode| |trueEqual|
+ |factorList| |listConjugateBases| |matrixGcd| |divideIfCan!| |leastPower|
+ |idealiser| |idealiserMatrix| |moduleSum| |mapUnivariate| |mapUnivariateIfCan|
  |mapMatrixIfCan| |mapBivariate| |fullDisplay| |relationsIdeal| |saturate|
  |groebner?| |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos|
  |generalPosition| |quotient| |zeroDim?| |inRadical?| |in?| |element?|
