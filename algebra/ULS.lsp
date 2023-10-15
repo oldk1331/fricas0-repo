@@ -152,7 +152,7 @@
                                               (|UnivariateTaylorSeries| |#1|
                                                                         |#2|
                                                                         |#3|)
-                                              '(|LinearlyExplicitRingOver|
+                                              '(|LinearlyExplicitOver|
                                                 (|Integer|))))
                                         (AND (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory|
@@ -435,7 +435,7 @@
                                               (|UnivariateTaylorSeries| |#1|
                                                                         |#2|
                                                                         |#3|)
-                                              '(|LinearlyExplicitRingOver|
+                                              '(|LinearlyExplicitOver|
                                                 (|Integer|))))
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
@@ -717,16 +717,15 @@
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
                 |OrderedRing&| |Algebra&| |DifferentialExtension&|
-                |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
-                |EntireRing&| |Module&| NIL NIL NIL |Module&|
-                |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
-                NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |Rng&|
-                NIL |AbelianGroup&| NIL NIL NIL NIL |Monoid&| |OrderedSet&|
-                |AbelianMonoid&| NIL |AbelianSemiGroup&| |SemiGroup&| NIL NIL
-                |FullyEvalableOver&| NIL NIL |SetCategory&|
-                |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |FullyLinearlyExplicitOver&| |Module&| |Module&| |EntireRing&|
+                |Module&| NIL NIL NIL |Module&| |PartialDifferentialRing&|
+                |DifferentialRing&| NIL NIL NIL NIL NIL NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
+                NIL NIL |Monoid&| |OrderedSet&| |AbelianMonoid&| NIL
+                |AbelianSemiGroup&| |SemiGroup&| NIL NIL |FullyEvalableOver&|
+                NIL NIL |SetCategory&| |TranscendentalFunctionCategory&| NIL
+                |Evalable&| NIL |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
                 |RadicalCategory&| NIL |RetractableTo&| NIL NIL NIL
@@ -747,15 +746,14 @@
                  (|LeftOreRing|) (|Algebra| 48) (|OrderedRing|)
                  (|Algebra| (|UnivariateTaylorSeries| 6 7 8))
                  (|DifferentialExtension| (|UnivariateTaylorSeries| 6 7 8))
-                 (|FullyLinearlyExplicitRingOver|
-                  (|UnivariateTaylorSeries| 6 7 8))
+                 (|FullyLinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
                  (|Module| 6) (|Module| $$) (|EntireRing|) (|Module| 48)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|CommutativeRing|)
                  (|Module| (|UnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 9) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver| (|UnivariateTaylorSeries| 6 7 8))
-                 (|LinearlyExplicitRingOver| 16) (|BiModule| 6 6)
+                 (|LinearlyExplicitOver| (|UnivariateTaylorSeries| 6 7 8))
+                 (|LinearlyExplicitOver| 16) (|BiModule| 6 6)
                  (|BiModule| $$ $$) (|BiModule| 48 48) (|OrderedAbelianGroup|)
                  (|BiModule| (|UnivariateTaylorSeries| 6 7 8)
                              (|UnivariateTaylorSeries| 6 7 8))

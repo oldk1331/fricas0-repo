@@ -501,7 +501,7 @@
                                              (|HasCategory|
                                               (|SparseUnivariateTaylorSeries|
                                                |#1| |#2| |#3|)
-                                              '(|LinearlyExplicitRingOver|
+                                              '(|LinearlyExplicitOver|
                                                 (|Integer|))))
                                         (AND (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory|
@@ -764,7 +764,7 @@
                                              (|HasCategory|
                                               (|SparseUnivariateTaylorSeries|
                                                |#1| |#2| |#3|)
-                                              '(|LinearlyExplicitRingOver|
+                                              '(|LinearlyExplicitOver|
                                                 (|Integer|))))
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
@@ -1157,16 +1157,15 @@
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
                 |OrderedRing&| |Algebra&| |DifferentialExtension&|
-                |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
-                |EntireRing&| |Module&| NIL NIL NIL |Module&|
-                |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
-                NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |Rng&|
-                NIL |AbelianGroup&| NIL NIL NIL NIL |Monoid&| |OrderedSet&|
-                |AbelianMonoid&| NIL |AbelianSemiGroup&| |SemiGroup&| NIL NIL
-                |FullyEvalableOver&| NIL NIL |SetCategory&|
-                |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |FullyLinearlyExplicitOver&| |Module&| |Module&| |EntireRing&|
+                |Module&| NIL NIL NIL |Module&| |PartialDifferentialRing&|
+                |DifferentialRing&| NIL NIL NIL NIL NIL NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
+                NIL NIL |Monoid&| |OrderedSet&| |AbelianMonoid&| NIL
+                |AbelianSemiGroup&| |SemiGroup&| NIL NIL |FullyEvalableOver&|
+                NIL NIL |SetCategory&| |TranscendentalFunctionCategory&| NIL
+                |Evalable&| NIL |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
                 |RadicalCategory&| NIL |RetractableTo&| NIL NIL NIL
@@ -1189,16 +1188,16 @@
                  (|Algebra| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|DifferentialExtension|
                   (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|FullyLinearlyExplicitRingOver|
+                 (|FullyLinearlyExplicitOver|
                   (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|Module| 6) (|Module| $$) (|EntireRing|) (|Module| 126)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|CommutativeRing|)
                  (|Module| (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|PartialDifferentialRing| 10) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver|
+                 (|LinearlyExplicitOver|
                   (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|LinearlyExplicitRingOver| 17) (|BiModule| 6 6)
+                 (|LinearlyExplicitOver| 17) (|BiModule| 6 6)
                  (|BiModule| $$ $$) (|BiModule| 126 126)
                  (|OrderedAbelianGroup|)
                  (|BiModule| (|SparseUnivariateTaylorSeries| 6 7 8)

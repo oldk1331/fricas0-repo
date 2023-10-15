@@ -1,29 +1,29 @@
 
-(DEFPARAMETER |LinearlyExplicitRingOver;CAT| 'NIL) 
+(DEFPARAMETER |LinearlyExplicitOver;CAT| 'NIL) 
 
-(DECLAIM (NOTINLINE |LinearlyExplicitRingOver;|)) 
+(DECLAIM (NOTINLINE |LinearlyExplicitOver;|)) 
 
-(DEFPARAMETER |LinearlyExplicitRingOver;AL| 'NIL) 
+(DEFPARAMETER |LinearlyExplicitOver;AL| 'NIL) 
 
-(DEFUN |LinearlyExplicitRingOver| (#1=#:G105)
+(DEFUN |LinearlyExplicitOver| (#1=#:G105)
   (LET (#2=#:G106)
     (COND
-     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LinearlyExplicitRingOver;AL|))
+     ((SETQ #2# (|assoc| #3=(|devaluate| #1#) |LinearlyExplicitOver;AL|))
       (CDR #2#))
      (T
-      (SETQ |LinearlyExplicitRingOver;AL|
-              (|cons5| (CONS #3# (SETQ #2# (|LinearlyExplicitRingOver;| #1#)))
-                       |LinearlyExplicitRingOver;AL|))
+      (SETQ |LinearlyExplicitOver;AL|
+              (|cons5| (CONS #3# (SETQ #2# (|LinearlyExplicitOver;| #1#)))
+                       |LinearlyExplicitOver;AL|))
       #2#)))) 
 
-(DEFUN |LinearlyExplicitRingOver;| (|t#1|)
+(DEFUN |LinearlyExplicitOver;| (|t#1|)
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
-                              (COND (|LinearlyExplicitRingOver;CAT|)
+                              (COND (|LinearlyExplicitOver;CAT|)
                                     ('T
-                                     (LETT |LinearlyExplicitRingOver;CAT|
+                                     (LETT |LinearlyExplicitOver;CAT|
                                            (|Join| (|Ring|)
                                                    (|mkCategory|
                                                     '(((|reducedSystem|
@@ -45,7 +45,6 @@
                                                     '((|Matrix| $) (|Vector| $)
                                                       (|Matrix| |t#1|))
                                                     NIL))
-                                           . #2=(|LinearlyExplicitRingOver|)))))
+                                           . #2=(|LinearlyExplicitOver|)))))
                    . #2#)
-           (SETELT #1# 0
-                   (LIST '|LinearlyExplicitRingOver| (|devaluate| |t#1|)))))) 
+           (SETELT #1# 0 (LIST '|LinearlyExplicitOver| (|devaluate| |t#1|)))))) 

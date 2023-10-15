@@ -184,7 +184,7 @@
                                         (|HasCategory| |#2| '(|SemiRing|))
                                         (|HasCategory| |#2| '(|Ring|))
                                         (|HasCategory| |#2|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (|HasCategory| |#2|
                                                        '(|PartialDifferentialRing|
@@ -195,7 +195,7 @@
                                               . #2#)
                                         (OR
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#2|
                                                         '(|PartialDifferentialRing|
@@ -227,7 +227,7 @@
                                                                (|devaluate|
                                                                 |#2|)))
                                           (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|))))
                                          (AND
                                           (|HasCategory| |#2|
@@ -277,7 +277,7 @@
                                                          '(|SetCategory|))))
                                         (AND
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#2| '(|Ring|)))
                                         (AND #1#
@@ -386,15 +386,15 @@
              '#(|FramedNonAssociativeAlgebra&| |SquareMatrixCategory&|
                 |FiniteRankNonAssociativeAlgebra&| |NonAssociativeAlgebra&|
                 |RectangularMatrixCategory&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
-                |Module&| NIL NIL |PartialDifferentialRing&|
-                |DifferentialRing&| NIL |Ring&| |NonAssociativeRng&| NIL NIL
-                NIL |Rng&| |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
-                |NonAssociativeSemiRng&| |Monoid&| |Finite&| |Magma&|
-                |HomogeneousAggregate&| |AbelianSemiGroup&| |SemiGroup&| NIL
-                |FullyRetractableTo&| |Aggregate&| |SetCategory&| |Evalable&|
-                NIL |RetractableTo&| NIL NIL |BasicType&| NIL NIL
-                |InnerEvalable&| |RetractableTo&| |RetractableTo&| NIL)
+                |FullyLinearlyExplicitOver&| |DifferentialExtension&| |Module&|
+                NIL NIL |PartialDifferentialRing&| |DifferentialRing&| NIL
+                |Ring&| |NonAssociativeRng&| NIL NIL NIL |Rng&| |AbelianGroup&|
+                NIL NIL NIL |AbelianMonoid&| |NonAssociativeSemiRng&| |Monoid&|
+                |Finite&| |Magma&| |HomogeneousAggregate&| |AbelianSemiGroup&|
+                |SemiGroup&| NIL |FullyRetractableTo&| |Aggregate&|
+                |SetCategory&| |Evalable&| NIL |RetractableTo&| NIL NIL
+                |BasicType&| NIL NIL |InnerEvalable&| |RetractableTo&|
+                |RetractableTo&| NIL)
              (CONS
               '#((|FramedNonAssociativeAlgebra| 7)
                  (|SquareMatrixCategory| 6 7 (|DirectProduct| 6 7)
@@ -403,9 +403,9 @@
                  (|NonAssociativeAlgebra| 7)
                  (|RectangularMatrixCategory| 6 6 7 (|DirectProduct| 6 7)
                                               (|DirectProduct| 6 7))
-                 (|Algebra| 7) (|FullyLinearlyExplicitRingOver| 7)
+                 (|Algebra| 7) (|FullyLinearlyExplicitOver| 7)
                  (|DifferentialExtension| 7) (|Module| 7)
-                 (|LinearlyExplicitRingOver| 7) (|LinearlyExplicitRingOver| 12)
+                 (|LinearlyExplicitOver| 7) (|LinearlyExplicitOver| 12)
                  (|PartialDifferentialRing| 52) (|DifferentialRing|)
                  (|BiModule| 7 7) (|Ring|) (|NonAssociativeRng|)
                  (|RightModule| 7) (|LeftModule| 7) (|LeftModule| $$) (|Rng|)

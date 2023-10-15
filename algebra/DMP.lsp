@@ -60,7 +60,7 @@
                                                        '(|canonicalUnitNormal|))
                                         (|HasCategory| |#2| '(|Comparable|))
                                         (|HasCategory| |#2|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (|HasCategory| |#2|
                                                        '(|PolynomialFactorizationExplicit|))
@@ -95,7 +95,7 @@
                                                            (|Integer|)))))
                                         (AND
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#2| '(|Ring|)))
                                         (LETT #10#
@@ -138,7 +138,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#2|
                                                         '(|CharacteristicNonZero|))
@@ -175,7 +175,7 @@
                                            '(|PatternMatchable| (|Float|))))
                                          (AND
                                           (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| |#2|
                                                          '(|PatternMatchable|
@@ -244,7 +244,7 @@
                                            '(|PatternMatchable| (|Integer|))))
                                          (AND
                                           (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| |#2|
                                                          '(|PatternMatchable|
@@ -320,7 +320,7 @@
                                                            (|Pattern|
                                                             (|Float|))))
                                           (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory|
                                            (|OrderedVariableList| |#1|)
@@ -402,7 +402,7 @@
                                                            (|Pattern|
                                                             (|Integer|))))
                                           (|HasCategory| |#2|
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory|
                                            (|OrderedVariableList| |#1|)
@@ -462,7 +462,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #4#
                                          (|HasCategory| |#2|
@@ -485,7 +485,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #4# #3#
                                          (|HasCategory| |#2|
@@ -508,7 +508,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#2|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #4# #2# #3#
                                          (|HasCategory| |#2|
@@ -612,7 +612,7 @@
              '#(|PolynomialCategory&| |MaybeSkewPolynomialCategory&|
                 |PolynomialFactorizationExplicit&| |FiniteAbelianMonoidRing&|
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
-                NIL |Algebra&| |Algebra&| |FullyLinearlyExplicitRingOver&|
+                NIL |Algebra&| |Algebra&| |FullyLinearlyExplicitOver&|
                 |Algebra&| NIL |Module&| NIL NIL |Module&| NIL NIL NIL
                 |Module&| |EntireRing&| |PartialDifferentialRing&| NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| |AbelianGroup&| NIL NIL
@@ -632,11 +632,11 @@
                  (|UniqueFactorizationDomain|)
                  (|AbelianMonoidRing| 7 (|DirectProduct| (LENGTH 6) 20))
                  (|GcdDomain|) (|IntegralDomain|) (|Algebra| 23) (|Algebra| 7)
-                 (|FullyLinearlyExplicitRingOver| 7) (|Algebra| $$)
-                 (|LeftOreRing|) (|Module| 23) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|Module| 7)
-                 (|LinearlyExplicitRingOver| 7) (|LinearlyExplicitRingOver| 19)
-                 (|CommutativeRing|) (|Module| $$) (|EntireRing|)
+                 (|FullyLinearlyExplicitOver| 7) (|Algebra| $$) (|LeftOreRing|)
+                 (|Module| 23) (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|Module| 7) (|LinearlyExplicitOver| 7)
+                 (|LinearlyExplicitOver| 19) (|CommutativeRing|) (|Module| $$)
+                 (|EntireRing|)
                  (|PartialDifferentialRing| (|OrderedVariableList| 6))
                  (|BiModule| 7 7) (|BiModule| 23 23) (|BiModule| $$ $$)
                  (|Ring|) (|LeftModule| 7) (|RightModule| 7) (|LeftModule| 23)

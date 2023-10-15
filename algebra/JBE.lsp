@@ -1467,7 +1467,7 @@
                                                            (|Pattern|
                                                             (|Float|))))
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|))))
                                          (AND
                                           (|HasCategory| (|Integer|)
@@ -1475,30 +1475,30 @@
                                                            (|Pattern|
                                                             (|Integer|))))
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|))))
                                          (AND
                                           (|HasCategory| (|Integer|)
                                                          '(|ConvertibleTo|
                                                            (|InputForm|)))
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|))))
                                          (AND
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| (|Integer|)
                                                          '(|PatternMatchable|
                                                            (|Float|))))
                                          (AND
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           #1#)
                                          (AND
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| (|Integer|)
                                                          '(|RetractableTo|
@@ -1506,7 +1506,7 @@
                                                             (|Integer|)))))
                                          (AND
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| (|Integer|)
                                                          '(|RetractableTo|
@@ -1514,7 +1514,7 @@
                                           #2#)
                                          (AND
                                           (|HasCategory| (|Integer|)
-                                                         '(|LinearlyExplicitRingOver|
+                                                         '(|LinearlyExplicitOver|
                                                            (|Integer|)))
                                           (|HasCategory| (|Integer|)
                                                          '(|Group|)))
@@ -1697,7 +1697,7 @@
                 |FunctionSpace&| |Field&| |EuclideanDomain&|
                 |JetBundleFunctionCategory&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |Algebra&| NIL |Algebra&|
-                |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |Algebra&| |FullyLinearlyExplicitOver&|
                 |PartialDifferentialRing&| |Module&| NIL |EntireRing&|
                 |Module&| |Module&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL NIL
                 |Rng&| NIL NIL NIL |AbelianGroup&| NIL NIL |Group&| NIL
@@ -1719,11 +1719,11 @@
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
                  (|Algebra| 209) (|LeftOreRing|) (|Algebra| $$) (|Algebra| 24)
-                 (|FullyLinearlyExplicitRingOver| 24)
+                 (|FullyLinearlyExplicitOver| 24)
                  (|PartialDifferentialRing| 142) (|Module| 209)
                  (|CommutativeRing|) (|EntireRing|) (|Module| $$) (|Module| 24)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|LinearlyExplicitRingOver| 24) (|BiModule| 209 209)
+                 (|LinearlyExplicitOver| 24) (|BiModule| 209 209)
                  (|BiModule| $$ $$) (|Ring|) (|BiModule| 24 24)
                  (|RightModule| 209) (|LeftModule| 209) (|LeftModule| $$)
                  (|Rng|) (|RightModule| $$) (|LeftModule| 24)

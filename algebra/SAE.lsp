@@ -482,7 +482,7 @@
                                                         '(|RetractableTo|
                                                           (|Integer|)))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (LETT #6#
                                                (AND
@@ -690,7 +690,7 @@
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |FramedAlgebra&| |GcdDomain&|
                 |FiniteRankAlgebra&| |DivisionRing&| NIL |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Algebra&| NIL |Algebra&|
+                |FullyLinearlyExplicitOver&| |Algebra&| NIL |Algebra&|
                 |DifferentialExtension&| NIL NIL |Module&| NIL |Module&|
                 |EntireRing&| |Module&| NIL |DifferentialRing&|
                 |PartialDifferentialRing&| NIL NIL |Ring&| NIL NIL NIL NIL
@@ -706,16 +706,16 @@
                  (|UniqueFactorizationDomain|) (|FramedAlgebra| 6 7)
                  (|GcdDomain|) (|FiniteRankAlgebra| 6 7) (|DivisionRing|)
                  (|IntegralDomain|) (|Algebra| 6)
-                 (|FullyLinearlyExplicitRingOver| 6) (|Algebra| $$)
-                 (|LeftOreRing|) (|Algebra| 150) (|DifferentialExtension| 6)
-                 (|LinearlyExplicitRingOver| 6) (|CommutativeRing|)
-                 (|Module| 6) (|CharacteristicZero|) (|Module| $$)
-                 (|EntireRing|) (|Module| 150) (|CharacteristicNonZero|)
-                 (|DifferentialRing|) (|PartialDifferentialRing| 146)
-                 (|LinearlyExplicitRingOver| 49) (|BiModule| $$ $$) (|Ring|)
-                 (|BiModule| 6 6) (|BiModule| 150 150) (|LeftModule| $$)
-                 (|RightModule| $$) (|Rng|) (|RightModule| 6) (|LeftModule| 6)
-                 (|LeftModule| 150) (|RightModule| 150) (|AbelianGroup|)
+                 (|FullyLinearlyExplicitOver| 6) (|Algebra| $$) (|LeftOreRing|)
+                 (|Algebra| 150) (|DifferentialExtension| 6)
+                 (|LinearlyExplicitOver| 6) (|CommutativeRing|) (|Module| 6)
+                 (|CharacteristicZero|) (|Module| $$) (|EntireRing|)
+                 (|Module| 150) (|CharacteristicNonZero|) (|DifferentialRing|)
+                 (|PartialDifferentialRing| 146) (|LinearlyExplicitOver| 49)
+                 (|BiModule| $$ $$) (|Ring|) (|BiModule| 6 6)
+                 (|BiModule| 150 150) (|LeftModule| $$) (|RightModule| $$)
+                 (|Rng|) (|RightModule| 6) (|LeftModule| 6) (|LeftModule| 150)
+                 (|RightModule| 150) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|AbelianMonoid|)
                  (|Monoid|) (|SemiRng|) (|Finite|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|Comparable|) (|StepThrough|)

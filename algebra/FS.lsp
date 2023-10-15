@@ -319,7 +319,7 @@
                                                             (|Symbol|))
                                                            (|has| |t#1|
                                                                   (|Ring|)))
-                                                          ((|FullyLinearlyExplicitRingOver|
+                                                          ((|FullyLinearlyExplicitOver|
                                                             |t#1|)
                                                            (|has| |t#1|
                                                                   (|Ring|)))

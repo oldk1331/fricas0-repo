@@ -22,7 +22,7 @@
                     (|Join| (|UniqueFactorizationDomain|) (|EuclideanDomain|)
                             (|OrderedIntegralDomain|) (|DifferentialRing|)
                             (|ConvertibleTo| '#2#) (|RetractableTo| '#3#)
-                            (|LinearlyExplicitRingOver| '#4#)
+                            (|LinearlyExplicitOver| '#4#)
                             (|ConvertibleTo| '#5#) (|ConvertibleTo| '#6#)
                             (|PatternMatchable| '#7#)
                             (|CombinatorialFunctionCategory|) (|RealConstant|)

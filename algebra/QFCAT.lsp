@@ -29,7 +29,7 @@
                                                    (|FullyEvalableOver| '|t#1|)
                                                    (|DifferentialExtension|
                                                     '|t#1|)
-                                                   (|FullyLinearlyExplicitRingOver|
+                                                   (|FullyLinearlyExplicitOver|
                                                     '|t#1|)
                                                    (|Patternable| '|t#1|)
                                                    (|FullyPatternMatchable|

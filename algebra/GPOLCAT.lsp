@@ -73,7 +73,7 @@
                                      ((|variables| ((|List| |t#3|) $)) T)
                                      ((|primitiveMonomials| ((|List| $) $))
                                       (|has| |t#1| (|SemiRing|))))
-                                   '(((|FullyLinearlyExplicitRingOver| |t#1|)
+                                   '(((|FullyLinearlyExplicitOver| |t#1|)
                                       (|has| |t#1| (|Ring|)))
                                      ((|Comparable|)
                                       (|has| |t#1| (|Comparable|)))

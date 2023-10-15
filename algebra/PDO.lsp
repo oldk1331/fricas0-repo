@@ -125,7 +125,7 @@
                                         (|HasCategory| |#1| '(|Comparable|))
                                         (|HasCategory| |#1| '(|Ring|))
                                         (|HasCategory| |#1|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (LETT #2#
                                               (|HasCategory| |#1|
@@ -137,7 +137,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
@@ -168,7 +168,7 @@
                                         (|HasCategory| |#1| '(|GcdDomain|))
                                         (AND
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#1| '(|Ring|)))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
@@ -184,7 +184,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #1#
                                          (|HasCategory| |#1|
@@ -206,7 +206,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #1#
                                          (|HasCategory| |#1|
@@ -226,7 +226,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #1#
                                          (|HasCategory| |#1|
@@ -342,9 +342,9 @@
             (CONS
              '#(NIL |MaybeSkewPolynomialCategory&| |FiniteAbelianMonoidRing&|
                 |AbelianMonoidRing&| NIL |Algebra&| |Algebra&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Module&| NIL |Module&| NIL
-                NIL |Module&| |EntireRing&| NIL NIL NIL NIL NIL NIL |Ring&| NIL
-                NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL
+                |FullyLinearlyExplicitOver&| |Module&| NIL |Module&| NIL NIL
+                |Module&| |EntireRing&| NIL NIL NIL NIL NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL
                 |AbelianMonoid&| |Monoid&| |AbelianSemiGroup&| |SemiGroup&| NIL
                 |FullyRetractableTo&| |SetCategory&| |RetractableTo&|
                 |BasicType&| NIL NIL NIL |RetractableTo&| |RetractableTo&| NIL
@@ -356,10 +356,10 @@
                  (|FiniteAbelianMonoidRing| 6 (|IndexedExponents| 7))
                  (|AbelianMonoidRing| 6 (|IndexedExponents| 7))
                  (|IntegralDomain|) (|Algebra| 45) (|Algebra| $$) (|Algebra| 6)
-                 (|FullyLinearlyExplicitRingOver| 6) (|Module| 45)
+                 (|FullyLinearlyExplicitOver| 6) (|Module| 45)
                  (|CommutativeRing|) (|Module| $$) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Module| 6) (|EntireRing|)
-                 (|LinearlyExplicitRingOver| 6) (|LinearlyExplicitRingOver| 42)
+                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 42)
                  (|SolvableSkewPolynomialCategory| 6 (|IndexedExponents| 7) 7)
                  (|BiModule| 6 6) (|BiModule| 45 45) (|BiModule| $$ $$)
                  (|Ring|) (|LeftModule| 6) (|RightModule| 6) (|LeftModule| 45)

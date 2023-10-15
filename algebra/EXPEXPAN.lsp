@@ -538,8 +538,7 @@
                                         (|HasCategory|
                                          (|UnivariatePuiseuxSeriesWithExponentialSingularity|
                                           |#1| |#2| |#3| |#4|)
-                                         '(|LinearlyExplicitRingOver|
-                                           (|Integer|)))
+                                         '(|LinearlyExplicitOver| (|Integer|)))
                                         (|HasCategory|
                                          (|UnivariatePuiseuxSeriesWithExponentialSingularity|
                                           |#1| |#2| |#3| |#4|)
@@ -695,7 +694,7 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                NIL |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
                 |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
@@ -715,7 +714,7 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
                  (|OrderedIntegralDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|FullyLinearlyExplicitRingOver|
+                 (|FullyLinearlyExplicitOver|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|DifferentialExtension|
@@ -725,7 +724,7 @@
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|Algebra| 13) (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
-                 (|LinearlyExplicitRingOver|
+                 (|LinearlyExplicitOver|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8
                                                                        9))
                  (|Module|
@@ -734,7 +733,7 @@
                  (|Module| 13) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 48) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver| 12)
+                 (|LinearlyExplicitOver| 12)
                  (|BiModule|
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8 9)
                   (|UnivariatePuiseuxSeriesWithExponentialSingularity| 6 7 8

@@ -111,8 +111,8 @@
  |FiniteRankNonAssociativeAlgebra| |FinitelyGenerated| |FiniteGroupPackage|
  |FiniteGroup&| |FiniteGroup| |Finite&| |Finite| |FiniteRankAlgebra&|
  |FiniteRankAlgebra| |FiniteLinearAggregate| |FiniteLinearAggregateFunctions2|
- |FreeLieAlgebra| |FiniteLinearAggregateSort| |FullyLinearlyExplicitRingOver&|
- |FullyLinearlyExplicitRingOver| |FloatLiouvilianFunctions| |Float|
+ |FreeLieAlgebra| |FiniteLinearAggregateSort| |FullyLinearlyExplicitOver&|
+ |FullyLinearlyExplicitOver| |FloatLiouvilianFunctions| |Float|
  |FloatingComplexPackage| |FloatingRealPackage| |FreeModule|
  |FreeModuleFunctions2| |FreeMagma| |FortranMatrixCategory|
  |FreeModuleCategory&| |FreeModuleCategory| |FreeModuleCoefficientFunctions2|
@@ -206,8 +206,8 @@
  |LiouvillianFunction| |LiouvillianFunctionCategory| |LinGroebnerPackage|
  |Library| |AssociatedLieAlgebra| |LieAlgebra&| |LieAlgebra|
  |PowerSeriesLimitPackage| |RationalFunctionLimitPackage|
- |LinearCombinationUtilities| |LinearDependence| |LinearlyExplicitRingOver|
- |List| |ListFunctions2| |ListToMap| |ListFunctions3| |ListMultiDictionary|
+ |LinearCombinationUtilities| |LinearDependence| |LinearlyExplicitOver| |List|
+ |ListFunctions2| |ListToMap| |ListFunctions3| |ListMultiDictionary|
  |LeftModule| |ListMonoidOps| |LinearAggregate&| |LinearAggregate| |Localize|
  |ElementaryFunctionLODESolver| |LinearOrdinaryDifferentialOperator|
  |LinearOrdinaryDifferentialOperator1| |LinearOrdinaryDifferentialOperator2|

@@ -54,7 +54,7 @@
                                               (|has| |t#2| (|SetCategory|)))
                                              ((|DifferentialExtension| |t#2|)
                                               (|has| |t#2| (|Ring|)))
-                                             ((|FullyLinearlyExplicitRingOver|
+                                             ((|FullyLinearlyExplicitOver|
                                                |t#2|)
                                               (|has| |t#2| (|Ring|)))
                                              ((|SemiRng|)

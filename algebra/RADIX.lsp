@@ -532,7 +532,7 @@
                                                              '(|PatternMatchable|
                                                                (|Integer|)))
                                               (|HasCategory| (|Integer|)
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| (|Integer|)
                                                              '(|EuclideanDomain|))
@@ -648,7 +648,7 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                NIL |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
                 |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL
@@ -664,11 +664,10 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
                  (|OrderedIntegralDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|FullyLinearlyExplicitRingOver| 23)
-                 (|DifferentialExtension| 23) (|Algebra| 23) (|Algebra| 16)
-                 (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
-                 (|LinearlyExplicitRingOver| 23) (|Module| 23) (|Module| 16)
-                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|FullyLinearlyExplicitOver| 23) (|DifferentialExtension| 23)
+                 (|Algebra| 23) (|Algebra| 16) (|LeftOreRing|) (|Algebra| $$)
+                 (|OrderedRing|) (|LinearlyExplicitOver| 23) (|Module| 23)
+                 (|Module| 16) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 91) (|DifferentialRing|)
                  (|BiModule| 23 23) (|BiModule| 16 16) (|BiModule| $$ $$)

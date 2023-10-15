@@ -1005,7 +1005,7 @@
                                          (|HasCategory| |#1|
                                                         '(|canonicalUnitNormal|)))
                                         (|HasCategory| |#1|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (|HasCategory| |#1|
                                                        '(|ConvertibleTo|
@@ -1029,7 +1029,7 @@
                                               . #6#)
                                         (OR
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #4#)
                                         (OR
@@ -1270,7 +1270,7 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                NIL |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
                 |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
@@ -1287,14 +1287,13 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
                  (|OrderedIntegralDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|FullyLinearlyExplicitRingOver| 6)
-                 (|DifferentialExtension| 6) (|Algebra| 6) (|Algebra| 58)
-                 (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
-                 (|LinearlyExplicitRingOver| 6) (|Module| 6) (|Module| 58)
-                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|FullyLinearlyExplicitOver| 6) (|DifferentialExtension| 6)
+                 (|Algebra| 6) (|Algebra| 58) (|LeftOreRing|) (|Algebra| $$)
+                 (|OrderedRing|) (|LinearlyExplicitOver| 6) (|Module| 6)
+                 (|Module| 58) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 133) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver| 51) (|BiModule| 6 6)
+                 (|LinearlyExplicitOver| 51) (|BiModule| 6 6)
                  (|BiModule| 58 58) (|BiModule| $$ $$) (|Ring|)
                  (|OrderedAbelianGroup|) (|RightModule| 6) (|LeftModule| 6)
                  (|RightModule| 58) (|LeftModule| 58) (|LeftModule| $$) (|Rng|)

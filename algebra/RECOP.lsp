@@ -825,8 +825,7 @@
                                (LIST '|RetractableTo| '(|Integer|)))
                 (COND
                  ((|HasCategory| (QREFELT $ 6)
-                                 (LIST '|LinearlyExplicitRingOver|
-                                       '(|Integer|)))
+                                 (LIST '|LinearlyExplicitOver| '(|Integer|)))
                   (COND
                    ((|HasCategory| (QREFELT $ 7) '(|AlgebraicallyClosedField|))
                     (COND

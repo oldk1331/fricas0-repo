@@ -96,7 +96,7 @@
                                                              '(|PatternMatchable|
                                                                (|Integer|)))
                                               (|HasCategory| (|Integer|)
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| (|Integer|)
                                                              '(|EuclideanDomain|))
@@ -180,7 +180,7 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                NIL |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
                 |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL
@@ -196,11 +196,10 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|)
                  (|OrderedIntegralDomain|) (|DivisionRing|) (|IntegralDomain|)
-                 (|FullyLinearlyExplicitRingOver| 18)
-                 (|DifferentialExtension| 18) (|Algebra| 18) (|Algebra| 6)
-                 (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
-                 (|LinearlyExplicitRingOver| 18) (|Module| 18) (|Module| 6)
-                 (|CommutativeRing|) (|EntireRing|) (|Module| $$)
+                 (|FullyLinearlyExplicitOver| 18) (|DifferentialExtension| 18)
+                 (|Algebra| 18) (|Algebra| 6) (|LeftOreRing|) (|Algebra| $$)
+                 (|OrderedRing|) (|LinearlyExplicitOver| 18) (|Module| 18)
+                 (|Module| 6) (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 22) (|DifferentialRing|)
                  (|BiModule| 18 18) (|BiModule| 6 6) (|BiModule| $$ $$)

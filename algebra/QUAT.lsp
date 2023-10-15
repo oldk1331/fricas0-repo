@@ -75,7 +75,7 @@
                                                                    (|devaluate|
                                                                     |#1|)))
                                               (|HasCategory| |#1|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#1|
                                                              '(|RealNumberSystem|))
@@ -123,7 +123,7 @@
                                   0 3 5 7 8 9 12 13 14))
             (CONS
              '#(|QuaternionCategory&| |DivisionRing&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| NIL |Module&| NIL NIL |EntireRing&| |Module&|
                 |PartialDifferentialRing&| |DifferentialRing&| NIL |Ring&| NIL
                 NIL NIL |Rng&| NIL NIL NIL NIL NIL NIL |AbelianGroup&| NIL NIL
@@ -135,12 +135,11 @@
                 |InnerEvalable&| NIL)
              (CONS
               '#((|QuaternionCategory| 6) (|DivisionRing|) (|Algebra| 6)
-                 (|FullyLinearlyExplicitRingOver| 6)
-                 (|DifferentialExtension| 6) (|Algebra| 10)
-                 (|LinearlyExplicitRingOver| 6) (|Module| 6)
+                 (|FullyLinearlyExplicitOver| 6) (|DifferentialExtension| 6)
+                 (|Algebra| 10) (|LinearlyExplicitOver| 6) (|Module| 6)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|EntireRing|) (|Module| 10) (|PartialDifferentialRing| 21)
-                 (|DifferentialRing|) (|LinearlyExplicitRingOver| 19) (|Ring|)
+                 (|DifferentialRing|) (|LinearlyExplicitOver| 19) (|Ring|)
                  (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 10 10) (|Rng|)
                  (|RightModule| 6) (|LeftModule| 6) (|LeftModule| $$)
                  (|RightModule| $$) (|LeftModule| 10) (|RightModule| 10)

@@ -61,7 +61,7 @@
                                              (|has| |t#2| (|SemiRing|)))
                                             ((|DifferentialExtension| |t#2|)
                                              (|has| |t#2| (|Ring|)))
-                                            ((|FullyLinearlyExplicitRingOver|
+                                            ((|FullyLinearlyExplicitOver|
                                               |t#2|)
                                              (|has| |t#2| (|Ring|)))
                                             ((|Algebra| |t#2|)

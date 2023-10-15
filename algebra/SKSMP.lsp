@@ -264,7 +264,7 @@
                                         (|HasCategory| |#1| '(|SemiRing|))
                                         (LETT #4#
                                               (|HasCategory| |#1|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               . #6#)
                                         (OR
@@ -493,9 +493,9 @@
             (CONS
              '#(NIL |MaybeSkewPolynomialCategory&| |FiniteAbelianMonoidRing&|
                 |AbelianMonoidRing&| NIL |Algebra&| |Algebra&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Module&| NIL |Module&| NIL
-                NIL |Module&| |EntireRing&| NIL NIL NIL NIL NIL |Ring&| NIL NIL
-                NIL NIL NIL NIL |Rng&| |AbelianGroup&| NIL NIL NIL |Monoid&|
+                |FullyLinearlyExplicitOver&| |Module&| NIL |Module&| NIL NIL
+                |Module&| |EntireRing&| NIL NIL NIL NIL NIL |Ring&| NIL NIL NIL
+                NIL NIL NIL |Rng&| |AbelianGroup&| NIL NIL NIL |Monoid&|
                 |AbelianMonoid&| |AbelianSemiGroup&| |SemiGroup&| NIL
                 |FullyRetractableTo&| |SetCategory&| |RetractableTo&|
                 |BasicType&| NIL NIL NIL NIL |RetractableTo&| |RetractableTo&|
@@ -507,10 +507,10 @@
                  (|FiniteAbelianMonoidRing| 6 (|IndexedExponents| 7))
                  (|AbelianMonoidRing| 6 (|IndexedExponents| 7))
                  (|IntegralDomain|) (|Algebra| 73) (|Algebra| $$) (|Algebra| 6)
-                 (|FullyLinearlyExplicitRingOver| 6) (|Module| 73)
+                 (|FullyLinearlyExplicitOver| 6) (|Module| 73)
                  (|CommutativeRing|) (|Module| $$) (|CharacteristicNonZero|)
                  (|CharacteristicZero|) (|Module| 6) (|EntireRing|)
-                 (|LinearlyExplicitRingOver| 6) (|LinearlyExplicitRingOver| 71)
+                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 71)
                  (|BiModule| 6 6) (|BiModule| 73 73) (|BiModule| $$ $$)
                  (|Ring|) (|LeftModule| 6) (|RightModule| 6) (|LeftModule| 73)
                  (|RightModule| 73) (|LeftModule| $$) (|RightModule| $$)

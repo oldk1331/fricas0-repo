@@ -597,7 +597,7 @@
                                                        '(|RetractableTo|
                                                          (|Integer|)))
                                         (|HasCategory| (|Fraction| |#2|)
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (LETT #2#
                                               (AND
@@ -761,7 +761,7 @@
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |FramedAlgebra&| |GcdDomain&| |FiniteRankAlgebra&| NIL
-                |DivisionRing&| |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |DivisionRing&| |Algebra&| |FullyLinearlyExplicitOver&|
                 |Algebra&| NIL |Algebra&| |DifferentialExtension&| NIL NIL
                 |Module&| NIL |Module&| |EntireRing&| |Module&| NIL
                 |DifferentialRing&| |PartialDifferentialRing&| NIL NIL |Ring&|
@@ -778,15 +778,14 @@
                  (|FramedAlgebra| (|Fraction| 7) 8) (|GcdDomain|)
                  (|FiniteRankAlgebra| (|Fraction| 7) 8) (|IntegralDomain|)
                  (|DivisionRing|) (|Algebra| (|Fraction| 7))
-                 (|FullyLinearlyExplicitRingOver| (|Fraction| 7))
-                 (|Algebra| $$) (|LeftOreRing|) (|Algebra| 131)
+                 (|FullyLinearlyExplicitOver| (|Fraction| 7)) (|Algebra| $$)
+                 (|LeftOreRing|) (|Algebra| 131)
                  (|DifferentialExtension| (|Fraction| 7))
-                 (|LinearlyExplicitRingOver| (|Fraction| 7))
-                 (|CommutativeRing|) (|Module| (|Fraction| 7))
-                 (|CharacteristicZero|) (|Module| $$) (|EntireRing|)
-                 (|Module| 131) (|CharacteristicNonZero|) (|DifferentialRing|)
-                 (|PartialDifferentialRing| 130)
-                 (|LinearlyExplicitRingOver| 52) (|BiModule| $$ $$) (|Ring|)
+                 (|LinearlyExplicitOver| (|Fraction| 7)) (|CommutativeRing|)
+                 (|Module| (|Fraction| 7)) (|CharacteristicZero|) (|Module| $$)
+                 (|EntireRing|) (|Module| 131) (|CharacteristicNonZero|)
+                 (|DifferentialRing|) (|PartialDifferentialRing| 130)
+                 (|LinearlyExplicitOver| 52) (|BiModule| $$ $$) (|Ring|)
                  (|BiModule| (|Fraction| 7) (|Fraction| 7))
                  (|BiModule| 131 131) (|LeftModule| $$) (|RightModule| $$)
                  (|Rng|) (|RightModule| (|Fraction| 7))

@@ -82,7 +82,7 @@
                                                  (|HasCategory| |#2|
                                                                 '(|SemiRng|)))
                                              (|HasCategory| |#2|
-                                                            '(|LinearlyExplicitRingOver|
+                                                            '(|LinearlyExplicitOver|
                                                               (|Integer|)))
                                              (|HasCategory| |#2|
                                                             '(|PartialDifferentialRing|
@@ -93,7 +93,7 @@
                                                    . #9#)
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -109,7 +109,7 @@
                                               (|HasCategory| |#2| '(|Ring|)))
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -123,7 +123,7 @@
                                               (|HasCategory| |#2| '(|Ring|)))
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -145,7 +145,7 @@
                                                             '(|OrderedSet|))
                                              (AND
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2| '(|Ring|)))
                                              (AND #5#
@@ -167,7 +167,7 @@
                                                                     (|devaluate|
                                                                      |#2|)))
                                                (|HasCategory| |#2|
-                                                              '(|LinearlyExplicitRingOver|
+                                                              '(|LinearlyExplicitOver|
                                                                 (|Integer|))))
                                               (AND
                                                (|HasCategory| |#2|
@@ -286,7 +286,7 @@
                                                    . #9#)
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -310,7 +310,7 @@
                                                              '(|SetCategory|)))
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -332,7 +332,7 @@
                                                              '(|SetCategory|)))
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -348,7 +348,7 @@
                                                              '(|SemiRng|)))
                                              (OR
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))
                                               (|HasCategory| |#2|
                                                              '(|PartialDifferentialRing|
@@ -386,7 +386,7 @@
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
-                                                              '(|LinearlyExplicitRingOver|
+                                                              '(|LinearlyExplicitOver|
                                                                 (|Integer|)))
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -501,7 +501,7 @@
                                              (OR
                                               (AND
                                                (|HasCategory| |#2|
-                                                              '(|LinearlyExplicitRingOver|
+                                                              '(|LinearlyExplicitOver|
                                                                 (|Integer|)))
                                                (|HasCategory| |#2|
                                                               '(|RetractableTo|
@@ -636,7 +636,7 @@
                                   22 48 44))
             (CONS
              '#(|DirectProductCategory&| |VectorSpace&| |OrderedRing&|
-                |Algebra&| |FullyLinearlyExplicitRingOver&|
+                |Algebra&| |FullyLinearlyExplicitOver&|
                 |DifferentialExtension&| |Module&| NIL NIL NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
                 |Ring&| NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
@@ -649,11 +649,10 @@
                 |RetractableTo&|)
              (CONS
               '#((|DirectProductCategory| 6 7) (|VectorSpace| 7)
-                 (|OrderedRing|) (|Algebra| 7)
-                 (|FullyLinearlyExplicitRingOver| 7)
+                 (|OrderedRing|) (|Algebra| 7) (|FullyLinearlyExplicitOver| 7)
                  (|DifferentialExtension| 7) (|Module| 7)
                  (|CharacteristicZero|) (|CommutativeRing|)
-                 (|LinearlyExplicitRingOver| 7) (|LinearlyExplicitRingOver| 27)
+                 (|LinearlyExplicitOver| 7) (|LinearlyExplicitOver| 27)
                  (|PartialDifferentialRing| 23) (|DifferentialRing|)
                  (|BiModule| 7 7) (|OrderedAbelianMonoidSup|)
                  (|OrderedAbelianGroup|) (|BiModule| $$ $$) (|Ring|)

@@ -76,7 +76,7 @@
                                                          (|Fraction|
                                                           (|Integer|))))
                                         (|HasCategory| (|MachineFloat|)
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (|HasCategory| (|MachineFloat|)
                                                        '(|EuclideanDomain|))
@@ -291,7 +291,7 @@
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL NIL |FramedAlgebra&|
                 |GcdDomain&| NIL |FiniteRankAlgebra&| |DivisionRing&|
-                |DifferentialExtension&| |FullyLinearlyExplicitRingOver&|
+                |DifferentialExtension&| |FullyLinearlyExplicitOver&|
                 |Algebra&| |Algebra&| |Algebra&| NIL NIL NIL |Module&|
                 |EntireRing&| |Module&| NIL |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL |Ring&|
@@ -315,13 +315,12 @@
                  (|PrincipalIdealDomain|) (|FortranMachineTypeCategory|)
                  (|FramedAlgebra| 9 60) (|GcdDomain|) (|IntegralDomain|)
                  (|FiniteRankAlgebra| 9 60) (|DivisionRing|)
-                 (|DifferentialExtension| 9)
-                 (|FullyLinearlyExplicitRingOver| 9) (|Algebra| 9)
-                 (|Algebra| $$) (|Algebra| 38) (|LeftOreRing|)
-                 (|CommutativeRing|) (|LinearlyExplicitRingOver| 9)
-                 (|Module| 9) (|EntireRing|) (|Module| $$)
-                 (|CharacteristicZero|) (|Module| 38) (|CharacteristicNonZero|)
-                 (|LinearlyExplicitRingOver| 14) (|PartialDifferentialRing| 72)
+                 (|DifferentialExtension| 9) (|FullyLinearlyExplicitOver| 9)
+                 (|Algebra| 9) (|Algebra| $$) (|Algebra| 38) (|LeftOreRing|)
+                 (|CommutativeRing|) (|LinearlyExplicitOver| 9) (|Module| 9)
+                 (|EntireRing|) (|Module| $$) (|CharacteristicZero|)
+                 (|Module| 38) (|CharacteristicNonZero|)
+                 (|LinearlyExplicitOver| 14) (|PartialDifferentialRing| 72)
                  (|DifferentialRing|) (|BiModule| 9 9) (|BiModule| $$ $$)
                  (|Ring|) (|BiModule| 38 38) (|RightModule| 9) (|LeftModule| 9)
                  (|LeftModule| $$) (|Rng|) (|RightModule| $$) (|LeftModule| 38)

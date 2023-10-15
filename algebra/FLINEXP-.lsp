@@ -14,15 +14,14 @@
                 |FLINEXP-;reducedSystem;MVR;2|)
           (EXIT (SPADCALL (QCAR |rec|) (QCDR |rec|) (QREFELT $ 18)))))) 
 
-(DECLAIM (NOTINLINE |FullyLinearlyExplicitRingOver&;|)) 
+(DECLAIM (NOTINLINE |FullyLinearlyExplicitOver&;|)) 
 
-(DEFUN |FullyLinearlyExplicitRingOver&| (|#1| |#2|)
+(DEFUN |FullyLinearlyExplicitOver&| (|#1| |#2|)
   (SPROG ((|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$2 NIL) (DV$1 NIL))
          (PROGN
-          (LETT DV$1 (|devaluate| |#1|)
-                . #1=(|FullyLinearlyExplicitRingOver&|))
+          (LETT DV$1 (|devaluate| |#1|) . #1=(|FullyLinearlyExplicitOver&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
-          (LETT |dv$| (LIST '|FullyLinearlyExplicitRingOver&| DV$1 DV$2) . #1#)
+          (LETT |dv$| (LIST '|FullyLinearlyExplicitOver&| DV$1 DV$2) . #1#)
           (LETT $ (GETREFV 20) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
@@ -30,7 +29,7 @@
                           (|buildPredVector| 0 0
                                              (LIST
                                               (|HasCategory| |#2|
-                                                             '(|LinearlyExplicitRingOver|
+                                                             '(|LinearlyExplicitOver|
                                                                (|Integer|)))))
                           . #1#))
           (|stuffDomainSlots| $)
@@ -51,7 +50,7 @@
                              $)))))
           $))) 
 
-(MAKEPROP '|FullyLinearlyExplicitRingOver&| '|infovec|
+(MAKEPROP '|FullyLinearlyExplicitOver&| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|Matrix| 7) (|Matrix| $) (0 . |reducedSystem|)

@@ -2292,7 +2292,7 @@
                                                         '(|IntegralDomain|))
                                          #7#)
                                         (|HasCategory| |#1|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (|HasCategory| |#1| '(|Group|))
                                         (|HasCategory| |#1|
@@ -2333,7 +2333,7 @@
                                             #7#)
                                         (OR
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
@@ -2350,7 +2350,7 @@
                                               . #8#)
                                         (OR
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #5#
                                          (|HasCategory| |#1|
@@ -2379,7 +2379,7 @@
                                                            '(|IntegralDomain|)))
                                         (AND
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #7#)
                                         (LETT #4#
@@ -2396,7 +2396,7 @@
                                               . #8#)
                                         (OR
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #5# #3#
                                          (|HasCategory| |#1|
@@ -3136,14 +3136,13 @@
                 |PolynomialFactorizationExplicit&| |EuclideanDomain&|
                 |UniqueFactorizationDomain&| NIL |GcdDomain&| |DivisionRing&|
                 NIL |Algebra&| NIL |Algebra&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Module&| |EntireRing&|
-                |Module&| |Module&| NIL NIL NIL NIL NIL
-                |PartialDifferentialRing&| NIL NIL NIL |Ring&| NIL NIL NIL NIL
-                NIL NIL |Rng&| |AbelianGroup&| |Group&| NIL NIL
-                |ExpressionSpace&| NIL NIL |Monoid&| |AbelianMonoid&| NIL NIL
-                NIL |SemiGroup&| NIL |AbelianSemiGroup&| |SetCategory&|
-                |FullyRetractableTo&| NIL |Evalable&|
-                |TranscendentalFunctionCategory&| NIL |BasicType&|
+                |FullyLinearlyExplicitOver&| |Module&| |EntireRing&| |Module&|
+                |Module&| NIL NIL NIL NIL NIL |PartialDifferentialRing&| NIL
+                NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL |Rng&| |AbelianGroup&|
+                |Group&| NIL NIL |ExpressionSpace&| NIL NIL |Monoid&|
+                |AbelianMonoid&| NIL NIL NIL |SemiGroup&| NIL
+                |AbelianSemiGroup&| |SetCategory&| |FullyRetractableTo&| NIL
+                |Evalable&| |TranscendentalFunctionCategory&| NIL |BasicType&|
                 |RetractableTo&| NIL |RetractableTo&| |InnerEvalable&|
                 |InnerEvalable&| |RetractableTo&| NIL |RetractableTo&|
                 |RetractableTo&| NIL NIL NIL NIL |RetractableTo&| NIL NIL NIL
@@ -3159,16 +3158,16 @@
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
                  (|GcdDomain|) (|DivisionRing|) (|IntegralDomain|)
                  (|Algebra| $$) (|LeftOreRing|) (|Algebra| 489) (|Algebra| 6)
-                 (|FullyLinearlyExplicitRingOver| 6) (|Module| $$)
-                 (|EntireRing|) (|Module| 489) (|Module| 6)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|LinearlyExplicitRingOver| 6) (|LinearlyExplicitRingOver| 57)
-                 (|CommutativeRing|) (|PartialDifferentialRing| 27)
-                 (|BiModule| $$ $$) (|BiModule| 489 489) (|BiModule| 6 6)
-                 (|Ring|) (|RightModule| $$) (|LeftModule| 489)
-                 (|RightModule| 489) (|LeftModule| $$) (|LeftModule| 6)
-                 (|RightModule| 6) (|Rng|) (|AbelianGroup|) (|Group|)
-                 (|SemiRing|) (|CancellationAbelianMonoid|) (|ExpressionSpace|)
+                 (|FullyLinearlyExplicitOver| 6) (|Module| $$) (|EntireRing|)
+                 (|Module| 489) (|Module| 6) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|LinearlyExplicitOver| 6)
+                 (|LinearlyExplicitOver| 57) (|CommutativeRing|)
+                 (|PartialDifferentialRing| 27) (|BiModule| $$ $$)
+                 (|BiModule| 489 489) (|BiModule| 6 6) (|Ring|)
+                 (|RightModule| $$) (|LeftModule| 489) (|RightModule| 489)
+                 (|LeftModule| $$) (|LeftModule| 6) (|RightModule| 6) (|Rng|)
+                 (|AbelianGroup|) (|Group|) (|SemiRing|)
+                 (|CancellationAbelianMonoid|) (|ExpressionSpace|)
                  (|FullyPatternMatchable| 6) (|SemiRng|) (|Monoid|)
                  (|AbelianMonoid|) (|Comparable|)
                  (|PatternMatchable| (|Float|)) (|PatternMatchable| 57)

@@ -64,7 +64,7 @@
                                         (|HasCategory| |#1| '(|Comparable|))
                                         (|HasCategory| |#1| '(|Ring|))
                                         (|HasCategory| |#1|
-                                                       '(|LinearlyExplicitRingOver|
+                                                       '(|LinearlyExplicitOver|
                                                          (|Integer|)))
                                         (LETT #4#
                                               (|HasCategory| |#1|
@@ -87,7 +87,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#1|
                                                         '(|CharacteristicNonZero|))
@@ -117,7 +117,7 @@
                                         (|HasCategory| |#1| '(|GcdDomain|))
                                         (AND
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          (|HasCategory| |#1| '(|Ring|)))
                                         (LETT #3#
@@ -130,7 +130,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #3#
                                          (|HasCategory| |#1|
@@ -152,7 +152,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #3# #2#
                                          (|HasCategory| |#1|
@@ -174,7 +174,7 @@
                                                           (|Fraction|
                                                            (|Integer|))))
                                          (|HasCategory| |#1|
-                                                        '(|LinearlyExplicitRingOver|
+                                                        '(|LinearlyExplicitOver|
                                                           (|Integer|)))
                                          #3# #1# #2#
                                          (|HasCategory| |#1|
@@ -274,28 +274,27 @@
                 |UnivariateSkewPolynomialCategory&|
                 |MaybeSkewPolynomialCategory&| |FiniteAbelianMonoidRing&|
                 |AbelianMonoidRing&| NIL |Algebra&| |Algebra&|
-                |FullyLinearlyExplicitRingOver&| |Algebra&| |Module&| NIL
-                |Module&| NIL NIL |EntireRing&| NIL NIL |Module&| NIL NIL NIL
-                |Ring&| NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
-                NIL |AbelianMonoid&| |Monoid&| |AbelianSemiGroup&| |SemiGroup&|
-                NIL |FullyRetractableTo&| |SetCategory&| NIL NIL
-                |RetractableTo&| |BasicType&| NIL NIL NIL |RetractableTo&|
-                |RetractableTo&| NIL NIL)
+                |FullyLinearlyExplicitOver&| |Algebra&| |Module&| NIL |Module&|
+                NIL NIL |EntireRing&| NIL NIL |Module&| NIL NIL NIL |Ring&| NIL
+                NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL NIL
+                |AbelianMonoid&| |Monoid&| |AbelianSemiGroup&| |SemiGroup&| NIL
+                |FullyRetractableTo&| |SetCategory&| NIL NIL |RetractableTo&|
+                |BasicType&| NIL NIL NIL |RetractableTo&| |RetractableTo&| NIL
+                NIL)
              (CONS
               '#((|LinearOrdinaryDifferentialOperatorCategory| 6)
                  (|UnivariateSkewPolynomialCategory| 6)
                  (|MaybeSkewPolynomialCategory| 6 20 33)
                  (|FiniteAbelianMonoidRing| 6 20) (|AbelianMonoidRing| 6 20)
                  (|IntegralDomain|) (|Algebra| 23) (|Algebra| $$)
-                 (|FullyLinearlyExplicitRingOver| 6) (|Algebra| 6)
-                 (|Module| 23) (|CommutativeRing|) (|Module| $$)
-                 (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|EntireRing|) (|LinearlyExplicitRingOver| 6)
-                 (|LinearlyExplicitRingOver| 18) (|Module| 6) (|BiModule| 6 6)
-                 (|BiModule| 23 23) (|BiModule| $$ $$) (|Ring|)
-                 (|LeftModule| 6) (|RightModule| 6) (|LeftModule| 23)
-                 (|RightModule| 23) (|RightModule| $$) (|Rng|)
-                 (|LeftModule| $$) (|AbelianGroup|)
+                 (|FullyLinearlyExplicitOver| 6) (|Algebra| 6) (|Module| 23)
+                 (|CommutativeRing|) (|Module| $$) (|CharacteristicNonZero|)
+                 (|CharacteristicZero|) (|EntireRing|)
+                 (|LinearlyExplicitOver| 6) (|LinearlyExplicitOver| 18)
+                 (|Module| 6) (|BiModule| 6 6) (|BiModule| 23 23)
+                 (|BiModule| $$ $$) (|Ring|) (|LeftModule| 6) (|RightModule| 6)
+                 (|LeftModule| 23) (|RightModule| 23) (|RightModule| $$)
+                 (|Rng|) (|LeftModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|SemiRng|)
                  (|AbelianMonoid|) (|Monoid|) (|AbelianSemiGroup|)
                  (|SemiGroup|) (|Comparable|) (|FullyRetractableTo| 6)

@@ -127,7 +127,7 @@
                  (|UniqueFactorizationDomain|) (|PrincipalIdealDomain|)
                  (|OrderedIntegralDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|OrderedRing|) (|LeftOreRing|) (|Algebra| $$)
-                 (|LinearlyExplicitRingOver| 5) (|DifferentialRing|)
+                 (|LinearlyExplicitOver| 5) (|DifferentialRing|)
                  (|CharacteristicZero|) (|CommutativeRing|) (|EntireRing|)
                  (|Module| $$) (|OrderedAbelianGroup|) (|BiModule| $$ $$)
                  (|Ring|) (|OrderedCancellationAbelianMonoid|)

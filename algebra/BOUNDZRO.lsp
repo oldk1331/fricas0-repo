@@ -46,7 +46,7 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|HasCategory| |#1| '(|LinearlyExplicitRingOver| (|Integer|)))
+           ((|HasCategory| |#1| '(|LinearlyExplicitOver| (|Integer|)))
             (QSETREFV $ 11
                       (CONS (|dispatchFunction| |BOUNDZRO;integerBound;UPI;1|)
                             $)))

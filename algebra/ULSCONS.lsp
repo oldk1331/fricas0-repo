@@ -1433,7 +1433,7 @@
                                                                    |#2|))))
                                         (AND (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory| |#2|
-                                                            '(|LinearlyExplicitRingOver|
+                                                            '(|LinearlyExplicitOver|
                                                               (|Integer|))))
                                         (AND (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory| |#2|
@@ -1578,7 +1578,7 @@
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
                                              (|HasCategory| |#2|
-                                                            '(|LinearlyExplicitRingOver|
+                                                            '(|LinearlyExplicitOver|
                                                               (|Integer|))))
                                             (AND
                                              (|HasCategory| |#1| '(|Field|))
@@ -2102,16 +2102,15 @@
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
                 |OrderedRing&| |Algebra&| |DifferentialExtension&|
-                |FullyLinearlyExplicitRingOver&| |Module&| |Module&|
-                |EntireRing&| |Module&| NIL NIL NIL |Module&|
-                |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
-                NIL NIL NIL |Ring&| NIL NIL NIL NIL NIL NIL NIL NIL NIL |Rng&|
-                NIL |AbelianGroup&| NIL NIL NIL NIL |Monoid&| |OrderedSet&|
-                |AbelianMonoid&| NIL |AbelianSemiGroup&| |SemiGroup&| NIL NIL
-                |FullyEvalableOver&| NIL NIL |SetCategory&|
-                |TranscendentalFunctionCategory&| NIL |Evalable&| NIL
-                |RetractableTo&| NIL |BasicType&| NIL NIL NIL NIL NIL NIL
-                |TrigonometricFunctionCategory&|
+                |FullyLinearlyExplicitOver&| |Module&| |Module&| |EntireRing&|
+                |Module&| NIL NIL NIL |Module&| |PartialDifferentialRing&|
+                |DifferentialRing&| NIL NIL NIL NIL NIL NIL NIL |Ring&| NIL NIL
+                NIL NIL NIL NIL NIL NIL NIL |Rng&| NIL |AbelianGroup&| NIL NIL
+                NIL NIL |Monoid&| |OrderedSet&| |AbelianMonoid&| NIL
+                |AbelianSemiGroup&| |SemiGroup&| NIL NIL |FullyEvalableOver&|
+                NIL NIL |SetCategory&| |TranscendentalFunctionCategory&| NIL
+                |Evalable&| NIL |RetractableTo&| NIL |BasicType&| NIL NIL NIL
+                NIL NIL NIL |TrigonometricFunctionCategory&|
                 |ArcTrigonometricFunctionCategory&|
                 |HyperbolicFunctionCategory&| NIL |ElementaryFunctionCategory&|
                 |RadicalCategory&| NIL |RetractableTo&| NIL NIL NIL
@@ -2128,12 +2127,12 @@
                  (|GcdDomain|) (|OrderedIntegralDomain|) (|DivisionRing|)
                  (|IntegralDomain|) (|Algebra| 6) (|Algebra| $$)
                  (|LeftOreRing|) (|Algebra| 154) (|OrderedRing|) (|Algebra| 7)
-                 (|DifferentialExtension| 7)
-                 (|FullyLinearlyExplicitRingOver| 7) (|Module| 6) (|Module| $$)
-                 (|EntireRing|) (|Module| 154) (|CharacteristicNonZero|)
-                 (|CharacteristicZero|) (|CommutativeRing|) (|Module| 7)
+                 (|DifferentialExtension| 7) (|FullyLinearlyExplicitOver| 7)
+                 (|Module| 6) (|Module| $$) (|EntireRing|) (|Module| 154)
+                 (|CharacteristicNonZero|) (|CharacteristicZero|)
+                 (|CommutativeRing|) (|Module| 7)
                  (|PartialDifferentialRing| 87) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver| 7) (|LinearlyExplicitRingOver| 9)
+                 (|LinearlyExplicitOver| 7) (|LinearlyExplicitOver| 9)
                  (|BiModule| 6 6) (|BiModule| $$ $$) (|BiModule| 154 154)
                  (|OrderedAbelianGroup|) (|BiModule| 7 7) (|Ring|)
                  (|LeftModule| 6) (|RightModule| 6) (|RightModule| $$)

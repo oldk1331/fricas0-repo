@@ -100,7 +100,7 @@
                                                '(|DifferentialRing|))
                                               (|HasCategory|
                                                (|BalancedPAdicInteger| |#1|)
-                                               '(|LinearlyExplicitRingOver|
+                                               '(|LinearlyExplicitOver|
                                                  (|Integer|)))
                                               (|HasCategory|
                                                (|BalancedPAdicInteger| |#1|)
@@ -195,7 +195,7 @@
              '#(|QuotientFieldCategory&| |Field&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
-                NIL |FullyLinearlyExplicitRingOver&| |DifferentialExtension&|
+                NIL |FullyLinearlyExplicitOver&| |DifferentialExtension&|
                 |Algebra&| |Algebra&| NIL |Algebra&| |OrderedRing&| NIL
                 |Module&| |Module&| NIL |EntireRing&| |Module&| NIL NIL
                 |PartialDifferentialRing&| |DifferentialRing&| NIL NIL NIL NIL
@@ -213,16 +213,16 @@
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|GcdDomain|) (|OrderedIntegralDomain|) (|DivisionRing|)
                  (|IntegralDomain|)
-                 (|FullyLinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
+                 (|FullyLinearlyExplicitOver| (|BalancedPAdicInteger| 6))
                  (|DifferentialExtension| (|BalancedPAdicInteger| 6))
                  (|Algebra| (|BalancedPAdicInteger| 6)) (|Algebra| 36)
                  (|LeftOreRing|) (|Algebra| $$) (|OrderedRing|)
-                 (|LinearlyExplicitRingOver| (|BalancedPAdicInteger| 6))
+                 (|LinearlyExplicitOver| (|BalancedPAdicInteger| 6))
                  (|Module| (|BalancedPAdicInteger| 6)) (|Module| 36)
                  (|CommutativeRing|) (|EntireRing|) (|Module| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
                  (|PartialDifferentialRing| 19) (|DifferentialRing|)
-                 (|LinearlyExplicitRingOver| 24)
+                 (|LinearlyExplicitOver| 24)
                  (|BiModule| (|BalancedPAdicInteger| 6)
                              (|BalancedPAdicInteger| 6))
                  (|BiModule| 36 36) (|BiModule| $$ $$) (|Ring|)

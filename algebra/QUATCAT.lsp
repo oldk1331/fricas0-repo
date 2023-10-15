@@ -30,7 +30,7 @@
                                                    (|DifferentialExtension|
                                                     '|t#1|)
                                                    (|FullyEvalableOver| '|t#1|)
-                                                   (|FullyLinearlyExplicitRingOver|
+                                                   (|FullyLinearlyExplicitOver|
                                                     '|t#1|)
                                                    (|mkCategory|
                                                     '(((|conjugate| ($ $)) T)

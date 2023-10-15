@@ -131,7 +131,7 @@
                  (|PrincipalIdealDomain|) (|UniqueFactorizationDomain|)
                  (|FortranMachineTypeCategory|) (|OrderedIntegralDomain|)
                  (|GcdDomain|) (|IntegralDomain|) (|OrderedRing|)
-                 (|LeftOreRing|) (|Algebra| $$) (|LinearlyExplicitRingOver| 5)
+                 (|LeftOreRing|) (|Algebra| $$) (|LinearlyExplicitOver| 5)
                  (|DifferentialRing|) (|CharacteristicZero|) (|EntireRing|)
                  (|CommutativeRing|) (|Module| $$) (|OrderedAbelianGroup|)
                  (|BiModule| $$ $$) (|Ring|)

@@ -30,8 +30,7 @@
                                          (|CommutativeRing|)
                                          (|ConvertibleTo| '|t#2|)
                                          (|FullyRetractableTo| '|t#1|)
-                                         (|FullyLinearlyExplicitRingOver|
-                                          '|t#1|)
+                                         (|FullyLinearlyExplicitOver| '|t#1|)
                                          (|mkCategory|
                                           '(((|generator| ($)) T)
                                             ((|definingPolynomial| (|t#2|)) T)
