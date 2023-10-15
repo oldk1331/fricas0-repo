@@ -169,11 +169,14 @@
                                               (|HasCategory| |#3|
                                                              '(|CommutativeRing|))
                                               (|HasCategory| |#3| '(|Finite|))
-                                              (|HasCategory| |#3| '(|Monoid|))
+                                              (|HasCategory| |#3|
+                                                             '(|SemiGroup|))
                                               (|HasCategory| |#3|
                                                              '(|CancellationAbelianMonoid|))
+                                              (|HasCategory| |#3| '(|SemiRng|))
+                                              (|HasCategory| |#3| '(|Monoid|))
                                               (|HasCategory| |#3|
-                                                             '(|AbelianSemiGroup|))
+                                                             '(|AbelianMonoid|))
                                               (|HasCategory| |#3| '(|Ring|))
                                               (|HasCategory| |#3|
                                                              '(|SetCategory|))))
@@ -184,7 +187,7 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 10)
+           ((|testBitVector| |pv$| 12)
             (PROGN
              (QSETREFV $ 12
                        (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))

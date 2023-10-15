@@ -169,7 +169,14 @@
                                          '(|AbelianGroup|))
                                         (|HasCategory|
                                          (|Complex| (|DoubleFloat|))
-                                         '(|Monoid|))
+                                         '(|SemiGroup|))
+                                        (AND
+                                         (|HasCategory|
+                                          (|Complex| (|DoubleFloat|))
+                                          '(|AbelianMonoid|))
+                                         (|HasCategory|
+                                          (|Complex| (|DoubleFloat|))
+                                          '(|SemiRng|)))
                                         (|HasCategory|
                                          (|Complex| (|DoubleFloat|)) '(|Ring|))
                                         (AND
@@ -183,15 +190,15 @@
     (|haddProp| |$ConstructorCache| '|ComplexDoubleFloatVector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (LETT #5# (|HasCategory| $ '(|finiteAggregate|)) . #6#)
-         (|augmentPredVector| $ 131072))
-    (AND #5# #1# (|augmentPredVector| $ 262144))
-    (AND #5# #3# (|augmentPredVector| $ 524288))
+         (|augmentPredVector| $ 262144))
+    (AND #5# #1# (|augmentPredVector| $ 524288))
+    (AND #5# #3# (|augmentPredVector| $ 1048576))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
+         (|augmentPredVector| $ 2097152))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
          (|HasCategory| (|Complex| (|DoubleFloat|)) '(|OrderedSet|))
-         (|augmentPredVector| $ 2097152))
-    (AND (OR (AND #5# #3#) #1#) (|augmentPredVector| $ 4194304))
+         (|augmentPredVector| $ 4194304))
+    (AND (OR (AND #5# #3#) #1#) (|augmentPredVector| $ 8388608))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -244,36 +251,36 @@
                  (|Eltable| 7 6) (|InnerEvalable| 6 6) (|ConvertibleTo| 25)
                  (|BasicType|) (|CoercibleTo| 24) (|PartialOrder|))
               (|makeByteWordVec2| 37
-                                  '(2 23 23 0 0 1 1 13 23 0 1 1 13 0 10 1 1 0 0
-                                    19 1 3 21 33 0 7 7 1 1 2 23 0 1 2 0 23 31 0
-                                    1 1 22 0 0 1 2 21 0 31 0 1 1 2 0 0 1 2 0 0
-                                    31 0 1 2 2 23 0 0 1 2 0 23 0 10 1 3 21 6 0
-                                    32 6 1 3 21 6 0 7 6 18 2 18 0 30 0 1 0 0 0
-                                    1 1 21 0 0 1 1 0 0 0 1 1 20 0 0 1 2 20 0 6
-                                    0 1 2 18 0 30 0 1 4 20 6 22 0 6 6 1 2 18 6
-                                    22 0 1 3 18 6 22 0 6 1 3 21 6 0 7 6 9 1 0 0
+                                  '(2 24 23 0 0 1 1 13 23 0 1 1 13 0 10 1 1 0 0
+                                    19 1 3 22 33 0 7 7 1 1 2 23 0 1 2 0 23 31 0
+                                    1 1 23 0 0 1 2 22 0 31 0 1 1 2 0 0 1 2 0 0
+                                    31 0 1 2 2 23 0 0 1 2 0 23 0 10 1 3 22 6 0
+                                    32 6 1 3 22 6 0 7 6 18 2 19 0 30 0 1 0 0 0
+                                    1 1 22 0 0 1 1 0 0 0 1 1 21 0 0 1 2 21 0 6
+                                    0 1 2 19 0 30 0 1 4 21 6 22 0 6 6 1 2 19 6
+                                    22 0 1 3 19 6 22 0 6 1 3 22 6 0 7 6 9 1 0 0
                                     7 14 2 0 6 0 7 8 2 8 7 6 0 1 3 8 7 6 0 7 1
-                                    2 0 7 30 0 1 1 18 19 0 1 2 16 26 0 0 1 2 0
+                                    2 0 7 30 0 1 1 19 19 0 1 2 17 26 0 0 1 2 0
                                     0 10 6 16 2 0 23 0 10 1 1 7 7 0 12 2 2 0 0
-                                    0 1 2 2 0 0 0 1 3 0 0 31 0 0 1 1 18 19 0 1
-                                    2 20 23 6 0 1 1 7 7 0 1 2 2 0 0 0 1 2 21 0
-                                    34 0 1 3 0 0 22 0 0 1 2 0 0 34 0 1 1 17 6 0
-                                    1 2 0 23 0 10 1 1 17 6 0 1 1 3 28 0 1 3 0 0
+                                    0 1 2 2 0 0 0 1 3 0 0 31 0 0 1 1 19 19 0 1
+                                    2 21 23 6 0 1 1 7 7 0 1 2 2 0 0 0 1 2 22 0
+                                    34 0 1 3 0 0 22 0 0 1 2 0 0 34 0 1 1 18 6 0
+                                    1 2 0 23 0 10 1 1 18 6 0 1 1 3 28 0 1 3 0 0
                                     0 0 7 1 3 0 0 6 0 7 1 1 0 37 0 1 2 0 23 7 0
                                     1 2 3 29 29 0 1 1 3 27 0 1 1 7 6 0 1 2 0 36
-                                    30 0 1 2 21 0 0 6 15 2 18 23 30 0 1 3 5 0 0
+                                    30 0 1 2 22 0 0 6 15 2 19 23 30 0 1 3 5 0 0
                                     19 19 1 2 5 0 0 20 1 3 5 0 0 6 6 1 2 5 0 0
-                                    21 1 2 0 23 0 0 1 2 19 23 6 0 1 1 0 19 0 1
+                                    21 1 2 0 23 0 0 1 2 20 23 6 0 1 1 0 19 0 1
                                     1 0 23 0 1 0 0 0 13 2 0 0 0 32 1 3 0 6 0 7
                                     6 1 2 0 6 0 7 17 2 16 6 0 0 1 2 0 0 0 32 1
-                                    2 0 0 0 7 1 2 16 0 0 0 1 2 20 10 6 0 1 2 18
-                                    10 30 0 1 3 21 0 0 0 7 1 1 0 0 0 1 1 1 25 0
+                                    2 0 0 0 7 1 2 17 0 0 0 1 2 21 10 6 0 1 2 19
+                                    10 30 0 1 3 22 0 0 0 7 1 1 0 0 0 1 1 1 25 0
                                     1 1 0 0 19 1 1 0 0 35 1 2 0 0 0 0 1 2 0 0 0
-                                    6 1 2 0 0 6 0 1 1 10 24 0 1 2 18 23 30 0 1
-                                    2 2 23 0 0 1 2 2 23 0 0 1 2 23 23 0 0 1 2 2
+                                    6 1 2 0 0 6 0 1 1 10 24 0 1 2 19 23 30 0 1
+                                    2 2 23 0 0 1 2 2 23 0 0 1 2 24 23 0 0 1 2 2
                                     23 0 0 1 2 2 23 0 0 1 1 14 0 0 1 2 14 0 0 0
                                     1 2 12 0 0 0 1 2 14 0 7 0 1 2 15 0 6 0 1 2
-                                    15 0 0 6 1 1 18 10 0 11)))))
+                                    15 0 0 6 1 1 19 10 0 11)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ComplexDoubleFloatVector| 'NILADIC T) 

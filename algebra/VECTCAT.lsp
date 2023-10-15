@@ -44,11 +44,13 @@
                                                ((* ($ (|Integer|) $))
                                                 (|has| |t#1| (|AbelianGroup|)))
                                                ((* ($ |t#1| $))
-                                                (|has| |t#1| (|Monoid|)))
+                                                (|has| |t#1| (|SemiGroup|)))
                                                ((* ($ $ |t#1|))
-                                                (|has| |t#1| (|Monoid|)))
+                                                (|has| |t#1| (|SemiGroup|)))
                                                ((|dot| (|t#1| $ $))
-                                                (|has| |t#1| (|Ring|)))
+                                                (AND (|has| |t#1| (|SemiRng|))
+                                                     (|has| |t#1|
+                                                            (|AbelianMonoid|))))
                                                ((|outerProduct|
                                                  ((|Matrix| |t#1|) $ $))
                                                 (|has| |t#1| (|Ring|)))

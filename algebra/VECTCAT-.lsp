@@ -188,7 +188,9 @@
                                               (|HasCategory| |#2|
                                                              '(|RadicalCategory|))
                                               (|HasCategory| |#2| '(|Ring|))
-                                              (|HasCategory| |#2| '(|Monoid|))
+                                              (|HasCategory| |#2| '(|SemiRng|))
+                                              (|HasCategory| |#2|
+                                                             '(|SemiGroup|))
                                               (|HasCategory| |#2|
                                                              '(|AbelianGroup|))
                                               (|HasCategory| |#2|
@@ -201,31 +203,36 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 6)
+           ((|testBitVector| |pv$| 7)
             (QSETREFV $ 16 (CONS (|dispatchFunction| |VECTCAT-;+;3S;1|) $))))
           (COND
-           ((|testBitVector| |pv$| 5)
+           ((|testBitVector| |pv$| 6)
             (PROGN
              (QSETREFV $ 19
                        (CONS (|dispatchFunction| |VECTCAT-;zero;NniS;2|) $))
              (QSETREFV $ 24
                        (CONS (|dispatchFunction| |VECTCAT-;zero?;SB;3|) $)))))
           (COND
-           ((|testBitVector| |pv$| 4)
+           ((|testBitVector| |pv$| 5)
             (PROGN
              (QSETREFV $ 28 (CONS (|dispatchFunction| |VECTCAT-;-;2S;4|) $))
              (QSETREFV $ 30 (CONS (|dispatchFunction| |VECTCAT-;*;I2S;5|) $))
              (QSETREFV $ 33 (CONS (|dispatchFunction| |VECTCAT-;-;3S;6|) $)))))
           (COND
-           ((|testBitVector| |pv$| 3)
+           ((|testBitVector| |pv$| 4)
             (PROGN
              (QSETREFV $ 35 (CONS (|dispatchFunction| |VECTCAT-;*;SRS;7|) $))
              (QSETREFV $ 36
                        (CONS (|dispatchFunction| |VECTCAT-;*;R2S;8|) $)))))
           (COND
+           ((|testBitVector| |pv$| 6)
+            (COND
+             ((|testBitVector| |pv$| 3)
+              (QSETREFV $ 37
+                        (CONS (|dispatchFunction| |VECTCAT-;dot;2SR;9|) $))))))
+          (COND
            ((|testBitVector| |pv$| 2)
             (PROGN
-             (QSETREFV $ 37 (CONS (|dispatchFunction| |VECTCAT-;dot;2SR;9|) $))
              (QSETREFV $ 41
                        (CONS
                         (|dispatchFunction| |VECTCAT-;outerProduct;2SM;10|) $))

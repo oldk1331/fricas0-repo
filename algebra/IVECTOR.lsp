@@ -90,7 +90,11 @@
                                                        '(|AbelianSemiGroup|))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (|HasCategory| |#1| '(|AbelianGroup|))
-                                        (|HasCategory| |#1| '(|Monoid|))
+                                        (|HasCategory| |#1| '(|SemiGroup|))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (|HasCategory| |#1| '(|SemiRng|)))
                                         (|HasCategory| |#1| '(|Ring|))
                                         (AND
                                          (|HasCategory| |#1|
@@ -103,15 +107,15 @@
     (QSETREFV $ 6 |#1|)
     (QSETREFV $ 7 |#2|)
     (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-         (|augmentPredVector| $ 131072))
-    (AND #4# #1# (|augmentPredVector| $ 262144))
-    (AND #3# #1# (|augmentPredVector| $ 524288))
+         (|augmentPredVector| $ 262144))
+    (AND #4# #1# (|augmentPredVector| $ 524288))
+    (AND #3# #1# (|augmentPredVector| $ 1048576))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
+         (|augmentPredVector| $ 2097152))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
          (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 2097152))
-    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 4194304))
+         (|augmentPredVector| $ 4194304))
+    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 8388608))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 

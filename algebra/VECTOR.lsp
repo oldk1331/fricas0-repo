@@ -105,7 +105,11 @@
                                                        '(|AbelianSemiGroup|))
                                         (|HasCategory| |#1| '(|AbelianMonoid|))
                                         (|HasCategory| |#1| '(|AbelianGroup|))
-                                        (|HasCategory| |#1| '(|Monoid|))
+                                        (|HasCategory| |#1| '(|SemiGroup|))
+                                        (AND
+                                         (|HasCategory| |#1|
+                                                        '(|AbelianMonoid|))
+                                         (|HasCategory| |#1| '(|SemiRng|)))
                                         (|HasCategory| |#1| '(|Ring|))
                                         (AND
                                          (|HasCategory| |#1|
@@ -116,15 +120,15 @@
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
     (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-         (|augmentPredVector| $ 131072))
-    (AND #4# #1# (|augmentPredVector| $ 262144))
-    (AND #3# #1# (|augmentPredVector| $ 524288))
+         (|augmentPredVector| $ 262144))
+    (AND #4# #1# (|augmentPredVector| $ 524288))
+    (AND #3# #1# (|augmentPredVector| $ 1048576))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 1048576))
+         (|augmentPredVector| $ 2097152))
     (AND (|HasCategory| |#1| '(|OrderedSet|))
          (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 2097152))
-    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 4194304))
+         (|augmentPredVector| $ 4194304))
+    (AND (OR (AND #3# #1#) #4#) (|augmentPredVector| $ 8388608))
     (SETF |pv$| (QREFELT $ 3))
     (COND
      ((|testBitVector| |pv$| 1)
@@ -166,9 +170,9 @@
                  (|shallowlyMutable|) (|finiteAggregate|) (|Type|)
                  (|Eltable| 7 6) (|InnerEvalable| 6 6) (|ConvertibleTo| 14)
                  (|BasicType|) (|CoercibleTo| 31) (|PartialOrder|))
-              (|makeByteWordVec2| 21
+              (|makeByteWordVec2| 22
                                   '(1 0 0 10 11 1 14 0 13 15 1 0 10 0 16 1 10
                                     14 0 17 1 14 0 18 19 1 0 14 0 20 1 0 0 10
-                                    12 3 21 6 0 7 6 9 2 0 6 0 7 8 1 18 10 0 16
+                                    12 3 22 6 0 7 6 9 2 0 6 0 7 8 1 19 10 0 16
                                     1 1 14 0 20 1 0 0 10 11)))))
            '|lookupIncomplete|)) 
