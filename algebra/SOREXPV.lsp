@@ -3,7 +3,7 @@
 
 (DEFUN |SortedExponentVector| ()
   (SPROG NIL
-         (PROG (#1=#:G2602)
+         (PROG (#1=#:G2584)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SortedExponentVector|)
@@ -23,11 +23,11 @@
 
 (DEFUN |SortedExponentVector;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2599 NIL) (#2=#:G2598 NIL) (#3=#:G2597 NIL)
-    (|pv$| NIL) (#4=#:G2600 NIL))
+   ((|dv$| NIL) ($ NIL) (#1=#:G2582 NIL) (#2=#:G2581 NIL) (#3=#:G2580 NIL)
+    (|pv$| NIL))
    (PROGN
-    (LETT |dv$| '(|SortedExponentVector|) . #5=(|SortedExponentVector|))
-    (LETT $ (GETREFV 25) . #5#)
+    (LETT |dv$| '(|SortedExponentVector|) . #4=(|SortedExponentVector|))
+    (LETT $ (GETREFV 25) . #4#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -38,75 +38,87 @@
                                         (|HasCategory| (|Integer|)
                                                        '(|ConvertibleTo|
                                                          (|InputForm|)))
+                                        (|HasCategory| (|Integer|)
+                                                       '(|BasicType|))
                                         (LETT #1#
                                               (|HasCategory| (|Integer|)
+                                                             '(|Comparable|))
+                                              . #4#)
+                                        (OR #1#
+                                            (|HasCategory| (|Integer|)
+                                                           '(|OrderedSet|)))
+                                        (LETT #2#
+                                              (|HasCategory| (|Integer|)
                                                              '(|SetCategory|))
-                                              . #5#)
+                                              . #4#)
                                         (AND
                                          (|HasCategory| (|Integer|)
                                                         '(|Evalable|
                                                           (|Integer|)))
-                                         #1#)
-                                        (|HasCategory| (|Integer|)
-                                                       '(|BasicType|))
-                                        (LETT #2#
-                                              (|HasCategory| (|Integer|)
-                                                             '(|Comparable|))
-                                              . #5#)
+                                         #2#)
                                         (OR
                                          (|HasCategory| (|Integer|)
                                                         '(|BasicType|))
-                                         #2#
+                                         #1#
                                          (|HasCategory| (|Integer|)
                                                         '(|OrderedSet|))
-                                         #1#)
-                                        (OR #2#
+                                         #2#)
+                                        (OR #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|))
-                                            #1#)
-                                        (OR #2#
-                                            (|HasCategory| (|Integer|)
-                                                           '(|OrderedSet|)))
+                                            #2#)
                                         (LETT #3#
                                               (|HasCategory| (|Integer|)
                                                              '(|CoercibleTo|
                                                                (|OutputForm|)))
-                                              . #5#)
-                                        (OR #3# #2#
+                                              . #4#)
+                                        (OR #3# #1#
                                             (|HasCategory| (|Integer|)
                                                            '(|OrderedSet|))
-                                            #1#)))
-                    . #5#))
+                                            #2#)))
+                    . #4#))
     (|haddProp| |$ConstructorCache| '|SortedExponentVector| NIL (CONS 1 $))
     (|stuffDomainSlots| $)
     (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 2048))
-    (AND (LETT #4# (|HasCategory| $ '(|finiteAggregate|)) . #5#)
-         (|augmentPredVector| $ 4096))
-    (AND #4# #1# (|augmentPredVector| $ 8192))
-    (AND #4# (|HasCategory| (|Integer|) '(|BasicType|))
-         (|augmentPredVector| $ 16384))
-    (AND #4# (|HasCategory| $ '(|shallowlyMutable|))
+    (AND (|HasCategory| $ '(|finiteAggregate|)) (|augmentPredVector| $ 4096))
+    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|HasCategory| (|Integer|) '(|BasicType|))
+         (|augmentPredVector| $ 8192))
+    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 16384))
+    (AND (|HasCategory| $ '(|finiteAggregate|))
+         (|HasCategory| $ '(|shallowlyMutable|))
+         (|HasCategory| (|Integer|) '(|OrderedSet|))
          (|augmentPredVector| $ 32768))
-    (AND #4# (|HasCategory| $ '(|shallowlyMutable|))
+    (AND (|HasCategory| $ '(|finiteAggregate|))
          (|HasCategory| (|Integer|) '(|OrderedSet|))
          (|augmentPredVector| $ 65536))
-    (AND #4# (|HasCategory| (|Integer|) '(|OrderedSet|))
-         (|augmentPredVector| $ 131072))
     (AND
-     (OR (AND #4# #2#) (AND #4# (|HasCategory| (|Integer|) '(|OrderedSet|))))
+     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| $ '(|finiteAggregate|))
+              (|HasCategory| (|Integer|) '(|OrderedSet|))))
+     (|augmentPredVector| $ 131072))
+    (AND
+     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| $ '(|finiteAggregate|))
+              (|HasCategory| (|Integer|) '(|OrderedSet|)))
+         #2#)
      (|augmentPredVector| $ 262144))
     (AND
-     (OR (AND #4# #2#) (AND #4# (|HasCategory| (|Integer|) '(|OrderedSet|)))
-         #1#)
+     (OR (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
+         (AND (|HasCategory| $ '(|finiteAggregate|))
+              (|HasCategory| (|Integer|) '(|OrderedSet|)))
+         #3#)
      (|augmentPredVector| $ 524288))
     (AND
-     (OR (AND #4# #2#) (AND #4# (|HasCategory| (|Integer|) '(|OrderedSet|)))
-         #3#)
+     (OR
+      (AND (|HasCategory| $ '(|finiteAggregate|))
+           (|HasCategory| (|Integer|) '(|BasicType|)))
+      (AND (|HasCategory| $ '(|finiteAggregate|)) #1#)
+      (AND (|HasCategory| $ '(|finiteAggregate|))
+           (|HasCategory| (|Integer|) '(|OrderedSet|)))
+      #2#)
      (|augmentPredVector| $ 1048576))
-    (AND
-     (OR (AND #4# (|HasCategory| (|Integer|) '(|BasicType|))) (AND #4# #2#)
-         (AND #4# (|HasCategory| (|Integer|) '(|OrderedSet|))) #1#)
-     (|augmentPredVector| $ 2097152))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -121,12 +133,13 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 11
-                                '(0 0 0 0 0 1 0 9 0 0 4 8 0 0 0 0 4 7 11 1 2))
+                                '(0 0 0 0 0 1 0 5 0 0 7 9 0 0 0 0 0 7 8 11 1
+                                  2))
             (CONS
              '#(|OneDimensionalArrayAggregate&| NIL |LinearAggregate&|
                 |IndexedAggregate&| |Collection&| |OrderedSet&|
                 |HomogeneousAggregate&| NIL |Aggregate&| |EltableAggregate&|
-                |Evalable&| |SetCategory&| NIL NIL NIL NIL |InnerEvalable&|
+                |Evalable&| |SetCategory&| NIL NIL NIL NIL NIL |InnerEvalable&|
                 |BasicType&| NIL |PartialOrder&| NIL)
              (CONS
               '#((|OneDimensionalArrayAggregate| 6) (|FiniteLinearAggregate| 6)
@@ -134,7 +147,7 @@
                  (|Collection| 6) (|OrderedSet|) (|HomogeneousAggregate| 6)
                  (|Comparable|) (|Aggregate|) (|EltableAggregate| 6 6)
                  (|Evalable| 6) (|SetCategory|) (|shallowlyMutable|)
-                 (|finiteAggregate|) (|Type|) (|Eltable| 6 6)
+                 (|finiteAggregate|) (|Eltable| 20 $$) (|Type|) (|Eltable| 6 6)
                  (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 14)
                  (|PartialOrder|) (|ConvertibleTo| 18))
               (|makeByteWordVec2| -999999 'NIL))))

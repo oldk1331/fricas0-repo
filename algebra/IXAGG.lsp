@@ -35,8 +35,7 @@
                                             ((|indices| ((|List| |t#1|) $)) T)
                                             ((|entry?| ((|Boolean|) |t#2| $))
                                              (AND (|has| $ (|finiteAggregate|))
-                                                  (|has| |t#2|
-                                                         (|SetCategory|))))
+                                                  (|has| |t#2| (|BasicType|))))
                                             ((|maxIndex| (|t#1| $))
                                              (|has| |t#1| (|OrderedSet|)))
                                             ((|minIndex| (|t#1| $))

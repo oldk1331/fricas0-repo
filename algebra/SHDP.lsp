@@ -204,8 +204,6 @@
                                               (|HasCategory| |#3| '(|Ring|)))
                                              (|HasCategory| |#3|
                                                             '(|SetCategory|))
-                                             (|HasCategory| |#3|
-                                                            '(|BasicType|))
                                              (AND
                                               (|HasCategory| |#3|
                                                              (LIST '|Evalable|
@@ -213,6 +211,8 @@
                                                                     |#3|)))
                                               (|HasCategory| |#3|
                                                              '(|SetCategory|)))
+                                             (|HasCategory| |#3|
+                                                            '(|BasicType|))
                                              (|HasCategory| (|Integer|)
                                                             '(|OrderedSet|))
                                              (AND
@@ -670,17 +670,14 @@
     (AND (|HasCategory| |#3| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
          (|augmentPredVector| $ 562949953421312))
-    (AND (|HasCategory| |#3| '(|SetCategory|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 1125899906842624))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 2251799813685248))
+         (|augmentPredVector| $ 1125899906842624))
     (AND
      (OR
       (AND (|HasCategory| |#3| '(|BasicType|))
            (|HasCategory| $ '(|finiteAggregate|)))
       (|HasCategory| |#3| '(|SetCategory|)))
-     (|augmentPredVector| $ 4503599627370496))
+     (|augmentPredVector| $ 2251799813685248))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9 (|Vector| |#3|))
     $))) 

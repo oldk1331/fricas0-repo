@@ -122,7 +122,7 @@
                                               (|HasCategory| |#1|
                                                              '(|finiteAggregate|))
                                               (|HasCategory| |#3|
-                                                             '(|SetCategory|))))
+                                                             '(|BasicType|))))
                           . #1#))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

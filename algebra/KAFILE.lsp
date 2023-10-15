@@ -165,9 +165,9 @@
 
 (DECLAIM (NOTINLINE |KeyedAccessFile;|)) 
 
-(DEFUN |KeyedAccessFile| (#1=#:G223)
+(DEFUN |KeyedAccessFile| (#1=#:G222)
   (SPROG NIL
-         (PROG (#2=#:G224)
+         (PROG (#2=#:G223)
            (RETURN
             (COND
              ((LETT #2#
@@ -185,74 +185,78 @@
                   (HREM |$ConstructorCache| '|KeyedAccessFile|)))))))))) 
 
 (DEFUN |KeyedAccessFile;| (|#1|)
-  (SPROG
-   ((#1=#:G222 NIL) (|pv$| NIL) (#2=#:G221 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
-   (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|KeyedAccessFile|))
-    (LETT |dv$| (LIST '|KeyedAccessFile| DV$1) . #3#)
-    (LETT $ (GETREFV 64) . #3#)
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
-              (LETT |pv$|
-                    (|buildPredVector| 0 0
-                                       (LIST
-                                        (AND
-                                         (|HasCategory|
-                                          (|Record| (|:| |key| (|String|))
-                                                    (|:| |entry| |#1|))
-                                          (LIST '|Evalable|
-                                                (LIST '|Record|
-                                                      '(|:| |key| (|String|))
-                                                      (LIST '|:| '|entry|
-                                                            (|devaluate|
-                                                             |#1|)))))
-                                         (|HasCategory|
-                                          (|Record| (|:| |key| (|String|))
-                                                    (|:| |entry| |#1|))
-                                          '(|SetCategory|)))
-                                        (|HasCategory|
-                                         (|Record| (|:| |key| (|String|))
-                                                   (|:| |entry| |#1|))
-                                         '(|ConvertibleTo| (|InputForm|)))
-                                        (|HasCategory| |#1| '(|BasicType|))
-                                        (LETT #2#
+  (SPROG ((#1=#:G221 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|KeyedAccessFile|))
+          (LETT |dv$| (LIST '|KeyedAccessFile| DV$1) . #2#)
+          (LETT $ (GETREFV 64) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (AND
+                                               (|HasCategory|
+                                                (|Record|
+                                                 (|:| |key| (|String|))
+                                                 (|:| |entry| |#1|))
+                                                (LIST '|Evalable|
+                                                      (LIST '|Record|
+                                                            '(|:| |key|
+                                                                  (|String|))
+                                                            (LIST '|:| '|entry|
+                                                                  (|devaluate|
+                                                                   |#1|)))))
+                                               (|HasCategory|
+                                                (|Record|
+                                                 (|:| |key| (|String|))
+                                                 (|:| |entry| |#1|))
+                                                '(|SetCategory|)))
+                                              (|HasCategory|
+                                               (|Record| (|:| |key| (|String|))
+                                                         (|:| |entry| |#1|))
+                                               '(|ConvertibleTo|
+                                                 (|InputForm|)))
+                                              (AND
+                                               (|HasCategory| |#1|
+                                                              (LIST '|Evalable|
+                                                                    (|devaluate|
+                                                                     |#1|)))
+                                               (|HasCategory| |#1|
+                                                              '(|SetCategory|)))
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))
-                                              . #3#)
-                                        (AND
-                                         (|HasCategory| |#1|
-                                                        (LIST '|Evalable|
-                                                              (|devaluate|
-                                                               |#1|)))
-                                         #2#)
-                                        (|HasCategory| (|String|)
-                                                       '(|OrderedSet|))
-                                        (|HasCategory|
-                                         (|Record| (|:| |key| (|String|))
-                                                   (|:| |entry| |#1|))
-                                         '(|BasicType|))))
-                    . #3#))
-    (|haddProp| |$ConstructorCache| '|KeyedAccessFile| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 128))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
-         (|augmentPredVector| $ 256))
-    (AND (|HasCategory| |#1| '(|BasicType|)) #1# (|augmentPredVector| $ 512))
-    (AND #2# #1# (|augmentPredVector| $ 1024))
-    (AND #1#
-         (|HasCategory| (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
-                        '(|BasicType|))
-         (|augmentPredVector| $ 2048))
-    (SETF |pv$| (QREFELT $ 3))
-    (QSETREFV $ 7
-              (|Record| (|:| |car| (|SExpression|))
-                        (|:| |cdr| (|SExpression|))))
-    (QSETREFV $ 8
-              (|Record| (|:| |fileName| (|FileName|))
-                        (|:| |fileState| (|SExpression|))
-                        (|:| |fileIOmode| (|String|))))
-    $))) 
+                                                             '(|BasicType|))
+                                              (|HasCategory| (|String|)
+                                                             '(|OrderedSet|))
+                                              (|HasCategory|
+                                               (|Record| (|:| |key| (|String|))
+                                                         (|:| |entry| |#1|))
+                                               '(|BasicType|))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|KeyedAccessFile| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND (|HasCategory| $ '(|shallowlyMutable|))
+               (|augmentPredVector| $ 64))
+          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+               (|augmentPredVector| $ 128))
+          (AND (|HasCategory| |#1| '(|BasicType|)) #1#
+               (|augmentPredVector| $ 256))
+          (AND #1#
+               (|HasCategory|
+                (|Record| (|:| |key| (|String|)) (|:| |entry| |#1|))
+                '(|BasicType|))
+               (|augmentPredVector| $ 512))
+          (SETF |pv$| (QREFELT $ 3))
+          (QSETREFV $ 7
+                    (|Record| (|:| |car| (|SExpression|))
+                              (|:| |cdr| (|SExpression|))))
+          (QSETREFV $ 8
+                    (|Record| (|:| |fileName| (|FileName|))
+                              (|:| |fileState| (|SExpression|))
+                              (|:| |fileIOmode| (|String|))))
+          $))) 
 
 (MAKEPROP '|KeyedAccessFile| '|infovec|
           (LIST
@@ -289,9 +293,9 @@
               537 |any?| 542 = 554 |#| 560)
            'NIL
            (CONS
-            (|makeByteWordVec2| 5
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 1 5 0 0 0 0 0 0 1 2
-                                  5))
+            (|makeByteWordVec2| 3
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 1 3 0 0 0 0 0 0 1 2
+                                  3))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
                 |DictionaryOperations&| |BagAggregate&| |IndexedAggregate&|
@@ -324,30 +328,30 @@
                                     12 0 17 1 10 14 0 21 2 9 14 0 0 24 2 27 25
                                     0 26 28 3 10 0 9 9 9 34 2 36 14 9 0 42 2 0
                                     14 0 0 1 2 0 29 0 29 31 0 0 0 1 1 0 0 49 1
-                                    3 8 58 0 9 9 1 2 0 14 0 38 1 3 0 6 0 9 6 41
-                                    2 9 0 55 0 1 2 9 0 55 0 1 2 0 43 9 0 44 0 0
-                                    0 1 2 0 0 0 9 22 1 12 0 0 1 2 12 0 29 0 1 2
-                                    9 0 55 0 1 2 0 43 9 0 45 2 12 0 29 0 1 2 9
-                                    0 55 0 1 4 12 29 50 0 29 29 1 3 9 29 50 0
-                                    29 1 2 9 29 50 0 1 1 0 29 0 30 3 8 6 0 9 6
-                                    1 2 0 6 0 9 1 1 9 49 0 1 1 9 51 0 1 1 0 0 0
+                                    3 7 58 0 9 9 1 2 0 14 0 38 1 3 0 6 0 9 6 41
+                                    2 8 0 55 0 1 2 8 0 55 0 1 2 0 43 9 0 44 0 0
+                                    0 1 2 0 0 0 9 22 1 10 0 0 1 2 10 0 29 0 1 2
+                                    8 0 55 0 1 2 0 43 9 0 45 2 10 0 29 0 1 2 8
+                                    0 55 0 1 4 10 29 50 0 29 29 1 3 8 29 50 0
+                                    29 1 2 8 29 50 0 1 1 0 29 0 30 3 7 6 0 9 6
+                                    1 2 0 6 0 9 1 1 8 49 0 1 1 8 51 0 1 1 0 0 0
                                     46 1 0 0 10 20 2 0 0 10 9 19 1 0 10 0 32 2
-                                    0 14 0 38 1 1 6 9 0 1 1 9 49 0 1 1 9 51 0 1
-                                    2 12 14 29 0 1 2 10 14 6 0 1 1 6 9 0 1 2 8
-                                    0 57 0 1 2 8 0 59 0 1 2 0 0 57 0 1 2 0 0 59
-                                    0 1 3 0 0 61 0 0 1 2 0 14 0 38 1 1 0 9 0 1
-                                    1 0 36 0 37 2 0 14 9 0 1 1 0 9 0 33 1 0 29
-                                    0 1 2 0 0 29 0 1 1 0 36 0 1 2 0 14 9 0 1 2
-                                    0 63 63 0 1 1 0 62 0 1 1 0 58 0 1 1 6 6 0 1
-                                    2 0 60 55 0 1 2 8 0 0 6 1 1 0 29 0 1 2 9 14
-                                    55 0 1 2 9 14 56 0 1 2 1 0 0 47 1 3 1 0 0
-                                    29 29 1 2 1 0 0 48 1 3 1 0 0 49 49 1 3 5 0
-                                    0 51 51 1 2 5 0 0 52 1 3 5 0 0 6 6 1 2 5 0
-                                    0 53 1 2 0 14 0 0 1 2 11 14 6 0 1 1 0 51 0
-                                    1 1 0 14 0 1 0 0 0 35 3 0 6 0 9 6 1 2 0 6 0
-                                    9 40 0 0 0 1 1 0 0 49 1 2 12 38 29 0 1 2 10
-                                    38 6 0 1 2 9 38 55 0 1 2 9 38 56 0 1 1 0 0
-                                    0 1 1 2 54 0 1 1 0 0 49 1 1 0 12 0 18 1 0 0
-                                    0 23 2 9 14 55 0 1 2 9 14 56 0 1 2 0 14 0 0
-                                    16 1 9 38 0 39)))))
+                                    0 14 0 38 1 1 5 9 0 1 1 8 49 0 1 1 8 51 0 1
+                                    2 10 14 29 0 1 2 9 14 6 0 1 1 5 9 0 1 2 7 0
+                                    57 0 1 2 7 0 59 0 1 2 0 0 57 0 1 2 0 0 59 0
+                                    1 3 0 0 61 0 0 1 2 0 14 0 38 1 1 0 9 0 1 1
+                                    0 36 0 37 2 0 14 9 0 1 1 0 9 0 33 1 0 29 0
+                                    1 2 0 0 29 0 1 1 0 36 0 1 2 0 14 9 0 1 2 0
+                                    63 63 0 1 1 0 62 0 1 1 0 58 0 1 1 5 6 0 1 2
+                                    0 60 55 0 1 2 7 0 0 6 1 1 0 29 0 1 2 8 14
+                                    55 0 1 2 8 14 56 0 1 2 1 0 0 47 1 3 1 0 0
+                                    29 29 1 2 1 0 0 48 1 3 1 0 0 49 49 1 3 3 0
+                                    0 51 51 1 2 3 0 0 52 1 3 3 0 0 6 6 1 2 3 0
+                                    0 53 1 2 0 14 0 0 1 2 9 14 6 0 1 1 0 51 0 1
+                                    1 0 14 0 1 0 0 0 35 3 0 6 0 9 6 1 2 0 6 0 9
+                                    40 0 0 0 1 1 0 0 49 1 2 10 38 29 0 1 2 9 38
+                                    6 0 1 2 8 38 55 0 1 2 8 38 56 0 1 1 0 0 0 1
+                                    1 2 54 0 1 1 0 0 49 1 1 0 12 0 18 1 0 0 0
+                                    23 2 8 14 55 0 1 2 8 14 56 0 1 2 0 14 0 0
+                                    16 1 8 38 0 39)))))
            '|lookupComplete|)) 

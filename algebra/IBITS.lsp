@@ -102,9 +102,9 @@
 
 (DECLAIM (NOTINLINE |IndexedBits;|)) 
 
-(DEFUN |IndexedBits| (#1=#:G155)
+(DEFUN |IndexedBits| (#1=#:G154)
   (SPROG NIL
-         (PROG (#2=#:G156)
+         (PROG (#2=#:G155)
            (RETURN
             (COND
              ((LETT #2#
@@ -120,54 +120,51 @@
                  ((NOT #2#) (HREM |$ConstructorCache| '|IndexedBits|)))))))))) 
 
 (DEFUN |IndexedBits;| (|#1|)
-  (SPROG
-   ((#1=#:G154 NIL) (|pv$| NIL) (#2=#:G153 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
-   (PROGN
-    (LETT DV$1 (|devaluate| |#1|) . #3=(|IndexedBits|))
-    (LETT |dv$| (LIST '|IndexedBits| DV$1) . #3#)
-    (LETT $ (GETREFV 50) . #3#)
-    (QSETREFV $ 0 |dv$|)
-    (QSETREFV $ 3
-              (LETT |pv$|
-                    (|buildPredVector| 0 0
-                                       (LIST
-                                        (|HasCategory| (|Boolean|)
-                                                       '(|ConvertibleTo|
-                                                         (|InputForm|)))
-                                        (|HasCategory| (|Boolean|)
-                                                       '(|OrderedSet|))
-                                        (|HasCategory| (|Integer|)
-                                                       '(|OrderedSet|))
-                                        (LETT #2#
+  (SPROG ((#1=#:G153 NIL) (|pv$| NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+         (PROGN
+          (LETT DV$1 (|devaluate| |#1|) . #2=(|IndexedBits|))
+          (LETT |dv$| (LIST '|IndexedBits| DV$1) . #2#)
+          (LETT $ (GETREFV 50) . #2#)
+          (QSETREFV $ 0 |dv$|)
+          (QSETREFV $ 3
+                    (LETT |pv$|
+                          (|buildPredVector| 0 0
+                                             (LIST
+                                              (AND
+                                               (|HasCategory| (|Boolean|)
+                                                              '(|Evalable|
+                                                                (|Boolean|)))
+                                               (|HasCategory| (|Boolean|)
+                                                              '(|SetCategory|)))
                                               (|HasCategory| (|Boolean|)
-                                                             '(|SetCategory|))
-                                              . #3#)
-                                        (AND
-                                         (|HasCategory| (|Boolean|)
-                                                        '(|Evalable|
-                                                          (|Boolean|)))
-                                         #2#)
-                                        (|HasCategory| (|Boolean|)
-                                                       '(|BasicType|))))
-                    . #3#))
-    (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1) (CONS 1 $))
-    (|stuffDomainSlots| $)
-    (QSETREFV $ 6 |#1|)
-    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 64))
-    (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #3#)
-         (|augmentPredVector| $ 128))
-    (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
-         (|HasCategory| (|Boolean|) '(|OrderedSet|))
-         (|augmentPredVector| $ 256))
-    (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 512))
-    (AND #1# (|HasCategory| (|Boolean|) '(|OrderedSet|))
-         (|augmentPredVector| $ 1024))
-    (AND #1# #2# (|augmentPredVector| $ 2048))
-    (AND #1# (|HasCategory| (|Boolean|) '(|BasicType|))
-         (|augmentPredVector| $ 4096))
-    (SETF |pv$| (QREFELT $ 3))
-    $))) 
+                                                             '(|ConvertibleTo|
+                                                               (|InputForm|)))
+                                              (|HasCategory| (|Boolean|)
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| (|Integer|)
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| (|Boolean|)
+                                                             '(|BasicType|))))
+                          . #2#))
+          (|haddProp| |$ConstructorCache| '|IndexedBits| (LIST DV$1)
+                      (CONS 1 $))
+          (|stuffDomainSlots| $)
+          (QSETREFV $ 6 |#1|)
+          (AND (|HasCategory| $ '(|shallowlyMutable|))
+               (|augmentPredVector| $ 32))
+          (AND (LETT #1# (|HasCategory| $ '(|finiteAggregate|)) . #2#)
+               (|augmentPredVector| $ 64))
+          (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
+               (|HasCategory| (|Boolean|) '(|OrderedSet|))
+               (|augmentPredVector| $ 128))
+          (AND #1# (|HasCategory| $ '(|shallowlyMutable|))
+               (|augmentPredVector| $ 256))
+          (AND #1# (|HasCategory| (|Boolean|) '(|OrderedSet|))
+               (|augmentPredVector| $ 512))
+          (AND #1# (|HasCategory| (|Boolean|) '(|BasicType|))
+               (|augmentPredVector| $ 1024))
+          (SETF |pv$| (QREFELT $ 3))
+          $))) 
 
 (MAKEPROP '|IndexedBits| '|infovec|
           (LIST
@@ -201,15 +198,15 @@
               |And| 595 >= 601 > 607 = 613 <= 619 < 625 |/\\| 631 |#| 637)
            'NIL
            (CONS
-            (|makeByteWordVec2| 5
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 5 0
-                                  0 0 0 0 0 0 5 1))
+            (|makeByteWordVec2| 2
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+                                  0 0 0 0 0 0 0 1 2))
             (CONS
              '#(|BitAggregate&| |OneDimensionalArrayAggregate&| NIL NIL NIL
                 |LinearAggregate&| NIL NIL |OrderedSet&| |Collection&|
                 |IndexedAggregate&| NIL NIL NIL NIL |HomogeneousAggregate&| NIL
                 NIL |EltableAggregate&| |Aggregate&| |SetCategory&| |Evalable&|
-                NIL NIL NIL NIL |BasicType&| |PartialOrder&| NIL
+                NIL NIL NIL NIL NIL |BasicType&| |PartialOrder&| NIL
                 |InnerEvalable&| NIL)
              (CONS
               '#((|BitAggregate|) (|OneDimensionalArrayAggregate| 14) (|Logic|)
@@ -221,42 +218,41 @@
                  (|Comparable|) (|HomogeneousAggregate| 14) (|JoinSemilattice|)
                  (|MeetSemilattice|) (|EltableAggregate| 7 14) (|Aggregate|)
                  (|SetCategory|) (|Evalable| 14) (|shallowlyMutable|)
-                 (|finiteAggregate|) (|Eltable| 7 14) (|Type|) (|BasicType|)
-                 (|PartialOrder|) (|CoercibleTo| 18) (|InnerEvalable| 14 14)
-                 (|ConvertibleTo| 41))
+                 (|finiteAggregate|) (|Eltable| 44 $$) (|Eltable| 7 14)
+                 (|Type|) (|BasicType|) (|PartialOrder|) (|CoercibleTo| 18)
+                 (|InnerEvalable| 14 14) (|ConvertibleTo| 41))
               (|makeByteWordVec2| 49
                                   '(1 11 7 0 12 1 11 7 0 13 3 11 16 0 7 16 17 1
                                     11 18 0 19 2 14 0 0 0 26 3 0 0 27 0 0 28 2
                                     14 0 0 0 30 2 14 0 0 0 32 2 0 14 0 0 1 1 0
-                                    0 0 1 2 0 0 0 0 33 2 13 0 0 14 1 3 7 43 0 7
-                                    7 1 1 11 14 0 1 2 8 14 27 0 1 1 9 0 0 1 2
-                                    10 0 27 0 1 1 11 0 0 1 2 8 0 27 0 1 2 0 14
-                                    0 0 1 2 0 14 0 9 1 3 7 14 0 7 14 34 3 7 14
-                                    0 44 14 1 2 8 0 42 0 1 0 0 0 1 2 13 0 0 14
-                                    1 1 10 0 0 1 1 8 0 0 1 1 13 0 0 1 2 13 0 14
-                                    0 1 2 8 0 42 0 1 4 13 14 27 0 14 14 1 3 8
-                                    14 27 0 14 1 2 8 14 27 0 1 3 7 14 0 7 14 1
-                                    2 0 14 0 7 1 3 13 7 14 0 7 1 2 13 7 14 0 1
-                                    2 8 7 42 0 1 1 8 40 0 1 2 0 0 0 0 31 1 0 0
-                                    0 1 2 0 0 0 0 1 2 0 0 9 14 21 2 0 0 0 0 1 2
-                                    0 14 0 9 1 1 3 7 0 8 2 0 0 0 0 1 2 11 0 0 0
-                                    1 3 8 0 27 0 0 1 1 8 40 0 1 2 13 14 14 0 1
-                                    1 3 7 0 1 2 0 0 0 0 1 2 7 0 42 0 1 2 0 0 42
-                                    0 1 3 0 0 27 0 0 28 2 0 14 0 9 1 2 13 0 0
-                                    14 1 1 0 11 0 1 3 0 0 0 0 7 1 3 0 0 14 0 7
-                                    1 1 0 45 0 1 2 0 14 7 0 1 2 0 48 48 0 1 1 0
-                                    49 0 1 1 3 14 0 1 2 0 46 42 0 1 2 7 0 0 14
-                                    1 2 8 14 42 0 1 2 5 0 0 38 1 2 5 0 0 39 1 3
-                                    5 0 0 40 40 1 3 5 0 0 14 14 1 2 0 14 0 0 1
-                                    2 12 14 14 0 1 1 0 40 0 1 1 0 14 0 1 0 0 0
-                                    22 2 0 14 0 7 15 3 0 14 0 7 14 1 2 0 0 0 44
-                                    1 2 0 0 0 7 1 2 0 0 0 44 1 2 13 9 14 0 1 2
-                                    8 9 42 0 1 3 10 0 0 0 7 1 1 0 0 0 23 1 1 41
-                                    0 1 1 0 0 40 1 2 0 0 0 14 1 2 0 0 14 0 1 1
-                                    0 0 47 1 2 0 0 0 0 1 1 0 18 0 20 2 8 14 42
-                                    0 1 2 0 0 0 0 29 0 0 0 1 2 0 0 0 0 1 0 0 0
-                                    1 2 0 0 0 0 37 1 0 0 0 35 2 0 0 0 0 36 2 0
-                                    14 0 0 1 2 0 14 0 0 1 2 0 14 0 0 24 2 0 14
-                                    0 0 1 2 0 14 0 0 25 2 0 0 0 0 1 1 8 9 0
-                                    10)))))
+                                    0 0 1 2 0 0 0 0 33 2 11 0 0 14 1 3 6 43 0 7
+                                    7 1 1 10 14 0 1 2 7 14 27 0 1 1 8 0 0 1 2 9
+                                    0 27 0 1 1 10 0 0 1 2 7 0 27 0 1 2 0 14 0 0
+                                    1 2 0 14 0 9 1 3 6 14 0 7 14 34 3 6 14 0 44
+                                    14 1 2 7 0 42 0 1 0 0 0 1 2 11 0 0 14 1 1 9
+                                    0 0 1 1 7 0 0 1 1 11 0 0 1 2 11 0 14 0 1 2
+                                    7 0 42 0 1 4 11 14 27 0 14 14 1 3 7 14 27 0
+                                    14 1 2 7 14 27 0 1 3 6 14 0 7 14 1 2 0 14 0
+                                    7 1 3 11 7 14 0 7 1 2 11 7 14 0 1 2 7 7 42
+                                    0 1 1 7 40 0 1 2 0 0 0 0 31 1 0 0 0 1 2 0 0
+                                    0 0 1 2 0 0 9 14 21 2 0 0 0 0 1 2 0 14 0 9
+                                    1 1 4 7 0 8 2 0 0 0 0 1 2 10 0 0 0 1 3 7 0
+                                    27 0 0 1 1 7 40 0 1 2 11 14 14 0 1 1 4 7 0
+                                    1 2 0 0 0 0 1 2 6 0 42 0 1 2 0 0 42 0 1 3 0
+                                    0 27 0 0 28 2 0 14 0 9 1 2 11 0 0 14 1 1 0
+                                    11 0 1 3 0 0 0 0 7 1 3 0 0 14 0 7 1 1 0 45
+                                    0 1 2 0 14 7 0 1 2 0 48 48 0 1 1 0 49 0 1 1
+                                    4 14 0 1 2 0 46 42 0 1 2 6 0 0 14 1 2 7 14
+                                    42 0 1 2 1 0 0 38 1 2 1 0 0 39 1 3 1 0 0 40
+                                    40 1 3 1 0 0 14 14 1 2 0 14 0 0 1 2 11 14
+                                    14 0 1 1 0 40 0 1 1 0 14 0 1 0 0 0 22 2 0
+                                    14 0 7 15 3 0 14 0 7 14 1 2 0 0 0 44 1 2 0
+                                    0 0 7 1 2 0 0 0 44 1 2 11 9 14 0 1 2 7 9 42
+                                    0 1 3 9 0 0 0 7 1 1 0 0 0 23 1 2 41 0 1 1 0
+                                    0 40 1 2 0 0 0 14 1 2 0 0 0 0 1 2 0 0 14 0
+                                    1 1 0 0 47 1 1 0 18 0 20 2 7 14 42 0 1 2 0
+                                    0 0 0 29 0 0 0 1 2 0 0 0 0 1 0 0 0 1 2 0 0
+                                    0 0 37 1 0 0 0 35 2 0 0 0 0 36 2 0 14 0 0 1
+                                    2 0 14 0 0 1 2 0 14 0 0 24 2 0 14 0 0 1 2 0
+                                    14 0 0 25 2 0 0 0 0 1 1 7 9 0 10)))))
            '|lookupComplete|)) 

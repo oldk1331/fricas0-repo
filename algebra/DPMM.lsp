@@ -229,8 +229,6 @@
                                                              '(|CancellationAbelianMonoid|))
                                               #6# #4# #7#
                                               (|HasCategory| |#4| '(|Ring|)))
-                                             (|HasCategory| |#4|
-                                                            '(|BasicType|))
                                              (AND
                                               (|HasCategory| |#4|
                                                              (LIST '|Evalable|
@@ -238,6 +236,8 @@
                                                                     |#4|)))
                                               (|HasCategory| |#4|
                                                              '(|SetCategory|)))
+                                             (|HasCategory| |#4|
+                                                            '(|BasicType|))
                                              (|HasCategory| (|Integer|)
                                                             '(|OrderedSet|))
                                              (AND
@@ -597,11 +597,8 @@
     (AND (|HasCategory| |#4| '(|BasicType|))
          (|HasCategory| $ '(|finiteAggregate|))
          (|augmentPredVector| $ 8796093022208))
-    (AND (|HasCategory| |#4| '(|SetCategory|))
-         (|HasCategory| $ '(|finiteAggregate|))
-         (|augmentPredVector| $ 17592186044416))
     (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 35184372088832))
+         (|augmentPredVector| $ 17592186044416))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 10 (|Vector| |#4|))
     $))) 

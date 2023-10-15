@@ -54,9 +54,12 @@
                       (CONS (|dispatchFunction| |RCAGG-;setelt!;Avalue2S;2|)
                             $))))
           (COND
-           ((|HasCategory| |#2| '(|SetCategory|))
-            (QSETREFV $ 18
-                      (CONS (|dispatchFunction| |RCAGG-;child?;2AB;3|) $))))
+           ((|HasCategory| |#1| '(|BasicType|))
+            (COND
+             ((|testBitVector| |pv$| 2)
+              (QSETREFV $ 18
+                        (CONS (|dispatchFunction| |RCAGG-;child?;2AB;3|)
+                              $))))))
           (COND
            ((|HasCategory| |#1| '(|finiteAggregate|))
             (QSETREFV $ 21 (CONS (|dispatchFunction| |RCAGG-;parts;AL;4|) $))))

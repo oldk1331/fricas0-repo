@@ -66,7 +66,7 @@
                                               (|HasCategory| |#2|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#2|
-                                                             '(|SetCategory|))))
+                                                             '(|BasicType|))))
                           . #1#))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)

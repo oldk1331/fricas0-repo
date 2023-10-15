@@ -66,11 +66,11 @@
                                                        T)
                                                       ((|remove!| ($ |t#1| $))
                                                        (|has| |t#1|
-                                                              (|SetCategory|)))
+                                                              (|BasicType|)))
                                                       ((|removeDuplicates!|
                                                         ($ $))
                                                        (|has| |t#1|
-                                                              (|SetCategory|)))
+                                                              (|BasicType|)))
                                                       ((|merge!| ($ $ $))
                                                        (|has| |t#1|
                                                               (|OrderedSet|))))

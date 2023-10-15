@@ -882,7 +882,7 @@
           (QSETREFV $ 7 |#2|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|HasCategory| |#2| '(|SetCategory|))
+           ((|HasCategory| |#2| '(|BasicType|))
             (QSETREFV $ 41
                       (CONS (|dispatchFunction| |A1AGG-;reduce;MA3S;12|) $))))
           (COND
@@ -890,7 +890,7 @@
             (QSETREFV $ 69
                       (CONS (|dispatchFunction| |A1AGG-;coerce;AOf;28|) $))))
           (COND
-           ((|HasCategory| |#2| '(|SetCategory|))
+           ((|HasCategory| |#2| '(|BasicType|))
             (PROGN
              (QSETREFV $ 72 (CONS (|dispatchFunction| |A1AGG-;=;2AB;29|) $))
              (QSETREFV $ 73
@@ -960,8 +960,8 @@
                                                    19 0 21 2 0 0 0 30 50 2 0 0
                                                    0 30 56 2 0 0 0 8 57 2 0 25
                                                    19 0 26 3 0 0 0 0 8 53 1 0 0
-                                                   0 52 1 0 0 12 54 1 0 0 62 63
-                                                   2 0 0 0 0 65 1 0 66 0 69 2 0
-                                                   18 19 0 20 2 0 18 0 0 72 2 0
-                                                   18 0 0 75)))))
+                                                   0 52 1 0 0 12 54 2 0 0 0 0
+                                                   65 1 0 0 62 63 1 0 66 0 69 2
+                                                   0 18 19 0 20 2 0 18 0 0 72 2
+                                                   0 18 0 0 75)))))
            '|lookupComplete|)) 

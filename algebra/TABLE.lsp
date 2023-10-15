@@ -41,6 +41,15 @@
                                                    (|:| |entry| |#2|))
                                          '(|BasicType|))
                                         (|HasCategory| |#1| '(|OrderedSet|))
+                                        (OR
+                                         (|HasCategory| |#2|
+                                                        '(|CoercibleTo|
+                                                          (|OutputForm|)))
+                                         (|HasCategory|
+                                          (|Record| (|:| |key| |#1|)
+                                                    (|:| |entry| |#2|))
+                                          '(|CoercibleTo| (|OutputForm|))))
+                                        (|HasCategory| |#2| '(|BasicType|))
                                         (LETT #4#
                                               (|HasCategory| |#2|
                                                              '(|SetCategory|))
@@ -51,15 +60,6 @@
                                                               (|devaluate|
                                                                |#2|)))
                                          #4#)
-                                        (OR
-                                         (|HasCategory| |#2|
-                                                        '(|CoercibleTo|
-                                                          (|OutputForm|)))
-                                         (|HasCategory|
-                                          (|Record| (|:| |key| |#1|)
-                                                    (|:| |entry| |#2|))
-                                          '(|CoercibleTo| (|OutputForm|))))
-                                        (|HasCategory| |#2| '(|BasicType|))
                                         (LETT #3#
                                               (|HasCategory|
                                                (|Record| (|:| |key| |#1|)
@@ -107,22 +107,20 @@
          (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                         '(|BasicType|))
          (|augmentPredVector| $ 8192))
-    (AND #4# #2# (|augmentPredVector| $ 16384))
     (AND
      (LETT #1#
            (AND (|HasCategory| |#2| '(|BasicType|))
                 (|HasCategory| $ '(|finiteAggregate|)))
            . #5#)
-     (|augmentPredVector| $ 32768))
+     (|augmentPredVector| $ 16384))
     (AND
      (OR #1# #4#
          (AND #2#
               (|HasCategory| (|Record| (|:| |key| |#1|) (|:| |entry| |#2|))
                              '(|BasicType|)))
          #3#)
-     (|augmentPredVector| $ 65536))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 131072))
+     (|augmentPredVector| $ 32768))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
     (SETF |pv$| (QREFELT $ 3))
     $))) 
 
@@ -149,7 +147,7 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 0 0 0 0 0 9 5 11 0 0 0 0 9 1 5 10
+                                '(0 0 0 0 0 0 0 0 0 0 0 9 7 11 0 0 0 0 9 1 7 10
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|

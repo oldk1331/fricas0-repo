@@ -129,14 +129,6 @@
                                          '(|BasicType|))
                                         (|HasCategory| (|Symbol|)
                                                        '(|OrderedSet|))
-                                        (LETT #1#
-                                              (|HasCategory| (|Any|)
-                                                             '(|SetCategory|))
-                                              . #5#)
-                                        (AND
-                                         (|HasCategory| (|Any|)
-                                                        '(|Evalable| (|Any|)))
-                                         #1#)
                                         (OR
                                          (|HasCategory| (|Any|)
                                                         '(|CoercibleTo|
@@ -146,6 +138,14 @@
                                                     (|:| |entry| (|Any|)))
                                           '(|CoercibleTo| (|OutputForm|))))
                                         (|HasCategory| (|Any|) '(|BasicType|))
+                                        (LETT #1#
+                                              (|HasCategory| (|Any|)
+                                                             '(|SetCategory|))
+                                              . #5#)
+                                        (AND
+                                         (|HasCategory| (|Any|)
+                                                        '(|Evalable| (|Any|)))
+                                         #1#)
                                         (LETT #2#
                                               (|HasCategory|
                                                (|Record| (|:| |key| (|Symbol|))
@@ -188,13 +188,12 @@
          (|HasCategory| (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
                         '(|BasicType|))
          (|augmentPredVector| $ 8192))
-    (AND #3# #1# (|augmentPredVector| $ 16384))
     (AND
      (LETT #4#
            (AND (|HasCategory| $ '(|finiteAggregate|))
                 (|HasCategory| (|Any|) '(|BasicType|)))
            . #5#)
-     (|augmentPredVector| $ 32768))
+     (|augmentPredVector| $ 16384))
     (AND
      (OR #4#
          (AND #3#
@@ -202,9 +201,8 @@
                (|Record| (|:| |key| (|Symbol|)) (|:| |entry| (|Any|)))
                '(|BasicType|)))
          #1# #2#)
-     (|augmentPredVector| $ 65536))
-    (AND (|HasCategory| $ '(|shallowlyMutable|))
-         (|augmentPredVector| $ 131072))
+     (|augmentPredVector| $ 32768))
+    (AND (|HasCategory| $ '(|shallowlyMutable|)) (|augmentPredVector| $ 65536))
     (SETF |pv$| (QREFELT $ 3))
     (QSETREFV $ 9 (SPADCALL '|: | (QREFELT $ 8)))
     (QSETREFV $ 10 (SPADCALL '|...| (QREFELT $ 8)))
@@ -235,7 +233,7 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 0 0 0 0 0 9 5 11 0 0 0 0 9 1 5 10
+                                '(0 0 0 0 0 0 0 0 0 0 0 9 7 11 0 0 0 0 9 1 7 10
                                   12))
             (CONS
              '#(|TableAggregate&| |KeyedDictionary&| |Dictionary&|
@@ -262,7 +260,7 @@
                                     7 27 2 14 13 0 0 28 1 25 14 0 29 1 6 0 22
                                     30 1 0 31 0 32 2 0 25 0 7 33 1 6 0 22 34 1
                                     0 13 13 37 1 0 13 13 36 1 0 31 0 32 2 0 25
-                                    0 7 33 1 6 6 0 35)))))
+                                    0 7 33 1 4 6 0 35)))))
            '|lookupIncomplete|)) 
 
 (MAKEPROP '|Result| 'NILADIC T) 

@@ -64,7 +64,7 @@
                 (EXIT |lu|)))) 
 
 (SDEFUN |LIST;convert;$If;10| ((|x| $) ($ |InputForm|))
-        (SPROG ((#1=#:G1572 NIL) (|a| NIL) (#2=#:G1571 NIL))
+        (SPROG ((#1=#:G1565 NIL) (|a| NIL) (#2=#:G1564 NIL))
                (SEQ
                 (SPADCALL
                  (CONS (SPADCALL '|construct| (QREFELT $ 32))
@@ -86,9 +86,9 @@
 
 (DECLAIM (NOTINLINE |List;|)) 
 
-(DEFUN |List| (#1=#:G1587)
+(DEFUN |List| (#1=#:G1580)
   (SPROG NIL
-         (PROG (#2=#:G1588)
+         (PROG (#2=#:G1581)
            (RETURN
             (COND
              ((LETT #2#
@@ -104,8 +104,8 @@
 
 (DEFUN |List;| (|#1|)
   (SPROG
-   ((#1=#:G1583 NIL) (#2=#:G1584 NIL) (#3=#:G1586 NIL) (#4=#:G1585 NIL)
-    (|pv$| NIL) (#5=#:G1580 NIL) (#6=#:G1581 NIL) (#7=#:G1582 NIL) ($ NIL)
+   ((#1=#:G1576 NIL) (#2=#:G1577 NIL) (#3=#:G1579 NIL) (#4=#:G1578 NIL)
+    (|pv$| NIL) (#5=#:G1573 NIL) (#6=#:G1574 NIL) (#7=#:G1575 NIL) ($ NIL)
     (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #8=(|List|))
@@ -181,12 +181,11 @@
            . #8#)
      (|augmentPredVector| $ 262144))
     (AND (OR #2# (AND #7# #4#) #3# #6#) (|augmentPredVector| $ 524288))
-    (AND #6# #4# (|augmentPredVector| $ 1048576))
     (AND (LETT #1# (|HasCategory| $ '(|shallowlyMutable|)) . #8#)
-         (|augmentPredVector| $ 2097152))
+         (|augmentPredVector| $ 1048576))
     (AND (|HasCategory| |#1| '(|OrderedSet|)) #4# #1#
-         (|augmentPredVector| $ 4194304))
-    (AND #4# #1# (|augmentPredVector| $ 8388608))
+         (|augmentPredVector| $ 2097152))
+    (AND #4# #1# (|augmentPredVector| $ 4194304))
     (SETF |pv$| (QREFELT $ 3))
     (COND
      ((|testBitVector| |pv$| 3)
@@ -228,16 +227,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 12
-                                '(0 0 0 0 0 0 0 0 0 1 0 6 0 0 8 10 0 0 0 0 8 9
-                                  12 1 2 3))
+                                '(0 0 0 0 0 0 0 0 0 1 0 6 0 0 8 10 0 0 0 0 0 8
+                                  9 12 1 2 3))
             (CONS
              '#(|ListAggregate&| |StreamAggregate&|
                 |ExtensibleLinearAggregate&| NIL |UnaryRecursiveAggregate&|
                 |LinearAggregate&| |RecursiveAggregate&| |IndexedAggregate&|
                 |Collection&| |OrderedSet&| |HomogeneousAggregate&| NIL
                 |Aggregate&| |EltableAggregate&| |Evalable&| |SetCategory&| NIL
-                NIL NIL NIL |InnerEvalable&| |BasicType&| NIL |PartialOrder&|
-                NIL |OpenMath&|)
+                NIL NIL NIL NIL |InnerEvalable&| |BasicType&| NIL
+                |PartialOrder&| NIL |OpenMath&|)
              (CONS
               '#((|ListAggregate| 6) (|StreamAggregate| 6)
                  (|ExtensibleLinearAggregate| 6) (|FiniteLinearAggregate| 6)
@@ -246,9 +245,10 @@
                  (|Collection| 6) (|OrderedSet|) (|HomogeneousAggregate| 6)
                  (|Comparable|) (|Aggregate|) (|EltableAggregate| 27 6)
                  (|Evalable| 6) (|SetCategory|) (|shallowlyMutable|)
-                 (|finiteAggregate|) (|Type|) (|Eltable| 27 6)
-                 (|InnerEvalable| 6 6) (|BasicType|) (|CoercibleTo| 43)
-                 (|PartialOrder|) (|ConvertibleTo| 31) (|OpenMath|))
+                 (|finiteAggregate|) (|Eltable| 47 $$) (|Type|)
+                 (|Eltable| 27 6) (|InnerEvalable| 6 6) (|BasicType|)
+                 (|CoercibleTo| 43) (|PartialOrder|) (|ConvertibleTo| 31)
+                 (|OpenMath|))
               (|makeByteWordVec2| 36
                                   '(2 0 0 0 0 11 1 14 13 0 15 3 14 13 0 16 16
                                     17 3 6 13 14 0 8 18 1 14 13 0 19 1 14 13 0

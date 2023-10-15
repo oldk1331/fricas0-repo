@@ -1,6 +1,6 @@
 
 (SDEFUN |LNAGG-;indices;AL;1| ((|a| A) ($ |List| (|Integer|)))
-        (SPROG ((#1=#:G116 NIL) (|i| NIL) (#2=#:G115 NIL))
+        (SPROG ((#1=#:G117 NIL) (|i| NIL) (#2=#:G116 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|LNAGG-;indices;AL;1|))
@@ -33,7 +33,7 @@
         (SPADCALL |x| |t| (SPADCALL |t| (QREFELT $ 9)) (QREFELT $ 25))) 
 
 (SDEFUN |LNAGG-;leftTrim;ASA;8| ((|u| A) (|x| S) ($ A))
-        (SPROG ((#1=#:G127 NIL) (|i| NIL) (|n| (|Integer|)))
+        (SPROG ((#1=#:G128 NIL) (|i| NIL) (|n| (|Integer|)))
                (SEQ
                 (LETT |n| (SPADCALL |u| (QREFELT $ 10))
                       . #2=(|LNAGG-;leftTrim;ASA;8|))
@@ -52,7 +52,7 @@
                            (QREFELT $ 31)))))) 
 
 (SDEFUN |LNAGG-;rightTrim;ASA;9| ((|u| A) (|x| S) ($ A))
-        (SPROG ((#1=#:G131 NIL) (|j| NIL) (|mn| (|Integer|)))
+        (SPROG ((#1=#:G132 NIL) (|j| NIL) (|mn| (|Integer|)))
                (SEQ
                 (LETT |mn| (SPADCALL |u| (QREFELT $ 9))
                       . #2=(|LNAGG-;rightTrim;ASA;9|))
@@ -72,7 +72,7 @@
 
 (SDEFUN |LNAGG-;trim;ASA;10| ((|u| A) (|x| S) ($ A))
         (SPROG
-         ((#1=#:G137 NIL) (|j| NIL) (#2=#:G136 NIL) (|i| NIL)
+         ((#1=#:G138 NIL) (|j| NIL) (#2=#:G137 NIL) (|i| NIL)
           (|mn| (|Integer|)) (|n| (|Integer|)))
          (SEQ
           (LETT |n| (SPADCALL |u| (QREFELT $ 10)) . #3=(|LNAGG-;trim;ASA;10|))
@@ -100,7 +100,7 @@
 
 (SDEFUN |LNAGG-;hashUpdate!;HsAHs;11|
         ((|s| |HashState|) (|x| A) ($ |HashState|))
-        (SPROG ((#1=#:G141 NIL) (|i| NIL))
+        (SPROG ((#1=#:G142 NIL) (|i| NIL))
                (SEQ
                 (SEQ
                  (LETT |i| (SPADCALL |x| (QREFELT $ 9))
@@ -135,10 +135,7 @@
 (SDEFUN |LNAGG-;sort;M2A;16| ((|f| |Mapping| (|Boolean|) S S) (|l| A) ($ A))
         (SPADCALL |f| (SPADCALL |l| (QREFELT $ 47)) (QREFELT $ 50))) 
 
-(SDEFUN |LNAGG-;reverse;2A;17| ((|x| A) ($ A))
-        (SPADCALL (SPADCALL |x| (QREFELT $ 47)) (QREFELT $ 48))) 
-
-(SDEFUN |LNAGG-;sort!;2A;18| ((|l| A) ($ A))
+(SDEFUN |LNAGG-;sort!;2A;17| ((|l| A) ($ A))
         (SPADCALL (ELT $ 39) |l| (QREFELT $ 50))) 
 
 (DECLAIM (NOTINLINE |LinearAggregate&;|)) 
@@ -212,12 +209,10 @@
                           (CONS (|dispatchFunction| |LNAGG-;reverse;2A;15|) $))
                 (QSETREFV $ 51
                           (CONS (|dispatchFunction| |LNAGG-;sort;M2A;16|) $))
-                (QSETREFV $ 49
-                          (CONS (|dispatchFunction| |LNAGG-;reverse;2A;17|) $))
                 (COND
                  ((|testBitVector| |pv$| 1)
                   (QSETREFV $ 52
-                            (CONS (|dispatchFunction| |LNAGG-;sort!;2A;18|)
+                            (CONS (|dispatchFunction| |LNAGG-;sort!;2A;17|)
                                   $))))))))))
           $))) 
 
