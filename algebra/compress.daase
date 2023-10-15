@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -621,14 +621,14 @@
  |exprToGenUPS| |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS|
  |universe| |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma|
  |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
- |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma|
- |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime|
- |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
- |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
- |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
- |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
- |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
- |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |lambert_inverse_series| |iiGamma| |iiabs| |iiconjugate| |iiBeta| |iidigamma|
+ |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi|
+ |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi|
+ |iAiryBiPrime| |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown|
+ |newReduc| |logical?| |character?| |doubleComplex?| |complex?| |double?|
+ |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
+ |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
+ |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
@@ -920,12 +920,12 @@
  |reducedDiscriminant| |idealSimplify| |definingInequation| |definingEquations|
  |setStatus| |quasiAlgebraicSet| |radicalSimplify| |denominator| |numerator|
  |denom| |numer| |quadraticForm| |back| |front| |rotate!| |dequeue!| |enqueue!|
- |quatern| |imagK| |imagJ| |imagI| |conjugate| |queue| |nthRoot| |fractRadix|
- |wholeRadix| |cycleRagits| |prefixRagits| |fractRagits| |wholeRagits| |radix|
- |randnum| |reseed| |seed| |factorSquareFree| |rational| |rational?|
- |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes|
- |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
- |multi_SPDE| SPDE1 |rischDEsys| |ei_int| |mk_erf| |risch_de_ext| |do_risch_DE|
+ |quatern| |imagK| |imagJ| |imagI| |queue| |nthRoot| |fractRadix| |wholeRadix|
+ |cycleRagits| |prefixRagits| |fractRagits| |wholeRagits| |radix| |randnum|
+ |reseed| |seed| |factorSquareFree| |rational| |rational?| |rationalIfCan|
+ |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes| |rename|
+ |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt| |multi_SPDE|
+ SPDE1 |rischDEsys| |ei_int| |mk_erf| |risch_de_ext| |do_risch_DE|
  |do_param_RDE| |param_rde| |param_rde2| |exp_lower_bound| |monomRDEsys|
  |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints| |realZeros|
  |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq| |values|
@@ -1028,40 +1028,41 @@
  |llprop| |lllp| |lllip| |lp| |mesh?| |mesh| |polygon?| |polygon|
  |closedCurve?| |closedCurve| |curve?| |curve| |point?| |enterPointData|
  |composites| |components| |numberOfComposites| |numberOfComponents|
- |create3Space| |outputAsFortran| |outputAsScript| |outputAsTex| |abs| |Beta|
- |digamma| |polygamma| |Gamma| |besselJ| |besselY| |besselI| |besselK| |airyAi|
- |airyAiPrime| |airyBi| |airyBiPrime| |lambertW| |polylog| |weierstrassP|
- |weierstrassPPrime| |weierstrassSigma| |weierstrassZeta| |weierstrassPInverse|
- |whittakerM| |whittakerW| |angerJ| |weberE| |struveH| |struveL| |hankelH1|
- |hankelH2| |lommelS1| |lommelS2| |kummerM| |kummerU| |legendreP| |legendreQ|
- |kelvinBei| |kelvinBer| |kelvinKei| |kelvinKer| |ellipticK| |ellipticE|
- |ellipticF| |ellipticPi| |jacobiSn| |jacobiCn| |jacobiDn| |jacobiZeta|
- |jacobiTheta| |lerchPhi| |riemannZeta| |charlierC| |hermiteH| |jacobiP|
- |laguerreL| |meixnerM| |hypergeometricF| |meijerG| |lambertW0| |weierstrassP0|
- |weierstrassPPrime0| |weierstrassZeta0| |weierstrassSigma0| |subNode?|
- |infLex?| |setEmpty!| |setStatus!| |setCondition!| |setValue!| |copy| |status|
- |condition| |value| |splitNodeOf!| |remove!| |remove| |subNodeOf?| |nodeOf?|
- |result| |conditions| |updateStatus!| |extractSplittingLeaf| |extendedCoords|
- |screenCoords| |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?|
- |isVector?| |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity|
- |parallel| |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec|
- |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim|
- |split| |position| |replace| |match?| |substring?| |suffix?| |prefix?|
- |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
- |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
- |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|
- |internalZeroSetSplit| |internalAugment| |monomial| |leadingMonomial|
- |leadingCoefficient| |stack| |possiblyInfinite?| |explicitlyFinite?|
- |nextItem| |init| |exp0| |log1| |tensorMap| |stransform| |stranslate|
- |identity| |xform| |compound| |STransform1| |STransform2| |STransform|
- |distributionBySTransform| |freeMultiplicativeConvolution| |filterUntil|
- |filterWhile| |stream| |showAll?| |showAllElements| |showElements| |cons|
- |delay| |findCycle| |repeating?| |repeating| |uentries| |ucodeToString|
- |exquo| |recip| |integers| |oddintegers| |int| |mapmult| |deriv| |gderiv|
- |compose| |addiag| |prodiag| |general_Lambert_product| |lazyIntegrate| |nlde|
- |powern| |mapdiv| |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos|
- |atan| |acot| |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh|
- |acosh| |atanh| |acoth| |asech| |acsch| |subresultantVector| |primitivePart|
+ |create3Space| |outputAsFortran| |outputAsScript| |outputAsTex| |abs|
+ |conjugate| |Beta| |digamma| |polygamma| |Gamma| |besselJ| |besselY| |besselI|
+ |besselK| |airyAi| |airyAiPrime| |airyBi| |airyBiPrime| |lambertW| |polylog|
+ |weierstrassP| |weierstrassPPrime| |weierstrassSigma| |weierstrassZeta|
+ |weierstrassPInverse| |whittakerM| |whittakerW| |angerJ| |weberE| |struveH|
+ |struveL| |hankelH1| |hankelH2| |lommelS1| |lommelS2| |kummerM| |kummerU|
+ |legendreP| |legendreQ| |kelvinBei| |kelvinBer| |kelvinKei| |kelvinKer|
+ |ellipticK| |ellipticE| |ellipticF| |ellipticPi| |jacobiSn| |jacobiCn|
+ |jacobiDn| |jacobiZeta| |jacobiTheta| |lerchPhi| |riemannZeta| |charlierC|
+ |hermiteH| |jacobiP| |laguerreL| |meixnerM| |hypergeometricF| |meijerG|
+ |lambertW0| |weierstrassP0| |weierstrassPPrime0| |weierstrassZeta0|
+ |weierstrassSigma0| |subNode?| |infLex?| |setEmpty!| |setStatus!|
+ |setCondition!| |setValue!| |copy| |status| |condition| |value| |splitNodeOf!|
+ |remove!| |remove| |subNodeOf?| |nodeOf?| |result| |conditions|
+ |updateStatus!| |extractSplittingLeaf| |extendedCoords| |screenCoords|
+ |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?| |isVector?|
+ |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity| |parallel|
+ |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec| |sipnt| |spnt|
+ |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim| |split| |position|
+ |replace| |match?| |substring?| |suffix?| |prefix?| |upperCase!| |upperCase|
+ |lowerCase!| |lowerCase| |KrullNumber| |numberOfVariables|
+ |algebraicDecompose| |transcendentalDecompose| |internalDecompose| |decompose|
+ |upDateBranches| |printInfo| |pre_process| |internalZeroSetSplit|
+ |internalAugment| |monomial| |leadingMonomial| |leadingCoefficient| |stack|
+ |possiblyInfinite?| |explicitlyFinite?| |nextItem| |init| |exp0| |log1|
+ |tensorMap| |stransform| |stranslate| |identity| |xform| |compound|
+ |STransform1| |STransform2| |STransform| |distributionBySTransform|
+ |freeMultiplicativeConvolution| |filterUntil| |filterWhile| |stream|
+ |showAll?| |showAllElements| |showElements| |cons| |delay| |findCycle|
+ |repeating?| |repeating| |uentries| |ucodeToString| |exquo| |recip| |integers|
+ |oddintegers| |int| |mapmult| |deriv| |gderiv| |compose| |addiag| |prodiag|
+ |general_Lambert_product| |lazyIntegrate| |nlde| |powern| |mapdiv|
+ |lazyGintegrate| |power| |sincos| |sinhcosh| |asin| |acos| |atan| |acot|
+ |asec| |acsc| |sinh| |cosh| |tanh| |coth| |sech| |csch| |asinh| |acosh|
+ |atanh| |acoth| |asech| |acsch| |subresultantVector| |primitivePart|
  |pointData| |parent| |level| |extractProperty| |extractClosed| |extractIndex|
  |extractPoint| |traverse| |defineProperty| |closeComponent| |modifyPoint|
  |addPointLast| |addPoint2| |addPoint| |merge| |deepCopy| |shallowCopy|
