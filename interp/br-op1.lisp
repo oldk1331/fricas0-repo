@@ -2319,7 +2319,7 @@
 ;       HPUT($topicHash,x,c)
 ;   if domform := htpProperty(htPage,'domname) then
 ;     $conformsAreDomains : local := true
-;     reduceOpAlistForDomain(opAlist,domform,conform)
+;     opAlist := reduceOpAlistForDomain(opAlist, domform, conform)
 ;   conform := domform or conform
 ;   kind := capitalize htpProperty(htPage,'kind)
 ;   exposePart :=
@@ -2376,7 +2376,8 @@
       (COND
        ((SETQ |domform| (|htpProperty| |htPage| '|domname|))
         (SETQ |$conformsAreDomains| T)
-        (|reduceOpAlistForDomain| |opAlist| |domform| |conform|)))
+        (SETQ |opAlist|
+                (|reduceOpAlistForDomain| |opAlist| |domform| |conform|))))
       (SETQ |conform| (OR |domform| |conform|))
       (SETQ |kind| (|capitalize| (|htpProperty| |htPage| '|kind|)))
       (SETQ |exposePart|
@@ -2410,58 +2411,68 @@
 ; --destructively simplify all predicates; filter out any that fail
 ;   form1 := [domform,:rest domform]
 ;   form2 := ['$,:rest conform]
+;   new_opAlist := []
 ;   for pair in opAlist repeat
-;     RPLACD(pair,[test for item in rest pair | test]) where test ==
+;     n_items := [test for item in rest pair | test] where test ==
 ;       [head,:tail] := item
 ;       first tail = true => item
 ;       pred := simpHasPred SUBLISLIS(form1,form2,QCAR tail)
 ;       null pred => false
 ;       RPLACD(item,[pred])
 ;       item
-;   opAlist
+;     if not(null(n_items)) then
+;         n_pair := cons(first(pair), n_items)
+;         new_opAlist := cons(n_pair, new_opAlist)
+;   NREVERSE(new_opAlist)
  
 (DEFUN |reduceOpAlistForDomain| (|opAlist| |domform| |conform|)
-  (PROG (|form1| |form2| |head| |tail| |pred|)
+  (PROG (|form1| |form2| |new_opAlist| |head| |tail| |pred| |n_items| |n_pair|)
     (RETURN
      (PROGN
       (SETQ |form1| (CONS |domform| (CDR |domform|)))
       (SETQ |form2| (CONS '$ (CDR |conform|)))
+      (SETQ |new_opAlist| NIL)
       ((LAMBDA (|bfVar#92| |pair|)
          (LOOP
           (COND
            ((OR (ATOM |bfVar#92|) (PROGN (SETQ |pair| (CAR |bfVar#92|)) NIL))
             (RETURN NIL))
            (#1='T
-            (RPLACD |pair|
-                    ((LAMBDA (|bfVar#94| |bfVar#93| |item|)
-                       (LOOP
-                        (COND
-                         ((OR (ATOM |bfVar#93|)
-                              (PROGN (SETQ |item| (CAR |bfVar#93|)) NIL))
-                          (RETURN (NREVERSE |bfVar#94|)))
-                         (#1#
-                          (AND
-                           #2=(PROGN
-                               (SETQ |head| (CAR |item|))
-                               (SETQ |tail| (CDR |item|))
-                               (COND ((EQUAL (CAR |tail|) T) |item|)
-                                     (#1#
-                                      (PROGN
-                                       (SETQ |pred|
-                                               (|simpHasPred|
-                                                (SUBLISLIS |form1| |form2|
-                                                 (QCAR |tail|))))
-                                       (COND ((NULL |pred|) NIL)
-                                             (#1#
-                                              (PROGN
-                                               (RPLACD |item| (LIST |pred|))
-                                               |item|)))))))
-                           (SETQ |bfVar#94| (CONS #2# |bfVar#94|)))))
-                        (SETQ |bfVar#93| (CDR |bfVar#93|))))
-                     NIL (CDR |pair|) NIL))))
+            (PROGN
+             (SETQ |n_items|
+                     ((LAMBDA (|bfVar#94| |bfVar#93| |item|)
+                        (LOOP
+                         (COND
+                          ((OR (ATOM |bfVar#93|)
+                               (PROGN (SETQ |item| (CAR |bfVar#93|)) NIL))
+                           (RETURN (NREVERSE |bfVar#94|)))
+                          (#1#
+                           (AND
+                            #2=(PROGN
+                                (SETQ |head| (CAR |item|))
+                                (SETQ |tail| (CDR |item|))
+                                (COND ((EQUAL (CAR |tail|) T) |item|)
+                                      (#1#
+                                       (PROGN
+                                        (SETQ |pred|
+                                                (|simpHasPred|
+                                                 (SUBLISLIS |form1| |form2|
+                                                  (QCAR |tail|))))
+                                        (COND ((NULL |pred|) NIL)
+                                              (#1#
+                                               (PROGN
+                                                (RPLACD |item| (LIST |pred|))
+                                                |item|)))))))
+                            (SETQ |bfVar#94| (CONS #2# |bfVar#94|)))))
+                         (SETQ |bfVar#93| (CDR |bfVar#93|))))
+                      NIL (CDR |pair|) NIL))
+             (COND
+              ((NULL (NULL |n_items|))
+               (SETQ |n_pair| (CONS (CAR |pair|) |n_items|))
+               (SETQ |new_opAlist| (CONS |n_pair| |new_opAlist|)))))))
           (SETQ |bfVar#92| (CDR |bfVar#92|))))
        |opAlist| NIL)
-      |opAlist|))))
+      (NREVERSE |new_opAlist|)))))
  
 ; dbShowOperationLines(which,linelist) ==  --branch in with lines
 ;   htPage := htInitPage(nil,nil)  --create empty page
