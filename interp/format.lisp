@@ -653,29 +653,17 @@
       |ans|))))
  
 ; formatOperation([[op,sig],.,[fn,.,n]],domain) ==
-;   opSigString := formatOpSignature(op,sig)
-;   INTEGERP n and function Undef = IFCAR(domain.n) =>
-;     if INTEGERP $commentedOps then $commentedOps := $commentedOps + 1
-;     concat(" --",opSigString)
-;   opSigString
+;     formatOpSignature(op,sig)
  
 (DEFUN |formatOperation| (|bfVar#18| |domain|)
-  (PROG (|op| |sig| |fn| |n| |opSigString|)
+  (PROG (|op| |sig| |fn| |n|)
     (RETURN
      (PROGN
       (SETQ |op| (CAAR . #1=(|bfVar#18|)))
       (SETQ |sig| (CADAR . #1#))
       (SETQ |fn| (CAADDR . #2=(|bfVar#18|)))
       (SETQ |n| (CADR (CDADDR . #2#)))
-      (SETQ |opSigString| (|formatOpSignature| |op| |sig|))
-      (COND
-       ((AND (INTEGERP |n|) (EQUAL #'|Undef| (IFCAR (ELT |domain| |n|))))
-        (PROGN
-         (COND
-          ((INTEGERP |$commentedOps|)
-           (SETQ |$commentedOps| (+ |$commentedOps| 1))))
-         (|concat| '| --| |opSigString|)))
-       ('T |opSigString|))))))
+      (|formatOpSignature| |op| |sig|)))))
  
 ; formatOpSignature(op,sig) ==
 ;   concat('%b,formatOpSymbol(op,sig),'%d,": ",formatSignature sig)
