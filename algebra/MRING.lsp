@@ -1253,10 +1253,10 @@
               (267 . |construct|) (|Mapping| 6 7) (272 . |linearExtend|)
               (278 . =) (284 . |concat!|) (290 . |concat|) (296 . |concat!|)
               (302 . |coefficient|) (308 . *) (314 . *) (|Set| 12)
-              (320 . |brace|) (325 . =) (|AssociationList| 7 6)
-              (331 . |search|) (337 . |setelt!|) (344 . |remove!|)
-              (350 . |table|) (354 . |keys|) (359 . |elt|) (|InputForm|)
-              (|String|) (|SingleInteger|) (|HashState|))
+              (320 . |set|) (325 . =) (|AssociationList| 7 6) (331 . |search|)
+              (337 . |setelt!|) (344 . |remove!|) (350 . |table|)
+              (354 . |keys|) (359 . |elt|) (|InputForm|) (|String|)
+              (|SingleInteger|) (|HashState|))
            '#(~= 365 |zero?| 371 |terms| 376 |support| 381 |sup| 386
               |subtractIfCan| 392 |smaller?| 398 |size| 404 |sample| 408
               |rightRecip| 412 |rightPower| 417 |retractIfCan| 429 |retract|

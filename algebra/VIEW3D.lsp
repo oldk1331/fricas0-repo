@@ -1623,7 +1623,7 @@
               (|CoordinateSystems| 16) (130 . |cartesian|) (|Mapping| 64 64)
               (135 . |coord|) (141 . |check|) (|List| 64) (146 . |lp|)
               (|List| (|List| 42)) (151 . |lllip|) (|List| 76) (156 . |llprop|)
-              (|List| 90) (161 . |lprop|) (|Set| 11) (166 . |brace|)
+              (|List| 90) (161 . |lprop|) (|Set| 11) (166 . |empty|)
               (170 . |dimension|) (175 . |insert!|) (181 . |#|) (186 . >)
               (192 . |parts|) (|PointPackage| 16) (197 . |xCoord|)
               (202 . |yCoord|) (207 . |zCoord|) (212 . |color|)

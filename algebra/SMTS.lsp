@@ -47,7 +47,7 @@
 
 (SDEFUN |SMTS;coefficient;$NniSMP;7|
         ((|x| $) (|n| |NonNegativeInteger|) ($ SMP))
-        (SPROG ((#1=#:G146 NIL) (|u| (|Rep|)))
+        (SPROG ((#1=#:G147 NIL) (|u| (|Rep|)))
                (SEQ (LETT |u| |x| . #2=(|SMTS;coefficient;$NniSMP;7|))
                     (SEQ G190
                          (COND
@@ -242,7 +242,7 @@
 
 (SDEFUN |SMTS;sortmfirst| ((|p| SMP) (|vl| |List| |Var|) (|q| |List| $) ($ $))
         (SPROG
-         ((|nq| (|List| $)) (#1=#:G196 NIL) (|i| NIL) (#2=#:G195 NIL)
+         ((|nq| (|List| $)) (#1=#:G198 NIL) (|i| NIL) (#2=#:G197 NIL)
           (|nlv| (|List| |Var|)))
          (SEQ
           (LETT |nlv| (SPADCALL (ELT $ 91) |vl| (QREFELT $ 93))
@@ -287,8 +287,8 @@
 
 (SDEFUN |SMTS;eval;$LL$;22| ((|s| $) (|v| |List| |Var|) (|q| |List| $) ($ $))
         (SPROG
-         ((|nq| (|List| (|Stream| SMP))) (#1=#:G211 NIL) (|i| NIL)
-          (#2=#:G210 NIL))
+         ((|nq| (|List| (|Stream| SMP))) (#1=#:G213 NIL) (|i| NIL)
+          (#2=#:G212 NIL))
          (SEQ
           (COND
            ((SPADCALL (LENGTH |v|) (SPADCALL |q| (QREFELT $ 101))
@@ -609,7 +609,7 @@
 (SDEFUN |SMTS;coerce;$Of;64| ((|s| $) ($ |OutputForm|))
         (SPROG
          ((|l| (|List| (|OutputForm|))) (|uu| ($)) (|uu1| ($)) (|n| NIL)
-          (#1=#:G352 NIL) (|count| (|NonNegativeInteger|)))
+          (#1=#:G354 NIL) (|count| (|NonNegativeInteger|)))
          (SEQ (LETT |uu| |s| . #2=(|SMTS;coerce;$Of;64|))
               (EXIT
                (COND
@@ -716,9 +716,9 @@
 
 (DECLAIM (NOTINLINE |SparseMultivariateTaylorSeries;|)) 
 
-(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G362)
+(DEFUN |SparseMultivariateTaylorSeries| (&REST #1=#:G364)
   (SPROG NIL
-         (PROG (#2=#:G363)
+         (PROG (#2=#:G365)
            (RETURN
             (COND
              ((LETT #2#
@@ -741,7 +741,7 @@
 
 (DEFUN |SparseMultivariateTaylorSeries;| (|#1| |#2| |#3|)
   (SPROG
-   ((|pv$| NIL) (#1=#:G361 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
+   ((|pv$| NIL) (#1=#:G363 NIL) ($ NIL) (|dv$| NIL) (DV$3 NIL) (DV$2 NIL)
     (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #2=(|SparseMultivariateTaylorSeries|))

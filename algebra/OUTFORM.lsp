@@ -100,7 +100,7 @@
                          (QREFELT $ 40))))) 
 
 (SDEFUN |OUTFORM;matrix;L$;25| ((|ll| |List| (|List| $)) ($ $))
-        (SPROG ((|lv| (|List| $)) (#1=#:G1640 NIL) (|l| NIL) (#2=#:G1639 NIL))
+        (SPROG ((|lv| (|List| $)) (#1=#:G1642 NIL) (|l| NIL) (#2=#:G1641 NIL))
                (SEQ
                 (COND ((NULL |ll|) (SPADCALL NIL (QREFELT $ 42)))
                       ('T
@@ -145,7 +145,7 @@
 (SDEFUN |OUTFORM;blankSeparate;L$;29| ((|l| |List| $) ($ $))
         (SPROG
          ((|l1| (|List| $)) (|l2| (|List| $)) (|uo| (|OutputForm|))
-          (#1=#:G1649 NIL) (|u| NIL) (|c| ($)))
+          (#1=#:G1651 NIL) (|u| NIL) (|c| ($)))
          (SEQ
           (LETT |c| (|OUTFORM;eform| 'CONCATB $)
                 . #2=(|OUTFORM;blankSeparate;L$;29|))
@@ -301,7 +301,7 @@
         (SPADCALL (LIST (|OUTFORM;eform| 'NOTHING $)) (QREFELT $ 19))) 
 
 (SDEFUN |OUTFORM;infix?;$B;67| ((|a| $) ($ |Boolean|))
-        (SPROG ((|e| ($)) (#1=#:G1694 NIL))
+        (SPROG ((|e| ($)) (#1=#:G1697 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -310,7 +310,7 @@
                               (#2='T
                                (PROGN
                                 (LETT #1# NIL . #3=(|OUTFORM;infix?;$B;67|))
-                                (GO #4=#:G1693))))
+                                (GO #4=#:G1696))))
                         . #3#)
                   (EXIT (COND ((GET |e| 'INFIXOP) 'T) (#2# NIL)))))
                 #4# (EXIT #1#)))) 
@@ -406,7 +406,7 @@
 
 (SDEFUN |OUTFORM;differentiate;$Nni$;90|
         ((|a| $) (|nn| |NonNegativeInteger|) ($ $))
-        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1725 NIL))
+        (SPROG ((|s| (|String|)) (|r| (|String|)) (#1=#:G1729 NIL))
                (SEQ
                 (COND ((ZEROP |nn|) |a|)
                       ((< |nn| 4) (SPADCALL |a| |nn| (QREFELT $ 103)))
@@ -473,7 +473,7 @@
 
 (DEFUN |OutputForm| ()
   (SPROG NIL
-         (PROG (#1=#:G1740)
+         (PROG (#1=#:G1744)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|OutputForm|)
@@ -525,7 +525,7 @@
               |OUTFORM;brace;2$;30| |OUTFORM;brace;L$;31|
               |OUTFORM;bracket;2$;32| |OUTFORM;paren;2$;34|
               |OUTFORM;paren;L$;35| |OUTFORM;sub;3$;36| |OUTFORM;super;3$;37|
-              |OUTFORM;presub;3$;38| |OUTFORM;presuper;3$;39| (50 . |null|)
+              |OUTFORM;presub;3$;38| |OUTFORM;presuper;3$;39| (50 . |empty?|)
               (55 . |rest|) (60 . |first|) |OUTFORM;scripts;$L$;40|
               (|NonNegativeInteger|) (65 . |#|) (70 . |append|)
               |OUTFORM;supersub;$L$;41| |OUTFORM;hconcat;L$;43|

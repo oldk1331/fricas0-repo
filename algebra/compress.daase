@@ -820,24 +820,24 @@
  |leftRemainder| |leftQuotient| |times| |monicLeftDivide| |monicRightDivide|
  |leftDivide| |rightDivide| |output| |outputList| |or| |and| |quo| |rem| ~=
  |blankSeparate| |semicolonSeparate| |commaSeparate| |pile| |paren| |bracket|
- |prod| |overlabel| |overbar| |prime| |quote| |supersub| |presuper| |presub|
- |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box| |label| |infix?|
- |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace| |hspace|
- |messagePrint| |message| |padecf| |pade| |root| |quotientByP| |moduloP|
- |modulus| |digits| |continuedFraction| |light| |pastel| |bright| |dim| |dark|
- |motzkinPathArray| |jacobiPathArray| |bottom| |surface| |coordinate|
- |partitions| |odd_partitions| |distinct_partitions| |conjugates| |shuffle|
- |shufflein| |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
- |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
- |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
- |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
- |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
- |inR?| |depth| |isList| |isQuotient| |isOp| |predicate| |satisfy?|
- |addBadValue| |badValues| |retractable?| |listOfTerms| |One| |adjoint|
- |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?| |even?|
- |numberOfCycles| |cyclePartition| |coerceListOfPairs| |coercePreimagesImages|
- |listRepresentation| |permanent| |cycles| |cycle| |perm_to_vec|
- |relationsInGenerators| |relationsInStrongGenerators|
+ |brace| |prod| |overlabel| |overbar| |prime| |quote| |supersub| |presuper|
+ |presub| |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box| |label|
+ |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace|
+ |hspace| |messagePrint| |message| |padecf| |pade| |root| |quotientByP|
+ |moduloP| |modulus| |digits| |continuedFraction| |light| |pastel| |bright|
+ |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom| |surface|
+ |coordinate| |partitions| |odd_partitions| |distinct_partitions| |conjugates|
+ |shuffle| |shufflein| |sequences| |permutations| |lists| |atoms| |makeResult|
+ |is?| |Is| |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed|
+ |failed?| |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?|
+ |topPredicate| |setTopPredicate| |patternVariable| |withPredicates|
+ |setPredicates| |predicates| |hasPredicate?| |optional?| |multiple?|
+ |generic?| |quoted?| |inR?| |depth| |isList| |isQuotient| |isOp| |predicate|
+ |satisfy?| |addBadValue| |badValues| |retractable?| |listOfTerms| |One|
+ |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
+ |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
+ |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
+ |perm_to_vec| |relationsInGenerators| |relationsInStrongGenerators|
  |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
  |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
  |wordsForStrongGenerators| |strongGenerators| |base| |random| |generators|
@@ -989,33 +989,33 @@
  |consRow!| |deleteRow!| |setRow!| |row| |sortedPurge!| |purge!|
  |elimZeroCols!| |allIndices| |nrows| |ncols| |dilate| |firstn| |sequence|
  |apply| |union| |subset?| |symmetricDifference| |difference| |intersect| |set|
- |brace| |latex| |hashUpdate!| |hash| |complement| |subsetLattice| |delta|
- |enumerate| |setOfMinN| |elements| |replaceKthElement| |incrementKthElement|
- |cdr| |car| |float| |integer| |symbol| |destruct| |float?| |integer?|
- |symbol?| |string?| |list?| |pair?| |null?| |eq| |fortran| |startTable!|
- |stopTable!| |supDimElseRittWu?| |algebraicSort| |moreAlgebraic?| |subTriSet?|
- |subPolSet?| |internalSubPolSet?| |internalInfRittWu?|
- |internalSubQuasiComponent?| |subQuasiComponent?|
- |removeSuperfluousQuasiComponents| |subCase?| |removeSuperfluousCases|
- |prepareDecompose| |branchIfCan| |startTableGcd!| |stopTableGcd!|
- |startTableInvSet!| |stopTableInvSet!| |stosePrepareSubResAlgo|
- |stoseInternalLastSubResultant| |stoseIntegralLastSubResultant|
- |stoseLastSubResultant| |stoseInvertible?_sqfreg| |stoseInvertibleSet_sqfreg|
- |stoseInvertible?_reg| |stoseInvertibleSet_reg| |stoseInvertible?|
- |stoseInvertibleSet| |stoseSquareFreePart| |coleman| |inverseColeman|
- |listYoungTableaus| |makeYoungTableau| |nextColeman| |nextLatticePermutation|
- |nextPartition| |numberOfImproperPartitions| |subSet|
- |unrankImproperPartitions0| |unrankImproperPartitions1| |SturmHabichtSequence|
- |SturmHabichtCoefficients| |SturmHabicht| |countRealRoots|
- |SturmHabichtMultiple| |countRealRootsMultiple| |coHomology| |homology|
- |coChain| |chain| |fundamentalGroup| |oneSkeleton| |simplicialJoin|
- |makeDisjoint| |refactorIndexes| |cone| |link| |star| |boundary|
- |addImpliedFaces| |sort| |grade| |minIndex| |maxIndex| |addSimplex|
- |simplicialComplexIfCan| |simplicialComplex| |sphereSolid| |sphereSurface|
- |line| |torusSurface| |band| |moebiusBand| |projectiveSpace| |kleinBottle|
- |dunceHat| |Or| |And| |Not| |xor| |not| |qconvert| |/\\| |\\/| ~ |top| |pop!|
- |push!| |redux| |freeVariable?| |getVariable| |isS?| |isK?| |isI?| |variable?|
- |atom?| |getChildren| |parseTerm| |parseSki| S K I |ski| |Delta| D |Pfaffian|
+ |latex| |hashUpdate!| |hash| |complement| |subsetLattice| |delta| |enumerate|
+ |setOfMinN| |elements| |replaceKthElement| |incrementKthElement| |cdr| |car|
+ |float| |integer| |symbol| |destruct| |float?| |integer?| |symbol?| |string?|
+ |list?| |pair?| |null?| |eq| |fortran| |startTable!| |stopTable!|
+ |supDimElseRittWu?| |algebraicSort| |moreAlgebraic?| |subTriSet?| |subPolSet?|
+ |internalSubPolSet?| |internalInfRittWu?| |internalSubQuasiComponent?|
+ |subQuasiComponent?| |removeSuperfluousQuasiComponents| |subCase?|
+ |removeSuperfluousCases| |prepareDecompose| |branchIfCan| |startTableGcd!|
+ |stopTableGcd!| |startTableInvSet!| |stopTableInvSet!|
+ |stosePrepareSubResAlgo| |stoseInternalLastSubResultant|
+ |stoseIntegralLastSubResultant| |stoseLastSubResultant|
+ |stoseInvertible?_sqfreg| |stoseInvertibleSet_sqfreg| |stoseInvertible?_reg|
+ |stoseInvertibleSet_reg| |stoseInvertible?| |stoseInvertibleSet|
+ |stoseSquareFreePart| |coleman| |inverseColeman| |listYoungTableaus|
+ |makeYoungTableau| |nextColeman| |nextLatticePermutation| |nextPartition|
+ |numberOfImproperPartitions| |subSet| |unrankImproperPartitions0|
+ |unrankImproperPartitions1| |SturmHabichtSequence| |SturmHabichtCoefficients|
+ |SturmHabicht| |countRealRoots| |SturmHabichtMultiple|
+ |countRealRootsMultiple| |coHomology| |homology| |coChain| |chain|
+ |fundamentalGroup| |oneSkeleton| |simplicialJoin| |makeDisjoint|
+ |refactorIndexes| |cone| |link| |star| |boundary| |addImpliedFaces| |sort|
+ |grade| |minIndex| |maxIndex| |addSimplex| |simplicialComplexIfCan|
+ |simplicialComplex| |sphereSolid| |sphereSurface| |line| |torusSurface| |band|
+ |moebiusBand| |projectiveSpace| |kleinBottle| |dunceHat| |Or| |And| |Not|
+ |xor| |not| |qconvert| |/\\| |\\/| ~ |top| |pop!| |push!| |redux|
+ |freeVariable?| |getVariable| |isS?| |isK?| |isI?| |variable?| |atom?|
+ |getChildren| |parseTerm| |parseSki| S K I |ski| |Delta| D |Pfaffian|
  |minordet| |determinant| |diagonalProduct| |trace| |diagonal| |diagonalMatrix|
  |scalarMatrix| |hermite| |completeHermite| |smith| |completeSmith|
  |diophantineSystem| |remap_variables| |csubst| |particularSolution| |mapSolve|

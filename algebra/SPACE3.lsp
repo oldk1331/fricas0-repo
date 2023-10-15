@@ -1039,7 +1039,7 @@
               |SPACE3;closedCurve;$L$;30| (130 . |second|)
               |SPACE3;polygon?;$B;31| |SPACE3;polygon;$L;32|
               |SPACE3;polygon;L$;33| |SPACE3;polygon;$L$;34| (|Set| 13)
-              (135 . |brace|) (139 . |insert!|) (145 . |#|) (150 . |parts|)
+              (135 . |empty|) (139 . |insert!|) (145 . |#|) (150 . |parts|)
               |SPACE3;mesh?;$B;35| (|List| 15) |SPACE3;mesh;$L;36|
               |SPACE3;mesh;$L2B$;42| |SPACE3;mesh;L$;37| |SPACE3;mesh;L2B$;38|
               (|List| 11) |SPACE3;mesh;$LLSscp$;40| (|List| 62)

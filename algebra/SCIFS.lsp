@@ -11,7 +11,7 @@
 (SDEFUN |SCIFS;meshIndex|
         ((|i| |Integer|) (|j| |Integer|) (|c| |Integer|)
          ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G114 NIL))
+        (SPROG ((#1=#:G115 NIL))
                (PROG1 (LETT #1# (+ (* |j| |c|) |i|) |SCIFS;meshIndex|)
                  (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
                                    '(|Integer|) #1#)))) 
@@ -22,7 +22,7 @@
          ((|j| #1=(|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
           (|thisLine| (|List| (|NonNegativeInteger|))) (|i| #1#)
-          (|pt2| (|List| PT)) (#2=#:G125 NIL) (|p| NIL) (#3=#:G124 NIL)
+          (|pt2| (|List| PT)) (#2=#:G126 NIL) (|p| NIL) (#3=#:G125 NIL)
           (|lpt| NIL) (|colLength| (|NonNegativeInteger|))
           (|rowLength| (|NonNegativeInteger|)))
          (SEQ (LETT |pt2| NIL . #4=(|SCIFS;smesh;LB$;4|))
@@ -91,8 +91,8 @@
 
 (SDEFUN |SCIFS;singleFace;L$;5| ((|ptin| |List| PT) ($ $))
         (SPROG
-         ((|in2| (|List| (|List| (|NonNegativeInteger|)))) (#1=#:G130 NIL)
-          (|i| NIL) (#2=#:G129 NIL) (|pt2| (|List| PT)))
+         ((|in2| (|List| (|List| (|NonNegativeInteger|)))) (#1=#:G131 NIL)
+          (|i| NIL) (#2=#:G130 NIL) (|pt2| (|List| PT)))
          (SEQ (LETT |pt2| |ptin| . #3=(|SCIFS;singleFace;L$;5|))
               (LETT |in2|
                     (LIST
@@ -112,10 +112,10 @@
          ((|indexSize| (|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
           (|indexPos| (|NonNegativeInteger|))
-          (|newFace| (|List| (|NonNegativeInteger|))) (#1=#:G147 NIL) (|j| NIL)
-          (#2=#:G146 NIL) (#3=#:G145 NIL) (|ptIx| NIL) (|pt2| (|List| PT))
-          (|newPt| (PT)) (#4=#:G144 NIL) (#5=#:G143 NIL) (|faceIx| NIL)
-          (#6=#:G142 NIL) (|i| NIL) (#7=#:G141 NIL))
+          (|newFace| (|List| (|NonNegativeInteger|))) (#1=#:G148 NIL) (|j| NIL)
+          (#2=#:G147 NIL) (#3=#:G146 NIL) (|ptIx| NIL) (|pt2| (|List| PT))
+          (|newPt| (PT)) (#4=#:G145 NIL) (#5=#:G144 NIL) (|faceIx| NIL)
+          (#6=#:G143 NIL) (|i| NIL) (#7=#:G142 NIL))
          (SEQ
           (LETT |indexSize| (LENGTH (QCDR |me|)) . #8=(|SCIFS;subdivide;2$;6|))
           (LETT |pt2|
@@ -200,14 +200,14 @@
 (SDEFUN |SCIFS;sierpinskiDivide;$Nni$;7|
         ((|me| $) (|level| |NonNegativeInteger|) ($ $))
         (SPROG
-         ((#1=#:G159 NIL) (#2=#:G162 NIL) (|indexSize| (|NonNegativeInteger|))
+         ((#1=#:G160 NIL) (#2=#:G163 NIL) (|indexSize| (|NonNegativeInteger|))
           (|in2| (|List| (|List| (|NonNegativeInteger|))))
           (|index2| (|NonNegativeInteger|)) (|index1| (|NonNegativeInteger|))
           (|newFace| (|List| #3=(|NonNegativeInteger|))) (|ix4| #3#)
-          (|ix3| #3#) (#4=#:G167 NIL) (|offset| NIL) (#5=#:G152 NIL)
+          (|ix3| #3#) (#4=#:G168 NIL) (|offset| NIL) (#5=#:G153 NIL)
           (|pt2| (|List| PT)) (|newPt| (PT)) (|ix2| #3#)
-          (|ix1| (|NonNegativeInteger|)) (#6=#:G166 NIL) (#7=#:G165 NIL)
-          (|faceIx| NIL) (#8=#:G164 NIL) (|i| NIL) (#9=#:G163 NIL))
+          (|ix1| (|NonNegativeInteger|)) (#6=#:G167 NIL) (#7=#:G166 NIL)
+          (|faceIx| NIL) (#8=#:G165 NIL) (|i| NIL) (#9=#:G164 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -310,7 +310,7 @@
                  (LETT #7# (CDR #7#) . #10#) (GO G190) G191 (EXIT NIL))
             (COND
              ((< |level| 1)
-              (PROGN (LETT #2# (CONS |in2| |pt2|) . #10#) (GO #11=#:G161))))
+              (PROGN (LETT #2# (CONS |in2| |pt2|) . #10#) (GO #11=#:G162))))
             (EXIT
              (SPADCALL (CONS |in2| |pt2|)
                        (PROG1 (LETT #1# (- |level| 1) . #10#)
@@ -326,7 +326,7 @@
                     (|:| |knots| (|List| (|DoubleFloat|)))
                     (|:| |points| (|List| PT))))
          ($ |List| (|List| PT)))
-        (SPROG ((|outList| (|List| (|List| PT))) (#1=#:G172 NIL) (|curve| NIL))
+        (SPROG ((|outList| (|List| (|List| PT))) (#1=#:G173 NIL) (|curve| NIL))
                (SEQ (LETT |outList| NIL . #2=(|SCIFS;listBranches|))
                     (SEQ (LETT |curve| NIL . #2#) (LETT #1# |functions| . #2#)
                          G190
@@ -395,8 +395,8 @@
           (|begtriad| #1#)
           (|midtriads|
            (|List| (|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT))))
-          (#2=#:G190 NIL) (|pl| NIL) (#3=#:G191 NIL) (|po| NIL) (#4=#:G192 NIL)
-          (|pr| NIL) (#5=#:G189 NIL) (|triad| #1#) (|b| (PT))
+          (#2=#:G191 NIL) (|pl| NIL) (#3=#:G192 NIL) (|po| NIL) (#4=#:G193 NIL)
+          (|pr| NIL) (#5=#:G190 NIL) (|triad| #1#) (|b| (PT))
           (|k| (|NonNegativeInteger|)))
          (SEQ (LETT |k| (LENGTH |l|) . #6=(|SCIFS;curveTriads|))
               (EXIT
@@ -508,7 +508,7 @@
         ((|n| |Integer|) ($ |List| (|List| (|DoubleFloat|))))
         (SPROG
          ((|ans| (|List| (|List| (|DoubleFloat|)))) (|angle| (|DoubleFloat|))
-          (#1=#:G197 NIL) (|i| NIL) (|theta| (|DoubleFloat|)))
+          (#1=#:G198 NIL) (|i| NIL) (|theta| (|DoubleFloat|)))
          (SEQ (LETT |ans| NIL . #2=(|SCIFS;cosSinInfo|))
               (LETT |theta|
                     (|div_DF_I|
@@ -535,7 +535,7 @@
          ((|pt| (PT)) (|ans| (|List| PT)) (|sin| (|DoubleFloat|))
           (|cos| (|DoubleFloat|)) (|cossin| (|List| (|DoubleFloat|))))
          (SEQ (LETT |ans| NIL . #1=(|SCIFS;loopPoints|))
-              (SEQ G190 (COND ((NULL |cosSin|) (GO G191)))
+              (SEQ G190 (COND ((NULL (NULL (NULL |cosSin|))) (GO G191)))
                    (SEQ (LETT |cossin| (|SPADfirst| |cosSin|) . #1#)
                         (LETT |cos| (|SPADfirst| |cossin|) . #1#)
                         (LETT |sin| (SPADCALL |cossin| (QREFELT $ 56)) . #1#)
@@ -565,8 +565,8 @@
         ((|pts1| |List| PT) (|r| |DoubleFloat|) (|nn| |Integer|)
          ($ |List| (|List| PT)))
         (SPROG
-         ((|loops| (|List| (|List| PT))) (|b| (PT)) (|n| (PT)) (#1=#:G206 NIL)
-          (|pt| NIL) (#2=#:G207 NIL) (|triad| NIL)
+         ((|loops| (|List| (|List| PT))) (|b| (PT)) (|n| (PT)) (#1=#:G208 NIL)
+          (|pt| NIL) (#2=#:G209 NIL) (|triad| NIL)
           (|cosSin| (|List| (|List| (|DoubleFloat|))))
           (|triads|
            (|List| (|Record| (|:| |tang| PT) (|:| |norm| PT) (|:| |bin| PT)))))
@@ -601,7 +601,7 @@
                     (|:| |points| (|List| PT))))
          (|r| |DoubleFloat|) (|n| |Integer|) ($ $))
         (SPROG
-         ((|loops| (|List| (|List| PT))) (#1=#:G215 NIL) (|bran| NIL)
+         ((|loops| (|List| (|List| PT))) (#1=#:G217 NIL) (|bran| NIL)
           (|brans| (|List| (|List| PT))))
          (SEQ
           (COND ((< |n| 3) (|error| "tube: n should be at least 3"))
@@ -628,8 +628,8 @@
 
 (SDEFUN |SCIFS;coerce;$Of;16| ((|me| $) ($ |OutputForm|))
         (SPROG
-         ((|res| (|List| (|OutputForm|))) (|r| (|OutputForm|)) (#1=#:G226 NIL)
-          (|pIx| NIL) (#2=#:G225 NIL) (|faceIx| NIL) (#3=#:G224 NIL) (|p| NIL))
+         ((|res| (|List| (|OutputForm|))) (|r| (|OutputForm|)) (#1=#:G228 NIL)
+          (|pIx| NIL) (#2=#:G227 NIL) (|faceIx| NIL) (#3=#:G226 NIL) (|p| NIL))
          (SEQ (LETT |r| (SPADCALL (QREFELT $ 64)) . #4=(|SCIFS;coerce;$Of;16|))
               (SEQ (LETT |p| NIL . #4#) (LETT #3# (QCDR |me|) . #4#) G190
                    (COND
@@ -681,9 +681,9 @@
 
 (DECLAIM (NOTINLINE |SceneIFS;|)) 
 
-(DEFUN |SceneIFS| (#1=#:G227)
+(DEFUN |SceneIFS| (#1=#:G229)
   (SPROG NIL
-         (PROG (#2=#:G228)
+         (PROG (#2=#:G230)
            (RETURN
             (COND
              ((LETT #2#

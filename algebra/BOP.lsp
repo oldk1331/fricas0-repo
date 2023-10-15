@@ -343,7 +343,7 @@
               |BOP;arity;$U;25| (|Record| (|:| |key| 12) (|:| |entry| 29))
               (|List| 61) (44 . |entries|) (49 . |table|) |BOP;copy;2$;26|
               (54 . ~=) (60 . ~=) (|List| 12) (66 . |keys|) (|Set| 12)
-              (71 . |brace|) (76 . ~=) |BOP;=;2$B;27| |BOP;weight;$Nni;28|
+              (71 . |set|) (76 . ~=) |BOP;=;2$B;27| |BOP;weight;$Nni;28|
               (82 . ~=) (88 . |#|) (93 . |difference|) (99 . |inspect|)
               |BOP;<;2$B;29| (|String|) (|HashState|))
            '#(~= 104 |weight| 110 |unary?| 121 |smaller?| 126 |setProperty| 132

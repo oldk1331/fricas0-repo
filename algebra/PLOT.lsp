@@ -9,8 +9,8 @@
         ((|plot| $) ($ |List| (|List| (|Point| (|DoubleFloat|)))))
         (SPROG
          ((|outList| (|List| (|List| (|Point| (|DoubleFloat|)))))
-          (|newl| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G139 NIL) (|p| NIL)
-          (#2=#:G138 NIL) (|curve| NIL))
+          (|newl| (|List| (|Point| (|DoubleFloat|)))) (#1=#:G144 NIL) (|p| NIL)
+          (#2=#:G143 NIL) (|curve| NIL))
          (SEQ (LETT |outList| NIL . #3=(|PLOT;listBranches;$L;3|))
               (SEQ (LETT |curve| NIL . #3#) (LETT #2# (QVELT |plot| 4) . #3#)
                    G190
@@ -88,7 +88,7 @@
            (|:| |points| (|List| (|Point| (|DoubleFloat|))))))
          (|i| |Integer|) ($ |Segment| (|DoubleFloat|)))
         (SPROG
-         ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G148 NIL) (|r| NIL)
+         ((|u| (|Segment| (|DoubleFloat|))) (#1=#:G153 NIL) (|r| NIL)
           (|rr|
            (|Record|
             (|:| |source|
@@ -178,7 +178,7 @@
          (|f| |Mapping| #1=(|DoubleFloat|) (|Point| (|DoubleFloat|)))
          (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          ($ |DoubleFloat|))
-        (SPROG ((|m| #1#) (|n| #1#) (#2=#:G172 NIL) (|p| NIL))
+        (SPROG ((|m| #1#) (|n| #1#) (#2=#:G177 NIL) (|p| NIL))
                (SEQ
                 (LETT |m| (SPADCALL (|SPADfirst| |l|) |f|)
                       . #3=(|PLOT;select|))
@@ -210,9 +210,9 @@
           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|yRange| #4=(|Segment| (|DoubleFloat|))) (|xRange| #4#) (|p| #3#)
-          (|t| #2#) (#5=#:G205 NIL) (|i| NIL) (|d| #6=(|DoubleFloat|))
+          (|t| #2#) (#5=#:G213 NIL) (|i| NIL) (|d| #6=(|DoubleFloat|))
           (|n| (|Integer|)) (|q| (|List| (|Point| (|DoubleFloat|))))
-          (|c| (|List| (|DoubleFloat|))) (|s| #6#) (#7=#:G204 NIL) (|f| #1#)
+          (|c| (|List| (|DoubleFloat|))) (|s| #6#) (#7=#:G212 NIL) (|f| #1#)
           (|h| (|DoubleFloat|)) (|l| (|DoubleFloat|)))
          (SEQ
           (EXIT
@@ -250,7 +250,7 @@
                  ((NULL |c|)
                   (PROGN
                    (LETT #7# (|PLOT;basicPlot| |f| |nRange| $) . #8#)
-                   (GO #9=#:G203))))
+                   (GO #9=#:G211))))
                 (COND
                  ((|less_DF| (|SPADfirst| |c|) |h|)
                   (SEQ (LETT |c| (CONS |h| |c|) . #8#)
@@ -337,7 +337,7 @@
           (|:| |points| #3=(|List| (|Point| (|DoubleFloat|))))))
         (SPROG
          ((|p| #3#) (|t| #2#) (|tj| #4=(|DoubleFloat|)) (|n| (|Integer|))
-          (#5=#:G240 NIL) (|sp| #6=(|List| (|Point| (|DoubleFloat|))))
+          (#5=#:G249 NIL) (|sp| #6=(|List| (|Point| (|DoubleFloat|))))
           (|st| #7=(|List| (|DoubleFloat|))) (|dp| (|DoubleFloat|))
           (|s2| #8=(|DoubleFloat|)) (|s1| #8#) (|b2| #4#) (|a2| #4#) (|b1| #4#)
           (|a1| #4#) (|y2| #9=(|DoubleFloat|)) (|x2| #10=(|DoubleFloat|))
@@ -441,7 +441,7 @@
                                                             (LETT #5#
                                                                   |$NoValue|
                                                                   . #12#)
-                                                            (GO #14=#:G220))))
+                                                            (GO #14=#:G229))))
                                                          (EXIT
                                                           (COND
                                                            ((|less_DF|
@@ -777,7 +777,7 @@
         (SPROG
          ((|yRange| #1=(|Segment| (|DoubleFloat|))) (|xRange| #1#)
           (|p| (|List| (|Point| (|DoubleFloat|))))
-          (|t| (|List| (|DoubleFloat|))) (|l| (|DoubleFloat|)) (#2=#:G259 NIL)
+          (|t| (|List| (|DoubleFloat|))) (|l| (|DoubleFloat|)) (#2=#:G268 NIL)
           (|i| NIL) (|s| (|DoubleFloat|)) (|h| (|DoubleFloat|)))
          (SEQ (|PLOT;checkRange| |tRange| $)
               (LETT |l| (SPADCALL |tRange| (QREFELT $ 24))
@@ -915,8 +915,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#2=#:G297 NIL) (|c| NIL) (#3=#:G296 NIL)
-          (|tlimit| (|PositiveInteger|)) (#4=#:G295 NIL) (#5=#:G294 NIL)
+          (#2=#:G306 NIL) (|c| NIL) (#3=#:G305 NIL)
+          (|tlimit| (|PositiveInteger|)) (#4=#:G304 NIL) (#5=#:G303 NIL)
           (|tRange| (|Segment| (|DoubleFloat|))))
          (SEQ (SETELT $ 10 0)
               (LETT |tRange| (|PLOT;parametricRange| |p| $)
@@ -985,8 +985,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#2=#:G308 NIL) (|c| NIL) (#3=#:G307 NIL)
-          (|tlimit| (|PositiveInteger|)) (#4=#:G306 NIL) (#5=#:G305 NIL))
+          (#2=#:G317 NIL) (|c| NIL) (#3=#:G316 NIL)
+          (|tlimit| (|PositiveInteger|)) (#4=#:G315 NIL) (#5=#:G314 NIL))
          (SEQ (SETELT $ 10 0)
               (LETT |curves|
                     (PROGN
@@ -1221,8 +1221,8 @@
              (|:| |ranges| (|List| (|Segment| (|DoubleFloat|))))
              (|:| |knots| (|List| (|DoubleFloat|)))
              (|:| |points| (|List| (|Point| (|DoubleFloat|)))))))
-          (#1=#:G362 NIL) (|f| NIL) (#2=#:G363 NIL) (|p| NIL) (#3=#:G361 NIL)
-          (#4=#:G360 NIL) (#5=#:G359 NIL))
+          (#1=#:G372 NIL) (|f| NIL) (#2=#:G373 NIL) (|p| NIL) (#3=#:G371 NIL)
+          (#4=#:G370 NIL) (#5=#:G369 NIL))
          (SEQ (COND ((NULL |l|) (|error| "empty list of functions")))
               (LETT |t|
                     (PROGN
@@ -1336,8 +1336,8 @@
 (SDEFUN |PLOT;coerce;$Of;45| ((|r| $) ($ |OutputForm|))
         (SPROG
          ((|f| (|List| (|OutputForm|))) (|l| (|List| #1=(|OutputForm|)))
-          (#2=#:G383 NIL) (|p| NIL) (#3=#:G382 NIL) (|h| (|OutputForm|))
-          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G381 NIL)
+          (#2=#:G393 NIL) (|p| NIL) (#3=#:G392 NIL) (|h| (|OutputForm|))
+          (|yRange| #1#) (|xRange| (|OutputForm|)) (#4=#:G391 NIL)
           (|curve| NIL) (|tRange| (|OutputForm|))
           (|plotSymbol| #5=(|OutputForm|)) (|tSymbol| #5#) (|ySymbol| #5#)
           (|xSymbol| #5#) (|spaces| #5#))
@@ -1400,7 +1400,7 @@
 
 (DEFUN |Plot| ()
   (SPROG NIL
-         (PROG (#1=#:G385)
+         (PROG (#1=#:G395)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Plot|) . #2=(|Plot|))

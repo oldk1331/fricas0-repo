@@ -131,7 +131,7 @@
         (SPADCALL (SPADCALL |a| (QREFELT $ 17)) (QREFELT $ 52))) 
 
 (SDEFUN |RADIX;wholePart;$I;23| ((|a| $) ($ |Integer|))
-        (SPROG ((|n0| (|Integer|)) (#1=#:G183 NIL) (|r| NIL))
+        (SPROG ((|n0| (|Integer|)) (#1=#:G184 NIL) (|r| NIL))
                (SEQ (LETT |n0| 0 . #2=(|RADIX;wholePart;$I;23|))
                     (SEQ (LETT |r| NIL . #2#) (LETT #1# (QVELT |a| 1) . #2#)
                          G190
@@ -148,7 +148,7 @@
 (SDEFUN |RADIX;fractionPart;$F;24| ((|a| $) ($ |Fraction| (|Integer|)))
         (SPROG
          ((|d| (|Integer|)) (|n| (|Integer|)) (|n1| (|Integer|))
-          (#1=#:G190 NIL) (|r| NIL) (|n0| (|Integer|)) (#2=#:G189 NIL))
+          (#1=#:G191 NIL) (|r| NIL) (|n0| (|Integer|)) (#2=#:G190 NIL))
          (SEQ (LETT |n0| 0 . #3=(|RADIX;fractionPart;$F;24|))
               (SEQ (LETT |r| NIL . #3#) (LETT #2# (QVELT |a| 2) . #3#) G190
                    (COND
@@ -232,8 +232,8 @@
 
 (SDEFUN |RADIX;intgroup| ((|li| |List| (|Integer|)) ($ |OutputForm|))
         (SPROG
-         ((#1=#:G218 NIL) (|i| NIL) (#2=#:G217 NIL) (#3=#:G216 NIL)
-          (#4=#:G215 NIL) (#5=#:G214 NIL) (#6=#:G213 NIL))
+         ((#1=#:G219 NIL) (|i| NIL) (#2=#:G218 NIL) (#3=#:G217 NIL)
+          (#4=#:G216 NIL) (#5=#:G215 NIL) (#6=#:G214 NIL))
          (SEQ
           (COND ((NULL |li|) (|error| "intgroup needs non-null list"))
                 ((NULL (CDR |li|))
@@ -322,7 +322,7 @@
                       (#2# |rex|)))))) 
 
 (SDEFUN |RADIX;checkRagits| ((|li| |List| (|Integer|)) ($ |Boolean|))
-        (SPROG ((#1=#:G228 NIL) (|i| NIL))
+        (SPROG ((#1=#:G230 NIL) (|i| NIL))
                (SEQ
                 (SEQ (LETT |i| NIL . #2=(|RADIX;checkRagits|))
                      (LETT #1# |li| . #2#) G190
@@ -364,90 +364,90 @@
            (|List|
             #1=(|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (|ritscyc| #2=(|List| (|Integer|))) (#3=#:G258 NIL) (|i| (|Integer|))
-          (|ritspfx| #2#) (#4=#:G257 NIL) (|c| (|Integer|))
+          (|ritscyc| (|List| (|Integer|))) (#2=#:G260 NIL) (|i| (|Integer|))
+          (|ritspfx| (|List| (|Integer|))) (#3=#:G259 NIL) (|c| (|Integer|))
           (|cfound| (|Boolean|))
           (|ritsn|
-           #5=(|List|
+           #4=(|List|
                (|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (#6=#:G256 NIL)
+          (#5=#:G258 NIL)
           (|rn|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (#7=#:G255 NIL) (|p| #8=(|Integer|)) (|ritsi| #5#) (#9=#:G254 NIL)
-          (|n| #8#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#10=#:G253 NIL)
+          (#6=#:G257 NIL) (|p| #7=(|Integer|)) (|ritsi| #4#) (#8=#:G256 NIL)
+          (|n| #7#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#9=#:G255 NIL)
           (|qr| #1#))
          (SEQ
-          (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|) . #11=(|RADIX;radixFrac|))
-          (LETT |i| 0 . #11#) (LETT |qr1i| (LETT |qr2i| |qr| . #11#) . #11#)
-          (LETT |rits| (LIST |qr|) . #11#)
-          (SEQ (LETT #10# NIL . #11#) G190 (COND (#10# (GO G191)))
+          (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|) . #10=(|RADIX;radixFrac|))
+          (LETT |i| 0 . #10#) (LETT |qr1i| (LETT |qr2i| |qr| . #10#) . #10#)
+          (LETT |rits| (LIST |qr|) . #10#)
+          (SEQ (LETT #9# NIL . #10#) G190 (COND (#9# (GO G191)))
                (SEQ
-                (LETT |qr1i| (DIVIDE2 (* |bas| (QCDR |qr1i|)) |den|) . #11#)
-                (LETT |qrt| (DIVIDE2 (* |bas| (QCDR |qr2i|)) |den|) . #11#)
-                (LETT |qr2i| (DIVIDE2 (* |bas| (QCDR |qrt|)) |den|) . #11#)
-                (LETT |rits| (CONS |qr2i| (CONS |qrt| |rits|)) . #11#)
-                (EXIT (LETT |i| (+ |i| 1) . #11#)))
-               (LETT #10# (SPADCALL |qr1i| |qr2i| (QREFELT $ 82)) . #11#)
+                (LETT |qr1i| (DIVIDE2 (* |bas| (QCDR |qr1i|)) |den|) . #10#)
+                (LETT |qrt| (DIVIDE2 (* |bas| (QCDR |qr2i|)) |den|) . #10#)
+                (LETT |qr2i| (DIVIDE2 (* |bas| (QCDR |qrt|)) |den|) . #10#)
+                (LETT |rits| (CONS |qr2i| (CONS |qrt| |rits|)) . #10#)
+                (EXIT (LETT |i| (+ |i| 1) . #10#)))
+               (LETT #9# (SPADCALL |qr1i| |qr2i| (QREFELT $ 82)) . #10#)
                (GO G190) G191 (EXIT NIL))
-          (LETT |rits| (NREVERSE |rits|) . #11#) (LETT |n| |i| . #11#)
-          (LETT |ritsi| |rits| . #11#) (LETT |ritsn| |rits| . #11#)
-          (SEQ (LETT |i| 1 . #11#) (LETT #9# |n| . #11#) G190
-               (COND ((|greater_SI| |i| #9#) (GO G191)))
-               (SEQ (EXIT (LETT |ritsn| (CDR |ritsn|) . #11#)))
-               (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
-          (LETT |i| 0 . #11#)
+          (LETT |rits| (NREVERSE |rits|) . #10#) (LETT |n| |i| . #10#)
+          (LETT |ritsi| |rits| . #10#) (LETT |ritsn| |rits| . #10#)
+          (SEQ (LETT |i| 1 . #10#) (LETT #8# |n| . #10#) G190
+               (COND ((|greater_SI| |i| #8#) (GO G191)))
+               (SEQ (EXIT (LETT |ritsn| (CDR |ritsn|) . #10#)))
+               (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
+          (LETT |i| 0 . #10#)
           (SEQ G190
                (COND
                 ((NULL
                   (SPADCALL (|SPADfirst| |ritsi|) (|SPADfirst| |ritsn|)
                             (QREFELT $ 83)))
                  (GO G191)))
-               (SEQ (LETT |ritsi| (CDR |ritsi|) . #11#)
-                    (LETT |ritsn| (CDR |ritsn|) . #11#)
-                    (EXIT (LETT |i| (+ |i| 1) . #11#)))
+               (SEQ (LETT |ritsi| (CDR |ritsi|) . #10#)
+                    (LETT |ritsn| (CDR |ritsn|) . #10#)
+                    (EXIT (LETT |i| (+ |i| 1) . #10#)))
                NIL (GO G190) G191 (EXIT NIL))
-          (LETT |p| |i| . #11#) (LETT |ritsn| |rits| . #11#)
-          (SEQ (LETT |i| 1 . #11#) (LETT #7# |n| . #11#) G190
-               (COND ((|greater_SI| |i| #7#) (GO G191)))
-               (SEQ (EXIT (LETT |ritsn| (CDR |ritsn|) . #11#)))
-               (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
-          (LETT |rn| (|SPADfirst| |ritsn|) . #11#) (LETT |cfound| NIL . #11#)
-          (LETT |c| 0 . #11#)
-          (SEQ (LETT |i| 1 . #11#) (LETT #6# |p| . #11#) G190
+          (LETT |p| |i| . #10#) (LETT |ritsn| |rits| . #10#)
+          (SEQ (LETT |i| 1 . #10#) (LETT #6# |n| . #10#) G190
+               (COND ((|greater_SI| |i| #6#) (GO G191)))
+               (SEQ (EXIT (LETT |ritsn| (CDR |ritsn|) . #10#)))
+               (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
+          (LETT |rn| (|SPADfirst| |ritsn|) . #10#) (LETT |cfound| NIL . #10#)
+          (LETT |c| 0 . #10#)
+          (SEQ (LETT |i| 1 . #10#) (LETT #5# |p| . #10#) G190
                (COND
-                ((OR (|greater_SI| |i| #6#) (NULL (NULL |cfound|))) (GO G191)))
-               (SEQ (LETT |ritsn| (CDR |ritsn|) . #11#)
+                ((OR (|greater_SI| |i| #5#) (NULL (NULL |cfound|))) (GO G191)))
+               (SEQ (LETT |ritsn| (CDR |ritsn|) . #10#)
                     (EXIT
                      (COND
                       ((SPADCALL |rn| (|SPADfirst| |ritsn|) (QREFELT $ 82))
-                       (SEQ (LETT |c| |i| . #11#)
-                            (EXIT (LETT |cfound| 'T . #11#)))))))
-               (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
-          (COND ((NULL |cfound|) (LETT |c| |n| . #11#)))
-          (LETT |ritspfx| NIL . #11#) (LETT |ritscyc| NIL . #11#)
-          (SEQ (LETT |i| 1 . #11#) (LETT #4# |p| . #11#) G190
-               (COND ((|greater_SI| |i| #4#) (GO G191)))
-               (SEQ
-                (LETT |ritspfx| (CONS (QCAR (|SPADfirst| |rits|)) |ritspfx|)
-                      . #11#)
-                (EXIT (LETT |rits| (CDR |rits|) . #11#)))
-               (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
-          (SEQ (LETT |i| 1 . #11#) (LETT #3# |c| . #11#) G190
+                       (SEQ (LETT |c| |i| . #10#)
+                            (EXIT (LETT |cfound| 'T . #10#)))))))
+               (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
+          (COND ((NULL |cfound|) (LETT |c| |n| . #10#)))
+          (LETT |ritspfx| NIL . #10#) (LETT |ritscyc| NIL . #10#)
+          (SEQ (LETT |i| 1 . #10#) (LETT #3# |p| . #10#) G190
                (COND ((|greater_SI| |i| #3#) (GO G191)))
                (SEQ
+                (LETT |ritspfx| (CONS (QCAR (|SPADfirst| |rits|)) |ritspfx|)
+                      . #10#)
+                (EXIT (LETT |rits| (CDR |rits|) . #10#)))
+               (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
+          (SEQ (LETT |i| 1 . #10#) (LETT #2# |c| . #10#) G190
+               (COND ((|greater_SI| |i| #2#) (GO G191)))
+               (SEQ
                 (LETT |ritscyc| (CONS (QCAR (|SPADfirst| |rits|)) |ritscyc|)
-                      . #11#)
-                (EXIT (LETT |rits| (CDR |rits|) . #11#)))
-               (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL))
+                      . #10#)
+                (EXIT (LETT |rits| (CDR |rits|) . #10#)))
+               (LETT |i| (|inc_SI| |i|) . #10#) (GO G190) G191 (EXIT NIL))
           (EXIT (CONS (NREVERSE |ritspfx|) (NREVERSE |ritscyc|)))))) 
 
 (DECLAIM (NOTINLINE |RadixExpansion;|)) 
 
-(DEFUN |RadixExpansion| (#1=#:G286)
+(DEFUN |RadixExpansion| (#1=#:G288)
   (SPROG NIL
-         (PROG (#2=#:G287)
+         (PROG (#2=#:G289)
            (RETURN
             (COND
              ((LETT #2#
@@ -465,7 +465,7 @@
                   (HREM |$ConstructorCache| '|RadixExpansion|)))))))))) 
 
 (DEFUN |RadixExpansion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G285 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G287 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|RadixExpansion|))
           (LETT |dv$| (LIST '|RadixExpansion| DV$1) . #2#)

@@ -716,7 +716,7 @@
               |ES-;eval;SLLS;31| |ES-;eval;SLLS;32| |ES-;eval;SLLS;33|
               (165 . |argument|) (170 . =) (176 . |coerce|) |ES-;map;MKS;34|
               (|String|) (181 . |string|) |ES-;operator;2Bo;35| (186 . >)
-              (|Union| 61 '"failed") |ES-;mainKernel;SU;36| (192 . |brace|)
+              (|Union| 61 '"failed") |ES-;mainKernel;SU;36| (192 . |set|)
               (|Union| (|None|) '"failed") (197 . |property|) (203 . |second|)
               (208 . |remove!|) (214 . |belong?|) |ES-;kernel;BoLS;38|
               (219 . |height|) (224 . |kernel|) (|Union| 45 '"failed")

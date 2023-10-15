@@ -1987,7 +1987,7 @@
               |PLEQN;rdregime;SL;29| |PLEQN;overset?;LLB;35| (|Factored| $)
               (376 . |squareFree|) |PLEQN;sqfree;2GR;33| (381 . |elt|)
               (388 . ~=) (394 . |degree|) (399 . <) (|Mapping| 10 70 70)
-              (405 . |sort|) (|Set| 9) (411 . |brace|) (416 . <))
+              (405 . |sort|) (|Set| 9) (411 . |set|) (416 . <))
            '#(|wrregime| 422 |sqfree| 428 |se2rfi| 433 |regime| 438 |redpps|
               449 |redmat| 455 |rdregime| 461 |psolve| 466 |pr2dmp| 546
               |overset?| 551 |nextSublist| 557 |minset| 563 |minrank| 568

@@ -213,9 +213,9 @@
 
 (DECLAIM (NOTINLINE |UniversalSegment;|)) 
 
-(DEFUN |UniversalSegment| (#1=#:G196)
+(DEFUN |UniversalSegment| (#1=#:G201)
   (SPROG NIL
-         (PROG (#2=#:G197)
+         (PROG (#2=#:G202)
            (RETURN
             (COND
              ((LETT #2#
@@ -312,7 +312,7 @@
               (109 . |convert|) (114 . +) (120 . +) (126 . +) (132 . +)
               (138 . +) (144 . -) (150 . -) (156 . -) (|Stream| 6) (|List| $)
               (162 . |expand|) (167 . |expand|) (|Mapping| 6 6) (172 . |map|)
-              (178 . |map|) (184 . |empty|) (|List| $$) (188 . |null|)
+              (178 . |map|) (184 . |empty|) (|List| $$) (188 . |empty?|)
               (193 . |first|) (198 . |rest|) (|List| 9) (203 . |concat!|)
               (209 . |coerce|) (214 . |stream|) (|List| 6) (220 . |expand|)
               (225 . |construct|) (230 . |concat|) (|SingleInteger|)

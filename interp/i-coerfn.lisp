@@ -2211,10 +2211,10 @@
  
 ; L2Set(x,source is [.,S],target is [.,T]) ==
 ;   x = '_$fromCoerceable_$ => canCoerce(S,T)
-;   -- call library function  brace  to get a set
+;   -- call library function set to get a set
 ;   target' := ['Set,S]
 ;   u := objNewWrap(
-;     SPADCALL(x,getFunctionFromDomain('brace,target',[source])),
+;     SPADCALL(x, getFunctionFromDomain1('set, target', target', [source])),
 ;       target')
 ;   (u := coerceInt(u,target)) or coercionFailure()
 ;   objValUnwrap u
@@ -2232,7 +2232,7 @@
               (SETQ |u|
                       (|objNewWrap|
                        (SPADCALL |x|
-                        (|getFunctionFromDomain| '|brace| |target'|
+                        (|getFunctionFromDomain1| '|set| |target'| |target'|
                          (LIST |source|)))
                        |target'|))
               (OR (SETQ |u| (|coerceInt| |u| |target|)) (|coercionFailure|))

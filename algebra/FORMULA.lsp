@@ -33,8 +33,8 @@
 
 (SDEFUN |FORMULA;display;$IV;4| ((|f| $) (|len| |Integer|) ($ |Void|))
         (SPROG
-         ((#1=#:G141 NIL) (|s| NIL) (#2=#:G140 NIL) (|t| NIL) (#3=#:G139 NIL)
-          (#4=#:G138 NIL))
+         ((#1=#:G148 NIL) (|s| NIL) (#2=#:G147 NIL) (|t| NIL) (#3=#:G146 NIL)
+          (#4=#:G145 NIL))
          (SEQ
           (SEQ (LETT |s| NIL . #5=(|FORMULA;display;$IV;4|))
                (LETT #4# (QVELT |f| 0) . #5#) G190
@@ -103,8 +103,8 @@
 
 (SDEFUN |FORMULA;coerce;$Of;12| ((|f| $) ($ |OutputForm|))
         (SPROG
-         ((|l| (|List| (|String|))) (#1=#:G158 NIL) (|s| NIL) (#2=#:G157 NIL)
-          (|t| NIL) (#3=#:G156 NIL) (#4=#:G155 NIL))
+         ((|l| (|List| (|String|))) (#1=#:G165 NIL) (|s| NIL) (#2=#:G164 NIL)
+          (|t| NIL) (#3=#:G163 NIL) (#4=#:G162 NIL))
          (SEQ (LETT |l| NIL . #5=(|FORMULA;coerce;$Of;12|))
               (SEQ (LETT |s| NIL . #5#) (LETT #4# (QVELT |f| 0) . #5#) G190
                    (COND
@@ -141,7 +141,7 @@
 
 (SDEFUN |FORMULA;postcondition| ((|str| |String|) ($ |String|))
         (SPROG
-         ((#1=#:G165 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
+         ((#1=#:G172 NIL) (|i| NIL) (|minus| #2=(|Character|)) (|plus| #2#)
           (|len| (|Integer|)))
          (SEQ (LETT |len| (QCSIZE |str|) . #3=(|FORMULA;postcondition|))
               (EXIT
@@ -182,7 +182,7 @@
         ((|str| |String|) (|len| |Integer|) ($ |List| (|String|)))
         (SPROG
          ((|l| (|List| (|String|))) (|s| (|String|)) (|ls| (|Integer|))
-          (|lss| (|Integer|)) (#1=#:G176 NIL) (|ss| NIL))
+          (|lss| (|Integer|)) (#1=#:G183 NIL) (|ss| NIL))
          (SEQ (LETT |l| NIL . #2=(|FORMULA;splitLong1|)) (LETT |s| "" . #2#)
               (LETT |ls| 0 . #2#)
               (SEQ (LETT |ss| NIL . #2#)
@@ -576,7 +576,7 @@
         ((|op| |String|) (|args| |List| (|OutputForm|)) (|prec| |Integer|)
          ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G221 NIL) (|a| NIL)
+         ((|s| (|String|)) (|l| (|List| (|String|))) (#1=#:G231 NIL) (|a| NIL)
           (|opPrec| (|Integer|)) (|p| (|Integer|)))
          (SEQ
           (COND ((NULL |args|) "")
@@ -699,7 +699,7 @@
 
 (DEFUN |ScriptFormulaFormat| ()
   (SPROG NIL
-         (PROG (#1=#:G236)
+         (PROG (#1=#:G246)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ScriptFormulaFormat|)

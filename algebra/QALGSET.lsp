@@ -524,7 +524,7 @@
               |QALGSET;definingEquations;$L;10|
               |QALGSET;definingInequation;$Dpoly;11| (199 . |One|) (203 . *)
               (209 . |One|) (213 . -) (|List| 37) (|GroebnerPackage| 6 42 7 37)
-              (219 . |groebner|) (224 . |member?|) (|Set| 9) (230 . |brace|)
+              (219 . |groebner|) (224 . |member?|) (|Set| 9) (230 . |set|)
               (235 . <) (|HashState|) (|SingleInteger|))
            '#(~= 241 |status| 247 |simplify| 252 |setStatus| 257
               |quasiAlgebraicSet| 263 |latex| 269 |idealSimplify| 274

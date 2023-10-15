@@ -647,7 +647,7 @@
          (SEQ
           (EXIT
            (SEQ (LETT |n| (LENGTH |gamma|) . #3=(|SGCF;nextPartition;LVIV;11|))
-                (LETT |vnull| (SPADCALL NIL (QREFELT $ 37)) . #3#)
+                (LETT |vnull| (MAKE-ARRAY 0) . #3#)
                 (COND
                  ((SPADCALL |part| |vnull| (QREFELT $ 48))
                   (SEQ (LETT |i| 2 . #3#)
@@ -934,7 +934,7 @@
               (131 . -) |SGCF;nextColeman;2L2M;9| |SGCF;nextPartition;LVIV;11|
               (137 . ~=) (143 . |elt|) |SGCF;inverseColeman;2LML;12|
               (|List| 12) (150 . |list|) (155 . |append|) (|Set| 6)
-              (161 . |brace|) (166 . |elt|) (172 . |intersect|) (178 . |#|)
+              (161 . |set|) (166 . |elt|) (172 . |intersect|) (178 . |#|)
               |SGCF;coleman;3LM;13|)
            '#(|unrankImproperPartitions1| 183 |unrankImproperPartitions0| 190
               |subSet| 197 |numberOfImproperPartitions| 204 |nextPartition| 210

@@ -1,6 +1,6 @@
 
 (SDEFUN |GRIMAGE;numberCheck| ((|nums| |Point| (|DoubleFloat|)) ($ |Void|))
-        (SPROG ((#1=#:G123 NIL) (#2=#:G119 NIL) (#3=#:G124 NIL) (|i| NIL))
+        (SPROG ((#1=#:G126 NIL) (#2=#:G122 NIL) (#3=#:G127 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -23,7 +23,7 @@
                              (|error|
                               "An unexpected complex number was encountered in the calculations.")
                              . #4#)
-                       (GO #5=#:G121))))))
+                       (GO #5=#:G124))))))
                   (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                 #5# (EXIT #1#)))) 
 
@@ -83,8 +83,8 @@
          ((|llp2| (|List| (|List| (|Point| (|DoubleFloat|)))))
           (|lp2| (|List| (|Point| (|DoubleFloat|))))
           (|p| (|Point| (|DoubleFloat|))) (|d| (|PositiveInteger|))
-          (#1=#:G139 NIL) (|daShade| (|DoubleFloat|)) (|daHue| (|DoubleFloat|))
-          (#2=#:G137 NIL) (|lp| NIL) (#3=#:G138 NIL) (|pal| NIL))
+          (#1=#:G142 NIL) (|daShade| (|DoubleFloat|)) (|daHue| (|DoubleFloat|))
+          (#2=#:G140 NIL) (|lp| NIL) (#3=#:G141 NIL) (|pal| NIL))
          (SEQ (LETT |llp2| NIL . #4=(|GRIMAGE;putColorInfo;LLL;3|))
               (SEQ (LETT |pal| NIL . #4#) (LETT #3# |listOfPalettes| . #4#)
                    (LETT |lp| NIL . #4#) (LETT #2# |llp| . #4#) G190
@@ -291,9 +291,9 @@
          (|listOfLineColors| |List| (|Palette|))
          (|listOfPointSizes| |List| (|PositiveInteger|)) ($ $))
         (SPROG
-         ((#1=#:G183 NIL) (|givenLen| #2=(|NonNegativeInteger|))
-          (#3=#:G173 NIL) (#4=#:G163 NIL) (|len| #2#) (#5=#:G188 NIL) (|l| NIL)
-          (#6=#:G187 NIL))
+         ((#1=#:G189 NIL) (|givenLen| #2=(|NonNegativeInteger|))
+          (#3=#:G179 NIL) (#4=#:G169 NIL) (|len| #2#) (#5=#:G194 NIL) (|l| NIL)
+          (#6=#:G193 NIL))
          (SEQ
           (LETT |givenLen| (LENGTH |listOfListsOfPoints|)
                 . #7=(|GRIMAGE;plotLists|))
@@ -305,7 +305,10 @@
                       (COND
                        ((OR (ATOM #5#) (PROGN (LETT |l| (CAR #5#) . #7#) NIL))
                         (GO G191)))
-                      (SEQ (EXIT (COND (|l| (LETT #6# (CONS |l| #6#) . #7#)))))
+                      (SEQ
+                       (EXIT
+                        (COND
+                         ((NULL (NULL |l|)) (LETT #6# (CONS |l| #6#) . #7#)))))
                       (LETT #5# (CDR #5#) . #7#) (GO G190) G191
                       (EXIT (NREVERSE #6#))))
                 . #7#)
@@ -392,9 +395,9 @@
 (SDEFUN |GRIMAGE;sendGraphImage;$V;10| ((|graf| $) ($ |Void|))
         (SPROG
          ((|hueShade| (|Integer|)) (|aPoint| #1=(|Point| (|DoubleFloat|)))
-          (#2=#:G205 NIL) (|p| NIL) (#3=#:G201 NIL) (|aList| NIL)
-          (#4=#:G202 NIL) (|pColor| NIL) (#5=#:G203 NIL) (|lColor| NIL)
-          (#6=#:G204 NIL) (|s| (|NonNegativeInteger|))
+          (#2=#:G211 NIL) (|p| NIL) (#3=#:G207 NIL) (|aList| NIL)
+          (#4=#:G208 NIL) (|pColor| NIL) (#5=#:G209 NIL) (|lColor| NIL)
+          (#6=#:G210 NIL) (|s| (|NonNegativeInteger|))
           (|tonto| (|List| (|Segment| (|DoubleFloat|))))
           (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|)))))
          (SEQ (|GRIMAGE;doOptions| |graf| $)
@@ -615,8 +618,8 @@
 (SDEFUN |GRIMAGE;makeGraphImage;L$;18|
         ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
         (SPROG
-         ((#1=#:G227 NIL) (|i| NIL) (#2=#:G226 NIL) (#3=#:G225 NIL)
-          (#4=#:G224 NIL) (#5=#:G223 NIL) (|l| (|Integer|)) (#6=#:G222 NIL))
+         ((#1=#:G233 NIL) (|i| NIL) (#2=#:G232 NIL) (#3=#:G231 NIL)
+          (#4=#:G230 NIL) (#5=#:G229 NIL) (|l| (|Integer|)) (#6=#:G228 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
@@ -664,8 +667,8 @@
          (|lps| |List| (|PositiveInteger|)) (|opts| |List| (|DrawOption|))
          ($ $))
         (SPROG
-         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G236 NIL) (|p| NIL)
-          (#3=#:G235 NIL) (|aList| NIL)
+         ((|aPoint| #1=(|Point| (|DoubleFloat|))) (#2=#:G242 NIL) (|p| NIL)
+          (#3=#:G241 NIL) (|aList| NIL)
           (|transform| (|Mapping| #1# (|Point| (|DoubleFloat|)))) (|graf| ($)))
          (SEQ
           (LETT |graf| (|GRIMAGE;graph| (SPADCALL |opts| NIL (QREFELT $ 17)) $)
@@ -747,8 +750,8 @@
 (SDEFUN |GRIMAGE;coerce;L$;26|
         ((|llp| |List| (|List| (|Point| (|DoubleFloat|)))) ($ $))
         (SPROG
-         ((#1=#:G254 NIL) (|i| NIL) (#2=#:G253 NIL) (#3=#:G252 NIL)
-          (#4=#:G251 NIL) (#5=#:G250 NIL) (|l| (|Integer|)) (#6=#:G249 NIL))
+         ((#1=#:G260 NIL) (|i| NIL) (#2=#:G259 NIL) (#3=#:G258 NIL)
+          (#4=#:G257 NIL) (#5=#:G256 NIL) (|l| (|Integer|)) (#6=#:G255 NIL))
          (SEQ
           (SPADCALL |llp|
                     (PROGN
@@ -801,7 +804,7 @@
 
 (DEFUN |GraphImage| ()
   (SPROG NIL
-         (PROG (#1=#:G257)
+         (PROG (#1=#:G263)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|GraphImage|)
