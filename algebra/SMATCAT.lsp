@@ -64,8 +64,6 @@
                                             ((|FullyLinearlyExplicitRingOver|
                                               |t#2|)
                                              (|has| |t#2| (|Ring|)))
-                                            ((|Module| |t#2|)
-                                             (|has| |t#2| (|CommutativeRing|)))
                                             ((|Algebra| |t#2|)
                                              (|has| |t#2|
                                                     (|CommutativeRing|))))
