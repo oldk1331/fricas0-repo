@@ -471,10 +471,7 @@
                  (SEQ (LETT |k| (|SPADfirst| |l|) . #3=(|ALGMANIP;breakup|))
                       (LETT |a|
                             (|SPADfirst|
-                             (LETT |arg|
-                                   (SPADCALL (LETT |k| (|SPADfirst| |l|) . #3#)
-                                             (QREFELT $ 47))
-                                   . #3#))
+                             (LETT |arg| (SPADCALL |k| (QREFELT $ 47)) . #3#))
                             . #3#)
                       (LETT |n|
                             (SPADCALL (SPADCALL |arg| (QREFELT $ 48))

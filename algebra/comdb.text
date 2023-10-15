@@ -5211,7 +5211,7 @@
 564149`\spad{map(f,{} l..h by k)} produces a value of type \spad{L} by applying \spad{f} to each of the succesive elements of the segment,{} that is,{} \spad{[f(l),{} f(l+k),{} ...,{} f(lN)]},{} where \spad{lN <= h < lN+k}.
 564212`\spad{map(f,{} ts)} does a componentwise conversion of the tensor \spad{ts} to a tensor with components of type \spad{T}.
 564411`\spad{map(f,{} p,{} k)} uses the property \spad{p} of the operator of \spad{k},{} in order to lift \spad{f} and apply it to \spad{k}.
-564679`\spad{map(varmap,{} coefmap,{} p)} takes a \spad{varmap},{} a mapping from the variables of polynomial \spad{p} into \spad{S},{} \spad{coefmap},{} a mapping from coefficients of \spad{p} into \spad{S},{} and \spad{p},{} and produces a member of \spad{S} using the corresponding arithmetic. in \spad{S}.
+564679`\spad{map(varmap,{} coefmap,{} p)} takes a \spad{varmap},{} a mapping from the variables of polynomial \spad{p} into \spad{S},{} \spad{coefmap},{} a mapping from coefficients of \spad{p} into \spad{S},{} and \spad{p},{} and produces a member of \spad{S} using the corresponding arithmetic in \spad{S}.
 564761`\spad{map(f,{} a,{} b)} \undocumented
 564873`\spad{map(f,{} a,{} b)} \undocumented
 564971`\spad{map(fn,{} list1,{} u2)} applies the binary function \spad{fn} to corresponding elements of lists \spad{u1} and \spad{u2} and returns a list of the results (in the same order). Thus \spad{map(/,{} [1,{} 2,{} 3],{} [4,{} 5,{} 6]) = [1/4,{} 2/4,{} 1/2]}. The computation terminates when the end of either list is reached. That is,{} the length of the result list is equal to the minimum of the lengths of \spad{u1} and \spad{u2}
@@ -6026,7 +6026,7 @@
 640752`\spad{order(de)} yields the order of the differential equation \spad{de}.
 640909`\spad{order(f)} \undocumented
 641049`\spad{order(x)} \undocumented
-641147`\spad{order(fd)} return order of divisor \spad{fd} or \spad{"failed"} if \spad{fd} is not of finite order.
+641147`\spad{order(fd)} returns order of divisor \spad{fd} or \spad{"failed"} if \spad{fd} is not of finite order.
 641585`\spad{order(f)} is the degree of the lowest order non-zero term in \spad{f}. This will result in an infinite loop if \spad{f} has no non-zero terms.
 641659`\spad{order x} is the order of magnitude of \spad{x}. Note: \spad{base ^ order x <= |x| < base ^ (1 + order x)}.
 641713`\spad{order(p)} returns the order of the differential polynomial \spad{p},{} which is the maximum number of differentiations of a differential indeterminate,{} among all those appearing in \spad{p}.

@@ -8,7 +8,7 @@
          (COND
           ((SPADCALL (QCSIZE |s|) 15 (QREFELT $ 24))
            (SPADCALL
-            (SPADCALL "WARNING: string for testsuite should have less then "
+            (SPADCALL "WARNING: string for testsuite should have less than "
                       "15 characters!" (QREFELT $ 25))
             (QREFELT $ 27))))
          (SETELT $ 15 |s|)
@@ -22,7 +22,7 @@
           ((SPADCALL (QCSIZE |s|) (- (QREFELT $ 6) (QCSIZE "  Testcase: "))
                      (QREFELT $ 33))
            (SPADCALL
-            (SPADCALL "WARNING: string for testcase should have less then "
+            (SPADCALL "WARNING: string for testcase should have less than "
                       (SPADCALL
                        (STRINGIMAGE (- (QREFELT $ 6) (QCSIZE "  Testcase: ")))
                        " characters!" (QREFELT $ 25))
