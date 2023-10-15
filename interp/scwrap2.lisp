@@ -552,6 +552,7 @@
 ;     $ignored_tab := false
 ;     $ignorable_backset := false
 ;     $maybe_insert_semi := false
+;     $docList := nil
 ;     finish_comment()
 ;     TOKEN_-STACK_-CLEAR()
 ;     parse_new_expr()
@@ -570,6 +571,7 @@
       (SETQ |$ignored_tab| NIL)
       (SETQ |$ignorable_backset| NIL)
       (SETQ |$maybe_insert_semi| NIL)
+      (SETQ |$docList| NIL)
       (|finish_comment|)
       (TOKEN-STACK-CLEAR)
       (|parse_new_expr|)

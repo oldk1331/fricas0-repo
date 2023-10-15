@@ -471,6 +471,10 @@
  
 (DEFVAR |$current_comment_block| NIL)
  
+; DEFVAR($comment_line)
+ 
+(DEFVAR |$comment_line|)
+ 
 ; DEFVAR($last_nonempty_linepos, nil)
  
 (DEFVAR |$last_nonempty_linepos| NIL)
@@ -482,8 +486,7 @@
 ; finish_comment() ==
 ;     NULL($current_comment_block) => nil
 ;     pos :=
-;         $comment_indent = 0 =>
-;             first(rest(rest($linepos))) - 1
+;         $comment_indent = 0 => $comment_line
 ;         first(rest(rest($last_nonempty_linepos)))
 ;     PUSH([pos, :NREVERSE($current_comment_block)], $COMBLOCKLIST)
 ;     $current_comment_block := nil
@@ -495,10 +498,8 @@
            (#1='T
             (PROGN
              (SETQ |pos|
-                     (COND
-                      ((EQL |$comment_indent| 0)
-                       (- (CAR (CDR (CDR |$linepos|))) 1))
-                      (#1# (CAR (CDR (CDR |$last_nonempty_linepos|))))))
+                     (COND ((EQL |$comment_indent| 0) |$comment_line|)
+                           (#1# (CAR (CDR (CDR |$last_nonempty_linepos|))))))
              (PUSH (CONS |pos| (NREVERSE |$current_comment_block|))
                    $COMBLOCKLIST)
              (SETQ |$current_comment_block| NIL)))))))
@@ -864,6 +865,7 @@
 ;       if $spad_scanner then
 ;           if not(n = $comment_indent) then
 ;               finish_comment()
+;           $comment_line := first(rest(rest($linepos)))
 ;           $comment_indent := n
 ;           PUSH(CONCAT(make_full_CVEC(n, '" "), c_str), $current_comment_block)
 ;       res := lfcomment(n, $linepos, c_str)
@@ -880,6 +882,7 @@
       (COND
        (|$spad_scanner|
         (COND ((NULL (EQUAL |n| |$comment_indent|)) (|finish_comment|)))
+        (SETQ |$comment_line| (CAR (CDR (CDR |$linepos|))))
         (SETQ |$comment_indent| |n|)
         (PUSH (CONCAT (|make_full_CVEC| |n| " ") |c_str|)
               |$current_comment_block|)))
