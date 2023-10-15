@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5039 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -169,14 +169,14 @@
  |Heap| |HyperellipticFiniteDivisor| |HeuGcd| |HexadecimalExpansion|
  |HomogeneousAggregate&| |HomogeneousAggregate| |Homology| |HopfAlgebra|
  |HTMLFormat| |HyperbolicFunctionCategory&| |HyperbolicFunctionCategory|
- |InnerAlgFactor| |InnerAlgebraicNumber| |IndexedOneDimensionalArray|
- |IndexedTwoDimensionalArray| |ChineseRemainderToolsForIntegralBases|
- |IntegralBasisTools| |IndexedBits| |IntegralBasisPolynomialTools| |IndexCard|
- |InnerCommonDenominator| |PolynomialIdeal| |IdealDecompositionPackage|
- |IndexedDirectProductCategory| |IndexedDirectProductObject|
- |InnerEigenPackage| |InnerEvalable&| |InnerEvalable| |InnerFreeAbelianMonoid|
- |IndexedFlexibleArray| |InnerFiniteField| |InnerIndexedTwoDimensionalArray|
- |IndexedJetBundle| |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
+ |InnerAlgFactor| |IndexedOneDimensionalArray| |IndexedTwoDimensionalArray|
+ |ChineseRemainderToolsForIntegralBases| |IntegralBasisTools| |IndexedBits|
+ |IntegralBasisPolynomialTools| |IndexCard| |InnerCommonDenominator|
+ |PolynomialIdeal| |IdealDecompositionPackage| |IndexedDirectProductCategory|
+ |IndexedDirectProductObject| |InnerEigenPackage| |InnerEvalable&|
+ |InnerEvalable| |InnerFreeAbelianMonoid| |IndexedFlexibleArray|
+ |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
+ |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
  |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
  |InnerNormalBasisFieldFunctions| |IncidenceAlgebra| |IncrementingMaps|
  |IndexedExponents| |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity|
@@ -462,10 +462,10 @@
  |basisOfCommutingElements| |basisOfLeftAnnihilator| |basisOfRightAnnihilator|
  |basisOfLeftNucleus| |basisOfRightNucleus| |basisOfMiddleNucleus|
  |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid| |basisOfRightNucloid|
- |basisOfCentroid| |radicalOfLeftTraceForm| |showTypeInOutput| |obj| |dom|
- |objectOf| |domainOf| |any| |applyRules| |localUnquote| |vertSplit|
- |blockConcat| |vertConcat| |horizConcat| |squareTop| |swapColumns!|
- |swapRows!| |setsubMatrix!| |setColumn!| |colSlice| |rowSlice|
+ |basisOfCentroid| |radicalOfLeftTraceForm| |trueEqual| |showTypeInOutput|
+ |obj| |dom| |objectOf| |domainOf| |any| |applyRules| |localUnquote|
+ |vertSplit| |blockConcat| |vertConcat| |horizConcat| |squareTop|
+ |swapColumns!| |swapRows!| |setsubMatrix!| |setColumn!| |colSlice| |rowSlice|
  |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
  |associatedEquations| |arrayStack| |morphism| |balancedFactorisation|
  |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree| |sylvesterMatrix|
@@ -665,17 +665,17 @@
  |reorder| |heap| |gcdprim| |gcdcofact| |gcdcofactprim| |lintgcd| |hex|
  |members| |parts| |count| |every?| |any?| |map!| |dispGenerators|
  |homologyzc2| |homologyc2| |homologyzz| |homologyz| |homology0|
- |homologyGroup| |antipode| |trueEqual| |factorList| |listConjugateBases|
- |matrixGcd| |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix|
- |moduleSum| |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan|
- |mapBivariate| |fullDisplay| |relationsIdeal| |saturate| |groebner?|
- |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos| |generalPosition|
- |quotient| |zeroDim?| |inRadical?| |in?| |element?| |zeroDimPrime?|
- |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm| |constructOrdered|
- |leadingSupport| |eigenvector| |generalizedEigenvector| |eigenvalues|
- |eigenvectors| |generalizedEigenvectors| |removeRepeats!| |shrinkable|
- |physicalLength!| |physicalLength| |flexibleArray| |parseILTerm| |parseIL2|
- |parseIL| |proposition| |generalizedInverse| |row_operation_base|
+ |homologyGroup| |antipode| |factorList| |listConjugateBases| |matrixGcd|
+ |divideIfCan!| |leastPower| |idealiser| |idealiserMatrix| |moduleSum|
+ |mapUnivariate| |mapUnivariateIfCan| |mapMatrixIfCan| |mapBivariate|
+ |fullDisplay| |relationsIdeal| |saturate| |groebner?| |groebnerIdeal| |ideal|
+ |leadingIdeal| |backOldPos| |generalPosition| |quotient| |zeroDim?|
+ |inRadical?| |in?| |element?| |zeroDimPrime?| |zeroDimPrimary?| |radical|
+ |primaryDecomp| |leadingTerm| |constructOrdered| |leadingSupport|
+ |eigenvector| |generalizedEigenvector| |eigenvalues| |eigenvectors|
+ |generalizedEigenvectors| |removeRepeats!| |shrinkable| |physicalLength!|
+ |physicalLength| |flexibleArray| |parseILTerm| |parseIL2| |parseIL|
+ |proposition| |generalizedInverse| |row_operation_base|
  |row_operation_modular| |do_modular_solve| |do_poly_integer| |merge_exponents|
  |merge2| |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
  |normal?| |normalElement| |minimalPolynomial| |incidenceAlgebra| |increment|
