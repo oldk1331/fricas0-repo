@@ -678,58 +678,54 @@
               |generic| 324 |coordinates| 355 |convert| 366
               |conditionsForIdempotents| 371 |basis| 380 - 384 * 390)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1))
-                 (CONS
-                  '#(|FramedNonAssociativeAlgebra&|
-                     |FiniteRankNonAssociativeAlgebra&|
-                     |NonAssociativeAlgebra&| |Module&| NIL
-                     |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL
-                     |AbelianMonoid&| |AbelianSemiGroup&| |Magma&|
-                     |SetCategory&| |BasicType&| NIL NIL)
-                  (CONS
-                   '#((|FramedNonAssociativeAlgebra|
-                       (|Fraction| (|Polynomial| 6)))
-                      (|FiniteRankNonAssociativeAlgebra|
-                       (|Fraction| (|Polynomial| 6)))
-                      (|NonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
-                      (|Module| (|Fraction| (|Polynomial| 6)))
-                      (|BiModule| (|Fraction| (|Polynomial| 6))
-                                  (|Fraction| (|Polynomial| 6)))
-                      (|NonAssociativeRng|)
-                      (|LeftModule|
-                       (|SquareMatrix| 7 (|Fraction| (|Polynomial| 6))))
-                      (|RightModule| (|Fraction| (|Polynomial| 6)))
-                      (|LeftModule| (|Fraction| (|Polynomial| 6)))
-                      (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
-                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 113)
-                      (|unitsKnown|))
-                   (|makeByteWordVec2| 103
-                                       '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2
-                                         22 16 0 21 23 3 19 0 0 24 25 26 1 27 0
-                                         19 28 2 32 29 30 31 33 1 0 0 29 34 1
-                                         27 19 0 36 1 0 29 0 37 1 29 38 0 39 2
-                                         42 40 41 38 43 1 22 24 0 44 1 40 21 0
-                                         45 2 40 19 0 21 46 2 47 0 19 19 48 2
-                                         19 0 0 49 50 2 27 0 19 19 51 2 0 0 0 0
-                                         52 1 0 27 0 53 2 0 27 0 0 54 0 0 55 56
-                                         1 58 57 0 59 1 61 0 60 62 1 61 27 0 63
-                                         0 0 27 64 1 0 27 0 65 2 0 27 0 0 66 0
-                                         0 27 67 0 68 0 69 1 0 68 0 72 0 73 0
-                                         74 1 0 68 0 77 0 0 68 78 0 0 68 79 2
-                                         68 0 80 0 81 1 0 68 0 82 1 0 68 0 83 1
-                                         68 84 0 85 2 68 27 0 84 86 1 27 0 0 87
-                                         1 0 27 0 88 1 0 27 0 89 2 0 0 0 0 91 2
-                                         0 29 0 55 92 1 58 21 0 96 2 21 97 0 0
-                                         98 2 0 0 29 55 99 0 3 68 79 1 1 68 0
-                                         77 2 0 0 29 55 99 0 3 68 78 1 1 68 0
-                                         72 2 3 27 0 0 66 1 3 27 0 65 1 3 27 0
-                                         89 1 3 68 0 83 0 3 27 67 2 3 27 0 0 54
-                                         1 3 27 0 53 1 3 27 0 88 1 3 68 0 82 0
-                                         3 27 64 2 0 0 22 55 100 1 0 0 55 90 2
-                                         0 0 16 55 101 1 0 0 16 103 1 0 0 22
-                                         102 0 0 0 95 1 0 29 0 37 2 0 29 0 55
-                                         92 1 0 0 29 34 0 3 40 94 1 3 40 55 93
-                                         0 0 55 56 2 0 0 0 0 91 2 0 0 0 0
-                                         52)))))
+           (CONS
+            (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1))
+            (CONS
+             '#(|FramedNonAssociativeAlgebra&|
+                |FiniteRankNonAssociativeAlgebra&| |NonAssociativeAlgebra&|
+                |Module&| NIL |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&|
+                NIL |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |AbelianSemiGroup&| |Magma&| |SetCategory&| |BasicType&| NIL
+                NIL)
+             (CONS
+              '#((|FramedNonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
+                 (|FiniteRankNonAssociativeAlgebra|
+                  (|Fraction| (|Polynomial| 6)))
+                 (|NonAssociativeAlgebra| (|Fraction| (|Polynomial| 6)))
+                 (|Module| (|Fraction| (|Polynomial| 6)))
+                 (|BiModule| (|Fraction| (|Polynomial| 6))
+                             (|Fraction| (|Polynomial| 6)))
+                 (|NonAssociativeRng|)
+                 (|LeftModule|
+                  (|SquareMatrix| 7 (|Fraction| (|Polynomial| 6))))
+                 (|RightModule| (|Fraction| (|Polynomial| 6)))
+                 (|LeftModule| (|Fraction| (|Polynomial| 6))) (|AbelianGroup|)
+                 (|CancellationAbelianMonoid|) (|NonAssociativeSemiRng|)
+                 (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
+                 (|SetCategory|) (|BasicType|) (|CoercibleTo| 113)
+                 (|unitsKnown|))
+              (|makeByteWordVec2| 103
+                                  '(1 12 10 11 13 1 16 0 15 17 0 19 0 20 2 22
+                                    16 0 21 23 3 19 0 0 24 25 26 1 27 0 19 28 2
+                                    32 29 30 31 33 1 0 0 29 34 1 27 19 0 36 1 0
+                                    29 0 37 1 29 38 0 39 2 42 40 41 38 43 1 22
+                                    24 0 44 1 40 21 0 45 2 40 19 0 21 46 2 47 0
+                                    19 19 48 2 19 0 0 49 50 2 27 0 19 19 51 2 0
+                                    0 0 0 52 1 0 27 0 53 2 0 27 0 0 54 0 0 55
+                                    56 1 58 57 0 59 1 61 0 60 62 1 61 27 0 63 0
+                                    0 27 64 1 0 27 0 65 2 0 27 0 0 66 0 0 27 67
+                                    0 68 0 69 1 0 68 0 72 0 73 0 74 1 0 68 0 77
+                                    0 0 68 78 0 0 68 79 2 68 0 80 0 81 1 0 68 0
+                                    82 1 0 68 0 83 1 68 84 0 85 2 68 27 0 84 86
+                                    1 27 0 0 87 1 0 27 0 88 1 0 27 0 89 2 0 0 0
+                                    0 91 2 0 29 0 55 92 1 58 21 0 96 2 21 97 0
+                                    0 98 2 0 0 29 55 99 0 3 68 79 1 1 68 0 77 2
+                                    0 0 29 55 99 0 3 68 78 1 1 68 0 72 2 3 27 0
+                                    0 66 1 3 27 0 65 1 3 27 0 89 1 3 68 0 83 0
+                                    3 27 67 2 3 27 0 0 54 1 3 27 0 53 1 3 27 0
+                                    88 1 3 68 0 82 0 3 27 64 2 0 0 22 55 100 1
+                                    0 0 55 90 2 0 0 16 55 101 1 0 0 16 103 1 0
+                                    0 22 102 0 0 0 95 1 0 29 0 37 2 0 29 0 55
+                                    92 1 0 0 29 34 0 3 40 94 1 3 40 55 93 0 0
+                                    55 56 2 0 0 0 0 91 2 0 0 0 0 52)))))
            '|lookupIncomplete|)) 

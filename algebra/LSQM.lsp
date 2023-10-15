@@ -381,7 +381,7 @@
            (CONS
             (|makeByteWordVec2| 14
                                 '(0 0 0 0 0 1 3 3 0 3 4 5 6 0 7 0 0 0 3 7 0 0 2
-                                  0 0 2 0 0 0 0 8 0 0 0 14 0 0 0 0 0 0 8 14 9
+                                  0 0 0 2 0 0 0 0 8 0 0 0 14 0 0 0 0 0 0 8 14 9
                                   10 3))
             (CONS
              '#(|FramedNonAssociativeAlgebra&| |SquareMatrixCategory&|
@@ -391,11 +391,11 @@
                 |Module&| NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL |Ring&| |NonAssociativeRng&| NIL NIL
                 NIL |Rng&| |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
-                |Monoid&| |Magma&| |HomogeneousAggregate&| |AbelianSemiGroup&|
-                |SemiGroup&| |Finite&| |FullyRetractableTo&| |Aggregate&|
-                |SetCategory&| |Evalable&| NIL |RetractableTo&| NIL NIL
-                |BasicType&| NIL NIL |InnerEvalable&| |RetractableTo&|
-                |RetractableTo&| NIL)
+                |NonAssociativeSemiRng&| |Monoid&| |Magma&|
+                |HomogeneousAggregate&| |AbelianSemiGroup&| |SemiGroup&|
+                |Finite&| |FullyRetractableTo&| |Aggregate&| |SetCategory&|
+                |Evalable&| NIL |RetractableTo&| NIL NIL |BasicType&| NIL NIL
+                |InnerEvalable&| |RetractableTo&| |RetractableTo&| NIL)
              (CONS
               '#((|FramedNonAssociativeAlgebra| 7)
                  (|SquareMatrixCategory| 6 7 (|DirectProduct| 6 7)
@@ -411,10 +411,11 @@
                  (|BiModule| 7 7) (|Ring|) (|NonAssociativeRng|)
                  (|RightModule| 7) (|LeftModule| 7) (|LeftModule| $$) (|Rng|)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|SemiRng|) (|AbelianMonoid|) (|Monoid|) (|Magma|)
-                 (|HomogeneousAggregate| 7) (|AbelianSemiGroup|) (|SemiGroup|)
-                 (|Finite|) (|FullyRetractableTo| 7) (|Aggregate|)
-                 (|SetCategory|) (|Evalable| 7) (|CoercibleTo| (|Matrix| 7))
+                 (|SemiRng|) (|AbelianMonoid|) (|NonAssociativeSemiRng|)
+                 (|Monoid|) (|Magma|) (|HomogeneousAggregate| 7)
+                 (|AbelianSemiGroup|) (|SemiGroup|) (|Finite|)
+                 (|FullyRetractableTo| 7) (|Aggregate|) (|SetCategory|)
+                 (|Evalable| 7) (|CoercibleTo| (|Matrix| 7))
                  (|RetractableTo| 7) (|finiteAggregate|) (|Type|) (|BasicType|)
                  (|CoercibleTo| 77) (|ConvertibleTo| 59) (|InnerEvalable| 7 7)
                  (|RetractableTo| 65) (|RetractableTo| 12) (|unitsKnown|))
@@ -472,7 +473,7 @@
                                     1 1 16 0 0 1 3 17 0 0 50 51 1 2 17 0 0 50 1
                                     3 17 0 0 52 43 1 2 17 0 0 52 1 3 3 0 0 54
                                     43 1 2 3 0 0 54 1 2 0 27 0 0 1 2 19 0 0 7 1
-                                    1 0 0 0 1 2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 12
+                                    2 0 0 0 0 1 1 0 0 0 1 2 0 0 0 0 1 2 0 0 12
                                     0 1 2 0 70 70 0 1 2 0 70 0 70 1 2 0 0 0 7 1
                                     2 0 0 7 0 1 2 0 0 43 0 1 2 0 0 0 0 1 2 0 0
                                     32 0 1 1 22 43 0 1)))))

@@ -1,23 +1,20 @@
 
-(DECLAIM (NOTINLINE |NonAssociativeRing;|)) 
+(DECLAIM (NOTINLINE |NonAssociativeSemiRing;|)) 
 
-(DEFPARAMETER |NonAssociativeRing;AL| 'NIL) 
+(DEFPARAMETER |NonAssociativeSemiRing;AL| 'NIL) 
 
-(DEFUN |NonAssociativeRing| ()
+(DEFUN |NonAssociativeSemiRing| ()
   (LET (#:G106)
-    (COND (|NonAssociativeRing;AL|)
-          (T (SETQ |NonAssociativeRing;AL| (|NonAssociativeRing;|)))))) 
+    (COND (|NonAssociativeSemiRing;AL|)
+          (T (SETQ |NonAssociativeSemiRing;AL| (|NonAssociativeSemiRing;|)))))) 
 
-(DEFUN |NonAssociativeRing;| ()
+(DEFUN |NonAssociativeSemiRing;| ()
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|NonAssociativeRng|) (|MagmaWithUnit|)
-                           (|mkCategory|
-                            '(((|characteristic| ((|NonNegativeInteger|))) T)
-                              ((|coerce| ($ (|Integer|))) T))
-                            NIL '((|Integer|) (|NonNegativeInteger|)) NIL))
-                   |NonAssociativeRing|)
-           (SETELT #1# 0 '(|NonAssociativeRing|))))) 
+                   (|Join| (|NonAssociativeSemiRng|) (|AbelianMonoid|)
+                           (|MagmaWithUnit|))
+                   |NonAssociativeSemiRing|)
+           (SETELT #1# 0 '(|NonAssociativeSemiRing|))))) 
 
-(MAKEPROP '|NonAssociativeRing| 'NILADIC T) 
+(MAKEPROP '|NonAssociativeSemiRing| 'NILADIC T) 

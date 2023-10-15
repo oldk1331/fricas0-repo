@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4871 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4874 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -248,8 +248,9 @@
  |MultisetAggregate| |MoreSystemCommands| |MergeThing|
  |MultivariateTaylorSeriesCategory&| |MultivariateTaylorSeriesCategory|
  |MultiplicativeDependence| |MultivariateFactorize| |MultivariateSquareFree|
- |NonAssociativeAlgebra&| |NonAssociativeAlgebra| |NonAssociativeRng&|
- |NonAssociativeRng| |NonAssociativeRing&| |NonAssociativeRing|
+ |NonAssociativeAlgebra&| |NonAssociativeAlgebra| |NonAssociativeRing&|
+ |NonAssociativeRing| |NonAssociativeRng&| |NonAssociativeRng|
+ |NonAssociativeSemiRing| |NonAssociativeSemiRng&| |NonAssociativeSemiRng|
  |NaiveBeckermannLabahnModular| |NumericComplexEigenPackage|
  |NumericContinuedFraction| |NewtonInterpolation| |NumberFieldIntegralBasis|
  |NGroebnerPackage| |NonLinearSolvePackage| |NonNegativeInteger|
@@ -757,18 +758,17 @@
  |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0|
  |members| |multiset| |systemCommand| |mergeDifference| |logDependenceQ|
  |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose|
- |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |antiCommutator|
- |commutator| |associator| |naiveBeckermannLabahn|
- |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
- |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
- |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
- |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
- |normInvertible?| |normFactors| |npcoef| |characteristicPolynomial|
- |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
- |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
- |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
- |complexNumeric| |numericIfCan| |complexNumericIfCan| |FormatArabic|
- |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |commutator| |associator|
+ |antiCommutator| |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
+ |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
+ |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
+ |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
+ |outputArgs| |normInvertible?| |normFactors| |npcoef|
+ |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
+ |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
+ |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
+ |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
+ |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
  |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
  |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
  |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|

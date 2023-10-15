@@ -361,18 +361,20 @@
               |coerce| 255 |associator| 260 |antiCommutator| 267 ^ 273 |Zero|
               279 = 283 - 289 + 300 * 306)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|NonAssociativeAlgebra&| |Module&| NIL
                      |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL
-                     |AbelianMonoid&| |AbelianSemiGroup&| |Magma&|
-                     |SetCategory&| |BasicType&| NIL)
+                     |NonAssociativeSemiRng&| |AbelianMonoid&|
+                     |AbelianSemiGroup&| |Magma&| |SetCategory&| |BasicType&|
+                     NIL)
                   (CONS
                    '#((|NonAssociativeAlgebra| 8) (|Module| 8) (|BiModule| 8 8)
                       (|NonAssociativeRng|) (|RightModule| 8) (|LeftModule| 8)
                       (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
-                      (|SetCategory|) (|BasicType|) (|CoercibleTo| 46))
+                      (|NonAssociativeSemiRng|) (|AbelianMonoid|)
+                      (|AbelianSemiGroup|) (|Magma|) (|SetCategory|)
+                      (|BasicType|) (|CoercibleTo| 46))
                    (|makeByteWordVec2| 60
                                        '(2 12 10 11 11 13 2 10 16 0 17 18 2 16
                                          17 0 17 19 2 17 20 0 0 21 0 0 0 22 1
@@ -391,8 +393,8 @@
                                          58 58 0 1 1 0 60 0 1 1 0 0 11 29 0 0
                                          11 15 1 0 46 0 55 2 0 0 0 0 1 1 0 46 0
                                          1 3 0 0 0 0 0 1 2 0 0 0 0 1 2 0 0 0 56
-                                         1 0 0 0 22 2 0 20 0 0 30 1 0 0 0 36 2
-                                         0 0 0 0 38 2 0 0 0 0 39 2 0 0 0 8 1 2
-                                         0 0 8 0 35 2 0 0 0 0 40 2 0 0 17 0 1 2
-                                         0 0 11 0 1 2 0 0 56 0 1)))))
+                                         1 0 0 0 22 2 0 20 0 0 30 2 0 0 0 0 38
+                                         1 0 0 0 36 2 0 0 0 0 39 2 0 0 0 8 1 2
+                                         0 0 8 0 35 2 0 0 11 0 1 2 0 0 17 0 1 2
+                                         0 0 0 0 40 2 0 0 56 0 1)))))
            '|lookupComplete|)) 

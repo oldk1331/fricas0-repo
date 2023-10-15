@@ -12,11 +12,10 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|AbelianGroup|) (|Magma|)
+                   (|Join| (|NonAssociativeSemiRng|) (|AbelianGroup|)
                            (|mkCategory|
                             '(((|associator| ($ $ $ $)) T)
-                              ((|commutator| ($ $ $)) T)
-                              ((|antiCommutator| ($ $ $)) T))
+                              ((|commutator| ($ $ $)) T))
                             NIL 'NIL NIL))
                    |NonAssociativeRng|)
            (SETELT #1# 0 '(|NonAssociativeRng|))))) 
