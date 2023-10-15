@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |AbelianMonoidRing;AL| 'NIL) 
 
-(DEFUN |AbelianMonoidRing| (&REST #1=#:G107)
-  (LET (#2=#:G108)
+(DEFUN |AbelianMonoidRing| (&REST #1=#:G108)
+  (LET (#2=#:G109)
     (COND
      ((SETQ #2# (|assoc| #3=(|devaluateList| #1#) |AbelianMonoidRing;AL|))
       (CDR #2#))
@@ -17,7 +17,7 @@
       #2#)))) 
 
 (DEFUN |AbelianMonoidRing;| (|t#1| |t#2|)
-  (SPROG ((#1=#:G106 NIL))
+  (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV|
