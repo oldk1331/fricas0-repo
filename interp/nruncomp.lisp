@@ -948,7 +948,6 @@
 ;             res := [nc]
 ;             return first(res)
 ;         res := cons(nc, res)
-;         res := cons(nc, res)
 ;     res = [] => true
 ;     #res = 1 => first(res)
 ;     ["AND", :nreverse(res)]
@@ -969,10 +968,7 @@
              (COND ((EQUAL |nc| T) '|iterate|)
                    ((NULL |nc|)
                     (PROGN (SETQ |res| (LIST |nc|)) (RETURN (CAR |res|))))
-                   (#1#
-                    (PROGN
-                     (SETQ |res| (CONS |nc| |res|))
-                     (SETQ |res| (CONS |nc| |res|))))))))
+                   (#1# (SETQ |res| (CONS |nc| |res|)))))))
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
        |l| NIL)
       (COND ((NULL |res|) T) ((EQL (LENGTH |res|) 1) (CAR |res|))
