@@ -1155,7 +1155,7 @@
 ;       d:= APP(BLANK,x,y,d)
 ;       x:= x+1
 ;     [d,x]:= appInfixArg(arg,x,y,d,rightPrec,"left",nil) --app in a right arg
-;     wasSimple := atom arg and not NUMBERP arg
+;     wasSimple := atom arg and not NUMBERP arg or keyp arg = "OVERBAR"
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     lastOp := op
@@ -1189,7 +1189,9 @@
                      (|appInfixArg| |arg| |x| |y| |d| |rightPrec| '|left| NIL))
              (SETQ |d| (CAR |LETTMP#1|))
              (SETQ |x| (CADR |LETTMP#1|))
-             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
+             (SETQ |wasSimple|
+                     (OR (AND (ATOM |arg|) (NULL (NUMBERP |arg|)))
+                         (EQ (|keyp| |arg|) 'OVERBAR)))
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
@@ -1523,7 +1525,7 @@
 ; needStar(wasSimple,wasQuotient,wasNumber,cur,op) ==
 ;   wasNumber or wasQuotient or isQuotient op => true
 ;   wasSimple =>
-;     atom cur or keyp cur="SUB" or op="**" or
+;     atom cur or keyp cur="SUB" or keyp cur = "OVERBAR" or op="**" or
 ;       op = "^" or (atom op and not NUMBERP op and not GETL(op,"APP"))
  
 (DEFUN |needStar| (|wasSimple| |wasQuotient| |wasNumber| |cur| |op|)
@@ -1531,8 +1533,8 @@
     (RETURN
      (COND ((OR |wasNumber| |wasQuotient| (|isQuotient| |op|)) T)
            (|wasSimple|
-            (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB) (EQ |op| '**)
-                (EQ |op| '^)
+            (OR (ATOM |cur|) (EQ (|keyp| |cur|) 'SUB)
+                (EQ (|keyp| |cur|) 'OVERBAR) (EQ |op| '**) (EQ |op| '^)
                 (AND (ATOM |op|) (NULL (NUMBERP |op|))
                      (NULL (GETL |op| 'APP)))))))))
  
@@ -1553,7 +1555,7 @@
 ;       w:= w+1
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
-;     wasSimple := atom arg and not NUMBERP arg
+;     wasSimple := atom arg and not NUMBERP arg or keyp arg = "OVERBAR"
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
 ;     lastOp := op
@@ -1588,7 +1590,9 @@
               ((|infixArgNeedsParens| |arg| |rightPrec| '|left|)
                (SETQ |w| (+ |w| 2))))
              (SETQ |w| (+ |w| (WIDTH |arg|)))
-             (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
+             (SETQ |wasSimple|
+                     (OR (AND (ATOM |arg|) (NULL (NUMBERP |arg|)))
+                         (EQ (|keyp| |arg|) 'OVERBAR)))
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
              (SETQ |lastOp| |op|)
