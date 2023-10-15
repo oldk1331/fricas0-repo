@@ -1676,7 +1676,7 @@
         ((|of| |OutputForm|) ($ |List| (|String|)))
         (SPROG ((|ol| (|List| (|OutputForm|))))
                (SEQ
-                (LETT |ol| (|exp2FortOptimize| (|outputTran2| |of|))
+                (LETT |ol| (|exp2FortOptimize| (SPADCALL |of| (QREFELT $ 95)))
                       |FCTOOL;do_expression_to_fortran|)
                 (EXIT
                  (|FCTOOL;fortranCleanUp|
@@ -1703,13 +1703,13 @@
 (SDEFUN |FCTOOL;statement2Fortran;OfL;49|
         ((|of| |OutputForm|) ($ |List| (|String|)))
         (SPADCALL (LIST #'|FCTOOL;statement2Fortran;OfL;49!0|) |of| 'NIL
-                  (QREFELT $ 96))) 
+                  (QREFELT $ 97))) 
 
 (SDEFUN |FCTOOL;statement2Fortran;OfL;49!0| (($$ NIL)) 'DUMMY) 
 
 (SDEFUN |FCTOOL;expression2Fortran;OfL;50|
         ((|of| |OutputForm|) ($ |List| (|String|)))
-        (SPADCALL (ELT $ 15) |of| 'NIL (QREFELT $ 96))) 
+        (SPADCALL (ELT $ 15) |of| 'NIL (QREFELT $ 97))) 
 
 (PUT '|FCTOOL;changeExprLength;IV;51| '|SPADreplace| '|changeExprLength|) 
 
@@ -1729,7 +1729,7 @@
         (PROG (|of| $)
           (LETT |of| (QREFELT $$ 1) . #1=(|FCTOOL;getStatement;OfBL;52|))
           (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |of| (QREFELT $ 97)))))) 
+          (RETURN (PROGN (SPADCALL |of| (QREFELT $ 98)))))) 
 
 (PUT '|FCTOOL;displayLines;LV;53| '|SPADreplace| '|displayLines|) 
 
@@ -1744,9 +1744,9 @@
 (SDEFUN |FCTOOL;dispStatement;OfV;55| ((|of| |OutputForm|) ($ |Void|))
         (SPROG ((|l| (|List| (|String|))))
                (SEQ
-                (LETT |l| (SPADCALL |of| 'NIL (QREFELT $ 100))
+                (LETT |l| (SPADCALL |of| 'NIL (QREFELT $ 101))
                       |FCTOOL;dispStatement;OfV;55|)
-                (EXIT (SPADCALL |l| (QREFELT $ 102)))))) 
+                (EXIT (SPADCALL |l| (QREFELT $ 103)))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead1|
         ((|name| |Symbol|) (|asp| |List| (|String|)) (|args| |List| (|Symbol|))
@@ -1774,7 +1774,7 @@
                                 (EXIT (NREVERSE #2#))))
                           (QREFELT $ 48))
                 . #3#)
-          (EXIT (APPEND |asp| (SPADCALL |of| (QREFELT $ 97))))))) 
+          (EXIT (APPEND |asp| (SPADCALL |of| (QREFELT $ 98))))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead;SULV;57|
         ((|name| |Symbol|)
@@ -1790,7 +1790,7 @@
             (SEQ
              (LETT |asp| (LIST "SUBROUTINE ")
                    . #2=(|FCTOOL;fortFormatHead;SULV;57|))
-             (EXIT (SPADCALL (LETT |l| -11 . #2#) (QREFELT $ 99)))))
+             (EXIT (SPADCALL (LETT |l| -11 . #2#) (QREFELT $ 100)))))
            ('T
             (SEQ
              (LETT |s|
@@ -1803,21 +1803,21 @@
                                         (|:| |fst| (|FortranScalarType|))
                                         (|:| |void| "void"))
                                        #1#))
-                     (QREFELT $ 104))
+                     (QREFELT $ 105))
                     (QREFELT $ 16))
                    . #2#)
              (LETT |asp| (LIST |s| " FUNCTION ") . #2#)
              (EXIT
               (SPADCALL (LETT |l| (- -10 (QCSIZE |s|)) . #2#)
-                        (QREFELT $ 99))))))
+                        (QREFELT $ 100))))))
           (LETT |lines|
                 (SPADCALL
                  (CONS #'|FCTOOL;fortFormatHead;SULV;57!0|
                        (VECTOR $ |args| |asp| |name|))
                  (QREFELT $ 94))
                 . #2#)
-          (SPADCALL |lines| (QREFELT $ 102))
-          (EXIT (SPADCALL (- |l|) (QREFELT $ 99)))))) 
+          (SPADCALL |lines| (QREFELT $ 103))
+          (EXIT (SPADCALL (- |l|) (QREFELT $ 100)))))) 
 
 (SDEFUN |FCTOOL;fortFormatHead;SULV;57!0| (($$ NIL))
         (PROG (|name| |asp| |args| $)
@@ -1877,7 +1877,7 @@
                       (CONS |typeName| (CONS " " (|FCTOOL;addCommas| |l| $)))
                       |FCTOOL;fortFormatTypeLines;SLV;60|)
                 (EXIT
-                 (SPADCALL (SPADCALL |l1| (QREFELT $ 88)) (QREFELT $ 101)))))) 
+                 (SPADCALL (SPADCALL |l1| (QREFELT $ 88)) (QREFELT $ 102)))))) 
 
 (SDEFUN |FCTOOL;fortFormatTypes1|
         ((|typeName| |String|) (|names| |List| (|String|)) ($ |Void|))
@@ -1911,9 +1911,9 @@
                                       . #1#)
                                 (EXIT (LETT |names| (CDR |names|) . #1#)))
                                NIL (GO G190) G191 (EXIT NIL))
-                          (EXIT (SPADCALL |typeName| |n| (QREFELT $ 107))))
+                          (EXIT (SPADCALL |typeName| |n| (QREFELT $ 108))))
                      NIL (GO G190) G191 (EXIT NIL))
-                (EXIT (SPADCALL |typeName| |names| (QREFELT $ 107)))))) 
+                (EXIT (SPADCALL |typeName| |names| (QREFELT $ 108)))))) 
 
 (SDEFUN |FCTOOL;par2string2| ((|u| |List| (|OutputForm|)) ($ |String|))
         (SPROG
@@ -1930,15 +1930,15 @@
                       (SEQ
                        (EXIT
                         (LETT #2#
-                              (CONS (CONS "," (SPADCALL |v| (QREFELT $ 97)))
+                              (CONS (CONS "," (SPADCALL |v| (QREFELT $ 98)))
                                     #2#)
                               . #3#)))
                       (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                       (EXIT (NREVERSE #2#))))
                 . #3#)
           (LETT |l|
-                (SPADCALL (CDR (SPADCALL |ll| (QREFELT $ 108))) ")"
-                          (QREFELT $ 109))
+                (SPADCALL (CDR (SPADCALL |ll| (QREFELT $ 109))) ")"
+                          (QREFELT $ 110))
                 . #3#)
           (EXIT
            (SPADCALL (APPEND (LIST (STRINGIMAGE (|SPADfirst| |u|)) "(") |l|)
@@ -2000,15 +2000,15 @@
          ($ |Void|))
         (SPROG ((|u| (|Union| (|List| (|OutputForm|)) "failed")))
                (SEQ
-                (LETT |u| (SPADCALL |m| |Tabl| (QREFELT $ 112))
+                (LETT |u| (SPADCALL |m| |Tabl| (QREFELT $ 113))
                       |FCTOOL;insertEntry|)
                 (EXIT
                  (COND
                   ((QEQCAR |u| 1)
-                   (SPADCALL |Tabl| |m| (LIST |n|) (QREFELT $ 113)))
+                   (SPADCALL |Tabl| |m| (LIST |n|) (QREFELT $ 114)))
                   ('T
                    (SPADCALL |Tabl| |m| (CONS |n| (QCDR |u|))
-                             (QREFELT $ 113)))))))) 
+                             (QREFELT $ 114)))))))) 
 
 (SDEFUN |FCTOOL;fortFormatCharacterTypes|
         ((|names| |List| (|OutputForm|)) ($ |Void|))
@@ -2019,7 +2019,7 @@
           (|sortedByLength|
            (|AssociationList| (|Integer|) (|List| (|OutputForm|)))))
          (SEQ
-          (LETT |sortedByLength| (SPADCALL (QREFELT $ 114))
+          (LETT |sortedByLength| (SPADCALL (QREFELT $ 115))
                 . #3=(|FCTOOL;fortFormatCharacterTypes|))
           (LETT |genuineArrays| NIL . #3#)
           (SEQ (LETT |u| NIL . #3#) (LETT #2# |names| . #3#) G190
@@ -2043,7 +2043,7 @@
                                  . #3#)))))))))
                (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
           (SEQ (LETT |u2| NIL . #3#)
-               (LETT #1# (SPADCALL |sortedByLength| (QREFELT $ 117)) . #3#)
+               (LETT #1# (SPADCALL |sortedByLength| (QREFELT $ 118)) . #3#)
                G190
                (COND
                 ((OR (ATOM #1#) (PROGN (LETT |u2| (CAR #1#) . #3#) NIL))
@@ -2087,7 +2087,7 @@
 (SDEFUN |FCTOOL;fort_format_types;SLV;71|
         ((|typeName| |String|) (|names| |List| (|OutputForm|)) ($ |Void|))
         (SPROG NIL
-               (COND ((NULL |names|) (SPADCALL (QREFELT $ 118)))
+               (COND ((NULL |names|) (SPADCALL (QREFELT $ 119)))
                      ('T
                       (SPADCALL
                        (CONS #'|FCTOOL;fort_format_types;SLV;71!0|
@@ -2130,7 +2130,7 @@
   (SPROG ((|dv$| NIL) ($ NIL) (|pv$| NIL))
          (PROGN
           (LETT |dv$| '(|FortranCodeTools|) . #1=(|FortranCodeTools|))
-          (LETT $ (GETREFV 120) . #1#)
+          (LETT $ (GETREFV 121) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|FortranCodeTools| NIL (CONS 1 $))
@@ -2205,36 +2205,36 @@
               (|Mapping| 51) |FCTOOL;do_with_error_env3;MV;43| (|Mapping| 33)
               |FCTOOL;do_with_error_env2;BML;44|
               |FCTOOL;do_with_error_env0;ML;45|
-              |FCTOOL;do_with_error_env1;ML;46| (|Mapping| 7)
-              |FCTOOL;expression2Fortran1;MOfBL;48|
+              |FCTOOL;do_with_error_env1;ML;46| (230 . |precondition|)
+              (|Mapping| 7) |FCTOOL;expression2Fortran1;MOfBL;48|
               |FCTOOL;statement2Fortran;OfL;49|
               |FCTOOL;expression2Fortran;OfL;50|
               |FCTOOL;changeExprLength;IV;51| |FCTOOL;getStatement;OfBL;52|
               |FCTOOL;displayLines;LV;53| |FCTOOL;displayLines1;LV;54|
-              |FCTOOL;dispStatement;OfV;55| (230 . |coerce|)
+              |FCTOOL;dispStatement;OfV;55| (235 . |coerce|)
               (|Union| (|:| |fst| 9) (|:| |void| '"void"))
               |FCTOOL;fortFormatHead;SULV;57|
-              |FCTOOL;fortFormatTypeLines;SLV;60| (235 . |concat|)
-              (240 . |concat|) (|Union| 29 '"failed") (|AssociationList| 31 29)
-              (246 . |search|) (252 . |setelt!|) (259 . |empty|)
-              (|Record| (|:| |key| 31) (|:| |entry| 29)) (|List| 115)
-              (263 . |entries|) (268 . |void|)
+              |FCTOOL;fortFormatTypeLines;SLV;60| (240 . |concat|)
+              (245 . |concat|) (|Union| 29 '"failed") (|AssociationList| 31 29)
+              (251 . |search|) (257 . |setelt!|) (264 . |empty|)
+              (|Record| (|:| |key| 31) (|:| |entry| 29)) (|List| 116)
+              (268 . |entries|) (273 . |void|)
               |FCTOOL;fort_format_types;SLV;71|)
-           '#(|statement2Fortran| 272 |newFortranTempVar| 277 |indentFortLevel|
-              281 |get_used_intrinsics| 286 |get_fort_indent| 290
-              |getStatement| 294 |fort_format_types| 300 |fort_clean_lines| 306
-              |fortFormatTypeLines| 311 |fortFormatHead| 317
-              |expression2Fortran1| 324 |expression2Fortran| 331
-              |do_with_error_env3| 336 |do_with_error_env2| 341
-              |do_with_error_env1| 347 |do_with_error_env0| 352 |displayLines1|
-              357 |displayLines| 362 |dispStatement| 367
-              |clear_used_intrinsics| 372 |checkType| 376 |changeExprLength|
-              381)
+           '#(|statement2Fortran| 277 |newFortranTempVar| 282 |indentFortLevel|
+              286 |get_used_intrinsics| 291 |get_fort_indent| 295
+              |getStatement| 299 |fort_format_types| 305 |fort_clean_lines| 311
+              |fortFormatTypeLines| 316 |fortFormatHead| 322
+              |expression2Fortran1| 329 |expression2Fortran| 336
+              |do_with_error_env3| 341 |do_with_error_env2| 346
+              |do_with_error_env1| 352 |do_with_error_env0| 357 |displayLines1|
+              362 |displayLines| 367 |dispStatement| 372
+              |clear_used_intrinsics| 377 |checkType| 381 |changeExprLength|
+              386)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 119
+                             (|makeByteWordVec2| 120
                                                  '(1 7 0 6 8 1 9 0 7 10 1 11 0
                                                    9 12 2 13 11 7 11 14 1 26 24
                                                    25 27 1 26 25 25 28 1 26 29
@@ -2255,22 +2255,23 @@
                                                    75 1 76 0 31 77 2 6 0 0 76
                                                    78 2 39 24 0 0 79 0 7 0 80 2
                                                    31 0 83 0 84 2 76 0 31 31 86
-                                                   2 6 24 0 0 87 1 9 6 0 104 1
-                                                   33 0 47 108 2 33 0 0 6 109 2
-                                                   111 110 31 0 112 3 111 29 0
-                                                   31 29 113 0 111 0 114 1 111
-                                                   116 0 117 0 51 0 118 1 0 33
-                                                   25 97 0 0 7 15 1 0 51 31 85
-                                                   0 0 33 54 0 0 31 82 2 0 33
-                                                   25 24 100 2 0 51 6 29 119 1
-                                                   0 33 33 88 2 0 51 6 33 107 3
-                                                   0 51 7 105 55 106 3 0 33 95
-                                                   25 24 96 1 0 33 25 98 1 0 51
-                                                   89 90 2 0 33 24 91 92 1 0 33
-                                                   91 94 1 0 33 91 93 1 0 51 33
-                                                   102 1 0 51 33 101 1 0 51 25
-                                                   103 0 0 51 52 1 0 6 6 16 1 0
-                                                   51 31 99)))))
+                                                   2 6 24 0 0 87 1 26 25 25 95
+                                                   1 9 6 0 105 1 33 0 47 109 2
+                                                   33 0 0 6 110 2 112 111 31 0
+                                                   113 3 112 29 0 31 29 114 0
+                                                   112 0 115 1 112 117 0 118 0
+                                                   51 0 119 1 0 33 25 98 0 0 7
+                                                   15 1 0 51 31 85 0 0 33 54 0
+                                                   0 31 82 2 0 33 25 24 101 2 0
+                                                   51 6 29 120 1 0 33 33 88 2 0
+                                                   51 6 33 108 3 0 51 7 106 55
+                                                   107 3 0 33 96 25 24 97 1 0
+                                                   33 25 99 1 0 51 89 90 2 0 33
+                                                   24 91 92 1 0 33 91 94 1 0 33
+                                                   91 93 1 0 51 33 103 1 0 51
+                                                   33 102 1 0 51 25 104 0 0 51
+                                                   52 1 0 6 6 16 1 0 51 31
+                                                   100)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|FortranCodeTools| 'NILADIC T) 
