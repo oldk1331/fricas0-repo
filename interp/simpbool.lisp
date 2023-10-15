@@ -3,10 +3,10 @@
  
 (IN-PACKAGE "BOOT")
  
-; simpBool x == dnf2pf reduceDnf b2dnf x
+; simpBool x == dnf_to_pf reduceDnf b_to_dnf x
  
 (DEFUN |simpBool| (|x|)
-  (PROG () (RETURN (|dnf2pf| (|reduceDnf| (|b2dnf| |x|))))))
+  (PROG () (RETURN (|dnf_to_pf| (|reduceDnf| (|b_to_dnf| |x|))))))
  
 ; reduceDnf u ==
 ; -- (OR (AND ..b..) b) ==> (OR  b  )
@@ -77,14 +77,14 @@
          (SETQ |bfVar#3| (CDR |bfVar#3|))))
       T |y| NIL))))
  
-; dnf2pf(x) ==
+; dnf_to_pf(x) ==
 ;   x = 'true => 'T
 ;   x = 'false => nil
 ;   atom x => x
 ;   MKPF(
 ;     [MKPF([:[k for k in b],:[['not,k] for k in a]],'AND) for [a,b] in x],'OR)
  
-(DEFUN |dnf2pf| (|x|)
+(DEFUN |dnf_to_pf| (|x|)
   (PROG (|a| |ISTMP#1| |b|)
     (RETURN
      (COND ((EQ |x| '|true|) 'T) ((EQ |x| '|false|) NIL) ((ATOM |x|) |x|)
@@ -140,7 +140,7 @@
               NIL |x| NIL)
              'OR))))))
  
-; b2dnf x ==
+; b_to_dnf x ==
 ;   x = 'T => 'true
 ;   x = NIL => 'false
 ;   atom x => bassert x
@@ -150,7 +150,7 @@
 ;   MEMQ(op,'(NOT not)) => bnot first argl
 ;   bassert x
  
-(DEFUN |b2dnf| (|x|)
+(DEFUN |b_to_dnf| (|x|)
   (PROG (|op| |argl|)
     (RETURN
      (COND ((EQ |x| 'T) '|true|) ((NULL |x|) '|false|)
@@ -165,7 +165,7 @@
                    (#1# (|bassert| |x|)))))))))
  
 ; band x ==
-;   x is [h,:t] => andDnf(b2dnf h,band t)
+;   x is [h, :t] => andDnf(b_to_dnf h, band t)
 ;   'true
  
 (DEFUN |band| (|x|)
@@ -174,11 +174,11 @@
      (COND
       ((AND (CONSP |x|)
             (PROGN (SETQ |h| (CAR |x|)) (SETQ |t| (CDR |x|)) #1='T))
-       (|andDnf| (|b2dnf| |h|) (|band| |t|)))
+       (|andDnf| (|b_to_dnf| |h|) (|band| |t|)))
       (#1# '|true|)))))
  
 ; bor x ==
-;   x is [a,:b] => orDnf(b2dnf a,bor b)
+;   x is [a, :b] => orDnf(b_to_dnf a, bor b)
 ;   'false
  
 (DEFUN |bor| (|x|)
@@ -187,12 +187,12 @@
      (COND
       ((AND (CONSP |x|)
             (PROGN (SETQ |a| (CAR |x|)) (SETQ |b| (CDR |x|)) #1='T))
-       (|orDnf| (|b2dnf| |a|) (|bor| |b|)))
+       (|orDnf| (|b_to_dnf| |a|) (|bor| |b|)))
       (#1# '|false|)))))
  
-; bnot x == notDnf b2dnf x
+; bnot x == notDnf b_to_dnf x
  
-(DEFUN |bnot| (|x|) (PROG () (RETURN (|notDnf| (|b2dnf| |x|)))))
+(DEFUN |bnot| (|x|) (PROG () (RETURN (|notDnf| (|b_to_dnf| |x|)))))
  
 ; bassert x == [[nil,[x]]]
  
@@ -275,8 +275,7 @@
 ;   y := notCoaf a
 ;   x := ordIntersection(y,l)
 ;   null x => ordUnion([a], l)
-;   x = l => 'true
-;   x = y => ordSetDiff(l,x)
+;   x = y => 'true
 ;   ordUnion(notDnf ordSetDiff(y,x),l)
  
 (DEFUN |coafOrDnf| (|a| |l|)
@@ -289,8 +288,7 @@
              (SETQ |y| (|notCoaf| |a|))
              (SETQ |x| (|ordIntersection| |y| |l|))
              (COND ((NULL |x|) (|ordUnion| (LIST |a|) |l|))
-                   ((EQUAL |x| |l|) '|true|)
-                   ((EQUAL |x| |y|) (|ordSetDiff| |l| |x|))
+                   ((EQUAL |x| |y|) '|true|)
                    (#1#
                     (|ordUnion| (|notDnf| (|ordSetDiff| |y| |x|)) |l|)))))))))
  
@@ -337,7 +335,8 @@
        ((OR (|ordIntersection| |a| |q|) (|ordIntersection| |b| |p|)) '|false|)
        ('T (LIST (LIST (|ordUnion| |a| |p|) (|ordUnion| |b| |q|)))))))))
  
-; notCoaf [a,b] == [:[[nil,[x]] for x in a],:[[[x],nil] for x in b]]
+; notCoaf [a,b] ==
+;     orderList([:[[nil, [x]] for x in a], :[[[x], nil] for x in b]])
  
 (DEFUN |notCoaf| (|bfVar#20|)
   (PROG (|a| |b|)
@@ -345,23 +344,24 @@
      (PROGN
       (SETQ |a| (CAR |bfVar#20|))
       (SETQ |b| (CADR |bfVar#20|))
-      (APPEND
-       ((LAMBDA (|bfVar#17| |bfVar#16| |x|)
-          (LOOP
-           (COND
-            ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
-             (RETURN (NREVERSE |bfVar#17|)))
-            (#1='T (SETQ |bfVar#17| (CONS (LIST NIL (LIST |x|)) |bfVar#17|))))
-           (SETQ |bfVar#16| (CDR |bfVar#16|))))
-        NIL |a| NIL)
-       ((LAMBDA (|bfVar#19| |bfVar#18| |x|)
-          (LOOP
-           (COND
-            ((OR (ATOM |bfVar#18|) (PROGN (SETQ |x| (CAR |bfVar#18|)) NIL))
-             (RETURN (NREVERSE |bfVar#19|)))
-            (#1# (SETQ |bfVar#19| (CONS (LIST (LIST |x|) NIL) |bfVar#19|))))
-           (SETQ |bfVar#18| (CDR |bfVar#18|))))
-        NIL |b| NIL))))))
+      (|orderList|
+       (APPEND
+        ((LAMBDA (|bfVar#17| |bfVar#16| |x|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#16|) (PROGN (SETQ |x| (CAR |bfVar#16|)) NIL))
+              (RETURN (NREVERSE |bfVar#17|)))
+             (#1='T (SETQ |bfVar#17| (CONS (LIST NIL (LIST |x|)) |bfVar#17|))))
+            (SETQ |bfVar#16| (CDR |bfVar#16|))))
+         NIL |a| NIL)
+        ((LAMBDA (|bfVar#19| |bfVar#18| |x|)
+           (LOOP
+            (COND
+             ((OR (ATOM |bfVar#18|) (PROGN (SETQ |x| (CAR |bfVar#18|)) NIL))
+              (RETURN (NREVERSE |bfVar#19|)))
+             (#1# (SETQ |bfVar#19| (CONS (LIST (LIST |x|) NIL) |bfVar#19|))))
+            (SETQ |bfVar#18| (CDR |bfVar#18|))))
+         NIL |b| NIL)))))))
  
 ; ordUnion(a,b) ==
 ;   a isnt [c,:r] => b

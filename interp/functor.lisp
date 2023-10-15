@@ -766,8 +766,9 @@
 ;             TruthP flag =>
 ;                flag := ['NOT,u2]
 ;                u2
+;             f1 := ['AND, flag, u2]
 ;             flag := ['AND,flag,['NOT,u2]];
-;             ['AND,flag,u2]
+;             f1
 ;           [DescendCode(v, f,
 ;             if first u is ['HasCategory,dom,cat]
 ;               then [[dom,:cat],:viewAssoc]
@@ -816,8 +817,8 @@
 ;   code
  
 (DEFUN |DescendCode| (|code| |flag| |viewAssoc| |EnvToPass|)
-  (PROG (|ISTMP#1| |base| |codelist| |v| |condlist| |u2| |f| |ISTMP#2| |dom|
-         |ISTMP#3| |cat| |c| |c1| |name| |body| |u| |sig| |implem|)
+  (PROG (|ISTMP#1| |base| |codelist| |v| |condlist| |u2| |f1| |f| |ISTMP#2|
+         |dom| |ISTMP#3| |cat| |c| |c1| |name| |body| |u| |sig| |implem|)
     (RETURN
      (COND ((NULL |code|) NIL) ((EQ |code| '|noBranch|) NIL)
            ((AND (CONSP |code|) (EQ (CAR |code|) '|add|)
@@ -893,14 +894,17 @@
                                                                        'NOT
                                                                        |u2|))
                                                               |u2|)))
+                                                           (SETQ |f1|
+                                                                   (LIST 'AND
+                                                                         |flag|
+                                                                         |u2|))
                                                            (SETQ |flag|
                                                                    (LIST 'AND
                                                                          |flag|
                                                                          (LIST
                                                                           'NOT
                                                                           |u2|)))
-                                                           (LIST 'AND |flag|
-                                                                 |u2|)))
+                                                           |f1|))
                                                   ((LAMBDA
                                                        (|bfVar#44| |bfVar#43|
                                                         |v|)
