@@ -28,7 +28,14 @@
           (CONS 1 "failed"))
          ('T (CONS 0 (SPADCALL |x| |y| (QREFELT $ 20)))))) 
 
-(SDEFUN |FIELD-;gcd;3S;6| ((|x| S) (|y| S) ($ S)) (|spadConstant| $ 9)) 
+(SDEFUN |FIELD-;gcd;3S;6| ((|x| S) (|y| S) ($ S))
+        (SEQ
+         (COND
+          ((SPADCALL |x| (|spadConstant| $ 10) (QREFELT $ 19))
+           (COND
+            ((SPADCALL |y| (|spadConstant| $ 10) (QREFELT $ 19))
+             (EXIT (|spadConstant| $ 10))))))
+         (EXIT (|spadConstant| $ 9)))) 
 
 (PUT '|FIELD-;euclideanSize;SNni;7| '|SPADreplace| '(XLAM (|x|) 0)) 
 
