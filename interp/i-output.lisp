@@ -1559,7 +1559,8 @@
 ;   for arg in rest u repeat
 ;     op:= keyp arg
 ;     if not firstTime and (needBlankForRoot(lastOp,op,arg) or
-;        needStar(wasSimple,wasQuotient,wasNumber,arg,op)) then
+;        needStar(wasSimple,wasQuotient,wasNumber,arg,op) or
+;         (wasNumber and op = 'ROOT and subspan arg = 1)) then
 ;       w:= w+1
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
@@ -1590,7 +1591,9 @@
               ((AND (NULL |firstTime|)
                     (OR (|needBlankForRoot| |lastOp| |op| |arg|)
                         (|needStar| |wasSimple| |wasQuotient| |wasNumber| |arg|
-                         |op|)))
+                         |op|)
+                        (AND |wasNumber| (EQ |op| 'ROOT)
+                             (EQL (|subspan| |arg|) 1))))
                (SETQ |w| (+ |w| 1))))
              (COND
               ((|infixArgNeedsParens| |arg| |rightPrec| '|left|)
