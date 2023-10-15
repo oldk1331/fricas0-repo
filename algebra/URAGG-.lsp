@@ -399,7 +399,7 @@
 (SDEFUN |URAGG-;setvalue!;A2S;31| ((|u| A) (|s| S) ($ S))
         (SPADCALL |u| |s| (QREFELT $ 53))) 
 
-(SDEFUN |URAGG-;split!;AIA;32| ((|p| A) (|n| |Integer|) ($ A))
+(SDEFUN |URAGG-;split!;ANniA;32| ((|p| A) (|n| |NonNegativeInteger|) ($ A))
         (SPROG ((|q| (A)) (#1=#:G269 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
@@ -409,7 +409,7 @@
                               (SPADCALL |p|
                                         (PROG1
                                             (LETT #1# (- |n| 1)
-                                                  . #2=(|URAGG-;split!;AIA;32|))
+                                                  . #2=(|URAGG-;split!;ANniA;32|))
                                           (|check_subtype2| (>= #1# 0)
                                                             '(|NonNegativeInteger|)
                                                             '(|Integer|) #1#))
@@ -497,7 +497,7 @@
              (QSETREFV $ 63
                        (CONS (|dispatchFunction| |URAGG-;setvalue!;A2S;31|) $))
              (QSETREFV $ 65
-                       (CONS (|dispatchFunction| |URAGG-;split!;AIA;32|) $))
+                       (CONS (|dispatchFunction| |URAGG-;split!;ANniA;32|) $))
              (QSETREFV $ 66
                        (CONS (|dispatchFunction| |URAGG-;cycleSplit!;2A;33|)
                              $)))))
@@ -550,9 +550,9 @@
                                                    58 2 6 0 0 0 59 2 0 0 0 0 60
                                                    2 0 7 0 7 61 2 0 0 0 24 62 2
                                                    0 7 0 7 63 0 6 0 64 2 0 0 0
-                                                   29 65 1 0 0 0 66 1 0 7 0 28
+                                                   31 65 1 0 0 0 66 1 0 7 0 28
                                                    1 0 7 0 18 1 0 0 0 37 2 0 0
-                                                   0 29 65 2 0 19 0 31 34 2 0 7
+                                                   0 31 65 2 0 19 0 31 34 2 0 7
                                                    0 7 63 2 0 7 0 7 61 3 0 7 0
                                                    12 7 56 3 0 0 0 15 0 58 3 0
                                                    7 0 9 7 54 2 0 0 0 24 62 1 0

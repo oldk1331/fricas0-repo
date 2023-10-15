@@ -76,12 +76,11 @@
                                                ((|setelt!|
                                                  (|t#1| $ "last" |t#1|))
                                                 (|has| $ (|shallowlyMutable|)))
-                                               ((|split!| ($ $ (|Integer|)))
+                                               ((|split!|
+                                                 ($ $ (|NonNegativeInteger|)))
                                                 (|has| $
                                                        (|shallowlyMutable|))))
-                                             NIL
-                                             '((|Integer|)
-                                               (|NonNegativeInteger|))
+                                             NIL '((|NonNegativeInteger|))
                                              NIL))
                                            . #2=(|UnaryRecursiveAggregate|)))))
                    . #2#)

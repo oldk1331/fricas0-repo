@@ -316,7 +316,7 @@
                         (QRPLACD |t| (COND ((NULL |p|) |q|) (#1# |p|)))
                         (EXIT |r|))))))) 
 
-(SDEFUN |ILIST;split!;$I$;32| ((|p| $) (|n| |Integer|) ($ $))
+(SDEFUN |ILIST;split!;$Nni$;32| ((|p| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG ((|q| ($)) (#1=#:G1114 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
@@ -326,7 +326,7 @@
                               (SPADCALL |p|
                                         (PROG1
                                             (LETT #1# (- |n| 1)
-                                                  . #2=(|ILIST;split!;$I$;32|))
+                                                  . #2=(|ILIST;split!;$Nni$;32|))
                                           (|check_subtype2| (>= #1# 0)
                                                             '(|NonNegativeInteger|)
                                                             '(|Integer|) #1#))
@@ -513,7 +513,7 @@
               (|HashState|) (80 . |hashUpdate!|) (86 . |hashUpdate!|)
               |ILIST;concat!;3$;28| (92 . |removeDuplicates!|)
               (|Mapping| 11 6 6) |ILIST;sort!;M2$;30| |ILIST;merge!;M3$;31|
-              |ILIST;split!;$I$;32| (|Mapping| 6 6 6) (|List| 66)
+              |ILIST;split!;$Nni$;32| (|Mapping| 6 6 6) (|List| 66)
               (|Equation| 6) (|SingleInteger|) (|Mapping| 11 6) (|Void|)
               (|UniversalSegment| 32) '"last" '"value" (|Mapping| 6 6)
               (|InputForm|) (|List| 32) (|Union| 6 '"failed"))
@@ -572,7 +572,7 @@
                                     52 0 53 1 0 52 0 54 2 32 55 55 0 56 2 0 55
                                     55 0 57 1 0 0 0 59 2 19 11 0 0 1 1 0 6 0 1
                                     2 18 0 0 6 1 1 0 6 0 1 1 0 0 0 1 3 21 69 0
-                                    32 32 1 2 21 0 0 32 63 1 14 11 0 1 2 13 11
+                                    32 32 1 2 21 0 0 8 63 1 14 11 0 1 2 13 11
                                     60 0 1 1 22 0 0 1 2 23 0 60 0 61 1 14 0 0 1
                                     2 13 0 60 0 1 2 17 11 0 0 1 2 0 11 0 8 1 2
                                     21 6 0 6 1 2 21 0 0 0 24 2 21 6 0 6 1 2 21

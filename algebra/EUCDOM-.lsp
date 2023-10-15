@@ -293,7 +293,7 @@
                 (#14='T
                  (SEQ (LETT |l1| (SPADCALL |l| (QREFELT $ 46)) . #13#)
                       (LETT |l2|
-                            (SPADCALL |l1| (QUOTIENT2 |n| 2) (QREFELT $ 48))
+                            (SPADCALL |l1| (QUOTIENT2 |n| 2) (QREFELT $ 47))
                             . #13#)
                       (LETT |u|
                             (SPADCALL
@@ -350,7 +350,7 @@
                                    (LETT #6# (CDR #6#) . #13#) (GO G190) G191
                                    (EXIT NIL))
                               (COND (#3# #4#) (#14# (|spadConstant| $ 23))))
-                             |z| (QREFELT $ 49))
+                             |z| (QREFELT $ 48))
                             . #13#)
                       (EXIT
                        (COND ((QEQCAR |u| 1) (CONS 1 "failed"))
@@ -358,7 +358,7 @@
                               (SEQ
                                (LETT |v1|
                                      (SPADCALL |l1| (QCDR (QCDR |u|))
-                                               (QREFELT $ 50))
+                                               (QREFELT $ 49))
                                      . #13#)
                                (EXIT
                                 (COND ((QEQCAR |v1| 1) (CONS 1 "failed"))
@@ -366,7 +366,7 @@
                                        (SEQ
                                         (LETT |v2|
                                               (SPADCALL |l2| (QCAR (QCDR |u|))
-                                                        (QREFELT $ 50))
+                                                        (QREFELT $ 49))
                                               . #13#)
                                         (EXIT
                                          (COND
@@ -376,7 +376,7 @@
                                                  (SPADCALL (QCDR |v1|)
                                                            (QCDR |v2|)
                                                            (QREFELT $
-                                                                    51))))))))))))))))))))) 
+                                                                    50))))))))))))))))))))) 
 
 (DECLAIM (NOTINLINE |EuclideanDomain&;|)) 
 
@@ -385,7 +385,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|EuclideanDomain&|))
           (LETT |dv$| (LIST '|EuclideanDomain&| DV$1) . #1#)
-          (LETT $ (GETREFV 53) . #1#)
+          (LETT $ (GETREFV 52) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -413,9 +413,9 @@
               (|Record| (|:| |coef| 41) (|:| |generator| $)) (|List| $)
               (93 . |principalIdeal|) |EUCDOM-;principalIdeal;LR;9|
               (|Union| 41 '"failed") |EUCDOM-;expressIdealMember;LSU;10|
-              (98 . |copy|) (|Integer|) (103 . |split!|)
-              (109 . |extendedEuclidean|) (116 . |multiEuclidean|)
-              (122 . |concat|) |EUCDOM-;multiEuclidean;LSU;11|)
+              (98 . |copy|) (103 . |split!|) (109 . |extendedEuclidean|)
+              (116 . |multiEuclidean|) (122 . |concat|)
+              |EUCDOM-;multiEuclidean;LSU;11|)
            '#(|sizeLess?| 128 |rem| 134 |quo| 140 |principalIdeal| 146
               |multiEuclidean| 151 |gcd| 157 |extendedEuclidean| 163 |exquo|
               176 |expressIdealMember| 182)
@@ -423,7 +423,7 @@
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 52
+                             (|makeByteWordVec2| 51
                                                  '(1 6 7 0 8 1 6 9 0 10 2 6 12
                                                    0 0 13 1 6 0 0 18 2 6 0 0 0
                                                    19 1 6 21 0 22 0 6 0 23 2 6
@@ -432,11 +432,11 @@
                                                    2 6 0 0 0 29 2 6 30 0 0 32 2
                                                    6 16 0 0 33 2 37 7 0 0 38 1
                                                    37 6 0 39 1 6 40 41 42 1 37
-                                                   0 0 46 2 37 0 0 47 48 3 6 35
-                                                   0 0 0 49 2 6 44 41 0 50 2 37
-                                                   0 0 0 51 2 0 7 0 0 11 2 0 0
+                                                   0 0 46 2 37 0 0 9 47 3 6 35
+                                                   0 0 0 48 2 6 44 41 0 49 2 37
+                                                   0 0 0 50 2 0 7 0 0 11 2 0 0
                                                    0 0 15 2 0 0 0 0 14 1 0 40
-                                                   41 43 2 0 44 41 0 52 2 0 0 0
+                                                   41 43 2 0 44 41 0 51 2 0 0 0
                                                    0 20 3 0 35 0 0 0 36 2 0 30
                                                    0 0 31 2 0 16 0 0 17 2 0 44
                                                    41 0 45)))))

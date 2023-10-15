@@ -823,14 +823,14 @@
 (SDEFUN |STREAM;setelt!;$last2S;52| ((|x| $) (T7 "last") (|s| S) ($ S))
         (SPADCALL |x| |s| (QREFELT $ 107))) 
 
-(SDEFUN |STREAM;split!;$I$;53| ((|x| $) (|n| |Integer|) ($ $))
+(SDEFUN |STREAM;split!;$Nni$;53| ((|x| $) (|n| |NonNegativeInteger|) ($ $))
         (SPROG ((|y| ($)) (#1=#:G480 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "split!: index out of range"))
                       ((EQL |n| 1)
                        (SEQ
                         (LETT |y| (SPADCALL (QREFELT $ 43))
-                              . #2=(|STREAM;split!;$I$;53|))
+                              . #2=(|STREAM;split!;$Nni$;53|))
                         (|STREAM;setfrst!| |y| (SPADCALL |x| (QREFELT $ 11)) $)
                         (|STREAM;setrst!| |y| (SPADCALL |x| (QREFELT $ 15)) $)
                         (|STREAM;setToNil!| |x| $) (EXIT |y|)))
@@ -1297,7 +1297,7 @@
               |STREAM;concat!;$S$;46| |STREAM;setfirst!;$2S;47| '"first"
               |STREAM;setelt!;$first2S;48| '"rest" |STREAM;setelt!;$rest2$;50|
               |STREAM;setlast!;$2S;51| '"last" |STREAM;setelt!;$last2S;52|
-              |STREAM;split!;$I$;53| |STREAM;coerce;L$;54|
+              |STREAM;split!;$Nni$;53| |STREAM;coerce;L$;54|
               |STREAM;repeating;L$;55| (204 . =) (210 . =) (216 . ~=)
               (222 . |repeating?|) |STREAM;explicitEntries?;$B;59|
               |STREAM;numberOfComputedEntries;$Nni;60|
@@ -1370,7 +1370,7 @@
                                     2 0 12 0 0 114 2 6 12 0 0 115 2 0 12 52 0
                                     116 2 19 12 0 0 1 1 0 6 0 1 2 18 0 0 6 1 1
                                     0 6 0 1 1 0 0 0 51 3 21 75 0 16 16 76 1 0 0
-                                    120 121 2 0 0 60 6 122 2 21 0 0 16 110 1 14
+                                    120 121 2 0 0 60 6 122 2 21 0 0 26 110 1 14
                                     12 0 1 2 13 12 125 0 1 1 22 0 0 1 2 23 0
                                     125 0 1 1 14 0 0 1 2 13 0 125 0 1 2 17 12 0
                                     0 1 2 0 12 0 26 1 2 6 19 26 0 33 1 6 19 0
