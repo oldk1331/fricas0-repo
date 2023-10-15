@@ -3470,6 +3470,7 @@ odisplayLines1`1`n`(List(String))->Void`pFortranCodeTools``427851
 odisplayLines`1`n`(List(String))->Void`pFortranCodeTools``427882
 odispStatement`1`n`(OutputForm)->Void`pFortranCodeTools``427912
 odistance`2`n`(_$,_$)->DoubleFloat`cSPointCategory``427944
+odistance`2`n`(A,A)->Integer`xBinaryTreeCategory&(A,S)``0
 odistance`2`n`(A,A)->Integer`xLazyStreamAggregate&(A,S)``0
 odistance`2`n`(S,S)->DoubleFloat`xSPointCategory&(S)``0
 odistance`2`x`(_$,_$)->Integer`cRecursiveAggregate(S)``428237
@@ -4919,6 +4920,7 @@ ohash`1`n`(A)->SingleInteger`xFiniteGraph&(A,S)``0
 ohash`1`n`(S)->SingleInteger`xSetCategory&(S)``0
 ohash`1`x`(_$)->SingleInteger`cSetCategory``584047
 ohasHi`1`x`(_$)->Boolean`dUniversalSegment(S)``584106
+ohashUpdate!`2`n`(HashState,A)->HashState`xBinaryTreeCategory&(A,S)``0
 ohashUpdate!`2`n`(HashState,A)->HashState`xLinearAggregate&(A,S)``0
 ohashUpdate!`2`x`(HashState,_$)->HashState`cSetCategory``584184
 ohasoln`2`n`(List(GR),List(GR))->Record(sysok:Boolean,z0:List(GR),n0:List(GR))`pParametricLinearEquations(R,Var,Expon,GR)``584373
@@ -6212,6 +6214,7 @@ omap!`2`n`((R)->R,S)->S`xTwoDimensionalArrayCategory&(S,R,Row,Col)``0
 omap`2`n`((R)->R,S)->S`xTwoDimensionalArrayCategory&(S,R,Row,Col)``0
 omap`2`n`((R)->S,NewSparseUnivariatePolynomial(R))->NewSparseUnivariatePolynomial(S)`pNewSparseUnivariatePolynomialFunctions2(R,S)``743044
 omap!`2`n`((S)->S,A)->A`xBinaryTreeCategory&(A,S)``0
+omap`2`n`((S)->S,A)->A`xBinaryTreeCategory&(A,S)``0
 omap`2`n`((S)->S,A)->A`xListAggregate&(A,S)``0
 omap!`2`n`((S)->S,A)->A`xOneDimensionalArrayAggregate&(A,S)``0
 omap`2`n`((S)->S,A)->A`xOneDimensionalArrayAggregate&(A,S)``0
