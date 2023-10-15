@@ -2040,8 +2040,7 @@
         (SPROG
          ((#1=#:G668 NIL) (|t| NIL) (#2=#:G667 NIL)
           (|l|
-           (|List|
-            (|Record| (|:| |gen| (|Kernel| $)) (|:| |exp| (|Integer|))))))
+           (|List| (|Record| (|:| |k| (|Kernel| $)) (|:| |c| (|Integer|))))))
          (SEQ
           (COND
            ((OR
@@ -2076,10 +2075,9 @@
           (|Record| (|:| |coef| (|Integer|)) (|:| |var| (|Kernel| $)))
           "failed"))
         (SPROG
-         ((|t| (|Record| (|:| |gen| (|Kernel| $)) (|:| |exp| (|Integer|))))
+         ((|t| (|Record| (|:| |k| (|Kernel| $)) (|:| |c| (|Integer|))))
           (|l|
-           (|List|
-            (|Record| (|:| |gen| (|Kernel| $)) (|:| |exp| (|Integer|))))))
+           (|List| (|Record| (|:| |k| (|Kernel| $)) (|:| |c| (|Integer|))))))
          (SEQ
           (COND
            ((OR
@@ -2795,7 +2793,7 @@
                         $))))))))))
      ((|HasCategory| |#1| '(|AbelianMonoid|))
       (PROGN
-       (SETELT $ 45 (|FreeAbelianGroup| (|Kernel| $)))
+       (SETELT $ 45 (|FreeModule| (|Integer|) (|Kernel| $)))
        (QSETREFV $ 47
                  (CONS #'|makeSpadConstant|
                        (LIST (|dispatchFunction| |EXPR;Zero;$;210|) $ 47)))
@@ -3045,8 +3043,8 @@
               (|Mapping| 582 15 567 582)
               (|PatternMatchPolynomialCategory| (|Float|) 484 15 6 45)
               (2544 . |patternMatch|) (2552 . |coerce|)
-              (|Record| (|:| |gen| 15) (|:| |exp| 57)) (|List| 587)
-              (2557 . |terms|) (2562 . |zero?|) (2567 . |constantKernel|)
+              (|Record| (|:| |k| 15) (|:| |c| 57)) (|List| 587)
+              (2557 . |listOfTerms|) (2562 . |zero?|) (2567 . |constantKernel|)
               (|OutputForm|) (2572 . |coerce|) (2577 . |coerce|)
               (2582 . |eval|) (2589 . |map|) (|Mapping| $$ 15)
               (|ListToMap| 15 $$) (2595 . |match|) (2603 . |subst|)
