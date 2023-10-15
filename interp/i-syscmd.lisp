@@ -6018,7 +6018,7 @@
 ;   argml:= EQSUBSTLIST(argList,$FormalMapVariableList,argml)
 ;   functorFormWithDecl:= [op,:[[":",a,m] for a in argList for m in argml]]
 ;   sayBrightly concat(bright form2StringWithWhere functorFormWithDecl,
-;                      '" is a",bright typ,'"constructor")
+;                      '"is a",bright typ,'"constructor")
 ;   sayBrightly ['" Abbreviation for",:bright op,'"is",:bright fn]
 ;   verb :=
 ;     isExposedConstructor op => '"is"
@@ -6075,7 +6075,7 @@
                        NIL |argList| NIL |argml| NIL)))
         (|sayBrightly|
          (|concat| (|bright| (|form2StringWithWhere| |functorFormWithDecl|))
-          " is a" (|bright| |typ|) "constructor"))
+          "is a" (|bright| |typ|) "constructor"))
         (|sayBrightly|
          (CONS " Abbreviation for"
                (APPEND (|bright| |op|) (CONS "is" (|bright| |fn|)))))
@@ -6117,7 +6117,7 @@
 ;   kind := GETDATABASE(name,'CONSTRUCTORKIND)
 ;   centerAndHighlight('"Operations",$LINELENGTH,specialChar 'hbar)
 ;   opList:= GETDATABASE(name,'OPERATIONALIST)
-;   null opList => reportOpsFromUnitDirectly form
+;   null opList => nil
 ;   opl:=REMDUP MSORT EQSUBSTLIST(argl,$FormalMapVariableList,opList)
 ;   ops:= nil
 ;   for x in opl repeat
@@ -6134,7 +6134,7 @@
       (SETQ |kind| (GETDATABASE |name| 'CONSTRUCTORKIND))
       (|centerAndHighlight| "Operations" $LINELENGTH (|specialChar| '|hbar|))
       (SETQ |opList| (GETDATABASE |name| 'OPERATIONALIST))
-      (COND ((NULL |opList|) (|reportOpsFromUnitDirectly| |form|))
+      (COND ((NULL |opList|) NIL)
             (#1='T
              (PROGN
               (SETQ |opl|
