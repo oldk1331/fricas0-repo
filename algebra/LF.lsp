@@ -543,8 +543,9 @@
               (|Mapping| 42 7) (193 . |every?|) (199 . |first|)
               (205 . |retract|) (|List| 9) (210 . |position|) (216 . |Zero|)
               (220 . -) (|SegmentBinding| 7) (226 . |variable|) (|Segment| 7)
-              (231 . |segment|) (236 . |lo|) (241 . |hi|) |LF;integral;FSbF;31|
-              (246 . |is?|) (252 . |is?|) |LF;operator;2Bo;34| (|Mapping| 7 7)
+              (231 . |segment|) (236 . |low|) (241 . |high|)
+              |LF;integral;FSbF;31| (246 . |is?|) (252 . |is?|)
+              |LF;operator;2Bo;34| (|Mapping| 7 7)
               (|BasicOperatorFunctions1| 7) (258 . |evaluate|) (|Mapping| 7 51)
               (264 . |evaluate|) (270 . |sin|) (275 . /) (281 . |derivative|)
               (287 . |cos|) (292 . |sinh|) (297 . |cosh|) (302 . |exp|)

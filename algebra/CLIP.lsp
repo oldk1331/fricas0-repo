@@ -831,7 +831,7 @@
               (111 . |min|) (|Mapping| 7 7 7) (117 . |reduce|) (123 . |max|)
               (129 . SEGMENT) (135 . |point|) (140 . >) (146 . /) (|Plot|)
               (152 . |xRange|) (157 . |listBranches|) (162 . |more?|)
-              (168 . |elt|) (174 . |lo|) (179 . |hi|) |CLIP;clip;P2FR;9|
+              (168 . |elt|) (174 . |low|) (179 . |high|) |CLIP;clip;P2FR;9|
               |CLIP;clip;PR;10| (184 . ^) (190 . <=) (196 . >=)
               (202 . |concat|) |CLIP;clipParametric;P2FR;14|
               |CLIP;clipParametric;PR;15| (208 . |list|) |CLIP;clip;LR;16|

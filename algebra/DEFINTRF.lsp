@@ -179,7 +179,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Symbol|)
               (|SegmentBinding| 12) (0 . |variable|) (|Segment| 12)
-              (5 . |segment|) (|OrderedCompletion| 24) (10 . |lo|) (15 . |hi|)
+              (5 . |segment|) (|OrderedCompletion| 24) (10 . |low|)
+              (15 . |high|)
               (|Union| (|:| |f1| 12) (|:| |f2| 28) (|:| |fail| '"failed")
                        (|:| |pole| '"potentialPole"))
               (|Fraction| 49) |DEFINTRF;integrate;FSbU;1| (|Kernel| 24)
@@ -189,8 +190,8 @@
               (|DefiniteIntegrationTools| 6 24) (31 . |computeInt|) (|List| 12)
               (40 . |concat!|) (|SegmentBinding| 35) (46 . |variable|)
               (51 . |coerce|) (|Segment| 35) (56 . |segment|)
-              (|OrderedCompletion| 16) (61 . |lo|) (|Mapping| 24 16)
-              (|OrderedCompletionFunctions2| 16 24) (66 . |map|) (72 . |hi|)
+              (|OrderedCompletion| 16) (61 . |low|) (|Mapping| 24 16)
+              (|OrderedCompletionFunctions2| 16 24) (66 . |map|) (72 . |high|)
               |DEFINTRF;integrate;FSbU;3| (|String|) (77 . |ignore?|)
               |DEFINTRF;integrate;FSbSU;4| |DEFINTRF;integrate;FSbSU;5|
               (82 . =) (88 . |Zero|) (92 . |coerce|) (|Polynomial| 6)

@@ -228,7 +228,7 @@
 (MAKEPROP '|TopLevelDrawFunctionsForAlgebraicCurves| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|) (|Float|)
-              (|Segment| 8) (0 . |hi|) (5 . |lo|) (10 . -) (16 . |abs|)
+              (|Segment| 8) (0 . |high|) (5 . |low|) (10 . -) (16 . |abs|)
               (|Integer|) (21 . /) (|Boolean|) (27 . >) (33 . +)
               (39 . |segment|) (|Union| 14 '#1="failed") (45 . |retractIfCan|)
               (|Equation| 7) (50 . |lhs|) (55 . |rhs|) (60 . -)

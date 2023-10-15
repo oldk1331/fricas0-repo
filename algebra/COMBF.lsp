@@ -1215,7 +1215,7 @@
               (170 . |kernel|) (176 . +) (|OutputForm|) (182 . |coerce|)
               (187 . |prod|) (193 . =) (199 . |prod|) (206 . |sum|)
               (212 . |sum|) (219 . =) (|SegmentBinding| 7) (225 . |variable|)
-              (|Segment| 7) (230 . |segment|) (235 . |lo|) (240 . |hi|)
+              (|Segment| 7) (230 . |segment|) (235 . |low|) (240 . |high|)
               |COMBF;product;FSbF;25| |COMBF;summation;FSbF;26|
               (245 . |coerce|) (|Mapping| 7 37) (|Mapping| 7 6)
               (|SparseMultivariatePolynomial| 6 37)

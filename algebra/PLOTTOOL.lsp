@@ -159,10 +159,10 @@
 
 (MAKEPROP '|PlotTools| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|DoubleFloat|) (|Segment| 6) (0 . |hi|)
-              (5 . |lo|) (|Boolean|) (10 . >) (16 . |segment|) (|Point| 6)
-              (|PointPackage| 6) (22 . |xCoord|) (27 . |min|) (33 . |max|)
-              (39 . SEGMENT) (45 . |yCoord|) (|GraphicsDefaults|)
+           '#(NIL NIL NIL NIL NIL NIL (|DoubleFloat|) (|Segment| 6)
+              (0 . |high|) (5 . |low|) (|Boolean|) (10 . >) (16 . |segment|)
+              (|Point| 6) (|PointPackage| 6) (22 . |xCoord|) (27 . |min|)
+              (33 . |max|) (39 . SEGMENT) (45 . |yCoord|) (|GraphicsDefaults|)
               (50 . |drawToScale|) (|List| 7) (|List| (|List| 13))
               |PLOTTOOL;calcRanges;LL;8|)
            '#(|calcRanges| 54) 'NIL

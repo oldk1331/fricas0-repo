@@ -11785,8 +11785,8 @@
               |SCENE;createSceneMaterial;Df2S$;71|
               |SCENE;addSceneMaterial;$Df2S$;72| (|STransform| 6)
               |SCENE;createSceneTransform;St$;73|
-              |SCENE;addSceneTransform;$St$;74| (|Segment| 25) (197 . |lo|)
-              (202 . |hi|) (|Mapping| 6 6)
+              |SCENE;addSceneTransform;$St$;74| (|Segment| 25) (197 . |low|)
+              (202 . |high|) (|Mapping| 6 6)
               |SCENE;createArrows2Din2D;M2SNni$;75|
               |SCENE;addArrows2Din2D;$M2SNni$;76| (|List| $$) (207 . |concat|)
               |SCENE;removeChild!;2$V;78| (213 . ~=)

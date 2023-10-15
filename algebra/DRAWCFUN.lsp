@@ -1204,8 +1204,8 @@
 (MAKEPROP '|TopLevelDrawFunctionsForCompiledFunctions| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL NIL 'EXTOVARERROR 'SMALLRANGEERROR
-              'DEPVARERROR (|DoubleFloat|) (|Segment| 9) (0 . |hi|) (|Float|)
-              (5 . |convert|) (10 . |lo|) (15 . -) (21 . |abs|) (|Integer|)
+              'DEPVARERROR (|DoubleFloat|) (|Segment| 9) (0 . |high|) (|Float|)
+              (5 . |convert|) (10 . |low|) (15 . -) (21 . |abs|) (|Integer|)
               (26 . /) (|Boolean|) (32 . >) (38 . +) (|Segment| 12)
               (44 . |segment|) (|Mapping| 12 9) (|SegmentFunctions2| 9 12)
               (50 . |map|) (|List| 124) (|Plot|) (56 . |listBranches|)
@@ -1217,7 +1217,7 @@
               (|TwoDimensionalPlotClipping|) (92 . |clipParametric|)
               (97 . |clip|) (|List| 22) (|Any|) (|AnyFunctions1| 47)
               (102 . |retract|) (|NonNegativeInteger|) (107 . |more?|)
-              (113 . |lo|) (118 . |convert|) (123 . |hi|) (128 . |second|)
+              (113 . |low|) (118 . |convert|) (123 . |high|) (128 . |second|)
               (133 . |clipWithRanges|) (142 . |drawToScale|) (146 . |toScale|)
               (152 . |ranges|) (157 . |convert|) (|Palette|)
               (|ViewDefaultsPackage|) (162 . |pointColorDefault|)

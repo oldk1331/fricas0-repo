@@ -28,7 +28,8 @@
 (SDEFUN |SEG;segment;2S$;7| ((|a| S) (|b| S) ($ $)) (VECTOR |a| |b| 1)) 
 
 (SDEFUN |SEG;BY;$I$;8| ((|s| $) (|r| |Integer|) ($ $))
-        (VECTOR (SPADCALL |s| (QREFELT $ 9)) (SPADCALL |s| (QREFELT $ 11)) |r|)) 
+        (VECTOR (SPADCALL |s| (QREFELT $ 10)) (SPADCALL |s| (QREFELT $ 12))
+                |r|)) 
 
 (SDEFUN |SEG;=;2$B;9| ((|s1| $) (|s2| $) ($ |Boolean|))
         (COND
@@ -66,7 +67,7 @@
                                 (LIST
                                  (SPADCALL (SPADCALL |s| (QREFELT $ 10))
                                            (QREFELT $ 30))
-                                 (SPADCALL (SPADCALL |s| (QREFELT $ 11))
+                                 (SPADCALL (SPADCALL |s| (QREFELT $ 12))
                                            (QREFELT $ 30)))
                                 (QREFELT $ 34))
                       |SEG;convert;$If;12|)
@@ -80,18 +81,18 @@
                                   (QREFELT $ 34)))))))) 
 
 (SDEFUN |SEG;+;S2$;13| ((|i| S) (|s| $) ($ $))
-        (VECTOR (SPADCALL |i| (SPADCALL |s| (QREFELT $ 9)) (QREFELT $ 37))
-                (SPADCALL |i| (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 37))
+        (VECTOR (SPADCALL |i| (SPADCALL |s| (QREFELT $ 10)) (QREFELT $ 37))
+                (SPADCALL |i| (SPADCALL |s| (QREFELT $ 12)) (QREFELT $ 37))
                 (SPADCALL |s| (QREFELT $ 14)))) 
 
 (SDEFUN |SEG;+;$S$;14| ((|s| $) (|i| S) ($ $))
-        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 9)) |i| (QREFELT $ 37))
-                (SPADCALL (SPADCALL |s| (QREFELT $ 11)) |i| (QREFELT $ 37))
+        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 10)) |i| (QREFELT $ 37))
+                (SPADCALL (SPADCALL |s| (QREFELT $ 12)) |i| (QREFELT $ 37))
                 (SPADCALL |s| (QREFELT $ 14)))) 
 
 (SDEFUN |SEG;-;$S$;15| ((|s| $) (|i| S) ($ $))
-        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 9)) |i| (QREFELT $ 40))
-                (SPADCALL (SPADCALL |s| (QREFELT $ 11)) |i| (QREFELT $ 40))
+        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 10)) |i| (QREFELT $ 40))
+                (SPADCALL (SPADCALL |s| (QREFELT $ 12)) |i| (QREFELT $ 40))
                 (SPADCALL |s| (QREFELT $ 14)))) 
 
 (SDEFUN |SEG;expand;LL;16| ((|ls| |List| $) ($ |List| S))
@@ -103,8 +104,8 @@
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
                      (GO G191)))
-                   (SEQ (LETT |l| (SPADCALL |s| (QREFELT $ 9)) . #2#)
-                        (LETT |h| (SPADCALL |s| (QREFELT $ 11)) . #2#)
+                   (SEQ (LETT |l| (SPADCALL |s| (QREFELT $ 10)) . #2#)
+                        (LETT |h| (SPADCALL |s| (QREFELT $ 12)) . #2#)
                         (LETT |inc|
                               (SPADCALL (SPADCALL |s| (QREFELT $ 14))
                                         (QREFELT $ 42))
@@ -146,8 +147,8 @@
 (SDEFUN |SEG;map;M$L;18| ((|f| |Mapping| S S) (|s| $) ($ |List| S))
         (SPROG ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)))
                (SEQ (LETT |lr| NIL . #1=(|SEG;map;M$L;18|))
-                    (LETT |l| (SPADCALL |s| (QREFELT $ 9)) . #1#)
-                    (LETT |h| (SPADCALL |s| (QREFELT $ 11)) . #1#)
+                    (LETT |l| (SPADCALL |s| (QREFELT $ 10)) . #1#)
+                    (LETT |h| (SPADCALL |s| (QREFELT $ 12)) . #1#)
                     (LETT |inc|
                           (SPADCALL (SPADCALL |s| (QREFELT $ 14))
                                     (QREFELT $ 42))

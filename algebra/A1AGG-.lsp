@@ -911,8 +911,8 @@
               |A1AGG-;any?;MAB;3| |A1AGG-;every?;MAB;4| |A1AGG-;position;MAI;5|
               (|Union| 7 '"failed") |A1AGG-;find;MAU;6| (|NonNegativeInteger|)
               |A1AGG-;count;MANni;7| (22 . |qsetelt!|) (|Mapping| 7 7)
-              |A1AGG-;map!;M2A;8| (|UniversalSegment| 8) (29 . |lo|)
-              (34 . |hasHi|) (39 . |hi|) (44 . >) |A1AGG-;setelt!;AUs2S;9|
+              |A1AGG-;map!;M2A;8| (|UniversalSegment| 8) (29 . |low|)
+              (34 . |hasHi|) (39 . |high|) (44 . >) |A1AGG-;setelt!;AUs2S;9|
               (50 . |empty?|) (|Mapping| 7 7 7) |A1AGG-;reduce;MAS;10|
               |A1AGG-;reduce;MA2S;11| (55 . ~=) (61 . |reduce|) (69 . |empty|)
               (73 . |new|) (79 . |first|) |A1AGG-;map;M3A;15| (84 . |#|)

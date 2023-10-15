@@ -991,8 +991,8 @@
               |LZSTAGG-;index?;IAB;13| (|List| 38) |LZSTAGG-;indices;AL;14|
               |LZSTAGG-;maxIndex;AI;15| |LZSTAGG-;minIndex;AI;16|
               (103 . |index?|) (109 . |first|) (115 . |rest|) (121 . |concat|)
-              |LZSTAGG-;delete;AIA;17| (|UniversalSegment| 38) (127 . |lo|)
-              (132 . |hasHi|) (137 . |hi|) (142 . |copy|)
+              |LZSTAGG-;delete;AIA;17| (|UniversalSegment| 38) (127 . |low|)
+              (132 . |hasHi|) (137 . |high|) (142 . |copy|)
               |LZSTAGG-;delete;AUsA;18| |LZSTAGG-;elt;AUsA;19| (|List| $)
               (147 . |concat|) |LZSTAGG-;insert;SAIA;20|
               |LZSTAGG-;insert;2AIA;21| (|Union| 6 '"failed")

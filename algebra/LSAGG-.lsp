@@ -728,7 +728,7 @@
               (|Integer|) (61 . |minIndex|) (66 . |rest|)
               |LSAGG-;insert!;SAIA;7| (72 . |concat!|) |LSAGG-;insert!;2AIA;8|
               |LSAGG-;remove!;M2A;9| |LSAGG-;delete!;AIA;10|
-              (|UniversalSegment| 30) (78 . |lo|) (83 . |hasHi|) (88 . |hi|)
+              (|UniversalSegment| 30) (78 . |low|) (83 . |hasHi|) (88 . |high|)
               (93 . |maxIndex|) |LSAGG-;delete!;AUsA;11| (|Union| 7 '"failed")
               |LSAGG-;find;MAU;12| |LSAGG-;position;MAI;13| (98 . |reverse!|)
               (103 . |split!|) |LSAGG-;sorted?;MAB;15| |LSAGG-;reduce;MA2S;16|

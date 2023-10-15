@@ -2376,8 +2376,8 @@
               (|Mapping| 6 38) (|List| 38) (|ListFunctions2| 38 6)
               (138 . |map|) (|SegmentBinding| 38) (144 . |variable|)
               (|FortranType|) (149 . |fortranInteger|) (|TheSymbolTable|)
-              (153 . |declare!|) (|Segment| 38) (159 . |segment|) (164 . |lo|)
-              (169 . |hi|) (174 . |displayLines|) (179 . |void|)
+              (153 . |declare!|) (|Segment| 38) (159 . |segment|) (164 . |low|)
+              (169 . |high|) (174 . |displayLines|) (179 . |void|)
               |FC;printCode;$V;37| (|List| 7) |FC;common;SL$;40| |FC;stop;$;41|
               |FC;save;$;42| |FC;printStatement;L$;43| |FC;comment;L$;44|
               (183 . |list|) |FC;comment;S$;45| (188 . |incr|) (193 . |coerce|)

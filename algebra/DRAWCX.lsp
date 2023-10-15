@@ -362,7 +362,7 @@
               (0 . |float|) (|DoubleFloat|) (7 . |coerce|) '|arrowScale|
               '|arrowAngle| '|realSteps| '|imagSteps| '|clipValue| (12 . |One|)
               (|Point| 10) (16 . |elt|) (|List| 10) (22 . |point|)
-              (|Segment| 10) (27 . |hi|) (32 . |lo|) (37 . |Zero|)
+              (|Segment| 10) (27 . |high|) (32 . |low|) (37 . |Zero|)
               (|Complex| 10) (41 . |complex|) (47 . |norm|) (52 . |sqrt|)
               (57 . |argument|) (|Record| (|:| |rr| 10) (|:| |th| 10))
               (|TwoDimensionalArray| 31) (62 . |setelt!|) (70 . |elt|)

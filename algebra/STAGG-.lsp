@@ -252,7 +252,7 @@
               (10 . |construct|) (|NonNegativeInteger|) |STAGG-;first;ANniA;3|
               (15 . |empty?|) (20 . |first|) (|Integer|) (25 . |minIndex|)
               (30 . |rest|) |STAGG-;elt;AIS;5| (|UniversalSegment| 19)
-              (36 . |lo|) (41 . |hasHi|) (46 . |copy|) (51 . |hi|)
+              (36 . |low|) (41 . |hasHi|) (46 . |copy|) (51 . |high|)
               (56 . |empty|) (60 . |first|) |STAGG-;elt;AUsA;6|
               (66 . |concat!|) (72 . |concat|) (|List| $) (78 . |concat|)
               (83 . |setfirst!|) (89 . |fill!|) (95 . |setelt!|)

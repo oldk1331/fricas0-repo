@@ -707,8 +707,8 @@
               |ISTRING;minIndex;$I;11| (|CharacterClass|) (16 . |upperCase|)
               (20 . |upperCase|) (|Mapping| 8 8) (25 . |map!|)
               |ISTRING;upperCase!;2$;12| (31 . |lowerCase|) (35 . |lowerCase|)
-              |ISTRING;lowerCase!;2$;13| |ISTRING;latex;$S;14| (40 . |lo|)
-              (45 . |hasHi|) (50 . |hi|) (55 . |maxIndex|)
+              |ISTRING;lowerCase!;2$;13| |ISTRING;latex;$S;14| (40 . |low|)
+              (45 . |hasHi|) (50 . |high|) (55 . |maxIndex|)
               |ISTRING;replace;$Us2$;15| |ISTRING;qsetelt!;$I2C;16| (60 . >)
               |ISTRING;setelt!;$I2C;17| |ISTRING;substring?;2$IB;18|
               |ISTRING;position;2$2I;19| |ISTRING;position;C$2I;20|

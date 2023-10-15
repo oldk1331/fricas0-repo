@@ -112,8 +112,8 @@
 
 (MAKEPROP '|RandomIntegerDistributions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Segment| 6) (0 . |lo|)
-              (5 . |hi|) (10 . |min|) (16 . -) (22 . |abs|) (27 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Segment| 6) (0 . |low|)
+              (5 . |high|) (10 . |min|) (16 . -) (22 . |abs|) (27 . |One|)
               (31 . +) (|RandomNumberSource|) (37 . |size|) (|IntegerBits|)
               (41 . |bitLength|) (46 . |quo|) (|NonNegativeInteger|) (52 . ^)
               (58 . |Zero|) (|Boolean|) (62 . >) (|PositiveInteger|)

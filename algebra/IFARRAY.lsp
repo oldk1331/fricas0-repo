@@ -610,7 +610,7 @@
               |IFARRAY;merge;M3$;19| |IFARRAY;concat!;$S$;20| (30 . |eq?|)
               (36 . |copyInto!|) |IFARRAY;concat!;3$;21| (|Mapping| 22 6)
               |IFARRAY;remove!;M2$;22| |IFARRAY;delete!;$I$;23|
-              (|UniversalSegment| 12) (43 . |lo|) (48 . |hasHi|) (53 . |hi|)
+              (|UniversalSegment| 12) (43 . |low|) (48 . |hasHi|) (53 . |high|)
               |IFARRAY;delete!;$Us$;24| |IFARRAY;insert!;S$I$;25|
               |IFARRAY;insert!;2$I$;26| |IFARRAY;select!;M2$;28| (58 . ~=)
               (64 . ~=) (70 . SEGMENT) (75 . |removeDuplicates!|)

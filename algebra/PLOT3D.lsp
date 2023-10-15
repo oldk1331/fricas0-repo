@@ -1376,7 +1376,7 @@
            '#(NIL NIL NIL NIL NIL NIL '|Rep| 'ADAPTIVE 'MINPOINTS 'MAXPOINTS
               'NUMFUNEVALS 'SCREENRES (|DoubleFloat|) (0 . |inv|) 'ANGLEBOUND
               'DEBUG (|List| 12) (|Point| 12) (5 . |point|) (|Segment| 12)
-              (10 . |lo|) (15 . |hi|) (|Boolean|) (20 . >) (26 . SEGMENT)
+              (10 . |low|) (15 . |high|) (|Boolean|) (20 . >) (26 . SEGMENT)
               (|List| 19) (32 . |second|) (37 . |third|) (|Integer|)
               |PLOT3D;minPoints3D;I;8| |PLOT3D;setMinPoints3D;2I;9|
               |PLOT3D;maxPoints3D;I;10| (42 . >) |PLOT3D;setMaxPoints3D;2I;11|

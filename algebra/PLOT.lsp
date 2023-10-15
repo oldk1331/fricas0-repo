@@ -1461,7 +1461,7 @@
               'NUMFUNEVALS 'SCREENRES (|DoubleFloat|) (0 . |inv|) 'ANGLEBOUND
               'DEBUG (|Boolean|) (5 . ~=) (|Mapping| 16 12) (|Point| 12)
               (11 . |any?|) (|List| 52) |PLOT;listBranches;$L;3| (|Segment| 12)
-              (17 . |lo|) (22 . |hi|) (27 . >) (33 . SEGMENT) (|List| 23)
+              (17 . |low|) (22 . |high|) (27 . >) (33 . SEGMENT) (|List| 23)
               (39 . |second|) (44 . |third|) (|Integer|) |PLOT;minPoints;I;9|
               |PLOT;setMinPoints;2I;10| |PLOT;maxPoints;I;11| (49 . >)
               |PLOT;setMaxPoints;2I;12| |PLOT;screenResolution;I;13|

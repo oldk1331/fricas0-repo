@@ -502,40 +502,38 @@
         ((|x| $) (|seg| |UniversalSegment| (|Integer|)) (|s| S) ($ S))
         (SPROG
          ((#1=#:G399 NIL) (|y| ($)) (#2=#:G403 NIL) (|i| NIL) (#3=#:G393 NIL)
-          (|high| (|Integer|)) (|low| (|Integer|)))
+          (|h| (|Integer|)) (|l| (|Integer|)))
          (SEQ
-          (LETT |low| (SPADCALL |seg| (QREFELT $ 85))
+          (LETT |l| (SPADCALL |seg| (QREFELT $ 85))
                 . #4=(|STREAM;setelt!;$Us2S;34|))
           (EXIT
            (COND
             ((SPADCALL |seg| (QREFELT $ 86))
-             (SEQ (LETT |high| (SPADCALL |seg| (QREFELT $ 87)) . #4#)
+             (SEQ (LETT |h| (SPADCALL |seg| (QREFELT $ 87)) . #4#)
                   (EXIT
-                   (COND ((< |high| |low|) |s|)
+                   (COND ((< |h| |l|) |s|)
                          (#5='T
                           (SEQ
                            (COND
-                            ((SPADCALL |low| |x| (QREFELT $ 74))
+                            ((SPADCALL |l| |x| (QREFELT $ 74))
                              (COND
-                              ((NULL (SPADCALL |high| |x| (QREFELT $ 74)))
+                              ((NULL (SPADCALL |h| |x| (QREFELT $ 74)))
                                (EXIT
                                 (|error| #6="setelt!: index out of range")))))
                             (#5# (EXIT (|error| #6#))))
-                           (LETT |x|
-                                 (|STREAM;expand!| |x| (+ (- |high| 1) 1) $)
+                           (LETT |x| (|STREAM;expand!| |x| (+ (- |h| 1) 1) $)
                                  . #4#)
                            (LETT |y|
                                  (SPADCALL |x|
-                                           (PROG1 (LETT #3# (- |low| 1) . #4#)
+                                           (PROG1 (LETT #3# (- |l| 1) . #4#)
                                              (|check_subtype2| (>= #3# 0)
                                                                '(|NonNegativeInteger|)
                                                                '(|Integer|)
                                                                #3#))
                                            (QREFELT $ 88))
                                  . #4#)
-                           (SEQ (LETT |i| 0 . #4#)
-                                (LETT #2# (- |high| |low|) . #4#) G190
-                                (COND ((|greater_SI| |i| #2#) (GO G191)))
+                           (SEQ (LETT |i| 0 . #4#) (LETT #2# (- |h| |l|) . #4#)
+                                G190 (COND ((|greater_SI| |i| #2#) (GO G191)))
                                 (SEQ (|STREAM;setfrst!| |y| |s| $)
                                      (EXIT
                                       (LETT |y| (SPADCALL |y| (QREFELT $ 15))
@@ -543,13 +541,13 @@
                                 (LETT |i| (|inc_SI| |i|) . #4#) (GO G190) G191
                                 (EXIT NIL))
                            (EXIT |s|)))))))
-            ((NULL (SPADCALL |low| |x| (QREFELT $ 74)))
+            ((NULL (SPADCALL |l| |x| (QREFELT $ 74)))
              (|error| "setelt!: index out of range"))
             ('T
              (SEQ
               (LETT |x|
                     (SPADCALL |x|
-                              (PROG1 (LETT #1# (- |low| 1) . #4#)
+                              (PROG1 (LETT #1# (- |l| 1) . #4#)
                                 (|check_subtype2| (>= #1# 0)
                                                   '(|NonNegativeInteger|)
                                                   '(|Integer|) #1#))
@@ -1272,8 +1270,8 @@
               |STREAM;swap!;$2IV;30| |STREAM;concat;$S$;31|
               |STREAM;concat;3$;66| (|List| $$) (140 . |empty?|)
               (145 . |first|) (150 . |rest|) |STREAM;concat;L$;33|
-              (|UniversalSegment| 16) (155 . |lo|) (160 . |hasHi|) (165 . |hi|)
-              (170 . |rest|) |STREAM;setelt!;$Us2S;34|
+              (|UniversalSegment| 16) (155 . |low|) (160 . |hasHi|)
+              (165 . |high|) (170 . |rest|) |STREAM;setelt!;$Us2S;34|
               |STREAM;lazyEvaluate;2$;37| (176 . |Zero|) (180 . |Zero|)
               (184 . =) (190 . |One|) (194 . |One|) (198 . -)
               |STREAM;cons;S2$;41| |STREAM;setrest!;3$;49|

@@ -176,7 +176,7 @@
               (|Mapping| 9 15) (|SparseUnivariatePolynomialFunctions2| 15 9)
               (16 . |map|) (|Record| (|:| |num| 9) (|:| |den| 14))
               |ISUMP;sum;PVR;3| (22 . |One|) (26 . |One|) (|Segment| 9)
-              (30 . |hi|) (35 . +) (41 . |eval|) (48 . |lo|) (53 . -)
+              (30 . |high|) (35 . +) (41 . |eval|) (48 . |low|) (53 . -)
               |ISUMP;sum;PVSR;2| (|SparseUnivariatePolynomial| $)
               (59 . |univariate|) (65 . |Zero|) (69 . |Zero|) (73 . |Zero|)
               (|Boolean|) (77 . ~=) (|NonNegativeInteger|) (83 . |degree|)

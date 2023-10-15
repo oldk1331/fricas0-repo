@@ -226,7 +226,7 @@
               (5 . |var1StepsDefault|) (|List| (|DrawOption|))
               (|DrawOptionFunctions0|) (9 . |var1Steps|)
               (15 . |var2StepsDefault|) (19 . |var2Steps|) (|DoubleFloat|)
-              (|Segment| 21) (25 . |lo|) (30 . |hi|)
+              (|Segment| 21) (25 . |low|) (30 . |high|)
               (|SubSpaceComponentProperty|) (35 . |new|) (|Boolean|)
               (39 . |close|) (45 . |solid|) (|List| (|List| 7)) (|List| 25)
               (|ThreeSpace| 21) (51 . |mesh|) |MESH;meshPar2Var;TsM2SLTs;3|

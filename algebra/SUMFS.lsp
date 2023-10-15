@@ -158,7 +158,7 @@
               (0 . |new|) (|Kernel| 7) (4 . |kernel|) (|SegmentBinding| 7)
               (9 . |variable|) (|SegmentBinding| $) (14 . |summation|)
               (20 . |One|) (24 . |One|) (|Segment| 7) (28 . |segment|)
-              (33 . |hi|) (38 . +) (|Kernel| $) (44 . |eval|) (51 . |lo|)
+              (33 . |high|) (38 . +) (|Kernel| $) (44 . |eval|) (51 . |low|)
               (56 . -) |SUMFS;sum;FSbF;2| (62 . |summation|) |SUMFS;sum;FSF;3|
               (|List| 22) (68 . |tower|) (73 . |coerce|) (|Boolean|)
               (|List| 10) (78 . |member?|) (|Union| 8 '"failed")
