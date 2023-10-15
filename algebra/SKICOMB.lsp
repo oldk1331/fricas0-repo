@@ -499,8 +499,7 @@
                       . #1=(|SKICOMB;coerce;$Of;23|))
                 (COND
                  ((QEQCAR |n| 0)
-                  (SPADCALL (SPADCALL (CDR |n|) (QREFELT $ 56))
-                            (QREFELT $ 57))))
+                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 56)) . #1#)))
                 (COND
                  ((QEQCAR |n| 1)
                   (COND
@@ -511,9 +510,9 @@
                             (SPADCALL
                              (LIST |s|
                                    (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                   (SPADCALL " " (QREFELT $ 58))
+                                   (SPADCALL " " (QREFELT $ 57))
                                    (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
-                             (QREFELT $ 59))
+                             (QREFELT $ 58))
                             . #1#))
                      (#2='T
                       (LETT |s|
@@ -521,20 +520,20 @@
                              (LIST |s|
                                    (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
                                    (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49)))
-                             (QREFELT $ 59))
+                             (QREFELT $ 58))
                             . #1#))))
                    (#2#
                     (LETT |s|
                           (SPADCALL
                            (LIST |s| (SPADCALL (QCAR (CDR |n|)) (QREFELT $ 49))
-                                 (SPADCALL "(" (QREFELT $ 58))
+                                 (SPADCALL "(" (QREFELT $ 57))
                                  (SPADCALL (QCDR (CDR |n|)) (QREFELT $ 49))
-                                 (SPADCALL ")" (QREFELT $ 58)))
-                           (QREFELT $ 59))
+                                 (SPADCALL ")" (QREFELT $ 57)))
+                           (QREFELT $ 58))
                           . #1#)))))
                 (COND
                  ((QEQCAR |n| 2)
-                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 60)) . #1#)))
+                  (LETT |s| (SPADCALL (CDR |n|) (QREFELT $ 59)) . #1#)))
                 (EXIT |s|)))) 
 
 (DECLAIM (NOTINLINE |SKICombinators;|)) 
@@ -563,7 +562,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SKICombinators|))
           (LETT |dv$| (LIST '|SKICombinators| DV$1) . #1#)
-          (LETT $ (GETREFV 63) . #1#)
+          (LETT $ (GETREFV 62) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SKICombinators| (LIST DV$1)
@@ -595,20 +594,19 @@
               (65 . |concat|) (70 . |toString|) (75 . ~=) (81 . >)
               (|OutputForm|) |SKICOMB;coerce;$Of;23| (|Void|) (87 . |print|)
               |SKICOMB;redux;2$;21| |SKICOMB;=;2$B;22| (92 . |empty|)
-              (|Symbol|) (96 . |string|) (101 . |coerce|) (106 . |message|)
-              (111 . |hconcat|) (116 . |coerce|) (|SingleInteger|)
-              (|HashState|))
-           '#(~= 121 |variable?| 127 |toString| 132 |ski| 137 |redux| 148
-              |parseTerm| 153 |parseSki| 159 |latex| 164 |isS?| 169 |isK?| 174
-              |isI?| 179 |hashUpdate!| 184 |hash| 190 |getVariable| 195
-              |getChildren| 200 |freeVariable?| 205 |coerce| 211 |atom?| 216 S
-              221 K 225 I 229 = 233)
+              (|Symbol|) (96 . |coerce|) (101 . |message|) (106 . |hconcat|)
+              (111 . |coerce|) (|SingleInteger|) (|HashState|))
+           '#(~= 116 |variable?| 122 |toString| 127 |ski| 132 |redux| 143
+              |parseTerm| 148 |parseSki| 154 |latex| 159 |isS?| 164 |isK?| 169
+              |isI?| 174 |hashUpdate!| 179 |hash| 185 |getVariable| 190
+              |getChildren| 195 |freeVariable?| 200 |coerce| 206 |atom?| 211 S
+              216 K 220 I 224 = 228)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 48))
-                        (|makeByteWordVec2| 62
+                        (|makeByteWordVec2| 61
                                             '(1 14 13 0 15 2 13 16 0 0 17 1 21
                                               16 0 22 1 21 16 0 23 1 21 16 0 24
                                               2 6 18 14 19 25 2 26 0 0 2 27 1
@@ -616,15 +614,15 @@
                                               0 30 1 6 0 14 39 2 6 16 0 0 41 1
                                               14 0 33 44 1 6 14 0 45 2 0 16 0 0
                                               46 2 19 16 0 0 47 1 48 50 0 51 0
-                                              48 0 54 1 55 14 0 56 1 14 48 0 57
-                                              1 48 0 14 58 1 48 0 33 59 1 6 48
-                                              0 60 2 0 16 0 0 46 1 0 16 0 35 1
-                                              0 14 0 43 2 0 0 0 0 8 1 0 0 6 9 1
-                                              0 0 0 52 2 0 18 14 19 20 1 0 0 14
-                                              31 1 0 14 0 1 1 0 16 0 38 1 0 16
-                                              0 37 1 0 16 0 36 2 0 62 62 0 1 1
-                                              0 61 0 1 1 0 6 0 40 1 0 33 0 34 2
-                                              0 16 0 6 42 1 0 48 0 49 1 0 16 0
-                                              32 0 0 0 12 0 0 0 11 0 0 0 10 2 0
-                                              16 0 0 53)))))
+                                              48 0 54 1 55 48 0 56 1 48 0 14 57
+                                              1 48 0 33 58 1 6 48 0 59 2 0 16 0
+                                              0 46 1 0 16 0 35 1 0 14 0 43 2 0
+                                              0 0 0 8 1 0 0 6 9 1 0 0 0 52 2 0
+                                              18 14 19 20 1 0 0 14 31 1 0 14 0
+                                              1 1 0 16 0 38 1 0 16 0 37 1 0 16
+                                              0 36 2 0 61 61 0 1 1 0 60 0 1 1 0
+                                              6 0 40 1 0 33 0 34 2 0 16 0 6 42
+                                              1 0 48 0 49 1 0 16 0 32 0 0 0 12
+                                              0 0 0 11 0 0 0 10 2 0 16 0 0
+                                              53)))))
            '|lookupComplete|)) 
