@@ -4577,9 +4577,7 @@
 ;   fefull := fe or alg or EQCAR(cat, 'CombinatorialFunctionCategory)
 ;   partialResult :=
 ;     EQCAR(dom, 'Variable) or EQCAR(dom, 'Symbol) =>
-;       first(cat) in
-;        '(Magma AbelianSemiGroup Monoid AbelianGroup AbelianMonoid
-;          PartialDifferentialRing Ring InputForm) =>
+;       first(cat) in '(Magma AbelianSemiGroup AbelianGroup) =>
 ;                 d := ['Polynomial, $Integer]
 ;                 augmentSub(v, d, SL)
 ;       EQCAR(cat, 'Group) =>
@@ -4636,9 +4634,7 @@
                ((OR (EQCAR |dom| '|Variable|) (EQCAR |dom| '|Symbol|))
                 (COND
                  ((|member| (CAR |cat|)
-                   '(|Magma| |AbelianSemiGroup| |Monoid| |AbelianGroup|
-                     |AbelianMonoid| |PartialDifferentialRing| |Ring|
-                     |InputForm|))
+                   '(|Magma| |AbelianSemiGroup| |AbelianGroup|))
                   (PROGN
                    (SETQ |d| (LIST '|Polynomial| |$Integer|))
                    (|augmentSub| |v| |d| SL)))

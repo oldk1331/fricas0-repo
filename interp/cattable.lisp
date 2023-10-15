@@ -296,7 +296,6 @@
 ;       null r and opOf op = 'has => simp first pred
 ;       pred is '(QUOTE T) => true
 ;       op1 := LASSOC(op,'((and . AND)(or . OR)(not . NOT))) => simp [op1,:r]
-;       simp first pred   --REMOVE THIS HACK !!!!
 ;     pred in '(T etc) => pred
 ;     null pred => nil
 ;     pred
@@ -367,8 +366,7 @@
          (|simpHasPred,simp| (CAR |pred|)))
         ((EQUAL |pred| ''T) T)
         ((SETQ |op1| (LASSOC |op| '((|and| . AND) (|or| . OR) (|not| . NOT))))
-         (|simpHasPred,simp| (CONS |op1| |r|)))
-        (#1# (|simpHasPred,simp| (CAR |pred|)))))
+         (|simpHasPred,simp| (CONS |op1| |r|)))))
       ((|member| |pred| '(T |etc|)) |pred|) ((NULL |pred|) NIL) (#1# |pred|)))))
 (DEFUN |simpHasPred,simpDevaluate| (|a|)
   (PROG () (RETURN (EVAL (SUBST 'QUOTE '|devaluate| |a|)))))
