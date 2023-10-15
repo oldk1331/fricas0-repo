@@ -1558,19 +1558,21 @@
 ;   w:= 0
 ;   for arg in rest u repeat
 ;     op:= keyp arg
-;     if not firstTime and needStar(wasSimple,wasQuotient,wasNumber,arg,op) then
+;     if not firstTime and (needBlankForRoot(lastOp,op,arg) or
+;        needStar(wasSimple,wasQuotient,wasNumber,arg,op)) then
 ;       w:= w+1
 ;     if infixArgNeedsParens(arg, rightPrec, "left") then w:= w+2
 ;     w:= w+WIDTH arg
 ;     wasSimple:= atom arg and not NUMBERP arg --or isRationalNumber arg
 ;     wasQuotient:= isQuotient op
 ;     wasNumber:= NUMBERP arg
+;     lastOp := op
 ;     firstTime:= nil
 ;   w
  
 (DEFUN |timesWidth| (|u|)
-  (PROG (|rightPrec| |firstTime| |w| |op| |wasSimple| |wasQuotient|
-         |wasNumber|)
+  (PROG (|rightPrec| |firstTime| |w| |op| |wasSimple| |wasQuotient| |wasNumber|
+         |lastOp|)
     (RETURN
      (PROGN
       (SETQ |rightPrec| (|getOpBindingPower| '* '|Led| '|right|))
@@ -1586,8 +1588,9 @@
              (SETQ |op| (|keyp| |arg|))
              (COND
               ((AND (NULL |firstTime|)
-                    (|needStar| |wasSimple| |wasQuotient| |wasNumber| |arg|
-                     |op|))
+                    (OR (|needBlankForRoot| |lastOp| |op| |arg|)
+                        (|needStar| |wasSimple| |wasQuotient| |wasNumber| |arg|
+                         |op|)))
                (SETQ |w| (+ |w| 1))))
              (COND
               ((|infixArgNeedsParens| |arg| |rightPrec| '|left|)
@@ -1596,6 +1599,7 @@
              (SETQ |wasSimple| (AND (ATOM |arg|) (NULL (NUMBERP |arg|))))
              (SETQ |wasQuotient| (|isQuotient| |op|))
              (SETQ |wasNumber| (NUMBERP |arg|))
+             (SETQ |lastOp| |op|)
              (SETQ |firstTime| NIL))))
           (SETQ |bfVar#48| (CDR |bfVar#48|))))
        (CDR |u|) NIL)
