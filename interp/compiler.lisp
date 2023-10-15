@@ -3172,12 +3172,11 @@
       (|modifyModeStack| |m'| |index|)
       (LIST (LIST '|TAGGEDexit| |index| |u|) |m| |e|)))))
  
-; compReturn(["return",level,x],m,e) ==
+; compReturn(["return", x], m, e) ==
 ;   ns := #$exitModeStack
 ;   ns = $currentFunctionLevel =>
 ;     stackSemanticError(["the return before","%b",x,"%d","is unneccessary"],nil)
 ;     nil
-;   level~=1 => userError '"multi-level returns not supported"
 ;   index := MAX(0, ns - $currentFunctionLevel - 1)
 ;   $returnMode:= resolve($exitModeStack.index,$returnMode)
 ;   [x',m',e']:= u:= comp(x,$returnMode,e) or return nil
@@ -3186,11 +3185,10 @@
 ;   [["TAGGEDreturn",0,u],m,e']
  
 (DEFUN |compReturn| (|bfVar#108| |m| |e|)
-  (PROG (|level| |x| |ns| |index| |u| |x'| |m'| |e'|)
+  (PROG (|x| |ns| |index| |u| |x'| |m'| |e'|)
     (RETURN
      (PROGN
-      (SETQ |level| (CADR . #1=(|bfVar#108|)))
-      (SETQ |x| (CADDR . #1#))
+      (SETQ |x| (CADR |bfVar#108|))
       (SETQ |ns| (LENGTH |$exitModeStack|))
       (COND
        ((EQUAL |ns| |$currentFunctionLevel|)
@@ -3198,8 +3196,6 @@
          (|stackSemanticError|
           (LIST '|the return before| '|%b| |x| '|%d| '|is unneccessary|) NIL)
          NIL))
-       ((NOT (EQL |level| 1))
-        (|userError| "multi-level returns not supported"))
        ('T
         (PROGN
          (SETQ |index| (MAX 0 (- (- |ns| |$currentFunctionLevel|) 1)))
@@ -3207,8 +3203,8 @@
                  (|resolve| (ELT |$exitModeStack| |index|) |$returnMode|))
          (SETQ |u| (OR (|comp| |x| |$returnMode| |e|) (RETURN NIL)))
          (SETQ |x'| (CAR |u|))
-         (SETQ |m'| (CADR . #2=(|u|)))
-         (SETQ |e'| (CADDR . #2#))
+         (SETQ |m'| (CADR . #1=(|u|)))
+         (SETQ |e'| (CADDR . #1#))
          (SETQ |$returnMode| (|resolve| |m'| |$returnMode|))
          (|modifyModeStack| |m'| |index|)
          (LIST (LIST '|TAGGEDreturn| 0 |u|) |m| |e'|))))))))

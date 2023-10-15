@@ -408,7 +408,6 @@
 ;   x is ['brace, :l]    =>
 ;     ['BRACE,  ['AGGLST,:[outputTran y for y in l]]]
 ;   x is ["return", l] => ["return", outputTran l]
-;   x is ["return", ., :l] => ["return", :outputTran l]
 ; 
 ;   x is [["$elt",domain,"float"], x, y, z] and (domain = $DoubleFloat or
 ;     domain is ['Float]) and INTEGERP x and INTEGERP y and INTEGERP z and
@@ -548,12 +547,6 @@
                   (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                        (PROGN (SETQ |l| (CAR |ISTMP#1|)) #1#))))
             (LIST '|return| (|outputTran| |l|)))
-           ((AND (CONSP |x|) (EQ (CAR |x|) '|return|)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CDR |x|))
-                  (AND (CONSP |ISTMP#1|)
-                       (PROGN (SETQ |l| (CDR |ISTMP#1|)) #1#))))
-            (CONS '|return| (|outputTran| |l|)))
            ((AND (CONSP |x|)
                  (PROGN
                   (SETQ |ISTMP#1| (CAR |x|))
