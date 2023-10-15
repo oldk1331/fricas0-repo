@@ -1,22 +1,20 @@
 
-(PUT '|INTBIT;bitLength;2I;1| '|SPADreplace| 'INTEGER-LENGTH) 
+(PUT '|INTBIT;bitTruth;INniB;1| '|SPADreplace|
+     '(XLAM (|n| |i|) (LOGBITP |i| |n|))) 
 
-(SDEFUN |INTBIT;bitLength;2I;1| ((|n| |Integer|) ($ |Integer|))
-        (INTEGER-LENGTH |n|)) 
+(SDEFUN |INTBIT;bitTruth;INniB;1|
+        ((|n| |Integer|) (|i| |NonNegativeInteger|) ($ |Boolean|))
+        (LOGBITP |i| |n|)) 
 
-(SDEFUN |INTBIT;bitCoef;3I;2| ((|n| |Integer|) (|i| |Integer|) ($ |Integer|))
-        (COND ((INTEGER-BIT |n| |i|) 1) ('T 0))) 
-
-(PUT '|INTBIT;bitTruth;2IB;3| '|SPADreplace| 'INTEGER-BIT) 
-
-(SDEFUN |INTBIT;bitTruth;2IB;3| ((|n| |Integer|) (|i| |Integer|) ($ |Boolean|))
-        (INTEGER-BIT |n| |i|)) 
+(SDEFUN |INTBIT;bitCoef;INniI;2|
+        ((|n| |Integer|) (|i| |NonNegativeInteger|) ($ |Integer|))
+        (COND ((SPADCALL |n| |i| (QREFELT $ 9)) 1) ('T 0))) 
 
 (DECLAIM (NOTINLINE |IntegerBits;|)) 
 
 (DEFUN |IntegerBits| ()
   (SPROG NIL
-         (PROG (#1=#:G110)
+         (PROG (#1=#:G109)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|IntegerBits|)
@@ -46,15 +44,16 @@
 
 (MAKEPROP '|IntegerBits| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Integer|) |INTBIT;bitLength;2I;1|
-              |INTBIT;bitCoef;3I;2| (|Boolean|) |INTBIT;bitTruth;2IB;3|)
-           '#(|bitTruth| 0 |bitLength| 6 |bitCoef| 11) 'NIL
+           '#(NIL NIL NIL NIL NIL NIL (|Boolean|) (|Integer|)
+              (|NonNegativeInteger|) |INTBIT;bitTruth;INniB;1|
+              |INTBIT;bitCoef;INniI;2|)
+           '#(|bitTruth| 0 |bitCoef| 6) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
                              (|makeByteWordVec2| 10
-                                                 '(2 0 9 6 6 10 1 0 6 6 7 2 0 6
-                                                   6 6 8)))))
+                                                 '(2 0 6 7 8 9 2 0 7 7 8
+                                                   10)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|IntegerBits| 'NILADIC T) 
