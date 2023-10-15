@@ -1640,27 +1640,37 @@
        (MAXINDEX |domainShell|) 6)
       |alist|))))
  
-; NRTsetVector4Part1(siglist,formlist,condlist) ==
-;   $uncondList: local := nil
-;   $condList: local := nil
-;   for sig in reverse siglist for form in reverse formlist
-;          for cond in reverse condlist repeat
-;                   NRTsetVector4a(sig,form,cond)
-;   reducedUncondlist := REMDUP $uncondList
-;   reducedConlist :=
-;     [[x,:y] for [x,z] in $condList| y := SETDIFFERENCE(z,reducedUncondlist)]
-;   revCondlist := reverseCondlist reducedConlist
-;   orCondlist := [[x,:MKPF(y,'OR)] for [x,:y] in revCondlist]
-;   [reducedUncondlist,:orCondlist]
+; NRTsetVector4Part1(sigs, forms, conds) ==
+;     uncond_list := nil
+;     cond_list := nil
+;     for sig in reverse sigs for form in reverse forms
+;            for cond in reverse conds repeat
+;         sig = '$ =>
+;             domainList :=
+;                 [optimize COPY IFCAR comp(d, $EmptyMode, $e) or
+;                    d for d in $domainShell.4.0]
+;             uncond_list := APPEND(domainList, uncond_list)
+;             if isCategoryForm(form, $e) then
+;                 uncond_list := [form, :uncond_list]
+;         evalform := eval mkEvalableCategoryForm form
+;         cond = true =>
+;             uncond_list := [form, :APPEND(evalform.4.0, uncond_list)]
+;         cond_list := [[cond,[form, :evalform.4.0]], :cond_list]
+; 
+;     reducedUncondlist := REMDUP uncond_list
+;     reducedConlist := [[x, :y] for [x,z] in cond_list |
+;                          y := SETDIFFERENCE(z, reducedUncondlist)]
+;     revCondlist := reverseCondlist reducedConlist
+;     orCondlist := [[x, :MKPF(y, 'OR)] for [x, :y] in revCondlist]
+;     [reducedUncondlist, :orCondlist]
  
-(DEFUN |NRTsetVector4Part1| (|siglist| |formlist| |condlist|)
-  (PROG (|$condList| |$uncondList| |orCondlist| |revCondlist| |reducedConlist|
-         |y| |z| |ISTMP#1| |x| |reducedUncondlist|)
-    (DECLARE (SPECIAL |$condList| |$uncondList|))
+(DEFUN |NRTsetVector4Part1| (|sigs| |forms| |conds|)
+  (PROG (|uncond_list| |cond_list| |domainList| |evalform| |reducedUncondlist|
+         |x| |ISTMP#1| |z| |y| |reducedConlist| |revCondlist| |orCondlist|)
     (RETURN
      (PROGN
-      (SETQ |$uncondList| NIL)
-      (SETQ |$condList| NIL)
+      (SETQ |uncond_list| NIL)
+      (SETQ |cond_list| NIL)
       ((LAMBDA (|bfVar#74| |sig| |bfVar#75| |form| |bfVar#76| |cond|)
          (LOOP
           (COND
@@ -1668,49 +1678,89 @@
                 (ATOM |bfVar#75|) (PROGN (SETQ |form| (CAR |bfVar#75|)) NIL)
                 (ATOM |bfVar#76|) (PROGN (SETQ |cond| (CAR |bfVar#76|)) NIL))
             (RETURN NIL))
-           (#1='T (|NRTsetVector4a| |sig| |form| |cond|)))
+           (#1='T
+            (COND
+             ((EQ |sig| '$)
+              (PROGN
+               (SETQ |domainList|
+                       ((LAMBDA (|bfVar#78| |bfVar#77| |d|)
+                          (LOOP
+                           (COND
+                            ((OR (ATOM |bfVar#77|)
+                                 (PROGN (SETQ |d| (CAR |bfVar#77|)) NIL))
+                             (RETURN (NREVERSE |bfVar#78|)))
+                            (#1#
+                             (SETQ |bfVar#78|
+                                     (CONS
+                                      (OR
+                                       (|optimize|
+                                        (COPY
+                                         (IFCAR
+                                          (|comp| |d| |$EmptyMode| |$e|))))
+                                       |d|)
+                                      |bfVar#78|))))
+                           (SETQ |bfVar#77| (CDR |bfVar#77|))))
+                        NIL (ELT (ELT |$domainShell| 4) 0) NIL))
+               (SETQ |uncond_list| (APPEND |domainList| |uncond_list|))
+               (COND
+                ((|isCategoryForm| |form| |$e|)
+                 (SETQ |uncond_list| (CONS |form| |uncond_list|))))))
+             (#1#
+              (PROGN
+               (SETQ |evalform| (|eval| (|mkEvalableCategoryForm| |form|)))
+               (COND
+                ((EQUAL |cond| T)
+                 (SETQ |uncond_list|
+                         (CONS |form|
+                               (APPEND (ELT (ELT |evalform| 4) 0)
+                                       |uncond_list|))))
+                (#1#
+                 (SETQ |cond_list|
+                         (CONS
+                          (LIST |cond|
+                                (CONS |form| (ELT (ELT |evalform| 4) 0)))
+                          |cond_list|)))))))))
           (SETQ |bfVar#74| (CDR |bfVar#74|))
           (SETQ |bfVar#75| (CDR |bfVar#75|))
           (SETQ |bfVar#76| (CDR |bfVar#76|))))
-       (REVERSE |siglist|) NIL (REVERSE |formlist|) NIL (REVERSE |condlist|)
-       NIL)
-      (SETQ |reducedUncondlist| (REMDUP |$uncondList|))
+       (REVERSE |sigs|) NIL (REVERSE |forms|) NIL (REVERSE |conds|) NIL)
+      (SETQ |reducedUncondlist| (REMDUP |uncond_list|))
       (SETQ |reducedConlist|
-              ((LAMBDA (|bfVar#79| |bfVar#78| |bfVar#77|)
+              ((LAMBDA (|bfVar#81| |bfVar#80| |bfVar#79|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#78|)
-                        (PROGN (SETQ |bfVar#77| (CAR |bfVar#78|)) NIL))
-                    (RETURN (NREVERSE |bfVar#79|)))
+                   ((OR (ATOM |bfVar#80|)
+                        (PROGN (SETQ |bfVar#79| (CAR |bfVar#80|)) NIL))
+                    (RETURN (NREVERSE |bfVar#81|)))
                    (#1#
-                    (AND (CONSP |bfVar#77|)
+                    (AND (CONSP |bfVar#79|)
                          (PROGN
-                          (SETQ |x| (CAR |bfVar#77|))
-                          (SETQ |ISTMP#1| (CDR |bfVar#77|))
+                          (SETQ |x| (CAR |bfVar#79|))
+                          (SETQ |ISTMP#1| (CDR |bfVar#79|))
                           (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
                                (PROGN (SETQ |z| (CAR |ISTMP#1|)) #1#)))
                          (SETQ |y| (SETDIFFERENCE |z| |reducedUncondlist|))
-                         (SETQ |bfVar#79| (CONS (CONS |x| |y|) |bfVar#79|)))))
-                  (SETQ |bfVar#78| (CDR |bfVar#78|))))
-               NIL |$condList| NIL))
+                         (SETQ |bfVar#81| (CONS (CONS |x| |y|) |bfVar#81|)))))
+                  (SETQ |bfVar#80| (CDR |bfVar#80|))))
+               NIL |cond_list| NIL))
       (SETQ |revCondlist| (|reverseCondlist| |reducedConlist|))
       (SETQ |orCondlist|
-              ((LAMBDA (|bfVar#82| |bfVar#81| |bfVar#80|)
+              ((LAMBDA (|bfVar#84| |bfVar#83| |bfVar#82|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#81|)
-                        (PROGN (SETQ |bfVar#80| (CAR |bfVar#81|)) NIL))
-                    (RETURN (NREVERSE |bfVar#82|)))
+                   ((OR (ATOM |bfVar#83|)
+                        (PROGN (SETQ |bfVar#82| (CAR |bfVar#83|)) NIL))
+                    (RETURN (NREVERSE |bfVar#84|)))
                    (#1#
-                    (AND (CONSP |bfVar#80|)
+                    (AND (CONSP |bfVar#82|)
                          (PROGN
-                          (SETQ |x| (CAR |bfVar#80|))
-                          (SETQ |y| (CDR |bfVar#80|))
+                          (SETQ |x| (CAR |bfVar#82|))
+                          (SETQ |y| (CDR |bfVar#82|))
                           #1#)
-                         (SETQ |bfVar#82|
+                         (SETQ |bfVar#84|
                                  (CONS (CONS |x| (MKPF |y| 'OR))
-                                       |bfVar#82|)))))
-                  (SETQ |bfVar#81| (CDR |bfVar#81|))))
+                                       |bfVar#84|)))))
+                  (SETQ |bfVar#83| (CDR |bfVar#83|))))
                NIL |revCondlist| NIL))
       (CONS |reducedUncondlist| |orCondlist|)))))
  
@@ -1729,23 +1779,23 @@
     (RETURN
      (PROGN
       (SETQ |alist| NIL)
-      ((LAMBDA (|bfVar#84| |bfVar#83|)
+      ((LAMBDA (|bfVar#86| |bfVar#85|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#84|)
-                (PROGN (SETQ |bfVar#83| (CAR |bfVar#84|)) NIL))
+           ((OR (ATOM |bfVar#86|)
+                (PROGN (SETQ |bfVar#85| (CAR |bfVar#86|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#83|)
+            (AND (CONSP |bfVar#85|)
                  (PROGN
-                  (SETQ |x| (CAR |bfVar#83|))
-                  (SETQ |y| (CDR |bfVar#83|))
+                  (SETQ |x| (CAR |bfVar#85|))
+                  (SETQ |y| (CDR |bfVar#85|))
                   #1#)
-                 ((LAMBDA (|bfVar#85| |z|)
+                 ((LAMBDA (|bfVar#87| |z|)
                     (LOOP
                      (COND
-                      ((OR (ATOM |bfVar#85|)
-                           (PROGN (SETQ |z| (CAR |bfVar#85|)) NIL))
+                      ((OR (ATOM |bfVar#87|)
+                           (PROGN (SETQ |z| (CAR |bfVar#87|)) NIL))
                        (RETURN NIL))
                       (#1#
                        (PROGN
@@ -1755,64 +1805,11 @@
                           (SETQ |alist| (CONS (LIST |z| |x|) |alist|)))
                          ((|member| |x| (CDR |u|)) NIL)
                          (#1# (RPLACD |u| (CONS |x| (CDR |u|))))))))
-                     (SETQ |bfVar#85| (CDR |bfVar#85|))))
+                     (SETQ |bfVar#87| (CDR |bfVar#87|))))
                   |y| NIL))))
-          (SETQ |bfVar#84| (CDR |bfVar#84|))))
+          (SETQ |bfVar#86| (CDR |bfVar#86|))))
        |cl| NIL)
       |alist|))))
- 
-; NRTsetVector4a(sig,form,cond) ==
-;   sig = '$ =>
-;      domainList :=
-;          [optimize COPY IFCAR comp(d, $EmptyMode, $e) or
-;              d for d in $domainShell.4.0]
-;      $uncondList := APPEND(domainList,$uncondList)
-;      if isCategoryForm(form,$e) then $uncondList := [form,:$uncondList]
-;      $uncondList
-;   evalform := eval mkEvalableCategoryForm form
-;   cond = true => $uncondList := [form,:APPEND(evalform.4.0,$uncondList)]
-;   $condList := [[cond,[form,:evalform.4.0]],:$condList]
- 
-(DEFUN |NRTsetVector4a| (|sig| |form| |cond|)
-  (PROG (|domainList| |evalform|)
-    (RETURN
-     (COND
-      ((EQ |sig| '$)
-       (PROGN
-        (SETQ |domainList|
-                ((LAMBDA (|bfVar#87| |bfVar#86| |d|)
-                   (LOOP
-                    (COND
-                     ((OR (ATOM |bfVar#86|)
-                          (PROGN (SETQ |d| (CAR |bfVar#86|)) NIL))
-                      (RETURN (NREVERSE |bfVar#87|)))
-                     (#1='T
-                      (SETQ |bfVar#87|
-                              (CONS
-                               (OR
-                                (|optimize|
-                                 (COPY (IFCAR (|comp| |d| |$EmptyMode| |$e|))))
-                                |d|)
-                               |bfVar#87|))))
-                    (SETQ |bfVar#86| (CDR |bfVar#86|))))
-                 NIL (ELT (ELT |$domainShell| 4) 0) NIL))
-        (SETQ |$uncondList| (APPEND |domainList| |$uncondList|))
-        (COND
-         ((|isCategoryForm| |form| |$e|)
-          (SETQ |$uncondList| (CONS |form| |$uncondList|))))
-        |$uncondList|))
-      (#1#
-       (PROGN
-        (SETQ |evalform| (|eval| (|mkEvalableCategoryForm| |form|)))
-        (COND
-         ((EQUAL |cond| T)
-          (SETQ |$uncondList|
-                  (CONS |form|
-                        (APPEND (ELT (ELT |evalform| 4) 0) |$uncondList|))))
-         (#1#
-          (SETQ |$condList|
-                  (CONS (LIST |cond| (CONS |form| (ELT (ELT |evalform| 4) 0)))
-                        |$condList|))))))))))
  
 ; NRTmakeSlot1Info() ==
 ; -- 4 cases:
