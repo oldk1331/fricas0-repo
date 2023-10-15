@@ -1,16 +1,27 @@
 
 (SDEFUN |LIST3;map;MLLL;1|
         ((|fn| |Mapping| C A B) (|la| |List| A) (|lb| |List| B) ($ |List| C))
-        (COND ((OR (NULL |la|) (NULL |lb|)) NIL)
-              ('T
-               (CONS (SPADCALL (|SPADfirst| |la|) (|SPADfirst| |lb|) |fn|)
-                     (SPADCALL |fn| (CDR |la|) (CDR |lb|) (QREFELT $ 13)))))) 
+        (SPROG
+         ((#1=#:G108 NIL) (|a| NIL) (#2=#:G109 NIL) (|b| NIL) (#3=#:G107 NIL))
+         (SEQ
+          (PROGN
+           (LETT #3# NIL . #4=(|LIST3;map;MLLL;1|))
+           (SEQ (LETT |b| NIL . #4#) (LETT #2# |lb| . #4#) (LETT |a| NIL . #4#)
+                (LETT #1# |la| . #4#) G190
+                (COND
+                 ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #4#) NIL)
+                      (ATOM #2#) (PROGN (LETT |b| (CAR #2#) . #4#) NIL))
+                  (GO G191)))
+                (SEQ
+                 (EXIT (LETT #3# (CONS (SPADCALL |a| |b| |fn|) #3#) . #4#)))
+                (LETT #1# (PROG1 (CDR #1#) (LETT #2# (CDR #2#) . #4#)) . #4#)
+                (GO G190) G191 (EXIT (NREVERSE #3#))))))) 
 
 (DECLAIM (NOTINLINE |ListFunctions3;|)) 
 
-(DEFUN |ListFunctions3| (&REST #1=#:G112)
+(DEFUN |ListFunctions3| (&REST #1=#:G110)
   (SPROG NIL
-         (PROG (#2=#:G113)
+         (PROG (#2=#:G111)
            (RETURN
             (COND
              ((LETT #2#
