@@ -265,8 +265,8 @@
                (SEQ
                 (COND
                  ((SPADCALL |u| (QREFELT $ 36))
-                  (SPADCALL (|LPOLY;makeLyndon| |u| |v| $)
-                            (|spadConstant| $ 67) (QREFELT $ 68)))
+                  (SPADCALL (|spadConstant| $ 67)
+                            (|LPOLY;makeLyndon| |u| |v| $) (QREFELT $ 68)))
                  (#1='T
                   (SEQ
                    (LETT |u1| (SPADCALL |u| (QREFELT $ 18))
@@ -280,8 +280,9 @@
                        (|LPOLY;cr2| (|LPOLY;lyndon| |u1| |v| $) |u2| $)
                        (QREFELT $ 29)))
                      (#1#
-                      (SPADCALL (|LPOLY;makeLyndon| |u| |v| $)
-                                (|spadConstant| $ 67) (QREFELT $ 68))))))))))) 
+                      (SPADCALL (|spadConstant| $ 67)
+                                (|LPOLY;makeLyndon| |u| |v| $)
+                                (QREFELT $ 68))))))))))) 
 
 (SDEFUN |LPOLY;cr1| ((|l| |LyndonWord| |VarSet|) (|p| $) ($ $))
         (SPROG
@@ -368,7 +369,7 @@
                               (QREFELT $ 39))))))))) 
 
 (SDEFUN |LPOLY;coerce;VarSet$;18| ((|v| |VarSet|) ($ $))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 73)) (|spadConstant| $ 67)
+        (SPADCALL (|spadConstant| $ 67) (SPADCALL |v| (QREFELT $ 73))
                   (QREFELT $ 68))) 
 
 (SDEFUN |LPOLY;construct;3$;19| ((|x| $) (|y| $) ($ $))
@@ -455,7 +456,7 @@
            (COND (#1# #2#) ('T (|spadConstant| $ 35))))))) 
 
 (SDEFUN |LPOLY;LiePoly;Lw$;25| ((|l| |LyndonWord| |VarSet|) ($ $))
-        (SPADCALL |l| (|spadConstant| $ 67) (QREFELT $ 68))) 
+        (SPADCALL (|spadConstant| $ 67) |l| (QREFELT $ 68))) 
 
 (SDEFUN |LPOLY;varList;$L;26| ((|p| $) ($ |List| |VarSet|))
         (SPROG
@@ -703,7 +704,7 @@
               (150 . |lyndonIfCan|) |LPOLY;coerce;$Xdp;23| (155 . -)
               |LPOLY;LiePolyIfCan;XdpU;10| (|FreeMagma| 6) (161 . |coerce|)
               (166 . *) (172 . =) (178 . |lexico|) (184 . -) (189 . |One|)
-              (193 . |monom|) (199 . |coerce|) (204 . *) (210 . |coerce|)
+              (193 . |monomial|) (199 . |coerce|) (204 . *) (210 . |coerce|)
               (215 . *) (221 . |coerce|) |LPOLY;coerce;VarSet$;18|
               |LPOLY;construct;Lw2$;20| |LPOLY;construct;$Lw$;21|
               |LPOLY;construct;2Lw$;22| (226 . *) (232 . +) (238 . |setUnion|)
@@ -715,20 +716,20 @@
               (292 . +) (|Mapping| 93 93 93) (|List| 93) (298 . |reduce|)
               |LPOLY;coerce;$Of;31| (|Mapping| 7 10) (|Union| 10 '"failed")
               (|Record| (|:| |k| 10) (|:| |c| 7)) (|List| 104) (|Mapping| 7 7)
-              (|List| 7) (|List| 10) (|String|) (|SingleInteger|)
+              (|List| 10) (|List| 7) (|String|) (|SingleInteger|)
               (|HashState|))
            '#(~= 304 |zero?| 310 |varList| 315 |trunc| 320 |support| 326 |sup|
               331 |subtractIfCan| 337 |smaller?| 343 |sample| 349 |rquo| 353
               |retractIfCan| 359 |retract| 364 |reductum| 369 |opposite?| 374
               |numberOfMonomials| 380 |monomials| 385 |monomial?| 390
-              |monomial| 395 |monom| 401 |mirror| 407 |min| 412 |max| 418 |map|
-              424 |lquo| 430 |listOfTerms| 436 |linearExtend| 441 |leadingTerm|
-              447 |leadingSupport| 452 |leadingMonomial| 457
-              |leadingCoefficient| 462 |latex| 467 |hashUpdate!| 472 |hash| 478
-              |eval| 483 |degree| 497 |constructOrdered| 502 |construct| 507
-              |coerce| 536 |coefficients| 561 |coefficient| 566 |coef| 572
-              |Zero| 578 |LiePolyIfCan| 582 |LiePoly| 587 >= 592 > 598 = 604 <=
-              610 < 616 / 622 - 628 + 639 * 645)
+              |monomial| 395 |mirror| 401 |min| 406 |max| 412 |map| 418 |lquo|
+              424 |listOfTerms| 430 |linearExtend| 435 |leadingTerm| 441
+              |leadingSupport| 446 |leadingMonomial| 451 |leadingCoefficient|
+              456 |latex| 461 |hashUpdate!| 466 |hash| 472 |eval| 477 |degree|
+              491 |constructOrdered| 496 |construct| 501 |coerce| 530
+              |coefficients| 555 |coefficient| 560 |coef| 566 |Zero| 572
+              |LiePolyIfCan| 576 |LiePoly| 581 >= 586 > 592 = 598 <= 604 < 610
+              / 616 - 622 + 633 * 639)
            'NIL
            (CONS
             (|makeByteWordVec2| 7
@@ -763,7 +764,7 @@
                                     0 46 1 49 12 0 50 0 49 0 51 2 49 12 0 0 52
                                     1 49 53 0 54 1 10 55 56 57 2 49 0 0 0 59 1
                                     10 61 0 62 2 61 0 0 0 63 2 10 12 0 0 64 2
-                                    10 12 0 0 65 1 0 0 0 66 0 7 0 67 2 0 0 10 7
+                                    10 12 0 0 65 1 0 0 0 66 0 7 0 67 2 0 0 7 10
                                     68 1 49 0 6 69 2 49 0 0 0 70 1 33 0 6 71 2
                                     33 0 0 0 72 1 10 0 6 73 2 49 0 7 0 78 2 49
                                     0 0 0 79 2 9 0 0 0 80 1 9 0 0 81 1 10 83 0
@@ -771,23 +772,23 @@
                                     12 0 0 92 1 10 93 0 94 1 7 93 0 95 2 93 0 0
                                     0 96 2 93 0 0 0 97 2 99 93 98 0 100 2 0 12
                                     0 0 1 1 9 12 0 1 1 0 9 0 82 2 0 0 0 87 91 1
-                                    0 108 0 1 2 3 0 0 0 1 2 10 55 0 0 1 2 4 12
+                                    0 107 0 1 2 3 0 0 0 1 2 10 55 0 0 1 2 4 12
                                     0 0 1 0 9 0 1 2 0 33 33 0 48 1 2 103 0 1 1
                                     2 10 0 1 1 0 0 0 90 2 9 12 0 0 1 1 0 87 0 1
-                                    1 0 31 0 1 1 0 12 0 1 2 0 0 7 10 1 2 0 0 10
-                                    7 68 1 0 0 0 86 2 5 0 0 0 1 2 5 0 0 0 1 2 0
-                                    0 106 0 1 2 0 33 33 0 47 1 0 105 0 1 2 11 7
-                                    102 0 1 1 0 104 0 1 1 0 10 0 1 1 0 0 0 1 1
-                                    0 7 0 1 1 0 109 0 1 2 0 111 111 0 1 1 0 110
-                                    0 1 3 0 0 0 6 0 30 3 0 0 0 9 31 32 1 0 87 0
-                                    88 1 0 0 105 1 2 0 0 10 0 75 2 0 0 0 10 76
-                                    2 0 0 10 10 77 1 0 0 105 1 2 0 0 0 0 20 1 2
-                                    0 10 25 1 0 49 0 58 1 0 33 0 41 1 0 0 6 74
-                                    1 0 93 0 101 1 0 107 0 1 2 0 7 0 10 1 2 0 7
-                                    33 0 43 0 9 0 23 1 0 55 49 60 1 0 0 10 14 2
-                                    5 12 0 0 1 2 5 12 0 0 1 2 0 12 0 0 44 2 5
-                                    12 0 0 1 2 5 12 0 0 1 2 8 0 0 7 1 2 1 0 0 0
-                                    1 1 1 0 0 66 2 0 0 0 0 29 2 9 0 87 0 1 2 1
-                                    0 21 0 1 2 0 0 7 10 1 2 0 0 10 7 1 2 0 0 0
-                                    7 1 2 0 0 83 0 1 2 0 0 7 0 28)))))
+                                    1 0 31 0 1 1 0 12 0 1 2 0 0 7 10 68 1 0 0 0
+                                    86 2 5 0 0 0 1 2 5 0 0 0 1 2 0 0 106 0 1 2
+                                    0 33 33 0 47 1 0 105 0 1 2 11 7 102 0 1 1 0
+                                    104 0 1 1 0 10 0 1 1 0 0 0 1 1 0 7 0 1 1 0
+                                    109 0 1 2 0 111 111 0 1 1 0 110 0 1 3 0 0 0
+                                    9 31 32 3 0 0 0 6 0 30 1 0 87 0 88 1 0 0
+                                    105 1 2 0 0 10 0 75 2 0 0 0 10 76 2 0 0 10
+                                    10 77 1 0 0 105 1 2 0 0 0 0 20 1 2 0 10 25
+                                    1 0 33 0 41 1 0 0 6 74 1 0 49 0 58 1 0 93 0
+                                    101 1 0 108 0 1 2 0 7 0 10 1 2 0 7 33 0 43
+                                    0 9 0 23 1 0 55 49 60 1 0 0 10 14 2 5 12 0
+                                    0 1 2 5 12 0 0 1 2 0 12 0 0 44 2 5 12 0 0 1
+                                    2 5 12 0 0 1 2 8 0 0 7 1 1 1 0 0 66 2 1 0 0
+                                    0 1 2 0 0 0 0 29 2 9 0 87 0 1 2 1 0 21 0 1
+                                    2 0 0 10 7 1 2 0 0 7 10 1 2 0 0 0 7 1 2 0 0
+                                    83 0 1 2 0 0 7 0 28)))))
            '|lookupComplete|)) 

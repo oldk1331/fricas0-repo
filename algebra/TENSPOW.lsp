@@ -409,19 +409,19 @@
               |TENSPOW;tensor;L$;4| (111 . |monomial|) (117 . *) (123 . *)
               (129 . |construct|) (134 . *) (|Union| $ '"failed") (|Integer|)
               (|PositiveInteger|) (|Mapping| 7 20) (|Union| 20 '"failed")
-              (|Mapping| 7 7) (|List| 20) (|List| 7) (|List| $) (|HashState|)
+              (|Mapping| 7 7) (|List| 7) (|List| $) (|List| 20) (|HashState|)
               (|String|) (|SingleInteger|))
            '#(~= 140 |zero?| 146 |tensor| 151 |support| 167 |sup| 172
               |subtractIfCan| 178 |smaller?| 184 |sample| 190 |retractIfCan|
               194 |retract| 199 |reductum| 204 |recip| 209 |opposite?| 214
               |one?| 220 |numberOfMonomials| 225 |monomials| 230 |monomial?|
-              235 |monomial| 240 |monom| 246 |min| 252 |max| 258 |map| 264
-              |listOfTerms| 270 |linearExtend| 275 |leadingTerm| 281
-              |leadingSupport| 286 |leadingMonomial| 291 |leadingCoefficient|
-              296 |latex| 301 |hashUpdate!| 306 |hash| 312 |constructOrdered|
-              317 |construct| 322 |coerce| 327 |coefficients| 347 |coefficient|
-              352 |characteristic| 358 |annihilate?| 362 ^ 368 |Zero| 380 |One|
-              384 >= 388 > 394 = 400 <= 406 < 412 - 418 + 429 * 435)
+              235 |monomial| 240 |min| 246 |max| 252 |map| 258 |listOfTerms|
+              264 |linearExtend| 269 |leadingTerm| 275 |leadingSupport| 280
+              |leadingMonomial| 285 |leadingCoefficient| 290 |latex| 295
+              |hashUpdate!| 300 |hash| 306 |constructOrdered| 311 |construct|
+              316 |coerce| 321 |coefficients| 341 |coefficient| 346
+              |characteristic| 352 |annihilate?| 356 ^ 362 |Zero| 374 |One| 378
+              >= 382 > 388 = 394 <= 400 < 406 - 412 + 423 * 429)
            'NIL
            (CONS
             (|makeByteWordVec2| 8
@@ -460,20 +460,20 @@
                                     0 16 45 2 9 0 7 8 47 2 9 0 0 0 48 2 0 0 7 0
                                     49 1 0 0 16 50 2 0 0 0 0 51 2 0 10 0 0 1 1
                                     9 10 0 11 1 0 0 19 37 1 0 0 39 46 2 0 0 9 9
-                                    1 1 0 58 0 1 2 4 0 0 0 1 2 10 52 0 0 1 2 5
+                                    1 1 0 60 0 1 2 4 0 0 0 1 2 10 52 0 0 1 2 5
                                     10 0 0 1 0 9 0 1 1 3 56 0 1 1 3 20 0 1 1 0
                                     0 0 1 1 1 52 0 1 2 9 10 0 0 1 1 1 10 0 1 1
-                                    0 38 0 1 1 0 60 0 1 1 0 10 0 1 2 0 0 7 20
-                                    36 2 0 0 20 7 1 2 6 0 0 0 1 2 6 0 0 0 1 2 0
-                                    0 57 0 1 1 0 16 0 17 2 11 7 55 0 1 1 0 15 0
-                                    1 1 0 20 0 1 1 0 0 0 1 1 0 7 0 1 1 0 62 0 1
-                                    2 0 61 61 0 1 1 0 63 0 1 1 0 0 16 45 1 0 0
-                                    16 50 1 1 0 7 1 1 1 0 53 1 1 3 0 20 1 1 0
-                                    13 0 30 1 0 59 0 1 2 0 7 0 20 1 0 1 38 1 2
-                                    1 10 0 0 1 2 1 0 0 54 1 2 1 0 0 38 1 0 9 0
-                                    44 0 1 0 1 2 6 10 0 0 1 2 6 10 0 0 1 2 0 10
-                                    0 0 1 2 6 10 0 0 1 2 6 10 0 0 1 2 2 0 0 0 1
-                                    1 2 0 0 1 2 0 0 0 0 1 2 2 0 53 0 1 2 9 0 38
-                                    0 1 2 1 0 0 0 51 2 0 0 20 7 1 2 0 0 7 20 1
-                                    2 0 0 7 0 49 2 0 0 0 7 1 2 0 0 54 0 1)))))
+                                    0 38 0 1 1 0 59 0 1 1 0 10 0 1 2 0 0 7 20
+                                    36 2 6 0 0 0 1 2 6 0 0 0 1 2 0 0 57 0 1 1 0
+                                    16 0 17 2 11 7 55 0 1 1 0 15 0 1 1 0 20 0 1
+                                    1 0 0 0 1 1 0 7 0 1 1 0 62 0 1 2 0 61 61 0
+                                    1 1 0 63 0 1 1 0 0 16 45 1 0 0 16 50 1 1 0
+                                    7 1 1 1 0 53 1 1 3 0 20 1 1 0 13 0 30 1 0
+                                    58 0 1 2 0 7 0 20 1 0 1 38 1 2 1 10 0 0 1 2
+                                    1 0 0 54 1 2 1 0 0 38 1 0 9 0 44 0 1 0 1 2
+                                    6 10 0 0 1 2 6 10 0 0 1 2 0 10 0 0 1 2 6 10
+                                    0 0 1 2 6 10 0 0 1 1 2 0 0 1 2 2 0 0 0 1 2
+                                    0 0 0 0 1 2 2 0 53 0 1 2 9 0 38 0 1 2 1 0 0
+                                    0 51 2 0 0 7 20 1 2 0 0 20 7 1 2 0 0 7 0 49
+                                    2 0 0 0 7 1 2 0 0 54 0 1)))))
            '|lookupComplete|)) 

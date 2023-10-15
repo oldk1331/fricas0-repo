@@ -137,9 +137,9 @@
          (|d| |PoincareBirkhoffWittLyndonBasis| |VarSet|) ($ $))
         (COND
          ((SPADCALL |d| (|spadConstant| $ 15) (QREFELT $ 16))
-          (SPADCALL |g| (|spadConstant| $ 9) (QREFELT $ 27)))
+          (SPADCALL (|spadConstant| $ 9) |g| (QREFELT $ 27)))
          ((SPADCALL |g| (|spadConstant| $ 15) (QREFELT $ 16))
-          (SPADCALL |d| (|spadConstant| $ 9) (QREFELT $ 27)))
+          (SPADCALL (|spadConstant| $ 9) |d| (QREFELT $ 27)))
          ('T
           (|XPBWPOLY;process| (REVERSE (SPADCALL |g| (QREFELT $ 29)))
            (SPADCALL |d| (QREFELT $ 31)) (CDR (SPADCALL |d| (QREFELT $ 29)))
@@ -240,10 +240,11 @@
          (SEQ
           (COND
            ((NULL |gauche|)
-            (SPADCALL (CONS |x| |droite|) (|spadConstant| $ 9) (QREFELT $ 27)))
+            (SPADCALL (|spadConstant| $ 9) (CONS |x| |droite|) (QREFELT $ 27)))
            ((NULL (SPADCALL (|SPADfirst| |gauche|) |x| (QREFELT $ 46)))
-            (SPADCALL (APPEND (REVERSE |gauche|) (CONS |x| |droite|))
-                      (|spadConstant| $ 9) (QREFELT $ 27)))
+            (SPADCALL (|spadConstant| $ 9)
+                      (APPEND (REVERSE |gauche|) (CONS |x| |droite|))
+                      (QREFELT $ 27)))
            ('T
             (SEQ
              (LETT |p| (SPADCALL (|SPADfirst| |gauche|) |x| (QREFELT $ 47))
@@ -413,7 +414,7 @@
                      (EXIT (SPADCALL |r1| |r2| (QREFELT $ 20))))))))))))) 
 
 (SDEFUN |XPBWPOLY;One;$;11| (($ $))
-        (SPADCALL (|spadConstant| $ 15) (|spadConstant| $ 9) (QREFELT $ 27))) 
+        (SPADCALL (|spadConstant| $ 9) (|spadConstant| $ 15) (QREFELT $ 27))) 
 
 (SDEFUN |XPBWPOLY;coerce;R$;12| ((|r| R) ($ $))
         (LIST (CONS (|spadConstant| $ 15) |r|))) 
@@ -440,7 +441,7 @@
                        (EXIT (SPADCALL (ELT $ 54) |le| (QREFELT $ 57))))))))) 
 
 (SDEFUN |XPBWPOLY;coerce;VarSet$;14| ((|v| |VarSet|) ($ $))
-        (SPADCALL (SPADCALL |v| (QREFELT $ 59)) (|spadConstant| $ 9)
+        (SPADCALL (|spadConstant| $ 9) (SPADCALL |v| (QREFELT $ 59))
                   (QREFELT $ 27))) 
 
 (SDEFUN |XPBWPOLY;coerce;Lp$;15| ((|p| |LiePolynomial| |VarSet| R) ($ $))
@@ -905,17 +906,17 @@
               (52 . |length|) (|Integer|) (57 . <=)
               (CONS IDENTITY
                     (FUNCALL (|dispatchFunction| |XPBWPOLY;One;$;11|) $))
-              (63 . |monom|) (|List| 30) (69 . |listOfTerms|) (|LyndonWord| 6)
-              (74 . |first|) (|XDistributedPolynomial| 6 7) (79 . |One|)
-              (|LiePolynomial| 6 7) (83 . |LiePoly|) (88 . |coerce|) (93 . *)
-              (|XRecursivePolynomial| 6 7) (99 . |One|) (103 . |coerce|)
-              (108 . *) (114 . |mirror|) (119 . |rest|)
-              |XPBWPOLY;coerce;Lp$;15| |XPBWPOLY;*;3$;22| (124 . |lexico|)
-              (130 . |construct|) (|Record| (|:| |k| 30) (|:| |c| 7))
-              (|List| 48) (136 . |listOfTerms|) (141 . |list|)
-              |XPBWPOLY;coerce;R$;12| (146 . |Zero|) (150 . +)
-              (|Mapping| 12 12 12) (|List| 12) (156 . |reduce|)
-              |XPBWPOLY;coerce;$Of;13| (162 . |coerce|)
+              (63 . |monomial|) (|List| 30) (69 . |listOfTerms|)
+              (|LyndonWord| 6) (74 . |first|) (|XDistributedPolynomial| 6 7)
+              (79 . |One|) (|LiePolynomial| 6 7) (83 . |LiePoly|)
+              (88 . |coerce|) (93 . *) (|XRecursivePolynomial| 6 7)
+              (99 . |One|) (103 . |coerce|) (108 . *) (114 . |mirror|)
+              (119 . |rest|) |XPBWPOLY;coerce;Lp$;15| |XPBWPOLY;*;3$;22|
+              (124 . |lexico|) (130 . |construct|)
+              (|Record| (|:| |k| 30) (|:| |c| 7)) (|List| 48)
+              (136 . |listOfTerms|) (141 . |list|) |XPBWPOLY;coerce;R$;12|
+              (146 . |Zero|) (150 . +) (|Mapping| 12 12 12) (|List| 12)
+              (156 . |reduce|) |XPBWPOLY;coerce;$Of;13| (162 . |coerce|)
               |XPBWPOLY;coerce;VarSet$;14| (167 . |coerce|) (172 . *) (178 . +)
               (184 . |Zero|) |XPBWPOLY;coerce;$Xdp;16| (188 . =) (194 . |Zero|)
               (198 . *) (204 . +) |XPBWPOLY;coerce;$Xrp;17|
@@ -937,10 +938,10 @@
               (|Union| 111 '#1#) (|Union| $ '"failed") (|PositiveInteger|)
               (|String|) (|SingleInteger|) (|HashState|))
            '#(|varList| 314 |trunc| 319 |reductum| 325 |quasiRegular?| 330
-              |quasiRegular| 335 |product| 340 |monom| 347 |mirror| 353 |log|
-              358 |leadingSupport| 364 |exp| 369 |degree| 375 |constant?| 380
-              |constant| 385 |coerce| 390 |Zero| 420 |One| 424 |LiePolyIfCan|
-              428 = 433 - 439 + 450 * 456)
+              |quasiRegular| 335 |product| 340 |monomial| 347 |mirror| 353
+              |log| 358 |leadingSupport| 364 |exp| 369 |degree| 375 |constant?|
+              380 |constant| 385 |coerce| 390 |Zero| 420 |One| 424
+              |LiePolyIfCan| 428 = 433 - 439 + 450 * 456)
            'NIL
            (CONS
             (|makeByteWordVec2| 6
@@ -976,7 +977,7 @@
                                   '(0 7 0 9 2 7 10 0 0 11 1 13 12 0 14 0 13 0
                                     15 2 13 10 0 0 16 1 7 12 0 17 2 12 0 0 0 18
                                     2 0 0 7 0 19 2 0 0 0 0 20 0 0 0 21 1 13 22
-                                    0 23 2 24 10 0 0 25 2 0 0 13 7 27 1 13 28 0
+                                    0 23 2 24 10 0 0 25 2 0 0 7 13 27 1 13 28 0
                                     29 1 13 30 0 31 0 32 0 33 1 34 0 30 35 1 34
                                     32 0 36 2 32 0 0 0 37 0 38 0 39 1 34 38 0
                                     40 2 38 0 0 0 41 1 34 0 0 42 1 13 0 0 43 2
@@ -992,7 +993,7 @@
                                     0 0 0 96 1 0 0 0 97 2 0 0 0 22 98 0 34 0 99
                                     1 13 10 0 100 1 13 30 0 101 1 0 82 0 86 2 0
                                     0 0 22 90 1 0 0 0 89 1 0 10 0 78 1 0 0 0 81
-                                    3 0 0 0 0 22 91 2 0 0 13 7 27 1 0 0 0 104 2
+                                    3 0 0 0 0 22 91 2 0 0 7 13 27 1 0 0 0 104 2
                                     7 0 0 22 98 1 0 13 0 71 2 7 0 0 22 95 1 0
                                     22 0 87 1 0 10 0 72 1 0 7 0 76 1 0 38 0 70
                                     1 0 32 0 65 1 0 0 34 44 1 0 0 6 60 1 0 0 7

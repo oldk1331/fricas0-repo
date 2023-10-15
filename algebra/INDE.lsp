@@ -84,9 +84,9 @@
               (|local| |#1|) '|Term| '|Rep| (|OutputForm|) (0 . |coerce|)
               (|NonNegativeInteger|) (5 . |coerce|) (10 . ^) (|Integer|)
               (16 . |coerce|) (21 . *) (|Mapping| 9 9 9) (|List| 9)
-              (27 . |reduce|) |INDE;coerce;$Of;2| (|Mapping| 11 11)
-              (|Record| (|:| |k| 6) (|:| |c| 11)) (|List| 22)
-              (|Union| $ '"failed") (|Boolean|) (|PositiveInteger|) (|String|)
+              (27 . |reduce|) |INDE;coerce;$Of;2| (|Mapping| 11 11) (|Boolean|)
+              (|Record| (|:| |k| 6) (|:| |c| 11)) (|List| 23)
+              (|Union| $ '"failed") (|PositiveInteger|) (|String|)
               (|SingleInteger|) (|HashState|))
            '#(|coerce| 33) 'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0))

@@ -36,6 +36,8 @@
                                               ($ (|Mapping| |t#1| |t#1|) $))
                                              T)
                                             ((|monomial| ($ |t#1| |t#2|)) T)
+                                            ((|monomial?| ((|Boolean|) $)) T)
+                                            ((|leadingMonomial| ($ $)) T)
                                             ((|leadingCoefficient| (|t#1| $))
                                              T)
                                             ((|leadingSupport| (|t#2| $)) T)
@@ -62,6 +64,9 @@
                                                 (|Record| (|:| |k| |t#2|)
                                                           (|:| |c| |t#1|)))
                                                $))
+                                             T)
+                                            ((|numberOfMonomials|
+                                              ((|NonNegativeInteger|) $))
                                              T))
                                           '(((|Comparable|)
                                              (|has| |t#1| (|Comparable|)))
@@ -75,9 +80,11 @@
                                               (|has| |t#1|
                                                      (|OrderedAbelianMonoidSup|))
                                               (|has| |t#2| (|OrderedSet|)))))
-                                          '((|List|
+                                          '((|NonNegativeInteger|)
+                                            (|List|
                                              (|Record| (|:| |k| |t#2|)
-                                                       (|:| |c| |t#1|))))
+                                                       (|:| |c| |t#1|)))
+                                            (|Boolean|))
                                           NIL))
                                  . #2=(|IndexedDirectProductCategory|)))))
                    . #2#)
