@@ -3,7 +3,7 @@
 
 (DEFUN |SExpression| ()
   (SPROG NIL
-         (PROG (#1=#:G1773)
+         (PROG (#1=#:G1785)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SExpression|)

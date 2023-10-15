@@ -66,7 +66,7 @@
 
 (DEFUN |DoubleFloatMatrix| ()
   (SPROG NIL
-         (PROG (#1=#:G2411)
+         (PROG (#1=#:G2423)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|DoubleFloatMatrix|)
@@ -86,7 +86,7 @@
 
 (DEFUN |DoubleFloatMatrix;| ()
   (SPROG
-   ((|dv$| NIL) ($ NIL) (#1=#:G2408 NIL) (#2=#:G2409 NIL) (#3=#:G2407 NIL)
+   ((|dv$| NIL) ($ NIL) (#1=#:G2420 NIL) (#2=#:G2421 NIL) (#3=#:G2419 NIL)
     (|pv$| NIL))
    (PROGN
     (LETT |dv$| '(|DoubleFloatMatrix|) . #4=(|DoubleFloatMatrix|))
