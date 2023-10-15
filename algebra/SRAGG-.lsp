@@ -1,24 +1,21 @@
 
-(SDEFUN |SRAGG-;trim;SCS;1| ((|s| S) (|c| |Character|) ($ S))
-        (SPADCALL (SPADCALL |s| |c| (QREFELT $ 8)) |c| (QREFELT $ 9))) 
+(SDEFUN |SRAGG-;trim;SCcS;1| ((|s| S) (|cc| |CharacterClass|) ($ S))
+        (SPADCALL (SPADCALL |s| |cc| (QREFELT $ 8)) |cc| (QREFELT $ 9))) 
 
-(SDEFUN |SRAGG-;trim;SCcS;2| ((|s| S) (|cc| |CharacterClass|) ($ S))
-        (SPADCALL (SPADCALL |s| |cc| (QREFELT $ 12)) |cc| (QREFELT $ 13))) 
+(SDEFUN |SRAGG-;lowerCase;2S;2| ((|s| S) ($ S))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 12))) 
 
-(SDEFUN |SRAGG-;lowerCase;2S;3| ((|s| S) ($ S))
-        (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 16))) 
+(SDEFUN |SRAGG-;upperCase;2S;3| ((|s| S) ($ S))
+        (SPADCALL (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 14))) 
 
-(SDEFUN |SRAGG-;upperCase;2S;4| ((|s| S) ($ S))
-        (SPADCALL (SPADCALL |s| (QREFELT $ 15)) (QREFELT $ 18))) 
+(SDEFUN |SRAGG-;prefix?;2SB;4| ((|s| S) (|t| S) ($ |Boolean|))
+        (SPADCALL |s| |t| (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 19))) 
 
-(SDEFUN |SRAGG-;prefix?;2SB;5| ((|s| S) (|t| S) ($ |Boolean|))
-        (SPADCALL |s| |t| (SPADCALL |t| (QREFELT $ 21)) (QREFELT $ 23))) 
+(SDEFUN |SRAGG-;coerce;CS;5| ((|c| |Character|) ($ S))
+        (SPADCALL 1 |c| (QREFELT $ 23))) 
 
-(SDEFUN |SRAGG-;coerce;CS;6| ((|c| |Character|) ($ S))
-        (SPADCALL 1 |c| (QREFELT $ 26))) 
-
-(SDEFUN |SRAGG-;elt;3S;7| ((|s| S) (|t| S) ($ S))
-        (SPADCALL |s| |t| (QREFELT $ 28))) 
+(SDEFUN |SRAGG-;elt;3S;6| ((|s| S) (|t| S) ($ S))
+        (SPADCALL |s| |t| (QREFELT $ 25))) 
 
 (DECLAIM (NOTINLINE |StringAggregate&;|)) 
 
@@ -27,7 +24,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|StringAggregate&|))
           (LETT |dv$| (LIST '|StringAggregate&| DV$1) . #1#)
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT $ (GETREFV 29) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -37,29 +34,26 @@
 
 (MAKEPROP '|StringAggregate&| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Character|)
-              (0 . |rightTrim|) (6 . |leftTrim|) |SRAGG-;trim;SCS;1|
-              (|CharacterClass|) (12 . |rightTrim|) (18 . |leftTrim|)
-              |SRAGG-;trim;SCcS;2| (24 . |copy|) (29 . |lowerCase!|)
-              |SRAGG-;lowerCase;2S;3| (34 . |upperCase!|)
-              |SRAGG-;upperCase;2S;4| (|Integer|) (39 . |minIndex|) (|Boolean|)
-              (44 . |substring?|) |SRAGG-;prefix?;2SB;5| (|NonNegativeInteger|)
-              (51 . |new|) |SRAGG-;coerce;CS;6| (57 . |concat|)
-              |SRAGG-;elt;3S;7| (|OutputForm|) (|UniversalSegment| 20))
-           '#(|upperCase| 63 |trim| 68 |prefix?| 80 |lowerCase| 86 |elt| 91
-              |coerce| 97)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|CharacterClass|)
+              (0 . |rightTrim|) (6 . |leftTrim|) |SRAGG-;trim;SCcS;1|
+              (12 . |copy|) (17 . |lowerCase!|) |SRAGG-;lowerCase;2S;2|
+              (22 . |upperCase!|) |SRAGG-;upperCase;2S;3| (|Integer|)
+              (27 . |minIndex|) (|Boolean|) (32 . |substring?|)
+              |SRAGG-;prefix?;2SB;4| (|NonNegativeInteger|) (|Character|)
+              (39 . |new|) |SRAGG-;coerce;CS;5| (45 . |concat|)
+              |SRAGG-;elt;3S;6| (|OutputForm|) (|UniversalSegment| 16))
+           '#(|upperCase| 51 |trim| 56 |prefix?| 62 |lowerCase| 68 |elt| 73
+              |coerce| 79)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 29
-                                                 '(2 6 0 0 7 8 2 6 0 0 7 9 2 6
-                                                   0 0 11 12 2 6 0 0 11 13 1 6
-                                                   0 0 15 1 6 0 0 16 1 6 0 0 18
-                                                   1 6 20 0 21 3 6 22 0 0 20 23
-                                                   2 6 0 25 7 26 2 6 0 0 0 28 1
-                                                   0 0 0 19 2 0 0 0 11 14 2 0 0
-                                                   0 7 10 2 0 22 0 0 24 1 0 0 0
-                                                   17 2 0 0 0 0 29 1 0 0 7
-                                                   27)))))
+                             (|makeByteWordVec2| 26
+                                                 '(2 6 0 0 7 8 2 6 0 0 7 9 1 6
+                                                   0 0 11 1 6 0 0 12 1 6 0 0 14
+                                                   1 6 16 0 17 3 6 18 0 0 16 19
+                                                   2 6 0 21 22 23 2 6 0 0 0 25
+                                                   1 0 0 0 15 2 0 0 0 7 10 2 0
+                                                   18 0 0 20 1 0 0 0 13 2 0 0 0
+                                                   0 26 1 0 0 22 24)))))
            '|lookupComplete|)) 

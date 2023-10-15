@@ -1,4 +1,4 @@
-344042              (|GenericNonAssociativeAlgebra|)
+344061              (|GenericNonAssociativeAlgebra|)
 (|Expression|)
 (|AlgebraicIntegrate| |AlgebraicIntegrate2|)
 (|ElementaryIntegration| |ParametricIntegration|)
@@ -4919,8 +4919,8 @@
                    |IndexedBits| |IndexedFlexibleArray| |IndexedList|
                    |IndexedOneDimensionalArray| |IndexedString| |IndexedVector|
                    |InnerNormalBasisFieldFunctions| |LazyStreamAggregate&|
-                   |LinearCombinationUtilities| |List| |ListAggregate&|
-                   |MathMLFormat| |OneDimensionalArray|
+                   |LinearAggregate&| |LinearCombinationUtilities| |List|
+                   |ListAggregate&| |MathMLFormat| |OneDimensionalArray|
                    |OneDimensionalArrayAggregate&|
                    |ParametricTranscendentalIntegration| |Point|
                    |PrimitiveArray| |Sequence| |SortedExponentVector| |Stream|
@@ -5279,17 +5279,17 @@
 (|LiePolynomial| |XPBWPolynomial| |XPolynomial|)
 (|Scene| |XmlElement|)
 (|ExportXml| |Scene|)
-(("XmlElement" 0 344020) ("XmlAttribute" 0 343997)
- ("XRecursivePolynomial" 0 343948) ("XPolynomialRing" 0 343921)
- ("XPBWPolynomial" 0 343901) ("XDistributedPolynomial" 0 343792)
- ("WildFunctionFieldIntegralBasis" 0 343752) ("WeightedPolynomials" 0 343720)
- ("WeightedGraph" 0 343702) ("Void" 0 333959) ("ViewportPackage" 0 333870)
- ("ViewDefaultsPackage" 0 333602) ("VectorSpace&" 0 NIL)
- ("VectorModularReconstructor" 0 333551)
- ("VectorIntegerReconstructor" 0 333479) ("VectorHermitePadeSolver" 0 333429)
- ("VectorFunctions2" 0 333051) ("VectorCategory&" 0 NIL) ("Vector" 0 321311)
- ("Variable" 0 320703) ("UserDefinedPartialOrdering" 0 320641)
- ("UniversalSegmentFunctions2" 0 320607) ("UniversalSegment" 0 319447)
+(("XmlElement" 0 344039) ("XmlAttribute" 0 344016)
+ ("XRecursivePolynomial" 0 343967) ("XPolynomialRing" 0 343940)
+ ("XPBWPolynomial" 0 343920) ("XDistributedPolynomial" 0 343811)
+ ("WildFunctionFieldIntegralBasis" 0 343771) ("WeightedPolynomials" 0 343739)
+ ("WeightedGraph" 0 343721) ("Void" 0 333978) ("ViewportPackage" 0 333889)
+ ("ViewDefaultsPackage" 0 333621) ("VectorSpace&" 0 NIL)
+ ("VectorModularReconstructor" 0 333570)
+ ("VectorIntegerReconstructor" 0 333498) ("VectorHermitePadeSolver" 0 333448)
+ ("VectorFunctions2" 0 333070) ("VectorCategory&" 0 NIL) ("Vector" 0 321330)
+ ("Variable" 0 320722) ("UserDefinedPartialOrdering" 0 320660)
+ ("UniversalSegmentFunctions2" 0 320626) ("UniversalSegment" 0 319447)
  ("UnivariateTaylorSeriesODESolver" 0 319380)
  ("UnivariateTaylorSeriesFunctions2" 0 319342)
  ("UnivariateTaylorSeriesCategory&" 0 NIL) ("UnivariateTaylorSeries" 0 318888)

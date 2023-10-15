@@ -20,9 +20,9 @@
 
 (DECLAIM (NOTINLINE |Vector;|)) 
 
-(DEFUN |Vector| (#1=#:G2087)
+(DEFUN |Vector| (#1=#:G2082)
   (SPROG NIL
-         (PROG (#2=#:G2088)
+         (PROG (#2=#:G2083)
            (RETURN
             (COND
              ((LETT #2#
@@ -38,8 +38,8 @@
 
 (DEFUN |Vector;| (|#1|)
   (SPROG
-   ((#1=#:G2086 NIL) (|pv$| NIL) (#2=#:G2083 NIL) (#3=#:G2084 NIL)
-    (#4=#:G2085 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+   ((#1=#:G2081 NIL) (|pv$| NIL) (#2=#:G2078 NIL) (#3=#:G2079 NIL)
+    (#4=#:G2080 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
    (PROGN
     (LETT DV$1 (|devaluate| |#1|) . #5=(|Vector|))
     (LETT |dv$| (LIST '|Vector| DV$1) . #5#)
@@ -146,11 +146,11 @@
               |VECTOR;qsetelt!;$I2R;2| (|List| 6) (0 . |construct|)
               |VECTOR;vector;L$;3| (|Symbol|) (|InputForm|) (5 . |convert|)
               (10 . |parts|) (15 . |convert|) (|List| $) (20 . |convert|)
-              (25 . |convert|) (|Mapping| 24 6 6) (|Mapping| 6 6 6)
-              (|NonNegativeInteger|) (|Boolean|) (|Equation| 6) (|List| 25)
-              (|OutputForm|) (|HashState|) (|SingleInteger|) (|String|)
-              (|Mapping| 24 6) (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6)
-              (|Matrix| 6) (|Union| 6 '"failed") (|List| 7))
+              (25 . |convert|) (|Mapping| 23 6 6) (|Mapping| 6 6 6) (|Boolean|)
+              (|NonNegativeInteger|) (|Equation| 6) (|List| 25) (|OutputForm|)
+              (|HashState|) (|SingleInteger|) (|String|) (|Mapping| 23 6)
+              (|UniversalSegment| 7) (|Void|) (|Mapping| 6 6) (|Matrix| 6)
+              (|Union| 6 '"failed") (|List| 7))
            '#(|vector| 30 |qsetelt!| 35 |qelt| 42 |parts| 48 |convert| 53
               |construct| 58)
            'NIL

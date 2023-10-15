@@ -106,6 +106,21 @@
                                                   (|has| |t#1| (|BasicType|))
                                                   (|has| $
                                                          (|finiteAggregate|))))
+                                                ((|leftTrim| ($ $ |t#1|))
+                                                 (AND
+                                                  (|has| |t#1| (|BasicType|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|rightTrim| ($ $ |t#1|))
+                                                 (AND
+                                                  (|has| |t#1| (|BasicType|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|trim| ($ $ |t#1|))
+                                                 (AND
+                                                  (|has| |t#1| (|BasicType|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
                                                 ((|merge| ($ $ $))
                                                  (AND
                                                   (|has| |t#1| (|OrderedSet|))

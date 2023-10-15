@@ -46,19 +46,16 @@
                                          ((|split|
                                            ((|List| $) $ (|CharacterClass|)))
                                           T)
-                                         ((|trim| ($ $ (|Character|))) T)
                                          ((|trim| ($ $ (|CharacterClass|))) T)
-                                         ((|leftTrim| ($ $ (|Character|))) T)
                                          ((|leftTrim| ($ $ (|CharacterClass|)))
                                           T)
-                                         ((|rightTrim| ($ $ (|Character|))) T)
                                          ((|rightTrim|
                                            ($ $ (|CharacterClass|)))
                                           T)
                                          ((|elt| ($ $ $)) T))
                                        NIL
-                                       '((|CharacterClass|) (|Character|)
-                                         (|List| $) (|Integer|)
+                                       '((|CharacterClass|) (|List| $)
+                                         (|Character|) (|Integer|)
                                          (|UniversalSegment| (|Integer|))
                                          (|Boolean|))
                                        NIL)))

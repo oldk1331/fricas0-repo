@@ -105,10 +105,10 @@
 (MAKEPROP '|FlexibleArray| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL (|IndexedFlexibleArray| 6 (NRTEVAL 1))
-              (|local| |#1|) (|Mapping| 10 6 6) (|Integer|) (|Mapping| 6 6 6)
-              (|Boolean|) (|NonNegativeInteger|) (|List| 6) (|Equation| 6)
-              (|List| 13) (|OutputForm|) (|SingleInteger|) (|String|)
-              (|HashState|) (|Mapping| 10 6) (|UniversalSegment| 8) (|Void|)
+              (|local| |#1|) (|Mapping| 11 6 6) (|Integer|) (|Mapping| 6 6 6)
+              (|NonNegativeInteger|) (|Boolean|) (|List| 6) (|List| 14)
+              (|Equation| 6) (|OutputForm|) (|HashState|) (|SingleInteger|)
+              (|String|) (|Mapping| 11 6) (|UniversalSegment| 8) (|Void|)
               (|Mapping| 6 6) (|InputForm|) (|List| $) (|Union| 6 '"failed")
               (|List| 8))
            '#() 'NIL
