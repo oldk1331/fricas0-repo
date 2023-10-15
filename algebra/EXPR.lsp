@@ -385,7 +385,7 @@
                                           . #3#)))
                                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191
                                   (EXIT NIL))
-                             (EXIT (|EXPR;reduc| |x1| |akl| $))))))))
+                             (EXIT |x1|)))))))
                   (#4# |x1|)))))
           #5# (EXIT #2#)))) 
 
