@@ -163,8 +163,6 @@
                                               (|HasCategory| |#3|
                                                              '(|OrderedAbelianMonoidSup|))
                                               (|HasCategory| |#3|
-                                                             '(|OrderedRing|))
-                                              (|HasCategory| |#3|
                                                              '(|OrderedSet|))
                                               (|HasCategory| |#3|
                                                              '(|unitsKnown|))
@@ -173,8 +171,6 @@
                                               (|HasCategory| |#3| '(|Finite|))
                                               (|HasCategory| |#3|
                                                              '(|SemiGroup|))
-                                              (|HasCategory| |#3|
-                                                             '(|CancellationAbelianMonoid|))
                                               (|HasCategory| |#3| '(|SemiRng|))
                                               (|HasCategory| |#3| '(|Monoid|))
                                               (|HasCategory| |#3|
@@ -189,7 +185,7 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 13)
+           ((|testBitVector| |pv$| 11)
             (PROGN
              (QSETREFV $ 12
                        (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
@@ -215,7 +211,7 @@
                        (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|)
                              $)))))
           (COND
-           ((|testBitVector| |pv$| 7)
+           ((|testBitVector| |pv$| 6)
             (PROGN
              (QSETREFV $ 51
                        (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))

@@ -32,6 +32,7 @@
                             (LETT |DirectProductCategory;CAT|
                                   (|Join| (|IndexedAggregate| '#2# '|t#2|)
                                           (|CoercibleTo| '#3#)
+                                          (|AbelianProductCategory| '|t#2|)
                                           (|finiteAggregate|)
                                           (|mkCategory|
                                            '(((|directProduct|
@@ -61,11 +62,6 @@
                                               (|has| |t#2| (|SemiRng|)))
                                              ((|BiModule| |t#2| |t#2|)
                                               (|has| |t#2| (|SemiRng|)))
-                                             ((|AbelianMonoid|)
-                                              (|has| |t#2| (|AbelianMonoid|)))
-                                             ((|CancellationAbelianMonoid|)
-                                              (|has| |t#2|
-                                                     (|CancellationAbelianMonoid|)))
                                              ((|Monoid|)
                                               (|has| |t#2| (|Monoid|)))
                                              ((|SemiGroup|)
@@ -82,8 +78,6 @@
                                               (|has| |t#2| (|unitsKnown|)))
                                              ((|OrderedSet|)
                                               (|has| |t#2| (|OrderedSet|)))
-                                             ((|OrderedRing|)
-                                              (|has| |t#2| (|OrderedRing|)))
                                              ((|OrderedAbelianMonoidSup|)
                                               (|has| |t#2|
                                                      (|OrderedAbelianMonoidSup|)))
