@@ -1549,7 +1549,7 @@
                   ((SPADCALL |x| (|spadConstant| $ 27) (QREFELT $ 32))
                    (COND
                     ((SPADCALL |r| (|spadConstant| $ 123) (QREFELT $ 124))
-                     (|error| "0^0 is undefined"))
+                     (|spadConstant| $ 31))
                     ((SPADCALL |r| (|spadConstant| $ 123) (QREFELT $ 125))
                      (|error| "division by 0"))
                     (#2='T (|spadConstant| $ 27))))
@@ -1611,7 +1611,7 @@
                (SEQ
                 (COND
                  ((SPADCALL |x| (|spadConstant| $ 27) (QREFELT $ 32))
-                  (COND ((EQL |n| 0) (|error| "0^0 is undefined"))
+                  (COND ((EQL |n| 0) (|spadConstant| $ 31))
                         ((< |n| 0) (|error| "division by 0"))
                         (#1='T (|spadConstant| $ 27))))
                  ((EQL |n| 0) (|spadConstant| $ 31)) ((EQL |n| 1) |x|)

@@ -642,11 +642,10 @@
                 (EXIT
                  (COND
                   ((|zero?_DF| |x|)
-                   (COND
-                    ((SPADCALL |r| (QREFELT $ 169))
-                     (|error| "0^0 is undefined"))
-                    ((SPADCALL |r| (QREFELT $ 170)) (|error| "division by 0"))
-                    (#2='T 0.0)))
+                   (COND ((SPADCALL |r| (QREFELT $ 169)) 1.0)
+                         ((SPADCALL |r| (QREFELT $ 170))
+                          (|error| "division by 0"))
+                         (#2='T 0.0)))
                   ((OR (SPADCALL |r| (QREFELT $ 169)) (|eql_DF| |x| 1.0)) 1.0)
                   ('T
                    (COND
