@@ -91,8 +91,3 @@
        (OBEY
         (STRCONC "$AXIOM/lib/SPADEDIT "
          (|namestring| (|pathname| |file|)))))))))
- 
-; READLINE(s) ==
-;   read_-line(s)
- 
-(DEFUN READLINE (|s|) (PROG () (RETURN (|read-line| |s|))))

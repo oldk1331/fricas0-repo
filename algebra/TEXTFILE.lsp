@@ -13,7 +13,7 @@
                   (|error| "File not in read state"))
                  (#1='T
                   (SEQ
-                   (LETT |s| (|read-line| (QVELT |f| 1))
+                   (LETT |s| (|read_line| (QVELT |f| 1))
                          |TEXTFILE;readLine!;$S;3|)
                    (EXIT
                     (COND ((PLACEP |s|) (|error| "End of file"))
@@ -28,7 +28,7 @@
                   (|error| "File not in read state"))
                  (#1='T
                   (SEQ
-                   (LETT |s| (|read-line| (QVELT |f| 1))
+                   (LETT |s| (|read_line| (QVELT |f| 1))
                          |TEXTFILE;readLineIfCan!;$U;4|)
                    (EXIT
                     (COND ((PLACEP |s|) (CONS 1 "failed"))

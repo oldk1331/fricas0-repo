@@ -23,7 +23,7 @@
 ;   OBEY '"rm -f temp.text"
 ;   OBEY '"ls as/*.asy > temp.text"
 ;   instream := OPEN '"temp.text"
-;   lines := [READLINE instream while not EOFP instream]
+;   lines := [read_line instream while not EOFP instream]
 ;   CLOSE instream
 ;   lines
  
@@ -40,7 +40,7 @@
                   (COND ((EOFP |instream|) (RETURN (NREVERSE |bfVar#1|)))
                         ('T
                          (SETQ |bfVar#1|
-                                 (CONS (READLINE |instream|) |bfVar#1|))))))
+                                 (CONS (|read_line| |instream|) |bfVar#1|))))))
                NIL))
       (CLOSE |instream|)
       |lines|))))

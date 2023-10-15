@@ -512,17 +512,17 @@
 ; gatherGlossLines(results,defstream) ==
 ;   acc := nil
 ;   for keyline in results repeat
-;     --keyline := READLINE instream
+;     --keyline := read_line instream
 ;     n := charPosition($tick,keyline,0)
 ;     keyAndTick := SUBSTRING(keyline,0,n + 1)
 ;     byteAddress := string2Integer SUBSTRING(keyline,n + 1,nil)
 ;     FILE_-POSITION(defstream,byteAddress)
-;     line := READLINE defstream
+;     line := read_line defstream
 ;     k := charPosition($tick,line,1)
 ;     pointer := SUBSTRING(line,0,k)
 ;     def := SUBSTRING(line,k + 1,nil)
 ;     xtralines := nil
-;     while not EOFP defstream and (x := READLINE defstream) and
+;     while not EOFP defstream and (x := read_line defstream) and
 ;       (j := charPosition($tick,x,1)) and (nextPointer := SUBSTRING(x,0,j))
 ;         and (nextPointer = pointer) repeat
 ;           xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
@@ -547,7 +547,7 @@
              (SETQ |byteAddress|
                      (|string2Integer| (SUBSTRING |keyline| (+ |n| 1) NIL)))
              (FILE-POSITION |defstream| |byteAddress|)
-             (SETQ |line| (READLINE |defstream|))
+             (SETQ |line| (|read_line| |defstream|))
              (SETQ |k| (|charPosition| |$tick| |line| 1))
              (SETQ |pointer| (SUBSTRING |line| 0 |k|))
              (SETQ |def| (SUBSTRING |line| (+ |k| 1) NIL))
@@ -557,7 +557,7 @@
                  (COND
                   ((NOT
                     (AND (NULL (EOFP |defstream|))
-                         (SETQ |x| (READLINE |defstream|))
+                         (SETQ |x| (|read_line| |defstream|))
                          (SETQ |j| (|charPosition| |$tick| |x| 1))
                          (SETQ |nextPointer| (SUBSTRING |x| 0 |j|))
                          (EQUAL |nextPointer| |pointer|)))

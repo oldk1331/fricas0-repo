@@ -658,10 +658,10 @@
 ;   n = 0 => '""
 ;   instream := MAKE_-INSTREAM STRCONC(getEnv('"AXIOM"),'"/algebra/comdb.text")
 ;   FILE_-POSITION(instream,n)
-;   line := READLINE instream
+;   line := read_line instream
 ;   k := dbTickIndex(line,1,1)
 ;   line := SUBSTRING(line,k + 1,nil)
-;   while not EOFP instream and (x := READLINE instream) and
+;   while not EOFP instream and (x := read_line instream) and
 ;     (k := MAXINDEX x) and (j := dbTickIndex(x,1,1)) and (j < k) and
 ;       x.(j := j + 1) = char '_- and x.(j := j + 1) = char '_- repeat
 ;         xtralines := [SUBSTRING(x,j + 1,nil),:xtralines]
@@ -678,7 +678,7 @@
                      (MAKE-INSTREAM
                       (STRCONC (|getEnv| "AXIOM") "/algebra/comdb.text")))
              (FILE-POSITION |instream| |n|)
-             (SETQ |line| (READLINE |instream|))
+             (SETQ |line| (|read_line| |instream|))
              (SETQ |k| (|dbTickIndex| |line| 1 1))
              (SETQ |line| (SUBSTRING |line| (+ |k| 1) NIL))
              ((LAMBDA ()
@@ -686,7 +686,7 @@
                  (COND
                   ((NOT
                     (AND (NULL (EOFP |instream|))
-                         (SETQ |x| (READLINE |instream|))
+                         (SETQ |x| (|read_line| |instream|))
                          (SETQ |k| (MAXINDEX |x|))
                          (SETQ |j| (|dbTickIndex| |x| 1 1)) (< |j| |k|)
                          (EQUAL (ELT |x| (SETQ |j| (+ |j| 1))) (|char| '-))
@@ -717,7 +717,7 @@
 ;   PRINTEXP('"",  comstream)
 ;   TERPRI(comstream)
 ;   while not EOFP instream repeat
-;     line := READLINE instream
+;     line := read_line instream
 ;     outP := FILE_-POSITION outstream
 ;     comP := FILE_-POSITION comstream
 ;     [prefix,:comments] := dbSplit(line,6,1)
@@ -759,7 +759,7 @@
           (COND ((EOFP |instream|) (RETURN NIL))
                 (#1='T
                  (PROGN
-                  (SETQ |line| (READLINE |instream|))
+                  (SETQ |line| (|read_line| |instream|))
                   (SETQ |outP| (FILE-POSITION |outstream|))
                   (SETQ |comP| (FILE-POSITION |comstream|))
                   (SETQ |LETTMP#1| (|dbSplit| |line| 6 1))
@@ -1019,7 +1019,7 @@
 ;   text := nil
 ;   lastLineHadTick := false
 ;   while not EOFP instream repeat
-;     line := READLINE instream
+;     line := read_line instream
 ;     #line = 0 => 'skip
 ;     n := charPosition($tick,line,0)
 ;     last := IFCAR text
@@ -1049,7 +1049,7 @@
           (COND ((EOFP |instream|) (RETURN NIL))
                 (#1='T
                  (PROGN
-                  (SETQ |line| (READLINE |instream|))
+                  (SETQ |line| (|read_line| |instream|))
                   (COND ((EQL (LENGTH |line|) 0) '|skip|)
                         (#1#
                          (PROGN

@@ -58,10 +58,10 @@
 ; queryUser msg ==
 ;   -- display message and return reply
 ;   sayBrightly msg
-;   read_-line _*TERMINAL_-IO_*
+;   read_line _*TERMINAL_-IO_*
  
 (DEFUN |queryUser| (|msg|)
-  (PROG () (RETURN (PROGN (|sayBrightly| |msg|) (|read-line| *TERMINAL-IO*)))))
+  (PROG () (RETURN (PROGN (|sayBrightly| |msg|) (|read_line| *TERMINAL-IO*)))))
  
 ; errorSupervisor(errorType,errorMsg) ==
 ;   $BreakMode = 'trapSpadErrors => THROW('trapSpadErrors, $numericFailure)

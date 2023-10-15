@@ -639,7 +639,7 @@
 ;         N:=PARSE_-INTEGER dbPart(line,1,-1)
 ;         if NUMBERP N then
 ;            FILE_-POSITION(instream2,N)
-;            line := READLINE instream2
+;            line := read_line instream2
 ;     kind := dbKind line
 ;     not $includeUnexposed? and not dbExposed?(line,kind) => 'skip
 ;     (kind = char 'a or kind = char 'o) and isDefaultOpAtt line => 'skip
@@ -687,7 +687,7 @@
               (|doc?| (SETQ N (PARSE-INTEGER (|dbPart| |line| 1 (- 1))))
                (COND
                 ((NUMBERP N) (FILE-POSITION |instream2| N)
-                 (SETQ |line| (READLINE |instream2|))))))
+                 (SETQ |line| (|read_line| |instream2|))))))
              (SETQ |kind| (|dbKind| |line|))
              (COND
               ((AND (NULL |$includeUnexposed?|)
@@ -3003,7 +3003,7 @@
  
 ; dbReadLines target == --AIX only--called by grepFile
 ;   instream := OPEN target
-;   lines := [READLINE instream while not EOFP instream]
+;   lines := [read_line instream while not EOFP instream]
 ;   CLOSE instream
 ;   lines
  
@@ -3018,7 +3018,8 @@
                   (COND ((EOFP |instream|) (RETURN (NREVERSE |bfVar#101|)))
                         ('T
                          (SETQ |bfVar#101|
-                                 (CONS (READLINE |instream|) |bfVar#101|))))))
+                                 (CONS (|read_line| |instream|)
+                                       |bfVar#101|))))))
                NIL))
       (CLOSE |instream|)
       |lines|))))
@@ -3032,7 +3033,7 @@
 ;   address := SUBSTRING(firstPart, 1, nil)   --address in libdb
 ;   instream := OPEN grepSource key           --this always returns libdb now
 ;   FILE_-POSITION(instream,PARSE_-INTEGER address)
-;   line := READLINE instream
+;   line := read_line instream
 ;   CLOSE instream
 ;   line
  
@@ -3045,7 +3046,7 @@
       (SETQ |address| (SUBSTRING |firstPart| 1 NIL))
       (SETQ |instream| (OPEN (|grepSource| |key|)))
       (FILE-POSITION |instream| (PARSE-INTEGER |address|))
-      (SETQ |line| (READLINE |instream|))
+      (SETQ |line| (|read_line| |instream|))
       (CLOSE |instream|)
       |line|))))
  

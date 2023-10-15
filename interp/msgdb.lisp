@@ -1056,7 +1056,7 @@
 ;   conStream := MAKE_-INSTREAM 0
 ;   sayKeyedMsg(key,args)
 ;   ioHook("startQueryUser")
-;   ans := read_-line conStream
+;   ans := read_line conStream
 ;   ioHook("endOfQueryUser")
 ;   SHUT conStream
 ;   ans
@@ -1068,7 +1068,7 @@
       (SETQ |conStream| (MAKE-INSTREAM 0))
       (|sayKeyedMsg| |key| |args|)
       (|ioHook| '|startQueryUser|)
-      (SETQ |ans| (|read-line| |conStream|))
+      (SETQ |ans| (|read_line| |conStream|))
       (|ioHook| '|endOfQueryUser|)
       (SHUT |conStream|)
       |ans|))))

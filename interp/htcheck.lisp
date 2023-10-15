@@ -76,7 +76,7 @@
 ;   if PROBE_-FILE(fn) then
 ;     instream := MAKE_-INSTREAM fn
 ;     while not EOFP instream repeat
-;       line := READLINE instream
+;       line := read_line instream
 ;       getHtMacroItem line is [string,:numOfArgs] =>
 ;         HPUT($htMacroTable,string,numOfArgs)
 ;     for [s,:n] in $primitiveHtCommands repeat HPUT($htMacroTable,s,n)
@@ -98,7 +98,7 @@
             (COND ((EOFP |instream|) (RETURN NIL))
                   (#1='T
                    (PROGN
-                    (SETQ |line| (READLINE |instream|))
+                    (SETQ |line| (|read_line| |instream|))
                     (COND
                      ((PROGN
                        (SETQ |ISTMP#1| (|getHtMacroItem| |line|))
