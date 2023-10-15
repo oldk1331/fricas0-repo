@@ -5,8 +5,8 @@
 
 (DEFPARAMETER |UnivariateLaurentSeriesCategory;AL| 'NIL) 
 
-(DEFUN |UnivariateLaurentSeriesCategory| (#1=#:G106)
-  (LET (#2=#:G107)
+(DEFUN |UnivariateLaurentSeriesCategory| (#1=#:G108)
+  (LET (#2=#:G109)
     (COND
      ((SETQ #2#
               (|assoc| #3=(|devaluate| #1#)
@@ -20,12 +20,12 @@
       #2#)))) 
 
 (DEFUN |UnivariateLaurentSeriesCategory;| (|t#1|)
-  (SPROG ((#1=#:G105 NIL))
+  (SPROG ((#1=#:G107 NIL))
          (PROG1
              (LETT #1#
                    (|sublisV| (PAIR '(|t#1|) (LIST (|devaluate| |t#1|)))
                               (|sublisV|
-                               (PAIR '(#2=#:G104) (LIST '(|Integer|)))
+                               (PAIR '(#2=#:G106) (LIST '(|Integer|)))
                                (COND (|UnivariateLaurentSeriesCategory;CAT|)
                                      ('T
                                       (LETT
@@ -39,6 +39,9 @@
                                               (|Stream|
                                                (|Record| (|:| |k| (|Integer|))
                                                          (|:| |c| |t#1|)))))
+                                            T)
+                                           ((|laurent|
+                                             ($ (|Integer|) (|Stream| |t#1|)))
                                             T)
                                            ((|multiplyCoefficients|
                                              ($ (|Mapping| |t#1| (|Integer|))
@@ -93,7 +96,7 @@
                                            ((|Field|) (|has| |t#1| (|Field|))))
                                          '((|Symbol|)
                                            (|Fraction| (|Polynomial| |t#1|))
-                                           (|Integer|)
+                                           (|Integer|) (|Stream| |t#1|)
                                            (|Stream|
                                             (|Record| (|:| |k| (|Integer|))
                                                       (|:| |c| |t#1|))))

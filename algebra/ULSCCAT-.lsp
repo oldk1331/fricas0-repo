@@ -8,6 +8,9 @@
 (SDEFUN |ULSCCAT-;retractIfCan;SU;3| ((|x| S) ($ |Union| UTS "failed"))
         (SPADCALL |x| (QREFELT $ 16))) 
 
+(SDEFUN |ULSCCAT-;laurent;ISS;4| ((|n| |Integer|) (|st| |Stream| |Coef|) ($ S))
+        (SPADCALL |n| (SPADCALL |st| (QREFELT $ 19)) (QREFELT $ 21))) 
+
 (DECLAIM (NOTINLINE |UnivariateLaurentSeriesConstructorCategory&;|)) 
 
 (DEFUN |UnivariateLaurentSeriesConstructorCategory&| (|#1| |#2| |#3|)
@@ -21,7 +24,7 @@
                 (LIST '|UnivariateLaurentSeriesConstructorCategory&| DV$1 DV$2
                       DV$3)
                 . #1#)
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT $ (GETREFV 28) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -42,15 +45,18 @@
               (|local| |#3|) (0 . |taylorRep|) (|Boolean|) (5 . |zero?|)
               |ULSCCAT-;zero?;SB;1| (10 . |taylor|) |ULSCCAT-;retract;SUTS;2|
               (|Union| 8 '"failed") (15 . |taylorIfCan|)
-              |ULSCCAT-;retractIfCan;SU;3| (|Union| 20 '#1="failed")
-              (|Union| 22 '#1#) (|Symbol|) (|Union| 23 '#1#) (|Fraction| 23)
-              (|Integer|))
-           '#(|zero?| 20 |retractIfCan| 25 |retract| 30) 'NIL
+              |ULSCCAT-;retractIfCan;SU;3| (|Stream| 7) (20 . |series|)
+              (|Integer|) (25 . |laurent|) |ULSCCAT-;laurent;ISS;4|
+              (|Union| 24 '#1="failed") (|Symbol|) (|Fraction| 20)
+              (|Union| 25 '#1#) (|Union| 20 '#1#))
+           '#(|zero?| 31 |retractIfCan| 36 |retract| 41 |laurent| 46) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 17
+                             (|makeByteWordVec2| 22
                                                  '(1 6 8 0 9 1 8 10 0 11 1 6 8
-                                                   0 13 1 6 15 0 16 1 0 10 0 12
-                                                   1 0 15 0 17 1 0 8 0 14)))))
+                                                   0 13 1 6 15 0 16 1 8 0 18 19
+                                                   2 6 0 20 8 21 1 0 10 0 12 1
+                                                   0 15 0 17 1 0 8 0 14 2 0 0
+                                                   20 18 22)))))
            '|lookupComplete|)) 

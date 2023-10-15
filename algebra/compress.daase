@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4850 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4851 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -409,7 +409,8 @@
  |UniqueFactorizationDomain&| |UniqueFactorizationDomain|
  |UnivariateFormalPowerSeries| |UnivariateFormalPowerSeriesFunctions|
  |UnitGaussianElimination| |UnivariateLaurentSeries|
- |UnivariateLaurentSeriesFunctions2| |UnivariateLaurentSeriesCategory|
+ |UnivariateLaurentSeriesFunctions2| |UnivariateLaurentSeriesCategory&|
+ |UnivariateLaurentSeriesCategory|
  |UnivariateLaurentSeriesConstructorCategory&|
  |UnivariateLaurentSeriesConstructorCategory|
  |UnivariateLaurentSeriesConstructor| |UniversalSegment|

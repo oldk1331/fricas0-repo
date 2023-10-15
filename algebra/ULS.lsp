@@ -688,16 +688,17 @@
               (|List| 53) (|Mapping| 32 32) (|Matrix| 32)
               (|Record| (|:| |mat| 57) (|:| |vec| (|Vector| 32)))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|Record| (|:| |coef| 60) (|:| |generator| $))
-              (|Union| 60 '"failed")
+              (|List| $) (|Union| 60 '"failed")
+              (|Record| (|:| |coef| 60) (|:| |generator| $))
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 64 '"failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 65 '"failed")
               (|Factored| $) (|Fraction| (|Polynomial| 6)) (|Stream| 6)
-              (|Union| 32 '"failed") (|Record| (|:| |k| 16) (|:| |c| 6))
-              (|Stream| 71) (|Mapping| 6 16) (|PositiveInteger|) (|List| 77)
-              (|List| 16) (|SingletonAsOrderedSet|) (|Mapping| 6 6)
-              (|HashState|) (|String|) (|OutputForm|) (|SingleInteger|))
+              (|Union| 32 '"failed") (|Mapping| 6 16)
+              (|Record| (|:| |k| 16) (|:| |c| 6)) (|Stream| 72)
+              (|PositiveInteger|) (|List| 77) (|List| 16)
+              (|SingletonAsOrderedSet|) (|Mapping| 6 6) (|HashState|)
+              (|String|) (|OutputForm|) (|SingleInteger|))
            '#(|variable| 49 |monomial| 54 |integrate| 60 |differentiate| 71
               |coerce| 82 |center| 87 |Zero| 92 |One| 96 + 100)
            'NIL
@@ -710,9 +711,9 @@
                                   0 0 0 0 1 23 24 2 2 48 48 48 48 48 48 42 3 4
                                   5 5 27 8 8 10 11 12 14 15 2))
             (CONS
-             '#(|UnivariateLaurentSeriesConstructorCategory&| NIL
-                |QuotientFieldCategory&| |Field&|
-                |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
+             '#(|UnivariateLaurentSeriesConstructorCategory&|
+                |UnivariateLaurentSeriesCategory&| |QuotientFieldCategory&|
+                |Field&| |UnivariatePowerSeriesCategory&| |EuclideanDomain&|
                 |PolynomialFactorizationExplicit&| |PowerSeriesCategory&| NIL
                 |UniqueFactorizationDomain&| |AbelianMonoidRing&| |GcdDomain&|
                 NIL |DivisionRing&| NIL |Algebra&| |Algebra&| NIL |Algebra&|
