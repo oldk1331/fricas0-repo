@@ -127,11 +127,8 @@
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
                    (CATEGORY |domain|
-                    (SIGNATURE |outputForm| ((|OutputForm|) $ (|OutputForm|)))
-                    (IF (|has| |sae| (|Ring|))
-                        (SIGNATURE |fmecg|
-                         ($ $ (|NonNegativeInteger|) |sae| $))
-                        |noBranch|))))
+                    (SIGNATURE |outputForm|
+                     ((|OutputForm|) $ (|OutputForm|))))))
           (|sae|
            (|Join| (|MonogenicAlgebra| F (|SparseUnivariatePolynomial| F))
                    (CATEGORY |package|

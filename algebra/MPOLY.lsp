@@ -586,13 +586,12 @@
               (|Union| 23 '#2="failed") (|Union| 19 '#2#) (|List| 24)
               (|List| 21) (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |mat| 38) (|:| |vec| (|Vector| 7))) (|Matrix| 7)
-              (|Union| 24 '#2#) (|Equation| $) (|List| 40)
-              (|Record| (|:| |var| 24) (|:| |exponent| 21))
-              (|Union| 42 '#3="failed") (|Union| 26 '#3#)
-              (|SparseUnivariatePolynomial| 7) (|List| 7)
-              (|IndexedExponents| 24) (|Mapping| 47 47) (|Union| 7 '#2#)
-              (|Mapping| 7 7) (|PositiveInteger|) (|String|) (|SingleInteger|)
-              (|HashState|) (|OutputForm|))
+              (|IndexedExponents| 24) (|Union| 24 '#2#) (|Equation| $)
+              (|List| 41) (|Record| (|:| |var| 24) (|:| |exponent| 21))
+              (|Union| 43 '#3="failed") (|Union| 26 '#3#)
+              (|SparseUnivariatePolynomial| 7) (|List| 7) (|Mapping| 39 39)
+              (|Union| 7 '#2#) (|Mapping| 7 7) (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 44

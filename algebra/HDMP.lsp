@@ -588,11 +588,11 @@
 (MAKEPROP '|HomogeneousDistributedMultivariatePolynomial| '|infovec|
           (LIST
            '#(NIL NIL NIL NIL NIL
-              (|GeneralDistributedMultivariatePolynomial| 6 7 48)
-              (|local| |#1|) (|local| |#2|) (|Union| 14 '#1="failed")
+              (|GeneralDistributedMultivariatePolynomial| 6 7 39)
+              (|local| |#1|) (|local| |#2|) (|Union| 15 '#1="failed")
               (|Matrix| $) (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 19)
-              (|Record| (|:| |mat| 15) (|:| |vec| (|Vector| 19))) (|Vector| $)
-              (|Matrix| 19) (|PatternMatchResult| (|Float|) $)
+              (|Matrix| 19) (|Record| (|:| |mat| 13) (|:| |vec| (|Vector| 19)))
+              (|Vector| $) (|PatternMatchResult| (|Float|) $)
               (|PatternMatchResult| 19 $) (|Union| $ '#1#) (|Integer|)
               (|NonNegativeInteger|) (|Boolean|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
@@ -602,15 +602,14 @@
               (|Factored| 27) (|Union| 31 '#1#) (|List| 27)
               (|Union| 23 '#2="failed") (|Union| 19 '#2#) (|List| 24)
               (|List| 20) (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Matrix| 7) (|Record| (|:| |mat| 37) (|:| |vec| (|Vector| 7)))
-              (|Union| 24 '#2#) (|List| 41) (|Equation| $)
-              (|Union| 26 '#3="failed")
-              (|Record| (|:| |var| 24) (|:| |exponent| 20)) (|Union| 43 '#3#)
-              (|List| 19) (|SparseUnivariatePolynomial| 7) (|List| 7)
+              (|Record| (|:| |mat| 38) (|:| |vec| (|Vector| 7))) (|Matrix| 7)
               (|HomogeneousDirectProduct| (NRTEVAL (LENGTH (QREFELT $ 6))) 20)
-              (|Mapping| 48 48) (|Union| 7 '#2#) (|Mapping| 7 7)
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|Union| 24 '#2#) (|List| 42) (|Equation| $)
+              (|Record| (|:| |var| 24) (|:| |exponent| 20))
+              (|Union| 43 '#3="failed") (|Union| 26 '#3#) (|List| 19)
+              (|SparseUnivariatePolynomial| 7) (|List| 7) (|Mapping| 39 39)
+              (|Union| 7 '#2#) (|Mapping| 7 7) (|PositiveInteger|) (|String|)
+              (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 44

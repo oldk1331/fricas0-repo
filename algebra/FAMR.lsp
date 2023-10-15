@@ -44,6 +44,8 @@
                                               ($ (|Mapping| |t#2| |t#2|) $))
                                              T)
                                             ((|pomopo!| ($ $ |t#1| |t#2| $)) T)
+                                            ((|fmecg| ($ $ |t#2| |t#1| $))
+                                             (|has| |t#1| (|Ring|)))
                                             ((|binomThmExpt|
                                               ($ $ $ (|NonNegativeInteger|)))
                                              (|has| $ (|CommutativeRing|)))

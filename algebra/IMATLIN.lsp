@@ -1106,10 +1106,8 @@
           (SUP
            (|Join| (|UnivariatePolynomialCategory| R)
                    (CATEGORY |domain|
-                    (SIGNATURE |outputForm| ((|OutputForm|) $ (|OutputForm|)))
-                    (IF (|has| R (|Ring|))
-                        (SIGNATURE |fmecg| ($ $ (|NonNegativeInteger|) R $))
-                        |noBranch|)))))
+                    (SIGNATURE |outputForm|
+                     ((|OutputForm|) $ (|OutputForm|)))))))
          (SEQ
           (LETT SUP (|SparseUnivariatePolynomial| (QREFELT $ 6))
                 . #6=(|IMATLIN;generalizedInverse;2M;15|))

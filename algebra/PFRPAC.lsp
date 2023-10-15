@@ -96,23 +96,22 @@
                         |noBranch|))))
           (|up|
            (|Join|
-            (|UnivariatePolynomialCategory| #11=(|Fraction| (|Polynomial| R)))
-            (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |v|)))
-             (SIGNATURE |fmecg| ($ $ (|NonNegativeInteger|) #11# $))))))
+            (|UnivariatePolynomialCategory| (|Fraction| (|Polynomial| R)))
+            (CATEGORY |domain| (SIGNATURE |coerce| ($ (|Variable| |v|)))))))
          (SEQ
           (LETT |up|
                 (|UnivariatePolynomial| |v|
                                         (|Fraction|
                                          (|Polynomial| (QREFELT $ 6))))
-                . #12=(|PFRPAC;partialFraction;PFSA;3|))
-          (LETT |fup| (|Factored| |up|) . #12#)
+                . #11=(|PFRPAC;partialFraction;PFSA;3|))
+          (LETT |fup| (|Factored| |up|) . #11#)
           (LETT |ffact|
                 (PROGN
-                 (LETT #6# NIL . #12#)
-                 (SEQ (LETT |u| NIL . #12#)
-                      (LETT #5# (SPADCALL |facq| (QREFELT $ 28)) . #12#) G190
+                 (LETT #6# NIL . #11#)
+                 (SEQ (LETT |u| NIL . #11#)
+                      (LETT #5# (SPADCALL |facq| (QREFELT $ 28)) . #11#) G190
                       (COND
-                       ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#) . #12#) NIL))
+                       ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#) . #11#) NIL))
                         (GO G191)))
                       (SEQ
                        (EXIT
@@ -121,22 +120,22 @@
                                (CONS (|PFRPAC;makeSup| (QCAR |u|) |v| $)
                                      (QCDR |u|))
                                #6#)
-                              . #12#)))
-                      (LETT #5# (CDR #5#) . #12#) (GO G190) G191
+                              . #11#)))
+                      (LETT #5# (CDR #5#) . #11#) (GO G190) G191
                       (EXIT (NREVERSE #6#))))
-                . #12#)
+                . #11#)
           (LETT |fcont|
                 (|PFRPAC;makeSup| (SPADCALL |facq| (QREFELT $ 29)) |v| $)
-                . #12#)
+                . #11#)
           (LETT |nflist|
                 (SPADCALL |fcont|
                           (PROGN
-                           (LETT #1# NIL . #12#)
-                           (SEQ (LETT |ff| NIL . #12#)
-                                (LETT #4# |ffact| . #12#) G190
+                           (LETT #1# NIL . #11#)
+                           (SEQ (LETT |ff| NIL . #11#)
+                                (LETT #4# |ffact| . #11#) G190
                                 (COND
                                  ((OR (ATOM #4#)
-                                      (PROGN (LETT |ff| (CAR #4#) . #12#) NIL))
+                                      (PROGN (LETT |ff| (CAR #4#) . #11#) NIL))
                                   (GO G191)))
                                 (SEQ
                                  (EXIT
@@ -148,7 +147,7 @@
                                                     (LIST '$ (|devaluate| |up|)
                                                           (LIST '|Integer|))
                                                     |fup|))
-                                         . #12#)
+                                         . #11#)
                                    (COND
                                     (#1#
                                      (LETT #2#
@@ -159,12 +158,12 @@
                                                                              '$
                                                                              '$)
                                                                             |fup|))
-                                           . #12#))
+                                           . #11#))
                                     ('T
                                      (PROGN
-                                      (LETT #2# #3# . #12#)
-                                      (LETT #1# 'T . #12#)))))))
-                                (LETT #4# (CDR #4#) . #12#) (GO G190) G191
+                                      (LETT #2# #3# . #11#)
+                                      (LETT #1# 'T . #11#)))))))
+                                (LETT #4# (CDR #4#) . #11#) (GO G190) G191
                                 (EXIT NIL))
                            (COND (#1# #2#)
                                  ('T
@@ -175,7 +174,7 @@
                                                  (LIST '$ (|devaluate| |up|)
                                                        '$)
                                                  |fup|))
-                . #12#)
+                . #11#)
           (LETT |pfup|
                 (SPADCALL (|PFRPAC;makeSup| |p| |v| $) |nflist|
                           (|compiledLookupCheck| '|partialFraction|
@@ -184,7 +183,7 @@
                                                              (|devaluate|
                                                               |up|)))
                                                  (|PartialFraction| |up|)))
-                . #12#)
+                . #11#)
           (EXIT
            (SPADCALL |pfup|
                      (|compiledLookupCheck| '|coerce|

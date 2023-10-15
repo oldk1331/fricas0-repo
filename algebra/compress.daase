@@ -536,7 +536,7 @@
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
  |subst_var| |to_UP| |highCommonTerms| |mapCoef| |nthCoef| |binomThmExpt|
- |pomopo!| |mapExponents| |linearAssociatedLog| |linearAssociatedOrder|
+ |fmecg| |pomopo!| |mapExponents| |linearAssociatedLog| |linearAssociatedOrder|
  |linearAssociatedExp| |createNormalElement| |setLabelValue| |getCode|
  |printCode| |code| |operation| |common| |printStatement| |save| |stop| |block|
  |cond| |returns| |call| |comment| |continue| |gotoJump| |repeatUntilLoop|
@@ -1082,35 +1082,35 @@
  |userOrdered?| |largest| |more?| |setVariableOrder| |getVariableOrder|
  |resetVariableOrder| |factor| |prime?| |hadamard| |pre_gauss| |pre_smith|
  |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep| |hasHi|
- |segment| SEGMENT |fmecg| |commonDenominator| |clearDenominator|
- |splitDenominator| |monicRightFactorIfCan| |rightFactorIfCan|
- |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan|
- |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
- |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
- |pseudoRemainder| |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft|
- |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
- |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
- |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
- |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
- |qsetrest!| |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!|
- |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
- |last| |rest| |elt| |first| |concat| |invmultisect| |multisect| |revert|
- |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
- |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
- |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
- |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
- LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
- |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
- |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan|
- |reduce| |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale|
- |connect| |region| |points| |units| |getGraph| |putGraph| |graphs|
- |graphStates| |graphState| |makeViewport2D| |viewport2D| |getPickedPoints|
- |key| |close| |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
- |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
- |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
- |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
- |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
+ |segment| SEGMENT |commonDenominator| |clearDenominator| |splitDenominator|
+ |monicRightFactorIfCan| |rightFactorIfCan| |leftFactorIfCan|
+ |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan| |noKaratsuba|
+ |karatsubaOnce| |karatsuba| |separate| |pseudoDivide| |pseudoQuotient|
+ |composite| |subResultantGcd| |resultant| |discriminant| |pseudoRemainder|
+ |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft| |divideExponents|
+ |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval| |extend| |approximate|
+ |truncate| |order| |center| |terms| |squareFreePart| |BumInSepFFE|
+ |multiplyExponents| |laurentIfCan| |laurent| |laurentRep| |rationalPower|
+ |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!| |qsetrest!|
+ |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!| |concat!|
+ |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail| |last| |rest|
+ |elt| |first| |concat| |invmultisect| |multisect| |revert| |generalLambert|
+ |evenlambert| |oddlambert| |lambert| |lagrange| |differentiate|
+ |univariatePolynomial| |integrate| ^ |polynomial| |multiplyCoefficients|
+ |quoByVar| |coefficients| |series| |stFunc1| |stFunc2| |stFuncN|
+ |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS
+ |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
+ |variable| |add_slots| |repack_polys| |empty| |chinese_update| |hensel_update|
+ |rational_reconstruction| |remove_denoms| |reconstruct| |length| |cross|
+ |outerProduct| |dot| - |zero?| |zero| |vector| |scan| |reduce| |hp_solve|
+ |graphCurves| |drawCurves| |update| |show| |scale| |connect| |region| |points|
+ |units| |getGraph| |putGraph| |graphs| |graphStates| |graphState|
+ |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close| |write|
+ |colorDef| |reset| |intensity| |lighting| |clipSurface| |showClipRegion|
+ |showRegion| |hitherPlane| |eyeDistance| |perspective| |translate| |zoom|
+ |rotate| |drawStyle| |outlineRender| |diagonals| |axes| |controlPanel|
+ |viewpoint| |dimensions| |title| |resize| |move| |options| |modifyPointData|
+ |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
  |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
  |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
  |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|

@@ -1060,12 +1060,7 @@
           (|nPoly|
            (|Join| (|FiniteAbelianMonoidRing| F |nExponent|)
                    (|VariablesCommuteWithCoefficients|)
-                   (CATEGORY |domain|
-                    (IF (|has| F (|IntegralDomain|))
-                        (IF (|has| |nExponent| (|CancellationAbelianMonoid|))
-                            (SIGNATURE |fmecg| ($ $ |nExponent| F $))
-                            |noBranch|)
-                        |noBranch|)
+                   (CATEGORY |package|
                     (IF (|has| F (|canonicalUnitNormal|))
                         (ATTRIBUTE (|canonicalUnitNormal|))
                         |noBranch|)
