@@ -6372,8 +6372,8 @@
 676763`--ations forming a groebner basis,{} and the defining polynomial for the inequation reduced with respect to the basis,{} using using groebner basis of radical ideals
 677133`\spad{radicalSolve(eq)} finds the solutions expressed in terms of radicals of the equation of rational functions \spad{eq} with respect to the unique symbol \spad{x} appearing in \spad{eq}.
 677250`\spad{radicalSolve(rf)} finds the solutions expressed in terms of radicals of the equation \spad{rf} = 0,{} where \spad{rf} is a univariate rational function.
-677357`\spad{radicalSolve(leq)} finds the solutions expressed in terms of radicals of the system of equations of rational functions \spad{leq} with respect to the unique symbol \spad{x} appearing in \spad{leq}.
-677486`\spad{radicalSolve(lrf)} finds the solutions expressed in terms of radicals of the system of equations \spad{lrf} = 0,{} where \spad{lrf} is a system of univariate rational functions.
+677357`\spad{radicalSolve(leq)} finds the solutions expressed in terms of radicals of the system of equations of rational functions \spad{leq} with respect to all symbols appearing in \spad{leq}.
+677486`\spad{radicalSolve(lrf)} finds the solutions expressed in terms of radicals of the system of equations \spad{lrf} = 0,{} where \spad{lrf} is a list of rational functions.
 677605`\spad{radicalSolve(eq,{} x)} finds the solutions expressed in terms of radicals of the equation of rational functions \spad{eq} with respect to the symbol \spad{x}.
 677729`\spad{radicalSolve(rf,{} x)} finds the solutions expressed in terms of radicals of the equation \spad{rf} = 0 with respect to the symbol \spad{x},{} where \spad{rf} is a rational function.
 677843`\spad{radicalSolve(leq,{} lvar)} finds the solutions expressed in terms of radicals of the system of equations of rational functions \spad{leq} with respect to the list of symbols lvar.
