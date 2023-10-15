@@ -4329,7 +4329,7 @@
 471296`\spad{integralRepresents([A1,{} ...,{} An],{} D)} returns \spad{(A1 w1+...+An wn)/D} where \spad{(w1,{} ...,{} wn)} is the integral basis of \spad{integralBasis()}.
 471382`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. Warning: function does not check for a term of degree \spad{-1}.
 471490`\spad{integrate(f)} returns \spad{g} such that \spad{g' = f}.
-471649`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 1. We may integrate a series when we can divide coefficients by integers.
+471649`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
 471756`\spad{integrate(p)} integrates the univariate polynomial \spad{p} with respect to its distinguished variable.
 471854`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 1. We may integrate a series when we can divide coefficients by rational numbers.
 471961`\spad{integrate(f(x))} returns an anti-derivative of the power series \spad{f(x)} with constant coefficient 0. We may integrate a series when we can divide coefficients by integers.
