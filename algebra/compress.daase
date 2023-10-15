@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5037 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5035 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -556,17 +556,17 @@
  |cond| |returns| |call| |comment| |continue| |gotoJump| |repeatUntilLoop|
  |whileLoop| |forLoop| |sin?| |zeroVector| |zeroSquareMatrix|
  |identitySquareMatrix| |fort_clean_lines| |do_with_error_env3|
- |do_with_error_env2| |do_with_error_env0| |do_with_error_env1|
- |expression2Fortran1| |statement2Fortran| |expression2Fortran| |getStatement|
- |changeExprLength| |displayLines| |displayLines1| |dispStatement|
- |fortFormatHead| |fortFormatTypeLines| |fort_format_types| |indentFortLevel|
- |checkType| |newFortranTempVar| |clear_used_intrinsics| |get_used_intrinsics|
- |get_fort_indent| |lSpaceBasis| |finiteBasis| |principal?| |divisor|
- |weierstrassHalfPeriods| |weierstrassInvariants| |modularInvariantJ| |landen1|
- |landen2| |landen| |kprod| |sn2| |useNagFunctions| |rationalPoints|
- |nonSingularModel| |algSplitSimple| |hyperelliptic| |elliptic|
- |integralDerivationMatrix| |integralRepresents| |integralCoordinates|
- |yCoordinates| |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
+ |do_with_error_env2| |do_with_error_env1| |expression2Fortran1|
+ |statement2Fortran| |expression2Fortran| |getStatement| |changeExprLength|
+ |displayLines| |dispStatement| |fortFormatHead| |fortFormatTypeLines|
+ |fort_format_types| |indentFortLevel| |checkType| |newFortranTempVar|
+ |clear_used_intrinsics| |get_used_intrinsics| |get_fort_indent| |lSpaceBasis|
+ |finiteBasis| |principal?| |divisor| |weierstrassHalfPeriods|
+ |weierstrassInvariants| |modularInvariantJ| |landen1| |landen2| |landen|
+ |kprod| |sn2| |useNagFunctions| |rationalPoints| |nonSingularModel|
+ |algSplitSimple| |hyperelliptic| |elliptic| |integralDerivationMatrix|
+ |integralRepresents| |integralCoordinates| |yCoordinates|
+ |inverseIntegralMatrixAtInfinity| |integralMatrixAtInfinity|
  |inverseIntegralMatrix| |integralMatrix| |reduceBasisAtInfinity|
  |normalizeAtInfinity| |complementaryBasis| |integral?| |integralAtInfinity?|
  |integralBasisAtInfinity| |ramified?| |ramifiedAtInfinity?| |singular?|

@@ -3017,6 +3017,42 @@
                      NIL |args| NIL)))))
       (#1# |arg|)))))
  
+; fortexp0 x ==
+;   e_to_f := getFunctionFromDomain("expression2Fortran", ['FortranCodeTools],
+;                                  [$OutputForm])
+;   f := SPADCALL(x, e_to_f)
+;   p := position('"%l",f)
+;   p < 0 => f
+;   l := NIL
+;   while p < 0 repeat
+;     [t,:f] := f
+;     l := [t,:l]
+;   NREVERSE ['"...",:l]
+ 
+(DEFUN |fortexp0| (|x|)
+  (PROG (|e_to_f| |f| |p| |l| |LETTMP#1| |t|)
+    (RETURN
+     (PROGN
+      (SETQ |e_to_f|
+              (|getFunctionFromDomain| '|expression2Fortran|
+               (LIST '|FortranCodeTools|) (LIST |$OutputForm|)))
+      (SETQ |f| (SPADCALL |x| |e_to_f|))
+      (SETQ |p| (|position| "%l" |f|))
+      (COND ((MINUSP |p|) |f|)
+            (#1='T
+             (PROGN
+              (SETQ |l| NIL)
+              ((LAMBDA ()
+                 (LOOP
+                  (COND ((NOT (MINUSP |p|)) (RETURN NIL))
+                        (#1#
+                         (PROGN
+                          (SETQ |LETTMP#1| |f|)
+                          (SETQ |t| (CAR |LETTMP#1|))
+                          (SETQ |f| (CDR |LETTMP#1|))
+                          (SETQ |l| (CONS |t| |l|))))))))
+              (NREVERSE (CONS "..." |l|)))))))))
+ 
 ; mathform2HtString form == escapeString
 ;   form is ['QUOTE,a] => STRCONC('"'","STRCONC"/fortexp0 a)
 ;   form is ['BRACKET,['AGGLST,:arg]] =>
