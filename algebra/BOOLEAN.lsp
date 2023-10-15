@@ -124,22 +124,27 @@
               |BOOLEAN;lookup;$Pi;19| |BOOLEAN;random;$;20| (|Symbol|)
               (|InputForm|) (5 . |convert|) |BOOLEAN;convert;$If;21| (|String|)
               (|OutputForm|) (10 . |message|) |BOOLEAN;coerce;$Of;22|
-              (|List| $) (|HashState|) (|SingleInteger|))
+              (|List| $) (|SingleInteger|) (|HashState|))
            '#(~= 15 ~ 21 |xor| 26 |true| 32 |test| 36 |smaller?| 41 |size| 47
               |random| 51 |or| 55 |not| 61 |nor| 66 |nand| 72 |min| 78 |max| 84
               |lookup| 90 |latex| 95 |index| 100 |implies| 105 |hashUpdate!|
               111 |hash| 117 |false| 122 |enumerate| 126 |convert| 130 |coerce|
-              135 |and| 140 |\\/| 146 >= 152 > 158 = 164 <= 170 < 176 |/\\|
-              182)
+              135 |and| 140 |_\|_| 146 |\\/| 150 T$ 156 >= 160 > 166 = 172 <=
+              178 < 184 |/\\| 190)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(|OrderedSet&| |Finite&| NIL |Logic&| |SetCategory&| NIL
-                     |BasicType&| |PartialOrder&| NIL)
+                  '#(NIL NIL NIL NIL |OrderedSet&| NIL NIL NIL |Finite&| NIL
+                     NIL NIL |SetCategory&| NIL |BasicType&| |PartialOrder&|
+                     NIL)
                   (CONS
-                   '#((|OrderedSet|) (|Finite|) (|Comparable|) (|Logic|)
-                      (|SetCategory|) (|ConvertibleTo| 31) (|BasicType|)
-                      (|PartialOrder|) (|CoercibleTo| 35))
+                   '#((|Logic|) (|BoundedDistributiveLattice|)
+                      (|DistributiveLattice|) (|BoundedLattice|) (|OrderedSet|)
+                      (|Lattice|) (|BoundedJoinSemilattice|)
+                      (|BoundedMeetSemilattice|) (|Finite|) (|Comparable|)
+                      (|JoinSemilattice|) (|MeetSemilattice|) (|SetCategory|)
+                      (|ConvertibleTo| 31) (|BasicType|) (|PartialOrder|)
+                      (|CoercibleTo| 35))
                    (|makeByteWordVec2| 40
                                        '(1 24 6 0 25 1 31 0 30 32 1 35 0 34 36
                                          2 0 6 0 0 1 1 0 0 0 11 2 0 0 0 0 16 0
@@ -147,11 +152,12 @@
                                          0 0 0 29 2 0 0 0 0 14 1 0 0 0 10 2 0 0
                                          0 0 17 2 0 0 0 0 18 2 0 0 0 0 1 2 0 0
                                          0 0 1 1 0 26 0 28 1 0 34 0 1 1 0 0 26
-                                         27 2 0 0 0 0 20 2 0 39 39 0 1 1 0 40 0
+                                         27 2 0 0 0 0 20 2 0 40 40 0 1 1 0 39 0
                                          1 0 0 0 9 0 0 38 1 1 0 31 0 33 1 0 35
-                                         0 37 2 0 0 0 0 12 2 0 0 0 0 15 2 0 6 0
-                                         0 1 2 0 6 0 0 1 2 0 6 0 0 19 2 0 6 0 0
-                                         1 2 0 6 0 0 21 2 0 0 0 0 13)))))
+                                         0 37 2 0 0 0 0 12 0 0 0 1 2 0 0 0 0 15
+                                         0 0 0 1 2 0 6 0 0 1 2 0 6 0 0 1 2 0 6
+                                         0 0 19 2 0 6 0 0 1 2 0 6 0 0 21 2 0 0
+                                         0 0 13)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Boolean| 'NILADIC T) 
