@@ -1,21 +1,26 @@
 
-(SDEFUN |SYMFUNC;symFunc;RPiV;1|
-        ((|x| R) (|n| |PositiveInteger|) ($ |Vector| R))
-        (|SYMFUNC;signFix|
-         (SPADCALL
-          (SPADCALL (SPADCALL (|spadConstant| $ 7) 1 (QREFELT $ 10))
-                    (SPADCALL |x| (QREFELT $ 11)) (QREFELT $ 12))
-          |n| (QREFELT $ 13))
-         (+ 1 |n|) $)) 
+(SDEFUN |SYMFUNC;coef_vect|
+        ((|p| |SparseUnivariatePolynomial| R) (|n| |NonNegativeInteger|)
+         ($ |Vector| R))
+        (SPADCALL (SPADCALL |p| |n| (QREFELT $ 10)) (QREFELT $ 11))) 
 
-(SDEFUN |SYMFUNC;symFunc;LV;2| ((|l| |List| R) ($ |Vector| R))
+(SDEFUN |SYMFUNC;symFunc;RPiV;2|
+        ((|x| R) (|n| |PositiveInteger|) ($ |Vector| R))
+        (|SYMFUNC;coef_vect|
+         (SPADCALL
+          (SPADCALL (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 13))
+                    (SPADCALL |x| (QREFELT $ 14)) (QREFELT $ 15))
+          |n| (QREFELT $ 16))
+         |n| $)) 
+
+(SDEFUN |SYMFUNC;symFunc;LV;3| ((|l| |List| R) ($ |Vector| R))
         (SPROG
-         ((#1=#:G106 NIL) (#2=#:G105 #3=(|SparseUnivariatePolynomial| R))
-          (#4=#:G107 #3#) (#5=#:G109 NIL) (|a| NIL))
+         ((#1=#:G107 NIL) (#2=#:G106 #3=(|SparseUnivariatePolynomial| R))
+          (#4=#:G108 #3#) (#5=#:G110 NIL) (|a| NIL))
          (SEQ
-          (|SYMFUNC;signFix|
+          (|SYMFUNC;coef_vect|
            (PROGN
-            (LETT #1# NIL . #6=(|SYMFUNC;symFunc;LV;2|))
+            (LETT #1# NIL . #6=(|SYMFUNC;symFunc;LV;3|))
             (SEQ (LETT |a| NIL . #6#) (LETT #5# |l| . #6#) G190
                  (COND
                   ((OR (ATOM #5#) (PROGN (LETT |a| (CAR #5#) . #6#) NIL))
@@ -25,55 +30,21 @@
                    (PROGN
                     (LETT #4#
                           (SPADCALL
-                           (SPADCALL (|spadConstant| $ 7) 1 (QREFELT $ 10))
-                           (SPADCALL |a| (QREFELT $ 11)) (QREFELT $ 12))
+                           (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 13))
+                           (SPADCALL |a| (QREFELT $ 14)) (QREFELT $ 15))
                           . #6#)
                     (COND
-                     (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 18)) . #6#))
+                     (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 20)) . #6#))
                      ('T (PROGN (LETT #2# #4# . #6#) (LETT #1# 'T . #6#)))))))
                  (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
-            (COND (#1# #2#) ('T (|spadConstant| $ 17))))
-           (+ 1 (LENGTH |l|)) $)))) 
-
-(SDEFUN |SYMFUNC;signFix|
-        ((|p| |SparseUnivariatePolynomial| R) (|n| |NonNegativeInteger|)
-         ($ |Vector| R))
-        (SPROG
-         ((#1=#:G115 NIL) (#2=#:G111 NIL) (|i| NIL) (|m| (|Integer|))
-          (|v| (|Vector| R)))
-         (SEQ
-          (LETT |m|
-                (+
-                 (SPADCALL
-                  (LETT |v| (SPADCALL |p| |n| (QREFELT $ 21))
-                        . #3=(|SYMFUNC;signFix|))
-                  (QREFELT $ 23))
-                 1)
-                . #3#)
-          (SEQ (LETT |i| 0 . #3#)
-               (LETT #1#
-                     (PROG1 (LETT #2# (- (QUOTIENT2 (QVSIZE |v|) 2) 1) . #3#)
-                       (|check_subtype2| (>= #2# 0) '(|NonNegativeInteger|)
-                                         '(|Integer|) #2#))
-                     . #3#)
-               G190 (COND ((|greater_SI| |i| #1#) (GO G191)))
-               (SEQ
-                (EXIT
-                 (QSETAREF1O |v| (+ (SPADCALL 2 |i| (QREFELT $ 24)) |m|)
-                             (SPADCALL
-                              (QAREF1O |v|
-                                       (+ (SPADCALL 2 |i| (QREFELT $ 24)) |m|)
-                                       1)
-                              (QREFELT $ 25))
-                             1)))
-               (LETT |i| (|inc_SI| |i|) . #3#) (GO G190) G191 (EXIT NIL))
-          (EXIT (SPADCALL |v| (QREFELT $ 26)))))) 
+            (COND (#1# #2#) ('T (|spadConstant| $ 19))))
+           (LENGTH |l|) $)))) 
 
 (DECLAIM (NOTINLINE |SymmetricFunctions;|)) 
 
-(DEFUN |SymmetricFunctions| (#1=#:G116)
+(DEFUN |SymmetricFunctions| (#1=#:G111)
   (SPROG NIL
-         (PROG (#2=#:G117)
+         (PROG (#2=#:G112)
            (RETURN
             (COND
              ((LETT #2#
@@ -95,7 +66,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|SymmetricFunctions|))
           (LETT |dv$| (LIST '|SymmetricFunctions| DV$1) . #1#)
-          (LETT $ (GETREFV 27) . #1#)
+          (LETT $ (GETREFV 23) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|SymmetricFunctions| (LIST DV$1)
@@ -107,23 +78,20 @@
 
 (MAKEPROP '|SymmetricFunctions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (0 . |One|)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Vector| 6)
               (|NonNegativeInteger|) (|SparseUnivariatePolynomial| 6)
-              (4 . |monomial|) (10 . |coerce|) (15 . -) (21 . ^) (|Vector| 6)
-              (|PositiveInteger|) |SYMFUNC;symFunc;RPiV;1| (27 . |One|)
-              (31 . *) (|List| 6) |SYMFUNC;symFunc;LV;2| (37 . |vectorise|)
-              (|Integer|) (43 . |minIndex|) (48 . *) (54 . -)
-              (59 . |reverse!|))
-           '#(|symFunc| 64) 'NIL
+              (0 . |vectorise|) (6 . |reverse!|) (11 . |One|) (15 . |monomial|)
+              (21 . |coerce|) (26 . +) (32 . ^) (|PositiveInteger|)
+              |SYMFUNC;symFunc;RPiV;2| (38 . |One|) (42 . *) (|List| 6)
+              |SYMFUNC;symFunc;LV;3|)
+           '#(|symFunc| 48) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 26
-                                                 '(0 6 0 7 2 9 0 6 8 10 1 9 0 6
-                                                   11 2 9 0 0 0 12 2 9 0 0 8 13
-                                                   0 9 0 17 2 9 0 0 0 18 2 9 14
-                                                   0 8 21 1 14 22 0 23 2 8 0 15
-                                                   0 24 1 6 0 0 25 1 14 0 0 26
-                                                   2 0 14 6 15 16 1 0 14 19
-                                                   20)))))
+                             (|makeByteWordVec2| 22
+                                                 '(2 9 7 0 8 10 1 7 0 0 11 0 6
+                                                   0 12 2 9 0 6 8 13 1 9 0 6 14
+                                                   2 9 0 0 0 15 2 9 0 0 8 16 0
+                                                   9 0 19 2 9 0 0 0 20 2 0 7 6
+                                                   17 18 1 0 7 21 22)))))
            '|lookupComplete|)) 
