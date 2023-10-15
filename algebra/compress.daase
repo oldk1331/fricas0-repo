@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4848 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4852 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -212,8 +212,9 @@
  |LeftModule| |ListMonoidOps| |LinearAggregate&| |LinearAggregate| |Localize|
  |ElementaryFunctionLODESolver| |LinearOrdinaryDifferentialOperator|
  |LinearOrdinaryDifferentialOperator1| |LinearOrdinaryDifferentialOperator2|
+ |LinearOrdinaryDifferentialOperator3| |LinearOrdinaryDifferentialOperator3Aux|
  |LinearOrdinaryDifferentialOperatorCategory&|
- |LinearOrdinaryDifferentialOperatorCategory|
+ |LinearOrdinaryDifferentialOperatorCategory| |LODOConvertions|
  |LinearOrdinaryDifferentialOperatorFactorizer|
  |LinearOrdinaryDifferentialOperatorsOps| |Logic&| |Logic| |Loop| |LeftOreRing|
  |LinearPolynomialEquationByFractions| |LiePolynomial| |ListAggregate&|
@@ -711,7 +712,7 @@
  |setDifference| |setIntersection| |setUnion| |append| |null| |nil| |match|
  |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
  |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
- |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
+ |listOfMonoms| |insert| |delete| |delta_deriv| |symmetricSquare| |factor1|
  |symmetricProduct| |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
  |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
  |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
