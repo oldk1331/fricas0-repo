@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5038 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5041 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -494,11 +494,11 @@
  |solveLinearOverConstants| |nullSpaceOverConstants| |constant_subspace|
  |clipParametric| |clipWithRanges| |counit| |coproduct| |numberOfHues| |blue|
  |green| |yellow| |red| |iifact| |iibinom| |iiperm| |iipow| |iidsum| |iidprod|
- |ipow| |factorial| |multinomial| |permutation| |stirling1| |stirling2|
- |catalan| |summation| |factorials| |mkcomm| |smaller?| |polarCoordinates|
- |complex| |imaginary| |writeCategory| |writePackage| |solid| |solid?|
- |denominators| |numerators| |convergents| |approximants| |reducedForm|
- |partialQuotients| |partialDenominators| |partialNumerators|
+ |ipow| |factorial| |multinomial| |distinct_partition| |permutation|
+ |stirling1| |stirling2| |catalan| |summation| |factorials| |mkcomm| |smaller?|
+ |polarCoordinates| |complex| |imaginary| |writeCategory| |writePackage|
+ |solid| |solid?| |denominators| |numerators| |convergents| |approximants|
+ |reducedForm| |partialQuotients| |partialDenominators| |partialNumerators|
  |reducedContinuedFraction| |polar| |cylindrical| |spherical| |parabolic|
  |parabolicCylindrical| |paraboloidal| |ellipticCylindrical|
  |prolateSpheroidal| |oblateSpheroidal| |bipolar| |bipolarCylindrical|
@@ -825,18 +825,19 @@
  |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace| |hspace| |messagePrint|
  |message| |padecf| |pade| |root| |quotientByP| |moduloP| |modulus| |digits|
  |continuedFraction| |light| |pastel| |bright| |dim| |dark| |motzkinPathArray|
- |jacobiPathArray| |bottom| |surface| |coordinate| |partitions| |conjugates|
- |shuffle| |shufflein| |sequences| |permutations| |lists| |atoms| |makeResult|
- |is?| |Is| |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed|
- |failed?| |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?|
- |topPredicate| |setTopPredicate| |patternVariable| |withPredicates|
- |setPredicates| |predicates| |hasPredicate?| |optional?| |multiple?|
- |generic?| |quoted?| |inR?| |depth| |isList| |isQuotient| |isOp| |predicate|
- |satisfy?| |addBadValue| |badValues| |retractable?| |listOfTerms| |One|
- |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
- |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
- |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
- |perm_to_vec| |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
+ |jacobiPathArray| |bottom| |surface| |coordinate| |partitions|
+ |odd_partitions| |distinct_partitions| |conjugates| |shuffle| |shufflein|
+ |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
+ |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
+ |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
+ |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
+ |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
+ |inR?| |depth| |isList| |isQuotient| |isOp| |predicate| |satisfy?|
+ |addBadValue| |badValues| |retractable?| |listOfTerms| |One| |adjoint|
+ |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?| |even?|
+ |numberOfCycles| |cyclePartition| |coerceListOfPairs| |coercePreimagesImages|
+ |listRepresentation| |permanent| |cycles| |cycle| |perm_to_vec|
+ |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
  |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
  |wordsForStrongGenerators| |strongGenerators| |base| |random| |generators|
  |eval1a| |eval1| |modpreduction| |modpeval| |addVertex2| |setMult!|
