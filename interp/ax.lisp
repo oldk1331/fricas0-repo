@@ -330,8 +330,6 @@
  
 ; axFormatDecl(sym, type) ==
 ;    if sym = '$ then sym := '%
-;    opOf type in '(StreamAggregate FiniteLinearAggregate) =>
-;         ['Declare, sym, 'Type]
 ;    ['Declare, sym, axFormatType type]
  
 (DEFUN |axFormatDecl| (|sym| |type|)
@@ -339,10 +337,7 @@
     (RETURN
      (PROGN
       (COND ((EQ |sym| '$) (SETQ |sym| '%)))
-      (COND
-       ((|member| (|opOf| |type|) '(|StreamAggregate| |FiniteLinearAggregate|))
-        (LIST '|Declare| |sym| '|Type|))
-       ('T (LIST '|Declare| |sym| (|axFormatType| |type|))))))))
+      (LIST '|Declare| |sym| (|axFormatType| |type|))))))
  
 ; makeTypeSequence l ==
 ;    ['Sequence,: delete('Type, l)]
