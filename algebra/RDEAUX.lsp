@@ -238,11 +238,66 @@
                                         (GO G190) G191
                                         (EXIT (NREVERSE #4#)))))))))))))))))) 
 
+(SDEFUN |RDEAUX;SPDE1;2SupMR;2|
+        ((|b| |SparseUnivariatePolynomial| F)
+         (|c| |SparseUnivariatePolynomial| F)
+         (|der| |Mapping| (|SparseUnivariatePolynomial| F)
+          (|SparseUnivariatePolynomial| F))
+         ($ |Record| (|:| |ans| (|SparseUnivariatePolynomial| F))
+          (|:| |remainder| (|SparseUnivariatePolynomial| F))))
+        (SPROG
+         ((|q| (|SparseUnivariatePolynomial| F))
+          (|qq| (|SparseUnivariatePolynomial| F)) (#1=#:G142 NIL)
+          (#2=#:G148 NIL) (|n| (|Integer|)) (|lb| (F)) (|db| (|Integer|)))
+         (SEQ
+          (EXIT
+           (SEQ (LETT |q| (|spadConstant| $ 9) . #3=(|RDEAUX;SPDE1;2SupMR;2|))
+                (LETT |db| (SPADCALL |b| (QREFELT $ 25)) . #3#)
+                (LETT |lb| (SPADCALL |b| (QREFELT $ 32)) . #3#)
+                (SEQ G190
+                     (COND
+                      ((NULL
+                        (SPADCALL |c| (|spadConstant| $ 9) (QREFELT $ 18)))
+                       (GO G191)))
+                     (SEQ
+                      (LETT |n| (- (SPADCALL |c| (QREFELT $ 25)) |db|) . #3#)
+                      (EXIT
+                       (COND
+                        ((< |n| 0)
+                         (PROGN
+                          (LETT #2# (CONS |q| |c|) . #3#)
+                          (GO #4=#:G147)))
+                        ('T
+                         (SEQ
+                          (LETT |qq|
+                                (SPADCALL
+                                 (SPADCALL (SPADCALL |c| (QREFELT $ 32)) |lb|
+                                           (QREFELT $ 33))
+                                 (PROG1 (LETT #1# |n| . #3#)
+                                   (|check_subtype2| (>= #1# 0)
+                                                     '(|NonNegativeInteger|)
+                                                     '(|Integer|) #1#))
+                                 (QREFELT $ 34))
+                                . #3#)
+                          (LETT |c|
+                                (SPADCALL
+                                 (SPADCALL |c|
+                                           (SPADCALL |b| |qq| (QREFELT $ 19))
+                                           (QREFELT $ 23))
+                                 (SPADCALL |qq| |der|) (QREFELT $ 23))
+                                . #3#)
+                          (EXIT
+                           (LETT |q| (SPADCALL |q| |qq| (QREFELT $ 22))
+                                 . #3#)))))))
+                     NIL (GO G190) G191 (EXIT NIL))
+                (EXIT (CONS |q| (|spadConstant| $ 9)))))
+          #4# (EXIT #2#)))) 
+
 (DECLAIM (NOTINLINE |RDEaux;|)) 
 
-(DEFUN |RDEaux| (#1=#:G141)
+(DEFUN |RDEaux| (#1=#:G149)
   (SPROG NIL
-         (PROG (#2=#:G142)
+         (PROG (#2=#:G150)
            (RETURN
             (COND
              ((LETT #2#
@@ -261,7 +316,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|RDEaux|))
           (LETT |dv$| (LIST '|RDEaux| DV$1) . #1#)
-          (LETT $ (GETREFV 32) . #1#)
+          (LETT $ (GETREFV 36) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|RDEaux| (LIST DV$1) (CONS 1 $))
@@ -283,17 +338,20 @@
               (|Record| (|:| |ans| 13) (|:| |acoeff| 8) (|:| |eegen| 8)
                         (|:| |bpar| 8) (|:| |lcpar| 13) (|:| |dpar| 29))
               (|Union| (|List| 26) 27) (|Integer|) (|Mapping| 8 8)
-              |RDEAUX;multi_SPDE;2SupLIMU;1|)
-           '#(|multi_SPDE| 64) 'NIL
+              |RDEAUX;multi_SPDE;2SupLIMU;1| (64 . |leadingCoefficient|)
+              (69 . /) (75 . |monomial|) |RDEAUX;SPDE1;2SupMR;2|)
+           '#(|multi_SPDE| 81 SPDE1 90) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 31
+                             (|makeByteWordVec2| 35
                                                  '(0 6 0 7 0 8 0 9 1 8 10 0 11
                                                    2 13 10 12 0 14 2 8 15 0 0
                                                    16 0 8 0 17 2 8 10 0 0 18 2
                                                    8 0 0 0 19 2 8 20 0 0 21 2 8
                                                    0 0 0 22 2 8 0 0 0 23 1 8 24
-                                                   0 25 5 0 28 8 8 13 29 30
-                                                   31)))))
+                                                   0 25 1 8 6 0 32 2 6 0 0 0 33
+                                                   2 8 0 6 24 34 5 0 28 8 8 13
+                                                   29 30 31 3 0 26 8 8 30
+                                                   35)))))
            '|lookupComplete|)) 
