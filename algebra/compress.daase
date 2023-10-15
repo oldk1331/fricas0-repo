@@ -712,7 +712,7 @@
  |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |makeMulti| |makeTerm|
  |listOfMonoms| |insert| |delete| |symmetricSquare| |factor1|
  |symmetricProduct| |symmetricPower| |directSum| |entries| |loop| |lcmCoef|
- |solveLinearPolynomialEquationByFractions| |hasSolution?| |linSolve|
+ |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
  |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
  |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
@@ -1026,9 +1026,9 @@
  |addPointLast| |addPoint2| |addPoint| |merge| |deepCopy| |shallowCopy|
  |numberOfChildren| |children| |child| |birth| |internal?| |root?| |leaf?|
  |rhs| |lhs| |construct| |sum| |outputForm| NOT AND EQ OR GE LE GT LT |ansatz|
- |transform| |linearize| |detSys| |ncDetSys| |detSysNS| |sample| |list|
- |string| |argscript| |superscript| |subscript| |script| |scripts| |scripted?|
- |name| |resetNew| |symFunc| |symbolTableOf| |argumentListOf| |returnTypeOf|
+ |transform| |linearize| |detSys| |ncDetSys| |detSysNS| |sample| |string|
+ |argscript| |superscript| |subscript| |script| |scripts| |scripted?| |name|
+ |resetNew| |symFunc| |symbolTableOf| |argumentListOf| |returnTypeOf|
  |printHeader| |returnType!| |argumentList!| |endSubProgram|
  |currentSubProgram| |newSubProgram| |clearTheSymbolTable| |showTheSymbolTable|
  |symbolTable| |printTypes| |newTypeLists| |typeLists| |externalList|

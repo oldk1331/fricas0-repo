@@ -50,41 +50,22 @@
 
 (SDEFUN |ANY;coerce;$Of;7| ((|x| $) ($ |OutputForm|))
         (SPROG
-         ((#1=#:G127 NIL) (|a| NIL) (#2=#:G126 NIL)
-          (|dom1| (|List| (|Symbol|))) (|p| (|Symbol|))
+         ((|dom1| (|List| (|OutputForm|))) (|p| (|SExpression|))
           (|obj1| (|OutputForm|)))
          (SEQ
-          (LETT |obj1| (SPADCALL |x| (QREFELT $ 22)) . #3=(|ANY;coerce;$Of;7|))
+          (LETT |obj1| (SPADCALL |x| (QREFELT $ 22)) . #1=(|ANY;coerce;$Of;7|))
           (COND
            ((NULL (SPADCALL (QREFELT $ 10) (QREFELT $ 25))) (EXIT |obj1|)))
           (LETT |dom1|
                 (SEQ
-                 (LETT |p| (|prefix2String| (|devaluate| (QCAR |x|))) . #3#)
+                 (LETT |p| (|prefix2String| (|devaluate| (QCAR |x|))) . #1#)
                  (EXIT
                   (COND
                    ((SPADCALL |p| (QREFELT $ 26))
-                    (SPADCALL |p| (QREFELT $ 21)))
-                   ('T (SPADCALL |p| (QREFELT $ 28))))))
-                . #3#)
-          (EXIT
-           (SPADCALL
-            (CONS |obj1|
-                  (CONS ":"
-                        (PROGN
-                         (LETT #2# NIL . #3#)
-                         (SEQ (LETT |a| NIL . #3#) (LETT #1# |dom1| . #3#) G190
-                              (COND
-                               ((OR (ATOM #1#)
-                                    (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #2#
-                                      (CONS (SPADCALL |a| (QREFELT $ 29)) #2#)
-                                      . #3#)))
-                              (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                              (EXIT (NREVERSE #2#))))))
-            (QREFELT $ 30)))))) 
+                    (SPADCALL |p| (QREFELT $ 28)))
+                   ('T |p|))))
+                . #1#)
+          (EXIT (SPADCALL (CONS |obj1| (CONS ":" |dom1|)) (QREFELT $ 30)))))) 
 
 (SDEFUN |ANY;any;SeN$;8| ((|domain| |SExpression|) (|object| |None|) ($ $))
         (SEQ
@@ -101,7 +82,7 @@
 
 (DEFUN |Any| ()
   (SPROG NIL
-         (PROG (#1=#:G132)
+         (PROG (#1=#:G129)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Any|) . #2=(|Any|))
@@ -138,12 +119,12 @@
               |ANY;domainOf;$Of;3| (5 . ~=) |ANY;=;2$B;4| (|Symbol|)
               (|List| 19) (11 . |list|) |ANY;objectOf;$Of;5| (|String|)
               |ANY;showTypeInOutput;BS;6| (16 . |deref|) (21 . |atom?|)
-              (|List| $) (26 . |list|) (31 . |coerce|) (36 . |hconcat|)
+              (|List| 15) (26 . |list|) (|List| $) (31 . |hconcat|)
               |ANY;coerce;$Of;7| |ANY;any;SeN$;8| (|SingleInteger|)
               (|HashState|))
-           '#(~= 41 |showTypeInOutput| 47 |objectOf| 52 |obj| 57 |latex| 62
-              |hashUpdate!| 67 |hash| 73 |domainOf| 78 |dom| 83 |coerce| 88
-              |any| 93 = 99)
+           '#(~= 36 |showTypeInOutput| 42 |objectOf| 47 |obj| 52 |latex| 57
+              |hashUpdate!| 62 |hash| 68 |domainOf| 73 |dom| 78 |coerce| 83
+              |any| 88 = 94)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
@@ -151,13 +132,13 @@
                         '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 15))
                         (|makeByteWordVec2| 34
                                             '(1 8 0 7 9 2 13 7 0 0 17 1 20 0 19
-                                              21 1 8 7 0 25 1 13 7 0 26 1 19 27
-                                              0 28 1 19 15 0 29 1 15 0 27 30 2
-                                              0 7 0 0 1 1 0 23 7 24 1 0 15 0 22
-                                              1 0 11 0 12 1 0 23 0 1 2 0 34 34
-                                              0 1 1 0 33 0 1 1 0 15 0 16 1 0 13
-                                              0 14 1 0 15 0 31 2 0 0 13 11 32 2
-                                              0 7 0 0 18)))))
+                                              21 1 8 7 0 25 1 13 7 0 26 1 27 0
+                                              15 28 1 15 0 29 30 2 0 7 0 0 1 1
+                                              0 23 7 24 1 0 15 0 22 1 0 11 0 12
+                                              1 0 23 0 1 2 0 34 34 0 1 1 0 33 0
+                                              1 1 0 15 0 16 1 0 13 0 14 1 0 15
+                                              0 31 2 0 0 13 11 32 2 0 7 0 0
+                                              18)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|Any| 'NILADIC T) 
