@@ -299,7 +299,9 @@
                    (LETT |res1| (SPADCALL |xp1| |res| |p| (QREFELT $ 24))
                          . #6#)
                    (SPADCALL |res1| |rdata| (QREFELT $ 20))
-                   (EXIT (SPADCALL |res| |res1| |n| (QREFELT $ 22))))))
+                   (EXIT
+                    (SPADCALL |res| |res1| (MIN |n| (QV_LEN_U32 |res1|))
+                              (QREFELT $ 22))))))
                 (EXIT (SPADCALL |res| |p1| 0 |ns1| 1 |p| (QREFELT $ 28))))
                (LETT |k| (+ |k| -1) . #6#) (GO G190) G191 (EXIT NIL))
           (EXIT |res|)))) 
