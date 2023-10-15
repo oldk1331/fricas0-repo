@@ -1821,14 +1821,26 @@
 ; getOplistWithUniqueSignatures(op,pairlis,signatureAlist) ==
 ;   alist:= nil
 ;   for [sig, :[slotNumber, pred, kind]] in signatureAlist repeat
-;     alist:= insertAlist(SUBLIS(pairlis,[op,sig]),
-;                 [pred,[kind,nil,slotNumber]],
-;                 alist)
+;       key := SUBLIS(pairlis, [op, sig])
+;       term := assoc(key, alist)
+;       if null term then
+;           alist := cons([key, pred, [kind, nil, slotNumber]], alist)
+;       else
+;           value := rest term
+;           oldpred := first value
+;           newpred :=
+;               oldpred = true or pred = true => true
+;               oldpred = pred => oldpred
+;               oldpred is ['OR, :predl] =>
+;                   member(pred, predl) => oldpred
+;                   ['OR, pred, :predl]
+;               ['OR, pred, oldpred]
+;           RPLACA(value, newpred)
 ;   alist
  
 (DEFUN |getOplistWithUniqueSignatures| (|op| |pairlis| |signatureAlist|)
-  (PROG (|alist| |sig| |ISTMP#1| |slotNumber| |ISTMP#2| |pred| |ISTMP#3|
-         |kind|)
+  (PROG (|alist| |sig| |ISTMP#1| |slotNumber| |ISTMP#2| |pred| |ISTMP#3| |kind|
+         |key| |term| |value| |oldpred| |predl| |newpred|)
     (RETURN
      (PROGN
       (SETQ |alist| NIL)
@@ -1855,10 +1867,30 @@
                                    (PROGN
                                     (SETQ |kind| (CAR |ISTMP#3|))
                                     #1#)))))))
-                 (SETQ |alist|
-                         (|insertAlist| (SUBLIS |pairlis| (LIST |op| |sig|))
-                          (LIST |pred| (LIST |kind| NIL |slotNumber|))
-                          |alist|)))))
+                 (PROGN
+                  (SETQ |key| (SUBLIS |pairlis| (LIST |op| |sig|)))
+                  (SETQ |term| (|assoc| |key| |alist|))
+                  (COND
+                   ((NULL |term|)
+                    (SETQ |alist|
+                            (CONS
+                             (LIST |key| |pred| (LIST |kind| NIL |slotNumber|))
+                             |alist|)))
+                   (#1# (SETQ |value| (CDR |term|))
+                    (SETQ |oldpred| (CAR |value|))
+                    (SETQ |newpred|
+                            (COND ((OR (EQUAL |oldpred| T) (EQUAL |pred| T)) T)
+                                  ((EQUAL |oldpred| |pred|) |oldpred|)
+                                  ((AND (CONSP |oldpred|)
+                                        (EQ (CAR |oldpred|) 'OR)
+                                        (PROGN
+                                         (SETQ |predl| (CDR |oldpred|))
+                                         #1#))
+                                   (COND ((|member| |pred| |predl|) |oldpred|)
+                                         (#1#
+                                          (CONS 'OR (CONS |pred| |predl|)))))
+                                  (#1# (LIST 'OR |pred| |oldpred|))))
+                    (RPLACA |value| |newpred|)))))))
           (SETQ |bfVar#72| (CDR |bfVar#72|))))
        |signatureAlist| NIL)
       |alist|))))
