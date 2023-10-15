@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4852 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4846 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -136,12 +136,11 @@
  |FunctionSpaceComplexIntegration| |FourierSeries| |FloatSpecialFunctions|
  |FunctionSpaceIntegration| |FunctionalSpecialFunction|
  |FunctionSpacePrimitiveElement| |FunctionSpaceReduce|
- |FunctionSpaceRationalRoots| |FortranScalarType|
- |FunctionSpaceUnivariatePolynomialFactor| |FortranType| |FortranTemplate|
- |FunctionCalled| |FortranVectorCategory| |FortranVectorFunctionCategory|
- |GaloisGroupFactorizer| |GaloisGroupFactorizationUtilities|
- |GaloisGroupPolynomialUtilities| |GaloisGroupUtilities|
- |GaussianFactorizationPackage| |GroebnerPackage|
+ |FunctionSpaceRationalRoots| |FortranScalarType| |FortranType|
+ |FortranTemplate| |FunctionCalled| |FortranVectorCategory|
+ |FortranVectorFunctionCategory| |GaloisGroupFactorizer|
+ |GaloisGroupFactorizationUtilities| |GaloisGroupPolynomialUtilities|
+ |GaloisGroupUtilities| |GaussianFactorizationPackage| |GroebnerPackage|
  |EuclideanGroebnerBasisPackage| |GroebnerFactorizationPackage|
  |GroebnerInternalPackage| |GcdBasis| |GcdDomain&| |GcdDomain|
  |GenericNonAssociativeAlgebra| |GeneralDistributedMultivariatePolynomial|
@@ -608,10 +607,10 @@
  |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi|
  |iAiryAiPrime| |iAiryBi| |iAiryBiPrime| |iiHypergeometricF| |iiPolylog|
  |iLambertW| |bringDown| |newReduc| |logical?| |character?| |doubleComplex?|
- |complex?| |double?| |ffactor| |qfactor| |UP2ifCan| |ffactor1| |anfactor|
- |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
- |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
- |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |complex?| |double?| |fortranCharacter| |fortranDoubleComplex|
+ |fortranComplex| |fortranLogical| |fortranInteger| |fortranDouble|
+ |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
+ |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|

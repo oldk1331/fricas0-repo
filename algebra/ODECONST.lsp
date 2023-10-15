@@ -31,6 +31,7 @@
 (SDEFUN |ODECONST;homoBasis| ((|op| L) (|x| F) ($ |List| F))
         (SPROG
          ((|b| (|List| F)) (#1=#:G122 NIL) (|ff| NIL)
+          (|fp| (|Factored| (|SparseUnivariatePolynomial| F)))
           (|p| (|SparseUnivariatePolynomial| F)))
          (SEQ (LETT |p| (|spadConstant| $ 21) . #2=(|ODECONST;homoBasis|))
               (SEQ G190
@@ -49,12 +50,9 @@
                     (EXIT (LETT |op| (SPADCALL |op| (QREFELT $ 32)) . #2#)))
                    NIL (GO G190) G191 (EXIT NIL))
               (LETT |b| NIL . #2#)
+              (LETT |fp| (SPADCALL |p| (QREFELT $ 35)) . #2#)
               (SEQ (LETT |ff| NIL . #2#)
-                   (LETT #1#
-                         (SPADCALL (SPADCALL |p| (QREFELT $ 35))
-                                   (QREFELT $ 38))
-                         . #2#)
-                   G190
+                   (LETT #1# (SPADCALL |fp| (QREFELT $ 38)) . #2#) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |ff| (CAR #1#) . #2#) NIL))
                      (GO G191)))
@@ -293,8 +291,7 @@
               (|Boolean|) (35 . ~=) (41 . |leadingCoefficient|)
               (|NonNegativeInteger|) (46 . |degree|) (51 . |monomial|) (57 . +)
               (63 . |reductum|) (|Factored| 20)
-              (|FunctionSpaceUnivariatePolynomialFactor| 6 7 20)
-              (68 . |ffactor|)
+              (|ExpressionFactorPolynomial| 6 7) (68 . |factorPolynomial|)
               (|Record| (|:| |factor| 20) (|:| |exponent| (|Integer|)))
               (|List| 36) (73 . |factors|) (78 . |concat!|) (84 . |copy|)
               (89 . *) (95 . |degree|) (100 . |One|) (104 . |One|)
