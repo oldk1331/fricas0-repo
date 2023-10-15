@@ -677,23 +677,23 @@
  |extendedint| |logextint| |splitConstant| |pmComplexintegrate| |pmintegrate|
  |infieldint| |integerIfCan| |internalIntegrate| |infieldIntegrate| |varselect|
  |kmax| |ksec| |vark| |removeConstantTerm| |mkPrim| |intPatternMatch|
- |primintegrate| |expintegrate| |tanintegrate| |lambintegrate|
- |monomialIntegrate| |monomialIntPoly| |inverseLaplace| |iprint| |elem?|
- |notelem| |logpart| |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot|
- |approxNthRoot| |perfectSquare?| |perfectSqrt| |approxSqrt|
- |generateIrredPoly| |complexExpand| |complexIntegrate|
- |dimensionOfIrreducibleRepresentation| |irreducibleRepresentation| |checkRur|
- |cAcsch| |cAsech| |cAcoth| |cAtanh| |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth|
- |cTanh| |cCosh| |cSinh| |cAcsc| |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc|
- |cSec| |cCot| |cTan| |cCos| |cSin| |cLog| |cExp| |cRationalPower| |cPower|
- |seriesToOutputForm| |iCompose| |taylorQuoByVar| |iExquo| |getStream| |getRef|
- |makeSeries| GF2FG FG2F F2FG |explogs2trigs| |trigs2explogs| |do_liou| |swap!|
- |fill!| |minIndex| |maxIndex| |entry?| |indices| |index?| |dimS| |dimJ| |Pr|
- |Pm| |integrateIfCan| |derivativeOf?| |weight| |type| |allRepeated| |m2r|
- |r2m| |repeatedIndex| |multiIndex| |numerJP| |autoReduce| |reduceMod|
- |simpMod| |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer| |freeOf?|
- |orderDim| |formalDiff2| |formalDiff| |class| |const?| |jetVariables|
- |numDepVar| |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
+ |primintegrate| |expintegrate| |lambintegrate| |monomialIntegrate|
+ |monomialIntPoly| |inverseLaplace| |iprint| |elem?| |notelem| |logpart|
+ |ratpart| |mkAnswer| |perfectNthPower?| |perfectNthRoot| |approxNthRoot|
+ |perfectSquare?| |perfectSqrt| |approxSqrt| |generateIrredPoly|
+ |complexExpand| |complexIntegrate| |dimensionOfIrreducibleRepresentation|
+ |irreducibleRepresentation| |checkRur| |cAcsch| |cAsech| |cAcoth| |cAtanh|
+ |cAcosh| |cAsinh| |cCsch| |cSech| |cCoth| |cTanh| |cCosh| |cSinh| |cAcsc|
+ |cAsec| |cAcot| |cAtan| |cAcos| |cAsin| |cCsc| |cSec| |cCot| |cTan| |cCos|
+ |cSin| |cLog| |cExp| |cRationalPower| |cPower| |seriesToOutputForm| |iCompose|
+ |taylorQuoByVar| |iExquo| |getStream| |getRef| |makeSeries| GF2FG FG2F F2FG
+ |explogs2trigs| |trigs2explogs| |do_liou| |swap!| |fill!| |minIndex|
+ |maxIndex| |entry?| |indices| |index?| |dimS| |dimJ| |Pr| |Pm|
+ |integrateIfCan| |derivativeOf?| |weight| |type| |allRepeated| |m2r| |r2m|
+ |repeatedIndex| |multiIndex| |numerJP| |autoReduce| |reduceMod| |simpMod|
+ |simpOne| |dSubst| |solveFor| |sortLD| |leadingDer| |freeOf?| |orderDim|
+ |formalDiff2| |formalDiff| |class| |const?| |jetVariables| |numDepVar|
+ |numIndVar| |getNotation| |setNotation| P U X |ground| |printSys|
  |jacobiMatrix| |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol|
  |prolongSymbol| |prolongMV| |project| |contract| |differentials| |dP| |dU|
  |dX| |d| |eqRep?| |ground?| |prolong| |lie| |directions| |diffP| |diffU|
@@ -890,13 +890,13 @@
  |randnum| |reseed| |seed| |factorSquareFree| |rational| |rational?|
  |rationalIfCan| |setvalue!| |setchildren!| |node?| |child?| |leaves| |nodes|
  |rename| |rename!| |mainValue| |mainDefiningPolynomial| |mainForm| |sqrt|
- |multi_SPDE| |rischDEsys| |ei_int| |risch_de_ext| |do_risch_DE| |param_rde|
- |param_rde2| |exp_lower_bound| |SPDEnocancel1| |monomRDEsys| |baseRDEsys|
- |weighted| |rdHack1| |midpoint| |midpoints| |realZeros| |mainCharacterization|
- |algebraicOf| |makeRec| |makeFEq| |getEq| |values| |eltable?| |ReduceOrder|
- |setref| |deref| |ref| |radicalEigenvectors| |radicalEigenvector|
- |radicalEigenvalues| |eigenMatrix| |normalise| |gramschmidt|
- |orthonormalBasis| |antisymmetricTensors| |createGenericMatrix|
+ |multi_SPDE| |rischDEsys| |ei_int| |mk_erf| |risch_de_ext| |do_risch_DE|
+ |param_rde| |param_rde2| |exp_lower_bound| |SPDEnocancel1| |monomRDEsys|
+ |baseRDEsys| |weighted| |rdHack1| |midpoint| |midpoints| |realZeros|
+ |mainCharacterization| |algebraicOf| |makeRec| |makeFEq| |getEq| |values|
+ |eltable?| |ReduceOrder| |setref| |deref| |ref| |radicalEigenvectors|
+ |radicalEigenvector| |radicalEigenvalues| |eigenMatrix| |normalise|
+ |gramschmidt| |orthonormalBasis| |antisymmetricTensors| |createGenericMatrix|
  |symmetricTensors| |tensorProduct| |permutationRepresentation|
  |completeEchelonBasis| |createRandomElement| |cyclicSubmodule|
  |standardBasisOfCyclicSubmodule| |areEquivalent?| |isAbsolutelyIrreducible?|
