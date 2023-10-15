@@ -644,8 +644,8 @@
 (SDEFUN |EXPR;jacobiZeta;3$;118| ((|z| $) (|m| $) ($ $))
         (SPADCALL |z| |m| (QREFELT $ 316))) 
 
-(SDEFUN |EXPR;jacobiTheta;3$;119| ((|q| $) (|z| $) ($ $))
-        (SPADCALL |q| |z| (QREFELT $ 318))) 
+(SDEFUN |EXPR;jacobiTheta;3$;119| ((|z| $) (|m| $) ($ $))
+        (SPADCALL |z| |m| (QREFELT $ 318))) 
 
 (SDEFUN |EXPR;lerchPhi;4$;120| ((|z| $) (|s| $) (|a| $) ($ $))
         (SPADCALL |z| |s| |a| (QREFELT $ 320))) 
