@@ -33,7 +33,6 @@
                            (LETT |MaybeSkewPolynomialCategory;CAT|
                                  (|Join|
                                   (|FiniteAbelianMonoidRing| '|t#1| '|t#2|)
-                                  (|FullyLinearlyExplicitRingOver| '|t#1|)
                                   (|mkCategory|
                                    '(((|degree|
                                        ((|NonNegativeInteger|) $ |t#3|))
@@ -72,8 +71,11 @@
                                         (|List| |t#3|)))
                                       T)
                                      ((|variables| ((|List| |t#3|) $)) T)
-                                     ((|primitiveMonomials| ((|List| $) $)) T))
-                                   '(((|Comparable|)
+                                     ((|primitiveMonomials| ((|List| $) $))
+                                      (|has| |t#1| (|SemiRing|))))
+                                   '(((|FullyLinearlyExplicitRingOver| |t#1|)
+                                      (|has| |t#1| (|Ring|)))
+                                     ((|Comparable|)
                                       (|has| |t#1| (|Comparable|)))
                                      ((|canonicalUnitNormal|)
                                       (|has| |t#1| (|canonicalUnitNormal|))))

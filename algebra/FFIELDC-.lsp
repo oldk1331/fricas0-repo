@@ -396,9 +396,9 @@
         ((|f| |SparseUnivariatePolynomial| S)
          ($ |Factored| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#1=#:G227 NIL)
-          (#2=#:G226 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
-          (#4=#:G228 #3#) (#5=#:G231 NIL) (|u| NIL)
+         ((#1=#:G232 NIL)
+          (#2=#:G231 #3=(|Factored| (|SparseUnivariatePolynomial| S)))
+          (#4=#:G233 #3#) (#5=#:G236 NIL) (|u| NIL)
           (|flist|
            (|Record| (|:| |cont| S)
                      (|:| |factors|

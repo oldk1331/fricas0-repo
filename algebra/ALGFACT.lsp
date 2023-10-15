@@ -162,7 +162,10 @@
            (|Join| (|UnivariatePolynomialCategory| |sae|)
                    (CATEGORY |domain|
                     (SIGNATURE |outputForm| ((|OutputForm|) $ (|OutputForm|)))
-                    (SIGNATURE |fmecg| ($ $ (|NonNegativeInteger|) |sae| $)))))
+                    (IF (|has| |sae| (|Ring|))
+                        (SIGNATURE |fmecg|
+                         ($ $ (|NonNegativeInteger|) |sae| $))
+                        |noBranch|))))
           (|sae|
            (|Join|
             (|MonogenicAlgebra| #7=(|AlgebraicNumber|)

@@ -877,10 +877,10 @@
               (212 . |concat|) (218 . |eval|) (225 . |eval|)
               (232 . |differentiate|) (|List| 6) (237 . |concat|)
               (243 . |eval|) (250 . |eval|) (|Equation| 6) (257 . |lhs|)
-              (262 . |retract|) (267 . |rhs|) (272 . |eval|) (|List| 98)
-              (279 . |eval|) (|Symbol|) (|List| 96) (|Equation| $)
-              (|Union| 101 '#1#) (|Union| 103 '#1#) (|Fraction| 103)
-              (|OutputForm|) (|Integer|))
+              (262 . |retract|) (267 . |rhs|) (272 . |eval|) (|List| 96)
+              (279 . |eval|) (|Equation| $) (|Integer|) (|Symbol|) (|List| 98)
+              (|Fraction| 97) (|Union| 97 '#1#) (|Union| 100 '#1#)
+              (|OutputForm|))
            '#(|weights| 285 |weight| 296 |separant| 307 |retractIfCan| 312
               |order| 317 |makeVariable| 328 |leader| 338 |isobaric?| 343
               |initial| 348 |eval| 353 |differentiate| 373
@@ -916,7 +916,7 @@
                                                    0 0 94 95 2 0 42 0 8 50 1 0
                                                    42 0 47 2 0 11 0 8 52 1 0 11
                                                    0 49 1 0 0 0 64 1 0 69 0 71
-                                                   2 0 11 0 8 39 1 0 11 0 36 1
+                                                   1 0 11 0 36 2 0 11 0 8 39 1
                                                    0 14 0 76 1 0 14 8 15 1 0 9
                                                    0 57 1 0 33 0 55 1 0 0 0 63
                                                    3 0 0 0 72 80 83 3 0 0 0 72

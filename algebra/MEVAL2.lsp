@@ -154,13 +154,13 @@
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
           (|c1| (|Fraction| (|Polynomial| (|Integer|))))
-          (|lcp| #3=(|Fraction| (|Polynomial| (|Integer|)))) (#4=#:G141 NIL)
+          (|lcp| #3=(|Fraction| (|Polynomial| (|Integer|)))) (#4=#:G143 NIL)
           (|dp| #5=(|NonNegativeInteger|))
           (|lmu|
            (|List|
             (|SparseUnivariatePolynomial|
              (|Fraction| (|Polynomial| (|Integer|))))))
-          (#6=#:G150 NIL) (|m| NIL) (#7=#:G151 NIL) (|s| NIL) (#8=#:G149 NIL)
+          (#6=#:G152 NIL) (|m| NIL) (#7=#:G153 NIL) (|s| NIL) (#8=#:G151 NIL)
           (|gu|
            (|SparseUnivariatePolynomial|
             (|Fraction| (|Polynomial| (|Integer|)))))
@@ -258,7 +258,7 @@
 
 (DEFUN |ModularEvaluation2| ()
   (SPROG NIL
-         (PROG (#1=#:G155)
+         (PROG (#1=#:G157)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|ModularEvaluation2|)

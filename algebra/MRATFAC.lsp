@@ -58,7 +58,7 @@
             (PROGN
              (LETT #1# NIL . #8#)
              (SEQ (LETT |u| NIL . #8#)
-                  (LETT #5# (SPADCALL |ffact| (QREFELT $ 44)) . #8#) G190
+                  (LETT #5# (SPADCALL |ffact| (QREFELT $ 42)) . #8#) G190
                   (COND
                    ((OR (ATOM #5#) (PROGN (LETT |u| (CAR #5#) . #8#) NIL))
                     (GO G191)))
@@ -70,14 +70,14 @@
                             (SPADCALL (ELT $ 21)
                                       (CONS (|function| |MRATFAC;coerce1|) $)
                                       (QCAR |u|) (QREFELT $ 25))
-                            (QCDR |u|) (QREFELT $ 47))
+                            (QCDR |u|) (QREFELT $ 45))
                            . #8#)
                      (COND
-                      (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 48)) . #8#))
+                      (#1# (LETT #2# (SPADCALL #2# #4# (QREFELT $ 46)) . #8#))
                       ('T (PROGN (LETT #2# #4# . #8#) (LETT #1# 'T . #8#)))))))
                   (LETT #5# (CDR #5#) . #8#) (GO G190) G191 (EXIT NIL))
-             (COND (#1# #2#) ('T (|spadConstant| $ 49))))
-            (QREFELT $ 50)))))) 
+             (COND (#1# #2#) ('T (|spadConstant| $ 47))))
+            (QREFELT $ 48)))))) 
 
 (DECLAIM (NOTINLINE |MRationalFactorize;|)) 
 
@@ -111,7 +111,7 @@
     (LETT DV$3 (|devaluate| |#3|) . #1#)
     (LETT DV$4 (|devaluate| |#4|) . #1#)
     (LETT |dv$| (LIST '|MRationalFactorize| DV$1 DV$2 DV$3 DV$4) . #1#)
-    (LETT $ (GETREFV 52) . #1#)
+    (LETT $ (GETREFV 50) . #1#)
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
     (|haddProp| |$ConstructorCache| '|MRationalFactorize|
@@ -138,15 +138,15 @@
               (|List| $) (54 . |lcm|) (59 . *) (|Factored| 12)
               (|MultivariateFactorize| 7 (|IndexedExponents| 7) 8 12)
               (65 . |factor|) (70 . |One|) (74 . |One|) (78 . |One|) (82 . /)
-              (88 . |unit|) (|Fraction| 45) (93 . |One|)
-              (|Record| (|:| |factor| 12) (|:| |exponent| 45)) (|List| 42)
-              (97 . |factors|) (|Integer|) (|Factored| 9) (102 . |primeFactor|)
-              (108 . *) (114 . |One|) (118 . *) |MRATFAC;factor;PF;5|)
-           '#(|factor| 124) 'NIL
+              (88 . |unit|) (|Record| (|:| |factor| 12) (|:| |exponent| 43))
+              (|List| 40) (93 . |factors|) (|Integer|) (|Factored| 9)
+              (98 . |primeFactor|) (104 . *) (110 . |One|) (114 . *)
+              |MRATFAC;factor;PF;5|)
+           '#(|factor| 120) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 51
+                             (|makeByteWordVec2| 49
                                                  '(1 10 8 0 11 1 12 0 8 13 1 12
                                                    0 7 14 3 17 12 15 16 9 18 1
                                                    10 0 8 19 1 9 0 10 20 1 9 0
@@ -155,8 +155,7 @@
                                                    30 2 9 0 10 0 31 1 33 32 12
                                                    34 0 8 0 35 0 9 0 36 0 12 0
                                                    37 2 10 0 8 8 38 1 32 12 0
-                                                   39 0 40 0 41 1 32 43 0 44 2
-                                                   46 0 9 45 47 2 46 0 0 0 48 0
-                                                   46 0 49 2 46 0 9 0 50 1 0 46
-                                                   9 51)))))
+                                                   39 1 32 41 0 42 2 44 0 9 43
+                                                   45 2 44 0 0 0 46 0 44 0 47 2
+                                                   44 0 9 0 48 1 0 44 9 49)))))
            '|lookupComplete|)) 

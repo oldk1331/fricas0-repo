@@ -1161,7 +1161,7 @@
     (QSETREFV $ 8 (|List| (|Record| (|:| |k| |#2|) (|:| |c| |#1|))))
     (QSETREFV $ 9 (|HasCategory| |#1| '(|CommutativeRing|)))
     (COND
-     ((|testBitVector| |pv$| 25)
+     ((|HasCategory| |#1| '(|Monoid|))
       (QSETREFV $ 12
                 (CONS #'|makeSpadConstant|
                       (LIST (|dispatchFunction| |PR;One;$;1|) $ 12)))))

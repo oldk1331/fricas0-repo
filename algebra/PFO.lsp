@@ -285,7 +285,7 @@
               (EXIT (SPADCALL |l2| (QREFELT $ 91)))))) 
 
 (SDEFUN |PFO;polyred| ((|f| UPUP) ($ UPUP))
-        (SPROG ((#1=#:G359 NIL) (|c| NIL) (#2=#:G358 NIL))
+        (SPROG ((#1=#:G305 NIL) (|c| NIL) (#2=#:G304 NIL))
                (SEQ
                 (SPADCALL
                  (SPADCALL
@@ -318,8 +318,8 @@
 
 (SDEFUN |PFO;aklist| ((|f| R) ($ |List| (|Kernel| F)))
         (SPROG
-         ((#1=#:G364 NIL) (#2=#:G363 #3=(|List| (|Kernel| F))) (#4=#:G365 #3#)
-          (#5=#:G368 NIL) (|c| NIL) (|r| (|Union| (|Fraction| UP) "failed")))
+         ((#1=#:G310 NIL) (#2=#:G309 #3=(|List| (|Kernel| F))) (#4=#:G311 #3#)
+          (#5=#:G314 NIL) (|c| NIL) (|r| (|Union| (|Fraction| UP) "failed")))
          (SEQ (LETT |r| (SPADCALL |f| (QREFELT $ 115)) . #6=(|PFO;aklist|))
               (EXIT
                (COND
@@ -355,8 +355,8 @@
 (SDEFUN |PFO;alglist|
         ((|d| |FiniteDivisor| F UP UPUP R) ($ |List| (|Kernel| F)))
         (SPROG
-         ((#1=#:G371 NIL) (#2=#:G370 #3=(|List| (|Kernel| F))) (#4=#:G372 #3#)
-          (#5=#:G375 NIL) (|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
+         ((#1=#:G317 NIL) (#2=#:G316 #3=(|List| (|Kernel| F))) (#4=#:G318 #3#)
+          (#5=#:G321 NIL) (|i| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
           (|n| (|Vector| R)))
          (SEQ
           (LETT |n|
@@ -954,8 +954,8 @@
         ((|d| |FiniteDivisor| F UP UPUP R) (|la| |List| (|Kernel| F))
          ($ |NonNegativeInteger|))
         (SPROG
-         ((|ndiv| (|nFD|)) (|va| (|Vector| |nR|)) (#1=#:G424 NIL)
-          (#2=#:G426 NIL) (|i| NIL) (#3=#:G425 NIL) (|v| (|Vector| R))
+         ((|ndiv| (|nFD|)) (|va| (|Vector| |nR|)) (#1=#:G370 NIL)
+          (#2=#:G372 NIL) (|i| NIL) (#3=#:G371 NIL) (|v| (|Vector| R))
           (|nd| (|nR|)) (|id| (|FractionalIdeal| UP (|Fraction| UP) UPUP R))
           (|nPFO|
            (CATEGORY |package|
@@ -1001,13 +1001,13 @@
                    (CATEGORY |package|
                     (SIGNATURE |knownInfBasis|
                      ((|Void|) (|NonNegativeInteger|))))))
-          (|nf| (UPUP)) (|lrhs| (|List| F)) (#4=#:G423 NIL) (|pol| NIL)
-          (#5=#:G422 NIL) (|y| (F))
+          (|nf| (UPUP)) (|lrhs| (|List| F)) (#4=#:G369 NIL) (|pol| NIL)
+          (#5=#:G368 NIL) (|y| (F))
           (|rec|
            (|Record| (|:| |primelt| F)
                      (|:| |poly| (|List| (|SparseUnivariatePolynomial| F)))
                      (|:| |prim| (|SparseUnivariatePolynomial| F))))
-          (#6=#:G421 NIL) (|k| NIL) (#7=#:G420 NIL))
+          (#6=#:G367 NIL) (|k| NIL) (#7=#:G366 NIL))
          (SEQ
           (LETT |rec|
                 (SPADCALL
@@ -1142,7 +1142,7 @@
 
 (SDEFUN |PFO;possibleOrder;FdNni;33|
         ((|d| |FiniteDivisor| F UP UPUP R) ($ |NonNegativeInteger|))
-        (SPROG ((#1=#:G436 NIL) (|la| (|List| (|Kernel| F))))
+        (SPROG ((#1=#:G382 NIL) (|la| (|List| (|Kernel| F))))
                (SEQ
                 (EXIT
                  (COND
@@ -1168,7 +1168,7 @@
                                          '(|AlgebraicallyClosedField|))
                           (PROGN
                            (LETT #1# (SPADCALL |d| |la| (QREFELT $ 171)) . #3#)
-                           (GO #4=#:G435))))))
+                           (GO #4=#:G381))))))
                       (EXIT
                        (|error|
                         "PFO::possibleOrder: more than 1 algebraic constant"))))
@@ -1344,11 +1344,11 @@
           (|:| |poly|
                (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
         (SPROG
-         ((#1=#:G462 NIL) (|p| (|PositiveInteger|)) (#2=#:G464 NIL)
+         ((#1=#:G408 NIL) (|p| (|PositiveInteger|)) (#2=#:G410 NIL)
           (|u|
            (|Union| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|)))
                     #3="failed"))
-          (#4=#:G460 NIL))
+          (#4=#:G406 NIL))
          (SEQ
           (LETT |p|
                 (PROG1
@@ -1409,9 +1409,9 @@
           "failed"))
         (SPROG
          ((|md| (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))
-          (|mdg| (|SparseUnivariatePolynomial| |gf|)) (#1=#:G484 NIL)
+          (|mdg| (|SparseUnivariatePolynomial| |gf|)) (#1=#:G430 NIL)
           (|ff| NIL) (|l| (|List| (|SparseUnivariatePolynomial| |gf|)))
-          (#2=#:G483 NIL) (|f| NIL) (#3=#:G482 NIL)
+          (#2=#:G429 NIL) (|f| NIL) (#3=#:G428 NIL)
           (|gf|
            (|Join| (|FiniteFieldCategory|) (|FiniteAlgebraicExtensionField| $)
                    (|ConvertibleTo| (|Integer|)))))
@@ -1634,9 +1634,9 @@
 
 (DECLAIM (NOTINLINE |PointsOfFiniteOrder;|)) 
 
-(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G492)
+(DEFUN |PointsOfFiniteOrder| (&REST #1=#:G438)
   (SPROG NIL
-         (PROG (#2=#:G493)
+         (PROG (#2=#:G439)
            (RETURN
             (COND
              ((LETT #2#

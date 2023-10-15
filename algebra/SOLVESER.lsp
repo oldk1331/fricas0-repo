@@ -119,8 +119,8 @@
          ($ |Union| (|SparseUnivariatePolynomial| (|Expression| R)) "failed"))
         (SPROG
          ((|resul| (|SparseUnivariatePolynomial| (|Expression| R)))
-          (|solvevarlist| (|Vector| (|Expression| R))) (#1=#:G172 NIL)
-          (#2=#:G177 NIL)
+          (|solvevarlist| (|Vector| (|Expression| R))) (#1=#:G176 NIL)
+          (#2=#:G181 NIL)
           (|solvar|
            (|Record|
             (|:| |particular|
@@ -128,8 +128,8 @@
             (|:| |basis| (|List| (|Vector| (|Expression| R))))))
           (|coeffma| (|Matrix| (|Expression| R)))
           (|vec| (|Vector| (|Expression| R)))
-          (|coeffmat| (|Matrix| (|Expression| R))) (#4=#:G168 NIL)
-          (#5=#:G178 NIL) (|i| NIL))
+          (|coeffmat| (|Matrix| (|Expression| R))) (#4=#:G172 NIL)
+          (#5=#:G182 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -168,7 +168,7 @@
             (EXIT
              (COND
               ((QEQCAR (QCAR |solvar|) 1)
-               (PROGN (LETT #2# (CONS 1 "failed") . #6#) (GO #7=#:G176)))
+               (PROGN (LETT #2# (CONS 1 "failed") . #6#) (GO #7=#:G180)))
               ('T
                (SEQ
                 (LETT |solvevarlist|
@@ -191,9 +191,9 @@
 
 (DECLAIM (NOTINLINE |TransSolvePackageService;|)) 
 
-(DEFUN |TransSolvePackageService| (#1=#:G179)
+(DEFUN |TransSolvePackageService| (#1=#:G183)
   (SPROG NIL
-         (PROG (#2=#:G180)
+         (PROG (#2=#:G184)
            (RETURN
             (COND
              ((LETT #2#

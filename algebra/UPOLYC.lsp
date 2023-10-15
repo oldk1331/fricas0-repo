@@ -35,8 +35,6 @@
                                                                    '#3#)
                                              (|Eltable| '|t#1| '|t#1|)
                                              (|Eltable| '$ '$)
-                                             (|DifferentialRing|)
-                                             (|DifferentialExtension| '|t#1|)
                                              (|mkCategory|
                                               '(((|vectorise|
                                                   ((|Vector| |t#1|) $
@@ -62,29 +60,30 @@
                                                   ((|Union| $ "failed") $
                                                    (|NonNegativeInteger|)))
                                                  T)
+                                                ((|shiftLeft|
+                                                  ($ $ (|NonNegativeInteger|)))
+                                                 T)
                                                 ((|monicDivide|
                                                   ((|Record| (|:| |quotient| $)
                                                              (|:| |remainder|
                                                                   $))
                                                    $ $))
-                                                 T)
+                                                 (|has| |t#1| (|Ring|)))
                                                 ((|karatsubaDivide|
                                                   ((|Record| (|:| |quotient| $)
                                                              (|:| |remainder|
                                                                   $))
                                                    $ (|NonNegativeInteger|)))
-                                                 T)
+                                                 (|has| |t#1| (|Ring|)))
                                                 ((|shiftRight|
                                                   ($ $ (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|shiftLeft|
-                                                  ($ $ (|NonNegativeInteger|)))
-                                                 T)
-                                                ((|pseudoRemainder| ($ $ $)) T)
+                                                 (|has| |t#1| (|Ring|)))
+                                                ((|pseudoRemainder| ($ $ $))
+                                                 (|has| |t#1| (|Ring|)))
                                                 ((|differentiate|
                                                   ($ $ (|Mapping| |t#1| |t#1|)
                                                    $))
-                                                 T)
+                                                 (|has| |t#1| (|Ring|)))
                                                 ((|discriminant| (|t#1| $))
                                                  (|has| |t#1|
                                                         (|CommutativeRing|)))
@@ -139,7 +138,12 @@
                                                         (|Algebra|
                                                          (|Fraction|
                                                           (|Integer|))))))
-                                              '(((|StepThrough|)
+                                              '(((|DifferentialRing|)
+                                                 (|has| |t#1| (|Ring|)))
+                                                ((|DifferentialExtension|
+                                                  |t#1|)
+                                                 (|has| |t#1| (|Ring|)))
+                                                ((|StepThrough|)
                                                  (|has| |t#1| (|StepThrough|)))
                                                 ((|Eltable| (|Fraction| $)
                                                             (|Fraction| $))

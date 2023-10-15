@@ -2923,8 +2923,8 @@
               (837 . |monomial?|) (842 . |concat|) (847 . |string|)
               (852 . |Zero|) (856 . |One|) (|Character|) (860 . |elt|)
               (866 . |coerce|) (|List| 242) (871 . |member?|) (877 . |convert|)
-              (|InputForm|) (|Pattern| (|Float|)) (|Pattern| 70)
-              (|Union| 70 '#1="failed") (|Union| 187 '#1#) (|Union| 7 '#1#))
+              (|Pattern| 70) (|InputForm|) (|Pattern| (|Float|))
+              (|Union| 7 '#1="failed") (|Union| 187 '#1#) (|Union| 70 '#1#))
            '#(|tail| 882 |supRittWu?| 887 |retractIfCan| 893 |retract| 908
               |reductum| 923 |reduced?| 929 |quasiMonic?| 941 |pseudoDivide|
               946 |primitivePart!| 952 |primPartElseUnitCanonical!| 957

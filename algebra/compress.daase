@@ -1077,7 +1077,7 @@
  |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan|
  |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
  |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
- |pseudoRemainder| |shiftLeft| |shiftRight| |karatsubaDivide| |monicDivide|
+ |pseudoRemainder| |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft|
  |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
  |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
  |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|

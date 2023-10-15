@@ -75,7 +75,9 @@
                                        (LIST
                                         (|HasCategory| |#2|
                                                        '(|canonicalUnitNormal|))
-                                        (|HasCategory| |#2| '(|Comparable|))))
+                                        (|HasCategory| |#2| '(|Comparable|))
+                                        (|HasCategory| |#2| '(|SemiRing|))
+                                        (|HasCategory| |#2| '(|Ring|))))
                     . #1#))
     (|stuffDomainSlots| $)
     (QSETREFV $ 6 |#1|)
@@ -83,6 +85,12 @@
     (QSETREFV $ 8 |#3|)
     (QSETREFV $ 9 |#4|)
     (SETF |pv$| (QREFELT $ 3))
+    (COND
+     ((|testBitVector| |pv$| 3)
+      (PROGN
+       (QSETREFV $ 28
+                 (CONS (|dispatchFunction| |GPOLCAT-;primitiveMonomials;SL;4|)
+                       $)))))
     $))) 
 
 (MAKEPROP '|MaybeSkewPolynomialCategory&| '|infovec|
@@ -93,9 +101,8 @@
               (|List| $) |GPOLCAT-;monomials;SL;1| (|NonNegativeInteger|)
               (24 . |monomial|) (|List| 9) (|List| 18) (31 . |monomial|)
               |GPOLCAT-;monomial;SLLS;2| (38 . |One|) (42 . |One|)
-              (46 . |degree|) (51 . |monomial|)
-              |GPOLCAT-;primitiveMonomials;SL;4|)
-           '#(|primitiveMonomials| 57 |monomials| 62 |monomial| 67) 'NIL
+              (46 . |degree|) (51 . |monomial|) (57 . |primitiveMonomials|))
+           '#(|primitiveMonomials| 62 |monomials| 67 |monomial| 72) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
@@ -105,6 +112,6 @@
                                                    0 0 9 18 19 3 6 0 0 20 21 22
                                                    0 6 0 24 0 7 0 25 1 6 8 0 26
                                                    2 6 0 7 8 27 1 0 16 0 28 1 0
-                                                   16 0 17 3 0 0 0 20 21
-                                                   23)))))
+                                                   16 0 28 1 0 16 0 17 3 0 0 0
+                                                   20 21 23)))))
            '|lookupComplete|)) 
