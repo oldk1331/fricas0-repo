@@ -227,7 +227,7 @@ cThreeSpaceCategory`1`x`(Ring)->Category`(R)`SPACEC`49946
 cTranscendentalFunctionCategory`0`x`()->Category``TRANFUN`50138
 cTriangularSetCategory`4`x`(R:IntegralDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,RecursivePolynomialCategory(R,E,V))->Category`(R,E,V,P)`TSETCAT`50198
 cTrigonometricFunctionCategory`0`x`()->Category``TRIGCAT`51282
-cTwoDimensionalArrayCategory`3`x`(R:Type,FiniteLinearAggregate(R),FiniteLinearAggregate(R))->Category`(R,Row,Col)`ARR2CAT`51330
+cTwoDimensionalArrayCategory`3`x`(R:Type,IndexedAggregate(Integer,R),IndexedAggregate(Integer,R))->Category`(R,Row,Col)`ARR2CAT`51330
 cType`0`x`()->Category``TYPE`51883
 cUnaryRecursiveAggregate`1`x`(Type)->Category`(S)`URAGG`51911
 cUniqueFactorizationDomain`0`x`()->Category``UFD`52447
@@ -10507,7 +10507,7 @@ pFiniteFieldPolynomialPackage`1`n`(FiniteFieldCategory)->etc`(GF)`FFPOLY`1278058
 pFiniteFieldPolynomialPackage2`2`x`(Join(FieldOfPrimeCharacteristic,etc),GF:FiniteFieldCategory)->etc`(F,GF)`FFPOLY2`1278225
 pFiniteFieldSolveLinearPolynomialEquation`3`n`(F:FiniteFieldCategory,FP:UnivariatePolynomialCategory(F),FPP:UnivariatePolynomialCategory(FP))->etc`(F,FP,FPP)`FFSLPE`1278502
 pFiniteGroupPackage`1`n`(Join(Group,etc))->etc`(G)`FINGPKG`1278603
-pFiniteLinearAggregateFunctions2`4`x`(S:Type,A:FiniteLinearAggregate(S),R:Type,B:FiniteLinearAggregate(R))->etc`(S,A,R,B)`FLAGG2`1278670
+pFiniteLinearAggregateFunctions2`4`x`(S:Type,A:Join(LinearAggregate(S),etc),R:Type,B:Join(LinearAggregate(R),etc))->etc`(S,A,R,B)`FLAGG2`1278670
 pFiniteLinearAggregateSort`2`x`(S:Type,V:Join(FiniteLinearAggregate(S),etc))->etc`(S,V)`FLASORT`1278982
 pFiniteSetAggregateFunctions2`4`x`(S:SetCategory,A:FiniteSetAggregate(S),R:SetCategory,B:FiniteSetAggregate(R))->etc`(S,A,R,B)`FSAGG2`1279071
 pFloatEllipticFunctions`0`x`()->etc``FELFUN`1279375
@@ -10580,7 +10580,7 @@ pInfiniteTupleFunctions2`2`x`(Type,B:Type)->etc`(A,B)`ITFUN2`1291817
 pInfiniteTupleFunctions3`3`x`(Type,B:Type,C:Type)->etc`(A,B,C)`ITFUN3`1291879
 pInfinity`0`x`()->etc``INFINITY`1291941
 pInnerAlgFactor`4`n`(F:Field,UP:UnivariatePolynomialCategory(F),AlExt:Join(Field,etc),AlPol:UnivariatePolynomialCategory(AlExt))->etc`(F,UP,AlExt,AlPol)`IALGFACT`1292052
-pInnerCommonDenominator`4`n`(R:IntegralDomain,Q:QuotientFieldCategory(R),A:FiniteLinearAggregate(R),B:FiniteLinearAggregate(Q))->etc`(R,Q,A,B)`ICDEN`1292192
+pInnerCommonDenominator`4`n`(R:IntegralDomain,Q:QuotientFieldCategory(R),A:Join(LinearAggregate(R),etc),B:Join(LinearAggregate(Q),etc))->etc`(R,Q,A,B)`ICDEN`1292192
 pInnerEigenPackage`1`n`(Field)->etc`(F)`IEP`1292361
 pInnerMatrixLinearAlgebraFunctions`4`n`(R:Field,Row:FiniteLinearAggregate(R),Col:FiniteLinearAggregate(R),M:MatrixCategory(R,Row,Col))->etc`(R,Row,Col,M)`IMATLIN`1292671
 pInnerMatrixQuotientFieldFunctions`8`n`(R:IntegralDomain,Row:FiniteLinearAggregate(R),Col:FiniteLinearAggregate(R),M:MatrixCategory(R,Row,Col),QF:QuotientFieldCategory(R),Row2:FiniteLinearAggregate(QF),Col2:FiniteLinearAggregate(QF),M2:MatrixCategory(QF,Row2,Col2))->etc`(R,Row,Col,M,QF,Row2,Col2,M2)`IMATQF`1292831
@@ -11051,7 +11051,7 @@ xTensorPowerCategory&`4`n`(TensorPowerCategory(n,R,M),NonNegativeInteger,R:Commu
 xTranscendentalFunctionCategory&`1`n`(TranscendentalFunctionCategory)->etc`(S)`TRANFUN-`1399572
 xTriangularSetCategory&`5`n`(TriangularSetCategory(R,E,V,P),R:IntegralDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V))->etc`(S,R,E,V,P)`TSETCAT-`1399633
 xTrigonometricFunctionCategory&`1`n`(TrigonometricFunctionCategory)->etc`(S)`TRIGCAT-`1400720
-xTwoDimensionalArrayCategory&`4`n`(TwoDimensionalArrayCategory(R,Row,Col),R:Type,Row:FiniteLinearAggregate(R),Col:FiniteLinearAggregate(R))->etc`(S,R,Row,Col)`ARR2CAT-`1400769
+xTwoDimensionalArrayCategory&`4`n`(TwoDimensionalArrayCategory(R,Row,Col),R:Type,Row:IndexedAggregate(Integer,R),Col:IndexedAggregate(Integer,R))->etc`(S,R,Row,Col)`ARR2CAT-`1400769
 xUnaryRecursiveAggregate&`2`n`(UnaryRecursiveAggregate(S),S:Type)->etc`(A,S)`URAGG-`1401324
 xUniqueFactorizationDomain&`1`n`(UniqueFactorizationDomain)->etc`(S)`UFD-`1401862
 xUnivariateLaurentSeriesCategory&`2`n`(UnivariateLaurentSeriesCategory(Coef),Coef:Ring)->etc`(S,Coef)`ULSCAT-`1402035

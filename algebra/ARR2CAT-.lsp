@@ -2545,11 +2545,16 @@
                  (CONS (|dispatchFunction| |ARR2CAT-;count;RSNni;64|) $)))))
     (COND
      ((|HasCategory| |#3| '(|shallowlyMutable|))
-      (QSETREFV $ 135 (CONS (|dispatchFunction| |ARR2CAT-;row;SIRow;65|) $))))
+      (COND
+       ((|HasCategory| |#3| (LIST '|LinearAggregate| (|devaluate| |#2|)))
+        (QSETREFV $ 135
+                  (CONS (|dispatchFunction| |ARR2CAT-;row;SIRow;65|) $))))))
     (COND
      ((|HasCategory| |#4| '(|shallowlyMutable|))
-      (QSETREFV $ 138
-                (CONS (|dispatchFunction| |ARR2CAT-;column;SICol;66|) $))))
+      (COND
+       ((|HasCategory| |#4| (LIST '|LinearAggregate| (|devaluate| |#2|)))
+        (QSETREFV $ 138
+                  (CONS (|dispatchFunction| |ARR2CAT-;column;SICol;66|) $))))))
     (COND
      ((|HasCategory| |#2| '(|CoercibleTo| (|OutputForm|)))
       (QSETREFV $ 142 (CONS (|dispatchFunction| |ARR2CAT-;coerce;SOf;67|) $))))
