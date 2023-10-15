@@ -1201,8 +1201,6 @@
 ;   c = '(Field) and t = $Symbol =>
 ;       [$QuotientField, ['Fraction, $Integer]]
 ; 
-;   c = '(Ring) and t is ['FactoredForm,t0] => ['FactoredRing,t0]
-; 
 ;   (t is [t0]) and (sd := getImmediateSuperDomain(t0)) and sd ~= t0 =>
 ;     resolveTCat(sd,c)
 ; 
@@ -1216,7 +1214,7 @@
 ;   NIL
  
 (DEFUN |resolveTCat| (|t| |c|)
-  (PROG (|tc| |ISTMP#1| |t0| |sd| |td| |ut| |uc| |nt|)
+  (PROG (|tc| |t0| |sd| |td| |ut| |uc| |nt|)
     (RETURN
      (COND ((|ofCategory| |t| |c|) |t|)
            ((AND (CDR |t|) (SETQ |tc| (|resolveTCat1| |t| |c|))) |tc|)
@@ -1225,15 +1223,8 @@
             (LIST |$QuotientField| |t|))
            ((AND (EQUAL |c| '(|Field|)) (EQUAL |t| |$Symbol|))
             (LIST |$QuotientField| (LIST '|Fraction| |$Integer|)))
-           ((AND (EQUAL |c| '(|Ring|)) (CONSP |t|)
-                 (EQ (CAR |t|) '|FactoredForm|)
-                 (PROGN
-                  (SETQ |ISTMP#1| (CDR |t|))
-                  (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                       (PROGN (SETQ |t0| (CAR |ISTMP#1|)) #1='T))))
-            (LIST '|FactoredRing| |t0|))
            ((AND (CONSP |t|) (EQ (CDR |t|) NIL)
-                 (PROGN (SETQ |t0| (CAR |t|)) #1#)
+                 (PROGN (SETQ |t0| (CAR |t|)) #1='T)
                  (SETQ |sd| (|getImmediateSuperDomain| |t0|))
                  (NOT (EQUAL |sd| |t0|)))
             (|resolveTCat| |sd| |c|))

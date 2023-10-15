@@ -4557,12 +4557,6 @@
 ;   -- v is a pattern variable, dom it's binding under $Subst
 ;   -- tries to change dom, so that it has category cat under SL
 ;   -- the result is a substitution list or 'failed
-;   dom is ['FactoredForm,arg] =>
-;     if isSubDomain(arg,$Integer) then arg := $Integer
-;     d := ['FactoredRing,arg]
-;     SL:= hasCate(arg,'(Ring),augmentSub(v,d,SL))
-;     SL = 'failed => 'failed
-;     hasCaty(d,cat,SL)
 ;   EQCAR(cat,'Field) or EQCAR(cat, 'DivisionRing) =>
 ;     if isSubDomain(dom,$Integer) then dom := $Integer
 ;     d:= [$QuotientField, dom]
@@ -4579,19 +4573,9 @@
 ;   hasCateSpecialNew(v, dom, cat, SL)
  
 (DEFUN |hasCateSpecial| (|v| |dom| |cat| SL)
-  (PROG (|ISTMP#1| |arg| |d| |dom'| NSL)
+  (PROG (|d| |ISTMP#1| |dom'| NSL)
     (RETURN
      (COND
-      ((AND (CONSP |dom|) (EQ (CAR |dom|) '|FactoredForm|)
-            (PROGN
-             (SETQ |ISTMP#1| (CDR |dom|))
-             (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL)
-                  (PROGN (SETQ |arg| (CAR |ISTMP#1|)) #1='T))))
-       (PROGN
-        (COND ((|isSubDomain| |arg| |$Integer|) (SETQ |arg| |$Integer|)))
-        (SETQ |d| (LIST '|FactoredRing| |arg|))
-        (SETQ SL (|hasCate| |arg| '(|Ring|) (|augmentSub| |v| |d| SL)))
-        (COND ((EQ SL '|failed|) '|failed|) (#1# (|hasCaty| |d| |cat| SL)))))
       ((OR (EQCAR |cat| '|Field|) (EQCAR |cat| '|DivisionRing|))
        (PROGN
         (COND ((|isSubDomain| |dom| |$Integer|) (SETQ |dom| |$Integer|)))
@@ -4600,7 +4584,7 @@
       ((AND (CONSP |cat|) (EQ (CAR |cat|) '|PolynomialCategory|)
             (PROGN
              (SETQ |ISTMP#1| (CDR |cat|))
-             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |d| (CAR |ISTMP#1|)) #1#))))
+             (AND (CONSP |ISTMP#1|) (PROGN (SETQ |d| (CAR |ISTMP#1|)) #1='T))))
        (PROGN
         (SETQ |dom'| (LIST '|Polynomial| |d|))
         (AND (OR (|containsVars| |d|) (|canCoerceFrom| |dom| |dom'|))
