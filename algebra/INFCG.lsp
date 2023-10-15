@@ -93,34 +93,34 @@
               |INFCG;exponent;$I;8|
               (CONS IDENTITY (FUNCALL (|dispatchFunction| |INFCG;One;$;9|) $))
               |INFCG;*;3$;11| |INFCG;inv;2$;12| |INFCG;=;2$B;13|
-              |INFCG;<;2$B;14| (|PositiveInteger|) (|NonNegativeInteger|)
-              (|Union| $ '"failed") (|String|) (|SingleInteger|))
+              |INFCG;<;2$B;14| (|Union| $ '"failed") (|NonNegativeInteger|)
+              (|PositiveInteger|) (|String|) (|SingleInteger|))
            '#(~= 26 |smaller?| 32 |sample| 38 |recip| 42 |one?| 47 |min| 52
               |max| 58 |latex| 64 |inv| 69 |hashUpdate!| 74 |hash| 80
               |generators| 85 |generator| 89 |exponent| 93 |convert| 98
               |conjugate| 103 |commutator| 109 |coerce| 115 ^ 120 |One| 138 >=
               142 > 148 = 154 <= 160 < 166 / 172 * 178)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
-                  '#(NIL NIL |Group&| |OrderedSet&| |Monoid&| NIL |SemiGroup&|
-                     |SetCategory&| NIL |PartialOrder&| NIL NIL |BasicType&|
-                     NIL)
+                  '#(NIL |Group&| NIL |Monoid&| |OrderedSet&| |SemiGroup&| NIL
+                     |SetCategory&| NIL NIL |PartialOrder&| |BasicType&| NIL
+                     NIL NIL)
                   (CONS
-                   '#((|OrderedMonoid|) (|OrderedSemiGroup|) (|Group|)
-                      (|OrderedSet|) (|Monoid|) (|Comparable|) (|SemiGroup|)
-                      (|SetCategory|) (|ConvertibleTo| 20) (|PartialOrder|)
-                      (|FinitelyGenerated|) (|unitsKnown|) (|BasicType|)
-                      (|CoercibleTo| 10))
+                   '#((|OrderedMonoid|) (|Group|) (|OrderedSemiGroup|)
+                      (|Monoid|) (|OrderedSet|) (|SemiGroup|) (|Comparable|)
+                      (|SetCategory|) (|ConvertibleTo| 20) (|CommutativeStar|)
+                      (|PartialOrder|) (|BasicType|) (|FinitelyGenerated|)
+                      (|unitsKnown|) (|CoercibleTo| 10))
                    (|makeByteWordVec2| 36
                                        '(1 11 10 0 12 1 13 10 0 14 1 7 10 0 15
                                          2 10 0 0 0 16 1 20 0 11 21 2 0 8 0 0 1
-                                         2 0 8 0 0 1 0 0 0 1 1 0 34 0 1 1 0 8 0
+                                         2 0 8 0 0 1 0 0 0 1 1 0 32 0 1 1 0 8 0
                                          9 2 0 0 0 0 1 2 0 0 0 0 1 1 0 35 0 1 1
                                          0 0 0 29 2 0 18 18 0 19 1 0 36 0 1 0 0
                                          24 25 0 0 0 23 1 0 11 0 26 1 0 20 0 22
                                          2 0 0 0 0 1 2 0 0 0 0 1 1 0 10 0 17 2
-                                         0 0 0 32 1 2 0 0 0 33 1 2 0 0 0 11 1 0
+                                         0 0 0 11 1 2 0 0 0 33 1 2 0 0 0 34 1 0
                                          0 0 27 2 0 8 0 0 1 2 0 8 0 0 1 2 0 8 0
                                          0 30 2 0 8 0 0 1 2 0 8 0 0 31 2 0 0 0
                                          0 1 2 0 0 0 0 28)))))

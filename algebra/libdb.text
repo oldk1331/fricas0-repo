@@ -383,7 +383,7 @@ dIndexedOneDimensionalArray`2`n`(Type,Integer)->OneDimensionalArrayAggregate(S)`
 dIndexedString`1`n`(Integer)->StringAggregate`(mn)`ISTRING`96160
 dIndexedTwoDimensionalArray`3`n`(Type,mnRow:Integer,mnCol:Integer)->TwoDimensionalArrayCategory(R,IndexedOneDimensionalArray(R,mnCol),IndexedOneDimensionalArray(R,mnRow))`(R,mnRow,mnCol)`IARRAY2`96207
 dIndexedVector`2`n`(Type,Integer)->VectorCategory(R)`(R,mn)`IVECTOR`96786
-dInfiniteCyclicGroup`1`n`(Symbol)->Join(SetCategory,etc)`(g)`INFCG`96904
+dInfiniteCyclicGroup`1`n`(Symbol)->Join(Group,etc)`(g)`INFCG`96904
 dInfiniteTuple`1`x`(Type)->Join(CoercibleTo(OutputForm),etc)`(S)`ITUPLE`96934
 dInnerAlgebraicNumber`0`n`()->Join(ExpressionSpace,etc)``IAN`97049
 dInnerFiniteField`2`n`(PositiveInteger,PositiveInteger)->FiniteAlgebraicExtensionField(InnerPrimeField(p))`(p,n)`IFF`97098

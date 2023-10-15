@@ -165,16 +165,17 @@
               |exponent| 119 |enumerate| 124 |convert| 128 |conjugate| 138
               |commutator| 144 |coerce| 150 ^ 155 |One| 173 = 177 / 183 * 189)
            'NIL
-           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0))
+           (CONS (|makeByteWordVec2| 1 '(0 0 0 0 0 0 0 0 0 0 0 0 0 0))
                  (CONS
                   '#(|FiniteGroup&| |Group&| |Monoid&| |SemiGroup&| NIL
-                     |Finite&| |SetCategory&| NIL NIL NIL |BasicType&| NIL NIL)
+                     |Finite&| |SetCategory&| NIL NIL NIL NIL |BasicType&| NIL
+                     NIL)
                   (CONS
                    '#((|FiniteGroup|) (|Group|) (|Monoid|) (|SemiGroup|)
                       (|Comparable|) (|Finite|) (|SetCategory|)
-                      (|ConvertibleTo| 20) (|FinitelyGenerated|)
-                      (|ConvertibleTo| 43) (|BasicType|) (|unitsKnown|)
-                      (|CoercibleTo| 11))
+                      (|ConvertibleTo| 20) (|CommutativeStar|)
+                      (|FinitelyGenerated|) (|ConvertibleTo| 43) (|BasicType|)
+                      (|unitsKnown|) (|CoercibleTo| 11))
                    (|makeByteWordVec2| 46
                                        '(1 12 11 0 13 1 14 11 0 15 2 11 0 0 0
                                          16 1 20 0 12 21 3 8 0 0 0 0 26 2 33 9

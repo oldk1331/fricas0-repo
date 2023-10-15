@@ -63,6 +63,11 @@
                                                     (|CharacteristicNonZero|)))
                                             ((|Algebra| |t#1|)
                                              (|has| |t#1| (|CommutativeRing|)))
+                                            ((|CommutativeRing|)
+                                             (AND
+                                              (|has| |t#2| (|CommutativeStar|))
+                                              (|has| |t#1|
+                                                     (|CommutativeRing|))))
                                             ((|Finite|)
                                              (AND (|has| |t#2| (|Finite|))
                                                   (|has| |t#1| (|Finite|))))
