@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4851 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4852 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -788,32 +788,32 @@
  |OMreceive| |OMsend| |OMserve| |infinity| |makeop| |opeval| |evaluateInverse|
  |evaluate| |conjug| |getDatabase| |whatInfinity| |infinite?| |finite?|
  |minusInfinity| |plusInfinity| |pureLex| |totalLex| |reverseLex| |leftLcm|
- |rightExtendedGcd| |rightGcd| |rightExactQuotient| |rightRemainder|
- |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd| |leftExactQuotient|
- |leftRemainder| |leftQuotient| |times| |monicLeftDivide| |monicRightDivide|
- |leftDivide| |rightDivide| |output| |outputList| |or| |and| |quo| |rem| ~=
- |blankSeparate| |semicolonSeparate| |commaSeparate| |pile| |paren| |bracket|
- |prod| |overlabel| |overbar| |prime| |quote| |supersub| |presuper| |presub|
- |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box| |label| |infix?|
- |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace| |vspace| |hspace|
- |messagePrint| |message| |padecf| |pade| |root| |quotientByP| |moduloP|
- |modulus| |digits| |continuedFraction| |light| |pastel| |bright| |dim| |dark|
- |motzkinPathArray| |jacobiPathArray| |bottom| |surface| |coordinate|
- |partitions| |conjugates| |shuffle| |shufflein| |sequences| |permutations|
- |lists| |atoms| |makeResult| |is?| |Is| |addMatchRestricted| |insertMatch|
- |addMatch| |getMatch| |failed| |failed?| |optpair| |getBadValues|
- |resetBadValues| |hasTopPredicate?| |topPredicate| |setTopPredicate|
- |patternVariable| |withPredicates| |setPredicates| |predicates|
- |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?| |inR?| |isList|
- |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue| |badValues|
- |retractable?| |listOfTerms| |One| |leftFactor| |rightFactorCandidate|
- |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
- |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
- |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
- |perm_to_vec| |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
- |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
- |wordsForStrongGenerators| |strongGenerators| |base| |generators| |eval1a|
- |eval1| |modpreduction| |modpeval| |bivariateSLPEBR|
+ |right_ext_ext_GCD| |rightExtendedGcd| |rightGcd| |rightExactQuotient|
+ |rightRemainder| |rightQuotient| |rightLcm| |leftExtendedGcd| |leftGcd|
+ |leftExactQuotient| |leftRemainder| |leftQuotient| |times| |monicLeftDivide|
+ |monicRightDivide| |leftDivide| |rightDivide| |output| |outputList| |or| |and|
+ |quo| |rem| ~= |blankSeparate| |semicolonSeparate| |commaSeparate| |pile|
+ |paren| |bracket| |prod| |overlabel| |overbar| |prime| |quote| |supersub|
+ |presuper| |presub| |super| |sub| |rarrow| |assign| |slash| |over| |zag| |box|
+ |label| |infix?| |postfix| |infix| |prefix| |vconcat| |hconcat| |rspace|
+ |vspace| |hspace| |messagePrint| |message| |padecf| |pade| |root|
+ |quotientByP| |moduloP| |modulus| |digits| |continuedFraction| |light|
+ |pastel| |bright| |dim| |dark| |motzkinPathArray| |jacobiPathArray| |bottom|
+ |surface| |coordinate| |partitions| |conjugates| |shuffle| |shufflein|
+ |sequences| |permutations| |lists| |atoms| |makeResult| |is?| |Is|
+ |addMatchRestricted| |insertMatch| |addMatch| |getMatch| |failed| |failed?|
+ |optpair| |getBadValues| |resetBadValues| |hasTopPredicate?| |topPredicate|
+ |setTopPredicate| |patternVariable| |withPredicates| |setPredicates|
+ |predicates| |hasPredicate?| |optional?| |multiple?| |generic?| |quoted?|
+ |inR?| |isList| |isQuotient| |isOp| |predicate| |satisfy?| |addBadValue|
+ |badValues| |retractable?| |listOfTerms| |One| |leftFactor|
+ |rightFactorCandidate| |adjoint| |id_map| |diff_map| |ptree| |coerceImages|
+ |fixedPoints| |odd?| |even?| |numberOfCycles| |cyclePartition|
+ |coerceListOfPairs| |coercePreimagesImages| |listRepresentation| |permanent|
+ |cycles| |cycle| |perm_to_vec| |initializeGroupForWordProblem| |movedPoints|
+ |wordInGenerators| |wordInStrongGenerators| |orbits| |orbit|
+ |permutationGroup| |wordsForStrongGenerators| |strongGenerators| |base|
+ |generators| |eval1a| |eval1| |modpreduction| |modpeval| |bivariateSLPEBR|
  |solveLinearPolynomialEquationByRecursion| |factorByRecursion|
  |factorSquareFreeByRecursion| |randomR| |factorSFBRlcUnit| |charthRoot|
  |conditionP| |solveLinearPolynomialEquation| |factorSquareFreePolynomial|

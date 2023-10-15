@@ -125,6 +125,15 @@
                                                                    $))
                                                     $ $))
                                                   (|has| |t#1| (|Field|)))
+                                                 ((|right_ext_ext_GCD|
+                                                   ((|Record|
+                                                     (|:| |generator| $)
+                                                     (|:| |coef1| $)
+                                                     (|:| |coef2| $)
+                                                     (|:| |coefu| $)
+                                                     (|:| |coefv| $))
+                                                    $ $))
+                                                  (|has| |t#1| (|Field|)))
                                                  ((|leftLcm| ($ $ $))
                                                   (|has| |t#1| (|Field|))))
                                                '(((|Algebra| |t#1|)

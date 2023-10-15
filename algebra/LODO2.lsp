@@ -4,9 +4,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator2;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperator2| (&REST #1=#:G122)
+(DEFUN |LinearOrdinaryDifferentialOperator2| (&REST #1=#:G123)
   (SPROG NIL
-         (PROG (#2=#:G123)
+         (PROG (#2=#:G124)
            (RETURN
             (COND
              ((LETT #2#
@@ -35,7 +35,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator2| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 30) . #1#)
+          (LETT $ (GETREFV 31) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -74,9 +74,11 @@
               (|ApplyUnivariateSkewPolynomial| 6 7 $$) (10 . |apply|)
               |LODO2;elt;$2M;1| (|NonNegativeInteger|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
+                        (|:| |coefu| $) (|:| |coefv| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 21)
-              (|Union| 18 '#1="failed") (|Union| 21 '#1#) (|Integer|)
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 22)
+              (|Union| 19 '#1="failed") (|Union| 22 '#1#) (|Integer|)
               (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
               (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#(|elt| 17) 'NIL
@@ -100,8 +102,8 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 7 7) (|Eltable| 6 6) (|RetractableTo| 6)
-                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 29)
-                 (|RetractableTo| 18) (|RetractableTo| 21))
+                 (|unitsKnown|) (|BasicType|) (|CoercibleTo| 30)
+                 (|RetractableTo| 19) (|RetractableTo| 22))
               (|makeByteWordVec2| 13
                                   '(1 6 0 0 8 1 7 0 0 9 3 11 7 2 10 7 12 2 0 7
                                     0 7 13)))))

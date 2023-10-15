@@ -1,9 +1,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator1;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperator1| (#1=#:G120)
+(DEFUN |LinearOrdinaryDifferentialOperator1| (#1=#:G121)
   (SPROG NIL
-         (PROG (#2=#:G121)
+         (PROG (#2=#:G122)
            (RETURN
             (COND
              ((LETT #2#
@@ -28,7 +28,7 @@
           (LETT DV$1 (|devaluate| |#1|)
                 . #1=(|LinearOrdinaryDifferentialOperator1|))
           (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator1| DV$1) . #1#)
-          (LETT $ (GETREFV 24) . #1#)
+          (LETT $ (GETREFV 25) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -63,12 +63,13 @@
               (|LinearOrdinaryDifferentialOperator| 6 (NRTEVAL (ELT $ 7)))
               (|local| |#1|) (0 . |differentiate|) (|NonNegativeInteger|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
+                        (|:| |coefu| $) (|:| |coefv| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 13 '#1="failed") (|Fraction| 15) (|Union| 15 '#1#)
-              (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|)
-              (|OutputForm|))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 16)
+              (|Union| 13 '#1="failed") (|Union| 16 '#1#) (|Integer|)
+              (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|) (|OutputForm|))
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -90,7 +91,7 @@
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|SemiGroup|)
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 6 6) (|RetractableTo| 6) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 23) (|RetractableTo| 13)
-                 (|RetractableTo| 15))
+                 (|BasicType|) (|CoercibleTo| 24) (|RetractableTo| 13)
+                 (|RetractableTo| 16))
               (|makeByteWordVec2| 7 '(1 6 0 0 7)))))
            '|lookupIncomplete|)) 

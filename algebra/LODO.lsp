@@ -17,9 +17,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperator;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperator| (&REST #1=#:G129)
+(DEFUN |LinearOrdinaryDifferentialOperator| (&REST #1=#:G130)
   (SPROG NIL
-         (PROG (#2=#:G130)
+         (PROG (#2=#:G131)
            (RETURN
             (COND
              ((LETT #2#
@@ -48,7 +48,7 @@
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|LinearOrdinaryDifferentialOperator| DV$1 DV$2)
                 . #1#)
-          (LETT $ (GETREFV 46) . #1#)
+          (LETT $ (GETREFV 47) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -109,26 +109,28 @@
               (|NonNegativeInteger|) (51 . |symmetricPower|)
               (58 . |symmetricPower|) (64 . |directSum|) (71 . |directSum|)
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
+              (|Record| (|:| |generator| $) (|:| |coef1| $) (|:| |coef2| $)
+                        (|:| |coefu| $) (|:| |coefv| $))
               (|Union| $ '"failed")
-              (|Record| (|:| |quotient| $) (|:| |remainder| $))
-              (|Union| 36 '#1="failed") (|Fraction| 38) (|Union| 38 '#1#)
-              (|Integer|) (|List| 6) (|Union| 6 '#1#) (|Boolean|)
-              (|PositiveInteger|) (|String|) (|SingleInteger|) (|HashState|))
+              (|Record| (|:| |quotient| $) (|:| |remainder| $)) (|Fraction| 39)
+              (|Union| 36 '#1="failed") (|Union| 39 '#1#) (|Integer|)
+              (|List| 6) (|Union| 6 '#1#) (|Boolean|) (|PositiveInteger|)
+              (|String|) (|SingleInteger|) (|HashState|))
            '#(~= 77 |zero?| 83 |symmetricSquare| 88 |symmetricProduct| 93
               |symmetricPower| 99 |subtractIfCan| 105 |sample| 111
-              |rightRemainder| 115 |rightQuotient| 121 |rightLcm| 127
-              |rightGcd| 133 |rightExtendedGcd| 139 |rightExactQuotient| 145
-              |rightDivide| 151 |retractIfCan| 157 |retract| 172 |reductum| 187
-              |recip| 192 |primitivePart| 197 |opposite?| 202 |one?| 208
-              |monomial| 213 |monicRightDivide| 219 |monicLeftDivide| 225
-              |minimumDegree| 231 |leftRemainder| 236 |leftQuotient| 242
-              |leftLcm| 248 |leftGcd| 254 |leftExtendedGcd| 260
-              |leftExactQuotient| 266 |leftDivide| 272 |leadingCoefficient| 278
-              |latex| 283 |hashUpdate!| 288 |hash| 294 |exquo| 299 |elt| 305
-              |directSum| 311 |degree| 317 |content| 322 |coerce| 327
-              |coefficients| 347 |coefficient| 352 |characteristic| 358 |apply|
-              362 |annihilate?| 369 |adjoint| 375 ^ 380 |Zero| 392 |One| 396 D
-              400 = 404 - 410 + 421 * 427)
+              |right_ext_ext_GCD| 115 |rightRemainder| 121 |rightQuotient| 127
+              |rightLcm| 133 |rightGcd| 139 |rightExtendedGcd| 145
+              |rightExactQuotient| 151 |rightDivide| 157 |retractIfCan| 163
+              |retract| 178 |reductum| 193 |recip| 198 |primitivePart| 203
+              |opposite?| 208 |one?| 214 |monomial| 219 |monicRightDivide| 225
+              |monicLeftDivide| 231 |minimumDegree| 237 |leftRemainder| 242
+              |leftQuotient| 248 |leftLcm| 254 |leftGcd| 260 |leftExtendedGcd|
+              266 |leftExactQuotient| 272 |leftDivide| 278 |leadingCoefficient|
+              284 |latex| 289 |hashUpdate!| 294 |hash| 300 |exquo| 305 |elt|
+              311 |directSum| 317 |degree| 323 |content| 328 |coerce| 333
+              |coefficients| 353 |coefficient| 358 |characteristic| 364 |apply|
+              368 |annihilate?| 375 |adjoint| 381 ^ 386 |Zero| 398 |One| 402 D
+              406 = 410 - 416 + 427 * 433)
            'NIL
            (CONS
             (|makeByteWordVec2| 3
@@ -151,30 +153,30 @@
                  (|AbelianSemiGroup|) (|FullyRetractableTo| 6) (|SetCategory|)
                  (|Eltable| 6 6) (|RetractableTo| 6) (|unitsKnown|)
                  (|BasicType|) (|CoercibleTo| 13) (|RetractableTo| 36)
-                 (|RetractableTo| 38))
-              (|makeByteWordVec2| 45
+                 (|RetractableTo| 39))
+              (|makeByteWordVec2| 46
                                   '(0 0 0 8 0 6 0 9 0 10 0 11 1 14 13 0 15 2 12
                                     13 0 13 17 0 0 0 19 0 6 0 20 3 0 6 0 6 6 21
                                     3 24 2 2 2 23 25 2 0 0 0 0 26 3 24 2 2 27
                                     23 28 2 0 0 0 27 29 3 24 2 2 2 23 30 2 0 0
-                                    0 0 31 2 0 41 0 0 1 1 0 41 0 1 1 6 0 0 1 2
-                                    6 0 0 0 26 2 6 0 0 27 29 2 0 33 0 0 1 0 0 0
-                                    1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0
-                                    0 0 1 2 6 32 0 0 1 2 6 33 0 0 1 2 6 34 0 0
-                                    1 1 2 35 0 1 1 3 37 0 1 1 0 40 0 1 1 2 36 0
-                                    1 1 3 38 0 1 1 0 6 0 1 1 0 0 0 1 1 0 33 0 1
-                                    1 5 0 0 1 2 0 41 0 0 1 1 0 41 0 1 2 0 0 6
-                                    27 1 2 4 34 0 0 1 2 4 34 0 0 1 1 0 27 0 1 2
-                                    6 0 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0 0 0
-                                    1 2 6 32 0 0 1 2 6 33 0 0 1 2 6 34 0 0 1 1
-                                    0 6 0 1 1 0 43 0 1 2 0 45 45 0 1 1 0 44 0 1
-                                    2 4 33 0 6 1 2 0 6 0 6 22 2 6 0 0 0 31 1 0
-                                    27 0 1 1 5 6 0 1 1 2 0 36 1 1 0 0 6 1 1 0 0
-                                    38 1 1 0 13 0 18 1 0 39 0 1 2 0 6 0 27 1 0
-                                    0 27 1 3 0 6 0 6 6 21 2 0 41 0 0 1 1 0 0 0
-                                    1 2 0 0 0 27 1 2 0 0 0 42 1 0 0 0 19 0 0 0
-                                    8 0 0 0 1 2 0 41 0 0 1 1 0 0 0 1 2 0 0 0 0
-                                    1 2 0 0 0 0 1 2 0 0 6 0 1 2 0 0 0 6 1 2 0 0
-                                    38 0 1 2 0 0 0 0 1 2 0 0 27 0 1 2 0 0 42 0
-                                    1)))))
+                                    0 0 31 2 0 42 0 0 1 1 0 42 0 1 1 6 0 0 1 2
+                                    6 0 0 0 26 2 6 0 0 27 29 2 0 34 0 0 1 0 0 0
+                                    1 2 6 33 0 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6
+                                    0 0 0 1 2 6 0 0 0 1 2 6 32 0 0 1 2 6 34 0 0
+                                    1 2 6 35 0 0 1 1 2 37 0 1 1 3 38 0 1 1 0 41
+                                    0 1 1 2 36 0 1 1 3 39 0 1 1 0 6 0 1 1 0 0 0
+                                    1 1 0 34 0 1 1 5 0 0 1 2 0 42 0 0 1 1 0 42
+                                    0 1 2 0 0 6 27 1 2 4 35 0 0 1 2 4 35 0 0 1
+                                    1 0 27 0 1 2 6 0 0 0 1 2 6 0 0 0 1 2 6 0 0
+                                    0 1 2 6 0 0 0 1 2 6 32 0 0 1 2 6 34 0 0 1 2
+                                    6 35 0 0 1 1 0 6 0 1 1 0 44 0 1 2 0 46 46 0
+                                    1 1 0 45 0 1 2 4 34 0 6 1 2 0 6 0 6 22 2 6
+                                    0 0 0 31 1 0 27 0 1 1 5 6 0 1 1 2 0 36 1 1
+                                    0 0 6 1 1 0 0 39 1 1 0 13 0 18 1 0 40 0 1 2
+                                    0 6 0 27 1 0 0 27 1 3 0 6 0 6 6 21 2 0 42 0
+                                    0 1 1 0 0 0 1 2 0 0 0 27 1 2 0 0 0 43 1 0 0
+                                    0 19 0 0 0 8 0 0 0 1 2 0 42 0 0 1 1 0 0 0 1
+                                    2 0 0 0 0 1 2 0 0 0 0 1 2 0 0 6 0 1 2 0 0 0
+                                    6 1 2 0 0 39 0 1 2 0 0 0 0 1 2 0 0 27 0 1 2
+                                    0 0 43 0 1)))))
            '|lookupComplete|)) 
