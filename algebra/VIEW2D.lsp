@@ -316,11 +316,9 @@
           (LETT |viewport| |viewportDollar| . #1=(|VIEW2D;makeViewport2D0|))
           (|VIEW2D;send_graphs| (QVELT |viewport| 1) $)
           (|VIEW2D;doOptions| |viewport| $)
-          (|sayBrightly|
-           (LIST
-            (SPADCALL
-             "   FriCAS2D data being transmitted to the viewport manager..."
-             (QREFELT $ 63))))
+          (SPADCALL
+           "   FriCAS2D data being transmitted to the viewport manager..."
+           (QREFELT $ 63))
           (|sockSendInt| |$ViewportServer| 3)
           (|sockSendInt| |$ViewportServer| -1)
           (|sockSendString| |$ViewportServer| (QVELT |viewport| 3))
@@ -795,24 +793,24 @@
           (SPADCALL
            (LIST
             (SPADCALL "Closed or Undefined TwoDimensionalViewport: "
-                      (QREFELT $ 63))
-            (SPADCALL (QVELT |viewport| 3) (QREFELT $ 83)))
-           (QREFELT $ 85)))
+                      (QREFELT $ 84))
+            (SPADCALL (QVELT |viewport| 3) (QREFELT $ 85)))
+           (QREFELT $ 87)))
          ('T
           (SPADCALL
-           (LIST (SPADCALL "TwoDimensionalViewport: " (QREFELT $ 63))
-                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 83)))
-           (QREFELT $ 85))))) 
+           (LIST (SPADCALL "TwoDimensionalViewport: " (QREFELT $ 84))
+                 (SPADCALL (QVELT |viewport| 3) (QREFELT $ 85)))
+           (QREFELT $ 87))))) 
 
 (SDEFUN |VIEW2D;write;$3S;35|
         ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
          ($ |String|))
-        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 88))) 
+        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 90))) 
 
 (SDEFUN |VIEW2D;write;$2S;36|
         ((|viewport| $) (|Filename| |String|) ($ |String|))
-        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 90))
-                  (QREFELT $ 88))) 
+        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 92))
+                  (QREFELT $ 90))) 
 
 (SDEFUN |VIEW2D;write;$SLS;37|
         ((|viewport| $) (|Filename| |String|)
@@ -841,9 +839,9 @@
                                    (LETT |m|
                                          (SPADCALL
                                           (LETT |avail|
-                                                (SPADCALL (QREFELT $ 92))
+                                                (SPADCALL (QREFELT $ 94))
                                                 . #3#)
-                                          (QREFELT $ 93))
+                                          (QREFELT $ 95))
                                          . #3#)
                                    (SEQ (LETT |aTypeOfFile| NIL . #3#)
                                         (LETT #2# |thingsToWrite| . #3#) G190
@@ -859,20 +857,17 @@
                                                (-
                                                 (SPADCALL
                                                  (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 94))
-                                                 |avail| (QREFELT $ 95))
+                                                           (QREFELT $ 96))
+                                                 |avail| (QREFELT $ 97))
                                                 |m|)
                                                . #3#)
                                          (EXIT
                                           (COND
                                            ((< |writeTypeInt| 0)
-                                            (|sayBrightly|
-                                             (LIST
-                                              (SPADCALL "  > " (QREFELT $ 63))
-                                              (SPADCALL
-                                               (STRCONC |aTypeOfFile|
-                                                        " is not a valid file type for writing a 2D viewport")
-                                               (QREFELT $ 83)))))
+                                            (SPADCALL
+                                             (LIST "  > " |aTypeOfFile|
+                                                   " is not a valid file type for writing a 2D viewport")
+                                             (QREFELT $ 98)))
                                            ('T
                                             (|sockSendInt| |$ViewportServer|
                                                            (+ |writeTypeInt|
@@ -914,7 +909,7 @@
          (PROGN
           (LETT |dv$| '(|TwoDimensionalViewport|)
                 . #1=(|TwoDimensionalViewport|))
-          (LETT $ (GETREFV 99) . #1#)
+          (LETT $ (GETREFV 102) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|TwoDimensionalViewport| NIL
@@ -986,7 +981,7 @@
               (|List| 8) (84 . |viewSizeDefault|) (88 . |elt|)
               |VIEW2D;viewport2D;$;16| |VIEW2D;makeViewport2D;GiL$;17|
               |VIEW2D;makeViewport2D;2$;18| (94 . |sendGraphImage|)
-              (|OutputForm|) (99 . |message|) (|Color|) (104 . |hue|)
+              (|DisplayPackage|) (99 . |say|) (|Color|) (104 . |hue|)
               (109 . |hue|) (114 . |shade|) (119 . |numberOfHues|)
               (123 . |setelt!|) |VIEW2D;graphState;$Pi4Df4IPIPIV;21|
               |VIEW2D;title;$SV;22| |VIEW2D;reset;$V;23| |VIEW2D;axes;$PiSV;24|
@@ -994,27 +989,28 @@
               |VIEW2D;units;$PiPV;27| |VIEW2D;connect;$PiSV;28|
               |VIEW2D;points;$PiSV;29| |VIEW2D;region;$PiSV;30|
               |VIEW2D;show;$PiSV;31| |VIEW2D;controlPanel;$SV;32|
-              |VIEW2D;close;$V;33| (130 . |coerce|) (|List| $)
-              (135 . |hconcat|) |VIEW2D;coerce;$Of;34| (|List| 18)
-              |VIEW2D;write;$SLS;37| |VIEW2D;write;$3S;35|
-              (140 . |viewWriteDefault|) |VIEW2D;write;$2S;36|
-              (144 . |viewWriteAvailable|) (148 . |minIndex|)
-              (153 . |upperCase|) (158 . |position|) (|List| (|Point| 11))
-              (|SingleInteger|) (|HashState|))
-           '#(~= 164 |write| 170 |viewport2D| 190 |update| 194 |units| 201
-              |translate| 215 |title| 223 |show| 229 |scale| 236 |resize| 244
-              |reset| 251 |region| 256 |putGraph| 263 |points| 270 |options|
-              277 |move| 288 |makeViewport2D| 295 |latex| 306 |key| 311
-              |hashUpdate!| 316 |hash| 322 |graphs| 327 |graphStates| 332
-              |graphState| 337 |getPickedPoints| 355 |getGraph| 360
-              |dimensions| 366 |controlPanel| 375 |connect| 381 |coerce| 388
-              |close| 393 |axes| 398 = 412)
+              |VIEW2D;close;$V;33| (|OutputForm|) (130 . |message|)
+              (135 . |coerce|) (|List| $) (140 . |hconcat|)
+              |VIEW2D;coerce;$Of;34| (|List| 18) |VIEW2D;write;$SLS;37|
+              |VIEW2D;write;$3S;35| (145 . |viewWriteDefault|)
+              |VIEW2D;write;$2S;36| (149 . |viewWriteAvailable|)
+              (153 . |minIndex|) (158 . |upperCase|) (163 . |position|)
+              (169 . |say|) (|List| (|Point| 11)) (|SingleInteger|)
+              (|HashState|))
+           '#(~= 174 |write| 180 |viewport2D| 200 |update| 204 |units| 211
+              |translate| 225 |title| 233 |show| 239 |scale| 246 |resize| 254
+              |reset| 261 |region| 266 |putGraph| 273 |points| 280 |options|
+              287 |move| 298 |makeViewport2D| 305 |latex| 316 |key| 321
+              |hashUpdate!| 326 |hash| 332 |graphs| 337 |graphStates| 342
+              |graphState| 347 |getPickedPoints| 365 |getGraph| 370
+              |dimensions| 376 |controlPanel| 385 |connect| 391 |coerce| 398
+              |close| 403 |axes| 408 = 422)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 62))
-                        (|makeByteWordVec2| 98
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 83))
+                        (|makeByteWordVec2| 101
                                             '(3 9 0 7 7 8 10 1 9 11 0 12 0 14
                                               13 15 0 14 13 16 2 20 18 19 18 21
                                               2 8 24 0 0 25 0 9 0 26 3 28 27 0
@@ -1022,30 +1018,31 @@
                                               42 1 31 7 0 44 0 30 0 45 2 36 35
                                               0 7 48 0 9 0 51 0 14 52 53 2 52
                                               40 0 7 54 0 14 55 56 2 55 8 0 7
-                                              57 1 31 30 0 61 1 62 0 18 63 1 13
-                                              64 0 65 1 64 7 0 66 1 13 7 0 67 0
-                                              64 8 68 3 36 35 0 7 35 69 1 18 62
-                                              0 83 1 62 0 84 85 0 14 87 90 0 14
-                                              87 92 1 87 7 0 93 1 18 0 0 94 2
-                                              87 7 18 0 95 2 0 24 0 0 1 3 0 18
-                                              0 18 18 89 3 0 18 0 18 87 88 2 0
-                                              18 0 18 91 0 0 0 58 3 0 30 0 31 8
-                                              46 3 0 30 0 8 18 75 3 0 30 0 8 13
-                                              76 4 0 30 0 8 9 9 49 2 0 30 0 18
-                                              71 3 0 30 0 8 18 80 4 0 30 0 8 9
-                                              9 50 3 0 30 0 8 8 47 1 0 30 0 72
-                                              3 0 30 0 8 18 79 3 0 30 0 31 8 32
-                                              3 0 30 0 8 18 78 2 0 0 0 19 23 1
-                                              0 19 0 22 3 0 30 0 40 40 43 2 0 0
+                                              57 1 31 30 0 61 1 62 30 18 63 1
+                                              13 64 0 65 1 64 7 0 66 1 13 7 0
+                                              67 0 64 8 68 3 36 35 0 7 35 69 1
+                                              83 0 18 84 1 18 83 0 85 1 83 0 86
+                                              87 0 14 89 92 0 14 89 94 1 89 7 0
+                                              95 1 18 0 0 96 2 89 7 18 0 97 1
+                                              62 30 89 98 2 0 24 0 0 1 3 0 18 0
+                                              18 18 91 3 0 18 0 18 89 90 2 0 18
+                                              0 18 93 0 0 0 58 3 0 30 0 31 8 46
+                                              3 0 30 0 8 18 75 3 0 30 0 8 13 76
+                                              4 0 30 0 8 9 9 49 2 0 30 0 18 71
+                                              3 0 30 0 8 18 80 4 0 30 0 8 9 9
+                                              50 3 0 30 0 8 8 47 1 0 30 0 72 3
+                                              0 30 0 8 18 79 3 0 30 0 31 8 32 3
+                                              0 30 0 8 18 78 2 0 0 0 19 23 1 0
+                                              19 0 22 3 0 30 0 40 40 43 2 0 0
                                               31 19 59 1 0 0 0 60 1 0 18 0 1 1
-                                              0 7 0 39 2 0 98 98 0 1 1 0 97 0 1
-                                              1 0 28 0 38 1 0 36 0 37 14 0 30 0
-                                              8 11 11 11 11 7 7 7 7 13 7 13 7
-                                              70 1 0 96 0 1 2 0 31 0 8 34 5 0
-                                              30 0 40 40 8 8 41 2 0 30 0 18 81
-                                              3 0 30 0 8 18 77 1 0 62 0 86 1 0
-                                              30 0 82 3 0 30 0 8 18 73 3 0 30 0
-                                              8 13 74 2 0 24 0 0 1)))))
+                                              0 7 0 39 2 0 101 101 0 1 1 0 100
+                                              0 1 1 0 28 0 38 1 0 36 0 37 14 0
+                                              30 0 8 11 11 11 11 7 7 7 7 13 7
+                                              13 7 70 1 0 99 0 1 2 0 31 0 8 34
+                                              5 0 30 0 40 40 8 8 41 2 0 30 0 18
+                                              81 3 0 30 0 8 18 77 1 0 83 0 88 1
+                                              0 30 0 82 3 0 30 0 8 18 73 3 0 30
+                                              0 8 13 74 2 0 24 0 0 1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|TwoDimensionalViewport| 'NILADIC T) 

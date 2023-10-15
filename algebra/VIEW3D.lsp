@@ -132,37 +132,36 @@
           (|lpts| (|List| (|Point| (|DoubleFloat|))))
           (|transform| (|Mapping| #7# (|Point| (|DoubleFloat|)))))
          (SEQ (|VIEW3D;doOptions| |viewport| $)
-              (|sayBrightly|
-               (LIST (SPADCALL "   Transmitting data..." (QREFELT $ 63))))
+              (SPADCALL "   Transmitting data..." (QREFELT $ 64))
               (LETT |transform|
-                    (SPADCALL (QVELT |viewport| 12) (ELT $ 66) (QREFELT $ 68))
+                    (SPADCALL (QVELT |viewport| 12) (ELT $ 67) (QREFELT $ 69))
                     . #10=(|VIEW3D;makeViewport3D0|))
-              (SPADCALL (QVELT |viewport| 11) (QREFELT $ 69))
-              (LETT |lpts| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 71))
+              (SPADCALL (QVELT |viewport| 11) (QREFELT $ 70))
+              (LETT |lpts| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 72))
                     . #10#)
-              (LETT |lllipts| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 73))
+              (LETT |lllipts| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 74))
                     . #10#)
-              (LETT |llprops| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 75))
+              (LETT |llprops| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 76))
                     . #10#)
-              (LETT |lprops| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 77))
+              (LETT |lprops| (SPADCALL (QVELT |viewport| 11) (QREFELT $ 78))
                     . #10#)
-              (LETT |s| (SPADCALL (QREFELT $ 79)) . #10#)
+              (LETT |s| (SPADCALL (QREFELT $ 80)) . #10#)
               (SEQ (LETT |pt| NIL . #10#) (LETT #9# |lpts| . #10#) G190
                    (COND
                     ((OR (ATOM #9#) (PROGN (LETT |pt| (CAR #9#) . #10#) NIL))
                      (GO G191)))
                    (SEQ
                     (EXIT
-                     (SPADCALL (SPADCALL |pt| (QREFELT $ 80)) |s|
-                               (QREFELT $ 81))))
+                     (SPADCALL (SPADCALL |pt| (QREFELT $ 81)) |s|
+                               (QREFELT $ 82))))
                    (LETT #9# (CDR #9#) . #10#) (GO G190) G191 (EXIT NIL))
               (EXIT
                (COND
-                ((SPADCALL (SPADCALL |s| (QREFELT $ 82)) 1 (QREFELT $ 83))
+                ((SPADCALL (SPADCALL |s| (QREFELT $ 83)) 1 (QREFELT $ 84))
                  (|error| "All points should have the same dimension"))
                 (#11='T
                  (SEQ
-                  (LETT |n| (|SPADfirst| (SPADCALL |s| (QREFELT $ 84))) . #10#)
+                  (LETT |n| (|SPADfirst| (SPADCALL |s| (QREFELT $ 85))) . #10#)
                   (EXIT
                    (COND
                     ((< |n| 3)
@@ -238,23 +237,23 @@
                             (LETT |aPoint| (SPADCALL |pt| |transform|) . #10#)
                             (|sockSendFloat| |$ViewportServer|
                                              (SPADCALL |aPoint|
-                                                       (QREFELT $ 86)))
-                            (|sockSendFloat| |$ViewportServer|
-                                             (SPADCALL |aPoint|
                                                        (QREFELT $ 87)))
                             (|sockSendFloat| |$ViewportServer|
                                              (SPADCALL |aPoint|
                                                        (QREFELT $ 88)))
+                            (|sockSendFloat| |$ViewportServer|
+                                             (SPADCALL |aPoint|
+                                                       (QREFELT $ 89)))
                             (EXIT
                              (COND
                               ((EQL |n| 3)
                                (|sockSendFloat| |$ViewportServer|
                                                 (SPADCALL |aPoint|
-                                                          (QREFELT $ 88))))
+                                                          (QREFELT $ 89))))
                               ('T
                                (|sockSendFloat| |$ViewportServer|
                                                 (SPADCALL |aPoint|
-                                                          (QREFELT $ 89)))))))
+                                                          (QREFELT $ 90)))))))
                            (LETT #8# (CDR #8#) . #10#) (GO G190) G191
                            (EXIT NIL))
                       (|sockSendInt| |$ViewportServer| (LENGTH |lllipts|))
@@ -278,13 +277,13 @@
                             (|sockSendInt| |$ViewportServer|
                                            (COND
                                             ((SPADCALL |oneprop|
-                                                       (QREFELT $ 91))
+                                                       (QREFELT $ 92))
                                              1)
                                             ('T 0)))
                             (|sockSendInt| |$ViewportServer|
                                            (COND
                                             ((SPADCALL |oneprop|
-                                                       (QREFELT $ 92))
+                                                       (QREFELT $ 93))
                                              1)
                                             ('T 0)))
                             (|sockSendInt| |$ViewportServer|
@@ -308,18 +307,18 @@
                                    (|sockSendInt| |$ViewportServer|
                                                   (COND
                                                    ((SPADCALL |tinyprop|
-                                                              (QREFELT $ 91))
+                                                              (QREFELT $ 92))
                                                     1)
                                                    ('T 0)))
                                    (|sockSendInt| |$ViewportServer|
                                                   (COND
                                                    ((SPADCALL |tinyprop|
-                                                              (QREFELT $ 92))
+                                                              (QREFELT $ 93))
                                                     1)
                                                    ('T 0)))
                                    (|sockSendInt| |$ViewportServer|
                                                   (SPADCALL |alipts|
-                                                            (QREFELT $ 93)))
+                                                            (QREFELT $ 94)))
                                    (EXIT
                                     (SEQ (LETT |oneIndexedPoint| NIL . #10#)
                                          (LETT #1# |alipts| . #10#) G190
@@ -353,43 +352,43 @@
                       (EXIT |viewport|)))))))))))) 
 
 (SDEFUN |VIEW3D;viewThetaDefault;F;14| (($ |Float|))
-        (SPADCALL (SPADCALL (QREFELT $ 20) (QREFELT $ 94)) (QREFELT $ 31))) 
+        (SPADCALL (SPADCALL (QREFELT $ 20) (QREFELT $ 95)) (QREFELT $ 31))) 
 
 (SDEFUN |VIEW3D;viewThetaDefault;2F;15| ((|t| |Float|) ($ |Float|))
         (SEQ
-         (SPADCALL (QREFELT $ 20) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 96))
+         (SPADCALL (QREFELT $ 20) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 97))
          (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;viewPhiDefault;F;16| (($ |Float|))
-        (SPADCALL (SPADCALL (QREFELT $ 22) (QREFELT $ 94)) (QREFELT $ 31))) 
+        (SPADCALL (SPADCALL (QREFELT $ 22) (QREFELT $ 95)) (QREFELT $ 31))) 
 
 (SDEFUN |VIEW3D;viewPhiDefault;2F;17| ((|t| |Float|) ($ |Float|))
         (SEQ
-         (SPADCALL (QREFELT $ 22) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 96))
+         (SPADCALL (QREFELT $ 22) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 97))
          (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;viewZoomDefault;F;18| (($ |Float|))
-        (SPADCALL (SPADCALL (QREFELT $ 23) (QREFELT $ 94)) (QREFELT $ 31))) 
+        (SPADCALL (SPADCALL (QREFELT $ 23) (QREFELT $ 95)) (QREFELT $ 31))) 
 
 (SDEFUN |VIEW3D;viewZoomDefault;2F;19| ((|t| |Float|) ($ |Float|))
         (SEQ
-         (SPADCALL (QREFELT $ 23) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 96))
+         (SPADCALL (QREFELT $ 23) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 97))
          (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;viewDeltaXDefault;F;20| (($ |Float|))
-        (SPADCALL (SPADCALL (QREFELT $ 24) (QREFELT $ 94)) (QREFELT $ 31))) 
+        (SPADCALL (SPADCALL (QREFELT $ 24) (QREFELT $ 95)) (QREFELT $ 31))) 
 
 (SDEFUN |VIEW3D;viewDeltaXDefault;2F;21| ((|t| |Float|) ($ |Float|))
         (SEQ
-         (SPADCALL (QREFELT $ 24) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 96))
+         (SPADCALL (QREFELT $ 24) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 97))
          (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;viewDeltaYDefault;F;22| (($ |Float|))
-        (SPADCALL (SPADCALL (QREFELT $ 25) (QREFELT $ 94)) (QREFELT $ 31))) 
+        (SPADCALL (SPADCALL (QREFELT $ 25) (QREFELT $ 95)) (QREFELT $ 31))) 
 
 (SDEFUN |VIEW3D;viewDeltaYDefault;2F;23| ((|t| |Float|) ($ |Float|))
         (SEQ
-         (SPADCALL (QREFELT $ 25) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 96))
+         (SPADCALL (QREFELT $ 25) (SPADCALL |t| (QREFELT $ 17)) (QREFELT $ 97))
          (EXIT |t|))) 
 
 (SDEFUN |VIEW3D;lighting;$3FV;24|
@@ -407,8 +406,8 @@
                             (SPADCALL |Zlight| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -442,8 +441,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 2 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -472,8 +471,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 3 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -502,8 +501,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 4 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -532,8 +531,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 0 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -566,8 +565,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 1 9)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -584,7 +583,7 @@
 (SDEFUN |VIEW3D;reset;$V;30| ((|viewport| $) ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0 (QREFELT $ 107))
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0 (QREFELT $ 108))
            (SEQ (|sockSendInt| |$ViewportServer| 1)
                 (|sockSendInt| |$ViewportServer| 100)
                 (EXIT
@@ -597,7 +596,7 @@
 (SDEFUN |VIEW3D;close;$V;31| ((|viewport| $) ($ |Void|))
         (SEQ
          (COND
-          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0 (QREFELT $ 107))
+          ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0 (QREFELT $ 108))
            (SEQ (|sockSendInt| |$ViewportServer| 1)
                 (|sockSendInt| |$ViewportServer| 5)
                 (EXIT
@@ -620,7 +619,7 @@
           (|deltaY_sf| (|DoubleFloat|)) (|deltaX_sf| (|DoubleFloat|)))
          (SEQ
           (COND
-           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0 (QREFELT $ 107))
+           ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0 (QREFELT $ 108))
             (SEQ (|sockSendInt| |$ViewportServer| 1)
                  (|sockSendInt| |$ViewportServer| 117)
                  (EXIT
@@ -663,8 +662,8 @@
                  (SEQ (QSETVELT |viewport| 5 |viewpt|)
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                                   (QREFELT $ 107))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                                   (QREFELT $ 108))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -826,8 +825,8 @@
                  (SEQ (QSETVELT |viewport| 2 |Title|)
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                                   (QREFELT $ 107))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                                   (QREFELT $ 108))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -858,8 +857,8 @@
                              (- (SPADCALL |HueNumber| (QREFELT $ 132)) |h|)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -896,8 +895,8 @@
                  (SEQ (QSETVELT |viewport| 3 (CONS |xLoc| |yLoc|))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                                   (QREFELT $ 107))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                                   (QREFELT $ 108))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -926,8 +925,8 @@
                  (SEQ (QSETVELT |viewport| 4 (CONS |xSize| |ySize|))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                                   (QREFELT $ 107))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                                   (QREFELT $ 108))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -949,18 +948,18 @@
 
 (SDEFUN |VIEW3D;coerce;$Of;43| ((|viewport| $) ($ |OutputForm|))
         (COND
-         ((EQL (SPADCALL |viewport| (QREFELT $ 106)) 0)
+         ((EQL (SPADCALL |viewport| (QREFELT $ 107)) 0)
           (SPADCALL
            (LIST
             (SPADCALL "Closed or Undefined ThreeDimensionalViewport: "
-                      (QREFELT $ 63))
-            (SPADCALL (QVELT |viewport| 2) (QREFELT $ 137)))
-           (QREFELT $ 139)))
+                      (QREFELT $ 138))
+            (SPADCALL (QVELT |viewport| 2) (QREFELT $ 139)))
+           (QREFELT $ 141)))
          ('T
           (SPADCALL
-           (LIST (SPADCALL "ThreeDimensionalViewport: " (QREFELT $ 63))
-                 (SPADCALL (QVELT |viewport| 2) (QREFELT $ 137)))
-           (QREFELT $ 139))))) 
+           (LIST (SPADCALL "ThreeDimensionalViewport: " (QREFELT $ 138))
+                 (SPADCALL (QVELT |viewport| 2) (QREFELT $ 139)))
+           (QREFELT $ 141))))) 
 
 (PUT '|VIEW3D;key;$I;44| '|SPADreplace|
      '(XLAM (|viewport|) (QVELT |viewport| 0))) 
@@ -970,9 +969,9 @@
 (SDEFUN |VIEW3D;rotate;$2IV;45|
         ((|viewport| $) (|Theta| |Integer|) (|Phi| |Integer|) ($ |Void|))
         (SPADCALL |viewport|
-                  (SPADCALL (SPADCALL |Theta| (QREFELT $ 141)) (QREFELT $ 14)
+                  (SPADCALL (SPADCALL |Theta| (QREFELT $ 143)) (QREFELT $ 14)
                             (QREFELT $ 125))
-                  (SPADCALL (SPADCALL |Phi| (QREFELT $ 141)) (QREFELT $ 14)
+                  (SPADCALL (SPADCALL |Phi| (QREFELT $ 143)) (QREFELT $ 14)
                             (QREFELT $ 125))
                   (QREFELT $ 128))) 
 
@@ -988,8 +987,8 @@
                             (SPADCALL |Phi| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1019,8 +1018,8 @@
                             (SPADCALL |Scale| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1053,8 +1052,8 @@
                             (SPADCALL |ScaleZ| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1090,8 +1089,8 @@
                             (SPADCALL |DeltaY| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1120,16 +1119,16 @@
                  (SEQ
                   (COND
                    ((OR
-                     (SPADCALL |Amount| (|spadConstant| $ 9) (QREFELT $ 146))
-                     (SPADCALL |Amount| (|spadConstant| $ 26) (QREFELT $ 147)))
+                     (SPADCALL |Amount| (|spadConstant| $ 9) (QREFELT $ 148))
+                     (SPADCALL |Amount| (|spadConstant| $ 26) (QREFELT $ 149)))
                     (|error|
                      "The intensity must be a value between 0 and 1, inclusively.")))
                   (QSETVELT (QVELT |viewport| 8) 5
                             (SPADCALL |Amount| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1150,12 +1149,12 @@
 (SDEFUN |VIEW3D;write;$3S;51|
         ((|viewport| $) (|Filename| |String|) (|aThingToWrite| |String|)
          ($ |String|))
-        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 150))) 
+        (SPADCALL |viewport| |Filename| (LIST |aThingToWrite|) (QREFELT $ 152))) 
 
 (SDEFUN |VIEW3D;write;$2S;52|
         ((|viewport| $) (|Filename| |String|) ($ |String|))
-        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 152))
-                  (QREFELT $ 150))) 
+        (SPADCALL |viewport| |Filename| (SPADCALL (QREFELT $ 154))
+                  (QREFELT $ 152))) 
 
 (SDEFUN |VIEW3D;write;$SLS;53|
         ((|viewport| $) (|Filename| |String|)
@@ -1169,8 +1168,8 @@
            (SEQ (LETT |stringToSend| "" . #3=(|VIEW3D;write;$SLS;53|))
                 (EXIT
                  (COND
-                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                             (QREFELT $ 107))
+                  ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                             (QREFELT $ 108))
                    (PROGN
                     (LETT #1#
                           (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1184,9 +1183,9 @@
                                    (LETT |m|
                                          (SPADCALL
                                           (LETT |avail|
-                                                (SPADCALL (QREFELT $ 154))
+                                                (SPADCALL (QREFELT $ 156))
                                                 . #3#)
-                                          (QREFELT $ 155))
+                                          (QREFELT $ 157))
                                          . #3#)
                                    (SEQ (LETT |aTypeOfFile| NIL . #3#)
                                         (LETT #2# |thingsToWrite| . #3#) G190
@@ -1202,20 +1201,17 @@
                                                (-
                                                 (SPADCALL
                                                  (SPADCALL |aTypeOfFile|
-                                                           (QREFELT $ 156))
-                                                 |avail| (QREFELT $ 157))
+                                                           (QREFELT $ 158))
+                                                 |avail| (QREFELT $ 159))
                                                 |m|)
                                                . #3#)
                                          (EXIT
                                           (COND
                                            ((< |writeTypeInt| 0)
-                                            (|sayBrightly|
-                                             (LIST
-                                              (SPADCALL "  > " (QREFELT $ 63))
-                                              (SPADCALL
-                                               (STRCONC |aTypeOfFile|
-                                                        " is not a valid file type for writing a 3D viewport")
-                                               (QREFELT $ 137)))))
+                                            (SPADCALL
+                                             (LIST "  > " |aTypeOfFile|
+                                                   " is not a valid file type for writing a 3D viewport")
+                                             (QREFELT $ 160)))
                                            ('T
                                             (|sockSendInt| |$ViewportServer|
                                                            (+ |writeTypeInt|
@@ -1240,8 +1236,8 @@
                    ('T (QSETVELT (QVELT |viewport| 9) 0 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1270,8 +1266,8 @@
                    ('T (QSETVELT (QVELT |viewport| 7) 5 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1300,8 +1296,8 @@
                    ('T (QSETVELT (QVELT |viewport| 10) 6 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1330,8 +1326,8 @@
                    ('T (QSETVELT (QVELT |viewport| 10) 7 0)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1359,8 +1355,8 @@
                             (SPADCALL |EyeDistance| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1388,8 +1384,8 @@
                             (SPADCALL |HitherPlane| (QREFELT $ 17)))
                   (EXIT
                    (COND
-                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                               (QREFELT $ 107))
+                    ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                               (QREFELT $ 108))
                      (PROGN
                       (LETT #1#
                             (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1412,7 +1408,7 @@
          (|aPoint| |Point| (|DoubleFloat|)) ($ |Void|))
         (SPROG ((#1=#:G437 NIL) (|n| (|PositiveInteger|)))
                (SEQ
-                (LETT |n| (SPADCALL |aPoint| (QREFELT $ 80))
+                (LETT |n| (SPADCALL |aPoint| (QREFELT $ 81))
                       . #2=(|VIEW3D;modifyPointData;$NniPV;60|))
                 (EXIT
                  (COND
@@ -1424,11 +1420,11 @@
                      (SEQ
                       (QSETVELT |viewport| 11
                                 (SPADCALL (QVELT |viewport| 11) |anIndex|
-                                          |aPoint| (QREFELT $ 164)))
+                                          |aPoint| (QREFELT $ 167)))
                       (EXIT
                        (COND
-                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 106)) 0
-                                   (QREFELT $ 107))
+                        ((SPADCALL (SPADCALL |viewport| (QREFELT $ 107)) 0
+                                   (QREFELT $ 108))
                          (PROGN
                           (LETT #1#
                                 (SEQ (|sockSendInt| |$ViewportServer| 1)
@@ -1442,15 +1438,15 @@
                                          (|sockSendFloat| |$ViewportServer|
                                                           (SPADCALL |aPoint|
                                                                     (QREFELT $
-                                                                             86)))
-                                         (|sockSendFloat| |$ViewportServer|
-                                                          (SPADCALL |aPoint|
-                                                                    (QREFELT $
                                                                              87)))
                                          (|sockSendFloat| |$ViewportServer|
                                                           (SPADCALL |aPoint|
                                                                     (QREFELT $
                                                                              88)))
+                                         (|sockSendFloat| |$ViewportServer|
+                                                          (SPADCALL |aPoint|
+                                                                    (QREFELT $
+                                                                             89)))
                                          (COND
                                           ((EQL |n| 3)
                                            (|sockSendFloat| |$ViewportServer|
@@ -1464,7 +1460,7 @@
                                                             (SPADCALL |aPoint|
                                                                       (QREFELT
                                                                        $
-                                                                       89)))))
+                                                                       90)))))
                                          (EXIT
                                           (|sockGetInt|
                                            |$ViewportServer|)))))))
@@ -1501,7 +1497,7 @@
          (PROGN
           (LETT |dv$| '(|ThreeDimensionalViewport|)
                 . #1=(|ThreeDimensionalViewport|))
-          (LETT $ (GETREFV 168) . #1#)
+          (LETT $ (GETREFV 171) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ThreeDimensionalViewport| NIL
@@ -1619,11 +1615,11 @@
               |VIEW3D;options;$L;8| |VIEW3D;options;$L$;9|
               |VIEW3D;makeViewport3D;2$;10| (|DrawOption|) (120 . |title|)
               |VIEW3D;makeViewport3D;TsS$;11| |VIEW3D;makeViewport3D;TsL$;12|
-              (|OutputForm|) (125 . |message|) (|Point| 16)
-              (|CoordinateSystems| 16) (130 . |cartesian|) (|Mapping| 64 64)
-              (135 . |coord|) (141 . |check|) (|List| 64) (146 . |lp|)
-              (|List| (|List| 42)) (151 . |lllip|) (|List| 76) (156 . |llprop|)
-              (|List| 90) (161 . |lprop|) (|Set| 11) (166 . |empty|)
+              (|Void|) (|DisplayPackage|) (125 . |say|) (|Point| 16)
+              (|CoordinateSystems| 16) (130 . |cartesian|) (|Mapping| 65 65)
+              (135 . |coord|) (141 . |check|) (|List| 65) (146 . |lp|)
+              (|List| (|List| 42)) (151 . |lllip|) (|List| 77) (156 . |llprop|)
+              (|List| 91) (161 . |lprop|) (|Set| 11) (166 . |empty|)
               (170 . |dimension|) (175 . |insert!|) (181 . |#|) (186 . >)
               (192 . |parts|) (|PointPackage| 16) (197 . |xCoord|)
               (202 . |yCoord|) (207 . |zCoord|) (212 . |color|)
@@ -1634,7 +1630,7 @@
               |VIEW3D;viewZoomDefault;F;18| |VIEW3D;viewZoomDefault;2F;19|
               |VIEW3D;viewDeltaXDefault;F;20| |VIEW3D;viewDeltaXDefault;2F;21|
               |VIEW3D;viewDeltaYDefault;F;22| |VIEW3D;viewDeltaYDefault;2F;23|
-              |VIEW3D;key;$I;44| (243 . ~=) (|Void|) |VIEW3D;lighting;$3FV;24|
+              |VIEW3D;key;$I;44| (243 . ~=) |VIEW3D;lighting;$3FV;24|
               |VIEW3D;axes;$SV;25| |VIEW3D;diagonals;$SV;26|
               |VIEW3D;outlineRender;$SV;27| |VIEW3D;controlPanel;$SV;28|
               |VIEW3D;drawStyle;$SV;29| (249 . |void|) |VIEW3D;reset;$V;30|
@@ -1645,37 +1641,38 @@
               |VIEW3D;rotate;$2FV;46| |VIEW3D;viewpoint;$3FV;37|
               |VIEW3D;title;$SV;38| (|Color|) (282 . |hue|)
               |VIEW3D;colorDef;$2CV;39| |VIEW3D;dimensions;$2Nni2PiV;40|
-              |VIEW3D;move;$2NniV;41| |VIEW3D;resize;$2PiV;42| (287 . |coerce|)
-              (|List| $) (292 . |hconcat|) |VIEW3D;coerce;$Of;43|
-              (297 . |coerce|) |VIEW3D;rotate;$2IV;45| |VIEW3D;zoom;$FV;47|
-              |VIEW3D;zoom;$3FV;48| |VIEW3D;translate;$2FV;49| (302 . <)
-              (308 . >) |VIEW3D;intensity;$FV;50| (|List| 34)
-              |VIEW3D;write;$SLS;53| |VIEW3D;write;$3S;51|
-              (314 . |viewWriteDefault|) |VIEW3D;write;$2S;52|
-              (318 . |viewWriteAvailable|) (322 . |minIndex|)
-              (327 . |upperCase|) (332 . |position|)
-              |VIEW3D;perspective;$SV;54| |VIEW3D;showRegion;$SV;55|
-              |VIEW3D;showClipRegion;$SV;56| |VIEW3D;clipSurface;$SV;57|
-              |VIEW3D;eyeDistance;$FV;58| |VIEW3D;hitherPlane;$FV;59|
-              (338 . |modifyPointData|) |VIEW3D;modifyPointData;$NniPV;60|
-              (|HashState|) (|SingleInteger|))
-           '#(~= 345 |zoom| 351 |write| 365 |viewport3D| 385 |viewpoint| 389
-              |viewZoomDefault| 435 |viewThetaDefault| 444 |viewPhiDefault| 453
-              |viewDeltaYDefault| 462 |viewDeltaXDefault| 471 |translate| 480
-              |title| 487 |subspace| 493 |showRegion| 504 |showClipRegion| 510
-              |rotate| 516 |resize| 530 |reset| 537 |perspective| 542
-              |outlineRender| 548 |options| 554 |move| 565 |modifyPointData|
-              572 |makeViewport3D| 579 |lighting| 596 |latex| 604 |key| 609
-              |intensity| 614 |hitherPlane| 620 |hashUpdate!| 626 |hash| 632
-              |eyeDistance| 637 |drawStyle| 643 |dimensions| 649 |diagonals|
-              658 |controlPanel| 664 |colorDef| 670 |coerce| 677 |close| 682
-              |clipSurface| 687 |axes| 693 = 699)
+              |VIEW3D;move;$2NniV;41| |VIEW3D;resize;$2PiV;42| (|OutputForm|)
+              (287 . |message|) (292 . |coerce|) (|List| $) (297 . |hconcat|)
+              |VIEW3D;coerce;$Of;43| (302 . |coerce|) |VIEW3D;rotate;$2IV;45|
+              |VIEW3D;zoom;$FV;47| |VIEW3D;zoom;$3FV;48|
+              |VIEW3D;translate;$2FV;49| (307 . <) (313 . >)
+              |VIEW3D;intensity;$FV;50| (|List| 34) |VIEW3D;write;$SLS;53|
+              |VIEW3D;write;$3S;51| (319 . |viewWriteDefault|)
+              |VIEW3D;write;$2S;52| (323 . |viewWriteAvailable|)
+              (327 . |minIndex|) (332 . |upperCase|) (337 . |position|)
+              (343 . |say|) |VIEW3D;perspective;$SV;54|
+              |VIEW3D;showRegion;$SV;55| |VIEW3D;showClipRegion;$SV;56|
+              |VIEW3D;clipSurface;$SV;57| |VIEW3D;eyeDistance;$FV;58|
+              |VIEW3D;hitherPlane;$FV;59| (348 . |modifyPointData|)
+              |VIEW3D;modifyPointData;$NniPV;60| (|HashState|)
+              (|SingleInteger|))
+           '#(~= 355 |zoom| 361 |write| 375 |viewport3D| 395 |viewpoint| 399
+              |viewZoomDefault| 445 |viewThetaDefault| 454 |viewPhiDefault| 463
+              |viewDeltaYDefault| 472 |viewDeltaXDefault| 481 |translate| 490
+              |title| 497 |subspace| 503 |showRegion| 514 |showClipRegion| 520
+              |rotate| 526 |resize| 540 |reset| 547 |perspective| 552
+              |outlineRender| 558 |options| 564 |move| 575 |modifyPointData|
+              582 |makeViewport3D| 589 |lighting| 606 |latex| 614 |key| 619
+              |intensity| 624 |hitherPlane| 630 |hashUpdate!| 636 |hash| 642
+              |eyeDistance| 647 |drawStyle| 653 |dimensions| 659 |diagonals|
+              668 |controlPanel| 674 |colorDef| 680 |coerce| 687 |close| 692
+              |clipSurface| 697 |axes| 703 = 709)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0 0 0))
                  (CONS '#(|SetCategory&| |BasicType&| NIL)
                        (CONS
-                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 62))
-                        (|makeByteWordVec2| 167
+                        '#((|SetCategory|) (|BasicType|) (|CoercibleTo| 137))
+                        (|makeByteWordVec2| 170
                                             '(0 7 0 8 0 7 0 9 3 7 0 10 10 11 12
                                               2 7 0 0 0 13 1 7 16 0 17 1 18 0
                                               16 19 1 7 0 0 21 0 7 0 26 2 16 27
@@ -1685,53 +1682,54 @@
                                               38 1 18 16 0 39 2 36 40 35 40 41
                                               0 43 42 44 2 42 45 0 10 46 0 43
                                               47 48 2 47 11 0 10 49 0 50 0 51 1
-                                              58 0 34 59 1 62 0 34 63 1 65 64
-                                              64 66 2 36 67 35 67 68 1 50 0 0
-                                              69 1 50 70 0 71 1 50 72 0 73 1 50
-                                              74 0 75 1 50 76 0 77 0 78 0 79 1
-                                              64 11 0 80 2 78 0 11 0 81 1 78 45
-                                              0 82 2 45 27 0 0 83 1 78 47 0 84
-                                              1 85 16 64 86 1 85 16 64 87 1 85
-                                              16 64 88 1 85 16 64 89 1 90 27 0
-                                              91 1 90 27 0 92 1 42 45 0 93 1 18
-                                              16 0 94 2 18 16 0 16 96 2 10 27 0
-                                              0 107 0 108 0 115 2 7 27 0 0 123
-                                              2 7 27 0 0 124 2 7 0 0 0 125 2 7
-                                              0 0 0 126 1 7 0 0 127 1 131 10 0
-                                              132 1 34 62 0 137 1 62 0 138 139
-                                              1 7 0 10 141 2 7 27 0 0 146 2 7
-                                              27 0 0 147 0 43 149 152 0 43 149
-                                              154 1 149 10 0 155 1 34 0 0 156 2
-                                              149 10 34 0 157 3 50 0 0 45 64
-                                              164 2 0 27 0 0 1 2 0 108 0 7 143
-                                              4 0 108 0 7 7 7 144 3 0 34 0 34
-                                              149 150 2 0 34 0 34 153 3 0 34 0
-                                              34 34 151 0 0 0 52 4 0 108 0 7 7
-                                              7 129 6 0 108 0 10 10 7 7 7 121 3
-                                              0 108 0 7 7 122 1 0 40 0 118 2 0
-                                              108 0 40 119 6 0 108 0 7 7 7 7 7
-                                              120 0 0 7 100 1 0 7 7 101 0 0 7
-                                              95 1 0 7 7 97 0 0 7 98 1 0 7 7 99
-                                              1 0 7 7 105 0 0 7 104 0 0 7 102 1
-                                              0 7 7 103 3 0 108 0 7 7 145 2 0
-                                              108 0 34 130 2 0 0 0 50 54 1 0 50
-                                              0 53 2 0 108 0 34 159 2 0 108 0
-                                              34 160 3 0 108 0 7 7 128 3 0 108
-                                              0 10 10 142 3 0 108 0 11 11 136 1
-                                              0 108 0 116 2 0 108 0 34 158 2 0
-                                              108 0 34 112 1 0 35 0 55 2 0 0 0
-                                              35 56 3 0 108 0 45 45 135 3 0 108
-                                              0 45 64 165 2 0 0 50 35 61 1 0 0
-                                              0 57 2 0 0 50 34 60 4 0 108 0 7 7
-                                              7 109 1 0 34 0 1 1 0 10 0 106 2 0
-                                              108 0 7 148 2 0 108 0 7 163 2 0
-                                              166 166 0 1 1 0 167 0 1 2 0 108 0
-                                              7 162 2 0 108 0 34 114 5 0 108 0
-                                              45 45 11 11 134 2 0 108 0 34 111
-                                              2 0 108 0 34 113 3 0 108 0 131
-                                              131 133 1 0 62 0 140 1 0 108 0
-                                              117 2 0 108 0 34 161 2 0 108 0 34
-                                              110 2 0 27 0 0 1)))))
+                                              58 0 34 59 1 63 62 34 64 1 66 65
+                                              65 67 2 36 68 35 68 69 1 50 0 0
+                                              70 1 50 71 0 72 1 50 73 0 74 1 50
+                                              75 0 76 1 50 77 0 78 0 79 0 80 1
+                                              65 11 0 81 2 79 0 11 0 82 1 79 45
+                                              0 83 2 45 27 0 0 84 1 79 47 0 85
+                                              1 86 16 65 87 1 86 16 65 88 1 86
+                                              16 65 89 1 86 16 65 90 1 91 27 0
+                                              92 1 91 27 0 93 1 42 45 0 94 1 18
+                                              16 0 95 2 18 16 0 16 97 2 10 27 0
+                                              0 108 0 62 0 115 2 7 27 0 0 123 2
+                                              7 27 0 0 124 2 7 0 0 0 125 2 7 0
+                                              0 0 126 1 7 0 0 127 1 131 10 0
+                                              132 1 137 0 34 138 1 34 137 0 139
+                                              1 137 0 140 141 1 7 0 10 143 2 7
+                                              27 0 0 148 2 7 27 0 0 149 0 43
+                                              151 154 0 43 151 156 1 151 10 0
+                                              157 1 34 0 0 158 2 151 10 34 0
+                                              159 1 63 62 151 160 3 50 0 0 45
+                                              65 167 2 0 27 0 0 1 2 0 62 0 7
+                                              145 4 0 62 0 7 7 7 146 3 0 34 0
+                                              34 151 152 2 0 34 0 34 155 3 0 34
+                                              0 34 34 153 0 0 0 52 4 0 62 0 7 7
+                                              7 129 6 0 62 0 10 10 7 7 7 121 3
+                                              0 62 0 7 7 122 1 0 40 0 118 2 0
+                                              62 0 40 119 6 0 62 0 7 7 7 7 7
+                                              120 0 0 7 101 1 0 7 7 102 0 0 7
+                                              96 1 0 7 7 98 0 0 7 99 1 0 7 7
+                                              100 1 0 7 7 106 0 0 7 105 0 0 7
+                                              103 1 0 7 7 104 3 0 62 0 7 7 147
+                                              2 0 62 0 34 130 2 0 0 0 50 54 1 0
+                                              50 0 53 2 0 62 0 34 162 2 0 62 0
+                                              34 163 3 0 62 0 7 7 128 3 0 62 0
+                                              10 10 144 3 0 62 0 11 11 136 1 0
+                                              62 0 116 2 0 62 0 34 161 2 0 62 0
+                                              34 112 1 0 35 0 55 2 0 0 0 35 56
+                                              3 0 62 0 45 45 135 3 0 62 0 45 65
+                                              168 2 0 0 50 35 61 1 0 0 0 57 2 0
+                                              0 50 34 60 4 0 62 0 7 7 7 109 1 0
+                                              34 0 1 1 0 10 0 107 2 0 62 0 7
+                                              150 2 0 62 0 7 166 2 0 169 169 0
+                                              1 1 0 170 0 1 2 0 62 0 7 165 2 0
+                                              62 0 34 114 5 0 62 0 45 45 11 11
+                                              134 2 0 62 0 34 111 2 0 62 0 34
+                                              113 3 0 62 0 131 131 133 1 0 137
+                                              0 142 1 0 62 0 117 2 0 62 0 34
+                                              164 2 0 62 0 34 110 2 0 27 0 0
+                                              1)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|ThreeDimensionalViewport| 'NILADIC T) 
