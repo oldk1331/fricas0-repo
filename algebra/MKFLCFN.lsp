@@ -139,8 +139,8 @@
         ((|l| |List| (|InputForm|))
          ($ |Union| (|List| (|InputForm|)) "failed"))
         (SPROG
-         ((|ans| (|List| (|InputForm|))) (#1=#:G152 NIL)
-          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G153 NIL) (|s| NIL))
+         ((|ans| (|List| (|InputForm|))) (#1=#:G153 NIL)
+          (|u| (|Union| (|InputForm|) "failed")) (#2=#:G154 NIL) (|s| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL . #3=(|MKFLCFN;mkLispList|))
@@ -154,7 +154,7 @@
                             ((QEQCAR |u| 1)
                              (PROGN
                               (LETT #1# (CONS 1 "failed") . #3#)
-                              (GO #4=#:G151)))
+                              (GO #4=#:G152)))
                             ('T (LETT |ans| (CONS (QCDR |u|) |ans|) . #3#)))))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (CONS 0 (NREVERSE |ans|)))))
@@ -162,7 +162,7 @@
 
 (SDEFUN |MKFLCFN;mkLisp| ((|s| |InputForm|) ($ |Union| (|InputForm|) "failed"))
         (SPROG
-         ((|b| (|DoubleFloat|)) (|e| #1=(|InputForm|)) (|a| #1#)
+         ((|b| (|DoubleFloat|)) (|e| #1=(|InputForm|)) (|a| #1#) (|ii| #1#)
           (|ll| (|List| (|InputForm|)))
           (|u| (|Union| (|List| (|InputForm|)) "failed")) (|op| (|InputForm|))
           (|l| (|List| (|InputForm|))))
@@ -196,7 +196,18 @@
                              (CONS 0
                                    (SPADCALL (CONS |op| |ll|) (QREFELT $ 11))))
                             ((|MKFLCFN;streq?| |op| "^" $)
-                             (CONS 0 (|MKFLCFN;gencode| "EXPT" |ll| $)))
+                             (COND
+                              ((SPADCALL
+                                (LETT |ii| (SPADCALL |l| 3 (QREFELT $ 47))
+                                      . #3#)
+                                (QREFELT $ 40))
+                               (CONS 0
+                                     (|MKFLCFN;gencode| "EXPT"
+                                      (LIST (SPADCALL |ll| 1 (QREFELT $ 47))
+                                            |ii|)
+                                      $)))
+                              (#2#
+                               (CONS 0 (|MKFLCFN;gencode| "EXPT" |ll| $)))))
                             ((|MKFLCFN;streqlist?| |op|
                               (LIST "exp" "sin" "cos" "tan" "atan" "asin"
                                     "acos" "log" "sinh" "cosh" "tanh" "asinh"
@@ -207,12 +218,12 @@
                                     (SPADCALL
                                      (SPADCALL (SPADCALL |op| (QREFELT $ 17))
                                                (QREFELT $ 18))
-                                     (QREFELT $ 46))
+                                     (QREFELT $ 49))
                                     |ll| $)))
                             ((|MKFLCFN;streq?| |op| "nthRoot" $)
                              (COND
-                              ((SPADCALL (SPADCALL (CDR |l|) (QREFELT $ 48))
-                                         (SPADCALL 2 (QREFELT $ 49))
+                              ((SPADCALL (SPADCALL (CDR |l|) (QREFELT $ 50))
+                                         (SPADCALL 2 (QREFELT $ 51))
                                          (QREFELT $ 16))
                                (CONS 0
                                      (|MKFLCFN;gencode| "SQRT"
@@ -222,18 +233,18 @@
                                      (|MKFLCFN;gencode| "EXPT"
                                       (CONS (|SPADfirst| |ll|)
                                             (LIST
-                                             (SPADCALL (|spadConstant| $ 50)
+                                             (SPADCALL (|spadConstant| $ 48)
                                                        (SPADCALL |ll|
                                                                  (QREFELT $
-                                                                          48))
-                                                       (QREFELT $ 51))))
+                                                                          50))
+                                                       (QREFELT $ 52))))
                                       $)))))
                             ((|MKFLCFN;streq?| |op| "float" $)
                              (SEQ
-                              (LETT |a| (SPADCALL |ll| 1 (QREFELT $ 52)) . #3#)
-                              (LETT |e| (SPADCALL |ll| 2 (QREFELT $ 52)) . #3#)
+                              (LETT |a| (SPADCALL |ll| 1 (QREFELT $ 47)) . #3#)
+                              (LETT |e| (SPADCALL |ll| 2 (QREFELT $ 47)) . #3#)
                               (LETT |b|
-                                    (FLOAT (SPADCALL |ll| 3 (QREFELT $ 52))
+                                    (FLOAT (SPADCALL |ll| 3 (QREFELT $ 47))
                                            MOST-POSITIVE-DOUBLE-FLOAT)
                                     . #3#)
                               (EXIT (CONS 0 (* |a| (EXPT |b| |e|))))))
@@ -241,9 +252,9 @@
 
 (DECLAIM (NOTINLINE |MakeFloatCompiledFunction;|)) 
 
-(DEFUN |MakeFloatCompiledFunction| (#1=#:G171)
+(DEFUN |MakeFloatCompiledFunction| (#1=#:G173)
   (SPROG NIL
-         (PROG (#2=#:G172)
+         (PROG (#2=#:G174)
            (RETURN
             (COND
              ((LETT #2#
@@ -294,9 +305,9 @@
               (81 . |compiledFunction|) (87 . |unaryFunction|)
               |MKFLCFN;makeFloatFunction;SSM;9| (92 . |atom?|)
               (97 . |integer?|) (|Integer|) (102 . |integer|) (|DoubleFloat|)
-              (107 . |convert|) (112 . |destruct|) (117 . |upperCase|)
-              (|List| 8) (122 . |second|) (127 . |convert|) (132 . |One|)
-              (136 . /) (142 . |elt|))
+              (107 . |convert|) (112 . |destruct|) (|List| 8) (117 . |elt|)
+              (123 . |One|) (127 . |upperCase|) (132 . |second|)
+              (137 . |convert|) (142 . /))
            '#(|makeFloatFunction| 148) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
@@ -311,9 +322,9 @@
                                                    7 7 10 31 1 24 23 7 32 2 35
                                                    34 6 7 36 1 35 34 7 37 1 8
                                                    15 0 39 1 8 15 0 40 1 8 41 0
-                                                   42 1 8 0 43 44 1 8 10 0 45 1
-                                                   13 0 0 46 1 47 8 0 48 1 8 0
-                                                   41 49 0 8 0 50 2 8 0 0 0 51
-                                                   2 47 8 0 41 52 3 0 23 6 7 7
-                                                   33 2 0 34 6 7 38)))))
+                                                   42 1 8 0 43 44 1 8 10 0 45 2
+                                                   46 8 0 41 47 0 8 0 48 1 13 0
+                                                   0 49 1 46 8 0 50 1 8 0 41 51
+                                                   2 8 0 0 0 52 3 0 23 6 7 7 33
+                                                   2 0 34 6 7 38)))))
            '|lookupComplete|)) 
