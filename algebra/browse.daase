@@ -14848,11 +14848,11 @@ NIL
   (($ (|PositiveInteger|))
    "\\spad{cyclicGroup(n)} constructs the cyclic group of order \\spad{n} acting on the integers 1,{} ...,{} \\spad{n}."))
  (|directProduct| (($ $ $) "\\spad{directProduct of} two groups"))
- (|subgroup|
+ (|quotient|
   (($ $ (|List| (|List| (|Integer|))))
-   "take subgroup by adding relations specified by addrel")
+   "take quotient by adding relations specified by addrel")
   (($ $ (|List| (|NonNegativeInteger|)))
-   "take subgroup by removing generators specified by remgen"))
+   "take quotient by removing generators specified by remgen"))
  (|refactor|
   (($ $)
    "actual value of generators is not important,{} it is only important that they correspond to the appropriate entries in the relations. Therefore we can refactor the generators without changing the group represented."))
