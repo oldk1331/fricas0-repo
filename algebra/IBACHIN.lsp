@@ -392,10 +392,13 @@
         ((|list| |List| UP) (|polyList| |List| UP) (|i| |Integer|) (|den| R)
          ($ |List| UP))
         (SPROG
-         ((#1=#:G178 NIL) (|pp| NIL) (#2=#:G177 NIL) (|invPoly| (UP))
-          (|n| (|NonNegativeInteger|)) (#3=#:G170 NIL) (|prime| (R))
-          (|factoredDen| (|Factored| R)) (|q| (UP)) (|j| NIL) (|p| (UP))
-          (#4=#:G176 NIL))
+         ((#1=#:G179 NIL) (|pp| NIL) (#2=#:G178 NIL) (|invPoly| (UP))
+          (|n| (|NonNegativeInteger|)) (#3=#:G171 NIL) (|prime| (R))
+          (|factoredDen|
+           (|List|
+            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+          (|q| (UP)) (|j| NIL) (|p| (UP)) (#4=#:G177 NIL))
          (SEQ
           (LETT |q| (|spadConstant| $ 36) . #5=(|IBACHIN;mapChineseToList|))
           (SEQ (LETT |j| 1 . #5#) (LETT #4# (- |i| 1) . #5#) G190
@@ -416,11 +419,12 @@
                       . #5#)
                 (EXIT (LETT |polyList| (CDR |polyList|) . #5#)))
                (LETT |j| (+ |j| 1) . #5#) (GO G190) G191 (EXIT NIL))
-          (LETT |factoredDen| (SPADCALL |den| (QREFELT $ 52)) . #5#)
-          (LETT |prime| (SPADCALL |factoredDen| 1 (QREFELT $ 54)) . #5#)
+          (LETT |factoredDen|
+                (SPADCALL (SPADCALL |den| (QREFELT $ 52)) (QREFELT $ 56))
+                . #5#)
+          (LETT |prime| (QVELT (|SPADfirst| |factoredDen|) 1) . #5#)
           (LETT |n|
-                (PROG1
-                    (LETT #3# (SPADCALL |factoredDen| 1 (QREFELT $ 55)) . #5#)
+                (PROG1 (LETT #3# (QVELT (|SPADfirst| |factoredDen|) 2) . #5#)
                   (|check_subtype2| (>= #3# 0) '(|NonNegativeInteger|)
                                     '(|Integer|) #3#))
                 . #5#)
@@ -444,7 +448,7 @@
                            (SPADCALL
                             (SPADCALL (SPADCALL |pp| |invPoly| (QREFELT $ 49))
                                       |q| (QREFELT $ 49))
-                            (SPADCALL |p| |q| (QREFELT $ 49)) (QREFELT $ 56)))
+                            (SPADCALL |p| |q| (QREFELT $ 49)) (QREFELT $ 57)))
                           #2#)
                          . #5#)))
                  (LETT #1# (CDR #1#) . #5#) (GO G190) G191
@@ -453,7 +457,7 @@
 (SDEFUN |IBACHIN;polyListToMatrix|
         ((|polyList| |List| UP) (|n| |NonNegativeInteger|) ($ |Matrix| R))
         (SPROG
-         ((|poly| (UP)) (#1=#:G185 NIL) (|i| NIL) (#2=#:G186 NIL)
+         ((|poly| (UP)) (#1=#:G186 NIL) (|i| NIL) (#2=#:G187 NIL)
           (|mat| (|Matrix| R)))
          (SEQ
           (LETT |mat| (MAKE_MATRIX1 |n| |n| (|spadConstant| $ 10))
@@ -468,15 +472,15 @@
                 (EXIT
                  (SEQ G190
                       (COND
-                       ((NULL (NULL (SPADCALL |poly| (QREFELT $ 58))))
+                       ((NULL (NULL (SPADCALL |poly| (QREFELT $ 59))))
                         (GO G191)))
                       (SEQ
                        (SPADCALL |mat| |i|
-                                 (+ (SPADCALL |poly| (QREFELT $ 59)) 1)
-                                 (SPADCALL |poly| (QREFELT $ 60))
-                                 (QREFELT $ 62))
+                                 (+ (SPADCALL |poly| (QREFELT $ 60)) 1)
+                                 (SPADCALL |poly| (QREFELT $ 61))
+                                 (QREFELT $ 64))
                        (EXIT
-                        (LETT |poly| (SPADCALL |poly| (QREFELT $ 63)) . #3#)))
+                        (LETT |poly| (SPADCALL |poly| (QREFELT $ 65)) . #3#)))
                       NIL (GO G190) G191 (EXIT NIL))))
                (LETT |i| (PROG1 (|inc_SI| |i|) (LETT #2# (CDR #2#) . #3#))
                      . #3#)
@@ -494,12 +498,12 @@
         (SPROG
          ((|matInv| (|Matrix| R)) (|mat| (|Matrix| R))
           (|basisPolys| (|List| UP)) (|basisPolyLists| (|List| (|List| UP)))
-          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G199 NIL) (|pList| NIL)
+          (|polyList| (|List| UP)) (|i| NIL) (#1=#:G200 NIL) (|pList| NIL)
           (|factorBasisPolyLists| (|List| (|List| UP))) (|denLCM| (R))
-          (#2=#:G198 NIL) (|base| NIL) (#3=#:G197 NIL))
+          (#2=#:G199 NIL) (|base| NIL) (#3=#:G198 NIL))
          (SEQ
           (LETT |denLCM|
-                (SPADCALL (ELT $ 64)
+                (SPADCALL (ELT $ 66)
                           (PROGN
                            (LETT #3# NIL
                                  . #4=(|IBACHIN;chineseRemainder;LLNniR;9|))
@@ -517,14 +521,14 @@
                                         . #4#)))
                                 (LETT #2# (CDR #2#) . #4#) (GO G190) G191
                                 (EXIT (NREVERSE #3#))))
-                          (QREFELT $ 67))
+                          (QREFELT $ 69))
                 . #4#)
           (EXIT
            (COND
-            ((SPADCALL |denLCM| (|spadConstant| $ 19) (QREFELT $ 68))
-             (VECTOR (SPADCALL |n| (|spadConstant| $ 19) (QREFELT $ 69))
+            ((SPADCALL |denLCM| (|spadConstant| $ 19) (QREFELT $ 70))
+             (VECTOR (SPADCALL |n| (|spadConstant| $ 19) (QREFELT $ 71))
                      (|spadConstant| $ 19)
-                     (SPADCALL |n| (|spadConstant| $ 19) (QREFELT $ 69))))
+                     (SPADCALL |n| (|spadConstant| $ 19) (QREFELT $ 71))))
             ('T
              (SEQ
               (LETT |factorBasisPolyLists|
@@ -549,22 +553,22 @@
                          . #4#)
                    (GO G190) G191 (EXIT NIL))
               (LETT |basisPolys|
-                    (SPADCALL (NREVERSE |basisPolyLists|) (QREFELT $ 72))
+                    (SPADCALL (NREVERSE |basisPolyLists|) (QREFELT $ 74))
                     . #4#)
               (LETT |mat|
                     (SPADCALL
                      (SPADCALL (|IBACHIN;polyListToMatrix| |basisPolys| |n| $)
-                               |denLCM| (QREFELT $ 74))
-                     (QREFELT $ 75))
+                               |denLCM| (QREFELT $ 76))
+                     (QREFELT $ 77))
                     . #4#)
-              (LETT |matInv| (SPADCALL |mat| |denLCM| (QREFELT $ 77)) . #4#)
+              (LETT |matInv| (SPADCALL |mat| |denLCM| (QREFELT $ 79)) . #4#)
               (EXIT (VECTOR |mat| |denLCM| |matInv|))))))))) 
 
 (DECLAIM (NOTINLINE |ChineseRemainderToolsForIntegralBases;|)) 
 
-(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G200)
+(DEFUN |ChineseRemainderToolsForIntegralBases| (&REST #1=#:G201)
   (SPROG NIL
-         (PROG (#2=#:G201)
+         (PROG (#2=#:G202)
            (RETURN
             (COND
              ((LETT #2#
@@ -596,7 +600,7 @@
           (LETT |dv$|
                 (LIST '|ChineseRemainderToolsForIntegralBases| DV$1 DV$2 DV$3)
                 . #1#)
-          (LETT $ (GETREFV 79) . #1#)
+          (LETT $ (GETREFV 81) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -614,8 +618,8 @@
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|local| |#2|)
               (|local| |#3|) (0 . |Zero|) (4 . |Zero|) (|NonNegativeInteger|)
               (8 . ^) (|Mapping| 6 6) (14 . |map|)
-              (|Record| (|:| |basis| 61) (|:| |basisDen| 7)
-                        (|:| |basisInv| 61))
+              (|Record| (|:| |basis| 63) (|:| |basisDen| 7)
+                        (|:| |basisInv| 63))
               (|List| 15) (20 . |list|) (25 . |One|) (29 . |One|)
               |IBACHIN;listConjugateBases;R2NniL;2|
               (|SparseUnivariatePolynomial| 6) (33 . |monomial|) (39 . -)
@@ -628,22 +632,24 @@
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (139 . |monicDivide|) (145 . |unmakeSUP|) (150 . *)
               (|Factored| 7) (|DistinctDegreeFactorize| 6 7) (156 . |factor|)
-              (|Integer|) (161 . |nthFactor|) (167 . |nthExponent|)
-              (173 . |monicDivide|) (|Boolean|) (179 . |zero?|)
-              (184 . |degree|) (189 . |leadingCoefficient|) (|Matrix| 7)
-              (194 . |setelt!|) (202 . |reductum|) (207 . |lcm|)
-              (|Mapping| 7 7 7) (|List| 7) (213 . |reduce|) (219 . =)
-              (225 . |scalarMatrix|) (|List| $) (|List| 8) (231 . |concat|)
-              (|ModularHermitianRowReduction| 7) (236 . |rowEchelon|)
-              (242 . |squareTop|)
-              (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 61)
-              (247 . |UpTriBddDenomInv|) |IBACHIN;chineseRemainder;LLNniR;9|)
-           '#(|listConjugateBases| 253 |factorList| 260 |chineseRemainder| 268)
+              (|Union| '"nil" '"sqfr" '"irred" '"prime")
+              (|Record| (|:| |flg| 53) (|:| |fctr| 7) (|:| |xpnt| 62))
+              (|List| 54) (161 . |factorList|) (166 . |monicDivide|)
+              (|Boolean|) (172 . |zero?|) (177 . |degree|)
+              (182 . |leadingCoefficient|) (|Integer|) (|Matrix| 7)
+              (187 . |setelt!|) (195 . |reductum|) (200 . |lcm|)
+              (|Mapping| 7 7 7) (|List| 7) (206 . |reduce|) (212 . =)
+              (218 . |scalarMatrix|) (|List| $) (|List| 8) (224 . |concat|)
+              (|ModularHermitianRowReduction| 7) (229 . |rowEchelon|)
+              (235 . |squareTop|)
+              (|TriangularMatrixOperations| 7 (|Vector| 7) (|Vector| 7) 63)
+              (240 . |UpTriBddDenomInv|) |IBACHIN;chineseRemainder;LLNniR;9|)
+           '#(|listConjugateBases| 246 |factorList| 253 |chineseRemainder| 261)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 78
+                             (|makeByteWordVec2| 80
                                                  '(0 6 0 9 0 7 0 10 2 6 0 0 11
                                                    12 2 7 0 13 0 14 1 16 0 15
                                                    17 0 6 0 18 0 7 0 19 2 21 0
@@ -657,15 +663,14 @@
                                                    2 33 0 42 0 43 2 33 0 7 0 44
                                                    2 33 0 0 0 45 2 33 46 0 0 47
                                                    1 8 0 33 48 2 8 0 0 0 49 1
-                                                   51 50 7 52 2 50 7 0 53 54 2
-                                                   50 53 0 53 55 2 8 46 0 0 56
-                                                   1 8 57 0 58 1 8 11 0 59 1 8
-                                                   7 0 60 4 61 7 0 53 53 7 62 1
-                                                   8 0 0 63 2 7 0 0 0 64 2 66 7
-                                                   65 0 67 2 7 57 0 0 68 2 61 0
-                                                   11 7 69 1 71 0 70 72 2 73 61
-                                                   61 7 74 1 61 0 0 75 2 76 61
-                                                   61 7 77 3 0 16 15 11 11 20 4
-                                                   0 25 6 11 11 11 27 3 0 15 71
-                                                   16 11 78)))))
+                                                   51 50 7 52 1 50 55 0 56 2 8
+                                                   46 0 0 57 1 8 58 0 59 1 8 11
+                                                   0 60 1 8 7 0 61 4 63 7 0 62
+                                                   62 7 64 1 8 0 0 65 2 7 0 0 0
+                                                   66 2 68 7 67 0 69 2 7 58 0 0
+                                                   70 2 63 0 11 7 71 1 73 0 72
+                                                   74 2 75 63 63 7 76 1 63 0 0
+                                                   77 2 78 63 63 7 79 3 0 16 15
+                                                   11 11 20 4 0 25 6 11 11 11
+                                                   27 3 0 15 73 16 11 80)))))
            '|lookupComplete|)) 

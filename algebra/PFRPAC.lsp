@@ -33,7 +33,6 @@
                    (|Algebra| |up|) (|FullyEvalableOver| |up|)
                    (|FullyRetractableTo| |up|)
                    (CATEGORY |domain| (SIGNATURE |expand| (|up| $))
-                    (SIGNATURE |exponent| ((|Integer|) $))
                     (SIGNATURE |makeFR|
                      ($ |up|
                       (|List|
@@ -54,10 +53,6 @@
                                  (|:| |exponent| (|Integer|))))
                       $))
                     (SIGNATURE |irreducibleFactor| ($ |up| (|Integer|)))
-                    (SIGNATURE |nthExponent| ((|Integer|) $ (|Integer|)))
-                    (SIGNATURE |nthFactor| (|up| $ (|Integer|)))
-                    (SIGNATURE |nthFlag|
-                     ((|Union| #7# #8# #9# #10#) $ (|Integer|)))
                     (SIGNATURE |numberOfFactors| ((|NonNegativeInteger|) $))
                     (SIGNATURE |primeFactor| ($ |up| (|Integer|)))
                     (SIGNATURE |sqfrFactor| ($ |up| (|Integer|)))
