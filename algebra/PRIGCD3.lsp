@@ -109,7 +109,7 @@
             (|:| |lczlc|
                  (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
             (|:| |k| (|Integer|))))
-          (#1=#:G142 NIL)
+          (#1=#:G143 NIL)
           (|t0|
            (|Record| (|:| |k| (|NonNegativeInteger|))
                      (|:| |c|
@@ -181,7 +181,7 @@
          (|acc| |List| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
          ($ |List| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|))))
         (SPROG
-         ((#1=#:G156 NIL) (#2=#:G157 NIL) (|t0| NIL)
+         ((#1=#:G157 NIL) (#2=#:G158 NIL) (|t0| NIL)
           (|lp|
            (|List|
             (|Record| (|:| |k| (|NonNegativeInteger|))
@@ -237,7 +237,7 @@
                                            (EXIT
                                             (PROGN
                                              (LETT #1# |acc| . #3#)
-                                             (GO #4=#:G155)))))
+                                             (GO #4=#:G156)))))
                                      ('T (LETT |xvars| (CDR |xvars|) . #3#)))))
                                   NIL (GO G190) G191 (EXIT NIL))
                              (EXIT (CONS |p| |acc|))))))))
@@ -255,12 +255,12 @@
          (|xvars| |List| (|Symbol|)) (|z| |Symbol|)
          ($ |SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
         (SPROG
-         ((#1=#:G174 NIL)
+         ((#1=#:G175 NIL)
           (|mlc1| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-          (#2=#:G161 NIL)
+          (#2=#:G162 NIL)
           (|alc| #3=(|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
           (|g| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-          (#4=#:G180 NIL) (|degp| #5=(|Integer|))
+          (#4=#:G181 NIL) (|degp| #5=(|Integer|))
           (|plcr| #6=(|Record| (|:| |lczlc| #3#) (|:| |k| #5#))) (|mlc| #3#)
           (|degm| #5#) (|mlcr| #6#))
          (SEQ
@@ -276,7 +276,7 @@
                        (EXIT
                         (COND
                          ((< |degp| |degm|)
-                          (PROGN (LETT #4# |p| . #7#) (GO #8=#:G179)))
+                          (PROGN (LETT #4# |p| . #7#) (GO #8=#:G180)))
                          ('T
                           (SEQ (LETT |alc| (QCAR |plcr|) . #7#)
                                (LETT |g|
@@ -349,7 +349,7 @@
          (|lm| |List| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
          (|xvars| |List| (|Symbol|)) (|zvars| |List| (|Symbol|))
          ($ |SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-        (SPROG ((#1=#:G184 NIL) (|m| NIL) (#2=#:G185 NIL) (|z| NIL))
+        (SPROG ((#1=#:G185 NIL) (|m| NIL) (#2=#:G186 NIL) (|z| NIL))
                (SEQ
                 (SEQ (LETT |z| NIL . #3=(|PRIGCD3;alg_reduce;SmpL2LSmp;6|))
                      (LETT #2# |zvars| . #3#) (LETT |m| NIL . #3#)
@@ -374,10 +374,10 @@
          (|xvars| |List| (|Symbol|)) (|zvars| |List| (|Symbol|)) ($ |Boolean|))
         (SPROG
          ((|s| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-          (#1=#:G188 NIL)
+          (#1=#:G189 NIL)
           (|alc| #2=(|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
           (|g| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|)))
-          (#3=#:G195 NIL)
+          (#3=#:G196 NIL)
           (|mquo|
            (|Union| (|SparseMultivariatePolynomial| (|Integer|) (|Symbol|))
                     #4="failed"))
@@ -396,7 +396,7 @@
                    (EXIT
                     (COND
                      ((SPADCALL |a| (|spadConstant| $ 15) (QREFELT $ 31))
-                      (PROGN (LETT #3# 'T . #7#) (GO #8=#:G194)))
+                      (PROGN (LETT #3# 'T . #7#) (GO #8=#:G195)))
                      ('T
                       (SEQ
                        (LETT |alcr| (SPADCALL |a| |xvars| (QREFELT $ 10))
@@ -466,7 +466,7 @@
 
 (DEFUN |PrimGCD| ()
   (SPROG NIL
-         (PROG (#1=#:G197)
+         (PROG (#1=#:G198)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|PrimGCD|) . #2=(|PrimGCD|))

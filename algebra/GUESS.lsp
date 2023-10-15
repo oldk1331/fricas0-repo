@@ -1015,9 +1015,9 @@
         ((|partition| |Partition|) (|partitions| |List| (|Partition|))
          ($ |Union| (|List| (|Integer|)) "failed"))
         (SPROG
-         ((#1=#:G437 NIL) (|j| (|Integer|))
-          (|r| (|Union| (|Partition|) "failed")) (#2=#:G438 NIL) (|p| NIL)
-          (#3=#:G439 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
+         ((#1=#:G439 NIL) (|j| (|Integer|))
+          (|r| (|Union| (|Partition|) "failed")) (#2=#:G440 NIL) (|p| NIL)
+          (#3=#:G441 NIL) (|i| NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
            (SEQ (LETT |n| (LENGTH |partitions|) . #4=(|GUESS;optimiseFactor|))
@@ -1043,7 +1043,7 @@
                             ((SPADCALL |j| 0 (QREFELT $ 158))
                              (PROGN
                               (LETT #1# (CONS 0 (LIST |i| |j|)) . #4#)
-                              (GO #5=#:G436))))))))))
+                              (GO #5=#:G438))))))))))
                      (LETT #2#
                            (PROG1 (CDR #2#) (LETT |i| (|inc_SI| |i|) . #4#))
                            . #4#)
@@ -1100,11 +1100,11 @@
           (|:| |prods| (|List| (|List| (|Integer|))))
           (|:| |terms| (|List| (|Integer|)))))
         (SPROG
-         ((#1=#:G455 NIL) (|terms0| (|List| (|Integer|))) (#2=#:G460 NIL)
+         ((#1=#:G457 NIL) (|terms0| (|List| (|Integer|))) (#2=#:G462 NIL)
           (|p| NIL) (|parts0| (|Reference| (|List| (|Partition|)))) (|i| NIL)
-          (#3=#:G459 NIL)
+          (#3=#:G461 NIL)
           (|prods0| (|Reference| (|List| (|List| (|Integer|)))))
-          (|maxD0| (|Integer|)) (#4=#:G458 NIL) (|addOne0| (|Boolean|)))
+          (|maxD0| (|Integer|)) (#4=#:G460 NIL) (|addOne0| (|Boolean|)))
          (SEQ
           (EXIT
            (SEQ
@@ -1118,7 +1118,7 @@
                      ((NULL |partitions|)
                       (PROGN
                        (LETT #4# (VECTOR |addOne0| 0 NIL NIL) . #5#)
-                       (GO #6=#:G457))))))))
+                       (GO #6=#:G459))))))))
             (LETT |maxD0|
                   (SPADCALL (ELT $ 167)
                             (SPADCALL (ELT $ 168) |partitions| (QREFELT $ 171))
@@ -1264,7 +1264,7 @@
           (LETT |d| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G484 NIL) (|p| NIL) (#3=#:G483 NIL) (|f| NIL))
+            (SPROG ((#2=#:G486 NIL) (|p| NIL) (#3=#:G485 NIL) (|f| NIL))
                    (SEQ
                     (COND
                      ((SPADCALL (SPADCALL |fl| (QREFELT $ 175))
@@ -1362,7 +1362,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G497 NIL) (|p| NIL) (#3=#:G496 NIL))
+            (SPROG ((#2=#:G499 NIL) (|p| NIL) (#3=#:G498 NIL))
                    (SEQ
                     (SPADCALL
                      (PROGN
@@ -1409,7 +1409,7 @@
                   (QREFELT $ 190))) 
 
 (SDEFUN |GUESS;ADEdegreeStream!0| ((|z1| NIL) (|z2| NIL) ($ NIL))
-        (SPROG ((#1=#:G505 NIL))
+        (SPROG ((#1=#:G507 NIL))
                (SPADCALL
                 (COND ((SPADCALL |z1| (QREFELT $ 184)) (|spadConstant| $ 95))
                       ('T
@@ -1552,7 +1552,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G532 NIL) (|i| NIL) (#3=#:G531 NIL))
+            (SPROG ((#2=#:G534 NIL) (|i| NIL) (#3=#:G533 NIL))
                    (SEQ
                     (|GUESS;ADEtestOptimisedGen|
                      (PROGN
@@ -1599,8 +1599,8 @@
 (SDEFUN |GUESS;monomialAsEXPRR|
         ((|fl0| |List| EXPRR) (|partition| |List| (|Integer|)) ($ EXPRR))
         (SPROG
-         ((|fl| (|List| EXPRR)) (#1=#:G568 NIL) (#2=#:G567 NIL) (#3=#:G576 NIL)
-          (|part| NIL) (#4=#:G575 NIL) (|ll| (|List| (|List| (|Integer|)))))
+         ((|fl| (|List| EXPRR)) (#1=#:G570 NIL) (#2=#:G569 NIL) (#3=#:G578 NIL)
+          (|part| NIL) (#4=#:G577 NIL) (|ll| (|List| (|List| (|Integer|)))))
          (SEQ
           (COND ((NULL |partition|) (|spadConstant| $ 199))
                 ('T
@@ -1664,10 +1664,10 @@
 (SDEFUN |GUESS;get_fnames|
         ((|n| |Integer|) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
         (SPROG
-         ((#1=#:G591 NIL) (|sym| NIL) (#2=#:G590 NIL)
-          (|syms| (|List| (|Symbol|))) (#3=#:G589 NIL) (|i| NIL)
-          (#4=#:G588 NIL) (|snums| (|List| (|String|))) (#5=#:G587 NIL)
-          (|q| NIL) (#6=#:G586 NIL) (|n1| (|NonNegativeInteger|)))
+         ((#1=#:G593 NIL) (|sym| NIL) (#2=#:G592 NIL)
+          (|syms| (|List| (|Symbol|))) (#3=#:G591 NIL) (|i| NIL)
+          (#4=#:G590 NIL) (|snums| (|List| (|String|))) (#5=#:G589 NIL)
+          (|q| NIL) (#6=#:G588 NIL) (|n1| (|NonNegativeInteger|)))
          (SEQ
           (LETT |syms| (SPADCALL |options| (QREFELT $ 221))
                 . #7=(|GUESS;get_fnames|))
@@ -1826,7 +1826,7 @@
           (LETT |fakeDSF| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G610 NIL) (|i| NIL) (#3=#:G609 NIL))
+            (SPROG ((#2=#:G612 NIL) (|i| NIL) (#3=#:G611 NIL))
                    (SEQ
                     (|GUESS;ADEtestOptimisedGen|
                      (PROGN
@@ -1906,7 +1906,7 @@
 (SDEFUN |GUESS;substDS|
         ((|s| |UnivariateFormalPowerSeries| F) (|n| |NonNegativeInteger|)
          ($ |UnivariateFormalPowerSeries| F))
-        (SPROG ((#1=#:G626 NIL))
+        (SPROG ((#1=#:G628 NIL))
                (SPADCALL |s|
                          (PROG1 (LETT #1# (+ |n| 1) |GUESS;substDS|)
                            (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
@@ -1919,7 +1919,7 @@
          (|n| |NonNegativeInteger|)
          ($ |UnivariateFormalPowerSeries|
           (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-        (SPROG ((#1=#:G628 NIL))
+        (SPROG ((#1=#:G630 NIL))
                (SPADCALL |s|
                          (PROG1 (LETT #1# (+ |n| 1) |GUESS;substDSF|)
                            (|check_subtype2| (> #1# 0) '(|PositiveInteger|)
@@ -2004,7 +2004,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G646 NIL) (|i| NIL) (#3=#:G645 NIL))
+            (SPROG ((#2=#:G648 NIL) (|i| NIL) (#3=#:G647 NIL))
                    (SEQ
                     (|GUESS;ADEtestOptimisedGen|
                      (PROGN
@@ -2073,7 +2073,7 @@
           (LETT |n| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G667 NIL))
+            (SPROG ((#2=#:G669 NIL))
                    (SPADCALL (SPADCALL |q| (QREFELT $ 235))
                              (PROG1
                                  (LETT #2# (SPADCALL |n| |z1| (QREFELT $ 236))
@@ -2087,8 +2087,8 @@
         ((|f| |U32Vector|) (|n| |NonNegativeInteger|) (|prime| |Integer|)
          (|q| |Integer|) ($ |U32Vector|))
         (SPROG
-         ((Q (|Integer|)) (#1=#:G678 NIL) (|i| NIL) (|qn| (|Integer|))
-          (|r| (|U32Vector|)) (#2=#:G671 NIL) (|d| (|Integer|)))
+         ((Q (|Integer|)) (#1=#:G680 NIL) (|i| NIL) (|qn| (|Integer|))
+          (|r| (|U32Vector|)) (#2=#:G673 NIL) (|d| (|Integer|)))
          (SEQ
           (COND ((ZEROP |n|) |f|)
                 ('T
@@ -2139,7 +2139,7 @@
           (LETT |n| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G679 NIL))
+            (SPROG ((#2=#:G681 NIL))
                    (SPADCALL
                     (SPADCALL (SPADCALL |q| (QREFELT $ 235)) (QREFELT $ 239))
                     (PROG1 (LETT #2# (SPADCALL |n| |z1| (QREFELT $ 236)) NIL)
@@ -2151,10 +2151,10 @@
         ((|f| |U32Vector|) (|partition| |List| (|Integer|)) (|prime| |Integer|)
          (|q| |Integer|) (|dl| |NonNegativeInteger|) ($ |U32Vector|))
         (SPROG
-         ((|fl| (|List| (|U32Vector|))) (#1=#:G685 NIL) (#2=#:G684 NIL)
-          (#3=#:G695 NIL) (|part| NIL) (#4=#:G694 NIL)
+         ((|fl| (|List| (|U32Vector|))) (#1=#:G687 NIL) (#2=#:G686 NIL)
+          (#3=#:G697 NIL) (|part| NIL) (#4=#:G696 NIL)
           (|ll| (|List| (|List| (|Integer|)))) (|d| (|NonNegativeInteger|))
-          (#5=#:G683 NIL) (#6=#:G693 NIL) (|i| NIL) (#7=#:G692 NIL))
+          (#5=#:G685 NIL) (#6=#:G695 NIL) (|i| NIL) (#7=#:G694 NIL))
          (SEQ
           (COND
            ((NULL |partition|)
@@ -2239,7 +2239,7 @@
           (LETT |d| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G701 NIL) (|p| NIL) (#3=#:G700 NIL) (|f| NIL))
+            (SPROG ((#2=#:G703 NIL) (|p| NIL) (#3=#:G702 NIL) (|f| NIL))
                    (SEQ
                     (COND
                      ((SPADCALL (SPADCALL |fl| (QREFELT $ 175))
@@ -2383,7 +2383,7 @@
           (LETT |q| (QREFELT $$ 0) NIL)
           (RETURN
            (PROGN
-            (SPROG ((#1=#:G717 NIL) (|i| NIL) (#2=#:G716 NIL))
+            (SPROG ((#1=#:G719 NIL) (|i| NIL) (#2=#:G718 NIL))
                    (SEQ
                     (|GUESS;ADEtestOptimisedGen|
                      (PROGN
@@ -2453,7 +2453,7 @@
 
 (SDEFUN |GUESS;ShiftSXGF|
         ((|expr| EXPRR) (|x| |Symbol|) (|n| |NonNegativeInteger|) ($ EXPRR))
-        (SPROG ((|l| (|List| EXPRR)) (#1=#:G744 NIL) (|i| NIL) (#2=#:G743 NIL))
+        (SPROG ((|l| (|List| EXPRR)) (#1=#:G746 NIL) (|i| NIL) (#2=#:G745 NIL))
                (SEQ
                 (COND ((ZEROP |n|) |expr|)
                       ('T
@@ -2518,7 +2518,7 @@
 
 (SDEFUN |GUESS;ShiftAXGF|
         ((|l| |NonNegativeInteger|) (|x| |Symbol|) (|f| EXPRR) ($ EXPRR))
-        (SPROG ((|s| (|List| EXPRR)) (#1=#:G755 NIL) (|i| NIL) (#2=#:G754 NIL))
+        (SPROG ((|s| (|List| EXPRR)) (#1=#:G757 NIL) (|i| NIL) (#2=#:G756 NIL))
                (SEQ
                 (COND ((ZEROP |l|) |f|)
                       ('T
@@ -2647,7 +2647,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G774 NIL) (|i| NIL) (#3=#:G773 NIL))
+            (SPROG ((#2=#:G776 NIL) (|i| NIL) (#3=#:G775 NIL))
                    (SEQ
                     (|GUESS;ADEtestGen2|
                      (PROGN
@@ -2738,7 +2738,7 @@
         ((|q| |Symbol|) (|s| |UnivariateFormalPowerSeries| F)
          (|maxMD| |NonNegativeInteger|)
          ($ |List| (|UnivariateFormalPowerSeries| F)))
-        (SPROG ((#1=#:G800 NIL) (|i| NIL) (#2=#:G799 NIL))
+        (SPROG ((#1=#:G802 NIL) (|i| NIL) (#2=#:G801 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|GUESS;qSubstUFPSF|))
@@ -2765,7 +2765,7 @@
 (SDEFUN |GUESS;qSubstEXPRR|
         ((|q| |Symbol|) (|xx| |Symbol|) (|s| EXPRR)
          (|maxMD| |NonNegativeInteger|) ($ |List| EXPRR))
-        (SPROG ((#1=#:G804 NIL) (|i| NIL) (#2=#:G803 NIL))
+        (SPROG ((#1=#:G806 NIL) (|i| NIL) (#2=#:G805 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|GUESS;qSubstEXPRR|))
@@ -2842,12 +2842,12 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|l| NIL) (|vv| NIL) (#2=#:G834 NIL) (|e| NIL) (|vn| NIL)
-              (#3=#:G833 NIL) (|i| NIL) (|r| NIL) (#4=#:G832 NIL)
-              (#5=#:G831 NIL) (|lastv| NIL) (#6=#:G829 NIL) (|v| NIL)
-              (#7=#:G830 NIL) (|w| NIL) (|vv1| NIL) (#8=#:G828 NIL) (|p| NIL)
-              (#9=#:G827 NIL) (O NIL) (#10=#:G812 NIL) (#11=#:G826 NIL)
-              (|qv| NIL) (|d| NIL) (#12=#:G810 NIL) (|f| NIL))
+             ((|l| NIL) (|vv| NIL) (#2=#:G836 NIL) (|e| NIL) (|vn| NIL)
+              (#3=#:G835 NIL) (|i| NIL) (|r| NIL) (#4=#:G834 NIL)
+              (#5=#:G833 NIL) (|lastv| NIL) (#6=#:G831 NIL) (|v| NIL)
+              (#7=#:G832 NIL) (|w| NIL) (|vv1| NIL) (#8=#:G830 NIL) (|p| NIL)
+              (#9=#:G829 NIL) (O NIL) (#10=#:G814 NIL) (#11=#:G828 NIL)
+              (|qv| NIL) (|d| NIL) (#12=#:G812 NIL) (|f| NIL))
              (SEQ
               (COND
                ((SPADCALL (SPADCALL |fl| (QREFELT $ 175))
@@ -3048,7 +3048,7 @@
           (LETT |maxMD| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G839 NIL) (|i| NIL) (#3=#:G838 NIL))
+            (SPROG ((#2=#:G841 NIL) (|i| NIL) (#3=#:G840 NIL))
                    (SEQ
                     (PROGN
                      (LETT #3# NIL NIL)
@@ -3083,10 +3083,10 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|res| NIL) (#2=#:G862 NIL) (|i| NIL) (#3=#:G861 NIL) (|f0| NIL)
-              (|exponents| NIL) (#4=#:G849 NIL) (|oldPartition| NIL)
-              (#5=#:G860 NIL) (#6=#:G859 NIL) (|newPartition| NIL)
-              (#7=#:G843 NIL) (#8=#:G858 NIL) (|p| NIL) (#9=#:G842 NIL))
+             ((|res| NIL) (#2=#:G864 NIL) (|i| NIL) (#3=#:G863 NIL) (|f0| NIL)
+              (|exponents| NIL) (#4=#:G851 NIL) (|oldPartition| NIL)
+              (#5=#:G862 NIL) (#6=#:G861 NIL) (|newPartition| NIL)
+              (#7=#:G845 NIL) (#8=#:G860 NIL) (|p| NIL) (#9=#:G844 NIL))
              (SEQ (LETT |res| NIL NIL) (LETT |exponents| NIL NIL)
                   (LETT |oldPartition|
                         (PROG1
@@ -3454,7 +3454,7 @@
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G885 NIL) (|i| NIL) (#3=#:G884 NIL))
+            (SPROG ((#2=#:G887 NIL) (|i| NIL) (#3=#:G886 NIL))
                    (SEQ
                     (|GUESS;ADEtestGen2|
                      (PROGN
@@ -3599,7 +3599,7 @@
           (|l1|
            (|Stream|
             (|SparseMultivariatePolynomial| F (|NonNegativeInteger|))))
-          (#1=#:G933 NIL) (|e| NIL) (#2=#:G932 NIL))
+          (#1=#:G935 NIL) (|e| NIL) (#2=#:G934 NIL))
          (SEQ
           (LETT |l1|
                 (SPADCALL
@@ -3626,7 +3626,7 @@
            (SPADCALL (SPADCALL |l1| |l2| (QREFELT $ 340)) (QREFELT $ 341)))))) 
 
 (SDEFUN |GUESS;list2UFPSSUPF!0| ((|i| NIL) ($ NIL))
-        (SPROG ((#1=#:G928 NIL))
+        (SPROG ((#1=#:G930 NIL))
                (SPADCALL (|spadConstant| $ 63)
                          (SPADCALL (|spadConstant| $ 176)
                                    (PROG1 (LETT #1# |i| NIL)
@@ -3702,15 +3702,15 @@
          ((|check|
            (|Mapping| (|Union| "good" "reject" "no_solution")
                       (|List| (|SparseUnivariatePolynomial| S))))
-          (#1=#:G994 NIL) (|i| NIL) (#2=#:G993 NIL)
+          (#1=#:G996 NIL) (|i| NIL) (#2=#:G995 NIL)
           (|deg|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|))))
-          (#3=#:G992 NIL) (#4=#:G991 NIL) (#5=#:G990 NIL) (#6=#:G989 NIL)
-          (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary")) (#7=#:G945 NIL)
-          (#8=#:G987 NIL) (|del| (|Integer|)) (|leadingZeros| (|Integer|))
-          (#9=#:G988 NIL) (|el| NIL) (|sigma| (|NonNegativeInteger|))
-          (#10=#:G943 NIL) (|list| (|List| F)))
+          (#3=#:G994 NIL) (#4=#:G993 NIL) (#5=#:G992 NIL) (#6=#:G991 NIL)
+          (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary")) (#7=#:G947 NIL)
+          (#8=#:G989 NIL) (|del| (|Integer|)) (|leadingZeros| (|Integer|))
+          (#9=#:G990 NIL) (|el| NIL) (|sigma| (|NonNegativeInteger|))
+          (#10=#:G945 NIL) (|list| (|List| F)))
          (SEQ
           (EXIT
            (SEQ
@@ -3735,7 +3735,7 @@
                    (EXIT
                     (COND
                      ((SPADCALL |del| |guessDegree| (QREFELT $ 158))
-                      (PROGN (LETT #8# (CONS 1 NIL) . #11#) (GO #12=#:G986)))
+                      (PROGN (LETT #8# (CONS 1 NIL) . #11#) (GO #12=#:G988)))
                      (#13='T
                       (LETT |guessDegree|
                             (PROG1 (LETT #7# (- |guessDegree| |del|) . #11#)
@@ -3904,28 +3904,28 @@
          (|options| |List| (|GuessOption|))
          ($ |Matrix| (|SparseUnivariatePolynomial| S)))
         (SPROG
-         ((#2=#:G1078 NIL) (#3=#:G1100 NIL) (|j| NIL) (|c| (S))
-          (|cl| (|List| S)) (#4=#:G1099 NIL) (#5=#:G1098 NIL) (#6=#:G1097 NIL)
-          (#7=#:G1095 NIL) (|i1| NIL) (#8=#:G1096 NIL) (|i2| NIL)
+         ((#2=#:G1080 NIL) (#3=#:G1102 NIL) (|j| NIL) (|c| (S))
+          (|cl| (|List| S)) (#4=#:G1101 NIL) (#5=#:G1100 NIL) (#6=#:G1099 NIL)
+          (#7=#:G1097 NIL) (|i1| NIL) (#8=#:G1098 NIL) (|i2| NIL)
           (|Mr| (|Matrix| (|SparseUnivariatePolynomial| S)))
           (|m| (|NonNegativeInteger|)) (|rl| (|List| (|Integer|)))
-          (|ce| (|List| (|SparseUnivariatePolynomial| S))) (#9=#:G1094 NIL)
+          (|ce| (|List| (|SparseUnivariatePolynomial| S))) (#9=#:G1096 NIL)
           (|i| NIL) (M (|Matrix| (|SparseUnivariatePolynomial| S)))
           (|vguessListF| (|Vector| (|SparseUnivariatePolynomial| F)))
           (|vguessList| (|Vector| (|SparseUnivariatePolynomial| S)))
           (|guessPolys| (|List| (|SparseUnivariatePolynomial| F)))
-          (#10=#:G1058 NIL)
+          (#10=#:G1060 NIL)
           (|guessList| (|List| (|UnivariateFormalPowerSeries| F)))
           (|guessS| #1#) (|sumEta| (|NonNegativeInteger|))
-          (|eta| (|List| (|NonNegativeInteger|))) (#11=#:G1093 NIL)
-          (#12=#:G1092 NIL)
+          (|eta| (|List| (|NonNegativeInteger|))) (#11=#:G1095 NIL)
+          (#12=#:G1094 NIL)
           (|deg|
            (|Record| (|:| |quotient| (|NonNegativeInteger|))
                      (|:| |remainder| (|NonNegativeInteger|))))
-          (#13=#:G1020 NIL) (#14=#:G1091 NIL) (#15=#:G1090 NIL)
-          (#16=#:G1009 NIL) (#17=#:G1089 NIL) (#18=#:G1088 NIL)
+          (#13=#:G1022 NIL) (#14=#:G1093 NIL) (#15=#:G1092 NIL)
+          (#16=#:G1011 NIL) (#17=#:G1091 NIL) (#18=#:G1090 NIL)
           (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary"))
-          (#19=#:G997 NIL) (#20=#:G1087 NIL) (|d| NIL) (#21=#:G1086 NIL)
+          (#19=#:G999 NIL) (#20=#:G1089 NIL) (|d| NIL) (#21=#:G1088 NIL)
           (|list| (|List| F)))
          (SEQ
           (LETT |list| (|SPADfirst| |lists|)
@@ -4266,7 +4266,7 @@
           (LETT |options| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((|degs| NIL) (M0 NIL) (#2=#:G1117 NIL) (M NIL))
+            (SPROG ((|degs| NIL) (M0 NIL) (#2=#:G1119 NIL) (M NIL))
                    (SEQ
                     (EXIT
                      (COND
@@ -4304,7 +4304,7 @@
                                               (SPADCALL |vs| (QREFELT $ 407))
                                               $)
                                              NIL)
-                                       (GO #3=#:G1116)))))
+                                       (GO #3=#:G1118)))))
                                    ('T (QCDR M0)))
                                   NIL)
                             (EXIT
@@ -4396,15 +4396,15 @@
          (|options| |List| (|GuessOption|)) (|sigma| |Integer|)
          (|bad| |Boolean|) ($ |Union| "good" "reject" "no_solution"))
         (SPROG
-         ((#1=#:G1175 NIL) (#2=#:G1173 NIL) (|res2| (S)) (|p2val| (S))
-          (|p2| (|SparseUnivariatePolynomial| S)) (#3=#:G1185 NIL) (|j| NIL)
-          (#4=#:G1172 NIL) (#5=#:G1184 NIL) (|si| (S)) (#6=#:G1183 NIL)
-          (|i| NIL) (#7=#:G1174 NIL) (|res1| (S)) (#8=#:G1182 NIL)
-          (#9=#:G1181 NIL) (|gl| (|Vector| S)) (#10=#:G1170 NIL)
-          (#11=#:G1180 NIL) (#12=#:G1169 NIL) (#13=#:G1179 NIL)
-          (#14=#:G1178 NIL) (#15=#:G1171 NIL) (|cden| (S)) (|c2| (S))
-          (#16=#:G1139 NIL) (|c1| (S)) (|pp| (S)) (|vd| (S)) (|vi| (F))
-          (#17=#:G1177 NIL) (#18=#:G1176 NIL) (|order| (|Integer|))
+         ((#1=#:G1177 NIL) (#2=#:G1175 NIL) (|res2| (S)) (|p2val| (S))
+          (|p2| (|SparseUnivariatePolynomial| S)) (#3=#:G1187 NIL) (|j| NIL)
+          (#4=#:G1174 NIL) (#5=#:G1186 NIL) (|si| (S)) (#6=#:G1185 NIL)
+          (|i| NIL) (#7=#:G1176 NIL) (|res1| (S)) (#8=#:G1184 NIL)
+          (#9=#:G1183 NIL) (|gl| (|Vector| S)) (#10=#:G1172 NIL)
+          (#11=#:G1182 NIL) (#12=#:G1171 NIL) (#13=#:G1181 NIL)
+          (#14=#:G1180 NIL) (#15=#:G1173 NIL) (|cden| (S)) (|c2| (S))
+          (#16=#:G1141 NIL) (|c1| (S)) (|pp| (S)) (|vd| (S)) (|vi| (F))
+          (#17=#:G1179 NIL) (#18=#:G1178 NIL) (|order| (|Integer|))
           (|j0| (|Integer|)) (|svar| (|SingletonAsOrderedSet|))
           (|max_ind| #19=(|Integer|)) (|degree_loss| #19#) (|gl0| (|Vector| F))
           (|m| (|NonNegativeInteger|))
@@ -4536,14 +4536,14 @@
                                             (PROGN
                                              (LETT #1# (CONS 2 "no_solution")
                                                    . #20#)
-                                             (GO #23=#:G1168)))
+                                             (GO #23=#:G1170)))
                                            ('T
                                             (PROGN
                                              (LETT #1# (CONS 1 "reject")
                                                    . #20#)
                                              (GO #23#))))
                                           . #20#)
-                                    (GO #24=#:G1143)))))))
+                                    (GO #24=#:G1145)))))))
                           #24# (EXIT #15#))
                          (LETT |i| (|inc_SI| |i|) . #20#) (GO G190) G191
                          (EXIT NIL))
@@ -4594,7 +4594,7 @@
                                                          . #20#)
                                                    (GO #23#))
                                                   . #20#)
-                                            (GO #25=#:G1146)))))))
+                                            (GO #25=#:G1148)))))))
                                       #25# (EXIT #12#))
                                      (LETT |j| (+ |j| 1) . #20#) (GO G190) G191
                                      (EXIT NIL))
@@ -4657,7 +4657,7 @@
                                            (LETT #1# (CONS 1 "reject") . #20#)
                                            (GO #23#))
                                           . #20#)
-                                    (GO #26=#:G1150)))))))
+                                    (GO #26=#:G1152)))))))
                               #26# (EXIT #10#))
                              (LETT |i| (|inc_SI| |i|) . #20#) (GO G190) G191
                              (EXIT NIL))
@@ -4736,7 +4736,7 @@
                                                    . #20#)
                                              (GO #23#))))
                                           . #20#)
-                                    (GO #27=#:G1156)))))))
+                                    (GO #27=#:G1158)))))))
                           #27# (EXIT #7#))
                          (LETT |i| (|inc_SI| |i|) . #20#) (GO G190) G191
                          (EXIT NIL))
@@ -4787,7 +4787,7 @@
                                                          . #20#)
                                                    (GO #23#))
                                                   . #20#)
-                                            (GO #28=#:G1159)))))))
+                                            (GO #28=#:G1161)))))))
                                       #28# (EXIT #4#))
                                      (LETT |j| (+ |j| 1) . #20#) (GO G190) G191
                                      (EXIT NIL))
@@ -4848,7 +4848,7 @@
                                            (LETT #1# (CONS 1 "reject") . #20#)
                                            (GO #23#))
                                           . #20#)
-                                    (GO #29=#:G1163)))))))
+                                    (GO #29=#:G1165)))))))
                               #29# (EXIT #2#))
                              (LETT |i| (|inc_SI| |i|) . #20#) (GO G190) G191
                              (EXIT NIL))
@@ -4897,21 +4897,21 @@
          (|options| |List| (|GuessOption|)) (|sigma| |Integer|)
          ($ |Union| "good" "reject" "no_solution"))
         (SPROG
-         ((#2=#:G1238 NIL) (#3=#:G1236 NIL) (|order| (|Integer|))
+         ((#2=#:G1240 NIL) (#3=#:G1238 NIL) (|order| (|Integer|))
           (|c| (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))
           (|d| NIL) (|dmax| (|NonNegativeInteger|))
           (|resiSUPF|
            (|List|
             (|SparseUnivariatePolynomial|
              (|SparseMultivariatePolynomial| F (|NonNegativeInteger|)))))
-          (#4=#:G1243 NIL) (|i| NIL) (#5=#:G1242 NIL) (|testList| #1#)
-          (|flist| (|List| (|PositiveInteger|))) (#6=#:G1217 NIL)
-          (#7=#:G1241 NIL) (#8=#:G1240 NIL) (|maxPow| (|Integer|))
+          (#4=#:G1245 NIL) (|i| NIL) (#5=#:G1244 NIL) (|testList| #1#)
+          (|flist| (|List| (|PositiveInteger|))) (#6=#:G1219 NIL)
+          (#7=#:G1243 NIL) (#8=#:G1242 NIL) (|maxPow| (|Integer|))
           (|maxP| (|Union| (|PositiveInteger|) "arbitrary"))
           (|len| (|NonNegativeInteger|)) (|reject_one_term| (|Boolean|))
-          (#9=#:G1237 NIL)
+          (#9=#:G1239 NIL)
           (|nonZeroCoefficients| (|Union| "one" "several" "none"))
-          (#10=#:G1239 NIL))
+          (#10=#:G1241 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -4941,7 +4941,7 @@
                           (EXIT
                            (PROGN
                             (LETT #9# |$NoValue| . #11#)
-                            (GO #12=#:G1194))))))))))
+                            (GO #12=#:G1196))))))))))
                    (LETT |i| (|inc_SI| |i|) . #11#) (GO G190) G191 (EXIT NIL)))
              #12# (EXIT #9#))
             (COND
@@ -5025,7 +5025,7 @@
                        ((EQL |d| |sigma|)
                         (PROGN
                          (LETT #2# (CONS 0 "good") . #11#)
-                         (GO #14=#:G1235))))))
+                         (GO #14=#:G1237))))))
                     (COND
                      (|reject_one_term|
                       (COND
@@ -5044,7 +5044,7 @@
                            (EXIT
                             (PROGN
                              (LETT #3# |$NoValue| . #11#)
-                             (GO #15=#:G1228))))))
+                             (GO #15=#:G1230))))))
                     (EXIT
                      (COND
                       ((SPADCALL |d| |dmax| (QREFELT $ 222))
@@ -5132,9 +5132,9 @@
           (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
          (|op| |BasicOperator|) (|options| |List| (|GuessOption|)) ($ EXPRR))
         (SPROG
-         ((|ex| (|List| EXPRR)) (#1=#:G1274 NIL) (|p| NIL) (#2=#:G1275 NIL)
-          (|e| NIL) (#3=#:G1273 NIL) (|eq| (EXPRR)) (#4=#:G1271 NIL)
-          (#5=#:G1272 NIL) (#6=#:G1270 NIL) (|dk| (|Symbol|)))
+         ((|ex| (|List| EXPRR)) (#1=#:G1276 NIL) (|p| NIL) (#2=#:G1277 NIL)
+          (|e| NIL) (#3=#:G1275 NIL) (|eq| (EXPRR)) (#4=#:G1273 NIL)
+          (#5=#:G1274 NIL) (#6=#:G1272 NIL) (|dk| (|Symbol|)))
          (SEQ
           (LETT |dk| (SPADCALL |options| (QREFELT $ 201))
                 . #7=(|GUESS;wrapInterpolant|))
@@ -5256,15 +5256,15 @@
           (|:| C (|Mapping| (|List| S) (|NonNegativeInteger|))))
          (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
         (SPROG
-         ((#3=#:G1346 NIL) (|reslist| (|List| EXPRR)) (|res| (EXPRR))
-          (#4=#:G1348 NIL) (|i| NIL) (|exprList| (|List| EXPRR))
+         ((#3=#:G1348 NIL) (|reslist| (|List| EXPRR)) (|res| (EXPRR))
+          (#4=#:G1350 NIL) (|i| NIL) (|exprList| (|List| EXPRR))
           (MS (|Stream| (|Matrix| (|SparseUnivariatePolynomial| S))))
-          (M (|Matrix| (|SparseUnivariatePolynomial| S))) (#5=#:G1344 NIL)
-          (#6=#:G1326 NIL) (#7=#:G1347 NIL) (#8=#:G1341 NIL) (#9=#:G1289 NIL)
+          (M (|Matrix| (|SparseUnivariatePolynomial| S))) (#5=#:G1346 NIL)
+          (#6=#:G1328 NIL) (#7=#:G1349 NIL) (#8=#:G1343 NIL) (#9=#:G1291 NIL)
           (|maxD| (|Union| (|NonNegativeInteger|) "arbitrary"))
           (|guessDegree| #10=(|Integer|)) (|degreeLoss| (|Integer|))
-          (#11=#:G1345 NIL) (#12=#:G1280 NIL) (|o| NIL) (|exprS| #2#)
-          (#13=#:G1340 NIL) (|dk| (|Symbol|)) (|degreeS| #1#)
+          (#11=#:G1347 NIL) (#12=#:G1282 NIL) (|o| NIL) (|exprS| #2#)
+          (#13=#:G1342 NIL) (|dk| (|Symbol|)) (|degreeS| #1#)
           (|op| (|BasicOperator|)) (|listDegree| #10#) (|list| (|List| F)))
          (SEQ
           (EXIT
@@ -5276,7 +5276,7 @@
                       . #14#)
                 (COND
                  ((< |listDegree| 0)
-                  (PROGN (LETT #3# |reslist| . #14#) (GO #15=#:G1339))))
+                  (PROGN (LETT #3# |reslist| . #14#) (GO #15=#:G1341))))
                 (LETT |op|
                       (SPADCALL (SPADCALL |options| (QREFELT $ 472))
                                 (QREFELT $ 473))
@@ -5309,7 +5309,7 @@
                                   (SPADCALL |options| (QREFELT $ 463))
                                   (QVELT D 4))
                                  . #14#)
-                           (GO #16=#:G1279)))))
+                           (GO #16=#:G1281)))))
                        #16# (EXIT #13#))
                       . #14#)
                 (SEQ
@@ -5328,7 +5328,7 @@
                             (QREFELT $ 476))
                            (PROGN
                             (LETT #11# |$NoValue| . #14#)
-                            (GO #17=#:G1337)))
+                            (GO #17=#:G1339)))
                           ('T
                            (SEQ
                             (LETT |degreeLoss|
@@ -5422,7 +5422,7 @@
                                                  ((SPADCALL MS (QREFELT $ 484))
                                                   (PROGN
                                                    (LETT #8# |$NoValue| . #14#)
-                                                   (GO #19=#:G1296)))
+                                                   (GO #19=#:G1298)))
                                                  ('T
                                                   (SEQ
                                                    (LETT M
@@ -5542,7 +5542,7 @@
                                                ((SPADCALL MS (QREFELT $ 484))
                                                 (PROGN
                                                  (LETT #5# |$NoValue| . #14#)
-                                                 (GO #20=#:G1333)))
+                                                 (GO #20=#:G1335)))
                                                ('T
                                                 (SEQ
                                                  (LETT M
@@ -5625,13 +5625,13 @@
         ((|options| |List| (|GuessOption|))
          ($ |List| (|List| (|GuessOption|))))
         (SPROG
-         ((#1=#:G1398 NIL) (#2=#:G1392 NIL) (#3=#:G1390 NIL) (#4=#:G1402 NIL)
-          (#5=#:G1356 NIL) (|i| NIL) (#6=#:G1401 NIL)
+         ((#1=#:G1400 NIL) (#2=#:G1394 NIL) (#3=#:G1392 NIL) (#4=#:G1404 NIL)
+          (#5=#:G1358 NIL) (|i| NIL) (#6=#:G1403 NIL)
           (|minP| (|PositiveInteger|))
-          (|hom?| (|Union| (|PositiveInteger|) (|Boolean|))) (#7=#:G1365 NIL)
-          (#8=#:G1400 NIL) (#9=#:G1399 NIL) (|maxSomos| (|PositiveInteger|))
-          (#10=#:G1350 NIL) (#11=#:G1361 NIL) (#12=#:G1359 NIL)
-          (|maxD| (|NonNegativeInteger|)) (#13=#:G1353 NIL)
+          (|hom?| (|Union| (|PositiveInteger|) (|Boolean|))) (#7=#:G1367 NIL)
+          (#8=#:G1402 NIL) (#9=#:G1401 NIL) (|maxSomos| (|PositiveInteger|))
+          (#10=#:G1352 NIL) (#11=#:G1363 NIL) (#12=#:G1361 NIL)
+          (|maxD| (|NonNegativeInteger|)) (#13=#:G1355 NIL)
           (|Som?| (|Union| (|PositiveInteger|) (|Boolean|))))
          (SEQ
           (EXIT
@@ -5724,7 +5724,7 @@
                                   G191 (EXIT (NREVERSE #9#))))
                             (QREFELT $ 492))
                            . #14#)
-                     (GO #17=#:G1397))))))))))
+                     (GO #17=#:G1399))))))))))
             (SEQ (LETT |hom?| (SPADCALL |options| (QREFELT $ 59)) . #14#)
                  (EXIT
                   (COND
@@ -5799,10 +5799,10 @@
         ((|lists| |List| (|List| F)) (|options| |List| (|GuessOption|))
          ($ |List| EXPRR))
         (SPROG
-         ((|lres| (|List| EXPRR)) (#1=#:G1418 NIL) (|res| (|List| EXPRR))
-          (#2=#:G1420 NIL) (|opts| NIL)
-          (|lopts| (|List| (|List| (|GuessOption|)))) (#3=#:G1408 NIL)
-          (#4=#:G1417 NIL) (#5=#:G1419 NIL) (|li| NIL)
+         ((|lres| (|List| EXPRR)) (#1=#:G1420 NIL) (|res| (|List| EXPRR))
+          (#2=#:G1422 NIL) (|opts| NIL)
+          (|lopts| (|List| (|List| (|GuessOption|)))) (#3=#:G1410 NIL)
+          (#4=#:G1419 NIL) (#5=#:G1421 NIL) (|li| NIL)
           (|nn| (|NonNegativeInteger|)) (|rl| (|List| (|List| F)))
           (|l| (|List| F)))
          (SEQ
@@ -5834,7 +5834,7 @@
                                       (|error|
                                        "guessAlgDep: lists must have equal length")
                                       . #6#)
-                                (GO #7=#:G1404))))))
+                                (GO #7=#:G1406))))))
                            (LETT #5# (CDR #5#) . #6#) (GO G190) G191
                            (EXIT NIL)))
                      #7# (EXIT #4#))
@@ -5872,7 +5872,7 @@
                              ((SPADCALL |options| (QREFELT $ 488))
                               (PROGN
                                (LETT #1# |res| . #6#)
-                               (GO #8=#:G1416))))))
+                               (GO #8=#:G1418))))))
                           (EXIT (LETT |lres| (APPEND |res| |lres|) . #6#)))
                          (LETT #2# (CDR #2#) . #6#) (GO G190) G191 (EXIT NIL))
                     (EXIT (NREVERSE |lres|))))))))
@@ -5885,8 +5885,8 @@
 (SDEFUN |GUESS;guessADE;LLL;100|
         ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
         (SPROG
-         ((|lres| (|List| EXPRR)) (#1=#:G1429 NIL) (|res| (|List| EXPRR))
-          (#2=#:G1430 NIL) (|opts| NIL)
+         ((|lres| (|List| EXPRR)) (#1=#:G1431 NIL) (|res| (|List| EXPRR))
+          (#2=#:G1432 NIL) (|opts| NIL)
           (|lopts| (|List| (|List| (|GuessOption|)))))
          (SEQ
           (EXIT
@@ -5912,7 +5912,7 @@
                        ((NULL (NULL |res|))
                         (COND
                          ((SPADCALL |options| (QREFELT $ 488))
-                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1428))))))
+                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1430))))))
                       (EXIT (LETT |lres| (APPEND |res| |lres|) . #3#)))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (NREVERSE |lres|))))
@@ -5957,8 +5957,8 @@
 (SDEFUN |GUESS;guessFE;LLL;108|
         ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
         (SPROG
-         ((|lres| (|List| EXPRR)) (#1=#:G1458 NIL) (|res| (|List| EXPRR))
-          (#2=#:G1459 NIL) (|opts| NIL)
+         ((|lres| (|List| EXPRR)) (#1=#:G1460 NIL) (|res| (|List| EXPRR))
+          (#2=#:G1461 NIL) (|opts| NIL)
           (|lopts| (|List| (|List| (|GuessOption|)))))
          (SEQ
           (EXIT
@@ -5984,7 +5984,7 @@
                        ((NULL (NULL |res|))
                         (COND
                          ((SPADCALL |options| (QREFELT $ 488))
-                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1457))))))
+                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1459))))))
                       (EXIT (LETT |lres| (APPEND |res| |lres|) . #3#)))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (NREVERSE |lres|))))
@@ -6005,7 +6005,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|lres| NIL) (#2=#:G1468 NIL) (|res| NIL) (#3=#:G1469 NIL)
+             ((|lres| NIL) (#2=#:G1470 NIL) (|res| NIL) (#3=#:G1471 NIL)
               (|opts| NIL) (|lopts| NIL))
              (SEQ
               (EXIT
@@ -6033,7 +6033,7 @@
                            ((NULL (SPADCALL |res| (QREFELT $ 515)))
                             (COND
                              ((SPADCALL |options| (QREFELT $ 488))
-                              (PROGN (LETT #2# |res| NIL) (GO #4=#:G1467))))))
+                              (PROGN (LETT #2# |res| NIL) (GO #4=#:G1469))))))
                           (EXIT
                            (LETT |lres| (SPADCALL |res| |lres| (QREFELT $ 516))
                                  NIL)))
@@ -6062,8 +6062,8 @@
 (SDEFUN |GUESS;guessRec;LLL;112|
         ((|list| |List| F) (|options| |List| (|GuessOption|)) ($ |List| EXPRR))
         (SPROG
-         ((|lres| (|List| EXPRR)) (#1=#:G1483 NIL) (|res| (|List| EXPRR))
-          (#2=#:G1484 NIL) (|opts| NIL)
+         ((|lres| (|List| EXPRR)) (#1=#:G1485 NIL) (|res| (|List| EXPRR))
+          (#2=#:G1486 NIL) (|opts| NIL)
           (|lopts| (|List| (|List| (|GuessOption|)))))
          (SEQ
           (EXIT
@@ -6089,7 +6089,7 @@
                        ((NULL (NULL |res|))
                         (COND
                          ((SPADCALL |options| (QREFELT $ 488))
-                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1482))))))
+                          (PROGN (LETT #1# |res| . #3#) (GO #4=#:G1484))))))
                       (EXIT (LETT |lres| (APPEND |res| |lres|) . #3#)))
                      (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                 (EXIT (NREVERSE |lres|))))
@@ -6135,7 +6135,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((|lres| NIL) (#2=#:G1507 NIL) (|res| NIL) (#3=#:G1508 NIL)
+             ((|lres| NIL) (#2=#:G1509 NIL) (|res| NIL) (#3=#:G1510 NIL)
               (|opts| NIL) (|lopts| NIL))
              (SEQ
               (EXIT
@@ -6163,7 +6163,7 @@
                            ((NULL (SPADCALL |res| (QREFELT $ 515)))
                             (COND
                              ((SPADCALL |options| (QREFELT $ 488))
-                              (PROGN (LETT #2# |res| NIL) (GO #4=#:G1506))))))
+                              (PROGN (LETT #2# |res| NIL) (GO #4=#:G1508))))))
                           (EXIT
                            (LETT |lres| (SPADCALL |res| |lres| (QREFELT $ 516))
                                  NIL)))
@@ -6219,16 +6219,16 @@
          (|ops| |List| (|Symbol|)) (|options| |List| (|GuessOption|))
          ($ |List| EXPRR))
         (SPROG
-         ((|res| (|List| EXPRR)) (#1=#:G1619 NIL) (|guess| NIL)
+         ((|res| (|List| EXPRR)) (#1=#:G1621 NIL) (|guess| NIL)
           (|sumGuess| (|List| EXPRR)) (|summ| (EXPRR)) (|init| (EXPRR))
-          (#2=#:G1618 NIL) (|var| (|Symbol|)) (|sumList| (|List| F))
-          (#3=#:G1617 NIL) (|i| NIL) (#4=#:G1616 NIL) (#5=#:G1610 NIL)
-          (#6=#:G1615 NIL) (|prodGuess| (|List| EXPRR)) (|prod| (EXPRR))
-          (#7=#:G1614 NIL) (|prodList| (|List| F)) (#8=#:G1613 NIL)
-          (#9=#:G1612 NIL)
+          (#2=#:G1620 NIL) (|var| (|Symbol|)) (|sumList| (|List| F))
+          (#3=#:G1619 NIL) (|i| NIL) (#4=#:G1618 NIL) (#5=#:G1612 NIL)
+          (#6=#:G1617 NIL) (|prodGuess| (|List| EXPRR)) (|prod| (EXPRR))
+          (#7=#:G1616 NIL) (|prodList| (|List| F)) (#8=#:G1615 NIL)
+          (#9=#:G1614 NIL)
           (|newMaxLevel| (|Union| (|NonNegativeInteger|) "arbitrary"))
-          (#10=#:G1531 NIL) (#11=#:G1611 NIL) (|guesser| NIL)
-          (|len| (|PositiveInteger|)) (#12=#:G1527 NIL) (|xx| (EXPRR)))
+          (#10=#:G1533 NIL) (#11=#:G1613 NIL) (|guesser| NIL)
+          (|len| (|PositiveInteger|)) (#12=#:G1529 NIL) (|xx| (EXPRR)))
          (SEQ
           (EXIT
            (SEQ
@@ -6255,7 +6255,7 @@
                   . #13#)
             (COND
              ((SPADCALL |len| 1 (QREFELT $ 532))
-              (PROGN (LETT #5# |res| . #13#) (GO #14=#:G1609))))
+              (PROGN (LETT #5# |res| . #13#) (GO #14=#:G1611))))
             (SEQ (LETT |guesser| NIL . #13#) (LETT #11# |guessers| . #13#) G190
                  (COND
                   ((OR (ATOM #11#)
@@ -6509,9 +6509,9 @@
 
 (DECLAIM (NOTINLINE |Guess;|)) 
 
-(DEFUN |Guess| (&REST #1=#:G1627)
+(DEFUN |Guess| (&REST #1=#:G1629)
   (SPROG NIL
-         (PROG (#2=#:G1628)
+         (PROG (#2=#:G1630)
            (RETURN
             (COND
              ((LETT #2#

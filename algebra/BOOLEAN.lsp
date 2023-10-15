@@ -82,7 +82,7 @@
 
 (DEFUN |Boolean| ()
   (SPROG NIL
-         (PROG (#1=#:G352)
+         (PROG (#1=#:G377)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Boolean|) . #2=(|Boolean|))

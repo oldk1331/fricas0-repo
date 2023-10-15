@@ -821,19 +821,19 @@
           (|base|
            (|Record| (|:| |basis| (|Matrix| R)) (|:| |basisDen| R)
                      (|:| |basisInv| (|Matrix| R))))
-          (|degPp| (|NonNegativeInteger|)) (#1=#:G192 NIL) (|pp| NIL)
-          (#2=#:G193 NIL) (|k| NIL) (#3=#:G194 NIL) (|qq| NIL)
+          (|degPp| (|NonNegativeInteger|)) (#1=#:G193 NIL) (|pp| NIL)
+          (#2=#:G194 NIL) (|k| NIL) (#3=#:G195 NIL) (|qq| NIL)
           (|degPrime| (|NonNegativeInteger|)) (|henselFactors| #4=(|List| UP))
           (|henselInfo| (|Record| (|:| |plist| #4#) (|:| |modulo| R)))
           (|deg| (|PositiveInteger|)) (#5=#:G172 NIL) (|primaries| (|List| UP))
-          (#6=#:G191 NIL) (|ff| NIL) (#7=#:G190 NIL)
+          (#6=#:G192 NIL) (|ff| NIL) (#7=#:G191 NIL)
           (|redPrimaries| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#8=#:G168 NIL) (#9=#:G189 NIL) (|f| NIL) (#10=#:G188 NIL)
+          (#8=#:G168 NIL) (#9=#:G190 NIL) (|f| NIL) (#10=#:G189 NIL)
           (|expons| (|List| (|NonNegativeInteger|))) (#11=#:G166 NIL)
-          (#12=#:G187 NIL) (#13=#:G186 NIL) (|primes| (|List| UP))
-          (#14=#:G185 NIL) (#15=#:G184 NIL)
+          (#12=#:G188 NIL) (#13=#:G187 NIL) (|primes| (|List| UP))
+          (#14=#:G186 NIL) (#15=#:G185 NIL)
           (|redPrimes| (|List| (|SparseUnivariatePolynomial| |sae|)))
-          (#16=#:G183 NIL) (#17=#:G182 NIL)
+          (#16=#:G184 NIL) (#17=#:G183 NIL)
           (|factorListSAE|
            (|List|
             (|Record| (|:| |factor| (|SparseUnivariatePolynomial| |sae|))
@@ -1151,7 +1151,7 @@
 
 (SDEFUN |PWFFINTB;listSquaredFactors| ((|px| R) ($ |List| R))
         (SPROG
-         ((|ans| (|List| R)) (#1=#:G204 NIL) (|f| NIL)
+         ((|ans| (|List| R)) (#1=#:G205 NIL) (|f| NIL)
           (|factored| (|Factored| R)))
          (SEQ (LETT |ans| NIL . #2=(|PWFFINTB;listSquaredFactors|))
               (LETT |factored| (SPADCALL |px| (QREFELT $ 74)) . #2#)
@@ -1178,7 +1178,7 @@
           (|lb|
            (|Record| (|:| |basis| #3#) (|:| |basisDen| R) (|:| |basisInv| #2#)
                      (|:| |discr| R)))
-          (#4=#:G212 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
+          (#4=#:G213 NIL) (|prime| NIL) (|redDisc| (R)) (|singList| (|List| R))
           (|n| (|PositiveInteger|)) (|p| (UP)))
          (SEQ
           (LETT |p| (SPADCALL (QREFELT $ 70))
@@ -1235,9 +1235,9 @@
 
 (DECLAIM (NOTINLINE |PAdicWildFunctionFieldIntegralBasis;|)) 
 
-(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G213)
+(DEFUN |PAdicWildFunctionFieldIntegralBasis| (&REST #1=#:G214)
   (SPROG NIL
-         (PROG (#2=#:G214)
+         (PROG (#2=#:G215)
            (RETURN
             (COND
              ((LETT #2#

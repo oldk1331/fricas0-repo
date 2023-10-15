@@ -649,7 +649,7 @@
         (SPROG
          ((|e| (|OutputForm|)) (|l| (|List| (|OutputForm|)))
           (|fr| (|Stream| (|Record| (|:| |num| R) (|:| |den| R)))) (|n| NIL)
-          (#1=#:G294 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
+          (#1=#:G295 NIL) (|count| (|NonNegativeInteger|)) (|wh| (R)))
          (SEQ (LETT |wh| (QCAR (QCAR |c|)) . #2=(|CONTFRAC;coerce;$Of;45|))
               (LETT |fr| (QCDR (QCAR |c|)) . #2#)
               (EXIT
@@ -707,9 +707,9 @@
 
 (DECLAIM (NOTINLINE |ContinuedFraction;|)) 
 
-(DEFUN |ContinuedFraction| (#1=#:G306)
+(DEFUN |ContinuedFraction| (#1=#:G307)
   (SPROG NIL
-         (PROG (#2=#:G307)
+         (PROG (#2=#:G308)
            (RETURN
             (COND
              ((LETT #2#

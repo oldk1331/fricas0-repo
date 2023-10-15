@@ -79,7 +79,7 @@
 
 (SDEFUN |NGROEB;gbasis| ((|Pol| |List| |Dpol|) ($ |List| |Dpol|))
         (SPROG
-         ((#1=#:G158 NIL) (|x| NIL) (#2=#:G157 NIL) (|redPols| (|List| |Dpol|))
+         ((#1=#:G161 NIL) (|x| NIL) (#2=#:G160 NIL) (|redPols| (|List| |Dpol|))
           (|basPols|
            (|List|
             (|Record| (|:| |totdeg| (|NonNegativeInteger|))
@@ -94,13 +94,13 @@
             (|Record| (|:| |lcmfij| |Expon|)
                       (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                       (|:| |polj| |Dpol|))))
-          (#3=#:G156 NIL) (#4=#:G155 NIL) (#5=#:G150 NIL) (|h| (|Dpol|))
+          (#3=#:G159 NIL) (#4=#:G158 NIL) (#5=#:G153 NIL) (|h| (|Dpol|))
           (|s| (|Dpol|))
           (D0
            (|Record| (|:| |lcmfij| |Expon|)
                      (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                      (|:| |polj| |Dpol|)))
-          (#6=#:G154 NIL) (#7=#:G153 NIL) (#8=#:G152 NIL) (#9=#:G151 NIL)
+          (#6=#:G157 NIL) (#7=#:G156 NIL) (#8=#:G155 NIL) (#9=#:G154 NIL)
           (|toth| (|NonNegativeInteger|)) (|Pol1| (|List| |Dpol|)))
          (SEQ
           (LETT |Pol1|
@@ -185,7 +185,7 @@
                               (EXIT
                                (PROGN
                                 (LETT #5# |$NoValue| . #10#)
-                                (GO #11=#:G146)))))
+                                (GO #11=#:G149)))))
                         ('T
                          (SEQ
                           (LETT D1
@@ -275,7 +275,7 @@
          ($ |Dpol|))
         (SPROG
          ((|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|))) (|fj| (|Dpol|))
-          (#1=#:G165 NIL) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
+          (#1=#:G168 NIL) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
          (SEQ (LETT |Tij| (QVELT |p| 0) . #2=(|NGROEB;sPol;RDpol;9|))
               (LETT |fi| (QVELT |p| 2) . #2#) (LETT |fj| (QVELT |p| 3) . #2#)
               (LETT |fi|
@@ -503,9 +503,9 @@
 
 (DECLAIM (NOTINLINE |NGroebnerPackage;|)) 
 
-(DEFUN |NGroebnerPackage| (&REST #1=#:G203)
+(DEFUN |NGroebnerPackage| (&REST #1=#:G206)
   (SPROG NIL
-         (PROG (#2=#:G204)
+         (PROG (#2=#:G207)
            (RETURN
             (COND
              ((LETT #2#

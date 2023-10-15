@@ -118,7 +118,7 @@
                         (EXIT |r|))))))) 
 
 (SDEFUN |LSAGG-;insert!;SAIA;7| ((|s| S) (|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G198 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G203 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;insert!;SAIA;7|))
@@ -142,7 +142,7 @@
                          (EXIT |x|)))))))) 
 
 (SDEFUN |LSAGG-;insert!;2AIA;8| ((|w| A) (|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G202 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (|y| (A)) (#1=#:G207 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;insert!;2AIA;8|))
@@ -209,7 +209,7 @@
                              (EXIT |x|)))))))) 
 
 (SDEFUN |LSAGG-;delete!;AIA;10| ((|x| A) (|i| |Integer|) ($ A))
-        (SPROG ((|y| (A)) (#1=#:G215 NIL) (|m| (|Integer|)))
+        (SPROG ((|y| (A)) (#1=#:G220 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;delete!;AIA;10|))
@@ -234,7 +234,7 @@
 (SDEFUN |LSAGG-;delete!;AUsA;11|
         ((|x| A) (|i| |UniversalSegment| (|Integer|)) ($ A))
         (SPROG
-         ((#1=#:G222 NIL) (|t| (A)) (#2=#:G221 NIL) (#3=#:G220 NIL)
+         ((#1=#:G227 NIL) (|t| (A)) (#2=#:G226 NIL) (#3=#:G225 NIL)
           (|h| (|Integer|)) (|m| (|Integer|)) (|l| (|Integer|)))
          (SEQ
           (LETT |l| (SPADCALL |i| (QREFELT $ 39))
@@ -328,7 +328,7 @@
 
 (SDEFUN |LSAGG-;mergeSort|
         ((|f| |Mapping| (|Boolean|) S S) (|p| A) (|n| |Integer|) ($ A))
-        (SPROG ((|q| (A)) (|l| (|NonNegativeInteger|)) (#1=#:G244 NIL))
+        (SPROG ((|q| (A)) (|l| (|NonNegativeInteger|)) (#1=#:G249 NIL))
                (SEQ
                 (COND
                  ((EQL |n| 2)
@@ -356,7 +356,7 @@
 
 (SDEFUN |LSAGG-;sorted?;MAB;15|
         ((|f| |Mapping| (|Boolean|) S S) (|l| A) ($ |Boolean|))
-        (SPROG ((|p| (A)) (#1=#:G261 NIL))
+        (SPROG ((|p| (A)) (#1=#:G266 NIL))
                (SEQ
                 (EXIT
                  (COND ((SPADCALL |l| (QREFELT $ 16)) 'T)
@@ -375,7 +375,7 @@
                                    (SPADCALL (SPADCALL |l| (QREFELT $ 18))
                                              (SPADCALL |p| (QREFELT $ 18))
                                              |f|))
-                                  (PROGN (LETT #1# NIL . #2#) (GO #3=#:G260)))
+                                  (PROGN (LETT #1# NIL . #2#) (GO #3=#:G265)))
                                  ('T
                                   (LETT |p|
                                         (SPADCALL (LETT |l| |p| . #2#)
@@ -423,7 +423,7 @@
                     (EXIT |r|)))) 
 
 (SDEFUN |LSAGG-;new;NniSA;18| ((|n| |NonNegativeInteger|) (|s| S) ($ A))
-        (SPROG ((|l| (A)) (#1=#:G275 NIL) (|k| NIL))
+        (SPROG ((|l| (A)) (#1=#:G280 NIL) (|k| NIL))
                (SEQ
                 (LETT |l| (SPADCALL (QREFELT $ 12))
                       . #2=(|LSAGG-;new;NniSA;18|))
@@ -502,7 +502,7 @@
                 (EXIT (SPADCALL |y| (QREFELT $ 47)))))) 
 
 (SDEFUN |LSAGG-;copyInto!;2AIA;22| ((|y| A) (|x| A) (|s| |Integer|) ($ A))
-        (SPROG ((|z| (A)) (#1=#:G295 NIL) (|m| (|Integer|)))
+        (SPROG ((|z| (A)) (#1=#:G300 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |y| (QREFELT $ 31))
                       . #2=(|LSAGG-;copyInto!;2AIA;22|))
@@ -537,7 +537,7 @@
 
 (SDEFUN |LSAGG-;position;SA2I;23|
         ((|w| S) (|x| A) (|s| |Integer|) ($ |Integer|))
-        (SPROG ((|k| NIL) (#1=#:G303 NIL) (|m| (|Integer|)))
+        (SPROG ((|k| NIL) (#1=#:G308 NIL) (|m| (|Integer|)))
                (SEQ
                 (LETT |m| (SPADCALL |x| (QREFELT $ 31))
                       . #2=(|LSAGG-;position;SA2I;23|))
@@ -605,7 +605,7 @@
             (SPADCALL |x| (SPADCALL |p| (QREFELT $ 18)) (QREFELT $ 61)))))) 
 
 (SDEFUN |LSAGG-;<;2AB;25| ((|x| A) (|y| A) ($ |Boolean|))
-        (SPROG ((#1=#:G324 NIL))
+        (SPROG ((#1=#:G329 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -627,7 +627,44 @@
                                             (SPADCALL |y| (QREFELT $ 18))
                                             (QREFELT $ 64))
                                   . #2=(|LSAGG-;<;2AB;25|))
-                            (GO #3=#:G323)))
+                            (GO #3=#:G328)))
+                          ('T
+                           (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 17)) . #2#)
+                                (EXIT
+                                 (LETT |y| (SPADCALL |y| (QREFELT $ 17))
+                                       . #2#)))))))
+                       NIL (GO G190) G191 (EXIT NIL))
+                  (EXIT
+                   (COND
+                    ((SPADCALL |x| (QREFELT $ 16))
+                     (NULL (SPADCALL |y| (QREFELT $ 16))))
+                    ('T NIL)))))
+                #3# (EXIT #1#)))) 
+
+(SDEFUN |LSAGG-;smaller?;2AB;26| ((|x| A) (|y| A) ($ |Boolean|))
+        (SPROG ((#1=#:G338 NIL))
+               (SEQ
+                (EXIT
+                 (SEQ
+                  (SEQ G190
+                       (COND
+                        ((NULL
+                          (COND ((SPADCALL |x| (QREFELT $ 16)) NIL)
+                                ('T (NULL (SPADCALL |y| (QREFELT $ 16))))))
+                         (GO G191)))
+                       (SEQ
+                        (EXIT
+                         (COND
+                          ((SPADCALL (SPADCALL |x| (QREFELT $ 18))
+                                     (SPADCALL |y| (QREFELT $ 18))
+                                     (QREFELT $ 51))
+                           (PROGN
+                            (LETT #1#
+                                  (SPADCALL (SPADCALL |x| (QREFELT $ 18))
+                                            (SPADCALL |y| (QREFELT $ 18))
+                                            (QREFELT $ 66))
+                                  . #2=(|LSAGG-;smaller?;2AB;26|))
+                            (GO #3=#:G337)))
                           ('T
                            (SEQ (LETT |x| (SPADCALL |x| (QREFELT $ 17)) . #2#)
                                 (EXIT
@@ -649,7 +686,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ListAggregate&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ListAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 67) . #1#)
+          (LETT $ (GETREFV 69) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|stuffDomainSlots| $)
@@ -672,6 +709,10 @@
           (COND
            ((|HasCategory| |#2| '(|OrderedSet|))
             (QSETREFV $ 65 (CONS (|dispatchFunction| |LSAGG-;<;2AB;25|) $))))
+          (COND
+           ((|HasCategory| |#2| '(|Comparable|))
+            (QSETREFV $ 67
+                      (CONS (|dispatchFunction| |LSAGG-;smaller?;2AB;26|) $))))
           $))) 
 
 (MAKEPROP '|ListAggregate&| '|infovec|
@@ -696,16 +737,17 @@
               |LSAGG-;copy;2A;21| (128 . |setfirst!|)
               |LSAGG-;copyInto!;2AIA;22| (134 . |position|) (141 . =)
               (147 . |remove!|) (153 . |removeDuplicates!|) (158 . <) (164 . <)
-              (|Mapping| 7 7))
-           '#(|sorted?| 170 |sort!| 176 |select!| 182 |reverse!| 188
-              |removeDuplicates!| 193 |remove!| 198 |reduce| 204 |position| 225
-              |new| 238 |merge!| 244 |merge| 251 |map| 258 |list| 265 |insert!|
-              270 |find| 284 |delete!| 290 |copyInto!| 302 |copy| 309 < 314)
+              (170 . |smaller?|) (176 . |smaller?|) (|Mapping| 7 7))
+           '#(|sorted?| 182 |sort!| 188 |smaller?| 194 |select!| 200 |reverse!|
+              206 |removeDuplicates!| 211 |remove!| 216 |reduce| 222 |position|
+              243 |new| 256 |merge!| 262 |merge| 269 |map| 276 |list| 283
+              |insert!| 288 |find| 302 |delete!| 308 |copyInto!| 320 |copy| 327
+              < 332)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 65
+                             (|makeByteWordVec2| 67
                                                  '(1 6 8 0 9 0 6 0 12 2 6 0 7 0
                                                    13 1 6 15 0 16 1 6 0 0 17 1
                                                    6 7 0 18 3 6 7 19 0 7 20 1 6
@@ -719,18 +761,19 @@
                                                    15 0 56 2 6 7 0 7 58 3 0 30
                                                    7 0 30 60 2 7 15 0 0 61 2 6
                                                    0 26 0 62 1 0 0 0 63 2 7 15
-                                                   0 0 64 2 0 15 0 0 65 2 0 15
-                                                   10 0 49 2 0 0 10 0 11 2 0 0
-                                                   26 0 27 1 0 0 0 55 1 0 0 0
-                                                   63 2 0 0 26 0 36 3 0 7 19 0
-                                                   7 50 4 0 7 19 0 7 7 52 2 0 7
-                                                   19 0 21 2 0 30 26 0 46 3 0
-                                                   30 7 0 30 60 2 0 0 8 7 53 3
-                                                   0 0 10 0 0 29 3 0 0 10 0 0
-                                                   24 3 0 0 19 0 0 54 1 0 0 7
-                                                   14 3 0 0 7 0 30 33 3 0 0 0 0
-                                                   30 35 2 0 44 26 0 45 2 0 0 0
-                                                   38 43 2 0 0 0 30 37 3 0 0 0
-                                                   0 30 59 1 0 0 0 57 2 0 15 0
-                                                   0 65)))))
+                                                   0 0 64 2 0 15 0 0 65 2 7 15
+                                                   0 0 66 2 0 15 0 0 67 2 0 15
+                                                   10 0 49 2 0 0 10 0 11 2 0 15
+                                                   0 0 67 2 0 0 26 0 27 1 0 0 0
+                                                   55 1 0 0 0 63 2 0 0 26 0 36
+                                                   4 0 7 19 0 7 7 52 2 0 7 19 0
+                                                   21 3 0 7 19 0 7 50 2 0 30 26
+                                                   0 46 3 0 30 7 0 30 60 2 0 0
+                                                   8 7 53 3 0 0 10 0 0 29 3 0 0
+                                                   10 0 0 24 3 0 0 19 0 0 54 1
+                                                   0 0 7 14 3 0 0 0 0 30 35 3 0
+                                                   0 7 0 30 33 2 0 44 26 0 45 2
+                                                   0 0 0 30 37 2 0 0 0 38 43 3
+                                                   0 0 0 0 30 59 1 0 0 0 57 2 0
+                                                   15 0 0 65)))))
            '|lookupComplete|)) 

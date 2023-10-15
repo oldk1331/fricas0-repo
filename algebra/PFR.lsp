@@ -161,7 +161,7 @@
         (SPROG
          ((|d| (|Integer|)) (|sp| (|SparseUnivariatePolynomial| R))
           (|l| (|List| (|Record| (|:| |num| R) (|:| |den| (|Factored| R)))))
-          (|f| (R)) (|e| (|Integer|)) (#1=#:G188 NIL) (|s| NIL) (|b| ($)))
+          (|f| (R)) (|e| (|Integer|)) (#1=#:G189 NIL) (|s| NIL) (|b| ($)))
          (SEQ
           (LETT |b| (SPADCALL |a| (QREFELT $ 39))
                 . #2=(|PFR;padicFraction;2$;6|))
@@ -232,7 +232,7 @@
          ((|b| ($)) (|e| (|Integer|)) (|f| (R))
           (|s| (|Record| (|:| |num| R) (|:| |den| (|Factored| R))))
           (|bf| (|List| (|Record| (|:| |num| R) (|:| |den| (|Factored| R)))))
-          (|bw| (R)) (#1=#:G192 NIL) (#2=#:G200 NIL) (|t| NIL)
+          (|bw| (R)) (#1=#:G194 NIL) (#2=#:G202 NIL) (|t| NIL)
           (|af| (|List| (|Record| (|:| |num| R) (|:| |den| (|Factored| R))))))
          (SEQ
           (COND ((SPADCALL 2 (LENGTH (QCDR |a|)) (QREFELT $ 50)) |a|)
@@ -320,7 +320,7 @@
         (CONS (SPADCALL |n| (QREFELT $ 54)) NIL)) 
 
 (SDEFUN |PFR;coerce;$F;13| ((|a| $) ($ |Fraction| R))
-        (SPROG ((|q| (|Fraction| R)) (#1=#:G214 NIL) (|s| NIL))
+        (SPROG ((|q| (|Fraction| R)) (#1=#:G216 NIL) (|s| NIL))
                (SEQ
                 (LETT |q| (SPADCALL (QCAR |a|) (QREFELT $ 57))
                       . #2=(|PFR;coerce;$F;13|))
@@ -342,7 +342,7 @@
                 (EXIT |q|)))) 
 
 (SDEFUN |PFR;coerce;F$;14| ((|q| |Fraction| (|Factored| R)) ($ $))
-        (SPROG ((|r1| (R)) (|u| (R)) (#1=#:G217 NIL))
+        (SPROG ((|r1| (R)) (|u| (R)) (#1=#:G219 NIL))
                (SEQ
                 (LETT |u|
                       (PROG2
@@ -421,7 +421,7 @@
 (SDEFUN |PFR;wholePart;$R;21| ((|a| $) ($ R)) (QCAR |a|)) 
 
 (SDEFUN |PFR;partialFraction;RF$;22| ((|nm| R) (|dn| |Factored| R) ($ $))
-        (SPROG ((|u| (R)) (#1=#:G249 NIL))
+        (SPROG ((|u| (R)) (#1=#:G251 NIL))
                (SEQ
                 (COND
                  ((SPADCALL |nm| (|spadConstant| $ 24) (QREFELT $ 16))
@@ -475,7 +475,7 @@
 (SDEFUN |PFR;-;2$;25| ((|a| $) ($ $))
         (SPROG
          ((|l| (|List| (|Record| (|:| |num| R) (|:| |den| (|Factored| R)))))
-          (#1=#:G269 NIL) (|s| NIL))
+          (#1=#:G272 NIL) (|s| NIL))
          (SEQ (LETT |l| NIL . #2=(|PFR;-;2$;25|))
               (SEQ (LETT |s| NIL . #2#) (LETT #1# (REVERSE (QCDR |a|)) . #2#)
                    G190
@@ -494,7 +494,7 @@
               (EXIT (CONS (SPADCALL (QCAR |a|) (QREFELT $ 88)) |l|))))) 
 
 (SDEFUN |PFR;*;R2$;26| ((|r| R) (|a| $) ($ $))
-        (SPROG ((#1=#:G278 NIL) (|c| ($)) (#2=#:G279 NIL) (|s| NIL) (|b| ($)))
+        (SPROG ((#1=#:G282 NIL) (|c| ($)) (#2=#:G283 NIL) (|s| NIL) (|b| ($)))
                (SEQ
                 (COND
                  ((SPADCALL |r| (|spadConstant| $ 24) (QREFELT $ 16))
@@ -537,7 +537,7 @@
                                               (APPEND (QCDR |c|) (QCDR |b|)))
                                       (QCDR |b|))
                                      . #3#)
-                               (GO #4=#:G272)))))))
+                               (GO #4=#:G276)))))))
                          #4# (EXIT #1#))
                         (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
                    (EXIT |b|))))))) 
@@ -556,7 +556,7 @@
 
 (SDEFUN |PFR;*;3$;29| ((|a| $) (|b| $) ($ $))
         (SPROG
-         ((|c| ($)) (#1=#:G294 NIL) (|t| NIL) (#2=#:G293 NIL) (|s| NIL)
+         ((|c| ($)) (#1=#:G299 NIL) (|t| NIL) (#2=#:G298 NIL) (|s| NIL)
           (|af| ($)))
          (SEQ
           (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) |b| (QREFELT $ 90)))
@@ -596,7 +596,7 @@
                   (EXIT |c|))))))) 
 
 (SDEFUN |PFR;coerce;$Of;30| ((|a| $) ($ |OutputForm|))
-        (SPROG ((|l| (|List| (|OutputForm|))) (#1=#:G307 NIL) (|s| NIL))
+        (SPROG ((|l| (|List| (|OutputForm|))) (#1=#:G312 NIL) (|s| NIL))
                (SEQ
                 (COND ((NULL (QCDR |a|)) (SPADCALL (QCAR |a|) (QREFELT $ 93)))
                       (#2='T
@@ -643,9 +643,9 @@
 
 (DECLAIM (NOTINLINE |PartialFraction;|)) 
 
-(DEFUN |PartialFraction| (#1=#:G315)
+(DEFUN |PartialFraction| (#1=#:G320)
   (SPROG NIL
-         (PROG (#2=#:G316)
+         (PROG (#2=#:G321)
            (RETURN
             (COND
              ((LETT #2#

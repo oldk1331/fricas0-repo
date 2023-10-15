@@ -618,7 +618,7 @@
           (|listOfFactors| (|List| UP)) (|nm| (R)) (|factor2| (UP))
           (|factor1| (UP))
           (|qr| (|Record| (|:| |quotient| UP) (|:| |remainder| UP)))
-          (#1=#:G219 NIL) (|i| NIL))
+          (#1=#:G220 NIL) (|i| NIL))
          (SEQ (LETT |lfae| NIL . #2=(|CRFP;divisorCascade;2UPBL;13|))
               (SEQ (LETT |i| 1 . #2#)
                    (LETT #1# (SPADCALL |tp| (QREFELT $ 29)) . #2#) G190
@@ -692,7 +692,7 @@
          ((|listOfFactors|
            (|List| (|Record| (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (|result| (|Factored| UP)) (|expOfFactor| (|Integer|))
-          (|newFactor| (UP)) (#1=#:G235 NIL) (|rec| NIL)
+          (|newFactor| (UP)) (#1=#:G236 NIL) (|rec| NIL)
           (|lof| (|List| (|OutputForm|))) (|split| (|Factored| UP))
           (|exponentOfp| (|Integer|)) (|p| (UP)) (|eps0| (R))
           (|d| (|NonNegativeInteger|)))
@@ -831,7 +831,7 @@
 (SDEFUN |CRFP;calculateScale| ((|p| UP) ($ R))
         (SPROG
          ((|rho| (R)) (|maxi| (R)) (|locmax| (R)) (|ic| (R)) (|rc| (R))
-          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G250 NIL)
+          (|cof| (|Complex| R)) (|j| (|NonNegativeInteger|)) (#1=#:G251 NIL)
           (|mon| NIL) (|d| (|NonNegativeInteger|)))
          (SEQ
           (LETT |d| (SPADCALL |p| (QREFELT $ 29)) . #2=(|CRFP;calculateScale|))
@@ -962,9 +962,9 @@
 
 (DECLAIM (NOTINLINE |ComplexRootFindingPackage;|)) 
 
-(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G258)
+(DEFUN |ComplexRootFindingPackage| (&REST #1=#:G259)
   (SPROG NIL
-         (PROG (#2=#:G259)
+         (PROG (#2=#:G260)
            (RETURN
             (COND
              ((LETT #2#

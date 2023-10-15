@@ -242,7 +242,7 @@
 (SDEFUN |INT;factorPolynomial;SupF;53|
         ((|p| |SparseUnivariatePolynomial| $)
          ($ |Factored| (|SparseUnivariatePolynomial| $)))
-        (SPROG ((#1=#:G1476 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
+        (SPROG ((#1=#:G1500 NIL) (|pp| (|SparseUnivariatePolynomial| $)))
                (SEQ
                 (LETT |pp| (SPADCALL |p| (QREFELT $ 99))
                       . #2=(|INT;factorPolynomial;SupF;53|))
@@ -294,7 +294,7 @@
 
 (DEFUN |Integer| ()
   (SPROG NIL
-         (PROG (#1=#:G1507)
+         (PROG (#1=#:G1531)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|Integer|) . #2=(|Integer|))

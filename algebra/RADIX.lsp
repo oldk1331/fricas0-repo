@@ -362,19 +362,19 @@
            (|List|
             #1=(|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (|ritscyc| #2=(|List| (|Integer|))) (#3=#:G257 NIL) (|i| (|Integer|))
-          (|ritspfx| #2#) (#4=#:G256 NIL) (|c| (|Integer|))
+          (|ritscyc| #2=(|List| (|Integer|))) (#3=#:G258 NIL) (|i| (|Integer|))
+          (|ritspfx| #2#) (#4=#:G257 NIL) (|c| (|Integer|))
           (|cfound| (|Boolean|))
           (|ritsn|
            #5=(|List|
                (|Record| (|:| |quotient| (|Integer|))
                          (|:| |remainder| (|Integer|)))))
-          (#6=#:G255 NIL)
+          (#6=#:G256 NIL)
           (|rn|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (#7=#:G254 NIL) (|p| #8=(|Integer|)) (|ritsi| #5#) (#9=#:G253 NIL)
-          (|n| #8#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#10=#:G252 NIL)
+          (#7=#:G255 NIL) (|p| #8=(|Integer|)) (|ritsi| #5#) (#9=#:G254 NIL)
+          (|n| #8#) (|qr2i| #1#) (|qrt| #1#) (|qr1i| #1#) (#10=#:G253 NIL)
           (|qr| #1#))
          (SEQ
           (LETT |qr| (DIVIDE2 (* |bas| |num|) |den|) . #11=(|RADIX;radixFrac|))
@@ -443,9 +443,9 @@
 
 (DECLAIM (NOTINLINE |RadixExpansion;|)) 
 
-(DEFUN |RadixExpansion| (#1=#:G285)
+(DEFUN |RadixExpansion| (#1=#:G286)
   (SPROG NIL
-         (PROG (#2=#:G286)
+         (PROG (#2=#:G287)
            (RETURN
             (COND
              ((LETT #2#
@@ -463,7 +463,7 @@
                   (HREM |$ConstructorCache| '|RadixExpansion|)))))))))) 
 
 (DEFUN |RadixExpansion;| (|#1|)
-  (SPROG ((|pv$| NIL) (#1=#:G284 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
+  (SPROG ((|pv$| NIL) (#1=#:G285 NIL) ($ NIL) (|dv$| NIL) (DV$1 NIL))
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #2=(|RadixExpansion|))
           (LETT |dv$| (LIST '|RadixExpansion| DV$1) . #2#)

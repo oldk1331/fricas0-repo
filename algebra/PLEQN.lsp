@@ -1714,8 +1714,8 @@
             (|Record| (|:| |det| GR) (|:| |rows| (|List| (|Integer|)))
                       (|:| |cols| (|List| (|Integer|))))))
           (|neweqn| #2#) (|detmat| (GR)) (|found| (|Boolean|))
-          (|matsub| (|SquareMatrix| |j| GR)) (#3=#:G432 NIL) (|nss| NIL)
-          (#4=#:G433 NIL) (#5=#:G430 NIL) (|rss| NIL) (#6=#:G431 NIL)
+          (|matsub| (|SquareMatrix| |j| GR)) (#3=#:G433 NIL) (|nss| NIL)
+          (#4=#:G434 NIL) (#5=#:G431 NIL) (|rss| NIL) (#6=#:G432 NIL)
           (|n| (|Integer|)) (|r| (|Integer|)) (|j| #1#))
          (SEQ
           (COND ((EQL |k| 0) (LIST (VECTOR (|spadConstant| $ 19) NIL NIL)))
@@ -1820,8 +1820,8 @@
 (SDEFUN |PLEQN;overset?;LLB;35|
         ((|p| |List| GR) (|qlist| |List| (|List| GR)) ($ |Boolean|))
         (SPROG
-         ((#1=#:G435 NIL) (#2=#:G434 #3=(|Boolean|)) (#4=#:G436 #3#)
-          (#5=#:G439 NIL) (|q| NIL))
+         ((#1=#:G436 NIL) (#2=#:G435 #3=(|Boolean|)) (#4=#:G437 #3#)
+          (#5=#:G440 NIL) (|q| NIL))
          (SEQ
           (COND ((NULL |qlist|) NIL)
                 (#6='T
@@ -1850,7 +1850,7 @@
 (SDEFUN |PLEQN;redmat;MLM;36|
         ((|mat| |Matrix| GR) (|psb| |List| GR) ($ |Matrix| GR))
         (SPROG
-         ((|p| (GR)) (#1=#:G446 NIL) (|j| NIL) (#2=#:G445 NIL) (|i| NIL)
+         ((|p| (GR)) (#1=#:G447 NIL) (|j| NIL) (#2=#:G446 NIL) (|i| NIL)
           (|newmat| (|Matrix| GR)) (|n| (|NonNegativeInteger|))
           (|r| (|NonNegativeInteger|)))
          (SEQ (LETT |r| (ANROWS |mat|) . #3=(|PLEQN;redmat;MLM;36|))
@@ -1880,9 +1880,9 @@
 
 (DECLAIM (NOTINLINE |ParametricLinearEquations;|)) 
 
-(DEFUN |ParametricLinearEquations| (&REST #1=#:G447)
+(DEFUN |ParametricLinearEquations| (&REST #1=#:G448)
   (SPROG NIL
-         (PROG (#2=#:G448)
+         (PROG (#2=#:G449)
            (RETURN
             (COND
              ((LETT #2#

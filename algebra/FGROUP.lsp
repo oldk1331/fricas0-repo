@@ -84,7 +84,7 @@
 (SDEFUN |FGROUP;smaller?;2$B;12| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG
          ((|lb| #1=(|List| (|Record| (|:| |gen| S) (|:| |exp| (|Integer|)))))
-          (|la| #1#) (#2=#:G167 NIL) (|nb| (|Integer|)) (|na| (|Integer|)))
+          (|la| #1#) (#2=#:G172 NIL) (|nb| (|Integer|)) (|na| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ
@@ -93,7 +93,7 @@
             (LETT |lb| (SPADCALL |b| (QREFELT $ 12)) . #3#)
             (LETT |na| (LENGTH |la|) . #3#) (LETT |nb| (LENGTH |lb|) . #3#)
             (EXIT
-             (COND ((< |na| |nb|) (PROGN (LETT #2# 'T . #3#) (GO #4=#:G166)))
+             (COND ((< |na| |nb|) (PROGN (LETT #2# 'T . #3#) (GO #4=#:G171)))
                    ((< |nb| |na|) (PROGN (LETT #2# NIL . #3#) (GO #4#)))
                    ('T
                     (SEQ
@@ -124,9 +124,9 @@
 
 (DECLAIM (NOTINLINE |FreeGroup;|)) 
 
-(DEFUN |FreeGroup| (#1=#:G174)
+(DEFUN |FreeGroup| (#1=#:G179)
   (SPROG NIL
-         (PROG (#2=#:G175)
+         (PROG (#2=#:G180)
            (RETURN
             (COND
              ((LETT #2#

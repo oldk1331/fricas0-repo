@@ -99,7 +99,7 @@
          ((|npg|
            (|List| #2=(|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|)))))
           (|ccw| (|Boolean|)) (|sb2| #3=(|Integer|)) (|sb1| #3#) (|p2| #2#)
-          (|p1| #2#) (#4=#:G197 NIL) (|i| NIL)
+          (|p1| #2#) (#4=#:G198 NIL) (|i| NIL)
           (|points3|
            (|List| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|)))))
           (|points|
@@ -196,9 +196,9 @@
           (|lsc| (|Expression| (|Integer|)))
           (|opc|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (|ind| (|NonNegativeInteger|)) (#1=#:G208 NIL) (|j| NIL)
-          (|slop| (|Fraction| (|Integer|))) (#2=#:G206 NIL) (|i| NIL)
-          (#3=#:G207 NIL) (|nxt| NIL)
+          (|ind| (|NonNegativeInteger|)) (#1=#:G209 NIL) (|j| NIL)
+          (|slop| (|Fraction| (|Integer|))) (#2=#:G207 NIL) (|i| NIL)
+          (#3=#:G208 NIL) (|nxt| NIL)
           (|restl|
            (|List| (|Record| (|:| |x| (|Integer|)) (|:| |y| (|Integer|)))))
           (|npg|
@@ -295,7 +295,7 @@
                                                    (|UnivariateLaurentSeries|
                                                     (|Expression| (|Integer|))
                                                     |var| |cen|))))
-          (#1=#:G250 NIL)
+          (#1=#:G252 NIL)
           (|jl|
            (|Record|
             (|:| |Qt|
@@ -312,14 +312,14 @@
                                             |cen|)
                   (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                              |cen|)))))
-          (#2=#:G262 NIL) (|i| NIL) (|slo| #3=(|Fraction| (|Integer|)))
+          (#2=#:G264 NIL) (|i| NIL) (|slo| #3=(|Fraction| (|Integer|)))
           (|v|
            #4=(|List|
                (|Record|
                 (|:| |factor|
                      (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
                 (|:| |exponent| (|Integer|)))))
-          (#5=#:G261 NIL) (#6=#:G260 NIL) (|v_old| #4#)
+          (#5=#:G263 NIL) (#6=#:G262 NIL) (|v_old| #4#)
           (|unsafe|
            (|List|
             (|Record|
@@ -329,17 +329,17 @@
           (|sbt| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|newx| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|ie| (|Integer|)) (|e| (|Expression| (|Integer|)))
-          (|d| (|NonNegativeInteger|)) (|vjf| #7#) (#8=#:G258 NIL) (|j| NIL)
-          (#9=#:G259 NIL) (|jj| NIL) (|dvif| (|NonNegativeInteger|))
-          (|vif| #7#) (#10=#:G256 NIL) (#11=#:G257 NIL) (|ii| NIL)
-          (|restl| NIL) (#12=#:G254 NIL) (#13=#:G255 NIL)
+          (|d| (|NonNegativeInteger|)) (|vjf| #7#) (#8=#:G260 NIL) (|j| NIL)
+          (#9=#:G261 NIL) (|jj| NIL) (|dvif| (|NonNegativeInteger|))
+          (|vif| #7#) (#10=#:G258 NIL) (#11=#:G259 NIL) (|ii| NIL)
+          (|restl| NIL) (#12=#:G256 NIL) (#13=#:G257 NIL)
           (|semi|
            (|OneDimensionalArray|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#14=#:G253 NIL) (|il| NIL) (#15=#:G252 NIL)
+          (#14=#:G255 NIL) (|il| NIL) (#15=#:G254 NIL)
           (|npol|
            #16=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-          (#17=#:G251 NIL) (|k| NIL)
+          (#17=#:G253 NIL) (|k| NIL)
           (|np|
            (|List|
             (|Record|
@@ -353,7 +353,7 @@
              ((SPADCALL (SPADCALL |f| (QREFELT $ 40)) 1 (QREFELT $ 63))
               (PROGN
                (LETT #1# (LIST |f|) . #18=(|LODOF2;factor_newton|))
-               (GO #19=#:G249))))
+               (GO #19=#:G251))))
             (LETT |np| (|LODOF2;newtonpolygon| |f| $) . #18#)
             (LETT |res| NIL . #18#)
             (SEQ (LETT |k| NIL . #18#) (LETT #17# |np| . #18#) G190
@@ -887,7 +887,7 @@
                (|:| |npoly|
                     (|UnivariatePolynomial| |var|
                                             (|Expression| (|Integer|))))))
-          (#2=#:G282 NIL) (|i| NIL) (|np| (|List| #1#)))
+          (#2=#:G284 NIL) (|i| NIL) (|np| (|List| #1#)))
          (SEQ
           (LETT |np| (|LODOF2;newtonpolygon| (|LODOF2;convertL3toLL| |f| $) $)
                 . #3=(|LODOF2;testf2;LodoUpFR;11|))
@@ -921,7 +921,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#1=#:G286 NIL) (|i| NIL))
+          (#1=#:G288 NIL) (|i| NIL))
          (SEQ (LETT |f| (|spadConstant| $ 17) . #2=(|LODOF2;laurent_op|))
               (SEQ (LETT |i| 0 . #2#) (LETT #1# |dgf| . #2#) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -1047,7 +1047,7 @@
            (|List|
             (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                        |cen|)))
-          (#1=#:G300 NIL) (|i| NIL))
+          (#1=#:G302 NIL) (|i| NIL))
          (SEQ (LETT |res| NIL . #2=(|LODOF2;list_laurentop|))
               (SEQ (LETT |i| 0 . #2#) (LETT #1# |dgf| . #2#) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -1212,7 +1212,7 @@
            (|Stream|
             (|Record| (|:| |k| (|Integer|))
                       (|:| |c| (|Expression| (|Integer|))))))
-          (|nl_st| (|Stream| (|Integer|))) (#1=#:G335 NIL) (|i| NIL))
+          (|nl_st| (|Stream| (|Integer|))) (#1=#:G337 NIL) (|i| NIL))
          (SEQ (LETT |res| NIL . #2=(|LODOF2;listream_coefsop|))
               (SEQ (LETT |i| 0 . #2#) (LETT #1# (- |dgf| 1) . #2#) G190
                    (COND ((|greater_SI| |i| #1#) (GO G191)))
@@ -1245,7 +1245,7 @@
           (RETURN
            (PROGN
             (SPROG
-             ((#2=#:G324 NIL) (|coefd| NIL) (|cx| NIL) (|deg| NIL)
+             ((#2=#:G326 NIL) (|coefd| NIL) (|cx| NIL) (|deg| NIL)
               (|degn| NIL))
              (SEQ
               (LETT |degn|
@@ -1394,7 +1394,7 @@
           (|pr_extra|
            (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|pi| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-          (#3=#:G354 NIL) (|i| #4=(|Integer|)) (|fe| #5=(|Integer|))
+          (#3=#:G356 NIL) (|i| #4=(|Integer|)) (|fe| #5=(|Integer|))
           (|re| (|Integer|)) (|le| #5#)
           (|c2| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|c1| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
@@ -1404,7 +1404,7 @@
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
             (|:| |coef2|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          (#6=#:G345 NIL)
+          (#6=#:G347 NIL)
           (|sl_low| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|dgl| #4#))
          (SEQ
@@ -1968,7 +1968,7 @@
          ((|res| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|npc| (|Expression| (|Integer|)))
           (|fc| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-          (#1=#:G381 NIL) (|j| NIL) (|start_x| (|Fraction| (|Integer|)))
+          (#1=#:G383 NIL) (|j| NIL) (|start_x| (|Fraction| (|Integer|)))
           (|start_D| (|Integer|)) (|nsi| (|Integer|)))
          (SEQ
           (LETT |nsi|
@@ -2061,7 +2061,7 @@
                                                    |var| |cen|)))
           (|sc|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (|npc| (|Expression| (|Integer|))) (#1=#:G388 NIL) (|j| NIL)
+          (|npc| (|Expression| (|Integer|))) (#1=#:G390 NIL) (|j| NIL)
           (|start_x| (|Integer|)) (|start_D| (|Integer|)) (|nsi| (|Integer|)))
          (SEQ
           (LETT |nsi|
@@ -2282,7 +2282,7 @@
                      (|UnivariatePolynomial| |var|
                                              (|Expression| (|Integer|)))))))))
         (SPROG
-         ((#2=#:G686 NIL)
+         ((#2=#:G688 NIL)
           (|res|
            (|List|
             (|Union|
@@ -2320,7 +2320,7 @@
             (|:| |alpha| (|Expression| (|Integer|)))
             (|:| |rami|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          (#3=#:G718 NIL)
+          (#3=#:G720 NIL)
           (|i| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|vrs|
            (|List|
@@ -2345,7 +2345,7 @@
               (|:| |rami|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#4=#:G717 NIL) (#5=#:G716 NIL)
+          (#4=#:G719 NIL) (#5=#:G718 NIL)
           (|vsp|
            (|List|
             (|Record|
@@ -2418,7 +2418,7 @@
                (|:| |npoly|
                     (|UnivariatePolynomial| |var|
                                             (|Expression| (|Integer|))))))
-          (#8=#:G715 NIL) (|np| (|List| #6#))
+          (#8=#:G717 NIL) (|np| (|List| #6#))
           (|tosub| (|Expression| (|Integer|))) (|exp| (|Integer|))
           (|ror|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -2429,7 +2429,7 @@
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
           (|coefr| (|Expression| (|Integer|))) (|n| (|Integer|))
-          (#9=#:G714 NIL)
+          (#9=#:G716 NIL)
           (|npgr| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|gr| (|Expression| (|Integer|)))
           (|rk|
@@ -2440,7 +2440,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#10=#:G405 NIL) (#11=#:G713 NIL)
+          (#10=#:G407 NIL) (#11=#:G715 NIL)
           (|ric|
            (|List|
             (|Union|
@@ -2464,7 +2464,7 @@
               (|:| |rami|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#12=#:G408 NIL)
+          (#12=#:G410 NIL)
           (|lk|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                   (|UnivariateTaylorSeries|
@@ -2486,8 +2486,8 @@
             (|:| |alpha| (|Expression| (|Integer|)))
             (|:| |rami|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          (#13=#:G712 NIL) (#14=#:G711 NIL) (#15=#:G710 NIL) (#16=#:G709 NIL)
-          (#17=#:G708 NIL) (#18=#:G707 NIL) (#19=#:G706 NIL) (#20=#:G705 NIL)
+          (#13=#:G714 NIL) (#14=#:G713 NIL) (#15=#:G712 NIL) (#16=#:G711 NIL)
+          (#17=#:G710 NIL) (#18=#:G709 NIL) (#19=#:G708 NIL) (#20=#:G707 NIL)
           (|retv|
            (|List|
             (|Record|
@@ -2507,14 +2507,14 @@
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
           (|xsubsr|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#21=#:G704 NIL) (|vi| NIL) (|sym| (|Symbol|)) (#22=#:G407 NIL)
-          (#23=#:G404 NIL)
+          (#21=#:G706 NIL) (|vi| NIL) (|sym| (|Symbol|)) (#22=#:G409 NIL)
+          (#23=#:G406 NIL)
           (|cxs|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#24=#:G703 NIL) (#25=#:G702 NIL) (#26=#:G701 NIL) (#27=#:G700 NIL)
-          (#28=#:G699 NIL) (#29=#:G698 NIL) (#30=#:G697 NIL) (#31=#:G696 NIL)
-          (#32=#:G695 NIL) (#33=#:G694 NIL) (#34=#:G693 NIL) (#35=#:G692 NIL)
-          (#36=#:G691 NIL) (#37=#:G690 NIL) (#38=#:G689 NIL)
+          (#24=#:G705 NIL) (#25=#:G704 NIL) (#26=#:G703 NIL) (#27=#:G702 NIL)
+          (#28=#:G701 NIL) (#29=#:G700 NIL) (#30=#:G699 NIL) (#31=#:G698 NIL)
+          (#32=#:G697 NIL) (#33=#:G696 NIL) (#34=#:G695 NIL) (#35=#:G694 NIL)
+          (#36=#:G693 NIL) (#37=#:G692 NIL) (#38=#:G691 NIL)
           (|il|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
           (|npf|
@@ -2522,7 +2522,7 @@
             (|:| |factor|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
             (|:| |exponent| (|Integer|))))
-          (#39=#:G688 NIL) (|ip| NIL)
+          (#39=#:G690 NIL) (|ip| NIL)
           (|subs|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                   (|UnivariateTaylorSeries|
@@ -2531,9 +2531,9 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (|sols| (|List| (|Integer|))) (#40=#:G434 NIL)
+          (|sols| (|List| (|Integer|))) (#40=#:G436 NIL)
           (|fact| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
-          (|diff| (|Union| (|Integer|) "failed")) (#41=#:G687 NIL) (|l| NIL)
+          (|diff| (|Union| (|Integer|) "failed")) (#41=#:G689 NIL) (|l| NIL)
           (|xx| (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|vr| #1#)
           (|va|
@@ -2709,7 +2709,7 @@
                                               (QREFELT $ 34))
                                     (QVELT |vr| 3) |il|)))
                             . #42#)
-                      (GO #44=#:G685))))))
+                      (GO #44=#:G687))))))
                  (LETT |npf|
                        (SPADCALL
                         (|LODOF2;factorUP|
@@ -6394,7 +6394,7 @@
            (|:| |rami|
                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
         (SPROG
-         ((#1=#:G747 NIL)
+         ((#1=#:G749 NIL)
           (|fr|
            (|Record|
             (|:| |ope|
@@ -6497,7 +6497,7 @@
               ((QEQCAR |f| 0)
                (SEQ (LETT |fl| (QCDR |f|) . #2#)
                     (EXIT
-                     (PROGN (LETT #1# (CONS 0 |res|) . #2#) (GO #4=#:G746)))))
+                     (PROGN (LETT #1# (CONS 0 |res|) . #2#) (GO #4=#:G748)))))
               (#3#
                (SEQ (LETT |fr| (QCDR |f|) . #2#)
                     (EXIT
@@ -6520,7 +6520,7 @@
          ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
           (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
           (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
-        (SPROG ((#1=#:G753 NIL))
+        (SPROG ((#1=#:G755 NIL))
                (PROG2
                    (LETT #1#
                          (|LODOF2;substitute| |a|
@@ -6598,7 +6598,7 @@
           (|dg| (|NonNegativeInteger|))
           (|lc|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#2=#:G764 NIL))
+          (#2=#:G766 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -6608,7 +6608,7 @@
                ((EQL |n| 1)
                 (PROGN
                  (LETT #2# |f| . #3=(|LODOF2;ramification_of|))
-                 (GO #4=#:G763))))))
+                 (GO #4=#:G765))))))
             (LETT |res| (|spadConstant| $ 17) . #3#) (LETT |ftmp| |f| . #3#)
             (SEQ G190
                  (COND
@@ -6709,7 +6709,7 @@
                   (|UnivariatePolynomial| |var|
                                           (|Expression| (|Integer|)))))))))
         (SPROG
-         ((#1=#:G789 NIL)
+         ((#1=#:G791 NIL)
           (|res|
            (|List|
             (|Union|
@@ -6733,8 +6733,8 @@
               (|:| |rami|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#2=#:G773 NIL) (#3=#:G791 NIL) (|i| NIL) (#4=#:G772 NIL)
-          (#5=#:G790 NIL)
+          (#2=#:G775 NIL) (#3=#:G793 NIL) (|i| NIL) (#4=#:G774 NIL)
+          (#5=#:G792 NIL)
           (|fnr|
            (|List|
             (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
@@ -6887,7 +6887,7 @@
                                  . #6#)))
                          (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
                     (EXIT
-                     (PROGN (LETT #1# (CONS 0 |res|) . #6#) (GO #7=#:G788)))))
+                     (PROGN (LETT #1# (CONS 0 |res|) . #6#) (GO #7=#:G790)))))
               ('T
                (SEQ (LETT |res| NIL . #6#)
                     (SEQ (LETT |i| NIL . #6#) (LETT #3# |fnr| . #6#) G190
@@ -7107,7 +7107,7 @@
          ($ |LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
           (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var| |cen|)
           (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|)))
-        (SPROG ((#1=#:G806 NIL) (|d| (|PositiveInteger|)))
+        (SPROG ((#1=#:G808 NIL) (|d| (|PositiveInteger|)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -7116,7 +7116,7 @@
                   (LETT |d| (* |d| (QVELT |ric| 1)) . #2#)
                   (COND
                    ((EQL |d| (SPADCALL |f| (QREFELT $ 40)))
-                    (PROGN (LETT #1# |f| . #2#) (GO #3=#:G805))))
+                    (PROGN (LETT #1# |f| . #2#) (GO #3=#:G807))))
                   (EXIT (|LODOF2;lift_rightfactor| |d| |ric| $))))
                 #3# (EXIT #1#)))) 
 
@@ -7146,63 +7146,63 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#1=#:G891 NIL) (|i| NIL)
+          (#1=#:G893 NIL) (|i| NIL)
           (|num|
            #2=(|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                          |cen|))
-          (#3=#:G890 NIL)
+          (#3=#:G892 NIL)
           (|coefs|
            (|List|
             (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                        |cen|)))
-          (#4=#:G889 NIL) (#5=#:G888 NIL) (|den| #2#) (#6=#:G887 NIL) (|k| NIL)
-          (#7=#:G886 NIL) (|j| NIL) (#8=#:G885 NIL)
+          (#4=#:G891 NIL) (#5=#:G890 NIL) (|den| #2#) (#6=#:G889 NIL) (|k| NIL)
+          (#7=#:G888 NIL) (|j| NIL) (#8=#:G887 NIL)
           (|nums|
            (|List|
             (|SquareMatrix| |order|
                             (|UnivariateLaurentSeries|
                              (|Expression| (|Integer|)) |var| |cen|))))
-          (#9=#:G884 NIL) (#10=#:G883 NIL)
+          (#9=#:G886 NIL) (#10=#:G885 NIL)
           (|denm|
            (|SquareMatrix| |order|
                            (|UnivariateLaurentSeries|
                             (|Expression| (|Integer|)) |var| |cen|)))
-          (#11=#:G882 NIL) (#12=#:G881 NIL)
+          (#11=#:G884 NIL) (#12=#:G883 NIL)
           (|ll|
            (|List|
             (|List|
              (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                         |cen|))))
-          (#13=#:G880 NIL) (#14=#:G879 NIL) (#15=#:G878 NIL) (#16=#:G877 NIL)
+          (#13=#:G882 NIL) (#14=#:G881 NIL) (#15=#:G880 NIL) (#16=#:G879 NIL)
           (|nsr|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#17=#:G876 NIL)
+          (#17=#:G878 NIL)
           (|ser|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#18=#:G875 NIL) (#19=#:G874 NIL)
-          (|pa| (|Vector| (|Expression| (|Integer|)))) (#20=#:G873 NIL)
-          (#21=#:G872 NIL)
+          (#18=#:G877 NIL) (#19=#:G876 NIL)
+          (|pa| (|Vector| (|Expression| (|Integer|)))) (#20=#:G875 NIL)
+          (#21=#:G874 NIL)
           (|system|
            (|List|
             (|Vector|
              (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                         |cen|))))
-          (#22=#:G871 NIL) (#23=#:G870 NIL)
+          (#22=#:G873 NIL) (#23=#:G872 NIL)
           (|cst|
            (|Stream|
             (|Record| (|:| |k| (|Integer|))
                       (|:| |c| (|Expression| (|Integer|))))))
-          (#24=#:G869 NIL) (#25=#:G868 NIL)
+          (#24=#:G871 NIL) (#25=#:G870 NIL)
           (|nn| (|Stream| (|NonNegativeInteger|)))
           (|sysram|
            (|List|
             (|Vector|
              (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                         |cen|))))
-          (#26=#:G867 NIL) (#27=#:G866 NIL) (|mindg| (|Integer|))
+          (#26=#:G869 NIL) (#27=#:G868 NIL) (|mindg| (|Integer|))
           (|rp|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
-          (#28=#:G865 NIL)
+          (#28=#:G867 NIL)
           (|s|
            (|Vector|
             (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
@@ -7623,7 +7623,7 @@
           (LETT |k| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPROG ((#2=#:G823 NIL) (|psq| NIL))
+            (SPROG ((#2=#:G825 NIL) (|psq| NIL))
                    (SEQ (LETT |psq| (SPADCALL |pa| |x| (QREFELT $ 261)) NIL)
                         (EXIT
                          (COND
@@ -7695,7 +7695,7 @@
           (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
          ($ |Boolean|))
         (SPROG
-         ((#1=#:G960 NIL) (#2=#:G963 NIL) (|i| NIL)
+         ((#1=#:G962 NIL) (#2=#:G965 NIL) (|i| NIL)
           (|fff|
            (|List|
             (|Record|
@@ -7718,7 +7718,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#3=#:G912 NIL)
+          (#3=#:G914 NIL)
           (|gr| #4=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
           (|rr|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
@@ -7733,7 +7733,7 @@
                                              |cen|)))
             (|:| |dext| (|PositiveInteger|))
             (|:| |alpha| (|Expression| (|Integer|))) (|:| |rami| #4#)))
-          (#5=#:G913 NIL) (#6=#:G921 NIL)
+          (#5=#:G915 NIL) (#6=#:G923 NIL)
           (|r|
            (|List|
             (|List|
@@ -7744,7 +7744,7 @@
               (|:| |npoly|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#7=#:G962 NIL) (|j| NIL) (#8=#:G961 NIL)
+          (#7=#:G964 NIL) (|j| NIL) (#8=#:G963 NIL)
           (|cx| (|Expression| (|Integer|))) (|fd| (|Expression| (|Integer|)))
           (|dm1| (|NonNegativeInteger|)) (|d| (|NonNegativeInteger|))
           (|c2| #9=(|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
@@ -7768,7 +7768,7 @@
                         (SPADCALL |g| (QREFELT $ 40)) (QREFELT $ 42))
               (PROGN
                (LETT #1# NIL . #11=(|LODOF2;same_charclass?|))
-               (GO #12=#:G959))))
+               (GO #12=#:G961))))
             (COND
              ((SPADCALL (SPADCALL |f| (QREFELT $ 36)) (|spadConstant| $ 115)
                         (QREFELT $ 272))
@@ -8165,7 +8165,7 @@
              (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
           "failed"))
         (SPROG
-         ((#2=#:G1005 NIL)
+         ((#2=#:G1007 NIL)
           (|re|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction|
@@ -8174,7 +8174,7 @@
            #3=(|LinearOrdinaryDifferentialOperator1|
                (|Fraction|
                 (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          (#4=#:G986 NIL) (|ftmp| #3#)
+          (#4=#:G988 NIL) (|ftmp| #3#)
           (|newd|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction|
@@ -8204,11 +8204,11 @@
                                                        |var|
                                                        (|Expression|
                                                         (|Integer|))))))
-          (#7=#:G983 NIL) (#8=#:G982 #6#) (#9=#:G984 #6#) (#10=#:G1017 NIL)
+          (#7=#:G985 NIL) (#8=#:G984 #6#) (#9=#:G986 #6#) (#10=#:G1019 NIL)
           (|j| NIL)
           (|flm|
            (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
-          (#11=#:G977 NIL)
+          (#11=#:G979 NIL)
           (|tf2|
            (|Union|
             (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
@@ -8219,16 +8219,16 @@
             (|List|
              (|UnivariateTaylorSeries| (|Expression| (|Integer|)) |var|
                                        |cen|))))
-          (#13=#:G1016 NIL) (|fc| NIL) (#14=#:G1015 NIL) (#15=#:G1014 NIL)
-          (|ff| NIL) (#16=#:G1013 NIL)
+          (#13=#:G1018 NIL) (|fc| NIL) (#14=#:G1017 NIL) (#15=#:G1016 NIL)
+          (|ff| NIL) (#16=#:G1015 NIL)
           (|fls|
            (|List|
             (|List|
              (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                         |cen|))))
-          (#17=#:G1012 NIL) (#18=#:G1011 NIL) (#19=#:G1010 NIL)
-          (#20=#:G1009 NIL) (#21=#:G1008 NIL) (#22=#:G1007 NIL)
-          (#23=#:G1006 NIL) (|i| NIL))
+          (#17=#:G1014 NIL) (#18=#:G1013 NIL) (#19=#:G1012 NIL)
+          (#20=#:G1011 NIL) (#21=#:G1010 NIL) (#22=#:G1009 NIL)
+          (#23=#:G1008 NIL) (|i| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -8540,7 +8540,7 @@
                                            (SPADCALL |f| |re| (QREFELT $ 316))
                                            |re|))
                                     . #24#)
-                              (GO #25=#:G1004)))))))
+                              (GO #25=#:G1006)))))))
                         ('T
                          (SEQ
                           (COND
@@ -8626,7 +8626,7 @@
           (|List| (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))
           "failed"))
         (SPROG
-         ((|nstep| (|Integer|)) (|acc| (|Integer|)) (#1=#:G1030 NIL)
+         ((|nstep| (|Integer|)) (|acc| (|Integer|)) (#1=#:G1032 NIL)
           (|hps|
            (|Matrix|
             (|SparseUnivariatePolynomial| (|Expression| (|Integer|)))))
@@ -8634,10 +8634,10 @@
            (|List|
             (|Vector|
              (|SparseUnivariatePolynomial| (|Expression| (|Integer|))))))
-          (#2=#:G1036 NIL) (|g| NIL) (#3=#:G1035 NIL) (#4=#:G1034 NIL)
-          (|f| NIL) (#5=#:G1033 NIL) (|vdim| (|NonNegativeInteger|))
+          (#2=#:G1038 NIL) (|g| NIL) (#3=#:G1037 NIL) (#4=#:G1036 NIL)
+          (|f| NIL) (#5=#:G1035 NIL) (|vdim| (|NonNegativeInteger|))
           (|cnt| (|Integer|)) (|eta| (|List| (|NonNegativeInteger|)))
-          (#6=#:G1032 NIL) (|i| NIL) (#7=#:G1031 NIL) (|cb| (|Integer|)))
+          (#6=#:G1034 NIL) (|i| NIL) (#7=#:G1033 NIL) (|cb| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ
@@ -8723,7 +8723,7 @@
                                    (SPADCALL (SPADCALL |hps| 1 (QREFELT $ 333))
                                              (QREFELT $ 334)))
                              . #8#)
-                       (GO #9=#:G1029)))
+                       (GO #9=#:G1031)))
                      ((EQL (ANCOLS |hps|) 0)
                       (PROGN (LETT #1# (CONS 1 "failed") . #8#) (GO #9#)))
                      ('T
@@ -8755,7 +8755,7 @@
             (|List|
              (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                         |cen|))))
-          (#1=#:G1044 NIL) (|j| NIL) (#2=#:G1043 NIL)
+          (#1=#:G1046 NIL) (|j| NIL) (#2=#:G1045 NIL)
           (|p|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                   (|UnivariateTaylorSeries|
@@ -8764,7 +8764,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#3=#:G1042 NIL) (|i| NIL))
+          (#3=#:G1044 NIL) (|i| NIL))
          (SEQ (LETT |res| NIL . #4=(|LODOF2;flist|))
               (SEQ (LETT |i| 0 . #4#) (LETT #3# |order| . #4#) G190
                    (COND ((|greater_SI| |i| #3#) (GO G191)))
@@ -8821,7 +8821,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#1=#:G1048 NIL))
+          (#1=#:G1050 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -8830,7 +8830,7 @@
               (PROGN
                (LETT #1# (SPADCALL (|spadConstant| $ 115) |n| (QREFELT $ 33))
                      . #2=(|LODOF2;xDn_modr|))
-               (GO #3=#:G1047))))
+               (GO #3=#:G1049))))
             (LETT |a| (|LODOF2;xDn_modr| (- |n| 1) |r| $) . #2#)
             (LETT |coefa|
                   (SPADCALL |a| (- (SPADCALL |r| (QREFELT $ 40)) 1)
@@ -8862,7 +8862,7 @@
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
         (SPROG
-         ((#1=#:G1064 NIL) (#2=#:G1065 NIL) (|i| NIL)
+         ((#1=#:G1066 NIL) (#2=#:G1067 NIL) (|i| NIL)
           (|res|
            (|List|
             (|LinearOrdinaryDifferentialOperator1|
@@ -8885,7 +8885,7 @@
              ((SPADCALL (SPADCALL |f| (QREFELT $ 302)) 1 (QREFELT $ 63))
               (PROGN
                (LETT #1# (LIST |f|) . #3=(|LODOF2;factor;LodoMLL;47|))
-               (GO #4=#:G1063))))
+               (GO #4=#:G1065))))
             (LETT |factorizer2|
                   (CONS #'|LODOF2;factor;LodoMLL;47!0|
                         (VECTOR |factorizer| |y|))
@@ -8929,10 +8929,10 @@
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
          ($ |Boolean|))
         (SPROG
-         ((#2=#:G1072 NIL)
+         ((#2=#:G1074 NIL)
           (|dlc|
            (|List| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#3=#:G1075 NIL) (|e| NIL) (#4=#:G1074 NIL)
+          (#3=#:G1077 NIL) (|e| NIL) (#4=#:G1076 NIL)
           (|fi|
            (|LinearOrdinaryDifferentialOperator1|
             (|Fraction|
@@ -8951,7 +8951,7 @@
           (|lc|
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#6=#:G1073 NIL) (|i| NIL)
+          (#6=#:G1075 NIL) (|i| NIL)
           (|ux|
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
@@ -9031,7 +9031,7 @@
                          (SPADCALL (|spadConstant| $ 12) 1 (QREFELT $ 58))
                          (|spadConstant| $ 52) (QREFELT $ 83))
                (|spadConstant| $ 52) (QREFELT $ 85))
-              (PROGN (LETT #2# 'T . #7#) (GO #8=#:G1071))))
+              (PROGN (LETT #2# 'T . #7#) (GO #8=#:G1073))))
             (EXIT NIL)))
           #8# (EXIT #2#)))) 
 
@@ -9055,7 +9055,7 @@
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
         (SPROG
-         ((#1=#:G1185 NIL) (#2=#:G1147 NIL)
+         ((#1=#:G1187 NIL) (#2=#:G1149 NIL)
           (|t|
            (|Union|
             (|List|
@@ -9071,7 +9071,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#4=#:G1120 NIL) (#5=#:G1209 NIL) (|l| NIL)
+          (#4=#:G1122 NIL) (#5=#:G1211 NIL) (|l| NIL)
           (|vrs|
            (|List|
             (|Union|
@@ -9095,7 +9095,7 @@
               (|:| |rami|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#6=#:G1129 NIL)
+          (#6=#:G1131 NIL)
           (|kk|
            (|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                   (|UnivariateTaylorSeries|
@@ -9117,7 +9117,7 @@
             (|:| |alpha| (|Expression| (|Integer|)))
             (|:| |rami|
                  (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
-          (#7=#:G1121 NIL)
+          (#7=#:G1123 NIL)
           (|j1|
            (|List|
             (|Union|
@@ -9149,9 +9149,9 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#8=#:G1208 NIL) (|s| NIL) (#9=#:G1207 NIL) (|sop| NIL)
-          (#10=#:G1206 NIL) (#11=#:G1204 NIL) (#12=#:G1205 NIL) (|sa| NIL)
-          (#13=#:G1203 NIL)
+          (#8=#:G1210 NIL) (|s| NIL) (#9=#:G1209 NIL) (|sop| NIL)
+          (#10=#:G1208 NIL) (#11=#:G1206 NIL) (#12=#:G1207 NIL) (|sa| NIL)
+          (#13=#:G1205 NIL)
           (|done_sa|
            (|List|
             (|Record|
@@ -9190,8 +9190,8 @@
                           (|UnivariatePolynomial| |var|
                                                   (|Expression|
                                                    (|Integer|)))))))))))
-          (#15=#:G1202 NIL) (|all_one| (|Boolean|)) (#16=#:G1201 NIL)
-          (#17=#:G1199 NIL) (|ssp| NIL) (#18=#:G1200 NIL)
+          (#15=#:G1204 NIL) (|all_one| (|Boolean|)) (#16=#:G1203 NIL)
+          (#17=#:G1201 NIL) (|ssp| NIL) (#18=#:G1202 NIL)
           (|done_s|
            (|List|
             (|Record|
@@ -9264,14 +9264,14 @@
                       (|List|
                        (|UnivariateLaurentSeries| (|Expression| (|Integer|))
                                                   |var| |cen|))))))
-          (#20=#:G1198 NIL) (|ge| NIL) (|min_deg| (|PositiveInteger|))
-          (|dl| (|List| (|PositiveInteger|))) (#21=#:G1197 NIL)
-          (#22=#:G1196 NIL) (|eba| (|Integer|)) (|gema| #19#)
+          (#20=#:G1200 NIL) (|ge| NIL) (|min_deg| (|PositiveInteger|))
+          (|dl| (|List| (|PositiveInteger|))) (#21=#:G1199 NIL)
+          (#22=#:G1198 NIL) (|eba| (|Integer|)) (|gema| #19#)
           (|eb| (|Integer|)) (|bound| (|List| (|Fraction| (|Integer|))))
-          (#23=#:G1195 NIL) (|j| NIL) (#24=#:G1194 NIL) (#25=#:G1193 NIL)
-          (|i| NIL) (|v| (|List| (|Fraction| (|Integer|)))) (#26=#:G1192 NIL)
+          (#23=#:G1197 NIL) (|j| NIL) (#24=#:G1196 NIL) (#25=#:G1195 NIL)
+          (|i| NIL) (|v| (|List| (|Fraction| (|Integer|)))) (#26=#:G1194 NIL)
           (|ji1x| #27=(|Integer|)) (|jix| #27#) (|ji1y| #28=(|Integer|))
-          (|jiy| #28#) (#29=#:G1191 NIL)
+          (|jiy| #28#) (#29=#:G1193 NIL)
           (|np|
            (|List|
             (|Record|
@@ -9280,8 +9280,8 @@
              (|:| |slope| (|Fraction| (|Integer|)))
              (|:| |npoly|
                   (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
-          (#30=#:G1190 NIL) (#31=#:G1189 NIL) (#32=#:G1188 NIL)
-          (#33=#:G1187 NIL) (#34=#:G1186 NIL)
+          (#30=#:G1192 NIL) (#31=#:G1191 NIL) (#32=#:G1190 NIL)
+          (#33=#:G1189 NIL) (#34=#:G1188 NIL)
           (|a|
            (|List|
             (|LinearOrdinaryDifferentialOperator1|
@@ -9294,7 +9294,7 @@
              ((SPADCALL (SPADCALL |f| (QREFELT $ 302)) 1 (QREFELT $ 63))
               (PROGN
                (LETT #1# (LIST |f|) . #35=(|LODOF2;factor_global|))
-               (GO #36=#:G1184))))
+               (GO #36=#:G1186))))
             (COND
              ((SPADCALL (SPADCALL |f| (QREFELT $ 301)) (|spadConstant| $ 290)
                         (QREFELT $ 349))
@@ -10950,7 +10950,7 @@
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))))
         (SPROG
-         ((#1=#:G1237 NIL) (#2=#:G1214 NIL)
+         ((#1=#:G1239 NIL) (#2=#:G1216 NIL)
           (|t|
            (|Union|
             (|List|
@@ -10966,7 +10966,7 @@
                                                   (|UnivariateLaurentSeries|
                                                    (|Expression| (|Integer|))
                                                    |var| |cen|)))
-          (#4=#:G1219 NIL) (#5=#:G1238 NIL) (|i| NIL)
+          (#4=#:G1221 NIL) (#5=#:G1240 NIL) (|i| NIL)
           (|w|
            (|List|
             (|Union|
@@ -10990,7 +10990,7 @@
               (|:| |rami|
                    (|UnivariatePolynomial| |var|
                                            (|Expression| (|Integer|))))))))
-          (#6=#:G1228 NIL) (|fl| (|Integer|)))
+          (#6=#:G1230 NIL) (|fl| (|Integer|)))
          (SEQ
           (EXIT
            (SEQ
@@ -11026,7 +11026,7 @@
                                         #3#)
                                        #2#))
                      . #7#)
-               (GO #8=#:G1236))))
+               (GO #8=#:G1238))))
             (LETT |w|
                   (PROG2
                       (LETT #6#
@@ -11337,7 +11337,7 @@
           (|newx|
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#4=#:G1240 NIL) (|dg| (|NonNegativeInteger|))
+          (#4=#:G1242 NIL) (|dg| (|NonNegativeInteger|))
           (|lc|
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))))
@@ -11608,16 +11608,16 @@
                                             |cen|)))))
          (|rlc| |Expression| (|Integer|)) ($ |Integer|))
         (SPROG
-         ((|res| (|Fraction| (|Integer|))) (#1=#:G1264 NIL) (#2=#:G1287 NIL)
+         ((|res| (|Fraction| (|Integer|))) (#1=#:G1266 NIL) (#2=#:G1289 NIL)
           (|ma| (|Union| (|Fraction| (|Integer|)) #3="-infinity"))
           (|cq| (|Fraction| (|Integer|))) (|c| (|Expression| (|Integer|)))
-          (#4=#:G1294 NIL) (|ke| NIL)
+          (#4=#:G1296 NIL) (|ke| NIL)
           (|ks| (|List| (|Kernel| (|Expression| (|Integer|)))))
           (|vpej| #5=(|Fraction| (|Integer|))) (|vpei| #5#)
-          (|rjj| #6=(|NonNegativeInteger|)) (#7=#:G1292 NIL) (|jj| NIL)
-          (#8=#:G1293 NIL) (|fpsjj| NIL) (|r| #6#) (#9=#:G1289 NIL) (|f| NIL)
-          (#10=#:G1290 NIL) (|fps| NIL) (#11=#:G1291 NIL) (|ji| NIL)
-          (#12=#:G1288 NIL) (|ge| NIL))
+          (|rjj| #6=(|NonNegativeInteger|)) (#7=#:G1294 NIL) (|jj| NIL)
+          (#8=#:G1295 NIL) (|fpsjj| NIL) (|r| #6#) (#9=#:G1291 NIL) (|f| NIL)
+          (#10=#:G1292 NIL) (|fps| NIL) (#11=#:G1293 NIL) (|ji| NIL)
+          (#12=#:G1290 NIL) (|ge| NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -11734,7 +11734,7 @@
                                                           (QREFELT $ 387))
                                                 $)
                                                . #13#)
-                                         (GO #14=#:G1286))))
+                                         (GO #14=#:G1288))))
                                       (EXIT
                                        (LETT |c|
                                              (SPADCALL |c| |ke| |rlc|
@@ -11837,14 +11837,14 @@
           (|tr|
            (|Fraction|
             (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#2=#:G1297 NIL)
+          (#2=#:G1299 NIL)
           (|ss|
            (|List|
             (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var|
                                        |cen|)))
-          (#3=#:G1325 NIL) (|root| NIL) (#4=#:G1324 NIL)
-          (|es| (|List| (|Expression| (|Integer|)))) (#5=#:G1323 NIL) (|g| NIL)
-          (#6=#:G1322 NIL)
+          (#3=#:G1327 NIL) (|root| NIL) (#4=#:G1326 NIL)
+          (|es| (|List| (|Expression| (|Integer|)))) (#5=#:G1325 NIL) (|g| NIL)
+          (#6=#:G1324 NIL)
           (|s|
            #7=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                      (|UnivariateTaylorSeries|
@@ -11855,7 +11855,7 @@
                                                       (|Expression|
                                                        (|Integer|))
                                                       |var| |cen|)))
-          (|r| (|NonNegativeInteger|)) (#8=#:G1321 NIL) (|e| NIL)
+          (|r| (|NonNegativeInteger|)) (#8=#:G1323 NIL) (|e| NIL)
           (|v|
            (|List|
             (|Record| (|:| |op| #7#)
@@ -11865,7 +11865,7 @@
                       (|:| |expart|
                            (|UnivariateLaurentSeries|
                             (|Expression| (|Integer|)) |var| |cen|)))))
-          (#9=#:G1310 NIL)
+          (#9=#:G1312 NIL)
           (|factorizer2|
            (|Mapping|
             (|Factored|
@@ -12134,8 +12134,8 @@
           (|ss|
            (|UnivariateLaurentSeries| (|Expression| (|Integer|)) |var| |cen|))
           (|ms| (|Expression| (|Integer|)))
-          (|es| (|List| (|Fraction| (|Integer|)))) (#2=#:G1389 NIL) (|g| NIL)
-          (#3=#:G1388 NIL)
+          (|es| (|List| (|Fraction| (|Integer|)))) (#2=#:G1391 NIL) (|g| NIL)
+          (#3=#:G1390 NIL)
           (|s|
            #4=(|LinearOrdinaryDifferentialOperator3| (|Expression| (|Integer|))
                                                      (|UnivariateTaylorSeries|
@@ -12146,7 +12146,7 @@
                                                       (|Expression|
                                                        (|Integer|))
                                                       |var| |cen|)))
-          (|r| (|NonNegativeInteger|)) (#5=#:G1387 NIL) (|e| NIL)
+          (|r| (|NonNegativeInteger|)) (#5=#:G1389 NIL) (|e| NIL)
           (|v|
            (|List|
             (|Record| (|:| |op| #4#)
@@ -12156,7 +12156,7 @@
                       (|:| |expart|
                            (|UnivariateLaurentSeries|
                             (|Expression| (|Integer|)) |var| |cen|)))))
-          (#6=#:G1350 NIL) (#7=#:G1386 NIL) (|sg| NIL)
+          (#6=#:G1352 NIL) (#7=#:G1388 NIL) (|sg| NIL)
           (|singularities|
            (|List|
             (|Record| (|:| |point| (|Union| (|Expression| (|Integer|)) #1#))
@@ -12168,18 +12168,18 @@
                             (|UnivariateLaurentSeries|
                              (|Expression| (|Integer|)) |var| |cen|)))
                       (|:| |dxt| (|PositiveInteger|)))))
-          (#8=#:G1385 NIL) (#9=#:G1384 NIL) (|root| (|Expression| (|Integer|)))
-          (#10=#:G1383 NIL)
+          (#8=#:G1387 NIL) (#9=#:G1386 NIL) (|root| (|Expression| (|Integer|)))
+          (#10=#:G1385 NIL)
           (|dnf|
            (|List|
             (|Record|
              (|:| |factor|
                   (|UnivariatePolynomial| |var| (|Expression| (|Integer|))))
              (|:| |exponent| (|Integer|)))))
-          (#11=#:G1382 NIL) (|p| NIL)
+          (#11=#:G1384 NIL) (|p| NIL)
           (|dlc|
            (|List| (|UnivariatePolynomial| |var| (|Expression| (|Integer|)))))
-          (#12=#:G1381 NIL) (#13=#:G1380 NIL))
+          (#12=#:G1383 NIL) (#13=#:G1382 NIL))
          (SEQ
           (LETT |dlc|
                 (PROGN
@@ -12405,9 +12405,9 @@
 
 (DECLAIM (NOTINLINE |LinearOrdinaryDifferentialOperatorFactorizer2;|)) 
 
-(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer2| (&REST #1=#:G1390)
+(DEFUN |LinearOrdinaryDifferentialOperatorFactorizer2| (&REST #1=#:G1392)
   (SPROG NIL
-         (PROG (#2=#:G1391)
+         (PROG (#2=#:G1393)
            (RETURN
             (COND
              ((LETT #2#

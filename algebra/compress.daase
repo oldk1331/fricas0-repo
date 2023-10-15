@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4874 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4873 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -110,23 +110,23 @@
  |File| |FileCategory| |FiniteRankNonAssociativeAlgebra&|
  |FiniteRankNonAssociativeAlgebra| |FinitelyGenerated| |FiniteGroupPackage|
  |FiniteGroup&| |FiniteGroup| |Finite&| |Finite| |FiniteRankAlgebra&|
- |FiniteRankAlgebra| |FiniteLinearAggregate&| |FiniteLinearAggregate|
- |FiniteLinearAggregateFunctions2| |FreeLieAlgebra| |FiniteLinearAggregateSort|
- |FullyLinearlyExplicitRingOver&| |FullyLinearlyExplicitRingOver|
- |FloatLiouvilianFunctions| |Float| |FloatingComplexPackage|
- |FloatingRealPackage| |FreeModule| |FreeModuleFunctions2| |FreeMagma|
- |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
- |FreeModuleCoefficientFunctions2| |FortranMatrixFunctionCategory| |FreeMonoid|
- |FortranMachineTypeCategory| |FileName| |FileNameCategory| |FunctionGraph|
- |FreeNilpotentLie| |FortranOutputStackPackage| |FindOrderFinite|
- |OutputFormatterCategory| |ScriptFormulaFormat| |ScriptFormulaFormat1|
- |FortranPackage| |FortranProgramCategory| |FortranFunctionCategory|
- |FortranFormat| |FortranProgram| |FullPartialFractionExpansion|
- |FullyPatternMatchable| |FieldOfPrimeCharacteristic&|
- |FieldOfPrimeCharacteristic| |FloatingPointSystem&| |FloatingPointSystem|
- |Factored| |FactoredFunctions2| |Fraction| |FractionFunctions2|
- |FramedAlgebra&| |FramedAlgebra| |FullyRetractableTo&| |FullyRetractableTo|
- |FractionalIdeal| |FractionalIdealFunctions2| |FramedModule|
+ |FiniteRankAlgebra| |FiniteLinearAggregate| |FiniteLinearAggregateFunctions2|
+ |FreeLieAlgebra| |FiniteLinearAggregateSort| |FullyLinearlyExplicitRingOver&|
+ |FullyLinearlyExplicitRingOver| |FloatLiouvilianFunctions| |Float|
+ |FloatingComplexPackage| |FloatingRealPackage| |FreeModule|
+ |FreeModuleFunctions2| |FreeMagma| |FortranMatrixCategory|
+ |FreeModuleCategory&| |FreeModuleCategory| |FreeModuleCoefficientFunctions2|
+ |FortranMatrixFunctionCategory| |FreeMonoid| |FortranMachineTypeCategory|
+ |FileName| |FileNameCategory| |FunctionGraph| |FreeNilpotentLie|
+ |FortranOutputStackPackage| |FindOrderFinite| |OutputFormatterCategory|
+ |ScriptFormulaFormat| |ScriptFormulaFormat1| |FortranPackage|
+ |FortranProgramCategory| |FortranFunctionCategory| |FortranFormat|
+ |FortranProgram| |FullPartialFractionExpansion| |FullyPatternMatchable|
+ |FieldOfPrimeCharacteristic&| |FieldOfPrimeCharacteristic|
+ |FloatingPointSystem&| |FloatingPointSystem| |Factored| |FactoredFunctions2|
+ |Fraction| |FractionFunctions2| |FramedAlgebra&| |FramedAlgebra|
+ |FullyRetractableTo&| |FullyRetractableTo| |FractionalIdeal|
+ |FractionalIdealFunctions2| |FramedModule|
  |FramedNonAssociativeAlgebraFunctions2| |FramedNonAssociativeAlgebra&|
  |FramedNonAssociativeAlgebra| |FactoredFunctionUtilities| |FunctionSpace&|
  |FunctionSpace| |FunctionSpaceFunctions2|
@@ -587,33 +587,32 @@
  |alternative?| |flexible?| |rightAlternative?| |leftAlternative?|
  |antiAssociative?| |associative?| |antiCommutative?| |commutative?|
  |rightCharacteristicPolynomial| |leftCharacteristicPolynomial| |rightNorm|
- |leftNorm| |rightTrace| |leftTrace| |someBasis| |sort!| |copyInto!| |sorted?|
- |LiePoly| |quickSort| |heapSort| |shellSort| |gamma| |outputSpacing|
- |outputGeneral| |outputFixed| |outputFloating| |exp1| |log10| |log2|
- |rationalApproximation| |relerror| |complexSolve| |complexRoots| |realRoots|
- |support| |overlap| |hcrf| |hclf| |writable?| |readable?| |exists?|
- |extension| |directory| |filename| |functionGraph| |shallowExpand|
- |deepExpand| |clearFortranOutputStack| |showFortranOutputStack|
- |popFortranOutputStack| |pushFortranOutputStack| |topFortranOutputStack|
- |setFormula!| |formula| |linkToFortran| |setLegalFortranSourceExtensions|
- |fracPart| |polyPart| |fullPartialFraction| |primeFrobenius| |discreteLog|
- |decreasePrecision| |increasePrecision| |bits| |unitNormalize| |unit|
- |flagFactor| |sqfrFactor| |primeFactor| |nthFlag| |nthExponent|
- |irreducibleFactor| |factors| |nilFactor| |regularRepresentation|
- |traceMatrix| |randomLC| |minimize| |module| |rightRegularRepresentation|
- |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
- |rightDiscriminant| |leftDiscriminant| |represents| |mergeFactors| |algtower|
- |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS| |exprToPS|
- |localAbs| |atan1| |integ| |integ_df| |powToUPS| |universe| |complement|
- |cardinality| |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
- |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
- |iiabs| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI|
- |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi|
- |iAiryAiPrime| |iAiryBi| |iAiryBiPrime| |iiHypergeometricF| |iiPolylog|
- |iLambertW| |bringDown| |newReduc| |logical?| |character?| |doubleComplex?|
- |complex?| |double?| |fortranCharacter| |fortranDoubleComplex|
- |fortranComplex| |fortranLogical| |fortranInteger| |fortranDouble|
- |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
+ |leftNorm| |rightTrace| |leftTrace| |someBasis| |LiePoly| |quickSort|
+ |heapSort| |shellSort| |gamma| |outputSpacing| |outputGeneral| |outputFixed|
+ |outputFloating| |exp1| |log10| |log2| |rationalApproximation| |relerror|
+ |complexSolve| |complexRoots| |realRoots| |support| |overlap| |hcrf| |hclf|
+ |writable?| |readable?| |exists?| |extension| |directory| |filename|
+ |functionGraph| |shallowExpand| |deepExpand| |clearFortranOutputStack|
+ |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
+ |topFortranOutputStack| |setFormula!| |formula| |linkToFortran|
+ |setLegalFortranSourceExtensions| |fracPart| |polyPart| |fullPartialFraction|
+ |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
+ |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor| |nthFlag|
+ |nthExponent| |irreducibleFactor| |factors| |nilFactor|
+ |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
+ |rightRegularRepresentation| |leftRegularRepresentation| |rightTraceMatrix|
+ |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant| |represents|
+ |mergeFactors| |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS|
+ |exprToGenUPS| |exprToPS| |localAbs| |atan1| |integ| |integ_df| |powToUPS|
+ |universe| |complement| |cardinality| |internalIntegrate0| |makeCos| |makeSin|
+ |logGamma| |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
+ |lambert_inverse_series| |iiGamma| |iiabs| |iiBeta| |iidigamma| |iipolygamma|
+ |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime|
+ |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
+ |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
+ |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
+ |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
+ |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
  |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
@@ -714,14 +713,15 @@
  |linearlyDependent?| |linearDependence| |solveLinear| |reducedSystem|
  |setDifference| |setIntersection| |setUnion| |append| |null| |nil| |match|
  |substitute| |duplicates?| |mapGen| |mapExpon| |commutativeEquality|
- |leftMult| |rightMult| |makeUnit| |reverse!| |reverse| |nthFactor| |nthExpon|
- |makeMulti| |makeTerm| |listOfMonoms| |insert| |delete| |delta_deriv|
- |symmetricSquare| |factor1| |testnp| |testfn| |testf2| |testll| |testlc|
- |testln| |testlw| |testcp| |testco| |testcx| |testpd| |testfr| |testsb|
- |testro| |testfo| |testsc| |testfg| |testlp| |testis| |testgt| |gen_exp|
- |ge_minimal| |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
- |lcmCoef| |solveLinearPolynomialEquationByFractions| |list| |hasSolution?|
- |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
+ |leftMult| |rightMult| |makeUnit| |nthFactor| |nthExpon| |makeMulti|
+ |makeTerm| |listOfMonoms| |sort!| |reverse!| |copyInto!| |sorted?| |reverse|
+ |insert| |delete| |delta_deriv| |symmetricSquare| |factor1| |testnp| |testfn|
+ |testf2| |testll| |testlc| |testln| |testlw| |testcp| |testco| |testcx|
+ |testpd| |testfr| |testsb| |testro| |testfo| |testsc| |testfg| |testlp|
+ |testis| |testgt| |gen_exp| |ge_minimal| |symmetricProduct| |symmetricPower|
+ |directSum| |entries| |loop| |lcmCoef|
+ |solveLinearPolynomialEquationByFractions| |list| |hasSolution?| |linSolve|
+ |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
  |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
  |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
  |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|

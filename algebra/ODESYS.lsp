@@ -529,7 +529,7 @@
            (|List|
             (|Record| (|:| C (|Matrix| F)) (|:| |g| (|Vector| F)) (|:| |eq| LO)
                       (|:| |rh| F))))
-          (#1=#:G225 NIL) (|er2| NIL)
+          (#1=#:G226 NIL) (|er2| NIL)
           (|res1|
            (|Record| (|:| A (|Matrix| F))
                      (|:| |eqs|
@@ -582,8 +582,8 @@
                              (|:| |coeffs| (|Vector| F)))))
              (|:| |basis| (|List| (|Vector| F))))
             "failed"))
-          (#1=#:G242 NIL) (|u| (|Union| (|Matrix| F) "failed")) (#2=#:G243 NIL)
-          (#3=#:G245 NIL) (|i| NIL) (#4=#:G244 NIL)
+          (#1=#:G243 NIL) (|u| (|Union| (|Matrix| F) "failed")) (#2=#:G244 NIL)
+          (#3=#:G246 NIL) (|i| NIL) (#4=#:G245 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -618,7 +618,7 @@
                   (PROGN
                    (LETT #1# (SPADCALL (QCDR |u|) |lv| |solf| (QREFELT $ 35))
                          . #5#)
-                   (GO #6=#:G240))))))))
+                   (GO #6=#:G241))))))))
             (LETT |rec|
                   (SPADCALL |m| (|spadConstant| $ 15) |lv| |solf|
                             (QREFELT $ 75))
@@ -632,8 +632,8 @@
 
 (SDEFUN |ODESYS;M2F| ((|m| |Matrix| LO) ($ |Union| (|Matrix| F) "failed"))
         (SPROG
-         ((#1=#:G257 NIL) (|u| (|Union| F "failed")) (#2=#:G259 NIL) (|j| NIL)
-          (#3=#:G258 NIL) (|i| NIL) (|mf| (|Matrix| F)))
+         ((#1=#:G258 NIL) (|u| (|Union| F "failed")) (#2=#:G260 NIL) (|j| NIL)
+          (#3=#:G259 NIL) (|i| NIL) (|mf| (|Matrix| F)))
          (SEQ
           (EXIT
            (SEQ
@@ -659,7 +659,7 @@
                            ((QEQCAR |u| 1)
                             (PROGN
                              (LETT #1# (CONS 1 "failed") . #4#)
-                             (GO #5=#:G256)))
+                             (GO #5=#:G257)))
                            ('T
                             (SPADCALL |mf| |i| |j| (QCDR |u|)
                                       (QREFELT $ 82))))))
@@ -689,9 +689,9 @@
 
 (DECLAIM (NOTINLINE |SystemODESolver;|)) 
 
-(DEFUN |SystemODESolver| (&REST #1=#:G273)
+(DEFUN |SystemODESolver| (&REST #1=#:G274)
   (SPROG NIL
-         (PROG (#2=#:G274)
+         (PROG (#2=#:G275)
            (RETURN
             (COND
              ((LETT #2#

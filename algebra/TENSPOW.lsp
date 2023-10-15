@@ -1,8 +1,8 @@
 
 (SDEFUN |TENSPOW;coerce;$Of;1| ((|x| $) ($ |OutputForm|))
         (SPROG
-         ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G122 NIL)
-          (|b| NIL) (#2=#:G121 NIL) (#3=#:G120 NIL) (|rec| NIL))
+         ((|le| (|List| (|OutputForm|))) (|ko| (|OutputForm|)) (#1=#:G123 NIL)
+          (|b| NIL) (#2=#:G122 NIL) (#3=#:G121 NIL) (|rec| NIL))
          (SEQ
           (COND
            ((SPADCALL |x| (QREFELT $ 11))
@@ -67,7 +67,7 @@
          ($ |List| (|Record| (|:| |k| (|List| B)) (|:| |c| R))))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|List| B)) (|:| |c| R))))
-          (#1=#:G133 NIL) (|tt| NIL) (#2=#:G132 NIL) (|s1| NIL) (#3=#:G131 NIL)
+          (#1=#:G135 NIL) (|tt| NIL) (#2=#:G134 NIL) (|s1| NIL) (#3=#:G133 NIL)
           (|xr| (|List| M)) (|x1| (M)))
          (SEQ (LETT |x1| (|SPADfirst| |xx|) . #4=(|TENSPOW;partialTensor|))
               (LETT |xr| (CDR |xx|) . #4#)
@@ -124,7 +124,7 @@
 (SDEFUN |TENSPOW;tensor;L$;4| ((|xx| |List| M) ($ $))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Vector| B)) (|:| |c| R))))
-          (#1=#:G143 NIL) (|tt| NIL))
+          (#1=#:G146 NIL) (|tt| NIL))
          (SEQ
           (COND
            ((NULL (SPADCALL |xx| (QREFELT $ 6) (QREFELT $ 40)))
@@ -157,10 +157,10 @@
 (SDEFUN |TENSPOW;*;3$;5| ((|x1| $) (|x2| $) ($ $))
         (SPROG
          ((|res| (|List| (|Record| (|:| |k| (|Vector| B)) (|:| |c| R))))
-          (#1=#:G157 NIL) (|t| NIL) (|t1t2| ($)) (#2=#:G155 NIL) (|b1| NIL)
-          (#3=#:G156 NIL) (|b2| NIL) (#4=#:G154 NIL) (|t2k| #5=(|Vector| B))
-          (|t1k| #5#) (|t2c| (R)) (|t1c| (R)) (#6=#:G153 NIL) (|t2| NIL)
-          (#7=#:G152 NIL) (|t1| NIL))
+          (#1=#:G160 NIL) (|t| NIL) (|t1t2| ($)) (#2=#:G158 NIL) (|b1| NIL)
+          (#3=#:G159 NIL) (|b2| NIL) (#4=#:G157 NIL) (|t2k| #5=(|Vector| B))
+          (|t1k| #5#) (|t2c| (R)) (|t1c| (R)) (#6=#:G156 NIL) (|t2| NIL)
+          (#7=#:G155 NIL) (|t1| NIL))
          (SEQ (LETT |res| NIL . #8=(|TENSPOW;*;3$;5|))
               (SEQ (LETT |t1| NIL . #8#)
                    (LETT #7# (SPADCALL |x1| (QREFELT $ 17)) . #8#) G190
@@ -254,9 +254,9 @@
 
 (DECLAIM (NOTINLINE |TensorPower;|)) 
 
-(DEFUN |TensorPower| (&REST #1=#:G167)
+(DEFUN |TensorPower| (&REST #1=#:G170)
   (SPROG NIL
-         (PROG (#2=#:G168)
+         (PROG (#2=#:G171)
            (RETURN
             (COND
              ((LETT #2#

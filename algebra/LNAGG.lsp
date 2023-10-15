@@ -66,11 +66,105 @@
                                                     (|Integer|))
                                                    |t#1|))
                                                  (|has| $
-                                                        (|shallowlyMutable|))))
-                                              NIL
-                                              '((|UniversalSegment|
+                                                        (|shallowlyMutable|)))
+                                                ((|merge|
+                                                  ($
+                                                   (|Mapping| (|Boolean|) |t#1|
+                                                              |t#1|)
+                                                   $ $))
+                                                 (|has| $ (|finiteAggregate|)))
+                                                ((|reverse| ($ $))
+                                                 (|has| $ (|finiteAggregate|)))
+                                                ((|sort|
+                                                  ($
+                                                   (|Mapping| (|Boolean|) |t#1|
+                                                              |t#1|)
+                                                   $))
+                                                 (|has| $ (|finiteAggregate|)))
+                                                ((|sorted?|
+                                                  ((|Boolean|)
+                                                   (|Mapping| (|Boolean|) |t#1|
+                                                              |t#1|)
+                                                   $))
+                                                 (|has| $ (|finiteAggregate|)))
+                                                ((|position|
+                                                  ((|Integer|)
+                                                   (|Mapping| (|Boolean|)
+                                                              |t#1|)
+                                                   $))
+                                                 (|has| $ (|finiteAggregate|)))
+                                                ((|position|
+                                                  ((|Integer|) |t#1| $))
+                                                 (AND
+                                                  (|has| |t#1| (|BasicType|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|position|
+                                                  ((|Integer|) |t#1| $
+                                                   (|Integer|)))
+                                                 (AND
+                                                  (|has| |t#1| (|BasicType|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|merge| ($ $ $))
+                                                 (AND
+                                                  (|has| |t#1| (|OrderedSet|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|sort| ($ $))
+                                                 (AND
+                                                  (|has| |t#1| (|OrderedSet|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|sorted?| ((|Boolean|) $))
+                                                 (AND
+                                                  (|has| |t#1| (|OrderedSet|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|copyInto!|
+                                                  ($ $ $ (|Integer|)))
+                                                 (AND
+                                                  (|has| $
+                                                         (|shallowlyMutable|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|reverse!| ($ $))
+                                                 (AND
+                                                  (|has| $
+                                                         (|shallowlyMutable|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|sort!|
+                                                  ($
+                                                   (|Mapping| (|Boolean|) |t#1|
+                                                              |t#1|)
+                                                   $))
+                                                 (AND
+                                                  (|has| $
+                                                         (|shallowlyMutable|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|sort!| ($ $))
+                                                 (AND
+                                                  (|has| |t#1| (|OrderedSet|))
+                                                  (|has| $
+                                                         (|shallowlyMutable|))
+                                                  (|has| $
+                                                         (|finiteAggregate|)))))
+                                              '(((|Comparable|)
+                                                 (AND
+                                                  (|has| |t#1| (|Comparable|))
+                                                  (|has| $
+                                                         (|finiteAggregate|))))
+                                                ((|OrderedSet|)
+                                                 (AND
+                                                  (|has| |t#1| (|OrderedSet|))
+                                                  (|has| $
+                                                         (|finiteAggregate|)))))
+                                              '((|Integer|) (|Boolean|)
+                                                (|UniversalSegment|
                                                  (|Integer|))
-                                                (|Integer|) (|List| $)
+                                                (|List| $)
                                                 (|NonNegativeInteger|))
                                               NIL))
                                             . #3=(|LinearAggregate|))))))

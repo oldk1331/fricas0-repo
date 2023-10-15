@@ -232,8 +232,8 @@
                                                                    (|Fraction|
                                                                     UP))))))
         (SPROG
-         ((|ans| (|List| #1#)) (|p| (UP)) (#2=#:G201 NIL) (|a| NIL)
-          (#3=#:G200 NIL) (|rec| NIL)
+         ((|ans| (|List| #1#)) (|p| (UP)) (#2=#:G202 NIL) (|a| NIL)
+          (#3=#:G201 NIL) (|rec| NIL)
           (|lc|
            (|List|
             (|Record| (|:| |deg| (|NonNegativeInteger|)) (|:| |eq| UP)))))
@@ -286,7 +286,7 @@
 (SDEFUN |ODERTRIC;reverseUP|
         ((|p| UP) ($ |UnivariateTaylorSeries| F |dummy| (|Zero|)))
         (SPROG
-         ((|ans| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G202 NIL)
+         ((|ans| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G203 NIL)
           (|n| (|Integer|)))
          (SEQ (LETT |ans| (|spadConstant| $ 82) . #2=(|ODERTRIC;reverseUP|))
               (LETT |n| (SPADCALL |p| (QREFELT $ 83)) . #2#)
@@ -320,8 +320,8 @@
         ((|s| |UnivariateTaylorSeries| F |dummy| (|Zero|))
          (|n| |NonNegativeInteger|) ($ UP))
         (SPROG
-         ((#1=#:G208 NIL) (#2=#:G207 (UP)) (#3=#:G209 (UP)) (#4=#:G210 NIL)
-          (#5=#:G212 NIL) (|i| NIL))
+         ((#1=#:G209 NIL) (#2=#:G208 (UP)) (#3=#:G210 (UP)) (#4=#:G211 NIL)
+          (#5=#:G213 NIL) (|i| NIL))
          (SEQ
           (PROGN
            (LETT #1# NIL . #6=(|ODERTRIC;reverseUTS|))
@@ -349,7 +349,7 @@
          (|a| F) (|n| |NonNegativeInteger|) (|zeros| |Mapping| (|List| F) UP)
          ($ UP))
         (SPROG
-         ((|sols| (|List| UP)) (#2=#:G235 NIL) (|sol| NIL) (#3=#:G234 NIL)
+         ((|sols| (|List| UP)) (#2=#:G236 NIL) (|sol| NIL) (#3=#:G235 NIL)
           (|neq| (|LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP)))
           (|atn| (UP))
           (|u|
@@ -357,7 +357,7 @@
           (|aeq|
            (|SparseUnivariatePolynomial|
             (|UnivariateTaylorSeries| F |dummy| (|Zero|))))
-          (|s| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#4=#:G222 NIL)
+          (|s| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#4=#:G223 NIL)
           (|d| (|NonNegativeInteger|)) (|c| (UP)) (|m| (|Integer|)) (|op| #1#)
           (|mu| (|NonNegativeInteger|)))
          (SEQ (LETT |m| 0 . #5=(|ODERTRIC;newtonSolution|))
@@ -454,10 +454,10 @@
          (|a| F) (|n| |NonNegativeInteger|)
          ($ |Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed"))
         (SPROG
-         ((|sol| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G243 NIL)
+         ((|sol| (|UnivariateTaylorSeries| F |dummy| (|Zero|))) (#1=#:G244 NIL)
           (|xquo|
            (|Union| (|UnivariateTaylorSeries| F |dummy| (|Zero|)) "failed"))
-          (#2=#:G244 NIL) (|i| NIL)
+          (#2=#:G245 NIL) (|i| NIL)
           (|deq|
            (|SparseUnivariatePolynomial|
             (|UnivariateTaylorSeries| F |dummy| (|Zero|)))))
@@ -478,7 +478,7 @@
                   (EXIT
                    (COND
                     ((QEQCAR |xquo| 1)
-                     (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #4=#:G242)))
+                     (PROGN (LETT #1# (CONS 1 "failed") . #3#) (GO #4=#:G243)))
                     ('T
                      (LETT |sol|
                            (SPADCALL
@@ -494,8 +494,8 @@
          (|zeros| |Mapping| (|List| F) UP)
          (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| (|Fraction| UP)))
         (SPROG
-         ((#1=#:G254 NIL) (#2=#:G255 NIL) (|ans| (|List| (|Fraction| UP)))
-          (#3=#:G258 NIL) (|f| NIL) (#4=#:G257 NIL) (#5=#:G256 NIL) (|rec| NIL)
+         ((#1=#:G255 NIL) (#2=#:G256 NIL) (|ans| (|List| (|Fraction| UP)))
+          (#3=#:G259 NIL) (|f| NIL) (#4=#:G258 NIL) (#5=#:G257 NIL) (|rec| NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -545,9 +545,9 @@
                      (COND
                       ((EQL (LENGTH |ans|) |n|)
                        (PROGN
-                        (LETT #1# (PROGN (LETT #2# |ans| . #6#) (GO #7=#:G253))
+                        (LETT #1# (PROGN (LETT #2# |ans| . #6#) (GO #7=#:G254))
                               . #6#)
-                        (GO #8=#:G250)))))))
+                        (GO #8=#:G251)))))))
                   #8# (EXIT #1#))
                  (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
             (EXIT |ans|)))
@@ -558,8 +558,8 @@
          (|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
          (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
         (SPROG
-         ((#1=#:G269 NIL) (#2=#:G270 NIL) (|ans| (|List| (|Fraction| UP)))
-          (#3=#:G271 NIL) (|rec| NIL))
+         ((#1=#:G270 NIL) (#2=#:G271 NIL) (|ans| (|List| (|Fraction| UP)))
+          (#3=#:G272 NIL) (|rec| NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |ans| NIL . #4=(|ODERTRIC;nonSingSolve|))
@@ -585,9 +585,9 @@
                           ((EQL (LENGTH |ans|) |n|)
                            (PROGN
                             (LETT #1#
-                                  (PROGN (LETT #2# |ans| . #4#) (GO #5=#:G268))
+                                  (PROGN (LETT #2# |ans| . #4#) (GO #5=#:G269))
                                   . #4#)
-                            (GO #6=#:G265)))))))
+                            (GO #6=#:G266)))))))
                       #6# (EXIT #1#))
                      (LETT #3# (CDR #3#) . #4#) (GO G190) G191 (EXIT NIL))
                 (EXIT |ans|)))
@@ -603,8 +603,8 @@
          (|l| |LinearOrdinaryDifferentialOperator2| UP (|Fraction| UP))
          (|zeros| |Mapping| (|List| F) UP) ($ |List| (|Fraction| UP)))
         (SPROG
-         ((#1=#:G282 NIL) (#2=#:G283 NIL) (|ans| (|List| (|Fraction| UP)))
-          (#3=#:G286 NIL) (|f| NIL) (#4=#:G285 NIL) (#5=#:G284 NIL)
+         ((#1=#:G283 NIL) (#2=#:G284 NIL) (|ans| (|List| (|Fraction| UP)))
+          (#3=#:G287 NIL) (|f| NIL) (#4=#:G286 NIL) (#5=#:G285 NIL)
           (|rec| NIL))
          (SEQ
           (EXIT
@@ -667,9 +667,9 @@
                           ((EQL (LENGTH |ans|) |n|)
                            (PROGN
                             (LETT #1#
-                                  (PROGN (LETT #2# |ans| . #6#) (GO #7=#:G281))
+                                  (PROGN (LETT #2# |ans| . #6#) (GO #7=#:G282))
                                   . #6#)
-                            (GO #8=#:G278)))))))
+                            (GO #8=#:G279)))))))
                       #8# (EXIT #1#))
                      (LETT #5# (CDR #5#) . #6#) (GO G190) G191 (EXIT NIL))
                 (EXIT |ans|)))
@@ -684,7 +684,7 @@
 (SDEFUN |ODERTRIC;solveModulo|
         ((|c| UP) (|h| |SparseUnivariatePolynomial| UP) ($ |List| UP))
         (SPROG
-         ((#1=#:G297 NIL) (|s| NIL) (#2=#:G296 NIL)
+         ((#1=#:G298 NIL) (|s| NIL) (#2=#:G297 NIL)
           (|sol|
            (|List|
             (|Record| (|:| |var| (|List| (|Symbol|))) (|:| |val| (|List| F)))))
@@ -787,7 +787,7 @@
 
 (SDEFUN |ODERTRIC;zro|
         ((|p| UP) (|ezfactor| |Mapping| (|Factored| UP) UP) ($ |List| F))
-        (SPROG ((#1=#:G314 NIL) (|r| NIL) (#2=#:G313 NIL))
+        (SPROG ((#1=#:G315 NIL) (|r| NIL) (#2=#:G314 NIL))
                (SEQ
                 (SPADCALL
                  (PROGN
@@ -818,9 +818,9 @@
 
 (DECLAIM (NOTINLINE |RationalRicDE;|)) 
 
-(DEFUN |RationalRicDE| (&REST #1=#:G318)
+(DEFUN |RationalRicDE| (&REST #1=#:G319)
   (SPROG NIL
-         (PROG (#2=#:G319)
+         (PROG (#2=#:G320)
            (RETURN
             (COND
              ((LETT #2#

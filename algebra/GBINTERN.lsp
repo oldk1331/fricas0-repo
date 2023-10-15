@@ -71,7 +71,7 @@
         ((|Pol| |List| |Dpol|) (|xx1| |Integer|) (|xx2| |Integer|)
          ($ |List| |Dpol|))
         (SPROG
-         ((#1=#:G173 NIL) (|x| NIL) (#2=#:G172 NIL) (|xx| (|Integer|))
+         ((#1=#:G176 NIL) (|x| NIL) (#2=#:G175 NIL) (|xx| (|Integer|))
           (|redPols| (|List| |Dpol|))
           (|basPols|
            (|List|
@@ -87,13 +87,13 @@
             (|Record| (|:| |lcmfij| |Expon|)
                       (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                       (|:| |polj| |Dpol|))))
-          (#3=#:G171 NIL) (#4=#:G170 NIL) (#5=#:G165 NIL) (|h| (|Dpol|))
+          (#3=#:G174 NIL) (#4=#:G173 NIL) (#5=#:G168 NIL) (|h| (|Dpol|))
           (|s| (|Dpol|))
           (D0
            (|Record| (|:| |lcmfij| |Expon|)
                      (|:| |totdeg| (|NonNegativeInteger|)) (|:| |poli| |Dpol|)
                      (|:| |polj| |Dpol|)))
-          (#6=#:G169 NIL) (#7=#:G168 NIL) (#8=#:G167 NIL) (#9=#:G166 NIL)
+          (#6=#:G172 NIL) (#7=#:G171 NIL) (#8=#:G170 NIL) (#9=#:G169 NIL)
           (|toth| (|NonNegativeInteger|)) (|Pol1| (|List| |Dpol|)))
          (SEQ
           (LETT |Pol1|
@@ -193,7 +193,7 @@
                               (EXIT
                                (PROGN
                                 (LETT #5# |$NoValue| . #10#)
-                                (GO #11=#:G159)))))
+                                (GO #11=#:G162)))))
                         ('T
                          (SEQ
                           (LETT D1
@@ -442,7 +442,7 @@
 (SDEFUN |GBINTERN;gcdCo|
         ((|c1| |Dom|) (|c2| |Dom|)
          ($ |Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
-        (SPROG ((#1=#:G194 NIL) (|d| (|Dom|)))
+        (SPROG ((#1=#:G197 NIL) (|d| (|Dom|)))
                (SEQ
                 (LETT |d| (SPADCALL |c1| |c2| (QREFELT $ 61))
                       . #2=(|GBINTERN;gcdCo|))
@@ -463,7 +463,7 @@
           (|:| |polj| |Dpol|))
          ($ |Dpol|))
         (SPROG
-         ((#1=#:G200 NIL) (|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
+         ((#1=#:G203 NIL) (|cc| (|Record| (|:| |co1| |Dom|) (|:| |co2| |Dom|)))
           (|fj| (|Dpol|)) (|fi| (|Dpol|)) (|Tij| (|Expon|)))
          (SEQ (LETT |Tij| (QVELT |p| 0) . #2=(|GBINTERN;sPol;RDpol;12|))
               (LETT |fi| (QVELT |p| 2) . #2#) (LETT |fj| (QVELT |p| 3) . #2#)
@@ -666,7 +666,7 @@
                     (EXIT |n|)))) 
 
 (SDEFUN |GBINTERN;prinb;IV;22| ((|n| |Integer|) ($ |Void|))
-        (SPROG ((#1=#:G240 NIL) (|x| NIL))
+        (SPROG ((#1=#:G243 NIL) (|x| NIL))
                (SEQ (LETT |x| 1 . #2=(|GBINTERN;prinb;IV;22|))
                     (LETT #1# |n| . #2#) G190
                     (COND ((|greater_SI| |x| #1#) (GO G191)))
@@ -921,9 +921,9 @@
 
 (DECLAIM (NOTINLINE |GroebnerInternalPackage;|)) 
 
-(DEFUN |GroebnerInternalPackage| (&REST #1=#:G267)
+(DEFUN |GroebnerInternalPackage| (&REST #1=#:G270)
   (SPROG NIL
-         (PROG (#2=#:G268)
+         (PROG (#2=#:G271)
            (RETURN
             (COND
              ((LETT #2#
