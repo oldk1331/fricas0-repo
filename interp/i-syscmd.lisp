@@ -5681,7 +5681,6 @@
 ;   $eval:local := true           --generate code-- don't just type analyze
 ;   $genValue:local := true       --evaluate all generated code
 ;   null u => nil
-;   $doNotAddEmptyModeIfTrue: local:= true
 ;   u = $quadSymbol =>
 ;      sayBrightly ['"   mode denotes", :bright '"any", "type"]
 ;   u = "%" =>
@@ -5704,68 +5703,61 @@
 ;   sayKeyedMsg("S2IZ0041",[unitForm])
  
 (DEFUN |reportOperations| (|oldArg| |u|)
-  (PROG (|$doNotAddEmptyModeIfTrue| |$genValue| |$eval| |$env| |tree|
-         |unitForm'| |unitForm| |v| |ISTMP#1|)
-    (DECLARE (SPECIAL |$doNotAddEmptyModeIfTrue| |$genValue| |$eval| |$env|))
+  (PROG (|$genValue| |$eval| |$env| |tree| |unitForm'| |unitForm| |v|
+         |ISTMP#1|)
+    (DECLARE (SPECIAL |$genValue| |$eval| |$env|))
     (RETURN
      (PROGN
       (SETQ |$env| (LIST (LIST NIL)))
       (SETQ |$eval| T)
       (SETQ |$genValue| T)
       (COND ((NULL |u|) NIL)
-            (#1='T
+            ((EQUAL |u| |$quadSymbol|)
+             (|sayBrightly|
+              (CONS "   mode denotes"
+                    (APPEND (|bright| "any") (CONS '|type| NIL)))))
+            ((EQ |u| '%)
              (PROGN
-              (SETQ |$doNotAddEmptyModeIfTrue| T)
+              (|sayKeyedMsg| 'S2IZ0063 NIL)
+              (|sayKeyedMsg| 'S2IZ0064 NIL)))
+            ((AND (NOT (AND (CONSP |u|) (EQ (CAR |u|) '|Record|)))
+                  (NOT (AND (CONSP |u|) (EQ (CAR |u|) '|Union|)))
+                  (NULL (|isNameOfType| |u|))
+                  (NOT
+                   (AND (CONSP |u|) (EQ (CAR |u|) '|typeOf|)
+                        (PROGN
+                         (SETQ |ISTMP#1| (CDR |u|))
+                         (AND (CONSP |ISTMP#1|) (EQ (CDR |ISTMP#1|) NIL))))))
+             (PROGN
+              (COND ((ATOM |oldArg|) (SETQ |oldArg| (LIST |oldArg|))))
+              (|sayKeyedMsg| 'S2IZ0063 NIL)
+              ((LAMBDA (|bfVar#107| |op|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#107|)
+                        (PROGN (SETQ |op| (CAR |bfVar#107|)) NIL))
+                    (RETURN NIL))
+                   (#1='T (|sayKeyedMsg| 'S2IZ0062 (LIST (|opOf| |op|)))))
+                  (SETQ |bfVar#107| (CDR |bfVar#107|))))
+               |oldArg| NIL)))
+            ((SETQ |v| (|isDomainValuedVariable| |u|))
+             (|reportOpsFromUnitDirectly0| |v|))
+            (#1#
+             (PROGN
+              (SETQ |unitForm|
+                      (COND ((ATOM |u|) (|opOf| (|unabbrev| |u|)))
+                            (#1# (|unabbrev| |u|))))
               (COND
-               ((EQUAL |u| |$quadSymbol|)
-                (|sayBrightly|
-                 (CONS "   mode denotes"
-                       (APPEND (|bright| "any") (CONS '|type| NIL)))))
-               ((EQ |u| '%)
-                (PROGN
-                 (|sayKeyedMsg| 'S2IZ0063 NIL)
-                 (|sayKeyedMsg| 'S2IZ0064 NIL)))
-               ((AND (NOT (AND (CONSP |u|) (EQ (CAR |u|) '|Record|)))
-                     (NOT (AND (CONSP |u|) (EQ (CAR |u|) '|Union|)))
-                     (NULL (|isNameOfType| |u|))
-                     (NOT
-                      (AND (CONSP |u|) (EQ (CAR |u|) '|typeOf|)
-                           (PROGN
-                            (SETQ |ISTMP#1| (CDR |u|))
-                            (AND (CONSP |ISTMP#1|)
-                                 (EQ (CDR |ISTMP#1|) NIL))))))
-                (PROGN
-                 (COND ((ATOM |oldArg|) (SETQ |oldArg| (LIST |oldArg|))))
-                 (|sayKeyedMsg| 'S2IZ0063 NIL)
-                 ((LAMBDA (|bfVar#107| |op|)
-                    (LOOP
-                     (COND
-                      ((OR (ATOM |bfVar#107|)
-                           (PROGN (SETQ |op| (CAR |bfVar#107|)) NIL))
-                       (RETURN NIL))
-                      (#1# (|sayKeyedMsg| 'S2IZ0062 (LIST (|opOf| |op|)))))
-                     (SETQ |bfVar#107| (CDR |bfVar#107|))))
-                  |oldArg| NIL)))
-               ((SETQ |v| (|isDomainValuedVariable| |u|))
-                (|reportOpsFromUnitDirectly0| |v|))
+               ((ATOM |unitForm|) (|reportOpsFromLisplib0| |unitForm| |u|))
                (#1#
                 (PROGN
-                 (SETQ |unitForm|
-                         (COND ((ATOM |u|) (|opOf| (|unabbrev| |u|)))
-                               (#1# (|unabbrev| |u|))))
+                 (SETQ |unitForm'| (|evaluateType| |unitForm|))
+                 (SETQ |tree|
+                         (|mkAtree| (|removeZeroOneDestructively| |unitForm|)))
                  (COND
-                  ((ATOM |unitForm|) (|reportOpsFromLisplib0| |unitForm| |u|))
-                  (#1#
-                   (PROGN
-                    (SETQ |unitForm'| (|evaluateType| |unitForm|))
-                    (SETQ |tree|
-                            (|mkAtree|
-                             (|removeZeroOneDestructively| |unitForm|)))
-                    (COND
-                     ((SETQ |unitForm'| (|isType| |tree|))
-                      (|reportOpsFromUnitDirectly0| |unitForm'|))
-                     (#1#
-                      (|sayKeyedMsg| 'S2IZ0041 (LIST |unitForm|)))))))))))))))))
+                  ((SETQ |unitForm'| (|isType| |tree|))
+                   (|reportOpsFromUnitDirectly0| |unitForm'|))
+                  (#1# (|sayKeyedMsg| 'S2IZ0041 (LIST |unitForm|))))))))))))))
  
 ; reportOpsFromUnitDirectly0 D ==
 ;   $useEditorForShowOutput =>

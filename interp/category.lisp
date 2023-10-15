@@ -387,22 +387,20 @@
 ;              --same signature and same predicate
 ;         opred = true => extra:= delete(x,extra)
 ;   for e in extra repeat
-;     [esig,epred,:.]:= e
-;     eimplem:=[]
-;     for x in SigListOpSubsume(e,original) repeat
+;       [esig, epred, :.] := e
+;       for x in SigListOpSubsume(e, original) repeat
 ;         --PRETTYPRINT(LIST("SigListOpSubsume",e,x))
-;       original:= delete(x,original)
-;       [xsig,xpred,:ximplem]:= x
-;       eimplem := ximplem
-;       if eimplem then esig := [first esig, CADR esig]
-;            -- in case there's a constant marker
-;       e:= [esig, mkOr(epred, xpred), :eimplem]
-;     original:= [e,:original]
+;           original := delete(x,original)
+;           [xsig, xpred, :ximplem] := x
+;           if ximplem then esig := [first esig, CADR esig]
+;              -- in case there's a constant marker
+;           e := [esig, mkOr(epred, xpred), :ximplem]
+;       original := [e, :original]
 ;   original
  
 (DEFUN |SigListUnion| (|extra| |original|)
   (PROG (|ISTMP#1| |ofn| |ISTMP#2| |osig| |ISTMP#3| |opred| |xfn| |xsig|
-         |xpred| |esig| |epred| |eimplem| |ximplem|)
+         |xpred| |esig| |epred| |ximplem|)
     (RETURN
      (PROGN
       ((LAMBDA (|bfVar#16| |o|)
@@ -455,7 +453,6 @@
             (PROGN
              (SETQ |esig| (CAR |e|))
              (SETQ |epred| (CADR |e|))
-             (SETQ |eimplem| NIL)
              ((LAMBDA (|bfVar#19| |x|)
                 (LOOP
                  (COND
@@ -468,14 +465,13 @@
                     (SETQ |xsig| (CAR |x|))
                     (SETQ |xpred| (CADR . #3=(|x|)))
                     (SETQ |ximplem| (CDDR . #3#))
-                    (SETQ |eimplem| |ximplem|)
                     (COND
-                     (|eimplem|
+                     (|ximplem|
                       (SETQ |esig| (LIST (CAR |esig|) (CADR |esig|)))))
                     (SETQ |e|
                             (CONS |esig|
                                   (CONS (|mkOr| |epred| |xpred|)
-                                        |eimplem|))))))
+                                        |ximplem|))))))
                  (SETQ |bfVar#19| (CDR |bfVar#19|))))
               (|SigListOpSubsume| |e| |original|) NIL)
              (SETQ |original| (CONS |e| |original|)))))

@@ -462,6 +462,7 @@
              |ress|))))))
  
 ; get_catlist(vmode, e) ==
+;     -- FIXME: setting $compForModeIfTrue should be not needed
 ;     $compForModeIfTrue : local := true
 ;     compMakeCategoryObject(vmode, e)
  

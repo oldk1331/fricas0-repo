@@ -3,10 +3,6 @@
  
 (IN-PACKAGE "BOOT")
  
-; DEFPARAMETER($constructorExposureList, '(Boolean Integer String))
- 
-(DEFPARAMETER |$constructorExposureList| '(|Boolean| |Integer| |String|))
- 
 ; sayFunctionSelection(op,args,target,dc,func) ==
 ;   $abbreviateTypes : local := true
 ;   startTimingProcess 'debug
