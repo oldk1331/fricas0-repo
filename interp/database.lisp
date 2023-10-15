@@ -1822,7 +1822,7 @@
 ;   alist:= nil
 ;   for [sig,:[slotNumber,pred,kind]] in signatureAlist | kind ~= 'Subsumed repeat
 ;     alist:= insertAlist(SUBLIS(pairlis,[op,sig]),
-;                 SUBLIS(pairlis,[pred,[kind,nil,slotNumber]]),
+;                 [pred,[kind,nil,slotNumber]],
 ;                 alist)
 ;   alist
  
@@ -1858,8 +1858,7 @@
                  (NOT (EQ |kind| '|Subsumed|))
                  (SETQ |alist|
                          (|insertAlist| (SUBLIS |pairlis| (LIST |op| |sig|))
-                          (SUBLIS |pairlis|
-                                  (LIST |pred| (LIST |kind| NIL |slotNumber|)))
+                          (LIST |pred| (LIST |kind| NIL |slotNumber|))
                           |alist|)))))
           (SETQ |bfVar#72| (CDR |bfVar#72|))))
        |signatureAlist| NIL)
