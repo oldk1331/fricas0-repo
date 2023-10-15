@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4852 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4849 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -294,24 +294,23 @@
  |PartialDifferentialRing&| |PartialDifferentialRing| |PendantTree|
  |Permutation| |Permanent| |PermutationCategory| |PermutationGroup|
  |PolynomialEvaluationUtilities| |PrimeField|
- |PolynomialFactorizationByRecursion|
- |PolynomialFactorizationByRecursionUnivariate|
- |PolynomialFactorizationExplicit&| |PolynomialFactorizationExplicit|
- |PointsOfFiniteOrder| |PointsOfFiniteOrderRational| |PointsOfFiniteOrderTools|
- |PartialFraction| |PartialFractionPackage| |PartialFractionUtilities|
- |PolynomialGcdPackage| |PermutationGroupExamples| |PolyGroebner|
- |PositiveInteger| |PiCoercions| |PrincipalIdealDomain|
- |PolynomialInterpolation| |PolynomialInterpolationAlgorithms|
- |ParallelIntegrationTools| |ParametricLinearEquations| |Plot| |PlotFunctions1|
- |Plot3D| |PlotTools| |PatternMatchAssertions| |FunctionSpaceAssertions|
- |PatternMatchPushDown| |PatternMatchFunctionSpace|
- |PatternMatchIntegerNumberSystem| |PatternMatchKernel|
- |PatternMatchListAggregate| |PatternMatchPolynomialCategory|
- |AttachPredicates| |FunctionSpaceAttachPredicates|
- |PatternMatchQuotientFieldCategory| |PatternMatchSymbol| |PatternMatchTools|
- |PolynomialNumberTheoryFunctions| |Point| |PolToPol|
- |RealPolynomialUtilitiesPackage| |Polynomial| |PolynomialFunctions2|
- |PolynomialToUnivariatePolynomial| |PolynomialCategory&| |PolynomialCategory|
+ |PolynomialFactorizationByRecursion| |PolynomialFactorizationExplicit&|
+ |PolynomialFactorizationExplicit| |PointsOfFiniteOrder|
+ |PointsOfFiniteOrderRational| |PointsOfFiniteOrderTools| |PartialFraction|
+ |PartialFractionPackage| |PartialFractionUtilities| |PolynomialGcdPackage|
+ |PermutationGroupExamples| |PolyGroebner| |PositiveInteger| |PiCoercions|
+ |PrincipalIdealDomain| |PolynomialInterpolation|
+ |PolynomialInterpolationAlgorithms| |ParallelIntegrationTools|
+ |ParametricLinearEquations| |Plot| |PlotFunctions1| |Plot3D| |PlotTools|
+ |PatternMatchAssertions| |FunctionSpaceAssertions| |PatternMatchPushDown|
+ |PatternMatchFunctionSpace| |PatternMatchIntegerNumberSystem|
+ |PatternMatchKernel| |PatternMatchListAggregate|
+ |PatternMatchPolynomialCategory| |AttachPredicates|
+ |FunctionSpaceAttachPredicates| |PatternMatchQuotientFieldCategory|
+ |PatternMatchSymbol| |PatternMatchTools| |PolynomialNumberTheoryFunctions|
+ |Point| |PolToPol| |RealPolynomialUtilitiesPackage| |Polynomial|
+ |PolynomialFunctions2| |PolynomialToUnivariatePolynomial|
+ |PolynomialCategory&| |PolynomialCategory|
  |PolynomialCategoryQuotientFunctions| |PolynomialCategoryLifting|
  |PolynomialRoots| |U32VectorPolynomialOperations| |PartialOrder&|
  |PartialOrder| |PlottablePlaneCurveCategory| |PolynomialRing|
@@ -734,10 +733,10 @@
  |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
- |corrPoly| |lifting| |lifting1| |exprex| |coerceS| |HP_solve_I| |HP_solve_A|
- |HP_solve_P| |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA|
- |VSUPPI_to_VPA| |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly|
- |HP_solve| |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
+ |corrPoly| |lifting| |exprex| |coerceS| |HP_solve_I| |HP_solve_A| |HP_solve_P|
+ |HP_solve_PA| |HP_solve_M| |check_sol1a| |VSUPI_to_VPA| |VSUPPI_to_VPA|
+ |LLFI_to_LPA| |LLFPI_to_LPA| |get_variables| |unpack_poly| |HP_solve|
+ |gen_Monte_Carlo_check| |LLF_to_LPA| |VSUPS_to_VPA| |frobenius|
  |computePowers| |An| |UnVectorise| |Vectorise| |setPoly| |index| |exponent|
  |exQuo| |moebius| |cumulant2moment| |moment2cumulant| |moment2nthJacobi|
  |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
@@ -813,9 +812,9 @@
  |cycles| |cycle| |perm_to_vec| |initializeGroupForWordProblem| |movedPoints|
  |wordInGenerators| |wordInStrongGenerators| |orbits| |orbit|
  |permutationGroup| |wordsForStrongGenerators| |strongGenerators| |base|
- |generators| |eval1a| |eval1| |modpreduction| |modpeval| |bivariateSLPEBR|
+ |generators| |eval1a| |eval1| |modpreduction| |modpeval|
  |solveLinearPolynomialEquationByRecursion| |factorByRecursion|
- |factorSquareFreeByRecursion| |randomR| |factorSFBRlcUnit| |charthRoot|
+ |factorSquareFreeByRecursion| |randomR| |bivariateSLPEBR| |charthRoot|
  |conditionP| |solveLinearPolynomialEquation| |factorSquareFreePolynomial|
  |factorPolynomial| |squareFreePolynomial| |gcdPolynomial| |cmult|
  |possibleOrder| |simplifyCoeffs| |torsion?| |torsionIfCan| |getGoodPrime|

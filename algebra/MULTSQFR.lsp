@@ -992,9 +992,9 @@
 
 (SDEFUN |MULTSQFR;univcase;POVF;8| ((|f| P) (|x| OV) ($ |Factored| P))
         (SPROG
-         ((#1=#:G304 NIL) (|term| NIL) (#2=#:G303 NIL)
+         ((#1=#:G309 NIL) (|term| NIL) (#2=#:G308 NIL)
           (|result| (|Factored| (|SparseUnivariatePolynomial| R)))
-          (|uf| (|SparseUnivariatePolynomial| R)) (#3=#:G291 NIL) (|cf| (R)))
+          (|uf| (|SparseUnivariatePolynomial| R)) (#3=#:G296 NIL) (|cf| (R)))
          (SEQ
           (LETT |uf| (SPADCALL |f| (QREFELT $ 146))
                 . #4=(|MULTSQFR;univcase;POVF;8|))
@@ -1040,7 +1040,7 @@
           (|Record| (|:| |factor| (|SparseUnivariatePolynomial| R))
                     (|:| |exponent| (|Integer|))))
          ($ |Integer|))
-        (SPROG ((|ris| (|Integer|)) (#1=#:G309 NIL) (|pfact| NIL))
+        (SPROG ((|ris| (|Integer|)) (#1=#:G314 NIL) (|pfact| NIL))
                (SEQ (LETT |ris| 0 . #2=(|MULTSQFR;compdegd;LI;9|))
                     (SEQ (LETT |pfact| NIL . #2#) (LETT #1# |lfact| . #2#) G190
                          (COND
@@ -1063,7 +1063,7 @@
          ($ |SparseUnivariatePolynomial| R))
         (SPROG
          ((|n| #1=(|Integer|)) (|ris| (|SparseUnivariatePolynomial| R))
-          (#2=#:G312 NIL) (|n1| #1#) (|k| (|Integer|))
+          (#2=#:G317 NIL) (|n1| #1#) (|k| (|Integer|))
           (|#G1| (|NonNegativeInteger|)))
          (SEQ
           (LETT |#G1| (SPADCALL |f| (QREFELT $ 128))
@@ -1115,7 +1115,7 @@
 (SDEFUN |MULTSQFR;myDegree;SupLNniL;11|
         ((|f| |SparseUnivariatePolynomial| P) (|lvar| |List| OV)
          (|exp| |NonNegativeInteger|) ($ |List| (|NonNegativeInteger|)))
-        (SPROG ((#1=#:G321 NIL) (|n| NIL) (#2=#:G320 NIL))
+        (SPROG ((#1=#:G326 NIL) (|n| NIL) (#2=#:G325 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|MULTSQFR;myDegree;SupLNniL;11|))
@@ -1133,9 +1133,9 @@
 
 (DECLAIM (NOTINLINE |MultivariateSquareFree;|)) 
 
-(DEFUN |MultivariateSquareFree| (&REST #1=#:G322)
+(DEFUN |MultivariateSquareFree| (&REST #1=#:G327)
   (SPROG NIL
-         (PROG (#2=#:G323)
+         (PROG (#2=#:G328)
            (RETURN
             (COND
              ((LETT #2#

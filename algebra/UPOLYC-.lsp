@@ -1048,7 +1048,7 @@
               |UPOLYC-;shiftRight;SNniS;18| (168 . *)
               |UPOLYC-;shiftLeft;SNniS;19| (|Union| 74 '"failed") (|List| 75)
               (|SparseUnivariatePolynomial| 6)
-              (|PolynomialFactorizationByRecursionUnivariate| 7 6)
+              (|PolynomialFactorizationByRecursion| 7 10 12 6)
               (174 . |solveLinearPolynomialEquationByRecursion|)
               (|Union| 79 '"failed") (|List| 80)
               (|SparseUnivariatePolynomial| $)
