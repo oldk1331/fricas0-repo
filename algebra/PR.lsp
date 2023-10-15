@@ -560,8 +560,8 @@
 
 (SDEFUN |PR;^;$Nni$;24| ((|p| $) (|nn| |NonNegativeInteger|) ($ $))
         (SPROG ((|cc| (R)))
-               (COND ((NULL |p|) (|spadConstant| $ 22))
-                     ((ZEROP |nn|) (|spadConstant| $ 12)) ((EQL |nn| 1) |p|)
+               (COND ((ZEROP |nn|) (|spadConstant| $ 12))
+                     ((NULL |p|) (|spadConstant| $ 22)) ((EQL |nn| 1) |p|)
                      (#1='T
                       (COND
                        ((NULL (CDR |p|))

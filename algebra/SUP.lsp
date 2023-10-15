@@ -18,8 +18,8 @@
           (|cc| (R)))
          (SEQ
           (EXIT
-           (COND ((NULL |p|) (|spadConstant| $ 15))
-                 ((ZEROP |n|) (|spadConstant| $ 16)) ((EQL |n| 1) |p|)
+           (COND ((ZEROP |n|) (|spadConstant| $ 15))
+                 ((NULL |p|) (|spadConstant| $ 16)) ((EQL |n| 1) |p|)
                  (#6='T
                   (COND
                    ((NULL (CDR |p|))
@@ -30,13 +30,13 @@
                                        (QREFELT $ 17))
                              . #7=(|SUP;^;$Nni$;4|))
                        (QREFELT $ 19))
-                      (|spadConstant| $ 15))
+                      (|spadConstant| $ 16))
                      (#6#
                       (LIST (CONS (* |n| (QCAR (|SPADfirst| |p|))) |cc|)))))
                    ((< (SPADCALL (QREFELT $ 20)) 3)
                     (SPADCALL |p| |n| (QREFELT $ 22)))
                    (#6#
-                    (SEQ (LETT |y| (|spadConstant| $ 16) . #7#)
+                    (SEQ (LETT |y| (|spadConstant| $ 15) . #7#)
                          (LETT |rec| (DIVIDE2 |n| (SPADCALL (QREFELT $ 20)))
                                . #7#)
                          (LETT |qn| (QCAR |rec|) . #7#)
@@ -176,7 +176,7 @@
          ((|highp| (|Rep|)) (#2=#:G193 NIL) (|lowp| (|Rep|)) (#3=#:G201 NIL)
           (|t| (|Record| (|:| |k| (|NonNegativeInteger|)) (|:| |c| R))))
          (SEQ
-          (COND ((ZEROP |n|) (CONS |p| (|spadConstant| $ 15)))
+          (COND ((ZEROP |n|) (CONS |p| (|spadConstant| $ 16)))
                 ('T
                  (SEQ (LETT |lowp| |p| . #4=(|SUP;karatsubaDivide;$NniR;10|))
                       (LETT |highp| NIL . #4#)
@@ -294,7 +294,7 @@
          ($ $))
         (SPROG ((|lc| ($)))
                (SEQ
-                (COND ((SPADCALL |supp| (QREFELT $ 56)) (|spadConstant| $ 15))
+                (COND ((SPADCALL |supp| (QREFELT $ 56)) (|spadConstant| $ 16))
                       (#1='T
                        (SEQ
                         (LETT |lc| (SPADCALL |supp| (QREFELT $ 57))
@@ -471,7 +471,7 @@
          ((#1=#:G271 NIL) (|coef| ($)) (#2=#:G268 NIL)
           (|n| (|NonNegativeInteger|)) (#3=#:G275 NIL) (|tm| NIL))
          (SEQ
-          (COND ((NULL |p|) (|spadConstant| $ 15))
+          (COND ((NULL |p|) (|spadConstant| $ 16))
                 (#4='T
                  (SEQ
                   (LETT |coef|
@@ -532,16 +532,16 @@
                 ((SPADCALL (SPADCALL |p2| (QREFELT $ 48)) (|spadConstant| $ 28)
                            (QREFELT $ 112))
                  (|error| "Divisor Not Monic"))
-                ((SPADCALL |p2| (|spadConstant| $ 16) (QREFELT $ 113))
-                 (CONS |p1| (|spadConstant| $ 15)))
+                ((SPADCALL |p2| (|spadConstant| $ 15) (QREFELT $ 113))
+                 (CONS |p1| (|spadConstant| $ 16)))
                 (#3='T
                  (COND
                   ((NULL |p1|)
-                   (CONS (|spadConstant| $ 15) (|spadConstant| $ 15)))
+                   (CONS (|spadConstant| $ 16) (|spadConstant| $ 16)))
                   ((< (SPADCALL |p1| (QREFELT $ 50))
                       (LETT |n| (SPADCALL |p2| (QREFELT $ 50))
                             . #4=(|SUP;monicDivide;2$R;28|)))
-                   (CONS (|spadConstant| $ 15) |p1|))
+                   (CONS (|spadConstant| $ 16) |p1|))
                   (#3#
                    (SEQ (LETT |rout| NIL . #4#) (LETT |p2| (CDR |p2|) . #4#)
                         (SEQ
@@ -647,8 +647,8 @@
           (|n| (|NonNegativeInteger|)) (|ct| (R)))
          (SEQ
           (COND ((SPADCALL |p2| (QREFELT $ 27)) (|error| "Division by 0"))
-                ((SPADCALL |p2| (|spadConstant| $ 16) (QREFELT $ 113))
-                 (CONS |p1| (|spadConstant| $ 15)))
+                ((SPADCALL |p2| (|spadConstant| $ 15) (QREFELT $ 113))
+                 (CONS |p1| (|spadConstant| $ 16)))
                 ('T
                  (SEQ
                   (LETT |ct|
@@ -661,7 +661,7 @@
                     (SEQ G190
                          (COND
                           ((NULL
-                            (SPADCALL |p1| (|spadConstant| $ 15)
+                            (SPADCALL |p1| (|spadConstant| $ 16)
                                       (QREFELT $ 131)))
                            (GO G191)))
                          (SEQ
@@ -1403,7 +1403,7 @@
            '#(NIL NIL NIL NIL NIL (|PolynomialRing| 6 11) (|local| |#1|) '|Rep|
               (|SparseUnivariatePolynomial| 6) |SUP;makeSUP;2$;1|
               |SUP;unmakeSUP;2$;2| (|NonNegativeInteger|) (0 . ^)
-              (|PositiveInteger|) (6 . ^) (12 . |Zero|) (16 . |One|) (20 . ^)
+              (|PositiveInteger|) (6 . ^) (12 . |One|) (16 . |Zero|) (20 . ^)
               (|Boolean|) (26 . |zero?|) (31 . |characteristic|)
               (|RepeatedSquaring| $$) (35 . |expt|) (41 . *) (47 . >)
               (53 . |binomThmExpt|) (60 . |primeFrobenius|) |SUP;zero?;$B;5|
@@ -1578,7 +1578,7 @@
                                     2 0 6 0 6 110 2 0 33 0 11 36 2 13 39 0 0
                                     132 1 34 6 0 118 1 0 11 0 50 1 16 6 0 124 1
                                     0 0 6 49 1 0 90 0 106 3 43 0 0 0 11 25 2 49
-                                    0 0 11 12 2 0 0 0 13 14 0 51 0 15 0 49 0 16
+                                    0 0 11 12 2 0 0 0 13 14 0 51 0 16 0 49 0 15
                                     2 0 18 0 0 113 2 13 0 0 6 134 2 0 0 0 0 62
                                     2 0 0 6 0 133 2 0 0 0 0 23)))))
            '|lookupIncomplete|)) 
