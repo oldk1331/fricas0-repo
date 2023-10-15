@@ -1088,19 +1088,19 @@
               (508 . |retractIfCan|) (513 . |extend|) (519 . |One|)
               (|OutputForm|) (523 . |seriesToOutputForm|) |SULS;coerce;$Of;57|
               (|Union| 161 '#1="failed") (|Matrix| $) (|InputForm|)
-              (|Pattern| 169) (|Pattern| 17) (|List| 26) (|List| 157)
+              (|Pattern| 168) (|Pattern| 17) (|List| 26) (|List| 157)
               (|Equation| 26) (|List| 10) (|Matrix| 17)
               (|Record| (|:| |mat| 159) (|:| |vec| (|Vector| 17))) (|Vector| $)
-              (|PatternMatchResult| 169 $) (|PatternMatchResult| 17 $)
-              (|Union| 165 '#1#) (|List| 166) (|SparseUnivariatePolynomial| $)
-              (|Factored| 166) (|DoubleFloat|) (|Float|)
+              (|PatternMatchResult| 168 $) (|PatternMatchResult| 17 $)
+              (|Factored| 165) (|SparseUnivariatePolynomial| $)
+              (|Union| 167 '#1#) (|List| 165) (|Float|) (|DoubleFloat|)
               (|Union| 126 '#2="failed") (|Union| 10 '#2#)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))
               (|List| 39) (|Mapping| 26 26) (|Matrix| 26)
               (|Record| (|:| |mat| 175) (|:| |vec| (|Vector| 26)))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
-              (|List| $) (|Union| 178 '"failed")
-              (|Record| (|:| |coef| 178) (|:| |generator| $))
+              (|List| $) (|Record| (|:| |coef| 178) (|:| |generator| $))
+              (|Union| 178 '"failed")
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef1| $) (|:| |coef2| $))
               (|Union| 182 '"failed")
@@ -1117,30 +1117,30 @@
               654 |sinh| 660 |sin| 665 |sign| 670 |series| 675 |sech| 680 |sec|
               685 |sample| 690 |retractIfCan| 694 |retract| 714 |removeZeroes|
               734 |rem| 745 |reductum| 751 |reducedSystem| 756 |recip| 778
-              |rationalFunction| 783 |random| 796 |quo| 800 |principalIdeal|
-              806 |prime?| 811 |positive?| 816 |pole?| 821 |pi| 826
-              |patternMatch| 830 |order| 844 |opposite?| 855 |one?| 861
-              |numerator| 866 |numer| 871 |nthRoot| 876 |nextItem| 882
-              |negative?| 887 |multiplyExponents| 892 |multiplyCoefficients|
-              898 |multiEuclidean| 904 |monomial?| 910 |monomial| 915 |min| 935
-              |max| 941 |map| 947 |log| 959 |leadingMonomial| 964
-              |leadingCoefficient| 969 |lcmCoef| 974 |lcm| 980 |laurent| 991
-              |latex| 1003 |inv| 1008 |integrate| 1013 |init| 1030
-              |hashUpdate!| 1034 |hash| 1040 |gcdPolynomial| 1045 |gcd| 1051
-              |fractionPart| 1062 |floor| 1067 |factorSquareFreePolynomial|
-              1072 |factorPolynomial| 1077 |factor| 1082 |extendedEuclidean|
-              1087 |extend| 1100 |exquo| 1106 |expressIdealMember| 1112 |exp|
-              1118 |eval| 1123 |euclideanSize| 1169 |elt| 1174 |divide| 1192
-              |differentiate| 1198 |denominator| 1254 |denom| 1259 |degree|
-              1264 |csch| 1269 |csc| 1274 |coth| 1279 |cot| 1284 |cosh| 1289
-              |cos| 1294 |convert| 1299 |conditionP| 1324 |complete| 1329
-              |coerce| 1334 |coefficient| 1374 |charthRoot| 1380
-              |characteristic| 1385 |center| 1389 |ceiling| 1394 |atanh| 1399
-              |atan| 1404 |associates?| 1409 |asinh| 1415 |asin| 1420 |asech|
-              1425 |asec| 1430 |approximate| 1435 |annihilate?| 1441 |acsch|
-              1447 |acsc| 1452 |acoth| 1457 |acot| 1462 |acosh| 1467 |acos|
-              1472 |abs| 1477 ^ 1482 |Zero| 1512 |One| 1516 D 1520 >= 1570 >
-              1576 = 1582 <= 1588 < 1594 / 1600 - 1618 + 1629 * 1635)
+              |rationalFunction| 783 |quo| 796 |principalIdeal| 802 |prime?|
+              807 |positive?| 812 |pole?| 817 |pi| 822 |patternMatch| 826
+              |order| 840 |opposite?| 851 |one?| 857 |numerator| 862 |numer|
+              867 |nthRoot| 872 |nextItem| 878 |negative?| 883
+              |multiplyExponents| 888 |multiplyCoefficients| 894
+              |multiEuclidean| 900 |monomial?| 906 |monomial| 911 |min| 931
+              |max| 937 |map| 943 |log| 955 |leadingMonomial| 960
+              |leadingCoefficient| 965 |lcmCoef| 970 |lcm| 976 |laurent| 987
+              |latex| 999 |inv| 1004 |integrate| 1009 |init| 1026 |hashUpdate!|
+              1030 |hash| 1036 |gcdPolynomial| 1041 |gcd| 1047 |fractionPart|
+              1058 |floor| 1063 |factorSquareFreePolynomial| 1068
+              |factorPolynomial| 1073 |factor| 1078 |extendedEuclidean| 1083
+              |extend| 1096 |exquo| 1102 |expressIdealMember| 1108 |exp| 1114
+              |eval| 1119 |euclideanSize| 1165 |elt| 1170 |divide| 1188
+              |differentiate| 1194 |denominator| 1250 |denom| 1255 |degree|
+              1260 |csch| 1265 |csc| 1270 |coth| 1275 |cot| 1280 |cosh| 1285
+              |cos| 1290 |convert| 1295 |conditionP| 1320 |complete| 1325
+              |coerce| 1330 |coefficient| 1370 |charthRoot| 1376
+              |characteristic| 1381 |center| 1385 |ceiling| 1390 |atanh| 1395
+              |atan| 1400 |associates?| 1405 |asinh| 1411 |asin| 1416 |asech|
+              1421 |asec| 1426 |approximate| 1431 |annihilate?| 1437 |acsch|
+              1443 |acsc| 1448 |acoth| 1453 |acot| 1458 |acosh| 1463 |acos|
+              1468 |abs| 1473 ^ 1478 |Zero| 1508 |One| 1512 D 1516 >= 1566 >
+              1572 = 1578 <= 1584 < 1590 / 1596 - 1614 + 1625 * 1631)
            'NIL
            (CONS
             (|makeByteWordVec2| 52
@@ -1217,7 +1217,7 @@
                  (|AbelianSemiGroup|) (|SemiGroup|) (|Comparable|)
                  (|StepThrough|)
                  (|FullyEvalableOver| (|SparseUnivariateTaylorSeries| 6 7 8))
-                 (|PatternMatchable| 169) (|PatternMatchable| 17)
+                 (|PatternMatchable| 168) (|PatternMatchable| 17)
                  (|SetCategory|) (|TranscendentalFunctionCategory|)
                  (|RealConstant|)
                  (|Evalable| (|SparseUnivariateTaylorSeries| 6 7 8))
@@ -1232,7 +1232,7 @@
                  (|ArcHyperbolicFunctionCategory|)
                  (|ElementaryFunctionCategory|) (|RadicalCategory|)
                  (|unitsKnown|) (|RetractableTo| 10) (|ConvertibleTo| 152)
-                 (|ConvertibleTo| 168) (|ConvertibleTo| 169) (|PartialOrder|)
+                 (|ConvertibleTo| 169) (|ConvertibleTo| 168) (|PartialOrder|)
                  (|RetractableTo| 126) (|RetractableTo| 17)
                  (|InnerEvalable| 10 (|SparseUnivariateTaylorSeries| 6 7 8))
                  (|InnerEvalable| (|SparseUnivariateTaylorSeries| 6 7 8)
@@ -1275,64 +1275,64 @@
                                     1 1 57 13 0 1 2 0 0 0 17 1 3 0 0 0 17 17 66
                                     1 0 135 0 1 1 0 26 0 36 1 0 28 0 29 1 0 26
                                     0 30 1 46 0 0 107 1 46 0 0 83 2 61 46 0 0 1
-                                    1 31 167 166 1 1 2 0 0 1 1 2 185 0 1 1 46 0
-                                    0 1 2 31 164 165 166 1 2 25 13 0 0 1 2 2 13
+                                    1 31 164 165 1 1 2 0 0 1 1 2 185 0 1 1 46 0
+                                    0 1 2 31 166 167 165 1 2 25 13 0 0 1 2 2 13
                                     0 0 1 1 46 0 0 103 1 46 0 0 79 1 6 17 0 1 1
                                     0 0 135 1 1 46 0 0 111 1 46 0 0 87 0 62 0 1
                                     1 8 170 0 1 1 8 143 0 1 1 3 171 0 1 1 0 28
                                     0 31 1 8 126 0 1 1 8 17 0 1 1 3 10 0 1 1 0
-                                    26 0 131 1 0 0 0 34 2 0 0 17 0 35 2 2 0 0 0
+                                    26 0 131 2 0 0 17 0 35 1 0 0 0 34 2 2 0 0 0
                                     1 1 0 0 0 1 1 13 159 151 1 2 13 160 151 161
                                     1 1 2 175 151 1 2 2 176 151 161 1 1 58 46 0
-                                    48 3 22 55 0 17 17 67 2 22 55 0 17 65 0 34
-                                    0 1 2 2 0 0 0 1 1 2 180 178 1 1 2 13 0 1 1
-                                    6 13 0 1 1 0 13 0 25 0 46 0 1 3 16 162 0
-                                    153 162 1 3 17 163 0 154 163 1 2 0 17 0 17
-                                    24 1 0 17 0 1 2 62 13 0 0 1 1 58 13 0 1 1 2
-                                    0 0 1 1 2 26 0 38 2 46 0 0 17 1 1 9 46 0 1
-                                    1 6 13 0 1 2 0 0 0 188 1 2 0 0 187 0 1 2 2
-                                    179 178 0 1 1 0 13 0 1 3 0 0 0 189 190 1 3
-                                    0 0 0 191 17 1 2 0 0 6 17 18 2 26 0 0 0 1 2
-                                    26 0 0 0 1 2 2 0 174 0 1 2 0 0 192 0 1 1 46
-                                    0 0 72 1 0 0 0 1 1 0 6 0 1 2 2 177 0 0 1 2
-                                    2 0 0 0 1 1 2 0 178 1 2 0 0 17 26 33 2 0 0
-                                    17 186 1 1 0 194 0 1 1 2 0 0 1 2 53 0 0 10
-                                    1 2 46 0 0 22 71 1 46 0 0 70 0 9 0 1 2 0
-                                    193 193 0 1 1 0 195 0 1 2 2 166 166 166 1 1
-                                    2 0 178 1 2 2 0 0 0 1 1 35 0 0 1 1 34 26 0
-                                    1 1 31 167 166 1 1 31 167 166 1 1 2 185 0 1
-                                    3 2 183 0 0 0 1 2 2 184 0 0 1 2 0 0 0 17
-                                    145 2 57 46 0 0 49 2 2 179 178 0 1 1 46 0 0
-                                    73 3 11 0 0 155 155 1 3 11 0 0 26 26 1 2 11
-                                    0 0 156 1 2 11 0 0 157 1 3 10 0 0 10 26 1 3
-                                    10 0 0 158 155 1 2 20 186 0 6 1 1 2 39 0 1
-                                    2 12 0 0 26 1 2 1 0 0 0 54 2 0 6 0 17 1 2 2
-                                    181 0 0 1 1 40 0 0 50 2 40 0 0 39 1 2 39 0
-                                    0 10 1 3 39 0 0 10 39 1 2 39 0 0 158 1 3 39
-                                    0 0 158 173 1 3 2 0 0 174 39 1 2 2 0 0 174
-                                    1 2 0 0 0 22 51 1 2 0 0 1 1 2 26 0 41 1 0
-                                    17 0 37 1 46 0 0 113 1 46 0 0 89 1 46 0 0
-                                    109 1 46 0 0 85 1 46 0 0 105 1 46 0 0 81 1
-                                    4 152 0 1 1 14 153 0 1 1 15 154 0 1 1 5 168
-                                    0 1 1 5 169 0 1 1 55 150 151 1 1 0 0 0 1 1
-                                    54 0 6 1 1 3 0 10 1 1 59 0 17 1 1 57 0 0 1
-                                    1 46 0 126 1 1 0 0 22 23 1 0 0 26 27 1 0
-                                    147 0 149 2 0 6 0 17 68 1 56 46 0 1 0 59 39
-                                    1 1 0 6 0 12 1 34 26 0 1 1 46 0 0 119 1 46
-                                    0 0 95 2 57 13 0 0 1 1 46 0 0 115 1 46 0 0
-                                    91 1 46 0 0 123 1 46 0 0 99 2 21 6 0 17 1 2
-                                    59 13 0 0 1 1 46 0 0 125 1 46 0 0 101 1 46
-                                    0 0 121 1 46 0 0 97 1 46 0 0 117 1 46 0 0
-                                    93 1 6 0 0 1 2 58 0 0 39 53 2 46 0 0 126
-                                    128 2 46 0 0 0 74 2 2 0 0 17 1 2 0 0 0 188
-                                    1 0 62 0 20 0 58 0 16 1 40 0 0 1 2 40 0 0
-                                    39 1 2 39 0 0 158 1 2 39 0 0 10 1 3 39 0 0
-                                    158 173 1 3 39 0 0 10 39 1 2 2 0 0 174 1 3
-                                    2 0 0 174 39 1 2 26 13 0 0 1 2 26 13 0 0 1
-                                    2 0 13 0 0 1 2 26 13 0 0 1 2 26 13 0 0 1 2
-                                    2 0 26 26 45 2 2 0 0 0 44 2 2 0 0 6 1 2 60
-                                    0 0 0 1 1 60 0 0 1 2 0 0 0 0 21 2 60 0 17 0
-                                    1 2 62 0 39 0 1 2 46 0 0 126 1 2 46 0 126 0
-                                    1 2 2 0 26 0 42 2 2 0 0 26 43 2 0 0 6 0 1 2
-                                    0 0 0 0 32 2 0 0 0 6 1 2 0 0 188 0 1)))))
+                                    48 3 22 55 0 17 17 67 2 22 55 0 17 65 2 2 0
+                                    0 0 1 1 2 179 178 1 1 2 13 0 1 1 6 13 0 1 1
+                                    0 13 0 25 0 46 0 1 3 16 162 0 153 162 1 3
+                                    17 163 0 154 163 1 2 0 17 0 17 24 1 0 17 0
+                                    1 2 62 13 0 0 1 1 58 13 0 1 1 2 0 0 1 1 2
+                                    26 0 38 2 46 0 0 17 1 1 9 46 0 1 1 6 13 0 1
+                                    2 0 0 0 188 1 2 0 0 187 0 1 2 2 180 178 0 1
+                                    1 0 13 0 1 3 0 0 0 189 190 1 3 0 0 0 191 17
+                                    1 2 0 0 6 17 18 2 26 0 0 0 1 2 26 0 0 0 1 2
+                                    2 0 174 0 1 2 0 0 192 0 1 1 46 0 0 72 1 0 0
+                                    0 1 1 0 6 0 1 2 2 177 0 0 1 2 2 0 0 0 1 1 2
+                                    0 178 1 2 0 0 17 26 33 2 0 0 17 186 1 1 0
+                                    194 0 1 1 2 0 0 1 2 53 0 0 10 1 2 46 0 0 22
+                                    71 1 46 0 0 70 0 9 0 1 2 0 193 193 0 1 1 0
+                                    195 0 1 2 2 165 165 165 1 2 2 0 0 0 1 1 2 0
+                                    178 1 1 35 0 0 1 1 34 26 0 1 1 31 164 165 1
+                                    1 31 164 165 1 1 2 185 0 1 3 2 183 0 0 0 1
+                                    2 2 184 0 0 1 2 0 0 0 17 145 2 57 46 0 0 49
+                                    2 2 180 178 0 1 1 46 0 0 73 3 11 0 0 155
+                                    155 1 3 11 0 0 26 26 1 2 11 0 0 156 1 2 11
+                                    0 0 157 1 3 10 0 0 10 26 1 3 10 0 0 158 155
+                                    1 2 20 186 0 6 1 1 2 39 0 1 2 12 0 0 26 1 2
+                                    1 0 0 0 54 2 0 6 0 17 1 2 2 181 0 0 1 1 40
+                                    0 0 50 2 40 0 0 39 1 2 39 0 0 10 1 3 39 0 0
+                                    10 39 1 2 39 0 0 158 1 3 39 0 0 158 173 1 3
+                                    2 0 0 174 39 1 2 2 0 0 174 1 2 0 0 0 22 51
+                                    1 2 0 0 1 1 2 26 0 41 1 0 17 0 37 1 46 0 0
+                                    113 1 46 0 0 89 1 46 0 0 109 1 46 0 0 85 1
+                                    46 0 0 105 1 46 0 0 81 1 4 152 0 1 1 14 153
+                                    0 1 1 15 154 0 1 1 5 168 0 1 1 5 169 0 1 1
+                                    55 150 151 1 1 0 0 0 1 1 54 0 6 1 1 3 0 10
+                                    1 1 59 0 17 1 1 57 0 0 1 1 46 0 126 1 1 0 0
+                                    22 23 1 0 0 26 27 1 0 147 0 149 2 0 6 0 17
+                                    68 1 56 46 0 1 0 59 39 1 1 0 6 0 12 1 34 26
+                                    0 1 1 46 0 0 119 1 46 0 0 95 2 57 13 0 0 1
+                                    1 46 0 0 115 1 46 0 0 91 1 46 0 0 123 1 46
+                                    0 0 99 2 21 6 0 17 1 2 59 13 0 0 1 1 46 0 0
+                                    125 1 46 0 0 101 1 46 0 0 121 1 46 0 0 97 1
+                                    46 0 0 117 1 46 0 0 93 1 6 0 0 1 2 58 0 0
+                                    39 53 2 46 0 0 126 128 2 46 0 0 0 74 2 2 0
+                                    0 17 1 2 0 0 0 188 1 0 62 0 20 0 58 0 16 1
+                                    40 0 0 1 2 40 0 0 39 1 2 39 0 0 158 1 2 39
+                                    0 0 10 1 3 39 0 0 158 173 1 3 39 0 0 10 39
+                                    1 2 2 0 0 174 1 3 2 0 0 174 39 1 2 26 13 0
+                                    0 1 2 26 13 0 0 1 2 0 13 0 0 1 2 26 13 0 0
+                                    1 2 26 13 0 0 1 2 2 0 26 26 45 2 2 0 0 0 44
+                                    2 2 0 0 6 1 2 60 0 0 0 1 1 60 0 0 1 2 0 0 0
+                                    0 21 2 60 0 17 0 1 2 62 0 39 0 1 2 46 0 0
+                                    126 1 2 46 0 126 0 1 2 2 0 26 0 42 2 2 0 0
+                                    26 43 2 0 0 6 0 1 2 0 0 0 0 32 2 0 0 0 6 1
+                                    2 0 0 188 0 1)))))
            '|lookupComplete|)) 

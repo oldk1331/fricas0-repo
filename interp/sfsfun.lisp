@@ -937,22 +937,6 @@
      (* (* (|r_gamma| (|float| (+ |n| 1))) (EXPT (- 1) (MOD (+ |n| 1) 2)))
         |result|))))
  
-; cpsireflect(n,z) ==
-;         m := MOD(n,2)
-;         sign := (-1)^m
-;         sign*dfPi^(n+1)*cotdiffeval(n,dfPi*z,0) + cPsi(n,1.0-z)
- 
-(DEFUN |cpsireflect| (|n| |z|)
-  (PROG (|m| |sign|)
-    (RETURN
-     (PROGN
-      (SETQ |m| (MOD |n| 2))
-      (SETQ |sign| (EXPT (- 1) |m|))
-      (+
-       (* (* |sign| (EXPT |dfPi| (+ |n| 1)))
-          (|cotdiffeval| |n| (* |dfPi| |z|) 0))
-       (|cPsi| |n| (- 1.0 |z|)))))))
- 
 ; chebf01 (c,z) ==
 ; --- w scale factor so that 0<z/w<1
 ; --- n    n+2 coefficients will be produced stored in an array
@@ -1084,86 +1068,6 @@
        (- 1) (+ |n| 1))
       |temp|))))
  
-; brutef01(c,z) ==
-; --  Use series definition.  Won't work well if cancellation occurs
-;         term := 1.0
-;         sum := term
-;         n := 0.0
-;         oldsum := 0.0
-;         maxnterms := 10000
-;         for i in 0..maxnterms until oldsum=sum repeat
-;                 oldsum := sum
-;                 term := term*z/(c+n)/(n+1.0)
-;                 sum := sum + term
-;                 n := n+1.0
-;         sum
- 
-(DEFUN |brutef01| (|c| |z|)
-  (PROG (|term| |sum| |n| |oldsum| |maxnterms|)
-    (RETURN
-     (PROGN
-      (SETQ |term| 1.0)
-      (SETQ |sum| |term|)
-      (SETQ |n| 0.0)
-      (SETQ |oldsum| 0.0)
-      (SETQ |maxnterms| 10000)
-      ((LAMBDA (|i| |bfVar#14|)
-         (LOOP
-          (COND ((OR (> |i| |maxnterms|) |bfVar#14|) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ |oldsum| |sum|)
-                  (SETQ |term| (/ (/ (* |term| |z|) (+ |c| |n|)) (+ |n| 1.0)))
-                  (SETQ |sum| (+ |sum| |term|))
-                  (SETQ |n| (+ |n| 1.0)))))
-          (SETQ |i| (+ |i| 1))
-          (SETQ |bfVar#14| (EQUAL |oldsum| |sum|))))
-       0 NIL)
-      |sum|))))
- 
-; f01(c,z)==
-;         if negintp(c)
-;         then
-;                 FloatError('"0F1 not defined for negative integer parameter value ~S",c)
-; -- conditions when we'll permit the computation
-;         else if ABS(c)<1000.0 and ABS(z)<1000.0
-;         then
-;                 brutef01(c,z)
-;         else if ZEROP IMAGPART(z) and ZEROP IMAGPART(c) and z>=0.0 and c>=0.0
-;         then
-;                 brutef01(c,z)
-; ---     else
-; ---             t := SQRT(-z)
-; ---             c1 := c-1.0
-; ---             p := PHASE(c)
-; ---             if ABS(c)>10.0*ABS(t) and p>=0.0 and PHASE(c)<.90*dfPi
-; ---             then BesselJAsymptOrder(c1,2*t)*cgamma(c/(t^(c1)))
-; ---             else if ABS(t)>10.0*ABS(c) and ABS(t)>50.0
-; ---             then BesselJAsympt(c1,2*t)*cgamma(c/(t^(c1)))
-; ---             else
-; ---                     FloatError('"0F1 not implemented for ~S",[c,z])
-;         else if (10.0*ABS(c)>ABS(z)) and ABS(c)<1.0E4 and ABS(z)<1.0E4
-;         then
-;                 brutef01(c,z)
-;         else
-;                 FloatError('"0F1 not implemented for ~S",[c,z])
- 
-(DEFUN |f01| (|c| |z|)
-  (PROG ()
-    (RETURN
-     (COND
-      ((|negintp| |c|)
-       (|FloatError| "0F1 not defined for negative integer parameter value ~S"
-        |c|))
-      ((AND (< (ABS |c|) 1000.0) (< (ABS |z|) 1000.0)) (|brutef01| |c| |z|))
-      ((AND (ZEROP (IMAGPART |z|)) (ZEROP (IMAGPART |c|)) (NOT (< |z| 0.0))
-            (NOT (< |c| 0.0)))
-       (|brutef01| |c| |z|))
-      ((AND (< (ABS |z|) (* 10.0 (ABS |c|))) (< (ABS |c|) 10000.0)
-            (< (ABS |z|) 10000.0))
-       (|brutef01| |c| |z|))
-      ('T (|FloatError| "0F1 not implemented for ~S" (LIST |c| |z|)))))))
- 
 ; chebf01coefmake (c,w,n) ==
 ; --- arr will be used to store the Cheb. series coefficients
 ;         four:= 4.0
@@ -1220,10 +1124,10 @@
       (SETF (AREF |arr| |ncount|) |start|)
       (SETQ |x1| |n2|)
       (SETQ |c1| (- 1.0 |c|))
-      ((LAMBDA (|bfVar#15| |ncount|)
+      ((LAMBDA (|bfVar#14| |ncount|)
          (LOOP
           (COND
-           ((COND ((MINUSP |bfVar#15|) (< |ncount| 0)) (T (> |ncount| 0)))
+           ((COND ((MINUSP |bfVar#14|) (< |ncount| 0)) (T (> |ncount| 0)))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -1239,7 +1143,7 @@
              (SETQ |a3| |a2|)
              (SETQ |a2| |a1|)
              (SETQ |a1| (AREF |arr| |ncount|)))))
-          (SETQ |ncount| (+ |ncount| |bfVar#15|))))
+          (SETQ |ncount| (+ |ncount| |bfVar#14|))))
        (- 1) |n|)
       (SETF (AREF |arr| 0) (/ (AREF |arr| 0) 2.0))
       (SETQ |rho| (AREF |arr| 0))
@@ -1264,100 +1168,6 @@
       (SETQ |sum| (/ |sum| |rho|))
       (RETURN (LIST |sum| |arr|))))))
  
-; chebeval (coeflist,x) ==
-;         b := 0;
-;         temp := 0;
-;         y := 2*x;
-; 
-;         for el in coeflist repeat
-;                 c := b;
-;                 b := temp
-;                 temp := y*b -c + el
-;         (temp -c)/2
- 
-(DEFUN |chebeval| (|coeflist| |x|)
-  (PROG (|b| |temp| |y| |c|)
-    (RETURN
-     (PROGN
-      (SETQ |b| 0)
-      (SETQ |temp| 0)
-      (SETQ |y| (* 2 |x|))
-      ((LAMBDA (|bfVar#16| |el|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#16|) (PROGN (SETQ |el| (CAR |bfVar#16|)) NIL))
-            (RETURN NIL))
-           ('T
-            (PROGN
-             (SETQ |c| |b|)
-             (SETQ |b| |temp|)
-             (SETQ |temp| (+ (- (* |y| |b|) |c|) |el|)))))
-          (SETQ |bfVar#16| (CDR |bfVar#16|))))
-       |coeflist| NIL)
-      (/ (- |temp| |c|) 2)))))
- 
-; chebevalarr(coefarr,x,n) ==
-;         b := 0;
-;         temp := 0;
-;         y := 2*x;
-; 
-;         for i in 1..n repeat
-;                 c := b;
-;                 b := temp
-;                 temp := y*b -c + coefarr.i
-;         (temp -c)/2
- 
-(DEFUN |chebevalarr| (|coefarr| |x| |n|)
-  (PROG (|b| |temp| |y| |c|)
-    (RETURN
-     (PROGN
-      (SETQ |b| 0)
-      (SETQ |temp| 0)
-      (SETQ |y| (* 2 |x|))
-      ((LAMBDA (|i|)
-         (LOOP
-          (COND ((> |i| |n|) (RETURN NIL))
-                ('T
-                 (PROGN
-                  (SETQ |c| |b|)
-                  (SETQ |b| |temp|)
-                  (SETQ |temp| (+ (- (* |y| |b|) |c|) (ELT |coefarr| |i|))))))
-          (SETQ |i| (+ |i| 1))))
-       1)
-      (/ (- |temp| |c|) 2)))))
- 
-; chebstareval(coeflist,x) ==          -- evaluation of T*(n,x)
-;         b := 0
-;         temp := 0
-;         y := 2*(2*x-1)
-; 
-;         for el in coeflist repeat
-;                 c := b;
-;                 b := temp
-;                 temp := y*b -c + el
-;         temp - y*b/2
- 
-(DEFUN |chebstareval| (|coeflist| |x|)
-  (PROG (|b| |temp| |y| |c|)
-    (RETURN
-     (PROGN
-      (SETQ |b| 0)
-      (SETQ |temp| 0)
-      (SETQ |y| (* 2 (- (* 2 |x|) 1)))
-      ((LAMBDA (|bfVar#17| |el|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#17|) (PROGN (SETQ |el| (CAR |bfVar#17|)) NIL))
-            (RETURN NIL))
-           ('T
-            (PROGN
-             (SETQ |c| |b|)
-             (SETQ |b| |temp|)
-             (SETQ |temp| (+ (- (* |y| |b|) |c|) |el|)))))
-          (SETQ |bfVar#17| (CDR |bfVar#17|))))
-       |coeflist| NIL)
-      (- |temp| (/ (* |y| |b|) 2))))))
- 
 ; chebstarevalarr(coefarr,x,n) ==          -- evaluation of sum(C(n)*T*(n,x))
 ; 
 ;         b := 0
@@ -1377,16 +1187,16 @@
       (SETQ |b| 0)
       (SETQ |temp| 0)
       (SETQ |y| (* 2 (- (* 2 |x|) 1)))
-      ((LAMBDA (|bfVar#18| |i|)
+      ((LAMBDA (|bfVar#15| |i|)
          (LOOP
           (COND
-           ((COND ((MINUSP |bfVar#18|) (< |i| 0)) (T (> |i| 0))) (RETURN NIL))
+           ((COND ((MINUSP |bfVar#15|) (< |i| 0)) (T (> |i| 0))) (RETURN NIL))
            ('T
             (PROGN
              (SETQ |c| |b|)
              (SETQ |b| |temp|)
              (SETQ |temp| (+ (- (* |y| |b|) |c|) (AREF |coefarr| |i|))))))
-          (SETQ |i| (+ |i| |bfVar#18|))))
+          (SETQ |i| (+ |i| |bfVar#15|))))
        (- 1) (+ |n| 1))
       (- |temp| (/ (* |y| |b|) 2))))))
  
@@ -1511,17 +1321,17 @@
       (SETQ |w| (MAKE-ARRAY |m|))
       (SETF (AREF |w| (- |m| 1)) (|BesselJAsymptOrder| (- (+ |v| |m|) 1) |z|))
       (SETF (AREF |w| (- |m| 2)) (|BesselJAsymptOrder| (- (+ |v| |m|) 2) |z|))
-      ((LAMBDA (|bfVar#19| |i|)
+      ((LAMBDA (|bfVar#16| |i|)
          (LOOP
           (COND
-           ((COND ((MINUSP |bfVar#19|) (< |i| 0)) (T (> |i| 0))) (RETURN NIL))
+           ((COND ((MINUSP |bfVar#16|) (< |i| 0)) (T (> |i| 0))) (RETURN NIL))
            (#1#
             (SETF (AREF |w| |i|)
                     (-
                      (/ (* (* 2.0 (+ (+ |v| |i|) 1.0)) (AREF |w| (+ |i| 1)))
                         |z|)
                      (AREF |w| (+ |i| 2))))))
-          (SETQ |i| (+ |i| |bfVar#19|))))
+          (SETQ |i| (+ |i| |bfVar#16|))))
        (- 1) (- |m| 3))
       (AREF |w| 0)))))
  
@@ -1689,38 +1499,38 @@
       (SETQ |m| (+ |n| 1))
       (SETQ |xm| (|float| |m|))
       (SETQ |ct1| (* |z2| (+ |xm| |v|)))
-      ((LAMBDA (|bfVar#20| |m|)
+      ((LAMBDA (|bfVar#17| |m|)
          (LOOP
           (COND
-           ((COND ((MINUSP |bfVar#20|) (< |m| 1)) (T (> |m| 1))) (RETURN NIL))
+           ((COND ((MINUSP |bfVar#17|) (< |m| 1)) (T (> |m| 1))) (RETURN NIL))
            (#1#
             (PROGN
              (SETF (AREF |w| |m|)
                      (+ (* (AREF |w| (+ |m| 1)) |ct1|)
                         (* |val| (AREF |w| (+ |m| 2)))))
              (SETQ |ct1| (- |ct1| |z2|)))))
-          (SETQ |m| (+ |m| |bfVar#20|))))
+          (SETQ |m| (+ |m| |bfVar#17|))))
        (- 1) (+ |n| 1))
       (SETQ |m| (+ 1 (FLOOR (/ |n| 2))))
       (SETQ |m2| (- (+ |m| |m|) 1))
       (COND
        ((EQL |v| 0) (SETQ |pn| (AREF |w| (+ |m2| 2)))
-        ((LAMBDA (|bfVar#21| |m2|)
+        ((LAMBDA (|bfVar#18| |m2|)
            (LOOP
             (COND
-             ((COND ((MINUSP |bfVar#21|) (< |m2| 3)) (T (> |m2| 3)))
+             ((COND ((MINUSP |bfVar#18|) (< |m2| 3)) (T (> |m2| 3)))
               (RETURN NIL))
              (#1# (SETQ |pn| (- (AREF |w| |m2|) (* |val| |pn|)))))
-            (SETQ |m2| (+ |m2| |bfVar#21|))))
+            (SETQ |m2| (+ |m2| |bfVar#18|))))
          (- 2) (- (* 2 |m|) 1))
         (SETQ |pn| (- (AREF |w| 1) (* |val| (+ |pn| |pn|)))))
        (#1# (SETQ |v1| (- |v| |one|)) (SETQ |xm| (|float| |m|))
         (SETQ |ct1| (+ (+ |v| |xm|) |xm|))
         (SETQ |pn| (* |ct1| (AREF |w| (+ |m2| 2))))
-        ((LAMBDA (|bfVar#22| |m2|)
+        ((LAMBDA (|bfVar#19| |m2|)
            (LOOP
             (COND
-             ((COND ((MINUSP |bfVar#22|) (< |m2| 3)) (T (> |m2| 3)))
+             ((COND ((MINUSP |bfVar#19|) (< |m2| 3)) (T (> |m2| 3)))
               (RETURN NIL))
              (#1#
               (PROGN
@@ -1729,7 +1539,7 @@
                        (- (* |ct1| (AREF |w| |m2|))
                           (* (/ (* |val| |pn|) |xm|) (+ |v1| |xm|))))
                (SETQ |xm| (- |xm| |one|)))))
-            (SETQ |m2| (+ |m2| |bfVar#22|))))
+            (SETQ |m2| (+ |m2| |bfVar#19|))))
          (- 2) (- (+ |m| |m|) 1))
         (SETQ |pn| (- (AREF |w| 1) (* |val| |pn|)))))
       (SETQ |m1| (+ |n| 2))

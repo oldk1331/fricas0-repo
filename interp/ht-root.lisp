@@ -825,57 +825,6 @@
                    (|htSay| "}}")))
                  (|htShowPage|)))))))))))
  
-; htTutorialSearch pattern ==
-;   s := dbNonEmptyPattern pattern or return
-;     errorPage(nil,['"Empty search key",nil,'"\vspace{3}\centerline{You must enter some search string"])
-;   s := mkUnixPattern s
-;   source := '"$AXIOM/share/hypertex/pages/ht.db"
-;   target :='"/tmp/temp.text.$SPADNUM"
-;   OBEY STRCONC('"$AXIOM/lib/hthits",'" _"",s,'"_" ",source,'" > ",target)
-;   lines := dbReadLines 'temp
-;   htInitPageNoScroll(nil,['"Tutorial Pages mentioning {\em ",pattern,'"}"])
-;   htSay('"\beginscroll\table{")
-;   for line in lines repeat
-;     [name,title,.] := dbParts(line,3,0)
-;     htSay ['"{\downlink{",title,'"}{",name,'"}}"]
-;   htSay '"}"
-;   htShowPage()
- 
-(DEFUN |htTutorialSearch| (|pattern|)
-  (PROG (|s| |source| |target| |lines| |LETTMP#1| |name| |title|)
-    (RETURN
-     (PROGN
-      (SETQ |s|
-              (OR (|dbNonEmptyPattern| |pattern|)
-                  (RETURN
-                   (|errorPage| NIL
-                    (LIST "Empty search key" NIL
-                          "\\vspace{3}\\centerline{You must enter some search string")))))
-      (SETQ |s| (|mkUnixPattern| |s|))
-      (SETQ |source| "$AXIOM/share/hypertex/pages/ht.db")
-      (SETQ |target| "/tmp/temp.text.$SPADNUM")
-      (OBEY
-       (STRCONC "$AXIOM/lib/hthits" " \"" |s| "\" " |source| " > " |target|))
-      (SETQ |lines| (|dbReadLines| '|temp|))
-      (|htInitPageNoScroll| NIL
-       (LIST "Tutorial Pages mentioning {\\em " |pattern| "}"))
-      (|htSay| "\\beginscroll\\table{")
-      ((LAMBDA (|bfVar#18| |line|)
-         (LOOP
-          (COND
-           ((OR (ATOM |bfVar#18|) (PROGN (SETQ |line| (CAR |bfVar#18|)) NIL))
-            (RETURN NIL))
-           ('T
-            (PROGN
-             (SETQ |LETTMP#1| (|dbParts| |line| 3 0))
-             (SETQ |name| (CAR |LETTMP#1|))
-             (SETQ |title| (CADR |LETTMP#1|))
-             (|htSay| (LIST "{\\downlink{" |title| "}{" |name| "}}")))))
-          (SETQ |bfVar#18| (CDR |bfVar#18|))))
-       |lines| NIL)
-      (|htSay| "}")
-      (|htShowPage|)))))
- 
 ; mkUnixPattern s ==
 ;   u := mkUpDownPattern s
 ;   starPositions := REVERSE [i for i in 1..(-1 + MAXINDEX u) | u.i = $wild]
@@ -894,24 +843,24 @@
       (SETQ |u| (|mkUpDownPattern| |s|))
       (SETQ |starPositions|
               (REVERSE
-               ((LAMBDA (|bfVar#20| |bfVar#19| |i|)
+               ((LAMBDA (|bfVar#19| |bfVar#18| |i|)
                   (LOOP
-                   (COND ((> |i| |bfVar#19|) (RETURN (NREVERSE |bfVar#20|)))
+                   (COND ((> |i| |bfVar#18|) (RETURN (NREVERSE |bfVar#19|)))
                          (#1='T
                           (AND (EQUAL (ELT |u| |i|) |$wild|)
-                               (SETQ |bfVar#20| (CONS |i| |bfVar#20|)))))
+                               (SETQ |bfVar#19| (CONS |i| |bfVar#19|)))))
                    (SETQ |i| (+ |i| 1))))
                 NIL (+ (- 1) (MAXINDEX |u|)) 1)))
-      ((LAMBDA (|bfVar#21| |i|)
+      ((LAMBDA (|bfVar#20| |i|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#21|) (PROGN (SETQ |i| (CAR |bfVar#21|)) NIL))
+           ((OR (ATOM |bfVar#20|) (PROGN (SETQ |i| (CAR |bfVar#20|)) NIL))
             (RETURN NIL))
            (#1#
             (SETQ |u|
                     (STRCONC (SUBSTRING |u| 0 |i|) ".*"
                      (SUBSTRING |u| (+ |i| 1) NIL)))))
-          (SETQ |bfVar#21| (CDR |bfVar#21|))))
+          (SETQ |bfVar#20| (CDR |bfVar#20|))))
        |starPositions| NIL)
       (COND
        ((NOT (EQUAL (ELT |u| 0) |$wild|)) (SETQ |u| (STRCONC "[^a-zA-Z]" |u|)))

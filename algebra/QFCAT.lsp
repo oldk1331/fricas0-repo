@@ -46,9 +46,6 @@
                                                       ((|fractionPart| ($ $))
                                                        (|has| |t#1|
                                                               (|EuclideanDomain|)))
-                                                      ((|random| ($))
-                                                       (|has| |t#1|
-                                                              (|IntegerNumberSystem|)))
                                                       ((|ceiling| (|t#1| $))
                                                        (|has| |t#1|
                                                               (|IntegerNumberSystem|)))
