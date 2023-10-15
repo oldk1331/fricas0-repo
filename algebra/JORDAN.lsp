@@ -159,7 +159,7 @@
                      |FiniteRankNonAssociativeAlgebra&|
                      |NonAssociativeAlgebra&| |Module&| NIL
                      |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL
-                     |AbelianMonoid&| |AbelianSemiGroup&| |Monad&|
+                     |AbelianMonoid&| |AbelianSemiGroup&| |Magma&|
                      |SetCategory&| NIL |BasicType&| NIL NIL)
                   (CONS
                    '#((|FramedNonAssociativeAlgebra| 6)
@@ -167,7 +167,7 @@
                       (|NonAssociativeAlgebra| 6) (|Module| 6) (|BiModule| 6 6)
                       (|NonAssociativeRng|) (|RightModule| 6) (|LeftModule| 6)
                       (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Monad|)
+                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
                       (|SetCategory|) (|CoercibleTo| 7) (|BasicType|)
                       (|CoercibleTo| 40) (|unitsKnown|))
                    (|makeByteWordVec2| 40

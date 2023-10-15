@@ -12,7 +12,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|NonAssociativeRng|) (|MonadWithUnit|)
+                   (|Join| (|NonAssociativeRng|) (|MagmaWithUnit|)
                            (|mkCategory|
                             '(((|characteristic| ((|NonNegativeInteger|))) T)
                               ((|coerce| ($ (|Integer|))) T))

@@ -2954,7 +2954,7 @@
                      |FiniteRankNonAssociativeAlgebra&|
                      |NonAssociativeAlgebra&| |Module&| NIL
                      |NonAssociativeRng&| NIL NIL NIL |AbelianGroup&| NIL
-                     |AbelianMonoid&| |AbelianSemiGroup&| |Monad&|
+                     |AbelianMonoid&| |AbelianSemiGroup&| |Magma&|
                      |SetCategory&| |BasicType&| NIL NIL)
                   (CONS
                    '#((|FramedNonAssociativeAlgebra| 6)
@@ -2963,7 +2963,7 @@
                       (|NonAssociativeRng|) (|LeftModule| (|SquareMatrix| 7 6))
                       (|RightModule| 6) (|LeftModule| 6) (|AbelianGroup|)
                       (|CancellationAbelianMonoid|) (|AbelianMonoid|)
-                      (|AbelianSemiGroup|) (|Monad|) (|SetCategory|)
+                      (|AbelianSemiGroup|) (|Magma|) (|SetCategory|)
                       (|BasicType|) (|CoercibleTo| 50) (|unitsKnown|))
                    (|makeByteWordVec2| 97
                                        '(1 12 11 0 13 1 16 15 0 17 2 0 0 15 0

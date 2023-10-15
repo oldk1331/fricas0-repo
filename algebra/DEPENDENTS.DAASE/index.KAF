@@ -887,6 +887,8 @@
 (|Boolean| |ILogic| |Logic&| |SingleInteger|)
 (|LiePolynomial| |PoincareBirkhoffWittLyndonBasis|)
 (|MachineComplex|)
+(|Magma&|)
+(|MagmaWithUnit&|)
 (|AlgebraGivenByStructuralConstants| |GenericNonAssociativeAlgebra|
                                      |LieSquareMatrix| |RectangularMatrix|
                                      |SquareMatrix|)
@@ -909,8 +911,6 @@
              |TensorPowerCategory| |TensorPowerCategory&|
              |TensorPowerFunctions2| |TensorProductCategory|
              |TensorProductProperty| |XExponentialPackage|)
-(|Monad&|)
-(|MonadWithUnit&|)
 (|CharacteristicPolynomialInMonogenicalAlgebra| |InnerAlgFactor|
                                                 |MonogenicAlgebra&|
                                                 |NormInMonogenicAlgebra|
@@ -1937,12 +1937,13 @@
  ("MultivariateTaylorSeriesCategory" 0 59093)
  ("MultivariateSkewPolynomialCategory" 0 59026) ("MultisetAggregate" 0 59013)
  ("MultiDictionary" 0 58989) ("MonoidRingCategory" 0 58974) ("Monoid" 0 58760)
- ("MonogenicAlgebra" 0 58331) ("MonadWithUnit" 0 58312) ("Monad" 0 58301)
- ("Module" 0 57824) ("ModularEvaluationCategory" 0 57757)
- ("ModularAlgebraicGcdOperations" 0 57603)
- ("MaybeSkewPolynomialCategory" 0 57570) ("MatrixCategory" 0 57064)
- ("Matrix" 0 56868) ("MachineFloat" 0 56849) ("LyndonWord" 0 56797)
- ("Logic" 0 56751) ("ListAggregate" 0 56635) ("List" 0 54859)
+ ("MonogenicAlgebra" 0 58331) ("Module" 0 57854)
+ ("ModularEvaluationCategory" 0 57787)
+ ("ModularAlgebraicGcdOperations" 0 57633)
+ ("MaybeSkewPolynomialCategory" 0 57600) ("MatrixCategory" 0 57094)
+ ("Matrix" 0 56898) ("MagmaWithUnit" 0 56879) ("Magma" 0 56868)
+ ("MachineFloat" 0 56849) ("LyndonWord" 0 56797) ("Logic" 0 56751)
+ ("ListAggregate" 0 56635) ("List" 0 54859)
  ("LiouvillianFunctionCategory" 0 54740) ("LinearlyExplicitRingOver" 0 53071)
  ("LinearOrdinaryDifferentialOperatorCategory" 0 52411)
  ("LinearAggregate" 0 52390) ("LieAlgebra" 0 52374) ("LeftOreRing" 0 52353)

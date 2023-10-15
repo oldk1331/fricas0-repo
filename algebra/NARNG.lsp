@@ -12,7 +12,7 @@
   (SPROG ((#1=#:G104 NIL))
          (PROG1
              (LETT #1#
-                   (|Join| (|AbelianGroup|) (|Monad|)
+                   (|Join| (|AbelianGroup|) (|Magma|)
                            (|mkCategory|
                             '(((|associator| ($ $ $ $)) T)
                               ((|commutator| ($ $ $)) T)

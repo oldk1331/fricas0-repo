@@ -223,7 +223,8 @@
  |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
  |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcd2|
  |ModularAlgebraicGcdOperations| |ModularAlgebraicGcdTools2|
- |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |MatrixManipulation|
+ |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |Magma&| |Magma|
+ |MagmaWithUnit&| |MagmaWithUnit| |MatrixManipulation|
  |MappingPackageInternalHacks1| |MappingPackageInternalHacks2|
  |MappingPackageInternalHacks3| |MappingPackage1| |MappingPackage2|
  |MappingPackage3| |MatrixCategory&| |MatrixCategory|
@@ -238,21 +239,21 @@
  |MakeUnaryCompiledFunction| |MultivariateLifting| |MultipleMap| |MathMLFormat|
  |ModularField| |ModularHermitePade| |ModularHermitePadeSolver| |ModMonic|
  |ModuleMonomial| |ModuleOperator| |ModularRing| |Module&| |Module|
- |MoebiusTransform| |MomentPackage| |Monad&| |Monad| |MonadWithUnit&|
- |MonadWithUnit| |MonogenicAlgebra&| |MonogenicAlgebra| |Monoid&| |Monoid|
- |MonomialExtensionTools| |MultivariateSkewPolynomialCategory|
- |MPolyCatFunctions2| |MPolyCatFunctions3| |MPolyCatPolyFactorizer|
- |MultivariatePolynomial| |MPolyCatRationalFunctionFactorizer|
- |MRationalFactorize| |MonoidRingCategory| |MonoidRingFunctions2| |MonoidRing|
- |MrvLimitPackage| |Multiset| |MultisetAggregate| |MoreSystemCommands|
- |MergeThing| |MultivariateTaylorSeriesCategory&|
- |MultivariateTaylorSeriesCategory| |MultiplicativeDependence|
- |MultivariateFactorize| |MultivariateSquareFree| |NonAssociativeAlgebra&|
- |NonAssociativeAlgebra| |NonAssociativeRng&| |NonAssociativeRng|
- |NonAssociativeRing&| |NonAssociativeRing| |NaiveBeckermannLabahnModular|
- |NumericComplexEigenPackage| |NumericContinuedFraction| |NewtonInterpolation|
- |NumberFieldIntegralBasis| |NGroebnerPackage| |NonLinearSolvePackage|
- |NonNegativeInteger| |NonLinearFirstOrderODESolver| |None| |NoneFunctions1|
+ |MoebiusTransform| |MomentPackage| |MonogenicAlgebra&| |MonogenicAlgebra|
+ |Monoid&| |Monoid| |MonomialExtensionTools|
+ |MultivariateSkewPolynomialCategory| |MPolyCatFunctions2| |MPolyCatFunctions3|
+ |MPolyCatPolyFactorizer| |MultivariatePolynomial|
+ |MPolyCatRationalFunctionFactorizer| |MRationalFactorize| |MonoidRingCategory|
+ |MonoidRingFunctions2| |MonoidRing| |MrvLimitPackage| |Multiset|
+ |MultisetAggregate| |MoreSystemCommands| |MergeThing|
+ |MultivariateTaylorSeriesCategory&| |MultivariateTaylorSeriesCategory|
+ |MultiplicativeDependence| |MultivariateFactorize| |MultivariateSquareFree|
+ |NonAssociativeAlgebra&| |NonAssociativeAlgebra| |NonAssociativeRng&|
+ |NonAssociativeRng| |NonAssociativeRing&| |NonAssociativeRing|
+ |NaiveBeckermannLabahnModular| |NumericComplexEigenPackage|
+ |NumericContinuedFraction| |NewtonInterpolation| |NumberFieldIntegralBasis|
+ |NGroebnerPackage| |NonLinearSolvePackage| |NonNegativeInteger|
+ |NonLinearFirstOrderODESolver| |None| |NoneFunctions1|
  |NormInMonogenicAlgebra| |NormalizationPackage| |NormRetractPackage| |NPCoef|
  |NumericRealEigenPackage| |NewSparseMultivariatePolynomial|
  |NewSparseUnivariatePolynomial| |NewSparseUnivariatePolynomialFunctions2|
@@ -725,17 +726,18 @@
  |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
  |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
  |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
- |m_inverse| |element| |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix|
- |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur|
- |const| |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft|
- |twist| |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct|
- |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!|
- |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!|
- |gradient| |divergence| |laplacian| |hessian| |bandedHessian| |jacobian|
- |bandedJacobian| |duplicates| |removeDuplicates!| |linears| |ddFact|
- |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc|
- |ldegree| |subst_vars| |trial_division| |toPermutation| |toCayleyGraph|
- |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
+ |m_inverse| |rightRecip| |leftRecip| |leftPower| |rightPower| |element|
+ |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix| |bandMatrix|
+ |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur| |const|
+ |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft| |twist|
+ |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!|
+ |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!|
+ |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
+ |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
+ |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
+ |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
+ |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
+ |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
  |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|
@@ -748,25 +750,25 @@
  |moment2jacobi| |moment2jacobi2| |freeCumulant2moment| |moment2freeCumulant|
  |booleanCumulant2moment| |moment2booleanCumulant| |monotoneCumulant2moment|
  |monotoneCumulant2momentPoly| |qcumulant2nthmoment| |hankelDeterminant|
- |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant| |rightRecip|
- |leftRecip| |leftPower| |rightPower| |derivationCoordinates| |generator|
- |one?| |splitSquarefree| |normalDenom| |reshape| |totalfract| |pushdterm|
- |pushucoef| |pushuconst| |numberOfMonomials| |monomials| |mrv_normalize|
- |mrv_limit| |mrv_limit1| |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series|
- |mrv_rewrite| |mrv_rewrite0| |members| |multiset| |systemCommand|
- |mergeDifference| |logDependenceQ| |squareFreePrim| |compdegd| |univcase|
- |consnewpol| |nsqfree| |intChoose| |coefChoose| |myDegree| |normDeriv2|
- |plenaryPower| |antiCommutator| |commutator| |associator|
- |naiveBeckermannLabahn| |naiveBeckermannLabahnMultipoint|
- |naiveBeckermannLabahn1| |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis|
- |complexEigenvalues| |complexEigenvectors| |newton| |groebner| |redPol|
- |hMonic| |virtualDegree| |sPol| |shift| |normalizedAssociate| |normalize|
- |outputArgs| |normInvertible?| |normFactors| |npcoef|
- |characteristicPolynomial| |realEigenvalues| |realEigenvectors|
- |halfExtendedResultant2| |halfExtendedResultant1| |extendedResultant|
- |subResultantsChain| |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB|
- |eulerE| |numeric| |complexNumeric| |numericIfCan| |complexNumericIfCan|
- |FormatArabic| |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
+ |jacobi2poly| |moment2Stransform| |moment2monotoneCumulant|
+ |derivationCoordinates| |generator| |one?| |splitSquarefree| |normalDenom|
+ |reshape| |totalfract| |pushdterm| |pushucoef| |pushuconst|
+ |numberOfMonomials| |monomials| |mrv_normalize| |mrv_limit| |mrv_limit1|
+ |mrv_sign| |mrv_cmp| |mrv_set| |expr_to_series| |mrv_rewrite| |mrv_rewrite0|
+ |members| |multiset| |systemCommand| |mergeDifference| |logDependenceQ|
+ |squareFreePrim| |compdegd| |univcase| |consnewpol| |nsqfree| |intChoose|
+ |coefChoose| |myDegree| |normDeriv2| |plenaryPower| |antiCommutator|
+ |commutator| |associator| |naiveBeckermannLabahn|
+ |naiveBeckermannLabahnMultipoint| |naiveBeckermannLabahn1|
+ |naiveBeckermannLabahn0| |reduceBasis0| |reduceBasis| |complexEigenvalues|
+ |complexEigenvectors| |newton| |groebner| |redPol| |hMonic| |virtualDegree|
+ |sPol| |shift| |normalizedAssociate| |normalize| |outputArgs|
+ |normInvertible?| |normFactors| |npcoef| |characteristicPolynomial|
+ |realEigenvalues| |realEigenvectors| |halfExtendedResultant2|
+ |halfExtendedResultant1| |extendedResultant| |subResultantsChain|
+ |lazyPseudoQuotient| |lazyPseudoRemainder| |bernoulliB| |eulerE| |numeric|
+ |complexNumeric| |numericIfCan| |complexNumericIfCan| |FormatArabic|
+ |ScanArabic| |FormatRoman| |ScanRoman| |ScanFloatIgnoreSpaces|
  |ScanFloatIgnoreSpacesIfCan| |rk4| |rk4a| |rk4qc| |rk4f| |aromberg| |asimpson|
  |atrapezoidal| |romberg| |simpson| |trapezoidal| |rombergo| |simpsono|
  |trapezoidalo| |sup| |inv| |imagE| |imagk| |imagj| |imagi| |octon|

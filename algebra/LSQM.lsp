@@ -391,7 +391,7 @@
                 |Module&| NIL NIL |PartialDifferentialRing&|
                 |DifferentialRing&| NIL |Ring&| |NonAssociativeRng&| NIL NIL
                 NIL |Rng&| |AbelianGroup&| NIL NIL NIL |AbelianMonoid&|
-                |Monoid&| |Monad&| |HomogeneousAggregate&| |AbelianSemiGroup&|
+                |Monoid&| |Magma&| |HomogeneousAggregate&| |AbelianSemiGroup&|
                 |SemiGroup&| |Finite&| |FullyRetractableTo&| |Aggregate&|
                 |SetCategory&| |Evalable&| NIL |RetractableTo&| NIL NIL
                 |BasicType&| NIL NIL |InnerEvalable&| |RetractableTo&|
@@ -411,7 +411,7 @@
                  (|BiModule| 7 7) (|Ring|) (|NonAssociativeRng|)
                  (|RightModule| 7) (|LeftModule| 7) (|LeftModule| $$) (|Rng|)
                  (|AbelianGroup|) (|CancellationAbelianMonoid|) (|SemiRing|)
-                 (|SemiRng|) (|AbelianMonoid|) (|Monoid|) (|Monad|)
+                 (|SemiRng|) (|AbelianMonoid|) (|Monoid|) (|Magma|)
                  (|HomogeneousAggregate| 7) (|AbelianSemiGroup|) (|SemiGroup|)
                  (|Finite|) (|FullyRetractableTo| 7) (|Aggregate|)
                  (|SetCategory|) (|Evalable| 7) (|CoercibleTo| (|Matrix| 7))

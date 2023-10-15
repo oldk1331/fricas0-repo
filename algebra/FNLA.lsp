@@ -365,13 +365,13 @@
                  (CONS
                   '#(|NonAssociativeAlgebra&| |Module&| NIL
                      |NonAssociativeRng&| NIL NIL |AbelianGroup&| NIL
-                     |AbelianMonoid&| |AbelianSemiGroup&| |Monad&|
+                     |AbelianMonoid&| |AbelianSemiGroup&| |Magma&|
                      |SetCategory&| |BasicType&| NIL)
                   (CONS
                    '#((|NonAssociativeAlgebra| 8) (|Module| 8) (|BiModule| 8 8)
                       (|NonAssociativeRng|) (|RightModule| 8) (|LeftModule| 8)
                       (|AbelianGroup|) (|CancellationAbelianMonoid|)
-                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Monad|)
+                      (|AbelianMonoid|) (|AbelianSemiGroup|) (|Magma|)
                       (|SetCategory|) (|BasicType|) (|CoercibleTo| 46))
                    (|makeByteWordVec2| 60
                                        '(2 12 10 11 11 13 2 10 16 0 17 18 2 16
