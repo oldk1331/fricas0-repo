@@ -733,7 +733,7 @@
  |cartesianPower| |minShift| LLL |find_relation| |substitute| |duplicates?|
  |mapGen| |mapExpon| |commutativeEquality| |leftMult| |rightMult| |makeUnit|
  |nthFactor| |nthExpon| |makeMulti| |makeTerm| |listOfMonoms| |sort!|
- |reverse!| |copyInto!| |sorted?| |reverse| |insert| |delete| |delta_deriv|
+ |reverse!| |copyInto!| |sorted?| |insert| |delete| |delta_deriv|
  |symmetricSquare| |factor1| |testnp| |testfn| |testf2| |testll| |testlc|
  |testln| |testlw| |testcp| |testco| |testcx| |testpd| |testfr| |testsb|
  |testro| |testfo| |testsc| |testfg| |testlp| |testis| |testgt| |gen_exp|
@@ -986,8 +986,8 @@
  |stube| |curveLoops| |indexes| |pointList| |findNode| |addNode!| |addPoints!|
  |findPoint| |getNames| |isNodeBranch?| |isNodeLeaf?| |isPointLeaf?|
  |namedBranch| |namedPoints| |normalisePoint| |structuralConstants| |equation|
- |incr| |high| |low| BY |horizSplit| |horizJoin| |join| |pivots| |pivot|
- |primitiveRowEchelon| |setGcdMode| |rowEchelon| |extract| |appendRow!|
+ |reverse| |incr| |high| |low| BY |horizSplit| |horizJoin| |join| |pivots|
+ |pivot| |primitiveRowEchelon| |setGcdMode| |rowEchelon| |extract| |appendRow!|
  |consRow!| |deleteRow!| |setRow!| |row| |sortedPurge!| |purge!|
  |elimZeroCols!| |allIndices| |nrows| |ncols| |dilate| |firstn| |sequence|
  |apply| |union| |subset?| |symmetricDifference| |difference| |intersect| |set|

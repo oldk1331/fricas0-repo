@@ -46,7 +46,10 @@
                                                               (|AbelianSemiGroup|)))
                                                       ((- ($ $ |t#1|))
                                                        (|has| |t#1|
-                                                              (|AbelianGroup|))))
+                                                              (|AbelianGroup|)))
+                                                      ((|reverse| ($ $))
+                                                       (|has| |t#1|
+                                                              (|OrderedRing|))))
                                                     '(((|SetCategory|)
                                                        (|has| |t#1|
                                                               (|SetCategory|)))
