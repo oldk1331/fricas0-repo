@@ -1,40 +1,12 @@
 
-(SDEFUN |MESH;numberCheck| ((|nums| |Point| (|DoubleFloat|)) ($ |Void|))
-        (SPROG ((#1=#:G113 NIL) (#2=#:G109 NIL) (#3=#:G114 NIL) (|i| NIL))
-               (SEQ
-                (EXIT
-                 (SEQ
-                  (LETT |i| (SPADCALL |nums| (QREFELT $ 8))
-                        . #4=(|MESH;numberCheck|))
-                  (LETT #3# (SPADCALL |nums| (QREFELT $ 9)) . #4#) G190
-                  (COND ((> |i| #3#) (GO G191)))
-                  (SEQ
-                   (EXIT
-                    (COND
-                     ((COMPLEXP
-                       (SPADCALL |nums|
-                                 (PROG1 (LETT #2# |i| . #4#)
-                                   (|check_subtype2| (> #2# 0)
-                                                     '(|PositiveInteger|)
-                                                     '(|Integer|) #2#))
-                                 (QREFELT $ 11)))
-                      (PROGN
-                       (LETT #1#
-                             (|error|
-                              "An unexpected complex number was encountered in the calculations.")
-                             . #4#)
-                       (GO #5=#:G111))))))
-                  (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
-                #5# (EXIT #1#)))) 
-
 (SDEFUN |MESH;makePt|
         ((|x| |DoubleFloat|) (|y| |DoubleFloat|) (|z| |DoubleFloat|)
          (|c| . #1=(|DoubleFloat|)) ($ |Point| (|DoubleFloat|)))
         (SPROG ((|l| (|List| #1#)))
                (SPADCALL (LETT |l| (LIST |x| |y| |z| |c|) |MESH;makePt|)
-                         (QREFELT $ 13)))) 
+                         (QREFELT $ 8)))) 
 
-(SDEFUN |MESH;ptFunc;3MMM;3|
+(SDEFUN |MESH;ptFunc;3MMM;2|
         ((|f| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|g| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|h| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
@@ -44,11 +16,11 @@
           (|DoubleFloat|)))
         (SPROG NIL
                (SEQ
-                (CONS #'|MESH;ptFunc;3MMM;3!0| (VECTOR $ |c| |h| |g| |f|))))) 
+                (CONS #'|MESH;ptFunc;3MMM;2!0| (VECTOR $ |c| |h| |g| |f|))))) 
 
-(SDEFUN |MESH;ptFunc;3MMM;3!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))
+(SDEFUN |MESH;ptFunc;3MMM;2!0| ((|z1| NIL) (|z2| NIL) ($$ NIL))
         (PROG (|f| |g| |h| |c| $)
-          (LETT |f| (QREFELT $$ 4) . #1=(|MESH;ptFunc;3MMM;3|))
+          (LETT |f| (QREFELT $$ 4) . #1=(|MESH;ptFunc;3MMM;2|))
           (LETT |g| (QREFELT $$ 3) . #1#)
           (LETT |h| (QREFELT $$ 2) . #1#)
           (LETT |c| (QREFELT $$ 1) . #1#)
@@ -63,56 +35,55 @@
                          (|MESH;makePt| |x| |y| |z| (SPADCALL |x| |y| |z| |c|)
                           $)))))))) 
 
-(SDEFUN |MESH;meshPar2Var;TsM2SLTs;4|
+(SDEFUN |MESH;meshPar2Var;TsM2SLTs;3|
         ((|sp| . #1=(|ThreeSpace| (|DoubleFloat|)))
          (|ptFun| |Mapping| #2=(|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
          (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG
-         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G135 NIL)
-          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G134 NIL)
-          (|l| NIL) (#5=#:G133 NIL) (|someV| #6=(|DoubleFloat|))
+         ((|space| #1#) (|aProp| (|SubSpaceComponentProperty|)) (#3=#:G126 NIL)
+          (|lProp| (|List| (|SubSpaceComponentProperty|))) (#4=#:G125 NIL)
+          (|l| NIL) (#5=#:G124 NIL) (|someV| #6=(|DoubleFloat|))
           (|llp| (|List| (|List| (|Point| (|DoubleFloat|))))) (|someU| #6#)
           (|lp| (|List| (|Point| (|DoubleFloat|)))) (|pt| #2#) (|iu| NIL)
           (|iv| NIL) (|vstep| #7=(|DoubleFloat|)) (|ustep| #7#)
           (|vNum| (|PositiveInteger|)) (|uNum| (|PositiveInteger|)))
-         (SEQ (LETT |llp| NIL . #8=(|MESH;meshPar2Var;TsM2SLTs;4|))
+         (SEQ (LETT |llp| NIL . #8=(|MESH;meshPar2Var;TsM2SLTs;3|))
               (LETT |uNum|
-                    (SPADCALL |opts| (SPADCALL (QREFELT $ 20)) (QREFELT $ 23))
+                    (SPADCALL |opts| (SPADCALL (QREFELT $ 15)) (QREFELT $ 18))
                     . #8#)
               (LETT |vNum|
-                    (SPADCALL |opts| (SPADCALL (QREFELT $ 24)) (QREFELT $ 25))
+                    (SPADCALL |opts| (SPADCALL (QREFELT $ 19)) (QREFELT $ 20))
                     . #8#)
               (LETT |ustep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 27))
-                               (SPADCALL |uSeg| (QREFELT $ 28)))
+                     (|sub_DF| (SPADCALL |uSeg| (QREFELT $ 23))
+                               (SPADCALL |uSeg| (QREFELT $ 24)))
                      |uNum|)
                     . #8#)
               (LETT |vstep|
                     (|div_DF_I|
-                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 27))
-                               (SPADCALL |vSeg| (QREFELT $ 28)))
+                     (|sub_DF| (SPADCALL |vSeg| (QREFELT $ 23))
+                               (SPADCALL |vSeg| (QREFELT $ 24)))
                      |vNum|)
                     . #8#)
-              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 28)) . #8#)
+              (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 24)) . #8#)
               (SEQ (LETT |iv| |vNum| . #8#) G190 (COND ((< |iv| 0) (GO G191)))
                    (SEQ
                     (COND
                      ((ZEROP |iv|)
-                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 27)) . #8#)))
+                      (LETT |someV| (SPADCALL |vSeg| (QREFELT $ 23)) . #8#)))
                     (LETT |lp| NIL . #8#)
-                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 28)) . #8#)
+                    (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 24)) . #8#)
                     (SEQ (LETT |iu| |uNum| . #8#) G190
                          (COND ((< |iu| 0) (GO G191)))
                          (SEQ
                           (COND
                            ((ZEROP |iu|)
-                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 27))
+                            (LETT |someU| (SPADCALL |uSeg| (QREFELT $ 23))
                                   . #8#)))
                           (LETT |pt| (SPADCALL |someU| |someV| |ptFun|) . #8#)
-                          (|MESH;numberCheck| |pt| $)
                           (LETT |lp| (CONS |pt| |lp|) . #8#)
                           (EXIT
                            (LETT |someU| (|add_DF| |someU| |ustep|) . #8#)))
@@ -131,7 +102,7 @@
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (LETT #5# (CONS (SPADCALL (QREFELT $ 30)) #5#)
+                            (LETT #5# (CONS (SPADCALL (QREFELT $ 26)) #5#)
                                   . #8#)))
                           (LETT #4# (CDR #4#) . #8#) (GO G190) G191
                           (EXIT (NREVERSE #5#))))
@@ -140,26 +111,26 @@
                    (COND
                     ((OR (ATOM #3#) (PROGN (LETT |aProp| (CAR #3#) . #8#) NIL))
                      (GO G191)))
-                   (SEQ (SPADCALL |aProp| NIL (QREFELT $ 32))
-                        (EXIT (SPADCALL |aProp| NIL (QREFELT $ 33))))
+                   (SEQ (SPADCALL |aProp| NIL (QREFELT $ 28))
+                        (EXIT (SPADCALL |aProp| NIL (QREFELT $ 29))))
                    (LETT #3# (CDR #3#) . #8#) (GO G190) G191 (EXIT NIL))
-              (LETT |aProp| (SPADCALL (QREFELT $ 30)) . #8#)
-              (SPADCALL |aProp| NIL (QREFELT $ 32))
-              (SPADCALL |aProp| NIL (QREFELT $ 33)) (LETT |space| |sp| . #8#)
-              (SPADCALL |space| |llp| |lProp| |aProp| (QREFELT $ 37))
+              (LETT |aProp| (SPADCALL (QREFELT $ 26)) . #8#)
+              (SPADCALL |aProp| NIL (QREFELT $ 28))
+              (SPADCALL |aProp| NIL (QREFELT $ 29)) (LETT |space| |sp| . #8#)
+              (SPADCALL |space| |llp| |lProp| |aProp| (QREFELT $ 33))
               (EXIT |space|)))) 
 
-(SDEFUN |MESH;meshPar2Var;M2SLTs;5|
+(SDEFUN |MESH;meshPar2Var;M2SLTs;4|
         ((|ptFun| |Mapping| (|Point| (|DoubleFloat|)) (|DoubleFloat|)
           (|DoubleFloat|))
          (|uSeg| |Segment| (|DoubleFloat|)) (|vSeg| |Segment| (|DoubleFloat|))
          (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
         (SPROG ((|sp| (|ThreeSpace| (|DoubleFloat|))))
                (SEQ
-                (LETT |sp| (SPADCALL (QREFELT $ 39))
-                      |MESH;meshPar2Var;M2SLTs;5|)
+                (LETT |sp| (SPADCALL (QREFELT $ 35))
+                      |MESH;meshPar2Var;M2SLTs;4|)
                 (EXIT
-                 (SPADCALL |sp| |ptFun| |uSeg| |vSeg| |opts| (QREFELT $ 38)))))) 
+                 (SPADCALL |sp| |ptFun| |uSeg| |vSeg| |opts| (QREFELT $ 34)))))) 
 
 (PUT '|MESH;zCoord| '|SPADreplace| '(XLAM (|x| |y| |z|) |z|)) 
 
@@ -168,7 +139,7 @@
          ($ |DoubleFloat|))
         |z|) 
 
-(SDEFUN |MESH;meshPar2Var;3MU2SLTs;7|
+(SDEFUN |MESH;meshPar2Var;3MU2SLTs;6|
         ((|xFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|yFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|zFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
@@ -181,15 +152,15 @@
         (COND
          ((QEQCAR |colorFun| 0)
           (SPADCALL
-           (SPADCALL |xFun| |yFun| |zFun| (QCDR |colorFun|) (QREFELT $ 17))
-           |uSeg| |vSeg| |opts| (QREFELT $ 40)))
+           (SPADCALL |xFun| |yFun| |zFun| (QCDR |colorFun|) (QREFELT $ 12))
+           |uSeg| |vSeg| |opts| (QREFELT $ 36)))
          ('T
           (SPADCALL
            (SPADCALL |xFun| |yFun| |zFun| (CONS (|function| |MESH;zCoord|) $)
-                     (QREFELT $ 17))
-           |uSeg| |vSeg| |opts| (QREFELT $ 40))))) 
+                     (QREFELT $ 12))
+           |uSeg| |vSeg| |opts| (QREFELT $ 36))))) 
 
-(SDEFUN |MESH;meshFun2Var;MU2SLTs;8|
+(SDEFUN |MESH;meshFun2Var;MU2SLTs;7|
         ((|zFun| |Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|))
          (|colorFun| |Union|
           (|Mapping| (|DoubleFloat|) (|DoubleFloat|) (|DoubleFloat|)
@@ -197,19 +168,19 @@
           "undefined")
          (|xSeg| |Segment| (|DoubleFloat|)) (|ySeg| |Segment| (|DoubleFloat|))
          (|opts| |List| (|DrawOption|)) ($ |ThreeSpace| (|DoubleFloat|)))
-        (SPADCALL (LIST #'|MESH;meshFun2Var;MU2SLTs;8!0|)
-                  (LIST #'|MESH;meshFun2Var;MU2SLTs;8!1|) |zFun| |colorFun|
-                  |xSeg| |ySeg| |opts| (QREFELT $ 42))) 
+        (SPADCALL (LIST #'|MESH;meshFun2Var;MU2SLTs;7!0|)
+                  (LIST #'|MESH;meshFun2Var;MU2SLTs;7!1|) |zFun| |colorFun|
+                  |xSeg| |ySeg| |opts| (QREFELT $ 38))) 
 
-(SDEFUN |MESH;meshFun2Var;MU2SLTs;8!1| ((|z1| NIL) (|z2| NIL) ($$ NIL)) |z2|) 
+(SDEFUN |MESH;meshFun2Var;MU2SLTs;7!1| ((|z1| NIL) (|z2| NIL) ($$ NIL)) |z2|) 
 
-(SDEFUN |MESH;meshFun2Var;MU2SLTs;8!0| ((|z1| NIL) (|z2| NIL) ($$ NIL)) |z1|) 
+(SDEFUN |MESH;meshFun2Var;MU2SLTs;7!0| ((|z1| NIL) (|z2| NIL) ($$ NIL)) |z1|) 
 
 (DECLAIM (NOTINLINE |MeshCreationRoutinesForThreeDimensions;|)) 
 
 (DEFUN |MeshCreationRoutinesForThreeDimensions| ()
   (SPROG NIL
-         (PROG (#1=#:G186)
+         (PROG (#1=#:G177)
            (RETURN
             (COND
              ((LETT #1#
@@ -238,7 +209,7 @@
          (PROGN
           (LETT |dv$| '(|MeshCreationRoutinesForThreeDimensions|)
                 . #1=(|MeshCreationRoutinesForThreeDimensions|))
-          (LETT $ (GETREFV 46) . #1#)
+          (LETT $ (GETREFV 42) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache|
@@ -249,39 +220,38 @@
 
 (MAKEPROP '|MeshCreationRoutinesForThreeDimensions| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|Integer|) (|Point| 10) (0 . |minIndex|)
-              (5 . |maxIndex|) (|DoubleFloat|) (10 . |elt|) (|List| 10)
-              (16 . |point|) (|Mapping| 7 10 10) (|Mapping| 10 10 10)
-              (|Mapping| 10 10 10 10) |MESH;ptFunc;3MMM;3| (|PositiveInteger|)
-              (|ViewDefaultsPackage|) (21 . |var1StepsDefault|)
-              (|List| (|DrawOption|)) (|DrawOptionFunctions0|)
-              (25 . |var1Steps|) (31 . |var2StepsDefault|) (35 . |var2Steps|)
-              (|Segment| 10) (41 . |lo|) (46 . |hi|)
-              (|SubSpaceComponentProperty|) (51 . |new|) (|Boolean|)
-              (55 . |close|) (61 . |solid|) (|List| (|List| 7)) (|List| 29)
-              (|ThreeSpace| 10) (67 . |mesh|) |MESH;meshPar2Var;TsM2SLTs;4|
-              (75 . |create3Space|) |MESH;meshPar2Var;M2SLTs;5|
-              (|Union| 16 '"undefined") |MESH;meshPar2Var;3MU2SLTs;7|
-              |MESH;meshFun2Var;MU2SLTs;8| (|Expression| 6) (|Mapping| 10 10))
-           '#(|ptFunc| 79 |meshPar2Var| 87 |meshPar1Var| 115 |meshFun2Var| 125)
+           '#(NIL NIL NIL NIL NIL NIL (|List| 21) (|Point| 21) (0 . |point|)
+              (|Mapping| 7 21 21) (|Mapping| 21 21 21) (|Mapping| 21 21 21 21)
+              |MESH;ptFunc;3MMM;2| (|PositiveInteger|) (|ViewDefaultsPackage|)
+              (5 . |var1StepsDefault|) (|List| (|DrawOption|))
+              (|DrawOptionFunctions0|) (9 . |var1Steps|)
+              (15 . |var2StepsDefault|) (19 . |var2Steps|) (|DoubleFloat|)
+              (|Segment| 21) (25 . |lo|) (30 . |hi|)
+              (|SubSpaceComponentProperty|) (35 . |new|) (|Boolean|)
+              (39 . |close|) (45 . |solid|) (|List| (|List| 7)) (|List| 25)
+              (|ThreeSpace| 21) (51 . |mesh|) |MESH;meshPar2Var;TsM2SLTs;3|
+              (59 . |create3Space|) |MESH;meshPar2Var;M2SLTs;4|
+              (|Union| 11 '"undefined") |MESH;meshPar2Var;3MU2SLTs;6|
+              |MESH;meshFun2Var;MU2SLTs;7| (|Expression| (|Integer|))
+              (|Mapping| 21 21))
+           '#(|ptFunc| 63 |meshPar2Var| 71 |meshPar1Var| 99 |meshFun2Var| 109)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 45
-                                                 '(1 7 6 0 8 1 7 6 0 9 2 7 10 0
-                                                   6 11 1 7 0 12 13 0 19 18 20
-                                                   2 22 18 21 18 23 0 19 18 24
-                                                   2 22 18 21 18 25 1 26 10 0
-                                                   27 1 26 10 0 28 0 29 0 30 2
-                                                   29 31 0 31 32 2 29 31 0 31
-                                                   33 4 36 0 0 34 35 29 37 0 36
-                                                   0 39 4 0 14 15 15 15 16 17 7
-                                                   0 36 15 15 15 41 26 26 21 42
-                                                   5 0 36 36 14 26 26 21 38 4 0
-                                                   36 14 26 26 21 40 6 0 36 44
-                                                   44 44 45 26 21 1 5 0 36 15
-                                                   41 26 26 21 43)))))
+                             (|makeByteWordVec2| 41
+                                                 '(1 7 0 6 8 0 14 13 15 2 17 13
+                                                   16 13 18 0 14 13 19 2 17 13
+                                                   16 13 20 1 22 21 0 23 1 22
+                                                   21 0 24 0 25 0 26 2 25 27 0
+                                                   27 28 2 25 27 0 27 29 4 32 0
+                                                   0 30 31 25 33 0 32 0 35 4 0
+                                                   9 10 10 10 11 12 7 0 32 10
+                                                   10 10 37 22 22 16 38 5 0 32
+                                                   32 9 22 22 16 34 4 0 32 9 22
+                                                   22 16 36 6 0 32 40 40 40 41
+                                                   22 16 1 5 0 32 10 37 22 22
+                                                   16 39)))))
            '|lookupComplete|)) 
 
 (MAKEPROP '|MeshCreationRoutinesForThreeDimensions| 'NILADIC T) 

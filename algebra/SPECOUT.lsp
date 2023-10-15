@@ -13,31 +13,28 @@
                 (SPADCALL (SPADCALL |var| (QREFELT $ 14)) (QREFELT $ 15)) |e|
                 (QREFELT $ 16))
                |SPECOUT;outputAsFortran;SOfV;3|)
-         (|dispfortexp| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
+         (EXIT (SPADCALL |e| (QREFELT $ 11))))) 
 
 (SDEFUN |SPECOUT;outputAsFortran;LV;4| ((|l| |List| (|OutputForm|)) ($ |Void|))
-        (SEQ (|dispfortexp| (|SPECOUT;juxtaposeTerms| |l| $))
-             (EXIT (SPADCALL (QREFELT $ 10))))) 
+        (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 11))) 
 
 (SDEFUN |SPECOUT;outputAsScript;OfV;5| ((|e| |OutputForm|) ($ |Void|))
         (SEQ (|formulaFormat| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
 
 (SDEFUN |SPECOUT;outputAsScript;LV;6| ((|l| |List| (|OutputForm|)) ($ |Void|))
-        (SEQ (|formulaFormat| (|SPECOUT;juxtaposeTerms| |l| $))
-             (EXIT (SPADCALL (QREFELT $ 10))))) 
+        (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 20))) 
 
 (SDEFUN |SPECOUT;outputAsTex;OfV;7| ((|e| |OutputForm|) ($ |Void|))
         (SEQ (|texFormat| |e|) (EXIT (SPADCALL (QREFELT $ 10))))) 
 
 (SDEFUN |SPECOUT;outputAsTex;LV;8| ((|l| |List| (|OutputForm|)) ($ |Void|))
-        (SEQ (|texFormat| (|SPECOUT;juxtaposeTerms| |l| $))
-             (EXIT (SPADCALL (QREFELT $ 10))))) 
+        (SPADCALL (|SPECOUT;juxtaposeTerms| |l| $) (QREFELT $ 22))) 
 
 (DECLAIM (NOTINLINE |SpecialOutputPackage;|)) 
 
 (DEFUN |SpecialOutputPackage| ()
   (SPROG NIL
-         (PROG (#1=#:G120)
+         (PROG (#1=#:G117)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|SpecialOutputPackage|)
