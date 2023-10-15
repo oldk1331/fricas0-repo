@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5042 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5040 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -301,8 +301,7 @@
  |Patternable| |PatternMatchListResult| |PatternMatchable| |PatternMatch|
  |PatternMatchResult| |PatternMatchResultFunctions2| |Pattern|
  |PatternFunctions1| |PatternFunctions2| |PoincareBirkhoffWittLyndonBasis|
- |PolynomialCommonDenominator| |PolynomialComposition|
- |PolynomialDecomposition| |PartialDifferentialOperator|
+ |PolynomialCommonDenominator| |PartialDifferentialOperator|
  |PartialDifferentialOperatorHelper| |PartialDifferentialRing&|
  |PartialDifferentialRing| |PendantTree| |Permutation| |Permanent|
  |PermutationCategory| |PermutationGroup| |PolynomialEvaluationUtilities|
@@ -835,14 +834,14 @@
  |setPredicates| |predicates| |hasPredicate?| |optional?| |multiple?|
  |generic?| |quoted?| |inR?| |depth| |isList| |isQuotient| |isOp| |predicate|
  |satisfy?| |addBadValue| |badValues| |retractable?| |listOfTerms| |One|
- |leftFactor| |rightFactorCandidate| |adjoint| |id_map| |diff_map| |ptree|
- |coerceImages| |fixedPoints| |odd?| |even?| |numberOfCycles| |cyclePartition|
- |coerceListOfPairs| |coercePreimagesImages| |listRepresentation| |permanent|
- |cycles| |cycle| |perm_to_vec| |initializeGroupForWordProblem| |movedPoints|
- |wordInGenerators| |wordInStrongGenerators| |orbits| |orbit|
- |permutationGroup| |wordsForStrongGenerators| |strongGenerators| |base|
- |random| |generators| |eval1a| |eval1| |modpreduction| |modpeval| |addVertex2|
- |setMult!| |getMaxRight| |getMaxLeft| |getIndexs| |productFacet|
+ |adjoint| |id_map| |diff_map| |ptree| |coerceImages| |fixedPoints| |odd?|
+ |even?| |numberOfCycles| |cyclePartition| |coerceListOfPairs|
+ |coercePreimagesImages| |listRepresentation| |permanent| |cycles| |cycle|
+ |perm_to_vec| |initializeGroupForWordProblem| |movedPoints| |wordInGenerators|
+ |wordInStrongGenerators| |orbits| |orbit| |permutationGroup|
+ |wordsForStrongGenerators| |strongGenerators| |base| |random| |generators|
+ |eval1a| |eval1| |modpreduction| |modpeval| |addVertex2| |setMult!|
+ |getMaxRight| |getMaxLeft| |getIndexs| |productFacet|
  |solveLinearPolynomialEquationByRecursion| |factorByRecursion|
  |factorSquareFreeByRecursion| |randomR| |bivariateSLPEBR| |charthRoot|
  |conditionP| |solveLinearPolynomialEquation| |factorSquareFreePolynomial|
@@ -1112,51 +1111,52 @@
  |pre_lr| |rationalFunction| |taylorIfCan| |taylor| |removeZeroes| |taylorRep|
  |hasHi| |segment| SEGMENT |commonDenominator| |clearDenominator|
  |splitDenominator| |monicRightFactorIfCan| |rightFactorIfCan|
- |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose| |divideIfCan|
- |noKaratsuba| |karatsubaOnce| |karatsuba| |separate| |pseudoDivide|
- |pseudoQuotient| |composite| |subResultantGcd| |resultant| |discriminant|
- |pseudoRemainder| |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft|
- |divideExponents| |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval|
- |extend| |approximate| |truncate| |order| |center| |terms| |squareFreePart|
- |BumInSepFFE| |multiplyExponents| |laurentIfCan| |laurent| |laurentRep|
- |rationalPower| |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!|
- |qsetrest!| |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!|
- |concat!| |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail|
- |last| |rest| |elt| |first| |concat| |invmultisect| |multisect| |revert|
- |generalLambert| |evenlambert| |oddlambert| |lambert| |lagrange|
- |differentiate| |univariatePolynomial| |integrate| ^ |polynomial|
- |multiplyCoefficients| |quoByVar| |coefficients| |series| |stFunc1| |stFunc2|
- |stFuncN| |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP
- LODO2FUN RF2UTS |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType|
- |getName| |var| |variable| |add_slots| |repack_polys| |empty| |chinese_update|
- |hensel_update| |rational_reconstruction| |remove_denoms| |reconstruct|
- |length| |cross| |outerProduct| |dot| - |zero?| |zero| |vector| |scan|
- |reduce| |prod| |join| |setMaxFaces| |maxFaces| |vertexSeta| |vertexSet|
- |hp_solve| |graphCurves| |drawCurves| |update| |show| |scale| |connect|
- |region| |points| |units| |getGraph| |putGraph| |graphs| |graphStates|
- |graphState| |makeViewport2D| |viewport2D| |getPickedPoints| |key| |close|
- |write| |colorDef| |reset| |intensity| |lighting| |clipSurface|
- |showClipRegion| |showRegion| |hitherPlane| |eyeDistance| |perspective|
- |translate| |zoom| |rotate| |drawStyle| |outlineRender| |diagonals| |axes|
- |controlPanel| |viewpoint| |dimensions| |title| |resize| |move| |options|
- |modifyPointData| |subspace| |makeViewport3D| |viewport3D| |viewDeltaYDefault|
- |viewDeltaXDefault| |viewZoomDefault| |viewPhiDefault| |viewThetaDefault|
- |pointColorDefault| |lineColorDefault| |axesColorDefault| |unitsColorDefault|
- |pointSizeDefault| |viewPosDefault| |viewSizeDefault| |viewDefaults|
- |viewWriteDefault| |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault|
- |tubePointsDefault| |tubeRadiusDefault| |void| |coordinates|
- |coordinatesIfCan| |member?| |complementSpace| |canonicalBasis| |Zero|
- |subspace?| |isBasis?| |rank| |intBasis| + |sumBasis| |columnSpace|
- |nullSpace| |basis| |dimension| |weierstrass| |integralBasis|
- |localIntegralBasis| |weightedDistanceMatrix| |closedCartesian| |closedTensor|
- |cartesian| |routeArrowWeight| |routeNodeWeight| |distanceWeighted|
- |addWArrow!| |weightedGraph| |changeWeightLevel| |characteristicSerie|
- |characteristicSet| |medialSet| |Hausdorff| |Frobenius| |transcendenceDegree|
- |extensionDegree| |inGroundField?| |transcendent?| |algebraic?| |varList| |sh|
- |mirror| |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml|
- |writeVRML| |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp|
- |product| |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?|
- |constant| |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map|
- * |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
+ |leftFactorIfCan| |monicDecomposeIfCan| |monicCompleteDecompose|
+ |decomposeIfCan| |completeDecompose| |divideIfCan| |noKaratsuba|
+ |karatsubaOnce| |karatsuba| |separate| |pseudoDivide| |pseudoQuotient|
+ |composite| |subResultantGcd| |resultant| |discriminant| |pseudoRemainder|
+ |shiftRight| |karatsubaDivide| |monicDivide| |shiftLeft| |divideExponents|
+ |unmakeSUP| |makeSUP| |unvectorise| |vectorise| |eval| |extend| |approximate|
+ |truncate| |order| |center| |terms| |squareFreePart| |BumInSepFFE|
+ |multiplyExponents| |laurentIfCan| |laurent| |laurentRep| |rationalPower|
+ |puiseux| |dominantTerm| |limitPlus| |split!| |setlast!| |qsetrest!|
+ |setrest!| |setelt!| |qsetfirst!| |setfirst!| |cycleSplit!| |concat!|
+ |cycleTail| |cycleLength| |cycleEntry| |third| |second| |tail| |last| |rest|
+ |elt| |first| |concat| |invmultisect| |multisect| |revert| |generalLambert|
+ |evenlambert| |oddlambert| |lambert| |lagrange| |differentiate|
+ |univariatePolynomial| |integrate| ^ |polynomial| |multiplyCoefficients|
+ |quoByVar| |coefficients| |series| |stFunc1| |stFunc2| |stFuncN|
+ |fixedPointExquo| |ode1| |ode2| |ode| |mpsode| UP2UTS UTS2UP LODO2FUN RF2UTS
+ |seriesSolve| = |parseVarTerm| |parseVar| |toString| |getType| |getName| |var|
+ |variable| |add_slots| |repack_polys| |empty| |chinese_update| |hensel_update|
+ |rational_reconstruction| |remove_denoms| |reconstruct| |length| |cross|
+ |outerProduct| |dot| - |zero?| |zero| |vector| |scan| |reduce| |prod| |join|
+ |setMaxFaces| |maxFaces| |vertexSeta| |vertexSet| |hp_solve| |graphCurves|
+ |drawCurves| |update| |show| |scale| |connect| |region| |points| |units|
+ |getGraph| |putGraph| |graphs| |graphStates| |graphState| |makeViewport2D|
+ |viewport2D| |getPickedPoints| |key| |close| |write| |colorDef| |reset|
+ |intensity| |lighting| |clipSurface| |showClipRegion| |showRegion|
+ |hitherPlane| |eyeDistance| |perspective| |translate| |zoom| |rotate|
+ |drawStyle| |outlineRender| |diagonals| |axes| |controlPanel| |viewpoint|
+ |dimensions| |title| |resize| |move| |options| |modifyPointData| |subspace|
+ |makeViewport3D| |viewport3D| |viewDeltaYDefault| |viewDeltaXDefault|
+ |viewZoomDefault| |viewPhiDefault| |viewThetaDefault| |pointColorDefault|
+ |lineColorDefault| |axesColorDefault| |unitsColorDefault| |pointSizeDefault|
+ |viewPosDefault| |viewSizeDefault| |viewDefaults| |viewWriteDefault|
+ |viewWriteAvailable| |var1StepsDefault| |var2StepsDefault| |tubePointsDefault|
+ |tubeRadiusDefault| |void| |coordinates| |coordinatesIfCan| |member?|
+ |complementSpace| |canonicalBasis| |Zero| |subspace?| |isBasis?| |rank|
+ |intBasis| + |sumBasis| |columnSpace| |nullSpace| |basis| |dimension|
+ |weierstrass| |integralBasis| |localIntegralBasis| |weightedDistanceMatrix|
+ |closedCartesian| |closedTensor| |cartesian| |routeArrowWeight|
+ |routeNodeWeight| |distanceWeighted| |addWArrow!| |weightedGraph|
+ |changeWeightLevel| |characteristicSerie| |characteristicSet| |medialSet|
+ |Hausdorff| |Frobenius| |transcendenceDegree| |extensionDegree|
+ |inGroundField?| |transcendent?| |algebraic?| |varList| |sh| |mirror|
+ |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml| |writeVRML|
+ |xmlAttribute| |xmlElement| |empty?| |outputVRML| |log| |exp| |product|
+ |LiePolyIfCan| |trunc| |degree| / |quasiRegular| |quasiRegular?| |constant|
+ |constant?| |coef| |mindeg| |maxdeg| |coerce| |#| |reductum| |map| *
+ |RemainderList| |unexpand| |expand| Y |triangSolve| |univariateSolve|
  |realSolve| |positiveSolve| |squareFree| |convert| |linearlyDependentOverZ?|
  |linearDependenceOverZ| |particularSolutionOverQ| |solveLinearlyOverQ|) 
