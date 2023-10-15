@@ -79,11 +79,26 @@
                                                   (QREFELT $ 33)))
                                   (QREFELT $ 32)))))))) 
 
-(SDEFUN |SEG;expand;LL;13| ((|ls| |List| $) ($ |List| S))
+(SDEFUN |SEG;+;S2$;13| ((|i| S) (|s| $) ($ $))
+        (VECTOR (SPADCALL |i| (SPADCALL |s| (QREFELT $ 9)) (QREFELT $ 35))
+                (SPADCALL |i| (SPADCALL |s| (QREFELT $ 11)) (QREFELT $ 35))
+                (SPADCALL |s| (QREFELT $ 14)))) 
+
+(SDEFUN |SEG;+;$S$;14| ((|s| $) (|i| S) ($ $))
+        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 9)) |i| (QREFELT $ 35))
+                (SPADCALL (SPADCALL |s| (QREFELT $ 11)) |i| (QREFELT $ 35))
+                (SPADCALL |s| (QREFELT $ 14)))) 
+
+(SDEFUN |SEG;-;$S$;15| ((|s| $) (|i| S) ($ $))
+        (VECTOR (SPADCALL (SPADCALL |s| (QREFELT $ 9)) |i| (QREFELT $ 38))
+                (SPADCALL (SPADCALL |s| (QREFELT $ 11)) |i| (QREFELT $ 38))
+                (SPADCALL |s| (QREFELT $ 14)))) 
+
+(SDEFUN |SEG;expand;LL;16| ((|ls| |List| $) ($ |List| S))
         (SPROG
-         ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)) (#1=#:G138 NIL)
+         ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)) (#1=#:G141 NIL)
           (|s| NIL))
-         (SEQ (LETT |lr| NIL . #2=(|SEG;expand;LL;13|))
+         (SEQ (LETT |lr| NIL . #2=(|SEG;expand;LL;16|))
               (SEQ (LETT |s| NIL . #2#) (LETT #1# |ls| . #2#) G190
                    (COND
                     ((OR (ATOM #1#) (PROGN (LETT |s| (CAR #1#) . #2#) NIL))
@@ -92,81 +107,81 @@
                         (LETT |h| (SPADCALL |s| (QREFELT $ 11)) . #2#)
                         (LETT |inc|
                               (SPADCALL (SPADCALL |s| (QREFELT $ 14))
-                                        (QREFELT $ 35))
+                                        (QREFELT $ 40))
                               . #2#)
                         (EXIT
                          (COND
-                          ((SPADCALL |inc| (QREFELT $ 36))
+                          ((SPADCALL |inc| (QREFELT $ 41))
                            (|error|
                             "Cannot expand a segment with an increment of zero"))
-                          ((SPADCALL |inc| (|spadConstant| $ 37)
-                                     (QREFELT $ 38))
+                          ((SPADCALL |inc| (|spadConstant| $ 42)
+                                     (QREFELT $ 43))
                            (SEQ G190
                                 (COND
-                                 ((NULL (SPADCALL |l| |h| (QREFELT $ 39)))
+                                 ((NULL (SPADCALL |l| |h| (QREFELT $ 44)))
                                   (GO G191)))
                                 (SEQ (LETT |lr| (CONS |l| |lr|) . #2#)
                                      (EXIT
                                       (LETT |l|
-                                            (SPADCALL |l| |inc| (QREFELT $ 40))
+                                            (SPADCALL |l| |inc| (QREFELT $ 35))
                                             . #2#)))
                                 NIL (GO G190) G191 (EXIT NIL)))
                           ('T
                            (SEQ G190
                                 (COND
-                                 ((NULL (SPADCALL |l| |h| (QREFELT $ 41)))
+                                 ((NULL (SPADCALL |l| |h| (QREFELT $ 45)))
                                   (GO G191)))
                                 (SEQ (LETT |lr| (CONS |l| |lr|) . #2#)
                                      (EXIT
                                       (LETT |l|
-                                            (SPADCALL |l| |inc| (QREFELT $ 40))
+                                            (SPADCALL |l| |inc| (QREFELT $ 35))
                                             . #2#)))
                                 NIL (GO G190) G191 (EXIT NIL))))))
                    (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
               (EXIT (NREVERSE |lr|))))) 
 
-(SDEFUN |SEG;expand;$L;14| ((|s| $) ($ |List| S))
-        (SPADCALL (LIST |s|) (QREFELT $ 44))) 
+(SDEFUN |SEG;expand;$L;17| ((|s| $) ($ |List| S))
+        (SPADCALL (LIST |s|) (QREFELT $ 48))) 
 
-(SDEFUN |SEG;map;M$L;15| ((|f| |Mapping| S S) (|s| $) ($ |List| S))
+(SDEFUN |SEG;map;M$L;18| ((|f| |Mapping| S S) (|s| $) ($ |List| S))
         (SPROG ((|l| (S)) (|lr| (|List| S)) (|inc| (S)) (|h| (S)))
-               (SEQ (LETT |lr| NIL . #1=(|SEG;map;M$L;15|))
+               (SEQ (LETT |lr| NIL . #1=(|SEG;map;M$L;18|))
                     (LETT |l| (SPADCALL |s| (QREFELT $ 9)) . #1#)
                     (LETT |h| (SPADCALL |s| (QREFELT $ 11)) . #1#)
                     (LETT |inc|
                           (SPADCALL (SPADCALL |s| (QREFELT $ 14))
-                                    (QREFELT $ 35))
+                                    (QREFELT $ 40))
                           . #1#)
                     (COND
-                     ((SPADCALL |inc| (|spadConstant| $ 37) (QREFELT $ 38))
+                     ((SPADCALL |inc| (|spadConstant| $ 42) (QREFELT $ 43))
                       (SEQ G190
                            (COND
-                            ((NULL (SPADCALL |l| |h| (QREFELT $ 39)))
+                            ((NULL (SPADCALL |l| |h| (QREFELT $ 44)))
                              (GO G191)))
                            (SEQ
                             (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|) . #1#)
                             (EXIT
-                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 40))
+                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 35))
                                    . #1#)))
                            NIL (GO G190) G191 (EXIT NIL)))
                      ('T
                       (SEQ G190
                            (COND
-                            ((NULL (SPADCALL |l| |h| (QREFELT $ 41)))
+                            ((NULL (SPADCALL |l| |h| (QREFELT $ 45)))
                              (GO G191)))
                            (SEQ
                             (LETT |lr| (CONS (SPADCALL |l| |f|) |lr|) . #1#)
                             (EXIT
-                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 40))
+                             (LETT |l| (SPADCALL |l| |inc| (QREFELT $ 35))
                                    . #1#)))
                            NIL (GO G190) G191 (EXIT NIL))))
                     (EXIT (NREVERSE |lr|))))) 
 
 (DECLAIM (NOTINLINE |Segment;|)) 
 
-(DEFUN |Segment| (#1=#:G147)
+(DEFUN |Segment| (#1=#:G150)
   (SPROG NIL
-         (PROG (#2=#:G148)
+         (PROG (#2=#:G151)
            (RETURN
             (COND
              ((LETT #2#
@@ -185,7 +200,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|Segment|))
           (LETT |dv$| (LIST '|Segment| DV$1) . #1#)
-          (LETT $ (GETREFV 51) . #1#)
+          (LETT $ (GETREFV 55) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -197,7 +212,11 @@
                                               (|HasCategory| |#1|
                                                              '(|OrderedRing|))
                                               (|HasCategory| |#1|
-                                                             '(|SetCategory|))))
+                                                             '(|SetCategory|))
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianSemiGroup|))
+                                              (|HasCategory| |#1|
+                                                             '(|AbelianGroup|))))
                           . #1#))
           (|haddProp| |$ConstructorCache| '|Segment| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
@@ -218,11 +237,19 @@
              (QSETREFV $ 34
                        (CONS (|dispatchFunction| |SEG;convert;$If;12|) $)))))
           (COND
+           ((|testBitVector| |pv$| 4)
+            (PROGN
+             (QSETREFV $ 36 (CONS (|dispatchFunction| |SEG;+;S2$;13|) $))
+             (QSETREFV $ 37 (CONS (|dispatchFunction| |SEG;+;$S$;14|) $)))))
+          (COND
+           ((|testBitVector| |pv$| 5)
+            (QSETREFV $ 39 (CONS (|dispatchFunction| |SEG;-;$S$;15|) $))))
+          (COND
            ((|testBitVector| |pv$| 2)
             (PROGN
-             (QSETREFV $ 44 (CONS (|dispatchFunction| |SEG;expand;LL;13|) $))
-             (QSETREFV $ 45 (CONS (|dispatchFunction| |SEG;expand;$L;14|) $))
-             (QSETREFV $ 47 (CONS (|dispatchFunction| |SEG;map;M$L;15|) $)))))
+             (QSETREFV $ 48 (CONS (|dispatchFunction| |SEG;expand;LL;16|) $))
+             (QSETREFV $ 49 (CONS (|dispatchFunction| |SEG;expand;$L;17|) $))
+             (QSETREFV $ 51 (CONS (|dispatchFunction| |SEG;map;M$L;18|) $)))))
           $))) 
 
 (MAKEPROP '|Segment| '|infovec|
@@ -234,13 +261,15 @@
               (17 . SEGMENT) (23 . |coerce|) (28 . |infix|) (35 . |coerce|)
               |SEG;convert;S$;11| (|InputForm|) (40 . |convert|) (|Symbol|)
               (|List| 27) (|InputFormFunctions1| $$) (45 . |packageCall|)
-              (51 . |convert|) (56 . |convert|) (61 . |coerce|) (66 . |zero?|)
-              (71 . |Zero|) (75 . >) (81 . <=) (87 . +) (93 . >=) (|List| 6)
-              (|List| $) (99 . |expand|) (104 . |expand|) (|Mapping| 6 6)
-              (109 . |map|) (|HashState|) (|String|) (|SingleInteger|))
-           '#(~= 115 |segment| 121 |map| 127 |low| 133 |lo| 138 |latex| 143
-              |incr| 148 |high| 153 |hi| 158 |hashUpdate!| 163 |hash| 169
-              |expand| 174 |convert| 184 |coerce| 194 SEGMENT 199 BY 205 = 211)
+              (51 . |convert|) (56 . |convert|) (61 . +) (67 . +) (73 . +)
+              (79 . -) (85 . -) (91 . |coerce|) (96 . |zero?|) (101 . |Zero|)
+              (105 . >) (111 . <=) (117 . >=) (|List| 6) (|List| $)
+              (123 . |expand|) (128 . |expand|) (|Mapping| 6 6) (133 . |map|)
+              (|HashState|) (|SingleInteger|) (|String|))
+           '#(~= 139 |segment| 145 |map| 151 |low| 157 |lo| 162 |latex| 167
+              |incr| 172 |high| 177 |hi| 182 |hashUpdate!| 187 |hash| 193
+              |expand| 198 |convert| 208 |coerce| 218 SEGMENT 223 BY 229 = 235
+              - 241 + 247)
            'NIL
            (CONS (|makeByteWordVec2| 3 '(2 0 3 0 1 3 3))
                  (CONS '#(NIL NIL |SetCategory&| NIL NIL |BasicType&| NIL)
@@ -249,21 +278,24 @@
                            (|SegmentCategory| 6) (|SetCategory|) (|Type|)
                            (|ConvertibleTo| 27) (|BasicType|)
                            (|CoercibleTo| 20))
-                        (|makeByteWordVec2| 50
+                        (|makeByteWordVec2| 54
                                             '(2 6 17 0 0 18 2 0 17 0 0 19 1 6
                                               20 0 21 2 20 0 0 0 22 1 13 20 0
                                               23 3 20 0 0 0 0 24 1 0 20 0 25 1
                                               6 27 0 28 2 31 27 29 30 32 1 27 0
-                                              13 33 1 0 27 0 34 1 6 0 13 35 1 6
-                                              17 0 36 0 6 0 37 2 6 17 0 0 38 2
-                                              6 17 0 0 39 2 6 0 0 0 40 2 6 17 0
-                                              0 41 1 0 42 43 44 1 0 42 0 45 2 0
-                                              42 46 0 47 2 3 17 0 0 1 2 0 0 6 6
-                                              15 2 2 42 46 0 47 1 0 6 0 10 1 0
-                                              6 0 9 1 3 49 0 1 1 0 13 0 14 1 0
-                                              6 0 12 1 0 6 0 11 2 3 48 48 0 1 1
-                                              3 50 0 1 1 2 42 0 45 1 2 42 43 44
-                                              1 1 27 0 34 1 0 0 6 26 1 3 20 0
-                                              25 2 0 0 6 6 8 2 0 0 0 13 16 2 3
-                                              17 0 0 19)))))
+                                              13 33 1 0 27 0 34 2 6 0 0 0 35 2
+                                              0 0 6 0 36 2 0 0 0 6 37 2 6 0 0 0
+                                              38 2 0 0 0 6 39 1 6 0 13 40 1 6
+                                              17 0 41 0 6 0 42 2 6 17 0 0 43 2
+                                              6 17 0 0 44 2 6 17 0 0 45 1 0 46
+                                              47 48 1 0 46 0 49 2 0 46 50 0 51
+                                              2 3 17 0 0 1 2 0 0 6 6 15 2 2 46
+                                              50 0 51 1 0 6 0 10 1 0 6 0 9 1 3
+                                              54 0 1 1 0 13 0 14 1 0 6 0 12 1 0
+                                              6 0 11 2 3 52 52 0 1 1 3 53 0 1 1
+                                              2 46 0 49 1 2 46 47 48 1 1 27 0
+                                              34 1 0 0 6 26 1 3 20 0 25 2 0 0 6
+                                              6 8 2 0 0 0 13 16 2 3 17 0 0 19 2
+                                              5 0 0 6 39 2 4 0 6 0 36 2 4 0 0 6
+                                              37)))))
            '|lookupComplete|)) 

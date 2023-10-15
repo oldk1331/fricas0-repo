@@ -39,9 +39,20 @@
                                                       ((|segment|
                                                         ($ |t#1| |t#1|))
                                                        T)
-                                                      ((|convert| ($ |t#1|))
-                                                       T))
-                                                    '(((|ConvertibleTo|
+                                                      ((|convert| ($ |t#1|)) T)
+                                                      ((+ ($ |t#1| $))
+                                                       (|has| |t#1|
+                                                              (|AbelianSemiGroup|)))
+                                                      ((+ ($ $ |t#1|))
+                                                       (|has| |t#1|
+                                                              (|AbelianSemiGroup|)))
+                                                      ((- ($ $ |t#1|))
+                                                       (|has| |t#1|
+                                                              (|AbelianGroup|))))
+                                                    '(((|SetCategory|)
+                                                       (|has| |t#1|
+                                                              (|SetCategory|)))
+                                                      ((|ConvertibleTo|
                                                         (|InputForm|))
                                                        (|has| |t#1|
                                                               (|ConvertibleTo|
