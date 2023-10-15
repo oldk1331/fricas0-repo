@@ -1,19 +1,19 @@
 
-(SDEFUN |RDEEFX2;do_risch_DE;2FSLR;1|
-        ((|f| F) (|g| F) (|x| |Symbol|) (|lk| |List| (|Kernel| F))
-         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
-          (|:| |sol?| (|Boolean|))))
+(SDEFUN |RDEEFX2;do_param_RDE;2FLSLU;1|
+        ((|f| F) (|h| F) (|lg| |List| F) (|x| |Symbol|)
+         (|lk| |List| (|Kernel| F))
+         ($ |Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+          "failed"))
         (SPROG
-         ((|p1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
-          (|part|
-           #1=(|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
-                       "failed"))
-          (|res1|
-           (|Record| (|:| |particular| #1#)
-                     (|:| |basis|
-                          (|List|
-                           (|Record| (|:| |ratpart| F)
-                                     (|:| |coeffs| (|Vector| F)))))))
+         ((|res1|
+           (|Record|
+            (|:| |particular|
+                 (|Union|
+                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                  "failed"))
+            (|:| |basis|
+                 (|List|
+                  (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))))))
           (|logi|
            (|Mapping|
             (|Record| (|:| |logands| (|List| F))
@@ -25,57 +25,55 @@
             (|List| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
             (|List| (|Kernel| F)) (|List| F))))
          (SEQ
-          (LETT |ext| (CONS #'|RDEEFX2;do_risch_DE;2FSLR;1!0| (VECTOR $ |x|))
-                . #2=(|RDEEFX2;do_risch_DE;2FSLR;1|))
-          (LETT |logi| (CONS #'|RDEEFX2;do_risch_DE;2FSLR;1!1| (VECTOR $ |x|))
-                . #2#)
+          (LETT |ext| (CONS #'|RDEEFX2;do_param_RDE;2FLSLU;1!0| (VECTOR $ |x|))
+                . #1=(|RDEEFX2;do_param_RDE;2FLSLU;1|))
+          (LETT |logi|
+                (CONS #'|RDEEFX2;do_param_RDE;2FLSLU;1!1| (VECTOR $ |x|))
+                . #1#)
           (LETT |res1|
-                (SPADCALL 1 |f| |g| NIL |x| |lk| |ext| |logi| (QREFELT $ 25))
-                . #2#)
-          (LETT |part| (QCAR |res1|) . #2#)
-          (EXIT
-           (COND
-            ((QEQCAR |part| 1)
-             (VECTOR (|spadConstant| $ 27) (|spadConstant| $ 27)
-                     (|spadConstant| $ 27) NIL))
-            ('T
-             (SEQ (LETT |p1| (QCDR |part|) . #2#)
-                  (EXIT
-                   (VECTOR (QCAR |p1|) |g| (|spadConstant| $ 27) 'T))))))))) 
+                (SPADCALL 1 |f| |h| |lg| |x| |lk| |ext| |logi| (QREFELT $ 25))
+                . #1#)
+          (EXIT (QCAR |res1|))))) 
 
-(SDEFUN |RDEEFX2;do_risch_DE;2FSLR;1!1| ((|x2| NIL) (|x3| NIL) ($$ NIL))
+(SDEFUN |RDEEFX2;do_param_RDE;2FLSLU;1!1| ((|x2| NIL) (|x3| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|RDEEFX2;do_risch_DE;2FSLR;1|))
+          (LETT |x| (QREFELT $$ 1) . #1=(|RDEEFX2;do_param_RDE;2FLSLU;1|))
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN (PROGN (SPADCALL |x| |x2| |x3| (QREFELT $ 16)))))) 
 
-(SDEFUN |RDEEFX2;do_risch_DE;2FSLR;1!0| ((|x4| NIL) (|x3| NIL) ($$ NIL))
+(SDEFUN |RDEEFX2;do_param_RDE;2FLSLU;1!0| ((|x4| NIL) (|x3| NIL) ($$ NIL))
         (PROG (|x| $)
-          (LETT |x| (QREFELT $$ 1) . #1=(|RDEEFX2;do_risch_DE;2FSLR;1|))
+          (LETT |x| (QREFELT $$ 1) . #1=(|RDEEFX2;do_param_RDE;2FLSLU;1|))
           (LETT $ (QREFELT $$ 0) . #1#)
           (RETURN (PROGN (SPADCALL |x| |x4| |x3| (QREFELT $ 14)))))) 
 
-(SDEFUN |RDEEFX2;risch_de_ext;I2FSR;2|
-        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
+(SDEFUN |RDEEFX2;do_risch_DE;2FSLR;2|
+        ((|f| F) (|g| F) (|x| |Symbol|) (|lk| |List| (|Kernel| F))
          ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
           (|:| |sol?| (|Boolean|))))
-        (SPADCALL |n| |f| |g| |x| (QREFELT $ 31))) 
+        (SPROG
+         ((|p1| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F))))
+          (|part|
+           (|Union| (|Record| (|:| |ratpart| F) (|:| |coeffs| (|Vector| F)))
+                    "failed")))
+         (SEQ
+          (LETT |part| (SPADCALL |f| |g| NIL |x| |lk| (QREFELT $ 26))
+                . #1=(|RDEEFX2;do_risch_DE;2FSLR;2|))
+          (EXIT
+           (COND
+            ((QEQCAR |part| 1)
+             (VECTOR (|spadConstant| $ 28) (|spadConstant| $ 28)
+                     (|spadConstant| $ 28) NIL))
+            ('T
+             (SEQ (LETT |p1| (QCDR |part|) . #1#)
+                  (EXIT
+                   (VECTOR (QCAR |p1|) |g| (|spadConstant| $ 28) 'T))))))))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;3|
         ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
          ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
           (|:| |sol?| (|Boolean|))))
-        (SPROG ((|lk| (|List| (|Kernel| F))))
-               (SEQ
-                (LETT |lk|
-                      (SPADCALL
-                       (SPADCALL (SPADCALL |f| (QREFELT $ 34))
-                                 (SPADCALL |g| (QREFELT $ 34)) (QREFELT $ 36))
-                       |x| (QREFELT $ 37))
-                      |RDEEFX2;risch_de_ext;I2FSR;3|)
-                (EXIT
-                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 38)) |g| |x| |lk|
-                           (QREFELT $ 29)))))) 
+        (SPADCALL |n| |f| |g| |x| (QREFELT $ 32))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;4|
         ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
@@ -85,13 +83,13 @@
                (SEQ
                 (LETT |lk|
                       (SPADCALL
-                       (SPADCALL (SPADCALL |f| (QREFELT $ 34))
-                                 (SPADCALL |g| (QREFELT $ 34)) (QREFELT $ 36))
-                       |x| (QREFELT $ 37))
+                       (SPADCALL (SPADCALL |f| (QREFELT $ 35))
+                                 (SPADCALL |g| (QREFELT $ 35)) (QREFELT $ 37))
+                       |x| (QREFELT $ 38))
                       |RDEEFX2;risch_de_ext;I2FSR;4|)
                 (EXIT
-                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 38)) |g| |x| |lk|
-                           (QREFELT $ 29)))))) 
+                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 39)) |g| |x| |lk|
+                           (QREFELT $ 30)))))) 
 
 (SDEFUN |RDEEFX2;risch_de_ext;I2FSR;5|
         ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
@@ -101,19 +99,35 @@
                (SEQ
                 (LETT |lk|
                       (SPADCALL
-                       (SPADCALL (SPADCALL |f| (QREFELT $ 34))
-                                 (SPADCALL |g| (QREFELT $ 34)) (QREFELT $ 36))
-                       |x| (QREFELT $ 37))
+                       (SPADCALL (SPADCALL |f| (QREFELT $ 35))
+                                 (SPADCALL |g| (QREFELT $ 35)) (QREFELT $ 37))
+                       |x| (QREFELT $ 38))
                       |RDEEFX2;risch_de_ext;I2FSR;5|)
                 (EXIT
-                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 38)) |g| |x| |lk|
-                           (QREFELT $ 29)))))) 
+                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 39)) |g| |x| |lk|
+                           (QREFELT $ 30)))))) 
+
+(SDEFUN |RDEEFX2;risch_de_ext;I2FSR;6|
+        ((|n| |Integer|) (|f| F) (|g| F) (|x| |Symbol|)
+         ($ |Record| (|:| |ans| F) (|:| |right| F) (|:| |primpart| F)
+          (|:| |sol?| (|Boolean|))))
+        (SPROG ((|lk| (|List| (|Kernel| F))))
+               (SEQ
+                (LETT |lk|
+                      (SPADCALL
+                       (SPADCALL (SPADCALL |f| (QREFELT $ 35))
+                                 (SPADCALL |g| (QREFELT $ 35)) (QREFELT $ 37))
+                       |x| (QREFELT $ 38))
+                      |RDEEFX2;risch_de_ext;I2FSR;6|)
+                (EXIT
+                 (SPADCALL (SPADCALL |n| |f| (QREFELT $ 39)) |g| |x| |lk|
+                           (QREFELT $ 30)))))) 
 
 (DECLAIM (NOTINLINE |ElementaryRischDEX2;|)) 
 
-(DEFUN |ElementaryRischDEX2| (&REST #1=#:G132)
+(DEFUN |ElementaryRischDEX2| (&REST #1=#:G138)
   (SPROG NIL
-         (PROG (#2=#:G133)
+         (PROG (#2=#:G139)
            (RETURN
             (COND
              ((LETT #2#
@@ -137,7 +151,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|ElementaryRischDEX2|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|ElementaryRischDEX2| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 39) . #1#)
+          (LETT $ (GETREFV 40) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|ElementaryRischDEX2|
@@ -152,27 +166,27 @@
              ((|HasCategory| |#2| '(|LiouvillianFunctionCategory|))
               (COND
                ((|HasCategory| |#2| '(|SpecialFunctionCategory|))
-                (QSETREFV $ 32
+                (QSETREFV $ 33
                           (CONS
-                           (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;2|)
+                           (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;3|)
                            $)))
                ('T
                 (PROGN
-                 (QSETREFV $ 32
+                 (QSETREFV $ 33
                            (CONS
-                            (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;3|)
+                            (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;4|)
                             $))))))
              ('T
               (PROGN
-               (QSETREFV $ 32
+               (QSETREFV $ 33
                          (CONS
-                          (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;4|)
+                          (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;5|)
                           $))))))
            ('T
             (PROGN
-             (QSETREFV $ 32
+             (QSETREFV $ 33
                        (CONS
-                        (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;5|)
+                        (|dispatchFunction| |RDEEFX2;risch_de_ext;I2FSR;6|)
                         $)))))
           $))) 
 
@@ -187,27 +201,27 @@
               (7 . |logextint|) (14 . |One|) (18 . |One|) (|Union| 8 '"failed")
               (|Record| (|:| |particular| 19) (|:| |basis| 9)) (|Integer|)
               (|Mapping| 9 11 12) (|Mapping| 15 11 12)
-              (|ParametricRischDE| 6 7) (22 . |param_rde|) (34 . |Zero|)
-              (38 . |Zero|)
+              (|ParametricRischDE| 6 7) (22 . |param_rde|)
+              |RDEEFX2;do_param_RDE;2FLSLU;1| (34 . |Zero|) (38 . |Zero|)
               (|Record| (|:| |ans| 7) (|:| |right| 7) (|:| |primpart| 7)
                         (|:| |sol?| (|Boolean|)))
-              |RDEEFX2;do_risch_DE;2FSLR;1| (|ElementaryRischDEX| 6 7)
+              |RDEEFX2;do_risch_DE;2FSLR;2| (|ElementaryRischDEX| 6 7)
               (42 . |ei_int|) (50 . |risch_de_ext|) (|List| (|Kernel| $))
               (58 . |tower|) (|IntegrationTools| 6 7) (63 . |union|)
               (69 . |varselect|) (75 . *))
-           '#(|risch_de_ext| 81 |do_risch_DE| 89) 'NIL
+           '#(|risch_de_ext| 81 |do_risch_DE| 89 |do_param_RDE| 97) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 38
+                             (|makeByteWordVec2| 39
                                                  '(3 13 9 10 11 12 14 3 13 15
                                                    10 11 12 16 0 6 0 17 0 7 0
                                                    18 8 24 20 21 7 7 12 10 11
-                                                   22 23 25 0 6 0 26 0 7 0 27 4
-                                                   30 28 21 7 7 10 31 4 0 28 21
-                                                   7 7 10 32 1 7 33 0 34 2 35
-                                                   11 11 11 36 2 35 11 11 10 37
-                                                   2 7 0 21 0 38 4 0 28 21 7 7
-                                                   10 32 4 0 28 7 7 10 11
-                                                   29)))))
+                                                   22 23 25 0 6 0 27 0 7 0 28 4
+                                                   31 29 21 7 7 10 32 4 0 29 21
+                                                   7 7 10 33 1 7 34 0 35 2 36
+                                                   11 11 11 37 2 36 11 11 10 38
+                                                   2 7 0 21 0 39 4 0 29 21 7 7
+                                                   10 33 4 0 29 7 7 10 11 30 5
+                                                   0 19 7 7 12 10 11 26)))))
            '|lookupComplete|)) 
