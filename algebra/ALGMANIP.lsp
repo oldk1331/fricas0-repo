@@ -797,26 +797,32 @@
                               (QREFELT $ 85)))))))))
                   #5# (EXIT #2#))))))) 
 
-(SDEFUN |ALGMANIP;sroot| ((|k| |Kernel| F) ($ F))
+(SDEFUN |ALGMANIP;sroot|
+        ((|k| |Kernel| F) (|lk| |List| (|Kernel| F)) (|nlk| |List| F) ($ F))
         (SPROG
          ((|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (#1=#:G274 NIL) (|arg| (|List| F)))
+          (#1=#:G274 NIL) (|narg1| (F)) (|arg| (|List| F)))
          (SEQ
-          (LETT |pr|
+          (LETT |narg1|
                 (SPADCALL
                  (|SPADfirst|
                   (LETT |arg| (SPADCALL |k| (QREFELT $ 47))
                         . #2=(|ALGMANIP;sroot|)))
-                 (PROG1
-                     (LETT #1#
-                           (SPADCALL (SPADCALL |arg| (QREFELT $ 48))
-                                     (QREFELT $ 97))
-                           . #2#)
-                   (|check_subtype2| (>= #1# 0) '(|NonNegativeInteger|)
-                                     '(|Integer|) #1#))
-                 (QREFELT $ 136))
+                 |lk| |nlk| (QREFELT $ 45))
+                . #2#)
+          (LETT |pr|
+                (SPADCALL |narg1|
+                          (PROG1
+                              (LETT #1#
+                                    (SPADCALL (SPADCALL |arg| (QREFELT $ 48))
+                                              (QREFELT $ 97))
+                                    . #2#)
+                            (|check_subtype2| (>= #1# 0)
+                                              '(|NonNegativeInteger|)
+                                              '(|Integer|) #1#))
+                          (QREFELT $ 136))
                 . #2#)
           (EXIT
            (SPADCALL (QVELT |pr| 1)
@@ -826,27 +832,21 @@
 
 (SDEFUN |ALGMANIP;rootSimp;2F;23| ((|x| F) ($ F))
         (SPROG
-         ((#1=#:G282 NIL) (|k| NIL) (#2=#:G281 NIL)
-          (|lk| (|List| (|Kernel| F))))
+         ((|nlk| (|List| F)) (|lk| (|List| (|Kernel| F))) (|nk| (F))
+          (#1=#:G282 NIL) (|k| NIL) (|tk| (|List| (|Kernel| F))))
          (SEQ
-          (LETT |lk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
-                . #3=(|ALGMANIP;rootSimp;2F;23|))
-          (EXIT
-           (SPADCALL |x| |lk|
-                     (PROGN
-                      (LETT #2# NIL . #3#)
-                      (SEQ (LETT |k| NIL . #3#) (LETT #1# |lk| . #3#) G190
-                           (COND
-                            ((OR (ATOM #1#)
-                                 (PROGN (LETT |k| (CAR #1#) . #3#) NIL))
-                             (GO G191)))
-                           (SEQ
-                            (EXIT
-                             (LETT #2# (CONS (|ALGMANIP;sroot| |k| $) #2#)
-                                   . #3#)))
-                           (LETT #1# (CDR #1#) . #3#) (GO G190) G191
-                           (EXIT (NREVERSE #2#))))
-                     (QREFELT $ 45)))))) 
+          (LETT |tk| (|ALGMANIP;rootkernels| (SPADCALL |x| (QREFELT $ 15)) $)
+                . #2=(|ALGMANIP;rootSimp;2F;23|))
+          (LETT |lk| NIL . #2#) (LETT |nlk| NIL . #2#)
+          (SEQ (LETT |k| NIL . #2#) (LETT #1# |tk| . #2#) G190
+               (COND
+                ((OR (ATOM #1#) (PROGN (LETT |k| (CAR #1#) . #2#) NIL))
+                 (GO G191)))
+               (SEQ (LETT |nk| (|ALGMANIP;sroot| |k| |lk| |nlk| $) . #2#)
+                    (LETT |lk| (CONS |k| |lk|) . #2#)
+                    (EXIT (LETT |nlk| (CONS |nk| |nlk|) . #2#)))
+               (LETT #1# (CDR #1#) . #2#) (GO G190) G191 (EXIT NIL))
+          (EXIT (SPADCALL |x| |lk| |nlk| (QREFELT $ 45)))))) 
 
 (DECLAIM (NOTINLINE |AlgebraicManipulations;|)) 
 
