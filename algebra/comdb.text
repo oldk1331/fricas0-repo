@@ -7365,7 +7365,7 @@
 805004`\spad{sin2csc(f)} converts every \spad{sin(u)} appearing in \spad{f} into \spad{1/csc(u)}.
 805067`\spad{sincos(st)} returns a record containing the sine and cosine of a power series \spad{st}.
 805183`\spad{singleFace(ptin)} constructs a ifs representation of a face from an array of points
-805237`\spad{singleFactorBound(p,{} r)} returns a bound on the infinite norm of the factor of \spad{p} with smallest Bombieri\spad{'s} norm. \spad{p} shall be of degree higher or equal to 2.
+805237`\spad{singleFactorBound(p)} returns a bound on the infinite norm of the factor of \spad{p} with smallest Bombieri\spad{'s} norm. \spad{p} shall be of degree higher or equal to 2.
 805326`\spad{singleFactorBound(p,{} r)} returns a bound on the infinite norm of the factor of \spad{p} with smallest Bombieri\spad{'s} norm. \spad{r} is a lower bound for the number of factors of \spad{p}. \spad{p} shall be of degree higher or equal to 2.
 805434`\spad{singRicDE(op,{} ezfactor)} returns \spad{[[f1,{} L1],{} [f2,{} L2],{} ...,{} [fk,{} Lk]]} such that the singular \spad{++} part of any rational solution of the associated Riccati equation of \spad{op y = 0} must be one of the \spad{fi}\spad{'s} (up to the constant coefficient),{} in which case
 805434`-- the equation for \spad{z = y e^{-int \spad{ai}}} is \spad{\spad{Li} z = 0}. Argument \spad{ezfactor} is a factorisation in \spad{UP},{} not necessarily into irreducibles.
@@ -7931,7 +7931,7 @@
 879416`similar to 'toString' but does not put outer compound terms in brackets
 879469`deprecated: this has been superseded by version with SBoundary(\spad{PT}) do not use,{} may be removed in the future.
 879688`\spad{toSVG(n,{} mat,{} tran,{} bb,{} scale,{} clipEn,{} useInteger,{} npt)} creates an XmlElement containing a 'SVG' representation of node \spad{'n'} and the nodes below it. \spad{n} is the scene to be output to \spad{XML} elements \spad{mat} is the default material which may be overridden by sub
-879688`--nodes \spad{tran} is the default transform which may be overridden by subnodes \spad{bb} is the default boundary which may be overridden by subnodes \spad{scale} is the \spad{scale} used to \spad{scale} into canvas,{} it would be better \indented{6}{to merge this into trans.} \spad{clipEn} if \spad{true} this clips the output to the boundary \spad{useInteger} if \spad{true} quantify to integer values. \spad{npt} names points can be provided. If not required then set \indented{4}{to namedBranch
+879688`--nodes \spad{tran} is the default transform which may be overridden by subnodes \spad{bb} is the default boundary which may be overridden by subnodes \spad{scale} is the \spad{scale} used to \spad{scale} into canvas,{} it would be better \indented{6}{to merge this into trans.} \spad{clipEn} if \spad{true} this clips the output to the boundary \spad{useInteger} if \spad{true} truncate to integer values. \spad{npt} names points can be provided. If not required then set \indented{4}{to namedBranch
 879688`--([],{} [])}
 879897`displays multiplication table for binary operation which is represented as a function with two parameters. row number represents first operand in binary order column number represents second operand in binary order could have returned type 'List List \%' but matrix displays better
 879972`displays table of unary function such as inverse,{} reverse,{} complement,{} or dual basis could have returned type 'List List \%' but matrix displays better
