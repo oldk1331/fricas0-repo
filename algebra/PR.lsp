@@ -865,7 +865,7 @@
                                             . #4#)))))))))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT
-                        (COND ((NULL |p1|) (CONS 0 (REVERSE |rout|)))
+                        (COND ((NULL |p1|) (CONS 0 (NREVERSE |rout|)))
                               (#3# (CONS 1 "failed"))))))))
           #5# (EXIT #2#)))) 
 
@@ -920,7 +920,7 @@
                                             . #4#)))))))))))
                             NIL (GO G190) G191 (EXIT NIL))
                        (EXIT
-                        (COND ((NULL |p1|) (CONS 0 (REVERSE |rout|)))
+                        (COND ((NULL |p1|) (CONS 0 (NREVERSE |rout|)))
                               (#3# (CONS 1 "failed"))))))))
           #5# (EXIT #2#)))) 
 
