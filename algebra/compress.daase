@@ -114,7 +114,7 @@
  |FiniteLinearAggregateFunctions2| |FreeLieAlgebra| |FiniteLinearAggregateSort|
  |FullyLinearlyExplicitRingOver&| |FullyLinearlyExplicitRingOver|
  |FloatLiouvilianFunctions| |Float| |FloatingComplexPackage|
- |FloatingRealPackage| |FreeModule| |FreeModuleFunctions2|
+ |FloatingRealPackage| |FreeModule| |FreeModuleFunctions2| |FreeMagma|
  |FortranMatrixCategory| |FreeModuleCategory&| |FreeModuleCategory|
  |FreeModuleCoefficientFunctions2| |FortranMatrixFunctionCategory| |FreeMonoid|
  |FortranMachineTypeCategory| |FileName| |FileNameCategory| |FunctionGraph|
@@ -223,12 +223,12 @@
  |LyndonWord| |LazyStreamAggregate&| |LazyStreamAggregate|
  |ThreeDimensionalMatrix| |ModularAlgebraicGcd| |ModularAlgebraicGcd2|
  |ModularAlgebraicGcdOperations| |ModularAlgebraicGcdTools2|
- |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |Magma|
- |MatrixManipulation| |MappingPackageInternalHacks1|
- |MappingPackageInternalHacks2| |MappingPackageInternalHacks3|
- |MappingPackage1| |MappingPackage2| |MappingPackage3| |MatrixCategory&|
- |MatrixCategory| |MatrixCategoryFunctions2| |MatrixLinearAlgebraFunctions|
- |Matrix| |StorageEfficientMatrixOperations| |MultiVariableCalculusFunctions|
+ |ModularAlgebraicGcdTools3| |ModularAlgebraicGcdTools4| |MatrixManipulation|
+ |MappingPackageInternalHacks1| |MappingPackageInternalHacks2|
+ |MappingPackageInternalHacks3| |MappingPackage1| |MappingPackage2|
+ |MappingPackage3| |MatrixCategory&| |MatrixCategory|
+ |MatrixCategoryFunctions2| |MatrixLinearAlgebraFunctions| |Matrix|
+ |StorageEfficientMatrixOperations| |MultiVariableCalculusFunctions|
  |MatrixCommonDenominator| |MachineComplex| |MultiDictionary|
  |ModularDistinctDegreeFactorizer| |MeshCreationRoutinesForThreeDimensions|
  |ModularEvaluation1| |ModularEvaluation2| |ModularEvaluationCategory|
@@ -720,22 +720,22 @@
  |ge_minimal| |symmetricProduct| |symmetricPower| |directSum| |entries| |loop|
  |lcmCoef| |solveLinearPolynomialEquationByFractions| |list| |hasSolution?|
  |linSolve| |intoMatrix| |LUDecomp| |LUSolve| |LUInverse| |LyndonWordsList|
- |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |numberOfComputedEntries|
- |rst| |frst| |lazyEvaluate| |lazy?| |explicitlyEmpty?| |explicitEntries?|
- |matrixDimensions| |matrixConcat3D| |plus| |identityMatrix| |zeroMatrix|
- |algebraicGcd| |pseudoRem| |canonicalIfCan| |pack_modulus| |MPtoMPT|
- |pack_exps| |repack1| |pack_exps0| |m_inverse| |lexico| |element| |rowMatrix|
- |rows| |columnMatrix| |columns| |subMatrix| |bandMatrix| |blockSplit| |iter|
- |arg1| |arg2| |comp| |nullary| |id| |recur| |const| |curry| |diag|
- |curryRight| |curryLeft| |constantRight| |constantLeft| |twist|
- |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct| |elRow1!|
- |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!| |plus!|
- |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!| |gradient|
- |divergence| |laplacian| |hessian| |bandedHessian| |jacobian| |bandedJacobian|
- |duplicates| |removeDuplicates!| |linears| |ddFact| |separateFactors|
- |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc| |ldegree|
- |subst_vars| |trial_division| |toPermutation| |toCayleyGraph| |limit|
- |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
+ |LyndonWordsList1| |lyndonIfCan| |lyndon| |lyndon?| |lexico|
+ |numberOfComputedEntries| |rst| |frst| |lazyEvaluate| |lazy?|
+ |explicitlyEmpty?| |explicitEntries?| |matrixDimensions| |matrixConcat3D|
+ |plus| |identityMatrix| |zeroMatrix| |algebraicGcd| |pseudoRem|
+ |canonicalIfCan| |pack_modulus| |MPtoMPT| |pack_exps| |repack1| |pack_exps0|
+ |m_inverse| |element| |rowMatrix| |rows| |columnMatrix| |columns| |subMatrix|
+ |bandMatrix| |blockSplit| |iter| |arg1| |arg2| |comp| |nullary| |id| |recur|
+ |const| |curry| |diag| |curryRight| |curryLeft| |constantRight| |constantLeft|
+ |twist| |kronecker_prod1| |positivePower| |kroneckerSum| |kroneckerProduct|
+ |elRow1!| |elRow2!| |elColumn2!| |fractionFreeGauss!| |invertIfCan| |copy!|
+ |plus!| |minus!| |leftScalarTimes!| |rightScalarTimes!| |times!| |power!|
+ |gradient| |divergence| |laplacian| |hessian| |bandedHessian| |jacobian|
+ |bandedJacobian| |duplicates| |removeDuplicates!| |linears| |ddFact|
+ |separateFactors| |exptMod| |meshPar2Var| |meshFun2Var| |meshPar1Var| |ptFunc|
+ |ldegree| |subst_vars| |trial_division| |toPermutation| |toCayleyGraph|
+ |limit| |contraAdjoint| |coAdjoint| |multifunctionGraph| |minimumExponent|
  |maximumExponent| |precision| |mantissa| |rowEch| |rowEchLocal|
  |rowEchelonLocal| |normalizedDivide| |maxint| |binaryFunction|
  |makeFloatFunction| |function| |makeRecord| |unaryFunction| |compiledFunction|

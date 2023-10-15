@@ -701,7 +701,7 @@
               (135 . |Zero|) (139 . ~=) (|Record| (|:| |k| 56) (|:| |c| 7))
               (145 . |mindegTerm|) (|Union| $ '"failed") (|FreeMonoid| 6)
               (150 . |lyndonIfCan|) |LPOLY;coerce;$Xdp;23| (155 . -)
-              |LPOLY;LiePolyIfCan;XdpU;10| (|Magma| 6) (161 . |coerce|)
+              |LPOLY;LiePolyIfCan;XdpU;10| (|FreeMagma| 6) (161 . |coerce|)
               (166 . *) (172 . =) (178 . |lexico|) (184 . -) (189 . |One|)
               (193 . |monom|) (199 . |coerce|) (204 . *) (210 . |coerce|)
               (215 . *) (221 . |coerce|) |LPOLY;coerce;VarSet$;18|

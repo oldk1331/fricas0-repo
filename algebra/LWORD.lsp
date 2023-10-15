@@ -160,9 +160,9 @@
         (SPADCALL (SPADCALL (SPADCALL |x| (QREFELT $ 38)) (QREFELT $ 40))
                   (QREFELT $ 41))) 
 
-(PUT '|LWORD;coerce;$M;9| '|SPADreplace| '(XLAM (|x|) |x|)) 
+(PUT '|LWORD;coerce;$Fm;9| '|SPADreplace| '(XLAM (|x|) |x|)) 
 
-(SDEFUN |LWORD;coerce;$M;9| ((|x| $) ($ |Magma| |VarSet|)) |x|) 
+(SDEFUN |LWORD;coerce;$Fm;9| ((|x| $) ($ |FreeMagma| |VarSet|)) |x|) 
 
 (SDEFUN |LWORD;LyndonWordsList1;LPiOda;10|
         ((|vl| |List| |VarSet|) (|n| |PositiveInteger|)
@@ -380,12 +380,12 @@
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
           (SETF |pv$| (QREFELT $ 3))
-          (QSETREFV $ 7 (|Magma| |#1|))
+          (QSETREFV $ 7 (|FreeMagma| |#1|))
           $))) 
 
 (MAKEPROP '|LyndonWord| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL (|Magma| 6) (|local| |#1|) '|Rep|
+           '#(NIL NIL NIL NIL NIL (|FreeMagma| 6) (|local| |#1|) '|Rep|
               (|FreeMonoid| 6) (0 . |One|) (|Boolean|) (4 . =) (10 . |rest|)
               (15 . ~=) (21 . |lexico|) |LWORD;lyndon?;FmB;1| (|List| $)
               |LWORD;factor;FmL;6| (|NonNegativeInteger|) (|List| $$)
@@ -395,7 +395,7 @@
               (65 . |rest|) (70 . |cons|) (76 . |coerce|) (81 . |reverse|)
               (|PositiveInteger|) (86 . |length|) |LWORD;<;2$B;7|
               (91 . |coerce|) (|OutputForm|) (96 . |coerce|) (101 . |bracket|)
-              |LWORD;coerce;$Of;8| |LWORD;coerce;$M;9|
+              |LWORD;coerce;$Of;8| |LWORD;coerce;$Fm;9|
               (|OneDimensionalArray| 19) (106 . |new|) (|List| 6)
               (112 . |sort|) (|Integer|) (117 . |setelt!|) (124 . |elt|)
               (130 . |right|) (135 . =) (|Mapping| 10 $$ $$) (141 . |sort!|)
