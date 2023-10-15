@@ -11020,7 +11020,7 @@ pKernelFunctions2`2`x`(Comparable,S:Comparable)->etc`(R,S)`KERNEL2`1340575
 pKovacic`2`n`(F:Join(CharacteristicZero,etc),UP:UnivariatePolynomialCategory(F))->etc`(F,UP)`KOVACIC`1340639
 pLaplaceTransform`2`x`(R:Join(EuclideanDomain,etc),F:Join(TranscendentalFunctionCategory,etc))->etc`(R,F)`LAPLACE`1340798
 pLazardSetSolvingPackage`6`n`(R:GcdDomain,E:OrderedAbelianMonoidSup,V:OrderedSet,P:RecursivePolynomialCategory(R,E,V),RegularTriangularSetCategory(R,E,V,P),ST:SquareFreeRegularTriangularSetCategory(R,E,V,P))->etc`(R,E,V,P,TS,ST)`LAZM3PK`1340858
-pLeadingCoefDetermination`4`n`(OV:OrderedSet,E:OrderedAbelianMonoidSup,Z:EuclideanDomain,P:PolynomialCategory(Z,E,OV))->etc`(OV,E,Z,P)`LEADCDET`1341400
+pLeadingCoefDetermination`4`n`(OV:OrderedSet,E:OrderedAbelianMonoidSup,Z:GcdDomain,P:PolynomialCategory(Z,E,OV))->etc`(OV,E,Z,P)`LEADCDET`1341400
 pLexTriangularPackage`2`n`(GcdDomain,ls:List(Symbol))->etc`(R,ls)`LEXTRIPK`1341783
 pLinearCombinationUtilities`2`n`(F:Field,UP:UnivariatePolynomialCategory(F))->etc`(F,UP)`LINCOMB`0
 pLinearDependence`2`n`(S:IntegralDomain,R:LinearlyExplicitOver(S))->etc`(S,R)`LINDEP`1342646
