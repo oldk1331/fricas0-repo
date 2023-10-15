@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4850 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4851 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -165,10 +165,10 @@
  |IndexedTwoDimensionalArray| |ChineseRemainderToolsForIntegralBases|
  |IntegralBasisTools| |IndexedBits| |IntegralBasisPolynomialTools| |IndexCard|
  |InnerCommonDenominator| |PolynomialIdeal| |IdealDecompositionPackage|
- |IndexedDirectProductCategory| |IndexedDirectProductObject| |InnerEvalable&|
- |InnerEvalable| |InnerFreeAbelianMonoid| |IndexedFlexibleArray|
- |InnerFiniteField| |InnerIndexedTwoDimensionalArray| |IndexedJetBundle|
- |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
+ |IndexedDirectProductCategory| |IndexedDirectProductObject|
+ |InnerEigenPackage| |InnerEvalable&| |InnerEvalable| |InnerFreeAbelianMonoid|
+ |IndexedFlexibleArray| |InnerFiniteField| |InnerIndexedTwoDimensionalArray|
+ |IndexedJetBundle| |IndexedList| |ILogic| |InnerMatrixLinearAlgebraFunctions|
  |InnerMatrixQuotientFieldFunctions| |IndexedMatrix| |InnerModularHermitePade|
  |InnerNormalBasisFieldFunctions| |IncrementingMaps| |IndexedExponents|
  |InnerNumericEigenPackage| |InfiniteCyclicGroup| |Infinity| |InputForm|
@@ -525,10 +525,9 @@
  |realElementary| |validExponential| |rootNormalize| |rmap| |tanQ| |irootDep|
  |select!| |delete!| |sncndn| |lin_sol| |ellipticRC| |ellipticRD| |ellipticRF|
  |ellipticRJ| |qsetelt!| |unit?| |associates?| |unitCanonical| |unitNormal|
- |eigenvalues| |eigenvector| |generalizedEigenvector| |generalizedEigenvectors|
- |eigenvectors| |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero|
- |swap| |error| |minPoly| |operators| |tower| |kernels| |mainKernel|
- |distribute| |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
+ |factorAndSplit| |rightOne| |leftOne| |rightZero| |leftZero| |swap| |error|
+ |minPoly| |operators| |tower| |kernels| |mainKernel| |distribute|
+ |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |simplifyPower| |number?|
  |replaceDiffs| |constantToUnaryFunction| |tubePlot| |exponentialOrder|
  |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
@@ -651,16 +650,18 @@
  |groebner?| |groebnerIdeal| |ideal| |leadingIdeal| |backOldPos|
  |generalPosition| |quotient| |zeroDim?| |inRadical?| |in?| |element?|
  |zeroDimPrime?| |zeroDimPrimary?| |radical| |primaryDecomp| |leadingTerm|
- |constructOrdered| |leadingSupport| |removeRepeats!| |shrinkable|
- |physicalLength!| |physicalLength| |flexibleArray| |toStringUnwrapped|
- |parseILTerm| |parseIL2| |parseIL| |opType| |deductions| |implies|
- |proposition| |logicF| |logicT| |generalizedInverse| |row_operation_base|
- |row_operation_modular| |do_modular_solve| |do_poly_integer| |merge_exponents|
- |merge2| |setFieldInfo| |pol| |xn| |dAndcExp| |repSq| |expPot| |qPot| |lookup|
- |normal?| |normalElement| |minimalPolynomial| |increment| |incrementBy|
- |charpol| |solve1| |innerEigenvectors| |compile| |declare| |parse| |unparse|
- |flatten| |binary| |packageCall| |coerceToType| |atType| |pretendOfType|
- |interpret| |infiniteProduct| |evenInfiniteProduct| |oddInfiniteProduct|
+ |constructOrdered| |leadingSupport| |eigenvector| |generalizedEigenvector|
+ |eigenvalues| |eigenvectors| |generalizedEigenvectors| |removeRepeats!|
+ |shrinkable| |physicalLength!| |physicalLength| |flexibleArray|
+ |toStringUnwrapped| |parseILTerm| |parseIL2| |parseIL| |opType| |deductions|
+ |implies| |proposition| |logicF| |logicT| |generalizedInverse|
+ |row_operation_base| |row_operation_modular| |do_modular_solve|
+ |do_poly_integer| |merge_exponents| |merge2| |setFieldInfo| |pol| |xn|
+ |dAndcExp| |repSq| |expPot| |qPot| |lookup| |normal?| |normalElement|
+ |minimalPolynomial| |increment| |incrementBy| |charpol| |solve1|
+ |innerEigenvectors| |compile| |declare| |parse| |unparse| |flatten| |binary|
+ |packageCall| |coerceToType| |atType| |pretendOfType| |interpret|
+ |infiniteProduct| |evenInfiniteProduct| |oddInfiniteProduct|
  |generalInfiniteProduct| |innerSolve1| |innerSolve| |makeEq|
  |modularGcdPrimitive| |modularGcd| |reduction| |signAround| |invmod| |powmod|
  |mulmod| |submod| |addmod| |mask| |dec| |inc| |symmetricRemainder|
