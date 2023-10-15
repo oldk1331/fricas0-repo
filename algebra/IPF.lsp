@@ -247,9 +247,7 @@
                       (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
-          (AND (|HasCategory| $ '(|CharacteristicZero|))
-               (|augmentPredVector| $ 1))
-          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
+          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 1))
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 7 1)
           (QSETREFV $ 8 (- |#1| 1))
@@ -322,16 +320,16 @@
            'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0))
+                                  0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
-                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
+                |EntireRing&| NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
                 |AbelianGroup&| NIL NIL |Finite&| |AbelianMonoid&| |Monoid&|
                 NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
@@ -343,9 +341,9 @@
                  (|IntegralDomain|) (|VectorSpace| $$) (|Algebra| 94)
                  (|LeftOreRing|) (|Algebra| $$) (|Module| $$)
                  (|DifferentialRing|) (|CharacteristicNonZero|) (|Module| 94)
-                 (|CommutativeRing|) (|EntireRing|) (|CharacteristicZero|)
-                 (|BiModule| $$ $$) (|BiModule| 94 94) (|Ring|)
-                 (|LeftModule| $$) (|RightModule| 94) (|LeftModule| 94) (|Rng|)
+                 (|CommutativeRing|) (|EntireRing|) (|BiModule| $$ $$)
+                 (|BiModule| 94 94) (|Ring|) (|LeftModule| $$)
+                 (|RightModule| 94) (|LeftModule| 94) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|Finite|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|StepThrough|)
@@ -365,10 +363,10 @@
                                     69 0 22 2 70 2 69 2 0 20 73 2 79 0 2 22 80
                                     2 79 0 0 0 81 1 0 17 0 18 1 0 47 20 48 1 0
                                     33 0 76 1 0 0 0 75 1 0 0 71 74 0 0 42 43 1
-                                    0 33 0 34 0 0 0 50 0 2 0 36 1 0 82 0 84 1 0
-                                    45 0 56 1 0 0 45 49 1 0 17 0 68 0 2 0 16 0
+                                    0 33 0 34 0 0 0 50 0 1 0 36 1 0 82 0 84 1 0
+                                    45 0 56 1 0 0 45 49 1 0 17 0 68 0 1 0 16 0
                                     0 40 41 0 0 45 67 1 0 45 0 66 0 0 82 83 0 0
-                                    0 55 0 2 0 37 1 0 71 0 72 1 0 20 0 30 1 0 0
+                                    0 55 0 1 0 37 1 0 71 0 72 1 0 20 0 30 1 0 0
                                     20 32 1 0 0 0 85 0 0 22 38 0 0 71 77 1 0 71
                                     45 78 2 0 0 0 20 24 0 0 0 19 0 0 0 15 2 0 0
                                     0 0 62)))))

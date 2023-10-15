@@ -29,9 +29,7 @@
           (|haddProp| |$ConstructorCache| '|PrimeField| (LIST DV$1) (CONS 1 $))
           (|stuffDomainSlots| $)
           (QSETREFV $ 6 |#1|)
-          (AND (|HasCategory| $ '(|CharacteristicZero|))
-               (|augmentPredVector| $ 1))
-          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 2))
+          (AND (|HasCategory| $ '(|Finite|)) (|augmentPredVector| $ 1))
           (SETF |pv$| (QREFELT $ 3))
           (QSETREFV $ 11 (SPADCALL |#1| (QREFELT $ 10)))
           (COND ((QREFELT $ 11))
@@ -60,16 +58,16 @@
            '#() 'NIL
            (CONS
             (|makeByteWordVec2| 1
-                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0
+                                '(0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 0 0 0 0 0))
+                                  0 0 0 0 0))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |FiniteFieldCategory&|
                 |ExtensionField&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| NIL |UniqueFactorizationDomain&|
                 |GcdDomain&| |DivisionRing&| NIL |VectorSpace&| |Algebra&| NIL
                 |Algebra&| |Module&| |DifferentialRing&| NIL |Module&| NIL
-                |EntireRing&| NIL NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
+                |EntireRing&| NIL NIL |Ring&| NIL NIL NIL |Rng&| NIL
                 |AbelianGroup&| NIL NIL |Finite&| |AbelianMonoid&| |Monoid&|
                 NIL NIL NIL |SemiGroup&| |AbelianSemiGroup&| |SetCategory&| NIL
                 |RetractableTo&| NIL NIL NIL NIL NIL NIL |BasicType&| NIL)
@@ -81,9 +79,9 @@
                  (|IntegralDomain|) (|VectorSpace| $$) (|Algebra| 29)
                  (|LeftOreRing|) (|Algebra| $$) (|Module| $$)
                  (|DifferentialRing|) (|CharacteristicNonZero|) (|Module| 29)
-                 (|CommutativeRing|) (|EntireRing|) (|CharacteristicZero|)
-                 (|BiModule| $$ $$) (|BiModule| 29 29) (|Ring|)
-                 (|LeftModule| $$) (|RightModule| 29) (|LeftModule| 29) (|Rng|)
+                 (|CommutativeRing|) (|EntireRing|) (|BiModule| $$ $$)
+                 (|BiModule| 29 29) (|Ring|) (|LeftModule| $$)
+                 (|RightModule| 29) (|LeftModule| 29) (|Rng|)
                  (|RightModule| $$) (|AbelianGroup|)
                  (|CancellationAbelianMonoid|) (|SemiRing|) (|Finite|)
                  (|AbelianMonoid|) (|Monoid|) (|SemiRng|) (|StepThrough|)
