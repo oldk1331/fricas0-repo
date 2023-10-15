@@ -336,124 +336,78 @@
                   (EXIT 'T)))
                 #4# (EXIT #1#)))) 
 
-(SDEFUN |SIMPC;listUnion|
-        ((|a| |List| (|OrientedFacet|)) (|b| |List| (|OrientedFacet|))
+(SDEFUN |SIMPC;unorientedUnion|
+        ((|a| . #1=(|List| (|OrientedFacet|))) (|b| |List| (|OrientedFacet|))
          ($ |List| (|OrientedFacet|)))
-        (SPROG
-         ((|res| (|List| (|OrientedFacet|))) (#1=#:G201 NIL) (|b1| NIL)
-          (#2=#:G200 NIL) (|a1| NIL))
-         (SEQ (LETT |res| NIL . #3=(|SIMPC;listUnion|))
-              (SEQ (LETT |a1| NIL . #3#) (LETT #2# |a| . #3#) G190
-                   (COND
-                    ((OR (ATOM #2#) (PROGN (LETT |a1| (CAR #2#) . #3#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (LETT |res| (SPADCALL |res| |a1| (QREFELT $ 13)) . #3#)))
-                   (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
-              (SEQ (LETT |b1| NIL . #3#) (LETT #1# |b| . #3#) G190
-                   (COND
-                    ((OR (ATOM #1#) (PROGN (LETT |b1| (CAR #1#) . #3#) NIL))
-                     (GO G191)))
-                   (SEQ
-                    (EXIT
-                     (COND
-                      ((|SIMPC;isNewFace?| |a| |b1| $)
-                       (LETT |res| (SPADCALL |res| |b1| (QREFELT $ 13))
-                             . #3#)))))
-                   (LETT #1# (CDR #1#) . #3#) (GO G190) G191 (EXIT NIL))
-              (EXIT |res|)))) 
+        (SPROG ((|res| #1#) (#2=#:G199 NIL) (|b1| NIL))
+               (SEQ (LETT |res| |a| . #3=(|SIMPC;unorientedUnion|))
+                    (SEQ (LETT |b1| NIL . #3#) (LETT #2# |b| . #3#) G190
+                         (COND
+                          ((OR (ATOM #2#)
+                               (PROGN (LETT |b1| (CAR #2#) . #3#) NIL))
+                           (GO G191)))
+                         (SEQ
+                          (EXIT
+                           (COND
+                            ((|SIMPC;isNewFace?| |a| |b1| $)
+                             (LETT |res| (CONS |b1| |res|) . #3#)))))
+                         (LETT #2# (CDR #2#) . #3#) (GO G190) G191 (EXIT NIL))
+                    (EXIT |res|)))) 
 
 (SDEFUN |SIMPC;addImpliedFaces;$L;10|
         ((|s| $) ($ |List| (|List| (|OrientedFacet|))))
         (SPROG
          ((|newFaces| (|List| (|OrientedFacet|)))
-          (|len| (|NonNegativeInteger|)) (#1=#:G218 NIL) (|face| NIL)
-          (#2=#:G217 NIL) (#3=#:G216 NIL) (#4=#:G214 NIL) (|gr| NIL)
-          (#5=#:G215 NIL) (|grn| NIL)
-          (|res| (|List| (|List| (|OrientedFacet|)))) (#6=#:G213 NIL) (|a| NIL)
-          (#7=#:G212 NIL) (|maxGrade| (|NonNegativeInteger|))
+          (|len| (|NonNegativeInteger|)) (#1=#:G208 NIL) (|face| NIL)
+          (|res| (|List| (|List| (|OrientedFacet|))))
+          (|all_faces| (|List| (|OrientedFacet|))) (#2=#:G207 NIL) (|gr| NIL)
+          (#3=#:G206 NIL) (|maxGrade| (|NonNegativeInteger|))
           (|inputList| (|List| (|List| (|OrientedFacet|)))))
          (SEQ
           (EXIT
            (SEQ
             (LETT |inputList| (REVERSE (SPADCALL |s| (QREFELT $ 41)))
-                  . #8=(|SIMPC;addImpliedFaces;$L;10|))
-            (LETT |res| NIL . #8#) (LETT |maxGrade| (LENGTH |inputList|) . #8#)
+                  . #4=(|SIMPC;addImpliedFaces;$L;10|))
+            (LETT |res| NIL . #4#) (LETT |maxGrade| (LENGTH |inputList|) . #4#)
             (COND
-             ((< |maxGrade| 1) (PROGN (LETT #7# |res| . #8#) (GO #9=#:G211))))
-            (SEQ (LETT |a| 1 . #8#) (LETT #6# |maxGrade| . #8#) G190
-                 (COND ((|greater_SI| |a| #6#) (GO G191)))
-                 (SEQ
-                  (EXIT
-                   (LETT |res| (SPADCALL |res| NIL (QREFELT $ 18)) . #8#)))
-                 (LETT |a| (|inc_SI| |a|) . #8#) (GO G190) G191 (EXIT NIL))
-            (LETT |newFaces| NIL . #8#)
-            (SEQ (LETT |grn| 1 . #8#) (LETT #5# |maxGrade| . #8#)
-                 (LETT |gr| NIL . #8#) (LETT #4# |inputList| . #8#) G190
+             ((< |maxGrade| 1) (PROGN (LETT #3# |res| . #4#) (GO #5=#:G205))))
+            (LETT |res| NIL . #4#) (LETT |newFaces| NIL . #4#)
+            (SEQ (LETT |gr| NIL . #4#) (LETT #2# |inputList| . #4#) G190
                  (COND
-                  ((OR (ATOM #4#) (PROGN (LETT |gr| (CAR #4#) . #8#) NIL)
-                       (|greater_SI| |grn| #5#))
+                  ((OR (ATOM #2#) (PROGN (LETT |gr| (CAR #2#) . #4#) NIL))
                    (GO G191)))
                  (SEQ
-                  (SEQ (LETT |face| NIL . #8#) (LETT #3# |gr| . #8#) G190
-                       (COND
-                        ((OR (ATOM #3#)
-                             (PROGN (LETT |face| (CAR #3#) . #8#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (SPADCALL |res| |grn|
-                                   (SPADCALL
-                                    (SPADCALL |res| |grn| (QREFELT $ 21))
-                                    |face| (QREFELT $ 13))
-                                   (QREFELT $ 22))))
-                       (LETT #3# (CDR #3#) . #8#) (GO G190) G191 (EXIT NIL))
-                  (SEQ (LETT |face| NIL . #8#) (LETT #2# |newFaces| . #8#) G190
-                       (COND
-                        ((OR (ATOM #2#)
-                             (PROGN (LETT |face| (CAR #2#) . #8#) NIL))
-                         (GO G191)))
-                       (SEQ
-                        (EXIT
-                         (SPADCALL |res| |grn|
-                                   (SPADCALL
-                                    (SPADCALL |res| |grn| (QREFELT $ 21))
-                                    |face| (QREFELT $ 13))
-                                   (QREFELT $ 22))))
-                       (LETT #2# (CDR #2#) . #8#) (GO G190) G191 (EXIT NIL))
-                  (LETT |newFaces| NIL . #8#)
+                  (LETT |all_faces| (|SIMPC;unorientedUnion| |newFaces| |gr| $)
+                        . #4#)
+                  (LETT |res| (CONS |all_faces| |res|) . #4#)
+                  (LETT |newFaces| NIL . #4#)
                   (EXIT
-                   (SEQ (LETT |face| NIL . #8#)
-                        (LETT #1# (SPADCALL |res| |grn| (QREFELT $ 21)) . #8#)
+                   (SEQ (LETT |face| NIL . #4#) (LETT #1# |all_faces| . #4#)
                         G190
                         (COND
                          ((OR (ATOM #1#)
-                              (PROGN (LETT |face| (CAR #1#) . #8#) NIL))
+                              (PROGN (LETT |face| (CAR #1#) . #4#) NIL))
                           (GO G191)))
                         (SEQ
                          (LETT |len| (- (SPADCALL |face| (QREFELT $ 39)) 1)
-                               . #8#)
+                               . #4#)
                          (EXIT
                           (COND
                            ((SPADCALL |len| 0 (QREFELT $ 25))
                             (LETT |newFaces|
-                                  (|SIMPC;listUnion| |newFaces|
+                                  (|SIMPC;unorientedUnion| |newFaces|
                                    (SPADCALL |face| |len| |len| (QREFELT $ 50))
                                    $)
-                                  . #8#)))))
-                        (LETT #1# (CDR #1#) . #8#) (GO G190) G191 (EXIT NIL))))
-                 (LETT #4#
-                       (PROG1 (CDR #4#) (LETT |grn| (|inc_SI| |grn|) . #8#))
-                       . #8#)
-                 (GO G190) G191 (EXIT NIL))
-            (EXIT (REVERSE |res|))))
-          #9# (EXIT #7#)))) 
+                                  . #4#)))))
+                        (LETT #1# (CDR #1#) . #4#) (GO G190) G191 (EXIT NIL))))
+                 (LETT #2# (CDR #2#) . #4#) (GO G190) G191 (EXIT NIL))
+            (EXIT |res|)))
+          #5# (EXIT #3#)))) 
 
 (SDEFUN |SIMPC;delta;2$;11| ((|s| $) ($ $))
         (SPROG
-         ((|res| ($)) (#1=#:G225 NIL) (|y| NIL)
-          (|x| (|List| (|OrientedFacet|))) (#2=#:G224 NIL) (|facet| NIL))
+         ((|res| ($)) (#1=#:G215 NIL) (|y| NIL)
+          (|x| (|List| (|OrientedFacet|))) (#2=#:G214 NIL) (|facet| NIL))
          (SEQ
           (LETT |res| (SPADCALL (QCAR |s|) (QREFELT $ 16))
                 . #3=(|SIMPC;delta;2$;11|))
@@ -479,7 +433,7 @@
 
 (SDEFUN |SIMPC;star;$Of$;12| ((|s| $) (|simplex| |OrientedFacet|) ($ $))
         (SPROG
-         ((|res| (|List| (|OrientedFacet|))) (#1=#:G230 NIL) (|simp| NIL))
+         ((|res| (|List| (|OrientedFacet|))) (#1=#:G220 NIL) (|simp| NIL))
          (SEQ (LETT |res| NIL . #2=(|SIMPC;star;$Of$;12|))
               (SEQ (LETT |simp| NIL . #2#) (LETT #1# (QCDR |s|) . #2#) G190
                    (COND
@@ -497,7 +451,7 @@
 (SDEFUN |SIMPC;link;$Of$;13| ((|s| $) (|simplex| |OrientedFacet|) ($ $))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (|x| (|List| (|OrientedFacet|)))
-          (#1=#:G236 NIL) (|facet| NIL))
+          (#1=#:G226 NIL) (|facet| NIL))
          (SEQ (LETT |res| NIL . #2=(|SIMPC;link;$Of$;13|))
               (SEQ (LETT |facet| NIL . #2#) (LETT #1# (QCDR |s|) . #2#) G190
                    (COND
@@ -517,7 +471,7 @@
 (SDEFUN |SIMPC;cone;$Nni$;14| ((|s| $) (|vertex| |NonNegativeInteger|) ($ $))
         (SPROG
          ((|res| (|List| (|OrientedFacet|))) (|x| (|OrientedFacet|))
-          (#1=#:G241 NIL) (|facet| NIL))
+          (#1=#:G231 NIL) (|facet| NIL))
          (SEQ (LETT |res| NIL . #2=(|SIMPC;cone;$Nni$;14|))
               (SEQ (LETT |facet| NIL . #2#) (LETT #1# (QCDR |s|) . #2#) G190
                    (COND
@@ -531,7 +485,7 @@
               (EXIT (CONS (QCAR |s|) |res|))))) 
 
 (SDEFUN |SIMPC;simplicialJoin;3$;15| ((|a| $) (|b| $) ($ $))
-        (SPROG ((|res| ($)) (#1=#:G245 NIL) (|x| NIL) (|c| (VS)))
+        (SPROG ((|res| ($)) (#1=#:G235 NIL) (|x| NIL) (|c| (VS)))
                (SEQ
                 (LETT |c| (SPADCALL (QCAR |a|) (QCAR |b|) (QREFELT $ 60))
                       . #2=(|SIMPC;simplicialJoin;3$;15|))
@@ -556,13 +510,13 @@
           (|Record| (|:| |value| (|NonNegativeInteger|))
                     (|:| |posX| (|NonNegativeInteger|))
                     (|:| |posY| (|NonNegativeInteger|)))))
-        (SPROG ((#1=#:G253 NIL))
+        (SPROG ((#1=#:G243 NIL))
                (SEQ
                 (EXIT
                  (SEQ
                   (COND
                    ((SPADCALL (VECTOR |b| 0 0) |a| (QREFELT $ 64))
-                    (PROGN (LETT #1# |a| |SIMPC;concatIfNew|) (GO #2=#:G252))))
+                    (PROGN (LETT #1# |a| |SIMPC;concatIfNew|) (GO #2=#:G242))))
                   (EXIT (SPADCALL |a| (VECTOR |b| 0 0) (QREFELT $ 65)))))
                 #2# (EXIT #1#)))) 
 
@@ -582,7 +536,7 @@
                     (|:| |toOb| (|NonNegativeInteger|))
                     (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
                     (|:| |map| (|List| (|NonNegativeInteger|))))))
-        (SPROG ((#1=#:G264 NIL))
+        (SPROG ((#1=#:G254 NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -591,7 +545,7 @@
                               (QREFELT $ 68))
                     (PROGN
                      (LETT #1# |a| . #2=(|SIMPC;concatIfNewArrow|))
-                     (GO #3=#:G263))))
+                     (GO #3=#:G253))))
                   (COND
                    ((SPADCALL (VECTOR "x" 0 |m| |p| 0 0 NIL) |a|
                               (QREFELT $ 68))
@@ -612,13 +566,13 @@
                       (|:| |toOb| (|NonNegativeInteger|))
                       (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
                       (|:| |map| (|List| (|NonNegativeInteger|))))))
-          (#1=#:G276 NIL) (|p| NIL)
+          (#1=#:G266 NIL) (|p| NIL)
           (|nodes|
            (|List|
             (|Record| (|:| |value| (|NonNegativeInteger|))
                       (|:| |posX| (|NonNegativeInteger|))
                       (|:| |posY| (|NonNegativeInteger|)))))
-          (#2=#:G275 NIL) (|m| NIL)
+          (#2=#:G265 NIL) (|m| NIL)
           (|y|
            (|Record| (|:| |name| (|String|))
                      (|:| |arrType| (|NonNegativeInteger|))
@@ -627,7 +581,7 @@
                      (|:| |xOffset| (|Integer|)) (|:| |yOffset| (|Integer|))
                      (|:| |map| (|List| (|NonNegativeInteger|)))))
           (|indexes| (|List| (|NonNegativeInteger|)))
-          (|n| (|NonNegativeInteger|)) (#3=#:G274 NIL) (|x| NIL)
+          (|n| (|NonNegativeInteger|)) (#3=#:G264 NIL) (|x| NIL)
           (GS
            (|Join| (|FiniteGraph| #4=(|NonNegativeInteger|))
                    (CATEGORY |domain|
@@ -819,18 +773,18 @@
          ((|res3| (|List| (|OrientedFacet|)))
           (|inds2| (|List| (|NonNegativeInteger|)))
           (|newIndex| (|NonNegativeInteger|)) (|r| (|NonNegativeInteger|))
-          (#1=#:G292 NIL) (|l| (|NonNegativeInteger|)) (#2=#:G305 NIL)
+          (#1=#:G282 NIL) (|l| (|NonNegativeInteger|)) (#2=#:G295 NIL)
           (|y| NIL) (|mul| (|Integer|))
           (|inds|
            (|List|
             (|Record| (|:| |left| (|NonNegativeInteger|))
                       (|:| |right| (|NonNegativeInteger|)))))
-          (#3=#:G304 NIL) (|x| NIL) (|dimb| #4=(|NonNegativeInteger|))
+          (#3=#:G294 NIL) (|x| NIL) (|dimb| #4=(|NonNegativeInteger|))
           (|bz| (|NonNegativeInteger|)) (|dima| #4#)
-          (|az| (|NonNegativeInteger|)) (#5=#:G303 NIL) (|z| NIL)
-          (|res2| (|List| (|ProductFacet|))) (#6=#:G302 NIL) (|e| NIL)
-          (|res| (|List| (|ProductFacet|))) (#7=#:G301 NIL) (|simpb| NIL)
-          (#8=#:G300 NIL) (|simpa| NIL) (|vs| (VS))
+          (|az| (|NonNegativeInteger|)) (#5=#:G293 NIL) (|z| NIL)
+          (|res2| (|List| (|ProductFacet|))) (#6=#:G292 NIL) (|e| NIL)
+          (|res| (|List| (|ProductFacet|))) (#7=#:G291 NIL) (|simpb| NIL)
+          (#8=#:G290 NIL) (|simpa| NIL) (|vs| (VS))
           (|simpsb| #9=(|List| (|OrientedFacet|))) (|simpsa| #9#))
          (SEQ (LETT |simpsa| (QCDR |a|) . #10=(|SIMPC;product;3$;23|))
               (LETT |simpsb| (QCDR |b|) . #10#)
@@ -954,7 +908,7 @@
         ((|a| |List| (|NonNegativeInteger|))
          (|b| |List| (|NonNegativeInteger|)) ($ |Boolean|))
         (SPROG
-         ((|offset| (|Integer|)) (#1=#:G313 NIL) (#2=#:G314 NIL) (|n| NIL)
+         ((|offset| (|Integer|)) (#1=#:G303 NIL) (#2=#:G304 NIL) (|n| NIL)
           (|fst| (|NonNegativeInteger|)) (|len| (|NonNegativeInteger|)))
          (SEQ
           (EXIT
@@ -963,7 +917,7 @@
                   . #3=(|SIMPC;equalSimplex|))
             (COND
              ((SPADCALL |len| (SPADCALL |b| (QREFELT $ 100)) (QREFELT $ 101))
-              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G312))))
+              (PROGN (LETT #1# NIL . #3#) (GO #4=#:G302))))
             (COND ((EQL |len| 0) (PROGN (LETT #1# 'T . #3#) (GO #4#))))
             (LETT |fst| (|SPADfirst| |a|) . #3#)
             (LETT |offset| (SPADCALL |fst| |b| (QREFELT $ 102)) . #3#)
@@ -989,9 +943,9 @@
 
 (SDEFUN |SIMPC;=;2$B;25| ((|a| $) (|b| $) ($ |Boolean|))
         (SPROG
-         ((#1=#:G326 NIL) (#2=#:G330 NIL) (|f| NIL)
-          (|x| (|NonNegativeInteger|)) (#3=#:G329 NIL) (|a1| NIL)
-          (|flags| (|List| (|Boolean|))) (#4=#:G328 NIL) (#5=#:G327 NIL)
+         ((#1=#:G316 NIL) (#2=#:G320 NIL) (|f| NIL)
+          (|x| (|NonNegativeInteger|)) (#3=#:G319 NIL) (|a1| NIL)
+          (|flags| (|List| (|Boolean|))) (#4=#:G318 NIL) (#5=#:G317 NIL)
           (|len| (|NonNegativeInteger|)) (|bs| #6=(|List| (|OrientedFacet|)))
           (|as| #6#))
          (SEQ
@@ -1000,7 +954,7 @@
                 (LETT |bs| (QCDR |b|) . #7#) (LETT |len| (LENGTH |as|) . #7#)
                 (COND
                  ((SPADCALL |len| (LENGTH |bs|) (QREFELT $ 101))
-                  (PROGN (LETT #1# NIL . #7#) (GO #8=#:G325))))
+                  (PROGN (LETT #1# NIL . #7#) (GO #8=#:G315))))
                 (LETT |flags|
                       (PROGN
                        (LETT #5# NIL . #7#)
@@ -1056,7 +1010,7 @@
 
 (SDEFUN |SIMPC;coerce;$Of;26| ((|s| $) ($ |OutputForm|))
         (SPROG
-         ((|res| (|OutputForm|)) (#1=#:G336 NIL) (|a| NIL) (#2=#:G335 NIL))
+         ((|res| (|OutputForm|)) (#1=#:G326 NIL) (|a| NIL) (#2=#:G325 NIL))
          (SEQ
           (EXIT
            (SEQ
@@ -1066,7 +1020,7 @@
              ((NULL (QCDR |s|))
               (PROGN
                (LETT #2# (SPADCALL "empty" (QREFELT $ 110)) . #3#)
-               (GO #4=#:G334))))
+               (GO #4=#:G324))))
             (SEQ (LETT |a| NIL . #3#) (LETT #1# (QCDR |s|) . #3#) G190
                  (COND
                   ((OR (ATOM #1#) (PROGN (LETT |a| (CAR #1#) . #3#) NIL))
@@ -1086,9 +1040,9 @@
 
 (DECLAIM (NOTINLINE |FiniteSimplicialComplex;|)) 
 
-(DEFUN |FiniteSimplicialComplex| (#1=#:G338)
+(DEFUN |FiniteSimplicialComplex| (#1=#:G328)
   (SPROG NIL
-         (PROG (#2=#:G339)
+         (PROG (#2=#:G329)
            (RETURN
             (COND
              ((LETT #2#
