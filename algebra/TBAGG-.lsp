@@ -385,9 +385,12 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|HasCategory| |#3| '(|CoercibleTo| (|OutputForm|)))
-            (QSETREFV $ 27
-                      (CONS (|dispatchFunction| |TBAGG-;coerce;SOf;5|) $))))
+           ((|HasCategory| |#2| '(|CoercibleTo| (|OutputForm|)))
+            (COND
+             ((|HasCategory| |#3| '(|CoercibleTo| (|OutputForm|)))
+              (QSETREFV $ 27
+                        (CONS (|dispatchFunction| |TBAGG-;coerce;SOf;5|)
+                              $))))))
           (COND
            ((|HasCategory| |#1| '(|finiteAggregate|))
             (PROGN
