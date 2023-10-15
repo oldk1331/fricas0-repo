@@ -32,7 +32,7 @@
           (RETURN (PROGN (|EFSTRUC;k_to_liou1| |k| |x| $))))) 
 
 (SDEFUN |EFSTRUC;toY| ((|ker| |List| (|Kernel| F)) ($ |List| F))
-        (SPROG ((|func| (F)) (#1=#:G226 NIL) (|k| NIL) (#2=#:G225 NIL))
+        (SPROG ((|func| (F)) (#1=#:G223 NIL) (|k| NIL) (#2=#:G222 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;toY|))
@@ -50,7 +50,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |EFSTRUC;toZ| ((|ker| |List| (|Kernel| F)) ($ |List| F))
-        (SPROG ((|func| (F)) (#1=#:G230 NIL) (|k| NIL) (#2=#:G229 NIL))
+        (SPROG ((|func| (F)) (#1=#:G227 NIL) (|k| NIL) (#2=#:G226 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;toZ|))
@@ -68,7 +68,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |EFSTRUC;toU| ((|ker| |List| (|Kernel| F)) ($ |List| F))
-        (SPROG ((|func| (F)) (#1=#:G234 NIL) (|k| NIL) (#2=#:G233 NIL))
+        (SPROG ((|func| (F)) (#1=#:G231 NIL) (|k| NIL) (#2=#:G230 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;toU|))
@@ -86,7 +86,7 @@
                       (EXIT (NREVERSE #2#))))))) 
 
 (SDEFUN |EFSTRUC;toV| ((|ker| |List| (|Kernel| F)) ($ |List| F))
-        (SPROG ((|func| (F)) (#1=#:G238 NIL) (|k| NIL) (#2=#:G237 NIL))
+        (SPROG ((|func| (F)) (#1=#:G235 NIL) (|k| NIL) (#2=#:G234 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;toV|))
@@ -122,7 +122,7 @@
              ('T (|spadConstant| $ 35))))))) 
 
 (SDEFUN |EFSTRUC;tanQ;F2F;11| ((|c| |Fraction| (|Integer|)) (|x| F) ($ F))
-        (SPROG ((#1=#:G243 NIL))
+        (SPROG ((#1=#:G240 NIL))
                (SPADCALL
                 (SPADCALL
                  (SPADCALL
@@ -138,7 +138,7 @@
                 (SPADCALL |c| (QREFELT $ 49)) (QREFELT $ 50)))) 
 
 (SDEFUN |EFSTRUC;tanQ;F2F;12| ((|c| |Fraction| (|Integer|)) (|x| F) ($ F))
-        (SPROG ((#1=#:G246 NIL))
+        (SPROG ((#1=#:G243 NIL))
                (SPADCALL
                 (SPADCALL
                  (SPADCALL |x|
@@ -152,7 +152,7 @@
                 (SPADCALL |c| (QREFELT $ 49)) (QREFELT $ 50)))) 
 
 (SDEFUN |EFSTRUC;tanSum| ((|c| F) (|l| |List| F) ($ F))
-        (SPROG ((#1=#:G255 NIL) (|r| (|Union| (|Integer|) "failed")) (|k| (F)))
+        (SPROG ((#1=#:G252 NIL) (|r| (|Union| (|Integer|) "failed")) (|k| (F)))
                (SEQ
                 (EXIT
                  (SEQ
@@ -171,7 +171,7 @@
                                               (QREFELT $ 55))
                                     (QREFELT $ 14))
                                    . #2#)
-                             (GO #3=#:G253))))))))
+                             (GO #3=#:G250))))))))
                   (EXIT
                    (SPADCALL (CONS (SPADCALL |c| (QREFELT $ 56)) |l|)
                              (QREFELT $ 54)))))
@@ -184,11 +184,11 @@
           (|:| |func| F) (|:| |fail| (|Boolean|))))
         (SPROG
          ((|u| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (#2=#:G279 NIL) (|j| NIL) (#3=#:G280 NIL) (|k| NIL) (#4=#:G277 NIL)
-          (|i| NIL) (#5=#:G278 NIL) (|var| NIL) (|mat| (|Matrix| F))
-          (|isconstant| (|Boolean|)) (#6=#:G275 NIL) (#7=#:G276 NIL)
+          (#2=#:G276 NIL) (|j| NIL) (#3=#:G277 NIL) (|k| NIL) (#4=#:G274 NIL)
+          (|i| NIL) (#5=#:G275 NIL) (|var| NIL) (|mat| (|Matrix| F))
+          (|isconstant| (|Boolean|)) (#6=#:G272 NIL) (#7=#:G273 NIL)
           (|v| (|Vector| F)) (|lvv| #1#) (|m| (|NonNegativeInteger|))
-          (#8=#:G273 NIL) (#9=#:G274 NIL) (|n| (|NonNegativeInteger|)))
+          (#8=#:G270 NIL) (#9=#:G271 NIL) (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |lk|) (CONS 2 'T))
                 (#10='T
@@ -311,7 +311,7 @@
           (|:| |func| F) (|:| |fail| (|Boolean|))))
         (SPROG
          ((|u| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (#1=#:G288 NIL) (|j| NIL) (#2=#:G289 NIL) (|k| NIL)
+          (#1=#:G285 NIL) (|j| NIL) (#2=#:G286 NIL) (|k| NIL)
           (|v| (|Vector| F)) (|mat| (|Matrix| F)) (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND ((NULL |lk|) (CONS 2 'T))
@@ -344,7 +344,7 @@
                          (#3# (CONS 2 'T)))))))))) 
 
 (SDEFUN |EFSTRUC;transkers| ((|x| |List| (|Kernel| F)) ($ |List| (|Kernel| F)))
-        (SPROG ((#1=#:G294 NIL) (|k| NIL) (#2=#:G293 NIL))
+        (SPROG ((#1=#:G291 NIL) (|k| NIL) (#2=#:G290 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;transkers|))
@@ -387,7 +387,7 @@
 
 (SDEFUN |EFSTRUC;toQ|
         ((|lk| |List| (|Kernel| F)) ($ |List| (|Fraction| (|Integer|))))
-        (SPROG ((#1=#:G306 NIL) (|k| NIL) (#2=#:G305 NIL))
+        (SPROG ((#1=#:G303 NIL) (|k| NIL) (#2=#:G302 NIL))
                (SEQ
                 (PROGN
                  (LETT #2# NIL . #3=(|EFSTRUC;toQ|))
@@ -410,16 +410,16 @@
          ($ |Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
           (|:| |func| F) (|:| |fail| (|Boolean|))))
         (SPROG
-         ((|nz| (F)) (|ly| (|List| F)) (#1=#:G348 NIL) (|x| NIL)
-          (#2=#:G347 NIL) (#3=#:G346 NIL) (#4=#:G345 NIL)
-          (|lpars1f| (|List| F)) (#5=#:G344 NIL) (|s| NIL) (#6=#:G343 NIL)
-          (|lpars1| (|List| (|Symbol|))) (#7=#:G342 NIL) (|k| NIL)
-          (#8=#:G341 NIL) (|lpars0| #9=(|List| (|Kernel| F))) (#10=#:G338 NIL)
+         ((|nz| (F)) (|ly| (|List| F)) (#1=#:G345 NIL) (|x| NIL)
+          (#2=#:G344 NIL) (#3=#:G343 NIL) (#4=#:G342 NIL)
+          (|lpars1f| (|List| F)) (#5=#:G341 NIL) (|s| NIL) (#6=#:G340 NIL)
+          (|lpars1| (|List| (|Symbol|))) (#7=#:G339 NIL) (|k| NIL)
+          (#8=#:G338 NIL) (|lpars0| #9=(|List| (|Kernel| F))) (#10=#:G335 NIL)
           (|vv| (|Vector| (|Fraction| (|Integer|)))) (|lz1tonq| (F))
           (|kertond| (F)) (|nd| (|Integer|)) (|nq| (|Integer|))
           (|qratio| (|Fraction| (|Integer|)))
           (|fratio| (|Union| (|Float|) "failed")) (|Fratio| (F))
-          (#11=#:G339 NIL) (|z1| NIL) (#12=#:G340 NIL) (|i| NIL)
+          (#11=#:G336 NIL) (|z1| NIL) (#12=#:G337 NIL) (|i| NIL)
           (|m| (|NonNegativeInteger|)) (|kerF| (F))
           (|u| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
           (|q| (|Fraction| (|Integer|))) (|zkers| #9#) (|z| (F)))
@@ -571,7 +571,7 @@
                                                      (PROGN
                                                       (LETT #10# (CONS 0 |vv|)
                                                             . #13#)
-                                                      (GO #15=#:G337)))))))))
+                                                      (GO #15=#:G334)))))))))
                                               ('T
                                                (SEQ
                                                 (LETT |lz1tonq|
@@ -727,7 +727,7 @@
          (|lk| |List| (|Kernel| F)) (|ker| |Kernel| F)
          ($ |Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
           (|:| |func| F) (|:| |fail| (|Boolean|))))
-        (SPROG ((#1=#:G368 NIL) (|x| NIL) (#2=#:G367 NIL))
+        (SPROG ((#1=#:G365 NIL) (|x| NIL) (#2=#:G364 NIL))
                (SEQ
                 (COND
                  ((OR (SPADCALL |ker| '|log| (QREFELT $ 30))
@@ -1042,8 +1042,8 @@
 
 (SDEFUN |EFSTRUC;do_int| ((|op| |BasicOperator|) (|args| |List| F) ($ F))
         (SPROG
-         ((|dvs| (|List| F)) (#1=#:G427 NIL) (|v| NIL) (#2=#:G426 NIL)
-          (|vfs| (|List| F)) (#3=#:G425 NIL) (#4=#:G424 NIL)
+         ((|dvs| (|List| F)) (#1=#:G424 NIL) (|v| NIL) (#2=#:G423 NIL)
+          (|vfs| (|List| F)) (#3=#:G422 NIL) (#4=#:G421 NIL)
           (|vars| (|List| (|Symbol|))) (|kf1| (F)))
          (SEQ
           (LETT |kf1| (SPADCALL |op| |args| (QREFELT $ 139))
@@ -1087,9 +1087,9 @@
 
 (SDEFUN |EFSTRUC;k_to_liou| ((|k| |Kernel| F) ($ F))
         (SPROG
-         ((#1=#:G442 NIL) (#2=#:G441 NIL) (|i| (|Integer|))
+         ((#1=#:G439 NIL) (#2=#:G438 NIL) (|i| (|Integer|))
           (|iu| (|Union| (|Integer|) "failed")) (|nm| (|Symbol|))
-          (|args| (|List| F)) (#3=#:G444 NIL) (|a| NIL) (#4=#:G443 NIL)
+          (|args| (|List| F)) (#3=#:G441 NIL) (|a| NIL) (#4=#:G440 NIL)
           (|op| (|BasicOperator|)))
          (SEQ
           (LETT |op| (SPADCALL |k| (QREFELT $ 76)) . #5=(|EFSTRUC;k_to_liou|))
@@ -1145,20 +1145,20 @@
                                                       (|EFSTRUC;do_int| |op|
                                                        |args| $)
                                                       . #5#)
-                                                (GO #6=#:G435))))))))
+                                                (GO #6=#:G432))))))))
                                      (EXIT
                                       (|EFSTRUC;k2Elem0| |k| |op| |args| $))))
                                    #6# (EXIT #2#))
                                   . #5#)
-                            (GO #7=#:G438))))))))
+                            (GO #7=#:G435))))))))
                      (EXIT (|EFSTRUC;k2Elem0| |k| |op| |args| $))))
                    #7# (EXIT #1#)))))))) 
 
 (SDEFUN |EFSTRUC;do_int1|
         ((|op| |BasicOperator|) (|args| |List| F) (|x| . #1=(|Symbol|)) ($ F))
         (SPROG
-         ((|dvs| (|List| F)) (#2=#:G452 NIL) (|v| NIL) (#3=#:G451 NIL)
-          (|vfs| (|List| F)) (#4=#:G450 NIL) (#5=#:G449 NIL)
+         ((|dvs| (|List| F)) (#2=#:G449 NIL) (|v| NIL) (#3=#:G448 NIL)
+          (|vfs| (|List| F)) (#4=#:G447 NIL) (#5=#:G446 NIL)
           (|vars| (|List| #1#)) (|kf1| (F)))
          (SEQ
           (LETT |kf1| (SPADCALL |op| |args| (QREFELT $ 139))
@@ -1202,9 +1202,9 @@
 
 (SDEFUN |EFSTRUC;k_to_liou1| ((|k| |Kernel| F) (|x| |Symbol|) ($ F))
         (SPROG
-         ((#1=#:G476 NIL) (#2=#:G475 NIL) (|i| (|Integer|))
+         ((#1=#:G473 NIL) (#2=#:G472 NIL) (|i| (|Integer|))
           (|iu| (|Union| (|Integer|) "failed")) (|nm| (|Symbol|))
-          (|args| (|List| F)) (#3=#:G478 NIL) (|a| NIL) (#4=#:G477 NIL)
+          (|args| (|List| F)) (#3=#:G475 NIL) (|a| NIL) (#4=#:G474 NIL)
           (|op| (|BasicOperator|)))
          (SEQ
           (LETT |op| (SPADCALL |k| (QREFELT $ 76)) . #5=(|EFSTRUC;k_to_liou1|))
@@ -1267,12 +1267,12 @@
                                                       (|EFSTRUC;do_int| |op|
                                                        |args| $)
                                                       . #5#)
-                                                (GO #6=#:G462))))))))
+                                                (GO #6=#:G459))))))))
                                      (EXIT
                                       (|EFSTRUC;k2Elem0| |k| |op| |args| $))))
                                    #6# (EXIT #2#))
                                   . #5#)
-                            (GO #7=#:G472))))))))
+                            (GO #7=#:G469))))))))
                      (COND
                       ((OR (EQUAL |nm| '|ellipticE2|)
                            (EQUAL |nm| '|ellipticF|))
@@ -1300,7 +1300,7 @@
 
 (SDEFUN |EFSTRUC;k2Elem| ((|k| |Kernel| F) (|l| |List| (|Symbol|)) ($ F))
         (SPROG
-         ((|args| (|List| F)) (#1=#:G483 NIL) (|a| NIL) (#2=#:G482 NIL)
+         ((|args| (|List| F)) (#1=#:G480 NIL) (|a| NIL) (#2=#:G479 NIL)
           (|op| (|BasicOperator|)))
          (SEQ (LETT |op| (SPADCALL |k| (QREFELT $ 76)) . #3=(|EFSTRUC;k2Elem|))
               (LETT |args|
@@ -1348,9 +1348,9 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#1=#:G502 NIL) (|f| NIL) (#2=#:G501 NIL)
-          (|lv| (|List| F)) (#3=#:G500 NIL) (|r| NIL) (#4=#:G499 NIL)
-          (|l| (|List| (|Kernel| F))) (#5=#:G498 NIL) (#6=#:G497 NIL)
+         ((|nlf| (|List| F)) (#1=#:G499 NIL) (|f| NIL) (#2=#:G498 NIL)
+          (|lv| (|List| F)) (#3=#:G497 NIL) (|r| NIL) (#4=#:G496 NIL)
+          (|l| (|List| (|Kernel| F))) (#5=#:G495 NIL) (#6=#:G494 NIL)
           (|nv| (F)) (|m| (|Integer|)) (|x| (F)))
          (SEQ
           (LETT |nv|
@@ -1434,10 +1434,10 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#1=#:G518 NIL) (|f| NIL) (#2=#:G517 NIL)
-          (|g| (F)) (|h| (F)) (|d| (F)) (#3=#:G506 NIL) (#4=#:G505 (F))
-          (#5=#:G507 (F)) (#6=#:G515 NIL) (|i| NIL) (#7=#:G516 NIL) (|x| NIL)
-          (|s| (F)) (#8=#:G513 NIL) (#9=#:G514 NIL) (#10=#:G512 NIL) (|w| (F)))
+         ((|nlf| (|List| F)) (#1=#:G515 NIL) (|f| NIL) (#2=#:G514 NIL)
+          (|g| (F)) (|h| (F)) (|d| (F)) (#3=#:G503 NIL) (#4=#:G502 (F))
+          (#5=#:G504 (F)) (#6=#:G512 NIL) (|i| NIL) (#7=#:G513 NIL) (|x| NIL)
+          (|s| (F)) (#8=#:G510 NIL) (#9=#:G511 NIL) (#10=#:G509 NIL) (|w| (F)))
          (SEQ
           (LETT |w| (|SPADfirst| (SPADCALL |k| (QREFELT $ 32)))
                 . #11=(|EFSTRUC;ataneval|))
@@ -1537,7 +1537,7 @@
 (SDEFUN |EFSTRUC;gdCoef?|
         ((|c| |Fraction| (|Integer|)) (|v| |Vector| (|Fraction| (|Integer|)))
          ($ |Boolean|))
-        (SPROG ((#1=#:G526 NIL) (#2=#:G527 NIL) (#3=#:G528 NIL) (|i| NIL))
+        (SPROG ((#1=#:G523 NIL) (#2=#:G524 NIL) (#3=#:G525 NIL) (|i| NIL))
                (SEQ
                 (EXIT
                  (SEQ
@@ -1558,9 +1558,9 @@
                           1)
                          (PROGN
                           (LETT #1#
-                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G525))
+                                (PROGN (LETT #2# 'NIL . #4#) (GO #5=#:G522))
                                 . #4#)
-                          (GO #6=#:G523))))))
+                          (GO #6=#:G520))))))
                      (LETT |i| (+ |i| 1) . #4#) (GO G190) G191 (EXIT NIL)))
                    #6# (EXIT #1#))
                   (EXIT 'T)))
@@ -1573,11 +1573,11 @@
           (|Record| (|:| |index| (|Integer|)) (|:| |ker| (|Kernel| F)))
           "failed"))
         (SPROG
-         ((#1=#:G559 NIL) (#2=#:G560 NIL)
-          (|r| (|Union| (|Fraction| (|Integer|)) "failed")) (#3=#:G564 NIL)
-          (|i| NIL) (#4=#:G565 NIL) (|k| NIL) (|h| (|NonNegativeInteger|))
-          (|j| (|Integer|)) (|h1| (|NonNegativeInteger|)) (#5=#:G562 NIL)
-          (#6=#:G563 NIL) (|ll| (|List| (|Kernel| F))) (#7=#:G561 NIL))
+         ((#1=#:G556 NIL) (#2=#:G557 NIL)
+          (|r| (|Union| (|Fraction| (|Integer|)) "failed")) (#3=#:G561 NIL)
+          (|i| NIL) (#4=#:G562 NIL) (|k| NIL) (|h| (|NonNegativeInteger|))
+          (|j| (|Integer|)) (|h1| (|NonNegativeInteger|)) (#5=#:G559 NIL)
+          (#6=#:G560 NIL) (|ll| (|List| (|Kernel| F))) (#7=#:G558 NIL))
          (SEQ
           (EXIT
            (SEQ (LETT |h| 0 . #8=(|EFSTRUC;goodCoef|)) (LETT |j| 0 . #8#)
@@ -1652,9 +1652,9 @@
                                             (PROGN
                                              (LETT #2# (CONS 0 (CONS |i| |k|))
                                                    . #8#)
-                                             (GO #9=#:G558))
+                                             (GO #9=#:G555))
                                             . #8#)
-                                      (GO #10=#:G556))))))))))))))))
+                                      (GO #10=#:G553))))))))))))))))
                        (LETT |i| (PROG1 (+ |i| 1) (LETT #4# (CDR #4#) . #8#))
                              . #8#)
                        (GO G190) G191 (EXIT NIL)))
@@ -1668,17 +1668,17 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#2=#:G591 NIL) (|f| NIL) (#3=#:G590 NIL)
-          (|g| (F)) (#4=#:G588 NIL) (|a| NIL) (#5=#:G589 NIL) (|x| NIL)
-          (#6=#:G587 NIL) (|l| (|List| #1#)) (#7=#:G586 NIL) (|kk| NIL)
-          (#8=#:G585 NIL) (|lv| (|List| (|Fraction| (|Integer|))))
-          (#9=#:G584 NIL) (|i| NIL) (#10=#:G583 NIL) (|v0| (|Integer|))
+         ((|nlf| (|List| F)) (#2=#:G588 NIL) (|f| NIL) (#3=#:G587 NIL)
+          (|g| (F)) (#4=#:G585 NIL) (|a| NIL) (#5=#:G586 NIL) (|x| NIL)
+          (#6=#:G584 NIL) (|l| (|List| #1#)) (#7=#:G583 NIL) (|kk| NIL)
+          (#8=#:G582 NIL) (|lv| (|List| (|Fraction| (|Integer|))))
+          (#9=#:G581 NIL) (|i| NIL) (#10=#:G580 NIL) (|v0| (|Integer|))
           (|rec|
            (|Union|
             (|Record| (|:| |index| (|Integer|)) (|:| |ker| (|Kernel| F)))
             "failed"))
-          (|c| (F)) (#11=#:G568 NIL) (#12=#:G567 (F)) (#13=#:G569 (F))
-          (#14=#:G581 NIL) (#15=#:G582 NIL) (|fns| (|List| F)) (|u| (F)))
+          (|c| (F)) (#11=#:G565 NIL) (#12=#:G564 (F)) (#13=#:G566 (F))
+          (#14=#:G578 NIL) (#15=#:G579 NIL) (|fns| (|List| F)) (|u| (F)))
          (SEQ
           (LETT |u| (|SPADfirst| (SPADCALL |k| (QREFELT $ 32)))
                 . #16=(|EFSTRUC;taneval|))
@@ -1829,17 +1829,17 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#2=#:G634 NIL) (|f| NIL) (#3=#:G633 NIL)
-          (|h| (F)) (#4=#:G631 NIL) (|i| NIL) (#5=#:G632 NIL) (|x| NIL)
-          (#6=#:G630 NIL) (#7=#:G629 NIL) (#8=#:G628 NIL) (|lk1| (|List| #1#))
-          (|newtan| (|List| F)) (#9=#:G626 NIL) (#10=#:G627 NIL) (|t| NIL)
-          (#11=#:G625 NIL) (|li| (|List| (|NonNegativeInteger|)))
-          (#12=#:G624 NIL) (#13=#:G623 NIL) (#14=#:G622 NIL) (#15=#:G621 NIL)
-          (|newt| (|List| F)) (#16=#:G619 NIL) (|u| NIL) (#17=#:G620 NIL)
-          (#18=#:G618 NIL) (|dd| (F)) (|d| #19=(|Integer|))
+         ((|nlf| (|List| F)) (#2=#:G631 NIL) (|f| NIL) (#3=#:G630 NIL)
+          (|h| (F)) (#4=#:G628 NIL) (|i| NIL) (#5=#:G629 NIL) (|x| NIL)
+          (#6=#:G627 NIL) (#7=#:G626 NIL) (#8=#:G625 NIL) (|lk1| (|List| #1#))
+          (|newtan| (|List| F)) (#9=#:G623 NIL) (#10=#:G624 NIL) (|t| NIL)
+          (#11=#:G622 NIL) (|li| (|List| (|NonNegativeInteger|)))
+          (#12=#:G621 NIL) (#13=#:G620 NIL) (#14=#:G619 NIL) (#15=#:G618 NIL)
+          (|newt| (|List| F)) (#16=#:G616 NIL) (|u| NIL) (#17=#:G617 NIL)
+          (#18=#:G615 NIL) (|dd| (F)) (|d| #19=(|Integer|))
           (|cd| (|Record| (|:| |num| (|Vector| (|Integer|))) (|:| |den| #19#)))
-          (#20=#:G616 NIL) (#21=#:G617 NIL) (#22=#:G615 NIL) (#23=#:G614 NIL)
-          (#24=#:G613 NIL) (|n| (|Integer|)))
+          (#20=#:G613 NIL) (#21=#:G614 NIL) (#22=#:G612 NIL) (#23=#:G611 NIL)
+          (#24=#:G610 NIL) (|n| (|Integer|)))
          (SEQ (LETT |n| (QVSIZE |v|) . #25=(|EFSTRUC;tannosimp|))
               (LETT |lk|
                     (PROGN
@@ -2071,271 +2071,117 @@
         (SPADCALL |x| '|tan| (QREFELT $ 30))) 
 
 (SDEFUN |EFSTRUC;expnosimp|
-        ((|lf| |List| F) (|lk| |List| #1=(|Kernel| F)) (|k| |Kernel| F)
+        ((|lf| |List| F) (|lk| |List| (|Kernel| F)) (|k| |Kernel| F)
          (|v| |Vector| (|Fraction| (|Integer|))) (|fns| |List| F) (|g| F)
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#2=#:G757 NIL) (|f| NIL) (#3=#:G756 NIL)
-          (|h| (F)) (#4=#:G732 NIL) (#5=#:G731 (F)) (#6=#:G733 (F))
-          (#7=#:G754 NIL) (|i| NIL) (#8=#:G755 NIL) (|y| NIL) (#9=#:G753 NIL)
-          (#10=#:G752 NIL) (|newexp| (|List| F)) (|lk1| (|List| #1#))
-          (#11=#:G688 NIL) (#12=#:G687 (F)) (#13=#:G689 (F)) (#14=#:G750 NIL)
-          (#15=#:G751 NIL) (|e| NIL) (|li| (|List| (|NonNegativeInteger|)))
-          (#16=#:G749 NIL) (#17=#:G748 NIL) (#18=#:G747 NIL) (#19=#:G746 NIL)
-          (|newe| (|List| F)) (#20=#:G744 NIL) (#21=#:G745 NIL)
-          (#22=#:G743 NIL) (|dd| (F)) (|d| #23=(|Integer|))
-          (|cd| (|Record| (|:| |num| (|Vector| (|Integer|))) (|:| |den| #23#)))
-          (#24=#:G741 NIL) (|x| NIL) (#25=#:G742 NIL) (#26=#:G740 NIL)
-          (#27=#:G739 NIL) (#28=#:G738 NIL) (|n| (|Integer|)))
-         (SEQ (LETT |n| (QVSIZE |v|) . #29=(|EFSTRUC;expnosimp|))
+         ((|nlf| (|List| F)) (#1=#:G649 NIL) (|f| NIL) (#2=#:G648 NIL)
+          (|lexp| (|List| F)) (|lke| (|List| (|Kernel| F))) (|h| (F))
+          (|nui| (F)) (|di| (|Integer|)) (|vi| (|Fraction| (|Integer|)))
+          (#3=#:G645 NIL) (|i| NIL) (#4=#:G646 NIL) (|k1| NIL) (#5=#:G647 NIL)
+          (|y| NIL) (|vnum| #6=(|Vector| (|Integer|))) (|d| #7=(|Integer|))
+          (|cd| (|Record| (|:| |num| #6#) (|:| |den| #7#))) (#8=#:G644 NIL)
+          (|x| NIL) (#9=#:G643 NIL) (|n| (|Integer|)))
+         (SEQ (LETT |n| (QVSIZE |v|) . #10=(|EFSTRUC;expnosimp|))
               (LETT |lk|
                     (PROGN
-                     (LETT #28# NIL . #29#)
-                     (SEQ (LETT |x| NIL . #29#) (LETT #27# |lk| . #29#) G190
+                     (LETT #9# NIL . #10#)
+                     (SEQ (LETT |x| NIL . #10#) (LETT #8# |lk| . #10#) G190
                           (COND
-                           ((OR (ATOM #27#)
-                                (PROGN (LETT |x| (CAR #27#) . #29#) NIL))
+                           ((OR (ATOM #8#)
+                                (PROGN (LETT |x| (CAR #8#) . #10#) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
                             (COND
                              ((COND ((SPADCALL |x| '|exp| (QREFELT $ 30)) 'T)
-                                    (#30='T
-                                     (SPADCALL |x| '|log| (QREFELT $ 30))))
-                              (LETT #28# (CONS |x| #28#) . #29#)))))
-                          (LETT #27# (CDR #27#) . #29#) (GO G190) G191
-                          (EXIT (NREVERSE #28#))))
-                    . #29#)
-              (LETT |lk1|
+                                    ('T (SPADCALL |x| '|log| (QREFELT $ 30))))
+                              (LETT #9# (CONS |x| #9#) . #10#)))))
+                          (LETT #8# (CDR #8#) . #10#) (GO G190) G191
+                          (EXIT (NREVERSE #9#))))
+                    . #10#)
+              (LETT |d|
+                    (QCDR (LETT |cd| (SPADCALL |v| (QREFELT $ 167)) . #10#))
+                    . #10#)
+              (LETT |vnum| (QCAR |cd|) . #10#) (LETT |h| |g| . #10#)
+              (LETT |lke| NIL . #10#) (LETT |lexp| NIL . #10#)
+              (SEQ (LETT |y| NIL . #10#) (LETT #5# |fns| . #10#)
+                   (LETT |k1| NIL . #10#) (LETT #4# |lk| . #10#)
+                   (LETT |i| 1 . #10#) (LETT #3# |n| . #10#) G190
+                   (COND
+                    ((OR (|greater_SI| |i| #3#) (ATOM #4#)
+                         (PROGN (LETT |k1| (CAR #4#) . #10#) NIL) (ATOM #5#)
+                         (PROGN (LETT |y| (CAR #5#) . #10#) NIL))
+                     (GO G191)))
+                   (SEQ (LETT |vi| (QAREF1O |v| |i| 1) . #10#)
+                        (EXIT
+                         (COND
+                          ((SPADCALL |vi| (|spadConstant| $ 98) (QREFELT $ 83))
+                           "iterate")
+                          ('T
+                           (SEQ
+                            (LETT |di| (SPADCALL |vi| (QREFELT $ 40)) . #10#)
+                            (COND
+                             ((OR (SPADCALL |k1| '|log| (QREFELT $ 30))
+                                  (EQL |di| 1))
+                              (EXIT
+                               (LETT |h|
+                                     (SPADCALL |h|
+                                               (SPADCALL
+                                                (SPADCALL |y| (QREFELT $ 132))
+                                                |vi| (QREFELT $ 154))
+                                               (QREFELT $ 109))
+                                     . #10#))))
+                            (LETT |lke| (CONS |k1| |lke|) . #10#)
+                            (LETT |nui|
+                                  (SPADCALL
+                                   (SPADCALL |y| (SPADCALL |di| (QREFELT $ 13))
+                                             (QREFELT $ 15))
+                                   (QREFELT $ 132))
+                                  . #10#)
+                            (LETT |lexp|
+                                  (CONS (SPADCALL |nui| |di| (QREFELT $ 106))
+                                        |lexp|)
+                                  . #10#)
+                            (EXIT
+                             (LETT |h|
+                                   (SPADCALL |h|
+                                             (SPADCALL |nui|
+                                                       (SPADCALL |vi|
+                                                                 (QREFELT $
+                                                                          49))
+                                                       (QREFELT $ 106))
+                                             (QREFELT $ 109))
+                                   . #10#)))))))
+                   (LETT |i|
+                         (PROG1 (|inc_SI| |i|)
+                           (LETT #4#
+                                 (PROG1 (CDR #4#) (LETT #5# (CDR #5#) . #10#))
+                                 . #10#))
+                         . #10#)
+                   (GO G190) G191 (EXIT NIL))
+              (LETT |lke| (CONS |k| |lke|) . #10#)
+              (LETT |lexp| (CONS |h| |lexp|) . #10#)
+              (LETT |nlf|
                     (PROGN
-                     (LETT #26# NIL . #29#)
-                     (SEQ (LETT |i| 1 . #29#) (LETT #25# |n| . #29#)
-                          (LETT |x| NIL . #29#) (LETT #24# |lk| . #29#) G190
+                     (LETT #2# NIL . #10#)
+                     (SEQ (LETT |f| NIL . #10#) (LETT #1# |lf| . #10#) G190
                           (COND
-                           ((OR (ATOM #24#)
-                                (PROGN (LETT |x| (CAR #24#) . #29#) NIL)
-                                (|greater_SI| |i| #25#))
+                           ((OR (ATOM #1#)
+                                (PROGN (LETT |f| (CAR #1#) . #10#) NIL))
                             (GO G191)))
                           (SEQ
                            (EXIT
-                            (COND
-                             ((COND
-                               ((SPADCALL (QAREF1O |v| |i| 1)
-                                          (|spadConstant| $ 98) (QREFELT $ 83))
-                                'NIL)
-                               (#30# 'T))
-                              (LETT #26# (CONS |x| #26#) . #29#)))))
-                          (LETT #24#
-                                (PROG1 (CDR #24#)
-                                  (LETT |i| (|inc_SI| |i|) . #29#))
-                                . #29#)
-                          (GO G190) G191 (EXIT (NREVERSE #26#))))
-                    . #29#)
-              (EXIT
-               (COND
-                ((SPADCALL (CONS #'|EFSTRUC;expnosimp!0| $) |lk1|
-                           (QREFELT $ 164))
-                 (SEQ
-                  (LETT |dd|
-                        (SPADCALL
-                         (LETT |d|
-                               (QCDR
-                                (LETT |cd| (SPADCALL |v| (QREFELT $ 167))
-                                      . #29#))
-                               . #29#)
-                         (QREFELT $ 13))
-                        . #29#)
-                  (LETT |newe|
-                        (PROGN
-                         (LETT #22# NIL . #29#)
-                         (SEQ (LETT |i| 1 . #29#) (LETT #21# |n| . #29#)
-                              (LETT |y| NIL . #29#) (LETT #20# |fns| . #29#)
-                              G190
-                              (COND
-                               ((OR (ATOM #20#)
-                                    (PROGN (LETT |y| (CAR #20#) . #29#) NIL)
-                                    (|greater_SI| |i| #21#))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (COND
-                                 ((COND
-                                   ((SPADCALL (QAREF1O |v| |i| 1)
-                                              (|spadConstant| $ 98)
-                                              (QREFELT $ 83))
-                                    'NIL)
-                                   (#30# 'T))
-                                  (LETT #22#
-                                        (CONS
-                                         (SPADCALL
-                                          (SPADCALL |y| |dd| (QREFELT $ 15))
-                                          (QREFELT $ 132))
-                                         #22#)
-                                        . #29#)))))
-                              (LETT #20#
-                                    (PROG1 (CDR #20#)
-                                      (LETT |i| (|inc_SI| |i|) . #29#))
-                                    . #29#)
-                              (GO G190) G191 (EXIT (NREVERSE #22#))))
-                        . #29#)
-                  (LETT |newexp|
-                        (PROGN
-                         (LETT #19# NIL . #29#)
-                         (SEQ (LETT |e| NIL . #29#) (LETT #18# |newe| . #29#)
-                              G190
-                              (COND
-                               ((OR (ATOM #18#)
-                                    (PROGN (LETT |e| (CAR #18#) . #29#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #19#
-                                      (CONS (SPADCALL |e| |d| (QREFELT $ 106))
-                                            #19#)
-                                      . #29#)))
-                              (LETT #18# (CDR #18#) . #29#) (GO G190) G191
-                              (EXIT (NREVERSE #19#))))
-                        . #29#)
-                  (LETT |li|
-                        (PROGN
-                         (LETT #17# NIL . #29#)
-                         (SEQ (LETT |i| 1 . #29#) (LETT #16# |n| . #29#) G190
-                              (COND ((|greater_SI| |i| #16#) (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (COND
-                                 ((COND
-                                   ((SPADCALL (QAREF1O |v| |i| 1)
-                                              (|spadConstant| $ 98)
-                                              (QREFELT $ 83))
-                                    'NIL)
-                                   (#30# 'T))
-                                  (LETT #17# (CONS |i| #17#) . #29#)))))
-                              (LETT |i| (|inc_SI| |i|) . #29#) (GO G190) G191
-                              (EXIT (NREVERSE #17#))))
-                        . #29#)
-                  (LETT |h|
-                        (SPADCALL
-                         (PROGN
-                          (LETT #11# NIL . #29#)
-                          (SEQ (LETT |e| NIL . #29#) (LETT #15# |newe| . #29#)
-                               (LETT |i| NIL . #29#) (LETT #14# |li| . #29#)
-                               G190
-                               (COND
-                                ((OR (ATOM #14#)
-                                     (PROGN (LETT |i| (CAR #14#) . #29#) NIL)
-                                     (ATOM #15#)
-                                     (PROGN (LETT |e| (CAR #15#) . #29#) NIL))
-                                 (GO G191)))
-                               (SEQ
-                                (EXIT
-                                 (PROGN
-                                  (LETT #13#
-                                        (SPADCALL |e|
-                                                  (QAREF1O (QCAR |cd|) |i| 1)
-                                                  (QREFELT $ 106))
-                                        . #29#)
-                                  (COND
-                                   (#11#
-                                    (LETT #12#
-                                          (SPADCALL #12# #13# (QREFELT $ 109))
-                                          . #29#))
-                                   ('T
-                                    (PROGN
-                                     (LETT #12# #13# . #29#)
-                                     (LETT #11# 'T . #29#)))))))
-                               (LETT #14#
-                                     (PROG1 (CDR #14#)
-                                       (LETT #15# (CDR #15#) . #29#))
-                                     . #29#)
-                               (GO G190) G191 (EXIT NIL))
-                          (COND (#11# #12#) (#30# (|spadConstant| $ 72))))
-                         |g| (QREFELT $ 109))
-                        . #29#)
-                  (LETT |lk1| (CONS |k| |lk1|) . #29#)
-                  (LETT |newexp| (CONS |h| |newexp|) . #29#)
-                  (LETT |nlf|
-                        (PROGN
-                         (LETT #10# NIL . #29#)
-                         (SEQ (LETT |f| NIL . #29#) (LETT #9# |lf| . #29#) G190
-                              (COND
-                               ((OR (ATOM #9#)
-                                    (PROGN (LETT |f| (CAR #9#) . #29#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #10#
-                                      (CONS
-                                       (SPADCALL |f| |lk1| |newexp|
-                                                 (QREFELT $ 113))
-                                       #10#)
-                                      . #29#)))
-                              (LETT #9# (CDR #9#) . #29#) (GO G190) G191
-                              (EXIT (NREVERSE #10#))))
-                        . #29#)
-                  (EXIT (VECTOR |nlf| |lk1| |newexp|))))
-                (#30#
-                 (SEQ
-                  (LETT |h|
-                        (SPADCALL
-                         (PROGN
-                          (LETT #4# NIL . #29#)
-                          (SEQ (LETT |y| NIL . #29#) (LETT #8# |fns| . #29#)
-                               (LETT |i| (SPADCALL |v| (QREFELT $ 145)) . #29#)
-                               (LETT #7# (QVSIZE |v|) . #29#) G190
-                               (COND
-                                ((OR (> |i| #7#) (ATOM #8#)
-                                     (PROGN (LETT |y| (CAR #8#) . #29#) NIL))
-                                 (GO G191)))
-                               (SEQ
-                                (EXIT
-                                 (PROGN
-                                  (LETT #6#
-                                        (SPADCALL
-                                         (SPADCALL |y| (QREFELT $ 132))
-                                         (QAREF1O |v| |i| 1) (QREFELT $ 154))
-                                        . #29#)
-                                  (COND
-                                   (#4#
-                                    (LETT #5#
-                                          (SPADCALL #5# #6# (QREFELT $ 109))
-                                          . #29#))
-                                   ('T
-                                    (PROGN
-                                     (LETT #5# #6# . #29#)
-                                     (LETT #4# 'T . #29#)))))))
-                               (LETT |i|
-                                     (PROG1 (+ |i| 1)
-                                       (LETT #8# (CDR #8#) . #29#))
-                                     . #29#)
-                               (GO G190) G191 (EXIT NIL))
-                          (COND (#4# #5#) (#30# (|spadConstant| $ 72))))
-                         |g| (QREFELT $ 109))
-                        . #29#)
-                  (LETT |nlf|
-                        (PROGN
-                         (LETT #3# NIL . #29#)
-                         (SEQ (LETT |f| NIL . #29#) (LETT #2# |lf| . #29#) G190
-                              (COND
-                               ((OR (ATOM #2#)
-                                    (PROGN (LETT |f| (CAR #2#) . #29#) NIL))
-                                (GO G191)))
-                              (SEQ
-                               (EXIT
-                                (LETT #3#
-                                      (CONS
-                                       (SPADCALL |f| (LIST |k|) (LIST |h|)
-                                                 (QREFELT $ 113))
-                                       #3#)
-                                      . #29#)))
-                              (LETT #2# (CDR #2#) . #29#) (GO G190) G191
-                              (EXIT (NREVERSE #3#))))
-                        . #29#)
-                  (EXIT (VECTOR |nlf| (LIST |k|) (LIST |h|)))))))))) 
-
-(SDEFUN |EFSTRUC;expnosimp!0| ((|x| NIL) ($ NIL))
-        (SPADCALL |x| '|exp| (QREFELT $ 30))) 
+                            (LETT #2#
+                                  (CONS
+                                   (SPADCALL |f| |lke| |lexp| (QREFELT $ 113))
+                                   #2#)
+                                  . #10#)))
+                          (LETT #1# (CDR #1#) . #10#) (GO G190) G191
+                          (EXIT (NREVERSE #2#))))
+                    . #10#)
+              (EXIT (VECTOR |nlf| |lke| |lexp|))))) 
 
 (SDEFUN |EFSTRUC;logeval|
         ((|lf| |List| F) (|lk| |List| (|Kernel| F)) (|k| |Kernel| F)
@@ -2343,11 +2189,11 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#1=#:G782 NIL) (|f| NIL) (#2=#:G781 NIL)
-          (|g| (F)) (#3=#:G770 NIL) (#4=#:G769 (F)) (#5=#:G771 (F))
-          (#6=#:G779 NIL) (|i| NIL) (#7=#:G780 NIL) (|x| NIL) (|c| (F))
-          (#8=#:G761 NIL) (#9=#:G760 (F)) (#10=#:G762 (F)) (#11=#:G777 NIL)
-          (#12=#:G778 NIL) (|dd| (|Integer|)) (#13=#:G776 NIL) (#14=#:G775 NIL)
+         ((|nlf| (|List| F)) (#1=#:G674 NIL) (|f| NIL) (#2=#:G673 NIL)
+          (|g| (F)) (#3=#:G662 NIL) (#4=#:G661 (F)) (#5=#:G663 (F))
+          (#6=#:G671 NIL) (|i| NIL) (#7=#:G672 NIL) (|x| NIL) (|c| (F))
+          (#8=#:G653 NIL) (#9=#:G652 (F)) (#10=#:G654 (F)) (#11=#:G669 NIL)
+          (#12=#:G670 NIL) (|dd| (|Integer|)) (#13=#:G668 NIL) (#14=#:G667 NIL)
           (|z| (F)))
          (SEQ
           (LETT |z| (|SPADfirst| (SPADCALL |k| (QREFELT $ 32)))
@@ -2472,13 +2318,13 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((#1=#:G795 NIL)
+         ((#1=#:G687 NIL)
           (|rn|
            (|Record| (|:| |funcs| (|List| F))
                      (|:| |kers| (|List| (|Kernel| F)))
                      (|:| |vals| (|List| F))))
-          (|nlf| (|List| F)) (#2=#:G799 NIL) (|f| NIL) (#3=#:G798 NIL)
-          (#4=#:G794 NIL)
+          (|nlf| (|List| F)) (#2=#:G691 NIL) (|f| NIL) (#3=#:G690 NIL)
+          (#4=#:G686 NIL)
           (|rec|
            (|Record| (|:| |funcs| (|List| F))
                      (|:| |kers| (|List| (|Kernel| F)))
@@ -2486,8 +2332,8 @@
           (|c|
            (|Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
                     (|:| |func| F) (|:| |fail| (|Boolean|))))
-          (|klist| (|List| (|Kernel| F))) (#5=#:G796 NIL) (|i| NIL)
-          (#6=#:G797 NIL) (|kk| NIL) (|n| (|NonNegativeInteger|))
+          (|klist| (|List| (|Kernel| F))) (#5=#:G688 NIL) (|i| NIL)
+          (#6=#:G689 NIL) (|kk| NIL) (|n| (|NonNegativeInteger|))
           (|pars| (|List| (|Symbol|))) (|funs| (|List| (|Kernel| F))))
          (SEQ
           (EXIT
@@ -2551,9 +2397,9 @@
                                                                 (QREFELT $
                                                                          142)))
                                                        . #7#)
-                                                 (GO #8=#:G793))))
+                                                 (GO #8=#:G685))))
                                               . #7#)
-                                        (GO #9=#:G789))))))))
+                                        (GO #9=#:G681))))))))
                                  (EXIT
                                   (COND
                                    ((QEQCAR |c| 1)
@@ -2676,12 +2522,12 @@
         ((|twr| |List| (|Kernel| F)) (|eta| F) (|x| |Symbol|)
          ($ |Union| F "failed"))
         (SPROG
-         ((#1=#:G854 NIL) (#2=#:G853 (F)) (#3=#:G855 (F)) (#4=#:G866 NIL)
-          (|i| NIL) (#5=#:G867 NIL) (|yy| NIL) (|g| (F)) (#6=#:G827 NIL)
-          (#7=#:G826 (F)) (#8=#:G828 (F)) (#9=#:G864 NIL) (#10=#:G865 NIL)
+         ((#1=#:G746 NIL) (#2=#:G745 (F)) (#3=#:G747 (F)) (#4=#:G758 NIL)
+          (|i| NIL) (#5=#:G759 NIL) (|yy| NIL) (|g| (F)) (#6=#:G719 NIL)
+          (#7=#:G718 (F)) (#8=#:G720 (F)) (#9=#:G756 NIL) (#10=#:G757 NIL)
           (|v| (|Vector| (|Fraction| (|Integer|))))
           (|c| (|Union| (|Vector| (|Fraction| (|Integer|))) "failed"))
-          (#11=#:G863 NIL) (|fns| (|List| F)) (#12=#:G862 NIL))
+          (#11=#:G755 NIL) (|fns| (|List| F)) (#12=#:G754 NIL))
          (SEQ
           (LETT |c|
                 (SPADCALL
@@ -2811,7 +2657,7 @@
           (|pr|
            (|Record| (|:| |exponent| (|NonNegativeInteger|)) (|:| |coef| F)
                      (|:| |radicand| F)))
-          (|n| (|NonNegativeInteger|)) (#1=#:G868 NIL))
+          (|n| (|NonNegativeInteger|)) (#1=#:G760 NIL))
          (SEQ
           (LETT |n|
                 (PROG1
@@ -2878,8 +2724,8 @@
          ($ |Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
           (|:| |func| F) (|:| |fail| (|Boolean|))))
         (SPROG
-         ((#1=#:G904 NIL) (#2=#:G903 #3=(|Integer|)) (#4=#:G905 #3#)
-          (#5=#:G908 NIL) (|r| NIL))
+         ((#1=#:G796 NIL) (#2=#:G795 #3=(|Integer|)) (#4=#:G797 #3#)
+          (#5=#:G800 NIL) (|r| NIL))
          (SEQ
           (COND
            ((NULL
@@ -2939,18 +2785,18 @@
          ($ |Record| (|:| |funcs| (|List| F))
           (|:| |kers| (|List| (|Kernel| F))) (|:| |vals| (|List| F))))
         (SPROG
-         ((|nlf| (|List| F)) (#2=#:G935 NIL) (|f| NIL) (#3=#:G934 NIL)
-          (|h| (F)) (#4=#:G920 NIL) (#5=#:G919 (F)) (#6=#:G921 (F))
-          (#7=#:G932 NIL) (|a| NIL) (#8=#:G933 NIL) (|z| NIL)
-          (|l| (|List| #1#)) (#9=#:G931 NIL) (|kk| NIL) (#10=#:G930 NIL)
-          (|lv| (|List| (|Fraction| (|Integer|)))) (#11=#:G929 NIL) (|i| NIL)
-          (#12=#:G928 NIL) (|v0| (|Integer|))
+         ((|nlf| (|List| F)) (#2=#:G827 NIL) (|f| NIL) (#3=#:G826 NIL)
+          (|h| (F)) (#4=#:G812 NIL) (#5=#:G811 (F)) (#6=#:G813 (F))
+          (#7=#:G824 NIL) (|a| NIL) (#8=#:G825 NIL) (|z| NIL)
+          (|l| (|List| #1#)) (#9=#:G823 NIL) (|kk| NIL) (#10=#:G822 NIL)
+          (|lv| (|List| (|Fraction| (|Integer|)))) (#11=#:G821 NIL) (|i| NIL)
+          (#12=#:G820 NIL) (|v0| (|Integer|))
           (|rec|
            (|Union|
             (|Record| (|:| |index| (|Integer|)) (|:| |ker| (|Kernel| F)))
             "failed"))
-          (|g| (F)) (#13=#:G911 NIL) (#14=#:G910 (F)) (#15=#:G912 (F))
-          (#16=#:G926 NIL) (#17=#:G927 NIL) (|fns| (|List| F)) (|y| (F)))
+          (|g| (F)) (#13=#:G803 NIL) (#14=#:G802 (F)) (#15=#:G804 (F))
+          (#16=#:G818 NIL) (#17=#:G819 NIL) (|fns| (|List| F)) (|y| (F)))
          (SEQ
           (LETT |y| (|SPADfirst| (SPADCALL |k| (QREFELT $ 32)))
                 . #18=(|EFSTRUC;expeval|))
@@ -3120,7 +2966,7 @@
 
 (SDEFUN |EFSTRUC;normalize;LLL;55|
         ((|lf| |List| F) (|lx| |List| (|Symbol|)) ($ |List| F))
-        (SPROG ((|lf2| (|List| F)) (#1=#:G944 NIL) (|f| NIL) (#2=#:G943 NIL))
+        (SPROG ((|lf2| (|List| F)) (#1=#:G836 NIL) (|f| NIL) (#2=#:G835 NIL))
                (SEQ
                 (LETT |lf2|
                       (PROGN
@@ -3148,10 +2994,10 @@
          ($ |Union| (|:| |vec| (|Vector| (|Fraction| (|Integer|))))
           (|:| |func| F) (|:| |fail| (|Boolean|))))
         (SPROG
-         ((#1=#:G983 NIL) (#2=#:G985 NIL) (#3=#:G977 NIL) (#4=#:G976 (F))
-          (#5=#:G978 (F)) (#6=#:G987 NIL) (|i| NIL)
-          (|r| (|Union| (|Integer|) "failed")) (|m| (F)) (#7=#:G986 NIL)
-          (|x| NIL) (#8=#:G984 NIL) (|n| (F)))
+         ((#1=#:G875 NIL) (#2=#:G877 NIL) (#3=#:G869 NIL) (#4=#:G868 (F))
+          (#5=#:G870 (F)) (#6=#:G879 NIL) (|i| NIL)
+          (|r| (|Union| (|Integer|) "failed")) (|m| (F)) (#7=#:G878 NIL)
+          (|x| NIL) (#8=#:G876 NIL) (|n| (F)))
          (SEQ
           (EXIT
            (SEQ
@@ -3176,7 +3022,7 @@
                                   (SPADCALL (QCDR |r|) (QREFELT $ 199))
                                   (QREFELT $ 13)))
                            . #9#)
-                     (GO #10=#:G981))))))))
+                     (GO #10=#:G873))))))))
               (SEQ (LETT |x| NIL . #9#) (LETT #7# |l| . #9#) G190
                    (COND
                     ((OR (ATOM #7#) (PROGN (LETT |x| (CAR #7#) . #9#) NIL))
@@ -3250,10 +3096,10 @@
                                                 (SPADCALL |x| (QREFELT $ 89))
                                                 (QREFELT $ 109)))
                                          . #9#)
-                                   (GO #11=#:G982)))
+                                   (GO #11=#:G874)))
                                  ('T (|error| "bad order of factorials")))
                                 . #9#)
-                          (GO #12=#:G979)))))))
+                          (GO #12=#:G871)))))))
                     #12# (EXIT #1#))
                    (LETT #7# (CDR #7#) . #9#) (GO G190) G191 (EXIT NIL))
               (EXIT (CONS 2 'T))))
@@ -3262,7 +3108,7 @@
 
 (SDEFUN |EFSTRUC;normalize;LLL;57|
         ((|lf| |List| F) (|lx| |List| (|Symbol|)) ($ |List| F))
-        (SPROG ((|lf2| (|List| F)) (#1=#:G993 NIL) (|f| NIL) (#2=#:G992 NIL))
+        (SPROG ((|lf2| (|List| F)) (#1=#:G885 NIL) (|f| NIL) (#2=#:G884 NIL))
                (SEQ
                 (LETT |lf2|
                       (PROGN
@@ -3284,9 +3130,9 @@
 
 (DECLAIM (NOTINLINE |ElementaryFunctionStructurePackage;|)) 
 
-(DEFUN |ElementaryFunctionStructurePackage| (&REST #1=#:G994)
+(DEFUN |ElementaryFunctionStructurePackage| (&REST #1=#:G886)
   (SPROG NIL
-         (PROG (#2=#:G995)
+         (PROG (#2=#:G887)
            (RETURN
             (COND
              ((LETT #2#
