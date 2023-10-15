@@ -530,7 +530,6 @@
  
 ; timedOptimization(code) ==
 ;   startTimingProcess 'optimization
-;   $getDomainCode : local := NIL
 ;   r := lispize code
 ;   if $reportOptimization then
 ;     sayBrightlyI bright '"Optimized LISP code:"
@@ -539,12 +538,10 @@
 ;   r
  
 (DEFUN |timedOptimization| (|code|)
-  (PROG (|$getDomainCode| |r|)
-    (DECLARE (SPECIAL |$getDomainCode|))
+  (PROG (|r|)
     (RETURN
      (PROGN
       (|startTimingProcess| '|optimization|)
-      (SETQ |$getDomainCode| NIL)
       (SETQ |r| (|lispize| |code|))
       (COND
        (|$reportOptimization|

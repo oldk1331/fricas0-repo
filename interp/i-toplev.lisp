@@ -195,7 +195,6 @@
 ;   $domPvar: local := NIL
 ;   $inRetract: local := NIL
 ;   object := processInteractive1(form, posnForm)
-;   --object := ERRORSET(LIST('processInteractive1,LIST('QUOTE,form),LIST('QUOTE,posnForm)),'t,'t)
 ;   if not($ProcessInteractiveValue) then
 ;     if $reportInstantiations = true then
 ;       reportInstantiations()
@@ -316,7 +315,6 @@
 ;   else
 ;     x' := x
 ;     md' := md
-;   $outputMode: local := md   --used by DEMO BOOT
 ;   mode:= (md=$EmptyMode => quadSch(); md)
 ;   if (md ~= $Void) or $printVoidIfTrue then
 ;     if null $collectOutput then TERPRI $algebraOutputStream
@@ -334,15 +332,13 @@
 ;   'done
  
 (DEFUN |recordAndPrint| (|x| |md|)
-  (PROG (|$outputMode| |mode| |x'| |md'|)
-    (DECLARE (SPECIAL |$outputMode|))
+  (PROG (|md'| |x'| |mode|)
     (RETURN
      (PROGN
       (COND
        ((AND (EQUAL |md| '(|Any|)) |$printAnyIfTrue|) (SETQ |md'| (CAR |x|))
         (SETQ |x'| (CDR |x|)))
        (#1='T (SETQ |x'| |x|) (SETQ |md'| |md|)))
-      (SETQ |$outputMode| |md|)
       (SETQ |mode| (COND ((EQUAL |md| |$EmptyMode|) (|quadSch|)) (#1# |md|)))
       (COND
        ((OR (NOT (EQUAL |md| |$Void|)) |$printVoidIfTrue|)
@@ -378,20 +374,23 @@
 ;   if $printTimeIfTrue then
 ;     timeString := makeLongTimeString($interpreterTimedNames,
 ;       $interpreterTimedClasses)
+;   if $printTypeIfTrue then
+;       type_string := outputDomainConstructor(m)
 ;   $printTimeIfTrue and $printTypeIfTrue =>
 ;     $collectOutput =>
-;       $outputLines := [msgText("S2GL0012", [m]), :$outputLines]
-;     sayKeyedMsg("S2GL0014",[m,timeString])
+;       $outputLines := [msgText("S2GL0012", [type_string]), :$outputLines]
+;     sayKeyedMsg("S2GL0014", [type_string, timeString])
 ;   $printTimeIfTrue =>
 ;     $collectOutput => nil
 ;     sayKeyedMsg("S2GL0013",[timeString])
 ;   $printTypeIfTrue =>
 ;     $collectOutput =>
-;       $outputLines := [justifyMyType msgText("S2GL0012", [m]), :$outputLines]
-;     sayKeyedMsg("S2GL0012",[m])
+;         $outputLines :=
+;             [justifyMyType msgText("S2GL0012", [type_string]), :$outputLines]
+;     sayKeyedMsg("S2GL0012", [type_string])
  
 (DEFUN |printTypeAndTimeNormal| (|x| |m|)
-  (PROG (|argl| |x'| |m'| |timeString|)
+  (PROG (|argl| |x'| |m'| |timeString| |type_string|)
     (RETURN
      (PROGN
       (COND
@@ -420,12 +419,16 @@
                 (|makeLongTimeString| |$interpreterTimedNames|
                  |$interpreterTimedClasses|))))
       (COND
+       (|$printTypeIfTrue|
+        (SETQ |type_string| (|outputDomainConstructor| |m|))))
+      (COND
        ((AND |$printTimeIfTrue| |$printTypeIfTrue|)
         (COND
          (|$collectOutput|
           (SETQ |$outputLines|
-                  (CONS (|msgText| 'S2GL0012 (LIST |m|)) |$outputLines|)))
-         (#1# (|sayKeyedMsg| 'S2GL0014 (LIST |m| |timeString|)))))
+                  (CONS (|msgText| 'S2GL0012 (LIST |type_string|))
+                        |$outputLines|)))
+         (#1# (|sayKeyedMsg| 'S2GL0014 (LIST |type_string| |timeString|)))))
        (|$printTimeIfTrue|
         (COND (|$collectOutput| NIL)
               (#1# (|sayKeyedMsg| 'S2GL0013 (LIST |timeString|)))))
@@ -433,9 +436,10 @@
         (COND
          (|$collectOutput|
           (SETQ |$outputLines|
-                  (CONS (|justifyMyType| (|msgText| 'S2GL0012 (LIST |m|)))
-                        |$outputLines|)))
-         (#1# (|sayKeyedMsg| 'S2GL0012 (LIST |m|))))))))))
+                  (CONS
+                   (|justifyMyType| (|msgText| 'S2GL0012 (LIST |type_string|)))
+                   |$outputLines|)))
+         (#1# (|sayKeyedMsg| 'S2GL0012 (LIST |type_string|))))))))))
  
 ; printTypeAndTimeSaturn(x, m) ==
 ;   -- header
@@ -605,20 +609,17 @@
       (COND ((EQ |c| '|tryAgain|) (|interpretTopLevel| |x| |posnForm|))
             (#1# |c|))))))
  
-; interpret(x, :restargs) ==
-;   posnForm := if PAIRP restargs then first restargs else restargs
+; interpret(x, posnForm) ==
 ;   --type analyzes and evaluates expression x, returns object
 ;   $env:local := [[NIL]]
 ;   $genValue:local := true       --evaluate all generated code
 ;   interpret1(x,nil,posnForm)
  
-(DEFUN |interpret| (|x| &REST |restargs|)
-  (PROG (|$genValue| |$env| |posnForm|)
+(DEFUN |interpret| (|x| |posnForm|)
+  (PROG (|$genValue| |$env|)
     (DECLARE (SPECIAL |$genValue| |$env|))
     (RETURN
      (PROGN
-      (SETQ |posnForm|
-              (COND ((CONSP |restargs|) (CAR |restargs|)) ('T |restargs|)))
       (SETQ |$env| (LIST (LIST NIL)))
       (SETQ |$genValue| T)
       (|interpret1| |x| NIL |posnForm|)))))

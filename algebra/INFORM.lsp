@@ -19,7 +19,7 @@
 
 (SDEFUN |INFORM;interpret;$A;7| ((|x| $) ($ |Any|))
         (SPROG ((|v| (|None|)))
-               (SEQ (LETT |v| (|interpret| |x|) |INFORM;interpret;$A;7|)
+               (SEQ (LETT |v| (|interpret| |x| NIL) |INFORM;interpret;$A;7|)
                     (EXIT
                      (|mkObj| (|unwrap| (|objVal| |v|)) (|objMode| |v|)))))) 
 

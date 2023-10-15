@@ -40,31 +40,13 @@
         (SPADCALL |c1| (SPADCALL "E" (QREFELT $ 13)) (QREFELT $ 15))) 
 
 (SDEFUN |NUMFMT;ScanFloatIgnoreSpaces;SF;5| ((|s| |String|) ($ |Float|))
-        (SPROG
-         ((|f| (|Integer|)) (|sCheck| (|SExpression|)) (|sex| (|SExpression|)))
-         (SEQ
-          (LETT |s| (|NUMFMT;contract| |s| $)
-                . #1=(|NUMFMT;ScanFloatIgnoreSpaces;SF;5|))
-          (COND
-           ((NULL (|NUMFMT;check| |s| $))
-            (EXIT (|error| "Non-numeric value"))))
-          (LETT |sex| (|interpret| (|packageTran| (|ncParseFromString| |s|)))
-                . #1#)
-          (LETT |sCheck|
-                (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
-                . #1#)
-          (EXIT
-           (COND
-            ((|BooleanEquality|
-              (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
-             (LETT |f|
-                   (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 25))
-                   . #1#))
-            ((|BooleanEquality|
-              (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26)) 'T)
-             (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
-                  (EXIT (SPADCALL |f| (QREFELT $ 29)))))
-            ('T (|error| "Non-numeric value"))))))) 
+        (SPROG ((|res| (|Union| (|Float|) "failed")))
+               (SEQ
+                (LETT |res| (SPADCALL |s| (QREFELT $ 24))
+                      |NUMFMT;ScanFloatIgnoreSpaces;SF;5|)
+                (EXIT
+                 (COND ((QEQCAR |res| 1) (|error| "Non-numeric value"))
+                       ('T (QCDR |res|))))))) 
 
 (SDEFUN |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|
         ((|s| |String|) ($ |Union| (|Float|) "failed"))
@@ -74,24 +56,25 @@
           (LETT |s| (|NUMFMT;contract| |s| $)
                 . #1=(|NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6|))
           (COND ((NULL (|NUMFMT;check| |s| $)) (EXIT (CONS 1 "failed"))))
-          (LETT |sex| (|interpret| (|packageTran| (|ncParseFromString| |s|)))
+          (LETT |sex|
+                (|interpret| (|packageTran| (|ncParseFromString| |s|)) NIL)
                 . #1#)
           (LETT |sCheck|
-                (SPADCALL (SPADCALL |sex| (QREFELT $ 23)) (QREFELT $ 23))
+                (SPADCALL (SPADCALL |sex| (QREFELT $ 27)) (QREFELT $ 27))
                 . #1#)
           (EXIT
            (COND
             ((|BooleanEquality|
-              (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 24)) 'T)
+              (SPADCALL |sCheck| (QREFELT $ 22) (QREFELT $ 28)) 'T)
              (LETT |f|
                    (CONS 0
-                         (SPADCALL (SPADCALL |sex| (QREFELT $ 25))
-                                   (QREFELT $ 25)))
+                         (SPADCALL (SPADCALL |sex| (QREFELT $ 29))
+                                   (QREFELT $ 29)))
                    . #1#))
             ((|BooleanEquality|
-              (SPADCALL (SPADCALL |sex| (QREFELT $ 25)) (QREFELT $ 26)) 'T)
-             (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 25)) . #1#)
-                  (EXIT (CONS 0 (SPADCALL |f| (QREFELT $ 29))))))
+              (SPADCALL (SPADCALL |sex| (QREFELT $ 29)) (QREFELT $ 30)) 'T)
+             (SEQ (LETT |f| (SPADCALL |sex| (QREFELT $ 29)) . #1#)
+                  (EXIT (CONS 0 (SPADCALL |f| (QREFELT $ 32))))))
             ('T (CONS 1 "failed"))))))) 
 
 (PUT '|NUMFMT;FormatArabic;PiS;7| '|SPADreplace| 'STRINGIMAGE) 
@@ -104,9 +87,9 @@
 
 (SDEFUN |NUMFMT;FormatRoman;PiS;9| ((|pn| |PositiveInteger|) ($ |String|))
         (SPROG
-         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G170 NIL) (|j| NIL)
-          (#2=#:G169 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
-          (|i| NIL) (#3=#:G156 NIL))
+         ((|s| (|String|)) (|mm| (|String|)) (#1=#:G165 NIL) (|j| NIL)
+          (#2=#:G164 NIL) (|m0| (|String|)) (|n| (|Integer|)) (|d| (|Integer|))
+          (|i| NIL) (#3=#:G151 NIL))
          (SEQ (LETT |n| |pn| . #4=(|NUMFMT;FormatRoman;PiS;9|))
               (LETT |d| (+ (REM |n| 10) (QREFELT $ 39)) . #4#)
               (LETT |n| (QUOTIENT2 |n| 10) . #4#)
@@ -261,9 +244,9 @@
 
 (SDEFUN |NUMFMT;ScanRoman;SPi;10| ((|s| |String|) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G181 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
-          (|n| (|Integer|)) (#2=#:G184 NIL) (|i| (|Integer|))
-          (|c| (|Character|)) (#3=#:G185 NIL) (|k| NIL)
+         ((#1=#:G176 NIL) (|Max| (|Integer|)) (|tot| (|Integer|))
+          (|n| (|Integer|)) (#2=#:G179 NIL) (|i| (|Integer|))
+          (|c| (|Character|)) (#3=#:G180 NIL) (|k| NIL)
           (|nprens| (|PositiveInteger|)))
          (SEQ
           (LETT |s| (SPADCALL |s| (QREFELT $ 55))
@@ -333,7 +316,7 @@
                                                    (|error|
                                                     "Improper Roman numeral: unbalanced ')'")
                                                    . #4#)
-                                             (GO #5=#:G173)))))))
+                                             (GO #5=#:G168)))))))
                                        #5# (EXIT #2#))
                                       (LETT |k| (|inc_SI| |k|) . #4#) (GO G190)
                                       G191 (EXIT NIL))
@@ -362,7 +345,7 @@
 
 (DEFUN |NumberFormats| ()
   (SPROG NIL
-         (PROG (#1=#:G187)
+         (PROG (#1=#:G182)
            (RETURN
             (COND
              ((LETT #1# (HGET |$ConstructorCache| '|NumberFormats|)
@@ -430,17 +413,18 @@
               (|List| $) (|Character|) (6 . |split|) (12 . |concat|)
               (17 . |char|) (|Boolean|) (22 . =) (|Mapping| 14 10)
               (28 . |any?|) (|Symbol|) (34 . |coerce|) (|SExpression|)
-              (39 . |convert|) '|sexfloat| (44 . |car|) (49 . =) (55 . |cdr|)
-              (60 . |integer?|) (|Integer|) (|Float|) (65 . |coerce|)
-              |NUMFMT;ScanFloatIgnoreSpaces;SF;5| (|Union| 28 '"failed")
-              |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6| (|List| 7)
-              (|PrimitiveArray| 7) (70 . |construct|) '|units| '|tens| '|hunds|
-              '|umin| '|tmin| '|hmin| '|romval| '|thou| '|plen| '|pren|
-              '|ichar| (|PositiveInteger|) |NUMFMT;FormatArabic;PiS;7|
-              (|ScanningUtilities|) (75 . |parse_integer|)
-              |NUMFMT;ScanArabic;SPi;8| (|NonNegativeInteger|) (80 . >)
-              |NUMFMT;FormatRoman;PiS;9| (86 . |upperCase|) (91 . |maxIndex|)
-              (96 . |minIndex|) (101 . |elt|) (107 . ~=) (113 . ^) (119 . <=)
+              (39 . |convert|) '|sexfloat| (|Union| 25 '"failed")
+              |NUMFMT;ScanFloatIgnoreSpacesIfCan;SU;6| (|Float|)
+              |NUMFMT;ScanFloatIgnoreSpaces;SF;5| (44 . |car|) (49 . =)
+              (55 . |cdr|) (60 . |integer?|) (|Integer|) (65 . |coerce|)
+              (|List| 7) (|PrimitiveArray| 7) (70 . |construct|) '|units|
+              '|tens| '|hunds| '|umin| '|tmin| '|hmin| '|romval| '|thou|
+              '|plen| '|pren| '|ichar| (|PositiveInteger|)
+              |NUMFMT;FormatArabic;PiS;7| (|ScanningUtilities|)
+              (75 . |parse_integer|) |NUMFMT;ScanArabic;SPi;8|
+              (|NonNegativeInteger|) (80 . >) |NUMFMT;FormatRoman;PiS;9|
+              (86 . |upperCase|) (91 . |maxIndex|) (96 . |minIndex|)
+              (101 . |elt|) (107 . ~=) (113 . ^) (119 . <=)
               |NUMFMT;ScanRoman;SPi;10|)
            '#(|ScanRoman| 125 |ScanFloatIgnoreSpacesIfCan| 130
               |ScanFloatIgnoreSpaces| 135 |ScanArabic| 140 |FormatRoman| 145
@@ -454,15 +438,15 @@
                                                    7 0 9 12 1 10 0 7 13 2 10 14
                                                    0 0 15 2 7 14 16 0 17 1 18 0
                                                    7 19 1 20 0 18 21 1 20 0 0
-                                                   23 2 20 14 0 0 24 1 20 0 0
-                                                   25 1 20 14 0 26 1 28 0 27 29
-                                                   1 34 0 33 35 1 49 27 7 50 2
+                                                   27 2 20 14 0 0 28 1 20 0 0
+                                                   29 1 20 14 0 30 1 25 0 31 32
+                                                   1 34 0 33 35 1 49 31 7 50 2
                                                    52 14 0 0 53 1 7 0 0 55 1 7
-                                                   27 0 56 1 7 27 0 57 2 7 10 0
-                                                   27 58 2 10 14 0 0 59 2 47 0
-                                                   0 47 60 2 27 14 0 0 61 1 0
-                                                   47 7 62 1 0 31 7 32 1 0 28 7
-                                                   30 1 0 47 7 51 1 0 7 47 54 1
+                                                   31 0 56 1 7 31 0 57 2 7 10 0
+                                                   31 58 2 10 14 0 0 59 2 47 0
+                                                   0 47 60 2 31 14 0 0 61 1 0
+                                                   47 7 62 1 0 23 7 24 1 0 25 7
+                                                   26 1 0 47 7 51 1 0 7 47 54 1
                                                    0 7 47 48)))))
            '|lookupComplete|)) 
 

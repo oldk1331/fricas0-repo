@@ -719,11 +719,7 @@
 ;       if ATOM(name)
 ;         then $e:= augModemapsFromCategory(name,name,name,cat,$e)
 ;         else
-;           -- xxxx do we really need this?
-;           viewName := name
-;           genDomainView(viewName, cat, "HasCategory")
-;           if not MEMQ(viewName,$functorLocalParameters) then
-;              $functorLocalParameters:=[:$functorLocalParameters,viewName]
+;             $e := augModemapsFromCategory(name, name, nil, cat, $e)
 ;       SAY("augmenting ",name,": ",cat)
 ;       $e:= put(name,"value",[vval,mkJoin(cat,vmode),venv],$e)
 ;     SAY("extension of ",vval," to ",cat," ignored")
@@ -734,7 +730,7 @@
   (DECLARE (SPECIAL |$e|))
   (PROG (|l| |Info| |ante| |conseq| |ISTMP#1| |name| |ISTMP#2| |att| |operator|
          |ISTMP#3| |modemap| |implem| |LETTMP#1| |vval| |vmode| |venv| |key|
-         |cat| |catvec| |ocatvec| |viewName|)
+         |cat| |catvec| |ocatvec|)
     (RETURN
      (COND ((NULL |u|) |$e|)
            ((AND (CONSP |u|) (EQ (CAR |u|) 'PROGN)
@@ -888,14 +884,10 @@
                              (SETQ |$e|
                                      (|augModemapsFromCategory| |name| |name|
                                       |name| |cat| |$e|)))
-                            (#1# (SETQ |viewName| |name|)
-                             (|genDomainView| |viewName| |cat| '|HasCategory|)
-                             (COND
-                              ((NULL
-                                (MEMQ |viewName| |$functorLocalParameters|))
-                               (SETQ |$functorLocalParameters|
-                                       (APPEND |$functorLocalParameters|
-                                               (CONS |viewName| NIL)))))))
+                            (#1#
+                             (SETQ |$e|
+                                     (|augModemapsFromCategory| |name| |name|
+                                      NIL |cat| |$e|))))
                            (SAY '|augmenting | |name| '|: | |cat|)
                            (SETQ |$e|
                                    (|put| |name| '|value|

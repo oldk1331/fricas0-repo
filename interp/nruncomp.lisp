@@ -1360,8 +1360,6 @@
 ;   codePart3:= [:$ConstantAssignments,:$epilogue]
 ;   ans :=
 ;     ['PROGN,:optFunctorPROGN [:codePart1,:codePart2,:codePart3], '$]
-;   $getDomainCode:= nil
-;     --if we didn't kill this, DEFINE would insert it in the wrong place
 ;   ans:= minimalise ans
 ;   SAY ['"time taken in buildFunctor: ", get_run_time() - oldtime]
 ;   --sayBrightly '"------------------functor code: -------------------"
@@ -1586,7 +1584,6 @@
                      (|optFunctorPROGN|
                       (APPEND |codePart1| (APPEND |codePart2| |codePart3|)))
                      (CONS '$ NIL))))
-      (SETQ |$getDomainCode| NIL)
       (SETQ |ans| (|minimalise| |ans|))
       (SAY
        (LIST "time taken in buildFunctor: " (- (|get_run_time|) |oldtime|)))
