@@ -594,8 +594,6 @@
 (defmacro qvsize (x)
  `(the fixnum (length (the simple-vector ,x))))
 
-(defmacro qlessp(x y) `(< ,x ,y))
-
 (defmacro eqcar (x y)
   (if (atom x)
     `(and (consp ,x) (eql (qcar ,x) ,y))

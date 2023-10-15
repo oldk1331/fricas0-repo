@@ -80,6 +80,8 @@
                                                      (|CommutativeRing|)))
                                              ((|unitsKnown|)
                                               (|has| |t#2| (|unitsKnown|)))
+                                             ((|OrderedSet|)
+                                              (|has| |t#2| (|OrderedSet|)))
                                              ((|OrderedRing|)
                                               (|has| |t#2| (|OrderedRing|)))
                                              ((|OrderedAbelianMonoidSup|)

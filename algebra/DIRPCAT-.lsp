@@ -165,6 +165,8 @@
                                               (|HasCategory| |#3|
                                                              '(|OrderedRing|))
                                               (|HasCategory| |#3|
+                                                             '(|OrderedSet|))
+                                              (|HasCategory| |#3|
                                                              '(|unitsKnown|))
                                               (|HasCategory| |#3|
                                                              '(|CommutativeRing|))
@@ -187,7 +189,7 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 12)
+           ((|testBitVector| |pv$| 13)
             (PROGN
              (QSETREFV $ 12
                        (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
@@ -213,7 +215,7 @@
                        (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|)
                              $)))))
           (COND
-           ((|testBitVector| |pv$| 6)
+           ((|testBitVector| |pv$| 7)
             (PROGN
              (QSETREFV $ 51
                        (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
