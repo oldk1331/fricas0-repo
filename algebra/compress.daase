@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(4848 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(4846 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -349,8 +349,7 @@
  |RegularSetDecompositionPackage| |RegularTriangularSetCategory&|
  |RegularTriangularSetCategory| |RegularTriangularSetGcdPackage| |RewriteRule|
  |RuleCalled| |Ruleset| |RationalUnivariateRepresentationPackage|
- |SimpleAlgebraicExtension| |SimpleAlgebraicExtensionAlgFactor|
- |SAERationalFunctionAlgFactor| |SingletonAsOrderedSet| |SArgand| |SBoundary|
+ |SimpleAlgebraicExtension| |SingletonAsOrderedSet| |SArgand| |SBoundary|
  |SortedCache| |ScanningUtilities| |SimpleCell| |Scene| |SceneIFS|
  |SceneNamedPoints| |SConformal| |StructuralConstantsPackage| |SCartesian|
  |SequentialDifferentialPolynomial| |SequentialDifferentialVariable| |Segment|
