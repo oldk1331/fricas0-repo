@@ -76,7 +76,7 @@
          (#1# (CONS (CONS |pred1| |act1|) |restClauses|)))))
       (#1# (LIST (LIST ''T |clauses|)))))))
  
-; COMP_-1(x) ==
+; COMP_1(x) ==
 ;   [fname, lamex, :.] := x
 ;   $FUNNAME : local := fname
 ;   $FUNNAME_TAIL : local := [fname]
@@ -87,7 +87,7 @@
 ;       FORMAT(true, '"~&~%;;;     ***       ~S REDEFINED~%", fname)
 ;   [[fname, lamex], :$CLOSEDFNS]
  
-(DEFUN COMP-1 (|x|)
+(DEFUN COMP_1 (|x|)
   (PROG ($CLOSEDFNS $FUNNAME_TAIL $FUNNAME |lamex| |fname|)
     (DECLARE (SPECIAL $CLOSEDFNS $FUNNAME_TAIL $FUNNAME))
     (RETURN
@@ -104,7 +104,7 @@
         (FORMAT T "~&~%;;;     ***       ~S REDEFINED~%" |fname|)))
       (CONS (LIST |fname| |lamex|) $CLOSEDFNS)))))
  
-; COMP_-2(args) ==
+; COMP_2(args) ==
 ;     [name, [type, argl, :bodyl], :junk] := args
 ;     junk => MOAN (FORMAT(nil, '"******pren error in (~S (~S ...) ...)",_
 ;                          name, type))
@@ -123,7 +123,7 @@
 ;       COMP370(bodyl)
 ;     name
  
-(DEFUN COMP-2 (|args|)
+(DEFUN COMP_2 (|args|)
   (PROG (|name| |type| |argl| |bodyl| |junk|)
     (RETURN
      (PROGN
@@ -150,7 +150,7 @@
                (#2# (COMP370 |bodyl|)))
          |name|)))))))
  
-; COMP(fun) == [COMP_-2 nf for nf in COMP_-1(fun)]
+; COMP(fun) == [COMP_2 nf for nf in COMP_1(fun)]
  
 (DEFUN COMP (|fun|)
   (PROG ()
@@ -160,9 +160,9 @@
          (COND
           ((OR (ATOM |bfVar#1|) (PROGN (SETQ |nf| (CAR |bfVar#1|)) NIL))
            (RETURN (NREVERSE |bfVar#2|)))
-          ('T (SETQ |bfVar#2| (CONS (COMP-2 |nf|) |bfVar#2|))))
+          ('T (SETQ |bfVar#2| (CONS (COMP_2 |nf|) |bfVar#2|))))
          (SETQ |bfVar#1| (CDR |bfVar#1|))))
-      NIL (COMP-1 |fun|) NIL))))
+      NIL (COMP_1 |fun|) NIL))))
  
 ; compSPADSLAM(name, argl, bodyl) ==
 ;     al := INTERNL(name, '";AL")
@@ -363,10 +363,13 @@
 ;                             not(CONTAINED("EXIT", x3))) => x3
 ;         ["SEQ", :xl3]
 ;     fluids := REMDUP(NREVERSE($fluidVars))
-;     $locVars := S_-(S_-(REMDUP(NREVERSE($locVars)), fluids), LISTOFATOMS (x2))
+;     $locVars := set_difference(
+;                    set_difference(REMDUP(NREVERSE($locVars)), fluids),
+;                    LISTOFATOMS (x2))
 ;     lvars := APPEND(fluids, $locVars)
 ;     x3 :=
 ;         fluids =>
+;             BREAK()
 ;             ["SPROG", compSpadProg(lvars),
 ;              ["DECLARE", ["SPECIAL", :fluids]], x3]
 ;         lvars or CONTAINED("RETURN", x3) =>
@@ -401,14 +404,17 @@
                (#2='T (CONS 'SEQ |xl3|))))
       (SETQ |fluids| (REMDUP (NREVERSE |$fluidVars|)))
       (SETQ |$locVars|
-              (S- (S- (REMDUP (NREVERSE |$locVars|)) |fluids|)
+              (|set_difference|
+               (|set_difference| (REMDUP (NREVERSE |$locVars|)) |fluids|)
                (LISTOFATOMS |x2|)))
       (SETQ |lvars| (APPEND |fluids| |$locVars|))
       (SETQ |x3|
               (COND
                (|fluids|
-                (LIST 'SPROG (|compSpadProg| |lvars|)
-                      (LIST 'DECLARE (CONS 'SPECIAL |fluids|)) |x3|))
+                (PROGN
+                 (BREAK)
+                 (LIST 'SPROG (|compSpadProg| |lvars|)
+                       (LIST 'DECLARE (CONS 'SPECIAL |fluids|)) |x3|)))
                ((OR |lvars| (CONTAINED 'RETURN |x3|))
                 (LIST 'SPROG (|compSpadProg| |lvars|) |x3|))
                (#2# |x3|)))

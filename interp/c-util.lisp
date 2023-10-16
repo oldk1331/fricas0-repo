@@ -440,9 +440,9 @@
 ;         --but this can not be done here, but should be done by compIf
 ;       m:=
 ;         m1 is ["Union",:.] =>
-;           m2 is ["Union",:.] => ["Union",:S_+(rest m1,rest m2)]
-;           ["Union",:S_+(rest m1,[m2])]
-;         m2 is ["Union",:.] => ["Union",:S_+(rest m2,[m1])]
+;           m2 is ["Union", :.] => ["Union", :set_sum(rest m1, rest m2)]
+;           ["Union", :set_sum(rest m1, [m2])]
+;         m2 is ["Union",:.] => ["Union", :set_sum(rest m2, [m1])]
 ;         ["Union",m1,m2]
 ;       for u in getDomainsInScope $e repeat
 ;         if u is ["Union",:u'] and (and/[member(v,u') for v in rest m]) then
@@ -562,10 +562,11 @@
                       ((AND (CONSP |m1|) (EQ (CAR |m1|) '|Union|))
                        (COND
                         ((AND (CONSP |m2|) (EQ (CAR |m2|) '|Union|))
-                         (CONS '|Union| (S+ (CDR |m1|) (CDR |m2|))))
-                        (#1# (CONS '|Union| (S+ (CDR |m1|) (LIST |m2|))))))
+                         (CONS '|Union| (|set_sum| (CDR |m1|) (CDR |m2|))))
+                        (#1#
+                         (CONS '|Union| (|set_sum| (CDR |m1|) (LIST |m2|))))))
                       ((AND (CONSP |m2|) (EQ (CAR |m2|) '|Union|))
-                       (CONS '|Union| (S+ (CDR |m2|) (LIST |m1|))))
+                       (CONS '|Union| (|set_sum| (CDR |m2|) (LIST |m1|))))
                       (#1# (LIST '|Union| |m1| |m2|))))
              ((LAMBDA (|bfVar#15| |u|)
                 (LOOP

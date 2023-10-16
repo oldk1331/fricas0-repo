@@ -1365,7 +1365,7 @@
 ; 
 ;   for b in l repeat
 ;     sigl:= SigListUnion([DropImplementations u for u in b.(1)],sigl)
-;     globalDomains:= [:globalDomains,:S_-(b.5,globalDomains)]
+;     globalDomains:= [:globalDomains, :set_difference(b.5, globalDomains)]
 ;   for b in CondList repeat
 ;     newpred:= first rest b
 ;     sigl:=
@@ -1464,7 +1464,8 @@
                       |sigl|))
              (SETQ |globalDomains|
                      (APPEND |globalDomains|
-                             (S- (ELT |b| 5) |globalDomains|))))))
+                             (|set_difference| (ELT |b| 5)
+                              |globalDomains|))))))
           (SETQ |bfVar#53| (CDR |bfVar#53|))))
        |l| NIL)
       ((LAMBDA (|bfVar#56| |b|)

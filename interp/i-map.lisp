@@ -508,8 +508,8 @@
 ;   body is ["WRAPPED",:.] => nil
 ;   (body is ["COLLECT",:itl,body1]) or (body is ['REPEAT,:itl,body1]) =>
 ;     userIds :=
-;       S_+(getUserIdentifiersInIterators itl,getUserIdentifiersIn body1)
-;     S_-(userIds,getIteratorIds itl)
+;       set_sum(getUserIdentifiersInIterators itl, getUserIdentifiersIn body1)
+;     set_difference(userIds, getIteratorIds itl)
 ;   body is [op,:l] =>
 ;     argIdList:= "append"/[getUserIdentifiersIn y for y in l]
 ;     bodyIdList :=
@@ -552,9 +552,9 @@
                         (PROGN (SETQ |itl| (NREVERSE |itl|)) #1#)))))
             (PROGN
              (SETQ |userIds|
-                     (S+ (|getUserIdentifiersInIterators| |itl|)
+                     (|set_sum| (|getUserIdentifiersInIterators| |itl|)
                       (|getUserIdentifiersIn| |body1|)))
-             (S- |userIds| (|getIteratorIds| |itl|))))
+             (|set_difference| |userIds| (|getIteratorIds| |itl|))))
            ((AND (CONSP |body|)
                  (PROGN (SETQ |op| (CAR |body|)) (SETQ |l| (CDR |body|)) #1#))
             (PROGN
