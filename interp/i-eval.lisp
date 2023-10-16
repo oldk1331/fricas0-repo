@@ -3,6 +3,10 @@
  
 (IN-PACKAGE "BOOT")
  
+; $genValue := false
+ 
+(EVAL-WHEN (EVAL LOAD) (SETQ |$genValue| NIL))
+ 
 ; quoteNontypeArgs(t) ==
 ;     t is [.] => t
 ;     op := opOf t
