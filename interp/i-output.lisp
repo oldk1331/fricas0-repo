@@ -42,10 +42,6 @@
  
 (EVAL-WHEN (EVAL LOAD) (PROG () (RETURN (DEFCONST |$DoubleQuote| "\""))))
  
-; DEFPARAMETER($demoFlag, false)
- 
-(DEFPARAMETER |$demoFlag| NIL)
- 
 ; DEFVAR($algebraFormat, true) -- produce 2-d algebra output
  
 (DEFVAR |$algebraFormat| T)
@@ -284,27 +280,22 @@
 ; appChar(string,x,y,d) ==
 ;   if CHARP string then string := PNAME string
 ;   line:= LASSOC(y,d) =>
-;     shiftedX:= (y=0 => x+$highlightDelta; x)
-;       --shift x for brightening characters -- presently only if y=0
-;     RPLACSTR(line,shiftedX,n:=#string,string,0,n)
-;     d
+;         RPLACSTR(line, x, n := #string, string, 0, n)
+;         d
 ;   appChar(string, x, y, nconc(d,
 ;             [[y, :make_full_CVEC(10 + $LINELENGTH + $MARGIN, " ")]]))
  
 (DEFUN |appChar| (|string| |x| |y| |d|)
-  (PROG (|line| |shiftedX| |n|)
+  (PROG (|line| |n|)
     (RETURN
      (PROGN
       (COND ((CHARP |string|) (SETQ |string| (PNAME |string|))))
       (COND
        ((SETQ |line| (LASSOC |y| |d|))
         (PROGN
-         (SETQ |shiftedX|
-                 (COND ((EQL |y| 0) (+ |x| |$highlightDelta|)) (#1='T |x|)))
-         (RPLACSTR |line| |shiftedX| (SETQ |n| (LENGTH |string|)) |string| 0
-          |n|)
+         (RPLACSTR |line| |x| (SETQ |n| (LENGTH |string|)) |string| 0 |n|)
          |d|))
-       (#1#
+       ('T
         (|appChar| |string| |x| |y|
          (NCONC |d|
                 (LIST
@@ -1919,17 +1910,22 @@
 (DEFUN |aggApp| (|u| |x| |y| |d|)
   (PROG () (RETURN (|aggregateApp| (CDR |u|) |x| |y| |d| '|, |))))
  
-; aggregateApp(u,x,y,d,s) ==
+; aggregateApp(u, x, y, d, s) == agg_app(u, x, y, d, s, WIDTH(s))
+ 
+(DEFUN |aggregateApp| (|u| |x| |y| |d| |s|)
+  (PROG () (RETURN (|agg_app| |u| |x| |y| |d| |s| (WIDTH |s|)))))
+ 
+; agg_app(u, x, y, d, s, width_s) ==
 ;   if u is [a,:l] then
 ;     d:= APP(a,x,y,d)
 ;     x:= x+WIDTH a
 ;     for b in l repeat
-;       d:= APP(s,x,y,d)
-;       d:= APP(b,x+WIDTH s,y,d)
-;       x:= x+WIDTH s+WIDTH b
+;         d := APP(s, x, y, d)
+;         d := APP(b, x + width_s, y, d)
+;         x := x + width_s + WIDTH(b)
 ;   d
  
-(DEFUN |aggregateApp| (|u| |x| |y| |d| |s|)
+(DEFUN |agg_app| (|u| |x| |y| |d| |s| |width_s|)
   (PROG (|a| |l|)
     (RETURN
      (PROGN
@@ -1945,8 +1941,8 @@
              (#1#
               (PROGN
                (SETQ |d| (APP |s| |x| |y| |d|))
-               (SETQ |d| (APP |b| (+ |x| (WIDTH |s|)) |y| |d|))
-               (SETQ |x| (+ (+ |x| (WIDTH |s|)) (WIDTH |b|))))))
+               (SETQ |d| (APP |b| (+ |x| |width_s|) |y| |d|))
+               (SETQ |x| (+ (+ |x| |width_s|) (WIDTH |b|))))))
             (SETQ |bfVar#54| (CDR |bfVar#54|))))
          |l| NIL)))
       |d|))))
@@ -2316,8 +2312,6 @@
 ;       -- mm:=[[m,1,0],[0,m,1],[0,1,m]]
 ;       -- and try to print mm**5
 ;       u := assoc(y,$MatrixList)
-;       --$MatrixList := deleteAssoc(first u,$MatrixList)
-;       -- deleteAssoc no longer exists
 ;       $MatrixList := delete(u,$MatrixList)
 ;       maPrin ['EQUATNUM,n,rest u]
 ;       if not $collectOutput then TERPRI $algebraOutputStream
@@ -2646,18 +2640,12 @@
 ;     --Taking out any outdated size information as it goes
 ;   ATOM u => u
 ;   [[op,:n],:l]:=u
-;   --name := rassoc(u,$MatrixList) => name
-;   -- doesn't work since rassoc seems to use an EQ test, and returns the
-;   -- pair anyway. JHD 28/2/93
 ;   op = 'MATRIX =>
 ;     l' := SubstWhileDesizingList(rest l)
 ;     u :=
-;       -- CDR l=l' => u
-;       -- this was a CONS-saving optimisation, but it doesn't work JHD 28/2/93
 ;       [op,nil,:l']
 ;     PushMatrix u
 ;   l':=SubstWhileDesizingList(l)
-;   -- [op,:l']
 ;   ATOM op => [op,:l']
 ;   [SubstWhileDesizing(op),:l']
  
@@ -2683,42 +2671,19 @@
                       (#1# (CONS (|SubstWhileDesizing| |op|) |l'|))))))))))))
  
 ; SubstWhileDesizingList(u) ==
-;    u is [a,:b] =>
-;      res:=
-;        ATOM a => [a]
-;        [SubstWhileDesizing(a)]
-;      tail:=res
-;      for i in b repeat
-;         if ATOM i then  RPLACD(tail,[i]) else RPLACD(tail,[SubstWhileDesizing(i)])
-;         tail := rest tail
-;      res
-;    u
+;     [SubstWhileDesizing(i) for i in u]
  
 (DEFUN |SubstWhileDesizingList| (|u|)
-  (PROG (|a| |b| |res| |tail|)
+  (PROG ()
     (RETURN
-     (COND
-      ((AND (CONSP |u|)
-            (PROGN (SETQ |a| (CAR |u|)) (SETQ |b| (CDR |u|)) #1='T))
-       (PROGN
-        (SETQ |res|
-                (COND ((ATOM |a|) (LIST |a|))
-                      (#1# (LIST (|SubstWhileDesizing| |a|)))))
-        (SETQ |tail| |res|)
-        ((LAMBDA (|bfVar#69| |i|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#69|) (PROGN (SETQ |i| (CAR |bfVar#69|)) NIL))
-              (RETURN NIL))
-             (#1#
-              (PROGN
-               (COND ((ATOM |i|) (RPLACD |tail| (LIST |i|)))
-                     (#1# (RPLACD |tail| (LIST (|SubstWhileDesizing| |i|)))))
-               (SETQ |tail| (CDR |tail|)))))
-            (SETQ |bfVar#69| (CDR |bfVar#69|))))
-         |b| NIL)
-        |res|))
-      (#1# |u|)))))
+     ((LAMBDA (|bfVar#70| |bfVar#69| |i|)
+        (LOOP
+         (COND
+          ((OR (ATOM |bfVar#69|) (PROGN (SETQ |i| (CAR |bfVar#69|)) NIL))
+           (RETURN (NREVERSE |bfVar#70|)))
+          ('T (SETQ |bfVar#70| (CONS (|SubstWhileDesizing| |i|) |bfVar#70|))))
+         (SETQ |bfVar#69| (CDR |bfVar#69|))))
+      NIL |u| NIL))))
  
 ; sigmaSub u ==
 ;        --The depth function for sigmas with lower limit only
@@ -2872,21 +2837,21 @@
  
 ; sigmaWidth [.,bot,arg] == bigopWidth(bot,nil,arg,'sigma)
  
-(DEFUN |sigmaWidth| (|bfVar#70|)
+(DEFUN |sigmaWidth| (|bfVar#71|)
   (PROG (|bot| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#70|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#71|)))
       (SETQ |arg| (CADDR . #1#))
       (|bigopWidth| |bot| NIL |arg| '|sigma|)))))
  
 ; sigma2Width [.,bot,top,arg] == bigopWidth(bot,top,arg,'sigma)
  
-(DEFUN |sigma2Width| (|bfVar#71|)
+(DEFUN |sigma2Width| (|bfVar#72|)
   (PROG (|bot| |top| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#71|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#72|)))
       (SETQ |top| (CADDR . #1#))
       (SETQ |arg| (CADDDR . #1#))
       (|bigopWidth| |bot| |top| |arg| '|sigma|)))))
@@ -2942,21 +2907,21 @@
  
 ; piWidth [.,bot,arg] == bigopWidth(bot,nil,arg,'pi)
  
-(DEFUN |piWidth| (|bfVar#72|)
+(DEFUN |piWidth| (|bfVar#73|)
   (PROG (|bot| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#72|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#73|)))
       (SETQ |arg| (CADDR . #1#))
       (|bigopWidth| |bot| NIL |arg| '|pi|)))))
  
 ; pi2Width [.,bot,top,arg] == bigopWidth(bot,top,arg,'pi)
  
-(DEFUN |pi2Width| (|bfVar#73|)
+(DEFUN |pi2Width| (|bfVar#74|)
   (PROG (|bot| |top| |arg|)
     (RETURN
      (PROGN
-      (SETQ |bot| (CADR . #1=(|bfVar#73|)))
+      (SETQ |bot| (CADR . #1=(|bfVar#74|)))
       (SETQ |top| (CADDR . #1#))
       (SETQ |arg| (CADDDR . #1#))
       (|bigopWidth| |bot| |top| |arg| '|pi|)))))
@@ -2991,21 +2956,21 @@
  
 ; overlabelSuper [.,a,b] == 1 + height a + superspan b
  
-(DEFUN |overlabelSuper| (|bfVar#74|)
+(DEFUN |overlabelSuper| (|bfVar#75|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#74|)))
+      (SETQ |a| (CADR . #1=(|bfVar#75|)))
       (SETQ |b| (CADDR . #1#))
       (+ (+ 1 (|height| |a|)) (|superspan| |b|))))))
  
 ; overlabelWidth [.,a,b] == WIDTH b
  
-(DEFUN |overlabelWidth| (|bfVar#75|)
+(DEFUN |overlabelWidth| (|bfVar#76|)
   (PROG (|a| |b|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#75|)))
+      (SETQ |a| (CADR . #1=(|bfVar#76|)))
       (SETQ |b| (CADDR . #1#))
       (WIDTH |b|)))))
  
@@ -3019,11 +2984,11 @@
 ;   d := APP(a,middle,h + 1,d)
 ;   apphor(x, endPoint, y+superspan b+1,d,"|")
  
-(DEFUN |overlabelApp| (|bfVar#76| |x| |y| |d|)
+(DEFUN |overlabelApp| (|bfVar#77| |x| |y| |d|)
   (PROG (|a| |b| |wb| |endPoint| |middle| |h|)
     (RETURN
      (PROGN
-      (SETQ |a| (CADR . #1=(|bfVar#76|)))
+      (SETQ |a| (CADR . #1=(|bfVar#77|)))
       (SETQ |b| (CADDR . #1#))
       (SETQ |d| (APP |b| |x| |y| |d|))
       (SETQ |wb| (MAX (WIDTH |b|) 1))
@@ -3121,52 +3086,52 @@
   (PROG (|ISTMP#1| |a| |b| |c|)
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#78| |bfVar#77|)
+      ((LAMBDA (|bfVar#79| |bfVar#78|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#78|)
-                (PROGN (SETQ |bfVar#77| (CAR |bfVar#78|)) NIL))
+           ((OR (ATOM |bfVar#79|)
+                (PROGN (SETQ |bfVar#78| (CAR |bfVar#79|)) NIL))
             (RETURN NIL))
            (#1='T
-            (AND (CONSP |bfVar#77|)
+            (AND (CONSP |bfVar#78|)
                  (PROGN
-                  (SETQ |ISTMP#1| (CAR |bfVar#77|))
+                  (SETQ |ISTMP#1| (CAR |bfVar#78|))
                   (AND (CONSP |ISTMP#1|)
                        (PROGN
                         (SETQ |a| (CAR |ISTMP#1|))
                         (SETQ |b| (CDR |ISTMP#1|))
                         #1#)))
-                 (PROGN (SETQ |c| (CDR |bfVar#77|)) #1#)
+                 (PROGN (SETQ |c| (CDR |bfVar#78|)) #1#)
                  (SETQ |d| (|appChar| |c| (+ |x| |a|) (+ |y| |b|) |d|)))))
-          (SETQ |bfVar#78| (CDR |bfVar#78|))))
+          (SETQ |bfVar#79| (CDR |bfVar#79|))))
        |l| NIL)
       |d|))))
  
-; concatTrouble(u,d,start,lineLength,$addBlankIfTrue) ==
-;   [x,:l] := splitConcat(u,lineLength,true)
+; concatTrouble(u, d, start, lineLength, addBlankIfTrue) ==
+;   [x,:l] := splitConcat(u, lineLength, true, addBlankIfTrue)
 ;   null l =>
 ;     sayALGEBRA ['%l,'%b,'"  Too wide to Print",'%d]
 ;     THROW('output,nil)
-;   charybdis(fixUp x,start,lineLength)
+;   charybdis(fixUp(x, addBlankIfTrue), start, lineLength)
 ;   for y in l repeat
 ;     if d then prnd(start,d)
+;     y := fixUp(y, addBlankIfTrue)
 ;     if lineLength > 2 then
-;        charybdis(fixUp y,start+2,lineLength-2) -- JHD needs this to avoid lunacy
-;       else charybdis(fixUp y,start,1) -- JHD needs this to avoid lunacy
+;        charybdis(y, start + 2, lineLength - 2) -- JHD needs this to avoid lunacy
+;       else charybdis(y, start, 1) -- JHD needs this to avoid lunacy
 ;   BLANK
 ;  where
-;   fixUp x ==
+;   fixUp(x, addBlankIfTrue) ==
 ;     rest x =>
-;       $addBlankIfTrue => ['CONCATB,:x]
+;       addBlankIfTrue => ['CONCATB,:x]
 ;       ["CONCAT",:x]
 ;     first x
  
-(DEFUN |concatTrouble| (|u| |d| |start| |lineLength| |$addBlankIfTrue|)
-  (DECLARE (SPECIAL |$addBlankIfTrue|))
+(DEFUN |concatTrouble| (|u| |d| |start| |lineLength| |addBlankIfTrue|)
   (PROG (|LETTMP#1| |x| |l|)
     (RETURN
      (PROGN
-      (SETQ |LETTMP#1| (|splitConcat| |u| |lineLength| T))
+      (SETQ |LETTMP#1| (|splitConcat| |u| |lineLength| T |addBlankIfTrue|))
       (SETQ |x| (CAR |LETTMP#1|))
       (SETQ |l| (CDR |LETTMP#1|))
       (COND
@@ -3176,38 +3141,39 @@
          (THROW '|output| NIL)))
        (#1='T
         (PROGN
-         (|charybdis| (|concatTrouble,fixUp| |x|) |start| |lineLength|)
-         ((LAMBDA (|bfVar#79| |y|)
+         (|charybdis| (|concatTrouble,fixUp| |x| |addBlankIfTrue|) |start|
+          |lineLength|)
+         ((LAMBDA (|bfVar#80| |y|)
             (LOOP
              (COND
-              ((OR (ATOM |bfVar#79|) (PROGN (SETQ |y| (CAR |bfVar#79|)) NIL))
+              ((OR (ATOM |bfVar#80|) (PROGN (SETQ |y| (CAR |bfVar#80|)) NIL))
                (RETURN NIL))
               (#1#
                (PROGN
                 (COND (|d| (|prnd| |start| |d|)))
+                (SETQ |y| (|concatTrouble,fixUp| |y| |addBlankIfTrue|))
                 (COND
                  ((< 2 |lineLength|)
-                  (|charybdis| (|concatTrouble,fixUp| |y|) (+ |start| 2)
-                   (- |lineLength| 2)))
-                 (#1# (|charybdis| (|concatTrouble,fixUp| |y|) |start| 1))))))
-             (SETQ |bfVar#79| (CDR |bfVar#79|))))
+                  (|charybdis| |y| (+ |start| 2) (- |lineLength| 2)))
+                 (#1# (|charybdis| |y| |start| 1))))))
+             (SETQ |bfVar#80| (CDR |bfVar#80|))))
           |l| NIL)
          BLANK)))))))
-(DEFUN |concatTrouble,fixUp| (|x|)
+(DEFUN |concatTrouble,fixUp| (|x| |addBlankIfTrue|)
   (PROG ()
     (RETURN
      (COND
       ((CDR |x|)
-       (COND (|$addBlankIfTrue| (CONS 'CONCATB |x|))
+       (COND (|addBlankIfTrue| (CONS 'CONCATB |x|))
              (#1='T (CONS 'CONCAT |x|))))
       (#1# (CAR |x|))))))
  
-; splitConcat(list,maxWidth,firstTimeIfTrue) ==
+; splitConcat(list, maxWidth, firstTimeIfTrue, addBlankIfTrue) ==
 ;   null list => nil
 ;   -- split list l into a list of n lists, each of which
 ;   -- has width < maxWidth
 ;   totalWidth:= 0
-;   oneOrZero := ($addBlankIfTrue => 1; 0)
+;   oneOrZero := (addBlankIfTrue => 1; 0)
 ;   l := list
 ;   maxW:= (firstTimeIfTrue => maxWidth; maxWidth-2)
 ;   maxW < 1 => [[x] for x in l] -- JHD 22.8.95, otherwise things can break
@@ -3217,30 +3183,30 @@
 ;       totalWidth:= width
 ;   x:= rest l
 ;   rplac(rest l, nil)
-;   [list,:splitConcat(x,maxWidth,nil)]
+;   [list, :splitConcat(x, maxWidth, nil, addBlankIfTrue)]
  
-(DEFUN |splitConcat| (LIST |maxWidth| |firstTimeIfTrue|)
+(DEFUN |splitConcat| (LIST |maxWidth| |firstTimeIfTrue| |addBlankIfTrue|)
   (PROG (|totalWidth| |oneOrZero| |l| |maxW| |width| |x|)
     (RETURN
      (COND ((NULL LIST) NIL)
            (#1='T
             (PROGN
              (SETQ |totalWidth| 0)
-             (SETQ |oneOrZero| (COND (|$addBlankIfTrue| 1) (#1# 0)))
+             (SETQ |oneOrZero| (COND (|addBlankIfTrue| 1) (#1# 0)))
              (SETQ |l| LIST)
              (SETQ |maxW|
                      (COND (|firstTimeIfTrue| |maxWidth|)
                            (#1# (- |maxWidth| 2))))
              (COND
               ((< |maxW| 1)
-               ((LAMBDA (|bfVar#81| |bfVar#80| |x|)
+               ((LAMBDA (|bfVar#82| |bfVar#81| |x|)
                   (LOOP
                    (COND
-                    ((OR (ATOM |bfVar#80|)
-                         (PROGN (SETQ |x| (CAR |bfVar#80|)) NIL))
-                     (RETURN (NREVERSE |bfVar#81|)))
-                    (#1# (SETQ |bfVar#81| (CONS (LIST |x|) |bfVar#81|))))
-                   (SETQ |bfVar#80| (CDR |bfVar#80|))))
+                    ((OR (ATOM |bfVar#81|)
+                         (PROGN (SETQ |x| (CAR |bfVar#81|)) NIL))
+                     (RETURN (NREVERSE |bfVar#82|)))
+                    (#1# (SETQ |bfVar#82| (CONS (LIST |x|) |bfVar#82|))))
+                   (SETQ |bfVar#81| (CDR |bfVar#81|))))
                 NIL |l| NIL))
               (#1#
                (PROGN
@@ -3260,7 +3226,9 @@
                  |l|)
                 (SETQ |x| (CDR |l|))
                 (|rplac| (CDR |l|) NIL)
-                (CONS LIST (|splitConcat| |x| |maxWidth| NIL)))))))))))
+                (CONS LIST
+                      (|splitConcat| |x| |maxWidth| NIL
+                       |addBlankIfTrue|)))))))))))
  
 ; spadPrint(x,m) ==
 ;   m = $NoValueMode => x
@@ -3653,15 +3621,15 @@
       (COND ((ATOM (SETQ |u| (|prefix2String| |form|))) |u|)
             (#1='T
              (|concatenateStringList|
-              ((LAMBDA (|bfVar#83| |bfVar#82| |x|)
+              ((LAMBDA (|bfVar#84| |bfVar#83| |x|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#82|)
-                        (PROGN (SETQ |x| (CAR |bfVar#82|)) NIL))
-                    (RETURN (NREVERSE |bfVar#83|)))
+                   ((OR (ATOM |bfVar#83|)
+                        (PROGN (SETQ |x| (CAR |bfVar#83|)) NIL))
+                    (RETURN (NREVERSE |bfVar#84|)))
                    (#1#
-                    (SETQ |bfVar#83| (CONS (|object2String| |x|) |bfVar#83|))))
-                  (SETQ |bfVar#82| (CDR |bfVar#82|))))
+                    (SETQ |bfVar#84| (CONS (|object2String| |x|) |bfVar#84|))))
+                  (SETQ |bfVar#83| (CDR |bfVar#83|))))
                NIL |u| NIL))))))))
  
 ; outputOp x ==
@@ -3684,14 +3652,14 @@
         (SETQ |n| (COND ((GETL |op| 'NARY) 2) (#1# (LENGTH |args|))))
         (SETQ |newop| (INTERN (STRCONC '* (STRINGIMAGE |n|) (PNAME |op|))))
         (CONS |newop|
-              ((LAMBDA (|bfVar#85| |bfVar#84| |y|)
+              ((LAMBDA (|bfVar#86| |bfVar#85| |y|)
                  (LOOP
                   (COND
-                   ((OR (ATOM |bfVar#84|)
-                        (PROGN (SETQ |y| (CAR |bfVar#84|)) NIL))
-                    (RETURN (NREVERSE |bfVar#85|)))
-                   (#1# (SETQ |bfVar#85| (CONS (|outputOp| |y|) |bfVar#85|))))
-                  (SETQ |bfVar#84| (CDR |bfVar#84|))))
+                   ((OR (ATOM |bfVar#85|)
+                        (PROGN (SETQ |y| (CAR |bfVar#85|)) NIL))
+                    (RETURN (NREVERSE |bfVar#86|)))
+                   (#1# (SETQ |bfVar#86| (CONS (|outputOp| |y|) |bfVar#86|))))
+                  (SETQ |bfVar#85| (CDR |bfVar#85|))))
                NIL |args| NIL))))
       (#1# |x|)))))
  
@@ -3711,7 +3679,6 @@
 ; charyTop(u,start,linelength) ==
 ;   u is ['SC,:l] or u is [['SC,:.],:l] =>
 ;     for a in l repeat charyTop(a,start,linelength)
-;     '" "
 ;   u is [['CONCATB,:.],:m,[['SC,:.],:l]] =>
 ;     charyTop(['CONCATB,:m],start,linelength)
 ;     charyTop(['SC,:l],start+2,linelength-2)
@@ -3729,7 +3696,6 @@
 ;   until n < m repeat
 ;     scylla(n,d)
 ;     n := n - 1
-;   '" "
  
 (DEFUN |charyTop| (|u| |start| |linelength|)
   (PROG (|l| |ISTMP#1| |ISTMP#2| |ISTMP#3| |ISTMP#4| |ISTMP#5| |m| |a| |b| |w|
@@ -3743,16 +3709,14 @@
               (SETQ |ISTMP#1| (CAR |u|))
               (AND (CONSP |ISTMP#1|) (EQ (CAR |ISTMP#1|) 'SC)))
              (PROGN (SETQ |l| (CDR |u|)) #1#)))
-       (PROGN
-        ((LAMBDA (|bfVar#86| |a|)
-           (LOOP
-            (COND
-             ((OR (ATOM |bfVar#86|) (PROGN (SETQ |a| (CAR |bfVar#86|)) NIL))
-              (RETURN NIL))
-             (#1# (|charyTop| |a| |start| |linelength|)))
-            (SETQ |bfVar#86| (CDR |bfVar#86|))))
-         |l| NIL)
-        " "))
+       ((LAMBDA (|bfVar#87| |a|)
+          (LOOP
+           (COND
+            ((OR (ATOM |bfVar#87|) (PROGN (SETQ |a| (CAR |bfVar#87|)) NIL))
+             (RETURN NIL))
+            (#1# (|charyTop| |a| |start| |linelength|)))
+           (SETQ |bfVar#87| (CDR |bfVar#87|))))
+        |l| NIL))
       ((AND (CONSP |u|)
             (PROGN
              (SETQ |ISTMP#1| (CAR |u|))
@@ -3799,13 +3763,12 @@
            (SETQ |d| (APP |v| |start| 0 NIL))
            (SETQ |n| (|superspan| |v|))
            (SETQ |m| (- (|subspan| |v|)))
-           ((LAMBDA (|bfVar#87|)
+           ((LAMBDA (|bfVar#88|)
               (LOOP
-               (COND (|bfVar#87| (RETURN NIL))
+               (COND (|bfVar#88| (RETURN NIL))
                      (#1# (PROGN (|scylla| |n| |d|) (SETQ |n| (- |n| 1)))))
-               (SETQ |bfVar#87| (< |n| |m|))))
-            NIL)
-           " ")))))))))
+               (SETQ |bfVar#88| (< |n| |m|))))
+            NIL))))))))))
  
 ; charyTopWidth u ==
 ;     atom u => u
@@ -3820,58 +3783,18 @@
            ((NUMBERP (CDAR |u|)) |u|) ('T (|putWidth| |u|))))))
  
 ; charyTrouble(u,v,start,linelength) ==
-;   al:= LargeMatrixp(u,linelength,2*linelength) =>
-;     --$MatrixList =>
-;       --[[m,:m1]] := al
-;       --maPrin sublisMatAlist(m,m1,u)
-;       --above three lines commented out JHD 25/2/93 since don't work
+;   LargeMatrixp(u,linelength,2*linelength) =>
 ;     u := SubstWhileDesizing(u)
 ;     maprinChk u
 ;   charyTrouble1(u,v,start,linelength)
  
 (DEFUN |charyTrouble| (|u| |v| |start| |linelength|)
-  (PROG (|al|)
+  (PROG ()
     (RETURN
      (COND
-      ((SETQ |al| (|LargeMatrixp| |u| |linelength| (* 2 |linelength|)))
+      ((|LargeMatrixp| |u| |linelength| (* 2 |linelength|))
        (PROGN (SETQ |u| (|SubstWhileDesizing| |u|)) (|maprinChk| |u|)))
       ('T (|charyTrouble1| |u| |v| |start| |linelength|))))))
- 
-; sublisMatAlist(m,m1,u) ==
-;   u is [op,:r] =>
-;     op is ['MATRIX,:.] and u=m => m1
-;     op1 := sublisMatAlist(m,m1,op)
-;     r1 := [sublisMatAlist(m,m1,s) for s in r]
-;     op = op1 and r1 = r => u
-;     [op1,:r1]
-;   u
- 
-(DEFUN |sublisMatAlist| (|m| |m1| |u|)
-  (PROG (|op| |r| |op1| |r1|)
-    (RETURN
-     (COND
-      ((AND (CONSP |u|)
-            (PROGN (SETQ |op| (CAR |u|)) (SETQ |r| (CDR |u|)) #1='T))
-       (COND ((AND (CONSP |op|) (EQ (CAR |op|) 'MATRIX) (EQUAL |u| |m|)) |m1|)
-             (#1#
-              (PROGN
-               (SETQ |op1| (|sublisMatAlist| |m| |m1| |op|))
-               (SETQ |r1|
-                       ((LAMBDA (|bfVar#89| |bfVar#88| |s|)
-                          (LOOP
-                           (COND
-                            ((OR (ATOM |bfVar#88|)
-                                 (PROGN (SETQ |s| (CAR |bfVar#88|)) NIL))
-                             (RETURN (NREVERSE |bfVar#89|)))
-                            (#1#
-                             (SETQ |bfVar#89|
-                                     (CONS (|sublisMatAlist| |m| |m1| |s|)
-                                           |bfVar#89|))))
-                           (SETQ |bfVar#88| (CDR |bfVar#88|))))
-                        NIL |r| NIL))
-               (COND ((AND (EQUAL |op| |op1|) (EQUAL |r1| |r|)) |u|)
-                     (#1# (CONS |op1| |r1|)))))))
-      (#1# |u|)))))
  
 ; charyTrouble1(u,v,start,linelength) ==
 ;   NUMBERP u => outputNumber(start,linelength,atom2String u)
@@ -3909,13 +3832,11 @@
 ;     bracketagglist(rest u.1,start,linelength,v,
 ;                    specialChar 'lbrc, specialChar 'rbrc)
 ;   EQ(x,'EXT) => longext(u,start,linelength)
-;   EQ(x,'MATRIX) => MATUNWND()
+;   EQ(x,'MATRIX) => BREAK()
 ;   EQ(x,'ELSE) => charyElse(u,v,start,linelength)
 ;   EQ(x,'SC) => charySemiColon(u,v,start,linelength)
 ;   charybdis(x,start,linelength)
 ;   if rest u then charybdis(['ELSE,:rest u],start,linelength)
-;   -- changed from charybdis(...) by JHD 2 Aug 89, since rest u might be null
-;   '" "
  
 (DEFUN |charyTrouble1| (|u| |v| |start| |linelength|)
   (PROG (|x| |d| |ISTMP#1| |loop| |ISTMP#2| |ISTMP#3| |body| |wu| |ISTMP#4|
@@ -4003,15 +3924,15 @@
        (|bracketagglist| (CDR (ELT |u| 1)) |start| |linelength| |v|
         (|specialChar| '|lbrc|) (|specialChar| '|rbrc|)))
       ((EQ |x| 'EXT) (|longext| |u| |start| |linelength|))
-      ((EQ |x| 'MATRIX) (MATUNWND))
+      ((EQ |x| 'MATRIX) (BREAK))
       ((EQ |x| 'ELSE) (|charyElse| |u| |v| |start| |linelength|))
       ((EQ |x| 'SC) (|charySemiColon| |u| |v| |start| |linelength|))
       (#1#
        (PROGN
         (|charybdis| |x| |start| |linelength|)
         (COND
-         ((CDR |u|) (|charybdis| (CONS 'ELSE (CDR |u|)) |start| |linelength|)))
-        " "))))))
+         ((CDR |u|)
+          (|charybdis| (CONS 'ELSE (CDR |u|)) |start| |linelength|)))))))))
  
 ; charySemiColon(u,v,start,linelength) ==
 ;   for a in rest u repeat
@@ -4022,38 +3943,34 @@
   (PROG ()
     (RETURN
      (PROGN
-      ((LAMBDA (|bfVar#90| |a|)
+      ((LAMBDA (|bfVar#89| |a|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#90|) (PROGN (SETQ |a| (CAR |bfVar#90|)) NIL))
+           ((OR (ATOM |bfVar#89|) (PROGN (SETQ |a| (CAR |bfVar#89|)) NIL))
             (RETURN NIL))
            ('T (|charyTop| |a| |start| |linelength|)))
-          (SETQ |bfVar#90| (CDR |bfVar#90|))))
+          (SETQ |bfVar#89| (CDR |bfVar#89|))))
        (CDR |u|) NIL)
       NIL))))
  
 ; charyMinus(u,v,start,linelength) ==
 ;   charybdis('"-",start,linelength)
 ;   charybdis(v.1,start+3,linelength-3)
-;   '" "
  
 (DEFUN |charyMinus| (|u| |v| |start| |linelength|)
   (PROG ()
     (RETURN
      (PROGN
       (|charybdis| "-" |start| |linelength|)
-      (|charybdis| (ELT |v| 1) (+ |start| 3) (- |linelength| 3))
-      " "))))
+      (|charybdis| (ELT |v| 1) (+ |start| 3) (- |linelength| 3))))))
  
 ; charyBinary(d,u,v,start,linelength) ==
 ;   d in '(" := " "= ") =>
 ;     charybdis(['CONCATB,v.1,d],start,linelength)
 ;     charybdis(v.2,start+2,linelength-2)
-;     '" "
 ;   charybdis(v.1,start+2,linelength-2)
 ;   if d then prnd(start,d)
 ;   charybdis(v.2,start+2,linelength-2)
-;   '" "
  
 (DEFUN |charyBinary| (|d| |u| |v| |start| |linelength|)
   (PROG ()
@@ -4062,27 +3979,23 @@
       ((|member| |d| '(" := " "= "))
        (PROGN
         (|charybdis| (LIST 'CONCATB (ELT |v| 1) |d|) |start| |linelength|)
-        (|charybdis| (ELT |v| 2) (+ |start| 2) (- |linelength| 2))
-        " "))
+        (|charybdis| (ELT |v| 2) (+ |start| 2) (- |linelength| 2))))
       ('T
        (PROGN
         (|charybdis| (ELT |v| 1) (+ |start| 2) (- |linelength| 2))
         (COND (|d| (|prnd| |start| |d|)))
-        (|charybdis| (ELT |v| 2) (+ |start| 2) (- |linelength| 2))
-        " "))))))
+        (|charybdis| (ELT |v| 2) (+ |start| 2) (- |linelength| 2))))))))
  
 ; charyEquatnum(u,v,start,linelength) ==
 ;   charybdis(['PAREN,u.1],start,linelength)
 ;   charybdis(u.2,start,linelength)
-;   '" "
  
 (DEFUN |charyEquatnum| (|u| |v| |start| |linelength|)
   (PROG ()
     (RETURN
      (PROGN
       (|charybdis| (LIST 'PAREN (ELT |u| 1)) |start| |linelength|)
-      (|charybdis| (ELT |u| 2) |start| |linelength|)
-      " "))))
+      (|charybdis| (ELT |u| 2) |start| |linelength|)))))
  
 ; charySplit(u,v,start,linelength) ==
 ;   v:= [first v.0,:rest v]
@@ -4146,12 +4059,10 @@
          (|split2| |u| |dm| |ddm| |start| |linelength|))))))))
  
 ; split2(u,dm,ddm,start,linelength) ==
-; --prnd(start,(d:= GETL(keyp u,'INFIXOP) => d; opSrch(keyp u,OPLIST)))
 ;   prnd(start,(d:= GETL(keyp u,'INFIXOP) => d; '","))
 ;   RPLACD(dm,ddm)
 ;   m:= WIDTH [keyp u,:dm]<linelength-2
 ;   charybdis([keyp u,:dm],(m => start+2; start),(m => linelength-2; linelength))
-;   '" "
  
 (DEFUN |split2| (|u| |dm| |ddm| |start| |linelength|)
   (PROG (|d| |m|)
@@ -4163,15 +4074,13 @@
       (SETQ |m| (< (WIDTH (CONS (|keyp| |u|) |dm|)) (- |linelength| 2)))
       (|charybdis| (CONS (|keyp| |u|) |dm|)
        (COND (|m| (+ |start| 2)) (#1# |start|))
-       (COND (|m| (- |linelength| 2)) (#1# |linelength|)))
-      " "))))
+       (COND (|m| (- |linelength| 2)) (#1# |linelength|)))))))
  
 ; charyElse(u,v,start,linelength) ==
 ;   charybdis(v.1,start+3,linelength-3)
 ;   not (CDDR u) => '" "
 ;   prnd(start,'",")
 ;   charybdis(['ELSE,:CDDR v],start,linelength)
-;   '" "
  
 (DEFUN |charyElse| (|u| |v| |start| |linelength|)
   (PROG ()
@@ -4182,8 +4091,7 @@
             ('T
              (PROGN
               (|prnd| |start| ",")
-              (|charybdis| (CONS 'ELSE (CDDR |v|)) |start| |linelength|)
-              " ")))))))
+              (|charybdis| (CONS 'ELSE (CDDR |v|)) |start| |linelength|))))))))
  
 ; scylla(n,v) ==
 ;   y := LASSOC(n,v)
@@ -4308,34 +4216,15 @@
  
 (DEFUN |agggwidth| (|u|) (PROG () (RETURN (|aggwidth| (CDR |u|)))))
  
-; appagg(u,x,y,d) == appagg1(u,x,y,d,'",")
+; appagg(u,x,y,d) == agg_app(u, x, y, d, '",", 1)
  
 (DEFUN |appagg| (|u| |x| |y| |d|)
-  (PROG () (RETURN (|appagg1| |u| |x| |y| |d| ","))))
+  (PROG () (RETURN (|agg_app| |u| |x| |y| |d| "," 1))))
  
-; appagg1(u,x,y,d,s) ==
-;   null u => d
-;   null rest u => APP(first u,x,y,d)
-;   temp := x + WIDTH first u
-;   temparg1 := APP(first u,x,y,d)
-;   temparg2 := APP(s,temp,y,temparg1)
-;   appagg1(rest u, 1 + temp, y, temparg2,s)
- 
-(DEFUN |appagg1| (|u| |x| |y| |d| |s|)
-  (PROG (|temp| |temparg1| |temparg2|)
-    (RETURN
-     (COND ((NULL |u|) |d|) ((NULL (CDR |u|)) (APP (CAR |u|) |x| |y| |d|))
-           ('T
-            (PROGN
-             (SETQ |temp| (+ |x| (WIDTH (CAR |u|))))
-             (SETQ |temparg1| (APP (CAR |u|) |x| |y| |d|))
-             (SETQ |temparg2| (APP |s| |temp| |y| |temparg1|))
-             (|appagg1| (CDR |u|) (+ 1 |temp|) |y| |temparg2| |s|)))))))
- 
-; appargs(u, x, y, d) == appagg1(u, x, y, d, '";")
+; appargs(u, x, y, d) == agg_app(u, x, y, d, '";", 1)
  
 (DEFUN |appargs| (|u| |x| |y| |d|)
-  (PROG () (RETURN (|appagg1| |u| |x| |y| |d| ";"))))
+  (PROG () (RETURN (|agg_app| |u| |x| |y| |d| ";" 1))))
  
 ; apprpar(x, y, y1, y2, d) ==
 ;   (not ($tallPar) or (y2 - y1 < 2)) => APP('")", x, y, d)
@@ -5234,11 +5123,11 @@
       (SETQ |widthList|
               (|matLSum2|
                (|matWList| |y|
-                ((LAMBDA (|bfVar#91| |j|)
+                ((LAMBDA (|bfVar#90| |j|)
                    (LOOP
                     (COND
-                     ((> |j| |numOfColumns|) (RETURN (NREVERSE |bfVar#91|)))
-                     ('T (SETQ |bfVar#91| (CONS 0 |bfVar#91|))))
+                     ((> |j| |numOfColumns|) (RETURN (NREVERSE |bfVar#90|)))
+                     ('T (SETQ |bfVar#90| (CONS 0 |bfVar#90|))))
                     (SETQ |j| (+ |j| 1))))
                  NIL 1))))
       (SETQ |subspanList| (|matLSum| (|matSubList| |y|)))
@@ -5358,16 +5247,16 @@
      (PROGN
       (SETQ |u|
               (CONS (LIST 'CONCAT |open| (CAR |u|))
-                    ((LAMBDA (|bfVar#93| |bfVar#92| |y|)
+                    ((LAMBDA (|bfVar#92| |bfVar#91| |y|)
                        (LOOP
                         (COND
-                         ((OR (ATOM |bfVar#92|)
-                              (PROGN (SETQ |y| (CAR |bfVar#92|)) NIL))
-                          (RETURN (NREVERSE |bfVar#93|)))
+                         ((OR (ATOM |bfVar#91|)
+                              (PROGN (SETQ |y| (CAR |bfVar#91|)) NIL))
+                          (RETURN (NREVERSE |bfVar#92|)))
                          (#1='T
-                          (SETQ |bfVar#93|
-                                  (CONS (LIST 'CONCAT " " |y|) |bfVar#93|))))
-                        (SETQ |bfVar#92| (CDR |bfVar#92|))))
+                          (SETQ |bfVar#92|
+                                  (CONS (LIST 'CONCAT " " |y|) |bfVar#92|))))
+                        (SETQ |bfVar#91| (CDR |bfVar#91|))))
                      NIL (CDR |u|) NIL)))
       ((LAMBDA ()
          (LOOP
@@ -5483,13 +5372,13 @@
 (DEFUN |sumoverlist| (|u|)
   (PROG ()
     (RETURN
-     ((LAMBDA (|bfVar#95| |bfVar#94| |x|)
+     ((LAMBDA (|bfVar#94| |bfVar#93| |x|)
         (LOOP
          (COND
-          ((OR (ATOM |bfVar#94|) (PROGN (SETQ |x| (CAR |bfVar#94|)) NIL))
-           (RETURN |bfVar#95|))
-          ('T (SETQ |bfVar#95| (+ |bfVar#95| |x|))))
-         (SETQ |bfVar#94| (CDR |bfVar#94|))))
+          ((OR (ATOM |bfVar#93|) (PROGN (SETQ |x| (CAR |bfVar#93|)) NIL))
+           (RETURN |bfVar#94|))
+          ('T (SETQ |bfVar#94| (+ |bfVar#94| |x|))))
+         (SETQ |bfVar#93| (CDR |bfVar#93|))))
       0 |u| NIL))))
  
 ; sumWidth u ==
@@ -5510,10 +5399,10 @@
     (RETURN
      (PROGN
       (SETQ |sum| 0)
-      ((LAMBDA (|bfVar#96| |item|)
+      ((LAMBDA (|bfVar#95| |item|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#96|) (PROGN (SETQ |item| (CAR |bfVar#96|)) NIL))
+           ((OR (ATOM |bfVar#95|) (PROGN (SETQ |item| (CAR |bfVar#95|)) NIL))
             (RETURN NIL))
            (#1='T
             (PROGN
@@ -5522,7 +5411,7 @@
                         (COND ((|member| (|keyp| (|absym| |item|)) '(+ -)) 5)
                               (#1# 3))))
              (SETQ |sum| (+ |sum| (WIDTH (|absym| |item|)))))))
-          (SETQ |bfVar#96| (CDR |bfVar#96|))))
+          (SETQ |bfVar#95| (CDR |bfVar#95|))))
        |u| NIL)
       |sum|))))
  
@@ -5642,9 +5531,9 @@
       (SETQ |hnum| (|height| |num|))
       (SETQ |hden| (|height| |den|))
       (SETQ |w| (+ 1 |w|))
-      ((LAMBDA (|bfVar#97| |j|)
+      ((LAMBDA (|bfVar#96| |j|)
          (LOOP
-          (COND ((> |j| |bfVar#97|) (RETURN NIL))
+          (COND ((> |j| |bfVar#96|) (RETURN NIL))
                 (#1='T
                  (PROGN
                   (SETQ |d|
@@ -5655,9 +5544,9 @@
                            (+ |y| |j|) |d|)))))
           (SETQ |j| (+ |j| 1))))
        (- |hnum| 1) 0)
-      ((LAMBDA (|bfVar#98| |j|)
+      ((LAMBDA (|bfVar#97| |j|)
          (LOOP
-          (COND ((> |j| |bfVar#98|) (RETURN NIL))
+          (COND ((> |j| |bfVar#97|) (RETURN NIL))
                 (#1#
                  (PROGN
                   (SETQ |d|
@@ -5727,43 +5616,43 @@
               (- (- |y| 1)
                  (APPLY 'MAX
                         (CONS |ab|
-                              ((LAMBDA (|bfVar#100| |bfVar#99| |s|)
+                              ((LAMBDA (|bfVar#99| |bfVar#98| |s|)
                                  (LOOP
                                   (COND
-                                   ((OR (ATOM |bfVar#99|)
+                                   ((OR (ATOM |bfVar#98|)
                                         (PROGN
-                                         (SETQ |s| (CAR |bfVar#99|))
+                                         (SETQ |s| (CAR |bfVar#98|))
                                          NIL))
-                                    (RETURN (NREVERSE |bfVar#100|)))
+                                    (RETURN (NREVERSE |bfVar#99|)))
                                    (#1='T
-                                    (SETQ |bfVar#100|
+                                    (SETQ |bfVar#99|
                                             (CONS (|superspan| |s|)
-                                                  |bfVar#100|))))
-                                  (SETQ |bfVar#99| (CDR |bfVar#99|))))
+                                                  |bfVar#99|))))
+                                  (SETQ |bfVar#98| (CDR |bfVar#98|))))
                                NIL |sublist| NIL)))))
       (SETQ |ysup|
               (+ (+ |y| 1)
                  (APPLY 'MAX
                         (CONS |ar|
-                              ((LAMBDA (|bfVar#102| |bfVar#101| |s|)
+                              ((LAMBDA (|bfVar#101| |bfVar#100| |s|)
                                  (LOOP
                                   (COND
-                                   ((OR (ATOM |bfVar#101|)
+                                   ((OR (ATOM |bfVar#100|)
                                         (PROGN
-                                         (SETQ |s| (CAR |bfVar#101|))
+                                         (SETQ |s| (CAR |bfVar#100|))
                                          NIL))
-                                    (RETURN (NREVERSE |bfVar#102|)))
+                                    (RETURN (NREVERSE |bfVar#101|)))
                                    (#1#
-                                    (SETQ |bfVar#102|
+                                    (SETQ |bfVar#101|
                                             (CONS (|subspan| |s|)
-                                                  |bfVar#102|))))
-                                  (SETQ |bfVar#101| (CDR |bfVar#101|))))
+                                                  |bfVar#101|))))
+                                  (SETQ |bfVar#100| (CDR |bfVar#100|))))
                                NIL |sublist| NIL)))))
-      ((LAMBDA (|bfVar#103| |sub| |bfVar#104| |sup|)
+      ((LAMBDA (|bfVar#102| |sub| |bfVar#103| |sup|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#103|) (PROGN (SETQ |sub| (CAR |bfVar#103|)) NIL)
-                (ATOM |bfVar#104|) (PROGN (SETQ |sup| (CAR |bfVar#104|)) NIL))
+           ((OR (ATOM |bfVar#102|) (PROGN (SETQ |sub| (CAR |bfVar#102|)) NIL)
+                (ATOM |bfVar#103|) (PROGN (SETQ |sup| (CAR |bfVar#103|)) NIL))
             (RETURN NIL))
            (#1#
             (PROGN
@@ -5772,8 +5661,8 @@
              (SETQ |di| (APP |sub| |x| |ysub| |di|))
              (SETQ |di| (APP |sup| |x| |ysup| |di|))
              (SETQ |x| (+ (+ |x| 1) (MAX |wsub| |wsup|))))))
-          (SETQ |bfVar#103| (CDR |bfVar#103|))
-          (SETQ |bfVar#104| (CDR |bfVar#104|))))
+          (SETQ |bfVar#102| (CDR |bfVar#102|))
+          (SETQ |bfVar#103| (CDR |bfVar#103|))))
        |sublist| NIL |suplist| NIL)
       |di|))))
  
@@ -5783,11 +5672,11 @@
 (DEFUN |everyNth| (|l| |n|)
   (PROG (|e|)
     (RETURN
-     ((LAMBDA (|bfVar#105|)
+     ((LAMBDA (|bfVar#104|)
         (LOOP
-         (COND ((NOT |l|) (RETURN (NREVERSE |bfVar#105|)))
+         (COND ((NOT |l|) (RETURN (NREVERSE |bfVar#104|)))
                (#1='T
-                (SETQ |bfVar#105|
+                (SETQ |bfVar#104|
                         (CONS
                          (PROGN
                           (SETQ |e| (ELT |l| 0))
@@ -5798,7 +5687,7 @@
                               (SETQ |i| (+ |i| 1))))
                            1)
                           |e|)
-                         |bfVar#105|))))))
+                         |bfVar#104|))))))
       NIL))))
  
 ; altSuperSubSub u ==
@@ -5815,16 +5704,16 @@
      (PROGN
       (SETQ |span| (|subspan| (CADR |u|)))
       (SETQ |sublist| (|everyNth| (CDDR |u|) 2))
-      ((LAMBDA (|bfVar#106| |sub|)
+      ((LAMBDA (|bfVar#105| |sub|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#106|) (PROGN (SETQ |sub| (CAR |bfVar#106|)) NIL))
+           ((OR (ATOM |bfVar#105|) (PROGN (SETQ |sub| (CAR |bfVar#105|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |h| (|height| |sub|))
              (COND ((< |span| |h|) (SETQ |span| |h|))))))
-          (SETQ |bfVar#106| (CDR |bfVar#106|))))
+          (SETQ |bfVar#105| (CDR |bfVar#105|))))
        |sublist| NIL)
       |span|))))
  
@@ -5842,16 +5731,16 @@
      (PROGN
       (SETQ |span| (|superspan| (CADR |u|)))
       (SETQ |suplist| (|everyNth| (IFCDR (CDDR |u|)) 2))
-      ((LAMBDA (|bfVar#107| |sup|)
+      ((LAMBDA (|bfVar#106| |sup|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#107|) (PROGN (SETQ |sup| (CAR |bfVar#107|)) NIL))
+           ((OR (ATOM |bfVar#106|) (PROGN (SETQ |sup| (CAR |bfVar#106|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |h| (|height| |sup|))
              (COND ((< |span| |h|) (SETQ |span| |h|))))))
-          (SETQ |bfVar#107| (CDR |bfVar#107|))))
+          (SETQ |bfVar#106| (CDR |bfVar#106|))))
        |suplist| NIL)
       |span|))))
  
@@ -5872,19 +5761,19 @@
       (SETQ |w| (WIDTH (CADR |u|)))
       (SETQ |suplist| (|everyNth| (IFCDR (CDDR |u|)) 2))
       (SETQ |sublist| (|everyNth| (CDDR |u|) 2))
-      ((LAMBDA (|bfVar#108| |sup| |bfVar#109| |sub|)
+      ((LAMBDA (|bfVar#107| |sup| |bfVar#108| |sub|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#108|) (PROGN (SETQ |sup| (CAR |bfVar#108|)) NIL)
-                (ATOM |bfVar#109|) (PROGN (SETQ |sub| (CAR |bfVar#109|)) NIL))
+           ((OR (ATOM |bfVar#107|) (PROGN (SETQ |sup| (CAR |bfVar#107|)) NIL)
+                (ATOM |bfVar#108|) (PROGN (SETQ |sub| (CAR |bfVar#108|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
              (SETQ |wsup| (WIDTH |sup|))
              (SETQ |wsub| (WIDTH |sub|))
              (SETQ |w| (+ (+ |w| 1) (MAX |wsup| |wsub|))))))
-          (SETQ |bfVar#108| (CDR |bfVar#108|))
-          (SETQ |bfVar#109| (CDR |bfVar#109|))))
+          (SETQ |bfVar#107| (CDR |bfVar#107|))
+          (SETQ |bfVar#108| (CDR |bfVar#108|))))
        |suplist| NIL |sublist| NIL)
       |w|))))
  
@@ -5946,10 +5835,10 @@
      (PROGN
       (SETQ |w| (|vConcatWidth| |u|))
       (SETQ |y| (+ (+ |y| (|superspan| (ELT |u| 1))) 1))
-      ((LAMBDA (|bfVar#110| |a|)
+      ((LAMBDA (|bfVar#109| |a|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#110|) (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
+           ((OR (ATOM |bfVar#109|) (PROGN (SETQ |a| (CAR |bfVar#109|)) NIL))
             (RETURN NIL))
            ('T
             (PROGN
@@ -5957,7 +5846,7 @@
              (SETQ |xoff| (QUOTIENT (- |w| (WIDTH |a|)) 2))
              (SETQ |d| (APP |a| (+ |x| |xoff|) |y| |d|))
              (SETQ |y| (- |y| (|subspan| |a|))))))
-          (SETQ |bfVar#110| (CDR |bfVar#110|))))
+          (SETQ |bfVar#109| (CDR |bfVar#109|))))
        (CDR |u|) NIL)
       |d|))))
  
@@ -6000,13 +5889,13 @@
   (PROG ()
     (RETURN
      (+ (|subspan| (ELT |u| 1))
-        ((LAMBDA (|bfVar#112| |bfVar#111| |a|)
+        ((LAMBDA (|bfVar#111| |bfVar#110| |a|)
            (LOOP
             (COND
-             ((OR (ATOM |bfVar#111|) (PROGN (SETQ |a| (CAR |bfVar#111|)) NIL))
-              (RETURN |bfVar#112|))
-             ('T (SETQ |bfVar#112| (+ |bfVar#112| (|height| |a|)))))
-            (SETQ |bfVar#111| (CDR |bfVar#111|))))
+             ((OR (ATOM |bfVar#110|) (PROGN (SETQ |a| (CAR |bfVar#110|)) NIL))
+              (RETURN |bfVar#111|))
+             ('T (SETQ |bfVar#111| (+ |bfVar#111| (|height| |a|)))))
+            (SETQ |bfVar#110| (CDR |bfVar#110|))))
          0 (CDDR |u|) NIL)))))
  
 ; vConcatSuper u ==
@@ -6024,13 +5913,13 @@
     (RETURN
      (PROGN
       (SETQ |w| 0)
-      ((LAMBDA (|bfVar#113| |a|)
+      ((LAMBDA (|bfVar#112| |a|)
          (LOOP
           (COND
-           ((OR (ATOM |bfVar#113|) (PROGN (SETQ |a| (CAR |bfVar#113|)) NIL))
+           ((OR (ATOM |bfVar#112|) (PROGN (SETQ |a| (CAR |bfVar#112|)) NIL))
             (RETURN NIL))
            ('T (COND ((< |w| (SETQ |wa| (WIDTH |a|))) (SETQ |w| |wa|)))))
-          (SETQ |bfVar#113| (CDR |bfVar#113|))))
+          (SETQ |bfVar#112| (CDR |bfVar#112|))))
        (CDR |u|) NIL)
       |w|))))
  

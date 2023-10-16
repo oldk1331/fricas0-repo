@@ -209,7 +209,7 @@
          ('T (CONS (|spadConstant| $ 77) (|spadConstant| $ 74))))) 
 
 (SDEFUN |RULE;coerce;$Of;19| ((|x| $) ($ |OutputForm|))
-        (SPADCALL (SPADCALL '| == | (QREFELT $ 79))
+        (SPADCALL (SPADCALL '== (QREFELT $ 79))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 12)) (QREFELT $ 80))
                   (SPADCALL (SPADCALL |x| (QREFELT $ 13)) (QREFELT $ 80))
                   (QREFELT $ 81))) 
