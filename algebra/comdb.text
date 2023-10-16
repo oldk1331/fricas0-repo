@@ -8107,7 +8107,7 @@
 887801`\spad{tensorProduct(a,{} b)} calculates the Kronecker product of the matrices {\em a} and \spad{b}. Note: if each matrix corresponds to a group representation (repr. of generators) of one group,{} then these matrices correspond to the tensor product of the two representations.
 887889`\spad{terminal(a)} constructs a graph over a with a single vertex and a single loop
 887973`\spad{terms(f)} gives the list of non-zero coefficients combined with their corresponding basis element as records. This is the internal representation.
-888046`\spad{terms(f(x))} returns a stream of non-zero terms,{} where a a term is an exponent-coefficient pair. The terms in the stream are ordered by increasing order of exponents.
+888046`\spad{terms(f(x))} returns a stream of non-zero terms,{} where a a term is an exponent-coefficient pair. The terms in the stream are ordered by increasing order of exponents. Warning: If the series \spad{f} has only finitely many non-zero terms,{} then accessing the resulting stream might lead to an infinite search for the next non-zero coefficient.
 888146`\spad{test(b)} returns \spad{b} and is provided for compatibility with the new compiler.
 888188`\spad{testAbsolutePrecision(eps)} returns the current absolute precision used for floating point comparison,{} and then sets it to \spad{eps}. The default value is 1.0e-15.
 888270`\spad{testcase s} starts a new testcase with \spad{s} as title. It also calls \spad{clear all}. A testcase is composed of several tests.
