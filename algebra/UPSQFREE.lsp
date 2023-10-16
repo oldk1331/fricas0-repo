@@ -42,10 +42,10 @@
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;3|
         ((|ffe| |Record|
-          (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |fctr| P) (|:| |xpnt| (|Integer|)))
-         ($ |Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| P)
-          (|:| |xpnt| (|Integer|))))
+          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+          (|:| |factor| P) (|:| |exponent| (|Integer|)))
+         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+          (|:| |exponent| (|Integer|))))
         (VECTOR (CONS 1 "sqfr")
                 (SPADCALL (ELT $ 21) (QVELT |ffe| 1) (QREFELT $ 23))
                 (SPADCALL (SPADCALL (QREFELT $ 25)) (QVELT |ffe| 2)
@@ -53,10 +53,10 @@
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;4|
         ((|ffe| |Record|
-          (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |fctr| P) (|:| |xpnt| (|Integer|)))
-         ($ |Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| P)
-          (|:| |xpnt| (|Integer|))))
+          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+          (|:| |factor| P) (|:| |exponent| (|Integer|)))
+         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+          (|:| |exponent| (|Integer|))))
         (SPROG ((|nthrp| (|Union| P "failed")) (|np| (P)))
                (SEQ
                 (LETT |np|
@@ -75,10 +75,10 @@
 
 (SDEFUN |UPSQFREE;BumInSepFFE;2R;5|
         ((|ffe| |Record|
-          (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |fctr| P) (|:| |xpnt| (|Integer|)))
-         ($ |Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| P)
-          (|:| |xpnt| (|Integer|))))
+          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+          (|:| |factor| P) (|:| |exponent| (|Integer|)))
+         ($ |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+          (|:| |exponent| (|Integer|))))
         (VECTOR (CONS 0 "nil")
                 (SPADCALL (QVELT |ffe| 1) (SPADCALL (QREFELT $ 25))
                           (QREFELT $ 31))
@@ -89,8 +89,8 @@
          ((#1=#:G171 NIL)
           (|lffe|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (|lcp| (RC)) (#2=#:G163 NIL) (|i| (|NonNegativeInteger|)) (|pi| (P))
           (|di| (P)) (#3=#:G160 NIL) (|ci| (P)) (|a| (P)) (|c| (P)) (|u| (P))
           (|#G11|
@@ -205,12 +205,12 @@
          ((|lffe|
            (|List|
             (|Record|
-             (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-             (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+             (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+             (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (|lsnil|
            (|List|
-            (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| P)
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| P)
+                      (|:| |exponent| (|Integer|)))))
           (#5=#:G196 NIL) (|ffe| NIL) (#6=#:G195 NIL)
           (|redSqfr| (|Factored| P)) (#7=#:G181 NIL) (|dunit| (P)) (|pi| (P))
           (|lc| (RC)) (#8=#:G184 NIL) (|i| (|NonNegativeInteger|)) (|ci| (P))
@@ -443,7 +443,7 @@
               (|Mapping| 6 6) (52 . |map|) (|NonNegativeInteger|)
               (58 . |characteristic|) (|Integer|) (62 . *)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 28) (|:| |fctr| 7) (|:| |xpnt| 26))
+              (|Record| (|:| |flag| 28) (|:| |factor| 7) (|:| |exponent| 26))
               (68 . |BumInSepFFE|) (73 . |multiplyExponents|)
               (79 . |charthRoot|) (84 . |degree|) (89 . |Zero|)
               (|Record| (|:| |unit| $) (|:| |canonical| $) (|:| |associate| $))

@@ -1768,7 +1768,7 @@ obtwFact`4`n`(UP,Boolean,Set(NonNegativeInteger),NonNegativeInteger)->Record(con
 obubbleSort!`1`n`(A)->A`pSortPackage(S,A)`has(S,OrderedSet)`267642
 obubbleSort!`2`n`(A,(S,S)->Boolean)->A`pSortPackage(S,A)``267685
 obuild`3`n`(R,IS,E)->_$`dGeneralModulePolynomial(vl,R,IS,E,ff,P)``267733
-oBumInSepFFE`1`n`(Record(flg:Union("nil","sqfr","irred","prime"),fctr:P,xpnt:Integer))->Record(flg:Union("nil","sqfr","irred","prime"),fctr:P,xpnt:Integer)`pUnivariatePolynomialSquareFree(RC,P)``267780
+oBumInSepFFE`1`n`(Record(flag:Union("nil","sqfr","irred","prime"),factor:P,exponent:Integer))->Record(flag:Union("nil","sqfr","irred","prime"),factor:P,exponent:Integer)`pUnivariatePolynomialSquareFree(RC,P)``267780
 obumprow`3`n`((S,S)->Boolean,List(S),List(List(S)))->Record(fs:Boolean,sd:List(S),td:List(List(S)))`pTableauxBumpers(S)``267895
 obumptab1`2`n`(List(S),List(List(List(S))))->List(List(List(S)))`pTableauxBumpers(S)``268066
 obumptab`3`n`((S,S)->Boolean,List(S),List(List(List(S))))->List(List(List(S)))`pTableauxBumpers(S)``268210
@@ -4407,7 +4407,7 @@ ofactorials`1`n`(F)->F`pCombinatorialFunction(R,F)``541370
 ofactorials`1`x`(_$)->_$`cCombinatorialOpsCategory``541474
 ofactorials`2`n`(F,Symbol)->F`pCombinatorialFunction(R,F)``541578
 ofactorials`2`x`(_$,Symbol)->_$`cCombinatorialOpsCategory``541706
-ofactorList`1`x`(_$)->List(Record(flg:Union("nil","sqfr","irred","prime"),fctr:R,xpnt:Integer))`dFactored(R)``541834
+ofactorList`1`x`(_$)->List(Record(flag:Union("nil","sqfr","irred","prime"),factor:R,exponent:Integer))`dFactored(R)``541834
 ofactorList`4`n`(K,NonNegativeInteger,NonNegativeInteger,NonNegativeInteger)->List(SparseUnivariatePolynomial(K))`pChineseRemainderToolsForIntegralBases(K,R,UP)``541930
 ofactorOfDegree`2`n`(PositiveInteger,Factored(UP))->UP`pGaloisGroupPolynomialUtilities(R,UP)``541987
 ofactorOfDegree`2`n`(PositiveInteger,UP)->Union(UP,"failed")`pGaloisGroupFactorizer(UP)``542124
@@ -6375,7 +6375,7 @@ omakeFEq`6`n`(BasicOperator,Symbol,Symbol,F,List(F),Stream(F))->F`pRecurrenceOpe
 omakeFloatFunction`2`x`(S,Symbol)->(DoubleFloat)->DoubleFloat`pMakeFloatCompiledFunction(S)``755962
 omakeFloatFunction`3`x`(S,Symbol,Symbol)->(DoubleFloat,DoubleFloat)->DoubleFloat`pMakeFloatCompiledFunction(S)``756224
 omakeFR`1`n`(Record(contp:Integer,factors:List(Record(irr:UP,pow:Integer))))->Factored(UP)`pGaloisGroupFactorizer(UP)``756559
-omakeFR`2`x`(R,List(Record(flg:Union("nil","sqfr","irred","prime"),fctr:R,xpnt:Integer)))->_$`dFactored(R)``756666
+omakeFR`2`x`(R,List(Record(flag:Union("nil","sqfr","irred","prime"),factor:R,exponent:Integer)))->_$`dFactored(R)``756666
 omakeGraphImage`1`n`(List(List(Point(DoubleFloat))))->_$`dGraphImage``756765
 omakeGraphImage`4`n`(List(List(Point(DoubleFloat))),List(Palette),List(Palette),List(PositiveInteger))->_$`dGraphImage``757003
 omakeGraphImage`5`n`(List(List(Point(DoubleFloat))),List(Palette),List(Palette),List(PositiveInteger),List(DrawOption))->_$`dGraphImage``757470

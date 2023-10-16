@@ -396,8 +396,8 @@
           (|n| (|NonNegativeInteger|)) (#3=#:G171 NIL) (|prime| (R))
           (|factoredDen|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
           (|q| (UP)) (|j| NIL) (|p| (UP)) (#4=#:G177 NIL))
          (SEQ
           (LETT |q| (|spadConstant| $ 36) . #5=(|IBACHIN;mapChineseToList|))
@@ -633,7 +633,7 @@
               (139 . |monicDivide|) (145 . |unmakeSUP|) (150 . *)
               (|Factored| 7) (|DistinctDegreeFactorize| 6 7) (156 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 53) (|:| |fctr| 7) (|:| |xpnt| 62))
+              (|Record| (|:| |flag| 53) (|:| |factor| 7) (|:| |exponent| 62))
               (|List| 54) (161 . |factorList|) (166 . |monicDivide|)
               (|Boolean|) (172 . |zero?|) (177 . |degree|)
               (182 . |leadingCoefficient|) (|Integer|) (|Matrix| 7)

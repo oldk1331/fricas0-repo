@@ -746,7 +746,7 @@
               (217 . |sign|) (|Factored| $) (222 . |squareFree|)
               (|Factored| 84) (227 . |unit|) (232 . |retract|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 92) (|:| |fctr| 84) (|:| |xpnt| 60))
+              (|Record| (|:| |flag| 92) (|:| |factor| 84) (|:| |exponent| 60))
               (|List| 93) (237 . |factorList|) (|SingletonAsOrderedSet|)
               (242 . |create|) '|sas| (|List| 104) (246 . |variables|)
               (251 . |minusInfinity|) (255 . |plusInfinity|) (259 . =)

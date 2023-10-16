@@ -1490,8 +1490,8 @@
           (|p| #11=(|Polynomial| (|Integer|)))
           (|flist|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| #11#) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| #11#) (|:| |exponent| (|Integer|)))))
           (|factoredPol| (|Factored| (|Polynomial| (|Integer|)))))
          (SEQ
           (LETT |factoredPol| (SPADCALL |pol| (QREFELT $ 95))
@@ -2922,7 +2922,7 @@
               (382 . |plot|) (|List| 119) (388 . |listBranches|)
               (|Mapping| 24 24) (|List| 24) (393 . |map|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 121) (|:| |fctr| 52) (|:| |xpnt| 9))
+              (|Record| (|:| |flag| 121) (|:| |factor| 52) (|:| |exponent| 9))
               (|List| 122) (399 . |factorList|) (404 . |append|) (410 . /)
               (416 . -) (422 . *) (428 . -) (433 . |append|)
               |ACPLOT;refine;$Df$;34| (439 . |second|) (444 . |third|)

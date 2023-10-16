@@ -55,8 +55,8 @@
           (|lf| NIL)
           (|llf|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| FP) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| FP) (|:| |exponent| (|Integer|)))))
           (|lcm| (F)))
          (SEQ (LETT |factlist| NIL . #4=(|DDFACT;notSqFr|))
               (LETT |fln| NIL . #4#)
@@ -646,7 +646,8 @@
               (22 . +) (28 . |One|) (32 . |One|) (36 . |leadingCoefficient|)
               (|Boolean|) (41 . ~=) (47 . |inv|) (52 . *) (|Factored| $)
               (58 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 26) (|:| |fctr| 7) (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 26) (|:| |factor| 7)
+                        (|:| |exponent| (|Integer|)))
               (|List| 27) (|Factored| 7) (63 . |factorList|) (68 . |degree|)
               (|Record| (|:| |irr| 7) (|:| |pow| (|Integer|))) (|List| 32)
               (73 . |append|) (79 . |reduce|) (84 . ^) (90 . |rem|)

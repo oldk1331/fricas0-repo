@@ -480,9 +480,9 @@
         (SPROG
          ((|lfs|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| (|SparseUnivariatePolynomial| P))
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| (|SparseUnivariatePolynomial| P))
+                      (|:| |exponent| (|Integer|)))))
           (#1=#:G217 NIL) (|fu| #2=(|Factored| P)) (#3=#:G216 NIL)
           (|partSq|
            (|Record| (|:| |unitPart| P)
@@ -667,12 +667,12 @@
          ((|sqlead| (|Factored| P))
           (|result1|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (|nsqff|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (#1=#:G254 NIL) (|fu| NIL) (#2=#:G253 NIL)
           (|nsqfftot|
            (|Record| (|:| |unitPart| P)
@@ -1332,9 +1332,9 @@
               (183 . |retract|) (188 . |retract|) (193 . |exquo|)
               (199 . |degree|) (204 . |coerce|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 83) (|:| |fctr| 9) (|:| |xpnt| 12))
+              (|Record| (|:| |flag| 83) (|:| |factor| 9) (|:| |exponent| 12))
               (|List| 84) (209 . |factorList|)
-              (|Record| (|:| |flg| 83) (|:| |fctr| 19) (|:| |xpnt| 12))
+              (|Record| (|:| |flag| 83) (|:| |factor| 19) (|:| |exponent| 12))
               (|List| 87) (|Factored| 19) (214 . |makeFR|) (|List| 9)
               (220 . |coefficients|) (225 . |variables|) (230 . |setUnion|)
               (236 . |ground|) (|Mapping| 8 9)
@@ -1343,7 +1343,7 @@
               (252 . |unit|) (|Mapping| 9 8)
               (|UnivariatePolynomialCategoryFunctions2| 8 23 9 19)
               (257 . |map|)
-              (|Record| (|:| |flg| 83) (|:| |fctr| 23) (|:| |xpnt| 12))
+              (|Record| (|:| |flag| 83) (|:| |factor| 23) (|:| |exponent| 12))
               (|List| 106) (263 . |factorList|) (268 . |content|)
               (273 . |append|) |MULTSQFR;squareFree;SupF;2| (279 . |makeFR|)
               (285 . |minimumDegree|) (291 . |elt|) (297 . |Zero|)

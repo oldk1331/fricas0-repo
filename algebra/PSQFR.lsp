@@ -124,8 +124,8 @@
         (SPROG
          ((|pfaclist|
            (|List|
-            #1=(|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                         (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+            #1=(|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                         (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (|sqp| #2=(|Factored| P)) (|cont| (P)) (|cont1| (P))
           (|flistfin1| (|List| #1#)) (#3=#:G164 NIL) (|uu| NIL) (#4=#:G163 NIL)
           (|listfin1| #2#) (|uexp| (|NonNegativeInteger|)) (#5=#:G147 NIL)
@@ -279,8 +279,8 @@
          ((|sqp| (|Factored| P))
           (|pfaclist|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| P) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| P) (|:| |exponent| (|Integer|)))))
           (#1=#:G185 NIL) (|u| NIL) (#2=#:G184 NIL)
           (|squp| (|Factored| (|SparseUnivariatePolynomial| P)))
           (|up| (|SparseUnivariatePolynomial| P)) (#3=#:G170 NIL) (|cont| (P))
@@ -413,13 +413,14 @@
               (27 . |multivariate|) (33 . |multiplyExponents|) (39 . |Zero|)
               (43 . |charthRoot|) (|Factored| 9) (48 . |unit|) (53 . ^)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 29) (|:| |fctr| 9) (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 29) (|:| |factor| 9)
+                        (|:| |exponent| (|Integer|)))
               (|List| 30) (59 . |factorList|) (64 . |makeFR|)
               (70 . |differentiate|) (|Boolean|) (76 . =) (82 . |content|)
               (87 . |One|) (91 . |exquo|) (|Factored| 18)
               (|UnivariatePolynomialSquareFree| 9 18) (97 . |squareFree|)
-              (|Record| (|:| |flg| 29) (|:| |fctr| 18)
-                        (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 29) (|:| |factor| 18)
+                        (|:| |exponent| (|Integer|)))
               (|List| 43) (102 . |factorList|) (107 . =)
               |PSQFR;squareFree;PF;5| (113 . *) (119 . |append|) (125 . |One|)
               (129 . ~=) (135 . |unit|) (140 . |coefficient|)

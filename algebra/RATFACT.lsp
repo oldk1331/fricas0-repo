@@ -177,7 +177,7 @@
               (58 . |coerce|) (63 . |coerce|) (|Mapping| 15 14)
               (|UnivariatePolynomialCategoryFunctions2| 14 21 15 6)
               (68 . |map|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 35) (|:| |fctr| 6) (|:| |xpnt| 14))
+              (|Record| (|:| |flag| 35) (|:| |factor| 6) (|:| |exponent| 14))
               (|List| 36) (74 . |makeFR|) |RATFACT;factor;RPF;1|
               |RATFACT;factorSquareFree;RPF;2|)
            '#(|factorSquareFree| 80 |factor| 85) 'NIL

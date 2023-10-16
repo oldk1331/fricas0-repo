@@ -54,7 +54,8 @@
               (|List| 11) (10 . |factors|) (15 . *) (21 . |One|)
               |UFD-;squareFreePart;2S;1| (25 . |factor|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 18) (|:| |fctr| 6) (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 18) (|:| |factor| 6)
+                        (|:| |exponent| (|Integer|)))
               (|List| 19) (30 . |factorList|) (|Boolean|) |UFD-;prime?;SB;2|)
            '#(|squareFreePart| 35 |prime?| 40) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)

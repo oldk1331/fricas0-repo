@@ -9274,7 +9274,7 @@
               (821 . *) (827 . -) (833 . |retractIfCan|) (838 . ~=) (844 . =)
               (850 . |retract|) (855 . *)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 238) (|:| |fctr| 37) (|:| |xpnt| 29))
+              (|Record| (|:| |flag| 238) (|:| |factor| 37) (|:| |exponent| 29))
               (|List| 239) (861 . |makeFR|) (867 . *) (|Factored| $)
               (873 . |squareFree|) (878 . |rootOf|) (883 . |elt|)
               (|Union| 82 '"failed") (|Mapping| 7 7) (|List| 248)

@@ -37,14 +37,15 @@
                      ($ |up|
                       (|List|
                        (|Record|
-                        (|:| |flg|
+                        (|:| |flag|
                              (|Union| #7="nil" #8="sqfr" #9="irred"
                                       #10="prime"))
-                        (|:| |fctr| |up|) (|:| |xpnt| (|Integer|))))))
+                        (|:| |factor| |up|) (|:| |exponent| (|Integer|))))))
                     (SIGNATURE |factorList|
                      ((|List|
-                       (|Record| (|:| |flg| (|Union| #7# #8# #9# #10#))
-                                 (|:| |fctr| |up|) (|:| |xpnt| (|Integer|))))
+                       (|Record| (|:| |flag| (|Union| #7# #8# #9# #10#))
+                                 (|:| |factor| |up|)
+                                 (|:| |exponent| (|Integer|))))
                       $))
                     (SIGNATURE |nilFactor| ($ |up| (|Integer|)))
                     (SIGNATURE |factors|

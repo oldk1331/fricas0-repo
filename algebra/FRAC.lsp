@@ -632,9 +632,9 @@
         (SPROG
          ((|lfact|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| (|SparseUnivariatePolynomial| $))
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| (|SparseUnivariatePolynomial| $))
+                      (|:| |exponent| (|Integer|)))))
           (|den1| ($)) (|lc| ($)) (#2=#:G880 NIL) (|w| NIL) (#3=#:G879 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
@@ -772,9 +772,9 @@
         (SPROG
          ((|lfact|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| (|SparseUnivariatePolynomial| $))
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| (|SparseUnivariatePolynomial| $))
+                      (|:| |exponent| (|Integer|)))))
           (|den1| ($)) (|lc| ($)) (#2=#:G905 NIL) (|w| NIL) (#3=#:G904 NIL)
           (|ff| (|Factored| (|SparseUnivariatePolynomial| S)))
           (|ppD| (|SparseUnivariatePolynomial| S)) (|denpp| (S))
@@ -1212,10 +1212,10 @@
               (399 . |conditionP|) (|Factored| 79) (404 . |Zero|)
               (|Factored| 92) (408 . |factorPolynomial|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 121) (|:| |fctr| 88) (|:| |xpnt| 61))
+              (|Record| (|:| |flag| 121) (|:| |factor| 88) (|:| |exponent| 61))
               (|List| 122) (|Factored| 88) (413 . |factorList|) (418 . ^)
               (424 . /) (430 . |unit|)
-              (|Record| (|:| |flg| 121) (|:| |fctr| 79) (|:| |xpnt| 61))
+              (|Record| (|:| |flag| 121) (|:| |factor| 79) (|:| |exponent| 61))
               (|List| 129) (435 . |makeFR|) (441 . |factorPolynomial|)
               (446 . |leadingCoefficient|) (451 . /)
               (457 . |factorSquareFreePolynomial|)

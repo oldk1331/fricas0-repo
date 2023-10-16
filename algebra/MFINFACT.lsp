@@ -1611,11 +1611,11 @@
           (|base_failure| (|Integer|))
           (|nfl|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr|
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor|
                            (|SparseUnivariatePolynomial|
                             (|SparseUnivariatePolynomial| F)))
-                      (|:| |xpnt| (|Integer|)))))
+                      (|:| |exponent| (|Integer|)))))
           (|dx| #17=(|NonNegativeInteger|)) (#18=#:G414 NIL) (#19=#:G413 #17#)
           (#20=#:G415 #17#) (#21=#:G459 NIL) (|uc| NIL)
           (|newm|
@@ -2614,7 +2614,7 @@
               (175 . |map|) (|Integer|) (181 . |primeFactor|) (187 . *)
               (193 . |One|) (197 . |coerce|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 74) (|:| |fctr| 37) (|:| |xpnt| 69))
+              (|Record| (|:| |flag| 74) (|:| |factor| 37) (|:| |exponent| 69))
               (|List| 75) (202 . |makeFR|) (|FactoringUtilities| 7 6 8 9)
               (208 . |variables|) (213 . |ground|) (|Mapping| 8 9)
               (|UnivariatePolynomialCategoryFunctions2| 9 37 8 23)
@@ -2663,7 +2663,7 @@
               (668 . |differentiate|) (|Mapping| 23 23) (673 . |map|)
               (679 . |gcd|) (684 . |leadingCoefficient|) (689 . |coefficients|)
               (|Factored| 140) (|TwoFactorize| 8) (694 . |tryTwoFactor|)
-              (|Record| (|:| |flg| 74) (|:| |fctr| 140) (|:| |xpnt| 69))
+              (|Record| (|:| |flag| 74) (|:| |factor| 140) (|:| |exponent| 69))
               (|List| 198) (699 . |factorList|) (704 . |elt|) (710 . *)
               (716 . |generalTwoFactor|)
               (|Record| (|:| |factor| 140) (|:| |exponent| 69)) (|List| 204)
@@ -2674,7 +2674,7 @@
               (783 . |map|) (|Mapping| 10 23)
               (|UnivariatePolynomialCategoryFunctions2| 23 140 10 11)
               (789 . |map|) (795 . |variables|) (800 . =)
-              (|Record| (|:| |flg| 74) (|:| |fctr| 9) (|:| |xpnt| 69))
+              (|Record| (|:| |flag| 74) (|:| |factor| 9) (|:| |exponent| 69))
               (|List| 225) (806 . |makeFR|) (812 . |degree|)
               (818 . |primeFactor|) (824 . *) (830 . |One|) (834 . *)
               |MFINFACT;factor;PGF;20|)

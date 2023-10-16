@@ -697,7 +697,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 8) (|:| |fctr| 6) (|:| |xpnt| 34))
+              (|Record| (|:| |flag| 8) (|:| |factor| 6) (|:| |exponent| 34))
               (|List| 9) (|Factored| 6) (0 . |factorList|)
               (|Record| (|:| |num| 6) (|:| |den| 11)) (|List| 13) (5 . |copy|)
               (|Boolean|) (10 . =) (16 . *) (22 . *) (28 . |expand|)

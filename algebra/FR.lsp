@@ -6,8 +6,8 @@
           (|rec| NIL)
           (|lf|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|))))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|))))))
          (SEQ
           (COND
            ((NULL
@@ -106,8 +106,8 @@
 (SDEFUN |FR;factorList;$L;7|
         ((|u| $)
          ($ |List|
-          (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+          (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                    (|:| |factor| R) (|:| |exponent| (|Integer|)))))
         (QCDR |u|)) 
 
 (PUT '|FR;unit;$R;8| '|SPADreplace| 'QCAR) 
@@ -146,8 +146,8 @@
 (SDEFUN |FR;mkFF|
         ((|r| R)
          (|x| |List|
-          (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |fctr| R) (|:| |xpnt| (|Integer|))))
+          (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                    (|:| |factor| R) (|:| |exponent| (|Integer|))))
          ($ $))
         (CONS |r| |x|)) 
 
@@ -210,8 +210,8 @@
 (SDEFUN |FR;makeFR;RL$;22|
         ((|u| R)
          (|l| |List|
-          (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                    (|:| |fctr| R) (|:| |xpnt| (|Integer|))))
+          (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                    (|:| |factor| R) (|:| |exponent| (|Integer|))))
          ($ $))
         (SPADCALL (|FR;mkFF| |u| (|FR;SimplifyFactorization| |l| $) $)
                   (QREFELT $ 59))) 
@@ -430,11 +430,11 @@
 (SDEFUN |FR;SimplifyFactorization|
         ((|x| |List|
           (|Record|
-           (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-           (|:| |fctr| R) (|:| |xpnt| (|Integer|))))
+           (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+           (|:| |factor| R) (|:| |exponent| (|Integer|))))
          ($ |List|
-          (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                    (|:| |xpnt| (|Integer|)))))
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                    (|:| |exponent| (|Integer|)))))
         (SEQ
          (COND ((NULL |x|) NIL)
                ('T
@@ -457,22 +457,22 @@
 
 (SDEFUN |FR;SimplifyFactorization1|
         ((|f| |Record|
-          (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |fctr| R) (|:| |xpnt| (|Integer|)))
+          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+          (|:| |factor| R) (|:| |exponent| (|Integer|)))
          (|x| |List|
-          (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                    (|:| |xpnt| (|Integer|))))
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                    (|:| |exponent| (|Integer|))))
          ($ |List|
-          (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                    (|:| |xpnt| (|Integer|)))))
+          (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                    (|:| |exponent| (|Integer|)))))
         (SPROG
          ((|l|
            (|List|
-            (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                      (|:| |exponent| (|Integer|)))))
           (|f1|
-           (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                     (|:| |xpnt| (|Integer|)))))
+           (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                     (|:| |exponent| (|Integer|)))))
          (SEQ
           (COND
            ((NULL |x|)
@@ -504,8 +504,8 @@
           (|rec| NIL)
           (|lf|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|))))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|))))))
          (SEQ
           (COND
            ((NULL
@@ -616,10 +616,10 @@
 
 (SDEFUN |FR;LispLessP|
         ((|y| |Record|
-          (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-          (|:| |fctr| R) (|:| |xpnt| (|Integer|)))
-         (|y1| |Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-          (|:| |xpnt| (|Integer|)))
+          (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+          (|:| |factor| R) (|:| |exponent| (|Integer|)))
+         (|y1| |Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+          (|:| |exponent| (|Integer|)))
          ($ |Boolean|))
         (COND
          ((QREFELT $ 30)
@@ -834,8 +834,8 @@
         (SPROG
          ((|x1|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
           (|goodQuotient| (|Boolean|)) (|v1| ($)))
          (SEQ
           (COND
@@ -874,8 +874,8 @@
         (SPROG
          ((|vl|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
           (|as| (R)) (|un| (R)) (|e| (|NonNegativeInteger|)) (#2=#:G502 NIL)
           (|ucar|
            (|Record| (|:| |unit| R) (|:| |canonical| R) (|:| |associate| R)))
@@ -995,18 +995,18 @@
          ((|x1|
            (|List|
             (|Record|
-             (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-             (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+             (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+             (|:| |factor| R) (|:| |exponent| (|Integer|)))))
           (|f3| (|List| (|List| (|Integer|)))) (|f1| #5=(|List| (|Integer|)))
           (|i| (|Integer|))
           (|y|
-           (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                     (|:| |xpnt| (|Integer|))))
+           (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                     (|:| |exponent| (|Integer|))))
           (|f2| #5#) (#6=#:G554 NIL) (|j| NIL) (#7=#:G553 NIL)
           (|x|
            (|List|
-            (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#)) (|:| |fctr| R)
-                      (|:| |xpnt| (|Integer|))))))
+            (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#)) (|:| |factor| R)
+                      (|:| |exponent| (|Integer|))))))
          (SEQ
           (COND
            ((OR (SPADCALL |u| (|spadConstant| $ 41) (QREFELT $ 96))
@@ -1123,8 +1123,8 @@
         (SPROG
          ((|l|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|))))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|))))))
          (COND
           ((OR
             (OR
@@ -1224,11 +1224,11 @@
                               (|:| |fct|
                                    (|List|
                                     (|Record|
-                                     (|:| |flg|
+                                     (|:| |flag|
                                           (|Union| "nil" "sqfr" "irred"
                                                    "prime"))
-                                     (|:| |fctr| |#1|)
-                                     (|:| |xpnt| (|Integer|)))))))
+                                     (|:| |factor| |#1|)
+                                     (|:| |exponent| (|Integer|)))))))
           (COND
            ((|testBitVector| |pv$| 11)
             (QSETREFV $ 29 (CONS (|dispatchFunction| |FR;convert;$If;1|) $))))
@@ -1279,7 +1279,7 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) '|Rep|
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 8) (|:| |fctr| 6) (|:| |xpnt| 26))
+              (|Record| (|:| |flag| 8) (|:| |factor| 6) (|:| |exponent| 26))
               (|List| 9) |FR;factorList;$L;7| |FR;unit;$R;8| (|InputForm|)
               (0 . |convert|) (5 . |One|) (|Boolean|) (9 . =) (|Void|)
               (|String|) (|OutputForm|) (15 . |messagePrint|) (|Symbol|)

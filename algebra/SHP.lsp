@@ -500,8 +500,8 @@
          ((#1=#:G322 NIL) (|f| NIL) (#2=#:G321 NIL)
           (|sqfr|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| UP) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (SH (|List| UP)) (|ans| (|Integer|)) (#3=#:G299 NIL) (#4=#:G319 NIL)
           (|p| NIL) (#5=#:G320 NIL) (|j| NIL) (#6=#:G318 NIL)
           (|qp| (|NonNegativeInteger|)))
@@ -677,7 +677,7 @@
               |SHP;countRealRoots;UPI;16| (176 . |exquo|)
               (182 . |SturmHabichtMultiple|) (|Factored| $)
               (188 . |squareFree|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 56) (|:| |fctr| 7) (|:| |xpnt| 15))
+              (|Record| (|:| |flag| 56) (|:| |factor| 7) (|:| |exponent| 15))
               (|List| 57) (|Factored| 7) (193 . |factorList|) (198 . +)
               (|Mapping| 15 15 15) (|List| 15) (204 . |reduce|)
               (210 . |countRealRootsMultiple|))

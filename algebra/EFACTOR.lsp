@@ -265,7 +265,7 @@
                                                         (LIST '|List|
                                                               (LIST '|Record|
                                                                     (LIST '|:|
-                                                                          '|flg|
+                                                                          '|flag|
                                                                           (LIST
                                                                            '|Union|
                                                                            '"nil"
@@ -273,11 +273,11 @@
                                                                            '"irred"
                                                                            '"prime"))
                                                                     (LIST '|:|
-                                                                          '|fctr|
+                                                                          '|factor|
                                                                           (|devaluate|
                                                                            |ups|))
                                                                     (LIST '|:|
-                                                                          '|xpnt|
+                                                                          '|exponent|
                                                                           (LIST
                                                                            '|Integer|))))
                                                         '$)
@@ -491,9 +491,9 @@
               (77 . |eval|) (84 . |retract|)
               (|SparseMultivariatePolynomial| 6 39) (89 . |numer|)
               (94 . |univariate|) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 46) (|:| |fctr| 26) (|:| |xpnt| 34))
+              (|Record| (|:| |flag| 46) (|:| |factor| 26) (|:| |exponent| 34))
               (|List| 47) (100 . |makeFR|)
-              (|Record| (|:| |flg| 46) (|:| |fctr| 9) (|:| |xpnt| 34))
+              (|Record| (|:| |flag| 46) (|:| |factor| 9) (|:| |exponent| 34))
               (|List| 50) (106 . |factorList|) (|NonNegativeInteger|)
               (111 . |degree|) (116 . ~=) (122 . |coerce|) (|Mapping| 7 15)
               (|UnivariatePolynomialCategoryFunctions2| 15 9 7 26)

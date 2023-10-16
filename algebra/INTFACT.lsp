@@ -3,8 +3,8 @@
         (SPROG
          ((|y|
            #1=(|List|
-               (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                         (|:| |fctr| I) (|:| |xpnt| (|Integer|)))))
+               (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                         (|:| |factor| I) (|:| |exponent| (|Integer|)))))
           (|v| (|Union| I "failed")) (|m| (I)) (|x| (|Factored| I)) (|lim| (I))
           (#2=#:G132 NIL) (#3=#:G133 NIL) (|l| #1#) (|sv| (|Factored| I))
           (|rec| NIL) (|u| (I)))
@@ -305,8 +305,8 @@
          ((|d| (I))
           (|ls|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| I) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| I) (|:| |exponent| (|Integer|)))))
           (|n| (I)) (|m| NIL) (#1=#:G182 NIL) (#2=#:G183 NIL) (|s| NIL)
           (|l| (|List| I)))
          (SEQ
@@ -406,8 +406,8 @@
         (SPROG
          ((|flb|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| I) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| I) (|:| |exponent| (|Integer|)))))
           (|c| (|NonNegativeInteger|)) (|n| (I)) (|d| (|Union| I "failed"))
           (|y| (|Union| I "failed")) (|x| (I))
           (|s|
@@ -619,7 +619,7 @@
               (19 . |One|) (23 . |One|) (27 . >) (|Union| 6 '"failed")
               (|IntegerRoots| 6) (33 . |perfectSqrt|) |INTFACT;squareFree;IF;1|
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 20) (|:| |fctr| 6) (|:| |xpnt| 25))
+              (|Record| (|:| |flag| 20) (|:| |factor| 6) (|:| |exponent| 25))
               (|List| 21) (38 . |factorList|) (|PositiveInteger|) (|Integer|)
               (43 . *) (49 . |unit|) (54 . *) (60 . |makeFR|)
               (|NonNegativeInteger|) (66 . |approxNthRoot|) (72 . +)

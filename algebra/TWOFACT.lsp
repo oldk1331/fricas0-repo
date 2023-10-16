@@ -58,18 +58,18 @@
          ((|pfaclist|
            (|List|
             (|Record|
-             (|:| |flg| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
-             (|:| |fctr|
+             (|:| |flag| (|Union| #1="nil" #2="sqfr" #3="irred" #4="prime"))
+             (|:| |factor|
                   (|SparseUnivariatePolynomial|
                    (|SparseUnivariatePolynomial| F)))
-             (|:| |xpnt| (|Integer|)))))
+             (|:| |exponent| (|Integer|)))))
           (|contlist|
            (|List|
-            (|Record| (|:| |flg| (|Union| #1# #2# #3# #4#))
-                      (|:| |fctr|
+            (|Record| (|:| |flag| (|Union| #1# #2# #3# #4#))
+                      (|:| |factor|
                            (|SparseUnivariatePolynomial|
                             (|SparseUnivariatePolynomial| F)))
-                      (|:| |xpnt| (|Integer|)))))
+                      (|:| |exponent| (|Integer|)))))
           (#5=#:G166 NIL) (|w| NIL) (#6=#:G165 NIL)
           (|sqp| #7=(|Factored| (|SparseUnivariatePolynomial| F)))
           (|unitPart|
@@ -249,22 +249,22 @@
         (SPROG
          ((|ll|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr|
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor|
                            (|SparseUnivariatePolynomial|
                             (|SparseUnivariatePolynomial| F)))
-                      (|:| |xpnt| (|Integer|)))))
+                      (|:| |exponent| (|Integer|)))))
           (#1=#:G224 NIL) (|v| NIL) (#2=#:G223 NIL)
           (|unitPart|
            (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F)))
           (#3=#:G212 NIL)
           (|nfl|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr|
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor|
                            (|SparseUnivariatePolynomial|
                             (|SparseUnivariatePolynomial| F)))
-                      (|:| |xpnt| (|Integer|)))))
+                      (|:| |exponent| (|Integer|)))))
           (|twoF|
            (|Factored|
             (|SparseUnivariatePolynomial| (|SparseUnivariatePolynomial| F))))
@@ -710,8 +710,9 @@
           (|flist|
            (|List|
             (|Record|
-             (|:| |flg| (|Union| #20="nil" #21="sqfr" #22="irred" #23="prime"))
-             (|:| |fctr| #13#) (|:| |xpnt| (|Integer|)))))
+             (|:| |flag|
+                  (|Union| #20="nil" #21="sqfr" #22="irred" #23="prime"))
+             (|:| |factor| #13#) (|:| |exponent| (|Integer|)))))
           (|res1|
            (|Factored|
             (|SparseUnivariatePolynomial|
@@ -800,7 +801,8 @@
                                                  (LIST
                                                   (LIST '|List|
                                                         (LIST '|Record|
-                                                              (LIST '|:| '|flg|
+                                                              (LIST '|:|
+                                                                    '|flag|
                                                                     (LIST
                                                                      '|Union|
                                                                      '#20#
@@ -808,7 +810,7 @@
                                                                      '#22#
                                                                      '#23#))
                                                               (LIST '|:|
-                                                                    '|fctr|
+                                                                    '|factor|
                                                                     (LIST
                                                                      '|SparseUnivariatePolynomial|
                                                                      (LIST
@@ -816,7 +818,7 @@
                                                                       (|devaluate|
                                                                        |extField|))))
                                                               (LIST '|:|
-                                                                    '|xpnt|
+                                                                    '|exponent|
                                                                     (LIST
                                                                      '|Integer|))))
                                                   '$)
@@ -1390,9 +1392,9 @@
               (|Factored| 8) (90 . |Zero|) (|Factored| $) (94 . |squareFree|)
               (|Factored| 12) (99 . |unit|) (104 . |coerce|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 37) (|:| |fctr| 12) (|:| |xpnt| 75))
+              (|Record| (|:| |flag| 37) (|:| |factor| 12) (|:| |exponent| 75))
               (|List| 38) (109 . |factorList|)
-              (|Record| (|:| |flg| 37) (|:| |fctr| 8) (|:| |xpnt| 75))
+              (|Record| (|:| |flag| 37) (|:| |factor| 8) (|:| |exponent| 75))
               (|List| 41) (114 . |makeFR|) (120 . |content|) (125 . |exquo|)
               (131 . |squareFree|) (136 . |unit|) (141 . |factorList|)
               (146 . =) (152 . ^) (158 . *) (164 . |One|) (168 . |One|)

@@ -200,7 +200,8 @@
               (5 . |degree|) (|List| 7) (|PositiveInteger|)
               |GALPOLYU;factorsOfDegree;PiFL;1| (10 . |Zero|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 18) (|:| |fctr| 7) (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 18) (|:| |factor| 7)
+                        (|:| |exponent| (|Integer|)))
               (|List| 19) (14 . |factorList|) |GALPOLYU;factorOfDegree;PiFUP;2|
               (|List| 12) (|Multiset| 12) (19 . |multiset|)
               |GALPOLYU;degreePartition;FM;3| (24 . |leadingCoefficient|)

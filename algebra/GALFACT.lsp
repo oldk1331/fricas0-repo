@@ -1347,8 +1347,8 @@
         (SPROG
          ((|fflist|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| UP) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| UP) (|:| |exponent| (|Integer|)))))
           (#1=#:G414 NIL) (|fc| NIL) (#2=#:G413 NIL) (|ff| NIL)
           (|ctp| (|Factored| (|Integer|))))
          (SEQ
@@ -2410,9 +2410,9 @@
               (386 . -) (391 . |noLinearFactor?|) (396 . |remove|)
               (402 . |ground?|) (407 . |subtractIfCan|) (413 . |setelt!|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 135) (|:| |fctr| 25) (|:| |xpnt| 25))
+              (|Record| (|:| |flag| 135) (|:| |factor| 25) (|:| |exponent| 25))
               (|List| 136) (420 . |factorList|) (425 . |unit|)
-              (|Record| (|:| |flg| 135) (|:| |fctr| 6) (|:| |xpnt| 25))
+              (|Record| (|:| |flag| 135) (|:| |factor| 6) (|:| |exponent| 25))
               (|List| 140) (|Factored| 6) (430 . |makeFR|)
               (|Record| (|:| |irr| 6) (|:| |pow| 25))
               (|Record| (|:| |contp| 25) (|:| |factors| 166))

@@ -104,9 +104,9 @@
         (SPROG
          ((|r|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| (|Complex| (|Integer|)))
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| (|Complex| (|Integer|)))
+                      (|:| |exponent| (|Integer|)))))
           (|z| #1=(|Complex| (|Integer|))) (|sz| (|List| (|Integer|)))
           (|unity| #1#) (#2=#:G163 NIL) (|exp| (|Integer|)) (#3=#:G171 NIL)
           (|term| NIL) (|lfn| (|Factored| (|Integer|))))
@@ -179,20 +179,21 @@
          ((|unity| (|Complex| (|Integer|)))
           (|result|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| (|Complex| (|Integer|)))
-                      (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| (|Complex| (|Integer|)))
+                      (|:| |exponent| (|Integer|)))))
           (|z| (|Complex| (|Integer|))) (#1=#:G187 NIL)
           (|part|
            (|Record|
-            (|:| |flg| (|Union| #2="nil" #3="sqfr" #4="irred" #5="prime"))
-            (|:| |fctr| (|Complex| (|Integer|))) (|:| |xpnt| (|Integer|))))
+            (|:| |flag| (|Union| #2="nil" #3="sqfr" #4="irred" #5="prime"))
+            (|:| |factor| (|Complex| (|Integer|)))
+            (|:| |exponent| (|Integer|))))
           (|g0| (|Complex| (|Integer|))) (#6=#:G183 NIL) (|exp| #7=(|Integer|))
           (|n| (|Integer|)) (#8=#:G196 NIL) (|term| NIL)
           (|factn|
            (|List|
-            (|Record| (|:| |flg| (|Union| #2# #3# #4# #5#))
-                      (|:| |fctr| (|Integer|)) (|:| |xpnt| #7#))))
+            (|Record| (|:| |flag| (|Union| #2# #3# #4# #5#))
+                      (|:| |factor| (|Integer|)) (|:| |exponent| #7#))))
           (|r| #9=(|Factored| (|Complex| (|Integer|)))) (|b| (|Integer|))
           (#10=#:G116 NIL) (|a| (|Integer|)) (|d| (|Integer|)) (|ris| #9#))
          (SEQ
@@ -441,10 +442,10 @@
               (53 . ^) (59 . |coerce|) (64 . ^) (70 . >) (|Factored| 6)
               (|IntegerFactorizationPackage| 6) (76 . |factor|) (81 . |unit|)
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 33) (|:| |fctr| 6) (|:| |xpnt| 6))
+              (|Record| (|:| |flag| 33) (|:| |factor| 6) (|:| |exponent| 6))
               (|List| 34) (86 . |factorList|) (91 . *) (97 . ^) (103 . *)
               (|List| 6) (109 . |elt|) (115 . |conjugate|)
-              (|Record| (|:| |flg| 33) (|:| |fctr| 15) (|:| |xpnt| 6))
+              (|Record| (|:| |flag| 33) (|:| |factor| 15) (|:| |exponent| 6))
               (|List| 43) (|Factored| 15) (120 . |makeFR|) (126 . |Zero|)
               (130 . |Zero|) (134 . =) (140 . |primeFactor|) (146 . |real|)
               (151 . |imag|) (156 . |unit|) (161 . |factorList|) (166 . |One|)

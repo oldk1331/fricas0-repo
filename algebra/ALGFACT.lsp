@@ -146,21 +146,23 @@
         (SPROG
          ((|fp|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| UP) (|:| |xpnt| (|Integer|))))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| UP) (|:| |exponent| (|Integer|))))))
          (SEQ
           (LETT |fp| (SPADCALL (SPADCALL |p| (QREFELT $ 27)) (QREFELT $ 58))
                 |ALGFACT;irred?|)
           (EXIT
-           (COND ((EQL (LENGTH |fp|) 1) (EQL (QVELT (|SPADfirst| |fp|) 2) 1))
-                 ('T NIL)))))) 
+           (COND
+            ((SPADCALL |fp| 1 (QREFELT $ 59))
+             (EQL (QVELT (|SPADfirst| |fp|) 2) 1))
+            ('T NIL)))))) 
 
 (SDEFUN |ALGFACT;fact|
         ((|p| UP) (|l| |List| #1=(|Kernel| (|AlgebraicNumber|)))
          ($ |Factored| UP))
         (SPROG
-         ((#2=#:G160 NIL) (#3=#:G159 #4=(|Factored| UP)) (#5=#:G161 #4#)
-          (#6=#:G169 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
+         ((#2=#:G159 NIL) (#3=#:G158 #4=(|Factored| UP)) (#5=#:G160 #4#)
+          (#6=#:G168 NIL) (|fc| NIL) (|newalpha| (|AlgebraicNumber|))
           (|fr| (|Factored| |ups|))
           (|ups|
            (|Join| (|UnivariatePolynomialCategory| |sae|)
@@ -180,9 +182,9 @@
                  |noBranch|))))
           (|newl| (|List| (|Kernel| (|AlgebraicNumber|))))
           (|q| (|SparseUnivariatePolynomial| (|AlgebraicNumber|)))
-          (|alpha| #1#) (#8=#:G150 NIL) (#9=#:G149 #1#) (#10=#:G151 #1#)
-          (#11=#:G168 NIL) (#12=#:G104 NIL) (#13=#:G146 NIL) (#14=#:G145 #4#)
-          (#15=#:G147 #4#) (#16=#:G167 NIL) (|dc| NIL)
+          (|alpha| #1#) (#8=#:G149 NIL) (#9=#:G148 #1#) (#10=#:G150 #1#)
+          (#11=#:G167 NIL) (#12=#:G104 NIL) (#13=#:G145 NIL) (#14=#:G144 #4#)
+          (#15=#:G146 #4#) (#16=#:G166 NIL) (|dc| NIL)
           (|dr|
            (|Factored|
             (|SparseUnivariatePolynomial| (|Fraction| (|Integer|))))))
@@ -192,14 +194,14 @@
             (SPADCALL |p| 1 (QREFELT $ 42)))
            ((NULL |l|)
             (SEQ
-             (LETT |dr| (SPADCALL (|ALGFACT;downpoly| |p| $) (QREFELT $ 61))
+             (LETT |dr| (SPADCALL (|ALGFACT;downpoly| |p| $) (QREFELT $ 62))
                    . #17=(|ALGFACT;fact|))
              (EXIT
-              (SPADCALL (|ALGFACT;liftpoly| (SPADCALL |dr| (QREFELT $ 62)) $)
+              (SPADCALL (|ALGFACT;liftpoly| (SPADCALL |dr| (QREFELT $ 63)) $)
                         (PROGN
                          (LETT #13# NIL . #17#)
                          (SEQ (LETT |dc| NIL . #17#)
-                              (LETT #16# (SPADCALL |dr| (QREFELT $ 65)) . #17#)
+                              (LETT #16# (SPADCALL |dr| (QREFELT $ 66)) . #17#)
                               G190
                               (COND
                                ((OR (ATOM #16#)
@@ -248,7 +250,7 @@
                                    (COND
                                     (#8#
                                      (LETT #9#
-                                           (SPADCALL #9# #10# (QREFELT $ 67))
+                                           (SPADCALL #9# #10# (QREFELT $ 68))
                                            . #17#))
                                     ('T
                                      (PROGN
@@ -258,11 +260,11 @@
                                 (EXIT NIL))
                            (COND (#8# #9#) (#18# (|IdentityError| '|max|))))
                           . #17#)
-                    (QREFELT $ 69))
+                    (QREFELT $ 70))
                    . #17#)
              (LETT |newl|
                    (SPADCALL (CONS #'|ALGFACT;fact!0| (VECTOR $ |alpha|)) |l|
-                             (QREFELT $ 72))
+                             (QREFELT $ 73))
                    . #17#)
              (LETT |sae|
                    (|SimpleAlgebraicExtension| (|AlgebraicNumber|)
@@ -306,7 +308,7 @@
                                              (|AlgebraicNumber|))
                                             |sae| |ups|)))
                    . #17#)
-             (LETT |newalpha| (SPADCALL |alpha| (QREFELT $ 76)) . #17#)
+             (LETT |newalpha| (SPADCALL |alpha| (QREFELT $ 77)) . #17#)
              (EXIT
               (SPADCALL
                (SPADCALL (CONS #'|ALGFACT;fact!3| (VECTOR $ |newalpha| |sae|))
@@ -405,7 +407,7 @@
                                                 (LIST '|AlgebraicNumber|))
                                                '$)
                                               |sae|))
-             |newalpha| (QREFELT $ 77)))))) 
+             |newalpha| (QREFELT $ 78)))))) 
 
 (SDEFUN |ALGFACT;fact!3| ((|x| NIL) ($$ NIL))
         (PROG (|sae| |newalpha| $)
@@ -423,7 +425,7 @@
                                                 (LIST '|AlgebraicNumber|))
                                                '$)
                                               |sae|))
-             |newalpha| (QREFELT $ 77)))))) 
+             |newalpha| (QREFELT $ 78)))))) 
 
 (SDEFUN |ALGFACT;fact!2| ((|x| NIL) ($$ NIL))
         (PROG (|newl| $)
@@ -439,7 +441,7 @@
           (LETT |sae| (QREFELT $$ 0) . #1#)
           (RETURN
            (PROGN
-            (SPADCALL (SPADCALL |x| |alpha| |q| (QREFELT $ 75))
+            (SPADCALL (SPADCALL |x| |alpha| |q| (QREFELT $ 76))
                       (|compiledLookupCheck| '|reduce|
                                              (LIST '$
                                                    (LIST
@@ -451,13 +453,13 @@
         (PROG (|alpha| $)
           (LETT |alpha| (QREFELT $$ 1) . #1=(|ALGFACT;fact|))
           (LETT $ (QREFELT $$ 0) . #1#)
-          (RETURN (PROGN (SPADCALL |alpha| |x| (QREFELT $ 70)))))) 
+          (RETURN (PROGN (SPADCALL |alpha| |x| (QREFELT $ 71)))))) 
 
 (DECLAIM (NOTINLINE |AlgFactor;|)) 
 
-(DEFUN |AlgFactor| (#1=#:G170)
+(DEFUN |AlgFactor| (#1=#:G169)
   (SPROG NIL
-         (PROG (#2=#:G171)
+         (PROG (#2=#:G170)
            (RETURN
             (COND
              ((LETT #2#
@@ -477,7 +479,7 @@
          (PROGN
           (LETT DV$1 (|devaluate| |#1|) . #1=(|AlgFactor|))
           (LETT |dv$| (LIST '|AlgFactor| DV$1) . #1#)
-          (LETT $ (GETREFV 78) . #1#)
+          (LETT $ (GETREFV 79) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3 (LETT |pv$| (|buildPredVector| 0 0 NIL) . #1#))
           (|haddProp| |$ConstructorCache| '|AlgFactor| (LIST DV$1) (CONS 1 $))
@@ -488,8 +490,8 @@
 
 (MAKEPROP '|AlgFactor| '|infovec|
           (LIST
-           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|List| 68)
-              (|AlgebraicNumber|) (0 . |tower|) (|List| $) (|List| 66)
+           '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|List| 69)
+              (|AlgebraicNumber|) (0 . |tower|) (|List| $) (|List| 67)
               (5 . |concat|) (10 . |removeDuplicates|) (|Fraction| 41)
               (15 . |coerce|) (|Mapping| 8 14)
               (|SparseUnivariatePolynomial| 14)
@@ -508,24 +510,24 @@
               (120 . |exquo|) (126 . ^) (|Boolean|)
               |ALGFACT;doublyTransitive?;UPB;9|
               (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 55) (|:| |fctr| 6) (|:| |xpnt| 41))
-              (|List| 56) (132 . |factorList|) (|Factored| 17)
-              (|RationalFactorize| 17) (137 . |factor|) (142 . |unit|)
-              (|Record| (|:| |factor| 17) (|:| |exponent| 41)) (|List| 63)
-              (147 . |factors|) (|Kernel| 8) (152 . |max|) (|Kernel| $)
-              (158 . |minPoly|) (163 . =) (|Mapping| 53 66) (169 . |remove|)
+              (|Record| (|:| |flag| 55) (|:| |factor| 6) (|:| |exponent| 41))
+              (|List| 56) (132 . |factorList|) (137 . |size?|) (|Factored| 17)
+              (|RationalFactorize| 17) (143 . |factor|) (148 . |unit|)
+              (|Record| (|:| |factor| 17) (|:| |exponent| 41)) (|List| 64)
+              (153 . |factors|) (|Kernel| 8) (158 . |max|) (|Kernel| $)
+              (164 . |minPoly|) (169 . =) (|Mapping| 53 67) (175 . |remove|)
               (|SparseUnivariatePolynomial| 8)
-              (|PolynomialCategoryQuotientFunctions| (|IndexedExponents| 66) 66
+              (|PolynomialCategoryQuotientFunctions| (|IndexedExponents| 67) 67
                                                      41
                                                      (|SparseMultivariatePolynomial|
-                                                      41 66)
+                                                      41 67)
                                                      8)
-              (175 . |univariate|) (182 . |coerce|) (187 . |elt|))
-           '#(|split| 193 |factor| 198 |doublyTransitive?| 209) 'NIL
+              (181 . |univariate|) (188 . |coerce|) (193 . |elt|))
+           '#(|split| 199 |factor| 204 |doublyTransitive?| 215) 'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 77
+                             (|makeByteWordVec2| 78
                                                  '(1 8 7 0 9 1 11 0 10 12 1 11
                                                    0 0 13 1 8 0 14 15 2 18 6 16
                                                    17 19 1 8 14 0 20 2 22 17 21
@@ -537,12 +539,13 @@
                                                    0 8 0 44 2 6 0 8 39 45 1 8 0
                                                    46 47 1 6 0 8 48 2 6 0 0 0
                                                    49 2 6 50 0 0 51 2 26 0 0 39
-                                                   52 1 26 57 0 58 1 60 59 17
-                                                   61 1 59 17 0 62 1 59 64 0 65
-                                                   2 66 0 0 0 67 1 8 46 68 69 2
-                                                   66 53 0 0 70 2 11 0 71 0 72
-                                                   3 74 73 8 66 73 75 1 8 0 68
-                                                   76 2 73 8 0 8 77 1 0 26 6 38
-                                                   1 0 26 6 27 2 0 26 6 24 30 1
-                                                   0 53 6 54)))))
+                                                   52 1 26 57 0 58 2 57 53 0 39
+                                                   59 1 61 60 17 62 1 60 17 0
+                                                   63 1 60 65 0 66 2 67 0 0 0
+                                                   68 1 8 46 69 70 2 67 53 0 0
+                                                   71 2 11 0 72 0 73 3 75 74 8
+                                                   67 74 76 1 8 0 69 77 2 74 8
+                                                   0 8 78 1 0 26 6 38 1 0 26 6
+                                                   27 2 0 26 6 24 30 1 0 53 6
+                                                   54)))))
            '|lookupComplete|)) 

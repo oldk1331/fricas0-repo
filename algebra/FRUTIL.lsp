@@ -15,8 +15,8 @@
         (SPROG
          ((|l|
            (|List|
-            (|Record| (|:| |flg| (|Union| "nil" "sqfr" "irred" "prime"))
-                      (|:| |fctr| R) (|:| |xpnt| (|Integer|)))))
+            (|Record| (|:| |flag| (|Union| "nil" "sqfr" "irred" "prime"))
+                      (|:| |factor| R) (|:| |exponent| (|Integer|)))))
           (#2=#:G124 NIL) (|v| NIL) (#3=#:G123 NIL) (|u| (R)) (#4=#:G109 NIL)
           (|fitem| #1#) (#5=#:G122 NIL) (|item| NIL))
          (SEQ
@@ -121,7 +121,8 @@
           (LIST
            '#(NIL NIL NIL NIL NIL NIL (|local| |#1|) (|Factored| 6)
               (0 . |unit|) (5 . *) (|Union| '"nil" '"sqfr" '"irred" '"prime")
-              (|Record| (|:| |flg| 10) (|:| |fctr| 6) (|:| |xpnt| (|Integer|)))
+              (|Record| (|:| |flag| 10) (|:| |factor| 6)
+                        (|:| |exponent| (|Integer|)))
               (|List| 11) (11 . |factorList|) (16 . |copy|) (21 . |append|)
               (27 . |makeFR|) |FRUTIL;mergeFactors;3F;1| (|NonNegativeInteger|)
               (33 . ^) (39 . |concat|) (|Mapping| 7 6) |FRUTIL;refine;FMF;2|)
