@@ -8259,7 +8259,7 @@
 904468`\spad{tail(l)} returns the doubly-linked aggregate \spad{l} starting at its second element. Error: if \spad{l} is empty.
 904522`\spad{tail(p)} returns its reductum,{} where \spad{p} is viewed as a univariate polynomial in its main variable.
 904586`\spad{tail(u)} returns the last node of \spad{u}. Error if \spad{u} is empty.
-904642`\spad{tails(u)} returns list [rest(\spad{u},{} 0),{} rest(\spad{u},{} 1),{} ...,{} rest(\spad{x},{} \#u - 1)].
+904642`\spad{tails(u)} returns list [rest(\spad{u},{} 0),{} rest(\spad{u},{} 1),{} ...,{} rest(\spad{u},{} \#u - 1)].
 904686`\spad{tan(x)} represents the Fortran intrinsic function TAN
 904767`\spad{tan(x)} applies the tangent operator to \spad{x}
 904973`\spad{tan(st)} computes tangent of a power series \spad{st}.
@@ -9166,8 +9166,7 @@
 1002947`This package computes the forward Laplace Transform.
 1003085`A package for solving polynomial systems by means of Lazard triangular sets [1]. This package provides two operations. One for solving in the sense of the regular zeros,{} and the other for solving in the sense of the Zariski closure. Both produce square-free reg
 1003085`--ular sets. Moreover,{} the decompositions do not contain any redundant component. However,{} only zero-dimensional regular sets are normalized,{} since normalization may be time consumming in positive dimension. The decomposition process is that of [2].\newline
-1003330`Package for leading coefficient determination in the lifting step. Package working for every \spad{R} euclidean with property \spad{"F"}. Uses algorithm given in section 3 of \spad{P}. \spad{S}. Wang "An improved multivariate polynomial factoring algorithm",{} Math. of Comput. 32,{} 1978,{} \spad{p}. 1215-\spad{-1231},{} generalized to arbitrary euclidean doma
-1003330`--in.
+1003330`Package for leading coefficient determination in the lifting step. Package working for every unique factorization domain \spad{R} . Uses algorithm given in section 3 of [1] generalized to arbitrary unique factorization domain.
 1003476`A package for solving polynomial systems with finitely many solutions. The decompositions are given by means of regular triangular sets. The computations use lexicographical Groebner bases. The main operations are \spadopFrom{lexTriangular}{LexTriangularPackage} and \spadopFrom{squareFreeLexTriangular}{LexTriangularPackage}. The second one provide decompositions by means of square-free regular triangular sets. Both are ba
 1003476`--sed on the {\em lexTriangular} method described in [1]. They differ from the algorithm described in [2] by the fact that multiciplities of the roots are not kept. With the \spadopFrom{squareFreeLexTriangular}{LexTriangularPackage} operation all multiciplities are removed. With the other operation some multiciplities may remain. Both operations admit an optional argument to produce normalized triangular sets. \newline
 1003658`Test for linear dependence.
@@ -9242,7 +9241,7 @@
 1010986`A package for computing normalized assocites of univariate polynomials with coefficients in a tower of simple extensions of a field.
 1011176`This package implements the norm of a polynomial with coefficients in a monogenic algebra (using resultants)
 1011355`This package \undocumented
-1011580`Package for the determination of the coefficients in the lifting process. Used by \spadtype{MultivariateLifting}. This package will work for every integral domain \spad{R} which has property \spad{F},{} \spadignore{i.e.} there exists a factor operation in \spad{R[x]}.
+1011580`Package for the determination of the coefficients in the lifting process. Used by \spadtype{MultivariateLifting}. This package will work for every integral domain \spad{R}. The same method is described in [1] section 2.3.4.
 1011746`In this package \spad{F} is a framed algebra over the integers (typically \spad{F = Z[a]} for some algebraic integer a). The package provides functions to compute the integral closure of \spad{Z} in the quotient field of \spad{F}.
 1011874`NumberFormats provides function to format and read arabic and roman numbers,{} to convert numbers to strings and to read floating-point numbers.
 1011917`This package provides polynomials as functions on a ring.
