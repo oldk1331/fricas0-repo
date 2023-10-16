@@ -22,7 +22,7 @@
 
 (SDEFUN |EXTRED;cancelGcd|
         ((|c1| C) (|c2| C) ($ |Record| (|:| |co1| C) (|:| |co2| C)))
-        (SPROG ((#1=#:G118 NIL) (|g| (C)))
+        (SPROG ((#1=#:G117 NIL) (|g| (C)))
                (SEQ (LETT |g| (SPADCALL |c1| |c2| (QREFELT $ 9)))
                     (EXIT
                      (CONS
@@ -54,7 +54,7 @@
                           (|:| |mult| C))))
          ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
         (SPROG
-         ((#2=#:G137 NIL) (|bas| #1#) (|f2| (R)) (|f1| (C)) (|a| (C))
+         ((#2=#:G136 NIL) (|bas| #1#) (|f2| (R)) (|f1| (C)) (|a| (C))
           (|l| (|Record| (|:| |llcm_res| C) (|:| |coeff1| C) (|:| |coeff2| C)))
           (|ee| (|Union| E "failed")) (|pb| (R))
           (|b|
@@ -132,7 +132,7 @@
                           (EXIT (LETT |bas| |basis|))))
                         ('T (LETT |bas| (CDR |bas|))))))
                  NIL (GO G190) G191 (EXIT NIL))
-            (EXIT (PROGN (LETT #2# |z|) (GO #3=#:G136)))))
+            (EXIT (PROGN (LETT #2# |z|) (GO #3=#:G135)))))
           #3# (EXIT #2#)))) 
 
 (SDEFUN |EXTRED;tailReduce|
@@ -140,54 +140,39 @@
          (|basis| |List|
           (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
          ($ |Record| (|:| |poly| R) (|:| |repr| (|Vector| R)) (|:| |mult| C)))
-        (SPROG ((|m| (C)) (|p| (R)) (|r| (R)) (|v| (|Vector| R)))
+        (SPROG ((|r| (R)) (|m| (C)) (|p| (R)) (|v| (|Vector| R)))
                (SEQ
                 (COND ((NULL |basis|) |x|)
-                      (#1='T
+                      ('T
                        (SEQ (LETT |p| (|EXTRED;polynomial| |x| $))
-                            (EXIT
-                             (COND ((SPADCALL |p| (QREFELT $ 22)) |x|)
-                                   (#1#
-                                    (SEQ
-                                     (LETT |r| (SPADCALL |p| (QREFELT $ 39)))
-                                     (LETT |p| (SPADCALL |p| (QREFELT $ 29)))
-                                     (LETT |v| (|EXTRED;representation| |x| $))
-                                     (LETT |m| (|EXTRED;multiplier| |x| $))
-                                     (SEQ G190
-                                          (COND
-                                           ((NULL
-                                             (NULL
-                                              (SPADCALL |p| (QREFELT $ 22))))
-                                            (GO G191)))
-                                          (SEQ
-                                           (LETT |x|
-                                                 (|EXTRED;denominatorFreeTopReduce|
-                                                  (VECTOR |p| |v|
-                                                          (|spadConstant| $
-                                                                          15))
-                                                  |basis| $))
-                                           (LETT |v|
-                                                 (|EXTRED;representation| |x|
-                                                  $))
-                                           (LETT |p|
-                                                 (|EXTRED;polynomial| |x| $))
-                                           (LETT |r|
-                                                 (SPADCALL
-                                                  (SPADCALL
-                                                   (|EXTRED;multiplier| |x| $)
-                                                   |r| (QREFELT $ 30))
+                            (LETT |r| (|spadConstant| $ 14))
+                            (LETT |v| (|EXTRED;representation| |x| $))
+                            (LETT |m| (|EXTRED;multiplier| |x| $))
+                            (SEQ G190
+                                 (COND
+                                  ((NULL (NULL (SPADCALL |p| (QREFELT $ 22))))
+                                   (GO G191)))
+                                 (SEQ
+                                  (LETT |r|
+                                        (SPADCALL |r|
                                                   (SPADCALL |p| (QREFELT $ 39))
                                                   (QREFELT $ 40)))
-                                           (LETT |p|
-                                                 (SPADCALL |p| (QREFELT $ 29)))
-                                           (EXIT
-                                            (LETT |m|
-                                                  (SPADCALL |m|
-                                                            (|EXTRED;multiplier|
-                                                             |x| $)
-                                                            (QREFELT $ 35)))))
-                                          NIL (GO G190) G191 (EXIT NIL))
-                                     (EXIT (VECTOR |r| |v| |m|)))))))))))) 
+                                  (LETT |p| (SPADCALL |p| (QREFELT $ 29)))
+                                  (LETT |x|
+                                        (|EXTRED;denominatorFreeTopReduce|
+                                         (VECTOR |p| |v| (|spadConstant| $ 15))
+                                         |basis| $))
+                                  (LETT |v| (|EXTRED;representation| |x| $))
+                                  (LETT |p| (|EXTRED;polynomial| |x| $))
+                                  (LETT |m|
+                                        (SPADCALL (|EXTRED;multiplier| |x| $)
+                                                  |m| (QREFELT $ 35)))
+                                  (EXIT
+                                   (LETT |r|
+                                         (SPADCALL (|EXTRED;multiplier| |x| $)
+                                                   |r| (QREFELT $ 30)))))
+                                 NIL (GO G190) G191 (EXIT NIL))
+                            (EXIT (VECTOR |r| |v| |m|)))))))) 
 
 (SDEFUN |EXTRED;reduce;RLR;8|
         ((|r| R) (|basis| |List| R)
@@ -199,7 +184,7 @@
            (|List|
             (|Record| (|:| |poly| R) (|:| |repr| (|Vector| R))
                       (|:| |mult| C))))
-          (#1=#:G151 NIL) (|b| NIL) (#2=#:G152 NIL) (|i| NIL) (#3=#:G150 NIL)
+          (#1=#:G149 NIL) (|b| NIL) (#2=#:G150 NIL) (|i| NIL) (#3=#:G148 NIL)
           (|n| (|NonNegativeInteger|)))
          (SEQ
           (COND
@@ -233,9 +218,9 @@
 
 (DECLAIM (NOTINLINE |ExtendedPolynomialReduction;|)) 
 
-(DEFUN |ExtendedPolynomialReduction| (&REST #1=#:G153)
+(DEFUN |ExtendedPolynomialReduction| (&REST #1=#:G151)
   (SPROG NIL
-         (PROG (#2=#:G154)
+         (PROG (#2=#:G152)
            (RETURN
             (COND
              ((LETT #2#
