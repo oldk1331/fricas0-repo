@@ -204,7 +204,7 @@
 11083`This is the description of any package which provides partial functions on a domain belonging to TranscendentalFunctionCategory.
 11154`An object \spad{S} is Patternable over an object \spad{R} if \spad{S} can lift the conversions from \spad{R} into \spadtype{Pattern(Integer)} and \spadtype{Pattern(Float)} to itself.
 11204`A set \spad{R} is PatternMatchable over \spad{S} if elements of \spad{R} can be matched to patterns over \spad{S}.
-11267`PermutationCategory provides a categorial environment \indented{1}{for subgroups of bijections of a set (\spadignore{i.e.} permutations)}
+11267`PermutationCategory provides a categorical environment \indented{1}{for subgroups of bijections of a set (\spadignore{i.e.} permutations)}
 11334`PlottablePlaneCurveCategory is the category of curves in the plane which may be plotted via the graphics facilities. Functions are provided for obtaining lists of lists of points,{} representing the branches of the curve,{} and for determining the ranges of the \spad{x}-coordinates and \spad{y}-coordinates of the points on the curve.
 11395`PlottableSpaceCurveCategory is the category of curves in 3-space which may be plotted via the graphics facilities. Functions are provided for obtaining lists of lists of points,{} representing the branches of the curve,{} and for determining the ranges of the \spad{x-},{} \spad{y-},{} and \spad{z}-coordinates of the points on the curve.
 11456`PointCategory is the category of points in space which may be plotted via the graphics facilities. Functions are provided for defining points and handling elements of points.
@@ -2147,7 +2147,7 @@
 201904`generates a completely ordered set
 201981`Reflexivity requires forall(\spad{x}): x<=x This function enforces this by making sure that every element has arrow to itself. That is,{} the leading diagonal is \spad{true}.
 202081`\spad{completeSmith} returns a record that contains the Smith normal form \spad{H} of the matrix and the left and right equivalence matrices \spad{U} and \spad{V} such that U*m*v = \spad{H}
-202184`\spad{completeSmith(m,{} full)} computes record containing Smith normal form of \spad{m} and the left and right equivalence matrices. It first reduces \spad{m} to smaller matrix and then usess full to finish.
+202184`\spad{completeSmith(m,{} full)} computes record containing Smith normal form of \spad{m} and the left and right equivalence matrices. It first reduces \spad{m} to smaller matrix and then uses full to finish.
 202439`Transitivity requires forall(\spad{x},{} \spad{y},{} \spad{z}): x<=y and y<=z implies x<=z This function enforces this by making sure that the composition of any two arrows is also an arrow.
 202541`\spad{complex?(t)} tests whether \spad{t} is equivalent to the FORTRAN type COMPLEX.
 202596`\spad{complex(x,{} y)} constructs \spad{x} + \%i*y.
@@ -2722,7 +2722,7 @@
 262663`\spad{degree(ts)} returns the product of main degrees of the members of \spad{ts}.
 262740`\spad{degree(p)} returns the degree of \spad{p}. \indented{1}{Note that the degree of a word is its length.}
 262808`\spad{degree(gp)} returns the number of points moved by all permutations of the group {\em gp}.
-262874`\spad{degree(p)} retuns the number of points moved by the permutation \spad{p}.
+262874`\spad{degree(p)} returns the number of points moved by the permutation \spad{p}.
 262935`\spad{degree(a)} returns the degree of minimal polynomial of an element \spad{a} if \spad{a} is algebraic with respect to the ground field \spad{F},{} and \spad{infinity} otherwise.
 263016`\spad{degree(a)} returns the degree of the minimal polynomial of an element \spad{a} over the ground field \spad{F}.
 263092`\spad{degree(p,{} lv)} gives the list of degrees of polynomial \spad{p} with respect to each of the variables in the list \spad{lv}.
@@ -7854,7 +7854,7 @@
 854970`\spad{smesh(ptin,{} clos)} constructs a ifs representation of a mesh from a 2 dimensional array of points
 855033`\spad{smith(m)} computes Smith normal form of \spad{m}
 855112`\spad{smith(m)} returns the Smith Normal form of the matrix \spad{m}.
-855169`\spad{smith(m,{} full)} computes Smith normal form of \spad{m}. It first reduces \spad{m} to smaller matrix and then usess full to finish.
+855169`\spad{smith(m,{} full)} computes Smith normal form of \spad{m}. It first reduces \spad{m} to smaller matrix and then uses full to finish.
 855283`Undocumented.
 855379`Undocumented.
 855448`\spad{sncndn(s,{} c)} is used internally.
@@ -9468,7 +9468,7 @@
 1033343`\indented{1}{The purpose of this package is to provide reasonable plots of} functions with singularities.
 1033397`A basic package for the factorization of bivariate polynomials over a finite field. The functions here represent the base step for the multivariate factorizer.
 1033462`This is a low-level package which implements operations \indented{1}{on vectors treated as univariate modular polynomials.\space{2}Most} \indented{1}{operations takes modulus as parameter.\space{2}Modulus is machine} \indented{1}{sized prime which should be small enough to avoid overflow} \indented{1}{in intermediate calculations.}
-1033522`\indented{1}{References:} \indented{2}{\spad{J}-\spad{G}. Dumas,{} \spad{F}. Heckenbach,{} \spad{D}. Sauders,{} \spad{V}. Welker:} \indented{2}{Computing simplicial homology based on efficient Smith} \indented{2}{normal form algorithms.} Descrition: Gaussion elimination using only 1 or \spad{-1} as pivots \blankline
+1033522`Gaussian elimination using only 1 or \spad{-1} as pivots \blankline
 1033575`Unittest is a package that provides functions for regression \indented{13}{testing.\space{2}Note that it calls the interpreter,{} thus,{} all} \indented{13}{functions require that their arguments be passed as strings.}
 1033615`UnittestAux is an auxiliary package to Unittest,{} that performs \indented{13}{checking of tests,{} dealing also with fatal errors.}
 1033669`UnittestCount is a package that keeps track of statistics \indented{13}{collected during testing.\space{2}It is separate from} \indented{13}{\spadtype{UnittestAux} because the latter takes an argument,{}} \indented{13}{and we want the state to be common for all arguments.}
