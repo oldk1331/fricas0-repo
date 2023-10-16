@@ -1810,7 +1810,6 @@
 ;   htpSetProperty(htPage,'opAlist,opAlist)
 ;   htpSetProperty(htPage,'expandOperations,'lists)
 ;   which := '"operation"
-; --dbResetOpAlistCondition(htPage,which,opAlist)
 ;   dbShowOp1(htPage,opAlist,which,'names)
  
 (DEFUN |opPageFast| (|opAlist|)

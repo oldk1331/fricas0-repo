@@ -471,7 +471,7 @@
 ;         fn(u,pl) ==
 ;           u is ['Join,:.,a] => fn(a,pl)
 ;           u is ['has,:.] => insert(EQSUBSTLIST($mvl,$tvl,u),pl)
-;           u is [op,:.] and MEMQ(op,'(SIGNATURE ATTRIBUTE)) =>
+;           u is [op, :.] and MEMQ(op, ["SIGNATURE", "ATTRIBUTE"]) =>
 ;                -- EQ(op, 'ATTRIBUTE) => BREAK()
 ;                pl
 ;           atom u => pl
@@ -501,7 +501,7 @@
       ((AND (CONSP |u|) (EQ (CAR |u|) '|has|))
        (|insert| (EQSUBSTLIST |$mvl| |$tvl| |u|) |pl|))
       ((AND (CONSP |u|) (PROGN (SETQ |op| (CAR |u|)) #1#)
-            (MEMQ |op| '(SIGNATURE ATTRIBUTE)))
+            (MEMQ |op| (LIST 'SIGNATURE 'ATTRIBUTE)))
        |pl|)
       ((ATOM |u|) |pl|) (#1# (|makeCategoryPredicates,fnl| |u| |pl|))))))
 (DEFUN |makeCategoryPredicates,fnl| (|u| |pl|)
@@ -652,10 +652,10 @@
 ;     $insideCategoryIfTrue: local:= true
 ;     $definition : local := form
 ;                  --used by DomainSubstitutionFunction
-;     $op: local := nil
 ;     $extraParms: local := nil
 ;              --Set in DomainSubstitutionFunction, used further down
 ; --  1.1  augment e to add declaration $: <form>
+;     $op: local := nil
 ;     [$op, :argl] := form
 ;     e := addBinding("$", [['mode, :form]],e)
 ; 
@@ -731,19 +731,19 @@
         |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
   (PROG (|$addForm| |$functorStats| |$functionStats| |$functorForm| |$form|
-         |$extraParms| |$op| |$definition| |$insideCategoryIfTrue|
+         |$op| |$extraParms| |$definition| |$insideCategoryIfTrue|
          |domainShell| |modemap| |parForm| |parSignature| |pairlis| |fun| |g|
          |formals| |actuals| |op'| |LETTMP#1| |formalBody| |aList| |sform|
          |sargl| |signature'| |argl|)
     (DECLARE
      (SPECIAL |$addForm| |$functorStats| |$functionStats| |$functorForm|
-      |$form| |$extraParms| |$op| |$definition| |$insideCategoryIfTrue|))
+      |$form| |$op| |$extraParms| |$definition| |$insideCategoryIfTrue|))
     (RETURN
      (PROGN
       (SETQ |$insideCategoryIfTrue| T)
       (SETQ |$definition| |form|)
-      (SETQ |$op| NIL)
       (SETQ |$extraParms| NIL)
+      (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
       (SETQ |e| (|addBinding| '$ (LIST (CONS '|mode| |form|)) |e|))
@@ -938,6 +938,7 @@
 ;     $insideFunctorIfTrue: local:= true
 ;     $genSDVar: local:= 0
 ;     originale := e
+;     $op: local := nil
 ;     [$op,:argl]:= form
 ;     $formalArgList:= [:argl,:$formalArgList]
 ;     $pairlis := [[a,:v] for a in argl for v in $FormalMapVariableList]
@@ -1088,6 +1089,7 @@
       (SETQ |$insideFunctorIfTrue| T)
       (SETQ |$genSDVar| 0)
       (SETQ |originale| |e|)
+      (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
       (SETQ |$formalArgList| (APPEND |argl| |$formalArgList|))
@@ -2161,7 +2163,6 @@
 ;     [lineNumber,:specialCases] := specialCases
 ;     e := oldE
 ;     --1. bind global variables
-;     $op: local := nil
 ;     $functionStats: local:= [0,0]
 ;     $finalEnv: local := nil
 ;              --used by ReplaceExitEtc to get a common environment
@@ -2171,6 +2172,7 @@
 ;     $CapsuleModemapFrame: local:= e
 ;     $CapsuleDomainsInScope: local:= get("$DomainsInScope","special",e)
 ;     $returnMode:= m
+;     $op: local := nil
 ;     [$op,:argl]:= form
 ;     $form : local := [$op, :argl]
 ;     $formalArgList:= [:argl,:$formalArgList]
@@ -2240,16 +2242,16 @@
  
 (DEFUN |compDefineCapsuleFunction| (|df| |m| |oldE| |$prefix| |$formalArgList|)
   (DECLARE (SPECIAL |$prefix| |$formalArgList|))
-  (PROG (|$form| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+  (PROG (|$form| |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
          |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount|
-         |$locVarsTypes| |$finalEnv| |$functionStats| |$op| |val| |fun|
-         |finalBody| |body'| |catchTag| T$ |formattedSig| |localOrExported|
-         |ISTMP#1| |rettype| |signature'| |argModeList| |identSig| |argl| |e|
+         |$locVarsTypes| |$finalEnv| |$functionStats| |val| |fun| |finalBody|
+         |body'| |catchTag| T$ |formattedSig| |localOrExported| |ISTMP#1|
+         |rettype| |signature'| |argModeList| |identSig| |argl| |e|
          |lineNumber| |LETTMP#1| |body| |specialCases| |signature| |form|)
     (DECLARE
-     (SPECIAL |$form| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
+     (SPECIAL |$form| |$op| |$CapsuleDomainsInScope| |$CapsuleModemapFrame|
       |$insideCapsuleFunctionIfTrue| |$initCapsuleErrorCount| |$locVarsTypes|
-      |$finalEnv| |$functionStats| |$op|))
+      |$finalEnv| |$functionStats|))
     (RETURN
      (PROGN
       (SETQ |form| (CADR . #1=(|df|)))
@@ -2260,7 +2262,6 @@
       (SETQ |lineNumber| (CAR |LETTMP#1|))
       (SETQ |specialCases| (CDR |LETTMP#1|))
       (SETQ |e| |oldE|)
-      (SETQ |$op| NIL)
       (SETQ |$functionStats| (LIST 0 0))
       (SETQ |$finalEnv| NIL)
       (SETQ |$locVarsTypes| NIL)
@@ -2269,6 +2270,7 @@
       (SETQ |$CapsuleModemapFrame| |e|)
       (SETQ |$CapsuleDomainsInScope| (|get| '|$DomainsInScope| '|special| |e|))
       (SETQ |$returnMode| |m|)
+      (SETQ |$op| NIL)
       (SETQ |$op| (CAR |form|))
       (SETQ |argl| (CDR |form|))
       (SETQ |$form| (CONS |$op| |argl|))
@@ -4115,7 +4117,7 @@
 ; 
 ;   --2. if attribute, push it and return
 ;   x is ["ATTRIBUTE", 'nil] => BREAK()
-;   x is ["ATTRIBUTE",y] =>
+;   x is ["ATTRIBUTE", y] =>
 ;        -- should generate something else for conditional categories
 ;        -- BREAK()
 ;        push_at_list(MKQ [y, pred], acc)

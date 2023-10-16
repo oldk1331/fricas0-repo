@@ -811,8 +811,8 @@
 ; postJoin ['Join,a,:l] ==
 ;   a:= postTran a
 ;   l:= postTranList l
-;   if l is [b] and b is [name,:.] and MEMQ(name,'(ATTRIBUTE SIGNATURE)) then l
-;     := LIST ['CATEGORY,b]
+;   if l is [b] and b is [name, :.] and MEMQ(name, ["ATTRIBUTE", "SIGNATURE"])
+;   then l := LIST(['CATEGORY, b])
 ;   al:=
 ;     a is ["@Tuple", :c] => c
 ;     LIST a
@@ -829,7 +829,7 @@
       (COND
        ((AND (CONSP |l|) (EQ (CDR |l|) NIL) (PROGN (SETQ |b| (CAR |l|)) #2='T)
              (CONSP |b|) (PROGN (SETQ |name| (CAR |b|)) #2#)
-             (MEMQ |name| '(ATTRIBUTE SIGNATURE)))
+             (MEMQ |name| (LIST 'ATTRIBUTE 'SIGNATURE)))
         (SETQ |l| (LIST (LIST 'CATEGORY |b|)))))
       (SETQ |al|
               (COND
@@ -1381,7 +1381,8 @@
 ; postWith ["with",a] ==
 ;   $insidePostCategoryIfTrue: local := true
 ;   a:= postTran a
-;   a is [op,:.] and MEMQ(op,'(SIGNATURE ATTRIBUTE IF)) => ['CATEGORY,a]
+;   a is [op, :.] and MEMQ(op, ["ATTRIBUTE", "SIGNATURE", "IF"]) =>
+;       ['CATEGORY, a]
 ;   a is ['PROGN,:b] => ['CATEGORY,:b]
 ;   a
  
@@ -1395,7 +1396,7 @@
       (SETQ |a| (|postTran| |a|))
       (COND
        ((AND (CONSP |a|) (PROGN (SETQ |op| (CAR |a|)) #1='T)
-             (MEMQ |op| '(SIGNATURE ATTRIBUTE IF)))
+             (MEMQ |op| (LIST 'ATTRIBUTE 'SIGNATURE 'IF)))
         (LIST 'CATEGORY |a|))
        ((AND (CONSP |a|) (EQ (CAR |a|) 'PROGN)
              (PROGN (SETQ |b| (CDR |a|)) #1#))
