@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5155 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5153 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -449,39 +449,38 @@
  |VectorIntegerReconstructor| |VectorCategory&| |VectorCategory| |Vector|
  |VectorFunctions2| |VectorHermitePadeSolver| |ViewportPackage|
  |TwoDimensionalViewport| |ThreeDimensionalViewport| |ViewDefaultsPackage|
- |Void| |VectorSpaceBasis| |VectorSpace&| |VectorSpace|
- |WeierstrassPreparation| |WildFunctionFieldIntegralBasis| |WeightedGraph|
- |WeightedPolynomials| |WuWenTsunTriangularSet| |XAlgebra|
- |XDistributedPolynomial| |XDistributedPolynomialFunctions|
- |XExponentialPackage| |ExtensionField&| |ExtensionField| |XFreeAlgebra|
- |XHashTable| |ExportXml| |XmlAttribute| |XmlElement| |XPBWPolynomial|
- |XPolynomialFactor| |XPolynomial| |XPolynomialsCat| |XPolynomialRing|
- |XRecursivePolynomial| |ParadoxicalCombinatorsForStreams|
- |ZeroDimensionalSolvePackage| |IntegerLinearDependence| |IntegerMod|
- |Enumeration| |Mapping| |Record| |Union| |Category| |opposite?| |zerosOf|
- |zeroOf| |rootsOf| |makeSketch| |rootSum| |inrootof| |droot| |iroot| |size?|
- |eq?| |assoc| |doublyTransitive?| |knownInfBasis| |rootSplit| |ratDenom|
- |ratPoly| |rootFactor| |rootPower| |rootProduct| |rootSimp| |rootKerSimp|
- |leftRank| |rightRank| |doubleRank| |weakBiRank| |biRank|
- |basisOfCommutingElements| |basisOfLeftAnnihilator| |basisOfRightAnnihilator|
- |basisOfLeftNucleus| |basisOfRightNucleus| |basisOfMiddleNucleus|
- |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid| |basisOfRightNucloid|
- |basisOfCentroid| |radicalOfLeftTraceForm| |trueEqual| |showTypeInOutput|
- |obj| |dom| |objectOf| |domainOf| |any| |applyRules| |vertSplit| |blockConcat|
- |vertConcat| |horizConcat| |squareTop| |setColumn!| |colSlice| |rowSlice|
- |oneDimensionalArray| |associatedSystem| |uncouplingMatrices|
- |associatedEquations| |arrayStack| |morphism| |balancedFactorisation|
- |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree| |sylvesterMatrix|
- |subSylvesterMatrix| |bezoutMatrix| |subresultants| |bezoutResultant|
- |bezoutDiscriminant| |inspect| |extract!| |position!| |starts| |_\|_| T$
- |test| |setProperties| |setProperty| |property| |deleteProperty!| |assert|
- |has?| |input| |comparison| |equality| |nary?| |unary?| |nullary?| |arity|
- |properties| |derivative| |constantOperator| |constantOpIfCan| |setright!|
- |setleft!| |brillhartIrreducible?| |brillhartTrials| |noLinearFactor?|
- |insertRoot!| |binarySearchTree| |nor| |nand| |node| |binaryTournament|
- |binaryTree| |subtractIfCan| |setPosition| |cylindricalDecomposition|
- |projectionSet| |coefficientSet| |discriminantSet| |resultantSet|
- |principalSubResultantSet| |specialise| |squareFreeBasis|
+ |Void| |VectorSpaceBasis| |WeierstrassPreparation|
+ |WildFunctionFieldIntegralBasis| |WeightedGraph| |WeightedPolynomials|
+ |WuWenTsunTriangularSet| |XAlgebra| |XDistributedPolynomial|
+ |XDistributedPolynomialFunctions| |XExponentialPackage| |ExtensionField&|
+ |ExtensionField| |XFreeAlgebra| |XHashTable| |ExportXml| |XmlAttribute|
+ |XmlElement| |XPBWPolynomial| |XPolynomialFactor| |XPolynomial|
+ |XPolynomialsCat| |XPolynomialRing| |XRecursivePolynomial|
+ |ParadoxicalCombinatorsForStreams| |ZeroDimensionalSolvePackage|
+ |IntegerLinearDependence| |IntegerMod| |Enumeration| |Mapping| |Record|
+ |Union| |Category| |opposite?| |zerosOf| |zeroOf| |rootsOf| |makeSketch|
+ |rootSum| |inrootof| |droot| |iroot| |size?| |eq?| |assoc| |doublyTransitive?|
+ |knownInfBasis| |rootSplit| |ratDenom| |ratPoly| |rootFactor| |rootPower|
+ |rootProduct| |rootSimp| |rootKerSimp| |leftRank| |rightRank| |doubleRank|
+ |weakBiRank| |biRank| |basisOfCommutingElements| |basisOfLeftAnnihilator|
+ |basisOfRightAnnihilator| |basisOfLeftNucleus| |basisOfRightNucleus|
+ |basisOfMiddleNucleus| |basisOfNucleus| |basisOfCenter| |basisOfLeftNucloid|
+ |basisOfRightNucloid| |basisOfCentroid| |radicalOfLeftTraceForm| |trueEqual|
+ |showTypeInOutput| |obj| |dom| |objectOf| |domainOf| |any| |applyRules|
+ |vertSplit| |blockConcat| |vertConcat| |horizConcat| |squareTop| |setColumn!|
+ |colSlice| |rowSlice| |oneDimensionalArray| |associatedSystem|
+ |uncouplingMatrices| |associatedEquations| |arrayStack| |morphism|
+ |balancedFactorisation| |mapDown!| |mapUp!| |setleaves!| |balancedBinaryTree|
+ |sylvesterMatrix| |subSylvesterMatrix| |bezoutMatrix| |subresultants|
+ |bezoutResultant| |bezoutDiscriminant| |inspect| |extract!| |position!|
+ |starts| |_\|_| T$ |test| |setProperties| |setProperty| |property|
+ |deleteProperty!| |assert| |has?| |input| |comparison| |equality| |nary?|
+ |unary?| |nullary?| |arity| |properties| |derivative| |constantOperator|
+ |constantOpIfCan| |setright!| |setleft!| |brillhartIrreducible?|
+ |brillhartTrials| |noLinearFactor?| |insertRoot!| |binarySearchTree| |nor|
+ |nand| |node| |binaryTournament| |binaryTree| |subtractIfCan| |setPosition|
+ |cylindricalDecomposition| |projectionSet| |coefficientSet| |discriminantSet|
+ |resultantSet| |principalSubResultantSet| |specialise| |squareFreeBasis|
  |generalizedContinuumHypothesisAssumed|
  |generalizedContinuumHypothesisAssumed?| |countable?| |Aleph| |unravel|
  |ravel| |leviCivitaSymbol| |kroneckerDelta| |reshape| |alphanumeric|
@@ -1069,10 +1068,10 @@
  |result| |conditions| |updateStatus!| |extractSplittingLeaf| |extendedCoords|
  |screenCoords| |screenCoordZ| |screenCoordY| |screenCoordX| |inBounds?|
  |isVector?| |isPoint?| |toVector| |toPoint| |perpendicular| |colinearity|
- |parallel| |distance| |distanceSquared| |Pnan?| |max| |min| |sivec| |svec|
- |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim| |leftTrim| |trim|
- |split| |position| |replace| |match?| |substring?| |suffix?| |prefix?|
- |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
+ |parallel| |distance| |distanceSquared| |Pnan?| |dimension| |max| |min|
+ |sivec| |svec| |sipnt| |spnt| |squareMatrix| |transpose| |rightTrim|
+ |leftTrim| |trim| |split| |position| |replace| |match?| |substring?| |suffix?|
+ |prefix?| |upperCase!| |upperCase| |lowerCase!| |lowerCase| |KrullNumber|
  |numberOfVariables| |algebraicDecompose| |transcendentalDecompose|
  |internalDecompose| |decompose| |upDateBranches| |printInfo| |pre_process|
  |internalZeroSetSplit| |internalAugment| |monomial| |leadingMonomial|
@@ -1173,12 +1172,12 @@
  |tubePointsDefault| |tubeRadiusDefault| |void| |coordinates|
  |coordinatesIfCan| |member?| |complementSpace| |canonicalBasis| |Zero|
  |subspace?| |isBasis?| |rank| |intBasis| + |sumBasis| |columnSpace|
- |nullSpace| |basis| |dimension| |weierstrass| |integralBasis|
- |localIntegralBasis| |weightedDistanceMatrix| |closedCartesian| |closedTensor|
- |cartesian| |routeArrowWeight| |routeNodeWeight| |distanceWeighted|
- |addWArrow!| |weightedGraph| |changeWeightLevel| |characteristicSerie|
- |characteristicSet| |medialSet| |hankelIndices| |hankelMatrix| |hankelSystem|
- |display| |minimalMatrix| |findNonZeroEntry| |transformationMatrices|
+ |nullSpace| |basis| |weierstrass| |integralBasis| |localIntegralBasis|
+ |weightedDistanceMatrix| |closedCartesian| |closedTensor| |cartesian|
+ |routeArrowWeight| |routeNodeWeight| |distanceWeighted| |addWArrow!|
+ |weightedGraph| |changeWeightLevel| |characteristicSerie| |characteristicSet|
+ |medialSet| |hankelIndices| |hankelMatrix| |hankelSystem| |display|
+ |minimalMatrix| |findNonZeroEntry| |transformationMatrices|
  |minimalRepresentation| |Hausdorff| |Frobenius| |transcendenceDegree|
  |extensionDegree| |inGroundField?| |transcendent?| |algebraic?| |varList| |sh|
  |mirror| |monomial?| |monom| |rquo| |lquo| |mindegTerm| |table| |writeXml|

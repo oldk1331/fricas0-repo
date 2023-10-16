@@ -24,7 +24,7 @@
                                      (LETT |ExtensionField;CAT|
                                            (|Join| (|Field|)
                                                    (|RetractableTo| '|t#1|)
-                                                   (|VectorSpace| '|t#1|)
+                                                   (|Module| '|t#1|)
                                                    (|mkCategory|
                                                     '(((|algebraic?|
                                                         ((|Boolean|) $))
@@ -47,6 +47,7 @@
                                                       ((|transcendenceDegree|
                                                         ((|NonNegativeInteger|)))
                                                        T)
+                                                      ((/ ($ $ |t#1|)) T)
                                                       ((|Frobenius| ($ $))
                                                        (|has| |t#1|
                                                               (|Finite|)))

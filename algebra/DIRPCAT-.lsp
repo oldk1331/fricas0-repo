@@ -77,25 +77,19 @@
                                          (QREFELT $ 40)))))))
                 (EXIT (CONS (SPADCALL |m| (QREFELT $ 38)) |vh|))))) 
 
-(SDEFUN |DIRPCAT-;/;SRS;7| ((|x| S) (|b| R) ($ S))
-        (SPADCALL |x| (SPADCALL |b| (QREFELT $ 44)) (QREFELT $ 45))) 
+(SDEFUN |DIRPCAT-;size;Nni;7| (($ |NonNegativeInteger|))
+        (EXPT (SPADCALL (QREFELT $ 44)) (QREFELT $ 7))) 
 
-(SDEFUN |DIRPCAT-;dimension;Cn;8| (($ |CardinalNumber|))
-        (SPADCALL (QREFELT $ 7) (QREFELT $ 48))) 
-
-(SDEFUN |DIRPCAT-;size;Nni;9| (($ |NonNegativeInteger|))
-        (EXPT (SPADCALL (QREFELT $ 50)) (QREFELT $ 7))) 
-
-(SDEFUN |DIRPCAT-;index;PiS;10| ((|n| |PositiveInteger|) ($ S))
+(SDEFUN |DIRPCAT-;index;PiS;8| ((|n| |PositiveInteger|) ($ S))
         (SPROG
-         ((|n0| (|Integer|)) (#1=#:G142 NIL)
+         ((|n0| (|Integer|)) (#1=#:G140 NIL)
           (|d|
            (|Record| (|:| |quotient| (|Integer|))
                      (|:| |remainder| (|Integer|))))
-          (#2=#:G147 NIL) (|i| NIL) (|r| (|Vector| R))
+          (#2=#:G145 NIL) (|i| NIL) (|r| (|Vector| R))
           (|s| (|NonNegativeInteger|)))
-         (SEQ (LETT |s| (SPADCALL (QREFELT $ 50)))
-              (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 53))))
+         (SEQ (LETT |s| (SPADCALL (QREFELT $ 44)))
+              (LETT |r| (MAKEARR1 (QREFELT $ 7) (SPADCALL 1 (QREFELT $ 47))))
               (LETT |n0| (- |n| 1))
               (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -106,17 +100,17 @@
                                      (|check_subtype2| (> #1# 0)
                                                        '(|PositiveInteger|)
                                                        '(|Integer|) #1#))
-                                   (QREFELT $ 53))
-                                  (QREFELT $ 54))
+                                   (QREFELT $ 47))
+                                  (QREFELT $ 48))
                         (EXIT (LETT |n0| (QCAR |d|))))
                    (LETT |i| (|inc_SI| |i|)) (GO G190) G191 (EXIT NIL))
-              (EXIT (SPADCALL |r| (QREFELT $ 55)))))) 
+              (EXIT (SPADCALL |r| (QREFELT $ 49)))))) 
 
-(SDEFUN |DIRPCAT-;lookup;SPi;11| ((|v| S) ($ |PositiveInteger|))
+(SDEFUN |DIRPCAT-;lookup;SPi;9| ((|v| S) ($ |PositiveInteger|))
         (SPROG
-         ((#1=#:G150 NIL) (|pow| (|NonNegativeInteger|)) (|res| (|Integer|))
-          (#2=#:G153 NIL) (|i| NIL) (|s| (|NonNegativeInteger|)))
-         (SEQ (LETT |s| (SPADCALL (QREFELT $ 50))) (LETT |pow| 1)
+         ((#1=#:G148 NIL) (|pow| (|NonNegativeInteger|)) (|res| (|Integer|))
+          (#2=#:G151 NIL) (|i| NIL) (|s| (|NonNegativeInteger|)))
+         (SEQ (LETT |s| (SPADCALL (QREFELT $ 44))) (LETT |pow| 1)
               (LETT |res| 1)
               (SEQ (LETT |i| 1) (LETT #2# (QREFELT $ 7)) G190
                    (COND ((|greater_SI| |i| #2#) (GO G191)))
@@ -125,8 +119,8 @@
                           (+ |res|
                              (*
                               (-
-                               (SPADCALL (SPADCALL |v| |i| (QREFELT $ 57))
-                                         (QREFELT $ 58))
+                               (SPADCALL (SPADCALL |v| |i| (QREFELT $ 51))
+                                         (QREFELT $ 52))
                                1)
                               |pow|)))
                     (EXIT (LETT |pow| (* |pow| |s|))))
@@ -145,13 +139,12 @@
           (LETT DV$2 (|devaluate| |#2|))
           (LETT DV$3 (|devaluate| |#3|))
           (LETT |dv$| (LIST '|DirectProductCategory&| DV$1 DV$2 DV$3))
-          (LETT $ (GETREFV 67))
+          (LETT $ (GETREFV 61))
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
                           (|buildPredVector| 0 0
                                              (LIST
-                                              (|HasCategory| |#3| '(|Field|))
                                               (|HasCategory| |#3|
                                                              '(|OrderedAbelianMonoidSup|))
                                               (|HasCategory| |#3|
@@ -178,7 +171,7 @@
           (QSETREFV $ 8 |#3|)
           (SETF |pv$| (QREFELT $ 3))
           (COND
-           ((|testBitVector| |pv$| 12)
+           ((|testBitVector| |pv$| 11)
             (PROGN
              (QSETREFV $ 12
                        (CONS (|dispatchFunction| |DIRPCAT-;coerce;IS;1|) $))
@@ -197,21 +190,14 @@
                         (|dispatchFunction| |DIRPCAT-;reducedSystem;MVR;6|)
                         $)))))
           (COND
-           ((|testBitVector| |pv$| 1)
+           ((|testBitVector| |pv$| 6)
             (PROGN
-             (QSETREFV $ 46 (CONS (|dispatchFunction| |DIRPCAT-;/;SRS;7|) $))
-             (QSETREFV $ 49
-                       (CONS (|dispatchFunction| |DIRPCAT-;dimension;Cn;8|)
-                             $)))))
-          (COND
-           ((|testBitVector| |pv$| 7)
-            (PROGN
-             (QSETREFV $ 51
-                       (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;9|) $))
-             (QSETREFV $ 56
-                       (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;10|) $))
-             (QSETREFV $ 59
-                       (CONS (|dispatchFunction| |DIRPCAT-;lookup;SPi;11|)
+             (QSETREFV $ 45
+                       (CONS (|dispatchFunction| |DIRPCAT-;size;Nni;7|) $))
+             (QSETREFV $ 50
+                       (CONS (|dispatchFunction| |DIRPCAT-;index;PiS;8|) $))
+             (QSETREFV $ 53
+                       (CONS (|dispatchFunction| |DIRPCAT-;lookup;SPi;9|)
                              $)))))
           $))) 
 
@@ -229,16 +215,14 @@
               (83 . |reducedSystem|) (88 . |empty?|) (93 . |coerce|)
               (98 . |reducedSystem|) (|Vector| 8) (103 . |column|)
               (|Record| (|:| |mat| 20) (|:| |vec| 39)) (|Vector| $)
-              (109 . |reducedSystem|) (115 . |inv|) (120 . *) (126 . /)
-              (|CardinalNumber|) (132 . |coerce|) (137 . |dimension|)
-              (141 . |size|) (145 . |size|) (|PositiveInteger|) (149 . |index|)
-              (154 . |setelt!|) (161 . |directProduct|) (166 . |index|)
-              (171 . |elt|) (177 . |lookup|) (182 . |lookup|) (|Fraction| 9)
-              (|OutputForm|) (|List| 64) (|List| 13) (|Symbol|)
-              (|Record| (|:| |mat| 66) (|:| |vec| (|Vector| 9))) (|Matrix| 9))
-           '#(|size| 187 |reducedSystem| 191 |lookup| 202 |index| 207
-              |dimension| 212 |differentiate| 216 |coerce| 222 |characteristic|
-              227 / 231)
+              (109 . |reducedSystem|) (115 . |size|) (119 . |size|)
+              (|PositiveInteger|) (123 . |index|) (128 . |setelt!|)
+              (135 . |directProduct|) (140 . |index|) (145 . |elt|)
+              (151 . |lookup|) (156 . |lookup|) (|Fraction| 9) (|OutputForm|)
+              (|Symbol|) (|List| 56) (|List| 13)
+              (|Record| (|:| |mat| 60) (|:| |vec| (|Vector| 9))) (|Matrix| 9))
+           '#(|size| 161 |reducedSystem| 165 |lookup| 176 |index| 181
+              |differentiate| 186 |coerce| 192 |characteristic| 197)
            'NIL
            (CONS (|makeByteWordVec2| 1 '(0))
                  (CONS '#(NIL)
@@ -298,11 +282,9 @@
                                    '((|index| (|#1| (|PositiveInteger|))) T)
                                    '((|lookup| ((|PositiveInteger|) |#1|)) T)
                                    '((|coerce| (|#1| |#1|)) T)
-                                   '((/ (|#1| |#1| |#3|)) T)
-                                   '((|dimension| ((|CardinalNumber|))) T)
                                    '((|coerce| ((|Vector| |#3|) |#1|)) T))
                              (LIST) NIL NIL)))
-                        (|makeByteWordVec2| 59
+                        (|makeByteWordVec2| 53
                                             '(1 8 0 9 10 1 6 0 8 11 1 0 0 9 12
                                               0 8 13 14 0 0 13 15 2 6 0 16 0 17
                                               2 0 0 0 16 18 0 8 0 19 1 20 9 0
@@ -311,14 +293,11 @@
                                               2 25 29 0 9 30 2 32 20 31 0 33 1
                                               0 20 34 35 1 29 24 0 36 1 25 0 29
                                               37 1 6 20 34 38 2 20 39 0 9 40 2
-                                              0 41 34 42 43 1 8 0 0 44 2 6 0 0
-                                              8 45 2 0 0 0 8 46 1 47 0 13 48 0
-                                              0 47 49 0 8 13 50 0 0 13 51 1 8 0
-                                              52 53 3 39 8 0 9 8 54 1 6 0 39 55
-                                              1 0 0 52 56 2 6 8 0 9 57 1 8 52 0
-                                              58 1 0 52 0 59 0 0 13 51 2 0 41
-                                              34 42 43 1 0 20 34 35 1 0 52 0 59
-                                              1 0 0 52 56 0 0 47 49 2 0 0 0 16
-                                              18 1 0 0 9 12 0 0 13 15 2 0 0 0 8
-                                              46)))))
+                                              0 41 34 42 43 0 8 13 44 0 0 13 45
+                                              1 8 0 46 47 3 39 8 0 9 8 48 1 6 0
+                                              39 49 1 0 0 46 50 2 6 8 0 9 51 1
+                                              8 46 0 52 1 0 46 0 53 0 0 13 45 1
+                                              0 20 34 35 2 0 41 34 42 43 1 0 46
+                                              0 53 1 0 0 46 50 2 0 0 0 16 18 1
+                                              0 0 9 12 0 0 13 15)))))
            '|lookupComplete|)) 

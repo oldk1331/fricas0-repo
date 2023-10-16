@@ -264,9 +264,6 @@
              (|DirectProduct| #9# #10#) (|DirectProduct| #6# #10#))
             (|CoercibleTo| (|Matrix| #10#))
             (CATEGORY |domain|
-             (IF (|has| #10# (|Field|))
-                 (ATTRIBUTE (|VectorSpace| #10#))
-                 |noBranch|)
              (IF (|has| #10# (|ConvertibleTo| (|InputForm|)))
                  (ATTRIBUTE (|ConvertibleTo| (|InputForm|)))
                  |noBranch|)

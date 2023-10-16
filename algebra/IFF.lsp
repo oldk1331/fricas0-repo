@@ -27,7 +27,7 @@
     (LETT DV$1 (|devaluate| |#1|))
     (LETT DV$2 (|devaluate| |#2|))
     (LETT |dv$| (LIST '|InnerFiniteField| DV$1 DV$2))
-    (LETT $ (GETREFV 49))
+    (LETT $ (GETREFV 48))
     (QSETREFV $ 0 |dv$|)
     (QSETREFV $ 3
               (LETT |pv$|
@@ -58,21 +58,21 @@
           (LIST
            '#(NIL NIL NIL NIL NIL
               (|FiniteFieldExtension| 29 (NRTEVAL (QREFELT $ 7)))
-              (|local| |#1|) (|local| |#2|) (|Union| 31 '#1="failed")
+              (|local| |#1|) (|local| |#2|) (|Union| 32 '#1="failed")
               (|Matrix| $) (|OnePointCompletion| 15) (|Union| $ '"failed")
               (|Union| 13 '"failed") (|NonNegativeInteger|) (|List| $)
-              (|PositiveInteger|) (|InputForm|) (|Boolean|) (|Factored| 19)
-              (|SparseUnivariatePolynomial| $) (|Union| 21 '#1#) (|List| 19)
-              (|Record| (|:| |factor| 25) (|:| |exponent| 13)) (|List| 22)
+              (|PositiveInteger|) (|InputForm|) (|Boolean|) (|Union| 19 '#1#)
+              (|List| 20) (|SparseUnivariatePolynomial| $) (|Factored| 20)
               (|Table| 15 13) (|Integer|)
+              (|Record| (|:| |factor| 23) (|:| |exponent| 13)) (|List| 24)
+              (|Union| 28 '"failed")
               (|Union| '"prime" '"polynomial" '"normal" '"cyclic")
-              (|SparseUnivariatePolynomial| 29) (|Union| 27 '"failed")
-              (|InnerPrimeField| (NRTEVAL (QREFELT $ 6))) (|Matrix| 29)
-              (|Vector| $) (|Vector| 29) (|CardinalNumber|)
-              (|Union| 29 '"failed") (|Fraction| 25) (|Factored| $)
-              (|Union| 14 '#2="failed")
+              (|SparseUnivariatePolynomial| 29)
+              (|InnerPrimeField| (NRTEVAL (QREFELT $ 6))) (|Vector| 29)
+              (|Matrix| 29) (|Vector| $) (|Union| 29 '"failed") (|Fraction| 23)
+              (|Factored| $) (|Union| 14 '#2="failed")
               (|Record| (|:| |coef1| $) (|:| |coef2| $) (|:| |generator| $))
-              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 39 '#2#)
+              (|Record| (|:| |coef1| $) (|:| |coef2| $)) (|Union| 38 '#2#)
               (|Record| (|:| |quotient| $) (|:| |remainder| $))
               (|Record| (|:| |coef| 14) (|:| |generator| $))
               (|Record| (|:| |llcm_res| $) (|:| |coeff1| $) (|:| |coeff2| $))
@@ -83,19 +83,19 @@
             (|makeByteWordVec2| 3
                                 '(0 0 2 3 0 0 2 0 0 0 0 0 0 0 0 0 0 3 1 2 0 0 0
                                   0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
-                                  0 2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2))
+                                  2 0 0 2 2 0 0 0 0 0 0 0 0 0 0 2))
             (CONS
              '#(|FiniteAlgebraicExtensionField&| |ExtensionField&|
                 |FiniteFieldCategory&| |FieldOfPrimeCharacteristic&| |Field&|
                 |EuclideanDomain&| |PolynomialFactorizationExplicit&| NIL
                 |UniqueFactorizationDomain&| |GcdDomain&| NIL |DivisionRing&|
                 NIL NIL |Algebra&| |EntireRing&| |Algebra&| NIL NIL
-                |DifferentialRing&| NIL |VectorSpace&| |Rng&| NIL |Module&|
-                |Module&| |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL
-                NIL NIL NIL NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL
-                NIL NIL NIL |MagmaWithUnit&| |NonAssociativeSemiRng&|
-                |AbelianMonoid&| |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL
-                NIL |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
+                |DifferentialRing&| NIL |Rng&| NIL |Module&| |Module&|
+                |Module&| NIL NIL NIL NIL |NonAssociativeRing&| NIL NIL NIL NIL
+                NIL |NonAssociativeRng&| NIL |AbelianGroup&| NIL NIL NIL NIL
+                |MagmaWithUnit&| |NonAssociativeSemiRng&| |AbelianMonoid&|
+                |Finite&| |Magma&| |AbelianSemiGroup&| NIL NIL NIL
+                |SetCategory&| |RetractableTo&| NIL NIL NIL NIL NIL
                 |BasicType&| NIL NIL)
              (CONS
               '#((|FiniteAlgebraicExtensionField| (|InnerPrimeField| 6))
@@ -105,17 +105,16 @@
                  (|PolynomialFactorizationExplicit|) (|PrincipalIdealDomain|)
                  (|UniqueFactorizationDomain|) (|GcdDomain|) (|IntegralDomain|)
                  (|DivisionRing|) (|CommutativeRing|) (|LeftOreRing|)
-                 (|Algebra| 35) (|EntireRing|) (|Algebra| $$)
+                 (|Algebra| 34) (|EntireRing|) (|Algebra| $$)
                  (|CharacteristicNonZero|) (|CharacteristicZero|)
-                 (|DifferentialRing|) (|Ring|)
-                 (|VectorSpace| (|InnerPrimeField| 6)) (|Rng|) (|SemiRing|)
-                 (|Module| (|InnerPrimeField| 6)) (|Module| 35) (|Module| $$)
+                 (|DifferentialRing|) (|Ring|) (|Rng|) (|SemiRing|)
+                 (|Module| (|InnerPrimeField| 6)) (|Module| 34) (|Module| $$)
                  (|SemiRng|)
                  (|BiModule| (|InnerPrimeField| 6) (|InnerPrimeField| 6))
-                 (|BiModule| 35 35) (|BiModule| $$ $$) (|NonAssociativeRing|)
+                 (|BiModule| 34 34) (|BiModule| $$ $$) (|NonAssociativeRing|)
                  (|RightModule| (|InnerPrimeField| 6))
-                 (|LeftModule| (|InnerPrimeField| 6)) (|RightModule| 35)
-                 (|LeftModule| 35) (|LeftModule| $$) (|NonAssociativeRng|)
+                 (|LeftModule| (|InnerPrimeField| 6)) (|RightModule| 34)
+                 (|LeftModule| 34) (|LeftModule| $$) (|NonAssociativeRng|)
                  (|RightModule| $$) (|AbelianGroup|) (|Monoid|)
                  (|NonAssociativeSemiRing|) (|CancellationAbelianMonoid|)
                  (|SemiGroup|) (|MagmaWithUnit|) (|NonAssociativeSemiRng|)
@@ -124,6 +123,6 @@
                  (|SetCategory|) (|RetractableTo| (|InnerPrimeField| 6))
                  (|canonicalsClosed|) (|canonicalUnitNormal|)
                  (|noZeroDivisors|) (|TwoSidedRecip|) (|unitsKnown|)
-                 (|BasicType|) (|CoercibleTo| 48) (|ConvertibleTo| 16))
+                 (|BasicType|) (|CoercibleTo| 47) (|ConvertibleTo| 16))
               (|makeByteWordVec2| -999999 'NIL))))
            '|lookupIncomplete|)) 
