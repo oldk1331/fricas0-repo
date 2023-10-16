@@ -1393,23 +1393,28 @@
           (SETQ |bfVar#39| (CDR |bfVar#39|))))
        0 |l| NIL)))))
  
-; concatbWidth [.,:l] == +/[1+WIDTH x for x in l]-1
+; concatbWidth [.,:l] ==
+;     null l => 0
+;     +/[1+WIDTH x for x in l]-1
  
 (DEFUN |concatbWidth| (|bfVar#44|)
   (PROG (|l|)
     (RETURN
      (PROGN
       (SETQ |l| (CDR |bfVar#44|))
-      (-
-       ((LAMBDA (|bfVar#43| |bfVar#42| |x|)
-          (LOOP
-           (COND
-            ((OR (ATOM |bfVar#42|) (PROGN (SETQ |x| (CAR |bfVar#42|)) NIL))
-             (RETURN |bfVar#43|))
-            ('T (SETQ |bfVar#43| (+ |bfVar#43| (+ 1 (WIDTH |x|))))))
-           (SETQ |bfVar#42| (CDR |bfVar#42|))))
-        0 |l| NIL)
-       1)))))
+      (COND ((NULL |l|) 0)
+            (#1='T
+             (-
+              ((LAMBDA (|bfVar#43| |bfVar#42| |x|)
+                 (LOOP
+                  (COND
+                   ((OR (ATOM |bfVar#42|)
+                        (PROGN (SETQ |x| (CAR |bfVar#42|)) NIL))
+                    (RETURN |bfVar#43|))
+                   (#1# (SETQ |bfVar#43| (+ |bfVar#43| (+ 1 (WIDTH |x|))))))
+                  (SETQ |bfVar#42| (CDR |bfVar#42|))))
+               0 |l| NIL)
+              1)))))))
  
 ; exptApp([.,a,b],x,y,d) ==
 ;   pren:= exptNeedsPren a
