@@ -384,7 +384,13 @@
 (SDEFUN |URAGG-;concat;3A;28| ((|x| A) (|y| A) ($ A))
         (SPADCALL (SPADCALL |x| (QREFELT $ 47)) |y| (QREFELT $ 59))) 
 
-(SDEFUN |URAGG-;setlast!;A2S;29| ((|x| A) (|s| S) ($ S))
+(SDEFUN |URAGG-;qsetfirst!;A2S;29| ((|x| A) (|a| S) ($ S))
+        (SPADCALL |x| |a| (QREFELT $ 53))) 
+
+(SDEFUN |URAGG-;qsetrest!;3A;30| ((|x| A) (|a| A) ($ A))
+        (SPADCALL |x| |a| (QREFELT $ 57))) 
+
+(SDEFUN |URAGG-;setlast!;A2S;31| ((|x| A) (|s| S) ($ S))
         (SEQ
          (COND ((SPADCALL |x| (QREFELT $ 20)) (|error| "setlast: empty list"))
                ('T
@@ -392,17 +398,17 @@
                  (SPADCALL (SPADCALL |x| (QREFELT $ 22)) |s| (QREFELT $ 53))
                  (EXIT |s|)))))) 
 
-(SDEFUN |URAGG-;setchildren!;ALA;30| ((|u| A) (|lv| |List| A) ($ A))
+(SDEFUN |URAGG-;setchildren!;ALA;32| ((|u| A) (|lv| |List| A) ($ A))
         (COND
          ((EQL (LENGTH |lv|) 1)
           (SPADCALL |u| (|SPADfirst| |lv|) (QREFELT $ 57)))
          ('T (|error| "wrong number of children specified")))) 
 
-(SDEFUN |URAGG-;setvalue!;A2S;31| ((|u| A) (|s| S) ($ S))
+(SDEFUN |URAGG-;setvalue!;A2S;33| ((|u| A) (|s| S) ($ S))
         (SPADCALL |u| |s| (QREFELT $ 53))) 
 
-(SDEFUN |URAGG-;split!;ANniA;32| ((|p| A) (|n| |NonNegativeInteger|) ($ A))
-        (SPROG ((|q| (A)) (#1=#:G272 NIL))
+(SDEFUN |URAGG-;split!;ANniA;34| ((|p| A) (|n| |NonNegativeInteger|) ($ A))
+        (SPROG ((|q| (A)) (#1=#:G274 NIL))
                (SEQ
                 (COND ((< |n| 1) (|error| "index out of range"))
                       ('T
@@ -411,24 +417,24 @@
                               (SPADCALL |p|
                                         (PROG1
                                             (LETT #1# (- |n| 1)
-                                                  . #2=(|URAGG-;split!;ANniA;32|))
+                                                  . #2=(|URAGG-;split!;ANniA;34|))
                                           (|check_subtype2| (>= #1# 0)
                                                             '(|NonNegativeInteger|)
                                                             '(|Integer|) #1#))
                                         (QREFELT $ 46))
                               . #2#)
                         (LETT |q| (SPADCALL |p| (QREFELT $ 14)) . #2#)
-                        (SPADCALL |p| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
+                        (SPADCALL |p| (SPADCALL (QREFELT $ 66)) (QREFELT $ 57))
                         (EXIT |q|))))))) 
 
-(SDEFUN |URAGG-;cycleSplit!;2A;33| ((|x| A) ($ A))
+(SDEFUN |URAGG-;cycleSplit!;2A;35| ((|x| A) ($ A))
         (SPROG ((|z| (A)) (|y| (A)))
                (SEQ
                 (COND
                  ((OR
                    (SPADCALL
                     (LETT |y| (SPADCALL |x| (QREFELT $ 39))
-                          . #1=(|URAGG-;cycleSplit!;2A;33|))
+                          . #1=(|URAGG-;cycleSplit!;2A;35|))
                     (QREFELT $ 20))
                    (SPADCALL |x| |y| (QREFELT $ 38)))
                   |y|)
@@ -443,12 +449,12 @@
                                   (LETT |z| (SPADCALL |z| (QREFELT $ 14))
                                         . #1#)))
                             NIL (GO G190) G191 (EXIT NIL))
-                       (SPADCALL |x| (SPADCALL (QREFELT $ 64)) (QREFELT $ 57))
+                       (SPADCALL |x| (SPADCALL (QREFELT $ 66)) (QREFELT $ 57))
                        (EXIT |y|))))))) 
 
-(SDEFUN |URAGG-;map!;M2A;34| ((|f| |Mapping| S S) (|l| A) ($ A))
+(SDEFUN |URAGG-;map!;M2A;36| ((|f| |Mapping| S S) (|l| A) ($ A))
         (SPROG ((|y| (A)))
-               (SEQ (LETT |y| |l| . #1=(|URAGG-;map!;M2A;34|))
+               (SEQ (LETT |y| |l| . #1=(|URAGG-;map!;M2A;36|))
                     (SEQ G190
                          (COND
                           ((NULL (NULL (SPADCALL |l| (QREFELT $ 20))))
@@ -470,7 +476,7 @@
           (LETT DV$1 (|devaluate| |#1|) . #1=(|UnaryRecursiveAggregate&|))
           (LETT DV$2 (|devaluate| |#2|) . #1#)
           (LETT |dv$| (LIST '|UnaryRecursiveAggregate&| DV$1 DV$2) . #1#)
-          (LETT $ (GETREFV 70) . #1#)
+          (LETT $ (GETREFV 72) . #1#)
           (QSETREFV $ 0 |dv$|)
           (QSETREFV $ 3
                     (LETT |pv$|
@@ -511,19 +517,24 @@
              (QSETREFV $ 60
                        (CONS (|dispatchFunction| |URAGG-;concat;3A;28|) $))
              (QSETREFV $ 61
-                       (CONS (|dispatchFunction| |URAGG-;setlast!;A2S;29|) $))
+                       (CONS (|dispatchFunction| |URAGG-;qsetfirst!;A2S;29|)
+                             $))
              (QSETREFV $ 62
-                       (CONS (|dispatchFunction| |URAGG-;setchildren!;ALA;30|)
-                             $))
+                       (CONS (|dispatchFunction| |URAGG-;qsetrest!;3A;30|) $))
              (QSETREFV $ 63
-                       (CONS (|dispatchFunction| |URAGG-;setvalue!;A2S;31|) $))
-             (QSETREFV $ 65
-                       (CONS (|dispatchFunction| |URAGG-;split!;ANniA;32|) $))
-             (QSETREFV $ 66
-                       (CONS (|dispatchFunction| |URAGG-;cycleSplit!;2A;33|)
+                       (CONS (|dispatchFunction| |URAGG-;setlast!;A2S;31|) $))
+             (QSETREFV $ 64
+                       (CONS (|dispatchFunction| |URAGG-;setchildren!;ALA;32|)
                              $))
+             (QSETREFV $ 65
+                       (CONS (|dispatchFunction| |URAGG-;setvalue!;A2S;33|) $))
+             (QSETREFV $ 67
+                       (CONS (|dispatchFunction| |URAGG-;split!;ANniA;34|) $))
              (QSETREFV $ 68
-                       (CONS (|dispatchFunction| |URAGG-;map!;M2A;34|) $)))))
+                       (CONS (|dispatchFunction| |URAGG-;cycleSplit!;2A;35|)
+                             $))
+             (QSETREFV $ 70
+                       (CONS (|dispatchFunction| |URAGG-;map!;M2A;36|) $)))))
           $))) 
 
 (MAKEPROP '|UnaryRecursiveAggregate&| '|infovec|
@@ -545,20 +556,22 @@
               (81 . =) (87 . =) (93 . |node?|) (99 . |setfirst!|)
               (105 . |setelt!|) (112 . |setlast!|) (118 . |setelt!|)
               (125 . |setrest!|) (131 . |setelt!|) (138 . |concat!|)
-              (144 . |concat|) (150 . |setlast!|) (156 . |setchildren!|)
-              (162 . |setvalue!|) (168 . |empty|) (172 . |split!|)
-              (178 . |cycleSplit!|) (|Mapping| 7 7) (183 . |map!|) '"value")
-           '#(|value| 189 |third| 194 |tail| 199 |split!| 204 |size?| 210
-              |setvalue!| 216 |setlast!| 222 |setelt!| 228 |setchildren!| 249
-              |second| 255 |rest| 260 |nodes| 266 |node?| 271 |more?| 277
-              |map!| 283 |less?| 289 |leaf?| 295 |last| 300 |elt| 311 |cyclic?|
-              329 |cycleTail| 334 |cycleSplit!| 339 |cycleLength| 344
-              |cycleEntry| 349 |concat| 354 |children| 360 = 365 |#| 371)
+              (144 . |concat|) (150 . |qsetfirst!|) (156 . |qsetrest!|)
+              (162 . |setlast!|) (168 . |setchildren!|) (174 . |setvalue!|)
+              (180 . |empty|) (184 . |split!|) (190 . |cycleSplit!|)
+              (|Mapping| 7 7) (195 . |map!|) '"value")
+           '#(|value| 201 |third| 206 |tail| 211 |split!| 216 |size?| 222
+              |setvalue!| 228 |setlast!| 234 |setelt!| 240 |setchildren!| 261
+              |second| 267 |rest| 272 |qsetrest!| 278 |qsetfirst!| 284 |nodes|
+              290 |node?| 295 |more?| 301 |map!| 307 |less?| 313 |leaf?| 319
+              |last| 324 |elt| 335 |cyclic?| 353 |cycleTail| 358 |cycleSplit!|
+              363 |cycleLength| 368 |cycleEntry| 373 |concat| 378 |children|
+              384 = 389 |#| 395)
            'NIL
            (CONS (|makeByteWordVec2| 1 'NIL)
                  (CONS '#()
                        (CONS '#()
-                             (|makeByteWordVec2| 68
+                             (|makeByteWordVec2| 70
                                                  '(1 6 7 0 8 1 6 7 0 11 1 6 0 0
                                                    14 1 6 19 0 20 1 6 0 0 22 2
                                                    29 19 0 0 30 1 6 19 0 35 2 6
@@ -571,23 +584,25 @@
                                                    54 2 6 7 0 7 55 3 0 7 0 12 7
                                                    56 2 6 0 0 0 57 3 0 0 0 15 0
                                                    58 2 6 0 0 0 59 2 0 0 0 0 60
-                                                   2 0 7 0 7 61 2 0 0 0 24 62 2
-                                                   0 7 0 7 63 0 6 0 64 2 0 0 0
-                                                   31 65 1 0 0 0 66 2 0 0 67 0
-                                                   68 1 0 7 0 28 1 0 7 0 18 1 0
-                                                   0 0 37 2 0 0 0 31 65 2 0 19
-                                                   0 31 34 2 0 7 0 7 63 2 0 7 0
-                                                   7 61 3 0 7 0 12 7 56 3 0 0 0
+                                                   2 0 7 0 7 61 2 0 0 0 0 62 2
+                                                   0 7 0 7 63 2 0 0 0 24 64 2 0
+                                                   7 0 7 65 0 6 0 66 2 0 0 0 31
+                                                   67 1 0 0 0 68 2 0 0 69 0 70
+                                                   1 0 7 0 28 1 0 7 0 18 1 0 0
+                                                   0 37 2 0 0 0 31 67 2 0 19 0
+                                                   31 34 2 0 7 0 7 65 2 0 7 0 7
+                                                   63 3 0 7 0 12 7 56 3 0 0 0
                                                    15 0 58 3 0 7 0 9 7 54 2 0 0
-                                                   0 24 62 1 0 7 0 17 2 0 0 0
-                                                   31 43 1 0 24 0 25 2 0 19 0 0
-                                                   52 2 0 19 0 31 33 2 0 0 67 0
-                                                   68 2 0 19 0 31 32 1 0 19 0
-                                                   27 2 0 0 0 31 48 1 0 7 0 23
-                                                   2 0 7 0 12 13 2 0 0 0 15 16
-                                                   2 0 7 0 9 10 1 0 19 0 21 1 0
-                                                   0 0 40 1 0 0 0 66 1 0 31 0
-                                                   42 1 0 0 0 41 2 0 0 0 0 60 1
-                                                   0 24 0 26 2 0 19 0 0 50 1 0
-                                                   31 0 36)))))
+                                                   0 24 64 1 0 7 0 17 2 0 0 0
+                                                   31 43 2 0 0 0 0 62 2 0 7 0 7
+                                                   61 1 0 24 0 25 2 0 19 0 0 52
+                                                   2 0 19 0 31 33 2 0 0 69 0 70
+                                                   2 0 19 0 31 32 1 0 19 0 27 2
+                                                   0 0 0 31 48 1 0 7 0 23 2 0 7
+                                                   0 12 13 2 0 0 0 15 16 2 0 7
+                                                   0 9 10 1 0 19 0 21 1 0 0 0
+                                                   40 1 0 0 0 68 1 0 31 0 42 1
+                                                   0 0 0 41 2 0 0 0 0 60 1 0 24
+                                                   0 26 2 0 19 0 0 50 1 0 31 0
+                                                   36)))))
            '|lookupComplete|)) 
