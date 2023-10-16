@@ -3293,6 +3293,7 @@
 ;     expr is [.,count,data] => canReturn(data.expr,level,count,count=level)
 ;   level=exitCount and not ValueFlag => nil
 ;   op="SEQ" => or/[canReturn(u,level+1,exitCount,false) for u in rest expr]
+;   op = "error" => nil
 ;   op="TAGGEDreturn" => nil
 ;   op="CATCH" =>
 ;     [.,gs,data]:= expr
@@ -3365,7 +3366,7 @@
                    (COND (|bfVar#111| (RETURN |bfVar#111|))))))
                 (SETQ |bfVar#110| (CDR |bfVar#110|))))
              NIL (CDR |expr|) NIL))
-           ((EQ |op| '|TAGGEDreturn|) NIL)
+           ((EQ |op| '|error|) NIL) ((EQ |op| '|TAGGEDreturn|) NIL)
            ((EQ |op| 'CATCH)
             (PROGN
              (SETQ |gs| (CADR . #2=(|expr|)))

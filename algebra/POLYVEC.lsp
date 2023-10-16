@@ -836,8 +836,8 @@
          ((|res| (|SingleInteger|)) (#1=#:G293 NIL)
           (|dr0| #2=(|SingleInteger|)) (|c1| (|Integer|))
           (|delta| (|SingleInteger|)) (|c0| (|Integer|)) (|dr1| #2#)
-          (|#G136| #2#) (|#G135| #2#) (|r1| #3=(|U32Vector|)) (|r0| #3#)
-          (|#G134| #3#) (|#G133| #3#))
+          (|#G139| #2#) (|#G138| #2#) (|r1| #3=(|U32Vector|)) (|r0| #3#)
+          (|#G137| #3#) (|#G136| #3#))
          (SEQ
           (EXIT
            (SEQ (LETT |dr0| (SPADCALL |x| (QREFELT $ 30)))
@@ -866,16 +866,16 @@
                                                ((|less_SI| |dr0| |dr1|)
                                                 (SEQ
                                                  (PROGN
-                                                  (LETT |#G133| |r1|)
-                                                  (LETT |#G134| |r0|)
-                                                  (LETT |r0| |#G133|)
-                                                  (LETT |r1| |#G134|))
+                                                  (LETT |#G136| |r1|)
+                                                  (LETT |#G137| |r0|)
+                                                  (LETT |r0| |#G136|)
+                                                  (LETT |r1| |#G137|))
                                                  (EXIT
                                                   (PROGN
-                                                   (LETT |#G135| |dr1|)
-                                                   (LETT |#G136| |dr0|)
-                                                   (LETT |dr0| |#G135|)
-                                                   (LETT |dr1| |#G136|)))))
+                                                   (LETT |#G138| |dr1|)
+                                                   (LETT |#G139| |dr0|)
+                                                   (LETT |dr0| |#G138|)
+                                                   (LETT |dr1| |#G139|)))))
                                                ('T
                                                 (SEQ
                                                  (LETT |c0|

@@ -3195,8 +3195,8 @@
           (#11=#:G828 NIL) (|gu| NIL) (#12=#:G827 NIL) (#13=#:G826 NIL)
           (#14=#:G825 NIL) (|aa1| #15=(|SparseUnivariatePolynomial| F))
           (|bbr| (|Fraction| (|SparseUnivariatePolynomial| F))) (|aa| #15#)
-          (|h| NIL) (|#G250| #16=(|List| (|SparseUnivariatePolynomial| F)))
-          (|d| NIL) (|#G249| #16#)
+          (|h| NIL) (|#G251| #16=(|List| (|SparseUnivariatePolynomial| F)))
+          (|d| NIL) (|#G250| #16#)
           (|der1|
            (|Mapping| (|SparseUnivariatePolynomial| F)
                       (|SparseUnivariatePolynomial| F)))
@@ -3248,12 +3248,12 @@
                             (CONS #'|RDEPAR;do_param_rde!1|
                                   (VECTOR |dk| |x| $)))
                       (PROGN
-                       (LETT |#G249| (|RDEPAR;get_denom| |fpu| |lgu| |der1| $))
-                       (LETT |#G250| |#G249|)
-                       (LETT |d| (|SPADfirst| |#G250|))
-                       (LETT |#G250| (CDR |#G250|))
-                       (LETT |h| (|SPADfirst| |#G250|))
-                       |#G249|)
+                       (LETT |#G250| (|RDEPAR;get_denom| |fpu| |lgu| |der1| $))
+                       (LETT |#G251| |#G250|)
+                       (LETT |d| (|SPADfirst| |#G251|))
+                       (LETT |#G251| (CDR |#G251|))
+                       (LETT |h| (|SPADfirst| |#G251|))
+                       |#G250|)
                       (LETT |aa| (SPADCALL |d| |h| (QREFELT $ 82)))
                       (LETT |bbr|
                             (SPADCALL (SPADCALL |aa| |fpu| (QREFELT $ 230))
