@@ -1,6 +1,6 @@
 
 (30 . 1)                     
-(5196 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
+(5197 0 |Enumeration| |Mapping| |Record| |Union| |ofCategory| |isDomain|
  ATTRIBUTE |package| |domain| |category| CATEGORY |nobranch| AND |Join|
  |ofType| SIGNATURE "failed" "algebra" |OneDimensionalArrayAggregate&|
  |OneDimensionalArrayAggregate| |AbelianGroup&| |AbelianGroup| |AbelianMonoid&|
@@ -210,8 +210,8 @@
  |JetBundleExpression| |JetBundleFunctionCategory&| |JetBundleFunctionCategory|
  |JetBundleLinearFunction| |JetBundlePolynomial| |JetBundleSymAna| |JetBundle|
  |JetBundleXExpression| |JetCoordinateTransformation| |JetDifferentialEquation|
- |JetDifferential| |JetGroebner| |JetLazyFunction| |JoinSemilattice|
- |AssociatedJordanAlgebra| |JetVectorField| |KeyedAccessFile|
+ |JetDifferential| |JFriCASSupport| |JetGroebner| |JetLazyFunction|
+ |JoinSemilattice| |AssociatedJordanAlgebra| |JetVectorField| |KeyedAccessFile|
  |KeyedDictionary&| |KeyedDictionary| |Kernel| |KernelFunctions2| |CoercibleTo|
  |CoercibleFrom| |ConvertibleFrom| |ConvertibleTo| |Kovacic| |LocalAlgebra|
  |LeftAlgebra&| |LeftAlgebra| |Lambda| |LaplaceTransform| |Lattice|
@@ -629,30 +629,30 @@
  |precedence| |formatConstant| |nothing| |parenthesizeIf| |parenthesize|
  |formatFunctionSymbol| |formatSymbol| |formatString| |formatFloat|
  |formatInteger| |formatExpression| |maxPrecedence| |minPrecedence|
- |defaultEpilogue| |defaultPrologue| |environment| |setFormats!| |writable?|
- |readable?| |exists?| |extension| |directory| |filename| |functionGraph|
- |shallowExpand| |deepExpand| |clearFortranOutputStack|
- |showFortranOutputStack| |popFortranOutputStack| |pushFortranOutputStack|
- |topFortranOutputStack| |formatStep| |operatorHandlers| |setFormat!|
- |setDefault!| |format| |fracPart| |polyPart| |fullPartialFraction|
- |primeFrobenius| |discreteLog| |decreasePrecision| |increasePrecision| |bits|
- |mergeFactors| |unitNormalize| |unit| |flagFactor| |sqfrFactor| |primeFactor|
- |irreducibleFactor| |factors| |nilFactor| |map_preserving| |factorFraction|
- |regularRepresentation| |traceMatrix| |randomLC| |minimize| |module|
- |represents| |rightRegularRepresentation| |leftRegularRepresentation|
- |rightTraceMatrix| |leftTraceMatrix| |rightDiscriminant| |leftDiscriminant|
- |algtower| |isMult| |applyQuote| |exprToXXP| |exprToUPS| |exprToGenUPS|
- |exprToPS| |localAbs| |atan1| |integ| |integt| |integ_df| |powToUPS|
- |my_digamma| |universe| |cardinality| |internalIntegrate0| |makeCos| |makeSin|
- |logGamma| |li2| |rabs| |lambert_via_newton1| |lambert_via_newton2|
- |lambert_inverse_series| |iiGamma| |iiabs| |iiconjugate| |iiBeta| |iidigamma|
- |iipolygamma| |iiBesselJ| |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi|
- |iiAiryAiPrime| |iiAiryBi| |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi|
- |iAiryBiPrime| |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown|
- |newReduc| |logical?| |character?| |doubleComplex?| |complex?| |double?|
- |fortranCharacter| |fortranDoubleComplex| |fortranComplex| |fortranLogical|
- |fortranInteger| |fortranDouble| |fortranReal| |external?| |dimensionsOf|
- |scalarTypeOf| |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
+ |defaultEpilogue| |defaultPrologue| |environment| |writable?| |readable?|
+ |exists?| |extension| |directory| |filename| |functionGraph| |shallowExpand|
+ |deepExpand| |clearFortranOutputStack| |showFortranOutputStack|
+ |popFortranOutputStack| |pushFortranOutputStack| |topFortranOutputStack|
+ |formatStep| |operatorHandlers| |setDefault!| |format| |fracPart| |polyPart|
+ |fullPartialFraction| |primeFrobenius| |discreteLog| |decreasePrecision|
+ |increasePrecision| |bits| |mergeFactors| |unitNormalize| |unit| |flagFactor|
+ |sqfrFactor| |primeFactor| |irreducibleFactor| |factors| |nilFactor|
+ |map_preserving| |factorFraction| |regularRepresentation| |traceMatrix|
+ |randomLC| |minimize| |module| |represents| |rightRegularRepresentation|
+ |leftRegularRepresentation| |rightTraceMatrix| |leftTraceMatrix|
+ |rightDiscriminant| |leftDiscriminant| |algtower| |isMult| |applyQuote|
+ |exprToXXP| |exprToUPS| |exprToGenUPS| |exprToPS| |localAbs| |atan1| |integ|
+ |integt| |integ_df| |powToUPS| |my_digamma| |universe| |cardinality|
+ |internalIntegrate0| |makeCos| |makeSin| |logGamma| |li2| |rabs|
+ |lambert_via_newton1| |lambert_via_newton2| |lambert_inverse_series| |iiGamma|
+ |iiabs| |iiconjugate| |iiBeta| |iidigamma| |iipolygamma| |iiBesselJ|
+ |iiBesselY| |iiBesselI| |iiBesselK| |iiAiryAi| |iiAiryAiPrime| |iiAiryBi|
+ |iiAiryBiPrime| |iAiryAi| |iAiryAiPrime| |iAiryBi| |iAiryBiPrime|
+ |iiHypergeometricF| |iiPolylog| |iLambertW| |bringDown| |newReduc| |logical?|
+ |character?| |doubleComplex?| |complex?| |double?| |fortranCharacter|
+ |fortranDoubleComplex| |fortranComplex| |fortranLogical| |fortranInteger|
+ |fortranDouble| |fortranReal| |external?| |dimensionsOf| |scalarTypeOf|
+ |fortranCarriageReturn| |fortranLiteral| |fortranLiteralLine|
  |processTemplate| |makeFR| |musserTrials| |stopMusserTrials| |numberOfFactors|
  |modularFactor| |useSingleFactorBound?| |useSingleFactorBound|
  |useEisensteinCriterion?| |useEisensteinCriterion| |eisensteinIrreducible?|
@@ -739,23 +739,24 @@
  |formalDiff| |class| |const?| |jetVariables| |numDepVar| |numIndVar|
  |getNotation| |setNotation| P U X |ground| |printSys| |jacobiMatrix|
  |makeSystem| |setSimpMode| |extractSymbol| |analyseSymbol| |prolongSymbol|
- |prolongMV| |project| |contract| |differentials| |dP| |dU| |dX| |d| |eqRep?|
- |ground?| |prolong| |lie| |directions| |diffP| |diffU| |diffX| |search| |keys|
- |key?| |symbolIfCan| |kernel| |argument| |constantKernel| |constantIfCan|
- |kovacic| |toStringConven| |unbind| |bind| |subst| |free?| |getBoundValue|
- |isFreeNode?| |isBoundNode?| |isLambda?| |isCompound?| |parseLambda| |lambda|
- |laplace| |latticeJoinOfMeets| |toStringUnwrapped| |opType| |deductions|
- |meet| |emptyLattice| |latticeMeetOfJoins| |logicF| |logicT|
- |trailingCoefficient| |normalizeIfCan| |polCase| |distFact| |identification|
- |LyndonCoordinates| |LyndonBasis| |zeroDimensional?| |fglmIfCan|
- |lexTriangular| |squareFreeLexTriangular| |belong?| |fresnelC| |fresnelS|
- |erfi| |erf| |dilog| |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen|
- |totolex| |minPol| |computeBasis| |coord| |anticoord| |intcompBasis|
- |choosemon| |close!| |pack!| |library| |complexLimit| |dehomogenize|
- |lin_comb!| |lin_comb| |linearlyDependent?| |linearDependence| |solveLinear|
- |reducedSystem| |qnew| |append!| |equal?| |qequal?| |nelem| |qzero?|
- |qsemizero?| |qdiagonal?| |qdiagonal| |uppertriangular?| |quppertriangular?|
- |qnilpotent?| |qcolumnIndices| |qrowIndices| |subPencil| |removeRowsColumns|
+ |prolongMV| |project| |contract| |differentials| |dP| |dU| |dX| |d|
+ |setFormat!| |setFormats!| |eqRep?| |ground?| |prolong| |lie| |directions|
+ |diffP| |diffU| |diffX| |search| |keys| |key?| |symbolIfCan| |kernel|
+ |argument| |constantKernel| |constantIfCan| |kovacic| |toStringConven|
+ |unbind| |bind| |subst| |free?| |getBoundValue| |isFreeNode?| |isBoundNode?|
+ |isLambda?| |isCompound?| |parseLambda| |lambda| |laplace|
+ |latticeJoinOfMeets| |toStringUnwrapped| |opType| |deductions| |meet|
+ |emptyLattice| |latticeMeetOfJoins| |logicF| |logicT| |trailingCoefficient|
+ |normalizeIfCan| |polCase| |distFact| |identification| |LyndonCoordinates|
+ |LyndonBasis| |zeroDimensional?| |fglmIfCan| |lexTriangular|
+ |squareFreeLexTriangular| |belong?| |fresnelC| |fresnelS| |erfi| |erf| |dilog|
+ |li| |Chi| |Shi| |Ci| |Si| |Ei| |linGenPos| |groebgen| |totolex| |minPol|
+ |computeBasis| |coord| |anticoord| |intcompBasis| |choosemon| |close!| |pack!|
+ |library| |complexLimit| |dehomogenize| |lin_comb!| |lin_comb|
+ |linearlyDependent?| |linearDependence| |solveLinear| |reducedSystem| |qnew|
+ |append!| |equal?| |qequal?| |nelem| |qzero?| |qsemizero?| |qdiagonal?|
+ |qdiagonal| |uppertriangular?| |quppertriangular?| |qnilpotent?|
+ |qcolumnIndices| |qrowIndices| |subPencil| |removeRowsColumns|
  |insertRowsColumns| |swapRows!| |qswapRows!| |addRows!| |qaddRows!|
  |qmultiplyRow!| |multiplyRow!| |qswapColumns!| |swapColumns!| |addColumns!|
  |qaddColumns!| |multiplyColumn!| |qmultiplyColumn!| |qscaleBlock!|
