@@ -335,7 +335,7 @@ dExponentialOfUnivariatePuiseuxSeries`3`n`(FE:Join(Field,etc),var:Symbol,cen:FE)
 dExpression`1`x`(Comparable)->Join(FunctionSpace(R),etc)`(R)`EXPR`79199
 dExtAlgBasis`0`n`()->Join(OrderedSet,etc)``EAB`79247
 dFactored`1`x`(IntegralDomain)->Join(IntegralDomain,etc)`(R)`FR`80091
-dFakePolynomial`0`n`()->etc``FAKEPOL`80936
+dFakePolynomial`0`n`()->Join(CoercibleTo(OutputForm),etc)``FAKEPOL`80936
 dFile`1`x`(SetCategory)->Join(FileCategory(FileName,S),etc)`(S)`FILE`81267
 dFileName`0`x`()->FileNameCategory``FNAME`81401
 dFiniteBiCPO`1`n`(SetCategory)->BiCPO(S)`(S)`FBICPO`81470

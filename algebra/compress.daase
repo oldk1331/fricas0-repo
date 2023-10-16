@@ -552,8 +552,8 @@
  |multiEuclidean| |extendedEuclidean| |euclideanSize| |sizeLess?|
  |getSimplifyDenomsFlag| |setSimplifyDenomsFlag| |number?| |replaceDiffs|
  |constantToUnaryFunction| |tubePlot| |exponentialOrder| |getMult|
- |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran|
- |subst_var| |to_UP| |binomThmExpt| |fmecg| |pomopo!| |mapExponents|
+ |completeEval| |lowerPolynomial| |raisePolynomial| |normalDeriv| |ran| |to_UP|
+ |subst_var| |binomThmExpt| |fmecg| |pomopo!| |mapExponents|
  |linearAssociatedLog| |linearAssociatedOrder| |linearAssociatedExp|
  |createNormalElement| |setLabelValue| |getCode| |printCode| |code| |operation|
  |common| |printStatement| |save| |stop| |block| |cond| |returns| |call|

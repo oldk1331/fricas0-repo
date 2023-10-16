@@ -922,11 +922,13 @@
        (|ofCategory| *6 (|Join| (|Ring|) (|Comparable|)))
        (|isDomain| *2 (|Expression| *6))
        (|isDomain| *1 (|ExpressionFunctions2| *5 *6))))
- ((*1 *1 *2 *1)
-  (AND
-   (|isDomain| *2
-               (|Mapping| (|Polynomial| (|Integer|))
-                          (|Polynomial| (|Integer|))))
+ ((*1 *2 *3 *1)
+  (|partial| AND
+   (|isDomain| *3
+               (|Mapping| (|Union| (|Polynomial| (|Integer|)) "failed")
+                          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
+                                    (|:| |denom| (|Polynomial| (|Integer|))))))
+   (|isDomain| *2 (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
    (|isDomain| *1 (|FakePolynomial|))))
  ((*1 *1 *2 *3)
   (AND
@@ -939,13 +941,11 @@
                               (|SparseUnivariatePolynomial|
                                (|Fraction| (|Polynomial| (|Integer|)))))))
    (|isDomain| *1 (|FakePolynomial|))))
- ((*1 *2 *3 *1)
-  (|partial| AND
-   (|isDomain| *3
-               (|Mapping| (|Union| (|Polynomial| (|Integer|)) "failed")
-                          (|Record| (|:| |numer| (|Polynomial| (|Integer|)))
-                                    (|:| |denom| (|Polynomial| (|Integer|))))))
-   (|isDomain| *2 (|SparseUnivariatePolynomial| (|Polynomial| (|Integer|))))
+ ((*1 *1 *2 *1)
+  (AND
+   (|isDomain| *2
+               (|Mapping| (|Polynomial| (|Integer|))
+                          (|Polynomial| (|Integer|))))
    (|isDomain| *1 (|FakePolynomial|))))
  ((*1 *2 *3 *4)
   (AND (|isDomain| *3 (|Mapping| *7 *6)) (|ofCategory| *6 (|Ring|))
@@ -39451,14 +39451,14 @@
        (|ofCategory| *1 (|FiniteAbelianMonoidRing| *3 *4))
        (|ofCategory| *3 (|Join| (|SemiRng|) (|AbelianMonoid|)))
        (|ofCategory| *4 (|OrderedAbelianMonoid|))))) 
+(((*1 *1 *1 *2 *2)
+  (AND (|isDomain| *2 (|List| (|Symbol|))) (|isDomain| *1 (|FakePolynomial|))))) 
 (((*1 *2 *1)
   (AND
    (|isDomain| *2
                (|SparseUnivariatePolynomial|
                 (|Fraction| (|Polynomial| (|Integer|)))))
    (|isDomain| *1 (|FakePolynomial|))))) 
-(((*1 *1 *1 *2 *2)
-  (AND (|isDomain| *2 (|List| (|Symbol|))) (|isDomain| *1 (|FakePolynomial|))))) 
 (((*1 *2 *3)
   (AND (|isDomain| *3 (|Integer|))
        (|ofCategory| *4 (|OrderedAbelianMonoidSup|))
@@ -42867,7 +42867,7 @@
  (|tubePlot| . 1896049) (|exponentialOrder| . 1895803) (|getMult| . 1895715)
  (|completeEval| . 1895280) (|lowerPolynomial| . 1894914)
  (|raisePolynomial| . 1894548) (|normalDeriv| . 1894201) (|ran| . 1893914)
- (|subst_var| . 1893813) (|to_UP| . 1893630) (|binomThmExpt| . 1893343)
+ (|to_UP| . 1893731) (|subst_var| . 1893630) (|binomThmExpt| . 1893343)
  (|fmecg| . 1893117) (|pomopo!| . 1892918) (|mapExponents| . 1892684)
  (|linearAssociatedLog| . 1892281) (|linearAssociatedOrder| . 1892081)
  (|linearAssociatedExp| . 1891871) (|createNormalElement| . 1891731)
